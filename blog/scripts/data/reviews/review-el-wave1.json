@@ -1,0 +1,305 @@
+{
+  "native_lang": "el",
+  "wave": 1,
+  "target_langs_reviewed": ["en", "es", "fr", "de", "it", "pt"],
+  "articles_reviewed": 12,
+  "clean_articles": 2,
+  "issues": [
+    {
+      "article_id": "a8706008-6bc7-4c2c-a38b-183503e5f6d7",
+      "slug": "how-to-say-i-love-you-in-english",
+      "target_lang": "en",
+      "issue_type": "thin_content",
+      "severity": "high",
+      "description": "Article titled about saying I love you in English has only 43 words of content. The 'Tender Variations' section promises many ways to express love but delivers zero actual vocabulary items.",
+      "evidence": "## Τρυφερές Παραλλαγές\\n\\nΥπάρχουν πολλοί τρόποι... (no actual variations follow)"
+    },
+    {
+      "article_id": "a8706008-6bc7-4c2c-a38b-183503e5f6d7",
+      "slug": "how-to-say-i-love-you-in-english",
+      "target_lang": "en",
+      "issue_type": "empty_example",
+      "severity": "medium",
+      "description": "VocabCard for 'I love you' has an empty example prop (example=\"\").",
+      "evidence": "<VocabCard word=\"I love you\" translation=\"Σ'αγαπώ\" pronunciation=\"άι λαβ γιου\" example=\"\" />"
+    },
+    {
+      "article_id": "8a9f9571-4057-4b23-b75a-da04e5d92360",
+      "slug": "english-argue-phrases-for-greek-speakers",
+      "target_lang": "en",
+      "issue_type": "pronunciation_inconsistency",
+      "severity": "medium",
+      "description": "VocabCard pronunciation for 'resolution' mixes Latin and Greek script ('REH-zo-ΛΟΥ-σhon'). All other pronunciations in this article use purely Greek script. Should be consistent.",
+      "evidence": "pronunciation=\"REH-zo-ΛΟΥ-σhon\""
+    },
+    {
+      "article_id": "dc415747-7048-4df1-a847-608437c4c1fb",
+      "slug": "spanish-baby-pregnancy-vocabulary",
+      "target_lang": "es",
+      "issue_type": "poor_example",
+      "severity": "medium",
+      "description": "VocabCard examples contain single words rather than example sentences. 'Estamos esperando!' example is 'Vamos a tener un bebe' (just another phrase, not a contextual sentence). 'Fecha de parto' example is 'La pancita' (unrelated word).",
+      "evidence": "example=\"Vamos a tener un bebé\" ... example=\"La pancita\""
+    },
+    {
+      "article_id": "dc415747-7048-4df1-a847-608437c4c1fb",
+      "slug": "spanish-baby-pregnancy-vocabulary",
+      "target_lang": "es",
+      "issue_type": "rendering_bug",
+      "severity": "high",
+      "description": "PhraseOfDay rendered in content_html as VocabCard (speakable-vocab) instead of speakable-phrase. The word field is empty in the HTML output, showing just the translation.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span>"
+    },
+    {
+      "article_id": "4aac1080-93c1-4ae2-826f-9fd2523df985",
+      "slug": "spanish-is-this-language-hard-to-learn",
+      "target_lang": "es",
+      "issue_type": "pronunciation_inconsistency",
+      "severity": "medium",
+      "description": "PhraseOfDay pronunciation for 'Te amo' uses Latin script ('TEH AH-moh') while the article body pronounciations for Spanish elsewhere use Greek script. VocabCard for 'Corazon' also uses Latin ('koh-rah-SOHN'), and 'Conjugacion' uses Latin ('kohn-goh-gah-SYOHN').",
+      "evidence": "pronunciation=\"TEH AH-moh\" ... pronunciation=\"koh-rah-SOHN\""
+    },
+    {
+      "article_id": "4aac1080-93c1-4ae2-826f-9fd2523df985",
+      "slug": "spanish-is-this-language-hard-to-learn",
+      "target_lang": "es",
+      "issue_type": "factual_error",
+      "severity": "medium",
+      "description": "Article claims 'same Latin alphabet as Greek' ('Χρησιμοποιούν το ίδιο λατινικό αλφάβητο με τα ελληνικά'). Greek does NOT use the Latin alphabet; it uses the Greek alphabet. They are different scripts.",
+      "evidence": "Απλό αλφάβητο: Χρησιμοποιούν το ίδιο λατινικό αλφάβητο με τα ελληνικά"
+    },
+    {
+      "article_id": "4aac1080-93c1-4ae2-826f-9fd2523df985",
+      "slug": "spanish-is-this-language-hard-to-learn",
+      "target_lang": "es",
+      "issue_type": "content_error",
+      "severity": "low",
+      "description": "FSI categories are for English native speakers, not Greek. Article conflates FSI Category 1 difficulty (for English speakers) with ease for Greek speakers, which is a different comparison.",
+      "evidence": "Κατηγορία 1 του FSI...εύκολες γλώσσες για τους Άγγλους...Για εσάς τους Έλληνες, η εκμάθηση είναι ακόμα πιο προσιτή"
+    },
+    {
+      "article_id": "4aac1080-93c1-4ae2-826f-9fd2523df985",
+      "slug": "spanish-is-this-language-hard-to-learn",
+      "target_lang": "es",
+      "issue_type": "escaped_quote_in_html",
+      "severity": "low",
+      "description": "CultureTip content has a stray escaped quote at the end in content_html rendering.",
+      "evidence": "Η αγάπη είναι το καλύτερο κίνητρο!&quot;"
+    },
+    {
+      "article_id": "4aac1080-93c1-4ae2-826f-9fd2523df985",
+      "slug": "spanish-is-this-language-hard-to-learn",
+      "target_lang": "es",
+      "issue_type": "category_mismatch",
+      "severity": "low",
+      "description": "Article categorized as 'vocabulary' but is actually a language-difficulty guide/overview. Contains very little vocabulary teaching (only 2 VocabCards). Better category would be 'guides' or 'tips'.",
+      "evidence": "category: vocabulary, title: Είναι τα Ισπανικά Δύσκολα για Έλληνες;"
+    },
+    {
+      "article_id": "34400d5d-f898-42d2-8538-c2f3f701243b",
+      "slug": "french-baby-pregnancy-vocabulary",
+      "target_lang": "fr",
+      "issue_type": "pronunciation_inconsistency",
+      "severity": "medium",
+      "description": "VocabCard for 'Date prevue' uses Latin script pronunciation ('NTAT-preh-VY') while the table and PhraseOfDay pronunciations in the same article use Greek script ('ντατ πρεβύ'). Inconsistent within same article.",
+      "evidence": "pronunciation=\"NTAT-preh-VY\" (VocabCard) vs ντατ πρεβύ (table)"
+    },
+    {
+      "article_id": "34400d5d-f898-42d2-8538-c2f3f701243b",
+      "slug": "french-baby-pregnancy-vocabulary",
+      "target_lang": "fr",
+      "issue_type": "poor_example",
+      "severity": "medium",
+      "description": "VocabCard examples contain just another vocabulary word instead of an example sentence. 'Nous attendons un bebe!' example is 'Nous allons avoir un bebe'. 'Date prevue' example is 'Le ventre de bebe'.",
+      "evidence": "example=\"Nous allons avoir un bébé\" ... example=\"Le ventre de bébé\""
+    },
+    {
+      "article_id": "34400d5d-f898-42d2-8538-c2f3f701243b",
+      "slug": "french-baby-pregnancy-vocabulary",
+      "target_lang": "fr",
+      "issue_type": "template_clone",
+      "severity": "medium",
+      "description": "Article is essentially a template clone of the Spanish baby/pregnancy article (dc415747). Same structure, same CultureTip text, same advice section. Only the language-specific words differ.",
+      "evidence": "CultureTip: Κάθε κουλτούρα έχει ιδιαίτερα έθιμα... (identical to es version)"
+    },
+    {
+      "article_id": "34400d5d-f898-42d2-8538-c2f3f701243b",
+      "slug": "french-baby-pregnancy-vocabulary",
+      "target_lang": "fr",
+      "issue_type": "rendering_bug",
+      "severity": "high",
+      "description": "PhraseOfDay rendered in content_html with empty word field, same bug as Spanish pregnancy article.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span>"
+    },
+    {
+      "article_id": "c9b73c0a-ecf4-4bec-9b97-f9e92914e8e2",
+      "slug": "german-good-morning-goodnight-phrases",
+      "target_lang": "de",
+      "issue_type": "thin_content",
+      "severity": "high",
+      "description": "Article promises 30+ phrases in title but delivers only 6 phrases (3 morning, 3 night). Total word count is 142, which is extremely thin for a '30+ phrases' article.",
+      "evidence": "Title: 30+ Γλυκές Φράσεις... Content: 6 total phrases, 142 words"
+    },
+    {
+      "article_id": "c9b73c0a-ecf4-4bec-9b97-f9e92914e8e2",
+      "slug": "german-good-morning-goodnight-phrases",
+      "target_lang": "de",
+      "issue_type": "pronunciation_error",
+      "severity": "medium",
+      "description": "Pronunciation for 'Susse Traume' is 'ζύσε τρόιμε' which is incorrect. German 'au' in 'Traume' (Traeume) is not 'οι' sound. Correct would be closer to 'ζύσε τρόιμε' for 'Traeume' but the 'Susse' part should be 'ζύσε' which maps to 'zuese' - should be more like 'ζίσε'.",
+      "evidence": "pronunciation=\"ζύσε τρόιμε\""
+    },
+    {
+      "article_id": "c9b73c0a-ecf4-4bec-9b97-f9e92914e8e2",
+      "slug": "german-good-morning-goodnight-phrases",
+      "target_lang": "de",
+      "issue_type": "rendering_bug",
+      "severity": "high",
+      "description": "PhraseOfDay rendered in content_html as VocabCard (speakable-vocab div) instead of PhraseOfDay (speakable-phrase div). The word field is empty in the rendered HTML.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span>\\n    <span class=\"text-lg text-gray-900\">Καλημέρα, αγάπη μου</span>"
+    },
+    {
+      "article_id": "c9b73c0a-ecf4-4bec-9b97-f9e92914e8e2",
+      "slug": "german-good-morning-goodnight-phrases",
+      "target_lang": "de",
+      "issue_type": "poor_example",
+      "severity": "medium",
+      "description": "VocabCard example fields contain descriptive Greek text instead of German example sentences. 'Hab einen schoenen Tag' example is 'Η τέλεια ευχή για να ξεκινήσει η μέρα' (a description, not an example sentence).",
+      "evidence": "example=\"Η τέλεια ευχή για να ξεκινήσει η μέρα\""
+    },
+    {
+      "article_id": "e08409df-a8cd-4bcc-b579-9b5830d3f297",
+      "slug": "german-date-night-vocabulary",
+      "target_lang": "de",
+      "issue_type": "pronunciation_inconsistency",
+      "severity": "medium",
+      "description": "Pronunciations use ALL-CAPS Greek script (e.g., ΣΈΤΣΕΝ, ΛΊΠΛΙΝΚ, ΣΆΤΣ) which is an unusual convention. Differs from other articles that use normal Greek case. The all-caps with accent marks is harder to read.",
+      "evidence": "ΛΊΠΛΙΝΚ, ΣΆΤΣ, ΝΤΈΪΤ, ΡΕΣΤΟΡΆΝ, ΚΊΝΟ"
+    },
+    {
+      "article_id": "d348d561-b76b-4b6d-b262-7f9caef93d05",
+      "slug": "100-most-common-italian-words",
+      "target_lang": "it",
+      "issue_type": "thin_content",
+      "severity": "high",
+      "description": "Article titled '100 most common Italian words' has only 35 words of content and delivers only 4 VocabCards (amore, cuore, bello/a, felice). The verbs table has a single malformed row. Promises 100 words but delivers ~5.",
+      "evidence": "_wordCount: 35, title: 100 πιο συνηθισμένες λέξεις στα ιταλικά"
+    },
+    {
+      "article_id": "d348d561-b76b-4b6d-b262-7f9caef93d05",
+      "slug": "100-most-common-italian-words",
+      "target_lang": "it",
+      "issue_type": "empty_example",
+      "severity": "medium",
+      "description": "All 4 VocabCards have empty example props (example=\"\").",
+      "evidence": "<VocabCard word=\"amore\" ... example=\"\" />"
+    },
+    {
+      "article_id": "d348d561-b76b-4b6d-b262-7f9caef93d05",
+      "slug": "100-most-common-italian-words",
+      "target_lang": "it",
+      "issue_type": "broken_table",
+      "severity": "high",
+      "description": "Verbs table has header 'Italian | Ελληνικά' but only one malformed row: 'Ti | αγαπώ'. Should be 'Ti amo | Σ'αγαπώ' or similar. The table is truncated/broken.",
+      "evidence": "| Italian | Ελληνικά |\\n|---------|----------|\\n| Ti | αγαπώ |"
+    },
+    {
+      "article_id": "d348d561-b76b-4b6d-b262-7f9caef93d05",
+      "slug": "100-most-common-italian-words",
+      "target_lang": "it",
+      "issue_type": "language_header_in_english",
+      "severity": "low",
+      "description": "Table header uses 'Italian' in English instead of Greek ('Ιταλικά'). All other table headers in the article set are in Greek.",
+      "evidence": "| Italian | Ελληνικά |"
+    },
+    {
+      "article_id": "83c69cc1-bf09-4a96-942d-9adb998422d4",
+      "slug": "portuguese-wedding-phrases",
+      "target_lang": "pt",
+      "issue_type": "poor_example",
+      "severity": "medium",
+      "description": "VocabCard examples are just other vocabulary words rather than example sentences. 'Sim, aceito' example is 'Para sempre - Για πάντα'. 'Para sempre' example is 'Parabens'.",
+      "evidence": "example=\"Para sempre - Για πάντα\" ... example=\"Parabéns\""
+    },
+    {
+      "article_id": "83c69cc1-bf09-4a96-942d-9adb998422d4",
+      "slug": "portuguese-wedding-phrases",
+      "target_lang": "pt",
+      "issue_type": "rendering_bug",
+      "severity": "high",
+      "description": "PhraseOfDay rendered in content_html with empty word field. Shows only translation without the Portuguese phrase.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span>\\n    <span class=\"text-lg text-gray-900\">Ναι, δέχομαι</span>"
+    },
+    {
+      "article_id": "50cfeb7c-e9b1-43e9-935e-10b2fe3c8415",
+      "slug": "pt-100-common-phrases-for-greek-speakers",
+      "target_lang": "pt",
+      "issue_type": "title_artifact",
+      "severity": "medium",
+      "description": "Title contains raw language code '(pt)' instead of the language name. Should say 'στα Πορτογαλικά' or similar, not '(pt)'.",
+      "evidence": "title: 100 Συχνές Λέξεις (pt): Οδηγός για Ελληνόφωνα Ζευγάρια"
+    },
+    {
+      "article_id": "50cfeb7c-e9b1-43e9-935e-10b2fe3c8415",
+      "slug": "pt-100-common-phrases-for-greek-speakers",
+      "target_lang": "pt",
+      "issue_type": "pronunciation_inconsistency",
+      "severity": "medium",
+      "description": "VocabCard pronunciations use Latin script ('ko-ra-sao', 'saw-da-de', 'fe-lis', 'o-bri-ga-du', 'a-go-ra', 'pre-si-zar') instead of Greek script. Since native language is Greek, pronunciations should be in Greek script for consistency.",
+      "evidence": "pronunciation=\"ko-ra-são\" pronunciation=\"saw-da-de\" pronunciation=\"fe-lis\""
+    },
+    {
+      "article_id": "50cfeb7c-e9b1-43e9-935e-10b2fe3c8415",
+      "slug": "pt-100-common-phrases-for-greek-speakers",
+      "target_lang": "pt",
+      "issue_type": "missing_components",
+      "severity": "medium",
+      "description": "Article has no PhraseOfDay component and no CTA component despite being a full-length article. Other articles in the set consistently include both.",
+      "evidence": "No <PhraseOfDay> or <CTA /> found in content"
+    },
+    {
+      "article_id": "50cfeb7c-e9b1-43e9-935e-10b2fe3c8415",
+      "slug": "pt-100-common-phrases-for-greek-speakers",
+      "target_lang": "pt",
+      "issue_type": "misleading_title",
+      "severity": "low",
+      "description": "Title says '100 Common Phrases' but the content teaches individual words organized by category, not 100 distinct phrases. The VocabCards cover only about 6 words.",
+      "evidence": "Title: 100 Συχνές Λέξεις... Actual VocabCards: 6"
+    },
+    {
+      "article_id": "457c053a-e67d-4504-a34a-a2ee8aa22391",
+      "slug": "meeting-in-laws-phrases-italian-for-greek-speakers",
+      "target_lang": "it",
+      "issue_type": "missing_imports",
+      "severity": "medium",
+      "description": "Content starts with markdown heading '# Φράσεις...' and uses VocabCard components but never imports them. Other articles include import statements at the top.",
+      "evidence": "Content starts: # Φράσεις για Γνωριμία... (no import block)"
+    },
+    {
+      "article_id": "457c053a-e67d-4504-a34a-a2ee8aa22391",
+      "slug": "meeting-in-laws-phrases-italian-for-greek-speakers",
+      "target_lang": "it",
+      "issue_type": "h1_in_content",
+      "severity": "medium",
+      "description": "Content starts with an H1 heading (# Φράσεις...) which will duplicate the page title. All other articles start with body text, not an H1.",
+      "evidence": "content: # Φράσεις για Γνωριμία με τους Πεθερικούς στα Ιταλικά: Οδηγός"
+    },
+    {
+      "article_id": "457c053a-e67d-4504-a34a-a2ee8aa22391",
+      "slug": "meeting-in-laws-phrases-italian-for-greek-speakers",
+      "target_lang": "it",
+      "issue_type": "missing_components",
+      "severity": "medium",
+      "description": "Article has no PhraseOfDay, no CTA, and no CultureTip components. The cultural tips section is plain text instead of using the CultureTip component. Other articles consistently use these components.",
+      "evidence": "No <PhraseOfDay>, <CTA />, or <CultureTip> found in content"
+    }
+  ],
+  "systemic_patterns": [
+    "PhraseOfDay rendering bug: In multiple articles (es pregnancy, fr pregnancy, de morning/night, pt wedding), the PhraseOfDay component renders in content_html with an EMPTY word field, showing only the translation. This appears to be a converter/renderer bug where multi-word phrases or phrases with special characters in PhraseOfDay get lost during HTML conversion.",
+    "Pronunciation script inconsistency: Articles inconsistently mix Latin-script and Greek-script phonetic guides. Since the native language is Greek, all pronunciations should ideally use Greek script. Affected: en argue (VocabCard), es difficulty guide (all VocabCards), fr pregnancy (VocabCard), pt 100 words (all VocabCards). The de date-night article uses all-caps Greek which is a separate readability concern.",
+    "VocabCard example prop misuse: Multiple articles use the example prop to hold another vocabulary word or phrase rather than an actual example sentence showing the word in context. Worst cases: es pregnancy, fr pregnancy, pt wedding, de morning/night (Greek description instead of German sentence). Some articles leave example empty entirely (en i-love-you, it 100-words).",
+    "Thin/stub content: Three articles severely under-deliver on their title promises. '100 most common Italian words' has 35 words and 4 vocab items. 'How to say I love you in English' has 43 words. '30+ Good morning/night German phrases' has 142 words and only 6 phrases. These need significant expansion.",
+    "Template cloning without differentiation: The es and fr baby/pregnancy vocabulary articles are near-identical templates with only the language-specific words swapped. CultureTip text is identical. This creates a poor user experience if someone reads both.",
+    "Missing standard components: Two articles (it meeting-in-laws, pt 100-words) lack standard components (PhraseOfDay, CTA, CultureTip) that all other articles include. The Italian in-laws article also lacks import statements."
+  ]
+}

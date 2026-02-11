@@ -1,0 +1,468 @@
+{
+  "batchId": "tier2a-slim-0152",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "a4f24a18-c554-49fd-b310-c3a2b397b13e",
+      "title": "Ukrainske fraser til forsoning og genopbygning af tillid",
+      "native_lang": "da",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser til forsoning",
+          "subsections": [
+            "### At undskylde oprigtigt",
+            "### At genopbygge forbindelsen",
+            "### At tilbyde forsoning",
+            "### At acceptere en undskyldning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a5200c6a-a3e4-468b-a352-d459271c2633",
+      "title": "Rumænske udtryk til at møde svigerforældre",
+      "native_lang": "da",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Vigtige sætninger",
+          "subsections": [
+            "### 1. Îmi pare foarte bine să vă cunosc",
+            "### 2. Am auzit multe lucruri frumoase despre dumneavoastră",
+            "### 3. Vă mulțumesc foarte mult pentru invitație",
+            "### 4. V-am adus un mic cadou",
+            "### 5. Aveți o casă foarte frumoasă",
+            "### 6. Mâncarea a fost delicioasă",
+            "### 7. Îl/O iubesc foarte mult pe fiul/fiica dumneavoastră",
+            "### 8. Suntem foarte fericiți împreună",
+            "### 9. Mi-ar plăcea să vă cunosc mai bine",
+            "### 10. Pot să vă ajut cu ceva?",
+            "### 11. Este o tradiție de familie minunată",
+            "### 12. Abia aștept să ne revedem"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a531cc5c-0e92-4154-8b20-b9d2e2ed3cb5",
+      "title": "Portugál kifejezések érzelmi támogatáshoz és vigasztaláshoz",
+      "native_lang": "hu",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető vigasztaló kifejezések",
+          "subsections": [
+            "### Estou aqui para ti / você",
+            "### Tudo vai ficar bem",
+            "### Vai correr tudo bem",
+            "### Sinto muito pelo que estás a passar"
+          ]
+        },
+        {
+          "header": "## Empátia kifejezése",
+          "subsections": [
+            "### Eu compreendo como te sentes",
+            "### Deve ser muito difícil",
+            "### Os teus sentimentos são válidos",
+            "### É normal sentires-te assim"
+          ]
+        },
+        {
+          "header": "## Támogatás felajánlása",
+          "subsections": [
+            "### O que precisas agora?",
+            "### Como posso ajudar-te?",
+            "### Estou aqui para te ouvir",
+            "### Leva o tempo que precisares"
+          ]
+        },
+        {
+          "header": "## Gyász és veszteség",
+          "subsections": [
+            "### Lamento muito a tua perda",
+            "### Ele/Ela estará sempre no teu coração",
+            "### Os meus sinceros pêsames"
+          ]
+        },
+        {
+          "header": "## Nehéz időkben",
+          "subsections": [
+            "### Não estás sozinho/a nisto",
+            "### Vamos ultrapassar isto juntos",
+            "### És mais forte do que pensas",
+            "### Isto também vai passar"
+          ]
+        },
+        {
+          "header": "## Bátorítás",
+          "subsections": [
+            "### Acredito em ti",
+            "### Tu consegues",
+            "### Tenho muito orgulho em ti"
+          ]
+        },
+        {
+          "header": "## Szeretetteljes kifejezések",
+          "subsections": [
+            "### Amo-te, meu amor",
+            "### Estarei sempre aqui para ti",
+            "### Saudade"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a55a3e83-d187-40e4-b937-5b3754646f6c",
+      "title": "Swedish Honeymoon Travel Phrases: Romantic Vocabulary for Your Trip",
+      "native_lang": "en",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Planning Your Trip",
+          "subsections": [
+            "### Choosing a Destination",
+            "### Booking Vocabulary"
+          ]
+        },
+        {
+          "header": "## At the Airport",
+          "subsections": [
+            "### Essential Phrases",
+            "### Airport Vocabulary"
+          ]
+        },
+        {
+          "header": "## At Your Hotel",
+          "subsections": [
+            "### Checking In",
+            "### Room Types"
+          ]
+        },
+        {
+          "header": "## Romantic Moments",
+          "subsections": [
+            "### On the Beach",
+            "### At Dinner"
+          ]
+        },
+        {
+          "header": "## Adventure Activities",
+          "subsections": [
+            "### Exploring Together",
+            "### Activity Vocabulary"
+          ]
+        },
+        {
+          "header": "## Creating Memories",
+          "subsections": [
+            "### Photo Moment Phrases"
+          ]
+        },
+        {
+          "header": "## Returning Home",
+          "subsections": [
+            "### End of Trip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a564cec7-658c-4886-99bb-157f5e176f92",
+      "title": "Turecké fráze Chybíš mi pro Čechy",
+      "native_lang": "cs",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní fráze",
+          "subsections": [
+            "### \"Seni özledim.\"",
+            "### \"Seni çok özledim.\"",
+            "### \"Keşke burada olsaydın.\"",
+            "### \"Seni düşünmekten kendimi alamıyorum.\""
+          ]
+        },
+        {
+          "header": "## Romantické fráze",
+          "subsections": [
+            "### \"Sensiz her an bir sonsuzluk gibi.\"",
+            "### \"Kalbim seninle.\"",
+            "### \"Seni tekrar göreceğim günü sayıyorum.\"",
+            "### \"Sen sabah ilk düşüncem, gece son düşüncemsin.\""
+          ]
+        },
+        {
+          "header": "## Fráze pro zprávy",
+          "subsections": [
+            "### \"Seni düşünüyorum.\"",
+            "### \"Sana sarılmak için sabırsızlanıyorum.\"",
+            "### \"Mesafe duygularımı değiştirmiyor.\""
+          ]
+        },
+        {
+          "header": "## Povzbudivé fráze",
+          "subsections": [
+            "### \"Yakında birlikte olacağız.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a5746a14-7f0d-4e90-b7a6-9b288c52f0c2",
+      "title": "Турецька вимова для початківців: Як говорити романтичні фрази, щоб підкорити серце партнера",
+      "native_lang": "uk",
+      "target_lang": "tr",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Основні звуки турецької мови",
+          "subsections": [
+            "### Голосні: Серце вимови",
+            "### Приголосні: Додаємо смаку"
+          ]
+        },
+        {
+          "header": "## Турецькі літери, які викликають труднощі",
+          "subsections": [
+            "### Ğ (soft g) — Ніжний помічник",
+            "### Ş, Ç, Ğ — Спеціальні гості"
+          ]
+        },
+        {
+          "header": "## Поширені помилки українців",
+          "subsections": [
+            "### 1. Наголос завжди на останній складі!",
+            "### 2. М'яке \"r\" в кінці слів",
+            "### 3. Подовження голосних"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a57b8048-7c99-40d4-9c55-941922da0cd8",
+      "title": "Ist Polnisch schwer zu lernen für Deutsche?",
+      "native_lang": "de",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Was ist WIRKLICH Schwer?",
+          "subsections": [
+            "### Schwerer als gedacht:",
+            "### Leichter als gedacht:"
+          ]
+        },
+        {
+          "header": "## Tipps für Schnelleren Fortschritt",
+          "subsections": [
+            "### 1. Fokussiere auf das Wichtige",
+            "### 2. Nutze Ähnlichkeiten",
+            "### 3. Tägliche Praxis",
+            "### 4. Fehler akzeptieren"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a58833ef-cdec-420f-9c82-b9980b35d4e2",
+      "title": "Orosz kifejezések megbocsátáshoz",
+      "native_lang": "hu",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bocsánatkérés",
+          "subsections": [
+            "### 1. \"Мне очень жаль\" (Mne ochen' zhal')",
+            "### 2. \"Пожалуйста, прости меня\" (Pozhaluysta, prosti menya)",
+            "### 3. \"Я беру на себя полную ответственность\" (Ya beru na sebya polnuyu otvetstvennost')",
+            "### 4. \"Я был/а неправ/а и признаю это\" (Ya byl/a neprav/a i priznayu eto)",
+            "### 5. \"Обещаю, это не повторится\" (Obeshchayu, eto ne povtoritsya)"
+          ]
+        },
+        {
+          "header": "## Megbocsátás",
+          "subsections": [
+            "### 6. \"Я тебя прощаю\" (Ya tebya proshchayu)",
+            "### 7. \"Всё в порядке, я понимаю\" (Vsyo v poryadke, ya ponimayu)",
+            "### 8. \"Я готов/а двигаться дальше\" (Ya gotov/a dvigat'sya dal'she)",
+            "### 9. \"Давай оставим это позади\" (Davay ostavim eto pozadi)",
+            "### 10. \"Я не держу обиду\" (Ya ne derzhu obidu)",
+            "### 11. \"Все ошибаются\" (Vse oshibayutsya)",
+            "### 12. \"Я ценю твои извинения\" (Ya tsenyu tvoi izvineniya)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a58e59cd-7189-458e-90c9-c6b3b2c06fde",
+      "title": "Norwegische Begrüßungen und Verabschiedungen",
+      "native_lang": "de",
+      "target_lang": "no",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Situationsbezogene Phrasen",
+          "subsections": [
+            "### Morgens vor der Arbeit",
+            "### Abends nach Hause kommen",
+            "### Vor dem Schlafen"
+          ]
+        },
+        {
+          "header": "## Besondere Situationen",
+          "subsections": [
+            "### Beim ersten Treffen",
+            "### Nach längerer Zeit"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a58e71cf-b1e1-48b9-982c-a556274f9fff",
+      "title": "Fraze Romantice în Suedeză pentru Cupluri",
+      "native_lang": "ro",
+      "target_lang": "sv",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Fraze pentru Momente Speciale",
+          "subsections": [
+            "### La o Întâlnire",
+            "### La Aniversări"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a5959fde-309b-47d2-a4c2-2b888ecca79b",
+      "title": "50+ Norveççe Sevgi Takma Adı: Kalbini Eritin",
+      "native_lang": "tr",
+      "target_lang": "no",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Günlük Kullanımda Takma Adlar",
+          "subsections": [
+            "### Sabah Selamlamaları",
+            "### Akşam İfadeleri"
+          ]
+        },
+        {
+          "header": "## Pratik: Takma Adları Günlük Hayatta Kullanma",
+          "subsections": [
+            "### Metin Mesajlarında",
+            "### Telefon Görüşmelerinde"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a5ac0a0c-033c-4611-a8e8-c20161e53c6f",
+      "title": "Italienske udtryk til at møde svigerforældre",
+      "native_lang": "da",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Vigtige sætninger",
+          "subsections": [
+            "### 1. Piacere di conoscervi",
+            "### 2. Ho sentito parlare molto di voi",
+            "### 3. Grazie mille per l'invito",
+            "### 4. Vi ho portato un pensierino",
+            "### 5. Che bella casa avete!",
+            "### 6. Il pranzo era squisito",
+            "### 7. Amo molto vostro figlio/vostra figlia",
+            "### 8. Siamo molto felici insieme",
+            "### 9. Mi piacerebbe conoscervi meglio",
+            "### 10. Posso aiutarvi in qualcosa?",
+            "### 11. Questa ricetta è fantastica! Posso avere la ricetta?",
+            "### 12. Non vedo l'ora di rivedervi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a5ad8b8f-2fcf-481d-81d1-32986279b809",
+      "title": "Шведські фрази про ревнощі та довіру",
+      "native_lang": "uk",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Вираження ревнощів",
+          "subsections": [
+            "### \"Jag är svartsjuk\"",
+            "### \"Jag blir svartsjuk när...\"",
+            "### \"Ibland känner jag mig osäker\""
+          ]
+        },
+        {
+          "header": "## Запитання та довіра",
+          "subsections": [
+            "### \"Vem var det?\"",
+            "### \"Hur känner du honom/henne?\"",
+            "### \"Jag litar på dig helt och hållet\"",
+            "### \"Det finns inget att oroa sig för\"",
+            "### \"Det är bara en vän\"",
+            "### \"Du är den enda för mig\""
+          ]
+        },
+        {
+          "header": "## Обговорення",
+          "subsections": [
+            "### \"Kan vi prata om det här?\"",
+            "### \"Jag jobbar på min svartsjuka\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a5dc1213-2519-425b-a6d0-9cd433b30a5f",
+      "title": "Çekçe Flört İfadeleri: Prag'ın Romantik Sokaklarında",
+      "native_lang": "tr",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Flört İfadeleri",
+          "subsections": [
+            "### 1. \"Jsi krásná\"",
+            "### 2. \"Líbí se mi tvůj úsměv\"",
+            "### 3. \"Dáš si se mnou kafe?\"",
+            "### 4. \"Máš krásné oči\"",
+            "### 5. \"Pořád na tebe myslím\"",
+            "### 6. \"Dělá mi dobře být s tebou\"",
+            "### 7. \"Mohu tě pozvat na drink?\"",
+            "### 8. \"Rád/Ráda bych tě viděl/a znovu\"",
+            "### 9. \"Jsi výjimečná\"",
+            "### 10. \"Můžeme se znovu sejít?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a5dfa05c-cea1-4d5e-87ef-be3f0f095e98",
+      "title": "50+ Französische Liebesphrasen: L'amour pur",
+      "native_lang": "de",
+      "target_lang": "fr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Romantische Alltagsphrasen",
+          "subsections": [
+            "### Morgengrüße",
+            "### Abschied und Wiedersehen",
+            "### Gute-Nacht-Phrasen"
+          ]
+        }
+      ]
+    }
+  ]
+}

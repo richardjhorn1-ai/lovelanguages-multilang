@@ -1,0 +1,290 @@
+{
+  "native_lang": "tr",
+  "wave": 1,
+  "target_langs_reviewed": ["en", "es", "fr", "de", "it", "pt"],
+  "articles_reviewed": 12,
+  "clean_articles": 0,
+  "issues": [
+    {
+      "article_id": "a7ced951-ae8d-4bf0-aba1-4d840d9255a0",
+      "slug": "english-small-talk-conversation-starters",
+      "target_lang": "en",
+      "issue_type": "thin_content",
+      "severity": "high",
+      "description": "Article has only 83 words. Extremely thin content with just 2 VocabCards, 2 CultureTips, and 3 small tables. Provides almost no teaching value — covers only 'How are you?', 'Hello', 'Nice weather today', 'Thank you', and 'Nice to see you'.",
+      "evidence": "Word count: 83. Only 5 vocabulary items total across the entire article."
+    },
+    {
+      "article_id": "a7ced951-ae8d-4bf0-aba1-4d840d9255a0",
+      "slug": "english-small-talk-conversation-starters",
+      "target_lang": "en",
+      "issue_type": "missing_pronunciation",
+      "severity": "medium",
+      "description": "VocabCard for 'Nice weather today' has pronunciation=\"-\" instead of an actual phonetic guide.",
+      "evidence": "<VocabCard word=\"Nice weather today\" translation=\"Hava güzel\" pronunciation=\"-\" example=\"Nice weather today!\" />"
+    },
+    {
+      "article_id": "a7ced951-ae8d-4bf0-aba1-4d840d9255a0",
+      "slug": "english-small-talk-conversation-starters",
+      "target_lang": "en",
+      "issue_type": "rendering_bug",
+      "severity": "high",
+      "description": "PhraseOfDay renders as speakable-vocab in HTML (instead of speakable-phrase) and the word 'How are you?' is missing from the rendered font-header span. The HTML shows an empty <span> where the word should appear.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span><span class=\"text-lg text-gray-900\">Nasılsın?</span>"
+    },
+    {
+      "article_id": "a7ced951-ae8d-4bf0-aba1-4d840d9255a0",
+      "slug": "english-small-talk-conversation-starters",
+      "target_lang": "en",
+      "issue_type": "wrong_url_format",
+      "severity": "medium",
+      "description": "Internal links use /tr/blog/ format instead of /learn/tr/en/ format.",
+      "evidence": "[İngilizce duygu ifadeleri](/tr/blog/english-expressing-emotions)"
+    },
+    {
+      "article_id": "7ed13c11-efca-43eb-a03c-515c1641fa14",
+      "slug": "english-pronunciation-guide-for-beginners",
+      "target_lang": "en",
+      "issue_type": "wrong_prop_name",
+      "severity": "medium",
+      "description": "ConjugationTable uses legacy 'polish' prop name (from Polish template) for the conjugated form, and 'english' prop for what is actually a pronunciation guide, not a translation. Semantically confusing even though it renders.",
+      "evidence": "{ person: \"I\", polish: \"I love\", english: \"ay luhv\" }"
+    },
+    {
+      "article_id": "7ed13c11-efca-43eb-a03c-515c1641fa14",
+      "slug": "english-pronunciation-guide-for-beginners",
+      "target_lang": "en",
+      "issue_type": "missing_cta",
+      "severity": "low",
+      "description": "Article has no CTA component at the end.",
+      "evidence": "No <CTA /> found in content"
+    },
+    {
+      "article_id": "79b84f91-8cc4-492c-bd94-f0c5d1947267",
+      "slug": "spanish-baby-pregnancy-vocabulary",
+      "target_lang": "es",
+      "issue_type": "wrong_example_language",
+      "severity": "medium",
+      "description": "VocabCard example sentences are in Turkish instead of Spanish. The example prop should show the target-language word used in a sentence, but both examples are purely Turkish with no Spanish.",
+      "evidence": "word=\"Embarazo\" example=\"Hamilelik dönemi çok özel bir süreç.\" and word=\"Habitación del bebé\" example=\"Bebek odasını birlikte dekore ettik.\""
+    },
+    {
+      "article_id": "79b84f91-8cc4-492c-bd94-f0c5d1947267",
+      "slug": "spanish-baby-pregnancy-vocabulary",
+      "target_lang": "es",
+      "issue_type": "wrong_url_format",
+      "severity": "medium",
+      "description": "Internal links use /tr/blog/ format instead of /learn/tr/es/ format.",
+      "evidence": "[İspanyolca romantik ifadelerini](/tr/blog/spanish-romantic-phrases-for-every-occasion)"
+    },
+    {
+      "article_id": "2fec59b0-ec09-4551-900c-29bc903dcfdd",
+      "slug": "es-support-phrases-for-turkish-speakers",
+      "target_lang": "es",
+      "issue_type": "nonstandard_component",
+      "severity": "low",
+      "description": "Uses PhraseCard component (21 instances) which is not a standard blog component. The converter handles it and renders correctly as speakable-vocab in HTML, but the MDX source uses a non-standard tag.",
+      "evidence": "<PhraseCard phrase=\"Estoy aquí para ti\" translation=\"Senin için buradayım\" pronunciation=\"Estoy akí para ti\" ... />"
+    },
+    {
+      "article_id": "2fec59b0-ec09-4551-900c-29bc903dcfdd",
+      "slug": "es-support-phrases-for-turkish-speakers",
+      "target_lang": "es",
+      "issue_type": "missing_cta",
+      "severity": "low",
+      "description": "Article has no CTA component at the end.",
+      "evidence": "No <CTA /> found in content"
+    },
+    {
+      "article_id": "d29563e6-44ca-4605-81d7-4a63062b86d2",
+      "slug": "french-expressing-emotions",
+      "target_lang": "fr",
+      "issue_type": "missing_pronunciation",
+      "severity": "medium",
+      "description": "Two VocabCards have pronunciation=\"-\" instead of actual phonetic guides: 'Je suis triste' and 'Je t'aime'.",
+      "evidence": "<VocabCard word=\"Je suis triste\" ... pronunciation=\"-\" /> and <VocabCard word=\"Je t'aime\" ... pronunciation=\"-\" />"
+    },
+    {
+      "article_id": "d29563e6-44ca-4605-81d7-4a63062b86d2",
+      "slug": "french-expressing-emotions",
+      "target_lang": "fr",
+      "issue_type": "missing_cta",
+      "severity": "low",
+      "description": "Article has no CTA component at the end.",
+      "evidence": "No <CTA /> found in content"
+    },
+    {
+      "article_id": "d29563e6-44ca-4605-81d7-4a63062b86d2",
+      "slug": "french-expressing-emotions",
+      "target_lang": "fr",
+      "issue_type": "wrong_url_format",
+      "severity": "medium",
+      "description": "Internal links use /tr/blog/ format instead of /learn/tr/fr/ format.",
+      "evidence": "[Fransızca günlük konuşmalar](/tr/blog/french-small-talk-conversation-starters)"
+    },
+    {
+      "article_id": "c12a003e-6f1d-4954-a958-24db3af80a0e",
+      "slug": "how-to-say-i-love-you-in-french",
+      "target_lang": "fr",
+      "issue_type": "missing_turkish_chars",
+      "severity": "high",
+      "description": "Pervasive missing Turkish special characters throughout the article. Title and body text use ASCII equivalents instead of proper Turkish: 'Fransizca' (x12) instead of 'Fransızca', 'ask' instead of 'aşk', 'Ifade' instead of 'İfade', 'Okunusu' instead of 'Okunuşu', 'Cekimi' instead of 'Çekimi', 'secicidir' instead of 'seçicidir', and many more. Approximately 20+ lines affected.",
+      "evidence": "Title: 'Fransizca: Seni Seviyorum Demenin 15 Romantik Yolu' — missing ı in Fransızca. Body has 12x 'Fransizca', 6x 'ask' instead of 'aşk'"
+    },
+    {
+      "article_id": "c12a003e-6f1d-4954-a958-24db3af80a0e",
+      "slug": "how-to-say-i-love-you-in-french",
+      "target_lang": "fr",
+      "issue_type": "missing_cta",
+      "severity": "low",
+      "description": "Article has no CTA component at the end.",
+      "evidence": "No <CTA /> found in content"
+    },
+    {
+      "article_id": "a40ef0af-d803-4335-a3cd-e3098372bf14",
+      "slug": "german-good-morning-goodnight-phrases",
+      "target_lang": "de",
+      "issue_type": "thin_content",
+      "severity": "high",
+      "description": "Article has only 103 words. Very thin content with just 3 VocabCards, 2 CultureTips, and 3 small tables. Tables are repetitive (Ich liebe dich appears in all three). Only teaches about 4 unique German phrases.",
+      "evidence": "Word count: 103. Tables repeat 'Ich liebe dich' in multiple sections."
+    },
+    {
+      "article_id": "a40ef0af-d803-4335-a3cd-e3098372bf14",
+      "slug": "german-good-morning-goodnight-phrases",
+      "target_lang": "de",
+      "issue_type": "wrong_url_format",
+      "severity": "medium",
+      "description": "Internal links use /tr/blog/ format instead of /learn/tr/de/ format.",
+      "evidence": "[Almanca sevgi sözleri](/tr/blog/german-love-phrases)"
+    },
+    {
+      "article_id": "80661f83-122b-4d02-980c-c83dddd3d3ec",
+      "slug": "german-pet-names-and-endearments",
+      "target_lang": "de",
+      "issue_type": "missing_target_language",
+      "severity": "high",
+      "description": "Article about German pet names and endearments lists only Turkish words (Tatlım, Canım, Kalbim, Aşkım, Ayıcığım, Faremin, Tavşanım, Kuşum, Bir tanem, Ruh eşim, Güneşim) without providing their German equivalents. Only 1 VocabCard with 'Schatz' teaches an actual German word. The article completely fails to teach German vocabulary.",
+      "evidence": "Bullet lists: '- **Tatlım** - evrensel favori / - **Canım** - klasik ve zarif / - **Kalbim** - duygusal ve şiirsel' — all Turkish, no German."
+    },
+    {
+      "article_id": "80661f83-122b-4d02-980c-c83dddd3d3ec",
+      "slug": "german-pet-names-and-endearments",
+      "target_lang": "de",
+      "issue_type": "missing_flag",
+      "severity": "low",
+      "description": "CultureTip component is missing the flag prop.",
+      "evidence": "<CultureTip> without flag=\"...\" prop"
+    },
+    {
+      "article_id": "80661f83-122b-4d02-980c-c83dddd3d3ec",
+      "slug": "german-pet-names-and-endearments",
+      "target_lang": "de",
+      "issue_type": "duplicate_h1",
+      "severity": "low",
+      "description": "Content starts with a # H1 heading which duplicates the article title from frontmatter. This results in a double title when rendered.",
+      "evidence": "Content begins with: '# Almanca Sevgi Sözcükleri ve Takma Adlar'"
+    },
+    {
+      "article_id": "80661f83-122b-4d02-980c-c83dddd3d3ec",
+      "slug": "german-pet-names-and-endearments",
+      "target_lang": "de",
+      "issue_type": "missing_cta",
+      "severity": "low",
+      "description": "Article has no CTA component at the end.",
+      "evidence": "No <CTA /> found in content"
+    },
+    {
+      "article_id": "730edade-f4a8-4a57-905b-24e41d0e48b1",
+      "slug": "italian-makeup-phrases-for-turkish-speakers",
+      "target_lang": "it",
+      "issue_type": "missing_cta",
+      "severity": "low",
+      "description": "Article has no CTA component at the end.",
+      "evidence": "No <CTA /> found in content"
+    },
+    {
+      "article_id": "c7f81eac-46ce-4836-97a1-8b541733fbf0",
+      "slug": "it-flirt-phrases-for-turkish-speakers",
+      "target_lang": "it",
+      "issue_type": "nonstandard_component",
+      "severity": "low",
+      "description": "Uses PhraseCard component (13 instances) which is not a standard blog component. Renders correctly via converter but MDX source uses non-standard tag.",
+      "evidence": "<PhraseCard phrase=\"Sei bellissima/bellissimo\" translation=\"Çok güzelsin\" ... />"
+    },
+    {
+      "article_id": "c7f81eac-46ce-4836-97a1-8b541733fbf0",
+      "slug": "it-flirt-phrases-for-turkish-speakers",
+      "target_lang": "it",
+      "issue_type": "missing_cta",
+      "severity": "low",
+      "description": "Article has no CTA component at the end.",
+      "evidence": "No <CTA /> found in content"
+    },
+    {
+      "article_id": "cebc1b57-aeb3-4ef9-9578-5c14a09c4b45",
+      "slug": "portuguese-expressing-emotions",
+      "target_lang": "pt",
+      "issue_type": "missing_pronunciation",
+      "severity": "medium",
+      "description": "Two VocabCards have pronunciation=\"-\" instead of actual phonetic guides: 'Estou triste' and 'Eu te amo'.",
+      "evidence": "<VocabCard word=\"Estou triste\" ... pronunciation=\"-\" /> and <VocabCard word=\"Eu te amo\" ... pronunciation=\"-\" />"
+    },
+    {
+      "article_id": "cebc1b57-aeb3-4ef9-9578-5c14a09c4b45",
+      "slug": "portuguese-expressing-emotions",
+      "target_lang": "pt",
+      "issue_type": "missing_cta",
+      "severity": "low",
+      "description": "Article has no CTA component at the end.",
+      "evidence": "No <CTA /> found in content"
+    },
+    {
+      "article_id": "cebc1b57-aeb3-4ef9-9578-5c14a09c4b45",
+      "slug": "portuguese-expressing-emotions",
+      "target_lang": "pt",
+      "issue_type": "wrong_url_format",
+      "severity": "medium",
+      "description": "Internal links use /tr/blog/ format instead of /learn/tr/pt/ format.",
+      "evidence": "[Portekizce günlük konuşmalar](/tr/blog/portuguese-small-talk-conversation-starters)"
+    },
+    {
+      "article_id": "4497342a-fe4e-4e15-a46b-1ee1bb936c55",
+      "slug": "portuguese-anniversary-wishes",
+      "target_lang": "pt",
+      "issue_type": "wrong_example_language",
+      "severity": "medium",
+      "description": "VocabCard example sentences are in Turkish instead of Portuguese. All 4 VocabCard examples use Turkish sentences rather than showing the Portuguese word in a Portuguese sentence.",
+      "evidence": "word=\"Aniversário\" example=\"Birinci yıldönümümüzü kutluyoruz.\" and word=\"Amor\" example=\"Aşkımız her gün büyüyor.\""
+    },
+    {
+      "article_id": "4497342a-fe4e-4e15-a46b-1ee1bb936c55",
+      "slug": "portuguese-anniversary-wishes",
+      "target_lang": "pt",
+      "issue_type": "missing_cta",
+      "severity": "low",
+      "description": "Article has no CTA component at the end.",
+      "evidence": "No <CTA /> found in content"
+    },
+    {
+      "article_id": "4497342a-fe4e-4e15-a46b-1ee1bb936c55",
+      "slug": "portuguese-anniversary-wishes",
+      "target_lang": "pt",
+      "issue_type": "wrong_url_format",
+      "severity": "medium",
+      "description": "Internal links use /tr/blog/ format instead of /learn/tr/pt/ format.",
+      "evidence": "[Portekizce romantik ifadelerini](/tr/blog/portuguese-romantic-phrases-for-every-occasion)"
+    }
+  ],
+  "systemic_patterns": [
+    "9 of 12 articles are missing the CTA component at the end (articles 2, 4, 5, 6, 8, 9, 10, 11, 12).",
+    "6 of 12 articles use /tr/blog/ URL format for internal links instead of the correct /learn/tr/{target}/ format (articles 1, 3, 5, 7, 11, 12).",
+    "5 of 12 articles have pronunciation=\"-\" placeholder instead of actual phonetic guides. This affects French (2 instances), Portuguese (2 instances), and English (1 instance) articles.",
+    "VocabCard example sentences in several articles are written entirely in Turkish instead of showing the target-language word used in a target-language sentence (articles 3 and 12). This defeats the purpose of the example prop.",
+    "7 of 12 articles lack import statements for the components they use. Articles 2, 4, 5, 6, 8, 9, 10, 11 have no import block. This does not affect HTML rendering (converter handles it) but the MDX source is inconsistent.",
+    "2 articles (4 and 10) use the non-standard PhraseCard component instead of VocabCard/PhraseOfDay. The converter handles this gracefully, but the MDX source references a component that does not exist as an Astro file.",
+    "2 articles have critically thin content (articles 1 at 83 words and 7 at 103 words) providing minimal teaching value with repetitive vocabulary tables.",
+    "Article 8 (German pet names) is a content failure: it lists Turkish pet names without German equivalents, teaching only 1 German word (Schatz) in the entire article despite being a German vocabulary article.",
+    "Article 6 (French 'I love you') has pervasive missing Turkish special characters (ç, ğ, ı, ö, ş, ü, İ replaced with ASCII equivalents) affecting the title and ~20 lines of body text. This appears to be a generation issue where the AI did not use proper Turkish encoding."
+  ]
+}

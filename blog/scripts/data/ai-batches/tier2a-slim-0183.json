@@ -1,0 +1,484 @@
+{
+  "batchId": "tier2a-slim-0183",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "bfd4d6ef-7e0a-4d64-9554-002c8e1e8cc8",
+      "title": "Tjekkisk grammatikk for nybegynnere: Lær å uttrykke kjærlighet på riktig måte",
+      "native_lang": "no",
+      "target_lang": "cs",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Grunnreglene: 5 Ting Å Huske",
+          "subsections": [
+            "### 1. Verb Bøyes Etter Person",
+            "### 2. Tre Kjønn - Men Ikke Stress!",
+            "### 3. Nominativ = Ordboksform",
+            "### 4. Spørreord Kommer Først",
+            "### 5. Nei Er Superviktig!"
+          ]
+        },
+        {
+          "header": "## Vanlige Mønstre i Hverdagen",
+          "subsections": [
+            "### Å Være (Být)",
+            "### Å Ha (Mít)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bfe6733d-38e1-41bf-91f5-887728c20355",
+      "title": "Ukrán flörtölős kifejezések",
+      "native_lang": "hu",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető flörtölős kifejezések",
+          "subsections": [
+            "### 1. Ти дуже гарна (Tü duzse harna)",
+            "### 2. У тебе прекрасні очі (U tebe prekraszní ocsi)",
+            "### 3. Можна тебе запросити на каву? (Mozsna tebe zaprosziti na kavu?)",
+            "### 4. Ти мені подобаєшся (Tü mení podobájessza)",
+            "### 5. Хочу краще тебе пізнати (Hocsu krase tebe píznati)",
+            "### 6. Ти така мила (Tü taká mila)",
+            "### 7. Можна твій номер телефону? (Mozsna tvíj nomer telefonu?)",
+            "### 8. Ти мені дуже симпатична (Tü mení duzse szimpaticsna)",
+            "### 9. У тебе чудова посмішка (U tebe csudova poszmíska)",
+            "### 10. Давай зустрінемося знову (Daváj zusztrínomosza znovu)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bfea053b-dfb8-4915-80c5-3754b94aa81d",
+      "title": "Polnische Aussprache für Deutsche: Der Guide",
+      "native_lang": "de",
+      "target_lang": "pl",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Übungen für Deutsche",
+          "subsections": [
+            "### Übe diese Wörter:",
+            "### Die berüchtigten Zungenbrecher"
+          ]
+        },
+        {
+          "header": "## Zusammenfassung für Deutsche",
+          "subsections": [
+            "### Leicht für dich:",
+            "### Braucht Übung:",
+            "### Profi-Tipp:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bfed2cb7-76df-4be7-888c-1f7e7e92addb",
+      "title": "Portugiesische Aussprache für Anfänger: So klingst du wie ein Einheimischer für deinen Partner",
+      "native_lang": "de",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Typische deutsche Fehler (und wie ihr sie vermeidet)",
+          "subsections": [
+            "### 1. Das harte deutsche \"R\"",
+            "### 2. Das \"e\" am Wortende wird nicht gesprochen",
+            "### 3. Nasale Vokale vergessen",
+            "### 4. \"S\" zwischen Vokalen wird zu \"s\" statt \"z\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c01e5bd3-86bd-46a3-aab4-33f72b47edce",
+      "title": "Произношение итальянского языка: полное руководство",
+      "native_lang": "ru",
+      "target_lang": "it",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Особые согласные",
+          "subsections": [
+            "### C — два звука",
+            "### G — два звука"
+          ]
+        },
+        {
+          "header": "## Особые сочетания",
+          "subsections": [
+            "### GLI — мягкое «ль»",
+            "### GN — мягкое «нь»",
+            "### SC — два варианта"
+          ]
+        },
+        {
+          "header": "## Упражнения для пар",
+          "subsections": [
+            "### 1. Скороговорка:",
+            "### 2. Романтическая практика:",
+            "### 3. Песни:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c0285884-8eec-4484-8368-a34dd1e589bb",
+      "title": "Görög kifejezések érzelmi támogatáshoz és vigasztaláshoz",
+      "native_lang": "hu",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető vigasztaló kifejezések",
+          "subsections": [
+            "### Είμαι εδώ για σένα (Eimai edo gia sena)",
+            "### Όλα θα πάνε καλά (Ola tha pane kala)",
+            "### Θα περάσει (Tha perasei)",
+            "### Λυπάμαι πολύ για αυτό που περνάς (Lipamai poli gia afto pou pernas)"
+          ]
+        },
+        {
+          "header": "## Empátia kifejezése",
+          "subsections": [
+            "### Καταλαβαίνω πώς νιώθεις (Katalavaino pos niotheis)",
+            "### Πρέπει να είναι πολύ δύσκολο (Prepei na einai poli diskolo)",
+            "### Τα συναισθήματά σου είναι απόλυτα δικαιολογημένα (Ta sinaisthimata sou einai apolita dikaiologimena)",
+            "### Είναι φυσιολογικό να νιώθεις έτσι (Einai fisiologiko na niotheis etsi)"
+          ]
+        },
+        {
+          "header": "## Támogatás felajánlása",
+          "subsections": [
+            "### Τι χρειάζεσαι τώρα; (Ti chriazese tora?)",
+            "### Πώς μπορώ να σε βοηθήσω; (Pos boro na se voithiso?)",
+            "### Είμαι εδώ για να σε ακούσω (Eimai edo gia na se akouso)",
+            "### Πάρε όσο χρόνο χρειάζεσαι (Pare oso chrono chriazese)"
+          ]
+        },
+        {
+          "header": "## Gyász és veszteség",
+          "subsections": [
+            "### Λυπάμαι πολύ για την απώλειά σου (Lipamai poli gia tin apolia sou)",
+            "### Θα είναι πάντα στην καρδιά σου (Tha einai panta stin kardia sou)",
+            "### Τα συλλυπητήριά μου (Ta sillipitira mou)",
+            "### Ζωή σε σας (Zoi se sas)"
+          ]
+        },
+        {
+          "header": "## Nehéz időkben",
+          "subsections": [
+            "### Δεν είσαι μόνος/μόνη σε αυτό (Den eisai monos/moni se afto)",
+            "### Θα το περάσουμε μαζί (Tha to perasoume mazi)",
+            "### Είσαι πιο δυνατός/δυνατή από όσο νομίζεις (Eisai pio dinatos/dinati apo oso nomizeis)",
+            "### Κι αυτό θα περάσει (Ki afto tha perasei)"
+          ]
+        },
+        {
+          "header": "## Bátorítás",
+          "subsections": [
+            "### Πιστεύω σε σένα (Pistevo se sena)",
+            "### Θα τα καταφέρεις (Tha ta katafereis)",
+            "### Είμαι πολύ περήφανος/περήφανη για σένα (Eimai poli perifanos/perifani gia sena)"
+          ]
+        },
+        {
+          "header": "## Szeretetteljes kifejezések",
+          "subsections": [
+            "### Σ' αγαπώ, αγάπη μου (S' agapo, agapi mou)",
+            "### Θα είμαι πάντα εδώ για σένα (Tha eimai panta edo gia sena)",
+            "### Ψυχή μου (Psichi mou)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c0337425-605e-484a-8305-f6ee07dd2323",
+      "title": "Основы французской грамматики для пар",
+      "native_lang": "ru",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Три группы глаголов",
+          "subsections": [
+            "### Глаголы на -ER (первая группа, самая большая)",
+            "### Глаголы на -IR (вторая группа)",
+            "### Глаголы на -RE (третья группа)"
+          ]
+        },
+        {
+          "header": "## Будущее время",
+          "subsections": [
+            "### Ближайшее будущее (Futur proche):"
+          ]
+        },
+        {
+          "header": "## Практика для пар",
+          "subsections": [
+            "### Упражнение «Спряжение»:",
+            "### Упражнение «Согласование»:",
+            "### Упражнение «Диалог»:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c03fb9b6-2daf-4dc0-9b79-9f6aa1c73142",
+      "title": "Angol kifejezések kibéküléshez és megbékéléshez",
+      "native_lang": "hu",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető kifejezések a kibéküléshez",
+          "subsections": [
+            "### 1. \"I'm sorry for what I said\"",
+            "### 2. \"Can we start over?\"",
+            "### 3. \"I was wrong\"",
+            "### 4. \"Let's make up\"",
+            "### 5. \"I forgive you\"",
+            "### 6. \"I love you, even when we fight\"",
+            "### 7. \"I didn't mean to hurt you\"",
+            "### 8. \"Can you forgive me?\"",
+            "### 9. \"I hate it when we fight\"",
+            "### 10. \"Let's not go to bed angry\"",
+            "### 11. \"I promise to do better\"",
+            "### 12. \"I appreciate you\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c0591854-aa6f-491e-9ed7-af896cd1b26d",
+      "title": "Fraze de Susținere Emoțională în Cehă",
+      "native_lang": "ro",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraze Esențiale de Confort",
+          "subsections": [
+            "### 1. Jsem tu pro tebe",
+            "### 2. Všechno bude v pořádku",
+            "### 3. Rozumím ti",
+            "### 4. Nebuď smutný/smutná",
+            "### 5. Upřímnou soustrast",
+            "### 6. Nedělej si starosti",
+            "### 7. Jsi silný/silná",
+            "### 8. Jsem na tebe pyšný/pyšná",
+            "### 9. Klid",
+            "### 10. Brzké uzdravení",
+            "### 11. Myslím na tebe",
+            "### 12. Nejsi v tom sám/sama"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c05a0efe-dcfb-483b-a754-3e291ac248c6",
+      "title": "Small Talk på Engelsk: Samtalestartere for Par",
+      "native_lang": "da",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassiske Emner",
+          "subsections": [
+            "### Vejret",
+            "### Weekendplaner",
+            "### Ferier og Rejser"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c076355f-198f-418b-a884-7408e2f205c7",
+      "title": "Польские приветствия и прощания для пар",
+      "native_lang": "ru",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Ответы на \"Jak się masz?\"",
+          "subsections": [
+            "### Стандартные:",
+            "### Романтические ответы:"
+          ]
+        },
+        {
+          "header": "## Практические упражнения",
+          "subsections": [
+            "### Утренний ритуал:",
+            "### Прощание на день:",
+            "### Вечернее прощание:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c08f0e17-925f-4653-9eaa-2164bca1fa79",
+      "title": "Tyske 'Jeg Savner Dig' Sætninger for Danskere",
+      "native_lang": "da",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Udtryk",
+          "subsections": [
+            "### \"Ich vermisse dich\"",
+            "### \"Ich vermisse dich so sehr\"",
+            "### \"Ich muss ständig an dich denken\""
+          ]
+        },
+        {
+          "header": "## Dybere Udtryk",
+          "subsections": [
+            "### \"Jeder Moment ohne dich fühlt sich wie eine Ewigkeit an\"",
+            "### \"Du bist das Erste, woran ich beim Aufwachen denke\"",
+            "### \"Ich wünschte, du wärst hier bei mir\""
+          ]
+        },
+        {
+          "header": "## Hverdagens Savn",
+          "subsections": [
+            "### \"Ich vermisse dein Lächeln\"",
+            "### \"Ich vermisse es, neben dir einzuschlafen\"",
+            "### \"Ich vermisse unsere Gespräche\""
+          ]
+        },
+        {
+          "header": "## Intense Udtryk",
+          "subsections": [
+            "### \"Ich vermisse dich mehr, als Worte sagen können\"",
+            "### \"Von dir getrennt zu sein ist das Schwerste\"",
+            "### \"Ich zähle die Tage, bis ich dich wiedersehe\""
+          ]
+        },
+        {
+          "header": "## Trøstende Sætninger",
+          "subsections": [
+            "### \"Entfernung bedeutet nichts, wenn jemand alles bedeutet\"",
+            "### \"Egal wo du bist, du bist immer in meinem Herzen\""
+          ]
+        },
+        {
+          "header": "## Typisk Tyske Udtryk",
+          "subsections": [
+            "### \"Du fehlst mir\"",
+            "### \"Mein Herz sehnt sich nach dir\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c0937e9d-075f-41d2-95c6-45d24a58a44b",
+      "title": "Турецькі фрази про ревнощі та довіру",
+      "native_lang": "uk",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Вираження ревнощів",
+          "subsections": [
+            "### \"Kıskanıyorum\"",
+            "### \"...yaptığında kıskanç oluyorum\"",
+            "### \"Bazen kendimi güvensiz hissediyorum\""
+          ]
+        },
+        {
+          "header": "## Запитання",
+          "subsections": [
+            "### \"O kimdi?\"",
+            "### \"Onu nereden tanıyorsun?\""
+          ]
+        },
+        {
+          "header": "## Довіра",
+          "subsections": [
+            "### \"Sana tamamen güveniyorum\"",
+            "### \"Endişelenecek bir şey yok\"",
+            "### \"O sadece bir arkadaş\"",
+            "### \"Kıskanacak bir şey yok\"",
+            "### \"Sen benim için tek kişisin\""
+          ]
+        },
+        {
+          "header": "## Обговорення",
+          "subsections": [
+            "### \"Bunun hakkında konuşabilir miyiz?\"",
+            "### \"Kıskançlığım üzerinde çalışıyorum\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c09a9e88-a873-4293-910e-5b2597568bc0",
+      "title": "Französisch vs. Deutsch - Falsche Freunde",
+      "native_lang": "de",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Wahre vs. Falsche Freunde - Übersicht",
+          "subsections": [
+            "### Echte Freunde (gleiche Bedeutung)",
+            "### Falsche Freunde (andere Bedeutung!)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c0bcf826-db37-471c-aacc-e7019b0b159e",
+      "title": "Frases de Apoyo Emocional en Sueco: Cómo Consolar a Tu Pareja",
+      "native_lang": "es",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases de Consuelo Básicas",
+          "subsections": [
+            "### \"Jag är här för dig\"",
+            "### \"Allt kommer att ordna sig\"",
+            "### \"Jag är så ledsen att du går igenom det här\""
+          ]
+        },
+        {
+          "header": "## Ofreciendo Apoyo",
+          "subsections": [
+            "### \"Vad behöver du just nu?\"",
+            "### \"Jag ska göra allt jag kan för att hjälpa\"",
+            "### \"Vill du prata om det?\"",
+            "### \"Jag lyssnar\""
+          ]
+        },
+        {
+          "header": "## Validando Emociones",
+          "subsections": [
+            "### \"Det är okej att känna så\"",
+            "### \"Dina känslor är helt berättigade\""
+          ]
+        },
+        {
+          "header": "## Frases de Ánimo",
+          "subsections": [
+            "### \"Du är starkare än du tror\"",
+            "### \"Jag tror på dig\"",
+            "### \"Vi klarar det här tillsammans\""
+          ]
+        },
+        {
+          "header": "## Expresando Amor",
+          "subsections": [
+            "### \"Jag älskar dig oavsett vad som händer\"",
+            "### \"Du är inte ensam\""
+          ]
+        }
+      ]
+    }
+  ]
+}

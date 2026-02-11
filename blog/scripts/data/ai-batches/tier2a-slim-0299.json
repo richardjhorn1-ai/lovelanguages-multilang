@@ -1,0 +1,498 @@
+{
+  "batchId": "tier2a-slim-0299",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "585e1b01-0bad-4b8a-a284-f5ca2c9d5c67",
+      "title": "Argot Espagnol de SMS pour les Couples",
+      "native_lang": "fr",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Exemples de Conversations",
+          "subsections": [
+            "### Le Matin",
+            "### Le Soir"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "58786dda-de9f-4d3d-b4b8-2fdf93cf332d",
+      "title": "Prononciation neerlandaise : le son G",
+      "native_lang": "fr",
+      "target_lang": "nl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Consonnes différentes du français",
+          "subsections": [
+            "### W - Plus doux qu'en français",
+            "### R - Diverses prononciations",
+            "### J - Comme le « y » français",
+            "### SCH - Un son combiné"
+          ]
+        },
+        {
+          "header": "## Résumé des règles de prononciation",
+          "subsections": [
+            "### Assourdissement des consonnes finales",
+            "### Consonnes doubles",
+            "### Le « N » final des verbes"
+          ]
+        },
+        {
+          "header": "## Mots d'entraînement par son",
+          "subsections": [
+            "### Entraînement G/Ch",
+            "### Entraînement voyelles",
+            "### Mots défis combinés"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "587d969d-79b3-48d3-bef2-630b6aab8636",
+      "title": "German Restaurant Vocabulary",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Understanding the Menu (Die Speisekarte)",
+          "subsections": [
+            "### Menu Sections",
+            "### Common Menu Terms"
+          ]
+        },
+        {
+          "header": "## Common German Foods",
+          "subsections": [
+            "### Meat Dishes (Fleischgerichte)",
+            "### Sides and Vegetables"
+          ]
+        },
+        {
+          "header": "## During the Meal",
+          "subsections": [
+            "### Checking on Your Food",
+            "### Romantic Table Talk"
+          ]
+        },
+        {
+          "header": "## Practice Activities for Couples",
+          "subsections": [
+            "### Activity 1: Menu Reading",
+            "### Activity 2: Restaurant Role Play",
+            "### Activity 3: Real-World Practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "589f28b3-5ff6-4c34-b24b-5efe9b7215bc",
+      "title": "Conjugación de Verbos Italianos",
+      "native_lang": "es",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Actividades de Práctica para Parejas",
+          "subsections": [
+            "### Conjugación de Rutina Matutina",
+            "### Juego de Conjugación Romántica",
+            "### Cuadro de Actividades Diarias"
+          ]
+        },
+        {
+          "header": "## Errores Comunes a Evitar",
+          "subsections": [
+            "### Pronombres de Sujeto",
+            "### \"Tú\" Formal vs. Informal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "58f6ce65-745e-48ca-880e-0e5ac26f4255",
+      "title": "Italian Texting Slang: Decode Your Partner's Messages",
+      "native_lang": "en",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Essential Texting Abbreviations",
+          "subsections": [
+            "### Common Shortcuts",
+            "### Romantic Texting Abbreviations"
+          ]
+        },
+        {
+          "header": "## Common Text Responses",
+          "subsections": [
+            "### Quick Reactions",
+            "### Expressing Emotions"
+          ]
+        },
+        {
+          "header": "## Texting Your Partner",
+          "subsections": [
+            "### Sweet Morning Messages",
+            "### During the Day",
+            "### Goodnight Messages"
+          ]
+        },
+        {
+          "header": "## Slang Words in Texts",
+          "subsections": [
+            "### Popular Italian Slang",
+            "### Terms of Endearment in Texts"
+          ]
+        },
+        {
+          "header": "## Sample Text Conversations",
+          "subsections": [
+            "### Morning Check-in",
+            "### Making Plans",
+            "### Late Night"
+          ]
+        },
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Exercise 1: Decode the Message",
+            "### Exercise 2: Text Your Partner",
+            "### Exercise 3: Voice vs Text"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "595f2732-5890-44c4-8cef-c0f52e3b8020",
+      "title": "30+ Danish Pet Names and Endearments",
+      "native_lang": "en",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Gender-Specific Pet Names",
+          "subsections": [
+            "### For Her",
+            "### For Him"
+          ]
+        },
+        {
+          "header": "## Pet Names for Different Occasions",
+          "subsections": [
+            "### Morning Greetings",
+            "### Goodnight Messages",
+            "### Throughout the Day"
+          ]
+        },
+        {
+          "header": "## How to Use Pet Names Naturally",
+          "subsections": [
+            "### Building Comfort",
+            "### Reading the Room",
+            "### Combining with Phrases"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "59abf8b9-9809-41cc-8ed1-97d53e3c2817",
+      "title": "Engelsk Udtale for Begyndere: Sådan Taler du Rent med Din Partner",
+      "native_lang": "da",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De 5 Grundregler for Smuk Udtale",
+          "subsections": [
+            "### 1. Find det Trykte Ord",
+            "### 2. Vokaler Har Personlighed",
+            "### 3. De Stumme Venner",
+            "### 4. The Magic \"R\"",
+            "### 5. Flydende Overgange"
+          ]
+        },
+        {
+          "header": "## De 8 Vigtigste Lyde for Kærlighed",
+          "subsections": [
+            "### 1. Den Bløde \"TH\"",
+            "### 2. Den Hviskende \"H\"",
+            "### 3. Den Lange \"EE\""
+          ]
+        },
+        {
+          "header": "## De 5 Værste Udtalefejl (og Sådan Undgår I Dem)",
+          "subsections": [
+            "### 1. **\"R\" i Danmark vs. England**",
+            "### 2. **De Bløde Vokaler**",
+            "### 3. **TH-lyden**",
+            "### 4. **V vs. W**",
+            "### 5. **Stumme Bogstaver**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "59d90d67-7af2-410a-a8df-1fcb770816ac",
+      "title": "Ukrainian Restaurant Vocabulary",
+      "native_lang": "en",
+      "target_lang": "uk",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Reading the Menu",
+          "subsections": [
+            "### Menu Sections",
+            "### Classic Ukrainian Dishes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5a88f4e8-f934-42cd-a96c-cdbde00dd422",
+      "title": "Portekizce Mesajlasma Argosu: Ciftler Icin Dijital Iletisim Rehberi",
+      "native_lang": "tr",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Günlük Ifade Kisaltmalari",
+          "subsections": [
+            "### Selamlama",
+            "### Onay ve Cevaplar"
+          ]
+        },
+        {
+          "header": "## Emoji ve Semboller",
+          "subsections": [
+            "### Romantik Emojiler",
+            "### Yaygin Kullanilan Emojiler"
+          ]
+        },
+        {
+          "header": "## Pratik Mesaj Örnekleri",
+          "subsections": [
+            "### Sabah Mesajlari",
+            "### Gün Icinde",
+            "### Gece Mesajlari"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5adbab61-6e47-4c37-8e93-dfd76e09081e",
+      "title": "French Texting Slang: A Couple's Guide to Digital Communication",
+      "native_lang": "en",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Essential French Text Abbreviations",
+          "subsections": [
+            "### Love and Affection",
+            "### Common Greetings and Responses",
+            "### Questions and Expressions"
+          ]
+        },
+        {
+          "header": "## Romantic Texting Vocabulary",
+          "subsections": [
+            "### Sweet Morning Texts",
+            "### Goodnight Messages",
+            "### During the Day"
+          ]
+        },
+        {
+          "header": "## Sample Text Conversations",
+          "subsections": [
+            "### Morning Check-in",
+            "### Making Plans",
+            "### Romantic Exchange"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5add2d99-d4db-490c-b23f-2d825fbe6e03",
+      "title": "50+ Hiszpańskich Zwrotów na Romantyczną Randkę",
+      "native_lang": "pl",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Slownictwo gastronomiczne",
+          "subsections": [
+            "### Rodzaje restauracji",
+            "### Na talerzu"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Odgrywanie scenek",
+            "### Cwiczenie 2: Planowanie randki",
+            "### Cwiczenie 3: 5 komplementow"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5aeeee4a-850f-42e4-a769-60ef2e51f054",
+      "title": "L'argot SMS en espagnol",
+      "native_lang": "fr",
+      "target_lang": "es",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Les expressions tendres par texto",
+          "subsections": [
+            "### Bonjour et bonne nuit",
+            "### Messages romantiques"
+          ]
+        },
+        {
+          "header": "## Conversations texto typiques entre couples",
+          "subsections": [
+            "### Au réveil",
+            "### Pendant la journée",
+            "### Le soir"
+          ]
+        },
+        {
+          "header": "## Vocabulaire argotique moderne",
+          "subsections": [
+            "### Mots d'affection",
+            "### Expressions courantes"
+          ]
+        },
+        {
+          "header": "## Messages pour occasions spéciales",
+          "subsections": [
+            "### Saint-Valentin",
+            "### Anniversaire de couple",
+            "### Réconciliation"
+          ]
+        },
+        {
+          "header": "## Exercices de pratique pour couples",
+          "subsections": [
+            "### Exercice 1 : Décodez ces messages",
+            "### Exercice 2 : Écrivez en argot SMS",
+            "### Exercice 3 : Conversation texto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5b12f7ba-9cee-4b4f-aef9-c3f1b977681a",
+      "title": "50+ Italyanca Ask Ifadesi: Kalbini Fethet",
+      "native_lang": "tr",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Sevgililer Günü (San Valentino)",
+          "subsections": [
+            "### Klasik Ifadeler",
+            "### Kart ve Hediye Icin"
+          ]
+        },
+        {
+          "header": "## Yilbasi (Capodanno)",
+          "subsections": [
+            "### Yeni Yil Dilekleri"
+          ]
+        },
+        {
+          "header": "## Yildonümü (Anniversario)",
+          "subsections": [
+            "### Iliskı Yildonümü",
+            "### Evlilik Yildonümü"
+          ]
+        },
+        {
+          "header": "## Evlilik Teklifi (Proposta di Matrimonio)",
+          "subsections": [
+            "### O Büyük Soru"
+          ]
+        },
+        {
+          "header": "## Zor Zamanlar Icin",
+          "subsections": [
+            "### Destek ve Teselli"
+          ]
+        },
+        {
+          "header": "## Barismak Icin",
+          "subsections": [
+            "### Özür ve Baris"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5b7ebe13-f80a-417a-8ead-9f0645bd0d1f",
+      "title": "50+ hiszpańskich zdrobnień, które roztopią serce",
+      "native_lang": "pl",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Zdrobnienia w roznych krajach",
+          "subsections": [
+            "### Hiszpania",
+            "### Meksyk",
+            "### Argentyna",
+            "### Kolumbia"
+          ]
+        },
+        {
+          "header": "## Kiedy używać zdrobnień",
+          "subsections": [
+            "### Na osobności vs przy rodzinie",
+            "### Formalne vs nieformalne sytuacje",
+            "### Teksty vs rozmowa na żywo"
+          ]
+        },
+        {
+          "header": "## Jak używać zdrobnień",
+          "subsections": [
+            "### Codziennie rano",
+            "### Przy pożegnaniu",
+            "### W wiadomościach",
+            "### Na dobranoc"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Zdrobnienie dnia",
+            "### Cwiczenie 2: Powitania",
+            "### Cwiczenie 3: SMS-y"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5b7f8ae1-927a-4be0-a39a-1ee563c90a6a",
+      "title": "Argot Anglais de SMS pour les Couples",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Exemples de Conversations",
+          "subsections": [
+            "### Le Matin",
+            "### Le Soir"
+          ]
+        }
+      ]
+    }
+  ]
+}

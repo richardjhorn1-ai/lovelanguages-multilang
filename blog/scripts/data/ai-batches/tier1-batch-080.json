@@ -1,0 +1,56 @@
+{
+  "tier": 1,
+  "batchId": "tier1-batch-080",
+  "articles": [
+    {
+      "id": "e32986e7-75a4-4dbc-b217-e2bc8c5a9147",
+      "title": "Frases em Romeno para Videochamadas com a Família",
+      "native_lang": "pt",
+      "target_lang": "ro",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nVideochamadas com a família do seu parceiro podem ser intimidantes, especialmente em outro idioma! Se a família do seu amor fala Romeno, estas frases vão ajudá-lo a causar uma ótima impressão!\n\n<PhraseOfDay word=\"Hello everyone!\" translation=\"Olá a todos!\" pronunciation=\"re-LÔU ÉV-ri-uan\" context=\"Uma forma educada de cumprimentar a família\" />\n\n## Cumprimentos Iniciais\n\n| Romeno | Pronúncia | Português |\n|-----------|-----------|-----------|\n| Hello everyone | re-LÔU ÉV-ri-uan | Olá a todos |\n| Nice to see you | náis tu sí iu | Prazer em ver vocês |\n| How are you doing? | ráu ar iu DÚ-ing | Como vocês estão? |\n| It's so good to see you all | its sôu gud tu sí iu ól | É tão bom ver todos vocês |\n\n<VocabCard word=\"Hello everyone\" translation=\"Olá a todos\" pronunciation=\"re-LÔU ÉV-ri-uan\" example=\"Perfeito para iniciar a videochamada.\" />\n\n<CultureTip flag=\"🇷🇴\" title=\"Formalidade com a Família\">\nVista-se adequadamente para causar boa impressão na família.\n</CultureTip>\n\n## Perguntas Educadas\n\n| Romeno | Pronúncia | Português |\n|-----------|-----------|-----------|\n| How have you been? | ráu hév iu bín | Como tem passado? |\n| How's work going? | ráuz uérk GÔU-ing | Como está o trabalho? |\n| What's new with you? | uóts niú uith iu | O que há de novo? |\n\n<VocabCard word=\"How have you been?\" translation=\"Como tem passado?\" pronunciation=\"ráu hév iu bín\" example=\"Demonstre interesse genuíno.\" />\n\n## Problemas Técnicos\n\n| Romeno | Pronúncia | Português |\n|-----------|-----------|-----------|\n| Can you hear me? | ken iu hír mi | Consegue me ouvir? |\n| Sorry, the connection is bad | SÓ-ri dê ko-NÉK-shon iz béd | Desculpe, a conexão está ruim |\n| You're breaking up | iur BRÉI-king âp | Está cortando |\n\n<CultureTip flag=\"🇷🇴\" title=\"Dicas para a Chamada\">\nMantenha contato visual olhando para a câmera.\n</CultureTip>\n\n## Despedidas Calorosas\n\n| Romeno | Pronúncia | Português |\n|-----------|-----------|-----------|\n| It was lovely talking to you | it uóz LÂV-li TÓ-king tu iu | Foi ótimo conversar com vocês |\n| Talk to you soon | tók tu iu sun | Falamos em breve |\n| Take care | teik kér | Cuide-se |\n\n<VocabCard word=\"It was lovely talking to you\" translation=\"Foi ótimo conversar com vocês\" pronunciation=\"it uóz LÂV-li TÓ-king tu iu\" example=\"Termine a chamada deixando uma boa impressão.\" />\n\n## Dicas para Videochamadas\n\n1. **Vista-se adequadamente** — Mesmo em casa, cause boa impressão\n2. **Ambiente calmo** — Sem distrações ou barulhos\n3. **Tenha paciência** — Se não entender algo, peça para repetirem\n4. **Sorria** — A linguagem corporal comunica muito\n5. **Prepare frases** — Tenha este guia por perto!\n\n<CultureTip flag=\"🇷🇴\" title=\"Mantendo o Contato\">\nPrepare algumas perguntas sobre a família para mostrar interesse.\n</CultureTip>\n\nPara saber mais sobre conhecer a família, confira nosso [guia para conhecer a família do parceiro romeno](/learn/pt/ro/meeting-your-romanian-partners-family/). E para conversas informais, veja [como iniciar conversas em Romeno](/learn/pt/ro/romanian-small-talk-conversation-starters/).\n\nCom prática e dedicação, você vai conquistar a família do seu amor!\n\n<CTA />",
+      "issues": [
+        {
+          "type": "language_fingerprint_mismatch",
+          "details": {
+            "nativeLang": "pt",
+            "nativeStopWordRatio": 5,
+            "englishStopWordRatio": 10
+          }
+        }
+      ]
+    },
+    {
+      "id": "e38fbfef-ae05-42ce-8930-1e03c2ae4a7a",
+      "title": "Bună dimineața și noapte bună în greacă – Mesaje drăguțe",
+      "native_lang": "ro",
+      "target_lang": "el",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nZiua începe și se termină mai frumos când îi urezi partenerului în limba lui. Aceste mesaje vor aduce zâmbete în fiecare zi.\n\n<PhraseOfDay\n  word=\"Καλημέρα\"\n  translation=\"Bună dimineața\"\n  pronunciation=\"\"\n  context=\"Începe fiecare zi cu o urare caldă\"\n/>\n\n## Mesaje de bună dimineața\n\n<VocabCard\n  word=\"Καλημέρα\"\n  translation=\"Bună dimineața\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇬🇷\" title=\"Saluturile zilnice\">\nGrecii sunt foarte expresivi emoțional. Scuzele sincere și călduroase sunt apreciate - arată emoție și sinceritate în exprimare.\n</CultureTip>\n\n## Mesaje de noapte bună\n\n| Greacă | Română |\n|---------|---------|\n| Καληνύχτα | Noapte bună |\n| Όνειρα γλυκά | Vise frumoase |\n| Καληνύχτα | Somn ușor |\n\n<VocabCard\n  word=\"Καληνύχτα\"\n  translation=\"Noapte bună\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Όνειρα γλυκά\"\n  translation=\"Vise frumoase\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru mesajele zilnice\n\n1. **Fii consistent** – Un mesaj zilnic creează un ritual frumos\n2. **Personalizează** – Adaugă o amintire sau o glumă internă\n3. **Variază** – Nu folosi aceeași frază în fiecare zi\n4. **Adaugă emoji** – 💕 și 😘 sunt universale\n5. **Fii spontan** – Uneori, un mesaj în mijlocul nopții e cel mai romantic\n\n<CTA />\n\n## Articole conexe\n\n- [Fraze pentru relații la distanță în greacă](/ro/el/greek-long-distance-relationship)\n- [Alinturile în greacă](/ro/el/greek-pet-names-and-terms-of-endearment-50)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "e5a8e9d1-3e6c-4107-afc5-65b318b88dc7",
+      "title": "Szerelmes Levél Írása Hollandul – Romantikus Kifejezések és Tippek",
+      "native_lang": "hu",
+      "target_lang": "nl",
+      "category": "communication",
+      "content": "# Szerelmes Levél Írása Hollandul – Romantikus Kifejezések és Tippek\n\nA holland nyelv közvetlen és őszinte – a szerelmes levelek is ezt tükrözik. Ha hollandul szeretnéd kifejezni érzelmeidet, ez az útmutató segít megtalálni a megfelelő szavakat.\n\n## Megszólítások\n\n### 1. Mijn liefde\n**Jelentés:** Szerelmem\n\n**Kiejtés:** mejn-LÍF-de\n\nKlasszikus, romantikus megszólítás.\n\n### 2. Mijn schat\n**Jelentés:** Kincsem\n\n**Kiejtés:** mejn-SKAT\n\nA leggyakoribb holland kedveskedés.\n\n### 3. Lieverd\n**Jelentés:** Drágám\n\n**Kiejtés:** LÍ-vert\n\nGyengéd és barátságos.\n\n### 4. Liefje\n**Jelentés:** Édesem\n\n**Kiejtés:** LÍF-je\n\nKedves és intim.\n\n### 5. Mijn alles\n**Jelentés:** Mindenem\n\n**Kiejtés:** mejn-AL-lesz\n\nErős érzelmi töltetet hordoz.\n\n## Kezdő Mondatok\n\n### 6. Ik schrijf je om te zeggen hoeveel ik van je hou.\n**Jelentés:** Azért írok, hogy elmondjam, mennyire szeretlek.\n\n### 7. Woorden kunnen niet uitdrukken wat ik voor je voel.\n**Jelentés:** Szavak nem tudják kifejezni, mit érzek irántad.\n\n### 8. Sinds ik je ken, heeft mijn leven een nieuwe betekenis.\n**Jelentés:** Mióta ismerlek, az életemnek új értelme van.\n\n### 9. Elk moment met jou is een geschenk.\n**Jelentés:** Minden veled töltött pillanat ajándék.\n\n### 10. Jij bent het beste wat me ooit is overkomen.\n**Jelentés:** Te vagy a legjobb, ami valaha velem történt.\n\n## Érzelmek Kifejezése\n\n### 11. Mijn hart is van jou.\n**Jelentés:** A szívem a tiéd.\n\n### 12. Jij maakt me compleet.\n**Jelentés:** Teljessé teszel.\n\n### 13. Jouw liefde geeft me kracht.\n**Jelentés:** A szerelmed erőt ad.\n\n### 14. Ik word elke dag meer verliefd op je.\n**Jelentés:** Minden nap jobban beleszeretek.\n\n### 15. Jij bent mijn zielsverwant.\n**Jelentés:** Te vagy a lelki társam.\n\n## Lezárások\n\n### 16. Voor altijd de jouwe\n**Jelentés:** Örökké a tiéd\n\n### 17. Met al mijn liefde\n**Jelentés:** Minden szeretetemmel\n\n### 18. De jouwe voor eeuwig\n**Jelentés:** A tiéd örökké\n\n### 19. Tot we elkaar weer zien\n**Jelentés:** Amíg újra találkozunk\n\n### 20. Ik hou van je met heel mijn hart\n**Jelentés:** Teljes szívemből szeretlek\n\n## Kulturális Tippek\n\n### Holland Direktség\nA hollandok híresek közvetlen kommunikációjukról. A szerelmes levél is legyen őszinte és autentikus.\n\n### Gezelligheid\nA \"gezelligheid\" – otthonosság, meghittség – fontos holland érték. Ezt fejezd ki a leveledben is.\n\n### Egyszerűség\nA hollandok értékelik az egyszerűséget. Ne legyen túlzottan dagályos a levél.\n\n## Minta Levél\n\n*Mijn lieve schat,*\n\n*Ik schrijf je deze brief omdat er dingen in mijn hart zijn die ik met je moet delen. Vanaf het moment dat ik je ontmoette, is mijn leven voor altijd veranderd.*\n\n*Elke dag aan jouw zijde is een cadeau. Jouw glimlach verlicht mijn donkerste dagen, en jouw liefde geeft me een kracht waarvan ik niet wist dat ik die had. Ik word met elk moment dieper verliefd op je.*\n\n*Jij bent mijn beste vriend/vriendin, mijn vertrouweling, en de liefde van mijn leven. Ik kan me mijn wereld zonder jou niet voorstellen.*\n\n*Voor altijd de jouwe,*\n*[A neved]*\n\n## Tippek\n\n1. **Légy őszinte** – A hollandok értékelik az autentikusságot\n2. **Kerüld a túlzásokat** – Az egyszerű kifejezések erősebbek\n3. **Használj konkrét emlékeket** – Ez személyessé teszi a levelet\n4. **Olvasd fel hangosan** – Ellenőrizd a természetes hangzást",
+      "issues": [
+        {
+          "type": "truncated_content",
+          "details": {
+            "endingChars": "enőrizd a természetes hangzást"
+          }
+        }
+      ]
+    }
+  ]
+}

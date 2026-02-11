@@ -1,0 +1,128 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0723",
+  "articles": [
+    {
+      "id": "d17d8b67-e83a-420e-84e9-966260e1207e",
+      "title": "Turkish Anniversary Wishes: Romantic Messages for Your Love",
+      "native_lang": "en",
+      "target_lang": "tr",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nCelebrating your yıldönümü in Turkish adds a beautiful layer of meaning to this special occasion. Whether you're marking your first year birlikte or your golden yıldönümü, expressing your aşk in your partner's language shows thoughtfulness and dedication to your relationship.\n\nFor everyday romantic expressions, check out our guide on [Turkish romantic phrases for every occasion](/blog/en/turkish-romantic-phrases-for-every-occasion).\n\n<PhraseOfDay\n  word=\"yıldönümünüz kutlu olsun\"\n  translation=\"Happy Anniversary\"\n  pronunciation=\"yıldönümünüz kutlu olsun\"\n  context=\"The perfect way to greet your partner on your special day.\"\n/>\n\n## Essential Anniversary Vocabulary\n\n<VocabCard\n  word=\"yıldönümü\"\n  translation=\"anniversary\"\n  pronunciation=\"yıldönümü\"\n  example=\"Today is our yıldönümü!\"\n/>\n\n| Turkish | English | Usage |\n|---|---|---|\n| yıldönümü | anniversary | The special date |\n| yıl | years | Time together |\n| birlikte | together | United as a couple |\n| her zaman | forever | Eternal love |\n| aşk | love | Your bond |\n| kutlamak | celebrate | To honor the day |\n| anı | memory | Cherished moments |\n| dönüm noktası | milestone | Important markers |\n\n<CultureTip flag=\"🇹🇷\" title=\"Turkish Anniversary Traditions\">\nIn Turkish-speaking cultures, anniversaries are often celebrated with romantic dinners, meaningful gifts, and sometimes renewing vows. Each milestone year may have traditional gift themes associated with it.\n</CultureTip>\n\n## Simple Anniversary Wishes\n\n### Short and Sweet\n- **yıldönümünüz kutlu olsun!** - Happy Anniversary!\n- **Another beautiful year birlikte!** - Celebrating time together\n- **To many more yıl!** - Looking forward\n\n### For Your Partner\n- **You make every day special** - Expressing gratitude\n- **aşk you more each day** - Growing love\n- **My heart is her zaman yours** - Eternal commitment\n\n<VocabCard\n  word=\"aşk\"\n  translation=\"love\"\n  pronunciation=\"aşk\"\n  example=\"aşk grows stronger every year.\"\n/>\n\n## Romantic Anniversary Messages\n\n### Heartfelt Declarations\n**\"Every yıldönümü with you reminds me why I chose you. You are my her zaman.\"**\n\n**\"birlikte we've created a beautiful life. Here's to many more yıl of aşk.\"**\n\n### Reflective Messages\n**\"Looking back on our anı fills my heart with joy. Thank you for being my everything.\"**\n\n**\"Each dönüm noktası we reach together makes our bond stronger. I değer vermek every moment with you.\"**\n\n<CultureTip flag=\"🇹🇷\" title=\"Anniversary Milestone Names\">\nDifferent yıldönümü yıl have traditional names: first (paper), fifth (wood), tenth (tin), twenty-fifth (silver), and fiftieth (gold). These traditions are similar across many Turkish-speaking regions.\n</CultureTip>\n\n## Anniversary Messages by Year\n\n### First Anniversary\n**\"One year of aşk, laughter, and happiness. The first of many beautiful yıl birlikte!\"**\n\n### Fifth Anniversary\n**\"Five yıl of making anı together. You still give me butterflies.\"**\n\n### Tenth Anniversary\n**\"A decade of aşk! Every day with you is a gift I değer vermek.\"**\n\n### Twenty-Fifth Anniversary (Silver)\n**\"Twenty-five yıl of aşk and counting. You are my greatest dönüm noktası.\"**\n\n### Fiftieth Anniversary (Golden)\n**\"Fifty yıl birlikte - a golden aşk story. You are my her zaman.\"**\n\n## Romantic Phrases for Cards\n\n| Occasion | Turkish Message | Meaning |\n|---|---|---|\n| Any year | yıldönümünüz kutlu olsun my aşk | Happy anniversary my love |\n| First year | Our first yıldönümü! | Celebrating year one |\n| Special year | dönüm noktası yıldönümü | Major anniversary |\n| Every year | her zaman birlikte | Eternal togetherness |\n\n## Planning Your Anniversary Celebration\n\n### Romantic Ideas\n1. Write a card in Turkish\n2. Learn a Turkish love song\n3. Cook a traditional Turkish dinner\n4. Plan a trip to a Turkish-speaking destination\n5. Create a anı book with Turkish captions\n\n### What to Say at Dinner\n- **\"To us and our beautiful aşk!\"** - A perfect toast\n- **\"Here's to her zaman!\"** - Raising your glass\n- **\"Thank you for choosing me\"** - Expressing gratitude\n\nFor more terms of endearment, explore our [Turkish pet names](/blog/en/turkish-pet-names-and-terms-of-endearment) guide.\n\n## Quick Reference Card\n\n| Purpose | Say This |\n|---|---|\n| Greeting | yıldönümünüz kutlu olsun! |\n| Declaration | I aşk you |\n| Toast | To her zaman! |\n| Gratitude | Thank you for every anı |\n\nEvery yıldönümü is a chance to celebrate your aşk story. Speaking these words in Turkish makes the moment even more special and shows your partner how much their language and culture mean to you.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Simple Anniversary Wishes",
+              "## Romantic Anniversary Messages",
+              "## Anniversary Messages by Year",
+              "## Planning Your Anniversary Celebration"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "d17ee05c-3024-46bd-8b01-aac7876af121",
+      "title": "100 Συχνές Λέξεις (nl): Οδηγός για Ελληνόφωνα Ζευγάρια",
+      "native_lang": "el",
+      "target_lang": "nl",
+      "category": "communication",
+      "content": "Η εκμάθηση βασικού λεξιλογίου είναι θεμελιώδης για κάθε ζευγάρι. Αυτές οι λέξεις θα σας βοηθήσουν στην καθημερινή επικοινωνία με τον σύντροφό σας.\n\n## Βασικές Κατηγορίες Λέξεων\n\n### Αγάπη & Τρυφερότητα\n\nΑγάπη, Καρδιά, Φιλί, Αγκαλιά, Αγαπητός/ή\n\n### Καθημερινές Λέξεις\n\nΝαι, Όχι, Παρακαλώ, Ευχαριστώ, Συγγνώμη, Καλημέρα, Καληνύχτα\n\n### Συναισθήματα\n\nΧαρούμενος/η, Λυπημένος/η, Κουρασμένος/η, Θυμωμένος/η, Ενθουσιασμένος/η\n\n### Χρόνος\n\nΣήμερα, Αύριο, Χθες, Τώρα, Αργότερα, Πάντα, Ποτέ\n\n### Τοποθεσία\n\nΕδώ, Εκεί, Σπίτι, Δουλειά, Μαζί\n\n### Ερωτήσεις\n\nΤι, Πού, Πότε, Γιατί, Πώς, Ποιος\n\n### Ρήματα\n\nΕίμαι, Έχω, Θέλω, Μπορώ, Πρέπει, Αγαπώ, Χρειάζομαι\n\n## Συμπέρασμα\n\nΜε αυτές τις βασικές λέξεις, μπορείτε να ξεκινήσετε να επικοινωνείτε καθημερινά με τον σύντροφό σας. Η πρακτική κάνει τέλειο!",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 106,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Βασικές Κατηγορίες Λέξεων"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "d184ec76-6df8-44fb-9272-bbe290b0c313",
+      "title": "Ukraynaca Kıskançlık ve Güven İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "uk",
+      "category": "communication",
+      "content": "Kıskançlık, ilişkilerde doğal bir duygu olabilir. Ukraynaca konuşan partnerinizle bu konuları sağlıklı bir şekilde konuşmak için temel ifadeler.\n\n## Kıskançlığı İfade Etme\n\n### 1. \"Я почуваюся трохи ревнивим/ою, коли...\"\n**Telaffuz:** *Ya poçuvayusya trohi revnıvım/oyu, kolı...*\n\n**Anlam:** \"...olduğunda biraz kıskanç hissediyorum\"\n\n### 2. \"Чи можеш мене заспокоїти?\"\n**Telaffuz:** *Çı mojeş mene zaspokoyitı?*\n\n**Anlam:** \"Beni rahatlatabilir misin?\"\n\n### 3. \"Я довіряю тобі, але не їм\"\n**Telaffuz:** *Ya doviryayu tobi, ale ne yim*\n\n**Anlam:** \"Sana güveniyorum, ama onlara güvenmiyorum\"\n\n### 4. \"Мені некомфортно, коли...\"\n**Telaffuz:** *Meni nekomfortno, kolı...*\n\n**Anlam:** \"...olduğunda rahatsız oluyorum\"\n\n### 5. \"Мені потрібно знати, що я твій пріоритет\"\n**Telaffuz:** *Meni potrıbno znatı, şço ya tviy priorıtet*\n\n**Anlam:** \"Senin önceliğin olduğumu bilmem gerekiyor\"\n\n## Güven İnşa Etme\n\n### 6. \"Я повністю тобі довіряю\"\n**Telaffuz:** *Ya povnıstyu tobi doviryayu*\n\n**Anlam:** \"Sana tamamen güveniyorum\"\n\n### 7. \"Ти єдина людина для мене\"\n**Telaffuz:** *Tı yedına lyudına dlya mene*\n\n**Anlam:** \"Benim için tek kişi sensin\"\n\n### 8. \"Я ніколи не зроблю нічого, щоб заподіяти тобі біль\"\n**Telaffuz:** *Ya nıkolı ne zroblyu nıçogo, şçob zapodıyatı tobi bil*\n\n**Anlam:** \"Seni incitecek hiçbir şey yapmam\"\n\n### 9. \"Тобі немає про що хвилюватися\"\n**Telaffuz:** *Tobi nemaye pro şço hvılyuvatısya*\n\n**Anlam:** \"Endişelenecek hiçbir şeyin yok\"\n\n### 10. \"Я відданий/а тільки тобі\"\n**Telaffuz:** *Ya vıddanıy/a tılkı tobi*\n\n**Anlam:** \"Sadece sana bağlıyım\"\n\n### 11. \"Давай поговоримо про твої переживання\"\n**Telaffuz:** *Davay pogovorımo pro tvoyi perejıvannya*\n\n**Anlam:** \"Endişelerin hakkında konuşalım\"\n\n### 12. \"Що я можу зробити, щоб ти почувався/лася впевненіше?\"\n**Telaffuz:** *Şço ya moju zrobıtı, şçob tı poçuvavsya/lasya vpevnenişe?*\n\n**Anlam:** \"Kendini daha güvende hissetmen için ne yapabilirim?\"\n\n## Ukrayna Güven Kültürü\n\n\"Кохання моє\" (aşkım) ve \"Я кохаю тільки тебе\" (sadece seni seviyorum) güven veren ifadelerdir.\n\nBu ifadelerle Ukraynaca konuşan partnerinizle güven dolu bir ilişki kurabilirsiniz.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 282,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Kıskançlığı İfade Etme",
+              "## Güven İnşa Etme"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "d188ca34-1310-4021-91d4-7e6fe1aedb82",
+      "title": "35 Cumplidos en Alemán para Tu Pareja",
+      "native_lang": "es",
+      "target_lang": "de",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport ConjugationTable from '@components/ConjugationTable.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nAprender a halagar a tu pareja en alemán es una de las formas más románticas de darle sabor a vuestra relación mientras dominan juntos un nuevo idioma. Ya sea que estén planeando un viaje a Alemania, Austria o Suiza, o simplemente quieran añadir un toque europeo a vuestro romance, estos cumplidos en alemán les ayudarán a expresar sus sentimientos con encanto auténtico.\n\nEl alemán puede tener la reputación de ser un idioma áspero, pero cuando se trata de romance, puede ser increíblemente tierno y poético. Exploremos el hermoso mundo de los cumplidos alemanes que harán que el corazón de tu pareja se acelere.\n\n## Cumplidos Físicos Esenciales\n\nLos cumplidos físicos suelen ser la forma más fácil de comenzar a practicar alemán con tu pareja. Aquí tienes algunas frases fundamentales para empezar:\n\n<VocabCard\n  word=\"Du bist schön\"\n  translation=\"Eres hermoso/a\"\n  pronunciation=\"[du bist shoen]\"\n  example=\"Du bist heute besonders schön - Te ves especialmente hermoso/a hoy\"\n/>\n\n<VocabCard\n  word=\"Du siehst gut aus\"\n  translation=\"Te ves bien\"\n  pronunciation=\"[du zist gut aus]\"\n  example=\"Du siehst in diesem Kleid gut aus - Te ves bien con ese vestido\"\n/>\n\nPara cumplidos más específicos sobre la apariencia:\n\n| Alemán | Español | Pronunciación |\n|--------|---------|---------------|\n| **Du hast schöne Augen** | Tienes ojos hermosos | [du hast SHOE-ne AU-guen] |\n| **Dein Lächeln ist bezaubernd** | Tu sonrisa es encantadora | [dain LE-jeln ist be-TSAU-bernt] |\n| **Du bist sehr attraktiv** | Eres muy atractivo/a | [du bist zer a-trak-TIF] |\n\n<CultureTip title=\"La Franqueza Alemana en los Cumplidos\" flag=\"🇩🇪\">\nLos alemanes tienden a ser más directos y genuinos con sus cumplidos en comparación con otras culturas. Al dar cumplidos en países de habla alemana, la sinceridad se valora más que la frecuencia. Un cumplido bien sincronizado y sincero será mucho más apreciado que los halagos casuales.\n</CultureTip>\n\n## Cumplidos de Personalidad y Carácter\n\nHalagar la personalidad de tu pareja muestra una apreciación más profunda y te ayuda a aprender vocabulario alemán más sofisticado:\n\n<VocabCard\n  word=\"Du bist wunderbar\"\n  translation=\"Eres maravilloso/a\"\n  pronunciation=\"[du bist VUN-der-bar]\"\n  example=\"Du bist einfach wunderbar - Simplemente eres maravilloso/a\"\n/>\n\n<PhraseOfDay\n  word=\"Du machst mich glücklich\"\n  translation=\"Me haces feliz\"\n  pronunciation=\"[du majst mij GLUK-lij]\"\n  context=\"Perfecta para expresar cómo tu pareja afecta tu estado de ánimo y bienestar\"\n/>\n\nAquí tienes más cumplidos enfocados en la personalidad:\n\n| Alemán | Español | Cuándo Usarlo |\n|--------|---------|-------------|\n| **Du bist so intelligent** | Eres tan inteligente | Después de conversaciones reflexivas |\n| **Du hast ein großes Herz** | Tienes un gran corazón | Cuando muestran bondad |\n| **Du bist sehr witzig** | Eres muy gracioso/a | Después de hacerte reír |\n| **Du bist so talentiert** | Eres tan talentoso/a | Al admirar sus habilidades |\n\n## Cumplidos Románticos en Alemán\n\nEstas frases románticas te ayudarán a expresar sentimientos más profundos:\n\n<VocabCard\n  word=\"Du bist die Liebe meines Lebens\"\n  translation=\"Eres el amor de mi vida\"\n  pronunciation=\"[du bist di LI-be MAI-nes LE-bens]\"\n  example=\"Weißt du, dass du die Liebe meines Lebens bist? - ¿Sabes que eres el amor de mi vida?\"\n/>\n\n<VocabCard\n  word=\"Ich bin verrückt nach dir\"\n  translation=\"Estoy loco/a por ti\"\n  pronunciation=\"[ij bin fe-RUKT naj dir]\"\n  example=\"Ich bin so verrückt nach dir - Estoy tan loco/a por ti\"\n/>\n\n## Usando Adjetivos Alemanes para Cumplidos\n\nDominar los adjetivos alemanes ampliará significativamente tu vocabulario de cumplidos. Así es como usar los más comunes:\n\n<ConjugationTable\n  verb=\"sein (ser/estar)\"\n  meaning=\"Esencial para dar cumplidos\"\n  conjugations={[\n    { person: \"ich\", word: \"bin\", translation: \"yo soy/estoy\" },\n    { person: \"du\", word: \"bist\", translation: \"tú eres/estás\" },\n    { person: \"er/sie/es\", word: \"ist\", translation: \"él/ella es/está\" },\n    { person: \"wir\", word: \"sind\", translation: \"nosotros somos/estamos\" },\n    { person: \"ihr\", word: \"seid\", translation: \"vosotros sois/estáis\" },\n    { person: \"sie/Sie\", word: \"sind\", translation: \"ellos son/Usted es\" }\n  ]}\n/>\n\n### Adjetivos Útiles para Cumplidos\n\n- **wunderschön** (maravilloso/precioso) [VUN-der-shoen]\n- **liebevoll** (amoroso/cariñoso) [LI-be-fol]\n- **charmant** (encantador) [shar-MANT]\n- **elegant** (elegante) [e-le-GANT]\n- **perfekt** (perfecto) [per-FEKT]\n\n<CultureTip title=\"Cumplidos Formales vs. Informales\" flag=\"🇩🇪\">\nEn alemán, usarás \"du\" (tú informal) con tu pareja, pero si estás halagando a alguien que no conoces bien, usa \"Sie\" (usted formal). Por ejemplo: \"Sie sehen heute sehr elegant aus\" (Usted se ve muy elegante hoy) versus \"Du siehst heute sehr elegant aus\" con tu pareja.\n</CultureTip>\n\n## Cumplidos para Ocasiones Especiales\n\nAdapta tus cumplidos alemanes a momentos especiales:\n\n### Cumplidos de Cumpleaños\n- **Du wirst immer schöner** - Cada vez eres más hermoso/a [du virst I-mer SHOE-ner]\n- **Du siehst kein Tag älter aus** - No pareces un día más viejo/a [du zist kain tak EL-ter aus]\n\n### Cumplidos de Aniversario\n- **Ich liebe dich mehr jeden Tag** - Te amo más cada día [ij LI-be dij mer YE-den tak]\n- **Du bist meine bessere Hälfte** - Eres mi media naranja [du bist MAI-ne BE-se-re HELF-te]\n\n## Actividades de Práctica para Parejas\n\n### Desafío de Cumplido Diario\nTúrnense para darse un cumplido en alemán cada día. Comiencen con frases simples y gradualmente avancen hacia expresiones más complejas.\n\n### Práctica Frente al Espejo\nPárense juntos frente a un espejo y practiquen la pronunciación mientras se miran. Esto ayuda tanto con el aprendizaje del idioma como con la construcción de confianza.\n\n### Tarjetas de Cumplidos\nCreen tarjetas con cumplidos alemanes en un lado y traducciones al español en el otro. Háganse preguntas durante la cena o antes de dormir.\n\n<PhraseOfDay\n  word=\"Du bedeutest mir alles\"\n  translation=\"Significas todo para mí\"\n  pronunciation=\"[du be-DOI-test mir A-les]\"\n  context=\"Úsala para esos momentos profundamente románticos cuando quieras expresar cuán importante es tu pareja para ti\"\n/>\n\n## Errores Comunes a Evitar\n\n### Género y Artículos\nRecuerda que los sustantivos alemanes tienen géneros, y los adjetivos deben concordar:\n- **Der schöne Mann** (el hombre guapo)\n- **Die schöne Frau** (la mujer hermosa)\n\n### Falsos Amigos\nTen cuidado con palabras que se parecen al español pero tienen significados diferentes:\n- **Gift** en alemán significa \"veneno\", no \"regalo\"\n- **Hell** significa \"brillante\" o \"claro\", no lo opuesto al cielo\n\n## Construyendo Tu Vocabulario de Cumplidos\n\nA medida que progresan en su viaje de aprendizaje del alemán juntos, intenten incorporar estos cumplidos más avanzados:\n\n| Alemán | Español | Nivel de Dificultad |\n|--------|---------|------------------|\n| **Du strahlst heute** | Hoy irradias luz | Intermedio |\n| **Du bist atemberaubend** | Eres impresionante | Intermedio |\n| **Du verzauberst mich** | Me hechizas | Avanzado |\n| **Du bist mein Ein und Alles** | Eres mi todo | Avanzado |\n\nAprender cumplidos alemanes juntos no solo mejora sus habilidades lingüísticas sino que también fortalece su relación a través de metas compartidas y expresión romántica. Practiquen regularmente, sean pacientes con la pronunciación del otro y, lo más importante, diviértanse con este hermoso idioma del amor.\n\nRecuerden, la clave para cumplidos alemanes exitosos es la sinceridad. Los alemanes valoran la autenticidad, así que sientan lo que dicen, y sus cumplidos sinceros serán profundamente apreciados tanto por tu pareja como por cualquier hablante de alemán que encuentren en sus viajes.\n\n<CTA\n  text=\"¿Listo para dominar estos cumplidos? Con Love Languages, tu pareja puede enviarte Word Gifts con cumplidos en voz AI auténtica. Practica con el chat de voz AI hasta que tengas confianza. ¡Tu pareja se convierte en tu tutor!\"\n  buttonText=\"Comenzar a Aprender Deutsch\"\n/>\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Actividades de Práctica para Parejas",
+              "## Errores Comunes a Evitar"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "d18ca81c-87ff-49e4-a9a2-361e3723d6c1",
+      "title": "Phrases de réconfort en tchèque : Soutenir son partenaire",
+      "native_lang": "fr",
+      "target_lang": "cs",
+      "category": "communication",
+      "content": "## Soutenir son partenaire en tchèque\n\n## Phrases de réconfort\n\n### \"Jsem tu pro tebe\"\n**Prononciation :** ysém tou pro TÉ-bé\n\n**Signification :** Je suis là pour toi\n\n### \"Všechno bude v pořádku\"\n**Prononciation :** VCHÉKH-no BOU-dé v po-RJAD-kou\n\n**Signification :** Tout ira bien\n\n### \"V tom nejsi sám/sama\"\n**Prononciation :** v tom NEY-si SAM/SA-ma\n\n**Signification :** Tu n'es pas seul(e)\n\n## Écouter et valider\n\n### \"Chápu, jak se cítíš\"\n**Prononciation :** KHA-pou yak sé TSI-tich\n\n**Signification :** Je comprends ce que tu ressens\n\n### \"Je normální se tak cítit\"\n**Prononciation :** yé nor-MAL-ni sé tak TSI-tit\n\n**Signification :** C'est normal de ressentir ça\n\n## Soutien actif\n\n### \"Co mohu udělat, abych ti pomohl/pomohla?\"\n**Prononciation :** tso MO-hou ou-DIÉ-lat a-bikh ti PO-mohl/PO-moh-la\n\n**Signification :** Que puis-je faire pour t'aider ?\n\n## Encouragement\n\n### \"Jsi silnější, než si myslíš\"\n**Prononciation :** ysi SIL-nyéï-chi néj si MIS-lich\n\n**Signification :** Tu es plus fort(e) que tu ne le penses\n\n### \"Věřím v tebe\"\n**Prononciation :** VYÉ-rjim v TÉ-bé\n\n**Signification :** Je crois en toi\n\n### \"Zvládneš to\"\n**Prononciation :** ZVLAD-néch to\n\n**Signification :** Tu vas y arriver\n\n## Moments difficiles\n\n### \"Je mi moc líto, že tím procházíš\"\n**Prononciation :** yé mi mots LI-to jé tim pro-KHA-zich\n\n**Signification :** Je suis désolé(e) que tu traverses ça\n\n### \"Pojď, obejmu tě\"\n**Prononciation :** poïtch O-béy-mou tié\n\n**Signification :** Viens, je te prends dans mes bras\n\n### \"Projdeme tím společně\"\n**Prononciation :** PROÏ-dé-mé tim spo-LÉTCH-nyé\n\n**Signification :** On va surmonter ça ensemble\n\n## Conclusion\n\nLe soutien en tchèque est sincère et pragmatique.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 257,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Soutenir son partenaire en tchèque",
+              "## Phrases de réconfort",
+              "## Écouter et valider",
+              "## Soutien actif",
+              "## Encouragement",
+              "## Moments difficiles"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

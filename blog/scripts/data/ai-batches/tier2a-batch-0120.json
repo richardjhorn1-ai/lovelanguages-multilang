@@ -1,0 +1,127 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0120",
+  "articles": [
+    {
+      "id": "228135b4-abef-4590-a664-7af0607ad95c",
+      "title": "Як зробити пропозицію грецькою: фрази для заручин",
+      "native_lang": "uk",
+      "target_lang": "el",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport CTA from '@components/CTA.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\n\n# Як зробити пропозицію грецькою: фрази для заручин\n\nВи готові зробити найважливіше питання у житті? Якщо ваш партнер розмовляє грецькою, цей посібник допоможе вам підготувати ідеальну пропозицію!\n\nВід класичних слів до сучасних варіантів — тут ви знайдете все необхідне для цього особливого моменту.\n\n<PhraseOfDay\n  phrase=\"Will you marry me?\"\n  translation=\"Вийдеш за мене заміж? / Одружишся зі мною?\"\n  context=\"Найважливіше питання\"\n/>\n\n## Як зробити пропозицію грецькою\n\nКласичне питання про одруження грецькою звучить по-різному залежно від статі партнера та культурних традицій. Ось основні варіанти:\n\n### Основна лексика заручин\n\n\n\n## Романтичні фрази для пропозиції\n\nПеред тим як поставити питання, ви можете сказати щось особливе:\n\n### Вступні слова\n\n1. **Скажіть про свої почуття** — \"Я кохаю тебе більше за все на світі\"\n2. **Поділіться мріями** — \"Я хочу провести з тобою все життя\"\n3. **Зробіть комплімент** — \"Ти робиш мене найщасливішою людиною\"\n\n<CultureTip>\nТрадиції пропозиції відрізняються в різних країнах. Дізнайтеся, що прийнято в культурі вашого партнера — чи потрібно просити дозволу у батьків, чи є особливі ритуали.\n</CultureTip>\n\n## Оголошення про заручини\n\nПісля того як ваш партнер скаже \"так\", час поділитися радісною новиною з рідними та друзями!\n\n### Як оголосити про заручини грецькою\n\n- \"Ми заручені!\" \n- \"Він/вона сказав(ла) так!\"\n- \"Ми одружуємося!\"\n\n## Лексика про каблучку\n\nОбручка — важлива частина заручин. Ось корисні слова:\n\n| Грецька | Українська |\n|----------------|------------|\n| Ring | Каблучка |\n| Diamond | Діамант |\n| Engagement ring | Обручка для заручин |\n| Wedding band | Весільна обручка |\n\n## Культурні особливості\n\n<CultureTip>\nУ деяких культурах заручини включають офіційну церемонію з участю обох родин. Це може бути окрема подія до весілля, де родини зустрічаються та обмінюються подарунками.\n</CultureTip>\n\n## Підготовка до пропозиції\n\n### Чек-лист:\n- ✓ Вивчіть правильну вимову фраз\n- ✓ Дізнайтеся культурні традиції\n- ✓ Оберіть особливе місце\n- ✓ Підготуйте каблучку\n- ✓ Заплануйте як оголосити новину\n\n## Після заручин\n\nКоли ви вже заручені, з'являється нова лексика:\n\n- Наречений / Наречена\n- Весільні плани\n- Дата весілля\n- Список гостей\n\n## Продовжуйте вивчення\n\nТепер ви готові до пропозиції грецькою! Вивчайте більше романтичних фраз:\n\n- [Грецька весільна лексика](/uk/blog/greek-wedding-phrases)\n- [Романтичні фрази грецькою](/uk/blog/romantic-greek-phrases-for-couples)\n\n<CTA \n  text=\"Готові вивчати мову кохання грецькою? Наш додаток допоможе!\"\n  buttonText=\"Спробувати безкоштовно\"\n  href=\"/uk/learn/el\"\n/>",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 278,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "### Основна лексика заручин",
+              "## Підготовка до пропозиції"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "2281dad9-483b-4475-b153-fa08366b0e9b",
+      "title": "Hungarian Forgiveness Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "Forgiveness is essential for lasting love. When you're with a Hungarian speaker, knowing how to ask for and grant forgiveness in their language makes healing more meaningful.\n\n## Asking for Forgiveness\n\n### Bocsáss meg\n**Pronunciation:** BOH-chahsh mehg\n\n**Meaning:** \"Forgive me\"\n\n**When to use it:** A direct, heartfelt request for forgiveness. This phrase shows humility and genuine regret.\n\n## Granting Forgiveness\n\n### Megbocsátok\n**Pronunciation:** MEHG-boh-chah-tohk\n\n**Meaning:** \"I forgive you\"\n\n**When to use it:** To grant forgiveness directly and sincerely, releasing resentment and choosing to move forward.\n\n## The Process of Forgiveness\n\nAsking for forgiveness requires vulnerability. Express that you understand the pain you caused, take full responsibility without making excuses, and show genuine remorse for your actions.\n\nGranting forgiveness is equally meaningful. Let your partner know you're choosing to release anger and resentment. This doesn't mean forgetting—it means choosing your relationship over holding onto hurt.\n\nSometimes forgiveness takes time. It's okay to say you want to forgive but need space to process. Honor your feelings while working toward healing.\n\n## Moving Forward Together\n\nAfter forgiveness, focus on rebuilding trust and preventing similar hurts. Discuss what went wrong and how you can both do better.\n\nThe concept of \"Megbocsátás\" in Hungarian represents this healing power. Physical affection, quality time, and renewed commitment help restore your bond.\n\n## Cultural Considerations\n\nHungarian speakers often value sincere emotional expression. A heartfelt request for forgiveness shows respect for your partner and the relationship. After reconciliation, warmth and closeness help heal any remaining wounds.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 247,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Asking for Forgiveness",
+              "## Granting Forgiveness"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "228ad36e-868b-49a3-8260-ca318f90c7c0",
+      "title": "Nederländska fraser för emotionellt stöd – Trösta din partner på holländska",
+      "native_lang": "sv",
+      "target_lang": "nl",
+      "category": "communication",
+      "content": "Holländska har direkta och varma sätt att ge stöd. Lär dig vara där för din partner.\n\n## Grundläggande stöd\n\n### \"Ik ben er voor je\"\n**Betydelse:** Jag finns här för dig\n\n### \"Je staat hier niet alleen in\"\n**Betydelse:** Du står inte ensam i detta\n\n### \"Ik sta altijd aan jouw kant\"\n**Betydelse:** Jag står alltid på din sida\n\n## Visa empati\n\n### \"Ik kan me alleen maar voorstellen hoe moeilijk dit voor je moet zijn\"\n**Betydelse:** Jag kan bara föreställa mig hur svårt detta är\n\n### \"Je gevoelens zijn helemaal terecht\"\n**Betydelse:** Dina känslor är helt berättigade\n\n### \"Het is oké om je zo te voelen\"\n**Betydelse:** Det är okej att känna så\n\n## Tröstande fraser\n\n### \"Dit gaat ook voorbij\"\n**Betydelse:** Även detta ska passera\n\n### \"We komen hier samen doorheen\"\n**Betydelse:** Vi tar oss igenom detta tillsammans\n\n### \"Neem alle tijd die je nodig hebt\"\n**Betydelse:** Ta all tid du behöver\n\n### \"Het is oké om niet oké te zijn\"\n**Betydelse:** Det är okej att inte vara okej\n\n## Erbjuda stöd\n\n### \"Wat heb je nu van me nodig?\"\n**Betydelse:** Vad behöver du av mig nu?\n\n### \"Wil je erover praten of heb je liever afleiding?\"\n**Betydelse:** Vill du prata om det eller föredrar du distraktion?\n\n### \"Kan ik iets doen om te helpen?\"\n**Betydelse:** Kan jag göra något för att hjälpa?\n\n## Vid förlust\n\n### \"Ik vind het heel erg voor je verlies\"\n**Betydelse:** Jag beklagar verkligen din förlust\n\n### \"Ik heb geen woorden, maar ik ben er\"\n**Betydelse:** Jag saknar ord, men jag finns här\n\n## Uppmuntrande fraser\n\n### \"Ik geloof in je\"\n**Betydelse:** Jag tror på dig\n\n### \"Je bent sterker dan je denkt\"\n**Betydelse:** Du är starkare än du tror\n\n### \"Ik ben zo trots op je\"\n**Betydelse:** Jag är så stolt över dig\n\n## Avslutande tankar\n\nHolländska ger dig direkta och ärliga verktyg för tröst.\n\nLiefde toon je in moeilijke tijden.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Grundläggande stöd",
+              "## Visa empati",
+              "## Tröstande fraser",
+              "## Erbjuda stöd",
+              "## Vid förlust",
+              "## Uppmuntrande fraser"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "228da32a-229c-46eb-8d36-2380b84dcee3",
+      "title": "Szwedzka Gramatyka dla Początkujących: Proste Zasady dla Par",
+      "native_lang": "pl",
+      "target_lang": "sv",
+      "category": "grammar",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport ConjugationTable from '@components/ConjugationTable.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nKiedy uczysz się szwedzkiego dla swojej drugiej połówki, gramatyka może wydawać się przytłaczająca. Ale spokojnie! Szwedzki jest jednym z łatwiejszych języków dla Polaków, a my pokażemy Wam tylko to, co naprawdę potrzebne do romantycznych rozmów. Do końca tego artykułu będziecie potrafili tworzyć proste, ale piękne zdania po szwedzku!\n\n<PhraseOfDay\n  word=\"Jag älskar dig\"\n  translation=\"Kocham cię\"\n  pronunciation=\"JAHG EHL-sahr day\"\n  context=\"Najważniejsze zdanie w każdym związku - idealne do ćwiczenia podstawowej struktury zdania!\"\n/>\n\n## Szwedzki Prostymi Słowami\n\nWyobraź sobie szwedzką gramatykę jak budowanie domu z klocków LEGO. Każdy klocek ma swoje miejsce, a całość tworzy coś pięknego - Waszą wspólną komunikację po szwedzku!\n\nSzwedzki, w przeciwieństwie do polskiego, nie ma skomplikowanych przypadków. To ogromna ulga! Zamiast siedmiu przypadków, mamy tylko proste zasady szyku zdania i kończenia słów.\n\n<CultureTip flag=\"🇸🇪\" title=\"Szwedzka precyzja\">\nSzwedzi uwielbiają prostotę i jasność. Nie komplikują - jeśli można coś powiedzieć prościej, tak właśnie robią. To dobra wiadomość dla początkujących!\n</CultureTip>\n\n## 5 Złotych Zasad Szwedzkiej Gramatyki\n\n### 1. Podstawowy Szyk Zdania: V2\nW szwedzkim czasownik zawsze stoi na drugim miejscu w zdaniu.\n\n**Prawidłowe:** *Idag jag äter middag.* (Dzisiaj jem obiad)\n**Nieprawidłowe:** *Idag äter jag middag.*\n\n<VocabCard\n  word=\"Jag heter...\"\n  translation=\"Nazywam się...\"\n  pronunciation=\"JAHG HEH-tehr\"\n  example=\"Jag heter Anna. Vad heter du?\"\n/>\n\n### 2. Pytania = Odwrócona Kolejność\nPytania tworzycie przez zamianę podmiotu i czasownika.\n\n*Är du hungrig?* (Czy jesteś głodny?)\n*Kommer du från Polen?* (Czy pochodzisz z Polski?)\n\n### 3. Nie Ma Rodzaju Gramatycznego\nHurra! W szwedzkim nie ma rodzaju męskiego, żeńskiego czy nijakiego. Wszystko jest prostsze!\n\n### 4. Końcówki Przymiotników Zależą Ode Liczby\n- **en stor kärlek** (wielka miłość) - pojedyncza\n- **två stora hjärtan** (dwa wielkie serca) - mnoga\n\n### 5. Dwa Czasy Terazniejsze\nSzwedzi używają prostego czasu teraźniejszego (älskar) i ciągłego (håller på att älska), ale w rozmowach codziennych wystarczy ten prosty!\n\n## Romantyczne Przykłady w Użyciu\n\n| Szwedzki | Polski | Uwaga Gramatyczna |\n|----------|--------|------------------|\n| **Du är vacker** | Jesteś piękna/piękny | Proste zdanie z \"är\" |\n| **Jag tycker om dig** | Lubię cię | Czasownik + odmiana zaimka |\n| **Vi har ett hem** | Mamy dom | Liczba pojedyncza \"ett\" |\n| **Ni är min familj** | Wy jesteście moją rodziną | Zaimki dzierżawcze |\n| **De älskar varandra** | Oni się kochają | Wzajemny zaimek |\n\n<CultureTip flag=\"🇸🇪\" title=\"Szwedzkie okazywanie uczuć\">\nSzwedzi są zachowawczy w publicznym okazywaniu uczuć, ale w prywatnych rozmowach są bardzo ciepli. Używają często zwrotów \"tycker om\" (lubię) zamiast \"älskar\" (kocham) w codziennych sytuacjach.\n</CultureTip>\n\n## Odmiana Czasownika \"Älska\" (Kochać)\n\n<ConjugationTable\n  verb=\"Älska\"\n  meaning=\"kochać\"\n  conjugations={[\n    { person: \"Ja\", polish: \"jag älskar\", english: \"I love\" },\n    { person: \"Ty\", polish: \"du älskar\", english: \"you love\" },\n    { person: \"On/Ona\", polish: \"han/hon älskar\", english: \"he/she loves\" },\n    { person: \"My\", polish: \"vi älskar\", english: \"we love\" },\n    { person: \"Wy\", polish: \"ni älskar\", english: \"you all love\" },\n    { person: \"Oni/One\", polish: \"de älskar\", english: \"they love\" }\n  ]}\n/>\n\n## Praktyczne Zdania dla Par\n\n1. **Ska vi äta middag tillsammans?** (SKAH vee EHT-tah MEED-dahng teel-SAH-mahn?) - Czy zjemy razem obiad?\n2. **Vad vill du göra idag?** (VAHD vihl dew YOH-rah ee-DAHG?) - Co chcesz dziś robić?\n3. **Jag saknar dig när du inte är här.** (JAHG SAHK-nahr day nehr dew EEN-teh är här) - Tęsknię za tobą, gdy cię tu nie ma.\n4. **Kan du hjälpa mig?** (KAHN dew YEL-pah may?) - Możesz mi pomóc?\n5. **Vi ska resa till Polen snart.** (Vee SKAH REH-sah teel POH-lehn snahrt) - Wkrótce pojedziemy do Polski.\n6. **Min familj vill träffa dig.** (Meen fah-MEEL vihl TREH-fah day) - Moja rodzina chce cię poznać.\n7. **Är du klar för vår dejt?** (Är dew klahr fohr vohr dayht?) - Jesteś gotowy na naszą randkę?\n\nJeśli chcesz poznać więcej romantycznych zwrotów, sprawdź nasz przewodnik po [szwedzkich wyznaniach miłosnych](/learn/pl/sv/how-to-say-i-love-you-in-swedish/).\n\n## Najczęstsze Błędy i Jak Ich Unikać\n\n### ❌ **Zły szyk zdania**\n*När kommer du hem idag?* (Zła kolejność)\n✅ **När kommer du hem idag?** (Poprawnie - czasownik na 2. miejscu)\n\n### ❌ **Zapominanie o \"är\"**\n*Du min bästa vän.*\n✅ **Du är min bästa vän.** (Jesteś moim najlepszym przyjacielem)\n\n### ❌ **Mylenie \"dig\" i \"du\"**\n*Jag älskar du.*\n✅ **Jag älskar dig.** (Kocham cię - \"dig\" to forma biernika)\n\n### ❌ **Nieodmiana przymiotników**\n*En stor kärlek, två stor kärlek.*\n✅ **En stor kärlek, två stora kärlekar.** (forma mnoga \"stora\")\n\nZanim poznasz rodzinę swojego partnera, warto też przeczytać nasz przewodnik po [spotkaniu z szwedzką rodziną](/learn/pl/sv/meeting-your-swedish-partners-family/).\n\n## Szybka Ściągawka - Do Zapisania!\n\n| Struktura | Przykład | Znaczenie |\n|-----------|----------|-----------|\n| **V2 Rule** | *Idag kommer han.* | Dzisiaj on przychodzi |\n| **Pytanie** | *Kommer du?* | Czy przychodzisz? |\n| **Zaprzeczenie** | *Jag kommer inte.* | Nie przychodzę |\n| **Zaimki** | jag/du/han/hon/vi/ni/de | ja/ty/on/ona/my/wy/oni |\n| **Posiadanie** | *Jag har en bil.* | Mam samochód |\n\n## Co Dalej na Waszej Wspólnej Drodze?\n\nGratulacje! Zrozumieliście podstawy szwedzkiej gramatyki. To solidny fundament do budowania coraz piękniejszych wspólnych rozmów po szwedzku.\n\nNastępne kroki:\n- Poznaj [szwedzkie zwroty towarzyskie](/learn/pl/sv/swedish-greetings-and-farewells/)\n- Opanuj [romantyczne słowa i zwroty](/learn/pl/sv/romantic-swedish-phrases-for-every-occasion/)\n- Praktykuj codziennie razem - nawet 5 minut dziennie robi różnicę!\n\nPamiętaj: najważniejsze jest to, że uczycie się **dla siebie nawzajem**. Każdy mały krok w stronę lepszego zrozumienia języka drugiej połówki to wielki krok dla Waszej relacji.\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## 5 Złotych Zasad Szwedzkiej Gramatyki",
+              "## Najczęstsze Błędy i Jak Ich Unikać"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "228ff423-0c65-4f48-8203-ae7cc39bc4ee",
+      "title": "Fêtes et célébrations turques pour les couples",
+      "native_lang": "fr",
+      "target_lang": "tr",
+      "category": "culture",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nLa Turquie a des fêtes uniques mêlant traditions laïques et religieuses. Découvrez comment les célébrer avec votre partenaire.\n\n<PhraseOfDay\n  word=\"Bayramınız kutlu olsun\"\n  translation=\"Joyeuse fête\"\n  pronunciation=\"baï-ra-meu-NEUZ kout-LOU ol-SOUN\"\n  context=\"Expression universelle pour toutes les fêtes.\"\n/>\n\n## Les bayrams (fêtes religieuses)\n\n### Ramazan Bayramı (Fête de la fin du Ramadan)\n\n<VocabCard\n  word=\"Ramazan Bayramı\"\n  translation=\"Fête du Ramadan / Aïd el-Fitr\"\n  pronunciation=\"ra-ma-ZAN baï-ra-MEU\"\n  example=\"Aussi appelé Şeker Bayramı\"\n/>\n\n<VocabCard\n  word=\"Şeker Bayramı\"\n  translation=\"Fête du sucre\"\n  pronunciation=\"ché-KÉR baï-ra-MEU\"\n  example=\"Nom populaire car on offre des sucreries\"\n/>\n\n<VocabCard\n  word=\"Bayramınız mübarek olsun\"\n  translation=\"Que votre fête soit bénie\"\n  pronunciation=\"baï-ra-meu-NEUZ mu-ba-RÉK ol-SOUN\"\n  example=\"Vœux traditionnels\"\n/>\n\n<CultureTip title=\"Les visites de bayram\" flag=\"🇹🇷\">\nPendant le bayram, on visite la famille, surtout les aînés. Si vous êtes en couple avec un(e) Turc/Turque, préparez-vous à de nombreuses visites familiales ! On offre des chocolats, des loukoums et de l'argent aux enfants.\n</CultureTip>\n\n### Kurban Bayramı (Fête du sacrifice)\n\n<VocabCard\n  word=\"Kurban Bayramı\"\n  translation=\"Fête du sacrifice / Aïd el-Adha\"\n  pronunciation=\"kour-BAN baï-ra-MEU\"\n  example=\"La plus grande fête religieuse\"\n/>\n\n| Turc | Prononciation | Français |\n|------|---------------|----------|\n| **Kurban** | kour-BAN | Sacrifice |\n| **Hayırlı bayramlar** | ha-yeur-LEU baï-ram-LAR | Bonnes fêtes |\n| **Aile ziyareti** | a-i-LÉ zi-ya-ré-TI | Visite familiale |\n\n## Les fêtes nationales\n\n### 23 Nisan (Fête des enfants)\n\n<VocabCard\n  word=\"23 Nisan Ulusal Egemenlik ve Çocuk Bayramı\"\n  translation=\"Fête de la souveraineté nationale et des enfants\"\n  pronunciation=\"yir-mi utch ni-SAN...\"\n  example=\"Le 23 avril - fête unique au monde dédiée aux enfants\"\n/>\n\n### 19 Mayıs (Fête de la jeunesse)\n\n<VocabCard\n  word=\"19 Mayıs Atatürk'ü Anma, Gençlik ve Spor Bayramı\"\n  translation=\"Commémoration d'Atatürk, Fête de la jeunesse et du sport\"\n  pronunciation=\"on do-KOUZ ma-YEUS...\"\n  example=\"Le 19 mai\"\n/>\n\n### 29 Ekim (Fête de la République)\n\n<VocabCard\n  word=\"Cumhuriyet Bayramı\"\n  translation=\"Fête de la République\"\n  pronunciation=\"djoum-hou-ri-YÉT baï-ra-MEU\"\n  example=\"Le 29 octobre - anniversaire de la République turque (1923)\"\n/>\n\n<VocabCard\n  word=\"Yaşasın Cumhuriyet!\"\n  translation=\"Vive la République !\"\n  pronunciation=\"ya-cha-SEUN djoum-hou-ri-YÉT\"\n  example=\"Expression patriotique\"\n/>\n\n## La Saint-Valentin en Turquie\n\n<VocabCard\n  word=\"Sevgililer Günü\"\n  translation=\"Fête des amoureux / Saint-Valentin\"\n  pronunciation=\"sév-gui-li-LÉR gu-NU\"\n  example=\"Le 14 février, très célébré en Turquie\"\n/>\n\n<VocabCard\n  word=\"Sevgilime\"\n  translation=\"À mon amour\"\n  pronunciation=\"sév-gui-li-MÉ\"\n  example=\"Pour les cartes et cadeaux\"\n/>\n\n| Turc | Prononciation | Français |\n|------|---------------|----------|\n| **Çiçek** | tchi-TCHÉK | Fleurs |\n| **Çikolata** | tchi-ko-LA-ta | Chocolat |\n| **Romantik akşam yemeği** | ro-man-TIK ak-CHAM yé-mé-I | Dîner romantique |\n| **Hediye** | hé-di-YÉ | Cadeau |\n\n<CultureTip title=\"Romantisme à la turque\" flag=\"🇹🇷\">\nLa Saint-Valentin est très populaire en Turquie, surtout parmi les jeunes. Les fleuristes et les restaurants sont bondés ! Réservez à l'avance pour un dîner romantique.\n</CultureTip>\n\n## Nouvel An\n\n<VocabCard\n  word=\"Yılbaşı\"\n  translation=\"Nouvel An\"\n  pronunciation=\"yeul-ba-CHEU\"\n  example=\"Le 1er janvier\"\n/>\n\n<VocabCard\n  word=\"Mutlu yıllar!\"\n  translation=\"Bonne année !\"\n  pronunciation=\"mout-LOU yeul-LAR\"\n  example=\"Vœux de nouvel an\"\n/>\n\n<VocabCard\n  word=\"Yeni yılınız kutlu olsun\"\n  translation=\"Que votre nouvelle année soit bénie\"\n  pronunciation=\"yé-NI yeu-leu-NEUZ kout-LOU ol-SOUN\"\n  example=\"Formule formelle\"\n/>\n\n| Turc | Prononciation | Français |\n|------|---------------|----------|\n| **Geri sayım** | gué-RI sa-YEUM | Compte à rebours |\n| **Havai fişek** | ha-va-I fi-CHÉK | Feux d'artifice |\n| **Yılbaşı ağacı** | yeul-ba-CHEU a-a-DJEU | Sapin de nouvel an |\n| **Noel Baba** | no-ÉL ba-BA | Père Noël |\n\n<CultureTip title=\"Noël en Turquie\" flag=\"🇹🇷\">\nLa Turquie étant un pays majoritairement musulman, Noël n'est pas une fête nationale. Cependant, le Nouvel An (Yılbaşı) est très célébré avec sapins, cadeaux et dîners en famille ou entre amis.\n</CultureTip>\n\n## Expressions pour célébrer ensemble\n\n<VocabCard\n  word=\"Beraber kutlayalım\"\n  translation=\"Célébrons ensemble\"\n  pronunciation=\"bé-ra-BÉR kout-la-ya-LEUM\"\n  example=\"Proposition de célébration\"\n/>\n\n<VocabCard\n  word=\"Senin yanında her gün bayram\"\n  translation=\"Chaque jour est une fête à tes côtés\"\n  pronunciation=\"sé-NIN ya-neun-DA hér gun baï-RAM\"\n  example=\"Expression romantique\"\n/>\n\n<VocabCard\n  word=\"Birlikte güzel anılar biriktiriyoruz\"\n  translation=\"Nous accumulons de beaux souvenirs ensemble\"\n  pronunciation=\"bir-lik-TÉ gu-ZÉL a-neu-LAR bi-rik-ti-ri-yo-ROUZ\"\n  example=\"Phrase romantique\"\n/>\n\n## Mariages turcs\n\n<VocabCard\n  word=\"Düğün\"\n  translation=\"Mariage\"\n  pronunciation=\"du-UN\"\n  example=\"Grande célébration en Turquie\"\n/>\n\n<VocabCard\n  word=\"Nişan\"\n  translation=\"Fiançailles\"\n  pronunciation=\"ni-CHAN\"\n  example=\"Étape importante avant le mariage\"\n/>\n\n| Turc | Prononciation | Français |\n|------|---------------|----------|\n| **Gelin** | gué-LIN | Mariée |\n| **Damat** | da-MAT | Marié |\n| **Mutluluklar** | mout-lou-louk-LAR | Félicitations (bonheur) |\n| **Allah mesut etsin** | al-LAH mé-SOUT ét-SIN | Que Dieu vous rende heureux |\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 250,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Les bayrams (fêtes religieuses)",
+              "## Les fêtes nationales"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "tier": 1,
+  "batchId": "tier1-batch-021",
+  "articles": [
+    {
+      "id": "37ad84c5-8d6b-4b71-969e-0a2cd23d36e7",
+      "title": "Szerelmes Levél Írása Törökül – Romantikus Kifejezések és Tippek",
+      "native_lang": "hu",
+      "target_lang": "tr",
+      "category": "communication",
+      "content": "# Szerelmes Levél Írása Törökül – Romantikus Kifejezések és Tippek\n\nA török nyelv gazdag és kifejező – a szerelmes levelek különösen szépek törökül. Ha törökül szeretnéd kifejezni érzelmeidet, ez az útmutató segít.\n\n## Megszólítások\n\n### 1. Aşkım\n**Jelentés:** Szerelmem\n\n**Kiejtés:** as-KIM\n\nA leggyakoribb és legintenzívebb megszólítás.\n\n### 2. Canım\n**Jelentés:** Lelkem/Drágám\n\n**Kiejtés:** dzsá-NIM\n\nNagyon kedves és intim.\n\n### 3. Hayatım\n**Jelentés:** Életem\n\n**Kiejtés:** ha-ja-TIM\n\nMély érzelmi kötődést fejez ki.\n\n### 4. Tatlım\n**Jelentés:** Édességem\n\n**Kiejtés:** tat-LIM\n\nGyengéd és becéző.\n\n### 5. Birtanem\n**Jelentés:** Egyetlenem\n\n**Kiejtés:** bir-ta-NEM\n\nKifejezi, hogy ő az egyetlen.\n\n## Kezdő Mondatok\n\n### 6. Sana ne kadar çok sevdiğimi söylemek için yazıyorum.\n**Jelentés:** Azért írok, hogy elmondjam, mennyire szeretlek.\n\n### 7. Kelimeler sana hissettiklerimi ifade edemez.\n**Jelentés:** Szavak nem tudják kifejezni, mit érzek irántad.\n\n### 8. Seni tanıdığımdan beri hayatım anlam kazandı.\n**Jelentés:** Mióta ismerlek, az életemnek értelme lett.\n\n### 9. Seninle geçirdiğim her an bir hazine.\n**Jelentés:** Minden veled töltött pillanat kincs.\n\n### 10. Sen hayatımda olan en güzel şeysin.\n**Jelentés:** Te vagy a legszebb dolog az életemben.\n\n## Érzelmek Kifejezése\n\n### 11. Kalbim sana ait.\n**Jelentés:** A szívem a tiéd.\n\n### 12. Sen beni tamamlıyorsun.\n**Jelentés:** Kiegészítesz.\n\n### 13. Aşkın bana güç veriyor.\n**Jelentés:** A szerelmed erőt ad.\n\n### 14. Her gün sana daha çok aşık oluyorum.\n**Jelentés:** Minden nap jobban beleszeretek.\n\n### 15. Sen benim ruh eşimsin.\n**Jelentés:** Te vagy a lelki társam.\n\n## Lezárások\n\n### 16. Sonsuza dek senin\n**Jelentés:** Örökké a tiéd\n\n### 17. Tüm sevgimle\n**Jelentés:** Minden szeretetemmel\n\n### 18. Sonsuza kadar senin\n**Jelentés:** A tiéd örökké\n\n### 19. Tekrar görüşene kadar\n**Jelentés:** Amíg újra találkozunk\n\n### 20. Seni tüm kalbimle seviyorum\n**Jelentés:** Teljes szívemből szeretlek\n\n## Kulturális Tippek\n\n### Török Romantika\nA török kultúrában a szerelmi kifejezések intenzívek. Ne félj erős szavakat használni!\n\n### Család Fontossága\nA török kultúrában a család központi. Ha komoly a kapcsolat, a család is fontos lesz.\n\n### Hasret\nA \"hasret\" – vágyakozás, sóvárgás – fontos fogalom. Használd, ha távolról írsz!\n\n## Minta Levél\n\n*Aşkım,*\n\n*Sana bu mektubu yazıyorum çünkü kalbimde seninle paylaşmam gereken şeyler var. Seni tanıdığım andan beri hayatım sonsuza dek değişti.*\n\n*Seninle geçirdiğim her gün bir hediye. Gülümsemen en karanlık günlerimi aydınlatıyor ve aşkın bana bilmediğim bir güç veriyor. Her geçen an sana daha derin aşık oluyorum.*\n\n*Sen benim en iyi arkadaşım, sırdaşım ve hayatımın aşkısın. Sensiz dünyamı hayal edemiyorum.*\n\n*Sonsuza dek senin,*\n*[A neved]*\n\n## Tippek\n\n1. **Légy szenvedélyes** – A török kultúra értékeli az intenzitást\n2. **Használj birtokos végződéseket** – Aşkım, canım (az -ım/-im hozzáad személyes érzést)\n3. **Ne félj a túlzástól** – A török nyelv szereti az erős kifejezéseket\n4. **Olvasd fel hangosan** – Ellenőrizd a természetes hangzást",
+      "issues": [
+        {
+          "type": "truncated_content",
+          "details": {
+            "endingChars": "enőrizd a természetes hangzást"
+          }
+        }
+      ]
+    },
+    {
+      "id": "393649c0-b002-4e31-9c78-5843fd007119",
+      "title": "Smalltalk auf Griechisch – Gesprächseinstiege für Paare",
+      "native_lang": "de",
+      "target_lang": "el",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\n# Smalltalk auf Griechisch – Gesprächseinstiege für Paare\n\nSmalltalk ist eine Kunst, die in jeder Sprache wichtig ist. Wenn du die Familie und Freunde deines Partners kennenlernst, helfen dir diese Griechischen Phrasen dabei, das Eis zu brechen und interessante Gespräche zu führen.\n\n<PhraseOfDay\n  word=\"How are you?\"\n  translation=\"Wie geht es dir/Ihnen?\"\n  pronunciation=\"hau ar juu?\"\n  context=\"Ein klassischer Gesprächseinstieg\"\n/>\n\n## Gespräche beginnen\n\n<VocabCard\n  word=\"How are you?\"\n  translation=\"Wie geht es dir/Ihnen?\"\n  pronunciation=\"hau ar juu?\"\n  example=\"How are you today?\"\n/>\n\n<VocabCard\n  word=\"Nice weather today, isn't it?\"\n  translation=\"Schönes Wetter heute, nicht wahr?\"\n  pronunciation=\"nais WEH-dhör tu-DEI\"\n  example=\"Nice weather we're having!\"\n/>\n\n| Griechisch | Deutsch |\n|-------------|---------|\n| Where are you from? | Woher kommen Sie? |\n| What do you do for work? | Was machen Sie beruflich? |\n| Have we met before? | Kennen wir uns? |\n\n<CultureTip flag=\"🇬🇷\" title=\"Kultureller Kontext\">\nSmall talk helps build rapport. Show genuine interest and ask follow-up questions.\n</CultureTip>\n\n## Über Hobbys und Interessen\n\n| Griechisch | Deutsch |\n|-------------|---------|\n| What are your hobbies? | Was sind Ihre Hobbys? |\n| Do you like sports? | Mögen Sie Sport? |\n| What music do you like? | Welche Musik hören Sie gern? |\n| Do you like to travel? | Reisen Sie gern? |\n\n## Über Arbeit und Beruf\n\n<VocabCard\n  word=\"What do you do?\"\n  translation=\"Was arbeiten Sie?\"\n  pronunciation=\"wot du juu duu?\"\n  example=\"What do you do for a living?\"\n/>\n\n| Griechisch | Deutsch |\n|-------------|---------|\n| Do you enjoy your work? | Gefällt Ihnen Ihre Arbeit? |\n| How long have you worked there? | Seit wann arbeiten Sie dort? |\n| That sounds interesting | Das klingt interessant |\n\n## Über das Wetter\n\nEin Klassiker, der immer funktioniert:\n\n| Griechisch | Deutsch |\n|-------------|---------|\n| Nice weather today | Schönes Wetter heute |\n| It's warm/cold today | Es ist heute warm/kalt |\n| Hopefully it won't rain | Hoffentlich regnet es nicht |\n| The summer was nice | Der Sommer war schön |\n\n## Gespräche am Laufen halten\n\n| Griechisch | Deutsch |\n|-------------|---------|\n| That's interesting! | Das ist interessant! |\n| Tell me more | Erzählen Sie mehr |\n| Really? | Wirklich? |\n| I understand | Ich verstehe |\n\n## Höflich nachfragen\n\n<VocabCard\n  word=\"Could you repeat that?\"\n  translation=\"Können Sie das wiederholen?\"\n  pronunciation=\"kud juu ri-PIET dhät?\"\n  example=\"I'm sorry, could you repeat that?\"\n/>\n\n| Griechisch | Deutsch |\n|-------------|---------|\n| Could you speak slower? | Können Sie langsamer sprechen? |\n| What does that mean? | Was bedeutet das? |\n| I'm still learning | Ich lerne noch Griechisch |\n\n<CultureTip flag=\"🇬🇷\" title=\"Tipp für Smalltalk\">\nStelle offene Fragen und zeige echtes Interesse an den Antworten. Die Familie deines Partners wird es schätzen, dass du dich bemühst, sie kennenzulernen.\n</CultureTip>\n\n## Verwandte Artikel\n\n- [Griechische Begrüßungen](/de/blog/greek-greetings-and-farewells)\n- [Die Familie deines Partners treffen](/de/blog/greek-meeting-your-partner-s-family)\n\n<CTA />",
+      "issues": [
+        {
+          "type": "language_fingerprint_mismatch",
+          "details": {
+            "nativeLang": "de",
+            "nativeStopWordRatio": 6,
+            "englishStopWordRatio": 10
+          }
+        }
+      ]
+    },
+    {
+      "id": "39619a5a-bfbf-491f-ade2-cc1771146cc3",
+      "title": "Fraze pentru relații la distanță în italiană",
+      "native_lang": "ro",
+      "target_lang": "it",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nRelațiile la distanță sunt dificile, dar limba poate fi puntea care vă conectează inimile. Când îi spui partenerului că îți lipsește în limba lui, cuvintele capătă o putere specială.\n\n<PhraseOfDay\n  word=\"Mi manchi tantissimo\"\n  translation=\"Îmi lipsești foarte mult\"\n  pronunciation=\"\"\n  context=\"Expresia perfectă pentru când ești departe de cel drag\"\n/>\n\n## Expresii pentru dor și lipsă\n\n<VocabCard\n  word=\"Mi manchi tantissimo\"\n  translation=\"Îmi lipsești foarte mult\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Ti penso\"\n  translation=\"Mă gândesc la tine\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇮🇹\" title=\"Exprimarea dorului\">\nItalienii sunt foarte expresivi. Scuzele sincere sunt adesea însoțite de gesturi și explicații emoționale - arată că îți pasă cu adevărat.\n</CultureTip>\n\n## Menținerea conexiunii\n\n| Italiană | Română |\n|---------|---------|\n| Mi manchi tantissimo | Îmi lipsești foarte mult |\n| Non vedo l'ora di vederti | Abia aștept să te văd |\n| Ti penso | Mă gândesc la tine |\n| Conto i giorni | Număr zilele |\n\n<VocabCard\n  word=\"Non vedo l'ora di vederti\"\n  translation=\"Abia aștept să te văd\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru relații la distanță\n\n1. **Comunicați zilnic** – Chiar și un mesaj scurt contează\n2. **Programați apeluri video** – Fețele vă apropie\n3. **Trimiteți surprize** – Scrisori, colete, flori\n4. **Aveți un calendar comun** – Numărătoare inversă până la revedere\n5. **Creați ritualuri** – \"Noapte bună\" la aceeași oră\n\n<CTA />\n\n## Articole conexe\n\n- [Fraze pentru apeluri video cu familia](/ro/it/italian-video-call-phrases-family)\n- [Mesaje de bună dimineața și noapte bună în italiană](/ro/it/italian-good-morning-goodnight-phrases)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    }
+  ]
+}

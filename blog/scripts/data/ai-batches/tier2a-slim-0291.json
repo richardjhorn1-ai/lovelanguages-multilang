@@ -1,0 +1,440 @@
+{
+  "batchId": "tier2a-slim-0291",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "2a479261-5b0b-4252-9235-cdafe6c08de4",
+      "title": "Romanya'da Partnerinizin Ailesiyle Tanışmak: Çiftler İçin Temel İfadeler ve Kültürel İpuçları",
+      "native_lang": "tr",
+      "target_lang": "ro",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Profesyonel İpuçları",
+          "subsections": [
+            "### 1. Küçük Hediyeler Getirin",
+            "### 2. Giyim Kuralları",
+            "### 3. Fotoğraf ve Anılar",
+            "### 4. Türkiye'yi Anlatın",
+            "### 5. Romanya Hakkında Bilgi Edinin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2aef7aa6-fd61-498f-a9df-992d795d6573",
+      "title": "50+ Frases Románticas en Turco Para Enamorar",
+      "native_lang": "es",
+      "target_lang": "tr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Frases de Mañana y Noche",
+          "subsections": [
+            "### Buenos Días Románticos",
+            "### Dulces Buenas Noches"
+          ]
+        },
+        {
+          "header": "## Cumplidos Para Tu Pareja",
+          "subsections": [
+            "### Para Ella",
+            "### Para Él"
+          ]
+        },
+        {
+          "header": "## Ocasiones Especiales",
+          "subsections": [
+            "### Aniversarios",
+            "### Cumpleaños",
+            "### Día de San Valentín"
+          ]
+        },
+        {
+          "header": "## Propuestas y Compromiso",
+          "subsections": [
+            "### Propuestas de Matrimonio",
+            "### Expresando Compromiso"
+          ]
+        },
+        {
+          "header": "## Durante Momentos Difíciles",
+          "subsections": [
+            "### Consuelo y Apoyo",
+            "### Disculpas y Reconciliación"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2b25ffe5-a14d-48cf-982a-5aefb02b4118",
+      "title": "Mød din norske partners familie: Væsentlige fraser til at gøre et godt førstehåndsindtryk",
+      "native_lang": "da",
+      "target_lang": "no",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Tre specifikke scenarier, du vil møde",
+          "subsections": [
+            "### 1. Ankomsten – første møde",
+            "### 2. Middagen – hjertet af norske familiesammenkomster",
+            "### 3. Samtaler og spørgsmål – vis interesse"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2b3af97b-03d8-4984-98f0-dae481fe4725",
+      "title": "Fransizca Telaffuz Rehberi: Türkler Icin Kolay Kilavuz",
+      "native_lang": "tr",
+      "target_lang": "fr",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Sessiz Harfler ve Özel Durumlar",
+          "subsections": [
+            "### Okunmayan Harfler",
+            "### Istisnalar: Okunun Son Harfler"
+          ]
+        },
+        {
+          "header": "## Türkler Icin Zor Sesler",
+          "subsections": [
+            "### 1. Nazal Sesler",
+            "### 2. R Sesi",
+            "### 3. U Sesi",
+            "### 4. EU/ŒU Sesi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2b7d22bc-e444-4cab-9786-dd409a28a308",
+      "title": "Turco Romântico: 50 Frases Para Encantar",
+      "native_lang": "pt",
+      "target_lang": "tr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Frases de Manhã e Noite",
+          "subsections": [
+            "### Bom Dia Românticos",
+            "### Doces Boa Noite"
+          ]
+        },
+        {
+          "header": "## Elogios Para Seu Parceiro",
+          "subsections": [
+            "### Para Ela",
+            "### Para Ele"
+          ]
+        },
+        {
+          "header": "## Ocasiões Especiais",
+          "subsections": [
+            "### Aniversários de Relacionamento",
+            "### Aniversários de Nascimento",
+            "### Dia dos Namorados"
+          ]
+        },
+        {
+          "header": "## Pedidos e Compromisso",
+          "subsections": [
+            "### Pedidos de Casamento",
+            "### Expressando Compromisso"
+          ]
+        },
+        {
+          "header": "## Durante Momentos Difíceis",
+          "subsections": [
+            "### Conforto e Apoio",
+            "### Desculpas e Reconciliação"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2b86d684-6fcf-421b-bb52-45cdeb06a1ec",
+      "title": "Poolse Huwelijksuitdrukkingen: Romantische Zinnen voor een Traditionele Wesele",
+      "native_lang": "nl",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## De Huwelijksceremonie",
+          "subsections": [
+            "### Traditionele Geloften"
+          ]
+        },
+        {
+          "header": "## Felicitaties voor het Bruidspaar",
+          "subsections": [
+            "### Korte Felicitaties",
+            "### Langere Felicitaties voor Kaarten"
+          ]
+        },
+        {
+          "header": "## Romantische Zinnen",
+          "subsections": [
+            "### Voor je Partner"
+          ]
+        },
+        {
+          "header": "## Praktische Zinnen",
+          "subsections": [
+            "### Op de Receptie",
+            "### Op de Dansvloer"
+          ]
+        },
+        {
+          "header": "## Je Eigen Geloften Schrijven",
+          "subsections": [
+            "### Poolse Gelofte-inspiratie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2c846c47-0a3a-4de9-9049-6ccf7d34ad6a",
+      "title": "50 Frases Románticas en Portugués para Cada Momento de su Relación",
+      "native_lang": "es",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Cómo Usar Estas Frases en su Relación",
+          "subsections": [
+            "### Consejos Prácticos",
+            "### Errores Comunes a Evitar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2cca4837-bf18-42c8-8aac-05cb88e30bef",
+      "title": "50 Norwegische Begrüßungen und Abschiedsformeln für Paare: Von morgendlichem Hallo bis romantischem God natt",
+      "native_lang": "de",
+      "target_lang": "no",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Praktische Tipps für den Alltag",
+          "subsections": [
+            "### Wann welche Begrüßung?",
+            "### Kulturelle Fehler vermeiden"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2cea1b93-9ce7-4043-a6c4-19515be78ceb",
+      "title": "Acentuación Polaca: Dónde Enfatizar",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Ejercicios Prácticos para Parejas",
+          "subsections": [
+            "### Ejercicio 1: Vocabulario Diario",
+            "### Ejercicio 2: Frases de Amor"
+          ]
+        },
+        {
+          "header": "## Errores Comunes a Evitar",
+          "subsections": [
+            "### 1. Interferencia del Español",
+            "### 2. Mover el Acento con Terminaciones",
+            "### 3. Sobrepensar Compuestos"
+          ]
+        },
+        {
+          "header": "## Consejos Avanzados para Fluidez",
+          "subsections": [
+            "### Acentuación de Oración",
+            "### Practica con Poesía"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2d064d94-ca49-4463-bf13-700233d0318c",
+      "title": "Frasi Romantiche Tedesche per Ogni Occasione: Guida Completà per Coppie",
+      "native_lang": "it",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Come Usare Queste Frasi con Successo",
+          "subsections": [
+            "### 1. **Praticate insieme**",
+            "### 2. **Prestate attenzione alla pronuncia**",
+            "### 3. **Siate coerenti**",
+            "### 4. **Abbinate ai gesti**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2d1e6ce9-5859-4878-8f59-1fac96499fba",
+      "title": "150 Essentiella Ukrainska Fraser för Par: Bygg Koppling Genom Språk",
+      "native_lang": "sv",
+      "target_lang": "uk",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Praktiska Tips för Er Läranderesa",
+          "subsections": [
+            "### Öva Tillsammans Varje Dag",
+            "### Skapa Era Egna Fraser",
+            "### Använd Känslor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2d309261-9b03-485c-b625-91ee449af421",
+      "title": "50+ Surnoms Allemands et Mots Tendres pour Couples",
+      "native_lang": "fr",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Comment Utiliser Ces Surnoms avec votre Partenaire",
+          "subsections": [
+            "### Timing et Contexte",
+            "### Les Pièges à Éviter",
+            "### Créez Vos Traditions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2e9f5fd3-27f6-44ff-afaa-b5c389795ca8",
+      "title": "I Love You in German + Romantic Phrases",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Alternative Ways to Say \"I Love You\"",
+          "subsections": [
+            "### For Deeper Connections",
+            "### Casual and Sweet Expressions"
+          ]
+        },
+        {
+          "header": "## Practice Activities for Couples",
+          "subsections": [
+            "### Morning Affirmations",
+            "### Love Notes",
+            "### Bedtime Phrases"
+          ]
+        },
+        {
+          "header": "## Building Your German Love Vocabulary",
+          "subsections": [
+            "### Essential Love-Related Words",
+            "### Action Words for Romance"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2f77af03-6cd4-41e3-ac40-42f3482538e1",
+      "title": "Danca Gramer Temelleri: Başlangıç Rehberi",
+      "native_lang": "tr",
+      "target_lang": "da",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## İsimler ve Artikeller",
+          "subsections": [
+            "### Cinsiyet Sistemi",
+            "### Belirli Artikel (Tanımlık)",
+            "### Çoğul Yapımı"
+          ]
+        },
+        {
+          "header": "## Fiil Çekimi",
+          "subsections": [
+            "### Harika Haber: Şahıslara Göre Çekim Yok!",
+            "### Fiil Grupları",
+            "### Temel Zamanlar"
+          ]
+        },
+        {
+          "header": "## Sıfatlar",
+          "subsections": [
+            "### Sıfat Uyumu",
+            "### Belirli Form"
+          ]
+        },
+        {
+          "header": "## Cümle Yapısı",
+          "subsections": [
+            "### V2 Kuralı (Fiil İkinci Pozisyonda)",
+            "### Soru Cümleleri"
+          ]
+        },
+        {
+          "header": "## Zamirler",
+          "subsections": [
+            "### Şahıs Zamirleri",
+            "### İyelik Zamirleri"
+          ]
+        },
+        {
+          "header": "## Pratik Cümleler",
+          "subsections": [
+            "### Romantik İfadeler"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2fa7c816-b87a-43c5-892c-8511302ade91",
+      "title": "Turco É Difícil de Aprender? Guia Honesto Para Falantes de Português",
+      "native_lang": "pt",
+      "target_lang": "tr",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## O Que Torna o Turco Diferente",
+          "subsections": [
+            "### As Partes Desafiadoras"
+          ]
+        },
+        {
+          "header": "## O Que Torna o Turco Mais Fácil Do Que Você Pensa",
+          "subsections": [
+            "### 1. Ortografia Fonética",
+            "### 2. Sem Artigos",
+            "### 3. Sem Gênero Gramatical",
+            "### 4. Conjugação Regular",
+            "### 5. Estrutura Lógica"
+          ]
+        },
+        {
+          "header": "## Cronograma Realista Para Casais",
+          "subsections": [
+            "### Meses 1-3: Turco de Sobrevivência",
+            "### Meses 4-6: Bases Conversacionais",
+            "### Meses 7-12: Comunicação Confortável",
+            "### Ano 2+: Aproximando-se da Fluência"
+          ]
+        },
+        {
+          "header": "## Dicas Para o Sucesso",
+          "subsections": [
+            "### 1. Abrace os Sufixos",
+            "### 2. Pratique a Pronúncia Cedo",
+            "### 3. Aprenda Raízes de Palavras",
+            "### 4. Use Mídia Turca",
+            "### 5. Não Tenha Medo de Erros"
+          ]
+        }
+      ]
+    }
+  ]
+}

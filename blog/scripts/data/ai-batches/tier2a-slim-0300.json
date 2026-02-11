@@ -1,0 +1,426 @@
+{
+  "batchId": "tier2a-slim-0300",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "5ba69b9c-f737-404c-ab02-97929b43db0a",
+      "title": "Is Dutch Hard to Learn? The Honest Truth",
+      "native_lang": "en",
+      "target_lang": "nl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Why Dutch Is Easier Than You Think",
+          "subsections": [
+            "### 1. Familiar Vocabulary",
+            "### 2. Simple Grammar (Compared to Other Languages)",
+            "### 3. Logical Compound Words"
+          ]
+        },
+        {
+          "header": "## Tips to Make Dutch Easier",
+          "subsections": [
+            "### 1. Focus on Cognates First",
+            "### 2. Practice the Sounds Early",
+            "### 3. Learn Articles with Nouns",
+            "### 4. Immerse Through Media",
+            "### 5. Embrace Mistakes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5c0fef1e-667d-4bc5-b512-bfe0aa1efa15",
+      "title": "Treffen der russischen Familie deines Partners: Wendungen für mehr Verbindung",
+      "native_lang": "de",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Konkrete Szenarien für euer Treffen",
+          "subsections": [
+            "### Beim Betreten des Hauses",
+            "### Am Esstisch",
+            "### Über deine Beziehung sprechen"
+          ]
+        },
+        {
+          "header": "## Wortschatz für typische Gesprächsthemen",
+          "subsections": [
+            "### Familie und Beruf",
+            "### Komplimente machen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5cbb4de5-58e3-4692-a64e-04d9760e7625",
+      "title": "Cekce Telaffuz Rehberi: Partnerinizi Etkileyin",
+      "native_lang": "tr",
+      "target_lang": "cs",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Ünsüzler (Souhlásky)",
+          "subsections": [
+            "### Türkce'ye Benzer Ünsüzler",
+            "### Özel Ünsüzler"
+          ]
+        },
+        {
+          "header": "## Romantik Kelimeler Telaffuz Pratigi",
+          "subsections": [
+            "### Sevgi Ifadeleri",
+            "### Günlük Ifadeler"
+          ]
+        },
+        {
+          "header": "## Ciftler Icin Telaffuz Oyunlari",
+          "subsections": [
+            "### Oyun 1: Tekerleme Yarisi",
+            "### Oyun 2: Minimal Ciftler",
+            "### Oyun 3: Romantik Okuma"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5d5b62f5-3b87-40af-86cc-af30d73ba540",
+      "title": "Italyanca Ogrenmek Zor mu? Türkler Icin Rehber",
+      "native_lang": "tr",
+      "target_lang": "it",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Italyanca'nin Kolay Yönleri",
+          "subsections": [
+            "### 1. Tutarli Telaffuz",
+            "### 2. Tanidik Alfabe",
+            "### 3. Mantikli Fiil Cekimi",
+            "### 4. Uluslararasi Kelimeler",
+            "### 5. Melodik Yapi"
+          ]
+        },
+        {
+          "header": "## Italyanca'nin Zor Yönleri",
+          "subsections": [
+            "### 1. Cinsiyet Sistemi",
+            "### 2. Sifat Uyumu",
+            "### 3. Artikeller",
+            "### 4. Subjunctive (Congiuntivo)",
+            "### 5. Zamirler ve Konumlari"
+          ]
+        },
+        {
+          "header": "## Ogrenme Süresi",
+          "subsections": [
+            "### Gercekci Beklentiler"
+          ]
+        },
+        {
+          "header": "## Basari Ipuclari",
+          "subsections": [
+            "### 1. Günlük Pratik",
+            "### 2. Italyan Medyasi",
+            "### 3. Aktif Öğrenme",
+            "### 4. Gramer vs. Konusma Dengesi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5dac64d6-df9f-464d-b384-4a4165f16e9d",
+      "title": "Dutch Grammar Basics for Beginners: Simple Rules for Couples to Master Together",
+      "native_lang": "en",
+      "target_lang": "nl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## The Three Core Rules Every Couple Should Know",
+          "subsections": [
+            "### 1. Verb Always Comes Second",
+            "### 2. Yes/No Questions = Verb First",
+            "### 3. Question Words Stay at the Front"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5e547441-d809-4138-8cb2-5f1e11358cb8",
+      "title": "Întâlnirea cu familia partenerului danez: Ghid complet pentru cupluri",
+      "native_lang": "ro",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Scenarii concrete pentru succes",
+          "subsections": [
+            "### La ușă: Primul contact",
+            "### La masă: Conversații fluide",
+            "### Seara: Când pleci"
+          ]
+        },
+        {
+          "header": "## Vocabular pentru conversații reale",
+          "subsections": [
+            "### Despre familie și relații",
+            "### Despre mâncare și băutură"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5e68e1b2-fbda-40a6-877d-1bc3de57cd7b",
+      "title": "50 Saludos y Despedidas en Inglés para Parejas: De 'Good Morning' a 'See You Soon'",
+      "native_lang": "es",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Cómo Practicar Estas Frases Juntos",
+          "subsections": [
+            "### Rutinas Matutinas",
+            "### Despedidas Significativas",
+            "### Videollamadas Semanales",
+            "### Errores Comunes a Evitar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5ec3b5ac-69bd-4bf6-b297-31f49b288079",
+      "title": "Oekraïense Huwelijksuitdrukkingen: Romantische Zinnen voor een Traditionele Vesillya",
+      "native_lang": "nl",
+      "target_lang": "uk",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## De Huwelijksceremonie",
+          "subsections": [
+            "### Traditionele Geloften"
+          ]
+        },
+        {
+          "header": "## Felicitaties voor het Bruidspaar",
+          "subsections": [
+            "### Korte Felicitaties",
+            "### Langere Felicitaties voor Kaarten"
+          ]
+        },
+        {
+          "header": "## Romantische Zinnen",
+          "subsections": [
+            "### Voor je Partner"
+          ]
+        },
+        {
+          "header": "## Praktische Zinnen",
+          "subsections": [
+            "### Op de Receptie",
+            "### Op de Dansvloer"
+          ]
+        },
+        {
+          "header": "## Je Eigen Geloften Schrijven",
+          "subsections": [
+            "### Oekraïense Gelofte-inspiratie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5ee19b17-34b3-4a2d-9143-9f2ff620e63a",
+      "title": "Duitse Grammatica voor Beginners: De Basis Uitgelegd",
+      "native_lang": "nl",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Sein en Haben - De Belangrijkste Werkwoorden",
+          "subsections": [
+            "### Sein (zijn)",
+            "### Haben (hebben)"
+          ]
+        },
+        {
+          "header": "## Tijden: Een Overzicht",
+          "subsections": [
+            "### Tegenwoordige Tijd (Präsens)",
+            "### Verleden Tijd (Perfekt - meest gebruikt)",
+            "### Toekomende Tijd (Futur I)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5efd7c60-3b51-4cf7-aab8-552c3fc008c0",
+      "title": "50+ Γλυκά Πολωνικά Ψευδώνυμα για το Ταίρι σου: Από το 'Kochanie' ως το 'Słoneczko'",
+      "native_lang": "el",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Πώς να Χρησιμοποιήσεις τα Ψευδώνυμα με το Ταίρι σου",
+          "subsections": [
+            "### Ξεκίνα Απλά",
+            "### Παρατήρησε τι του/της Αρέσει",
+            "### Χρησιμοποίησε τα στην Καθημερινότητα",
+            "### Μην το Παρακάνεις"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5f0aab9c-a249-4fcf-ac6c-5385b454c475",
+      "title": "Souhaits d'anniversaire en allemand : celebrer ensemble",
+      "native_lang": "fr",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Exercices pratiques pour couples",
+          "subsections": [
+            "### Exercice 1 : Ecrivez une carte",
+            "### Exercice 2 : Planifiez une fete",
+            "### Exercice 3 : Chantez !"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5f1f7bea-bea5-4bae-904a-aaf6660ae092",
+      "title": "Polonais et Anglais : Ce Qu'il Faut Savoir",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## L'anglais en Pologne : la situation réelle",
+          "subsections": [
+            "### Où l'anglais est courant",
+            "### Où vous aurez besoin du polonais"
+          ]
+        },
+        {
+          "header": "## Phrases polonaises essentielles pour les couples",
+          "subsections": [
+            "### Les bases polies",
+            "### Se déplacer ensemble",
+            "### Dîner romantique",
+            "### Shopping et marchés"
+          ]
+        },
+        {
+          "header": "## Langage corporel et conseils culturels",
+          "subsections": [
+            "### Ce que les Polonais apprécient",
+            "### Ce qu'il faut éviter"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "605b80df-8e73-4266-b239-eade2a461fbf",
+      "title": "Spanish Subjunctive Basics: Expressing Wishes Together",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## When to Use the Subjunctive",
+          "subsections": [
+            "### The WEIRDO Rule"
+          ]
+        },
+        {
+          "header": "## Present Subjunctive Formation",
+          "subsections": [
+            "### Regular -AR Verbs: Amar (to love)",
+            "### Regular -ER/-IR Verbs: Vivir (to live)"
+          ]
+        },
+        {
+          "header": "## Common Irregular Subjunctive Verbs",
+          "subsections": [
+            "### Ser (to be)",
+            "### Estar (to be)",
+            "### Tener (to have)"
+          ]
+        },
+        {
+          "header": "## Romantic Subjunctive Phrases",
+          "subsections": [
+            "### Expressing Wishes",
+            "### Expressing Emotions",
+            "### Making Recommendations"
+          ]
+        },
+        {
+          "header": "## Practice Dialogues for Couples",
+          "subsections": [
+            "### Dialogue 1: Making Wishes",
+            "### Dialogue 2: Expressing Feelings",
+            "### Dialogue 3: Recommendations"
+          ]
+        },
+        {
+          "header": "## Common Mistakes to Avoid",
+          "subsections": [
+            "### Mistake 1: Using Indicative After Wish Verbs",
+            "### Mistake 2: Forgetting \"que\"",
+            "### Mistake 3: Same Subject = Infinitive"
+          ]
+        },
+        {
+          "header": "## Fun Subjunctive Activities for Couples",
+          "subsections": [
+            "### Activity 1: Wish Jar",
+            "### Activity 2: Love Letter with Subjunctive",
+            "### Activity 3: Dream Planning",
+            "### Activity 4: Feelings Check-In"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6089ffdd-c0f9-481e-8941-8c35777fad39",
+      "title": "El Orden de las Palabras en Francés",
+      "native_lang": "es",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Adverbios: Dónde Colocarlos",
+          "subsections": [
+            "### Adverbios Cortos: Después del Verbo Conjugado",
+            "### En Tiempos Compuestos: Entre Auxiliar y Participio"
+          ]
+        },
+        {
+          "header": "## Preguntas: Tres Estructuras Posibles",
+          "subsections": [
+            "### 1. Entonación (informal)",
+            "### 2. Est-ce que (neutral)",
+            "### 3. Inversión (formal)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6105ae83-af5d-4339-bb78-87f5b6da1fba",
+      "title": "French Texting Slang for Couples",
+      "native_lang": "en",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Sample Conversations",
+          "subsections": [
+            "### Morning",
+            "### Evening"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,533 @@
+{
+  "batchId": "tier2a-slim-0164",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "aec5df3a-6e86-4f30-90df-178922e08761",
+      "title": "Como Escrever Cartas de Amor em Italiano: Paixão Mediterrânea",
+      "native_lang": "pt",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Estrutura de uma Carta de Amor",
+          "subsections": [
+            "### Abertura Carinhosa",
+            "### Expressando Seus Sentimentos",
+            "### Elogiando Seu Amor",
+            "### Declarações de Amor",
+            "### Promessas e Compromissos",
+            "### Encerramentos Românticos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aec8cb5c-abfc-4adb-8396-b8b807690ecd",
+      "title": "Hiányzol Kifejezések Lengyelül – Tęsknię Za Tobą és Más",
+      "native_lang": "hu",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Hiányzol Kifejezések",
+          "subsections": [
+            "### 1. Tęsknię za tobą",
+            "### 2. Bardzo tęsknię za tobą",
+            "### 3. Strasznie za tobą tęsknię",
+            "### 4. Nie mogę przestać o tobie myśleć",
+            "### 5. Gdybyś tu był/była",
+            "### 6. Moje serce jest puste bez ciebie",
+            "### 7. Liczę dni do naszego spotkania",
+            "### 8. Zawsze jesteś w moich myślach",
+            "### 9. Tęsknię za twoim uśmiechem",
+            "### 10. Bez ciebie nie jestem sobą"
+          ]
+        },
+        {
+          "header": "## Kulturális Tippek",
+          "subsections": [
+            "### Lengyel Romantika",
+            "### Család",
+            "### Katolikus Hagyományok"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aedda0de-66cf-4bd5-81e8-74770f0fd32b",
+      "title": "Нідерландська vs англійська: ключові відмінності для українців",
+      "native_lang": "uk",
+      "target_lang": "nl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Вимова",
+          "subsections": [
+            "### Нідерландська має унікальні звуки",
+            "### Англійська vs Нідерландська вимова"
+          ]
+        },
+        {
+          "header": "## Артиклі",
+          "subsections": [
+            "### Англійська — простіше",
+            "### Нідерландська — два означених артиклі"
+          ]
+        },
+        {
+          "header": "## Порядок слів",
+          "subsections": [
+            "### Англійська — фіксований",
+            "### Нідерландська — V2 правило (дієслово друге)"
+          ]
+        },
+        {
+          "header": "## Дієслова",
+          "subsections": [
+            "### Англійська — мінімальні зміни",
+            "### Нідерландська — більше форм"
+          ]
+        },
+        {
+          "header": "## Минулий час",
+          "subsections": [
+            "### Англійська",
+            "### Нідерландська"
+          ]
+        },
+        {
+          "header": "## Заперечення",
+          "subsections": [
+            "### Англійська — допоміжні дієслова",
+            "### Нідерландська — просто niet/geen"
+          ]
+        },
+        {
+          "header": "## Питання",
+          "subsections": [
+            "### Англійська — допоміжні дієслова",
+            "### Нідерландська — інверсія"
+          ]
+        },
+        {
+          "header": "## Зменшувальні суфікси",
+          "subsections": [
+            "### Англійська — майже немає",
+            "### Нідерландська — активна система"
+          ]
+        },
+        {
+          "header": "## Складені слова",
+          "subsections": [
+            "### Англійська — окремі слова",
+            "### Нідерландська — одне слово"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aee050e1-17e8-4120-af36-e7c4fa3c9537",
+      "title": "Cómo Escribir Cartas de Amor en Inglés: Guía Romántica Completa",
+      "native_lang": "es",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Saludos Románticos",
+          "subsections": [
+            "### \"My dearest...\"",
+            "### \"My love...\"",
+            "### \"To the love of my life...\""
+          ]
+        },
+        {
+          "header": "## Expresiones de Apertura",
+          "subsections": [
+            "### \"I've been thinking about you all day\"",
+            "### \"Every time I close my eyes, I see your face\"",
+            "### \"Words cannot express how much you mean to me\""
+          ]
+        },
+        {
+          "header": "## Frases del Cuerpo de la Carta",
+          "subsections": [
+            "### \"You make me want to be a better person\"",
+            "### \"My heart belongs to you completely\"",
+            "### \"You are my everything\"",
+            "### \"I fall more in love with you every day\"",
+            "### \"You complete me in ways I never knew possible\""
+          ]
+        },
+        {
+          "header": "## Promesas y Compromisos",
+          "subsections": [
+            "### \"I promise to love you forever\"",
+            "### \"I will always be by your side\"",
+            "### \"No matter what happens, my love for you will never change\""
+          ]
+        },
+        {
+          "header": "## Despedidas Románticas",
+          "subsections": [
+            "### \"Forever yours...\"",
+            "### \"With all my love...\"",
+            "### \"Loving you always...\"",
+            "### \"Yours eternally...\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aee39d32-8029-48fc-89a3-224261f8fd7d",
+      "title": "50+ Apelidos Turcos para Derreter Seu Amor",
+      "native_lang": "pt",
+      "target_lang": "tr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Termos Para Diferentes Momentos",
+          "subsections": [
+            "### Cumprimentos Matinais",
+            "### Boa Noite",
+            "### Quando Sente Saudade",
+            "### Durante Momentos Carinhosos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aee713af-bfdf-479c-81cf-d3f6a4d934c5",
+      "title": "Spanische Trost- und Unterstützungsphrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlegende Unterstützung",
+          "subsections": [
+            "### \"Estoy aquí para ti\"",
+            "### \"Siempre estaré a tu lado\"",
+            "### \"No estás solo/sola en esto\"",
+            "### \"Lo que necesites, aquí estoy\""
+          ]
+        },
+        {
+          "header": "## Bei Trauer",
+          "subsections": [
+            "### \"Lo siento mucho por tu pérdida\"",
+            "### \"Tómate todo el tiempo que necesites\"",
+            "### \"Está bien llorar\"",
+            "### \"Te acompaño en tu dolor\""
+          ]
+        },
+        {
+          "header": "## Bei Stress und Sorgen",
+          "subsections": [
+            "### \"Lo resolveremos juntos\"",
+            "### \"Paso a paso\"",
+            "### \"Está bien no estar bien\"",
+            "### \"Esto también pasará\"",
+            "### \"No seas tan duro/dura contigo mismo/misma\""
+          ]
+        },
+        {
+          "header": "## Ermutigung",
+          "subsections": [
+            "### \"Creo en ti\"",
+            "### \"Eres más fuerte de lo que crees\"",
+            "### \"Estoy muy orgulloso/orgullosa de ti\"",
+            "### \"Tú puedes con esto\"",
+            "### \"Admiro tu fortaleza\""
+          ]
+        },
+        {
+          "header": "## Aktive Hilfe anbieten",
+          "subsections": [
+            "### \"¿Qué puedo hacer para ayudarte?\"",
+            "### \"¿Quieres hablar de ello?\"",
+            "### \"Te escucho\""
+          ]
+        },
+        {
+          "header": "## Langfristige Unterstützung",
+          "subsections": [
+            "### \"Siempre estaré aquí, pase lo que pase\"",
+            "### \"Estamos juntos en esto\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aef54427-6f02-4c43-84bd-1f63f0190645",
+      "title": "Les articles anglais : a, an et the expliqués",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Cas particuliers importants",
+          "subsections": [
+            "### Avec les parties du corps",
+            "### Avec les instruments de musique",
+            "### THE ou pas THE avec les médias"
+          ]
+        },
+        {
+          "header": "## Exercices pour couples",
+          "subsections": [
+            "### Repérage",
+            "### Quiz mutuel",
+            "### Correction croisée"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aef63b4b-ff07-4d71-85d5-39149f5612ed",
+      "title": "Yunanca Selamlaşma ve Vedalaşma: Temel İfadeler Rehberi",
+      "native_lang": "tr",
+      "target_lang": "el",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Vedalaşma İfadeleri",
+          "subsections": [
+            "### Temel Vedalaşmalar",
+            "### Samimi Vedalaşmalar",
+            "### Zaman Belirten Vedalaşmalar"
+          ]
+        },
+        {
+          "header": "## Çiftler İçin Özel İfadeler",
+          "subsections": [
+            "### Sabah Selamlaşması",
+            "### Akşam/Gece Vedalaşması"
+          ]
+        },
+        {
+          "header": "## Mesaj/Yazışma İfadeleri",
+          "subsections": [
+            "### Mesaj Başlatma",
+            "### Mesaj Bitirme"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "af19594c-83b1-44a8-9805-29c156cebdae",
+      "title": "Hollandske Udtryk til Følelsesmæssig Støtte og Trøst",
+      "native_lang": "da",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Støtteudtryk",
+          "subsections": [
+            "### 1. Ik ben er voor je",
+            "### 2. Het komt allemaal goed",
+            "### 3. Ik geloof in je",
+            "### 4. Neem alle tijd die je nodig hebt",
+            "### 5. Het spijt me zo voor wat je doormaakt"
+          ]
+        },
+        {
+          "header": "## Dybere Trøst",
+          "subsections": [
+            "### 6. Het is oké om te huilen",
+            "### 7. Je hoeft dit niet alleen door te maken",
+            "### 8. Ik ben zo trots op je kracht",
+            "### 9. Je gevoelens zijn geldig",
+            "### 10. Wat er ook gebeurt, we staan er samen voor"
+          ]
+        },
+        {
+          "header": "## Kærlige Trøsteord",
+          "subsections": [
+            "### 11. Lieverd, ik zal altijd bij je zijn",
+            "### 12. Ik hou van je, en dat zal nooit veranderen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "af37a927-c9ca-4219-8a33-568e3d948664",
+      "title": "Rencontrer la Famille de Votre Partenaire Russe",
+      "native_lang": "fr",
+      "target_lang": "ru",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## À Table",
+          "subsections": [
+            "### Toasts et Boissons",
+            "### Complimenter la Nourriture"
+          ]
+        },
+        {
+          "header": "## Choses à Éviter",
+          "subsections": [
+            "### Ne faites pas :",
+            "### Faites :"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "af40b31a-e83f-4ad9-b875-353772deb583",
+      "title": "Frases de Paquera em Húngaro: Romance com Charme Magyar",
+      "native_lang": "pt",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases Essenciais de Paquera",
+          "subsections": [
+            "### Elogios Apaixonados",
+            "### Expressando Interesse",
+            "### Cantadas Húngaras",
+            "### Para Relacionamentos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "af43269a-8ecb-4263-b5a7-537c624ac427",
+      "title": "Hungarian First Date Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Making a Great First Impression",
+          "subsections": [
+            "### Nagyon jól nézel ki",
+            "### Örülök hogy megismerhetlek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "af51c680-d314-4666-9f42-00534d7a8055",
+      "title": "Ispanyolca Ögrenmek Zor mu? Türkler Icin Dürüst Bir Degerlendirme",
+      "native_lang": "tr",
+      "target_lang": "es",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Zorluklar",
+          "subsections": [
+            "### 1. Isim Cinsiyetleri",
+            "### 2. SER vs ESTAR",
+            "### 3. Subjuntivo Kipi"
+          ]
+        },
+        {
+          "header": "## Ne Kadar Sürede Ögrenirim?",
+          "subsections": [
+            "### Temel Seviye (A1-A2)",
+            "### Orta Seviye (B1-B2)",
+            "### Ileri Seviye (C1-C2)"
+          ]
+        },
+        {
+          "header": "## Ögrenmeyi Kolaylastiran Faktörler",
+          "subsections": [
+            "### 1. Motivasyon",
+            "### 2. Kaynaklar",
+            "### 3. Ispanyolca'nin Yayginligi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "af85c0f2-3bcf-49ad-aaae-42406ef62a93",
+      "title": "Фразы для медового месяца на шведский: Романтическое путешествие",
+      "native_lang": "ru",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## В аэропорту",
+          "subsections": [
+            "### Регистрация",
+            "### На борту"
+          ]
+        },
+        {
+          "header": "## В отеле",
+          "subsections": [
+            "### Регистрация",
+            "### Романтические просьбы"
+          ]
+        },
+        {
+          "header": "## На пляже",
+          "subsections": [
+            "### Пляжная лексика",
+            "### Романтические фразы на strand"
+          ]
+        },
+        {
+          "header": "## Ужин вдвоём",
+          "subsections": [
+            "### В ресторане",
+            "### Романтические тосты"
+          ]
+        },
+        {
+          "header": "## Экскурсии и приключения",
+          "subsections": [
+            "### Планирование äventyr",
+            "### Создание minnen"
+          ]
+        },
+        {
+          "header": "## Романтические моменты",
+          "subsections": [
+            "### Фразы для особых моментов",
+            "### Закат"
+          ]
+        },
+        {
+          "header": "## Покупка сувениров",
+          "subsections": [
+            "### В магазине",
+            "### Идеи подарков"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "afbdd67f-2aec-4310-b172-5b3b61e58f62",
+      "title": "Pronunciación en inglés para principiantes: Cómo sonar más natural con tu pareja",
+      "native_lang": "es",
+      "target_lang": "en",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Los Sonidos Problemáticos para Hispanohablantes",
+          "subsections": [
+            "### El Sonido \"TH\" - El Gran Desafío",
+            "### Las Vocales Inglesas - Más Complejas de lo Que Parece"
+          ]
+        },
+        {
+          "header": "## Consonantes Trampa",
+          "subsections": [
+            "### R vs L - El Sonido que Confunde",
+            "### H Silenciosa vs H Soplada"
+          ]
+        },
+        {
+          "header": "## Práctica de Pareja: Juegos de Pronunciación",
+          "subsections": [
+            "### 1. El Juego de los Minimal Pairs",
+            "### 2. Canciones Románticas",
+            "### 3. Frases de Amor Diarias"
+          ]
+        }
+      ]
+    }
+  ]
+}

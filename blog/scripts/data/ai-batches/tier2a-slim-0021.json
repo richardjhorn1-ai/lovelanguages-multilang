@@ -1,0 +1,546 @@
+{
+  "batchId": "tier2a-slim-0021",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "3154d8e4-66b6-45e4-bab1-f2b832af4e41",
+      "title": "Tsjechisch vs. Nederlands: De Belangrijkste Verschillen",
+      "native_lang": "nl",
+      "target_lang": "cs",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De Grootste Verschillen",
+          "subsections": [
+            "### 1. Naamvallen",
+            "### 2. Geen Lidwoorden",
+            "### 3. Woordgeslacht",
+            "### 4. Woordvolgorde",
+            "### 5. Werkwoordsysteem",
+            "### 6. Uitspraak"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "316d1457-765d-4a23-8688-ba165b5613ab",
+      "title": "Portugiesische Flirtsprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassische Komplimente",
+          "subsections": [
+            "### \"Você é linda\" / \"Você é lindo\"",
+            "### \"Você tem um sorriso lindo\"",
+            "### \"Você é muito especial para mim\""
+          ]
+        },
+        {
+          "header": "## Romantische Ausdrücke",
+          "subsections": [
+            "### \"Você é o amor da minha vida\"",
+            "### \"Não consigo parar de pensar em você\"",
+            "### \"Você me faz muito feliz\""
+          ]
+        },
+        {
+          "header": "## Süße Kosenamen",
+          "subsections": [
+            "### \"Meu amor\"",
+            "### \"Meu bem\"",
+            "### \"Querido\" / \"Querida\"",
+            "### \"Meu coração\"",
+            "### \"Mozão\" / \"Mozinha\""
+          ]
+        },
+        {
+          "header": "## Leidenschaftliche Ausdrücke",
+          "subsections": [
+            "### \"Estou apaixonado por você\" / \"Estou apaixonada por você\"",
+            "### \"Você me completa\"",
+            "### \"Minha vida seria vazia sem você\"",
+            "### \"Você roubou meu coração\""
+          ]
+        },
+        {
+          "header": "## Spielerische Sprüche",
+          "subsections": [
+            "### \"Você acredita em amor à primeira vista, ou eu preciso passar de novo?\"",
+            "### \"Seu pai é ladrão? Porque roubou as estrelas do céu e colocou nos seus olhos\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "316f324b-4e99-432b-a9ac-4410ac181003",
+      "title": "Cseh flörtölős kifejezések",
+      "native_lang": "hu",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető flörtölős kifejezések",
+          "subsections": [
+            "### 1. Jsi moc krásná (Jszi moc krászná)",
+            "### 2. Máš krásné oči (Más krászné ocsi)",
+            "### 3. Dáš si se mnou kávu? (Dás szi sze mnou kávu?)",
+            "### 4. Líbíš se mi (Líbís sze mi)",
+            "### 5. Chtěl bych tě lépe poznat (Htjel bih tje lépe poznat)",
+            "### 6. Jsi tak roztomilá (Jszi tak roztomilá)",
+            "### 7. Můžu dostat tvoje číslo? (Múzsu dosztat tvoje csíszlo?)",
+            "### 8. Máš krásný úsměv (Más krászní úszmjev)",
+            "### 9. Jsi moc sympatická (Jszi moc szimpatická)",
+            "### 10. Sejdeme se znovu? (Szejdeme sze znovu?)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3175deaf-9575-4648-b715-c5ddf004b65f",
+      "title": "Días del Santo Polacos: Tradiciones",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Cómo Celebrar los Días del Santo",
+          "subsections": [
+            "### Saludos Tradicionales",
+            "### Tradiciones de Regalos"
+          ]
+        },
+        {
+          "header": "## Tradiciones de Temporada y Fiestas",
+          "subsections": [
+            "### Celebraciones de Pascua",
+            "### Tradiciones Navideñas"
+          ]
+        },
+        {
+          "header": "## Cómo Participar como Pareja",
+          "subsections": [
+            "### Aprendiendo Juntos",
+            "### Frases Esenciales para Celebraciones",
+            "### Creando Conexiones Culturales"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "317df9aa-3a38-4958-9b4d-307e06a4dd00",
+      "title": "Turkiska SMS- och chattfraser för kärleksrelationer",
+      "native_lang": "sv",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Morgonhälsningar",
+          "subsections": [
+            "### \"Günaydın, aşkım\"",
+            "### \"Merhaba, canım\"",
+            "### \"Nasıl uyudun, tatlım?\""
+          ]
+        },
+        {
+          "header": "## Att uttrycka saknad",
+          "subsections": [
+            "### \"Seni özledim\"",
+            "### \"Seni çok özledim\"",
+            "### \"Hep seni düşünüyorum\"",
+            "### \"Seni görmek için sabırsızlanıyorum\""
+          ]
+        },
+        {
+          "header": "## Kärleksförklaringar",
+          "subsections": [
+            "### \"Seni seviyorum\"",
+            "### \"Seni çok seviyorum\"",
+            "### \"Seni deli gibi seviyorum\"",
+            "### \"Sen benim her şeyimsin\"",
+            "### \"Sen hayatımın aşkısın\""
+          ]
+        },
+        {
+          "header": "## Flirtiga meddelanden",
+          "subsections": [
+            "### \"Beni çok mutlu ediyorsun\"",
+            "### \"Çok güzelsin\" / \"Çok yakışıklısın\"",
+            "### \"Sana aşığım\"",
+            "### \"Kalbimi çaldın\""
+          ]
+        },
+        {
+          "header": "## Godnattmeddelanden",
+          "subsections": [
+            "### \"İyi geceler, aşkım\"",
+            "### \"Tatlı rüyalar\"",
+            "### \"Rüyalarıma gir\"",
+            "### \"Öpüyorum seni\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "31840ad7-4c8b-4756-b81f-dbd880a7b46e",
+      "title": "Orosz esküvői kifejezések: Szókincs a nagy napra",
+      "native_lang": "hu",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Gratulációk és jókívánságok",
+            "### Köszöntők"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3198bfd5-7324-4c71-88d6-e2d9f0a4feb3",
+      "title": "50+ шведских прозвищ, которые растопят сердце",
+      "native_lang": "ru",
+      "target_lang": "sv",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Когда использовать разные прозвища",
+          "subsections": [
+            "### Дома наедине",
+            "### При семье партнёра",
+            "### В переписке и СМС",
+            "### На публике"
+          ]
+        },
+        {
+          "header": "## Прозвища о внешности и характере",
+          "subsections": [
+            "### Сладкие обращения",
+            "### Сердечные обращения"
+          ]
+        },
+        {
+          "header": "## Как использовать ласковые имена",
+          "subsections": [
+            "### В повседневном общении",
+            "### В особые моменты"
+          ]
+        },
+        {
+          "header": "## Практические упражнения",
+          "subsections": [
+            "### Утренние приветствия",
+            "### Текстовые сообщения"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3199a634-3bfe-42a4-b91f-d46e8fce56ae",
+      "title": "Norveççe Telaffuz Rehberi: Partnerinizle Birlikte Kolayca Konuşun",
+      "native_lang": "tr",
+      "target_lang": "no",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## En Çok Zorlanılan Sesler",
+          "subsections": [
+            "### 1. \"Kj\" ve \"Ki\" Sesleri",
+            "### 2. \"R\" Sesini Yuvarlamak",
+            "### 3. \"Ø\" Harfi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "31b41526-b603-4ddd-b9e5-46acf597fad6",
+      "title": "Lengyel üzenetküldő kifejezések magyar anyanyelvűeknek",
+      "native_lang": "hu",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető üdvözlések",
+          "subsections": [
+            "### 1. Dzień dobry, kochanie",
+            "### 2. Tęsknię za tobą",
+            "### 3. Kocham cię"
+          ]
+        },
+        {
+          "header": "## Mindennapi üzenetek",
+          "subsections": [
+            "### 4. Co słychać?",
+            "### 5. Zaraz będę",
+            "### 6. Buziaki / Pa pa"
+          ]
+        },
+        {
+          "header": "## Romantikus kifejezések",
+          "subsections": [
+            "### 7. Jesteś moim wszystkim",
+            "### 8. Słoneczko / Skarbie",
+            "### 9. Śniłem o tobie"
+          ]
+        },
+        {
+          "header": "## Chat rövidítések",
+          "subsections": [
+            "### 10. Nwm (Nie wiem)",
+            "### 11. Spk (Spoko)",
+            "### 12. Cmok / Całuski"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "31b95681-8620-476b-8a77-9576a485702e",
+      "title": "Germana: 14 Moduri de a Spune Te Iubesc din Inima",
+      "native_lang": "ro",
+      "target_lang": "de",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Fraze pentru Momente Cotidiene",
+          "subsections": [
+            "### Dimineața",
+            "### La Plecare",
+            "### Seara",
+            "### Noapte Bună"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "31d33901-bdc8-4775-a084-5d6776573700",
+      "title": "Hungarian Anniversary Wishes: Romantic Messages for Your Love",
+      "native_lang": "en",
+      "target_lang": "hu",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Simple Anniversary Wishes",
+          "subsections": [
+            "### Short and Sweet",
+            "### For Your Partner"
+          ]
+        },
+        {
+          "header": "## Romantic Anniversary Messages",
+          "subsections": [
+            "### Heartfelt Declarations",
+            "### Reflective Messages"
+          ]
+        },
+        {
+          "header": "## Anniversary Messages by Year",
+          "subsections": [
+            "### First Anniversary",
+            "### Fifth Anniversary",
+            "### Tenth Anniversary",
+            "### Twenty-Fifth Anniversary (Silver)",
+            "### Fiftieth Anniversary (Golden)"
+          ]
+        },
+        {
+          "header": "## Planning Your Anniversary Celebration",
+          "subsections": [
+            "### Romantic Ideas",
+            "### What to Say at Dinner"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "32074a0e-f087-40e1-8ff2-8ae662dd8ba1",
+      "title": "Frases de Saudade em Espanhol: Expressando a Falta do Seu Amor",
+      "native_lang": "pt",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases Essenciais de Saudade",
+          "subsections": [
+            "### Expressões Básicas",
+            "### Saudade Profunda",
+            "### Para Relacionamentos à Distância",
+            "### Saudade Doce"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "32197a9c-c4a6-4fa9-8a7f-17d3e5e49b3c",
+      "title": "Dänische Flirtsprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassische Komplimente",
+          "subsections": [
+            "### \"Du er smuk\" / \"Du er lækker\"",
+            "### \"Du har smukke øjne\"",
+            "### \"Du har et smukt smil\""
+          ]
+        },
+        {
+          "header": "## Romantische Ausdrücke",
+          "subsections": [
+            "### \"Du er mit livs kærlighed\"",
+            "### \"Jeg kan ikke stoppe med at tænke på dig\"",
+            "### \"Du gør mig så lykkelig\""
+          ]
+        },
+        {
+          "header": "## Süße Kosenamen",
+          "subsections": [
+            "### \"Skat\"",
+            "### \"Elskling\"",
+            "### \"Kæreste\"",
+            "### \"Søde\"",
+            "### \"Gull\" / \"Guld\""
+          ]
+        },
+        {
+          "header": "## Herzliche Ausdrücke",
+          "subsections": [
+            "### \"Jeg elsker dig\"",
+            "### \"Du betyder alt for mig\"",
+            "### \"Jeg er vild med dig\"",
+            "### \"Du har stjålet mit hjerte\"",
+            "### \"Jeg vil være sammen med dig for evigt\""
+          ]
+        },
+        {
+          "header": "## Spielerische Sprüche",
+          "subsections": [
+            "### \"Tror du på kærlighed ved første blik, eller skal jeg gå forbi igen?\"",
+            "### \"Er din far tyv? For han har stjålet stjernerne fra himlen og sat dem i dine øjne\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "322b6bfb-644b-4e8f-90ff-5fa8ee02341b",
+      "title": "Spanish Honeymoon Travel Phrases: Romantic Vocabulary for Your Trip",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Planning Your Trip",
+          "subsections": [
+            "### Choosing a Destination",
+            "### Booking Vocabulary"
+          ]
+        },
+        {
+          "header": "## At the Airport",
+          "subsections": [
+            "### Essential Phrases",
+            "### Airport Vocabulary"
+          ]
+        },
+        {
+          "header": "## At Your Hotel",
+          "subsections": [
+            "### Checking In",
+            "### Room Types"
+          ]
+        },
+        {
+          "header": "## Romantic Moments",
+          "subsections": [
+            "### On the Beach",
+            "### At Dinner"
+          ]
+        },
+        {
+          "header": "## Adventure Activities",
+          "subsections": [
+            "### Exploring Together",
+            "### Activity Vocabulary"
+          ]
+        },
+        {
+          "header": "## Creating Memories",
+          "subsections": [
+            "### Photo Moment Phrases"
+          ]
+        },
+        {
+          "header": "## Returning Home",
+          "subsections": [
+            "### End of Trip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3236a501-63ff-41ce-8501-af76f47c85f2",
+      "title": "Frases de 'Te Extraño' en Turco: Özlem con Pasión Turca",
+      "native_lang": "es",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresiones Esenciales",
+          "subsections": [
+            "### \"Seni özledim\"",
+            "### \"Seni çok özledim\"",
+            "### \"Keşke burada olsaydın\""
+          ]
+        },
+        {
+          "header": "## Frases Emotivas",
+          "subsections": [
+            "### \"Sensiz her an sonsuzluk gibi\"",
+            "### \"Hep aklımdasın\"",
+            "### \"Mesafe duygularımı değiştirmiyor\""
+          ]
+        },
+        {
+          "header": "## Para Mensajes Diarios",
+          "subsections": [
+            "### \"Seni düşünerek uyandım\"",
+            "### \"İyi geceler, özledim\"",
+            "### \"Seni göreceğim günü sayıyorum\""
+          ]
+        },
+        {
+          "header": "## Expresiones Profundas",
+          "subsections": [
+            "### \"Kalbim sensiz acı çekiyor\"",
+            "### \"Sen hayatımın eksik parçasısın\"",
+            "### \"Sensiz hiçbir şey aynı değil\""
+          ]
+        },
+        {
+          "header": "## Frases para Videollamadas",
+          "subsections": [
+            "### \"Yüzünü görmek beni mutlu ediyor\"",
+            "### \"Seni şimdi kucaklamak isterdim\""
+          ]
+        },
+        {
+          "header": "## Mensajes Románticos",
+          "subsections": [
+            "### \"Günaydın canım, özledim\"",
+            "### \"Seni görmek için sabırsızlanıyorum\""
+          ]
+        },
+        {
+          "header": "## Frases de Consuelo",
+          "subsections": [
+            "### \"Yakında kavuşacağız\"",
+            "### \"Seni bekliyorum\"",
+            "### \"Her zaman kalbimdesin\""
+          ]
+        }
+      ]
+    }
+  ]
+}

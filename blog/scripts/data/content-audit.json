@@ -1,0 +1,683 @@
+{
+  "meta": {
+    "timestamp": "2026-02-10T02:43:50.647Z",
+    "totalScanned": 13340,
+    "totalWithIssues": 30,
+    "scanDurationMs": 5993,
+    "filters": {
+      "native_lang": "all",
+      "target_lang": "all",
+      "category": "all",
+      "limit": "all",
+      "tier": "real"
+    },
+    "source": "local"
+  },
+  "summary": {
+    "byTier": {
+      "real": 31,
+      "quality": 0,
+      "cosmetic": 0
+    },
+    "bySeverity": {
+      "critical": 0,
+      "high": 28,
+      "medium": 3,
+      "low": 0
+    },
+    "byIssueType": {
+      "pronunciation_equals_word": 18,
+      "english_example": 1,
+      "repeated_content": 6,
+      "placeholder_pronunciation": 1,
+      "english_prose_markers": 2,
+      "truncated_content": 2,
+      "malformed_component": 1
+    },
+    "byNativeLang": {
+      "fr": {
+        "total": 5,
+        "critical": 0,
+        "high": 5,
+        "medium": 0,
+        "low": 0,
+        "real": 5,
+        "quality": 0,
+        "cosmetic": 0
+      },
+      "en": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "medium": 0,
+        "low": 0,
+        "real": 1,
+        "quality": 0,
+        "cosmetic": 0
+      },
+      "pt": {
+        "total": 2,
+        "critical": 0,
+        "high": 1,
+        "medium": 1,
+        "low": 0,
+        "real": 2,
+        "quality": 0,
+        "cosmetic": 0
+      },
+      "el": {
+        "total": 2,
+        "critical": 0,
+        "high": 2,
+        "medium": 0,
+        "low": 0,
+        "real": 2,
+        "quality": 0,
+        "cosmetic": 0
+      },
+      "uk": {
+        "total": 3,
+        "critical": 0,
+        "high": 3,
+        "medium": 0,
+        "low": 0,
+        "real": 3,
+        "quality": 0,
+        "cosmetic": 0
+      },
+      "de": {
+        "total": 3,
+        "critical": 0,
+        "high": 4,
+        "medium": 0,
+        "low": 0,
+        "real": 4,
+        "quality": 0,
+        "cosmetic": 0
+      },
+      "it": {
+        "total": 2,
+        "critical": 0,
+        "high": 2,
+        "medium": 0,
+        "low": 0,
+        "real": 2,
+        "quality": 0,
+        "cosmetic": 0
+      },
+      "tr": {
+        "total": 2,
+        "critical": 0,
+        "high": 2,
+        "medium": 0,
+        "low": 0,
+        "real": 2,
+        "quality": 0,
+        "cosmetic": 0
+      },
+      "sv": {
+        "total": 3,
+        "critical": 0,
+        "high": 2,
+        "medium": 1,
+        "low": 0,
+        "real": 3,
+        "quality": 0,
+        "cosmetic": 0
+      },
+      "ro": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "medium": 0,
+        "low": 0,
+        "real": 1,
+        "quality": 0,
+        "cosmetic": 0
+      },
+      "da": {
+        "total": 2,
+        "critical": 0,
+        "high": 2,
+        "medium": 0,
+        "low": 0,
+        "real": 2,
+        "quality": 0,
+        "cosmetic": 0
+      },
+      "no": {
+        "total": 1,
+        "critical": 0,
+        "high": 0,
+        "medium": 1,
+        "low": 0,
+        "real": 1,
+        "quality": 0,
+        "cosmetic": 0
+      },
+      "hu": {
+        "total": 1,
+        "critical": 0,
+        "high": 1,
+        "medium": 0,
+        "low": 0,
+        "real": 1,
+        "quality": 0,
+        "cosmetic": 0
+      },
+      "es": {
+        "total": 2,
+        "critical": 0,
+        "high": 2,
+        "medium": 0,
+        "low": 0,
+        "real": 2,
+        "quality": 0,
+        "cosmetic": 0
+      }
+    }
+  },
+  "systemic": {
+    "pronunciation_label": {
+      "description": "VocabCard renders 'Pronunciation:' in English for all languages",
+      "affected_count": 0,
+      "fix_location": "VocabCard.astro + component-converters.mjs",
+      "fix_type": "component_update + regenerate content_html"
+    },
+    "phrase_to_learn_label": {
+      "description": "PhraseOfDay renders 'Phrase to Learn' in English for all languages",
+      "affected_count": 0,
+      "fix_location": "PhraseOfDay.astro + component-converters.mjs",
+      "fix_type": "component_update + regenerate content_html"
+    },
+    "cultural_tip_default": {
+      "description": "CultureTip defaults title to 'Cultural Tip' in English",
+      "affected_count": 0,
+      "fix_location": "CultureTip.astro + component-converters.mjs",
+      "fix_type": "component_update + regenerate content_html"
+    }
+  },
+  "issues": {
+    "pronunciation_equals_word": [
+      {
+        "id": "0691e879-7b94-4842-a4bc-5b41a3f52143",
+        "slug": "100-most-common-english-words",
+        "native_lang": "fr",
+        "target_lang": "en",
+        "category": "vocabulary",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "count": 14,
+          "totalVocabCards": 102
+        }
+      },
+      {
+        "id": "1a1d6e0c-551d-4b61-a828-89c53bbe06f9",
+        "slug": "german-proposal-engagement-phrases",
+        "native_lang": "en",
+        "target_lang": "de",
+        "category": "situations",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "count": 1,
+          "totalVocabCards": 6
+        }
+      },
+      {
+        "id": "355963e7-89c7-43ef-aae1-20af4f976ec6",
+        "slug": "english-support-phrases-for-portuguese-speakers",
+        "native_lang": "pt",
+        "target_lang": "en",
+        "category": "communication",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "count": 1,
+          "totalVocabCards": 2
+        }
+      },
+      {
+        "id": "4715a4e6-0ef8-4e31-b324-f0db5754a131",
+        "slug": "english-pronunciation-guide-for-beginners",
+        "native_lang": "fr",
+        "target_lang": "en",
+        "category": "pronunciation",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "count": 1,
+          "totalVocabCards": 5
+        }
+      },
+      {
+        "id": "70b4feeb-f3a0-4743-84a9-54ac27fc8e28",
+        "slug": "english-wedding-phrases",
+        "native_lang": "uk",
+        "target_lang": "en",
+        "category": "situations",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "count": 2,
+          "totalVocabCards": 15
+        }
+      },
+      {
+        "id": "7560a2a0-e0d9-4083-895e-f6102ebe5230",
+        "slug": "100-most-common-english-words",
+        "native_lang": "it",
+        "target_lang": "en",
+        "category": "vocabulary",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "count": 1,
+          "totalVocabCards": 14
+        }
+      },
+      {
+        "id": "78b56df1-6c3c-4172-b97b-783edb0e126c",
+        "slug": "100-most-common-german-words",
+        "native_lang": "fr",
+        "target_lang": "de",
+        "category": "vocabulary",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "count": 1,
+          "totalVocabCards": 75
+        }
+      },
+      {
+        "id": "a1a5d09a-77f8-41fd-9c1a-948c72d997ce",
+        "slug": "spanish-honeymoon-travel-phrases",
+        "native_lang": "tr",
+        "target_lang": "es",
+        "category": "situations",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "count": 1,
+          "totalVocabCards": 5
+        }
+      },
+      {
+        "id": "a2ee8136-7f86-43a1-b256-68a1dbe722c7",
+        "slug": "dutch-grammar-basics-for-beginners",
+        "native_lang": "sv",
+        "target_lang": "nl",
+        "category": "grammar",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "count": 1,
+          "totalVocabCards": 5
+        }
+      },
+      {
+        "id": "ae56a7ca-adbe-4f53-b36b-9108f42b3fd7",
+        "slug": "dutch-vs-romanian-key-differences",
+        "native_lang": "ro",
+        "target_lang": "nl",
+        "category": "grammar",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "count": 1,
+          "totalVocabCards": 11
+        }
+      },
+      {
+        "id": "b6a27e04-89cb-4a35-8e6a-d6b2d306de09",
+        "slug": "en-miss-you-phrases-for-french-speakers",
+        "native_lang": "fr",
+        "target_lang": "en",
+        "category": "communication",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "count": 1,
+          "totalVocabCards": 5
+        }
+      },
+      {
+        "id": "c05a0efe-dcfb-483b-a754-3e291ac248c6",
+        "slug": "english-small-talk-conversation-starters",
+        "native_lang": "da",
+        "target_lang": "en",
+        "category": "communication",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "count": 1,
+          "totalVocabCards": 5
+        }
+      },
+      {
+        "id": "c70df4d3-f30c-4f87-bad0-3feb9c0812d7",
+        "slug": "norwegian-pronunciation-guide",
+        "native_lang": "tr",
+        "target_lang": "no",
+        "category": "pronunciation",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "count": 2,
+          "totalVocabCards": 13
+        }
+      },
+      {
+        "id": "e09d7a79-bb4b-41c4-99d8-71b5c598cda7",
+        "slug": "100-most-common-dutch-words",
+        "native_lang": "sv",
+        "target_lang": "nl",
+        "category": "vocabulary",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "count": 1,
+          "totalVocabCards": 8
+        }
+      },
+      {
+        "id": "e6e9653c-357b-48bd-9c35-9dd38773a40a",
+        "slug": "english-miss-you-phrases-for-danish-speakers",
+        "native_lang": "da",
+        "target_lang": "en",
+        "category": "communication",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "count": 1,
+          "totalVocabCards": 5
+        }
+      },
+      {
+        "id": "e9ab29c0-2ff4-43bc-9ee4-807aadf27a21",
+        "slug": "en-flirt-phrases-for-french-speakers",
+        "native_lang": "fr",
+        "target_lang": "en",
+        "category": "communication",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "count": 1,
+          "totalVocabCards": 4
+        }
+      },
+      {
+        "id": "ee3f0003-8b13-4b61-9ba9-d187264cc92e",
+        "slug": "romanian-birthday-wishes-partner",
+        "native_lang": "it",
+        "target_lang": "ro",
+        "category": "situations",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "count": 1,
+          "totalVocabCards": 5
+        }
+      },
+      {
+        "id": "f4354b18-23b0-48ec-a77a-2dab4cc8f8a9",
+        "slug": "da-miss-you-phrases-for-spanish-speakers",
+        "native_lang": "es",
+        "target_lang": "da",
+        "category": "communication",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "count": 1,
+          "totalVocabCards": 6
+        }
+      }
+    ],
+    "english_example": [
+      {
+        "id": "1c675ce2-cbc5-4f5f-8735-f1335b545ee1",
+        "slug": "polish-date-night-vocabulary",
+        "native_lang": "pt",
+        "target_lang": "pl",
+        "category": "vocabulary",
+        "severity": "medium",
+        "tier": "real",
+        "details": {
+          "count": 1
+        }
+      }
+    ],
+    "repeated_content": [
+      {
+        "id": "3d4f9b29-d08e-48dc-9487-a6d31841001c",
+        "slug": "german-video-call-phrases-family",
+        "native_lang": "el",
+        "target_lang": "de",
+        "category": "communication",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "count": 1,
+          "previews": [
+            "Μάθε επίσης [κουβεντούλα στα Γερμανικά](/el/blog/de-small-talk-conversation-star"
+          ]
+        }
+      },
+      {
+        "id": "5e4fc6b1-fda5-4395-a2d8-ed8ecf52e1d2",
+        "slug": "ukrainian-honeymoon-travel-phrases",
+        "native_lang": "de",
+        "target_lang": "uk",
+        "category": "situations",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "count": 1,
+          "previews": [
+            "Erinnern Sie sich an Ihre schöne Hochzeit? Lesen Sie unsere Artikel über [Hochze"
+          ]
+        }
+      },
+      {
+        "id": "802034f6-6c81-4d35-9ac6-7cb2c0186ded",
+        "slug": "hungarian-anniversary-wishes",
+        "native_lang": "el",
+        "target_lang": "hu",
+        "category": "situations",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "count": 1,
+          "previews": [
+            "Δες επίσης τον οδηγό μας για [ευχές γενεθλίων στα Ουγγρικά](/el/blog/hungarian-b"
+          ]
+        }
+      },
+      {
+        "id": "c32c2d83-e5f9-426b-a09a-3ffd632a9746",
+        "slug": "danish-giving-compliments",
+        "native_lang": "uk",
+        "target_lang": "da",
+        "category": "communication",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "count": 1,
+          "previews": [
+            "Більше про [побажання данськаою](/uk/blog/danish-good-morning-goodnight-phrases)"
+          ]
+        }
+      },
+      {
+        "id": "cef2cefb-124e-41af-b4e0-27b11233b7f7",
+        "slug": "russian-how-to-apologize",
+        "native_lang": "hu",
+        "target_lang": "ru",
+        "category": "communication",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "count": 1,
+          "previews": [
+            "- [Orosz romantikus kifejezések](/learn/hu/ru/russian-romantic-phrases-for-every"
+          ]
+        }
+      },
+      {
+        "id": "edd2b09c-0d11-4817-92e3-273a04b1dc1c",
+        "slug": "polish-moving-in-together",
+        "native_lang": "de",
+        "target_lang": "pl",
+        "category": "situations",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "count": 1,
+          "previews": [
+            "Planen Sie die nächsten Schritte? Lesen Sie unseren Artikel über [Verlobungsphra"
+          ]
+        }
+      }
+    ],
+    "placeholder_pronunciation": [
+      {
+        "id": "5d3407ee-3be9-46b4-a1da-9bcff31b7ff4",
+        "slug": "greek-vs-ukrainian-key-differences",
+        "native_lang": "uk",
+        "target_lang": "el",
+        "category": "grammar",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "pattern": "pronunciation=[\"']\\s*[\"']"
+        }
+      }
+    ],
+    "english_prose_markers": [
+      {
+        "id": "5e4fc6b1-fda5-4395-a2d8-ed8ecf52e1d2",
+        "slug": "ukrainian-honeymoon-travel-phrases",
+        "native_lang": "de",
+        "target_lang": "uk",
+        "category": "situations",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "markers_found": [
+            "pronunciation:"
+          ]
+        }
+      },
+      {
+        "id": "e10e6c63-1ec8-40a6-ac17-5135539fb9f3",
+        "slug": "greek-proposal-engagement-phrases",
+        "native_lang": "de",
+        "target_lang": "el",
+        "category": "situations",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "markers_found": [
+            "pronunciation:"
+          ]
+        }
+      }
+    ],
+    "truncated_content": [
+      {
+        "id": "bdb05bd9-d771-4983-bd6f-75f8e14e7666",
+        "slug": "italian-baby-pregnancy-phrases-for-swedish-speakers",
+        "native_lang": "sv",
+        "target_lang": "it",
+        "category": "phrases",
+        "severity": "medium",
+        "tier": "real",
+        "details": {
+          "endingChars": "de – det är så mycket kärlek!_"
+        }
+      },
+      {
+        "id": "c3372ac5-cdfe-4efd-864c-abf82dccf090",
+        "slug": "pt-forgive-phrases-for-norwegian-speakers",
+        "native_lang": "no",
+        "target_lang": "pt",
+        "category": "communication",
+        "severity": "medium",
+        "tier": "real",
+        "details": {
+          "endingChars": " portugisiskspråklige verden._"
+        }
+      }
+    ],
+    "malformed_component": [
+      {
+        "id": "fc38dfd1-feae-4999-9d36-d0519f181aa8",
+        "slug": "russian-proposal-engagement-phrases",
+        "native_lang": "es",
+        "target_lang": "ru",
+        "category": "situations",
+        "severity": "high",
+        "tier": "real",
+        "details": {
+          "components": [
+            {
+              "component": "PhraseOfDay",
+              "issue": "missing word/phrase prop"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "fixGroups": {
+    "component_label_fix": {
+      "description": "Fix English labels in components + regen HTML",
+      "count": 0
+    },
+    "translate_headers": {
+      "description": "Translate English section headers to native_lang",
+      "count": 0
+    },
+    "strip_frontmatter": {
+      "description": "Remove frontmatter leaked into content/HTML",
+      "count": 0
+    },
+    "regenerate_content_html": {
+      "description": "Re-run MDX->HTML conversion (broken/missing)",
+      "count": 0
+    },
+    "regenerate_content_ai": {
+      "description": "Full AI regen (wrong language, thin, corrupted)",
+      "count": 0
+    },
+    "fix_pronunciations": {
+      "description": "Replace placeholder pronunciations",
+      "count": 1
+    },
+    "fix_flags": {
+      "description": "Replace default Polish flag with correct flag",
+      "count": 0
+    },
+    "fix_truncated": {
+      "description": "Complete or regenerate truncated articles",
+      "count": 2
+    },
+    "fix_vocab_content": {
+      "description": "Fix wrong-language or copied pronunciations in VocabCards",
+      "count": 19
+    },
+    "fix_malformed": {
+      "description": "Fix malformed components (missing props, HTML entities)",
+      "count": 1
+    },
+    "fix_non_standard_tags": {
+      "description": "Convert <Phrase>/<Original>/<Translation> XML tags to proper markdown/components",
+      "count": 0
+    },
+    "fix_undefined": {
+      "description": "Fix literal \"undefined\" in content or HTML (mostly Russian-native)",
+      "count": 0
+    }
+  }
+}

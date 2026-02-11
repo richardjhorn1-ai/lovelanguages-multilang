@@ -1,0 +1,455 @@
+{
+  "batchId": "tier2a-slim-0101",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "774b0644-0cbc-4ffd-8d10-71911cb541fa",
+      "title": "Spansk Grammatik for Begyndere: Sådan Taler du Kærligt med Din Partner",
+      "native_lang": "da",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De 5 Grundregler for Spansk Grammatik",
+          "subsections": [
+            "### 1. Alt har køn - men det er logisk",
+            "### 2. Verb bøjes efter person",
+            "### 3. Adjektiver følger substantiver",
+            "### 4. Spørgsmål behøver ikke omvendt ordstilling",
+            "### 5. Der findes to former for \"at være\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "77598b58-ef16-47f4-9de2-7060ee2a9492",
+      "title": "Jak napsat milostný dopis ve švédštině",
+      "native_lang": "cs",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Úvodní oslovení",
+          "subsections": [
+            "### \"Min älskling\"",
+            "### \"Mitt hjärta\"",
+            "### \"Käraste\""
+          ]
+        },
+        {
+          "header": "## Úvodní věty",
+          "subsections": [
+            "### \"Jag skriver det här brevet för att berätta hur mycket du betyder för mig.\"",
+            "### \"Ord kan inte uttrycka vad jag känner för dig.\""
+          ]
+        },
+        {
+          "header": "## Vyjádření lásky",
+          "subsections": [
+            "### \"Du är det bästa som hänt mig.\"",
+            "### \"Jag älskar dig mer för varje dag.\"",
+            "### \"Mitt hjärta tillhör dig, nu och för alltid.\"",
+            "### \"Med dig har jag hittat äkta lycka.\""
+          ]
+        },
+        {
+          "header": "## Ocenění partnera",
+          "subsections": [
+            "### \"Jag beundrar din styrka, vänlighet och vackra själ.\"",
+            "### \"Tack för att du älskar mig precis som jag är.\""
+          ]
+        },
+        {
+          "header": "## Závěrečné fráze",
+          "subsections": [
+            "### \"Din för alltid\"",
+            "### \"Med all min kärlek\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "776449d7-8b97-48ad-8edf-e02cbd008810",
+      "title": "50+ Frases Francesas para Encantar Seu Amor",
+      "native_lang": "pt",
+      "target_lang": "fr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Frases para Momentos Especiais",
+          "subsections": [
+            "### Para Aniversários",
+            "### Para Momentos de Apoio"
+          ]
+        },
+        {
+          "header": "## Frases Carinhosas do Cotidiano",
+          "subsections": [
+            "### Ao Acordar",
+            "### Ao Dormir"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "776ed5df-1d04-462c-ba62-7248086a2b3e",
+      "title": "Podstawy gramatyki ukrainskiej dla Polaków",
+      "native_lang": "pl",
+      "target_lang": "uk",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Czasowniki",
+          "subsections": [
+            "### Dwie koniugacje",
+            "### Ważne czasowniki"
+          ]
+        },
+        {
+          "header": "## БУТИ (być)",
+          "subsections": [
+            "### Czas teraźniejszy",
+            "### Czas przeszły"
+          ]
+        },
+        {
+          "header": "## Przymiotniki",
+          "subsections": [
+            "### Odmiana przymiotników"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Przypadki",
+            "### Ćwiczenie 2: Czasownik КОХАТИ",
+            "### Ćwiczenie 3: Romantyczne zdania"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7780a086-08f2-4f38-a34e-0aaa77e080b0",
+      "title": "Чеська фрази для медового місяця та романтичних подорожей",
+      "native_lang": "uk",
+      "target_lang": "cs",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна туристична лексика",
+          "subsections": []
+        },
+        {
+          "header": "## У готелі",
+          "subsections": [
+            "### Реєстрація",
+            "### Корисні фрази для готелю"
+          ]
+        },
+        {
+          "header": "## У ресторані",
+          "subsections": [
+            "### Романтична вечеря",
+            "### Тости для двох"
+          ]
+        },
+        {
+          "header": "## Пляжний відпочинок",
+          "subsections": [
+            "### Лексика для пляжу",
+            "### Романтичні пляжні активності"
+          ]
+        },
+        {
+          "header": "## Екскурсії для пар",
+          "subsections": [
+            "### Романтичні активності",
+            "### Корисні фрази"
+          ]
+        },
+        {
+          "header": "## Фотографії на пам'ять",
+          "subsections": [
+            "### Як попросити зробити фото"
+          ]
+        },
+        {
+          "header": "## Покупки сувенірів",
+          "subsections": [
+            "### Подарунки для рідних"
+          ]
+        },
+        {
+          "header": "## Проблеми в подорожі",
+          "subsections": [
+            "### Якщо щось пішло не так"
+          ]
+        },
+        {
+          "header": "## Повернення додому",
+          "subsections": [
+            "### Прощання з відпусткою"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "77a58cce-967a-4592-9335-4f6a00b31e67",
+      "title": "Német évfordulós kívánságok és üzenetek",
+      "native_lang": "hu",
+      "target_lang": "de",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Évfordulós köszöntések",
+            "### Hosszabb üzenetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "77bd6789-d32b-4bf4-9bdb-551d23c53299",
+      "title": "Gramatică Engleză de Bază pentru Începători: Ghid Complet",
+      "native_lang": "ro",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Articolele: A, An, The",
+          "subsections": [
+            "### Articolul Nehotărât: A / An",
+            "### Articolul Hotărât: The"
+          ]
+        },
+        {
+          "header": "## Formarea Negațiilor",
+          "subsections": [
+            "### Cu \"To Be\"",
+            "### Cu alte verbe (folosind DO NOT / DOES NOT)"
+          ]
+        },
+        {
+          "header": "## Comparația Adjectivelor",
+          "subsections": [
+            "### Adjective Scurte (1-2 silabe)",
+            "### Adjective Lungi (3+ silabe)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "77d05588-143b-41ee-a256-f2f09a29d7a5",
+      "title": "Noorse Zinnen voor een Eerste Date",
+      "native_lang": "nl",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Det er så hyggelig å endelig møte deg\" - *dee er so hue-ge-lie o en-de-lie meu-te dai*",
+            "### 2. \"Du ser fantastisk ut\" - *due seer fan-tas-tiesk oet*",
+            "### 3. \"Fortell meg om deg selv\" - *for-tel mai om dai selv*",
+            "### 4. \"Hva jobber du med?\" - *va job-er due meed*",
+            "### 5. \"Jeg koser meg veldig\" - *jai ko-ser mai vel-die*",
+            "### 6. \"Vil du ha noe mer å drikke?\" - *viel due ha noe-e meer o drie-ke*",
+            "### 7. \"Hva slags musikk liker du?\" - *va slaks moe-siek lie-ker due*",
+            "### 8. \"Jeg vil gjerne treffe deg igjen\" - *jai viel jeer-ne tre-fe dai ie-jen*",
+            "### 9. \"Kan jeg følge deg hjem?\" - *kan jai feul-je dai jem*",
+            "### 10. \"Jeg har hatt en fantastisk kveld\" - *jai har hat en fan-tas-tiesk kvel*",
+            "### 11. \"Hva er hobbyene dine?\" - *va er ho-bie-e-ne die-ne*",
+            "### 12. \"Du har et vakkert smil\" - *due har et va-kert smiel*"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "77f9b168-a718-4621-8893-6ecff78975ab",
+      "title": "Cehă Romantică: De la 'Miluji tě' la 'Jsi můj sen'",
+      "native_lang": "ro",
+      "target_lang": "cs",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Fraze de Zi cu Zi",
+          "subsections": [
+            "### Dimineața",
+            "### În Timpul Zilei",
+            "### Seara"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "77fa8f81-6261-477a-b497-096e871b5b74",
+      "title": "Zweedse Zinnen voor Verzoening en Goedmaken",
+      "native_lang": "nl",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen voor verzoening",
+          "subsections": [
+            "### 1. \"Förlåt för det jag sa\"",
+            "### 2. \"Kan vi börja om från början?\"",
+            "### 3. \"Jag ville inte såra dig\"",
+            "### 4. \"Du betyder allt för mig\"",
+            "### 5. \"Jag hade fel och erkänner det\"",
+            "### 6. \"Jag älskar dig mer än något bråk\"",
+            "### 7. \"Vad kan jag göra för att gottgöra?\"",
+            "### 8. \"Jag förlåter dig\"",
+            "### 9. \"Låt oss lägga det här bakom oss\"",
+            "### 10. \"Kom hit och krama mig\"",
+            "### 11. \"Vår kärlek är starkare än det här\"",
+            "### 12. \"Jag vill aldrig förlora dig\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "77fb4072-cb5a-463a-a64c-b93fdc524f64",
+      "title": "Frases en Danés para Discutir y Resolver Desacuerdos con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Expresar Desacuerdo",
+          "subsections": [
+            "### \"Jeg ser det anderledes\"",
+            "### \"Kan vi tale roligt om det her?\"",
+            "### \"Det gør ondt, når du...\"",
+            "### \"Det var ikke det, jeg mente\"",
+            "### \"Jeg har brug for tid til at tænke\"",
+            "### \"Prøv at forstå mit synspunkt\"",
+            "### \"Jeg vil ikke skændes\"",
+            "### \"Du lytter ikke til mig\"",
+            "### \"Lad os finde et kompromis\"",
+            "### \"Det her er vigtigt for mig\"",
+            "### \"Vi har begge brug for at falde ned\"",
+            "### \"Jeg føler mig såret\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "77fdc7f9-d992-4cf1-845d-f5cc944f5650",
+      "title": "Frases en Noruego sobre Celos y Confianza para Parejas",
+      "native_lang": "es",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Expresar Celos",
+          "subsections": [
+            "### \"Jeg føler meg litt sjalu når...\"",
+            "### \"Kan vi snakke om noe som plager meg?\"",
+            "### \"Jeg stoler på deg, men jeg føler meg usikker\"",
+            "### \"Hvem var den personen?\""
+          ]
+        },
+        {
+          "header": "## Frases para Pedir Seguridad",
+          "subsections": [
+            "### \"Jeg trenger litt trygghet\"",
+            "### \"Jeg vet det er irrasjonelt, men...\""
+          ]
+        },
+        {
+          "header": "## Frases para Construir Confianza",
+          "subsections": [
+            "### \"Jeg stoler helt på deg\"",
+            "### \"Du er den eneste for meg\"",
+            "### \"Jeg har bare øyne for deg\"",
+            "### \"Det er ingenting å bekymre seg for\"",
+            "### \"Du kan stole på meg\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "77feadb2-c004-4bce-914b-a00e7c27cd7b",
+      "title": "Frases de Apoyo Emocional en Neerlandés: Cómo Consolar a Tu Pareja",
+      "native_lang": "es",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases de Consuelo Básicas",
+          "subsections": [
+            "### \"Ik ben er voor je\"",
+            "### \"Het komt allemaal goed\"",
+            "### \"Het spijt me zo dat je dit doormaakt\""
+          ]
+        },
+        {
+          "header": "## Ofreciendo Apoyo",
+          "subsections": [
+            "### \"Wat heb je nu nodig?\"",
+            "### \"Ik doe alles wat ik kan om te helpen\"",
+            "### \"Wil je erover praten?\"",
+            "### \"Ik luister\""
+          ]
+        },
+        {
+          "header": "## Validando Emociones",
+          "subsections": [
+            "### \"Het is oké om je zo te voelen\"",
+            "### \"Je gevoelens zijn helemaal terecht\""
+          ]
+        },
+        {
+          "header": "## Frases de Ánimo",
+          "subsections": [
+            "### \"Je bent sterker dan je denkt\"",
+            "### \"Ik geloof in je\"",
+            "### \"We komen hier samen doorheen\""
+          ]
+        },
+        {
+          "header": "## Expresando Amor",
+          "subsections": [
+            "### \"Ik hou van je, wat er ook gebeurt\"",
+            "### \"Je bent niet alleen\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7800e3d1-651a-49f8-85d3-00812edbddb6",
+      "title": "30 Romanian Pet Names and Endearments",
+      "native_lang": "en",
+      "target_lang": "ro",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Quick Reference by Category",
+          "subsections": [
+            "### Most Common (Start Here)",
+            "### Sweet & Cute",
+            "### Deeply Romantic",
+            "### Complimentary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "780c8275-02d5-4f93-88f4-edd34908803d",
+      "title": "Angol esküvői kifejezések: Szókincs a nagy napra",
+      "native_lang": "hu",
+      "target_lang": "en",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Gratulációk és jókívánságok",
+            "### Köszöntők"
+          ]
+        }
+      ]
+    }
+  ]
+}

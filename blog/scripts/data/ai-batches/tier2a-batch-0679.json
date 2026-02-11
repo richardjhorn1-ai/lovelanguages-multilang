@@ -1,0 +1,122 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0679",
+  "articles": [
+    {
+      "id": "c4d14d12-0ae6-4f59-851e-9c122579c16f",
+      "title": "50+ Deense Koosnaampjes om Harten te Laten Smelten",
+      "native_lang": "nl",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nBijnamen en koosnaampjes zijn een universele manier om genegenheid te tonen. In het Deens vind je een warme verzameling van lieve benamingen die perfect passen bij de Deense cultuur van hygge en oprechte verbindingen.\n\n## De Oorsprong van Deense Koosnaampjes\n\n<PhraseOfDay\n  word=\"Kælenavn\"\n  translation=\"Koosnaampje\"\n  pronunciation=\"kei-le-navn\"\n  context=\"De Deense term voor een liefkozende bijnaam.\"\n/>\n\nDeense koosnaampjes zijn vaak eenvoudig en oprecht, passend bij de Deense cultuur van bescheidenheid en warmte. Ze eindigen vaak op \"-ansen\" of gebruiken \"lille\" (klein) voor extra liefde.\n\n## Klassieke Koosnaampjes\n\n### De Tijdloze Favorieten\n\n<VocabCard\n  word=\"Skat\"\n  translation=\"Schat\"\n  pronunciation=\"skat\"\n  example=\"Skat, kan du komme her? (Schat, kun je hier komen?)\"\n/>\n\n<VocabCard\n  word=\"Elskling\"\n  translation=\"Liefje\"\n  pronunciation=\"el-skling\"\n  example=\"God morgen, elskling. (Goedemorgen, liefje.)\"\n/>\n\n<VocabCard\n  word=\"Kæreste\"\n  translation=\"Lief/Partner\"\n  pronunciation=\"kair-es-te\"\n  example=\"Min kæreste er fantastisk. (Mijn lief is fantastisch.)\"\n/>\n\n<VocabCard\n  word=\"Min kærlighed\"\n  translation=\"Mijn liefde\"\n  pronunciation=\"min kair-li-heid\"\n  example=\"God nat, min kærlighed. (Welterusten, mijn liefde.)\"\n/>\n\n<CultureTip title=\"Skat is de Standaard\" flag=\"🇩🇰\">\n\"Skat\" is veruit het populairste koosnaampje in Denemarken. Je hoort het overal - van jonge stellen tot oudere echtparen. Het is warm, vertrouwd en altijd gepast!\n</CultureTip>\n\n## Moderne en Informele Koosnaampjes\n\n<VocabCard\n  word=\"Søde\"\n  translation=\"Lieve/Zoete\"\n  pronunciation=\"suu-de\"\n  example=\"Hej søde, hvad laver du? (Hoi lieve, wat doe je?)\"\n/>\n\n<VocabCard\n  word=\"Sødansen\"\n  translation=\"Zoetje\"\n  pronunciation=\"suu-dan-sen\"\n  example=\"Kom her, sødansen! (Kom hier, zoetje!)\"\n/>\n\n<VocabCard\n  word=\"Gansen\"\n  translation=\"Schatje\"\n  pronunciation=\"gan-sen\"\n  example=\"Min lille gansen. (Mijn kleine schatje.)\"\n/>\n\n<VocabCard\n  word=\"Baby\"\n  translation=\"Baby\"\n  pronunciation=\"bei-bi\"\n  example=\"Baby, du er den bedste. (Baby, jij bent de beste.)\"\n/>\n\n<CultureTip title=\"Internationale Invloeden\" flag=\"🌍\">\nNet als in andere Scandinavische landen zijn Engelse termen zoals \"baby\" ook populair geworden in Denemarken, vooral onder jongeren.\n</CultureTip>\n\n## Eten-Gerelateerde Koosnaampjes\n\n<VocabCard\n  word=\"Honningansen\"\n  translation=\"Honingschatje\"\n  pronunciation=\"hon-ning-an-sen\"\n  example=\"God morgen, honningansen! (Goedemorgen, honingschatje!)\"\n/>\n\n<VocabCard\n  word=\"Sukkeransen\"\n  translation=\"Suikerschatje\"\n  pronunciation=\"suk-ker-an-sen\"\n  example=\"Min lille sukkeransen. (Mijn kleine suikerschatje.)\"\n/>\n\n<VocabCard\n  word=\"Karamelansen\"\n  translation=\"Karamelschatje\"\n  pronunciation=\"ka-ra-mel-an-sen\"\n  example=\"Hej karamelansen! (Hoi karamelschatje!)\"\n/>\n\n<VocabCard\n  word=\"Bollansen\"\n  translation=\"Broodjesschatje\"\n  pronunciation=\"bol-an-sen\"\n  example=\"Min lille bollansen. (Mijn kleine broodjesschatje.)\"\n/>\n\n## Dieren-Gerelateerde Koosnaampjes\n\n<VocabCard\n  word=\"Kanin/Kaninansen\"\n  translation=\"Konijntje\"\n  pronunciation=\"ka-niin/ka-niin-an-sen\"\n  example=\"Min lille kanin. (Mijn kleine konijntje.)\"\n/>\n\n<VocabCard\n  word=\"Musansen\"\n  translation=\"Muisje\"\n  pronunciation=\"muu-san-sen\"\n  example=\"Hej musansen! (Hoi muisje!)\"\n/>\n\n<VocabCard\n  word=\"Bamsen\"\n  translation=\"Beertje\"\n  pronunciation=\"bam-sen\"\n  example=\"Kom her, bamsen. (Kom hier, beertje.)\"\n/>\n\n<VocabCard\n  word=\"Fugl/Fuglansen\"\n  translation=\"Vogeltje\"\n  pronunciation=\"fuul/fuul-an-sen\"\n  example=\"Min lille fuglansen. (Mijn kleine vogeltje.)\"\n/>\n\n## Uiterlijk-Gerelateerde Koosnaampjes\n\n<VocabCard\n  word=\"Smukke\"\n  translation=\"Mooie\"\n  pronunciation=\"smuk-ke\"\n  example=\"God morgen, smukke. (Goedemorgen, mooie.)\"\n/>\n\n<VocabCard\n  word=\"Lansen\"\n  translation=\"Knappe\"\n  pronunciation=\"lak-ker\"\n  example=\"Hej lansen! (Hoi knappe!)\"\n/>\n\n<VocabCard\n  word=\"Dejansen\"\n  translation=\"Prachtige\"\n  pronunciation=\"dai-an-sen\"\n  example=\"Min dejansen. (Mijn prachtige.)\"\n/>\n\n## Koosnaampjes met \"Lille\" (Klein)\n\nHet woord \"lille\" (klein) wordt vaak toegevoegd:\n\n| Met Lille | Betekenis |\n|-----------|-----------|\n| Lille skat | Klein schatje |\n| Lille søde | Klein lief |\n| Lille hjerte | Klein hartje |\n| Min lille ven | Mijn kleine vriend |\n\n<VocabCard\n  word=\"Min lille skat\"\n  translation=\"Mijn klein schatje\"\n  pronunciation=\"min lil-le skat\"\n  example=\"Sov godt, min lille skat.\"\n/>\n\n## Koosnaampjes met \"-ansen\"\n\nHet achtervoegsel \"-ansen\" maakt woorden extra liefdevol:\n\n| Basis | Met -ansen | Betekenis |\n|-------|------------|-----------|\n| Sød (lief) | Sødansen | Zoetje |\n| Gull (goud) | Gullansen | Gouden schatje |\n| Ven (vriend) | Venansen | Vriendje |\n| Mus (muis) | Musansen | Muisje |\n\n<CultureTip title=\"Verkleinwoorden\" flag=\"💕\">\nHet achtervoegsel \"-ansen\" maakt woorden automatisch schattig en liefdevol. Je kunt het aan bijna elk woord toevoegen om het een koosnaampje te maken!\n</CultureTip>\n\n## Speelse en Unieke Koosnaampjes\n\n<VocabCard\n  word=\"Tansen\"\n  translation=\"Gekkie (liefkozend)\"\n  pronunciation=\"taa-sen\"\n  example=\"Din lille tansen! (Jij kleine gekkie!)\"\n/>\n\n<VocabCard\n  word=\"Fjollansen\"\n  translation=\"Malle\"\n  pronunciation=\"fyol-an-sen\"\n  example=\"Min lille fjollansen. (Mijn kleine malle.)\"\n/>\n\n<VocabCard\n  word=\"Pusansen\"\n  translation=\"Snoetje\"\n  pronunciation=\"pus-an-sen\"\n  example=\"Hej pusansen! (Hoi snoetje!)\"\n/>\n\n## Persoonlijke Koosnaampjes Creëren\n\nDe beste koosnaampjes zijn vaak persoonlijk:\n\n1. **Van de naam** - Voeg \"-ansen\" toe aan een verkorte naam\n2. **Van herinneringen** - Iets van jullie eerste date\n3. **Van eigenschappen** - Een schattige eigenschap\n4. **Van binnenpretjes** - Iets dat alleen jullie begrijpen\n\n<CultureTip title=\"Hygge en Koosnaampjes\" flag=\"🕯️\">\nDeense koosnaampjes passen bij de hygge-cultuur - ze zijn warm, intiem en simpel. Een oprecht \"skat\" in een gezellige setting is perfecte Deense romantiek!\n</CultureTip>\n\n## Do's en Don'ts\n\n### Do's\n- Gebruik \"skat\" als veilige optie\n- Voeg \"lille\" toe voor extra liefde\n- Vraag of je partner het leuk vindt\n\n### Don'ts\n- Gebruik geen koosnaampjes in formele situaties\n- Overdrijf niet in het openbaar\n- Forceer het niet als het onnatuurlijk voelt\n\n## Snelle Referentie per Gelegenheid\n\n| Gelegenheid | Aanbevolen |\n|-------------|------------|\n| Thuis, ontspannen | Skat, søde |\n| Speels moment | Sødansen, tansen |\n| Romantisch moment | Min kærlighed, elskling |\n| In gezelschap | Voornaam of neutraal |\n| Teksten/sms | Skat, søde |\n\n<CTA\n  text=\"Klaar om je Deense partner te verrassen? Met Love Languages oefen je de uitspraak met AI-spraakchat - zonder oordeel. Je partner kan koosnaampjes als 'woordcadeaus' naar je sturen, zodat je precies leert wat zij liefdevol vinden. Samen leren, samen groeien.\"\n  buttonText=\"Start Samen met Deens Leren\"\n/>\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Klassieke Koosnaampjes",
+              "## Do's en Don'ts"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "c4d3476c-ca7a-4af5-a6d2-2235d8c0972e",
+      "title": "Іспанські фрази для суперечок і розбіжностей",
+      "native_lang": "uk",
+      "target_lang": "es",
+      "category": "communication",
+      "content": "Іспанці відомі своєю емоційністю та пристрастю, і це стосується також суперечок. Розуміння того, як правильно висловлювати незгоду іспанською, допоможе вам будувати міцніші стосунки з вашим партнером.\n\n## Початок серйозної розмови\n\n### \"Tenemos que hablar\"\n**Вимова:** Тенемос ке аблар\n\n**Значення:** Нам потрібно поговорити\n\nКласична фраза для початку серйозної розмови. В іспанській культурі прямота цінується, тому ця фраза сприймається природно.\n\n### \"Me siento mal cuando tú...\"\n**Вимова:** Ме сьєнто маль куандо ту...\n\n**Значення:** Мені погано, коли ти...\n\nВираження почуттів через \"me siento\" (я відчуваю) допомагає уникнути звинувачувального тону.\n\n### \"¿Podemos hablar de esto con calma?\"\n**Вимова:** Подемос аблар де есто кон кальма?\n\n**Значення:** Чи можемо ми поговорити про це спокійно?\n\n\"Con calma\" (спокійно) — важливе доповнення, що показує ваше бажання конструктивного діалогу.\n\n## Вираження незгоди\n\n### \"No estoy de acuerdo\"\n**Вимова:** Но естой де акуердо\n\n**Значення:** Я не згоден/згодна\n\nПряме, але ввічливе вираження незгоди. В іспанській культурі пряма незгода сприймається нормально.\n\n### \"Lo veo de otra manera\"\n**Вимова:** Ло вео де отра манера\n\n**Значення:** Я бачу це інакше\n\nМ'якший спосіб висловити іншу точку зору, не вступаючи у пряму конфронтацію.\n\n### \"No me has entendido bien\"\n**Вимова:** Но ме ас ентендідо б'єн\n\n**Значення:** Ти мене неправильно зрозумів/зрозуміла\n\nКорисна фраза для прояснення непорозумінь.\n\n## Емоційні вирази\n\n### \"Me duele que digas eso\"\n**Вимова:** Ме дуеле ке діґас есо\n\n**Значення:** Мені боляче, що ти це кажеш\n\nІспанці не бояться висловлювати емоції. Ця фраза показує глибину ваших почуттів.\n\n### \"Estoy frustrado/frustrada\"\n**Вимова:** Естой фрустрадо/фрустрада\n\n**Значення:** Я розчарований/розчарована\n\nВикористовуйте \"frustrado\" (чоловічий рід) або \"frustrada\" (жіночий рід) залежно від вашої статі.\n\n### \"Necesito que me escuches\"\n**Вимова:** Несесіто ке ме ескучес\n\n**Значення:** Мені потрібно, щоб ти мене вислухав/вислухала\n\nПрохання бути почутим — важлива частина іспанської комунікації.\n\n## Пошук вирішення\n\n### \"¿Cómo podemos solucionar esto?\"\n**Вимова:** Комо подемос солусьонар есто?\n\n**Значення:** Як ми можемо це вирішити?\n\nФраза, орієнтована на вирішення проблеми разом.\n\n### \"Busquemos un punto medio\"\n**Вимова:** Бускемос ун пунто медіо\n\n**Значення:** Давай знайдемо золоту середину\n\n\"Punto medio\" — компроміс, середина між двома позиціями.\n\n### \"Estoy dispuesto/dispuesta a ceder\"\n**Вимова:** Естой діспуесто/діспуеста а седер\n\n**Значення:** Я готовий/готова поступитися\n\nПоказує вашу гнучкість та бажання знайти спільне рішення.\n\n## Визнання помилки\n\n### \"Tienes razón, me equivoqué\"\n**Вимова:** Тьєнес расон, ме еківоке\n\n**Значення:** Ти маєш рацію, я помилився/помилилась\n\nПряме визнання помилки. \"Razón\" означає \"рація\" або \"правда\".\n\n### \"No debería haber dicho eso\"\n**Вимова:** Но дебері'а абер діічо есо\n\n**Значення:** Мені не варто було це говорити\n\nВизнання неправильних слів відкриває шлях до примирення.\n\n## Культурні особливості\n\n**Емоційність:** Іспанці виражають емоції відкрито. Підвищений голос не завжди означає агресію — це може бути просто пристрасть.\n\n**Жестикуляція:** Активна жестикуляція під час розмови — норма в іспанській культурі.\n\n**Час:** Розмови можуть тривати довго. Іспанці не поспішають завершувати важливі обговорення.\n\n**Примирення:** Після суперечки часто слідує емоційне примирення з обіймами та запевненнями в коханні.\n\nОволодівши цими фразами, ви зможете ефективно спілкуватися з іспаномовним партнером навіть у складних ситуаціях.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Початок серйозної розмови",
+              "## Вираження незгоди",
+              "## Емоційні вирази",
+              "## Пошук вирішення",
+              "## Визнання помилки"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "c4e9fc02-5026-4aee-917f-c5401df7dd1f",
+      "title": "Jak napsat milostný dopis v turečtině",
+      "native_lang": "cs",
+      "target_lang": "tr",
+      "category": "communication",
+      "content": "Turečtina má bohatou tradici milostné poezie. Turecké dopisy jsou vášnivé a poetické.\n\n## Úvodní oslovení\n\n### \"Aşkım\"\n**Překlad:** Lásko moje\n\n---\n\n### \"Canım\"\n**Překlad:** Duše moje\n\n---\n\n### \"Sevgilim\"\n**Překlad:** Miláčku\n\n---\n\n## Úvodní věty\n\n### \"Sana bu mektubu, benim için ne kadar önemli olduğunu söylemek için yazıyorum.\"\n**Překlad:** Píšu ti tento dopis, abych ti řekl/a, jak moc pro mě znamenáš.\n\n---\n\n### \"Kelimeler sana olan duygularımı ifade edemiyor.\"\n**Překlad:** Slova nemohou vyjádřit, co k tobě cítím.\n\n---\n\n## Vyjádření lásky\n\n### \"Sen başıma gelen en güzel şeysin.\"\n**Překlad:** Jsi to nejkrásnější, co se mi přihodilo.\n\n---\n\n### \"Her gün sana daha çok aşık oluyorum.\"\n**Překlad:** Každý den se do tebe zamilovávám víc.\n\n---\n\n### \"Kalbim sana ait, şimdi ve sonsuza dek.\"\n**Překlad:** Moje srdce patří tobě, teď a navždy.\n\n---\n\n### \"Seninle gerçek mutluluğu buldum.\"\n**Překlad:** S tebou jsem našel/našla pravé štěstí.\n\n---\n\n## Ocenění partnera\n\n### \"Gücüne, iyiliğine ve güzel ruhuna hayranım.\"\n**Překlad:** Obdivuji tvou sílu, laskavost a krásnou duši.\n\n---\n\n### \"Beni olduğum gibi sevdiğin için teşekkür ederim.\"\n**Překlad:** Děkuji, že mě miluješ takového/takovou, jaký/á jsem.\n\n---\n\n## Závěrečné fráze\n\n### \"Sonsuza dek senin\"\n**Překlad:** Navždy tvůj/tvoje\n\n---\n\n### \"Tüm sevgimle\"\n**Překlad:** Se vší mou láskou\n\n---\n\n## Kulturní tipy\n\n**Poezie:** Turecká milostná poezie je velmi bohatá.\n\n**Rodina:** V seriózním vztahu je dopis rodičům také důležitý.\n\nS těmito frázemi napíšete vášnivý turecký milostný dopis.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 220,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Úvodní oslovení",
+              "## Úvodní věty",
+              "## Vyjádření lásky",
+              "## Ocenění partnera",
+              "## Závěrečné fráze"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "c50237f2-2af0-4701-a459-c126d08f2628",
+      "title": "Román kifejezések első randira",
+      "native_lang": "hu",
+      "target_lang": "ro",
+      "category": "communication",
+      "content": "Az első randi izgalmas pillanat. Ha román anyanyelvű személlyel randevúzol, ezek a kifejezések segítenek.\n\n## Bemutatkozás\n\n### 1. \"Este o plăcere să te cunosc în sfârșit\"\n**Jelentés:** Jó végre találkozni\n\n### 2. \"Arăți minunat\"\n**Jelentés:** Csodálatosan nézel ki\n\n### 3. \"Povestește-mi despre tine\"\n**Jelentés:** Mesélj magadról\n\n### 4. \"Cu ce te ocupi?\"\n**Jelentés:** Mi a foglalkozásod?\n\n### 5. \"Care sunt hobby-urile tale?\"\n**Jelentés:** Mik a hobbijaid?\n\n## Beszélgetés\n\n### 6. \"Asta e foarte interesant\"\n**Jelentés:** Ez nagyon érdekes\n\n### 7. \"Simt la fel\"\n**Jelentés:** Én is így érzek\n\n### 8. \"Ce fel de muzică îți place?\"\n**Jelentés:** Milyen zenét szeretsz?\n\n### 9. \"Ai călătorit mult?\"\n**Jelentés:** Sokat utaztál?\n\n### 10. \"Mă distrez foarte bine\"\n**Jelentés:** Nagyon jól érzem magam\n\n## Randi vége\n\n### 11. \"Am petrecut minunat\"\n**Jelentés:** Csodálatos időt töltöttem\n\n### 12. \"Ne putem vedea din nou?\"\n**Jelentés:** Találkozhatunk újra?\n\n### 13. \"Mi-ar plăcea să repetăm asta\"\n**Jelentés:** Szívesen megismételném\n\n### 14. \"Pot să te conduc acasă?\"\n**Jelentés:** Hazakísérhetlek?\n\n## Összefoglalás\n\nA román randevú meleg és latin.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 168,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Bemutatkozás",
+              "## Beszélgetés",
+              "## Randi vége"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "c5336eca-c95d-4d87-b676-3e45c27cadc4",
+      "title": "German Phrases for Meeting the In-Laws: Make a Great Impression",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "communication",
+      "content": "Meeting your partner's German-speaking family is an important milestone. Germans value sincerity and proper etiquette—your effort to speak German will demonstrate respect and make a strong positive impression.\n\n## Why Language Matters\n\nGerman families appreciate genuine effort and directness. Speaking their language—even imperfectly—shows commitment to your relationship and respect for their culture.\n\n## First Impressions\n\n### Greetings\n\n**Es freut mich sehr, Sie kennenzulernen**\n*I'm very pleased to meet you*\n\nFormal and proper first greeting.\n\n**Es ist mir eine Ehre, [partner's name]s Familie zu treffen**\n*It's an honor to meet [partner's name]'s family*\n\nExpresses genuine appreciation.\n\n**[Partner's name] hat mir viel von Ihnen erzählt**\n*[Partner's name] has told me a lot about you*\n\nShows your partner speaks well of them.\n\n## Expressing Gratitude\n\n**Vielen Dank, dass Sie mich in Ihrem Haus willkommen heißen**\n*Thank you for welcoming me into your home*\n\nAcknowledging hospitality.\n\n**Das Essen ist köstlich**\n*The food is delicious*\n\nComplimenting cooking shows appreciation.\n\n**Herzlichen Dank für alles**\n*Heartfelt thanks for everything*\n\nDeep gratitude.\n\n## Talking About Your Partner\n\n**Ich liebe Ihren Sohn/Ihre Tochter sehr**\n*I love your son/daughter very much*\n\nDirect declaration of feelings.\n\n**[Partner's name] ist ein wunderbarer Mensch**\n*[Partner's name] is a wonderful person*\n\nComplimenting how they raised their child.\n\n**Sie haben einen großartigen Menschen großgezogen**\n*You've raised a great person*\n\nGiving credit to parents.\n\n**Er/Sie macht mich sehr glücklich**\n*He/She makes me very happy*\n\nSharing your happiness.\n\n## Polite Conversation\n\n**Kann ich Ihnen bei etwas helfen?**\n*Can I help you with anything?*\n\nOffering assistance.\n\n**Könnten Sie mir mehr über [topic] erzählen?**\n*Could you tell me more about [topic]?*\n\nShowing interest.\n\n**Sie haben ein sehr schönes Zuhause**\n*You have a very beautiful home*\n\nComplimenting their home.\n\n**Familie ist auch mir sehr wichtig**\n*Family is also very important to me*\n\nAligning values.\n\n## Discussing the Future\n\n**Ich hoffe, wir können mehr Zeit miteinander verbringen**\n*I hope we can spend more time together*\n\nDesire for continued relationship.\n\n**Ich würde gerne mehr über Ihre Traditionen erfahren**\n*I would love to learn more about your traditions*\n\nCultural interest and respect.\n\n**Ich möchte, dass Sie wissen, dass meine Absichten ernst sind**\n*I want you to know that my intentions are serious*\n\nFor discussions about commitment.\n\n## Saying Goodbye\n\n**Es war mir eine Freude, Sie kennenzulernen**\n*It was a pleasure to meet you*\n\nGraceful farewell.\n\n**Ich hoffe, Sie bald wiederzusehen**\n*I hope to see you again soon*\n\nExpressing desire for future meetings.\n\n**Danke, dass Sie mir das Gefühl gegeben haben, willkommen zu sein**\n*Thank you for making me feel welcome*\n\n## Cultural Tips\n\n- **Punctuality**: Always arrive on time or slightly early\n- **Sie vs. du**: Use formal *Sie* until invited to use *du*\n- **Handshakes**: Firm handshakes are standard greetings\n- **Bring gifts**: Wine, flowers, or chocolates are appropriate\n- **Direct eye contact**: Shows sincerity and respect\n- **Remove shoes**: Ask if you should at the door\n\n## Building Long-Term Relationships\n\n**Ich betrachte Sie als meine eigene Familie**\n*I consider you as my own family*\n\nOnce relationships develop.\n\n**Sie sind bei uns immer willkommen**\n*You are always welcome with us*\n\nYour effort to speak German demonstrates the sincerity Germans value highly.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## First Impressions"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

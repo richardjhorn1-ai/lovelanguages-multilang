@@ -1,0 +1,521 @@
+{
+  "batchId": "tier2a-slim-0194",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "c9708c07-a2f2-4f01-93ae-0b8dc55be5dd",
+      "title": "Guide de prononciation ukrainienne : Parlez comme votre partenaire dès aujourd'hui",
+      "native_lang": "fr",
+      "target_lang": "uk",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Erreurs Courantes des Couples (et Comment Les Éviter)",
+          "subsections": [
+            "### 1. Confondre И и І",
+            "### 2. L'Accent au Mauvais Endroit",
+            "### 3. Les Consonnes Finales"
+          ]
+        },
+        {
+          "header": "## Exercices de Couple pour une Prononciation Parfaite",
+          "subsections": [
+            "### 1. Le Miroir Magique",
+            "### 2. Le Défi des 5 Minutes",
+            "### 3. L'Enregistrement d'Amour"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c97169c7-45c7-4fde-93f3-e3fdb0386fff",
+      "title": "Danca Özlem İfadeleri: Seni Özledim ve Hasret Sözleri",
+      "native_lang": "tr",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Özlem İfadeleri",
+          "subsections": [
+            "### 1. \"Jeg savner dig\"",
+            "### 2. \"Jeg savner dig så meget\"",
+            "### 3. \"Jeg længes efter dig\"",
+            "### 4. \"Jeg ville ønske, du var her\"",
+            "### 5. \"Jeg tænker på dig hele tiden\"",
+            "### 6. \"Det føles tomt uden dig\"",
+            "### 7. \"Jeg tæller dagene, indtil vi ses\"",
+            "### 8. \"Du betyder alt for mig\"",
+            "### 9. \"Mit hjerte længes efter dig\"",
+            "### 10. \"Vi ses snart, håber jeg\"",
+            "### 11. \"Hygge er ikke det samme uden dig\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c97cec1c-4cd8-45ab-930e-bd21c7b7f598",
+      "title": "Spanish Texting Slang for Couples",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Sample Conversations",
+          "subsections": [
+            "### Morning",
+            "### Evening"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c993d095-bacf-4155-b557-daac1f016c86",
+      "title": "Skriva kärleksbrev på spanska – Romantiska fraser för din partner",
+      "native_lang": "sv",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Inledande hälsningar",
+          "subsections": [
+            "### \"Mi amor\" / \"Amor mío\"",
+            "### \"Mi vida\"",
+            "### \"Mi cielo\"",
+            "### \"Mi querido/querida [namn]\""
+          ]
+        },
+        {
+          "header": "## Uttrycka känslor",
+          "subsections": [
+            "### \"Las palabras no pueden expresar cuánto significas para mí\"",
+            "### \"Cada día me enamoro más de ti\"",
+            "### \"Eres todo para mí – mi sol, mi luna, mis estrellas\"",
+            "### \"Mi corazón te pertenece, ahora y para siempre\"",
+            "### \"Contigo he descubierto lo que es el verdadero amor\""
+          ]
+        },
+        {
+          "header": "## Beskriva din partner",
+          "subsections": [
+            "### \"Tu sonrisa ilumina mi mundo\"",
+            "### \"Tu bondad y calidez me inspiran cada día\"",
+            "### \"Cuando me miras, me siento la persona más afortunada del mundo\"",
+            "### \"Tu fuerza y ternura me asombran\""
+          ]
+        },
+        {
+          "header": "## Minnen och framtid",
+          "subsections": [
+            "### \"Atesoro cada momento que hemos compartido\"",
+            "### \"Desde el momento en que te conocí, supe que eras especial\"",
+            "### \"No puedo esperar a ver lo que nos depara el futuro\"",
+            "### \"Envejecer contigo es mi mayor sueño\""
+          ]
+        },
+        {
+          "header": "## Löften",
+          "subsections": [
+            "### \"Prometo amarte en los buenos y malos momentos\"",
+            "### \"Siempre estaré a tu lado, pase lo que pase\"",
+            "### \"Mi amor por ti crece cada día más\""
+          ]
+        },
+        {
+          "header": "## Avslutningar",
+          "subsections": [
+            "### \"Tuyo/Tuya para siempre\"",
+            "### \"Con todo mi amor\"",
+            "### \"Eternamente tuyo/tuya\"",
+            "### \"Te amo con toda mi alma\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c9944dbe-a712-416e-91dd-27267d5c7088",
+      "title": "50+ Polnische Date-Phrasen: Dein romantischer Abend",
+      "native_lang": "de",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Im Restaurant",
+          "subsections": [
+            "### Einen Tisch Bestellen",
+            "### Die Speisekarte",
+            "### Bestellen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c99e5385-e118-4f77-b967-bd2498aab46e",
+      "title": "Frases de Saudade em Italiano: Mi Manchi - A Falta que Você Me Faz",
+      "native_lang": "pt",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases Essenciais de Saudade",
+          "subsections": [
+            "### Expressões Básicas",
+            "### Saudade Profunda",
+            "### Para Relacionamentos à Distância",
+            "### Saudade Doce"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c9bfb27e-1545-4fc5-8eec-f345f05e6a68",
+      "title": "Differenze tra Portoghese Brasiliano ed Europeo",
+      "native_lang": "it",
+      "target_lang": "pt",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Differenze di Pronuncia",
+          "subsections": [
+            "### La R Iniziale e Doppia",
+            "### La S Finale"
+          ]
+        },
+        {
+          "header": "## Differenze Grammaticali",
+          "subsections": [
+            "### Posizione dei Pronomi",
+            "### Il Gerundio"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c9c42e76-3476-470b-8d17-2874512f5c5d",
+      "title": "Англійська фрази для медового місяця та романтичних подорожей",
+      "native_lang": "uk",
+      "target_lang": "en",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна туристична лексика",
+          "subsections": []
+        },
+        {
+          "header": "## У готелі",
+          "subsections": [
+            "### Реєстрація",
+            "### Корисні фрази для готелю"
+          ]
+        },
+        {
+          "header": "## У ресторані",
+          "subsections": [
+            "### Романтична вечеря",
+            "### Тости для двох"
+          ]
+        },
+        {
+          "header": "## Пляжний відпочинок",
+          "subsections": [
+            "### Лексика для пляжу",
+            "### Романтичні пляжні активності"
+          ]
+        },
+        {
+          "header": "## Екскурсії для пар",
+          "subsections": [
+            "### Романтичні активності",
+            "### Корисні фрази"
+          ]
+        },
+        {
+          "header": "## Фотографії на пам'ять",
+          "subsections": [
+            "### Як попросити зробити фото"
+          ]
+        },
+        {
+          "header": "## Покупки сувенірів",
+          "subsections": [
+            "### Подарунки для рідних"
+          ]
+        },
+        {
+          "header": "## Проблеми в подорожі",
+          "subsections": [
+            "### Якщо щось пішло не так"
+          ]
+        },
+        {
+          "header": "## Повернення додому",
+          "subsections": [
+            "### Прощання з відпусткою"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c9c50fea-c1ce-4f46-bd38-f11a4f33c7c0",
+      "title": "Rumence: Seni Seviyorum Demenin 15 Romantik Yolu",
+      "native_lang": "tr",
+      "target_lang": "ro",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## \"Seni Seviyorum\" Demenin Alternatif Yolları",
+          "subsections": [
+            "### Daha Derin Bağlantılar İçin",
+            "### Gündelik ve Tatlı İfadeler"
+          ]
+        },
+        {
+          "header": "## Çiftler İçin Pratik Aktiviteler",
+          "subsections": [
+            "### Sabah Teyitleri",
+            "### Aşk Notları",
+            "### Yatmadan Önce İfadeler"
+          ]
+        },
+        {
+          "header": "## Rumence Aşk Kelime Dağarcığı Oluşturma",
+          "subsections": [
+            "### Temel Aşkla İlgili Kelimeler",
+            "### Romantizm İçin Eylem Kelimeleri"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c9dca366-d4b7-4d6d-9354-f56abb583e3c",
+      "title": "25+ Spanish Pet Names and Endearments",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Essential Spanish Pet Names for Your Partner",
+          "subsections": [
+            "### Classic Terms of Endearment",
+            "### Playful and Sweet Pet Names"
+          ]
+        },
+        {
+          "header": "## How to Use Pet Names Appropriately",
+          "subsections": [
+            "### Timing and Context",
+            "### Gender Considerations"
+          ]
+        },
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Daily Practice Routine",
+            "### Role-Playing Scenarios"
+          ]
+        },
+        {
+          "header": "## Common Mistakes to Avoid",
+          "subsections": [
+            "### Pronunciation Pitfalls",
+            "### Cultural Sensitivity"
+          ]
+        },
+        {
+          "header": "## Building Your Romantic Spanish Vocabulary",
+          "subsections": [
+            "### Daily Integration Tips",
+            "### Beyond Pet Names"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c9e6ec59-5f9b-44c2-b8d6-b3c5fe877740",
+      "title": "Γράψτε Ερωτικά Γράμματα στα Πολωνικά",
+      "native_lang": "el",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για την Αρχή του Γράμματος",
+          "subsections": [
+            "### 1. Moja miłości (Μόγια μιουόστσι)",
+            "### 2. Mój skarbie (Μουι σκάρμπιε)",
+            "### 3. Kochanie (Κοχάνιε)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για το Κυρίως Μέρος",
+          "subsections": [
+            "### 4. Jesteś miłością mojego życia (Γιέστεσ μιουόστσιον μογιέγκο ζίτσια)",
+            "### 5. Kocham cię każdego dnia bardziej (Κόχαμ τσιε κάζντεγκο ντνια μπάρντζιεϊ)",
+            "### 6. Moje serce bije tylko dla ciebie (Μόγιε σέρτσε μπίγιε τίλκο ντλα τσιέμπιε)",
+            "### 7. Przy tobie jestem szczęśliwy/a (Πρζι τόμπιε γιέστεμ στσενσλίβι/α)",
+            "### 8. Szaleję za tobą (Σαλέγιε ζα τόμπον)",
+            "### 9. Jesteś moim wszystkim (Γιέστεσ μόιμ φσίστκιμ)",
+            "### 10. Bez ciebie jestem nikim (Μπεζ τσιέμπιε γιέστεμ νίκιμ)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για το Κλείσιμο",
+          "subsections": [
+            "### 11. Twój/Twoja na zawsze (Τφουι/Τφόγια να ζάφσε)",
+            "### 12. Z całą moją miłością (Ζ τσάουον μόγιον μιουόστσιον)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c9f6aaa6-ce8c-41b9-9df3-ed350d2fc7fc",
+      "title": "50+ Ryska Smeknamn och Kärleksfulla Uttryck för Er Relation",
+      "native_lang": "sv",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Såhär Använder Ni Smeknamnen Tillsammans",
+          "subsections": [
+            "### Börja med de enkla",
+            "### Öva uttalet tillsammans",
+            "### Skapa era egna traditioner",
+            "### Skriv dem kärleksbrev"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ca1117fd-a96b-4cd3-941d-976800d29ce0",
+      "title": "Ισπανικές Φράσεις Φλερτ για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις Φλερτ",
+          "subsections": [
+            "### 1. Eres increíble",
+            "### 2. Me vuelves loco/loca",
+            "### 3. Tienes una sonrisa preciosa"
+          ]
+        },
+        {
+          "header": "## Πιο Έντονες Εκφράσεις",
+          "subsections": [
+            "### 4. No puedo dejar de pensar en ti",
+            "### 5. Eres el amor de mi vida",
+            "### 6. Me haces muy feliz"
+          ]
+        },
+        {
+          "header": "## Παιχνιδιάρικες Φράσεις",
+          "subsections": [
+            "### 7. Ven aquí, guapo/guapa",
+            "### 8. Me encantas",
+            "### 9. Eres mi persona favorita"
+          ]
+        },
+        {
+          "header": "## Ρομαντικές Στιγμές",
+          "subsections": [
+            "### 10. Podría mirarte para siempre",
+            "### 11. Cada día te quiero más",
+            "### 12. Eres todo lo que necesito"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ca1c4e9c-62db-4b61-bd5c-8b863a7b60fc",
+      "title": "Ukrajinské fráze pro usmíření a nápravu vztahu",
+      "native_lang": "cs",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fráze pro omluvu",
+          "subsections": [
+            "### 1. Мені дуже шкода за те, що я сказав/ла",
+            "### 2. Я помилявся/лася",
+            "### 3. Будь ласка, вибач мені",
+            "### 4. Я беру на себе повну відповідальність"
+          ]
+        },
+        {
+          "header": "## Fráze pro obnovení spojení",
+          "subsections": [
+            "### 5. Чи можемо поговорити про те, що сталося?",
+            "### 6. Я сумую за тобою",
+            "### 7. Давай не лягаємо спати посварившись",
+            "### 8. Я все ще тебе кохаю"
+          ]
+        },
+        {
+          "header": "## Fráze pro nový začátek",
+          "subsections": [
+            "### 9. Чи можемо почати спочатку?",
+            "### 10. Я хочу все виправити",
+            "### 11. Давай подолаємо це разом",
+            "### 12. Я дуже тебе ціную"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ca266a94-fe53-4b99-83d6-3fcaad1e1a3d",
+      "title": "Grekiska fraser för emotionellt stöd – Trösta din partner på grekiska",
+      "native_lang": "sv",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande stöd",
+          "subsections": [
+            "### \"Είμαι εδώ για σένα\" (Eímai edó gia séna)",
+            "### \"Δεν είσαι μόνος/μόνη σε αυτό\" (Den eísai mónos/móni se aftó)",
+            "### \"Θα είμαι πάντα στο πλευρό σου\" (Tha eímai pánta sto plevró sou)"
+          ]
+        },
+        {
+          "header": "## Visa empati",
+          "subsections": [
+            "### \"Μπορώ μόνο να φανταστώ πόσο δύσκολο πρέπει να είναι\"",
+            "### \"Τα συναισθήματά σου είναι απόλυτα κατανοητά\" (Ta synaisthímatá sou eínai apólyta katanoitá)",
+            "### \"Είναι φυσιολογικό να νιώθεις έτσι\" (Eínai fysiologikó na niotheis étsi)"
+          ]
+        },
+        {
+          "header": "## Tröstande fraser",
+          "subsections": [
+            "### \"Κι αυτό θα περάσει\" (Ki aftó tha perási)",
+            "### \"Θα τα καταφέρουμε μαζί\" (Tha ta kataféroume mazí)",
+            "### \"Πάρε όλο το χρόνο που χρειάζεσαι\" (Páre ólo to chróno pou chreiázesai)",
+            "### \"Είναι εντάξει να μην είσαι εντάξει\" (Eínai entáxei na min eísai entáxei)"
+          ]
+        },
+        {
+          "header": "## Erbjuda stöd",
+          "subsections": [
+            "### \"Τι χρειάζεσαι από μένα τώρα;\" (Ti chreiázesai apó ména tóra?)",
+            "### \"Θέλεις να μιλήσουμε ή προτιμάς να αποσπαστείς;\"",
+            "### \"Μπορώ να κάνω κάτι για να βοηθήσω;\" (Boró na káno káti gia na voithíso?)"
+          ]
+        },
+        {
+          "header": "## Vid förlust",
+          "subsections": [
+            "### \"Λυπάμαι πολύ για την απώλειά σου\" (Lypámai polý gia tin apóleiá sou)",
+            "### \"Δεν έχω λόγια, αλλά είμαι εδώ\" (Den écho lógia, allá eímai edó)"
+          ]
+        },
+        {
+          "header": "## Uppmuntrande fraser",
+          "subsections": [
+            "### \"Πιστεύω σε σένα\" (Pistévo se séna)",
+            "### \"Είσαι πιο δυνατός/ή από όσο νομίζεις\" (Eísai pio dynatós/í apó óso nomízeis)",
+            "### \"Είμαι πολύ περήφανος/η για σένα\" (Eímai polý perífanos/i gia séna)"
+          ]
+        }
+      ]
+    }
+  ]
+}

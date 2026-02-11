@@ -1,0 +1,350 @@
+{
+  "batchId": "tier2a-slim-0128",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "902fc7e5-0e59-42d9-9581-cf26bf3fe5c1",
+      "title": "Tyska Fraser för Bråk och Meningsskiljaktigheter",
+      "native_lang": "sv",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande Fraser för Konfliktsituationer",
+          "subsections": [
+            "### 1. \"Ich fühle mich verletzt, wenn...\"",
+            "### 2. \"Können wir ruhig darüber sprechen?\"",
+            "### 3. \"Ich brauche einen Moment\"",
+            "### 4. \"Lass uns nicht Dinge sagen, die wir bereuen werden\"",
+            "### 5. \"Ich verstehe deinen Standpunkt\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Lösa Konflikter",
+          "subsections": [
+            "### 6. \"Wie können wir das lösen?\"",
+            "### 7. \"Es war nicht meine Absicht, dich zu verletzen\"",
+            "### 8. \"Lass uns einen Kompromiss finden\"",
+            "### 9. \"Ich höre dir zu\"",
+            "### 10. \"Lass uns später darüber reden\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9043d94c-d088-4337-b5f0-85ba4a661799",
+      "title": "Saludos y Despedidas en Rumano: Guía Completa para Parejas",
+      "native_lang": "es",
+      "target_lang": "ro",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Situaciones Especiales",
+          "subsections": [
+            "### Conociendo a la Familia",
+            "### Por Teléfono",
+            "### Expresiones Útiles"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "90483377-44d9-4a87-a7a4-d102ae236b8f",
+      "title": "İsveççe Kayınvalide Kayınpeder İfadeleri: Aile Tanışması",
+      "native_lang": "tr",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Önemli İfadeler",
+          "subsections": [
+            "### Tanışma",
+            "### İltifatlar",
+            "### Yardım Teklifi",
+            "### Veda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "904a6cf7-54ac-4c79-8576-24806df23c96",
+      "title": "Olasz Flörtölő Kifejezések Magyar Anyanyelvűeknek",
+      "native_lang": "hu",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Szenvedélyes Olasz Flörtölő Kifejezések",
+          "subsections": [
+            "### \"Hai un sorriso bellissimo.\"",
+            "### \"Non riesco a smettere di pensare a te.\"",
+            "### \"Ti va di uscire con me?\"",
+            "### \"Sei bellissima / bellissimo.\"",
+            "### \"Mi fai impazzire.\"",
+            "### \"Hai degli occhi stupendi.\"",
+            "### \"Mi piaci molto.\"",
+            "### \"Mi sento bene quando sono con te.\"",
+            "### \"Sei speciale.\"",
+            "### \"Mi hai rubato il cuore.\"",
+            "### \"Vorrei conoscerti meglio.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "90590ac8-4ee3-48c6-a99e-277d05bf975c",
+      "title": "Expresii de Flirt în Franceză pentru Români",
+      "native_lang": "ro",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale de Seducție",
+          "subsections": [
+            "### Complimente Rafinate",
+            "### Expresii Romantice",
+            "### Fraze Jucăușe și Șarmante",
+            "### Declarații de Dragoste"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9065851e-7d18-4746-b75b-3e1f3a509cb1",
+      "title": "Frases de Apoyo Emocional en Portugués: Cómo Consolar a Tu Pareja",
+      "native_lang": "es",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases de Consuelo Básicas",
+          "subsections": [
+            "### \"Estou aqui para você\"",
+            "### \"Tudo vai ficar bem\"",
+            "### \"Sinto muito que você esteja passando por isso\""
+          ]
+        },
+        {
+          "header": "## Ofreciendo Apoyo",
+          "subsections": [
+            "### \"Do que você precisa agora?\"",
+            "### \"Vou fazer o que puder para ajudar\"",
+            "### \"Quer conversar sobre isso?\"",
+            "### \"Estou te ouvindo\""
+          ]
+        },
+        {
+          "header": "## Validando Emociones",
+          "subsections": [
+            "### \"É normal se sentir assim\"",
+            "### \"Seus sentimentos são completamente válidos\"",
+            "### \"Eu entendo por que você se sente assim\""
+          ]
+        },
+        {
+          "header": "## Frases de Ánimo",
+          "subsections": [
+            "### \"Você é mais forte do que pensa\"",
+            "### \"Você já superou momentos difíceis antes\"",
+            "### \"Eu acredito em você\"",
+            "### \"Vamos superar isso juntos\""
+          ]
+        },
+        {
+          "header": "## Expresando Amor",
+          "subsections": [
+            "### \"Te amo não importa o que aconteça\"",
+            "### \"Você não está sozinho/a nisso\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9082b44e-a791-4998-ab34-3b7c184c88ba",
+      "title": "Gefühle auf Norwegisch ausdrücken – Emotionen in deiner Beziehung teilen",
+      "native_lang": "de",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Positive Gefühle ausdrücken",
+          "subsections": [
+            "### Liebe und Zuneigung",
+            "### Glück und Freude"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9091eea0-32f6-487a-a0ac-7b02240d729d",
+      "title": "Çekçe Duygusal Destek İfadeleri: Teselli Sözleri",
+      "native_lang": "tr",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Destek İfadeleri",
+          "subsections": [
+            "### Varlık Gösterme",
+            "### Anlayış",
+            "### Güç Verme",
+            "### Sevgi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "90ac0d43-5985-4e16-ad4b-16c20bff6738",
+      "title": "Frases en Turco sobre Celos y Confianza para Parejas",
+      "native_lang": "es",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Expresar Celos",
+          "subsections": [
+            "### \"...olduğunda biraz kıskanç hissediyorum\"",
+            "### \"Beni rahatsız eden bir şey hakkında konuşabilir miyiz?\"",
+            "### \"Sana güveniyorum ama kendimi güvensiz hissediyorum\"",
+            "### \"O kişi kimdi?\""
+          ]
+        },
+        {
+          "header": "## Frases para Pedir Seguridad",
+          "subsections": [
+            "### \"Beni sakinleştirmene ihtiyacım var\"",
+            "### \"Bunun mantıksız olduğunu biliyorum ama...\""
+          ]
+        },
+        {
+          "header": "## Frases para Construir Confianza",
+          "subsections": [
+            "### \"Sana tamamen güveniyorum\"",
+            "### \"Benim için tek kişi sensin\"",
+            "### \"Sadece seni görüyorum\"",
+            "### \"Endişelenecek bir şey yok\"",
+            "### \"Bana güvenebilirsin\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "90bc0b72-94aa-4f8a-9436-7e7c54ed2821",
+      "title": "Jak powiedziec kocham cie po norwesku",
+      "native_lang": "pl",
+      "target_lang": "no",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Codzieńne wyznania",
+            "### Cwiczenie 2: Karteczki milosne",
+            "### Cwiczenie 3: Wideo-wyznanie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "90c97a05-69fb-4ec3-b007-32905b5645e4",
+      "title": "Шведские фразы для примирения",
+      "native_lang": "ru",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Основные фразы для примирения",
+          "subsections": [
+            "### 1. Förlåt, jag hade fel",
+            "### 2. Kan vi bli sams igen?",
+            "### 3. Jag ville inte såra dig",
+            "### 4. Jag älskar dig mer än det här bråket",
+            "### 5. Låt oss börja om",
+            "### 6. Jag förlåter dig",
+            "### 7. Vad kan jag göra för att göra det bättre?",
+            "### 8. Jag saknar vår lycka",
+            "### 9. Låt oss inte gå och lägga oss arga",
+            "### 10. Tack för att du försöker förstå mig"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "90d7e397-9dd9-49f9-bdbe-7c98019d43a4",
+      "title": "Grammaire Néerlandaise pour Couples : Apprenez Ensemble Sans Stress",
+      "native_lang": "fr",
+      "target_lang": "nl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Les 5 Règles d'Or du Néerlandais",
+          "subsections": [
+            "### 1. L'Ordre des Mots : Sujet + Verbe + Objet",
+            "### 2. Les Articles : De et Het",
+            "### 3. Les Verbes : Toujours en Position N°2",
+            "### 4. Les Négations : Niet et Geen",
+            "### 5. Les Questions : Inversion Simple"
+          ]
+        },
+        {
+          "header": "## Les Temps Verbaux Essentiels",
+          "subsections": [
+            "### Présent Simple",
+            "### Passé Composé",
+            "### Futur Proche"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "90dfe2e9-abc7-4e10-926b-6838c3b657e9",
+      "title": "Expresii 'Mi-e Dor de Tine' în Suedeză pentru Români",
+      "native_lang": "ro",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale de Dor",
+          "subsections": [
+            "### Expresii Directe",
+            "### Expresii Profunde",
+            "### Mesaje Zilnice",
+            "### Promisiuni"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "90f87d77-c437-40e0-94a4-e86179a0a0e5",
+      "title": "Συνάντηση με την Οικογένεια του Συντρόφου στα Ρωσικά: Φράσεις για να Κερδίσετε τις Εντυπώσεις",
+      "native_lang": "el",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Πρακτικά Σενάρια",
+          "subsections": [
+            "### Σενάριο 1: Η Πρώτη Συνάντηση",
+            "### Σενάριο 2: Στο Τραπέζι",
+            "### Σενάριο 3: Φεύγοντας"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "91044a21-2f76-4c36-bcb6-85cdd1154e84",
+      "title": "Girias Francesas para Mensagens de Texto entre Casais",
+      "native_lang": "pt",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Pratica de Mensagens",
+          "subsections": [
+            "### Desafio para Casais"
+          ]
+        }
+      ]
+    }
+  ]
+}

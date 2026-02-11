@@ -1,0 +1,410 @@
+{
+  "batchId": "tier2a-slim-0303",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "6c1e28c9-11b0-4dce-b046-e8be809731cb",
+      "title": "¿Es Difícil Aprender Neerlandés? La Verdad Honesta",
+      "native_lang": "es",
+      "target_lang": "nl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Por Qué el Neerlandés es Más Fácil de lo Que Piensas",
+          "subsections": [
+            "### 1. Gramática Simplificada",
+            "### 2. Palabras Compuestas Lógicas",
+            "### 3. Pronunciación Consistente"
+          ]
+        },
+        {
+          "header": "## Los Desafíos: Seamos Honestos",
+          "subsections": [
+            "### 1. El Infame Sonido \"G\" Neerlandés",
+            "### 2. Combinaciones de Vocales",
+            "### 3. Los Artículos De vs. Het",
+            "### 4. Orden de Palabras en Oraciones Complejas"
+          ]
+        },
+        {
+          "header": "## Consejos Para Hacer el Neerlandés Más Fácil",
+          "subsections": [
+            "### 1. Aprovecha tu Conocimiento de Inglés",
+            "### 2. Practica los Sonidos Temprano",
+            "### 3. Aprende Artículos con Sustantivos",
+            "### 4. Sumérgete a través de Medios",
+            "### 5. Acepta los Errores"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6c470552-7198-4396-b3aa-523866e4c828",
+      "title": "Deseos de Aniversario en Francés",
+      "native_lang": "es",
+      "target_lang": "fr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Felicitaciones Románticas",
+          "subsections": [
+            "### Frases Esenciales",
+            "### Mensajes Más Elaborados"
+          ]
+        },
+        {
+          "header": "## Frases por Años de Relación",
+          "subsections": [
+            "### Primer Aniversario",
+            "### Cinco Años",
+            "### Diez Años o Más"
+          ]
+        },
+        {
+          "header": "## Mensajes para Tarjetas de Aniversario",
+          "subsections": [
+            "### Estructura de una Tarjeta"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6c55a014-bf05-4ee3-b5a8-f4173a0d5875",
+      "title": "Romantyczne niemieckie zwroty na każda okazje",
+      "native_lang": "pl",
+      "target_lang": "de",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Kartka na okazję",
+            "### Ćwiczenie 2: Codzieńne wyznanie",
+            "### Ćwiczenie 3: Toast"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6c94d9ee-8bb6-4b77-94ec-a4ba91eda438",
+      "title": "Ukrainian Cyrillic Alphabet Guide",
+      "native_lang": "en",
+      "target_lang": "uk",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Pronunciation Tips for Couples",
+          "subsections": [
+            "### Stress Matters",
+            "### Common Letter Combinations"
+          ]
+        },
+        {
+          "header": "## Quick Reference Chart",
+          "subsections": [
+            "### Vowels",
+            "### Consonants",
+            "### Special"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6d92e8af-6720-4464-beb9-0294b4c64dd7",
+      "title": "Przewodnik po wymowie hiszpanskiej dla Polaków",
+      "native_lang": "pl",
+      "target_lang": "es",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Spolgloski wymagajace uwagi",
+          "subsections": [
+            "### Litera \"J\" - jak polskie \"ch\"",
+            "### Litera \"G\" - dwie wymowy",
+            "### Litera \"LL\" - jak polskie \"j\"",
+            "### Litera \"N\" - jak polskie \"ni\"",
+            "### Litera \"H\" - zawsze niema!",
+            "### Litera \"RR\" - wibrujace R"
+          ]
+        },
+        {
+          "header": "## Akcent i intonacja",
+          "subsections": [
+            "### Zasady akcentowania",
+            "### Intonacja w pytaniach"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Samogloski",
+            "### Cwiczenie 2: J, G, LL",
+            "### Cwiczenie 3: R wibrujace",
+            "### Cwiczenie 4: Tongue twisters (trabalenguas)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6df5de10-6572-45dd-ad05-29b997fc2bdd",
+      "title": "Le portugais est-il difficile a apprendre ?",
+      "native_lang": "fr",
+      "target_lang": "pt",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Les Défis : Ce Qui Rend le Portugais Délicat",
+          "subsections": [
+            "### 1. Les Conjugaisons Verbales",
+            "### 2. Les Noms Genrés",
+            "### 3. Les Particularités de Prononciation"
+          ]
+        },
+        {
+          "header": "## Conseils pour Faciliter l'Apprentissage du Portugais",
+          "subsections": [
+            "### 1. Commencez par les Mots Haute Fréquence",
+            "### 2. Immergez-vous dans les Médias Portugais",
+            "### 3. Pratiquez l'Oral dès le Premier Jour",
+            "### 4. Acceptez de Faire des Erreurs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6e233385-9e6e-4991-8594-7023a679850f",
+      "title": "Spotkanie z dunska rodzina partnera",
+      "native_lang": "pl",
+      "target_lang": "da",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Typowe sytuacje",
+          "subsections": [
+            "### Kawa i ciasto (hygge!)",
+            "### Pozegnanie"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia",
+          "subsections": [
+            "### Cwiczenie 1: Przedstawienie sie",
+            "### Cwiczenie 2: Rozmowa o Polsce",
+            "### Cwiczenie 3: Scenariusze"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6e2703b6-e734-4370-adcf-4a09aca3b828",
+      "title": "Incontrare la Famiglia del Partner in Inglese: Frasi Essenziali",
+      "native_lang": "it",
+      "target_lang": "en",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Scheda di riferimento rapido",
+          "subsections": [
+            "### Le 10 frasi da memorizzare assolutamente"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6f19a287-be1e-4543-abb9-8f53874f90ef",
+      "title": "Întâlnirea cu familia partenerului în Suedeză: Fraze esențiale pentru cupluri",
+      "native_lang": "ro",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Fraze esențiale pentru prima întâlnire",
+          "subsections": [
+            "### Salutări și prezentări",
+            "### Conversații de bază"
+          ]
+        },
+        {
+          "header": "## Scenarii comune și dialoguri practice",
+          "subsections": [
+            "### La cină: Conversații despre mâncare",
+            "### Vizionarea albumelor de familie",
+            "### Discuții despre viitor"
+          ]
+        },
+        {
+          "header": "## Dacă lucrurile nu merg conform planului?",
+          "subsections": [
+            "### Când nu înțelegi",
+            "### Când ești copleșit/ă",
+            "### Situații stânjenitoare"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6f2e6b27-6daa-4bae-8f2f-3ae516511ddb",
+      "title": "Conocer a la familia de tu pareja en griego: Frases esenciales para causar una buena impresión",
+      "native_lang": "es",
+      "target_lang": "el",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Conversación básica con la familia",
+          "subsections": [
+            "### Con los padres",
+            "### Preguntas comunes que te harán"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6f8b9778-262e-4e85-badd-27e658b55165",
+      "title": "50+ Frasi d'Amore in Ceco che Faranno Battere il Cuore",
+      "native_lang": "it",
+      "target_lang": "cs",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Occasioni Speciali e Celebrazioni",
+          "subsections": [
+            "### Frasi per l'Anniversario",
+            "### Frasi per Proposte e Matrimonio"
+          ]
+        },
+        {
+          "header": "## Frasi Romantiche per Situazione",
+          "subsections": [
+            "### Relazioni a Distanza",
+            "### Dopo un Litigio",
+            "### Solo Perché"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6f8ed366-d99d-43e0-9608-b0a6168fcca2",
+      "title": "Polish Word Order: How It Differs",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Practical Patterns for Couples",
+          "subsections": [
+            "### Expressing Love and Feelings",
+            "### Making Plans Together"
+          ]
+        },
+        {
+          "header": "## Common Mistakes English Speakers Make",
+          "subsections": [
+            "### 1. Over-using Subject Pronouns",
+            "### 2. Rigid Word Order",
+            "### 3. Question Formation"
+          ]
+        },
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Exercise 1: Emphasis Shifts",
+            "### Exercise 2: Natural Questions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6fceea85-7015-4999-b3aa-3cc90761271a",
+      "title": "Les questions en espagnol : comment tout demander",
+      "native_lang": "fr",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Questions de base pour les couples",
+          "subsections": [
+            "### ¿Qué? - Quoi ? / Que ?",
+            "### ¿Quién? - Qui ?",
+            "### ¿Dónde? - Où ?",
+            "### ¿Cuándo? - Quand ?",
+            "### ¿Cómo? - Comment ?",
+            "### ¿Por qué? - Pourquoi ?",
+            "### ¿Cuánto/a/os/as? - Combien ?",
+            "### ¿Cuál? / ¿Cuáles? - Lequel ? / Lesquels ?"
+          ]
+        },
+        {
+          "header": "## Exercices de pratique pour couples",
+          "subsections": [
+            "### Exercice 1 : Le jeu des questions",
+            "### Exercice 2 : Devinez la question",
+            "### Exercice 3 : 20 questions"
+          ]
+        },
+        {
+          "header": "## Questions essentielles pour les couples",
+          "subsections": [
+            "### Pour mieux se connaître",
+            "### Pour le quotidien",
+            "### Pour résoudre les conflits"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6ff61b2f-7ab7-47a1-9c67-392d4ad3527a",
+      "title": "Macarca Mesajlasma Dili: Partnerinizle Dijital Iletisim",
+      "native_lang": "tr",
+      "target_lang": "hu",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Günlük Konusma Kisaltmalari",
+          "subsections": [
+            "### Soru ve Cevaplar",
+            "### Yanitlar"
+          ]
+        },
+        {
+          "header": "## Mesaj Örnekleri",
+          "subsections": [
+            "### Sabah Mesaji",
+            "### Gün Ici Mesajlasma",
+            "### Aksam Mesaji"
+          ]
+        },
+        {
+          "header": "## Duygulari Ifade Etme",
+          "subsections": [
+            "### Mutluluk",
+            "### Özlem",
+            "### Üzüntü/Özür"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7149eb2a-86f0-423d-b7bb-b0a8dce9f9ef",
+      "title": "Hungarian Texting Slang: Chat With Your Partner Like a Native",
+      "native_lang": "en",
+      "target_lang": "hu",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Common Texting Situations",
+          "subsections": [
+            "### Making Plans",
+            "### When You're Running Late"
+          ]
+        },
+        {
+          "header": "## Texting Dos and Don'ts",
+          "subsections": [
+            "### Do:",
+            "### Don't:"
+          ]
+        }
+      ]
+    }
+  ]
+}

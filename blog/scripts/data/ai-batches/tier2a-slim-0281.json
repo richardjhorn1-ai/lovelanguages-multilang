@@ -1,0 +1,404 @@
+{
+  "batchId": "tier2a-slim-0281",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "0063bb9e-7896-467f-8c59-b67a9954fffb",
+      "title": "Întâlnirea cu familia partenerului olandez: Ghid esențial pentru cupluri",
+      "native_lang": "ro",
+      "target_lang": "nl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Scenarii comune în timpul vizitei",
+          "subsections": [
+            "### La masă",
+            "### Despre vreme (subiect universal)",
+            "### Despre învățarea olandeză"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "00906e9a-1e77-4775-b26f-b221df1053f8",
+      "title": "Preguntas en Francés: Cómo Preguntar Cualquier Cosa",
+      "native_lang": "es",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Palabras Interrogativas Esenciales",
+          "subsections": [
+            "### Qui - Quién",
+            "### Que/Quoi - Qué",
+            "### Où - Dónde",
+            "### Quand - Cuándo",
+            "### Comment - Cómo",
+            "### Pourquoi - Por qué",
+            "### Combien - Cuánto/Cuántos",
+            "### Quel/Quelle - Cuál/Qué"
+          ]
+        },
+        {
+          "header": "## Preguntas Románticas Esenciales",
+          "subsections": [
+            "### Para Conocerse Mejor",
+            "### Para Planificar Citas",
+            "### Preguntas del Día a Día"
+          ]
+        },
+        {
+          "header": "## Respondiendo a Preguntas",
+          "subsections": [
+            "### Respuestas Afirmativas",
+            "### Respuestas Negativas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "00d6ff83-a7cc-4b6e-9888-91197c6938b0",
+      "title": "Turco Romantico: Frasi Che Scioglieranno il Suo Cuore",
+      "native_lang": "it",
+      "target_lang": "tr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Frasi di Mattina e Sera",
+          "subsections": [
+            "### Buongiorno Romantici",
+            "### Dolci Buonanotte"
+          ]
+        },
+        {
+          "header": "## Complimenti Per Il Tuo Partner",
+          "subsections": [
+            "### Per Lei",
+            "### Per Lui"
+          ]
+        },
+        {
+          "header": "## Occasioni Speciali",
+          "subsections": [
+            "### Anniversari",
+            "### Compleanni",
+            "### San Valentino"
+          ]
+        },
+        {
+          "header": "## Proposte e Impegno",
+          "subsections": [
+            "### Proposte di Matrimonio",
+            "### Esprimere Impegno"
+          ]
+        },
+        {
+          "header": "## Durante Momenti Difficili",
+          "subsections": [
+            "### Conforto e Supporto",
+            "### Scuse e Riconciliazione"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "00e9bcb8-49a0-4001-8138-0044f2ef1966",
+      "title": "Pronunția în Turcă pentru Începători: Ghidul Complet pentru Cupluri",
+      "native_lang": "ro",
+      "target_lang": "tr",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Greșeli Comune de Pronunție (și Cum să le Evităm)",
+          "subsections": [
+            "### 1. Vocala \"I\" fără punct",
+            "### 2. Consoana \"R\" de la final",
+            "### 3. Vocala \"Ö\""
+          ]
+        },
+        {
+          "header": "## Exerciții de Pronunție pentru Cupluri",
+          "subsections": [
+            "### Exercițiul 1: Oglinda Vorbirii",
+            "### Exercițiul 2: Conversația Lentă",
+            "### Exercițiul 3: Înregistrări Împreună"
+          ]
+        },
+        {
+          "header": "## Sunetele Speciale: Secretele Nativilor",
+          "subsections": [
+            "### Lungirea Vocalelor (Ğ)",
+            "### Intonația Întrebărilor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "012095b6-60c4-405c-9f75-9c85b6e1c294",
+      "title": "50+ Surnoms Néerlandais Tendres pour Charmer Partenaire",
+      "native_lang": "fr",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Comment Utiliser ces Petits Noms avec votre Partenaire",
+          "subsections": [
+            "### Timing et Contexte",
+            "### À Éviter"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0187663b-a813-4fd7-864e-5e3813f597eb",
+      "title": "50+ Termes d'Affection Portugais pour Couple: Guide Complet des Petits Noms d'Amour",
+      "native_lang": "fr",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Comment Utiliser ces Termes d'Affection",
+          "subsections": [
+            "### Les Basics du Contexte",
+            "### Erreurs Courantes à Éviter",
+            "### Moments Parfaits"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "01e973d5-2114-43ee-baf0-f44724c68f47",
+      "title": "É Difícil Aprender Holandês?",
+      "native_lang": "pt",
+      "target_lang": "nl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Por Que o Holandês é Mais Fácil do Que Você Pensa",
+          "subsections": [
+            "### 1. Gramática Simplificada",
+            "### 2. Palavras Compostas Lógicas",
+            "### 3. Pronúncia Consistente"
+          ]
+        },
+        {
+          "header": "## Os Desafios: Vamos Ser Honestos",
+          "subsections": [
+            "### 1. O Infame Som \"G\" Holandês",
+            "### 2. Combinações de Vogais",
+            "### 3. Os Artigos De vs. Het",
+            "### 4. Ordem das Palavras em Frases Complexas"
+          ]
+        },
+        {
+          "header": "## Dicas Para Tornar o Holandês Mais Fácil",
+          "subsections": [
+            "### 1. Aproveite Seu Conhecimento de Inglês",
+            "### 2. Pratique os Sons Cedo",
+            "### 3. Aprenda Artigos com Substantivos",
+            "### 4. Mergulhe Através da Mídia",
+            "### 5. Aceite os Erros"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "031e7608-226e-42b4-8107-7ec924e0d3aa",
+      "title": "Partnerinin Ailesiyle Tanışmak: İspanyolca'da Aile Buluşması İçin Temel İfadeler",
+      "native_lang": "tr",
+      "target_lang": "es",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Kendini Tanıtma Zamanı",
+          "subsections": [
+            "### Kişisel Bilgiler",
+            "### Meslek ve İlgi Alanları"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0335c009-22d5-4acb-9828-a1f92892aa0c",
+      "title": "50 spanyol köszönés és búcsúzás pároknak - A tökéletes kapcsolat kezdetei",
+      "native_lang": "hu",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hogyan Használd Ezeket a Gyakorlatban?",
+          "subsections": [
+            "### Reggeli Rutin",
+            "### Munka Előtti Búcsú",
+            "### Esti Üdvözlés",
+            "### Lefekvés Előtt"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "036fd4fe-f9fd-4c0c-beb6-8f5db4727aca",
+      "title": "Tysk Uttal för Nybörjare: Så Låter Du Som en Infödd Med Din Partner",
+      "native_lang": "sv",
+      "target_lang": "de",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## De Tyska Uttalsutmaningarna (och Hur Ni Löser Dem Tillsammans)",
+          "subsections": [
+            "### Umlaut (Ä, Ö, Ü) - Kärlekens Bokstäver",
+            "### Ch-ljuden - De Två Varieterna"
+          ]
+        },
+        {
+          "header": "## Par-övningar för Perfekt Uttal",
+          "subsections": [
+            "### Övning 1: Romantiska Minimala Par",
+            "### Övning 2: Kärlekens Konsonantkombinationer"
+          ]
+        },
+        {
+          "header": "## Vanliga Uttalsfällor för Svenskar (och Hur Ni Undviker Dem)",
+          "subsections": [
+            "### Fälla 1: Rullande R",
+            "### Fälla 2: För Korta Vokaler",
+            "### Fälla 3: Svenskt Melodi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "03a0f136-b081-433c-926d-ea5e1b02db14",
+      "title": "Italian Word Order Guide: Building Sentences Together",
+      "native_lang": "en",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Adverb Placement",
+          "subsections": [
+            "### Time Adverbs",
+            "### Manner Adverbs",
+            "### Frequency Adverbs"
+          ]
+        },
+        {
+          "header": "## Common Patterns for Couples",
+          "subsections": [
+            "### Making Plans",
+            "### Expressing Feelings",
+            "### Daily Conversations"
+          ]
+        },
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Exercise 1: Build Sentences Together",
+            "### Exercise 2: Adjective Practice",
+            "### Exercise 3: Pronoun Placement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "03dd37bf-ee24-4f14-b7be-1e35a4162225",
+      "title": "Vocabulario del Hogar Polaco",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Artículos Comunes del Hogar",
+          "subsections": [
+            "### Productos de Limpieza - Środki czystości",
+            "### Esenciales de Cocina - Przybory kuchenne"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "03e3c2f5-dda2-4031-ace6-af6c7b58e7b1",
+      "title": "German Future Tense - Making Plans Together",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Making Plans: Essential Phrases",
+          "subsections": [
+            "### Date Night Planning",
+            "### Weekend Plans"
+          ]
+        },
+        {
+          "header": "## Practice Activities for Couples",
+          "subsections": [
+            "### Activity 1: Dream Board Discussion",
+            "### Activity 2: Weekly Planning",
+            "### Activity 3: Promise Exchange"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "03f387ee-a2b1-4541-b268-466fd82f3548",
+      "title": "50 Expresii Norvegiene Esențiale pentru Cupluri: Conectați-vă Profund",
+      "native_lang": "ro",
+      "target_lang": "no",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Cum să Folosești aceste Expresii Împreună",
+          "subsections": [
+            "### Sfaturi Practice:",
+            "### Greșeli Comune de Evitat:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "04049881-1cc7-4bbe-8e53-3c4feea3bbc4",
+      "title": "Diminutivos Polacos: Palabras Tiernas",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Los Sufijos Mágicos: Tu Kit de Herramientas para la Ternura",
+          "subsections": [
+            "### Para Sustantivos Masculinos",
+            "### Para Sustantivos Femeninos",
+            "### Para Sustantivos Neutros"
+          ]
+        },
+        {
+          "header": "## Diminutivos Románticos: Derritiendo Corazones en Polaco",
+          "subsections": [
+            "### Nombres que Hacen Latir los Corazones",
+            "### Términos de Cariño con Diminutivos"
+          ]
+        },
+        {
+          "header": "## La Gramática Detrás de la Magia",
+          "subsections": [
+            "### Patrones de Pronunciación",
+            "### Cambios de Sonido"
+          ]
+        },
+        {
+          "header": "## Uso Práctico: Cuándo y Dónde",
+          "subsections": [
+            "### Situaciones Perfectas para Diminutivos"
+          ]
+        },
+        {
+          "header": "## Patrones Diminutivos Avanzados",
+          "subsections": [
+            "### Diminutivos Irregulares",
+            "### Diminutivos de Adjetivos"
+          ]
+        }
+      ]
+    }
+  ]
+}

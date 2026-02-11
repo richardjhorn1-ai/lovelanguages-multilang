@@ -1,0 +1,109 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0763",
+  "articles": [
+    {
+      "id": "dc3a75ab-6b31-4cdf-b74a-97cce5081808",
+      "title": "30+ Piropos en húngaro: Cumplidos para Enamorar a tu Pareja",
+      "native_lang": "es",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nLos cumplidos son pequeños regalos verbales que pueden alegrar el día de tu pareja. Decirlos en húngaro los hace aún más especiales y demuestra tu compromiso con aprender su idioma. Aquí tienes más de 30 piropos perfectos para diferentes ocasiones.\n\n<PhraseOfDay\n  word=\"Eres hermosa/o en húngaro\"\n  translation=\"Eres hermosa/o\"\n  pronunciation=\"[pronunciación]\"\n  context=\"El cumplido clásico que nunca falla\"\n/>\n\n## Cumplidos Sobre la Apariencia\n\n### Belleza General\n\n| húngaro | Español | Pronunciación |\n|-------------|---------|---------------|\n| **Eres hermosa** | Eres hermosa | [pron] |\n| **Eres guapo** | Eres guapo | [pron] |\n| **Te ves increíble** | Te ves increíble | [pron] |\n| **Estás deslumbrante** | Estás deslumbrante | [pron] |\n| **Eres perfecta/o** | Eres perfecta/o | [pron] |\n\n<VocabCard\n  word=\"Eres hermosa en húngaro\"\n  translation=\"Eres hermosa\"\n  pronunciation=\"[pronunciación]\"\n  example=\"Cada día eres más hermosa\"\n/>\n\n### Características Específicas\n\n| húngaro | Español | Pronunciación |\n|-------------|---------|---------------|\n| **Tienes ojos hermosos** | Tienes ojos hermosos | [pron] |\n| **Tu sonrisa me derrite** | Tu sonrisa me derrite | [pron] |\n| **Me encanta tu cabello** | Me encanta tu cabello | [pron] |\n| **Tu voz es música** | Tu voz es música | [pron] |\n\n<CultureTip flag=\"🇭🇺\" title=\"El arte del piropo en húngaro\">\nEn la cultura húngara, los cumplidos tienen sus propias reglas. Ser sincero y específico es más valorado que los halagos genéricos.\n</CultureTip>\n\n## Cumplidos Sobre la Personalidad\n\n| húngaro | Español | Pronunciación |\n|-------------|---------|---------------|\n| **Eres muy inteligente** | Eres muy inteligente | [pron] |\n| **Me encanta tu sentido del humor** | Me encanta tu sentido del humor | [pron] |\n| **Eres tan amable** | Eres tan amable | [pron] |\n| **Tienes un corazón de oro** | Tienes un corazón de oro | [pron] |\n| **Admiro tu fortaleza** | Admiro tu fortaleza | [pron] |\n| **Eres la persona más genuina** | Eres la persona más genuina | [pron] |\n\n## Cumplidos Románticos\n\n| húngaro | Español | Pronunciación |\n|-------------|---------|---------------|\n| **Me haces feliz** | Me haces feliz | [pron] |\n| **Eres mi sueño hecho realidad** | Eres mi sueño hecho realidad | [pron] |\n| **No puedo imaginar la vida sin ti** | No puedo imaginar la vida sin ti | [pron] |\n| **Eres mi todo** | Eres mi todo | [pron] |\n| **Soy afortunado/a de tenerte** | Soy afortunado/a de tenerte | [pron] |\n| **Me enamoré de ti desde el primer día** | Me enamoré de ti desde el primer día | [pron] |\n\n<VocabCard\n  word=\"Me haces feliz en húngaro\"\n  translation=\"Me haces feliz\"\n  pronunciation=\"[pronunciación]\"\n  example=\"Cada día me haces más feliz\"\n/>\n\n## Cumplidos para el Día a Día\n\n| húngaro | Español | Pronunciación |\n|-------------|---------|---------------|\n| **Cocinas delicioso** | Cocinas delicioso | [pron] |\n| **Eres increíble en lo que haces** | Eres increíble en lo que haces | [pron] |\n| **Me inspiras** | Me inspiras | [pron] |\n| **Haces todo mejor** | Haces todo mejor | [pron] |\n| **Tienes las mejores ideas** | Tienes las mejores ideas | [pron] |\n\n<CultureTip flag=\"🇭🇺\" title=\"Sinceridad ante todo\">\nLos hablantes de húngaro pueden detectar fácilmente un cumplido falso. Sé específico y genuino para que tus palabras tengan impacto.\n</CultureTip>\n\n## Cumplidos de Buenos Días/Noches\n\n| húngaro | Español | Pronunciación |\n|-------------|---------|---------------|\n| **Buenos días, hermosa** | Buenos días, hermosa | [pron] |\n| **Eres lo primero en que pienso al despertar** | Eres lo primero en que pienso al despertar | [pron] |\n| **Buenas noches, mi amor** | Buenas noches, mi amor | [pron] |\n| **Soñaré contigo** | Soñaré contigo | [pron] |\n\n## Cumplidos Atrevidos (para momentos íntimos)\n\n| húngaro | Español | Pronunciación |\n|-------------|---------|---------------|\n| **Eres irresistible** | Eres irresistible | [pron] |\n| **No puedo dejar de mirarte** | No puedo dejar de mirarte | [pron] |\n| **Me vuelves loco/a** | Me vuelves loco/a | [pron] |\n| **Eres sexi** | Eres sexi | [pron] |\n\n## Consejos para Dar Cumplidos\n\n1. **Sé específico**: \"Me encanta cómo se te iluminan los ojos cuando ríes\" es mejor que \"eres bonita\"\n2. **Sé sincero**: Solo di lo que realmente piensas\n3. **Elige el momento**: Un cumplido inesperado tiene más impacto\n4. **Varía tus cumplidos**: No repitas siempre lo mismo\n5. **Incluye el \"por qué\"**: Explica por qué te gusta algo de tu pareja\n\n## Artículos Relacionados\n\n- [Expresar emociones en húngaro](/es/hu/expressing-emotions-in-hungarian)\n- [Frases románticas en húngaro](/es/hu/hungarian-romantic-phrases-for-every-occasion)\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Cumplidos Sobre la Apariencia"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dc3d1c8d-3af4-4947-81de-353cd9f11618",
+      "title": "Guia de Pronúncia do Grego para Falantes de Português",
+      "native_lang": "pt",
+      "target_lang": "el",
+      "category": "pronunciation",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nO grego tem seu próprio alfabeto, mas muitos sons existem em português!\n\n<PhraseOfDay\n  word=\"Γεια σου!\"\n  translation=\"Oi!/Olá!\"\n  pronunciation=\"IA su\"\n  context=\"O cumprimento mais comum em grego.\"\n/>\n\n## O Alfabeto Grego\n\n| Letra | Nome | Som | Como em Português |\n|-------|------|-----|-------------------|\n| Α α | alfa | a | casa |\n| Β β | beta | v | vaca |\n| Γ γ | gama | g/gh | gato (suave) |\n| Δ δ | delta | th | the (inglês) |\n| Ε ε | épsilon | e | café |\n| Ζ ζ | zeta | z | zebra |\n| Η η | eta | i | vida |\n| Θ θ | teta | th | thing (inglês) |\n| Ι ι | iota | i | vida |\n| Κ κ | capa | k | casa |\n| Λ λ | lambda | l | lua |\n| Μ μ | mi | m | mãe |\n| Ν ν | ni | n | não |\n| Ξ ξ | csi | ks | taxi |\n| Ο ο | ômicron | o | bola |\n| Π π | pi | p | pai |\n| Ρ ρ | rô | r | caro |\n| Σ σ/ς | sigma | s | sol |\n| Τ τ | tau | t | tia |\n| Υ υ | ípsilon | i | vida |\n| Φ φ | fi | f | faca |\n| Χ χ | qui | h/kh | Bach (alemão) |\n| Ψ ψ | psi | ps | psicologia |\n| Ω ω | ômega | o | bola |\n\n<CultureTip title=\"Alfabeto Histórico\" flag=\"🇬🇷\">\nO alfabeto grego tem mais de 2.800 anos e é a base do alfabeto latino que usamos em português!\n</CultureTip>\n\n## Vogais\n\nO grego tem 5 sons vocálicos, mas várias formas de escrevê-los:\n\n| Som | Letras Gregas | Exemplo |\n|-----|---------------|---------|\n| a | α | αγάπη (amor) |\n| e | ε, αι | έχω (ter) |\n| i | η, ι, υ, ει, οι | είμαι (ser) |\n| o | ο, ω | όμορφος (bonito) |\n| u | ου | ούζο (ouzo) |\n\n<VocabCard\n  word=\"Αγάπη\"\n  translation=\"Amor\"\n  pronunciation=\"a-GA-pi\"\n  example=\"Η αγάπη είναι όμορφη.\"\n/>\n\n## Combinações Importantes\n\n<VocabCard\n  word=\"μπ\"\n  translation=\"Som de 'b'\"\n  pronunciation=\"b\"\n  example=\"Μπαμπάς (papai) = ba-BAS\"\n/>\n\n<VocabCard\n  word=\"ντ\"\n  translation=\"Som de 'd'\"\n  pronunciation=\"d\"\n  example=\"Ντομάτα (tomate) = do-MA-ta\"\n/>\n\n<VocabCard\n  word=\"γκ\"\n  translation=\"Som de 'g'\"\n  pronunciation=\"g\"\n  example=\"Γκαράζ (garagem) = ga-RAZ\"\n/>\n\n## Sons Desafiadores\n\n### O som de Γ (gama)\n\n<VocabCard\n  word=\"Γάτα\"\n  translation=\"Gato\"\n  pronunciation=\"GA-ta\"\n  example=\"Η γάτα είναι όμορφη.\"\n/>\n\nAntes de a, o, u: som de \"g\" suave (como se fosse gargarejando)\nAntes de e, i: som de \"i\" (como y em inglês)\n\n### O som de Χ (qui)\n\n<VocabCard\n  word=\"Χαίρω πολύ\"\n  translation=\"Prazer em conhecer\"\n  pronunciation=\"HE-ro po-LI\"\n  example=\"Γεια σας, χαίρω πολύ!\"\n/>\n\nSom aspirado, como \"h\" forte ou \"rr\" espanhol.\n\n<CultureTip title=\"Dica de Pronúncia\" flag=\"🇧🇷\">\nMuitos sons gregos são parecidos com português! Foque nas combinações μπ, ντ, γκ que representam b, d, g.\n</CultureTip>\n\n## Acentuação\n\nO grego sempre marca a sílaba tônica com acento:\n- αγάπη (a-GA-pi)\n- όμορφος (O-mor-fos)\n- καλημέρα (ka-li-ME-ra)\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Sons Desafiadores"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dc446980-7cf6-457b-b91e-41075e2a806a",
+      "title": "Dán kifejezések az após és anyós megismeréséhez",
+      "native_lang": "hu",
+      "target_lang": "da",
+      "category": "communication",
+      "content": "# Dán kifejezések az após és anyós megismeréséhez\n\nA dán kultúra a hygge (otthonosság) és az egyenlőség jegyében működik. A családi találkozások meleg, de informális hangulatúak.\n\n## Alapvető üdvözlések\n\n### Hej!\n**Kiejtés:** HAJ\n**Jelentés:** Szia!\n\nEz az általános dán üdvözlés, nagyon informális.\n\n### Goddag!\n**Kiejtés:** go-DA\n**Jelentés:** Jó napot!\n\nFormálisabb, de a dánok ritkán használják.\n\n### Dejligt at møde dig\n**Kiejtés:** DAJ-lit at MØ-de daj\n**Jelentés:** Örülök, hogy találkozunk.\n\n### Jeg hedder...\n**Kiejtés:** jaj HE-der...\n**Jelentés:** A nevem...\n\n## Bókok és köszönet\n\n### I har et virkelig dejligt hjem\n**Kiejtés:** i har et VIR-ke-li DAJ-lit jem\n**Jelentés:** Nagyon szép otthonuk van.\n\n### Tak for invitationen\n**Kiejtés:** tak for in-vi-ta-SJO-nen\n**Jelentés:** Köszönöm a meghívást.\n\n### Det var virkelig lækkert!\n**Kiejtés:** de var VIR-ke-li LEK-kert\n**Jelentés:** Nagyon finom volt!\n\n### Tak for mad\n**Kiejtés:** tak for mad\n**Jelentés:** Köszönöm az ételt.\n\nEz KÖTELEZŐ az étkezés végén - alapvető dán illem!\n\n## A kapcsolatról\n\n### Jeg elsker jeres søn / datter meget højt\n**Kiejtés:** jaj EL-szker JE-resz szøn / DA-ter MA-jet hojt\n**Jelentés:** Nagyon szeretem a fiukat / lányukat.\n\n### Vi er meget lykkelige sammen\n**Kiejtés:** vi er MA-jet LÜK-ke-li-e SZAM-men\n**Jelentés:** Nagyon boldogok vagyunk együtt.\n\n## Érdeklődés\n\n### Jeg vil gerne lære mere om jeres kultur\n**Kiejtés:** jaj vil GER-ne LE-re ME-re om JE-resz kul-TÚR\n**Jelentés:** Szívesen tanulnék többet a kultúrájukról.\n\n### Kan I lære mig at lave denne ret?\n**Kiejtés:** kan i LE-re maj at LA-ve DEN-ne ret\n**Jelentés:** Megtanítanának elkészíteni ezt az ételt?\n\n## Hygge beszélgetések\n\n### Det er meget hyggeligt her\n**Kiejtés:** de er MA-jet HÜG-ge-lit her\n**Jelentés:** Nagyon hangulatos itt.\n\nA hygge kulcsfogalom - használd bátran!\n\n### Hvad laver I normalt i weekenden?\n**Kiejtés:** va LA-ver i nor-MALT i VIK-en-den\n**Jelentés:** Mit csinálnak általában a hétvégén?\n\n## Búcsúzás\n\n### Hej hej!\n**Kiejtés:** HAJ HAJ\n**Jelentés:** Szia szia! (elköszönés)\n\n### Tak for en hyggelig aften\n**Kiejtés:** tak for en HÜG-ge-li AF-ten\n**Jelentés:** Köszönöm a kellemes estét.\n\n## Kulturális tanácsok\n\n**Hygge:** Ez a dán kultúra alapja - az otthonosság, melegség, együttlét érzése. A gyertyák, meleg italok, kényelmes légkör mind része.\n\n**Informalitás:** A dánok tegeződnek (du). Az \"Ön\" (De) szinte soha nem használatos.\n\n**Pontosság:** Érkezz pontosan vagy legfeljebb 5 perccel később.\n\n**Cipő:** A cipőt a bejáratnál levesszük.\n\n**Ajándék:** Virág, bor vagy csokoládé megfelelő. Nem túl drága, nem túl olcsó.\n\n**Étkezés:** A dán konyha egyszerű. Készülj smørrebrød-re (nyílt szendvics) és főtt krumplira.\n\n**Alkohol:** A dánok szeretik a sört és a snaps-ot (aquavit). Ha kínálnak, illik elfogadni.\n\n**Janteloven:** A dán mentalitás szerint senki sem jobb a másiknál. Kerüld a hivalkodást.\n\n**Humor:** A dánok szeretik az öniróniát és a száraz humort.\n\nA hygge-kultúra befogadó és meleg - élvezd a dán családi légkört!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Alapvető üdvözlések",
+              "## Bókok és köszönet",
+              "## A kapcsolatról",
+              "## Érdeklődés",
+              "## Hygge beszélgetések",
+              "## Búcsúzás"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dc4e1b53-0445-4996-9683-3daf31dd0c45",
+      "title": "Englisch Kosenamen und Liebkosungen für Paare",
+      "native_lang": "de",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport CTA from '@components/CTA.astro';\n\n# Englisch Kosenamen und Liebkosungen für Paare\n\nKosenamen sind eine wunderbare Art, deinem Partner zu zeigen, wie viel er oder sie dir bedeutet. Wenn dein Partner Englisch spricht, wird es ihn oder sie sicher freuen, wenn du diese liebevollen Ausdrücke verwendest!\n\n## Warum Kosenamen wichtig sind\n\nKosenamen schaffen Intimität und zeigen Zuneigung. Sie sind wie ein geheimes Band zwischen zwei Menschen – etwas Besonderes, das nur euch beiden gehört.\n\n## Klassische Kosenamen\n\nDie zeitlosen Klassiker funktionieren in jeder Sprache:\n\n- **Schatz** - der universelle Liebling\n- **Liebling** - klassisch und elegant\n- **Mein Herz** - gefühlvoll und poetisch\n- **Meine Liebe** - romantisch und zärtlich\n\n<CultureTip>\nKosenamen variieren oft von Region zu Region. Was in einer Gegend üblich ist, kann anderswo ungewöhnlich klingen. Frage deinen Partner, welche Namen in seiner Heimat gebräuchlich sind!\n</CultureTip>\n\n## Süße Tiernamen\n\nWie in vielen Kulturen werden auch im Englischen gerne Tiernamen verwendet:\n\n- **Bärchen** (kleiner Bär) - kuschelig und stark\n- **Mäuschen** (kleine Maus) - süß und niedlich\n- **Häschen** (kleiner Hase) - zärtlich\n- **Spätzchen** (kleiner Spatz) - liebevoll\n\n## Romantische Ausdrücke\n\nFür besondere Momente:\n\n- **Mein Ein und Alles** - wenn jemand alles für dich ist\n- **Seelenverwandter** - für tiefe Verbindungen\n- **Mein Sonnenschein** - für jemanden, der dein Leben erhellt\n\n## Kosenamen für verschiedene Anlässe\n\n### Im Alltag\nKurze, lockere Namen für den täglichen Gebrauch. Ein schnelles \"Hey, Schatz!\" funktioniert immer.\n\n### Für romantische Momente\nLängere, gefühlvollere Ausdrücke passen zu besonderen Momenten. Sag deinem Partner, was er oder sie dir bedeutet.\n\n### Zum Necken\nHumorvolle Kosenamen können eure Beziehung auflockern – aber achte darauf, dass dein Partner den Humor teilt!\n\n## Tipps zur Verwendung\n\n1. **Frage deinen Partner**: Nicht jeder mag jeden Kosenamen. Frage, was ihm/ihr gefällt.\n2. **Achte auf die Aussprache**: Übe die richtige Aussprache – nichts ist romantischer als ein korrekt ausgesprochener Kosename.\n3. **Sei authentisch**: Verwende Namen, die zu euch als Paar passen.\n4. **Kreiere eigene Namen**: Die persönlichsten Kosenamen sind oft selbst erfunden!\n5. **Beobachte die Reaktion**: Der beste Kosename ist der, bei dem dein Partner lächelt.\n\n## Die Kraft der Sprache\n\nKosenamen sind mehr als Worte – sie sind kleine Liebeserklärungen im Alltag. Wenn du Englisch lernst, um mit deinem Partner zu kommunizieren, sind Kosenamen ein wundervoller Anfang.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Kosenamen für verschiedene Anlässe"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dc534f8a-48d8-48ef-9bfb-1f0d7fcc5a83",
+      "title": "Expresii despre Gelozie și Încredere în Cuplu în Norvegiană",
+      "native_lang": "ro",
+      "target_lang": "no",
+      "category": "communication",
+      "content": "Gelozia este o emoție universală care poate apărea în orice relație. A ști cum să discuți despre aceste sentimente poate transforma tensiunea în oportunitate de conectare.\n\n## Expresii pentru a Discuta despre Gelozie\n\n### Recunoașterea Sentimentelor\n\nÎnvață să-ți exprimi sentimentele într-un mod sănătos, fără acuzații.\n\n### Construirea Încrederii\n\nFrazele de reasigurare sunt esențiale pentru o relație sănătoasă.\n\n### Răspunsuri la Gelozie\n\nCând partenerul exprimă gelozie, validează sentimentele și oferă reasigurare.\n\n## Sfaturi Practice\n\n1. **Comunicare deschisă** - Vorbește despre sentimente\n2. **Ascultare activă** - Înțelege perspectiva partenerului\n3. **Evită acuzațiile** - Folosește eu în loc de tu\n4. **Transparență** - Fiți deschiși\n5. **Respect reciproc** - Gelozia nu justifică controlul\n\n## Concluzie\n\nGelozia poate fi gestionată sănătos prin comunicare și încredere reciprocă.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 122,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Expresii pentru a Discuta despre Gelozie"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

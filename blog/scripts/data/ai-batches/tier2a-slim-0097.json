@@ -1,0 +1,519 @@
+{
+  "batchId": "tier2a-slim-0097",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "73a60890-e585-4037-a22e-dcfe854a01d5",
+      "title": "Écrire une lettre d'amour en anglais : L'art de déclarer ses sentiments",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Formules d'ouverture",
+          "subsections": [
+            "### \"My dearest [name]\"",
+            "### \"To the love of my life\"",
+            "### \"My beloved\""
+          ]
+        },
+        {
+          "header": "## Exprimer l'amour profond",
+          "subsections": [
+            "### \"You are the best thing that has ever happened to me\"",
+            "### \"My heart belongs to you and only you\"",
+            "### \"I fall more in love with you every single day\""
+          ]
+        },
+        {
+          "header": "## Expressions poétiques",
+          "subsections": [
+            "### \"You are the poem I never knew how to write\"",
+            "### \"In your eyes, I found my home\"",
+            "### \"You are my today and all of my tomorrows\""
+          ]
+        },
+        {
+          "header": "## Décrire ce que l'autre apporte",
+          "subsections": [
+            "### \"You make me want to be a better person\"",
+            "### \"With you, I am the truest version of myself\"",
+            "### \"You bring out the best in me\""
+          ]
+        },
+        {
+          "header": "## Engagements et promesses",
+          "subsections": [
+            "### \"I promise to love you through all of life's ups and downs\"",
+            "### \"I will stand by your side, no matter what\"",
+            "### \"My love for you is unconditional and eternal\""
+          ]
+        },
+        {
+          "header": "## Formules de conclusion",
+          "subsections": [
+            "### \"Forever and always yours\"",
+            "### \"With all my heart and soul\"",
+            "### \"All my love, always\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "73c153d8-e7e4-4063-88b1-89b548990106",
+      "title": "Italian Honeymoon Travel Phrases: Romantic Vocabulary for Your Trip",
+      "native_lang": "en",
+      "target_lang": "it",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Planning Your Trip",
+          "subsections": [
+            "### Choosing a Destination",
+            "### Booking Vocabulary"
+          ]
+        },
+        {
+          "header": "## At the Airport",
+          "subsections": [
+            "### Essential Phrases",
+            "### Airport Vocabulary"
+          ]
+        },
+        {
+          "header": "## At Your Hotel",
+          "subsections": [
+            "### Checking In",
+            "### Room Types"
+          ]
+        },
+        {
+          "header": "## Romantic Moments",
+          "subsections": [
+            "### On the Beach",
+            "### At Dinner"
+          ]
+        },
+        {
+          "header": "## Adventure Activities",
+          "subsections": [
+            "### Exploring Together",
+            "### Activity Vocabulary"
+          ]
+        },
+        {
+          "header": "## Creating Memories",
+          "subsections": [
+            "### Photo Moment Phrases"
+          ]
+        },
+        {
+          "header": "## Returning Home",
+          "subsections": [
+            "### End of Trip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "73c4a901-77a6-4fa2-a797-180442c9ee29",
+      "title": "Conversazioni Quotidiane in Turco per Coppie",
+      "native_lang": "it",
+      "target_lang": "tr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Prima di Uscire",
+          "subsections": [
+            "### Dialogo"
+          ]
+        },
+        {
+          "header": "## Conversazione Serale",
+          "subsections": [
+            "### Dialogo: Bentornato/a"
+          ]
+        },
+        {
+          "header": "## Prima di Dormire",
+          "subsections": [
+            "### Dialogo: Buonanotte"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "73d3b1f3-ff58-499a-b9fa-d4472eaf8f01",
+      "title": "Întâlnirea cu Familia: Fraze Rusești Esențiale",
+      "native_lang": "ro",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Ce Să Faci și Ce Să Nu Faci",
+          "subsections": [
+            "### Ce Să Faci",
+            "### Ce Să Nu Faci"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "73d6d3b0-8024-4d17-b5b6-7aeee365e1b2",
+      "title": "Çek Partnerinizin Ailesiyle Tanışmak: Çiftler İçin Temel İfade Rehberi",
+      "native_lang": "tr",
+      "target_lang": "cs",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Özel Senaryolar",
+          "subsections": [
+            "### Akşam Yemeği Daveti",
+            "### Çay/Kahve İkramı",
+            "### Aile Hakkında Konuşmak"
+          ]
+        },
+        {
+          "header": "## Aile Üyelerini Tanımak",
+          "subsections": [
+            "### Aile Bireyleri Kelimeleri"
+          ]
+        },
+        {
+          "header": "## Kibar İfadeler ve Nezaket",
+          "subsections": [
+            "### Saygılı Olma Sanatı",
+            "### Formal vs. Gündelik"
+          ]
+        },
+        {
+          "header": "## Sorun Yaşanırsa Ne Yapmalı?",
+          "subsections": [
+            "### Anlamadığınızda Kullanabilecekleriniz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "73dc68ef-9a40-4a21-8a3f-ec8630bee7b3",
+      "title": "Frases en Turco para Pedir y Ofrecer Perdón a tu Pareja",
+      "native_lang": "es",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Pedir Perdón",
+          "subsections": [
+            "### \"Gerçekten özür dilerim\"",
+            "### \"Lütfen beni affet\"",
+            "### \"Seni incittiğimi biliyorum ve çok pişmanım\"",
+            "### \"Bunu yapmakla hata ettim\"",
+            "### \"Bunu nasıl telafi edebilirim?\"",
+            "### \"Bir daha olmayacağına söz veriyorum\""
+          ]
+        },
+        {
+          "header": "## Frases para Ofrecer Perdón",
+          "subsections": [
+            "### \"Seni affediyorum\"",
+            "### \"Bunu geride bırakalım\"",
+            "### \"İlerlemeye hazırım\"",
+            "### \"Herkes hata yapar\"",
+            "### \"Özrünü takdir ediyorum\"",
+            "### \"Hâlâ seni seviyorum\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7426edc2-5b17-44a7-94b6-7d2bb9e3c30d",
+      "title": "Polske 'Jeg Savner Dig' Sætninger for Danskere",
+      "native_lang": "da",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Udtryk",
+          "subsections": [
+            "### \"Tęsknię za tobą\"",
+            "### \"Bardzo za tobą tęsknię\"",
+            "### \"Ciągle o tobie myślę\""
+          ]
+        },
+        {
+          "header": "## Dybere Udtryk",
+          "subsections": [
+            "### \"Każda chwila bez ciebie to wieczność\"",
+            "### \"Jesteś pierwszą myślą, gdy się budzę\"",
+            "### \"Tak bardzo chcę, żebyś tu był/była\""
+          ]
+        },
+        {
+          "header": "## Hverdagens Savn",
+          "subsections": [
+            "### \"Tęsknię za twoim uśmiechem\"",
+            "### \"Tęsknię za zasypianiem obok ciebie\"",
+            "### \"Tęsknię za naszymi rozmowami\""
+          ]
+        },
+        {
+          "header": "## Intense Udtryk",
+          "subsections": [
+            "### \"Tęsknię za tobą bardziej niż słowa mogą wyrazić\"",
+            "### \"Być z dala od ciebie to najtrudniejsza rzecz\"",
+            "### \"Liczę dni do naszego spotkania\""
+          ]
+        },
+        {
+          "header": "## Trøstende Sætninger",
+          "subsections": [
+            "### \"Odległość nic nie znaczy, gdy ktoś znaczy wszystko\"",
+            "### \"Gdziekolwiek jesteś, zawsze jesteś w moim sercu\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "74452ae5-ad72-4a53-a3fa-659c93cd8c8c",
+      "title": "Frases para Conhecer os Sogros em Italiano: Guia Completo",
+      "native_lang": "pt",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para o Primeiro Encontro",
+          "subsections": [
+            "### Apresentação",
+            "### Elogiando",
+            "### Mostrando Interesse",
+            "### Expressando Gratidão"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7445ac9c-e93e-49cc-85fd-57c67056057e",
+      "title": "Tyska SMS- och chattfraser för kärleksrelationer",
+      "native_lang": "sv",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kärleksfulla hälsningar",
+          "subsections": [
+            "### \"Guten Morgen, mein Schatz\"",
+            "### \"Hallo, mein Liebling\"",
+            "### \"Wie geht es dir, mein Herz?\""
+          ]
+        },
+        {
+          "header": "## Att uttrycka saknad",
+          "subsections": [
+            "### \"Ich vermisse dich\"",
+            "### \"Ich denke an dich\"",
+            "### \"Du fehlst mir so sehr\""
+          ]
+        },
+        {
+          "header": "## Kärleksförklaringar",
+          "subsections": [
+            "### \"Ich liebe dich\"",
+            "### \"Ich liebe dich über alles\"",
+            "### \"Du bist die Liebe meines Lebens\"",
+            "### \"Ich hab dich lieb\""
+          ]
+        },
+        {
+          "header": "## Flirtiga fraser",
+          "subsections": [
+            "### \"Du machst mich glücklich\"",
+            "### \"Ich kann es kaum erwarten, dich zu sehen\"",
+            "### \"Du bist wunderschön\""
+          ]
+        },
+        {
+          "header": "## Godnattmeddelanden",
+          "subsections": [
+            "### \"Gute Nacht, träum süß\"",
+            "### \"Schlaf gut, mein Engel\"",
+            "### \"Bis morgen, Süße/Süßer\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "747c983f-4e41-4f5f-b9f9-4d514933aa25",
+      "title": "Poolse Zinnen over Jaloezie en Vertrouwen",
+      "native_lang": "nl",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Czuję się niepewnie, kiedy...\"",
+            "### 2. \"Ufam ci całkowicie\"",
+            "### 3. \"Czy możesz mnie uspokoić?\"",
+            "### 4. \"Nie jestem zazdrosny/a, tylko zaniepokojony/a\"",
+            "### 5. \"Kim była ta osoba, z którą rozmawiałeś/aś?\"",
+            "### 6. \"Muszę wiedzieć, że mogę ci zaufać\"",
+            "### 7. \"Nie masz się czym martwić\"",
+            "### 8. \"Widzę tylko ciebie\"",
+            "### 9. \"Porozmawiajmy o tym, co cię niepokoi\"",
+            "### 10. \"Nigdy nie zrobiłbym/abym nic, żeby cię zranić\"",
+            "### 11. \"Twoja przeszłość nas nie definiuje\"",
+            "### 12. \"Pracuję nad moimi niepewnościami\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "747d0633-fd7b-484c-bf4d-d61591fd7c47",
+      "title": "Czy rumunski jest trudny do nauki? Realistyczny przewodnik dla Polaków",
+      "native_lang": "pl",
+      "target_lang": "ro",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Co czyni rumunski łatwym",
+          "subsections": [
+            "### 1. Język fonetyczny",
+            "### 2. Alfabet lacinski",
+            "### 3. Podobienstwa do polskiego",
+            "### 4. Podobienstwa do innych językow romanskich"
+          ]
+        },
+        {
+          "header": "## Wyzwania rumunskiego",
+          "subsections": [
+            "### 1. Przedimek na koncu słowa",
+            "### 2. Specjalne samogloski",
+            "### 3. Tryb łączacy (conjunctiv)"
+          ]
+        },
+        {
+          "header": "## Zalety dla Polaków",
+          "subsections": [
+            "### 1. Wspolna historia",
+            "### 2. Podobna mentalnosc",
+            "### 3. Wplywy slowianskie"
+          ]
+        },
+        {
+          "header": "## Strategie sukcesu dla par",
+          "subsections": [
+            "### 1. Uczcie się razem",
+            "### 2. Skup się na tym, co ważne",
+            "### 3. Regularna praktyka"
+          ]
+        },
+        {
+          "header": "## Najczestsze bledy do unikania",
+          "subsections": [
+            "### 1. Ignorowanie przedimkow",
+            "### 2. Mylenie \"ă\" z \"a\"",
+            "### 3. Bac się mowic"
+          ]
+        },
+        {
+          "header": "## Zasoby do nauki",
+          "subsections": [
+            "### Aplikacje",
+            "### Multimedia",
+            "### Praktyka"
+          ]
+        },
+        {
+          "header": "## Motywacja: Dlaczego warto?",
+          "subsections": [
+            "### 1. Dla zwiazku",
+            "### 2. Dla rodziny",
+            "### 3. Dla podrozy",
+            "### 4. Dla kultury"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "747dbfa8-b0b3-463f-b841-3d455c680d12",
+      "title": "Шведский для пар: 25 основных фраз",
+      "native_lang": "ru",
+      "target_lang": "sv",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Практические упражнения",
+          "subsections": [
+            "### Утренняя рутина",
+            "### Вечерний ритуал"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7481705a-a306-41db-b19d-18eb0891a996",
+      "title": "Ukrainian First Date Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Making a Great First Impression",
+          "subsections": [
+            "### Ти чудово виглядаєш",
+            "### Приємно познайомитися"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "74962ed8-0f3d-4d33-89b0-27806a21d8e1",
+      "title": "Как сделать предложение на испанский: Фразы для помолвки",
+      "native_lang": "ru",
+      "target_lang": "es",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Способы сделать предложение",
+          "subsections": [
+            "### Классическое предложение",
+            "### Более романтические варианты"
+          ]
+        },
+        {
+          "header": "## Подготовка к предложению",
+          "subsections": [
+            "### Советы по практике",
+            "### Создание атмосферы"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "74b593e7-9412-4e85-bbaf-65dbf27f5db7",
+      "title": "Német kifejezések féltékenységhez és bizalomhoz",
+      "native_lang": "hu",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kifejezések a féltékenység kifejezéséhez",
+          "subsections": [
+            "### 1. \"Ich bin eifersüchtig, wenn du...\"",
+            "### 2. \"Ich brauche Bestätigung\"",
+            "### 3. \"Ich vertraue dir, aber ich kämpfe mit meinen Gefühlen\"",
+            "### 4. \"Können wir über das reden, was passiert ist?\"",
+            "### 5. \"Ich will nicht eifersüchtig sein, aber...\"",
+            "### 6. \"Ich vertraue dir vollkommen\"",
+            "### 7. \"Du bist der/die Einzige für mich\"",
+            "### 8. \"Ich würde niemals etwas tun, um dich zu verletzen\"",
+            "### 9. \"Zwischen uns läuft nichts\"",
+            "### 10. \"Ich bin dir treu\"",
+            "### 11. \"Lass uns ehrlich zueinander sein\"",
+            "### 12. \"Ich will nicht, dass Eifersucht zwischen uns steht\""
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0354",
+  "articles": [
+    {
+      "id": "64985cb5-7472-4d6d-bfbd-068204e4aa9f",
+      "title": "50 Polske Kærlighedsudtryk for Par: Lær at Udtrykke Jeres Kærlighed på Polsk",
+      "native_lang": "da",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport ConjugationTable from '@components/ConjugationTable.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nAt lære polsk sammen med din partner handler om mere end bare ord – det handler om at skabe dybere forbindelse gennem sprog. Disse 50 kærlighedsudtryk vil hjælpe jer med at udtrykke jeres følelser på polsk og bringe jer tættere sammen. Fra søde kælenavne til romantiske erklæringer, vi har samlet de vigtigste fraser, som par bruger hver dag.\n\n<PhraseOfDay\n  word=\"Kocham cię\"\n  translation=\"Jeg elsker dig\"\n  pronunciation=\"KOH-ham chyeh\"\n  context=\"Den mest essentielle kærlighedserklæring – brug den dagligt med din partner\"\n/>\n\n## De 10 Vigtigste Kærlighedsudtryk\n\nDisse ti fraser er fundamentet for romantisk kommunikation på polsk. Lær dem først, og brug dem ofte!\n\n<VocabCard\n  word=\"Mój drogi\"\n  translation=\"Min kære (til mand)\"\n  pronunciation=\"moy DROH-gee\"\n  example=\"Mój drogi, jak się masz?\"\n/>\n\n| Polsk | Dansk | Udtale | Brug |\n|--------|--------|--------|-------|\n| **Kocham cię** | Jeg elsker dig | KOH-ham chyeh | Daglig kærlighedserklæring |\n| **Kocham cię bardzo** | Jeg elsker dig meget | KOH-ham chyeh BAR-tsoh | Når kærligheden er stærk |\n| **Tęsknię za tobą** | Jeg savner dig | TENSH-nyeh zah TOH-bahn | Når I er adskilt |\n| **Jesteś piękna** | Du er smuk (til kvinde) | YES-tesh PYEN-knah | Kompliment |\n| **Jesteś przystojny** | Du er flot (til mand) | YES-tesh pshih-STOY-nih | Kompliment |\n| **Moje serce** | Mit hjerte | MOH-yeh SER-tseh | Kælenavn |\n| **Moja miłość** | Min kærlighed | MOY-ah MEE-woshch | Kælenavn |\n| **Jesteś moją miłością** | Du er min kærlighed | YES-tesh MOY-ohn mee-WOSH-chyohn | Romantisk erklæring |\n| **Całuję cię** | Jeg kysser dig | TSAH-loo-yeh chyeh | Når du vil kysse |\n| **Trzymaj mnie** | Hold om mig | TSHIH-mah-i mn-yeh | Når du vil krammes |\n\n## Søde Kælenavne og Øgenavne\n\nPolske par elsker at bruge kreative kælenavne. Her er de mest populære:\n\n<VocabCard\n  word=\"Kochanie\"\n  translation=\"Skat/elskede\"\n  pronunciation=\"koh-HAH-nyeh\"\n  example=\"Kochanie, co robisz?\"\n/>\n\n### Dyr-inspirerede kælenavne\n| Polsk | Dansk | Udtale |\n|--------|--------|--------|\n| **Kotku** | Min kat (kælenavn) | KOT-koo |\n| **Misiu** | Min bamse (kælenavn) | MEE-shoo |\n| **Słoneczko** | Min sol | swoh-NEH-chkoh |\n| **Rybko** | Min fisk | RIB-koh |\n| **Pszczółko** | Min bi | PSH-CHOO-koh |\n\n<CultureTip flag=\"🇵🇱\" title=\"Polske kælenavne\">\nPolakker bruger kælenavne langt oftere end danskere – selv i offentligheden. Det er helt normalt at høre \"kochanie\" i supermarkedet!\n</CultureTip>\n\n### Mad-inspirerede kælenavne\n| Polsk | Dansk | Udtale |\n|--------|--------|--------|\n| **Ciastko** | Min kage | CHYAHST-koh |\n| **Cukiereczku** | Min slik | tsoo-kyeh-REH-chkoo |\n| **Babeczko** | Min muffin | bah-BEH-chkoh |\n| **Lody** | Min is | LOH-dih |\n| **Miodku** | Min honning | MYOD-koo |\n\n## Romantiske Komplimenter\n\nLær at give komplimenter på polsk – det vil smelte din partners hjerte!\n\n<VocabCard\n  word=\"Masz piękne oczy\"\n  translation=\"Du har smukke øjne\"\n  pronunciation=\"mahsh PYEN-neh OH-chih\"\n  example=\"Masz piękne oczy, kochanie.\"\n/>\n\n### Udseende og personlighed\n| Polsk | Dansk | Udtale |\n|--------|--------|--------|\n| **Świetnie wyglądasz** | Du ser fantastisk ud | shvyet-nyeh vih-GWON-dahsh |\n| **Masz uśmiech anioła** | Du har et engle-smil | mahsh OOSH-myehkh AH-nyoh-lah |\n| **Jesteś inteligentna** | Du er intelligent (kvinde) | YES-tesh in-teh-lee-GENT-nah |\n| **Jesteś zabawny** | Du er sjov (mand) | YES-tesh zah-BAHV-nih |\n| **Podoba mi się twój styl** | Jeg kan lide din stil | poh-BOH-bah mee s'yeh tfoy steel |\n\n<CultureTip flag=\"🇵🇱\" title=\"Polske komplimenter\">\nPolakker er generøse med komplimenter – brug dem ofte! Det ses som høfligt og charmerende, ikke påtrængende.\n</CultureTip>\n\n## Intime og Følsomme Udtryk\n\nDisse fraser bruger I, når I har brug for at udtrykke dybere følelser:\n\n| Polsk | Dansk | Udtale |\n|--------|--------|--------|\n| **Potrzebuję cię** | Jeg har brug for dig | poh-t-SHEH-boo-yeh chyeh |\n| **Jesteś moim całym światem** | Du er hele min verden | YES-tesh MOH-yeem TSAH-wihm SHVYAH-tehm |\n| **Bez ciebie nie mogę żyć** | Jeg kan ikke leve uden dig | beh chyeh-bye nyeh MOH-gem zhich |\n| **Zawsze będę przy tobie** | Jeg vil altid være hos dig | ZAHF-sheh BEN-deh pshih TOH-bye |\n| **Jesteś moim szczęściem** | Du er mit lykke | YES-tesh MOH-yeem shchen-SHYEH-em |\n\n## Hvordan I Bruger Disse Fraser Sammen\n\n### Daglig praksis\nStart med de simple fraser som \"Kocham cię\" og \"Kochanie\". Brug dem hver dag, også når I ikke øver jer aktivt. Det skaber en naturlig vane og gør læringen sjov.\n\n### Rollespil øvelser\nLav små scenarier hvor I skal bruge de nye fraser. Eksempel: En romantisk middag hvor I kun taler polsk, eller en morgen hvor I kun bruger kælenavne.\n\n### Almindelige fejl at undgå\n- Husk at tilpasse køn: \"piękna\" til kvinder, \"przystojny\" til mænd\n- Brug \"cię\" (dig) ikke \"ciebie\" i daglig tale – \"ciebie\" er for formelt\n- Udtal \"ę\" som en nasal \"eh\" lyd, ikke som \"en\"\n\nHvis I vil have endnu mere inspiration til romantiske polske fraser, så tjek vores guide til [polske kælenavne til din partner](/learn/da/pl/polish-pet-names-for-your-partner/). Og når I er klar til at sige de tre magiske ord, har vi også en guide til [hvordan man siger jeg elsker dig på polsk](/learn/da/pl/how-to-say-i-love-you-in-polish/).\n\n## Afslutning\n\nMed disse 50 kærlighedsudtryk i jeres polske værktøjskasse kan I nu udtrykke jeres kærlighed på en ny og smuk måde. Husk, det handler ikke om perfekt udtale – det handler om at skabe forbindelse. Øv jer sammen, støt hinanden, og nyd processen med at lære et nyt sprog som par. Hver ny frase I lærer, bringer jer tættere sammen og giver jer en helt særlig måde at kommunikere på.\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Hvordan I Bruger Disse Fraser Sammen"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "64bd9546-27a3-4942-8041-addd88fae46f",
+      "title": "Spanyol kifejezések első randira",
+      "native_lang": "hu",
+      "target_lang": "es",
+      "category": "communication",
+      "content": "Az első randi izgalmas pillanat. Ha spanyol anyanyelvű személlyel randevúzol, ezek a kifejezések segítenek.\n\n## Bemutatkozás\n\n### 1. \"Es un placer conocerte por fin\"\n**Jelentés:** Öröm végre személyesen találkozni\n\n### 2. \"Te ves increíble\"\n**Jelentés:** Hihetetlenül nézel ki\n\n### 3. \"Cuéntame sobre ti\"\n**Jelentés:** Mesélj magadról\n\n### 4. \"¿A qué te dedicas?\"\n**Jelentés:** Mi a foglalkozásod?\n\n### 5. \"¿Cuáles son tus pasatiempos?\"\n**Jelentés:** Mik a hobbijaid?\n\n## Beszélgetés\n\n### 6. \"Eso es muy interesante\"\n**Jelentés:** Ez nagyon érdekes\n\n### 7. \"Yo siento lo mismo\"\n**Jelentés:** Én is így érzek\n\n### 8. \"¿Qué tipo de música te gusta?\"\n**Jelentés:** Milyen zenét szeretsz?\n\n### 9. \"¿Has viajado mucho?\"\n**Jelentés:** Sokat utaztál?\n\n### 10. \"Me lo estoy pasando muy bien\"\n**Jelentés:** Nagyon jól érzem magam\n\n## Randi vége\n\n### 11. \"Lo pasé maravillosamente\"\n**Jelentés:** Csodálatosan éreztem magam\n\n### 12. \"¿Podemos vernos otra vez?\"\n**Jelentés:** Találkozhatunk újra?\n\n### 13. \"Me encantaría repetir esto\"\n**Jelentés:** Szívesen megismételném\n\n### 14. \"¿Puedo acompañarte a casa?\"\n**Jelentés:** Hazakísérhetlek?\n\n## Összefoglalás\n\nA spanyol randevú szenvedélyes és közvetlen. Légy bátor és nyitott!",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 172,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Bemutatkozás",
+              "## Beszélgetés",
+              "## Randi vége"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "64f63702-2be4-4642-8ca1-cd2a020be51a",
+      "title": "100 Συχνές Λέξεις (cs): Οδηγός για Ελληνόφωνα Ζευγάρια",
+      "native_lang": "el",
+      "target_lang": "cs",
+      "category": "communication",
+      "content": "Η εκμάθηση βασικού λεξιλογίου είναι θεμελιώδης για κάθε ζευγάρι. Αυτές οι λέξεις θα σας βοηθήσουν στην καθημερινή επικοινωνία με τον σύντροφό σας.\n\n## Βασικές Κατηγορίες Λέξεων\n\n### Αγάπη & Τρυφερότητα\n\nΑγάπη, Καρδιά, Φιλί, Αγκαλιά, Αγαπητός/ή\n\n### Καθημερινές Λέξεις\n\nΝαι, Όχι, Παρακαλώ, Ευχαριστώ, Συγγνώμη, Καλημέρα, Καληνύχτα\n\n### Συναισθήματα\n\nΧαρούμενος/η, Λυπημένος/η, Κουρασμένος/η, Θυμωμένος/η, Ενθουσιασμένος/η\n\n### Χρόνος\n\nΣήμερα, Αύριο, Χθες, Τώρα, Αργότερα, Πάντα, Ποτέ\n\n### Τοποθεσία\n\nΕδώ, Εκεί, Σπίτι, Δουλειά, Μαζί\n\n### Ερωτήσεις\n\nΤι, Πού, Πότε, Γιατί, Πώς, Ποιος\n\n### Ρήματα\n\nΕίμαι, Έχω, Θέλω, Μπορώ, Πρέπει, Αγαπώ, Χρειάζομαι\n\n## Συμπέρασμα\n\nΜε αυτές τις βασικές λέξεις, μπορείτε να ξεκινήσετε να επικοινωνείτε καθημερινά με τον σύντροφό σας. Η πρακτική κάνει τέλειο!",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 106,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Βασικές Κατηγορίες Λέξεων"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "64fe85eb-53ac-40e9-8247-cf8bd9ef408a",
+      "title": "Португальська лексика про вагітність та материнство",
+      "native_lang": "uk",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport CTA from '@components/CTA.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\n\n# Португальська лексика про вагітність та материнство\n\nОчікування малюка — це чудовий час! Якщо ваш партнер розмовляє португальською або ви плануєте народжувати за кордоном, ця лексика стане вам у пригоді.\n\n<PhraseOfDay\n  phrase=\"We're expecting a baby!\"\n  translation=\"Ми чекаємо на малюка!\"\n  context=\"Оголошення радісної новини\"\n/>\n\n## Основна лексика про вагітність\n\n\n\n## Оголошення про вагітність португальською\n\n### Як поділитися новиною\n\n1. \"Ми чекаємо на малюка!\" — класичний спосіб\n2. \"Я вагітна!\" — прямо та радісно\n3. \"Ми станемо батьками!\" — для обох партнерів\n4. \"Наша сім'я збільшується!\" — якщо це не перша дитина\n\n<CultureTip>\nУ різних культурах є свої традиції щодо оголошення вагітності. Деякі чекають до 12 тижнів, інші — до дізнаються стать. Дізнайтеся, що прийнято в сім'ї вашого партнера.\n</CultureTip>\n\n## Лексика для візиту до лікаря\n\nВажливо знати медичну термінологію португальською:\n\n### У кабінеті лікаря\n- УЗД / Ультразвук\n- Аналіз крові\n- Термін вагітності\n- Дата народження\n\n### Важливі слова\n- Тиждень вагітності\n- Триместр\n- Ранній токсикоз\n- Рух дитини\n\n## Покупки для малюка\n\n### Що потрібно купити\n\n| Португальська | Українська |\n|----------------|------------|\n| Crib | Ліжечко |\n| Stroller | Коляска |\n| Diapers | Підгузки |\n| Baby clothes | Дитячий одяг |\n| Bottle | Пляшечка |\n| Pacifier | Соска |\n\n<CultureTip>\nТрадиції baby shower (свята перед народженням) відрізняються в різних країнах. Дізнайтеся, чи прийнято це в культурі вашого партнера.\n</CultureTip>\n\n## Пологи та лікарня\n\n### У пологовому будинку\n\nКорисні фрази:\n- \"Де пологове відділення?\"\n- \"У мене почалися перейми\"\n- \"Мені потрібен лікар\"\n- \"Як часто перейми?\"\n\n### Після народження\n\n- \"Дитина народилася!\"\n- \"Хлопчик/Дівчинка!\"\n- \"Мама і дитина здорові\"\n- \"Скільки важить малюк?\"\n\n## Імена для дитини\n\nВибір імені — важлива справа! Популярні португальські імена:\n\n### Для хлопчиків\n- [Популярні імена країни]\n- Класичні імена\n- Сучасні імена\n\n### Для дівчаток\n- [Популярні імена країни]\n- Класичні імена\n- Сучасні імена\n\n## Перші місяці з малюком\n\n### Корисна лексика\n\n- Годування (грудне/штучне)\n- Зміна підгузка\n- Купання\n- Колискова\n- Сон малюка\n\n## Привітання з народженням\n\nЯк привітати батьків португальською:\n\n1. \"Вітаю з народженням малюка!\"\n2. \"Нехай дитина росте здоровою та щасливою!\"\n3. \"Радості батьківства!\"\n\n## Продовжуйте вивчення\n\nТепер ви знаєте основну португальськау лексику про вагітність! Вивчайте більше:\n\n- [Португальська слова для спільного життя](/uk/blog/portuguese-moving-in-together)\n- [Португальська фрази для родинних зустрічей](/uk/blog/meeting-the-family-portuguese-phrases)\n\n<CTA \n  text=\"Підготуйтеся до батьківства португальською з нашим додатком!\"\n  buttonText=\"Почати навчання\"\n  href=\"/uk/learn/pt\"\n/>",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Основна лексика про вагітність",
+              "## Оголошення про вагітність португальською",
+              "## Покупки для малюка",
+              "## Пологи та лікарня",
+              "## Перші місяці з малюком"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "65255eb8-c8be-4f50-bf1d-a8bf49653a4d",
+      "title": "Olandese: 12 Modi Romantici per Dire Ti Amo",
+      "native_lang": "it",
+      "target_lang": "nl",
+      "category": "phrases",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\n# Come Dire Ti Amo in Olandese: Guida Completà per Coppie\n\nImparare a esprimere l'amore nella lingua del tuo partner è uno dei gesti più significativi che puoi fare. L'olandese ha modi belli e sfumati per dire \"ti amo\" che vanno oltre una semplice traduzione.\n\nEsploriamo tutti i modi per dire al tuo partner che lo ami in olandese.\n\n## L'Essenziale: Ik Hou Van Je\n\n<PhraseOfDay\n  word=\"Ik hou van je\"\n  translation=\"Ti amo\"\n  pronunciation=\"ik hau fan ye\"\n  context=\"Il modo più comune e sincero per esprimere l'amore romantico in olandese.\"\n/>\n\nQuesta è la frase che userai più spesso con il tuo partner olandese. È calda, sincera e porta un vero peso emotivo. Tradotta letteralmente significa \"Ti tengo caro\", che cattura magnificamente l'approccio olandese all'amore.\n\n## Variazioni Romantiche\n\n<VocabCard\n  word=\"Ik hou van je\"\n  translation=\"Ti amo\"\n  pronunciation=\"ik hau fan ye\"\n  example=\"Ik hou van je, schatje.\"\n/>\n\n<VocabCard\n  word=\"Ik hou zoveel van je\"\n  translation=\"Ti amo così tanto\"\n  pronunciation=\"ik hau zo-FEEL fan ye\"\n  example=\"Ik hou zoveel van je dat woorden tekort schieten.\"\n/>\n\n<VocabCard\n  word=\"Ik hou van je met heel mijn hart\"\n  translation=\"Ti amo con tutto il cuore\"\n  pronunciation=\"ik hau fan ye met heil mein hart\"\n  example=\"Ik hou van je met heel mijn hart, voor altijd.\"\n/>\n\n<CultureTip title=\"Houden van vs. Liefhebben\" flag=\"🇳🇱\">\nIn olandese, \"houden van\" è il modo più comune per esprimere l'amore romantico. \"Liefhebben\" esiste anche ma suona più letterario o formale. Per l'uso quotidiano, usa sempre \"ik hou van je\".\n</CultureTip>\n\n## Diversi Livelli d'Amore\n\nL'olandese offre diversi modi per esprimere affetto, ognuno con la propria intensità:\n\n| Olandese | Italiano | Livello di Intensità |\n|----------|----------|----------------------|\n| Ik vind je leuk | Mi piaci | Leggero, primi appuntamenti |\n| Ik mag je graag | Mi piaci molto | Affetto crescente |\n| Ik geef om je | Mi importa di te | Cura profonda |\n| Ik hou van je | Ti amo | Amore romantico |\n| Ik ben verliefd op je | Sono innamorato/a di te | Essere innamorati |\n| Ik aanbid je | Ti adoro | Devozione profonda |\n\n<VocabCard\n  word=\"Ik ben verliefd op je\"\n  translation=\"Sono innamorato/a di te\"\n  pronunciation=\"ik ben fer-LIFT op ye\"\n  example=\"Vanaf het eerste moment ben ik verliefd op je.\"\n/>\n\n## Frasi Romantiche Per Sciogliere i Cuori\n\n### \"Significhi Tutto Per Me\"\n\n<VocabCard\n  word=\"Je betekent alles voor me\"\n  translation=\"Significhi tutto per me\"\n  pronunciation=\"ye be-TEI-kent A-les for me\"\n  example=\"Je betekent alles voor me, dat weet je toch?\"\n/>\n\n### \"Non Posso Vivere Senza di Te\"\n\n<VocabCard\n  word=\"Ik kan niet zonder je leven\"\n  translation=\"Non posso vivere senza di te\"\n  pronunciation=\"ik kan nit ZON-der ye LEI-fen\"\n  example=\"Ik kan niet zonder je leven, je bent mijn alles.\"\n/>\n\n### \"Sei l'Amore della Mia Vita\"\n\n<VocabCard\n  word=\"Je bent de liefde van mijn leven\"\n  translation=\"Sei l'amore della mia vita\"\n  pronunciation=\"ye bent de LIF-de fan mein LEI-fen\"\n  example=\"Je bent de liefde van mijn leven, voor nu en altijd.\"\n/>\n\n<CultureTip title=\"La Franchezza Olandese in Amore\" flag=\"🇳🇱\">\nGli olandesi sono famosi per la loro franchezza, e questo si estende alle questioni di cuore. Quando una persona olandese dice \"ik hou van je\", lo pensa davvero. A differenza di alcune culture dove l'espressione è usata casualmente, nei Paesi Bassi queste parole hanno un vero peso.\n</CultureTip>\n\n## Vezzeggiativi da Abbinare\n\nQuando dici \"ti amo\" in olandese, è naturale aggiungere un dolce vezzeggiativo:\n\n| Olandese | Italiano | Quando Usare |\n|----------|----------|--------------|\n| Schat / Schatje | Tesoro / Tesorino | Il più comune |\n| Lieverd | Caro/a | Molto affettuoso |\n| Liefje | Amore mio | Tenero, romantico |\n| Lief | Caro/a | Semplice e dolce |\n| Mijn hartje | Cuoricino mio | Molto romantico |\n\n## Rispondere a \"Ik Hou Van Je\"\n\nQuando il tuo partner ti dice che ti ama, ecco modi naturali per rispondere:\n\n| Olandese | Italiano |\n|----------|----------|\n| Ik hou ook van jou | Ti amo anch'io |\n| Ik ook van jou | Anch'io (informale) |\n| En ik van jou | E io di te |\n| Jij bent mijn alles | Sei il mio tutto |\n\n## Riferimento Rapido\n\n| Frase | Significato | Quando Usare |\n|-------|-------------|--------------|\n| Ik hou van je | Ti amo | Quotidiano |\n| Ik hou zoveel van je | Ti amo così tanto | Più intenso |\n| Ik ben verliefd op je | Sono innamorato/a di te | Eccitazione iniziale |\n| Ik aanbid je | Ti adoro | Devozione profonda |\n| Voor altijd van jou | Tuo/a per sempre | Impegno |\n\n## La Pratica Rende Perfetti\n\nIl modo migliore per imparare queste frasi è usarle genuinamente. Inizia con **\"Ik hou van je\"** e dillo quando lo senti davvero. Il tuo partner olandese sarà commosso dal tuo sforzo di esprimere l'amore nella sua lingua.\n\nRicorda: quando impari a dire \"ti amo\" nella lingua madre di qualcuno, gli stai mostrando che ne vale la pena. Questo messaggio arriva chiaramente, indipendentemente dal fatto che la tua pronuncia sia perfetta.\n\n\n<CTA\n  text=\"Vuoi dire 'Ik hou van je' con la pronuncia perfetta? Con Love Languages puoi praticare con la chat vocale AI senza giudizio. Il tuo partner puo diventare il tuo tutor personale, creando quiz e inviandoti parole come regali romantici.\"\n  buttonText=\"Inizia Ora\"\n/>\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frasi Romantiche Per Sciogliere i Cuori"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

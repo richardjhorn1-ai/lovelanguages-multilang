@@ -1,0 +1,177 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0800",
+  "articles": [
+    {
+      "id": "e73aab3d-d2ca-42d7-8994-5a78f7ccecc0",
+      "title": "Almanca Tartışma ve Anlaşmazlık İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "de",
+      "category": "communication",
+      "content": "Almanca konuşan bir partnerinizle sağlıklı bir ilişki sürdürmek için tartışma anlarında doğru ifadeleri bilmek çok önemlidir.\n\n## Temel Tartışma İfadeleri\n\n### 1. \"Ich fühle mich verletzt, wenn...\"\n**Telaffuz:** *İh füle mih ferletzt, ven...*\n\n**Anlam:** \"...olduğunda incinmiş hissediyorum\"\n\nAlmancada \"Ich-Botschaften\" (Ben mesajları) kullanmak çok önemlidir. Bu yapı suçlamadan duygularınızı ifade eder.\n\n**Örnek:** \"Ich fühle mich verletzt, wenn du mich nicht anrufst.\" (Beni aramadığında incinmiş hissediyorum.)\n\n### 2. \"Können wir ruhig darüber sprechen?\"\n**Telaffuz:** *Könen vir rui darüber şprehin?*\n\n**Anlam:** \"Bu konuyu sakin bir şekilde konuşabilir miyiz?\"\n\nYapıcı bir diyalog başlatmak için mükemmel bir soru.\n\n### 3. \"Ich verstehe deinen Standpunkt, aber...\"\n**Telaffuz:** *İh ferştee daynen ştantpunkt, aber...*\n\n**Anlam:** \"Senin bakış açını anlıyorum, ama...\"\n\nEmpati gösterirken kendi görüşünüzü de ifade edebilirsiniz.\n\n### 4. \"Lass uns nicht schreien\"\n**Telaffuz:** *Las uns niht şrayen*\n\n**Anlam:** \"Bağırmayalım\"\n\nTartışmayı sakin tutmak için nazik bir hatırlatma.\n\n### 5. \"Das habe ich nicht gemeint\"\n**Telaffuz:** *Das habe ih niht gemaynt*\n\n**Anlam:** \"Bunu kastetmedim\"\n\nYanlış anlaşılmaları düzeltmek için kullanın.\n\n### 6. \"Ich brauche einen Moment für mich\"\n**Telaffuz:** *İh brauhe aynen moment für mih*\n\n**Anlam:** \"Kendim için bir ana ihtiyacım var\"\n\nSakinleşmek için zamana ihtiyacınız olduğunu ifade eder.\n\n### 7. \"Lass uns einen Kompromiss finden\"\n**Telaffuz:** *Las uns aynen kompromis finden*\n\n**Anlam:** \"Bir uzlaşma bulalım\"\n\nÇözüm odaklı yaklaşımınızı gösterir.\n\n**Örnek:** \"Lass uns einen Kompromiss finden, der für uns beide funktioniert.\" (İkimiz için de işe yarayan bir uzlaşma bulalım.)\n\n### 8. \"Es tut mir leid, dass ich dich verletzt habe\"\n**Telaffuz:** *Es tut mir layt, das ih dih ferletzt habe*\n\n**Anlam:** \"Seni incittiğim için üzgünüm\"\n\nİçten bir özür ifade eder.\n\n### 9. \"Kannst du mir erklären, wie du dich fühlst?\"\n**Telaffuz:** *Kanst du mir erkleren, vi du dih fülst?*\n\n**Anlam:** \"Nasıl hissettiğini bana açıklar mısın?\"\n\nPartnerinizi dinlemeye hazır olduğunuzu gösterir.\n\n### 10. \"Ich glaube, wir müssen uns beide beruhigen\"\n**Telaffuz:** *İh glaube, vir müsen uns bayde beruigen*\n\n**Anlam:** \"Sanırım ikimizin de sakinleşmesi gerekiyor\"\n\nMola önermek için uygun bir ifade.\n\n### 11. \"Ich liebe dich, aber ich bin gerade verärgert\"\n**Telaffuz:** *İh libe dih, aber ih bin gerade ferergert*\n\n**Anlam:** \"Seni seviyorum, ama şu an kızgınım\"\n\n### 12. \"Lass uns später darüber reden\"\n**Telaffuz:** *Las uns şpeter darüber reden*\n\n**Anlam:** \"Bunu daha sonra konuşalım\"\n\n## Alman Kültüründe Tartışma\n\nAlmancada doğrudan iletişim değerlidir. \"Bitte\" (lütfen) ve \"Danke\" (teşekkürler) kelimelerini kullanmayı unutmayın.\n\n\"Ich möchte dich verstehen\" (Seni anlamak istiyorum) gibi ifadeler, empati göstermenize yardımcı olur.\n\nBu ifadelerle Almanca konuşan partnerinizle yapıcı diyaloglar kurabilirsiniz.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Temel Tartışma İfadeleri"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "e746f9cb-e154-433f-a688-6e5b2f0f86c3",
+      "title": "Udtryk Følelser på Svensk: Komplet Guide for Par",
+      "native_lang": "da",
+      "target_lang": "sv",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nAt kunne udtrykke dine følelser på din partners sprog skaber en unik forbindelse. Når du fortæller din partner hvordan du har det på svensk, viser du en sårbarhed der styrker jeres forhold. Denne guide giver dig ordforrådet til at dele glæde, sorg, kærlighed og alt derimellem. Kombiner dette med vores [svenske romantiske fraser](/learn/da/sv/swedish-romantic-phrases-for-every-occasion/).\n\n<PhraseOfDay\n  word=\"I feel happy\"\n  translation=\"Jeg føler mig glad\"\n  pronunciation=\"ai fiil ha-pi\"\n  context=\"En vigtig følelsesudtryk på svensk\"\n/>\n\n## Positive Følelser\n\nLad os starte med de gode følelser:\n\n<VocabCard\n  word=\"I'm happy\"\n  translation=\"Jeg er lykkelig\"\n  pronunciation=\"aim ha-pi\"\n  example=\"I'm so happy with you.\"\n/>\n\n### Glæde og Lykke\n\n| Svensk | Dansk | Udtale |\n|---------|-------|--------|\n| **I'm happy** | Jeg er lykkelig | aim ha-pi |\n| **I'm filled with joy** | Jeg er fyldt med glæde | aim fild wid joi |\n| **I'm excited** | Jeg er begejstret | aim ek-sai-ted |\n| **I'm grateful** | Jeg er taknemmelig | aim grei-ful |\n| **I'm content** | Jeg er tilfreds | aim kon-tent |\n\n### Kærlighed og Hengivenhed\n\n- **I'm in love** (Jeg er forelsket) - \"aim in lav\"\n- **I adore you** (Jeg tilbeder dig) - \"ai uh-dor juu\"\n- **I'm crazy about you** (Jeg er vild med dig) - \"aim krei-zi uh-baut juu\"\n- **You mean everything to me** (Du betyder alt for mig) - \"juu miin ev-ri-thing\"\n\n<CultureTip flag=\"🇸🇪\" title=\"Følelseskultur\">\nEnglændere udtrykker ofte følelser mere subtilt. 'I'm quite happy' kan betyde 'jeg er meget glad'.\n</CultureTip>\n\n## Negative Følelser\n\nDet er vigtigt at kunne dele de svære følelser:\n\n<VocabCard\n  word=\"I'm sad\"\n  translation=\"Jeg er trist\"\n  pronunciation=\"aim sad\"\n  example=\"I'm feeling sad today.\"\n/>\n\n### Tristhed og Sorg\n\n| Svensk | Dansk | Udtale |\n|---------|-------|--------|\n| **I'm sad** | Jeg er trist | aim sad |\n| **I'm upset** | Jeg er ked af det | aim up-set |\n| **I'm disappointed** | Jeg er skuffet | aim dis-uh-poin-ted |\n| **I'm hurt** | Jeg er såret | aim hart |\n| **I feel lonely** | Jeg føler mig ensom | ai fiil loun-li |\n\n### Frustrationer\n\n- **I'm frustrated** (Jeg er frustreret) - \"aim frus-trei-ted\"\n- **I'm stressed** (Jeg er stresset) - \"aim strest\"\n- **I'm worried** (Jeg er bekymret) - \"aim wu-riid\"\n- **I'm overwhelmed** (Jeg er overvældet) - \"aim ou-vur-welmd\"\n\n## Fysiske Fornemmelser\n\n| Svensk | Dansk | Udtale |\n|---------|-------|--------|\n| **I'm tired** | Jeg er træt | aim tai-urd |\n| **I'm full of energy** | Jeg er fuld af energi | aim ful ov e-nur-ji |\n| **I'm relaxed** | Jeg er afslappet | aim ri-lakst |\n| **I feel sick** | Jeg har det dårligt | ai fiil sik |\n\n## Spørge til Partnerens Følelser\n\n<VocabCard\n  word=\"How are you feeling?\"\n  translation=\"Hvordan har du det?\"\n  pronunciation=\"hau ar juu fii-ling?\"\n  example=\"How are you feeling today?\"\n/>\n\n- **What's wrong?** (Hvad er der galt?) - \"wots rong?\"\n- **Tell me how you feel** (Fortæl mig hvad du føler) - \"tel mi hau juu fiil\"\n- **Can I help?** (Kan jeg hjælpe?) - \"kan ai help?\"\n- **I'm here for you** (Jeg er her for dig) - \"aim hiir for juu\"\n\n<CultureTip flag=\"🇸🇪\" title=\"At dele følelser\">\nEnglændere kan være tilbageholdende med følelser. Giv din partner tid og rum.\n</CultureTip>\n\n## Reagere på Partnerens Følelser\n\n### Støttende Svar\n- **I understand** (Jeg forstår)\n- **I'm sorry to hear that** (Det er jeg ked af at høre)\n- **You're not alone** (Du er ikke alene)\n- **We'll get through this together** (Vi klarer det sammen)\n\n### Trøstende Ord\n- **It will be alright** (Det bliver okay)\n- **I love you** (Jeg elsker dig)\n- **Come, let me hold you** (Kom, lad mig holde dig)\n- **You're strong** (Du er stærk)\n\n## \"Du Gør Mig...\" Fraser\n\n| Svensk | Dansk |\n|---------|-------|\n| **You make me happy** | Du gør mig lykkelig |\n| **You make me smile** | Du får mig til at smile |\n| **You make me laugh** | Du får mig til at grine |\n| **You make me feel special** | Du får mig til at føle mig speciel |\n\n## Tips til Emotionel Kommunikation\n\n1. **Brug \"jeg\"-sætninger** - \"Jeg føler...\" i stedet for \"Du gør mig...\"\n2. **Vær specifik** - Fortæl præcis hvad du føler\n3. **Accepter alle følelser** - Der er ingen forkerte følelser\n4. **Lyt aktivt** - Vis forståelse med nikke og øjenkontakt\n\nFor flere måder at udtrykke kærlighed, se [hvordan man siger jeg elsker dig på svensk](/learn/da/sv/swedish-how-to-say-i-love-you/).\n\nAt mestre det emotionelle ordforråd på svensk åbner for dybere samtaler med din partner.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Reagere på Partnerens Følelser"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "e7471652-ded7-4b55-bd5f-bb225a96268a",
+      "title": "100 самых важных португальских слов для пар",
+      "native_lang": "ru",
+      "target_lang": "pt",
+      "category": "communication",
+      "content": "Освойте базовые слова для общения с португалоязычным партнёром.\n\n## Обращения\n\n### 1. Eu / Você / Nós\n**Произношение:** Э́у / Восэ́ / Нош\n**Перевод:** Я / Ты / Мы\n\n### 2. Meu amor / Querido/a / Meu bem\n**Произношение:** Мэ́у амо́р / Кэри́ду/а / Мэ́у бэ́м\n**Перевод:** Моя любовь / Дорогой/Дорогая / Моё благо\n\n## Чувства\n\n### 3. Amor / Feliz / Triste\n**Произношение:** Амо́р / Фэли́ш / Три́шти\n**Перевод:** Любовь / Счастливый / Грустный\n\n## Действия\n\n### 4. Comer / Beber / Dormir\n**Произношение:** Комэ́р / Бэбэ́р / Дорми́р\n**Перевод:** Есть / Пить / Спать\n\n### 5. Ir / Vir / Ficar\n**Произношение:** Ир / Вир / Фика́р\n**Перевод:** Идти / Приходить / Оставаться\n\n## Время\n\n### 6. Hoje / Amanhã / Ontem\n**Произношение:** О́жи / Аманья́ / О́нтэм\n**Перевод:** Сегодня / Завтра / Вчера\n\n### 7. Manhã / Tarde / Noite\n**Произношение:** Манья́ / Та́рджи / Но́йти\n**Перевод:** Утро / День / Вечер/Ночь\n\n## Важные фразы\n\n### 8. Eu te amo\n**Произношение:** Э́у ти а́му\n**Перевод:** Я люблю тебя\n\n### 9. Sinto sua falta\n**Произношение:** Си́нту су́а фа́лта\n**Перевод:** Я скучаю по тебе\n\n### 10. Obrigado/a / Desculpa / Por favor\n**Произношение:** Обрига́ду/а / Дэску́льпа / Пур фаво́р\n**Перевод:** Спасибо / Извини / Пожалуйста\n\n### 11. Sim / Não\n**Произношение:** Сим / На́у\n**Перевод:** Да / Нет\n\n### 12. Beijo / Abraço\n**Произношение:** Бэ́йжу / Абра́су\n**Перевод:** Поцелуй / Объятие\n\n### 13. Boa noite\n**Произношение:** Бо́а но́йти\n**Перевод:** Спокойной ночи\n\n## Культурная заметка\n\nБразильцы тёплые и ласковые. «Meu bem» (моё благо) и «Meu benzinho» — нежные обращения.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 259,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Обращения",
+              "## Чувства",
+              "## Действия",
+              "## Время",
+              "## Важные фразы"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "e74e7d24-69e4-4da4-9808-65659efd21e4",
+      "title": "En Yaygın 100 İspanyolca Kelime",
+      "native_lang": "tr",
+      "target_lang": "es",
+      "category": "communication",
+      "content": "İspanyolca öğrenmeye başlarken en yaygın kelimeleri bilmek çok önemlidir. İşte günlük hayatta en sık kullanılan İspanyolca kelimeler.\n\n## Temel Zamirler\n\n### 1. Yo /yo/ - Ben\n**Örnek:** \"Yo te amo\" (Seni seviyorum)\n\n### 2. Tú /tu/ - Sen\n### 3. Él /el/ - O (erkek)\n### 4. Ella /eya/ - O (kadın)\n### 5. Nosotros /nosotros/ - Biz\n### 6. Ellos/Ellas /eyos/eyas/ - Onlar\n\n### 7. Y /i/ - Ve\n### 8. Pero /pero/ - Ama\n### 9. O /o/ - Veya\n### 10. Que /ke/ - Ki/Ne\n\n## Temel Fiiller\n\n### 11. Ser /ser/ - Olmak\n### 12. Estar /estar/ - Olmak (durum)\n### 13. Tener /tener/ - Sahip olmak\n### 14. Hacer /aser/ - Yapmak\n### 15. Decir /desir/ - Söylemek\n### 16. Ir /ir/ - Gitmek\n### 17. Venir /venir/ - Gelmek\n### 18. Poder /poder/ - Yapabilmek\n### 19. Saber /saber/ - Bilmek\n### 20. Querer /kerer/ - İstemek\n### 21. Ver /ver/ - Görmek\n### 22. Dar /dar/ - Vermek\n### 23. Hablar /ablar/ - Konuşmak\n### 24. Comer /komer/ - Yemek\n### 25. Vivir /vivir/ - Yaşamak\n\n## Sıfatlar\n\n### 26. Bueno /bueno/ - İyi\n### 27. Malo /malo/ - Kötü\n### 28. Grande /grande/ - Büyük\n### 29. Pequeño /pekenyo/ - Küçük\n### 30. Nuevo /nuevo/ - Yeni\n### 31. Viejo /vieho/ - Eski/yaşlı\n### 32. Largo /largo/ - Uzun\n### 33. Corto /korto/ - Kısa\n### 34. Caliente /kaliente/ - Sıcak\n### 35. Frío /frio/ - Soğuk\n\n## Zaman İfadeleri\n\n### 36. Ahora /aora/ - Şimdi\n### 37. Hoy /oy/ - Bugün\n### 38. Mañana /manyana/ - Yarın\n### 39. Ayer /ayer/ - Dün\n### 40. Siempre /siyempre/ - Her zaman\n### 41. Nunca /nunka/ - Asla\n### 42. A veces /a veses/ - Bazen\n\n## Soru Kelimeleri\n\n### 43. Qué /ke/ - Ne\n### 44. Dónde /donde/ - Nerede\n### 45. Cuándo /kuando/ - Ne zaman\n### 46. Por qué /por ke/ - Neden\n### 47. Cómo /komo/ - Nasıl\n### 48. Quién /kiyen/ - Kim\n\n## Sayılar\n\n### 49. Uno /uno/ - Bir\n### 50. Dos /dos/ - İki\n### 51. Tres /tres/ - Üç\n### 52. Cuatro /kuatro/ - Dört\n### 53. Cinco /sinko/ - Beş\n### 54. Diez /diyes/ - On\n### 55. Cien /siyen/ - Yüz\n\n## Günlük Kelimeler\n\n### 56. Sí /si/ - Evet\n### 57. No /no/ - Hayır\n### 58. Por favor /por favor/ - Lütfen\n### 59. Gracias /grasias/ - Teşekkürler\n### 60. Perdón /perdon/ - Özür dilerim\n### 61. Hola /ola/ - Merhaba\n### 62. Adiós /adios/ - Hoşça kal\n### 63. Amor /amor/ - Aşk\n### 64. Amigo /amigo/ - Arkadaş\n### 65. Familia /familiya/ - Aile\n\nBu kelimeleri öğrenmek, İspanyolca iletişiminizi güçlendirecektir.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Temel Zamirler",
+              "### 2. Tú /tu/ - Sen",
+              "### 3. Él /el/ - O (erkek)",
+              "### 4. Ella /eya/ - O (kadın)",
+              "### 5. Nosotros /nosotros/ - Biz",
+              "### 6. Ellos/Ellas /eyos/eyas/ - Onlar",
+              "### 7. Y /i/ - Ve",
+              "### 8. Pero /pero/ - Ama",
+              "### 9. O /o/ - Veya",
+              "### 10. Que /ke/ - Ki/Ne",
+              "## Temel Fiiller",
+              "### 11. Ser /ser/ - Olmak",
+              "### 12. Estar /estar/ - Olmak (durum)",
+              "### 13. Tener /tener/ - Sahip olmak",
+              "### 14. Hacer /aser/ - Yapmak",
+              "### 15. Decir /desir/ - Söylemek",
+              "### 16. Ir /ir/ - Gitmek",
+              "### 17. Venir /venir/ - Gelmek",
+              "### 18. Poder /poder/ - Yapabilmek",
+              "### 19. Saber /saber/ - Bilmek",
+              "### 20. Querer /kerer/ - İstemek",
+              "### 21. Ver /ver/ - Görmek",
+              "### 22. Dar /dar/ - Vermek",
+              "### 23. Hablar /ablar/ - Konuşmak",
+              "### 24. Comer /komer/ - Yemek",
+              "### 25. Vivir /vivir/ - Yaşamak",
+              "## Sıfatlar",
+              "### 26. Bueno /bueno/ - İyi",
+              "### 27. Malo /malo/ - Kötü",
+              "### 28. Grande /grande/ - Büyük",
+              "### 29. Pequeño /pekenyo/ - Küçük",
+              "### 30. Nuevo /nuevo/ - Yeni",
+              "### 31. Viejo /vieho/ - Eski/yaşlı",
+              "### 32. Largo /largo/ - Uzun",
+              "### 33. Corto /korto/ - Kısa",
+              "### 34. Caliente /kaliente/ - Sıcak",
+              "### 35. Frío /frio/ - Soğuk",
+              "## Zaman İfadeleri",
+              "### 36. Ahora /aora/ - Şimdi",
+              "### 37. Hoy /oy/ - Bugün",
+              "### 38. Mañana /manyana/ - Yarın",
+              "### 39. Ayer /ayer/ - Dün",
+              "### 40. Siempre /siyempre/ - Her zaman",
+              "### 41. Nunca /nunka/ - Asla",
+              "### 42. A veces /a veses/ - Bazen",
+              "## Soru Kelimeleri",
+              "### 43. Qué /ke/ - Ne",
+              "### 44. Dónde /donde/ - Nerede",
+              "### 45. Cuándo /kuando/ - Ne zaman",
+              "### 46. Por qué /por ke/ - Neden",
+              "### 47. Cómo /komo/ - Nasıl",
+              "### 48. Quién /kiyen/ - Kim",
+              "## Sayılar",
+              "### 49. Uno /uno/ - Bir",
+              "### 50. Dos /dos/ - İki",
+              "### 51. Tres /tres/ - Üç",
+              "### 52. Cuatro /kuatro/ - Dört",
+              "### 53. Cinco /sinko/ - Beş",
+              "### 54. Diez /diyes/ - On",
+              "### 55. Cien /siyen/ - Yüz",
+              "## Günlük Kelimeler",
+              "### 56. Sí /si/ - Evet",
+              "### 57. No /no/ - Hayır",
+              "### 58. Por favor /por favor/ - Lütfen",
+              "### 59. Gracias /grasias/ - Teşekkürler",
+              "### 60. Perdón /perdon/ - Özür dilerim",
+              "### 61. Hola /ola/ - Merhaba",
+              "### 62. Adiós /adios/ - Hoşça kal",
+              "### 63. Amor /amor/ - Aşk",
+              "### 64. Amigo /amigo/ - Arkadaş"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "e759814c-9646-4b8d-a2f4-c1db99700914",
+      "title": "Slang Turcesc pentru Mesaje: Cum să Trimiți SMS-uri Romantice",
+      "native_lang": "ro",
+      "target_lang": "tr",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nVrei să surprinzi partenerul tău turc cu mesaje drăguțe? Cu acest slang și aceste abrevieri, vei comunica ca un adevărat turc!\n\n## Expresii Populare\n\n<PhraseOfDay\n  word=\"Slm cnm\"\n  translation=\"Salut, sufletule\"\n  pronunciation=\"slm ja-nuhm\"\n  context=\"Cea mai comună abreviere pentru salut romantic!\"\n/>\n\n<VocabCard\n  word=\"Özledim\"\n  translation=\"Mi-ai lipsit\"\n  pronunciation=\"uz-leh-DIM\"\n  example=\"Çok özledim seni! 💕\"\n/>\n\n<VocabCard\n  word=\"Öptüm\"\n  translation=\"Te-am sărutat\"\n  pronunciation=\"up-TOOM\"\n  example=\"İyi geceler, öptüm! 😘\"\n/>\n\n<VocabCard\n  word=\"Sarıldım\"\n  translation=\"Te-am îmbrățișat\"\n  pronunciation=\"sa-ruhl-DUHM\"\n  example=\"Sarıldım çok sıkı! 🤗\"\n/>\n\n<VocabCard\n  word=\"Nbr? / N'aber?\"\n  translation=\"Ce mai faci?\"\n  pronunciation=\"na-BER\"\n  example=\"Slm aşkım, nbr?\"\n/>\n\n<CultureTip title=\"Abrevierile Turcești\" flag=\"🇹🇷\">\nTurcii adoră să prescurteze cuvintele în mesaje! \"Selam\" devine \"slm\", \"canım\" devine \"cnm\", \"nasılsın\" devine \"nslsn\".\n</CultureTip>\n\n## Mesaje de Dragoste\n\n<VocabCard\n  word=\"Seni çok seviyorum ❤️\"\n  translation=\"Te iubesc foarte mult\"\n  pronunciation=\"seh-NI chok seh-vi-YO-room\"\n  example=\"Seni çok seviyorum, biliyorsun değil mi?\"\n/>\n\n<VocabCard\n  word=\"Aşkım benim\"\n  translation=\"Dragostea mea\"\n  pronunciation=\"ash-KUHM beh-NIM\"\n  example=\"Aşkım benim, çok güzelsin!\"\n/>\n\n<VocabCard\n  word=\"Seni düşünüyorum\"\n  translation=\"Mă gândesc la tine\"\n  pronunciation=\"seh-NI doo-shoo-noo-YO-room\"\n  example=\"Hep seni düşünüyorum 💭\"\n/>\n\n<VocabCard\n  word=\"Sensiz yapamıyorum\"\n  translation=\"Nu pot fără tine\"\n  pronunciation=\"sehn-SIZ ya-pa-muh-YO-room\"\n  example=\"Sensiz yapamıyorum, gel yanıma! 🥺\"\n/>\n\n## Mesaje Zilnice\n\n<VocabCard\n  word=\"Günaydın, güneşim!\"\n  translation=\"Bună dimineața, soarele meu!\"\n  pronunciation=\"goo-nai-DUHN goo-neh-SHIM\"\n  example=\"Günaydın, güneşim! Nasıl uyudun? ☀️\"\n/>\n\n<VocabCard\n  word=\"İyi geceler, tatlım\"\n  translation=\"Noapte bună, dulceața mea\"\n  pronunciation=\"i-YI geh-jeh-LER tat-LUHM\"\n  example=\"İyi geceler, tatlım. Tatlı rüyalar! 💤\"\n/>\n\n<VocabCard\n  word=\"Ne yapıyorsun?\"\n  translation=\"Ce faci?\"\n  pronunciation=\"neh ya-puh-YOR-soon\"\n  example=\"Slm aşkım, ne yapıyorsun?\"\n/>\n\n<VocabCard\n  word=\"Neredesin?\"\n  translation=\"Unde ești?\"\n  pronunciation=\"neh-reh-deh-SIN\"\n  example=\"Neredesin? Bekliyorum!\"\n/>\n\n<VocabCard\n  word=\"Geliyorum\"\n  translation=\"Vin\"\n  pronunciation=\"geh-li-YO-room\"\n  example=\"Geliyorum! 5 dakika! 🏃\"\n/>\n\n## Abrevieri Populare\n\n| Abreviere | Complet | Traducere |\n|-----------|---------|-----------|\n| slm | selam | salut |\n| cnm | canım | sufletul meu |\n| aşkm | aşkım | dragostea mea |\n| nbr | ne haber | ce mai e |\n| tşk | teşekkürler | mulțumesc |\n| öd | önemli değil | nu-i nimic |\n| tmm | tamam | OK |\n| hg | hoşgeldin | bine ai venit |\n| bb | bye bye | pa pa |\n\n<VocabCard\n  word=\"Slm aşkm, nbr? 💕\"\n  translation=\"Salut, dragostea mea, ce mai e?\"\n  pronunciation=\"-\"\n  example=\"Mesaj tipic prescurtat turcesc!\"\n/>\n\n## Planificarea Întâlnirilor\n\n<VocabCard\n  word=\"Bugün görüşelim mi?\"\n  translation=\"Ne vedem azi?\"\n  pronunciation=\"boo-GOON gur-oo-sheh-LIM mi\"\n  example=\"Bugün görüşelim mi? Özledim seni!\"\n/>\n\n<VocabCard\n  word=\"Nerede ve ne zaman?\"\n  translation=\"Unde și când?\"\n  pronunciation=\"neh-reh-DEH veh neh za-MAN\"\n  example=\"Tmm! Nerede ve ne zaman?\"\n/>\n\n<VocabCard\n  word=\"Evde misin?\"\n  translation=\"Ești acasă?\"\n  pronunciation=\"ev-DEH mi-SIN\"\n  example=\"Evde misin? Geliyorum!\"\n/>\n\n<VocabCard\n  word=\"Birazdan orada olacağım\"\n  translation=\"Voi fi acolo curând\"\n  pronunciation=\"bi-raz-DAN o-ra-DA o-la-ja-UHM\"\n  example=\"Birazdan orada olacağım! Bekle beni!\"\n/>\n\n<CultureTip title=\"Hemen\" flag=\"⏰\">\n\"Hemen\" (imediat) și \"birazdan\" (curând) în turcă pot însemna orice între 5 minute și o oră. Flexibilitatea e parte din cultură! 😄\n</CultureTip>\n\n## Emoji-uri și Reacții\n\n### Combinații Populare\n\n| Emoji | Context Turcesc |\n|-------|-----------------|\n| ❤️ | Seni seviyorum |\n| 😘 | Öptüm |\n| 🥰 | Aşkım / Canım |\n| 💕 | Birlikte |\n| 🤗 | Sarıldım |\n| 😊 | Mutluyum |\n| 🇹🇷 | Türkiye |\n| 🌹 | Romantik |\n\n<VocabCard\n  word=\"😘 Öpüyorum öpüyorum\"\n  translation=\"Te sărut, te sărut\"\n  pronunciation=\"u-poo-YO-room\"\n  example=\"Bb aşkm! Öpüyorum öpüyorum! 😘😘\"\n/>\n\n## Reacții Rapide\n\n<VocabCard\n  word=\"Hahaha / Sjsjsj\"\n  translation=\"Haha\"\n  pronunciation=\"-\"\n  example=\"Sjsjsj çok komiksin! 😂\"\n/>\n\n<VocabCard\n  word=\"Harika!\"\n  translation=\"Minunat!\"\n  pronunciation=\"ha-RI-ka\"\n  example=\"Harika! 🤩\"\n/>\n\n<VocabCard\n  word=\"Çok tatlı!\"\n  translation=\"Ce drăguț!\"\n  pronunciation=\"chok tat-LUH\"\n  example=\"Çok tatlı! 🥺\"\n/>\n\n<VocabCard\n  word=\"Ciddi mi?\"\n  translation=\"Serios?\"\n  pronunciation=\"jid-DI mi\"\n  example=\"Ciddi mi? İnanamıyorum! 😱\"\n/>\n\n## Alinturi în Mesaje\n\n| Turcă | Română |\n|-------|--------|\n| Aşkım | Dragostea mea |\n| Canım | Sufletul meu |\n| Hayatım | Viața mea |\n| Tatlım | Dulceața mea |\n| Bir tanem | Unicul/a mea |\n| Güzelim | Frumusețea mea |\n\n<VocabCard\n  word=\"Slm tatlım! Özledim seni!\"\n  translation=\"Salut, dulceața mea! Mi-ai lipsit!\"\n  pronunciation=\"-\"\n  example=\"Slm tatlım! Özledim seni çok! ❤️\"\n/>\n\n## Confirmări\n\n<VocabCard\n  word=\"Evet / He\"\n  translation=\"Da\"\n  pronunciation=\"eh-VET / heh\"\n  example=\"Evet! Süper!\"\n/>\n\n<VocabCard\n  word=\"Tamam / OK\"\n  translation=\"OK/Bine\"\n  pronunciation=\"ta-MAM\"\n  example=\"Tmm aşkım, görüşürüz!\"\n/>\n\n<VocabCard\n  word=\"Harika!\"\n  translation=\"Minunat!\"\n  pronunciation=\"ha-RI-ka\"\n  example=\"Harika! Bekliyorum!\"\n/>\n\n<VocabCard\n  word=\"Tabii ki!\"\n  translation=\"Desigur!\"\n  pronunciation=\"ta-BI ki\"\n  example=\"Tabii ki, canım! Her şey senin için!\"\n/>\n\n\n## Conversație Exemplu\n\n**A:** Slm aşkm! Nbr? 💕\n\n**B:** Slm canım! İşteyim. Özledim seni!\n\n**A:** Ben de. Bugün görüşelim mi?\n\n**B:** Evet! Harika! Nerede ve ne zaman?\n\n**A:** Bende? Saat 7'de?\n\n**B:** Tmm! Orada olacağım! Öptüm! ❤️\n\n**A:** Öptüm! Görüşürüz! 😘\n\n\n## Ghid Rapid pentru Mesaje\n\n| Română | Turcă |\n|--------|-------|\n| Te iubesc | Seni seviyorum |\n| Bună dimineața | Günaydın |\n| Noapte bună | İyi geceler |\n| Sărut | Öptüm |\n| Îmbrățișare | Sarıldım |\n| Mi-ai lipsit | Özledim |\n| Ne vedem | Görüşürüz |\n\n<CTA\n  text=\"Vrei să comunici fluent cu partenerul tău turc?\"\n  buttonText=\"Începe Călătoria Ta în Turcă\"\n/>\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Emoji-uri și Reacții"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

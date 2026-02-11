@@ -1,0 +1,530 @@
+{
+  "batchId": "tier2a-slim-0136",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "978cea5c-1be8-4281-bb1c-67e31dd67fb9",
+      "title": "Jak napsat milostný dopis v řečtině",
+      "native_lang": "cs",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Úvodní oslovení",
+          "subsections": [
+            "### \"Αγάπη μου\"",
+            "### \"Ψυχή μου\"",
+            "### \"Καρδιά μου\""
+          ]
+        },
+        {
+          "header": "## Úvodní věty",
+          "subsections": [
+            "### \"Σου γράφω αυτό το γράμμα για να σου πω πόσο σημαίνεις για μένα.\"",
+            "### \"Τα λόγια δεν μπορούν να εκφράσουν αυτό που νιώθω για σένα.\""
+          ]
+        },
+        {
+          "header": "## Vyjádření lásky",
+          "subsections": [
+            "### \"Είσαι το καλύτερο πράγμα που μου έχει συμβεί.\"",
+            "### \"Σε αγαπώ περισσότερο κάθε μέρα.\"",
+            "### \"Η καρδιά μου ανήκει σε σένα, τώρα και για πάντα.\"",
+            "### \"Μαζί σου βρήκα την αληθινή ευτυχία.\""
+          ]
+        },
+        {
+          "header": "## Ocenění partnera",
+          "subsections": [
+            "### \"Θαυμάζω τη δύναμη, την καλοσύνη και την όμορφη ψυχή σου.\"",
+            "### \"Σε ευχαριστώ που με αγαπάς όπως είμαι.\""
+          ]
+        },
+        {
+          "header": "## Závěrečné fráze",
+          "subsections": [
+            "### \"Για πάντα δικός/δική σου\"",
+            "### \"Με όλη μου την αγάπη\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "978d4804-33c6-47ea-9a23-25755cbc8ad6",
+      "title": "Görög kifejezések az após és anyós megismeréséhez",
+      "native_lang": "hu",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető üdvözlések",
+          "subsections": [
+            "### Γεια σας! (Geia sas!)",
+            "### Χαίρω πολύ (Chairo poli)",
+            "### Με λένε... (Me lene...)"
+          ]
+        },
+        {
+          "header": "## Bókok és köszönet",
+          "subsections": [
+            "### Έχετε ένα πολύ όμορφο σπίτι (Echete ena poli omorfo spiti)",
+            "### Ευχαριστώ για την πρόσκληση (Efcharisto gia tin prosklisi)",
+            "### Είναι πολύ νόστιμο! (Einai poli nostimo!)",
+            "### Τα χέρια σας χρυσά! (Ta cheria sas chrysa!)"
+          ]
+        },
+        {
+          "header": "## A kapcsolatról",
+          "subsections": [
+            "### Αγαπώ πολύ τον γιο σας / την κόρη σας (Agapo poli ton gio sas / tin kori sas)",
+            "### Είμαστε πολύ ευτυχισμένοι μαζί (Eimaste poli eftichismenoi mazi)"
+          ]
+        },
+        {
+          "header": "## Érdeklődés",
+          "subsections": [
+            "### Θα ήθελα να μάθω περισσότερα για τον πολιτισμό σας (Tha ithela na matho perissotera gia ton politismo sas)",
+            "### Μπορείτε να με μάθετε να φτιάχνω αυτό το φαγητό; (Boreite na me mathete na ftiachno afto to fagito?)"
+          ]
+        },
+        {
+          "header": "## Fontos kifejezések",
+          "subsections": [
+            "### Στην υγειά σας! (Stin igeia sas!)",
+            "### Καλή όρεξη! (Kali orexi!)"
+          ]
+        },
+        {
+          "header": "## Búcsúzás",
+          "subsections": [
+            "### Αντίο! (Antio!)",
+            "### Ήταν πολύ ωραία! (Itan poli oraia!)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "979cb2e8-4899-4ff0-83f6-0696cbd8192f",
+      "title": "С днём рождения на нидерландский: Пожелания для любимого человека",
+      "native_lang": "ru",
+      "target_lang": "nl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Романтические пожелания на день рождения",
+          "subsections": [
+            "### Сладкие и простые",
+            "### Глубокие послания"
+          ]
+        },
+        {
+          "header": "## Фразы для открытки",
+          "subsections": [
+            "### Романтические послания",
+            "### Длинные послания"
+          ]
+        },
+        {
+          "header": "## Планирование сюрприза",
+          "subsections": [
+            "### Лексика для de verrassing",
+            "### Фразы для сюрприза"
+          ]
+        },
+        {
+          "header": "## Сообщения для социальных сетей",
+          "subsections": [
+            "### Подписи для публикаций"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "97a50519-b524-40be-8ae8-307ee397b009",
+      "title": "Apprendre le roumain avec des chansons d'amour",
+      "native_lang": "fr",
+      "target_lang": "ro",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Vocabulaire des chansons romantiques",
+          "subsections": [
+            "### Mots essentiels",
+            "### Expressions poétiques"
+          ]
+        },
+        {
+          "header": "## Artistes à découvrir",
+          "subsections": [
+            "### Andra",
+            "### Smiley",
+            "### O-Zone",
+            "### Inna"
+          ]
+        },
+        {
+          "header": "## Créer une playlist d'apprentissage",
+          "subsections": [
+            "### Chansons recommandées",
+            "### Comment apprendre avec la musique"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "97ab5694-20e3-4a4e-bc87-296a5c672870",
+      "title": "Німецька Вимова для Початківців: Як Говорити З Вашою Другою Половинкою З Впевненістю",
+      "native_lang": "uk",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Основні Звуки Німецької Мови",
+          "subsections": [
+            "### Голосні Звуки (Vokale)",
+            "### Специфічні Німецькі Звуки"
+          ]
+        },
+        {
+          "header": "## Практичні Поради для Пар",
+          "subsections": [
+            "### 1. Вправи з Губами",
+            "### 2. Розділяйте Склади",
+            "### 3. Практикуйте R"
+          ]
+        },
+        {
+          "header": "## Вправи для Пар",
+          "subsections": [
+            "### Вправа 1: Дзеркальна Вимова",
+            "### Вправа 2: Романтичні Пошепки",
+            "### Вправа 3: Пісенна Практика"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "97ad4b08-d27a-4bff-ab1f-54e75349a813",
+      "title": "Phrases hongroises sur le pardon en couple",
+      "native_lang": "fr",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions pour demander pardon",
+          "subsections": [
+            "### S'excuser sincèrement",
+            "### Exprimer ses regrets",
+            "### S'engager à changer"
+          ]
+        },
+        {
+          "header": "## Expressions pour pardonner",
+          "subsections": [
+            "### Accorder le pardon",
+            "### Exprimer la réconciliation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "97ad78a0-0dec-420f-a4b7-5e6eca0172ee",
+      "title": "Норвезькі фрази для примирення після сварки",
+      "native_lang": "uk",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Щирі вибачення",
+          "subsections": [
+            "### \"Unnskyld\"",
+            "### \"Vær så snill, tilgi meg\"",
+            "### \"Jeg tok feil, jeg er virkelig lei meg\""
+          ]
+        },
+        {
+          "header": "## Визнання провини",
+          "subsections": [
+            "### \"Jeg burde ikke ha sagt det\"",
+            "### \"Jeg var urettferdig mot deg\"",
+            "### \"Jeg tar fullt ansvar\""
+          ]
+        },
+        {
+          "header": "## Вираження любові",
+          "subsections": [
+            "### \"Jeg elsker deg og vil ikke krangle\"",
+            "### \"Du betyr alt for meg\"",
+            "### \"Jeg hater når vi krangler\""
+          ]
+        },
+        {
+          "header": "## Прохання та обіцянки",
+          "subsections": [
+            "### \"Kan du tilgi meg?\"",
+            "### \"Jeg lover å bli bedre\"",
+            "### \"Det vil ikke skje igjen\""
+          ]
+        },
+        {
+          "header": "## Відновлення зв'язку",
+          "subsections": [
+            "### \"Kan vi begynne på nytt?\"",
+            "### \"La oss legge dette bak oss\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "97c9c134-1d4f-4b27-abb5-77940a310ea1",
+      "title": "Нідерландська лексика про вагітність та материнство",
+      "native_lang": "uk",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Основна лексика про вагітність",
+          "subsections": []
+        },
+        {
+          "header": "## Оголошення про вагітність нідерландською",
+          "subsections": [
+            "### Як поділитися новиною"
+          ]
+        },
+        {
+          "header": "## Покупки для малюка",
+          "subsections": [
+            "### Що потрібно купити"
+          ]
+        },
+        {
+          "header": "## Пологи та лікарня",
+          "subsections": [
+            "### У пологовому будинку",
+            "### Після народження"
+          ]
+        },
+        {
+          "header": "## Перші місяці з малюком",
+          "subsections": [
+            "### Корисна лексика"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "97d5cc62-81be-4d8d-875a-2af233a3a724",
+      "title": "С днём рождения на итальянский: Пожелания для любимого человека",
+      "native_lang": "ru",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Романтические пожелания на день рождения",
+          "subsections": [
+            "### Сладкие и простые",
+            "### Глубокие послания"
+          ]
+        },
+        {
+          "header": "## Фразы для открытки",
+          "subsections": [
+            "### Романтические послания",
+            "### Длинные послания"
+          ]
+        },
+        {
+          "header": "## Планирование сюрприза",
+          "subsections": [
+            "### Лексика для la sorpresa",
+            "### Фразы для сюрприза"
+          ]
+        },
+        {
+          "header": "## Сообщения для социальных сетей",
+          "subsections": [
+            "### Подписи для публикаций"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "97d81916-e463-49fe-ae10-7dd6a492da51",
+      "title": "Rusça Barışma ve Uzlaşma İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Barışma İfadeleri",
+          "subsections": [
+            "### 1. \"Прости меня за то, что я сказал/а\" (Prosti menya za to, çto ya skazal/a)",
+            "### 2. \"Можем начать сначала?\"",
+            "### 3. \"Ненавижу ссориться с тобой\"",
+            "### 4. \"Давай не будем ложиться спать злыми\"",
+            "### 5. \"Я тебя прощаю\"",
+            "### 6. \"Я был/а неправ/а\"",
+            "### 7. \"Как я могу это исправить?\"",
+            "### 8. \"Я люблю тебя больше, чем эту ссору\"",
+            "### 9. \"Давай решим это вместе\"",
+            "### 10. \"Я скучаю по тому, как было до ссоры\"",
+            "### 11. \"Ты для меня всё\"",
+            "### 12. \"Обещаю стать лучше\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "97db9a7d-3b63-47c7-8ba3-328ba1711e89",
+      "title": "Οδηγός Προφοράς Ολλανδικών για Αρχάριους: Μάθετε να μιλάτε με τον σύντροφό σας",
+      "native_lang": "el",
+      "target_lang": "nl",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Οι Βασικοί Ήχοι των Ολλανδικών",
+          "subsections": [
+            "### Οι Φωνήεντας που Αγαπούν τα Ζευγάρια",
+            "### Τα σύμφωνα που φέρνουν ζευγάρια κοντά"
+          ]
+        },
+        {
+          "header": "## Κοινά Ρομαντικά Λάθη (και Πώς να τα Αποφύγετε)",
+          "subsections": [
+            "### 1. Το Πρόβλημα με το \"G\" και \"Ch\"",
+            "### 2. Το Μυστικό του \"IJ\"",
+            "### 3. Το Τέλος των Λέξεων"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "97dc6098-b1b4-4d58-8b04-a02f575761cc",
+      "title": "Portekizce Temel Dilbilgisi: Türkler Icin Baslangic Rehberi",
+      "native_lang": "tr",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Artikeller (Tanimlayicilar)",
+          "subsections": [
+            "### Belirli Artikeller (The)",
+            "### Belirsiz Artikeller (A/An)"
+          ]
+        },
+        {
+          "header": "## Sifatlar",
+          "subsections": [
+            "### Cinsiyet ve Sayi Uyumu",
+            "### Sifat Konumu"
+          ]
+        },
+        {
+          "header": "## Fiil Cekimi",
+          "subsections": [
+            "### Üc Fiil Grubu",
+            "### Simdiki Zaman (Presente)",
+            "### Önemli Düzensiz Fiiller"
+          ]
+        },
+        {
+          "header": "## Zamirler",
+          "subsections": [
+            "### Özne Zamirleri",
+            "### Nesne Zamirleri"
+          ]
+        },
+        {
+          "header": "## Soru Cümleleri",
+          "subsections": [
+            "### Evet/Hayir Sorulari",
+            "### Soru Kelimeleri"
+          ]
+        },
+        {
+          "header": "## Cümle Yapisi",
+          "subsections": [
+            "### Temel Sira"
+          ]
+        },
+        {
+          "header": "## Ciftler Icin Pratik",
+          "subsections": [
+            "### Günlük Dilbilgisi Pratigi",
+            "### Örnek Diyalog"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "97e89b0b-e68f-41aa-acf1-a65af29da74a",
+      "title": "Mød Svigerforældrene på Rumænsk: Vigtige Udtryk",
+      "native_lang": "da",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## De Vigtigste Udtryk",
+          "subsections": [
+            "### 1. Îmi pare foarte bine să vă cunosc",
+            "### 2. Vă mulțumesc mult pentru invitație",
+            "### 3. Aveți o casă foarte frumoasă",
+            "### 4. Am auzit multe lucruri frumoase despre dumneavoastră",
+            "### 5. E delicios! Pot să cer rețeta?",
+            "### 6. Sunt foarte fericit/fericită că sunt aici",
+            "### 7. Pot să vă ajut să strângeți masa?",
+            "### 8. Fiul/Fiica dumneavoastră înseamnă foarte mult pentru mine",
+            "### 9. Sper să ne revedem curând",
+            "### 10. Vă mulțumesc pentru această seară minunată",
+            "### 11. Noroc!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "97eb25e6-8df3-4260-b30f-fff76066a469",
+      "title": "Engelsk Grammatik for Begyndere: Lær de Grundlæggende med Din Partner",
+      "native_lang": "da",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De 4 Grundsten i Engelsk",
+          "subsections": [
+            "### 1. Subjektet: Hvem handler?",
+            "### 2. Verbene: Hvad sker der?",
+            "### 3. Objektet: Hvad handler det om?",
+            "### 4. Hjælpeordene: De små men vigtige"
+          ]
+        },
+        {
+          "header": "## De Mest Almindelige Fejl (Og Sådan Undgår I Dem)",
+          "subsections": [
+            "### 1. Glemmer 's' i tredje person",
+            "### 2. Blander do/does sammen",
+            "### 3. Bruger forkert artikel",
+            "### 4. Forkert ordstilling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "97ee4ccd-6ab0-4b9d-a9ca-46f0ed0a3b09",
+      "title": "50+ французьких фраз для романтичного вечора",
+      "native_lang": "uk",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## У ресторані",
+          "subsections": [
+            "### Прибуття",
+            "### Замовлення",
+            "### Напої"
+          ]
+        }
+      ]
+    }
+  ]
+}

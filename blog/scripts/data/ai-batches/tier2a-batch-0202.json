@@ -1,0 +1,127 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0202",
+  "articles": [
+    {
+      "id": "38ffc255-bb89-42c9-b1cc-39490f3a1d73",
+      "title": "Zwroty na pierwszą randkę po duńsku",
+      "native_lang": "pl",
+      "target_lang": "da",
+      "category": "communication",
+      "content": "Pierwsza randka to ekscytujący moment. Oto kluczowe zwroty, które pomogą Ci zrobić świetne wrażenie.\n\n## Rozpoczęcie rozmowy\n\n### Cześć! Miło Cię wreszcie poznać!\nCiepłe powitanie, które pokazuje entuzjazm.\n\n### Świetnie wyglądasz!\nProsty, szczery komplement.\n\n### Nie mogłem/mogłam się doczekać\nPokazuje zainteresowanie.\n\n## Poznawanie się\n\n### Opowiedz mi o sobie\nKlasyczne otwarcie do głębszej rozmowy.\n\n### Co lubisz robić w wolnym czasie?\nPoznawanie hobby i zainteresowań.\n\n### Jaki jest Twój ulubiony...?\nFilm, książka, jedzenie - świetny sposób na poznanie gustów.\n\n## Wyrażanie zainteresowania\n\n### To naprawdę interesujące\nPokazuje, że słuchasz aktywnie.\n\n### Opowiedz mi więcej\nZachęca do kontynuowania.\n\n### Chciałbym/Chciałabym wiedzieć więcej\nWyraża autentyczne zainteresowanie.\n\n## Dzielenie się o sobie\n\n### Pasjonuję się...\nDzielenie się swoimi zainteresowaniami.\n\n### Zawsze chciałem/chciałam...\nDzielenie się marzeniami.\n\n## Komplementy\n\n### Uwielbiam Twój uśmiech\nSzczery, osobisty komplement.\n\n### Masz świetne poczucie humoru\nDocenianie osobowości.\n\n### Świetnie się z Tobą bawię\nPokazuje, że randka idzie dobrze.\n\n## Planowanie następnego spotkania\n\n### Bardzo chciałbym/chciałabym Cię znowu zobaczyć\nBezpośrednie wyrażenie zainteresowania.\n\n### Kiedy możemy to powtórzyć?\nKonkretna propozycja.\n\n### Miałem/Miałam cudowny wieczór\nPodsumowanie randki.\n\n## Pożegnanie\n\n### To było naprawdę cudowne\nCiepłe pożegnanie.\n\n### Nie mogę się doczekać kolejnego spotkania\nPokazuje entuzjazm.\n\nHeld og lykke! (Powodzenia!)",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 197,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Rozpoczęcie rozmowy",
+              "## Poznawanie się",
+              "## Wyrażanie zainteresowania",
+              "## Dzielenie się o sobie",
+              "## Komplementy",
+              "## Planowanie następnego spotkania",
+              "## Pożegnanie"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "390a7bde-387e-443a-8b18-962519975788",
+      "title": "Vocabular pentru Bebeluși și Sarcină în Suedeză: Expresii Esențiale",
+      "native_lang": "ro",
+      "target_lang": "sv",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nAșteptarea unui copil este unul dintre cele mai emoționante momente din viața unui cuplu. Acest ghid te va ajuta să înveți vocabularul esențial pentru a comunica despre sarcină și bebeluși.\n\nPentru mai multe expresii pentru cupluri, consultă [expresii esențiale pentru cupluri](/learn/ro/sv/sv-essential-phrases-for-couples).\n\n<PhraseOfDay\n  word=\"Suntem însărcinați!\"\n  translation=\"We're expecting!\"\n  pronunciation=\"vestea cea mare\"\n  context=\"Anunțul care schimbă totul.\"\n/>\n\n## Vocabular de Bază\n\n<VocabCard\n  word=\"sarcină\"\n  translation=\"pregnancy\"\n  pronunciation=\"gestație\"\n  example=\"Sarcina decurge bine.\"\n/>\n\n<VocabCard\n  word=\"bebeluș\"\n  translation=\"baby\"\n  pronunciation=\"copil mic\"\n  example=\"Așteptăm un bebeluș!\"\n/>\n\n<VocabCard\n  word=\"însărcinată\"\n  translation=\"pregnant\"\n  pronunciation=\"în așteptare\"\n  example=\"Sunt însărcinată!\"\n/>\n\n### Termeni Esențiali\n\n| Română | Engleză | Context |\n|--------|---------|--------|\n| sarcină | pregnancy | Starea de a aștepta un copil |\n| trimestru | trimester | Perioada de 3 luni |\n| naștere | birth/delivery | Momentul nașterii |\n| moașă | midwife | Specialist în nașteri |\n| ginecolog | gynecologist | Doctor specialist |\n| ecografie | ultrasound | Investigație imagistică |\n\n<CultureTip flag=\"👶\" title=\"Anunțarea Sarcinii\">\nModul în care cuplurile anunță sarcina variază între culturi. Unii preferă să aștepte primul trimestru, alții anunță imediat. În unele culturi, există superstiții despre când și cum să faci anunțul.\n</CultureTip>\n\n## Anunțarea Sarcinii\n\n### Expresii pentru Anunț\n- **Vom deveni părinți!** - We're going to be parents!\n- **Familia noastră crește!** - Our family is growing!\n- **Așteptăm un copilaș!** - We're expecting a baby!\n- **Vom fi trei!** - We're becoming three!\n- **Cea mai mare surpriză!** - The biggest surprise!\n\n<VocabCard\n  word=\"Vom deveni părinți!\"\n  translation=\"We're going to be parents!\"\n  pronunciation=\"anunț emoționant\"\n  example=\"Avem vești minunate - vom deveni părinți!\"\n/>\n\n### Anunțuri Creative\n| Metodă | Descriere |\n|--------|----------|\n| Ecografie | Postează prima imagine |\n| Pantofior | Trei perechi de pantofi |\n| Anunț de familie | Cu animalul de companie |\n| Surpriză la cină | Pentru părinți și bunici |\n\n## Vocabular Medical\n\n### Termeni pentru Consultații\n| Termen | Semnificație |\n|--------|-------------|\n| Consultație prenatală | Vizită la doctor |\n| Ecografie morfologică | Verificare detaliată |\n| Analize de sânge | Teste de laborator |\n| Data probabilă de naștere | Când se așteaptă bebelușul |\n\n<CultureTip flag=\"🏥\" title=\"Sistemul Medical\">\nSistemele medicale variază între țări. În unele locuri, moașele sunt principale, în altele ginecologii. Familiarizează-te cu sistemul din țara partenerului tău pentru o experiență mai bună.\n</CultureTip>\n\n## Evoluția Sarcinii\n\n### Primul Trimestru (Săptămânile 1-12)\n- **Simptome de dimineață** - greață, oboseală\n- **Prima ecografie** - confirmarea sarcinii\n- **Formarea organelor** - moment critic\n\n### Al Doilea Trimestru (Săptămânile 13-26)\n- **Mișcările bebelușului** - primele semnale\n- **Aflarea sexului** - dacă se dorește\n- **Energia revine** - perioada \"de aur\"\n\n### Al Treilea Trimestru (Săptămânile 27-40)\n- **Pregătirea pentru naștere** - cursuri, camera bebelușului\n- **Contracții** - semne ale nașterii apropiate\n- **Nesting** - instinctul de pregătire\n\n<VocabCard\n  word=\"Data probabilă de naștere\"\n  translation=\"Due date\"\n  pronunciation=\"estimare\"\n  example=\"Data probabilă de naștere este în martie.\"\n/>\n\n## Pregătirea pentru Bebeluș\n\n### Obiecte Esențiale\n| Obiect | Utilizare |\n|--------|----------|\n| Pătuț | Pentru somn |\n| Scutece | Igienă |\n| Căruț | Transport |\n| Scaun auto | Siguranță |\n| Biberoane | Hrănire |\n| Body-uri | Îmbrăcăminte |\n\n### Camera Bebelușului\n- **Pătuț sigur** - fără perne moi\n- **Monitorizare** - video sau audio\n- **Schimbător** - cu tot necesarul\n- **Dulap** - pentru hăinuțe\n\n## Expresii de Felicitare\n\n### Pentru Anunț\n- **Felicitări! Ce veste minunată!**\n- **Sunt atât de fericit/ă pentru voi!**\n- **Veți fi părinți minunați!**\n- **Ce bucurie!**\n\n### Pentru Naștere\n- **Felicitări pentru nou-născut!**\n- **Bine ai venit pe lume, micuțule/micuțo!**\n- **Ce bebeluș frumos!**\n- **Mamă și tată fericiți!**\n\n<VocabCard\n  word=\"Felicitări pentru nou-născut!\"\n  translation=\"Congratulations on the new baby!\"\n  pronunciation=\"urare de naștere\"\n  example=\"Felicitări! Bebelușul este adorabil!\"\n/>\n\n## Tradiții și Superstiții\n\n### Superstiții Comune\n| Credință | Origine |\n|----------|--------|\n| Nu cumpăra nimic înainte | Protecție |\n| Nu spune sexul | Surpriză |\n| Roșu pentru protecție | Tradițională |\n\n<CultureTip flag=\"🎀\" title=\"Baby Shower\">\nBaby shower-ul este o petrecere pentru viitoarea mamă, populară în SUA și acum și în Europa. Invitații aduc cadouri pentru bebeluș, se joacă jocuri tematice și se celebrează momentul.\n</CultureTip>\n\n## Sfaturi pentru Viitori Părinți\n\n1. **Comunică** - vorbește cu partenerul despre așteptări\n2. **Informează-te** - citește, participă la cursuri\n3. **Pregătește-te emoțional** - schimbări mari vin\n4. **Cere ajutor** - de la familie și prieteni\n5. **Bucură-te** - este o perioadă specială\n\n<CTA />\n\n## Concluzie\n\nAșteptarea unui copil este o călătorie minunată. Cu acest vocabular, vei fi pregătit să navighezi această perioadă specială și să comunici eficient cu medicii, familia și partenerul tău.\n\nFelicitări și multă sănătate!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Anunțarea Sarcinii",
+              "## Vocabular Medical",
+              "## Evoluția Sarcinii",
+              "## Pregătirea pentru Bebeluș",
+              "## Expresii de Felicitare",
+              "## Tradiții și Superstiții"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "390aecd0-5c6b-4097-b988-ae8ee4e27b79",
+      "title": "İsveççe Kıskançlık ve Güven İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "sv",
+      "category": "communication",
+      "content": "Kıskançlık, ilişkilerde doğal bir duygu olabilir. İsveççe konuşan partnerinizle bu konuları sağlıklı bir şekilde konuşmak için temel ifadeler.\n\n## Kıskançlığı İfade Etme\n\n### 1. \"Jag känner mig lite svartsjuk när...\"\n**Telaffuz:** *Yag şener mey lite svartyuk ner...*\n\n**Anlam:** \"...olduğunda biraz kıskanç hissediyorum\"\n\n### 2. \"Kan du lugna mig?\"\n**Telaffuz:** *Kan du luna mey?*\n\n**Anlam:** \"Beni rahatlatabilir misin?\"\n\n### 3. \"Jag litar på dig, men inte på dem\"\n**Telaffuz:** *Yag litar po dey, men inte po dem*\n\n**Anlam:** \"Sana güveniyorum, ama onlara güvenmiyorum\"\n\n### 4. \"Det gör mig obekväm när...\"\n**Telaffuz:** *De yör mey obekväm ner...*\n\n**Anlam:** \"...olduğunda rahatsız oluyorum\"\n\n### 5. \"Jag behöver veta att jag är din prioritet\"\n**Telaffuz:** *Yag behöver veta at yag er din prioritet*\n\n**Anlam:** \"Senin önceliğin olduğumu bilmem gerekiyor\"\n\n## Güven İnşa Etme\n\n### 6. \"Jag litar helt på dig\"\n**Telaffuz:** *Yag litar helt po dey*\n\n**Anlam:** \"Sana tamamen güveniyorum\"\n\n### 7. \"Du är den enda för mig\"\n**Telaffuz:** *Du er den enda för mey*\n\n**Anlam:** \"Benim için tek kişi sensin\"\n\n### 8. \"Jag skulle aldrig göra något för att såra dig\"\n**Telaffuz:** *Yag skule aldri yöra nogot för at sora dey*\n\n**Anlam:** \"Seni incitecek hiçbir şey yapmam\"\n\n### 9. \"Du har inget att oroa dig för\"\n**Telaffuz:** *Du har inget at oroa dey för*\n\n**Anlam:** \"Endişelenecek hiçbir şeyin yok\"\n\n### 10. \"Jag är bara engagerad i dig\"\n**Telaffuz:** *Yag er bara engajerad i dey*\n\n**Anlam:** \"Sadece sana bağlıyım\"\n\n### 11. \"Låt oss prata om dina bekymmer\"\n**Telaffuz:** *Lot os prata om dina bekümer*\n\n**Anlam:** \"Endişelerin hakkında konuşalım\"\n\n### 12. \"Vad kan jag göra för att du ska känna dig tryggare?\"\n**Telaffuz:** *Vad kan yag yöra för at du ska şena dey trügare?*\n\n**Anlam:** \"Kendini daha güvende hissetmen için ne yapabilirim?\"\n\n## İsveç Güven Kültürü\n\n\"Älskling\" (sevgilim) ve \"Jag älskar bara dig\" (sadece seni seviyorum) güven veren ifadelerdir.\n\nBu ifadelerle İsveççe konuşan partnerinizle güven dolu bir ilişki kurabilirsiniz.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Kıskançlığı İfade Etme",
+              "## Güven İnşa Etme"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "392e1c45-57b4-4494-ad25-87b25e537974",
+      "title": "Orosz baba és terhességi szókincs",
+      "native_lang": "hu",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nA baba érkezése az élet egyik legcsodálatosabb eseménye. Ha oroszul szeretnél kommunikálni a terhességről és a babáról, ezek a kifejezések nélkülözhetetlenek.\n\nAz alapvető kifejezésekért nézd meg az [Orosz alapvető kifejezések](/learn/hu/ru/russian-essential-phrases-for-couples) útmutatónkat.\n\n<PhraseOfDay\n  word=\"Поздравляю!\"\n  translation=\"Gratulálok!\"\n  pronunciation=\"pəzdrɐˈvlʲajʊ\"\n  context=\"Az esküvői köszöntés alapja.\"\n/>\n\n## Alapvető szókincs\n\nA baba és terhesség alapvető orosz szókincse:\n\n<VocabCard\n  word=\"свадьба\"\n  translation=\"esküvő\"\n  pronunciation=\"ˈsvadʲbə\"\n  example=\"Свадьба была прекрасной.\"\n/>\n\n| Orosz | Magyar | Használat |\n|---|---|---|\n| невеста | menyasszony | A nő |\n| жених | vőlegény | A férfi |\n| обеты | fogadalmak | Esküvői ígéretek |\n| церемония | szertartás | A hivatalos rész |\n| приём | fogadás | Az ünneplés |\n| тост | köszöntő | Pohárköszöntő |\n\n<CultureTip flag=\"🌍\" title=\"Orosz kulturális tippek\">\nA orosz kultúrában a terhesség és a baba érkezése körül sok hagyomány és babona létezik. Érdemes megismerni ezeket a párod családjával.\n</CultureTip>\n\n## Hasznos kifejezések\n\n### Terhességi kifejezések\n\nA várandósság alatt hasznos kifejezések:\n\n- **Babát várunk!** - A nagy bejelentés\n- **Mikor a várható időpont?** - Gyakori kérdés\n- **Fiú vagy lány?** - A nem iránti érdeklődés\n\n### Baba szókincs\nAmikor megérkezik a baba:\n\n- **Megszületett a baba!** - Az örömhír\n- **Gratulálok!** - Jókívánság a szülőknek\n\n<VocabCard\n  word=\"медовый месяц\"\n  translation=\"nászút\"\n  pronunciation=\"mʲɪˈdovɨj ˈmʲesʲɪt͡s\"\n  example=\"Они на медовом месяце.\"\n/>\n\n## Gyakorlati helyzetek\n\n| Helyzet | Mit mondj |\n|---|---|\n| Bejelentés | Babát várunk! |\n| Orvosnál | Kérdezz a terhességről |\n| Születésnél | A baba megszületett! |\n| Gratulációk | Fogadd a jókívánságokat |\n\n<CultureTip flag=\"💡\" title=\"Hasznos tipp\">\nA terhesség alatt sok új szóval találkozol. Készíts listát az orvosi kifejezésekről, hogy az időpontok során magabiztosabban kommunikálhass.\n</CultureTip>\n\n## Összefoglaló táblázat\n\n| Helyzet | Orosz kifejezés |\n|---|---|\n| Gratuláció | Поздравляю! |\n| Az esemény | свадьба |\n| A nő | невеста |\n| A férfi | жених |\n| Esküvői ígéretek | обеты |\n\n## További tanulás\n\nHa tovább szeretnéd fejleszteni a orosz nyelvtudásod, nézd meg ezeket a cikkeinket:\n\n- [Orosz romantikus kifejezések minden alkalomra](/learn/hu/ru/russian-romantic-phrases-for-every-occasion)\n- [Hogyan mondd: Szeretlek oroszul](/learn/hu/ru/russian-how-to-say-i-love-you)\n- [Orosz alapvető kifejezések pároknak](/learn/hu/ru/russian-essential-phrases-for-couples)\n\nEzek a források segítenek elmélyíteni a tudásod és magabiztosabbá válni a orosz nyelvben.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 272,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Hasznos kifejezések"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "39681320-587c-4a3f-95e0-187f0bed2a10",
+      "title": "Expresii de Călătorie pentru Luna de Miere în Cehă: Ghid pentru",
+      "native_lang": "ro",
+      "target_lang": "cs",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nLuna de miere este călătoria vieții voastre ca proaspăt căsătoriți. Acest ghid te va ajuta să înveți expresiile esențiale pentru a face această experiență și mai specială.\n\nPentru expresii romantice de bază, consultă [expresii romantice pentru fiecare ocazie](/learn/ro/cs/cs-romantic-phrases-for-every-occasion).\n\n<PhraseOfDay\n  word=\"Suntem în luna de miere!\"\n  translation=\"We're on our honeymoon!\"\n  pronunciation=\"anunț fericit\"\n  context=\"Spune-le tuturor că sărbătoriți dragostea!\"\n/>\n\n## Vocabular de Bază\n\n<VocabCard\n  word=\"luna de miere\"\n  translation=\"honeymoon\"\n  pronunciation=\"călătorie romantică\"\n  example=\"Luna noastră de miere e în Grecia.\"\n/>\n\n<VocabCard\n  word=\"rezervare\"\n  translation=\"reservation/booking\"\n  pronunciation=\"programare\"\n  example=\"Am făcut rezervarea pentru hotel.\"\n/>\n\n<VocabCard\n  word=\"cameră pentru cupluri\"\n  translation=\"couple's room\"\n  pronunciation=\"cazare romantică\"\n  example=\"Am rezervat camera pentru cupluri.\"\n/>\n\n### Termeni Esențiali de Călătorie\n\n| Română | Context |\n|--------|--------|\n| Zbor | Transport aerian |\n| Hotel | Cazare |\n| Bagaj | Lucruri personale |\n| Pașaport | Document de călătorie |\n| Viză | Permis de intrare |\n| Asigurare | Protecție călătorie |\n\n<CultureTip flag=\"✈️\" title=\"Destinații Populare\">\nCele mai populare destinații pentru luna de miere includ: Maldive (plaje paradisiace), Paris (romantism), Italia (cultură și mâncare), Grecia (insule), Bali (exotic), și Hawaii (aventură). Alegeți în funcție de preferințele voastre ca cuplu.\n</CultureTip>\n\n## La Hotel\n\n<VocabCard\n  word=\"Am o rezervare.\"\n  translation=\"I have a reservation.\"\n  pronunciation=\"la recepție\"\n  example=\"Bună ziua, am o rezervare pe numele...\"\n/>\n\n### Expresii pentru Check-in\n- **Am o rezervare pe numele...** - I have a reservation under the name...\n- **Suntem în luna de miere** - We're on our honeymoon\n- **Avem cameră cu vedere?** - Do we have a room with a view?\n- **La ce oră e check-out?** - What time is check-out?\n\n### Facilități de Hotel\n| Facilitate | Descriere |\n|------------|----------|\n| Piscină | Relaxare |\n| Spa | Tratamente |\n| Restaurant | Mâncare |\n| Room service | Servire în cameră |\n| Concierge | Asistență |\n| WiFi | Internet |\n\n### Cereri Speciale\n- **E posibil să avem șampanie în cameră?** - decorațiuni romantice\n- **Putem rezerva o masă romantică?** - cină specială\n- **Aveți pachete pentru cupluri?** - oferte speciale\n\n<VocabCard\n  word=\"Aceasta e luna noastră de miere.\"\n  translation=\"This is our honeymoon.\"\n  pronunciation=\"menționând ocazia\"\n  example=\"Aceasta e luna noastră de miere - aveți ceva special?\"\n/>\n\n## La Restaurant\n\n### Expresii de Bază\n| Română | Utilizare |\n|--------|----------|\n| O masă pentru doi, vă rog | Rezervare |\n| Meniul, vă rog | Comandă |\n| Ce recomandați? | Sfaturi |\n| Nota, vă rog | Plată |\n| A fost delicios! | Mulțumire |\n\n### Cină Romantică\n- **Aveți o masă mai intimă?** - pentru atmosferă\n- **Ce vin recomandați?** - pentru a acompania mâncarea\n- **Sărbătorim luna de miere** - pentru atenție specială\n\n<CultureTip flag=\"🍽️\" title=\"Cultura Culinară\">\nFiecare destinație are specialități locale. În Italia, savurați pasta proaspătă. În Grecia, încercați meze. În Franța, nu ratați brânzeturile și vinurile. Explorarea culinară poate fi o parte minunată a lunii de miere.\n</CultureTip>\n\n## Transport și Explorare\n\n### Mijloace de Transport\n| Transport | Când să folosești |\n|-----------|------------------|\n| Taxi | Distanțe scurte |\n| Închiriat mașină | Libertate de explorare |\n| Transport public | Experiență locală |\n| Barcă/Ferry | Destinații insulare |\n| Avion intern | Distanțe mari |\n\n### Expresii Utile\n- **Cât costă până la...?** - How much to...?\n- **Puteți să ne recomandați...?** - Can you recommend...?\n- **Cât durează?** - How long does it take?\n- **Unde putem găsi...?** - Where can we find...?\n\n<VocabCard\n  word=\"Ce locuri romantice recomandați?\"\n  translation=\"What romantic places do you recommend?\"\n  pronunciation=\"cerând sfaturi\"\n  example=\"Suntem în luna de miere. Ce locuri romantice recomandați?\"\n/>\n\n## Activități pentru Cupluri\n\n### Romantice\n| Activitate | Descriere |\n|------------|----------|\n| Apus de soare | Priviți împreună |\n| Plimbare pe plajă | În doi |\n| Cină la lumina lumânărilor | Seară specială |\n| Masaj pentru cupluri | Relaxare |\n| Croazieră privată | Aventură pe apă |\n\n### Aventuroase\n| Activitate | Pentru cine |\n|------------|------------|\n| Scufundări | Iubitori de mare |\n| Drumeții | Natură |\n| Safari | Africa |\n| Zip-line | Adrenalină |\n| Parapantă | Vedere aeriană |\n\n## Fotografii și Amintiri\n\n### Expresii pentru Fotografii\n- **Ne puteți face o poză?** - Can you take our photo?\n- **Aici e perfect pentru o poză** - This is perfect for a photo\n- **Mai una, vă rog!** - One more, please!\n\n### Documentarea Călătoriei\n- Jurnal de călătorie\n- Album foto\n- Video clips\n- Suveniruri locale\n- Cărți poștale\n\n<CultureTip flag=\"📸\" title=\"Pozele de Luna de Miere\">\nMulți cupluri angajează un fotograf profesionist pentru o sesiune foto în destinație. Plajele la apus, străzile pitorești sau monumentele celebre pot fi cadrul perfect pentru amintiri de neuitat.\n</CultureTip>\n\n## În Caz de Urgență\n\n### Numere și Expresii Utile\n| Situație | Acțiune |\n|----------|--------|\n| Urgență medicală | Sunați ambulanța |\n| Pașaport pierdut | Ambasadă/Consulat |\n| Bagaj pierdut | Reclamație la aeroport |\n| Probleme cu rezervarea | Contactați agenția |\n\n### Expresii de Urgență\n- **Am nevoie de ajutor** - I need help\n- **Unde e cel mai apropiat spital?** - Where is the nearest hospital?\n- **Am pierdut...** - I lost...\n- **Puteți să mă ajutați?** - Can you help me?\n\n## Sfaturi Finale\n\n1. **Planificați împreună** - ambii parteneri să contribuie\n2. **Lăsați loc pentru spontaneitate** - cele mai bune amintiri sunt neplanificate\n3. **Deconectați-vă** - limitați telefonul și rețelele sociale\n4. **Spuneți că sunteți în luna de miere** - adesea primiți tratament special\n5. **Bucurați-vă de fiecare moment** - e o experiență unică\n\n<CTA />\n\n## Concluzie\n\nLuna de miere e începutul călătoriei voastre ca soț și soție. Cu acest vocabular și aceste expresii, veți putea să navigați orice destinație și să creați amintiri de neuitat împreună.\n\nDrum bun și vacanță plăcută!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## La Restaurant",
+              "## Transport și Explorare",
+              "## Activități pentru Cupluri",
+              "## Fotografii și Amintiri",
+              "## În Caz de Urgență"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

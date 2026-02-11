@@ -1,0 +1,121 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0091",
+  "articles": [
+    {
+      "id": "1af34a11-aa7f-4cdb-bad1-e9527a51bf2c",
+      "title": "Шведские фразы для первого свидания",
+      "native_lang": "ru",
+      "target_lang": "sv",
+      "category": "communication",
+      "content": "Шведы ценят равенство и искренность. На свидании важно быть собой.\n\n## Фразы для первого свидания\n\n### 1. Du ser fantastisk ut ikväll\n**Произношение:** Дю сэр фанта́стиск ут иквэ́ль\n\n**Перевод:** Ты потрясающе выглядишь сегодня вечером\n\n### 2. Jag har sett fram emot det här\n**Произношение:** Яг хар сэтт фрам эму́т дэ хэр\n\n**Перевод:** Я с нетерпением ждал/ждала этого\n\n### 3. Berätta mer om dig själv\n**Произношение:** Бэрэ́тта мэр ом дэй щэльв\n\n**Перевод:** Расскажи больше о себе\n\n### 4. Vad gillar du att göra på fritiden?\n**Произношение:** Вад йи́ллар ду атт йё́ра по фри́тидэн?\n\n**Перевод:** Чем тебе нравится заниматься в свободное время?\n\n### 5. Du har ett vackert leende\n**Произношение:** Дю хар этт ва́ккэрт лэ́эндэ\n\n**Перевод:** У тебя красивая улыбка\n\n### 6. Jag skulle gärna vilja träffa dig igen\n**Произношение:** Яг ску́лле йэ́рна ви́лья трэ́фа дэй иге́н\n\n**Перевод:** Мне бы хотелось встретиться с тобой снова\n\n### 7. Jag hade en underbar kväll\n**Произношение:** Яг ха́дэ эн у́ндэрбар квэль\n\n**Перевод:** Я прекрасно провёл/провела вечер\n\n### 8. Kan jag ringa dig imorgon?\n**Произношение:** Кан яг ри́нга дэй имо́рон?\n\n**Перевод:** Можно я позвоню тебе завтра?\n\n## Культурные особенности\n\nШведы ценят равенство — разделение счёта нормально. Избегайте хвастовства. Концепт «lagom» — умеренность во всём. Личное пространство уважается.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 201,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Фразы для первого свидания"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "1b248519-f36e-46a3-99f8-d505ac823141",
+      "title": "Llamadas Telefónicas en Polaco",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport ConjugationTable from '@components/ConjugationTable.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nLas conversaciones telefónicas en polaco pueden parecer intimidantes, pero son una habilidad esencial para parejas que visitan Polonia o se comunican con familia polacohablante. Sin señales visuales, dependerás completamente de tus habilidades de escucha y la etiqueta telefónica adecuada.\n\n<PhraseOfDay\n  word=\"Słucham?\"\n  translation=\"¿Hola? (literalmente: Estoy escuchando)\"\n  pronunciation=\"SUU-jam\"\n  context=\"La forma más común de contestar el teléfono en Polonia - cortés y profesional.\"\n/>\n\n## Cómo los Polacos Contestan el Teléfono\n\nA diferencia de los hispanohablantes que dicen \"¿Hola?\" o \"¿Diga?\", los polacos tienen varias formas distintas de contestar:\n\n### Contestar Formalmente\n\n**Słucham?** (¿Estoy escuchando?) es el estándar de oro. Es cortés, profesional y funciona en cualquier situación. El signo de interrogación indica que estás listo para escuchar lo que el llamante tiene que decir.\n\n<VocabCard\n  word=\"Słucham?\"\n  translation=\"¿Hola? / ¿Estoy escuchando?\"\n  pronunciation=\"SUU-jam\"\n  example=\"Słucham? Kto mówi?\"\n/>\n\n### Contestar Casual entre Familia\n\n**Tak?** (¿Sí?) es más casual y típicamente se usa con familia o amigos cercanos. Es directo e informal.\n\n**Halo?** (¿Hola?) prestado de otros idiomas, se está volviendo más común entre los polacos jóvenes.\n\n### Etiqueta Telefónica de Negocios\n\nCuando contestas para un negocio o formalmente:\n\n**\"Dzień dobry, słucham\"** (Buen día, estoy escuchando) - saludo profesional de mañana\n**\"Dobry wieczór, słucham\"** (Buenas noches, estoy escuchando) - saludo profesional de noche\n\n<CultureTip title=\"Etiqueta Telefónica Polaca\">\nLos polacos valoran la franqueza en las llamadas telefónicas. No pases demasiado tiempo en cortesías - declara tu propósito clara y cortésmente. Es similar a la comunicación directa que valoramos en muchas culturas latinas en contextos de negocios.\n</CultureTip>\n\n## Hacer Llamadas: Inicios Esenciales\n\nCuando eres tú quien llama, comienza con un saludo apropiado e identifícate:\n\n### Llamando a Amigos o Familia\n\n**\"Cześć, tu [tu nombre]\"** (Hola, soy [tu nombre])\n**\"Hej, mówi [tu nombre]\"** (Hey, habla [tu nombre])\n\n### Llamadas Formales\n\n**\"Dzień dobry, nazywam się [tu nombre]\"** (Buen día, me llamo [tu nombre])\n**\"Dobry wieczór, tu [tu nombre] z [empresa/organización]\"** (Buenas noches, soy [tu nombre] de [empresa/organización])\n\n<VocabCard\n  word=\"Nazywam się\"\n  translation=\"Me llamo\"\n  pronunciation=\"na-SI-vam shie\"\n  example=\"Dzień dobry, nazywam się Anna Kowalska.\"\n/>\n\n## Verbos Clave para Conversaciones Telefónicas\n\n<ConjugationTable\n  verb=\"Mówić\"\n  meaning=\"hablar\"\n  conjugations={[\n    { person: \"Yo\", polish: \"mówię\", english: \"yo hablo\" },\n    { person: \"Tú (informal)\", polish: \"mówisz\", english: \"tú hablas\" },\n    { person: \"Él/Ella\", polish: \"mówi\", english: \"él/ella habla\" },\n    { person: \"Nosotros\", polish: \"mówimy\", english: \"nosotros hablamos\" },\n    { person: \"Vosotros\", polish: \"mówicie\", english: \"vosotros habláis\" },\n    { person: \"Ellos\", polish: \"mówią\", english: \"ellos hablan\" }\n  ]}\n/>\n\n## Frases Telefónicas Esenciales\n\n### Pidiendo Hablar con Alguien\n\n| Polaco | Español | Pronunciación |\n|---|---|---|\n| Czy mogę rozmawiać z...? | ¿Puedo hablar con...? | chi MO-gue ros-MA-viach s |\n| Czy jest [nombre]? | ¿Está [nombre]? | chi yest |\n| Poproszę [nombre] | Quisiera hablar con [nombre], por favor | po-PRO-she |\n\n### Cuando Alguien No Está Disponible\n\n**\"Nie ma go/jej\"** (Él/Ella no está)\n**\"Jest zajęty/zajęta\"** (Él/Ella está ocupado/a)\n**\"Wyszedł/Wyszła\"** (Él/Ella salió)\n\n<VocabCard\n  word=\"Czy mogę zostawić wiadomość?\"\n  translation=\"¿Puedo dejar un mensaje?\"\n  pronunciation=\"chi MO-gue sos-TA-vich via-do-MOSHCH\"\n  example=\"Nie ma go? Czy mogę zostawić wiadomość?\"\n/>\n\n### Tomando Mensajes\n\n**\"Czy chce Pan/Pani zostawić wiadomość?\"** (¿Desea dejar un mensaje? - formal)\n**\"Coś przekażesz?\"** (¿Le pasas algo? - informal)\n**\"Powiem mu/jej\"** (Le diré a él/ella)\n\n## Llamadas Telefónicas Románticas\n\nCuando llamas a tu pareja polaca, estas frases añaden dulzura:\n\n**\"Kochanie, to ja\"** (Cariño, soy yo)\n**\"Tęsknię za tobą\"** (Te extraño)\n**\"Dzwonię, bo...\"** (Llamo porque...)\n**\"Kiedy się zobaczymy?\"** (¿Cuándo nos veremos?)\n\n## Terminar Llamadas Cortésmente\n\n### Finales Casuales\n\n**\"Na razie!\"** (¡Hasta luego!)\n**\"Cześć!\"** (¡Chao!)\n**\"Do usłyszenia!\"** (¡Hablamos!)\n\n### Finales Formales\n\n**\"Do widzenia\"** (Adiós)\n**\"Miłego dnia\"** (Que tenga buen día)\n**\"Dziękuję za rozmowę\"** (Gracias por la conversación)\n\n<VocabCard\n  word=\"Do usłyszenia\"\n  translation=\"Hablamos / Hasta que nos escuchemos de nuevo\"\n  pronunciation=\"do us-UI-she-nia\"\n  example=\"Dobrze, do usłyszenia wieczorem!\"\n/>\n\n## Lidiando con Problemas de Conexión\n\n**\"Nie słyszę\"** (No te escucho)\n**\"Źle słychać\"** (La conexión está mala)\n**\"Proszę mówić głośniej\"** (Por favor habla más fuerte)\n**\"Rozłączamy się\"** (Nos estamos desconectando)\n**\"Zadzwonię ponownie\"** (Volveré a llamar)\n\n## Escenarios Comunes de Llamadas\n\n### Llamando a un Restaurante\n\n**\"Dzień dobry, chciałbym zarezerwować stolik\"** (Buen día, quisiera reservar una mesa)\n**\"Na ile osób?\"** (¿Para cuántas personas?)\n**\"Na którą godzinę?\"** (¿Para qué hora?)\n\n### Llamando para Información\n\n**\"Przepraszam, czy mogę zapytać o...?\"** (Disculpe, ¿puedo preguntar sobre...?)\n**\"Jakie są godziny otwarcia?\"** (¿Cuál es el horario de atención?)\n**\"Ile to kosztuje?\"** (¿Cuánto cuesta?)\n\n<CultureTip title=\"Formato de Números de Teléfono\">\nLos números de teléfono polacos típicamente se dicen dígito por dígito, no en grupos. El número 123-456-789 sería \"jeden, dwa, trzy, cztery, pięć, sześć, siedem, osiem, dziewięć.\" Similar a cómo a veces decimos los números en español.\n</CultureTip>\n\n## Llamadas de Emergencia\n\nAunque esperamos que nunca las necesites, es importante saber:\n\n**\"To nagły wypadek\"** (Es una emergencia)\n**\"Potrzebuję pomocy\"** (Necesito ayuda)\n**\"Proszę przysłać karetkę\"** (Por favor envíen una ambulancia)\n\n## Consejos de Práctica para Parejas\n\n1. **Juego de Roles Juntos**: Túrnense siendo el que llama y el que contesta\n2. **Graben Conversaciones**: Practiquen y escuchen la grabación para mejorar la pronunciación\n3. **Empiecen Simple**: Comiencen con escenarios básicos antes de pasar a llamadas de negocios complejas\n4. **Usen Nombres Polacos**: Practiquen con nombres polacos típicos como Anna, Piotr o Katarzyna\n\n> Consejo profesional: Las conversaciones telefónicas polacas tienden a ser más directas que las españolas. No te ofendas por la brevedad - es eficiencia cultural, ¡no grosería!\n\n## Construyendo Confianza\n\nLas llamadas telefónicas en un idioma extranjero son desafiantes porque no puedes depender del lenguaje corporal o expresiones faciales. Comienza con personas conocidas que hablen lento y claro. A medida que crece tu confianza, encontrarás que las conversaciones telefónicas en polaco se vuelven algo natural.\n\nRecuerda, incluso los hablantes nativos a veces preguntan **\"Możesz powtórzyć?\"** (¿Puedes repetir?) durante las llamadas. ¡No tengas miedo de pedir aclaraciones!\n\n\n<CTA\n  text=\"Practica conversaciones telefónicas con lecciones interactivas\"\n  buttonText=\"Empieza a Aprender\"\n/>\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frases Telefónicas Esenciales",
+              "## Terminar Llamadas Cortésmente",
+              "## Escenarios Comunes de Llamadas"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "1b2bd582-7f46-4a39-a5ce-5f73d8831614",
+      "title": "Rumuńskie zwroty o przebaczeniu dla par",
+      "native_lang": "pl",
+      "target_lang": "ro",
+      "category": "communication",
+      "content": "Rumuni są ciepli i wybaczający. W relacji z osobą mówiącą po rumuńsku przebaczenie jest wyrażane z serdecznością.\n\n## Proszenie o przebaczenie\n\n### \"Te rog, iartă-mă\"\n*Proszę, wybacz mi* - Wymowa: te rog JAR-tă-mă\n\n### \"Sper că mă poți ierta\"\n*Mam nadzieję, że mi wybaczysz* - Wymowa: sper kă mă poci jer-TA\n\n## Wyrażanie przebaczenia\n\n### \"Te iert\"\n*Przebaczam Ci* - Wymowa: te jert\n\n### \"E în regulă, înțeleg\"\n*W porządku, rozumiem* - Wymowa: e yn re-GU-lă yn-ce-LEG\n\n### \"Să lăsăm asta în urmă\"\n*Zostawmy to za sobą* - Wymowa: să lă-SĂM AS-ta yn UR-mă\n\n## Proces przebaczenia\n\n### \"Lucrez la a te ierta\"\n*Pracuję nad tym, żeby Ci wybaczyć* - Wymowa: lu-KREZ la a te jer-TA\n\n### \"Am nevoie de timp, dar te voi ierta\"\n*Potrzebuję czasu, ale wybaczę Ci* - Wymowa: am ne-WO-je de timp dar te woj jer-TA\n\n## Głębokie przebaczenie\n\n### \"Te iert complet\"\n*Przebaczam Ci całkowicie* - Wymowa: te jert kom-PLET\n\n### \"Las durerea să plece\"\n*Puszczam ten ból* - Wymowa: las du-RE-rea să PLE-cze\n\n## Wspólne wyjście naprzód\n\n### \"Să o luăm de la capăt\"\n*Zacznijmy od nowa* - Wymowa: să o lu-ĂM de la ka-PĂT\n\n### \"Dragostea noastră e mai puternică decât această greșeală\"\n*Nasza miłość jest silniejsza niż ten błąd* - Wymowa: dra-GOS-tea NOAS-tră e maj pu-ter-NI-kă de-KYT a-CZIA-stă gre-SZA-lă\n\n## Granice przebaczenia\n\n### \"Te iert, dar asta nu trebuie să se mai întâmple\"\n*Przebaczam Ci, ale to nie może się powtórzyć* - Wymowa: te jert dar AS-ta nu TRE-bu-je să se maj yn-TYM-ple\n\nIertarea vindecă inima! (Przebaczenie uzdrawia serce!)",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 257,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Proszenie o przebaczenie",
+              "## Wyrażanie przebaczenia",
+              "## Proces przebaczenia",
+              "## Głębokie przebaczenie",
+              "## Wspólne wyjście naprzód",
+              "## Granice przebaczenia"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "1b302274-62d1-4997-ae04-dd5b65c4e941",
+      "title": "Dutch Emotional Support Phrases: Comfort Your Partner in Difficult Times",
+      "native_lang": "en",
+      "target_lang": "nl",
+      "category": "communication",
+      "content": "When your Dutch-speaking partner faces difficult times, offering comfort in their native language shows genuine care. Dutch directness combined with sincerity creates meaningful support.\n\n## Phrases of Presence\n\n**Ik ben er voor je**\n*I'm here for you*\n\n**Je staat hier niet alleen in**\n*You're not alone in this*\n\n**Je kunt altijd op mij rekenen**\n*You can always count on me*\n\n## Expressing Empathy\n\n**Ik begrijp wat je doormaakt**\n*I understand what you're going through*\n\n**Het is normaal om je zo te voelen**\n*It's normal to feel this way*\n\n**Je gevoelens zijn helemaal terecht**\n*Your feelings are completely valid*\n\n## Offering Comfort\n\n**Het komt allemaal goed**\n*Everything will be alright*\n\n**Samen komen we hier doorheen**\n*Together we'll get through this*\n\n**Ik ben heel trots op je**\n*I'm very proud of you*\n\n## Active Support\n\n**Wat kan ik doen om je te helpen?**\n*What can I do to help you?*\n\n**Wil je erover praten of liever samen stil zijn?**\n*Do you want to talk about it or prefer being quiet together?*\n\n**Vertel me wat je nodig hebt**\n*Tell me what you need*\n\n## Specific Situations\n\n### Grief\n**Het spijt me zo voor je verlies**\n*I'm so sorry for your loss*\n\n### Stress\n**Adem met mij mee**\n*Breathe with me*\n\n**We nemen het stap voor stap**\n*We'll take it step by step*\n\n### Disappointment\n**Ik weet hoeveel dit voor je betekende**\n*I know how much this meant to you*\n\n**Je hoeft niet altijd sterk te zijn**\n*You don't always have to be strong*\n\n## Physical Comfort\n\n**Kom hier, laat me je vasthouden**\n*Come here, let me hold you*\n\n**Wil je een knuffel?**\n*Do you want a hug?*\n\n## Encouragement\n\n**Je bent sterker dan je denkt**\n*You're stronger than you think*\n\n**Ik geloof in je**\n*I believe in you*\n\n**Je kunt dit**\n*You can do this*\n\n## Being Present\n\n**Je hoeft niets te zeggen**\n*You don't have to say anything*\n\n**Ik wil gewoon bij je zijn**\n*I just want to be with you*\n\nSincere Dutch support shows genuine care.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Specific Situations"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "1b304fab-8272-47d5-b1cb-1e9387ca66e8",
+      "title": "Svéd üzenetküldő kifejezések magyar anyanyelvűeknek",
+      "native_lang": "hu",
+      "target_lang": "sv",
+      "category": "communication",
+      "content": "## Bevezetés\n\nA svéd nyelv a skandináv nyelvek egyik legszebb képviselője. Ha svéd partnered van, az üzenetváltás az ő nyelvén különleges intimitást teremthet. A svédek talán visszafogottabbak, mint a dél-európaiak, de annál mélyebbek az érzelmeik!\n\nTanulj meg 12 hasznos svéd kifejezést az üzenetváltáshoz.\n\n## Alapvető üdvözlések\n\n### 1. God morgon, älskling\n**Kiejtés:** *gud MOR-on, ELSZ-ling*\n\n**Jelentés:** Jó reggelt, szerelmem\n\nAz \"älskling\" a leggyakoribb svéd becézés, szó szerint \"szeretett\" jelentéssel.\n\n**Példa párbeszéd:**\n- \"God morgon, älskling! Hur sov du?\" (Jó reggelt, szerelmem! Hogy aludtál?)\n- \"Bra! Drömde om dig\" (Jól! Rólad álmodtam)\n\n### 2. Jag saknar dig\n**Kiejtés:** *jág SZÁK-nar dej*\n\n**Jelentés:** Hiányzol\n\nEgyszerű, de mély érzelmeket kifejező mondat.\n\n**Példa párbeszéd:**\n- \"Jag saknar dig så mycket!\" (Annyira hiányzol!)\n- \"Jag saknar dig också\" (Te is hiányzol)\n\n### 3. Jag älskar dig\n**Kiejtés:** *jág ELS-kar dej*\n\n**Jelentés:** Szeretlek\n\nA legfontosabb mondat svédül. A svédek nem mondják könnyen – ha megkapod, az igazán sokat jelent!\n\n**Példa párbeszéd:**\n- \"Jag älskar dig, vet du det?\" (Szeretlek, tudod?)\n- \"Jag älskar dig också\" (Én is szeretlek)\n\n## Mindennapi üzenetek\n\n### 4. Hur mår du?\n**Kiejtés:** *hur mor du*\n\n**Jelentés:** Hogy vagy?\n\nAlapvető kérdés, amivel elkezdheted a beszélgetést.\n\n**Példa párbeszéd:**\n- \"Hej, älskling! Hur mår du?\" (Szia, szerelmem! Hogy vagy?)\n- \"Bra! Och du?\" (Jól! És te?)\n\n### 5. Jag är snart där\n**Kiejtés:** *jág er sznart der*\n\n**Jelentés:** Mindjárt ott vagyok\n\nHasznos, amikor úton vagy a partneredhez.\n\n**Példa párbeszéd:**\n- \"Var är du?\" (Hol vagy?)\n- \"Jag är snart där, 5 minuter!\" (Mindjárt ott vagyok, 5 perc!)\n\n### 6. Puss / Pussar\n**Kiejtés:** *pusz / PU-szar*\n\n**Jelentés:** Puszi / Puszilak\n\nAz üzenetek végén gyakran használják.\n\n**Példa párbeszéd:**\n- \"Ha en bra dag! Puss\" (Szép napot! Puszi)\n- \"Tack, älskling! Pussar\" (Köszi, szerelmem! Puszilak)\n\n## Romantikus kifejezések\n\n### 7. Du är mitt allt\n**Kiejtés:** *du er mit alt*\n\n**Jelentés:** Te vagy mindenem\n\nMély, romantikus kijelentés.\n\n**Példa párbeszéd:**\n- \"Du är mitt allt, vet du det?\" (Te vagy mindenem, tudod?)\n- \"Du är också mitt allt\" (Te is az enyém vagy)\n\n### 8. Gull / Hjärtat\n**Kiejtés:** *gul / JER-tat*\n\n**Jelentés:** Aranyom / Szívem\n\nNépszerű svéd becézések.\n\n**Példa párbeszéd:**\n- \"Gull, kan du ringa?\" (Aranyom, tudsz hívni?)\n- \"Ja, hjärtat!\" (Igen, szívem!)\n\n### 9. Jag drömde om dig\n**Kiejtés:** *jág DRÖM-de om dej*\n\n**Jelentés:** Rólad álmodtam\n\nRomantikus reggeli üzenet.\n\n**Példa párbeszéd:**\n- \"God morgon! Jag drömde om dig inatt\" (Jó reggelt! Rólad álmodtam az éjjel)\n- \"Vad sött! Vad drömde du?\" (Milyen édes! Mit álmodtál?)\n\n## Chat rövidítések\n\n### 10. Tack / Tks\n**Kiejtés:** *tak*\n\n**Jelentés:** Köszi\n\nAlapvető köszönet.\n\n**Példa párbeszéd:**\n- \"Jag köpte mjölk\" (Vettem tejet)\n- \"Tks, älskling!\" (Köszi, szerelmem!)\n\n### 11. Ok / Okej\n**Kiejtés:** *o-KEJ*\n\n**Jelentés:** Oké\n\nUgyanúgy használják, mint angolul.\n\n**Példa párbeszéd:**\n- \"Vi ses klockan 7?\" (Találkozunk 7-kor?)\n- \"Okej, jag är där\" (Oké, ott leszek)\n\n### 12. Kram / Kramar\n**Kiejtés:** *kram / KRA-mar*\n\n**Jelentés:** Ölelés / Ölellek\n\nA svédek szeretik az ölelést – gyakran használják üzenet végén.\n\n**Példa párbeszéd:**\n- \"God natt! Kram\" (Jó éjszakát! Ölelés)\n- \"God natt! Kramar och pussar\" (Jó éjszakát! Ölellek és csókollak)\n\n## Kulturális tippek\n\n**Lagom:** A svédek fontos fogalma, ami \"éppen eleget\" vagy \"mértékletességet\" jelent. Vonatkozik a kommunikációra is – nem túl sok, nem túl kevés.\n\n**Fika:** A svéd kávészünet kultúrája. Ha partnered fikázni hív, az mindig jó jel!\n\n**Személyes tér:** A svédek értékelik a személyes teret. Az üzenetekben is inkább mérsékelt stílusúak.\n\n**Midsommar:** A nyári napforduló (Midsommar) az egyik legfontosabb svéd ünnep. Érdemes megismerni!\n\n**Skål:** Ha svéd partnered koccint veled, nézz a szemébe! Ez fontos svéd szokás.\n\n## Összefoglalás\n\nA svéd nyelv megtanulása szép gesztus a partnered felé. A svédek nagyra értékelik, ha valaki erőfeszítést tesz a nyelvük megtanulására, még ha visszafogottan mutatják is.\n\nEzekkel a kifejezésekkel már elkezdheted a svéd nyelvű kommunikációt. Lycka till (Sok sikert)!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Alapvető üdvözlések",
+              "## Mindennapi üzenetek",
+              "## Romantikus kifejezések",
+              "## Chat rövidítések"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

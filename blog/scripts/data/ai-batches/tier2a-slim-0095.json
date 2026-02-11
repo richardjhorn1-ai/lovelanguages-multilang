@@ -1,0 +1,471 @@
+{
+  "batchId": "tier2a-slim-0095",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "7183ea9a-ad97-4241-9357-7f975530d8b7",
+      "title": "Gramática Húngara Básica: Aprenda Juntos com Seu Parceiro",
+      "native_lang": "pt",
+      "target_lang": "hu",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Os Fundamentos (Regras Essenciais)",
+          "subsections": [
+            "### 1. Sujeito + Verbo + Objeto",
+            "### 2. Sem Artigos!",
+            "### 3. Vogais com Acentos",
+            "### 4. Sufixos são Importantes"
+          ]
+        },
+        {
+          "header": "## Padrões Comuns Úteis",
+          "subsections": [
+            "### Verbo \"Ser\" - Lenni (Presente)",
+            "### Posesão - Birtoklás"
+          ]
+        },
+        {
+          "header": "## Erros Comuns a Evitar",
+          "subsections": [
+            "### 1. Esquecer que \"Szeretlek\" é Especial",
+            "### 2. Confundir Formal e Informal",
+            "### 3. Sufixo Errado de Posse",
+            "### 4. Ordem das Palavras Rígida"
+          ]
+        },
+        {
+          "header": "## Referência Rápida",
+          "subsections": [
+            "### Estrutura Básica da Frase",
+            "### Sufixos Essenciais",
+            "### Pronomes Pessoais"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "719f344d-d00d-467a-bc56-249c420d9c1c",
+      "title": "Italian Phrases for Meeting the In-Laws: Make a Great Impression",
+      "native_lang": "en",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## First Impressions",
+          "subsections": [
+            "### Greetings"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "71b15abd-ae1e-415a-a985-ce30abbcde00",
+      "title": "Portugál Flörtölő Kifejezések Magyar Anyanyelvűeknek",
+      "native_lang": "hu",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bájos Portugál Flörtölő Kifejezések",
+          "subsections": [
+            "### \"Você tem um sorriso lindo.\"",
+            "### \"Não consigo parar de pensar em você.\"",
+            "### \"Quer sair comigo?\"",
+            "### \"Você é muito especial para mim.\"",
+            "### \"Você é linda / lindo.\"",
+            "### \"Você tem olhos incríveis.\"",
+            "### \"Me sinto bem com você.\"",
+            "### \"Você me faz feliz.\"",
+            "### \"Você roubou meu coração.\"",
+            "### \"Gosto muito de você.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "71b31ddc-0cca-4fb8-b2e7-5234db03e0d6",
+      "title": "Венгерские приветствия и прощания",
+      "native_lang": "ru",
+      "target_lang": "hu",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## При встрече и расставании",
+          "subsections": [
+            "### При встрече:",
+            "### При расставании:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "71d133f4-0aa0-4c87-9f51-b60f86c733ee",
+      "title": "Spanyol Flörtölő Kifejezések Magyar Anyanyelvűeknek",
+      "native_lang": "hu",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Romantikus Kifejezések Spanyolul",
+          "subsections": [
+            "### \"Tienes una sonrisa preciosa.\"",
+            "### \"No puedo dejar de pensar en ti.\"",
+            "### \"¿Te gustaría salir conmigo?\"",
+            "### \"Eres muy especial para mí.\"",
+            "### \"Me encantas.\"",
+            "### \"Tienes unos ojos hermosos.\"",
+            "### \"Me haces muy feliz.\"",
+            "### \"Quisiera conocerte mejor.\"",
+            "### \"Eres la persona más increíble que conozco.\"",
+            "### \"Me robaste el corazón.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "71e7abce-d41b-4535-8b99-b6a8e9f95779",
+      "title": "100 Συχνές Λέξεις (it): Οδηγός για Ελληνόφωνα Ζευγάρια",
+      "native_lang": "el",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Κατηγορίες Λέξεων",
+          "subsections": [
+            "### Αγάπη & Τρυφερότητα",
+            "### Καθημερινές Λέξεις",
+            "### Συναισθήματα",
+            "### Χρόνος",
+            "### Τοποθεσία",
+            "### Ερωτήσεις",
+            "### Ρήματα"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "71ee7bb9-426d-429a-a182-fd22d1b1bec8",
+      "title": "İsveççe Affetme İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Af Dileme",
+          "subsections": [
+            "### 1. \"Jag är verkligen ledsen för det jag gjorde\"",
+            "### 2. \"Snälla, förlåt mig\"",
+            "### 3. \"Jag tar fullt ansvar\"",
+            "### 4. \"Jag vet att jag sårade dig och jag är så ledsen\"",
+            "### 5. \"Kan du hitta det i ditt hjärta att förlåta mig?\""
+          ]
+        },
+        {
+          "header": "## Affetme",
+          "subsections": [
+            "### 6. \"Jag förlåter dig\"",
+            "### 7. \"Jag är redo att lämna detta bakom oss\"",
+            "### 8. \"Låt oss lämna detta bakom oss\"",
+            "### 9. \"Jag bär inget agg\"",
+            "### 10. \"Alla gör misstag\"",
+            "### 11. \"Jag älskar dig mer än min ilska\"",
+            "### 12. \"Jag accepterar din ursäkt\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "72065403-736d-4504-a157-4a3271837ebd",
+      "title": "Сложно ли выучить итальянский язык?",
+      "native_lang": "ru",
+      "target_lang": "it",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Что будет ЛЕГКО для русскоговорящих",
+          "subsections": [
+            "### 1. Фонетика — читаем как пишем",
+            "### 2. Знакомый алфавит",
+            "### 3. Музыкальность",
+            "### 4. Род существительных",
+            "### 5. Много интернационализмов"
+          ]
+        },
+        {
+          "header": "## Что будет СЛОЖНО для русскоговорящих",
+          "subsections": [
+            "### 1. Артикли",
+            "### 2. Спряжение глаголов",
+            "### 3. Много времён",
+            "### 4. Сослагательное наклонение (Congiuntivo)",
+            "### 5. Двойные согласные"
+          ]
+        },
+        {
+          "header": "## Сроки изучения",
+          "subsections": [
+            "### Реалистичные ожидания:"
+          ]
+        },
+        {
+          "header": "## Почему учить вместе проще",
+          "subsections": [
+            "### Преимущества обучения парой:",
+            "### Идеи для практики:"
+          ]
+        },
+        {
+          "header": "## Главные советы",
+          "subsections": [
+            "### 1. Учите артикли вместе со словами",
+            "### 2. Не бойтесь говорить",
+            "### 3. Погружайтесь в культуру",
+            "### 4. Используйте жесты!",
+            "### 5. Наслаждайтесь красотой языка"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "725fa6cb-2ed0-46d1-ba5c-987ac21c02a3",
+      "title": "Német Kifejezések a Leendő Apósékhoz Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bemutatkozás",
+          "subsections": [
+            "### 1. Es freut mich sehr, Sie kennenzulernen",
+            "### 2. Ich habe viel von Ihnen gehört",
+            "### 3. Vielen Dank für die Einladung"
+          ]
+        },
+        {
+          "header": "## A Kapcsolatról",
+          "subsections": [
+            "### 4. Ihr Sohn/Ihre Tochter bedeutet mir sehr viel",
+            "### 5. Ich bin dankbar, Teil Ihrer Familie zu sein"
+          ]
+        },
+        {
+          "header": "## Bókok",
+          "subsections": [
+            "### 6. Sie haben ein wunderschönes Zuhause",
+            "### 7. Das Essen ist ausgezeichnet",
+            "### 8. Jetzt verstehe ich, woher er/sie das hat"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "72892307-8df8-4ad0-8e35-8bffd57b7040",
+      "title": "Шведський сленг для переписки пар",
+      "native_lang": "uk",
+      "target_lang": "sv",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Типові повідомлення",
+          "subsections": [
+            "### Ранок",
+            "### Протягом дня",
+            "### Вечір",
+            "### Перед сном"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "72b38131-e2c3-4e8a-9f59-c2b79527caba",
+      "title": "Фразы для медового месяца на греческий: Романтическое путешествие",
+      "native_lang": "ru",
+      "target_lang": "el",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## В аэропорту",
+          "subsections": [
+            "### Регистрация",
+            "### На борту"
+          ]
+        },
+        {
+          "header": "## В отеле",
+          "subsections": [
+            "### Регистрация",
+            "### Романтические просьбы"
+          ]
+        },
+        {
+          "header": "## На пляже",
+          "subsections": [
+            "### Пляжная лексика",
+            "### Романтические фразы на η παραλία"
+          ]
+        },
+        {
+          "header": "## Ужин вдвоём",
+          "subsections": [
+            "### В ресторане",
+            "### Романтические тосты"
+          ]
+        },
+        {
+          "header": "## Экскурсии и приключения",
+          "subsections": [
+            "### Планирование η περιπέτεια",
+            "### Создание οι αναμνήσεις"
+          ]
+        },
+        {
+          "header": "## Романтические моменты",
+          "subsections": [
+            "### Фразы для особых моментов",
+            "### Закат"
+          ]
+        },
+        {
+          "header": "## Покупка сувениров",
+          "subsections": [
+            "### В магазине",
+            "### Идеи подарков"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "72b403a2-8f6f-4e86-ab5d-ff7252921a8d",
+      "title": "Φράσεις για Γνωριμία με τους Πεθερικούς στα Δανικά",
+      "native_lang": "el",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για την Πρώτη Γνωριμία",
+          "subsections": [
+            "### 1. Dejligt at møde jer (Ντάιλιτ ατ μέθε γιερ)",
+            "### 2. Jeg har hørt så meget om jer (Γιάι χαρ χορτ σο μάιεθ ομ γιερ)",
+            "### 3. Tak fordi I tager imod mig (Τακ φορντί ι τάερ ίμοθ μάι)"
+          ]
+        },
+        {
+          "header": "## Φράσεις Εκτίμησης",
+          "subsections": [
+            "### 4. Jeres søn/datter er vidunderlig (Γιέρες σον/ντάτερ ερ βιντούνερλι)",
+            "### 5. I har opdraget et fantastisk menneske (Ι χαρ οπντράεθ ετ φαντάστισκ μέννεσκε)",
+            "### 6. Maden er lækker (Μάθεν ερ λέκερ)",
+            "### 7. I har et dejligt hjem (Ι χαρ ετ ντάιλιτ γιεμ)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για Συζήτηση",
+          "subsections": [
+            "### 8. Jeg vil gerne vide mere om jeres familie (Γιάι βιλ γκέρνε βίθε μέρε ομ γιέρες φαμίλιε)",
+            "### 9. Hvordan var han/hun som barn? (Χβόρνταν βα χαν/χουν σομ μπαρν)",
+            "### 10. Jeg håber, vi kan bruge mere tid sammen (Γιάι χόμπερ, βι καν μπρούε μέρε τιθ σάμεν)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "72c4386c-2184-44f9-809f-6c9f167f2192",
+      "title": "Vocabular pentru Seri Romantice în Engleză: Ghid Complet",
+      "native_lang": "ro",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## La Restaurant",
+          "subsections": [
+            "### Sosirea și Rezervarea",
+            "### Comanda",
+            "### Vocabular Esențial pentru Restaurante"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "72c4be60-d9b0-4c2d-88ab-bb5d7087e58e",
+      "title": "Как сделать предложение на польский: Фразы для помолвки",
+      "native_lang": "ru",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Способы сделать предложение",
+          "subsections": [
+            "### Классическое предложение",
+            "### Более романтические варианты"
+          ]
+        },
+        {
+          "header": "## Подготовка к предложению",
+          "subsections": [
+            "### Советы по практике",
+            "### Создание атмосферы"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "72c98970-9dcb-4e78-ae7a-bf1c82ca5326",
+      "title": "Переезд вместе на украинский: Важные фразы",
+      "native_lang": "ru",
+      "target_lang": "uk",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Поиск жилья",
+          "subsections": [
+            "### Разговор с риелтором",
+            "### Описание того, что нужно"
+          ]
+        },
+        {
+          "header": "## День переезда",
+          "subsections": [
+            "### Организация переезда",
+            "### Работа разом"
+          ]
+        },
+        {
+          "header": "## Обустройство дома",
+          "subsections": [
+            "### Расстановка меблі",
+            "### Принятие решений вместе"
+          ]
+        },
+        {
+          "header": "## Знакомство с соседями",
+          "subsections": [
+            "### Первая встреча",
+            "### Построение отношений"
+          ]
+        },
+        {
+          "header": "## Разделение обязанностей",
+          "subsections": [
+            "### Домашние дела",
+            "### Обсуждение"
+          ]
+        },
+        {
+          "header": "## Ваш первый вечер дома",
+          "subsections": [
+            "### Особенный момент",
+            "### Создание уюта"
+          ]
+        },
+        {
+          "header": "## Решение проблем",
+          "subsections": [
+            "### Бытовые вопросы",
+            "### Разговор с арендодателем"
+          ]
+        }
+      ]
+    }
+  ]
+}

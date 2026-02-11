@@ -1,0 +1,372 @@
+{
+  "batchId": "tier2a-slim-0235",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "eac9b76b-3fb1-416e-a67a-7e8c42df5631",
+      "title": "Norske fraser til forsoning og genopbygning af tillid",
+      "native_lang": "da",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser til forsoning",
+          "subsections": [
+            "### At undskylde oprigtigt",
+            "### At genopbygge forbindelsen",
+            "### At tilbyde forsoning",
+            "### At acceptere en undskyldning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eacb2b97-b887-4078-8886-c449e62d2d39",
+      "title": "Guía de pronunciación rumana para principiantes: Aprende a decir 'te quiero' sin miedo",
+      "native_lang": "es",
+      "target_lang": "ro",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Los sonidos que cambian todo",
+          "subsections": [
+            "### 1. Las vocales: tu nuevo mejor amigo",
+            "### 2. Las consonantes misteriosas"
+          ]
+        },
+        {
+          "header": "## Las combinaciones que confunden (pero no deberían)",
+          "subsections": [
+            "### Diptongos románticos"
+          ]
+        },
+        {
+          "header": "## Errores que enamoran (y cómo evitarlos)",
+          "subsections": [
+            "### Error #1: La 'r' española",
+            "### Error #2: Las vocales dobles",
+            "### Error #3: El acento loco"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eaf06244-3e24-4bbf-97ef-10444b56801b",
+      "title": "Ukrainische Grammatik für Deutsche",
+      "native_lang": "de",
+      "target_lang": "uk",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Verbkonjugation",
+          "subsections": [
+            "### Präsens",
+            "### Vergangenheit"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eaf430be-a474-42da-a02d-782655f2ec61",
+      "title": "Norská výslovnost pro začátečníky: Jak mluvit romanticky bez přízvuku",
+      "native_lang": "cs",
+      "target_lang": "no",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Základní norští hlásky",
+          "subsections": [
+            "### Norské samohlásky",
+            "### Speciální norské zvuky"
+          ]
+        },
+        {
+          "header": "## Nejběžnější chyby Čechů",
+          "subsections": [
+            "### 1. R-čková výslovnost",
+            "### 2. Dlouhé a krátké samohlásky",
+            "### 3. Skandinávské zvuky"
+          ]
+        },
+        {
+          "header": "## Procvičování s partnerem",
+          "subsections": [
+            "### Technika \"zrcadlení\"",
+            "### Hry pro páry"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eaf65140-735a-4fda-83ae-6c2abd72c15a",
+      "title": "Polonês para Casais: 50+ Frases Essenciais",
+      "native_lang": "pt",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Frases para o Cotidiano",
+          "subsections": [
+            "### Fazendo Planos",
+            "### Demonstrando Cuidado"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eafffdaf-3113-40cb-88cb-8574113ba800",
+      "title": "Swedish Emotional Support Phrases: Comfort Your Partner in Difficult Times",
+      "native_lang": "en",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Specific Situations",
+          "subsections": [
+            "### Grief",
+            "### Stress",
+            "### Disappointment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eb216ddf-7a45-432b-abb8-48fb32dc403d",
+      "title": "Frases en Portugués para Reconciliarte con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Pedir Disculpas",
+          "subsections": [
+            "### \"Desculpa pelo que eu disse\"",
+            "### \"Eu não queria te magoar\"",
+            "### \"Podemos começar de novo?\"",
+            "### \"Eu estava errado/a\""
+          ]
+        },
+        {
+          "header": "## Frases para Expresar Amor Después del Conflicto",
+          "subsections": [
+            "### \"Eu te amo, mesmo quando brigamos\"",
+            "### \"Você significa tudo pra mim\"",
+            "### \"Eu odeio brigar com você\""
+          ]
+        },
+        {
+          "header": "## Frases para Reconstruir la Conexión",
+          "subsections": [
+            "### \"Vamos conversar com calma\"",
+            "### \"Quero te entender melhor\"",
+            "### \"O que posso fazer para consertar isso?\"",
+            "### \"Prometo me esforçar mais\"",
+            "### \"Posso te abraçar?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eb217291-833f-4d18-994f-592f2b0a8cce",
+      "title": "Португальское произношение для начинающих: научитесь говорить с любимым человеком уверенно",
+      "native_lang": "ru",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Основы звуков: ваш музыкальный инструмент",
+          "subsections": [
+            "### Гласные звуки — душа португальского",
+            "### Согласные с сюрпризами"
+          ]
+        },
+        {
+          "header": "## Парные упражнения для влюблённых",
+          "subsections": [
+            "### Упражнение 1: «Утреннее кофе»",
+            "### Упражнение 2: «Комплименты на день»"
+          ]
+        },
+        {
+          "header": "## Ошибки, которые делают вашу речь милее (и как их исправить)",
+          "subsections": [
+            "### Ошибка 1: Русское р",
+            "### Ошибка 2: Закрытые гласные",
+            "### Ошибка 3: Пропуск мягких знаков"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eb37f3c4-219a-467a-b48a-559726838e67",
+      "title": "Russian Arguing & Disagreement Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressing Disagreement",
+          "subsections": [
+            "### Я не согласен / Я не согласна",
+            "### Это несправедливо",
+            "### Ты меня неправильно понимаешь",
+            "### Ты меня не слушаешь"
+          ]
+        },
+        {
+          "header": "## Expressing Frustration",
+          "subsections": [
+            "### Я расстроен / Я расстроена",
+            "### Меня раздражает, когда...",
+            "### Мне нужно время",
+            "### Это меня ранит"
+          ]
+        },
+        {
+          "header": "## Setting Boundaries",
+          "subsections": [
+            "### Не говори со мной так",
+            "### Это слишком",
+            "### Давай поговорим спокойно"
+          ]
+        },
+        {
+          "header": "## Seeking Resolution",
+          "subsections": [
+            "### Мы можем найти решение вместе?",
+            "### Я хочу тебя понять",
+            "### Что мы можем сделать?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eb37fb80-df91-437f-b31d-9752a46b1832",
+      "title": "Tjeckiska Fraser för Svartsjuka och Förtroende",
+      "native_lang": "sv",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Uttrycka Svartsjuka",
+          "subsections": [
+            "### 1. \"Cítím se nejistě, když...\"",
+            "### 2. \"Můžeš mi pomoct pochopit tvůj vztah s...?\"",
+            "### 3. \"Věřím ti, ale bojuji se svými pocity\"",
+            "### 4. \"Potřebuji ujištění\"",
+            "### 5. \"Vadí mi, když...\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Bygga Förtroende",
+          "subsections": [
+            "### 6. \"Mám oči jen pro tebe\"",
+            "### 7. \"Jsi jediný/á člověk pro mě\"",
+            "### 8. \"Nikdy bych neudělal/a nic, co by tě zranilo\"",
+            "### 9. \"Buďme k sobě upřímní\"",
+            "### 10. \"Chci, abys poznal/a mé přátele\"",
+            "### 11. \"Nemáš se čeho bát\"",
+            "### 12. \"Vybírám si tě každý den\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eb3e9125-74e2-41ae-8a36-06bbcd1d4e8d",
+      "title": "Guten Morgen und Gute Nacht auf Türkisch – Süße Phrasen für jeden Tag",
+      "native_lang": "de",
+      "target_lang": "tr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Guten Morgen sagen",
+          "subsections": [
+            "### Klassische Morgengrüße",
+            "### Romantische Morgengrüße"
+          ]
+        },
+        {
+          "header": "## Gute Nacht sagen",
+          "subsections": [
+            "### Klassische Nachtgrüße",
+            "### Romantische Nachtgrüße"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eb54a9a5-37f2-4a7c-83f9-71ef468216ee",
+      "title": "Выражение эмоций на румынском языке",
+      "native_lang": "ru",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Положительные эмоции",
+          "subsections": [
+            "### Радость и счастье",
+            "### Любовь и привязанность"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eb659dee-c08b-40cb-bd43-c7cca3695a9b",
+      "title": "Гид по произношению датского для начинающих: Научитесь говорить с любимым без акцента",
+      "native_lang": "ru",
+      "target_lang": "da",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Три ключа к датским согласным",
+          "subsections": [
+            "### 1. Мягкие согласные",
+            "### 2. Особые звуки",
+            "### 3. Сочетания, которые путают"
+          ]
+        },
+        {
+          "header": "## Типичные ошибки русскоговорящих",
+          "subsections": [
+            "### 1. Твёрдые вместо мягких",
+            "### 2. Забываем про длинные гласные",
+            "### 3. Путаем «r» и «l»"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eb717951-4d7c-4e97-ba5c-fa304cc85bf1",
+      "title": "Основи польської граматики для початківців",
+      "native_lang": "uk",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Часи дієслів",
+          "subsections": [
+            "### Теперішній час",
+            "### Минулий час"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eb7bf30c-2ed1-4ae9-8498-0d8e7b6a4dea",
+      "title": "50+ Russische Koosnaampjes om Harten te Laten Smelten",
+      "native_lang": "nl",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Bijnamen op Basis van Namen",
+          "subsections": [
+            "### Hoe Russische Namen Verkort Worden",
+            "### Populaire Vrouwelijke Verkleinvormen",
+            "### Populaire Mannelijke Verkleinvormen"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0779",
+  "articles": [
+    {
+      "id": "e11a4f2f-6175-40d4-809c-2201d2abd569",
+      "title": "Engels voor Stellen: 45+ Essentiële Reiszinnen",
+      "native_lang": "nl",
+      "target_lang": "en",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nEen reis naar een Engelstalig land met je partner is een geweldige kans om je Engels te oefenen. Of je nu naar Londen, New York of Sydney gaat, deze zinnen helpen je om samen te navigeren door alle situaties.\n\n## Op Het Vliegveld\n\n<PhraseOfDay\n  word=\"We're traveling together\"\n  translation=\"We reizen samen\"\n  pronunciation=\"wier tre-ve-ling toe-ge-ther\"\n  context=\"Handig bij de douane en check-in.\"\n/>\n\n### Bij Check-in\n\n<VocabCard\n  word=\"We'd like to check in for our flight\"\n  translation=\"We willen inchecken voor onze vlucht\"\n  pronunciation=\"wied laik toe tjek in for aur flait\"\n  example=\"Hi, we'd like to check in for our flight to London.\"\n/>\n\n<VocabCard\n  word=\"Can we have seats next to each other?\"\n  translation=\"Kunnen we stoelen naast elkaar krijgen?\"\n  pronunciation=\"ken wie hev siets nekst toe ietj a-ther\"\n  example=\"Can we have seats next to each other, please? We're a couple.\"\n/>\n\n<VocabCard\n  word=\"We have two bags to check\"\n  translation=\"We hebben twee koffers om in te checken\"\n  pronunciation=\"wie hev toe begs toe tjek\"\n  example=\"We have two bags to check and two carry-ons.\"\n/>\n\n### Bij De Douane\n\n<VocabCard\n  word=\"We're here on vacation\"\n  translation=\"We zijn hier op vakantie\"\n  pronunciation=\"wier hier on vei-kei-sjen\"\n  example=\"We're here on vacation for two weeks.\"\n/>\n\n<VocabCard\n  word=\"We're staying at...\"\n  translation=\"We verblijven in...\"\n  pronunciation=\"wier stei-ing et\"\n  example=\"We're staying at the Hilton Hotel.\"\n/>\n\n<CultureTip title=\"Douane Tips\" flag=\"🛃\">\nWees altijd vriendelijk en kort bij de douane. Zeg \"holiday\" in het VK en \"vacation\" in de VS. Houd je retourticket en hotelreservering bij de hand.\n</CultureTip>\n\n## In Het Hotel\n\n### Inchecken\n\n<VocabCard\n  word=\"We have a reservation under [naam]\"\n  translation=\"We hebben een reservering op naam van [naam]\"\n  pronunciation=\"wie hev e re-zer-vei-sjen an-der\"\n  example=\"Good evening. We have a reservation under van der Berg.\"\n/>\n\n<VocabCard\n  word=\"We booked a double room\"\n  translation=\"We hebben een tweepersoonskamer geboekt\"\n  pronunciation=\"wie boekt e da-bel roem\"\n  example=\"We booked a double room with a sea view.\"\n/>\n\n<VocabCard\n  word=\"Is breakfast included?\"\n  translation=\"Is ontbijt inbegrepen?\"\n  pronunciation=\"is brek-fest in-kloe-ded\"\n  example=\"Is breakfast included in the price?\"\n/>\n\n### Verzoeken\n\n<VocabCard\n  word=\"Could we have a room with a view?\"\n  translation=\"Kunnen we een kamer met uitzicht krijgen?\"\n  pronunciation=\"koed wie hev e roem with e vjoe\"\n  example=\"Could we have a room with a view if available?\"\n/>\n\n<VocabCard\n  word=\"We need extra towels\"\n  translation=\"We hebben extra handdoeken nodig\"\n  pronunciation=\"wie nied eks-tra tau-els\"\n  example=\"Could you send up some extra towels, please?\"\n/>\n\n<VocabCard\n  word=\"What time is check-out?\"\n  translation=\"Hoe laat is uitchecken?\"\n  pronunciation=\"wot taim is tjek-aut\"\n  example=\"What time is check-out? Can we leave our bags here after?\"\n/>\n\n## In Een Restaurant\n\n### Een Tafel Krijgen\n\n<VocabCard\n  word=\"A table for two, please\"\n  translation=\"Een tafel voor twee, alstublieft\"\n  pronunciation=\"e tei-bel for toe plies\"\n  example=\"Good evening. A table for two, please.\"\n/>\n\n<VocabCard\n  word=\"Do you have a table outside?\"\n  translation=\"Heeft u een tafel buiten?\"\n  pronunciation=\"doe joe hev e tei-bel aut-said\"\n  example=\"It's such a nice evening. Do you have a table outside?\"\n/>\n\n### Bestellen\n\n<VocabCard\n  word=\"What do you recommend?\"\n  translation=\"Wat beveelt u aan?\"\n  pronunciation=\"wot doe joe re-ko-mend\"\n  example=\"We've never been here before. What do you recommend?\"\n/>\n\n<VocabCard\n  word=\"We'll share the...\"\n  translation=\"We delen de...\"\n  pronunciation=\"wiel sjer the\"\n  example=\"We'll share the appetizer and each have a main course.\"\n/>\n\n<VocabCard\n  word=\"Could we have the bill, please?\"\n  translation=\"Kunnen we de rekening krijgen?\"\n  pronunciation=\"koed wie hev the bil plies\"\n  example=\"We're ready to leave. Could we have the bill, please?\"\n/>\n\n<CultureTip title=\"Fooi Cultuur\" flag=\"💵\">\nIn de VS: 15-20% fooi is standaard in restaurants. In het VK: 10-15% is gebruikelijk maar niet verplicht. Controleer of \"service charge\" al is inbegrepen!\n</CultureTip>\n\n## Vervoer\n\n### Taxi Nemen\n\n<VocabCard\n  word=\"Could you take us to...?\"\n  translation=\"Kunt u ons naar... brengen?\"\n  pronunciation=\"koed joe teik as toe\"\n  example=\"Could you take us to the Eiffel Tower, please?\"\n/>\n\n<VocabCard\n  word=\"How much will it cost?\"\n  translation=\"Hoeveel kost het?\"\n  pronunciation=\"hau match wil it kost\"\n  example=\"How much will it cost to get to the airport?\"\n/>\n\n<VocabCard\n  word=\"Keep the change\"\n  translation=\"Hou het wisselgeld maar\"\n  pronunciation=\"kiep the tjeindzj\"\n  example=\"Here you go. Keep the change!\"\n/>\n\n### Openbaar Vervoer\n\n<VocabCard\n  word=\"Two tickets to..., please\"\n  translation=\"Twee kaartjes naar..., alstublieft\"\n  pronunciation=\"toe ti-kets toe... plies\"\n  example=\"Two tickets to Central Station, please.\"\n/>\n\n<VocabCard\n  word=\"Which platform/line?\"\n  translation=\"Welk perron/welke lijn?\"\n  pronunciation=\"witj plet-form/lain\"\n  example=\"Which platform does the train to Oxford leave from?\"\n/>\n\n<VocabCard\n  word=\"Does this bus go to...?\"\n  translation=\"Gaat deze bus naar...?\"\n  pronunciation=\"das this bas gou toe\"\n  example=\"Excuse me, does this bus go to the city center?\"\n/>\n\n## Bezienswaardigheden\n\n### Kaartjes Kopen\n\n<VocabCard\n  word=\"Two adults, please\"\n  translation=\"Twee volwassenen, alstublieft\"\n  pronunciation=\"toe e-dalts plies\"\n  example=\"Two adults, please. Do you have a couples discount?\"\n/>\n\n<VocabCard\n  word=\"What time does it close?\"\n  translation=\"Hoe laat gaat het dicht?\"\n  pronunciation=\"wot taim das it klouz\"\n  example=\"What time does the museum close today?\"\n/>\n\n<VocabCard\n  word=\"Are photos allowed?\"\n  translation=\"Mogen we foto's maken?\"\n  pronunciation=\"ar fou-tous e-laud\"\n  example=\"Excuse me, are photos allowed inside?\"\n/>\n\n### De Weg Vragen\n\n<VocabCard\n  word=\"How do we get to...?\"\n  translation=\"Hoe komen we bij...?\"\n  pronunciation=\"hau doe wie get toe\"\n  example=\"Excuse me, how do we get to the London Eye from here?\"\n/>\n\n<VocabCard\n  word=\"Is it far from here?\"\n  translation=\"Is het ver van hier?\"\n  pronunciation=\"is it faar from hier\"\n  example=\"The British Museum? Is it far from here?\"\n/>\n\n<VocabCard\n  word=\"Can we walk there?\"\n  translation=\"Kunnen we er lopen?\"\n  pronunciation=\"ken wie wok ther\"\n  example=\"Can we walk there or should we take a taxi?\"\n/>\n\n## Winkelen\n\n<VocabCard\n  word=\"We're just looking, thanks\"\n  translation=\"We kijken alleen even, bedankt\"\n  pronunciation=\"wier djast loe-king thenks\"\n  example=\"Can I help you? - We're just looking, thanks.\"\n/>\n\n<VocabCard\n  word=\"Do you have this in a different size/color?\"\n  translation=\"Heeft u dit in een andere maat/kleur?\"\n  pronunciation=\"doe joe hev this in e di-fe-rent saiz/ka-lor\"\n  example=\"I love this dress. Do you have it in blue?\"\n/>\n\n<VocabCard\n  word=\"Can I pay by card?\"\n  translation=\"Kan ik met kaart betalen?\"\n  pronunciation=\"ken ai pei bai kaard\"\n  example=\"Can I pay by card or is it cash only?\"\n/>\n\n## Noodgevallen\n\n<VocabCard\n  word=\"We need help\"\n  translation=\"We hebben hulp nodig\"\n  pronunciation=\"wie nied help\"\n  example=\"Excuse me, we need help. We're lost.\"\n/>\n\n<VocabCard\n  word=\"Where's the nearest hospital?\"\n  translation=\"Waar is het dichtstbijzijnde ziekenhuis?\"\n  pronunciation=\"wers the nie-rest hos-pi-tel\"\n  example=\"My partner doesn't feel well. Where's the nearest hospital?\"\n/>\n\n<VocabCard\n  word=\"We've lost our passports\"\n  translation=\"We zijn onze paspoorten kwijt\"\n  pronunciation=\"wiev lost aur paas-ports\"\n  example=\"Please help, we've lost our passports!\"\n/>\n\n<CultureTip title=\"Noodnummers\" flag=\"🚨\">\nVS: 911 voor alle noodgevallen. VK: 999 (of 112). Australie: 000. Zet deze nummers in je telefoon voor je vertrekt!\n</CultureTip>\n\n## Romantische Reiszinnen\n\n<VocabCard\n  word=\"This is so romantic\"\n  translation=\"Dit is zo romantisch\"\n  pronunciation=\"this is sou rou-men-tik\"\n  example=\"Look at this view! This is so romantic.\"\n/>\n\n<VocabCard\n  word=\"I'm so happy we're doing this together\"\n  translation=\"Ik ben zo blij dat we dit samen doen\"\n  pronunciation=\"aim sou he-pie wier doe-ing this toe-ge-ther\"\n  example=\"I'm so happy we're doing this together. Best trip ever!\"\n/>\n\n<VocabCard\n  word=\"Let's come back here someday\"\n  translation=\"Laten we hier ooit terugkomen\"\n  pronunciation=\"lets kam bek hier sam-dei\"\n  example=\"I love this place. Let's come back here someday.\"\n/>\n\n<VocabCard\n  word=\"Take a picture of us!\"\n  translation=\"Maak een foto van ons!\"\n  pronunciation=\"teik e pik-tjer ov as\"\n  example=\"Excuse me, could you take a picture of us?\"\n/>\n\n## Handige Woordenlijst\n\n### Vliegveld\n\n| Engels | Nederlands |\n|--------|------------|\n| Departure | Vertrek |\n| Arrival | Aankomst |\n| Gate | Gate |\n| Boarding pass | Instapkaart |\n| Luggage/Baggage | Bagage |\n| Customs | Douane |\n| Passport control | Paspoortcontrole |\n\n### Hotel\n\n| Engels | Nederlands |\n|--------|------------|\n| Reception | Receptie |\n| Room service | Roomservice |\n| Check-in / Check-out | Inchecken / Uitchecken |\n| Key card | Sleutelkaart |\n| Housekeeping | Schoonmaak |\n\n### Vervoer\n\n| Engels | Nederlands |\n|--------|------------|\n| One-way ticket | Enkeltje |\n| Return ticket | Retourtje |\n| Platform | Perron |\n| Subway (VS) / Tube (VK) | Metro |\n| Bus stop | Bushalte |\n\n## Tips voor Samen Reizen\n\n1. **Verdeel de taken** - Een van jullie regelt hotels, de ander het vervoer\n2. **Leer samen** - Oefen zinnen hardop voor vertrek\n3. **Wees geduldig** - Reizen kan stressvol zijn, ondersteun elkaar\n4. **Vier successen** - Vond je een gesprek goed gaan? Vier het!\n5. **Maak herinneringen** - Neem foto's en schrijf ervaringen op\n\n<CTA\n  text=\"Oefen deze zinnen met je partner! Gebruik Listen Mode tijdens het familiediner, bewaar je favorieten in de Love Log, of laat je tutor een uitdaging voor je maken.\"\n  buttonText=\"Begin Samen te Leren\"\n/>\n",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 279,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## In Het Hotel",
+              "## In Een Restaurant",
+              "## Vervoer",
+              "## Bezienswaardigheden",
+              "## Handige Woordenlijst"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "e12268c5-54b2-4032-9044-c3ef31c71a26",
+      "title": "Turkiska fraser för emotionellt stöd – Trösta din partner på turkiska",
+      "native_lang": "sv",
+      "target_lang": "tr",
+      "category": "communication",
+      "content": "Turkiska har varma sätt att uttrycka stöd. Lär dig vara där för din partner.\n\n## Grundläggande stöd\n\n### \"Senin için buradayım\"\n**Betydelse:** Jag finns här för dig\n\n### \"Bu konuda yalnız değilsin\"\n**Betydelse:** Du är inte ensam i detta\n\n### \"Her zaman yanında olacağım\"\n**Betydelse:** Jag kommer alltid vara vid din sida\n\n## Visa empati\n\n### \"Bunun senin için ne kadar zor olduğunu ancak tahmin edebiliyorum\"\n**Betydelse:** Jag kan bara föreställa mig hur svårt detta är\n\n### \"Duyguların tamamen anlaşılır\"\n**Betydelse:** Dina känslor är helt förståeliga\n\n### \"Böyle hissetmen normal\"\n**Betydelse:** Det är normalt att känna så\n\n## Tröstande fraser\n\n### \"Bu da geçecek\"\n**Betydelse:** Även detta ska passera\n\n### \"Bunu birlikte atlatacağız\"\n**Betydelse:** Vi tar oss igenom det tillsammans\n\n### \"İhtiyacın olan zamanı al\"\n**Betydelse:** Ta den tid du behöver\n\n### \"İyi olmamak sorun değil\"\n**Betydelse:** Det är okej att inte vara okej\n\n## Erbjuda stöd\n\n### \"Şu an benden neye ihtiyacın var?\"\n**Betydelse:** Vad behöver du av mig nu?\n\n### \"Bunun hakkında konuşmak mı istersin yoksa dikkatini dağıtmak mı?\"\n**Betydelse:** Vill du prata om det eller distrahera dig?\n\n### \"Yardım etmek için bir şey yapabilir miyim?\"\n**Betydelse:** Kan jag göra något för att hjälpa?\n\n## Vid förlust\n\n### \"Kaybın için çok üzgünüm\"\n**Betydelse:** Jag beklagar din förlust\n\n### \"Söyleyecek söz bulamıyorum, ama buradayım\"\n**Betydelse:** Jag hittar inga ord, men jag finns här\n\n## Uppmuntrande fraser\n\n### \"Sana inanıyorum\"\n**Betydelse:** Jag tror på dig\n\n### \"Düşündüğünden daha güçlüsün\"\n**Betydelse:** Du är starkare än du tror\n\n### \"Seninle gurur duyuyorum\"\n**Betydelse:** Jag är stolt över dig\n\n## Avslutande tankar\n\nTurkiska ger dig varma verktyg för tröst. Var närvarande med äkta värme.\n\nAşk zor zamanlarda belli olur.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 276,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Grundläggande stöd",
+              "## Visa empati",
+              "## Tröstande fraser",
+              "## Erbjuda stöd",
+              "## Vid förlust",
+              "## Uppmuntrande fraser"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "e14bf529-9655-4776-bfd7-c7be524a9d00",
+      "title": "Frases de Saudade em Tcheco: Chybíš Mi - Você Me Faz Falta",
+      "native_lang": "pt",
+      "target_lang": "cs",
+      "category": "communication",
+      "content": "O tcheco expressa saudade de forma poética: \"Chybíš mi\" significa literalmente \"você me faz falta\", colocando a pessoa amada como sujeito - similar ao francês e italiano.\n\n## A Saudade em Tcheco\n\n\"Chybět\" é o verbo tcheco para fazer falta. A construção gramatical é poética: a pessoa de quem sentimos falta é o sujeito da frase.\n\n## Frases Essenciais de Saudade\n\n### Expressões Básicas\n\n**Moc mi chybíš.**\n*Sinto muito a sua falta.*\n\n**Pořád na tebe myslím.**\n*Penso em você constantemente.*\n\n**Každý okamžik bez tebe je těžký.**\n*Cada momento sem você é difícil.*\n\n### Saudade Profunda\n\n**Mé srdce po tobě touží.**\n*Meu coração anseia por você.*\n\n**Bez tebe se cítím neúplný/neúplná.**\n*Sem você me sinto incompleto(a).*\n\n**Dny bez tebe jsou jako věčnost.**\n*Os dias sem você são como eternidade.*\n\n### Para Relacionamentos à Distância\n\n**Vzdálenost nemění mé city k tobě.**\n*A distância não muda meus sentimentos por você.*\n\n**Počítám dny do našeho setkání.**\n*Conto os dias até nosso encontro.*\n\n**Jsi daleko, ale vždy v mém srdci.**\n*Você está longe, mas sempre no meu coração.*\n\n### Saudade Doce\n\n**Přál/a bych si, abys tu byl/byla.**\n*Queria que você estivesse aqui.*\n\n**Všechno mi tě připomíná.**\n*Tudo me lembra de você.*\n\n**Chybí mi tvůj úsměv, tvůj hlas, všechno.**\n*Sinto falta do seu sorriso, da sua voz, de tudo.*\n\n## A Gramática do \"Chybět\"\n\n- **\"Chybíš mi\"** = Você me faz falta\n- **\"Chybím ti?\"** = Você sente minha falta?\n- **\"Chybíme si\"** = Sentimos falta um do outro\n\n## Apelidos Tchecos\n\n- **Lásko** - Amor\n- **Miláčku** - Querido(a)\n- **Zlatíčko** - Ourozinho\n\n## Comece Hoje\n\nEnvie um \"Chybíš mi víc, než slova mohou vyjádřit\" para seu amor tcheco.\n\nLáska nezná vzdálenost - o amor não conhece distância!",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 283,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frases Essenciais de Saudade"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "e15f584d-32da-401b-bc6a-9cb09adc5da4",
+      "title": "Italienische Ich-vermisse-dich-Sprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "it",
+      "category": "communication",
+      "content": "Italienisch ist die Sprache der Leidenschaft und der großen Gefühle. Wenn es darum geht, Sehnsucht auszudrücken, bietet Italienisch wunderschöne, emotionale Ausdrücke. Hier lernst du die schönsten italienischen Phrasen für die Momente, in denen du deinen Partner vermisst.\n\n## Die Leidenschaft des italienischen Vermissens\n\nItaliener drücken ihre Gefühle offen und intensiv aus. Das Vermissen wird nicht nur erwähnt – es wird gefühlt und gelebt.\n\n## Grundlegende Ausdrücke\n\n### \"Mi manchi\"\n**Aussprache:** mi MAN-ki\n\n**Bedeutung:** Ich vermisse dich (wörtlich: Du fehlst mir)\n\nWie im Französischen ist die vermisste Person das Subjekt.\n\n### \"Mi manchi tanto\"\n**Aussprache:** mi MAN-ki TAN-to\n\n**Bedeutung:** Ich vermisse dich so sehr\n\nVerstärkt die Intensität.\n\n### \"Non riesco a smettere di pensare a te\"\n**Aussprache:** non ri-E-sko a SMET-te-re di pen-SA-re a te\n\n**Bedeutung:** Ich kann nicht aufhören, an dich zu denken\n\n## Emotionale Ausdrücke\n\n### \"Vorrei che tu fossi qui\"\n**Aussprache:** wor-REI ke tu FOS-si kwi\n\n**Bedeutung:** Ich wünschte, du wärst hier\n\nEin starker Ausdruck des Wunsches.\n\n### \"Ogni momento senza di te è un'eternità\"\n**Aussprache:** O-nji mo-MEN-to SEN-za di te e un-e-ter-ni-TA\n\n**Bedeutung:** Jeder Moment ohne dich ist eine Ewigkeit\n\nDramatisch und leidenschaftlich.\n\n### \"Il mio cuore ti cerca\"\n**Aussprache:** il MI-o KWO-re ti TSCHER-ka\n\n**Bedeutung:** Mein Herz sucht dich\n\nPoetisch und romantisch.\n\n### \"Sento un vuoto senza di te\"\n**Aussprache:** SEN-to un WUO-to SEN-za di te\n\n**Bedeutung:** Ich fühle eine Leere ohne dich\n\nTiefgründig und emotional.\n\n## Liebevolle Nachrichten\n\n### \"Conto i giorni fino a quando ti rivedrò\"\n**Aussprache:** KON-to i DSCHOR-ni FI-no a KWAN-do ti ri-we-DRO\n\n**Bedeutung:** Ich zähle die Tage, bis ich dich wiedersehe\n\nPerfekt, wenn ein Wiedersehen geplant ist.\n\n### \"Sei il mio primo pensiero al mattino e l'ultimo prima di dormire\"\n**Aussprache:** sei il MI-o PRI-mo pen-SJE-ro al mat-TI-no e LUL-ti-mo PRI-ma di dor-MI-re\n\n**Bedeutung:** Du bist mein erster Gedanke am Morgen und der letzte vor dem Schlafen\n\nZeigt die Tiefe deiner Gefühle.\n\n### \"La distanza non conta niente quando qualcuno significa tutto\"\n**Aussprache:** la dis-TAN-za non KON-ta NJEN-te KWAN-do kwal-KU-no si-NJI-fi-ka TUT-to\n\n**Bedeutung:** Entfernung bedeutet nichts, wenn jemand alles bedeutet\n\n## Tröstende Worte\n\n### \"Presto saremo di nuovo insieme\"\n**Aussprache:** PRES-to sa-RE-mo di NWO-wo in-SJE-me\n\n**Bedeutung:** Bald werden wir wieder zusammen sein\n\nGibt Hoffnung.\n\n### \"Il nostro amore è più forte di qualsiasi distanza\"\n**Aussprache:** il NOS-tro a-MO-re e pju FOR-te di kwal-SJA-si dis-TAN-za\n\n**Bedeutung:** Unsere Liebe ist stärker als jede Entfernung\n\nBetont die Stärke eurer Bindung.\n\n### \"Anche se siamo lontani, sarai sempre nel mio cuore\"\n**Aussprache:** AN-ke se SJA-mo lon-TA-ni, sa-RAI SEM-pre nel MI-o KWO-re\n\n**Bedeutung:** Auch wenn wir weit weg sind, wirst du immer in meinem Herzen sein\n\n## Für besondere Momente\n\n### \"Mi manca il tuo sorriso, la tua risata, tutto di te\"\n**Aussprache:** mi MAN-ka il TU-o sor-RI-so, la TU-a ri-SA-ta, TUT-to di te\n\n**Bedeutung:** Mir fehlt dein Lächeln, dein Lachen, alles an dir\n\nZeigt Aufmerksamkeit für Details.\n\n### \"Nessuno può paragonarsi a te\"\n**Aussprache:** nes-SU-no pwo pa-ra-go-NAR-si a te\n\n**Bedeutung:** Niemand kann sich mit dir vergleichen\n\n### \"Sei insostituibile\"\n**Aussprache:** sei in-sos-ti-tu-I-bi-le\n\n**Bedeutung:** Du bist unersetzlich\n\nMacht die Einzigartigkeit deines Partners deutlich.\n\n## Aussprache-Tipps\n\n- Doppelkonsonanten werden länger ausgesprochen.\n- \"Gn\" = \"nj\" (wie in \"Cognac\").\n- \"Gli\" = \"lji\".\n- Achte auf die richtige Silbenbetonung.\n\n## Kulturelle Hinweise\n\nItaliener sind bekannt für ihre Expressivität. Sehnsucht wird nicht versteckt, sondern offen ausgedrückt – oft begleitet von Gesten und emotionaler Stimme.\n\nTelefonate und Videoanrufe sind für italienische Paare besonders wichtig, wenn sie getrennt sind. Mit diesen Ausdrücken bringst du italienische Wärme in jede Nachricht!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Grundlegende Ausdrücke",
+              "## Emotionale Ausdrücke",
+              "## Liebevolle Nachrichten",
+              "## Tröstende Worte",
+              "## Für besondere Momente"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "e16649d2-3f4f-47b4-99ab-8c5b9d58b01e",
+      "title": "Engelska Fraser för Första Dejten",
+      "native_lang": "sv",
+      "target_lang": "en",
+      "category": "communication",
+      "content": "Första dejten är en spännande tid full av möjligheter. Att kunna uttrycka sig på engelska hjälper dig att göra ett gott intryck.\n\n## Fraser för att Bryta Isen\n\n### 1. \"It's so nice to finally meet you\"\n**Uttal:** its sou najs tu faj-nə-li miit juu\n\n**Betydelse:** Det är så trevligt att äntligen träffa dig\n\n### 2. \"You look amazing\"\n**Uttal:** juu luk ə-mej-zing\n\n**Betydelse:** Du ser fantastisk ut\n\n### 3. \"I've been looking forward to this\"\n**Uttal:** ajv biin luk-ing for-wərd tu ðis\n\n**Betydelse:** Jag har sett fram emot det här\n\n### 4. \"Tell me about yourself\"\n**Uttal:** tel mii ə-baut jor-self\n\n**Betydelse:** Berätta om dig själv\n\n### 5. \"What do you do for fun?\"\n**Uttal:** wot du juu duu for fan\n\n**Betydelse:** Vad gör du för skojs skull?\n\n## Fraser för att Visa Intresse\n\n### 6. \"That's really interesting\"\n**Uttal:** ðäts rii-li in-tris-ting\n\n**Betydelse:** Det är verkligen intressant\n\n### 7. \"I'd love to hear more about that\"\n**Uttal:** ajd lav tu hiir mor ə-baut ðät\n\n**Betydelse:** Jag skulle gärna höra mer om det\n\n### 8. \"We have so much in common\"\n**Uttal:** wii häv sou matsh in kom-ən\n\n**Betydelse:** Vi har så mycket gemensamt\n\n### 9. \"I really enjoy talking to you\"\n**Uttal:** aj rii-li en-djoj taak-ing tu juu\n\n**Betydelse:** Jag gillar verkligen att prata med dig\n\n### 10. \"You have a great sense of humor\"\n**Uttal:** juu häv ə grejt sens ov hjuu-mər\n\n**Betydelse:** Du har bra humor\n\n## Fraser för Dejten Slutar\n\n### 11. \"I had a wonderful time\"\n**Uttal:** aj häd ə wan-dər-ful tajm\n\n**Betydelse:** Jag hade en underbar tid\n\n### 12. \"Can I see you again?\"\n**Uttal:** kän aj sii juu ə-gen\n\n**Betydelse:** Kan jag träffa dig igen?\n\n### 13. \"I'd love to do this again\"\n**Uttal:** ajd lav tu duu ðis ə-gen\n\n**Betydelse:** Jag skulle gärna göra det här igen\n\n### 14. \"Let me get the bill\"\n**Uttal:** let mii get ðə bil\n\n**Betydelse:** Låt mig ta notan\n\n### 15. \"Text me when you get home safe\"\n**Uttal:** tekst mii wen juu get houm sejf\n\n**Betydelse:** Skriv till mig när du kommit hem säkert\n\n## Kulturella Tips\n\nI engelsktalande kulturer:\n- Uppskattas artighet och humor\n- Förväntas båda parter delta aktivt i samtalet\n- Är det vanligt att dela notan på första dejten\n- Värdesätts äkthet över perfektion\n\n## Avslutande Tankar\n\nMed dessa fraser kan du navigera din första dejt med självförtroende.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Fraser för att Bryta Isen",
+              "## Fraser för att Visa Intresse",
+              "## Fraser för Dejten Slutar"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

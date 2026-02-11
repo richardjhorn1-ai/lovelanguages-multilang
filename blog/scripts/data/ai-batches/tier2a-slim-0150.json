@@ -1,0 +1,484 @@
+{
+  "batchId": "tier2a-slim-0150",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "a356136e-f821-4216-806a-95e5c2645b3d",
+      "title": "Данський сленг для переписки пар",
+      "native_lang": "uk",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Типові повідомлення",
+          "subsections": [
+            "### Ранок",
+            "### Протягом дня",
+            "### Вечір",
+            "### Перед сном"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a371d4cd-baf6-44d1-9435-aa634efdaeb2",
+      "title": "Görög lánykérési és eljegyzési kifejezések",
+      "native_lang": "hu",
+      "target_lang": "el",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### A nagy kérdés",
+            "### Az eljegyzés bejelentése"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a37389c6-1e95-4efb-9b57-f9056782d4ca",
+      "title": "Inglés Británico vs Americano: Diferencias Clave",
+      "native_lang": "es",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Diferencias de Pronunciación",
+          "subsections": [
+            "### La \"R\" Final",
+            "### La \"T\" Intermedia",
+            "### Palabras con Pronunciación Muy Diferente"
+          ]
+        },
+        {
+          "header": "## Diferencias Gramaticales",
+          "subsections": [
+            "### Have vs Have Got",
+            "### Past Simple vs Present Perfect"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a3772aeb-d49a-405b-9aef-ca9155bad150",
+      "title": "Pronunția Cehă pentru Începători: Ghidul Complet pentru Cupluri",
+      "native_lang": "ro",
+      "target_lang": "cs",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Sunetele de Bază: Fundamentul Pronunției",
+          "subsections": [
+            "### Vocalele Cehilor",
+            "### Consoanele Confortante"
+          ]
+        },
+        {
+          "header": "## Sunetele Romantice: Pentru Cupluri",
+          "subsections": [
+            "### R-ul Vibrat",
+            "### Ř - Super-eroul Ceh"
+          ]
+        },
+        {
+          "header": "## Greșeli Comune pe Care Le Evităm Împreună",
+          "subsections": [
+            "### 1. Accentul Greșit",
+            "### 2. Vocalele închise",
+            "### 3. Consoanele finale"
+          ]
+        },
+        {
+          "header": "## Exerciții pentru Cupluri",
+          "subsections": [
+            "### Exercițiul 1: Șoapta Romantică",
+            "### Exercițiul 2: Conversație Zilnică"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a37e39a6-e7ad-47cf-b778-b802b51f195f",
+      "title": "Ρωσικές Φράσεις για Ζήλια & Εμπιστοσύνη: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για Ζήλια & Εμπιστοσύνη",
+          "subsections": [
+            "### Έκφραση Ανησυχίας",
+            "### Χτίσιμο Εμπιστοσύνης",
+            "### Αντιμετώπιση Ζήλιας",
+            "### Συζήτηση για Όρια"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a3814e5a-2eed-4b4a-a0c7-96e9b9549ee7",
+      "title": "Nehéz megtanulni a portugált? Őszinte válasz pároknak",
+      "native_lang": "hu",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Mi nehezíti meg a portugált?",
+          "subsections": [
+            "### Kihívások:",
+            "### Előnyök:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a3a97f82-c64e-4c89-ab6e-eba0caee4ddd",
+      "title": "Engelske Kærlighedsbreve for Danskere",
+      "native_lang": "da",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Indledninger",
+          "subsections": [
+            "### \"My dearest [name]\"",
+            "### \"To the love of my life\"",
+            "### \"My darling\"",
+            "### \"To my one and only\""
+          ]
+        },
+        {
+          "header": "## Udtryk for Kærlighed",
+          "subsections": [
+            "### \"Words cannot express how much you mean to me\"",
+            "### \"You are the best thing that has ever happened to me\"",
+            "### \"Every day with you is a gift\"",
+            "### \"You make me want to be a better person\""
+          ]
+        },
+        {
+          "header": "## Beskrivelse af Følelser",
+          "subsections": [
+            "### \"When I look into your eyes, I see my future\"",
+            "### \"Your smile lights up my world\"",
+            "### \"I fall more in love with you every single day\"",
+            "### \"You are my rock, my anchor, my safe harbor\""
+          ]
+        },
+        {
+          "header": "## Minder og Øjeblikke",
+          "subsections": [
+            "### \"I will never forget the moment I first saw you\"",
+            "### \"Do you remember when we...?\"",
+            "### \"That night changed my life forever\""
+          ]
+        },
+        {
+          "header": "## Fremtidsløfter",
+          "subsections": [
+            "### \"I promise to love you through all of life's ups and downs\"",
+            "### \"I want to grow old with you\"",
+            "### \"My love for you will never fade\"",
+            "### \"I choose you, today and every day\""
+          ]
+        },
+        {
+          "header": "## Afslutninger",
+          "subsections": [
+            "### \"Forever and always yours\"",
+            "### \"With all my love\"",
+            "### \"Yours eternally\"",
+            "### \"Until we meet again, my heart belongs to you\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a3b37822-46dd-4f39-9495-447e5299b1a2",
+      "title": "Conocer a la Familia de tu Pareja Francesa",
+      "native_lang": "es",
+      "target_lang": "fr",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Cosas que Evitar",
+          "subsections": [
+            "### No hagas:",
+            "### Haz:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a3be2728-d81a-4328-9c52-4c874ffae782",
+      "title": "Franska SMS- och chattfraser för kärleksrelationer",
+      "native_lang": "sv",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Morgonhälsningar",
+          "subsections": [
+            "### \"Bonjour mon amour\"",
+            "### \"Coucou, mon cœur\"",
+            "### \"Tu me manques déjà\""
+          ]
+        },
+        {
+          "header": "## Kärleksförklaringar",
+          "subsections": [
+            "### \"Je t'aime\"",
+            "### \"Je t'aime de tout mon cœur\"",
+            "### \"Tu es l'amour de ma vie\"",
+            "### \"Je suis fou/folle de toi\""
+          ]
+        },
+        {
+          "header": "## Flirtiga meddelanden",
+          "subsections": [
+            "### \"Tu me fais craquer\"",
+            "### \"J'ai hâte de te voir\"",
+            "### \"Tu me rends heureux/heureuse\""
+          ]
+        },
+        {
+          "header": "## Söta komplimanger",
+          "subsections": [
+            "### \"Tu es magnifique\"",
+            "### \"Tu es mon rayon de soleil\""
+          ]
+        },
+        {
+          "header": "## Godnattmeddelanden",
+          "subsections": [
+            "### \"Bonne nuit, mon trésor\"",
+            "### \"Fais de beaux rêves\"",
+            "### \"Je pense à toi\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a3d9432c-25b8-4af3-a839-748d9f74d2c9",
+      "title": "Cómo Escribir Cartas de Amor en Neerlandés: La Liefdesbrief Holandesa",
+      "native_lang": "es",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Saludos Románticos",
+          "subsections": [
+            "### \"Mijn liefste...\"",
+            "### \"Lieve schat...\"",
+            "### \"Mijn alles...\"",
+            "### \"Liefde van mijn leven...\""
+          ]
+        },
+        {
+          "header": "## Expresiones de Apertura",
+          "subsections": [
+            "### \"Ik schrijf je vanuit het diepst van mijn hart\"",
+            "### \"Elke dag zonder jou voelt leeg\"",
+            "### \"Woorden kunnen niet beschrijven wat ik voor je voel\""
+          ]
+        },
+        {
+          "header": "## Frases del Cuerpo de la Carta",
+          "subsections": [
+            "### \"Jij bent het beste dat me ooit is overkomen\"",
+            "### \"Mijn hart is van jou alleen\"",
+            "### \"Met jou voel ik me compleet\"",
+            "### \"Je brengt kleur in mijn leven\"",
+            "### \"Ik hou meer van je dan woorden kunnen zeggen\""
+          ]
+        },
+        {
+          "header": "## Promesas de Amor",
+          "subsections": [
+            "### \"Ik zal altijd van je houden\"",
+            "### \"Ik zal er altijd voor je zijn\"",
+            "### \"Onze liefde is voor eeuwig\""
+          ]
+        },
+        {
+          "header": "## Despedidas Románticas",
+          "subsections": [
+            "### \"Voor altijd de jouwe...\"",
+            "### \"Met al mijn liefde...\"",
+            "### \"Ik omhels je teder...\"",
+            "### \"Jouw [nombre] die van je houdt\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a3de9597-0e1b-4d66-9bd2-36e391d01401",
+      "title": "Fraze de Susținere Emoțională în Daneză",
+      "native_lang": "ro",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraze Esențiale de Confort",
+          "subsections": [
+            "### 1. Jeg er her for dig",
+            "### 2. Det bliver nok godt",
+            "### 3. Jeg forstår hvordan du har det",
+            "### 4. Vær ikke ked af det",
+            "### 5. Min dybeste medfølelse",
+            "### 6. Bare rolig",
+            "### 7. Du er stærk",
+            "### 8. Jeg er stolt af dig",
+            "### 9. Tag det roligt",
+            "### 10. God bedring",
+            "### 11. Jeg tænker på dig",
+            "### 12. Du er ikke alene"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a3f27d72-f0b5-410d-b395-248503c8adcf",
+      "title": "Vocabulaire de la météo en anglais",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Exercices pour couples",
+          "subsections": [
+            "### Bulletin météo",
+            "### Planification",
+            "### Quiz météo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a40e7828-017e-4149-8f08-37e44de5c6ca",
+      "title": "Urări de Ziua de Naștere pentru Partener în Rusă: Mesaje Romantice",
+      "native_lang": "ro",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Mesaje Romantice",
+          "subsections": [
+            "### Scurte și Dulci",
+            "### Mesaje Mai Lungi"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Diferite Personalități",
+          "subsections": [
+            "### Pentru Partenerul Romantic",
+            "### Pentru Partenerul cu Umor"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Card",
+          "subsections": [
+            "### Format Scurt",
+            "### Format Lung"
+          ]
+        },
+        {
+          "header": "## Idei de Surprize",
+          "subsections": [
+            "### Gesturi Romantice"
+          ]
+        },
+        {
+          "header": "## Mesaje de Dimineață",
+          "subsections": [
+            "### Pentru Început de Zi"
+          ]
+        },
+        {
+          "header": "## Tradiții de Cuplu",
+          "subsections": [
+            "### Idei pentru Noi Tradiții"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a411be54-7dd2-492a-862d-afed43f68c3c",
+      "title": "Dire \"Tu me manques\" en polonais : La tęsknota slave",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Phrases essentielles",
+          "subsections": [
+            "### \"Tęsknię za tobą\"",
+            "### \"Bardzo tęsknię za tobą\"",
+            "### \"Strasznie za tobą tęsknię\""
+          ]
+        },
+        {
+          "header": "## Expressions profondes",
+          "subsections": [
+            "### \"Każdy dzień bez ciebie jest trudny\"",
+            "### \"Myślę o tobie cały czas\"",
+            "### \"Bez ciebie nie jest tak samo\""
+          ]
+        },
+        {
+          "header": "## Phrases quotidiennes",
+          "subsections": [
+            "### \"Chciałbym/Chciałabym żebyś tu był/była\"",
+            "### \"Liczę dni do spotkania\"",
+            "### \"Nie mogę się doczekać żeby cię zobaczyć\""
+          ]
+        },
+        {
+          "header": "## Expressions romantiques",
+          "subsections": [
+            "### \"Odległość nie zmienia moich uczuć\"",
+            "### \"Moje serce jest przy tobie\"",
+            "### \"Ty jesteś moim domem\""
+          ]
+        },
+        {
+          "header": "## Pour les messages courts",
+          "subsections": [
+            "### \"Myślę o tobie\"",
+            "### \"Tęsknię, kochanie\"",
+            "### \"Buziaki na odległość\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a41d5cc6-d241-4562-ae1d-91dd051bfd72",
+      "title": "Cum Să Ceri în Căsătorie: Expresii pentru Logodnă în Rusă",
+      "native_lang": "ro",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Răspunsuri la Cerere",
+          "subsections": [
+            "### Răspunsuri Pozitive"
+          ]
+        },
+        {
+          "header": "## Vocabular pentru Inele",
+          "subsections": [
+            "### Pietre Prețioase",
+            "### Metale"
+          ]
+        },
+        {
+          "header": "## După Logodnă",
+          "subsections": [
+            "### Pașii Următori"
+          ]
+        }
+      ]
+    }
+  ]
+}

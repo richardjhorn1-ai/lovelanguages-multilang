@@ -1,0 +1,467 @@
+{
+  "batchId": "tier2a-slim-0133",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "944d2446-198b-47b3-a6ac-e46c3ac7ca45",
+      "title": "Jak napsat milostný dopis v polštině",
+      "native_lang": "cs",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Úvodní oslovení",
+          "subsections": [
+            "### \"Moje kochanie\"",
+            "### \"Moja miłości\"",
+            "### \"Mój skarbie\""
+          ]
+        },
+        {
+          "header": "## Úvodní věty",
+          "subsections": [
+            "### \"Piszę do ciebie ten list, żeby ci powiedzieć, jak wiele dla mnie znaczysz.\"",
+            "### \"Słowa nie mogą wyrazić tego, co do ciebie czuję.\""
+          ]
+        },
+        {
+          "header": "## Vyjádření lásky",
+          "subsections": [
+            "### \"Jesteś najlepszą rzeczą, jaka mi się przydarzyła.\"",
+            "### \"Kocham cię każdego dnia bardziej.\"",
+            "### \"Moje serce należy do ciebie, teraz i na zawsze.\"",
+            "### \"Z tobą znalazłem/am prawdziwe szczęście.\""
+          ]
+        },
+        {
+          "header": "## Ocenění partnera",
+          "subsections": [
+            "### \"Podziwiam twoją siłę, dobroć i piękną duszę.\"",
+            "### \"Dziękuję, że mnie kochasz taką/takiego, jaka/jaki jestem.\""
+          ]
+        },
+        {
+          "header": "## Závěrečné fráze",
+          "subsections": [
+            "### \"Na zawsze twoja/twój\"",
+            "### \"Z całą moją miłością\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "945c2486-54c1-46e2-9bb1-f6b7e02603fe",
+      "title": "Αγγλικές Φράσεις Συγχώρεσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις Συγχώρεσης",
+          "subsections": [
+            "### Αίτηση Συγχώρεσης",
+            "### Έκφραση Μετάνοιας",
+            "### Προσφορά Συγχώρεσης",
+            "### Χρόνος για Θεραπεία"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "94615ae5-2552-46b9-be0d-9a544180f3fd",
+      "title": "Фразы для медового месяца на чешский: Романтическое путешествие",
+      "native_lang": "ru",
+      "target_lang": "cs",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## В аэропорту",
+          "subsections": [
+            "### Регистрация",
+            "### На борту"
+          ]
+        },
+        {
+          "header": "## В отеле",
+          "subsections": [
+            "### Регистрация",
+            "### Романтические просьбы"
+          ]
+        },
+        {
+          "header": "## На пляже",
+          "subsections": [
+            "### Пляжная лексика",
+            "### Романтические фразы на pláž"
+          ]
+        },
+        {
+          "header": "## Ужин вдвоём",
+          "subsections": [
+            "### В ресторане",
+            "### Романтические тосты"
+          ]
+        },
+        {
+          "header": "## Экскурсии и приключения",
+          "subsections": [
+            "### Планирование dobrodružství",
+            "### Создание vzpomínky"
+          ]
+        },
+        {
+          "header": "## Романтические моменты",
+          "subsections": [
+            "### Фразы для особых моментов",
+            "### Закат"
+          ]
+        },
+        {
+          "header": "## Покупка сувениров",
+          "subsections": [
+            "### В магазине",
+            "### Идеи подарков"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "94792ff3-315b-4ebc-abf1-63caed9a242b",
+      "title": "Suedeza: 14 Moduri Sincere de a Spune Te Iubesc",
+      "native_lang": "ro",
+      "target_lang": "sv",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Declarații pentru Momente Speciale",
+          "subsections": [
+            "### Prima Declarație",
+            "### Cerere în Căsătorie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9483950b-ed09-4d98-818c-45dbb279f10d",
+      "title": "Португальська vs англійська: ключові відмінності для українців",
+      "native_lang": "uk",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Вимова",
+          "subsections": [
+            "### Португальська — багатша на звуки"
+          ]
+        },
+        {
+          "header": "## Артиклі",
+          "subsections": [
+            "### Англійська",
+            "### Португальська"
+          ]
+        },
+        {
+          "header": "## Дієвідміни",
+          "subsections": [
+            "### Англійська — мінімальні зміни",
+            "### Португальська — повна система"
+          ]
+        },
+        {
+          "header": "## Два дієслова «бути»",
+          "subsections": [
+            "### Англійська: одне «to be»",
+            "### Португальська: ser vs estar"
+          ]
+        },
+        {
+          "header": "## Порядок слів",
+          "subsections": [
+            "### Англійська — фіксований",
+            "### Португальська — гнучкіший"
+          ]
+        },
+        {
+          "header": "## Займенники",
+          "subsections": [
+            "### Англійська вимагає займенників",
+            "### Португальська дозволяє пропускати"
+          ]
+        },
+        {
+          "header": "## Питання",
+          "subsections": [
+            "### Англійська — допоміжні дієслова",
+            "### Португальська — інтонація"
+          ]
+        },
+        {
+          "header": "## Унікальні особливості португальської",
+          "subsections": [
+            "### Saudade",
+            "### Особистий інфінітив",
+            "### Зменшувальні суфікси"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9492b545-dc50-4a7c-9cd5-b2783a135d30",
+      "title": "Rumänsk Uttal för Par: Lär Dig Tala Kärlek med Rätt Accent",
+      "native_lang": "sv",
+      "target_lang": "ro",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De 5 Viktigaste Ljuden för Kärleksfull Kommunikation",
+          "subsections": [
+            "### 1. **Ă** – det där speciella A:et",
+            "### 2. **Ş** – med cedilj",
+            "### 3. **Ţ** – med cedilj",
+            "### 4. **Î** och **Â** – de mystiska I:na",
+            "### 5. **R** – det rullande R:et"
+          ]
+        },
+        {
+          "header": "## Vanliga Uttalsfällor (och Hur Ni Undviker Dem)",
+          "subsections": [
+            "### 1. **Stress på fel stavelse**",
+            "### 2. **För korta vokaler**",
+            "### 3. **Blanda Î och Â**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "94a3a853-3c68-4327-9e7f-cd21d28a7ed2",
+      "title": "Godmorgen og Godnat på Spansk: Søde Fraser til Din Partner",
+      "native_lang": "da",
+      "target_lang": "es",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Tekstbeskeder",
+          "subsections": [
+            "### Morgenbeskeder",
+            "### Aftenbeskeder"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "94cdd3ac-af8a-416b-bda5-89641b5b14b9",
+      "title": "Φράσεις «Μου λείπεις» στα Ρωσικά",
+      "native_lang": "el",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις",
+          "subsections": [
+            "### 1. Я скучаю по тебе (Ya skuchayu po tebe)",
+            "### 2. Ты мне очень нужен/нужна (Ty mne ochen nuzhen/nuzhna)",
+            "### 3. Мне тебя не хватает (Mne tebya ne khvatayet)",
+            "### 4. Я тоскую по тебе (Ya toskuyu po tebe)",
+            "### 5. Считаю дни до нашей встречи (Schitayu dni do nashey vstrechi)",
+            "### 6. Жду не дождусь увидеть тебя (Zhdu ne dozhdus uvidet tebya)",
+            "### 7. Каждый день думаю о тебе (Kazhdyy den dumayu o tebe)",
+            "### 8. Моё сердце с тобой (Moyo serdtse s toboy)",
+            "### 9. Ты всегда в моих мыслях (Ty vsegda v moikh myslyakh)",
+            "### 10. Скорее бы ты вернулся/вернулась (Skoree by ty vernulsya/vernulas)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "94d14cb0-c1e5-4288-b4cd-3df0eca289d6",
+      "title": "Ispanyolca: Seni Seviyorum Demenin 15 Romantik Yolu",
+      "native_lang": "tr",
+      "target_lang": "es",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Günlük Romantik Ifadeler",
+          "subsections": [
+            "### Sabah",
+            "### Gün Icinde",
+            "### Gece"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "94d6ee7f-b0b3-45e6-998d-cd70821feccb",
+      "title": "Sådan Undskylder Du på Portugisisk: Vejledning for Par",
+      "native_lang": "da",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Specifikke Situationer",
+          "subsections": [
+            "### Når Du Har Glemt Noget",
+            "### Når Du Har Sagt Noget Sårende",
+            "### Når Du Er Kommet For Sent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "94f669b2-11ee-431b-8a1f-1be81f759b73",
+      "title": "Průvodce výslovností angličtiny pro začátečníky: Jak správně mluvit, aby vás vám partner rozuměl",
+      "native_lang": "cs",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Základní anglické zvuky, které musíte znát",
+          "subsections": [
+            "### 1. Th zvuk – ten zrádný zvuk",
+            "### 2. R zvuk – americké vs. britské",
+            "### 3. Krátké a dlouhé samohlásky"
+          ]
+        },
+        {
+          "header": "## Nejčastější chyby Čechů a jak je opravit",
+          "subsections": [
+            "### 1. Nesprávné použití W a V",
+            "### 2. Problémy se skupinami souhlásek",
+            "### 3. Nesprávný přízvuk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9503c2cd-801a-4f10-84e3-a64e72a4457e",
+      "title": "Italienske Udtryk til Følelsesmæssig Støtte og Trøst",
+      "native_lang": "da",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Støtteudtryk",
+          "subsections": [
+            "### 1. Sono qui per te",
+            "### 2. Andrà tutto bene",
+            "### 3. Credo in te",
+            "### 4. Prenditi tutto il tempo che ti serve",
+            "### 5. Mi dispiace tanto per quello che stai passando"
+          ]
+        },
+        {
+          "header": "## Dybere Trøst",
+          "subsections": [
+            "### 6. Va bene piangere",
+            "### 7. Non devi affrontare questo da solo/sola",
+            "### 8. Sono molto fiero/fiera della tua forza",
+            "### 9. I tuoi sentimenti sono validi",
+            "### 10. Qualunque cosa succeda, l'affronteremo insieme"
+          ]
+        },
+        {
+          "header": "## Kærlige Trøsteord",
+          "subsections": [
+            "### 11. Amore mio, sarò sempre al tuo fianco",
+            "### 12. Ti amo con tutto il cuore, e questo non cambierà mai"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "95043434-0615-4a09-9b78-47bc980f9238",
+      "title": "Le subjonctif portugais expliqué",
+      "native_lang": "fr",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Le Subjonctif Présent",
+          "subsections": [
+            "### Formation pour les Verbes en -AR",
+            "### Formation pour les Verbes en -ER/-IR"
+          ]
+        },
+        {
+          "header": "## Expressions Déclenchant le Subjonctif",
+          "subsections": [
+            "### Souhaits et Espoirs",
+            "### Doutes et Incertitudes",
+            "### Émotions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "950c703d-829a-49b1-b6ad-368ef893b515",
+      "title": "Основи німецької граматики для початківців: Посібник для українців",
+      "native_lang": "uk",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Дієслова: Теперішній час",
+          "subsections": [
+            "### Правильні дієслова",
+            "### Важливі неправильні дієслова"
+          ]
+        },
+        {
+          "header": "## Порядок слів",
+          "subsections": [
+            "### Основне правило: Дієслово на другому місці!"
+          ]
+        },
+        {
+          "header": "## Питання",
+          "subsections": [
+            "### Так/Ні питання (інверсія)",
+            "### Питання з питальним словом",
+            "### Питальні слова"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9510ff0a-1366-40fc-81ad-c2165a4863d5",
+      "title": "Нідерландські фрази про ревнощі та довіру",
+      "native_lang": "uk",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Вираження ревнощів",
+          "subsections": [
+            "### \"Ik ben jaloers\"",
+            "### \"Ik word jaloers als...\"",
+            "### \"Soms voel ik me onzeker\""
+          ]
+        },
+        {
+          "header": "## Запитання",
+          "subsections": [
+            "### \"Wie was dat?\"",
+            "### \"Hoe ken je hem/haar?\""
+          ]
+        },
+        {
+          "header": "## Довіра",
+          "subsections": [
+            "### \"Ik vertrouw je volledig\"",
+            "### \"Er is niets om je zorgen over te maken\"",
+            "### \"Dat is gewoon een vriend/vriendin\"",
+            "### \"Je hebt geen reden om jaloers te zijn\"",
+            "### \"Jij bent de enige voor mij\""
+          ]
+        },
+        {
+          "header": "## Обговорення",
+          "subsections": [
+            "### \"Kunnen we hierover praten?\"",
+            "### \"Ik werk aan mijn jaloezie\""
+          ]
+        }
+      ]
+    }
+  ]
+}

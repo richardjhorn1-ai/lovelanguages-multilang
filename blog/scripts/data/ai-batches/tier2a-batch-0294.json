@@ -1,0 +1,188 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0294",
+  "articles": [
+    {
+      "id": "541dd7fd-501b-4022-bd04-23e914b69b97",
+      "title": "Angielskie zwroty na pierwszą randkę",
+      "native_lang": "pl",
+      "target_lang": "en",
+      "category": "communication",
+      "content": "Pierwsza randka to ekscytujący moment. Kiedy Twój potencjalny partner mówi po angielsku, znajomość odpowiednich zwrotów pomoże Ci poczuć się pewniej i nawiązać prawdziwą więź.\n\n## Rozpoczęcie rozmowy\n\n### \"Hi, it's so nice to finally meet you!\"\n*Cześć, tak miło Cię wreszcie poznać!*\n\nCiepłe powitanie, które pokazuje entuzjazm.\n\n### \"You look great!\"\n*Świetnie wyglądasz!*\n\nProsty, szczery komplement.\n\n### \"I've been looking forward to this\"\n*Nie mogłem/mogłam się doczekać*\n\nPokazuje zainteresowanie.\n\n## Poznawanie się\n\n### \"So, tell me about yourself\"\n*Opowiedz mi o sobie*\n\nKlasyczne otwarcie do głębszej rozmowy.\n\n### \"What do you do for fun?\"\n*Co robisz dla przyjemności?*\n\nPoznawanie hobby i zainteresowań.\n\n### \"What's your favorite...?\"\n*Jaki jest Twój ulubiony...?*\n\nFilm, książka, jedzenie - świetny sposób na poznanie gustów.\n\n## Wyrażanie zainteresowania\n\n### \"That's really interesting\"\n*To naprawdę interesujące*\n\nPokazuje, że słuchasz aktywnie.\n\n### \"Tell me more about that\"\n*Opowiedz mi więcej*\n\nZachęca do kontynuowania.\n\n### \"I'd love to hear more\"\n*Chciałbym/Chciałabym usłyszeć więcej*\n\nWyraża autentyczne zainteresowanie.\n\n## Dzielenie się o sobie\n\n### \"I'm really passionate about...\"\n*Naprawdę pasjonuję się...*\n\nDzielenie się swoimi zainteresowaniami.\n\n### \"Something you might not know about me is...\"\n*Coś, czego możesz o mnie nie wiedzieć, to...*\n\nCiekawa forma przedstawienia się.\n\n### \"I've always wanted to...\"\n*Zawsze chciałem/chciałam...*\n\nDzielenie się marzeniami.\n\n## Komplementy\n\n### \"I really like your smile\"\n*Naprawdę podoba mi się Twój uśmiech*\n\nSzczery, osobisty komplement.\n\n### \"You have a great sense of humor\"\n*Masz świetne poczucie humoru*\n\nDocenianie osobowości.\n\n### \"I'm having such a great time with you\"\n*Świetnie się z Tobą bawię*\n\nPokazuje, że randka idzie dobrze.\n\n## Planowanie następnego spotkania\n\n### \"I'd really like to see you again\"\n*Naprawdę chciałbym/chciałabym Cię znowu zobaczyć*\n\nBezpośrednie wyrażenie zainteresowania.\n\n### \"When can we do this again?\"\n*Kiedy możemy to powtórzyć?*\n\nKonkretna propozycja.\n\n### \"I had a wonderful time tonight\"\n*Wspaniale się dziś bawiłem/bawiłam*\n\nPodsumowanie randki.\n\n## Pożegnanie\n\n### \"This was really lovely\"\n*To było naprawdę cudowne*\n\nCiepłe pożegnanie.\n\n### \"I can't wait to see you again\"\n*Nie mogę się doczekać kolejnego spotkania*\n\nPokazuje entuzjazm.\n\n### \"Get home safe\"\n*Dotrzyj bezpiecznie do domu*\n\nTroskliwe pożegnanie.\n\n## Wskazówki kulturowe\n\nW kulturze anglojęzycznej pierwsza randka jest zwykle luźna i nieformalna. Unikaj zbyt osobistych pytań na początku. Dzielenie się rachunkiem (going Dutch) jest często akceptowane.\n\nGood luck! (Powodzenia!)",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Rozpoczęcie rozmowy",
+              "## Poznawanie się",
+              "## Wyrażanie zainteresowania",
+              "## Dzielenie się o sobie",
+              "## Komplementy",
+              "## Planowanie następnego spotkania",
+              "## Pożegnanie"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "54363ada-c224-46f2-a4bf-03fc07d0969f",
+      "title": "Greek Honeymoon Travel Phrases: Romantic Vocabulary for Your Trip",
+      "native_lang": "en",
+      "target_lang": "el",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nYour μήνας του μέλιτος is the perfect time to practice Greek in a ρομαντικός setting. Whether you're traveling to a Greek-speaking προορισμός or simply want to share ρομαντικός moments in your partner's language, these travel phrases will make your ταξίδι even more special.\n\nFor more romantic expressions, check out our guide on [Greek romantic phrases for every occasion](/blog/en/greek-romantic-phrases-for-every-occasion).\n\n<PhraseOfDay\n  word=\"μήνας του μέλιτος\"\n  translation=\"honeymoon\"\n  pronunciation=\"μήνας του μέλιτος\"\n  context=\"The most romantic trip of your lives.\"\n/>\n\n## Essential Honeymoon Vocabulary\n\n<VocabCard\n  word=\"ρομαντικός\"\n  translation=\"romantic\"\n  pronunciation=\"ρομαντικός\"\n  example=\"This is so ρομαντικός!\"\n/>\n\n| Greek | English | Context |\n|---|---|---|\n| μήνας του μέλιτος | honeymoon | Your special trip |\n| ταξίδι | trip | The journey |\n| προορισμός | destination | Where you're going |\n| ρομαντικός | romantic | The mood |\n| παραλία | beach | Popular setting |\n| ξενοδοχείο | hotel | Accommodation |\n| διαβατήριο | passport | Essential document |\n| περιπέτεια | adventure | Exciting experiences |\n| αναμνήσεις | memories | What you'll create |\n| παράδεισος | paradise | Perfect place |\n\n<CultureTip flag=\"🇬🇷\" title=\"Greek Honeymoon Destinations\">\nGreek-speaking countries offer incredible μήνας του μέλιτος destinations, from beautiful παραλίαes to charming cities. Consider destinations where you can practice the language while enjoying ρομαντικός experiences.\n</CultureTip>\n\n## Planning Your Trip\n\n### Choosing a Destination\n- **Where should we go for our μήνας του μέλιτος?** - Starting the conversation\n- **I'd love a παραλία προορισμός** - Expressing preference\n- **Let's find the perfect ξενοδοχείο** - Accommodation search\n- **This looks like παράδεισος!** - Excitement\n\n### Booking Vocabulary\n| Greek | English | When to Use |\n|---|---|---|\n| ξενοδοχείο | hotel | Booking accommodation |\n| ταξίδι | trip | Planning journey |\n| προορισμός | destination | Choosing where |\n| διαβατήριο | passport | Document check |\n| Reservation | reservation | Booking |\n\n<VocabCard\n  word=\"παράδεισος\"\n  translation=\"paradise\"\n  pronunciation=\"παράδεισος\"\n  example=\"This παραλία is παράδεισος!\"\n/>\n\n## At the Airport\n\n### Essential Phrases\n- **Our μήνας του μέλιτος begins!** - Excited departure\n- **Do you have your διαβατήριο?** - Practical check\n- **What an περιπέτεια!** - Expressing excitement\n- **Can't wait to arrive!** - Anticipation\n\n### Airport Vocabulary\n| Greek | English | Context |\n|---|---|---|\n| διαβατήριο | passport | At check-in |\n| Flight | flight | Transportation |\n| Gate | gate | Finding your flight |\n| ταξίδι | trip | Overall journey |\n\n<CultureTip flag=\"🇬🇷\" title=\"Travel Etiquette\">\nWhen traveling to Greek-speaking destinations, basic phrases like \"please\" and \"thank you\" in Greek are greatly appreciated. Locals often respond warmly to tourists who make an effort to speak their language.\n</CultureTip>\n\n## At Your Hotel\n\n### Checking In\n- **We're on our μήνας του μέλιτος** - Special occasion mention\n- **A ρομαντικός room, please** - Room preference\n- **We have a reservation** - Confirmation\n- **This is beautiful!** - First impressions\n\n### Room Types\n| Greek | English | Description |\n|---|---|---|\n| ρομαντικός room | romantic room | Special ambiance |\n| Suite | suite | Luxury option |\n| Ocean view | ocean view | παραλία destination |\n| ξενοδοχείο | hotel | General accommodation |\n\n<VocabCard\n  word=\"παραλία\"\n  translation=\"beach\"\n  pronunciation=\"παραλία\"\n  example=\"Let's go to the παραλία!\"\n/>\n\n## Romantic Moments\n\n### On the Beach\n- **This παραλία is perfect** - Appreciation\n- **What a ρομαντικός sunset** - Romantic moment\n- **I love you** - Essential phrase\n- **This is παράδεισος** - Pure bliss\n\n### At Dinner\n| Moment | Greek | English |\n|---|---|---|\n| Arrival | Table for two | Restaurant entry |\n| Toast | To our μήνας του μέλιτος! | Celebrating |\n| Gratitude | Thank you | Appreciation |\n| Romance | This is ρομαντικός | Setting the mood |\n\n<CultureTip flag=\"🇬🇷\" title=\"Romantic Dining\">\nIn Greek-speaking countries, romantic dinners often start late and last for hours. Embrace the local pace and enjoy quality time together without rushing.\n</CultureTip>\n\n## Adventure Activities\n\n### Exploring Together\n- **Let's go on an περιπέτεια!** - Suggesting activities\n- **This ταξίδι is amazing** - Expressing joy\n- **We're making beautiful αναμνήσεις** - Reflection\n- **I'll never forget this** - Creating memories\n\n### Activity Vocabulary\n| Greek | English | Activity Type |\n|---|---|---|\n| περιπέτεια | adventure | Exciting activity |\n| παραλία | beach | Relaxing |\n| Explore | explore | Discovering |\n| αναμνήσεις | memories | What you're creating |\n\n## Creating Memories\n\n### Photo Moment Phrases\n- **Take a photo of us!** - Requesting photos\n- **μήνας του μέλιτος αναμνήσεις!** - Caption\n- **Best ταξίδι ever!** - Enthusiasm\n- **To our περιπέτεια!** - Celebration\n\n<VocabCard\n  word=\"αναμνήσεις\"\n  translation=\"memories\"\n  pronunciation=\"αναμνήσεις\"\n  example=\"We're making beautiful αναμνήσεις.\"\n/>\n\n## Returning Home\n\n### End of Trip\n- **What an amazing μήνας του μέλιτος!** - Reflection\n- **I don't want to leave!** - Bittersweet feeling\n- **We'll be back** - Future plans\n- **Thank you for this ταξίδι** - Gratitude\n\nFor more travel vocabulary, explore our [Greek date night vocabulary](/blog/en/greek-date-night-vocabulary) guide for romantic outings at home.\n\n## Quick Reference Card\n\n| Need | Vocabulary |\n|---|---|\n| Planning | προορισμός, ξενοδοχείο, ταξίδι |\n| Travel | διαβατήριο, περιπέτεια |\n| Romance | ρομαντικός, παραλία, παράδεισος |\n| Memories | αναμνήσεις, μήνας του μέλιτος |\n\nYour μήνας του μέλιτος in Greek will create αναμνήσεις that last a lifetime. Every ρομαντικός phrase spoken, every περιπέτεια shared, becomes part of your beautiful love story.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Planning Your Trip",
+              "## At the Airport",
+              "## At Your Hotel",
+              "## Romantic Moments",
+              "## Adventure Activities",
+              "## Creating Memories",
+              "## Returning Home"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "54487866-113e-4f17-846e-d760b46ad5b2",
+      "title": "En Yaygın 100 İngilizce Kelime",
+      "native_lang": "tr",
+      "target_lang": "en",
+      "category": "communication",
+      "content": "İngilizce öğrenmeye başlarken en yaygın kelimeleri bilmek çok önemlidir. İşte günlük hayatta en sık kullanılan İngilizce kelimeler.\n\n## Temel Zamirler ve Bağlaçlar\n\n### 1. I /ay/ - Ben\n**Örnek:** \"I love you\" (Seni seviyorum)\n\n### 2. You /yu/ - Sen/Siz\n**Örnek:** \"You are beautiful\" (Güzelsin)\n\n### 3. He /hi/ - O (erkek)\n### 4. She /şi/ - O (kadın)\n### 5. It /it/ - O (nesne/hayvan)\n### 6. We /vi/ - Biz\n### 7. They /dey/ - Onlar\n\n### 8. And /end/ - Ve\n### 9. But /bat/ - Ama\n### 10. Or /or/ - Veya\n\n## Temel Fiiller\n\n### 11. Be /bi/ - Olmak\n### 12. Have /hev/ - Sahip olmak\n### 13. Do /du/ - Yapmak\n### 14. Say /sey/ - Söylemek\n### 15. Go /go/ - Gitmek\n### 16. Come /kam/ - Gelmek\n### 17. Get /get/ - Almak/elde etmek\n### 18. Make /meyk/ - Yapmak\n### 19. Know /no/ - Bilmek\n### 20. Think /tink/ - Düşünmek\n### 21. Take /teyk/ - Almak\n### 22. See /sii/ - Görmek\n### 23. Want /vont/ - İstemek\n### 24. Give /giv/ - Vermek\n### 25. Use /yuz/ - Kullanmak\n\n## Sıfatlar\n\n### 26. Good /gud/ - İyi\n### 27. Bad /bed/ - Kötü\n### 28. Big /big/ - Büyük\n### 29. Small /smol/ - Küçük\n### 30. New /nyu/ - Yeni\n### 31. Old /old/ - Eski/yaşlı\n### 32. Long /long/ - Uzun\n### 33. Short /şort/ - Kısa\n### 34. Hot /hat/ - Sıcak\n### 35. Cold /kold/ - Soğuk\n\n## Zaman İfadeleri\n\n### 36. Now /nau/ - Şimdi\n### 37. Today /tudey/ - Bugün\n### 38. Tomorrow /tumoro/ - Yarın\n### 39. Yesterday /yestırdey/ - Dün\n### 40. Always /olveys/ - Her zaman\n### 41. Never /nevır/ - Asla\n### 42. Sometimes /samtaymz/ - Bazen\n\n## Soru Kelimeleri\n\n### 43. What /vat/ - Ne\n### 44. Where /ver/ - Nerede\n### 45. When /ven/ - Ne zaman\n### 46. Why /vay/ - Neden\n### 47. How /hav/ - Nasıl\n### 48. Who /hu/ - Kim\n\n## Sayılar\n\n### 49. One /van/ - Bir\n### 50. Two /tu/ - İki\n### 51. Three /tri/ - Üç\n### 52. Four /for/ - Dört\n### 53. Five /fayv/ - Beş\n### 54. Ten /ten/ - On\n### 55. Hundred /handrıd/ - Yüz\n\n## Günlük Kelimeler\n\n### 56. Yes /yes/ - Evet\n### 57. No /no/ - Hayır\n### 58. Please /pliiz/ - Lütfen\n### 59. Thank you /tenk yu/ - Teşekkürler\n### 60. Sorry /sori/ - Özür dilerim\n### 61. Hello /helo/ - Merhaba\n### 62. Goodbye /gudbay/ - Hoşça kal\n### 63. Love /lav/ - Aşk/sevgi\n### 64. Friend /frend/ - Arkadaş\n### 65. Family /femıli/ - Aile\n\n## Temel İsimler\n\n### 66. Man /men/ - Adam\n### 67. Woman /vumın/ - Kadın\n### 68. Child /çayld/ - Çocuk\n### 69. Time /taym/ - Zaman\n### 70. Day /dey/ - Gün\n### 71. Night /nayt/ - Gece\n### 72. Year /yiır/ - Yıl\n### 73. Life /layf/ - Hayat\n### 74. World /vörld/ - Dünya\n### 75. Home /hom/ - Ev\n\nBu kelimeleri öğrenmek, İngilizce iletişiminizi güçlendirecektir.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Temel Zamirler ve Bağlaçlar",
+              "### 3. He /hi/ - O (erkek)",
+              "### 4. She /şi/ - O (kadın)",
+              "### 5. It /it/ - O (nesne/hayvan)",
+              "### 6. We /vi/ - Biz",
+              "### 7. They /dey/ - Onlar",
+              "### 8. And /end/ - Ve",
+              "### 9. But /bat/ - Ama",
+              "### 10. Or /or/ - Veya",
+              "## Temel Fiiller",
+              "### 11. Be /bi/ - Olmak",
+              "### 12. Have /hev/ - Sahip olmak",
+              "### 13. Do /du/ - Yapmak",
+              "### 14. Say /sey/ - Söylemek",
+              "### 15. Go /go/ - Gitmek",
+              "### 16. Come /kam/ - Gelmek",
+              "### 17. Get /get/ - Almak/elde etmek",
+              "### 18. Make /meyk/ - Yapmak",
+              "### 19. Know /no/ - Bilmek",
+              "### 20. Think /tink/ - Düşünmek",
+              "### 21. Take /teyk/ - Almak",
+              "### 22. See /sii/ - Görmek",
+              "### 23. Want /vont/ - İstemek",
+              "### 24. Give /giv/ - Vermek",
+              "### 25. Use /yuz/ - Kullanmak",
+              "## Sıfatlar",
+              "### 26. Good /gud/ - İyi",
+              "### 27. Bad /bed/ - Kötü",
+              "### 28. Big /big/ - Büyük",
+              "### 29. Small /smol/ - Küçük",
+              "### 30. New /nyu/ - Yeni",
+              "### 31. Old /old/ - Eski/yaşlı",
+              "### 32. Long /long/ - Uzun",
+              "### 33. Short /şort/ - Kısa",
+              "### 34. Hot /hat/ - Sıcak",
+              "### 35. Cold /kold/ - Soğuk",
+              "## Zaman İfadeleri",
+              "### 36. Now /nau/ - Şimdi",
+              "### 37. Today /tudey/ - Bugün",
+              "### 38. Tomorrow /tumoro/ - Yarın",
+              "### 39. Yesterday /yestırdey/ - Dün",
+              "### 40. Always /olveys/ - Her zaman",
+              "### 41. Never /nevır/ - Asla",
+              "### 42. Sometimes /samtaymz/ - Bazen",
+              "## Soru Kelimeleri",
+              "### 43. What /vat/ - Ne",
+              "### 44. Where /ver/ - Nerede",
+              "### 45. When /ven/ - Ne zaman",
+              "### 46. Why /vay/ - Neden",
+              "### 47. How /hav/ - Nasıl",
+              "### 48. Who /hu/ - Kim",
+              "## Sayılar",
+              "### 49. One /van/ - Bir",
+              "### 50. Two /tu/ - İki",
+              "### 51. Three /tri/ - Üç",
+              "### 52. Four /for/ - Dört",
+              "### 53. Five /fayv/ - Beş",
+              "### 54. Ten /ten/ - On",
+              "### 55. Hundred /handrıd/ - Yüz",
+              "## Günlük Kelimeler",
+              "### 56. Yes /yes/ - Evet",
+              "### 57. No /no/ - Hayır",
+              "### 58. Please /pliiz/ - Lütfen",
+              "### 59. Thank you /tenk yu/ - Teşekkürler",
+              "### 60. Sorry /sori/ - Özür dilerim",
+              "### 61. Hello /helo/ - Merhaba",
+              "### 62. Goodbye /gudbay/ - Hoşça kal",
+              "### 63. Love /lav/ - Aşk/sevgi",
+              "### 64. Friend /frend/ - Arkadaş",
+              "### 65. Family /femıli/ - Aile",
+              "## Temel İsimler",
+              "### 66. Man /men/ - Adam",
+              "### 67. Woman /vumın/ - Kadın",
+              "### 68. Child /çayld/ - Çocuk",
+              "### 69. Time /taym/ - Zaman",
+              "### 70. Day /dey/ - Gün",
+              "### 71. Night /nayt/ - Gece",
+              "### 72. Year /yiır/ - Yıl",
+              "### 73. Life /layf/ - Hayat",
+              "### 74. World /vörld/ - Dünya"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "5458ec3f-8084-4958-aaff-25a69ec772c4",
+      "title": "Godmorgen og Godnat på Engelsk: Søde Fraser til Din Partner",
+      "native_lang": "da",
+      "target_lang": "en",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nDe første og sidste ord på dagen er magiske. En sød godmorgen på engelsk kan starte dagen perfekt, og en kærlig godnat sikrer søde drømme. Kombiner med vores [engelske kælenavne](/learn/da/en/english-pet-names-and-endearments/)!\n\n<PhraseOfDay\n  word=\"Good morning, my love\"\n  translation=\"Godmorgen, min elskede\"\n  pronunciation=\"gud mor-ning mai lav\"\n  context=\"Start dagen med kærlighed\"\n/>\n\n## Godmorgen Fraser\n\n<VocabCard\n  word=\"Good morning\"\n  translation=\"Godmorgen\"\n  pronunciation=\"gud mor-ning\"\n  example=\"Good morning, sweetheart!\"\n/>\n\n| Engelsk | Dansk | Udtale |\n|---------|-------|--------|\n| **Good morning** | Godmorgen | gud mor-ning |\n| **Good morning, my love** | Godmorgen, min elskede | gud mor-ning mai lav |\n| **Did you sleep well?** | Har du sovet godt? | did juu sliip wel? |\n| **What a beautiful morning** | Sikke en smuk morgen | wot uh byu-ti-ful mor-ning |\n| **Rise and shine!** | Op og hoppe! | raiz and shain! |\n\n### Søde Morgenhilsner\n\n- **Did you dream of me?** (Har du drømt om mig?) - \"did juu driim ov mi?\"\n- **You're my first thought** (Du er min første tanke) - \"joor mai furst thot\"\n- **Coffee, darling?** (Kaffe, skat?) - \"ko-fi, dar-ling?\"\n- **Good morning, sunshine** (Godmorgen, solskin) - \"gud mor-ning, sun-shain\"\n\n<CultureTip flag=\"🇬🇧\" title=\"Morgenkultur\">\nEnglændere starter ofte dagen med 'a cuppa' - perfekt tidspunkt for en kærlig besked.\n</CultureTip>\n\n## Morgenmotivation\n\n- **Have a good day** (Hav en god dag) - \"hav uh gud dei\"\n- **You'll do great** (Du vil klare det fantastisk) - \"juul duu greit\"\n- **I'm proud of you** (Jeg er stolt af dig) - \"aim praud ov juu\"\n- **Good luck today** (Held og lykke i dag) - \"gud lak tuh-dei\"\n\n## I Løbet af Dagen\n\n<VocabCard\n  word=\"Thinking of you\"\n  translation=\"Jeg tænker på dig\"\n  pronunciation=\"thing-king ov juu\"\n  example=\"Just thinking of you.\"\n/>\n\n| Engelsk | Dansk | Hvornår |\n|---------|-------|---------|\n| **Thinking of you** | Jeg tænker på dig | Midt på dagen |\n| **I miss you** | Jeg savner dig | Når adskilt |\n| **How's your day going?** | Hvordan går din dag? | Eftermiddag |\n| **See you soon** | Vi ses snart | Før genforening |\n\n## Godaften Fraser\n\n- **Good evening** (Godaften) - \"gud iiv-ning\"\n- **Finally home** (Endelig hjemme) - \"fai-na-li houm\"\n- **I missed you** (Jeg har savnet dig) - \"ai mist juu\"\n- **How was your day?** (Hvordan var din dag?) - \"hau woz joor dei?\"\n\n## Godnat Fraser\n\n<VocabCard\n  word=\"Good night\"\n  translation=\"Godnat\"\n  pronunciation=\"gud nait\"\n  example=\"Good night, sleep tight.\"\n/>\n\n| Engelsk | Dansk | Udtale |\n|---------|-------|--------|\n| **Good night** | Godnat | gud nait |\n| **Good night, my love** | Godnat, min elskede | gud nait mai lav |\n| **Sweet dreams** | Søde drømme | swiit driimz |\n| **Sleep tight** | Sov godt | sliip tait |\n| **See you tomorrow** | Vi ses i morgen | sii juu tuh-mo-rou |\n\n### Romantiske Godnat-beskeder\n\n- **You're my last thought** (Du er min sidste tanke) - \"joor mai last thot\"\n- **Dream of me** (Drøm om mig) - \"driim ov mi\"\n- **A goodnight kiss** (Et godnat-kys) - \"uh gud-nait kis\"\n- **I love you, goodnight** (Jeg elsker dig, godnat) - \"ai lav juu gud-nait\"\n\n<CultureTip flag=\"🇬🇧\" title=\"Godnat-traditioner\">\nEt godnat-kys og 'I love you' er den perfekte afslutning på dagen.\n</CultureTip>\n\n## Søvnrelaterede Fraser\n\n| Engelsk | Dansk | Udtale |\n|---------|-------|--------|\n| **I'm tired** | Jeg er træt | aim tai-urd |\n| **I'm sleepy** | Jeg er søvnig | aim slii-pi |\n| **I can't sleep** | Jeg kan ikke sove | ai kant sliip |\n| **I had a nightmare** | Jeg havde mareridt | ai had uh nait-mehr |\n| **Let's take a nap** | Lad os tage en lur | lets teik uh nap |\n\n## Weekend Morgen\n\n- **Let's stay in bed** (Lad os blive i sengen) - \"lets stei in bed\"\n- **A lazy morning** (En doven morgen) - \"uh lei-zi mor-ning\"\n- **Shall we brunch?** (Skal vi brunche?) - \"shal wii brunch?\"\n- **Come cuddle** (Kom og kram) - \"kum ku-dul\"\n\n## Tekstbeskeder\n\n### Morgenbeskeder\n- **Good morning, sweetheart 💕** (Godmorgen, skat 💕)\n- **Hope you have an amazing day** (Håber du har en fantastisk dag)\n- **Thinking of you** (Tænker på dig)\n\n### Aftenbeskeder\n- **Looking forward to seeing you** (Glæder mig til at se dig)\n- **Almost home** (Snart hjemme)\n- **Goodnight, sweet dreams 🌙** (Godnat, drøm sødt 🌙)\n\n## Tips til Daglige Ritualer\n\n1. **Vær konsekvent** - Gør det til en vane\n2. **Varier fraserne** - Brug forskellige hver dag\n3. **Tilføj kælenavne** - Det gør det personligt\n4. **Send beskeder** - Når I er adskilt\n5. **Vær oprigtig** - Sig det med følelse\n\nFor flere romantiske fraser, se [engelske romantiske fraser](/learn/da/en/english-romantic-phrases-for-every-occasion/).\n\nDisse daglige engelske ritualer er små kærlighedserklæringer.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Tekstbeskeder"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "54925375-4d94-47c3-8bb9-c033c77c8df8",
+      "title": "Expresii în Daneză pentru Reconciliere și Împăcare în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "da",
+      "category": "communication",
+      "content": "Danezii aduc în reconciliere căldura și echilibrul care le caracterizează cultura. Dacă partenerul tău vorbește daneză, a ști cum să-ți exprimi regretul în limba lui îți va permite să navighezi împăcarea cu conceptul danez de \"hygge\" - confort, intimitate și căldură.\n\n## Abordarea Daneză a Reconcilierii\n\nDanemarca este una dintre cele mai fericite țări, parțial datorită abordării echilibrate a relațiilor. Danezii preferă scuzele sincere dar calme, într-un cadru confortabil. Umorul poate juca un rol în dezamorsarea tensiunii.\n\n## Expresii pentru Cererea Scuzelor\n\n**\"Jeg er virkelig ked af det, jeg sagde.\"**\n*Îmi pare foarte rău pentru ce am spus.*\n\n**\"Jeg tog fejl. Undskyld.\"**\n*Am greșit. Scuze.*\n\n**\"Jeg burde ikke have reageret sådan.\"**\n*N-ar fi trebuit să reacționez așa.*\n\n**\"Jeg fortryder, at jeg sårede dig.\"**\n*Regret că te-am rănit.*\n\n## Expresii pentru Împăcare\n\n**\"Kan vi tale om det, der skete?\"**\n*Putem vorbi despre ce s-a întâmplat?*\n\n**\"Jeg vil ikke, at vi skal gå i seng vrede.\"**\n*Nu vreau să ne culcăm supărați.*\n\n**\"Jeg savner dig. Jeg savner os.\"**\n*Mi-e dor de tine. Mi-e dor de noi.*\n\n**\"Jeg elsker dig, og det ændrer sig aldrig.\"**\n*Te iubesc, și asta nu se schimbă niciodată.*\n\n**\"Må jeg kramme dig?\"**\n*Pot să te îmbrățișez?*\n\n**\"Lad os starte forfra.\"**\n*Să o luăm de la capăt.*\n\n**\"Lad os slutte fred, skat.\"**\n*Să facem pace, dragule/draga.*\n\n## Acceptarea Scuzelor\n\n**\"Jeg tilgiver dig.\"**\n*Te iert.*\n\n**\"Tak fordi du undskyldte.\"**\n*Mulțumesc că ți-ai cerut scuze.*\n\n**\"Lad os lægge det bag os.\"**\n*Să lăsăm asta în urmă.*\n\n## Gesturi de Reconciliere - Hygge\n\n### Creați Hygge\nLumânări, o pătură caldă, ceai sau cafea, prăjituri - creați un cadru confortabil pentru a discuta și a vă reconecta.\n\n### Umorul\nDanezii folosesc adesea umorul pentru a dezamorsa tensiunea. O glumă bine plasată poate ajuta.\n\n### Timpul Împreună\nPetreceți timp de calitate împreună - poate o seară de filme sau gătit împreună.\n\n## Sfaturi Practice\n\n1. **Creați hygge** - Un cadru confortabil ajută la reconciliere\n2. **Folosiți umorul** - Poate dezamorsa tensiunea\n3. **Fiți direcți dar calzi** - Sinceritate cu căldură\n4. **Kaffepause** - O pauză de cafea pentru a discuta\n5. **Simplitate** - Gesturile nu trebuie să fie grandioase\n\n## Concluzie\n\nReconcilierea în daneză combină sinceritatea cu căldura și conceptul de hygge. Cu aceste expresii și un cadru confortabil, vei putea transforma orice conflict într-o oportunitate de a vă apropia, în cel mai danez stil - echilibrat, cald și intim.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Gesturi de Reconciliere - Hygge"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

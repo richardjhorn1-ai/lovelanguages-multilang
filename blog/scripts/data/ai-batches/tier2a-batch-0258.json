@@ -1,0 +1,112 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0258",
+  "articles": [
+    {
+      "id": "49b693d1-cbc9-46b8-8d05-5900f315bbaa",
+      "title": "Γερμανικές Φράσεις για Ζήλια & Εμπιστοσύνη: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "de",
+      "category": "communication",
+      "content": "Η ζήλια χρειάζεται σωστή διαχείριση σε κάθε σχέση. Όταν ο σύντροφός σας μιλάει γερμανικά, αυτές οι φράσεις θα σας βοηθήσουν.\n\n## Φράσεις για Ζήλια & Εμπιστοσύνη\n\n### Έκφραση Ανησυχίας\n\n<Phrase term=\"Ich bin ein bisschen eifersüchtig\" pronunciation=\"Ιχ μπιν άιν μπίσιεν άιφερζύχτιχ\">\n  <Trans>Είμαι λίγο ζηλιάρης/α</Trans>\n  <Note>Ειλικρινής έκφραση</Note>\n</Phrase>\n\n<Phrase term=\"Wer war diese Person?\" pronunciation=\"Βερ βαρ ντίζε περζόν;\">\n  <Trans>Ποιος ήταν αυτό το άτομο;</Trans>\n  <Note>Ήπια ερώτηση</Note>\n</Phrase>\n\n<Phrase term=\"Ich brauche Bestätigung\" pronunciation=\"Ιχ μπράουχε μπεστέτιγκουνγκ\">\n  <Trans>Χρειάζομαι επιβεβαίωση</Trans>\n  <Note>Εκφράστε τις ανάγκες σας</Note>\n</Phrase>\n\n### Χτίσιμο Εμπιστοσύνης\n\n<Phrase term=\"Ich vertraue dir vollkommen\" pronunciation=\"Ιχ φερτράουε ντιρ φολκόμεν\">\n  <Trans>Σε εμπιστεύομαι απόλυτα</Trans>\n  <Note>Επιβεβαίωση εμπιστοσύνης</Note>\n</Phrase>\n\n<Phrase term=\"Du bist der/die Einzige für mich\" pronunciation=\"Ντου μπιστ ντερ/ντι άιντσιγκε φυρ μιχ\">\n  <Trans>Είσαι ο/η μόνος/η για μένα</Trans>\n  <Note>Αφοσίωση</Note>\n</Phrase>\n\n<Phrase term=\"Ich habe nichts zu verbergen\" pronunciation=\"Ιχ χάμπε νιχτς τσου φερμπέργκεν\">\n  <Trans>Δεν έχω τίποτα να κρύψω</Trans>\n  <Note>Διαφάνεια</Note>\n</Phrase>\n\n### Αντιμετώπιση Ζήλιας\n\n<Phrase term=\"Es gibt keinen Grund zur Sorge\" pronunciation=\"Ες γκιμπτ κάινεν γκρουντ τσουρ ζόργκε\">\n  <Trans>Δεν υπάρχει λόγος ανησυχίας</Trans>\n  <Note>Καθησυχασμός</Note>\n</Phrase>\n\n<Phrase term=\"Er/Sie ist nur ein Freund/eine Freundin\" pronunciation=\"Ερ/Ζι ιστ νουρ άιν φρόιντ/άινε φρόιντιν\">\n  <Trans>Είναι απλά φίλος/η</Trans>\n  <Note>Διευκρίνιση</Note>\n</Phrase>\n\n<Phrase term=\"Mein Herz gehört dir\" pronunciation=\"Μάιν χερτς γκεχέρτ ντιρ\">\n  <Trans>Η καρδιά μου σου ανήκει</Trans>\n  <Note>Ρομαντική επιβεβαίωση</Note>\n</Phrase>\n\n### Συζήτηση για Όρια\n\n<Phrase term=\"Lass uns über Grenzen sprechen\" pronunciation=\"Λας ουνς ύμπερ γκρέντσεν σπρέχεν\">\n  <Trans>Ας μιλήσουμε για τα όρια</Trans>\n  <Note>Σημαντική συζήτηση</Note>\n</Phrase>\n\n<Phrase term=\"Was gibt dir Sicherheit?\" pronunciation=\"Βας γκιμπτ ντιρ ζίχερχαϊτ;\">\n  <Trans>Τι σου δίνει ασφάλεια;</Trans>\n  <Note>Κατανόηση αναγκών</Note>\n</Phrase>\n\n## Πολιτιστικές Συμβουλές\n\nΟι Γερμανοί εκτιμούν τη λογική και την ειλικρίνεια. Η ζήλια πρέπει να συζητηθεί ρητά και με ψυχραιμία. Αποφύγετε τα δράματα και εστιάστε στη λύση.\n\n## Συμπέρασμα\n\nΜε αυτές τις φράσεις, μπορείτε να μιλήσετε για τη ζήλια με τρόπο που εκτιμούν οι Γερμανοί.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 274,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Φράσεις για Ζήλια & Εμπιστοσύνη"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "49c4df95-781c-4253-84d1-3f6f2e9058d8",
+      "title": "Turkse Zinnen voor Verzoening en Goedmaken",
+      "native_lang": "nl",
+      "target_lang": "tr",
+      "category": "communication",
+      "content": "Turkse cultuur hecht veel waarde aan harmonie in relaties en familie. Na een conflict is verzoening een belangrijk moment om de vrede te herstellen.\n\n## Verzoening in Turkse cultuur\n\nTurken nemen relaties serieus en verzoening wordt gezien als een teken van volwassenheid en liefde. Excuses worden van harte gegeven en ontvangen.\n\n## Essentiële zinnen voor verzoening\n\n### 1. \"Söylediklerim için özür dilerim\"\n**Betekenis:** Sorry voor wat ik heb gezegd\n\n**Uitspraak:** *seu-je-diek-le-riem ie-tjien eu-zuer die-le-riem*\n\nOprechte verontschuldiging.\n\n### 2. \"Yeniden başlayabilir miyiz?\"\n**Betekenis:** Kunnen we opnieuw beginnen?\n\n**Uitspraak:** *je-nie-den basj-la-ja-bie-lier mie-jiez*\n\nEen frisse start.\n\n### 3. \"Seni incitmek istememiştim\"\n**Betekenis:** Ik wilde je niet kwetsen\n\n**Uitspraak:** *se-nie ien-djiet-mek ies-te-me-miesj-tiem*\n\nJe intenties verduidelijken.\n\n### 4. \"Sen benim her şeyimsin\"\n**Betekenis:** Je bent alles voor mij\n\n**Uitspraak:** *sen be-niem her sjej-iem-sien*\n\nHerbevestig je liefde.\n\n### 5. \"Hatalıydım ve bunu kabul ediyorum\"\n**Betekenis:** Ik had ongelijk en ik geef het toe\n\n**Uitspraak:** *ha-ta-lie-diem ve boe-noe ka-boel e-die-jo-roem*\n\nVerantwoordelijkheid nemen.\n\n### 6. \"Seni her kavgadan çok seviyorum\"\n**Betekenis:** Ik hou meer van je dan van elke ruzie\n\n**Uitspraak:** *se-nie her kav-ga-dan tsjok se-vie-jo-roem*\n\nLiefde boven conflict.\n\n### 7. \"Bunu telafi etmek için ne yapabilirim?\"\n**Betekenis:** Wat kan ik doen om dit goed te maken?\n\n**Uitspraak:** *boe-noe te-la-fie et-mek ie-tjien ne ja-pa-bie-lie-riem*\n\nBereidheid tot actie.\n\n### 8. \"Seni affediyorum\"\n**Betekenis:** Ik vergeef je\n\n**Uitspraak:** *se-nie af-fe-die-jo-roem*\n\nVergeving uitspreken.\n\n### 9. \"Bunu geride bırakalım\"\n**Betekenis:** Laten we dit achter ons laten\n\n**Uitspraak:** *boe-noe ge-rie-de bie-ra-ka-liem*\n\nVooruit kijken.\n\n### 10. \"Gel buraya, sarıl bana\"\n**Betekenis:** Kom hier, omhels me\n\n**Uitspraak:** *gel boe-ra-ja, sa-riel ba-na*\n\nFysieke verzoening.\n\n### 11. \"Aşkımız bundan daha güçlü\"\n**Betekenis:** Onze liefde is sterker dan dit\n\n**Uitspraak:** *asj-kie-miez boen-dan da-ha guetj-lue*\n\nJullie band benadrukken.\n\n### 12. \"Seni asla kaybetmek istemiyorum\"\n**Betekenis:** Ik wil je nooit verliezen\n\n**Uitspraak:** *se-nie as-la kaj-bet-mek ies-te-mie-jo-roem*\n\nGehechtheid uitdrukken.\n\n## Culturele tips\n\n**Respect:** Toon respect voor oudere familieleden bij verzoening.\n\n**Gastvrijheid:** Thee of koffie aanbieden kan een gebaar van verzoening zijn.\n\n**Geduld:** Geef je partner tijd om te verwerken.\n\n## Conclusie\n\nVerzoening met je Turkse partner combineert warmte met respect. Gebruik deze zinnen voor een betekenisvolle verzoening.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Essentiële zinnen voor verzoening"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "49ca4a42-d6d3-4fd4-8b85-69ca001d4d8f",
+      "title": "Guten Morgen und Gute Nacht auf Rumänisch – Süße Phrasen für jeden Tag",
+      "native_lang": "de",
+      "target_lang": "ro",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\n# Guten Morgen und Gute Nacht auf Rumänisch\n\nEs gibt kaum etwas Schöneres, als den Tag mit liebevollen Worten zu beginnen und zu beenden. Diese Rumänischen Phrasen helfen dir, deinem Partner jeden Tag zu zeigen, wie viel er dir bedeutet – vom ersten Moment am Morgen bis zum letzten Kuss in der Nacht.\n\n<PhraseOfDay\n  word=\"Good morning\"\n  translation=\"Guten Morgen\"\n  pronunciation=\"gud MOR-ning\"\n  context=\"Der klassische Morgengruß für deinen Partner\"\n/>\n\n## Guten Morgen sagen\n\n### Klassische Morgengrüße\n\n<VocabCard\n  word=\"Good morning, my darling\"\n  translation=\"Guten Morgen, mein Schatz\"\n  pronunciation=\"gud MOR-ning mai DAR-ling\"\n  example=\"Good morning, my darling! Rise and shine.\"\n/>\n\n<VocabCard\n  word=\"Wake up, my love\"\n  translation=\"Aufwachen, mein Liebling\"\n  pronunciation=\"weik ap mai lav\"\n  example=\"Wake up, my love! It's a beautiful day.\"\n/>\n\n| Rumänisch | Deutsch |\n|-------------|---------|\n| Did you sleep well? | Hast du gut geschlafen? |\n| Time to get up | Zeit aufzustehen |\n| I made breakfast | Ich habe Frühstück gemacht |\n\n### Romantische Morgengrüße\n\n| Rumänisch | Deutsch |\n|-------------|---------|\n| You're the first thing on my mind | Du bist das Erste, woran ich denke |\n| Have a wonderful day, angel | Einen wunderschönen Tag, mein Engel |\n| I love waking up next to you | Ich liebe es, neben dir aufzuwachen |\n| You're my sunshine | Du bist mein Sonnenschein |\n\n<CultureTip flag=\"🇷🇴\" title=\"Kultureller Kontext\">\nDaily greetings in your partner's language show you care. Make it a sweet habit!\n</CultureTip>\n\n## Gute Nacht sagen\n\n### Klassische Nachtgrüße\n\n<VocabCard\n  word=\"Good night\"\n  translation=\"Gute Nacht\"\n  pronunciation=\"gud nait\"\n  example=\"Good night, sweet dreams.\"\n/>\n\n<VocabCard\n  word=\"Sleep well\"\n  translation=\"Schlaf gut\"\n  pronunciation=\"sliep wel\"\n  example=\"Sleep well, my love.\"\n/>\n\n| Rumänisch | Deutsch |\n|-------------|---------|\n| Sweet dreams | Süße Träume |\n| See you tomorrow | Bis morgen |\n| Sleep tight | Schlaf schön |\n\n### Romantische Nachtgrüße\n\n| Rumänisch | Deutsch |\n|-------------|---------|\n| I'll dream of you | Ich träume von dir |\n| You're my last thought before sleep | Du bist der letzte Gedanke vor dem Einschlafen |\n| Sleep well, my heart | Schlaf gut, mein Herz |\n| I can't wait to see you tomorrow | Ich kann es kaum erwarten, dich morgen zu sehen |\n\n## Für Textnachrichten\n\nPerfekt für süße SMS und WhatsApp-Nachrichten:\n\n| Rumänisch | Deutsch |\n|-------------|---------|\n| Good morning, thinking of you | Guten Morgen, ich denke an dich |\n| Have a great day | Hab einen tollen Tag |\n| Good night, I miss you | Gute Nacht, ich vermisse dich |\n| Sweet dreams | Träum süß |\n| Until tomorrow, love you | Bis morgen, ich liebe dich |\n\n<CultureTip flag=\"🇷🇴\" title=\"Tipp für Paare\">\nBeginne und beende jeden Tag mit einer liebevollen Nachricht auf Rumänisch. Diese kleinen Gesten stärken eure Beziehung und helfen dir beim Sprachenlernen!\n</CultureTip>\n\n## Verwandte Artikel\n\n- [Romantische Phrasen auf Rumänisch](/de/blog/romanian-romantic-phrases-for-every-occasion)\n- [Rumänische Kosenamen](/de/blog/romanian-pet-names-terms-of-endearment)\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Guten Morgen sagen",
+              "## Gute Nacht sagen"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "49d27c78-cb07-492f-b074-fa08a23c6a65",
+      "title": "French Flirting Phrases: The Language of Love and Seduction",
+      "native_lang": "en",
+      "target_lang": "fr",
+      "category": "communication",
+      "content": "French has earned its reputation as the language of love, and for good reason. The smooth, melodic sounds create an atmosphere of romance that makes flirting feel like poetry. Whether your partner is from Paris, Montreal, or Brussels, these phrases will help you express attraction in the most romantic way possible.\n\n## Why French Flirting is Special\n\nThe French don't just flirt—they seduce with words. *Draguer* (to flirt) is considered a refined social skill, and the language offers countless ways to express admiration with elegance and subtlety.\n\n## Essential Flirting Phrases\n\n### Expressing Admiration\n\n**Tu es magnifique**\n*You are magnificent*\n\nStronger than *beau/belle*, this word conveys that their beauty leaves you in awe. Perfect for special occasions or when they've made an effort.\n\n**J'adore tes yeux**\n*I adore your eyes*\n\nUsing *adorer* instead of *aimer* adds intensity. The French consider eyes the window to the soul, making this deeply romantic.\n\n**Tu me fais craquer**\n*You make me melt*\n\nLiterally \"you make me crack\"—this phrase means they break down all your defenses with their charm.\n\n### Playful Attraction\n\n**Tu me plais beaucoup**\n*I really like you / You please me greatly*\n\nThis classic French expression of attraction is more nuanced than English—it suggests they appeal to you in every way.\n\n**Je ne peux pas résister à ton charme**\n*I can't resist your charm*\n\nA flattering admission that their allure is simply too powerful to ignore.\n\n**Tu as un sourire irrésistible**\n*You have an irresistible smile*\n\nThe French adore specificity in compliments—pointing out their smile shows genuine attention to detail.\n\n### Deeper Romantic Expressions\n\n**Je suis fou/folle de toi**\n*I'm crazy about you*\n\nUse *fou* if you're male, *folle* if female. This phrase expresses consuming attraction that borders on obsession—in the most romantic sense.\n\n**Tu hantes mes pensées**\n*You haunt my thoughts*\n\nBeautifully poetic, this phrase suggests they occupy your mind constantly, like a beautiful ghost you can't escape.\n\n**Mon cœur bat plus vite quand tu es là**\n*My heart beats faster when you're here*\n\nA vulnerable and sincere expression that shows their presence has a physical effect on you.\n\n### Sweet Nothings\n\n**Tu es mon rayon de soleil**\n*You are my ray of sunshine*\n\nPerfect for brightening their day—you're saying they bring light and warmth into your life.\n\n**J'ai de la chance de t'avoir**\n*I'm lucky to have you*\n\nA grounding phrase that balances flirtation with genuine appreciation.\n\n**Chaque moment avec toi est précieux**\n*Every moment with you is precious*\n\nIdeal for long-term couples who want to remind their partner that time together never loses its value.\n\n## The Art of French Flirtation\n\n**Subtlety wins**: French flirting is often indirect. A lingering glance or well-timed compliment speaks volumes.\n\n**Use \"tu\" carefully**: The informal *tu* creates intimacy, but make sure you've established that level of closeness first.\n\n**Embrace formality**: Even in flirting, a touch of elegance is appreciated. *Vous êtes charmante* (formal \"you are charming\") can be incredibly seductive.\n\n**Physical restraint**: Unlike some cultures, French flirting often maintains physical distance initially—the tension builds through words and glances.\n\n## Making It Natural\n\nStart with simpler phrases like *Tu es magnifique* and gradually incorporate more complex expressions. The beauty of French flirting is in delivery—a soft voice, meaningful eye contact, and confident timing.\n\nDon't worry about perfect pronunciation. Your effort to speak their language romantically will touch your partner's heart more than technical perfection ever could. The French deeply appreciate when someone tries to speak their language, especially in matters of love.\n\nWith practice, you'll discover that French truly deserves its title as the language of love.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Essential Flirting Phrases"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "49dda4dc-feff-45bd-9c8f-f199aa7a21a1",
+      "title": "Ungarische Hochzeitsphrasen und romantische Glückwünsche",
+      "native_lang": "de",
+      "target_lang": "hu",
+      "category": "situations",
+      "content": "# Ungarische Hochzeitsphrasen und romantische Glückwünsche\n\nEine Hochzeit ist einer der schönsten Momente im Leben eines Paares. Wenn Sie eine ungarische Hochzeit besuchen oder Ihren Partner auf Ungarisch beeindrucken möchten, ist dieses Vokabular unverzichtbar.\n\n## Grundlegende Hochzeitsvokabeln\n\nBevor wir zu den Phrasen kommen, lernen wir die wichtigsten Wörter rund um die Hochzeit:\n\n<VocabCard word=\"jegygyűrű\" translation=\"der Ehering\" example=\"Der jegygyűrű symbolisiert die ewige Liebe.\" />\n\n<VocabCard word=\"menyasszonyi ruha\" translation=\"das Hochzeitskleid\" example=\"Das menyasszonyi ruha war wunderschön.\" />\n\n<VocabCard word=\"szertartás\" translation=\"die Zeremonie\" example=\"Die szertartás war sehr bewegend.\" />\n\n<VocabCard word=\"nászút\" translation=\"die Flitterwochen\" example=\"Wohin fahrt ihr in die nászút?\" />\n\n## Die wichtigsten Hochzeitsphrasen\n\n### Der Heiratsantrag\n\nDie wohl wichtigste Frage, die Sie auf Ungarisch stellen können:\n\n<PhraseOfDay phrase=\"Feleségül veszel?\" translation=\"Willst du mich heiraten?\" context=\"Die traditionelle Frage beim Heiratsantrag\" />\n\n### Das Ehegelübde\n\nBei der Zeremonie hören Sie oft:\n\n**\"Igen, akarom\"** - \"Ja, ich will\"\n\nDies ist die traditionelle Antwort auf die Frage des Standesbeamten oder Priesters.\n\n### Glückwünsche aussprechen\n\nNach der Trauung gratulieren Sie dem Brautpaar:\n\n**\"Gratulálunk az ifjú párnak!\"** - \"Herzlichen Glückwunsch den Frischvermählten!\"\n\nBeim Anstoßen sagen Sie:\n\n**\"Az ifjú párra!\"** - \"Auf das Brautpaar!\"\n\n<CultureTip title=\"Hochzeitsbräuche\">\nIn Ungarischsprachigen Ländern gibt es einzigartige Hochzeitstraditionen. Informieren Sie sich vor dem Besuch einer Hochzeit über lokale Bräuche.\n</CultureTip>\n\n## Vokabeln für die Hochzeitsgesellschaft\n\n<VocabCard word=\"koszorúslányok\" translation=\"die Brautjungfern\" example=\"Die koszorúslányok trugen blaue Kleider.\" />\n\n<VocabCard word=\"vőfélyek\" translation=\"die Trauzeugen\" example=\"Die vőfélyek organisierten den Junggesellenabschied.\" />\n\n<VocabCard word=\"tanú\" translation=\"der Trauzeuge\" example=\"Der tanú hielt eine tolle Rede.\" />\n\n<VocabCard word=\"tanú\" translation=\"die Trauzeugin\" example=\"Die tanú half bei der Planung.\" />\n\n## Romantische Versprechen\n\nEin typisches Ehegelübde enthält oft Sätze wie:\n\n**\"Megígérem, hogy örökké szeretlek\"** - \"Ich verspreche, dich für immer zu lieben\"\n\nDiese Worte werden während der Zeremonie ausgetauscht und sind der emotionale Höhepunkt jeder Hochzeit.\n\n## Die Feier\n\n<VocabCard word=\"A fogadás helyszíne...\" translation=\"Der Empfang wird stattfinden bei...\" example=\"A fogadás helyszíne...\" />\n\n<VocabCard word=\"nyitótánc\" translation=\"der erste Tanz\" example=\"Ihr nyitótánc war sehr romantisch.\" />\n\n## Praktische Phrasen für Hochzeitsgäste\n\nAls Gast einer ungarischen Hochzeit sollten Sie folgende Ausdrücke kennen:\n\n- \"Wo findet die Zeremonie statt?\" - Fragen Sie nach dem Veranstaltungsort\n- \"Wann beginnt der Empfang?\" - Erkundigen Sie sich nach dem Zeitplan\n- \"Darf ich dem Brautpaar gratulieren?\" - Höflich um Erlaubnis bitten\n\n<CultureTip title=\"Geschenke und Etikette\">\nIn verschiedenen Kulturen gibt es unterschiedliche Erwartungen an Hochzeitsgeschenke. Manche bevorzugen Geldgeschenke, andere traditionelle Gaben.\n</CultureTip>\n\n## Übung macht den Meister\n\nÜben Sie diese Phrasen regelmäßig, damit Sie bei der nächsten Hochzeit selbstbewusst auf Ungarisch kommunizieren können. Beginnen Sie mit den grundlegenden Glückwünschen und arbeiten Sie sich zu komplexeren Ausdrücken vor.\n\n## Weiterführende Ressourcen\n\nWenn Sie Ihre romantischen Ungarischkenntnisse vertiefen möchten, empfehlen wir Ihnen unsere anderen Artikel zu [Verlobungsphrasen](/de/blog/hungarian-proposal-engagement-phrases) und [Jahrestagswünschen](/de/blog/hungarian-anniversary-wishes).\n\n<CTA text=\"Üben Sie diese Hochzeitsphrasen mit unserem interaktiven Sprachtrainer\" buttonText=\"Jetzt starten\" href=\"/de\" />\n\n---\n\n*Mit diesen Phrasen sind Sie bestens auf jede ungarische Hochzeit vorbereitet!*",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 287,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Die wichtigsten Hochzeitsphrasen"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

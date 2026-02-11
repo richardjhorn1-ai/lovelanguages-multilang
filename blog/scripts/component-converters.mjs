@@ -494,8 +494,9 @@ export function convertMdxToHtml(rawContent, nativeLang = 'en', targetLang = nul
   content = content.replace(/<\/?PhraseList>/gi, '');
 
   // 4a-ii. Convert <Phrase>...</Phrase> with children (non-standard AI-generated tags)
+  // Negative lookahead prevents matching <PhraseOfDay>, <PhraseCard>, <PhrasePair>
   content = content.replace(
-    /<Phrase([\s\S]*?)>([\s\S]*?)<\/Phrase>/gi,
+    /<Phrase(?!OfDay|Card|Pair)([\s\S]*?)>([\s\S]*?)<\/Phrase>/gi,
     (match) => {
       stats.phrases = (stats.phrases || 0) + 1;
       return convertPhrase(match, nativeLang);
@@ -503,8 +504,9 @@ export function convertMdxToHtml(rawContent, nativeLang = 'en', targetLang = nul
   );
 
   // 4a-iii. Convert self-closing <Phrase native="..." target="..." phonetic="..." />
+  // Negative lookahead prevents matching <PhraseOfDay>, <PhraseCard>, <PhrasePair>
   content = content.replace(
-    /<Phrase([\s\S]*?)\/>/gi,
+    /<Phrase(?!OfDay|Card|Pair)([\s\S]*?)\/>/gi,
     (match, attrs) => {
       stats.phrases = (stats.phrases || 0) + 1;
       return convertPhraseSelfClosing(`<Phrase${attrs}/>`, nativeLang);

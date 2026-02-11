@@ -1,0 +1,407 @@
+{
+  "batchId": "tier2a-slim-0266",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "1d44bda5-e0a8-4063-8ba4-d75932da8f1a",
+      "title": "Svéd nyelvtan kezdőknek: Tanuljatok együtt, szeressetek együtt",
+      "native_lang": "hu",
+      "target_lang": "sv",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Gyakori hibák és hogyan kerüld el őket",
+          "subsections": [
+            "### 1. A \"att\" használata",
+            "### 2. A névelők elfelejtése",
+            "### 3. A szórend kérdő mondatokban"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1e9e6284-837a-40e4-ba56-b84182d068d9",
+      "title": "Conocer a la Familia de tu Pareja en Danés: Frases Esenciales para Conectar",
+      "native_lang": "es",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Escenarios Comunes Durante la Visita",
+          "subsections": [
+            "### La Cena Familiar",
+            "### Conversaciones Informales"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "20543487-b5d2-482c-b36d-ac27b47e3905",
+      "title": "Dialectos Polacos: Diferencias",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Grupos Principales de Dialectos Polacos",
+          "subsections": [
+            "### Gran Polonia (Wielkopolska)",
+            "### Silesiano (Śląski)",
+            "### Casubio (Kaszubski)",
+            "### Pequeña Polonia (Małopolska)"
+          ]
+        },
+        {
+          "header": "## Diferencias de Pronunciación Regional",
+          "subsections": [
+            "### Varsovia vs. Cracovia",
+            "### Influencias Orientales"
+          ]
+        },
+        {
+          "header": "## Qué Significa Esto para los Estudiantes",
+          "subsections": [
+            "### Empieza con el Polaco Estándar",
+            "### Abraza el Sabor Regional Después",
+            "### No Te Preocupes por un Acento Perfecto"
+          ]
+        },
+        {
+          "header": "## Polaco Moderno: Ciudad vs. Campo",
+          "subsections": [
+            "### Polaco Urbano",
+            "### Polaco Rural"
+          ]
+        },
+        {
+          "header": "## Consejos Prácticos para Parejas",
+          "subsections": [
+            "### Elige Tu Estilo de Aprendizaje",
+            "### Consumo de Medios",
+            "### Planificación de Viajes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2186385b-5dba-4edf-9670-72d7051cf901",
+      "title": "Walentynki: 30+ Frases Románticas para Enamorar",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Frases Esenciales de San Valentín en Polaco",
+          "subsections": [
+            "### Declaraciones de Amor",
+            "### Cumplidos Románticos",
+            "### Mensajes Dulces de San Valentín"
+          ]
+        },
+        {
+          "header": "## Tradiciones Polacas de San Valentín",
+          "subsections": [
+            "### Costumbres de Regalos",
+            "### Tradiciones de Cena Romántica",
+            "### Poesía y Cartas"
+          ]
+        },
+        {
+          "header": "## Celebraciones Modernas de San Valentín en Polonia",
+          "subsections": [
+            "### Celebraciones en Ciudades",
+            "### Tarjetas de San Valentín - Kartki Walentynkowe"
+          ]
+        },
+        {
+          "header": "## Vocabulario de San Valentín para Parejas",
+          "subsections": [
+            "### Palabras Esenciales",
+            "### Acciones Románticas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2381aeda-a858-470d-9351-3ddab6205a78",
+      "title": "Lær Svensk Udtale for Par: Sådan Lyder I Kærligt på Svensk",
+      "native_lang": "da",
+      "target_lang": "sv",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## De Problematiske Lyde (Og Sådan Masterer Du Dem)",
+          "subsections": [
+            "### Den Svenske \"SJ-Lyd\"",
+            "### Den Bløde \"R\""
+          ]
+        },
+        {
+          "header": "## Øveøvelser for Kærester",
+          "subsections": [
+            "### Øvelse 1: Kælenavne Challenge",
+            "### Øvelse 2: Romantisk Gentagelse",
+            "### Øvelse 3: Godnat Rutine"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "242a6e66-0bdb-4c0e-bbc8-cd1a3aad1668",
+      "title": "Je Familie van Je Partner Ontmoeten in het Zweeds: Essentiële Zinnen voor een Onvergetelijke Eerste Indruk",
+      "native_lang": "nl",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Conversatie Starters en Kleine Praatjes",
+          "subsections": [
+            "### Over het Weer (Klassieker!)",
+            "### Over de Familie",
+            "### Over Jullie Relatie"
+          ]
+        },
+        {
+          "header": "## Praktische Woordenschat voor Familiebijeenkomsten",
+          "subsections": [
+            "### Familieleden",
+            "### Huis en Tuin"
+          ]
+        },
+        {
+          "header": "## Cultuur Tips voor een Geslaagde Ontmoeting",
+          "subsections": [
+            "### Cadeautjes Meebrengen",
+            "### Tijdens het Diner"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "24373b82-1b4d-4348-8cac-be3717449ee2",
+      "title": "Conhecendo a Família do Seu Parceiro em Espanhol: Frases Essenciais para Marcar Boa Impressão",
+      "native_lang": "pt",
+      "target_lang": "es",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Conversas Autênticas: Dos Temas Clássicos aos Modernos",
+          "subsections": [
+            "### Sobre o Trabalho e Estudos",
+            "### Sobre os Planos Futuros"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "25791dc1-2c34-46ef-81af-a09f04008bb0",
+      "title": "Guía de pronunciación sueca para principiantes: Cómo sonar como un nativo con tu pareja",
+      "native_lang": "es",
+      "target_lang": "sv",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Los errores más comunes de hispanohablantes",
+          "subsections": [
+            "### 1. La \"G\" sueca",
+            "### 2. Las vocales largas y cortas",
+            "### 3. El ritmo oracional"
+          ]
+        },
+        {
+          "header": "## Ejercicios de pronunciación para parejas",
+          "subsections": [
+            "### 1. El juego de las vocales",
+            "### 2. Frases del día",
+            "### 3. Repetición romántica"
+          ]
+        },
+        {
+          "header": "## Guía rápida de pronunciación",
+          "subsections": [
+            "### Vocales suecas simplificadas:",
+            "### Consonantes problemáticas:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "25c66590-ca35-44dd-b84e-78a864b99b97",
+      "title": "Találkozás partnered dán családjával: Így nyűgözöd le őket magyarul",
+      "native_lang": "hu",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Tipikus beszélgetési helyzetek",
+          "subsections": [
+            "### 1. A bemutatkozás pillanata",
+            "### 2. A vacsoraasztalnál",
+            "### 3. Ajándék átadása"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2662b8ba-43ec-408f-9980-be04f3cd0401",
+      "title": "Conoscere la Famiglia del Tuo Partner Rumeno: Frasi Essenziali per Fare una Grande Impressione",
+      "native_lang": "it",
+      "target_lang": "ro",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Scenari Pratici: Dal Saluto al Pranzo Insieme",
+          "subsections": [
+            "### Scenario 1: Arrivo a Casa",
+            "### Scenario 2: Conversazione al Tavolo",
+            "### Scenario 3: Mostrare Interesse"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "26e67f4e-9bcf-4450-9a39-986e65d934ca",
+      "title": "Rencontrer la Famille de son Partenaire en Espagnol : Phrases Essentielles pour un Premier Moment Mémorable",
+      "native_lang": "fr",
+      "target_lang": "es",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Scénarios Concrets : De l'Arrivée au Dîner",
+          "subsections": [
+            "### À l'Arrivée",
+            "### Pendant l'Apéritif",
+            "### À Table"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "27492f75-653a-4c38-9207-05fb58073626",
+      "title": "Řecká výslovnost pro začátečníky: Jak správně vyslovovat milostná slovíčka",
+      "native_lang": "cs",
+      "target_lang": "el",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Základní pravidla řecké výslovnosti",
+          "subsections": [
+            "### 1. Písmena, která znáte, ale vyslovují se jinak",
+            "### 2. Důležité kombinace písmen"
+          ]
+        },
+        {
+          "header": "## Časté chyby, kterým se chcete vyhnout",
+          "subsections": [
+            "### 1. **Ρ ρ** není P!",
+            "### 2. **Η η** není H!",
+            "### 3. **Ψ ψ** je \"ps\", ne \"s\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2cd97ccb-e099-43d7-8461-e88abe1fb694",
+      "title": "Møte din danske partners familie: Essensielle fraser for å gjøre et godt inntrykk",
+      "native_lang": "no",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Spesifikke scenarioer du vil møte",
+          "subsections": [
+            "### 1. Ankomst til huset",
+            "### 2. Rundt bordet under middagen",
+            "### 3. Etter middagen - hyggelig tid"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2d2f55b2-ec21-4fb4-871b-c5fd4860f57c",
+      "title": "Le polonais est-il difficile ? Réponse honnête",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Ce qui rend le polonais difficile",
+          "subsections": [
+            "### 1. Le système de cas",
+            "### 2. Les groupes de consonnes",
+            "### 3. Les aspects verbaux"
+          ]
+        },
+        {
+          "header": "## Ce qui rend le polonais plus facile que vous ne pensez",
+          "subsections": [
+            "### 1. Orthographe phonétique",
+            "### 2. Mots empruntés",
+            "### 3. Modèles logiques"
+          ]
+        },
+        {
+          "header": "## Stratégies efficaces pour les francophones",
+          "subsections": [
+            "### Commencez par les mots à haute fréquence",
+            "### Adoptez la musique",
+            "### Utilisez les cognats",
+            "### Pratiquez les routines quotidiennes"
+          ]
+        },
+        {
+          "header": "## Erreurs courantes à éviter",
+          "subsections": [
+            "### 1. La paralysie du perfectionniste",
+            "### 2. Ignorer le genre",
+            "### 3. La traduction littérale"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "30532fa3-b41e-43b8-a459-e7cd3ed5d09f",
+      "title": "O Grego É Difícil? Resposta Honesta",
+      "native_lang": "pt",
+      "target_lang": "el",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## O Que Torna o Grego Difícil",
+          "subsections": [
+            "### 1. O Alfabeto Grego",
+            "### 2. Sistema de Casos",
+            "### 3. Conjugação Verbal",
+            "### 4. Gênero Gramatical"
+          ]
+        },
+        {
+          "header": "## O Que Torna o Grego Mais Fácil do Que Você Pensa",
+          "subsections": [
+            "### 1. Pronúncia Consistente",
+            "### 2. Cognatos com o Português",
+            "### 3. Ordem de Palavras Flexível",
+            "### 4. Sem Conjugação de Infinitivo"
+          ]
+        },
+        {
+          "header": "## Estratégias Eficazes para Falantes de Português",
+          "subsections": [
+            "### Comece com Palavras de Alta Frequência",
+            "### Aprenda o Alfabeto Cedo",
+            "### Use Cognatos",
+            "### Pratique Rotinas Diárias"
+          ]
+        },
+        {
+          "header": "## Erros Comuns a Evitar",
+          "subsections": [
+            "### 1. Paralisia Perfeccionista",
+            "### 2. Ignorar o Gênero",
+            "### 3. Tradução Literal"
+          ]
+        }
+      ]
+    }
+  ]
+}

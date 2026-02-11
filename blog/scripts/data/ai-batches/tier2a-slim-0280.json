@@ -1,0 +1,386 @@
+{
+  "batchId": "tier2a-slim-0280",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "f180100f-b4b5-4ce0-94d3-eb9a8bdd2f8d",
+      "title": "Английская грамматика для пар: Простые правила, которые вы будете использовать каждый день",
+      "native_lang": "ru",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Типичные ошибки, которых можно избежать",
+          "subsections": [
+            "### 1. Пропуск артиклей",
+            "### 2. Путаница со временами",
+            "### 3. Неправильный порядок слов"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f255e4a3-4a13-4322-9937-ed05df716c18",
+      "title": "Je Italiaanse schoonfamilie ontmoeten: essentiële frases voor koppels",
+      "native_lang": "nl",
+      "target_lang": "it",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Typische ontmoetingsscenario's",
+          "subsections": [
+            "### Scenario 1: Aankomen bij het huis",
+            "### Scenario 2: Aan tafel tijdens lunch",
+            "### Scenario 3: Gesprek over jezelf"
+          ]
+        },
+        {
+          "header": "## Praktische vocabulaire voor familiebijeenkomsten",
+          "subsections": [
+            "### Over jezelf vertellen",
+            "### Interesse tonen",
+            "### Complimenten geven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f2c692c7-5e86-4252-a9d6-0de07b05e717",
+      "title": "İngilizce Dilbilgisi Temelleri: Sevgilinizle Birlikte Öğrenin",
+      "native_lang": "tr",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Temel 5 Kural",
+          "subsections": [
+            "### 1. Simple Present (Geniş Zaman) - Her Gün Yaptıklarınız",
+            "### 2. Personal Pronouns (Şahıs Zamirleri)",
+            "### 3. \"To Be\" Olacak - Hayatın Temeli",
+            "### 4. Soru Sorma - Merak Etme Özgürlüğü",
+            "### 5. Sahiplik - \"My\", \"Your\", \"His/Her\""
+          ]
+        },
+        {
+          "header": "## En Yaygın Kalıplar",
+          "subsections": [
+            "### Günlük Konuşma",
+            "### Romantik Anlar"
+          ]
+        },
+        {
+          "header": "## Hızlı Referans Tablosu",
+          "subsections": [
+            "### Temel Fiiller",
+            "### Zamir + To Be"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f6a79c15-1581-403e-bcf3-821e63bf0d16",
+      "title": "Møte Italienske Svigerfamilie: Slik Gjør Du Et Fantastisk Førsteinntrykk",
+      "native_lang": "no",
+      "target_lang": "it",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Vanlige Spørsmål Du Vil Få - Og Hvordan Svare",
+          "subsections": [
+            "### Presentasjonsrunden"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f8835036-193d-459f-920e-7fc7f696707c",
+      "title": "Grammatica Ceco per Coppie: Le Basi per Comunicare con il Tuo Partner",
+      "native_lang": "it",
+      "target_lang": "cs",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Errori Comuni da Evitare",
+          "subsections": [
+            "### 1. **Dimenticare i casi**",
+            "### 2. **Confondere \"ty\" e \"vy\"**",
+            "### 3. **Dimenticare l'accento**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f913644a-54b8-4442-86b1-37a6940a44ca",
+      "title": "Встреча с семьёй вашего норвежского партнёра: как произвести впечатление и показать уважение",
+      "native_lang": "ru",
+      "target_lang": "no",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Практические сценарии: как всё пройдёт",
+          "subsections": [
+            "### При входе в дом",
+            "### За обеденным столом",
+            "### Рассказывая о себе"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f91d6ea7-1a77-46d4-bf8e-9823b577554c",
+      "title": "Grammatica Svedese per Principianti: Guida Romantica per Coppie",
+      "native_lang": "it",
+      "target_lang": "sv",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Le 5 Regole Fondamentali",
+          "subsections": [
+            "### 1. L'Ordine delle Parole: SVO",
+            "### 2. Non C'è Coniugazione delle Persone",
+            "### 3. Gli Articoli sono Integrati",
+            "### 4. Le Preposizioni sono Essenziali",
+            "### 5. Le Domande sono Semplici"
+          ]
+        },
+        {
+          "header": "## Errori Comuni da Evitare",
+          "subsections": [
+            "### 1. Dimenticare l'Inversione nelle Domande",
+            "### 2. Confondere \"Tycka om\" e \"Älska\"",
+            "### 3. Usare l'Articolo Sbagliato",
+            "### 4. Dimenticare le Preposizioni",
+            "### 5. Pronuncia Errata della \"Ä\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fa8debf7-27f2-4acc-b4ea-5d4c57200732",
+      "title": "Die Familie deines Partners auf Niederländisch treffen: Wichtige Phrasen für einen tollen Eindruck",
+      "native_lang": "de",
+      "target_lang": "nl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Typische Situationen beim Familienfest",
+          "subsections": [
+            "### Beim Essen",
+            "### Geschenke überreichen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fa9cd5cd-07a3-41a7-aac1-f9a2bc5c5651",
+      "title": "Rencontrer la famille de votre partenaire suédois : phrases essentielles et conseils culturels",
+      "native_lang": "fr",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Scénarios courants",
+          "subsections": [
+            "### Arrivée à la maison",
+            "### Pendant le dîner",
+            "### Conversation avec la famille"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fc02a644-4e5f-40bf-bda4-47916bf66a9d",
+      "title": "Pronuncia Spagnola per Coppie: Dalla A alla Z per Amare con l'Accento Giusto",
+      "native_lang": "it",
+      "target_lang": "es",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Le 5 Regole d'Oro della Pronuncia Spagnola",
+          "subsections": [
+            "### 1. Le Vocali: Semplici ma Potenti",
+            "### 2. La C è la Z: Il Suono che Confonde",
+            "### 3. La Decisiva RR: Il Suolo Rotico",
+            "### 4. La LL è la Y: Suoni Gemelli",
+            "### 5. La H Muta: Silenziosa ma Importante"
+          ]
+        },
+        {
+          "header": "## I Suoni Difficili per Italiani: Trucchi e Consigli",
+          "subsections": [
+            "### La Ñ: Il Suono unico",
+            "### La J: La Geografia Influente",
+            "### I Dittonghi: Combinazione Perfetta"
+          ]
+        },
+        {
+          "header": "## Errori Comuni da Evitare",
+          "subsections": [
+            "### 1. La S Zoppicante",
+            "### 2. La D Finale",
+            "### 3. La G è la Gente"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fd6bd3e3-691e-4620-a8ab-61e363a60294",
+      "title": "Je Familie van Je Partner Ontmoeten in Hongaars: Essentiële Zinnen voor Koppels",
+      "native_lang": "nl",
+      "target_lang": "hu",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Praktische Scenario's",
+          "subsections": [
+            "### Scenario 1: Aankomst bij het Huis",
+            "### Scenario 2: Aan Tafel",
+            "### Scenario 3: Afscheid Nemen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fd7c8129-7358-4eac-9ab9-dba4534ae974",
+      "title": "Francuskie Podstawy Gramatyczne dla Początkujących: Jak Razem Rozumieć Strukturę Języka Miłości",
+      "native_lang": "pl",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Podstawowe zasady (5 kluczowych reguł)",
+          "subsections": [
+            "### 1. Rodzajniki są wszędzie",
+            "### 2. Przymiotniki często stoją po rzeczowniku",
+            "### 3. Czasownik \"être\" (być) - wasz najlepszy przyjaciel",
+            "### 4. Pytania tworzymy prościej niż myślicie",
+            "### 5. Zaprzeczenie jest super proste!"
+          ]
+        },
+        {
+          "header": "## Najważniejsze wzorce: co naprawdę musicie znać",
+          "subsections": [
+            "### Codzienne wyrażenia miłosne",
+            "### Pytania, które zadacie sobie nawzajem"
+          ]
+        },
+        {
+          "header": "## Najczęstsze błędy (i jak ich unikać)",
+          "subsections": [
+            "### 1. Pomyłka między \"tu\" i \"vous\"",
+            "### 2. Zapominanie o rodzajnikach",
+            "### 3. Zła płeć przymiotników",
+            "### 4. Kolejność słów w pytaniach",
+            "### 5. Zapominanie o \"ne...pas\""
+          ]
+        },
+        {
+          "header": "## Szybka ściągawka do wydrukowania",
+          "subsections": [
+            "### Podstawowe czasowniki",
+            "### Romantyczne zwroty",
+            "### Pytania"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "000be3c0-85f1-4bdc-b18f-c0452fcbc096",
+      "title": "50+ Phrases d'Amour en Turc Pour Chaque Moment",
+      "native_lang": "fr",
+      "target_lang": "tr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Phrases du Matin et du Soir",
+          "subsections": [
+            "### Bonjours Romantiques",
+            "### Douces Bonnes Nuits"
+          ]
+        },
+        {
+          "header": "## Compliments Pour Votre Partenaire",
+          "subsections": [
+            "### Pour Elle",
+            "### Pour Lui"
+          ]
+        },
+        {
+          "header": "## Occasions Spéciales",
+          "subsections": [
+            "### Anniversaires de Couple",
+            "### Anniversaires de Naissance",
+            "### Saint-Valentin"
+          ]
+        },
+        {
+          "header": "## Propositions et Engagement",
+          "subsections": [
+            "### Demandes en Mariage",
+            "### Exprimer l'Engagement"
+          ]
+        },
+        {
+          "header": "## Pendant les Moments Difficiles",
+          "subsections": [
+            "### Réconfort et Soutien",
+            "### Excuses et Réconciliation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0037b907-60bd-48c2-a528-c0370ed5869e",
+      "title": "Pronunciación del Inglés: Domina Sonidos",
+      "native_lang": "es",
+      "target_lang": "en",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Los Sonidos Más Difíciles para Hispanohablantes",
+          "subsections": [
+            "### 1. El Sonido \"TH\" (θ y ð)",
+            "### 2. El Sonido \"V\" vs \"B\"",
+            "### 3. El Sonido \"SH\" (ʃ)",
+            "### 4. Las Vocales Cortas vs Largas",
+            "### 5. La \"R\" Americana",
+            "### 6. La \"H\" Aspirada"
+          ]
+        },
+        {
+          "header": "## Errores Comunes de Hispanohablantes",
+          "subsections": [
+            "### 1. Agregar \"E\" antes de \"S\"",
+            "### 2. No distinguir vocales",
+            "### 3. Pronunciar todas las letras"
+          ]
+        },
+        {
+          "header": "## Ejercicios de Práctica Diaria",
+          "subsections": [
+            "### 1. Trabalenguas",
+            "### 2. Shadowing",
+            "### 3. Graba tu voz",
+            "### 4. Practica con tu pareja"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0055eb12-5735-42f6-bc47-4f48d4d365c2",
+      "title": "Argot Polonais de SMS pour les Couples",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Exemples de Conversations",
+          "subsections": [
+            "### Le Matin",
+            "### Le Soir"
+          ]
+        }
+      ]
+    }
+  ]
+}

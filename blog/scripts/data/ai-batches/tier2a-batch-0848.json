@@ -1,0 +1,122 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0848",
+  "articles": [
+    {
+      "id": "f3b92c9a-ca4a-4e8b-90b2-4f02f077eaaa",
+      "title": "Norveççe Kayınvalide Kayınpeder İfadeleri: Aile Tanışması",
+      "native_lang": "tr",
+      "target_lang": "no",
+      "category": "communication",
+      "content": "# Norveççe Kayınvalide ve Kayınpeder İfadeleri\n\nNorveç'li bir ailenin içine girmek, Norveç kültürünü anlamayı gerektirir. Bu rehberde kayınvalide ve kayınpederinizle iletişim kurmak için gereken Norveççe ifadeleri öğreneceksiniz.\n\n## Temel Hitap Şekilleri\n\nKayınvalide ve kayınpeder için resmi terimler ve günlük kullanımdaki hitap şekilleri bulunmaktadır.\n\n## Önemli İfadeler\n\n### Tanışma\n\n- Tanıştığımıza memnun oldum\n- Beni davet ettiğiniz için teşekkürler\n\n### İltifatlar\n\n- Yemek harikaydı\n- Eviniz çok güzel\n- Çocuğunuzu çok seviyorum\n\n### Yardım Teklifi\n\n- Bir konuda yardımcı olabilir miyim?\n- Aileniz hakkında daha fazla anlatır mısınız?\n\n### Veda\n\n- Burada olmaktan çok mutluyuz\n- Harika bir akşam için teşekkürler\n\n## Kültürel İpuçları\n\nNorveç kültüründe aile bağları önemlidir. İlk ziyarette hediye getirmek takdir edilir. Samimi ve saygılı olun.\n\n## Sonuç\n\nNorveç'li kayınvalide ve kayınpederinizle iyi ilişkiler kurmak, samimiyet ve saygı gerektirir.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 131,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Önemli İfadeler"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "f3c01cb9-3228-4894-9784-9d505403e255",
+      "title": "Portugisiska Grammatik för Nybörjare: Lär Dig Tala Med Kärlek",
+      "native_lang": "sv",
+      "target_lang": "pt",
+      "category": "grammar",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport ConjugationTable from '@components/ConjugationTable.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nNär du lär dig portugisiska för din partner, är grammatik inte bara regler – det är nyckeln till att uttrycka din kärlek på ett sätt som känns naturligt. Istället för att memorera torra regler, tänk på varje grammatikpunkt som ett verktyg för att komma närmare din älskling. Efter den här guiden kommer du kunna bygga meningsfulla meningar och uttrycka dina känslor på portugisiska.\n\n<PhraseOfDay\n  word=\"Eu te amo\"\n  translation=\"Jag älskar dig\"\n  pronunciation=\"eh-oo tchee AH-moo\"\n  context=\"Den viktigaste meningen du någonsin kommer säga på portugisiska.\"\n/>\n\n## Den Enkla Förklaringen: Portugisiska Grundstruktur\n\nPortugisiska fungerar som svenska på många sätt – subjekt + verb + objekt. Men det finns några viktiga skillnader. Tänk på det som att lära känna din partners familj: grundstrukturen är densamma, men traditionerna är annorlunda.\n\nDet viktigaste att komma ihåg är att portugisiska har kön på substantiv (maskulin/feminin) och att ver böjs efter person. Men oroa dig inte – det är inte så komplicerat som det låter!\n\n## De 5 Grundreglerna för Portugisiska\n\n1. **Artiklar måste matcha substantivets kön och antal**\n   - O (maskulin singular) / Os (maskulin plural)\n   - A (feminin singular) / As (feminin plural)\n\n2. **Verber böjs efter person och tid**\n   - Varje person har sin egen ändelse\n   - Det finns tre huvudtempus: nutid, dåtid, framtid\n\n3. **Adjektiv kommer oftast EFTER substantivet**\n   - \"A casa bonita\" (det vackra huset)\n   - Undantag: vissa adjektiv kan komma före för betoning\n\n4. **Frågor behöver inte omvänd ordning**\n   - Du kan säga \"Você me ama?\" (Älskar du mig?)\n   - Tonen gör det till en fråga\n\n5. **Personliga pronomen kan utelämnas**\n   - \"Amo você\" (Jag älskar dig) – \"eu\" (jag) utelämnas ofta\n\n<VocabCard\n  word=\"O meu amor\"\n  translation=\"Min kärlek\"\n  pronunciation=\"oo meh-oo ah-MOR\"\n  example=\"O meu amor é muito especial.\"\n/>\n\n## Romantiska Exempel för Par\n\n| Portugisiska | Svenska | Grammatik Notering |\n|--------------|---------|-------------------|\n| **Você é linda** | Du är vacker | é = är (permanent) |\n| **Eu quero beijar você** | Jag vill kyssa dig | quero = vill (1:a person) |\n| **Você me faz feliz** | Du gör mig lycklig | faz = gör (3:e person) |\n| **Nós somos felizes** | Vi är lyckliga | somos = är (1:a person plural) |\n| **Eu vou sempre amar você** | Jag kommer alltid älska dig | vou = ska/kommer att |\n\n<CultureTip flag=\"🇵🇹\" title=\"Romantiska Skillnader\">\nI Brasilien använder folk ofta \"você\" (ni-form) till och med till sin partner, medan man i Portugal oftare säger \"tu\" (du-form) i nära relationer. Båda är korrekta – fråga din partner vad hen föredrar!\n</CultureTip>\n\n## Verb Böjning: De Viktigaste Verben\n\n<ConjugationTable\n  verb=\"Amar (att älska)\"\n  meaning=\"to love\"\n  conjugations={[\n    { person: \"Eu\", word: \"amo\", translation: \"jag älskar\" },\n    { person: \"Você\", word: \"ama\", translation: \"du älskar\" },\n    { person: \"Ele/Ela\", word: \"ama\", translation: \"han/hon älskar\" },\n    { person: \"Nós\", word: \"amamos\", translation: \"vi älskar\" },\n    { person: \"Vocês\", word: \"amam\", translation: \"ni älskar\" },\n    { person: \"Eles/Elas\", word: \"amam\", translation: \"de älskar\" }\n  ]}\n/>\n\n### De Tre Viktigaste Verben (Nutid)\n\n| Portugisiska | Svenska | Användning |\n|--------------|---------|------------|\n| **Ser** (att vara) | Permanent egenskap | Eu sou feliz (jag är lycklig) |\n| **Estar** (att vara) | Tillfälligt tillstånd | Eu estou cansado (jag är trött) |\n| **Ter** (att ha) | Besittning | Eu tenho um novo amor (jag har en ny kärlek) |\n\n<VocabCard\n  word=\"Estou apaixonado\"\n  translation=\"Jag är förälskad\"\n  pronunciation=\"eh-STOH ah-pah-shee-oh-NAH-doo\"\n  example=\"Estou apaixonado por você.\"\n/>\n\n## Praktiska Meningar för Er Relation\n\n1. **Como foi seu dia?** (KOH-moo foh-ee seh-oo DJAH-ee?) – Hur var din dag?\n2. **Eu senti sua falta** (eh-oo sehn-TCHEE soo-ah FAHWL-tah) – Jag saknade dig\n3. **Você é muito importante para mim** (voh-SEH eh MOO-ee-toh im-por-TAHN-chee pah-rah meeng) – Du är väldigt viktig för mig\n4. **Posso te dar um abraço?** (POH-soh tchee dahr oong ah-BRAH-soo?) – Kan jag ge dig en kram?\n5. **Vamos sair hoje à noite?** (VAH-moos sah-EER OH-zhee ah NOY-chee?) – Ska vi gå ut ikväll?\n6. **Que sorte a minha ter você** (kee SOR-chee ah MEE-nyah tehr voh-SEH) – Vilken tur jag har som har dig\n7. **Meu coração é seu** (meh-oo koh-rah-SOWNG eh seh-oo) – Mitt hjärta tillhör dig\n\n## Vanliga Misstag att Undvika\n\n**Misstag 1:** Blanda ihop \"ser\" och \"estar\"\n- ❌ Fel: *Eu sou cansado* (när du är trött just nu)\n- ✅ Rätt: *Eu estou cansado*\n\n**Misstag 2:** Fel kön på artiklar\n- ❌ Fel: *O casa* (hus är feminint)\n- ✅ Rätt: *A casa*\n\n**Misstag 3:** Glömma att matcha adjektiv\n- ❌ Fel: *Ela é bonito*\n- ✅ Rätt: *Ela é bonita* (feminin form)\n\n**Misstag 4:** Fel verbändelse\n- ❌ Fel: *Eu amas você*\n- ✅ Rätt: *Eu amo você*\n\n<CultureTip flag=\"🇵🇹\" title=\"Känslosamma Skillnader\">\nPortugiser uttrycker känslor mer intensivt än svenskar. \"Eu adoro você\" (jag älskar dig) sägs ofta tidigt i relationer – det är inte lika \"stort\" som \"jag älskar dig\" på svenska. Vill du lära dig fler romantiska uttryck? Kolla in [portugisiska kärleksord för din partner](/learn/sv/pt/portuguese-pet-names-for-your-partner/).\n</CultureTip>\n\n## Snabbreferens: Könsbestämmelse\n\n### Slutar på... → Troligen...\n- **-o** → Maskulin: *o carro* (bilen)\n- **-a** → Feminin: *a casa* (huset)\n- **-ão** → Ofta maskulin: *o coração* (hjärtat)\n- **-ade/-gem** → Feminin: *a viagem* (resan)\n\n### Undantag att memorera\n- **Dia** (dag) - maskulin: *o dia*\n- **Mão** (hand) - feminin: *a mão*\n- **Pessoa** (person) - feminin: *a pessoa*\n\n## Vad Kommer Härnäst?\n\nNu när du behärskar grunderna kan du:\n- Lära dig [hur man säger \"jag älskar dig\" på portugisiska](/learn/sv/pt/how-to-say-i-love-you-in-portuguese/) med alla romantiska nyanser\n- Utforska [väsentliga fraser för par](/learn/sv/pt/essential-portuguese-phrases-for-couples/) för dagliga samtal\n- Öva uttal med vår [guide för nybörjare](/learn/sv/pt/pronunciation-guide-for-beginners/)\n\nKom ihåg: grammatik är inte perfektion – det är kommunikation. Din partner uppskattar dina försök mer än perfekta böjningar. Öva tillsammans, skratta åt misstagen, och låt kärleken vara er lärare.\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Snabbreferens: Könsbestämmelse"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "f3c2a380-504f-434b-bb67-d8ffa0cf3edc",
+      "title": "Phrases de réconfort en roumain : Soutenir son partenaire",
+      "native_lang": "fr",
+      "target_lang": "ro",
+      "category": "communication",
+      "content": "## Soutenir son partenaire en roumain\n\nLes Roumains sont chaleureux et solidaires. Voici comment réconforter.\n\n## Phrases de réconfort\n\n### \"Sunt aici pentru tine\"\n**Prononciation :** sount a-ITCH PÉN-trou TI-né\n\n**Signification :** Je suis là pour toi\n\n### \"Totul va fi bine\"\n**Prononciation :** TO-toul va fi BI-né\n\n**Signification :** Tout ira bien\n\n### \"Nu ești singur/singură în asta\"\n**Prononciation :** nou yéchti SIN-gour/sin-GOU-ra un AS-ta\n\n**Signification :** Tu n'es pas seul(e)\n\n## Écouter et valider\n\n### \"Înțeleg ce simți\"\n**Prononciation :** un-tsé-LÉG tché SIMTSI\n\n**Signification :** Je comprends ce que tu ressens\n\n### \"Este normal să te simți așa\"\n**Prononciation :** YES-té nor-MAL sa té SIMTSI a-CHA\n\n**Signification :** C'est normal de ressentir ça\n\n## Soutien actif\n\n### \"Ce pot face să te ajut?\"\n**Prononciation :** tché pot FA-tché sa té a-JOUT\n\n**Signification :** Que puis-je faire pour t'aider ?\n\n## Encouragement\n\n### \"Ești mai puternic/puternică decât crezi\"\n**Prononciation :** yéchti maï pou-TÉR-nik / pou-tér-NI-ka dé-KUT KRÉ-zi\n\n**Signification :** Tu es plus fort(e) que tu ne le crois\n\n### \"Cred în tine\"\n**Prononciation :** kréd un TI-né\n\n**Signification :** Je crois en toi\n\n### \"O să reușești\"\n**Prononciation :** o sa ré-ou-CHÉCHTI\n\n**Signification :** Tu vas réussir\n\n## Moments difficiles\n\n### \"Îmi pare rău că treci prin asta\"\n**Prononciation :** um-i PA-ré ra-OU ka tréTCHI prin AS-ta\n\n**Signification :** Je suis désolé(e) que tu traverses ça\n\n### \"Lasă-mă să te îmbrățișez\"\n**Prononciation :** LA-sa-ma sa té um-bra-tsi-CHÉZ\n\n**Signification :** Laisse-moi te serrer dans mes bras\n\n### \"Vom trece prin asta împreună\"\n**Prononciation :** vom TRÉ-tché prin AS-ta um-pré-OU-na\n\n**Signification :** On va surmonter ça ensemble\n\n## Conclusion\n\nLe soutien en roumain est chaleureux et sincère.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 276,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Phrases de réconfort",
+              "## Écouter et valider",
+              "## Soutien actif",
+              "## Encouragement",
+              "## Moments difficiles"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "f3c53056-c70d-439b-869a-e414d2dc4050",
+      "title": "Tjekkisk kælenavne og kærlige udtryk for par",
+      "native_lang": "da",
+      "target_lang": "cs",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport CTA from '@components/CTA.astro';\n\n# Tjekkisk kælenavne og kærlige udtryk for par\n\nKælenavne er en vidunderlig måde at vise din partner, hvor meget han eller hun betyder for dig. Hvis din partner taler tjekkisk, vil det helt sikkert glæde dem, når du bruger disse kærlige udtryk!\n\n## Hvorfor er kælenavne vigtige?\n\nKælenavne skaber intimitet og viser hengivenhed. De er som et hemmeligt bånd mellem to mennesker – noget særligt, der kun tilhører jer to.\n\n## Klassiske kælenavne\n\nDe tidløse klassikere virker på alle sprog:\n\n- **Skat** - den universelle favorit\n- **Kæreste** - klassisk og elegant\n- **Mit hjerte** - følelsesfuld og poetisk\n- **Min elskede** - romantisk og øm\n\n<CultureTip>\nKælenavne varierer ofte fra region til region. Hvad der er almindeligt ét sted, kan lyde usædvanligt et andet. Spørg din partner, hvilke navne der bruges i hans/hendes hjemland!\n</CultureTip>\n\n## Søde dyrenavne\n\nSom i mange kulturer bruges dyrenavne også på tjekkisk:\n\n- **Bamse** (lille bjørn) - nusset og stærk\n- **Mus/Musse** (lille mus) - sød og nuttet\n- **Kanin** (lille kanin) - øm\n- **Spurv** (lille spurv) - kærlig\n\n## Romantiske udtryk\n\nTil særlige øjeblikke:\n\n- **Mit et og alt** - når nogen er alt for dig\n- **Min sjæleven** - til dybe forbindelser\n- **Mit solskin** - til en, der lyser op i dit liv\n\n## Kælenavne til forskellige lejligheder\n\n### I hverdagen\nKorte, afslappede navne til daglig brug. Et hurtigt \"Hej, skat!\" virker altid.\n\n### Til romantiske øjeblikke\nLængere, mere følelsesfulde udtryk passer til særlige øjeblikke. Fortæl din partner, hvad de betyder for dig.\n\n### Til at drille\nHumoristiske kælenavne kan løsne stemningen i jeres forhold – men sørg for, at din partner deler humoren!\n\n## Tips til brug\n\n1. **Spørg din partner**: Ikke alle kan lide alle kælenavne. Spørg, hvad han/hun kan lide.\n2. **Pas på udtalen**: Øv den rigtige udtale – intet er mere romantisk end et korrekt udtalt kælenavn.\n3. **Vær autentisk**: Brug navne, der passer til jer som par.\n4. **Skab egne navne**: De mest personlige kælenavne er ofte selvopfundne!\n5. **Læg mærke til reaktionen**: Det bedste kælenavn er det, der får din partner til at smile.\n\n## Sprogets magt\n\nKælenavne er mere end ord – de er små kærlighedserklæringer i hverdagen. Når du lærer tjekkisk for at kommunikere med din partner, er kælenavne en vidunderlig begyndelse.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Kælenavne til forskellige lejligheder"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "f3eea832-98b5-4028-816d-6d86099a8320",
+      "title": "El Futuro en Italiano Explicado",
+      "native_lang": "es",
+      "target_lang": "it",
+      "category": "grammar",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport ConjugationTable from '@components/ConjugationTable.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nEl futuro en italiano es esencial para hablar de planes, hacer promesas y expresar predicciones. Como hispanohablante, encontrarás que el futuro italiano es bastante similar al español, lo que facilita su aprendizaje. Esta guía te ayudará a dominarlo con ejemplos románticos.\n\n## El Futuro Simple (Futuro Semplice)\n\n<PhraseOfDay\n  word=\"Ti amerò per sempre\"\n  translation=\"Te amaré por siempre\"\n  pronunciation=\"[ti a-me-RÒ per SEM-pre]\"\n  context=\"El futuro simple se forma con terminaciones específicas añadidas a la raíz del verbo.\"\n/>\n\n### Conjugación de Verbos Regulares\n\n<ConjugationTable\n  verb=\"Amare (Amar) - ARE\"\n  translations={{ es: \"Futuro\" }}\n  conjugations={[\n    { pronoun: \"io\", es: \"amerò [a-me-RÒ]\" },\n    { pronoun: \"tu\", es: \"amerai [a-me-RAI]\" },\n    { pronoun: \"lui/lei\", es: \"amerà [a-me-RÀ]\" },\n    { pronoun: \"noi\", es: \"ameremo [a-me-RE-mo]\" },\n    { pronoun: \"voi\", es: \"amerete [a-me-RE-te]\" },\n    { pronoun: \"loro\", es: \"ameranno [a-me-RA-no]\" }\n  ]}\n/>\n\n<ConjugationTable\n  verb=\"Vivere (Vivir) - ERE\"\n  translations={{ es: \"Futuro\" }}\n  conjugations={[\n    { pronoun: \"io\", es: \"vivrò [vi-VRÒ]\" },\n    { pronoun: \"tu\", es: \"vivrai [vi-VRAI]\" },\n    { pronoun: \"lui/lei\", es: \"vivrà [vi-VRÀ]\" },\n    { pronoun: \"noi\", es: \"vivremo [vi-VRE-mo]\" },\n    { pronoun: \"voi\", es: \"vivrete [vi-VRE-te]\" },\n    { pronoun: \"loro\", es: \"vivranno [vi-VRA-no]\" }\n  ]}\n/>\n\n<ConjugationTable\n  verb=\"Partire (Partir) - IRE\"\n  translations={{ es: \"Futuro\" }}\n  conjugations={[\n    { pronoun: \"io\", es: \"partirò [par-ti-RÒ]\" },\n    { pronoun: \"tu\", es: \"partirai [par-ti-RAI]\" },\n    { pronoun: \"lui/lei\", es: \"partirà [par-ti-RÀ]\" },\n    { pronoun: \"noi\", es: \"partiremo [par-ti-RE-mo]\" },\n    { pronoun: \"voi\", es: \"partirete [par-ti-RE-te]\" },\n    { pronoun: \"loro\", es: \"partiranno [par-ti-RA-no]\" }\n  ]}\n/>\n\n<CultureTip title=\"Terminaciones del Futuro\" flag=\"📝\">\nLas terminaciones del futuro son iguales para todos los verbos: -ò, -ai, -à, -emo, -ete, -anno. Solo cambia la raíz. Nota que los verbos -ARE cambian la A por E: amare → amerò.\n</CultureTip>\n\n## Verbos Irregulares en Futuro\n\nAlgunos verbos tienen raíces irregulares en futuro:\n\n| Infinitivo | Raíz Futuro | Ejemplo (io) |\n|------------|-------------|--------------|\n| **Essere** | sar- | sarò |\n| **Avere** | avr- | avrò |\n| **Andare** | andr- | andrò |\n| **Venire** | verr- | verrò |\n| **Fare** | far- | farò |\n| **Potere** | potr- | potrò |\n| **Dovere** | dovr- | dovrò |\n| **Volere** | vorr- | vorrò |\n| **Vedere** | vedr- | vedrò |\n| **Sapere** | sapr- | saprò |\n| **Stare** | star- | starò |\n| **Dare** | dar- | darò |\n\n<VocabCard\n  word=\"Saremo felici insieme\"\n  translation=\"Seremos felices juntos\"\n  pronunciation=\"[sa-RE-mo fe-LI-chi in-SIE-me]\"\n  example=\"'Essere' → 'sar-' en futuro.\"\n/>\n\n<VocabCard\n  word=\"Verrò a prenderti\"\n  translation=\"Vendré a buscarte\"\n  pronunciation=\"[ve-RÒ a PREN-der-ti]\"\n  example=\"'Venire' → 'verr-' en futuro.\"\n/>\n\n<VocabCard\n  word=\"Andremo in Italia insieme\"\n  translation=\"Iremos a Italia juntos\"\n  pronunciation=\"[an-DRE-mo in i-TA-lia in-SIE-me]\"\n  example=\"'Andare' → 'andr-' en futuro.\"\n/>\n\n## Usos del Futuro\n\n### 1. Planes y Predicciones\n\n<VocabCard\n  word=\"Domani andremo al mare\"\n  translation=\"Mañana iremos al mar\"\n  pronunciation=\"[do-MA-ni an-DRE-mo al MA-re]\"\n  example=\"Para planes futuros definidos.\"\n/>\n\n<VocabCard\n  word=\"L'anno prossimo ci sposeremo\"\n  translation=\"El próximo año nos casaremos\"\n  pronunciation=\"[LA-no PRO-si-mo ci spo-se-RE-mo]\"\n  example=\"Para eventos futuros planeados.\"\n/>\n\n### 2. Promesas\n\n<VocabCard\n  word=\"Ti aspetterò sempre\"\n  translation=\"Te esperaré siempre\"\n  pronunciation=\"[ti a-spe-te-RÒ SEM-pre]\"\n  example=\"Promesa de amor eterno.\"\n/>\n\n<VocabCard\n  word=\"Non ti deluderò mai\"\n  translation=\"Nunca te decepcionaré\"\n  pronunciation=\"[non ti de-lu-de-RÒ mai]\"\n  example=\"Compromiso fuerte.\"\n/>\n\n### 3. Suposiciones (Futuro de Probabilidad)\n\n<VocabCard\n  word=\"Saranno le otto\"\n  translation=\"Serán las ocho (probablemente)\"\n  pronunciation=\"[sa-RA-no le O-to]\"\n  example=\"El futuro puede expresar suposición sobre el presente.\"\n/>\n\n<VocabCard\n  word=\"Dove sarà? Non risponde\"\n  translation=\"¿Dónde estará? No contesta\"\n  pronunciation=\"[DO-ve sa-RÀ]\"\n  example=\"Suposición sobre el presente.\"\n/>\n\n<CultureTip title=\"Futuro vs Presente\" flag=\"🇮🇹\">\nEn italiano coloquial, especialmente para planes cercanos, a menudo se usa el presente en lugar del futuro: \"Domani vado al cinema\" (Mañana voy al cine) en vez de \"andrò\". Es perfectamente correcto y muy común.\n</CultureTip>\n\n## El Futuro Anterior (Futuro Anteriore)\n\nEl futuro anterior expresa una acción que estará completada antes de otra en el futuro.\n\n**Estructura:** essere/avere (futuro) + participio pasado\n\n<VocabCard\n  word=\"Quando arriverai, avrò già preparato la cena\"\n  translation=\"Cuando llegues, ya habré preparado la cena\"\n  pronunciation=\"[QUAN-do a-ri-ve-RAI, a-VRÒ ya pre-pa-RA-to la CE-na]\"\n  example=\"Acción futura completada antes de otra.\"\n/>\n\n<VocabCard\n  word=\"Quando ti rivedrò, saranno passati molti anni\"\n  translation=\"Cuando te vuelva a ver, habrán pasado muchos años\"\n  pronunciation=\"[QUAN-do ti ri-ve-DRÒ, sa-RA-no pa-SA-ti MOL-ti A-ni]\"\n  example=\"Con verbos de movimiento usamos 'essere'.\"\n/>\n\n### También para suposiciones sobre el pasado\n\n<VocabCard\n  word=\"Avrà dimenticato l'appuntamento\"\n  translation=\"Habrá olvidado la cita (probablemente)\"\n  pronunciation=\"[a-VRÀ di-men-ti-CA-to la-pun-ta-MEN-to]\"\n  example=\"Suposición sobre algo pasado.\"\n/>\n\n## Expresiones Románticas con Futuro\n\n<VocabCard\n  word=\"Un giorno ti porterò a vedere il mondo\"\n  translation=\"Un día te llevaré a ver el mundo\"\n  pronunciation=\"[un YIOR-no ti por-te-RÒ a ve-DE-re il MON-do]\"\n  example=\"Promesa romántica de aventuras.\"\n/>\n\n<VocabCard\n  word=\"Invecchieremo insieme\"\n  translation=\"Envejeceremos juntos\"\n  pronunciation=\"[in-ve-quie-RE-mo in-SIE-me]\"\n  example=\"Visión del futuro compartido.\"\n/>\n\n<VocabCard\n  word=\"Qualunque cosa accadrà, ti starò accanto\"\n  translation=\"Pase lo que pase, estaré a tu lado\"\n  pronunciation=\"[qual-UN-que CO-sa a-ca-DRÀ, ti sta-RÒ a-CAN-to]\"\n  example=\"Promesa incondicional.\"\n/>\n\n## Ejercicio para Parejas\n\nPractiquen conjugando estos verbos en futuro:\n\n1. Noi (andare) in Italia → **andremo**\n2. Io (essere) sempre con te → **sarò**\n3. Tu (vedere) che bello → **vedrai**\n4. Loro (venire) alla festa → **verranno**\n\n<PhraseOfDay\n  word=\"Il nostro futuro sarà meraviglioso\"\n  translation=\"Nuestro futuro será maravilloso\"\n  pronunciation=\"[il NOS-tro fu-TU-ro sa-RÀ me-ra-vi-LIYO-so]\"\n  context=\"Una forma hermosa de expresar esperanza en su relación.\"\n/>\n\n<CTA\n  text=\"¿Listo para hablar del futuro en italiano?\"\n  buttonText=\"Practicar Ahora\"\n/>\n",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 254,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Usos del Futuro"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

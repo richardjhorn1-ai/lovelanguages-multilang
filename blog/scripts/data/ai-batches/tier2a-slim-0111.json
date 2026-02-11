@@ -1,0 +1,431 @@
+{
+  "batchId": "tier2a-slim-0111",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "80661f83-122b-4d02-980c-c83dddd3d3ec",
+      "title": "Almanca Sevgi Sözcükleri ve Takma Adlar",
+      "native_lang": "tr",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Farklı Durumlar İçin Sevgi Sözcükleri",
+          "subsections": [
+            "### Günlük Hayatta",
+            "### Romantik Anlar İçin",
+            "### Şakalaşmak İçin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "806e5a7b-87e9-47b7-8971-69230d2ad493",
+      "title": "Węgierskie zwroty do kłótni i nieporozumień dla par",
+      "native_lang": "pl",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Wyrażanie niezgody",
+          "subsections": [
+            "### \"Nem értek egyet veled\"",
+            "### \"Én másképp látom\"",
+            "### \"Beszélhetünk erről nyugodtan?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie uczuć",
+          "subsections": [
+            "### \"Frusztrált vagyok, amikor...\"",
+            "### \"Ez nagyon zavar engem\"",
+            "### \"Szükségem van egy kis időre magamnak\""
+          ]
+        },
+        {
+          "header": "## Zrozumienie partnera",
+          "subsections": [
+            "### \"Segíts megérteni a nézőpontodat\"",
+            "### \"Ha jól értem...\"",
+            "### \"Arra gondolsz, hogy...?\""
+          ]
+        },
+        {
+          "header": "## Szukanie rozwiązań",
+          "subsections": [
+            "### \"Hogyan oldhatnánk meg ezt együtt?\"",
+            "### \"Találjunk kompromisszumot\"",
+            "### \"Szerintem mindkettőnknek kell...\""
+          ]
+        },
+        {
+          "header": "## Łagodzenie napięcia",
+          "subsections": [
+            "### \"Szeretlek, még akkor is, ha veszekedünk\"",
+            "### \"Ezt együtt fogjuk megoldani\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "807127f8-2e6c-4933-aa2f-83fbbd1d839c",
+      "title": "Argot norvegien pour SMS : communiquez avec votre partenaire",
+      "native_lang": "fr",
+      "target_lang": "no",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Abreviations essentielles",
+          "subsections": [
+            "### Salutations",
+            "### Reponses courtes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "807ed6bf-1da8-4349-82d6-81fa44a1c04b",
+      "title": "Zweedse Zinnen over Jaloezie en Vertrouwen",
+      "native_lang": "nl",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Jag känner mig osäker när...\"",
+            "### 2. \"Jag litar helt på dig\"",
+            "### 3. \"Kan du lugna mig?\"",
+            "### 4. \"Jag är inte svartsjuk, bara orolig\"",
+            "### 5. \"Vem var den personen du pratade med?\"",
+            "### 6. \"Jag behöver veta att jag kan lita på dig\"",
+            "### 7. \"Du har inget att oroa dig för\"",
+            "### 8. \"Jag har bara ögon för dig\"",
+            "### 9. \"Låt oss prata om vad som stör dig\"",
+            "### 10. \"Jag skulle aldrig göra något för att såra dig\"",
+            "### 11. \"Ditt förflutna definierar inte oss\"",
+            "### 12. \"Jag jobbar på mina osäkerheter\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "808e18bd-309d-48dc-810b-d3f66cfc9eaf",
+      "title": "Румынские фразы о прощении",
+      "native_lang": "ru",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Фразы для просьбы о прощении",
+          "subsections": [
+            "### 1. Îmi pare foarte rău pentru ce am făcut",
+            "### 2. Te rog, iartă-mă",
+            "### 3. Știu că te-am rănit și regret profund",
+            "### 4. Nu se va mai întâmpla, îți promit",
+            "### 5. Îmi asum întreaga responsabilitate pentru acțiunile mele"
+          ]
+        },
+        {
+          "header": "## Фразы для выражения прощения",
+          "subsections": [
+            "### 6. Te iert",
+            "### 7. Hai să lăsăm asta în urmă",
+            "### 8. Sunt gata să merg mai departe",
+            "### 9. Apreciez scuzele tale",
+            "### 10. E nevoie de curaj să-ți ceri scuze, mulțumesc"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "80976c4d-f0d6-404e-a6c7-a9851288967c",
+      "title": "Испанские фразы для первого свидания",
+      "native_lang": "ru",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Начало разговора",
+          "subsections": [
+            "### 1. Estás guapísimo/guapísima esta noche",
+            "### 2. Tenía muchas ganas de conocerte",
+            "### 3. Cuéntame más sobre ti"
+          ]
+        },
+        {
+          "header": "## Поддержание беседы",
+          "subsections": [
+            "### 4. ¿Qué te gusta hacer en tu tiempo libre?",
+            "### 5. ¡Qué interesante!",
+            "### 6. Me encanta tu sonrisa",
+            "### 7. ¿Has viajado a algún lugar interesante?"
+          ]
+        },
+        {
+          "header": "## Выражение интереса",
+          "subsections": [
+            "### 8. Me encantaría verte de nuevo",
+            "### 9. Lo he pasado muy bien esta noche",
+            "### 10. ¿Puedo llamarte mañana?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "809d094d-ee56-46e3-9d77-7469fa5c849c",
+      "title": "Jak vyjádřit podporu a útěchu v řečtině",
+      "native_lang": "cs",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní fráze podpory",
+          "subsections": [
+            "### Είμαι εδώ για σένα (Íme edó ja séna)",
+            "### Όλα θα πάνε καλά (Óla tha páne kalá)",
+            "### Σε καταλαβαίνω (Se katalavéno)",
+            "### Δεν είσαι μόνος/μόνη (Den íse mónos/móni)"
+          ]
+        },
+        {
+          "header": "## Fráze útěchy",
+          "subsections": [
+            "### Λυπάμαι πολύ (Lipáme polí)",
+            "### Κουράγιο! (Kurájo!)",
+            "### Πιστεύω σε σένα (Pistévo se séna)",
+            "### Μπορείς να βασιστείς σε μένα (Borís na vasistís se ména)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "80c010ee-8cd5-4283-9e43-78317ec9cc4a",
+      "title": "Expresii de Flirt în Greacă pentru Români",
+      "native_lang": "ro",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale de Flirt",
+          "subsections": [
+            "### Complimente Pasionale",
+            "### Expresii Romantice",
+            "### Replici Fermecătoare",
+            "### Declarații de Dragoste"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "80c70c26-b775-4f16-980e-69cb749b99e9",
+      "title": "Rumuńskie zwroty o zazdrości i zaufaniu dla par",
+      "native_lang": "pl",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Wyrażanie uczuć zazdrości",
+          "subsections": [
+            "### \"Mă simt puțin gelos/geloasă când...\"",
+            "### \"Mă simt nesigur/nesigură în privința...\"",
+            "### \"Mă deranjează când tu...\""
+          ]
+        },
+        {
+          "header": "## Pytania budujące zaufanie",
+          "subsections": [
+            "### \"Poți să mă liniștești în privința...?\"",
+            "### \"Cine era persoana cu care vorbeai?\"",
+            "### \"Exagerez?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie potrzeby zaufania",
+          "subsections": [
+            "### \"Am nevoie să fii sincer/sinceră cu mine\"",
+            "### \"Am încredere în tine, dar mă lupt cu...\""
+          ]
+        },
+        {
+          "header": "## Uspokajanie partnera",
+          "subsections": [
+            "### \"Nu ai de ce să te îngrijorezi\"",
+            "### \"Ești singurul/singura pentru mine\"",
+            "### \"Nu aș face niciodată nimic care să te rănească\""
+          ]
+        },
+        {
+          "header": "## Budowanie zaufania",
+          "subsections": [
+            "### \"Hai să fim mai deschiși unul cu celălalt\"",
+            "### \"Vreau să avem încredere deplină unul în celălalt\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "80d28458-97c6-41cb-b818-31d96aad73ca",
+      "title": "Polnisch Kosenamen und Liebkosungen für Paare",
+      "native_lang": "de",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Kosenamen für verschiedene Anlässe",
+          "subsections": [
+            "### Im Alltag",
+            "### Für romantische Momente",
+            "### Zum Necken"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "80e9042e-9c7a-4c6f-828d-120367dd453e",
+      "title": "Vocabulario Polaco: Embarazo y Bebé",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Vocabulario Esencial de Embarazo",
+          "subsections": [
+            "### Términos Médicos",
+            "### Etapas y Síntomas del Embarazo"
+          ]
+        },
+        {
+          "header": "## Vocabulario del Bebé",
+          "subsections": [
+            "### Términos Básicos de Bebé",
+            "### Esenciales del Cuidado del Bebé",
+            "### Habitación y Equipo del Bebé"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8117d0b8-82f9-47b2-ad6a-6ba1476cd5d0",
+      "title": "Portugisisk kælenavne og kærlige udtryk for par",
+      "native_lang": "da",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Kælenavne til forskellige lejligheder",
+          "subsections": [
+            "### I hverdagen",
+            "### Til romantiske øjeblikke",
+            "### Til at drille"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8124d64a-3ef9-4ce1-9826-5f1984efacad",
+      "title": "Podstawy gramatyki niemieckiej dla polskich par",
+      "native_lang": "pl",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Odmiana czasowników",
+          "subsections": [
+            "### Czas teraźniejszy - regularne czasowniki",
+            "### Wzorzec końcówek"
+          ]
+        },
+        {
+          "header": "## Czasowniki nieregularne",
+          "subsections": [
+            "### SEIN (być)",
+            "### HABEN (mieć)"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Rodzajniki",
+            "### Ćwiczenie 2: Odmiana",
+            "### Ćwiczenie 3: Szyk zdania"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "812c2175-8d2c-481a-b163-8b0937f85773",
+      "title": "Dire \"Tu me manques\" en grec : Le nostos hellénique",
+      "native_lang": "fr",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Phrases essentielles",
+          "subsections": [
+            "### \"Μου λείπεις\"",
+            "### \"Μου λείπεις πολύ\"",
+            "### \"Μου λείπεις τρελά\""
+          ]
+        },
+        {
+          "header": "## Expressions profondes",
+          "subsections": [
+            "### \"Κάθε μέρα χωρίς εσένα είναι αιωνιότητα\"",
+            "### \"Σκέφτομαι εσένα κάθε στιγμή\"",
+            "### \"Χωρίς εσένα τίποτα δεν είναι το ίδιο\""
+          ]
+        },
+        {
+          "header": "## Phrases quotidiennes",
+          "subsections": [
+            "### \"Μακάρι να ήσουν εδώ\"",
+            "### \"Μετράω τις μέρες μέχρι να σε δω\"",
+            "### \"Ανυπομονώ να σε δω\""
+          ]
+        },
+        {
+          "header": "## Expressions romantiques",
+          "subsections": [
+            "### \"Η απόσταση δεν αλλάζει αυτά που νιώθω\"",
+            "### \"Η καρδιά μου είναι πάντα μαζί σου\"",
+            "### \"Εσύ είσαι το σπίτι μου\""
+          ]
+        },
+        {
+          "header": "## Pour les messages",
+          "subsections": [
+            "### \"Σκέφτομαι εσένα\"",
+            "### \"Μου λείπεις, αγάπη μου\"",
+            "### \"Φιλάκια από μακριά\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "813ef16b-992e-4183-9a0c-7462af4639fd",
+      "title": "Holland kifejezések vitákhoz és nézeteltérésekhez",
+      "native_lang": "hu",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető kifejezések nézeteltérésekhez",
+          "subsections": [
+            "### 1. \"Ik voel me gekwetst als jij...\"",
+            "### 2. \"Kunnen we hier rustig over praten?\"",
+            "### 3. \"Ik begrijp je standpunt, maar...\"",
+            "### 4. \"Laten we niet schreeuwen\"",
+            "### 5. \"Ik heb tijd nodig om na te denken\"",
+            "### 6. \"Dat bedoelde ik niet\"",
+            "### 7. \"Kun je je in mij verplaatsen?\"",
+            "### 8. \"Ik wilde je niet kwetsen\"",
+            "### 9. \"Laten we een compromis vinden\"",
+            "### 10. \"Ik heb het gevoel dat je niet naar me luistert\"",
+            "### 11. \"Dit doet me pijn\""
+          ]
+        }
+      ]
+    }
+  ]
+}

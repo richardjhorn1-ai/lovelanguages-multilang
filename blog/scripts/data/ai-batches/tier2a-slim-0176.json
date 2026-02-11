@@ -1,0 +1,529 @@
+{
+  "batchId": "tier2a-slim-0176",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "b9c75369-029b-4c24-977c-4c2b01493484",
+      "title": "Cómo Escribir Cartas de Amor en Portugués: A Carta de Amor Lusófona",
+      "native_lang": "es",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Saludos Románticos",
+          "subsections": [
+            "### \"Meu amor...\"",
+            "### \"Meu bem...\"",
+            "### \"Minha vida...\"",
+            "### \"Amor da minha vida...\""
+          ]
+        },
+        {
+          "header": "## Expresiones de Apertura",
+          "subsections": [
+            "### \"Escrevo-te do fundo do meu coração\"",
+            "### \"Cada dia sem você é uma eternidade\"",
+            "### \"Não encontro palavras para descrever o que sinto\""
+          ]
+        },
+        {
+          "header": "## Frases del Cuerpo de la Carta",
+          "subsections": [
+            "### \"Você é a melhor coisa que me aconteceu\"",
+            "### \"Meu coração pertence a você\"",
+            "### \"Com você, tudo faz sentido\"",
+            "### \"Você roubou meu coração para sempre\"",
+            "### \"Você ilumina minha vida de mil formas\""
+          ]
+        },
+        {
+          "header": "## La Saudade en las Cartas",
+          "subsections": [
+            "### \"A saudade que sinto de você é imensa\"",
+            "### \"Meu coração dói de tanta saudade\""
+          ]
+        },
+        {
+          "header": "## Promesas de Amor",
+          "subsections": [
+            "### \"Vou te amar para sempre\"",
+            "### \"Estarei sempre ao seu lado\"",
+            "### \"Nosso amor é eterno\""
+          ]
+        },
+        {
+          "header": "## Despedidas Románticas",
+          "subsections": [
+            "### \"Para sempre seu/sua...\"",
+            "### \"Com todo meu amor...\"",
+            "### \"Um beijo apaixonado...\"",
+            "### \"Seu/Sua [nombre] que te ama\""
+          ]
+        },
+        {
+          "header": "## Brasil vs Portugal",
+          "subsections": [
+            "### Estilo Brasileño",
+            "### Estilo Portugués"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b9e470d7-889e-4d0b-a65e-5ea257721008",
+      "title": "Ισπανικές Φράσεις για το Πρώτο Ραντεβού: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για το Πρώτο Ραντεβού",
+          "subsections": [
+            "### Γνωριμία",
+            "### Συζήτηση",
+            "### Φλερτ",
+            "### Κλείσιμο"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b9e4c973-954d-426a-8d27-4b2d5464b5a8",
+      "title": "Як зробити пропозицію норвезькою: фрази для заручин",
+      "native_lang": "uk",
+      "target_lang": "no",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Підготовка до пропозиції",
+          "subsections": [
+            "### Чек-лист:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b9e844c4-2889-4197-a3fc-a8b18014aff2",
+      "title": "Portekizce Affetme İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Af Dileme",
+          "subsections": [
+            "### 1. \"Sinto muito pelo que eu fiz\"",
+            "### 2. \"Por favor, me perdoa\"",
+            "### 3. \"Assumo toda a responsabilidade\"",
+            "### 4. \"Sei que te magoei e sinto muito\"",
+            "### 5. \"Você consegue me perdoar?\""
+          ]
+        },
+        {
+          "header": "## Affetme",
+          "subsections": [
+            "### 6. \"Eu te perdoo\"",
+            "### 7. \"Estou pronto/a para seguir em frente\"",
+            "### 8. \"Vamos deixar isso para trás\"",
+            "### 9. \"Não guardo rancor\"",
+            "### 10. \"Todo mundo comete erros\"",
+            "### 11. \"Te amo mais do que minha raiva\"",
+            "### 12. \"Aceito suas desculpas\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b9e9f868-c5b8-49a7-a5a1-60d203651fc9",
+      "title": "Expressing Emotions in Polish: Feelings Vocabulary for Couples",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Practice Scenarios",
+          "subsections": [
+            "### Scenario 1: After a Long Day",
+            "### Scenario 2: Sharing Good News",
+            "### Scenario 3: Working Through a Disagreement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b9eb0ee6-c755-4b2c-a86a-38d6445a9233",
+      "title": "Frases de Paquera em Romeno: Romance Latino nos Bálcãs",
+      "native_lang": "pt",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases Essenciais de Paquera",
+          "subsections": [
+            "### Elogios Apaixonados",
+            "### Expressando Interesse",
+            "### Cantadas Romenas",
+            "### Para Relacionamentos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b9eb3fb6-22a2-423a-8495-7b6856e8270f",
+      "title": "Frases de 'Te Extraño' en Francés: Expresando la Añoranza con Elegancia",
+      "native_lang": "es",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresiones Esenciales",
+          "subsections": [
+            "### \"Tu me manques\"",
+            "### \"Tu me manques terriblement\"",
+            "### \"J'aimerais que tu sois là\""
+          ]
+        },
+        {
+          "header": "## Frases Emotivas",
+          "subsections": [
+            "### \"Chaque moment sans toi est une éternité\"",
+            "### \"Tu es toujours dans mes pensées\"",
+            "### \"La distance ne change rien à mes sentiments\""
+          ]
+        },
+        {
+          "header": "## Para Mensajes Diarios",
+          "subsections": [
+            "### \"Je me suis réveillé(e) en pensant à toi\"",
+            "### \"Bonne nuit, tu me manques\"",
+            "### \"Je compte les jours jusqu'à notre retrouvaille\""
+          ]
+        },
+        {
+          "header": "## Expresiones Poéticas",
+          "subsections": [
+            "### \"Mon cœur souffre de ton absence\"",
+            "### \"Tu es la pièce manquante de ma vie\"",
+            "### \"Sans toi, mes journées sont grises\""
+          ]
+        },
+        {
+          "header": "## Frases para Videollamadas",
+          "subsections": [
+            "### \"Voir ton visage illumine ma journée\"",
+            "### \"J'aimerais pouvoir te serrer dans mes bras\""
+          ]
+        },
+        {
+          "header": "## Mensajes de Voz",
+          "subsections": [
+            "### \"J'avais juste envie d'entendre ta voix\"",
+            "### \"Appelle-moi quand tu peux, tu me manques\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b9fd4ca7-df6b-4d1d-b9d1-c71bb342c70a",
+      "title": "Romanian Arguing & Disagreement Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressing Disagreement",
+          "subsections": [
+            "### Nu sunt de acord",
+            "### Nu e corect",
+            "### Mă înțelegi greșit",
+            "### Nu mă asculți"
+          ]
+        },
+        {
+          "header": "## Expressing Frustration",
+          "subsections": [
+            "### Sunt frustrat / Sunt frustrată",
+            "### Mă deranjează când...",
+            "### Am nevoie de un moment",
+            "### Asta mă rănește"
+          ]
+        },
+        {
+          "header": "## Setting Boundaries",
+          "subsections": [
+            "### Nu-mi vorbi așa",
+            "### Asta e prea mult",
+            "### Trebuie să vorbim calm"
+          ]
+        },
+        {
+          "header": "## Seeking Resolution",
+          "subsections": [
+            "### Putem găsi o soluție împreună?",
+            "### Vreau să te înțeleg",
+            "### Ce putem face?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ba2491a6-dc07-4f45-bf8c-1653b39c945b",
+      "title": "Frases para Conocer a los Suegros en Húngaro: Conquistando a los Anyós y Após",
+      "native_lang": "es",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Saludos y Presentaciones",
+          "subsections": [
+            "### \"Nagyon örülök, hogy végre megismerhetem önöket\"",
+            "### \"Sokat hallottam önökről\"",
+            "### \"Köszönöm a meghívást\""
+          ]
+        },
+        {
+          "header": "## Cumplidos",
+          "subsections": [
+            "### \"Gyönyörű otthonuk van\"",
+            "### \"Az étel nagyon finom\"",
+            "### \"A fiuk/lányuk nagyon boldoggá tesz\""
+          ]
+        },
+        {
+          "header": "## Ofreciendo Ayuda",
+          "subsections": [
+            "### \"Segíthetek valamiben?\"",
+            "### \"Hadd segítsek a mosogatásban\""
+          ]
+        },
+        {
+          "header": "## Mostrando Interés",
+          "subsections": [
+            "### \"Szeretném megismerni a családi hagyományaikat\"",
+            "### \"Hogyan ismerkedtek meg?\""
+          ]
+        },
+        {
+          "header": "## Despedidas",
+          "subsections": [
+            "### \"Köszönöm a csodálatos estét\"",
+            "### \"Nagyon örültem, hogy megismerhettem önöket\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ba3d21a6-a4db-4025-9b1d-a18be1f06bb0",
+      "title": "Frases de 'Te Extraño' en Ruso: Тоска con Alma Rusa",
+      "native_lang": "es",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresiones Esenciales",
+          "subsections": [
+            "### \"Я скучаю по тебе\" (Ya skuchayu po tebe)",
+            "### \"Я очень скучаю по тебе\" (Ya ochen' skuchayu po tebe)",
+            "### \"Как бы я хотел/хотела, чтобы ты был/была здесь\" (Kak by ya khotel/khotela, chtoby ty byl/byla zdes')"
+          ]
+        },
+        {
+          "header": "## Frases Emotivas",
+          "subsections": [
+            "### \"Каждый момент без тебя кажется вечностью\" (Kazhdyy moment bez tebya kazhetsya vechnost'yu)",
+            "### \"Ты всегда в моих мыслях\" (Ty vsegda v moikh myslyakh)",
+            "### \"Расстояние не меняет моих чувств\" (Rasstoyaniye ne menyayet moikh chuvstv)"
+          ]
+        },
+        {
+          "header": "## Para Mensajes Diarios",
+          "subsections": [
+            "### \"Проснулся/проснулась и сразу подумал/а о тебе\" (Prosnulsya/prosnulas' i srazu podumal/a o tebe)",
+            "### \"Спокойной ночи, скучаю\" (Spokoynoy nochi, skuchayu)",
+            "### \"Считаю дни до нашей встречи\" (Schitayu dni do nashey vstrechi)"
+          ]
+        },
+        {
+          "header": "## Expresiones Profundas",
+          "subsections": [
+            "### \"Моё сердце болит от тоски\" (Moyë serdtse bolit ot toski)",
+            "### \"Без тебя мир теряет краски\" (Bez tebya mir teryayet kraski)",
+            "### \"Ты — недостающая часть моей души\" (Ty — nedostayushchaya chast' moyey dushi)"
+          ]
+        },
+        {
+          "header": "## Frases para Videollamadas",
+          "subsections": [
+            "### \"Видеть тебя — счастье\" (Videt' tebya — schast'ye)",
+            "### \"Хочу обнять тебя прямо сейчас\" (Khochu obnyat' tebya pryamo seychas)"
+          ]
+        },
+        {
+          "header": "## Mensajes Románticos",
+          "subsections": [
+            "### \"Доброе утро, любимая/любимый, скучаю\" (Dobroye utro, lyubimaya/lyubimyy, skuchayu)",
+            "### \"Жду не дождусь увидеть тебя\" (Zhdu ne dozhdus' uvidet' tebya)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ba509cb7-3577-4ed1-a869-b7f886d38e1f",
+      "title": "Frases en Neerlandés para Pedir y Ofrecer Perdón a tu Pareja",
+      "native_lang": "es",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Pedir Perdón",
+          "subsections": [
+            "### \"Het spijt me echt\"",
+            "### \"Vergeef me alsjeblieft\"",
+            "### \"Ik weet dat ik je pijn heb gedaan, en ik heb er diepe spijt van\"",
+            "### \"Het was fout van me om dat te doen\"",
+            "### \"Hoe kan ik het goedmaken?\"",
+            "### \"Ik beloof dat het niet meer zal gebeuren\""
+          ]
+        },
+        {
+          "header": "## Frases para Ofrecer Perdón",
+          "subsections": [
+            "### \"Ik vergeef je\"",
+            "### \"Laten we dit achter ons laten\"",
+            "### \"Ik ben klaar om verder te gaan\"",
+            "### \"Iedereen maakt fouten\"",
+            "### \"Ik waardeer je excuses\"",
+            "### \"Ik hou nog steeds van je\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ba567cc5-6900-4cbf-87a6-31613e5b96d7",
+      "title": "Norska fraser för att säga 'Jag saknar dig' – Uttryck längtan på norska",
+      "native_lang": "sv",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande fraser",
+          "subsections": [
+            "### \"Jeg savner deg\"",
+            "### \"Jeg savner deg så mye\"",
+            "### \"Jeg tenker på deg hele tiden\""
+          ]
+        },
+        {
+          "header": "## Djupare uttryck",
+          "subsections": [
+            "### \"Hjertet mitt lengter etter deg\"",
+            "### \"Hvert minutt uten deg føles som en evighet\"",
+            "### \"Jeg føler meg ufullstendig uten deg\""
+          ]
+        },
+        {
+          "header": "## Romantiska kvällsfraser",
+          "subsections": [
+            "### \"Jeg savner å sovne ved siden av deg\"",
+            "### \"Sengen føles tom uten deg\"",
+            "### \"Jeg savner varmen din ved siden av meg\""
+          ]
+        },
+        {
+          "header": "## Vardagliga uttryck",
+          "subsections": [
+            "### \"I dag så jeg noe som minnet meg om deg\"",
+            "### \"Jeg savner de små øyeblikkene våre\"",
+            "### \"Alt minner meg om deg\""
+          ]
+        },
+        {
+          "header": "## Hoppfulla fraser",
+          "subsections": [
+            "### \"Jeg gleder meg til å se deg igjen\"",
+            "### \"Jeg teller dagene til vi møtes igjen\"",
+            "### \"Snart er vi sammen igjen\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ba6509eb-151d-4e8e-8013-030a810a2432",
+      "title": "30+ Powitań i Pożegnań po Włosku dla Zakochanych Par",
+      "native_lang": "pl",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Specjalne okazje i sytuacje",
+          "subsections": [
+            "### Świąteczne i sezonowe powitania",
+            "### Przeprosiny i wyjaśnienia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ba6898b8-b10f-49d4-bb44-fdebae9ef8d1",
+      "title": "Švédské fráze pro setkání s rodiči partnera",
+      "native_lang": "cs",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## První setkání",
+          "subsections": [
+            "### \"Trevligt att träffas.\"",
+            "### \"[Partner] har berättat så mycket om er.\"",
+            "### \"Tack så mycket för inbjudan.\"",
+            "### \"Ni har ett vackert hem.\""
+          ]
+        },
+        {
+          "header": "## U jídla",
+          "subsections": [
+            "### \"Det här är jättegott! Kan jag få receptet?\"",
+            "### \"Allt ser underbart ut.\""
+          ]
+        },
+        {
+          "header": "## Projevení zájmu",
+          "subsections": [
+            "### \"Jag skulle gärna se bilder på [partner] som barn.\"",
+            "### \"Hur träffades ni?\""
+          ]
+        },
+        {
+          "header": "## Nabídka pomoci",
+          "subsections": [
+            "### \"Kan jag hjälpa till med något?\"",
+            "### \"Låt mig hjälpa till med disken.\""
+          ]
+        },
+        {
+          "header": "## Rozloučení",
+          "subsections": [
+            "### \"Tack för en underbar kväll.\"",
+            "### \"Jag hoppas vi ses snart igen.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ba706602-3510-44d5-b800-1a05346925b1",
+      "title": "Cseh kiejtés kezdőknek: Játsszátok el a szerelmet helyesen",
+      "native_lang": "hu",
+      "target_lang": "cs",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Párok Számára Fontos Kiejtési Minták",
+          "subsections": [
+            "### Romantikus Kifejezések Helyes Kiejtése",
+            "### Gyakori Hibák és Javításuk"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,327 @@
+{
+  "batchId": "tier2a-slim-0122",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "8a411c4d-d49e-4c4b-95bd-dc7a93493ecc",
+      "title": "Frases de Apoio Emocional em Grego: Confortando Seu Parceiro",
+      "native_lang": "pt",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases de Apoio Básico",
+          "subsections": [
+            "### Demonstrando Presença",
+            "### Validando Sentimentos",
+            "### Oferecendo Conforto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8a5ce3e8-31a8-4161-945e-a961e4aca4e8",
+      "title": "Expresii în Greacă pentru Discuții și Dezacorduri în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale pentru Discuții",
+          "subsections": [
+            "### Exprimarea Frustrării",
+            "### Cererea de Clarificări",
+            "### Stabilirea Limitelor",
+            "### Recunoașterea și Empatia",
+            "### Căutarea Soluțiilor"
+          ]
+        },
+        {
+          "header": "## Nuanțe Culturale Importante",
+          "subsections": [
+            "### Filotimo",
+            "### Familia",
+            "### Pasiunea",
+            "### Mâncarea"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8a62606f-2fc3-4a11-818e-c72b29ea3978",
+      "title": "Russo para Casais: 50+ Frases Essenciais",
+      "native_lang": "pt",
+      "target_lang": "ru",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Frases para o Cotidiano",
+          "subsections": [
+            "### Fazendo Planos",
+            "### Demonstrando Cuidado"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8a875a4b-eacf-4fa9-beb8-c9b450ccfda8",
+      "title": "Выражение эмоций на чешском языке",
+      "native_lang": "ru",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Положительные эмоции",
+          "subsections": [
+            "### Радость и счастье",
+            "### Любовь и привязанность"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8a8ad6db-c300-4b11-80b0-123adaa5b655",
+      "title": "Saludos y Despedidas en Ruso: Guía Completa para Parejas",
+      "native_lang": "es",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Situaciones Especiales",
+          "subsections": [
+            "### Conociendo a los Padres",
+            "### Por Teléfono"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8a8c1c75-3607-4894-aaf7-f47ce123cefd",
+      "title": "German: 15 Heartfelt Ways to Say I Love You",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Daily Phrases for Couples",
+          "subsections": [
+            "### In the Morning",
+            "### Before Leaving",
+            "### In the Evening",
+            "### Before Sleep"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8a9d9871-c587-4455-9799-0148f9bda82f",
+      "title": "Як зробити пропозицію англійською: фрази для заручин",
+      "native_lang": "uk",
+      "target_lang": "en",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Підготовка до пропозиції",
+          "subsections": [
+            "### Чек-лист:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8a9f9571-4057-4b23-b75a-da04e5d92360",
+      "title": "Αγγλικές Φράσεις για Διαφωνίες: Οδηγός για Ελληνόφωνα Ζευγάρια",
+      "native_lang": "el",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις για Έκφραση Διαφωνίας",
+          "subsections": [
+            "### 1. I disagree with you on this",
+            "### 2. That's not how I see it",
+            "### 3. Can we talk about this calmly?",
+            "### 4. I feel hurt when you say that",
+            "### 5. Let's not raise our voices",
+            "### 6. I need some time to think",
+            "### 7. That's not what I meant",
+            "### 8. Can you let me finish?",
+            "### 9. I understand your point, but...",
+            "### 10. Let's agree to disagree"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8aa6b568-969a-4a2c-a748-eaeb39c2a3f4",
+      "title": "Græsk kælenavne og kærlige udtryk for par",
+      "native_lang": "da",
+      "target_lang": "el",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Kælenavne til forskellige lejligheder",
+          "subsections": [
+            "### I hverdagen",
+            "### Til romantiske øjeblikke",
+            "### Til at drille"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8ab98ca1-a611-48b2-890b-a2f464b5aa35",
+      "title": "Романтичні румунські фрази для закоханих пар",
+      "native_lang": "uk",
+      "target_lang": "ro",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Компліменти для партнера",
+          "subsections": [
+            "### Для неї",
+            "### Для нього"
+          ]
+        },
+        {
+          "header": "## Повсякденні романтичні фрази",
+          "subsections": [
+            "### Вранці",
+            "### Протягом дня",
+            "### Увечері"
+          ]
+        },
+        {
+          "header": "## Фрази для особливих моментів",
+          "subsections": [
+            "### На побаченні",
+            "### Після сварки",
+            "### У важкі часи"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8abb1605-1bfa-4a7f-a21f-c906538a1d76",
+      "title": "50+ Surnoms Turcs pour Enflammer les Ames",
+      "native_lang": "fr",
+      "target_lang": "tr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Termes Pour Différents Moments",
+          "subsections": [
+            "### Salutations du Matin",
+            "### Bonne Nuit",
+            "### Quand Ils Vous Manquent",
+            "### Pendant les Moments Affectueux"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8ad5cb8d-c20b-4ad0-9225-6335d6f9f076",
+      "title": "Ukrán üzenetküldő kifejezések magyar anyanyelvűeknek",
+      "native_lang": "hu",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető üdvözlések",
+          "subsections": [
+            "### 1. Добрий ранок, кохана/коханий",
+            "### 2. Сумую за тобою",
+            "### 3. Я тебе кохаю"
+          ]
+        },
+        {
+          "header": "## Mindennapi üzenetek",
+          "subsections": [
+            "### 4. Як справи?",
+            "### 5. Вже їду",
+            "### 6. Цілую / Цьом"
+          ]
+        },
+        {
+          "header": "## Romantikus kifejezések",
+          "subsections": [
+            "### 7. Ти – моє все",
+            "### 8. Сонечко / Зайчик",
+            "### 9. Ти мені снилася/снився"
+          ]
+        },
+        {
+          "header": "## Chat rövidítések",
+          "subsections": [
+            "### 10. Дяк / Дякс (Дякую)",
+            "### 11. Норм (Нормально)",
+            "### 12. Люб 💕"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8ad95b6b-4099-45d0-865d-c8323c074aec",
+      "title": "Rencontrer la famille de votre partenaire roumain : guide complet",
+      "native_lang": "fr",
+      "target_lang": "ro",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Conseils culturels",
+          "subsections": [
+            "### À faire",
+            "### À éviter"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8aeb4396-783f-41ab-9f6a-8112ff1bdc57",
+      "title": "Spansk Uttale for Nybegynnere: Lær å Uttrykke Deg Klart for Din Elskede",
+      "native_lang": "no",
+      "target_lang": "es",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Konsonanter Som Kanskje Overrasker Deg",
+          "subsections": [
+            "### Den Myke C og Z",
+            "### Den Spanske Ñ"
+          ]
+        },
+        {
+          "header": "## Vanskelige Kombinasjoner for Nordmenn",
+          "subsections": [
+            "### LL og Y",
+            "### RR vs R"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8afda46c-98e8-4181-ba51-477215773db0",
+      "title": "Frases de Apoio Emocional em Francês: Confortando Seu Parceiro",
+      "native_lang": "pt",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases de Apoio Básico",
+          "subsections": [
+            "### Demonstrando Presença",
+            "### Validando Sentimentos",
+            "### Oferecendo Conforto"
+          ]
+        },
+        {
+          "header": "## Para Situações Específicas",
+          "subsections": [
+            "### Perda e Luto",
+            "### Estresse"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,455 @@
+{
+  "batchId": "tier2a-slim-0173",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "b6a27e04-89cb-4a35-8e6a-d6b2d306de09",
+      "title": "Dire \"Tu me manques\" en anglais : Expressions pour couples à distance",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Phrases classiques",
+          "subsections": [
+            "### \"I miss you so much\"",
+            "### \"I can't stop thinking about you\"",
+            "### \"I wish you were here\""
+          ]
+        },
+        {
+          "header": "## Expressions du quotidien",
+          "subsections": [
+            "### \"My heart aches for you\"",
+            "### \"Every moment without you feels like forever\"",
+            "### \"I'm counting the days until I see you again\""
+          ]
+        },
+        {
+          "header": "## Expressions tendres",
+          "subsections": [
+            "### \"You're always on my mind\"",
+            "### \"I long to hold you\"",
+            "### \"Home is wherever you are\""
+          ]
+        },
+        {
+          "header": "## Pour les messages quotidiens",
+          "subsections": [
+            "### \"Missing you today\"",
+            "### \"Can't wait to see you\"",
+            "### \"Thinking of you\""
+          ]
+        },
+        {
+          "header": "## Expressions poétiques",
+          "subsections": [
+            "### \"Distance means nothing when someone means everything\"",
+            "### \"Though miles apart, you're always in my heart\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b6ac71b7-5d36-4fbe-a582-24c5fbc92516",
+      "title": "Sådan Undskylder Du på Ukrainsk: Vejledning for Par",
+      "native_lang": "da",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Specifikke Situationer",
+          "subsections": [
+            "### Når Du Har Glemt Noget",
+            "### Når Du Har Sagt Noget Sårende",
+            "### Når Du Er Kommet For Sent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b6d6d784-ee3c-4f04-ab30-78dd601c0134",
+      "title": "Spanyol esküvői kifejezések: Szókincs a nagy napra",
+      "native_lang": "hu",
+      "target_lang": "es",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Gratulációk és jókívánságok",
+            "### Köszöntők"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b6e16316-5c8a-4e0a-b506-acf437b5278f",
+      "title": "Francia lánykérési és eljegyzési kifejezések",
+      "native_lang": "hu",
+      "target_lang": "fr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### A nagy kérdés",
+            "### Az eljegyzés bejelentése"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b70a63c1-9114-4b71-babf-ac383831f580",
+      "title": "Czech Proposal & Engagement Phrases: How to Pop the Question",
+      "native_lang": "en",
+      "target_lang": "cs",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Ways to Propose",
+          "subsections": [
+            "### The Classic Proposal",
+            "### More Romantic Variations"
+          ]
+        },
+        {
+          "header": "## Preparing Your Proposal",
+          "subsections": [
+            "### Practice Tips",
+            "### Setting the Scene"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b70ced4a-b916-49ff-84a7-a97ae691bb06",
+      "title": "С днём рождения на греческий: Пожелания для любимого человека",
+      "native_lang": "ru",
+      "target_lang": "el",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Романтические пожелания на день рождения",
+          "subsections": [
+            "### Сладкие и простые",
+            "### Глубокие послания"
+          ]
+        },
+        {
+          "header": "## Фразы для открытки",
+          "subsections": [
+            "### Романтические послания",
+            "### Длинные послания"
+          ]
+        },
+        {
+          "header": "## Планирование сюрприза",
+          "subsections": [
+            "### Лексика для η έκπληξη",
+            "### Фразы для сюрприза"
+          ]
+        },
+        {
+          "header": "## Сообщения для социальных сетей",
+          "subsections": [
+            "### Подписи для публикаций"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b726dbba-07b5-4d0f-a2a6-1b3e773bd806",
+      "title": "Como Escrever Cartas de Amor em Francês: Romance à la Française",
+      "native_lang": "pt",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Estrutura de uma Carta de Amor",
+          "subsections": [
+            "### Abertura Carinhosa",
+            "### Expressando Seus Sentimentos",
+            "### Elogiando Seu Amor",
+            "### Declarações de Amor",
+            "### Promessas e Compromissos",
+            "### Encerramentos Românticos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b74d02b8-b37f-4bd5-a995-0430f90c3413",
+      "title": "Ungarske fraser til uenigheder og diskussioner for par",
+      "native_lang": "da",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Vigtige fraser",
+          "subsections": [
+            "### At udtrykke følelser",
+            "### At lytte og forstå",
+            "### At finde løsninger",
+            "### At sætte grænser"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b76ecb2f-13e2-4bfd-a05f-8f6bd24d97a5",
+      "title": "Turkiska Fraser för Svartsjuka och Förtroende",
+      "native_lang": "sv",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Uttrycka Svartsjuka",
+          "subsections": [
+            "### 1. \"...olduğunda kendimi güvensiz hissediyorum\"",
+            "### 2. \"...ile ilişkini anlamama yardım edebilir misin?\"",
+            "### 3. \"Sana güveniyorum ama duygularımla mücadele ediyorum\"",
+            "### 4. \"Güvence vermenize ihtiyacım var\"",
+            "### 5. \"...olduğunda rahatsız oluyorum\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Bygga Förtroende",
+          "subsections": [
+            "### 6. \"Gözlerim sadece sende\"",
+            "### 7. \"Benim için tek kişi sensin\"",
+            "### 8. \"Seni incitecek hiçbir şey yapmam\"",
+            "### 9. \"Birbirimize karşı dürüst olalım\"",
+            "### 10. \"Arkadaşlarımla tanışmanı istiyorum\"",
+            "### 11. \"Endişelenecek bir şey yok\"",
+            "### 12. \"Her gün seni seçiyorum\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b78057ae-c17d-444c-802a-757e17da7ee5",
+      "title": "Englische Ich-vermisse-dich-Sprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlegende Ausdrücke",
+          "subsections": [
+            "### \"I miss you\"",
+            "### \"I miss you so much\"",
+            "### \"I can't stop thinking about you\""
+          ]
+        },
+        {
+          "header": "## Emotionale Ausdrücke",
+          "subsections": [
+            "### \"I wish you were here\"",
+            "### \"Being away from you is the hardest thing\"",
+            "### \"My heart aches for you\"",
+            "### \"Every moment without you feels like forever\""
+          ]
+        },
+        {
+          "header": "## Liebevolle Nachrichten",
+          "subsections": [
+            "### \"Counting down the days until I see you again\"",
+            "### \"You're the first thing I think of when I wake up and the last thing before I sleep\"",
+            "### \"Distance means nothing when someone means everything\""
+          ]
+        },
+        {
+          "header": "## Tröstende Worte",
+          "subsections": [
+            "### \"I'll be with you again soon\"",
+            "### \"Our love is stronger than the distance between us\"",
+            "### \"Even though we're apart, you're always in my heart\""
+          ]
+        },
+        {
+          "header": "## Für besondere Momente",
+          "subsections": [
+            "### \"I miss your smile, your laugh, everything about you\"",
+            "### \"No one compares to you\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b797e9e9-cd44-45e6-bca9-4a5d206eefc7",
+      "title": "Frases para Coquetear en Húngaro: Romance en las Orillas del Danubio",
+      "native_lang": "es",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Cumplidos Encantadores",
+          "subsections": [
+            "### \"Nagyon szép vagy\"",
+            "### \"Gyönyörű szemeid vannak\"",
+            "### \"A mosolyod lenyűgöző\""
+          ]
+        },
+        {
+          "header": "## Expresiones de Interés",
+          "subsections": [
+            "### \"Iszunk egy kávét együtt?\"",
+            "### \"Szeretem veled tölteni az időt\"",
+            "### \"Van benned valami különleges\""
+          ]
+        },
+        {
+          "header": "## Declaraciones Románticas",
+          "subsections": [
+            "### \"Nem tudok másra gondolni, csak rád\"",
+            "### \"Elraboltad a szívemet\"",
+            "### \"Beleszerettem beléd\""
+          ]
+        },
+        {
+          "header": "## Frases Tiernas",
+          "subsections": [
+            "### \"Boldoggá teszel\"",
+            "### \"A szívem gyorsabban ver, amikor veled vagyok\"",
+            "### \"Nagyon tetszél\""
+          ]
+        },
+        {
+          "header": "## Mensajes de Texto",
+          "subsections": [
+            "### \"Jó reggelt, édesem\"",
+            "### \"Hiányzol\"",
+            "### \"Jó éjszakát, szerelmem\"",
+            "### \"Alig várom, hogy lássalak\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b7b29d9b-efe3-4513-9d2b-584501eb3e9b",
+      "title": "100 Συχνές Λέξεις (pl): Οδηγός για Ελληνόφωνα Ζευγάρια",
+      "native_lang": "el",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Κατηγορίες Λέξεων",
+          "subsections": [
+            "### Αγάπη & Τρυφερότητα",
+            "### Καθημερινές Λέξεις",
+            "### Συναισθήματα",
+            "### Χρόνος",
+            "### Τοποθεσία",
+            "### Ερωτήσεις",
+            "### Ρήματα"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b7cd670a-101e-408c-bc85-ee92a4c4f083",
+      "title": "30 lengyel köszönés és búcsúzási kifejezés pároknak",
+      "native_lang": "hu",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Különleges alkalmak köszönései",
+          "subsections": [
+            "### Ünnepek és különleges napok"
+          ]
+        },
+        {
+          "header": "## Gyakori hibák elkerülése",
+          "subsections": [
+            "### Amit kerülj el",
+            "### Hasznos tanácsok pároknak"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b7d308ab-5eec-4ff1-9227-da6e0883f008",
+      "title": "Španělské fráze pro emoční podporu partnera",
+      "native_lang": "cs",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní podpora",
+          "subsections": [
+            "### \"Estoy aquí para ti.\"",
+            "### \"No estás solo/a en esto.\"",
+            "### \"Creo en ti.\"",
+            "### \"Pase lo que pase, lo enfrentaremos juntos.\""
+          ]
+        },
+        {
+          "header": "## Útěcha",
+          "subsections": [
+            "### \"Siento mucho que estés pasando por esto.\"",
+            "### \"Está bien sentirse así.\"",
+            "### \"Tómate todo el tiempo que necesites.\"",
+            "### \"No tienes que ser fuerte todo el tiempo.\""
+          ]
+        },
+        {
+          "header": "## Povzbuzení",
+          "subsections": [
+            "### \"Estoy muy orgulloso/a de ti.\"",
+            "### \"Lo has manejado increíblemente.\"",
+            "### \"Esto no durará para siempre.\"",
+            "### \"Eres más fuerte de lo que piensas.\""
+          ]
+        },
+        {
+          "header": "## Praktická podpora",
+          "subsections": [
+            "### \"Qué necesitas ahora mismo?\"",
+            "### \"Déjame encargarme de esto por ti.\"",
+            "### \"Te gustaría hablar de ello?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b7e36cc8-2a49-4ed2-b6a8-98521897e6bb",
+      "title": "Ukrainian Birthday Wishes for Your Partner: Sweet Messages That Touch the Heart",
+      "native_lang": "en",
+      "target_lang": "uk",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Sweet Birthday Messages",
+          "subsections": [
+            "### Simple Wishes",
+            "### Romantic Messages"
+          ]
+        },
+        {
+          "header": "## Birthday Card Messages",
+          "subsections": [
+            "### Heartfelt Short Messages",
+            "### Longer Romantic Messages"
+          ]
+        },
+        {
+          "header": "## Planning the Perfect Birthday",
+          "subsections": [
+            "### Party Vocabulary",
+            "### Surprise Party Phrases"
+          ]
+        },
+        {
+          "header": "## Birthday Milestone Messages",
+          "subsections": [
+            "### 30th Birthday",
+            "### 40th Birthday",
+            "### 50th Birthday"
+          ]
+        }
+      ]
+    }
+  ]
+}

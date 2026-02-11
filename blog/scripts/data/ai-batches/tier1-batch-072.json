@@ -1,0 +1,54 @@
+{
+  "tier": 1,
+  "batchId": "tier1-batch-072",
+  "articles": [
+    {
+      "id": "ca38c6a0-afb6-461c-ad63-52c2b363c39f",
+      "title": "30+ Complimente în suedeză pentru partenerul tău",
+      "native_lang": "ro",
+      "target_lang": "sv",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nComplimentele sunt limbajul dragostei. Când îi spui partenerului ceva frumos în limba lui maternă, cuvintele capătă o semnificație specială.\n\n<PhraseOfDay\n  word=\"Du är vacker/stilig\"\n  translation=\"Ești frumoasă/frumos\"\n  pronunciation=\"\"\n  context=\"Cel mai clasic compliment romantic\"\n/>\n\n## Complimente pentru aspect fizic\n\n<VocabCard\n  word=\"Du är vacker/stilig\"\n  translation=\"Ești frumoasă/frumos\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇸🇪\" title=\"Cultura complimentelor\">\nSuedezii sunt mai rezervați dar sinceri. Scuzele calme și directe sunt apreciate - acțiunile care urmează sunt la fel de importante ca și cuvintele.\n</CultureTip>\n\n## Complimente pentru personalitate\n\n| Suedeză | Română |\n|---------|---------|\n| Du är så smart | Ești atât de inteligent/ă |\n| Du är så snäll | Ești atât de drăguț/ă |\n| Du är fantastisk | Ești uimitor/oare |\n| Du är rolig | Ești amuzant/ă |\n\n<VocabCard\n  word=\"Du är så smart\"\n  translation=\"Ești atât de inteligent/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Du är så snäll\"\n  translation=\"Ești atât de drăguț/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru complimente sincere\n\n1. **Fii specific** – \"Îmi place cum râzi\" e mai bun decât \"Ești frumoasă\"\n2. **Fii autentic** – Spune doar ce simți cu adevărat\n3. **Alege momentul** – Complimentele spontane sunt cele mai prețuite\n4. **Nu exagera** – Un compliment sincer e mai valoros decât zece superficiale\n5. **Include acțiuni** – \"Îmi place cum mă asculți când vorbesc\"\n\n<CTA />\n\n## Articole conexe\n\n- [Exprimarea emoțiilor în suedeză](/ro/sv/swedish-expressing-emotions)\n- [Alinturile în suedeză](/ro/sv/swedish-pet-names-and-terms-of-endearment-50)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ca3e5a66-5458-4eb8-b86b-c9b246f9da34",
+      "title": "Fraze pentru apeluri video cu familia în greacă",
+      "native_lang": "ro",
+      "target_lang": "el",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nApelurile video cu familia partenerului pot fi intimidante, mai ales într-o limbă străină. Aceste fraze te vor ajuta să faci o impresie bună.\n\n<PhraseOfDay\n  word=\"Πες γεια σε όλους\"\n  translation=\"Transmite salutări tuturor\"\n  pronunciation=\"\"\n  context=\"O expresie politicoasă pentru încheiere\"\n/>\n\n## Salutări și introduceri\n\n<VocabCard\n  word=\"Πώς είσαι;\"\n  translation=\"Ce mai faci? / Cum ești?\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇬🇷\" title=\"Eticheta apelurilor video\">\nGrecii sunt foarte expresivi emoțional. Scuzele sincere și călduroase sunt apreciate - arată emoție și sinceritate în exprimare.\n</CultureTip>\n\n## Probleme tehnice\n\n| Greacă | Română |\n|---------|---------|\n| Με ακούς; | Mă auzi? |\n| Σε βλέπω | Te văd |\n| Η σύνδεση είναι κακή | Conexiunea e proastă |\n| Πες γεια σε όλους | Transmite salutări tuturor |\n\n<VocabCard\n  word=\"Με ακούς;\"\n  translation=\"Mă auzi?\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Η σύνδεση είναι κακή\"\n  translation=\"Conexiunea e proastă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru apeluri cu familia partenerului\n\n1. **Pregătește câteva fraze** – Exersează înainte de apel\n2. **Zâmbește mult** – Comunică bunăvoință fără cuvinte\n3. **Ascultă activ** – Dă din cap și reacționează\n4. **Nu-ți face griji pentru greșeli** – Vor aprecia efortul tău\n5. **Cere ajutor** – Partenerul poate traduce când e greu\n\n<CTA />\n\n## Articole conexe\n\n- [Întâlnirea cu familia partenerului în greacă](/ro/el/greek-meeting-your-partner-s-family)\n- [Conversații de zi cu zi în greacă](/ro/el/greek-small-talk-conversation-starters)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cc37ea1f-014e-4495-a4a6-433150442293",
+      "title": "Fraze pentru apeluri video cu familia în ucraineană",
+      "native_lang": "ro",
+      "target_lang": "uk",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nApelurile video cu familia partenerului pot fi intimidante, mai ales într-o limbă străină. Aceste fraze te vor ajuta să faci o impresie bună.\n\n<PhraseOfDay\n  word=\"Передай усім привіт\"\n  translation=\"Transmite salutări tuturor\"\n  pronunciation=\"\"\n  context=\"O expresie politicoasă pentru încheiere\"\n/>\n\n## Salutări și introduceri\n\n<VocabCard\n  word=\"Як справи?\"\n  translation=\"Ce mai faci? / Cum ești?\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇺🇦\" title=\"Eticheta apelurilor video\">\nUcrainenii sunt călduroși și expresivi. Scuzele sincere, posibil însoțite de un gest afectuos, sunt foarte prețuite în cultura ucraineană.\n</CultureTip>\n\n## Probleme tehnice\n\n| Ucraineană | Română |\n|---------|---------|\n| Ти мене чуєш? | Mă auzi? |\n| Я тебе бачу | Te văd |\n| Погане з'єднання | Conexiunea e proastă |\n| Передай усім привіт | Transmite salutări tuturor |\n\n<VocabCard\n  word=\"Ти мене чуєш?\"\n  translation=\"Mă auzi?\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Погане з'єднання\"\n  translation=\"Conexiunea e proastă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru apeluri cu familia partenerului\n\n1. **Pregătește câteva fraze** – Exersează înainte de apel\n2. **Zâmbește mult** – Comunică bunăvoință fără cuvinte\n3. **Ascultă activ** – Dă din cap și reacționează\n4. **Nu-ți face griji pentru greșeli** – Vor aprecia efortul tău\n5. **Cere ajutor** – Partenerul poate traduce când e greu\n\n<CTA />\n\n## Articole conexe\n\n- [Întâlnirea cu familia partenerului în ucraineană](/ro/uk/ukrainian-meeting-your-partner-s-family)\n- [Conversații de zi cu zi în ucraineană](/ro/uk/ukrainian-small-talk-conversation-starters)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    }
+  ]
+}

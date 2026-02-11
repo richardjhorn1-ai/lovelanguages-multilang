@@ -1,0 +1,124 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0011",
+  "articles": [
+    {
+      "id": "02c4264d-606f-46f8-bbbf-b661b9588f6b",
+      "title": "Як зробити пропозицію німецькою: фрази для заручин",
+      "native_lang": "uk",
+      "target_lang": "de",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport CTA from '@components/CTA.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\n\n# Як зробити пропозицію німецькою: фрази для заручин\n\nВи готові зробити найважливіше питання у житті? Якщо ваш партнер розмовляє німецькою, цей посібник допоможе вам підготувати ідеальну пропозицію!\n\nВід класичних слів до сучасних варіантів — тут ви знайдете все необхідне для цього особливого моменту.\n\n<PhraseOfDay\n  phrase=\"Will you marry me?\"\n  translation=\"Вийдеш за мене заміж? / Одружишся зі мною?\"\n  context=\"Найважливіше питання\"\n/>\n\n## Як зробити пропозицію німецькою\n\nКласичне питання про одруження німецькою звучить по-різному залежно від статі партнера та культурних традицій. Ось основні варіанти:\n\n### Основна лексика заручин\n\n\n\n## Романтичні фрази для пропозиції\n\nПеред тим як поставити питання, ви можете сказати щось особливе:\n\n### Вступні слова\n\n1. **Скажіть про свої почуття** — \"Я кохаю тебе більше за все на світі\"\n2. **Поділіться мріями** — \"Я хочу провести з тобою все життя\"\n3. **Зробіть комплімент** — \"Ти робиш мене найщасливішою людиною\"\n\n<CultureTip>\nТрадиції пропозиції відрізняються в різних країнах. Дізнайтеся, що прийнято в культурі вашого партнера — чи потрібно просити дозволу у батьків, чи є особливі ритуали.\n</CultureTip>\n\n## Оголошення про заручини\n\nПісля того як ваш партнер скаже \"так\", час поділитися радісною новиною з рідними та друзями!\n\n### Як оголосити про заручини німецькою\n\n- \"Ми заручені!\" \n- \"Він/вона сказав(ла) так!\"\n- \"Ми одружуємося!\"\n\n## Лексика про каблучку\n\nОбручка — важлива частина заручин. Ось корисні слова:\n\n| Німецька | Українська |\n|----------------|------------|\n| Ring | Каблучка |\n| Diamond | Діамант |\n| Engagement ring | Обручка для заручин |\n| Wedding band | Весільна обручка |\n\n## Культурні особливості\n\n<CultureTip>\nУ деяких культурах заручини включають офіційну церемонію з участю обох родин. Це може бути окрема подія до весілля, де родини зустрічаються та обмінюються подарунками.\n</CultureTip>\n\n## Підготовка до пропозиції\n\n### Чек-лист:\n- ✓ Вивчіть правильну вимову фраз\n- ✓ Дізнайтеся культурні традиції\n- ✓ Оберіть особливе місце\n- ✓ Підготуйте каблучку\n- ✓ Заплануйте як оголосити новину\n\n## Після заручин\n\nКоли ви вже заручені, з'являється нова лексика:\n\n- Наречений / Наречена\n- Весільні плани\n- Дата весілля\n- Список гостей\n\n## Продовжуйте вивчення\n\nТепер ви готові до пропозиції німецькою! Вивчайте більше романтичних фраз:\n\n- [Німецька весільна лексика](/uk/blog/german-wedding-phrases)\n- [Романтичні фрази німецькою](/uk/blog/romantic-german-phrases-for-couples)\n\n<CTA \n  text=\"Готові вивчати мову кохання німецькою? Наш додаток допоможе!\"\n  buttonText=\"Спробувати безкоштовно\"\n  href=\"/uk/learn/de\"\n/>",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 278,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "### Основна лексика заручин",
+              "## Підготовка до пропозиції"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "02cbd3f1-6464-487f-abcc-9eaa40cf49f2",
+      "title": "Rencontrer la belle-famille en ukrainien : Impressionner les батьки",
+      "native_lang": "fr",
+      "target_lang": "uk",
+      "category": "communication",
+      "content": "## Rencontrer la belle-famille ukrainienne\n\nEn Ukraine, la famille est centrale. L'approbation des parents compte beaucoup.\n\n## Premières salutations\n\n### \"Дуже приємно нарешті познайомитися\"\n**Transcription :** Duzhe pryyemno nareshti poznayomytysya\n**Prononciation :** DOU-jé pri-YÉM-no na-RÉCH-ti poz-na-YO-mi-ti-sya\n\n**Signification :** Très heureux de vous rencontrer enfin\n\n### \"Я багато про вас чув/чула\"\n**Transcription :** Ya bahato pro vas chuv/chula\n**Prononciation :** ya ba-HA-to pro VASS TCHOUV/TCHOU-la\n\n**Signification :** J'ai beaucoup entendu parler de vous\n\n### \"Дякую за запрошення\"\n**Transcription :** Dyakuyu za zaproshennya\n**Prononciation :** DYA-kou-you za za-pro-CHÉN-nya\n\n**Signification :** Merci pour l'invitation\n\n## Montrer du respect\n\n### \"У вас дуже гарний дім\"\n**Transcription :** U vas duzhe harnyy dim\n**Prononciation :** ou VASS DOU-jé HAR-niï DIM\n\n**Signification :** Vous avez une très belle maison\n\n### \"Їжа дуже смачна, дякую\"\n**Transcription :** Yizha duzhe smachna, dyakuyu\n**Prononciation :** YI-ja DOU-jé SMATCH-na DYA-kou-you\n\n**Signification :** La nourriture est très bonne, merci\n\n## Parler de votre partenaire\n\n### \"[Ім'я] для мене все\"\n**Transcription :** [Imya] dlya mene vse\n**Prononciation :** [nom] dlya mé-NÉ VSÉ\n\n**Signification :** [Nom] est tout pour moi\n\n### \"Ви виховали чудову людину\"\n**Transcription :** Vy vykhovaly chudovu lyudynu\n**Prononciation :** vi vi-kho-VA-li tchou-DO-vou lyou-DI-nou\n\n**Signification :** Vous avez élevé une personne merveilleuse\n\n## Proposer de l'aide\n\n### \"Чи можу я чимось допомогти?\"\n**Transcription :** Chy mozhu ya chymos dopomohty?\n**Prononciation :** tchi MO-jou ya tchi-MOSS do-po-moh-TI\n\n**Signification :** Puis-je aider à quelque chose ?\n\n## Au départ\n\n### \"Дякую за чудовий день\"\n**Transcription :** Dyakuyu za chudovyy den\n**Prononciation :** DYA-kou-you za tchou-DO-viï DYEN\n\n**Signification :** Merci pour cette merveilleuse journée\n\n### \"Сподіваюся побачитися знову\"\n**Transcription :** Spodivayusya pobachytysya znovu\n**Prononciation :** spo-di-VA-you-sya po-BA-tchi-ti-sya ZNO-vou\n\n**Signification :** J'espère vous revoir\n\n## Conseils culturels ukrainiens\n\n**Fleurs :** Nombre impair pour la mère.\n\n**Hospitalité :** Attendez-vous à beaucoup de nourriture.\n\n**Respect :** Vouvoyez toujours.\n\n**Traditions :** Montrez de l'intérêt pour la culture ukrainienne.\n\n## Conclusion\n\nLes Ukrainiens apprécient le respect et la sincérité. Votre effort pour parler leur langue sera très apprécié.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Premières salutations",
+              "## Montrer du respect",
+              "## Parler de votre partenaire",
+              "## Proposer de l'aide",
+              "## Au départ"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "02d06185-58e7-4528-a38a-aa0f68c6201d",
+      "title": "Грецька весільна лексика: слова та фрази для особливого дня",
+      "native_lang": "uk",
+      "target_lang": "el",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport CTA from '@components/CTA.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\n\n# Грецька весільна лексика: слова та фрази для особливого дня\n\nВесілля — це один із найважливіших днів у житті пари. Якщо ви плануєте весілля за кордоном, ваш партнер розмовляє грецькою, або ви просто хочете привітати когось особливими словами — ця стаття для вас!\n\nТут ви знайдете найважливішу грецькау весільну лексику: від основних слів до традиційних тостів та привітань.\n\n<PhraseOfDay\n  phrase=\"Συγχαρητήρια!\"\n  translation=\"Вітаю!\"\n  context=\"Традиційне привітання молодят\"\n/>\n\n## Основна весільна лексика\n\nПочнемо з найважливіших слів, які вам знадобляться:\n\n\n<VocabCard \n  word=\"ο γάμος\"\n  translation=\"весілля\"\n  pronunciation=\"/o ˈɣamos/\"\n  example=\"Ο γάμος μας θα είναι τον Ιούνιο.\"\n  exampleTranslation=\"Наше весілля буде у червні.\"\n/>\n\n<VocabCard \n  word=\"η νύφη\"\n  translation=\"наречена\"\n  pronunciation=\"/i ˈnifi/\"\n  example=\"Η νύφη είναι πανέμορφη.\"\n  exampleTranslation=\"Наречена прекрасна.\"\n/>\n\n<VocabCard \n  word=\"ο γαμπρός\"\n  translation=\"наречений\"\n  pronunciation=\"/o ɣamˈbros/\"\n  example=\"Ο γαμπρός περιμένει στο ιερό.\"\n  exampleTranslation=\"Наречений чекає біля вівтаря.\"\n/>\n\n<VocabCard \n  word=\"οι όρκοι\"\n  translation=\"клятви / обітниці\"\n  pronunciation=\"/i ˈorci/\"\n  example=\"Έγραψαν τους δικούς τους όρκους.\"\n  exampleTranslation=\"Вони написали власні клятви.\"\n/>\n\n<VocabCard \n  word=\"Ναι, δέχομαι\"\n  translation=\"Так, згоден/згодна\"\n  pronunciation=\"/ne ˈðexome/\"\n  example=\"Όταν λες \"Ναι\", είσαι παντρεμένος.\"\n  exampleTranslation=\"Коли ви говорите \"Ναι\", ви одружені.\"\n/>\n\n<VocabCard \n  word=\"η βέρα\"\n  translation=\"обручка\"\n  pronunciation=\"/i ˈvera/\"\n  example=\"Της φόρεσε τη βέρα στο δάχτυλο.\"\n  exampleTranslation=\"Він надів обручку на її палець.\"\n/>\n\n<VocabCard \n  word=\"η τελετή\"\n  translation=\"церемонія\"\n  pronunciation=\"/i teleˈti/\"\n  example=\"Η τελετή ήταν πολύ συγκινητική.\"\n  exampleTranslation=\"Церемонія була дуже зворушливою.\"\n/>\n\n<VocabCard \n  word=\"η δεξίωση\"\n  translation=\"банкет / прийом\"\n  pronunciation=\"/i ðeksiˈosi/\"\n  example=\"Η δεξίωση είναι στις 7 το βράδυ.\"\n  exampleTranslation=\"Банкет о 19:00.\"\n/>\n\n<VocabCard \n  word=\"ο κουμπάρος\"\n  translation=\"свідок (нареченого)\"\n  pronunciation=\"/o kumˈbaros/\"\n  example=\"Ο αδερφός μου θα είναι ο κουμπάρος.\"\n  exampleTranslation=\"Мій брат буде свідком.\"\n/>\n\n<VocabCard \n  word=\"η παράνυμφος\"\n  translation=\"дружка\"\n  pronunciation=\"/i paraˈnimfos/\"\n  example=\"Η αδερφή της είναι η παράνυμφος.\"\n  exampleTranslation=\"Її сестра буде дружкою.\"\n/>\n\n<VocabCard \n  word=\"η πρόποση\"\n  translation=\"тост\"\n  pronunciation=\"/i ˈproposi/\"\n  example=\"Ας κάνουμε μια πρόποση για το ζευγάρι!\"\n  exampleTranslation=\"Дозвольте підняти тост за молодят!\"\n/>\n\n<VocabCard \n  word=\"Συγχαρητήρια!\"\n  translation=\"Вітаю!\"\n  pronunciation=\"/siŋxariˈtiria/\"\n  example=\"Συγχαρητήρια για τον γάμο σας!\"\n  exampleTranslation=\"Вітаю з весіллям!\"\n/>\n\n<VocabCard \n  word=\"οι νεόνυμφοι\"\n  translation=\"молодята\"\n  pronunciation=\"/i neoˈnimfi/\"\n  example=\"Οι νεόνυμφοι πήγαν για μήνα του μέλιτος.\"\n  exampleTranslation=\"Молодята поїхали у медовий місяць.\"\n/>\n\n<VocabCard \n  word=\"το νυφικό\"\n  translation=\"весільна сукня\"\n  pronunciation=\"/to nifiˈko/\"\n  example=\"Διάλεξε ένα πανέμορφο νυφικό.\"\n  exampleTranslation=\"Вона обрала чудову весільну сукню.\"\n/>\n\n<VocabCard \n  word=\"η ανθοδέσμη\"\n  translation=\"букет\"\n  pronunciation=\"/i anθoˈðezmi/\"\n  example=\"Η νύφη πέταξε την ανθοδέσμη.\"\n  exampleTranslation=\"Наречена кинула букет.\"\n/>\n\n\n## Традиційні весільні фрази\n\n### Привітання молодят\n\nНа весіллі прийнято вітати молодят. Ось кілька корисних фраз грецькою:\n\n| Грецька | Українська |\n|----------------|------------|\n| Συγχαρητήρια! | Вітаю! |\n| η πρόποση | Тост! |\n\n<CultureTip>\nВесільні традиції відрізняються в різних культурах. Наприклад, традиційна церемонія грецькою може включати унікальні ритуали та звичаї, які варто знати заздалегідь.\n</CultureTip>\n\n## Організація весілля\n\nЯкщо ви плануєте весілля з партнером, який розмовляє грецькою, вам знадобиться лексика для обговорення деталей:\n\n### Місце проведення\n- Церква / Храм\n- Ресторан\n- Готель\n- На відкритому повітрі\n\n### Важливі деталі\n- Запрошення гостей\n- Вибір дати\n- Дрес-код\n- Меню\n\n## Весільні тости\n\nТрадиційний тост грецькою — це ціле мистецтво! Ось кілька порад:\n\n1. **Почніть з привітання** — зверніться до молодят та гостей\n2. **Поділіться історією** — розкажіть щось особисте про пару\n3. **Побажайте щастя** — завершіть теплими побажаннями\n4. **Підніміть келих** — традиційно кажуть тост перед тим, як випити\n\n<CultureTip>\nУ багатьох культурах тост супроводжується особливими словами. Дізнайтеся заздалегідь, які фрази прийняті на весіллі грецькою.\n</CultureTip>\n\n## Весільні обітниці\n\nЯкщо ви плануєте написати власні обітниці грецькою, ось корисна структура:\n\n1. Звернення до партнера\n2. Чому ви його/її кохаєте\n3. Ваші обіцянки на майбутнє\n4. Завершальні слова любові\n\n## Корисні вирази для гостей\n\nЯкщо вас запросили на весілля, де розмовляють грецькою, запам'ятайте ці фрази:\n\n- Як привітати молодят\n- Як відповісти на запрошення\n- Як подякувати за гостинність\n\n## Подальше вивчення\n\nТепер ви знаєте основну весільну лексику грецькою! Продовжуйте вивчати мову зі статтями:\n\n- [Грецька романтичні фрази для пар](/uk/blog/greek-romantic-phrases-for-couples)\n- [Як сказати \"Я тебе кохаю\" грецькою](/uk/blog/how-to-say-i-love-you-in-greek)\n\n<CTA \n  text=\"Хочете вивчити більше грецькіих слів для стосунків? Спробуйте наш додаток!\"\n  buttonText=\"Почати вивчення\"\n  href=\"/uk/learn/el\"\n/>",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 288,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Традиційні весільні фрази"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "02d84aa1-6d20-4cca-b44a-5b4c6938129b",
+      "title": "Rumänische Ich-vermisse-dich-Sprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "ro",
+      "category": "communication",
+      "content": "Rumänisch ist die einzige romanische Sprache Osteuropas und hat eine besondere Melodie. Die rumänische Kultur ist reich an Poesie und tiefen Emotionen. Hier lernst du die schönsten rumänischen Phrasen für die Momente, in denen du deinen Partner vermisst.\n\n## Die Romantik des rumänischen Vermissens\n\nRumänen drücken Sehnsucht poetisch und herzlich aus. Die Sprache hat viele schöne Ausdrücke für tiefe Gefühle.\n\n## Grundlegende Ausdrücke\n\n### \"Mi-e dor de tine\"\n**Aussprache:** mje dor de TI-ne\n\n**Bedeutung:** Ich vermisse dich (Mir ist Sehnsucht nach dir)\n\n\"Dor\" ist ein besonderes rumänisches Wort für eine tiefe, melancholische Sehnsucht.\n\n### \"Mi-e foarte dor de tine\"\n**Aussprache:** mje FOAR-te dor de TI-ne\n\n**Bedeutung:** Ich vermisse dich sehr\n\n### \"Nu pot să mă opresc din a mă gândi la tine\"\n**Aussprache:** nu pot sə mə o-PRESK din a mə gən-DI la TI-ne\n\n**Bedeutung:** Ich kann nicht aufhören, an dich zu denken\n\n## Emotionale Ausdrücke\n\n### \"Mi-aș dori să fii aici\"\n**Aussprache:** mjasch do-RI sə fii a-ITSCH\n\n**Bedeutung:** Ich wünschte, du wärst hier\n\n### \"Fiecare moment fără tine pare o eternitate\"\n**Aussprache:** fje-KA-re mo-MENT FƏ-rə TI-ne PA-re o e-ter-ni-TA-te\n\n**Bedeutung:** Jeder Moment ohne dich erscheint wie eine Ewigkeit\n\n### \"Inima mea te caută\"\n**Aussprache:** I-ni-ma mea te KAU-tə\n\n**Bedeutung:** Mein Herz sucht dich\n\n### \"Simt un gol fără tine\"\n**Aussprache:** simt un gol FƏ-rə TI-ne\n\n**Bedeutung:** Ich fühle eine Leere ohne dich\n\n## Liebevolle Nachrichten\n\n### \"Număr zilele până când te voi revedea\"\n**Aussprache:** NU-mər SI-le-le pə-nə kənd te woj re-we-DEA\n\n**Bedeutung:** Ich zähle die Tage, bis ich dich wiedersehe\n\n### \"Ești primul meu gând dimineața și ultimul seara\"\n**Aussprache:** jeschtj PRI-mul meu gənd di-mi-NEA-tsa schi UL-ti-mul SEA-ra\n\n**Bedeutung:** Du bist mein erster Gedanke am Morgen und mein letzter am Abend\n\n### \"Distanța nu înseamnă nimic când cineva înseamnă totul\"\n**Aussprache:** dis-TAN-tsa nu ən-SEAM-nə ni-MIK kənd TSCHI-ne-wa ən-SEAM-nə TO-tul\n\n**Bedeutung:** Entfernung bedeutet nichts, wenn jemand alles bedeutet\n\n## Tröstende Worte\n\n### \"În curând vom fi din nou împreună\"\n**Aussprache:** ən ku-RƏND wom fi din nou əm-pre-U-nə\n\n**Bedeutung:** Bald werden wir wieder zusammen sein\n\n### \"Dragostea noastră este mai puternică decât orice distanță\"\n**Aussprache:** dra-GOS-tea NOAS-trə JES-te mai pu-TER-ni-kə de-KƏT o-RI-tsche dis-TAN-tsə\n\n**Bedeutung:** Unsere Liebe ist stärker als jede Entfernung\n\n### \"Chiar și departe, ești mereu în inima mea\"\n**Aussprache:** kjar schi de-PAR-te, jeschtj me-REU ən I-ni-ma mea\n\n**Bedeutung:** Auch weit weg bist du immer in meinem Herzen\n\n## Für besondere Momente\n\n### \"Îmi lipsește zâmbetul tău, râsul tău, totul\"\n**Aussprache:** əmj lip-SESCH-te zəm-BE-tul təu, RƏ-sul təu, TO-tul\n\n**Bedeutung:** Mir fehlt dein Lächeln, dein Lachen, alles\n\n### \"Nimeni nu se compară cu tine\"\n**Aussprache:** ni-MENI nu se kom-PA-rə ku TI-ne\n\n**Bedeutung:** Niemand kann sich mit dir vergleichen\n\n### \"Ești de neînlocuit\"\n**Aussprache:** jeschtj de ne-ən-lo-ku-IT\n\n**Bedeutung:** Du bist unersetzlich\n\n## Aussprache-Tipps\n\n- \"Ș\" = \"sch\", \"Ț\" = \"ts\"\n- \"Ă\" = kurzer, dumpfer Laut\n- \"Â\" und \"Î\" = zwischen \"i\" und \"ü\"\n\n## Kulturelle Hinweise\n\nDas Konzept \"dor\" ist tief in der rumänischen Kultur verwurzelt – eine süße, melancholische Sehnsucht. Die rumänische Doină (traditionelles Lied) ist oft voller Sehnsucht. Mit diesen Ausdrücken zeigst du tiefe, aufrichtige Gefühle!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Grundlegende Ausdrücke",
+              "## Emotionale Ausdrücke",
+              "## Liebevolle Nachrichten",
+              "## Tröstende Worte",
+              "## Für besondere Momente"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "02db0ee6-3eda-4c24-bcb4-97f700860292",
+      "title": "Frases para Conocer a los Suegros en Turco: Conquistando a los Kayınvalide/Kayınpeder",
+      "native_lang": "es",
+      "target_lang": "tr",
+      "category": "communication",
+      "content": "La familia turca tiene un papel central. Conquistar a los kayınvalide (suegra) y kayınpeder (suegro) requiere respeto por las tradiciones.\n\n## Saludos y Presentaciones\n\n### \"Sizinle tanıştığıma çok memnunum\"\n**Pronunciación:** sizínle tanıshtíguıma chok memnúnum\n\n**Significado:** Estoy muy contento/a de conocerles\n\n### \"Sizin hakkınızda çok şey duydum\"\n**Pronunciación:** sizín hakkínızda chok shey dúydum\n\n**Significado:** He escuchado mucho sobre ustedes\n\n### \"Davet ettiğiniz için çok teşekkür ederim\"\n**Pronunciación:** davét ettiyíniz ichín chok teshekúr edérim\n\n**Significado:** Muchas gracias por invitarme\n\n## Cumplidos\n\n### \"Çok güzel bir eviniz var\"\n**Pronunciación:** chok guüzél bir evíniz var\n\n**Significado:** Tienen una casa muy bonita\n\n### \"Yemek çok lezzetli\"\n**Pronunciación:** yemék chok lezétli\n\n**Significado:** La comida está muy rica\n\n### \"Oğlunuz/Kızınız beni çok mutlu ediyor\"\n**Pronunciación:** olúnuz/kızínız béni chok mutlú edíyor\n\n**Significado:** Su hijo/a me hace muy feliz\n\n## Ofreciendo Ayuda\n\n### \"Size yardım edebilir miyim?\"\n**Pronunciación:** síze yardím edebilír míyim\n\n**Significado:** ¿Puedo ayudarles?\n\n### \"Bulaşıkları yıkamama izin verin\"\n**Pronunciación:** buláshıklarí yıkámama ízin verín\n\n**Significado:** Permítanme lavar los platos\n\n## Mostrando Interés\n\n### \"Aile gelenekleriniz hakkında daha fazla bilgi almak istiyorum\"\n**Pronunciación:** áile gueleneklériniz hakkínda dáha fázla bilguí almák istíyorum\n\n**Significado:** Me gustaría saber más sobre sus tradiciones familiares\n\n### \"Nasıl tanıştınız?\"\n**Pronunciación:** násıl tanıshtínız\n\n**Significado:** ¿Cómo se conocieron?\n\n## Despedidas\n\n### \"Bu güzel akşam için teşekkür ederim\"\n**Pronunciación:** bu guüzél aksham ichín teshekúr edérim\n\n**Significado:** Gracias por esta hermosa velada\n\n### \"Sizinle tanışmak çok güzeldi\"\n**Pronunciación:** sizínle taníshmak chok guüzéldi\n\n**Significado:** Fue muy agradable conocerles\n\n## Cultura Turca\n\n- **Respeto a mayores** - Fundamental en Turquía\n- **Hospitalidad** - No rechace té o comida\n- **Quitarse los zapatos** - Al entrar a la casa\n- **Regalos** - Dulces, flores, chocolates\n\n## Consejos\n\n1. **Sea respetuoso** - Con los mayores especialmente\n2. **Acepte la hospitalidad** - Rechazar es ofensivo\n3. **Quítese los zapatos** - Si se lo piden\n4. **Elogie la comida** - Muy importante\n\nLa familia turca valora el respeto y la hospitalidad. ¡Bol şanslar!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Saludos y Presentaciones",
+              "## Cumplidos",
+              "## Ofreciendo Ayuda",
+              "## Mostrando Interés",
+              "## Despedidas"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

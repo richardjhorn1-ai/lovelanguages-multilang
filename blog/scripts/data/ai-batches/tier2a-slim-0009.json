@@ -1,0 +1,402 @@
+{
+  "batchId": "tier2a-slim-0009",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "1b951cb7-70a1-47b5-a075-46d8788000e7",
+      "title": "Guten Morgen und Gute Nacht auf Englisch – Süße Phrasen für jeden Tag",
+      "native_lang": "de",
+      "target_lang": "en",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Guten Morgen sagen",
+          "subsections": [
+            "### Klassische Morgengrüße",
+            "### Romantische Morgengrüße"
+          ]
+        },
+        {
+          "header": "## Gute Nacht sagen",
+          "subsections": [
+            "### Klassische Nachtgrüße",
+            "### Romantische Nachtgrüße"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1ba0a395-d965-4846-a453-f3199d9d3630",
+      "title": "Norveççe Duygusal Destek İfadeleri: Teselli Sözleri",
+      "native_lang": "tr",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Destek İfadeleri",
+          "subsections": [
+            "### Varlık Gösterme",
+            "### Anlayış",
+            "### Güç Verme",
+            "### Sevgi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1ba8c9fc-c51b-4b29-a0ca-4b4d1f92a337",
+      "title": "Expresii în Portugheză despre Gelozie și Încredere în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii despre Gelozie",
+          "subsections": [
+            "### Recunoașterea Sentimentelor",
+            "### Exprimarea Nevoilor",
+            "### Construirea Încrederii",
+            "### Răspunsuri la Gelozie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1bd0a206-4c27-48ad-a60c-d1e6c3cc3ce3",
+      "title": "Macarca Telaffuz Rehberi: Partnerinizle Birlikte Konuşmayı Öğrenin",
+      "native_lang": "tr",
+      "target_lang": "hu",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## En Çok Kullanılan Sesler",
+          "subsections": [
+            "### Sert ve Yumuşak Sesler"
+          ]
+        },
+        {
+          "header": "## Partnerinizle Pratik Yapın: Romantik Kelimeler",
+          "subsections": [
+            "### Aşk Dolu Kelimeler"
+          ]
+        },
+        {
+          "header": "## Hatalardan Kaçının",
+          "subsections": [
+            "### En Yaygın Telaffuz Hataları"
+          ]
+        },
+        {
+          "header": "## Hızlı Referans Tablosu",
+          "subsections": [
+            "### Macarca Alfabesi ve Sesler"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1c1bf897-2522-4756-a933-b00e724dbd9b",
+      "title": "Argot roumain pour SMS : communiquez avec votre partenaire",
+      "native_lang": "fr",
+      "target_lang": "ro",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Abréviations essentielles",
+          "subsections": [
+            "### Salutations",
+            "### Réponses courtes"
+          ]
+        },
+        {
+          "header": "## Messages pour différentes situations",
+          "subsections": [
+            "### Le matin",
+            "### Le soir",
+            "### En cas de dispute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1c456a87-6435-49c9-a498-af1b92bfe4dc",
+      "title": "Jerga Italiana de Mensajes para Parejas",
+      "native_lang": "es",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Conversaciones de Ejemplo",
+          "subsections": [
+            "### Por la Mañana",
+            "### Por la Noche"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1c4b4382-b621-4de2-8c4a-cffcf4541c7b",
+      "title": "Ungarsk kælenavne og kærlige udtryk for par",
+      "native_lang": "da",
+      "target_lang": "hu",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Kælenavne til forskellige lejligheder",
+          "subsections": [
+            "### I hverdagen",
+            "### Til romantiske øjeblikke",
+            "### Til at drille"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1c4b73d3-6964-4797-bd33-7d753881320c",
+      "title": "Deense Zinnen voor een Eerste Date",
+      "native_lang": "nl",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Det er så dejligt endelig at møde dig\" - *dee er so dai-liet en-de-lie at meu-de dai*",
+            "### 2. \"Du ser fantastisk ud\" - *due seer fan-tas-tiesk oed*",
+            "### 3. \"Fortæl mig om dig selv\" - *for-tel mai om dai selv*",
+            "### 4. \"Hvad arbejder du med?\" - *va ar-bai-der due meed*",
+            "### 5. \"Jeg hygger mig virkelig\" - *jai hue-er mai vier-ke-lie*",
+            "### 6. \"Vil du have noget mere at drikke?\" - *viel due ha noe-et mie-re at drie-ke*",
+            "### 7. \"Hvad for noget musik kan du lide?\" - *va for noe-et moe-siek kan due lie-e*",
+            "### 8. \"Jeg vil gerne se dig igen\" - *jai viel geer-ne see dai ie-jen*",
+            "### 9. \"Må jeg følge dig hjem?\" - *mo jai feul-je dai jem*",
+            "### 10. \"Jeg har haft en fantastisk aften\" - *jai har haft en fan-tas-tiesk af-ten*",
+            "### 11. \"Hvad er dine hobbyer?\" - *va er die-ne ho-bier*",
+            "### 12. \"Du har et smukt smil\" - *due har et smoekt smiel*"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1c5d0d01-842c-43b6-97c0-4e3bc17dfc2f",
+      "title": "Francuskie zwroty do godzenia się i pojednania dla par",
+      "native_lang": "pl",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Przepraszanie z serca",
+          "subsections": [
+            "### \"Je suis vraiment désolé(e)\"",
+            "### \"Pardonne-moi, s'il te plaît\"",
+            "### \"J'ai eu tort et je le reconnais\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie żalu",
+          "subsections": [
+            "### \"Je me sens mal pour ce qui s'est passé\"",
+            "### \"Je ne voulais pas te blesser\"",
+            "### \"Si seulement je pouvais revenir en arrière\""
+          ]
+        },
+        {
+          "header": "## Otwieranie dialogu",
+          "subsections": [
+            "### \"Est-ce qu'on peut en parler?\"",
+            "### \"Je veux comprendre ce que tu ressens\"",
+            "### \"Dis-moi ce qui ne va pas\""
+          ]
+        },
+        {
+          "header": "## Obietnice zmiany",
+          "subsections": [
+            "### \"Je vais faire mieux\"",
+            "### \"Ça n'arrivera plus\"",
+            "### \"Je travaille sur moi-même\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie miłości",
+          "subsections": [
+            "### \"Je t'aime plus que tout\"",
+            "### \"Tu comptes énormément pour moi\"",
+            "### \"Je ne veux pas te perdre\""
+          ]
+        },
+        {
+          "header": "## Romantyczne gesty pojednania",
+          "subsections": [
+            "### \"Laisse-moi te serrer dans mes bras\"",
+            "### \"Un baiser pour faire la paix?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1d996c20-a09c-48e3-9541-e1c381229609",
+      "title": "Ungarske SMS- og chattefraser for par",
+      "native_lang": "no",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kulturelle tips",
+          "subsections": [
+            "### Ungarske kosenavn",
+            "### Vokalharmoni",
+            "### Ingen kjønn"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1dcef20d-7965-41a5-9892-e54d3942957c",
+      "title": "Spanish Emotional Support Phrases: Comfort Your Partner in Difficult Times",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## During Specific Situations",
+          "subsections": [
+            "### Grief and Loss",
+            "### Stress and Anxiety",
+            "### Disappointment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1dd8fc41-2e30-4095-8084-952bcd643aa5",
+      "title": "Лексика о беременности на венгерский: Словарь для будущих родителей",
+      "native_lang": "ru",
+      "target_lang": "hu",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Объявление о беременности",
+          "subsections": [
+            "### Для близких родственников",
+            "### Для друзей"
+          ]
+        },
+        {
+          "header": "## Лексика для визитов к врачу",
+          "subsections": [
+            "### На приёме",
+            "### Вопросы для врача"
+          ]
+        },
+        {
+          "header": "## Покупки для малыша",
+          "subsections": [
+            "### Необходимые вещи",
+            "### В магазине"
+          ]
+        },
+        {
+          "header": "## Разговор с семьёй партнёра",
+          "subsections": [
+            "### Делимся новостями",
+            "### Обсуждение планов"
+          ]
+        },
+        {
+          "header": "## Имена для малыша",
+          "subsections": [
+            "### Обсуждение имён"
+          ]
+        },
+        {
+          "header": "## После рождения",
+          "subsections": [
+            "### Объявление о рождении",
+            "### Первые дни"
+          ]
+        },
+        {
+          "header": "## Полезные фразы",
+          "subsections": [
+            "### Ежедневные выражения"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1dddada6-9a99-4bbc-a502-6cc02073a48c",
+      "title": "Török Szerelmes Levél Írása Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kezdő Kifejezések",
+          "subsections": [
+            "### 1. Canım / Aşkım",
+            "### 2. Hayatım",
+            "### 3. Kalbim"
+          ]
+        },
+        {
+          "header": "## Érzelmek Kifejezése",
+          "subsections": [
+            "### 4. Seni dünyadaki her şeyden çok seviyorum",
+            "### 5. Sen hayatımın ışığısın",
+            "### 6. Kalbim sadece sana ait",
+            "### 7. Her geçen gün seni daha çok seviyorum",
+            "### 8. Sen gerçekleşen hayalimsin",
+            "### 9. Seninle gerçek aşkı buldum",
+            "### 10. Sensiz bir hayat düşünemiyorum"
+          ]
+        },
+        {
+          "header": "## Záró Kifejezések",
+          "subsections": [
+            "### 11. Sonsuza dek seninle",
+            "### 12. Tüm sevgimle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1ddec08e-f7d2-4d23-bc26-d9100b64c04d",
+      "title": "Phrases tchèques sur le pardon en couple",
+      "native_lang": "fr",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions pour demander pardon",
+          "subsections": [
+            "### S'excuser sincèrement",
+            "### Exprimer ses regrets",
+            "### S'engager à changer"
+          ]
+        },
+        {
+          "header": "## Expressions pour pardonner",
+          "subsections": [
+            "### Accorder le pardon",
+            "### Exprimer la réconciliation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1de16ec4-c99d-4246-82fc-d62b1b8e93ee",
+      "title": "Roemeense SMS-Taal voor Stellen: Lieve Berichtjes Sturen",
+      "native_lang": "nl",
+      "target_lang": "ro",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Emoji's en Reacties",
+          "subsections": [
+            "### Populaire Combinaties"
+          ]
+        }
+      ]
+    }
+  ]
+}

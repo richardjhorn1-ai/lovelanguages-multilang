@@ -1,0 +1,573 @@
+{
+  "batchId": "tier2a-slim-0126",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "8e1b8861-d29f-4d2d-aae0-526954553061",
+      "title": "Las 100 Palabras Más Comunes en Portugués para Parejas",
+      "native_lang": "es",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Palabras de Amor y Afecto",
+          "subsections": [
+            "### Amor (a-MOR) - Amor",
+            "### Querido/a (que-RI-do/a) - Querido/a",
+            "### Lindo/a (LIN-do/a) - Hermoso/a, Bonito/a",
+            "### Beijo (BEI-yo) - Beso",
+            "### Abraço (a-BRA-so) - Abrazo",
+            "### Coração (co-ra-SAO) - Corazón",
+            "### Fofo/a (FO-fo/a) - Adorable/Lindo",
+            "### Saudade (sau-DA-de) - Añoranza/Nostalgia"
+          ]
+        },
+        {
+          "header": "## Palabras para el Hogar",
+          "subsections": [
+            "### Casa (CA-sa) - Casa",
+            "### Cozinha (co-ZI-ña) - Cocina",
+            "### Quarto (CUAR-to) - Habitación/Dormitorio",
+            "### Banheiro (ba-ÑEI-ro) - Baño",
+            "### Jantar (yan-TAR) - Cena",
+            "### Café da manhã (ca-FE da ma-ÑA) - Desayuno",
+            "### Almoço (al-MO-so) - Almuerzo"
+          ]
+        },
+        {
+          "header": "## Palabras de Tiempo",
+          "subsections": [
+            "### Hoje (O-ye) - Hoy",
+            "### Amanhã (a-ma-ÑA) - Mañana",
+            "### Ontem (ON-tem) - Ayer",
+            "### Hoje à noite (O-ye a NOI-te) - Esta noche",
+            "### Fim de semana (fim de se-MA-na) - Fin de semana",
+            "### Depois (de-POIS) - Después",
+            "### Sempre (SEM-pre) - Siempre"
+          ]
+        },
+        {
+          "header": "## Verbos Esenciales",
+          "subsections": [
+            "### Querer (que-RER) - Querer",
+            "### Precisar (pre-si-SAR) - Necesitar",
+            "### Gostar (gos-TAR) - Gustar",
+            "### Pensar (pen-SAR) - Pensar",
+            "### Sentir (sen-TIR) - Sentir",
+            "### Ajudar (a-yu-DAR) - Ayudar",
+            "### Esperar (es-pe-RAR) - Esperar",
+            "### Vir (vir) - Venir",
+            "### Ir (ir) - Ir",
+            "### Ficar (fi-CAR) - Quedarse"
+          ]
+        },
+        {
+          "header": "## Adjetivos Importantes",
+          "subsections": [
+            "### Feliz (fe-LIS) - Feliz",
+            "### Triste (TRIS-te) - Triste",
+            "### Cansado/a (can-SA-do/a) - Cansado/a",
+            "### Com fome (com FO-me) - Con hambre",
+            "### Frio (FRI-o) - Frío",
+            "### Quente (QUEN-te) - Caliente"
+          ]
+        },
+        {
+          "header": "## Frases de Cortesía",
+          "subsections": [
+            "### Por favor (por fa-VOR) - Por favor",
+            "### Obrigado/a (o-bri-GA-do/a) - Gracias",
+            "### Desculpa (des-CUL-pa) - Perdona",
+            "### De nada (de NA-da) - De nada"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8e1bf379-e229-49ce-8d45-28348b4ae893",
+      "title": "50 de Expresii Esențiale în Spaniolă pentru Cupluri",
+      "native_lang": "ro",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Expresii pentru Situații Speciale",
+          "subsections": [
+            "### Când partenerul este supărat",
+            "### Pentru a celebra momentele fericite"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8e6515f6-ed08-46b5-ad00-cf4a4e5511e4",
+      "title": "Gramática Ucraniana Básica: Aprenda com Seu Parceiro em 10 Minutos",
+      "native_lang": "pt",
+      "target_lang": "uk",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Os 5 Conceitos Fundamentais",
+          "subsections": [
+            "### 1. Sujeito e Objeto: Quem Faz o Quê",
+            "### 2. Gênero: Ele, Ela ou Isso?",
+            "### 3. Verbos: Ação no Presente",
+            "### 4. Adjetivos: Descrevendo Seu Amor",
+            "### 5. Perguntas: Fazendo as Perguntas Certas"
+          ]
+        },
+        {
+          "header": "## Erros Comuns que Casais Cometem",
+          "subsections": [
+            "### 1. Esquecer o Gênero",
+            "### 2. Confundir \"Te\" e \"Ti\"",
+            "### 3. Não Concordar Adjetivo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8e6ce743-0a7b-470d-a745-4c1821a707de",
+      "title": "Сложно ли выучить украинский язык?",
+      "native_lang": "ru",
+      "target_lang": "uk",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Что будет ЛЕГКО",
+          "subsections": [
+            "### 1. Общая лексика (60-70%)",
+            "### 2. Грамматика почти идентична",
+            "### 3. Кириллический алфавит",
+            "### 4. Славянская логика"
+          ]
+        },
+        {
+          "header": "## Что будет СЛОЖНО",
+          "subsections": [
+            "### 1. Некоторые звуки",
+            "### 2. «Ложные друзья»",
+            "### 3. Специфическая лексика"
+          ]
+        },
+        {
+          "header": "## Сроки изучения",
+          "subsections": [
+            "### Для русскоговорящих:"
+          ]
+        },
+        {
+          "header": "## Почему учить вместе проще",
+          "subsections": [
+            "### Преимущества:",
+            "### Идеи для практики:"
+          ]
+        },
+        {
+          "header": "## Главные советы",
+          "subsections": [
+            "### 1. Используйте сходство",
+            "### 2. Учите отличия",
+            "### 3. Слушайте украинскую речь",
+            "### 4. Не бойтесь говорить"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8e768e2d-28b5-4b79-a88d-edf01acf361d",
+      "title": "Dänische Phrasen für die Schwiegereltern",
+      "native_lang": "de",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Erste Begegnung",
+          "subsections": [
+            "### \"Så dejligt endelig at møde jer\"",
+            "### \"Jeg har hørt så meget om jer\"",
+            "### \"Tak fordi jeg måtte komme\""
+          ]
+        },
+        {
+          "header": "## Bei Mahlzeiten",
+          "subsections": [
+            "### \"Det smager fantastisk! Må jeg få opskriften?\"",
+            "### \"Tak for det dejlige måltid\"",
+            "### \"Kan jeg hjælpe med noget?\""
+          ]
+        },
+        {
+          "header": "## Über Ihre Beziehung",
+          "subsections": [
+            "### \"Jeres søn/datter betyder alt for mig\"",
+            "### \"Jeg er så taknemmelig for at have [Name] i mit liv\"",
+            "### \"Jeg lover at passe godt på [Name]\""
+          ]
+        },
+        {
+          "header": "## Dankbarkeit zeigen",
+          "subsections": [
+            "### \"Tak fordi I har opdraget sådan en vidunderlig person\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8e85dbc4-d392-4c70-927e-bb8ab66f6206",
+      "title": "Ungarische Grüße und Verabschiedungen",
+      "native_lang": "de",
+      "target_lang": "hu",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Verabschiedungen",
+          "subsections": [
+            "### Informelle Verabschiedungen",
+            "### Formelle Verabschiedungen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8e870eac-5d46-4d0c-b052-bf2a3e3bfa28",
+      "title": "португальська для пар: 45+ фраз для подорожей",
+      "native_lang": "uk",
+      "target_lang": "pt",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## В готелі",
+          "subsections": [
+            "### Реєстрація",
+            "### Прохання до персоналу",
+            "### Виселення"
+          ]
+        },
+        {
+          "header": "## В ресторані",
+          "subsections": [
+            "### Пошук столика",
+            "### Замовлення"
+          ]
+        },
+        {
+          "header": "## На пляжі (Бразилія та Португалія)",
+          "subsections": [
+            "### Планування",
+            "### На пляжі"
+          ]
+        },
+        {
+          "header": "## Орієнтування в місті",
+          "subsections": [
+            "### Запитання дороги",
+            "### Корисні напрямки"
+          ]
+        },
+        {
+          "header": "## Романтичні місця",
+          "subsections": [
+            "### Бразилія",
+            "### Португалія"
+          ]
+        },
+        {
+          "header": "## Транспорт",
+          "subsections": [
+            "### Таксі / Uber",
+            "### Громадський транспорт"
+          ]
+        },
+        {
+          "header": "## Екстрені ситуації",
+          "subsections": [
+            "### Важливі фрази",
+            "### Важливі номери"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8e8c091f-d025-45b0-a42c-5911a22e2c65",
+      "title": "German Honeymoon Travel Phrases: Romantic Vocabulary for Your Trip",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Planning Your Trip",
+          "subsections": [
+            "### Choosing a Destination",
+            "### Booking Vocabulary"
+          ]
+        },
+        {
+          "header": "## At the Airport",
+          "subsections": [
+            "### Essential Phrases",
+            "### Airport Vocabulary"
+          ]
+        },
+        {
+          "header": "## At Your Hotel",
+          "subsections": [
+            "### Checking In",
+            "### Room Types"
+          ]
+        },
+        {
+          "header": "## Romantic Moments",
+          "subsections": [
+            "### On the Beach",
+            "### At Dinner"
+          ]
+        },
+        {
+          "header": "## Adventure Activities",
+          "subsections": [
+            "### Exploring Together",
+            "### Activity Vocabulary"
+          ]
+        },
+        {
+          "header": "## Creating Memories",
+          "subsections": [
+            "### Photo Moment Phrases"
+          ]
+        },
+        {
+          "header": "## Returning Home",
+          "subsections": [
+            "### End of Trip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8ea34065-76a1-481e-bbd3-8a4b557317d7",
+      "title": "25 Frases en Alemán: Amor y Romance",
+      "native_lang": "es",
+      "target_lang": "de",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ejercicios de Práctica para Parejas",
+          "subsections": [
+            "### Práctica de Rutina Matutina",
+            "### Reflexión Nocturna",
+            "### Juego de Roles en Restaurante"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8ec220fe-3d6e-4773-b529-0fd5162bf3fb",
+      "title": "Polnisch für Paare: 30+ Phrasen, die das Herz berühren",
+      "native_lang": "de",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Guten Morgen / Gute Nacht",
+          "subsections": [
+            "### Morgens",
+            "### Abends"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8ec2a0ec-5a13-423a-aa29-37d4d59cefcd",
+      "title": "Ukrán kifejezések az após és anyós megismeréséhez",
+      "native_lang": "hu",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető üdvözlések",
+          "subsections": [
+            "### Доброго дня!",
+            "### Дуже приємно познайомитися",
+            "### Мене звати..."
+          ]
+        },
+        {
+          "header": "## Bókok és köszönet",
+          "subsections": [
+            "### У вас дуже гарний дім",
+            "### Дякую за запрошення",
+            "### Дуже смачно!"
+          ]
+        },
+        {
+          "header": "## A kapcsolatról",
+          "subsections": [
+            "### Я дуже люблю вашого сина / вашу дочку",
+            "### Ми дуже щасливі разом"
+          ]
+        },
+        {
+          "header": "## Érdeklődés és tisztelet",
+          "subsections": [
+            "### Я хочу познайомитися з вашою культурою",
+            "### Навчіть мене готувати цю страву",
+            "### Розкажіть про вашу родину"
+          ]
+        },
+        {
+          "header": "## Búcsúzás",
+          "subsections": [
+            "### До побачення!",
+            "### Було дуже приємно!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8edf9ccb-8ae4-4573-92af-461f15e5599e",
+      "title": "Gírias de Mensagens em Espanhol para Casais: Guia do Textão ao Textinho",
+      "native_lang": "pt",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Abreviações por País",
+          "subsections": [
+            "### Espanha",
+            "### México",
+            "### Argentina"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8f068b3c-64b7-4e03-83c2-0780628e1d5e",
+      "title": "Tureckie zwroty do godzenia się i pojednania dla par",
+      "native_lang": "pl",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Przepraszanie z serca",
+          "subsections": [
+            "### \"Özür dilerim\"",
+            "### \"Lütfen beni affet\"",
+            "### \"Hatalıydım ve bunu kabul ediyorum\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie żalu",
+          "subsections": [
+            "### \"Olan şeyler için çok kötü hissediyorum\"",
+            "### \"Seni incitmek istememiştim\"",
+            "### \"Keşke her şeyi geri alabilsem\""
+          ]
+        },
+        {
+          "header": "## Otwieranie dialogu",
+          "subsections": [
+            "### \"Olanlar hakkında konuşabilir miyiz?\"",
+            "### \"Ne hissettiğini anlamak istiyorum\"",
+            "### \"Bana ne düşündüğünü anlat\""
+          ]
+        },
+        {
+          "header": "## Obietnice zmiany",
+          "subsections": [
+            "### \"Daha iyi olmaya çalışacağım\"",
+            "### \"Bu bir daha olmayacak\"",
+            "### \"Kendim üzerinde çalışıyorum\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie miłości",
+          "subsections": [
+            "### \"Seni her şeyden çok seviyorum\"",
+            "### \"Sen benim için her şeysin\"",
+            "### \"Seni kaybetmek istemiyorum\""
+          ]
+        },
+        {
+          "header": "## Ciepłe pojednanie",
+          "subsections": [
+            "### \"Gel buraya, sana sarılmak istiyorum\"",
+            "### \"Barışalım\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8f087ce2-600b-4cab-9daf-409b8ba54c5d",
+      "title": "Czeskie zwroty do godzenia się i pojednania dla par",
+      "native_lang": "pl",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Przepraszanie z serca",
+          "subsections": [
+            "### \"Moc se omlouvám\"",
+            "### \"Prosím, odpusť mi\"",
+            "### \"Měl/Měla jsem pravdu já\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie żalu",
+          "subsections": [
+            "### \"Je mi moc špatně z toho, co se stalo\"",
+            "### \"Nechtěl/Nechtěla jsem ti ublížit\"",
+            "### \"Kdybych to tak mohl/mohla vzít zpět\""
+          ]
+        },
+        {
+          "header": "## Otwieranie dialogu",
+          "subsections": [
+            "### \"Můžeme si o tom promluvit?\"",
+            "### \"Chci pochopit, jak se cítíš\"",
+            "### \"Řekni mi, na co myslíš\""
+          ]
+        },
+        {
+          "header": "## Obietnice zmiany",
+          "subsections": [
+            "### \"Budu se snažit být lepší\"",
+            "### \"Tohle se už nestane\"",
+            "### \"Pracuji na sobě\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie miłości",
+          "subsections": [
+            "### \"Miluji tě víc než cokoliv jiného\"",
+            "### \"Jsi pro mě všechno\"",
+            "### \"Nechci tě ztratit\""
+          ]
+        },
+        {
+          "header": "## Ciepłe pojednanie",
+          "subsections": [
+            "### \"Pojď sem, chci tě obejmout\"",
+            "### \"Začněme znovu\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8f1c037d-b751-4592-ab75-2cedcce23633",
+      "title": "Francia baba és terhességi szókincs",
+      "native_lang": "hu",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Terhességi kifejezések",
+            "### Baba szókincs"
+          ]
+        }
+      ]
+    }
+  ]
+}

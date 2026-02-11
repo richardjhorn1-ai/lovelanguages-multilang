@@ -1,0 +1,56 @@
+{
+  "tier": 1,
+  "batchId": "tier1-batch-038",
+  "articles": [
+    {
+      "id": "67ab258e-806f-4fb7-be2c-08173815df52",
+      "title": "Frases em Grego para Videochamadas com a Família",
+      "native_lang": "pt",
+      "target_lang": "el",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nVideochamadas com a família do seu parceiro podem ser intimidantes, especialmente em outro idioma! Se a família do seu amor fala Grego, estas frases vão ajudá-lo a causar uma ótima impressão!\n\n<PhraseOfDay word=\"Hello everyone!\" translation=\"Olá a todos!\" pronunciation=\"re-LÔU ÉV-ri-uan\" context=\"Uma forma educada de cumprimentar a família\" />\n\n## Cumprimentos Iniciais\n\n| Grego | Pronúncia | Português |\n|-----------|-----------|-----------|\n| Hello everyone | re-LÔU ÉV-ri-uan | Olá a todos |\n| Nice to see you | náis tu sí iu | Prazer em ver vocês |\n| How are you doing? | ráu ar iu DÚ-ing | Como vocês estão? |\n| It's so good to see you all | its sôu gud tu sí iu ól | É tão bom ver todos vocês |\n\n<VocabCard word=\"Hello everyone\" translation=\"Olá a todos\" pronunciation=\"re-LÔU ÉV-ri-uan\" example=\"Perfeito para iniciar a videochamada.\" />\n\n<CultureTip flag=\"🇬🇷\" title=\"Formalidade com a Família\">\nVista-se adequadamente para causar boa impressão na família.\n</CultureTip>\n\n## Perguntas Educadas\n\n| Grego | Pronúncia | Português |\n|-----------|-----------|-----------|\n| How have you been? | ráu hév iu bín | Como tem passado? |\n| How's work going? | ráuz uérk GÔU-ing | Como está o trabalho? |\n| What's new with you? | uóts niú uith iu | O que há de novo? |\n\n<VocabCard word=\"How have you been?\" translation=\"Como tem passado?\" pronunciation=\"ráu hév iu bín\" example=\"Demonstre interesse genuíno.\" />\n\n## Problemas Técnicos\n\n| Grego | Pronúncia | Português |\n|-----------|-----------|-----------|\n| Can you hear me? | ken iu hír mi | Consegue me ouvir? |\n| Sorry, the connection is bad | SÓ-ri dê ko-NÉK-shon iz béd | Desculpe, a conexão está ruim |\n| You're breaking up | iur BRÉI-king âp | Está cortando |\n\n<CultureTip flag=\"🇬🇷\" title=\"Dicas para a Chamada\">\nMantenha contato visual olhando para a câmera.\n</CultureTip>\n\n## Despedidas Calorosas\n\n| Grego | Pronúncia | Português |\n|-----------|-----------|-----------|\n| It was lovely talking to you | it uóz LÂV-li TÓ-king tu iu | Foi ótimo conversar com vocês |\n| Talk to you soon | tók tu iu sun | Falamos em breve |\n| Take care | teik kér | Cuide-se |\n\n<VocabCard word=\"It was lovely talking to you\" translation=\"Foi ótimo conversar com vocês\" pronunciation=\"it uóz LÂV-li TÓ-king tu iu\" example=\"Termine a chamada deixando uma boa impressão.\" />\n\n## Dicas para Videochamadas\n\n1. **Vista-se adequadamente** — Mesmo em casa, cause boa impressão\n2. **Ambiente calmo** — Sem distrações ou barulhos\n3. **Tenha paciência** — Se não entender algo, peça para repetirem\n4. **Sorria** — A linguagem corporal comunica muito\n5. **Prepare frases** — Tenha este guia por perto!\n\n<CultureTip flag=\"🇬🇷\" title=\"Mantendo o Contato\">\nPrepare algumas perguntas sobre a família para mostrar interesse.\n</CultureTip>\n\nPara saber mais sobre conhecer a família, confira nosso [guia para conhecer a família do parceiro grego](/learn/pt/el/meeting-your-greek-partners-family/). E para conversas informais, veja [como iniciar conversas em Grego](/learn/pt/el/greek-small-talk-conversation-starters/).\n\nCom prática e dedicação, você vai conquistar a família do seu amor!\n\n<CTA />",
+      "issues": [
+        {
+          "type": "language_fingerprint_mismatch",
+          "details": {
+            "nativeLang": "pt",
+            "nativeStopWordRatio": 5,
+            "englishStopWordRatio": 10
+          }
+        }
+      ]
+    },
+    {
+      "id": "690794a8-0dd4-4b34-995f-8366dd647c3d",
+      "title": "Fraze pentru relații la distanță în suedeză",
+      "native_lang": "ro",
+      "target_lang": "sv",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nRelațiile la distanță sunt dificile, dar limba poate fi puntea care vă conectează inimile. Când îi spui partenerului că îți lipsește în limba lui, cuvintele capătă o putere specială.\n\n<PhraseOfDay\n  word=\"Jag saknar dig så mycket\"\n  translation=\"Îmi lipsești foarte mult\"\n  pronunciation=\"\"\n  context=\"Expresia perfectă pentru când ești departe de cel drag\"\n/>\n\n## Expresii pentru dor și lipsă\n\n<VocabCard\n  word=\"Jag saknar dig så mycket\"\n  translation=\"Îmi lipsești foarte mult\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Jag tänker på dig\"\n  translation=\"Mă gândesc la tine\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇸🇪\" title=\"Exprimarea dorului\">\nSuedezii sunt mai rezervați dar sinceri. Scuzele calme și directe sunt apreciate - acțiunile care urmează sunt la fel de importante ca și cuvintele.\n</CultureTip>\n\n## Menținerea conexiunii\n\n| Suedeză | Română |\n|---------|---------|\n| Jag saknar dig så mycket | Îmi lipsești foarte mult |\n| Jag kan inte vänta med att se dig | Abia aștept să te văd |\n| Jag tänker på dig | Mă gândesc la tine |\n| Jag räknar dagarna | Număr zilele |\n\n<VocabCard\n  word=\"Jag kan inte vänta med att se dig\"\n  translation=\"Abia aștept să te văd\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru relații la distanță\n\n1. **Comunicați zilnic** – Chiar și un mesaj scurt contează\n2. **Programați apeluri video** – Fețele vă apropie\n3. **Trimiteți surprize** – Scrisori, colete, flori\n4. **Aveți un calendar comun** – Numărătoare inversă până la revedere\n5. **Creați ritualuri** – \"Noapte bună\" la aceeași oră\n\n<CTA />\n\n## Articole conexe\n\n- [Fraze pentru apeluri video cu familia](/ro/sv/swedish-video-call-phrases-family)\n- [Mesaje de bună dimineața și noapte bună în suedeză](/ro/sv/swedish-good-morning-goodnight-phrases)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "695587d9-1552-4572-8c5f-aeb83d4e14ea",
+      "title": "Exprimarea emoțiilor în suedeză – Vocabular pentru sentimente",
+      "native_lang": "ro",
+      "target_lang": "sv",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nExprimarea emoțiilor este fundamentală pentru o relație sănătoasă. Când poți comunica cum te simți în limba partenerului tău, conexiunea devine mai profundă și mai autentică.\n\n<PhraseOfDay\n  word=\"Jag älskar dig\"\n  translation=\"Te iubesc\"\n  pronunciation=\"\"\n  context=\"Cea mai importantă expresie pentru cupluri\"\n/>\n\n## Emoții pozitive în Suedeză\n\n<VocabCard\n  word=\"Jag är glad\"\n  translation=\"Sunt fericit/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Jag älskar dig\"\n  translation=\"Te iubesc\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Jag är exalterad\"\n  translation=\"Sunt entuziasmat/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇸🇪\" title=\"Expresivitatea emoțională\">\nSuedezii sunt mai rezervați dar sinceri. Scuzele calme și directe sunt apreciate - acțiunile care urmează sunt la fel de importante ca și cuvintele.\n</CultureTip>\n\n## Emoții negative în Suedeză\n\nEste la fel de important să poți exprima emoțiile dificile:\n\n| Suedeză | Română |\n|---------|---------|\n| Jag är ledsen | Sunt trist/ă |\n| Jag är arg | Sunt supărat/ă |\n| Jag saknar dig | Mi-e dor de tine |\n\n## Expresii pentru starea de spirit\n\n<VocabCard\n  word=\"Jag saknar dig\"\n  translation=\"Mi-e dor de tine\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru exprimarea emoțiilor\n\n1. **Folosește \"eu\" în loc de \"tu\"** – \"Mă simt trist\" vs \"Tu mă faci trist\"\n2. **Fii specific** – Descrie exact ce simți\n3. **Validează emoțiile partenerului** – Repetă ce ai auzit pentru confirmare\n4. **Alege momentul potrivit** – Nu discuta emoții grele când ești obosit\n5. **Exersează regulat** – Vorbiți zilnic despre cum vă simțiți\n\n<CTA />\n\n## Articole conexe\n\n- [Cum să îți ceri scuze în suedeză](/ro/sv/swedish-how-to-apologize)\n- [Complimente în suedeză](/ro/sv/swedish-giving-compliments)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    }
+  ]
+}

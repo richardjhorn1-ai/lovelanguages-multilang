@@ -1,0 +1,380 @@
+{
+  "batchId": "tier2a-slim-0274",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "9154dcfa-10fd-4288-89e4-4d43d4003c9d",
+      "title": "Spanska Grammatik för Nybörjare: Lär Dig Tillsammans med Din Partner",
+      "native_lang": "sv",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De 5 Grundläggande Reglerna för Kärlek på Spanska",
+          "subsections": [
+            "### 1. Kön är Viktigt - Men Lätt att Lära!",
+            "### 2. Verbändelser Berättar Vem Gör Vad",
+            "### 3. Adjektiv Följer Substantivet (Och Måste Hålla Sällskap!)",
+            "### 4. Era Små Ord Som Gör Stor Skillnad",
+            "### 5. Frågor är Enkla - Lyft bara Rösten!"
+          ]
+        },
+        {
+          "header": "## Vanliga Misstag (Och Hur Ni Undviker Dem Tillsammans)",
+          "subsections": [
+            "### 1. **Ser** vs **Estar** (Båda betyder \"att vara\")",
+            "### 2. Kön-matchning",
+            "### 3. Formellt vs Informellt"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "92ce1ead-f0e0-486c-944c-1f71a8677836",
+      "title": "Escribir Caracteres Polacos: Teclado",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Método 2: Windows - Configuración de Teclado Polaco",
+          "subsections": [
+            "### Configurando el Teclado Polaco",
+            "### Combinaciones de Teclas del Diseño Polaco"
+          ]
+        },
+        {
+          "header": "## Método 3: Usuarios de Mac",
+          "subsections": [
+            "### Método de la Tecla Option",
+            "### Agregando Teclado Polaco en Mac"
+          ]
+        },
+        {
+          "header": "## Método 4: Dispositivos Móviles",
+          "subsections": [
+            "### Configuración iPhone/iPad",
+            "### Configuración Android"
+          ]
+        },
+        {
+          "header": "## Método 5: Herramientas y Apps en Línea",
+          "subsections": [
+            "### Extensiones de Navegador",
+            "### Apps para Smartphone"
+          ]
+        },
+        {
+          "header": "## Errores Comunes de Escritura a Evitar",
+          "subsections": [
+            "### ¡No Sustituyas Letras Regulares!",
+            "### Oraciones de Práctica para Parejas"
+          ]
+        },
+        {
+          "header": "## Solucionando Problemas Comunes",
+          "subsections": [
+            "### ¿El Teclado Numérico No Funciona?",
+            "### ¿Aparecen Caracteres Incorrectos?",
+            "### ¿Problemas de Autocorrección en Móvil?"
+          ]
+        },
+        {
+          "header": "## Creando Tu Rutina de Escritura Polaca",
+          "subsections": [
+            "### Práctica Diaria para Parejas",
+            "### Desafíos Semanales"
+          ]
+        },
+        {
+          "header": "## Más Allá de la Escritura Básica",
+          "subsections": [
+            "### Configurando Autocorrección",
+            "### Usando Corrector Ortográfico Polaco"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9361db1b-fad4-455e-96a0-24fef3b454aa",
+      "title": "Conocer a la Familia de tu Pareja en Turco: Conecta con tus Suegros con Confianza",
+      "native_lang": "es",
+      "target_lang": "tr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Escenarios Comunes",
+          "subsections": [
+            "### La Llegada a Casa",
+            "### Durante la Comida",
+            "### Conversaciones Familiares"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "950b9cce-eb5a-4a0d-8414-3caddc9cec77",
+      "title": "Espagnol : Prononciation Simple pour Couples Débutants",
+      "native_lang": "fr",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Les 5 Sons Magiques de l'Espagnol",
+          "subsections": [
+            "### 1. Les Voyelles : Votre Nouveau Meilleur Ami",
+            "### 2. Le R Roulette : Le Son le Plus Sexy",
+            "### 3. Le Mystérieux 'Ñ' : Le Son Espagnol par Excellence",
+            "### 4. Les Lettres B et V : Jumelles mais Pas Identiques"
+          ]
+        },
+        {
+          "header": "## Les Pièges Classiques des Francophones (et Comment les Éviter)",
+          "subsections": [
+            "### 1. Le 'H' Muet : Votre Ennemi Juré",
+            "### 2. Le 'J' Espagnol : Le Gars Dur à Cuire",
+            "### 3. Le Double 'L' : Le Plus Gros Piège !"
+          ]
+        },
+        {
+          "header": "## Les Erreurs à Éviter (Spécialement pour les Couples)",
+          "subsections": [
+            "### ❌ Ne Dites Pas :",
+            "### ✅ Dites Plutôt :"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "959d5943-d33a-4aee-b14c-305017f8632e",
+      "title": "Norvég kiejtés kezdőknek: Tanuljatok együtt, hogy romantikusan hangozzatok",
+      "native_lang": "hu",
+      "target_lang": "no",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Gyakori hibák, amiket elkerülhettek",
+          "subsections": [
+            "### 1. **Túl gyors beszéd**",
+            "### 2. **A magyar \"r\" használata**",
+            "### 3. **A dallam elhagyása**"
+          ]
+        },
+        {
+          "header": "## Norvég filmek és dalok kiejtés gyakorlására",
+          "subsections": [
+            "### Film ajánlók pároknak",
+            "### Romantikus dalok"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9636725b-2925-489c-a6bb-d0b110777b17",
+      "title": "Portugese Uitspraak Leren: Spreek Zoals een Local met Je Partner",
+      "native_lang": "nl",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Veelvoorkomende Uitspraakuitdagingen (En Hoe Je Ze Samen Beheerst)",
+          "subsections": [
+            "### 1. De Portugese R",
+            "### 2. Nasale Klinkers",
+            "### 3. Open vs. Gesloten Klinkers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9695944d-411f-4bae-9b4b-b974c870fc9e",
+      "title": "Знайомство з родиною партнера іспанською: Як справити найкраще враження",
+      "native_lang": "uk",
+      "target_lang": "es",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Конкретні сценарії",
+          "subsections": [
+            "### Зустріч з батьками",
+            "### Розмова за обідом",
+            "### Гра з племінниками та племінницями"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "96ce28f8-dacf-40e4-b155-97cad9bb373e",
+      "title": "Встреча с семьёй вашего румынского партнёра: ключевые фразы для тёплого общения",
+      "native_lang": "ru",
+      "target_lang": "ro",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Конкретные сценарии общения",
+          "subsections": [
+            "### Знакомство с родителями",
+            "### Обсуждение ваших планов",
+            "### Комплименты маме"
+          ]
+        },
+        {
+          "header": "## Словарь по категориям",
+          "subsections": [
+            "### Члены семьи",
+            "### Дом и гостеприимство"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9901e417-9365-4403-9f73-ac6906d4c11a",
+      "title": "Conoscere la Famiglia del Tuo Partner in Spagnolo: Frasi Essenziali per Creare un Buona Prima Impressione",
+      "native_lang": "it",
+      "target_lang": "es",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Scenari Pratici: Dal Saluto al Pranzo",
+          "subsections": [
+            "### Scenario 1: L'Arrivo a Casa",
+            "### Scenario 2: A Tavola con la Famiglia",
+            "### Scenario 3: Conversazioni di Base"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "994338e5-039e-47fd-a431-7b0550656d35",
+      "title": "Spotkanie z rodziną Twojego partnera po norwesku: Praktyczny przewodnik dla par",
+      "native_lang": "pl",
+      "target_lang": "no",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Typowe scenariusze rodzinne",
+          "subsections": [
+            "### W progu domu",
+            "### Przy stole",
+            "### O waszej relacji"
+          ]
+        },
+        {
+          "header": "## Słownictwo rodzinne",
+          "subsections": [
+            "### Członkowie rodziny",
+            "### Rozmowy o życiu"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9b1decbe-1b79-42e6-91ff-350565a8f7f8",
+      "title": "Spansk Udtale for Begyndere: Sådan Lyder du Som en Naturlig",
+      "native_lang": "da",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De Svære Lyde: Master Class",
+          "subsections": [
+            "### C vs Z vs S: Den Andalusiske Hemmelighed",
+            "### J og G: Den Hæse Lyd"
+          ]
+        },
+        {
+          "header": "## De Mest Almindelige Udtalefejl",
+          "subsections": [
+            "### 1. Dansk R på Spansk",
+            "### 2. Stumme Bogstaver",
+            "### 3. Forkert Tryk",
+            "### 4. Dansk Vokal På Spansk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9c5618b6-c71c-40b4-847b-840ee2bc8edc",
+      "title": "Találkozás svéd partnered családjával: 20+ hasznos kifejezés és kulturális tipp",
+      "native_lang": "hu",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Tipikus családi helyzetek",
+          "subsections": [
+            "### 1. Érkezés és üdvözlés",
+            "### 2. Vacsora közben",
+            "### 3. Beszélgetés és kérdések"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9d672491-ae25-4f5f-b5a0-bcd5d01ed2d1",
+      "title": "Chansons d'Amour Polonaises",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Chansons d'amour polonaises classiques",
+          "subsections": [
+            "### « Kocham Cię, kochanie moje » de Seweryn Krajewski",
+            "### « Jeszcze się tam żagiel bieli » de Czesław Niemen"
+          ]
+        },
+        {
+          "header": "## Chansons d'amour polonaises modernes",
+          "subsections": [
+            "### « Miłość do kwadratu » de Piotr Rubik",
+            "### « Całuj mnie » de Kayah"
+          ]
+        },
+        {
+          "header": "## Chansons d'amour inspirées du folklore",
+          "subsections": [
+            "### « Czerwone jagody » – Traditionnel",
+            "### « Hej, sokoły » – Traditionnel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9f46dd64-eec8-4742-9568-048fc8e52e62",
+      "title": "Pronuncia Francese per Principianti: Guida Romantica per Coppie",
+      "native_lang": "it",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Gli Errori Più Comuni degli Italiani",
+          "subsections": [
+            "### 1. La \"H\" Muta",
+            "### 2. Le Finali Silent",
+            "### 3. Il Suono \"U\" Francese"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a0613820-6d30-4385-b6cf-9b24e1f8f3fe",
+      "title": "Franske Grundregler: Lær Sprogets Hjerte Sammen",
+      "native_lang": "da",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De 5 Grundpiller i Fransk",
+          "subsections": [
+            "### 1. Artikler: Små Ord, Stor Betydning",
+            "### 2. Navneord: Køn og Tal",
+            "### 3. Verb: Jeres Aktionsord",
+            "### 4. Adjektiver: Beskriv Hinanden",
+            "### 5. Spørgeord: Bliv Klogere på Hinanden"
+          ]
+        }
+      ]
+    }
+  ]
+}

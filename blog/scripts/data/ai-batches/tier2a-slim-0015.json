@@ -1,0 +1,419 @@
+{
+  "batchId": "tier2a-slim-0015",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "2a44887c-88c4-4b0f-90fd-8ce83eb8a7bb",
+      "title": "Ukrainska SMS- och chattfraser för kärleksrelationer",
+      "native_lang": "sv",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Morgonhälsningar",
+          "subsections": [
+            "### \"Доброго ранку, кохана/коханий\"",
+            "### \"Привіт, сонечко\"",
+            "### \"Як спалося, любий/люба?\""
+          ]
+        },
+        {
+          "header": "## Att uttrycka saknad",
+          "subsections": [
+            "### \"Я сумую за тобою\"",
+            "### \"Я думаю про тебе\"",
+            "### \"Не можу дочекатися зустрічі з тобою\""
+          ]
+        },
+        {
+          "header": "## Kärleksförklaringar",
+          "subsections": [
+            "### \"Я тебе кохаю\"",
+            "### \"Я люблю тебе\"",
+            "### \"Я кохаю тебе всім серцем\"",
+            "### \"Ти кохання мого життя\""
+          ]
+        },
+        {
+          "header": "## Flirtiga meddelanden",
+          "subsections": [
+            "### \"Ти робиш мене щасливим/щасливою\"",
+            "### \"Ти така гарна / Ти такий гарний\"",
+            "### \"Я без розуму від тебе\"",
+            "### \"Ти вкрала/вкрав моє серце\""
+          ]
+        },
+        {
+          "header": "## Godnattmeddelanden",
+          "subsections": [
+            "### \"На добраніч, кохана/коханий\"",
+            "### \"Солодких снів\"",
+            "### \"Цілую ніжно\"",
+            "### \"Хай тобі сниться щось гарне\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2a58ca8a-c4af-427e-b43b-82538791025f",
+      "title": "Произношение нидерландского для начинающих: говорите с партнёром уверенно",
+      "native_lang": "ru",
+      "target_lang": "nl",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Типичные трудности для русскоговорящих",
+          "subsections": [
+            "### Проблема 1: Смягчение согласных",
+            "### Проблема 2: Дифтонги"
+          ]
+        },
+        {
+          "header": "## Распространённые ошибки и как их избежать",
+          "subsections": [
+            "### Ошибка 1: Неправильное ударение",
+            "### Ошибка 2: Игнорирование дифтонгов",
+            "### Ошибка 3: Русский акцент на \"r\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2a712f48-f12d-4fca-a3da-1a1028b52a6f",
+      "title": "Çekçe Duygusal Destek İfadeleri: Teselli ve Güç Veren Sözler",
+      "native_lang": "tr",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Destek İfadeleri",
+          "subsections": [
+            "### 1. \"Jsem tu pro tebe\"",
+            "### 2. \"Nejsi v tom sám/sama\"",
+            "### 3. \"Všechno bude dobré\"",
+            "### 4. \"Rozumím ti\"",
+            "### 5. \"Je normální se tak cítit\"",
+            "### 6. \"Jsem na tebe hrdý/hrdá\"",
+            "### 7. \"Můžeš se na mě spolehnout\"",
+            "### 8. \"Jsi silnější, než si myslíš\"",
+            "### 9. \"Nemusíš tím procházet sám/sama\"",
+            "### 10. \"Miluji tě bez ohledu na to, co se stane\"",
+            "### 11. \"Jsem tu, abych poslouchal/a\"",
+            "### 12. \"Dej si tolik času, kolik potřebuješ\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2a72b37b-4a44-4885-ac60-4b41d0da8c92",
+      "title": "Данська весільна лексика: слова та фрази для особливого дня",
+      "native_lang": "uk",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Традиційні весільні фрази",
+          "subsections": [
+            "### Привітання молодят"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2a771ef9-ca95-4031-811a-5e37830a7af4",
+      "title": "Rusça İlk Buluşma İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Karşılama",
+          "subsections": [
+            "### 1. \"Так приятно наконец-то тебя встретить\"",
+            "### 2. \"Ты выглядишь ещё лучше, чем на фото\"",
+            "### 3. \"Я так ждал/а этой встречи\""
+          ]
+        },
+        {
+          "header": "## Sohbet",
+          "subsections": [
+            "### 4. \"Расскажи мне о себе\"",
+            "### 5. \"Чем ты любишь заниматься в свободное время?\"",
+            "### 6. \"Ты уже был/а здесь раньше?\""
+          ]
+        },
+        {
+          "header": "## İltifatlar",
+          "subsections": [
+            "### 7. \"У тебя красивая улыбка\"",
+            "### 8. \"Мне нравится твой стиль\"",
+            "### 9. \"С тобой легко общаться\""
+          ]
+        },
+        {
+          "header": "## Sonlandırma",
+          "subsections": [
+            "### 10. \"Мне было очень хорошо\"",
+            "### 11. \"Можем повторить?\"",
+            "### 12. \"Я хотел/а бы тебя снова увидеть\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2a872173-fa0d-4152-ab1a-703ad4cf092c",
+      "title": "Συνάντηση με την Οικογένεια του Συντρόφου σας στα Πορτογαλικά: Οδηγός Αυτοπεποίθησης για Ζευγάρια",
+      "native_lang": "el",
+      "target_lang": "pt",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Συγκεκριμένες Καταστάσεις",
+          "subsections": [
+            "### Όταν Φτάνετε στο Σπίτι",
+            "### Κατά τη Διάρκεια του Γεύματος",
+            "### Συζητήσεις για τη Σχέση σας"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2a957b32-ac4a-492c-9590-4d534f65bb3d",
+      "title": "Sådan Undskylder Du på Svensk: Vejledning for Par",
+      "native_lang": "da",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Specifikke Situationer",
+          "subsections": [
+            "### Når Du Har Glemt Noget",
+            "### Når Du Har Sagt Noget Sårende",
+            "### Når Du Er Kommet For Sent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2a991529-9ac2-4a8a-9102-94c8d4da02f0",
+      "title": "Franska flörtfraser för par – Charma din partner på kärlekens språk",
+      "native_lang": "sv",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Eleganta komplimanger",
+          "subsections": [
+            "### \"Tu es absolument magnifique\"",
+            "### \"Tu as les plus beaux yeux du monde\"",
+            "### \"Tu illumines ma vie\""
+          ]
+        },
+        {
+          "header": "## Passionerade uttryck",
+          "subsections": [
+            "### \"Je suis fou/folle de toi\"",
+            "### \"Tu me fais tourner la tête\"",
+            "### \"Je ne peux pas vivre sans toi\""
+          ]
+        },
+        {
+          "header": "## Lekfulla flörtfraser",
+          "subsections": [
+            "### \"Est-ce que ton père est un voleur? Parce qu'il a volé les étoiles pour les mettre dans tes yeux\"",
+            "### \"Tu dois être fatiguée, parce que tu as couru dans ma tête toute la journée\"",
+            "### \"Si j'étais un chat, je passerais mes neuf vies avec toi\""
+          ]
+        },
+        {
+          "header": "## Romantiska kvällsfraser",
+          "subsections": [
+            "### \"Chaque moment avec toi est précieux\"",
+            "### \"Tu es l'amour de ma vie\"",
+            "### \"Avec toi, tout est possible\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2a993d88-fc1b-4706-9120-07acf4ad8edb",
+      "title": "Norwegian 'I Miss You' Phrases: Express Your Longing Warmly",
+      "native_lang": "en",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essential 'I Miss You' Phrases",
+          "subsections": [
+            "### Sincere Expressions",
+            "### Deep Longing",
+            "### Romantic Yearning",
+            "### Heartfelt Messages"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2d9563da-3cd3-4293-99fb-82961a40c153",
+      "title": "Francouzská gramatika pro páry: Základy, které vám pomohou milovat v cizím jazyce",
+      "native_lang": "cs",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Základní pravidla francouzských vět (3 jednoduché kroky)",
+          "subsections": [
+            "### 1. Členy jsou vaši přátelé",
+            "### 2. Přídavná jména často stojí za podstatným jménem",
+            "### 3. Zápor je super jednoduchý"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2d990543-297f-4080-b4f2-628dcd9e8b0a",
+      "title": "50+ Ukrainische Liebesworte, die Herzen berühren",
+      "native_lang": "de",
+      "target_lang": "uk",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Alltägliche Liebesworte",
+          "subsections": [
+            "### Jeden Morgen",
+            "### Jeden Abend"
+          ]
+        },
+        {
+          "header": "## Für besondere Momente",
+          "subsections": [
+            "### Komplimente",
+            "### Tiefe Gefühle"
+          ]
+        },
+        {
+          "header": "## Für Liebesbriefe",
+          "subsections": [
+            "### Anfang",
+            "### Ende"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2dab5c0e-e73b-4081-8f2f-35d36ea01a8b",
+      "title": "Пожелания на годовщину на греческий: Романтические фразы",
+      "native_lang": "ru",
+      "target_lang": "el",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Простые пожелания на годовщину",
+          "subsections": [
+            "### Короткие и сладкие",
+            "### Для вашего партнёра"
+          ]
+        },
+        {
+          "header": "## Романтические послания на годовщину",
+          "subsections": [
+            "### Сердечные признания",
+            "### Задумчивые послания"
+          ]
+        },
+        {
+          "header": "## Послания по годам",
+          "subsections": [
+            "### Первая годовщина",
+            "### Пятая годовщина",
+            "### Десятая годовщина",
+            "### Двадцать пятая годовщина (серебряная)",
+            "### Пятидесятая годовщина (золотая)"
+          ]
+        },
+        {
+          "header": "## Планирование празднования годовщины",
+          "subsections": [
+            "### Романтические идеи",
+            "### Выражение благодарности"
+          ]
+        },
+        {
+          "header": "## Сообщения для социальных сетей",
+          "subsections": [
+            "### Подписи для публикаций"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2dadad85-8801-41d8-9a53-46d4d410b228",
+      "title": "Argot danois pour SMS : communiquez avec votre partenaire",
+      "native_lang": "fr",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Abreviations essentielles",
+          "subsections": [
+            "### Salutations",
+            "### Reponses courtes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2db788a0-e064-466b-a181-a73ad89a7709",
+      "title": "Φράσεις «Μου Λείπεις» στα Πολωνικά",
+      "native_lang": "el",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις",
+          "subsections": [
+            "### 1. Tęsknię za tobą",
+            "### 2. Bardzo za tobą tęsknię",
+            "### 3. Nie mogę przestać o tobie myśleć",
+            "### 4. Chciałbym, żebyś tu był/była",
+            "### 5. Zawsze jesteś w moim sercu",
+            "### 6. Tęsknię za tobą niezmiernie",
+            "### 7. Każdy dzień bez ciebie jest trudny",
+            "### 8. Liczę dni do naszego spotkania",
+            "### 9. Moje serce boli bez ciebie",
+            "### 10. Odległość wzmacnia miłość"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2db950d5-2efb-4035-bda3-6215531fbe29",
+      "title": "Шведские фразы о прощении",
+      "native_lang": "ru",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Фразы для просьбы о прощении",
+          "subsections": [
+            "### 1. Jag är verkligen ledsen för vad jag gjorde",
+            "### 2. Snälla, förlåt mig",
+            "### 3. Jag vet att jag sårade dig, och jag ångrar det djupt",
+            "### 4. Det kommer inte hända igen, jag lovar",
+            "### 5. Jag tar fullt ansvar för mina handlingar"
+          ]
+        },
+        {
+          "header": "## Фразы для выражения прощения",
+          "subsections": [
+            "### 6. Jag förlåter dig",
+            "### 7. Låt oss lägga det här bakom oss",
+            "### 8. Jag är redo att gå vidare",
+            "### 9. Jag uppskattar din ursäkt",
+            "### 10. Det krävs mod att be om ursäkt, tack"
+          ]
+        }
+      ]
+    }
+  ]
+}

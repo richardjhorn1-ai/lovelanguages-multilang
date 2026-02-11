@@ -1,0 +1,112 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0590",
+  "articles": [
+    {
+      "id": "aa837350-50d8-4d1d-88f2-081049c7ecee",
+      "title": "Dán nászutas utazási kifejezések",
+      "native_lang": "hu",
+      "target_lang": "da",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nA nászút a házasság első romantikus utazása. Ha dán nyelvterületre utaztok, ezek a kifejezések segítenek eligazodni.\n\nAz alapvető kifejezésekért nézd meg az [Dán köszönések és búcsúzások](/learn/hu/da/danish-greetings-and-farewells) útmutatónkat.\n\n<PhraseOfDay\n  word=\"Tillykke!\"\n  translation=\"Gratulálok!\"\n  pronunciation=\"teˈlyɡə\"\n  context=\"Az esküvői köszöntés alapja.\"\n/>\n\n## Alapvető szókincs\n\nA nászutas utazás alapvető dán kifejezései:\n\n<VocabCard\n  word=\"bryllup\"\n  translation=\"esküvő\"\n  pronunciation=\"ˈbʁyləb\"\n  example=\"Brylluppet var smukt.\"\n/>\n\n| Dán | Magyar | Használat |\n|---|---|---|\n| brud | menyasszony | A nő |\n| brudgom | vőlegény | A férfi |\n| løfter | fogadalmak | Esküvői ígéretek |\n| ceremoni | szertartás | A hivatalos rész |\n| reception | fogadás | Az ünneplés |\n| skål | köszöntő | Pohárköszöntő |\n\n<CultureTip flag=\"🌍\" title=\"Dán kulturális tippek\">\nHa dán nyelvterületre utaztok nászútra, a helyi nyelv alapjainak ismerete sokkal gazdagabbá teheti az élményt. A helyiek értékelni fogják az erőfeszítést.\n</CultureTip>\n\n## Hasznos kifejezések\n\n### Utazási alapkifejezések\n\nA nászút alatt hasznos mondatok:\n\n- **Nászúton vagyunk!** - A különleges alkalom megosztása\n- **Szobát foglaltunk** - Szállodában\n- **Romantikus vacsorát szeretnénk** - Étteremben\n\n### Romantikus helyzetek\nA nászút különleges pillanataira:\n\n- **Gyönyörű ez a hely!** - Lelkesedés kifejezése\n- **Szeretlek!** - Mindig időszerű\n\n<VocabCard\n  word=\"bryllupsrejse\"\n  translation=\"nászút\"\n  pronunciation=\"ˈbʁyləbsˌʁɑjsə\"\n  example=\"De tog på bryllupsrejse.\"\n/>\n\n## Gyakorlati helyzetek\n\n| Helyzet | Mit mondj |\n|---|---|\n| Szállodában | Foglalásunk van |\n| Étteremben | Asztalfoglalást szeretnénk |\n| Városnézés | Merre van a...? |\n| Romantikus pillanat | Gyönyörű ez! |\n\n<CultureTip flag=\"💡\" title=\"Hasznos tipp\">\nTölts le egy nyelvtanulós alkalmazást a nászútra. Még az alapvető kifejezések ismerete is nagy különbséget jelent az utazás során.\n</CultureTip>\n\n## Összefoglaló táblázat\n\n| Helyzet | Dán kifejezés |\n|---|---|\n| Gratuláció | Tillykke! |\n| Az esemény | bryllup |\n| A nő | brud |\n| A férfi | brudgom |\n| Esküvői ígéretek | løfter |\n\n## További tanulás\n\nHa tovább szeretnéd fejleszteni a dán nyelvtudásod, nézd meg ezeket a cikkeinket:\n\n- [Dán romantikus kifejezések minden alkalomra](/learn/hu/da/danish-romantic-phrases-for-every-occasion)\n- [Hogyan mondd: Szeretlek dánul](/learn/hu/da/danish-how-to-say-i-love-you)\n- [Dán alapvető kifejezések pároknak](/learn/hu/da/danish-essential-phrases-for-couples)\n\nEzek a források segítenek elmélyíteni a tudásod és magabiztosabbá válni a dán nyelvben.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 261,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Hasznos kifejezések"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "aaa73889-3974-4836-862f-90d4bc98a9c8",
+      "title": "Expresii 'Mi-e Dor de Tine' în Ucraineană pentru Români",
+      "native_lang": "ro",
+      "target_lang": "uk",
+      "category": "communication",
+      "content": "Ucraineana oferă expresii melodioase și calde pentru a exprima dorul. Ca vecini, românii și ucrainenii împărtășesc înțelegerea profundă a sentimentului de dor.\n\n## Dorul în Sufletul Ucrainean\n\nUcrainenii exprimă emoțiile cu căldură și sinceritate. Dorul este comunicat poetic și plin de sentiment.\n\n## Expresii Esențiale de Dor\n\n### Expresii Clasice\n\n<Phrase>\n  <Original>Я дуже сумую за тобою.</Original>\n  <Transliteration>Ia duje sumuiu za toboiu.</Transliteration>\n  <Translation>Mi-e foarte dor de tine.</Translation>\n  <Context>Cea mai comună expresie de dor.</Context>\n</Phrase>\n\n<Phrase>\n  <Original>Не можу дочекатися, коли знову тебе побачу.</Original>\n  <Transliteration>Ne moju dochecatîsia, colî znovu tebe pobaciu.</Transliteration>\n  <Translation>Abia aștept să te văd din nou.</Translation>\n  <Context>Exprimă anticiparea revederii.</Context>\n</Phrase>\n\n<Phrase>\n  <Original>Хотів би, щоб ти був/була тут зі мною.</Original>\n  <Transliteration>Hotiv bî, școb tî buv/bula tut zi mnoiu.</Transliteration>\n  <Translation>Mi-aș dori să fii aici cu mine.</Translation>\n  <Context>Pentru momentele de singurătate.</Context>\n</Phrase>\n\n### Expresii Poetice\n\n<Phrase>\n  <Original>Кожна мить без тебе — ціла вічність.</Original>\n  <Transliteration>Cojna mît bez tebe — țila vicnisti.</Transliteration>\n  <Translation>Fiecare clipă fără tine e o eternitate.</Translation>\n  <Context>O expresie intensă.</Context>\n</Phrase>\n\n<Phrase>\n  <Original>Моє серце належить тобі, де б ти не був.</Original>\n  <Transliteration>Moie sertse nalejît tobi, de b tî ne buv.</Transliteration>\n  <Translation>Inima mea îți aparține, oriunde ai fi.</Translation>\n  <Context>O declarație de fidelitate.</Context>\n</Phrase>\n\n<Phrase>\n  <Original>Ти завжди в моїх думках.</Original>\n  <Transliteration>Tî zavjdî v moih dumcah.</Transliteration>\n  <Translation>Ești mereu în gândurile mele.</Translation>\n  <Context>Arată preocuparea constantă.</Context>\n</Phrase>\n\n### Mesaje Romantice\n\n<Phrase>\n  <Original>Доброго ранку, кохана. Прокинувся з думками про тебе.</Original>\n  <Transliteration>Dobroho rancu, cohana. Procînuvsia z dumcamî pro tebe.</Transliteration>\n  <Translation>Bună dimineața, dragă. M-am trezit gândindu-mă la tine.</Translation>\n  <Context>Mesaj de dimineață.</Context>\n</Phrase>\n\n<Phrase>\n  <Original>На добраніч, сумую за тобою.</Original>\n  <Transliteration>Na dobranich, sumuiu za toboiu.</Transliteration>\n  <Translation>Noapte bună, mi-e dor de tine.</Translation>\n  <Context>Mesaj de noapte bună.</Context>\n</Phrase>\n\n<Phrase>\n  <Original>Щоночі бачу тебе уві сні.</Original>\n  <Transliteration>Șconoci baciu tebe uvi sni.</Transliteration>\n  <Translation>În fiecare noapte te văd în vis.</Translation>\n  <Context>O expresie romantică.</Context>\n</Phrase>\n\n### Promisiuni\n\n<Phrase>\n  <Original>Рахую дні до нашої зустрічі.</Original>\n  <Transliteration>Rahuiu dni do nașoi zustrici.</Transliteration>\n  <Translation>Număr zilele până la întâlnirea noastră.</Translation>\n  <Context>Exprimă anticiparea.</Context>\n</Phrase>\n\n<Phrase>\n  <Original>Відстань не може розлучити наші серця.</Original>\n  <Transliteration>Vidstani ne moje rozlucîtî nași sertsia.</Transliteration>\n  <Translation>Distanța nu poate separa inimile noastre.</Translation>\n  <Context>O afirmație despre dragoste.</Context>\n</Phrase>\n\n<Phrase>\n  <Original>Скоро ми знову будемо разом.</Original>\n  <Transliteration>Scoro mî znovu budemo razom.</Transliteration>\n  <Translation>Curând vom fi din nou împreună.</Translation>\n  <Context>O promisiune de reuniune.</Context>\n</Phrase>\n\n## Concluzie\n\nDorul exprimat în ucraineană are o melodie și căldură aparte. Folosește aceste expresii pentru a menține vie conexiunea cu partenerul tău ucrainean!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Expresii Esențiale de Dor"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "aab710c7-104d-4a36-92b2-44dec955dc46",
+      "title": "Çekçe Özlem İfadeleri: Seni Özledim Demenin Yolları",
+      "native_lang": "tr",
+      "target_lang": "cs",
+      "category": "communication",
+      "content": "## Çekçe Özlemi İfade Etmek\n\nÇek Cumhuriyeti'nde sevdiklerinizden uzaktayken özleminizi ifade etmek, ilişkinizi güçlendiren samimi bir iletişimdir. Bu rehberde, Çekçe özlem ifadelerini ve bunları nasıl kullanacağınızı öğreneceksiniz.\n\n## Temel Özlem İfadeleri\n\n### 1. Chybíš mi\n**Telaffuz:** /hibiş mi/\n**Anlam:** Seni özlüyorum\n\nEn temel ve yaygın özlem ifadesi. Her türlü ilişkide kullanılabilir.\n\n### 2. Moc mi chybíš\n**Telaffuz:** /mots mi hibiş/\n**Anlam:** Seni çok özlüyorum\n\n\"Moc\" (çok) ekleyerek duygunun yoğunluğunu vurgularsınız.\n\n### 3. Stýská se mi po tobě\n**Telaffuz:** /stiska se mi po tobye/\n**Anlam:** Sana hasret kaldım\n\nDaha derin ve duygusal bir özlem ifadesi. Romantik ilişkilerde sık kullanılır.\n\n### 4. Pořád na tebe myslím\n**Telaffuz:** /porjad na tebe mislim/\n**Anlam:** Sürekli seni düşünüyorum\n\nBirinin her zaman aklınızda olduğunu ifade eden romantik bir cümle.\n\n### 5. Kéž bys tu byl/a\n**Telaffuz:** /kej bis tu bil/ (erkek için) /bila/ (kadın için)\n**Anlam:** Keşke burada olsaydın\n\nÖzleminizi ve birlikte olmak istediğinizi gösteren duygusal bir cümle.\n\n### 6. Počítám dny, než se zase uvidíme\n**Telaffuz:** /poçitam dni nej se zase uvidime/\n**Anlam:** Tekrar görüşene kadar günleri sayıyorum\n\nSabırsızlığı ve özlemi ifade eden romantik bir cümle.\n\n### 7. Moje srdce je bez tebe prázdné\n**Telaffuz:** /moye srdtse ye bez tebe prazdne/\n**Anlam:** Kalbim sensiz boş\n\nDerin bağlılık ve özlem ifade eden şiirsel bir cümle.\n\n### 8. Každý den bez tebe je těžký\n**Telaffuz:** /kajdi den bez tebe ye tejki/\n**Anlam:** Sensiz her gün zor\n\nAyrılığın zorluğunu samimiyetle ifade eder.\n\n### 9. Nemůžu přestat myslet na tebe\n**Telaffuz:** /nemuju pşestat mislet na tebe/\n**Anlam:** Seni düşünmekten kendimi alamıyorum\n\nBirinin sürekli aklınızda olduğunu gösteren romantik bir ifade.\n\n### 10. Brzy se uvidíme\n**Telaffuz:** /brzi se uvidime/\n**Anlam:** Yakında görüşürüz\n\nUmut ve sabırsızlık ifade eden pozitif bir cümle.\n\n## Kültürel İpuçları\n\n**Çek Samimiyeti:** Çekler başlangıçta mesafeli görünebilir, ancak yakın ilişkilerde çok sıcak ve duygusaldırlar.\n\n**Yazılı vs Sözlü:** Çekler bazen duygularını yüz yüze söylemektense yazmayı tercih edebilir. Mektuplar ve mesajlar değerlidir.\n\n**Aile Önemi:** Çek kültüründe aile önemlidir. Özellikle Noel gibi tatillerde aile ile birlikte olmak çok değerlidir.\n\n**Romantik Gelenek:** Çekler romantik jestlere değer verir. Çiçekler, kartlar ve özel mesajlar takdir edilir.\n\n## Mesaj Örnekleri\n\n**Romantik Mesaj:**\n\"Ahoj lásko! Moc mi chybíš. Každý den bez tebe je dlouhý. Stýská se mi po tvém úsměvu. Posílám ti pusu!\"\n\n(Merhaba aşkım! Seni çok özlüyorum. Sensiz her gün uzun. Gülümsemeni özlüyorum. Sana öpücük gönderiyorum!)\n\n**Aile Mesajı:**\n\"Ahoj mami a tati! Moc mi chybíte. Doufám, že se brzy uvidíme. Posílám objetí!\"\n\n(Merhaba anne ve baba! İkinizi de çok özlüyorum. Umarım yakında görüşürüz. Sarılmalar gönderiyorum!)\n\n## Telaffuz Notları\n\nÇekçede dikkat edilmesi gereken sesler:\n- **č** → Türkçe \"ç\" gibi\n- **š** → Türkçe \"ş\" gibi\n- **ž** → Türkçe \"j\" gibi\n- **ř** → Benzersiz Çek sesi, \"rj\" karışımı\n- **ě** → \"ye\" gibi okunur\n- **ch** → Boğazdan gelen \"h\" sesi\n\n## Sonuç\n\nÇekçe özlem ifadeleri, uzaktaki sevdiklerinizle duygusal bağınızı sürdürmenin samimi bir yoludur. Bu cümleleri öğrenerek, Çek sevdiğiniz kişiye ne kadar önemli olduğunu gösterebilirsiniz.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Temel Özlem İfadeleri"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "aab9fb2b-741d-4b9d-ba26-2591cc131c71",
+      "title": "Small Talk på Norsk: Samtalestartere for Par",
+      "native_lang": "da",
+      "target_lang": "no",
+      "category": "communication",
+      "content": "Small talk er kunsten at holde samtalen kørende. Når du møder din partners venner og familie, har du brug for norske samtalestartere. Se også vores [norske hilsner og farvel](/learn/da/no/norwegian-greetings-and-farewells/).\n\n<PhraseOfDay\n  word=\"Hvordan har du det?\"\n  translation=\"Hvordan har du det?\"\n  pronunciation=\"vor-dan har du de?\"\n  context=\"En klassisk samtaleåbner\"\n/>\n\n## Isbrydere\n\nStart samtalen med selvtillid:\n\n<VocabCard\n  word=\"Hyggelig å møte deg\"\n  translation=\"Rart at møde dig\"\n  pronunciation=\"hyg-ge-li å mø-te dai\"\n  example=\"Så hyggelig å møte deg!\"\n/>\n\n| Norsk | Dansk | Udtale |\n|---------|-------|--------|\n| **Hyggelig å møte deg** | Rart at møde dig | hyg-ge-li å mø-te dai |\n| **Jeg har hørt så mye om deg** | Jeg har hørt om dig | jai har hørt så my-e om dai |\n| **Hvordan kjenner du [partner]?** | Hvordan kender du [partner]? | vor-dan chen-ner du? |\n| **Er dette første gang her?** | Er det første gang? | ær det-te før-ste gang hær? |\n| **Dette er et hyggelig sted** | Sikke et dejligt sted | det-te ær et hyg-ge-li sted |\n\n<CultureTip flag=\"🇳🇴\" title=\"Small talk kultur\">\nNordmænd elsker at snakke om vejret og naturen - det er en sikker starter.\n</CultureTip>\n\n## Klassiske Emner\n\n### Vejret\n- **Deilig vær i dag** (Sikke dejligt vejr) - \"dai-li vær i dag\"\n- **Det er kaldt i dag** (Det er koldt i dag) - \"de ær kalt i dag\"\n- **Håper det holder seg fint** (Håber det holder) - \"hå-per de hol-der sai fint\"\n\n### Weekendplaner\n- **Noen planer for helgen?** (Har du planer til weekenden?) - \"no-en pla-ner for hel-gen?\"\n- **Hva gjorde du i helgen?** (Hvad lavede du i weekenden?) - \"va gjor-de du i hel-gen?\"\n- **Vi skal til...** (Vi skal til...) - \"vi skal til...\"\n\n### Ferier og Rejser\n- **Har du reist noen steder?** (Har du rejst nogen steder?) - \"har du raist no-en ste-der?\"\n- **Hvor var du på ferie?** (Hvor var du på ferie?) - \"vor var du på fe-rie?\"\n- **Jeg vil gjerne besøke...** (Jeg vil gerne besøge...) - \"jai vil gjær-ne be-sø-ke...\"\n\n## Spørge til Interesser\n\n<VocabCard\n  word=\"Hva gjør du på fritiden?\"\n  translation=\"Hvad laver du i fritiden?\"\n  pronunciation=\"va gjør du på fri-ti-den?\"\n  example=\"Hva liker du å gjøre på fritiden?\"\n/>\n\n- **Hva liker du å gjøre?** (Hvad kan du lide at lave?) - \"va li-ker du å gjø-re?\"\n- **Følger du sport?** (Ser du sport?) - \"føl-ger du sport?\"\n- **Hvilken musikk liker du?** (Hvilken musik kan du lide?) - \"vil-ken mu-sikk li-ker du?\"\n- **Sett noen gode filmer i det siste?** (Har du set nogen gode film?) - \"sett no-en go-de fil-mer i de sis-te?\"\n\n## Arbejde og Karriere\n\n| Norsk | Dansk | Udtale |\n|---------|-------|--------|\n| **Hva jobber du med?** | Hvad arbejder du med? | va job-ber du med? |\n| **Hvor lenge har du gjort det?** | Hvor længe har du gjort det? | vor len-ge har du gjort de? |\n| **Liker du det?** | Kan du lide det? | li-ker du de? |\n| **Det høres interessant ut** | Det lyder interessant | de hø-res in-te-res-sant ut |\n| **Du må være travel** | Du må være travl | du må væ-re tra-vel |\n\n<CultureTip flag=\"🇳🇴\" title=\"Emner at undgå\">\nUndgå politik, religion og indkomst med nye mennesker.\n</CultureTip>\n\n## Holde Samtalen Kørende\n\n<VocabCard\n  word=\"Fortell mer\"\n  translation=\"Fortæl mere\"\n  pronunciation=\"for-tell mær\"\n  example=\"Fortell mer om det!\"\n/>\n\n- **Virkelig?** (Virkelig?) - \"vir-ke-li?\"\n- **Det er flott** (Det er fantastisk) - \"de ær flott\"\n- **Enig** (Jeg er enig) - \"e-nig\"\n- **Skjønner** (Jeg forstår) - \"shøn-ner\"\n\n## Reagere og Nikke Med\n\n| Norsk | Dansk | Brug |\n|---------|-------|------|\n| **Wow** | Wow | Overraskelse |\n| **Kult** | Fedt | Positiv |\n| **Skjønner** | Jeg forstår | Forståelse |\n| **Akkurat** | Ja, lige præcis | Enighed |\n\n## Mad og Drikke\n\n- **Maten er deilig** (Maden er lækker) - \"ma-ten ær dai-li\"\n- **Vil du ha noe å drikke?** (Vil du have noget at drikke?) - \"vil du ha no-e å drik-ke?\"\n- **Hva liker du å spise?** (Hvad kan du lide at spise?) - \"va li-ker du å spi-se?\"\n\n## Skifte Emne\n\n- **Forresten...** (Forresten...) - \"for-res-ten...\"\n- **Apropos...** (Apropos...) - \"a-pro-pos...\"\n- **Noe helt annet...** (Noget helt andet...) - \"no-e helt an-net...\"\n\n## Afslutte Samtalen\n\n<VocabCard\n  word=\"Det var hyggelig å snakke\"\n  translation=\"Det var hyggeligt at snakke\"\n  pronunciation=\"de var hyg-ge-li å snak-ke\"\n  example=\"Det var så hyggelig å snakke med deg!\"\n/>\n\n- **Jeg må dessverre gå** (Jeg må desværre gå) - \"jai må des-svær-re gå\"\n- **Håper vi ses igjen** (Jeg håber vi ses igen) - \"hå-per vi ses i-gjen\"\n- **Jeg har koset meg med samtalen** (Jeg har nydt samtalen) - \"jai har ko-set mai med sam-ta-len\"\n\n## Tips til Norsk Small Talk\n\n1. **Smil og lyt** - 70% lytning, 30% tale\n2. **Stil åbne spørgsmål** - Mere end ja/nej\n3. **Find fælles interesser** - Byg videre\n4. **Accepter pauser** - De er naturlige\n5. **Øv dig** - Det bliver nemmere\n\nFor flere fraser, tjek [norske fraser for par](/learn/da/no/norwegian-essential-phrases-for-couples/).\n\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Klassiske Emner"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "aabc93ba-3a06-42a5-a14e-062e38b164e2",
+      "title": "Rusça Kıskançlık ve Güven İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "ru",
+      "category": "communication",
+      "content": "Kıskançlık, ilişkilerde doğal bir duygu olabilir. Rusça konuşan partnerinizle bu konuları sağlıklı bir şekilde konuşmak için temel ifadeler.\n\n## Kıskançlığı İfade Etme\n\n### 1. \"Я чувствую себя немного ревнивым/ой, когда...\"\n**Telaffuz:** *Ya çuvstvuyu sebya nemnogo revnivım/oy, kogda...*\n\n**Anlam:** \"...olduğunda biraz kıskanç hissediyorum\"\n\n### 2. \"Ты можешь меня успокоить?\"\n**Telaffuz:** *Tı mojeş menya uspokoit?*\n\n**Anlam:** \"Beni rahatlatabilir misin?\"\n\n### 3. \"Я доверяю тебе, но не им\"\n**Telaffuz:** *Ya doveryayu tebe, no ne im*\n\n**Anlam:** \"Sana güveniyorum, ama onlara güvenmiyorum\"\n\n### 4. \"Мне некомфортно, когда...\"\n**Telaffuz:** *Mne nekomfortno, kogda...*\n\n**Anlam:** \"...olduğunda rahatsız oluyorum\"\n\n### 5. \"Мне нужно знать, что я твой приоритет\"\n**Telaffuz:** *Mne nujno znat, şto ya tvoy prioritet*\n\n**Anlam:** \"Senin önceliğin olduğumu bilmem gerekiyor\"\n\n## Güven İnşa Etme\n\n### 6. \"Я полностью тебе доверяю\"\n**Telaffuz:** *Ya polnostyu tebe doveryayu*\n\n**Anlam:** \"Sana tamamen güveniyorum\"\n\n### 7. \"Ты единственный/ая для меня\"\n**Telaffuz:** *Tı yedinstvenıy/aya dlya menya*\n\n**Anlam:** \"Benim için tek kişi sensin\"\n\n### 8. \"Я никогда не сделаю ничего, чтобы причинить тебе боль\"\n**Telaffuz:** *Ya nikogda ne sdelayu niçego, çtobı priçinit tebe bol*\n\n**Anlam:** \"Seni incitecek hiçbir şey yapmam\"\n\n### 9. \"Тебе не о чем беспокоиться\"\n**Telaffuz:** *Tebe ne o çom bespokoitsa*\n\n**Anlam:** \"Endişelenecek hiçbir şeyin yok\"\n\n### 10. \"Я предан/а только тебе\"\n**Telaffuz:** *Ya predan/a tolko tebe*\n\n**Anlam:** \"Sadece sana bağlıyım\"\n\n### 11. \"Давай поговорим о твоих переживаниях\"\n**Telaffuz:** *Davay pogovorim o tvoih perejivanyah*\n\n**Anlam:** \"Endişelerin hakkında konuşalım\"\n\n### 12. \"Что я могу сделать, чтобы ты чувствовал/а себя увереннее?\"\n**Telaffuz:** *Şto ya mogu sdelat, çtobı tı çuvstvoval/a sebya uvereneye?*\n\n**Anlam:** \"Kendini daha güvende hissetmen için ne yapabilirim?\"\n\n## Rus Güven Kültürü\n\n\"Любимый/Любимая\" (sevgilim) ve \"Я люблю только тебя\" (sadece seni seviyorum) güven veren ifadelerdir.\n\nBu ifadelerle Rusça konuşan partnerinizle güven dolu bir ilişki kurabilirsiniz.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 283,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Kıskançlığı İfade Etme",
+              "## Güven İnşa Etme"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,425 @@
+{
+  "batchId": "tier2a-slim-0145",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "9f3eefc8-7c93-4fc7-b670-acf9f02ef782",
+      "title": "Guten Morgen und Gute Nacht auf Ungarisch – Süße Phrasen für jeden Tag",
+      "native_lang": "de",
+      "target_lang": "hu",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Guten Morgen sagen",
+          "subsections": [
+            "### Klassische Morgengrüße",
+            "### Romantische Morgengrüße"
+          ]
+        },
+        {
+          "header": "## Gute Nacht sagen",
+          "subsections": [
+            "### Klassische Nachtgrüße",
+            "### Romantische Nachtgrüße"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9f7395e6-6b78-465e-97b9-a694a8840f32",
+      "title": "Angol Üdvözlések és Búcsúzások: 40+ Kifejezés Pároknak",
+      "native_lang": "hu",
+      "target_lang": "en",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Búcsúzások",
+          "subsections": [
+            "### Köznapi Búcsúzások",
+            "### Romantikus Búcsúzások"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9f7a3b00-1a0d-4665-b006-1247d0a07043",
+      "title": "Roemeense Zinnen voor Ruzie en Meningsverschillen",
+      "native_lang": "nl",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen voor meningsverschillen",
+          "subsections": [
+            "### 1. \"Mă simt rănit/ă când tu...\"",
+            "### 2. \"Putem vorbi despre asta calm?\"",
+            "### 3. \"Înțeleg punctul tău de vedere, dar...\"",
+            "### 4. \"Am nevoie de un moment să mă calmez\"",
+            "### 5. \"Nu asta am vrut să spun\"",
+            "### 6. \"Te rog, ascultă-mă\"",
+            "### 7. \"Poți să-mi explici cum te simți?\"",
+            "### 8. \"Nu vreau să ne certăm pentru asta\"",
+            "### 9. \"Să găsim împreună un compromis\"",
+            "### 10. \"Îmi pare rău că am ridicat vocea\"",
+            "### 11. \"Asta e foarte important pentru mine\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9f85af63-ebbd-4e16-8de8-f8d8eb724429",
+      "title": "Italian Making Up & Reconciliation Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Apologizing Sincerely",
+          "subsections": [
+            "### Mi dispiace tanto",
+            "### Perdonami",
+            "### Ho sbagliato",
+            "### Non avrei dovuto dire quello"
+          ]
+        },
+        {
+          "header": "## Expressing Your Feelings",
+          "subsections": [
+            "### Odio quando litighiamo",
+            "### Mi manchi quando siamo così",
+            "### Mi fa male quando siamo arrabbiati"
+          ]
+        },
+        {
+          "header": "## Reaching Out",
+          "subsections": [
+            "### Possiamo parlare?",
+            "### Voglio sistemare le cose",
+            "### Possiamo ricominciare?"
+          ]
+        },
+        {
+          "header": "## Expressing Love and Commitment",
+          "subsections": [
+            "### Ti amo, questo non cambia",
+            "### Sei più importante di questa lite",
+            "### Non voglio perderti",
+            "### Siamo una squadra"
+          ]
+        },
+        {
+          "header": "## Moving Forward",
+          "subsections": [
+            "### Come possiamo evitare questo in futuro?",
+            "### Prometto di fare meglio"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9fa463e9-af9e-4a8d-a2d6-25476c299b47",
+      "title": "50 Elogios em Francês para Seu Parceiro",
+      "native_lang": "pt",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Pratica Diaria de Elogios",
+          "subsections": [
+            "### Manha",
+            "### Durante o Dia",
+            "### Noite"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9fa7b4e1-e727-4244-956a-b5aefd2c9e23",
+      "title": "Ukrainska Fraser för Svartsjuka och Förtroende",
+      "native_lang": "sv",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Uttrycka Svartsjuka",
+          "subsections": [
+            "### 1. \"Я почуваюся невпевнено, коли...\"",
+            "### 2. \"Чи можеш допомогти мені зрозуміти твої стосунки з...?\"",
+            "### 3. \"Я довіряю тобі, але борюся зі своїми почуттями\"",
+            "### 4. \"Мені потрібно, щоб ти мене заспокоїв/ла\"",
+            "### 5. \"Мене турбує, коли...\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Bygga Förtroende",
+          "subsections": [
+            "### 6. \"У мене очі тільки для тебе\"",
+            "### 7. \"Ти єдиний/а для мене\"",
+            "### 8. \"Я ніколи не зроблю нічого, щоб завдати тобі болю\"",
+            "### 9. \"Будьмо чесними одне з одним\"",
+            "### 10. \"Я хочу, щоб ти познайомився/лась з моїми друзями\"",
+            "### 11. \"Тобі нема про що хвилюватися\"",
+            "### 12. \"Я обираю тебе кожного дня\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9fbe9e6a-2cdb-4e99-965f-b583744547c2",
+      "title": "Orosz kifejezések féltékenységhez és bizalomhoz",
+      "native_lang": "hu",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kifejezések a féltékenységhez",
+          "subsections": [
+            "### 1. \"Я ревную, когда ты...\"",
+            "### 2. \"Мне нужно, чтобы ты меня успокоил/а\"",
+            "### 3. \"Я тебе доверяю, но борюсь со своими чувствами\"",
+            "### 4. \"Можем поговорить о том, что случилось?\"",
+            "### 5. \"Я не хочу ревновать, но...\"",
+            "### 6. \"Я полностью тебе доверяю\"",
+            "### 7. \"Ты единственный/единственная для меня\"",
+            "### 8. \"Я никогда не сделаю ничего, чтобы тебя обидеть\"",
+            "### 9. \"Между нами ничего нет\"",
+            "### 10. \"Я тебе верен/верна\"",
+            "### 11. \"Давай будем честными друг с другом\"",
+            "### 12. \"Я не хочу, чтобы ревность нас разлучила\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9fc171b3-245e-4c70-95ce-04690cdcda8c",
+      "title": "Francia Szerelmes Levél Írása Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kezdő Kifejezések",
+          "subsections": [
+            "### 1. Mon amour",
+            "### 2. Ma chérie / Mon chéri",
+            "### 3. Mon cœur"
+          ]
+        },
+        {
+          "header": "## Érzelmek Kifejezése",
+          "subsections": [
+            "### 4. Je t'aime plus que tout au monde",
+            "### 5. Tu es la lumière de ma vie",
+            "### 6. Mon cœur t'appartient",
+            "### 7. Chaque jour, je t'aime davantage",
+            "### 8. Tu es mon rêve devenu réalité",
+            "### 9. Avec toi, j'ai découvert le vrai amour",
+            "### 10. Je ne peux pas imaginer ma vie sans toi"
+          ]
+        },
+        {
+          "header": "## Közös Emlékek",
+          "subsections": [
+            "### 11. Je me souviens du jour où nous nous sommes rencontrés",
+            "### 12. Chaque moment avec toi est précieux"
+          ]
+        },
+        {
+          "header": "## Záró Kifejezések",
+          "subsections": [
+            "### 13. À toi pour toujours",
+            "### 14. Avec tout mon amour",
+            "### 15. En attendant de te revoir"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9fdbb396-b6ab-45cb-824a-03f3c75f32a0",
+      "title": "Guten Morgen und Gute Nacht auf Schwedisch – Süße Phrasen für jeden Tag",
+      "native_lang": "de",
+      "target_lang": "sv",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Guten Morgen sagen",
+          "subsections": [
+            "### Klassische Morgengrüße",
+            "### Romantische Morgengrüße"
+          ]
+        },
+        {
+          "header": "## Gute Nacht sagen",
+          "subsections": [
+            "### Klassische Nachtgrüße",
+            "### Romantische Nachtgrüße"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9fdee1c3-5206-4edf-9f31-4c4de45b4194",
+      "title": "Salutations et au revoir en ukrainien : guide complet",
+      "native_lang": "fr",
+      "target_lang": "uk",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Au revoir",
+          "subsections": [
+            "### Informel",
+            "### Formel",
+            "### Romantique"
+          ]
+        },
+        {
+          "header": "## Expressions pour différents moments",
+          "subsections": [
+            "### Le matin",
+            "### L'après-midi",
+            "### Le soir"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9ff5b7a0-77dc-4a4c-9ecb-b36cafcb5b54",
+      "title": "Grammatica Turca per Principianti: Impara a Comunicare con il Tuo Partner",
+      "native_lang": "it",
+      "target_lang": "tr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Quadro di Riferimento Rapido",
+          "subsections": [
+            "### Suffissi Essenziali",
+            "### Pronomi Possessivi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a022451d-99f1-4251-b3a0-146d95f91c01",
+      "title": "Argot grec pour SMS : communiquez avec votre partenaire",
+      "native_lang": "fr",
+      "target_lang": "el",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Abreviations essentielles",
+          "subsections": [
+            "### Salutations",
+            "### Reponses courtes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a031e955-1e6f-408f-8eff-d305103ac55c",
+      "title": "Czech Daily Conversations for Couples",
+      "native_lang": "en",
+      "target_lang": "cs",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Evening Routine",
+          "subsections": [
+            "### Dinner Time",
+            "### Relaxing Together"
+          ]
+        },
+        {
+          "header": "## Quick Reference: Daily Phrases",
+          "subsections": [
+            "### Morning",
+            "### During the Day",
+            "### Evening",
+            "### Night"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a040be13-c114-474d-b41f-c8d4869f65a3",
+      "title": "Prononciation danoise : guide complet pour francophones",
+      "native_lang": "fr",
+      "target_lang": "da",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Les consonnes speciales",
+          "subsections": [
+            "### Le 'D' mou",
+            "### Le 'G' muet",
+            "### Le 'R' danois",
+            "### Combinaisons difficiles"
+          ]
+        },
+        {
+          "header": "## Pieges de prononciation",
+          "subsections": [
+            "### Le 'D' dans differentes positions",
+            "### Les voyelles qui disparaissent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a054d6ed-3655-4b64-86c6-343c810cae30",
+      "title": "Ungarske sms- og chatbeskeder til par",
+      "native_lang": "da",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende kærlige beskeder",
+          "subsections": [
+            "### \"Hiányzol\"",
+            "### \"Rád gondolok\"",
+            "### \"Alig várom, hogy lássalak\""
+          ]
+        },
+        {
+          "header": "## Populære ungarske kælenavne",
+          "subsections": [
+            "### \"Drágám\"",
+            "### \"Édesem\"",
+            "### \"Kicsim\" / \"Kicsi szívem\""
+          ]
+        },
+        {
+          "header": "## Ungarske sms-forkortelser",
+          "subsections": [
+            "### \"Szeretlek\"",
+            "### \"Puszi\" / \"Puszika\"",
+            "### \"Jó éjt\" / \"Jó éjszakát\""
+          ]
+        },
+        {
+          "header": "## Romantiske beskeder",
+          "subsections": [
+            "### \"Te vagy a mindenem\"",
+            "### \"Jó reggelt, drágám\"",
+            "### \"Szép álmokat, édesem\""
+          ]
+        },
+        {
+          "header": "## Hverdagsbeskeder",
+          "subsections": [
+            "### \"Hogy vagy?\"",
+            "### \"Már megyek\"",
+            "### \"Viszlát\" / \"Szia\""
+          ]
+        },
+        {
+          "header": "## Specielle udtryk",
+          "subsections": [
+            "### \"Szívem\"",
+            "### \"Bogaram\"",
+            "### \"Csillagom\""
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "tier": 1,
+  "batchId": "tier1-batch-027",
+  "articles": [
+    {
+      "id": "475db846-9c37-48d3-9a62-537ba55c89fb",
+      "title": "Fraze pentru apeluri video cu familia în maghiară",
+      "native_lang": "ro",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nApelurile video cu familia partenerului pot fi intimidante, mai ales într-o limbă străină. Aceste fraze te vor ajuta să faci o impresie bună.\n\n<PhraseOfDay\n  word=\"Üdvözöld mindenkinek\"\n  translation=\"Transmite salutări tuturor\"\n  pronunciation=\"\"\n  context=\"O expresie politicoasă pentru încheiere\"\n/>\n\n## Salutări și introduceri\n\n<VocabCard\n  word=\"Hogy vagy?\"\n  translation=\"Ce mai faci? / Cum ești?\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇭🇺\" title=\"Eticheta apelurilor video\">\nMaghiarii apreciază sinceritatea și căldura. Scuzele din inimă sunt foarte prețuite - arată că îți pasă cu adevărat de relație.\n</CultureTip>\n\n## Probleme tehnice\n\n| Maghiară | Română |\n|---------|---------|\n| Hallasz engem? | Mă auzi? |\n| Látlak | Te văd |\n| Rossz a kapcsolat | Conexiunea e proastă |\n| Üdvözöld mindenkinek | Transmite salutări tuturor |\n\n<VocabCard\n  word=\"Hallasz engem?\"\n  translation=\"Mă auzi?\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Rossz a kapcsolat\"\n  translation=\"Conexiunea e proastă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru apeluri cu familia partenerului\n\n1. **Pregătește câteva fraze** – Exersează înainte de apel\n2. **Zâmbește mult** – Comunică bunăvoință fără cuvinte\n3. **Ascultă activ** – Dă din cap și reacționează\n4. **Nu-ți face griji pentru greșeli** – Vor aprecia efortul tău\n5. **Cere ajutor** – Partenerul poate traduce când e greu\n\n<CTA />\n\n## Articole conexe\n\n- [Întâlnirea cu familia partenerului în maghiară](/ro/hu/hungarian-meeting-your-partner-s-family)\n- [Conversații de zi cu zi în maghiară](/ro/hu/hungarian-small-talk-conversation-starters)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "481b25a6-243d-4841-8eb4-2109f466d2fa",
+      "title": "30+ Complimente în ucraineană pentru partenerul tău",
+      "native_lang": "ro",
+      "target_lang": "uk",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nComplimentele sunt limbajul dragostei. Când îi spui partenerului ceva frumos în limba lui maternă, cuvintele capătă o semnificație specială.\n\n<PhraseOfDay\n  word=\"Ти красива/ий\"\n  translation=\"Ești frumoasă/frumos\"\n  pronunciation=\"\"\n  context=\"Cel mai clasic compliment romantic\"\n/>\n\n## Complimente pentru aspect fizic\n\n<VocabCard\n  word=\"Ти красива/ий\"\n  translation=\"Ești frumoasă/frumos\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇺🇦\" title=\"Cultura complimentelor\">\nUcrainenii sunt călduroși și expresivi. Scuzele sincere, posibil însoțite de un gest afectuos, sunt foarte prețuite în cultura ucraineană.\n</CultureTip>\n\n## Complimente pentru personalitate\n\n| Ucraineană | Română |\n|---------|---------|\n| Ти такий/а розумний/а | Ești atât de inteligent/ă |\n| Ти такий/а добрий/а | Ești atât de drăguț/ă |\n| Ти дивовижний/а | Ești uimitor/oare |\n| Ти смішний/а | Ești amuzant/ă |\n\n<VocabCard\n  word=\"Ти такий/а розумний/а\"\n  translation=\"Ești atât de inteligent/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Ти такий/а добрий/а\"\n  translation=\"Ești atât de drăguț/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru complimente sincere\n\n1. **Fii specific** – \"Îmi place cum râzi\" e mai bun decât \"Ești frumoasă\"\n2. **Fii autentic** – Spune doar ce simți cu adevărat\n3. **Alege momentul** – Complimentele spontane sunt cele mai prețuite\n4. **Nu exagera** – Un compliment sincer e mai valoros decât zece superficiale\n5. **Include acțiuni** – \"Îmi place cum mă asculți când vorbesc\"\n\n<CTA />\n\n## Articole conexe\n\n- [Exprimarea emoțiilor în ucraineană](/ro/uk/ukrainian-expressing-emotions)\n- [Alinturile în ucraineană](/ro/uk/ukrainian-pet-names-and-terms-of-endearment-50)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "49df79ba-d7ba-4c83-9393-2b748174817b",
+      "title": "Smalltalk auf Französisch – Gesprächseinstiege für Paare",
+      "native_lang": "de",
+      "target_lang": "fr",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\n# Smalltalk auf Französisch – Gesprächseinstiege für Paare\n\nSmalltalk ist eine Kunst, die in jeder Sprache wichtig ist. Wenn du die Familie und Freunde deines Partners kennenlernst, helfen dir diese Französischen Phrasen dabei, das Eis zu brechen und interessante Gespräche zu führen.\n\n<PhraseOfDay\n  word=\"How are you?\"\n  translation=\"Wie geht es dir/Ihnen?\"\n  pronunciation=\"hau ar juu?\"\n  context=\"Ein klassischer Gesprächseinstieg\"\n/>\n\n## Gespräche beginnen\n\n<VocabCard\n  word=\"How are you?\"\n  translation=\"Wie geht es dir/Ihnen?\"\n  pronunciation=\"hau ar juu?\"\n  example=\"How are you today?\"\n/>\n\n<VocabCard\n  word=\"Nice weather today, isn't it?\"\n  translation=\"Schönes Wetter heute, nicht wahr?\"\n  pronunciation=\"nais WEH-dhör tu-DEI\"\n  example=\"Nice weather we're having!\"\n/>\n\n| Französisch | Deutsch |\n|-------------|---------|\n| Where are you from? | Woher kommen Sie? |\n| What do you do for work? | Was machen Sie beruflich? |\n| Have we met before? | Kennen wir uns? |\n\n<CultureTip flag=\"🇫🇷\" title=\"Kultureller Kontext\">\nSmall talk helps build rapport. Show genuine interest and ask follow-up questions.\n</CultureTip>\n\n## Über Hobbys und Interessen\n\n| Französisch | Deutsch |\n|-------------|---------|\n| What are your hobbies? | Was sind Ihre Hobbys? |\n| Do you like sports? | Mögen Sie Sport? |\n| What music do you like? | Welche Musik hören Sie gern? |\n| Do you like to travel? | Reisen Sie gern? |\n\n## Über Arbeit und Beruf\n\n<VocabCard\n  word=\"What do you do?\"\n  translation=\"Was arbeiten Sie?\"\n  pronunciation=\"wot du juu duu?\"\n  example=\"What do you do for a living?\"\n/>\n\n| Französisch | Deutsch |\n|-------------|---------|\n| Do you enjoy your work? | Gefällt Ihnen Ihre Arbeit? |\n| How long have you worked there? | Seit wann arbeiten Sie dort? |\n| That sounds interesting | Das klingt interessant |\n\n## Über das Wetter\n\nEin Klassiker, der immer funktioniert:\n\n| Französisch | Deutsch |\n|-------------|---------|\n| Nice weather today | Schönes Wetter heute |\n| It's warm/cold today | Es ist heute warm/kalt |\n| Hopefully it won't rain | Hoffentlich regnet es nicht |\n| The summer was nice | Der Sommer war schön |\n\n## Gespräche am Laufen halten\n\n| Französisch | Deutsch |\n|-------------|---------|\n| That's interesting! | Das ist interessant! |\n| Tell me more | Erzählen Sie mehr |\n| Really? | Wirklich? |\n| I understand | Ich verstehe |\n\n## Höflich nachfragen\n\n<VocabCard\n  word=\"Could you repeat that?\"\n  translation=\"Können Sie das wiederholen?\"\n  pronunciation=\"kud juu ri-PIET dhät?\"\n  example=\"I'm sorry, could you repeat that?\"\n/>\n\n| Französisch | Deutsch |\n|-------------|---------|\n| Could you speak slower? | Können Sie langsamer sprechen? |\n| What does that mean? | Was bedeutet das? |\n| I'm still learning | Ich lerne noch Französisch |\n\n<CultureTip flag=\"🇫🇷\" title=\"Tipp für Smalltalk\">\nStelle offene Fragen und zeige echtes Interesse an den Antworten. Die Familie deines Partners wird es schätzen, dass du dich bemühst, sie kennenzulernen.\n</CultureTip>\n\n## Verwandte Artikel\n\n- [Französische Begrüßungen](/de/blog/french-greetings-and-farewells)\n- [Die Familie deines Partners treffen](/de/blog/french-meeting-your-partner-s-family)\n\n<CTA />",
+      "issues": [
+        {
+          "type": "language_fingerprint_mismatch",
+          "details": {
+            "nativeLang": "de",
+            "nativeStopWordRatio": 6,
+            "englishStopWordRatio": 10
+          }
+        }
+      ]
+    }
+  ]
+}

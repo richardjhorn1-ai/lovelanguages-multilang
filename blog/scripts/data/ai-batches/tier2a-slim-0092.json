@@ -1,0 +1,400 @@
+{
+  "batchId": "tier2a-slim-0092",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "6eab7e3d-01b5-451c-9738-afab18944655",
+      "title": "Russiske SMS- og chattefraser for par",
+      "native_lang": "no",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kulturelle tips",
+          "subsections": [
+            "### Det kyrilliske alfabetet",
+            "### Russiske kosenavn",
+            "### Kjønnsformer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6eb126fb-9595-45b4-af2b-6a1ccaa659ea",
+      "title": "Як зробити пропозицію шведською: фрази для заручин",
+      "native_lang": "uk",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Підготовка до пропозиції",
+          "subsections": [
+            "### Чек-лист:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6ecd2997-a5bd-43e1-8882-261edc7793c9",
+      "title": "Angol kifejezések megbocsátáshoz",
+      "native_lang": "hu",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bocsánatkérés kifejezések",
+          "subsections": [
+            "### 1. \"I'm truly sorry\"",
+            "### 2. \"Please forgive me\"",
+            "### 3. \"I take full responsibility\"",
+            "### 4. \"I was wrong and I admit it\"",
+            "### 5. \"I promise it won't happen again\""
+          ]
+        },
+        {
+          "header": "## Megbocsátás kifejezések",
+          "subsections": [
+            "### 6. \"I forgive you\"",
+            "### 7. \"It's okay, I understand\"",
+            "### 8. \"I'm ready to move past this\"",
+            "### 9. \"Let's put this behind us\"",
+            "### 10. \"I'm not holding a grudge\"",
+            "### 11. \"Everyone makes mistakes\"",
+            "### 12. \"I appreciate your apology\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6ed12fd0-ae6c-4c39-b9da-b8ffedc73029",
+      "title": "Frases en Francés para tu Primera Cita",
+      "native_lang": "es",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Romper el Hielo",
+          "subsections": [
+            "### \"C'est un plaisir de te rencontrer enfin\"",
+            "### \"Tu es magnifique\"",
+            "### \"J'attendais ce moment avec impatience\""
+          ]
+        },
+        {
+          "header": "## Frases para Conocerse",
+          "subsections": [
+            "### \"Parle-moi de toi\"",
+            "### \"Qu'est-ce que tu aimes faire pour t'amuser?\"",
+            "### \"Quel est ton/ta... préféré(e)?\"",
+            "### \"J'adorerais en savoir plus\""
+          ]
+        },
+        {
+          "header": "## Frases Románticas",
+          "subsections": [
+            "### \"Je passe un excellent moment\"",
+            "### \"Tu as un sourire magnifique\"",
+            "### \"Je me sens vraiment bien avec toi\""
+          ]
+        },
+        {
+          "header": "## Frases para Terminar",
+          "subsections": [
+            "### \"J'ai passé une soirée merveilleuse\"",
+            "### \"Est-ce qu'on peut se revoir?\"",
+            "### \"Préviens-moi quand tu es bien rentrée\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6ed78558-0366-42db-863d-7b4898db935b",
+      "title": "Турецька весільна лексика: слова та фрази для особливого дня",
+      "native_lang": "uk",
+      "target_lang": "tr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Традиційні весільні фрази",
+          "subsections": [
+            "### Привітання молодят"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6eee159a-7566-48a0-a5f3-0fc3fb003cc7",
+      "title": "Román esküvői kifejezések: Szókincs a nagy napra",
+      "native_lang": "hu",
+      "target_lang": "ro",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Gratulációk és jókívánságok",
+            "### Köszöntők"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6efedf98-054c-4e89-a950-c3a35205b82d",
+      "title": "De Familie Ontmoeten: Essentiële Roemeense Zinnen",
+      "native_lang": "nl",
+      "target_lang": "ro",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Do's en Don'ts",
+          "subsections": [
+            "### Do's",
+            "### Don'ts"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6f053847-f85d-4b1f-9d06-4c6471bc4a02",
+      "title": "Frases para Conhecer os Sogros em Húngaro: Guia Completo",
+      "native_lang": "pt",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para o Primeiro Encontro",
+          "subsections": [
+            "### Apresentação",
+            "### Elogiando",
+            "### Mostrando Interesse",
+            "### Expressando Gratidão"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6f0fc3ce-4dd3-413d-a583-895c0ab6d9ae",
+      "title": "Tysk Grammatikk for Nybegynnere: Lær Deg Kjærlighetens Språk sammen med Partneren Din",
+      "native_lang": "no",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De 5 Grunnleggende Reglene",
+          "subsections": [
+            "### 1. Bestemte og Ubestemte Artikler",
+            "### 2. Verb Bøying - Present Tens",
+            "### 3. Setningsstruktur - Hovedsetninger",
+            "### 4. Setningsstruktur - Spørsmål",
+            "### 5. Preposisjoner og Kasus"
+          ]
+        },
+        {
+          "header": "## Vanlige Mønstre i Hverdagen",
+          "subsections": [
+            "### Tidspunkt og Avtaler",
+            "### Følelser og Tanker",
+            "### Spørsmål om Forholdet"
+          ]
+        },
+        {
+          "header": "## Vanlige Feil (og Hvordan Unngå Dem)",
+          "subsections": [
+            "### 1. Feil Verb-ending",
+            "### 2. Feil Ordstilling",
+            "### 3. Forvirring med Sie/sie"
+          ]
+        },
+        {
+          "header": "## Huskeliste (Ta Et Skjermbilde!)",
+          "subsections": [
+            "### V2-regelen: Verb på 2. plass",
+            "### Spørsmål: Verb først",
+            "### Ich → verb uten ending",
+            "### Du → verb med -st",
+            "### Er/sie/es → verb med -t"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6f1f4377-dc1a-45e0-acf5-dfaed4632ea3",
+      "title": "Основы испанской грамматики для пар",
+      "native_lang": "ru",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Практические упражнения для пар",
+          "subsections": [
+            "### Упражнение \"SER или ESTAR\":",
+            "### Упражнение \"Спряжение\":",
+            "### Упражнение \"Диалог\":"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6f2b35b9-16f9-461e-9ef9-da37f79e2b26",
+      "title": "Greek Birthday Wishes for Your Partner: Sweet Messages That Touch the Heart",
+      "native_lang": "en",
+      "target_lang": "el",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Sweet Birthday Messages",
+          "subsections": [
+            "### Simple Wishes",
+            "### Romantic Messages"
+          ]
+        },
+        {
+          "header": "## Birthday Card Messages",
+          "subsections": [
+            "### Heartfelt Short Messages",
+            "### Longer Romantic Messages"
+          ]
+        },
+        {
+          "header": "## Planning the Perfect Birthday",
+          "subsections": [
+            "### Party Vocabulary",
+            "### Surprise Party Phrases"
+          ]
+        },
+        {
+          "header": "## Birthday Milestone Messages",
+          "subsections": [
+            "### 30th Birthday",
+            "### 40th Birthday",
+            "### 50th Birthday"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6f2facfb-e652-48c3-9b12-054e8cdad6b2",
+      "title": "Danish Emotional Support Phrases: Comfort Your Partner with Hygge",
+      "native_lang": "en",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Specific Situations",
+          "subsections": [
+            "### Grief",
+            "### Stress",
+            "### Disappointment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6f32042b-08d7-484f-962d-55ed3f58492d",
+      "title": "Rencontrer la belle-famille en néerlandais : Impressionner de schoonfamilie",
+      "native_lang": "fr",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Premières salutations",
+          "subsections": [
+            "### \"Wat fijn om u eindelijk te ontmoeten\"",
+            "### \"Ik heb veel over u gehoord\"",
+            "### \"Bedankt dat u me heeft uitgenodigd\""
+          ]
+        },
+        {
+          "header": "## Montrer du respect",
+          "subsections": [
+            "### \"U heeft een prachtig huis\"",
+            "### \"Het eten is heerlijk, dank u wel\""
+          ]
+        },
+        {
+          "header": "## Parler de votre partenaire",
+          "subsections": [
+            "### \"[Naam] betekent alles voor mij\"",
+            "### \"U heeft een geweldig kind grootgebracht\""
+          ]
+        },
+        {
+          "header": "## Créer du lien",
+          "subsections": [
+            "### \"Ik zou graag meer willen weten over [onderwerp]\"",
+            "### \"Hoe was [naam] als kind?\""
+          ]
+        },
+        {
+          "header": "## Proposer de l'aide",
+          "subsections": [
+            "### \"Kan ik ergens mee helpen?\""
+          ]
+        },
+        {
+          "header": "## Au départ",
+          "subsections": [
+            "### \"Bedankt voor een fijne dag\"",
+            "### \"Ik hoop u snel weer te zien\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6f42c039-1e56-4356-b8c3-611779c03a07",
+      "title": "Német 'Hiányzol' Kifejezések Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Kifejezések",
+          "subsections": [
+            "### 1. Ich vermisse dich",
+            "### 2. Ich vermisse dich so sehr",
+            "### 3. Du fehlst mir",
+            "### 4. Ich kann nicht aufhören, an dich zu denken",
+            "### 5. Ich wünschte, du wärst hier",
+            "### 6. Du bist immer in meinen Gedanken",
+            "### 7. Ich zähle die Tage, bis ich dich wiedersehe",
+            "### 8. Mein Herz sehnt sich nach dir",
+            "### 9. Du bedeutest mir alles",
+            "### 10. Ich kann es kaum erwarten, dich zu sehen"
+          ]
+        },
+        {
+          "header": "## Romantikus Kifejezések",
+          "subsections": [
+            "### 11. Ohne dich ist alles leer",
+            "### 12. Du bist mein Ein und Alles"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6f44bf96-d7fa-4fd0-b621-ab0b900ee354",
+      "title": "Danish Daily Conversations for Couples",
+      "native_lang": "en",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Evening Routine",
+          "subsections": [
+            "### Dinner Time",
+            "### Relaxing Together"
+          ]
+        },
+        {
+          "header": "## Quick Reference: Daily Phrases",
+          "subsections": [
+            "### Morning",
+            "### During the Day",
+            "### Evening",
+            "### Night"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "tier": 1,
+  "batchId": "tier1-batch-014",
+  "articles": [
+    {
+      "id": "1fede5a2-9b3e-4558-9aca-18de7cd2265b",
+      "title": "Bună dimineața și noapte bună în italiană – Mesaje drăguțe",
+      "native_lang": "ro",
+      "target_lang": "it",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nZiua începe și se termină mai frumos când îi urezi partenerului în limba lui. Aceste mesaje vor aduce zâmbete în fiecare zi.\n\n<PhraseOfDay\n  word=\"Buongiorno\"\n  translation=\"Bună dimineața\"\n  pronunciation=\"\"\n  context=\"Începe fiecare zi cu o urare caldă\"\n/>\n\n## Mesaje de bună dimineața\n\n<VocabCard\n  word=\"Buongiorno\"\n  translation=\"Bună dimineața\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇮🇹\" title=\"Saluturile zilnice\">\nItalienii sunt foarte expresivi. Scuzele sincere sunt adesea însoțite de gesturi și explicații emoționale - arată că îți pasă cu adevărat.\n</CultureTip>\n\n## Mesaje de noapte bună\n\n| Italiană | Română |\n|---------|---------|\n| Buonanotte | Noapte bună |\n| Sogni d'oro | Vise frumoase |\n| Dormi bene | Somn ușor |\n\n<VocabCard\n  word=\"Buonanotte\"\n  translation=\"Noapte bună\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Sogni d'oro\"\n  translation=\"Vise frumoase\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru mesajele zilnice\n\n1. **Fii consistent** – Un mesaj zilnic creează un ritual frumos\n2. **Personalizează** – Adaugă o amintire sau o glumă internă\n3. **Variază** – Nu folosi aceeași frază în fiecare zi\n4. **Adaugă emoji** – 💕 și 😘 sunt universale\n5. **Fii spontan** – Uneori, un mesaj în mijlocul nopții e cel mai romantic\n\n<CTA />\n\n## Articole conexe\n\n- [Fraze pentru relații la distanță în italiană](/ro/it/italian-long-distance-relationship)\n- [Alinturile în italiană](/ro/it/italian-pet-names-and-terms-of-endearment-50)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "214bd961-8ab0-4a7f-a62d-87363a073cb6",
+      "title": "Ungarske udtryk til at møde svigerforældre",
+      "native_lang": "da",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "# Ungarske udtryk til at møde svigerforældre\n\nUngarn har en unik kultur med dybe familieværdier og traditioner. Ungarsk er et af Europas mest udfordrende sprog, så din indsats for at lære nogle sætninger vil gøre et enormt indtryk på dine svigerforældre.\n\n## Kulturel kontekst\n\nI Ungarn hedder svigermor \"anyós\" og svigerfar \"após\". Man bruger \"ön\" (De-formen) til ældre og folk man respekterer. Ungarerne sætter efternavnet før fornavnet (som i Asien), så lær den rigtige rækkefølge! Hilsen er typisk et fast håndtryk.\n\n## Vigtige sætninger\n\n### 1. Nagyon örülök, hogy megismerhetem önöket\n**Dansk:** Jeg er meget glad for at møde Dem\n**Udtale:** na-dyon ö-rü-lök hodj meg-ish-mer-he-tem ö-nö-ket\n**Tip:** Et fast håndtryk og øjenkontakt er vigtigt\n\n### 2. Sokat hallottam önökről\n**Dansk:** Jeg har hørt meget om Dem\n**Udtale:** sho-kot hal-lot-tam ö-nök-röl\n**Tip:** Viser at din partner taler positivt om sin familie\n\n### 3. Nagyon köszönöm a meghívást\n**Dansk:** Mange tak for invitationen\n**Udtale:** na-dyon kö-sö-nöm a meg-hi-vasht\n**Tip:** Ungarere værdsætter høflig taknemmelighed\n\n### 4. Hoztam önöknek egy kis ajándékot\n**Dansk:** Jeg har medbragt en lille gave til Dem\n**Udtale:** hoz-tam ö-nök-nek edj kish a-yan-de-kot\n**Tip:** Blomster (ulige antal), vin eller chokolade er passende\n\n### 5. Nagyon szép otthonuk van\n**Dansk:** De har et meget smukt hjem\n**Udtale:** na-dyon sep ot-ho-nuk van\n**Tip:** Ungarere er stolte af deres hjem\n\n### 6. Az étel nagyon finom volt\n**Dansk:** Maden var meget lækker\n**Udtale:** az e-tel na-dyon fi-nom volt\n**Tip:** Ungarsk mad er fantastisk - ros den oprigtigt\n\n### 7. Nagyon szeretem a fiukat/lányukat\n**Dansk:** Jeg elsker Deres søn/datter meget\n**Udtale:** na-dyon se-re-tem a fi-u-kat / la-nyu-kat\n**Tip:** Vis dine følelser med respekt\n\n### 8. Nagyon boldogok vagyunk együtt\n**Dansk:** Vi er meget lykkelige sammen\n**Udtale:** na-dyon bol-do-gok va-dyunk e-dyütt\n**Tip:** Bekræfter forholdets styrke\n\n### 9. Szeretném jobban megismerni önöket\n**Dansk:** Jeg vil gerne lære Dem bedre at kende\n**Udtale:** se-ret-nem yob-ban meg-ish-mer-ni ö-nö-ket\n**Tip:** Viser ægte interesse i familien\n\n### 10. Segíthetek valamiben?\n**Dansk:** Kan jeg hjælpe med noget?\n**Udtale:** she-git-he-tek va-la-mi-ben\n**Tip:** At tilbyde hjælp viser god opdragelse\n\n### 11. Ez egy csodálatos családi hagyomány\n**Dansk:** Det er en vidunderlig familietradition\n**Udtale:** ez edj cho-da-la-tosh cha-la-di ha-dyo-many\n**Tip:** Vis interesse for deres traditioner\n\n### 12. Alig várom, hogy újra találkozzunk\n**Dansk:** Jeg kan næsten ikke vente med at mødes igen\n**Udtale:** a-lig va-rom hodj uy-ra ta-lal-koz-zunk\n**Tip:** Viser ønske om fremtidigt samvær\n\n## Yderligere kulturelle tips\n\n**Sko:** Tag skoene af ved indgangen til ungarske hjem. Værterne vil tilbyde hjemmesko (\"papucs\").\n\n**Blomster:** Medbring altid et ulige antal blomster (lige antal er til begravelser). Undgå hvide liljer.\n\n**Pálinka:** Ungarsk frugtbrændevin (pálinka) er en national stolthed. Hvis det tilbydes, deltag! \"Egészségére!\" (til sundheden) er skålen.\n\n**Mad:** Ungarsk mad er rig og smagfuld. Forvent gulyás (gullasch), paprikás csirke (paprikakylling) og túrós csusza (ostepasta). Paprika er krydderiet der definerer ungarsk mad.\n\n**Kaffe:** Ungarere drikker stærk kaffe. Espresso eller tyrkisk kaffe er almindelig.\n\n**Navne:** Husk at ungarere sætter efternavnet først. Hvis din svigerforælder hedder Nagy József, tiltaler du ham \"Nagy úr\" (Hr. Nagy).\n\n**Navnedag:** Ungarere fejrer navnedag (\"névnap\") lige så meget som fødselsdag. Kend din partners og svigerforældres navnedage!\n\n**Høflighed:** Ungarere værdsætter formalitet og respekt. Brug altid \"ön\" til svigerforældre, medmindre de inviterer dig til at bruge \"te\".\n\n**Samtaleemner:** Ungarere taler gerne om historie, musik, sport (vandpolo, fodbold) og mad. Undgå følsomme politiske emner ved første møde.\n\n**Termalbade:** Ungarn har mange termalbade. Hvis familien inviterer dig med i badet, er det et godt tegn på accept.\n\nMed disse udtryk og kulturelle tips er du godt forberedt til at møde dine ungarske svigerforældre. Sok sikert! (Held og lykke!)",
+      "issues": [
+        {
+          "type": "english_prose_markers",
+          "details": {
+            "markers_found": [
+              "tip:"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "21b6bc03-8734-4d99-8102-f3c53bab83c0",
+      "title": "30+ Complimente în germană pentru partenerul tău",
+      "native_lang": "ro",
+      "target_lang": "de",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nComplimentele sunt limbajul dragostei. Când îi spui partenerului ceva frumos în limba lui maternă, cuvintele capătă o semnificație specială.\n\n<PhraseOfDay\n  word=\"Du bist wunderschön\"\n  translation=\"Ești frumoasă/frumos\"\n  pronunciation=\"\"\n  context=\"Cel mai clasic compliment romantic\"\n/>\n\n## Complimente pentru aspect fizic\n\n<VocabCard\n  word=\"Du bist wunderschön\"\n  translation=\"Ești frumoasă/frumos\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇩🇪\" title=\"Cultura complimentelor\">\nGermanii prețuiesc directitatea. Scuzele clare și sincere sunt apreciate - evită scuzele vagi sau excesiv de elaborate.\n</CultureTip>\n\n## Complimente pentru personalitate\n\n| Germană | Română |\n|---------|---------|\n| Du bist so klug | Ești atât de inteligent/ă |\n| Du bist so nett | Ești atât de drăguț/ă |\n| Du bist toll | Ești uimitor/oare |\n| Du bist lustig | Ești amuzant/ă |\n\n<VocabCard\n  word=\"Du bist so klug\"\n  translation=\"Ești atât de inteligent/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Du bist so nett\"\n  translation=\"Ești atât de drăguț/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru complimente sincere\n\n1. **Fii specific** – \"Îmi place cum râzi\" e mai bun decât \"Ești frumoasă\"\n2. **Fii autentic** – Spune doar ce simți cu adevărat\n3. **Alege momentul** – Complimentele spontane sunt cele mai prețuite\n4. **Nu exagera** – Un compliment sincer e mai valoros decât zece superficiale\n5. **Include acțiuni** – \"Îmi place cum mă asculți când vorbesc\"\n\n<CTA />\n\n## Articole conexe\n\n- [Exprimarea emoțiilor în germană](/ro/de/german-expressing-emotions)\n- [Alinturile în germană](/ro/de/german-pet-names-and-terms-of-endearment-50)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    }
+  ]
+}

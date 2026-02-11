@@ -1,0 +1,379 @@
+{
+  "native_lang": "ro",
+  "wave": 1,
+  "target_langs_reviewed": ["en", "es", "fr", "de", "it", "pt"],
+  "articles_reviewed": 12,
+  "clean_articles": 3,
+  "issues": [
+    {
+      "article_id": "a6b810f7-6dff-489a-aa77-3f68c8f1706c",
+      "slug": "en-birthday-wishes-partner",
+      "target_lang": "en",
+      "issue_type": "language_direction",
+      "severity": "high",
+      "description": "VocabCard words are in Romanian instead of English (the target language). Translations are in English instead of Romanian. The language direction is reversed for multiple VocabCards.",
+      "evidence": "word=\"La multi ani!\" translation=\"Happy Birthday!\" — word should be English, translation should be Romanian"
+    },
+    {
+      "article_id": "a6b810f7-6dff-489a-aa77-3f68c8f1706c",
+      "slug": "en-birthday-wishes-partner",
+      "target_lang": "en",
+      "issue_type": "language_direction",
+      "severity": "high",
+      "description": "PhraseOfDay has word in Romanian and translation in English — reversed. Should be word=\"Happy Birthday, my love!\" translation=\"La multi ani, iubirea mea!\"",
+      "evidence": "word=\"La multi ani, iubirea mea!\" translation=\"Happy Birthday, my love!\""
+    },
+    {
+      "article_id": "a6b810f7-6dff-489a-aa77-3f68c8f1706c",
+      "slug": "en-birthday-wishes-partner",
+      "target_lang": "en",
+      "issue_type": "fake_pronunciation",
+      "severity": "high",
+      "description": "Multiple VocabCards have descriptive labels instead of actual phonetic pronunciations. These provide zero learning value.",
+      "evidence": "pronunciation=\"urare speciala\", \"urare clasica\", \"urare calda\", \"romantic\", \"intentie romantica\""
+    },
+    {
+      "article_id": "a6b810f7-6dff-489a-aa77-3f68c8f1706c",
+      "slug": "en-birthday-wishes-partner",
+      "target_lang": "en",
+      "issue_type": "template_placeholder",
+      "severity": "medium",
+      "description": "Contains [Numele tau] placeholder in the letter template that should be replaced or removed.",
+      "evidence": "Cu toata dragostea,\n[Numele tau]"
+    },
+    {
+      "article_id": "a6b810f7-6dff-489a-aa77-3f68c8f1706c",
+      "slug": "en-birthday-wishes-partner",
+      "target_lang": "en",
+      "issue_type": "filler_content",
+      "severity": "medium",
+      "description": "Multiple long paragraphs of academic filler that describe what the section will cover rather than teaching anything. These read like AI-generated meta-commentary about the article structure itself.",
+      "evidence": "Exprimarea sentimentelor profunde in limba engleza necesita o selectie atenta a vocabularului..."
+    },
+    {
+      "article_id": "a6b810f7-6dff-489a-aa77-3f68c8f1706c",
+      "slug": "en-birthday-wishes-partner",
+      "target_lang": "en",
+      "issue_type": "missing_target_language",
+      "severity": "high",
+      "description": "Article claims to teach English birthday wishes but the bulk text, bullet points, and many VocabCards are entirely in Romanian with no English equivalents. The article barely teaches English.",
+      "evidence": "Bullet points like 'La multi ani celui mai minunat om din lume!' have no English translation"
+    },
+    {
+      "article_id": "a6b810f7-6dff-489a-aa77-3f68c8f1706c",
+      "slug": "en-birthday-wishes-partner",
+      "target_lang": "en",
+      "issue_type": "missing_imports",
+      "severity": "medium",
+      "description": "MDX content uses VocabCard, CultureTip, and PhraseOfDay components but has no import statements at the top of the file.",
+      "evidence": "Content starts with prose text directly, no import statements"
+    },
+    {
+      "article_id": "a6b810f7-6dff-489a-aa77-3f68c8f1706c",
+      "slug": "en-birthday-wishes-partner",
+      "target_lang": "en",
+      "issue_type": "missing_trailing_slash",
+      "severity": "low",
+      "description": "Internal link missing required trailing slash per URL convention.",
+      "evidence": "/learn/ro/en/en-romantic-phrases-for-every-occasion (no trailing slash)"
+    },
+    {
+      "article_id": "3bd9a78e-64ea-4754-9e34-09abad72b51c",
+      "slug": "english-pet-names-and-nicknames",
+      "target_lang": "en",
+      "issue_type": "content_quality",
+      "severity": "low",
+      "description": "Minor: 'Stud' translation as 'Mascul atragator' is overly literal. The example 'Arati ca un mascul in costumul ala!' is awkward in Romanian. Better translation: 'Tip atragator'.",
+      "evidence": "word=\"Stud\" translation=\"Mascul atragator\" example=\"Arati ca un mascul in costumul ala!\""
+    },
+    {
+      "article_id": "0f7dfe7f-cc50-4c4d-9845-a8ae1ef4c549",
+      "slug": "romantic-spanish-phrases-for-couples",
+      "target_lang": "es",
+      "issue_type": "typo",
+      "severity": "low",
+      "description": "Typo in Romanian prose: 'dintre' should be 'dintre'. The circumflex accent is archaic/incorrect in modern Romanian.",
+      "evidence": "Spaniola este considerata una dintre cele mai romantice limbi din lume"
+    },
+    {
+      "article_id": "6e34ab65-7acd-476d-be79-028434109974",
+      "slug": "es-moving-in-together",
+      "target_lang": "es",
+      "issue_type": "language_direction",
+      "severity": "high",
+      "description": "Multiple VocabCards have Romanian words instead of Spanish. Target lang is 'es' but words like 'a se muta', 'apartament', 'chirie', 'bucatarie' are Romanian. Translations are in English instead of Romanian.",
+      "evidence": "word=\"a se muta\" translation=\"to move\" — should be word=\"mudarse\" translation=\"a se muta\""
+    },
+    {
+      "article_id": "6e34ab65-7acd-476d-be79-028434109974",
+      "slug": "es-moving-in-together",
+      "target_lang": "es",
+      "issue_type": "language_direction",
+      "severity": "high",
+      "description": "PhraseOfDay has Romanian word with English translation. Should have Spanish word with Romanian translation.",
+      "evidence": "word=\"Ne mutam impreuna!\" translation=\"We're moving in together!\""
+    },
+    {
+      "article_id": "6e34ab65-7acd-476d-be79-028434109974",
+      "slug": "es-moving-in-together",
+      "target_lang": "es",
+      "issue_type": "fake_pronunciation",
+      "severity": "high",
+      "description": "Multiple VocabCards have descriptive labels instead of phonetic pronunciations: 'schimbare de adresa', 'locuinta', 'plata lunara', 'loc de gatit', 'comunicare', 'sentiment de implinire'.",
+      "evidence": "pronunciation=\"schimbare de adresa\", pronunciation=\"locuinta\", pronunciation=\"plata lunara\""
+    },
+    {
+      "article_id": "6e34ab65-7acd-476d-be79-028434109974",
+      "slug": "es-moving-in-together",
+      "target_lang": "es",
+      "issue_type": "wrong_translation_language",
+      "severity": "high",
+      "description": "The 'Expresii Utile' section provides English translations instead of Spanish. This is a Spanish-learning article for Romanian speakers.",
+      "evidence": "E randul tau sa... - It's your turn to... (should be: Es tu turno de...)"
+    },
+    {
+      "article_id": "6e34ab65-7acd-476d-be79-028434109974",
+      "slug": "es-moving-in-together",
+      "target_lang": "es",
+      "issue_type": "missing_target_language",
+      "severity": "high",
+      "description": "Article about moving in together for Spanish learners contains mostly Romanian tables and lists with no Spanish vocabulary. Tables list room names, furniture, chores etc. all in Romanian only.",
+      "evidence": "Table rows: Living | Zona de relaxare, Dormitor | Pentru somn — all Romanian, no Spanish"
+    },
+    {
+      "article_id": "6e34ab65-7acd-476d-be79-028434109974",
+      "slug": "es-moving-in-together",
+      "target_lang": "es",
+      "issue_type": "filler_content",
+      "severity": "medium",
+      "description": "Multiple long academic filler paragraphs that describe what the section will cover instead of teaching content. These are AI meta-commentary with no educational value.",
+      "evidence": "Transformarea unui spatiu gol intr-un camin primitor incepe cu selectarea pieselor esentiale..."
+    },
+    {
+      "article_id": "6e34ab65-7acd-476d-be79-028434109974",
+      "slug": "es-moving-in-together",
+      "target_lang": "es",
+      "issue_type": "missing_imports",
+      "severity": "medium",
+      "description": "MDX content uses VocabCard, CultureTip, and PhraseOfDay components but has no import statements.",
+      "evidence": "Content starts with prose text, no import statements"
+    },
+    {
+      "article_id": "6e34ab65-7acd-476d-be79-028434109974",
+      "slug": "es-moving-in-together",
+      "target_lang": "es",
+      "issue_type": "missing_trailing_slash",
+      "severity": "low",
+      "description": "Internal link missing required trailing slash.",
+      "evidence": "/learn/ro/es/es-essential-phrases-for-couples (no trailing slash)"
+    },
+    {
+      "article_id": "cad28d6a-0dfc-4ce2-a021-ac3608217af2",
+      "slug": "fr-birthday-wishes-partner",
+      "target_lang": "fr",
+      "issue_type": "language_direction",
+      "severity": "high",
+      "description": "4 out of 10 VocabCards have Romanian words instead of French. Translations for those are in English instead of Romanian. Language direction is reversed for nearly half the cards.",
+      "evidence": "word=\"La multi ani!\" translation=\"Happy Birthday!\" — should be word=\"Joyeux anniversaire!\" translation=\"La multi ani!\""
+    },
+    {
+      "article_id": "cad28d6a-0dfc-4ce2-a021-ac3608217af2",
+      "slug": "fr-birthday-wishes-partner",
+      "target_lang": "fr",
+      "issue_type": "language_direction",
+      "severity": "high",
+      "description": "PhraseOfDay word is in Romanian, translation is in English. Both are wrong for a French-learning article for Romanian speakers.",
+      "evidence": "word=\"La multi ani, iubirea mea!\" translation=\"Happy Birthday, my love!\""
+    },
+    {
+      "article_id": "cad28d6a-0dfc-4ce2-a021-ac3608217af2",
+      "slug": "fr-birthday-wishes-partner",
+      "target_lang": "fr",
+      "issue_type": "fake_pronunciation",
+      "severity": "high",
+      "description": "Multiple VocabCards use descriptive labels instead of phonetic pronunciations.",
+      "evidence": "pronunciation=\"urare speciala\", \"urare clasica\", \"urare calda\", \"romantic\", \"intentie romantica\""
+    },
+    {
+      "article_id": "cad28d6a-0dfc-4ce2-a021-ac3608217af2",
+      "slug": "fr-birthday-wishes-partner",
+      "target_lang": "fr",
+      "issue_type": "ipa_pronunciation",
+      "severity": "medium",
+      "description": "One VocabCard uses IPA notation with slashes instead of reader-friendly phonetic guide.",
+      "evidence": "pronunciation=\"/oe ka.do/\" for 'Un cadeau'"
+    },
+    {
+      "article_id": "cad28d6a-0dfc-4ce2-a021-ac3608217af2",
+      "slug": "fr-birthday-wishes-partner",
+      "target_lang": "fr",
+      "issue_type": "template_placeholder",
+      "severity": "medium",
+      "description": "Contains [Numele tau] placeholder in the letter template.",
+      "evidence": "Cu toata dragostea,\n[Numele tau]"
+    },
+    {
+      "article_id": "cad28d6a-0dfc-4ce2-a021-ac3608217af2",
+      "slug": "fr-birthday-wishes-partner",
+      "target_lang": "fr",
+      "issue_type": "filler_content",
+      "severity": "medium",
+      "description": "Multiple long academic filler paragraphs describing what sections will cover. Some mention French culture but most are generic meta-commentary.",
+      "evidence": "In randurile de mai jos, am structurat urarile astfel incat sa acopere diverse intensitati..."
+    },
+    {
+      "article_id": "cad28d6a-0dfc-4ce2-a021-ac3608217af2",
+      "slug": "fr-birthday-wishes-partner",
+      "target_lang": "fr",
+      "issue_type": "missing_target_language",
+      "severity": "high",
+      "description": "Bulk of content (bullet points, letter templates, tips) is entirely in Romanian with no French equivalents. Article barely teaches French birthday vocabulary.",
+      "evidence": "Bullet points like 'Astazi sarbatorim ziua in care universul mi-a dat cel mai frumos cadou: pe tine.' — no French"
+    },
+    {
+      "article_id": "cad28d6a-0dfc-4ce2-a021-ac3608217af2",
+      "slug": "fr-birthday-wishes-partner",
+      "target_lang": "fr",
+      "issue_type": "missing_imports",
+      "severity": "medium",
+      "description": "MDX content uses VocabCard, CultureTip, and PhraseOfDay but has no import statements.",
+      "evidence": "Content starts with prose, no imports"
+    },
+    {
+      "article_id": "cad28d6a-0dfc-4ce2-a021-ac3608217af2",
+      "slug": "fr-birthday-wishes-partner",
+      "target_lang": "fr",
+      "issue_type": "missing_trailing_slash",
+      "severity": "low",
+      "description": "Internal link missing required trailing slash.",
+      "evidence": "/learn/ro/fr/fr-romantic-phrases-for-every-occasion (no trailing slash)"
+    },
+    {
+      "article_id": "5cf41019-04ca-42fa-843c-f23426c1026c",
+      "slug": "german-good-morning-goodnight-phrases",
+      "target_lang": "de",
+      "issue_type": "thin_content",
+      "severity": "medium",
+      "description": "Article has only 3 VocabCards and 1 CultureTip. Very minimal content for a topic that could include many morning/night expressions, texting phrases, and weekend variants.",
+      "evidence": "Only 3 VocabCards: Guten Morgen, Gute Nacht, Susse Traume. ~150 words of prose."
+    },
+    {
+      "article_id": "5cf41019-04ca-42fa-843c-f23426c1026c",
+      "slug": "german-good-morning-goodnight-phrases",
+      "target_lang": "de",
+      "issue_type": "culturetip_mismatch",
+      "severity": "medium",
+      "description": "CultureTip titled 'Saluturile zilnice' talks about apologies ('scuzele') rather than morning/night greetings. Content is irrelevant to the article topic.",
+      "evidence": "Germanii pretuiesc directitatea. Scuzele clare si sincere sunt apreciate - evita scuzele vagi..."
+    },
+    {
+      "article_id": "5cf41019-04ca-42fa-843c-f23426c1026c",
+      "slug": "german-good-morning-goodnight-phrases",
+      "target_lang": "de",
+      "issue_type": "missing_imports",
+      "severity": "medium",
+      "description": "Uses VocabCard, CultureTip, PhraseOfDay components but has no import statements.",
+      "evidence": "No import statements at top of content"
+    },
+    {
+      "article_id": "5cf41019-04ca-42fa-843c-f23426c1026c",
+      "slug": "german-good-morning-goodnight-phrases",
+      "target_lang": "de",
+      "issue_type": "wrong_link_format",
+      "severity": "medium",
+      "description": "Internal links use /ro/de/ path format instead of the correct /learn/ro/de/ format, and are missing trailing slashes.",
+      "evidence": "/ro/de/german-long-distance-relationship (should be /learn/ro/de/.../ )"
+    },
+    {
+      "article_id": "2357e559-b794-46ca-b431-a7e373284e12",
+      "slug": "italian-date-night-vocabulary",
+      "target_lang": "it",
+      "issue_type": "broken_table",
+      "severity": "high",
+      "description": "Markdown table for 'Activitati pentru Intalniri' has 3 header columns but only 2 separator dashes. This causes the table to render as raw pipe text in HTML instead of a proper table.",
+      "evidence": "| Italiana | Romana | Pronuntie |\n|----------|-----------|  (missing third separator)"
+    },
+    {
+      "article_id": "2357e559-b794-46ca-b431-a7e373284e12",
+      "slug": "italian-date-night-vocabulary",
+      "target_lang": "it",
+      "issue_type": "missing_imports",
+      "severity": "medium",
+      "description": "Uses VocabCard and CultureTip components but has no import statements.",
+      "evidence": "No import statements at top of content"
+    },
+    {
+      "article_id": "6feb7078-cfbf-4593-8daf-ba6460187df4",
+      "slug": "meeting-the-family-italian-phrases",
+      "target_lang": "it",
+      "issue_type": "missing_imports",
+      "severity": "medium",
+      "description": "Uses VocabCard, CultureTip, PhraseOfDay components but has no import statements.",
+      "evidence": "No import statements at top of content"
+    },
+    {
+      "article_id": "58bb3287-0285-4be7-9660-e3d30e397ab2",
+      "slug": "portuguese-good-morning-goodnight-phrases",
+      "target_lang": "pt",
+      "issue_type": "thin_content",
+      "severity": "medium",
+      "description": "Article has only 3 VocabCards and 1 CultureTip. Very minimal content — same structural issue as the German good-morning article. Could include many more expressions.",
+      "evidence": "Only 3 VocabCards: Bom dia meu amor, Boa noite, Bons sonhos. ~150 words of prose."
+    },
+    {
+      "article_id": "58bb3287-0285-4be7-9660-e3d30e397ab2",
+      "slug": "portuguese-good-morning-goodnight-phrases",
+      "target_lang": "pt",
+      "issue_type": "culturetip_mismatch",
+      "severity": "medium",
+      "description": "CultureTip titled 'Saluturile zilnice' talks about apologies ('scuzele sincere') rather than morning/night greetings. Content is irrelevant to article topic.",
+      "evidence": "Brazilienii si portughezii sunt calduros si afectuosi. Scuzele sincere sunt adesea insotite de imbratisari..."
+    },
+    {
+      "article_id": "58bb3287-0285-4be7-9660-e3d30e397ab2",
+      "slug": "portuguese-good-morning-goodnight-phrases",
+      "target_lang": "pt",
+      "issue_type": "missing_imports",
+      "severity": "medium",
+      "description": "Uses VocabCard, CultureTip, PhraseOfDay components but has no import statements.",
+      "evidence": "No import statements at top of content"
+    },
+    {
+      "article_id": "58bb3287-0285-4be7-9660-e3d30e397ab2",
+      "slug": "portuguese-good-morning-goodnight-phrases",
+      "target_lang": "pt",
+      "issue_type": "wrong_link_format",
+      "severity": "medium",
+      "description": "Internal links use /ro/pt/ path format instead of the correct /learn/ro/pt/ format, and are missing trailing slashes.",
+      "evidence": "/ro/pt/portuguese-long-distance-relationship (should be /learn/ro/pt/.../ )"
+    },
+    {
+      "article_id": "38dd6cf6-c105-4bca-b81b-d01373bc196a",
+      "slug": "how-to-say-i-love-you-in-portuguese",
+      "target_lang": "pt",
+      "issue_type": "unicode_escape",
+      "severity": "medium",
+      "description": "Raw unicode escape sequences in prose text instead of actual quotation mark characters.",
+      "evidence": "inainte de \\u201Ete iubesc\\u201D — should render as quotation marks"
+    },
+    {
+      "article_id": "38dd6cf6-c105-4bca-b81b-d01373bc196a",
+      "slug": "how-to-say-i-love-you-in-portuguese",
+      "target_lang": "pt",
+      "issue_type": "typo",
+      "severity": "low",
+      "description": "Typo in Romanian prose: 'dintre' with circumflex accent instead of modern 'dintre'.",
+      "evidence": "unul dintre cele mai frumoase si unice cuvinte portugheze"
+    }
+  ],
+  "systemic_patterns": [
+    "LANGUAGE DIRECTION REVERSAL (HIGH): Articles 1 (en-birthday), 3 (es-moving-in), and 5 (fr-birthday) have VocabCard words in Romanian instead of the target language, with translations in English instead of Romanian. This affects ~25% of all articles and is the most critical systemic issue.",
+    "FAKE PRONUNCIATIONS (HIGH): Articles 1, 3, and 5 use descriptive labels ('urare clasica', 'schimbare de adresa', 'romantic') instead of actual phonetic guides in the pronunciation field. These provide zero learning value to the reader.",
+    "MISSING IMPORT STATEMENTS: 7 out of 12 articles (1, 3, 5, 7, 8, 9, 10) lack MDX import statements for VocabCard, CultureTip, and PhraseOfDay. Only articles 0, 2, 4, 6, 11 have proper imports.",
+    "FILLER PARAGRAPHS (MEDIUM): Articles 1, 3, and 5 contain long AI-generated meta-commentary paragraphs that describe what sections will cover rather than teaching anything. These read like academic abstracts and add no learning value.",
+    "TEMPLATE DUPLICATION: The birthday articles (1=en, 5=fr) share identical Romanian prose structure, bullet points, tips, and letter templates. The French birthday article is essentially the English one with a few French VocabCards injected. Neither article substantively teaches its target language.",
+    "THIN GOOD-MORNING ARTICLES: Articles 7 (de) and 10 (pt) are extremely thin with only 3 VocabCards each and ~150 words. They share an identical structure template and both have mismatched CultureTips about apologies instead of greetings.",
+    "INTERNAL LINK ISSUES: Articles 7 and 10 use wrong URL prefix /ro/{lang}/ instead of /learn/ro/{lang}/. All internal links across articles 1, 3, 5, 7, 10 are missing required trailing slashes.",
+    "CLEAN ARTICLES: Articles 0 (en-pet-names), 2 (es-romantic-phrases), 4 (fr-romantic-phrases), 6 (de-romantic-phrases), 8 (it-meeting-family), 9 (it-date-night except table bug), and 11 (pt-i-love-you except minor issues) demonstrate the quality baseline — VocabCards have target-language words, Romanian translations, genuine phonetic pronunciations, and real example sentences."
+  ]
+}

@@ -1,0 +1,467 @@
+{
+  "batchId": "tier2a-slim-0014",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "29adf71a-5b65-4f46-8e13-06f6c5e06392",
+      "title": "Passato Portoghese: Pretérito vs Imperfeito",
+      "native_lang": "it",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Quando Usare Quale Tempo",
+          "subsections": [
+            "### Usa il Pretérito Perfeito per:",
+            "### Usa l'Imperfeito per:"
+          ]
+        },
+        {
+          "header": "## Verbi Irregolari Importanti",
+          "subsections": [
+            "### Ser (Pretérito vs Imperfeito)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "29af3724-10ab-493a-9b1d-57eeb2119e92",
+      "title": "Godmorgen og Godnat på Portugisisk: Søde Fraser til Din Partner",
+      "native_lang": "da",
+      "target_lang": "pt",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Tekstbeskeder",
+          "subsections": [
+            "### Morgenbeskeder",
+            "### Aftenbeskeder"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "29bbe30c-c44e-4c43-9b85-f5c152ea60eb",
+      "title": "Holland Kifejezések a Leendő Apósékhoz Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bemutatkozás",
+          "subsections": [
+            "### 1. Leuk om jullie eindelijk te ontmoeten",
+            "### 2. Ik heb veel over jullie gehoord",
+            "### 3. Bedankt dat ik welkom ben"
+          ]
+        },
+        {
+          "header": "## A Kapcsolatról",
+          "subsections": [
+            "### 4. Jullie zoon/dochter betekent alles voor mij"
+          ]
+        },
+        {
+          "header": "## Bókok",
+          "subsections": [
+            "### 5. Jullie hebben een mooi huis",
+            "### 6. Het eten is heerlijk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "29c2b471-0aa3-49ae-9d01-b5a0464fb27c",
+      "title": "Wymowa hiszpańska dla początkujących: Jak mówić romantycznie bez akcentu",
+      "native_lang": "pl",
+      "target_lang": "es",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Najczęstsze Błędy Polaków",
+          "subsections": [
+            "### 1. Polskie \"r\" zamiast hiszpańskiego",
+            "### 2. Angielskie \"th\" zamiast hiszpańskiego \"z\"",
+            "### 3. Polskie \"cz\" zamiast hiszpańskiego \"ch\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "29cab3cd-6319-4439-8a0d-3e3a915dd89f",
+      "title": "Swedish Baby & Pregnancy Vocabulary: Essential Words for Expecting Couples",
+      "native_lang": "en",
+      "target_lang": "sv",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Announcing the News",
+          "subsections": [
+            "### To Your Partner's Family",
+            "### To Friends"
+          ]
+        },
+        {
+          "header": "## Nursery and Baby Items",
+          "subsections": [
+            "### Setting Up the barnrum",
+            "### Shopping Vocabulary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "29d57429-65ef-4320-8b7d-f7539cc64a5e",
+      "title": "Frases en Rumano sobre Celos y Confianza para Parejas",
+      "native_lang": "es",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Expresar Celos",
+          "subsections": [
+            "### \"Mă simt puțin gelos/geloasă când...\"",
+            "### \"Putem vorbi despre ceva ce mă deranjează?\"",
+            "### \"Am încredere în tine, dar mă simt nesigur/nesigură\"",
+            "### \"Cine era persoana aceea?\""
+          ]
+        },
+        {
+          "header": "## Frases para Pedir Seguridad",
+          "subsections": [
+            "### \"Am nevoie să mă liniștești\"",
+            "### \"Știu că e irațional, dar...\""
+          ]
+        },
+        {
+          "header": "## Frases para Construir Confianza",
+          "subsections": [
+            "### \"Am încredere totală în tine\"",
+            "### \"Ești singura persoană pentru mine\"",
+            "### \"Am ochi doar pentru tine\"",
+            "### \"Nu ai de ce să te îngrijorezi\"",
+            "### \"Poți avea încredere în mine\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "29f04aeb-ac67-4c61-a039-b06a37672e1d",
+      "title": "Як зробити пропозицію російською: фрази для заручин",
+      "native_lang": "uk",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Підготовка до пропозиції",
+          "subsections": [
+            "### Чек-лист:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "29f9a1a9-225c-48d5-ac3c-64215e337c00",
+      "title": "Cómo Escribir Cartas de Amor en Alemán: El Liebesbrief Germano",
+      "native_lang": "es",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Saludos Románticos",
+          "subsections": [
+            "### \"Mein Schatz...\"",
+            "### \"Meine Liebe / Mein Lieber...\"",
+            "### \"Mein Ein und Alles...\"",
+            "### \"Liebste/Liebster...\""
+          ]
+        },
+        {
+          "header": "## Expresiones de Apertura",
+          "subsections": [
+            "### \"Ich schreibe dir aus tiefstem Herzen\"",
+            "### \"Jeder Tag ohne dich fühlt sich leer an\"",
+            "### \"Worte können nicht beschreiben, was ich für dich empfinde\""
+          ]
+        },
+        {
+          "header": "## Frases del Cuerpo de la Carta",
+          "subsections": [
+            "### \"Du bist das Beste, was mir je passiert ist\"",
+            "### \"Mein Herz gehört nur dir\"",
+            "### \"Mit dir fühle ich mich vollständig\"",
+            "### \"Du bringst Farbe in mein Leben\"",
+            "### \"Ich liebe dich mehr, als Worte sagen können\""
+          ]
+        },
+        {
+          "header": "## Promesas de Amor",
+          "subsections": [
+            "### \"Ich werde dich immer lieben\"",
+            "### \"Ich werde immer für dich da sein\"",
+            "### \"Unsere Liebe ist für die Ewigkeit\""
+          ]
+        },
+        {
+          "header": "## Despedidas Románticas",
+          "subsections": [
+            "### \"Für immer dein/deine...\"",
+            "### \"In ewiger Liebe...\"",
+            "### \"Ich küsse dich zärtlich...\"",
+            "### \"Dein/Deine [nombre], der/die dich liebt\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2a09ca06-353b-422a-ba02-a827057bd1fe",
+      "title": "Conocer a la Familia de tu Pareja Italiana",
+      "native_lang": "es",
+      "target_lang": "it",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Cosas que Evitar",
+          "subsections": [
+            "### No hagas:",
+            "### Haz:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2a0d9618-350b-45a0-bff9-ebd757803c59",
+      "title": "Γράψτε Ερωτικά Γράμματα στα Γαλλικά",
+      "native_lang": "el",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για την Αρχή του Γράμματος",
+          "subsections": [
+            "### 1. Mon amour (Μον αμούρ)",
+            "### 2. Mon cœur (Μον κερ)",
+            "### 3. Ma chérie / Mon chéri (Μα σερί / Μον σερί)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για το Κυρίως Μέρος",
+          "subsections": [
+            "### 4. Tu es l'amour de ma vie (Τι ε λαμούρ ντε μα βι)",
+            "### 5. Je t'aime plus chaque jour (Ζε τεμ πλι σακ ζουρ)",
+            "### 6. Mon cœur bat pour toi (Μον κερ μπα πουρ τουά)",
+            "### 7. Tu me rends heureux/heureuse (Τι με ραν ερέ/ερέζ)",
+            "### 8. Je suis fou/folle de toi (Ζε σουί φου/φολ ντε τουά)",
+            "### 9. Tu es mon tout (Τι ε μον του)",
+            "### 10. Sans toi, je ne suis rien (Σαν τουά, ζε νε σουί ριεν)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για το Κλείσιμο",
+          "subsections": [
+            "### 11. À toi pour toujours (Α τουά πουρ τουζούρ)",
+            "### 12. Avec tout mon amour (Αβέκ του μον αμούρ)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2a21bdc6-529e-4143-9476-c75836f6a9ef",
+      "title": "Frases en Danés para tu Primera Cita",
+      "native_lang": "es",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Romper el Hielo",
+          "subsections": [
+            "### \"Det er så dejligt endelig at møde dig\"",
+            "### \"Du ser fantastisk ud\"",
+            "### \"Jeg har glædet mig til det her\""
+          ]
+        },
+        {
+          "header": "## Frases para Conocerse",
+          "subsections": [
+            "### \"Fortæl mig om dig selv\"",
+            "### \"Hvad kan du lide at lave i din fritid?\""
+          ]
+        },
+        {
+          "header": "## Frases Románticas",
+          "subsections": [
+            "### \"Jeg nyder det virkelig\"",
+            "### \"Du har et smukt smil\"",
+            "### \"Jeg føler mig godt tilpas med dig\""
+          ]
+        },
+        {
+          "header": "## Frases para Terminar",
+          "subsections": [
+            "### \"Det var en vidunderlig aften\"",
+            "### \"Kan vi ses igen?\"",
+            "### \"Skriv til mig, når du er hjemme\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2a273dee-daac-4349-b185-0b57c9d21a9c",
+      "title": "Polska flörtfraser för par – Vinn din partners hjärta på polska",
+      "native_lang": "sv",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassiska komplimanger",
+          "subsections": [
+            "### \"Wyglądasz przepięknie\"",
+            "### \"Masz najpiękniejsze oczy na świecie\"",
+            "### \"Twój uśmiech rozświetla mój dzień\""
+          ]
+        },
+        {
+          "header": "## Passionerade uttryck",
+          "subsections": [
+            "### \"Szaleję za tobą\"",
+            "### \"Nie mogę przestać o tobie myśleć\"",
+            "### \"Jesteś moim wszystkim\""
+          ]
+        },
+        {
+          "header": "## Lekfulla fraser",
+          "subsections": [
+            "### \"Czy wierzysz w miłość od pierwszego wejrzenia, czy mam przejść jeszcze raz?\"",
+            "### \"Masz mapę? Bo zgubiłem się w twoich oczach\"",
+            "### \"Czy twój tata jest złodziejem? Bo ukradł gwiazdy i włożył ci je w oczy\""
+          ]
+        },
+        {
+          "header": "## Djupt romantiska uttryck",
+          "subsections": [
+            "### \"Jesteś miłością mojego życia\"",
+            "### \"Każda chwila z tobą jest wyjątkowa\"",
+            "### \"Z tobą czuję się jak w domu\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2a334950-42f2-45e5-bc6b-ea082ce00422",
+      "title": "Fransızca Dil Bilgisi Temelleri: Çiftler İçin Basit ve Sevimli Rehber",
+      "native_lang": "tr",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## 5 Temel Kural (Partnerinize Şiir Yazmaya Başlayın!)",
+          "subsections": [
+            "### 1. Cinsiyet Önemlidir - Ama Alışırsınız",
+            "### 2. Fiil Çekimi: Sadece 3 Şahıs Öğrenin",
+            "### 3. Soru Sorma: Sadece Ses Tonu Yükseltin",
+            "### 4. Olumsuzluk: \"ne\" ve \"pa\" Kullanın",
+            "### 5. Sıfatlar: Çoğunlukla Sonradan Gelir"
+          ]
+        },
+        {
+          "header": "## Günlük Hayatta Kullanacağınız Kalıplar",
+          "subsections": [
+            "### Sabahları:",
+            "### Akşamları:",
+            "### Özel Anlar:"
+          ]
+        },
+        {
+          "header": "## En Yaygın Hatalar (Ve Nasıl Kaçınılır)",
+          "subsections": [
+            "### 1. Cinsiyet Karışıklığı",
+            "### 2. Fiil Uyumsuzluğu",
+            "### 3. Soru Tonu Unutmak",
+            "### 4. Çoğul Ekini Kaçırmak"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2a33bed6-4ad4-45af-b260-b65754a910f5",
+      "title": "Italské fráze pro usmíření a nápravu vztahu",
+      "native_lang": "cs",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fráze pro omluvu",
+          "subsections": [
+            "### 1. Mi dispiace tanto per quello che ho detto",
+            "### 2. Avevo torto",
+            "### 3. Ti prego, perdonami",
+            "### 4. Mi assumo tutta la responsabilità"
+          ]
+        },
+        {
+          "header": "## Fráze pro obnovení spojení",
+          "subsections": [
+            "### 5. Possiamo parlare di quello che è successo?",
+            "### 6. Mi manchi",
+            "### 7. Non andiamo a letto arrabbiati",
+            "### 8. Ti amo ancora"
+          ]
+        },
+        {
+          "header": "## Fráze pro nový začátek",
+          "subsections": [
+            "### 9. Possiamo ricominciare da capo?",
+            "### 10. Voglio farmi perdonare",
+            "### 11. Superiamo questo insieme",
+            "### 12. Tengo molto a te"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2a3cadf5-2c17-4d6c-a133-3e42a40756b4",
+      "title": "Rencontrer la belle-famille en turc : Impressionner les aile",
+      "native_lang": "fr",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Premières salutations",
+          "subsections": [
+            "### \"Sizinle tanışmak büyük bir zevk\"",
+            "### \"Sizin hakkınızda çok şey duydum\"",
+            "### \"Beni davet ettiğiniz için teşekkür ederim\""
+          ]
+        },
+        {
+          "header": "## Montrer du respect",
+          "subsections": [
+            "### \"Eviniz çok güzel\"",
+            "### \"Yemekler çok lezzetli, teşekkür ederim\"",
+            "### \"Anneanne/Kayınvalide çok güzel yemek yapıyor\""
+          ]
+        },
+        {
+          "header": "## Parler de votre partenaire",
+          "subsections": [
+            "### \"[İsim] benim için her şey\"",
+            "### \"Harika bir insan yetiştirmişsiniz\""
+          ]
+        },
+        {
+          "header": "## Proposer de l'aide",
+          "subsections": [
+            "### \"Bir şeye yardım edebilir miyim?\""
+          ]
+        },
+        {
+          "header": "## Au départ",
+          "subsections": [
+            "### \"Harika bir gün için teşekkür ederim\"",
+            "### \"Umarım yakında yine görüşürüz\""
+          ]
+        }
+      ]
+    }
+  ]
+}

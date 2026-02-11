@@ -1,0 +1,467 @@
+{
+  "batchId": "tier2a-slim-0120",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "88babae1-a6c9-4bb0-8953-2af17a25c6aa",
+      "title": "Italienischer Wortschatz für Essen und Restaurant",
+      "native_lang": "de",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Beliebte Gerichte",
+          "subsections": [
+            "### Pasta-Klassiker",
+            "### Fleisch und Fisch"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "88d87412-740c-4bf0-8153-29c4dda4fa57",
+      "title": "Turecké fráze pro hádky a neshody ve vztahu",
+      "native_lang": "cs",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní fráze pro vyjádření nesouhlasu",
+          "subsections": [
+            "### 1. Seninle aynı fikirde değilim",
+            "### 2. Ben bunu farklı görüyorum",
+            "### 3. Sen ... yaptığında kendimi kötü hissediyorum",
+            "### 4. Lütfen bana bağırma",
+            "### 5. Düşünmek için zamana ihtiyacım var"
+          ]
+        },
+        {
+          "header": "## Fráze pro pochopení partnera",
+          "subsections": [
+            "### 6. Senin bakış açını anlamama yardım et",
+            "### 7. Söylemeye çalıştığım şey...",
+            "### 8. ... demek mi istiyorsun?"
+          ]
+        },
+        {
+          "header": "## Fráze pro hledání řešení",
+          "subsections": [
+            "### 9. Bir uzlaşma bulalım",
+            "### 10. Bunun için kavga etmek istemiyorum",
+            "### 11. Biz bir takımız",
+            "### 12. Baştan başlayabilir miyiz?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "88e362b0-272c-41b1-9c0a-2df38e2ab866",
+      "title": "Czy hiszpanski jest trudny do nauki? Przewodnik dla Polaków",
+      "native_lang": "pl",
+      "target_lang": "es",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Wyzwania dla Polaków",
+          "subsections": [
+            "### 1. Rodzaje - ale mamy je tez w polskim!",
+            "### 2. Dwa czasowniki \"byc\" - SER i ESTAR",
+            "### 3. Tryb łaczacy (Subjuntivo)",
+            "### 4. Czasowniki zwrotne"
+          ]
+        },
+        {
+          "header": "## Porównanie trudnośći",
+          "subsections": [
+            "### Hiszpanski vs inne języki dla Polaków"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "88ebbba4-f3d7-4093-a38d-8cc6496ba1ec",
+      "title": "Grundlagen der portugiesischen Verbkonjugation",
+      "native_lang": "de",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Wichtige unregelmäßige Verben",
+          "subsections": [
+            "### Ser (sein - dauerhaft)",
+            "### Estar (sein - vorübergehend)",
+            "### Ter (haben)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "88ec82a5-105e-459f-a0bf-f2bd5772470d",
+      "title": "Польские фразы для примирения",
+      "native_lang": "ru",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Основные фразы для примирения",
+          "subsections": [
+            "### 1. Przepraszam, nie miałem/miałam racji",
+            "### 2. Czy możemy się pogodzić?",
+            "### 3. Nie chciałem/chciałam cię zranić",
+            "### 4. Kocham cię bardziej niż ta kłótnia",
+            "### 5. Zacznijmy od nowa",
+            "### 6. Wybaczam ci",
+            "### 7. Co mogę zrobić, żeby to naprawić?",
+            "### 8. Tęsknię za naszym szczęściem",
+            "### 9. Nie kładźmy się spać w gniewie",
+            "### 10. Dziękuję, że próbujesz mnie zrozumieć"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "89097828-9c1a-4097-bcfd-f94504c2e23f",
+      "title": "Orosz Flörtölő Kifejezések – Hogyan Bűvöljük El Oroszul",
+      "native_lang": "hu",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Flörtölő Kifejezések",
+          "subsections": [
+            "### 1. Ты очень красивая (Tü ocseny kraszivaja)",
+            "### 2. У тебя красивые глаза (U tyebya kraszivüje glaza)",
+            "### 3. Ты мне нравишься (Tü mnye nravissza)",
+            "### 4. Можно тебя пригласить на свидание? (Mozsno tyebya priglaszity na szvidanyije?)",
+            "### 5. Хочешь выпить кофе? (Hocsess vüpity kofje?)",
+            "### 6. Ты особенная (Tü oszobenaja)",
+            "### 7. Я не могу перестать думать о тебе (Ja nye mogu pereztaty dumaty o tyebe)",
+            "### 8. Твоя улыбка освещает мой день (Tvoja ulübka oszvescsajet moj gyeny)",
+            "### 9. Мне хорошо с тобой (Mnye horosó sz toboj)",
+            "### 10. Ты - моя судьба (Tü - maja szugyba)"
+          ]
+        },
+        {
+          "header": "## Kulturális Tippek",
+          "subsections": [
+            "### A Virágok Jelentősége",
+            "### Tegezés és Magázás",
+            "### Hagyományos Szerepek",
+            "### Érdeklődés a Családról"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "89108f9e-4261-4c77-a303-97aee77a83b4",
+      "title": "Italské fráze pro emoční podporu partnera",
+      "native_lang": "cs",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní podpora",
+          "subsections": [
+            "### \"Sono qui per te.\"",
+            "### \"Non sei solo/a in questo.\"",
+            "### \"Credo in te.\"",
+            "### \"Qualunque cosa succeda, affronteremo tutto insieme.\""
+          ]
+        },
+        {
+          "header": "## Útěcha",
+          "subsections": [
+            "### \"Mi dispiace tanto che stai passando questo.\"",
+            "### \"Va bene sentirsi così.\"",
+            "### \"Prenditi tutto il tempo che ti serve.\"",
+            "### \"Non devi essere forte tutto il tempo.\""
+          ]
+        },
+        {
+          "header": "## Povzbuzení",
+          "subsections": [
+            "### \"Sono così orgoglioso/a di te.\"",
+            "### \"L'hai gestito in modo incredibile.\"",
+            "### \"Questo non durerà per sempre.\"",
+            "### \"Sei più forte di quanto pensi.\""
+          ]
+        },
+        {
+          "header": "## Praktická podpora",
+          "subsections": [
+            "### \"Di cosa hai bisogno adesso?\"",
+            "### \"Lascia che me ne occupi io.\"",
+            "### \"Vuoi parlarne?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "891dba86-18ba-4fc0-a594-b6a111b9304f",
+      "title": "Urări de Ziua de Naștere pentru Partener în Daneză: Mesaje Romantice",
+      "native_lang": "ro",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Mesaje Romantice",
+          "subsections": [
+            "### Scurte și Dulci",
+            "### Mesaje Mai Lungi"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Diferite Personalități",
+          "subsections": [
+            "### Pentru Partenerul Romantic",
+            "### Pentru Partenerul cu Umor"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Card",
+          "subsections": [
+            "### Format Scurt",
+            "### Format Lung"
+          ]
+        },
+        {
+          "header": "## Idei de Surprize",
+          "subsections": [
+            "### Gesturi Romantice"
+          ]
+        },
+        {
+          "header": "## Mesaje de Dimineață",
+          "subsections": [
+            "### Pentru Început de Zi"
+          ]
+        },
+        {
+          "header": "## Tradiții de Cuplu",
+          "subsections": [
+            "### Idei pentru Noi Tradiții"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "893645db-380e-41ab-a646-53b029319776",
+      "title": "Mød Svigerforældrene på Ukrainsk: Vigtige Udtryk",
+      "native_lang": "da",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## De Vigtigste Udtryk",
+          "subsections": [
+            "### 1. Дуже приємно познайомитися",
+            "### 2. Дякую за запрошення",
+            "### 3. У вас дуже гарний дім",
+            "### 4. Я багато чув/чула про вас",
+            "### 5. Дуже смачно! Чи можу попросити рецепт?",
+            "### 6. Jeg er meget glad for at være her",
+            "### 7. Чи можу я допомогти прибрати зі столу?",
+            "### 8. Ваш син/Ваша донька дуже важливий/важлива для мене",
+            "### 9. Сподіваюся, ми скоро знову побачимося",
+            "### 10. Дякую за чудовий вечір",
+            "### 11. Будьмо!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "894ad1bd-031e-4af5-89af-ee80ef322d07",
+      "title": "Hongaarse Zinnen voor Ruzie en Meningsverschillen",
+      "native_lang": "nl",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen voor meningsverschillen",
+          "subsections": [
+            "### 1. \"Fáj, amikor te...\"",
+            "### 2. \"Beszélhetünk erről nyugodtan?\"",
+            "### 3. \"Megértem a nézőpontodat, de...\"",
+            "### 4. \"Kell egy pillanat, hogy megnyugodjak\"",
+            "### 5. \"Nem ezt akartam mondani\"",
+            "### 6. \"Kérlek, hallgass meg\"",
+            "### 7. \"El tudod magyarázni, hogyan érzel?\"",
+            "### 8. \"Nem akarok veszekedni emiatt\"",
+            "### 9. \"Találjunk együtt kompromisszumot\"",
+            "### 10. \"Bocsánat, hogy felemeltem a hangom\"",
+            "### 11. \"Ez nagyon fontos nekem\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8950681b-ec4b-44a8-a022-aa8345cfadc3",
+      "title": "Danish Forgiveness Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Asking for Forgiveness",
+          "subsections": [
+            "### Tilgiv mig"
+          ]
+        },
+        {
+          "header": "## Granting Forgiveness",
+          "subsections": [
+            "### Jeg tilgiver dig"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8978bdbc-112f-47fe-8615-5f868cbebad2",
+      "title": "Ryska fraser för emotionellt stöd – Trösta din partner på ryska",
+      "native_lang": "sv",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande stöd",
+          "subsections": [
+            "### \"Я рядом\" (Ya ryadom) / \"Я здесь для тебя\" (Ya zdes' dlya tebya)",
+            "### \"Ты не одна/один в этом\" (Ty ne odna/odin v etom)",
+            "### \"Я всегда буду рядом\" (Ya vsegda budu ryadom)"
+          ]
+        },
+        {
+          "header": "## Visa empati",
+          "subsections": [
+            "### \"Я могу только представить, как тебе тяжело\"",
+            "### \"Твои чувства абсолютно понятны\" (Tvoi chuvstva absolyutno ponyatny)",
+            "### \"Это нормально – чувствовать так\" (Eto normal'no – chuvstvovat' tak)"
+          ]
+        },
+        {
+          "header": "## Tröstande fraser",
+          "subsections": [
+            "### \"И это пройдёт\" (I eto proydyot)",
+            "### \"Мы справимся вместе\" (My spravimsa vmeste)",
+            "### \"Не торопись, всё в своё время\" (Ne toropís', vsyo v svoyo vremya)",
+            "### \"Не обязательно быть сильной/сильным всегда\""
+          ]
+        },
+        {
+          "header": "## Erbjuda stöd",
+          "subsections": [
+            "### \"Что тебе сейчас нужно от меня?\" (Chto tebe seychas nuzhno ot menya?)",
+            "### \"Хочешь поговорить или лучше отвлечься?\"",
+            "### \"Чем я могу помочь?\" (Chem ya mogu pomoch'?)"
+          ]
+        },
+        {
+          "header": "## Vid förlust",
+          "subsections": [
+            "### \"Мне очень жаль\" (Mne ochen' zhal')",
+            "### \"Слов нет, но я рядом\" (Slov net, no ya ryadom)"
+          ]
+        },
+        {
+          "header": "## Uppmuntrande fraser",
+          "subsections": [
+            "### \"Я верю в тебя\" (Ya veryu v tebya)",
+            "### \"Ты сильнее, чем думаешь\" (Ty sil'neye, chem dumayesh')",
+            "### \"Я очень горжусь тобой\" (Ya ochen' gorzhus' toboy)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8980e10a-b6da-4f08-93fb-e309c2dc0bfd",
+      "title": "50+ Greckich Zwrotów na Romantyczną Randkę",
+      "native_lang": "pl",
+      "target_lang": "el",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Scenka: W tawernie",
+            "### Planowanie randki",
+            "### Quiz romantyczny"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "898a06f6-c0da-4f14-8210-82b46369bae2",
+      "title": "Rumænske sms- og chatbeskeder til par",
+      "native_lang": "da",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende kærlige beskeder",
+          "subsections": [
+            "### \"Îmi este dor de tine\"",
+            "### \"Mă gândesc la tine\"",
+            "### \"Abia aștept să te văd\""
+          ]
+        },
+        {
+          "header": "## Populære rumænske kælenavne",
+          "subsections": [
+            "### \"Iubirea mea\"",
+            "### \"Dragul meu\" / \"Draga mea\"",
+            "### \"Puișor\" / \"Puiuț\""
+          ]
+        },
+        {
+          "header": "## Rumænske sms-forkortelser",
+          "subsections": [
+            "### \"Te iubesc\" / \"TI\"",
+            "### \"Pupici\"",
+            "### \"Noapte bună\""
+          ]
+        },
+        {
+          "header": "## Romantiske beskeder",
+          "subsections": [
+            "### \"Ești totul pentru mine\"",
+            "### \"Bună dimineața, iubirea mea\"",
+            "### \"Vise frumoase, dragul meu\""
+          ]
+        },
+        {
+          "header": "## Hverdagsbeskeder",
+          "subsections": [
+            "### \"Ce faci?\"",
+            "### \"Sunt pe drum\"",
+            "### \"Pe curând\""
+          ]
+        },
+        {
+          "header": "## Specielle udtryk",
+          "subsections": [
+            "### \"Sufletul meu\"",
+            "### \"Te ador\"",
+            "### \"Te pup dulce\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8992ecf1-a0db-4169-80e5-d9816a1339d9",
+      "title": "Tsjekkiske SMS- og chattefraser for par",
+      "native_lang": "no",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kulturelle tips",
+          "subsections": [
+            "### Tsjekkiske kosenavn",
+            "### Diminutiver",
+            "### Kjønnsformer"
+          ]
+        }
+      ]
+    }
+  ]
+}

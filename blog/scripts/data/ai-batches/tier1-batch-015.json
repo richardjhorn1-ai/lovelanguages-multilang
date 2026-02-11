@@ -1,0 +1,54 @@
+{
+  "tier": 1,
+  "batchId": "tier1-batch-015",
+  "articles": [
+    {
+      "id": "2394b6aa-3803-4e23-8e6c-8e614c077de2",
+      "title": "Fraze pentru apeluri video cu familia în germană",
+      "native_lang": "ro",
+      "target_lang": "de",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nApelurile video cu familia partenerului pot fi intimidante, mai ales într-o limbă străină. Aceste fraze te vor ajuta să faci o impresie bună.\n\n<PhraseOfDay\n  word=\"Grüß alle von mir\"\n  translation=\"Transmite salutări tuturor\"\n  pronunciation=\"\"\n  context=\"O expresie politicoasă pentru încheiere\"\n/>\n\n## Salutări și introduceri\n\n<VocabCard\n  word=\"Wie geht es dir?\"\n  translation=\"Ce mai faci? / Cum ești?\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇩🇪\" title=\"Eticheta apelurilor video\">\nGermanii prețuiesc directitatea. Scuzele clare și sincere sunt apreciate - evită scuzele vagi sau excesiv de elaborate.\n</CultureTip>\n\n## Probleme tehnice\n\n| Germană | Română |\n|---------|---------|\n| Kannst du mich hören? | Mă auzi? |\n| Ich kann dich sehen | Te văd |\n| Die Verbindung ist schlecht | Conexiunea e proastă |\n| Grüß alle von mir | Transmite salutări tuturor |\n\n<VocabCard\n  word=\"Kannst du mich hören?\"\n  translation=\"Mă auzi?\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Die Verbindung ist schlecht\"\n  translation=\"Conexiunea e proastă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru apeluri cu familia partenerului\n\n1. **Pregătește câteva fraze** – Exersează înainte de apel\n2. **Zâmbește mult** – Comunică bunăvoință fără cuvinte\n3. **Ascultă activ** – Dă din cap și reacționează\n4. **Nu-ți face griji pentru greșeli** – Vor aprecia efortul tău\n5. **Cere ajutor** – Partenerul poate traduce când e greu\n\n<CTA />\n\n## Articole conexe\n\n- [Întâlnirea cu familia partenerului în germană](/ro/de/german-meeting-your-partner-s-family)\n- [Conversații de zi cu zi în germană](/ro/de/german-small-talk-conversation-starters)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "239b75ab-fdd1-483e-9a17-c7807c47b865",
+      "title": "Hiányzol Kifejezések Svédül – Jag Saknar Dig és Más",
+      "native_lang": "hu",
+      "target_lang": "sv",
+      "category": "communication",
+      "content": "# Hiányzol Kifejezések Svédül – Jag Saknar Dig és Más\n\nA svéd nyelvben a hiányzás kifejezése egyszerű és őszinte – tipikusan skandináv. Ha svéd anyanyelvű partnered van, ezek a kifejezések segítenek elmondani az érzéseidet.\n\n## Alapvető Hiányzol Kifejezések\n\n### 1. Jag saknar dig\n**Jelentés:** Hiányzol\n\n**Kiejtés:** jág-SZAK-nar-dej\n\nA leggyakoribb és legközvetlenebb kifejezés. Egyszerű, őszinte – tipikusan svéd.\n\n### 2. Jag saknar dig så mycket\n**Jelentés:** Annyira hiányzol\n\n**Kiejtés:** jág-SZAK-nar-dej-szo-MÜK-et\n\nA \"så mycket\" (annyira) nyomatékosítja.\n\n### 3. Jag saknar dig jättemycket\n**Jelentés:** Rettenetesen hiányzol\n\n**Kiejtés:** jág-SZAK-nar-dej-JET-te-mük-et\n\nA \"jätte-\" (óriási) előtag erősíti az érzést.\n\n### 4. Jag kan inte sluta tänka på dig\n**Jelentés:** Nem tudok abbahagyni, hogy rád gondoljak\n\n**Kiejtés:** jág-kan-IN-te-SZLU-ta-TEN-ka-pó-dej\n\nMély érzelmi kötődést mutat.\n\n### 5. Jag önskar att du var här\n**Jelentés:** Bárcsak itt lennél\n\n**Kiejtés:** jág-ÖN-szkar-at-du-var-HÉR\n\nVágyakozó kifejezés.\n\n### 6. Det känns tomt utan dig\n**Jelentés:** Üresnek érzem magam nélküled\n\n**Kiejtés:** det-csensz-TOMT-U-tan-dej\n\nMély hiányérzetet fejez ki.\n\n### 7. Jag räknar dagarna tills jag ser dig igen\n**Jelentés:** Számolom a napokat, amíg újra látlak\n\n**Kiejtés:** jág-REK-nar-DÁ-gar-na-tilsz-jág-szér-dej-I-jen\n\nKifejezi a várakozás izgalmát.\n\n### 8. Du finns alltid i mina tankar\n**Jelentés:** Mindig a gondolataimban vagy\n\n**Kiejtés:** du-finsz-AL-tid-i-MÍ-na-TANK-ar\n\nGyengéd és romantikus.\n\n### 9. Jag längtar efter dig\n**Jelentés:** Vágyom utánad\n\n**Kiejtés:** jág-LENG-tar-EF-ter-dej\n\nMélyebb, intenzívebb hiányérzet.\n\n### 10. Utan dig är jag inte hel\n**Jelentés:** Nélküled nem vagyok teljes\n\n**Kiejtés:** U-tan-dej-ér-jág-IN-te-hél\n\nMély érzelmi kötődést fejez ki.\n\n## Kulturális Tippek\n\n### Lagom – Mértékletesség\nA svédek \"lagom\" (épp elég) filozófiája az érzelemkifejezésre is vonatkozik. De a közeli kapcsolatokban az őszinteség értékelt.\n\n### Sakna vs. Längta\n- **Sakna** = hiányolni (valakit/valamit)\n- **Längta** = vágyakozni (erősebb, mélyebb érzés)\n\n### Személyes Tér\nA svédek értékelik a személyes teret, de ez nem jelenti, hogy nem éreznek mélyen.\n\n## Kedveskedő Megszólításokkal\n\n- **Jag saknar dig, älskling** – Hiányzol, drágám\n- **Jag saknar dig, raring** – Hiányzol, kedvesem\n- **Jag saknar dig, sötnos** – Hiányzol, édességem\n- **Jag saknar dig, hjärtat** – Hiányzol, szívem\n- **Jag saknar dig, gull** – Hiányzol, aranyom\n\n## Válaszok\n\n- **Jag saknar dig också** – Te is hiányzol\n- **Jag också** – Én is\n- **Ännu mer** – Még jobban\n- **Så himla mycket** – Iszonyatosan (megerősítés)\n\n## Kiejtési Tippek\n\n- A svéd tonális nyelv – figyelj a dallamra\n- **sj, skj, stj** = speciális s hang (hátul képzett)\n- **kj, tj** = cs-szerű hang\n- **ö** = hasonló a magyar ö-höz\n- **å** = hosszú o hang\n- **ä** = nyílt e hang",
+      "issues": [
+        {
+          "type": "truncated_content",
+          "details": {
+            "endingChars": " o hang\n- **ä** = nyílt e hang"
+          }
+        }
+      ]
+    },
+    {
+      "id": "23d71873-1dbf-4082-9af5-7df3ae03ce83",
+      "title": "Fraze pentru apeluri video cu familia în olandeză",
+      "native_lang": "ro",
+      "target_lang": "nl",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nApelurile video cu familia partenerului pot fi intimidante, mai ales într-o limbă străină. Aceste fraze te vor ajuta să faci o impresie bună.\n\n<PhraseOfDay\n  word=\"Doe de groeten aan iedereen\"\n  translation=\"Transmite salutări tuturor\"\n  pronunciation=\"\"\n  context=\"O expresie politicoasă pentru încheiere\"\n/>\n\n## Salutări și introduceri\n\n<VocabCard\n  word=\"Hoe gaat het?\"\n  translation=\"Ce mai faci? / Cum ești?\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇳🇱\" title=\"Eticheta apelurilor video\">\nOlandezii sunt foarte direcți. Scuzele simple și sincere sunt mai apreciate decât elaborările dramatice - fii clar și autentic.\n</CultureTip>\n\n## Probleme tehnice\n\n| Olandeză | Română |\n|---------|---------|\n| Kun je me horen? | Mă auzi? |\n| Ik kan je zien | Te văd |\n| De verbinding is slecht | Conexiunea e proastă |\n| Doe de groeten aan iedereen | Transmite salutări tuturor |\n\n<VocabCard\n  word=\"Kun je me horen?\"\n  translation=\"Mă auzi?\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"De verbinding is slecht\"\n  translation=\"Conexiunea e proastă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru apeluri cu familia partenerului\n\n1. **Pregătește câteva fraze** – Exersează înainte de apel\n2. **Zâmbește mult** – Comunică bunăvoință fără cuvinte\n3. **Ascultă activ** – Dă din cap și reacționează\n4. **Nu-ți face griji pentru greșeli** – Vor aprecia efortul tău\n5. **Cere ajutor** – Partenerul poate traduce când e greu\n\n<CTA />\n\n## Articole conexe\n\n- [Întâlnirea cu familia partenerului în olandeză](/ro/nl/dutch-meeting-your-partner-s-family)\n- [Conversații de zi cu zi în olandeză](/ro/nl/dutch-small-talk-conversation-starters)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    }
+  ]
+}

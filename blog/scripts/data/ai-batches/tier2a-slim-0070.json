@@ -1,0 +1,438 @@
+{
+  "batchId": "tier2a-slim-0070",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "5cd3ece2-a6ca-443d-ae20-014a4184d57a",
+      "title": "Vocabulário Italiano de Comida e Restaurante: Guia Completo",
+      "native_lang": "pt",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Entendendo o Cardápio",
+          "subsections": [
+            "### Estrutura do Menu Italiano"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5cd565da-40c3-43b2-93a5-4ea0f501edc5",
+      "title": "Écrire une lettre d'amour en néerlandais : La sincérité du cœur",
+      "native_lang": "fr",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Formules d'ouverture",
+          "subsections": [
+            "### \"Mijn liefste\" / \"Mijn schat\"",
+            "### \"Mijn grote liefde\"",
+            "### \"Lieve [naam]\""
+          ]
+        },
+        {
+          "header": "## Exprimer l'amour profond",
+          "subsections": [
+            "### \"Jij bent het beste dat me ooit is overkomen\"",
+            "### \"Mijn hart is voor altijd van jou\"",
+            "### \"Elke dag hou ik meer van je\""
+          ]
+        },
+        {
+          "header": "## Expressions sincères",
+          "subsections": [
+            "### \"Bij jou heb ik mijn thuis gevonden\"",
+            "### \"Jij bent mijn vandaag en al mijn morgens\"",
+            "### \"In jouw ogen vond ik alles wat ik zocht\""
+          ]
+        },
+        {
+          "header": "## Décrire ce que l'autre apporte",
+          "subsections": [
+            "### \"Door jou weet ik wat echte liefde is\"",
+            "### \"Je maakt me een beter mens\"",
+            "### \"Met jou ben ik mezelf\""
+          ]
+        },
+        {
+          "header": "## Engagements et promesses",
+          "subsections": [
+            "### \"Ik beloof om van je te houden in goede en slechte tijden\"",
+            "### \"Ik zal altijd aan je zijde staan\"",
+            "### \"Mijn liefde voor jou is onvoorwaardelijk\""
+          ]
+        },
+        {
+          "header": "## Formules de conclusion",
+          "subsections": [
+            "### \"Voor altijd de jouwe\"",
+            "### \"Met al mijn liefde\"",
+            "### \"Ik hou van je, vandaag, morgen en altijd\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5d22f074-dab9-41e3-a4ad-9054df02fc93",
+      "title": "50 Alapvető Török Kifejezés Pároknak: Szerelem Törökül",
+      "native_lang": "hu",
+      "target_lang": "tr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Különleges Pillanatok",
+          "subsections": [
+            "### Randi Éjszaka",
+            "### Viták Kibékítése"
+          ]
+        },
+        {
+          "header": "## Hogyan Használjátok Együtt Ezeket?",
+          "subsections": [
+            "### Gyakorlási Tippek Pároknak",
+            "### Gyakori Hibák Elkerülése",
+            "### Kulturális Érzékenység"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5d4cbc39-3a66-4892-a426-7ee2c629a108",
+      "title": "Portugiesische Ich-vermisse-dich-Sprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlegende Ausdrücke",
+          "subsections": [
+            "### \"Sinto sua falta\" / \"Tenho saudades de você\"",
+            "### \"Sinto muita falta de você\"",
+            "### \"Não consigo parar de pensar em você\""
+          ]
+        },
+        {
+          "header": "## Emotionale Ausdrücke",
+          "subsections": [
+            "### \"Queria que você estivesse aqui\"",
+            "### \"Cada momento sem você parece uma eternidade\"",
+            "### \"Meu coração te procura\"",
+            "### \"A saudade dói, mas é doce porque significa que te amo\""
+          ]
+        },
+        {
+          "header": "## Liebevolle Nachrichten",
+          "subsections": [
+            "### \"Conto os dias até te ver de novo\"",
+            "### \"Você é meu primeiro pensamento ao acordar e o último antes de dormir\"",
+            "### \"A distância não significa nada quando alguém significa tudo\""
+          ]
+        },
+        {
+          "header": "## Tröstende Worte",
+          "subsections": [
+            "### \"Logo estaremos juntos de novo\"",
+            "### \"Nosso amor é mais forte que qualquer distância\"",
+            "### \"Mesmo longe, você está sempre no meu coração\""
+          ]
+        },
+        {
+          "header": "## Für besondere Momente",
+          "subsections": [
+            "### \"Sinto falta do seu sorriso, do seu riso, de tudo em você\"",
+            "### \"Ninguém se compara a você\"",
+            "### \"Você é insubstituível\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5d542ab6-b53f-4b49-bbe9-e60d140baf99",
+      "title": "Phrases allemandes pour un premier rendez-vous",
+      "native_lang": "fr",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions pour briser la glace",
+          "subsections": [
+            "### Se présenter",
+            "### Engager la conversation"
+          ]
+        },
+        {
+          "header": "## Expressions pour montrer son intérêt",
+          "subsections": [
+            "### Écouter activement",
+            "### Complimenter"
+          ]
+        },
+        {
+          "header": "## Expressions pour conclure le rendez-vous",
+          "subsections": [
+            "### Si ça se passe bien",
+            "### Rester poli"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5d56875b-17bb-4213-8fb5-16694eeaa72f",
+      "title": "Γαλλικές Φράσεις για Ζήλια & Εμπιστοσύνη: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για Ζήλια & Εμπιστοσύνη",
+          "subsections": [
+            "### Έκφραση Ανησυχίας",
+            "### Χτίσιμο Εμπιστοσύνης",
+            "### Αντιμετώπιση Ζήλιας",
+            "### Συζήτηση για Όρια"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5d5ac512-d4c0-4d6e-b169-cef343e1bfe6",
+      "title": "Dutch Moving In Together: Essential Household Vocabulary for Couples",
+      "native_lang": "en",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Finding Your Home",
+          "subsections": [
+            "### Apartment/House Hunting",
+            "### Key Phrases for Viewing"
+          ]
+        },
+        {
+          "header": "## Moving Day Vocabulary",
+          "subsections": [
+            "### Coordinating the Move",
+            "### Essential Moving Terms"
+          ]
+        },
+        {
+          "header": "## Setting Up Your Home",
+          "subsections": [
+            "### Room by Room",
+            "### Organizing Together"
+          ]
+        },
+        {
+          "header": "## Shopping for Your Home",
+          "subsections": [
+            "### At the Furniture Store",
+            "### Household Items"
+          ]
+        },
+        {
+          "header": "## Living Together",
+          "subsections": [
+            "### Daily Life Vocabulary",
+            "### Meeting the Neighbors"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5d5c0f59-6571-43e4-a36f-8d6975eb4fc4",
+      "title": "Portuguese Arguing & Disagreement Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressing Disagreement",
+          "subsections": [
+            "### Não concordo",
+            "### Isso não é justo",
+            "### Estás a entender-me mal",
+            "### Não me estás a ouvir"
+          ]
+        },
+        {
+          "header": "## Expressing Frustration",
+          "subsections": [
+            "### Estou frustrado/a",
+            "### Incomoda-me quando...",
+            "### Preciso de um momento",
+            "### Isso magoa-me"
+          ]
+        },
+        {
+          "header": "## Setting Boundaries",
+          "subsections": [
+            "### Não fales comigo assim",
+            "### Isso é muito forte",
+            "### Precisamos de falar disto com calma"
+          ]
+        },
+        {
+          "header": "## Seeking Resolution",
+          "subsections": [
+            "### Podemos encontrar uma solução juntos?",
+            "### Quero compreender-te",
+            "### O que podemos fazer?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5d5d9c5a-45e9-462e-aab8-03720a7c6507",
+      "title": "Gefühle auf Englisch ausdrücken – Emotionen in deiner Beziehung teilen",
+      "native_lang": "de",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Positive Gefühle ausdrücken",
+          "subsections": [
+            "### Liebe und Zuneigung",
+            "### Glück und Freude"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5d849f8a-8ae0-4c94-aad4-ef21f8b6c3dd",
+      "title": "Phrases portugaises pour se réconcilier en couple",
+      "native_lang": "fr",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions essentielles pour se réconcilier",
+          "subsections": [
+            "### S'excuser sincèrement",
+            "### Exprimer ses sentiments",
+            "### Proposer une résolution",
+            "### Réaffirmer son amour"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5daa4dd1-9100-44f5-9d39-2073d4890a99",
+      "title": "Urări de Ziua de Naștere pentru Partener în Germană: Mesaje Romantice",
+      "native_lang": "ro",
+      "target_lang": "de",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Mesaje Romantice",
+          "subsections": [
+            "### Scurte și Dulci",
+            "### Mesaje Mai Lungi"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Diferite Personalități",
+          "subsections": [
+            "### Pentru Partenerul Romantic",
+            "### Pentru Partenerul cu Umor"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Card",
+          "subsections": [
+            "### Format Scurt",
+            "### Format Lung"
+          ]
+        },
+        {
+          "header": "## Idei de Surprize",
+          "subsections": [
+            "### Gesturi Romantice"
+          ]
+        },
+        {
+          "header": "## Mesaje de Dimineață",
+          "subsections": [
+            "### Pentru Început de Zi"
+          ]
+        },
+        {
+          "header": "## Tradiții de Cuplu",
+          "subsections": [
+            "### Idei pentru Noi Tradiții"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5dab7884-9de8-407a-8670-a62f2c7b2941",
+      "title": "Frases de Paquera em Turco: Romance entre Oriente e Ocidente",
+      "native_lang": "pt",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases Essenciais de Paquera",
+          "subsections": [
+            "### Elogios Apaixonados",
+            "### Expressando Interesse",
+            "### Cantadas Turcas",
+            "### Para Relacionamentos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5db27c69-ad18-4b71-882f-e9a2bcd14bfc",
+      "title": "Романтические английские фразы на все случаи",
+      "native_lang": "ru",
+      "target_lang": "en",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Утренние и вечерние фразы",
+          "subsections": [
+            "### Утром:",
+            "### Вечером:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5db78859-62c3-4b6a-9975-8c1f4429b451",
+      "title": "Portekizce Sevgi Sözcükleri ve Takma Adlar",
+      "native_lang": "tr",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Farklı Durumlar İçin Sevgi Sözcükleri",
+          "subsections": [
+            "### Günlük Hayatta",
+            "### Romantik Anlar İçin",
+            "### Şakalaşmak İçin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5dc320fd-a919-48e9-a792-e2af6a4d9552",
+      "title": "50+ Apelidos Espanhois para Derreter Seu Amor",
+      "native_lang": "pt",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Apelidos por Região",
+          "subsections": [
+            "### Espanha",
+            "### México",
+            "### Argentina",
+            "### Colômbia"
+          ]
+        }
+      ]
+    }
+  ]
+}

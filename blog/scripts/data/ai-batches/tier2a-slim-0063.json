@@ -1,0 +1,395 @@
+{
+  "batchId": "tier2a-slim-0063",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "5692bcdf-8e15-4633-8807-70e30e43c976",
+      "title": "Romanian Forgiveness Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Asking for Forgiveness",
+          "subsections": [
+            "### Iartă-mă"
+          ]
+        },
+        {
+          "header": "## Granting Forgiveness",
+          "subsections": [
+            "### Te iert"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "56a218f9-19a8-40fa-bb5d-4c9546f2682e",
+      "title": "50+ чеських ласкавих слів, які розтоплять серце",
+      "native_lang": "uk",
+      "target_lang": "cs",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Звертання для різних ситуацій",
+          "subsections": [
+            "### Романтичні моменти",
+            "### Повсякденне використання",
+            "### Грайливі звертання"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "56a5c928-d9ed-4065-8ef9-e92e21658a25",
+      "title": "Lehçe İlk Buluşma İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Karşılama",
+          "subsections": [
+            "### 1. \"Tak miło cię wreszcie poznać\"",
+            "### 2. \"Wyglądasz jeszcze lepiej niż na zdjęciach\"",
+            "### 3. \"Nie mogłem/am się doczekać tego spotkania\""
+          ]
+        },
+        {
+          "header": "## Sohbet",
+          "subsections": [
+            "### 4. \"Opowiedz mi o sobie\"",
+            "### 5. \"Co lubisz robić w wolnym czasie?\"",
+            "### 6. \"Byłeś/aś tu już wcześniej?\""
+          ]
+        },
+        {
+          "header": "## İltifatlar",
+          "subsections": [
+            "### 7. \"Masz piękny uśmiech\"",
+            "### 8. \"Podoba mi się twój styl\"",
+            "### 9. \"Łatwo się z tobą rozmawia\""
+          ]
+        },
+        {
+          "header": "## Sonlandırma",
+          "subsections": [
+            "### 10. \"Świetnie się bawiłem/am\"",
+            "### 11. \"Możemy to powtórzyć?\"",
+            "### 12. \"Chciałbym/abym cię znowu zobaczyć\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "56a6e88a-43a8-44ef-ae34-227edad0c0de",
+      "title": "Godmorgen og Godnat på Russisk: Søde Fraser til Din Partner",
+      "native_lang": "da",
+      "target_lang": "ru",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Tekstbeskeder",
+          "subsections": [
+            "### Morgenbeskeder",
+            "### Aftenbeskeder"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "56acdb29-9f2a-424d-80b7-40d1a94017f4",
+      "title": "50+ французских прозвищ, которые растопят сердце",
+      "native_lang": "ru",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Как выбрать обращение",
+          "subsections": [
+            "### Для начала отношений:",
+            "### Для серьёзных отношений:",
+            "### Для супругов:"
+          ]
+        },
+        {
+          "header": "## Практика для пар",
+          "subsections": [
+            "### Упражнение «Разнообразие»:",
+            "### Утренний ритуал:",
+            "### Вечерний ритуал:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "56b2d130-4120-4907-879f-503e0ac7867d",
+      "title": "Norske udtryk til at møde svigerforældre",
+      "native_lang": "da",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Vigtige sætninger",
+          "subsections": [
+            "### 1. Hyggelig å treffe dere",
+            "### 2. Jeg har hørt så mye om dere",
+            "### 3. Tusen takk for invitasjonen",
+            "### 4. Jeg har tatt med en liten gave",
+            "### 5. Dere har et så fint hjem",
+            "### 6. Maten var kjempegod",
+            "### 7. Jeg elsker sønnen/datteren deres veldig høyt",
+            "### 8. Vi er veldig lykkelige sammen",
+            "### 9. Jeg vil gjerne bli bedre kjent med dere",
+            "### 10. Kan jeg hjelpe til med noe?",
+            "### 11. Det er en fin familietradisjon",
+            "### 12. Jeg gleder meg til neste gang vi sees"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "56d73cf5-1584-4b61-99fa-6e65adcfd98d",
+      "title": "Rosyjski dla Par: 50+ Niezbędnych Zwrotow",
+      "native_lang": "pl",
+      "target_lang": "ru",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Dzienna rutyna",
+            "### Ćwiczenie 2: Check-in po rosyjsku",
+            "### Ćwiczenie 3: Planowanie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "56df2623-1e0f-4af5-8777-b81cdb7dffd3",
+      "title": "50+ португальських фраз для романтичного вечора",
+      "native_lang": "uk",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## В ресторані",
+          "subsections": [
+            "### Резервація столика",
+            "### Замовлення",
+            "### Корисні фрази"
+          ]
+        },
+        {
+          "header": "## На пляжі (типово для Бразилії та Португалії)",
+          "subsections": [
+            "### Планування",
+            "### На пляжі"
+          ]
+        },
+        {
+          "header": "## На прогулянці",
+          "subsections": [
+            "### Запрошення",
+            "### Під час прогулянки"
+          ]
+        },
+        {
+          "header": "## В барі / кав'ярні",
+          "subsections": [
+            "### Замовлення напоїв",
+            "### Тости"
+          ]
+        },
+        {
+          "header": "## Культурні заходи",
+          "subsections": [
+            "### Концерти та шоу",
+            "### Бразильське: Forro та Samba"
+          ]
+        },
+        {
+          "header": "## Завершення вечора",
+          "subsections": [
+            "### Компліменти",
+            "### Плани на майбутнє"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "56e481be-744b-4497-a6f5-67da916d1953",
+      "title": "100 Meest Gebruikte Poolse Woorden voor Relaties",
+      "native_lang": "nl",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Basis liefdeswoorden",
+          "subsections": [
+            "### 1. Miłość - *mie-woshtj* - Liefde",
+            "### 2. Serce - *ser-tse* - Hart",
+            "### 3. Pocałunek - *po-tsa-woe-nek* - Kus",
+            "### 4. Uścisk - *oesj-tsjiesk* - Knuffel",
+            "### 5. Razem - *ra-zem* - Samen",
+            "### 6. Na zawsze - *na zav-sje* - Voor altijd",
+            "### 7. Zawsze - *zav-sje* - Altijd",
+            "### 8. Piękny/a - *pjenk-nie/a* - Mooi",
+            "### 9. Szczęśliwy/a - *sjtjen-sjlie-vie/a* - Gelukkig",
+            "### 10. Kochanie - *ko-cha-nje* - Schat"
+          ]
+        },
+        {
+          "header": "## Dagelijkse communicatie",
+          "subsections": [
+            "### 11. Tak - *tak* - Ja",
+            "### 12. Nie - *nje* - Nee",
+            "### 13. Proszę - *pro-sje* - Alsjeblieft",
+            "### 14. Dziękuję - *dzjen-koe-je* - Dank je",
+            "### 15. Przepraszam - *psje-pra-sjam* - Sorry",
+            "### 16. Dzień dobry - *dzjen do-brie* - Goedemorgen",
+            "### 17. Dobranoc - *do-bra-nots* - Goedenacht",
+            "### 18. Cześć - *tsjesjtj* - Hallo/Tot ziens",
+            "### 19. Jak się masz? - *jak sje masj* - Hoe gaat het?",
+            "### 20. Do widzenia - *do vie-dze-nja* - Tot ziens"
+          ]
+        },
+        {
+          "header": "## Gevoelens uitdrukken",
+          "subsections": [
+            "### 21. Kocham cię - *ko-cham tje* - Ik hou van je",
+            "### 22. Tęsknię za tobą - *tens-knje za to-bom* - Ik mis je",
+            "### 23. Potrzebuję cię - *po-tsje-boe-je tje* - Ik heb je nodig",
+            "### 24. Ufam ci - *oe-fam tji* - Ik vertrouw je",
+            "### 25. Jestem z ciebie dumny/a - *jes-tem z tje-bje doem-nie/a* - Ik ben trots op je",
+            "### 26. Przebaczam ci - *psje-ba-tsjam tji* - Ik vergeef je",
+            "### 27. Rozumiem - *ro-zoe-mjem* - Ik begrijp het",
+            "### 28. Uszczęśliwiasz mnie - *oe-sjtjen-sjlie-vja-sj mnje* - Je maakt me gelukkig",
+            "### 29. Myślę o tobie - *miesj-le o to-bje* - Ik denk aan je",
+            "### 30. Jesteś dla mnie wszystkim - *jes-tesj dla mnje fsjiestkiem* - Je bent alles voor mij"
+          ]
+        },
+        {
+          "header": "## Tijd",
+          "subsections": [
+            "### 31. Dziś - *dzjiesj* - Vandaag",
+            "### 32. Jutro - *joe-tro* - Morgen",
+            "### 33. Wczoraj - *vtsjo-raj* - Gisteren",
+            "### 34. Teraz - *te-raz* - Nu",
+            "### 35. Później - *poezj-njej* - Later",
+            "### 36. Wkrótce - *fkroet-tse* - Binnenkort",
+            "### 37. Nigdy - *njieg-die* - Nooit",
+            "### 38. Czasami - *tsja-sa-mie* - Soms",
+            "### 39. Często - *tsjens-to* - Vaak"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "56ecd43a-a0b3-4115-8f05-bbea9035aae8",
+      "title": "Guten Morgen und Gute Nacht auf Griechisch – Süße Phrasen für jeden Tag",
+      "native_lang": "de",
+      "target_lang": "el",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Guten Morgen sagen",
+          "subsections": [
+            "### Klassische Morgengrüße",
+            "### Romantische Morgengrüße"
+          ]
+        },
+        {
+          "header": "## Gute Nacht sagen",
+          "subsections": [
+            "### Klassische Nachtgrüße",
+            "### Romantische Nachtgrüße"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "56f88a2d-3179-4258-afbf-b7622aacbcf3",
+      "title": "Udtryk Følelser på Ukrainsk: Komplet Guide for Par",
+      "native_lang": "da",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Reagere på Partnerens Følelser",
+          "subsections": [
+            "### Støttende Svar",
+            "### Trøstende Ord"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5700855f-86a4-4f3a-a230-17d99a5c9e65",
+      "title": "Rencontrer la Famille de Votre Partenaire Portugais",
+      "native_lang": "fr",
+      "target_lang": "pt",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Choses à Éviter",
+          "subsections": [
+            "### Ne faites pas :",
+            "### Faites :"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5700880f-4c44-4f10-92ee-045361cd2906",
+      "title": "Dänische Hochzeitsphrasen und romantische Glückwünsche",
+      "native_lang": "de",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Die wichtigsten Hochzeitsphrasen",
+          "subsections": [
+            "### Der Heiratsantrag",
+            "### Das Ehegelübde",
+            "### Glückwünsche aussprechen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5716bd45-af56-4ffe-8005-50c9639dadf9",
+      "title": "Frases para Conhecer os Sogros em Russo: Guia Completo",
+      "native_lang": "pt",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para o Primeiro Encontro",
+          "subsections": [
+            "### Apresentação",
+            "### Elogiando",
+            "### Mostrando Interesse",
+            "### Expressando Gratidão"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "57202adf-003a-4940-a1a8-53a22ae64f21",
+      "title": "Романтические португальские фразы на все случаи",
+      "native_lang": "ru",
+      "target_lang": "pt",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Утренние и вечерние фразы",
+          "subsections": [
+            "### Утром:",
+            "### Вечером:"
+          ]
+        }
+      ]
+    }
+  ]
+}

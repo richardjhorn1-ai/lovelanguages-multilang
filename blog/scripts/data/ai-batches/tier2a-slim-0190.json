@@ -1,0 +1,453 @@
+{
+  "batchId": "tier2a-slim-0190",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "c62f17f5-5522-4c0a-ae91-54c7666ebf34",
+      "title": "Türkische Grüße und Verabschiedungen",
+      "native_lang": "de",
+      "target_lang": "tr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Verabschiedungen",
+          "subsections": [
+            "### Informelle Verabschiedungen",
+            "### Formelle Verabschiedungen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c634f996-f220-43a8-a978-eb8d1cad4fb9",
+      "title": "100 mots anglais les plus courants pour les couples",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Mots essentiels pour les couples",
+          "subsections": [
+            "### Pronoms et déterminants",
+            "### Verbes d'action quotidiens",
+            "### Émotions et sentiments",
+            "### Temps et moments",
+            "### Maison et quotidien",
+            "### Relations",
+            "### Questions courantes",
+            "### Réponses et affirmations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c64028f4-752c-4132-9b69-fa4d5dcd1018",
+      "title": "Гид по чешскому произношению",
+      "native_lang": "ru",
+      "target_lang": "cs",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Романтические слова",
+          "subsections": [
+            "### Потренируемся!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c652bec9-8db5-4257-a75f-162a20a7841e",
+      "title": "Erreurs courantes des francophones en italien",
+      "native_lang": "fr",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Exercices pour couples",
+          "subsections": [
+            "### Chasse aux faux amis",
+            "### Quiz prépositions",
+            "### Prononciation des doubles"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c6597142-3057-42d0-815a-b3d7250fbdad",
+      "title": "Rumunská gramatika pro začátečníky: Jak mluvit o vašem vztahu bez chyb",
+      "native_lang": "cs",
+      "target_lang": "ro",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Základní pravidla: 5 klíčů k úspěchu",
+          "subsections": [
+            "### 1. Rod substantiv – jednodušší než v češtině",
+            "### 2. Členy – připojené k slovům",
+            "### 3. Slovesa – pravidelná a předvídatelná",
+            "### 4. Přídavná jména – shoda s podstatným jménem",
+            "### 5. Otázky – intonace nebo slovosled"
+          ]
+        },
+        {
+          "header": "## Nejčastější chyby a jak se jim vyvarovat",
+          "subsections": [
+            "### 1. Záměna rodů",
+            "### 2. Nesprávné použití členů",
+            "### 3. Špatné časování sloves",
+            "### 4. Zapomenutí na shodu přídavných jmen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c66bd45e-c056-4a0b-8d1d-350e055c70d2",
+      "title": "Franska Fraser för Förlåtelse",
+      "native_lang": "sv",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Be om Förlåtelse",
+          "subsections": [
+            "### 1. \"Je suis vraiment désolé(e)\"",
+            "### 2. \"S'il te plaît, pardonne-moi\"",
+            "### 3. \"J'assume l'entière responsabilité\"",
+            "### 4. \"J'avais tort et je le sais\"",
+            "### 5. \"Comment puis-je me faire pardonner?\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Ge Förlåtelse",
+          "subsections": [
+            "### 6. \"Je te pardonne\"",
+            "### 7. \"Laissons cela derrière nous\"",
+            "### 8. \"Je comprends et j'apprécie tes excuses\"",
+            "### 9. \"Nous faisons tous des erreurs\"",
+            "### 10. \"Il faut du courage pour s'excuser\"",
+            "### 11. \"J'apprécie ton honnêteté\"",
+            "### 12. \"L'important, c'est d'avancer ensemble\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c66d4d44-1ab6-4c9f-b3c3-e41f1fe8f46c",
+      "title": "Cómo Escribir Cartas de Amor en Sueco: El Kärleksbrev Nórdico",
+      "native_lang": "es",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Saludos Románticos",
+          "subsections": [
+            "### \"Min älskling...\"",
+            "### \"Min käraste...\"",
+            "### \"Mitt hjärtas kärlek...\""
+          ]
+        },
+        {
+          "header": "## Expresiones de Apertura",
+          "subsections": [
+            "### \"Jag skriver till dig från djupet av mitt hjärta\"",
+            "### \"Varje dag utan dig känns som en evighet\""
+          ]
+        },
+        {
+          "header": "## Frases del Cuerpo de la Carta",
+          "subsections": [
+            "### \"Du är det bästa som hänt mig\"",
+            "### \"Mitt hjärta tillhör bara dig\"",
+            "### \"Med dig känner jag mig hel\"",
+            "### \"Du är ljuset i mitt liv\""
+          ]
+        },
+        {
+          "header": "## Promesas de Amor",
+          "subsections": [
+            "### \"Jag kommer alltid att älska dig\"",
+            "### \"Jag kommer alltid att finnas där för dig\""
+          ]
+        },
+        {
+          "header": "## Despedidas Románticas",
+          "subsections": [
+            "### \"För alltid din...\"",
+            "### \"Med all min kärlek...\"",
+            "### \"Dina/Din [nombre] som älskar dig\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c68586a9-8e04-4a07-aa9b-58e98c0e4c85",
+      "title": "Испанские приветствия и прощания для пар",
+      "native_lang": "ru",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Ответы на \"¿Cómo estás?\"",
+          "subsections": [
+            "### Стандартные:",
+            "### Романтические ответы:"
+          ]
+        },
+        {
+          "header": "## В текстовых сообщениях",
+          "subsections": [
+            "### Приветствия:",
+            "### Прощания:"
+          ]
+        },
+        {
+          "header": "## Практические упражнения",
+          "subsections": [
+            "### Утренний ритуал:",
+            "### Прощание на день:",
+            "### Вечернее прощание:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c6a87f78-0124-4782-a9a8-c5001532ad7b",
+      "title": "50 Greek Compliments for Your Partner",
+      "native_lang": "en",
+      "target_lang": "el",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Compliments for Special Moments",
+          "subsections": [
+            "### When They Dress Up",
+            "### After They Help You"
+          ]
+        },
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Daily Compliment Challenge",
+            "### Compliment Cards",
+            "### Mirror Exercise"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c6c09006-a797-410e-857c-667c093a35ff",
+      "title": "Сложно ли выучить датский язык?",
+      "native_lang": "ru",
+      "target_lang": "da",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Что делает датский относительно лёгким",
+          "subsections": [
+            "### 1. Простая грамматика",
+            "### 2. Латинский алфавит",
+            "### 3. Много общих слов",
+            "### 4. Понятная структура"
+          ]
+        },
+        {
+          "header": "## Что делает датский сложным",
+          "subsections": [
+            "### 1. Произношение — главная трудность",
+            "### 2. Stød — уникальная особенность",
+            "### 3. Разница между письмом и произношением",
+            "### 4. Даже скандинавы шутят о датском!"
+          ]
+        },
+        {
+          "header": "## Сроки изучения",
+          "subsections": [
+            "### Реалистичные ожидания"
+          ]
+        },
+        {
+          "header": "## Преимущества для пар",
+          "subsections": [
+            "### Почему с партнёром легче"
+          ]
+        },
+        {
+          "header": "## Советы для русскоговорящих",
+          "subsections": [
+            "### 1. Приоритет — произношение",
+            "### 2. Слушайте много датского",
+            "### 3. Не сравнивайте с письмом",
+            "### 4. Практикуйтесь с партнёром",
+            "### 5. Будьте терпеливы"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c6c71f23-1632-4837-9532-6e9d3a777f45",
+      "title": "Як сказати «Я тебе кохаю» румунською мовою",
+      "native_lang": "uk",
+      "target_lang": "ro",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Основні способи сказати «Я тебе кохаю»",
+          "subsections": [
+            "### Te iubesc (Те юбеск)",
+            "### Te ador (Те адор)",
+            "### Te iubesc mult (Те юбеск мулт)"
+          ]
+        },
+        {
+          "header": "## Ніжні повсякденні фрази",
+          "subsections": [
+            "### Скучаю за тобою",
+            "### Інші вирази кохання"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c6d3cea7-1e4b-4fa6-8ebe-2fdd085de64a",
+      "title": "Dänische Grammatik Grundlagen",
+      "native_lang": "de",
+      "target_lang": "da",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Artikel - Das Wichtigste zuerst",
+          "subsections": [
+            "### Bestimmter Artikel (der/die/das)"
+          ]
+        },
+        {
+          "header": "## Substantive",
+          "subsections": [
+            "### Plural bilden",
+            "### Plural mit bestimmtem Artikel"
+          ]
+        },
+        {
+          "header": "## Verben",
+          "subsections": [
+            "### Präsens - Nur EINE Form!",
+            "### Wichtige Verbformen",
+            "### Vergangenheit bilden"
+          ]
+        },
+        {
+          "header": "## Adjektive",
+          "subsections": [
+            "### Grundregel",
+            "### Mit bestimmtem Artikel"
+          ]
+        },
+        {
+          "header": "## Satzstellung",
+          "subsections": [
+            "### Hauptsatz",
+            "### V2-Regel"
+          ]
+        },
+        {
+          "header": "## Fragen",
+          "subsections": [
+            "### Ja/Nein-Fragen",
+            "### W-Fragen"
+          ]
+        },
+        {
+          "header": "## Verneinung",
+          "subsections": [
+            "### \"Ikke\" nach dem Verb"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c6d4ef3e-016e-45eb-9b58-3c96c0fce5ab",
+      "title": "Italiaanse Zinnen voor een Eerste Date",
+      "native_lang": "nl",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"È un piacere conoscerti finalmente\" - *ee oen pja-tsje-re ko-no-sjer-tie fie-nal-men-te*",
+            "### 2. \"Sei bellissimo/a\" - *see bel-lies-sie-mo/a*",
+            "### 3. \"Parlami di te\" - *par-la-mie die te*",
+            "### 4. \"Che lavoro fai?\" - *ke la-vo-ro fai*",
+            "### 5. \"Mi sto divertendo molto\" - *mie sto die-ver-ten-do mol-to*",
+            "### 6. \"Vuoi prendere qualcos'altro?\" - *vwoi pren-de-re kwal-koz-al-tro*",
+            "### 7. \"Che tipo di musica ti piace?\" - *ke tie-po die moe-zie-ka tie pja-tsje*",
+            "### 8. \"Mi piacerebbe rivederti\" - *mie pja-tsje-reb-be rie-ve-der-tie*",
+            "### 9. \"Posso accompagnarti a casa?\" - *pos-so ak-kom-pa-njar-tie a ka-za*",
+            "### 10. \"Mi sono divertito/a molto stasera\" - *mie so-no die-ver-tie-to/a mol-to sta-se-ra*",
+            "### 11. \"Quali sono i tuoi hobby?\" - *kwa-lie so-no ie twoi ob-bie*",
+            "### 12. \"Hai un sorriso bellissimo\" - *ai oen sor-rie-zo bel-lies-sie-mo*"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c6ebb1be-7e8d-4bf1-8f4b-143f767b5247",
+      "title": "Frases Essenciais em Italiano para Casais",
+      "native_lang": "pt",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Saudações Diárias",
+          "subsections": [
+            "### Pela Manhã",
+            "### À Tarde e À Noite"
+          ]
+        },
+        {
+          "header": "## Fazendo Planos Juntos",
+          "subsections": [
+            "### Sugerindo Atividades",
+            "### Concordando e Discordando"
+          ]
+        },
+        {
+          "header": "## Expressando Emoções",
+          "subsections": [
+            "### Felicidade",
+            "### Preocupação e Apoio"
+          ]
+        },
+        {
+          "header": "## Refeições Juntos",
+          "subsections": [
+            "### À Mesa"
+          ]
+        },
+        {
+          "header": "## Frases para Resolver Conflitos",
+          "subsections": [
+            "### Pedindo Desculpas",
+            "### Reconciliação"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c6fc4a32-867b-44ca-b72a-5063e0ef17fe",
+      "title": "Lengyel esküvői kifejezések: Szókincs a nagy napra",
+      "native_lang": "hu",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Gratulációk és jókívánságok",
+            "### Köszöntők"
+          ]
+        }
+      ]
+    }
+  ]
+}

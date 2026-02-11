@@ -1,0 +1,114 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0749",
+  "articles": [
+    {
+      "id": "d8742ca1-cf27-49e5-a062-b3920c5d19cf",
+      "title": "Переїзд разом: іспанською слова для спільного життя",
+      "native_lang": "uk",
+      "target_lang": "es",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport CTA from '@components/CTA.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\n\n# Переїзд разом: іспанські слова для спільного життя\n\nПереїзд до спільного дому — це великий крок у стосунках! Якщо ви плануєте жити з партнером, який розмовляє іспанською, ця стаття допоможе вам комунікувати про дім та побут.\n\n<PhraseOfDay\n  phrase=\"Let's move in together!\"\n  translation=\"Давай жити разом!\"\n  context=\"Пропозиція спільного життя\"\n/>\n\n## Основна лексика\n\n\n\n## Обговорення переїзду\n\n### Як запропонувати спільне життя іспанською\n\n1. \"Давай жити разом!\" — пряма пропозиція\n2. \"Я хочу прокидатися поруч з тобою кожен день\" — романтичний варіант\n3. \"Готовий/готова до наступного кроку?\" — обережний підхід\n\n<CultureTip>\nСтавлення до спільного життя до шлюбу відрізняється в різних культурах. Обговоріть це з партнером та його родиною, якщо це важливо для них.\n</CultureTip>\n\n## Пошук житла\n\n### Лексика для оренди/покупки\n\n| Іспанська | Українська |\n|----------------|------------|\n| Apartment | Квартира |\n| House | Будинок |\n| Rent | Орендна плата |\n| Deposit | Депозит |\n| Landlord | Орендодавець |\n| Lease | Договір оренди |\n\n### Кімнати в домі\n\n- Спальня\n- Кухня\n- Вітальня\n- Ванна кімната\n- Балкон\n- Гараж\n\n## Меблі та предмети побуту\n\n### У спальні\n- Ліжко\n- Шафа\n- Комод\n- Тумбочка\n- Дзеркало\n\n### На кухні\n- Холодильник\n- Плита\n- Мікрохвильовка\n- Посуд\n- Столові прибори\n\n### У вітальні\n- Диван\n- Телевізор\n- Книжкова полиця\n- Столик\n- Килим\n\n<CultureTip>\nОбговорення фінансів — важлива частина спільного життя. Дізнайтеся іспанські слова для розмови про бюджет, рахунки та витрати.\n</CultureTip>\n\n## Розподіл обов'язків\n\n### Домашні справи іспанською\n\n- Прибирання\n- Прання\n- Приготування їжі\n- Миття посуду\n- Покупки продуктів\n- Вивезення сміття\n\n### Як обговорити обов'язки\n\n1. \"Як ми розподілимо домашні справи?\"\n2. \"Я можу готувати, а ти прибирати?\"\n3. \"Давай складемо графік\"\n\n## Перший вечір у спільному домі\n\nТрадиції новосілля різні в різних культурах. Ось ідеї:\n\n1. **Романтична вечеря вдома** — приготуйте разом\n2. **Запрошення друзів** — маленьке свято\n3. **Спокійний вечір** — просто насолодіться моментом\n\n## Вирішення конфліктів\n\nСпільне життя потребує компромісів. Корисні фрази:\n\n- \"Давай обговоримо це спокійно\"\n- \"Як ми можемо вирішити це разом?\"\n- \"Мені важлива твоя думка\"\n- \"Пробачте, якщо я щось зробив не так\"\n\n## Продовжуйте вивчення\n\nТепер ви готові до спільного життя іспанською! Вивчайте більше:\n\n- [Іспанська побутова лексика](/uk/blog/spanish-date-night-vocabulary)\n- [Іспанська фрази для пар](/uk/blog/spanish-essential-phrases-for-couples)\n\n<CTA \n  text=\"Вивчайте іспанськау для спільного життя з коханою людиною!\"\n  buttonText=\"Почати безкоштовно\"\n  href=\"/uk/learn/es\"\n/>",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Основна лексика",
+              "## Обговорення переїзду",
+              "## Пошук житла",
+              "## Меблі та предмети побуту",
+              "## Розподіл обов'язків"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "d884372c-ad7c-46c0-a306-3aa9c7cca5eb",
+      "title": "Phrases de réconfort en espagnol : Soutenir son partenaire",
+      "native_lang": "fr",
+      "target_lang": "es",
+      "category": "communication",
+      "content": "## Soutenir son partenaire en espagnol\n\nLes hispanophones expriment leurs émotions ouvertement. Voici comment apporter du réconfort.\n\n## Phrases de réconfort de base\n\n### \"Estoy aquí para ti\"\n**Prononciation :** éss-TOY a-KI PA-ra ti\n\n**Signification :** Je suis là pour toi\n\n### \"Todo va a estar bien\"\n**Prononciation :** TO-do va a éss-TAR biÉN\n\n**Signification :** Tout va bien se passer\n\n### \"No estás solo/sola en esto\"\n**Prononciation :** no éss-TASS SO-lo/SO-la én ÉS-to\n\n**Signification :** Tu n'es pas seul(e) dans cette épreuve\n\n## Écouter et valider\n\n### \"Entiendo cómo te sientes\"\n**Prononciation :** én-TIÉN-do KO-mo té SIÉN-téss\n\n**Signification :** Je comprends ce que tu ressens\n\n### \"Es normal sentirse así\"\n**Prononciation :** éss nor-MAL sén-TIR-sé a-SI\n\n**Signification :** C'est normal de se sentir ainsi\n\n### \"Tus sentimientos son válidos\"\n**Prononciation :** touss sén-ti-MIÉN-toss son VA-li-doss\n\n**Signification :** Tes sentiments sont légitimes\n\n## Offrir du soutien actif\n\n### \"¿Qué puedo hacer para ayudarte?\"\n**Prononciation :** ké POUÉ-do a-SÉR PA-ra a-you-DAR-té\n\n**Signification :** Que puis-je faire pour t'aider ?\n\n### \"Siempre estoy aquí para escucharte\"\n**Prononciation :** SIÉM-pré éss-TOY a-KI PA-ra éss-kou-TCHAR-té\n\n**Signification :** Je suis toujours là pour t'écouter\n\n### \"Tómate el tiempo que necesites\"\n**Prononciation :** TO-ma-té él TIÉM-po ké né-sé-SI-téss\n\n**Signification :** Prends le temps dont tu as besoin\n\n## Encouragement\n\n### \"Eres más fuerte de lo que crees\"\n**Prononciation :** É-réss mass FOUÉR-té dé lo ké KRÉ-éss\n\n**Signification :** Tu es plus fort(e) que tu ne le crois\n\n### \"Creo en ti\"\n**Prononciation :** KRÉ-o én ti\n\n**Signification :** Je crois en toi\n\n### \"Tú puedes con esto\"\n**Prononciation :** tou POUÉ-déss kon ÉS-to\n\n**Signification :** Tu peux le faire\n\n## Moments difficiles\n\n### \"Siento mucho que estés pasando por esto\"\n**Prononciation :** SIÉN-to MOU-tcho ké éss-TÉSS pa-SAN-do por ÉS-to\n\n**Signification :** Je suis vraiment désolé(e) que tu traverses ça\n\n### \"Déjame abrazarte\"\n**Prononciation :** DÉ-Ha-mé a-bra-SAR-té\n\n**Signification :** Laisse-moi te serrer dans mes bras\n\n### \"Vamos a superar esto juntos\"\n**Prononciation :** VA-moss a sou-pé-RAR ÉS-to HOUN-toss\n\n**Signification :** On va surmonter ça ensemble\n\n## Conseils culturels\n\n**Contact physique :** Les hispanophones sont tactiles - câlins appréciés.\n\n**Expressivité :** N'hésitez pas à montrer vos émotions.\n\n**Famille :** Impliquez la famille si approprié.\n\n## Conclusion\n\nLe soutien émotionnel en espagnol est chaleureux et expressif. Montrez votre présence et votre amour.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Phrases de réconfort de base",
+              "## Écouter et valider",
+              "## Offrir du soutien actif",
+              "## Encouragement",
+              "## Moments difficiles"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "d88a7e25-c8de-4fd7-9f92-b40caaa77935",
+      "title": "Swedish Love Letter Writing: Sincere Phrases for Your Partner",
+      "native_lang": "en",
+      "target_lang": "sv",
+      "category": "communication",
+      "content": "A Swedish love letter (*kärleksbrev*) combines Nordic sincerity with genuine emotional depth. Swedish speakers value authentic expression, making your heartfelt letter truly meaningful.\n\n## The Swedish Approach to Love Letters\n\nSwedish culture values sincerity and authenticity. A love letter should be genuine and heartfelt—quality expression over elaborate flourishes.\n\n## Opening Your Letter\n\n### Salutations\n\n**Min älskling**\n*(Min elsh-ling)*\n*My darling*\n\nThe most common Swedish term of endearment.\n\n**Mitt hjärta**\n*(Mit yar-ta)*\n*My heart*\n\nIntimate and tender.\n\n**Min käraste**\n*(Min shar-as-te)*\n*My dearest*\n\nPoetic and romantic.\n\n**Mitt allt**\n*(Mit alt)*\n*My everything*\n\nThey are everything to you.\n\n## Expressing Your Feelings\n\n### Opening Lines\n\n**Jag skriver för att berätta hur mycket jag älskar dig**\n*(Yag skree-ver fur at be-ret-ta hur mew-ket yag el-skar dey)*\n*I'm writing to tell you how much I love you*\n\nDirect and heartfelt.\n\n**Ord räcker inte för att uttrycka vad jag känner**\n*(Ord rek-er in-te fur at ut-try-ka vad yag shen-er)*\n*Words aren't enough to express what I feel*\n\nAcknowledging depth of emotion.\n\n**Det finns så mycket jag vill säga dig**\n*(Det fins so mew-ket yag vil say-a dey)*\n*There is so much I want to tell you*\n\nCreating anticipation.\n\n### Declarations of Love\n\n**Du är den viktigaste personen i mitt liv**\n*(Du air den vik-ti-gas-te per-sho-nen ee mit leev)*\n*You are the most important person in my life*\n\nClear declaration.\n\n**Varje dag älskar jag dig mer**\n*(Var-ye dag el-skar yag dey mer)*\n*Every day I love you more*\n\nGrowing love.\n\n**Med dig har jag hittat sann lycka**\n*(Med dey har yag hi-tat san lew-ka)*\n*With you I have found true happiness*\n\nThey brought happiness.\n\n**Mitt hjärta tillhör bara dig**\n*(Mit yar-ta til-hur ba-ra dey)*\n*My heart belongs only to you*\n\nExclusive devotion.\n\n## Sincere Declarations\n\n**Du är mitt solsken**\n*(Du air mit sol-shen)*\n*You are my sunshine*\n\nThey bring light and warmth.\n\n**Du gör mig till en bättre människa**\n*(Du yur mey til en bet-re men-i-sha)*\n*You make me a better person*\n\nTheir positive influence.\n\n**Du är allt jag någonsin drömt om**\n*(Du air alt yag no-gon-sin drumt om)*\n*You are everything I've ever dreamed of*\n\nDream realized.\n\n## Looking to the Future\n\n**Jag vill tillbringa resten av mitt liv med dig**\n*(Yag vil til-bring-a res-ten av mit leev med dey)*\n*I want to spend the rest of my life with you*\n\nLifetime commitment.\n\n**Jag drömmer om en framtid tillsammans**\n*(Yag drum-er om en fram-tid til-sam-ans)*\n*I dream of a future together*\n\nShared dreams.\n\n**Jag lovar att älska dig för alltid**\n*(Yag lo-var at el-ska dey fur al-tid)*\n*I promise to love you forever*\n\nEternal vow.\n\n## Closing Your Letter\n\n**Med all min kärlek**\n*(Med al min shar-lek)*\n*With all my love*\n\n**Din för alltid**\n*(Din fur al-tid)*\n*Yours forever*\n\n**Jag älskar dig av hela mitt hjärta**\n*(Yag el-skar dey av he-la mit yar-ta)*\n*I love you with all my heart*\n\n## Tips for Writing\n\n- **Be sincere**: Swedes value genuine emotion\n- **Be direct**: Say what you mean clearly\n- **Quality over drama**: Heartfelt simplicity wins\n- **Handwrite**: Shows thoughtfulness\n\nYour Swedish love letter will be treasured for its sincerity.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Opening Your Letter",
+              "## Expressing Your Feelings"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "d8a551d3-3f8a-4c27-8584-e51eb8d3c36d",
+      "title": "Türkische Aussprache für Anfänger: So klingst du wie ein Muttersprachler für deinen Partner",
+      "native_lang": "de",
+      "target_lang": "tr",
+      "category": "pronunciation",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nStell dir vor, du flüsterst deinem türkischen Partner zum ersten Mal auf Türkisch \"Ich liebe dich\" ins Ohr – und es klingt perfekt! Die Aussprache ist der Schlüssel zu einem echten emotionalen Moment. Mit unserem Guide meisterst du die türkischen Klänge gemeinsam und bringt eure Verbindung auf ein neues Level. Am Ende dieses Artikels wirst du nicht nur die Grundlagen beherrschen, sondern auch [romantische türkische Phrasen](/learn/de/tr/romantic-turkish-phrases-for-every-occasion/) mit Selbstbewusstheit aussprechen können.\n\n<PhraseOfDay\n  word=\"Seviyorum\"\n  translation=\"Ich liebe\"\n  pronunciation=\"seh-vee-YOH-room\"\n  context=\"Das Herzstück jeder Liebeserklärung – perfekt für deinen Partner zu üben.\"\n/>\n\n## Die Türkischen Vokale: Dein Erfolgsrezept\n\nDie türkische Sprache hat 8 Vokale – und jeder einzelne klingt anders als im Deutschen. Die gute Nachricht: Sie sind sehr regelmäßig und logisch!\n\n### Die Vokale im Überblick\n\n| Buchstabe | Aussprache | Beispiel | Deutsch |\n|-----------|------------|----------|---------|\n| **a** | wie \"a\" in \"Katze\" | **a**rkadaş | Freund |\n| **e** | wie \"e\" in \"Bett\" | **e**v | Haus |\n| **ı** | dunkles \"i\" | **ı**yı | gut |\n| **i** | wie \"i\" in \"mir\" | **i**yim | ich bin |\n| **o** | wie \"o\" in \"Oper\" | **o**da | Zimmer |\n| **ö** | wie \"ö\" in \"schön\" | **ö**ğretmen | Lehrer |\n| **u** | wie \"u\" in \"gut\" | **u**çak | Flugzeug |\n| **ü** | wie \"ü\" in \"über\" | **ü**züm | Traube |\n\n<VocabCard\n  word=\"Güzel\"\n  translation=\"Schön\"\n  pronunciation=\"goo-EH-zel\"\n  example=\"Çok güzelsin - Du bist sehr schön.\"\n/>\n\n<CultureTip flag=\"🇹🇷\" title=\"Das Geheimnis der türkischen Vokale\">\nTürkische Vokale haben keine Diphthonge – sie bleiben immer klar und kurz. Das macht die Aussprache eigentlich einfacher als im Deutschen!\n</CultureTip>\n\n## Konsonanten: Die Herausforderungen\n\nEinige türkische Konsonanten brauchen extra Aufmerksamkeit. Hier sind die wichtigsten:\n\n### Die \"Problem-Kinder\"\n\n**ç** – wie \"tsch\" in \"Deutsch\"\n- **ç**ay (Tee) = **tschai**\n\n**c** – wie \"dsch\" in \"Jungle\"\n- **c**an (Seele) = **dschan**\n\n**ğ** – weich machend, fast stumm\n- **a**ğ**a**ç (Baum) = **a-a-tsch**\n\n**ş** – wie \"sch\" in \"Schule\"\n- **ş**eker (Zucker) = **she-ker**\n\n<VocabCard\n  word=\"Teşekkür\"\n  translation=\"Dank\"\n  pronunciation=\"teh-sheh-KURR\"\n  example=\"Teşekkür ederim - Ich danke dir.\"\n/>\n\n## Die türkische Betonung: Macht den Unterschied\n\nIm Türkischen liegt die Betonung fast immer auf der **letzten Silbe** vor dem letzten. Das klingt zunächst ungewohnt, aber mit etwas Übung wird's zur zweiten Natur.\n\n### Beispiele für die Betonung\n\n| Wort | Aussprache | Bedeutung |\n|------|------------|-----------|\n| **İstanbul** | is-tan**BUL** | Istanbul |\n| **Merhaba** | mer-**HA**-ba | Hallo |\n| **Nasılsın** | na-sıl**SUN** | Wie geht's? |\n| **Güle güle** | gü-**LE** gü-**LE** | Tschüss (wenn jemand geht) |\n\n<CultureTip flag=\"🇹🇷\" title=\"Betonung ist Liebe\">\nDein Partner wird sofort merken, wenn du die Betonung richtig triffst – es zeigt, dass du dich wirklich bemühst!\n</CultureTip>\n\n## Umlaute und Sonderzeichen: Keine Angst!\n\nDie türkischen Umlaute **ö**, **ü** und **ı** sind keine deutschen Umlaute. Sie haben ihre eigenen klaren Klänge:\n\n- **ö** = wie \"ö\" in \"schön\"\n- **ü** = wie \"ü\" in \"über\"\n- **ı** = dunkles \"i\" – stell dir vor, du willst \"i\" sagen, aber dein Mund bleibt entspannter\n\n<VocabCard\n  word=\"Öğreniyorum\"\n  translation=\"Ich lerne\"\n  pronunciation=\"öhr-reh-nee-YOH-room\"\n  example=\"Türkçe öğreniyorum - Ich lerne Türkisch.\"\n/>\n\n## Praktische Übungen für Paare\n\nHier sind einige Sätze, die ihr gemeinsam üben könnt – perfekt für den Alltag und voller Liebe:\n\n1. **\"Nasılsın aşkım?\"** (na-sıl-**SUN** ah-shk-**UM**) – Wie geht's, mein Schatz?\n2. **\"Seni çok seviyorum.\"** (seh-nee **TSCHOH** seh-vee-YOH-room) – Ich liebe dich sehr.\n3. **\"Bugün çok güzelsin.\"** (boo-**GOON** **TSCHOH** goo-EH-zel-sin) – Heute bist du sehr schön.\n4. **\"Benimle evlenir misin?\"** (beh-neem-leh ev-leh-NEER mee-**SEEN**) – Willst du mich heiraten?\n\nWenn ihr euch gegenseitig diese Sätze beibringt, werdet ihr nicht nur besser in Türkisch, sondern auch enger als Paar. Für mehr Inspiration, schaut euch unsere [Liste mit türkischen Kosenamen](/learn/de/tr/turkish-pet-names-for-your-partner/) an.\n\n## Häufige Fehler und wie ihr sie vermeidet\n\n### 1. Das \"ı\" verwechseln\n**Falsch:** \"iyi\" mit deutschem \"i\"\n**Richtig:** \"ı\" mit entspanntem Mund – **ı**yı\n\n### 2. Die Betonung vergessen\n**Falsch:** MER-ha-ba (erste Silbe betont)\n**Richtig:** mer-**HA**-ba (mittlere Silbe betont)\n\n### 3. \"ğ\" als \"g\" aussprechen\n**Falsch:** a-**g**aç (harter G-Klang)\n**Richtig:** **a**-a-tsch (weich, fast stumm)\n\n## Der schnelle Überblick: Türkische Aussprache-Regeln\n\n| Regel | Beispiel | Merksatz |\n|-------|----------|----------|\n| Vokale sind immer kurz und klar | **a**rkadaş | Keine Diphthonge! |\n| Betonung auf vorletzter Silbe | mer-**HA**-ba | Ende zählt! |\n| ç = tsch, c = dsch | **ç**ay, **c**an | Türkisch ist logisch! |\n| ğ macht weich | **a**ğ**a**ç | Fast stumm! |\n\nMit diesen Grundlagen seid ihr bereit für eure türkische Sprachreise! Übt gemeinsam, feiert jeden kleinen Fortschritt und habt keine Angst vor Fehlern – sie gehören dazu. Wenn ihr bereit seid für den nächsten Schritt, erkundet unsere [Sammlung wichtiger Phrasen für Paare](/learn/de/tr/essential-turkish-phrases-for-couples/).\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Häufige Fehler und wie ihr sie vermeidet"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "d8acdc99-7ae0-4a1f-b529-b2673d4fb4ec",
+      "title": "Macarca Affetme İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "Affetmek, sağlıklı bir ilişkinin temel taşlarından biridir. Macarca konuşan partnerinizle affetme sürecinde kullanabileceğiniz temel ifadeler.\n\n## Af Dileme\n\n### 1. \"Nagyon sajnálom, amit tettem\"\n**Telaffuz:** *Nadyon şaynalom, amit tettem*\n\n**Anlam:** \"Yaptığım için çok üzgünüm\"\n\n### 2. \"Kérlek, bocsáss meg\"\n**Telaffuz:** *Kerlek, boçaş meg*\n\n**Anlam:** \"Lütfen beni affet\"\n\n### 3. \"Teljes felelősséget vállalok\"\n**Telaffuz:** *Telyeş felelöşşeget vallalok*\n\n**Anlam:** \"Tam sorumluluğu üstleniyorum\"\n\n### 4. \"Tudom, hogy megbántottalak és nagyon sajnálom\"\n**Telaffuz:** *Tudom, hody megbantottalak eş nadyon şaynalom*\n\n**Anlam:** \"Seni incittiğimi biliyorum ve çok üzgünüm\"\n\n### 5. \"Meg tudnál bocsátani nekem a szívedben?\"\n**Telaffuz:** *Meg tudnal boçatani nekem a sivedben?*\n\n**Anlam:** \"Kalbinde beni affetmeyi bulabilir misin?\"\n\n## Affetme\n\n### 6. \"Megbocsátok neked\"\n**Telaffuz:** *Megboçatok neked*\n\n**Anlam:** \"Seni affediyorum\"\n\n### 7. \"Készen állok arra, hogy ezt magunk mögött hagyjuk\"\n**Telaffuz:** *Kesen allok arra, hody est magunk mögött hadyuk*\n\n**Anlam:** \"Bunu geride bırakmaya hazırım\"\n\n### 8. \"Hagyjuk magunk mögött\"\n**Telaffuz:** *Hadyuk magunk mögött*\n\n**Anlam:** \"Bunu arkamızda bırakalım\"\n\n### 9. \"Nem tartok haragot\"\n**Telaffuz:** *Nem tartok haragot*\n\n**Anlam:** \"Kin tutmuyorum\"\n\n### 10. \"Mindenki hibázik\"\n**Telaffuz:** *Mindenki hibazik*\n\n**Anlam:** \"Herkes hata yapar\"\n\n### 11. \"Jobban szeretlek, mint a haragom\"\n**Telaffuz:** *Yobban seretlek, mint a haragom*\n\n**Anlam:** \"Seni öfkemden daha çok seviyorum\"\n\n### 12. \"Elfogadom a bocsánatkérésedet\"\n**Telaffuz:** *Elfogadom a boçanatkereshedet*\n\n**Anlam:** \"Özrünü kabul ediyorum\"\n\nBu ifadelerle Macarca konuşan partnerinizle affetme sürecini sağlıklı yaşayabilirsiniz.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 216,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Af Dileme",
+              "## Affetme"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,443 @@
+{
+  "batchId": "tier2a-slim-0148",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "a1ff5b65-88ed-45a7-a785-a7e52c584de9",
+      "title": "Dänische SMS-Sprache und Chat-Slang",
+      "native_lang": "de",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Typische Chat-Gespräche",
+          "subsections": [
+            "### Morgen-Chat",
+            "### Tagsüber",
+            "### Abend-Chat"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a20552b6-aa2e-4a2d-b7b4-462b9d7f0824",
+      "title": "Rumenske SMS- og chattefraser for par",
+      "native_lang": "no",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kulturelle tips",
+          "subsections": [
+            "### Rumenske kosenavn",
+            "### «Îmi e dor de tine»",
+            "### Kjønnsformer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a211bf68-2ede-4c9a-b71e-db06b302f250",
+      "title": "Russiske Udtryk til Følelsesmæssig Støtte og Trøst",
+      "native_lang": "da",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Støtteudtryk",
+          "subsections": [
+            "### 1. Я здесь для тебя",
+            "### 2. Всё будет хорошо",
+            "### 3. Я верю в тебя",
+            "### 4. Не торопись, возьми столько времени, сколько тебе нужно",
+            "### 5. Мне очень жаль, что тебе приходится через это проходить"
+          ]
+        },
+        {
+          "header": "## Dybere Trøst",
+          "subsections": [
+            "### 6. Это нормально плакать",
+            "### 7. Тебе не нужно проходить через это одному/одной",
+            "### 8. Я очень горжусь твоей силой",
+            "### 9. Твои чувства важны",
+            "### 10. Что бы ни случилось, мы справимся вместе"
+          ]
+        },
+        {
+          "header": "## Kærlige Trøsteord",
+          "subsections": [
+            "### 11. Любимая/Любимый, я всегда буду рядом",
+            "### 12. Я люблю тебя, и это никогда не изменится"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a218d9c1-3b62-4ff7-8a70-9f0cdae10548",
+      "title": "Gramática Básica do Turco: Guia para Iniciantes",
+      "native_lang": "pt",
+      "target_lang": "tr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Conjugação Verbal",
+          "subsections": [
+            "### Presente Contínuo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a21a46b8-f58d-4e78-8ae8-5179e4d108e1",
+      "title": "Die Familie des französischen Partners kennenlernen",
+      "native_lang": "de",
+      "target_lang": "fr",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Typische Situationen Meistern",
+          "subsections": [
+            "### Wenn ihr etwas nicht versteht",
+            "### Wenn ihr Hilfe anbieten wollt"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a23ac9fb-957e-4ad3-bd87-d13b3a6131a0",
+      "title": "Jak powiedziec «S'agapo» po grecku - romantyczne zwroty dla par",
+      "native_lang": "pl",
+      "target_lang": "el",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Alternatywne sposoby mowienia \"Kocham cie\"",
+          "subsections": [
+            "### Dla glebokich polaczen",
+            "### Poetyckie i silne wyrazenia"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Poranne afirmacje",
+            "### Liściki milosne",
+            "### Zwroty przed snem"
+          ]
+        },
+        {
+          "header": "## Slownictwo milosne",
+          "subsections": [
+            "### Podstawowe słowa zwiazane z miloscia",
+            "### Czasowniki romantyczne"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a23cebeb-a490-4742-b5a6-68b5960b9499",
+      "title": "Пожелания на годовщину на итальянский: Романтические фразы",
+      "native_lang": "ru",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Простые пожелания на годовщину",
+          "subsections": [
+            "### Короткие и сладкие",
+            "### Для вашего партнёра"
+          ]
+        },
+        {
+          "header": "## Романтические послания на годовщину",
+          "subsections": [
+            "### Сердечные признания",
+            "### Задумчивые послания"
+          ]
+        },
+        {
+          "header": "## Послания по годам",
+          "subsections": [
+            "### Первая годовщина",
+            "### Пятая годовщина",
+            "### Десятая годовщина",
+            "### Двадцать пятая годовщина (серебряная)",
+            "### Пятидесятая годовщина (золотая)"
+          ]
+        },
+        {
+          "header": "## Планирование празднования годовщины",
+          "subsections": [
+            "### Романтические идеи",
+            "### Выражение благодарности"
+          ]
+        },
+        {
+          "header": "## Сообщения для социальных сетей",
+          "subsections": [
+            "### Подписи для публикаций"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a240d2d2-cea8-49c3-85a2-e7a3c0c77f46",
+      "title": "Skriva kärleksbrev på franska – Romantiska fraser för din partner",
+      "native_lang": "sv",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Inledande hälsningar",
+          "subsections": [
+            "### \"Mon amour\"",
+            "### \"Mon cœur\"",
+            "### \"Ma chérie\" / \"Mon chéri\"",
+            "### \"Mon trésor\""
+          ]
+        },
+        {
+          "header": "## Uttrycka känslor",
+          "subsections": [
+            "### \"Les mots ne peuvent exprimer combien tu comptes pour moi\"",
+            "### \"Chaque jour, je t'aime un peu plus\"",
+            "### \"Tu es mon tout – mon soleil, ma lune, mes étoiles\"",
+            "### \"Mon cœur t'appartient, maintenant et pour toujours\"",
+            "### \"Avec toi, j'ai découvert le vrai sens de l'amour\""
+          ]
+        },
+        {
+          "header": "## Beskriva din partner",
+          "subsections": [
+            "### \"Ton sourire illumine mon monde\"",
+            "### \"Ta bonté et ta chaleur m'inspirent chaque jour\"",
+            "### \"Quand tu me regardes, je me sens la personne la plus chanceuse au monde\"",
+            "### \"Ta force et ta douceur m'émerveillent\""
+          ]
+        },
+        {
+          "header": "## Minnen och framtid",
+          "subsections": [
+            "### \"Je chéris chaque moment passé ensemble\"",
+            "### \"Dès l'instant où je t'ai rencontré(e), j'ai su que tu étais spécial(e)\"",
+            "### \"J'ai hâte de voir ce que l'avenir nous réserve\"",
+            "### \"Vieillir à tes côtés est mon plus grand rêve\""
+          ]
+        },
+        {
+          "header": "## Löften",
+          "subsections": [
+            "### \"Je promets de t'aimer dans les bons comme dans les mauvais moments\"",
+            "### \"Je serai toujours là pour toi, quoi qu'il arrive\"",
+            "### \"Mon amour pour toi grandit de jour en jour\""
+          ]
+        },
+        {
+          "header": "## Avslutningar",
+          "subsections": [
+            "### \"À toi pour toujours\"",
+            "### \"Avec tout mon amour\"",
+            "### \"Éternellement à toi\"",
+            "### \"Je t'aime de tout mon cœur\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2464d73-fa54-486b-b92b-09baefddbddc",
+      "title": "Yunanca Özlem İfadeleri: Seni Özledim ve Hasret Sözleri",
+      "native_lang": "tr",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Özlem İfadeleri",
+          "subsections": [
+            "### 1. \"Μου λείπεις\" (Mou lipis)",
+            "### 2. \"Μου λείπεις πολύ\" (Mou lipis poli)",
+            "### 3. \"Λαχταράω να σε δω\" (Lahtarao na se do)",
+            "### 4. \"Μακάρι να ήσουν εδώ\" (Makari na isoun edo)",
+            "### 5. \"Σκέφτομαι συνέχεια εσένα\" (Skeftome sinehia esena)",
+            "### 6. \"Νιώθω άδεια χωρίς εσένα\" (Niotho adia horis esena)",
+            "### 7. \"Μετράω τις μέρες μέχρι να σε δω\" (Metrao tis meres mehri na se do)",
+            "### 8. \"Είσαι τα πάντα για μένα\" (Ise ta panda gia mena)",
+            "### 9. \"Η καρδιά μου σε λαχταράει\" (I kardia mou se lahtarai)",
+            "### 10. \"Ελπίζω να σε δω σύντομα\" (Elpizo na se do sindoma)",
+            "### 11. \"Κάθε μέρα χωρίς εσένα είναι δύσκολη\" (Kathe mera horis esena ine diskoli)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a248ef82-5232-4133-8c6a-4f41dbff3379",
+      "title": "Danska fraser för att träffa svärföräldrarna – Gör ett gott intryck",
+      "native_lang": "sv",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Första mötet",
+          "subsections": [
+            "### \"Det er så dejligt endelig at møde jer\"",
+            "### \"Jeg har hørt så meget godt om jer\"",
+            "### \"Tusind tak fordi I tager imod mig\""
+          ]
+        },
+        {
+          "header": "## Artiga fraser",
+          "subsections": [
+            "### \"I må bare kalde mig [namn]\"",
+            "### \"I har et rigtig flot hjem\"",
+            "### \"Kan jeg hjælpe med noget?\"",
+            "### \"Maden er virkelig lækker\""
+          ]
+        },
+        {
+          "header": "## Om din relation",
+          "subsections": [
+            "### \"Jeres søn/datter betyder alt for mig\"",
+            "### \"Jeg føler mig meget heldig over at have mødt [namn]\"",
+            "### \"Vi gør hinanden meget glade\""
+          ]
+        },
+        {
+          "header": "## Visa intresse",
+          "subsections": [
+            "### \"Jeg vil gerne høre mere om [ämne]\"",
+            "### \"Hvordan mødtes I?\""
+          ]
+        },
+        {
+          "header": "## Avskedsfraser",
+          "subsections": [
+            "### \"Tak for en fantastisk aften\"",
+            "### \"Det var virkelig hyggeligt at møde jer\"",
+            "### \"Jeg håber, vi kan gøre det her igen snart\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a249374b-7ade-4d4a-9141-9e76caca7cc3",
+      "title": "Spotkanie z ukrainska rodzina partnera - niezbędne zwroty",
+      "native_lang": "pl",
+      "target_lang": "uk",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Przedstawienie",
+            "### Ćwiczenie 2: Komplementy",
+            "### Ćwiczenie 3: Przy stole"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a24e90e5-f9b4-4ec4-9c30-59cbef242f92",
+      "title": "Phrases norvégiennes pour les disputes de couple",
+      "native_lang": "fr",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions essentielles pour les désaccords",
+          "subsections": [
+            "### Exprimer son désaccord",
+            "### Exprimer ses émotions",
+            "### Fixer des limites",
+            "### Chercher à comprendre"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a264aeb8-d199-4f3d-b9c5-4b3e7c480b3b",
+      "title": "Jak powiedziec «Ja tebe kochaju» po ukrainsku - romantyczne zwroty",
+      "native_lang": "pl",
+      "target_lang": "uk",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Na specjalne okazje",
+          "subsections": [
+            "### Zaręczyny i ślub",
+            "### Rocznice"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Poranne wyznanie",
+            "### Ćwiczenie 2: Wieczorna rutyna",
+            "### Ćwiczenie 3: SMS-y po ukraińsku"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a27c1181-53a6-441d-84c8-96073af21b3e",
+      "title": "Řecké fráze pro setkání s rodiči partnera",
+      "native_lang": "cs",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## První setkání",
+          "subsections": [
+            "### \"Χαίρομαι πολύ που σας γνωρίζω.\"",
+            "### \"Ο/Η [partner] μου έχει μιλήσει πολύ για εσάς.\"",
+            "### \"Σας ευχαριστώ πολύ για την πρόσκληση.\"",
+            "### \"Έχετε ένα πολύ ωραίο σπίτι.\""
+          ]
+        },
+        {
+          "header": "## U jídla",
+          "subsections": [
+            "### \"Είναι πεντανόστιμο! Μπορώ να έχω τη συνταγή;\"",
+            "### \"Όλα φαίνονται υπέροχα.\""
+          ]
+        },
+        {
+          "header": "## Projevení zájmu",
+          "subsections": [
+            "### \"Θα ήθελα να δω φωτογραφίες του/της [partner] όταν ήταν παιδί.\"",
+            "### \"Πώς γνωριστήκατε;\""
+          ]
+        },
+        {
+          "header": "## Nabídka pomoci",
+          "subsections": [
+            "### \"Μπορώ να βοηθήσω σε κάτι;\"",
+            "### \"Αφήστε με να βοηθήσω με τα πιάτα.\""
+          ]
+        },
+        {
+          "header": "## Rozloučení",
+          "subsections": [
+            "### \"Ευχαριστώ για ένα υπέροχο βράδυ.\"",
+            "### \"Ελπίζω να τα ξαναπούμε σύντομα.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a29570a6-f783-4c5b-8293-4b5955385ebf",
+      "title": "Norwegische Grammatik für Anfänger: Verliebt in die Sprache deines Partners",
+      "native_lang": "de",
+      "target_lang": "no",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Typische Fehler (und wie ihr sie vermeidet)",
+          "subsections": [
+            "### 1. \"En\" und \"et\" verwechseln",
+            "### 2. Falsche Wortstellung in Fragen",
+            "### 3. \"Jeg er\" statt \"Jeg har\""
+          ]
+        }
+      ]
+    }
+  ]
+}

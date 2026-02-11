@@ -1,0 +1,395 @@
+{
+  "batchId": "tier2a-slim-0147",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "a10dc4c9-a60f-46d3-aef9-e74ad542c12c",
+      "title": "Maďarská výslovnost pro začátečníky: Jak mluvit romanticky bez přízvuku",
+      "native_lang": "cs",
+      "target_lang": "hu",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Základní pravidla výslovnosti",
+          "subsections": [
+            "### 1. Maďarská abeceda – přítel nebo nepřítel?",
+            "### 2. Dlouhé a krátké samohlásky"
+          ]
+        },
+        {
+          "header": "## Párová cvičení: Naučte se spolu",
+          "subsections": [
+            "### Romantická slovíčka k procvičení",
+            "### Procvičovací věty pro páry"
+          ]
+        },
+        {
+          "header": "## Nejčastější chyby Čechů",
+          "subsections": [
+            "### 1. Nesprávné délky samohlásek",
+            "### 2. Míchání s a sz",
+            "### 3. Výslovnost gy, ny, ty"
+          ]
+        },
+        {
+          "header": "## Tipy pro procvičování spolu",
+          "subsections": [
+            "### Technika \"zrcadlení\"",
+            "### Hra \"maďarské ucho\""
+          ]
+        },
+        {
+          "header": "## Rychlý tahák na závěr",
+          "subsections": [
+            "### Základní pravidla v kostce:",
+            "### Nejdůležitější romantická fráze:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a1147aa8-eabd-4d2f-b994-156b7919eafa",
+      "title": "Turecká výslovnost pro začátečníky: Jak mluvit romanticky bez přízvuku",
+      "native_lang": "cs",
+      "target_lang": "tr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Základní pravidla výslovnosti",
+          "subsections": [
+            "### 1. Turecká abeceda je fonetická",
+            "### 2. Přízvuk je vždy na poslední slabice",
+            "### 3. Speciální písmena a jejich výslovnost"
+          ]
+        },
+        {
+          "header": "## Nejčastější chyby Čechů",
+          "subsections": [
+            "### 1. Nesprávné \"ı\" vs \"i\"",
+            "### 2. Příliš tvrdé \"r\"",
+            "### 3. Zapomínání na měkké \"ğ\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a11716a4-4e86-4fae-84b1-3807b0ae68e8",
+      "title": "Γαλλικά για Ζευγάρια: Βασικά Γραμματικά που Φέρνουν τους Δύο Σας Πιο Κοντά",
+      "native_lang": "el",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Οι 4 Βασικοί Κανόνες για Ζευγάρια",
+          "subsections": [
+            "### 1. Τα Άρθρα: Το \"Ο\" και το \"Η\" της Αγάπης",
+            "### 2. Τα Ρήματα στο Παρόν: Εκφράζοντας Συναισθήματα",
+            "### 3. Η Θέση των Επιθέτων: Περιγράφοντας τον Σύντροφό Σας",
+            "### 4. Ερωτήσεις: Ρωτώντας για την Καρδιά"
+          ]
+        },
+        {
+          "header": "## Κοινά Πρότυπα για Καθημερινή Χρήση",
+          "subsections": [
+            "### Ρήματα που Χρησιμοποιείτε Κάθε Μέρα"
+          ]
+        },
+        {
+          "header": "## Συχνά Λάθη που Κάνουν τα Ζευγάρια",
+          "subsections": [
+            "### 1. Ξεχνάνε τη Συμφωνία Γένους",
+            "### 2. Λάθος στη Θέση των Επιθέτων",
+            "### 3. Λάθος στα Χαϊδευτικά"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a1285974-3e89-4d07-be27-a0d7fdcc21dc",
+      "title": "Russische Aussprache: Ein Guide für Deutsche",
+      "native_lang": "de",
+      "target_lang": "ru",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Konsonanten",
+          "subsections": [
+            "### Einfache Konsonanten (wie im Deutschen)",
+            "### Besondere Konsonanten"
+          ]
+        },
+        {
+          "header": "## Die schwierigsten Laute für Deutsche",
+          "subsections": [
+            "### Der Laut Ы",
+            "### Das gerollte Р"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a13036a4-33ac-4ede-b489-4a81d23de3eb",
+      "title": "Cum Să Scrii o Scrisoare de Dragoste în Engleză",
+      "native_lang": "ro",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Începutul Scrisorii",
+          "subsections": [
+            "### Formule de Adresare",
+            "### Primele Rânduri"
+          ]
+        },
+        {
+          "header": "## Corpul Scrisorii",
+          "subsections": [
+            "### Exprimarea Sentimentelor",
+            "### Amintiri și Momente Speciale"
+          ]
+        },
+        {
+          "header": "## Finalul Scrisorii",
+          "subsections": [
+            "### Promisiuni și Speranțe",
+            "### Formule de Încheiere"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a13b5d82-5434-4a6f-98b2-0ae143ed837d",
+      "title": "Francia összeköltözési szókincs",
+      "native_lang": "hu",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Költözési kifejezések",
+            "### Háztartási szókincs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a1572df8-6ac5-427a-88d4-15084566b019",
+      "title": "Svenske Flirtesætninger for Danskere",
+      "native_lang": "da",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Komplimenter",
+          "subsections": [
+            "### \"Du har så vackra ögon\"",
+            "### \"Du ser fantastisk ut\"",
+            "### \"Jag gillar ditt leende\""
+          ]
+        },
+        {
+          "header": "## Romantiske Udtryk",
+          "subsections": [
+            "### \"Jag kan inte sluta tänka på dig\"",
+            "### \"Du gör mig lycklig\"",
+            "### \"Jag känner mig trygg med dig\""
+          ]
+        },
+        {
+          "header": "## Legende Svensk Flirt",
+          "subsections": [
+            "### \"Kommer du hit ofta?\"",
+            "### \"Ursäkta, men har vi träffats förut?\""
+          ]
+        },
+        {
+          "header": "## Invitationer",
+          "subsections": [
+            "### \"Vill du ta en fika med mig?\"",
+            "### \"Får jag bjuda dig på middag?\""
+          ]
+        },
+        {
+          "header": "## Kærlige Kælenavne",
+          "subsections": [
+            "### \"Älskling\"",
+            "### \"Raring\"",
+            "### \"Gull\"",
+            "### \"Sötnos\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a164869e-dbc6-4e1d-8030-ff8cc00097a0",
+      "title": "Řecké flirtovací fráze pro Čechy",
+      "native_lang": "cs",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní lichotky",
+          "subsections": [
+            "### \"Είσαι πολύ όμορφη/όμορφος.\"",
+            "### \"Έχεις ένα υπέροχο χαμόγελο.\"",
+            "### \"Μου αρέσεις πολύ.\"",
+            "### \"Είσαι απίστευτα ελκυστική/ελκυστικός.\""
+          ]
+        },
+        {
+          "header": "## Romantické fráze",
+          "subsections": [
+            "### \"Δεν μπορώ να σταματήσω να σκέφτομαι εσένα.\"",
+            "### \"Με κάνεις τόσο ευτυχισμένη/ευτυχισμένο.\"",
+            "### \"Η καρδιά μου χτυπάει πιο γρήγορα όταν σε βλέπω.\"",
+            "### \"Είμαι τρελός/τρελή για σένα.\""
+          ]
+        },
+        {
+          "header": "## Hravé fráze",
+          "subsections": [
+            "### \"Πιστεύεις στον έρωτα με την πρώτη ματιά ή να περάσω ξανά;\"",
+            "### \"Είσαι κουρασμένη; Τρέχεις στο μυαλό μου όλη μέρα.\"",
+            "### \"Έχεις κάτι το ξεχωριστό.\""
+          ]
+        },
+        {
+          "header": "## Fráze pro zprávy",
+          "subsections": [
+            "### \"Καλημέρα, αγάπη μου.\"",
+            "### \"Μου λείπεις.\"",
+            "### \"Ανυπομονώ να σε δω ξανά.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a16be021-643f-4c94-9e82-495d4e1d5b40",
+      "title": "Como Escrever Cartas de Amor em Russo: Profundidade da Alma Russa",
+      "native_lang": "pt",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Estrutura de uma Carta de Amor",
+          "subsections": [
+            "### Abertura Carinhosa",
+            "### Expressando Seus Sentimentos",
+            "### Declarações de Amor",
+            "### Promessas",
+            "### Encerramentos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a1a32c94-b380-4c9d-b6d6-20de85836c6f",
+      "title": "Svéd flörtölős kifejezések",
+      "native_lang": "hu",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető flörtölős kifejezések",
+          "subsections": [
+            "### 1. Du är väldigt vacker (Dü ér véldigt váker)",
+            "### 2. Du har fina ögon (Dü hár fína ögon)",
+            "### 3. Vill du ta en fika med mig? (Vill dü tá en fíka med mej?)",
+            "### 4. Jag tycker om dig (Jág tüker om dej)",
+            "### 5. Jag vill lära känna dig bättre (Jág vill léra senna dej béttre)",
+            "### 6. Du är så söt (Dü ér szó szöt)",
+            "### 7. Kan jag få ditt nummer? (Kan jág fó ditt nummer?)",
+            "### 8. Du har ett fint leende (Dü hár et fint léende)",
+            "### 9. Det är trevligt att prata med dig (Det ér trévligt at práta med dej)",
+            "### 10. Vill du ses igen? (Vill dü szész ígen?)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a1afd249-7e36-4cb2-a7a5-828dd8558865",
+      "title": "Expresii Franceze pentru Nuntă: Vocabular Romantic pentru Ziua Perfectă",
+      "native_lang": "ro",
+      "target_lang": "fr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Expresii pentru Recepție",
+          "subsections": [
+            "### Conversații",
+            "### La Masă"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a1b64d4d-6bd8-4b83-be03-f5148218914c",
+      "title": "Основи іспанської граматики для початківців: Посібник для українців",
+      "native_lang": "uk",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Важливі неправильні дієслова",
+          "subsections": [
+            "### Ser — Бути (постійно)",
+            "### Estar — Бути (тимчасово)",
+            "### Ser vs Estar: Ключова відмінність"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a1bed000-522a-4c5d-a8bb-46db8ff32b13",
+      "title": "Frases de Paquera em Holandês: Romance à Moda dos Países Baixos",
+      "native_lang": "pt",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases Essenciais de Paquera",
+          "subsections": [
+            "### Elogios Autênticos",
+            "### Expressando Interesse",
+            "### Cantadas Holandesas",
+            "### Para Relacionamentos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a1dab246-c474-43e2-9bc2-44a9d7c4685a",
+      "title": "Francia nászutas utazási kifejezések",
+      "native_lang": "hu",
+      "target_lang": "fr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Utazási alapkifejezések",
+            "### Romantikus helyzetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a1fe4fbb-0ca2-4470-af96-1711cb067ecb",
+      "title": "Turkish for Couples: 75+ Essential Phrases",
+      "native_lang": "en",
+      "target_lang": "tr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Quick Reference Tables",
+          "subsections": [
+            "### Morning & Evening Greetings",
+            "### Essential Phrases",
+            "### Expressing Feelings"
+          ]
+        }
+      ]
+    }
+  ]
+}

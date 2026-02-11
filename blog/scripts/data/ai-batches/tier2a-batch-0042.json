@@ -1,0 +1,132 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0042",
+  "articles": [
+    {
+      "id": "0bb1f2b1-ee7e-467f-8575-8b885a8a5d07",
+      "title": "Romantische Noorse Zinnen voor Stellen: Verover Je Partner",
+      "native_lang": "nl",
+      "target_lang": "no",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nRomantische zinnen zijn de kruiden van elke relatie. Het Noors heeft een warme, oprechte klank die perfect past bij liefdesverklaringen. Leer de mooiste uitdrukkingen om je Noorse partner te veroveren!\n\n## Dagelijkse Liefdesuitingen\n\n<PhraseOfDay\n  word=\"Du gjør meg så lykkelig\"\n  translation=\"Je maakt me zo gelukkig\"\n  pronunciation=\"duu yur mai so luuk-ke-li\"\n  context=\"Perfect voor dagelijks gebruik om je waardering te tonen.\"\n/>\n\n### Je Waardering Tonen\n\n<VocabCard\n  word=\"Jeg er så heldig som har deg\"\n  translation=\"Ik ben zo gelukkig dat ik jou heb\"\n  pronunciation=\"yai air so hel-di som haar dai\"\n  example=\"Etter ti år er jeg fortsatt så heldig som har deg.\"\n/>\n\n<VocabCard\n  word=\"Du betyr verden for meg\"\n  translation=\"Je betekent de wereld voor me\"\n  pronunciation=\"duu be-tuur vair-den for mai\"\n  example=\"Jeg håper du vet at du betyr verden for meg.\"\n/>\n\n<VocabCard\n  word=\"Jeg setter pris på deg\"\n  translation=\"Ik waardeer je\"\n  pronunciation=\"yai set-ter pris po dai\"\n  example=\"Jeg ville bare si at jeg setter pris på deg.\"\n/>\n\n<VocabCard\n  word=\"Takk for at du er deg\"\n  translation=\"Bedankt dat je jezelf bent\"\n  pronunciation=\"tak for at duu air dai\"\n  example=\"Takk for at du er deg. Aldri forandre deg.\"\n/>\n\n<CultureTip title=\"Noorse Oprechtheid\" flag=\"🇳🇴\">\nNoren zijn vaak direct en oprecht. Een simpele, gemeende zin als \"jeg er glad i deg\" (ik mag je graag/ik hou van je) kan veel betekenen. Kwaliteit boven kwantiteit!\n</CultureTip>\n\n## Complimenten voor Je Partner\n\n### Over Hun Uiterlijk\n\n<VocabCard\n  word=\"Du ser fantastisk ut\"\n  translation=\"Je ziet er fantastisch uit\"\n  pronunciation=\"duu sair fan-tas-tisk uut\"\n  example=\"Du ser absolutt fantastisk ut i kveld.\"\n/>\n\n<VocabCard\n  word=\"Du tar pusten fra meg\"\n  translation=\"Je beneemt me de adem\"\n  pronunciation=\"duu taar pus-ten fra mai\"\n  example=\"Hver gang jeg ser deg, tar du pusten fra meg.\"\n/>\n\n<VocabCard\n  word=\"Du er så vakker/kjekk\"\n  translation=\"Je bent zo mooi/knap\"\n  pronunciation=\"duu air so vak-ker/shek\"\n  example=\"Du er så vakker, både innvendig og utvendig.\"\n/>\n\n### Over Hun Persoonlijkheid\n\n<VocabCard\n  word=\"Du har den vakreste sjelen\"\n  translation=\"Je hebt de mooiste ziel\"\n  pronunciation=\"duu haar den vak-res-te shei-len\"\n  example=\"Du har den vakreste sjelen jeg noensinne har møtt.\"\n/>\n\n<VocabCard\n  word=\"Smilet ditt lyser opp dagen min\"\n  translation=\"Je glimlach fleurt mijn dag op\"\n  pronunciation=\"smii-let dit luu-ser op daa-gen min\"\n  example=\"Smilet ditt lyser opp dagen min, hver eneste dag.\"\n/>\n\n## Romantische Verklaringen\n\n### Grote Liefdesverklaringen\n\n<VocabCard\n  word=\"Jeg har aldri følt det slik før\"\n  translation=\"Ik heb me nog nooit zo gevoeld\"\n  pronunciation=\"yai haar al-dri fult dei sliik fur\"\n  example=\"Jeg har aldri følt det slik før. Du er spesiell.\"\n/>\n\n<VocabCard\n  word=\"Du kompletterer meg\"\n  translation=\"Je maakt me compleet\"\n  pronunciation=\"duu kom-plet-tei-rer mai\"\n  example=\"Jeg visste ikke hva jeg manglet før jeg møtte deg. Du kompletterer meg.\"\n/>\n\n<VocabCard\n  word=\"Jeg vil tilbringe livet mitt med deg\"\n  translation=\"Ik wil mijn leven met je doorbrengen\"\n  pronunciation=\"yai vil til-bring-e lii-vet mit med dai\"\n  example=\"Jeg vil tilbringe livet mitt med deg og bli gammel sammen.\"\n/>\n\n<VocabCard\n  word=\"Du er min sjelevenin\"\n  translation=\"Je bent mijn zielsverwant\"\n  pronunciation=\"duu air min shei-le-ven-in\"\n  example=\"Jeg tror du er min sjelevenin. Vi var ment for hverandre.\"\n/>\n\n<CultureTip title=\"Koselig\" flag=\"🇳🇴\">\n\"Koselig\" is het Noorse equivalent van het Deense \"hygge\" - een gevoel van gezelligheid en warmte. Romantiek in Noorwegen gaat vaak over samen koselig hebben bij kaarslicht of in de natuur.\n</CultureTip>\n\n## Zinnen voor Speciale Momenten\n\n### Bij Een Speciale Gelegenheid\n\n<VocabCard\n  word=\"Dette er den lykkeligste dagen i mitt liv\"\n  translation=\"Dit is de gelukkigste dag van mijn leven\"\n  pronunciation=\"det-te air den luuk-ke-li-ste daa-gen ie mit liiv\"\n  example=\"Å stå her med deg, dette er den lykkeligste dagen i mitt liv.\"\n/>\n\n### Bij Een Romantisch Diner\n\n<VocabCard\n  word=\"Skål for oss\"\n  translation=\"Proost op ons\"\n  pronunciation=\"skol for os\"\n  example=\"Skål for oss og for mange flere lykkelige år sammen.\"\n/>\n\n<VocabCard\n  word=\"Jeg kunne sett inn i øynene dine for alltid\"\n  translation=\"Ik zou voor altijd in je ogen kunnen kijken\"\n  pronunciation=\"yai kun-ne set in ie uy-ne-ne dii-ne for al-tid\"\n  example=\"Jeg kunne sett inn i øynene dine for alltid og aldri bli lei.\"\n/>\n\n## Liefdevolle Berichten\n\n### Voor Tekstberichten\n\n<VocabCard\n  word=\"Tenker på deg\"\n  translation=\"Ik denk aan je\"\n  pronunciation=\"ten-ker po dai\"\n  example=\"Ville bare si at jeg tenker på deg.\"\n/>\n\n<VocabCard\n  word=\"Gleder meg til å se deg\"\n  translation=\"Kan niet wachten om je te zien\"\n  pronunciation=\"glei-der mai til o sei dai\"\n  example=\"Gleder meg til å se deg i kveld!\"\n/>\n\n<VocabCard\n  word=\"Du er alltid i tankene mine\"\n  translation=\"Je bent altijd in mijn gedachten\"\n  pronunciation=\"duu air al-tid ie tan-ke-ne mii-ne\"\n  example=\"Du er alltid i tankene mine, uansett hva jeg gjør.\"\n/>\n\n### Voor Kaartjes en Brieven\n\n<VocabCard\n  word=\"Med all min kjærlighet\"\n  translation=\"Met al mijn liefde\"\n  pronunciation=\"med al min shair-li-heit\"\n  example=\"Gratulerer med dagen. Med all min kjærlighet, for alltid din.\"\n/>\n\n<VocabCard\n  word=\"For alltid og evig\"\n  translation=\"Voor altijd en eeuwig\"\n  pronunciation=\"for al-tid o ei-vi\"\n  example=\"Jeg vil elske deg for alltid og evig.\"\n/>\n\n## Zinnen voor Moeilijke Momenten\n\n### Na een Ruzie\n\n<VocabCard\n  word=\"Unnskyld, jeg tok feil\"\n  translation=\"Sorry, ik had ongelijk\"\n  pronunciation=\"un-shuld yai took fail\"\n  example=\"Unnskyld, jeg tok feil. Kan vi snakke om det?\"\n/>\n\n<VocabCard\n  word=\"Jeg hater å krangle med deg\"\n  translation=\"Ik haat het om ruzie met je te maken\"\n  pronunciation=\"yai haa-ter o krang-le med dai\"\n  example=\"Jeg hater å krangle med deg. La oss bli venner igjen.\"\n/>\n\n### Om Te Troosten\n\n<VocabCard\n  word=\"Jeg er her for deg\"\n  translation=\"Ik ben er voor je\"\n  pronunciation=\"yai air hair for dai\"\n  example=\"Uansett hva som skjer, jeg er her for deg.\"\n/>\n\n<VocabCard\n  word=\"Vi klarer dette sammen\"\n  translation=\"We komen hier samen doorheen\"\n  pronunciation=\"vie klaa-rer det-te sam-men\"\n  example=\"Ikke bekymre deg, vi klarer dette sammen.\"\n/>\n\n## Toekomstplannen\n\n<VocabCard\n  word=\"Jeg kan ikke forestille meg livet uten deg\"\n  translation=\"Ik kan me mijn leven niet voorstellen zonder jou\"\n  pronunciation=\"yai kan ik-ke for-es-til-le mai lii-vet uu-ten dai\"\n  example=\"Jeg kan ikke forestille meg livet uten deg i det.\"\n/>\n\n<VocabCard\n  word=\"Jeg vil bli gammel med deg\"\n  translation=\"Ik wil oud worden met jou\"\n  pronunciation=\"yai vil blie gam-mel med dai\"\n  example=\"Jeg vil bli gammel med deg, sittende på verandaen vår.\"\n/>\n\n<VocabCard\n  word=\"Du er min framtid\"\n  translation=\"Jij bent mijn toekomst\"\n  pronunciation=\"duu air min fram-tiid\"\n  example=\"Når jeg tenker på framtiden, ser jeg deg. Du er min framtid.\"\n/>\n\n## Noorse Natuur en Romantiek\n\n<VocabCard\n  word=\"Du er min sol\"\n  translation=\"Je bent mijn zon\"\n  pronunciation=\"duu air min sool\"\n  example=\"Du er min sol på en gråværsdag.\"\n/>\n\n<VocabCard\n  word=\"Du lyser opp livet mitt\"\n  translation=\"Je verlicht mijn leven\"\n  pronunciation=\"duu luu-ser op lii-vet mit\"\n  example=\"Som solen lyser opp fjordene, lyser du opp livet mitt.\"\n/>\n\n<CultureTip title=\"Natuur als Romantiek\" flag=\"🏔️\">\nNoren zijn dol op de natuur. Een wandeling door de fjorden, noorderlicht kijken, of skiën samen is net zo romantisch als een duur restaurant. Verwijzingen naar natuur in je liefdesuitdrukkingen worden zeer gewaardeerd!\n</CultureTip>\n\n## Tips voor Romantisch Noors\n\n1. **Wees oprecht** - Noren waarderen authenticiteit boven alles\n2. **Houd het simpel** - Eenvoudige zinnen zijn vaak krachtiger\n3. **Geniet van koselig** - Maak het gezellig en warm\n4. **Verbind met natuur** - Fjorden, bergen, noorderlicht\n5. **Wees geduldig** - Noren doen er langer over om emoties te uiten\n\n## Snelle Referentiekaart\n\n| Situatie | Zinnen |\n|----------|--------|\n| Dagelijks | Jeg elsker deg, Du gjør meg lykkelig |\n| Speciaal moment | Du tar pusten fra meg |\n| Ruzie bijleggen | Unnskyld, jeg tok feil |\n| Toekomstplannen | Jeg vil bli gammel med deg |\n| Steun bieden | Jeg er her for deg |\n\n<CTA\n  text=\"Klaar om Noors te beheersen met je partner? Oefen met AI voice chat, bewaar zinnen in je Love Log, en je partner kan je tutor zijn. Perfect voor meertalige stellen!\"\n  buttonText=\"Begin Nu\"\n/>\n",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 216,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Complimenten voor Je Partner",
+              "## Romantische Verklaringen",
+              "## Zinnen voor Speciale Momenten",
+              "## Liefdevolle Berichten",
+              "## Zinnen voor Moeilijke Momenten"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "0bd9fc4e-2c73-4790-9c42-a5b2c3126c88",
+      "title": "Φράσεις για το Πρώτο Ραντεβού (it): Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "it",
+      "category": "communication",
+      "content": "Το πρώτο ραντεβού είναι συναρπαστικό! Αυτές οι φράσεις θα σας βοηθήσουν να εντυπωσιάσετε.\n\n## Βασικές Φράσεις\n\n### Γνωριμία\n\nΧαίρομαι που σε γνωρίζω, Είσαι υπέροχος/η, Περίμενα αυτή τη στιγμή.\n\n### Συζήτηση\n\nΠες μου για σένα, Τι σου αρέσει να κάνεις, Αυτό είναι ενδιαφέρον!\n\n### Φλερτ\n\nΈχεις υπέροχο χαμόγελο, Νιώθω κάτι ξεχωριστό, Περνάω υπέροχα.\n\n### Κλείσιμο\n\nΘα ήθελα να σε ξαναδώ, Μπορώ να σε πάρω, Ήταν υπέροχη βραδιά.\n\n## Συμπέρασμα\n\nΜε σεβασμό και αυθεντικότητα, θα κάνετε το πρώτο σας ραντεβού αξέχαστο!",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 79,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Βασικές Φράσεις"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "0beca3e6-2b0d-478b-b2bb-f7fccea4af0d",
+      "title": "Portugiesische Trost- und Unterstützungsphrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "pt",
+      "category": "communication",
+      "content": "Portugiesisch ist eine Sprache voller Wärme und Mitgefühl. Hier lernst du die wichtigsten Phrasen für emotionale Unterstützung.\n\n## Grundlegende Unterstützung\n\n### \"Estou aqui para você\"\n**Bedeutung:** Ich bin für dich da\n\n### \"Sempre estarei ao seu lado\"\n**Bedeutung:** Ich werde immer an deiner Seite sein\n\n### \"Você não está sozinho/sozinha nisso\"\n**Bedeutung:** Du bist damit nicht allein\n\n### \"O que você precisar, estou aqui\"\n**Bedeutung:** Was auch immer du brauchst, ich bin hier\n\n## Bei Trauer\n\n### \"Sinto muito pela sua perda\"\n**Bedeutung:** Es tut mir sehr leid für deinen Verlust\n\n### \"Tome todo o tempo que precisar\"\n**Bedeutung:** Nimm dir alle Zeit, die du brauchst\n\n### \"Está tudo bem chorar\"\n**Bedeutung:** Es ist okay zu weinen\n\n## Bei Stress und Sorgen\n\n### \"Vamos resolver isso juntos\"\n**Bedeutung:** Wir werden das zusammen lösen\n\n### \"Um passo de cada vez\"\n**Bedeutung:** Ein Schritt nach dem anderen\n\n### \"Está tudo bem não estar bem\"\n**Bedeutung:** Es ist okay, nicht okay zu sein\n\n### \"Isso também vai passar\"\n**Bedeutung:** Auch das wird vorübergehen\n\n### \"Não seja tão duro/dura consigo mesmo/mesma\"\n**Bedeutung:** Sei nicht so streng mit dir selbst\n\n## Ermutigung\n\n### \"Eu acredito em você\"\n**Bedeutung:** Ich glaube an dich\n\n### \"Você é mais forte do que pensa\"\n**Bedeutung:** Du bist stärker, als du denkst\n\n### \"Tenho muito orgulho de você\"\n**Bedeutung:** Ich bin sehr stolz auf dich\n\n### \"Você vai conseguir\"\n**Bedeutung:** Du wirst es schaffen\n\n## Aktive Hilfe anbieten\n\n### \"O que posso fazer para ajudar?\"\n**Bedeutung:** Was kann ich tun, um zu helfen?\n\n### \"Quer falar sobre isso?\"\n**Bedeutung:** Möchtest du darüber reden?\n\n### \"Estou ouvindo\"\n**Bedeutung:** Ich höre zu\n\n## Langfristige Unterstützung\n\n### \"Sempre estarei aqui, aconteça o que acontecer\"\n**Bedeutung:** Ich werde immer hier sein, egal was passiert\n\n### \"Estamos juntos nisso\"\n**Bedeutung:** Wir stecken da gemeinsam drin\n\n## Kulturelle Hinweise\n\nBrasilianer und Portugiesen sind warmherzig und expressiv. Umarmungen sind wichtig. \"Saudade\" beschreibt auch das Mitgefühl für den Schmerz anderer.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Grundlegende Unterstützung",
+              "## Bei Trauer",
+              "## Bei Stress und Sorgen",
+              "## Ermutigung",
+              "## Aktive Hilfe anbieten",
+              "## Langfristige Unterstützung"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "0bf9dd3e-eee4-4cd5-ac54-bf9243bea2a3",
+      "title": "Ukrán kifejezések megbocsátáshoz",
+      "native_lang": "hu",
+      "target_lang": "uk",
+      "category": "communication",
+      "content": "A megbocsátás a kapcsolat gyógyításának kulcsa. Ha ukrán anyanyelvű partnered van, ezek a kifejezések segítenek.\n\n## Bocsánatkérés\n\n### 1. \"Мені дуже шкода\" (Meni duzhe shkoda)\n**Jelentés:** Igazán sajnálom\n\n### 2. \"Будь ласка, вибач мені\" (Bud' laska, vybach meni)\n**Jelentés:** Kérlek, bocsáss meg\n\n### 3. \"Я беру на себе повну відповідальність\" (Ya beru na sebe povnu vidpovidal'nist')\n**Jelentés:** Teljes felelősséget vállalok\n\n### 4. \"Я помилявся/лася і визнаю це\" (Ya pomylyavsya/lasya i vyznayu tse)\n**Jelentés:** Tévedtem és beismerem\n\n### 5. \"Обіцяю, це не повториться\" (Obitsyayu, tse ne povtoryt'sya)\n**Jelentés:** Megígérem, nem fog újra megtörténni\n\n## Megbocsátás\n\n### 6. \"Я тебе прощаю\" (Ya tebe proshchayu)\n**Jelentés:** Megbocsátok neked\n\n### 7. \"Все добре, я розумію\" (Vse dobre, ya rozumiyu)\n**Jelentés:** Rendben van, megértem\n\n### 8. \"Я готовий/а рухатися далі\" (Ya hotovyy/a rukhatysya dali)\n**Jelentés:** Készen állok továbblépni\n\n### 9. \"Давай залишимо це позаду\" (Davay zalyshymo tse pozadu)\n**Jelentés:** Hagyjuk magunk mögött\n\n### 10. \"Я не тримаю образи\" (Ya ne trymayu obrazy)\n**Jelentés:** Nem tartok haragot\n\n### 11. \"Всі помиляються\" (Vsi pomylyayut'sya)\n**Jelentés:** Mindenki hibázik\n\n### 12. \"Я ціную твої вибачення\" (Ya tsinuyu tvoji vybachennya)\n**Jelentés:** Értékelem a bocsánatkérésedet\n\n## Összefoglalás\n\nAz ukrán megbocsátás őszinte és szívből jövő.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 193,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Bocsánatkérés",
+              "## Megbocsátás"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "0c1d0178-8b90-4cdb-8bec-d0eb8bb6ca0e",
+      "title": "Dánské fráze pro emocionální podporu a útěchu",
+      "native_lang": "cs",
+      "target_lang": "da",
+      "category": "communication",
+      "content": "# Dánské fráze pro emocionální podporu a útěchu\n\nDánsko je známé jako jedna z nejšťastnějších zemí světa, ale i Dánové procházejí těžkými chvílemi. Pro české mluvčí učící se dánsky je důležité pochopit, jak Dánové vyjadřují podporu - často s kombinací vřelosti a pragmatismu. Tento průvodce vám pomůže vyjádřit empatii v dánštině.\n\n## Základní fráze soucitu\n\n### 1. Jeg er her for dig\n**Výslovnost:** jej ér hér for DEJ\n**Význam:** Jsem tu pro tebe\n\nZákladní vyjádření přítomnosti a podpory. Dánská výslovnost je specifická - \"r\" na konci slov je téměř neslyšitelné.\n\n### 2. Jeg er så ked af det\n**Výslovnost:** jej ér so KED af det\n**Význam:** Je mi to tak líto\n\nStandardní vyjádření soucitu. Fráze doslova znamená \"jsem tak smutný z toho\" a je univerzální pro různé situace.\n\n### 3. Jeg forstår dig\n**Výslovnost:** jej for-STOR dej\n**Význam:** Rozumím ti\n\nVyjádření empatie. Dánové oceňují upřímnost, takže tuto frázi používejte, pouze když skutečně rozumíte situaci.\n\n## Povzbuzující fráze\n\n### 4. Du klarer det\n**Výslovnost:** du KLA-ra det\n**Význam:** Zvládneš to\n\nJednoduchá povzbuzující fráze. Dánové preferují přímé a upřímné vyjádření.\n\n### 5. Det skal nok gå\n**Výslovnost:** det skal nok GO\n**Význam:** Bude to v pořádku\n\nTypicky dánská fráze vyjadřující umírněný optimismus. Slovo \"nok\" dodává význam \"pravděpodobně\" nebo \"určitě\".\n\n### 6. Hold ud\n**Výslovnost:** hol UD\n**Význam:** Vydrž / Drž se\n\nKrátká povzbuzující fráze podobná českému \"vydrž\". Jednoduchost je v dánštině ctností.\n\n## Nabídka pomoci\n\n### 7. Hvad kan jeg gøre for dig?\n**Výslovnost:** va kan jej GÉ-re for dej\n**Význam:** Co pro tebe mohu udělat?\n\nPraktická nabídka pomoci. Dánové oceňují konkrétní nabídky více než obecné sliby.\n\n### 8. Du kan regne med mig\n**Výslovnost:** du kan RAJ-ne med mej\n**Význam:** Můžeš na mě počítat\n\nSilný závazek podpory. V dánské kultuře, kde je důvěra vysoce ceněna, je toto významný slib.\n\n## Útěcha v těžkých chvílích\n\n### 9. Du er ikke alene\n**Výslovnost:** du ér I-ke a-LE-ne\n**Význam:** Nejsi sám/sama\n\nPřipomínka, že člověk není ve svém utrpení osamocen. Fráze je genderově neutrální.\n\n### 10. Det er okay at græde\n**Výslovnost:** det ér o-KEJ at GRÉ-de\n**Význam:** Je v pořádku plakat\n\nSvolení k vyjádření emocí. Dánská kultura, i když zdrženlivá, uznává potřebu emocionálního uvolnění.\n\n### 11. Tiden læger alle sår\n**Výslovnost:** TI-den LÉ-jer A-le sor\n**Význam:** Čas léčí všechny rány\n\nTradiční moudrost sdílená mnoha kulturami. Ve skandinávských jazycích zní velmi podobně.\n\n### 12. Jeg vil altid være her for dig\n**Výslovnost:** jej vil AL-tid VÉ-re hér for dej\n**Význam:** Vždy tu budu pro tebe\n\nSilný slib dlouhodobé podpory, vhodný pro blízké přátele a rodinu.\n\n## Dánské kulturní koncepty\n\n### 13. Skal vi hygge os lidt?\n**Výslovnost:** skal vi HY-ge os lit\n**Význam:** Pojďme si udělat příjemno?\n\nKoncept \"hygge\" je jádrem dánské kultury. Nabídka hygge v těžkých chvílích znamená vytvoření útulného, bezpečného prostoru pro sdílení.\n\n### 14. Pas på dig selv\n**Výslovnost:** pas po dej SELV\n**Význam:** Dávej na sebe pozor\n\nBěžný dánský pozdrav na rozloučenou, který v kontextu těžkých chvil vyjadřuje péči o druhého.\n\n## Kulturní kontext\n\n**Hygge:** Dánský koncept \"hygge\" (přibližně \"útulnost\" nebo \"pohoda\") je klíčový pro pochopení dánské kultury. V těžkých chvílích Dánové vytvářejí hygge prostředí - svíčky, teplé nápoje, měkké deky - jako formu útěchy.\n\n**Janteloven:** Podobně jako v Norsku, i v Dánsku existuje \"zákon Jante\" zdůrazňující skromnost. Podpora by měla být upřímná a ne povýšenecká.\n\n**Fællesskab:** Dánové mají silný smysl pro komunitu (fællesskab). V těžkých chvílích se komunita semkne.\n\n**Fyzický kontakt:** Dánové jsou obecně vřelejší než Švédové nebo Norové, ale stále zdrženlivější než jižní Evropané. Objetí mezi přáteli je běžné.\n\n**Káva a koláč:** Nabídka kávy a koláče (kaffe og kage) je tradiční způsob, jak nabídnout čas a pozornost.\n\n**Ironie a humor:** Dánové často používají lehkou ironii, i v těžkých situacích. Může to být způsob, jak zlehčit atmosféru.\n\n**Praktická pomoc:** Jako všichni Skandinávci, i Dánové oceňují praktickou pomoc - nákupy, úklid, hlídání dětí.\n\n**Rovnost:** Dánská společnost je vysoce rovnostářská. Muži i ženy mohou volně vyjadřovat emoce.\n\n**Příroda:** Dánové tráví hodně času venku. Procházka na čerstvém vzduchu může být formou podpory.\n\n**Důvěra:** Dánská společnost je založena na důvěře. Když něco slíbíte, očekává se, že to splníte.\n\nTyto fráze a kulturní vhledy vám pomohou komunikovat podporu způsobem, který Dánové ocení - s vřelostí, hygge a upřímností.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Základní fráze soucitu",
+              "## Povzbuzující fráze",
+              "## Nabídka pomoci",
+              "## Útěcha v těžkých chvílích",
+              "## Dánské kulturní koncepty"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

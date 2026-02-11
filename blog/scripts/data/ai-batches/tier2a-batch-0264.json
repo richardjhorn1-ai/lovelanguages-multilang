@@ -1,0 +1,104 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0264",
+  "articles": [
+    {
+      "id": "4b582418-e7f3-495d-ac12-9e7ec49d7861",
+      "title": "Як сказати «Я тебе кохаю» італійською мовою",
+      "native_lang": "uk",
+      "target_lang": "it",
+      "category": "phrases",
+      "content": "import CTA from '@components/CTA.astro';\n\n# Як сказати «Я тебе кохаю» італійською мовою\n\nІталійська мова відома своєю мелодійністю та романтичністю. Якщо ви закохані в італійця чи італійку, або просто хочете додати романтики у ваші стосунки, ці фрази стануть у пригоді.\n\n## Основні способи сказати «Я тебе кохаю»\n\n### Ti amo (Ті амо)\nЦе найглибше визнання в коханні італійською. Використовується виключно між закоханими партнерами, означає глибоке романтичне почуття.\n\n**Приклад:** *Ti amo con tutto il cuore* — Я кохаю тебе всім серцем\n\n### Ti voglio bene (Ті вольйо бене)\nБільш м'який вираз любові, який можна використовувати як до партнера, так і до друзів та родини. Означає «Я тебе люблю» у ширшому сенсі.\n\n**Приклад:** *Ti voglio tanto bene* — Я так сильно тебе люблю\n\n## Романтичні варіації\n\n| Італійська | Українська | Коли використовувати |\n|-----------|------------|---------------------|\n| Ti amo da morire | Я кохаю тебе до смерті | Для виразу пристрасті |\n| Ti amo più della mia vita | Я кохаю тебе більше за своє життя | Особливі моменти |\n| Sei l'amore della mia vita | Ти любов мого життя | Романтичні визнання |\n| Ti amerò per sempre | Я кохатиму тебе вічно | Обіцянки вірності |\n\n## Ніжні повсякденні фрази\n\n- **Mi manchi** (Мі манкі) — Я за тобою скучаю\n- **Sei tutto per me** (Сей тутто пер ме) — Ти для мене все\n- **Non posso vivere senza di te** (Нон поссо вівере сенца ді те) — Я не можу жити без тебе\n- **Pensò sempre a te** (Пенсо семпре а те) — Я завжди думаю про тебе\n\n## Перші кроки у стосунках\n\nЯкщо ви ще не готові до серйозних визнань, почніть з:\n\n- **Mi piaci molto** (Мі п'ячі мольто) — Ти мені дуже подобаєшся\n- **Mi piaci tantissimo** (Мі п'ячі тантіссімо) — Ти мені неймовірно подобаєшся\n- **Sto bene con te** (Сто бене кон те) — Мені добре з тобою\n\n## Культурна порада\n\nВ Італії слова *Ti amo* мають величезну вагу. Італійці не кажуть цю фразу легковажно — вона зарезервована для справжнього глибокого кохання. Якщо ви тільки починаєте стосунки, краще використовувати *Ti voglio bene* або *Mi piaci*.\n\nВивчення цих фраз допоможе вам не лише висловити почуття, але й краще зрозуміти італійську культуру кохання.\n\n<CTA text=\"Хочете вивчити мову з вашим партнером? З Love Languages ви можете практикувати вимову через AI голосовий чат без сорому. Ваш партнер стає вашим викладачем, створює вікторини та надсилає вам подарунки слів.\" buttonText=\"Почати Зараз\" />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Основні способи сказати «Я тебе кохаю»"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "4b68ec22-2f3e-4361-aa08-494a9685a2c0",
+      "title": "Almanca Ogrenmek Zor mu? Türkler Icin Rehber",
+      "native_lang": "tr",
+      "target_lang": "de",
+      "category": "culture",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nAlmanca, 100 milyondan fazla ana dil konusaniyla Avrupa'nin en cok konusulan dilidir. Peki Türkce konusanlar icin Almanca zor mu?\n\n## Genel Bakis\n\n<PhraseOfDay\n  word=\"Übung macht den Meister\"\n  translation=\"Pratik usta yapar\"\n  pronunciation=\"ü-bung maht den mays-ter\"\n  context=\"Almanca ogrenmede en önemli kural\"\n/>\n\n### Dil Aileleri\n\n- **Türkce**: Altay dil ailesi\n- **Almanca**: Hint-Avrupa dil ailesi (Germen)\n\n<CultureTip title=\"Türkiye'de Almanca\" flag=\"🇩🇪\">\nAlmanya'da 3 milyondan fazla Türk kökenlisi yasiyor. Türkiye'de en cok ögrenen yabanci dil Almancadir. Avantajiniz var!\n</CultureTip>\n\n## Almanca'nin Kolay Yönleri\n\n### 1. Tutarli Telaffuz\n\nAlfabe ögrenildiginde telaffuz oldukca tutarlidir.\n\n### 2. Ö ve Ü Sesleri\n\nTürkce'de de var - büyük avantaj!\n\n| Almanca | Türkce | Örnek |\n|---------|--------|-------|\n| ö | ö | schön (güzel) |\n| ü | ü | grün (yesil) |\n\n### 3. Mantikli Sözcük Olusumu\n\nAlmanca birlesik kelimeler cok mantiklidir:\n\n| Almanca | Parcalari | Türkce |\n|---------|-----------|--------|\n| Handschuh | Hand + Schuh | Eldiven (el + ayakkabi) |\n| Kühlschrank | Kühl + Schrank | Buzdolabi (serin + dolap) |\n\n### 4. Latin Alfabesi\n\nKiril veya Arap alfabesi degil!\n\n## Almanca'nin Zor Yönleri\n\n### 1. Üc Cinsiyet\n\n<VocabCard\n  word=\"der, die, das\"\n  translation=\"Erkek, disi, nötr artikeller\"\n  pronunciation=\"der, di, das\"\n  example=\"der Mann, die Frau, das Kind\"\n/>\n\n| Cinsiyet | Artikel | Örnek |\n|----------|---------|-------|\n| Erkek | der | der Tisch (masa) |\n| Disi | die | die Lampe (lamba) |\n| Nötr | das | das Buch (kitap) |\n\n### 2. Dört Hal\n\n| Hal | Türkce | Örnek |\n|----|--------|-------|\n| Nominativ | Yalin | der Mann |\n| Akkusativ | -i hali | den Mann |\n| Dativ | -e hali | dem Mann |\n| Genitiv | -in hali | des Mannes |\n\n### 3. Fiil Pozisyonu\n\nAlmanca'da fiil cümle sonuna gidebilir:\n- \"Ich **weiß**, dass er heute **kommt**\" (Bugün gelecegini biliyorum)\n\n### 4. Uzun Birlesik Kelimeler\n\n\"Donaudampfschifffahrtsgesellschaft\" gibi uzun kelimeler korkutucu görünebilir!\n\n## Ogrenme Süresi\n\n| Seviye | Süre |\n|--------|------|\n| A1 | 3-4 ay |\n| A2 | 6-10 ay |\n| B1 | 10-18 ay |\n| B2 | 18-30 ay |\n\n<CultureTip title=\"FSI Siniflandirmasi\" flag=\"🇩🇪\">\nABD Disisleri Bakanligi'na göre Almanca, Ingilizce konusanlar icin \"orta zorlukta\" bir dildir. Türkce konusanlar icin biraz daha zorludur ama kesinlikle ögrenilebilir!\n</CultureTip>\n\n## Ciftler Icin Avantajlar\n\n1. **Sürekli pratik** - Günlük konusma\n2. **Motivasyon** - Sevdiginiz icin ögrenme\n3. **Kültürel derinlik** - Alman kültürünü anlama\n4. **Pratik faydalar** - Is ve seyahat imkanlari\n\n## Basari Ipuclari\n\n### 1. Artikellerle Birlikte Ögrenin\n\nKelimeleri her zaman artikelleriyle birlikte ezberleyin:\n- **der** Tisch (dogru)\n- Tisch (eksik)\n\n### 2. Her Gün Pratik\n\n| Ne | Süre |\n|----|------|\n| Konusma | 30+ dakika |\n| Dinleme | 1+ saat |\n\n### 3. Alman Medyasi\n\n- Alman filmleri (Dark, Babylon Berlin)\n- Alman müzigi\n- Deutsche Welle\n\n## Sonuc: Zor mu?\n\nAlmanca, Türkce konusanlar icin:\n- **Orta zorlukta** bir dildir\n- **Artikeller ve haller** en zor kisimlar\n- **Telaffuz ve mantik** avantaj\n- **Pratik faydalar** motivasyon saglar\n\n<PhraseOfDay\n  word=\"Wer fragt, der lernt\"\n  translation=\"Soran ögrenir\"\n  pronunciation=\"ver fragt, der lernt\"\n  context=\"Konusmaktan cekinmeyin!\"\n/>\n\n## Öğrenmeye Devam Et\n\n- **[Almanca Telaffuz](/learn/tr/de/german-pronunciation-guide/)** - Sesleri öğrenin\n- **[Temel Almanca İfadeler](/learn/tr/de/german-essential-phrases-for-couples/)** - Pratik iletişim\n- **[Almanca Zor mu?](/learn/tr/de/is-german-hard-to-learn/)** - Dürüst analiz\n- **[Almanca Selamlaşmalar](/learn/tr/de/german-greetings-farewells/)** - Temel konuşma\n\n<CTA text=\"Almanca maceraniza baslamaya hazır misiniz?\" buttonText=\"Simdi Baslayın\" />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Almanca'nin Kolay Yönleri",
+              "## Almanca'nin Zor Yönleri",
+              "## Basari Ipuclari"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "4b820b86-ea91-43d4-8ecd-087cfefcdf8a",
+      "title": "Ukraińskie zwroty do kłótni i nieporozumień dla par",
+      "native_lang": "pl",
+      "target_lang": "uk",
+      "category": "communication",
+      "content": "Ukraiński i polski mają wiele podobieństw, co ułatwia naukę. W związku z osobą mówiącą po ukraińsku ważne jest, by konflikty rozwiązywać z szacunkiem i zrozumieniem dla różnic kulturowych.\n\n## Ukraińska kultura komunikacji\n\nUkraińcy są ciepli i emocjonalni. W bliskich relacjach wyrażają uczucia otwarcie. Konflikty są naturalną częścią związku i mogą prowadzić do głębszego zrozumienia.\n\n## Wyrażanie niezgody\n\n### \"Я з тобою не погоджуюся\"\n*Nie zgadzam się z Tobą*\n\nWymowa: ja z to-BO-ju nie po-HO-dżu-ju-sia\n\nUprzejmy sposób wyrażenia odmiennego zdania.\n\n### \"Я бачу це інакше\"\n*Widzę to inaczej*\n\nWymowa: ja BA-czu ce I-nak-sze\n\nDelikatniejsza forma niezgody.\n\n### \"Чи можемо поговорити про це спокійно?\"\n*Czy możemy o tym spokojnie porozmawiać?*\n\nWymowa: czy MO-że-mo po-ho-wo-RY-ty pro ce spo-KIJ-no\n\nProśba o spokojną rozmowę.\n\n## Wyrażanie uczuć\n\n### \"Я відчуваю розчарування, коли...\"\n*Czuję frustrację, kiedy...*\n\nWymowa: ja wid-czu-WA-ju roz-cza-ru-WAN-nia KO-ły\n\nKomunikat typu \"ja\".\n\n### \"Це мене дуже турбує\"\n*To bardzo mnie niepokoi*\n\nWymowa: ce me-NE DU-że tur-BU-je\n\nJasne wyrażenie problemu.\n\n### \"Мені потрібен час подумати\"\n*Potrzebuję czasu do namysłu*\n\nWymowa: me-NI po-TRI-ben czas po-DU-ma-ty\n\nProśba o przestrzeń.\n\n## Zrozumienie partnera\n\n### \"Допоможи мені зрозуміти твою точку зору\"\n*Pomóż mi zrozumieć Twój punkt widzenia*\n\nWymowa: do-po-mo-ŻY me-NI zro-zu-MI-ty TWO-ju TOCZ-ku ZO-ru\n\nOtwartość na perspektywę partnera.\n\n### \"Якщо я правильно зрозумів/зрозуміла...\"\n*Jeśli dobrze zrozumiałem/zrozumiałam...*\n\nWymowa: JAK-szczo ja PRA-wyl-no zro-zu-MIW/zro-zu-MI-ła\n\nParafrazowanie.\n\n### \"Ти маєш на увазі, що...?\"\n*Masz na myśli, że...?*\n\nWymowa: ty MA-jesz na u-WA-zi szczo\n\nPytanie klaryfikujące.\n\n## Szukanie rozwiązań\n\n### \"Як ми можемо вирішити це разом?\"\n*Jak możemy to razem rozwiązać?*\n\nWymowa: jak my MO-że-mo wy-ri-SZY-ty ce RA-zom\n\nNastawienie na współpracę.\n\n### \"Давай знайдемо компроміс\"\n*Znajdźmy kompromis*\n\nWymowa: da-WAJ znaj-DE-mo kom-pro-MIS\n\nGotowość do ustępstw.\n\n### \"Думаю, нам обом треба...\"\n*Myślę, że oboje musimy...*\n\nWymowa: DU-ma-ju nam o-BOM TRE-ba\n\nWspółodpowiedzialność.\n\n## Łagodzenie napięcia\n\n### \"Я тебе кохаю, навіть коли ми сваримося\"\n*Kocham Cię, nawet gdy się kłócimy*\n\nWymowa: ja te-BE ko-CHA-ju na-WIT KO-ły my SWA-ry-mo-sia\n\nPrzypomnienie o miłości.\n\n### \"Ми впораємося з цим разом\"\n*Damy radę razem*\n\nWymowa: my wpo-RA-je-mo-sia z cym RA-zom\n\nOptymizm.\n\n## Czego unikać\n\n- **\"Ти завжди...\"** (Zawsze...) - generalizacje\n- **\"Ти ніколи мене не слухаєш\"** (Nigdy mnie nie słuchasz)\n- **\"Мені байдуже\"** (Wszystko mi jedno)\n- **\"Замовкни\"** (Zamknij się) - niegrzeczne\n\n## Wskazówki kulturowe\n\nUkraińcy cenią rodzinę i bliskie relacje. Szczerość jest ważna, ale zawsze z szacunkiem. Po kłótni wspólny posiłek może pomóc w pojednaniu - jedzenie ma w ukraińskiej kulturze wielkie znaczenie.\n\nКохання перемагає все! (Miłość zwycięża wszystko!)",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Wyrażanie niezgody",
+              "## Wyrażanie uczuć",
+              "## Zrozumienie partnera",
+              "## Szukanie rozwiązań",
+              "## Łagodzenie napięcia"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "4b982cf8-8ada-4cc9-8ca2-394182fd0fc1",
+      "title": "Französisch Kosenamen und Liebkosungen für Paare",
+      "native_lang": "de",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport CTA from '@components/CTA.astro';\n\n# Französisch Kosenamen und Liebkosungen für Paare\n\nKosenamen sind eine wunderbare Art, deinem Partner zu zeigen, wie viel er oder sie dir bedeutet. Wenn dein Partner Französisch spricht, wird es ihn oder sie sicher freuen, wenn du diese liebevollen Ausdrücke verwendest!\n\n## Warum Kosenamen wichtig sind\n\nKosenamen schaffen Intimität und zeigen Zuneigung. Sie sind wie ein geheimes Band zwischen zwei Menschen – etwas Besonderes, das nur euch beiden gehört.\n\n## Klassische Kosenamen\n\nDie zeitlosen Klassiker funktionieren in jeder Sprache:\n\n- **Schatz** - der universelle Liebling\n- **Liebling** - klassisch und elegant\n- **Mein Herz** - gefühlvoll und poetisch\n- **Meine Liebe** - romantisch und zärtlich\n\n<CultureTip>\nKosenamen variieren oft von Region zu Region. Was in einer Gegend üblich ist, kann anderswo ungewöhnlich klingen. Frage deinen Partner, welche Namen in seiner Heimat gebräuchlich sind!\n</CultureTip>\n\n## Süße Tiernamen\n\nWie in vielen Kulturen werden auch im Französischen gerne Tiernamen verwendet:\n\n- **Bärchen** (kleiner Bär) - kuschelig und stark\n- **Mäuschen** (kleine Maus) - süß und niedlich\n- **Häschen** (kleiner Hase) - zärtlich\n- **Spätzchen** (kleiner Spatz) - liebevoll\n\n## Romantische Ausdrücke\n\nFür besondere Momente:\n\n- **Mein Ein und Alles** - wenn jemand alles für dich ist\n- **Seelenverwandter** - für tiefe Verbindungen\n- **Mein Sonnenschein** - für jemanden, der dein Leben erhellt\n\n## Kosenamen für verschiedene Anlässe\n\n### Im Alltag\nKurze, lockere Namen für den täglichen Gebrauch. Ein schnelles \"Hey, Schatz!\" funktioniert immer.\n\n### Für romantische Momente\nLängere, gefühlvollere Ausdrücke passen zu besonderen Momenten. Sag deinem Partner, was er oder sie dir bedeutet.\n\n### Zum Necken\nHumorvolle Kosenamen können eure Beziehung auflockern – aber achte darauf, dass dein Partner den Humor teilt!\n\n## Tipps zur Verwendung\n\n1. **Frage deinen Partner**: Nicht jeder mag jeden Kosenamen. Frage, was ihm/ihr gefällt.\n2. **Achte auf die Aussprache**: Übe die richtige Aussprache – nichts ist romantischer als ein korrekt ausgesprochener Kosename.\n3. **Sei authentisch**: Verwende Namen, die zu euch als Paar passen.\n4. **Kreiere eigene Namen**: Die persönlichsten Kosenamen sind oft selbst erfunden!\n5. **Beobachte die Reaktion**: Der beste Kosename ist der, bei dem dein Partner lächelt.\n\n## Die Kraft der Sprache\n\nKosenamen sind mehr als Worte – sie sind kleine Liebeserklärungen im Alltag. Wenn du Französisch lernst, um mit deinem Partner zu kommunizieren, sind Kosenamen ein wundervoller Anfang.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Kosenamen für verschiedene Anlässe"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "4b9995d6-0b7f-4e05-b43f-c373632fc141",
+      "title": "Nederländska Fraser för Bråk och Meningsskiljaktigheter",
+      "native_lang": "sv",
+      "target_lang": "nl",
+      "category": "communication",
+      "content": "Nederländare är kända för sin direkthet, vilket kan vara förvirrande för svenskar som ofta föredrar mer indirekt kommunikation. Att förstå hur man navigerar konflikter på nederländska hjälper dig att kommunicera effektivt med din partner.\n\n## Grundläggande Fraser för Konfliktsituationer\n\n### 1. \"Ik voel me gekwetst als...\"\n**Uttal:** ik fool muh khuh-kwetst als\n\n**Betydelse:** Jag känner mig sårad när...\n\nEn direkt men respektfull jag-formulering.\n\n**Exempel:**\n- \"Ik voel me gekwetst als je niet naar me luistert\" (Jag känner mig sårad när du inte lyssnar på mig)\n\n### 2. \"Kunnen we hier rustig over praten?\"\n**Uttal:** kuh-nuhn wuh heer ruh-stuhkh oh-vuhr pra-tuhn\n\n**Betydelse:** Kan vi prata lugnt om det här?\n\nBjuder in till sakligt samtal.\n\n### 3. \"Ik heb even tijd nodig\"\n**Uttal:** ik hep ay-vuhn tait noh-duhkh\n\n**Betydelse:** Jag behöver lite tid\n\nGer dig utrymme att tänka.\n\n### 4. \"Laten we geen dingen zeggen waar we spijt van krijgen\"\n**Uttal:** la-tuhn wuh khayn ding-uhn zekh-uhn war wuh spait fan krai-khuhn\n\n**Betydelse:** Låt oss inte säga saker vi kommer ångra\n\nEn viktig påminnelse.\n\n### 5. \"Ik begrijp je standpunt\"\n**Uttal:** ik buh-khraip yuh stant-puhnt\n\n**Betydelse:** Jag förstår din ståndpunkt\n\nVisar förståelse.\n\n## Fraser för att Lösa Konflikter\n\n### 6. \"Hoe kunnen we dit oplossen?\"\n**Uttal:** hoo kuh-nuhn wuh dit op-lo-suhn\n\n**Betydelse:** Hur kan vi lösa det här?\n\nLösningsfokuserad fras.\n\n### 7. \"Het was niet mijn bedoeling om je te kwetsen\"\n**Uttal:** het was neet main buh-doo-ling om yuh tuh kwet-suhn\n\n**Betydelse:** Det var inte min avsikt att såra dig\n\nEn ärlig ursäkt.\n\n### 8. \"Laten we een compromis vinden\"\n**Uttal:** la-tuhn wuh uhn kom-proh-mis fin-duhn\n\n**Betydelse:** Låt oss hitta en kompromiss\n\nVisar vilja till samarbete.\n\n### 9. \"Ik luister naar je\"\n**Uttal:** ik lows-tuhr nar yuh\n\n**Betydelse:** Jag lyssnar på dig\n\nBekräftar din uppmärksamhet.\n\n### 10. \"Laten we hier later over praten\"\n**Uttal:** la-tuhn wuh heer la-tuhr oh-vuhr pra-tuhn\n\n**Betydelse:** Låt oss prata om det här senare\n\nGer tid för reflektion.\n\n## Kulturella Tips\n\nI nederländsk kultur:\n\n- Värdesätts direkthet och ärlighet högt\n- Anses det oartigt att gå runt problemen\n- Förväntas alla parter vara lika delaktiga i diskussionen\n- Respekteras individuell frihet och åsikter\n\nDen nederländska direktheten kan kännas obekväm för svenskar, men det är sällan menat illa.\n\n## Avslutande Tankar\n\nMed dessa fraser kan du navigera konflikter med din nederländsktalande partner. Omfamna direktheten som en möjlighet till ärlig kommunikation.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Grundläggande Fraser för Konfliktsituationer",
+              "## Fraser för att Lösa Konflikter"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

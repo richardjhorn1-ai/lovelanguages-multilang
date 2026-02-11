@@ -1,0 +1,117 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0772",
+  "articles": [
+    {
+      "id": "de62bca6-a312-40c8-b78b-a663099ddc4f",
+      "title": "Conversazioni Quotidiane in Olandese per Coppie",
+      "native_lang": "it",
+      "target_lang": "nl",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nLa vera padronanza dell'olandese si vede nelle conversazioni quotidiane.\n\n## Conversazione Mattutina\n\n<PhraseOfDay\n  word=\"Goedemorgen, lieverd. Hoe heb je geslapen?\"\n  translation=\"Buongiorno, tesoro. Come hai dormito?\"\n  pronunciation=\"GHU-de-mor-ghen LI-vert hu hep ye ghe-SLA-pen\"\n  context=\"Il modo perfetto per iniziare la giornata.\"\n/>\n\n### Dialogo: Sveglia\n\n**A:** Goedemorgen, schat. *(Buongiorno, tesoro.)*\n\n**B:** Mmm, goedemorgen. Hoe laat is het? *(Mmm, buongiorno. Che ora è?)*\n\n**A:** Zeven uur. Tijd om op te staan! *(Le sette. È ora di alzarsi!)*\n\n**B:** Nog vijf minuutjes, alsjeblieft... *(Ancora cinque minuti, per favore...)*\n\n**A:** Oké, maar ik maak koffie voor je. *(Va bene, ma ti faccio un caffè.)*\n\n**B:** Je bent de beste! *(Sei il/la migliore!)*\n\n<VocabCard\n  word=\"Zal ik koffie voor je maken?\"\n  translation=\"Ti faccio un caffè?\"\n  pronunciation=\"zal ik KO-fi for ye MA-ken\"\n  example=\"Schat, zal ik koffie voor je maken bij het ontbijt?\"\n/>\n\n## Prima di Uscire\n\n### Dialogo\n\n**A:** Schat, ik ga! *(Tesoro, vado!)*\n\n**B:** Wacht, heb je alles? Sleutels? Portemonnee? *(Aspetta, hai tutto? Chiavi? Portafoglio?)*\n\n**A:** Ja, ik heb alles. Bedankt! *(Sì, ho tutto. Grazie!)*\n\n**B:** Hoe laat kom je thuis? *(A che ora torni?)*\n\n**A:** Rond zes uur. *(Verso le sei.)*\n\n**B:** Oké. Ik hou van je! *(Bene. Ti amo!)*\n\n**A:** Ik ook van jou. Doei! *(Ti amo anch'io. Ciao!)*\n\n<VocabCard\n  word=\"Ik bel je later\"\n  translation=\"Ti chiamo dopo\"\n  pronunciation=\"ik bel ye LA-ter\"\n  example=\"Ik heb haast. Ik bel je later!\"\n/>\n\n## Conversazione Serale\n\n### Dialogo: Bentornato/a\n\n**A:** Ik ben thuis! *(Sono a casa!)*\n\n**B:** Hoi, schat! Hoe was je dag? *(Ciao, tesoro! Com'è andata la giornata?)*\n\n**A:** Lange dag, maar nu ben ik bij jou. *(Giornata lunga, ma ora sono con te.)*\n\n**B:** Arme schat. Kom, ga zitten. Het eten is bijna klaar. *(Povero/a tesoro. Vieni, siediti. La cena è quasi pronta.)*\n\n**A:** Wat ruikt het lekker! Wat maak je? *(Che buon profumo! Cosa cucini?)*\n\n**B:** Je favoriete stamppot. *(La tua stamppot preferita.)*\n\n**A:** Je bent geweldig! *(Sei fantastica/o!)*\n\n<VocabCard\n  word=\"Hoe was je dag?\"\n  translation=\"Com'è stata la tua giornata?\"\n  pronunciation=\"hu was ye dagh\"\n  example=\"Hoi, schat! Hoe was je dag?\"\n/>\n\n## Prima di Dormire\n\n### Dialogo: Buonanotte\n\n**A:** Hoe laat is het? *(Che ora è?)*\n\n**B:** Bijna middernacht. *(Quasi mezzanotte.)*\n\n**A:** Tijd om te slapen. *(È ora di dormire.)*\n\n**B:** Je hebt gelijk. Ik ben doodmoe. *(Hai ragione. Sono stanco/a morto/a.)*\n\n**A:** Welterusten, schat. Ik hou van je. *(Buonanotte, tesoro. Ti amo.)*\n\n**B:** Ik ook. Slaap lekker. *(Anch'io. Dormi bene.)*\n\n**A:** Droom over mij! *(Sognami!)*\n\n**B:** Altijd! *(Sempre!)*\n\n<VocabCard\n  word=\"Welterusten, slaap lekker\"\n  translation=\"Buonanotte, dormi bene\"\n  pronunciation=\"wel-te-RU-sten slap LE-ker\"\n  example=\"Welterusten, schat. Slaap lekker!\"\n/>\n\n## Scheda di Riferimento\n\n| Momento | Olandese | Italiano |\n|---------|----------|----------|\n| Sveglia | Goedemorgen, schat | Buongiorno, tesoro |\n| Colazione | Wat wil je voor het ontbijt? | Cosa vuoi per colazione? |\n| Uscire | Ik hou van je, doei! | Ti amo, ciao! |\n| Messaggi | Ik mis je | Mi manchi |\n| Tornare | Hoe was je dag? | Com'è stata la giornata? |\n| Cena | Het eten is klaar! | Cena pronta! |\n| Dormire | Welterusten, slaap lekker | Buonanotte, dormi bene |\n\n<CultureTip title=\"Comunicazione Olandese\" flag=\"🇳🇱\">\nGli olandesi sono affettuosi ma diretti. Usano \"schat\" (tesoro), \"lieverd\" (caro), \"liefje\" (amorino) con il partner, ma sempre con sincerità!\n</CultureTip>\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Prima di Uscire",
+              "## Conversazione Serale",
+              "## Prima di Dormire"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "de715bc6-b37f-4458-9d07-0b4d7829af6b",
+      "title": "Yunanca Flört İfadeleri: Akdeniz Romantizmi",
+      "native_lang": "tr",
+      "target_lang": "el",
+      "category": "communication",
+      "content": "# Yunanca Flört İfadeleri: Akdeniz Romantizmi\n\nYunanlar, Türklerle benzer bir Akdeniz sıcaklığına sahiptir. Bu rehberde Yunanca flört ifadelerini öğreneceksiniz.\n\n## Temel Flört İfadeleri\n\n### 1. \"Είσαι πολύ όμορφη\" (Eisai poli omorfi)\n**Telaffuz:** \"İse poli omorfi\"\n**Anlam:** Çok güzelsin\n\n### 2. \"Μου αρέσει το χαμόγελό σου\" (Mou aresi to hamogelo sou)\n**Telaffuz:** \"Mu aresi to hamoğelo su\"\n**Anlam:** Gülüşünü seviyorum\n\n### 3. \"Θέλεις να πιούμε έναν καφέ;\" (Thelis na pioume enan kafe?)\n**Telaffuz:** \"Telis na piume enan kafe?\"\n**Anlam:** Kahve içmek ister misin?\n\n### 4. \"Έχεις πανέμορφα μάτια\" (Ehis panemorfa matia)\n**Telaffuz:** \"Ehis panemorfa matya\"\n**Anlam:** Muhteşem gözlerin var\n\n### 5. \"Δεν μπορώ να σε βγάλω από το μυαλό μου\" (Den boro na se vgalo apo to mialo mou)\n**Telaffuz:** \"Den boro na se vğalo apo to mialo mu\"\n**Anlam:** Seni aklımdan çıkaramıyorum\n\n### 6. \"Με κάνεις ευτυχισμένο\" (Me kanis eftihismeno)\n**Telaffuz:** \"Me kanis eftihismeno\"\n**Anlam:** Beni mutlu ediyorsun\n\n### 7. \"Να σε κεράσω ένα ποτό;\" (Na se keraso ena poto?)\n**Telaffuz:** \"Na se keraso ena poto?\"\n**Anlam:** Sana bir içki ısmarlayayım mı?\n\n### 8. \"Περνάω υπέροχα μαζί σου\" (Pernao iperoha mazi sou)\n**Telaffuz:** \"Pernao iperoha mazi su\"\n**Anlam:** Seninle harika vakit geçiriyorum\n\n### 9. \"Είσαι μοναδική\" (Ise monadiki)\n**Telaffuz:** \"İse monadiki\"\n**Anlam:** Eşsizsin\n\n### 10. \"Θα ήθελα να σε ξαναδώ\" (Tha ithela na se xanado)\n**Telaffuz:** \"Ta itela na se ksanado\"\n**Anlam:** Seni tekrar görmek isterdim\n\n## Kültürel İpuçları\n\n**Kefi Kavramı:** \"Κέφι\" eğlenme ve coşku ruhunu ifade eder.\n\n**Aile Bağları:** Yunanlar aileye çok bağlıdır.\n\n## Sonuç\n\nYunanca flört ifadelerini öğrenmek, komşu kültürümüzü daha yakından tanımanın harika bir yoludur.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 258,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Temel Flört İfadeleri"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "de9e2d15-b237-43cd-b2a8-19adb7a5db35",
+      "title": "Frases en Noruego para Pedir y Ofrecer Perdón a tu Pareja",
+      "native_lang": "es",
+      "target_lang": "no",
+      "category": "communication",
+      "content": "Los noruegos valoran la honestidad directa al pedir perdón. Estas frases te ayudarán.\n\n## Frases para Pedir Perdón\n\n### \"Jeg er virkelig lei meg\"\n**Pronunciación:** Yei e VIR-ke-li lei mei\n\n**Significado:** Lo siento de verdad\n\n### \"Vær så snill, tilgi meg\"\n**Pronunciación:** Ver so snil til-YI mei\n\n**Significado:** Por favor, perdóname\n\n### \"Jeg vet at jeg såret deg, og jeg angrer dypt\"\n**Pronunciación:** Yei vet at yei SO-ret dei oy yei ANG-rer dipt\n\n**Significado:** Sé que te herí, y lo lamento profundamente\n\n### \"Det var galt av meg\"\n**Pronunciación:** De var galt av mei\n\n**Significado:** Estuvo mal de mi parte\n\n### \"Hvordan kan jeg gjøre det godt igjen?\"\n**Pronunciación:** VOR-dan kan yei YÖ-re de got i-YEN\n\n**Significado:** ¿Cómo puedo arreglarlo?\n\n### \"Jeg lover at det ikke skjer igjen\"\n**Pronunciación:** Yei LO-ver at de I-ke sher i-YEN\n\n**Significado:** Prometo que no volverá a pasar\n\n## Frases para Ofrecer Perdón\n\n### \"Jeg tilgir deg\"\n**Pronunciación:** Yei til-YIR dei\n\n**Significado:** Te perdono\n\n### \"La oss legge dette bak oss\"\n**Pronunciación:** La os LE-ge DE-te bak os\n\n**Significado:** Dejemos esto atrás\n\n### \"Jeg er klar til å gå videre\"\n**Pronunciación:** Yei e klar til o go vi-DE-re\n\n**Significado:** Estoy listo/a para seguir adelante\n\n### \"Alle gjør feil\"\n**Pronunciación:** A-le yör fail\n\n**Significado:** Todos cometemos errores\n\n### \"Jeg elsker deg fortsatt\"\n**Pronunciación:** Yei ELS-ker dei FORT-sat\n\n**Significado:** Todavía te amo\n\n## Conclusión\n\nLa sinceridad directa es valorada al pedir perdón en noruego.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 237,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frases para Pedir Perdón",
+              "## Frases para Ofrecer Perdón"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "deafcbde-b779-455c-ae90-9c83e9d400f5",
+      "title": "Holandské flirtovací fráze pro Čechy",
+      "native_lang": "cs",
+      "target_lang": "nl",
+      "category": "communication",
+      "content": "Holanďané jsou známí svou přímostí a upřímností, a to platí i pro flirtování. Zatímco v některých kulturách může být nepřímé svádění normou, Nizozemci oceňují otevřenou komunikaci. Naučte se tyto fráze a překvapte svého nizozemsky mluvícího partnera.\n\n## Základní lichotky\n\n### \"Je bent prachtig.\"\n**Výslovnost:** Je bent prachtich.\n\n**Překlad:** Jsi nádherný/á.\n\n**Kdy použít:** Silná lichotka, která vyjadřuje obdiv ke kráse partnera.\n\n---\n\n### \"Je hebt een mooie glimlach.\"\n**Výslovnost:** Je hebt en móje chlimlach.\n\n**Překlad:** Máš krásný úsměv.\n\n**Kdy použít:** Specifická lichotka, která nikdy nesklame.\n\n---\n\n### \"Ik vind je heel leuk.\"\n**Výslovnost:** Ik find je hél lök.\n\n**Překlad:** Moc se mi líbíš.\n\n**Kdy použít:** Přímé vyjádření zájmu, typicky holandské.\n\n---\n\n### \"Je bent ongelooflijk aantrekkelijk.\"\n**Výslovnost:** Je bent onchelóflik ántrekelék.\n\n**Překlad:** Jsi neuvěřitelně přitažlivý/á.\n\n**Kdy použít:** Silnější lichotka pro intimnější momenty.\n\n---\n\n## Romantické fráze\n\n### \"Ik kan niet stoppen met aan je denken.\"\n**Výslovnost:** Ik kan nít stopen met án je denken.\n\n**Překlad:** Nemůžu přestat myslet na tebe.\n\n**Kdy použít:** Sladká zpráva během dne.\n\n---\n\n### \"Je maakt me gelukkig.\"\n**Výslovnost:** Je mákt me chelükich.\n\n**Překlad:** Děláš mě šťastným/ou.\n\n**Kdy použít:** Upřímné vyjádření štěstí ve vztahu.\n\n---\n\n### \"Mijn hart klopt sneller als ik je zie.\"\n**Výslovnost:** Mejn hart klopt sneler als ik je zí.\n\n**Překlad:** Moje srdce bije rychleji, když tě vidím.\n\n**Kdy použít:** Romantické vyjádření přitažlivosti.\n\n---\n\n### \"Ik ben gek op je.\"\n**Výslovnost:** Ik ben chek op je.\n\n**Překlad:** Jsem do tebe blázen.\n\n**Kdy použít:** Vášnivé, ale hravé prohlášení.\n\n---\n\n## Hravé fráze\n\n### \"Geloof je in liefde op het eerste gezicht, of moet ik nog een keer langslopen?\"\n**Výslovnost:** Chelóf je in lífde op het érste chezicht, of mut ik noch en kér langslópen?\n\n**Překlad:** Věříš na lásku na první pohled, nebo mám projít znovu?\n\n**Kdy použít:** Klasická svůdná fráze s humorem.\n\n---\n\n### \"Ben je moe? Je loopt de hele dag door mijn hoofd.\"\n**Výslovnost:** Ben je mů? Je lópt de héle dach dór mejn hóft.\n\n**Překlad:** Jsi unavený/á? Celý den mi běžíš hlavou.\n\n**Kdy použít:** Vtipná fráze kombinující humor s lichotkou.\n\n---\n\n### \"Er is iets bijzonders aan je.\"\n**Výslovnost:** Er is íts bejzonders án je.\n\n**Překlad:** Je na tobě něco zvláštního.\n\n**Kdy použít:** Lichotka, která jde za povrch.\n\n---\n\n## Fráze pro zprávy\n\n### \"Goedemorgen, schatje.\"\n**Výslovnost:** Chúdemorghen, schatje.\n\n**Překlad:** Dobré ráno, pokladu.\n\n**Kdy použít:** Sladký způsob, jak začít partnerův den. \"Schatje\" je zdrobnělina od \"schat\".\n\n---\n\n### \"Ik mis je.\"\n**Výslovnost:** Ik mis je.\n\n**Překlad:** Chybíš mi.\n\n**Kdy použít:** Když jste od partnera daleko.\n\n---\n\n### \"Ik kijk ernaar uit om je weer te zien.\"\n**Výslovnost:** Ik kejk ernár öt om je vér te zín.\n\n**Překlad:** Těším se, až tě zase uvidím.\n\n**Kdy použít:** Po schůzce nebo před plánovaným setkáním.\n\n---\n\n## Kulturní tipy\n\n**Přímosit:** Holanďané jsou velmi přímí. Neberte to jako hrubost – je to kulturní norma.\n\n**Rovnost:** Holandská kultura je egalitářská. Ženy i muži mohou iniciovat flirtování.\n\n**Platba:** Holanďané často platí každý za sebe (\"going Dutch\"). Neberte to jako nezájem.\n\n**Oslovení:** \"Schat\" (poklad), \"lieverd\" (miláčku), \"liefje\" (lásko) jsou běžná.\n\n**Humor:** Holanďané mají suchý, ironický humor. Oceňují vtip.\n\n**Kola:** Pozvání na výlet na kole je v Holandsku legitimní romantické gesto.\n\nS těmito frázemi budete připraveni okouzlit svého nizozemsky mluvícího partnera s autenticitou a přímostí.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Základní lichotky",
+              "## Romantické fráze",
+              "## Hravé fráze",
+              "## Fráze pro zprávy"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "decd3ac5-0977-41bd-b972-8d772a714ccf",
+      "title": "Russian Phrases for Meeting the In-Laws: Make a Great Impression",
+      "native_lang": "en",
+      "target_lang": "ru",
+      "category": "communication",
+      "content": "Meeting your partner's Russian-speaking family is significant—family bonds run deep in Russian culture. Your effort to speak Russian will demonstrate respect and commitment that will touch them deeply.\n\n## Why Language Matters\n\nRussian families value sincerity and respect for tradition. Speaking their language shows you honor their culture and are serious about becoming part of the family.\n\n## First Impressions\n\n### Greetings\n\n**Очень приятно познакомиться**\n*(O-chen' pri-yat-no poz-na-ko-mit'-sya)*\n*Very pleased to meet you*\n\nProper, respectful greeting.\n\n**Это честь познакомиться с семьёй [partner's name]**\n*(E-to chest' poz-na-ko-mit'-sya s sem'-yoy [partner's name])*\n*It's an honor to meet [partner's name]'s family*\n\nExpresses respect.\n\n**[Partner's name] много о вас рассказывал/рассказывала**\n*(..mno-go o vas ras-ska-zy-val/ras-ska-zy-va-la)*\n*[Partner's name] has told me a lot about you*\n\nUse *рассказывал* if partner is male, *рассказывала* if female.\n\n## Expressing Gratitude\n\n**Спасибо, что принимаете меня в вашем доме**\n*(Spa-si-bo, chto pri-ni-ma-ye-te me-nya v va-shem do-me)*\n*Thank you for receiving me in your home*\n\nAcknowledging hospitality.\n\n**Очень вкусно!**\n*(O-chen' vkus-no!)*\n*Very delicious!*\n\nComplimenting food—essential in Russian culture.\n\n**Большое спасибо за всё**\n*(Bol'-sho-ye spa-si-bo za fsyo)*\n*Thank you very much for everything*\n\nDeep gratitude.\n\n## Talking About Your Partner\n\n**Я очень люблю вашего сына/вашу дочь**\n*(Ya o-chen' lyub-lyu va-she-go sy-na/va-shu doch')*\n*I love your son/daughter very much*\n\nDirect declaration.\n\n**[Partner's name] замечательный человек**\n*(..za-me-cha-tel'-nyy che-lo-vyek)*\n*[Partner's name] is a wonderful person*\n\nComplimenting how they raised their child.\n\n**Вы вырастили прекрасного человека**\n*(Vy vy-ras-ti-li pre-kras-no-go che-lo-vye-ka)*\n*You raised a wonderful person*\n\nGiving credit to parents.\n\n**Он/Она делает меня очень счастливым/счастливой**\n*(On/O-na de-la-yet me-nya o-chen' shchas-li-vym/shchas-li-voy)*\n*He/She makes me very happy*\n\n## Polite Conversation\n\n**Могу я чем-нибудь помочь?**\n*(Mo-gu ya chem-ni-bud' po-moch'?)*\n*May I help with something?*\n\nOffering assistance.\n\n**Расскажите мне, пожалуйста, о [topic]**\n*(Ras-ska-zhi-te mne, po-zha-luy-sta, o [topic])*\n*Please tell me about [topic]*\n\nShowing interest.\n\n**У вас очень красивый дом**\n*(U vas o-chen' kra-si-vyy dom)*\n*You have a very beautiful home*\n\nComplimenting their home.\n\n**Семья для меня тоже очень важна**\n*(Sem'-ya dlya me-nya to-zhe o-chen' vazh-na)*\n*Family is also very important to me*\n\n## Saying Goodbye\n\n**Было очень приятно познакомиться**\n*(By-lo o-chen' pri-yat-no poz-na-ko-mit'-sya)*\n*It was very pleasant to meet you*\n\n**Надеюсь увидеть вас скоро**\n*(Na-de-yus' u-vi-det' vas sko-ro)*\n*I hope to see you soon*\n\n## Cultural Tips\n\n- **Formal address**: Use *Вы* (formal you) with parents; first name + patronymic is respectful\n- **Bring gifts**: Flowers (odd numbers), chocolates, wine are appropriate\n- **Accept food and drink**: Refusing hospitality can be offensive\n- **Toast tradition**: Be prepared for toasts at the table\n- **Remove shoes**: Always remove shoes when entering\n- **Show respect for elders**: Standing when they enter, offering seats\n\n## Building Relationships\n\n**Я считаю вас своей семьёй**\n*(Ya schi-ta-yu vas svo-yey sem'-yoy)*\n*I consider you my family*\n\n**Вы всегда желанные гости в нашем доме**\n*(Vy vseg-da zhe-lan-ny-ye gos-ti v na-shem do-me)*\n*You are always welcome guests in our home*\n\nYour effort to speak Russian touches the *dusha* (soul)—something Russians treasure deeply.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## First Impressions"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

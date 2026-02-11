@@ -1,0 +1,453 @@
+{
+  "batchId": "tier2a-slim-0008",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "1a8beb85-1cc1-4c62-be7b-0bb23589eeab",
+      "title": "Phrases anglaises pour se réconcilier en couple",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions essentielles pour se réconcilier",
+          "subsections": [
+            "### S'excuser sincèrement",
+            "### Exprimer ses sentiments",
+            "### Proposer une résolution",
+            "### Réaffirmer son amour"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1a9be750-375a-4888-aee2-a98a4a51c29c",
+      "title": "Guten Morgen und Gute Nacht auf Polnisch – Süße Phrasen für jeden Tag",
+      "native_lang": "de",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Guten Morgen sagen",
+          "subsections": [
+            "### Klassische Morgengrüße",
+            "### Romantische Morgengrüße"
+          ]
+        },
+        {
+          "header": "## Gute Nacht sagen",
+          "subsections": [
+            "### Klassische Nachtgrüße",
+            "### Romantische Nachtgrüße"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1ad95eae-814a-41e7-900d-cee839f31c7c",
+      "title": "Polnische Flirtsprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassische Komplimente",
+          "subsections": [
+            "### \"Jesteś piękna\" / \"Jesteś przystojny\"",
+            "### \"Masz piękne oczy\"",
+            "### \"Twój uśmiech jest cudowny\""
+          ]
+        },
+        {
+          "header": "## Romantische Ausdrücke",
+          "subsections": [
+            "### \"Jesteś miłością mojego życia\"",
+            "### \"Nie mogę przestać o tobie myśleć\"",
+            "### \"Przy tobie jestem szczęśliwy\" / \"Przy tobie jestem szczęśliwa\""
+          ]
+        },
+        {
+          "header": "## Süße Kosenamen",
+          "subsections": [
+            "### \"Kochanie\"",
+            "### \"Skarbie\"",
+            "### \"Słoneczko\"",
+            "### \"Misiaczku\"",
+            "### \"Kotku\""
+          ]
+        },
+        {
+          "header": "## Herzliche Ausdrücke",
+          "subsections": [
+            "### \"Kocham cię\"",
+            "### \"Jesteś dla mnie wszystkim\"",
+            "### \"Chcę być z tobą na zawsze\"",
+            "### \"Ukradłaś mi serce\" / \"Ukradłeś mi serce\""
+          ]
+        },
+        {
+          "header": "## Spielerische Sprüche",
+          "subsections": [
+            "### \"Wierzysz w miłość od pierwszego wejrzenia, czy mam przejść jeszcze raz?\"",
+            "### \"Czy twój tata jest złodziejem? Bo ukradł gwiazdy z nieba i włożył je w twoje oczy\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1aeb0025-bb77-4cb0-a76f-0d79d6f62581",
+      "title": "Olasz születésnapi kívánságok párodnak",
+      "native_lang": "hu",
+      "target_lang": "it",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Születésnapi köszöntések",
+            "### Romantikus üzenetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1af0b726-28cb-4792-81ce-05b1bde6b0d3",
+      "title": "Основи італійської граматики для початківців",
+      "native_lang": "uk",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Важливі неправильні дієслова",
+          "subsections": [
+            "### Essere (бути)",
+            "### Avere (мати)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1af34a11-aa7f-4cdb-bad1-e9527a51bf2c",
+      "title": "Шведские фразы для первого свидания",
+      "native_lang": "ru",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Фразы для первого свидания",
+          "subsections": [
+            "### 1. Du ser fantastisk ut ikväll",
+            "### 2. Jag har sett fram emot det här",
+            "### 3. Berätta mer om dig själv",
+            "### 4. Vad gillar du att göra på fritiden?",
+            "### 5. Du har ett vackert leende",
+            "### 6. Jag skulle gärna vilja träffa dig igen",
+            "### 7. Jag hade en underbar kväll",
+            "### 8. Kan jag ringa dig imorgon?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1b248519-f36e-46a3-99f8-d505ac823141",
+      "title": "Llamadas Telefónicas en Polaco",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Frases Telefónicas Esenciales",
+          "subsections": [
+            "### Pidiendo Hablar con Alguien",
+            "### Cuando Alguien No Está Disponible",
+            "### Tomando Mensajes"
+          ]
+        },
+        {
+          "header": "## Terminar Llamadas Cortésmente",
+          "subsections": [
+            "### Finales Casuales",
+            "### Finales Formales"
+          ]
+        },
+        {
+          "header": "## Escenarios Comunes de Llamadas",
+          "subsections": [
+            "### Llamando a un Restaurante",
+            "### Llamando para Información"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1b2bd582-7f46-4a39-a5ce-5f73d8831614",
+      "title": "Rumuńskie zwroty o przebaczeniu dla par",
+      "native_lang": "pl",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Proszenie o przebaczenie",
+          "subsections": [
+            "### \"Te rog, iartă-mă\"",
+            "### \"Sper că mă poți ierta\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie przebaczenia",
+          "subsections": [
+            "### \"Te iert\"",
+            "### \"E în regulă, înțeleg\"",
+            "### \"Să lăsăm asta în urmă\""
+          ]
+        },
+        {
+          "header": "## Proces przebaczenia",
+          "subsections": [
+            "### \"Lucrez la a te ierta\"",
+            "### \"Am nevoie de timp, dar te voi ierta\""
+          ]
+        },
+        {
+          "header": "## Głębokie przebaczenie",
+          "subsections": [
+            "### \"Te iert complet\"",
+            "### \"Las durerea să plece\""
+          ]
+        },
+        {
+          "header": "## Wspólne wyjście naprzód",
+          "subsections": [
+            "### \"Să o luăm de la capăt\"",
+            "### \"Dragostea noastră e mai puternică decât această greșeală\""
+          ]
+        },
+        {
+          "header": "## Granice przebaczenia",
+          "subsections": [
+            "### \"Te iert, dar asta nu trebuie să se mai întâmple\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1b302274-62d1-4997-ae04-dd5b65c4e941",
+      "title": "Dutch Emotional Support Phrases: Comfort Your Partner in Difficult Times",
+      "native_lang": "en",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Specific Situations",
+          "subsections": [
+            "### Grief",
+            "### Stress",
+            "### Disappointment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1b304fab-8272-47d5-b1cb-1e9387ca66e8",
+      "title": "Svéd üzenetküldő kifejezések magyar anyanyelvűeknek",
+      "native_lang": "hu",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető üdvözlések",
+          "subsections": [
+            "### 1. God morgon, älskling",
+            "### 2. Jag saknar dig",
+            "### 3. Jag älskar dig"
+          ]
+        },
+        {
+          "header": "## Mindennapi üzenetek",
+          "subsections": [
+            "### 4. Hur mår du?",
+            "### 5. Jag är snart där",
+            "### 6. Puss / Pussar"
+          ]
+        },
+        {
+          "header": "## Romantikus kifejezések",
+          "subsections": [
+            "### 7. Du är mitt allt",
+            "### 8. Gull / Hjärtat",
+            "### 9. Jag drömde om dig"
+          ]
+        },
+        {
+          "header": "## Chat rövidítések",
+          "subsections": [
+            "### 10. Tack / Tks",
+            "### 11. Ok / Okej",
+            "### 12. Kram / Kramar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1b321e22-d31f-40aa-837b-1b836b21c7c0",
+      "title": "100 Meest Gebruikte Tsjechische Woorden voor Relaties",
+      "native_lang": "nl",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Basis liefdeswoorden",
+          "subsections": [
+            "### 1. Láska - *laas-ka* - Liefde",
+            "### 2. Srdce - *sr-tse* - Hart",
+            "### 3. Polibek - *po-lie-bek* - Kus",
+            "### 4. Objetí - *ob-je-tjie* - Knuffel",
+            "### 5. Spolu - *spo-loe* - Samen",
+            "### 6. Navždy - *na-vzj-die* - Voor altijd",
+            "### 7. Vždy - *vzj-die* - Altijd",
+            "### 8. Krásný/á - *kraas-nie/a* - Mooi",
+            "### 9. Šťastný/á - *sjtjast-nie/a* - Gelukkig",
+            "### 10. Miláčku - *mie-laat-sjkoe* - Schat"
+          ]
+        },
+        {
+          "header": "## Dagelijkse communicatie",
+          "subsections": [
+            "### 11. Ano - *a-no* - Ja",
+            "### 12. Ne - *ne* - Nee",
+            "### 13. Prosím - *pro-siem* - Alsjeblieft",
+            "### 14. Děkuji - *dje-koe-jie* - Dank je",
+            "### 15. Promiň - *pro-mjinj* - Sorry",
+            "### 16. Dobré ráno - *dob-ree raa-no* - Goedemorgen",
+            "### 17. Dobrou noc - *dob-roe nots* - Goedenacht",
+            "### 18. Ahoj - *a-hoj* - Hallo",
+            "### 19. Nashle - *nas-chle* - Tot ziens",
+            "### 20. Jak se máš? - *jak se maasj* - Hoe gaat het?"
+          ]
+        },
+        {
+          "header": "## Gevoelens uitdrukken",
+          "subsections": [
+            "### 21. Miluji tě - *mie-loe-jie tje* - Ik hou van je",
+            "### 22. Chybíš mi - *chie-biesj mie* - Ik mis je",
+            "### 23. Potřebuji tě - *po-trje-boe-jie tje* - Ik heb je nodig",
+            "### 24. Důvěřuji ti - *doe-vje-rjoe-jie tjie* - Ik vertrouw je",
+            "### 25. Odpouštím ti - *od-poe-sjtjiem tjie* - Ik vergeef je",
+            "### 26. Rozumím - *ro-zoe-miem* - Ik begrijp het",
+            "### 27. Děláš mě šťastným/ou - *dje-laasj mje sjtjast-niem/oe* - Je maakt me gelukkig",
+            "### 28. Myslím na tebe - *mies-liem na te-be* - Ik denk aan je"
+          ]
+        },
+        {
+          "header": "## Tijd",
+          "subsections": [
+            "### 29. Dnes - *dnes* - Vandaag",
+            "### 30. Zítra - *zie-tra* - Morgen",
+            "### 31. Včera - *ftje-ra* - Gisteren",
+            "### 32. Teď - *tedj* - Nu",
+            "### 33. Později - *poz-dje-jie* - Later",
+            "### 34. Brzy - *br-zie* - Binnenkort",
+            "### 35. Nikdy - *njik-die* - Nooit",
+            "### 36. Někdy - *njek-die* - Soms",
+            "### 37. Často - *tsjas-to* - Vaak"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1b36f7c6-8aa2-4990-9f3a-78f9a63d7e52",
+      "title": "De Familie Ontmoeten: Essentiële Oekraïense Zinnen",
+      "native_lang": "nl",
+      "target_lang": "uk",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Do's en Don'ts",
+          "subsections": [
+            "### Do's",
+            "### Don'ts"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1b51315e-7f66-4cec-a558-28106dbcd236",
+      "title": "Francia kifejezések megbocsátáshoz",
+      "native_lang": "hu",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bocsánatkérés kifejezések",
+          "subsections": [
+            "### 1. \"Je suis vraiment désolé(e)\"",
+            "### 2. \"Pardonne-moi, s'il te plaît\"",
+            "### 3. \"J'assume l'entière responsabilité\"",
+            "### 4. \"J'avais tort et je l'admets\"",
+            "### 5. \"Je te promets que ça n'arrivera plus\""
+          ]
+        },
+        {
+          "header": "## Megbocsátás kifejezések",
+          "subsections": [
+            "### 6. \"Je te pardonne\"",
+            "### 7. \"C'est bon, je comprends\"",
+            "### 8. \"Je suis prêt(e) à passer à autre chose\"",
+            "### 9. \"Mettons ça derrière nous\"",
+            "### 10. \"Je ne t'en veux pas\"",
+            "### 11. \"Tout le monde fait des erreurs\"",
+            "### 12. \"J'apprécie tes excuses\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1b52b621-b042-43a2-a0e3-2496e05aebd5",
+      "title": "Švédská výslovnost pro začátečníky: Jak zní jako rodilý mluvčí před svým partnerem",
+      "native_lang": "cs",
+      "target_lang": "sv",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Základní pravidla švédské výslovnosti",
+          "subsections": [
+            "### 1. Samohlásky: Krátké vs. dlouhé",
+            "### 2. Speciální švédské souhlásky"
+          ]
+        },
+        {
+          "header": "## Nejčastější chyby Čechů",
+          "subsections": [
+            "### 1. Výslovnost \"ä\" a \"ö\"",
+            "### 2. Dlouhé souhlásky",
+            "### 3. Přízvuk u sloves"
+          ]
+        },
+        {
+          "header": "## Rychlá referenční příručka",
+          "subsections": [
+            "### Samohlásky",
+            "### Speciální kombinace",
+            "### Přízvuk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1b932a32-fb4d-41ec-9f96-3e585c4883d8",
+      "title": "Russian First Date Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Making a Great First Impression",
+          "subsections": [
+            "### Ты прекрасно выглядишь",
+            "### Приятно познакомиться"
+          ]
+        }
+      ]
+    }
+  ]
+}

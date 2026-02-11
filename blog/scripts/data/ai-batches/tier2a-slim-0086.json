@@ -1,0 +1,436 @@
+{
+  "batchId": "tier2a-slim-0086",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "6986ea79-e73f-42ca-81e3-6190a29ada39",
+      "title": "Französischer Wortschatz für Essen und Restaurant",
+      "native_lang": "de",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Beliebte Gerichte",
+          "subsections": [
+            "### Vorspeisen (Entrées)",
+            "### Hauptgerichte (Plats Principaux)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6987d14e-1571-44dc-9ef2-42a9fa9b1bb1",
+      "title": "Small Talk på Tysk: Samtalestartere for Par",
+      "native_lang": "da",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassiske Emner",
+          "subsections": [
+            "### Vejret",
+            "### Weekendplaner",
+            "### Ferier og Rejser"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "698b6aac-3906-4517-8897-6e15dedc4b33",
+      "title": "Fare Complimenti in Inglese: 40+ Espressioni per Conquistare il Tuo Partner",
+      "native_lang": "it",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Complimenti per Occasioni Speciali",
+          "subsections": [
+            "### Quando Si Veste per Un'Occasione",
+            "### Durante Momenti Intimi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "698b8102-61b7-43bd-a254-ae363c186d20",
+      "title": "Apprendre le suedois avec des chansons d'amour",
+      "native_lang": "fr",
+      "target_lang": "sv",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Vocabulaire des chansons romantiques",
+          "subsections": [
+            "### Mots essentiels",
+            "### Expressions poetiques"
+          ]
+        },
+        {
+          "header": "## Artistes à decouvrir",
+          "subsections": [
+            "### ABBA",
+            "### Robyn",
+            "### Veronica Maggio",
+            "### Håkan Hellström"
+          ]
+        },
+        {
+          "header": "## Creer une playlist d'apprentissage",
+          "subsections": [
+            "### Chansons recommandees",
+            "### Comment apprendre avec la musique"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "698ea4bd-9dd5-4c06-9785-473f5ed914b5",
+      "title": "Urări de Aniversare în Germană: Mesaje Romantice pentru Partener",
+      "native_lang": "ro",
+      "target_lang": "de",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Mesaje Romantice",
+          "subsections": [
+            "### Pentru Prima Aniversare",
+            "### Pentru Aniversări Mai Lungi"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Diferite Aniversări",
+          "subsections": [
+            "### 1-5 Ani",
+            "### 5-10 Ani",
+            "### 10+ Ani"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Carduri",
+          "subsections": [
+            "### Scurte și Dulci",
+            "### Mesaje Lungi"
+          ]
+        },
+        {
+          "header": "## Amintiri de Împărtășit",
+          "subsections": [
+            "### Întrebări pentru Reflecție"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6995136c-ee4e-497f-b0bf-4ad268b74399",
+      "title": "С днём рождения на турецкий: Пожелания для любимого человека",
+      "native_lang": "ru",
+      "target_lang": "tr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Романтические пожелания на день рождения",
+          "subsections": [
+            "### Сладкие и простые",
+            "### Глубокие послания"
+          ]
+        },
+        {
+          "header": "## Фразы для открытки",
+          "subsections": [
+            "### Романтические послания",
+            "### Длинные послания"
+          ]
+        },
+        {
+          "header": "## Планирование сюрприза",
+          "subsections": [
+            "### Лексика для sürpriz",
+            "### Фразы для сюрприза"
+          ]
+        },
+        {
+          "header": "## Сообщения для социальных сетей",
+          "subsections": [
+            "### Подписи для публикаций"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "699f0033-85bc-405b-9cb9-dff0f3eed69c",
+      "title": "Ukrainian Anniversary Wishes: Romantic Messages for Your Love",
+      "native_lang": "en",
+      "target_lang": "uk",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Simple Anniversary Wishes",
+          "subsections": [
+            "### Short and Sweet",
+            "### For Your Partner"
+          ]
+        },
+        {
+          "header": "## Romantic Anniversary Messages",
+          "subsections": [
+            "### Heartfelt Declarations",
+            "### Reflective Messages"
+          ]
+        },
+        {
+          "header": "## Anniversary Messages by Year",
+          "subsections": [
+            "### First Anniversary",
+            "### Fifth Anniversary",
+            "### Tenth Anniversary",
+            "### Twenty-Fifth Anniversary (Silver)",
+            "### Fiftieth Anniversary (Golden)"
+          ]
+        },
+        {
+          "header": "## Planning Your Anniversary Celebration",
+          "subsections": [
+            "### Romantic Ideas",
+            "### What to Say at Dinner"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "69a8ec38-fd11-42ce-a995-549984e48d33",
+      "title": "Polske udtryk til at møde svigerforældre",
+      "native_lang": "da",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Vigtige sætninger",
+          "subsections": [
+            "### 1. Bardzo mi miło Państwa poznać",
+            "### 2. Dużo o Państwu słyszałem/słyszałam",
+            "### 3. Dziękuję bardzo za zaproszenie",
+            "### 4. Przyniosłem/Przyniosłam mały upominek",
+            "### 5. Mają Państwo piękny dom",
+            "### 6. Jedzenie było przepyszne",
+            "### 7. Bardzo kocham Państwa syna/córkę",
+            "### 8. Jesteśmy razem bardzo szczęśliwi",
+            "### 9. Chciałbym/Chciałabym lepiej Państwa poznać",
+            "### 10. Czy mogę w czymś pomóc?",
+            "### 11. To wspaniała rodzinna tradycja",
+            "### 12. Nie mogę się doczekać kolejnego spotkania"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "69b82fe8-1f05-48a7-9535-fc4e462dc8a0",
+      "title": "Gramática Holandesa para Principiantes: Domina los Fundamentos con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "nl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Los Fundamentos (Reglas Básicas)",
+          "subsections": [
+            "### 1. El Orden de las Palabras: Sujeto-Verbo-Objeto",
+            "### 2. Los Artículos: De y Het",
+            "### 3. Los Pronombres Personales"
+          ]
+        },
+        {
+          "header": "## Referencia Rápida: Guía de Bolsillo",
+          "subsections": [
+            "### Artículos",
+            "### Orden Básico",
+            "### Negación"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "69c80ef0-8e8e-4d42-b060-50bcb0de5411",
+      "title": "Expresii în Greacă pentru Reconciliere și Împăcare în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Gesturi de Reconciliere",
+          "subsections": [
+            "### Mâncarea",
+            "### Contactul Fizic",
+            "### Familia",
+            "### Declarații Pasionale"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "69d03fd5-aff3-417f-9773-d3f85c17b2b0",
+      "title": "Engelsk Uttale for Nybegynnere: Lær Å Snakke Klart med Din Partner",
+      "native_lang": "no",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Grunnleggende Uttaleregler",
+          "subsections": [
+            "### 1. De Fem Vokalene",
+            "### 2. TH-lyden",
+            "### 3. R-ullen"
+          ]
+        },
+        {
+          "header": "## Vanlige Mønstre for Kjærestesamtaler",
+          "subsections": [
+            "### Spørsmålsintonasjon",
+            "### Kjælenavn og Uttale"
+          ]
+        },
+        {
+          "header": "## Vanlige Feil Norske Gjør",
+          "subsections": [
+            "### 1. For sterke R-er",
+            "### 2. Feil trykk",
+            "### 3. Norske vokaler"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "69d0c09a-fcc6-4dd3-9b4a-320bc05fc969",
+      "title": "Польская Произношение для Начинающих: Легкие Советы для Влюблённых",
+      "native_lang": "ru",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Основные Звуды: От Простого к Сложному",
+          "subsections": [
+            "### 1. Звуки, Похожие на Русские (Вы уже почти мастер!)",
+            "### 2. Новые Звуки для Вас Обоих"
+          ]
+        },
+        {
+          "header": "## Сложные Комбинации: Разбор по Полочкам",
+          "subsections": [
+            "### SZ, CZ, DŻ - Шипящие Звуки",
+            "### Ś, Ć, Ź - Мягкие Шипящие"
+          ]
+        },
+        {
+          "header": "## Типичные Ошибки и Как Их Избежать",
+          "subsections": [
+            "### Ошибка 1: Русское \"Р\"",
+            "### Ошибка 2: Игнорирование Носовых Звуков",
+            "### Ошибка 3: Смешение SZ и Ś"
+          ]
+        },
+        {
+          "header": "## Быстрая Шпаргалка: Звуки по Категориям",
+          "subsections": [
+            "### Гласные",
+            "### Согласные"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "69d57c67-8acc-4e08-bd1e-53f418c2222c",
+      "title": "Російська vs англійська: Ключові відмінності для українців",
+      "native_lang": "uk",
+      "target_lang": "ru",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Граматичні відмінності",
+          "subsections": [
+            "### Відмінки",
+            "### Артиклі",
+            "### Дієслово «бути»",
+            "### Порядок слів"
+          ]
+        },
+        {
+          "header": "## Вимова",
+          "subsections": [
+            "### Російська вимова для українців",
+            "### Англійська проблема для українців:"
+          ]
+        },
+        {
+          "header": "## Лексика",
+          "subsections": [
+            "### Майже ідентичні слова",
+            "### «Фальшиві друзі» (обережно!)"
+          ]
+        },
+        {
+          "header": "## Часи дієслів",
+          "subsections": [
+            "### Російська система часів (як українська)",
+            "### Англійська система часів"
+          ]
+        },
+        {
+          "header": "## Практичні приклади",
+          "subsections": [
+            "### Романтична фраза",
+            "### Питання"
+          ]
+        },
+        {
+          "header": "## Висновки",
+          "subsections": [
+            "### Чому російська легша для українців:",
+            "### Що треба вивчити:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "69d89dfd-2aa2-40e6-9912-e46beb6e99f3",
+      "title": "Guia de Pronúncia do Romeno para Falantes de Português",
+      "native_lang": "pt",
+      "target_lang": "ro",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Sons Especiais",
+          "subsections": [
+            "### Ă (a neutro)",
+            "### Â/Î (i gutural)",
+            "### Ș (ch)",
+            "### Ț (ts)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "69eb4184-b0df-49da-89e4-2045576899dc",
+      "title": "Italian 'I Miss You' Phrases: Express Your Longing Passionately",
+      "native_lang": "en",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essential 'I Miss You' Phrases",
+          "subsections": [
+            "### Passionate Expressions",
+            "### Deep Longing",
+            "### Romantic Yearning",
+            "### Tender Messages"
+          ]
+        },
+        {
+          "header": "## Phrases for Special Moments",
+          "subsections": [
+            "### Long-Distance Love",
+            "### Night-Time Longing",
+            "### Reunion"
+          ]
+        }
+      ]
+    }
+  ]
+}

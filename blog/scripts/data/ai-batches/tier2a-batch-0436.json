@@ -1,0 +1,178 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0436",
+  "articles": [
+    {
+      "id": "7cba496d-35ad-4383-9ca4-9e177376b8ba",
+      "title": "Czeski dla Par: 35+ Niezbędnych Zwrotow",
+      "native_lang": "pl",
+      "target_lang": "cs",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nCzeski to najbliższy język dla Polaków! Wiele zwrotów zrozumiesz intuicyjnie. Oto niezbędne wyrażenia do codzieńnej komunikacji w parze.\n\n## Poranki razem\n\n<PhraseOfDay\n  word=\"Dobré ráno, lásko\"\n  translation=\"Dzień dobry, miłości\"\n  pronunciation=\"DO-bre RA-no, LAS-ko\"\n  context=\"Romantyczne poranne powitanie\"\n/>\n\n<VocabCard\n  word=\"Jak ses vyspal/a?\"\n  translation=\"Jak się spałeś/aś?\"\n  pronunciation=\"jak ses WY-spał/a\"\n  example=\"Dobré ráno! Jak ses vyspal? - Dzień dobry! Jak się spałeś?\"\n/>\n\n| Czeski | Wymowa | Polski |\n|--------|--------|--------|\n| **Dobré ráno** | DO-bre RA-no | Dzień dobry (rano) |\n| **Vstávej, miláčku** | FSTA-wej, mi-ŁACZ-ku | Wstawaj, kochanie |\n| **Je čas vstávat** | je czas FSTA-wat | Czas wstawać |\n| **Ještě 5 minut** | JESZ-tie piet MI-nut | Jeszcze 5 minut |\n| **Uděláš mi kávu?** | u-DZIE-łasz mi KA-wu | Zrobisz mi kawę? |\n\n<CultureTip title=\"Czeska kawa\" flag=\"🇨🇿\">\nCzesi piją dużo kawy! \"Turek\" to popularna kawa parzona w filiżance. \"Dáš si kávu?\" (Napijesz się kawy?) to częsta propozycja.\n</CultureTip>\n\n## Wyrażanie uczuć\n\n<VocabCard\n  word=\"Mám tě rád/a\"\n  translation=\"Kocham cię\"\n  pronunciation=\"mam cie rad/RA-da\"\n  example=\"Víš, že tě mám rád? - Wiesz, że cię kocham?\"\n/>\n\n| Czeski | Wymowa | Polski |\n|--------|--------|--------|\n| **Mám tě rád/a** | mam cie rad | Kocham cię (codzieńne) |\n| **Miluji tě** | MI-lu-ji cie | Kocham cię (głębokie) |\n| **Chybíš mi** | CHY-bisz mi | Brakuje mi ciebie |\n| **Myslím na tebe** | MY-slim na TE-be | Myślę o tobie |\n| **Jsi skvělá/ý** | jsi SKWIE-ła/łi | Jesteś wspaniała/y |\n\n## Codzieńne pytania\n\n<PhraseOfDay\n  word=\"Jak se máš?\"\n  translation=\"Jak się masz?\"\n  pronunciation=\"jak se masz\"\n  context=\"Podstawowe pytanie o samopoczucie\"\n/>\n\n| Czeski | Wymowa | Polski |\n|--------|--------|--------|\n| **Jak se máš?** | jak se masz | Jak się masz? |\n| **Co děláš?** | co DZIE-łasz | Co robisz? |\n| **Kde jsi?** | gde jsi | Gdzie jesteś? |\n| **Kdy přijdeš?** | gdy PRZYJDESZ | Kiedy przyjdziesz? |\n| **Co budeš dělat?** | co BU-desz DZIE-łat | Co będziesz robić? |\n| **Máš hlad?** | masz hłat | Jesteś głodny/a? |\n\n### Odpowiedzi\n\n| Czeski | Wymowa | Polski |\n|--------|--------|--------|\n| **Dobře** | DO-brże | Dobrze |\n| **Výborně** | WI-bor-nie | Świetnie |\n| **Ujde to** | UJ-de to | Ujdzie |\n| **Špatně** | SZPAT-nie | Źle |\n| **Jsem unavený/á** | jsem U-na-we-ni | Jestem zmęczony/a |\n\n## Plany i propozycje\n\n<VocabCard\n  word=\"Co dneska budeme dělat?\"\n  translation=\"Co dzisiaj będziemy robić?\"\n  pronunciation=\"co DNES-ka BU-de-me DZIE-łat\"\n  example=\"Lásko, co dneska budeme dělat? - Miłości, co dzisiaj będziemy robić?\"\n/>\n\n| Czeski | Wymowa | Polski |\n|--------|--------|--------|\n| **Pojďme někam** | POJDŹ-me NIE-kam | Chodźmy gdzieś |\n| **Chceš na procházku?** | chcesz na pro-CHAZ-ku | Chcesz na spacer? |\n| **Půjdeme do kina?** | PUJ-de-me do KI-na | Pójdziemy do kina? |\n| **Uvaříš večeři?** | u-WA-rżisz WE-cze-rżi | Ugotujesz kolację? |\n| **Objednáme jídlo?** | ob-JED-na-me JID-ło | Zamówimy jedzenie? |\n\n<CultureTip title=\"Czeska bezpośredniość\" flag=\"🇨🇿\">\nCzesi są bezpośredni - \"Uvaříš večeři?\" to normalne pytanie, nie żądanie. Podobnie \"Půjdeme?\" (Pójdziemy?) - krótko i na temat!\n</CultureTip>\n\n## Przy posiłkach\n\n<VocabCard\n  word=\"Dobrou chuť!\"\n  translation=\"Smacznego!\"\n  pronunciation=\"DO-brou chutj\"\n  example=\"Večeře je hotová. Dobrou chuť!\"\n/>\n\n| Czeski | Wymowa | Polski |\n|--------|--------|--------|\n| **Dobrou chuť** | DO-brou chutj | Smacznego |\n| **Je to výborné** | je to WI-bor-ne | To jest wyborne |\n| **Moc dobré** | moc DO-bre | Bardzo dobre |\n| **Chceš ještě?** | chcesz JESZ-tie | Chcesz jeszcze? |\n| **Jsem plný/á** | jsem PŁ-ni | Jestem najedzony/a |\n| **Na zdraví!** | na ZDRA-wi | Na zdrowie! |\n\n## Wyrażanie opinii\n\n<PhraseOfDay\n  word=\"Souhlasím\"\n  translation=\"Zgadzam się\"\n  pronunciation=\"SOU-hła-sim\"\n  context=\"Wyrażanie zgody\"\n/>\n\n| Czeski | Wymowa | Polski |\n|--------|--------|--------|\n| **Souhlasím** | SOU-hła-sim | Zgadzam się |\n| **Máš pravdu** | masz PRAW-du | Masz rację |\n| **Myslím, že...** | MY-slim, że | Myślę, że... |\n| **Nevím** | NE-wim | Nie wiem |\n| **Je mi to jedno** | je mi to JED-no | Wszystko mi jedno |\n| **Jak chceš** | jak chcesz | Jak chcesz |\n\n## Przeprosiny i prośby\n\n<VocabCard\n  word=\"Promiň, lásko\"\n  translation=\"Przepraszam, miłości\"\n  pronunciation=\"PRO-minj, LAS-ko\"\n  example=\"Promiň, měl/a jsem ti zavolat. - Przepraszam, powinienem/am był/a zadzwonić.\"\n/>\n\n| Czeski | Wymowa | Polski |\n|--------|--------|--------|\n| **Promiň** | PRO-minj | Przepraszam (nieformalne) |\n| **Je mi to líto** | je mi to LI-to | Przykro mi |\n| **Prosím tě** | PRO-sim cie | Proszę cię |\n| **Můžeš mi pomoct?** | MU-żesz mi PO-moct | Możesz mi pomóc? |\n| **Neboj se** | NE-boj se | Nie bój się |\n| **To je v pořádku** | to je f PO-rżad-ku | To jest w porządku |\n\n<CultureTip title=\"Promiň vs Promiňte\" flag=\"🇨🇿\">\n\"Promiň\" to forma na ty, \"promiňte\" to forma oficjalna. W parze używajcie \"promiň\". Czesi są mniej formalni niż Polacy!\n</CultureTip>\n\n## Wieczory razem\n\n<VocabCard\n  word=\"Pojď si lehnout\"\n  translation=\"Chodź się położyć\"\n  pronunciation=\"pojdź si ŁECH-nout\"\n  example=\"Je pozdě. Pojď si lehnout, lásko.\"\n/>\n\n| Czeski | Wymowa | Polski |\n|--------|--------|--------|\n| **Jsem unavený/á** | jsem U-na-we-ni | Jestem zmęczony/a |\n| **Půjdeme spát?** | PUJ-de-me spat | Pójdziemy spać? |\n| **Dobrou noc** | DO-brou noc | Dobranoc |\n| **Spi sladce** | spi SŁAD-ce | Śpij słodko |\n| **Hezké sny** | HEZ-ke sny | Miłych snów |\n| **Miluji tě, złoto** | MI-lu-ji cie, ZŁA-to | Kocham cię, złotko |\n\n## Ćwiczenia dla par\n\n### Ćwiczenie 1: Poranna rutyna\nPrzećwiczcie poranną rozmowę:\n- \"Dobré ráno, lásko!\"\n- \"Jak ses vyspal/a?\"\n- \"Uděláš mi kávu?\"\n\n### Ćwiczenie 2: Planowanie dnia\nZaplanujcie dzień po czesku:\n- \"Co dneska budeme dělat?\"\n- \"Pojďme někam na večeři\"\n\n### Ćwiczenie 3: Wieczorna rutyna\n- \"Jsem unavený/á\"\n- \"Dobrou noc, miláčku\"\n- \"Spi sladce\"\n\n## Podsumowanie\n\nCzeski jest niezwykle podobny do polskiego - wiele zrozumiesz od razu! Używajcie tych zwrotów codzieńnie, a komunikacja stanie się naturalna. \"Dobrou chuť\" i \"Na zdraví\" to obowiązkowe!\n\n## Kontynuuj naukę\n\n- **[Czeskie zdrobnienia](/learn/pl/cs/czech-pet-names-terms-of-endearment/)** - Czułe słowa\n- **[Jak powiedzieć \"kocham cię\"](/learn/pl/cs/how-to-say-i-love-you-in-czech/)** - Wyznania miłości\n- **[Wymowa czeska](/learn/pl/cs/czech-pronunciation-guide/)** - Popraw wymowę\n- **[Gramatyka czeska](/learn/pl/cs/czech-grammar-basics/)** - Podstawy gramatyki\n\n<CTA\n  text=\"Gotowi na poprawe komunikacji z partnerem? Love Languages oferuje Tryb Słuchania na rodzinne obiady, Love Log do zapisywania specjalnych zwrotów oraz możliwość tworzenia spersonalizowanych wyzwań przez partnera jako tutora.\"\n  buttonText=\"Zacznij Teraz\"\n/>\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Ćwiczenia dla par"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "7cbbccf9-5f6d-48d8-a5ff-87b2ff584ea6",
+      "title": "100 самых важных итальянских слов для пар",
+      "native_lang": "ru",
+      "target_lang": "it",
+      "category": "communication",
+      "content": "Итальянский — язык любви и страсти. Освойте базовые слова для общения с партнёром.\n\n## Обращения\n\n### 1. Io / Tu / Noi\n**Произношение:** Ио / Ту / Ной\n**Перевод:** Я / Ты / Мы\n\n### 2. Amore mio / Tesoro / Caro/a\n**Произношение:** Амо́рэ ми́о / Тэзо́ро / Ка́ро/а\n**Перевод:** Любовь моя / Сокровище / Дорогой/Дорогая\n\n## Чувства\n\n### 3. Amore / Felice / Triste\n**Произношение:** Амо́рэ / Фэли́че / Три́стэ\n**Перевод:** Любовь / Счастливый / Грустный\n\n## Действия\n\n### 4. Mangiare / Bere / Dormire\n**Произношение:** Манджа́рэ / Бэ́рэ / Дорми́рэ\n**Перевод:** Есть / Пить / Спать\n\n### 5. Andare / Venire / Restare\n**Произношение:** Анда́рэ / Вэни́рэ / Рэста́рэ\n**Перевод:** Идти / Приходить / Оставаться\n\n## Время\n\n### 6. Oggi / Domani / Ieri\n**Произношение:** О́джи / Дома́ни / Йе́ри\n**Перевод:** Сегодня / Завтра / Вчера\n\n### 7. Mattina / Sera / Notte\n**Произношение:** Матти́на / Сэ́ра / Но́ттэ\n**Перевод:** Утро / Вечер / Ночь\n\n## Важные фразы\n\n### 8. Ti amo / Ti voglio bene\n**Произношение:** Ти а́мо / Ти во́лье бэ́нэ\n**Перевод:** Я люблю тебя (страстно) / Я люблю тебя (нежно)\n\n### 9. Mi manchi\n**Произношение:** Ми ма́нки\n**Перевод:** Я скучаю по тебе\n\n### 10. Grazie / Scusa / Per favore\n**Произношение:** Гра́цие / Ску́за / Пэр фаво́рэ\n**Перевод:** Спасибо / Извини / Пожалуйста\n\n### 11. Sì / No\n**Произношение:** Си / Но\n**Перевод:** Да / Нет\n\n### 12. Bacio / Abbraccio\n**Произношение:** Ба́чо / Аббра́ччо\n**Перевод:** Поцелуй / Объятие\n\n### 13. Buonanotte\n**Произношение:** Буонано́ттэ\n**Перевод:** Спокойной ночи\n\n## Культурная заметка\n\n«Ti amo» — глубокая страстная любовь, «Ti voglio bene» — нежная привязанность. Оба важны в итальянских отношениях.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 272,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Обращения",
+              "## Чувства",
+              "## Действия",
+              "## Время",
+              "## Важные фразы"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "7cf19a87-822b-4242-9042-4c30a4f06b9d",
+      "title": "En Yaygın 100 Almanca Kelime",
+      "native_lang": "tr",
+      "target_lang": "de",
+      "category": "communication",
+      "content": "Almanca öğrenmeye başlarken en yaygın kelimeleri bilmek önemlidir.\n\n## Temel Zamirler\n\n### 1. Ich /ih/ - Ben\n### 2. Du /du/ - Sen\n### 3. Er /er/ - O (erkek)\n### 4. Sie /zi/ - O (kadın)/Siz\n### 5. Es /es/ - O (nesne)\n### 6. Wir /vir/ - Biz\n### 7. Sie /zi/ - Onlar\n\n### 8. Und /unt/ - Ve\n### 9. Aber /aber/ - Ama\n### 10. Oder /oder/ - Veya\n\n## Temel Fiiller\n\n### 11. Sein /zayn/ - Olmak\n### 12. Haben /haben/ - Sahip olmak\n### 13. Machen /mahen/ - Yapmak\n### 14. Sagen /zagen/ - Söylemek\n### 15. Gehen /geen/ - Gitmek\n### 16. Kommen /komen/ - Gelmek\n### 17. Können /könen/ - Yapabilmek\n### 18. Wissen /visen/ - Bilmek\n### 19. Wollen /volen/ - İstemek\n### 20. Sehen /zeen/ - Görmek\n### 21. Geben /geben/ - Vermek\n### 22. Sprechen /şprehen/ - Konuşmak\n### 23. Nehmen /neemen/ - Almak\n### 24. Lieben /liiben/ - Sevmek\n### 25. Essen /esen/ - Yemek\n\n## Sıfatlar\n\n### 26. Gut /gut/ - İyi\n### 27. Schlecht /şleht/ - Kötü\n### 28. Groß /gros/ - Büyük\n### 29. Klein /klayn/ - Küçük\n### 30. Neu /noy/ - Yeni\n### 31. Alt /alt/ - Eski/yaşlı\n### 32. Lang /lang/ - Uzun\n### 33. Kurz /kurts/ - Kısa\n### 34. Heiß /hays/ - Sıcak\n### 35. Kalt /kalt/ - Soğuk\n\n## Zaman İfadeleri\n\n### 36. Jetzt /yetst/ - Şimdi\n### 37. Heute /hoyte/ - Bugün\n### 38. Morgen /morgen/ - Yarın\n### 39. Gestern /gestern/ - Dün\n### 40. Immer /imer/ - Her zaman\n### 41. Nie /ni/ - Asla\n### 42. Manchmal /manhmal/ - Bazen\n\n## Soru Kelimeleri\n\n### 43. Was /vas/ - Ne\n### 44. Wo /vo/ - Nerede\n### 45. Wann /van/ - Ne zaman\n### 46. Warum /varum/ - Neden\n### 47. Wie /vi/ - Nasıl\n### 48. Wer /ver/ - Kim\n\n## Sayılar\n\n### 49. Eins /ayns/ - Bir\n### 50. Zwei /tsvay/ - İki\n### 51. Drei /dray/ - Üç\n### 52. Vier /fir/ - Dört\n### 53. Fünf /fünf/ - Beş\n### 54. Zehn /tsen/ - On\n### 55. Hundert /hundert/ - Yüz\n\n## Günlük Kelimeler\n\n### 56. Ja /ya/ - Evet\n### 57. Nein /nayn/ - Hayır\n### 58. Bitte /bite/ - Lütfen\n### 59. Danke /danke/ - Teşekkürler\n### 60. Entschuldigung /entşuldigung/ - Özür dilerim\n### 61. Hallo /halo/ - Merhaba\n### 62. Auf Wiedersehen /auf viderzeen/ - Hoşça kal\n### 63. Liebe /liibe/ - Aşk\n### 64. Freund /froynt/ - Arkadaş\n### 65. Familie /familiye/ - Aile\n\nBu kelimeleri öğrenmek, Almanca iletişiminizi güçlendirecektir.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Temel Zamirler",
+              "### 1. Ich /ih/ - Ben",
+              "### 2. Du /du/ - Sen",
+              "### 3. Er /er/ - O (erkek)",
+              "### 4. Sie /zi/ - O (kadın)/Siz",
+              "### 5. Es /es/ - O (nesne)",
+              "### 6. Wir /vir/ - Biz",
+              "### 7. Sie /zi/ - Onlar",
+              "### 8. Und /unt/ - Ve",
+              "### 9. Aber /aber/ - Ama",
+              "### 10. Oder /oder/ - Veya",
+              "## Temel Fiiller",
+              "### 11. Sein /zayn/ - Olmak",
+              "### 12. Haben /haben/ - Sahip olmak",
+              "### 13. Machen /mahen/ - Yapmak",
+              "### 14. Sagen /zagen/ - Söylemek",
+              "### 15. Gehen /geen/ - Gitmek",
+              "### 16. Kommen /komen/ - Gelmek",
+              "### 17. Können /könen/ - Yapabilmek",
+              "### 18. Wissen /visen/ - Bilmek",
+              "### 19. Wollen /volen/ - İstemek",
+              "### 20. Sehen /zeen/ - Görmek",
+              "### 21. Geben /geben/ - Vermek",
+              "### 22. Sprechen /şprehen/ - Konuşmak",
+              "### 23. Nehmen /neemen/ - Almak",
+              "### 24. Lieben /liiben/ - Sevmek",
+              "### 25. Essen /esen/ - Yemek",
+              "## Sıfatlar",
+              "### 26. Gut /gut/ - İyi",
+              "### 27. Schlecht /şleht/ - Kötü",
+              "### 28. Groß /gros/ - Büyük",
+              "### 29. Klein /klayn/ - Küçük",
+              "### 30. Neu /noy/ - Yeni",
+              "### 31. Alt /alt/ - Eski/yaşlı",
+              "### 32. Lang /lang/ - Uzun",
+              "### 33. Kurz /kurts/ - Kısa",
+              "### 34. Heiß /hays/ - Sıcak",
+              "### 35. Kalt /kalt/ - Soğuk",
+              "## Zaman İfadeleri",
+              "### 36. Jetzt /yetst/ - Şimdi",
+              "### 37. Heute /hoyte/ - Bugün",
+              "### 38. Morgen /morgen/ - Yarın",
+              "### 39. Gestern /gestern/ - Dün",
+              "### 40. Immer /imer/ - Her zaman",
+              "### 41. Nie /ni/ - Asla",
+              "### 42. Manchmal /manhmal/ - Bazen",
+              "## Soru Kelimeleri",
+              "### 43. Was /vas/ - Ne",
+              "### 44. Wo /vo/ - Nerede",
+              "### 45. Wann /van/ - Ne zaman",
+              "### 46. Warum /varum/ - Neden",
+              "### 47. Wie /vi/ - Nasıl",
+              "### 48. Wer /ver/ - Kim",
+              "## Sayılar",
+              "### 49. Eins /ayns/ - Bir",
+              "### 50. Zwei /tsvay/ - İki",
+              "### 51. Drei /dray/ - Üç",
+              "### 52. Vier /fir/ - Dört",
+              "### 53. Fünf /fünf/ - Beş",
+              "### 54. Zehn /tsen/ - On",
+              "### 55. Hundert /hundert/ - Yüz",
+              "## Günlük Kelimeler",
+              "### 56. Ja /ya/ - Evet",
+              "### 57. Nein /nayn/ - Hayır",
+              "### 58. Bitte /bite/ - Lütfen",
+              "### 59. Danke /danke/ - Teşekkürler",
+              "### 60. Entschuldigung /entşuldigung/ - Özür dilerim",
+              "### 61. Hallo /halo/ - Merhaba",
+              "### 62. Auf Wiedersehen /auf viderzeen/ - Hoşça kal",
+              "### 63. Liebe /liibe/ - Aşk",
+              "### 64. Freund /froynt/ - Arkadaş"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "7cf4779d-d760-442c-bff3-bfed6ed64ae1",
+      "title": "Ukrán kifejezések kibéküléshez és megbékéléshez",
+      "native_lang": "hu",
+      "target_lang": "uk",
+      "category": "communication",
+      "content": "Az ukrán kultúra meleg és érzelmes – a kibékülés is az. Ha ukrán anyanyelvű partnered van, ezek a kifejezések segítenek őszintén helyreállítani a kapcsolatot.\n\n## Az ukrán kibékülés\n\nAz ukránok nyíltan fejezik ki érzelmeiket. A bocsánatkérés komoly dolog, és a megbocsátás is szívből jön.\n\n## Alapvető kifejezések a kibéküléshez\n\n### 1. \"Вибач мені, будь ласка\"\n**Átírás:** Vybach meni, bud' laska\n**Kiejtés:** Vibacs menyí, budj laszka\n\n**Jelentés:** Kérlek, bocsáss meg nekem\n\n**Példa:** \"Вибач мені, будь ласка, за те, що я сказала.\"\n\n### 2. \"Чи можемо почати спочатку?\"\n**Átírás:** Chy mozhemo pochaty spochatku?\n**Kiejtés:** Csi mozsemo pocsáti szpocsátku\n\n**Jelentés:** Újrakezdhetjük?\n\n**Példa:** \"Знаю, що ми посварилися, але чи можемо почати спочатку?\"\n\n### 3. \"Я помилявся/помилялася\"\n**Átírás:** Ya pomylyavsya/pomylyalasya\n**Kiejtés:** Ja pomilávszja/pomilálaszja\n\n**Jelentés:** Tévedtem\n\n**Példa:** \"Я помилялася, що так відреагувала. Вибач.\"\n\n### 4. \"Давай помиримося\"\n**Átírás:** Davay pomyrymosya\n**Kiejtés:** Daváj pomirimoszja\n\n**Jelentés:** Békéljünk ki\n\n**Példa:** \"Ненавиджу сваритися з тобою. Давай помиримося.\"\n\n### 5. \"Я тебе прощаю\"\n**Átírás:** Ya tebe proshchayu\n**Kiejtés:** Ja tebe proscsáju\n\n**Jelentés:** Megbocsátok neked\n\n**Példa:** \"Знаю, що ти не хотів мене образити. Я тебе прощаю.\"\n\n### 6. \"Я тебе кохаю, навіть коли ми сваримося\"\n**Átírás:** Ya tebe kokhayu, navit' koly my svarymosya\n**Kiejtés:** Ja tebe koháju, navíty koli mi szvárimoszja\n\n**Jelentés:** Szeretlek, még ha veszekedünk is\n\n**Példa:** \"Хочу, щоб ти знала, що я тебе кохаю, навіть коли ми сваримося.\"\n\n### 7. \"Я не хотів/хотіла тебе образити\"\n**Átírás:** Ya ne khotiv/khotila tebe obrazyty\n**Kiejtés:** Ja ne hotív/hotíla tebe obráziti\n\n**Jelentés:** Nem akartalak megbántani\n\n**Példa:** \"Повір мені, я не хотіла тебе образити.\"\n\n### 8. \"Ти можеш мені вибачити?\"\n**Átírás:** Ty mozhesh meni vybach​yty?\n**Kiejtés:** Ti mozsesz menyí vibacsiti\n\n**Jelentés:** Meg tudsz bocsátani nekem?\n\n**Példa:** \"Знаю, що я помилилася. Ти можеш мені вибачити?\"\n\n### 9. \"Ненавиджу, коли ми сваримося\"\n**Átírás:** Nenavydzhu, koly my svarymosya\n**Kiejtés:** Nenavídzsu, koli mi szvárimoszja\n\n**Jelentés:** Utálom, amikor veszekedünk\n\n**Példa:** \"Ненавиджу, коли ми сваримося. Мені від цього погано.\"\n\n### 10. \"Не лягаймо спати в сварці\"\n**Átírás:** Ne lyagaymo spaty v svartsi\n**Kiejtés:** Ne ljagájmo szpáti v szvárci\n\n**Jelentés:** Ne feküdjünk le haragban\n\n**Példa:** \"Можемо поговорити? Не лягаймо спати в сварці.\"\n\n### 11. \"Обіцяю виправитися\"\n**Átírás:** Obitsyayu vypravytysya\n**Kiejtés:** Obícsjaju viprávitiszja\n\n**Jelentés:** Megígérem, hogy javulok\n\n**Példa:** \"Вибач, і обіцяю виправитися наступного разу.\"\n\n### 12. \"Ти дуже важливий/а для мене\"\n**Átírás:** Ty duzhe vazhlyvyy/a dlya mene\n**Kiejtés:** Ti dúzse vazslívij/a dlja mene\n\n**Jelentés:** Nagyon fontos vagy nekem\n\n**Példa:** \"Навіть коли ми сваримося, ти дуже важлива для мене.\"\n\n## Összefoglalás\n\nAz ukrán kibékülés szívből jön. A szomszédi kapcsolat miatt sok magyar-ukrán pár él együtt – a közös értékek segítenek a megértésben.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Alapvető kifejezések a kibéküléshez"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "7cf7fb2c-65dd-4606-b5c1-7da20d1c7f3b",
+      "title": "Italienske fraser om jalousii og tillid for par",
+      "native_lang": "da",
+      "target_lang": "it",
+      "category": "communication",
+      "content": "I italiensk kultur kan jalousii være et intenst og lidenskabeligt emne. At kunne tale om tillid på italiensk hjælper dig med at navigere i disse følelsesladede samtaler.\n\n## Jalousii på italiensk\n\nItaliensk passion omfatter også jalousii. Det er vigtigt at kunne udtrykke disse følelser konstruktivt.\n\n## Fraser om jalousii og tillid\n\n### At udtrykke bekymring\n\n<Phrase>\n  <Original>Mi sento un po' geloso/gelosa quando...</Original>\n  <Translation>Jeg føler mig lidt jaloux, når...</Translation>\n  <Context>Udtryk jalousii (m/f).</Context>\n  <Pronunciation>Mee sen-toh oon poh jeh-loh-zoh/jeh-loh-zah kwan-doh</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Ho bisogno di essere rassicurato/a su di noi</Original>\n  <Translation>Jeg har brug for at blive beroliget om os</Translation>\n  <Context>Bed om bekræftelse (m/f).</Context>\n  <Pronunciation>Oh bee-zoh-nyoh dee es-seh-reh rahs-see-koo-rah-toh/ah soo dee noy</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Possiamo parlare di quello che è successo?</Original>\n  <Translation>Kan vi tale om, hvad der skete?</Translation>\n  <Context>Start en samtale.</Context>\n  <Pronunciation>Pohs-syah-moh par-lah-reh dee kwel-loh keh eh soo-ches-soh</Pronunciation>\n</Phrase>\n\n### At opbygge tillid\n\n<Phrase>\n  <Original>Mi fido completamente di te</Original>\n  <Translation>Jeg stoler fuldstændigt på dig</Translation>\n  <Context>Bekræft din tillid.</Context>\n  <Pronunciation>Mee fee-doh kom-pleh-tah-men-teh dee teh</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Sei l'unica persona per me</Original>\n  <Translation>Du er den eneste for mig</Translation>\n  <Context>Bekræft betydning.</Context>\n  <Pronunciation>Say loo-nee-kah pair-soh-nah pair meh</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Non farei mai nulla per ferirti</Original>\n  <Translation>Jeg ville aldrig gøre noget for at såre dig</Translation>\n  <Context>Giv forsikring.</Context>\n  <Pronunciation>Non fah-ray mai nool-lah pair feh-reer-tee</Pronunciation>\n</Phrase>\n\n### At sætte grænser\n\n<Phrase>\n  <Original>Questo mi fa sentire a disagio</Original>\n  <Translation>Det får mig til at føle mig utilpas</Translation>\n  <Context>Udtryk ubehag.</Context>\n  <Pronunciation>Kwes-toh mee fah sen-tee-reh ah dee-zah-joh</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Ho bisogno che tu capisca come mi sento</Original>\n  <Translation>Jeg har brug for, at du forstår, hvordan jeg har det</Translation>\n  <Context>Bed om forståelse.</Context>\n  <Pronunciation>Oh bee-zoh-nyoh keh too kah-pee-skah koh-meh mee sen-toh</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Possiamo stabilire alcuni limiti insieme?</Original>\n  <Translation>Kan vi sætte nogle grænser sammen?</Translation>\n  <Context>Foreslå grænser.</Context>\n  <Pronunciation>Pohs-syah-moh stah-bee-lee-reh ahl-koo-nee lee-mee-tee een-syeh-meh</Pronunciation>\n</Phrase>\n\n### At berolige din partner\n\n<Phrase>\n  <Original>Non hai nulla di cui preoccuparti</Original>\n  <Translation>Du har ikke noget at bekymre dig om</Translation>\n  <Context>Berolig din partner.</Context>\n  <Pronunciation>Non ah-ee nool-lah dee koo-ee preh-ok-koo-par-tee</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Il mio cuore appartiene a te</Original>\n  <Translation>Mit hjerte tilhører dig</Translation>\n  <Context>Romantisk bekræftelse.</Context>\n  <Pronunciation>Eel mee-oh kwoh-reh ahp-par-tyeh-neh ah teh</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Sono impegnato/a nella nostra relazione</Original>\n  <Translation>Jeg er engageret i vores forhold</Translation>\n  <Context>Bekræft engagement (m/f).</Context>\n  <Pronunciation>Soh-noh eem-peh-nyah-toh/ah nel-lah nohs-trah reh-lah-tsyoh-neh</Pronunciation>\n</Phrase>\n\n## Kulturelle tips\n\n1. **Passion** - italienere udtrykker følelser intenst\n2. **Familie** - familiens mening kan være vigtig\n3. **Kommunikation** - tal åbent om følelser\n4. **Fysisk nærhed** - vis kærlighed gennem berøring\n\nMed disse fraser kan du navigere i samtaler om tillid og jalousii på italiensk.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Fraser om jalousii og tillid"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

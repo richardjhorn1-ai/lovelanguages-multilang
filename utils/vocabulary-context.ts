@@ -178,9 +178,10 @@ export function formatVocabularyPromptSection(tier: VocabularyTier, label?: stri
 
   sections.push('');
   sections.push('RULES:');
-  sections.push('- Do NOT re-explain mastered words — reference them as known, build on them');
-  sections.push('- Weave struggling words into responses naturally to give extra practice');
-  sections.push('- Celebrate progress when relevant (milestones, streaks, new words)');
+  sections.push('- SILENT CONTEXT: This vocabulary data is for YOUR awareness only — never narrate it back. Don\'t say things like "You already know X" or "Building on your knowledge of Y" or "Since you\'ve mastered Z"');
+  sections.push('- Skip mastered words unless the user specifically asks about them. Just teach new things at the right level');
+  sections.push('- Weave struggling words into responses naturally to give extra practice, without pointing out they\'re struggling');
+  sections.push('- If celebrating a milestone, keep it to one brief line — don\'t list what they know');
 
   return sections.join('\n');
 }

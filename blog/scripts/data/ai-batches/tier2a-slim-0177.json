@@ -1,0 +1,363 @@
+{
+  "batchId": "tier2a-slim-0177",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "ba98ddcc-336c-4d8d-aff9-83a25a19b236",
+      "title": "100 самых важных польских слов для пар",
+      "native_lang": "ru",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Обращения",
+          "subsections": [
+            "### 1. Ja / Ty / My",
+            "### 2. Kochanie / Skarbie / Moja miłość"
+          ]
+        },
+        {
+          "header": "## Чувства",
+          "subsections": [
+            "### 3. Miłość / Szczęśliwy / Smutny"
+          ]
+        },
+        {
+          "header": "## Действия",
+          "subsections": [
+            "### 4. Jeść / Pić / Spać",
+            "### 5. Iść / Przyjść / Zostać"
+          ]
+        },
+        {
+          "header": "## Время",
+          "subsections": [
+            "### 6. Dziś / Jutro / Wczoraj"
+          ]
+        },
+        {
+          "header": "## Важные фразы",
+          "subsections": [
+            "### 7. Kocham cię",
+            "### 8. Tęsknię za tobą",
+            "### 9. Dziękuję / Przepraszam / Proszę",
+            "### 10. Tak / Nie",
+            "### 11. Pocałunek / Uścisk",
+            "### 12. Dobranoc"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bab86325-10f2-45a1-a44a-57947e705e6a",
+      "title": "Чешская грамматика для начинающих: учимся говорить с любимым человеком",
+      "native_lang": "ru",
+      "target_lang": "cs",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Типичные ошибки и как их избежать",
+          "subsections": [
+            "### 1. Путаница с \"ty\" и \"vy\"",
+            "### 2. Забывание o akuzativu",
+            "### 3. Порядок слов"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "babe4eb5-6856-4ca2-aec7-d003a34eea2b",
+      "title": "Як зробити пропозицію польською: фрази для заручин",
+      "native_lang": "uk",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Підготовка до пропозиції",
+          "subsections": [
+            "### Чек-лист:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bac3ddd6-3ad7-41e1-a5b0-fec64f8457df",
+      "title": "Întâlnirea cu Familia: Fraze Suedeze Esențiale",
+      "native_lang": "ro",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Ce Să Faci și Ce Să Nu Faci",
+          "subsections": [
+            "### Ce Să Faci",
+            "### Ce Să Nu Faci"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bac8846c-f6fe-451b-937e-bd99cbe69b9c",
+      "title": "Swedish First Date Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Making a Great First Impression",
+          "subsections": [
+            "### Du ser fantastisk ut",
+            "### Trevligt att träffas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bacc49eb-7aed-4f21-983b-b191393e83d0",
+      "title": "Italienska flörtfraser för par – Förför din partner på italienska",
+      "native_lang": "sv",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassiska komplimanger",
+          "subsections": [
+            "### \"Sei bellissima/bellissimo\"",
+            "### \"Hai gli occhi più belli del mondo\"",
+            "### \"Il tuo sorriso mi fa impazzire\""
+          ]
+        },
+        {
+          "header": "## Passionerade uttryck",
+          "subsections": [
+            "### \"Sono pazzo/pazza di te\"",
+            "### \"Non riesco a smettere di pensare a te\"",
+            "### \"Mi fai battere il cuore\""
+          ]
+        },
+        {
+          "header": "## Lekfulla flörtfraser",
+          "subsections": [
+            "### \"Se fossi una stella, sarei caduto dal cielo solo per stare con te\"",
+            "### \"Sei un angelo caduto dal cielo?\"",
+            "### \"Mi sono perso/persa nei tuoi occhi\""
+          ]
+        },
+        {
+          "header": "## Djupt romantiska fraser",
+          "subsections": [
+            "### \"Sei l'amore della mia vita\"",
+            "### \"Con te, ogni giorno è speciale\"",
+            "### \"Ti voglio bene\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bad52a28-7768-4f10-9d27-091d273a64a8",
+      "title": "Portuguese Emotional Support Phrases: Comfort Your Partner in Difficult Times",
+      "native_lang": "en",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Specific Situations",
+          "subsections": [
+            "### Grief",
+            "### Stress",
+            "### Disappointment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bafef70e-e218-4caa-b36e-41bef09750ee",
+      "title": "Δανικές Φράσεις Συγχώρεσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις Συγχώρεσης",
+          "subsections": [
+            "### Αίτηση Συγχώρεσης",
+            "### Έκφραση Μετάνοιας",
+            "### Προσφορά Συγχώρεσης",
+            "### Χρόνος για Θεραπεία"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bb058866-9b75-4ea6-adcb-cf9860e44286",
+      "title": "Ucraniano para Casais: 50+ Frases Essenciais",
+      "native_lang": "pt",
+      "target_lang": "uk",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Frases para o Cotidiano",
+          "subsections": [
+            "### Fazendo Planos",
+            "### Demonstrando Cuidado"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bb2071b5-2ea1-428a-b89c-47f66b4570ce",
+      "title": "Английские фразы для примирения",
+      "native_lang": "ru",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Основные фразы для примирения",
+          "subsections": [
+            "### 1. I'm sorry, I was wrong",
+            "### 2. Can we make up?",
+            "### 3. I didn't mean to hurt you",
+            "### 4. I love you more than this argument",
+            "### 5. Let's start over",
+            "### 6. I forgive you",
+            "### 7. What can I do to make it better?",
+            "### 8. I miss us being happy",
+            "### 9. Let's not go to bed angry",
+            "### 10. I appreciate you trying to understand me"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bb248eba-5116-481e-93dc-c77e361d4383",
+      "title": "50+ Frasi d'Amore in Ungherese per Incantare",
+      "native_lang": "it",
+      "target_lang": "hu",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Momenti Speciali",
+          "subsections": [
+            "### Primo \"Ti Amo\"",
+            "### Dopo Molto Tempo Insieme",
+            "### Dire Arrivederci (Temporaneamente)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bb310f00-123f-4037-93fa-9f5750547d10",
+      "title": "Buenos Días y Buenas Noches en Polaco",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Consejos de Uso Práctico",
+          "subsections": [
+            "### Formal vs. Informal",
+            "### Adjetivos con Género",
+            "### Lenguaje Corporal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bb3fb240-8566-4e88-a889-fd826df61e91",
+      "title": "Základy anglické gramatiky pro páry: Jak mluvit s partnerem bez chyb",
+      "native_lang": "cs",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Nejčastější chyby Čechů (a jak se jim vyhnout)",
+          "subsections": [
+            "### 1. Zapomínání na **-s** u třetí osoby",
+            "### 2. Špatné pořadí slov v otázkách",
+            "### 3. Nepoužívání pomocných sloves",
+            "### 4. Záměna **he/she**",
+            "### 5. Zapomínání na členy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bb4ccd66-ca88-4296-8354-07392e1fa0f2",
+      "title": "Norwegische Trost- und Unterstützungsphrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlegende Unterstützung",
+          "subsections": [
+            "### \"Jeg er her for deg\"",
+            "### \"Jeg vil alltid være på din side\"",
+            "### \"Du er ikke alene i dette\"",
+            "### \"Uansett hva du trenger, jeg er her\""
+          ]
+        },
+        {
+          "header": "## Bei Trauer",
+          "subsections": [
+            "### \"Kondolerer\"",
+            "### \"Ta all den tiden du trenger\"",
+            "### \"Det er greit å gråte\""
+          ]
+        },
+        {
+          "header": "## Bei Stress und Sorgen",
+          "subsections": [
+            "### \"Vi løser dette sammen\"",
+            "### \"Ett skritt om gangen\"",
+            "### \"Det er greit å ikke ha det bra\"",
+            "### \"Dette går også over\"",
+            "### \"Ikke vær så hard mot deg selv\""
+          ]
+        },
+        {
+          "header": "## Ermutigung",
+          "subsections": [
+            "### \"Jeg tror på deg\"",
+            "### \"Du er sterkere enn du tror\"",
+            "### \"Jeg er så stolt av deg\"",
+            "### \"Du klarer dette\""
+          ]
+        },
+        {
+          "header": "## Aktive Hilfe anbieten",
+          "subsections": [
+            "### \"Hva kan jeg gjøre for å hjelpe?\"",
+            "### \"Vil du snakke om det?\"",
+            "### \"Jeg lytter\""
+          ]
+        },
+        {
+          "header": "## Langfristige Unterstützung",
+          "subsections": [
+            "### \"Jeg vil alltid være her, uansett hva som skjer\"",
+            "### \"Vi er i dette sammen\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bb4e762f-c0fe-41e7-b1e4-6c18ae8184c0",
+      "title": "Πορτογαλικές Φράσεις Συγχώρεσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις Συγχώρεσης",
+          "subsections": [
+            "### Αίτηση Συγχώρεσης",
+            "### Έκφραση Μετάνοιας",
+            "### Προσφορά Συγχώρεσης",
+            "### Χρόνος για Θεραπεία"
+          ]
+        }
+      ]
+    }
+  ]
+}

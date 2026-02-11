@@ -1,0 +1,504 @@
+{
+  "batchId": "tier2a-slim-0125",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "8c9b554a-f153-4e2d-95d3-9b9082f2b19c",
+      "title": "Danish Honeymoon Travel Phrases: Romantic Vocabulary for Your Trip",
+      "native_lang": "en",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Planning Your Trip",
+          "subsections": [
+            "### Choosing a Destination",
+            "### Booking Vocabulary"
+          ]
+        },
+        {
+          "header": "## At the Airport",
+          "subsections": [
+            "### Essential Phrases",
+            "### Airport Vocabulary"
+          ]
+        },
+        {
+          "header": "## At Your Hotel",
+          "subsections": [
+            "### Checking In",
+            "### Room Types"
+          ]
+        },
+        {
+          "header": "## Romantic Moments",
+          "subsections": [
+            "### On the Beach",
+            "### At Dinner"
+          ]
+        },
+        {
+          "header": "## Adventure Activities",
+          "subsections": [
+            "### Exploring Together",
+            "### Activity Vocabulary"
+          ]
+        },
+        {
+          "header": "## Creating Memories",
+          "subsections": [
+            "### Photo Moment Phrases"
+          ]
+        },
+        {
+          "header": "## Returning Home",
+          "subsections": [
+            "### End of Trip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8cbf129a-b48a-4cef-855e-a8b697757644",
+      "title": "Niederländische SMS-Sprache und Chat-Slang",
+      "native_lang": "de",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Typische Chat-Gespräche",
+          "subsections": [
+            "### Morgen-Chat",
+            "### Tagsüber",
+            "### Abend-Chat"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8cf71f13-3e64-4b94-afd2-fee9efddd490",
+      "title": "Nizozemské fráze pro hádky a neshody ve vztahu",
+      "native_lang": "cs",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní fráze pro vyjádření nesouhlasu",
+          "subsections": [
+            "### 1. Ik ben het niet met je eens",
+            "### 2. Ik zie het anders",
+            "### 3. Ik voel me gekwetst als je...",
+            "### 4. Schreeuw alsjeblieft niet tegen me",
+            "### 5. Ik heb tijd nodig om na te denken"
+          ]
+        },
+        {
+          "header": "## Fráze pro pochopení partnera",
+          "subsections": [
+            "### 6. Help me om jouw standpunt te begrijpen",
+            "### 7. Wat ik probeer te zeggen is...",
+            "### 8. Bedoel je dat...?"
+          ]
+        },
+        {
+          "header": "## Fráze pro hledání řešení",
+          "subsections": [
+            "### 9. Laten we een compromis zoeken",
+            "### 10. Ik wil hier geen ruzie over maken",
+            "### 11. We zijn een team",
+            "### 12. Kunnen we opnieuw beginnen?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8cfa3705-f384-4481-8633-9ab6f7ce81f7",
+      "title": "Frases en Checo para Pedir y Ofrecer Perdón a tu Pareja",
+      "native_lang": "es",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Pedir Perdón",
+          "subsections": [
+            "### \"Opravdu mě to mrzí\"",
+            "### \"Prosím, odpusť mi\"",
+            "### \"Vím, že jsem ti ublížil/a, a hluboce toho lituji\"",
+            "### \"Byla to moje chyba\"",
+            "### \"Jak to mohu napravit?\"",
+            "### \"Slibuji, že se to nebude opakovat\""
+          ]
+        },
+        {
+          "header": "## Frases para Ofrecer Perdón",
+          "subsections": [
+            "### \"Odpouštím ti\"",
+            "### \"Nechme to za sebou\"",
+            "### \"Jsem připraven/a jít dál\"",
+            "### \"Každý dělá chyby\"",
+            "### \"Pořád tě miluji\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8d038c42-7696-41ba-ac3f-6bd268bbc5c8",
+      "title": "Ryska SMS- och chattfraser för kärleksrelationer",
+      "native_lang": "sv",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Morgonhälsningar",
+          "subsections": [
+            "### \"Доброе утро, любимая/любимый\"",
+            "### \"Привет, солнышко\"",
+            "### \"Как спалось, моё сокровище?\""
+          ]
+        },
+        {
+          "header": "## Att uttrycka saknad",
+          "subsections": [
+            "### \"Я скучаю по тебе\"",
+            "### \"Я думаю о тебе\"",
+            "### \"Я не могу дождаться встречи с тобой\""
+          ]
+        },
+        {
+          "header": "## Kärleksförklaringar",
+          "subsections": [
+            "### \"Я тебя люблю\"",
+            "### \"Я люблю тебя всем сердцем\"",
+            "### \"Ты любовь всей моей жизни\"",
+            "### \"Ты для меня всё\""
+          ]
+        },
+        {
+          "header": "## Flirtiga meddelanden",
+          "subsections": [
+            "### \"Ты делаешь меня счастливым/счастливой\"",
+            "### \"Ты такая красивая / Ты такой красивый\"",
+            "### \"Я без ума от тебя\"",
+            "### \"Ты украла/украл моё сердце\""
+          ]
+        },
+        {
+          "header": "## Godnattmeddelanden",
+          "subsections": [
+            "### \"Спокойной ночи, милая/милый\"",
+            "### \"Сладких снов\"",
+            "### \"Целую нежно\"",
+            "### \"Пусть тебе приснится что-то хорошее\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8d4583a2-af2e-4816-8b3d-c14f5e790416",
+      "title": "Sådan Undskylder Du på Hollandsk: Vejledning for Par",
+      "native_lang": "da",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Specifikke Situationer",
+          "subsections": [
+            "### Når Du Har Glemt Noget",
+            "### Når Du Har Sagt Noget Sårende",
+            "### Når Du Er Kommet For Sent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8d4f71f0-e74e-44fd-9f0e-9bf858f3330c",
+      "title": "50+ Frases Turcas para Noches Románticas Inolvidables",
+      "native_lang": "es",
+      "target_lang": "tr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Actividades para una Noche Romántica",
+          "subsections": [
+            "### Cine",
+            "### Conciertos",
+            "### Baile",
+            "### Ver las Estrellas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8d552294-1ef7-4d71-bf17-57a5f2723944",
+      "title": "Exprimer ses émotions en anglais",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Exercices pour couples",
+          "subsections": [
+            "### Le journal des émotions",
+            "### Le jeu des expressions",
+            "### Conversations profondes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8d6b9ac7-960c-47a0-a71f-effd078fff71",
+      "title": "Jak powiedziec kocham cie po holendersku",
+      "native_lang": "pl",
+      "target_lang": "nl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Codzieńne wyznania",
+            "### Cwiczenie 2: Karteczki milosne",
+            "### Cwiczenie 3: Wideo-wyznanie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8d6bc8b4-04df-40b7-ae56-7fe3575976ac",
+      "title": "Португальська фрази для медового місяця та романтичних подорожей",
+      "native_lang": "uk",
+      "target_lang": "pt",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна туристична лексика",
+          "subsections": []
+        },
+        {
+          "header": "## У готелі",
+          "subsections": [
+            "### Реєстрація",
+            "### Корисні фрази для готелю"
+          ]
+        },
+        {
+          "header": "## У ресторані",
+          "subsections": [
+            "### Романтична вечеря",
+            "### Тости для двох"
+          ]
+        },
+        {
+          "header": "## Пляжний відпочинок",
+          "subsections": [
+            "### Лексика для пляжу",
+            "### Романтичні пляжні активності"
+          ]
+        },
+        {
+          "header": "## Екскурсії для пар",
+          "subsections": [
+            "### Романтичні активності",
+            "### Корисні фрази"
+          ]
+        },
+        {
+          "header": "## Фотографії на пам'ять",
+          "subsections": [
+            "### Як попросити зробити фото"
+          ]
+        },
+        {
+          "header": "## Покупки сувенірів",
+          "subsections": [
+            "### Подарунки для рідних"
+          ]
+        },
+        {
+          "header": "## Проблеми в подорожі",
+          "subsections": [
+            "### Якщо щось пішло не так"
+          ]
+        },
+        {
+          "header": "## Повернення додому",
+          "subsections": [
+            "### Прощання з відпусткою"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8d99510b-57d3-4dc4-b4b3-abdc7da41bec",
+      "title": "Czy angielski jest trudny do nauki? Przewodnik dla Polaków",
+      "native_lang": "pl",
+      "target_lang": "en",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Wyzwania dla Polaków",
+          "subsections": [
+            "### 1. Wymowa i pisownia",
+            "### 2. Dzwiek \"TH\"",
+            "### 3. Przedimki (A, AN, THE)",
+            "### 4. Czasy gramatyczne"
+          ]
+        },
+        {
+          "header": "## Porownanie z innymi językami",
+          "subsections": [
+            "### Angielski vs. Inne języki dla Polaków"
+          ]
+        },
+        {
+          "header": "## Zalety uczenia się angielskiego",
+          "subsections": [
+            "### 1. Jestes juz narazony na angielski",
+            "### 2. Alfabet lacinski",
+            "### 3. Wszedzie znajdziesz pomoce"
+          ]
+        },
+        {
+          "header": "## Jak uczyc się efektywnie z partnerem",
+          "subsections": [
+            "### 1. Ustalcie cel",
+            "### 2. Wykorzystajcie wspolny czas",
+            "### 3. Nie bojcie się bledow",
+            "### 4. Swietujcie sukcesy"
+          ]
+        },
+        {
+          "header": "## Realistyczne oczekiwania",
+          "subsections": [
+            "### Ile czasu potrzeba?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8dbb5c23-d718-4879-aad9-b5bd0db684b2",
+      "title": "Dire \"Tu me manques\" en néerlandais : L'absence au pays des tulipes",
+      "native_lang": "fr",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Phrases essentielles",
+          "subsections": [
+            "### \"Ik mis je\"",
+            "### \"Ik mis je zo erg\"",
+            "### \"Ik denk de hele tijd aan je\""
+          ]
+        },
+        {
+          "header": "## Expressions sincères",
+          "subsections": [
+            "### \"Elke dag zonder jou is moeilijk\"",
+            "### \"Ik verlang naar je\"",
+            "### \"Zonder jou is het niet hetzelfde\""
+          ]
+        },
+        {
+          "header": "## Phrases quotidiennes",
+          "subsections": [
+            "### \"Ik wou dat je hier was\"",
+            "### \"Ik tel de dagen tot ik je weer zie\"",
+            "### \"Ik kan niet wachten om je te zien\""
+          ]
+        },
+        {
+          "header": "## Expressions romantiques",
+          "subsections": [
+            "### \"De afstand verandert niets aan mijn gevoelens\"",
+            "### \"Mijn hart is bij jou\"",
+            "### \"Jij bent mijn thuis\""
+          ]
+        },
+        {
+          "header": "## Pour les messages courts",
+          "subsections": [
+            "### \"Denk aan je\"",
+            "### \"Mis je, schat\"",
+            "### \"Knuffel van ver\""
+          ]
+        },
+        {
+          "header": "## Expressions pratiques",
+          "subsections": [
+            "### \"Wanneer zie ik je weer?\"",
+            "### \"Tot snel, liefje\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8dbbd816-2f5f-4428-b0b2-8481c65d665d",
+      "title": "Frases en Alemán para Reconciliarte con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Pedir Disculpas",
+          "subsections": [
+            "### \"Es tut mir leid, was ich gesagt habe\"",
+            "### \"Ich wollte dich nicht verletzen\"",
+            "### \"Können wir von vorne anfangen?\"",
+            "### \"Ich hatte Unrecht\""
+          ]
+        },
+        {
+          "header": "## Frases para Expresar Amor Después del Conflicto",
+          "subsections": [
+            "### \"Ich liebe dich, auch wenn wir streiten\"",
+            "### \"Du bedeutest mir alles\"",
+            "### \"Ich hasse es, mit dir zu streiten\""
+          ]
+        },
+        {
+          "header": "## Frases para Reconstruir la Conexión",
+          "subsections": [
+            "### \"Lass uns in Ruhe darüber reden\"",
+            "### \"Ich möchte dich besser verstehen\"",
+            "### \"Was kann ich tun, um es wieder gut zu machen?\"",
+            "### \"Ich verspreche, mich mehr zu bemühen\"",
+            "### \"Darf ich dich umarmen?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8dbe1df7-e033-4f1b-9eaa-7d89db3f31ad",
+      "title": "Τσεχικές Φράσεις Συγχώρεσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις Συγχώρεσης",
+          "subsections": [
+            "### Αίτηση Συγχώρεσης",
+            "### Έκφραση Μετάνοιας",
+            "### Προσφορά Συγχώρεσης",
+            "### Χρόνος για Θεραπεία"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8de6270c-8015-4c95-a30a-607f311ffc9a",
+      "title": "Danish First Date Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Making a Great First Impression",
+          "subsections": [
+            "### Du ser fantastisk ud",
+            "### Dejligt at møde dig"
+          ]
+        }
+      ]
+    }
+  ]
+}

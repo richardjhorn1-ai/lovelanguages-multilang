@@ -1,0 +1,544 @@
+{
+  "batchId": "tier2a-slim-0075",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "60c65fd5-eb75-4f9d-9811-9c1e33db932d",
+      "title": "Rumuńskie zwroty do godzenia się i pojednania dla par",
+      "native_lang": "pl",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Przepraszanie z serca",
+          "subsections": [
+            "### \"Îmi pare foarte rău\"",
+            "### \"Te rog să mă ierți\"",
+            "### \"Am greșit și recunosc\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie żalu",
+          "subsections": [
+            "### \"Mă simt foarte rău pentru ce s-a întâmplat\"",
+            "### \"Nu am vrut să te rănesc\"",
+            "### \"Mi-aș dori să pot da timpul înapoi\""
+          ]
+        },
+        {
+          "header": "## Otwieranie dialogu",
+          "subsections": [
+            "### \"Putem vorbi despre ce s-a întâmplat?\"",
+            "### \"Vreau să înțeleg ce simți\"",
+            "### \"Spune-mi ce gândești\""
+          ]
+        },
+        {
+          "header": "## Obietnice zmiany",
+          "subsections": [
+            "### \"O să încerc să fiu mai bun/bună\"",
+            "### \"Nu se va mai întâmpla\"",
+            "### \"Lucrez la mine\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie miłości",
+          "subsections": [
+            "### \"Te iubesc mai mult decât orice\"",
+            "### \"Ești totul pentru mine\"",
+            "### \"Nu vreau să te pierd\""
+          ]
+        },
+        {
+          "header": "## Ciepłe pojednanie",
+          "subsections": [
+            "### \"Vino aici, lasă-mă să te îmbrățișez\"",
+            "### \"Hai să facem pace\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "60ce70e9-bb91-4f59-b7fb-5d28b8d43e5d",
+      "title": "Ρουμανικές Φράσεις Συγχώρεσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις Συγχώρεσης",
+          "subsections": [
+            "### Αίτηση Συγχώρεσης",
+            "### Έκφραση Μετάνοιας",
+            "### Προσφορά Συγχώρεσης",
+            "### Χρόνος για Θεραπεία"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "60df680f-576e-42d1-8c80-590f3cb48c14",
+      "title": "Ungerska flörtfraser för par – Charma din partner på ungerska",
+      "native_lang": "sv",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassiska komplimanger",
+          "subsections": [
+            "### \"Gyönyörű vagy\"",
+            "### \"A legszebb szemed van a világon\"",
+            "### \"A mosolyod beragyogja a napomat\""
+          ]
+        },
+        {
+          "header": "## Passionerade uttryck",
+          "subsections": [
+            "### \"Megőrülök érted\"",
+            "### \"Nem tudok abbahagyni a rád gondolást\"",
+            "### \"Te vagy a mindenem\""
+          ]
+        },
+        {
+          "header": "## Lekfulla fraser",
+          "subsections": [
+            "### \"Hiszel a szerelemben első látásra, vagy menjek el még egyszer?\"",
+            "### \"Van térképed? Eltévedtem a szemeidben\"",
+            "### \"Angyal vagy, aki leesett az égből?\""
+          ]
+        },
+        {
+          "header": "## Djupt romantiska uttryck",
+          "subsections": [
+            "### \"Te vagy az életem szerelme\"",
+            "### \"Minden veled töltött pillanat értékes\"",
+            "### \"Melletted otthon érzem magam\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "60e02320-f4da-4702-b6ac-3e3e68a354ef",
+      "title": "італійська для пар: 45+ фраз для подорожей",
+      "native_lang": "uk",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## В готелі",
+          "subsections": [
+            "### Реєстрація",
+            "### Прохання до персоналу",
+            "### Виселення"
+          ]
+        },
+        {
+          "header": "## В ресторані",
+          "subsections": [
+            "### Пошук столика",
+            "### Замовлення"
+          ]
+        },
+        {
+          "header": "## Орієнтування в місті",
+          "subsections": [
+            "### Запитання дороги",
+            "### Корисні напрямки"
+          ]
+        },
+        {
+          "header": "## Романтичні місця",
+          "subsections": [
+            "### На пляжі",
+            "### Огляд визначних місць"
+          ]
+        },
+        {
+          "header": "## Екстрені ситуації",
+          "subsections": [
+            "### Важливі фрази",
+            "### Важливі номери"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "60e337f6-dd3d-4dd8-baf1-f543d280f7b5",
+      "title": "Wloski dla Par: 40+ Niezbędnych Zwrotow",
+      "native_lang": "pl",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Dzienna rutyna",
+            "### Ćwiczenie 2: Check-in po włosku",
+            "### Ćwiczenie 3: Planowanie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "60f82236-d1c4-47a1-8f98-7a3517d69259",
+      "title": "Portugiesische Hochzeitsphrasen und romantische Glückwünsche",
+      "native_lang": "de",
+      "target_lang": "pt",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Die wichtigsten Hochzeitsphrasen",
+          "subsections": [
+            "### Der Heiratsantrag",
+            "### Das Ehegelübde",
+            "### Glückwünsche aussprechen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "60f9def4-52a2-4893-8192-7f5d58cf276f",
+      "title": "Norveççe Kayınvalide ve Kayınpeder İfadeleri: Aile Tanışması",
+      "native_lang": "tr",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Hitap Şekilleri",
+          "subsections": [
+            "### 1. \"Svigermor\" / \"Svigerfar\"",
+            "### 2. \"Hyggelig å møte deg\""
+          ]
+        },
+        {
+          "header": "## Önemli İfadeler",
+          "subsections": [
+            "### 3. \"Takk for at dere inviterte meg\"",
+            "### 4. \"Maten var deilig\"",
+            "### 5. \"Hjemmet deres er veldig fint\"",
+            "### 6. \"Jeg er så glad i barnet deres\"",
+            "### 7. \"Kan jeg hjelpe til med noe?\"",
+            "### 8. \"Fortell meg mer om familien deres\"",
+            "### 9. \"Vi er så glade for å være her\"",
+            "### 10. \"Takk for en fin kveld\"",
+            "### 11. \"Jeg ser fram til å bli bedre kjent med dere\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "60fc85c2-90a4-460f-a5f3-eacadf07fa7c",
+      "title": "Данські фрази для суперечок і розбіжностей",
+      "native_lang": "uk",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Початок серйозної розмови",
+          "subsections": [
+            "### \"Vi skal snakke\"",
+            "### \"Jeg føler mig såret, når du...\"",
+            "### \"Kan vi tale om dette i ro?\""
+          ]
+        },
+        {
+          "header": "## Вираження незгоди",
+          "subsections": [
+            "### \"Jeg er ikke enig\"",
+            "### \"Jeg ser det anderledes\"",
+            "### \"Det var ikke det, jeg mente\""
+          ]
+        },
+        {
+          "header": "## Емоційні вирази",
+          "subsections": [
+            "### \"Det gør ondt\"",
+            "### \"Jeg er frustreret\"",
+            "### \"Jeg har brug for, at du lytter til mig\""
+          ]
+        },
+        {
+          "header": "## Прохання про простір",
+          "subsections": [
+            "### \"Jeg har brug for tid til at tænke\"",
+            "### \"Lad os tage en pause\""
+          ]
+        },
+        {
+          "header": "## Пошук рішення",
+          "subsections": [
+            "### \"Hvordan kan vi løse det her?\"",
+            "### \"Lad os finde et kompromis\"",
+            "### \"Jeg er villig til at give efter\""
+          ]
+        },
+        {
+          "header": "## Визнання помилки",
+          "subsections": [
+            "### \"Du har ret, jeg tog fejl\"",
+            "### \"Det burde jeg ikke have sagt\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "61003751-772c-4a34-83f7-4535c3b04969",
+      "title": "Jak napsat milostný dopis v norštině",
+      "native_lang": "cs",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Úvodní oslovení",
+          "subsections": [
+            "### \"Min kjære\"",
+            "### \"Kjæresten min\"",
+            "### \"Mitt hjerte\""
+          ]
+        },
+        {
+          "header": "## Úvodní věty",
+          "subsections": [
+            "### \"Jeg skriver dette brevet for å fortelle deg hvor mye du betyr for meg.\"",
+            "### \"Ord kan ikke uttrykke det jeg føler for deg.\""
+          ]
+        },
+        {
+          "header": "## Vyjádření lásky",
+          "subsections": [
+            "### \"Du er det beste som har skjedd meg.\"",
+            "### \"Jeg elsker deg mer for hver dag.\"",
+            "### \"Mitt hjerte tilhører deg, nå og for alltid.\"",
+            "### \"Med deg har jeg funnet ekte lykke.\""
+          ]
+        },
+        {
+          "header": "## Ocenění partnera",
+          "subsections": [
+            "### \"Jeg beundrer din styrke, vennlighet og vakre sjel.\"",
+            "### \"Takk for at du elsker meg akkurat som jeg er.\""
+          ]
+        },
+        {
+          "header": "## Závěrečné fráze",
+          "subsections": [
+            "### \"Din for alltid\"",
+            "### \"Med all min kjærlighet\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "61090cbe-1620-4689-852a-1b683581f6bc",
+      "title": "Fransk grammatikk for par: Enkel guide for deg og din kjære",
+      "native_lang": "no",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De 5 Grunnleggende Reglene",
+          "subsections": [
+            "### 1. Artikler: Le, La, Les",
+            "### 2. Adjektiv Plassering",
+            "### 3. Verb Bøying: Present Tense",
+            "### 4. Spørsmål: To Måter",
+            "### 5. Negasjon: Ne...Pas"
+          ]
+        },
+        {
+          "header": "## Vanlige Mønstre i Hverdagen",
+          "subsections": [
+            "### Tid på Dagen",
+            "### Kjærlige Setninger"
+          ]
+        },
+        {
+          "header": "## Typiske Feil Å Unngå",
+          "subsections": [
+            "### 1. Kjønnsforvirring",
+            "### 2. Adjektiv Plassering",
+            "### 3. Forberedelse av Preposisjoner"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "61147162-9bfe-4c92-bf0d-8c79adc558d9",
+      "title": "Holland kiejtés kezdőknek: Tanulj együtt a pároddal, hogy gyönyörűen szólalj meg!",
+      "native_lang": "hu",
+      "target_lang": "nl",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## A legfontosabb kiejtési szabályok",
+          "subsections": [
+            "### 1. A G és CH hangok",
+            "### 2. De R lehet lágy vagy kemény",
+            "### 3. A kettős magánhangzók"
+          ]
+        },
+        {
+          "header": "## Gyakori kiejtési hibák párok számára",
+          "subsections": [
+            "### 1. A \"ij\" és \"ei\" összekeverése",
+            "### 2. A végén lévő n elhagyása",
+            "### 3. A W kiejtése"
+          ]
+        },
+        {
+          "header": "## Kiejtési gyakorlatok pároknak",
+          "subsections": [
+            "### Gyakorlat 1: Bókok kiejtése",
+            "### Gyakorlat 2: Napi rutin szavak"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6118ed47-ef71-40e6-a190-d8bf1bd16f92",
+      "title": "Nederländska fraser för att säga 'Jag saknar dig' – Uttryck längtan på holländska",
+      "native_lang": "sv",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande fraser",
+          "subsections": [
+            "### \"Ik mis je\"",
+            "### \"Ik mis je zo erg\"",
+            "### \"Ik denk constant aan je\""
+          ]
+        },
+        {
+          "header": "## Djupare uttryck",
+          "subsections": [
+            "### \"Mijn hart verlangt naar je\"",
+            "### \"Elke minuut zonder jou voelt als een eeuwigheid\"",
+            "### \"Je ontbreekt me verschrikkelijk\""
+          ]
+        },
+        {
+          "header": "## Romantiska kvällsfraser",
+          "subsections": [
+            "### \"Ik mis het om naast je in slaap te vallen\"",
+            "### \"Het bed voelt leeg zonder jou\"",
+            "### \"Ik mis je warmte naast me\""
+          ]
+        },
+        {
+          "header": "## Vardagliga uttryck",
+          "subsections": [
+            "### \"Ik zag vandaag iets dat me aan je deed denken\"",
+            "### \"Ik mis onze kleine momenten samen\"",
+            "### \"Alles doet me aan jou denken\""
+          ]
+        },
+        {
+          "header": "## Hoppfulla fraser",
+          "subsections": [
+            "### \"Ik kan niet wachten om je weer te zien\"",
+            "### \"Ik tel de dagen tot we weer samen zijn\"",
+            "### \"Straks zijn we weer bij elkaar\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "61204329-838f-48ad-97af-5511a16e681c",
+      "title": "Cum Să Ceri în Căsătorie: Expresii pentru Logodnă în Suedeză",
+      "native_lang": "ro",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Răspunsuri la Cerere",
+          "subsections": [
+            "### Răspunsuri Pozitive"
+          ]
+        },
+        {
+          "header": "## Vocabular pentru Inele",
+          "subsections": [
+            "### Pietre Prețioase",
+            "### Metale"
+          ]
+        },
+        {
+          "header": "## După Logodnă",
+          "subsections": [
+            "### Pașii Următori"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "612f38e8-1f19-4cd4-8035-048e794d6ef1",
+      "title": "Cómo Escribir Cartas de Amor en Italiano: La Lettera d'Amore",
+      "native_lang": "es",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Saludos Románticos",
+          "subsections": [
+            "### \"Amore mio...\"",
+            "### \"Tesoro mio...\"",
+            "### \"Anima mia...\"",
+            "### \"Vita mia...\""
+          ]
+        },
+        {
+          "header": "## Expresiones de Apertura",
+          "subsections": [
+            "### \"Ti scrivo queste parole dal profondo del cuore\"",
+            "### \"Ogni giorno senza di te è un'eternità\"",
+            "### \"Non trovo le parole per dirti quanto ti amo\""
+          ]
+        },
+        {
+          "header": "## Frases del Cuerpo de la Carta",
+          "subsections": [
+            "### \"Sei la cosa più bella che mi sia mai capitata\"",
+            "### \"Il mio cuore ti appartiene completamente\"",
+            "### \"Con te, tutto acquista un senso\"",
+            "### \"Mi hai rubato il cuore e non lo rivoglio indietro\"",
+            "### \"Sei il mio sole, la mia luna, le mie stelle\""
+          ]
+        },
+        {
+          "header": "## Promesas Apasionadas",
+          "subsections": [
+            "### \"Ti amerò per sempre\"",
+            "### \"Sarò sempre al tuo fianco\"",
+            "### \"Il nostro amore è eterno\""
+          ]
+        },
+        {
+          "header": "## Despedidas Románticas",
+          "subsections": [
+            "### \"Per sempre tuo/tua...\"",
+            "### \"Con tutto il mio amore...\"",
+            "### \"Ti abbraccio forte...\"",
+            "### \"Il/La tuo/a [nombre] che ti ama\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "613c6b41-de8e-40f4-b532-a3394af1d214",
+      "title": "Görög esküvői kifejezések: Szókincs a nagy napra",
+      "native_lang": "hu",
+      "target_lang": "el",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Gratulációk és jókívánságok",
+            "### Köszöntők"
+          ]
+        }
+      ]
+    }
+  ]
+}

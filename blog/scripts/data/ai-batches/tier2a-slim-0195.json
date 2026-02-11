@@ -1,0 +1,423 @@
+{
+  "batchId": "tier2a-slim-0195",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "ca2672d2-2ddb-4f37-961d-9ccfc7820cde",
+      "title": "Polish Tongue Twisters for Practice",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Making It Fun as a Couple",
+          "subsections": [
+            "### Game Ideas:",
+            "### Romantic Twist:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ca29ead2-fb95-4a4a-a336-b16672fc39c3",
+      "title": "İspanyolca Telaffuz Rehberi: Partnerinize Güzel Seslenmenin Yolları",
+      "native_lang": "tr",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Türkçe Olmayan Sesler",
+          "subsections": [
+            "### Ünsüz Harflerdeki Farklar"
+          ]
+        },
+        {
+          "header": "## Çiftler İçin Romantik Telaffuz Alıştırmaları",
+          "subsections": [
+            "### Günlük Romantik İfadeler",
+            "### Soru Sorma Sanatı"
+          ]
+        },
+        {
+          "header": "## Yaygın Telaffuz Hataları",
+          "subsections": [
+            "### Türkçe Alışkanlıklarından Kurtulmak",
+            "### Pratik İpuçları"
+          ]
+        },
+        {
+          "header": "## Partnerinizle Pratik Yapın",
+          "subsections": [
+            "### Günlük Diyaloglar",
+            "### Egzersizler"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ca3847ab-8e3c-4fa0-b153-5f6814f1efd9",
+      "title": "Engelske sms- og chatbeskeder til par",
+      "native_lang": "da",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende kærlige beskeder",
+          "subsections": [
+            "### \"I miss you so much\"",
+            "### \"Can't wait to see you\"",
+            "### \"Thinking of you\""
+          ]
+        },
+        {
+          "header": "## Populære forkortelser i engelske sms'er",
+          "subsections": [
+            "### \"ILY\" (I love you)",
+            "### \"XOXO\"",
+            "### \"BRB\" (Be right back)"
+          ]
+        },
+        {
+          "header": "## Romantiske beskeder",
+          "subsections": [
+            "### \"You're my everything\"",
+            "### \"Good morning, beautiful\"",
+            "### \"Sleep tight, my love\""
+          ]
+        },
+        {
+          "header": "## Hverdagsbeskeder til par",
+          "subsections": [
+            "### \"What's up?\"",
+            "### \"On my way\"",
+            "### \"Miss you already\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ca3decc6-de9d-4f4f-8765-ee37f60149df",
+      "title": "50+ Surnoms Allemands pour Fondre de Tendresse",
+      "native_lang": "fr",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Activités de pratique à deux",
+          "subsections": [
+            "### Routine du matin",
+            "### Défi par SMS",
+            "### Jeux de rôle"
+          ]
+        },
+        {
+          "header": "## Construire votre vocabulaire progressivement",
+          "subsections": [
+            "### Semaine 1 : Maîtrisez les bases",
+            "### Semaine 2 : Ajoutez les noms d'animaux",
+            "### Semaine 3 : Termes gourmands",
+            "### Semaine 4 : Termes régionaux et créatifs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ca7a7683-b12c-445d-afb4-752416d1f4e1",
+      "title": "Frases en Inglés para Pedir y Ofrecer Perdón a tu Pareja",
+      "native_lang": "es",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Pedir Perdón",
+          "subsections": [
+            "### \"I'm truly sorry\"",
+            "### \"Please forgive me\"",
+            "### \"I know I hurt you, and I regret it deeply\"",
+            "### \"I was wrong to do that\"",
+            "### \"How can I make it up to you?\"",
+            "### \"I promise it won't happen again\""
+          ]
+        },
+        {
+          "header": "## Frases para Ofrecer Perdón",
+          "subsections": [
+            "### \"I forgive you\"",
+            "### \"Let's put this behind us\"",
+            "### \"I'm ready to move on\"",
+            "### \"Everyone makes mistakes\"",
+            "### \"I appreciate your apology\"",
+            "### \"I still love you\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ca88f316-d7a1-473e-b9ef-53be53747d61",
+      "title": "Engelska fraser för att träffa svärföräldrarna – Gör ett gott intryck",
+      "native_lang": "sv",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Första mötet",
+          "subsections": [
+            "### \"It's so wonderful to finally meet you\"",
+            "### \"I've heard so many wonderful things about you\"",
+            "### \"Thank you so much for having me\""
+          ]
+        },
+        {
+          "header": "## Artiga fraser",
+          "subsections": [
+            "### \"Please, call me [ditt namn]\"",
+            "### \"Your home is lovely\"",
+            "### \"Can I help with anything?\"",
+            "### \"This meal is absolutely delicious\""
+          ]
+        },
+        {
+          "header": "## Om din relation",
+          "subsections": [
+            "### \"[Partners namn] means the world to me\"",
+            "### \"I feel so lucky to have met your son/daughter\"",
+            "### \"We make each other very happy\""
+          ]
+        },
+        {
+          "header": "## Visa intresse",
+          "subsections": [
+            "### \"I'd love to hear more about [ämne]\"",
+            "### \"[Partners namn] told me you're interested in [hobby]. That's fascinating!\"",
+            "### \"How did you two meet?\""
+          ]
+        },
+        {
+          "header": "## Hantera frågor om dig",
+          "subsections": [
+            "### \"I work as a [yrke] at [företag/organisation]\"",
+            "### \"I grew up in [stad], in Sweden\"",
+            "### \"In my free time, I enjoy [hobby]\""
+          ]
+        },
+        {
+          "header": "## Avskedsfraser",
+          "subsections": [
+            "### \"Thank you for a wonderful evening\"",
+            "### \"It was truly a pleasure meeting you\"",
+            "### \"I hope we can do this again soon\"",
+            "### \"Please don't hesitate to visit us anytime\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ca8e24c5-b9a6-4c9a-9778-db078e4959c4",
+      "title": "Greek Phrases for Meeting the In-Laws: Make a Great Impression",
+      "native_lang": "en",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## First Impressions",
+          "subsections": [
+            "### Greetings"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cabc2ce4-e82c-4e35-bfb6-55b2821f130e",
+      "title": "Franske SMS- og chattefraser for par",
+      "native_lang": "no",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kulturelle tips",
+          "subsections": [
+            "### Bisous – kyssekulturen",
+            "### Kjønnsformer",
+            "### Formelt vs. uformelt"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cabf2d93-e8d7-4a33-b50f-559252885f47",
+      "title": "Іспанська привітання з річницею: романтичні побажання",
+      "native_lang": "uk",
+      "target_lang": "es",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика про річницю",
+          "subsections": []
+        },
+        {
+          "header": "## Романтичні побажання з річницею",
+          "subsections": [
+            "### Класичні привітання"
+          ]
+        },
+        {
+          "header": "## Побажання для різних річниць",
+          "subsections": [
+            "### Перша річниця",
+            "### П'ята річниця",
+            "### Десята річниця та далі"
+          ]
+        },
+        {
+          "header": "## Як написати привітання з річницею",
+          "subsections": [
+            "### Структура ідеального привітання:",
+            "### Приклад привітання:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cad28d6a-0dfc-4ce2-a021-ac3608217af2",
+      "title": "Urări de Ziua de Naștere pentru Partener în Franceză: Mesaje Romantice",
+      "native_lang": "ro",
+      "target_lang": "fr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Mesaje Romantice",
+          "subsections": [
+            "### Scurte și Dulci",
+            "### Mesaje Mai Lungi"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Diferite Personalități",
+          "subsections": [
+            "### Pentru Partenerul Romantic",
+            "### Pentru Partenerul cu Umor"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Card",
+          "subsections": [
+            "### Format Scurt",
+            "### Format Lung"
+          ]
+        },
+        {
+          "header": "## Idei de Surprize",
+          "subsections": [
+            "### Gesturi Romantice"
+          ]
+        },
+        {
+          "header": "## Mesaje de Dimineață",
+          "subsections": [
+            "### Pentru Început de Zi"
+          ]
+        },
+        {
+          "header": "## Tradiții de Cuplu",
+          "subsections": [
+            "### Idei pentru Noi Tradiții"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "caf04049-3f40-4d58-bada-ee545b581997",
+      "title": "Cómo Disculparse en Polaco: Frases",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Disculpándose por Situaciones Específicas",
+          "subsections": [
+            "### Llegar Tarde",
+            "### Olvidar Algo Importante",
+            "### Herir los Sentimientos de Alguien"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cb019161-928d-435e-8076-f1998ff8a1ac",
+      "title": "Phrases russes pour se réconcilier en couple",
+      "native_lang": "fr",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions essentielles pour se réconcilier",
+          "subsections": [
+            "### S'excuser sincèrement",
+            "### Exprimer ses sentiments",
+            "### Proposer une résolution",
+            "### Réaffirmer son amour"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cb272ae4-0855-49a1-943c-ab4eaa4f02ae",
+      "title": "Датские фразы для споров и разногласий",
+      "native_lang": "ru",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Основные фразы для выражения несогласия",
+          "subsections": [
+            "### 1. Jeg er ikke enig med dig",
+            "### 2. Kan vi tale om det her roligt?",
+            "### 3. Det gør ondt, når du siger det",
+            "### 4. Lad os ikke hæve stemmen",
+            "### 5. Jeg har brug for, at du forstår mit synspunkt",
+            "### 6. Det var ikke det, jeg mente",
+            "### 7. Kan vi finde et kompromis?",
+            "### 8. Jeg tror, vi begge har brug for lidt plads",
+            "### 9. Respekter venligst min mening",
+            "### 10. Jeg lytter til dig, men jeg er ikke enig"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cb3bd911-26ef-4269-8611-57ebbcacea2c",
+      "title": "Portuguese Conditional Tense for Beginners",
+      "native_lang": "en",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Practical Uses of the Conditional",
+          "subsections": [
+            "### Making Polite Requests",
+            "### Expressing Wishes and Dreams",
+            "### Hypothetical Situations",
+            "### Giving Advice Gently"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cb3f1900-c716-44a2-ac65-604d08688ac5",
+      "title": "50 Ρωσικοί Χαιρετισμοί και Αποχαιρετισμοί για να Λιώσει η Καρδιά του Συντρόφου σου",
+      "native_lang": "el",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Χαιρετισμοί για Κάθε Περίσταση",
+          "subsections": [
+            "### Στο Τηλέφωνο",
+            "### Σε Κατ' Ιδίαν Συναντήσεις",
+            "### Μέσω Κειμένου/Μηνυμάτων"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,305 @@
+{
+  "native_lang": "hu",
+  "wave": 1,
+  "target_langs_reviewed": ["en", "es", "fr", "de", "it", "pt"],
+  "articles_reviewed": 12,
+  "clean_articles": 2,
+  "issues": [
+    {
+      "article_id": "2ad5307a-e8b8-422c-9471-025c9b63fdb9",
+      "slug": "english-birthday-wishes-partner",
+      "target_lang": "en",
+      "issue_type": "content_mismatch",
+      "severity": "high",
+      "description": "Article title says 'birthday wishes' but PhraseOfDay, VocabCard (wedding, honeymoon), vocab table (bride, groom, vows, ceremony), and summary table all teach WEDDING vocabulary. The template was clearly a wedding article that was superficially repurposed for birthdays.",
+      "evidence": "PhraseOfDay context: 'Az eskvoi koszontes alapja.' VocabCard word: 'wedding' translation: 'eskuvo'. Table: bride, groom, vows, ceremony, reception"
+    },
+    {
+      "article_id": "2ad5307a-e8b8-422c-9471-025c9b63fdb9",
+      "slug": "english-birthday-wishes-partner",
+      "target_lang": "en",
+      "issue_type": "missing_target_language",
+      "severity": "medium",
+      "description": "Several bullet points under 'Szuletesnapi koszontes' and 'Romantikus uzenetek' are in Hungarian only, with no English translations provided. An article teaching English should provide the English phrases, not just Hungarian.",
+      "evidence": "- **Kivanj valamit!** - A gyertyak elfujasanal / - **Minden evben jobban szeretlek** - Idotles vallomas"
+    },
+    {
+      "article_id": "2ad5307a-e8b8-422c-9471-025c9b63fdb9",
+      "slug": "english-birthday-wishes-partner",
+      "target_lang": "en",
+      "issue_type": "grammar_error",
+      "severity": "low",
+      "description": "Hungarian grammar error: 'a angol' should be 'az angol' (the article 'az' is required before vowel-initial words in Hungarian). Appears multiple times.",
+      "evidence": "A angol kulturaban a szuletesnapokat... / fejleszteni a angol nyelvtudasod"
+    },
+    {
+      "article_id": "2ad5307a-e8b8-422c-9471-025c9b63fdb9",
+      "slug": "english-birthday-wishes-partner",
+      "target_lang": "en",
+      "issue_type": "typo",
+      "severity": "low",
+      "description": "Typo in Hungarian: 'partneredd' should be 'partnered' (double d at end).",
+      "evidence": "oszinte elismeres a partneredd szemelyisege irant"
+    },
+    {
+      "article_id": "6727fc2a-ffd0-4e33-9fd8-dbc71de68553",
+      "slug": "english-good-morning-goodnight-phrases",
+      "target_lang": "en",
+      "issue_type": "pronunciation_quality",
+      "severity": "low",
+      "description": "Pronunciations use Hungarian-adapted phonetics (e.g., 'szvit DRIMZ', 'rajz end SAJN') which are reasonable for Hungarian speakers. Minor note: 'BORD' for 'bird' may be slightly misleading but acceptable as Hungarian approximation.",
+      "evidence": "Early bird pronunciation: ER-li BORD"
+    },
+    {
+      "article_id": "ef9debd5-3828-4208-89d5-27b77063963e",
+      "slug": "es-forgive-phrases-for-hungarian-speakers",
+      "target_lang": "es",
+      "issue_type": "missing_component",
+      "severity": "medium",
+      "description": "Article has no PhraseOfDay component, no CultureTip, no tables, and no cross-links. Only 2 VocabCards for the entire article. Structure is a flat numbered list (1-12) with no visual variety. Much less engaging than other articles in the wave.",
+      "evidence": "No PhraseOfDay, no CultureTip, no tables. Just ### numbered headers from 1-12 with Kiejtes/Jelentes pattern."
+    },
+    {
+      "article_id": "ef9debd5-3828-4208-89d5-27b77063963e",
+      "slug": "es-forgive-phrases-for-hungarian-speakers",
+      "target_lang": "es",
+      "issue_type": "pronunciation_quality",
+      "severity": "medium",
+      "description": "Spanish pronunciations use inconsistent Hungarian phonetic conventions. 'Dejemos' is written as 'Dehemosz' (j->h is correct for Spanish) but 'atras' is written as 'attrasz' with double t which is incorrect. 'disculpa' pronunciation 'diszkulpa' uses 'zk' which is misleading.",
+      "evidence": "Dehemosz eszto attrasz (atras has single t). Apreszio tu diszkúlpa (c before u in Spanish is /k/, not /zk/)"
+    },
+    {
+      "article_id": "36fb2c87-68e3-40f4-a6cf-7b41a4b424e8",
+      "slug": "spanish-texting-phrases-for-hungarian-speakers",
+      "target_lang": "es",
+      "issue_type": "missing_component",
+      "severity": "high",
+      "description": "Article has ZERO VocabCard, PhraseOfDay, CultureTip, or any interactive components. It is a plain numbered list (## 1 through ## 15) with no structured learning components at all. Title promises 'texting phrases' but content is generic romantic phrases, not texting-specific.",
+      "evidence": "No <VocabCard>, <PhraseOfDay>, <CultureTip>, or <CTA> components anywhere in the content. 15 items each as separate H2 headings."
+    },
+    {
+      "article_id": "36fb2c87-68e3-40f4-a6cf-7b41a4b424e8",
+      "slug": "spanish-texting-phrases-for-hungarian-speakers",
+      "target_lang": "es",
+      "issue_type": "translation_error",
+      "severity": "high",
+      "description": "Multiple translation errors. 'Te quiero' is translated as 'Akarom, hogy velem legyel' (I want you to be with me) -- this is incorrect. 'Te quiero' means 'Szeretlek' (I love you, informal/affectionate). 'Sueno contigo' is translated as 'Almom veled' which is grammatically broken Hungarian; should be 'Rolad almododom'.",
+      "evidence": "Te quiero - Akarom, hogy velem legyel (WRONG: should be Szeretlek). Sueno contigo - Almom veled (broken Hungarian)"
+    },
+    {
+      "article_id": "36fb2c87-68e3-40f4-a6cf-7b41a4b424e8",
+      "slug": "spanish-texting-phrases-for-hungarian-speakers",
+      "target_lang": "es",
+      "issue_type": "content_mismatch",
+      "severity": "medium",
+      "description": "Title says '10 practical texting phrases' but the article contains 15 items. None are texting-specific (no abbreviations, emoji conventions, or text message patterns). They are generic romantic declarations.",
+      "evidence": "Intro: '10 praktikus textelesi es csevegesi kifejezest mutatunk be' but lists ## 1 through ## 15."
+    },
+    {
+      "article_id": "36fb2c87-68e3-40f4-a6cf-7b41a4b424e8",
+      "slug": "spanish-texting-phrases-for-hungarian-speakers",
+      "target_lang": "es",
+      "issue_type": "pronunciation_error",
+      "severity": "medium",
+      "description": "Several pronunciation guides are incorrect or misleading. 'Tu y yo, para siempre' is given as 'tu es jo, para sziempre' -- 'y' in Spanish is not 'es' (which means 'is'), it's pronounced 'i'. 'Amo escucharte' as 'amo eszkuharte' has wrong stress.",
+      "evidence": "Tu y yo -> tu es jo (y is not 'es'). escucharte -> eszkuharte (should be eszkucharte)"
+    },
+    {
+      "article_id": "a13b5d82-5434-4a6f-98b2-0ae143ed837d",
+      "slug": "french-moving-in-together",
+      "target_lang": "fr",
+      "issue_type": "content_mismatch",
+      "severity": "high",
+      "description": "Article title is 'French moving-in-together vocabulary' but the PhraseOfDay, first VocabCard, vocab table, and summary table all contain WEDDING vocabulary (mariage, mariee, marie, voeux, ceremonie). Template was a wedding article repurposed for moving-in-together topic without updating the vocabulary.",
+      "evidence": "PhraseOfDay: 'Felicitations!' context: 'Az eskvoi koszontes alapja.' VocabCard: 'mariage' = 'eskuvo'. Table: mariee, marie, voeux, ceremonie"
+    },
+    {
+      "article_id": "a13b5d82-5434-4a6f-98b2-0ae143ed837d",
+      "slug": "french-moving-in-together",
+      "target_lang": "fr",
+      "issue_type": "missing_target_language",
+      "severity": "medium",
+      "description": "Bullet point phrases under 'Koltozesi kifejezesek' and 'Haztartasi szokincs' are only in Hungarian with no French translations. An article teaching French should provide the French equivalents.",
+      "evidence": "- **Osszekoltozunk!** - A nagy bejelentes / - **Ki viszi le a szemetet?** - Haztartasi kerdesek (no French)"
+    },
+    {
+      "article_id": "a13b5d82-5434-4a6f-98b2-0ae143ed837d",
+      "slug": "french-moving-in-together",
+      "target_lang": "fr",
+      "issue_type": "pronunciation_error",
+      "severity": "medium",
+      "description": "VocabCard for 's'installer' has pronunciation 'szensztale' which is incorrect. French 's'installer' is approximately /sENs-ta-le/ -- the given pronunciation bears little resemblance.",
+      "evidence": "s'installer pronunciation: szensztale (should be closer to szen-sta-LE)"
+    },
+    {
+      "article_id": "a13b5d82-5434-4a6f-98b2-0ae143ed837d",
+      "slug": "french-moving-in-together",
+      "target_lang": "fr",
+      "issue_type": "grammar_error",
+      "severity": "low",
+      "description": "Hungarian text uses 'franciaul' which is incorrect; the correct form is 'franciául' (with accent). Also 'a angol' pattern appears as 'a francia' which is actually correct here since 'francia' starts with a consonant.",
+      "evidence": "Ha franciaul kell kommunikalnod"
+    },
+    {
+      "article_id": "a7eb2a8d-f79a-445b-8d1a-38b49312e168",
+      "slug": "french-long-distance-relationship",
+      "target_lang": "fr",
+      "issue_type": "pronunciation_quality",
+      "severity": "low",
+      "description": "'Tu me manques' pronunciation as 'tu me MONK' loses the nasal quality and final consonant cluster. More accurately would be 'tu me MONK' but this is a reasonable Hungarian approximation. 'J'aimerais' as 'zsem-RE' is simplified but workable.",
+      "evidence": "Tu me manques: tu me MONK / J'aimerais que tu sois la: zsem-RE ke tu szua LA"
+    },
+    {
+      "article_id": "11da17c6-f8f7-4251-a7c3-93530d9baf51",
+      "slug": "hianyozol-kifejezesek-nemetul",
+      "target_lang": "de",
+      "issue_type": "irrelevant_content",
+      "severity": "high",
+      "description": "CultureTip is completely off-topic. In an article about 'I miss you' expressions, the CultureTip discusses restaurant etiquette and gym membership contracts ('Welche Vertragslaufzeit haben Sie?'). This is clearly a hallucinated/misplaced cultural tip.",
+      "evidence": "CultureTip title: 'Nemet etterem etikett'. Content about gym contracts: 'Welche Vertragslaufzeit haben Sie?'"
+    },
+    {
+      "article_id": "11da17c6-f8f7-4251-a7c3-93530d9baf51",
+      "slug": "hianyozol-kifejezesek-nemetul",
+      "target_lang": "de",
+      "issue_type": "missing_component",
+      "severity": "medium",
+      "description": "Article has no PhraseOfDay component. Only 2 VocabCards at the top, then the rest is a flat numbered list (### 1 through ### 10) with no additional interactive components, no tables, and no cross-links to related articles.",
+      "evidence": "No <PhraseOfDay> component. Content is ### numbered list from 1-10 with hr separators."
+    },
+    {
+      "article_id": "11da17c6-f8f7-4251-a7c3-93530d9baf51",
+      "slug": "hianyozol-kifejezesek-nemetul",
+      "target_lang": "de",
+      "issue_type": "content_html_has_h1",
+      "severity": "medium",
+      "description": "Content starts with an H1 heading (# in markdown, <h1> in HTML). Blog article titles are typically rendered separately, so having an H1 in the content creates duplicate/conflicting headings.",
+      "evidence": "content starts with: # 'Hianyozol' kifejezesek nemetul magyar anyanyelvueknek"
+    },
+    {
+      "article_id": "4307a35f-e6f7-4b11-b5ee-545c27e96502",
+      "slug": "german-date-night-vocabulary",
+      "target_lang": "de",
+      "issue_type": "raw_imports_in_content",
+      "severity": "high",
+      "description": "Content begins with raw MDX import statements that should have been stripped during processing. These imports appear as visible text in the rendered article.",
+      "evidence": "import VocabCard from '@components/VocabCard.astro'; import ConjugationTable from '@components/ConjugationTable.astro';"
+    },
+    {
+      "article_id": "4307a35f-e6f7-4b11-b5ee-545c27e96502",
+      "slug": "german-date-night-vocabulary",
+      "target_lang": "de",
+      "issue_type": "context_language_mismatch",
+      "severity": "medium",
+      "description": "PhraseOfDay context field is in English instead of Hungarian. All other articles have Hungarian context strings, but this one says 'Perfect for date night - more intimate than Ich liebe dich'.",
+      "evidence": "PhraseOfDay context: 'Perfect for date night - more intimate than Ich liebe dich'"
+    },
+    {
+      "article_id": "4307a35f-e6f7-4b11-b5ee-545c27e96502",
+      "slug": "german-date-night-vocabulary",
+      "target_lang": "de",
+      "issue_type": "content_html_missing_imports",
+      "severity": "low",
+      "description": "The content_html correctly renders components but the raw import statements from the content field were not stripped, appearing as a visible <p> tag in the HTML output. However checking the HTML, the imports were actually stripped - only the content field has them.",
+      "evidence": "content field starts with import statements but content_html starts clean with <p>"
+    },
+    {
+      "article_id": "4307a35f-e6f7-4b11-b5ee-545c27e96502",
+      "slug": "german-date-night-vocabulary",
+      "target_lang": "de",
+      "issue_type": "typo",
+      "severity": "low",
+      "description": "Hungarian typo: 'nemcsak' should be 'nemcsak' (actually this is correct colloquial but formal is 'nem csak'). Also 'Tiéd a szívedé, kedvesem!' is grammatically odd Hungarian.",
+      "evidence": "Tied a szivede, kedvesem! (unusual/incorrect Hungarian construction)"
+    },
+    {
+      "article_id": "3060f1b3-89a8-44b0-9ba1-ed626cfb4b4c",
+      "slug": "italian-long-distance-relationship",
+      "target_lang": "it",
+      "issue_type": "grammar_error",
+      "severity": "low",
+      "description": "Hungarian grammar error: 'A olasz kulturaban' should be 'Az olasz kulturaban' (az before vowel-initial words).",
+      "evidence": "A olasz kulturaban a tavkapcsolatok gyakoribbak"
+    },
+    {
+      "article_id": "1f880cba-4ae6-4ec6-aa47-a316fe274de5",
+      "slug": "italian-pronunciation-guide-for-beginners",
+      "target_lang": "it",
+      "issue_type": "raw_imports_in_content",
+      "severity": "high",
+      "description": "Content begins with raw MDX import statements that should have been stripped. These appear as visible text in the content field.",
+      "evidence": "import VocabCard from '@components/VocabCard.astro'; import ConjugationTable from '@components/ConjugationTable.astro';"
+    },
+    {
+      "article_id": "1f880cba-4ae6-4ec6-aa47-a316fe274de5",
+      "slug": "italian-pronunciation-guide-for-beginners",
+      "target_lang": "it",
+      "issue_type": "conjugation_table_misuse",
+      "severity": "medium",
+      "description": "ConjugationTable component is misused -- it's being used to display pronunciation rules, not verb conjugations. The 'person' field contains letter combinations (gl, gn, sc), 'polish' contains phonetic hints, and 'english' contains pronunciation guides. The component was designed for verb conjugations.",
+      "evidence": "ConjugationTable verb='Kettos Betuk' with person: 'gl', polish: 'lyuk', english: 'gli = l-yee'"
+    },
+    {
+      "article_id": "1f880cba-4ae6-4ec6-aa47-a316fe274de5",
+      "slug": "italian-pronunciation-guide-for-beginners",
+      "target_lang": "it",
+      "issue_type": "content_error",
+      "severity": "medium",
+      "description": "CultureTip about papa/papa contains an error: 'papa' (with accent on second a) means 'dad/pope' -- the article says papa = apa (dad) and papa = papa (pope), but actually in Italian 'papa' = dad and 'il Papa' = the Pope. The distinction is capitalization and context, not just accent.",
+      "evidence": "A 'papa' (apa) es 'papa' (papa) kozotti kulonbseg csak a hangsulyom mulik!"
+    },
+    {
+      "article_id": "1f880cba-4ae6-4ec6-aa47-a316fe274de5",
+      "slug": "italian-pronunciation-guide-for-beginners",
+      "target_lang": "it",
+      "issue_type": "stray_quote_in_html",
+      "severity": "low",
+      "description": "CultureTip about regional differences has a stray closing quotation mark at the end that renders in the HTML.",
+      "evidence": "A lenyeg, hogy egyutt gyakoroljatok.\" (stray quote at end in both content and content_html)"
+    },
+    {
+      "article_id": "d4ae008e-b8bc-484b-8303-8f795ff35324",
+      "slug": "portuguese-baby-pregnancy-vocabulary",
+      "target_lang": "pt",
+      "issue_type": "content_mismatch",
+      "severity": "high",
+      "description": "Article title is 'Portuguese baby and pregnancy vocabulary' but PhraseOfDay, first VocabCard, vocab table, and summary table all contain WEDDING vocabulary (casamento, noiva, noivo, votos, cerimonia). Same template-swap issue as the English birthday and French moving-in articles.",
+      "evidence": "PhraseOfDay: 'Parabens!' context: 'Az eskvoi koszontes alapja.' VocabCard: 'casamento' = 'eskuvo'. Table: noiva, noivo, votos"
+    },
+    {
+      "article_id": "d4ae008e-b8bc-484b-8303-8f795ff35324",
+      "slug": "portuguese-baby-pregnancy-vocabulary",
+      "target_lang": "pt",
+      "issue_type": "missing_target_language",
+      "severity": "medium",
+      "description": "Bullet point phrases under 'Terhessegi kifejezesek' and 'Baba szokincs' are only in Hungarian with no Portuguese translations provided. The article should teach Portuguese phrases.",
+      "evidence": "- **Babat varunk!** - A nagy bejelentes / - **Megszuletett a baba!** - Az oromhir (no Portuguese)"
+    },
+    {
+      "article_id": "d4ae008e-b8bc-484b-8303-8f795ff35324",
+      "slug": "portuguese-baby-pregnancy-vocabulary",
+      "target_lang": "pt",
+      "issue_type": "irrelevant_vocab",
+      "severity": "medium",
+      "description": "VocabCard teaches 'lua de mel' (honeymoon) and 'casamento' (wedding) in an article about baby/pregnancy vocabulary. These are wedding terms, not baby/pregnancy terms.",
+      "evidence": "VocabCard word: 'lua de mel' translation: 'naszut' in a baby/pregnancy article"
+    },
+    {
+      "article_id": "4c0dc642-088f-4536-af99-4c19a9330f88",
+      "slug": "portuguese-small-talk-conversation-starters",
+      "target_lang": "pt",
+      "issue_type": "pronunciation_style",
+      "severity": "low",
+      "description": "Portuguese pronunciations use Hungarian-adapted phonetics which are reasonable for the audience. Brazilian Portuguese forms are used (voce instead of European Portuguese tu), which is fine but should be consistent. The article mixes both.",
+      "evidence": "Como voce esta? pronunciation: KO-mo vo-SZE esz-TA (Brazilian Portuguese form)"
+    }
+  ],
+  "systemic_patterns": [
+    "WEDDING TEMPLATE CONTAMINATION: At least 3 articles (english-birthday-wishes, french-moving-in-together, portuguese-baby-pregnancy-vocabulary) share identical wedding vocabulary in their PhraseOfDay, VocabCards, tables, and summaries despite having completely different topics. A wedding template was clearly used as the base and the topic-specific vocabulary was never properly substituted.",
+    "MISSING TARGET LANGUAGE IN BULLET LISTS: Multiple articles (en-birthday, fr-moving-in, pt-baby) list 'useful phrases' in bullet points that are only in Hungarian with no target language translations. This defeats the purpose of a language-learning article.",
+    "RAW MDX IMPORTS IN CONTENT: Two articles (german-date-night, italian-pronunciation) have raw 'import ... from @components/...' statements at the beginning of their content field. These were not stripped during generation.",
+    "HUNGARIAN GRAMMAR 'A/AZ' ERROR: Multiple articles use 'a angol', 'a olasz' instead of the grammatically correct 'az angol', 'az olasz'. Hungarian requires 'az' before vowel-initial words. This appears in at least 3 articles.",
+    "INCONSISTENT COMPONENT USAGE: Some articles (es-forgive, es-texting, de-hianyozol) have very few or zero interactive components (VocabCard, PhraseOfDay, CultureTip) while others (en-good-morning, fr-long-distance, de-date-night) are richly structured. Quality varies significantly within the same wave.",
+    "FLAT NUMBERED LIST PATTERN: Several articles (es-forgive with 12 items, es-texting with 15 items, de-hianyozol with 10 items) rely on flat numbered lists with H2/H3 per item instead of using tables, VocabCards, and other interactive components for better learning engagement."
+  ]
+}

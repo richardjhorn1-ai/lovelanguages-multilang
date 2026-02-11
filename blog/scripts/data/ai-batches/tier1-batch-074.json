@@ -1,0 +1,56 @@
+{
+  "tier": 1,
+  "batchId": "tier1-batch-074",
+  "articles": [
+    {
+      "id": "ce168fd3-0d0f-4ad8-9433-83569653c8b2",
+      "title": "30+ Complimente în italiană pentru partenerul tău",
+      "native_lang": "ro",
+      "target_lang": "it",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nComplimentele sunt limbajul dragostei. Când îi spui partenerului ceva frumos în limba lui maternă, cuvintele capătă o semnificație specială.\n\n<PhraseOfDay\n  word=\"Sei bellissima/o\"\n  translation=\"Ești frumoasă/frumos\"\n  pronunciation=\"\"\n  context=\"Cel mai clasic compliment romantic\"\n/>\n\n## Complimente pentru aspect fizic\n\n<VocabCard\n  word=\"Sei bellissima/o\"\n  translation=\"Ești frumoasă/frumos\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇮🇹\" title=\"Cultura complimentelor\">\nItalienii sunt foarte expresivi. Scuzele sincere sunt adesea însoțite de gesturi și explicații emoționale - arată că îți pasă cu adevărat.\n</CultureTip>\n\n## Complimente pentru personalitate\n\n| Italiană | Română |\n|---------|---------|\n| Sei molto intelligente | Ești atât de inteligent/ă |\n| Sei molto gentile | Ești atât de drăguț/ă |\n| Sei incredibile | Ești uimitor/oare |\n| Sei divertente | Ești amuzant/ă |\n\n<VocabCard\n  word=\"Sei molto intelligente\"\n  translation=\"Ești atât de inteligent/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Sei molto gentile\"\n  translation=\"Ești atât de drăguț/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru complimente sincere\n\n1. **Fii specific** – \"Îmi place cum râzi\" e mai bun decât \"Ești frumoasă\"\n2. **Fii autentic** – Spune doar ce simți cu adevărat\n3. **Alege momentul** – Complimentele spontane sunt cele mai prețuite\n4. **Nu exagera** – Un compliment sincer e mai valoros decât zece superficiale\n5. **Include acțiuni** – \"Îmi place cum mă asculți când vorbesc\"\n\n<CTA />\n\n## Articole conexe\n\n- [Exprimarea emoțiilor în italiană](/ro/it/italian-expressing-emotions)\n- [Alinturile în italiană](/ro/it/italian-pet-names-and-terms-of-endearment-50)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cf157cf7-9cc3-4073-b0d4-80aebf3701c1",
+      "title": "Frases em Húngaro para Videochamadas com a Família",
+      "native_lang": "pt",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nVideochamadas com a família do seu parceiro podem ser intimidantes, especialmente em outro idioma! Se a família do seu amor fala Húngaro, estas frases vão ajudá-lo a causar uma ótima impressão!\n\n<PhraseOfDay word=\"Hello everyone!\" translation=\"Olá a todos!\" pronunciation=\"re-LÔU ÉV-ri-uan\" context=\"Uma forma educada de cumprimentar a família\" />\n\n## Cumprimentos Iniciais\n\n| Húngaro | Pronúncia | Português |\n|-----------|-----------|-----------|\n| Hello everyone | re-LÔU ÉV-ri-uan | Olá a todos |\n| Nice to see you | náis tu sí iu | Prazer em ver vocês |\n| How are you doing? | ráu ar iu DÚ-ing | Como vocês estão? |\n| It's so good to see you all | its sôu gud tu sí iu ól | É tão bom ver todos vocês |\n\n<VocabCard word=\"Hello everyone\" translation=\"Olá a todos\" pronunciation=\"re-LÔU ÉV-ri-uan\" example=\"Perfeito para iniciar a videochamada.\" />\n\n<CultureTip flag=\"🇭🇺\" title=\"Formalidade com a Família\">\nVista-se adequadamente para causar boa impressão na família.\n</CultureTip>\n\n## Perguntas Educadas\n\n| Húngaro | Pronúncia | Português |\n|-----------|-----------|-----------|\n| How have you been? | ráu hév iu bín | Como tem passado? |\n| How's work going? | ráuz uérk GÔU-ing | Como está o trabalho? |\n| What's new with you? | uóts niú uith iu | O que há de novo? |\n\n<VocabCard word=\"How have you been?\" translation=\"Como tem passado?\" pronunciation=\"ráu hév iu bín\" example=\"Demonstre interesse genuíno.\" />\n\n## Problemas Técnicos\n\n| Húngaro | Pronúncia | Português |\n|-----------|-----------|-----------|\n| Can you hear me? | ken iu hír mi | Consegue me ouvir? |\n| Sorry, the connection is bad | SÓ-ri dê ko-NÉK-shon iz béd | Desculpe, a conexão está ruim |\n| You're breaking up | iur BRÉI-king âp | Está cortando |\n\n<CultureTip flag=\"🇭🇺\" title=\"Dicas para a Chamada\">\nMantenha contato visual olhando para a câmera.\n</CultureTip>\n\n## Despedidas Calorosas\n\n| Húngaro | Pronúncia | Português |\n|-----------|-----------|-----------|\n| It was lovely talking to you | it uóz LÂV-li TÓ-king tu iu | Foi ótimo conversar com vocês |\n| Talk to you soon | tók tu iu sun | Falamos em breve |\n| Take care | teik kér | Cuide-se |\n\n<VocabCard word=\"It was lovely talking to you\" translation=\"Foi ótimo conversar com vocês\" pronunciation=\"it uóz LÂV-li TÓ-king tu iu\" example=\"Termine a chamada deixando uma boa impressão.\" />\n\n## Dicas para Videochamadas\n\n1. **Vista-se adequadamente** — Mesmo em casa, cause boa impressão\n2. **Ambiente calmo** — Sem distrações ou barulhos\n3. **Tenha paciência** — Se não entender algo, peça para repetirem\n4. **Sorria** — A linguagem corporal comunica muito\n5. **Prepare frases** — Tenha este guia por perto!\n\n<CultureTip flag=\"🇭🇺\" title=\"Mantendo o Contato\">\nPrepare algumas perguntas sobre a família para mostrar interesse.\n</CultureTip>\n\nPara saber mais sobre conhecer a família, confira nosso [guia para conhecer a família do parceiro húngaro](/learn/pt/hu/meeting-your-hungarian-partners-family/). E para conversas informais, veja [como iniciar conversas em Húngaro](/learn/pt/hu/hungarian-small-talk-conversation-starters/).\n\nCom prática e dedicação, você vai conquistar a família do seu amor!\n\n<CTA />",
+      "issues": [
+        {
+          "type": "language_fingerprint_mismatch",
+          "details": {
+            "nativeLang": "pt",
+            "nativeStopWordRatio": 5,
+            "englishStopWordRatio": 10
+          }
+        }
+      ]
+    },
+    {
+      "id": "d16abaeb-2725-46ac-ba9b-467fef99fe06",
+      "title": "Cum să îți ceri scuze în daneză – Expresii esențiale pentru cupluri",
+      "native_lang": "ro",
+      "target_lang": "da",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nA ști să îți ceri scuze cu sinceritate în limba partenerului tău este esențial pentru o relație sănătoasă. În daneză, există multe modalități de a exprima regretul, de la scuze simple la cereri elaborate de iertare.\n\n<PhraseOfDay\n  word=\"Undskyld\"\n  translation=\"Îmi pare rău\"\n  pronunciation=\"\"\n  context=\"Expresia principală pentru scuze în daneză\"\n/>\n\n## Scuze de bază în Daneză\n\nAceste expresii sunt fundamentale pentru orice conversație în care trebuie să îți ceri scuze:\n\n<VocabCard\n  word=\"Undskyld\"\n  translation=\"Îmi pare rău\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Tilgiv mig, vær sød\"\n  translation=\"Te rog să mă ierți\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Det var min fejl\"\n  translation=\"E vina mea\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇩🇰\" title=\"Cultura scuzelor\">\nDanezii apreciază directitatea și modestia. Scuzele simple și sincere sunt mai prețuite decât dramatizările - fii autentic.\n</CultureTip>\n\n## Expresii pentru a cere iertare\n\nCând ai greșit mai serios, ai nevoie de expresii mai puternice:\n\n| Daneză | Română |\n|---------|---------|\n| Undskyld | Îmi pare rău |\n| Tilgiv mig, vær sød | Te rog să mă ierți |\n| Det var min fejl | E vina mea |\n| Jeg tog fejl | Am greșit |\n| Lad os blive venner igen | Hai să ne împăcăm |\n\n## Expresii de reconciliere\n\nDupă ce ți-ai cerut scuze, aceste fraze te ajută să reconstruiești legătura:\n\n<VocabCard\n  word=\"Lad os blive venner igen\"\n  translation=\"Hai să ne împăcăm\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Cum să accepți scuzele cuiva\n\nCând partenerul tău își cere scuze, poți răspunde cu aceste expresii:\n\n| Daneză | Română |\n|---------|---------|\n| Det er okay | E în regulă |\n\n## Sfaturi pentru scuze sincere în Daneză\n\n1. **Fii specific** – Menționează exact ce ai făcut greșit\n2. **Arată empatie** – Recunoaște cum s-a simțit partenerul tău\n3. **Evită scuzele** – Nu da vina pe circumstanțe\n4. **Oferă soluții** – Spune ce vei face diferit pe viitor\n5. **Dă-i timp** – Nu forța iertarea imediată\n\n<CTA />\n\n## Articole conexe\n\n- [Exprimarea emoțiilor în daneză](/ro/da/danish-expressing-emotions)\n- [Fraze romantice în daneză](/ro/da/danish-romantic-phrases-for-every-occasion)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    }
+  ]
+}

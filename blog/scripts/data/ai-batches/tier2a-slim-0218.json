@@ -1,0 +1,389 @@
+{
+  "batchId": "tier2a-slim-0218",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "dd240d35-6fe2-4dee-aa2b-51878cd62610",
+      "title": "Le Suedois Est-il Difficile a Apprendre ? Une Evaluation Honnete",
+      "native_lang": "fr",
+      "target_lang": "sv",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Les Bonnes Nouvelles : Pourquoi le Suedois Est Plus Facile Que Vous Ne le Pensez",
+          "subsections": [
+            "### 1. Grammaire Simplifiee",
+            "### 2. Vocabulaire International",
+            "### 3. Les Suedois Parlent Excellemment Anglais"
+          ]
+        },
+        {
+          "header": "## Les Defis : Ce Qui Rend le Suedois Complique",
+          "subsections": [
+            "### 1. La Prononciation Demande de la Pratique",
+            "### 2. L'Accent Tonal",
+            "### 3. En vs. Ett",
+            "### 4. Regles d'Ordre des Mots"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dd254462-2229-4aeb-8a68-a404e02051a2",
+      "title": "Nizozemské fráze pro usmíření a nápravu vztahu",
+      "native_lang": "cs",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fráze pro omluvu",
+          "subsections": [
+            "### 1. Het spijt me echt wat ik heb gezegd",
+            "### 2. Ik had ongelijk",
+            "### 3. Vergeef me alsjeblieft",
+            "### 4. Ik neem de volledige verantwoordelijkheid"
+          ]
+        },
+        {
+          "header": "## Fráze pro obnovení spojení",
+          "subsections": [
+            "### 5. Kunnen we praten over wat er is gebeurd?",
+            "### 6. Ik mis je",
+            "### 7. Laten we niet boos gaan slapen",
+            "### 8. Ik hou nog steeds van je"
+          ]
+        },
+        {
+          "header": "## Fráze pro nový začátek",
+          "subsections": [
+            "### 9. Kunnen we opnieuw beginnen?",
+            "### 10. Ik wil het goedmaken",
+            "### 11. Laten we dit samen doorkomen",
+            "### 12. Ik waardeer je enorm"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dd2bc952-0624-4360-bc56-544d87a05fa8",
+      "title": "50+ Lehçe Sevgi Sözcüğü: Partnerinizi Büyüleyin",
+      "native_lang": "tr",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Romantik Baglamlarda Kullanim",
+          "subsections": [
+            "### Sabah Mesajlari",
+            "### Aksam ve Gece Mesajlari",
+            "### Günlük Konusmalarda"
+          ]
+        },
+        {
+          "header": "## Ciftler Icin Pratik",
+          "subsections": [
+            "### Günlük Kullanima Baslama",
+            "### Egzersiz: Sevgi Sözcügü Rotasyonu"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dd4bda72-1340-4387-90f3-7b17f4076238",
+      "title": "Rencontrer la belle-famille en hongrois : Impressionner les szülők",
+      "native_lang": "fr",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Premières salutations",
+          "subsections": [
+            "### \"Nagyon örülök, hogy végre megismerhetem önöket\"",
+            "### \"Sok jót hallottam önökről\"",
+            "### \"Köszönöm a meghívást\""
+          ]
+        },
+        {
+          "header": "## Montrer du respect",
+          "subsections": [
+            "### \"Nagyon szép az otthonuk\"",
+            "### \"Az étel nagyon finom, köszönöm\""
+          ]
+        },
+        {
+          "header": "## Parler de votre partenaire",
+          "subsections": [
+            "### \"[Név] mindent jelent számomra\"",
+            "### \"Csodálatos embert neveltek\""
+          ]
+        },
+        {
+          "header": "## Au départ",
+          "subsections": [
+            "### \"Köszönöm a csodálatos napot\"",
+            "### \"Remélem, hamarosan újra találkozunk\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dd5a7517-5db6-4b0a-8977-0f571a85d056",
+      "title": "Как сделать предложение на датский: Фразы для помолвки",
+      "native_lang": "ru",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Способы сделать предложение",
+          "subsections": [
+            "### Классическое предложение",
+            "### Более романтические варианты"
+          ]
+        },
+        {
+          "header": "## Подготовка к предложению",
+          "subsections": [
+            "### Советы по практике",
+            "### Создание атмосферы"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dd5faa2b-1483-4ce9-8af5-984dbc75028e",
+      "title": "Török esküvői kifejezések: Szókincs a nagy napra",
+      "native_lang": "hu",
+      "target_lang": "tr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Gratulációk és jókívánságok",
+            "### Köszöntők"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dd764b3f-376f-4044-ba4e-81e8601bf481",
+      "title": "Deense Zinnen voor Ruzie en Meningsverschillen",
+      "native_lang": "nl",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen voor meningsverschillen",
+          "subsections": [
+            "### 1. \"Jeg føler mig såret, når du...\"",
+            "### 2. \"Kan vi tale roligt om det her?\"",
+            "### 3. \"Jeg forstår dit synspunkt, men...\"",
+            "### 4. \"Jeg har brug for et øjeblik til at falde til ro\"",
+            "### 5. \"Det var ikke det, jeg mente\"",
+            "### 6. \"Vær sød at lytte til mig\"",
+            "### 7. \"Kan du forklare, hvordan du har det?\"",
+            "### 8. \"Jeg vil ikke skændes om det her\"",
+            "### 9. \"Lad os finde et kompromis sammen\"",
+            "### 10. \"Undskyld, at jeg hævede stemmen\"",
+            "### 11. \"Det her er meget vigtigt for mig\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dd7d8164-08e1-4afc-a6c1-7320aec265a9",
+      "title": "Dán flörtölős kifejezések",
+      "native_lang": "hu",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető flörtölős kifejezések",
+          "subsections": [
+            "### 1. Du er meget smuk (Dü ér májed szmuk)",
+            "### 2. Du har flotte øjne (Dü hár flotte öjne)",
+            "### 3. Vil du have en kop kaffe med mig? (Vil dü hé en kop káffe med máj?)",
+            "### 4. Jeg kan godt lide dig (Jáj kan got li dáj)",
+            "### 5. Jeg vil gerne lære dig bedre at kende (Jáj vil gérne lére dáj bédre at kenne)",
+            "### 6. Du er så sød (Dü ér szó szöd)",
+            "### 7. Kan jeg få dit nummer? (Kan jáj fó dit nummer?)",
+            "### 8. Du har et dejligt smil (Dü hár et dájlit szmil)",
+            "### 9. Det er hyggeligt at snakke med dig (Det ér hüggelit at sznakke med dáj)",
+            "### 10. Skal vi ses igen? (Skál vi szész ígen?)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dd7ff21b-6bb9-4598-bff3-a5f3caac2433",
+      "title": "German Arguing & Disagreement Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressing Disagreement",
+          "subsections": [
+            "### Ich bin nicht einverstanden",
+            "### Das ist nicht fair",
+            "### Du verstehst mich falsch",
+            "### Du hörst mir nicht zu"
+          ]
+        },
+        {
+          "header": "## Expressing Frustration",
+          "subsections": [
+            "### Ich bin frustriert",
+            "### Es stört mich, wenn...",
+            "### Ich brauche einen Moment",
+            "### Das verletzt mich"
+          ]
+        },
+        {
+          "header": "## Setting Boundaries",
+          "subsections": [
+            "### Sprich nicht so mit mir",
+            "### Das geht zu weit",
+            "### Wir müssen ruhig darüber sprechen"
+          ]
+        },
+        {
+          "header": "## Seeking Resolution",
+          "subsections": [
+            "### Können wir zusammen eine Lösung finden?",
+            "### Ich möchte dich verstehen",
+            "### Was können wir tun?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dd86d039-fbbd-4d23-9d04-d91f9011d6ea",
+      "title": "Conjugación de Verbos Alemanes",
+      "native_lang": "es",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Juegos Divertidos de Conjugación para Parejas",
+          "subsections": [
+            "### Juego 1: Carrera de Verbos Románticos",
+            "### Juego 2: Conjugación de Vida Diaria"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dd94f6a3-d5cc-41f0-bfd2-b5efddbdd37a",
+      "title": "Jak vyjádřit podporu a útěchu v turečtině",
+      "native_lang": "cs",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní fráze podpory",
+          "subsections": [
+            "### Yanındayım (Janyndajym)",
+            "### Her şey güzel olacak (Her šej gjuzel oladžak)",
+            "### Seni anlıyorum (Seni anlyjorum)",
+            "### Yalnız değilsin (Jalnyz dejilsin)"
+          ]
+        },
+        {
+          "header": "## Fráze útěchy v těžkých chvílích",
+          "subsections": [
+            "### Başın sağ olsun (Bašyn sa olsun)",
+            "### Çok üzgünüm (Čok juzgjunjum)",
+            "### Güçlü ol (Gjučlju ol)",
+            "### Sana inanıyorum (Sana inanyjorum)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ddb0dc11-3fee-4b85-af7d-be6f5c0f772f",
+      "title": "50+ немецких прозвищ, которые растопят сердце",
+      "native_lang": "ru",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Региональные варианты",
+          "subsections": [
+            "### В Баварии и Австрии:",
+            "### В северной Германии:"
+          ]
+        },
+        {
+          "header": "## Как выбрать обращение",
+          "subsections": [
+            "### Для начала отношений:",
+            "### Для серьёзных отношений:",
+            "### Для супругов:"
+          ]
+        },
+        {
+          "header": "## Практика для пар",
+          "subsections": [
+            "### Упражнение «Разнообразие»:",
+            "### Утренний ритуал:",
+            "### Вечерний ритуал:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ddb6d51f-3010-4b5b-886f-1c0f2a34a8c9",
+      "title": "Como Escrever Cartas de Amor em Inglês: Guia Romântico Completo",
+      "native_lang": "pt",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Estrutura de uma Carta de Amor",
+          "subsections": [
+            "### Abertura Carinhosa",
+            "### Expressando Seus Sentimentos",
+            "### Elogiando Seu Amor",
+            "### Declarações de Amor",
+            "### Promessas e Compromissos",
+            "### Encerramentos Românticos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ddc9275f-f40c-44c9-bd11-0c175b5c2709",
+      "title": "Выражение эмоций на норвежском языке",
+      "native_lang": "ru",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Положительные эмоции",
+          "subsections": [
+            "### Радость и счастье",
+            "### Любовь и привязанность"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ddce73c4-aba0-40ac-b252-76b387bd33ec",
+      "title": "Οδηγός Προφοράς Αγγλικών για Αρχάριους: Μάθε να Μιλάς με τον Σύντροφό σου με Αυτοπεποίθηση",
+      "native_lang": "el",
+      "target_lang": "en",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Οι Πιο Σημαντικοί Ήχοι για Ζευγάρια",
+          "subsections": [
+            "### 1. Ο Ήχος \"TH\" (Θ/Δ)",
+            "### 2. Ο Ήχος \"R\"",
+            "### 3. Ο Ήχος \"L\" στο Τέλος"
+          ]
+        }
+      ]
+    }
+  ]
+}

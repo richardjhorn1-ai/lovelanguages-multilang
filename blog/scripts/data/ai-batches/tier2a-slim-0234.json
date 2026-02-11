@@ -1,0 +1,546 @@
+{
+  "batchId": "tier2a-slim-0234",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "ea2c6d07-7da9-454a-9791-8e05bda66fda",
+      "title": "Rencontrer la belle-famille en portugais : Conquérir os sogros",
+      "native_lang": "fr",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Premières salutations",
+          "subsections": [
+            "### \"É um prazer finalmente conhecê-los\"",
+            "### \"Ouvi falar muito bem de vocês\"",
+            "### \"Muito obrigado/a por me receberem\""
+          ]
+        },
+        {
+          "header": "## Montrer du respect",
+          "subsections": [
+            "### \"A sua casa é muito bonita\"",
+            "### \"A comida está deliciosa, obrigado/a\"",
+            "### \"A senhora cozinha muito bem\""
+          ]
+        },
+        {
+          "header": "## Parler de votre partenaire",
+          "subsections": [
+            "### \"[Nome] significa tudo para mim\"",
+            "### \"Me sinto muito sortudo/a por ter [nome] na minha vida\"",
+            "### \"Vocês criaram uma pessoa maravilhosa\""
+          ]
+        },
+        {
+          "header": "## Créer du lien",
+          "subsections": [
+            "### \"Gostaria de saber mais sobre [assunto]\"",
+            "### \"Como era [nome] quando criança?\""
+          ]
+        },
+        {
+          "header": "## Proposer de l'aide",
+          "subsections": [
+            "### \"Posso ajudar em alguma coisa?\""
+          ]
+        },
+        {
+          "header": "## Au départ",
+          "subsections": [
+            "### \"Obrigado/a por um dia maravilhoso\"",
+            "### \"Espero vê-los novamente em breve\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ea2d180c-438f-492b-9d01-99ee07a078e7",
+      "title": "En Yaygın 100 Rusça Kelime",
+      "native_lang": "tr",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Zamirler",
+          "subsections": [
+            "### 1. Я /ya/ - Ben",
+            "### 2. Ты /tı/ - Sen",
+            "### 3. Он /on/ - O (erkek)",
+            "### 4. Она /ona/ - O (kadın)",
+            "### 5. Мы /mı/ - Biz",
+            "### 6. Вы /vı/ - Siz",
+            "### 7. Они /oni/ - Onlar",
+            "### 8. И /i/ - Ve",
+            "### 9. Но /no/ - Ama",
+            "### 10. Или /ili/ - Veya"
+          ]
+        },
+        {
+          "header": "## Temel Fiiller",
+          "subsections": [
+            "### 11. Быть /bıt/ - Olmak",
+            "### 12. Иметь /imet/ - Sahip olmak",
+            "### 13. Делать /delat/ - Yapmak",
+            "### 14. Говорить /govorit/ - Söylemek",
+            "### 15. Идти /idti/ - Gitmek",
+            "### 16. Приходить /prihodit/ - Gelmek",
+            "### 17. Мочь /moç/ - Yapabilmek",
+            "### 18. Знать /znat/ - Bilmek",
+            "### 19. Хотеть /hotet/ - İstemek",
+            "### 20. Видеть /videt/ - Görmek"
+          ]
+        },
+        {
+          "header": "## Sıfatlar",
+          "subsections": [
+            "### 21. Хороший /horoşiy/ - İyi",
+            "### 22. Плохой /plohoy/ - Kötü",
+            "### 23. Большой /bolşoy/ - Büyük",
+            "### 24. Маленький /malenkiy/ - Küçük",
+            "### 25. Новый /novıy/ - Yeni",
+            "### 26. Старый /starıy/ - Eski/yaşlı",
+            "### 27. Длинный /dlinnıy/ - Uzun",
+            "### 28. Короткий /korotkiy/ - Kısa",
+            "### 29. Горячий /goryaçiy/ - Sıcak",
+            "### 30. Холодный /holodnıy/ - Soğuk"
+          ]
+        },
+        {
+          "header": "## Zaman İfadeleri",
+          "subsections": [
+            "### 31. Сейчас /seyças/ - Şimdi",
+            "### 32. Сегодня /sevodnya/ - Bugün",
+            "### 33. Завтра /zavtra/ - Yarın",
+            "### 34. Вчера /fçera/ - Dün",
+            "### 35. Всегда /fsegda/ - Her zaman",
+            "### 36. Никогда /nikogda/ - Asla",
+            "### 37. Иногда /inogda/ - Bazen"
+          ]
+        },
+        {
+          "header": "## Soru Kelimeleri",
+          "subsections": [
+            "### 38. Что /şto/ - Ne",
+            "### 39. Где /gde/ - Nerede",
+            "### 40. Когда /kogda/ - Ne zaman",
+            "### 41. Почему /poçemu/ - Neden",
+            "### 42. Как /kak/ - Nasıl",
+            "### 43. Кто /kto/ - Kim"
+          ]
+        },
+        {
+          "header": "## Sayılar",
+          "subsections": [
+            "### 44. Один /odin/ - Bir",
+            "### 45. Два /dva/ - İki",
+            "### 46. Три /tri/ - Üç",
+            "### 47. Четыре /çetıre/ - Dört",
+            "### 48. Пять /pyat/ - Beş",
+            "### 49. Десять /desyat/ - On",
+            "### 50. Сто /sto/ - Yüz"
+          ]
+        },
+        {
+          "header": "## Günlük Kelimeler",
+          "subsections": [
+            "### 51. Да /da/ - Evet",
+            "### 52. Нет /nyet/ - Hayır",
+            "### 53. Пожалуйста /pajaluysta/ - Lütfen",
+            "### 54. Спасибо /spasiba/ - Teşekkürler",
+            "### 55. Извините /izvinite/ - Özür dilerim",
+            "### 56. Привет /privet/ - Merhaba",
+            "### 57. До свидания /da svidaniya/ - Hoşça kal",
+            "### 58. Любовь /lyubov/ - Aşk",
+            "### 59. Друг /drug/ - Arkadaş",
+            "### 60. Семья /semya/ - Aile"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ea320cac-b59f-4a7e-a2b8-79262ff17943",
+      "title": "Δανικές Φράσεις για Ζήλια & Εμπιστοσύνη: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για Ζήλια & Εμπιστοσύνη",
+          "subsections": [
+            "### Έκφραση Ανησυχίας",
+            "### Χτίσιμο Εμπιστοσύνης",
+            "### Αντιμετώπιση Ζήλιας",
+            "### Συζήτηση για Όρια"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ea3748c8-9ccb-4385-af69-f803e850125e",
+      "title": "Spanska fraser för att träffa svärföräldrarna – Gör ett gott intryck",
+      "native_lang": "sv",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Första mötet",
+          "subsections": [
+            "### \"Es un placer conocerles por fin\"",
+            "### \"He oído hablar mucho de ustedes\"",
+            "### \"Muchas gracias por recibirme en su casa\""
+          ]
+        },
+        {
+          "header": "## Artiga fraser",
+          "subsections": [
+            "### \"Por favor, llámame [ditt namn]\"",
+            "### \"Tienen una casa muy bonita\"",
+            "### \"¿Puedo ayudar en algo?\"",
+            "### \"La comida está deliciosa\""
+          ]
+        },
+        {
+          "header": "## Om din relation",
+          "subsections": [
+            "### \"Su hijo/hija significa todo para mí\"",
+            "### \"Me siento muy afortunado/a de haber conocido a [namn]\"",
+            "### \"Nos hacemos muy felices el uno al otro\""
+          ]
+        },
+        {
+          "header": "## Visa intresse",
+          "subsections": [
+            "### \"Me encantaría saber más sobre [ämne]\"",
+            "### \"[Namn] me contó que les gusta [hobby]. ¡Qué interesante!\"",
+            "### \"¿Cómo se conocieron ustedes?\""
+          ]
+        },
+        {
+          "header": "## Hantera frågor",
+          "subsections": [
+            "### \"Trabajo como [yrke]\"",
+            "### \"Soy de Suecia, de [stad]\"",
+            "### \"En mi tiempo libre me gusta [hobby]\""
+          ]
+        },
+        {
+          "header": "## Avskedsfraser",
+          "subsections": [
+            "### \"Gracias por una velada maravillosa\"",
+            "### \"Ha sido un verdadero placer conocerles\"",
+            "### \"Espero que podamos repetirlo pronto\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ea4e5dce-cb4b-4ddf-81a1-1d2a9c99054a",
+      "title": "Danish for Couples: 25 Ways to Say I Love You",
+      "native_lang": "en",
+      "target_lang": "da",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Practice Together",
+          "subsections": [
+            "### Morning Affirmations",
+            "### Throughout the Day",
+            "### Evening Connection"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ea4ec783-2f19-41ae-b96b-a144091aacc0",
+      "title": "Svéd kiejtés kezdőknek: Tanuld meg együtt kedveseddel",
+      "native_lang": "hu",
+      "target_lang": "sv",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Kritikus kiejtési szabályok pároknak",
+          "subsections": [
+            "### 1. A dallamos akcentus",
+            "### 2. A \"sk\" és \"sj\" hang titka",
+            "### 3. A \"r\" gördülése"
+          ]
+        },
+        {
+          "header": "## Gyakori hibák, amiket elkerülhettek",
+          "subsections": [
+            "### 1. A \"g\" kiejtése",
+            "### 2. A \"k\" előtti e, i, y, ä, ö",
+            "### 3. A végződések elhagyása"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ea5aea77-0f09-4c7a-b3be-77447c32c8af",
+      "title": "Ιταλικές Φράσεις για Ζήλια & Εμπιστοσύνη: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για Ζήλια & Εμπιστοσύνη",
+          "subsections": [
+            "### Έκφραση Ανησυχίας",
+            "### Χτίσιμο Εμπιστοσύνης",
+            "### Αντιμετώπιση Ζήλιας",
+            "### Συζήτηση για Όρια"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ea5c8678-8e42-4924-bcf1-b8aa3533c737",
+      "title": "Турецька граматика для початківців: Основи",
+      "native_lang": "uk",
+      "target_lang": "tr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Іменники: Множина та відмінки",
+          "subsections": [
+            "### Множина",
+            "### Відмінки"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ea615cb9-7572-4268-a464-97e8e1e99a75",
+      "title": "Φράσεις για Γνωριμία με τους Πεθερικούς στα Γαλλικά",
+      "native_lang": "el",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για την Πρώτη Γνωριμία",
+          "subsections": [
+            "### 1. Enchanté(e) de vous rencontrer (Ανσαντέ ντε βου ρανκοντρέ)",
+            "### 2. J'ai beaucoup entendu parler de vous (Ζε μποκού αντεντύ παρλέ ντε βου)",
+            "### 3. Merci de m'accueillir chez vous (Μερσί ντε μακεγίρ σε βου)"
+          ]
+        },
+        {
+          "header": "## Φράσεις Εκτίμησης",
+          "subsections": [
+            "### 4. Votre fils/fille est formidable (Βοτρ φις/φίγι ε φορμιντάμπλ)",
+            "### 5. Vous avez élevé quelqu'un de merveilleux (Βου ζαβέ ελεβέ κελκέν ντε μερβεγιέ)",
+            "### 6. C'est délicieux (Σε ντελισιέ)",
+            "### 7. Vous avez une très belle maison (Βου ζαβέ ιν τρε μπελ μεζόν)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για Συζήτηση",
+          "subsections": [
+            "### 8. J'aimerais en savoir plus sur votre famille (Ζεμερέ αν σαβουάρ πλι σιρ βοτρ φαμίγι)",
+            "### 9. Comment était-il/elle enfant? (Κομάν ετέ-τιλ/ελ ανφάν)",
+            "### 10. J'espère que nous pourrons passer plus de temps ensemble (Ζεσπέρ κε νου πουρόν πασέ πλι ντε ταν ανσάμπλ)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ea711315-bf29-46a8-bf2e-25f170720c62",
+      "title": "Польские фразы для первого свидания",
+      "native_lang": "ru",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Начало разговора",
+          "subsections": [
+            "### 1. Wyglądasz dziś wieczorem pięknie",
+            "### 2. Bardzo czekałem/czekałam na to spotkanie",
+            "### 3. Opowiedz mi o sobie",
+            "### 4. Co lubisz robić w wolnym czasie?",
+            "### 5. Masz piękny uśmiech",
+            "### 6. Chciałbym/Chciałabym cię znowu zobaczyć",
+            "### 7. Świetnie się dziś bawiłem/bawiłam",
+            "### 8. Czy mogę do ciebie zadzwonić jutro?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eaa5a5bf-cbcd-4df2-81e5-6b8a0d3208cc",
+      "title": "Urări de Ziua de Naștere pentru Partener în Ucraineană: Mesaje",
+      "native_lang": "ro",
+      "target_lang": "uk",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Mesaje Romantice",
+          "subsections": [
+            "### Scurte și Dulci",
+            "### Mesaje Mai Lungi"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Diferite Personalități",
+          "subsections": [
+            "### Pentru Partenerul Romantic",
+            "### Pentru Partenerul cu Umor"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Card",
+          "subsections": [
+            "### Format Scurt",
+            "### Format Lung"
+          ]
+        },
+        {
+          "header": "## Idei de Surprize",
+          "subsections": [
+            "### Gesturi Romantice"
+          ]
+        },
+        {
+          "header": "## Mesaje de Dimineață",
+          "subsections": [
+            "### Pentru Început de Zi"
+          ]
+        },
+        {
+          "header": "## Tradiții de Cuplu",
+          "subsections": [
+            "### Idei pentru Noi Tradiții"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eabefaae-3beb-4d61-b14a-bb25d1ba223c",
+      "title": "Mød Svigerforældrene på Ungarsk: Essentielle Udtryk",
+      "native_lang": "da",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## De Vigtigste Udtryk",
+          "subsections": [
+            "### 1. Nagyon örülök, hogy megismerhetem Önöket",
+            "### 2. Nagyon köszönöm a meghívást",
+            "### 3. Gyönyörű otthonuk van",
+            "### 4. Sokat hallottam Önökről",
+            "### 5. Nagyon finom! Megkaphatnám a receptet?",
+            "### 6. Nagyon örülök, hogy itt lehetek",
+            "### 7. Segíthetek az asztal leszedésében?",
+            "### 8. A fiuk/lányuk nagyon sokat jelent nekem",
+            "### 9. Remélem, hamarosan újra találkozunk",
+            "### 10. Köszönöm ezt a csodálatos estét",
+            "### 11. Egészségére!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eac585ad-9c9a-474c-9884-1f26becc4ac7",
+      "title": "Phrases anglaises pour les disputes de couple",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions essentielles pour les désaccords",
+          "subsections": [
+            "### Exprimer son désaccord",
+            "### Exprimer ses émotions",
+            "### Fixer des limites",
+            "### Chercher à comprendre"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eac749a4-a036-46c9-9716-0f62c7b325e0",
+      "title": "Γράψτε Ερωτικά Γράμματα στα Τουρκικά",
+      "native_lang": "el",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για την Αρχή του Γράμματος",
+          "subsections": [
+            "### 1. Aşkım (Ασκίμ)",
+            "### 2. Canım (Τζανίμ)",
+            "### 3. Sevgilim (Σεβγκιλίμ)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για το Κυρίως Μέρος",
+          "subsections": [
+            "### 4. Sen hayatımın aşkısın (Σεν χαγιατιμίν ασκισίν)",
+            "### 5. Her geçen gün seni daha çok seviyorum (Χερ γκετσέν γκιουν σενί νταχά τσοκ σεβιγιορούμ)",
+            "### 6. Kalbim sadece senin için atıyor (Καλμπίμ σαντετζέ σενίν ιτσίν ατιγιόρ)",
+            "### 7. Seninle çok mutluyum (Σενινλέ τσοκ μουτλουγιούμ)",
+            "### 8. Sana delicesine aşığım (Σανά ντελιτζεσινέ ασιγίμ)",
+            "### 9. Sen benim her şeyimsin (Σεν μπενίμ χερ σεϊμσίν)",
+            "### 10. Sensiz bir hiçim (Σενσίζ μπιρ χιτσίμ)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για το Κλείσιμο",
+          "subsections": [
+            "### 11. Sonsuza dek senin (Σονσουζά ντεκ σενίν)",
+            "### 12. Bütün aşkımla (Μπιουτούν ασκιμλά)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eac8a87d-148d-45fe-bf4b-cedc36c3c440",
+      "title": "Holenderskie zwroty do kłótni i nieporozumień dla par",
+      "native_lang": "pl",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Wyrażanie niezgody",
+          "subsections": [
+            "### \"Ik ben het niet met je eens\"",
+            "### \"Ik zie het anders\"",
+            "### \"Kunnen we hier rustig over praten?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie uczuć",
+          "subsections": [
+            "### \"Ik voel me gefrustreerd als...\"",
+            "### \"Dit stoort me echt\"",
+            "### \"Ik heb even tijd voor mezelf nodig\""
+          ]
+        },
+        {
+          "header": "## Zrozumienie partnera",
+          "subsections": [
+            "### \"Help me jouw standpunt te begrijpen\"",
+            "### \"Als ik het goed begrijp, zeg je dat...\"",
+            "### \"Bedoel je dat...?\""
+          ]
+        },
+        {
+          "header": "## Szukanie rozwiązań",
+          "subsections": [
+            "### \"Hoe kunnen we dit samen oplossen?\"",
+            "### \"Laten we een compromis vinden\"",
+            "### \"Ik denk dat we allebei moeten...\""
+          ]
+        },
+        {
+          "header": "## Łagodzenie napięcia",
+          "subsections": [
+            "### \"Ik hou van je, ook als we ruzie hebben\"",
+            "### \"We komen hier samen doorheen\""
+          ]
+        }
+      ]
+    }
+  ]
+}

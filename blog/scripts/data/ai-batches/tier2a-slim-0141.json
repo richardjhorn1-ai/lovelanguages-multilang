@@ -1,0 +1,491 @@
+{
+  "batchId": "tier2a-slim-0141",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "9b89a798-376f-42f2-a504-88e91b50c92a",
+      "title": "Vocabular pentru Bebeluși și Sarcină în Poloneză: Expresii Esențiale",
+      "native_lang": "ro",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Anunțarea Sarcinii",
+          "subsections": [
+            "### Expresii pentru Anunț",
+            "### Anunțuri Creative"
+          ]
+        },
+        {
+          "header": "## Vocabular Medical",
+          "subsections": [
+            "### Termeni pentru Consultații"
+          ]
+        },
+        {
+          "header": "## Evoluția Sarcinii",
+          "subsections": [
+            "### Primul Trimestru (Săptămânile 1-12)",
+            "### Al Doilea Trimestru (Săptămânile 13-26)",
+            "### Al Treilea Trimestru (Săptămânile 27-40)"
+          ]
+        },
+        {
+          "header": "## Pregătirea pentru Bebeluș",
+          "subsections": [
+            "### Obiecte Esențiale",
+            "### Camera Bebelușului"
+          ]
+        },
+        {
+          "header": "## Expresii de Felicitare",
+          "subsections": [
+            "### Pentru Anunț",
+            "### Pentru Naștere"
+          ]
+        },
+        {
+          "header": "## Tradiții și Superstiții",
+          "subsections": [
+            "### Superstiții Comune"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9ba97ad5-b5a6-4054-8d40-b65ef860376a",
+      "title": "Norvég kifejezések vitákhoz és nézeteltérésekhez",
+      "native_lang": "hu",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető kifejezések nézeteltérésekhez",
+          "subsections": [
+            "### 1. \"Jeg føler meg såret når du...\"",
+            "### 2. \"Kan vi snakke om dette rolig?\"",
+            "### 3. \"Jeg forstår ditt synspunkt, men...\"",
+            "### 4. \"La oss ikke heve stemmen\"",
+            "### 5. \"Jeg trenger tid til å tenke\"",
+            "### 6. \"Det var ikke det jeg mente\"",
+            "### 7. \"Kan du sette deg i mitt sted?\"",
+            "### 8. \"Jeg ville ikke såre deg\"",
+            "### 9. \"La oss finne et kompromiss\"",
+            "### 10. \"Jeg føler at du ikke hører på meg\"",
+            "### 11. \"Dette gjør meg trist\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9bb4d912-700a-4200-8068-8001085cbdcf",
+      "title": "Expresii în Germană pentru Reconciliere și Împăcare în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii pentru Cererea Scuzelor",
+          "subsections": [
+            "### Scuze Sincere",
+            "### Exprimarea Regretului"
+          ]
+        },
+        {
+          "header": "## Expresii pentru Împăcare",
+          "subsections": [
+            "### Inițierea Dialogului",
+            "### Declarații de Angajament",
+            "### Reconstruirea Conexiunii"
+          ]
+        },
+        {
+          "header": "## Gesturi de Reconciliere în Stilul German",
+          "subsections": [
+            "### Acțiuni Practice",
+            "### Timp de Calitate",
+            "### Mâncarea",
+            "### Comunicarea Clară"
+          ]
+        },
+        {
+          "header": "## Nuanțe Culturale",
+          "subsections": [
+            "### Sinceritatea",
+            "### Acțiuni > Cuvinte",
+            "### Promisiuni",
+            "### Eficiența"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9be108f2-c3a4-4273-9cb7-39f88f91bbd7",
+      "title": "50+ французских фраз для романтического вечера",
+      "native_lang": "ru",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Практические упражнения",
+          "subsections": [
+            "### Ролевая игра «В ресторане»:",
+            "### «Прогулка по Парижу»:",
+            "### «Планируем свидание»:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9be465ac-8f9c-4440-aac0-e61ad2560ecb",
+      "title": "Wymowa szwedzka - przewodnik dla Polaków",
+      "native_lang": "pl",
+      "target_lang": "sv",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Samogloski szwedzkie",
+          "subsections": [
+            "### Krotkie i długie",
+            "### Specjalne samogloski: A, A, O"
+          ]
+        },
+        {
+          "header": "## Trudne spolgloski",
+          "subsections": [
+            "### SJ-dzwiek",
+            "### TJ/KJ-dzwiek",
+            "### R-dzwiek"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia wymowy",
+          "subsections": [
+            "### Cwiczenie 1: SJ-dzwiek",
+            "### Cwiczenie 2: A, A, O",
+            "### Cwiczenie 3: Romantyczne słowa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9bf446f0-33b0-4b72-bc3a-2a28a2b35614",
+      "title": "Le polonais est-il difficile à apprendre ? Réponse honnête pour les couples",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Ce qui rend le polonais difficile",
+          "subsections": [
+            "### Les défis :"
+          ]
+        },
+        {
+          "header": "## Ce qui rend le polonais plus facile",
+          "subsections": [
+            "### Les avantages :"
+          ]
+        },
+        {
+          "header": "## Conseils pour réussir ensemble",
+          "subsections": [
+            "### 1. **Commencez par l'essentiel**",
+            "### 2. **Créez des moments polonais**",
+            "### 3. **Utilisez la technologie**",
+            "### 4. **Célébrez les petites victoires**",
+            "### 5. **Soyez patient avec vous-même**",
+            "### 6. **Immergez-vous**",
+            "### 7. **Pratiquez quotidiennement**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9c02c338-335f-48a2-aad4-0b18411a86cf",
+      "title": "Phrases espagnoles pour se réconcilier en couple",
+      "native_lang": "fr",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions essentielles pour se réconcilier",
+          "subsections": [
+            "### S'excuser sincèrement",
+            "### Exprimer ses sentiments",
+            "### Proposer une résolution",
+            "### Réaffirmer son amour"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9c0d4938-a34d-4644-a121-3a31b7c36a13",
+      "title": "Průvodce Italskou Výslovností pro Začátečníky",
+      "native_lang": "cs",
+      "target_lang": "it",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Speciální Souhlásky",
+          "subsections": [
+            "### Dvojité Souhlásky",
+            "### Zvuky C a G"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9c12d15f-996f-4586-b021-44ee5978e739",
+      "title": "Lengyel Szerelmes Levél Írása Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kezdő Kifejezések",
+          "subsections": [
+            "### 1. Moja miłości / Kochanie",
+            "### 2. Mój skarbie",
+            "### 3. Moje serce"
+          ]
+        },
+        {
+          "header": "## Érzelmek Kifejezése",
+          "subsections": [
+            "### 4. Kocham cię bardziej niż cokolwiek na świecie",
+            "### 5. Jesteś światłem mojego życia",
+            "### 6. Moje serce należy tylko do ciebie",
+            "### 7. Każdego dnia kocham cię coraz bardziej",
+            "### 8. Jesteś moim spełnionym marzeniem",
+            "### 9. Z tobą poznałem prawdziwą miłość",
+            "### 10. Nie wyobrażam sobie życia bez ciebie"
+          ]
+        },
+        {
+          "header": "## Záró Kifejezések",
+          "subsections": [
+            "### 11. Na zawsze Twój/Twoja",
+            "### 12. Z całą moją miłością"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9c35a29b-6142-476e-812d-6db35edb5593",
+      "title": "Expresii în Olandeză pentru Discuții și Dezacorduri în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale pentru Discuții",
+          "subsections": [
+            "### Exprimarea Frustrării",
+            "### Cererea de Clarificări",
+            "### Stabilirea Limitelor",
+            "### Recunoașterea și Concesiile",
+            "### Căutarea Soluțiilor"
+          ]
+        },
+        {
+          "header": "## Nuanțe Culturale Importante",
+          "subsections": [
+            "### Egalitate în Relație",
+            "### Independența Personală",
+            "### Pragmatism",
+            "### Onestitatea Radicală"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9c6ae217-0534-4adf-a454-d98522f3d8c3",
+      "title": "Niemieckie zwroty o przebaczeniu dla par",
+      "native_lang": "pl",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Proszenie o przebaczenie",
+          "subsections": [
+            "### \"Bitte verzeih mir\"",
+            "### \"Ich hoffe, du kannst mir vergeben\"",
+            "### \"Kannst du in deinem Herzen Vergebung finden?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie przebaczenia",
+          "subsections": [
+            "### \"Ich vergebe dir\"",
+            "### \"Es ist okay, ich verstehe\"",
+            "### \"Lassen wir das hinter uns\""
+          ]
+        },
+        {
+          "header": "## Proces przebaczenia",
+          "subsections": [
+            "### \"Ich arbeite daran, dir zu vergeben\"",
+            "### \"Ich brauche Zeit, aber ich werde dir vergeben\""
+          ]
+        },
+        {
+          "header": "## Głębokie przebaczenie",
+          "subsections": [
+            "### \"Ich vergebe dir vollständig\"",
+            "### \"Ich lasse den Schmerz los\"",
+            "### \"Ich werde das nicht wieder erwähnen\""
+          ]
+        },
+        {
+          "header": "## Wspólne wyjście naprzód",
+          "subsections": [
+            "### \"Fangen wir von vorne an\"",
+            "### \"Unsere Liebe ist stärker als dieser Fehler\"",
+            "### \"Wir können das gemeinsam überwinden\""
+          ]
+        },
+        {
+          "header": "## Granice przebaczenia",
+          "subsections": [
+            "### \"Ich vergebe dir, aber das darf nicht wieder passieren\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9c6b5088-4a09-4b71-8c80-4a90074d05bf",
+      "title": "Φράσεις «Μου λείπεις» στα Τσεχικά",
+      "native_lang": "el",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις",
+          "subsections": [
+            "### 1. Chybíš mi (Χίμπις μι)",
+            "### 2. Moc mi chybíš (Μοτς μι χίμπις)",
+            "### 3. Potřebuji tě (Ποτρζέμπουγι τε)",
+            "### 4. Toužím po tobě (Τούζιμ πο τόμπιε)",
+            "### 5. Počítám dny do našeho setkání (Ποτσίταμ ντνι ντο νάσεχο σετκάνι)",
+            "### 6. Nemůžu se dočkat, až tě uvidím (Νεμούζου σε ντότσκατ αζ τε ουβίντιμ)",
+            "### 7. Myslím na tebe každý den (Μίσλιμ να τέμπε κάζντι ντεν)",
+            "### 8. Moje srdce je s tebou (Μόγιε σρντσε γιε σ τέμπου)",
+            "### 9. Jsi stále v mých myšlenkách (Γσι στάλε β μιχ μισλένκαχ)",
+            "### 10. Kéž bys tu byl/byla (Κεζ μπις του μπιλ/μπίλα)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9c858ea7-3706-4c1e-b289-1c0e155f722d",
+      "title": "Jak powiedziec «Eu te amo» po portugalsku - romantyczne zwroty",
+      "native_lang": "pl",
+      "target_lang": "pt",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Na specjalne okazje",
+          "subsections": [
+            "### Zaręczyny i ślub",
+            "### Rocznice"
+          ]
+        },
+        {
+          "header": "## Wymowa portugalska - podstawy",
+          "subsections": [
+            "### Kluczowe dźwięki"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Poranne wyznanie",
+            "### Ćwiczenie 2: Wieczorna rutyna",
+            "### Ćwiczenie 3: SMS-y po portugalsku"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9c906bfd-5289-49ee-9a4d-8b88793e9c2a",
+      "title": "French Moving In Together: Essential Household Vocabulary for Couples",
+      "native_lang": "en",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Finding Your Home",
+          "subsections": [
+            "### Apartment/House Hunting",
+            "### Key Phrases for Viewing"
+          ]
+        },
+        {
+          "header": "## Moving Day Vocabulary",
+          "subsections": [
+            "### Coordinating the Move",
+            "### Essential Moving Terms"
+          ]
+        },
+        {
+          "header": "## Setting Up Your Home",
+          "subsections": [
+            "### Room by Room",
+            "### Organizing Together"
+          ]
+        },
+        {
+          "header": "## Shopping for Your Home",
+          "subsections": [
+            "### At the Furniture Store",
+            "### Household Items"
+          ]
+        },
+        {
+          "header": "## Living Together",
+          "subsections": [
+            "### Daily Life Vocabulary",
+            "### Meeting the Neighbors"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9c9dbecc-82e6-4e1d-b9b5-2e7cbe3941d3",
+      "title": "Olasz Szerelmes Levél Írása Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kezdő Kifejezések",
+          "subsections": [
+            "### 1. Amore mio",
+            "### 2. Tesoro mio",
+            "### 3. Cuore mio"
+          ]
+        },
+        {
+          "header": "## Érzelmek Kifejezése",
+          "subsections": [
+            "### 4. Ti amo più di ogni cosa al mondo",
+            "### 5. Sei la luce della mia vita",
+            "### 6. Il mio cuore appartiene solo a te",
+            "### 7. Ogni giorno ti amo di più",
+            "### 8. Sei il mio sogno diventato realtà",
+            "### 9. Con te ho scoperto il vero amore",
+            "### 10. Non posso immaginare la mia vita senza di te"
+          ]
+        },
+        {
+          "header": "## Záró Kifejezések",
+          "subsections": [
+            "### 11. Tuo/Tua per sempre",
+            "### 12. Con tutto il mio amore"
+          ]
+        }
+      ]
+    }
+  ]
+}

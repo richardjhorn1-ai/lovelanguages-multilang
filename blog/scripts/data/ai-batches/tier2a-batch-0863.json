@@ -1,0 +1,131 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0863",
+  "articles": [
+    {
+      "id": "f8326ec6-2a57-40ce-a9ef-a16513d5ce0b",
+      "title": "Rumänska fraser för att träffa svärföräldrarna – Gör ett gott intryck",
+      "native_lang": "sv",
+      "target_lang": "ro",
+      "category": "communication",
+      "content": "I Rumänien är familjen viktig och gästfriheten generös. Visa respekt och värme.\n\n## Första mötet\n\n### \"Sunt foarte încântat/încântată să vă cunosc în sfârșit\"\n**Betydelse:** Jag är väldigt glad att äntligen träffa er\n\n### \"Am auzit multe despre dumneavoastră\"\n**Betydelse:** Jag har hört mycket om er\n\n### \"Vă mulțumesc foarte mult că m-ați primit\"\n**Betydelse:** Tack så mycket för att ni tar emot mig\n\n## Artiga fraser\n\n### \"Vă rog să-mi spuneți [namn]\"\n**Betydelse:** Kalla mig gärna [namn]\n\n### \"Aveți o casă frumoasă\"\n**Betydelse:** Ni har ett vackert hem\n\n### \"Pot să vă ajut cu ceva?\"\n**Betydelse:** Kan jag hjälpa till med något?\n\n### \"Mâncarea este delicioasă\"\n**Betydelse:** Maten är utsökt\n\n## Om din relation\n\n### \"Fiul/Fiica dumneavoastră înseamnă foarte mult pentru mine\"\n**Betydelse:** Er son/dotter betyder mycket för mig\n\n### \"Mă simt foarte norocos/norocoasă că l-am/am cunoscut pe [namn]\"\n**Betydelse:** Jag känner mig lycklig att ha träffat [namn]\n\n### \"Ne facem reciproc foarte fericiți\"\n**Betydelse:** Vi gör varandra väldigt lyckliga\n\n## Visa intresse\n\n### \"Aș vrea să aflu mai multe despre [ämne]\"\n**Betydelse:** Jag vill gärna veta mer om [ämne]\n\n### \"Cum v-ați cunoscut?\"\n**Betydelse:** Hur träffades ni?\n\n## Avskedsfraser\n\n### \"Mulțumesc pentru o seară minunată\"\n**Betydelse:** Tack för en underbar kväll\n\n### \"A fost o plăcere să vă cunosc\"\n**Betydelse:** Det var ett nöje att träffa er\n\n## Kulturella tips\n\n**Gästfrihet:** Rumäner är generösa värdar.\n\n**Mat:** Förvänta dig rikliga portioner.\n\n**Gåvor:** Blommor (udda antal) eller vin uppskattas.\n\n## Avslutande tankar\n\nRumänska svärföräldrar uppskattar respekt och värme. Visa genuint intresse för familjen.\n\nMult succes!",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 255,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Första mötet",
+              "## Artiga fraser",
+              "## Om din relation",
+              "## Visa intresse",
+              "## Avskedsfraser"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "f857e750-fe52-4bc4-a5a8-eab2c6a55ba7",
+      "title": "Cseh lánykérési és eljegyzési kifejezések",
+      "native_lang": "hu",
+      "target_lang": "cs",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nA lánykérés az élet egyik legizgalmasabb pillanata. Ha csehul szeretnéd feltenni a nagy kérdést vagy megérteni ezt a különleges eseményt, ezek a kifejezések nélkülözhetetlenek.\n\nAz alapvető szerelmi kifejezésekért nézd meg a [Hogyan mondd: Szeretlek csehul](/learn/hu/cs/czech-how-to-say-i-love-you) cikkünket.\n\n<PhraseOfDay\n  word=\"Gratuluju!\"\n  translation=\"Gratulálok!\"\n  pronunciation=\"ˈɡratʊlʊjʊ\"\n  context=\"Az esküvői köszöntés alapja.\"\n/>\n\n## Alapvető szókincs\n\nIsmerd meg a legfontosabb cseh lánykérési és eljegyzési szavakat:\n\n<VocabCard\n  word=\"svatba\"\n  translation=\"esküvő\"\n  pronunciation=\"ˈsvatba\"\n  example=\"Svatba byla krásná.\"\n/>\n\n| Cseh | Magyar | Használat |\n|---|---|---|\n| nevěsta | menyasszony | A nő |\n| ženich | vőlegény | A férfi |\n| sliby | fogadalmak | Esküvői ígéretek |\n| obřad | szertartás | A hivatalos rész |\n| recepce | fogadás | Az ünneplés |\n| přípitek | köszöntő | Pohárköszöntő |\n\n<CultureTip flag=\"🌍\" title=\"Cseh kulturális tippek\">\nA cseh nyelvű kultúrákban a lánykérésnek különleges hagyományai vannak. Egyes helyeken a szülők beleegyezését kérik, máshol romantikus helyszíneket választanak.\n</CultureTip>\n\n## Hasznos kifejezések\n\n### A nagy kérdés\n\nA lánykérés pillanatában ezeket mondd:\n\n- **Gratuluju!** - Gratulálok!\n- **Veled akarom tölteni az életemet** - Romantikus vallomás\n- **Te vagy az egyetlen** - Szerelmi vallomás\n\n### Az eljegyzés bejelentése\nAmikor megosztod a hírt:\n\n- **Eljegyeztük magunkat!** - A nagy bejelentés\n- **Igent mondott!** - Az öröm kifejezése\n\n<VocabCard\n  word=\"líbánky\"\n  translation=\"nászút\"\n  pronunciation=\"ˈliːbaːŋkɪ\"\n  example=\"Jeli na líbánky.\"\n/>\n\n## Gyakorlati helyzetek\n\n| Helyzet | Mit mondj |\n|---|---|\n| A nagy kérdés | Térdre ereszkedve tedd fel a kérdést |\n| Ha igent mond | Fejezd ki a boldogságod |\n| Bejelentés | Oszd meg a hírt a szeretteiddel |\n| Gratulációk fogadása | Köszönd meg a jókívánságokat |\n\n<CultureTip flag=\"💡\" title=\"Hasznos tipp\">\nA lánykérés előtt gyakorold az alapvető kifejezéseket. A pillanatnyi izgalomban nehéz lehet idegen nyelven beszélni, ezért készülj fel előre.\n</CultureTip>\n\n## Összefoglaló táblázat\n\n| Helyzet | Cseh kifejezés |\n|---|---|\n| Gratuláció | Gratuluju! |\n| Az esemény | svatba |\n| A nő | nevěsta |\n| A férfi | ženich |\n| Esküvői ígéretek | sliby |\n\n## További tanulás\n\nHa tovább szeretnéd fejleszteni a cseh nyelvtudásod, nézd meg ezeket a cikkeinket:\n\n- [Cseh romantikus kifejezések minden alkalomra](/learn/hu/cs/czech-romantic-phrases-for-every-occasion)\n- [Hogyan mondd: Szeretlek csehul](/learn/hu/cs/czech-how-to-say-i-love-you)\n- [Cseh alapvető kifejezések pároknak](/learn/hu/cs/czech-essential-phrases-for-couples)\n\nEzek a források segítenek elmélyíteni a tudásod és magabiztosabbá válni a cseh nyelvben.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 293,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Hasznos kifejezések"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "f878f65f-c761-4412-8048-c038c05c1cf4",
+      "title": "Találkozás a francia családdal: Hogyan hódítsd meg kedvesed szüleit franciául",
+      "native_lang": "hu",
+      "target_lang": "fr",
+      "category": "situations",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nA pillanat, amikor először találkozol kedvesed francia szüleivel, izgalmas és kicsit ijesztő is lehet. De ne aggódj! A megfelelő francia kifejezésekkel és egy kis kulturális tudással könnyen meghódíthatod őket. Ez az útmutató segít nektek együtt felkészülni erre a fontos találkozóra, hogy magabiztosan és szeretetteljesen köszönthesd új családodat.\n\n<PhraseOfDay\n  word=\"Enchanté(e)\"\n  translation=\"Örülök, hogy megismerhetem\"\n  pronunciation=\"ah(n)-shahn-TAY\"\n  context=\"A legfontosabb mondás az első találkozáskor - mindig használd, amikor bemutatkozol!\"\n/>\n\n## Mielőtt találkoznátok: Előkészületek\n\nA francia családok gyakran formálisabbak az első találkozáskor, mint amit megszoktál. A kulcs a tisztelet és a kedvesség megmutatása. Gyakoroljátok együtt ezeket a kifejezéseket, hogy magabiztosan érkezzetek!\n\n<VocabCard\n  word=\"Comment allez-vous?\"\n  translation=\"Hogy van? (formális)\"\n  pronunciation=\"koh-mahn tah-lay VOO\"\n  example=\"Bonjour Madame, comment allez-vous?\"\n/>\n\n<CultureTip flag=\"🇫🇷\" title=\"A la bise szabályai\">\nFranciaországban a \"la bise\" (arcra puszi) gyakori üdvözlés, de az első találkozáskor inkább várj, amíg kezet nyújtanak. A legbiztonságosabb egy kedves mosoly és egy \"Enchanté(e)\"!\n</CultureTip>\n\n## Alapvető üdvözlések és bemutatkozás\n\n| Francia kifejezés | Kiejtés | Magyar jelentés | Használati helyzet |\n|-------------------|---------|------------------|---------------------|\n| **Bonjour** | bohn-ZHOOR | Jó napot | Nappali üdvözlés |\n| **Bonsoir** | bohn-SWAHR | Jó estét | Esti üdvözlés |\n| **Enchanté(e)** | ah(n)-shahn-TAY | Örülök a találkozásnak | Bemutatkozáskor |\n| **Je suis [név]** | zhuh swee | [név] vagyok | Bemutatkozás |\n| **C'est mon copain/ma copine** | say mohn koh-PAHN/mah koh-PEEN | Ő a barátom/barátnőm | Partner bemutatása |\n| **Je suis hongrois(e)** | zhuh swee ohn-GRWAH/Z | Magyar vagyok | Nemzetiség megadása |\n\n## Beszélgetés a családdal: Valódi helyzetek\n\n### 1. Az első találkozás a szülőkkel\n\n**Példabeszélgetés:**\n- Te: \"Bonjour Madame/Monsieur, enchanté(e). Je suis [név].\" (jó napot kívánok, örülök, [név] vagyok)\n- Anyuka: \"Enchanté(e), [név]. Comment allez-vous?\"\n- Te: \"Très bien, merci. Et vous?\" (nagyon jól, köszönöm. És Ön?)\n\n### 2. Az étkezés közbeni beszélgetés\n\nAmikor a család vacsorát készít vagy étterembe mentek, hasznos kifejezések:\n\n<VocabCard\n  word=\"C'est délicieux!\"\n  translation=\"Nagyon finom!\"\n  pronunciation=\"say day-lee-SYUH\"\n  example=\"Merci beaucoup, c'est délicieux!\"\n/>\n\n### 3. Kérdések Magyarországról\n\nValószínűleg kérdezni fogják Magyarországról. Készülj fel:\n\n- **\"Où habitez-vous en Hongrie?\"** (hová valósi Magyarországon?)\n- **\"Qu'est-ce que vous faites dans la vie?\"** (mivel foglalkozik?)\n- **\"Comment avez-vous rencontré [partner neve]?\"** (hogyan találkoztak [partner nevével]?)\n\n## Családtagok és rokonok szókincse\n\n| Francia | Kiejtés | Magyar | Kapcsolat |\n|---------|---------|---------|-----------|\n| **La mère** | lah mehr | Anyuka | Partner anyja |\n| **Le père** | luh pehr | Apuka | Partner apja |\n| **La sœur** | lah suhr | Lánytestvér | Partner nővére/húga |\n| **Le frère** | luh frehr | Fiútestvér | Partner bátyja/fivére |\n| **La grand-mère** | lah grahn-MEHR | Nagymama | Partner nagyija |\n| **Le grand-père** | luh grahn-PEHR | Nagypapa | Partner nagyija |\n| **La tante** | lah tahnt | Néni | Partner nagynénje |\n| **L'oncle** | lohn-kl | Bácsi | Partner nagybátyja |\n\n## Udvarias kifejezések és formaságok\n\nA francia kultúrában az udvariasság kulcsfontosságú, különösen a családi találkozásokkor.\n\n| Francia kifejezés | Kiejtés | Magyar jelentés | Mikor használd |\n|-------------------|---------|------------------|------------------|\n| **S'il vous plaît** | see voo PLEH | Kérem | Kérésnél |\n| **Merci beaucoup** | mehr-SEE boh-KOO | Nagyon szépen köszönöm | Hálánál |\n| **De rien** | duh ree-AHN | Szívesen | Válaszul a köszönömre |\n| **Excusez-moi** | eks-kew-zay MWAH | Elnézést | Bocsánatkérésre |\n| **Pardon** | pahr-DOHN | Bocsánat | Helyfoglalásnál |\n| **C'est très gentil** | say treh zhahn-TEE | Nagyon kedves | Köszönet kifejezésére |\n\n<CultureTip flag=\"🇫🇷\" title=\"A 'vous' használata\">\nMindig a formális \"vous\" alakot használd a szülőkkel és idősebb rokonokkal, még ha partnered \"tu\"-t használ velük. Várj, amíg ők ajánlják fel a \"tu\" használatát!\n</CultureTip>\n\n## Ha valami félremegy: Problémamegoldó kifejezések\n\n- **\"Je ne comprends pas\"** (zhuh nuh kohm-PRAHN pah) - Nem értem\n- **\"Pouvez-vous répéter?\"** (poo-vay voo ray-pay-TAY) - Megismételné?\n- **\"Je suis désolé(e)\"** (zhuh swee day-zoh-LAY) - Sajnálom\n- **\"Parlez-vous anglais?\"** (pahr-lay voo ahng-LEH) - Beszél angolul?\n- **\"Pouvez-vous m'aider?\"** (poo-vay voo meh-DAY) - Segítene?\n\n## Profi tippek: Amit csak a helyiek tudnak\n\n1. **Hozz ajándékot!** Egy szép csokor virág anyukának vagy egy üveg jó bor apukának mindig nyerő.\n\n2. **Dicsérd az ételt!** A francia családok büszkék a főzésükre. Mondjad, hogy \"C'est excellent!\" (szay eks-eh-LOHN) - Kiváló!\n\n3. **Kérdezz a családi fotókról!** Ez jó beszélgetésindító: \"C'est qui sur cette photo?\" (szay kee sur set foh-TOH?) - Ki ez a fotón?\n\n4. **Tanulj meg néhány dolgot Franciaországról!** Kérdezd meg, honnan származnak, vagy meséljenek a régiójukról.\n\n5. **Légy türelmes a nyelvi hibákkal!** A franciák értékelik, ha megpróbálsz franciául beszélni, még ha nem is tökéletes.\n\nHa szeretnétek még több romantikus kifejezést tanulni, nézzétek meg a [francia szerelmes kifejezések minden alkalomra](/learn/hu/fr/romantic-french-phrases-for-every-occasion/) útmutatónkat is!\n\n<CultureTip flag=\"🇫🇷\" title=\"A vacsora hosszúsága\">\nA francia családi vacsorák gyakran több órásak! Ne siess, élvezd a beszélgetést és az ételt. Ez a \"profiter du moment\" (élvezni a pillanatot) kultúrája.\n</CultureTip>\n\n## Gyors referencia kártya - Top 10 kifejezés\n\n1. **Enchanté(e)** - Örülök a találkozásnak\n2. **Bonjour/Bonsoir** - Jó napot/estét\n3. **Comment allez-vous?** - Hogy van?\n4. **Je suis [név]** - [név] vagyok\n5. **C'est délicieux!** - Nagyon finom!\n6. **Merci beaucoup** - Nagyon szépen köszönöm\n7. **Excusez-moi** - Elnézést\n8. **C'est votre fils/fille?** - Ő az Ön fia/lánya?\n9. **Vous avez une belle maison** - Szép háza van\n10. **Au revoir** - Viszontlátásra\n\nA francia családdal való találkozás egy csodálatos lehetőség, hogy mélyebb kapcsolatot építs ki partnered kultúrájával. A lényeg: légy önmagad, mutass tiszteletet, és ne feledd - ők is izgulnak, hogy megismerjenek téged! Gyakoroljatok együtt ezekkel a kifejezésekkel, és élvezzétek ezt a különleges pillanatot a kapcsolatotokban.\n\nHa szeretnétek még több alapvető kifejezést tanulni, nézzétek meg az [alapvető francia kifejezések pároknak](/learn/hu/fr/essential-french-phrases-for-couples/) útmutatónkat is!\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Beszélgetés a családdal: Valódi helyzetek"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "f89b0fc2-6903-4168-b4e0-4aee6764da70",
+      "title": "Holland baba és terhességi szókincs",
+      "native_lang": "hu",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nA baba érkezése az élet egyik legcsodálatosabb eseménye. Ha hollandul szeretnél kommunikálni a terhességről és a babáról, ezek a kifejezések nélkülözhetetlenek.\n\nAz alapvető kifejezésekért nézd meg az [Holland alapvető kifejezések](/learn/hu/nl/dutch-essential-phrases-for-couples) útmutatónkat.\n\n<PhraseOfDay\n  word=\"Gefeliciteerd!\"\n  translation=\"Gratulálok!\"\n  pronunciation=\"ɣəfeːlisiˈteːrt\"\n  context=\"Az esküvői köszöntés alapja.\"\n/>\n\n## Alapvető szókincs\n\nA baba és terhesség alapvető holland szókincse:\n\n<VocabCard\n  word=\"bruiloft\"\n  translation=\"esküvő\"\n  pronunciation=\"ˈbrœylɔft\"\n  example=\"De bruiloft was prachtig.\"\n/>\n\n| Holland | Magyar | Használat |\n|---|---|---|\n| bruid | menyasszony | A nő |\n| bruidegom | vőlegény | A férfi |\n| geloften | fogadalmak | Esküvői ígéretek |\n| ceremonie | szertartás | A hivatalos rész |\n| receptie | fogadás | Az ünneplés |\n| toast | köszöntő | Pohárköszöntő |\n\n<CultureTip flag=\"🌍\" title=\"Holland kulturális tippek\">\nA holland kultúrában a terhesség és a baba érkezése körül sok hagyomány és babona létezik. Érdemes megismerni ezeket a párod családjával.\n</CultureTip>\n\n## Hasznos kifejezések\n\n### Terhességi kifejezések\n\nA várandósság alatt hasznos kifejezések:\n\n- **Babát várunk!** - A nagy bejelentés\n- **Mikor a várható időpont?** - Gyakori kérdés\n- **Fiú vagy lány?** - A nem iránti érdeklődés\n\n### Baba szókincs\nAmikor megérkezik a baba:\n\n- **Megszületett a baba!** - Az örömhír\n- **Gratulálok!** - Jókívánság a szülőknek\n\n<VocabCard\n  word=\"huwelijksreis\"\n  translation=\"nászút\"\n  pronunciation=\"ˈɦywələksrɛis\"\n  example=\"Ze gingen op huwelijksreis.\"\n/>\n\n## Gyakorlati helyzetek\n\n| Helyzet | Mit mondj |\n|---|---|\n| Bejelentés | Babát várunk! |\n| Orvosnál | Kérdezz a terhességről |\n| Születésnél | A baba megszületett! |\n| Gratulációk | Fogadd a jókívánságokat |\n\n<CultureTip flag=\"💡\" title=\"Hasznos tipp\">\nA terhesség alatt sok új szóval találkozol. Készíts listát az orvosi kifejezésekről, hogy az időpontok során magabiztosabban kommunikálhass.\n</CultureTip>\n\n## Összefoglaló táblázat\n\n| Helyzet | Holland kifejezés |\n|---|---|\n| Gratuláció | Gefeliciteerd! |\n| Az esemény | bruiloft |\n| A nő | bruid |\n| A férfi | bruidegom |\n| Esküvői ígéretek | geloften |\n\n## További tanulás\n\nHa tovább szeretnéd fejleszteni a holland nyelvtudásod, nézd meg ezeket a cikkeinket:\n\n- [Holland romantikus kifejezések minden alkalomra](/learn/hu/nl/dutch-romantic-phrases-for-every-occasion)\n- [Hogyan mondd: Szeretlek hollandul](/learn/hu/nl/dutch-how-to-say-i-love-you)\n- [Holland alapvető kifejezések pároknak](/learn/hu/nl/dutch-essential-phrases-for-couples)\n\nEzek a források segítenek elmélyíteni a tudásod és magabiztosabbá válni a holland nyelvben.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 272,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Hasznos kifejezések"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "f8a06a7e-3f5b-4168-bc52-c9cfd43ee512",
+      "title": "Frases en Húngaro para Reconciliarte con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "El húngaro es un idioma único con expresiones profundas para el amor y el perdón. Si tu pareja es húngara, estas frases te ayudarán a reconciliarte sinceramente.\n\n## La Reconciliación Húngara\n\nLos húngaros valoran la lealtad y la honestidad en las relaciones. Una disculpa sincera fortalece el vínculo.\n\n## Frases para Pedir Disculpas\n\n### \"Bocsánat azért, amit mondtam\"\n**Pronunciación:** BO-cha-nat a-ZERT a-MIT MOND-tam\n\n**Significado:** Perdona por lo que dije\n\n### \"Nem akartalak megbántani\"\n**Pronunciación:** Nem A-kar-ta-lak meg-BAN-ta-ni\n\n**Significado:** No quería herirte\n\n### \"Kezdhetjük elölről?\"\n**Pronunciación:** KEZD-het-yuk e-LÖL-röl\n\n**Significado:** ¿Podemos empezar de nuevo?\n\n### \"Tévedtem\"\n**Pronunciación:** TE-ved-tem\n\n**Significado:** Me equivoqué\n\n## Frases para Expresar Amor\n\n### \"Szeretlek, még akkor is, ha veszekedünk\"\n**Pronunciación:** SE-ret-lek meg AK-kor ish ha VE-se-ke-dünk\n\n**Significado:** Te amo, incluso cuando discutimos\n\n### \"Te vagy nekem minden\"\n**Pronunciación:** Te vadj NE-kem MIN-den\n\n**Significado:** Eres todo para mí\n\n### \"Utálok veled veszekedni\"\n**Pronunciación:** u-TA-lok VE-led VE-se-ked-ni\n\n**Significado:** Odio discutir contigo\n\n## Frases para Reconstruir\n\n### \"Beszéljünk nyugodtan\"\n**Pronunciación:** BE-sel-yunk NYU-god-tan\n\n**Significado:** Hablemos con calma\n\n### \"Jobban akarlak megérteni\"\n**Pronunciación:** YOB-ban A-kar-lak meg-ER-te-ni\n\n**Significado:** Quiero entenderte mejor\n\n### \"Mit tehetek, hogy rendbe hozzam?\"\n**Pronunciación:** Mit TE-he-tek hody REND-be HO-zam\n\n**Significado:** ¿Qué puedo hacer para arreglarlo?\n\n### \"Megígérem, hogy jobban igyekszem\"\n**Pronunciación:** meg-I-ge-rem hody YOB-ban I-dyek-sem\n\n**Significado:** Prometo esforzarme más\n\n### \"Megölelhetlek?\"\n**Pronunciación:** meg-Ö-lel-het-lek\n\n**Significado:** ¿Puedo abrazarte?\n\n## Conclusión\n\nEl húngaro te permite expresar arrepentimiento y amor de manera profunda. Usa estas frases para fortalecer tu relación.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 236,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frases para Pedir Disculpas",
+              "## Frases para Expresar Amor",
+              "## Frases para Reconstruir"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

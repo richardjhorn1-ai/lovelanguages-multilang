@@ -1,0 +1,117 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0309",
+  "articles": [
+    {
+      "id": "58a56c1e-30ee-4d13-bd14-55292f3543a7",
+      "title": "Macarca Barışma ve Uzlaşma İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "Tartışmalardan sonra barışmak, sağlıklı bir ilişkinin önemli bir parçasıdır. Macarca konuşan partnerinizle barışma ifadelerini bilmek ilişkinizi güçlendirir.\n\n## Temel Barışma İfadeleri\n\n### 1. \"Bocsáss meg azért, amit mondtam\"\n**Telaffuz:** *Boçaş meg azert, amit mondtam*\n\n**Anlam:** \"Söylediklerim için beni affet\"\n\n### 2. \"Kezdhetjük elölről?\"\n**Telaffuz:** *Kezdhetyuk elölröl?*\n\n**Anlam:** \"Baştan başlayabilir miyiz?\"\n\n### 3. \"Utálok veszekedni veled\"\n**Telaffuz:** *Utalok vesekedni veled*\n\n**Anlam:** \"Seninle kavga etmekten nefret ediyorum\"\n\n### 4. \"Ne menjünk dühösen aludni\"\n**Telaffuz:** *Ne menyunk duhöşen aludni*\n\n**Anlam:** \"Kızgın yatmayalım\"\n\n### 5. \"Megbocsátok neked\"\n**Telaffuz:** *Megboçatok neked*\n\n**Anlam:** \"Seni affediyorum\"\n\n### 6. \"Tévedtem\"\n**Telaffuz:** *Tevedtem*\n\n**Anlam:** \"Yanılmışım\"\n\n### 7. \"Hogyan tehetem jóvá?\"\n**Telaffuz:** *Hodyan tehetem yova?*\n\n**Anlam:** \"Bunu nasıl telafi edebilirim?\"\n\n### 8. \"Jobban szeretlek, mint ez a veszekedés\"\n**Telaffuz:** *Yobban seretlek, mint ez a veşekedeş*\n\n**Anlam:** \"Seni bu tartışmadan daha çok seviyorum\"\n\n### 9. \"Oldjuk meg ezt együtt\"\n**Telaffuz:** *Oldyuk meg est edyütt*\n\n**Anlam:** \"Bunu birlikte çözelim\"\n\n### 10. \"Hiányzik, ahogy a veszekedés előtt voltunk\"\n**Telaffuz:** *Hiyanzık, ahody a veşekedeş elött voltunk*\n\n**Anlam:** \"Kavgadan önceki halimizi özlüyorum\"\n\n### 11. \"Te vagy nekem minden\"\n**Telaffuz:** *Te vady nekem minden*\n\n**Anlam:** \"Sen benim için her şeysin\"\n\n### 12. \"Ígérem, hogy jobb leszek\"\n**Telaffuz:** *İgerem, hody yobb lesek*\n\n**Anlam:** \"Daha iyi olmaya söz veriyorum\"\n\n## Macar Kültüründe Barışma\n\n\"Édesem\" (tatlım) veya \"Drágám\" (sevgilim) hitapları barışmayı yumuşatır.\n\nBu ifadelerle Macarca konuşan partnerinizle samimi barışmalar yaşayabilirsiniz.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 221,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Temel Barışma İfadeleri"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "58e35cd6-4def-4894-b028-73dbbb7d663f",
+      "title": "30+ Piropos en danés: Cumplidos para Enamorar a tu Pareja",
+      "native_lang": "es",
+      "target_lang": "da",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nLos cumplidos son pequeños regalos verbales que pueden alegrar el día de tu pareja. Decirlos en danés los hace aún más especiales y demuestra tu compromiso con aprender su idioma. Aquí tienes más de 30 piropos perfectos para diferentes ocasiones.\n\n<PhraseOfDay\n  word=\"Eres hermosa/o en danés\"\n  translation=\"Eres hermosa/o\"\n  pronunciation=\"[pronunciación]\"\n  context=\"El cumplido clásico que nunca falla\"\n/>\n\n## Cumplidos Sobre la Apariencia\n\n### Belleza General\n\n| danés | Español | Pronunciación |\n|-------------|---------|---------------|\n| **Eres hermosa** | Eres hermosa | [pron] |\n| **Eres guapo** | Eres guapo | [pron] |\n| **Te ves increíble** | Te ves increíble | [pron] |\n| **Estás deslumbrante** | Estás deslumbrante | [pron] |\n| **Eres perfecta/o** | Eres perfecta/o | [pron] |\n\n<VocabCard\n  word=\"Eres hermosa en danés\"\n  translation=\"Eres hermosa\"\n  pronunciation=\"[pronunciación]\"\n  example=\"Cada día eres más hermosa\"\n/>\n\n### Características Específicas\n\n| danés | Español | Pronunciación |\n|-------------|---------|---------------|\n| **Tienes ojos hermosos** | Tienes ojos hermosos | [pron] |\n| **Tu sonrisa me derrite** | Tu sonrisa me derrite | [pron] |\n| **Me encanta tu cabello** | Me encanta tu cabello | [pron] |\n| **Tu voz es música** | Tu voz es música | [pron] |\n\n<CultureTip flag=\"🇩🇰\" title=\"El arte del piropo en danés\">\nEn la cultura danesa, los cumplidos tienen sus propias reglas. Ser sincero y específico es más valorado que los halagos genéricos.\n</CultureTip>\n\n## Cumplidos Sobre la Personalidad\n\n| danés | Español | Pronunciación |\n|-------------|---------|---------------|\n| **Eres muy inteligente** | Eres muy inteligente | [pron] |\n| **Me encanta tu sentido del humor** | Me encanta tu sentido del humor | [pron] |\n| **Eres tan amable** | Eres tan amable | [pron] |\n| **Tienes un corazón de oro** | Tienes un corazón de oro | [pron] |\n| **Admiro tu fortaleza** | Admiro tu fortaleza | [pron] |\n| **Eres la persona más genuina** | Eres la persona más genuina | [pron] |\n\n## Cumplidos Románticos\n\n| danés | Español | Pronunciación |\n|-------------|---------|---------------|\n| **Me haces feliz** | Me haces feliz | [pron] |\n| **Eres mi sueño hecho realidad** | Eres mi sueño hecho realidad | [pron] |\n| **No puedo imaginar la vida sin ti** | No puedo imaginar la vida sin ti | [pron] |\n| **Eres mi todo** | Eres mi todo | [pron] |\n| **Soy afortunado/a de tenerte** | Soy afortunado/a de tenerte | [pron] |\n| **Me enamoré de ti desde el primer día** | Me enamoré de ti desde el primer día | [pron] |\n\n<VocabCard\n  word=\"Me haces feliz en danés\"\n  translation=\"Me haces feliz\"\n  pronunciation=\"[pronunciación]\"\n  example=\"Cada día me haces más feliz\"\n/>\n\n## Cumplidos para el Día a Día\n\n| danés | Español | Pronunciación |\n|-------------|---------|---------------|\n| **Cocinas delicioso** | Cocinas delicioso | [pron] |\n| **Eres increíble en lo que haces** | Eres increíble en lo que haces | [pron] |\n| **Me inspiras** | Me inspiras | [pron] |\n| **Haces todo mejor** | Haces todo mejor | [pron] |\n| **Tienes las mejores ideas** | Tienes las mejores ideas | [pron] |\n\n<CultureTip flag=\"🇩🇰\" title=\"Sinceridad ante todo\">\nLos hablantes de danés pueden detectar fácilmente un cumplido falso. Sé específico y genuino para que tus palabras tengan impacto.\n</CultureTip>\n\n## Cumplidos de Buenos Días/Noches\n\n| danés | Español | Pronunciación |\n|-------------|---------|---------------|\n| **Buenos días, hermosa** | Buenos días, hermosa | [pron] |\n| **Eres lo primero en que pienso al despertar** | Eres lo primero en que pienso al despertar | [pron] |\n| **Buenas noches, mi amor** | Buenas noches, mi amor | [pron] |\n| **Soñaré contigo** | Soñaré contigo | [pron] |\n\n## Cumplidos Atrevidos (para momentos íntimos)\n\n| danés | Español | Pronunciación |\n|-------------|---------|---------------|\n| **Eres irresistible** | Eres irresistible | [pron] |\n| **No puedo dejar de mirarte** | No puedo dejar de mirarte | [pron] |\n| **Me vuelves loco/a** | Me vuelves loco/a | [pron] |\n| **Eres sexi** | Eres sexi | [pron] |\n\n## Consejos para Dar Cumplidos\n\n1. **Sé específico**: \"Me encanta cómo se te iluminan los ojos cuando ríes\" es mejor que \"eres bonita\"\n2. **Sé sincero**: Solo di lo que realmente piensas\n3. **Elige el momento**: Un cumplido inesperado tiene más impacto\n4. **Varía tus cumplidos**: No repitas siempre lo mismo\n5. **Incluye el \"por qué\"**: Explica por qué te gusta algo de tu pareja\n\n## Artículos Relacionados\n\n- [Expresar emociones en danés](/es/da/expressing-emotions-in-danish)\n- [Frases románticas en danés](/es/da/danish-romantic-phrases-for-every-occasion)\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Cumplidos Sobre la Apariencia"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "59146dee-43bf-4f2d-860f-50176cd8ab90",
+      "title": "Ungerska fraser för att säga 'Jag saknar dig' – Uttryck längtan på ungerska",
+      "native_lang": "sv",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "Ungerska är ett unikt språk med djupa sätt att uttrycka saknad. Att lära sig dessa fraser visar verklig hängivenhet.\n\n## Ungerskas unika längtan\n\nUngerska står ensamt i Europa, och dess unika karaktär ger speciella sätt att uttrycka känslor.\n\n## Grundläggande fraser\n\n### \"Hiányzol\"\n**Uttal:** HI-anj-zol\n\n**Betydelse:** Jag saknar dig (du saknas mig)\n\n### \"Nagyon hiányzol\"\n**Uttal:** NA-djon HI-anj-zol\n\n**Betydelse:** Jag saknar dig så mycket\n\n### \"Állandóan rád gondolok\"\n**Uttal:** AL-lan-do-an raad GON-do-lok\n\n**Betydelse:** Jag tänker ständigt på dig\n\n## Djupare uttryck\n\n### \"A szívem vágyik utánad\"\n**Uttal:** a SEE-vem VA-djik u-TA-nad\n\n**Betydelse:** Mitt hjärta längtar efter dig\n\n### \"Minden perc nélküled örökkévalóságnak tűnik\"\n**Uttal:** MIN-den perts NEL-ku-led ö-rök-ke-va-lo-SHAG-nak TU-nik\n\n**Betydelse:** Varje minut utan dig känns som en evighet\n\n### \"Nélküled nem vagyok teljes\"\n**Uttal:** NEL-ku-led nem VA-djok TEL-yesh\n\n**Betydelse:** Utan dig är jag inte hel\n\n## Romantiska kvällsfraser\n\n### \"Hiányzik, hogy melletted alhatok el\"\n**Uttal:** HI-anj-zik hodj MEL-let-ted AL-ha-tok el\n\n**Betydelse:** Jag saknar att somna bredvid dig\n\n### \"Az ágy üres nélküled\"\n**Uttal:** az adj U-resh NEL-ku-led\n\n**Betydelse:** Sängen är tom utan dig\n\n### \"Hiányzik a melegséged\"\n**Uttal:** HI-anj-zik a ME-leg-she-ged\n\n**Betydelse:** Jag saknar din värme\n\n## Vardagliga uttryck\n\n### \"Ma láttam valamit, ami rád emlékeztetett\"\n**Uttal:** ma LAT-tam VA-la-mit a-mi raad EM-le-kez-te-tett\n\n**Betydelse:** Idag såg jag något som påminde mig om dig\n\n### \"Hiányoznak a kis közös pillanataink\"\n**Uttal:** HI-anj-oz-nak a kish KÖ-zösh PIL-la-na-ta-ink\n\n**Betydelse:** Jag saknar våra små gemensamma stunder\n\n### \"Minden rád emlékeztet\"\n**Uttal:** MIN-den raad EM-le-kez-tet\n\n**Betydelse:** Allt påminner mig om dig\n\n## Hoppfulla fraser\n\n### \"Alig várom, hogy újra lássalak\"\n**Uttal:** A-lig VA-rom hodj UJ-ra LAS-sha-lak\n\n**Betydelse:** Jag kan inte vänta med att se dig igen\n\n### \"Számolom a napokat a találkozásig\"\n**Uttal:** SA-mo-lom a NA-po-kat a ta-LAL-ko-za-shig\n\n**Betydelse:** Jag räknar dagarna tills vi ses\n\n### \"Hamarosan újra együtt leszünk\"\n**Uttal:** HA-ma-ro-shan UJ-ra E-djutt LE-sunk\n\n**Betydelse:** Snart är vi tillsammans igen\n\n## Ungerska smeknamn\n\n- **Szerelmem** – Min kärlek\n- **Drágám** – Min kära\n- **Szívem** – Mitt hjärta\n\n## Kulturella nyanser\n\nUngrare uppskattar enormt när utlänningar försöker lära sig deras unika språk. Dina ansträngningar kommer att beröra din partners hjärta.\n\n## Avslutande tankar\n\nUngerska ger dig unika sätt att uttrycka saknad. Dina ansträngningar att lära detta speciella språk visar verklig kärlek.\n\nA távolság nem csökkenti a szerelmet!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Grundläggande fraser",
+              "## Djupare uttryck",
+              "## Romantiska kvällsfraser",
+              "## Vardagliga uttryck",
+              "## Hoppfulla fraser"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "592b06af-192c-460d-917b-6ff54e356da0",
+      "title": "Portugál esküvői kifejezések: Szókincs a nagy napra",
+      "native_lang": "hu",
+      "target_lang": "pt",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nA párod esküvői napja az életetek egyik legfontosabb pillanata. Ha portugálul tudsz kifejezni magad a szertartás, a köszöntők és az ünneplés során, ez a különleges nap még emlékezetesebbé válik. Akár portugál nyelvterületen házasodtok, akár tisztelegni szeretnél a párod öröksége előtt, ezek a kifejezések segítenek.\n\nHa még az alapokat tanulod, nézd meg a [Hogyan mondd: Szeretlek portugálul](/learn/hu/pt/portuguese-how-to-say-i-love-you) útmutatónkat.\n\n<PhraseOfDay\n  word=\"Parabéns!\"\n  translation=\"Gratulálok!\"\n  pronunciation=\"pɐɾɐˈβɐ̃jʃ\"\n  context=\"Az esküvői köszöntés alapja.\"\n/>\n\n## Alapvető szókincs\n\nKezdjük az alapvető esküvői szókinccsel, amivel minden portugál esküvőn találkozni fogsz:\n\n<VocabCard\n  word=\"casamento\"\n  translation=\"esküvő\"\n  pronunciation=\"kazaˈmẽtu\"\n  example=\"O casamento foi lindo.\"\n/>\n\n| Portugál | Magyar | Használat |\n|---|---|---|\n| noiva | menyasszony | A nő |\n| noivo | vőlegény | A férfi |\n| votos | fogadalmak | Esküvői ígéretek |\n| cerimónia | szertartás | A hivatalos rész |\n| receção | fogadás | Az ünneplés |\n| brinde | köszöntő | Pohárköszöntő |\n\n<CultureTip flag=\"🌍\" title=\"Portugál kulturális tippek\">\nA portugál esküvők gyakran tartalmaznak egyedi kulturális hagyományokat, amelyeket generációk óta őriznek. Ezen szokások megértése segít, hogy teljes mértékben részt vegyél az ünneplésen és tiszteletet mutass a párod öröksége iránt.\n</CultureTip>\n\n## Hasznos kifejezések\n\n### Gratulációk és jókívánságok\n\nAmikor gratulálsz a boldog párnak, ezek a kifejezések segítenek:\n\n- **Parabéns!** - Gratulálok!\n- **Sok boldogságot kívánok!** - Hagyományos jókívánság\n- **Legyetek boldogok!** - Egyszerű, szívből jövő kívánság\n\n### Köszöntők\nA pohárköszöntő fontos része az esküvőnek:\n\n- **Emeljen poharat!** - Felhívás a köszöntőre\n- **A boldog párra!** - Egyszerű köszöntő\n- **A szerelemre!** - Romantikus köszöntő\n\n<VocabCard\n  word=\"lua de mel\"\n  translation=\"nászút\"\n  pronunciation=\"ˈlu.ɐ dɨ ˈmɛl\"\n  example=\"Foram para a lua de mel.\"\n/>\n\n## Gyakorlati helyzetek\n\n| Helyzet | Mit mondj |\n|---|---|\n| Gratulálás | Használd a köszöntési kifejezéseket |\n| Köszöntő | Emeld a poharat és mondj pár szép szót |\n| Táncra kérés | Kérd fel a párod udvariasan |\n| Búcsúzás | Kívánj sok boldogságot |\n\n<CultureTip flag=\"💡\" title=\"Hasznos tipp\">\nGyakorold a kiejtést a nagy nap előtt. Nem baj, ha nem beszélsz tökéletesen - a párod és családja értékelni fogja az erőfeszítést.\n</CultureTip>\n\n## Összefoglaló táblázat\n\n| Helyzet | Portugál kifejezés |\n|---|---|\n| Gratuláció | Parabéns! |\n| Az esemény | casamento |\n| A nő | noiva |\n| A férfi | noivo |\n| Esküvői ígéretek | votos |\n\n## További tanulás\n\nHa tovább szeretnéd fejleszteni a portugál nyelvtudásod, nézd meg ezeket a cikkeinket:\n\n- [Portugál romantikus kifejezések minden alkalomra](/learn/hu/pt/portuguese-romantic-phrases-for-every-occasion)\n- [Hogyan mondd: Szeretlek portugálul](/learn/hu/pt/portuguese-how-to-say-i-love-you)\n- [Portugál alapvető kifejezések pároknak](/learn/hu/pt/portuguese-essential-phrases-for-couples)\n\nEzek a források segítenek elmélyíteni a tudásod és magabiztosabbá válni a portugál nyelvben.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Hasznos kifejezések"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "594fce7f-019e-403b-8a11-b136dd9ece6c",
+      "title": "Frases en Polaco sobre Celos y Confianza para Parejas",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "communication",
+      "content": "El polaco tiene expresiones profundas para hablar de emociones. Si tu pareja es polaca, estas frases te ayudarán a abordar los celos de manera saludable.\n\n## Los Celos en la Cultura Polaca\n\nLos polacos valoran la lealtad en las relaciones. Hablar de celos abiertamente puede fortalecer el vínculo.\n\n## Frases para Expresar Celos\n\n### \"Czuję się trochę zazdrosny/zazdrosna, kiedy...\"\n**Pronunciación:** CHU-ye she TRO-je zaz-DROS-ni/zaz-DROS-na KIE-di\n\n**Significado:** Me siento un poco celoso/a cuando...\n\n### \"Czy możemy porozmawiać o czymś, co mnie niepokoi?\"\n**Pronunciación:** Chi MO-zhe-mi po-roz-MA-viach o chimsh tso mnie nie-po-KO-i\n\n**Significado:** ¿Podemos hablar de algo que me preocupa?\n\n### \"Ufam ci, ale czuję się niepewnie\"\n**Pronunciación:** U-fam chi A-le CHU-ye she nie-PEV-nie\n\n**Significado:** Confío en ti, pero me siento inseguro/a\n\n### \"Kim była ta osoba?\"\n**Pronunciación:** Kim BI-wa ta o-SO-ba\n\n**Significado:** ¿Quién era esa persona?\n\n## Frases para Pedir Seguridad\n\n### \"Potrzebuję uspokojenia\"\n**Pronunciación:** po-TSHE-bu-ye us-po-ko-YE-nia\n\n**Significado:** Necesito tranquilidad\n\n### \"Czy możesz mi pomóc poczuć się bezpieczniej?\"\n**Pronunciación:** Chi MO-zhesh mi po-MUTS po-CHUCH she bez-PIECH-niey\n\n**Significado:** ¿Puedes ayudarme a sentirme más seguro/a?\n\n### \"Wiem, że to irracjonalne, ale...\"\n**Pronunciación:** Viem zhe to i-ra-tsio-NAL-ne A-le\n\n**Significado:** Sé que es irracional, pero...\n\n## Frases para Construir Confianza\n\n### \"Ufam ci całkowicie\"\n**Pronunciación:** U-fam chi tsau-ko-VI-che\n\n**Significado:** Confío en ti completamente\n\n### \"Jesteś jedyną osobą dla mnie\"\n**Pronunciación:** YES-tesh ye-DI-non o-SO-bon dla mnie\n\n**Significado:** Eres la única persona para mí\n\n### \"Mam oczy tylko dla ciebie\"\n**Pronunciación:** Mam O-chi TIL-ko dla CHE-bie\n\n**Significado:** Solo tengo ojos para ti\n\n### \"Nie ma się czym martwić\"\n**Pronunciación:** Nie ma she chim MART-vich\n\n**Significado:** No hay nada de qué preocuparse\n\n### \"Możesz mi zaufać\"\n**Pronunciación:** MO-zhesh mi za-U-fach\n\n**Significado:** Puedes confiar en mí\n\n## Conclusión\n\nComunicar los celos abiertamente fortalece la confianza en relaciones con polacos.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 290,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frases para Expresar Celos",
+              "## Frases para Pedir Seguridad",
+              "## Frases para Construir Confianza"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

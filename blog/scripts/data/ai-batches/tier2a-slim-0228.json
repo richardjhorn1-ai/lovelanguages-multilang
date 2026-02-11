@@ -1,0 +1,442 @@
+{
+  "batchId": "tier2a-slim-0228",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "e66620ce-a1fd-439d-b316-abda8ba308d4",
+      "title": "Ισπανικές Φράσεις για Ζήλια & Εμπιστοσύνη: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για Ζήλια & Εμπιστοσύνη",
+          "subsections": [
+            "### Έκφραση Ανησυχίας",
+            "### Χτίσιμο Εμπιστοσύνης",
+            "### Αντιμετώπιση Ζήλιας",
+            "### Συζήτηση για Όρια"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e679d536-e4ab-4f12-91a2-b159c5e45303",
+      "title": "Román lánykérési és eljegyzési kifejezések",
+      "native_lang": "hu",
+      "target_lang": "ro",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### A nagy kérdés",
+            "### Az eljegyzés bejelentése"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e67bd10a-957c-460a-a986-760c7b5384e4",
+      "title": "50+ іспанських прізвиськ, які розтоплять серце",
+      "native_lang": "uk",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Регіональні прізвиська",
+          "subsections": [
+            "### Іспанія",
+            "### Мексика",
+            "### Аргентина",
+            "### Колумбія"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e67fdf62-69d3-4abb-a407-549f7b0d67d3",
+      "title": "Orosz nászutas utazási kifejezések",
+      "native_lang": "hu",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Utazási alapkifejezések",
+            "### Romantikus helyzetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e6961f74-1e9e-4a58-9c8b-cbc8c31dada9",
+      "title": "Czy portugalski jest trudny do nauki? Przewodnik dla Polaków",
+      "native_lang": "pl",
+      "target_lang": "pt",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Wyzwania dla Polaków",
+          "subsections": [
+            "### 1. Rodzajniki (o, a, um, uma)",
+            "### 2. Trudna wymowa",
+            "### 3. Dwa czasowniki \"być\"",
+            "### 4. Czasy przeszłe"
+          ]
+        },
+        {
+          "header": "## Porównanie trudności",
+          "subsections": [
+            "### Portugalski vs inne języki dla Polaków"
+          ]
+        },
+        {
+          "header": "## Zalety uczenia się portugalskiego",
+          "subsections": [
+            "### 1. Język globalny",
+            "### 2. Brazylia",
+            "### 3. Portugalia",
+            "### 4. Brama do innych języków"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e6b18e0a-6f58-4999-a34d-077f35ac9387",
+      "title": "Prononciation hongroise : guide complet pour francophones",
+      "native_lang": "fr",
+      "target_lang": "hu",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Les consonnes spéciales",
+          "subsections": [
+            "### Consonnes doubles",
+            "### Consonnes simples différentes"
+          ]
+        },
+        {
+          "header": "## Mots de pratique",
+          "subsections": [
+            "### Salutations",
+            "### Mots romantiques"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e6b39d98-111d-4ce1-ba55-e786c0d975f7",
+      "title": "Deseos de Aniversario en Alemán",
+      "native_lang": "es",
+      "target_lang": "de",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Mensajes Románticos",
+          "subsections": [
+            "### Expresiones de Amor Eterno",
+            "### Agradecimiento por los Años Juntos"
+          ]
+        },
+        {
+          "header": "## Frases para Tarjetas de Aniversario",
+          "subsections": [
+            "### Mensajes Cortos",
+            "### Mensajes Más Largos"
+          ]
+        },
+        {
+          "header": "## Ideas para Celebrar",
+          "subsections": [
+            "### Vocabulario de Celebración"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e6d35214-80df-418a-a7c5-fed3b714f521",
+      "title": "Украинские приветствия и прощания",
+      "native_lang": "ru",
+      "target_lang": "uk",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## При встрече и расставании",
+          "subsections": [
+            "### При встрече:",
+            "### При расставании:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e6e9653c-357b-48bd-9c35-9dd38773a40a",
+      "title": "Engelske 'Jeg Savner Dig' Sætninger for Danskere",
+      "native_lang": "da",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Udtryk for Savn",
+          "subsections": [
+            "### \"I miss you\"",
+            "### \"I miss you so much\"",
+            "### \"I can't stop thinking about you\""
+          ]
+        },
+        {
+          "header": "## Dybere Udtryk",
+          "subsections": [
+            "### \"Every moment without you feels like an eternity\"",
+            "### \"You're the first thing I think of when I wake up\"",
+            "### \"I wish you were here with me\""
+          ]
+        },
+        {
+          "header": "## Hverdagens Savn",
+          "subsections": [
+            "### \"I miss your smile\"",
+            "### \"I miss falling asleep next to you\"",
+            "### \"I miss our conversations\""
+          ]
+        },
+        {
+          "header": "## Til Særlige Øjeblikke",
+          "subsections": [
+            "### \"I miss you more than words can say\"",
+            "### \"Being away from you is the hardest thing\"",
+            "### \"I'm counting down the days until I see you again\""
+          ]
+        },
+        {
+          "header": "## Trøstende Sætninger",
+          "subsections": [
+            "### \"Distance means nothing when someone means everything\"",
+            "### \"No matter where you are, you're always in my heart\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e6faf5d8-a157-4627-bbc2-5535fbf86308",
+      "title": "Frases para Conocer a los Suegros en Rumano: Conquistando a los Socri",
+      "native_lang": "es",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Saludos y Presentaciones",
+          "subsections": [
+            "### \"Mă bucur foarte mult să vă cunosc\"",
+            "### \"Am auzit atât de multe despre dumneavoastră\"",
+            "### \"Mulțumesc mult pentru invitație\""
+          ]
+        },
+        {
+          "header": "## Cumplidos",
+          "subsections": [
+            "### \"Aveți o casă foarte frumoasă\"",
+            "### \"Mâncarea este delicioasă\"",
+            "### \"Fiul/Fiica dumneavoastră mă face foarte fericit/fericită\""
+          ]
+        },
+        {
+          "header": "## Ofreciendo Ayuda",
+          "subsections": [
+            "### \"Pot să vă ajut cu ceva?\"",
+            "### \"Lăsați-mă să vă ajut la spălat vasele\""
+          ]
+        },
+        {
+          "header": "## Mostrando Interés",
+          "subsections": [
+            "### \"Aș vrea să aflu mai multe despre tradițiile familiei\"",
+            "### \"Cum v-ați cunoscut?\""
+          ]
+        },
+        {
+          "header": "## Despedidas",
+          "subsections": [
+            "### \"Mulțumesc pentru seara minunată\"",
+            "### \"A fost o plăcere să vă cunosc\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e6fc96bf-a705-4040-89ef-2d13679f9965",
+      "title": "Frases para Coquetear en Alemán: Conquistando Corazones Germanos",
+      "native_lang": "es",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Cumplidos Directos",
+          "subsections": [
+            "### \"Du hast wunderschöne Augen\"",
+            "### \"Du siehst heute fantastisch aus\"",
+            "### \"Dein Lächeln ist bezaubernd\""
+          ]
+        },
+        {
+          "header": "## Expresiones de Interés",
+          "subsections": [
+            "### \"Hast du Lust, einen Kaffee zu trinken?\"",
+            "### \"Ich denke oft an dich\"",
+            "### \"Ich genieße jede Minute mit dir\""
+          ]
+        },
+        {
+          "header": "## Declaraciones Románticas",
+          "subsections": [
+            "### \"Du bringst mein Herz zum Schmelzen\"",
+            "### \"Ich bin verrückt nach dir\"",
+            "### \"Du bedeutest mir sehr viel\""
+          ]
+        },
+        {
+          "header": "## Coqueteo Juguetón",
+          "subsections": [
+            "### \"Bist du immer so charmant?\"",
+            "### \"Du machst mich nervös, aber auf eine gute Art\"",
+            "### \"Ich kann nicht aufhören, an dich zu denken\""
+          ]
+        },
+        {
+          "header": "## Frases para Mensajes",
+          "subsections": [
+            "### \"Guten Morgen, Schatz\"",
+            "### \"Ich vermisse dich\"",
+            "### \"Träum süß von mir\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e70dad77-837b-4b06-a660-0d0001cb053f",
+      "title": "50+ польских прозвищ, которые растопят сердце",
+      "native_lang": "ru",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Использование в предложениях",
+          "subsections": [
+            "### Приветствия:",
+            "### Признания:",
+            "### Прощания:"
+          ]
+        },
+        {
+          "header": "## Практика для пар",
+          "subsections": [
+            "### Выберите «ваше» прозвище:",
+            "### Используйте в SMS:",
+            "### Создайте традицию:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e7146052-d592-4165-b4d7-808adad4e635",
+      "title": "Англійські фрази для примирення після сварки",
+      "native_lang": "uk",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Щирі вибачення",
+          "subsections": [
+            "### \"I'm sorry\"",
+            "### \"I apologize for what I said\"",
+            "### \"I was wrong, and I'm truly sorry\""
+          ]
+        },
+        {
+          "header": "## Визнання своєї провини",
+          "subsections": [
+            "### \"I shouldn't have said that\"",
+            "### \"I take full responsibility\"",
+            "### \"I was being unfair to you\""
+          ]
+        },
+        {
+          "header": "## Вираження любові та турботи",
+          "subsections": [
+            "### \"I love you, and I don't want to fight\"",
+            "### \"You mean everything to me\"",
+            "### \"I hate fighting with you\""
+          ]
+        },
+        {
+          "header": "## Прохання про прощення",
+          "subsections": [
+            "### \"Can you forgive me?\"",
+            "### \"Please don't be mad at me\"",
+            "### \"I hope you can forgive me\""
+          ]
+        },
+        {
+          "header": "## Обіцянки на майбутнє",
+          "subsections": [
+            "### \"I promise to do better\"",
+            "### \"It won't happen again\"",
+            "### \"I'll work on being more patient\""
+          ]
+        },
+        {
+          "header": "## Відновлення зв'язку",
+          "subsections": [
+            "### \"Can we start over?\"",
+            "### \"Let's put this behind us\"",
+            "### \"I just want things to be okay between us\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e719369a-915c-4d9e-aab1-327de4110ec6",
+      "title": "Lengyel születésnapi kívánságok párodnak",
+      "native_lang": "hu",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Születésnapi köszöntések",
+            "### Romantikus üzenetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e73aab3d-d2ca-42d7-8994-5a78f7ccecc0",
+      "title": "Almanca Tartışma ve Anlaşmazlık İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Tartışma İfadeleri",
+          "subsections": [
+            "### 1. \"Ich fühle mich verletzt, wenn...\"",
+            "### 2. \"Können wir ruhig darüber sprechen?\"",
+            "### 3. \"Ich verstehe deinen Standpunkt, aber...\"",
+            "### 4. \"Lass uns nicht schreien\"",
+            "### 5. \"Das habe ich nicht gemeint\"",
+            "### 6. \"Ich brauche einen Moment für mich\"",
+            "### 7. \"Lass uns einen Kompromiss finden\"",
+            "### 8. \"Es tut mir leid, dass ich dich verletzt habe\"",
+            "### 9. \"Kannst du mir erklären, wie du dich fühlst?\"",
+            "### 10. \"Ich glaube, wir müssen uns beide beruhigen\"",
+            "### 11. \"Ich liebe dich, aber ich bin gerade verärgert\"",
+            "### 12. \"Lass uns später darüber reden\""
+          ]
+        }
+      ]
+    }
+  ]
+}

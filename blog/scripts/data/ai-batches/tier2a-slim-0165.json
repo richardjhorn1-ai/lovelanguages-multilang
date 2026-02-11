@@ -1,0 +1,463 @@
+{
+  "batchId": "tier2a-slim-0165",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "afc598ed-8ee4-4e38-b1c2-4e9f13c2c512",
+      "title": "Tjeckiska Fraser för Bråk och Meningsskiljaktigheter",
+      "native_lang": "sv",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande Fraser för Konfliktsituationer",
+          "subsections": [
+            "### 1. \"Cítím se zraněný/á, když...\"",
+            "### 2. \"Můžeme si o tom promluvit v klidu?\"",
+            "### 3. \"Potřebuji chvilku\"",
+            "### 4. \"Nechci se s tebou hádat\"",
+            "### 5. \"Rozumím tvému pohledu\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Lösa Konflikter",
+          "subsections": [
+            "### 6. \"Jak to můžeme vyřešit?\"",
+            "### 7. \"Nechtěl/a jsem ti ublížit\"",
+            "### 8. \"Najděme kompromis\"",
+            "### 9. \"Poslouchám tě\"",
+            "### 10. \"Promluvme si o tom později\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "afd4467a-36cc-47b2-abf6-81958f2d1050",
+      "title": "Фразы для медового месяца на немецкий: Романтическое путешествие",
+      "native_lang": "ru",
+      "target_lang": "de",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## В аэропорту",
+          "subsections": [
+            "### Регистрация",
+            "### На борту"
+          ]
+        },
+        {
+          "header": "## В отеле",
+          "subsections": [
+            "### Регистрация",
+            "### Романтические просьбы"
+          ]
+        },
+        {
+          "header": "## На пляже",
+          "subsections": [
+            "### Пляжная лексика",
+            "### Романтические фразы на der Strand"
+          ]
+        },
+        {
+          "header": "## Ужин вдвоём",
+          "subsections": [
+            "### В ресторане",
+            "### Романтические тосты"
+          ]
+        },
+        {
+          "header": "## Экскурсии и приключения",
+          "subsections": [
+            "### Планирование das Abenteuer",
+            "### Создание die Erinnerungen"
+          ]
+        },
+        {
+          "header": "## Романтические моменты",
+          "subsections": [
+            "### Фразы для особых моментов",
+            "### Закат"
+          ]
+        },
+        {
+          "header": "## Покупка сувениров",
+          "subsections": [
+            "### В магазине",
+            "### Идеи подарков"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "afda4dae-f2ec-4260-bc17-a40fdb56a96e",
+      "title": "Englische Flirtsprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlegende Flirtsprüche",
+          "subsections": [
+            "### \"You look amazing today\"",
+            "### \"I can't stop thinking about you\"",
+            "### \"You make me smile\""
+          ]
+        },
+        {
+          "header": "## Romantische Komplimente",
+          "subsections": [
+            "### \"Your eyes are so beautiful\"",
+            "### \"I'm so lucky to have you\"",
+            "### \"You're my favorite person\""
+          ]
+        },
+        {
+          "header": "## Spielerische Ausdrücke",
+          "subsections": [
+            "### \"Are you a magician? Because whenever I look at you, everyone else disappears\"",
+            "### \"Did it hurt when you fell from heaven?\"",
+            "### \"Is your name Google? Because you have everything I've been searching for\""
+          ]
+        },
+        {
+          "header": "## Tiefgründigere Ausdrücke",
+          "subsections": [
+            "### \"You complete me\"",
+            "### \"I fall in love with you more every day\"",
+            "### \"You're the best thing that ever happened to me\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "afdaf917-ae97-498a-bc8e-2efab1b1eb7e",
+      "title": "50+ Dán Cukinév és Becenév, Amit a Szerelmednek Mondhatsz",
+      "native_lang": "hu",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hogyan Használd Ezeket a Beceneveket?",
+          "subsections": [
+            "### 1. Kezdj az egyszerűbbel",
+            "### 2. Figyeld a párod reakcióját",
+            "### 2. Alkossatok saját neveket",
+            "### 3. Kombináljátok a neveket"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "afea0f3f-7f90-48c4-a183-47d9fa41593e",
+      "title": "Португальский для пар: 25 основных фраз",
+      "native_lang": "ru",
+      "target_lang": "pt",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Практика для пар",
+          "subsections": [
+            "### Утренний ритуал:",
+            "### Вечерний ритуал:",
+            "### SMS на португальском:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "afedf68c-7598-4a95-b729-3f2274681546",
+      "title": "¿Es Difícil Aprender Húngaro? Una Guía Honesta",
+      "native_lang": "es",
+      "target_lang": "hu",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Los Desafíos (Seamos Honestos)",
+          "subsections": [
+            "### 1. El Sistema de Casos",
+            "### 2. Armonía Vocálica",
+            "### 3. Conjugación Verbal"
+          ]
+        },
+        {
+          "header": "## Las Buenas Noticias (¡No Todo Es Aterrador!)",
+          "subsections": [
+            "### 1. Ortografía Fonética",
+            "### 2. Sin Género Gramatical",
+            "### 3. Formación Lógica de Palabras",
+            "### 4. Sin Confusión de Artículos"
+          ]
+        },
+        {
+          "header": "## Consejos para el Éxito",
+          "subsections": [
+            "### Comienza con Lo Que Importa",
+            "### Abraza la Imperfección",
+            "### Usa Patrones, No Reglas",
+            "### Practica Diariamente con Tu Pareja"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aff47011-7157-4f86-9362-d73e284e4d7d",
+      "title": "Ist Rumanisch Schwer zu Lernen? Eine Ehrliche Bewertung",
+      "native_lang": "de",
+      "target_lang": "ro",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Die Guten Nachrichten: Warum Rumanisch Einfacher Ist Als Sie Denken",
+          "subsections": [
+            "### 1. Rumanisch Ist eine Romanische Sprache",
+            "### 2. Phonetische Rechtschreibung",
+            "### 3. Ahnlichkeiten mit Deutsch"
+          ]
+        },
+        {
+          "header": "## Die Herausforderungen: Was Rumanisch Knifflig Macht",
+          "subsections": [
+            "### 1. Grammatische Kasus",
+            "### 2. Drei Grammatische Geschlechter",
+            "### 3. Einzigartige Rumanische Laute",
+            "### 4. Der Bestimmte Artikel Wird Angehangt"
+          ]
+        },
+        {
+          "header": "## Tipps fur den Erfolg",
+          "subsections": [
+            "### 1. Beginnen Sie mit Kognaten",
+            "### 2. Konzentrieren Sie Sich auf Muster",
+            "### 3. Fruh Sprechen Uben",
+            "### 4. Fehler Annehmen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b00ce48f-521e-41b2-b2b7-503225ef1de1",
+      "title": "Произношение португальского языка: полное руководство",
+      "native_lang": "ru",
+      "target_lang": "pt",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Особые согласные",
+          "subsections": [
+            "### R — два звука",
+            "### S — четыре звука!",
+            "### D и T перед «i»"
+          ]
+        },
+        {
+          "header": "## Буквосочетания",
+          "subsections": [
+            "### LH — мягкое «ль»",
+            "### NH — мягкое «нь»",
+            "### CH — «ш»"
+          ]
+        },
+        {
+          "header": "## Упражнения для пар",
+          "subsections": [
+            "### 1. Носовые звуки:",
+            "### 2. Романтическая практика:",
+            "### 3. Музыка:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b015342e-6481-483a-b472-083c431e7f04",
+      "title": "Differenze tra Inglese Britannico e Americano",
+      "native_lang": "it",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Differenze di Vocabolario",
+          "subsections": [
+            "### La Casa",
+            "### Cibo e Bevande",
+            "### Abbigliamento",
+            "### Trasporti"
+          ]
+        },
+        {
+          "header": "## Differenze di Pronuncia",
+          "subsections": [
+            "### Vocali",
+            "### La \"R\" Finale"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b01cab99-e728-4d07-83d2-f1935ae583dd",
+      "title": "Italienische Verbkonjugation - Die Grundlagen",
+      "native_lang": "de",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Die wichtigsten unregelmäßigen Verben",
+          "subsections": [
+            "### Essere (sein)",
+            "### Avere (haben)",
+            "### Andare (gehen)",
+            "### Fare (machen/tun)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b02285b3-5795-4e39-a760-5a24141985d2",
+      "title": "Ryska Fraser för Förlåtelse",
+      "native_lang": "sv",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Be om Förlåtelse",
+          "subsections": [
+            "### 1. \"Мне очень жаль\"",
+            "### 2. \"Пожалуйста, прости меня\"",
+            "### 3. \"Я беру на себя полную ответственность\"",
+            "### 4. \"Я был/а неправ/а и знаю это\"",
+            "### 5. \"Как я могу это исправить?\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Ge Förlåtelse",
+          "subsections": [
+            "### 6. \"Я прощаю тебя\"",
+            "### 7. \"Давай оставим это позади\"",
+            "### 8. \"Я понимаю и ценю твои извинения\"",
+            "### 9. \"Все мы совершаем ошибки\"",
+            "### 10. \"Нужна смелость, чтобы извиниться\"",
+            "### 11. \"Я ценю твою честность\"",
+            "### 12. \"Главное — идти вперёд вместе\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b03c87ed-e643-48f7-89b3-55939e439016",
+      "title": "İsveççe Duygusal Destek İfadeleri: Teselli Sözleri",
+      "native_lang": "tr",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Destek İfadeleri",
+          "subsections": [
+            "### Varlık Gösterme",
+            "### Anlayış",
+            "### Güç Verme",
+            "### Sevgi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b03f4bd9-64f7-4351-810a-7b13511f282c",
+      "title": "Holland kifejezések kibéküléshez és megbékéléshez",
+      "native_lang": "hu",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető kifejezések a kibéküléshez",
+          "subsections": [
+            "### 1. \"Het spijt me echt\"",
+            "### 2. \"Kunnen we opnieuw beginnen?\"",
+            "### 3. \"Ik had ongelijk\"",
+            "### 4. \"Laten we het goedmaken\"",
+            "### 5. \"Ik vergeef je\"",
+            "### 6. \"Ik hou van je, ook als we ruzie hebben\"",
+            "### 7. \"Ik wilde je niet kwetsen\"",
+            "### 8. \"Kun je me vergeven?\"",
+            "### 9. \"Ik haat het als we ruzie hebben\"",
+            "### 10. \"Laten we niet boos naar bed gaan\"",
+            "### 11. \"Ik beloof het beter te doen\"",
+            "### 12. \"Je bent belangrijk voor me\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b04ad5f3-c434-43b7-b2cd-2288725d47de",
+      "title": "Expresii de Flirt în Olandeză pentru Români",
+      "native_lang": "ro",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale de Flirt",
+          "subsections": [
+            "### Complimente Directe",
+            "### Expresii Romantice",
+            "### Replici Jucăușe",
+            "### Declarații Serioase"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b0841b32-9292-4732-ba31-ab4c6c10d670",
+      "title": "Нідерландські фрази для суперечок і розбіжностей",
+      "native_lang": "uk",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Початок серйозної розмови",
+          "subsections": [
+            "### \"We moeten praten\"",
+            "### \"Ik voel me gekwetst als je...\"",
+            "### \"Kunnen we hier rustig over praten?\""
+          ]
+        },
+        {
+          "header": "## Вираження незгоди",
+          "subsections": [
+            "### \"Ik ben het er niet mee eens\"",
+            "### \"Ik zie het anders\"",
+            "### \"Dat bedoelde ik niet\""
+          ]
+        },
+        {
+          "header": "## Емоційні вирази",
+          "subsections": [
+            "### \"Dat doet me pijn\"",
+            "### \"Ik ben gefrustreerd\"",
+            "### \"Ik heb nodig dat je naar me luistert\""
+          ]
+        },
+        {
+          "header": "## Прохання про простір",
+          "subsections": [
+            "### \"Ik heb tijd nodig om na te denken\"",
+            "### \"Laten we even pauzeren\""
+          ]
+        },
+        {
+          "header": "## Пошук рішення",
+          "subsections": [
+            "### \"Hoe kunnen we dit oplossen?\"",
+            "### \"Laten we een compromis vinden\"",
+            "### \"Ik ben bereid om toe te geven\""
+          ]
+        },
+        {
+          "header": "## Визнання помилки",
+          "subsections": [
+            "### \"Je hebt gelijk, ik had ongelijk\"",
+            "### \"Dat had ik niet moeten zeggen\""
+          ]
+        }
+      ]
+    }
+  ]
+}

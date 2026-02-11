@@ -1,0 +1,429 @@
+{
+  "batchId": "tier2a-slim-0003",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "0956cec9-c11b-4afd-99a4-a08386770911",
+      "title": "50 Elogios em Russo para Seu Parceiro",
+      "native_lang": "pt",
+      "target_lang": "ru",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Elogios para Momentos Especiais",
+          "subsections": [
+            "### Num Encontro",
+            "### Depois de uma Conquista",
+            "### No Dia a Dia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "09619508-4ca5-4bcc-99d2-1529858eb650",
+      "title": "İtalyanca Affetme İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Af Dileme",
+          "subsections": [
+            "### 1. \"Mi dispiace davvero per quello che ho fatto\"",
+            "### 2. \"Per favore, perdonami\"",
+            "### 3. \"Mi assumo tutta la responsabilità\"",
+            "### 4. \"So di averti ferito e mi dispiace molto\"",
+            "### 5. \"Puoi trovare nel tuo cuore di perdonarmi?\""
+          ]
+        },
+        {
+          "header": "## Affetme",
+          "subsections": [
+            "### 6. \"Ti perdono\"",
+            "### 7. \"Sono pronto/a a lasciarmi tutto alle spalle\"",
+            "### 8. \"Lasciamoci tutto alle spalle\"",
+            "### 9. \"Non porto rancore\"",
+            "### 10. \"Tutti commettono errori\"",
+            "### 11. \"Ti amo più della mia rabbia\"",
+            "### 12. \"Accetto le tue scuse\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "096aa360-e093-4066-81af-5c743a4d8a60",
+      "title": "Expresii de Flirt în Suedeză pentru Români",
+      "native_lang": "ro",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale de Flirt",
+          "subsections": [
+            "### Complimente Sincere",
+            "### Expresii Romantice",
+            "### Replici Jucăușe",
+            "### Declarații Profunde"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0974c634-3e9c-48df-ba91-174c4354d0c9",
+      "title": "Le subjonctif italien expliqué simplement",
+      "native_lang": "fr",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Expressions courantes avec le subjonctif",
+          "subsections": [
+            "### Expressions impersonnelles",
+            "### Conjonctions suivies du subjonctif"
+          ]
+        },
+        {
+          "header": "## Subjonctif vs Indicatif",
+          "subsections": [
+            "### Indicatif (certitude)",
+            "### Subjonctif (incertitude, subjectivité)"
+          ]
+        },
+        {
+          "header": "## Exercices pour couples",
+          "subsections": [
+            "### Construction de phrases",
+            "### Jeu des souhaits",
+            "### Traduction collaborative"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0988fa94-36d4-446a-873b-f670b94f32d4",
+      "title": "Τουρκικές Φράσεις Συγχώρεσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις Συγχώρεσης",
+          "subsections": [
+            "### Αίτηση Συγχώρεσης",
+            "### Έκφραση Μετάνοιας",
+            "### Προσφορά Συγχώρεσης",
+            "### Χρόνος για Θεραπεία"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0a235dbb-aaeb-49fd-b071-28c411be0eaf",
+      "title": "Passato Prossimo vs Imperfetto: Os Tempos Passados do Italiano",
+      "native_lang": "pt",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Quando Usar Cada Um",
+          "subsections": [
+            "### Use o PASSATO PROSSIMO para:",
+            "### Use o IMPERFETTO para:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0a38a120-820d-4776-8170-94c87a7d6c72",
+      "title": "Ukrainska fraser för emotionellt stöd – Trösta din partner på ukrainska",
+      "native_lang": "sv",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande stöd",
+          "subsections": [
+            "### \"Я тут для тебе\" (Ya tut dlya tebe)",
+            "### \"Ти не сам/сама в цьому\" (Ty ne sam/sama v ts'omu)",
+            "### \"Я завжди буду поруч\" (Ya zavzhdy budu poruch)"
+          ]
+        },
+        {
+          "header": "## Visa empati",
+          "subsections": [
+            "### \"Я можу лише уявити, як тобі важко\"",
+            "### \"Твої почуття цілком зрозумілі\" (Tvoyi pochuttya tsilkom zrozumili)",
+            "### \"Це нормально – так почуватися\" (Tse normal'no – tak pochuvatysya)"
+          ]
+        },
+        {
+          "header": "## Tröstande fraser",
+          "subsections": [
+            "### \"І це минеться\" (I tse mynet'sya)",
+            "### \"Ми впораємося разом\" (My vporayemosya razom)",
+            "### \"Не поспішай, все у свій час\"",
+            "### \"Ти не мусиш бути сильним/сильною завжди\""
+          ]
+        },
+        {
+          "header": "## Erbjuda stöd",
+          "subsections": [
+            "### \"Що тобі зараз потрібно від мене?\" (Shcho tobi zaraz potribno vid mene?)",
+            "### \"Хочеш поговорити чи краще відволіктися?\"",
+            "### \"Чим я можу допомогти?\" (Chym ya mozhu dopomohty?)"
+          ]
+        },
+        {
+          "header": "## Vid förlust",
+          "subsections": [
+            "### \"Мені дуже шкода\" (Meni duzhe shkoda)",
+            "### \"Слів немає, але я поруч\" (Sliv nemaye, ale ya poruch)"
+          ]
+        },
+        {
+          "header": "## Uppmuntrande fraser",
+          "subsections": [
+            "### \"Я вірю в тебе\" (Ya viryu v tebe)",
+            "### \"Ти сильніший/сильніша, ніж думаєш\" (Ty syl'nishyy/syl'nisha, nizh dumayesh)",
+            "### \"Я дуже пишаюся тобою\" (Ya duzhe pyshayusya toboyu)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0a595382-0e80-4000-b861-dfda13a1a3e2",
+      "title": "Oekraïense Zinnen over Vergeving",
+      "native_lang": "nl",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Мені дуже шкода\" (Meni duzhe shkoda)",
+            "### 2. \"Будь ласка, пробач мені\" (Bud' laska, probach meni)",
+            "### 3. \"Я тебе пробачаю\" (Ya tebe probachayu)",
+            "### 4. \"Чи можеш знайти в серці пробачення?\" (Chy mozhesh znayty v sertsi probachennya?)",
+            "### 5. \"Я помилявся/лась і прошу вибачення\" (Ya pomylyavsya/las' i proshu vybachennya)",
+            "### 6. \"Я більше ніколи цього не зроблю\" (Ya bil'she nikoly ts'oho ne zroblyu)",
+            "### 7. \"Що я можу зробити, щоб все виправити?\" (Shcho ya mozhu zrobyty, shchob vse vypravyty?)",
+            "### 8. \"Я приймаю твої вибачення\" (Ya pryymayu tvoyi vybachennya)",
+            "### 9. \"Давай рухатися далі\" (Davay rukhatysya dali)",
+            "### 10. \"Я знаю, що завдав/ла тобі болю\" (Ya znayu, shcho zavdav/la tobi bolyu)",
+            "### 11. \"Обіцяю стати кращим/ою\" (Obitsyayu staty krashchym/oyu)",
+            "### 12. \"Це потребує часу, але я спробую пробачити\" (Tse potrebuye chasu, ale ya sprobuyu probachithy)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0a5f485f-d91d-4962-aae9-e05173edd896",
+      "title": "Frases en Checo para Discutir y Resolver Desacuerdos con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Expresar Desacuerdo",
+          "subsections": [
+            "### \"Vidím to jinak\"",
+            "### \"Můžeme o tom mluvit v klidu?\"",
+            "### \"Bolí mě, když ty...\"",
+            "### \"To jsem nechtěl/a říct\"",
+            "### \"Potřebuji čas na přemýšlení\"",
+            "### \"Zkus pochopit můj pohled\"",
+            "### \"Nechci se hádat\"",
+            "### \"Neposloucháš mě\"",
+            "### \"Najděme kompromis\"",
+            "### \"Tohle je pro mě důležité\"",
+            "### \"Oba se potřebujeme uklidnit\"",
+            "### \"Cítím se zraněný/á\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0a663ec8-0e60-4b94-b87c-5587ff40d599",
+      "title": "С днём рождения на румынский: Пожелания для любимого человека",
+      "native_lang": "ru",
+      "target_lang": "ro",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Романтические пожелания на день рождения",
+          "subsections": [
+            "### Сладкие и простые",
+            "### Глубокие послания"
+          ]
+        },
+        {
+          "header": "## Фразы для открытки",
+          "subsections": [
+            "### Романтические послания",
+            "### Длинные послания"
+          ]
+        },
+        {
+          "header": "## Планирование сюрприза",
+          "subsections": [
+            "### Лексика для surpriză",
+            "### Фразы для сюрприза"
+          ]
+        },
+        {
+          "header": "## Сообщения для социальных сетей",
+          "subsections": [
+            "### Подписи для публикаций"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0a79d12e-e186-4e40-8d4d-c16090d15ffa",
+      "title": "Expresii în Norvegiană pentru Reconciliere și Împăcare în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Gesturi de Reconciliere",
+          "subsections": [
+            "### Natura",
+            "### Koselig",
+            "### Acțiuni Concrete"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0a812a84-f981-466f-b241-88acbcf1bf54",
+      "title": "Tschechische Grüße und Verabschiedungen",
+      "native_lang": "de",
+      "target_lang": "cs",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Verabschiedungen",
+          "subsections": [
+            "### Informelle Verabschiedungen",
+            "### Formelle Verabschiedungen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0a9b7567-0289-4bf2-a492-07809fa87e96",
+      "title": "Urări de Ziua de Naștere pentru Partener în Suedeză: Mesaje Romantice",
+      "native_lang": "ro",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Mesaje Romantice",
+          "subsections": [
+            "### Scurte și Dulci",
+            "### Mesaje Mai Lungi"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Diferite Personalități",
+          "subsections": [
+            "### Pentru Partenerul Romantic",
+            "### Pentru Partenerul cu Umor"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Card",
+          "subsections": [
+            "### Format Scurt",
+            "### Format Lung"
+          ]
+        },
+        {
+          "header": "## Idei de Surprize",
+          "subsections": [
+            "### Gesturi Romantice"
+          ]
+        },
+        {
+          "header": "## Mesaje de Dimineață",
+          "subsections": [
+            "### Pentru Început de Zi"
+          ]
+        },
+        {
+          "header": "## Tradiții de Cuplu",
+          "subsections": [
+            "### Idei pentru Noi Tradiții"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0acc9a4a-8c17-4f08-8c7e-7718526d5fbd",
+      "title": "Fraze Romantice în Rusă pentru Cupluri: Exprimă-ți Dragostea",
+      "native_lang": "ro",
+      "target_lang": "ru",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Fraze de Zi cu Zi",
+          "subsections": [
+            "### Dimineața",
+            "### În Timpul Zilei",
+            "### Seara"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0ad13342-78df-4507-96b9-434d4d7c0783",
+      "title": "Italienska fraser för att säga 'Jag saknar dig' – Uttryck längtan på italienska",
+      "native_lang": "sv",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande fraser",
+          "subsections": [
+            "### \"Mi manchi\"",
+            "### \"Mi manchi tantissimo\"",
+            "### \"Non riesco a smettere di pensare a te\""
+          ]
+        },
+        {
+          "header": "## Djupare uttryck",
+          "subsections": [
+            "### \"Il mio cuore ti cerca\"",
+            "### \"Ogni momento senza di te è un'eternità\"",
+            "### \"Mi manca tutto di te\""
+          ]
+        },
+        {
+          "header": "## Romantiska kvällsfraser",
+          "subsections": [
+            "### \"Mi manca addormentarmi accanto a te\"",
+            "### \"Il letto è vuoto senza di te\"",
+            "### \"Mi manca il tuo calore di notte\""
+          ]
+        },
+        {
+          "header": "## Vardagliga uttryck",
+          "subsections": [
+            "### \"Oggi ho visto qualcosa che mi ha fatto pensare a te\"",
+            "### \"Mi mancano i nostri piccoli momenti\"",
+            "### \"Tutto mi ricorda di te\""
+          ]
+        },
+        {
+          "header": "## Hoppfulla fraser",
+          "subsections": [
+            "### \"Non vedo l'ora di rivederti\"",
+            "### \"Conto i giorni fino a quando saremo insieme\"",
+            "### \"Presto saremo di nuovo insieme\""
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "tier": 1,
+  "batchId": "tier1-batch-018",
+  "articles": [
+    {
+      "id": "2a5c659d-073b-43cf-b4e2-427acdb01305",
+      "title": "Conversații și subiecte de discuție în maghiară",
+      "native_lang": "ro",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nArta conversației ușoare este esențială pentru a te conecta cu familia și prietenii partenerului tău.\n\n<PhraseOfDay\n  word=\"Hogy vagy?\"\n  translation=\"Ce mai faci? / Cum ești?\"\n  pronunciation=\"\"\n  context=\"Cel mai comun mod de a începe o conversație\"\n/>\n\n## Începe o conversație\n\n<VocabCard\n  word=\"Hogy vagy?\"\n  translation=\"Ce mai faci? / Cum ești?\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Szép idő van ma\"\n  translation=\"Vremea e frumoasă azi\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇭🇺\" title=\"Cultura conversațiilor\">\nMaghiarii apreciază sinceritatea și căldura. Scuzele din inimă sunt foarte prețuite - arată că îți pasă cu adevărat de relație.\n</CultureTip>\n\n## Întrebări pentru a cunoaște pe cineva\n\n| Maghiară | Română |\n|---------|---------|\n| Hogy vagy? | Ce mai faci? |\n| Szép idő van ma | Vremea e frumoasă azi |\n| Van terved a hétvégére? | Ai planuri pentru weekend? |\n| Mik a hobbijaid? | Care sunt hobby-urile tale? |\n\n<VocabCard\n  word=\"Mik a hobbijaid?\"\n  translation=\"Care sunt hobby-urile tale?\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Subiecte sigure de conversație\n\n1. **Vremea** – Întotdeauna un început sigur\n2. **Mâncarea** – Laudă bucătăria locală\n3. **Hobby-urile** – Arată interes pentru pasiunile lor\n4. **Călătoriile** – Împărtășește experiențe comune\n5. **Familia** – Întreabă despre cei dragi\n\n<CTA />\n\n## Articole conexe\n\n- [Salutări și despărțiri în maghiară](/ro/hu/hungarian-greetings-and-farewells)\n- [Întâlnirea cu familia partenerului în maghiară](/ro/hu/hungarian-meeting-your-partner-s-family)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "2e8c4ca1-c534-4ae7-985f-a89b898e8b54",
+      "title": "Exprimarea emoțiilor în engleză – Vocabular pentru sentimente",
+      "native_lang": "ro",
+      "target_lang": "en",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nExprimarea emoțiilor este fundamentală pentru o relație sănătoasă. Când poți comunica cum te simți în limba partenerului tău, conexiunea devine mai profundă și mai autentică.\n\n<PhraseOfDay\n  word=\"I love you\"\n  translation=\"Te iubesc\"\n  pronunciation=\"\"\n  context=\"Cea mai importantă expresie pentru cupluri\"\n/>\n\n## Emoții pozitive în Engleză\n\n<VocabCard\n  word=\"I'm happy\"\n  translation=\"Sunt fericit/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"I love you\"\n  translation=\"Te iubesc\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"I'm excited\"\n  translation=\"Sunt entuziasmat/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇬🇧\" title=\"Expresivitatea emoțională\">\nÎn cultura anglo-saxonă, expresiile sunt adesea mai subtile. 'I'm sorry' poate însemna atât scuze cât și empatie.\n</CultureTip>\n\n## Emoții negative în Engleză\n\nEste la fel de important să poți exprima emoțiile dificile:\n\n| Engleză | Română |\n|---------|---------|\n| I'm sad | Sunt trist/ă |\n| I'm upset | Sunt supărat/ă |\n| I miss you | Mi-e dor de tine |\n\n## Expresii pentru starea de spirit\n\n<VocabCard\n  word=\"I miss you\"\n  translation=\"Mi-e dor de tine\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru exprimarea emoțiilor\n\n1. **Folosește \"eu\" în loc de \"tu\"** – \"Mă simt trist\" vs \"Tu mă faci trist\"\n2. **Fii specific** – Descrie exact ce simți\n3. **Validează emoțiile partenerului** – Repetă ce ai auzit pentru confirmare\n4. **Alege momentul potrivit** – Nu discuta emoții grele când ești obosit\n5. **Exersează regulat** – Vorbiți zilnic despre cum vă simțiți\n\n<CTA />\n\n## Articole conexe\n\n- [Cum să îți ceri scuze în engleză](/ro/en/english-how-to-apologize)\n- [Complimente în engleză](/ro/en/english-giving-compliments)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "2f4d2977-cef2-48af-88a1-967abdf9b5f2",
+      "title": "Romantyczne Phrasy do Końcówki i Czatowania po Francusku",
+      "native_lang": "pl",
+      "target_lang": "fr",
+      "category": "communication",
+      "content": "## Wprowadzenie\nKiedy uczysz się języka obcego, warto skupić się na wyrażeniach, które są najczęściej używane w codziennej komunikacji. Zwłaszcza jeśli uczysz się francuskiego, aby zbliżyć się do swojego ukochanego lub ukochanej, istnieje wiele romantycznych fraz, które możesz wykorzystać w wiadomościach tekstowych i czatach. W tym artykule przedstawimy kilka uroczych wyrażeń, które pomogą wyrazić twoje uczucia.\n\n## Urocze frazy do wysyłania wiadomości\n### 1. **Je pense à toi**  \n*Myślę o tobie*  \n*Pronunciation: żę pęs a twa*  \nWyślij tę wiadomość, by dać znać swojej drugiej połówce, że jest w twoich myślach, nawet jeśli nie jesteście razem.\n\n### 2. **Tu me manques**  \n*Brakuje mi ciebie*  \n*Pronunciation: ty my mąk*  \nWysłanie tej wiadomości, gdy twoja ukochana osoba jest daleko, jest pięknym przypomnieniem waszej miłości.\n\n### 3. **Je t'aime**  \n*Kocham cię*  \n*Pronunciation: żę tɛm*  \nKlasyka klasyków! Wyrażając swoje uczucia, nie ma nic lepszego niż ta krótka, lecz potężna fraza.\n\n### 4. **Mon cœur est à toi**  \n*Moje serce jest twoje*  \n*Pronunciation: mą kɛr ɛ a twa*  \nIdealna fraza dla sytuacji, kiedy chcesz wyrazić swoje zaangażowanie w związek.\n\n### 5. **Tu es mon amour**  \n*Jesteś moją miłością*  \n*Pronunciation: ty ɛ mą nɛmur*  \nKiedy chcesz, by twoja ukochana osoba czuła się doceniana, wyślij jej tę wiadomość.\n\n### 6. **Je veux te voir**  \n*Chcę cię zobaczyć*  \n*Pronunciation: żę vø tə vwar*  \nIdealne, gdy tęsknisz za wspólnymi chwilami.\n\n### 7. **Je rêve de toi**  \n*Śnię o tobie*  \n*Pronunciation: żę rɛv də twa*  \nTa fraza dodaje romantyzmu do waszej rozmowy! Można ją użyć, aby podkreślić uczucia.\n\n### 8. **À bientôt, mon chéri(e)**  \n*Do zobaczenia wkrótce, mój drogi/droga*  \n*Pronunciation: a bjɛ̃to, mą ʃeʁi/*  \nUżywaj tego zwrotu, by zakończyć rozmowę w miły sposób, z obietnicą spotkania.\n\n### 9. **Tu es la lumière de ma vie**  \n*Jesteś światłem mojego życia*  \n*Pronunciation: ty ɛ la lymjɛʁ də ma vi*  \nTo piękne wyrażenie, które sprawi, że twój partner poczuje się wyjątkowo.\n\n### 10. **Je suis fou/folle de toi**  \n*Jestem szalony/szalona na twoim punkcie*  \n*Pronunciation: żę sɥi fu/fɔl də twa*  \nIdealne na tekst, który ujawnia twoje emocje i miłość.\n\n### 11. **Ton sourire illumine ma journée**  \n*Twój uśmiech rozświetla mój dzień*  \n*Pronunciation: tɔ̃ suʁiʁ ilymin ma ʒuʁne*  \nUżyj tego, aby opisać, jak bardzo uśmiech twojej ukochanej osoby wpływa na twoje samopoczucie.\n\n### 12. **Fais-moi un bisou**  \n*Daj mi buziaka*  \n*Pronunciation: fɛ mwa ɛ̃ biza*  \nUrocza prośba, aby przypomnieć o bliskości, nawet w wiadomościach.\n\n### 13. **Je suis ici pour toi**  \n*Jestem tutaj dla ciebie*  \n*Pronunciation: żę sɥi izi pur twa*  \nProsta, ale mocna fraza, która pokazuje wsparcie dla swojego partnera.\n\n### 14. **Nous sommes faits l'un pour l'autre**  \n*Jesteśmy stworzeni dla siebie*  \n*Pronunciation: nu sɔm fɛ lœ̃ puʁ lótʁ*  \nUżyj tego, aby wyrazić przekonanie, że wasza miłość jest przeznaczona.\n\n### 15. **J'ai hâte de te voir**  \n*Nie mogę się doczekać, aby cię zobaczyć*  \n*Pronunciation: ʒe at də tə vwar*  \nIdealna fraza, by wyrazić ekscytację z nadchodzącego spotkania.\n\n## Zakończenie\nWykorzystywanie romantycznych fraz w codziennym czatowaniu to świetny sposób na budowanie więzi i wspieranie się nawzajem w nauce języków. Niech te proste zwroty pomogą wyrazić twoje uczucia do ukochanej osoby. Pamiętaj, że najważniejsze jest szczerość i intencje, które za nimi stoją. Używając tych fraz, sprawisz, że wasza relacja stanie się jeszcze silniejsza!",
+      "issues": [
+        {
+          "type": "english_prose_markers",
+          "details": {
+            "markers_found": [
+              "pronunciation:"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

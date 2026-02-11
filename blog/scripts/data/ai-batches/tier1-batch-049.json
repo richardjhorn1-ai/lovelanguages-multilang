@@ -1,0 +1,54 @@
+{
+  "tier": 1,
+  "batchId": "tier1-batch-049",
+  "articles": [
+    {
+      "id": "824ada2f-4aaa-4c8f-aba0-d3876cb6732f",
+      "title": "Exprimarea emoțiilor în germană – Vocabular pentru sentimente",
+      "native_lang": "ro",
+      "target_lang": "de",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nExprimarea emoțiilor este fundamentală pentru o relație sănătoasă. Când poți comunica cum te simți în limba partenerului tău, conexiunea devine mai profundă și mai autentică.\n\n<PhraseOfDay\n  word=\"Ich liebe dich\"\n  translation=\"Te iubesc\"\n  pronunciation=\"\"\n  context=\"Cea mai importantă expresie pentru cupluri\"\n/>\n\n## Emoții pozitive în Germană\n\n<VocabCard\n  word=\"Ich bin glücklich\"\n  translation=\"Sunt fericit/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Ich liebe dich\"\n  translation=\"Te iubesc\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Ich bin aufgeregt\"\n  translation=\"Sunt entuziasmat/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇩🇪\" title=\"Expresivitatea emoțională\">\nGermanii prețuiesc directitatea. Scuzele clare și sincere sunt apreciate - evită scuzele vagi sau excesiv de elaborate.\n</CultureTip>\n\n## Emoții negative în Germană\n\nEste la fel de important să poți exprima emoțiile dificile:\n\n| Germană | Română |\n|---------|---------|\n| Ich bin traurig | Sunt trist/ă |\n| Ich bin wütend | Sunt supărat/ă |\n| Ich vermisse dich | Mi-e dor de tine |\n\n## Expresii pentru starea de spirit\n\n<VocabCard\n  word=\"Ich vermisse dich\"\n  translation=\"Mi-e dor de tine\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru exprimarea emoțiilor\n\n1. **Folosește \"eu\" în loc de \"tu\"** – \"Mă simt trist\" vs \"Tu mă faci trist\"\n2. **Fii specific** – Descrie exact ce simți\n3. **Validează emoțiile partenerului** – Repetă ce ai auzit pentru confirmare\n4. **Alege momentul potrivit** – Nu discuta emoții grele când ești obosit\n5. **Exersează regulat** – Vorbiți zilnic despre cum vă simțiți\n\n<CTA />\n\n## Articole conexe\n\n- [Cum să îți ceri scuze în germană](/ro/de/german-how-to-apologize)\n- [Complimente în germană](/ro/de/german-giving-compliments)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "82efeb8b-725a-4d77-ad4e-887c1e3f04fd",
+      "title": "Conversații și subiecte de discuție în olandeză",
+      "native_lang": "ro",
+      "target_lang": "nl",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nArta conversației ușoare este esențială pentru a te conecta cu familia și prietenii partenerului tău.\n\n<PhraseOfDay\n  word=\"Hoe gaat het?\"\n  translation=\"Ce mai faci? / Cum ești?\"\n  pronunciation=\"\"\n  context=\"Cel mai comun mod de a începe o conversație\"\n/>\n\n## Începe o conversație\n\n<VocabCard\n  word=\"Hoe gaat het?\"\n  translation=\"Ce mai faci? / Cum ești?\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Lekker weer vandaag\"\n  translation=\"Vremea e frumoasă azi\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇳🇱\" title=\"Cultura conversațiilor\">\nOlandezii sunt foarte direcți. Scuzele simple și sincere sunt mai apreciate decât elaborările dramatice - fii clar și autentic.\n</CultureTip>\n\n## Întrebări pentru a cunoaște pe cineva\n\n| Olandeză | Română |\n|---------|---------|\n| Hoe gaat het? | Ce mai faci? |\n| Lekker weer vandaag | Vremea e frumoasă azi |\n| Heb je plannen voor het weekend? | Ai planuri pentru weekend? |\n| Wat zijn je hobby's? | Care sunt hobby-urile tale? |\n\n<VocabCard\n  word=\"Wat zijn je hobby's?\"\n  translation=\"Care sunt hobby-urile tale?\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Subiecte sigure de conversație\n\n1. **Vremea** – Întotdeauna un început sigur\n2. **Mâncarea** – Laudă bucătăria locală\n3. **Hobby-urile** – Arată interes pentru pasiunile lor\n4. **Călătoriile** – Împărtășește experiențe comune\n5. **Familia** – Întreabă despre cei dragi\n\n<CTA />\n\n## Articole conexe\n\n- [Salutări și despărțiri în olandeză](/ro/nl/dutch-greetings-and-farewells)\n- [Întâlnirea cu familia partenerului în olandeză](/ro/nl/dutch-meeting-your-partner-s-family)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "854c2218-c5d5-4a1d-ac55-1f5fd6def993",
+      "title": "Fraze pentru relații la distanță în germană",
+      "native_lang": "ro",
+      "target_lang": "de",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nRelațiile la distanță sunt dificile, dar limba poate fi puntea care vă conectează inimile. Când îi spui partenerului că îți lipsește în limba lui, cuvintele capătă o putere specială.\n\n<PhraseOfDay\n  word=\"Ich vermisse dich so sehr\"\n  translation=\"Îmi lipsești foarte mult\"\n  pronunciation=\"\"\n  context=\"Expresia perfectă pentru când ești departe de cel drag\"\n/>\n\n## Expresii pentru dor și lipsă\n\n<VocabCard\n  word=\"Ich vermisse dich so sehr\"\n  translation=\"Îmi lipsești foarte mult\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Ich denke an dich\"\n  translation=\"Mă gândesc la tine\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇩🇪\" title=\"Exprimarea dorului\">\nGermanii prețuiesc directitatea. Scuzele clare și sincere sunt apreciate - evită scuzele vagi sau excesiv de elaborate.\n</CultureTip>\n\n## Menținerea conexiunii\n\n| Germană | Română |\n|---------|---------|\n| Ich vermisse dich so sehr | Îmi lipsești foarte mult |\n| Ich kann es kaum erwarten, dich zu sehen | Abia aștept să te văd |\n| Ich denke an dich | Mă gândesc la tine |\n| Ich zähle die Tage | Număr zilele |\n\n<VocabCard\n  word=\"Ich kann es kaum erwarten, dich zu sehen\"\n  translation=\"Abia aștept să te văd\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru relații la distanță\n\n1. **Comunicați zilnic** – Chiar și un mesaj scurt contează\n2. **Programați apeluri video** – Fețele vă apropie\n3. **Trimiteți surprize** – Scrisori, colete, flori\n4. **Aveți un calendar comun** – Numărătoare inversă până la revedere\n5. **Creați ritualuri** – \"Noapte bună\" la aceeași oră\n\n<CTA />\n\n## Articole conexe\n\n- [Fraze pentru apeluri video cu familia](/ro/de/german-video-call-phrases-family)\n- [Mesaje de bună dimineața și noapte bună în germană](/ro/de/german-good-morning-goodnight-phrases)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    }
+  ]
+}

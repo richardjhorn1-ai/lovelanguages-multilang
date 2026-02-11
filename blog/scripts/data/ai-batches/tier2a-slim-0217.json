@@ -1,0 +1,436 @@
+{
+  "batchId": "tier2a-slim-0217",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "dc94b2b1-85fe-48f4-8d27-8d6c909dc3c4",
+      "title": "Gramatică Spaniolă de Bază pentru Începători: Ghid pentru Români",
+      "native_lang": "ro",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Genurile: Masculin și Feminin",
+          "subsections": [
+            "### Reguli Generale"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dcabfe65-6c08-4ff4-8b53-068f210923af",
+      "title": "Привітання з днем народження грецькою для коханої людини",
+      "native_lang": "uk",
+      "target_lang": "el",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика",
+          "subsections": []
+        },
+        {
+          "header": "## Романтичні привітання з днем народження",
+          "subsections": [
+            "### Класичні побажання"
+          ]
+        },
+        {
+          "header": "## Як написати ідеальне привітання",
+          "subsections": [
+            "### Структура:",
+            "### Приклад грецькою:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dcb59d25-d981-4ccd-8550-2fddac62d355",
+      "title": "Rencontrer la belle-famille en anglais : Phrases pour faire bonne impression",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Premières salutations",
+          "subsections": [
+            "### \"It's so nice to finally meet you\"",
+            "### \"I've heard so many wonderful things about you\"",
+            "### \"Thank you so much for having me\""
+          ]
+        },
+        {
+          "header": "## Montrer du respect",
+          "subsections": [
+            "### \"Your home is lovely\"",
+            "### \"This meal is delicious, thank you\"",
+            "### \"I really appreciate you welcoming me into your family\""
+          ]
+        },
+        {
+          "header": "## Parler de votre partenaire",
+          "subsections": [
+            "### \"[Name] means the world to me\"",
+            "### \"I feel so lucky to have [name] in my life\"",
+            "### \"You've raised an amazing person\""
+          ]
+        },
+        {
+          "header": "## Créer du lien",
+          "subsections": [
+            "### \"I'd love to hear more about [topic]\"",
+            "### \"What was [name] like as a child?\"",
+            "### \"Do you have any advice for us?\""
+          ]
+        },
+        {
+          "header": "## Proposer de l'aide",
+          "subsections": [
+            "### \"Can I help with anything?\"",
+            "### \"Please let me know if there's anything I can do\"",
+            "### \"I'd be happy to help clean up\""
+          ]
+        },
+        {
+          "header": "## Au départ",
+          "subsections": [
+            "### \"Thank you for a wonderful time\"",
+            "### \"I hope to see you again soon\"",
+            "### \"It was truly a pleasure meeting you\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dcd42835-9ce3-4256-bdc0-2c7126b3ec01",
+      "title": "Portugál évfordulós kívánságok és üzenetek",
+      "native_lang": "hu",
+      "target_lang": "pt",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Évfordulós köszöntések",
+            "### Hosszabb üzenetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dcd8cd11-8e06-4c42-a578-373b2c02d478",
+      "title": "50+ Ispanyolca Sevgi Sözcügü: Partnerinizi Eritin",
+      "native_lang": "tr",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Latin Amerika'ya Özgü Sevgi Sözcükleri",
+          "subsections": [
+            "### Meksika",
+            "### Arjantin",
+            "### Kolombiya"
+          ]
+        },
+        {
+          "header": "## Özel Anlara Özel Sevgi Sözcükleri",
+          "subsections": [
+            "### Romantik Anlar",
+            "### Oyuncu/Saka Tarzinda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dce26551-09c9-4cec-b304-9e317f2df922",
+      "title": "İsveççe Özlem İfadeleri: Seni Özledim Demenin Yolları",
+      "native_lang": "tr",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Özlem İfadeleri",
+          "subsections": [
+            "### 1. Jag saknar dig",
+            "### 2. Jag saknar dig så mycket",
+            "### 3. Jag längtar efter dig",
+            "### 4. Du är alltid i mina tankar",
+            "### 5. Jag önskar att du var här",
+            "### 6. Jag räknar dagarna tills vi ses",
+            "### 7. Mitt hjärta är tomt utan dig",
+            "### 8. Varje dag utan dig är svår",
+            "### 9. Jag kan inte sluta tänka på dig",
+            "### 10. Snart ses vi igen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dce4481c-9c7e-43cd-80d5-4213cedad177",
+      "title": "Russisk Grammatikk for Begynnere: Lær Sammen med Din Kjære",
+      "native_lang": "no",
+      "target_lang": "ru",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Hurtigreferanse for Kjærestepar",
+          "subsections": [
+            "### Personlige pronomen",
+            "### Viktige preposisjoner",
+            "### Basisadjektiver"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dce49788-050b-4309-afa0-f21fa84ce49b",
+      "title": "50+ Lehce Ask Ifadesi: Kalbini Fethet",
+      "native_lang": "tr",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Sevgililer Günü (Walentynki)",
+          "subsections": [
+            "### Klasik Ifadeler"
+          ]
+        },
+        {
+          "header": "## Yilbasi (Nowy Rok)",
+          "subsections": [
+            "### Yeni Yil Dilekleri"
+          ]
+        },
+        {
+          "header": "## Yildonümü (Rocznica)",
+          "subsections": [
+            "### Iliskı Yildonümü"
+          ]
+        },
+        {
+          "header": "## Evlilik Teklifi (Oświadczyny)",
+          "subsections": [
+            "### O Büyük Soru"
+          ]
+        },
+        {
+          "header": "## Zor Zamanlar Icin",
+          "subsections": [
+            "### Destek ve Teselli"
+          ]
+        },
+        {
+          "header": "## Barismak Icin",
+          "subsections": [
+            "### Özür ve Baris"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dcfe7273-8926-474f-91c8-fa7b2be52d7f",
+      "title": "Phrases italiennes pour les disputes de couple",
+      "native_lang": "fr",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions essentielles pour les désaccords",
+          "subsections": [
+            "### Exprimer son désaccord",
+            "### Exprimer ses émotions",
+            "### Fixer des limites",
+            "### Chercher à comprendre"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dd003df5-72ef-4529-81fa-e01b9774ae34",
+      "title": "Frases en Danés sobre Celos y Confianza para Parejas",
+      "native_lang": "es",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Expresar Celos",
+          "subsections": [
+            "### \"Jeg føler mig lidt jaloux, når...\"",
+            "### \"Kan vi tale om noget, der generer mig?\"",
+            "### \"Jeg stoler på dig, men jeg føler mig usikker\"",
+            "### \"Hvem var den person?\""
+          ]
+        },
+        {
+          "header": "## Frases para Pedir Seguridad",
+          "subsections": [
+            "### \"Jeg har brug for at blive beroliget\"",
+            "### \"Jeg ved, det er irrationelt, men...\""
+          ]
+        },
+        {
+          "header": "## Frases para Construir Confianza",
+          "subsections": [
+            "### \"Jeg stoler fuldstændigt på dig\"",
+            "### \"Du er den eneste for mig\"",
+            "### \"Jeg har kun øjne for dig\"",
+            "### \"Der er intet at bekymre sig om\"",
+            "### \"Du kan stole på mig\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dd099d8d-afd5-443a-85df-8117617fce1d",
+      "title": "Román születésnapi kívánságok párodnak",
+      "native_lang": "hu",
+      "target_lang": "ro",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Születésnapi köszöntések",
+            "### Romantikus üzenetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dd106812-6c8d-481d-8c5a-a589452a2193",
+      "title": "Spaanse Zinnen voor een Eerste Date",
+      "native_lang": "nl",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Es un placer conocerte por fin\" - *es oen pla-seer ko-no-seer-tee por fien*",
+            "### 2. \"Te ves increíble\" - *tee ves ien-kre-ie-ble*",
+            "### 3. \"Cuéntame sobre ti\" - *kwen-ta-mee so-bre tie*",
+            "### 4. \"¿A qué te dedicas?\" - *a kee tee de-die-kas*",
+            "### 5. \"La estoy pasando muy bien\" - *la es-toj pa-san-do mwi bjen*",
+            "### 6. \"¿Quieres tomar algo más?\" - *kje-res to-mar al-go mas*",
+            "### 7. \"¿Qué tipo de música te gusta?\" - *kee tie-po dee moe-sie-ka tee goes-ta*",
+            "### 8. \"Me encantaría verte de nuevo\" - *mee en-kan-ta-rie-a ver-tee dee nwe-vo*",
+            "### 9. \"¿Puedo acompañarte a casa?\" - *pwee-do a-kom-pa-njar-tee a ka-sa*",
+            "### 10. \"Disfruté mucho esta noche\" - *dies-froe-tee moe-tsjo es-ta no-tsje*",
+            "### 11. \"¿Cuáles son tus pasatiempos?\" - *kwa-les son toes pa-sa-tjem-pos*",
+            "### 12. \"Tienes una sonrisa hermosa\" - *tje-nes oe-na son-rie-sa er-mo-sa*"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dd1c8957-75bb-41df-a6ea-74bb9b13bcff",
+      "title": "Almanca Mesajlaşma İfadeleri: Sevgilinizle Dijital Bağlantı",
+      "native_lang": "tr",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Sevgi İfadeleri",
+          "subsections": [
+            "### Ich liebe dich (ILD)",
+            "### Ich hab dich lieb (HDL)"
+          ]
+        },
+        {
+          "header": "## Sevgi Sözcükleri",
+          "subsections": [
+            "### Schatz",
+            "### Liebling",
+            "### Maus / Mausi",
+            "### Bärchen"
+          ]
+        },
+        {
+          "header": "## Özlem ve Düşünce",
+          "subsections": [
+            "### Ich vermisse dich",
+            "### Ich denke an dich"
+          ]
+        },
+        {
+          "header": "## Günlük Mesajlaşma Kısaltmaları",
+          "subsections": [
+            "### GN - Gute Nacht",
+            "### WE - Wochenende",
+            "### LG - Liebe Grüße",
+            "### GLG - Ganz liebe Grüße"
+          ]
+        },
+        {
+          "header": "## Romantik Planlar",
+          "subsections": [
+            "### Treffen wir uns?",
+            "### Ich freue mich auf dich"
+          ]
+        },
+        {
+          "header": "## Duygusal Destek",
+          "subsections": [
+            "### Ich bin für dich da",
+            "### Du schaffst das!",
+            "### Bussi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dd1de4ad-9817-4de0-bfc7-e3e0ab6dd1e1",
+      "title": "Romanian Emotional Support Phrases: Comfort Your Partner in Difficult Times",
+      "native_lang": "en",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Specific Situations",
+          "subsections": [
+            "### Grief",
+            "### Stress",
+            "### Disappointment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dd20ce79-e92b-4ada-8370-55e2eae9d49e",
+      "title": "Görög kifejezések első randira",
+      "native_lang": "hu",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bemutatkozás",
+          "subsections": [
+            "### 1. \"Χαίρομαι που σε γνωρίζω επιτέλους\" (Chaíromai pou se gnorízo epitélous)",
+            "### 2. \"Είσαι πανέμορφος/η\" (Eísai panémorfos/i)",
+            "### 3. \"Πες μου για τον εαυτό σου\" (Pes mou gia ton eaftó sou)",
+            "### 4. \"Τι δουλειά κάνεις;\" (Ti douleiá káneis?)",
+            "### 5. \"Ποια είναι τα χόμπι σου;\" (Poia eínai ta chómpi sou?)"
+          ]
+        },
+        {
+          "header": "## Beszélgetés",
+          "subsections": [
+            "### 6. \"Αυτό είναι πολύ ενδιαφέρον\" (Aftó eínai polý endiaféron)",
+            "### 7. \"Νιώθω το ίδιο\" (Niótho to ídio)",
+            "### 8. \"Τι μουσική σου αρέσει;\" (Ti mousikí sou arései?)",
+            "### 9. \"Έχεις ταξιδέψει πολύ;\" (Écheis taxidépsi polý?)",
+            "### 10. \"Περνάω υπέροχα\" (Pernáo ypérocha)"
+          ]
+        },
+        {
+          "header": "## Randi vége",
+          "subsections": [
+            "### 11. \"Πέρασα υπέροχα\" (Pérasa ypérocha)",
+            "### 12. \"Μπορούμε να ξαναβρεθούμε;\" (Boroúme na xanavrethoúme?)",
+            "### 13. \"Θα ήθελα να το επαναλάβουμε\" (Tha íthela na to epanalávoume)",
+            "### 14. \"Μπορώ να σε συνοδεύσω σπίτι;\" (Boró na se synodéfso spíti?)"
+          ]
+        }
+      ]
+    }
+  ]
+}

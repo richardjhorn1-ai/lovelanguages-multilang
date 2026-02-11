@@ -1,0 +1,488 @@
+{
+  "batchId": "tier2a-slim-0108",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "7d2ae9f8-e628-43bc-9baa-c085198c1b62",
+      "title": "İspanyolca Sevgi Sözcükleri ve Takma Adlar",
+      "native_lang": "tr",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Farklı Durumlar İçin Sevgi Sözcükleri",
+          "subsections": [
+            "### Günlük Hayatta",
+            "### Romantik Anlar İçin",
+            "### Şakalaşmak İçin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7d2bfa8d-2d59-4273-92a1-85795c940930",
+      "title": "Portugál nyelvtan kezdőknek: Egyszerű szabályok, hogy romantikus mondatokat alkothass a párodnak",
+      "native_lang": "hu",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## A 3 Legfontosabb Nyelvtani Szabály",
+          "subsections": [
+            "### 1. A Nemi Egyeztetés Törvénye",
+            "### 2. Az Igeidők Három Királysága",
+            "### 3. A Névelők Varázsa"
+          ]
+        },
+        {
+          "header": "## Gyakori Hibák, Amit Elkerülhettek",
+          "subsections": [
+            "### 1. A \"Ser\" és \"Estar\" Keverése",
+            "### 2. A Nemi Egyeztetés Elfelejtése",
+            "### 3. A Birtokos Névmások Téves Használata"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7d4ad15a-cf11-440e-933b-648081912823",
+      "title": "Les articles portugais : o, a, os, as",
+      "native_lang": "fr",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Règles de Genre",
+          "subsections": [
+            "### Terminaisons Typiques",
+            "### Exceptions Importantes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7d7fac69-b4b9-4bce-9ada-ca2eb83411cc",
+      "title": "Γαλλικές Φράσεις Φλερτ για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις Φλερτ",
+          "subsections": [
+            "### 1. Tu es magnifique",
+            "### 2. Tu me rends fou/folle",
+            "### 3. J'adore ton sourire"
+          ]
+        },
+        {
+          "header": "## Ρομαντικές Εκφράσεις",
+          "subsections": [
+            "### 4. Je ne peux pas arrêter de penser à toi",
+            "### 5. Tu es l'amour de ma vie",
+            "### 6. Tu me manques tellement"
+          ]
+        },
+        {
+          "header": "## Παιχνιδιάρικες Φράσεις",
+          "subsections": [
+            "### 7. Viens ici, mon beau/ma belle",
+            "### 8. Tu me fais craquer",
+            "### 9. J'ai de la chance de t'avoir"
+          ]
+        },
+        {
+          "header": "## Εκφράσεις Θαυμασμού",
+          "subsections": [
+            "### 10. Tu as de beaux yeux",
+            "### 11. Je suis fou/folle de toi",
+            "### 12. Tu illumines ma vie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7d8afe5e-4f33-481c-aebf-409bb5359bb3",
+      "title": "Skriva kärleksbrev på norska – Romantiska fraser för din partner",
+      "native_lang": "sv",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Inledande hälsningar",
+          "subsections": [
+            "### \"Min kjærlighet\"",
+            "### \"Min kjære\"",
+            "### \"Mitt hjerte\"",
+            "### \"Min elskede\""
+          ]
+        },
+        {
+          "header": "## Uttrycka känslor",
+          "subsections": [
+            "### \"Ord kan ikke uttrykke hvor mye du betyr for meg\"",
+            "### \"Hver dag forelsker jeg meg mer i deg\"",
+            "### \"Du er alt for meg – min sol, min måne, mine stjerner\"",
+            "### \"Mitt hjerte tilhører deg, nå og for alltid\"",
+            "### \"Med deg har jeg funnet den sanne kjærligheten\""
+          ]
+        },
+        {
+          "header": "## Beskriva din partner",
+          "subsections": [
+            "### \"Smilet ditt lyser opp min verden\"",
+            "### \"Din godhet og varme inspirerer meg hver dag\"",
+            "### \"Når du ser på meg, føler jeg meg som det heldigste mennesket i verden\""
+          ]
+        },
+        {
+          "header": "## Minnen och framtid",
+          "subsections": [
+            "### \"Jeg setter pris på hvert øyeblikk vi har delt\"",
+            "### \"Fra første stund visste jeg at du var spesiell\"",
+            "### \"Jeg gleder meg til å se hva fremtiden bringer oss\"",
+            "### \"Å bli gammel sammen med deg er min største drøm\""
+          ]
+        },
+        {
+          "header": "## Löften",
+          "subsections": [
+            "### \"Jeg lover å elske deg i gode og vonde dager\"",
+            "### \"Jeg vil alltid være der for deg, uansett hva\"",
+            "### \"Min kjærlighet til deg vokser for hver dag\""
+          ]
+        },
+        {
+          "header": "## Avslutningar",
+          "subsections": [
+            "### \"Din for alltid\"",
+            "### \"Med all min kjærlighet\"",
+            "### \"Evig din\"",
+            "### \"Jeg elsker deg av hele mitt hjerte\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7d91d1bb-0533-4d4c-886d-33e25d81b91a",
+      "title": "En Yaygın 100 Hollandaca Kelime",
+      "native_lang": "tr",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Zamirler",
+          "subsections": [
+            "### 1. Ik /ik/ - Ben",
+            "### 2. Jij/Je /yay/yö/ - Sen",
+            "### 3. Hij /hay/ - O (erkek)",
+            "### 4. Zij/Ze /zay/zö/ - O (kadın)",
+            "### 5. Wij/We /vay/vö/ - Biz",
+            "### 6. Jullie /yüli/ - Siz",
+            "### 7. Zij /zay/ - Onlar",
+            "### 8. En /en/ - Ve",
+            "### 9. Maar /mar/ - Ama",
+            "### 10. Of /of/ - Veya"
+          ]
+        },
+        {
+          "header": "## Temel Fiiller",
+          "subsections": [
+            "### 11. Zijn /zayn/ - Olmak",
+            "### 12. Hebben /hebön/ - Sahip olmak",
+            "### 13. Doen /dun/ - Yapmak",
+            "### 14. Zeggen /zehön/ - Söylemek",
+            "### 15. Gaan /han/ - Gitmek",
+            "### 16. Komen /komön/ - Gelmek",
+            "### 17. Kunnen /künön/ - Yapabilmek",
+            "### 18. Weten /vetön/ - Bilmek",
+            "### 19. Willen /vilön/ - İstemek",
+            "### 20. Zien /zin/ - Görmek"
+          ]
+        },
+        {
+          "header": "## Sıfatlar",
+          "subsections": [
+            "### 21. Goed /hut/ - İyi",
+            "### 22. Slecht /sleht/ - Kötü",
+            "### 23. Groot /hrot/ - Büyük",
+            "### 24. Klein /klayn/ - Küçük",
+            "### 25. Nieuw /niyuv/ - Yeni",
+            "### 26. Oud /aut/ - Eski/yaşlı",
+            "### 27. Lang /lang/ - Uzun",
+            "### 28. Kort /kort/ - Kısa",
+            "### 29. Warm /varm/ - Sıcak",
+            "### 30. Koud /kaut/ - Soğuk"
+          ]
+        },
+        {
+          "header": "## Zaman İfadeleri",
+          "subsections": [
+            "### 31. Nu /nü/ - Şimdi",
+            "### 32. Vandaag /vandah/ - Bugün",
+            "### 33. Morgen /morhön/ - Yarın",
+            "### 34. Gisteren /histerön/ - Dün",
+            "### 35. Altijd /altayt/ - Her zaman",
+            "### 36. Nooit /noyt/ - Asla",
+            "### 37. Soms /soms/ - Bazen"
+          ]
+        },
+        {
+          "header": "## Soru Kelimeleri",
+          "subsections": [
+            "### 38. Wat /vat/ - Ne",
+            "### 39. Waar /var/ - Nerede",
+            "### 40. Wanneer /vaner/ - Ne zaman",
+            "### 41. Waarom /varom/ - Neden",
+            "### 42. Hoe /hu/ - Nasıl",
+            "### 43. Wie /vi/ - Kim"
+          ]
+        },
+        {
+          "header": "## Sayılar",
+          "subsections": [
+            "### 44. Een /en/ - Bir",
+            "### 45. Twee /tve/ - İki",
+            "### 46. Drie /dri/ - Üç",
+            "### 47. Vier /fir/ - Dört",
+            "### 48. Vijf /fayf/ - Beş",
+            "### 49. Tien /tin/ - On",
+            "### 50. Honderd /hondert/ - Yüz"
+          ]
+        },
+        {
+          "header": "## Günlük Kelimeler",
+          "subsections": [
+            "### 51. Ja /ya/ - Evet",
+            "### 52. Nee /ne/ - Hayır",
+            "### 53. Alsjeblieft /alsyöblift/ - Lütfen",
+            "### 54. Dank je /dank yö/ - Teşekkürler",
+            "### 55. Sorry /sori/ - Özür dilerim",
+            "### 56. Hallo /halo/ - Merhaba",
+            "### 57. Dag /dah/ - Hoşça kal",
+            "### 58. Liefde /lifdö/ - Aşk",
+            "### 59. Vriend /frind/ - Arkadaş",
+            "### 60. Familie /familiye/ - Aile"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7d98af1d-bfdb-4b59-b33b-287b2ca89e9c",
+      "title": "Привітання з днем народження польською для коханої людини",
+      "native_lang": "uk",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика",
+          "subsections": []
+        },
+        {
+          "header": "## Романтичні привітання з днем народження",
+          "subsections": [
+            "### Класичні побажання"
+          ]
+        },
+        {
+          "header": "## Як написати ідеальне привітання",
+          "subsections": [
+            "### Структура:",
+            "### Приклад польською:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7da57b40-90a8-49fa-9dea-e3917ecb9018",
+      "title": "Zweedse Zinnen over Vergeving",
+      "native_lang": "nl",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Jag är verkligen ledsen\" - *jaag er ver-klie-en leed-sen*",
+            "### 2. \"Snälla förlåt mig\" - *snel-la fer-lot mij*",
+            "### 3. \"Jag förlåter dig\" - *jaag fer-lo-ter dij*",
+            "### 4. \"Kan du hitta det i ditt hjärta att förlåta mig?\" - *kan due hie-ta dee ie diet jeer-ta at fer-lo-ta mij*",
+            "### 5. \"Jag hade fel och jag är ledsen\" - *jaag ha-de feel ok jaag er leed-sen*",
+            "### 6. \"Jag ska aldrig göra det igen\" - *jaag ska al-drie jeu-ra dee ie-jen*",
+            "### 7. \"Vad kan jag göra för att gottgöra?\" - *vad kan jaag jeu-ra fer at got-jeu-ra*",
+            "### 8. \"Jag accepterar din ursäkt\" - *jaag ak-sep-tee-rar dien oer-sekt*",
+            "### 9. \"Låt oss gå vidare\" - *lot os go vie-da-re*",
+            "### 10. \"Jag vet att jag sårade dig\" - *jaag veet at jaag so-ra-de dij*",
+            "### 11. \"Jag lovar att bli bättre\" - *jaag lo-var at blie be-tre*",
+            "### 12. \"Det tar tid, men jag ska försöka förlåta\" - *dee tar tied, men jaag ska fer-seu-ka fer-lo-ta*"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7dc0220a-f987-4fa6-8e52-c2de226710d2",
+      "title": "Grammatica Ucraina di Base: Guida Semplice per le Coppie",
+      "native_lang": "it",
+      "target_lang": "uk",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Errori Comuni da Evitare",
+          "subsections": [
+            "### 1. Confondere \"ти\" e \"ви\"",
+            "### 2. Dimenticare di accordare aggettivi e verbi",
+            "### 3. Usare il tempo sbagliato"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7dc39c78-ac40-411c-a853-e8d1cca7c0e3",
+      "title": "50 Görög Randi Esti Szókincs Romantikus Estékhez",
+      "native_lang": "hu",
+      "target_lang": "el",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Szórakozás és Móka: Aktív Dátumok",
+          "subsections": [
+            "### Tánc és Zene",
+            "### Kulturális Programok"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7dda7b6a-64a1-426e-a81e-788882671294",
+      "title": "Ukrajinská gramatika pro začátečníky: Jak mluvit s partnerem bez starostí",
+      "native_lang": "cs",
+      "target_lang": "uk",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Základní pravidla (která potřebujete znát)",
+          "subsections": [
+            "### 1. Rod slova je důležitý",
+            "### 2. Slovosled je flexibilní",
+            "### 3. Časování sloves podle osoby"
+          ]
+        },
+        {
+          "header": "## Nejčastější vzory pro každodenní život",
+          "subsections": [
+            "### Představování",
+            "### Základní otázky",
+            "### Praktické věty pro páry"
+          ]
+        },
+        {
+          "header": "## Nejčastější chyby (a jak se jim vyvarovat)",
+          "subsections": [
+            "### 1. Záměna \"ти\" a \"ви\"",
+            "### 2. Nesprávné časování podle rodu",
+            "### 3. Zapomínání na osobní zájmena"
+          ]
+        },
+        {
+          "header": "## Rychlá reference – tahák pro páry",
+          "subsections": [
+            "### Osobní zájmena",
+            "### Základní slovesa (infinitiv → já)",
+            "### Romantické fráze (správné tvary)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7de4e9e2-3d34-4548-9aae-66149f3a5d97",
+      "title": "Как извиняться на итальянском языке: полное руководство",
+      "native_lang": "ru",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Извинения за конкретные ситуации",
+          "subsections": [
+            "### За опоздание",
+            "### За ошибку",
+            "### За причинённую боль"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7df54977-c87a-481f-bb60-6faac94a02ae",
+      "title": "Sådan Undskylder Du på Ungarsk: Vejledning for Par",
+      "native_lang": "da",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Specifikke Situationer",
+          "subsections": [
+            "### Når Du Har Glemt Noget",
+            "### Når Du Har Sagt Noget Sårende",
+            "### Når Du Er Kommet For Sent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7e1c91b3-10b5-4b58-83fc-d70df10ebe8c",
+      "title": "Французские фразы для первого свидания",
+      "native_lang": "ru",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Начало разговора",
+          "subsections": [
+            "### 1. Tu es magnifique ce soir",
+            "### 2. J'attendais ce moment avec impatience",
+            "### 3. Parle-moi de toi"
+          ]
+        },
+        {
+          "header": "## Поддержание беседы",
+          "subsections": [
+            "### 4. Qu'est-ce que tu aimes faire pendant ton temps libre?",
+            "### 5. C'est vraiment intéressant",
+            "### 6. J'adore ton sourire",
+            "### 7. Tu as voyagé où récemment?"
+          ]
+        },
+        {
+          "header": "## Выражение интереса",
+          "subsections": [
+            "### 8. J'aimerais beaucoup te revoir",
+            "### 9. J'ai passé une merveilleuse soirée",
+            "### 10. Puis-je t'appeler demain?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7e20c431-8aef-4dd4-8120-17ef9d5c4c43",
+      "title": "Prononciation tchèque : guide complet pour francophones",
+      "native_lang": "fr",
+      "target_lang": "cs",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Les consonnes spéciales",
+          "subsections": [
+            "### Le háček (ˇ)",
+            "### Le fameux Ř"
+          ]
+        },
+        {
+          "header": "## Mots de pratique",
+          "subsections": [
+            "### Salutations",
+            "### Mots romantiques"
+          ]
+        }
+      ]
+    }
+  ]
+}

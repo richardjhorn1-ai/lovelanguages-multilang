@@ -1,0 +1,488 @@
+{
+  "batchId": "tier2a-slim-0123",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "8b0f9af9-5138-421a-ae2f-524fd2c5e731",
+      "title": "Conversazioni Quotidiane in Ucraino per Coppie",
+      "native_lang": "it",
+      "target_lang": "uk",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Conversazione Prima di Uscire",
+          "subsections": [
+            "### Dialogo: Vai al Lavoro"
+          ]
+        },
+        {
+          "header": "## Messaggi Durante il Giorno",
+          "subsections": [
+            "### Dialogo: Messaggi"
+          ]
+        },
+        {
+          "header": "## Conversazione Serale",
+          "subsections": [
+            "### Dialogo: Bentornato/a"
+          ]
+        },
+        {
+          "header": "## Fare Piani Insieme",
+          "subsections": [
+            "### Dialogo: Weekend"
+          ]
+        },
+        {
+          "header": "## Questioni Domestiche",
+          "subsections": [
+            "### Dialogo: Faccende di Casa"
+          ]
+        },
+        {
+          "header": "## Serata Rilassante",
+          "subsections": [
+            "### Dialogo: Film Insieme"
+          ]
+        },
+        {
+          "header": "## Prima di Dormire",
+          "subsections": [
+            "### Dialogo: Buonanotte"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8b1aa80c-ac76-48c6-a8c5-1f5291e829e0",
+      "title": "Переїзд разом: угорською слова для спільного життя",
+      "native_lang": "uk",
+      "target_lang": "hu",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика",
+          "subsections": []
+        },
+        {
+          "header": "## Обговорення переїзду",
+          "subsections": [
+            "### Як запропонувати спільне життя угорською"
+          ]
+        },
+        {
+          "header": "## Пошук житла",
+          "subsections": [
+            "### Лексика для оренди/покупки",
+            "### Кімнати в домі"
+          ]
+        },
+        {
+          "header": "## Меблі та предмети побуту",
+          "subsections": [
+            "### У спальні",
+            "### На кухні",
+            "### У вітальні"
+          ]
+        },
+        {
+          "header": "## Розподіл обов'язків",
+          "subsections": [
+            "### Домашні справи угорською",
+            "### Як обговорити обов'язки"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8b523447-08e5-4a90-b22c-1c5d0e02c222",
+      "title": "Tschechische Phrasen für die Schwiegereltern",
+      "native_lang": "de",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Erste Begegnung",
+          "subsections": [
+            "### \"Jsem rád/ráda, že vás konečně poznávám\"",
+            "### \"Hodně jsem o vás slyšel/slyšela\"",
+            "### \"Děkuji, že jste mě přijali\""
+          ]
+        },
+        {
+          "header": "## Bei Mahlzeiten",
+          "subsections": [
+            "### \"To je vynikající! Mohu dostat recept?\"",
+            "### \"Děkuji za skvělé jídlo\"",
+            "### \"Mohu s něčím pomoci?\""
+          ]
+        },
+        {
+          "header": "## Über Ihre Beziehung",
+          "subsections": [
+            "### \"Váš syn/Vaše dcera pro mě znamená všechno\"",
+            "### \"Jsem velmi vděčný/vděčná, že mám [Name] ve svém životě\"",
+            "### \"Slibuji, že se o [Name] budu vždy starat\""
+          ]
+        },
+        {
+          "header": "## Dankbarkeit zeigen",
+          "subsections": [
+            "### \"Děkuji vám, že jste vychovali tak úžasného člověka\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8b589845-1ac6-4ad4-a06f-b056d717f9a9",
+      "title": "Turkish Baby & Pregnancy Vocabulary: Essential Words for Expecting Couples",
+      "native_lang": "en",
+      "target_lang": "tr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Announcing the News",
+          "subsections": [
+            "### To Your Partner's Family",
+            "### To Friends"
+          ]
+        },
+        {
+          "header": "## Nursery and Baby Items",
+          "subsections": [
+            "### Setting Up the bebek odası",
+            "### Shopping Vocabulary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8b5ee175-3514-4015-ac97-2cd03493becd",
+      "title": "Franska Fraser för Första Dejten",
+      "native_lang": "sv",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Bryta Isen",
+          "subsections": [
+            "### 1. \"C'est un plaisir de te rencontrer enfin\"",
+            "### 2. \"Tu es magnifique\"",
+            "### 3. \"J'attendais ce moment avec impatience\"",
+            "### 4. \"Parle-moi de toi\"",
+            "### 5. \"Qu'est-ce que tu aimes faire pour t'amuser?\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Visa Intresse",
+          "subsections": [
+            "### 6. \"C'est vraiment intéressant\"",
+            "### 7. \"J'aimerais en savoir plus\"",
+            "### 8. \"On a beaucoup de choses en commun\"",
+            "### 9. \"J'adore parler avec toi\"",
+            "### 10. \"Tu as un super sens de l'humour\""
+          ]
+        },
+        {
+          "header": "## Fraser för Dejten Slutar",
+          "subsections": [
+            "### 11. \"J'ai passé un merveilleux moment\"",
+            "### 12. \"Est-ce qu'on peut se revoir?\"",
+            "### 13. \"J'adorerais qu'on refasse ça\"",
+            "### 14. \"Laisse-moi payer l'addition\"",
+            "### 15. \"Envoie-moi un message quand tu seras arrivé(e)\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8b6a6153-6f45-4914-8cb1-979a092dae23",
+      "title": "50+ польських прізвиськ, які розтоплять серце",
+      "native_lang": "uk",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Прізвиська для різних ситуацій",
+          "subsections": [
+            "### Щоденні звертання",
+            "### Грайливі прізвиська",
+            "### Ніжні прізвиська"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8b6dabc3-d534-4df9-97aa-3c0148deaba9",
+      "title": "Turkish Making Up & Reconciliation Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Apologizing Sincerely",
+          "subsections": [
+            "### Özür dilerim",
+            "### Beni affet",
+            "### Hatalıydım",
+            "### Bunu söylememeliydum"
+          ]
+        },
+        {
+          "header": "## Expressing Your Feelings",
+          "subsections": [
+            "### Kavga ettiğimizde nefret ediyorum",
+            "### Böyle olduğumuzda seni özlüyorum",
+            "### Kızgın olduğumuzda canım acıyor"
+          ]
+        },
+        {
+          "header": "## Reaching Out",
+          "subsections": [
+            "### Konuşabilir miyiz?",
+            "### Her şeyi düzeltmek istiyorum",
+            "### Yeniden başlayabilir miyiz?"
+          ]
+        },
+        {
+          "header": "## Expressing Love and Commitment",
+          "subsections": [
+            "### Seni seviyorum, bu değişmez",
+            "### Bu kavgadan daha önemlisin",
+            "### Seni kaybetmek istemiyorum",
+            "### Biz bir takımız"
+          ]
+        },
+        {
+          "header": "## Moving Forward",
+          "subsections": [
+            "### Gelecekte bunu nasıl önleyebiliriz?",
+            "### Daha iyi olmaya söz veriyorum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8b73fd0b-7dfa-4e92-bf52-56c167fef654",
+      "title": "Cómo Decir Hermoso en Polaco",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Precioso y Deslumbrante: Palabras Avanzadas de Belleza",
+          "subsections": [
+            "### Wspaniały/Wspaniała (Maravilloso/Magnífico)",
+            "### Cudny/Cudna (Precioso)",
+            "### Zachwycający/Zachwycająca (Cautivador)"
+          ]
+        },
+        {
+          "header": "## Frases de Cumplidos Románticos",
+          "subsections": [
+            "### Para Tu Novia/Esposa",
+            "### Para Tu Novio/Esposo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8b832860-a209-4483-b740-b3a17e3db64c",
+      "title": "Phrases danoises pour se réconcilier en couple",
+      "native_lang": "fr",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions essentielles pour se réconcilier",
+          "subsections": [
+            "### S'excuser sincèrement",
+            "### Exprimer ses sentiments",
+            "### Proposer une résolution",
+            "### Réaffirmer son amour"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8ba21e43-43b7-442d-828b-d60abe44653c",
+      "title": "Romantyczne zwroty do SMS-ów i czatu w języku portugalskim",
+      "native_lang": "pl",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Romantyczne zwroty do SMS-ów",
+          "subsections": [
+            "### 1. **Eu te amo**",
+            "### 2. **Meu amor**",
+            "### 3. **Você é tudo para mim**",
+            "### 4. **Sinto sua falta**",
+            "### 5. **Você é meu sonho**",
+            "### 6. **Quando vamos nos encontrar?**",
+            "### 7. **Você é minha razão de viver**",
+            "### 8. **Te amo tanto**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8baf9113-ac1f-40a0-b01c-c20c9a84c951",
+      "title": "Franse Sms-Taal voor Stellen: Van JTM tot Bisous",
+      "native_lang": "nl",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Romantische Berichten",
+          "subsections": [
+            "### Goedemorgen Bericht",
+            "### Tijdens het Werk",
+            "### Goedenacht Bericht"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8bbe1044-40ef-40d7-819e-603b53db4ce5",
+      "title": "Tureckie zwroty do kłótni i nieporozumień dla par",
+      "native_lang": "pl",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Wyrażanie niezgody",
+          "subsections": [
+            "### \"Seninle aynı fikirde değilim\"",
+            "### \"Ben bunu farklı görüyorum\"",
+            "### \"Bunu sakin bir şekilde konuşabilir miyiz?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie uczuć",
+          "subsections": [
+            "### \"...olduğunda hayal kırıklığına uğruyorum\"",
+            "### \"Bu beni gerçekten rahatsız ediyor\"",
+            "### \"Biraz düşünmek için zamana ihtiyacım var\""
+          ]
+        },
+        {
+          "header": "## Zrozumienie partnera",
+          "subsections": [
+            "### \"Senin bakış açını anlamama yardım et\"",
+            "### \"Doğru anladıysam...\"",
+            "### \"...demek mi istiyorsun?\""
+          ]
+        },
+        {
+          "header": "## Szukanie rozwiązań",
+          "subsections": [
+            "### \"Bunu birlikte nasıl çözebiliriz?\"",
+            "### \"Bir uzlaşma bulalım\"",
+            "### \"Sanırım ikimiz de...\""
+          ]
+        },
+        {
+          "header": "## Łagodzenie napięcia",
+          "subsections": [
+            "### \"Tartışsak bile seni seviyorum\"",
+            "### \"Bunu birlikte atlatacağız\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8bc6060e-b7fa-45cb-acb5-9408eccd04c0",
+      "title": "Türkische Ich-vermisse-dich-Sprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlegende Ausdrücke",
+          "subsections": [
+            "### \"Seni özledim\"",
+            "### \"Seni çok özledim\"",
+            "### \"Seni düşünmeden duramıyorum\""
+          ]
+        },
+        {
+          "header": "## Emotionale Ausdrücke",
+          "subsections": [
+            "### \"Keşke burada olsaydın\"",
+            "### \"Sensiz her an bir sonsuzluk gibi\"",
+            "### \"Kalbim seni arıyor\"",
+            "### \"Sensiz bir boşluk hissediyorum\""
+          ]
+        },
+        {
+          "header": "## Liebevolle Nachrichten",
+          "subsections": [
+            "### \"Seni tekrar görene kadar günleri sayıyorum\"",
+            "### \"Sabah uyandığımda ilk düşüncem, gece yatmadan önce son düşüncem sensin\"",
+            "### \"Biri her şey demekse, mesafe hiçbir şey demek değil\""
+          ]
+        },
+        {
+          "header": "## Tröstende Worte",
+          "subsections": [
+            "### \"Yakında yine birlikte olacağız\"",
+            "### \"Aşkımız her mesafeden güçlü\"",
+            "### \"Uzakta olsan bile her zaman kalbimdesin\""
+          ]
+        },
+        {
+          "header": "## Für besondere Momente",
+          "subsections": [
+            "### \"Gülüşünü, kahkahanı, her şeyini özlüyorum\"",
+            "### \"Hiç kimse seninle kıyaslanamaz\"",
+            "### \"Sen vazgeçilmezsin\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8bce69e8-5504-4cd1-993e-2ab75e5389b3",
+      "title": "Ολλανδικές Φράσεις για Διαφωνίες: Οδηγός για Ελληνόφωνα Ζευγάρια",
+      "native_lang": "el",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις για Έκφραση Διαφωνίας",
+          "subsections": [
+            "### 1. Ik ben het er niet mee eens",
+            "### 2. Dat bedoelde ik niet",
+            "### 3. Kunnen we hier rustig over praten?",
+            "### 4. Het doet me pijn als je dat zegt",
+            "### 5. Ik heb tijd nodig om na te denken",
+            "### 6. Schreeuw niet tegen me",
+            "### 7. Ik begrijp je standpunt, maar...",
+            "### 8. Laat me alsjeblieft uitpraten",
+            "### 9. Dat is niet eerlijk",
+            "### 10. Laten we allebei kalmeren",
+            "### 11. Ik zie het anders",
+            "### 12. Kunnen we hier later over praten?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8bd558cd-431f-4487-9814-9835a52f3238",
+      "title": "Hvordan Si Jeg Elsker Deg på Portugisisk: 12 Romantiske Måter for Par",
+      "native_lang": "no",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Romantiske Variasjoner (12 Måter)",
+          "subsections": [
+            "### Dype og Alvorlige",
+            "### Søte og Ømme",
+            "### Avslappede og Moderne"
+          ]
+        }
+      ]
+    }
+  ]
+}

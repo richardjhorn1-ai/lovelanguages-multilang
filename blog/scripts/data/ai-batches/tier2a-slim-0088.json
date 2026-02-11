@@ -1,0 +1,499 @@
+{
+  "batchId": "tier2a-slim-0088",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "6a8d3317-a87d-440a-8bbf-6b262ddcde60",
+      "title": "Basi della Coniugazione Verbale Francese",
+      "native_lang": "it",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Verbi Irregolari Essenziali",
+          "subsections": [
+            "### Être (Essere)",
+            "### Avoir (Avere)",
+            "### Aller (Andare)",
+            "### Faire (Fare)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6ab15d81-209d-41e5-922c-1b8ae09778f7",
+      "title": "Argot ukrainien pour SMS : communiquez avec votre partenaire",
+      "native_lang": "fr",
+      "target_lang": "uk",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Abréviations essentielles",
+          "subsections": [
+            "### Salutations",
+            "### Réponses courtes"
+          ]
+        },
+        {
+          "header": "## Messages pour différentes situations",
+          "subsections": [
+            "### Le matin",
+            "### Le soir",
+            "### En cas de dispute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6addad90-1ef5-4033-85d7-319cf0cddcfe",
+      "title": "Francia kifejezések érzelmi támogatáshoz és vigasztaláshoz",
+      "native_lang": "hu",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető vigasztaló kifejezések",
+          "subsections": [
+            "### Je suis là pour toi",
+            "### Tout ira bien",
+            "### Ça va aller",
+            "### Je suis vraiment désolé(e) pour ce que tu traverses"
+          ]
+        },
+        {
+          "header": "## Empátia kifejezése",
+          "subsections": [
+            "### Je comprends ce que tu ressens",
+            "### Ça doit être vraiment difficile",
+            "### Tes sentiments sont légitimes",
+            "### C'est normal de se sentir comme ça"
+          ]
+        },
+        {
+          "header": "## Támogatás felajánlása",
+          "subsections": [
+            "### De quoi as-tu besoin maintenant?",
+            "### Comment puis-je t'aider?",
+            "### Je suis là pour t'écouter",
+            "### Prends tout le temps qu'il te faut"
+          ]
+        },
+        {
+          "header": "## Gyász és veszteség",
+          "subsections": [
+            "### Je suis vraiment désolé(e) pour ta perte",
+            "### Il/Elle sera toujours dans ton cœur",
+            "### Mes sincères condoléances"
+          ]
+        },
+        {
+          "header": "## Nehéz időkben",
+          "subsections": [
+            "### Tu n'es pas seul(e) dans cette épreuve",
+            "### On va traverser ça ensemble",
+            "### Tu es plus fort(e) que tu ne le crois",
+            "### Ça aussi passera"
+          ]
+        },
+        {
+          "header": "## Bátorítás",
+          "subsections": [
+            "### Je crois en toi",
+            "### Tu vas y arriver",
+            "### Je suis fier/fière de toi"
+          ]
+        },
+        {
+          "header": "## Szeretetteljes kifejezések",
+          "subsections": [
+            "### Je t'aime, mon amour",
+            "### Je serai toujours là pour toi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6ae4ebad-e2e7-47d1-9603-c38e48915c56",
+      "title": "Nederländska flörtfraser för par – Charma din partner på holländska",
+      "native_lang": "sv",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassiska komplimanger",
+          "subsections": [
+            "### \"Je ziet er prachtig uit\"",
+            "### \"Je hebt de mooiste ogen die ik ooit heb gezien\"",
+            "### \"Je glimlach maakt mijn dag\""
+          ]
+        },
+        {
+          "header": "## Kärleksfulla uttryck",
+          "subsections": [
+            "### \"Ik ben gek op je\"",
+            "### \"Ik kan niet stoppen met aan je denken\"",
+            "### \"Je betekent alles voor mij\""
+          ]
+        },
+        {
+          "header": "## Lekfulla fraser",
+          "subsections": [
+            "### \"Geloof je in liefde op het eerste gezicht, of moet ik nog een keer langslopen?\"",
+            "### \"Heb je een kaart? Ik ben verdwaald in je ogen\"",
+            "### \"Als je een boterham was, zou je een uitsmijter zijn\""
+          ]
+        },
+        {
+          "header": "## Djupt romantiska uttryck",
+          "subsections": [
+            "### \"Je bent de liefde van mijn leven\"",
+            "### \"Met jou is alles beter\"",
+            "### \"Ik wil de rest van mijn leven met je doorbrengen\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6ae8a850-bc43-4232-95d9-42196ccaf605",
+      "title": "50+ испанских прозвищ, которые растопят сердце",
+      "native_lang": "ru",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Региональные варианты",
+          "subsections": [
+            "### В Испании:",
+            "### В Мексике:",
+            "### В Аргентине:"
+          ]
+        },
+        {
+          "header": "## Как выбрать правильное обращение",
+          "subsections": [
+            "### Для начала отношений:",
+            "### Для серьёзных отношений:",
+            "### Для супругов:"
+          ]
+        },
+        {
+          "header": "## Практика для пар",
+          "subsections": [
+            "### Упражнение «Разнообразие»:",
+            "### Утренний ритуал:",
+            "### Вечерний ритуал:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6aeae2a9-4016-4e90-9957-4039efec7d9b",
+      "title": "50+ немецких фраз для романтического вечера",
+      "native_lang": "ru",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Практические упражнения",
+          "subsections": [
+            "### Ролевая игра «В ресторане»:",
+            "### «Комплименты на время»:",
+            "### «Планируем свидание»:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6b14eeea-800b-4093-8814-de95d71292dd",
+      "title": "Tyske udtryk til at møde svigerforældre",
+      "native_lang": "da",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Vigtige sætninger",
+          "subsections": [
+            "### 1. Freut mich sehr, Sie kennenzulernen",
+            "### 2. Ich habe schon viel von Ihnen gehört",
+            "### 3. Vielen Dank für die Einladung",
+            "### 4. Ich habe Ihnen etwas mitgebracht",
+            "### 5. Sie haben ein wunderschönes Zuhause",
+            "### 6. Das Essen war ausgezeichnet",
+            "### 7. Ich liebe Ihren Sohn/Ihre Tochter sehr",
+            "### 8. Wir sind sehr glücklich zusammen",
+            "### 9. Ich würde Sie gerne besser kennenlernen",
+            "### 10. Kann ich Ihnen bei etwas helfen?",
+            "### 11. Das ist eine schöne Familientradition",
+            "### 12. Ich freue mich auf das nächste Treffen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6b16da08-562b-47bc-be63-c421b251592a",
+      "title": "Как сказать «Я тебя люблю» на немецком",
+      "native_lang": "ru",
+      "target_lang": "de",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Различные уровни любви",
+          "subsections": [
+            "### Ich liebe dich — глубокая любовь",
+            "### Ich hab dich lieb — нежная привязанность",
+            "### Ich mag dich — ты мне нравишься"
+          ]
+        },
+        {
+          "header": "## Фразы для особых моментов",
+          "subsections": [
+            "### Утром:",
+            "### Вечером:",
+            "### При расставании:"
+          ]
+        },
+        {
+          "header": "## Практические упражнения",
+          "subsections": [
+            "### Утренний ритуал:",
+            "### Записки на немецком:",
+            "### Вечернее прощание:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6b18b60c-0f94-47a7-a52d-dd9c6c3d4f8c",
+      "title": "Φράσεις Φλερτ στα Δανικά",
+      "native_lang": "el",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις Φλερτ",
+          "subsections": [
+            "### 1. Du er meget smuk (Ντου ερ μάιετ σμουκ)",
+            "### 2. Du har et dejligt smil (Ντου χα ετ ντάιλιτ σμιλ)",
+            "### 3. Må jeg byde dig på en øl? (Μο γιάι μπύντε ντάι πο εν ελ;)",
+            "### 4. Jeg kan godt lide dig (Γιάι καν γκοτ λί ντάι)",
+            "### 5. Du har smukke øjne (Ντου χα σμούκε όινε)",
+            "### 6. Vil du danse? (Βιλ ντου ντάνσε;)",
+            "### 7. Jeg vil gerne se dig igen (Γιάι βιλ γκέρνε σε ντάι ιγκέν)",
+            "### 8. Du er speciel (Ντου ερ σπεσιέλ)",
+            "### 9. Du får mig til at smile (Ντου φορ μάι τιλ ατ σμίλε)",
+            "### 10. Må jeg få dit nummer? (Μο γιάι φο ντιτ νούμερ;)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6b223647-02ad-415f-b8b0-944c482b48e6",
+      "title": "Švédská gramatika pro začátečníky: Jak mluvit se svým partnerem bez starostí",
+      "native_lang": "cs",
+      "target_lang": "sv",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Základní pravidla švédské gramatiky",
+          "subsections": [
+            "### 1. Pořádek slov je jako v češtině",
+            "### 2. Časování sloves je pravidelné",
+            "### 3. Neexistuje rod podstatných jemen"
+          ]
+        },
+        {
+          "header": "## Časté chyby, kterých se vyvarovat",
+          "subsections": [
+            "### 1. Zapomínání na \"är\"",
+            "### 2. Špatné pořadí slov v otázkách",
+            "### 3. Používání \"dig\" místo \"du\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6b2cf768-352d-4806-b8ee-d035c77fd8f6",
+      "title": "Tyske fraser om jalousii og tillid for par",
+      "native_lang": "da",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser om jalousii og tillid",
+          "subsections": [
+            "### At udtrykke bekymring",
+            "### At opbygge tillid",
+            "### At sætte grænser",
+            "### At berolige din partner"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6b4874e5-4da8-4124-b740-22ad1981662c",
+      "title": "Zwroty na pierwszą randkę po rosyjsku",
+      "native_lang": "pl",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Rozpoczęcie rozmowy",
+          "subsections": [
+            "### Cześć! Miło Cię wreszcie poznać!",
+            "### Świetnie wyglądasz!",
+            "### Nie mogłem/mogłam się doczekać"
+          ]
+        },
+        {
+          "header": "## Poznawanie się",
+          "subsections": [
+            "### Opowiedz mi o sobie",
+            "### Co lubisz robić w wolnym czasie?",
+            "### Jaki jest Twój ulubiony...?"
+          ]
+        },
+        {
+          "header": "## Wyrażanie zainteresowania",
+          "subsections": [
+            "### To naprawdę interesujące",
+            "### Opowiedz mi więcej",
+            "### Chciałbym/Chciałabym wiedzieć więcej"
+          ]
+        },
+        {
+          "header": "## Dzielenie się o sobie",
+          "subsections": [
+            "### Pasjonuję się...",
+            "### Zawsze chciałem/chciałam..."
+          ]
+        },
+        {
+          "header": "## Komplementy",
+          "subsections": [
+            "### Uwielbiam Twój uśmiech",
+            "### Masz świetne poczucie humoru",
+            "### Świetnie się z Tobą bawię"
+          ]
+        },
+        {
+          "header": "## Planowanie następnego spotkania",
+          "subsections": [
+            "### Bardzo chciałbym/chciałabym Cię znowu zobaczyć",
+            "### Kiedy możemy to powtórzyć?",
+            "### Miałem/Miałam cudowny wieczór"
+          ]
+        },
+        {
+          "header": "## Pożegnanie",
+          "subsections": [
+            "### To było naprawdę cudowne",
+            "### Nie mogę się doczekać kolejnego spotkania"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6b577d4b-3e59-4f2f-b74f-83cef2520038",
+      "title": "Rumunské flirtovací fráze pro Čechy",
+      "native_lang": "cs",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní lichotky",
+          "subsections": [
+            "### \"Ești foarte frumoasă/frumos.\"",
+            "### \"Ai un zâmbet minunat.\"",
+            "### \"Îmi placi foarte mult.\"",
+            "### \"Ești incredibilă/incredibil.\""
+          ]
+        },
+        {
+          "header": "## Romantické fráze",
+          "subsections": [
+            "### \"Nu mă pot opri să mă gândesc la tine.\"",
+            "### \"Mă faci foarte fericită/fericit.\"",
+            "### \"Inima mea bate mai repede când te văd.\"",
+            "### \"Sunt nebună/nebun după tine.\""
+          ]
+        },
+        {
+          "header": "## Hravé fráze",
+          "subsections": [
+            "### \"Crezi în dragoste la prima vedere sau să mai trec o dată?\"",
+            "### \"Ești obosită? Mi-ai alergat prin minte toată ziua.\"",
+            "### \"Este ceva special la tine.\""
+          ]
+        },
+        {
+          "header": "## Fráze pro zprávy",
+          "subsections": [
+            "### \"Bună dimineața, iubirea mea.\"",
+            "### \"Mi-e dor de tine.\"",
+            "### \"Abia aștept să te văd din nou.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6b733de2-7613-4c0f-82ff-af06717f5ee2",
+      "title": "Urări de Aniversare în Rusă: Mesaje Romantice pentru Partener",
+      "native_lang": "ro",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Mesaje Romantice",
+          "subsections": [
+            "### Pentru Prima Aniversare",
+            "### Pentru Aniversări Mai Lungi"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Diferite Aniversări",
+          "subsections": [
+            "### 1-5 Ani",
+            "### 5-10 Ani",
+            "### 10+ Ani"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Carduri",
+          "subsections": [
+            "### Scurte și Dulci",
+            "### Mesaje Lungi"
+          ]
+        },
+        {
+          "header": "## Amintiri de Împărtășit",
+          "subsections": [
+            "### Întrebări pentru Reflecție"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6b7e4996-1775-4f9f-b36d-eba0e045a69e",
+      "title": "Saludos y Despedidas en Neerlandés: Guía Completa para Parejas",
+      "native_lang": "es",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## La Pronunciación Neerlandesa",
+          "subsections": [
+            "### Sonidos Característicos"
+          ]
+        },
+        {
+          "header": "## Situaciones Especiales",
+          "subsections": [
+            "### Conociendo a los Padres",
+            "### Por Teléfono",
+            "### Expresiones Típicas"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,416 @@
+{
+  "batchId": "tier2a-slim-0185",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "c20ba342-f82c-4385-81ef-a4300037380c",
+      "title": "İngilizce Tartışma ve Anlaşmazlık İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Tartışma İfadeleri",
+          "subsections": [
+            "### 1. \"I feel hurt when...\"",
+            "### 2. \"Can we talk about this calmly?\"",
+            "### 3. \"I understand your point, but...\"",
+            "### 4. \"Let's not raise our voices\"",
+            "### 5. \"That's not what I meant\"",
+            "### 6. \"I need some space right now\"",
+            "### 7. \"Let's find a compromise\"",
+            "### 8. \"I didn't mean to upset you\"",
+            "### 9. \"Can you help me understand?\"",
+            "### 10. \"I think we both need to calm down\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c215b8ab-8705-4afe-a874-49db1ef4996e",
+      "title": "Hollandsk kælenavne og kærlige udtryk for par",
+      "native_lang": "da",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Kælenavne til forskellige lejligheder",
+          "subsections": [
+            "### I hverdagen",
+            "### Til romantiske øjeblikke",
+            "### Til at drille"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2332264-96a3-43e0-a611-30da1037cd77",
+      "title": "Turkse SMS-Taal voor Stellen: Lieve Berichtjes Sturen",
+      "native_lang": "nl",
+      "target_lang": "tr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Emoji's en Reacties",
+          "subsections": [
+            "### Populaire Combinaties"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c23bde33-a98c-47bd-8fef-0ca1a2ab295a",
+      "title": "Engelse Uitspraak Leren: Eenvoudige Gids Voor Koppels",
+      "native_lang": "nl",
+      "target_lang": "en",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Oefeningen Voor Koppels",
+          "subsections": [
+            "### 1. De Zoen-Oefening",
+            "### 2. De Date-Night Woorden",
+            "### 3. De Ochtend-Oefening"
+          ]
+        },
+        {
+          "header": "## Veelvoorkomende Fouten (En Hoe Je Ze Voorkomt)",
+          "subsections": [
+            "### 1. De 'v' vs 'f' verwarring",
+            "### 2. De stille 'e'",
+            "### 3. Te zware Nederlandse 'g'"
+          ]
+        },
+        {
+          "header": "## Weekelijkse Uitspraak Uitdagingen",
+          "subsections": [
+            "### Maandag: Th-ursday Challenge",
+            "### Woensdag: Woensdag vs Wednesday",
+            "### Vrijdag: Feel-good Friday"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c24f148b-e40e-4f83-8ad8-3c309a16d0f1",
+      "title": "Phrases italiennes pour un premier rendez-vous",
+      "native_lang": "fr",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions pour briser la glace",
+          "subsections": [
+            "### Se présenter",
+            "### Engager la conversation"
+          ]
+        },
+        {
+          "header": "## Expressions pour montrer son intérêt",
+          "subsections": [
+            "### Écouter activement",
+            "### Complimenter"
+          ]
+        },
+        {
+          "header": "## Expressions pour conclure le rendez-vous",
+          "subsections": [
+            "### Si ça se passe bien",
+            "### Rester poli"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c25f70f6-197f-4b48-9790-a33654dc5a0a",
+      "title": "Fransizca Temel Gramer: Türkler Icin Baslangic Rehberi",
+      "native_lang": "tr",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Düzensiz Fiiller",
+          "subsections": [
+            "### ÊTRE (olmak)",
+            "### AVOIR (sahip olmak)",
+            "### AVOIR Ile Ifadeler"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c26fc5fb-41b7-45bc-869d-f6adacbb46ab",
+      "title": "Norwegian Birthday Wishes for Your Partner: Sweet Messages That Touch the Heart",
+      "native_lang": "en",
+      "target_lang": "no",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Sweet Birthday Messages",
+          "subsections": [
+            "### Simple Wishes",
+            "### Romantic Messages"
+          ]
+        },
+        {
+          "header": "## Birthday Card Messages",
+          "subsections": [
+            "### Heartfelt Short Messages",
+            "### Longer Romantic Messages"
+          ]
+        },
+        {
+          "header": "## Planning the Perfect Birthday",
+          "subsections": [
+            "### Party Vocabulary",
+            "### Surprise Party Phrases"
+          ]
+        },
+        {
+          "header": "## Birthday Milestone Messages",
+          "subsections": [
+            "### 30th Birthday",
+            "### 40th Birthday",
+            "### 50th Birthday"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c270eebb-fd4c-40bc-b634-c58a0109ee63",
+      "title": "Czy grecki jest trudny do nauki? Realistyczny przewodnik dla Polaków",
+      "native_lang": "pl",
+      "target_lang": "el",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Co czyni grecki łatwiejszym niz myslisz",
+          "subsections": [
+            "### 1. Podobna gramatyka",
+            "### 2. Fonetyczna pisownia",
+            "### 3. Alfabet - nie taki straszny",
+            "### 4. Logiczna struktura"
+          ]
+        },
+        {
+          "header": "## Wyzwania greckiego",
+          "subsections": [
+            "### 1. Alfabet",
+            "### 2. Wymowa niektorych dzwiekow",
+            "### 3. Akcent"
+          ]
+        },
+        {
+          "header": "## Zalety dla Polaków",
+          "subsections": [
+            "### 1. Znajomy system gramatyczny",
+            "### 2. Slowa greckie w polskim",
+            "### 3. Indoeuropejskie korzenie"
+          ]
+        },
+        {
+          "header": "## Strategie sukcesu dla par",
+          "subsections": [
+            "### 1. Uczcie się razem",
+            "### 2. Skup się na tym, co ważne",
+            "### 3. Zacznij od alfabetu"
+          ]
+        },
+        {
+          "header": "## Najczestsze bledy do unikania",
+          "subsections": [
+            "### 1. Omijanie alfabetu",
+            "### 2. Ignorowanie akcentu",
+            "### 3. Bac się mowic"
+          ]
+        },
+        {
+          "header": "## Zasoby do nauki",
+          "subsections": [
+            "### Aplikacje",
+            "### Multimedia",
+            "### Praktyka"
+          ]
+        },
+        {
+          "header": "## Motywacja: Dlaczego warto?",
+          "subsections": [
+            "### 1. Dla zwiazku",
+            "### 2. Dla rodziny",
+            "### 3. Dla podrozy",
+            "### 4. Dla kultury"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c274f6c9-b2a9-4050-bd11-f260e83b8807",
+      "title": "Ungarske Udtryk til Følelsesmæssig Støtte og Trøst",
+      "native_lang": "da",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Støtteudtryk",
+          "subsections": [
+            "### 1. Itt vagyok neked",
+            "### 2. Minden rendben lesz",
+            "### 3. Hiszek benned",
+            "### 4. Vedd el annyi időt, amennyire szükséged van",
+            "### 5. Nagyon sajnálom, amin keresztülmész"
+          ]
+        },
+        {
+          "header": "## Dybere Trøst",
+          "subsections": [
+            "### 6. Rendben van sírni",
+            "### 7. Nem kell egyedül átmenned ezen",
+            "### 8. Nagyon büszke vagyok az erődre",
+            "### 9. Az érzéseid jogosak",
+            "### 10. Bármi is történik, együtt megoldjuk"
+          ]
+        },
+        {
+          "header": "## Kærlige Trøsteord",
+          "subsections": [
+            "### 11. Drágám, mindig melletted leszek",
+            "### 12. Szeretlek, és ez soha nem fog változni"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c27af488-8203-4c72-8314-78139dd189ff",
+      "title": "Portugisiske Flirtesætninger for Danskere",
+      "native_lang": "da",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Komplimenter",
+          "subsections": [
+            "### \"Você é muito bonito/bonita\"",
+            "### \"Adoro o seu sorriso\"",
+            "### \"Você tem olhos lindos\""
+          ]
+        },
+        {
+          "header": "## Romantiske Udtryk",
+          "subsections": [
+            "### \"Não consigo parar de pensar em você\"",
+            "### \"Você me faz feliz\"",
+            "### \"Meu coração bate mais forte quando estou com você\""
+          ]
+        },
+        {
+          "header": "## Legende Flirt",
+          "subsections": [
+            "### \"A gente se conhece de algum lugar?\"",
+            "### \"Se a beleza fosse crime, você estaria em prisão perpétua\""
+          ]
+        },
+        {
+          "header": "## Invitationer",
+          "subsections": [
+            "### \"Quer tomar um café comigo?\"",
+            "### \"Posso te levar para jantar?\""
+          ]
+        },
+        {
+          "header": "## Kærlige Kælenavne",
+          "subsections": [
+            "### \"Amor\"",
+            "### \"Querido/Querida\"",
+            "### \"Meu bem\"",
+            "### \"Fofo/Fofa\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c27b4552-fae9-46e5-b7f4-f28e7ac40015",
+      "title": "Gefühle auf Niederländisch ausdrücken – Emotionen in deiner Beziehung teilen",
+      "native_lang": "de",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Positive Gefühle ausdrücken",
+          "subsections": [
+            "### Liebe und Zuneigung",
+            "### Glück und Freude"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c27f6e7d-5641-4a25-a267-0470e3e60795",
+      "title": "Γαλλικές Φράσεις Συμφιλίωσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις Συμφιλίωσης",
+          "subsections": [
+            "### Έναρξη Συμφιλίωσης",
+            "### Έκφραση Μετάνοιας",
+            "### Έκφραση Αγάπης",
+            "### Πρόταση Λύσης"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2894fad-09d2-4f45-b4e1-35faabdc64d8",
+      "title": "Holland lánykérési és eljegyzési kifejezések",
+      "native_lang": "hu",
+      "target_lang": "nl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### A nagy kérdés",
+            "### Az eljegyzés bejelentése"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2a0594b-33fd-4bf9-8734-a1a8feacc9a5",
+      "title": "İtalyanca Sevgi Sözcükleri ve Takma Adlar",
+      "native_lang": "tr",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Farklı Durumlar İçin Sevgi Sözcükleri",
+          "subsections": [
+            "### Günlük Hayatta",
+            "### Romantik Anlar İçin",
+            "### Şakalaşmak İçin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2a166c6-81d5-430d-a629-d86223142690",
+      "title": "Vocabulário de Comida e Restaurante em Espanhol: Guia Completo",
+      "native_lang": "pt",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Vocabulário de Comidas",
+          "subsections": [
+            "### Entrada",
+            "### Prato Principal",
+            "### Sobremesa",
+            "### Acompanhamentos"
+          ]
+        }
+      ]
+    }
+  ]
+}

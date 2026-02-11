@@ -1,0 +1,483 @@
+{
+  "batchId": "tier2a-slim-0223",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "e205a478-d955-495d-8fce-1d1949362723",
+      "title": "Jak vyjádřit podporu a útěchu v maďarštině",
+      "native_lang": "cs",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní fráze podpory",
+          "subsections": [
+            "### Itt vagyok neked (It vaďok neked)",
+            "### Minden rendben lesz (Minden rendben les)",
+            "### Megértelek (Megértelek)",
+            "### Nem vagy egyedül (Nem vaď eďedjul)"
+          ]
+        },
+        {
+          "header": "## Fráze útěchy",
+          "subsections": [
+            "### Nagyon sajnálom (Naďon šajnálom)",
+            "### Légy erős! (Léď eröš!)",
+            "### Hiszek benned (Hisek bened)",
+            "### Számíthatsz rám (Sámíthac rám)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e206a0e6-71e9-49ad-92e7-1c6ffe4f51cd",
+      "title": "Польские фразы о ревности и доверии",
+      "native_lang": "ru",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Фразы для выражения ревности",
+          "subsections": [
+            "### 1. Jestem zazdrosny/zazdrosna, kiedy...",
+            "### 2. Przeszkadza mi, kiedy spędzasz tyle czasu z...",
+            "### 3. Czasami potrzebuję, żebyś mnie uspokoił/uspokoiła"
+          ]
+        },
+        {
+          "header": "## Фразы для укрепления доверия",
+          "subsections": [
+            "### 4. Ufam ci całkowicie",
+            "### 5. Jesteś jedyny/jedyna dla mnie",
+            "### 6. Nigdy nie zrobiłbym/zrobiłabym nic, co mogłoby zaszkodzić naszemu związkowi",
+            "### 7. Nie masz się czym martwić",
+            "### 8. Pozwól mi wytłumaczyć, co się stało",
+            "### 9. Twoje uczucia są dla mnie ważne",
+            "### 10. Czy możemy wspólnie ustalić granice?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e221a32e-bffa-4767-91e8-bdeb256436fc",
+      "title": "Основы датской грамматики для русскоговорящих",
+      "native_lang": "ru",
+      "target_lang": "da",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Глаголы",
+          "subsections": [
+            "### Главная хорошая новость!",
+            "### Группы глаголов",
+            "### Времена глаголов"
+          ]
+        },
+        {
+          "header": "## Порядок слов",
+          "subsections": [
+            "### Прямой порядок (утверждение)",
+            "### Инверсия (V2-правило)",
+            "### Вопросы"
+          ]
+        },
+        {
+          "header": "## Местоимения",
+          "subsections": [
+            "### Личные местоимения",
+            "### Притяжательные местоимения"
+          ]
+        },
+        {
+          "header": "## Практические упражнения",
+          "subsections": [
+            "### Упражнение 1: Артикли",
+            "### Упражнение 2: Глаголы",
+            "### Упражнение 3: Порядок слов"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2270378-e425-4b12-aef2-260409e3136f",
+      "title": "Mød Svigerforældrene på Hollandsk: Essentielle Udtryk",
+      "native_lang": "da",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## De Vigtigste Udtryk",
+          "subsections": [
+            "### 1. Aangenaam kennis te maken",
+            "### 2. Bedankt voor de uitnodiging",
+            "### 3. Jullie hebben een prachtig huis",
+            "### 4. Ik heb al veel over jullie gehoord",
+            "### 5. Dit is heerlijk! Mag ik het recept?",
+            "### 6. Ik ben heel blij dat ik hier ben",
+            "### 7. Kan ik helpen met afruimen?",
+            "### 8. Jullie zoon/dochter betekent heel veel voor mij",
+            "### 9. Ik hoop dat we elkaar snel weer zien",
+            "### 10. Bedankt voor de gezellige avond"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e24bc5d0-ffc9-4bad-81b6-054d35b5c175",
+      "title": "Переїзд разом: французькою слова для спільного життя",
+      "native_lang": "uk",
+      "target_lang": "fr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика",
+          "subsections": []
+        },
+        {
+          "header": "## Обговорення переїзду",
+          "subsections": [
+            "### Як запропонувати спільне життя французькою"
+          ]
+        },
+        {
+          "header": "## Пошук житла",
+          "subsections": [
+            "### Лексика для оренди/покупки",
+            "### Кімнати в домі"
+          ]
+        },
+        {
+          "header": "## Меблі та предмети побуту",
+          "subsections": [
+            "### У спальні",
+            "### На кухні",
+            "### У вітальні"
+          ]
+        },
+        {
+          "header": "## Розподіл обов'язків",
+          "subsections": [
+            "### Домашні справи французькою",
+            "### Як обговорити обов'язки"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e24c7f1b-efcb-4aa8-ac7f-42d6256ef00c",
+      "title": "Frases en Griego sobre Celos y Confianza para Parejas",
+      "native_lang": "es",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Expresar Celos",
+          "subsections": [
+            "### \"Νιώθω λίγο ζηλιάρης/ζηλιάρα όταν...\" (Niotho ligo zilairis/ziliara otan...)",
+            "### \"Μπορούμε να μιλήσουμε για κάτι που με ενοχλεί;\" (Boroume na milissoume gia kati pou me enochli?)",
+            "### \"Σε εμπιστεύομαι, αλλά νιώθω ανασφάλεια\" (Se empistevomai, alla niotho anasfaleia)",
+            "### \"Ποιος/ποια ήταν;\" (Poios/poia itan?)"
+          ]
+        },
+        {
+          "header": "## Frases para Pedir Seguridad",
+          "subsections": [
+            "### \"Χρειάζομαι καθησυχασμό\" (Chriazome kathisichasmo)",
+            "### \"Ξέρω ότι είναι παράλογο, αλλά...\" (Xero oti einai paralogo, alla...)"
+          ]
+        },
+        {
+          "header": "## Frases para Construir Confianza",
+          "subsections": [
+            "### \"Σε εμπιστεύομαι απόλυτα\" (Se empistevomai apolita)",
+            "### \"Είσαι ο μόνος/η μόνη για μένα\" (Ise o monos/i moni gia mena)",
+            "### \"Έχω μάτια μόνο για σένα\" (Echo matia mono gia sena)",
+            "### \"Δεν υπάρχει λόγος ανησυχίας\" (Den iparchi logos anisichias)",
+            "### \"Μπορείς να με εμπιστευτείς\" (Boris na me empisteftis)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e269028f-3316-4b70-825b-498e575616a1",
+      "title": "Hongaarse Zinnen voor een Eerste Date",
+      "native_lang": "nl",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Nagyon örülök, hogy végre találkozunk\" - *na-djon eu-rue-leuk, hodzj vee-gre ta-lal-ko-zoenk*",
+            "### 2. \"Csodálatosan nézel ki\" - *tsjo-da-la-to-sjan nee-zel kie*",
+            "### 3. \"Mesélj magadról\" - *me-seelj ma-gad-rol*",
+            "### 4. \"Mi a foglalkozásod?\" - *mie a fog-lal-ko-za-sjod*",
+            "### 5. \"Nagyon jól érzem magam\" - *na-djon jol eer-zem ma-gam*",
+            "### 6. \"Kérsz még valamit inni?\" - *keersj meeg va-la-miet ien-nie*",
+            "### 7. \"Milyen zenét szeretsz?\" - *mie-ljen ze-neet se-rets*",
+            "### 8. \"Szívesen találkoznék veled újra\" - *sie-ve-sjen ta-lal-koz-neek ve-led oej-ra*",
+            "### 9. \"Hazakísérhetlek?\" - *ha-za-kie-seer-het-lek*",
+            "### 10. \"Nagyon élveztem az estét\" - *na-djon eel-vez-tem az esj-teet*",
+            "### 11. \"Mik a hobbijaid?\" - *miek a hob-bie-ja-ied*",
+            "### 12. \"Gyönyörű a mosolyod\" - *djeu-njeu-rue a mo-sjo-ljod*"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e26943a5-1d9e-4180-b595-878e02002259",
+      "title": "Podstawy gramatyki rumunskiej dla par - prosty przewodnik",
+      "native_lang": "pl",
+      "target_lang": "ro",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Pytania",
+          "subsections": [
+            "### Pytania tak/nie",
+            "### Pytania że slowem pytajnym"
+          ]
+        },
+        {
+          "header": "## Przydatne struktury dla par",
+          "subsections": [
+            "### Wyrazanie checi",
+            "### Wyrazanie umiejetnosci"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Odmiana \"a iubi\"",
+            "### Cwiczenie 2: Przymiotniki",
+            "### Cwiczenie 3: Pytania i odpowiedzi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e271e570-78c5-4c46-8002-03619f3dd316",
+      "title": "Как сказать «Я тебя люблю» на английском",
+      "native_lang": "ru",
+      "target_lang": "en",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Альтернативные способы сказать \"I love you\"",
+          "subsections": [
+            "### Для более глубокой связи",
+            "### Нежные выражения"
+          ]
+        },
+        {
+          "header": "## Упражнения для практики вдвоём",
+          "subsections": [
+            "### Утренние аффирмации",
+            "### Любовные записки",
+            "### Вечерние фразы"
+          ]
+        },
+        {
+          "header": "## Расширение словаря любви на английском",
+          "subsections": [
+            "### Основные слова о любви",
+            "### Романтические глаголы"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e279fa08-72d9-40e8-99f9-ae869a18c0a3",
+      "title": "Portugalské fráze pro usmíření a nápravu vztahu",
+      "native_lang": "cs",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fráze pro omluvu",
+          "subsections": [
+            "### 1. Eu sinto muito pelo que eu disse",
+            "### 2. Eu estava errado/a",
+            "### 3. Por favor, me perdoa",
+            "### 4. Eu assumo toda a responsabilidade"
+          ]
+        },
+        {
+          "header": "## Fráze pro obnovení spojení",
+          "subsections": [
+            "### 5. Podemos conversar sobre o que aconteceu?",
+            "### 6. Sinto sua falta",
+            "### 7. Não vamos dormir brigados",
+            "### 8. Eu ainda te amo"
+          ]
+        },
+        {
+          "header": "## Fráze pro nový začátek",
+          "subsections": [
+            "### 9. Podemos começar de novo?",
+            "### 10. Quero compensar você",
+            "### 11. Vamos superar isso juntos",
+            "### 12. Eu te valorizo muito"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e284caa3-8f45-4bb6-9293-6906304d8015",
+      "title": "İtalyanca Tartışma ve Anlaşmazlık İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Tartışma İfadeleri",
+          "subsections": [
+            "### 1. \"Mi sento ferito/a quando...\"",
+            "### 2. \"Possiamo parlarne con calma?\"",
+            "### 3. \"Capisco il tuo punto di vista, ma...\"",
+            "### 4. \"Non alziamo la voce\"",
+            "### 5. \"Non intendevo questo\"",
+            "### 6. \"Ho bisogno di un momento per me\"",
+            "### 7. \"Troviamo un compromesso\"",
+            "### 8. \"Non volevo ferirti\"",
+            "### 9. \"Puoi spiegarmi come ti senti?\"",
+            "### 10. \"Penso che entrambi dobbiamo calmarci\"",
+            "### 11. \"Ti amo, ma sono arrabbiato/a\"",
+            "### 12. \"Parliamone più tardi\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e284f297-51e8-4be8-9327-03a6f89ea96e",
+      "title": "Turkish Date Night: 58+ Romantic Words",
+      "native_lang": "en",
+      "target_lang": "tr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Romantic Evening Activities",
+          "subsections": [
+            "### Movies",
+            "### Concerts",
+            "### Dancing",
+            "### Stargazing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e285f652-9057-4c89-a03f-8da2fccef61f",
+      "title": "Hungarian Flirting Phrases: Romantic Expressions for Your Hungarian Partner",
+      "native_lang": "en",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essential Flirting Phrases",
+          "subsections": [
+            "### Heartfelt Compliments",
+            "### Expressing Attraction",
+            "### Romantic Declarations",
+            "### Sweet Expressions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e288e7f4-cafc-47e3-ab22-a1378c41b18f",
+      "title": "100 Meest Gebruikte Griekse Woorden voor Relaties",
+      "native_lang": "nl",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Basis liefdeswoorden",
+          "subsections": [
+            "### 1. Αγάπη (Agapi) - *a-ga-pie* - Liefde",
+            "### 2. Καρδιά (Kardia) - *kar-dhia* - Hart",
+            "### 3. Φιλί (Fili) - *fie-lie* - Kus",
+            "### 4. Αγκαλιά (Agalia) - *an-ga-lja* - Knuffel",
+            "### 5. Μαζί (Mazi) - *ma-zie* - Samen",
+            "### 6. Για πάντα (Gia panta) - *ja pan-ta* - Voor altijd",
+            "### 7. Πάντα (Panta) - *pan-ta* - Altijd",
+            "### 8. Όμορφος/η (Omorfos/i) - *o-mor-fos/ie* - Mooi",
+            "### 9. Ευτυχισμένος/η (Eftychismenos/i) - *ef-tie-chies-me-nos/ie* - Gelukkig",
+            "### 10. Αγάπη μου (Agapi mou) - *a-ga-pie moe* - Schat"
+          ]
+        },
+        {
+          "header": "## Dagelijkse communicatie",
+          "subsections": [
+            "### 11. Ναι (Nai) - *ne* - Ja",
+            "### 12. Όχι (Ochi) - *o-chie* - Nee",
+            "### 13. Παρακαλώ (Parakalo) - *pa-ra-ka-lo* - Alsjeblieft",
+            "### 14. Ευχαριστώ (Efcharisto) - *ef-cha-ries-to* - Dank je",
+            "### 15. Συγγνώμη (Signomi) - *sieg-no-mie* - Sorry",
+            "### 16. Καλημέρα (Kalimera) - *ka-lie-me-ra* - Goedemorgen",
+            "### 17. Καληνύχτα (Kalinychta) - *ka-lie-niech-ta* - Goedenacht",
+            "### 18. Γεια σου (Yia sou) - *ja soe* - Hallo",
+            "### 19. Αντίο (Adio) - *a-dhio* - Tot ziens",
+            "### 20. Τι κάνεις; (Ti kaneis?) - *tie ka-nies* - Hoe gaat het?"
+          ]
+        },
+        {
+          "header": "## Gevoelens uitdrukken",
+          "subsections": [
+            "### 21. Σ' αγαπώ (S' agapo) - *sa-ga-po* - Ik hou van je",
+            "### 22. Μου λείπεις (Mou leipeis) - *moe lie-pies* - Ik mis je",
+            "### 23. Σε χρειάζομαι (Se chriazomai) - *se chrie-a-zo-me* - Ik heb je nodig",
+            "### 24. Σε εμπιστεύομαι (Se embistewomai) - *se em-pies-te-vo-me* - Ik vertrouw je",
+            "### 25. Σε συγχωρώ (Se sighoro) - *se sie-cho-ro* - Ik vergeef je",
+            "### 26. Καταλαβαίνω (Katalavaino) - *ka-ta-la-ve-no* - Ik begrijp het",
+            "### 27. Με κάνεις ευτυχισμένο/η (Me kaneis eftychismeno/i) - *me ka-nies ef-tie-chies-me-no/ie* - Je maakt me gelukkig",
+            "### 28. Σε σκέφτομαι (Se skeftome) - *se skef-to-me* - Ik denk aan je"
+          ]
+        },
+        {
+          "header": "## Tijd",
+          "subsections": [
+            "### 29. Σήμερα (Simera) - *sie-me-ra* - Vandaag",
+            "### 30. Αύριο (Avrio) - *av-rio* - Morgen",
+            "### 31. Χθες (Chthes) - *chthes* - Gisteren",
+            "### 32. Τώρα (Tora) - *to-ra* - Nu",
+            "### 33. Αργότερα (Argotera) - *ar-go-te-ra* - Later",
+            "### 34. Σύντομα (Syntoma) - *sien-to-ma* - Binnenkort",
+            "### 35. Ποτέ (Pote) - *po-te* - Nooit",
+            "### 36. Μερικές φορές (Merikes fores) - *me-rie-kes fo-res* - Soms",
+            "### 37. Συχνά (Sychna) - *siech-na* - Vaak"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e289150a-f4f1-43b5-b71f-322c4fd693f2",
+      "title": "Венгерские фразы о прощении",
+      "native_lang": "ru",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Фразы для просьбы о прощении",
+          "subsections": [
+            "### 1. Nagyon sajnálom, amit tettem",
+            "### 2. Kérlek, bocsáss meg",
+            "### 3. Tudom, hogy megbántottalak, és mélyen bánom",
+            "### 4. Ez nem fog megismétlődni, ígérem",
+            "### 5. Vállalom a teljes felelősséget a tetteimért"
+          ]
+        },
+        {
+          "header": "## Фразы для выражения прощения",
+          "subsections": [
+            "### 6. Megbocsátok neked",
+            "### 7. Hagyjuk ezt magunk mögött",
+            "### 8. Készen állok továbblépni",
+            "### 9. Értékelem a bocsánatkérésedet",
+            "### 10. Bátorság kell a bocsánatkéréshez, köszönöm"
+          ]
+        }
+      ]
+    }
+  ]
+}

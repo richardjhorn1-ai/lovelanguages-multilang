@@ -1,0 +1,338 @@
+{
+  "batchId": "tier2a-slim-0277",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "c1447c44-efa2-4235-97dd-dd84f9000bb5",
+      "title": "Seznámení s partnerovou rodinou v portugalštině: Jak zazářit a získat si jejich srdce",
+      "native_lang": "cs",
+      "target_lang": "pt",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Konkrétní scénáře",
+          "subsections": [
+            "### Příchod do domu",
+            "### U večeře",
+            "### Konverzace o rodině"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c161c4f6-c604-44c0-a6dd-65e5ba9409bb",
+      "title": "50 Portugisiska Hälsningar och Avsked för Par: Från Bom Dia till Até Logo",
+      "native_lang": "sv",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Praktiska Situationer för Par",
+          "subsections": [
+            "### När Ni Vaknar Tillsammans",
+            "### Att Träffa Familjen",
+            "### Telefonsamtal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c1c9167f-ae01-4a56-91a2-927d1be9ca02",
+      "title": "Rencontrer la famille de votre partenaire turc : phrases essentielles pour faire bonne impression",
+      "native_lang": "fr",
+      "target_lang": "tr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Scénarios typiques (et comment les gérer)",
+          "subsections": [
+            "### 1. L'arrivée à la maison",
+            "### 2. Le repas de famille",
+            "### 3. Les questions personnelles (inévitables!)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c60d9659-c8e5-47de-a06b-cf3bd4d1a432",
+      "title": "Conhecendo a Família do Seu Parceiro na Romênia: Frases e Dicas para Conquistar os Corações",
+      "native_lang": "pt",
+      "target_lang": "ro",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Cenários Comuns Durante a Visita",
+          "subsections": [
+            "### Chegando na Casa",
+            "### Durante o Jantar",
+            "### Mostrando Fotos e Contando Histórias"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c6444d8a-cfa7-4107-806a-e1dc5d5317af",
+      "title": "Conocer a la Familia de tu Pareja en Italiano: Frases Esenciales para Impresionar",
+      "native_lang": "es",
+      "target_lang": "it",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Escenarios Comunes Durante la Visita",
+          "subsections": [
+            "### 1. La Llegada y Presentaciones",
+            "### 2. En la Mesa: Comida y Conversación",
+            "### 3. Conversaciones sobre la Relación",
+            "### 4. Mostrar Aprecio y Despedida"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c88041cb-2178-43e8-b7c7-7d93519dc967",
+      "title": "Taper les caractères polonais sur un clavier",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Méthode 2 : Windows - Disposition clavier polonais",
+          "subsections": [
+            "### Configuration du clavier polonais",
+            "### Combinaisons de touches en disposition polonaise"
+          ]
+        },
+        {
+          "header": "## Méthode 3 : Utilisateurs Mac",
+          "subsections": [
+            "### Méthode avec la touche Option"
+          ]
+        },
+        {
+          "header": "## Méthode 4 : Appareils mobiles",
+          "subsections": [
+            "### Configuration iPhone/iPad",
+            "### Configuration Android"
+          ]
+        },
+        {
+          "header": "## Méthode 5 : Outils en ligne et applications",
+          "subsections": [
+            "### Extensions de navigateur",
+            "### Applications pour smartphone"
+          ]
+        },
+        {
+          "header": "## Erreurs de frappe courantes à éviter",
+          "subsections": [
+            "### Ne substituez pas les lettres ordinaires !",
+            "### Phrases d'entraînement pour couples"
+          ]
+        },
+        {
+          "header": "## Résolution des problèmes courants",
+          "subsections": [
+            "### Le pavé numérique ne fonctionne pas ?",
+            "### Mauvais caractères qui apparaissent ?",
+            "### Problèmes d'auto-correction sur mobile ?"
+          ]
+        },
+        {
+          "header": "## Créer votre routine de frappe polonaise",
+          "subsections": [
+            "### Pratique quotidienne pour couples",
+            "### Défis hebdomadaires"
+          ]
+        },
+        {
+          "header": "## Au-delà de la frappe de base",
+          "subsections": [
+            "### Configuration de l'auto-correction",
+            "### Utiliser le correcteur orthographique polonais"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c8c1039b-0036-4476-92d0-2c4425773aaf",
+      "title": "Danska Uttal för Nybörjare: Lär Dig Låta Som en Äkta Dansk Med Din Partner",
+      "native_lang": "sv",
+      "target_lang": "da",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## De Mest Svenska-missförstådda Ljuden",
+          "subsections": [
+            "### R-ljudet",
+            "### D i slutet av ord",
+            "### G före främre vokaler"
+          ]
+        },
+        {
+          "header": "## Övningar för Par: Gör Det Roligt Tillsammans",
+          "subsections": [
+            "### 1. Känslouttalsleken",
+            "### 2. Danska Öron",
+            "### 3. Godnattsaga",
+            "### 4. Matbeställning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c978e32f-6f4a-4f00-a4a8-f8dc72beed2f",
+      "title": "Συνάντηση με την Οικογένεια του/της Συντρόφου σου στα Ιταλικά: Οδηγός για Ζευγάρια",
+      "native_lang": "el",
+      "target_lang": "it",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Συγκεκριμένες Καταστάσεις",
+          "subsections": [
+            "### Όταν Σε Συστήνουν",
+            "### Στο Τραπέζι",
+            "### Φωτογραφίες και Ιστορίες"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ca5982ad-4421-4418-a4c5-caeef8d8cfe5",
+      "title": "Conhecendo a Família do Seu Parceiro Dinamarquês: Frases Essenciais para Conquistar os Corações",
+      "native_lang": "pt",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Cartão de Referência Rápida",
+          "subsections": [
+            "### Top 10 Frases para Memorizar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ca9ffde3-8f7d-45c8-9077-57605a699ec7",
+      "title": "50 Romantiske Greske Setninger for Kjæresten - Fra Første Møte til Evig Kjærlighet",
+      "native_lang": "no",
+      "target_lang": "el",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Setninger for Spesielle Øyeblikk",
+          "subsections": [
+            "### Når du vil be om en date:",
+            "### For [date night](/learn/no/el/greek-date-night-vocabulary/):",
+            "### Når du vil gifte deg:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cd7d7a75-d701-4f6b-8d11-19697ecce103",
+      "title": "Rencontrer la famille de votre partenaire danois : phrases essentielles pour faire bonne impression",
+      "native_lang": "fr",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Scénarios typiques lors de la rencontre",
+          "subsections": [
+            "### 1. L'arrivée chez eux",
+            "### 2. À table pendant le repas",
+            "### 3. Les questions personnelles (inévitables !)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdff3016-083b-4af0-a155-d4b735c3cde9",
+      "title": "Polaco vs Ruso: Similitudes Eslavas",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Lo Que Comparten: El ADN Eslavo",
+          "subsections": [
+            "### Raíces de Vocabulario Similares",
+            "### Conceptos Gramaticales Compartidos",
+            "### Los Números Suenan Familiares"
+          ]
+        },
+        {
+          "header": "## Donde Difieren: Creciendo Separados",
+          "subsections": [
+            "### Alfabetos Diferentes",
+            "### Cambios de Sonido a lo Largo del Tiempo",
+            "### Falsos Amigos: ¡Cuidado!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cfa5f4c9-38ef-4d33-b70b-790febcd284c",
+      "title": "Conocer a la Familia de tu Pareja en Ruso: Frases Esenciales para Impresionar y Conectar",
+      "native_lang": "es",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Vocabulario Rápido de Referencia",
+          "subsections": [
+            "### Top 10 Frases para Capturar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cfc0a3a7-198b-45bf-952d-8786e2f3090e",
+      "title": "50 de Saluturi și Despărțiri în Daneză pentru Cupluri",
+      "native_lang": "ro",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Cum să folosești aceste saluturi ca un cuplu adevărat",
+          "subsections": [
+            "### Creează ritualuri împreună",
+            "### Greșeli de evitat",
+            "### Practică împreună"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d1fff5eb-6109-4796-b4d5-eef92d6d475c",
+      "title": "Orosz nyelvtani alapok pároknak: Tanuljátok meg együtt a legfontosabb szabályokat",
+      "native_lang": "hu",
+      "target_lang": "ru",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## A 4 alapvető szabály, amit minden párnak tudnia kell",
+          "subsections": [
+            "### 1. A névmások mindig változnak",
+            "### 2. Az igék két csoportba sorolhatók",
+            "### 3. A nemek fontosak",
+            "### 4. A szórend rugalmas"
+          ]
+        },
+        {
+          "header": "## Gyakori igék pároknak",
+          "subsections": [
+            "### Első csoportú igék (legkönnyebb ragozni)"
+          ]
+        },
+        {
+          "header": "## A leggyakoribb hibák és hogyan kerüld el őket",
+          "subsections": [
+            "### 1. **A névmások összekeverése**",
+            "### 2. **A nemek figyelmen kívül hagyása**",
+            "### 3. **A szórend túlbonyolítása**"
+          ]
+        }
+      ]
+    }
+  ]
+}

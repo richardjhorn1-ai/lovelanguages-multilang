@@ -1,0 +1,533 @@
+{
+  "batchId": "tier2a-slim-0057",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "50889075-69c2-4b48-87d6-d3094af0b312",
+      "title": "Die Familie deines russischen Partners treffen",
+      "native_lang": "de",
+      "target_lang": "ru",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Am Tisch",
+          "subsections": [
+            "### Trinksprüche",
+            "### Das Essen Loben"
+          ]
+        },
+        {
+          "header": "## Was Du Vermeiden Solltest",
+          "subsections": [
+            "### Nicht tun:",
+            "### Tun:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "50a054e1-2da6-48e1-93b8-1d2ab3346306",
+      "title": "Ukraynaca Barışma ve Uzlaşma İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Barışma İfadeleri",
+          "subsections": [
+            "### 1. \"Вибач мені за те, що я сказав/ла\" (Vıbaç meni za te, şço ya skazav/la)",
+            "### 2. \"Чи можемо почати спочатку?\"",
+            "### 3. \"Ненавиджу сваритися з тобою\"",
+            "### 4. \"Давай не лягати спати сердитими\"",
+            "### 5. \"Я тебе пробачаю\"",
+            "### 6. \"Я помилявся/лася\"",
+            "### 7. \"Як я можу це виправити?\"",
+            "### 8. \"Я кохаю тебе більше, ніж цю сварку\"",
+            "### 9. \"Давай вирішимо це разом\"",
+            "### 10. \"Я сумую за тим, як було до сварки\"",
+            "### 11. \"Ти для мене все\"",
+            "### 12. \"Обіцяю стати кращим/ою\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "50a342be-7189-4272-b8bd-f9bcacc9dbda",
+      "title": "50+ Чеських Фраз: Романтика в Празі",
+      "native_lang": "uk",
+      "target_lang": "cs",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## У ресторані",
+          "subsections": [
+            "### Резервація",
+            "### Замовлення",
+            "### Напої",
+            "### Компліменти їжі"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "50c69c51-1693-4f94-a721-7d63ef430cad",
+      "title": "Græske Udtryk til Følelsesmæssig Støtte og Trøst",
+      "native_lang": "da",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Støtteudtryk",
+          "subsections": [
+            "### 1. Είμαι εδώ για σένα",
+            "### 2. Όλα θα πάνε καλά",
+            "### 3. Πιστεύω σε σένα",
+            "### 4. Πάρε όσο χρόνο χρειάζεσαι",
+            "### 5. Λυπάμαι πολύ για αυτό που περνάς"
+          ]
+        },
+        {
+          "header": "## Dybere Trøst",
+          "subsections": [
+            "### 6. Είναι εντάξει να κλαις",
+            "### 7. Δεν χρειάζεται να το περάσεις αυτό μόνος/μόνη",
+            "### 8. Είμαι πολύ περήφανος/περήφανη για τη δύναμή σου",
+            "### 9. Τα συναισθήματά σου είναι έγκυρα",
+            "### 10. Ό,τι κι αν συμβεί, θα το αντιμετωπίσουμε μαζί"
+          ]
+        },
+        {
+          "header": "## Kærlige Trøsteord",
+          "subsections": [
+            "### 11. Αγάπη μου, θα είμαι πάντα δίπλα σου",
+            "### 12. Σ' αγαπώ, και αυτό δεν θα αλλάξει ποτέ"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "50cfeb7c-e9b1-43e9-935e-10b2fe3c8415",
+      "title": "100 Συχνές Λέξεις (pt): Οδηγός για Ελληνόφωνα Ζευγάρια",
+      "native_lang": "el",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Κατηγορίες Λέξεων",
+          "subsections": [
+            "### Αγάπη & Τρυφερότητα",
+            "### Καθημερινές Λέξεις",
+            "### Συναισθήματα",
+            "### Χρόνος",
+            "### Τοποθεσία",
+            "### Ερωτήσεις",
+            "### Ρήματα"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "50d950cb-f485-4d0b-b2fb-31e32607f0f7",
+      "title": "Фразы для медового месяца на итальянский: Романтическое путешествие",
+      "native_lang": "ru",
+      "target_lang": "it",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## В аэропорту",
+          "subsections": [
+            "### Регистрация",
+            "### На борту"
+          ]
+        },
+        {
+          "header": "## В отеле",
+          "subsections": [
+            "### Регистрация",
+            "### Романтические просьбы"
+          ]
+        },
+        {
+          "header": "## На пляже",
+          "subsections": [
+            "### Пляжная лексика",
+            "### Романтические фразы на la spiaggia"
+          ]
+        },
+        {
+          "header": "## Ужин вдвоём",
+          "subsections": [
+            "### В ресторане",
+            "### Романтические тосты"
+          ]
+        },
+        {
+          "header": "## Экскурсии и приключения",
+          "subsections": [
+            "### Планирование l'avventura",
+            "### Создание i ricordi"
+          ]
+        },
+        {
+          "header": "## Романтические моменты",
+          "subsections": [
+            "### Фразы для особых моментов",
+            "### Закат"
+          ]
+        },
+        {
+          "header": "## Покупка сувениров",
+          "subsections": [
+            "### В магазине",
+            "### Идеи подарков"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "50e53dd9-16e4-4d64-859e-4679dbee1da2",
+      "title": "Привітання з днем народження іспанською для коханої людини",
+      "native_lang": "uk",
+      "target_lang": "es",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика",
+          "subsections": []
+        },
+        {
+          "header": "## Романтичні привітання з днем народження",
+          "subsections": [
+            "### Класичні побажання"
+          ]
+        },
+        {
+          "header": "## Як написати ідеальне привітання",
+          "subsections": [
+            "### Структура:",
+            "### Приклад іспанською:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "50eca570-f501-4ca0-8d2e-a6c4912f2438",
+      "title": "Guten Morgen und Gute Nacht auf Ukrainisch – Süße Phrasen für jeden Tag",
+      "native_lang": "de",
+      "target_lang": "uk",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Guten Morgen sagen",
+          "subsections": [
+            "### Klassische Morgengrüße",
+            "### Romantische Morgengrüße"
+          ]
+        },
+        {
+          "header": "## Gute Nacht sagen",
+          "subsections": [
+            "### Klassische Nachtgrüße",
+            "### Romantische Nachtgrüße"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "50f31319-6cb6-4aab-a423-e2e3f61cbebf",
+      "title": "Tyrkiske SMS- og chattefraser for par",
+      "native_lang": "no",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kulturelle tips",
+          "subsections": [
+            "### Tyrkisk intimitet",
+            "### Diminutiver",
+            "### Vokalharmoni"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "50fe3034-e92e-4875-b097-f58c8c892415",
+      "title": "Portugalské fráze pro emoční podporu partnera",
+      "native_lang": "cs",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní podpora",
+          "subsections": [
+            "### \"Estou aqui para você.\"",
+            "### \"Você não está sozinho/a nisso.\"",
+            "### \"Eu acredito em você.\"",
+            "### \"Aconteça o que acontecer, vamos enfrentar juntos.\""
+          ]
+        },
+        {
+          "header": "## Útěcha",
+          "subsections": [
+            "### \"Sinto muito que você esteja passando por isso.\"",
+            "### \"Tudo bem se sentir assim.\"",
+            "### \"Tome todo o tempo que precisar.\"",
+            "### \"Você não precisa ser forte o tempo todo.\""
+          ]
+        },
+        {
+          "header": "## Povzbuzení",
+          "subsections": [
+            "### \"Estou muito orgulhoso/a de você.\"",
+            "### \"Você lidou com isso incrivelmente.\"",
+            "### \"Isso não vai durar para sempre.\"",
+            "### \"Você é mais forte do que pensa.\""
+          ]
+        },
+        {
+          "header": "## Praktická podpora",
+          "subsections": [
+            "### \"O que você precisa agora?\"",
+            "### \"Deixe-me cuidar disso para você.\"",
+            "### \"Você quer falar sobre isso?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5134898c-cfc2-4c6a-b7d0-7c3df69d15e5",
+      "title": "Rencontrer la belle-famille en italien : Conquérir i suoceri",
+      "native_lang": "fr",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Premières salutations",
+          "subsections": [
+            "### \"È un vero piacere conoscervi finalmente\"",
+            "### \"Ho sentito parlare molto bene di voi\"",
+            "### \"Grazie mille per avermi invitato a casa vostra\""
+          ]
+        },
+        {
+          "header": "## Montrer du respect",
+          "subsections": [
+            "### \"Avete una casa bellissima\"",
+            "### \"Questo pranzo è squisito, grazie\"",
+            "### \"La signora cucina divinamente\""
+          ]
+        },
+        {
+          "header": "## Parler de votre partenaire",
+          "subsections": [
+            "### \"[Nome] è tutto per me\"",
+            "### \"Mi sento così fortunato/a di avere [nome] nella mia vita\"",
+            "### \"Avete cresciuto una persona meravigliosa\""
+          ]
+        },
+        {
+          "header": "## Créer du lien",
+          "subsections": [
+            "### \"Mi piacerebbe sapere di più su [argomento]\"",
+            "### \"Com'era [nome] da bambino/a?\"",
+            "### \"Posso vedere le foto di famiglia?\""
+          ]
+        },
+        {
+          "header": "## Proposer de l'aide",
+          "subsections": [
+            "### \"Posso aiutare in qualcosa?\"",
+            "### \"Mi faccia aiutare a sparecchiare\""
+          ]
+        },
+        {
+          "header": "## Au départ",
+          "subsections": [
+            "### \"Grazie per questa giornata meravigliosa\"",
+            "### \"Spero di rivedervi presto\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "51559efe-f4bd-4afe-9ec9-ac8b07556d09",
+      "title": "Urări de Aniversare în Ucraineană: Mesaje Romantice pentru Partener",
+      "native_lang": "ro",
+      "target_lang": "uk",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Mesaje Romantice",
+          "subsections": [
+            "### Pentru Prima Aniversare",
+            "### Pentru Aniversări Mai Lungi"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Diferite Aniversări",
+          "subsections": [
+            "### 1-5 Ani",
+            "### 5-10 Ani",
+            "### 10+ Ani"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Carduri",
+          "subsections": [
+            "### Scurte și Dulci",
+            "### Mesaje Lungi"
+          ]
+        },
+        {
+          "header": "## Amintiri de Împărtășit",
+          "subsections": [
+            "### Întrebări pentru Reflecție"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5157e867-c135-42e6-8f4d-db29a8aa886d",
+      "title": "Mutatul Împreună în Maghiară: Vocabular și Expresii pentru Noua",
+      "native_lang": "ro",
+      "target_lang": "hu",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Mobila și Obiectele Casnice",
+          "subsections": [
+            "### Living",
+            "### Dormitor",
+            "### Bucătărie"
+          ]
+        },
+        {
+          "header": "## Procesul Mutării",
+          "subsections": [
+            "### Înainte de Mutare",
+            "### În Ziua Mutării"
+          ]
+        },
+        {
+          "header": "## Decorarea Împreună",
+          "subsections": [
+            "### Stiluri de Design",
+            "### Compromis în Decor"
+          ]
+        },
+        {
+          "header": "## Comunicare în Cuplu",
+          "subsections": [
+            "### Expresii pentru Armonie",
+            "### Rezolvarea Conflictelor"
+          ]
+        },
+        {
+          "header": "## Lista de Verificare",
+          "subsections": [
+            "### Documente Necesare",
+            "### Prima Săptămână"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "51662e8b-b864-4980-9c58-02e09eb09519",
+      "title": "Portugisiska SMS- och chattfraser för kärleksrelationer",
+      "native_lang": "sv",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Morgonhälsningar",
+          "subsections": [
+            "### \"Bom dia, meu amor\"",
+            "### \"Olá, meu bem\"",
+            "### \"Como você dormiu, amor?\""
+          ]
+        },
+        {
+          "header": "## Att uttrycka saknad",
+          "subsections": [
+            "### \"Estou com saudades de você\"",
+            "### \"Tô pensando em você\"",
+            "### \"Não vejo a hora de te ver\""
+          ]
+        },
+        {
+          "header": "## Kärleksförklaringar",
+          "subsections": [
+            "### \"Te amo\"",
+            "### \"Te amo muito\"",
+            "### \"Você é o amor da minha vida\"",
+            "### \"Você é tudo pra mim\""
+          ]
+        },
+        {
+          "header": "## Flirtiga meddelanden",
+          "subsections": [
+            "### \"Você é lindo/linda demais\"",
+            "### \"Você me faz tão feliz\"",
+            "### \"Meu coração é seu\"",
+            "### \"Você roubou meu coração\""
+          ]
+        },
+        {
+          "header": "## Godnattmeddelanden",
+          "subsections": [
+            "### \"Boa noite, meu anjo\"",
+            "### \"Sonhe comigo\"",
+            "### \"Durma bem, meu amor\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "516c7217-8c96-4b77-95b0-5d5df80866a4",
+      "title": "Phrases de réconfort en polonais : Soutenir son partenaire",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Phrases de réconfort",
+          "subsections": [
+            "### \"Jestem tu dla ciebie\"",
+            "### \"Wszystko będzie dobrze\"",
+            "### \"Nie jesteś w tym sam/sama\""
+          ]
+        },
+        {
+          "header": "## Écouter et valider",
+          "subsections": [
+            "### \"Rozumiem, jak się czujesz\"",
+            "### \"To normalne tak się czuć\""
+          ]
+        },
+        {
+          "header": "## Soutien actif",
+          "subsections": [
+            "### \"Co mogę zrobić, żeby ci pomóc?\"",
+            "### \"Zawsze jestem tu, żeby cię wysłuchać\""
+          ]
+        },
+        {
+          "header": "## Encouragement",
+          "subsections": [
+            "### \"Jesteś silniejszy/silniejsza niż myślisz\"",
+            "### \"Wierzę w ciebie\"",
+            "### \"Dasz radę\""
+          ]
+        },
+        {
+          "header": "## Moments difficiles",
+          "subsections": [
+            "### \"Tak mi przykro, że przez to przechodzisz\"",
+            "### \"Pozwól, że cię przytulę\"",
+            "### \"Przejdziemy przez to razem\""
+          ]
+        }
+      ]
+    }
+  ]
+}

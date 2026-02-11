@@ -1,0 +1,503 @@
+{
+  "batchId": "tier2a-slim-0051",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "4bebb83e-54c9-46c2-a3b6-28adca7057ee",
+      "title": "Hiszpańskie zwroty na pierwszą randkę",
+      "native_lang": "pl",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Rozpoczęcie rozmowy",
+          "subsections": [
+            "### \"¡Hola! ¡Qué alegría conocerte por fin!\"",
+            "### \"¡Te ves genial!\"",
+            "### \"Tenía muchas ganas de verte\""
+          ]
+        },
+        {
+          "header": "## Poznawanie się",
+          "subsections": [
+            "### \"Cuéntame sobre ti\"",
+            "### \"¿Qué te gusta hacer en tu tiempo libre?\"",
+            "### \"¿Cuál es tu... favorito/a?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie zainteresowania",
+          "subsections": [
+            "### \"Eso es muy interesante\"",
+            "### \"Cuéntame más\"",
+            "### \"Me encantaría saber más\""
+          ]
+        },
+        {
+          "header": "## Dzielenie się o sobie",
+          "subsections": [
+            "### \"Me apasiona...\"",
+            "### \"Algo que quizás no sepas de mí es...\"",
+            "### \"Siempre he querido...\""
+          ]
+        },
+        {
+          "header": "## Komplementy",
+          "subsections": [
+            "### \"Me encanta tu sonrisa\"",
+            "### \"Tienes un gran sentido del humor\"",
+            "### \"La estoy pasando increíble contigo\""
+          ]
+        },
+        {
+          "header": "## Planowanie następnego spotkania",
+          "subsections": [
+            "### \"Me gustaría mucho volver a verte\"",
+            "### \"¿Cuándo podemos repetir esto?\"",
+            "### \"Esta noche ha sido maravillosa\""
+          ]
+        },
+        {
+          "header": "## Pożegnanie",
+          "subsections": [
+            "### \"Esto ha sido precioso\"",
+            "### \"No puedo esperar para verte de nuevo\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4bedf8a5-44d8-4c7e-b2ec-52a1e2461bdb",
+      "title": "Lengyel baba és terhességi szókincs",
+      "native_lang": "hu",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Terhességi kifejezések",
+            "### Baba szókincs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4bf69a5d-85f2-4d05-b6f9-e5df352a2fb4",
+      "title": "Czech Jealousy & Trust Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressing Jealousy",
+          "subsections": [
+            "### Jsem žárlivý/žárlivá",
+            "### Začínám žárlit, když...",
+            "### Nelíbí se mi tato žárlivost, kterou cítím"
+          ]
+        },
+        {
+          "header": "## Seeking Reassurance",
+          "subsections": [
+            "### Miluješ jenom mě?",
+            "### Potřebuji, abys mě uklidnil/a"
+          ]
+        },
+        {
+          "header": "## Building Trust",
+          "subsections": [
+            "### Věřím ti",
+            "### Chci ti úplně věřit",
+            "### Jak můžeme vybudovat více důvěry?"
+          ]
+        },
+        {
+          "header": "## Giving Reassurance",
+          "subsections": [
+            "### Mám oči jen pro tebe",
+            "### Jsi jediný/jediná pro mě",
+            "### Nemusíš se bát",
+            "### Moje srdce patří tobě"
+          ]
+        },
+        {
+          "header": "## Setting Boundaries",
+          "subsections": [
+            "### Žárlivost ovlivňuje náš vztah",
+            "### Potřebuji svůj vlastní prostor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4c0fd809-9654-4f81-a760-14103bec1455",
+      "title": "Фразы для медового месяца на венгерский: Романтическое путешествие",
+      "native_lang": "ru",
+      "target_lang": "hu",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## В аэропорту",
+          "subsections": [
+            "### Регистрация",
+            "### На борту"
+          ]
+        },
+        {
+          "header": "## В отеле",
+          "subsections": [
+            "### Регистрация",
+            "### Романтические просьбы"
+          ]
+        },
+        {
+          "header": "## На пляже",
+          "subsections": [
+            "### Пляжная лексика",
+            "### Романтические фразы на a tengerpart"
+          ]
+        },
+        {
+          "header": "## Ужин вдвоём",
+          "subsections": [
+            "### В ресторане",
+            "### Романтические тосты"
+          ]
+        },
+        {
+          "header": "## Экскурсии и приключения",
+          "subsections": [
+            "### Планирование a kaland",
+            "### Создание az emlékek"
+          ]
+        },
+        {
+          "header": "## Романтические моменты",
+          "subsections": [
+            "### Фразы для особых моментов",
+            "### Закат"
+          ]
+        },
+        {
+          "header": "## Покупка сувениров",
+          "subsections": [
+            "### В магазине",
+            "### Идеи подарков"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4c13373a-e92b-4638-846d-c610b216ed49",
+      "title": "Expresii în Franceză pentru Discuții și Dezacorduri în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale pentru Discuții",
+          "subsections": [
+            "### Exprimarea Frustrării",
+            "### Cererea de Clarificări",
+            "### Stabilirea Limitelor",
+            "### Recunoașterea și Concesiile",
+            "### Căutarea Soluțiilor"
+          ]
+        },
+        {
+          "header": "## Nuanțe Culturale Importante",
+          "subsections": [
+            "### Formalitate și Respect",
+            "### Logica Argumentului",
+            "### Spațiul Personal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4c240168-ca30-449d-bef2-f49d8ac77443",
+      "title": "Phrases turques pour se réconcilier en couple",
+      "native_lang": "fr",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions essentielles pour se réconcilier",
+          "subsections": [
+            "### S'excuser sincèrement",
+            "### Exprimer ses sentiments",
+            "### Proposer une résolution",
+            "### Réaffirmer son amour"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4c2af1d9-f15c-4ba5-9f67-464a675039eb",
+      "title": "Норвежский для начинающих: основы грамматики для двоих",
+      "native_lang": "ru",
+      "target_lang": "no",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Базовые правила для пар",
+          "subsections": [
+            "### 1. Порядок слов в вопросах",
+            "### 2. Отрицание \"ikke\"",
+            "### 3. Личные местоимения"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4c4f74b9-077d-4bd3-a10b-140a5ca5eea5",
+      "title": "Græske Kærlighedsbreve for Danskere",
+      "native_lang": "da",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Indledninger",
+          "subsections": [
+            "### \"Αγάπη μου\" / \"Ζωή μου\" / \"Καρδιά μου\"",
+            "### \"Ψυχή μου\" / \"Αγαπημένη/Αγαπημένε μου\""
+          ]
+        },
+        {
+          "header": "## Udtryk for Kærlighed",
+          "subsections": [
+            "### \"Τα λόγια δεν μπορούν να εκφράσουν αυτό που νιώθω για εσένα\"",
+            "### \"Είσαι το καλύτερο που μου έχει συμβεί ποτέ\"",
+            "### \"Κάθε μέρα μαζί σου είναι ένα δώρο\"",
+            "### \"Με κάνεις να θέλω να γίνω καλύτερος άνθρωπος\""
+          ]
+        },
+        {
+          "header": "## Romantiske Erklæringer",
+          "subsections": [
+            "### \"Όταν κοιτάζω τα μάτια σου, βλέπω το μέλλον μου\"",
+            "### \"Το χαμόγελό σου φωτίζει τον κόσμο μου\"",
+            "### \"Ερωτεύομαι περισσότερο κάθε μέρα\"",
+            "### \"Είσαι ο βράχος μου, η άγκυρά μου, το καταφύγιό μου\""
+          ]
+        },
+        {
+          "header": "## Løfter",
+          "subsections": [
+            "### \"Υπόσχομαι να σε αγαπώ στα καλά και στα δύσκολα\"",
+            "### \"Θέλω να γεράσω μαζί σου\"",
+            "### \"Η αγάπη μου για εσένα δεν θα σβήσει ποτέ\"",
+            "### \"Σε διαλέγω, σήμερα και για πάντα\""
+          ]
+        },
+        {
+          "header": "## Afslutninger",
+          "subsections": [
+            "### \"Για πάντα δικός/δική σου\"",
+            "### \"Με όλη μου την αγάπη\"",
+            "### \"Αιώνια δικός/δική σου\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4c562ad9-a397-433b-8636-315eba490497",
+      "title": "Frases de Saudade em Norueguês: Jeg Savner Deg - Saudade dos Fiordes",
+      "native_lang": "pt",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases Essenciais de Saudade",
+          "subsections": [
+            "### Expressões Básicas",
+            "### Saudade Profunda",
+            "### Para Relacionamentos à Distância",
+            "### Saudade Doce"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4c599a86-874b-4506-870a-e6e2f3f9d1a6",
+      "title": "Привітання з днем народження румунською для коханої людини",
+      "native_lang": "uk",
+      "target_lang": "ro",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика",
+          "subsections": []
+        },
+        {
+          "header": "## Романтичні привітання з днем народження",
+          "subsections": [
+            "### Класичні побажання"
+          ]
+        },
+        {
+          "header": "## Як написати ідеальне привітання",
+          "subsections": [
+            "### Структура:",
+            "### Приклад румунською:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4c612203-fe28-4eed-81b1-282e8f3fa157",
+      "title": "Cum Să Ceri în Căsătorie: Expresii pentru Logodnă în Maghiară",
+      "native_lang": "ro",
+      "target_lang": "hu",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Răspunsuri la Cerere",
+          "subsections": [
+            "### Răspunsuri Pozitive"
+          ]
+        },
+        {
+          "header": "## Vocabular pentru Inele",
+          "subsections": [
+            "### Pietre Prețioase",
+            "### Metale"
+          ]
+        },
+        {
+          "header": "## După Logodnă",
+          "subsections": [
+            "### Pașii Următori"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4c774421-1012-4ed5-b310-d546594e35eb",
+      "title": "Phrases hongroises sur la jalousie et la confiance en couple",
+      "native_lang": "fr",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions pour aborder la jalousie",
+          "subsections": [
+            "### Exprimer ses sentiments",
+            "### Demander des réassurances",
+            "### Construire la confiance",
+            "### Réaffirmer son engagement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4c79c561-ed55-4419-ac1d-48a9dece879b",
+      "title": "Переїзд разом: грецькою слова для спільного життя",
+      "native_lang": "uk",
+      "target_lang": "el",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика",
+          "subsections": []
+        },
+        {
+          "header": "## Обговорення переїзду",
+          "subsections": [
+            "### Як запропонувати спільне життя грецькою"
+          ]
+        },
+        {
+          "header": "## Пошук житла",
+          "subsections": [
+            "### Лексика для оренди/покупки",
+            "### Кімнати в домі"
+          ]
+        },
+        {
+          "header": "## Меблі та предмети побуту",
+          "subsections": [
+            "### У спальні",
+            "### На кухні",
+            "### У вітальні"
+          ]
+        },
+        {
+          "header": "## Розподіл обов'язків",
+          "subsections": [
+            "### Домашні справи грецькою",
+            "### Як обговорити обов'язки"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4c8b7aa5-9b6c-4050-8217-dd29cdef217c",
+      "title": "Spanish Forgiveness Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Asking for Forgiveness",
+          "subsections": [
+            "### Perdóname",
+            "### Te pido perdón",
+            "### ¿Puedes perdonarme?",
+            "### Sé que te hice daño y lo lamento profundamente",
+            "### No tengo excusas"
+          ]
+        },
+        {
+          "header": "## Expressing Regret",
+          "subsections": [
+            "### Me arrepiento mucho",
+            "### Si pudiera volver atrás, lo haría diferente",
+            "### Nunca quise hacerte daño"
+          ]
+        },
+        {
+          "header": "## Granting Forgiveness",
+          "subsections": [
+            "### Te perdono",
+            "### No te guardo rencor",
+            "### Ya está olvidado",
+            "### Todos cometemos errores"
+          ]
+        },
+        {
+          "header": "## Processing Forgiveness",
+          "subsections": [
+            "### Necesito tiempo para perdonar",
+            "### Quiero perdonarte, pero necesito tiempo",
+            "### Todavía me duele, pero te perdono"
+          ]
+        },
+        {
+          "header": "## Moving Forward",
+          "subsections": [
+            "### ¿Cómo podemos seguir adelante?",
+            "### Quiero que lo superemos juntos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4c91a97d-c8a2-4691-a1c4-0865bbf18f41",
+      "title": "Norvég lánykérési és eljegyzési kifejezések",
+      "native_lang": "hu",
+      "target_lang": "no",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### A nagy kérdés",
+            "### Az eljegyzés bejelentése"
+          ]
+        }
+      ]
+    }
+  ]
+}

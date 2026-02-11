@@ -1,0 +1,503 @@
+{
+  "batchId": "tier2a-slim-0073",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "5f51886c-b314-474c-a575-22714c3d080b",
+      "title": "Jak vyjádřit podporu a útěchu v norštině",
+      "native_lang": "cs",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní fráze podpory",
+          "subsections": [
+            "### Jeg er her for deg (Jaj er hér for daj)",
+            "### Alt blir bra (Alt blir bra)",
+            "### Jeg forstår deg (Jaj forstar daj)",
+            "### Du er ikke alene (Du er ike alene)"
+          ]
+        },
+        {
+          "header": "## Fráze útěchy",
+          "subsections": [
+            "### Jeg beklager så mye (Jaj beklager so myje)",
+            "### Vær sterk (Ver sterk)",
+            "### Jeg tror på deg (Jaj trór po daj)",
+            "### Du kan stole på meg (Du kan stole po maj)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5f5bb1f4-7b42-49d3-b699-d5c4f932aaec",
+      "title": "Rumänische Hochzeitsphrasen und romantische Glückwünsche",
+      "native_lang": "de",
+      "target_lang": "ro",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Die wichtigsten Hochzeitsphrasen",
+          "subsections": [
+            "### Der Heiratsantrag",
+            "### Das Ehegelübde",
+            "### Glückwünsche aussprechen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5f641523-eb65-4b6c-a7d8-6613e369cf7f",
+      "title": "Німецька лексика про вагітність та материнство",
+      "native_lang": "uk",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Основна лексика про вагітність",
+          "subsections": []
+        },
+        {
+          "header": "## Оголошення про вагітність німецькою",
+          "subsections": [
+            "### Як поділитися новиною"
+          ]
+        },
+        {
+          "header": "## Покупки для малюка",
+          "subsections": [
+            "### Що потрібно купити"
+          ]
+        },
+        {
+          "header": "## Пологи та лікарня",
+          "subsections": [
+            "### У пологовому будинку",
+            "### Після народження"
+          ]
+        },
+        {
+          "header": "## Перші місяці з малюком",
+          "subsections": [
+            "### Корисна лексика"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5f6f4b0c-5a2a-42c7-9af2-51cb50cf109d",
+      "title": "Szerelmes Levél Írása Románul – Romantikus Kifejezések és Tippek",
+      "native_lang": "hu",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Megszólítások",
+          "subsections": [
+            "### 1. Iubirea mea",
+            "### 2. Dragostea mea",
+            "### 3. Scumpule / Scumpo",
+            "### 4. Sufletul meu",
+            "### 5. Inima mea"
+          ]
+        },
+        {
+          "header": "## Kezdő Mondatok",
+          "subsections": [
+            "### 6. Îți scriu să-ți spun cât de mult te iubesc.",
+            "### 7. Cuvintele nu pot exprima ce simt pentru tine.",
+            "### 8. De când te-am cunoscut, viața mea are un nou sens.",
+            "### 9. Fiecare moment cu tine este o comoară.",
+            "### 10. Ești cel mai frumos lucru care mi s-a întâmplat."
+          ]
+        },
+        {
+          "header": "## Érzelmek Kifejezése",
+          "subsections": [
+            "### 11. Inima mea îți aparține.",
+            "### 12. Tu mă faci complet/ă.",
+            "### 13. Dragostea ta îmi dă putere.",
+            "### 14. Mă îndrăgostesc de tine mai mult în fiecare zi.",
+            "### 15. Ești sufletul meu pereche."
+          ]
+        },
+        {
+          "header": "## Lezárások",
+          "subsections": [
+            "### 16. Pe vecie al tău / a ta",
+            "### 17. Cu toată dragostea mea",
+            "### 18. Al tău / A ta pentru totdeauna",
+            "### 19. Până ne vom revedea",
+            "### 20. Te iubesc din tot sufletul"
+          ]
+        },
+        {
+          "header": "## Kulturális Tippek",
+          "subsections": [
+            "### Dor – A Román Vágyakozás",
+            "### Latin Szenvedély",
+            "### Erdélyi Kapcsolat"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5f700d7b-b024-469e-85ea-63a5ad179858",
+      "title": "Phrases polonaises sur le pardon en couple",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions pour demander pardon",
+          "subsections": [
+            "### S'excuser sincèrement",
+            "### Exprimer ses regrets",
+            "### S'engager à changer"
+          ]
+        },
+        {
+          "header": "## Expressions pour pardonner",
+          "subsections": [
+            "### Accorder le pardon",
+            "### Exprimer la réconciliation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5f859d69-eb52-46ac-91ab-7f01fd3dd3bd",
+      "title": "Угорські фрази для примирення після сварки",
+      "native_lang": "uk",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Щирі вибачення",
+          "subsections": [
+            "### \"Bocsánat\"",
+            "### \"Kérlek, bocsáss meg\"",
+            "### \"Tévedtem, nagyon sajnálom\""
+          ]
+        },
+        {
+          "header": "## Визнання провини",
+          "subsections": [
+            "### \"Ezt nem kellett volna mondanom\"",
+            "### \"Igazságtalan voltam veled\"",
+            "### \"Vállalom a teljes felelősséget\""
+          ]
+        },
+        {
+          "header": "## Вираження любові",
+          "subsections": [
+            "### \"Szeretlek és nem akarok veszekedni\"",
+            "### \"Te vagy nekem minden\"",
+            "### \"Utálom, amikor veszekedünk\""
+          ]
+        },
+        {
+          "header": "## Прохання та обіцянки",
+          "subsections": [
+            "### \"Meg tudsz nekem bocsátani?\"",
+            "### \"Megígérem, hogy jobb leszek\"",
+            "### \"Ez nem fog többé előfordulni\""
+          ]
+        },
+        {
+          "header": "## Відновлення зв'язку",
+          "subsections": [
+            "### \"Kezdhetjük elölről?\"",
+            "### \"Hagyjuk ezt magunk mögött\"",
+            "### \"Csak azt akarom, hogy jól legyünk\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5fa31675-f6f6-4820-8666-1b21d3b9eeb8",
+      "title": "Rusça Tartışma ve Anlaşmazlık İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Tartışma İfadeleri",
+          "subsections": [
+            "### 1. \"Мне больно, когда...\" (Mne bol'no, kogda...)",
+            "### 2. \"Можем поговорить об этом спокойно?\"",
+            "### 3. \"Я понимаю твою точку зрения, но...\"",
+            "### 4. \"Давай не будем кричать\"",
+            "### 5. \"Я не это имел/а в виду\"",
+            "### 6. \"Мне нужно немного времени для себя\"",
+            "### 7. \"Давай найдём компромисс\"",
+            "### 8. \"Я не хотел/а тебя обидеть\"",
+            "### 9. \"Можешь объяснить, что ты чувствуешь?\"",
+            "### 10. \"Думаю, нам обоим нужно успокоиться\"",
+            "### 11. \"Я люблю тебя, но я злюсь\"",
+            "### 12. \"Давай поговорим об этом позже\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5fb67e9a-27b7-42a9-b036-a7626567b7f2",
+      "title": "Frases en Griego para tu Primera Cita",
+      "native_lang": "es",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Romper el Hielo",
+          "subsections": [
+            "### \"Χαίρομαι πολύ που σε γνωρίζω επιτέλους\" (Cherome poli pou se gnorizo epitelous)",
+            "### \"Είσαι υπέροχος/η\" (Ise iperochos/i)",
+            "### \"Ανυπομονούσα για αυτή τη στιγμή\" (Anipomonousa gia afti ti stigmi)"
+          ]
+        },
+        {
+          "header": "## Frases para Conocerse",
+          "subsections": [
+            "### \"Πες μου για σένα\" (Pes mou gia sena)",
+            "### \"Τι σου αρέσει να κάνεις στον ελεύθερο χρόνο σου;\" (Ti sou aresi na kanis ston elefthero chrono sou?)"
+          ]
+        },
+        {
+          "header": "## Frases Románticas",
+          "subsections": [
+            "### \"Περνάω υπέροχα\" (Pernao iperocha)",
+            "### \"Έχεις ένα όμορφο χαμόγελο\" (Echis ena omorfo chamogelo)",
+            "### \"Νιώθω πολύ άνετα μαζί σου\" (Niotho poli aneta mazi sou)"
+          ]
+        },
+        {
+          "header": "## Frases para Terminar",
+          "subsections": [
+            "### \"Ήταν μια υπέροχη βραδιά\" (Itan mia iperohi vradia)",
+            "### \"Μπορούμε να ξαναβρεθούμε;\" (Boroume na xanavrethroume?)",
+            "### \"Πες μου όταν φτάσεις σπίτι\" (Pes mou otan ftasis spiti)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5fc2c369-2056-4ca1-a496-1850a5ca9936",
+      "title": "Tysk kælenavne og kærlige udtryk for par",
+      "native_lang": "da",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Kælenavne til forskellige lejligheder",
+          "subsections": [
+            "### I hverdagen",
+            "### Til romantiske øjeblikke",
+            "### Til at drille"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5fc5a958-1a23-4313-9899-77a92c42a0e3",
+      "title": "С днём рождения на венгерский: Пожелания для любимого человека",
+      "native_lang": "ru",
+      "target_lang": "hu",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Романтические пожелания на день рождения",
+          "subsections": [
+            "### Сладкие и простые",
+            "### Глубокие послания"
+          ]
+        },
+        {
+          "header": "## Фразы для открытки",
+          "subsections": [
+            "### Романтические послания",
+            "### Длинные послания"
+          ]
+        },
+        {
+          "header": "## Планирование сюрприза",
+          "subsections": [
+            "### Лексика для a meglepetés",
+            "### Фразы для сюрприза"
+          ]
+        },
+        {
+          "header": "## Сообщения для социальных сетей",
+          "subsections": [
+            "### Подписи для публикаций"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5fcb22d4-25d8-47f6-b156-3b754c695149",
+      "title": "Szerelmes Levél Írása Franciául – Romantikus Kifejezések és Tippek",
+      "native_lang": "hu",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Megszólítások",
+          "subsections": [
+            "### 1. Mon amour",
+            "### 2. Mon cœur",
+            "### 3. Ma chérie / Mon chéri",
+            "### 4. Mon trésor",
+            "### 5. Mon âme sœur"
+          ]
+        },
+        {
+          "header": "## Kezdő Mondatok",
+          "subsections": [
+            "### 6. Je t'écris pour te dire combien je t'aime.",
+            "### 7. Les mots me manquent pour exprimer ce que je ressens pour toi.",
+            "### 8. Depuis que je t'ai rencontré(e), ma vie a un nouveau sens.",
+            "### 9. Chaque moment avec toi est un trésor.",
+            "### 10. Tu es la plus belle chose qui me soit arrivée."
+          ]
+        },
+        {
+          "header": "## Érzelmek Kifejezése",
+          "subsections": [
+            "### 11. Mon cœur t'appartient.",
+            "### 12. Tu me rends complet/complète.",
+            "### 13. Ton amour me donne des ailes.",
+            "### 14. Je tombe amoureux/amoureuse de toi chaque jour.",
+            "### 15. Tu es tout pour moi."
+          ]
+        },
+        {
+          "header": "## Lezárások",
+          "subsections": [
+            "### 16. Éternellement tien/tienne",
+            "### 17. Avec tout mon amour",
+            "### 18. À toi pour toujours",
+            "### 19. En attendant de te revoir",
+            "### 20. Je t'aime de tout mon cœur"
+          ]
+        },
+        {
+          "header": "## Kulturális Tippek",
+          "subsections": [
+            "### Francia Elegancia",
+            "### Romantikus Irodalom",
+            "### Parfüm és Papír"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5fd4c23e-95e0-43f6-a4c6-c9c68e2e9c4c",
+      "title": "Frases en Francés para Discutir y Resolver Desacuerdos con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases Esenciales para Expresar Desacuerdo",
+          "subsections": [
+            "### \"Je ne suis pas d'accord\"",
+            "### \"On peut en parler calmement?\"",
+            "### \"Ça me fait de la peine quand tu...\"",
+            "### \"Ce n'est pas ce que je voulais dire\"",
+            "### \"J'ai besoin de temps pour réfléchir\"",
+            "### \"Essaie de comprendre mon point de vue\"",
+            "### \"Je ne veux pas me disputer\"",
+            "### \"Tu ne m'écoutes pas\"",
+            "### \"Trouvons un compromis\"",
+            "### \"C'est important pour moi\"",
+            "### \"On devrait tous les deux se calmer\"",
+            "### \"Je me sens blessé(e)\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5fd528ec-4905-44b6-931f-73cedda9d8a0",
+      "title": "50+ російських фраз для романтичного вечора",
+      "native_lang": "uk",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## У ресторані",
+          "subsections": [
+            "### Резервація",
+            "### Замовлення",
+            "### Напої",
+            "### Компліменти їжі"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5fd9ed41-503f-499c-bb20-11fdc42d8426",
+      "title": "Expresii despre Gelozie și Încredere în Cuplu în Rusă",
+      "native_lang": "ro",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii pentru a Discuta despre Gelozie",
+          "subsections": [
+            "### Recunoașterea Sentimentelor",
+            "### Construirea Încrederii",
+            "### Răspunsuri la Gelozie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5fe53120-2d18-4911-a4be-5249308f476a",
+      "title": "Шведські фрази для примирення після сварки",
+      "native_lang": "uk",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Щирі вибачення",
+          "subsections": [
+            "### \"Förlåt\"",
+            "### \"Förlåt mig, snälla\"",
+            "### \"Jag hade fel, jag är verkligen ledsen\""
+          ]
+        },
+        {
+          "header": "## Визнання провини",
+          "subsections": [
+            "### \"Jag borde inte ha sagt det\"",
+            "### \"Jag var orättvis mot dig\"",
+            "### \"Jag tar fullt ansvar\""
+          ]
+        },
+        {
+          "header": "## Вираження любові",
+          "subsections": [
+            "### \"Jag älskar dig och vill inte bråka\"",
+            "### \"Du betyder allt för mig\"",
+            "### \"Jag hatar när vi bråkar\""
+          ]
+        },
+        {
+          "header": "## Прохання та обіцянки",
+          "subsections": [
+            "### \"Kan du förlåta mig?\"",
+            "### \"Jag lovar att bli bättre\"",
+            "### \"Det kommer inte hända igen\""
+          ]
+        },
+        {
+          "header": "## Відновлення зв'язку",
+          "subsections": [
+            "### \"Kan vi börja om?\"",
+            "### \"Låt oss lägga detta bakom oss\""
+          ]
+        }
+      ]
+    }
+  ]
+}

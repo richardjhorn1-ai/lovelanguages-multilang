@@ -1,0 +1,513 @@
+{
+  "batchId": "tier2a-slim-0252",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "fa0fef29-e7fa-4812-8892-4389241237f3",
+      "title": "Vocabular pentru Bebeluși și Sarcină în Olandeză: Expresii Esențiale",
+      "native_lang": "ro",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Anunțarea Sarcinii",
+          "subsections": [
+            "### Expresii pentru Anunț",
+            "### Anunțuri Creative"
+          ]
+        },
+        {
+          "header": "## Vocabular Medical",
+          "subsections": [
+            "### Termeni pentru Consultații"
+          ]
+        },
+        {
+          "header": "## Evoluția Sarcinii",
+          "subsections": [
+            "### Primul Trimestru (Săptămânile 1-12)",
+            "### Al Doilea Trimestru (Săptămânile 13-26)",
+            "### Al Treilea Trimestru (Săptămânile 27-40)"
+          ]
+        },
+        {
+          "header": "## Pregătirea pentru Bebeluș",
+          "subsections": [
+            "### Obiecte Esențiale",
+            "### Camera Bebelușului"
+          ]
+        },
+        {
+          "header": "## Expresii de Felicitare",
+          "subsections": [
+            "### Pentru Anunț",
+            "### Pentru Naștere"
+          ]
+        },
+        {
+          "header": "## Tradiții și Superstiții",
+          "subsections": [
+            "### Superstiții Comune"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fa200a25-8916-4504-b110-113e5ae52a8c",
+      "title": "Dire \"Tu me manques\" en turc : L'özlem du cœur",
+      "native_lang": "fr",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Phrases essentielles",
+          "subsections": [
+            "### \"Seni özledim\"",
+            "### \"Seni çok özledim\"",
+            "### \"Seni özlemekten deliriyorum\""
+          ]
+        },
+        {
+          "header": "## Expressions passionnées",
+          "subsections": [
+            "### \"Sensiz her an bir yıl gibi\"",
+            "### \"Her dakika seni düşünüyorum\"",
+            "### \"Sensiz hiçbir şey aynı değil\""
+          ]
+        },
+        {
+          "header": "## Phrases quotidiennes",
+          "subsections": [
+            "### \"Keşke burada olsaydın\"",
+            "### \"Görüşene kadar günleri sayıyorum\"",
+            "### \"Seni görmek için sabırsızlanıyorum\""
+          ]
+        },
+        {
+          "header": "## Expressions romantiques",
+          "subsections": [
+            "### \"Mesafe duygularımı değiştirmiyor\"",
+            "### \"Kalbim hep seninle\"",
+            "### \"Sen benim evimsin\""
+          ]
+        },
+        {
+          "header": "## Pour les messages",
+          "subsections": [
+            "### \"Seni düşünüyorum\"",
+            "### \"Özledim canım\"",
+            "### \"Uzaktan öpüyorum\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fa244af7-bf38-4a7f-902e-e9a3bd8e5b0f",
+      "title": "Russische Trost- und Unterstützungsphrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlegende Unterstützung",
+          "subsections": [
+            "### \"Я рядом\" (Ya ryadom)",
+            "### \"Я всегда буду на твоей стороне\"",
+            "### \"Ты не один/одна в этом\"",
+            "### \"Что бы тебе ни понадобилось, я здесь\""
+          ]
+        },
+        {
+          "header": "## Bei Trauer",
+          "subsections": [
+            "### \"Мне очень жаль твою потерю\"",
+            "### \"Не торопись, возьми столько времени, сколько нужно\"",
+            "### \"Плакать — это нормально\""
+          ]
+        },
+        {
+          "header": "## Bei Stress und Sorgen",
+          "subsections": [
+            "### \"Мы справимся с этим вместе\"",
+            "### \"Шаг за шагом\"",
+            "### \"Это нормально — чувствовать себя плохо\"",
+            "### \"Это тоже пройдёт\"",
+            "### \"Не будь так строг/строга к себе\""
+          ]
+        },
+        {
+          "header": "## Ermutigung",
+          "subsections": [
+            "### \"Я верю в тебя\"",
+            "### \"Ты сильнее, чем думаешь\"",
+            "### \"Я очень горжусь тобой\"",
+            "### \"Ты справишься\""
+          ]
+        },
+        {
+          "header": "## Aktive Hilfe anbieten",
+          "subsections": [
+            "### \"Чем я могу помочь?\"",
+            "### \"Хочешь поговорить об этом?\"",
+            "### \"Я слушаю\""
+          ]
+        },
+        {
+          "header": "## Langfristige Unterstützung",
+          "subsections": [
+            "### \"Я всегда буду рядом, что бы ни случилось\"",
+            "### \"Мы вместе в этом\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fa371677-c597-4fc6-825e-03c537d1f663",
+      "title": "Russische Grüße und Verabschiedungen",
+      "native_lang": "de",
+      "target_lang": "ru",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Verabschiedungen",
+          "subsections": [
+            "### Informelle Verabschiedungen",
+            "### Formelle Verabschiedungen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fa546969-612a-41bd-b945-e9e41fe40f68",
+      "title": "Frases de Apoio Emocional em Italiano: Confortando Seu Parceiro",
+      "native_lang": "pt",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases de Apoio Básico",
+          "subsections": [
+            "### Demonstrando Presença",
+            "### Validando Sentimentos",
+            "### Oferecendo Conforto"
+          ]
+        },
+        {
+          "header": "## Para Situações Específicas",
+          "subsections": [
+            "### Perda e Luto",
+            "### Estresse"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fa5d3c87-4543-4b75-8758-6cd9a3ca430d",
+      "title": "Török lánykérési és eljegyzési kifejezések",
+      "native_lang": "hu",
+      "target_lang": "tr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### A nagy kérdés",
+            "### Az eljegyzés bejelentése"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fa5dbbc2-cb39-4b8c-b95a-22285c3e228a",
+      "title": "Французька весільна лексика: слова та фрази для особливого дня",
+      "native_lang": "uk",
+      "target_lang": "fr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Традиційні весільні фрази",
+          "subsections": [
+            "### Привітання молодят"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fa8a7aca-251e-4898-929e-956a0ecba69f",
+      "title": "Expresii de Flirt în Germană pentru Români",
+      "native_lang": "ro",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale de Flirt",
+          "subsections": [
+            "### Complimente Sincere",
+            "### Expresii Romantice",
+            "### Replici Jucăușe",
+            "### Declarații Profunde"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fa908ae4-feb4-449d-81ee-e3fd6de5771d",
+      "title": "Tschechische SMS-Sprache und Chat-Slang",
+      "native_lang": "de",
+      "target_lang": "cs",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Typische Chat-Gespräche",
+          "subsections": [
+            "### Morgen-Chat",
+            "### Tagsüber",
+            "### Abend-Chat"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faa1c29c-5597-4c7f-9468-1cd272db22fb",
+      "title": "Czeskie zwroty o zazdrości i zaufaniu dla par",
+      "native_lang": "pl",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Wyrażanie uczuć zazdrości",
+          "subsections": [
+            "### \"Cítím se trochu žárlivý/žárlivá, když...\"",
+            "### \"Cítím se nejistý/nejistá ohledně...\"",
+            "### \"Vadí mi, když ty...\""
+          ]
+        },
+        {
+          "header": "## Pytania budujące zaufanie",
+          "subsections": [
+            "### \"Můžeš mě uklidnit ohledně...?\"",
+            "### \"Kdo byla ta osoba, se kterou jsi mluvil/mluvila?\"",
+            "### \"Přeháním?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie potrzeby zaufania",
+          "subsections": [
+            "### \"Potřebuji, abys byl/byla upřímný/upřímná\"",
+            "### \"Důvěřuji ti, ale mám problém s...\""
+          ]
+        },
+        {
+          "header": "## Uspokajanie partnera",
+          "subsections": [
+            "### \"Nemáš se čeho bát\"",
+            "### \"Jsi pro mě jediný/jediná\"",
+            "### \"Nikdy bych neudělal/neudělala nic, co by tě zranilo\""
+          ]
+        },
+        {
+          "header": "## Budowanie zaufania",
+          "subsections": [
+            "### \"Buďme k sobě otevřenější\"",
+            "### \"Chci, abychom si navzájem plně důvěřovali\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fac88493-3b44-457e-983a-63638aebc3c0",
+      "title": "Niemieckie zwroty do godzenia się i pojednania dla par",
+      "native_lang": "pl",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Przepraszanie z serca",
+          "subsections": [
+            "### \"Es tut mir wirklich leid\"",
+            "### \"Verzeih mir bitte\"",
+            "### \"Ich habe mich geirrt\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie żalu",
+          "subsections": [
+            "### \"Ich fühle mich schlecht wegen dem, was passiert ist\"",
+            "### \"Ich wollte dich nicht verletzen\"",
+            "### \"Ich wünschte, ich könnte es ungeschehen machen\""
+          ]
+        },
+        {
+          "header": "## Otwieranie dialogu",
+          "subsections": [
+            "### \"Können wir darüber reden?\"",
+            "### \"Ich möchte verstehen, wie du dich fühlst\"",
+            "### \"Erzähl mir, was dich beschäftigt\""
+          ]
+        },
+        {
+          "header": "## Obietnice zmiany",
+          "subsections": [
+            "### \"Ich werde mich bessern\"",
+            "### \"Das wird nicht wieder vorkommen\"",
+            "### \"Ich arbeite an mir\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie miłości",
+          "subsections": [
+            "### \"Ich liebe dich über alles\"",
+            "### \"Du bedeutest mir alles\"",
+            "### \"Ich will dich nicht verlieren\""
+          ]
+        },
+        {
+          "header": "## Praktyczne pojednanie",
+          "subsections": [
+            "### \"Lass mich dich in den Arm nehmen\"",
+            "### \"Lass uns von vorne anfangen\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fadfdc80-334e-45ee-811f-36abad7eeb54",
+      "title": "Російська весільна лексика: слова та фрази для особливого дня",
+      "native_lang": "uk",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Традиційні весільні фрази",
+          "subsections": [
+            "### Привітання молодят"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "faf3f009-80e7-4365-a436-486d30da4efb",
+      "title": "Ukrainische Trost- und Unterstützungsphrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlegende Unterstützung",
+          "subsections": [
+            "### \"Я поруч\" (Ya poruch)",
+            "### \"Я завжди буду на твоєму боці\"",
+            "### \"Ти не сам/сама в цьому\"",
+            "### \"Що б тобі не знадобилося, я тут\""
+          ]
+        },
+        {
+          "header": "## Bei Trauer",
+          "subsections": [
+            "### \"Мені дуже шкода твоєї втрати\"",
+            "### \"Візьми стільки часу, скільки потрібно\"",
+            "### \"Плакати — це нормально\""
+          ]
+        },
+        {
+          "header": "## Bei Stress und Sorgen",
+          "subsections": [
+            "### \"Ми впораємося з цим разом\"",
+            "### \"Крок за кроком\"",
+            "### \"Це нормально — почуватися погано\"",
+            "### \"Це теж мине\"",
+            "### \"Не будь такий/така суворий/сувора до себе\""
+          ]
+        },
+        {
+          "header": "## Ermutigung",
+          "subsections": [
+            "### \"Я вірю в тебе\"",
+            "### \"Ти сильніший/сильніша, ніж думаєш\"",
+            "### \"Я дуже пишаюся тобою\"",
+            "### \"Ти впораєшся\""
+          ]
+        },
+        {
+          "header": "## Aktive Hilfe anbieten",
+          "subsections": [
+            "### \"Чим я можу допомогти?\"",
+            "### \"Хочеш поговорити про це?\"",
+            "### \"Я слухаю\""
+          ]
+        },
+        {
+          "header": "## Langfristige Unterstützung",
+          "subsections": [
+            "### \"Я завжди буду поруч, що б не сталося\"",
+            "### \"Ми разом у цьому\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fb23d823-ee33-4c3d-949e-f55eb1e6f057",
+      "title": "Norvég nászutas utazási kifejezések",
+      "native_lang": "hu",
+      "target_lang": "no",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Utazási alapkifejezések",
+            "### Romantikus helyzetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fb4342d5-8ab6-4816-a18c-6b1e3055e184",
+      "title": "Greek Jealousy & Trust Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressing Jealousy",
+          "subsections": [
+            "### Ζηλεύω (Zileúo)",
+            "### Ζηλεύω όταν... (Zileúo ótan)",
+            "### Δεν μου αρέσει αυτή η ζήλια που νιώθω (Den mou arési aftí i zília pou niotho)"
+          ]
+        },
+        {
+          "header": "## Seeking Reassurance",
+          "subsections": [
+            "### Με αγαπάς μόνο εμένα; (Me agapás móno eména?)",
+            "### Χρειάζομαι να με καθησυχάσεις (Hriázome na me kathisiháseis)"
+          ]
+        },
+        {
+          "header": "## Building Trust",
+          "subsections": [
+            "### Σε εμπιστεύομαι (Se embistévomai)",
+            "### Θέλω να σε εμπιστευτώ πλήρως (Thélo na se embisteútó plíros)",
+            "### Πώς μπορούμε να χτίσουμε περισσότερη εμπιστοσύνη; (Pós boroúme na htísoume perissóteri embistosíni?)"
+          ]
+        },
+        {
+          "header": "## Giving Reassurance",
+          "subsections": [
+            "### Έχω μάτια μόνο για σένα (Ého mátia móno gia séna)",
+            "### Είσαι ο μόνος/η μόνη για μένα (Íse o mónos/i móni gia ména)",
+            "### Δεν χρειάζεται να ανησυχείς (Den hriázete na anisihís)",
+            "### Η καρδιά μου σου ανήκει (I kardiá mou sou aníki)"
+          ]
+        },
+        {
+          "header": "## Setting Boundaries",
+          "subsections": [
+            "### Η ζήλια επηρεάζει τη σχέση μας (I zília epireázi ti shési mas)",
+            "### Χρειάζομαι τον προσωπικό μου χώρο (Hriázome ton prosopikó mou hóro)"
+          ]
+        }
+      ]
+    }
+  ]
+}

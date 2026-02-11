@@ -1,0 +1,445 @@
+{
+  "batchId": "tier2a-slim-0048",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "492b9a6c-2ebe-4770-bda5-dadb430005f5",
+      "title": "Gramática Checa Básica: Reglas Sencillas para Parejas que Aprenden Juntas",
+      "native_lang": "es",
+      "target_lang": "cs",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Los 5 Conceptos Fundamentales",
+          "subsections": [
+            "### 1. Los Artículos: ¡No existen!",
+            "### 2. Género de los sustantivos",
+            "### 3. Casos gramaticales (padele)",
+            "### 4. Verbos: Conjugación sencilla",
+            "### 5. Oración: SVO (flexible)"
+          ]
+        },
+        {
+          "header": "## Patrones Esenciales para la Vida Diaria",
+          "subsections": [
+            "### Presente de indicativo",
+            "### Preguntas simples"
+          ]
+        },
+        {
+          "header": "## Errores Comunes (y Cómo Evitarlos)",
+          "subsections": [
+            "### 1. Confundir los casos",
+            "### 2. Género de adjetivos",
+            "### 3. Olvidar la conjugación"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4945d008-edd1-4327-b276-054f699d976b",
+      "title": "Tschechische Liebesbrief-Phrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Anreden",
+          "subsections": [
+            "### \"Lásko moje...\"",
+            "### \"Miláčku...\"",
+            "### \"Srdíčko mé...\"",
+            "### \"Zlatíčko...\""
+          ]
+        },
+        {
+          "header": "## Einleitungen",
+          "subsections": [
+            "### \"Píšu ti, abych ti řekl/a, jak moc tě miluji\"",
+            "### \"Nejsou slova, která by vyjádřila, co k tobě cítím\""
+          ]
+        },
+        {
+          "header": "## Ausdrücke der Liebe",
+          "subsections": [
+            "### \"Jsi to nejlepší, co mě v životě potkalo\"",
+            "### \"Můj život se navždy změnil v den, kdy jsem tě potkal/a\"",
+            "### \"Zamilovávám se do tebe každý den víc a víc\"",
+            "### \"Rozjasňuješ mi život svou přítomností\"",
+            "### \"S tebou jsem poznal/a, co je pravá láska\""
+          ]
+        },
+        {
+          "header": "## Zukunftsversprechen",
+          "subsections": [
+            "### \"Slibuji, že tě budu milovat bezpodmínečně\"",
+            "### \"Chci s tebou strávit zbytek života\"",
+            "### \"Moje láska k tobě bude jen růst\""
+          ]
+        },
+        {
+          "header": "## Abschlüsse",
+          "subsections": [
+            "### \"Navždy tvůj/tvá...\"",
+            "### \"Se vší láskou...\"",
+            "### \"Miluji tě, dnes i navždy\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "496156c5-ade7-429a-8922-02ebd7c8ac61",
+      "title": "Nederlandske SMS- og chattefraser for par",
+      "native_lang": "no",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kulturelle tips",
+          "subsections": [
+            "### Nederlandsk direkthet",
+            "### Gezellig – det nederlandske kosebegrepet",
+            "### Kosenavn og diminutiver"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4969b847-de7f-43a6-822a-70075ba63380",
+      "title": "Rusça: Seni Seviyorum Demenin 12 Romantik Yolu",
+      "native_lang": "tr",
+      "target_lang": "ru",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## \"Seni Seviyorum\" Demenin Alternatif Yollari",
+          "subsections": [
+            "### Daha Derin Baglantilar Icin",
+            "### Gündelik ve Tatli Ifadeler"
+          ]
+        },
+        {
+          "header": "## Ciftler Icin Pratik Aktiviteler",
+          "subsections": [
+            "### Sabah Teyitleri",
+            "### Ask Notlari",
+            "### Yatmadan Önce Ifadeler"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "49b693d1-cbc9-46b8-8d05-5900f315bbaa",
+      "title": "Γερμανικές Φράσεις για Ζήλια & Εμπιστοσύνη: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για Ζήλια & Εμπιστοσύνη",
+          "subsections": [
+            "### Έκφραση Ανησυχίας",
+            "### Χτίσιμο Εμπιστοσύνης",
+            "### Αντιμετώπιση Ζήλιας",
+            "### Συζήτηση για Όρια"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "49c4df95-781c-4253-84d1-3f6f2e9058d8",
+      "title": "Turkse Zinnen voor Verzoening en Goedmaken",
+      "native_lang": "nl",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen voor verzoening",
+          "subsections": [
+            "### 1. \"Söylediklerim için özür dilerim\"",
+            "### 2. \"Yeniden başlayabilir miyiz?\"",
+            "### 3. \"Seni incitmek istememiştim\"",
+            "### 4. \"Sen benim her şeyimsin\"",
+            "### 5. \"Hatalıydım ve bunu kabul ediyorum\"",
+            "### 6. \"Seni her kavgadan çok seviyorum\"",
+            "### 7. \"Bunu telafi etmek için ne yapabilirim?\"",
+            "### 8. \"Seni affediyorum\"",
+            "### 9. \"Bunu geride bırakalım\"",
+            "### 10. \"Gel buraya, sarıl bana\"",
+            "### 11. \"Aşkımız bundan daha güçlü\"",
+            "### 12. \"Seni asla kaybetmek istemiyorum\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "49ca4a42-d6d3-4fd4-8b85-69ca001d4d8f",
+      "title": "Guten Morgen und Gute Nacht auf Rumänisch – Süße Phrasen für jeden Tag",
+      "native_lang": "de",
+      "target_lang": "ro",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Guten Morgen sagen",
+          "subsections": [
+            "### Klassische Morgengrüße",
+            "### Romantische Morgengrüße"
+          ]
+        },
+        {
+          "header": "## Gute Nacht sagen",
+          "subsections": [
+            "### Klassische Nachtgrüße",
+            "### Romantische Nachtgrüße"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "49d27c78-cb07-492f-b074-fa08a23c6a65",
+      "title": "French Flirting Phrases: The Language of Love and Seduction",
+      "native_lang": "en",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essential Flirting Phrases",
+          "subsections": [
+            "### Expressing Admiration",
+            "### Playful Attraction",
+            "### Deeper Romantic Expressions",
+            "### Sweet Nothings"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "49dda4dc-feff-45bd-9c8f-f199aa7a21a1",
+      "title": "Ungarische Hochzeitsphrasen und romantische Glückwünsche",
+      "native_lang": "de",
+      "target_lang": "hu",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Die wichtigsten Hochzeitsphrasen",
+          "subsections": [
+            "### Der Heiratsantrag",
+            "### Das Ehegelübde",
+            "### Glückwünsche aussprechen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "49fb564f-0c06-4789-b4b8-db58b9fe6fd9",
+      "title": "Italienische Trost- und Unterstützungsphrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlegende Unterstützung",
+          "subsections": [
+            "### \"Sono qui per te\"",
+            "### \"Sarò sempre al tuo fianco\"",
+            "### \"Non sei solo/sola in questo\"",
+            "### \"Qualsiasi cosa tu abbia bisogno, sono qui\""
+          ]
+        },
+        {
+          "header": "## Bei Trauer",
+          "subsections": [
+            "### \"Mi dispiace tanto per la tua perdita\"",
+            "### \"Prenditi tutto il tempo di cui hai bisogno\"",
+            "### \"Va bene piangere\"",
+            "### \"Ti sono vicino/vicina con tutto il cuore\""
+          ]
+        },
+        {
+          "header": "## Bei Stress und Sorgen",
+          "subsections": [
+            "### \"Troveremo una soluzione insieme\"",
+            "### \"Un passo alla volta\"",
+            "### \"Va bene non stare bene\"",
+            "### \"Anche questo passerà\"",
+            "### \"Non essere così duro/dura con te stesso/stessa\""
+          ]
+        },
+        {
+          "header": "## Ermutigung",
+          "subsections": [
+            "### \"Credo in te\"",
+            "### \"Sei più forte di quanto pensi\"",
+            "### \"Sono così fiero/fiera di te\"",
+            "### \"Ce la farai\"",
+            "### \"Ammiro la tua forza\""
+          ]
+        },
+        {
+          "header": "## Aktive Hilfe anbieten",
+          "subsections": [
+            "### \"Cosa posso fare per aiutarti?\"",
+            "### \"Vuoi parlarne?\"",
+            "### \"Ti ascolto\""
+          ]
+        },
+        {
+          "header": "## Langfristige Unterstützung",
+          "subsections": [
+            "### \"Sarò sempre qui, qualunque cosa accada\"",
+            "### \"Siamo in questo insieme\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4a0f2b04-5345-4a83-b051-4d8ad22de038",
+      "title": "Gírias e Abreviações em Tcheco para Mensagens",
+      "native_lang": "pt",
+      "target_lang": "cs",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Conversas de Exemplo",
+          "subsections": [
+            "### Pela Manhã",
+            "### Antes de Dormir"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4a121120-3446-4d20-bf90-c8aaa7f080b5",
+      "title": "Német kifejezések vitákhoz és nézeteltérésekhez",
+      "native_lang": "hu",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető kifejezések nézeteltérésekhez",
+          "subsections": [
+            "### 1. \"Ich fühle mich verletzt, wenn du...\"",
+            "### 2. \"Können wir ruhig darüber reden?\"",
+            "### 3. \"Ich verstehe deinen Standpunkt, aber...\"",
+            "### 4. \"Lass uns nicht schreien\"",
+            "### 5. \"Ich brauche Zeit zum Nachdenken\"",
+            "### 6. \"Das habe ich nicht gemeint\"",
+            "### 7. \"Kannst du dich in meine Lage versetzen?\"",
+            "### 8. \"Ich wollte dich nicht verletzen\"",
+            "### 9. \"Lass uns einen Kompromiss finden\"",
+            "### 10. \"Ich habe das Gefühl, dass du mir nicht zuhörst\"",
+            "### 11. \"Das geht mir zu weit\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4a272899-bd43-4d90-92f9-ffc4a910e60b",
+      "title": "Фразы для медового месяца на румынский: Романтическое путешествие",
+      "native_lang": "ru",
+      "target_lang": "ro",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## В аэропорту",
+          "subsections": [
+            "### Регистрация",
+            "### На борту"
+          ]
+        },
+        {
+          "header": "## В отеле",
+          "subsections": [
+            "### Регистрация",
+            "### Романтические просьбы"
+          ]
+        },
+        {
+          "header": "## На пляже",
+          "subsections": [
+            "### Пляжная лексика",
+            "### Романтические фразы на plajă"
+          ]
+        },
+        {
+          "header": "## Ужин вдвоём",
+          "subsections": [
+            "### В ресторане",
+            "### Романтические тосты"
+          ]
+        },
+        {
+          "header": "## Экскурсии и приключения",
+          "subsections": [
+            "### Планирование aventură",
+            "### Создание amintiri"
+          ]
+        },
+        {
+          "header": "## Романтические моменты",
+          "subsections": [
+            "### Фразы для особых моментов",
+            "### Закат"
+          ]
+        },
+        {
+          "header": "## Покупка сувениров",
+          "subsections": [
+            "### В магазине",
+            "### Идеи подарков"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4a285530-315c-4751-b5d3-158a8319bd21",
+      "title": "50+ holenderskich zdrobnień, które roztopią serce",
+      "native_lang": "pl",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Zdrobnienia na rozne okazje",
+          "subsections": [
+            "### Rano",
+            "### Wieczorem",
+            "### W trudnych chwilach"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Wybierz swoje zdrobnienie",
+            "### Cwiczenie 2: Nowe zdrobnienie codzieńnie",
+            "### Cwiczenie 3: Zdrobnienia od slodkosci"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4a34bde8-20b6-4988-9211-99e2fc13610c",
+      "title": "50+ Hollandaca Randevu İfadesi | Amsterdam Romantizmi",
+      "native_lang": "tr",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Restoranda",
+          "subsections": [
+            "### Giriş ve Oturma",
+            "### Menü ve Sipariş",
+            "### Yemek Kelimeleri",
+            "### Yemek Sırasında"
+          ]
+        },
+        {
+          "header": "## Evde Romantik Akşam",
+          "subsections": [
+            "### Yemek Hazırlama",
+            "### Ortam Yaratma"
+          ]
+        }
+      ]
+    }
+  ]
+}

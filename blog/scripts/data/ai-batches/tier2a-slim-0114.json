@@ -1,0 +1,473 @@
+{
+  "batchId": "tier2a-slim-0114",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "831f47cc-3aa6-4fb1-b088-33749a5d39ad",
+      "title": "Polské fráze Chybíš mi pro Čechy",
+      "native_lang": "cs",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní fráze",
+          "subsections": [
+            "### \"Tęsknię za tobą.\"",
+            "### \"Bardzo za tobą tęsknię.\"",
+            "### \"Chciałabym/Chciałbym, żebyś tu był/była.\"",
+            "### \"Nie mogę przestać o tobie myśleć.\""
+          ]
+        },
+        {
+          "header": "## Romantické fráze",
+          "subsections": [
+            "### \"Każda chwila bez ciebie to wieczność.\"",
+            "### \"Moje serce jest przy tobie.\"",
+            "### \"Liczę dni do naszego spotkania.\"",
+            "### \"Jesteś moją pierwszą myślą rano i ostatnią wieczorem.\""
+          ]
+        },
+        {
+          "header": "## Fráze pro zprávy",
+          "subsections": [
+            "### \"Myślę o tobie.\"",
+            "### \"Nie mogę się doczekać, aż cię przytulę.\"",
+            "### \"Odległość nie zmienia tego, co do ciebie czuję.\""
+          ]
+        },
+        {
+          "header": "## Povzbudivé fráze",
+          "subsections": [
+            "### \"Wkrótce będziemy razem.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "833b67d2-c02e-418e-b711-365598e40f63",
+      "title": "Italiensk Udtale for Begyndere: Sådan Lærer du at Udtale Kærlighed på Italiensk",
+      "native_lang": "da",
+      "target_lang": "it",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## De Grundlæggende Regler",
+          "subsections": [
+            "### 1. Vokaler: Fem Kærlige Lyde",
+            "### 2. Konsonanter: De Fleste Som Dansk",
+            "### 3. Trykket: Fald Ned ad Bakken"
+          ]
+        },
+        {
+          "header": "## De Særlige Italienske Lyde",
+          "subsections": [
+            "### GN-lyden",
+            "### GLI-lyden"
+          ]
+        },
+        {
+          "header": "## De Mest Almindelige Fejl",
+          "subsections": [
+            "### 1. Dansk R i stedet for Italiensk R",
+            "### 2. Stumme Vokaler",
+            "### 3. Forkert Tryk",
+            "### 4. Dansk SK-lyd"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "834a87e7-bea1-415f-b663-ee969d44984b",
+      "title": "Греческие фразы для примирения",
+      "native_lang": "ru",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Основные фразы для примирения",
+          "subsections": [
+            "### 1. Συγγνώμη, έκανα λάθος",
+            "### 2. Μπορούμε να τα βρούμε;",
+            "### 3. Δεν ήθελα να σε πληγώσω",
+            "### 4. Σ'αγαπώ περισσότερο από αυτόν τον καυγά",
+            "### 5. Ας ξεκινήσουμε από την αρχή",
+            "### 6. Σε συγχωρώ",
+            "### 7. Τι μπορώ να κάνω για να το διορθώσω;",
+            "### 8. Μου λείπει η ευτυχία μας",
+            "### 9. Ας μην πάμε για ύπνο θυμωμένοι",
+            "### 10. Ευχαριστώ που προσπαθείς να με καταλάβεις"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "83672243-f03a-4b42-90aa-b502e78618d2",
+      "title": "Guten Morgen und Gute Nacht auf Portugiesisch – Süße Phrasen für jeden Tag",
+      "native_lang": "de",
+      "target_lang": "pt",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Guten Morgen sagen",
+          "subsections": [
+            "### Klassische Morgengrüße",
+            "### Romantische Morgengrüße"
+          ]
+        },
+        {
+          "header": "## Gute Nacht sagen",
+          "subsections": [
+            "### Klassische Nachtgrüße",
+            "### Romantische Nachtgrüße"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "836e4f94-628b-4634-a064-c95e02fd2143",
+      "title": "Le futur en anglais : will vs going to",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Négations et questions",
+          "subsections": [
+            "### Formes négatives",
+            "### Formes interrogatives"
+          ]
+        },
+        {
+          "header": "## Exercices pour couples",
+          "subsections": [
+            "### Le jeu des prédictions",
+            "### La journée en futur",
+            "### Promesses mutuelles"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "839c5944-cdc7-4890-9c30-f4e2c40d90d3",
+      "title": "Spanish Birthday Wishes for Your Partner: Sweet Messages That Touch the Heart",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Sweet Birthday Messages",
+          "subsections": [
+            "### Simple Wishes",
+            "### Romantic Messages"
+          ]
+        },
+        {
+          "header": "## Birthday Card Messages",
+          "subsections": [
+            "### Heartfelt Short Messages",
+            "### Longer Romantic Messages"
+          ]
+        },
+        {
+          "header": "## Planning the Perfect Birthday",
+          "subsections": [
+            "### Party Vocabulary",
+            "### Surprise Party Phrases"
+          ]
+        },
+        {
+          "header": "## Birthday Milestone Messages",
+          "subsections": [
+            "### 30th Birthday",
+            "### 40th Birthday",
+            "### 50th Birthday"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "83a2d8c7-4b44-4599-ad04-03e4d891779c",
+      "title": "Svéd kifejezések vitákhoz és nézeteltérésekhez",
+      "native_lang": "hu",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető kifejezések nézeteltérésekhez",
+          "subsections": [
+            "### 1. \"Jag känner mig sårad när du...\"",
+            "### 2. \"Kan vi prata om det här lugnt?\"",
+            "### 3. \"Jag förstår din synpunkt, men...\"",
+            "### 4. \"Låt oss inte höja rösten\"",
+            "### 5. \"Jag behöver tid att tänka\"",
+            "### 6. \"Det var inte det jag menade\"",
+            "### 7. \"Kan du sätta dig i mitt ställe?\"",
+            "### 8. \"Jag ville inte såra dig\"",
+            "### 9. \"Låt oss hitta en kompromiss\"",
+            "### 10. \"Jag känner att du inte lyssnar på mig\"",
+            "### 11. \"Det här gör mig ledsen\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "83c3e533-2852-498c-ab89-4a2bf7a55bab",
+      "title": "Schwedische Ich-vermisse-dich-Sprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlegende Ausdrücke",
+          "subsections": [
+            "### \"Jag saknar dig\"",
+            "### \"Jag saknar dig så mycket\"",
+            "### \"Jag kan inte sluta tänka på dig\""
+          ]
+        },
+        {
+          "header": "## Emotionale Ausdrücke",
+          "subsections": [
+            "### \"Jag önskar att du var här\"",
+            "### \"Varje ögonblick utan dig känns som en evighet\"",
+            "### \"Mitt hjärta längtar efter dig\"",
+            "### \"Det känns tomt utan dig\""
+          ]
+        },
+        {
+          "header": "## Liebevolle Nachrichten",
+          "subsections": [
+            "### \"Jag räknar dagarna tills jag får se dig igen\"",
+            "### \"Du är min första tanke på morgonen och min sista på kvällen\"",
+            "### \"Avståndet betyder inget när någon betyder allt\""
+          ]
+        },
+        {
+          "header": "## Tröstende Worte",
+          "subsections": [
+            "### \"Snart är vi tillsammans igen\"",
+            "### \"Vår kärlek är starkare än vilket avstånd som helst\"",
+            "### \"Även när vi är långt ifrån varandra är du alltid i mitt hjärta\""
+          ]
+        },
+        {
+          "header": "## Für besondere Momente",
+          "subsections": [
+            "### \"Jag saknar ditt leende, ditt skratt, allt med dig\"",
+            "### \"Ingen kan jämföras med dig\"",
+            "### \"Du är oersättlig\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "83d76e2c-6985-41fc-b037-97a95aa05877",
+      "title": "Exprimer ses émotions en italien",
+      "native_lang": "fr",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Exercices pour couples",
+          "subsections": [
+            "### Le journal des émotions",
+            "### Le jeu des expressions",
+            "### Questions profondes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "83d9627e-2683-4c38-bf4b-b55372130960",
+      "title": "Deense Zinnen voor Verzoening en Goedmaken",
+      "native_lang": "nl",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen voor verzoening",
+          "subsections": [
+            "### 1. \"Undskyld for det, jeg sagde\"",
+            "### 2. \"Kan vi starte forfra?\"",
+            "### 3. \"Jeg ville ikke såre dig\"",
+            "### 4. \"Du betyder alt for mig\"",
+            "### 5. \"Jeg tog fejl, og det indrømmer jeg\"",
+            "### 6. \"Jeg elsker dig mere end nogen skænderi\"",
+            "### 7. \"Hvad kan jeg gøre for at gøre det godt igen?\"",
+            "### 8. \"Jeg tilgiver dig\"",
+            "### 9. \"Lad os lægge det her bag os\"",
+            "### 10. \"Kom herhen og kram mig\"",
+            "### 11. \"Vores kærlighed er stærkere end det her\"",
+            "### 12. \"Jeg vil aldrig miste dig\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "83da58c1-0c13-43b9-973f-f0916400b06a",
+      "title": "Rumænske Kærlighedsbreve for Danskere",
+      "native_lang": "da",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Indledninger",
+          "subsections": [
+            "### \"Dragostea mea\" / \"Viața mea\" / \"Inima mea\"",
+            "### \"Iubitul meu\" / \"Iubita mea\""
+          ]
+        },
+        {
+          "header": "## Udtryk for Kærlighed",
+          "subsections": [
+            "### \"Cuvintele nu pot exprima ceea ce simt pentru tine\"",
+            "### \"Ești cel mai frumos lucru care mi s-a întâmplat\"",
+            "### \"Fiecare zi cu tine este un dar\"",
+            "### \"Mă faci să vreau să fiu o persoană mai bună\""
+          ]
+        },
+        {
+          "header": "## Romantiske Erklæringer",
+          "subsections": [
+            "### \"Când mă uit în ochii tăi, îmi văd viitorul\"",
+            "### \"Zâmbetul tău îmi luminează lumea\"",
+            "### \"Mă îndrăgostesc de tine tot mai mult în fiecare zi\"",
+            "### \"Ești stânca mea, ancora mea, refugiul meu\""
+          ]
+        },
+        {
+          "header": "## Løfter",
+          "subsections": [
+            "### \"Promit să te iubesc la bine și la rău\"",
+            "### \"Vreau să îmbătrânesc alături de tine\"",
+            "### \"Iubirea mea pentru tine nu se va stinge niciodată\"",
+            "### \"Te aleg pe tine, azi și mereu\""
+          ]
+        },
+        {
+          "header": "## Afslutninger",
+          "subsections": [
+            "### \"Al tău/A ta pentru totdeauna\"",
+            "### \"Cu toată dragostea mea\"",
+            "### \"Veșnic al tău/a ta\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "83e2a85c-f77b-4adc-ba87-9bbca7ead750",
+      "title": "Angielskie zwroty o zazdrości i zaufaniu dla par",
+      "native_lang": "pl",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Wyrażanie uczuć zazdrości",
+          "subsections": [
+            "### \"I feel a bit jealous when...\"",
+            "### \"I'm feeling insecure about...\"",
+            "### \"It bothers me when you...\""
+          ]
+        },
+        {
+          "header": "## Pytania budujące zaufanie",
+          "subsections": [
+            "### \"Can you reassure me about...?\"",
+            "### \"Who was that person you were talking to?\"",
+            "### \"Am I overreacting?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie potrzeby zaufania",
+          "subsections": [
+            "### \"I need you to be honest with me\"",
+            "### \"I trust you, but I'm struggling with...\"",
+            "### \"Can we talk about boundaries?\""
+          ]
+        },
+        {
+          "header": "## Uspokajanie partnera",
+          "subsections": [
+            "### \"You have nothing to worry about\"",
+            "### \"You're the only one for me\"",
+            "### \"I would never do anything to hurt you\""
+          ]
+        },
+        {
+          "header": "## Budowanie zaufania",
+          "subsections": [
+            "### \"Let's be more open with each other\"",
+            "### \"I want us to trust each other completely\"",
+            "### \"What can I do to make you feel more secure?\""
+          ]
+        },
+        {
+          "header": "## Reagowanie na zazdrość partnera",
+          "subsections": [
+            "### \"I understand why you feel that way\"",
+            "### \"Let me explain what happened\"",
+            "### \"Your feelings matter to me\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "83f877ff-3ef5-4ff2-9150-4eab59aff603",
+      "title": "Frases para Conhecer os Sogros em Sueco: Guia Completo",
+      "native_lang": "pt",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para o Primeiro Encontro",
+          "subsections": [
+            "### Apresentação",
+            "### Elogiando",
+            "### Mostrando Interesse",
+            "### Expressando Gratidão"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8411f70b-9d8b-4576-9c72-68635b1d3ffc",
+      "title": "Polish Household Vocabulary for Home Life",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Common Household Items",
+          "subsections": [
+            "### Cleaning Supplies - Środki czystości",
+            "### Kitchen Essentials - Przybory kuchenne"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "841bdc58-f909-48e9-aa2e-aa55ce014cb7",
+      "title": "Greek Restaurant Vocabulary for Dining Out",
+      "native_lang": "en",
+      "target_lang": "el",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Reading the Menu",
+          "subsections": [
+            "### Menu Sections"
+          ]
+        },
+        {
+          "header": "## Quick Reference",
+          "subsections": [
+            "### Arriving",
+            "### Ordering",
+            "### During Meal",
+            "### Paying"
+          ]
+        }
+      ]
+    }
+  ]
+}

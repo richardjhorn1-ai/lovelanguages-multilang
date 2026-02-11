@@ -1,0 +1,370 @@
+{
+  "batchId": "tier2a-slim-0329",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "ee5d9de9-e416-48c2-980b-10248a2e63f3",
+      "title": "Знакомство с семьёй шведского партнёра",
+      "native_lang": "ru",
+      "target_lang": "sv",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Члены семьи",
+          "subsections": [
+            "### Основные слова",
+            "### Расширенная семья"
+          ]
+        },
+        {
+          "header": "## Шведские праздники и традиции",
+          "subsections": [
+            "### Ключевые праздники"
+          ]
+        },
+        {
+          "header": "## Практические ситуации",
+          "subsections": [
+            "### Сценарий 1: Прибытие",
+            "### Сценарий 2: За ужином",
+            "### Сценарий 3: Уход"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ee67c65b-d25e-46ce-a9b5-4b4f7136407a",
+      "title": "Die Familie deines Partners auf Englisch treffen: Wichtige Phrasen für einen tollen ersten Eindruck",
+      "native_lang": "de",
+      "target_lang": "en",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Spezielle Situationen",
+          "subsections": [
+            "### Beim Familienessen",
+            "### Fotos und Erinnerungen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eecb011e-a5c0-4bd9-aae8-3a056b120c08",
+      "title": "Spotkanie z portugalska rodzina partnera - niezbędne zwroty",
+      "native_lang": "pl",
+      "target_lang": "pt",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Przedstawienie",
+            "### Ćwiczenie 2: Komplementy",
+            "### Ćwiczenie 3: Przy stole"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ef29f144-f8c4-4ae1-80a7-272de74eacb2",
+      "title": "Turecki dla Par: 40+ Niezbędnych Zwrotow",
+      "native_lang": "pl",
+      "target_lang": "tr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Poranny rytual",
+            "### Wieczorny check-in",
+            "### SMS po turecku"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ef560f02-52c9-48f9-a5cd-b11037582155",
+      "title": "Lær Russisk Udtale for Par: Imponér Din Partner Med Perfekt Lyd",
+      "native_lang": "da",
+      "target_lang": "ru",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De 5 Grundregler for Russisk Udtale",
+          "subsections": [
+            "### 1. Bløde Konsonanter vs. Hårde Konsonanter",
+            "### 2. Vokalreduktion",
+            "### 3. Palatalisering (Blødhed)",
+            "### 4. Stressmønstre",
+            "### 5. Rullede R'er"
+          ]
+        },
+        {
+          "header": "## De 5 Værste Udtalefejl (Og Sådan Undgår Du Dem)",
+          "subsections": [
+            "### 1. **\"ы\" vs \"и\"**",
+            "### 2. **\"ш\" vs \"щ\"**",
+            "### 3. **Stress på forkert stavelse**",
+            "### 4. **Hårde konsonanter blødgjort**",
+            "### 5. **\"Р\" som dansk R**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ef6cf49c-2812-47b8-a909-538ff36c841d",
+      "title": "50+ francouzských mazlivých jmen a něžných oslovení pro páry",
+      "native_lang": "cs",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Jak používat francouzská oslovení",
+          "subsections": [
+            "### Tipy pro začátečníky:",
+            "### Časté chyby:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "efa623ee-aab8-404a-bf4e-095b2c8272cb",
+      "title": "Polaco Médico: Vocabulario de Salud",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Describir Síntomas",
+          "subsections": [
+            "### Dolores y Molestias",
+            "### Partes del Cuerpo",
+            "### Síntomas Comunes"
+          ]
+        },
+        {
+          "header": "## En la Consulta Médica",
+          "subsections": [
+            "### Frases Útiles para el Paciente",
+            "### Frases del Médico"
+          ]
+        },
+        {
+          "header": "## Emergencias",
+          "subsections": [
+            "### Números de Emergencia en Polonia",
+            "### Frases de Emergencia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "effbe621-3d1a-4f29-83c7-749047427003",
+      "title": "50 Romanianske Sætninger til Hjertet: Romantiske Frasen for Hvert Øjeblik",
+      "native_lang": "da",
+      "target_lang": "ro",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Sådan Bruger Du Disse Fraser med Din Partner",
+          "subsections": [
+            "### Øv Jer Sammen",
+            "### Kulturelle Faldgruber at Undgå"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f00dfd5e-d4f4-4b6e-835a-524e79ec7c75",
+      "title": "¿Es Difícil Aprender Inglés?",
+      "native_lang": "es",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Ventajas que Tienes como Hispanohablante",
+          "subsections": [
+            "### 1. El Mismo Alfabeto",
+            "### 2. Miles de Palabras Similares (Cognados)",
+            "### 3. Gramática Más Simple en Muchos Aspectos"
+          ]
+        },
+        {
+          "header": "## Estrategias Efectivas para Hispanohablantes",
+          "subsections": [
+            "### 1. Aprovecha los Cognados",
+            "### 2. Piensa en Inglés, No Traduzcas",
+            "### 3. Inmersión con Tu Pareja",
+            "### 4. No Temas los Errores"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f02574ec-3572-423e-a4c5-0bc763d1dd02",
+      "title": "Guia de Pronúncia do Russo para Falantes de Português",
+      "native_lang": "pt",
+      "target_lang": "ru",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Vogais Especiais",
+          "subsections": [
+            "### Ы (y duro)",
+            "### Э (e aberto)",
+            "### Ю (yu)",
+            "### Я (ya)"
+          ]
+        },
+        {
+          "header": "## O Sinal Suave (Ь) e Duro (Ъ)",
+          "subsections": [
+            "### Sinal Suave (Ь)",
+            "### Sinal Duro (Ъ)"
+          ]
+        },
+        {
+          "header": "## Regras Importantes de Pronúncia",
+          "subsections": [
+            "### Redução de Vogais",
+            "### Consoantes Sonoras e Surdas"
+          ]
+        },
+        {
+          "header": "## Frases para Praticar",
+          "subsections": [
+            "### Nível Iniciante",
+            "### Nível Intermediário"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f10ab3e7-b729-41aa-94df-454b6fab00d5",
+      "title": "60+ İngilizce Randevu İfadesi | Romantik Akşam Rehberi",
+      "native_lang": "tr",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Restoranda",
+          "subsections": [
+            "### Giris ve Oturma",
+            "### Menu ve Siparis",
+            "### Yemek Turleri"
+          ]
+        },
+        {
+          "header": "## Romantik Sofra Basi Sohbeti",
+          "subsections": [
+            "### Iltifatlar",
+            "### Sohbet Baslaticlari"
+          ]
+        },
+        {
+          "header": "## Aksam Sonrasi",
+          "subsections": [
+            "### Yuruyus Teklifi",
+            "### Romantik Kapanış"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f288f72a-5629-480a-80ec-6cfa7c3b41e8",
+      "title": "50+ Fransizca Sevgi Sözcügü: Romantizm Icin",
+      "native_lang": "tr",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Bölgesel Farkliliklar",
+          "subsections": [
+            "### Fransa",
+            "### Kanada (Quebec)",
+            "### Belcika"
+          ]
+        },
+        {
+          "header": "## Özel Anlara Özel Sevgi Sözcükleri",
+          "subsections": [
+            "### Romantik Anlar",
+            "### Oyuncu/Saka Tarzinda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f2972b46-d36e-4276-93de-8f755a129bae",
+      "title": "Guida alla Pronuncia Polacca per Coppie Italiane: Dalla A alla Ż",
+      "native_lang": "it",
+      "target_lang": "pl",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Esercizi di Pronuncia per Coppie",
+          "subsections": [
+            "### Esercizio 1: Lo \"sz\" e \"cz\" Game",
+            "### Esercizio 2: La Sillaba Stressata"
+          ]
+        },
+        {
+          "header": "## Gli Errori Più Comuni degli Italiani (e Come Evitarli)",
+          "subsections": [
+            "### 1. La \"Ł\" Misteriosa",
+            "### 2. Il \"R\" Rotico",
+            "### 3. Le Vocali Finali"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f30555b9-a34d-46b2-8943-430130c88f8c",
+      "title": "Spotkanie z rodziną Twojego niemieckiego partnera: Niezbędne zwroty dla par",
+      "native_lang": "pl",
+      "target_lang": "de",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Pierwsze spotkanie: scenariusz krok po kroku",
+          "subsections": [
+            "### Moment wejścia do domu",
+            "### Rozmowa przy stole"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f3adc314-2487-49a2-bbe4-06847be16ba3",
+      "title": "İsveççe Aşk Sözleri: Kalbini Eritecek 50+ İfade",
+      "native_lang": "tr",
+      "target_lang": "sv",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Özel Günler için Ifadeler",
+          "subsections": [
+            "### Yıldönümü",
+            "### Sevgililer Günü",
+            "### Doğum Günü"
+          ]
+        },
+        {
+          "header": "## Günlük Romantik Jestler",
+          "subsections": [
+            "### Kısa Mesajlar için",
+            "### Romantik Notlar için"
+          ]
+        },
+        {
+          "header": "## Pratik: Günlük Romantik Rutininizi Oluşturun",
+          "subsections": [
+            "### Sabah Rutini",
+            "### Gün İçi",
+            "### Akşam Rutini"
+          ]
+        }
+      ]
+    }
+  ]
+}

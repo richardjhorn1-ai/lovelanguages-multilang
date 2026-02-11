@@ -1,0 +1,460 @@
+{
+  "batchId": "tier2a-slim-0199",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "ce0e71fa-09ba-4eaa-83f7-78f8f47f93d0",
+      "title": "İspanyolca Dilbilgisi Temelleri: Çiftler İçin Basit ve Romantik Rehber",
+      "native_lang": "tr",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## En Yaygın Hatalar: Kaçının!",
+          "subsections": [
+            "### 1. Ser vs. Estar İkisi de \"-de olmak\"",
+            "### 2. Cinsiyet Uyumu",
+            "### 3. \"It\" Kullanmayın!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ce28cc1e-e663-458a-9867-646f5e395250",
+      "title": "Expresii în Rusă pentru Reconciliere și Împăcare în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii pentru Cererea Scuzelor",
+          "subsections": [
+            "### Scuze Sincere",
+            "### Exprimarea Regretului Profund"
+          ]
+        },
+        {
+          "header": "## Expresii pentru Împăcare",
+          "subsections": [
+            "### Inițierea Dialogului",
+            "### Declarații de Dragoste",
+            "### Reconstruirea Conexiunii"
+          ]
+        },
+        {
+          "header": "## Gesturi de Reconciliere",
+          "subsections": [
+            "### Intensitatea Emoțională",
+            "### Florile",
+            "### Mâncarea și Băutura",
+            "### Poezia și Muzica"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ce34986d-c6fc-4b1e-91a7-e3c80b55500a",
+      "title": "Spanska flörtfraser för par – Förför din partner på spanska",
+      "native_lang": "sv",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassiska komplimanger",
+          "subsections": [
+            "### \"Eres la persona más hermosa que he conocido\"",
+            "### \"Me encantas\"",
+            "### \"Tienes una sonrisa preciosa\""
+          ]
+        },
+        {
+          "header": "## Passionerade uttryck",
+          "subsections": [
+            "### \"Me vuelves loco/loca\"",
+            "### \"No puedo dejar de pensar en ti\"",
+            "### \"Eres mi todo\""
+          ]
+        },
+        {
+          "header": "## Lekfulla fraser",
+          "subsections": [
+            "### \"¿Crees en el amor a primera vista, o tengo que pasar otra vez?\"",
+            "### \"Si la belleza fuera tiempo, tú serías la eternidad\"",
+            "### \"¿Tienes un mapa? Me perdí en tus ojos\""
+          ]
+        },
+        {
+          "header": "## Djupt romantiska fraser",
+          "subsections": [
+            "### \"Cada momento contigo es un regalo\"",
+            "### \"Eres el amor de mi vida\"",
+            "### \"Contigo, todo es mejor\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ce3c2d51-03f0-48b9-ba90-ae32477443ba",
+      "title": "50+ нідерландських фраз для романтичного вечора",
+      "native_lang": "uk",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## В ресторані",
+          "subsections": [
+            "### Резервація столика",
+            "### Замовлення",
+            "### Корисні фрази"
+          ]
+        },
+        {
+          "header": "## На прогулянці",
+          "subsections": [
+            "### Запрошення",
+            "### Під час прогулянки"
+          ]
+        },
+        {
+          "header": "## В барі / кафе",
+          "subsections": [
+            "### Замовлення напоїв",
+            "### Типові голландські напої",
+            "### Тости"
+          ]
+        },
+        {
+          "header": "## Завершення вечора",
+          "subsections": [
+            "### Компліменти",
+            "### Плани на майбутнє"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ce5f74b3-d1a2-44a0-ad0c-b83bb0155b97",
+      "title": "Schwedische Liebesbrief-Phrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Anreden",
+          "subsections": [
+            "### \"Min älskade...\"",
+            "### \"Mitt hjärta...\"",
+            "### \"Min kärlek...\"",
+            "### \"Älskling...\""
+          ]
+        },
+        {
+          "header": "## Einleitungen",
+          "subsections": [
+            "### \"Jag skriver för att berätta hur mycket jag älskar dig\"",
+            "### \"Det finns inga ord som kan beskriva vad jag känner för dig\""
+          ]
+        },
+        {
+          "header": "## Ausdrücke der Liebe",
+          "subsections": [
+            "### \"Du är det bästa som någonsin har hänt mig\"",
+            "### \"Mitt liv förändrades för alltid den dag jag träffade dig\"",
+            "### \"Jag blir mer förälskad i dig för varje dag\"",
+            "### \"Du lyser upp mitt liv med din närvaro\"",
+            "### \"Med dig har jag upptäckt vad sann kärlek är\""
+          ]
+        },
+        {
+          "header": "## Zukunftsversprechen",
+          "subsections": [
+            "### \"Jag lovar att älska dig villkorslöst\"",
+            "### \"Jag vill tillbringa resten av mitt liv med dig\"",
+            "### \"Min kärlek till dig kommer bara att växa\""
+          ]
+        },
+        {
+          "header": "## Abschlüsse",
+          "subsections": [
+            "### \"Din för alltid...\"",
+            "### \"Med all min kärlek...\"",
+            "### \"Jag älskar dig, idag och för alltid\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ce723cb2-23c8-4bf3-93ef-e56fb0560ae1",
+      "title": "Νορβηγικές Φράσεις Συγχώρεσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις Συγχώρεσης",
+          "subsections": [
+            "### Αίτηση Συγχώρεσης",
+            "### Έκφραση Μετάνοιας",
+            "### Προσφορά Συγχώρεσης",
+            "### Χρόνος για Θεραπεία"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ce7cd93c-1b1e-4a0f-ba7c-8781af429225",
+      "title": "Spanyol évfordulós kívánságok és üzenetek",
+      "native_lang": "hu",
+      "target_lang": "es",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Évfordulós köszöntések",
+            "### Hosszabb üzenetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ce804eab-1f7c-489c-a19e-609efbd90f10",
+      "title": "Deense Zinnen over Jaloezie en Vertrouwen",
+      "native_lang": "nl",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Jeg føler mig usikker, når...\"",
+            "### 2. \"Jeg stoler fuldstændigt på dig\"",
+            "### 3. \"Kan du berolige mig?\"",
+            "### 4. \"Jeg er ikke jaloux, bare bekymret\"",
+            "### 5. \"Hvem var den person, du talte med?\"",
+            "### 6. \"Jeg har brug for at vide, at jeg kan stole på dig\"",
+            "### 7. \"Du har intet at bekymre dig om\"",
+            "### 8. \"Jeg har kun øjne for dig\"",
+            "### 9. \"Lad os tale om, hvad der bekymrer dig\"",
+            "### 10. \"Jeg ville aldrig gøre noget for at såre dig\"",
+            "### 11. \"Din fortid definerer ikke os\"",
+            "### 12. \"Jeg arbejder på mine usikkerheder\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ce944678-469a-4eb1-9594-8d485bf66984",
+      "title": "Polske fraser til forsoning og genopbygning af tillid",
+      "native_lang": "da",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser til forsoning",
+          "subsections": [
+            "### At undskylde oprigtigt",
+            "### At genopbygge forbindelsen",
+            "### At tilbyde forsoning",
+            "### At acceptere en undskyldning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ce9f02a9-8f2b-4216-b164-f0794e2580b0",
+      "title": "Czeska wymowa dla początkujących: Jak mówić do partnera, żeby zrozumiał",
+      "native_lang": "pl",
+      "target_lang": "cs",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Praktyczne ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Zakochane samogłoski",
+            "### Ćwiczenie 2: Romantyczne spółgłoski"
+          ]
+        },
+        {
+          "header": "## Najczęstsze błędy Polaków",
+          "subsections": [
+            "### Błąd 1: Polskie \"si\" zamiast czeskiego \"s\"",
+            "### Błąd 2: Polskie \"ć\" zamiast czeskiego \"č\"",
+            "### Błąd 3: Zapominanie o długości samogłosek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cea6baaf-d1b7-4ace-a0da-33ae650d0ca4",
+      "title": "Russische Zinnen voor Verzoening en Goedmaken",
+      "native_lang": "nl",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen voor verzoening",
+          "subsections": [
+            "### 1. \"Прости меня за то, что я сказал(а)\" (Prosti menya za to, chto ya skazal(a))",
+            "### 2. \"Можем начать всё сначала?\" (Mozhem nachat' vsyo snachala?)",
+            "### 3. \"Я не хотел(а) тебя обидеть\" (Ya ne khotel(a) tebya obidet')",
+            "### 4. \"Ты для меня всё\" (Ty dlya menya vsyo)",
+            "### 5. \"Я был(а) неправ(а) и признаю это\" (Ya byl(a) neprav(a) i priznayu eto)",
+            "### 6. \"Я люблю тебя больше любой ссоры\" (Ya lyublyu tebya bol'she lyuboy ssory)",
+            "### 7. \"Что я могу сделать, чтобы всё исправить?\" (Chto ya mogu sdelat', chtoby vsyo ispravit'?)",
+            "### 8. \"Я тебя прощаю\" (Ya tebya proshchayu)",
+            "### 9. \"Давай оставим это позади\" (Davay ostavim eto pozadi)",
+            "### 10. \"Иди ко мне, обними меня\" (Idi ko mne, obnimi menya)",
+            "### 11. \"Наша любовь сильнее этого\" (Nasha lyubov' sil'neye etogo)",
+            "### 12. \"Я никогда не хочу тебя потерять\" (Ya nikogda ne khochu tebya poteryat')"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ceab7e55-9113-4985-82fb-a6fcadf46a9d",
+      "title": "Як зробити пропозицію чеською: фрази для заручин",
+      "native_lang": "uk",
+      "target_lang": "cs",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Підготовка до пропозиції",
+          "subsections": [
+            "### Чек-лист:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cec194e7-68b9-484c-9c82-2db50d0706c7",
+      "title": "Angol kifejezések vitákhoz és nézeteltérésekhez",
+      "native_lang": "hu",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető kifejezések nézeteltérésekhez",
+          "subsections": [
+            "### 1. \"I feel hurt when you...\"",
+            "### 2. \"Can we talk about this calmly?\"",
+            "### 3. \"I understand your point, but...\"",
+            "### 4. \"Let's not raise our voices\"",
+            "### 5. \"I need some space to think\"",
+            "### 6. \"That's not what I meant\"",
+            "### 7. \"Can you see it from my perspective?\"",
+            "### 8. \"I didn't mean to upset you\"",
+            "### 9. \"Let's find a compromise\"",
+            "### 10. \"I feel like you're not listening to me\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ced0e064-aa42-4103-bc24-5817657cddb6",
+      "title": "Польська фрази для медового місяця та романтичних подорожей",
+      "native_lang": "uk",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна туристична лексика",
+          "subsections": []
+        },
+        {
+          "header": "## У готелі",
+          "subsections": [
+            "### Реєстрація",
+            "### Корисні фрази для готелю"
+          ]
+        },
+        {
+          "header": "## У ресторані",
+          "subsections": [
+            "### Романтична вечеря",
+            "### Тости для двох"
+          ]
+        },
+        {
+          "header": "## Пляжний відпочинок",
+          "subsections": [
+            "### Лексика для пляжу",
+            "### Романтичні пляжні активності"
+          ]
+        },
+        {
+          "header": "## Екскурсії для пар",
+          "subsections": [
+            "### Романтичні активності",
+            "### Корисні фрази"
+          ]
+        },
+        {
+          "header": "## Фотографії на пам'ять",
+          "subsections": [
+            "### Як попросити зробити фото"
+          ]
+        },
+        {
+          "header": "## Покупки сувенірів",
+          "subsections": [
+            "### Подарунки для рідних"
+          ]
+        },
+        {
+          "header": "## Проблеми в подорожі",
+          "subsections": [
+            "### Якщо щось пішло не так"
+          ]
+        },
+        {
+          "header": "## Повернення додому",
+          "subsections": [
+            "### Прощання з відпусткою"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ced5a7f2-a31b-4004-ad5c-445f3856c1a4",
+      "title": "50 Russian Compliments for Your Partner",
+      "native_lang": "en",
+      "target_lang": "ru",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Complimenting Appearance",
+          "subsections": [
+            "### For Women",
+            "### For Men"
+          ]
+        },
+        {
+          "header": "## Complimenting Specific Features",
+          "subsections": [
+            "### Eyes",
+            "### Smile",
+            "### Hair",
+            "### Voice"
+          ]
+        },
+        {
+          "header": "## Personality Compliments",
+          "subsections": [
+            "### Kindness and Character",
+            "### Intelligence and Talent",
+            "### Humor and Fun"
+          ]
+        },
+        {
+          "header": "## Quick Reference: Essential Compliments",
+          "subsections": [
+            "### For Her",
+            "### For Him",
+            "### Universal"
+          ]
+        }
+      ]
+    }
+  ]
+}

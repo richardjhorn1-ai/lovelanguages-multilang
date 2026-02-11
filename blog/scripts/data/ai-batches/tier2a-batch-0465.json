@@ -1,0 +1,126 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0465",
+  "articles": [
+    {
+      "id": "864c819d-5e35-4c0d-aeca-0dec1ff17ce3",
+      "title": "Conversazioni Quotidiane in Polacco per Coppie",
+      "native_lang": "it",
+      "target_lang": "pl",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nLa vera padronanza di una lingua si vede nelle conversazioni quotidiane. Questa guida ti offre dialoghi realistici che puoi usare con il tuo partner polacco, dalla mattina alla sera.\n\n## Conversazione Mattutina\n\n<PhraseOfDay\n  word=\"Dzień dobry, słoneczko. Jak się spało?\"\n  translation=\"Buongiorno, tesoro. Come hai dormito?\"\n  pronunciation=\"dzien DO-bri swo-NETCH-ko yak shie SPA-wo\"\n  context=\"Il modo perfetto per iniziare la giornata insieme.\"\n/>\n\n### Dialogo: Sveglia\n\n**A:** Dzień dobry, kochanie. *(Buongiorno, amore.)*\n\n**B:** Mmm, dzień dobry. Która godzina? *(Mmm, buongiorno. Che ora è?)*\n\n**A:** Siódma. Czas wstawać! *(Le sette. È ora di alzarsi!)*\n\n**B:** Jeszcze pięć minut, proszę... *(Ancora cinque minuti, per favore...)*\n\n**A:** Dobrze, ale zrobię ci kawę. *(Va bene, ma ti faccio un caffè.)*\n\n**B:** Jesteś najlepszy/najlepsza! *(Sei il/la migliore!)*\n\n<VocabCard\n  word=\"Zrobić ci kawę?\"\n  translation=\"Ti faccio un caffè?\"\n  pronunciation=\"ZRO-bich tsi KA-ve\"\n  example=\"Kochanie, zrobić ci kawę na śniadanie?\"\n/>\n\n<VocabCard\n  word=\"Co chcesz na śniadanie?\"\n  translation=\"Cosa vuoi per colazione?\"\n  pronunciation=\"tso htsesh na SHNIA-da-nie\"\n  example=\"Mamy jajka i chleb. Co chcesz na śniadanie?\"\n/>\n\n## Conversazione Prima di Uscire\n\n### Dialogo: Vai al Lavoro\n\n**A:** Kochanie, wychodzę! *(Amore, esco!)*\n\n**B:** Czekaj, masz wszystko? Klucze? Portfel? *(Aspetta, hai tutto? Chiavi? Portafoglio?)*\n\n**A:** Tak, mam. Dziękuję! *(Sì, ho tutto. Grazie!)*\n\n**B:** O której wrócisz? *(A che ora torni?)*\n\n**A:** Około szóstej. *(Verso le sei.)*\n\n**B:** Dobrze. Kocham cię! *(Bene. Ti amo!)*\n\n**A:** Ja ciebie też. Pa! *(Anch'io. Ciao!)*\n\n<VocabCard\n  word=\"Nie zapomnij o...\"\n  translation=\"Non dimenticare...\"\n  pronunciation=\"nie za-POM-nii o\"\n  example=\"Nie zapomnij o spotkaniu o trzeciej!\"\n/>\n\n<VocabCard\n  word=\"Zadzwonię później\"\n  translation=\"Ti chiamo dopo\"\n  pronunciation=\"za-DZVO-nie PUUZH-niei\"\n  example=\"Muszę lecieć. Zadzwonię później!\"\n/>\n\n<CultureTip title=\"L'Addio Polacco\" flag=\"🇵🇱\">\nIn Polonia, è comune che le coppie si dicano \"kocham cię\" quando si salutano al mattino. Non è considerato eccessivo - è semplicemente affettuoso!\n</CultureTip>\n\n## Messaggi Durante il Giorno\n\n### Dialogo: Messaggi di Testo\n\n**A:** Hej, jak ci idzie? *(Ehi, come va?)*\n\n**B:** Trochę stresująco, ale dam radę. A u ciebie? *(Un po' stressante, ma ce la faccio. È tu?)*\n\n**A:** W porządku. Tęsknię za tobą ❤️ *(Tutto ok. Mi manchi)*\n\n**B:** Ja też! Nie mogę się doczekać wieczoru. *(Anch'io! Non vedo l'ora di stasera.)*\n\n**A:** Co powiesz na pizzę na kolację? *(Che dici di una pizza per cena?)*\n\n**B:** Świetny pomysł! 🍕 *(Ottima idea!)*\n\n<VocabCard\n  word=\"Co robisz?\"\n  translation=\"Cosa fai?\"\n  pronunciation=\"tso RO-bish\"\n  example=\"Hej, co robisz? Masz chwilę?\"\n/>\n\n<VocabCard\n  word=\"Myślę o tobie\"\n  translation=\"Penso a te\"\n  pronunciation=\"MISH-le o TO-bie\"\n  example=\"Spotkanie jest nudne. Myślę o tobie.\"\n/>\n\n## Conversazione Serale: Tornare a Casa\n\n### Dialogo: Bentornato/a\n\n**A:** Już jestem! *(Sono a casa!)*\n\n**B:** Cześć, kochanie! Jak było w pracy? *(Ciao, amore! Com'è andata al lavoro?)*\n\n**A:** Długi dzień, ale teraz jestem z tobą. *(Giornata lunga, ma ora sono con te.)*\n\n**B:** Biedactwo. Chodź, usiądź. Kolacja prawie gotowa. *(Poverino/a. Vieni, siediti. La cena è quasi pronta.)*\n\n**A:** Pachnie pysznie! Co gotujesz? *(Profuma deliziosamente! Cosa cucini?)*\n\n**B:** Twoją ulubioną zupę. *(La tua zuppa preferita.)*\n\n**A:** Jesteś cudowny/cudowna! *(Sei meraviglioso/a!)*\n\n<VocabCard\n  word=\"Jak ci minął dzień?\"\n  translation=\"Com'è andata la giornata?\"\n  pronunciation=\"yak tsi MI-now dzien\"\n  example=\"Cześć, kochanie! Jak ci minął dzień?\"\n/>\n\n<VocabCard\n  word=\"Jestem zmęczony/zmęczona\"\n  translation=\"Sono stanco/a\"\n  pronunciation=\"YES-tem zme-TSHO-ni/zme-TSHO-na\"\n  example=\"Przepraszam, jestem bardzo zmęczona dzisiaj.\"\n/>\n\n## Conversazione: Fare Piani Insieme\n\n### Dialogo: Programmare il Weekend\n\n**A:** Co chcesz robić w weekend? *(Cosa vuoi fare nel weekend?)*\n\n**B:** Może pójdziemy do kina? *(Magari andiamo al cinema?)*\n\n**A:** Dobry pomysł! Co chcesz obejrzeć? *(Buona idea! Cosa vuoi vedere?)*\n\n**B:** Jest nowy film z... jak mu tam? *(C'è un nuovo film con... come si chiama?)*\n\n**A:** Sprawdzę w internecie. *(Controllo su internet.)*\n\n**B:** A może najpierw kolacja gdzieś na mieście? *(E magari prima cena fuori?)*\n\n**A:** Jeszcze lepiej! *(Ancora meglio!)*\n\n<VocabCard\n  word=\"Masz jakieś plany?\"\n  translation=\"Hai dei programmi?\"\n  pronunciation=\"mash YA-kiesh PLA-ni\"\n  example=\"Masz jakieś plany na sobotę?\"\n/>\n\n<VocabCard\n  word=\"Może pójdziemy...\"\n  translation=\"Magari andiamo...\"\n  pronunciation=\"MO-zhe pooi-DZIE-mi\"\n  example=\"Może pójdziemy na spacer do parku?\"\n/>\n\n<CultureTip title=\"Tempo Libero in Polonia\" flag=\"🇵🇱\">\nI polacchi amano passare il tempo libero con i propri cari. Passeggiate nei parchi, cinema, ristoranti e visite ai familiari sono attività comuni per le coppie nei weekend.\n</CultureTip>\n\n## Conversazione: Questioni Domestiche\n\n### Dialogo: Faccende di Casa\n\n**A:** Kochanie, zrobisz dzisiaj zakupy? *(Amore, fai tu la spesa oggi?)*\n\n**B:** Jasne. Co kupić? *(Certo. Cosa devo comprare?)*\n\n**A:** Mleko, chleb, jajka... i coś na kolację. *(Latte, pane, uova... e qualcosa per cena.)*\n\n**B:** Może kurczaka? *(Magari pollo?)*\n\n**A:** Świetnie. I nie zapomnij o owocach! *(Perfetto. È non dimenticare la frutta!)*\n\n**B:** Dobrze. Coś jeszcze? *(Ok. Altro?)*\n\n**A:** Chyba tyle. Dziękuję, skarbie! *(Credo basti. Grazie, tesoro!)*\n\n<VocabCard\n  word=\"Trzeba zrobić pranie\"\n  translation=\"Bisogna fare il bucato\"\n  pronunciation=\"TSHE-ba ZRO-bich PRA-nie\"\n  example=\"Kochanie, trzeba zrobić pranie. Masz brudne ubrania?\"\n/>\n\n<VocabCard\n  word=\"Mogę ci pomóc?\"\n  translation=\"Posso aiutarti?\"\n  pronunciation=\"MO-ge tsi po-MOOTS\"\n  example=\"Widzę, że dużo gotujesz. Mogę ci pomóc?\"\n/>\n\n## Conversazione: Serata Rilassante\n\n### Dialogo: Guardare un Film Insieme\n\n**A:** Co obejrzymy dzisiaj? *(Cosa guardiamo oggi?)*\n\n**B:** Może jakąś komedię? *(Magari una commedia?)*\n\n**A:** Dobra idea. Zrobię popcorn! *(Buona idea. Faccio i popcorn!)*\n\n**B:** Ja wezmę koc. Jest zimno. *(Io prendo la coperta. Fa freddo.)*\n\n**A:** Przyjdź tutaj, ogrzeję cię. *(Vieni qui, ti scaldo io.)*\n\n**B:** Najlepszy plan na wieczór! *(Il piano migliore per la serata!)*\n\n<VocabCard\n  word=\"Chodź tu do mnie\"\n  translation=\"Vieni qui da me\"\n  pronunciation=\"hodch tu do mnie\"\n  example=\"Chodź tu do mnie. Przytulmy się.\"\n/>\n\n<VocabCard\n  word=\"Chcesz herbaty?\"\n  translation=\"Vuoi un tè?\"\n  pronunciation=\"htsesh her-BA-ti\"\n  example=\"Jest zimno. Chcesz herbaty albo gorącej czekolady?\"\n/>\n\n## Conversazione: Prima di Dormire\n\n### Dialogo: Buonanotte\n\n**A:** Która godzina? *(Che ora è?)*\n\n**B:** Już prawie północ. *(Quasi mezzanotte ormai.)*\n\n**A:** Powinniśmy iść spać. *(Dovremmo andare a dormire.)*\n\n**B:** Masz rację. Jestem padnięty/padnięta. *(Hai ragione. Sono a pezzi.)*\n\n**A:** Dobranoc, kochanie. Kocham cię. *(Buonanotte, amore. Ti amo.)*\n\n**B:** Ja ciebie też. Śpij dobrze. *(Anch'io. Dormi bene.)*\n\n**A:** Śnij o mnie! *(Sogna di me!)*\n\n**B:** Zawsze! *(Sempre!)*\n\n<VocabCard\n  word=\"Dobranoc, słodkich snów\"\n  translation=\"Buonanotte, sogni d'oro\"\n  pronunciation=\"do-BRA-nots SWOD-kih snuf\"\n  example=\"Dobranoc, kochanie. Słodkich snów!\"\n/>\n\n<VocabCard\n  word=\"Śpij dobrze, moja miłości\"\n  translation=\"Dormi bene, amore mio\"\n  pronunciation=\"shpii DOB-zhe MO-ya mi-WOSH-tsi\"\n  example=\"È molto romantico da dire prima di dormire.\"\n/>\n\n## Scheda di Riferimento Rapido\n\n| Momento | Frase Polacca | Traduzione |\n|---------|---------------|------------|\n| Sveglia | Dzień dobry, kochanie | Buongiorno, amore |\n| Colazione | Co chcesz na śniadanie? | Cosa vuoi per colazione? |\n| Uscire | Kocham cię, pa! | Ti amo, ciao! |\n| Messaggi | Tęsknię za tobą | Mi manchi |\n| Tornare | Jak ci minął dzień? | Com'è andata? |\n| Cena | Kolacja gotowa! | Cena pronta! |\n| Sera | Co obejrzymy? | Cosa guardiamo? |\n| Dormire | Dobranoc, słodkich snów | Buonanotte, sogni d'oro |\n\n<CultureTip title=\"La Comunicazione nelle Coppie Polacche\" flag=\"🇵🇱\">\nLe coppie polacche tendono a comunicare molto durante il giorno, anche con brevi messaggi. Un \"myślę o tobie\" (penso a te) a metà giornata è sempre apprezzato!\n</CultureTip>\n\n\nLa chiave per padroneggiare queste conversazioni è la pratica quotidiana. Prova a usare almeno 2-3 di queste frasi ogni giorno con il tuo partner!\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Conversazione Prima di Uscire",
+              "## Messaggi Durante il Giorno",
+              "## Conversazione Serale: Tornare a Casa",
+              "## Conversazione: Fare Piani Insieme",
+              "## Conversazione: Questioni Domestiche",
+              "## Conversazione: Serata Rilassante",
+              "## Conversazione: Prima di Dormire"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "86637db2-9e7e-4133-a25f-a8d73cbf7526",
+      "title": "Écrire une lettre d'amour en espagnol : La passion en mots",
+      "native_lang": "fr",
+      "target_lang": "es",
+      "category": "communication",
+      "content": "## L'art de la carta de amor en espagnol\n\nL'espagnol, langue de passion, offre des expressions d'une intensité romantique unique pour les lettres d'amour. Voici comment déclarer vos sentiments avec toute la chaleur latine.\n\n## Formules d'ouverture\n\n### \"Mi amor\" / \"Amor mío\"\n**Prononciation :** mi a-MOR / a-MOR MI-o\n\n**Signification :** Mon amour\n\n### \"Mi vida\"\n**Prononciation :** mi BI-da\n\n**Signification :** Ma vie\n\n### \"Mi cielo\"\n**Prononciation :** mi SIÉ-lo\n\n**Signification :** Mon ciel\n\n## Exprimer l'amour profond\n\n### \"Eres lo mejor que me ha pasado en la vida\"\n**Prononciation :** É-réss lo mé-HOR ké mé a pa-SA-do én la BI-da\n\n**Signification :** Tu es la meilleure chose qui me soit arrivée dans la vie\n\n### \"Mi corazón te pertenece para siempre\"\n**Prononciation :** mi ko-ra-SON té pér-té-NÉ-sé PA-ra SIÉM-pré\n\n**Signification :** Mon cœur t'appartient pour toujours\n\n### \"Cada día que pasa te amo más\"\n**Prononciation :** KA-da DI-a ké PA-sa té A-mo MASS\n\n**Signification :** Chaque jour qui passe je t'aime davantage\n\n## Expressions poétiques\n\n### \"Eres la poesía que mi alma buscaba\"\n**Prononciation :** É-réss la po-é-SI-a ké mi AL-ma bous-KA-ba\n\n**Signification :** Tu es la poésie que mon âme cherchait\n\n### \"En tus ojos encontré mi hogar\"\n**Prononciation :** én touss O-hoss én-kon-TRÉ mi o-GAR\n\n**Signification :** Dans tes yeux j'ai trouvé mon foyer\n\n### \"Eres mi presente y todos mis futuros\"\n**Prononciation :** É-réss mi pré-SÉN-té i TO-doss miss fou-TOU-ross\n\n**Signification :** Tu es mon présent et tous mes futurs\n\n## Décrire ce que l'autre apporte\n\n### \"Contigo descubrí lo que es amar de verdad\"\n**Prononciation :** kon-TI-go déss-kou-BRI lo ké éss a-MAR dé vér-DAD\n\n**Signification :** Avec toi j'ai découvert ce qu'est aimer vraiment\n\n### \"Me haces querer ser mejor persona\"\n**Prononciation :** mé A-séss ké-RÉR sér mé-HOR pér-SO-na\n\n**Signification :** Tu me fais vouloir être une meilleure personne\n\n### \"Tu amor me transforma\"\n**Prononciation :** tou a-MOR mé trans-FOR-ma\n\n**Signification :** Ton amour me transforme\n\n## Engagements et promesses\n\n### \"Prometo amarte en los buenos y malos momentos\"\n**Prononciation :** pro-MÉ-to a-MAR-té én loss BOUÉ-noss i MA-loss mo-MÉN-toss\n\n**Signification :** Je promets de t'aimer dans les bons et les mauvais moments\n\n### \"Estaré a tu lado pase lo que pase\"\n**Prononciation :** éss-ta-RÉ a tou LA-do PA-sé lo ké PA-sé\n\n**Signification :** Je serai à tes côtés quoi qu'il arrive\n\n### \"Mi amor por ti es infinito y eterno\"\n**Prononciation :** mi a-MOR por ti éss in-fi-NI-to i é-TÉR-no\n\n**Signification :** Mon amour pour toi est infini et éternel\n\n## Formules de conclusion\n\n### \"Tuyo/Tuya para siempre\"\n**Prononciation :** TOU-yo/TOU-ya PA-ra SIÉM-pré\n\n**Signification :** À toi pour toujours\n\n### \"Con todo mi amor y mi alma\"\n**Prononciation :** kon TO-do mi a-MOR i mi AL-ma\n\n**Signification :** Avec tout mon amour et mon âme\n\n### \"Te amo hoy, mañana y siempre\"\n**Prononciation :** té A-mo oy ma-NYA-na i SIÉM-pré\n\n**Signification :** Je t'aime aujourd'hui, demain et toujours\n\n## Différences régionales\n\n**En Espagne :** Ton peut-être plus formel dans certaines expressions\n**En Amérique latine :** Plus de diminutifs affectueux (amorcito, vidita)\n**Au Mexique :** \"Mi reina/mi rey\" (ma reine/mon roi) très courant\n**En Argentine :** \"Mi cielo\" très utilisé\n\n## Conseils culturels\n\n**Intensité bienvenue :** Les hispanophones apprécient l'expressivité émotionnelle.\n\n**Poésie appréciée :** Citer des poètes (Neruda, García Lorca) impressionne.\n\n**Manuscrite :** Une lettre écrite à la main a une valeur immense.\n\n## Conclusion\n\nUne lettre d'amour en espagnol porte la passion et la chaleur de la culture hispanique. Ces expressions vous permettront de toucher profondément le cœur de votre partenaire. El amor verdadero se expresa con palabras del corazón. (Le vrai amour s'exprime avec des mots du cœur.)",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Formules d'ouverture",
+              "## Exprimer l'amour profond",
+              "## Expressions poétiques",
+              "## Décrire ce que l'autre apporte",
+              "## Engagements et promesses",
+              "## Formules de conclusion"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "867caf0f-74d0-40db-acda-a2cc94e2c190",
+      "title": "Norvég esküvői kifejezések: Szókincs a nagy napra",
+      "native_lang": "hu",
+      "target_lang": "no",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nA párod esküvői napja az életetek egyik legfontosabb pillanata. Ha norvégul tudsz kifejezni magad a szertartás, a köszöntők és az ünneplés során, ez a különleges nap még emlékezetesebbé válik. Akár norvég nyelvterületen házasodtok, akár tisztelegni szeretnél a párod öröksége előtt, ezek a kifejezések segítenek.\n\nHa még az alapokat tanulod, nézd meg a [Hogyan mondd: Szeretlek norvégul](/learn/hu/no/norwegian-how-to-say-i-love-you) útmutatónkat.\n\n<PhraseOfDay\n  word=\"Gratulerer!\"\n  translation=\"Gratulálok!\"\n  pronunciation=\"ɡrɑtʉˈleːrər\"\n  context=\"Az esküvői köszöntés alapja.\"\n/>\n\n## Alapvető szókincs\n\nKezdjük az alapvető esküvői szókinccsel, amivel minden norvég esküvőn találkozni fogsz:\n\n<VocabCard\n  word=\"bryllup\"\n  translation=\"esküvő\"\n  pronunciation=\"ˈbrʏlːʉp\"\n  example=\"Bryllupet var vakkert.\"\n/>\n\n| Norvég | Magyar | Használat |\n|---|---|---|\n| brud | menyasszony | A nő |\n| brudgom | vőlegény | A férfi |\n| løfter | fogadalmak | Esküvői ígéretek |\n| seremoni | szertartás | A hivatalos rész |\n| mottakelse | fogadás | Az ünneplés |\n| skål | köszöntő | Pohárköszöntő |\n\n<CultureTip flag=\"🌍\" title=\"Norvég kulturális tippek\">\nA norvég esküvők gyakran tartalmaznak egyedi kulturális hagyományokat, amelyeket generációk óta őriznek. Ezen szokások megértése segít, hogy teljes mértékben részt vegyél az ünneplésen és tiszteletet mutass a párod öröksége iránt.\n</CultureTip>\n\n## Hasznos kifejezések\n\n### Gratulációk és jókívánságok\n\nAmikor gratulálsz a boldog párnak, ezek a kifejezések segítenek:\n\n- **Gratulerer!** - Gratulálok!\n- **Sok boldogságot kívánok!** - Hagyományos jókívánság\n- **Legyetek boldogok!** - Egyszerű, szívből jövő kívánság\n\n### Köszöntők\nA pohárköszöntő fontos része az esküvőnek:\n\n- **Emeljen poharat!** - Felhívás a köszöntőre\n- **A boldog párra!** - Egyszerű köszöntő\n- **A szerelemre!** - Romantikus köszöntő\n\n<VocabCard\n  word=\"bryllupsreise\"\n  translation=\"nászút\"\n  pronunciation=\"ˈbrʏlːʉpsˌrɑjsə\"\n  example=\"De dro på bryllupsreise.\"\n/>\n\n## Gyakorlati helyzetek\n\n| Helyzet | Mit mondj |\n|---|---|\n| Gratulálás | Használd a köszöntési kifejezéseket |\n| Köszöntő | Emeld a poharat és mondj pár szép szót |\n| Táncra kérés | Kérd fel a párod udvariasan |\n| Búcsúzás | Kívánj sok boldogságot |\n\n<CultureTip flag=\"💡\" title=\"Hasznos tipp\">\nGyakorold a kiejtést a nagy nap előtt. Nem baj, ha nem beszélsz tökéletesen - a párod és családja értékelni fogja az erőfeszítést.\n</CultureTip>\n\n## Összefoglaló táblázat\n\n| Helyzet | Norvég kifejezés |\n|---|---|\n| Gratuláció | Gratulerer! |\n| Az esemény | bryllup |\n| A nő | brud |\n| A férfi | brudgom |\n| Esküvői ígéretek | løfter |\n\n## További tanulás\n\nHa tovább szeretnéd fejleszteni a norvég nyelvtudásod, nézd meg ezeket a cikkeinket:\n\n- [Norvég romantikus kifejezések minden alkalomra](/learn/hu/no/norwegian-romantic-phrases-for-every-occasion)\n- [Hogyan mondd: Szeretlek norvégul](/learn/hu/no/norwegian-how-to-say-i-love-you)\n- [Norvég alapvető kifejezések pároknak](/learn/hu/no/norwegian-essential-phrases-for-couples)\n\nEzek a források segítenek elmélyíteni a tudásod és magabiztosabbá válni a norvég nyelvben.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Hasznos kifejezések"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "869e26c0-f2cb-4032-a696-3def3e858fa6",
+      "title": "Украинские фразы для первого свидания",
+      "native_lang": "ru",
+      "target_lang": "uk",
+      "category": "communication",
+      "content": "Украинская культура ценит тепло и искренность. Эти фразы помогут вам на первом свидании.\n\n## Начало разговора\n\n### 1. Ти чудово виглядаєш сьогодні\n**Произношение:** Ты чудо́во выгляда́еш сьогодні\n\n**Перевод:** Ты прекрасно выглядишь сегодня\n\n### 2. Я дуже чекав/чекала на цю зустріч\n**Произношение:** Я ду́жэ чэка́в/чэка́ла на цю зустри́ч\n\n**Перевод:** Я очень ждал/ждала этой встречи\n\n### 3. Розкажи мені про себе\n**Произношение:** Розкажы́ мэни́ про сэ́бэ\n\n**Перевод:** Расскажи мне о себе\n\n### 4. Чим ти любиш займатися у вільний час?\n**Произношение:** Чым ты лю́быш займа́тыся у ви́льный час?\n\n**Перевод:** Чем тебе нравится заниматься в свободное время?\n\n### 5. У тебе чудова посмішка\n**Произношение:** У тэ́бэ чудо́ва посми́шка\n\n**Перевод:** У тебя прекрасная улыбка\n\n### 6. Я хотів би/хотіла б тебе знову побачити\n**Произношение:** Я хоти́в бы/хоти́ла б тэбэ́ зно́ву поба́чыты\n\n**Перевод:** Я хотел бы/хотела бы увидеть тебя снова\n\n### 7. Мені дуже сподобався цей вечір\n**Произношение:** Мэни́ ду́жэ сподоба́вся цэй вэ́чір\n\n**Перевод:** Мне очень понравился этот вечер\n\n### 8. Чи можу я зателефонувати тобі завтра?\n**Произношение:** Чи мо́жу я затэлэфонува́ты тоби́ за́втра?\n\n**Перевод:** Можно я позвоню тебе завтра?\n\n## Культурные особенности\n\nУкраинцы ценят искренность и тепло. Цветы — прекрасный жест (нечётное количество). Будьте галантны и внимательны. Обращения «коханий/кохана» — для близких отношений.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 199,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Начало разговора"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "86b7adb7-8e56-417f-91ea-cf8951f03c89",
+      "title": "Jak napsat milostný dopis v rumunštině",
+      "native_lang": "cs",
+      "target_lang": "ro",
+      "category": "communication",
+      "content": "Rumunština má latinské kořeny a unikátní koncept dor. Rumunské milostné dopisy jsou poetické a emotivní.\n\n## Úvodní oslovení\n\n### \"Iubirea mea\"\n**Překlad:** Lásko moje\n\n---\n\n### \"Dragul meu / Draga mea\"\n**Překlad:** Drahý můj / Drahá moje\n\n---\n\n### \"Sufletul meu\"\n**Překlad:** Duše moje\n\n---\n\n## Úvodní věty\n\n### \"Îți scriu această scrisoare pentru a-ți spune cât de mult însemni pentru mine.\"\n**Překlad:** Píšu ti tento dopis, abych ti řekl/a, jak moc pro mě znamenáš.\n\n---\n\n### \"Cuvintele nu pot exprima ceea ce simt pentru tine.\"\n**Překlad:** Slova nemohou vyjádřit, co k tobě cítím.\n\n---\n\n## Vyjádření lásky\n\n### \"Ești cel mai bun lucru care mi s-a întâmplat vreodată.\"\n**Překlad:** Jsi to nejlepší, co se mi kdy přihodilo.\n\n---\n\n### \"Te iubesc mai mult în fiecare zi.\"\n**Překlad:** Miluji tě každý den víc.\n\n---\n\n### \"Inima mea îți aparține, acum și pentru totdeauna.\"\n**Překlad:** Moje srdce ti patří, teď a navždy.\n\n---\n\n### \"Cu tine am găsit fericirea adevărată.\"\n**Překlad:** S tebou jsem našel/našla pravé štěstí.\n\n---\n\n## Ocenění partnera\n\n### \"Admir puterea, bunătatea și sufletul tău frumos.\"\n**Překlad:** Obdivuji tvou sílu, laskavost a krásnou duši.\n\n---\n\n### \"Mulțumesc că mă iubești așa cum sunt.\"\n**Překlad:** Děkuji, že mě miluješ takového/takovou, jaký/á jsem.\n\n---\n\n## Závěrečné fráze\n\n### \"A ta/al tău pentru totdeauna\"\n**Překlad:** Navždy tvoje/tvůj\n\n---\n\n### \"Cu toată dragostea mea\"\n**Překlad:** Se vší mou láskou\n\n---\n\n## Kulturní tipy\n\n**Dor:** Unikátní rumunský koncept hluboké nostalgické touhy.\n\n**Poezie:** Mihai Eminescu je slavný rumunský básník milostné poezie.\n\nS těmito frázemi napíšete poetický rumunský milostný dopis.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 241,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Úvodní oslovení",
+              "## Úvodní věty",
+              "## Vyjádření lásky",
+              "## Ocenění partnera",
+              "## Závěrečné fráze"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

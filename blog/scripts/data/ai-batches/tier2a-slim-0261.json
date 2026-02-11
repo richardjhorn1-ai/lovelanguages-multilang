@@ -1,0 +1,406 @@
+{
+  "batchId": "tier2a-slim-0261",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "46665621-7b55-482d-8a25-5297af473168",
+      "title": "Italian Grammar Basics for Beginners",
+      "native_lang": "en",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Common Grammar Mistakes to Avoid",
+          "subsections": [
+            "### 1. Forgetting Adjective Agreement",
+            "### 2. Adjective Placement",
+            "### 3. Tu vs. Lei",
+            "### 4. Double Negatives Are Correct!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "46a901c3-ab0e-4c48-bf8d-f8c1d095a675",
+      "title": "Englische Grammatik Grundlagen für Anfänger",
+      "native_lang": "de",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Häufige Grammatikfehler Vermeiden",
+          "subsections": [
+            "### 1. Das Subjekt Vergessen",
+            "### 2. Das -s in der Dritten Person Vergessen",
+            "### 3. Do/Does bei Fragen Verwechseln",
+            "### 4. Die Adjektivstellung"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "56d25416-b94a-4c1e-b658-e2ce1ddb6b96",
+      "title": "Polonais vs Francais : Differences Cles pour les Francophones",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Defis de Prononciation pour les Francophones",
+          "subsections": [
+            "### Groupes Consonantiques",
+            "### Consonnes Douces vs Dures",
+            "### Sons Familiers pour les Francophones"
+          ]
+        },
+        {
+          "header": "## Comparaison de la Structure Grammaticale",
+          "subsections": [
+            "### Les Cas : Le Plus Grand Defi",
+            "### Pas d'Articles",
+            "### Genre : Similaire mais Different",
+            "### Aspects Verbaux"
+          ]
+        },
+        {
+          "header": "## Differences Culturelles dans la Langue",
+          "subsections": [
+            "### Formalite : Tu vs Vous",
+            "### Fete du Prenom",
+            "### Les Diminutifs Montrent l'Affection"
+          ]
+        },
+        {
+          "header": "## Conseils d'Apprentissage pour les Francophones",
+          "subsections": [
+            "### Profitez de Vos Avantages",
+            "### Travaillez sur Ces Defis",
+            "### Strategie pour les Couples"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "57b92567-a77e-4642-a5be-b86400d21a5e",
+      "title": "Grammatica Tedesca di Base per Principianti",
+      "native_lang": "it",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Errori Grammaticali Comuni da Evitare",
+          "subsections": [
+            "### 1. Dimenticare le Desinenze degli Aggettivi",
+            "### 2. Ordine delle Parole nelle Subordinate",
+            "### 3. Mescolare Du e Sie",
+            "### 4. Dimenticare i Prefissi Verbali"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "597d19f1-7565-49ae-8dea-461c3a9a1127",
+      "title": "Les Bases de la Grammaire Italienne pour Débutants",
+      "native_lang": "fr",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Erreurs Grammaticales Courantes à Éviter",
+          "subsections": [
+            "### 1. Oublier l'Accord des Adjectifs",
+            "### 2. Position des Adjectifs",
+            "### 3. Tu vs. Lei",
+            "### 4. Les Doubles Négations Sont Correctes !"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5d79890f-fa20-4ae5-a454-250c15db7bd8",
+      "title": "Gramática Alemã Básica para Iniciantes",
+      "native_lang": "pt",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Erros Gramaticais Comuns a Evitar",
+          "subsections": [
+            "### 1. Esquecer as Terminações dos Adjetivos",
+            "### 2. Ordem das Palavras nas Subordinadas",
+            "### 3. Misturar Du e Sie",
+            "### 4. Esquecer os Prefixos Verbais"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "631b55b1-9b9c-41db-a85c-dedcf49195b1",
+      "title": "Portuguese vs English: Key Differences Every Learner Should Know",
+      "native_lang": "en",
+      "target_lang": "pt",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Pronunciation Challenges for English Speakers",
+          "subsections": [
+            "### Nasal Vowels",
+            "### The Portuguese R",
+            "### Brazilian vs European Portuguese"
+          ]
+        },
+        {
+          "header": "## Grammar Structure Comparison",
+          "subsections": [
+            "### Gendered Nouns",
+            "### Verb Conjugation",
+            "### Two Verbs for \"To Be\"",
+            "### Personal Infinitive"
+          ]
+        },
+        {
+          "header": "## Cultural Language Differences",
+          "subsections": [
+            "### Formal vs Informal Address",
+            "### Diminutives Show Affection",
+            "### Regional Variations"
+          ]
+        },
+        {
+          "header": "## Tips for Learning Based on Your Native English",
+          "subsections": [
+            "### Leverage Your Strengths",
+            "### Work on These Challenges",
+            "### Couples Learning Strategy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6db52754-4bcb-41c8-89aa-0761d1a1d2cc",
+      "title": "Gramática Rusa Básica para Principiantes",
+      "native_lang": "es",
+      "target_lang": "ru",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Errores Gramaticales Comunes a Evitar",
+          "subsections": [
+            "### 1. Olvidar la Concordancia de Adjetivos",
+            "### 2. Usar el Caso Incorrecto",
+            "### 3. Formal vs. Informal \"Tú\"",
+            "### 4. Confusión de Aspecto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6e469ecf-a546-459b-ab9e-1547f18571ab",
+      "title": "Frances vs Portugues: Diferencas Chave para Lusofonos",
+      "native_lang": "pt",
+      "target_lang": "fr",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Pronuncia: As Diferencas",
+          "subsections": [
+            "### Vogais Nasais",
+            "### O R Frances",
+            "### Letras Mudas"
+          ]
+        },
+        {
+          "header": "## Comparacao Gramatical",
+          "subsections": [
+            "### Genero: Quase Identico",
+            "### Conjugacao: Muito Similar",
+            "### Ser e Estar: Um So Verbo",
+            "### Posicao do Adjetivo",
+            "### Negacao: O Sandwich"
+          ]
+        },
+        {
+          "header": "## Diferencas Culturais",
+          "subsections": [
+            "### Formalidade: Tu e Voce",
+            "### Cortesia",
+            "### La Bise (O Beijo)"
+          ]
+        },
+        {
+          "header": "## Dicas para Lusofonos",
+          "subsections": [
+            "### As Tuas Vantagens",
+            "### Desafios a Enfrentar",
+            "### Estrategia para Casais"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7258aa06-9619-46a5-9a42-bbd7b7742b6e",
+      "title": "Spanish Grammar Basics for Beginners",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Common Grammar Mistakes to Avoid",
+          "subsections": [
+            "### 1. Forgetting Adjective Agreement",
+            "### 2. Mixing Up Ser and Estar",
+            "### 3. Forgetting the Personal \"a\"",
+            "### 4. Using Tú vs. Usted Incorrectly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7341ac7b-750b-4541-9706-81537e418b44",
+      "title": "Spanische Grammatik Grundlagen für Anfänger",
+      "native_lang": "de",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Häufige Grammatikfehler Vermeiden",
+          "subsections": [
+            "### 1. Adjektivübereinstimmung Vergessen",
+            "### 2. Ser und Estar Verwechseln",
+            "### 3. Das Persönliche \"a\" Vergessen",
+            "### 4. Tú vs. Usted Falsch Verwenden"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "74ec47d7-c102-47de-9004-e323dbde6fb6",
+      "title": "нідерландська для пар: 45+ фраз для подорожей",
+      "native_lang": "uk",
+      "target_lang": "nl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## В готелі",
+          "subsections": [
+            "### Реєстрація",
+            "### Прохання до персоналу",
+            "### Виселення"
+          ]
+        },
+        {
+          "header": "## В ресторані",
+          "subsections": [
+            "### Пошук столика",
+            "### Замовлення"
+          ]
+        },
+        {
+          "header": "## Орієнтування в місті",
+          "subsections": [
+            "### Запитання дороги",
+            "### Корисні напрямки"
+          ]
+        },
+        {
+          "header": "## Романтичні місця",
+          "subsections": [
+            "### Амстердам",
+            "### Тюльпани"
+          ]
+        },
+        {
+          "header": "## Транспорт",
+          "subsections": [
+            "### Громадський транспорт",
+            "### Таксі"
+          ]
+        },
+        {
+          "header": "## Екстрені ситуації",
+          "subsections": [
+            "### Важливі фрази",
+            "### Важливі номери"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "75911f6d-5ca0-4421-a444-3d3152ecb2df",
+      "title": "Portoghese vs Italiano: Differenze Chiave per Italofoni",
+      "native_lang": "it",
+      "target_lang": "pt",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Pronuncia: Le Differenze",
+          "subsections": [
+            "### Vocali Nasali",
+            "### La R Portoghese",
+            "### Brasiliano vs Europeo"
+          ]
+        },
+        {
+          "header": "## Confronto Grammaticale",
+          "subsections": [
+            "### Genere: Quasi Identico",
+            "### Coniugazione: Molto Simile",
+            "### Due Verbi per \"Essere\"",
+            "### Infinito Personale"
+          ]
+        },
+        {
+          "header": "## Differenze Culturali",
+          "subsections": [
+            "### Formalita: Tu e Lei",
+            "### Diminutivi"
+          ]
+        },
+        {
+          "header": "## Consigli per Italofoni",
+          "subsections": [
+            "### I Tuoi Vantaggi",
+            "### Sfide da Affrontare",
+            "### Strategia per Coppie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7e8f9e9c-5a5b-44e6-854c-2e8530ab0c47",
+      "title": "Grammatica Spagnola di Base per Principianti",
+      "native_lang": "it",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Errori Grammaticali Comuni da Evitare",
+          "subsections": [
+            "### 1. Dimenticare l'Accordo degli Aggettivi",
+            "### 2. Confondere Ser e Estar",
+            "### 3. Dimenticare la \"a\" Personale",
+            "### 4. Usare Male Tú vs. Usted"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7f8e0733-b877-47d4-b55c-4526fe660601",
+      "title": "Gramática Inglesa Básica para Iniciantes",
+      "native_lang": "pt",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Erros Gramaticais Comuns a Evitar",
+          "subsections": [
+            "### 1. Esquecer o Sujeito",
+            "### 2. Esquecer o -s na Terceira Pessoa",
+            "### 3. Confundir Do/Does em Perguntas",
+            "### 4. Traduzir Literalmente Ser/Estar"
+          ]
+        }
+      ]
+    }
+  ]
+}

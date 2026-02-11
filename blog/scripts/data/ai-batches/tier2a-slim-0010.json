@@ -1,0 +1,388 @@
+{
+  "batchId": "tier2a-slim-0010",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "1de3fc55-f99d-4cc6-8c48-dd844d8f069d",
+      "title": "Phrases polonaises sur la jalousie et la confiance en couple",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions pour aborder la jalousie",
+          "subsections": [
+            "### Exprimer ses sentiments",
+            "### Demander des réassurances",
+            "### Construire la confiance",
+            "### Réaffirmer son engagement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1deaa74e-7a72-4cc1-8261-ea50e8bd5077",
+      "title": "Hollandaca Sevgi Sözcükleri ve Takma Adlar",
+      "native_lang": "tr",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Farklı Durumlar İçin Sevgi Sözcükleri",
+          "subsections": [
+            "### Günlük Hayatta",
+            "### Romantik Anlar İçin",
+            "### Şakalaşmak İçin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1df1d52f-7a55-405d-9030-5e8339d3a823",
+      "title": "Falsi Amici Spagnolo-Italiano: Parole Traditrici da Conoscere",
+      "native_lang": "it",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Falsi Amici nel Linguaggio Quotidiano",
+          "subsections": [
+            "### Pronto ≠ Pronto",
+            "### Subito ≠ Subito",
+            "### Vaso ≠ Vaso"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1df3ad69-fd9b-4c33-8cce-a363304378ed",
+      "title": "Rumence Dilbilgisi Temelleri: Türk Öğrenciler İçin Başlangıç Rehberi",
+      "native_lang": "tr",
+      "target_lang": "ro",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Zamirler",
+          "subsections": [
+            "### Kişi Zamirleri",
+            "### Nesne Zamirleri"
+          ]
+        },
+        {
+          "header": "## Çiftler İçin Pratik Dilbilgisi",
+          "subsections": [
+            "### Romantik Cümleler",
+            "### Günlük Cümleler"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1e756de5-c3f0-4788-b189-5bbe234d63ca",
+      "title": "Apprendre l'ukrainien avec des chansons d'amour",
+      "native_lang": "fr",
+      "target_lang": "uk",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Vocabulaire des chansons romantiques",
+          "subsections": [
+            "### Mots essentiels",
+            "### Expressions poétiques"
+          ]
+        },
+        {
+          "header": "## Artistes à découvrir",
+          "subsections": [
+            "### Okean Elzy (Океан Ельзи)",
+            "### Tina Karol (Тіна Кароль)",
+            "### Pianoboy"
+          ]
+        },
+        {
+          "header": "## Extraits de paroles à apprendre",
+          "subsections": [
+            "### « Обійми » (Serre-moi)",
+            "### Vocabulaire des paroles"
+          ]
+        },
+        {
+          "header": "## Créer une playlist d'apprentissage",
+          "subsections": [
+            "### Chansons recommandées pour débutants",
+            "### Comment utiliser la musique pour apprendre"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1e7cbac5-1252-4fe1-a2b1-a9d50006b6ba",
+      "title": "Franceză vs. Română: Diferențe Cheie și Similarități",
+      "native_lang": "ro",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Diferența #1: Poziția Articolului",
+          "subsections": [
+            "### Română: Articol Postpus",
+            "### Franceză: Articol Antepus"
+          ]
+        },
+        {
+          "header": "## Diferența #3: Genurile Gramaticale",
+          "subsections": [
+            "### Română: 3 genuri",
+            "### Franceză: 2 genuri",
+            "### Genuri Diferite - Atenție!"
+          ]
+        },
+        {
+          "header": "## Diferența #4: Conjugarea Verbelor",
+          "subsections": [
+            "### Asemănări",
+            "### Diferențe"
+          ]
+        },
+        {
+          "header": "## Diferența #5: Negația",
+          "subsections": [
+            "### Română",
+            "### Franceză: NE...PAS (sandwich)"
+          ]
+        },
+        {
+          "header": "## Similarități Gramaticale",
+          "subsections": [
+            "### Ce e la fel:"
+          ]
+        },
+        {
+          "header": "## Rezumat: Avantaje și Provocări",
+          "subsections": [
+            "### Avantajele Tale ca Român:",
+            "### Provocările de Urmărit:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1ea9596a-43c1-4ce8-9d94-c250876fd32e",
+      "title": "Danca Kayınvalide Kayınpeder İfadeleri: Aile Tanışması",
+      "native_lang": "tr",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Önemli İfadeler",
+          "subsections": [
+            "### Tanışma",
+            "### İltifatlar",
+            "### Yardım Teklifi",
+            "### Veda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1eab815c-bec3-489c-9d6d-973c29724033",
+      "title": "Olasz kifejezések első randira",
+      "native_lang": "hu",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bemutatkozás",
+          "subsections": [
+            "### 1. \"È un piacere conoscerti finalmente\"",
+            "### 2. \"Sei bellissimo/a\"",
+            "### 3. \"Parlami di te\"",
+            "### 4. \"Che lavoro fai?\"",
+            "### 5. \"Quali sono i tuoi hobby?\""
+          ]
+        },
+        {
+          "header": "## Beszélgetés",
+          "subsections": [
+            "### 6. \"È davvero interessante\"",
+            "### 7. \"La penso allo stesso modo\"",
+            "### 8. \"Che tipo di musica ti piace?\"",
+            "### 9. \"Hai viaggiato molto?\"",
+            "### 10. \"Mi sto divertendo molto\""
+          ]
+        },
+        {
+          "header": "## Randi vége",
+          "subsections": [
+            "### 11. \"Ho passato un momento meraviglioso\"",
+            "### 12. \"Possiamo rivederci?\"",
+            "### 13. \"Mi piacerebbe rifarlo\"",
+            "### 14. \"Posso accompagnarti a casa?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1ecc12fc-b7b2-4935-b846-1df0d57af11e",
+      "title": "Jak powiedziec «Te iubesc» po rumunsku - romantyczne zwroty dla par",
+      "native_lang": "pl",
+      "target_lang": "ro",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Alternatywne sposoby mowienia \"Kocham cie\"",
+          "subsections": [
+            "### Dla glebokich polaczen",
+            "### Poetyckie i silne wyrazenia"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Poranne afirmacje",
+            "### Liściki milosne",
+            "### Zwroty przed snem"
+          ]
+        },
+        {
+          "header": "## Slownictwo milosne",
+          "subsections": [
+            "### Podstawowe słowa zwiazane z miloscia",
+            "### Czasowniki romantyczne"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1ee70ab0-07bc-4aff-bbda-6bff718866c0",
+      "title": "100 Συχνές Λέξεις (de): Οδηγός για Ελληνόφωνα Ζευγάρια",
+      "native_lang": "el",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Κατηγορίες Λέξεων",
+          "subsections": [
+            "### Αγάπη & Τρυφερότητα",
+            "### Καθημερινές Λέξεις",
+            "### Συναισθήματα",
+            "### Χρόνος",
+            "### Τοποθεσία",
+            "### Ερωτήσεις",
+            "### Ρήματα"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1ef5465d-7ed5-44be-952c-ec8a65c94932",
+      "title": "Greek First Date Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Making a Great First Impression",
+          "subsections": [
+            "### Είσαι πανέμορφος/η",
+            "### Χάρηκα για τη γνωριμία"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1f2412c2-802a-4c3a-9ccf-fd291afd8049",
+      "title": "Grammaire Grecque pour Débutants : Apprenez Ensemble pour une Meilleure Connexion",
+      "native_lang": "fr",
+      "target_lang": "el",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Les Bases Essentielles",
+          "subsections": [
+            "### 1. Les Articles Définis (Οριστικό Άρθρο)",
+            "### 2. Les Pronoms Personnels (Προσωπικές Αντωνυμίες)",
+            "### 3. Le Verbe \"Être\" : Είμαι (Íme)"
+          ]
+        },
+        {
+          "header": "## Les Patterns les Plus Utiles",
+          "subsections": [
+            "### Pattern 1 : Je veux + verbe",
+            "### Pattern 2 : J'aime + nom/verbe"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1f387105-b8f5-46cd-8cb4-9f5ecb5ad5de",
+      "title": "Slang Ceh pentru Mesaje: Cum să Trimiți SMS-uri Romantice",
+      "native_lang": "ro",
+      "target_lang": "cs",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Emoji-uri și Reacții",
+          "subsections": [
+            "### Combinații Populare"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1f3e4741-ba4b-4acf-9448-c462f39423cf",
+      "title": "Podstawy gramatyki greckiej: Proste zasady dla par uczących się razem",
+      "native_lang": "pl",
+      "target_lang": "el",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Podstawowe zasady (5 prostych reguł)",
+          "subsections": [
+            "### 1. Kolejność słów jest elastyczna",
+            "### 2. Przedimek „ο\" zmienia się według słowa",
+            "### 3. Czasowniki mają tylko 2 główne formy na początek",
+            "### 4. Pytania są prostsze niż myślicie",
+            "### 5. Słowa miłosne są zawsze w formie „ja do ciebie\""
+          ]
+        },
+        {
+          "header": "## Najczęstsze błędy (i jak ich unikać)",
+          "subsections": [
+            "### 1. **Mylenie rodzajów**",
+            "### 2. **Zapominanie o apostrofie**",
+            "### 3. **Niewłaściwa intonacja w pytaniach**",
+            "### 4. **Używanie polskiej kolejności słów**"
+          ]
+        },
+        {
+          "header": "## Szybka ściągawka do zrzutu ekranu",
+          "subsections": [
+            "### Podstawowe zaimki",
+            "### Najważniejsze czasowniki",
+            "### Romantyczne must-have"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2150fb76-9450-4f2b-bdde-98069716f12f",
+      "title": "Expresii în Italiană despre Gelozie și Încredere în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii despre Gelozie",
+          "subsections": [
+            "### Recunoașterea Sentimentelor",
+            "### Exprimarea Nevoilor",
+            "### Construirea Încrederii",
+            "### Răspunsuri la Gelozie",
+            "### Expresii Pasionale"
+          ]
+        }
+      ]
+    }
+  ]
+}

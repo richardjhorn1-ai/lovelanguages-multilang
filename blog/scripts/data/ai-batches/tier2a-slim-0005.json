@@ -1,0 +1,452 @@
+{
+  "batchId": "tier2a-slim-0005",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "0d5aa5c4-166a-4eb1-ae8c-f46cf17336bf",
+      "title": "Török kifejezések első randira",
+      "native_lang": "hu",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bemutatkozás",
+          "subsections": [
+            "### 1. \"Sonunda seninle tanışmak çok güzel\"",
+            "### 2. \"Harika görünüyorsun\"",
+            "### 3. \"Bana kendinden bahset\"",
+            "### 4. \"Ne iş yapıyorsun?\"",
+            "### 5. \"Hobilerin neler?\""
+          ]
+        },
+        {
+          "header": "## Beszélgetés",
+          "subsections": [
+            "### 6. \"Bu gerçekten ilginç\"",
+            "### 7. \"Ben de aynısını hissediyorum\"",
+            "### 8. \"Ne tür müzik seversin?\"",
+            "### 9. \"Çok seyahat ettin mi?\"",
+            "### 10. \"Çok eğleniyorum\""
+          ]
+        },
+        {
+          "header": "## Randi vége",
+          "subsections": [
+            "### 11. \"Harika vakit geçirdim\"",
+            "### 12. \"Tekrar görüşebilir miyiz?\"",
+            "### 13. \"Bunu tekrarlamak isterim\"",
+            "### 14. \"Seni eve bırakabilir miyim?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0d6d3301-ef5d-4e0c-b3f1-fd2c60860c9c",
+      "title": "Φράσεις Φλερτ στα Ουγγρικά",
+      "native_lang": "el",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις Φλερτ",
+          "subsections": [
+            "### 1. Nagyon szép vagy (Νάντζον σεπ βάντζ)",
+            "### 2. Gyönyörű a mosolyod (Ντζιονιόρου α μόσολιοντ)",
+            "### 3. Megkínálhatlak egy italra? (Μεγκινάλχατλακ εντζ ιτάλρα;)",
+            "### 4. Tetszel nekem (Τέτσελ νέκεμ)",
+            "### 5. Csodás szemeid vannak (Τσοντάς σεμέιντ βάνακ)",
+            "### 6. Táncolnál velem? (Τάντσολνάλ βέλεμ;)",
+            "### 7. Szeretnélek újra látni (Σερετνέλεκ ούιρα λάτνι)",
+            "### 8. Különleges vagy (Κιουλονλέγκες βάντζ)",
+            "### 9. Mosolyra késztetsz (Μόσολιρα κέστετς)",
+            "### 10. Megadnád a telefonszámodat? (Μεγκάντνάντ α τελεφονσάμοντατ;)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0d6e16ab-22db-45e5-908e-c240b5ce5c88",
+      "title": "Ispanyolca Temel Gramer: Türkler Icin Baslangic Rehberi",
+      "native_lang": "tr",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Düzensiz Fiiller",
+          "subsections": [
+            "### SER (olmak - kalici)",
+            "### ESTAR (olmak - gecici)",
+            "### SER vs ESTAR Örnekleri"
+          ]
+        },
+        {
+          "header": "## Yararli Gramer Kaliplari",
+          "subsections": [
+            "### Istek Ifade Etme (QUERER + fiil)",
+            "### Zorunluluk Ifade Etme (TENER QUE + fiil)",
+            "### Yakin Gelecek (IR A + fiil)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0d6fc496-c35d-4512-b9cd-1d407b72d2d0",
+      "title": "100 Συχνές Λέξεις (hu): Οδηγός για Ελληνόφωνα Ζευγάρια",
+      "native_lang": "el",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Κατηγορίες Λέξεων",
+          "subsections": [
+            "### Αγάπη & Τρυφερότητα",
+            "### Καθημερινές Λέξεις",
+            "### Συναισθήματα",
+            "### Χρόνος",
+            "### Τοποθεσία",
+            "### Ερωτήσεις",
+            "### Ρήματα"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0d87a7fd-ee99-4a25-99b8-714b2662fc4b",
+      "title": "Le Basi della Coniugazione Verbale Spagnola",
+      "native_lang": "it",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Verbi Irregolari Essenziali",
+          "subsections": [
+            "### SER (Essere - permanente)",
+            "### ESTAR (Essere - temporaneo)",
+            "### TENER (Avere)",
+            "### QUERER (Volere / Amare)",
+            "### IR (Andare)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0e768975-13c4-48ce-b734-d9cec018631b",
+      "title": "Román kifejezések érzelmi támogatáshoz és vigasztaláshoz",
+      "native_lang": "hu",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető vigasztaló kifejezések",
+          "subsections": [
+            "### Sunt aici pentru tine",
+            "### Totul va fi bine",
+            "### O să fie bine",
+            "### Îmi pare foarte rău pentru ce treci"
+          ]
+        },
+        {
+          "header": "## Empátia kifejezése",
+          "subsections": [
+            "### Înțeleg cum te simți",
+            "### Trebuie să fie foarte greu",
+            "### Sentimentele tale sunt îndreptățite",
+            "### E normal să te simți așa"
+          ]
+        },
+        {
+          "header": "## Támogatás felajánlása",
+          "subsections": [
+            "### Ce ai nevoie acum?",
+            "### Cum pot să te ajut?",
+            "### Sunt aici să te ascult",
+            "### Ia-ți tot timpul de care ai nevoie"
+          ]
+        },
+        {
+          "header": "## Gyász és veszteség",
+          "subsections": [
+            "### Îmi pare foarte rău pentru pierderea ta",
+            "### El/Ea va fi mereu în inima ta",
+            "### Condoleanțele mele",
+            "### Dumnezeu să-l/s-o odihnească"
+          ]
+        },
+        {
+          "header": "## Nehéz időkben",
+          "subsections": [
+            "### Nu ești singur/singură în asta",
+            "### Vom trece prin asta împreună",
+            "### Ești mai puternic/puternică decât crezi",
+            "### Și asta va trece"
+          ]
+        },
+        {
+          "header": "## Bátorítás",
+          "subsections": [
+            "### Cred în tine",
+            "### Vei reuși",
+            "### Sunt foarte mândru/mândră de tine"
+          ]
+        },
+        {
+          "header": "## Szeretetteljes kifejezések",
+          "subsections": [
+            "### Te iubesc, dragostea mea",
+            "### Voi fi mereu aici pentru tine",
+            "### Sufletul meu"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0e7998db-45bb-4d7f-b315-31a805b52061",
+      "title": "Польська лексика про вагітність та материнство",
+      "native_lang": "uk",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Основна лексика про вагітність",
+          "subsections": []
+        },
+        {
+          "header": "## Оголошення про вагітність польською",
+          "subsections": [
+            "### Як поділитися новиною"
+          ]
+        },
+        {
+          "header": "## Покупки для малюка",
+          "subsections": [
+            "### Що потрібно купити"
+          ]
+        },
+        {
+          "header": "## Пологи та лікарня",
+          "subsections": [
+            "### У пологовому будинку",
+            "### Після народження"
+          ]
+        },
+        {
+          "header": "## Перші місяці з малюком",
+          "subsections": [
+            "### Корисна лексика"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0e81a9a4-3c08-4e4e-a5ac-c1a50bea44a1",
+      "title": "Guia de Pronúncia em Inglês para Iniciantes: Aprenda a se comunicar melhor com seu parceiro",
+      "native_lang": "pt",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Os Sons Secretos do Inglês",
+          "subsections": [
+            "### TH - O Som Mais Famoso",
+            "### R - Não é o R do Português!"
+          ]
+        },
+        {
+          "header": "## Consoantes Traiçoeiras",
+          "subsections": [
+            "### H - Mudo ou Falante?",
+            "### S vs Z - A Regra de Voz"
+          ]
+        },
+        {
+          "header": "## Erros Comuns dos Brasileiros (e Como Evitá-los)",
+          "subsections": [
+            "### 1. Confundir B e V",
+            "### 2. Adicionar E no Final",
+            "### 3. R no Final Falado Demais"
+          ]
+        },
+        {
+          "header": "## Prática para Casais: Exercícios Diários",
+          "subsections": [
+            "### Exercício 1: TH Challenge",
+            "### Exercício 2: Vogais no Espelho",
+            "### Exercício 3: R Suave"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0e82ee4e-dc80-493d-b529-8491f271be69",
+      "title": "Slang Portoghese per Messaggi tra Coppie",
+      "native_lang": "it",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Esempi di Conversazioni",
+          "subsections": [
+            "### Al Mattino",
+            "### La Sera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0e83c598-33e6-4adf-8d99-cc92774ae75d",
+      "title": "Φράσεις για το Πρώτο Ραντεβού (sv): Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις",
+          "subsections": [
+            "### Γνωριμία",
+            "### Συζήτηση",
+            "### Φλερτ",
+            "### Κλείσιμο"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "127472d3-0630-4281-b23a-fd4ce5ad4f66",
+      "title": "Polsk Uttale for Nybegynnere: Lær å uttale kjærestens språk med selvtillit",
+      "native_lang": "no",
+      "target_lang": "pl",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Grunnreglene (De 5 Viktigste)",
+          "subsections": [
+            "### 1. **Trykket**: Alltid på nest siste stavelse",
+            "### 2. **C + z = ts-lyd**",
+            "### 3. **Ł = w-lyd (som i «vi»)**",
+            "### 4. **R er rullet**",
+            "### 5. **Nasalvokaler: Ą og Ę**"
+          ]
+        },
+        {
+          "header": "## De Vanskelige Lydene (Og Hvordan Mestre Dem)",
+          "subsections": [
+            "### Sz, Cz, Dz - The \"Sushi-Gruppen\"",
+            "### Ś, Ć, Ź - The \"Smør-på-Tunfisk-Gruppen\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "12a38a28-af67-4f56-9f88-f34be732c18f",
+      "title": "Francês: 20 Formas de Dizer Eu Te Amo",
+      "native_lang": "pt",
+      "target_lang": "fr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Expressões para Diferentes Momentos",
+          "subsections": [
+            "### Ao Acordar",
+            "### Ao Dormir",
+            "### Ao Se Despedir"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "12a454a3-c7e1-44a7-a385-b4a3794a6eae",
+      "title": "Svéd 'Hiányzol' Kifejezések Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Kifejezések",
+          "subsections": [
+            "### 1. Jag saknar dig",
+            "### 2. Jag saknar dig så mycket",
+            "### 3. Jag kan inte sluta tänka på dig",
+            "### 4. Jag önskar att du var här",
+            "### 5. Du är alltid i mina tankar",
+            "### 6. Jag räknar dagarna tills jag ser dig",
+            "### 7. Mitt hjärta längtar efter dig",
+            "### 8. Du betyder allt för mig",
+            "### 9. Jag längtar efter att se dig",
+            "### 10. Utan dig är allt tomt"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "12a544f0-ba63-40b3-8d3a-c044458cf9b1",
+      "title": "Polnischer SMS-Slang für Paare",
+      "native_lang": "de",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Beispiel-Konversationen",
+          "subsections": [
+            "### Morgens",
+            "### Abends"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "12b5c23f-8da6-4008-9412-1f25947729a6",
+      "title": "Угорські фрази для суперечок і розбіжностей",
+      "native_lang": "uk",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Початок серйозної розмови",
+          "subsections": [
+            "### \"Beszélnünk kell\"",
+            "### \"Bántva érzem magam, amikor te...\"",
+            "### \"Nyugodtan megbeszélhetjük ezt?\""
+          ]
+        },
+        {
+          "header": "## Вираження незгоди",
+          "subsections": [
+            "### \"Nem értek egyet\"",
+            "### \"Én másképp látom\"",
+            "### \"Nem erre gondoltam\""
+          ]
+        },
+        {
+          "header": "## Емоційні вирази",
+          "subsections": [
+            "### \"Ez fáj nekem\"",
+            "### \"Csalódott vagyok\"",
+            "### \"Szükségem van rá, hogy meghallgass\""
+          ]
+        },
+        {
+          "header": "## Прохання про простір",
+          "subsections": [
+            "### \"Időre van szükségem, hogy gondolkodjak\"",
+            "### \"Tartsunk egy kis szünetet\""
+          ]
+        },
+        {
+          "header": "## Пошук рішення",
+          "subsections": [
+            "### \"Hogyan tudjuk ezt megoldani?\"",
+            "### \"Keressünk egy kompromisszumot\"",
+            "### \"Hajlandó vagyok engedni\""
+          ]
+        },
+        {
+          "header": "## Визнання помилки",
+          "subsections": [
+            "### \"Igazad van, tévedtem\"",
+            "### \"Ezt nem kellett volna mondanom\""
+          ]
+        }
+      ]
+    }
+  ]
+}

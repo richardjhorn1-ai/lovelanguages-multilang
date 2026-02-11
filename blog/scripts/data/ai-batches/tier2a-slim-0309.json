@@ -1,0 +1,352 @@
+{
+  "batchId": "tier2a-slim-0309",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "8aa445ea-ca8c-4aad-933e-282b979fb116",
+      "title": "50 Alapvető Orosz Kifejezés Pároknak a Mély Kapcsolódáshoz",
+      "native_lang": "hu",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Helyzetek Szerint: Gyakorlati Példák",
+          "subsections": [
+            "### Telefonbeszélgetések",
+            "### Vásárlás és Bevásárlás"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8bb046bb-407f-40f9-a36d-5ecdae9e081a",
+      "title": "55+ Portekizce Randevu İfadesi | Brezilya Sıcaklığı",
+      "native_lang": "tr",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Restoranda",
+          "subsections": [
+            "### Varis ve Karsilama",
+            "### Menü ve Siparis",
+            "### Icecekler"
+          ]
+        },
+        {
+          "header": "## Romantik Konusma",
+          "subsections": [
+            "### Iltifatlar",
+            "### Duygulari Paylasma"
+          ]
+        },
+        {
+          "header": "## Yemek Sirasinda",
+          "subsections": [
+            "### Yemek Hakkinda Konusmak",
+            "### Kadeh Kaldirma"
+          ]
+        },
+        {
+          "header": "## Hesap ve Ayrilma",
+          "subsections": [
+            "### Hesap Istemek",
+            "### Restorandan Cikmak"
+          ]
+        },
+        {
+          "header": "## Gece Sonu",
+          "subsections": [
+            "### Romantik Ifadeler"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8bc9543f-7fa9-469b-8eeb-d0f0a7039fb5",
+      "title": "55+ İspanyolca Randevu İfadesi | Romantik Geceler",
+      "native_lang": "tr",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Yemek ve Icecek",
+          "subsections": [
+            "### Ana Yemekler",
+            "### Icecekler"
+          ]
+        },
+        {
+          "header": "## Ciftler Icin Randevu Gecesi Plani",
+          "subsections": [
+            "### Hazirlık",
+            "### Restoranda",
+            "### Romantik An",
+            "### Eve Dönüs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8c575db1-2490-4bb4-bf8e-b943559f0114",
+      "title": "Polish Honeymoon: Travel Phrases & Tips",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Most Romantic Polish Destinations",
+          "subsections": [
+            "### Kraków - The Cultural Heart",
+            "### Zakopane - Mountain Romance",
+            "### Gdańsk - Seaside Magic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8ccf826f-b0bf-4df8-b264-4e18a2ddd58f",
+      "title": "Hvordan Man Siger Jeg Elsker Dig på Hollandsk: 12 Romantiske Måder for Par",
+      "native_lang": "da",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## 12 Romantiske Måder at Udtrykke Kærlighed",
+          "subsections": [
+            "### Søde og Ømme Variationer",
+            "### Legesyge og Kærlige Udtryk"
+          ]
+        },
+        {
+          "header": "## Almindelige Fejl at Undgå",
+          "subsections": [
+            "### Hvad du IKKE skal sige:"
+          ]
+        },
+        {
+          "header": "## Sætninger i Praksis: Kærlighed i Kontekst",
+          "subsections": [
+            "### Eksempel 1: Første Gang",
+            "### Eksempel 2: Godnat",
+            "### Eksempel 3: Efter en Lang Dag",
+            "### Eksempel 4: Morgenhilsen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8d56c69d-c73f-4ae1-826a-47f93f102795",
+      "title": "S'Excuser en Polonais : Phrases Clés",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## S'excuser pour des situations spécifiques",
+          "subsections": [
+            "### Être en retard",
+            "### Oublier quelque chose d'important",
+            "### Blesser les sentiments de quelqu'un"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8da103cb-6cfa-4cfe-89ae-f3e06850bea8",
+      "title": "Att Träffa Din Partners Grekiska Familj: Väsentliga Fraser för En Kärleksfull Första Träff",
+      "native_lang": "sv",
+      "target_lang": "el",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Scenarier Ni Kommer Att Möta",
+          "subsections": [
+            "### Vid Dörren: Första Mötet",
+            "### Under Middagen: Mat och Samtal",
+            "### Presentutdelningen: En Liten Gest"
+          ]
+        },
+        {
+          "header": "## Familj och Relationer Ordlista",
+          "subsections": [
+            "### Familjemedlemmar",
+            "### Komplimanger och Positiva Ord"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8dcdaeba-4ac1-4c66-a0e8-82755c60f281",
+      "title": "Ukrainian Daily Conversations for Couples",
+      "native_lang": "en",
+      "target_lang": "uk",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Around the House",
+          "subsections": [
+            "### Household Tasks",
+            "### Asking About Location"
+          ]
+        },
+        {
+          "header": "## Meals and Cooking Together",
+          "subsections": [
+            "### Lunch and Dinner",
+            "### Grocery Shopping"
+          ]
+        },
+        {
+          "header": "## Evening Time Together",
+          "subsections": [
+            "### Relaxing at Home",
+            "### Checking In Emotionally"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8e1ac636-eae6-4cac-a18a-e2923653b666",
+      "title": "Le Tchèque Est-Il Difficile ? Réponse Honnête",
+      "native_lang": "fr",
+      "target_lang": "cs",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Ce Qui Rend le Tchèque Difficile",
+          "subsections": [
+            "### 1. Le Système de Cas",
+            "### 2. Le Son Ř",
+            "### 3. Groupes de Consonnes",
+            "### 4. Aspects Verbaux"
+          ]
+        },
+        {
+          "header": "## Ce Qui Rend le Tchèque Plus Facile que Vous ne Pensez",
+          "subsections": [
+            "### 1. Orthographe Phonétique",
+            "### 2. Pas d'Articles",
+            "### 3. Mots Empruntés",
+            "### 4. Modèles Logiques"
+          ]
+        },
+        {
+          "header": "## Stratégies Efficaces pour les Francophones",
+          "subsections": [
+            "### Commencez par les Mots à Haute Fréquence",
+            "### Adoptez la Musique",
+            "### Utilisez les Cognats",
+            "### Pratiquez les Routines Quotidiennes"
+          ]
+        },
+        {
+          "header": "## Erreurs Courantes à Éviter",
+          "subsections": [
+            "### 1. Paralysie Perfectionniste",
+            "### 2. Ignorer le Genre",
+            "### 3. Traduction Littérale"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8eed3d2e-89d3-46bb-95c2-1e4efa8b9faf",
+      "title": "Conoscere la Famiglia del Tuo Partner Svedese: Frasi Essenziali per Fare una Grande Impressione",
+      "native_lang": "it",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Scenari Comuni Durante la Visita",
+          "subsections": [
+            "### 1. L'Arrivo a Casa",
+            "### 2. A Cena con la Famiglia",
+            "### 3. Conversazioni Generali"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8f3c20ed-68d0-4844-88ca-a87d5ca7ad5b",
+      "title": "Vocabulaire Polonais de la Maison",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Articles ménagers courants",
+          "subsections": [
+            "### Produits d'entretien - Środki czystości",
+            "### Essentiels de cuisine - Przybory kuchenne"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8f920654-df6b-4df6-9764-dc65899f6b76",
+      "title": "Czech Texting Slang to Chat With Your Partner",
+      "native_lang": "en",
+      "target_lang": "cs",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Expressing Emotions in Text",
+          "subsections": [
+            "### Positive Emotions",
+            "### Negative/Frustrated Emotions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8fd28457-30aa-4f05-9074-4066f8baa764",
+      "title": "Virelangues Polonais : Prononciation Fun",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Rendre ça amusant en couple",
+          "subsections": [
+            "### Idées de jeux :",
+            "### Touche romantique :"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8fe43ca7-677a-4d6c-bb50-662608e03e0d",
+      "title": "50 Frases Românticas em Romeno para Cada Momento do Seu Relacionamento",
+      "native_lang": "pt",
+      "target_lang": "ro",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Momentos Especiais: 10 Frases para Ocasiões Únicas",
+          "subsections": [
+            "### Aniversários e Celebrações",
+            "### Desculpas e Reconciliações",
+            "### Promessas e Futuro"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "90187c92-1f17-478e-bf26-843af1167311",
+      "title": "50+ Norwegische Kosenamen und liebevolle Ausdrücke für deinen Schatz",
+      "native_lang": "de",
+      "target_lang": "no",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## So verwendet ihr Kosenamen richtig",
+          "subsections": [
+            "### Die wichtigsten Regeln:",
+            "### Häufige Fehler vermeiden:"
+          ]
+        }
+      ]
+    }
+  ]
+}

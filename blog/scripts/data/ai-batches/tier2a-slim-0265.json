@@ -1,0 +1,396 @@
+{
+  "batchId": "tier2a-slim-0265",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "0c6af71e-3e15-4841-9a1e-27176ccf22ef",
+      "title": "Hollandsk Grammatik for Begyndere: Enkle Regler til Romantiske Samtaler",
+      "native_lang": "da",
+      "target_lang": "nl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De 5 Grunde Regler for Hollandsk Grammatik",
+          "subsections": [
+            "### 1. Artikler: De, Het eller Een?",
+            "### 2. Verber: Altid på Anden Plads!",
+            "### 3. Personal Pronomen: Det Handler om Jer!",
+            "### 4. Nutid: Simple Bøjning",
+            "### 5. Spørgsmål: Omvendt Ordstilling"
+          ]
+        },
+        {
+          "header": "## Hvordan I Bruger Det i Praksis",
+          "subsections": [
+            "### Scenarie 1: Morgenhygge",
+            "### Scenarie 2: Planlægning"
+          ]
+        },
+        {
+          "header": "## De Mest Almindelige Fejl (Og Sådan Undgår I Dem)",
+          "subsections": [
+            "### 1. **Forgetting Verb Second Rule**",
+            "### 2. **Wrong Article**",
+            "### 3. **Mixing Formal/Informal**",
+            "### 4. **Word Order in Questions**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0e39b238-ef7d-475a-b481-446fcd0155f6",
+      "title": "Meeting Your Hungarian Partner's Family: Essential Phrases for Making a Great First Impression",
+      "native_lang": "en",
+      "target_lang": "hu",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Meeting Different Family Members",
+          "subsections": [
+            "### Greeting Parents and Grandparents",
+            "### Meeting Siblings and Cousins"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0f319843-a87a-48fe-bf75-3e7f3641e818",
+      "title": "Yunan Partnerinin Ailesiyle Tanışmak: Türk Çiftler İçin Temel İfadeler ve Kültürel İpuçları",
+      "native_lang": "tr",
+      "target_lang": "el",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Profesyonel İpuçları",
+          "subsections": [
+            "### 1. Göz Teması Kur",
+            "### 2. Ellerini Kullan",
+            "### 3. Yemekte İpucu",
+            "### 4. Fiziksel Mesafe",
+            "### 5. Türkçe Kelimeler"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "108983ef-5b8b-4f54-be33-49f3fdf49136",
+      "title": "50 Hilsener og Farvel på Spansk for Kjærester – Fra Hei til Hasta la Vista",
+      "native_lang": "no",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Praktiske Tips for Par",
+          "subsections": [
+            "### Øv Sammen Hver Dag",
+            "### Kulturell Oppmerksomhet",
+            "### Vanlige Feil Å Unngå"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "10a3ab37-1d4d-4f05-99ee-23db467dea27",
+      "title": "Tysk Uttaleguide for Nybegynnere: Snakk med Kjæresten Din med Selvtillit",
+      "native_lang": "no",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De 5 Vanskeligste Tyske Lydene (Og Hvordan Du Mestrer Dem)",
+          "subsections": [
+            "### 1. CH-lyden: Ikke K, ikke Sj, men Noe Midt Imellom",
+            "### 2. R-lyden: Den Rolige Skandinaviske Versjonen",
+            "### 3. Æ, Ø, Å... Nei, Vent: Ä, Ö og Ü",
+            "### 4. S/Z-forvirringen",
+            "### 5. W Er Ikke V!"
+          ]
+        },
+        {
+          "header": "## De Vanligste Uttalefeilene (Og Hvordan Unngå Dem)",
+          "subsections": [
+            "### Feil #1: For sterk R-lyd",
+            "### Feil #2: Tysk V = Norsk V",
+            "### Feil #3: CH som K"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "114e5bd3-7080-40ef-ac7c-363c5d67c62c",
+      "title": "Walentynki : 25+ Phrases Romantiques Polonaises",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Phrases essentielles de la Saint-Valentin en polonais",
+          "subsections": [
+            "### Déclarations d'amour",
+            "### Compliments romantiques",
+            "### Messages doux de Saint-Valentin"
+          ]
+        },
+        {
+          "header": "## Traditions polonaises de la Saint-Valentin",
+          "subsections": [
+            "### Coutumes des cadeaux",
+            "### Traditions du dîner romantique",
+            "### Poésie et lettres"
+          ]
+        },
+        {
+          "header": "## Célébrations polonaises modernes de la Saint-Valentin",
+          "subsections": [
+            "### Célébrations en ville",
+            "### Cartes de Saint-Valentin - Kartki Walentynkowe"
+          ]
+        },
+        {
+          "header": "## Vocabulaire de la Saint-Valentin pour couples",
+          "subsections": [
+            "### Mots essentiels",
+            "### Actions romantiques"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "135dc599-1906-4036-9698-21d37bf85e38",
+      "title": "Mejor Manera de Aprender Polaco en 2025",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## El Enfoque Moderno: Apps de Aprendizaje de Idiomas",
+          "subsections": [
+            "### Apps Interactivas para Parejas",
+            "### Características de Gamificación"
+          ]
+        },
+        {
+          "header": "## Métodos Tradicionales que Aún Funcionan",
+          "subsections": [
+            "### Tarjetas de Vocabulario: Digitales y Físicas",
+            "### Aprendizaje con Libros de Texto"
+          ]
+        },
+        {
+          "header": "## Técnicas de Inmersión para Parejas",
+          "subsections": [
+            "### Crea un Ambiente Polaco en Casa",
+            "### Práctica de Conversación"
+          ]
+        },
+        {
+          "header": "## Plan Semanal Estructurado",
+          "subsections": [
+            "### Lunes: **Poniedziałek** - Enfoque en Gramática",
+            "### Miércoles: **Środa** - Día de Conversación",
+            "### Viernes: **Piątek** - Inmersión Cultural",
+            "### Fin de Semana: **Weekend** - Actividades Divertidas"
+          ]
+        },
+        {
+          "header": "## Errores Comunes a Evitar",
+          "subsections": [
+            "### No Omitas los Básicos",
+            "### Abrumarse"
+          ]
+        },
+        {
+          "header": "## Herramientas Tecnológicas para 2025",
+          "subsections": [
+            "### Compañeros de Conversación con IA",
+            "### Experiencias de Realidad Virtual en Polaco"
+          ]
+        },
+        {
+          "header": "## Midiendo Tu Progreso",
+          "subsections": [
+            "### Hitos Mensuales",
+            "### Celebren Juntos"
+          ]
+        },
+        {
+          "header": "## Construyendo Hábitos a Largo Plazo",
+          "subsections": [
+            "### La Regla \"**Codziennie po trochu**\" (Un Poco Cada Día)",
+            "### Haciéndolo Social"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "14b45a00-74d1-4c86-a288-2141a54003ed",
+      "title": "Találkozás partnered családjával oroszul: Hogy nyűgözd le őket az első perctől",
+      "native_lang": "hu",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Konkrét helyzetek és párbeszédek",
+          "subsections": [
+            "### 1. Ajtónyitáskor",
+            "### 2. Az ebédnél",
+            "### 3. Családi fotók nézegetése"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1515b0db-ca6e-4ee7-a08d-c4314295a0e1",
+      "title": "50+ Nume de Alint în Franceză pentru Partenerul Tău",
+      "native_lang": "ro",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Cum să folosești aceste porecle cu partenerul tău",
+          "subsections": [
+            "### Începe încet",
+            "### Fii consecvent",
+            "### Combină cu gesturi",
+            "### Creează-ți propria variantă"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "170c3c38-3066-4558-bff7-57b2bc649e96",
+      "title": "Conoscere la Famiglia del Tuo Partner Greco: Frasi Essenziali per Fare una Grande Impressione",
+      "native_lang": "it",
+      "target_lang": "el",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Dialoghi di Famiglia: Scenari Reali",
+          "subsections": [
+            "### Scenario 1: Arrivo a Casa",
+            "### Scenario 2: A Tavola"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "17bc1a42-4700-4885-a793-e9c50e62e846",
+      "title": "Dansk Grammatikk for Nybegynnere: Lær Dansk med Kjæresten Din",
+      "native_lang": "no",
+      "target_lang": "da",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De 5 Viktigste Reglene",
+          "subsections": [
+            "### 1. Ingen bøyning av substantiver!",
+            "### 2. Bestemt artikkel havner SIST",
+            "### 3. Verb bøyes ikke etter subjekt",
+            "### 4. Tallene 50, 60, 70... er omvendt",
+            "### 5. Vokaler kan ha mange lyder"
+          ]
+        },
+        {
+          "header": "## Vanlige Mønstre i Hverdagen",
+          "subsections": [
+            "### Tidsspørsmål",
+            "### Mat og drikke",
+            "### Følelser"
+          ]
+        },
+        {
+          "header": "## Vanlige Feil og Hvordan Unngå Dem",
+          "subsections": [
+            "### 1. **\"Jeg taler ikke dansk\" vs \"Jeg snakker ikke dansk\"**",
+            "### 2. **Utale av \"r\"**",
+            "### 3. **\"Tak\" betyr både \"takk\" og \"vær så god\"**",
+            "### 4. **Stavefeil med \"æ\", \"ø\", \"å\"**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1892cd83-5e82-401b-bbd9-926f3b43f411",
+      "title": "30 Duńskich Powitań i Pożegnań dla Par: Od Dobrego Ranku do Słodkich Snów",
+      "native_lang": "pl",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Jak Używać Tych Zwrotów z Partnerem",
+          "subsections": [
+            "### Codzienne Rytuały",
+            "### Praktyka Razem",
+            "### Błędy, Których Należy Unikać"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "18a251c0-fe21-4164-b394-05e3d1ae2c07",
+      "title": "Almanya'da Partnerinizin Ailesiyle Tanışmak: Çiftler İçin Temel Almanca İfadeler",
+      "native_lang": "tr",
+      "target_lang": "de",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Özel Durumlar ve Diyaloglar",
+          "subsections": [
+            "### 1. Kapıda İlk Karşılaşma",
+            "### 2. Oturma Odasında Sohbet",
+            "### 3. Yemek Masasında"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1a8d67e2-eaa1-4e2a-a631-4384731a5436",
+      "title": "Italská gramatika pro začátečníky: Jak mluvit o lásce správně",
+      "native_lang": "cs",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Nejčastější chyby a jak se jim vyvarovat",
+          "subsections": [
+            "### 1. Zaměňování \"tu\" a \"ti\"",
+            "### 2. Špatný rod přídavných jmen",
+            "### 3. Zapomínání na členy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1b3f478a-5dcf-4e0c-a18f-ee0cb338078b",
+      "title": "Polish Learning Apps: Free vs Paid",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## App-by-App Breakdown: Free vs Premium",
+          "subsections": [
+            "### Duolingo Plus ($6.99/month)",
+            "### Babbel ($13.95/month)",
+            "### Busuu Premium ($9.99/month)"
+          ]
+        },
+        {
+          "header": "## The Hidden Costs of \"Free\" Learning",
+          "subsections": [
+            "### Time Investment",
+            "### Frustration Factor"
+          ]
+        },
+        {
+          "header": "## Smart Spending Strategies for Couples",
+          "subsections": [
+            "### The 3-Month Test",
+            "### Mix and Match Approach",
+            "### Family Plan Mathematics"
+          ]
+        }
+      ]
+    }
+  ]
+}

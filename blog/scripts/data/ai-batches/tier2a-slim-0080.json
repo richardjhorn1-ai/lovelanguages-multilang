@@ -1,0 +1,415 @@
+{
+  "batchId": "tier2a-slim-0080",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "648493b8-cad8-4637-b689-f75796546cfd",
+      "title": "Nederländska Fraser för Första Dejten",
+      "native_lang": "sv",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Bryta Isen",
+          "subsections": [
+            "### 1. \"Leuk om je eindelijk te ontmoeten\"",
+            "### 2. \"Je ziet er geweldig uit\"",
+            "### 3. \"Ik keek hier erg naar uit\"",
+            "### 4. \"Vertel me over jezelf\"",
+            "### 5. \"Wat doe je graag in je vrije tijd?\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Visa Intresse",
+          "subsections": [
+            "### 6. \"Dat is echt interessant\"",
+            "### 7. \"Ik zou daar graag meer over willen weten\"",
+            "### 8. \"We hebben veel gemeen\"",
+            "### 9. \"Ik praat graag met je\"",
+            "### 10. \"Je hebt een geweldige humor\""
+          ]
+        },
+        {
+          "header": "## Fraser för Dejten Slutar",
+          "subsections": [
+            "### 11. \"Ik heb een geweldige tijd gehad\"",
+            "### 12. \"Kunnen we elkaar weer zien?\"",
+            "### 13. \"Ik zou dit graag nog eens willen doen\"",
+            "### 14. \"Laat mij de rekening betalen\"",
+            "### 15. \"Stuur me een berichtje als je thuis bent\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "64854f55-2f9f-456a-8697-4f4d64896253",
+      "title": "Gramática Polaca Básica para Iniciantes",
+      "native_lang": "pt",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Erros Gramaticais Comuns a Evitar",
+          "subsections": [
+            "### 1. Esquecer a Concordância dos Adjetivos",
+            "### 2. Usar o Caso Errado",
+            "### 3. Omitir Pronomes Incorretamente",
+            "### 4. Misturar Formal e Informal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6485e73c-989f-4b24-969c-64f107cf6660",
+      "title": "Norvég Flörtölő Kifejezések – Romantika a Fjordok Földjén",
+      "native_lang": "hu",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Flörtölő Kifejezések",
+          "subsections": [
+            "### 1. Du er veldig vakker (Dü ér veldi vákker)",
+            "### 2. Du har vakre øyne (Dü hár vákre öjne)",
+            "### 3. Jeg liker deg (Jej liker dej)",
+            "### 4. Vil du ta en kaffe med meg? (Vil dü ta en káffe med mej?)",
+            "### 5. Hyggelig å møte deg (Híggeli ó möte dej)",
+            "### 6. Du er spesiell (Dü ér szpesiell)",
+            "### 7. Jeg kan ikke slutte å tenke på deg (Jej kan ikke szlutte ó tenke pó dej)",
+            "### 8. Smilet ditt gjør meg glad (Szmílet dit jör mej glád)",
+            "### 9. Jeg trives med deg (Jej tríves med dej)",
+            "### 10. Du er mitt livs kjærlighet (Dü ér mit lívsz csérlihet)"
+          ]
+        },
+        {
+          "header": "## Kulturális Tippek",
+          "subsections": [
+            "### Egyenlőség és Függetlenség",
+            "### Természetszeretet",
+            "### \"Janteloven\"",
+            "### Kávékultúra"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6493e3df-6bf6-46d9-b904-73e2ab2f528e",
+      "title": "Meeting Your French Partner's Family",
+      "native_lang": "en",
+      "target_lang": "fr",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Things to Avoid",
+          "subsections": [
+            "### Don't:",
+            "### Do:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "64985cb5-7472-4d6d-bfbd-068204e4aa9f",
+      "title": "50 Polske Kærlighedsudtryk for Par: Lær at Udtrykke Jeres Kærlighed på Polsk",
+      "native_lang": "da",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hvordan I Bruger Disse Fraser Sammen",
+          "subsections": [
+            "### Daglig praksis",
+            "### Rollespil øvelser",
+            "### Almindelige fejl at undgå"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "64bd9546-27a3-4942-8041-addd88fae46f",
+      "title": "Spanyol kifejezések első randira",
+      "native_lang": "hu",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bemutatkozás",
+          "subsections": [
+            "### 1. \"Es un placer conocerte por fin\"",
+            "### 2. \"Te ves increíble\"",
+            "### 3. \"Cuéntame sobre ti\"",
+            "### 4. \"¿A qué te dedicas?\"",
+            "### 5. \"¿Cuáles son tus pasatiempos?\""
+          ]
+        },
+        {
+          "header": "## Beszélgetés",
+          "subsections": [
+            "### 6. \"Eso es muy interesante\"",
+            "### 7. \"Yo siento lo mismo\"",
+            "### 8. \"¿Qué tipo de música te gusta?\"",
+            "### 9. \"¿Has viajado mucho?\"",
+            "### 10. \"Me lo estoy pasando muy bien\""
+          ]
+        },
+        {
+          "header": "## Randi vége",
+          "subsections": [
+            "### 11. \"Lo pasé maravillosamente\"",
+            "### 12. \"¿Podemos vernos otra vez?\"",
+            "### 13. \"Me encantaría repetir esto\"",
+            "### 14. \"¿Puedo acompañarte a casa?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "64f63702-2be4-4642-8ca1-cd2a020be51a",
+      "title": "100 Συχνές Λέξεις (cs): Οδηγός για Ελληνόφωνα Ζευγάρια",
+      "native_lang": "el",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Κατηγορίες Λέξεων",
+          "subsections": [
+            "### Αγάπη & Τρυφερότητα",
+            "### Καθημερινές Λέξεις",
+            "### Συναισθήματα",
+            "### Χρόνος",
+            "### Τοποθεσία",
+            "### Ερωτήσεις",
+            "### Ρήματα"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "64fe85eb-53ac-40e9-8247-cf8bd9ef408a",
+      "title": "Португальська лексика про вагітність та материнство",
+      "native_lang": "uk",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Основна лексика про вагітність",
+          "subsections": []
+        },
+        {
+          "header": "## Оголошення про вагітність португальською",
+          "subsections": [
+            "### Як поділитися новиною"
+          ]
+        },
+        {
+          "header": "## Покупки для малюка",
+          "subsections": [
+            "### Що потрібно купити"
+          ]
+        },
+        {
+          "header": "## Пологи та лікарня",
+          "subsections": [
+            "### У пологовому будинку",
+            "### Після народження"
+          ]
+        },
+        {
+          "header": "## Перші місяці з малюком",
+          "subsections": [
+            "### Корисна лексика"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "65255eb8-c8be-4f50-bf1d-a8bf49653a4d",
+      "title": "Olandese: 12 Modi Romantici per Dire Ti Amo",
+      "native_lang": "it",
+      "target_lang": "nl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Frasi Romantiche Per Sciogliere i Cuori",
+          "subsections": [
+            "### \"Significhi Tutto Per Me\"",
+            "### \"Non Posso Vivere Senza di Te\"",
+            "### \"Sei l'Amore della Mia Vita\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6555981e-5ac5-46fc-90b9-e2217cfde04d",
+      "title": "Norveççe Flört İfadeleri: Romantik Kuzey Sözleri",
+      "native_lang": "tr",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Flört İfadeleri",
+          "subsections": [
+            "### 1. \"Du er veldig pen\"",
+            "### 2. \"Jeg liker smilet ditt\"",
+            "### 3. \"Vil du ta en kaffe med meg?\"",
+            "### 4. \"Du har vakre øyne\"",
+            "### 5. \"Jeg tenker på deg hele tiden\"",
+            "### 6. \"Du gjør meg glad\"",
+            "### 7. \"Kan jeg spandere en drink på deg?\"",
+            "### 8. \"Jeg trives godt med deg\"",
+            "### 9. \"Du er spesiell\"",
+            "### 10. \"Skal vi møtes igjen?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "656801d6-00e2-458b-999e-4dcc7ca84378",
+      "title": "Dutch Arguing & Disagreement Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressing Disagreement",
+          "subsections": [
+            "### Ik ben het er niet mee eens",
+            "### Dat is niet eerlijk",
+            "### Je begrijpt me verkeerd",
+            "### Je luistert niet naar me"
+          ]
+        },
+        {
+          "header": "## Expressing Frustration",
+          "subsections": [
+            "### Ik ben gefrustreerd",
+            "### Het stoort me als...",
+            "### Ik heb even een moment nodig",
+            "### Dat doet me pijn"
+          ]
+        },
+        {
+          "header": "## Setting Boundaries",
+          "subsections": [
+            "### Praat niet zo tegen me",
+            "### Dat gaat te ver",
+            "### We moeten hier rustig over praten"
+          ]
+        },
+        {
+          "header": "## Seeking Resolution",
+          "subsections": [
+            "### Kunnen we samen een oplossing vinden?",
+            "### Ik wil je begrijpen",
+            "### Wat kunnen we doen?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "656b6b30-f68c-4f87-a993-ac7b56263420",
+      "title": "De Familie Ontmoeten: Essentiële Turkse Zinnen",
+      "native_lang": "nl",
+      "target_lang": "tr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Do's en Don'ts",
+          "subsections": [
+            "### Do's",
+            "### Don'ts"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "656bbe24-7cc1-4504-a25c-b17ab5407870",
+      "title": "Întâlnirea cu Familia Poloneza: Fraze Esentiale",
+      "native_lang": "ro",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Situatii Speciale",
+          "subsections": [
+            "### Dacă Nu Înțelegi",
+            "### Oferind Ajutor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6574dbb8-e80a-47b1-adb3-f4559a1315be",
+      "title": "Svenske sms- og chatbeskeder til par",
+      "native_lang": "da",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende kærlige beskeder",
+          "subsections": [
+            "### \"Jag saknar dig\"",
+            "### \"Jag tänker på dig\"",
+            "### \"Jag längtar efter att träffa dig\""
+          ]
+        },
+        {
+          "header": "## Populære svenske kælenavne",
+          "subsections": [
+            "### \"Älskling\"",
+            "### \"Hjärtat\" / \"Mitt hjärta\"",
+            "### \"Gull\" / \"Gullet\""
+          ]
+        },
+        {
+          "header": "## Svenske sms-forkortelser",
+          "subsections": [
+            "### \"Jag älskar dig\" / \"JAD\"",
+            "### \"Puss och kram\" / \"PoK\"",
+            "### \"Godnatt\""
+          ]
+        },
+        {
+          "header": "## Romantiske beskeder",
+          "subsections": [
+            "### \"Du är allt för mig\"",
+            "### \"God morgon, älskling\"",
+            "### \"Sov gott, mitt hjärta\""
+          ]
+        },
+        {
+          "header": "## Hverdagsbeskeder",
+          "subsections": [
+            "### \"Hur mår du?\"",
+            "### \"Jag är på väg\"",
+            "### \"Vi ses\""
+          ]
+        },
+        {
+          "header": "## Specielle udtryk",
+          "subsections": [
+            "### \"Du är mitt liv\"",
+            "### \"Stora kramar\"",
+            "### \"Jag tycker om dig\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "65876247-f32a-4ce4-bdd2-8f3b6d623bd5",
+      "title": "Argot Russe de SMS pour les Couples",
+      "native_lang": "fr",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Exemples de Conversations",
+          "subsections": [
+            "### Le Matin",
+            "### Le Soir"
+          ]
+        }
+      ]
+    }
+  ]
+}

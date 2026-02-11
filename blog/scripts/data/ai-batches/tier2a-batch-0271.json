@@ -1,0 +1,113 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0271",
+  "articles": [
+    {
+      "id": "4cf0ffb9-db1a-4a62-b372-4a0edb7a4067",
+      "title": "Пожелания на годовщину на украинский: Романтические фразы",
+      "native_lang": "ru",
+      "target_lang": "uk",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nПразднование річниця на украинский языке добавляет прекрасный смысл этому особому случаю. Будь то ваш первый год разом или золотая річниця, выражение вашей кохання на языке партнёра демонстрирует заботу и преданность вашим отношениям.\n\nДля повседневных романтических выражений ознакомьтесь с нашим руководством [романтические фразы на украинский на все случаи жизни](/blog/ru/ukrainian-romantic-phrases-for-every-occasion).\n\n<PhraseOfDay\n  word=\"З річницею!\"\n  translation=\"С годовщиной\"\n  pronunciation=\"З річницею!\"\n  context=\"Идеальный способ поприветствовать партнёра в ваш особый день.\"\n/>\n\n## Основная лексика для годовщины\n\n<VocabCard\n  word=\"річниця\"\n  translation=\"годовщина\"\n  pronunciation=\"річниця\"\n  example=\"Сегодня наша річниця!\"\n/>\n\n| Ukrainian | Русский | Использование |\n|---|---|---|\n| річниця | годовщина | Особая дата |\n| років | годы | Время вместе |\n| разом | вместе | Единство как пара |\n| завжди | навсегда | Вечная любовь |\n| кохання | любовь | Ваша связь |\n| святкувати | праздновать | Отмечать день |\n| спогад | воспоминание | Дорогие моменты |\n| віха | веха | Важные отметки |\n\n<CultureTip flag=\"🇺🇦\" title=\"Традиции годовщины\">\nВ культурах, где говорят на украинский языке, годовщины часто отмечаются романтическими ужинами, значимыми подарками, а иногда и обновлением клятв. Каждый юбилейный год может иметь традиционные темы подарков.\n</CultureTip>\n\n## Простые пожелания на годовщину\n\n### Короткие и сладкие\n- **З річницею!!** - С годовщиной!\n- **Ещё один прекрасный год разом!** - Празднование времени вместе\n- **За ещё много років!** - Смотря вперёд\n\n### Для вашего партнёра\n- **Ты делаешь каждый день особенным** - Выражение благодарности\n- **кохання тебя больше с каждым днём** - Растущая любовь\n- **Моё сердце завжди твоё** - Вечная преданность\n\n<VocabCard\n  word=\"кохання\"\n  translation=\"любовь\"\n  pronunciation=\"кохання\"\n  example=\"кохання становится сильнее каждый год.\"\n/>\n\n## Романтические послания на годовщину\n\n### Сердечные признания\n**\"Каждая річниця с тобой напоминает мне, почему я выбрал(а) тебя. Ты моё завжди.\"**\n\n**\"разом мы создали прекрасную жизнь. За ещё много років кохання.\"**\n\n### Задумчивые послания\n**\"Вспоминая наши спогад, моё сердце наполняется радостью. Спасибо, что ты есть.\"**\n\n**\"Каждая віха, которую мы достигаем вместе, делает нашу связь крепче. Я цінувати каждый момент с тобой.\"**\n\n<CultureTip flag=\"🇺🇦\" title=\"Названия юбилеев\">\nРазные річниця років имеют традиционные названия: первая (бумажная), пятая (деревянная), десятая (оловянная), двадцать пятая (серебряная) и пятидесятая (золотая). Эти традиции схожи во многих регионах, где говорят на украинский языке.\n</CultureTip>\n\n## Послания по годам\n\n### Первая годовщина\n**\"Один год кохання, смеха и счастья. Первый из многих прекрасных років разом!\"**\n\n### Пятая годовщина\n**\"Пять років создания спогад вместе. Ты всё ещё вызываешь у меня бабочек в животе.\"**\n\n### Десятая годовщина\n**\"Десятилетие кохання! Каждый день с тобой — подарок, который я цінувати.\"**\n\n### Двадцать пятая годовщина (серебряная)\n**\"Двадцать пять років кохання и это только начало. Ты моя величайшая віха.\"**\n\n### Пятидесятая годовщина (золотая)\n**\"Пятьдесят років разом — золотая история кохання. Ты моё завжди.\"**\n\n## Романтические фразы для открыток\n\n| Случай | Послание на Ukrainian | Значение |\n|---|---|---|\n| Любой год | З річницею! моя кохання | С годовщиной, любовь моя |\n| Первый год | Наша первая річниця! | Празднование первого года |\n| Особый год | віха річниця | Важная годовщина |\n| Каждый год | завжди разом | Вечное единство |\n\n## Планирование празднования годовщины\n\n### Романтические идеи\n1. Напишите открытку на украинский языке\n2. Выучите песню о любви на украинский\n3. Приготовьте традиционный ужин\n4. Спланируйте поездку в страну, где говорят на украинский языке\n\n### Выражение благодарности\n- **Спасибо за каждый день** - За ежедневную радость\n- **Я благодарен(на) за нашу жизнь вместе** - За ваше партнёрство\n- **Ты — лучшее, что случилось со мной** - Самый глубокий комплимент\n\n## Сообщения для социальных сетей\n\n### Подписи для публикаций\n- **X років с undefined** - Веха\n- **разом завжди** - Простое и сладкое\n- **З річницею! моей второй половинке** - Традиционное\n\n## Краткий справочник\n\n| Цель | Фраза |\n|---|---|\n| Приветствие | З річницею!! |\n| Выражение любви | Я кохання тебя |\n| Смотря вперёд | На следующие років |\n| Посвящение | разом завжди |\n\nПусть каждая річниця на украинский языке напоминает вам о силе вашей кохання. Слова могут создать воспоминания, которые останутся завжди.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Простые пожелания на годовщину",
+              "## Романтические послания на годовщину",
+              "## Послания по годам",
+              "## Планирование празднования годовщины",
+              "## Сообщения для социальных сетей"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "4cf2528a-560b-4792-970a-c3bf68e38f8d",
+      "title": "Phrases portugaises sur la jalousie et la confiance en couple",
+      "native_lang": "fr",
+      "target_lang": "pt",
+      "category": "communication",
+      "content": "La jalousie est une émotion naturelle dans toute relation. Avec un partenaire lusophone, savoir exprimer ces sentiments et construire la confiance est essentiel pour une relation épanouie.\n\n## Le \"ciúme\" dans la culture lusophone\n\nDans les cultures brésilienne et portugaise, la jalousie (\"ciúme\") peut être vue différemment. Les Brésiliens sont généralement plus expressifs, tandis que les Portugais peuvent être plus réservés. Dans les deux cas, la communication ouverte est appréciée.\n\n## Expressions pour aborder la jalousie\n\n### Exprimer ses sentiments\n\n**\"Estou me sentindo um pouco inseguro/a com isso.\"**\n*Je me sens un peu en insécurité avec ça.*\nExprimer sa vulnérabilité.\n\n**\"Tenho que admitir que senti ciúmes quando...\"**\n*Je dois admettre que j'ai ressenti de la jalousie quand...*\nReconnaître ses émotions honnêtement.\n\n**\"Essa situação me deixa desconfortável.\"**\n*Cette situation me met mal à l'aise.*\nExprimer son malaise.\n\n### Demander des réassurances\n\n**\"Você pode me ajudar a entender sua relação com...?\"**\n*Peux-tu m'aider à comprendre ta relation avec...?*\nDemander des éclaircissements.\n\n**\"Preciso que você me tranquilize um pouco.\"**\n*J'ai besoin que tu me rassures un peu.*\nExprimer un besoin légitime.\n\n**\"Podemos conversar sobre nossos limites?\"**\n*Pouvons-nous parler de nos limites ?*\nOuvrir une discussion constructive.\n\n### Construire la confiance\n\n**\"Eu confio em você, mas isso é difícil para mim.\"**\n*Je te fais confiance, mais c'est difficile pour moi.*\nÉquilibrer confiance et vulnérabilité.\n\n**\"Quero ser honesto/a com você sobre como me sinto.\"**\n*Je veux être honnête avec toi sur ce que je ressens.*\nValoriser la transparence.\n\n**\"O que podemos fazer para nos sentirmos mais seguros?\"**\n*Que pouvons-nous faire pour nous sentir plus en sécurité ?*\nChercher des solutions ensemble.\n\n### Réaffirmer son engagement\n\n**\"Você é a única pessoa que eu quero.\"**\n*Tu es la seule personne que je veux.*\nRassurer sur vos sentiments.\n\n**\"Eu escolho você todos os dias.\"**\n*Je te choisis chaque jour.*\nAffirmation d'engagement.\n\n**\"Nosso relacionamento é minha prioridade.\"**\n*Notre relation est ma priorité.*\nMontrer l'importance de la relation.\n\n## Différences culturelles\n\nLes Brésiliens sont souvent plus ouverts sur leurs émotions et peuvent exprimer leur jalousie plus directement. Les Portugais tendent à être plus discrets mais apprécient également l'honnêteté émotionnelle.\n\n## Conclusion\n\nUtilisez ces expressions pour communiquer sainement sur la jalousie et construire une confiance durable avec votre partenaire lusophone.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Expressions pour aborder la jalousie"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "4cf4568a-85d4-454e-b9b0-601c867e20ce",
+      "title": "Griechische Ich-vermisse-dich-Sprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "el",
+      "category": "communication",
+      "content": "Griechisch ist die Sprache der Philosophie und der großen Gefühle. Die griechische Kultur ist bekannt für ihre Expressivität und Leidenschaft. Hier lernst du die schönsten griechischen Phrasen für die Momente, in denen du deinen Partner vermisst.\n\n## Grundlegende Ausdrücke\n\n### \"Μου λείπεις\" (Mou leípeis)\n**Aussprache:** mu LI-pis\n\n**Bedeutung:** Ich vermisse dich (Du fehlst mir)\n\n### \"Μου λείπεις πολύ\" (Mou leípeis polý)\n**Aussprache:** mu LI-pis po-LI\n\n**Bedeutung:** Ich vermisse dich sehr\n\n### \"Δεν μπορώ να σταματήσω να σκέφτομαι εσένα\"\n**Aussprache:** den bo-RO na sta-ma-TI-so na SKEF-to-me e-SE-na\n\n**Bedeutung:** Ich kann nicht aufhören, an dich zu denken\n\n## Emotionale Ausdrücke\n\n### \"Μακάρι να ήσουν εδώ\" (Makári na ísoun edó)\n**Aussprache:** ma-KA-ri na I-sun e-DO\n\n**Bedeutung:** Ich wünschte, du wärst hier\n\n### \"Κάθε στιγμή χωρίς εσένα μοιάζει με αιωνιότητα\"\n**Aussprache:** KA-the stig-MI cho-RIS e-SE-na mja-SI me e-o-ni-O-ti-ta\n\n**Bedeutung:** Jeder Moment ohne dich erscheint wie eine Ewigkeit\n\n### \"Η καρδιά μου σε ζητάει\" (I kardiá mou se zitái)\n**Aussprache:** i kar-DJA mu se si-TA-i\n\n**Bedeutung:** Mein Herz sucht dich\n\n### \"Νιώθω άδειος χωρίς εσένα\" / \"άδεια\"\n**Aussprache:** NJO-tho A-djos cho-RIS e-SE-na / A-dja\n\n**Bedeutung:** Ich fühle mich leer ohne dich (maskulin/feminin)\n\n## Liebevolle Nachrichten\n\n### \"Μετράω τις μέρες μέχρι να σε ξαναδώ\"\n**Aussprache:** met-RA-o tis ME-res ME-chri na se ksa-na-DO\n\n**Bedeutung:** Ich zähle die Tage, bis ich dich wiedersehe\n\n### \"Είσαι η πρώτη μου σκέψη το πρωί και η τελευταία το βράδυ\"\n**Aussprache:** I-se i PRO-ti mu SKEP-si to pro-I ke i te-lef-TE-a to WRA-di\n\n**Bedeutung:** Du bist mein erster Gedanke am Morgen und mein letzter am Abend\n\n### \"Η απόσταση δεν σημαίνει τίποτα όταν κάποιος σημαίνει τα πάντα\"\n**Aussprache:** i a-PO-sta-si den si-ME-ni TI-po-ta O-tan KA-pjos si-ME-ni ta PAN-da\n\n**Bedeutung:** Entfernung bedeutet nichts, wenn jemand alles bedeutet\n\n## Tröstende Worte\n\n### \"Σύντομα θα είμαστε πάλι μαζί\"\n**Aussprache:** SIN-do-ma tha I-mas-te PA-li ma-SI\n\n**Bedeutung:** Bald werden wir wieder zusammen sein\n\n### \"Η αγάπη μας είναι πιο δυνατή από κάθε απόσταση\"\n**Aussprache:** i a-GA-pi mas I-ne pjo di-na-TI a-PO KA-the a-PO-sta-si\n\n**Bedeutung:** Unsere Liebe ist stärker als jede Entfernung\n\n### \"Ακόμα και μακριά, είσαι πάντα στην καρδιά μου\"\n**Aussprache:** a-KO-ma ke mak-RJA, I-se PAN-da stin kar-DJA mu\n\n**Bedeutung:** Auch weit weg bist du immer in meinem Herzen\n\n## Für besondere Momente\n\n### \"Μου λείπει το χαμόγελό σου, το γέλιο σου, τα πάντα\"\n**Aussprache:** mu LI-pi to cha-MO-je-LO su, to JE-ljo su, ta PAN-da\n\n**Bedeutung:** Mir fehlt dein Lächeln, dein Lachen, alles\n\n### \"Κανείς δεν μπορεί να συγκριθεί μαζί σου\"\n**Aussprache:** ka-NIS den bo-RI na sing-kri-THI ma-SI su\n\n**Bedeutung:** Niemand kann sich mit dir vergleichen\n\n### \"Είσαι αναντικατάστατος\" / \"αναντικατάστατη\"\n**Aussprache:** I-se a-nan-di-ka-TA-sta-tos / a-nan-di-ka-TA-sta-ti\n\n**Bedeutung:** Du bist unersetzlich (maskulin/feminin)\n\n## Aussprache-Tipps\n\n- \"Γ\" = weiches \"g\" oder \"j\" vor e, i\n- \"Χ\" = \"ch\" wie in \"Bach\"\n- \"Θ\" = englisches \"th\" (stimmlos)\n- \"Δ\" = englisches \"th\" (stimmhaft)\n\n## Kulturelle Hinweise\n\nGriechen sind bekannt für ihre Expressivität. Sehnsucht wird nicht versteckt, sondern offen ausgedrückt. Die griechische Musik ist voller Lieder über Sehnsucht und Vermissen. Mit diesen Ausdrücken zeigst du tiefe, leidenschaftliche Gefühle!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Grundlegende Ausdrücke",
+              "## Emotionale Ausdrücke",
+              "## Liebevolle Nachrichten",
+              "## Tröstende Worte",
+              "## Für besondere Momente"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "4d01319d-5315-440b-b3f1-e66e3a3ef641",
+      "title": "Frases de Apoio Emocional em Norueguês: Confortando Seu Parceiro",
+      "native_lang": "pt",
+      "target_lang": "no",
+      "category": "communication",
+      "content": "Oferecer apoio emocional em norueguês permite demonstrar cuidado genuíno com autenticidade nórdica.\n\n## Frases de Apoio Básico\n\n### Demonstrando Presença\n\n**Jeg er her for deg, uansett hva som skjer.**\n*Estou aqui para você, aconteça o que acontecer.*\n\n**Du trenger ikke gå gjennom dette alene.**\n*Você não precisa passar por isso sozinho(a).*\n\n**Jeg er ved din side.**\n*Estou ao seu lado.*\n\n### Validando Sentimentos\n\n**Det er greit å føle det slik.**\n*Está tudo bem sentir-se assim.*\n\n**Følelsene dine er helt gyldige.**\n*Seus sentimentos são completamente válidos.*\n\n### Oferecendo Conforto\n\n**Alt kommer til å bli bra.**\n*Tudo vai ficar bem.*\n\n**Vi kommer gjennom dette sammen.**\n*Vamos superar isso juntos.*\n\n**Også dette skal gå over.**\n*Isso também vai passar.*\n\n## Perguntas de Apoio\n\n**Hvordan kan jeg hjelpe deg?**\n*Como posso te ajudar?*\n\n**Vil du snakke om det?**\n*Quer falar sobre isso?*\n\n## Encorajamento\n\n**Jeg er så stolt av hvordan du håndterer dette.**\n*Estou tão orgulhoso(a) de como você está lidando com isso.*\n\n**Du er sterkere enn du tror.**\n*Você é mais forte do que pensa.*\n\nKjærlighet vises i vanskelige tider - o amor se mostra nos momentos difíceis.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 185,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frases de Apoio Básico"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "4d0eaa23-6921-498d-a38f-0edcea2a1206",
+      "title": "Jak vyjádřit podporu a útěchu v rumunštině",
+      "native_lang": "cs",
+      "target_lang": "ro",
+      "category": "communication",
+      "content": "# Jak vyjádřit podporu a útěchu v rumunštině\n\nRumunština je jediný románský jazyk ve východní Evropě a má nádhernou melodičnost. Rumuni jsou známí svou vřelostí a pohostinností, a když jim vyjádříte podporu v jejich jazyce, budou to hluboce oceňovat.\n\n## Základní fráze podpory\n\n### Sunt aici pentru tine (Sunt ači pentru tine)\n**Význam:** Jsem tu pro tebe\n**Výslovnost:** sunt AČI PENtru TIne\n**Použití:** Základní vyjádření podpory a přítomnosti.\n\n### Totul va fi bine (Totul va fi bine)\n**Význam:** Všechno bude dobré\n**Výslovnost:** TOtul va fi BIne\n**Použití:** Klasická fráze útěchy a naděje.\n\n### Te înțeleg (Te ynczelleg)\n**Význam:** Rozumím ti\n**Výslovnost:** te yn-CZELLEG\n**Použití:** Vyjádření empatie a porozumění situaci.\n\n### Nu ești singur/singură (Nu ješti singur/singura)\n**Význam:** Nejsi sám/sama\n**Výslovnost:** nu JEŠTI sinGUR / sinGUra\n**Použití:** Pro muže 'singur', pro ženy 'singură'.\n\n## Fráze útěchy\n\n### Îmi pare foarte rău (Ymi pare foarte reu)\n**Význam:** Je mi to velmi líto\n**Výslovnost:** ymi PAre FOARte REU\n**Použití:** Vyjádření soustrasti nebo lítosti.\n\n### Fii puternic/puternică (Fii puternik/puternika)\n**Význam:** Buď silný/silná\n**Výslovnost:** fii puTERnik / puTERnika\n**Použití:** Povzbuzení k síle.\n\n### Cred în tine (Kred yn tine)\n**Význam:** Věřím v tebe\n**Výslovnost:** kred yn TIne\n**Použití:** Vyjádření důvěry ve schopnosti druhého.\n\n### Poți conta pe mine (Poci konta pe mine)\n**Význam:** Můžeš na mě počítat\n**Výslovnost:** poci KONta pe MIne\n**Použití:** Nabídka spolehlivé podpory.\n\n## Kulturní kontext\n\nRumuni mají silný smysl pro rodinu a přátelství. Při vyjadřování podpory:\n\n1. **Osobní prostor** - Rumuni jsou kontaktní, objetí a polibky na tváře jsou běžné.\n2. **Pohostinnost** - Nabídka jídla a pití je projevem péče.\n3. **Čas** - Rozhovory jsou důležité, nespěchejte.\n\n### Nu plânge (Nu plynže)\n**Význam:** Neplač\n**Výslovnost:** nu PLYNŽE\n**Použití:** Jemná útěcha, používejte citlivě.\n\n### Timpul vindecă toate rănile (Timpul vindeka toaté renile)\n**Význam:** Čas léčí všechny rány\n**Výslovnost:** TIMpul vinDEka TOAte REniLE\n**Použití:** Připomínka, že bolest časem ustoupí.\n\n### Suntem împreună (Suntem ympréuna)\n**Význam:** Jsme spolu\n**Výslovnost:** SUNtem ympreUNA\n**Použití:** Vyjádření solidarity.\n\n### Condoleanțe (Kondoleancel)\n**Význam:** Upřímnou soustrast\n**Výslovnost:** kondoLeANce\n**Použití:** Formální vyjádření soustrasti při úmrtí.\n\n### Nu-ți face griji (Nu-ci fače griži)\n**Význam:** Nedělej si starosti\n**Výslovnost:** NU-ci FAče GRIži\n**Použití:** Uklidňující fráze.\n\n## Závěr\n\nRumunština je krásný jazyk s latinskými kořeny, což ji činí pro Čechy relativně přístupnou. Rumuni velmi oceňují, když se cizinci snaží mluvit jejich jazykem, a vaše snaha vyjádřit podporu rumunsky bude přijata s vděčností a otevřeností. Pamatujte, že upřímnost a srdečnost jsou v rumunské kultuře klíčové.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Základní fráze podpory",
+              "## Fráze útěchy"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,552 @@
+{
+  "batchId": "tier2a-slim-0211",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "d7de13fa-1b9f-4e65-bb5d-004868497654",
+      "title": "Російський сленг для переписки: Як спілкуватися з партнером онлайн",
+      "native_lang": "uk",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Популярний сленг",
+          "subsections": [
+            "### Позитивні вирази",
+            "### Негативні та нейтральні"
+          ]
+        },
+        {
+          "header": "## Романтичні повідомлення",
+          "subsections": [
+            "### Ранкові",
+            "### Протягом дня",
+            "### Вечірні"
+          ]
+        },
+        {
+          "header": "## Приклади переписки",
+          "subsections": [
+            "### Планування побачення",
+            "### Романтичний діалог"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d7e714d6-09ef-4e27-bee4-cbd1cf3690ff",
+      "title": "Frases de Paquera em Francês: A Arte de Seduzir à la Française",
+      "native_lang": "pt",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases Essenciais de Paquera",
+          "subsections": [
+            "### Elogios Sofisticados",
+            "### Expressando Interesse",
+            "### Cantadas à la Française",
+            "### Para Relacionamentos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d7e72c7b-e035-46a9-b3eb-2d7cb0b12f74",
+      "title": "Swedish Daily Conversations for Couples",
+      "native_lang": "en",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Evening Routine",
+          "subsections": [
+            "### Dinner Time",
+            "### Relaxing Together"
+          ]
+        },
+        {
+          "header": "## Quick Reference: Daily Phrases",
+          "subsections": [
+            "### Morning",
+            "### During the Day",
+            "### Evening",
+            "### Night"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d7f4ec2c-060d-4744-997d-8bc27f9b05da",
+      "title": "Російська привітання з річницею: романтичні побажання",
+      "native_lang": "uk",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика про річницю",
+          "subsections": []
+        },
+        {
+          "header": "## Романтичні побажання з річницею",
+          "subsections": [
+            "### Класичні привітання"
+          ]
+        },
+        {
+          "header": "## Побажання для різних річниць",
+          "subsections": [
+            "### Перша річниця",
+            "### П'ята річниця",
+            "### Десята річниця та далі"
+          ]
+        },
+        {
+          "header": "## Як написати привітання з річницею",
+          "subsections": [
+            "### Структура ідеального привітання:",
+            "### Приклад привітання:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d7fc5d71-f345-4394-8132-44c153d6d9b7",
+      "title": "Rencontrer la Famille de Votre Partenaire Anglais",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Choses à Éviter",
+          "subsections": [
+            "### Ne faites pas :",
+            "### Faites :"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d801de22-d57f-4d06-81e5-44994885e020",
+      "title": "Fraze de Susținere Emoțională în Norvegiană",
+      "native_lang": "ro",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraze Esențiale de Confort",
+          "subsections": [
+            "### 1. Jeg er her for deg",
+            "### 2. Det kommer til å gå bra",
+            "### 3. Jeg forstår hvordan du føler deg",
+            "### 4. Ikke vær trist",
+            "### 5. Kondolerer",
+            "### 6. Ikke bekymre deg",
+            "### 7. Du er sterk",
+            "### 8. Jeg er stolt av deg",
+            "### 9. Ta det med ro",
+            "### 10. God bedring",
+            "### 11. Jeg tenker på deg",
+            "### 12. Du er ikke alene"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d819e9e0-42ca-45d0-941d-0445501ad6f1",
+      "title": "Pronunția în Spaniolă pentru Începători: Ghidul Pătrunzător pentru Cupluri",
+      "native_lang": "ro",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Sunetele Speciale care Ne Încurcă",
+          "subsections": [
+            "### R-ul Vibrat - Secretul Seducției",
+            "### Ñ - Litera cu Accent Latino"
+          ]
+        },
+        {
+          "header": "## Consoanele Problemă",
+          "subsections": [
+            "### C și G - Cele Două Fețe"
+          ]
+        },
+        {
+          "header": "## Greșeli Comune pe care să le Evitați",
+          "subsections": [
+            "### 1. R-ul Englezesc",
+            "### 2. Vocalele închise",
+            "### 3. H-ul Pronunțat"
+          ]
+        },
+        {
+          "header": "## Exerciții pentru Cupluri",
+          "subsections": [
+            "### Jocul de Pronunție",
+            "### Cântați Împreună"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d81e1f7f-9b86-45bc-8a77-865379470df5",
+      "title": "Норвезькі фрази про ревнощі та довіру",
+      "native_lang": "uk",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Вираження ревнощів",
+          "subsections": [
+            "### \"Jeg er sjalu\"",
+            "### \"Jeg blir sjalu når...\"",
+            "### \"Noen ganger føler jeg meg usikker\""
+          ]
+        },
+        {
+          "header": "## Запитання та довіра",
+          "subsections": [
+            "### \"Hvem var det?\"",
+            "### \"Hvordan kjenner du ham/henne?\"",
+            "### \"Jeg stoler helt på deg\"",
+            "### \"Det er ingenting å bekymre seg for\"",
+            "### \"Det er bare en venn\"",
+            "### \"Du er den eneste for meg\""
+          ]
+        },
+        {
+          "header": "## Обговорення",
+          "subsections": [
+            "### \"Kan vi snakke om dette?\"",
+            "### \"Jeg jobber med sjalusien min\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d81f29d2-61a1-425e-acfd-c970573465cf",
+      "title": "Expresii 'Mi-e Dor de Tine' în Turcă pentru Români",
+      "native_lang": "ro",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale de Dor",
+          "subsections": [
+            "### Expresii Clasice",
+            "### Expresii Poetice",
+            "### Mesaje Romantice",
+            "### Promisiuni"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d823956f-bd9a-4173-a398-61f5064cb1dd",
+      "title": "Лексика о беременности на греческий: Словарь для будущих родителей",
+      "native_lang": "ru",
+      "target_lang": "el",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Объявление о беременности",
+          "subsections": [
+            "### Для близких родственников",
+            "### Для друзей"
+          ]
+        },
+        {
+          "header": "## Лексика для визитов к врачу",
+          "subsections": [
+            "### На приёме",
+            "### Вопросы для врача"
+          ]
+        },
+        {
+          "header": "## Покупки для малыша",
+          "subsections": [
+            "### Необходимые вещи",
+            "### В магазине"
+          ]
+        },
+        {
+          "header": "## Разговор с семьёй партнёра",
+          "subsections": [
+            "### Делимся новостями",
+            "### Обсуждение планов"
+          ]
+        },
+        {
+          "header": "## Имена для малыша",
+          "subsections": [
+            "### Обсуждение имён"
+          ]
+        },
+        {
+          "header": "## После рождения",
+          "subsections": [
+            "### Объявление о рождении",
+            "### Первые дни"
+          ]
+        },
+        {
+          "header": "## Полезные фразы",
+          "subsections": [
+            "### Ежедневные выражения"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d830ec90-bb7a-4184-91e8-15acef2aaa8d",
+      "title": "Hungarian Jealousy & Trust Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressing Jealousy",
+          "subsections": [
+            "### Féltékeny vagyok",
+            "### Féltékeny leszek, amikor...",
+            "### Nem szeretem ezt a féltékenységet, amit érzek"
+          ]
+        },
+        {
+          "header": "## Seeking Reassurance",
+          "subsections": [
+            "### Csak engem szeretsz?",
+            "### Szükségem van rá, hogy megnyugtass"
+          ]
+        },
+        {
+          "header": "## Building Trust",
+          "subsections": [
+            "### Bízom benned",
+            "### Teljesen meg akarok bízni benned",
+            "### Hogyan építhetünk több bizalmat?"
+          ]
+        },
+        {
+          "header": "## Giving Reassurance",
+          "subsections": [
+            "### Csak téged látlak",
+            "### Te vagy az egyetlen nekem",
+            "### Nincs miért aggódnod",
+            "### A szívem a tiéd"
+          ]
+        },
+        {
+          "header": "## Setting Boundaries",
+          "subsections": [
+            "### A féltékenység hatással van a kapcsolatunkra",
+            "### Szükségem van a saját teremre"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d83fc7be-75c4-4897-a710-15bc95832f3d",
+      "title": "Французька vs Англійська: Ключові відмінності для українців",
+      "native_lang": "uk",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Ключові відмінності",
+          "subsections": [
+            "### 1. Граматичний рід",
+            "### 2. Дієвідмінювання",
+            "### 3. Прикметники",
+            "### 4. Заперечення",
+            "### 5. Питання"
+          ]
+        },
+        {
+          "header": "## Вимова: Що складніше",
+          "subsections": [
+            "### Французька складніша в цьому:",
+            "### Англійська складніша в цьому:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d84296a6-8ea6-419c-bdc0-e947dc68a0f9",
+      "title": "Italiaanse Zinnen voor Verzoening en Goedmaken",
+      "native_lang": "nl",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen voor verzoening",
+          "subsections": [
+            "### 1. \"Mi dispiace tanto per quello che ho detto\"",
+            "### 2. \"Possiamo ricominciare da zero?\"",
+            "### 3. \"Non volevo ferirti\"",
+            "### 4. \"Sei tutto per me\"",
+            "### 5. \"Ho sbagliato e lo ammetto\"",
+            "### 6. \"Ti amo più di qualsiasi litigio\"",
+            "### 7. \"Cosa posso fare per farmi perdonare?\"",
+            "### 8. \"Ti perdono\"",
+            "### 9. \"Mettiamoci questo alle spalle\"",
+            "### 10. \"Vieni qui, abbracciami\"",
+            "### 11. \"Il nostro amore è più forte di questo\"",
+            "### 12. \"Non voglio mai perderti\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d868ca79-5fcf-4018-bf8a-2f629d0ef627",
+      "title": "En Yaygın 100 Fransızca Kelime",
+      "native_lang": "tr",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Zamirler",
+          "subsections": [
+            "### 1. Je /jö/ - Ben",
+            "### 2. Tu /tü/ - Sen",
+            "### 3. Il /il/ - O (erkek)",
+            "### 4. Elle /el/ - O (kadın)",
+            "### 5. Nous /nu/ - Biz",
+            "### 6. Vous /vu/ - Siz",
+            "### 7. Ils/Elles /il/el/ - Onlar",
+            "### 8. Et /e/ - Ve",
+            "### 9. Mais /me/ - Ama",
+            "### 10. Ou /u/ - Veya"
+          ]
+        },
+        {
+          "header": "## Temel Fiiller",
+          "subsections": [
+            "### 11. Être /etr/ - Olmak",
+            "### 12. Avoir /avuar/ - Sahip olmak",
+            "### 13. Faire /fer/ - Yapmak",
+            "### 14. Dire /dir/ - Söylemek",
+            "### 15. Aller /ale/ - Gitmek",
+            "### 16. Venir /vönir/ - Gelmek",
+            "### 17. Pouvoir /puvuar/ - Yapabilmek",
+            "### 18. Savoir /savuar/ - Bilmek",
+            "### 19. Vouloir /vuluar/ - İstemek",
+            "### 20. Voir /vuar/ - Görmek",
+            "### 21. Donner /done/ - Vermek",
+            "### 22. Parler /parle/ - Konuşmak",
+            "### 23. Prendre /prandr/ - Almak",
+            "### 24. Aimer /eme/ - Sevmek",
+            "### 25. Manger /manje/ - Yemek"
+          ]
+        },
+        {
+          "header": "## Sıfatlar",
+          "subsections": [
+            "### 26. Bon /bon/ - İyi",
+            "### 27. Mauvais /move/ - Kötü",
+            "### 28. Grand /gran/ - Büyük",
+            "### 29. Petit /pöti/ - Küçük",
+            "### 30. Nouveau /nuvo/ - Yeni",
+            "### 31. Vieux /vyö/ - Eski/yaşlı",
+            "### 32. Long /lon/ - Uzun",
+            "### 33. Court /kur/ - Kısa",
+            "### 34. Chaud /şo/ - Sıcak",
+            "### 35. Froid /frua/ - Soğuk"
+          ]
+        },
+        {
+          "header": "## Zaman İfadeleri",
+          "subsections": [
+            "### 36. Maintenant /mentnã/ - Şimdi",
+            "### 37. Aujourd'hui /ojurdüi/ - Bugün",
+            "### 38. Demain /dömẽ/ - Yarın",
+            "### 39. Hier /iyer/ - Dün",
+            "### 40. Toujours /tujur/ - Her zaman",
+            "### 41. Jamais /jame/ - Asla",
+            "### 42. Parfois /parfua/ - Bazen"
+          ]
+        },
+        {
+          "header": "## Soru Kelimeleri",
+          "subsections": [
+            "### 43. Quoi/Que /kua/kö/ - Ne",
+            "### 44. Où /u/ - Nerede",
+            "### 45. Quand /kan/ - Ne zaman",
+            "### 46. Pourquoi /purkua/ - Neden",
+            "### 47. Comment /koman/ - Nasıl",
+            "### 48. Qui /ki/ - Kim"
+          ]
+        },
+        {
+          "header": "## Sayılar",
+          "subsections": [
+            "### 49. Un /ön/ - Bir",
+            "### 50. Deux /dö/ - İki",
+            "### 51. Trois /trua/ - Üç",
+            "### 52. Quatre /katr/ - Dört",
+            "### 53. Cinq /senk/ - Beş",
+            "### 54. Dix /dis/ - On",
+            "### 55. Cent /san/ - Yüz"
+          ]
+        },
+        {
+          "header": "## Günlük Kelimeler",
+          "subsections": [
+            "### 56. Oui /ui/ - Evet",
+            "### 57. Non /non/ - Hayır",
+            "### 58. S'il vous plaît /silvuple/ - Lütfen",
+            "### 59. Merci /mersi/ - Teşekkürler",
+            "### 60. Pardon /pardon/ - Özür dilerim",
+            "### 61. Bonjour /bonjur/ - Merhaba",
+            "### 62. Au revoir /orvuar/ - Hoşça kal",
+            "### 63. Amour /amur/ - Aşk",
+            "### 64. Ami /ami/ - Arkadaş",
+            "### 65. Famille /famiy/ - Aile"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d8742ca1-cf27-49e5-a062-b3920c5d19cf",
+      "title": "Переїзд разом: іспанською слова для спільного життя",
+      "native_lang": "uk",
+      "target_lang": "es",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика",
+          "subsections": []
+        },
+        {
+          "header": "## Обговорення переїзду",
+          "subsections": [
+            "### Як запропонувати спільне життя іспанською"
+          ]
+        },
+        {
+          "header": "## Пошук житла",
+          "subsections": [
+            "### Лексика для оренди/покупки",
+            "### Кімнати в домі"
+          ]
+        },
+        {
+          "header": "## Меблі та предмети побуту",
+          "subsections": [
+            "### У спальні",
+            "### На кухні",
+            "### У вітальні"
+          ]
+        },
+        {
+          "header": "## Розподіл обов'язків",
+          "subsections": [
+            "### Домашні справи іспанською",
+            "### Як обговорити обов'язки"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,486 @@
+{
+  "batchId": "tier2a-slim-0039",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "416b375f-1e5f-4c22-bb59-3fa5e448a109",
+      "title": "Gramática Básica do Tcheco: Guia para Iniciantes",
+      "native_lang": "pt",
+      "target_lang": "cs",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Verbos Tchecos",
+          "subsections": [
+            "### Conjugação - Presente",
+            "### Passado"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4188c8e8-40c0-4643-a60b-7bcf61d55db1",
+      "title": "Ungarische Liebesbrief-Phrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Anreden",
+          "subsections": [
+            "### \"Szerelmem...\"",
+            "### \"Szívem...\"",
+            "### \"Kincsem...\"",
+            "### \"Édesem...\"",
+            "### \"Drágám...\""
+          ]
+        },
+        {
+          "header": "## Einleitungen",
+          "subsections": [
+            "### \"Azért írok, hogy elmondjam, mennyire szeretlek\"",
+            "### \"Nincsenek szavak, amelyek kifejezhetik, mit érzek irántad\""
+          ]
+        },
+        {
+          "header": "## Ausdrücke der Liebe",
+          "subsections": [
+            "### \"Te vagy a legjobb dolog, ami valaha történt velem\"",
+            "### \"Az életem örökre megváltozott azon a napon, amikor találkoztunk\"",
+            "### \"Napról napra jobban szeretlek\"",
+            "### \"Beragyogod az életemet a jelenléteddel\"",
+            "### \"Veled fedeztem fel, mi az igazi szerelem\"",
+            "### \"Te vagy a napom, a holdam és minden csillagom\""
+          ]
+        },
+        {
+          "header": "## Zukunftsversprechen",
+          "subsections": [
+            "### \"Ígérem, hogy feltétel nélkül foglak szeretni\"",
+            "### \"Az életem hátralévő részét veled akarom tölteni\"",
+            "### \"A szerelmem irántad csak nőni fog\""
+          ]
+        },
+        {
+          "header": "## Abschlüsse",
+          "subsections": [
+            "### \"Örökké a tiéd...\"",
+            "### \"Minden szeretetemmel...\"",
+            "### \"Szeretlek, ma és mindörökké\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "41992bbb-75e5-40d1-b293-3fd21108d809",
+      "title": "С днём рождения на норвежский: Пожелания для любимого человека",
+      "native_lang": "ru",
+      "target_lang": "no",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Романтические пожелания на день рождения",
+          "subsections": [
+            "### Сладкие и простые",
+            "### Глубокие послания"
+          ]
+        },
+        {
+          "header": "## Фразы для открытки",
+          "subsections": [
+            "### Романтические послания",
+            "### Длинные послания"
+          ]
+        },
+        {
+          "header": "## Планирование сюрприза",
+          "subsections": [
+            "### Лексика для overraskelse",
+            "### Фразы для сюрприза"
+          ]
+        },
+        {
+          "header": "## Сообщения для социальных сетей",
+          "subsections": [
+            "### Подписи для публикаций"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "419b26c2-4351-44df-a7c7-2963b6fc7288",
+      "title": "Portugalskie zwroty \"tęsknię za Tobą\" dla Polaków",
+      "native_lang": "pl",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Różnice: Portugalia vs Brazylia",
+          "subsections": [
+            "### Brazylia (cieplejsza, bardziej bezpośrednia):",
+            "### Portugalia (nieco bardziej formalna):"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "41af3ff2-8d06-4748-ba84-0e3dd3047aa5",
+      "title": "Danimarka Partnerinizin Ailesiyle Tanışmak: Çiftler İçin Temel İfade ve Kültürel İpuçları",
+      "native_lang": "tr",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Tipik Buluşma Senaryoları",
+          "subsections": [
+            "### 1. Eve Giriş",
+            "### 2. Yemek Zamanı",
+            "### 3. Aile Fotoğraflarına Bakma"
+          ]
+        },
+        {
+          "header": "## Sorunlarla Baş Etme",
+          "subsections": [
+            "### Anlamadığınızda:",
+            "### Tekrar Etmenizi İstediğinde:",
+            "### Yardım İstediğinizde:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "41b51be4-fc8b-4df8-9534-9801c4e4eae8",
+      "title": "Как сделать предложение на английский: Фразы для помолвки",
+      "native_lang": "ru",
+      "target_lang": "en",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Способы сделать предложение",
+          "subsections": [
+            "### Классическое предложение",
+            "### Более романтические варианты"
+          ]
+        },
+        {
+          "header": "## Подготовка к предложению",
+          "subsections": [
+            "### Советы по практике",
+            "### Создание атмосферы"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "41c81fba-8d61-4b1d-a27a-fd7e13e2d957",
+      "title": "Gramática Romena para Casais: Dominando o Básico Juntos",
+      "native_lang": "pt",
+      "target_lang": "ro",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Os Básicos (Regras Fundamentais)",
+          "subsections": [
+            "### 1. Artigos Definidos - O Segredo do Romeno",
+            "### 2. Gênero - Masculino e Feminino",
+            "### 3. Plural - As Três Formas"
+          ]
+        },
+        {
+          "header": "## Erros Comuns (e Como Evitá-los)",
+          "subsections": [
+            "### ❌ **Esquecer o Artigo**",
+            "### ❌ **Confundir Gênero**",
+            "### ❌ **Colocar Adjetivo no Lugar Errado**",
+            "### ❌ **Esquecer Acento em ești**"
+          ]
+        },
+        {
+          "header": "## Guia Rápido para Memorizar",
+          "subsections": [
+            "### Artigos Depois do Substantivo",
+            "### Pronomes Possessivos",
+            "### Verbos Essenciais no Presente"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "41cf6040-b8f6-4348-af55-a8fd4f7739a0",
+      "title": "30+ Tyske Komplimenter til Din Partner: Romantiske Fraser",
+      "native_lang": "da",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Komplimenter til Specielle Lejligheder",
+          "subsections": [
+            "### Til en Date",
+            "### Ved Milepæle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "41d6533f-619f-4e73-933c-85347dc340f4",
+      "title": "Noors voor Stellen: 45+ Essentiële Reiszinnen",
+      "native_lang": "nl",
+      "target_lang": "no",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## In Het Hotel",
+          "subsections": [
+            "### Inchecken",
+            "### Verzoeken"
+          ]
+        },
+        {
+          "header": "## In Een Restaurant",
+          "subsections": [
+            "### Een Tafel Krijgen",
+            "### Bestellen"
+          ]
+        },
+        {
+          "header": "## Vervoer",
+          "subsections": [
+            "### Openbaar Vervoer",
+            "### Taxi"
+          ]
+        },
+        {
+          "header": "## Bezienswaardigheden",
+          "subsections": [
+            "### Kaartjes Kopen",
+            "### De Weg Vragen"
+          ]
+        },
+        {
+          "header": "## In De Natuur",
+          "subsections": [
+            "### Fjorden en Bergen",
+            "### Noorderlicht"
+          ]
+        },
+        {
+          "header": "## Handige Woordenlijst",
+          "subsections": [
+            "### Natuur",
+            "### Vervoer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "41e1a3c5-5131-4995-9541-649e47f01517",
+      "title": "Expresii de Text și Chat pentru Îndrăgostiți în Maghiară",
+      "native_lang": "ro",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii de Dragoste",
+          "subsections": [
+            "### 1. **Szeretlek**",
+            "### 2. **Te vagy az életem fénye**",
+            "### 3. **Nagyon hiányzol**",
+            "### 4. **Melletted vagyok**",
+            "### 5. **Te szeretném megölelni**"
+          ]
+        },
+        {
+          "header": "## Complimente și Apreciere",
+          "subsections": [
+            "### 6. **Gyönyörű vagy**",
+            "### 7. **A szívem csak a tiéd**",
+            "### 8. **Annyira boldog vagyok veled**"
+          ]
+        },
+        {
+          "header": "## Mesaje Amuzante și Jucăușe",
+          "subsections": [
+            "### 9. **Te vagy a kedvencem**",
+            "### 10. **Kérlek, ne veszekedjünk!**"
+          ]
+        },
+        {
+          "header": "## Emoții și Sentimente",
+          "subsections": [
+            "### 11. **Szívem úgy dobog érted**",
+            "### 12. **Kérlek, maradj velem**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "41f05fac-8f13-4295-a2c7-7661083f08b3",
+      "title": "Prononciation hongroise pour débutants : Parlez comme un(e) vrai(e) amoureux(se) en quelques leçons",
+      "native_lang": "fr",
+      "target_lang": "hu",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Les sons difficiles démystifiés",
+          "subsections": [
+            "### Le célèbre \"gy\" et \"ty\"",
+            "### Les voyelles avec accents"
+          ]
+        },
+        {
+          "header": "## Exercices de prononciation pour couples",
+          "subsections": [
+            "### 1. L'exercice du miroir",
+            "### 2. Le jeu des mots doux",
+            "### 3. Les phrases de la semaine"
+          ]
+        },
+        {
+          "header": "## Erreurs courantes à éviter",
+          "subsections": [
+            "### 1. L'accent français",
+            "### 2. Les voyelles longues ignorées",
+            "### 3. Le \"sz\" confondu avec \"s\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "41fe5d63-d6a1-4e51-b29a-fc2bc2e0b583",
+      "title": "Φράσεις για Γνωριμία με τους Πεθερικούς στα Ολλανδικά",
+      "native_lang": "el",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για την Πρώτη Γνωριμία",
+          "subsections": [
+            "### 1. Leuk om jullie te ontmoeten (Λέουκ ομ γιούλι τε οντμούτεν)",
+            "### 2. Ik heb veel over jullie gehoord (Ικ χεμπ φελ όβερ γιούλι χεχόρντ)",
+            "### 3. Bedankt dat jullie me verwelkomen (Μπεντάνκτ ντατ γιούλι με φερβέλκομεν)"
+          ]
+        },
+        {
+          "header": "## Φράσεις Εκτίμησης",
+          "subsections": [
+            "### 4. Jullie zoon/dochter is fantastisch (Γιούλι ζον/ντόχτερ ις φαντάστις)",
+            "### 5. Jullie hebben een geweldig mens grootgebracht (Γιούλι χέμπεν εν χεβέλντιχ μενς χροτχεμπράχτ)",
+            "### 6. Het eten is heerlijk (Χετ έτεν ις χέρλικ)",
+            "### 7. Jullie hebben een mooi huis (Γιούλι χέμπεν εν μόι χάους)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για Συζήτηση",
+          "subsections": [
+            "### 8. Ik zou graag meer over jullie familie willen weten (Ικ ζάου χραχ μερ όβερ γιούλι φαμίλι βίλεν βέτεν)",
+            "### 9. Hoe was hij/zij als kind? (Χου βας χάι/ζάι αλς κιντ)",
+            "### 10. Ik hoop dat we meer tijd samen kunnen doorbrengen (Ικ χοπ ντατ βε μερ τάιντ σάμεν κίνεν ντόρμπρενγκεν)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4208d07d-d297-45cc-bf25-62625bf95c8b",
+      "title": "Ingilizce Ogrenmek Zor mu? Turkler Icin Rehber",
+      "native_lang": "tr",
+      "target_lang": "en",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Ingilizce'nin Kolay Yonleri",
+          "subsections": [
+            "### 1. Alfabe Tanidik",
+            "### 2. Cinsiyet Yok",
+            "### 3. Fiil Cekimi Basit",
+            "### 4. Hal Ekleri Yok",
+            "### 5. Kelime Hazinesi"
+          ]
+        },
+        {
+          "header": "## Ingilizce'nin Zor Yonleri",
+          "subsections": [
+            "### 1. Telaffuz ve Yazim Uyusmazligi",
+            "### 2. Zaman Sistemi",
+            "### 3. Phrasal Verbs",
+            "### 4. Mastar Edati Yok",
+            "### 5. Kelime Sirasi Sabiti"
+          ]
+        },
+        {
+          "header": "## Ogrenme Suresi",
+          "subsections": [
+            "### Gercekci Beklentiler"
+          ]
+        },
+        {
+          "header": "## Basari Ipuclari",
+          "subsections": [
+            "### 1. Gunluk Pratik",
+            "### 2. Hatalardan Korkmayın",
+            "### 3. Ilgi Alanlarinizi Kullanin",
+            "### 4. Konusmayi Onceliklendirin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "425d4edc-7c0a-43fc-9d06-37f722da45eb",
+      "title": "Lengyel lánykérési és eljegyzési kifejezések",
+      "native_lang": "hu",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### A nagy kérdés",
+            "### Az eljegyzés bejelentése"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "42625267-9b64-45ad-917f-c510b510b63d",
+      "title": "French Greetings and Goodbyes Guide",
+      "native_lang": "en",
+      "target_lang": "fr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Essential French Greetings for Every Occasion",
+          "subsections": [
+            "### Morning Greetings",
+            "### Afternoon and Evening Greetings"
+          ]
+        },
+        {
+          "header": "## Romantic Greetings for Couples",
+          "subsections": [
+            "### Terms of Endearment in Greetings"
+          ]
+        },
+        {
+          "header": "## Beautiful French Goodbyes",
+          "subsections": [
+            "### Standard Farewells",
+            "### Romantic Farewells"
+          ]
+        },
+        {
+          "header": "## Time-Specific Goodbyes",
+          "subsections": [
+            "### Evening and Night Farewells"
+          ]
+        },
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Morning Routine Challenge",
+            "### Role-Play Scenarios",
+            "### Memory Game"
+          ]
+        }
+      ]
+    }
+  ]
+}

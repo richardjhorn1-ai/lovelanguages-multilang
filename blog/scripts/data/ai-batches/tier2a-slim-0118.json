@@ -1,0 +1,463 @@
+{
+  "batchId": "tier2a-slim-0118",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "8753e4a0-75eb-43a5-bfd7-59a6b2642cfc",
+      "title": "Holenderska gramatyka dla par: Podstawy, które pokochasz",
+      "native_lang": "pl",
+      "target_lang": "nl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Podstawowe zasady (które pokochasz!)",
+          "subsections": [
+            "### 1. Prosta kolejność wyrazów",
+            "### 2. Rzeczowniki: tylko dwa rodzaje",
+            "### 3. Czasowniki: regularne wzorce"
+          ]
+        },
+        {
+          "header": "## Najczęstsze wzorce w związku",
+          "subsections": [
+            "### Pytania tak/nie",
+            "### Wyrażanie czasu"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "876692f7-61f9-4b16-8c42-ffc9b9641b79",
+      "title": "Yunanca Tartışma ve Anlaşmazlık İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Tartışma İfadeleri",
+          "subsections": [
+            "### 1. \"Νιώθω πληγωμένος/η όταν...\" (Niotho pligomenos/i otan...)",
+            "### 2. \"Μπορούμε να μιλήσουμε ήρεμα γι' αυτό;\"",
+            "### 3. \"Καταλαβαίνω την άποψή σου, αλλά...\"",
+            "### 4. \"Ας μην φωνάζουμε\"",
+            "### 5. \"Δεν εννοούσα αυτό\"",
+            "### 6. \"Χρειάζομαι λίγο χρόνο για τον εαυτό μου\"",
+            "### 7. \"Ας βρούμε μια λύση μαζί\"",
+            "### 8. \"Δεν ήθελα να σε πληγώσω\"",
+            "### 9. \"Μπορείς να μου εξηγήσεις πώς νιώθεις;\"",
+            "### 10. \"Νομίζω ότι και οι δύο πρέπει να ηρεμήσουμε\"",
+            "### 11. \"Σ'αγαπώ, αλλά είμαι θυμωμένος/η\"",
+            "### 12. \"Ας μιλήσουμε γι' αυτό αργότερα\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8768be4f-fa49-45be-9b08-04c316194bf7",
+      "title": "Noorse Zinnen voor Ruzie en Meningsverschillen",
+      "native_lang": "nl",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen voor meningsverschillen",
+          "subsections": [
+            "### 1. \"Jeg føler meg såret når du...\"",
+            "### 2. \"Kan vi snakke rolig om dette?\"",
+            "### 3. \"Jeg forstår ditt synspunkt, men...\"",
+            "### 4. \"Jeg trenger et øyeblikk for å roe meg ned\"",
+            "### 5. \"Det var ikke det jeg mente\"",
+            "### 6. \"Vær så snill, hør på meg\"",
+            "### 7. \"Kan du forklare hvordan du føler deg?\"",
+            "### 8. \"Jeg vil ikke krangle om dette\"",
+            "### 9. \"La oss finne et kompromiss sammen\"",
+            "### 10. \"Unnskyld at jeg hevet stemmen\"",
+            "### 11. \"Dette er veldig viktig for meg\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "876d6719-acd7-451d-92e5-6501f458477a",
+      "title": "Russiske udtryk til at møde svigerforældre",
+      "native_lang": "da",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Vigtige sætninger",
+          "subsections": [
+            "### 1. Очень приятно с вами познакомиться",
+            "### 2. Я много о вас слышал/слышала",
+            "### 3. Большое спасибо за приглашение",
+            "### 4. Я принёс/принесла вам небольшой подарок",
+            "### 5. У вас очень красивый дом",
+            "### 6. Было очень вкусно",
+            "### 7. Я очень люблю вашего сына/вашу дочь",
+            "### 8. Мы очень счастливы вместе",
+            "### 9. Я хотел бы/хотела бы узнать вас лучше",
+            "### 10. Могу я чем-нибудь помочь?",
+            "### 11. Это замечательная семейная традиция",
+            "### 12. Надеюсь, мы скоро увидимся снова"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8770909a-4d6c-4ee8-ad64-8fc113da3e3c",
+      "title": "Ukrainian Forgiveness Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Asking for Forgiveness",
+          "subsections": [
+            "### Вибач мені"
+          ]
+        },
+        {
+          "header": "## Granting Forgiveness",
+          "subsections": [
+            "### Я тобі пробачаю"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8771205a-0fb9-4371-9d71-f528cf566549",
+      "title": "Spagnolo: 15 Modi Romantici per Dire Ti Amo",
+      "native_lang": "it",
+      "target_lang": "es",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Espressioni per Situazioni Quotidiane",
+          "subsections": [
+            "### Al Mattino",
+            "### Prima di Uscire",
+            "### Alla Sera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "877ab448-f292-4806-91af-9689c7a95ca9",
+      "title": "Vocabulaire italien pour le shopping",
+      "native_lang": "fr",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Exercices pour couples",
+          "subsections": [
+            "### Shopping simulé",
+            "### Quiz couleurs et tailles",
+            "### Sortie réelle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "877cd3c0-878e-477d-acf3-ceece6528f96",
+      "title": "Rumänische Liebesbrief-Phrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Anreden",
+          "subsections": [
+            "### \"Iubirea mea...\"",
+            "### \"Dragostea mea...\"",
+            "### \"Sufletul meu...\"",
+            "### \"Inima mea...\""
+          ]
+        },
+        {
+          "header": "## Einleitungen",
+          "subsections": [
+            "### \"Îți scriu aceste rânduri pentru a-ți spune cât de mult te iubesc\"",
+            "### \"Nu există cuvinte suficiente pentru a exprima ce simt pentru tine\""
+          ]
+        },
+        {
+          "header": "## Ausdrücke der Liebe",
+          "subsections": [
+            "### \"Ești cel mai frumos lucru care mi s-a întâmplat\"",
+            "### \"Viața mea s-a schimbat pentru totdeauna în ziua în care te-am întâlnit\"",
+            "### \"Mă îndrăgostesc de tine tot mai mult în fiecare zi\"",
+            "### \"Îmi luminezi viața cu prezența ta\"",
+            "### \"Cu tine am descoperit ce înseamnă adevărata iubire\""
+          ]
+        },
+        {
+          "header": "## Zukunftsversprechen",
+          "subsections": [
+            "### \"Îți promit să te iubesc necondiționat\"",
+            "### \"Vreau să-mi petrec restul vieții alături de tine\"",
+            "### \"Iubirea mea pentru tine va crește mereu\""
+          ]
+        },
+        {
+          "header": "## Abschlüsse",
+          "subsections": [
+            "### \"Al tău/A ta pentru totdeauna...\"",
+            "### \"Cu toată dragostea mea...\"",
+            "### \"Te iubesc, azi și mereu\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "877dbd91-2fd5-460e-b3e0-8795a403bcd3",
+      "title": "Ukraińska gramatyka dla par: Podstawy, które pokochasz",
+      "native_lang": "pl",
+      "target_lang": "uk",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Podstawowe zasady (w 5 prostych krokach)",
+          "subsections": [
+            "### 1. Ukraiński alfabet - Twój nowy przyjaciel",
+            "### 2. Rodzaje rzeczowników - trzy kategorie",
+            "### 3. Przypadki - 7 ról w zdaniu",
+            "### 4. Czasowniki - dwie grupy",
+            "### 5. Przymiotniki - zgadzają się z rzeczownikami"
+          ]
+        },
+        {
+          "header": "## Najważniejsze wzorce - gotowe do użycia",
+          "subsections": [
+            "### Odmiana czasownika \"kochać\"",
+            "### Najczęstsze romantyczne wzorce"
+          ]
+        },
+        {
+          "header": "## Szybka ściągawka - zapisz sobie!",
+          "subsections": [
+            "### Podstawowe zaimki",
+            "### Najważniejsze czasowniki",
+            "### Romantyczne słowa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8783c2ad-ab02-4276-813f-10025f8ccde2",
+      "title": "Jak napsat milostný dopis v dánštině",
+      "native_lang": "cs",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Úvodní oslovení",
+          "subsections": [
+            "### \"Min skat\"",
+            "### \"Min elskede\"",
+            "### \"Kæreste\""
+          ]
+        },
+        {
+          "header": "## Úvodní věty",
+          "subsections": [
+            "### \"Jeg skriver dette brev for at fortælle dig, hvor meget du betyder for mig.\"",
+            "### \"Ord kan ikke udtrykke, hvad jeg føler for dig.\""
+          ]
+        },
+        {
+          "header": "## Vyjádření lásky",
+          "subsections": [
+            "### \"Du er det bedste, der nogensinde er sket for mig.\"",
+            "### \"Jeg elsker dig mere for hver dag.\"",
+            "### \"Mit hjerte tilhører dig, nu og for altid.\"",
+            "### \"Med dig har jeg fundet ægte lykke.\""
+          ]
+        },
+        {
+          "header": "## Ocenění partnera",
+          "subsections": [
+            "### \"Jeg beundrer din styrke, venlighed og smukke sjæl.\"",
+            "### \"Tak fordi du elsker mig, præcis som jeg er.\""
+          ]
+        },
+        {
+          "header": "## Závěrečné fráze",
+          "subsections": [
+            "### \"Din for evigt\"",
+            "### \"Med al min kærlighed\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "878d90a3-0762-445a-a886-4c08aae36ab6",
+      "title": "Как сделать предложение на венгерский: Фразы для помолвки",
+      "native_lang": "ru",
+      "target_lang": "hu",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Способы сделать предложение",
+          "subsections": [
+            "### Классическое предложение",
+            "### Более романтические варианты"
+          ]
+        },
+        {
+          "header": "## Подготовка к предложению",
+          "subsections": [
+            "### Советы по практике",
+            "### Создание атмосферы"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "879b6db8-33f2-49a1-8ef5-b53cc5d928ca",
+      "title": "Ukrán esküvői kifejezések: Szókincs a nagy napra",
+      "native_lang": "hu",
+      "target_lang": "uk",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Gratulációk és jókívánságok",
+            "### Köszöntők"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "87a9b541-9089-45e5-8d2b-d81c673cc4c1",
+      "title": "Græske 'Jeg Savner Dig' Sætninger for Danskere",
+      "native_lang": "da",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Udtryk",
+          "subsections": [
+            "### \"Μου λείπεις\" (Mou leípeis)",
+            "### \"Μου λείπεις πολύ\" (Mou leípeis polý)",
+            "### \"Σκέφτομαι συνέχεια εσένα\" (Skéftomai synécheia eséna)"
+          ]
+        },
+        {
+          "header": "## Dybere Udtryk",
+          "subsections": [
+            "### \"Κάθε στιγμή χωρίς εσένα μοιάζει αιωνιότητα\" (Káthe stigmí chorís eséna moiázei aioniótita)",
+            "### \"Είσαι το πρώτο πράγμα που σκέφτομαι όταν ξυπνάω\" (Eísai to próto prágma pou skéftomai ótan xypnáo)",
+            "### \"Μακάρι να ήσουν εδώ\" (Makári na ísoun edó)"
+          ]
+        },
+        {
+          "header": "## Hverdagens Savn",
+          "subsections": [
+            "### \"Μου λείπει το χαμόγελό σου\" (Mou leípei to chamógeló sou)",
+            "### \"Μου λείπει να κοιμάμαι δίπλα σου\" (Mou leípei na koimámai dípla sou)",
+            "### \"Μου λείπουν οι συζητήσεις μας\" (Mou leípoun oi syzitíseis mas)"
+          ]
+        },
+        {
+          "header": "## Intense Udtryk",
+          "subsections": [
+            "### \"Μου λείπεις περισσότερο από όσα μπορούν να πουν τα λόγια\" (Mou leípeis perissótero apó ósa boroún na poun ta lógia)",
+            "### \"Να είμαι μακριά σου είναι το πιο δύσκολο\" (Na eímai makriá sou eínai to pio dýskolo)",
+            "### \"Μετράω τις μέρες μέχρι να σε ξαναδώ\" (Metráo tis méres méchri na se xanadó)"
+          ]
+        },
+        {
+          "header": "## Trøstende Sætninger",
+          "subsections": [
+            "### \"Η απόσταση δεν σημαίνει τίποτα όταν κάποιος σημαίνει τα πάντα\" (I apóstasi den simaínei típota ótan kápoios simaínei ta pánta)",
+            "### \"Όπου κι αν είσαι, είσαι πάντα στην καρδιά μου\" (Ópou ki an eísai, eísai pánta stin kardiá mou)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "87b9376d-4fe5-4149-8ac8-40501e7c4610",
+      "title": "Španělské flirtovací fráze pro Čechy",
+      "native_lang": "cs",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní lichotky",
+          "subsections": [
+            "### \"Eres muy guapo/guapa.\"",
+            "### \"Tienes unos ojos preciosos.\"",
+            "### \"Me encantas.\"",
+            "### \"Eres increíble.\""
+          ]
+        },
+        {
+          "header": "## Vášnivé fráze",
+          "subsections": [
+            "### \"No puedo dejar de pensar en ti.\"",
+            "### \"Me vuelves loco/loca.\"",
+            "### \"Eres el amor de mi vida.\""
+          ]
+        },
+        {
+          "header": "## Hravé fráze",
+          "subsections": [
+            "### \"¿Crees en el amor a primera vista o tengo que pasar otra vez?\"",
+            "### \"Si la belleza fuera tiempo, tú serías una eternidad.\"",
+            "### \"¿Tienes un mapa? Me perdí en tus ojos.\""
+          ]
+        },
+        {
+          "header": "## Fráze pro zprávy",
+          "subsections": [
+            "### \"Buenos días, mi amor.\"",
+            "### \"Te echo de menos.\"",
+            "### \"Quiero estar contigo.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "87c64cd3-7e07-4d7a-881e-dd2a471d0acf",
+      "title": "Phrases de drague en néerlandais : Charmer à la hollandaise",
+      "native_lang": "fr",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Phrases de base pour séduire",
+          "subsections": [
+            "### \"Je ziet er prachtig uit\"",
+            "### \"Je hebt een mooie glimlach\"",
+            "### \"Je ogen zijn prachtig\""
+          ]
+        },
+        {
+          "header": "## Exprimer l'attirance",
+          "subsections": [
+            "### \"Ik kan niet stoppen met aan je denken\"",
+            "### \"Je maakt me gelukkig\"",
+            "### \"Er is iets speciaals aan jou\""
+          ]
+        },
+        {
+          "header": "## Phrases pour approfondir",
+          "subsections": [
+            "### \"Ik voel me zo goed bij jou\"",
+            "### \"Je bent bijzonder voor mij\"",
+            "### \"Ik ben verliefd op je\""
+          ]
+        },
+        {
+          "header": "## Phrases du quotidien",
+          "subsections": [
+            "### \"Ik mis je\"",
+            "### \"Ik hou van je\""
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0127",
+  "articles": [
+    {
+      "id": "2440ceaf-6169-4ff7-a770-6fa4edf2ccf5",
+      "title": "Włoskie zwroty o przebaczeniu dla par",
+      "native_lang": "pl",
+      "target_lang": "it",
+      "category": "communication",
+      "content": "Włosi są namiętni w miłości i przebaczeniu. W relacji z osobą mówiącą po włosku przebaczenie może być wyrażone z głęboką emocją.\n\n## Proszenie o przebaczenie\n\n### \"Per favore, perdonami\"\n*Proszę, wybacz mi* - Wymowa: per fa-WO-re per-DO-na-mi\n\n### \"Spero che tu possa perdonarmi\"\n*Mam nadzieję, że mi wybaczysz* - Wymowa: SPE-ro ke tu PO-sa per-do-NAR-mi\n\n### \"Puoi trovare nel tuo cuore il perdono?\"\n*Czy możesz znaleźć w sercu przebaczenie?* - Wymowa: pwoj tro-WA-re nel tu-o KWO-re il per-DO-no\n\n## Wyrażanie przebaczenia\n\n### \"Ti perdono\"\n*Przebaczam Ci* - Wymowa: ti per-DO-no\n\n### \"Va bene, capisco\"\n*W porządku, rozumiem* - Wymowa: wa BE-ne ka-PIS-ko\n\n### \"Lasciamoci questo alle spalle\"\n*Zostawmy to za sobą* - Wymowa: la-sza-MO-czi KWES-to A-le SPAL-le\n\n## Proces przebaczenia\n\n### \"Sto lavorando per perdonarti\"\n*Pracuję nad tym, żeby Ci wybaczyć* - Wymowa: sto la-wo-RAN-do per per-do-NAR-ti\n\n### \"Ho bisogno di tempo, ma ti perdonerò\"\n*Potrzebuję czasu, ale wybaczę Ci* - Wymowa: o bi-ZO-njo di TEM-po ma ti per-do-ne-RO\n\n## Głębokie przebaczenie\n\n### \"Ti perdono completamente\"\n*Przebaczam Ci całkowicie* - Wymowa: ti per-DO-no kom-ple-ta-MEN-te\n\n### \"Sto lasciando andare il dolore\"\n*Puszczam ten ból* - Wymowa: sto la-SZAN-do an-DA-re il do-LO-re\n\n## Wspólne wyjście naprzód\n\n### \"Ricominciamo da capo\"\n*Zacznijmy od nowa* - Wymowa: ri-ko-min-CZA-mo da KA-po\n\n### \"Il nostro amore è più forte di questo errore\"\n*Nasza miłość jest silniejsza niż ten błąd* - Wymowa: il NOS-tro a-MO-re e pju FOR-te di KWES-to er-RO-re\n\n## Granice przebaczenia\n\n### \"Ti perdono, ma questo non deve ripetersi\"\n*Przebaczam Ci, ale to nie może się powtórzyć* - Wymowa: ti per-DO-no ma KWES-to non DE-we ri-PE-ter-si\n\n## Wskazówki kulturowe\n\nWłosi wyrażają przebaczenie z pasją. Przytulenie i pocałunek często towarzyszą słowom przebaczenia.\n\nIl perdono guarisce il cuore! (Przebaczenie uzdrawia serce!)",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 285,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Proszenie o przebaczenie",
+              "## Wyrażanie przebaczenia",
+              "## Proces przebaczenia",
+              "## Głębokie przebaczenie",
+              "## Wspólne wyjście naprzód",
+              "## Granice przebaczenia"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "2456cd0b-4734-4298-9f6a-cf229581fd60",
+      "title": "Румынское произношение для начинающих: учимся говорить с любимым",
+      "native_lang": "ru",
+      "target_lang": "ro",
+      "category": "pronunciation",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nПредставьте, как ваш партнёр улыбается, когда вы произносите его имя с идеальным румынским акцентом. Правильное произношение открывает двери к сердцу — и сегодня мы научимся говорить по-румынски так, чтобы вашей второй половинке стало тепло от каждого слова. К концу этой статьи вы будете уверенно произносить самые важные слова на румынском!\n\n<PhraseOfDay\n  word=\"Te iubesc\"\n  translation=\"Я тебя люблю\"\n  pronunciation=\"те ю-БЕСК\"\n  context=\"Самая важная фраза, которую нужно произнести идеально.\"\n/>\n\n## Почему румынское произношение особенное\n\nРумынский язык — это музыка, и каждая буква играет свою ноту. В отличие от русского, здесь каждая буква почти всегда звучит одинаково. Это значит, что научившись основам один раз, вы будете читать правильно всегда!\n\n<CultureTip flag=\"🇷🇴\" title=\"Мелодия румынской речи\">\nРумынская речь похожа на песню — она течёт плавно, с подъёмами и спусками. Когда говорите с партнёром, представьте, что поёте ей серенаду — это поможет поймать нужный ритм.\n</CultureTip>\n\n## Базовые правила чтения\n\n### Гласные звуки — сердце языка\n\n| Буква | Произношение | Пример | Перевод |\n|--------|---------------|---------|----------|\n| **a** | как русское \"а\" | **casă** | дом |\n| **e** | как русское \"э\" | **mere** | яблоки |\n| **i** | как русское \"и\" | **bine** | хорошо |\n| **o** | как русское \"о\" | **dor** | тоска |\n| **u** | как русское \"у\" | **luna** | луна |\n\n<VocabCard\n  word=\"Inimă\"\n  translation=\"Сердце\"\n  pronunciation=\"и-НИ-мэ\"\n  example=\"Inima mea aparține ție.\"\n/>\n\n### Согласные — без сюрпризов\n\nРумынские согласные читаются почти как в русском, но есть важные исключения:\n\n- **c** перед **e** и **i** читается как \"ч\": **cer** (небо) — **чер**\n- **g** перед **e** и **i** читается как \"дж\": **ger** (мороз) — **джер**\n- **j** всегда читается как \"ж\": **jeu** (игра) — **жу**\n\n## Комбинации букв, которые важно знать\n\nНекоторые сочетания букв создают особые звуки:\n\n| Комбинация | Произношение | Пример | Значение |\n|-------------|---------------|---------|----------|\n| **ea** | \"эа\" | **beată** | девушка |\n| **oa** | \"оа\" | **foarte** | очень |\n| **iu** | \"ьу\" | **fiu** | сын |\n| **au** | \"ау\" | **dar** | подарок |\n| **oi** | \"ой\" | **voie** | разрешение |\n\n<PhraseOfDay\n  word=\"Frumoasă\"\n  translation=\"Красивая\"\n  pronunciation=\"фру-МОа-сэ\"\n  context=\"Обязательное слово для комплимента любимой.\"\n/>\n\n## Ударение — где поставить акцент\n\nВ румынском языке ударение может быть на любом слоге, но есть закономерности:\n\n1. **Слова заканчивающиеся на -a**: ударение обычно на предпоследний слог\n   - **iub**í**re** (любовь) — иу-БИ-ре\n\n2. **Глаги в present tense**: ударение на личное окончание\n   - **iub**é**sc** (я люблю) — иу-БЕСК\n\n3. **Вопросительные слова**: ударение на первый слог\n   - **când** (когда) — КЫНД\n\n## Романтические фразы для практики\n\nПотренируйтесь произносить эти фразы вместе:\n\n| Румынский | Перевод | Произношение | Использование |\n|-----------|----------|---------------|----------------|\n| **Dragostea mea** | Моя любовь | дра-ГОС-теа меа | Нежное обращение |\n| **Ești specială** | Ты особенная | ешть спе-ци-АЛЭ | Комплимент |\n| **Mă gândesc la tine** | Я думаю о тебе | мэ гын-ДЕСК ла ти-не | Признание |\n| **Vreau să fiu cu tine** | Я хочу быть с тобой | ВРЕАУ сэ фью ку ти-не | Романтическое признание |\n\n<CultureTip flag=\"🇷🇴\" title=\"Интонация важнее идеального произношения\">\nРумыны ценят искренность больше, чем идеальное произношение. Говорите с любовью в голосе — и ваш партнёр поймёт всё, даже если вы ошибётесь в паре звуков.\n</CultureTip>\n\n## Практика с вашим партнёром\n\nСоздайте вечер румынской практики:\n\n1. **Произнесите имена друг друга на румынский манер**\n   - Добавьте нежную интонацию\n   - Сделайте паузу перед именем\n\n2. **Потренируйте вопросы для свидания**\n   - **Vrei să ieșim în seara asta?** (ВРЕЙ сэ йе-ШИМ ын сеа-ра АС-та?) — Хочешь выйти сегодня вечером?\n   - **Ce preferi să mâncăm?** (ЧЕ пре-ФЕРИ сэ мын-КЬМ?) — Что предпочитаешь поесть?\n\n3. **Выучите [романтические фразы для каждого случая](/learn/ru/ro/romantic-phrases-for-every-occasion/)** вместе\n\n## Типичные ошибки и как их избежать\n\n### Ошибка 1: Русское \"ы\" вместо румынского \"ă\"\n**Неправильно**: **c**ы**s**ă** (кысэ)\n**Правильно**: **c**ă**s**ă** (кэсэ) — дом\n\n### Ошибка 2: Твёрдое \"р\"\n**Неправильно**: к**р**утое \"р\"\n**Правильно**: м**я**гкое, пр**о**тяжное \"р\" как в южных диалектах русского\n\n### Ошибка 3: Пропуск мягкости\n**Неправильно**: **ti**ne (ти-не)\n**Правильно**: **ți**ne (тьи-не) — тебя\n\n## Быстрая справка для запоминания\n\n```\nГласные: a-e-i-o-u = а-э-и-о-у\nСочетания: ea=эа, oa=оа, iu=ьу\nУдарение: чаще всего на предпоследний слог\nИнтонация: пойте, а не говорите!\n```\n\n## Что дальше?\n\nТеперь, когда вы освоили основы произношения, пора применить их на практике! Попробуйте [познакомиться с семьёй вашего румынского партнёра](/learn/ru/ro/meeting-your-romanian-partners-family/), используя ваши новые навыки. Или запланируйте [романтическое свидание с румынской лексикой](/learn/ru/ro/romanian-date-night-vocabulary/), чтобы поразить вашу вторую половинку!\n\nПомните: идеальное произношение приходит с практикой, но искренность звучит на любом языке. Говорите с любовью — и ваш партнёр услышит всё, что вы хотите сказать.\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Базовые правила чтения",
+              "## Типичные ошибки и как их избежать"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "24653fc7-0ca9-42cf-bd0c-fc59e0bbe774",
+      "title": "Svenske SMS- og chattefraser for par",
+      "native_lang": "no",
+      "target_lang": "sv",
+      "category": "communication",
+      "content": "Svensk er vårt nærmeste nabospråk, og selv om vi ofte forstår hverandre, har svensk sine egne sjarmerende uttrykk og nyanser. Svenske chattefraser kan tilføre en morsom dimensjon til kommunikasjonen mellom par – spesielt hvis partneren din er svensk eller dere bare vil ha det litt gøy.\n\n## Hvorfor svenske chattefraser?\n\nSom nordmann forstår du mye svensk allerede, men å mestre de små forskjellene og de typisk svenske uttrykkene kan gjøre kommunikasjonen enda mer naturlig og kjærlig. Svensk har sin egen tone og sjarm som er verdt å utforske.\n\n## Kjærlige kallenavn\n\n**Älskling**\n*Elskling*\nDet vanligste svenske kallenavnet – nesten som det norske, men med svensk vri.\n\n**Raring**\n*Kjære/Søte*\nEt veldig svensk og koselig kallenavn.\n\n**Hjärtat**\n*Hjertet*\nBrukes som «hjertet mitt».\n\n**Gull** / **Gull**\n*Gull*\nLikt det norske – universelt og kjærlig.\n\n## Morgen- og kveldsmeldinger\n\n**God morgon, älskling**\n*God morgen, elskling*\nEn varm svensk morgenhilsen.\n\n**Godnatt, sov gott**\n*God natt, sov godt*\nPerfekt kveldshilsen.\n\n**Hur sov du?**\n*Hvordan sov du?*\nOmtenksom morgenmelding.\n\n**Dröm sött**\n*Drøm søtt*\nVakker god natt-hilsen.\n\n## Hverdagslige kjærlighetsuttrykk\n\n**Jag saknar dig**\n*Jeg savner deg*\nStandard savnuttrykk på svensk.\n\n**Jag älskar dig**\n*Jeg elsker deg*\nDen klassiske svenske kjærlighetserklæringen.\n\n**Jag tycker om dig**\n*Jeg liker deg*\nMildere enn «älskar», brukes også mellom venner.\n\n**Jag tänker på dig**\n*Jeg tenker på deg*\nEnkel og fin måte å vise omsorg.\n\n## Lekne og flørtefraser\n\n**Du är så söt**\n*Du er så søt*\nEt universelt kompliment.\n\n**Du är jättefin**\n*Du er kjempefin*\n«Jätte-» er svensk for «kjempe-».\n\n**Du gör mig så lycklig**\n*Du gjør meg så lykkelig*\nViser hvordan partneren påvirker deg.\n\n**Jag har så tur som har dig**\n*Jeg er så heldig som har deg*\nViser takknemlighet for forholdet.\n\n## Praktiske hverdagsfraser\n\n**Jag är på väg!**\n*Jeg er på vei!*\nKort beskjed om at du er underveis.\n\n**Jag blir lite sen, förlåt**\n*Jeg blir litt sen, unnskyld*\nNyttig når du er forsinket.\n\n**Vad vill du ha till middag?**\n*Hva vil du ha til middag?*\nKlassisk hverdagsmelding.\n\n**Vi ses snart!**\n*Vi ses snart!*\nBrukes når dere skal møtes.\n\n## Svenske forkortelser og SMS-språk\n\n- **Puss** = Kyss\n- **Kram** = Klem\n- **Mvh** = Med vänliga hälsningar\n- **Va** = Vad (Hva)\n- **Ngt** = Något (Noe)\n- **Ngn** = Någon (Noen)\n- **Tbx** = Tillbaka (Tilbake)\n\n## Romantiske uttrykk\n\n**Du är kärleken i mitt liv**\n*Du er kjærligheten i mitt liv*\nEn dyp kjærlighetserklæring.\n\n**Jag kan inte leva utan dig**\n*Jeg kan ikke leve uten deg*\nIntens og romantisk.\n\n**För alltid**\n*For alltid*\nKlassisk romantisk avslutning.\n\n**Du betyder allt för mig**\n*Du betyr alt for meg*\nEnkel men kraftfull.\n\n## Kulturelle tips\n\n### Norsk vs. svensk – små forskjeller\nNoen ord som er forskjellige:\n- Norsk «kjære» → Svensk «kära»\n- Norsk «koselig» → Svensk «mysig»\n- Norsk «klem» → Svensk «kram»\n- Norsk «kjærlighet» → Svensk «kärlek»\n\n### «Lagom»\nDette er et unikt svensk konsept som betyr «akkurat passe». Svensker verdsetter balanse og måtehold, også i kjærlighetsuttrykk – men det betyr ikke at de er mindre kjærlige!\n\n### Svenske kosenavn\nSvensker har sine egne favoritter:\n- **Älskling** (Elskling)\n- **Raring** (Søte)\n- **Hjärtat mitt** (Hjertet mitt)\n- **Sötansen** (Søtnosen)\n- **Gull-ansen** (Gull-nesen)\n\n## Emojier og avslutninger\n\nSvensker bruker gjerne:\n- ❤️ – Hjärta (hjerte)\n- 😘 – Puss (kyss)\n- «Puss och kram» – Kyss og klem\n- «Pussar» – Kyss (flertall)\n- «Kramar» – Klemmer\n- «Hälsningar» – Hilsener\n\n## Vanlige feil å unngå\n\n1. **«Rolig» betyr ikke rolig** – På svensk betyr «rolig» morsom!\n2. **«Grina» er ikke grine** – Det betyr å gråte på svensk.\n3. **Å/Ä/Ö** – Svenske vokaler uttales annerledes enn norske.\n\n## Morsomme forskjeller\n\nNoen ord som kan forvirre:\n- Svensk «fart» = norsk «fart» (men også «tempo»)\n- Svensk «bra» = norsk «bra» (identisk!)\n- Svensk «glass» = iskrem\n- Svensk «semester» = ferie\n\n## Typiske setninger for ulike situasjoner\n\n**Når du savner partneren:**\n«Saknar dig så mycket» (Savner deg så mye)\n\n**Før en date:**\n«Längtar tills vi ses» (Lengter til vi ses)\n\n**Etter en fin opplevelse:**\n«Tack för en underbar kväll» (Takk for en fantastisk kveld)\n\n**God morgen-melding:**\n«God morgon, hjärtat! Ha en fin dag!» (God morgen, hjertet! Ha en fin dag!)\n\n## Unike svenske uttrykk\n\n**Jag är tokig i dig**\n*Jeg er gal i deg*\nViser lidenskapelig kjærlighet.\n\n**Du är underbar**\n*Du er fantastisk*\nEt sterkt kompliment.\n\n**Pussar och kramar**\n*Kyss og klemmer*\nKlassisk svensk avslutning.\n\nSvenske chattefraser er perfekte for norske par som vil utforske skandinavisk variasjon. Med sine koselige kallenavn og varme uttrykk tilbyr svensk en nær, men likevel annerledes måte å kommunisere kjærlighet på. Og hvem vet – kanskje dere utvikler deres eget norsk-svenske kjærlighetsspråk!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Kulturelle tips"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "247896dd-3bb5-4dd5-9a00-1288f2226ab3",
+      "title": "Rusça Affetme İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "ru",
+      "category": "communication",
+      "content": "Affetmek, sağlıklı bir ilişkinin temel taşlarından biridir. Rusça konuşan partnerinizle affetme sürecinde kullanabileceğiniz temel ifadeler.\n\n## Af Dileme\n\n### 1. \"Мне очень жаль за то, что я сделал/а\"\n**Telaffuz:** *Mne oçen jal za to, şto ya sdelal/a*\n\n**Anlam:** \"Yaptığım için çok üzgünüm\"\n\n### 2. \"Пожалуйста, прости меня\"\n**Telaffuz:** *Pajaluysta, prosti menya*\n\n**Anlam:** \"Lütfen beni affet\"\n\n### 3. \"Я беру на себя полную ответственность\"\n**Telaffuz:** *Ya beru na sebya polnuyu otvetstvennost*\n\n**Anlam:** \"Tam sorumluluğu üstleniyorum\"\n\n### 4. \"Я знаю, что причинил/а тебе боль и мне очень жаль\"\n**Telaffuz:** *Ya znayu, şto priçinil/a tebe bol i mne oçen jal*\n\n**Anlam:** \"Seni incittiğimi biliyorum ve çok üzgünüm\"\n\n### 5. \"Ты можешь найти в своём сердце, чтобы простить меня?\"\n**Telaffuz:** *Tı mojeş nayti v svoyom sertse, çtobı prostit menya?*\n\n**Anlam:** \"Kalbinde beni affetmeyi bulabilir misin?\"\n\n## Affetme\n\n### 6. \"Я тебя прощаю\"\n**Telaffuz:** *Ya tebya proşçayu*\n\n**Anlam:** \"Seni affediyorum\"\n\n### 7. \"Я готов/а оставить это позади\"\n**Telaffuz:** *Ya gotov/a ostavit eto pozadi*\n\n**Anlam:** \"Bunu geride bırakmaya hazırım\"\n\n### 8. \"Давай оставим это позади\"\n**Telaffuz:** *Davay ostavim eto pozadi*\n\n**Anlam:** \"Bunu arkamızda bırakalım\"\n\n### 9. \"Я не держу обиды\"\n**Telaffuz:** *Ya ne derju obidı*\n\n**Anlam:** \"Kin tutmuyorum\"\n\n### 10. \"Все совершают ошибки\"\n**Telaffuz:** *Vse soverşayut oşibki*\n\n**Anlam:** \"Herkes hata yapar\"\n\n### 11. \"Я люблю тебя больше, чем свой гнев\"\n**Telaffuz:** *Ya lyublyu tebya bolşe, çem svoy gnev*\n\n**Anlam:** \"Seni öfkemden daha çok seviyorum\"\n\n### 12. \"Я принимаю твои извинения\"\n**Telaffuz:** *Ya prinimayu tvoi izvıneniya*\n\n**Anlam:** \"Özrünü kabul ediyorum\"\n\nBu ifadelerle Rusça konuşan partnerinizle affetme sürecini sağlıklı yaşayabilirsiniz.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 252,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Af Dileme",
+              "## Affetme"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "247ec1f1-7d9a-4866-9af6-26fa6b65335d",
+      "title": "Tsjechische Zinnen voor een Eerste Date",
+      "native_lang": "nl",
+      "target_lang": "cs",
+      "category": "communication",
+      "content": "Een eerste date in het Tsjechisch? Hier zijn de zinnen!\n\n## Essentiële zinnen\n\n### 1. \"Je mi potěšením tě konečně poznat\" - *je mie po-tje-sje-njiem tje ko-netsj-nje poz-nat*\n### 2. \"Vypadáš skvěle\" - *vie-pa-daasj skvje-le*\n### 3. \"Řekni mi o sobě\" - *rzjek-njie mie o so-bje*\n### 4. \"Co děláš za práci?\" - *tso dje-laasj za praa-tsie*\n### 5. \"Moc se bavím\" - *mots se ba-vjiem*\n### 6. \"Chceš ještě něco k pití?\" - *chtsesj jesj-tje nje-tso k pie-tjie*\n### 7. \"Jakou hudbu máš rád/a?\" - *ja-koe hoed-boe maasj raad/a*\n### 8. \"Rád/a bych tě zase viděl/a\" - *raad/a biech tje za-se vie-djel/a*\n### 9. \"Mohu tě doprovodit domů?\" - *mo-hoe tje do-pro-vo-djiet do-moe*\n### 10. \"Moc se mi líbil dnešní večer\" - *mots se mie lie-bjiel dnesj-njie ve-tsjer*\n### 11. \"Jaké máš koníčky?\" - *ja-kee maasj ko-njietj-kie*\n### 12. \"Máš krásný úsměv\" - *maasj kraas-njie oes-mjev*\n\n## Conclusie\n\nMet deze zinnen maak je indruk op je Tsjechische date!",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 159,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Essentiële zinnen",
+              "### 1. \"Je mi potěšením tě konečně poznat\" - *je mie po-tje-sje-njiem tje ko-netsj-nje poz-nat*",
+              "### 2. \"Vypadáš skvěle\" - *vie-pa-daasj skvje-le*",
+              "### 3. \"Řekni mi o sobě\" - *rzjek-njie mie o so-bje*",
+              "### 4. \"Co děláš za práci?\" - *tso dje-laasj za praa-tsie*",
+              "### 5. \"Moc se bavím\" - *mots se ba-vjiem*",
+              "### 6. \"Chceš ještě něco k pití?\" - *chtsesj jesj-tje nje-tso k pie-tjie*",
+              "### 7. \"Jakou hudbu máš rád/a?\" - *ja-koe hoed-boe maasj raad/a*",
+              "### 8. \"Rád/a bych tě zase viděl/a\" - *raad/a biech tje za-se vie-djel/a*",
+              "### 9. \"Mohu tě doprovodit domů?\" - *mo-hoe tje do-pro-vo-djiet do-moe*",
+              "### 10. \"Moc se mi líbil dnešní večer\" - *mots se mie lie-bjiel dnesj-njie ve-tsjer*",
+              "### 11. \"Jaké máš koníčky?\" - *ja-kee maasj ko-njietj-kie*",
+              "### 12. \"Máš krásný úsměv\" - *maasj kraas-njie oes-mjev*"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

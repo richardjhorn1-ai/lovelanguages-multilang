@@ -1,0 +1,455 @@
+{
+  "batchId": "tier2a-slim-0236",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "eb7eb291-a9b3-4c77-b121-819ec18a5aee",
+      "title": "Expresii în Cehă pentru Discuții și Dezacorduri în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale pentru Discuții",
+          "subsections": [
+            "### Exprimarea Frustrării",
+            "### Cererea de Clarificări",
+            "### Stabilirea Limitelor",
+            "### Recunoașterea și Concesiile",
+            "### Căutarea Soluțiilor"
+          ]
+        },
+        {
+          "header": "## Nuanțe Culturale Importante",
+          "subsections": [
+            "### Umorul Ceh",
+            "### Pragmatismul",
+            "### Berea ca Liant Social",
+            "### Scepticismul"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eb92e0c9-0250-4aff-94a1-be365246910b",
+      "title": "Итальянское произношение для влюблённых: научитесь говорить с сердцем",
+      "native_lang": "ru",
+      "target_lang": "it",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Основные правила произношения для пар",
+          "subsections": [
+            "### Правило 1: Двойные согласные",
+            "### Правило 2: Сочетания CH и GH"
+          ]
+        },
+        {
+          "header": "## Романтические звуды: практика для двоих",
+          "subsections": [
+            "### Звук R — итальянская капель",
+            "### Звук GL — секрет нежности"
+          ]
+        },
+        {
+          "header": "## Распространённые ошибки русских",
+          "subsections": [
+            "### Ошибка 1: Закрытые гласные",
+            "### Ошибка 2: Глухие согласные",
+            "### Ошибка 3: Шва в безударных слогах"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eba3e3bd-d8cf-44a0-9c63-3f7f02054413",
+      "title": "Francouzské fráze pro hádky a neshody ve vztahu",
+      "native_lang": "cs",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní fráze pro vyjádření nesouhlasu",
+          "subsections": [
+            "### 1. Je ne suis pas d'accord avec toi",
+            "### 2. Ce n'est pas comme ça que je vois les choses",
+            "### 3. Je me sens blessé(e) quand tu...",
+            "### 4. Ne me crie pas dessus, s'il te plaît",
+            "### 5. J'ai besoin de temps pour réfléchir"
+          ]
+        },
+        {
+          "header": "## Fráze pro pochopení partnera",
+          "subsections": [
+            "### 6. Aide-moi à comprendre ton point de vue",
+            "### 7. Ce que j'essaie de dire, c'est que...",
+            "### 8. Tu es en train de me dire que...?"
+          ]
+        },
+        {
+          "header": "## Fráze pro hledání řešení",
+          "subsections": [
+            "### 9. Trouvons un compromis",
+            "### 10. Je ne veux pas me disputer pour ça",
+            "### 11. On est dans la même équipe",
+            "### 12. On peut recommencer?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ebb837a5-be32-4146-8373-b21b157c1ace",
+      "title": "Rencontrer la belle-famille en russe : Impressionner les родители",
+      "native_lang": "fr",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Premières salutations",
+          "subsections": [
+            "### \"Очень приятно наконец познакомиться\"",
+            "### \"Я много о вас слышал/слышала\"",
+            "### \"Спасибо большое за приглашение\""
+          ]
+        },
+        {
+          "header": "## Montrer du respect",
+          "subsections": [
+            "### \"У вас очень красивый дом\"",
+            "### \"Еда очень вкусная, спасибо\""
+          ]
+        },
+        {
+          "header": "## Parler de votre partenaire",
+          "subsections": [
+            "### \"[Имя] для меня всё\"",
+            "### \"Вы вырастили замечательного человека\""
+          ]
+        },
+        {
+          "header": "## Proposer de l'aide",
+          "subsections": [
+            "### \"Могу ли я чем-нибудь помочь?\""
+          ]
+        },
+        {
+          "header": "## Au départ",
+          "subsections": [
+            "### \"Спасибо за прекрасный день\"",
+            "### \"Надеюсь скоро увидеться снова\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ebb9e886-f0aa-43ef-be9d-a3f21d909acf",
+      "title": "Французские фразы о прощении",
+      "native_lang": "ru",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Фразы для просьбы о прощении",
+          "subsections": [
+            "### 1. Je suis vraiment désolé(e) pour ce que j'ai fait",
+            "### 2. S'il te plaît, pardonne-moi",
+            "### 3. Je sais que je t'ai blessé(e), et j'en suis profondément désolé(e)",
+            "### 4. Ça ne se reproduira plus, je te le promets",
+            "### 5. J'assume l'entière responsabilité de mes actes"
+          ]
+        },
+        {
+          "header": "## Фразы для выражения прощения",
+          "subsections": [
+            "### 6. Je te pardonne",
+            "### 7. Tournons la page",
+            "### 8. Je suis prêt(e) à avancer",
+            "### 9. J'apprécie tes excuses",
+            "### 10. Il faut du courage pour s'excuser, merci"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ebd4225a-53e4-49a2-8649-f683cd78cfd9",
+      "title": "Spanische Ich-vermisse-dich-Sprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlegende Ausdrücke",
+          "subsections": [
+            "### \"Te extraño\" / \"Te echo de menos\"",
+            "### \"Te extraño mucho\"",
+            "### \"No puedo dejar de pensar en ti\""
+          ]
+        },
+        {
+          "header": "## Emotionale Ausdrücke",
+          "subsections": [
+            "### \"Ojalá estuvieras aquí\"",
+            "### \"Cada momento sin ti es una eternidad\"",
+            "### \"Mi corazón te busca\"",
+            "### \"Me haces tanta falta\""
+          ]
+        },
+        {
+          "header": "## Liebevolle Nachrichten",
+          "subsections": [
+            "### \"Cuento los días para verte\"",
+            "### \"Eres lo primero que pienso al despertar y lo último antes de dormir\"",
+            "### \"La distancia no significa nada cuando alguien significa todo\""
+          ]
+        },
+        {
+          "header": "## Tröstende Worte",
+          "subsections": [
+            "### \"Pronto estaré contigo de nuevo\"",
+            "### \"Nuestro amor es más fuerte que cualquier distancia\"",
+            "### \"Aunque estemos lejos, siempre estarás en mi corazón\""
+          ]
+        },
+        {
+          "header": "## Für besondere Momente",
+          "subsections": [
+            "### \"Extraño tu sonrisa, tu risa, todo de ti\"",
+            "### \"Nadie se compara contigo\"",
+            "### \"Siento un vacío cuando no estás\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ebd9fa35-b1fa-406d-aa52-7991b2b7d89c",
+      "title": "Small Talk på Hollandsk: Samtalestartere for Par",
+      "native_lang": "da",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassiske Emner",
+          "subsections": [
+            "### Vejret",
+            "### Weekendplaner",
+            "### Ferier og Rejser"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ebda639a-36c9-4361-8197-6e9a7e0f5570",
+      "title": "Tsjechische Zinnen over Jaloezie en Vertrouwen",
+      "native_lang": "nl",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Cítím se nejistě, když...\"",
+            "### 2. \"Důvěřuji ti úplně\"",
+            "### 3. \"Můžeš mě uklidnit?\"",
+            "### 4. \"Nejsem žárlivý/á, jen starostlivý/á\"",
+            "### 5. \"Kdo byl ten člověk, se kterým jsi mluvil/a?\"",
+            "### 6. \"Potřebuji vědět, že ti mohu důvěřovat\"",
+            "### 7. \"Nemáš se čeho bát\"",
+            "### 8. \"Mám oči jen pro tebe\"",
+            "### 9. \"Pojďme si promluvit o tom, co tě trápí\"",
+            "### 10. \"Nikdy bych neudělal/a nic, abych ti ublížil/a\"",
+            "### 11. \"Tvoje minulost nás nedefinuje\"",
+            "### 12. \"Pracuji na svých nejistotách\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ebf156a1-61b8-45cc-900d-65e2867bd21a",
+      "title": "50+ Frases Italianas para Jantares Românticos de Sonho",
+      "native_lang": "pt",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## No Restaurante",
+          "subsections": [
+            "### Chegando ao Restaurante",
+            "### Vocabulário do Restaurante",
+            "### Pedindo a Comida"
+          ]
+        },
+        {
+          "header": "## Passeando Juntos",
+          "subsections": [
+            "### La Passeggiata"
+          ]
+        },
+        {
+          "header": "## Final da Noite",
+          "subsections": [
+            "### Frases Românticas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ebf87e4c-5acd-40a3-b068-73c479bec5a9",
+      "title": "Como Escrever Cartas de Amor em Sueco: Romance Nórdico",
+      "native_lang": "pt",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Estrutura de uma Carta de Amor",
+          "subsections": [
+            "### Abertura Carinhosa",
+            "### Expressando Seus Sentimentos",
+            "### Declarações de Amor",
+            "### Promessas",
+            "### Encerramentos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ec1d70ba-ce10-4534-aa09-589526c954c2",
+      "title": "Almanca İlk Buluşma İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Karşılama ve Tanışma",
+          "subsections": [
+            "### 1. \"Es ist so schön, dich endlich zu treffen\"",
+            "### 2. \"Du siehst noch besser aus als auf deinen Fotos\"",
+            "### 3. \"Ich habe mich sehr darauf gefreut\""
+          ]
+        },
+        {
+          "header": "## Sohbet Başlatıcılar",
+          "subsections": [
+            "### 4. \"Erzähl mir von dir\"",
+            "### 5. \"Was machst du gerne in deiner Freizeit?\"",
+            "### 6. \"Warst du schon mal hier?\"",
+            "### 7. \"Welche Art von Musik magst du?\""
+          ]
+        },
+        {
+          "header": "## İltifatlar",
+          "subsections": [
+            "### 8. \"Du hast ein wunderschönes Lächeln\"",
+            "### 9. \"Ich mag deinen Stil\"",
+            "### 10. \"Mit dir kann man sich so leicht unterhalten\""
+          ]
+        },
+        {
+          "header": "## Buluşmayı Sonlandırma",
+          "subsections": [
+            "### 11. \"Ich hatte eine wirklich tolle Zeit\"",
+            "### 12. \"Können wir das mal wiederholen?\"",
+            "### 13. \"Ich würde dich gerne wiedersehen\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ec22b418-fa3d-420c-812e-b49c067db5e3",
+      "title": "Hongaarse Zinnen over Jaloezie en Vertrouwen",
+      "native_lang": "nl",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Bizonytalanul érzem magam, amikor...\"",
+            "### 2. \"Teljesen megbízom benned\"",
+            "### 3. \"Meg tudnál nyugtatni?\"",
+            "### 4. \"Nem vagyok féltékeny, csak aggódok\"",
+            "### 5. \"Ki volt az a személy, akivel beszéltél?\"",
+            "### 6. \"Tudnom kell, hogy megbízhatok benned\"",
+            "### 7. \"Nincs miért aggódnod\"",
+            "### 8. \"Csak téged látlak\"",
+            "### 9. \"Beszéljünk arról, ami zavar\"",
+            "### 10. \"Soha nem tennék semmit, ami fájna neked\"",
+            "### 11. \"A múltad nem határoz meg minket\"",
+            "### 12. \"Dolgozom a bizonytalanságaimon\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ec33e986-ccb3-4dce-a7fa-e1662d028f04",
+      "title": "Романтичні португальські фрази для закоханих пар",
+      "native_lang": "uk",
+      "target_lang": "pt",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Компліменти для партнера",
+          "subsections": [
+            "### Для неї",
+            "### Для нього"
+          ]
+        },
+        {
+          "header": "## Повсякденні романтичні фрази",
+          "subsections": [
+            "### Вранці",
+            "### Протягом дня",
+            "### Увечері"
+          ]
+        },
+        {
+          "header": "## Фрази для особливих моментів",
+          "subsections": [
+            "### На побаченні",
+            "### Після сварки",
+            "### У важкі часи"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ec36afca-6494-4fa5-a0ad-31763a37cbbd",
+      "title": "Görög baba és terhességi szókincs",
+      "native_lang": "hu",
+      "target_lang": "el",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Terhességi kifejezések",
+            "### Baba szókincs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ec3acd4d-6d42-4baa-8624-20cd934fb76b",
+      "title": "Турецкие фразы для примирения",
+      "native_lang": "ru",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Основные фразы для примирения",
+          "subsections": [
+            "### 1. Özür dilerim, hatalıydım",
+            "### 2. Barışabilir miyiz?",
+            "### 3. Seni incitmek istememiştim",
+            "### 4. Seni bu kavgadan çok daha fazla seviyorum",
+            "### 5. Yeniden başlayalım",
+            "### 6. Seni affediyorum",
+            "### 7. Bunu düzeltmek için ne yapabilirim?",
+            "### 8. Mutluluğumuzu özlüyorum",
+            "### 9. Kızgın uyumayalım",
+            "### 10. Beni anlamaya çalıştığın için teşekkür ederim"
+          ]
+        }
+      ]
+    }
+  ]
+}

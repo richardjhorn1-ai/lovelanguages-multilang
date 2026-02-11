@@ -1,0 +1,413 @@
+{
+  "batchId": "tier2a-slim-0038",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "40accf11-9a7a-40a9-b889-97d5b52efb90",
+      "title": "Rumänska fraser för att säga 'Jag saknar dig' – Uttryck längtan på rumänska",
+      "native_lang": "sv",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande fraser",
+          "subsections": [
+            "### \"Îmi este dor de tine\"",
+            "### \"Îmi este foarte dor de tine\"",
+            "### \"Mă gândesc mereu la tine\""
+          ]
+        },
+        {
+          "header": "## Djupare uttryck",
+          "subsections": [
+            "### \"Inima mea tânjește după tine\"",
+            "### \"Fiecare clipă fără tine e o eternitate\"",
+            "### \"Mi-e atât de dor de tine\""
+          ]
+        },
+        {
+          "header": "## Romantiska kvällsfraser",
+          "subsections": [
+            "### \"Îmi este dor să adorm lângă tine\"",
+            "### \"Patul e gol fără tine\"",
+            "### \"Îmi este dor de căldura ta\""
+          ]
+        },
+        {
+          "header": "## Vardagliga uttryck",
+          "subsections": [
+            "### \"Azi am văzut ceva ce mi-a amintit de tine\"",
+            "### \"Îmi este dor de micile noastre momente\"",
+            "### \"Tot ce văd îmi amintește de tine\""
+          ]
+        },
+        {
+          "header": "## Hoppfulla fraser",
+          "subsections": [
+            "### \"Abia aștept să te văd din nou\"",
+            "### \"Număr zilele până ne revedem\"",
+            "### \"În curând vom fi din nou împreună\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "40b10601-12e4-45ba-a12a-fa7a6362aac7",
+      "title": "Guía de Pronunciación Noruega: Aprende a Hablar Con Tu Pareja Sin Miedo",
+      "native_lang": "es",
+      "target_lang": "no",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Los Sonidos Nórdicos: 5 Reglas de Oro",
+          "subsections": [
+            "### 1. La \"J\" Suave",
+            "### 2. La \"G\" Mágica",
+            "### 3. Las Vocales Especiales",
+            "### 4. El R Suave",
+            "### 5. Las Combinaciones Tricky"
+          ]
+        },
+        {
+          "header": "## Errores Comunes que los Españoles Cometemos",
+          "subsections": [
+            "### 1. La Jota Española",
+            "### 2. Las Vocales Abiertas",
+            "### 3. El R Fuerte",
+            "### 4. La G al Final"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "40b7e23a-9444-4b98-8fa6-520785aaaa2b",
+      "title": "Spanyol lánykérési és eljegyzési kifejezések",
+      "native_lang": "hu",
+      "target_lang": "es",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### A nagy kérdés",
+            "### Az eljegyzés bejelentése"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "40be5c51-a3b7-4e0c-9d27-0e839ed85908",
+      "title": "Основи данської граматики для початківців",
+      "native_lang": "uk",
+      "target_lang": "da",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Часи дієслів",
+          "subsections": [
+            "### Теперішній час",
+            "### Минулий час"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "40c913f6-2f9d-4e69-97b6-e2ef15e40781",
+      "title": "Small Talk på Svensk: Samtalestartere for Par",
+      "native_lang": "da",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassiske Emner",
+          "subsections": [
+            "### Vejret",
+            "### Weekendplaner",
+            "### Ferier og Rejser"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "40e5ab03-60f1-4114-9ebf-ef9f28f13ffe",
+      "title": "Salutations et au revoir en roumain : guide complet",
+      "native_lang": "fr",
+      "target_lang": "ro",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Au revoir",
+          "subsections": [
+            "### Informel",
+            "### Formel",
+            "### Romantique"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "40ebebe0-b027-422a-905b-e923158cea0d",
+      "title": "Англійські фрази про прощення",
+      "native_lang": "uk",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Прохання про прощення",
+          "subsections": [
+            "### \"Please forgive me\"",
+            "### \"I hope you can forgive me\"",
+            "### \"Can you find it in your heart to forgive me?\"",
+            "### \"I know I don't deserve your forgiveness, but...\""
+          ]
+        },
+        {
+          "header": "## Надання прощення",
+          "subsections": [
+            "### \"I forgive you\"",
+            "### \"It's okay, I understand\"",
+            "### \"I'm willing to move past this\"",
+            "### \"We all make mistakes\""
+          ]
+        },
+        {
+          "header": "## Обіцянки та відновлення",
+          "subsections": [
+            "### \"I promise it won't happen again\"",
+            "### \"How can I make it up to you?\"",
+            "### \"Give me a chance to prove myself\""
+          ]
+        },
+        {
+          "header": "## Труднощі з прощенням",
+          "subsections": [
+            "### \"I'm not ready to forgive yet\"",
+            "### \"I need more time\"",
+            "### \"It's hard for me to forgive this\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "40fbeaab-0409-462a-a9e0-27f2593480a7",
+      "title": "Frases de 'Te Extraño' en Neerlandés: Expresando la Añoranza Holandesa",
+      "native_lang": "es",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresiones Esenciales",
+          "subsections": [
+            "### \"Ik mis je\"",
+            "### \"Ik mis je zo erg\"",
+            "### \"Ik wou dat je hier was\""
+          ]
+        },
+        {
+          "header": "## Frases Emotivas",
+          "subsections": [
+            "### \"Elk moment zonder jou voelt als een eeuwigheid\"",
+            "### \"Je bent altijd in mijn gedachten\"",
+            "### \"De afstand verandert niets aan mijn gevoelens\""
+          ]
+        },
+        {
+          "header": "## Para Mensajes Diarios",
+          "subsections": [
+            "### \"Ik werd wakker en dacht aan jou\"",
+            "### \"Welterusten, ik mis je\"",
+            "### \"Ik tel de dagen tot ik je weer zie\""
+          ]
+        },
+        {
+          "header": "## Expresiones Profundas",
+          "subsections": [
+            "### \"Mijn hart doet pijn zonder jou\"",
+            "### \"Jij bent het ontbrekende stukje in mijn leven\"",
+            "### \"Zonder jou is alles minder mooi\""
+          ]
+        },
+        {
+          "header": "## Frases para Videollamadas",
+          "subsections": [
+            "### \"Je gezicht zien maakt me blij\"",
+            "### \"Ik wou dat ik je door het scherm kon knuffelen\""
+          ]
+        },
+        {
+          "header": "## Mensajes Románticos",
+          "subsections": [
+            "### \"Goedemorgen, schat, ik mis je\"",
+            "### \"Ik kan niet wachten om je weer te zien\""
+          ]
+        },
+        {
+          "header": "## Mensajes de Voz",
+          "subsections": [
+            "### \"Ik wilde gewoon even je stem horen\"",
+            "### \"Bel me als je kunt, ik mis je\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "40fd716d-a08d-4f97-b115-b3d1d5aac0d8",
+      "title": "Conversazioni Quotidiane in Norvegese per Coppie",
+      "native_lang": "it",
+      "target_lang": "no",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Prima di Uscire",
+          "subsections": [
+            "### Dialogo"
+          ]
+        },
+        {
+          "header": "## Conversazione Serale",
+          "subsections": [
+            "### Dialogo: Bentornato/a"
+          ]
+        },
+        {
+          "header": "## Prima di Dormire",
+          "subsections": [
+            "### Dialogo: Buonanotte"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "40fdbd60-1fd7-4412-a233-e133fee70a14",
+      "title": "Hiányzol Kifejezések Románul – Îmi Este Dor De Tine és Más",
+      "native_lang": "hu",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Hiányzol Kifejezések",
+          "subsections": [
+            "### 1. Îmi este dor de tine (Ími jeszte dor de tyine)",
+            "### 2. Mi-e dor de tine (Mije dor de tyine)",
+            "### 3. Mi-e foarte dor de tine",
+            "### 4. Nu pot să nu mă gândesc la tine",
+            "### 5. Aș vrea să fii aici",
+            "### 6. Fără tine mă simt gol",
+            "### 7. Număr zilele până te văd din nou",
+            "### 8. Ești mereu în gândurile mele",
+            "### 9. Inima mea tânjește după tine",
+            "### 10. Fără tine nu sunt complet"
+          ]
+        },
+        {
+          "header": "## Kulturális Tippek",
+          "subsections": [
+            "### Dor – A Román Vágyakozás",
+            "### Latin Temperamentum",
+            "### Erdélyi Kapcsolat"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "41048120-9c32-4225-97b0-7dbc1410de14",
+      "title": "Conocer a la Familia de tu Pareja Portuguesa",
+      "native_lang": "es",
+      "target_lang": "pt",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Cosas que Evitar",
+          "subsections": [
+            "### No hagas:",
+            "### Haz:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "410a0040-6051-44ed-a381-79d886149a9f",
+      "title": "Les articles italiens : il, la, lo expliqués",
+      "native_lang": "fr",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Tableau récapitulatif",
+          "subsections": [
+            "### Articles définis",
+            "### Articles indéfinis"
+          ]
+        },
+        {
+          "header": "## Cas particuliers",
+          "subsections": [
+            "### Devant les mots commençant par i + voyelle",
+            "### Le genre peut changer le sens"
+          ]
+        },
+        {
+          "header": "## Exercices pour couples",
+          "subsections": [
+            "### Quiz rapide",
+            "### Traduction challenge",
+            "### Repérage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "41143c8e-c216-4972-9bfe-cfd6de60a0c8",
+      "title": "Expresii pentru Întâlnirea cu Socrii în Engleză",
+      "native_lang": "ro",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii pentru Prima Întâlnire",
+          "subsections": [
+            "### Salutări și Prezentare",
+            "### La Masă",
+            "### Conversație și Interes",
+            "### Despre Relație",
+            "### La Plecare"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4126c231-b4cd-411e-9c70-c44b0cc43270",
+      "title": "Tschechische Grammatik: Grundlagen für Anfänger",
+      "native_lang": "de",
+      "target_lang": "cs",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Wichtige Verben",
+          "subsections": [
+            "### \"Haben\" - Mít",
+            "### \"Wollen\" - Chtít",
+            "### \"Können\" - Moct"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "41498625-530f-4e89-bca6-aebfc65ceaea",
+      "title": "50 Frasi Romantiche Rumene per Ogni Occasione di Coppia",
+      "native_lang": "it",
+      "target_lang": "ro",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Come e Quando Usare Queste Frasi",
+          "subsections": [
+            "### Contesti Quotidiani",
+            "### Momenti Speciali",
+            "### Errori da Evitare"
+          ]
+        }
+      ]
+    }
+  ]
+}

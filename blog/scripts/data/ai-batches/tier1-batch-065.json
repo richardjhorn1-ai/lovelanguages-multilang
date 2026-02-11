@@ -1,0 +1,54 @@
+{
+  "tier": 1,
+  "batchId": "tier1-batch-065",
+  "articles": [
+    {
+      "id": "b2bf0cb2-0316-4f18-8520-934f84f594f6",
+      "title": "30+ Complimente în turcă pentru partenerul tău",
+      "native_lang": "ro",
+      "target_lang": "tr",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nComplimentele sunt limbajul dragostei. Când îi spui partenerului ceva frumos în limba lui maternă, cuvintele capătă o semnificație specială.\n\n<PhraseOfDay\n  word=\"Çok güzelsin\"\n  translation=\"Ești frumoasă/frumos\"\n  pronunciation=\"\"\n  context=\"Cel mai clasic compliment romantic\"\n/>\n\n## Complimente pentru aspect fizic\n\n<VocabCard\n  word=\"Çok güzelsin\"\n  translation=\"Ești frumoasă/frumos\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇹🇷\" title=\"Cultura complimentelor\">\nTurcii sunt foarte ospitalieri și călduroși. Scuzele sincere sunt importante pentru menținerea armoniei - arată respect și grijă.\n</CultureTip>\n\n## Complimente pentru personalitate\n\n| Turcă | Română |\n|---------|---------|\n| Çok akıllısın | Ești atât de inteligent/ă |\n| Çok naziksin | Ești atât de drăguț/ă |\n| Harikasın | Ești uimitor/oare |\n| Çok komiksin | Ești amuzant/ă |\n\n<VocabCard\n  word=\"Çok akıllısın\"\n  translation=\"Ești atât de inteligent/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Çok naziksin\"\n  translation=\"Ești atât de drăguț/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru complimente sincere\n\n1. **Fii specific** – \"Îmi place cum râzi\" e mai bun decât \"Ești frumoasă\"\n2. **Fii autentic** – Spune doar ce simți cu adevărat\n3. **Alege momentul** – Complimentele spontane sunt cele mai prețuite\n4. **Nu exagera** – Un compliment sincer e mai valoros decât zece superficiale\n5. **Include acțiuni** – \"Îmi place cum mă asculți când vorbesc\"\n\n<CTA />\n\n## Articole conexe\n\n- [Exprimarea emoțiilor în turcă](/ro/tr/turkish-expressing-emotions)\n- [Alinturile în turcă](/ro/tr/turkish-pet-names-and-terms-of-endearment-50)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "b405ad32-37cc-4b74-a042-0f9aefd66e0c",
+      "title": "Russiske kjærlighetsbrev-uttrykk for nordmenn",
+      "native_lang": "no",
+      "target_lang": "ru",
+      "category": "communication",
+      "content": "Russisk har en rik tradisjon for kjærlighetspoesi. Russiske kjærlighetsbrev er intense og sjelsfulle. Her er din guide til å skrive vakre kjærlighetsbrev på russisk.\n\n## Åpninger\n\n**Любовь моя,**\n*Lyubov' moya,*\n*Min kjærlighet,*\n\n**Дорогой мой / Дорогая моя,**\n*Dorogoy moy / Dorogaya moya,*\n*Min kjære,*\n\n**Моё сердце,**\n*Moyo serdtse,*\n*Mitt hjerte,*\n\n**Моё солнышко,**\n*Moyo solnyshko,*\n*Min lille sol,*\n\n## Uttrykke kjærlighet\n\n**С того момента, как я тебя встретил/встретила, моя жизнь изменилась навсегда.**\n*S togo momenta, kak ya tebya vstretil/vstretila, moya zhizn' izmenilas' navsegda.*\n*Siden jeg møtte deg, har livet mitt forandret seg for alltid.*\n\n**Каждый день я люблю тебя всё больше.**\n*Kazhdyy den' ya lyublyu tebya vsyo bol'she.*\n*For hver dag elsker jeg deg mer og mer.*\n\n**Ты — лучшее, что случилось со мной.**\n*Ty — luchsheye, chto sluchilos' so mnoy.*\n*Du er det beste som har hendt meg.*\n\n**Моя любовь к тебе безгранична.**\n*Moya lyubov' k tebe bezgranichna.*\n*Kjærligheten min til deg er grenseløs.*\n\n## Beskrive følelser\n\n**Когда я рядом с тобой, весь мир исчезает.**\n*Kogda ya ryadom s toboy, ves' mir ischezayet.*\n*Når jeg er sammen med deg, forsvinner hele verden.*\n\n**Ты — моё всё.**\n*Ty — moyo vsyo.*\n*Du er alt for meg.*\n\n**Я не могу представить жизнь без тебя.**\n*Ya ne mogu predstavit' zhizn' bez tebya.*\n*Jeg kan ikke forestille meg livet uten deg.*\n\n**С тобой я узнал/узнала, что такое настоящая любовь.**\n*S toboy ya uznal/uznala, chto takoye nastoyashchaya lyubov'.*\n*Med deg har jeg lært hva ekte kjærlighet er.*\n\n## Poetiske uttrykk\n\n**Ты — звезда, освещающая мою жизнь.**\n*Ty — zvezda, osveshchayushchaya moyu zhizn'.*\n*Du er stjernen som lyser opp livet mitt.*\n\n**Моё сердце бьётся только для тебя.**\n*Moyo serdtse b'yotsya tol'ko dlya tebya.*\n*Hjertet mitt slår bare for deg.*\n\n**В твоих глазах я нашёл/нашла свой дом.**\n*V tvoikh glazakh ya nashol/nashla svoy dom.*\n*I øynene dine fant jeg hjemmet mitt.*\n\n**Ты — сон, от которого я не хочу просыпаться.**\n*Ty — son, ot kotorogo ya ne khochu prosypat'sya.*\n*Du er drømmen jeg ikke vil våkne fra.*\n\n## Løfter og fremtid\n\n**Я обещаю любить тебя каждый день моей жизни.**\n*Ya obeshchayu lyubit' tebya kazhdyy den' moyey zhizni.*\n*Jeg lover å elske deg hver dag i mitt liv.*\n\n**Я хочу строить наше будущее вместе.**\n*Ya khochu stroit' nashe budushcheye vmeste.*\n*Jeg vil bygge fremtiden vår sammen.*\n\n**Что бы ни случилось, я всегда буду рядом.**\n*Chto by ni sluchilos', ya vsegda budu ryadom.*\n*Uansett hva som skjer, vil jeg alltid være der.*\n\n## Avslutninger\n\n**С любовью,**\n*S lyubov'yu,*\n*Med kjærlighet,*\n\n**Навсегда твой/твоя,**\n*Navsegda tvoy/tvoya,*\n*For alltid din,*\n\n**С вечной любовью,**\n*S vechnoy lyubov'yu,*\n*Med evig kjærlighet,*\n\n**Люблю тебя всем сердцем,**\n*Lyublyu tebya vsem serdtsem,*\n*Elsker deg av hele hjertet,*\n\n## Russisk kjærlighetsbrevtradisjon\n\nRussiske kjærlighetsbrev er:\n\n- Intense og sjelsfulle\n- Ofte poetiske\n- Dype og filosofiske\n- Uttrykker sterk lidenskap",
+      "issues": [
+        {
+          "type": "truncated_content",
+          "details": {
+            "endingChars": "ke\n- Uttrykker sterk lidenskap"
+          }
+        }
+      ]
+    },
+    {
+      "id": "b7102ada-9a61-4dd3-b5f8-329f6f1015c1",
+      "title": "30+ Complimente în greacă pentru partenerul tău",
+      "native_lang": "ro",
+      "target_lang": "el",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nComplimentele sunt limbajul dragostei. Când îi spui partenerului ceva frumos în limba lui maternă, cuvintele capătă o semnificație specială.\n\n<PhraseOfDay\n  word=\"Είσαι πανέμορφη/ος\"\n  translation=\"Ești frumoasă/frumos\"\n  pronunciation=\"\"\n  context=\"Cel mai clasic compliment romantic\"\n/>\n\n## Complimente pentru aspect fizic\n\n<VocabCard\n  word=\"Είσαι πανέμορφη/ος\"\n  translation=\"Ești frumoasă/frumos\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇬🇷\" title=\"Cultura complimentelor\">\nGrecii sunt foarte expresivi emoțional. Scuzele sincere și călduroase sunt apreciate - arată emoție și sinceritate în exprimare.\n</CultureTip>\n\n## Complimente pentru personalitate\n\n| Greacă | Română |\n|---------|---------|\n| Είσαι τόσο έξυπνος/η | Ești atât de inteligent/ă |\n| Είσαι τόσο καλός/ή | Ești atât de drăguț/ă |\n| Είσαι καταπληκτικός/ή | Ești uimitor/oare |\n| Είσαι αστείος/α | Ești amuzant/ă |\n\n<VocabCard\n  word=\"Είσαι τόσο έξυπνος/η\"\n  translation=\"Ești atât de inteligent/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Είσαι τόσο καλός/ή\"\n  translation=\"Ești atât de drăguț/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru complimente sincere\n\n1. **Fii specific** – \"Îmi place cum râzi\" e mai bun decât \"Ești frumoasă\"\n2. **Fii autentic** – Spune doar ce simți cu adevărat\n3. **Alege momentul** – Complimentele spontane sunt cele mai prețuite\n4. **Nu exagera** – Un compliment sincer e mai valoros decât zece superficiale\n5. **Include acțiuni** – \"Îmi place cum mă asculți când vorbesc\"\n\n<CTA />\n\n## Articole conexe\n\n- [Exprimarea emoțiilor în greacă](/ro/el/greek-expressing-emotions)\n- [Alinturile în greacă](/ro/el/greek-pet-names-and-terms-of-endearment-50)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    }
+  ]
+}

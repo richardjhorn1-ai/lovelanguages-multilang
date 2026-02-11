@@ -1,0 +1,365 @@
+{
+  "batchId": "tier2a-slim-0006",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "14e6a34f-9a2d-4f4d-8e36-b596c3f4c493",
+      "title": "Svéd Flörtölő Kifejezések – Romantika Skandináv Módra",
+      "native_lang": "hu",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Flörtölő Kifejezések",
+          "subsections": [
+            "### 1. Du är väldigt vacker (Dü ér veldigt váker)",
+            "### 2. Du har vackra ögon (Dü har vákra ögon)",
+            "### 3. Jag gillar dig (Jág gillar dej)",
+            "### 4. Vill du ta en fika med mig? (Vil dü ta en fíka med mej?)",
+            "### 5. Trevligt att träffas (Trévligt at tréffasz)",
+            "### 6. Du är speciell (Dü ér szpesziell)",
+            "### 7. Jag kan inte sluta tänka på dig (Jág kan inte szluta tenka pó dej)",
+            "### 8. Ditt leende gör mig glad (Dit leende jör mej glád)",
+            "### 9. Jag mår bra med dig (Jág mór brá med dej)",
+            "### 10. Du är mitt livs kärlek (Dü ér mit lívsz csérlek)"
+          ]
+        },
+        {
+          "header": "## Kulturális Tippek",
+          "subsections": [
+            "### Lagom – A Mértékletesség",
+            "### Személyes Tér",
+            "### Egyenlőség",
+            "### Fika Kultúra"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "150b2a6c-4bb5-46a9-a824-c8fe342cb03f",
+      "title": "Romence Duygusal Destek İfadeleri: Teselli ve Güç Veren Sözler",
+      "native_lang": "tr",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Destek İfadeleri",
+          "subsections": [
+            "### 1. \"Sunt aici pentru tine\"",
+            "### 2. \"Nu ești singur/singură\"",
+            "### 3. \"Totul va fi bine\"",
+            "### 4. \"Te înțeleg\"",
+            "### 5. \"E normal să te simți așa\"",
+            "### 6. \"Sunt mândru/mândră de tine\"",
+            "### 7. \"Poți conta pe mine\"",
+            "### 8. \"Ești mai puternic/puternică decât crezi\"",
+            "### 9. \"Nu trebuie să treci prin asta singur/singură\"",
+            "### 10. \"Te iubesc indiferent de ce se întâmplă\"",
+            "### 11. \"Sunt aici să ascult\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "15333233-67c5-4081-b55f-d4125d3a34f6",
+      "title": "Macarca Temel Gramer: Ciftler Icin Baslangic Rehberi",
+      "native_lang": "tr",
+      "target_lang": "hu",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Fiil Cekimleri",
+          "subsections": [
+            "### Simdiki Zaman - Belirsiz Cekimi",
+            "### Simdiki Zaman - Belirli Cekimi",
+            "### Özel \"-lek/-lak\" Formu"
+          ]
+        },
+        {
+          "header": "## Soru Cümleleri",
+          "subsections": [
+            "### Evet/Hayir Sorulari",
+            "### Soru Kelimeleri"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "154011a1-4248-44ba-b8c8-ada6c63b2c85",
+      "title": "Salutations et au revoir en espagnol",
+      "native_lang": "fr",
+      "target_lang": "es",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Salutations espagnoles essentielles pour couples",
+          "subsections": [
+            "### Salutations quotidiennes de base",
+            "### Salutations romantiques pour votre partenaire"
+          ]
+        },
+        {
+          "header": "## Au revoir essentiels en espagnol",
+          "subsections": [
+            "### Phrases d'adieu de base",
+            "### Au revoir romantiques"
+          ]
+        },
+        {
+          "header": "## Scénarios de pratique pour couples",
+          "subsections": [
+            "### Dialogue de routine matinale",
+            "### Partir au travail",
+            "### Retour le soir"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1546e5fd-10c9-4b35-b7e1-d85f1fe25eec",
+      "title": "Выражение эмоций на португальском языке",
+      "native_lang": "ru",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Положительные эмоции",
+          "subsections": [
+            "### Радость и счастье",
+            "### Любовь и привязанность"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "15938ecb-d0d4-4ea8-a641-63a575067fc0",
+      "title": "Угорська привітання з річницею: романтичні побажання",
+      "native_lang": "uk",
+      "target_lang": "hu",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика про річницю",
+          "subsections": []
+        },
+        {
+          "header": "## Романтичні побажання з річницею",
+          "subsections": [
+            "### Класичні привітання"
+          ]
+        },
+        {
+          "header": "## Побажання для різних річниць",
+          "subsections": [
+            "### Перша річниця",
+            "### П'ята річниця",
+            "### Десята річниця та далі"
+          ]
+        },
+        {
+          "header": "## Як написати привітання з річницею",
+          "subsections": [
+            "### Структура ідеального привітання:",
+            "### Приклад привітання:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1596df7e-97f6-4f6b-b074-ae6812013935",
+      "title": "Expresii în Engleză despre Gelozie și Încredere în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii pentru a Discuta despre Gelozie",
+          "subsections": [
+            "### Recunoașterea Sentimentelor",
+            "### Exprimarea Nevoilor",
+            "### Construirea Încrederii",
+            "### Răspunsuri la Gelozie",
+            "### Stabilirea Limitelor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "159d43a6-f88e-4e5a-9a0a-4e9f642c4c4e",
+      "title": "Polish Easter: Wielkanoc Traditions",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Essential Easter Vocabulary for Couples",
+          "subsections": [
+            "### Religious Terms",
+            "### Food & Celebration",
+            "### Romantic Easter Expressions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "15c8ff67-85e2-44d3-87e9-4d54e5735e50",
+      "title": "Španělská výslovnost pro začátečníky: Jak mluvit romanticky bez přízvuku",
+      "native_lang": "cs",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Nejčastější chyby Čechů ve španělské výslovnosti",
+          "subsections": [
+            "### 1. Vyslovování V jako F",
+            "### 2. Příliš tvrdé R",
+            "### 3. Vyslovování H",
+            "### 4. Záměna B a V"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "15ea359c-7a2c-479b-8793-b313d9eee3c5",
+      "title": "Expresii despre Gelozie și Încredere în Cuplu în Ucraineană",
+      "native_lang": "ro",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii pentru a Discuta despre Gelozie",
+          "subsections": [
+            "### Recunoașterea Sentimentelor",
+            "### Construirea Încrederii",
+            "### Răspunsuri la Gelozie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1659ffb6-9181-452e-931b-36c753607c44",
+      "title": "Frases de Apoio Emocional em Tcheco: Confortando Seu Parceiro",
+      "native_lang": "pt",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases de Apoio Básico",
+          "subsections": [
+            "### Demonstrando Presença",
+            "### Validando Sentimentos",
+            "### Oferecendo Conforto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "165cddd7-1415-4862-a439-7674563efae4",
+      "title": "Llamadas Telefónicas en Alemán",
+      "native_lang": "es",
+      "target_lang": "de",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Responder el Teléfono",
+          "subsections": [
+            "### La Forma Alemana de Contestar"
+          ]
+        },
+        {
+          "header": "## Hacer una Llamada",
+          "subsections": [
+            "### Identificarse",
+            "### Preguntar por Alguien"
+          ]
+        },
+        {
+          "header": "## Frases Esenciales para Llamadas",
+          "subsections": [
+            "### Problemas de Comunicación",
+            "### Terminar la Llamada"
+          ]
+        },
+        {
+          "header": "## Llamadas Románticas",
+          "subsections": [
+            "### Llamando a tu Pareja",
+            "### Durante la Llamada",
+            "### Despedidas Románticas"
+          ]
+        },
+        {
+          "header": "## Llamadas Prácticas",
+          "subsections": [
+            "### Hacer una Reservación",
+            "### Dejar un Mensaje"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "166dcf3a-aab5-4044-9e5d-0c2ef6acd436",
+      "title": "Angol Flörtölő Kifejezések Magyar Anyanyelvűeknek",
+      "native_lang": "hu",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Flörtölő Kifejezések",
+          "subsections": [
+            "### \"You have the most beautiful smile.\"",
+            "### \"I can't stop thinking about you.\"",
+            "### \"Would you like to go out with me sometime?\"",
+            "### \"You're so easy to talk to.\"",
+            "### \"I feel so comfortable around you.\"",
+            "### \"You make me laugh like no one else.\"",
+            "### \"I've never met anyone like you.\"",
+            "### \"Can I buy you a drink?\"",
+            "### \"You look amazing tonight.\"",
+            "### \"I really enjoy spending time with you.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1674d8f3-dbe3-48d3-af4e-01c942b37ab2",
+      "title": "Norwegian Proposal & Engagement Phrases: How to Pop the Question",
+      "native_lang": "en",
+      "target_lang": "no",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Ways to Propose",
+          "subsections": [
+            "### The Classic Proposal",
+            "### More Romantic Variations"
+          ]
+        },
+        {
+          "header": "## Preparing Your Proposal",
+          "subsections": [
+            "### Practice Tips",
+            "### Setting the Scene"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "169134de-5d2c-4d12-b686-c1d718c2e103",
+      "title": "French Date Night: 35+ L'amour Words",
+      "native_lang": "en",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Practical Couple Exercises",
+          "subsections": [
+            "### Exercise 1: Role-Play Restaurant Scene",
+            "### Exercise 2: Compliment Exchange",
+            "### Exercise 3: Plan a Dream Date"
+          ]
+        }
+      ]
+    }
+  ]
+}

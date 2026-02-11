@@ -1,0 +1,134 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0223",
+  "articles": [
+    {
+      "id": "3f0053d2-44aa-4b1a-91d0-b730e1b4516d",
+      "title": "Sådan Undskylder Du på Engelsk: Vejledning for Par",
+      "native_lang": "da",
+      "target_lang": "en",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nAt kunne sige undskyld på din partners sprog er en af de vigtigste færdigheder i et flerkulturelt forhold. En oprigtig undskyldning på engelsk viser ikke bare respekt – den viser, at du virkelig forstår og værdsætter din partner. I denne guide lærer du de vigtigste undskyldningsfraser på engelsk, fra simple \"undskyld\" til dybfølte forsoningsord. Tjek også vores guide til [engelske kælenavne](/learn/da/en/english-pet-names-and-endearments/) for at afrunde jeres romantiske ordforråd.\n\n<PhraseOfDay\n  word=\"I'm truly sorry\"\n  translation=\"Jeg er virkelig ked af det\"\n  pronunciation=\"aim tru-li so-ri\"\n  context=\"Den mest oprigtige undskyldning på engelsk\"\n/>\n\n## De Grundlæggende Undskyldninger\n\nFør vi dykker ned i de mere komplekse undskyldninger, lad os mestre de basale fraser:\n\n<VocabCard\n  word=\"I'm sorry\"\n  translation=\"Undskyld\"\n  pronunciation=\"aim so-ri\"\n  example=\"I'm sorry I'm late.\"\n/>\n\n| Engelsk | Dansk | Udtale | Hvornår bruges |\n|---------|-------|--------|----------------|\n| **I'm sorry** | Undskyld | aim so-ri | Daglige små fejl |\n| **I apologize** | Jeg undskylder | ai uh-pol-uh-jaiz | Mere formel |\n| **Please forgive me** | Tilgiv mig | pliiz for-giv mi | Beder om tilgivelse |\n| **It was my fault** | Det var min fejl | it woz mai fault | Tager ansvar |\n| **I was wrong** | Jeg tog fejl | ai woz rong | Indrømmer fejl |\n\n## Dybfølte Undskyldninger\n\nNår en simpel undskyldning ikke er nok:\n\n- **I deeply regret what I did** (Jeg fortryder dybt) - \"ai diip-li ri-gret\"\n- **I never meant to hurt you** (Jeg ville aldrig såre dig) - \"ai ne-vur ment tuh hart juu\"\n- **You deserve better** (Du fortjener bedre) - \"juu di-zurv be-tur\"\n- **I can't believe I said that** (Jeg kan ikke tro jeg sagde det) - \"ai kant bi-liiv\"\n\n<CultureTip flag=\"🇬🇧\" title=\"Undskyldningskultur\">\nEnglændere siger ofte 'sorry' – selv når de ikke har gjort noget galt! Men en oprigtig undskyldning kræver øjenkontakt og ægte tone.\n</CultureTip>\n\n## Anerkend Partnerens Følelser\n\nEn god undskyldning handler også om at vise forståelse:\n\n<VocabCard\n  word=\"I understand why you're upset\"\n  translation=\"Jeg forstår hvorfor du er ked af det\"\n  pronunciation=\"ai un-dur-stand\"\n  example=\"I understand why you're upset with me.\"\n/>\n\n| Engelsk | Dansk | Udtale |\n|---------|-------|--------|\n| **I understand why you're upset** | Jeg forstår hvorfor du er ked af det | ai un-dur-stand |\n| **You have every right to be angry** | Du har ret til at være vred | juu hav ev-ri rait |\n| **I should have listened** | Jeg skulle have lyttet | ai shud hav li-send |\n| **Your feelings matter to me** | Dine følelser er vigtige | joor fii-lings ma-tur |\n\n## Løfter om Forbedring\n\nVis din partner at du vil gøre det bedre:\n\n- **I promise to do better** (Jeg lover at gøre det bedre) - \"ai pro-mis tuh duu be-tur\"\n- **It won't happen again** (Det sker ikke igen) - \"it wount ha-pen uh-gen\"\n- **I'll make it up to you** (Jeg vil gøre det godt igen) - \"ail meik it up tuh juu\"\n- **I'm working on myself** (Jeg arbejder på mig selv) - \"aim wur-king on mai-self\"\n\n## Bede om Forsoning\n\n<VocabCard\n  word=\"Can we talk about it?\"\n  translation=\"Kan vi tale om det?\"\n  pronunciation=\"kan wii tok uh-baut it?\"\n  example=\"Can we talk about what happened?\"\n/>\n\n| Engelsk | Dansk | Udtale |\n|---------|-------|--------|\n| **Can we talk about it?** | Kan vi tale om det? | kan wii tok uh-baut it? |\n| **I want to work this out together** | Lad os løse det sammen | ai wont tuh wurk dis aut |\n| **Give me another chance** | Giv mig en chance til | giv mi uh-nu-dur chans |\n| **Let's start fresh** | Lad os starte forfra | lets start fresh |\n| **I love you and I'll fight for us** | Jeg elsker dig og vil kæmpe for os | ai lav juu and ail fait for us |\n\n## Specifikke Situationer\n\n### Når Du Har Glemt Noget\n- **I'm so sorry I forgot** (Undskyld jeg glemte det)\n- **Let me make it right** (Lad mig gøre det godt igen)\n\n### Når Du Har Sagt Noget Sårende\n- **I didn't mean what I said** (Jeg mente det ikke)\n- **I spoke out of anger** (Jeg talte i vrede)\n\n### Når Du Er Kommet For Sent\n- **Sorry to keep you waiting** (Undskyld jeg lod dig vente)\n- **Thank you for your patience** (Tak for din tålmodighed)\n\n<CultureTip flag=\"🇬🇧\" title=\"Kropssprog\">\nVed en oprigtig undskyldning: hold øjenkontakt og undgå at krydse armene.\n</CultureTip>\n\n## Acceptere en Undskyldning\n\nDet er lige så vigtigt at kunne acceptere en undskyldning:\n\n| Engelsk | Dansk | Udtale |\n|---------|-------|--------|\n| **I forgive you** | Jeg tilgiver dig | ai for-giv juu |\n| **It's okay** | Det er okay | its ou-kei |\n| **Let's forget about it** | Lad os glemme det | lets for-get uh-baut it |\n| **I still love you** | Jeg elsker dig stadig | ai stil lav juu |\n\n## Tips til Oprigtige Undskyldninger\n\n1. **Vælg det rette tidspunkt** - Undskyldig når din partner er klar\n2. **Se dem i øjnene** - Øjenkontakt viser oprigtighed\n3. **Brug deres navn** - Det gør det personligt\n4. **Følg op med handling** - Ord er kun begyndelsen\n\nFor flere kommunikationsfraser, se vores [engelske fraser for par](/learn/da/en/english-essential-phrases-for-couples/).\n\nAt mestre kunsten at undskylde på engelsk vil styrke jeres forhold og vise din partner, at du tager deres sprog alvorligt.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Specifikke Situationer"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "3f1cadf9-bd02-4186-b28c-878337d4ab4f",
+      "title": "Guia de Pronúncia do Holandês para Falantes de Português",
+      "native_lang": "pt",
+      "target_lang": "nl",
+      "category": "pronunciation",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nO holandês tem sons únicos, mas este guia vai te ajudar a dominar!\n\n<PhraseOfDay\n  word=\"Hallo!\"\n  translation=\"Olá!\"\n  pronunciation=\"rra-LO\"\n  context=\"O cumprimento mais comum em holandês.\"\n/>\n\n## Vogais Holandesas\n\n| Letra | Som | Como em Português | Exemplo |\n|-------|-----|-------------------|---------|\n| a (curta) | á | \"pá\" (breve) | man (homem) |\n| aa | á longo | \"pá\" (longo) | maan (lua) |\n| e (curta) | é | \"pé\" (breve) | bed (cama) |\n| ee | ê | \"vê\" | zee (mar) |\n| i (curta) | i | \"pico\" | dit (isto) |\n| ie | i longo | \"vi\" | zien (ver) |\n| o (curta) | ó | \"pó\" | bos (floresta) |\n| oo | ô | \"avô\" | boot (barco) |\n| u | ü | entre \"u\" e \"i\" | bus (ônibus) |\n| uu | ü longo | \"ü\" alemão | duur (caro) |\n\n<VocabCard\n  word=\"Liefde\"\n  translation=\"Amor\"\n  pronunciation=\"LIF-de\"\n  example=\"Ie = som de 'i' longo\"\n/>\n\n<CultureTip title=\"Vogais Longas e Curtas\" flag=\"🇳🇱\">\nEm holandês, a duração da vogal muda o significado! \"man\" (homem) vs \"maan\" (lua).\n</CultureTip>\n\n## O Som de G e CH\n\nO som mais característico do holandês é o \"g\" e \"ch\" gutural:\n\n<VocabCard\n  word=\"Goedemorgen\"\n  translation=\"Bom dia\"\n  pronunciation=\"RRu-de-MOR-rrren\"\n  example=\"G = som de gargarejo suave, como 'rr' do Rio\"\n/>\n\n<VocabCard\n  word=\"Nacht\"\n  translation=\"Noite\"\n  pronunciation=\"narrt\"\n  example=\"CH = mesmo som gutural do G\"\n/>\n\n## Ditongos Importantes\n\n| Ditongo | Som | Exemplo | Significado |\n|---------|-----|---------|-------------|\n| ou/au | au | vrouw | mulher |\n| ei/ij | ai | mijn | meu |\n| oe | u | boek | livro |\n| ui | öi | huis | casa |\n| eu | eu | leuk | legal |\n\n<VocabCard\n  word=\"Mijn huis\"\n  translation=\"Minha casa\"\n  pronunciation=\"main rruis\"\n  example=\"IJ = som de 'ai'; UI = som único\"\n/>\n\n## Consoantes Especiais\n\n### O som de W\n\n<VocabCard\n  word=\"Wat\"\n  translation=\"O que\"\n  pronunciation=\"vat\"\n  example=\"W holandês = entre 'v' e 'w'\"\n/>\n\n### O som de R\n\n<VocabCard\n  word=\"Rood\"\n  translation=\"Vermelho\"\n  pronunciation=\"rrôt\"\n  example=\"R = vibrante ou gutural, dependendo da região\"\n/>\n\n### O som de J\n\n<VocabCard\n  word=\"Ja\"\n  translation=\"Sim\"\n  pronunciation=\"iá\"\n  example=\"J = som de 'i'\"\n/>\n\n## Combinações de Letras\n\n| Combinação | Som | Exemplo |\n|------------|-----|---------|\n| sch | s+rr | school (escola) |\n| ng | ng nasal | lang (longo) |\n| nk | nk | dank (obrigado) |\n| tj | tchi | meisje (menina) |\n\n<VocabCard\n  word=\"Schoon\"\n  translation=\"Bonito/Limpo\"\n  pronunciation=\"srrrôn\"\n  example=\"SCH = s seguido de som gutural\"\n/>\n\n<CultureTip title=\"Regional\" flag=\"🇳🇱\">\nA pronúncia varia por região. O sul é mais suave, o norte mais gutural. Não se preocupe - todos vão te entender!\n</CultureTip>\n\n## Prática com Frases de Amor\n\n<VocabCard\n  word=\"Ik hou van je\"\n  translation=\"Eu te amo\"\n  pronunciation=\"ik RROU fan ie\"\n  example=\"HOU = som de 'rrau'\"\n/>\n\n<VocabCard\n  word=\"Je bent mijn alles\"\n  translation=\"Você é meu tudo\"\n  pronunciation=\"ie bent main A-les\"\n  example=\"MIJN = som de 'main'\"\n/>\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 288,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Consoantes Especiais"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "3f25e69f-32cf-462c-92af-0c317e7cebdc",
+      "title": "Dánské fráze pro setkání s rodiči partnera",
+      "native_lang": "cs",
+      "target_lang": "da",
+      "category": "communication",
+      "content": "Dánská kultura je neformální s důrazem na hygge. Tyto fráze vám pomohou udělat dobrý dojem.\n\n## První setkání\n\n### \"Dejligt at møde jer.\"\n**Překlad:** Těší mě, že vás poznávám.\n\n---\n\n### \"[Partner] har fortalt mig så meget om jer.\"\n**Překlad:** [Partner] mi o vás tolik vyprávěl/a.\n\n---\n\n### \"Mange tak for invitationen.\"\n**Překlad:** Mockrát děkuji za pozvání.\n\n---\n\n### \"I har et smukt hjem.\"\n**Překlad:** Máte krásný domov.\n\n---\n\n## U jídla\n\n### \"Det her er virkelig lækkert! Må jeg få opskriften?\"\n**Překlad:** To je opravdu vynikající! Mohu dostat recept?\n\n---\n\n### \"Alt ser vidunderligt ud.\"\n**Překlad:** Všechno vypadá skvěle.\n\n---\n\n## Projevení zájmu\n\n### \"Jeg vil gerne se billeder af [partner] som barn.\"\n**Překlad:** Rád/a bych viděl/a fotky [partnera] z dětství.\n\n---\n\n### \"Hvordan mødtes I?\"\n**Překlad:** Jak jste se poznali?\n\n---\n\n## Nabídka pomoci\n\n### \"Kan jeg hjælpe med noget?\"\n**Překlad:** Mohu s něčím pomoci?\n\n---\n\n### \"Lad mig hjælpe med opvasken.\"\n**Překlad:** Dovolte mi pomoci s nádobím.\n\n---\n\n## Rozloučení\n\n### \"Tak for en dejlig aften.\"\n**Překlad:** Děkuji za nádherný večer.\n\n---\n\n### \"Jeg håber, vi ses snart igen.\"\n**Překlad:** Doufám, že se brzy zase uvidíme.\n\n---\n\n## Kulturní tipy\n\n**Hygge:** Dánský koncept útulnosti je důležitý.\n\n**Tykání:** Dánové rychle tykají.\n\n**Dárek:** Přineste květiny, víno nebo čokoládu.\n\n**Humor:** Dánové mají suchý humor.\n\nS těmito frázemi si získáte dánskou rodinu.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 203,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## První setkání",
+              "## U jídla",
+              "## Projevení zájmu",
+              "## Nabídka pomoci",
+              "## Rozloučení"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "3f659046-eaf4-43d9-9c4b-f8db817ed62d",
+      "title": "Ukraińskie zwroty o przebaczeniu dla par",
+      "native_lang": "pl",
+      "target_lang": "uk",
+      "category": "communication",
+      "content": "Ukraińcy są ciepli i wybaczający. W relacji z osobą mówiącą po ukraińsku przebaczenie jest wyrażane z serdecznością.\n\n## Proszenie o przebaczenie\n\n### \"Будь ласка, вибач мені\"\n*Proszę, wybacz mi* - Wymowa: bud ŁA-ska WY-bacz me-NI\n\n### \"Сподіваюся, ти зможеш мені пробачити\"\n*Mam nadzieję, że mi wybaczysz* - Wymowa: spo-di-WA-ju-sia ty ZMO-żesz me-NI pro-BA-czy-ty\n\n## Wyrażanie przebaczenia\n\n### \"Я тебе прощаю\"\n*Przebaczam Ci* - Wymowa: ja te-BE pro-SZCZA-ju\n\n### \"Все добре, я розумію\"\n*W porządku, rozumiem* - Wymowa: wse DOB-re ja ro-zu-MI-ju\n\n### \"Давай залишимо це позаду\"\n*Zostawmy to za sobą* - Wymowa: da-WAJ za-ŁY-szy-mo ce po-ZA-du\n\n## Proces przebaczenia\n\n### \"Я працюю над тим, щоб тебе пробачити\"\n*Pracuję nad tym, żeby Ci wybaczyć* - Wymowa: ja pra-CJU-ju nad tym szczob te-BE pro-BA-czy-ty\n\n### \"Мені потрібен час, але я тебе пробачу\"\n*Potrzebuję czasu, ale wybaczę Ci* - Wymowa: me-NI po-TRI-ben czas A-le ja te-BE pro-BA-czu\n\n## Głębokie przebaczenie\n\n### \"Я тебе повністю прощаю\"\n*Przebaczam Ci całkowicie* - Wymowa: ja te-BE POW-nis-tiu pro-SZCZA-ju\n\n### \"Я відпускаю біль\"\n*Puszczam ten ból* - Wymowa: ja wid-pus-KA-ju bil\n\n## Wspólne wyjście naprzód\n\n### \"Давай почнемо спочатку\"\n*Zacznijmy od nowa* - Wymowa: da-WAJ pocz-NE-mo spo-CZAT-ku\n\n### \"Наше кохання сильніше за цю помилку\"\n*Nasza miłość jest silniejsza niż ten błąd* - Wymowa: NA-sze ko-CHAN-nia syl-NI-sze za cju po-MYŁ-ku\n\n## Granice przebaczenia\n\n### \"Я тебе прощаю, але це не має повторитися\"\n*Przebaczam Ci, ale to nie może się powtórzyć* - Wymowa: ja te-BE pro-SZCZA-ju A-le ce ne MA-je pow-to-RY-ty-sia\n\nПрощення зцілює серце! (Przebaczenie uzdrawia serce!)",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 247,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Proszenie o przebaczenie",
+              "## Wyrażanie przebaczenia",
+              "## Proces przebaczenia",
+              "## Głębokie przebaczenie",
+              "## Wspólne wyjście naprzód",
+              "## Granice przebaczenia"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "3f681053-a029-4bfb-adc0-7542a1823b51",
+      "title": "Frases para Conhecer os Sogros em Francês: Guia Completo",
+      "native_lang": "pt",
+      "target_lang": "fr",
+      "category": "communication",
+      "content": "Conhecer os sogros franceses requer elegância e respeito às tradições. Os franceses valorizam boas maneiras e conversas refinadas.\n\n## Frases para o Primeiro Encontro\n\n### Apresentação\n\n**C'est un plaisir de vous rencontrer enfin.**\n*É um prazer finalmente conhecê-los.*\n\n**[Nome] m'a tellement parlé de vous.**\n*[Nome] me falou tanto sobre vocês.*\n\n**Merci beaucoup de m'accueillir.**\n*Muito obrigado(a) por me receberem.*\n\n**J'avais tellement hâte de vous rencontrer.**\n*Estava tão ansioso(a) para conhecê-los.*\n\n### Elogiando\n\n**Vous avez une maison magnifique.**\n*Vocês têm uma casa magnífica.*\n\n**Ce repas est absolument délicieux.**\n*Esta refeição está absolutamente deliciosa.*\n\n**Maintenant je sais d'où [nome] tient sa/son [qualidade].**\n*Agora sei de onde [nome] herdou [qualidade].*\n\n**Merci d'avoir élevé une personne si merveilleuse.**\n*Obrigado(a) por terem criado uma pessoa tão maravilhosa.*\n\n### Mostrando Interesse\n\n**J'adorerais en savoir plus sur vos traditions familiales.**\n*Adoraria saber mais sobre as tradições da família.*\n\n**Comment vous êtes-vous rencontrés?**\n*Como vocês se conheceram?*\n\n**Comment était [nome] enfant?**\n*Como era [nome] quando criança?*\n\n### Expressando Gratidão\n\n**Merci de me faire sentir si bienvenu(e).**\n*Obrigado(a) por me fazerem sentir tão bem-vindo(a).*\n\n**J'apprécie beaucoup votre hospitalité.**\n*Agradeço muito a hospitalidade de vocês.*\n\n## Oferecendo Ajuda\n\n**Puis-je vous aider?**\n*Posso ajudá-los?*\n\n**Laissez-moi vous aider avec la vaisselle.**\n*Deixem-me ajudar com a louça.*\n\n## Despedindo-se\n\n**Merci pour ce merveilleux moment.**\n*Obrigado(a) por este momento maravilhoso.*\n\n**J'espère vous revoir bientôt.**\n*Espero revê-los em breve.*\n\n**Ce fut un véritable plaisir de vous rencontrer.**\n*Foi um verdadeiro prazer conhecê-los.*\n\n## Dicas Culturais\n\n- **\"Vous\"** - Use sempre a forma formal inicialmente\n- **Bise** - O beijo no rosto varia por região\n- **Vinho** - Traga uma boa garrafa\n- **Pontualidade** - Chegue no horário\n- **Conversa** - Evite temas polêmicos\n\nL'élégance et le respect ouvrent toutes les portes - elegância e respeito abrem todas as portas!",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 294,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frases para o Primeiro Encontro"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

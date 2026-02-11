@@ -1,0 +1,433 @@
+{
+  "batchId": "tier2a-slim-0230",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "e7c2696b-5a37-467f-86e8-480baf67fa0e",
+      "title": "Ukraynaca Sevgi Sözcükleri ve Takma Adlar",
+      "native_lang": "tr",
+      "target_lang": "uk",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Farklı Durumlar İçin Sevgi Sözcükleri",
+          "subsections": [
+            "### Günlük Hayatta",
+            "### Romantik Anlar İçin",
+            "### Şakalaşmak İçin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e7c461f5-61bf-4a01-b924-dafca0a35530",
+      "title": "Întâlnirea cu Familia: Fraze Cehe Esențiale",
+      "native_lang": "ro",
+      "target_lang": "cs",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Ce Să Faci și Ce Să Nu Faci",
+          "subsections": [
+            "### Ce Să Faci",
+            "### Ce Să Nu Faci"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e7dc0b3c-7bca-4deb-96d3-ae8e9ff1d573",
+      "title": "Ουκρανικές Φράσεις Συμφιλίωσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις Συμφιλίωσης",
+          "subsections": [
+            "### Έναρξη Συμφιλίωσης",
+            "### Έκφραση Μετάνοιας",
+            "### Έκφραση Αγάπης",
+            "### Πρόταση Λύσης"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e7f4986f-d013-463e-95fc-df6fd7ff077d",
+      "title": "Φράσεις «Μου Λείπεις» στα Πορτογαλικά",
+      "native_lang": "el",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις",
+          "subsections": [
+            "### 1. Sinto a tua falta (Πορτογαλία) / Sinto sua falta (Βραζιλία)",
+            "### 2. Tenho saudades de ti (Πορτογαλία) / Tenho saudades de você (Βραζιλία)",
+            "### 3. Não consigo parar de pensar em ti",
+            "### 4. Quem dera estivesses aqui",
+            "### 5. Estás sempre no meu coração",
+            "### 6. Anseio por ti",
+            "### 7. Cada dia sem ti é difícil",
+            "### 8. Conto os dias até te ver",
+            "### 9. O meu coração dói pela tua ausência",
+            "### 10. A distância fortalece o amor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e8055538-034b-45e1-a10a-5b7db4ac34c5",
+      "title": "Portugisiska fraser för att säga 'Jag saknar dig' – Uttryck saudade till din partner",
+      "native_lang": "sv",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande fraser",
+          "subsections": [
+            "### \"Sinto a tua falta\" / \"Sinto saudades de ti\"",
+            "### \"Tenho muitas saudades tuas\"",
+            "### \"Não consigo parar de pensar em ti\""
+          ]
+        },
+        {
+          "header": "## Djupare uttryck",
+          "subsections": [
+            "### \"O meu coração sente a tua falta\"",
+            "### \"Cada momento sem ti é uma eternidade\"",
+            "### \"A saudade que sinto por ti é enorme\""
+          ]
+        },
+        {
+          "header": "## Romantiska kvällsfraser",
+          "subsections": [
+            "### \"Tenho saudades de adormecer ao teu lado\"",
+            "### \"A cama está vazia sem ti\"",
+            "### \"Sinto falta do teu calor à noite\""
+          ]
+        },
+        {
+          "header": "## Vardagliga uttryck",
+          "subsections": [
+            "### \"Hoje vi algo que me fez lembrar de ti\"",
+            "### \"Tenho saudades dos nossos pequenos momentos\"",
+            "### \"Tudo me faz lembrar de ti\""
+          ]
+        },
+        {
+          "header": "## Hoppfulla fraser",
+          "subsections": [
+            "### \"Mal posso esperar para te ver de novo\"",
+            "### \"Estou a contar os dias até estarmos juntos\"",
+            "### \"Em breve estaremos juntos novamente\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e80ca205-5669-4729-8d87-7dce8056604c",
+      "title": "Φράσεις «Μου λείπεις» στα Τουρκικά",
+      "native_lang": "el",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις",
+          "subsections": [
+            "### 1. Seni özledim (Σενί οζλεντίμ)",
+            "### 2. Seni çok özledim (Σενί τσοκ οζλεντίμ)",
+            "### 3. Sensiz yapamıyorum (Σενσίζ γιαπαμιγιορούμ)",
+            "### 4. Sana çok ihtiyacım var (Σανά τσοκ ιχτιγιατζίμ βαρ)",
+            "### 5. Görüşmemizi dört gözle bekliyorum (Γκιορουσμεμιζί ντορτ γκιοζλέ μπεκλιγιορούμ)",
+            "### 6. Her gün seni düşünüyorum (Χερ γκιουν σενί ντουσουνουγιορούμ)",
+            "### 7. Kalbim seninle (Καλμπίμ σενινλέ)",
+            "### 8. Hep aklımdasın (Χεπ ακλιμντασίν)",
+            "### 9. Keşke yanımda olsaydın (Κεσκέ γιανιμντά ολσαϊντίν)",
+            "### 10. Hasretini çekiyorum (Χασρετινί τσεκιγιορούμ)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e8163daf-3d6e-4c0f-86ba-750b4b362d01",
+      "title": "Polské fráze pro emocionální podporu a útěchu",
+      "native_lang": "cs",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní fráze pro vyjádření soucitu",
+          "subsections": [
+            "### 1. Jestem przy tobie",
+            "### 2. Bardzo mi przykro",
+            "### 3. Współczuję ci"
+          ]
+        },
+        {
+          "header": "## Fráze pro povzbuzení",
+          "subsections": [
+            "### 4. Dasz radę",
+            "### 5. Wszystko będzie dobrze",
+            "### 6. Trzymaj się"
+          ]
+        },
+        {
+          "header": "## Nabídka pomoci",
+          "subsections": [
+            "### 7. Jak mogę ci pomóc?",
+            "### 8. Możesz na mnie liczyć"
+          ]
+        },
+        {
+          "header": "## Útěcha v těžkých chvílích",
+          "subsections": [
+            "### 9. Nie jesteś sam/sama",
+            "### 10. Rozumiem, co czujesz",
+            "### 11. Pozwól sobie na płacz",
+            "### 12. Czas leczy rany"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e817a26a-abc9-491d-b2ef-1ef6f7b3ed24",
+      "title": "С днём рождения на чешский: Пожелания для любимого человека",
+      "native_lang": "ru",
+      "target_lang": "cs",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Романтические пожелания на день рождения",
+          "subsections": [
+            "### Сладкие и простые",
+            "### Глубокие послания"
+          ]
+        },
+        {
+          "header": "## Фразы для открытки",
+          "subsections": [
+            "### Романтические послания",
+            "### Длинные послания"
+          ]
+        },
+        {
+          "header": "## Планирование сюрприза",
+          "subsections": [
+            "### Лексика для překvapení",
+            "### Фразы для сюрприза"
+          ]
+        },
+        {
+          "header": "## Сообщения для социальных сетей",
+          "subsections": [
+            "### Подписи для публикаций"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e81d1d43-c4a2-4935-8b48-363dbeec7a70",
+      "title": "30+ Hollandske Komplimenter til Din Partner: Romantiske Fraser",
+      "native_lang": "da",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Komplimenter til Specielle Lejligheder",
+          "subsections": [
+            "### Til en Date",
+            "### Ved Milepæle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e81fe38e-749b-4586-8039-c44f90465732",
+      "title": "Polish Pregnancy & Baby Vocabulary",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Essential Pregnancy Vocabulary",
+          "subsections": [
+            "### Medical Terms",
+            "### Pregnancy Stages and Symptoms"
+          ]
+        },
+        {
+          "header": "## Baby Vocabulary",
+          "subsections": [
+            "### Basic Baby Terms",
+            "### Baby Care Essentials",
+            "### Baby's Room and Equipment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e82d53ab-d1d7-4227-8a48-aa9187f6a906",
+      "title": "Англійські фрази про ревнощі та довіру",
+      "native_lang": "uk",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Вираження ревнощів",
+          "subsections": [
+            "### \"I feel jealous when...\"",
+            "### \"It bothers me when you...\"",
+            "### \"I get insecure sometimes\""
+          ]
+        },
+        {
+          "header": "## Запитання про стосунки",
+          "subsections": [
+            "### \"Who was that?\"",
+            "### \"How do you know them?\"",
+            "### \"Should I be worried?\""
+          ]
+        },
+        {
+          "header": "## Вираження довіри",
+          "subsections": [
+            "### \"I trust you completely\"",
+            "### \"I know you would never hurt me\"",
+            "### \"You're the only one for me\""
+          ]
+        },
+        {
+          "header": "## Заспокоєння партнера",
+          "subsections": [
+            "### \"There's nothing to worry about\"",
+            "### \"They're just a friend\"",
+            "### \"You have nothing to be jealous of\""
+          ]
+        },
+        {
+          "header": "## Обговорення проблеми",
+          "subsections": [
+            "### \"Can we talk about this?\"",
+            "### \"I need you to be honest with me\"",
+            "### \"Let's set some boundaries\""
+          ]
+        },
+        {
+          "header": "## Подолання ревнощів",
+          "subsections": [
+            "### \"I'm working on my jealousy\"",
+            "### \"I don't want jealousy to ruin us\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e841ba8c-f681-4b9c-9a6f-a0f54ad92b74",
+      "title": "Jerga Rusa de Mensajes para Parejas",
+      "native_lang": "es",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Conversaciones de Ejemplo",
+          "subsections": [
+            "### Por la Mañana",
+            "### Por la Noche"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e84a30d6-375c-4c96-a1b6-33624fefb180",
+      "title": "Portugál kifejezések kibéküléshez és megbékéléshez",
+      "native_lang": "hu",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető kifejezések a kibéküléshez",
+          "subsections": [
+            "### 1. \"Me desculpa, por favor\"",
+            "### 2. \"Podemos recomeçar?\"",
+            "### 3. \"Eu estava errado/a\"",
+            "### 4. \"Vamos fazer as pazes\"",
+            "### 5. \"Eu te perdoo\"",
+            "### 6. \"Te amo, mesmo quando brigamos\"",
+            "### 7. \"Não quis te magoar\"",
+            "### 8. \"Você pode me perdoar?\"",
+            "### 9. \"Odeio quando brigamos\"",
+            "### 10. \"Não vamos dormir brigados\"",
+            "### 11. \"Prometo fazer melhor\"",
+            "### 12. \"Você é muito importante para mim\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e84c3d3e-fe06-484f-9d50-ae40bf1c1375",
+      "title": "Пожелания на годовщину на датский: Романтические фразы",
+      "native_lang": "ru",
+      "target_lang": "da",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Простые пожелания на годовщину",
+          "subsections": [
+            "### Короткие и сладкие",
+            "### Для вашего партнёра"
+          ]
+        },
+        {
+          "header": "## Романтические послания на годовщину",
+          "subsections": [
+            "### Сердечные признания",
+            "### Задумчивые послания"
+          ]
+        },
+        {
+          "header": "## Послания по годам",
+          "subsections": [
+            "### Первая годовщина",
+            "### Пятая годовщина",
+            "### Десятая годовщина",
+            "### Двадцать пятая годовщина (серебряная)",
+            "### Пятидесятая годовщина (золотая)"
+          ]
+        },
+        {
+          "header": "## Планирование празднования годовщины",
+          "subsections": [
+            "### Романтические идеи",
+            "### Выражение благодарности"
+          ]
+        },
+        {
+          "header": "## Сообщения для социальных сетей",
+          "subsections": [
+            "### Подписи для публикаций"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e84dafb1-edb5-43bd-b4e7-f2d75b1d9361",
+      "title": "Německá gramatika pro začátečníky: Jak mluvit s partnerem bez chyb",
+      "native_lang": "cs",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Nejčastější chyby a jak se jim vyvarovat",
+          "subsections": [
+            "### 1. Záměna \"sie\" a \"Sie\"",
+            "### 2. Špatný člen",
+            "### 3. Sloveso na špatném místě",
+            "### 4. Zapomenutí koncovky"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,552 @@
+{
+  "batchId": "tier2a-slim-0288",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "1d294e8d-0d53-4b3b-a4d6-bef18954c00a",
+      "title": "50+ francuskich zdrobnień, które roztopią serce",
+      "native_lang": "pl",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Jak uzywac zdrobnien",
+          "subsections": [
+            "### Codzieńnie rano",
+            "### Przy pożegnańiu",
+            "### W wiadomosciach",
+            "### Na dobranoc"
+          ]
+        },
+        {
+          "header": "## Regionalne różnice",
+          "subsections": [
+            "### Francja",
+            "### Kanada (Quebec)",
+            "### Belgia i Szwajcaria"
+          ]
+        },
+        {
+          "header": "## Kiedy używać poszczególnych zdrobnień",
+          "subsections": [
+            "### W domu, na co dzień",
+            "### W wiadomościach i SMS-ach",
+            "### Przy rodzinie partnera",
+            "### W romantycznych momentach",
+            "### W żartobliwych sytuacjach"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Zdrobnienie dnia",
+            "### Cwiczenie 2: Powitania",
+            "### Cwiczenie 3: Tworzenie własnych"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1d5d70f2-4b9a-454d-91bf-9ee830f5a3a6",
+      "title": "Jerga Polaca de Mensajes de Texto",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Abreviaturas de Texto Polacas Esenciales",
+          "subsections": [
+            "### Lo Básico que Todos Usan",
+            "### Amor y Relaciones",
+            "### Tiempo y Planificación"
+          ]
+        },
+        {
+          "header": "## Jerga de Emociones y Reacciones",
+          "subsections": [
+            "### Vibraciones Positivas",
+            "### Negativo o Frustrado"
+          ]
+        },
+        {
+          "header": "## Jerga de Cultura de Internet Polaca",
+          "subsections": [
+            "### Gaming y Online",
+            "### Expresiones de Redes Sociales"
+          ]
+        },
+        {
+          "header": "## Jerga Regional y por Edad",
+          "subsections": [
+            "### Estilo de Varsovia (Warszawski)",
+            "### Generación Más Joven (Gen Z)"
+          ]
+        },
+        {
+          "header": "## Situaciones Prácticas de Mensajes",
+          "subsections": [
+            "### Haciendo Planes",
+            "### Mensajes Dulces"
+          ]
+        },
+        {
+          "header": "## Atajos Gramaticales en Mensajes",
+          "subsections": [
+            "### Artículos y Preposiciones Omitidos",
+            "### Conjugaciones Simplificadas",
+            "### Sin Diacríticos"
+          ]
+        },
+        {
+          "header": "## Construyendo Tus Habilidades de Mensajes Polacos",
+          "subsections": [
+            "### Empieza Simple",
+            "### Observa y Aprende",
+            "### Practica con Tu Pareja",
+            "### Usa Integración Gradual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1d65405d-ff59-4881-9f6a-b577171a87bb",
+      "title": "Swedish Pronunciation for Couples: Sound Romantic From Day One",
+      "native_lang": "en",
+      "target_lang": "sv",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Common Pronunciation Mistakes (And How to Avoid Them)",
+          "subsections": [
+            "### 1. The \"J\" Sound",
+            "### 2. The \"G\" at Word End",
+            "### 3. The \"R\" Sound",
+            "### 4. Silent letters"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1dce6d29-bae1-4d90-8975-30849e732a4f",
+      "title": "Greek Pronunciation: Master Key Sounds",
+      "native_lang": "en",
+      "target_lang": "el",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## The Trickiest Sounds for English Speakers",
+          "subsections": [
+            "### 1. The Gamma (Γ/γ)",
+            "### 2. The Delta (Δ/δ)",
+            "### 3. The Theta (Θ/θ)",
+            "### 4. The Chi (Χ/χ)",
+            "### 5. The Rolled R (Ρ/ρ)"
+          ]
+        },
+        {
+          "header": "## Common Pronunciation Mistakes to Avoid",
+          "subsections": [
+            "### 1. Don't Pronounce β as \"B\"",
+            "### 2. Don't Skip the Rolled R",
+            "### 3. Don't Over-Aspirate",
+            "### 4. Watch Your Vowels"
+          ]
+        },
+        {
+          "header": "## Tips for Perfect Pronunciation",
+          "subsections": [
+            "### 1. Listen to Your Partner",
+            "### 2. Record Yourself",
+            "### 3. Practice the Alphabet Daily",
+            "### 4. Focus on High-Frequency Words",
+            "### 5. Don't Be Afraid to Ask"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1ea4c7d3-6f62-40a1-98e9-127fb2f15caa",
+      "title": "Spaanse Huwelijksuitdrukkingen: Romantische Zinnen voor een Onvergetelijke Bruiloft",
+      "native_lang": "nl",
+      "target_lang": "es",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## De Huwelijksceremonie",
+          "subsections": [
+            "### De Traditionele Geloften"
+          ]
+        },
+        {
+          "header": "## Felicitaties voor het Bruidspaar",
+          "subsections": [
+            "### Korte Felicitaties",
+            "### Langere Felicitaties"
+          ]
+        },
+        {
+          "header": "## De Bruiloftstoast",
+          "subsections": [
+            "### Een Toast Uitbrengen",
+            "### Structuur van een Spaanse Toast"
+          ]
+        },
+        {
+          "header": "## Romantische Zinnen voor de Dag",
+          "subsections": [
+            "### Voor de Partner"
+          ]
+        },
+        {
+          "header": "## Praktische Zinnen op de Bruiloft",
+          "subsections": [
+            "### Bij de Receptie",
+            "### Op de Dansvloer"
+          ]
+        },
+        {
+          "header": "## Je Eigen Geloften Schrijven",
+          "subsections": [
+            "### Inspiratie voor Persoonlijke Geloften"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1f1b789b-e711-4187-9edb-4553c7e58ebb",
+      "title": "Italyan Partnerinizin Ailesiyle Tanismak: Dil ve Kültür Rehberi",
+      "native_lang": "tr",
+      "target_lang": "it",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Aile Üyeleri",
+          "subsections": [
+            "### Temel Aile Terimleri",
+            "### Partnerinizin Ailesi"
+          ]
+        },
+        {
+          "header": "## Sofra Adabi",
+          "subsections": [
+            "### Yemege Davet Edildiginde",
+            "### Yemek Sirasinda"
+          ]
+        },
+        {
+          "header": "## Hediye Götürmek",
+          "subsections": [
+            "### Ne Götürmeli?"
+          ]
+        },
+        {
+          "header": "## Konusma Konulari",
+          "subsections": [
+            "### Güvenli Konular",
+            "### Kacinilmasi Gereken Konular"
+          ]
+        },
+        {
+          "header": "## Önemli Ifadeler",
+          "subsections": [
+            "### Nezaket Ifadeleri",
+            "### Vedalasmak"
+          ]
+        },
+        {
+          "header": "## Kültürel Ipuclari",
+          "subsections": [
+            "### Yapilmasi Gerekenler",
+            "### Kacinilmasi Gerekenler"
+          ]
+        },
+        {
+          "header": "## Özel Durumlar",
+          "subsections": [
+            "### Evlilik Konusulmasi",
+            "### Cocuk Sorulari"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1f310e8f-459e-4b15-b272-ba5cab2fccc1",
+      "title": "Prononciation grecque : maitriser les sons",
+      "native_lang": "fr",
+      "target_lang": "el",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Les sons les plus difficiles pour les francophones",
+          "subsections": [
+            "### 1. Le Gamma (Γ/γ)",
+            "### 2. Le Delta (Δ/δ)",
+            "### 3. Le Thêta (Θ/θ)",
+            "### 4. Le Chi (Χ/χ)",
+            "### 5. Le R roulé (Ρ/ρ)"
+          ]
+        },
+        {
+          "header": "## Erreurs de prononciation courantes à éviter",
+          "subsections": [
+            "### 1. Ne prononcez pas β comme « b »",
+            "### 2. N'oubliez pas le R roulé",
+            "### 3. N'aspirez pas trop",
+            "### 4. Attention aux voyelles"
+          ]
+        },
+        {
+          "header": "## Conseils pour une prononciation parfaite",
+          "subsections": [
+            "### 1. Écoutez votre partenaire",
+            "### 2. Enregistrez-vous",
+            "### 3. Pratiquez l'alphabet quotidiennement",
+            "### 4. Concentrez-vous sur les mots fréquents",
+            "### 5. N'ayez pas peur de demander"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1fafe702-deee-4a28-ab6a-ea015a694717",
+      "title": "Знакомство с семьёй англоговорящего партнёра",
+      "native_lang": "ru",
+      "target_lang": "en",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Разговоры с семьёй",
+          "subsections": [
+            "### Рассказ о себе:",
+            "### Вопросы, которые вам могут задать:",
+            "### Темы, которых лучше избегать:"
+          ]
+        },
+        {
+          "header": "## Полезные фразы для разных ситуаций",
+          "subsections": [
+            "### Если не поняли:",
+            "### Если нужна помощь:",
+            "### Комплименты семье:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1fcc202e-0d21-413c-a840-b1585fc073fd",
+      "title": "Danca Mesajlaşma Kısaltmaları ve Günlük Dil",
+      "native_lang": "tr",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Örnek Mesajlaşmalar",
+          "subsections": [
+            "### Sabah Mesajı",
+            "### Plan Yapma",
+            "### Romantik Akşam"
+          ]
+        },
+        {
+          "header": "## Sesli Mesaj ve Sosyal Medya",
+          "subsections": [
+            "### Sesli Mesaj Kısaltmaları",
+            "### Sosyal Medya Terimleri"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1ffc3850-34dd-4c98-8ad3-7dce63e07720",
+      "title": "¿Es Difícil Aprender Ucraniano? Una Guía Honesta para Hispanohablantes",
+      "native_lang": "es",
+      "target_lang": "uk",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Los Desafíos",
+          "subsections": [
+            "### 1. El Alfabeto Cirílico",
+            "### 2. Los Casos Gramaticales",
+            "### 3. Aspectos Verbales",
+            "### 4. Pronunciación"
+          ]
+        },
+        {
+          "header": "## Las Ventajas",
+          "subsections": [
+            "### 1. Ortografía Fonética",
+            "### 2. Sin Artículos",
+            "### 3. Orden de Palabras Flexible",
+            "### 4. Vocabulario Compartido"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "200623d4-6bfc-49ce-9009-7d5955fd005c",
+      "title": "Zweedse Grammatica voor Beginners: De Basis Uitgelegd",
+      "native_lang": "nl",
+      "target_lang": "sv",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Tijden: Een Overzicht",
+          "subsections": [
+            "### Tegenwoordige Tijd",
+            "### Verleden Tijd",
+            "### Toekomende Tijd"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "20a33c4d-e60b-442a-a18e-0d2c36ccb02c",
+      "title": "French Past Tense for Couples: Passe Compose vs Imparfait",
+      "native_lang": "en",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Practice Scenarios for Couples",
+          "subsections": [
+            "### Scenario 1: Your First Date",
+            "### Scenario 2: How You Fell in Love"
+          ]
+        },
+        {
+          "header": "## Couple Activities: Practice Together",
+          "subsections": [
+            "### Activity 1: Memory Lane",
+            "### Activity 2: Before We Met",
+            "### Activity 3: Photo Album Stories"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "20c2541d-2d37-40de-82f6-d29fcd1acbd2",
+      "title": "Négation Polonaise : Nie, Nigdy, Żaden",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Rien, personne, nulle part : négation avancée",
+          "subsections": [
+            "### Nic (Rien)",
+            "### Nikt (Personne)",
+            "### Nigdzie (Nulle part)"
+          ]
+        },
+        {
+          "header": "## Expressions négatives courantes pour couples",
+          "subsections": [
+            "### Exprimer le désaccord poliment",
+            "### Établir des limites",
+            "### Exprimer des émotions"
+          ]
+        },
+        {
+          "header": "## Nier au passé et au futur",
+          "subsections": [
+            "### Négation au passé",
+            "### Négation au futur"
+          ]
+        },
+        {
+          "header": "## Erreurs courantes à éviter",
+          "subsections": [
+            "### Ne sautez pas le Nie",
+            "### L'ordre des mots compte",
+            "### Accord en genre"
+          ]
+        },
+        {
+          "header": "## Scénarios de pratique pour couples",
+          "subsections": [
+            "### Décliner des plans",
+            "### Exprimer des préférences",
+            "### Rassurer votre partenaire"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "210709c4-7bb0-4d6a-80e8-4c6c62afbf8a",
+      "title": "Yunanca Mesajlasma Dili: Partnerinizle Dijital Iletisim",
+      "native_lang": "tr",
+      "target_lang": "el",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Günlük Konusma Kisaltmalari",
+          "subsections": [
+            "### Soru ve Cevaplar",
+            "### Yanitlar"
+          ]
+        },
+        {
+          "header": "## Mesaj Örnekleri",
+          "subsections": [
+            "### Sabah Mesaji",
+            "### Gün Ici Mesajlasma",
+            "### Aksam Mesaji"
+          ]
+        },
+        {
+          "header": "## Duygulari Ifade Etme",
+          "subsections": [
+            "### Mutluluk",
+            "### Özlem",
+            "### Üzüntü/Özür"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "211bb9e5-68e2-4780-ba88-249dd5307553",
+      "title": "Diminutifs Polonais : Mots Mignons",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Les suffixes magiques : Votre boîte à outils pour la mignonnerie",
+          "subsections": [
+            "### Pour les noms masculins",
+            "### Pour les noms féminins",
+            "### Pour les noms neutres"
+          ]
+        },
+        {
+          "header": "## Diminutifs romantiques : Faire fondre les cœurs en polonais",
+          "subsections": [
+            "### Prénoms qui font battre les cœurs",
+            "### Termes d'affection avec diminutifs"
+          ]
+        },
+        {
+          "header": "## La grammaire derrière la magie",
+          "subsections": [
+            "### Schémas de prononciation",
+            "### Changements de sons"
+          ]
+        },
+        {
+          "header": "## Usage pratique : Quand et où",
+          "subsections": [
+            "### Situations parfaites pour les diminutifs"
+          ]
+        },
+        {
+          "header": "## Schémas diminutifs avancés",
+          "subsections": [
+            "### Diminutifs irréguliers",
+            "### Diminutifs à partir d'adjectifs"
+          ]
+        }
+      ]
+    }
+  ]
+}

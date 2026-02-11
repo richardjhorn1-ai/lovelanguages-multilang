@@ -1,0 +1,179 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0815",
+  "articles": [
+    {
+      "id": "ea2bea16-4eee-4049-9d9c-5e4ec9705654",
+      "title": "Italienisch Kosenamen und Liebkosungen für Paare",
+      "native_lang": "de",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport CTA from '@components/CTA.astro';\n\n# Italienisch Kosenamen und Liebkosungen für Paare\n\nKosenamen sind eine wunderbare Art, deinem Partner zu zeigen, wie viel er oder sie dir bedeutet. Wenn dein Partner Italienisch spricht, wird es ihn oder sie sicher freuen, wenn du diese liebevollen Ausdrücke verwendest!\n\n## Warum Kosenamen wichtig sind\n\nKosenamen schaffen Intimität und zeigen Zuneigung. Sie sind wie ein geheimes Band zwischen zwei Menschen – etwas Besonderes, das nur euch beiden gehört.\n\n## Klassische Kosenamen\n\nDie zeitlosen Klassiker funktionieren in jeder Sprache:\n\n- **Schatz** - der universelle Liebling\n- **Liebling** - klassisch und elegant\n- **Mein Herz** - gefühlvoll und poetisch\n- **Meine Liebe** - romantisch und zärtlich\n\n<CultureTip>\nKosenamen variieren oft von Region zu Region. Was in einer Gegend üblich ist, kann anderswo ungewöhnlich klingen. Frage deinen Partner, welche Namen in seiner Heimat gebräuchlich sind!\n</CultureTip>\n\n## Süße Tiernamen\n\nWie in vielen Kulturen werden auch im Italienischen gerne Tiernamen verwendet:\n\n- **Bärchen** (kleiner Bär) - kuschelig und stark\n- **Mäuschen** (kleine Maus) - süß und niedlich\n- **Häschen** (kleiner Hase) - zärtlich\n- **Spätzchen** (kleiner Spatz) - liebevoll\n\n## Romantische Ausdrücke\n\nFür besondere Momente:\n\n- **Mein Ein und Alles** - wenn jemand alles für dich ist\n- **Seelenverwandter** - für tiefe Verbindungen\n- **Mein Sonnenschein** - für jemanden, der dein Leben erhellt\n\n## Kosenamen für verschiedene Anlässe\n\n### Im Alltag\nKurze, lockere Namen für den täglichen Gebrauch. Ein schnelles \"Hey, Schatz!\" funktioniert immer.\n\n### Für romantische Momente\nLängere, gefühlvollere Ausdrücke passen zu besonderen Momenten. Sag deinem Partner, was er oder sie dir bedeutet.\n\n### Zum Necken\nHumorvolle Kosenamen können eure Beziehung auflockern – aber achte darauf, dass dein Partner den Humor teilt!\n\n## Tipps zur Verwendung\n\n1. **Frage deinen Partner**: Nicht jeder mag jeden Kosenamen. Frage, was ihm/ihr gefällt.\n2. **Achte auf die Aussprache**: Übe die richtige Aussprache – nichts ist romantischer als ein korrekt ausgesprochener Kosename.\n3. **Sei authentisch**: Verwende Namen, die zu euch als Paar passen.\n4. **Kreiere eigene Namen**: Die persönlichsten Kosenamen sind oft selbst erfunden!\n5. **Beobachte die Reaktion**: Der beste Kosename ist der, bei dem dein Partner lächelt.\n\n## Die Kraft der Sprache\n\nKosenamen sind mehr als Worte – sie sind kleine Liebeserklärungen im Alltag. Wenn du Italienisch lernst, um mit deinem Partner zu kommunizieren, sind Kosenamen ein wundervoller Anfang.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Kosenamen für verschiedene Anlässe"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ea2c6d07-7da9-454a-9791-8e05bda66fda",
+      "title": "Rencontrer la belle-famille en portugais : Conquérir os sogros",
+      "native_lang": "fr",
+      "target_lang": "pt",
+      "category": "communication",
+      "content": "## Rencontrer la belle-famille lusophone\n\nLa famille est au cœur de la culture lusophone. Voici comment faire bonne impression sur \"os sogros\".\n\n## Premières salutations\n\n### \"É um prazer finalmente conhecê-los\"\n**Prononciation :** é oum pra-ZÉR fi-nal-MÉN-té ko-nyé-SÉ-louss\n\n**Signification :** C'est un plaisir de vous rencontrer enfin\n\n### \"Ouvi falar muito bem de vocês\"\n**Prononciation :** ou-VI fa-LAR MOUIN-to bén dé vo-SÉSS\n\n**Signification :** J'ai beaucoup entendu parler de vous en bien\n\n### \"Muito obrigado/a por me receberem\"\n**Prononciation :** MOUIN-to o-bri-GA-do/da por mé ré-sé-BÉ-rén\n\n**Signification :** Merci beaucoup de m'accueillir\n\n## Montrer du respect\n\n### \"A sua casa é muito bonita\"\n**Prononciation :** a SOU-a KA-za é MOUIN-to bo-NI-ta\n\n**Signification :** Votre maison est très jolie\n\n### \"A comida está deliciosa, obrigado/a\"\n**Prononciation :** a ko-MI-da éss-TA dé-li-si-O-za o-bri-GA-do/da\n\n**Signification :** La nourriture est délicieuse, merci\n\n### \"A senhora cozinha muito bem\"\n**Prononciation :** a sé-NYO-ra ko-ZI-nya MOUIN-to bén\n\n**Signification :** Madame cuisine très bien\n\n## Parler de votre partenaire\n\n### \"[Nome] significa tudo para mim\"\n**Prononciation :** [nom] si-ni-FI-ka TOU-do PA-ra min\n\n**Signification :** [Nom] signifie tout pour moi\n\n### \"Me sinto muito sortudo/a por ter [nome] na minha vida\"\n**Prononciation :** mé SIN-to MOUIN-to sor-TOU-do/da por TÉR [nom] na MI-nya VI-da\n\n**Signification :** Je me sens très chanceux(se) d'avoir [nom] dans ma vie\n\n### \"Vocês criaram uma pessoa maravilhosa\"\n**Prononciation :** vo-SÉSS kri-A-raoum OU-ma pé-SO-a ma-ra-vi-LYO-za\n\n**Signification :** Vous avez élevé une personne merveilleuse\n\n## Créer du lien\n\n### \"Gostaria de saber mais sobre [assunto]\"\n**Prononciation :** goss-ta-RI-a dé sa-BÉR maïss SO-bré [a-SSOUN-to]\n\n**Signification :** J'aimerais en savoir plus sur [sujet]\n\n### \"Como era [nome] quando criança?\"\n**Prononciation :** KO-mo É-ra [nom] KOUAN-do kri-AN-sa\n\n**Signification :** Comment était [nom] enfant ?\n\n## Proposer de l'aide\n\n### \"Posso ajudar em alguma coisa?\"\n**Prononciation :** PO-sso a-jou-DAR én al-GOU-ma KOY-za\n\n**Signification :** Puis-je aider à quelque chose ?\n\n## Au départ\n\n### \"Obrigado/a por um dia maravilhoso\"\n**Prononciation :** o-bri-GA-do/da por oum DI-a ma-ra-vi-LYO-zo\n\n**Signification :** Merci pour cette merveilleuse journée\n\n### \"Espero vê-los novamente em breve\"\n**Prononciation :** éss-PÉ-ro VÉ-louss no-va-MÉN-té én BRÉ-vé\n\n**Signification :** J'espère vous revoir bientôt\n\n## Différences Brésil/Portugal\n\n**Brésil :** Plus chaleureux, abraços (câlins) courants\n**Portugal :** Plus réservé au début, deux bises\n\n## Conseils culturels\n\n**Nourriture :** Acceptez toujours, complimentez généreusement.\n\n**Café :** Rituel social important au Brésil.\n\n**Hospitalité :** Les lusophones sont très accueillants.\n\n## Conclusion\n\nConquérir une belle-famille lusophone, c'est embrasser leur chaleur et leur sens de l'accueil. Montrez votre affection sincère pour leur enfant.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Premières salutations",
+              "## Montrer du respect",
+              "## Parler de votre partenaire",
+              "## Créer du lien",
+              "## Proposer de l'aide",
+              "## Au départ"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ea2d180c-438f-492b-9d01-99ee07a078e7",
+      "title": "En Yaygın 100 Rusça Kelime",
+      "native_lang": "tr",
+      "target_lang": "ru",
+      "category": "communication",
+      "content": "Rusça öğrenmeye başlarken en yaygın kelimeleri bilmek önemlidir.\n\n## Temel Zamirler\n\n### 1. Я /ya/ - Ben\n### 2. Ты /tı/ - Sen\n### 3. Он /on/ - O (erkek)\n### 4. Она /ona/ - O (kadın)\n### 5. Мы /mı/ - Biz\n### 6. Вы /vı/ - Siz\n### 7. Они /oni/ - Onlar\n\n### 8. И /i/ - Ve\n### 9. Но /no/ - Ama\n### 10. Или /ili/ - Veya\n\n## Temel Fiiller\n\n### 11. Быть /bıt/ - Olmak\n### 12. Иметь /imet/ - Sahip olmak\n### 13. Делать /delat/ - Yapmak\n### 14. Говорить /govorit/ - Söylemek\n### 15. Идти /idti/ - Gitmek\n### 16. Приходить /prihodit/ - Gelmek\n### 17. Мочь /moç/ - Yapabilmek\n### 18. Знать /znat/ - Bilmek\n### 19. Хотеть /hotet/ - İstemek\n### 20. Видеть /videt/ - Görmek\n\n## Sıfatlar\n\n### 21. Хороший /horoşiy/ - İyi\n### 22. Плохой /plohoy/ - Kötü\n### 23. Большой /bolşoy/ - Büyük\n### 24. Маленький /malenkiy/ - Küçük\n### 25. Новый /novıy/ - Yeni\n### 26. Старый /starıy/ - Eski/yaşlı\n### 27. Длинный /dlinnıy/ - Uzun\n### 28. Короткий /korotkiy/ - Kısa\n### 29. Горячий /goryaçiy/ - Sıcak\n### 30. Холодный /holodnıy/ - Soğuk\n\n## Zaman İfadeleri\n\n### 31. Сейчас /seyças/ - Şimdi\n### 32. Сегодня /sevodnya/ - Bugün\n### 33. Завтра /zavtra/ - Yarın\n### 34. Вчера /fçera/ - Dün\n### 35. Всегда /fsegda/ - Her zaman\n### 36. Никогда /nikogda/ - Asla\n### 37. Иногда /inogda/ - Bazen\n\n## Soru Kelimeleri\n\n### 38. Что /şto/ - Ne\n### 39. Где /gde/ - Nerede\n### 40. Когда /kogda/ - Ne zaman\n### 41. Почему /poçemu/ - Neden\n### 42. Как /kak/ - Nasıl\n### 43. Кто /kto/ - Kim\n\n## Sayılar\n\n### 44. Один /odin/ - Bir\n### 45. Два /dva/ - İki\n### 46. Три /tri/ - Üç\n### 47. Четыре /çetıre/ - Dört\n### 48. Пять /pyat/ - Beş\n### 49. Десять /desyat/ - On\n### 50. Сто /sto/ - Yüz\n\n## Günlük Kelimeler\n\n### 51. Да /da/ - Evet\n### 52. Нет /nyet/ - Hayır\n### 53. Пожалуйста /pajaluysta/ - Lütfen\n### 54. Спасибо /spasiba/ - Teşekkürler\n### 55. Извините /izvinite/ - Özür dilerim\n### 56. Привет /privet/ - Merhaba\n### 57. До свидания /da svidaniya/ - Hoşça kal\n### 58. Любовь /lyubov/ - Aşk\n### 59. Друг /drug/ - Arkadaş\n### 60. Семья /semya/ - Aile\n\nBu kelimeleri öğrenmek Rusça iletişiminizi güçlendirecektir.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Temel Zamirler",
+              "### 1. Я /ya/ - Ben",
+              "### 2. Ты /tı/ - Sen",
+              "### 3. Он /on/ - O (erkek)",
+              "### 4. Она /ona/ - O (kadın)",
+              "### 5. Мы /mı/ - Biz",
+              "### 6. Вы /vı/ - Siz",
+              "### 7. Они /oni/ - Onlar",
+              "### 8. И /i/ - Ve",
+              "### 9. Но /no/ - Ama",
+              "### 10. Или /ili/ - Veya",
+              "## Temel Fiiller",
+              "### 11. Быть /bıt/ - Olmak",
+              "### 12. Иметь /imet/ - Sahip olmak",
+              "### 13. Делать /delat/ - Yapmak",
+              "### 14. Говорить /govorit/ - Söylemek",
+              "### 15. Идти /idti/ - Gitmek",
+              "### 16. Приходить /prihodit/ - Gelmek",
+              "### 17. Мочь /moç/ - Yapabilmek",
+              "### 18. Знать /znat/ - Bilmek",
+              "### 19. Хотеть /hotet/ - İstemek",
+              "### 20. Видеть /videt/ - Görmek",
+              "## Sıfatlar",
+              "### 21. Хороший /horoşiy/ - İyi",
+              "### 22. Плохой /plohoy/ - Kötü",
+              "### 23. Большой /bolşoy/ - Büyük",
+              "### 24. Маленький /malenkiy/ - Küçük",
+              "### 25. Новый /novıy/ - Yeni",
+              "### 26. Старый /starıy/ - Eski/yaşlı",
+              "### 27. Длинный /dlinnıy/ - Uzun",
+              "### 28. Короткий /korotkiy/ - Kısa",
+              "### 29. Горячий /goryaçiy/ - Sıcak",
+              "### 30. Холодный /holodnıy/ - Soğuk",
+              "## Zaman İfadeleri",
+              "### 31. Сейчас /seyças/ - Şimdi",
+              "### 32. Сегодня /sevodnya/ - Bugün",
+              "### 33. Завтра /zavtra/ - Yarın",
+              "### 34. Вчера /fçera/ - Dün",
+              "### 35. Всегда /fsegda/ - Her zaman",
+              "### 36. Никогда /nikogda/ - Asla",
+              "### 37. Иногда /inogda/ - Bazen",
+              "## Soru Kelimeleri",
+              "### 38. Что /şto/ - Ne",
+              "### 39. Где /gde/ - Nerede",
+              "### 40. Когда /kogda/ - Ne zaman",
+              "### 41. Почему /poçemu/ - Neden",
+              "### 42. Как /kak/ - Nasıl",
+              "### 43. Кто /kto/ - Kim",
+              "## Sayılar",
+              "### 44. Один /odin/ - Bir",
+              "### 45. Два /dva/ - İki",
+              "### 46. Три /tri/ - Üç",
+              "### 47. Четыре /çetıre/ - Dört",
+              "### 48. Пять /pyat/ - Beş",
+              "### 49. Десять /desyat/ - On",
+              "### 50. Сто /sto/ - Yüz",
+              "## Günlük Kelimeler",
+              "### 51. Да /da/ - Evet",
+              "### 52. Нет /nyet/ - Hayır",
+              "### 53. Пожалуйста /pajaluysta/ - Lütfen",
+              "### 54. Спасибо /spasiba/ - Teşekkürler",
+              "### 55. Извините /izvinite/ - Özür dilerim",
+              "### 56. Привет /privet/ - Merhaba",
+              "### 57. До свидания /da svidaniya/ - Hoşça kal",
+              "### 58. Любовь /lyubov/ - Aşk",
+              "### 59. Друг /drug/ - Arkadaş"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ea320cac-b59f-4a7e-a2b8-79262ff17943",
+      "title": "Δανικές Φράσεις για Ζήλια & Εμπιστοσύνη: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "da",
+      "category": "communication",
+      "content": "Η ζήλια απαιτεί ανοιχτή επικοινωνία. Όταν ο σύντροφός σας μιλάει δανικά, αυτές οι φράσεις θα βοηθήσουν.\n\n## Φράσεις για Ζήλια & Εμπιστοσύνη\n\n### Έκφραση Ανησυχίας\n\n<Phrase term=\"Jeg er lidt jaloux\" pronunciation=\"Γιάι ερ λιτ ζαλού\">\n  <Trans>Είμαι λίγο ζηλιάρης/α</Trans>\n  <Note>Ειλικρινής έκφραση</Note>\n</Phrase>\n\n<Phrase term=\"Hvem var den person?\" pronunciation=\"Βεμ βαρ ντεν περσόν;\">\n  <Trans>Ποιος ήταν εκείνο το άτομο;</Trans>\n  <Note>Ήπια ερώτηση</Note>\n</Phrase>\n\n<Phrase term=\"Jeg har brug for bekræftelse\" pronunciation=\"Γιάι χαρ μπρου φορ μπεκρέφτελσε\">\n  <Trans>Χρειάζομαι επιβεβαίωση</Trans>\n  <Note>Εκφράστε ανάγκες</Note>\n</Phrase>\n\n### Χτίσιμο Εμπιστοσύνης\n\n<Phrase term=\"Jeg stoler fuldstændig på dig\" pronunciation=\"Γιάι στόλερ φουλστένδιχ πο ντάι\">\n  <Trans>Σε εμπιστεύομαι απόλυτα</Trans>\n  <Note>Εμπιστοσύνη</Note>\n</Phrase>\n\n<Phrase term=\"Du er den eneste for mig\" pronunciation=\"Ντου ερ ντεν ένεστε φορ μάι\">\n  <Trans>Είσαι ο/η μόνος/η για μένα</Trans>\n  <Note>Αφοσίωση</Note>\n</Phrase>\n\n<Phrase term=\"Jeg har intet at skjule\" pronunciation=\"Γιάι χαρ ίντετ ατ σκιούλε\">\n  <Trans>Δεν έχω τίποτα να κρύψω</Trans>\n  <Note>Διαφάνεια</Note>\n</Phrase>\n\n### Αντιμετώπιση Ζήλιας\n\n<Phrase term=\"Der er ingen grund til bekymring\" pronunciation=\"Ντερ ερ ίνγκεν γκρουν τιλ μπεκιμρινγκ\">\n  <Trans>Δεν υπάρχει λόγος ανησυχίας</Trans>\n  <Note>Καθησυχασμός</Note>\n</Phrase>\n\n<Phrase term=\"Det er bare en ven\" pronunciation=\"Ντε ερ μπάρε εν βεν\">\n  <Trans>Είναι απλά φίλος/η</Trans>\n  <Note>Διευκρίνιση</Note>\n</Phrase>\n\n<Phrase term=\"Mit hjerte tilhører dig\" pronunciation=\"Μιτ γιέρτε τίλχερερ ντάι\">\n  <Trans>Η καρδιά μου ανήκει σε σένα</Trans>\n  <Note>Ρομαντική επιβεβαίωση</Note>\n</Phrase>\n\n### Συζήτηση για Όρια\n\n<Phrase term=\"Lad os tale om grænser\" pronunciation=\"Λαθ ος τάλε ομ γκρένσερ\">\n  <Trans>Ας μιλήσουμε για τα όρια</Trans>\n  <Note>Σημαντική συζήτηση</Note>\n</Phrase>\n\n<Phrase term=\"Hvad får dig til at føle dig tryg?\" pronunciation=\"Βαθ φορ ντάι τιλ ατ φέλε ντάι τρυγκ;\">\n  <Trans>Τι σε κάνει να νιώθεις ασφαλής;</Trans>\n  <Note>Κατανόηση</Note>\n</Phrase>\n\n## Πολιτιστικές Συμβουλές\n\nΟι Δανοί εκτιμούν το \"hygge\" και την αρμονία. Η ζήλια πρέπει να συζητηθεί ήρεμα.\n\n## Συμπέρασμα\n\nΜε αυτές τις φράσεις, μπορείτε να χτίσετε εμπιστοσύνη με τον δανόφωνο σύντροφό σας.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 266,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Φράσεις για Ζήλια & Εμπιστοσύνη"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ea3748c8-9ccb-4385-af69-f803e850125e",
+      "title": "Spanska fraser för att träffa svärföräldrarna – Gör ett gott intryck",
+      "native_lang": "sv",
+      "target_lang": "es",
+      "category": "communication",
+      "content": "I spansktalande kulturer är familjen central. Att göra ett gott intryck på svärföräldrarna är avgörande för relationens framgång.\n\n## Familjens betydelse\n\nI spanska och latinamerikanska kulturer är familjen kärnan i livet. Svärföräldrarnas välsignelse väger tungt.\n\n## Första mötet\n\n### \"Es un placer conocerles por fin\"\n**Betydelse:** Det är ett nöje att äntligen träffa er\n\n### \"He oído hablar mucho de ustedes\"\n**Betydelse:** Jag har hört mycket om er\n\n### \"Muchas gracias por recibirme en su casa\"\n**Betydelse:** Tack så mycket för att ni tar emot mig i ert hem\n\n## Artiga fraser\n\n### \"Por favor, llámame [ditt namn]\"\n**Betydelse:** Var snäll och kalla mig [ditt namn]\n\n### \"Tienen una casa muy bonita\"\n**Betydelse:** Ni har ett mycket vackert hem\n\n### \"¿Puedo ayudar en algo?\"\n**Betydelse:** Kan jag hjälpa till med något?\n\n### \"La comida está deliciosa\"\n**Betydelse:** Maten är utsökt\n\n## Om din relation\n\n### \"Su hijo/hija significa todo para mí\"\n**Betydelse:** Er son/dotter betyder allt för mig\n\n### \"Me siento muy afortunado/a de haber conocido a [namn]\"\n**Betydelse:** Jag känner mig så lycklig över att ha träffat [namn]\n\n### \"Nos hacemos muy felices el uno al otro\"\n**Betydelse:** Vi gör varandra väldigt lyckliga\n\n## Visa intresse\n\n### \"Me encantaría saber más sobre [ämne]\"\n**Betydelse:** Jag skulle gärna veta mer om [ämne]\n\n### \"[Namn] me contó que les gusta [hobby]. ¡Qué interesante!\"\n**Betydelse:** [Namn] berättade att ni gillar [hobby]. Så intressant!\n\n### \"¿Cómo se conocieron ustedes?\"\n**Betydelse:** Hur träffades ni?\n\n## Hantera frågor\n\n### \"Trabajo como [yrke]\"\n**Betydelse:** Jag arbetar som [yrke]\n\n### \"Soy de Suecia, de [stad]\"\n**Betydelse:** Jag är från Sverige, från [stad]\n\n### \"En mi tiempo libre me gusta [hobby]\"\n**Betydelse:** På min fritid gillar jag [hobby]\n\n## Avskedsfraser\n\n### \"Gracias por una velada maravillosa\"\n**Betydelse:** Tack för en underbar kväll\n\n### \"Ha sido un verdadero placer conocerles\"\n**Betydelse:** Det har varit ett sant nöje att träffa er\n\n### \"Espero que podamos repetirlo pronto\"\n**Betydelse:** Jag hoppas vi kan göra om det snart\n\n## Kulturella tips\n\n**Hälsning:** Räkna med kindkyss (en eller två beroende på land).\n\n**Tid:** I Spanien och Latinamerika kan \"punktlighet\" vara flexibel.\n\n**Gåvor:** Blommor eller dessert uppskattas alltid.\n\n**Mat:** Förvänta dig generösa portioner – att tacka nej kan ses som oartigt.\n\n## Avslutande tankar\n\nFamiljen är helig i spansktalande kulturer. Visa respekt, värme och genuint intresse så vinner du deras hjärtan.\n\n¡Buena suerte!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Första mötet",
+              "## Artiga fraser",
+              "## Om din relation",
+              "## Visa intresse",
+              "## Hantera frågor",
+              "## Avskedsfraser"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

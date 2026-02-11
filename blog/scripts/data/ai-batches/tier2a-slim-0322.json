@@ -1,0 +1,390 @@
+{
+  "batchId": "tier2a-slim-0322",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "cf16ae1f-2544-4c10-85f6-1ca586cc376a",
+      "title": "Häufige Englisch-Fehler, die Deutsche machen",
+      "native_lang": "de",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Aussprache-Fehler",
+          "subsections": [
+            "### Das \"W\" und \"V\" Problem",
+            "### Das \"TH\"",
+            "### Betonte Silben"
+          ]
+        },
+        {
+          "header": "## Grammatik-Fehler",
+          "subsections": [
+            "### Present Perfect vs. Simple Past",
+            "### Verneinung mit \"do\"",
+            "### Word Order - Wortstellung"
+          ]
+        },
+        {
+          "header": "## Artikel-Fehler",
+          "subsections": [
+            "### Fehlende Artikel",
+            "### Falsches Geschlecht"
+          ]
+        },
+        {
+          "header": "## Präpositionen",
+          "subsections": [
+            "### \"Am\" vs. \"In\" vs. \"On\"",
+            "### Typische Präpositions-Fehler"
+          ]
+        },
+        {
+          "header": "## Wörtliche Übersetzungen",
+          "subsections": [
+            "### Deutsche Redewendungen"
+          ]
+        },
+        {
+          "header": "## Aussprache der Endungen",
+          "subsections": [
+            "### Das stumme \"E\"",
+            "### \"-ed\" Endungen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cf9d4567-cabc-40d2-b615-489501459007",
+      "title": "Spotkanie z rosyjska rodzina partnera - niezbędne zwroty",
+      "native_lang": "pl",
+      "target_lang": "ru",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Przedstawienie",
+            "### Ćwiczenie 2: Komplementy",
+            "### Ćwiczenie 3: Przy stole"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d055767e-db0d-4df1-ad24-23644fa8b1c5",
+      "title": "Dunskie romantyczne zwroty na każda okazje",
+      "native_lang": "pl",
+      "target_lang": "da",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia",
+          "subsections": [
+            "### Cwiczenie 1: Kartka na okazje",
+            "### Cwiczenie 2: Nagranie wideo",
+            "### Cwiczenie 3: Codzieńne wyrazenia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d05d58fc-0df1-46ce-ad8a-6126299b868c",
+      "title": "50+ Czeskich Czułych Słówek i Zdrobnień dla Zakochanych",
+      "native_lang": "pl",
+      "target_lang": "cs",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Jak używać pieszczotliwych zwrotów w praktyce",
+          "subsections": [
+            "### Codzienne sytuacje",
+            "### Romantyczne chwile",
+            "### Uwaga na kontekst!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d065af44-5d3d-43d8-a663-441ac2e3c10e",
+      "title": "Hollandaca Dilbilgisi Temelleri: Türk Öğrenciler İçin Başlangıç Rehberi",
+      "native_lang": "tr",
+      "target_lang": "nl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Zamirler",
+          "subsections": [
+            "### Kişi Zamirleri",
+            "### Nesne Zamirleri"
+          ]
+        },
+        {
+          "header": "## Çiftler İçin Pratik Dilbilgisi",
+          "subsections": [
+            "### Romantik Cümleler",
+            "### Günlük Cümleler"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d082f2ce-593b-47c4-b0a4-df2fb6050159",
+      "title": "Spanish Word Order Guide for Couples",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Basic Spanish Sentence Structure",
+          "subsections": [
+            "### Subject-Verb-Object (SVO)",
+            "### The Flexibility of Spanish"
+          ]
+        },
+        {
+          "header": "## Key Differences from English",
+          "subsections": [
+            "### 1. Adjectives After Nouns",
+            "### Exceptions: Adjectives Before Nouns",
+            "### 2. Negation Placement",
+            "### 3. Question Word Order"
+          ]
+        },
+        {
+          "header": "## Object Pronouns: A Key Difference",
+          "subsections": [
+            "### Direct and Indirect Object Pronouns Go BEFORE the Verb",
+            "### Object Pronoun Chart",
+            "### Double Object Pronouns"
+          ]
+        },
+        {
+          "header": "## Adverb Placement",
+          "subsections": [
+            "### General Rule: Near the Verb",
+            "### Time Adverbs: Flexible",
+            "### Common Adverbs for Couples"
+          ]
+        },
+        {
+          "header": "## Practicing Word Order Together",
+          "subsections": [
+            "### Exercise 1: Rearrange to Spanish Order",
+            "### Exercise 2: Build Sentences Together",
+            "### Exercise 3: Adjective Placement Practice"
+          ]
+        },
+        {
+          "header": "## Common Word Order Patterns",
+          "subsections": [
+            "### Expressing Likes with \"Gustar\"",
+            "### Commands (Imperatives)",
+            "### Questions with Question Words"
+          ]
+        },
+        {
+          "header": "## Word Order in Complex Sentences",
+          "subsections": [
+            "### Connecting Clauses"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d0af6801-b214-49c0-ab62-0e59ca3ed283",
+      "title": "Rencontrer la famille de votre partenaire grec : Phrases essentielles et conseils pour faire bonne impression",
+      "native_lang": "fr",
+      "target_lang": "el",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Phrases essentielles pour la première rencontre",
+          "subsections": [
+            "### Salutations et présentations",
+            "### Parler de votre relation"
+          ]
+        },
+        {
+          "header": "## Scénarios typiques lors de la rencontre",
+          "subsections": [
+            "### À l'arrivée",
+            "### Pendant le repas",
+            "### Poser des questions sur la famille"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d0dd1c23-e711-4d1c-aa44-ce1766039a12",
+      "title": "50+ Francuskie Zdrobnienia i Słowa Kochania dla Par",
+      "native_lang": "pl",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Jak Używać Francuskich Zdrobnień z Partnerem",
+          "subsections": [
+            "### Rano i Wieczorem",
+            "### W SMS-ach",
+            "### Podczas Kłótni"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d0ec2f4c-3ee5-474f-a0d9-1278751c2cc0",
+      "title": "Przewodnik po wymowie niemieckiej dla Polaków",
+      "native_lang": "pl",
+      "target_lang": "de",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Spółgłoski - różnice od polskiego",
+          "subsections": [
+            "### CH - dwa dźwięki!",
+            "### SCH - jak polskie \"sz\"",
+            "### W - jak polskie \"w\" (ale dźwięczne \"f\")",
+            "### R - gardłowe"
+          ]
+        },
+        {
+          "header": "## Końcówki słów",
+          "subsections": [
+            "### -IG na końcu = \"ich\"",
+            "### -ER na końcu = \"a\" (zredukowane)",
+            "### Końcowe -E jest wymawiane!"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Umlauty",
+            "### Ćwiczenie 2: CH miękkie vs twarde",
+            "### Ćwiczenie 3: EI vs IE",
+            "### Ćwiczenie 4: Romantyczne frazy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d1ebd5b7-0b26-4e8d-8f37-0a3bb8c79e42",
+      "title": "50 Essensielle Ukrainske Fraser for Par for Å Knytte Bånd",
+      "native_lang": "no",
+      "target_lang": "uk",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hvordan bruke disse setningene sammen",
+          "subsections": [
+            "### Daglig praksis",
+            "### Vær tålmodig",
+            "### Lag romantiske øyeblikk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d1f76134-bcc9-401d-ad31-f084c55a3c45",
+      "title": "75+ Romantik Ingilizce Ifade: Kalbini Fethet",
+      "native_lang": "tr",
+      "target_lang": "en",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Dugun Gunu",
+          "subsections": [
+            "### Yemin Ifadeleri"
+          ]
+        },
+        {
+          "header": "## Ozel Anlar",
+          "subsections": [
+            "### Birlikte Seyahat",
+            "### Sessiz Anlar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d24ebd19-5688-413c-a8fb-a7fba4927f64",
+      "title": "50 Niemieckich Powitań i Pożegnań dla Par: Od Cześć do Do Widzenia z Miłością",
+      "native_lang": "pl",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Praktyczne Wskazówki dla Par",
+          "subsections": [
+            "### Jak Ćwiczyć Razem",
+            "### Najczęstsze Błędy do Uniknięcia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d3216d71-ceac-429a-875d-38722d7ffae1",
+      "title": "Accord des Adjectifs Polonais",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Types d'adjectifs spéciaux",
+          "subsections": [
+            "### Adjectifs possessifs",
+            "### Adjectifs démonstratifs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d372a5fc-3e0b-471f-b476-d13a3be21710",
+      "title": "Expressions de Mariage en Anglais : Guide Complet pour les Couples",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Conseils Pratiques",
+          "subsections": [
+            "### Erreurs à Éviter",
+            "### Expressions à Connaître Absolument"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d383314b-b65a-4cd1-be4a-a4657a37d30c",
+      "title": "Conoscere la Famiglia del Tuo Partner Norvegese: Frasi Essenziali per Colpire Tutti",
+      "native_lang": "it",
+      "target_lang": "no",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Le Frasi Essenziali per il Primo Incontro",
+          "subsections": [
+            "### Saluti e Presentazioni",
+            "### Conversazioni di Base",
+            "### Parlare del Tempo e Altri Argomenti Sicuri"
+          ]
+        },
+        {
+          "header": "## Scenari Comuni Durante la Visit",
+          "subsections": [
+            "### 1. L'Arrivo a Casa",
+            "### 2. A Cena con la Famiglia",
+            "### 3. Mostrare Foto e Raccontare della Tua Famiglia"
+          ]
+        },
+        {
+          "header": "## Se le Cose Non Vanno Come Previsto",
+          "subsections": [
+            "### Quando Non Capisci",
+            "### Momenti di Confusione Culturale"
+          ]
+        }
+      ]
+    }
+  ]
+}

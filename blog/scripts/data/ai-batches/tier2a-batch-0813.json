@@ -1,0 +1,152 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0813",
+  "articles": [
+    {
+      "id": "e9c686ef-b62d-437e-87b1-6b29e96eb6fb",
+      "title": "Angol évfordulós kívánságok és üzenetek",
+      "native_lang": "hu",
+      "target_lang": "en",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nAz évforduló a kapcsolatotok ünneplésének különleges alkalma. Ha angolul szeretnéd kifejezni az érzéseidet ezen a napon, ezek a kifejezések segítenek.\n\nTovábbi romantikus kifejezésekért nézd meg az [Angol romantikus kifejezések](/learn/hu/en/english-romantic-phrases-for-every-occasion) útmutatónkat.\n\n<PhraseOfDay\n  word=\"Congratulations!\"\n  translation=\"Gratulálok!\"\n  pronunciation=\"kənˌɡrætʃʊˈleɪʃənz\"\n  context=\"Az esküvői köszöntés alapja.\"\n/>\n\n## Alapvető szókincs\n\nAz évfordulós köszöntések alapvető angol szókincse:\n\n<VocabCard\n  word=\"wedding\"\n  translation=\"esküvő\"\n  pronunciation=\"ˈwedɪŋ\"\n  example=\"The wedding was beautiful.\"\n/>\n\n| Angol | Magyar | Használat |\n|---|---|---|\n| bride | menyasszony | A nő |\n| groom | vőlegény | A férfi |\n| vows | fogadalmak | Esküvői ígéretek |\n| ceremony | szertartás | A hivatalos rész |\n| reception | fogadás | Az ünneplés |\n| toast | köszöntő | Pohárköszöntő |\n\n<CultureTip flag=\"🌍\" title=\"Angol kulturális tippek\">\nA angol kultúrában az évfordulóknak különleges jelentőségük van. Egyes helyeken hagyományos ajándékokat adnak az évek számától függően.\n</CultureTip>\n\n## Hasznos kifejezések\n\n### Évfordulós köszöntések\n\nAz évforduló napján mondd:\n\n- **Congratulations!** - Gratulálok!\n- **Minden nap jobban szeretlek** - Romantikus vallomás\n- **Köszönöm, hogy velem vagy** - Hálás szavak\n\n### Hosszabb üzenetek\nHa többet szeretnél mondani:\n\n- **Veled minden nap különleges** - Romantikus\n- **A legjobb döntés volt, hogy igentet mondtam** - Visszatekintő\n\n<VocabCard\n  word=\"honeymoon\"\n  translation=\"nászút\"\n  pronunciation=\"ˈhʌnimuːn\"\n  example=\"They went on their honeymoon.\"\n/>\n\n## Gyakorlati helyzetek\n\n| Helyzet | Mit mondj |\n|---|---|\n| Reggeli köszöntés | Boldog évfordulót kívánok! |\n| Kártyára | Írj személyes üzenetet |\n| Vacsoránál | Mondj köszöntőt |\n| Lefekvés előtt | Fejezd ki a háládat |\n\n<CultureTip flag=\"💡\" title=\"Hasznos tipp\">\nÍrd le előre, amit mondani szeretnél. Az évforduló érzelmes pillanat, és a leírt szavak segítenek, hogy ne felejtsd el, amit mondani akarsz.\n</CultureTip>\n\n## Összefoglaló táblázat\n\n| Helyzet | Angol kifejezés |\n|---|---|\n| Gratuláció | Congratulations! |\n| Az esemény | wedding |\n| A nő | bride |\n| A férfi | groom |\n| Esküvői ígéretek | vows |\n\n## További tanulás\n\nHa tovább szeretnéd fejleszteni a angol nyelvtudásod, nézd meg ezeket a cikkeinket:\n\n- [Angol romantikus kifejezések minden alkalomra](/learn/hu/en/english-romantic-phrases-for-every-occasion)\n- [Hogyan mondd: Szeretlek angolul](/learn/hu/en/english-how-to-say-i-love-you)\n- [Angol alapvető kifejezések pároknak](/learn/hu/en/english-essential-phrases-for-couples)\n\nEzek a források segítenek elmélyíteni a tudásod és magabiztosabbá válni a angol nyelvben.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 272,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Hasznos kifejezések"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "e9de747e-2791-4f28-a838-7f70f2f3289e",
+      "title": "100 Meest Gebruikte Roemeense Woorden voor Relaties",
+      "native_lang": "nl",
+      "target_lang": "ro",
+      "category": "communication",
+      "content": "Roemeens is een Romaanse taal vol warmte. Hier zijn de essentiële woorden.\n\n## Basis liefdeswoorden\n\n### 1. Dragoste - *dra-gos-te* - Liefde\n### 2. Inimă - *ie-nie-muh* - Hart\n### 3. Sărut - *suh-roet* - Kus\n### 4. Îmbrățișare - *uhm-bruh-tsji-sja-re* - Knuffel\n### 5. Împreună - *uhm-pre-oe-nuh* - Samen\n### 6. Pentru totdeauna - *pen-troe tot-dea-oe-na* - Voor altijd\n### 7. Întotdeauna - *uhn-tot-dea-oe-na* - Altijd\n### 8. Frumos/Frumoasă - *froe-mos/froe-moa-suh* - Mooi\n### 9. Fericit/ă - *fe-rie-tjiet/uh* - Gelukkig\n### 10. Iubito/Iubitule - *joe-bie-to/joe-bie-toe-le* - Schat\n\n## Dagelijkse communicatie\n\n### 11. Da - *da* - Ja\n### 12. Nu - *noe* - Nee\n### 13. Te rog - *te rog* - Alsjeblieft\n### 14. Mulțumesc - *moelts-oe-mesk* - Dank je\n### 15. Scuză-mă - *skoe-zuh-muh* - Sorry\n### 16. Bună dimineața - *boe-nuh die-mie-nea-tsa* - Goedemorgen\n### 17. Noapte bună - *noap-te boe-nuh* - Goedenacht\n### 18. Salut - *sa-loet* - Hallo\n### 19. Pa - *pa* - Tot ziens\n### 20. Ce faci? - *tsje fatsj* - Hoe gaat het?\n\n## Gevoelens uitdrukken\n\n### 21. Te iubesc - *te joe-besk* - Ik hou van je\n### 22. Îmi e dor de tine - *uhmie je dor de tjie-ne* - Ik mis je\n### 23. Am nevoie de tine - *am ne-vo-je de tjie-ne* - Ik heb je nodig\n### 24. Am încredere în tine - *am uhn-kre-de-re uhn tjie-ne* - Ik vertrouw je\n### 25. Te iert - *te jert* - Ik vergeef je\n### 26. Înțeleg - *uhn-tse-leg* - Ik begrijp het\n### 27. Mă faci fericit/ă - *muh fatsj fe-rie-tjiet/uh* - Je maakt me gelukkig\n### 28. Mă gândesc la tine - *muh guhn-desk la tjie-ne* - Ik denk aan je\n\n## Tijd\n\n### 29. Azi - *a-zie* - Vandaag\n### 30. Mâine - *muh-ie-ne* - Morgen\n### 31. Ieri - *jerj* - Gisteren\n### 32. Acum - *a-koem* - Nu\n### 33. Mai târziu - *maj tuhr-zjoe* - Later\n### 34. Curând - *koe-ruhnd* - Binnenkort\n### 35. Niciodată - *nitsj-o-da-tuh* - Nooit\n### 36. Uneori - *oe-ne-orj* - Soms\n### 37. Des - *des* - Vaak\n\n## Conclusie\n\nMet deze woorden spreek je de warme Roemeense taal!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Basis liefdeswoorden",
+              "### 1. Dragoste - *dra-gos-te* - Liefde",
+              "### 2. Inimă - *ie-nie-muh* - Hart",
+              "### 3. Sărut - *suh-roet* - Kus",
+              "### 4. Îmbrățișare - *uhm-bruh-tsji-sja-re* - Knuffel",
+              "### 5. Împreună - *uhm-pre-oe-nuh* - Samen",
+              "### 6. Pentru totdeauna - *pen-troe tot-dea-oe-na* - Voor altijd",
+              "### 7. Întotdeauna - *uhn-tot-dea-oe-na* - Altijd",
+              "### 8. Frumos/Frumoasă - *froe-mos/froe-moa-suh* - Mooi",
+              "### 9. Fericit/ă - *fe-rie-tjiet/uh* - Gelukkig",
+              "### 10. Iubito/Iubitule - *joe-bie-to/joe-bie-toe-le* - Schat",
+              "## Dagelijkse communicatie",
+              "### 11. Da - *da* - Ja",
+              "### 12. Nu - *noe* - Nee",
+              "### 13. Te rog - *te rog* - Alsjeblieft",
+              "### 14. Mulțumesc - *moelts-oe-mesk* - Dank je",
+              "### 15. Scuză-mă - *skoe-zuh-muh* - Sorry",
+              "### 16. Bună dimineața - *boe-nuh die-mie-nea-tsa* - Goedemorgen",
+              "### 17. Noapte bună - *noap-te boe-nuh* - Goedenacht",
+              "### 18. Salut - *sa-loet* - Hallo",
+              "### 19. Pa - *pa* - Tot ziens",
+              "### 20. Ce faci? - *tsje fatsj* - Hoe gaat het?",
+              "## Gevoelens uitdrukken",
+              "### 21. Te iubesc - *te joe-besk* - Ik hou van je",
+              "### 22. Îmi e dor de tine - *uhmie je dor de tjie-ne* - Ik mis je",
+              "### 23. Am nevoie de tine - *am ne-vo-je de tjie-ne* - Ik heb je nodig",
+              "### 24. Am încredere în tine - *am uhn-kre-de-re uhn tjie-ne* - Ik vertrouw je",
+              "### 25. Te iert - *te jert* - Ik vergeef je",
+              "### 26. Înțeleg - *uhn-tse-leg* - Ik begrijp het",
+              "### 27. Mă faci fericit/ă - *muh fatsj fe-rie-tjiet/uh* - Je maakt me gelukkig",
+              "### 28. Mă gândesc la tine - *muh guhn-desk la tjie-ne* - Ik denk aan je",
+              "## Tijd",
+              "### 29. Azi - *a-zie* - Vandaag",
+              "### 30. Mâine - *muh-ie-ne* - Morgen",
+              "### 31. Ieri - *jerj* - Gisteren",
+              "### 32. Acum - *a-koem* - Nu",
+              "### 33. Mai târziu - *maj tuhr-zjoe* - Later",
+              "### 34. Curând - *koe-ruhnd* - Binnenkort",
+              "### 35. Niciodată - *nitsj-o-da-tuh* - Nooit",
+              "### 36. Uneori - *oe-ne-orj* - Soms",
+              "### 37. Des - *des* - Vaak"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "e9e1c00f-ec03-4a32-b115-c0e23e2ee6d0",
+      "title": "Украинские фразы для споров и разногласий",
+      "native_lang": "ru",
+      "target_lang": "uk",
+      "category": "communication",
+      "content": "Украинский язык близок к русскому, но имеет свои особенности. Эти фразы помогут вам выразить несогласие мягко и уважительно с украиноязычным партнёром.\n\n## Основные фразы для выражения несогласия\n\n### 1. Я не згоден/згодна з тобою\n**Произношение:** Я нэ зго́дэн/зго́дна з тобо́ю\n\n**Перевод:** Я не согласен/согласна с тобой\n\nПрямое выражение несогласия.\n\n### 2. Чи можемо поговорити про це спокійно?\n**Произношение:** Чи мо́жэмо поговоры́ты про цэ споки́йно?\n\n**Перевод:** Можем мы поговорить об этом спокойно?\n\nПриглашение к конструктивному диалогу.\n\n### 3. Мені боляче, коли ти так кажеш\n**Произношение:** Мэни́ боля́чэ, колы́ ты так ка́жэш\n\n**Перевод:** Мне больно, когда ты так говоришь\n\nОткрытое выражение чувств.\n\n### 4. Давай не будемо підвищувати голос\n**Произношение:** Дава́й нэ бу́дэмо пидвы́щуваты го́лос\n\n**Перевод:** Давай не будем повышать голос\n\nПризыв к спокойствию.\n\n### 5. Мені потрібно, щоб ти зрозумів/зрозуміла мою точку зору\n**Произношение:** Мэни́ потри́бно, щоб ты зрозуми́в/зрозуми́ла мою́ то́чку зо́ру\n\n**Перевод:** Мне нужно, чтобы ты понял/поняла мою точку зрения\n\nВыражает потребность в понимании.\n\n### 6. Я мав/мала на увазі не це\n**Произношение:** Я мав/ма́ла на ува́зи нэ цэ\n\n**Перевод:** Я имел/имела в виду не это\n\nДля прояснения недоразумений.\n\n### 7. Чи можемо знайти компроміс?\n**Произношение:** Чи мо́жэмо знайты́ компроми́с?\n\n**Перевод:** Можем ли мы найти компромисс?\n\nПоказывает готовность к переговорам.\n\n### 8. Думаю, нам обом потрібен простір\n**Произношение:** Ду́маю, нам обо́м потри́бэн про́стир\n\n**Перевод:** Думаю, нам обоим нужно пространство\n\nПредложение взять паузу.\n\n### 9. Будь ласка, поважай мою думку\n**Произношение:** Будь ла́ска, пова́жай мою́ ду́мку\n\n**Перевод:** Пожалуйста, уважай моё мнение\n\nВежливая просьба.\n\n### 10. Я тебе слухаю, але не погоджуюся\n**Произношение:** Я тэбэ́ слу́хаю, а́лэ нэ пого́джуюся\n\n**Перевод:** Я тебя слушаю, но не соглашаюсь\n\nБалансирует внимание и собственную позицию.\n\n## Культурные особенности\n\nУкраинцы ценят эмоциональную искренность и тепло в отношениях. В спорах важно сохранять уважение. Использование ласковых обращений («коханий/кохана», «любий/люба») даже в споре показывает, что вы цените партнёра.\n\nФраза «Давай поговоримо» (Давай поговорим) — мягкий способ начать серьёзный разговор.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Основные фразы для выражения несогласия"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "e9ea2726-3a13-4fba-825a-7bfdc4eba2a2",
+      "title": "Tjeckiska Fraser för Försoning och Att Göra Upp",
+      "native_lang": "sv",
+      "target_lang": "cs",
+      "category": "communication",
+      "content": "Tjeckiska är ett västslaviskt språk med rik grammatik. Dessa fraser hjälper dig att återförenas med din tjeckisktalande partner.\n\n## Fraser för att Inleda Försoning\n\n### 1. \"Omlouvám se\"\n**Uttal:** om-loo-vahm seh\n\n**Betydelse:** Jag ber om ursäkt\n\nEn formell ursäkt.\n\n### 2. \"Můžeme začít znovu?\"\n**Uttal:** moo-zheh-meh za-cheet zno-voo\n\n**Betydelse:** Kan vi börja om?\n\nVisar vilja att gå vidare.\n\n### 3. \"Nesnáším se s tebou hádat\"\n**Uttal:** neh-snah-sheem seh s teh-boh hah-dat\n\n**Betydelse:** Jag hatar att bråka med dig\n\nUttrycker ovilja mot konflikter.\n\n### 4. \"Jsi pro mě všechno\"\n**Uttal:** ysi pro mnyeh fshekh-no\n\n**Betydelse:** Du är allt för mig\n\nEn kärleksförklaring.\n\n### 5. \"Měl/a jsem pravdu a přiznávám to\"\n**Uttal:** myel/a ysem prav-doo a pshi-znah-vahm to\n\n**Betydelse:** Jag hade fel och jag erkänner det\n\nTar ansvar.\n\n## Fraser för Djupare Försoning\n\n### 6. \"Nechoďme spát nazlobení\"\n**Uttal:** neh-khod-meh spaht na-zlo-beh-nee\n\n**Betydelse:** Låt oss inte gå och lägga oss arga\n\nEn visdom för par.\n\n### 7. \"Miluji tě víc než jakoukoli hádku\"\n**Uttal:** mee-loo-yee tyeh veets nesh ya-koh-ko-lee hahd-koo\n\n**Betydelse:** Jag älskar dig mer än något bråk\n\nSätter kärleken först.\n\n### 8. \"Můžu tě obejmout?\"\n**Uttal:** moo-zhoo tyeh o-bey-mowt\n\n**Betydelse:** Får jag krama dig?\n\nBjuder in till fysisk försoning.\n\n### 9. \"Chci ti lépe rozumět\"\n**Uttal:** khtsi tee leh-peh ro-zoo-myet\n\n**Betydelse:** Jag vill förstå dig bättre\n\nVisar engagemang.\n\n### 10. \"Jsme silnější než tohle\"\n**Uttal:** ysmeh seel-nyey-shee nesh toh-leh\n\n**Betydelse:** Vi är starkare än det här\n\nBekräftar relationen.\n\n### 11. \"Slibuji, že budu lepší\"\n**Uttal:** slee-boo-yee zheh boo-doo lep-shee\n\n**Betydelse:** Jag lovar att vara bättre\n\nEtt löfte om förändring.\n\n### 12. \"Děkuji za tvou trpělivost se mnou\"\n**Uttal:** dyeh-koo-yee za tvoh trpyeh-lee-vost seh mnoh\n\n**Betydelse:** Tack för ditt tålamod med mig\n\nVisar tacksamhet.\n\n## Kulturella Tips\n\nI tjeckisk kultur:\n\n- Värderas ärlighet och direkthet\n- Uppskattas humor även i svåra situationer\n- Kan folk vara reserverade med känslouttryck\n- Respekteras personligt utrymme\n\n## Avslutande Tankar\n\nMed dessa fraser kan du uttrycka din kärlek och ånger på tjeckiska. Var tålmodig och visa genuint engagemang.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Fraser för att Inleda Försoning",
+              "## Fraser för Djupare Försoning"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ea04d154-9262-4170-829f-7fdf8ae95118",
+      "title": "Spanyol nászutas utazási kifejezések",
+      "native_lang": "hu",
+      "target_lang": "es",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nA nászút a házasság első romantikus utazása. Ha spanyol nyelvterületre utaztok, ezek a kifejezések segítenek eligazodni.\n\nAz alapvető kifejezésekért nézd meg az [Spanyol köszönések és búcsúzások](/learn/hu/es/spanish-greetings-and-farewells) útmutatónkat.\n\n<PhraseOfDay\n  word=\"¡Felicidades!\"\n  translation=\"Gratulálok!\"\n  pronunciation=\"feliθiˈðaðes\"\n  context=\"Az esküvői köszöntés alapja.\"\n/>\n\n## Alapvető szókincs\n\nA nászutas utazás alapvető spanyol kifejezései:\n\n<VocabCard\n  word=\"boda\"\n  translation=\"esküvő\"\n  pronunciation=\"ˈboða\"\n  example=\"La boda fue hermosa.\"\n/>\n\n| Spanyol | Magyar | Használat |\n|---|---|---|\n| novia | menyasszony | A nő |\n| novio | vőlegény | A férfi |\n| votos | fogadalmak | Esküvői ígéretek |\n| ceremonia | szertartás | A hivatalos rész |\n| recepción | fogadás | Az ünneplés |\n| brindis | köszöntő | Pohárköszöntő |\n\n<CultureTip flag=\"🌍\" title=\"Spanyol kulturális tippek\">\nHa spanyol nyelvterületre utaztok nászútra, a helyi nyelv alapjainak ismerete sokkal gazdagabbá teheti az élményt. A helyiek értékelni fogják az erőfeszítést.\n</CultureTip>\n\n## Hasznos kifejezések\n\n### Utazási alapkifejezések\n\nA nászút alatt hasznos mondatok:\n\n- **Nászúton vagyunk!** - A különleges alkalom megosztása\n- **Szobát foglaltunk** - Szállodában\n- **Romantikus vacsorát szeretnénk** - Étteremben\n\n### Romantikus helyzetek\nA nászút különleges pillanataira:\n\n- **Gyönyörű ez a hely!** - Lelkesedés kifejezése\n- **Szeretlek!** - Mindig időszerű\n\n<VocabCard\n  word=\"luna de miel\"\n  translation=\"nászút\"\n  pronunciation=\"ˈluna ðe mjel\"\n  example=\"Se fueron de luna de miel.\"\n/>\n\n## Gyakorlati helyzetek\n\n| Helyzet | Mit mondj |\n|---|---|\n| Szállodában | Foglalásunk van |\n| Étteremben | Asztalfoglalást szeretnénk |\n| Városnézés | Merre van a...? |\n| Romantikus pillanat | Gyönyörű ez! |\n\n<CultureTip flag=\"💡\" title=\"Hasznos tipp\">\nTölts le egy nyelvtanulós alkalmazást a nászútra. Még az alapvető kifejezések ismerete is nagy különbséget jelent az utazás során.\n</CultureTip>\n\n## Összefoglaló táblázat\n\n| Helyzet | Spanyol kifejezés |\n|---|---|\n| Gratuláció | ¡Felicidades! |\n| Az esemény | boda |\n| A nő | novia |\n| A férfi | novio |\n| Esküvői ígéretek | votos |\n\n## További tanulás\n\nHa tovább szeretnéd fejleszteni a spanyol nyelvtudásod, nézd meg ezeket a cikkeinket:\n\n- [Spanyol romantikus kifejezések minden alkalomra](/learn/hu/es/spanish-romantic-phrases-for-every-occasion)\n- [Hogyan mondd: Szeretlek spanyolul](/learn/hu/es/spanish-how-to-say-i-love-you)\n- [Spanyol alapvető kifejezések pároknak](/learn/hu/es/spanish-essential-phrases-for-couples)\n\nEzek a források segítenek elmélyíteni a tudásod és magabiztosabbá válni a spanyol nyelvben.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 261,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Hasznos kifejezések"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "tier": 1,
+  "batchId": "tier1-batch-069",
+  "articles": [
+    {
+      "id": "bf1206db-a7dd-428a-b34d-7b291a575f62",
+      "title": "Tsjekkiske flørteuttrykk for nordmenn",
+      "native_lang": "no",
+      "target_lang": "cs",
+      "category": "communication",
+      "content": "Tsjekkisk er et slavisk språk med en rik litterær tradisjon og unike lyder. Praha er kjent som en av Europas mest romantiske byer, og tsjekkere setter pris på kultur, humor og ærlighet. Her er din guide til romantikk på tsjekkisk.\n\n## Vakre komplimenter\n\n**Jsi nádherná/nádherný.**\n*Du er nydelig.*\n\nBruk \"nádherná\" for kvinner og \"nádherný\" for menn.\n\n**Máš krásné oči.**\n*Du har vakre øyne.*\n\nEt klassisk, tidløst kompliment.\n\n**Tvůj úsměv je úžasný.**\n*Smilet ditt er fantastisk.*\n\n## Romantiske uttrykk\n\n**Nemůžu přestat myslet na tebe.**\n*Jeg kan ikke slutte å tenke på deg.*\n\nPerfekt for å uttrykke forelskelse.\n\n**Děláš mě šťastným/šťastnou.**\n*Du gjør meg lykkelig.*\n\nTilpass endelsen etter ditt eget kjønn.\n\n**S tebou se cítím výjimečný/výjimečná.**\n*Med deg føler jeg meg spesiell.*\n\n## Dype erklæringer\n\n**Miluji tě.**\n*Jeg elsker deg.*\n\nDisse ordene er sterke. Bruk dem med mening.\n\n**Jsi láska mého života.**\n*Du er kjærligheten i livet mitt.*\n\n**Mé srdce patří tobě.**\n*Hjertet mitt tilhører deg.*\n\n## Hverdagsflørt\n\n**Dnes vypadáš skvěle.**\n*Du ser flott ut i dag.*\n\n**Rád/Ráda trávím s tebou čas.**\n*Jeg liker å tilbringe tid med deg.*\n\nBruk \"rád\" hvis du er mann, \"ráda\" hvis du er kvinne.\n\n**Rozesmíváš mě.**\n*Du får meg til å smile.*\n\n## Kjærlige kallenavn\n\n**Lásko.**\n*Kjærligheten.*\n\nEt vanlig kjælenavn.\n\n**Miláčku.**\n*Kjære.*\n\nVeldig vanlig og intimt.\n\n**Zlatíčko.**\n*Lille gull.*\n\nEt søtt kjælenavn.\n\n**Broučku.**\n*Lille bille.*\n\nMer uvanlig, men søtt.\n\n## Tsjekkiske uttrykk\n\n**Jsi můj poklad.**\n*Du er skatten min.*\n\n**Bez tebe jsem ztracený/ztracená.**\n*Uten deg er jeg fortapt.*\n\n**Jsi to nejlepší, co mě potkalo.**\n*Du er det beste som har hendt meg.*\n\n## Kulturelle aspekter\n\nTsjekkisk romantikk har sine egne trekk:\n\n- Tsjekkere kan virke reserverte først, men åpner seg over tid\n- Humor og ironi verdsettes høyt\n- Kultur (musikk, kunst, litteratur) er viktig\n- Øl er en del av kulturen – delt over en god pivo er romantisk!\n\n## Unike lyder\n\nTsjekkisk har noen utfordrende lyder:\n\n- \"Ř\" – en unik rullende-r-med-sj-lyd som bare finnes på tsjekkisk\n- \"Ě\" uttales som \"je\"\n- \"Č\", \"š\", \"ž\" uttales som \"tsj\", \"sj\", \"sj\" (stemt)\n\nØv med partneren din – de vil elske innsatsen!\n\n## Hvorfor lære tsjekkisk\n\nTsjekkere setter enormt pris på utlendinger som lærer språket deres:\n\n- Det viser respekt for kulturen\n- Det åpner dører til dypere forståelse\n- Din innsats vil bli lagt merke til og verdsatt",
+      "issues": [
+        {
+          "type": "truncated_content",
+          "details": {
+            "endingChars": "bli lagt merke til og verdsatt"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c1e08f57-a6bd-4088-8af0-7c513a64bfdf",
+      "title": "Smalltalk auf Schwedisch – Gesprächseinstiege für Paare",
+      "native_lang": "de",
+      "target_lang": "sv",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\n# Smalltalk auf Schwedisch – Gesprächseinstiege für Paare\n\nSmalltalk ist eine Kunst, die in jeder Sprache wichtig ist. Wenn du die Familie und Freunde deines Partners kennenlernst, helfen dir diese Schwedischen Phrasen dabei, das Eis zu brechen und interessante Gespräche zu führen.\n\n<PhraseOfDay\n  word=\"How are you?\"\n  translation=\"Wie geht es dir/Ihnen?\"\n  pronunciation=\"hau ar juu?\"\n  context=\"Ein klassischer Gesprächseinstieg\"\n/>\n\n## Gespräche beginnen\n\n<VocabCard\n  word=\"How are you?\"\n  translation=\"Wie geht es dir/Ihnen?\"\n  pronunciation=\"hau ar juu?\"\n  example=\"How are you today?\"\n/>\n\n<VocabCard\n  word=\"Nice weather today, isn't it?\"\n  translation=\"Schönes Wetter heute, nicht wahr?\"\n  pronunciation=\"nais WEH-dhör tu-DEI\"\n  example=\"Nice weather we're having!\"\n/>\n\n| Schwedisch | Deutsch |\n|-------------|---------|\n| Where are you from? | Woher kommen Sie? |\n| What do you do for work? | Was machen Sie beruflich? |\n| Have we met before? | Kennen wir uns? |\n\n<CultureTip flag=\"🇸🇪\" title=\"Kultureller Kontext\">\nSmall talk helps build rapport. Show genuine interest and ask follow-up questions.\n</CultureTip>\n\n## Über Hobbys und Interessen\n\n| Schwedisch | Deutsch |\n|-------------|---------|\n| What are your hobbies? | Was sind Ihre Hobbys? |\n| Do you like sports? | Mögen Sie Sport? |\n| What music do you like? | Welche Musik hören Sie gern? |\n| Do you like to travel? | Reisen Sie gern? |\n\n## Über Arbeit und Beruf\n\n<VocabCard\n  word=\"What do you do?\"\n  translation=\"Was arbeiten Sie?\"\n  pronunciation=\"wot du juu duu?\"\n  example=\"What do you do for a living?\"\n/>\n\n| Schwedisch | Deutsch |\n|-------------|---------|\n| Do you enjoy your work? | Gefällt Ihnen Ihre Arbeit? |\n| How long have you worked there? | Seit wann arbeiten Sie dort? |\n| That sounds interesting | Das klingt interessant |\n\n## Über das Wetter\n\nEin Klassiker, der immer funktioniert:\n\n| Schwedisch | Deutsch |\n|-------------|---------|\n| Nice weather today | Schönes Wetter heute |\n| It's warm/cold today | Es ist heute warm/kalt |\n| Hopefully it won't rain | Hoffentlich regnet es nicht |\n| The summer was nice | Der Sommer war schön |\n\n## Gespräche am Laufen halten\n\n| Schwedisch | Deutsch |\n|-------------|---------|\n| That's interesting! | Das ist interessant! |\n| Tell me more | Erzählen Sie mehr |\n| Really? | Wirklich? |\n| I understand | Ich verstehe |\n\n## Höflich nachfragen\n\n<VocabCard\n  word=\"Could you repeat that?\"\n  translation=\"Können Sie das wiederholen?\"\n  pronunciation=\"kud juu ri-PIET dhät?\"\n  example=\"I'm sorry, could you repeat that?\"\n/>\n\n| Schwedisch | Deutsch |\n|-------------|---------|\n| Could you speak slower? | Können Sie langsamer sprechen? |\n| What does that mean? | Was bedeutet das? |\n| I'm still learning | Ich lerne noch Schwedisch |\n\n<CultureTip flag=\"🇸🇪\" title=\"Tipp für Smalltalk\">\nStelle offene Fragen und zeige echtes Interesse an den Antworten. Die Familie deines Partners wird es schätzen, dass du dich bemühst, sie kennenzulernen.\n</CultureTip>\n\n## Verwandte Artikel\n\n- [Schwedische Begrüßungen](/de/blog/swedish-greetings-and-farewells)\n- [Die Familie deines Partners treffen](/de/blog/swedish-meeting-your-partner-s-family)\n\n<CTA />",
+      "issues": [
+        {
+          "type": "language_fingerprint_mismatch",
+          "details": {
+            "nativeLang": "de",
+            "nativeStopWordRatio": 6,
+            "englishStopWordRatio": 10
+          }
+        }
+      ]
+    },
+    {
+      "id": "c2b318e4-2f13-4283-8fd2-518497d08a60",
+      "title": "Cum să îți ceri scuze în cehă – Expresii esențiale pentru cupluri",
+      "native_lang": "ro",
+      "target_lang": "cs",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nA ști să îți ceri scuze cu sinceritate în limba partenerului tău este esențial pentru o relație sănătoasă. În cehă, există multe modalități de a exprima regretul, de la scuze simple la cereri elaborate de iertare.\n\n<PhraseOfDay\n  word=\"Promiň\"\n  translation=\"Îmi pare rău\"\n  pronunciation=\"\"\n  context=\"Expresia principală pentru scuze în cehă\"\n/>\n\n## Scuze de bază în Cehă\n\nAceste expresii sunt fundamentale pentru orice conversație în care trebuie să îți ceri scuze:\n\n<VocabCard\n  word=\"Promiň\"\n  translation=\"Îmi pare rău\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Prosím, odpusť mi\"\n  translation=\"Te rog să mă ierți\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Je to moje chyba\"\n  translation=\"E vina mea\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇨🇿\" title=\"Cultura scuzelor\">\nCehii apreciază scuzele sincere și directe. Un 'promiň' din inimă este mai valoros decât scuze elaborate - arată că îți pasă.\n</CultureTip>\n\n## Expresii pentru a cere iertare\n\nCând ai greșit mai serios, ai nevoie de expresii mai puternice:\n\n| Cehă | Română |\n|---------|---------|\n| Promiň | Îmi pare rău |\n| Prosím, odpusť mi | Te rog să mă ierți |\n| Je to moje chyba | E vina mea |\n| Mýlil/a jsem se | Am greșit |\n| Pojďme se usmířit | Hai să ne împăcăm |\n\n## Expresii de reconciliere\n\nDupă ce ți-ai cerut scuze, aceste fraze te ajută să reconstruiești legătura:\n\n<VocabCard\n  word=\"Pojďme se usmířit\"\n  translation=\"Hai să ne împăcăm\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Cum să accepți scuzele cuiva\n\nCând partenerul tău își cere scuze, poți răspunde cu aceste expresii:\n\n| Cehă | Română |\n|---------|---------|\n| To je v pořádku | E în regulă |\n\n## Sfaturi pentru scuze sincere în Cehă\n\n1. **Fii specific** – Menționează exact ce ai făcut greșit\n2. **Arată empatie** – Recunoaște cum s-a simțit partenerul tău\n3. **Evită scuzele** – Nu da vina pe circumstanțe\n4. **Oferă soluții** – Spune ce vei face diferit pe viitor\n5. **Dă-i timp** – Nu forța iertarea imediată\n\n<CTA />\n\n## Articole conexe\n\n- [Exprimarea emoțiilor în cehă](/ro/cs/czech-expressing-emotions)\n- [Fraze romantice în cehă](/ro/cs/czech-romantic-phrases-for-every-occasion)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    }
+  ]
+}

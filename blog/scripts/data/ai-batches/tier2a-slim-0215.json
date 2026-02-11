@@ -1,0 +1,590 @@
+{
+  "batchId": "tier2a-slim-0215",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "dafc896a-6801-41ad-8399-986595e7bb48",
+      "title": "Polske SMS- og chattefraser for par",
+      "native_lang": "no",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kulturelle tips",
+          "subsections": [
+            "### Høflighetsformer",
+            "### Polske kosenavn",
+            "### Grammatiske utfordringer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "db140790-a154-49a5-b2f3-d444f322e8fe",
+      "title": "Greek Moving In Together: Essential Household Vocabulary for Couples",
+      "native_lang": "en",
+      "target_lang": "el",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Finding Your Home",
+          "subsections": [
+            "### Apartment/House Hunting",
+            "### Key Phrases for Viewing"
+          ]
+        },
+        {
+          "header": "## Moving Day Vocabulary",
+          "subsections": [
+            "### Coordinating the Move",
+            "### Essential Moving Terms"
+          ]
+        },
+        {
+          "header": "## Setting Up Your Home",
+          "subsections": [
+            "### Room by Room",
+            "### Organizing Together"
+          ]
+        },
+        {
+          "header": "## Shopping for Your Home",
+          "subsections": [
+            "### At the Furniture Store",
+            "### Household Items"
+          ]
+        },
+        {
+          "header": "## Living Together",
+          "subsections": [
+            "### Daily Life Vocabulary",
+            "### Meeting the Neighbors"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "db3e79ba-105d-4931-83bc-a9828973a9f1",
+      "title": "Norske Udtryk til Følelsesmæssig Støtte og Trøst",
+      "native_lang": "da",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Støtteudtryk",
+          "subsections": [
+            "### 1. Jeg er her for deg",
+            "### 2. Alt kommer til å ordne seg",
+            "### 3. Jeg tror på deg",
+            "### 4. Ta all den tiden du trenger",
+            "### 5. Jeg er så lei meg for det du går gjennom"
+          ]
+        },
+        {
+          "header": "## Dybere Trøst",
+          "subsections": [
+            "### 6. Det er greit å gråte",
+            "### 7. Du trenger ikke å gå gjennom dette alene",
+            "### 8. Jeg er så stolt av styrken din",
+            "### 9. Følelsene dine er gyldige",
+            "### 10. Uansett hva som skjer, klarer vi det sammen"
+          ]
+        },
+        {
+          "header": "## Kærlige Trøsteord",
+          "subsections": [
+            "### 11. Kjæresten min, jeg vil alltid være der for deg",
+            "### 12. Jeg elsker deg, og det kommer aldri til å forandre seg"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "db402a9c-a53e-4fb0-b436-4f8357d7ed14",
+      "title": "Βασικά Ουκρανικής Γραμματικής για Αρχάριους: Μιλήστε με Αυτοπεποίθηση στον Σύντροφό σας",
+      "native_lang": "el",
+      "target_lang": "uk",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Οι Βασικοί Κανόνες",
+          "subsections": [
+            "### 1. Τα Γένη των Ουσιαστικών",
+            "### 2. Οι Προσωπικές Αντωνυμίες",
+            "### 3. Τα Ρήματα Αλλάζουν Ανάλογα με το Πρόσωπο"
+          ]
+        },
+        {
+          "header": "## Οι Πιο Χρήσιμοι Χρόνοι",
+          "subsections": [
+            "### Ενεστώτας (Τώρα)",
+            "### Μέλλοντας (Αύριο)"
+          ]
+        },
+        {
+          "header": "## Κοινά Λάθη",
+          "subsections": [
+            "### 1. Η Σειρά των Λέξεων",
+            "### 2. Το Γένος των Επιθέτων",
+            "### 3. Η Χρήση των Προθέσεων"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "db57c909-6c7e-49ad-9850-2252c3899765",
+      "title": "Niemieckie zwroty na pierwszą randkę",
+      "native_lang": "pl",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Rozpoczęcie rozmowy",
+          "subsections": [
+            "### \"Hallo! Schön, dich endlich zu treffen!\"",
+            "### \"Du siehst toll aus!\"",
+            "### \"Ich habe mich so darauf gefreut\""
+          ]
+        },
+        {
+          "header": "## Poznawanie się",
+          "subsections": [
+            "### \"Erzähl mir von dir\"",
+            "### \"Was machst du gerne in deiner Freizeit?\"",
+            "### \"Was ist dein Lieblings...?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie zainteresowania",
+          "subsections": [
+            "### \"Das ist wirklich interessant\"",
+            "### \"Erzähl mir mehr darüber\"",
+            "### \"Ich würde gerne mehr wissen\""
+          ]
+        },
+        {
+          "header": "## Dzielenie się o sobie",
+          "subsections": [
+            "### \"Ich begeistere mich für...\"",
+            "### \"Etwas, das du vielleicht nicht über mich weißt...\"",
+            "### \"Ich wollte schon immer...\""
+          ]
+        },
+        {
+          "header": "## Komplementy",
+          "subsections": [
+            "### \"Ich mag dein Lächeln sehr\"",
+            "### \"Du hast einen tollen Humor\"",
+            "### \"Ich habe eine tolle Zeit mit dir\""
+          ]
+        },
+        {
+          "header": "## Planowanie następnego spotkania",
+          "subsections": [
+            "### \"Ich würde dich sehr gerne wiedersehen\"",
+            "### \"Wann können wir das wiederholen?\"",
+            "### \"Ich hatte einen wundervollen Abend\""
+          ]
+        },
+        {
+          "header": "## Pożegnanie",
+          "subsections": [
+            "### \"Das war wirklich schön\"",
+            "### \"Ich freue mich auf unser nächstes Treffen\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "db6b3182-d5d0-4c45-9080-564e4f2b226d",
+      "title": "Hollandske sms- og chatbeskeder til par",
+      "native_lang": "da",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende kærlige beskeder",
+          "subsections": [
+            "### \"Ik mis je\"",
+            "### \"Ik denk aan je\"",
+            "### \"Ik kan niet wachten om je te zien\""
+          ]
+        },
+        {
+          "header": "## Populære hollandske kælenavne",
+          "subsections": [
+            "### \"Schat\" / \"Schatje\"",
+            "### \"Lieverd\"",
+            "### \"Liefje\""
+          ]
+        },
+        {
+          "header": "## Hollandske sms-forkortelser",
+          "subsections": [
+            "### \"Ik hou van je\" / \"IHV\"",
+            "### \"Kus\" / \"Kusje\"",
+            "### \"Xxx\""
+          ]
+        },
+        {
+          "header": "## Romantiske beskeder",
+          "subsections": [
+            "### \"Je betekent alles voor me\"",
+            "### \"Goedemorgen, liefje\"",
+            "### \"Slaap lekker, schat\""
+          ]
+        },
+        {
+          "header": "## Hverdagsbeskeder",
+          "subsections": [
+            "### \"Hoe gaat het?\"",
+            "### \"Ik kom eraan\"",
+            "### \"Tot straks\""
+          ]
+        },
+        {
+          "header": "## Specielle udtryk",
+          "subsections": [
+            "### \"Je bent de liefde van mijn leven\"",
+            "### \"Dikke kus\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "db7c1dba-c838-4a85-83a4-32651f2995a3",
+      "title": "Гид по норвежскому произношению для русскоговорящих",
+      "native_lang": "ru",
+      "target_lang": "no",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Гласные звуки",
+          "subsections": [
+            "### Основные гласные",
+            "### Особые гласные: Æ, Ø, Å"
+          ]
+        },
+        {
+          "header": "## Согласные звуки",
+          "subsections": [
+            "### Особые сочетания согласных",
+            "### Звук «KJ»",
+            "### Звук «SK»"
+          ]
+        },
+        {
+          "header": "## Практические упражнения",
+          "subsections": [
+            "### Упражнение 1: Особые гласные",
+            "### Упражнение 2: Звук KJ",
+            "### Упражнение 3: Ретрофлексные звуки"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "db897ab6-32c1-4689-a97b-40a2d97793a6",
+      "title": "Schwedische Trost- und Unterstützungsphrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlegende Unterstützung",
+          "subsections": [
+            "### \"Jag finns här för dig\"",
+            "### \"Jag kommer alltid att vara på din sida\"",
+            "### \"Du är inte ensam i det här\"",
+            "### \"Vad du än behöver, jag finns här\""
+          ]
+        },
+        {
+          "header": "## Bei Trauer",
+          "subsections": [
+            "### \"Jag beklagar sorgen\"",
+            "### \"Ta all tid du behöver\"",
+            "### \"Det är okej att gråta\""
+          ]
+        },
+        {
+          "header": "## Bei Stress und Sorgen",
+          "subsections": [
+            "### \"Vi löser det här tillsammans\"",
+            "### \"Ett steg i taget\"",
+            "### \"Det är okej att inte må bra\"",
+            "### \"Det här går också över\"",
+            "### \"Var inte så hård mot dig själv\""
+          ]
+        },
+        {
+          "header": "## Ermutigung",
+          "subsections": [
+            "### \"Jag tror på dig\"",
+            "### \"Du är starkare än du tror\"",
+            "### \"Jag är så stolt över dig\"",
+            "### \"Du klarar det här\""
+          ]
+        },
+        {
+          "header": "## Aktive Hilfe anbieten",
+          "subsections": [
+            "### \"Vad kan jag göra för att hjälpa?\"",
+            "### \"Vill du prata om det?\"",
+            "### \"Jag lyssnar\""
+          ]
+        },
+        {
+          "header": "## Langfristige Unterstützung",
+          "subsections": [
+            "### \"Jag kommer alltid att vara här, oavsett vad som händer\"",
+            "### \"Vi är i det här tillsammans\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "db8d37df-85ec-4c17-88e8-433b90e28a00",
+      "title": "Γράψτε Ερωτικά Γράμματα στα Ρουμανικά",
+      "native_lang": "el",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για την Αρχή του Γράμματος",
+          "subsections": [
+            "### 1. Iubirea mea (Ιουμπίρεα μέα)",
+            "### 2. Dragostea mea (Ντραγκόστεα μέα)",
+            "### 3. Sufletul meu (Σουφλέτουλ μέου)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για το Κυρίως Μέρος",
+          "subsections": [
+            "### 4. Tu ești iubirea vieții mele (Του εστι ιουμπίρεα βιέτσι μέλε)",
+            "### 5. Te iubesc mai mult în fiecare zi (Τε ιουμπέσκ μάι μουλτ ιν φιεκάρε ζι)",
+            "### 6. Inima mea bate doar pentru tine (Ινίμα μέα μπάτε ντοάρ πέντρου τίνε)",
+            "### 7. Mă faci fericit/ă (Μα φατσι φεριτσίτ/α)",
+            "### 8. Sunt nebun/ă după tine (Σουντ νεμπούν/α ντουπά τίνε)",
+            "### 9. Tu ești totul pentru mine (Του εστι τότουλ πέντρου μίνε)",
+            "### 10. Fără tine nu sunt nimic (Φαρά τίνε νου σουντ νίμικ)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για το Κλείσιμο",
+          "subsections": [
+            "### 11. Al tău/A ta pentru totdeauna (Αλ ταου/Α τα πέντρου τοτντεάουνα)",
+            "### 12. Cu toată dragostea mea (Κου τοάτα ντραγκόστεα μέα)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "db903a54-6b51-4cf0-a705-bf50c2a55376",
+      "title": "Como Escrever Cartas de Amor em Polonês: Romance Eslavo",
+      "native_lang": "pt",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Estrutura de uma Carta de Amor",
+          "subsections": [
+            "### Abertura Carinhosa",
+            "### Expressando Seus Sentimentos",
+            "### Declarações de Amor",
+            "### Promessas",
+            "### Encerramentos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "db9a0160-4262-48a8-b829-01abd9620698",
+      "title": "Svenske udtryk til at møde svigerforældre",
+      "native_lang": "da",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Vigtige sætninger",
+          "subsections": [
+            "### 1. Trevligt att träffas",
+            "### 2. Jag har hört så mycket om er",
+            "### 3. Tack så mycket för inbjudan",
+            "### 4. Jag har tagit med en liten present",
+            "### 5. Ni har ett så fint hem",
+            "### 6. Maten var jättegod",
+            "### 7. Jag älskar er son/dotter väldigt mycket",
+            "### 8. Vi är jättelyckliga tillsammans",
+            "### 9. Jag skulle gärna vilja lära känna er bättre",
+            "### 10. Kan jag hjälpa till med något?",
+            "### 11. Det är en fin familjetradition",
+            "### 12. Jag ser fram emot nästa gång vi ses"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dbb0d141-ee37-4a51-8e9d-7c77b3a7181c",
+      "title": "Çekçe Seni Özledim İfadeleri: Hasret Sözleri",
+      "native_lang": "tr",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Özlem İfadeleri",
+          "subsections": [
+            "### 1. \"Chybíš mi\"",
+            "### 2. \"Moc mi chybíš\"",
+            "### 3. \"Stýská se mi po tobě\"",
+            "### 4. \"Kéž bys tu byl/a\"",
+            "### 5. \"Pořád na tebe myslím\"",
+            "### 6. \"Bez tebe je mi smutno\"",
+            "### 7. \"Počítám dny do našeho setkání\"",
+            "### 8. \"Jsi pro mě všechno\"",
+            "### 9. \"Moje srdce po tobě touží\"",
+            "### 10. \"Těším se, až se uvidíme\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dbb64791-e2c4-4e3d-b798-5223e1f0cc96",
+      "title": "Czech Making Up & Reconciliation Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Apologizing Sincerely",
+          "subsections": [
+            "### Promiň mi / Odpusť mi",
+            "### Je mi to moc líto",
+            "### Měl/Měla jsem nepravdu",
+            "### To jsem neměl/neměla říkat"
+          ]
+        },
+        {
+          "header": "## Expressing Your Feelings",
+          "subsections": [
+            "### Nesnáším, když se hádáme",
+            "### Chybíš mi, když jsme takhle",
+            "### Bolí mě, když se zlobíme"
+          ]
+        },
+        {
+          "header": "## Reaching Out",
+          "subsections": [
+            "### Můžeme si promluvit?",
+            "### Chci to napravit",
+            "### Můžeme začít znovu?"
+          ]
+        },
+        {
+          "header": "## Expressing Love and Commitment",
+          "subsections": [
+            "### Miluji tě, to se nezmění",
+            "### Jsi pro mě důležitější než tato hádka",
+            "### Nechci tě ztratit",
+            "### Jsme tým"
+          ]
+        },
+        {
+          "header": "## Moving Forward",
+          "subsections": [
+            "### Jak se můžeme v budoucnu vyhnout tomuhle?",
+            "### Slibuji, že se budu snažit být lepší"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dbbdcd0f-60a9-4aa1-86b3-3abf99a549a3",
+      "title": "Немецкая грамматика для пар: простое объяснение основ",
+      "native_lang": "ru",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Основные правила: 5 базовых принципов",
+          "subsections": [
+            "### 1. Три артикля: der, die, das",
+            "### 2. Падежи: кто? чего? кому?",
+            "### 3. Глаголы: сердце предложения",
+            "### 4. Порядок слов: немецкая логика",
+            "### 5. Союзы: связующие слова"
+          ]
+        },
+        {
+          "header": "## Частые паттерны в повседневной жизни",
+          "subsections": [
+            "### Вопросы для общения:",
+            "### Выражения чувств:"
+          ]
+        },
+        {
+          "header": "## Краткая шпаргалка",
+          "subsections": [
+            "### Артикли:",
+            "### Личные местоимения:",
+            "### Основные глаголы:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dbdc6995-2b4c-4939-992e-7ec1870fb416",
+      "title": "Rencontrer la belle-famille en allemand : Faire bonne impression chez les Schwiegereltern",
+      "native_lang": "fr",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Premières salutations",
+          "subsections": [
+            "### \"Es freut mich sehr, Sie endlich kennenzulernen\"",
+            "### \"Ich habe schon viel von Ihnen gehört\"",
+            "### \"Vielen Dank, dass Sie mich eingeladen haben\""
+          ]
+        },
+        {
+          "header": "## Montrer du respect",
+          "subsections": [
+            "### \"Sie haben ein wunderschönes Zuhause\"",
+            "### \"Das Essen schmeckt hervorragend, danke\"",
+            "### \"Ich schätze es sehr, dass Sie mich in Ihre Familie aufnehmen\""
+          ]
+        },
+        {
+          "header": "## Parler de votre partenaire",
+          "subsections": [
+            "### \"[Name] bedeutet mir alles\"",
+            "### \"Ich bin so dankbar, [Name] in meinem Leben zu haben\"",
+            "### \"Sie haben einen wunderbaren Menschen großgezogen\""
+          ]
+        },
+        {
+          "header": "## Créer du lien",
+          "subsections": [
+            "### \"Ich würde gerne mehr über [Thema] erfahren\"",
+            "### \"Wie war [Name] als Kind?\""
+          ]
+        },
+        {
+          "header": "## Proposer de l'aide",
+          "subsections": [
+            "### \"Kann ich irgendwie helfen?\"",
+            "### \"Ich helfe gerne beim Abräumen\""
+          ]
+        },
+        {
+          "header": "## Au départ",
+          "subsections": [
+            "### \"Vielen Dank für den wunderbaren Tag\"",
+            "### \"Ich hoffe, Sie bald wiederzusehen\""
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "tier": 1,
+  "batchId": "tier1-batch-032",
+  "articles": [
+    {
+      "id": "59a789a8-7a1d-4388-90d4-871ff95f3dd1",
+      "title": "Fraze pentru relații la distanță în poloneză",
+      "native_lang": "ro",
+      "target_lang": "pl",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nRelațiile la distanță sunt dificile, dar limba poate fi puntea care vă conectează inimile. Când îi spui partenerului că îți lipsește în limba lui, cuvintele capătă o putere specială.\n\n<PhraseOfDay\n  word=\"Bardzo za tobą tęsknię\"\n  translation=\"Îmi lipsești foarte mult\"\n  pronunciation=\"\"\n  context=\"Expresia perfectă pentru când ești departe de cel drag\"\n/>\n\n## Expresii pentru dor și lipsă\n\n<VocabCard\n  word=\"Bardzo za tobą tęsknię\"\n  translation=\"Îmi lipsești foarte mult\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Myślę o tobie\"\n  translation=\"Mă gândesc la tine\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇵🇱\" title=\"Exprimarea dorului\">\nPolonezii prețuiesc sinceritatea și căldura. Scuzele din inimă, posibil însoțite de o îmbrățișare, sunt foarte apreciate.\n</CultureTip>\n\n## Menținerea conexiunii\n\n| Poloneză | Română |\n|---------|---------|\n| Bardzo za tobą tęsknię | Îmi lipsești foarte mult |\n| Nie mogę się doczekać spotkania | Abia aștept să te văd |\n| Myślę o tobie | Mă gândesc la tine |\n| Liczę dni | Număr zilele |\n\n<VocabCard\n  word=\"Nie mogę się doczekać spotkania\"\n  translation=\"Abia aștept să te văd\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru relații la distanță\n\n1. **Comunicați zilnic** – Chiar și un mesaj scurt contează\n2. **Programați apeluri video** – Fețele vă apropie\n3. **Trimiteți surprize** – Scrisori, colete, flori\n4. **Aveți un calendar comun** – Numărătoare inversă până la revedere\n5. **Creați ritualuri** – \"Noapte bună\" la aceeași oră\n\n<CTA />\n\n## Articole conexe\n\n- [Fraze pentru apeluri video cu familia](/ro/pl/polish-video-call-phrases-family)\n- [Mesaje de bună dimineața și noapte bună în poloneză](/ro/pl/polish-good-morning-goodnight-phrases)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "59f8e693-a2e6-4d5f-99bd-65760af4c5fa",
+      "title": "Bună dimineața și noapte bună în spaniolă – Mesaje drăguțe",
+      "native_lang": "ro",
+      "target_lang": "es",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nZiua începe și se termină mai frumos când îi urezi partenerului în limba lui. Aceste mesaje vor aduce zâmbete în fiecare zi.\n\n<PhraseOfDay\n  word=\"Buenos días\"\n  translation=\"Bună dimineața\"\n  pronunciation=\"\"\n  context=\"Începe fiecare zi cu o urare caldă\"\n/>\n\n## Mesaje de bună dimineața\n\n<VocabCard\n  word=\"Buenos días\"\n  translation=\"Bună dimineața\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇪🇸\" title=\"Saluturile zilnice\">\nSpaniolii și latino-americanii sunt foarte expresivi. Scuzele sincere sunt adesea însoțite de gesturi afectuoase și explicații detaliate.\n</CultureTip>\n\n## Mesaje de noapte bună\n\n| Spaniolă | Română |\n|---------|---------|\n| Buenas noches | Noapte bună |\n| Dulces sueños | Vise frumoase |\n| Que duermas bien | Somn ușor |\n\n<VocabCard\n  word=\"Buenas noches\"\n  translation=\"Noapte bună\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Dulces sueños\"\n  translation=\"Vise frumoase\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru mesajele zilnice\n\n1. **Fii consistent** – Un mesaj zilnic creează un ritual frumos\n2. **Personalizează** – Adaugă o amintire sau o glumă internă\n3. **Variază** – Nu folosi aceeași frază în fiecare zi\n4. **Adaugă emoji** – 💕 și 😘 sunt universale\n5. **Fii spontan** – Uneori, un mesaj în mijlocul nopții e cel mai romantic\n\n<CTA />\n\n## Articole conexe\n\n- [Fraze pentru relații la distanță în spaniolă](/ro/es/spanish-long-distance-relationship)\n- [Alinturile în spaniolă](/ro/es/spanish-pet-names-and-terms-of-endearment-50)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "5a8d3119-0322-47bc-89c6-eb5572390a6d",
+      "title": "Small Talk på Tyrkisk: Samtalestartere for Par",
+      "native_lang": "da",
+      "target_lang": "tr",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nSmall talk er kunsten at holde samtalen kørende. Når du møder din partners venner og familie, har du brug for tyrkiske samtalestartere. Se også vores [tyrkiske hilsner og farvel](/learn/da/tr/turkish-greetings-and-farewells/).\n\n<PhraseOfDay\n  word=\"How are you?\"\n  translation=\"Hvordan har du det?\"\n  pronunciation=\"hau ar juu?\"\n  context=\"En klassisk samtaleåbner\"\n/>\n\n## Isbrydere\n\nStart samtalen med selvtillid:\n\n<VocabCard\n  word=\"Nice to meet you\"\n  translation=\"Rart at møde dig\"\n  pronunciation=\"nais tuh miit juu\"\n  example=\"It's so nice to meet you!\"\n/>\n\n| Tyrkisk | Dansk | Udtale |\n|---------|-------|--------|\n| **Nice to meet you** | Rart at møde dig | nais tuh miit juu |\n| **I've heard so much about you** | Jeg har hørt om dig | aiv hurd sou mutch uh-baut juu |\n| **How do you know [partner]?** | Hvordan kender du [partner]? | hau duu juu nou? |\n| **Is this your first time here?** | Er det første gang? | iz dis joor furst taim hiir? |\n| **This is a lovely place** | Sikke et dejligt sted | dis iz uh lav-li pleis |\n\n<CultureTip flag=\"🇹🇷\" title=\"Small talk kultur\">\nEnglændere elsker small talk om vejret - det er en sikker starter.\n</CultureTip>\n\n## Klassiske Emner\n\n### Vejret\n- **Lovely weather today** (Sikke dejligt vejr) - \"lav-li we-dur tuh-dei\"\n- **It's cold today** (Det er koldt i dag) - \"its kould tuh-dei\"\n- **Hope it stays nice** (Håber det holder) - \"houp it steiz nais\"\n\n### Weekendplaner\n- **Any plans for the weekend?** (Har du planer til weekenden?) - \"e-ni planz for duh wiik-end?\"\n- **What did you do this weekend?** (Hvad lavede du i weekenden?) - \"wot did juu duu dis wiik-end?\"\n- **We're going to...** (Vi skal til...) - \"wiir gou-ing tuu...\"\n\n### Ferier og Rejser\n- **Have you traveled anywhere?** (Har du rejst nogen steder?) - \"hav juu tra-vuld e-ni-wehr?\"\n- **Where did you go on holiday?** (Hvor var du på ferie?) - \"wehr did juu gou on ho-li-dei?\"\n- **I'd love to visit...** (Jeg vil gerne besøge...) - \"aid lav tuh vi-zit...\"\n\n## Spørge til Interesser\n\n<VocabCard\n  word=\"What do you do in your free time?\"\n  translation=\"Hvad laver du i fritiden?\"\n  pronunciation=\"wot duu juu duu in joor frii taim?\"\n  example=\"What do you like to do in your free time?\"\n/>\n\n- **What do you enjoy doing?** (Hvad kan du lide at lave?) - \"wot duu juu en-joi duu-ing?\"\n- **Do you follow sports?** (Ser du sport?) - \"duu juu fo-lou sports?\"\n- **What music do you like?** (Hvilken musik kan du lide?) - \"wot mju-zik duu juu laik?\"\n- **Seen any good films lately?** (Har du set nogen gode film?) - \"siin e-ni gud filmz leit-li?\"\n\n## Arbejde og Karriere\n\n| Tyrkisk | Dansk | Udtale |\n|---------|-------|--------|\n| **What do you do for work?** | Hvad arbejder du med? | wot duu juu duu for wurk? |\n| **How long have you been doing that?** | Hvor længe har du gjort det? | hau long hav juu biin duu-ing dat? |\n| **Do you enjoy it?** | Kan du lide det? | duu juu en-joi it? |\n| **That sounds interesting** | Det lyder interessant | dat saundz in-tre-sting |\n| **You must be busy** | Du må være travl | juu must bii bi-zi |\n\n<CultureTip flag=\"🇹🇷\" title=\"Emner at undgå\">\nUndgå politik, religion og indkomst med nye mennesker.\n</CultureTip>\n\n## Holde Samtalen Kørende\n\n<VocabCard\n  word=\"Tell me more\"\n  translation=\"Fortæl mere\"\n  pronunciation=\"tel mi mor\"\n  example=\"Tell me more about that!\"\n/>\n\n- **Really?** (Virkelig?) - \"ri-li?\"\n- **That's great** (Det er fantastisk) - \"dats greit\"\n- **I agree** (Jeg er enig) - \"ai uh-grii\"\n- **I see** (Jeg forstår) - \"ai sii\"\n\n## Reagere og Nikke Med\n\n| Tyrkisk | Dansk | Brug |\n|---------|-------|------|\n| **Wow** | Wow | Overraskelse |\n| **Cool** | Fedt | Positiv |\n| **I see** | Jeg forstår | Forståelse |\n| **Exactly** | Ja, lige præcis | Enighed |\n\n## Mad og Drikke\n\n- **The food is delicious** (Maden er lækker) - \"duh fuud iz di-li-shus\"\n- **Would you like a drink?** (Vil du have noget at drikke?) - \"wud juu laik uh drink?\"\n- **What do you like to eat?** (Hvad kan du lide at spise?) - \"wot duu juu laik tuh iit?\"\n\n## Skifte Emne\n\n- **By the way...** (Forresten...) - \"bai duh wei...\"\n- **Speaking of which...** (Apropos...) - \"spii-king ov witch...\"\n- **On another note...** (Noget helt andet...) - \"on uh-nu-dur nout...\"\n\n## Afslutte Samtalen\n\n<VocabCard\n  word=\"It was lovely chatting\"\n  translation=\"Det var hyggeligt at snakke\"\n  pronunciation=\"it woz lav-li cha-ting\"\n  example=\"It was so lovely chatting with you!\"\n/>\n\n- **I'm afraid I must go** (Jeg må desværre gå) - \"aim uh-freid ai must gou\"\n- **I hope we meet again** (Jeg håber vi ses igen) - \"ai houp wii miit uh-gen\"\n- **I've enjoyed our chat** (Jeg har nydt samtalen) - \"aiv en-joid aur chat\"\n\n## Tips til Tyrkisk Small Talk\n\n1. **Smil og lyt** - 70% lytning, 30% tale\n2. **Stil åbne spørgsmål** - Mere end ja/nej\n3. **Find fælles interesser** - Byg videre\n4. **Accepter pauser** - De er naturlige\n5. **Øv dig** - Det bliver nemmere\n\nFor flere fraser, tjek [tyrkiske fraser for par](/learn/da/tr/turkish-essential-phrases-for-couples/).\n\n<CTA />",
+      "issues": [
+        {
+          "type": "language_fingerprint_mismatch",
+          "details": {
+            "nativeLang": "da",
+            "nativeStopWordRatio": 6,
+            "englishStopWordRatio": 11
+          }
+        }
+      ]
+    }
+  ]
+}

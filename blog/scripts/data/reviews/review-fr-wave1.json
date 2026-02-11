@@ -1,0 +1,280 @@
+{
+  "native_lang": "fr",
+  "wave": 1,
+  "target_langs_reviewed": ["en", "es", "de", "it", "pt", "pl"],
+  "articles_reviewed": 12,
+  "clean_articles": 1,
+  "issues": [
+    {
+      "article_id": "a1903850-de72-4cf1-b153-d987f99355fd",
+      "slug": "english-anniversary-wishes",
+      "target_lang": "en",
+      "issue_type": "incomplete_example",
+      "severity": "medium",
+      "description": "VocabCard example sentence is incomplete/nonsensical: 'Happy anniversary! years together!' - missing a number or subject",
+      "evidence": "example=\"Happy anniversary! years together!\""
+    },
+    {
+      "article_id": "a1903850-de72-4cf1-b153-d987f99355fd",
+      "slug": "english-anniversary-wishes",
+      "target_lang": "en",
+      "issue_type": "wrong_language_example",
+      "severity": "medium",
+      "description": "VocabCard example for 'I love you more each day' is in French instead of English. Examples should demonstrate the target language word in a sentence.",
+      "evidence": "example=\"Message parfait pour une carte d'anniversaire.\""
+    },
+    {
+      "article_id": "a1903850-de72-4cf1-b153-d987f99355fd",
+      "slug": "english-anniversary-wishes",
+      "target_lang": "en",
+      "issue_type": "thin_content",
+      "severity": "medium",
+      "description": "Article has only 144 words of prose. Very thin for a blog article - just two short tables and a CultureTip with minimal connecting text.",
+      "evidence": "_wordCount: 144"
+    },
+    {
+      "article_id": "7e0f5bc6-5dd7-4293-b235-4b8ed7b559ea",
+      "slug": "100-most-common-spanish-words",
+      "target_lang": "es",
+      "issue_type": "ipa_pronunciation",
+      "severity": "high",
+      "description": "Multiple VocabCards use IPA-style slash notation instead of phonetic guides readable by French speakers. /ʝo/, /tu/, /el/, /la/, /kon/, /i/, /si/, /mas/, /mwi/ are not helpful pronunciation guides.",
+      "evidence": "pronunciation=\"/ʝo/\" pronunciation=\"/tu/\" pronunciation=\"/kon/\" pronunciation=\"/mwi/\""
+    },
+    {
+      "article_id": "7e0f5bc6-5dd7-4293-b235-4b8ed7b559ea",
+      "slug": "100-most-common-spanish-words",
+      "target_lang": "es",
+      "issue_type": "misleading_title",
+      "severity": "medium",
+      "description": "Title promises '100 most common words' but article only contains 52 VocabCard entries. Falls far short of the advertised count.",
+      "evidence": "52 VocabCard word entries found vs 100 promised in title"
+    },
+    {
+      "article_id": "7e0f5bc6-5dd7-4293-b235-4b8ed7b559ea",
+      "slug": "100-most-common-spanish-words",
+      "target_lang": "es",
+      "issue_type": "thin_content",
+      "severity": "low",
+      "description": "Only 60 words of prose (intro + closing). The article is mostly VocabCards with minimal explanatory text, though the cards themselves are good quality.",
+      "evidence": "_wordCount: 60"
+    },
+    {
+      "article_id": "d9183db5-b3c8-41a0-a89b-9375b962f9fa",
+      "slug": "spanish-shopping-vocabulary",
+      "target_lang": "es",
+      "issue_type": "missing_imports",
+      "severity": "high",
+      "description": "Article uses VocabCard (15x), CultureTip (3x), PhraseOfDay (3x) components but has no import statements at all. Will fail to render in Astro MDX.",
+      "evidence": "No 'import' statement found in content; uses <VocabCard, <CultureTip, <PhraseOfDay"
+    },
+    {
+      "article_id": "d9183db5-b3c8-41a0-a89b-9375b962f9fa",
+      "slug": "spanish-shopping-vocabulary",
+      "target_lang": "es",
+      "issue_type": "missing_cta",
+      "severity": "medium",
+      "description": "Article has no CTA component at the end, unlike other articles in the wave. Missing both the import and the component usage.",
+      "evidence": "No <CTA found in content"
+    },
+    {
+      "article_id": "d9183db5-b3c8-41a0-a89b-9375b962f9fa",
+      "slug": "spanish-shopping-vocabulary",
+      "target_lang": "es",
+      "issue_type": "filler_paragraphs",
+      "severity": "medium",
+      "description": "Article contains verbose filler paragraphs before each section that describe what the section will cover rather than teaching anything. These read like AI-generated padding ('Cette section propose...', 'Nous aborderons...', 'Nous passerons en revue...').",
+      "evidence": "Dans la sous-partie dédiée aux endroits où faire du shopping, nous passerons en revue les termes essentiels pour désigner..."
+    },
+    {
+      "article_id": "d9183db5-b3c8-41a0-a89b-9375b962f9fa",
+      "slug": "spanish-shopping-vocabulary",
+      "target_lang": "es",
+      "issue_type": "duplicate_vocab",
+      "severity": "low",
+      "description": "VocabCard for 'la tienda' / 'tienda' appears twice with slightly different formatting - once with 'la tienda' and once without the article.",
+      "evidence": "word=\"la tienda\" ... word=\"tienda\" both translate to magasin/boutique"
+    },
+    {
+      "article_id": "ff8dc64b-9648-4fd0-9c99-f0dbe3efc196",
+      "slug": "german-jealous-phrases-for-french-speakers",
+      "target_lang": "de",
+      "issue_type": "missing_imports",
+      "severity": "high",
+      "description": "Article uses VocabCard component but has no import statements. Will fail to render in Astro MDX.",
+      "evidence": "No 'import' statement found; uses <VocabCard word=\"die Eifersucht\"..."
+    },
+    {
+      "article_id": "ff8dc64b-9648-4fd0-9c99-f0dbe3efc196",
+      "slug": "german-jealous-phrases-for-french-speakers",
+      "target_lang": "de",
+      "issue_type": "missing_cta",
+      "severity": "medium",
+      "description": "Article has no CTA component at the end.",
+      "evidence": "No <CTA found in content"
+    },
+    {
+      "article_id": "ff8dc64b-9648-4fd0-9c99-f0dbe3efc196",
+      "slug": "german-jealous-phrases-for-french-speakers",
+      "target_lang": "de",
+      "issue_type": "sparse_components",
+      "severity": "medium",
+      "description": "Article has only 1 VocabCard and 0 CultureTips despite being a vocabulary/phrases article. Most content is plain bold text with translations. Under-utilizes the component system.",
+      "evidence": "Only 1 VocabCard for 'die Eifersucht'; remaining ~12 phrases are just bold text with translations"
+    },
+    {
+      "article_id": "79d43b77-e313-406c-915e-8602a5825649",
+      "slug": "german-texting-slang-for-couples",
+      "target_lang": "de",
+      "issue_type": "missing_imports",
+      "severity": "high",
+      "description": "Article uses VocabCard (9x), CultureTip (2x), PhraseOfDay (1x) but has no import statements. Will fail to render in Astro MDX.",
+      "evidence": "No 'import' statement found in content"
+    },
+    {
+      "article_id": "79d43b77-e313-406c-915e-8602a5825649",
+      "slug": "german-texting-slang-for-couples",
+      "target_lang": "de",
+      "issue_type": "missing_cta",
+      "severity": "medium",
+      "description": "Article has no CTA component at the end.",
+      "evidence": "No <CTA found in content"
+    },
+    {
+      "article_id": "79d43b77-e313-406c-915e-8602a5825649",
+      "slug": "german-texting-slang-for-couples",
+      "target_lang": "de",
+      "issue_type": "filler_paragraphs",
+      "severity": "low",
+      "description": "Section intro for 'Exemples de Conversations' contains verbose filler describing what the section covers rather than adding value.",
+      "evidence": "Passer de la theorie a la pratique necessite d'observer comment les locuteurs natifs structurent leurs echanges quotidiens..."
+    },
+    {
+      "article_id": "652990d7-4cfe-49a0-af1f-ca56b8bb5b0a",
+      "slug": "italian-honeymoon-travel-phrases",
+      "target_lang": "it",
+      "issue_type": "missing_imports",
+      "severity": "high",
+      "description": "Article uses VocabCard (6x), CultureTip (1x), PhraseOfDay (1x) but has no import statements. Will fail to render in Astro MDX.",
+      "evidence": "No 'import' statement found in content"
+    },
+    {
+      "article_id": "652990d7-4cfe-49a0-af1f-ca56b8bb5b0a",
+      "slug": "italian-honeymoon-travel-phrases",
+      "target_lang": "it",
+      "issue_type": "missing_cta",
+      "severity": "medium",
+      "description": "Article has no CTA component at the end.",
+      "evidence": "No <CTA found in content"
+    },
+    {
+      "article_id": "652990d7-4cfe-49a0-af1f-ca56b8bb5b0a",
+      "slug": "italian-honeymoon-travel-phrases",
+      "target_lang": "it",
+      "issue_type": "wrong_language_example",
+      "severity": "high",
+      "description": "Multiple VocabCard examples are in French instead of Italian. The example field should contain a sentence using the Italian target word, not a French sentence.",
+      "evidence": "example=\"Nous partons en luna di miele !\" / example=\"Nous avons reserve un hotel romantique.\" / example=\"Regardons le tramonto ensemble.\""
+    },
+    {
+      "article_id": "652990d7-4cfe-49a0-af1f-ca56b8bb5b0a",
+      "slug": "italian-honeymoon-travel-phrases",
+      "target_lang": "it",
+      "issue_type": "made_up_word",
+      "severity": "low",
+      "description": "Intro uses 'italienphone' which is not a real French word. The correct term would be 'italophone' or 'italianophone'.",
+      "evidence": "Si vous voyagez dans un pays italienphone"
+    },
+    {
+      "article_id": "652990d7-4cfe-49a0-af1f-ca56b8bb5b0a",
+      "slug": "italian-honeymoon-travel-phrases",
+      "target_lang": "it",
+      "issue_type": "generic_culture_tip",
+      "severity": "low",
+      "description": "CultureTip titled 'Destinations de Lune de Miel' with Italian flag contains no Italy-specific content at all. Just generic advice about choosing destinations.",
+      "evidence": "Choisissez une destination qui vous fait rever tous les deux. Plage paradisiaque, ville romantique ou aventure nature..."
+    },
+    {
+      "article_id": "7890738f-50f8-4f4f-b08b-09afe15a8c95",
+      "slug": "italian-moving-in-together",
+      "target_lang": "it",
+      "issue_type": "wrong_language_example",
+      "severity": "high",
+      "description": "VocabCard examples are in French instead of Italian. The example field should show the Italian word used in an Italian sentence.",
+      "evidence": "example=\"Bienvenue dans la nostra casa !\" / example=\"La cucina est le coeur de la maison.\""
+    },
+    {
+      "article_id": "7890738f-50f8-4f4f-b08b-09afe15a8c95",
+      "slug": "italian-moving-in-together",
+      "target_lang": "it",
+      "issue_type": "thin_content",
+      "severity": "medium",
+      "description": "Article has only 136 words of prose. Very thin - just a few short tables and minimal connecting text for an article about household vocabulary.",
+      "evidence": "_wordCount: 136"
+    },
+    {
+      "article_id": "89205aa9-10eb-437b-8822-db227cdcc840",
+      "slug": "portuguese-texting-slang-couples",
+      "target_lang": "pt",
+      "issue_type": "duplicate_flag_attribute",
+      "severity": "medium",
+      "description": "CultureTip components have duplicate 'flag' attribute - first 'flag=\"PT flag\"' then 'flag=\"BR flag\"'. The second will override the first in most parsers but this is malformed markup.",
+      "evidence": "<CultureTip flag=\"🇵🇹\" title=\"Le Langage Digital Bresilien\" flag=\"🇧🇷\">"
+    },
+    {
+      "article_id": "8aeda8c3-4235-4169-8ed4-5ec1967522fb",
+      "slug": "portuguese-weather-vocabulary",
+      "target_lang": "pt",
+      "issue_type": "duplicate_flag_attribute",
+      "severity": "medium",
+      "description": "Both CultureTip components have duplicate 'flag' attribute - PT flag then BR flag. Same issue as portuguese-texting-slang-couples.",
+      "evidence": "<CultureTip flag=\"🇵🇹\" title=\"Le Climat Bresilien\" flag=\"🇧🇷\">"
+    },
+    {
+      "article_id": "51ebd2c9-11ed-483e-8bb7-96f403f66c38",
+      "slug": "100-most-common-polish-words",
+      "target_lang": "pl",
+      "issue_type": "ipa_pronunciation",
+      "severity": "high",
+      "description": "Several VocabCards use IPA symbols instead of readable phonetic guides. /t\\u0268/ for 'ty', /m\\u0268/ for 'my', /mut\\u0361s/ for 'moc' are not helpful for French-speaking learners.",
+      "evidence": "pronunciation=\"/t\\u0268/\" pronunciation=\"/m\\u0268/\" pronunciation=\"/mut\\u0361s/\""
+    },
+    {
+      "article_id": "51ebd2c9-11ed-483e-8bb7-96f403f66c38",
+      "slug": "100-most-common-polish-words",
+      "target_lang": "pl",
+      "issue_type": "misleading_title",
+      "severity": "medium",
+      "description": "Title promises '100 most common words' but article only contains 35 VocabCard entries. Falls far short of the advertised count.",
+      "evidence": "35 VocabCard word entries found vs 100 promised in title"
+    },
+    {
+      "article_id": "51ebd2c9-11ed-483e-8bb7-96f403f66c38",
+      "slug": "100-most-common-polish-words",
+      "target_lang": "pl",
+      "issue_type": "thin_content",
+      "severity": "low",
+      "description": "Only 60 words of prose content. Minimal explanatory text between VocabCards.",
+      "evidence": "_wordCount: 60"
+    },
+    {
+      "article_id": "750cb5d9-aa0c-41e9-b0ae-14bf6b7a80b3",
+      "slug": "polish-public-transport-phrases-getting-around-together",
+      "target_lang": "pl",
+      "issue_type": "bracket_pronunciation",
+      "severity": "low",
+      "description": "VocabCard pronunciations include square brackets which is inconsistent with all other articles that use bare phonetic text. Minor formatting inconsistency.",
+      "evidence": "pronunciation=\"[gdie iesst pchi-sta-nek a-ou-to-bou-so-vi]\""
+    }
+  ],
+  "systemic_patterns": [
+    "Missing imports: 4 of 12 articles (articles 3, 4, 5, 6) are missing all import statements for Astro components. These articles use VocabCard, CultureTip, PhraseOfDay but will fail to render without imports.",
+    "Missing CTA: The same 4 articles without imports also lack a CTA component at the end, while the 8 articles with imports all have CTAs. Suggests a different generation pipeline for these articles.",
+    "Wrong-language examples: Both Italian articles (6, 7) have VocabCard examples written in French instead of Italian. The example field should demonstrate the target language word used in a target language sentence.",
+    "IPA in pronunciations: Spanish (article 2) and Polish (article 10) '100 most common words' articles use IPA slash notation (/ʝo/, /tɨ/, /mut͡s/) mixed with readable phonetic guides. French learners cannot use IPA without training.",
+    "Misleading '100 words' titles: Both '100 most common words' articles (Spanish with 52 words, Polish with 35 words) deliver far fewer than the promised 100 vocabulary items.",
+    "Duplicate flag attributes: Both Portuguese articles (8, 9) have CultureTip components with two 'flag' attributes (PT then BR). Appears to be a systematic generation issue for Portuguese content where the AI hedged between Portugal and Brazil.",
+    "Filler paragraphs: Articles 3 (Spanish shopping) and 5 (German texting) contain verbose introductory paragraphs before sections that describe what will be covered rather than teaching content. These read as AI-generated padding.",
+    "Content depth variance: Article word counts range from 60 to 2155, with articles 0, 2, 7, 8, 9, 10 all under 160 words of prose. The thin articles rely almost entirely on component tables with minimal pedagogical context."
+  ]
+}

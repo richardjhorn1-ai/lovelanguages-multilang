@@ -1,0 +1,437 @@
+{
+  "batchId": "tier2a-slim-0270",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "5afaf25f-d56b-4d9e-8d53-aa0bd4227fab",
+      "title": "Találkozás olasz partnered családjával: Alapvető kifejezések pároknak",
+      "native_lang": "hu",
+      "target_lang": "it",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Bemutatkozás és beszélgetés",
+          "subsections": [
+            "### Amikor bemutatnak téged:",
+            "### Kérdések, amikkel érdeklődhetsz:"
+          ]
+        },
+        {
+          "header": "## Udvarias kifejezések és formális helyzetek",
+          "subsections": [
+            "### Amikor ajándékot adsz:",
+            "### Étkezés közben:",
+            "### Távozáskor:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5b5c484a-1ca8-4c8c-9101-fad470da64c4",
+      "title": "Polonais Seul vs en Couple : Qui Gagne ?",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Pourquoi votre cerveau adore apprendre avec votre **ukochana osoba** (personne bien-aimée)",
+          "subsections": [
+            "### 1. Un **partner do konwersacji** (partenaire de conversation) intégré",
+            "### 2. Une motivation naturelle par la **konkurencja** (compétition)",
+            "### 3. Un filet de sécurité émotionnel"
+          ]
+        },
+        {
+          "header": "## La science derrière la **nauka w parze** (apprentissage en duo)",
+          "subsections": [
+            "### Amélioration de la mémoire",
+            "### Une responsabilisation qui fonctionne vraiment"
+          ]
+        },
+        {
+          "header": "## Les pièges courants de l'apprentissage en solitaire",
+          "subsections": [
+            "### Le problème de la prononciation",
+            "### Confusion grammaticale sans clarification",
+            "### Manque de contexte culturel"
+          ]
+        },
+        {
+          "header": "## Comment les couples accélèrent la maîtrise du polonais",
+          "subsections": [
+            "### 1. **Codzienne rozmowy** (Conversations quotidiennes)",
+            "### 2. **Wspólne cele** (Objectifs communs)",
+            "### 3. **Błędy jako zespół** (Erreurs en équipe)"
+          ]
+        },
+        {
+          "header": "## Surmonter les **typowe wyzwania** (défis courants)",
+          "subsections": [
+            "### Différentes vitesses d'apprentissage",
+            "### Dynamiques relationnelles",
+            "### Trouver du temps ensemble"
+          ]
+        },
+        {
+          "header": "## Faire fonctionner le système : **praktyczne wskazówki** (conseils pratiques)",
+          "subsections": [
+            "### Commencez petit",
+            "### Célébrez les **sukcesy** (succès)",
+            "### Créez des **tradycje** (traditions)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5e10b6ea-f066-4dad-8f92-6239bd5ab7a3",
+      "title": "Întâlnirea cu familia partenerului în rusă: Fraze esențiale pentru cupluri",
+      "native_lang": "ro",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Scenarii comune și dialoguri practice",
+          "subsections": [
+            "### Când te prezintă familiei",
+            "### La masă cu familia",
+            "### Conversații despre tine"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5ecbc951-58d0-4b15-8d6a-b72fa62c010f",
+      "title": "Guia de Pronúncia do Espanhol: Como Falar com seu Parceiro sem Medo",
+      "native_lang": "pt",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Erros Comuns que Brasileiros Cometem (e Como Evitar)",
+          "subsections": [
+            "### 1. Confundir R no Final",
+            "### 2. Pronunciar H",
+            "### 3. Transformar Ñ em NH Brasileiro",
+            "### 4. Sons de V e B",
+            "### 5. Acentuação Errada"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5fb113dd-e82d-4430-9b18-4ee41281fc40",
+      "title": "Grekiska Uttal för Nybörjare: Lär Dig Uttala Kärlek på Rätt Sätt",
+      "native_lang": "sv",
+      "target_lang": "el",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## De Svåraste Ljuden (och Hur Ni Lär Er Dem)",
+          "subsections": [
+            "### CH-ljudet (Χ χ)",
+            "### PS-ljudet (Ψ ψ)",
+            "### TS-ljudet (ΤΣ τσ)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "60f370c0-5fa5-4c84-8750-11d8e70f7908",
+      "title": "Hongaarse Uitspraak voor Beginners: Leer Samen de Juiste Klanken voor Je Partner",
+      "native_lang": "nl",
+      "target_lang": "hu",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De Gemeenschappelijke Fouten (En Hoe Ze Te Vermijden)",
+          "subsections": [
+            "### Top 5 Uitspraakfouten van Nederlanders"
+          ]
+        },
+        {
+          "header": "## Uitspraaktips voor de Dagelijkse Praktijk",
+          "subsections": [
+            "### Met Je Partner Oefenen",
+            "### Technische Trucs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "61438fcd-057b-4a3d-8254-31cc33d90266",
+      "title": "Russisk Grammatik for Begyndere: Lær at Udtrykke Kærlighed Korrekt",
+      "native_lang": "da",
+      "target_lang": "ru",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Grundreglerne: Det Skal I Vide",
+          "subsections": [
+            "### 1. Køn (Rod)",
+            "### 2. Personbøjning (Jeg, Du, Vi)",
+            "### 3. Ejeforhold (Hvad hører til hvem)"
+          ]
+        },
+        {
+          "header": "## Almindelige Fejl (og Hvordan I Undgår Dem)",
+          "subsections": [
+            "### 1. **Kønsforvirring**",
+            "### 2. **Verbtidspåvirkning**",
+            "### 3. **Ordstilling**",
+            "### 4. **Ejeforhold med kroppsdele**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "61c61e50-60fd-4ee1-9e08-73488c4226d2",
+      "title": "Rencontrer la Famille de Votre Partenaire Russe : Phrases Essentielles pour Créer une Belle Connexion",
+      "native_lang": "fr",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Scénarios Concrets : Que Dire et Quand",
+          "subsections": [
+            "### À l'Arrivée",
+            "### Pendant le Repas",
+            "### Conversation Générale"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6215e618-62bc-426d-a91d-e5ef84927d27",
+      "title": "Dialectes Polonais : Lequel Apprendre ?",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Principaux groupes de dialectes polonais",
+          "subsections": [
+            "### Grande-Pologne (Wielkopolska)",
+            "### Silésien (Śląski)",
+            "### Cachoube (Kaszubski)",
+            "### Petite-Pologne (Małopolska)"
+          ]
+        },
+        {
+          "header": "## Différences de prononciation régionales",
+          "subsections": [
+            "### Varsovie vs. Cracovie",
+            "### Influences orientales"
+          ]
+        },
+        {
+          "header": "## Ce que cela signifie pour les apprenants",
+          "subsections": [
+            "### Commencez par le polonais standard",
+            "### Adoptez la saveur régionale plus tard",
+            "### Ne vous inquiétez pas de l'accent parfait"
+          ]
+        },
+        {
+          "header": "## Polonais moderne : Ville vs. Campagne",
+          "subsections": [
+            "### Polonais urbain",
+            "### Polonais rural"
+          ]
+        },
+        {
+          "header": "## Conseils pratiques pour les couples",
+          "subsections": [
+            "### Choisissez votre style d'apprentissage",
+            "### Consommation de médias",
+            "### Planification de voyages"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "63237a56-2ed9-46d2-924c-2398f1aedf02",
+      "title": "Gramática Ucraniana para Principiantes: Aprende Juntos como Pareja",
+      "native_lang": "es",
+      "target_lang": "uk",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Las 5 Reglas Fundamentales",
+          "subsections": [
+            "### 1. El Orden de Palabras es Flexible (¡pero hay un patrón!)",
+            "### 2. No Artículos = Más Sencillo",
+            "### 3. Los Verbos se Conjugan por Persona",
+            "### 4. Los Adjetivos se Adaptan al Género",
+            "### 5. Las Preposiciones Son Tu Mejor Amiga"
+          ]
+        },
+        {
+          "header": "## Patrones Comunes en la Vida Diaria",
+          "subsections": [
+            "### Patrón 1: Yo + Verbo + Ti",
+            "### Patrión 2: Preguntas con \"Чи\" (¿Si?)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "645c1d19-3d3f-460c-b4cf-84a5c951df37",
+      "title": "Guia de Pronúncia Grega para Casais: Aprenda a Falar Com Amor",
+      "native_lang": "pt",
+      "target_lang": "el",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Os Sons Básicos do Grego",
+          "subsections": [
+            "### Vogais Gregas: Mais Simples do Que Parece",
+            "### Consoantes Que Confundem"
+          ]
+        },
+        {
+          "header": "## Combinações Difíceis (Mas Fáceis com Prática!)",
+          "subsections": [
+            "### \"ντ\" e \"μπ\" - Sons Especiais",
+            "### \"γγ\" e \"γκ\" - O Segredo dos Gregos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "64876a5b-610d-426f-a54b-5c26adefa8af",
+      "title": "Apps Polonais : Gratuites vs Payantes",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Analyse application par application : gratuit vs premium",
+          "subsections": [
+            "### Duolingo Plus (6,99 €/mois)",
+            "### Babbel (13,95 €/mois)",
+            "### Busuu Premium (9,99 €/mois)"
+          ]
+        },
+        {
+          "header": "## Les coûts cachés de l'apprentissage « gratuit »",
+          "subsections": [
+            "### Investissement en temps",
+            "### Facteur frustration"
+          ]
+        },
+        {
+          "header": "## Stratégies de dépenses intelligentes pour les couples",
+          "subsections": [
+            "### Le test de 3 mois",
+            "### Approche mix and match",
+            "### Mathématiques des forfaits famille"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "67325b48-e2f7-49fd-9edd-cfea69a3ae59",
+      "title": "Why Learn Polish With a Partner?",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Why Your Brain Loves Learning With Your **Ukochana Osoba** (Beloved Person)",
+          "subsections": [
+            "### 1. Built-in **Partner do Konwersacji** (Conversation Partner)",
+            "### 2. Natural Motivation Through **Konkurencja** (Competition)",
+            "### 3. Emotional Safety Net"
+          ]
+        },
+        {
+          "header": "## The Science Behind **Nauka w Parze** (Learning in Pairs)",
+          "subsections": [
+            "### Memory Enhancement",
+            "### Accountability That Actually Works"
+          ]
+        },
+        {
+          "header": "## Common Solo Learning Pitfalls",
+          "subsections": [
+            "### The Pronunciation Problem",
+            "### Grammar Confusion Without Clarification",
+            "### Lack of Cultural Context"
+          ]
+        },
+        {
+          "header": "## How Couples Accelerate Polish Mastery",
+          "subsections": [
+            "### 1. **Codzienne Rozmowy** (Daily Conversations)",
+            "### 2. **Wspólne Cele** (Shared Goals)",
+            "### 3. **Błędy jako Zespół** (Mistakes as a Team)"
+          ]
+        },
+        {
+          "header": "## Overcoming **Typowe Wyzwania** (Common Challenges)",
+          "subsections": [
+            "### Different Learning Speeds",
+            "### Relationship Dynamics",
+            "### Finding Time Together"
+          ]
+        },
+        {
+          "header": "## Making It Work: **Praktyczne Wskazówki** (Practical Tips)",
+          "subsections": [
+            "### Start Small",
+            "### Celebrate **Sukcesy** (Successes)",
+            "### Create **Tradycje** (Traditions)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "680bd958-c4b6-4bb0-bee7-2a19f74ba81e",
+      "title": "Poolse Uitspraak Gids voor Koppels: Klink als een Native Speaker",
+      "native_lang": "nl",
+      "target_lang": "pl",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Koppels Uitspraak Oefeningen",
+          "subsections": [
+            "### Romantische Minimal Pairs",
+            "### Jullie Eerste Romantische Zinnen"
+          ]
+        },
+        {
+          "header": "## Veelvoorkomende Fouten (en hoe ze te vermijden)",
+          "subsections": [
+            "### Fout #1: De \"Ł\" vergeten",
+            "### Fout #2: Te veel nadruk",
+            "### Fout #3: De \"ę\" verengelsen"
+          ]
+        },
+        {
+          "header": "## Praktijk Met Jullie Partner",
+          "subsections": [
+            "### Dagelijkse Oefening Routine",
+            "### Leuke Uitspraak Spelletjes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "68626f44-b580-4ab3-be5f-52341f943ae2",
+      "title": "Rencontrer la famille de votre partenaire roumain : phrases essentielles pour faire bonne impression",
+      "native_lang": "fr",
+      "target_lang": "ro",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Scénarios pratiques : impressionner à chaque étape",
+          "subsections": [
+            "### À l'arrivée : la première impression",
+            "### Autour du repas : les conversations à table",
+            "### Les questions personnelles : naviguer avec élégance"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,404 @@
+{
+  "batchId": "tier2a-slim-0224",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "e2aa401c-8488-48dd-9f47-7efd2eb28e0c",
+      "title": "50 Salutări și Rămas Bun Rusești pentru Cupluri: De la Primul Salut la Rămas Bun Dulce",
+      "native_lang": "ro",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Cum să Folosești Aceste Saluturi Împreună",
+          "subsections": [
+            "### 1. Creează Rutina Voastră Specială",
+            "### 2. Practicați cu Emoție",
+            "### 3. Combinați cu Alte Expresii",
+            "### 4. Folosiți Diminutivele"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2adbbc5-e2d8-40e7-95a8-4087e45ca0e5",
+      "title": "Gefühle auf Italienisch ausdrücken – Emotionen in deiner Beziehung teilen",
+      "native_lang": "de",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Positive Gefühle ausdrücken",
+          "subsections": [
+            "### Liebe und Zuneigung",
+            "### Glück und Freude"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2b1e3b6-daa6-41a6-a657-22cddc21a3df",
+      "title": "Російська лексика про вагітність та материнство",
+      "native_lang": "uk",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Основна лексика про вагітність",
+          "subsections": []
+        },
+        {
+          "header": "## Оголошення про вагітність російською",
+          "subsections": [
+            "### Як поділитися новиною"
+          ]
+        },
+        {
+          "header": "## Покупки для малюка",
+          "subsections": [
+            "### Що потрібно купити"
+          ]
+        },
+        {
+          "header": "## Пологи та лікарня",
+          "subsections": [
+            "### У пологовому будинку",
+            "### Після народження"
+          ]
+        },
+        {
+          "header": "## Перші місяці з малюком",
+          "subsections": [
+            "### Корисна лексика"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2ba1985-ca7a-4da2-8718-eba6cbda7012",
+      "title": "Dán nyelvtan kezdőknek: Egyszerű magyarázatok pároknak",
+      "native_lang": "hu",
+      "target_lang": "da",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Az 5 alapszabály, amit minden párnak tudnia kell",
+          "subsections": [
+            "### 1. A névelők mindig ott vannak",
+            "### 2. Az ige mindig a második helyen van",
+            "### 3. A névmások egyszerűek",
+            "### 4. A kérdések fordított sorrendűek",
+            "### 5. A többes szint -errel képezzük"
+          ]
+        },
+        {
+          "header": "## A leggyakoribb hibák, amiket elkerülhettek",
+          "subsections": [
+            "### 1. A névelők elfelejtése",
+            "### 2. Túlbonyolított mondatok",
+            "### 3. A szavak sorrendjének felcserélése kérdéseknél"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2c20d31-1706-481d-9e0d-0a6a84055dc0",
+      "title": "Portugalská gramatika pro začátečníky: Jak mluvit se svou láskou bez chyb",
+      "native_lang": "cs",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Základní pravidla: 4 pilíře portugalské gramatiky",
+          "subsections": [
+            "### 1. Mužský a ženský rod",
+            "### 2. Osobní zájmena (Pronomes pessoais)",
+            "### 3. Základní sloveso \"být\" (ser)",
+            "### 4. Členy (Artigos)"
+          ]
+        },
+        {
+          "header": "## Nejčastější chyby, kterým se vyhněte",
+          "subsections": [
+            "### 1. Nesprávný rod podstatných jmen",
+            "### 2. Zapomenutí předložky u \"gostar\"",
+            "### 3. Nesprávné použití \"ser\" vs. \"estar\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2ca0de4-2aa2-43f1-b45b-f77c920371c9",
+      "title": "Orosz flörtölős kifejezések",
+      "native_lang": "hu",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető flörtölős kifejezések",
+          "subsections": [
+            "### 1. Ты очень красивая (Tü ocseny kraszívaja)",
+            "### 2. У тебя прекрасные глаза (U tyebjá prekrásznije glazá)",
+            "### 3. Можно тебя пригласить на кофе? (Mozsna tyebjá priglaszity na kofe?)",
+            "### 4. Ты мне нравишься (Tü mnye nrávissza)",
+            "### 5. Хочу узнать тебя лучше (Hacsú uznat tyebjá lúcse)",
+            "### 6. Ты такая милая (Tü takája mílaja)",
+            "### 7. Можно твой номер телефона? (Mozsna tvoj nomer tyelefona?)",
+            "### 8. Ты мне очень симпатична (Tü mnye ocseny szimpatyícsna)",
+            "### 9. У тебя красивая улыбка (U tyebjá kraszívaja ulübka)",
+            "### 10. Давай встретимся снова (Daváj vsztretyimsza sznóva)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2db934c-dc13-4ae2-9655-6a52f3620e11",
+      "title": "Macarca Kıskançlık ve Güven İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kıskançlığı İfade Etme",
+          "subsections": [
+            "### 1. \"Kicsit féltékenynek érzem magam, amikor...\"",
+            "### 2. \"Meg tudnál nyugtatni?\"",
+            "### 3. \"Bízom benned, de bennük nem\"",
+            "### 4. \"Kényelmetlenül érzem magam, amikor...\"",
+            "### 5. \"Tudnom kell, hogy én vagyok a prioritásod\""
+          ]
+        },
+        {
+          "header": "## Güven İnşa Etme",
+          "subsections": [
+            "### 6. \"Teljesen megbízom benned\"",
+            "### 7. \"Te vagy az egyetlen nekem\"",
+            "### 8. \"Soha nem tennék semmit, ami fájna neked\"",
+            "### 9. \"Nincs miért aggódnod\"",
+            "### 10. \"Csak neked vagyok elkötelezett\"",
+            "### 11. \"Beszéljünk az aggodalmaidról\"",
+            "### 12. \"Mit tehetek, hogy biztonságban érezd magad?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2df8783-4927-470a-8f73-953e63c22d93",
+      "title": "Angol Kifejezések a Leendő Apósékhoz Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bemutatkozás",
+          "subsections": [
+            "### 1. It's so nice to finally meet you",
+            "### 2. I've heard so much about you",
+            "### 3. Thank you for having me"
+          ]
+        },
+        {
+          "header": "## A Kapcsolatról Beszélve",
+          "subsections": [
+            "### 4. Your son/daughter means everything to me",
+            "### 5. I'm so grateful to be part of your family",
+            "### 6. I promise to take good care of him/her"
+          ]
+        },
+        {
+          "header": "## Bókok és Dicséret",
+          "subsections": [
+            "### 7. You have a lovely home",
+            "### 8. This meal is delicious",
+            "### 9. I can see where he/she gets it from"
+          ]
+        },
+        {
+          "header": "## Érdeklődés a Család Iránt",
+          "subsections": [
+            "### 10. I'd love to hear more about your family traditions",
+            "### 11. What was he/she like as a child?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e3012ceb-4c29-4f7a-87c5-653e3e43e0b6",
+      "title": "Frases de Paquera em Italiano: Sedução com Paixão Mediterrânea",
+      "native_lang": "pt",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases Essenciais de Paquera",
+          "subsections": [
+            "### Elogios Apaixonados",
+            "### Expressando Atração",
+            "### Cantadas Italianas",
+            "### Para Relacionamentos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e30af629-4671-48b4-bf91-f8312f643c71",
+      "title": "Norwegian Flirting Phrases: Sweet Expressions for Your Kjæreste",
+      "native_lang": "en",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essential Flirting Phrases",
+          "subsections": [
+            "### Heartfelt Compliments",
+            "### Expressing Attraction",
+            "### Romantic Declarations",
+            "### Sweet Expressions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e30bfa74-6177-45c6-85a1-511b902b3f64",
+      "title": "Румынские фразы для примирения",
+      "native_lang": "ru",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Основные фразы для примирения",
+          "subsections": [
+            "### 1. Îmi pare rău, am greșit",
+            "### 2. Putem să ne împăcăm?",
+            "### 3. Nu am vrut să te rănesc",
+            "### 4. Te iubesc mai mult decât această ceartă",
+            "### 5. Hai să o luăm de la capăt",
+            "### 6. Te iert",
+            "### 7. Ce pot face ca să repar lucrurile?",
+            "### 8. Îmi lipsește fericirea noastră",
+            "### 9. Să nu ne culcăm supărați",
+            "### 10. Mulțumesc că încerci să mă înțelegi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e324a64d-d784-486c-bbb4-913e1e98c5aa",
+      "title": "Турецькі фрази про прощення",
+      "native_lang": "uk",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Прохання про прощення",
+          "subsections": [
+            "### \"Lütfen beni affet\"",
+            "### \"Umarım beni affedebilirsin\""
+          ]
+        },
+        {
+          "header": "## Надання прощення",
+          "subsections": [
+            "### \"Seni affediyorum\"",
+            "### \"Tamam, anlıyorum\"",
+            "### \"Herkes hata yapar\""
+          ]
+        },
+        {
+          "header": "## Обіцянки",
+          "subsections": [
+            "### \"Söz veriyorum, bir daha olmayacak\"",
+            "### \"Bunu nasıl telafi edebilirim?\"",
+            "### \"Bana bir şans daha ver\""
+          ]
+        },
+        {
+          "header": "## Труднощі",
+          "subsections": [
+            "### \"Henüz affetmeye hazır değilim\"",
+            "### \"Daha fazla zamana ihtiyacım var\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e3abc899-ee44-461b-9724-884198221a17",
+      "title": "Alinturile în Spaniolă pentru Partenerul Tău: Ghid Complet",
+      "native_lang": "ro",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Alinturi Regionale",
+          "subsections": [
+            "### Spania",
+            "### Mexic",
+            "### Argentina"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e3b71be3-272e-4480-9b47-02861dadacca",
+      "title": "Как сказать «Я тебя люблю» на итальянском",
+      "native_lang": "ru",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ответы на признание",
+          "subsections": [
+            "### Если чувства взаимны:"
+          ]
+        },
+        {
+          "header": "## Фразы для особых моментов",
+          "subsections": [
+            "### Утром:",
+            "### Перед сном:",
+            "### При расставании:"
+          ]
+        },
+        {
+          "header": "## Практика для пар",
+          "subsections": [
+            "### Утренний ритуал:",
+            "### Вечерний ритуал:",
+            "### В течение дня:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e3b7d6fe-aeb2-4a6d-82b4-1bc4787b61bb",
+      "title": "30 Polish Compliments for Your Partner",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Appearance Compliments",
+          "subsections": [
+            "### For Women (Feminine Forms)",
+            "### For Men (Masculine Forms)"
+          ]
+        },
+        {
+          "header": "## Specific Feature Compliments",
+          "subsections": [
+            "### Eyes - **Oczy** (Eyes)",
+            "### Hair - **Włosy** (Hair)",
+            "### Smile - **Uśmiech** (Smile)"
+          ]
+        },
+        {
+          "header": "## Advanced Compliment Structures",
+          "subsections": [
+            "### Using \"Jak\" (How/So)",
+            "### Using Superlatives"
+          ]
+        }
+      ]
+    }
+  ]
+}

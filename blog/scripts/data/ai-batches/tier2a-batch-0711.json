@@ -1,0 +1,115 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0711",
+  "articles": [
+    {
+      "id": "ce5f74b3-d1a2-44a0-ad0c-b83bb0155b97",
+      "title": "Schwedische Liebesbrief-Phrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "sv",
+      "category": "communication",
+      "content": "Schwedische Liebesbriefe zeichnen sich durch Aufrichtigkeit und Klarheit aus. Die Sprache ist melodisch und die Gefühle echt.\n\n## Anreden\n\n### \"Min älskade...\"\n**Bedeutung:** Mein/e Geliebte/r\n\n### \"Mitt hjärta...\"\n**Bedeutung:** Mein Herz\n\n### \"Min kärlek...\"\n**Bedeutung:** Meine Liebe\n\n### \"Älskling...\"\n**Bedeutung:** Liebling\n\n## Einleitungen\n\n### \"Jag skriver för att berätta hur mycket jag älskar dig\"\n**Bedeutung:** Ich schreibe, um dir zu sagen, wie sehr ich dich liebe\n\n### \"Det finns inga ord som kan beskriva vad jag känner för dig\"\n**Bedeutung:** Es gibt keine Worte, die beschreiben können, was ich für dich empfinde\n\n## Ausdrücke der Liebe\n\n### \"Du är det bästa som någonsin har hänt mig\"\n**Bedeutung:** Du bist das Beste, was mir je passiert ist\n\n### \"Mitt liv förändrades för alltid den dag jag träffade dig\"\n**Bedeutung:** Mein Leben hat sich für immer verändert an dem Tag, als ich dich traf\n\n### \"Jag blir mer förälskad i dig för varje dag\"\n**Bedeutung:** Ich verliebe mich jeden Tag mehr in dich\n\n### \"Du lyser upp mitt liv med din närvaro\"\n**Bedeutung:** Du erhellst mein Leben mit deiner Anwesenheit\n\n### \"Med dig har jag upptäckt vad sann kärlek är\"\n**Bedeutung:** Mit dir habe ich entdeckt, was wahre Liebe ist\n\n## Zukunftsversprechen\n\n### \"Jag lovar att älska dig villkorslöst\"\n**Bedeutung:** Ich verspreche, dich bedingungslos zu lieben\n\n### \"Jag vill tillbringa resten av mitt liv med dig\"\n**Bedeutung:** Ich möchte den Rest meines Lebens mit dir verbringen\n\n### \"Min kärlek till dig kommer bara att växa\"\n**Bedeutung:** Meine Liebe zu dir wird nur wachsen\n\n## Abschlüsse\n\n### \"Din för alltid...\"\n**Bedeutung:** Für immer dein/deine\n\n### \"Med all min kärlek...\"\n**Bedeutung:** Mit all meiner Liebe\n\n### \"Jag älskar dig, idag och för alltid\"\n**Bedeutung:** Ich liebe dich, heute und für immer\n\n## Kulturelle Hinweise\n\nSchweden schätzen Aufrichtigkeit. Ein einfacher, ehrlicher Brief bedeutet mehr als übertriebene Worte. \"Lagom\" – genau richtig – gilt auch für Liebesbriefe!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Anreden",
+              "## Einleitungen",
+              "## Ausdrücke der Liebe",
+              "## Zukunftsversprechen",
+              "## Abschlüsse"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ce723cb2-23c8-4bf3-93ef-e56fb0560ae1",
+      "title": "Νορβηγικές Φράσεις Συγχώρεσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "no",
+      "category": "communication",
+      "content": "Η συγχώρεση θεραπεύει. Όταν ο σύντροφός σας μιλάει νορβηγικά, αυτές οι φράσεις θα βοηθήσουν.\n\n## Φράσεις Συγχώρεσης\n\n### Αίτηση Συγχώρεσης\n\n<Phrase term=\"Vær så snill, tilgi meg\" pronunciation=\"Βερ σο σνιλ, τίλγκι μέι\">\n  <Trans>Σε παρακαλώ, συγχώρεσέ με</Trans>\n  <Note>Αίτηση</Note>\n</Phrase>\n\n<Phrase term=\"Jeg er virkelig lei meg for det jeg gjorde\" pronunciation=\"Γιάι ερ βίρκελιγκ λέι μέι φορ ντετ γιάι γιόρντε\">\n  <Trans>Λυπάμαι πραγματικά για αυτό που έκανα</Trans>\n  <Note>Αναγνώριση</Note>\n</Phrase>\n\n<Phrase term=\"Jeg vet at jeg såret deg\" pronunciation=\"Γιάι βετ ατ γιάι σόρετ ντέι\">\n  <Trans>Ξέρω ότι σε πλήγωσα</Trans>\n  <Note>Πόνος</Note>\n</Phrase>\n\n### Έκφραση Μετάνοιας\n\n<Phrase term=\"Jeg skal aldri gjøre det igjen\" pronunciation=\"Γιάι σκαλ άλντρι γιέρε ντετ ιγκέν\">\n  <Trans>Δεν θα το ξανακάνω</Trans>\n  <Note>Υπόσχεση</Note>\n</Phrase>\n\n<Phrase term=\"Jeg har lært leksen\" pronunciation=\"Γιάι χαρ λερτ λέκσεν\">\n  <Trans>Έμαθα το μάθημα</Trans>\n  <Note>Μάθηση</Note>\n</Phrase>\n\n<Phrase term=\"Jeg vil gjøre det godt igjen\" pronunciation=\"Γιάι βιλ γιέρε ντετ γκοτ ιγκέν\">\n  <Trans>Θέλω να το διορθώσω</Trans>\n  <Note>Επανόρθωση</Note>\n</Phrase>\n\n### Προσφορά Συγχώρεσης\n\n<Phrase term=\"Jeg tilgir deg\" pronunciation=\"Γιάι τίλγκιρ ντέι\">\n  <Trans>Σε συγχωρώ</Trans>\n  <Note>Συγχώρεση</Note>\n</Phrase>\n\n<Phrase term=\"La oss legge dette bak oss\" pronunciation=\"Λα ος λέγκε ντέτε μπακ ος\">\n  <Trans>Ας το αφήσουμε πίσω μας</Trans>\n  <Note>Νέα αρχή</Note>\n</Phrase>\n\n<Phrase term=\"Jeg er klar til å gå videre\" pronunciation=\"Γιάι ερ κλαρ τιλ ο γκο βίντερε\">\n  <Trans>Είμαι έτοιμος/η να προχωρήσω</Trans>\n  <Note>Δέσμευση</Note>\n</Phrase>\n\n### Χρόνος για Θεραπεία\n\n<Phrase term=\"Jeg trenger tid for å lege\" pronunciation=\"Γιάι τρένγκερ τιντ φορ ο λέγκε\">\n  <Trans>Χρειάζομαι χρόνο να επουλωθώ</Trans>\n  <Note>Χώρος</Note>\n</Phrase>\n\n<Phrase term=\"Jeg jobber med å tilgi deg\" pronunciation=\"Γιάι γιόμπερ μεντ ο τίλγκι ντέι\">\n  <Trans>Εργάζομαι για να σε συγχωρήσω</Trans>\n  <Note>Διαδικασία</Note>\n</Phrase>\n\n## Πολιτιστικές Συμβουλές\n\nΟι Νορβηγοί εκτιμούν την ισότητα και τον σεβασμό. Η συγχώρεση είναι θέμα αμοιβαίου σεβασμού.\n\n## Συμπέρασμα\n\nΜε αυτές τις φράσεις, μπορείτε να διαχειριστείτε τη συγχώρεση με τον νορβηγόφωνο σύντροφό σας.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 270,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Φράσεις Συγχώρεσης"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ce7cd93c-1b1e-4a0f-ba7c-8781af429225",
+      "title": "Spanyol évfordulós kívánságok és üzenetek",
+      "native_lang": "hu",
+      "target_lang": "es",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nAz évforduló a kapcsolatotok ünneplésének különleges alkalma. Ha spanyolul szeretnéd kifejezni az érzéseidet ezen a napon, ezek a kifejezések segítenek.\n\nTovábbi romantikus kifejezésekért nézd meg az [Spanyol romantikus kifejezések](/learn/hu/es/spanish-romantic-phrases-for-every-occasion) útmutatónkat.\n\n<PhraseOfDay\n  word=\"¡Felicidades!\"\n  translation=\"Gratulálok!\"\n  pronunciation=\"feliθiˈðaðes\"\n  context=\"Az esküvői köszöntés alapja.\"\n/>\n\n## Alapvető szókincs\n\nAz évfordulós köszöntések alapvető spanyol szókincse:\n\n<VocabCard\n  word=\"boda\"\n  translation=\"esküvő\"\n  pronunciation=\"ˈboða\"\n  example=\"La boda fue hermosa.\"\n/>\n\n| Spanyol | Magyar | Használat |\n|---|---|---|\n| novia | menyasszony | A nő |\n| novio | vőlegény | A férfi |\n| votos | fogadalmak | Esküvői ígéretek |\n| ceremonia | szertartás | A hivatalos rész |\n| recepción | fogadás | Az ünneplés |\n| brindis | köszöntő | Pohárköszöntő |\n\n<CultureTip flag=\"🌍\" title=\"Spanyol kulturális tippek\">\nA spanyol kultúrában az évfordulóknak különleges jelentőségük van. Egyes helyeken hagyományos ajándékokat adnak az évek számától függően.\n</CultureTip>\n\n## Hasznos kifejezések\n\n### Évfordulós köszöntések\n\nAz évforduló napján mondd:\n\n- **¡Felicidades!** - Gratulálok!\n- **Minden nap jobban szeretlek** - Romantikus vallomás\n- **Köszönöm, hogy velem vagy** - Hálás szavak\n\n### Hosszabb üzenetek\nHa többet szeretnél mondani:\n\n- **Veled minden nap különleges** - Romantikus\n- **A legjobb döntés volt, hogy igentet mondtam** - Visszatekintő\n\n<VocabCard\n  word=\"luna de miel\"\n  translation=\"nászút\"\n  pronunciation=\"ˈluna ðe mjel\"\n  example=\"Se fueron de luna de miel.\"\n/>\n\n## Gyakorlati helyzetek\n\n| Helyzet | Mit mondj |\n|---|---|\n| Reggeli köszöntés | Boldog évfordulót kívánok! |\n| Kártyára | Írj személyes üzenetet |\n| Vacsoránál | Mondj köszöntőt |\n| Lefekvés előtt | Fejezd ki a háládat |\n\n<CultureTip flag=\"💡\" title=\"Hasznos tipp\">\nÍrd le előre, amit mondani szeretnél. Az évforduló érzelmes pillanat, és a leírt szavak segítenek, hogy ne felejtsd el, amit mondani akarsz.\n</CultureTip>\n\n## Összefoglaló táblázat\n\n| Helyzet | Spanyol kifejezés |\n|---|---|\n| Gratuláció | ¡Felicidades! |\n| Az esemény | boda |\n| A nő | novia |\n| A férfi | novio |\n| Esküvői ígéretek | votos |\n\n## További tanulás\n\nHa tovább szeretnéd fejleszteni a spanyol nyelvtudásod, nézd meg ezeket a cikkeinket:\n\n- [Spanyol romantikus kifejezések minden alkalomra](/learn/hu/es/spanish-romantic-phrases-for-every-occasion)\n- [Hogyan mondd: Szeretlek spanyolul](/learn/hu/es/spanish-how-to-say-i-love-you)\n- [Spanyol alapvető kifejezések pároknak](/learn/hu/es/spanish-essential-phrases-for-couples)\n\nEzek a források segítenek elmélyíteni a tudásod és magabiztosabbá válni a spanyol nyelvben.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 272,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Hasznos kifejezések"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ce804eab-1f7c-489c-a19e-609efbd90f10",
+      "title": "Deense Zinnen over Jaloezie en Vertrouwen",
+      "native_lang": "nl",
+      "target_lang": "da",
+      "category": "communication",
+      "content": "Denen zijn direct en eerlijk. Deze zinnen helpen je om jaloezie te bespreken.\n\n## Essentiële zinnen\n\n### 1. \"Jeg føler mig usikker, når...\"\n**Betekenis:** Ik voel me onzeker wanneer...\n**Uitspraak:** *jai feu-ler mai oe-siek-er, nor*\n\n### 2. \"Jeg stoler fuldstændigt på dig\"\n**Betekenis:** Ik vertrouw je volledig\n**Uitspraak:** *jai sto-ler foel-sten-diet po dai*\n\n### 3. \"Kan du berolige mig?\"\n**Betekenis:** Kun je me geruststellen?\n**Uitspraak:** *kan due be-roe-lie-e mai*\n\n### 4. \"Jeg er ikke jaloux, bare bekymret\"\n**Betekenis:** Ik ben niet jaloers, alleen bezorgd\n**Uitspraak:** *jai er ie-ke zja-loe, ba-re be-kjem-ret*\n\n### 5. \"Hvem var den person, du talte med?\"\n**Betekenis:** Wie was de persoon met wie je praatte?\n**Uitspraak:** *vem var den per-son, due tal-te meed*\n\n### 6. \"Jeg har brug for at vide, at jeg kan stole på dig\"\n**Betekenis:** Ik moet weten dat ik je kan vertrouwen\n**Uitspraak:** *jai har broe for at vie-de, at jai kan sto-le po dai*\n\n### 7. \"Du har intet at bekymre dig om\"\n**Betekenis:** Je hebt je nergens zorgen over te maken\n**Uitspraak:** *due har ien-tet at be-kjem-re dai om*\n\n### 8. \"Jeg har kun øjne for dig\"\n**Betekenis:** Ik heb alleen oog voor jou\n**Uitspraak:** *jai har koen oi-ne for dai*\n\n### 9. \"Lad os tale om, hvad der bekymrer dig\"\n**Betekenis:** Laten we praten over wat je dwarszit\n**Uitspraak:** *la os ta-le om, va der be-kjem-rer dai*\n\n### 10. \"Jeg ville aldrig gøre noget for at såre dig\"\n**Betekenis:** Ik zou nooit iets doen om je pijn te doen\n**Uitspraak:** *jai vie-le al-drie geu-re noe-et for at so-re dai*\n\n### 11. \"Din fortid definerer ikke os\"\n**Betekenis:** Je verleden bepaalt ons niet\n**Uitspraak:** *dien for-tied de-fie-ne-rer ie-ke os*\n\n### 12. \"Jeg arbejder på mine usikkerheder\"\n**Betekenis:** Ik werk aan mijn onzekerheden\n**Uitspraak:** *jai ar-bai-der po mie-ne oe-siek-er-hee-der*\n\n## Conclusie\n\nGebruik deze zinnen voor directe communicatie over vertrouwen met je Deense partner.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Essentiële zinnen"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ce944678-469a-4eb1-9594-8d485bf66984",
+      "title": "Polske fraser til forsoning og genopbygning af tillid",
+      "native_lang": "da",
+      "target_lang": "pl",
+      "category": "communication",
+      "content": "Polsk kultur værdsætter både følelsesmæssig dybde og respekt. At kunne forsone sig på polsk viser din partner, at du tager forholdet alvorligt og ærer jeres forbindelse.\n\n## Forsoning på polsk\n\nI polsk kultur er en oprigtig undskyldning en ærefuld handling. Det kræver mod at indrømme fejl, og det respekteres dybt.\n\n## Fraser til forsoning\n\n### At undskylde oprigtigt\n\n<Phrase>\n  <Original>Przepraszam z całego serca</Original>\n  <Translation>Jeg undskylder af hele mit hjerte</Translation>\n  <Context>En dybtfølt undskyldning.</Context>\n  <Pronunciation>Psheh-prah-shahm z tsah-weh-goh sehr-tsah</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Nie chciałem/chciałam cię zranić</Original>\n  <Translation>Jeg ville ikke såre dig</Translation>\n  <Context>Forklar at skaden ikke var tilsigtet (m/f).</Context>\n  <Pronunciation>Nyeh khchyah-wem/khchyah-wahm chyeh zrah-neetch</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Myliłem/Myliłam się i to przyznaję</Original>\n  <Translation>Jeg tog fejl, og det indrømmer jeg</Translation>\n  <Context>Tag ansvar for din fejl (m/f).</Context>\n  <Pronunciation>Mih-lee-wem/Mih-lee-wahm shyeh ee toh pshih-znah-yeh</Pronunciation>\n</Phrase>\n\n### At genopbygge forbindelsen\n\n<Phrase>\n  <Original>Czy możemy zacząć od nowa?</Original>\n  <Translation>Kan vi starte forfra?</Translation>\n  <Context>Bed om en ny begyndelse.</Context>\n  <Pronunciation>Chih moh-zheh-mih zah-chonch od noh-vah</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Nienawidzę, kiedy się kłócimy</Original>\n  <Translation>Jeg hader, når vi skændes</Translation>\n  <Context>Udtryk dit ubehag ved konflikten.</Context>\n  <Pronunciation>Nyeh-nah-vee-dzeh kyeh-dih shyeh kwoo-chee-mih</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Jesteś dla mnie wszystkim</Original>\n  <Translation>Du er alt for mig</Translation>\n  <Context>Bekræft din partners betydning.</Context>\n  <Pronunciation>Yes-tesh dlah mnyeh fshist-keem</Pronunciation>\n</Phrase>\n\n### At tilbyde forsoning\n\n<Phrase>\n  <Original>Pozwól mi to naprawić</Original>\n  <Translation>Lad mig gøre det godt igen</Translation>\n  <Context>Tilbyd at kompensere for fejlen.</Context>\n  <Pronunciation>Poz-vool mee toh nah-prah-veetch</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Co mogę zrobić, żeby to naprawić?</Original>\n  <Translation>Hvad kan jeg gøre for at ordne det?</Translation>\n  <Context>Vis villighed til at handle.</Context>\n  <Pronunciation>Tso moh-geh zroh-beetch zheh-bih toh nah-prah-veetch</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Obiecuję, że będę lepszy/lepsza</Original>\n  <Translation>Jeg lover, at jeg vil blive bedre</Translation>\n  <Context>Giv et løfte om forbedring (m/f).</Context>\n  <Pronunciation>Oh-byeh-tsoo-yeh zheh ben-deh lep-shih/lep-shah</Pronunciation>\n</Phrase>\n\n### At acceptere en undskyldning\n\n<Phrase>\n  <Original>Wybaczam ci</Original>\n  <Translation>Jeg tilgiver dig</Translation>\n  <Context>Giv tilgivelse.</Context>\n  <Pronunciation>Vih-bah-chahm chee</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Zostawmy to za sobą</Original>\n  <Translation>Lad os lægge det bag os</Translation>\n  <Context>Signal om at gå fremad.</Context>\n  <Pronunciation>Zoh-stahv-mih toh zah soh-bom</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Kocham cię bez względu na wszystko</Original>\n  <Translation>Jeg elsker dig uanset hvad</Translation>\n  <Context>Bekræft kærligheden.</Context>\n  <Pronunciation>Koh-hahm chyeh bez vzglen-doo nah fshist-koh</Pronunciation>\n</Phrase>\n\n## Kulturelle tips\n\n1. **Respekt** - vis ydmyghed uden at miste værdighed\n2. **Oprigtighed** - polakker kan mærke, om undskyldningen er ægte\n3. **Handling** - følg op med konkrete handlinger\n4. **Familie** - respektér familiens rolle i jeres liv\n\nMed disse fraser kan du forsone dig på polsk med den respekt og oprigtighed, kulturen værdsætter.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Fraser til forsoning"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,370 @@
+{
+  "batchId": "tier2a-slim-0102",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "7813992d-898a-4247-98b8-d668c6bdf859",
+      "title": "Erreurs courantes des francophones en anglais",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Exercices pratiques pour couples",
+          "subsections": [
+            "### Jeu des faux amis",
+            "### Correction mutuelle",
+            "### Journal des erreurs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "783826a3-47e2-4a48-8c10-c89761e07a18",
+      "title": "Portugisisk Udtale for Begyndere: Sådan Lærer du at Udtale Kærlige Ord Korrekt",
+      "native_lang": "da",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De 5 Grundregler for Portugisisk Udtale",
+          "subsections": [
+            "### 1. Vokalerne er Kongerne",
+            "### 2. NH og LH = Bløde Magiske Lyde",
+            "### 3. R'et der Synger",
+            "### 4. De Stumme Bogstaver",
+            "### 5. Trykket Falder Naturligt"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "783fb85b-97b4-4ed1-b540-363dcd0fd231",
+      "title": "Çekçe Flört İfadeleri: Prag'da Aşk",
+      "native_lang": "tr",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Flört İfadeleri",
+          "subsections": [
+            "### 1. \"Jsi krásná\"",
+            "### 2. \"Líbí se mi tvůj úsměv\"",
+            "### 3. \"Dáš si se mnou kafe?\"",
+            "### 4. \"Máš krásné oči\"",
+            "### 5. \"Pořád na tebe myslím\"",
+            "### 6. \"Dělá mi dobře být s tebou\"",
+            "### 7. \"Mohu tě pozvat na drink?\"",
+            "### 8. \"Rád bych tě viděl znovu\"",
+            "### 9. \"Jsi výjimečná\"",
+            "### 10. \"Můžeme se znovu sejít?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7841ed8f-bad8-4147-b07e-d6beaceaabf9",
+      "title": "Hiányzol Kifejezések Norvégul – Jeg Savner Deg és Más",
+      "native_lang": "hu",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Hiányzol Kifejezések",
+          "subsections": [
+            "### 1. Jeg savner deg",
+            "### 2. Jeg savner deg så mye",
+            "### 3. Jeg savner deg veldig mye",
+            "### 4. Jeg kan ikke slutte å tenke på deg",
+            "### 5. Jeg skulle ønske du var her",
+            "### 6. Det føles tomt uten deg",
+            "### 7. Jeg teller dagene til jeg ser deg igjen",
+            "### 8. Du er alltid i tankene mine",
+            "### 9. Jeg lengter etter deg",
+            "### 10. Uten deg er jeg ikke hel"
+          ]
+        },
+        {
+          "header": "## Kulturális Tippek",
+          "subsections": [
+            "### Norvég Természetesség",
+            "### Természetszeretet",
+            "### Janteloven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7852dc07-2fb0-4b64-adb7-d69b7c808491",
+      "title": "Ολλανδικές Φράσεις για Ζήλια & Εμπιστοσύνη: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για Ζήλια & Εμπιστοσύνη",
+          "subsections": [
+            "### Έκφραση Ανησυχίας",
+            "### Χτίσιμο Εμπιστοσύνης",
+            "### Αντιμετώπιση Ζήλιας",
+            "### Συζήτηση για Όρια"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "78557897-f9de-4a47-9f0a-d17bf306077f",
+      "title": "Rumænsk kælenavne og kærlige udtryk for par",
+      "native_lang": "da",
+      "target_lang": "ro",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Kælenavne til forskellige lejligheder",
+          "subsections": [
+            "### I hverdagen",
+            "### Til romantiske øjeblikke",
+            "### Til at drille"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "785bf1a6-f5cf-4b71-b3e9-9deefae2e2de",
+      "title": "45 Romence Selamlaşma ve Vedalaşma: İlk Merhaba'dan Tatlı Hoşçakal'a",
+      "native_lang": "tr",
+      "target_lang": "ro",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Özel Durumlar İçin Selamlaşmalar",
+          "subsections": [
+            "### Tatilde",
+            "### Yemek Zamanı"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7872726a-0d57-498e-8e70-6ad4620968c3",
+      "title": "50+ Franse Koosnaampjes om Harten te Laten Smelten",
+      "native_lang": "nl",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Regionale Verschillen",
+          "subsections": [
+            "### Zuid-Frankrijk",
+            "### België",
+            "### Zwitserland",
+            "### Quebec"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "787d7fbd-b7be-4c2c-b6c0-ce7b7c66da6d",
+      "title": "Φράσεις για Γνωριμία με τους Πεθερικούς στα Αγγλικά",
+      "native_lang": "el",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για την Πρώτη Γνωριμία",
+          "subsections": [
+            "### 1. It's so nice to finally meet you (Ιτς σο νάις του φάιναλι μιτ γιου)",
+            "### 2. I've heard so much about you (Άιβ χερντ σο ματς αμπάουτ γιου)",
+            "### 3. Thank you for welcoming me into your home (Θανκ γιου φορ γουέλκαμινγκ μι ίντου γιορ χόουμ)"
+          ]
+        },
+        {
+          "header": "## Φράσεις Εκτίμησης",
+          "subsections": [
+            "### 4. Your son/daughter is wonderful (Γιορ σαν/ντότερ ιζ γουόντερφουλ)",
+            "### 5. You've raised an amazing person (Γιουβ ρέιζντ αν αμέιζινγκ πέρσον)",
+            "### 6. The food is delicious (Δε φουντ ιζ ντελίσιους)",
+            "### 7. You have a lovely home (Γιου χαβ ε λάβλι χόουμ)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για Συζήτηση",
+          "subsections": [
+            "### 8. I'd love to hear more about your family (Άιντ λαβ του χίαρ μορ αμπάουτ γιορ φάμιλι)",
+            "### 9. What was he/she like as a child? (Γουότ γουοζ χι/σι λάικ αζ ε τσάιλντ)",
+            "### 10. I hope we can spend more time together (Άι χόουπ γουι καν σπεντ μορ τάιμ τουγκέδερ)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7892eaff-963d-4b2a-b4d6-1a8ed8e71a8b",
+      "title": "Ukrainske sms- og chatbeskeder til par",
+      "native_lang": "da",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende kærlige beskeder",
+          "subsections": [
+            "### \"Я сумую за тобою\" (Ya sumuyu za toboyu)",
+            "### \"Думаю про тебе\" (Dumayu pro tebe)",
+            "### \"Не можу дочекатися зустрічі\" (Ne mozhu dochekaty zustrichi)"
+          ]
+        },
+        {
+          "header": "## Populære ukrainske kælenavne",
+          "subsections": [
+            "### \"Коханий\" / \"Кохана\" (Kokhaniy/Kokhana)",
+            "### \"Сонечко\" (Sonechko)",
+            "### \"Любий\" / \"Люба\" (Lyubiy/Lyuba)"
+          ]
+        },
+        {
+          "header": "## Ukrainske sms-forkortelser",
+          "subsections": [
+            "### \"Я тебе кохаю\" (Ya tebe kokhayu)",
+            "### \"Цілую\" (Tsiluyu)",
+            "### \"Добраніч\" (Dobranich)"
+          ]
+        },
+        {
+          "header": "## Romantiske beskeder",
+          "subsections": [
+            "### \"Ти для мене все\" (Ty dlya mene vse)",
+            "### \"Доброго ранку, кохана\" (Dobroho ranku, kokhana)",
+            "### \"Солодких снів\" (Solodkykh sniv)"
+          ]
+        },
+        {
+          "header": "## Hverdagsbeskeder",
+          "subsections": [
+            "### \"Як справи?\" (Yak spravy?)",
+            "### \"Вже їду\" (Vzhe yidu)",
+            "### \"Бувай\" (Buvay)"
+          ]
+        },
+        {
+          "header": "## Specielle udtryk",
+          "subsections": [
+            "### \"Зайчик\" / \"Зайка\" (Zaychyk/Zayka)",
+            "### \"Ти моє щастя\" (Ty moye shchastya)",
+            "### \"Обіймаю\" (Obiymayo)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7899e738-cda8-49ef-9284-b24eb4bcfb53",
+      "title": "Neerlandes: 12 Formas Sinceras de Decir Te Quiero",
+      "native_lang": "es",
+      "target_lang": "nl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Frases Románticas Para Derretir Corazones",
+          "subsections": [
+            "### \"Significas Todo Para Mí\"",
+            "### \"No Puedo Vivir Sin Ti\"",
+            "### \"Eres el Amor de Mi Vida\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "78b0bb17-0968-4284-965f-1679b09e0965",
+      "title": "Vocabulario de Comida Ucraniana para Parejas",
+      "native_lang": "es",
+      "target_lang": "uk",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Platos Tradicionales",
+          "subsections": [
+            "### El Famoso Борщ",
+            "### Вареники",
+            "### Otros Platos Principales"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "78c287e1-2d25-4e8b-a55b-ffa8f1b4de86",
+      "title": "Lehçe Telaffuz Rehberi: Partnerinizle Birlikte Doğru Konuşmanın Yolu",
+      "native_lang": "tr",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## En Zor 5 Ses ve Çözümleri",
+          "subsections": [
+            "### 1. Ą ve Ę - Burun Sesleri",
+            "### 2. CZ, SZ, DZ - Sessiz Harf Kombinasyonları",
+            "### 3. Ł - Yumuşak L",
+            "### 4. Ń - Yumuşak N",
+            "### 5. RZ - Karışık Bir Ses"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "78cff8c4-bfd9-4662-97a0-4795d465e59e",
+      "title": "Çekçe İlk Buluşma İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Karşılama",
+          "subsections": [
+            "### 1. \"Je tak hezké tě konečně potkat\"",
+            "### 2. \"Vypadáš ještě lépe než na fotkách\"",
+            "### 3. \"Moc jsem se na toto setkání těšil/a\""
+          ]
+        },
+        {
+          "header": "## Sohbet",
+          "subsections": [
+            "### 4. \"Pověz mi o sobě\"",
+            "### 5. \"Co rád/a děláš ve volném čase?\"",
+            "### 6. \"Byl/a jsi tady už dříve?\""
+          ]
+        },
+        {
+          "header": "## İltifatlar",
+          "subsections": [
+            "### 7. \"Máš krásný úsměv\"",
+            "### 8. \"Líbí se mi tvůj styl\"",
+            "### 9. \"Je snadné si s tebou povídat\""
+          ]
+        },
+        {
+          "header": "## Sonlandırma",
+          "subsections": [
+            "### 10. \"Moc jsem si to užil/a\"",
+            "### 11. \"Můžeme to zopakovat?\"",
+            "### 12. \"Rád/a bych tě zase viděl/a\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "78f83144-071d-4207-9ec8-9e6c8fd85866",
+      "title": "Romanian Flirting Phrases: Romantic Expressions for Your Iubire",
+      "native_lang": "en",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essential Flirting Phrases",
+          "subsections": [
+            "### Heartfelt Compliments",
+            "### Expressing Attraction",
+            "### Romantic Declarations",
+            "### Sweet Expressions"
+          ]
+        }
+      ]
+    }
+  ]
+}

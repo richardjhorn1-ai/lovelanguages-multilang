@@ -1,0 +1,542 @@
+{
+  "batchId": "tier2a-slim-0170",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "b41453de-2d1e-4db9-baad-01ce199b9364",
+      "title": "Roemeens Uitspraak Gids voor Beginners: Klink als een Local met je Partner",
+      "native_lang": "nl",
+      "target_lang": "ro",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De Roemeense Klankenkast",
+          "subsections": [
+            "### Klinkers (Vocale)",
+            "### Medeklinkers (Consoane)"
+          ]
+        },
+        {
+          "header": "## Praktische Uitspraakoefeningen voor Koppels",
+          "subsections": [
+            "### Level 1: Eenvoudige Romantische Woorden",
+            "### Level 2: Essentiële Zinnetjes"
+          ]
+        },
+        {
+          "header": "## Veelvoorkomende Fouten (en Hoe Ze te Vermijden)",
+          "subsections": [
+            "### Fout #1: De 'ă' vergeten",
+            "### Fout #2: Te harde 'c'",
+            "### Fout #3: Nederlandse 'g' gebruiken",
+            "### Fout #4: Rolle R vergeten"
+          ]
+        },
+        {
+          "header": "## Uitspraak Hacks voor Koppels",
+          "subsections": [
+            "### De Echo-methode",
+            "### De Fluisteroefening",
+            "### De Telefoon-test"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b4284d00-e891-4708-b0e6-258864a96c7a",
+      "title": "Schwedische Hochzeitsphrasen und romantische Glückwünsche",
+      "native_lang": "de",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Die wichtigsten Hochzeitsphrasen",
+          "subsections": [
+            "### Der Heiratsantrag",
+            "### Das Ehegelübde",
+            "### Glückwünsche aussprechen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b42bf178-9425-4c5d-af49-5930d7786c78",
+      "title": "Grekiska fraser för att säga 'Jag saknar dig' – Uttryck längtan på grekiska",
+      "native_lang": "sv",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande fraser",
+          "subsections": [
+            "### \"Μου λείπεις\" (Mou leípeis)",
+            "### \"Μου λείπεις πολύ\" (Mou leípeis polý)",
+            "### \"Σκέφτομαι συνέχεια εσένα\" (Skéftomai synécheia eséna)"
+          ]
+        },
+        {
+          "header": "## Djupare uttryck",
+          "subsections": [
+            "### \"Η καρδιά μου σε λαχταρά\" (I kardiá mou se lachtará)",
+            "### \"Κάθε λεπτό χωρίς εσένα είναι αιωνιότητα\" (Káthe leptó chorís eséna eínai aionióthita)",
+            "### \"Χωρίς εσένα νιώθω ελλιπής\" (Chorís eséna niotho ellipís)"
+          ]
+        },
+        {
+          "header": "## Romantiska kvällsfraser",
+          "subsections": [
+            "### \"Μου λείπει να κοιμάμαι δίπλα σου\" (Mou leípei na koimámai dípla sou)",
+            "### \"Το κρεβάτι είναι άδειο χωρίς εσένα\" (To kreváti eínai ádeio chorís eséna)",
+            "### \"Μου λείπει η ζεστασιά σου\" (Mou leípei i zestasiá sou)"
+          ]
+        },
+        {
+          "header": "## Vardagliga uttryck",
+          "subsections": [
+            "### \"Σήμερα είδα κάτι που μου θύμισε εσένα\" (Símera eída káti pou mou thýmise eséna)",
+            "### \"Μου λείπουν οι μικρές στιγμές μας\" (Mou leípoun oi mikrés stigmés mas)",
+            "### \"Όλα μου θυμίζουν εσένα\" (Óla mou thymízoun eséna)"
+          ]
+        },
+        {
+          "header": "## Hoppfulla fraser",
+          "subsections": [
+            "### \"Ανυπομονώ να σε ξαναδώ\" (Anypomonó na se xanadó)",
+            "### \"Μετράω τις μέρες μέχρι να συναντηθούμε\" (Metráo tis méres méchri na synantithoúme)",
+            "### \"Σύντομα θα είμαστε πάλι μαζί\" (Sýntoma tha eímaste páli mazí)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b4447afc-209d-4fb2-8194-ed1ce89a1f2d",
+      "title": "Grekiska SMS- och chattfraser för kärleksrelationer",
+      "native_lang": "sv",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Morgonhälsningar",
+          "subsections": [
+            "### \"Καλημέρα, αγάπη μου\"",
+            "### \"Γεια σου, μωρό μου\"",
+            "### \"Πώς κοιμήθηκες, καρδιά μου;\""
+          ]
+        },
+        {
+          "header": "## Att uttrycka saknad",
+          "subsections": [
+            "### \"Μου λείπεις\"",
+            "### \"Μου λείπεις πολύ\"",
+            "### \"Σκέφτομαι εσένα συνέχεια\"",
+            "### \"Ανυπομονώ να σε δω\""
+          ]
+        },
+        {
+          "header": "## Kärleksförklaringar",
+          "subsections": [
+            "### \"Σ'αγαπώ\"",
+            "### \"Σ'αγαπώ πολύ\"",
+            "### \"Σ'αγαπώ με όλη μου την καρδιά\"",
+            "### \"Είσαι η αγάπη της ζωής μου\"",
+            "### \"Είσαι τα πάντα για μένα\""
+          ]
+        },
+        {
+          "header": "## Flirtiga meddelanden",
+          "subsections": [
+            "### \"Με κάνεις ευτυχισμένο/ευτυχισμένη\"",
+            "### \"Είσαι πανέμορφη\" / \"Είσαι πολύ όμορφος\"",
+            "### \"Είμαι τρελός/τρελή για σένα\"",
+            "### \"Μου έκλεψες την καρδιά\""
+          ]
+        },
+        {
+          "header": "## Godnattmeddelanden",
+          "subsections": [
+            "### \"Καληνύχτα, αγάπη μου\"",
+            "### \"Όνειρα γλυκά\"",
+            "### \"Σε φιλώ\"",
+            "### \"Φιλιά πολλά\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b44a6e63-9e2e-42f0-8f84-a05245760193",
+      "title": "Sådan Undskylder Du på Græsk: Vejledning for Par",
+      "native_lang": "da",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Specifikke Situationer",
+          "subsections": [
+            "### Når Du Har Glemt Noget",
+            "### Når Du Har Sagt Noget Sårende",
+            "### Når Du Er Kommet For Sent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b456bcb7-08dc-43f3-be8e-013c8f12bf50",
+      "title": "Como Escrever Cartas de Amor em Espanhol: Romance Latino",
+      "native_lang": "pt",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Estrutura de uma Carta de Amor",
+          "subsections": [
+            "### Abertura Carinhosa",
+            "### Expressando Seus Sentimentos",
+            "### Elogiando Seu Amor",
+            "### Declarações de Amor",
+            "### Promessas e Compromissos",
+            "### Encerramentos Românticos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b47bcdee-d72d-4525-815b-c87e62b45ba3",
+      "title": "Lengyel kifejezések első randira",
+      "native_lang": "hu",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bemutatkozás",
+          "subsections": [
+            "### 1. \"Miło cię wreszcie poznać\"",
+            "### 2. \"Wyglądasz wspaniale\"",
+            "### 3. \"Opowiedz mi o sobie\"",
+            "### 4. \"Czym się zajmujesz?\"",
+            "### 5. \"Jakie masz hobby?\""
+          ]
+        },
+        {
+          "header": "## Beszélgetés",
+          "subsections": [
+            "### 6. \"To naprawdę interesujące\"",
+            "### 7. \"Czuję to samo\"",
+            "### 8. \"Jaką muzykę lubisz?\"",
+            "### 9. \"Dużo podróżowałeś/aś?\"",
+            "### 10. \"Świetnie się bawię\""
+          ]
+        },
+        {
+          "header": "## Randi vége",
+          "subsections": [
+            "### 11. \"Wspaniale spędziłem/am czas\"",
+            "### 12. \"Możemy się jeszcze spotkać?\"",
+            "### 13. \"Chętnie bym to powtórzył/a\"",
+            "### 14. \"Mogę cię odprowadzić do domu?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b47d3718-c548-4715-9041-cf6973424616",
+      "title": "Turks vs. Nederlands: De Belangrijkste Verschillen",
+      "native_lang": "nl",
+      "target_lang": "tr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Uitspraak",
+          "subsections": [
+            "### Speciale Letters"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b48207fc-dee0-4244-9861-50dac5c4483b",
+      "title": "50 Dán Randi Esti Kifejezés, Amivel Elbűvölheted a Párodat",
+      "native_lang": "hu",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Szórakozás és Programok",
+          "subsections": [
+            "### Film és Színház",
+            "### Zene és Tánc",
+            "### Kinti Programok"
+          ]
+        },
+        {
+          "header": "## Italok a Randihoz",
+          "subsections": [
+            "### Bortípusok",
+            "### Sör és Koktélok"
+          ]
+        },
+        {
+          "header": "## Hogyan Használd Ezeket a Randi Szavakat",
+          "subsections": [
+            "### Gyakorlási Tippek Pároknak",
+            "### Gyakori Hibák Elkerülése"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b48960fa-adce-40a0-bef9-7422ab3a7edf",
+      "title": "Phrases de réconfort en italien : Soutenir son partenaire",
+      "native_lang": "fr",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Phrases de réconfort de base",
+          "subsections": [
+            "### \"Sono qui per te\"",
+            "### \"Andrà tutto bene\"",
+            "### \"Non sei solo/sola in questo\""
+          ]
+        },
+        {
+          "header": "## Écouter et valider",
+          "subsections": [
+            "### \"Capisco come ti senti\"",
+            "### \"È normale sentirsi così\"",
+            "### \"I tuoi sentimenti sono validi\""
+          ]
+        },
+        {
+          "header": "## Offrir du soutien actif",
+          "subsections": [
+            "### \"Cosa posso fare per aiutarti?\"",
+            "### \"Sono sempre qui per ascoltarti\""
+          ]
+        },
+        {
+          "header": "## Encouragement",
+          "subsections": [
+            "### \"Sei più forte di quanto pensi\"",
+            "### \"Credo in te\"",
+            "### \"Ce la farai\""
+          ]
+        },
+        {
+          "header": "## Moments difficiles",
+          "subsections": [
+            "### \"Mi dispiace tanto che stai passando questo\"",
+            "### \"Lasciami abbracciarti\"",
+            "### \"Supereremo questo insieme\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b49b3670-e3fe-442d-ad10-0177bec7ca9e",
+      "title": "Slang Portughez pentru Mesaje: Ghid pentru Cupluri",
+      "native_lang": "ro",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Mesaje de Dimineață și Seară",
+          "subsections": [
+            "### Dimineața",
+            "### Seara"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Situații Speciale",
+          "subsections": [
+            "### Când Vă Certați",
+            "### Când Vă Împăcați"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b4a05294-c69e-4f02-a9c9-c579fc34c46a",
+      "title": "Urări de Aniversare în Poloneză: Mesaje Romantice pentru Partener",
+      "native_lang": "ro",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Mesaje Romantice",
+          "subsections": [
+            "### Pentru Prima Aniversare",
+            "### Pentru Aniversări Mai Lungi"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Diferite Aniversări",
+          "subsections": [
+            "### 1-5 Ani",
+            "### 5-10 Ani",
+            "### 10+ Ani"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Carduri",
+          "subsections": [
+            "### Scurte și Dulci",
+            "### Mesaje Lungi"
+          ]
+        },
+        {
+          "header": "## Amintiri de Împărtășit",
+          "subsections": [
+            "### Întrebări pentru Reflecție"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b4a8298b-f084-4e40-812c-007c230eadea",
+      "title": "100 Meest Gebruikte Turkse Woorden voor Relaties",
+      "native_lang": "nl",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Basis liefdeswoorden",
+          "subsections": [
+            "### 1. Aşk - *asjk* - Liefde",
+            "### 2. Kalp - *kalp* - Hart",
+            "### 3. Öpücük - *eu-pue-dzjuek* - Kus",
+            "### 4. Sarılmak - *sa-riel-mak* - Knuffel",
+            "### 5. Birlikte - *bier-liek-te* - Samen",
+            "### 6. Sonsuza kadar - *son-soe-za ka-dar* - Voor altijd",
+            "### 7. Her zaman - *her za-man* - Altijd",
+            "### 8. Güzel - *gue-zel* - Mooi",
+            "### 9. Mutlu - *moet-loe* - Gelukkig",
+            "### 10. Sevgilim - *sev-gie-liem* - Schat"
+          ]
+        },
+        {
+          "header": "## Dagelijkse communicatie",
+          "subsections": [
+            "### 11. Evet - *e-vet* - Ja",
+            "### 12. Hayır - *ha-jier* - Nee",
+            "### 13. Lütfen - *luet-fen* - Alsjeblieft",
+            "### 14. Teşekkürler - *te-sjek-kuer-ler* - Dank je",
+            "### 15. Özür dilerim - *eu-zuer die-le-riem* - Sorry",
+            "### 16. Günaydın - *gue-naj-dien* - Goedemorgen",
+            "### 17. İyi geceler - *ie-jie ge-dje-ler* - Goedenacht",
+            "### 18. Merhaba - *mer-ha-ba* - Hallo",
+            "### 19. Hoşça kal - *hosj-tsja kal* - Tot ziens",
+            "### 20. Nasılsın? - *na-siel-sien* - Hoe gaat het?"
+          ]
+        },
+        {
+          "header": "## Gevoelens uitdrukken",
+          "subsections": [
+            "### 21. Seni seviyorum - *se-nie se-vie-jo-roem* - Ik hou van je",
+            "### 22. Seni özledim - *se-nie euz-le-diem* - Ik mis je",
+            "### 23. Sana ihtiyacım var - *sa-na iech-tie-ja-dzjiem var* - Ik heb je nodig",
+            "### 24. Sana güveniyorum - *sa-na gue-ve-nie-jo-roem* - Ik vertrouw je",
+            "### 25. Seni affediyorum - *se-nie af-fe-die-jo-roem* - Ik vergeef je",
+            "### 26. Anlıyorum - *an-lie-jo-roem* - Ik begrijp het",
+            "### 27. Beni mutlu ediyorsun - *be-nie moet-loe e-die-jor-soen* - Je maakt me gelukkig",
+            "### 28. Seni düşünüyorum - *se-nie due-sjue-nue-jo-roem* - Ik denk aan je"
+          ]
+        },
+        {
+          "header": "## Tijd",
+          "subsections": [
+            "### 29. Bugün - *boe-guen* - Vandaag",
+            "### 30. Yarın - *ja-rien* - Morgen",
+            "### 31. Dün - *duen* - Gisteren",
+            "### 32. Şimdi - *sjiem-die* - Nu",
+            "### 33. Sonra - *son-ra* - Later",
+            "### 34. Yakında - *ja-kien-da* - Binnenkort",
+            "### 35. Asla - *as-la* - Nooit",
+            "### 36. Bazen - *ba-zen* - Soms",
+            "### 37. Sık sık - *siek siek* - Vaak"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b4b15c83-f95b-44bb-84b0-3b41e72856e8",
+      "title": "Vocabular pentru Bebeluși și Sarcină în Greacă: Expresii Esențiale",
+      "native_lang": "ro",
+      "target_lang": "el",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Anunțarea Sarcinii",
+          "subsections": [
+            "### Expresii pentru Anunț",
+            "### Anunțuri Creative"
+          ]
+        },
+        {
+          "header": "## Vocabular Medical",
+          "subsections": [
+            "### Termeni pentru Consultații"
+          ]
+        },
+        {
+          "header": "## Evoluția Sarcinii",
+          "subsections": [
+            "### Primul Trimestru (Săptămânile 1-12)",
+            "### Al Doilea Trimestru (Săptămânile 13-26)",
+            "### Al Treilea Trimestru (Săptămânile 27-40)"
+          ]
+        },
+        {
+          "header": "## Pregătirea pentru Bebeluș",
+          "subsections": [
+            "### Obiecte Esențiale",
+            "### Camera Bebelușului"
+          ]
+        },
+        {
+          "header": "## Expresii de Felicitare",
+          "subsections": [
+            "### Pentru Anunț",
+            "### Pentru Naștere"
+          ]
+        },
+        {
+          "header": "## Tradiții și Superstiții",
+          "subsections": [
+            "### Superstiții Comune"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b4d16a98-39f2-4119-99da-25b7aa062e43",
+      "title": "Polska Fraser för Försoning och Att Göra Upp",
+      "native_lang": "sv",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Inleda Försoning",
+          "subsections": [
+            "### 1. \"Przepraszam\"",
+            "### 2. \"Czy możemy zacząć od nowa?\"",
+            "### 3. \"Nienawidzę się z tobą kłócić\"",
+            "### 4. \"Jesteś dla mnie wszystkim\"",
+            "### 5. \"Myliłem/am się i przyznaję to\""
+          ]
+        },
+        {
+          "header": "## Fraser för Djupare Försoning",
+          "subsections": [
+            "### 6. \"Nie kładźmy się spać zli na siebie\"",
+            "### 7. \"Kocham cię bardziej niż jakąkolwiek kłótnię\"",
+            "### 8. \"Mogę cię przytulić?\"",
+            "### 9. \"Chcę cię lepiej zrozumieć\"",
+            "### 10. \"Jesteśmy silniejsi niż to\"",
+            "### 11. \"Obiecuję być lepszy/a\"",
+            "### 12. \"Dziękuję za cierpliwość do mnie\""
+          ]
+        }
+      ]
+    }
+  ]
+}

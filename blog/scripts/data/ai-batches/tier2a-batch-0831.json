@@ -1,0 +1,126 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0831",
+  "articles": [
+    {
+      "id": "ee89d6e9-c61a-4fa3-80ce-7bce97d92ea6",
+      "title": "Expresii 'Mi-e Dor de Tine' în Portugheză pentru Români",
+      "native_lang": "ro",
+      "target_lang": "pt",
+      "category": "communication",
+      "content": "Portugheza are un cuvânt special pentru dor - \"saudade\" - care exprimă un sentiment profund și complex de lipsă. Nicio altă limbă nu surprinde acest sentiment la fel de bine.\n\n## Magia Cuvântului \"Saudade\"\n\n\"Saudade\" este considerat unul dintre cele mai frumoase și mai greu de tradus cuvinte din lume. Exprimă un dor profund, o melancolie dulce-amară pentru cineva sau ceva drag.\n\n## Expresii Esențiale de Dor\n\n### Expresii cu Saudade\n\n<Phrase>\n  <Original>Tenho saudades de você.</Original>\n  <Transliteration>Tenho saudades de vose.</Transliteration>\n  <Translation>Mi-e dor de tine (am saudade de tine).</Translation>\n  <Context>Cea mai specifică expresie portugheză de dor.</Context>\n</Phrase>\n\n<Phrase>\n  <Original>Sinto muito a sua falta.</Original>\n  <Transliteration>Sintu muitu a sua falta.</Transliteration>\n  <Translation>Îmi lipsești foarte mult.</Translation>\n  <Context>O altă modalitate de a exprima dorul.</Context>\n</Phrase>\n\n<Phrase>\n  <Original>Mal posso esperar para te ver de novo.</Original>\n  <Transliteration>Mal posu esperar para te ver de novu.</Transliteration>\n  <Translation>Abia aștept să te văd din nou.</Translation>\n  <Context>Exprimă anticiparea revederii.</Context>\n</Phrase>\n\n### Expresii Poetice\n\n<Phrase>\n  <Original>Cada momento sem você é uma eternidade.</Original>\n  <Transliteration>Cada momentu sem vose e uma eternidade.</Transliteration>\n  <Translation>Fiecare moment fără tine e o eternitate.</Translation>\n  <Context>O expresie intensă a dorului.</Context>\n</Phrase>\n\n<Phrase>\n  <Original>Meu coração é seu, onde quer que você esteja.</Original>\n  <Transliteration>Meu corasaun e seu, onde cher che vose esteia.</Transliteration>\n  <Translation>Inima mea e a ta, oriunde ai fi.</Translation>\n  <Context>O declarație de fidelitate.</Context>\n</Phrase>\n\n<Phrase>\n  <Original>Você está sempre nos meus pensamentos.</Original>\n  <Transliteration>Vose esta sempre nos meus pensamentus.</Transliteration>\n  <Translation>Ești mereu în gândurile mele.</Translation>\n  <Context>Arată că partenerul îți ocupă mintea.</Context>\n</Phrase>\n\n### Mesaje Romantice\n\n<Phrase>\n  <Original>Bom dia, meu amor. Acordei pensando em você.</Original>\n  <Transliteration>Bom dia, meu amor. Acordei pensandu em vose.</Transliteration>\n  <Translation>Bună dimineața, dragostea mea. M-am trezit gândindu-mă la tine.</Translation>\n  <Context>Mesaj de dimineață.</Context>\n</Phrase>\n\n<Phrase>\n  <Original>Boa noite, a saudade é grande.</Original>\n  <Transliteration>Boa noite, a saudade e grande.</Transliteration>\n  <Translation>Noapte bună, dorul e mare.</Translation>\n  <Context>Mesaj de noapte bună.</Context>\n</Phrase>\n\n<Phrase>\n  <Original>Sonho com você todas as noites.</Original>\n  <Transliteration>Sonhu com vose todas as noites.</Transliteration>\n  <Translation>Visez la tine în fiecare noapte.</Translation>\n  <Context>O expresie romantică.</Context>\n</Phrase>\n\n### Promisiuni\n\n<Phrase>\n  <Original>Conto os dias até nos vermos de novo.</Original>\n  <Transliteration>Contu os dias ate nos vermos de novu.</Transliteration>\n  <Translation>Număr zilele până ne vom revedea.</Translation>\n  <Context>Exprimă anticiparea.</Context>\n</Phrase>\n\n<Phrase>\n  <Original>A distância não pode separar nossos corações.</Original>\n  <Transliteration>A distansia naun pode separar nosus corasõis.</Transliteration>\n  <Translation>Distanța nu poate separa inimile noastre.</Translation>\n  <Context>O afirmație despre puterea dragostei.</Context>\n</Phrase>\n\n<Phrase>\n  <Original>Logo estaremos juntos de novo.</Original>\n  <Transliteration>Logu estaremus juntus de novu.</Transliteration>\n  <Translation>Curând vom fi din nou împreună.</Translation>\n  <Context>O promisiune de reuniune.</Context>\n</Phrase>\n\n## Ce Face \"Saudade\" Specială\n\n\"Saudade\" nu e doar dor - e o melancolie dulce-amară, o bucurie tristă când te gândești la momentele frumoase petrecute împreună și la dorința de a le retrăi.\n\n## Concluzie\n\nPortugheza oferă una dintre cele mai frumoase modalități de a exprima dorul. Folosește aceste expresii pentru a-ți arăta partenerului profunzimea sentimentelor tale!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Expresii Esențiale de Dor"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "eefb71a5-8509-4a1a-99fc-335482140ccf",
+      "title": "Urări de Ziua de Naștere pentru Partener în Turcă: Mesaje Romantice",
+      "native_lang": "ro",
+      "target_lang": "tr",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nZiua de naștere a partenerului tău este ocazia perfectă de a-i arăta cât de mult îl/o iubești. Aceste expresii te vor ajuta să creezi un mesaj de neuitat.\n\nPentru mai multe expresii romantice, consultă [expresii romantice pentru fiecare ocazie](/learn/ro/tr/tr-romantic-phrases-for-every-occasion).\n\n<PhraseOfDay\n  word=\"La mulți ani, iubirea mea!\"\n  translation=\"Happy Birthday, my love!\"\n  pronunciation=\"urare specială\"\n  context=\"Cea mai dulce urare pentru persoana iubită.\"\n/>\n\n## Urări de Bază\n\n<VocabCard\n  word=\"La mulți ani!\"\n  translation=\"Happy Birthday!\"\n  pronunciation=\"urare clasică\"\n  example=\"La mulți ani, dragostea mea!\"\n/>\n\n<VocabCard\n  word=\"Să ai o zi minunată!\"\n  translation=\"Have a wonderful day!\"\n  pronunciation=\"urare caldă\"\n  example=\"Să ai cea mai frumoasă zi!\"\n/>\n\n### Expresii Esențiale\n\n| Română | Context |\n|--------|--------|\n| La mulți ani fericiți! | Urare completă |\n| Zi de naștere fericită! | Alternativă |\n| Să trăiești! | Tradițional |\n| Sărbătoare fericită! | General |\n\n<CultureTip flag=\"🎂\" title=\"Tradiții de Zi de Naștere\">\nÎn diferite culturi, zilele de naștere sunt sărbătorite în moduri unice. Unii suflă în lumânări și își pun o dorință, alții primesc \"bătăi prietenoase\" de fiecare an de viață, iar alții celebrează cu tort și prieteni.\n</CultureTip>\n\n## Mesaje Romantice\n\n### Scurte și Dulci\n- **La mulți ani celui mai minunat om din lume!**\n- **Ziua ta, dar cadoul meu ești tu în viața mea**\n- **Un an mai mare, dar tot la fel de frumos/frumoasă**\n- **Să îmbătrânim frumos împreună!**\n\n### Mesaje Mai Lungi\n- **Astăzi sărbătorim ziua în care universul mi-a dat cel mai frumos cadou: pe tine.**\n- **La mulți ani celui care face fiecare zi din viața mea mai frumoasă!**\n- **Cu fiecare an care trece, te iubesc mai mult. La mulți ani, sufletul meu pereche!**\n- **Ești dovada că dorințele se împlinesc. La mulți ani!**\n\n<VocabCard\n  word=\"Ești cel mai frumos cadou.\"\n  translation=\"You are the best gift.\"\n  pronunciation=\"romantic\"\n  example=\"Pentru mine, tu ești cel mai frumos cadou.\"\n/>\n\n## Mesaje pentru Diferite Personalități\n\n### Pentru Partenerul Romantic\n| Stil | Mesaj |\n|------|-------|\n| Poetic | Ești poezia vieții mele |\n| Dulce | Te iubesc până la lună și înapoi |\n| Profund | Ai schimbat totul spre mai bine |\n\n### Pentru Partenerul cu Umor\n- **La mulți ani! Nu-ți spun câți, că nu vrei să știi! 😄**\n- **Un an mai înțelept, dar tot atât de nebun! Te iubesc!**\n- **Încă un an și tot nu m-ai schimbat cu nimeni! Bravo!**\n\n<CultureTip flag=\"🎁\" title=\"Cadouri vs. Prezență\">\nUnii parteneri preferă cadouri elaborate, alții apreciază mai mult timpul petrecut împreună sau experiențele. Cunoaște limbajul iubirii al partenerului tău pentru a face ziua cu adevărat specială.\n</CultureTip>\n\n## Mesaje pentru Card\n\n### Format Scurt\n- La mulți ani fericiți! ❤️\n- Ziua ta specială pentru persoana mea specială 💕\n- Cu dragoste infinită, la mulți ani! 💑\n- Tu + Eu + Tort = Perfecțiune 🎂\n\n### Format Lung\nDragul meu / Draga mea,\n\nAstăzi e ziua ta și vreau să știi cât de norocos/norocoasă mă simt că te am în viața mea. Tu faci fiecare zi mai frumoasă, mai plină de sens și de râs.\n\nÎți doresc tot ce e mai bun în noul tău an: sănătate, fericire și toate visurile împlinite. Și să știi că voi fi mereu aici, alături de tine.\n\nLa mulți ani, iubirea vieții mele!\n\nCu toată dragostea,\n[Numele tău]\n\n## Idei de Surprize\n\n### Gesturi Romantice\n| Idee | Descriere |\n|------|----------|\n| Mic dejun la pat | Începe ziua special |\n| Scrisoare de dragoste | 10 motive pentru care îl/o iubești |\n| Album foto | Cu amintiri frumoase |\n| Cină surpriză | Gătită de tine |\n| Escapadă | Weekend romantic |\n\n<VocabCard\n  word=\"Vreau să îți fac ziua specială.\"\n  translation=\"I want to make your day special.\"\n  pronunciation=\"intenție romantică\"\n  example=\"Astăzi, vreau să îți fac ziua memorabilă.\"\n/>\n\n## Mesaje de Dimineață\n\n### Pentru Început de Zi\n- **Bună dimineața, frumoaso/frumosule! La mulți ani!**\n- **Primul lucru pe care vreau să-l faci azi: să zâmbești!**\n- **Trezește-te, e ziua ta specială!**\n- **Un nou an plin de aventuri începe azi!**\n\n## Tradiții de Cuplu\n\n### Idei pentru Noi Tradiții\n- Scrie o scrisoare în fiecare an\n- Fă o fotografie în același loc\n- Împlinește o dorință mică\n- Creează un album de amintiri\n- Planifică o aventură nouă\n\n## Sfaturi Finale\n\n1. **Personalizează mesajul** - include lucruri specifice\n2. **Fii sincer** - sentimentele adevărate contează\n3. **Surprinde-l/o** - gesturile neașteptate sunt speciale\n4. **Fă-l să se simtă important** - e ziua lui/ei\n5. **Spune-i în limba lui/ei** - dacă e diferită de a ta\n\n<CTA />\n\n## Concluzie\n\nZiua de naștere a partenerului este o oportunitate minunată de a celebra persoana pe care o iubești. Cu aceste idei și expresii, vei putea crea amintiri de neuitat.\n\nLa mulți ani celui/celei mai special/ă din viața ta!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Mesaje Romantice",
+              "## Mesaje pentru Diferite Personalități",
+              "## Mesaje pentru Card",
+              "## Idei de Surprize",
+              "## Mesaje de Dimineață",
+              "## Tradiții de Cuplu"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ef07d817-a36b-40e7-9b88-66834ba8381d",
+      "title": "Ukrán kifejezések első randira",
+      "native_lang": "hu",
+      "target_lang": "uk",
+      "category": "communication",
+      "content": "Az első randi izgalmas pillanat. Ha ukrán anyanyelvű személlyel randevúzol, ezek a kifejezések segítenek.\n\n## Bemutatkozás\n\n### 1. \"Приємно нарешті познайомитися\" (Pryyemno nareshti poznayomytysya)\n**Jelentés:** Jó végre találkozni\n\n### 2. \"Ти чудово виглядаєш\" (Ty chudovo vyhlyadayesh)\n**Jelentés:** Csodálatosan nézel ki\n\n### 3. \"Розкажи про себе\" (Rozkazhy pro sebe)\n**Jelentés:** Mesélj magadról\n\n### 4. \"Чим ти займаєшся?\" (Chym ty zaymayeshsya?)\n**Jelentés:** Mi a foglalkozásod?\n\n### 5. \"Які твої хобі?\" (Yaki tvoyi khobi?)\n**Jelentés:** Mik a hobbijaid?\n\n## Beszélgetés\n\n### 6. \"Це справді цікаво\" (Tse spravdi tsikavo)\n**Jelentés:** Ez tényleg érdekes\n\n### 7. \"Я відчуваю те саме\" (Ya vidchuvayu te same)\n**Jelentés:** Én is így érzek\n\n### 8. \"Яку музику ти любиш?\" (Yaku muzyku ty lyubysh?)\n**Jelentés:** Milyen zenét szeretsz?\n\n### 9. \"Ти багато подорожував/ла?\" (Ty bahato podorozhuvav/la?)\n**Jelentés:** Sokat utaztál?\n\n### 10. \"Мені дуже подобається\" (Meni duzhe podobayetsya)\n**Jelentés:** Nagyon tetszik\n\n## Randi vége\n\n### 11. \"Я чудово провів/ла час\" (Ya chudovo proviv/la chas)\n**Jelentés:** Csodálatos időt töltöttem\n\n### 12. \"Ми можемо зустрітися знову?\" (My mozhemo zustritysya znovu?)\n**Jelentés:** Találkozhatunk újra?\n\n### 13. \"Я б з задоволенням повторив/ла\" (Ya b z zadovolennyam povtoryv/la)\n**Jelentés:** Szívesen megismételném\n\n### 14. \"Можна тебе провести додому?\" (Mozhna tebe provesty dodomu?)\n**Jelentés:** Hazakísérhetlek?\n\n## Összefoglalás\n\nAz ukrán randevú meleg és szívélyes.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 205,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Bemutatkozás",
+              "## Beszélgetés",
+              "## Randi vége"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ef0c41f7-781d-45e3-8b4b-951f1052f6be",
+      "title": "Ungerska Fraser för Förlåtelse",
+      "native_lang": "sv",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "Förlåtelse, eller \"megbocsátás\" på ungerska, kräver ärlighet och ödmjukhet.\n\n## Fraser för att Be om Förlåtelse\n\n### 1. \"Nagyon sajnálom\"\n**Uttal:** na-dyon shoy-nah-lom\n\n**Betydelse:** Jag är verkligen ledsen\n\n### 2. \"Kérlek, bocsáss meg\"\n**Uttal:** kehr-lek bo-chahsh meg\n\n**Betydelse:** Snälla förlåt mig\n\n### 3. \"Teljes felelősséget vállalok\"\n**Uttal:** tel-yesh feh-leh-lösh-sheh-get vahl-la-lok\n\n**Betydelse:** Jag tar fullt ansvar\n\n### 4. \"Tévedtem és tudom\"\n**Uttal:** teh-ved-tem ehsh too-dom\n\n**Betydelse:** Jag hade fel och jag vet det\n\n### 5. \"Hogyan tehetem jóvá?\"\n**Uttal:** ho-dyan teh-heh-tem yo-vah\n\n**Betydelse:** Hur kan jag gottgöra det?\n\n## Fraser för att Ge Förlåtelse\n\n### 6. \"Megbocsátok neked\"\n**Uttal:** meg-bo-chah-tok neh-ked\n\n**Betydelse:** Jag förlåter dig\n\n### 7. \"Hagyjuk ezt magunk mögött\"\n**Uttal:** haj-yook est ma-goonk mö-gött\n\n**Betydelse:** Låt oss lägga det bakom oss\n\n### 8. \"Megértem és értékelem a bocsánatkérésedet\"\n**Uttal:** meg-ehr-tem ehsh ehr-teh-keh-lem a bo-chah-nat-keh-reh-sheh-det\n\n**Betydelse:** Jag förstår och uppskattar din ursäkt\n\n### 9. \"Mindannyian hibázunk\"\n**Uttal:** meen-dan-nyi-an hee-bah-zoonk\n\n**Betydelse:** Vi gör alla misstag\n\n### 10. \"Bátorság kell a bocsánatkéréshez\"\n**Uttal:** bah-tor-shahg kell a bo-chah-nat-keh-rehsh-hez\n\n**Betydelse:** Det krävs mod att be om ursäkt\n\n### 11. \"Értékelem az őszinteségedet\"\n**Uttal:** ehr-teh-keh-lem az ö-seen-teh-sheh-geh-det\n\n**Betydelse:** Jag uppskattar din uppriktighet\n\n### 12. \"A lényeg az, hogy együtt haladjunk tovább\"\n**Uttal:** a leh-nyeg az hoj eh-dütt ha-lad-yoonk to-vahbb\n\n**Betydelse:** Det viktiga är att vi går vidare tillsammans\n\n## Avslutande Tankar\n\nMed dessa fraser kan du be om och ge förlåtelse med din ungersktalande partner.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 230,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Fraser för att Be om Förlåtelse",
+              "## Fraser för att Ge Förlåtelse"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ef22f180-030e-461b-881b-9e103908e88a",
+      "title": "Выражение эмоций на испанском языке",
+      "native_lang": "ru",
+      "target_lang": "es",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nУмение выражать свои чувства — ключ к глубоким и искренним отношениям. Давайте научимся говорить о эмоциях на испанском языке!\n\n<PhraseOfDay\n  word=\"Te amo\"\n  translation=\"Я тебя люблю\"\n  context=\"Самое важное выражение эмоций на испанском языке\"\n/>\n\n## Почему важно выражать эмоции на языке партнёра\n\nВ межкультурных отношениях понимание эмоционального языка партнёра критически важно. Когда вы можете выразить свои чувства на его родном языке, это создаёт особую близость.\n\n## Положительные эмоции\n\n### Радость и счастье\n\n<VocabCard\n  word=\"Estoy feliz\"\n  translation=\"Я счастлив(а)\"\n  example=\"Soy muy feliz contigo.\"\n  exampleTranslation=\"Я так счастлив(а) с тобой.\"\n/>\n\n<CultureTip flag=\"🇪🇸\" title=\"Выражение радости\">\nВ испанском культуре эмоции выражаются по-своему. Понимание этих нюансов поможет вам лучше понимать партнёра.\n</CultureTip>\n\n### Любовь и привязанность\n\n<VocabCard\n  word=\"Te amo\"\n  translation=\"Я тебя люблю\"\n  example=\"Te amo más que a nada.\"\n  exampleTranslation=\"Я люблю тебя больше всего на свете.\"\n/>\n\n<VocabCard\n  word=\"Te extraño\"\n  translation=\"Я скучаю по тебе\"\n  example=\"Te extraño mucho.\"\n  exampleTranslation=\"Я очень скучаю по тебе.\"\n/>\n\n## Негативные эмоции\n\nВажно уметь выражать и негативные чувства — это часть здорового общения.\n\n### Грусть\n\n<VocabCard\n  word=\"Estoy triste\"\n  translation=\"Мне грустно\"\n  example=\"Estoy triste.\"\n  exampleTranslation=\"Мне грустно.\"\n/>\n\n<CultureTip flag=\"🇪🇸\" title=\"Выражение негативных эмоций\">\nВ здоровых отношениях важно уметь говорить о любых чувствах. Это помогает партнёру лучше вас понимать.\n</CultureTip>\n\n## Как спросить о чувствах партнёра\n\n<VocabCard\n  word=\"¿Cómo estás?\"\n  translation=\"Как ты себя чувствуешь?\"\n  example=\"¿Cómo has estado?\"\n  exampleTranslation=\"Как у тебя дела?\"\n/>\n\n## Слова поддержки и утешения\n\nКогда партнёр расстроен, важно уметь поддержать его на его родном языке:\n\n| Spanish | Русский |\n|----------|---------|\n| Te amo | Я люблю тебя |\n| Estoy pensando en ti | Я думаю о тебе |\n| Tuyo/a para siempre | Всегда твой/твоя |\n\n<CTA \n  title=\"Учите язык эмоций вместе\"\n  description=\"Love Languages поможет вам глубже понимать друг друга\"\n/>\n\n## Связанные статьи\n\n- [Комплименты на испанском языке](/ru/blog/spanish-giving-compliments)\n- [Ласковые прозвища на испанском](/ru/blog/spanish-pet-names-terms-of-endearment)\n\nУмение говорить о чувствах на языке партнёра укрепляет вашу связь и показывает глубину ваших отношений.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 160,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Положительные эмоции"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "tier": 1,
+  "batchId": "tier1-batch-028",
+  "articles": [
+    {
+      "id": "4d5c6240-1158-462a-a60b-f4634091190b",
+      "title": "Fraze pentru relații la distanță în franceză",
+      "native_lang": "ro",
+      "target_lang": "fr",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nRelațiile la distanță sunt dificile, dar limba poate fi puntea care vă conectează inimile. Când îi spui partenerului că îți lipsește în limba lui, cuvintele capătă o putere specială.\n\n<PhraseOfDay\n  word=\"Tu me manques énormément\"\n  translation=\"Îmi lipsești foarte mult\"\n  pronunciation=\"\"\n  context=\"Expresia perfectă pentru când ești departe de cel drag\"\n/>\n\n## Expresii pentru dor și lipsă\n\n<VocabCard\n  word=\"Tu me manques énormément\"\n  translation=\"Îmi lipsești foarte mult\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Je pense à toi\"\n  translation=\"Mă gândesc la tine\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇫🇷\" title=\"Exprimarea dorului\">\nFrancezii apreciază eleganța în comunicare. Scuzele trebuie să fie sincere dar nu excesiv de dramatice - echilibrul este cheia.\n</CultureTip>\n\n## Menținerea conexiunii\n\n| Franceză | Română |\n|---------|---------|\n| Tu me manques énormément | Îmi lipsești foarte mult |\n| J'ai hâte de te voir | Abia aștept să te văd |\n| Je pense à toi | Mă gândesc la tine |\n| Je compte les jours | Număr zilele |\n\n<VocabCard\n  word=\"J'ai hâte de te voir\"\n  translation=\"Abia aștept să te văd\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru relații la distanță\n\n1. **Comunicați zilnic** – Chiar și un mesaj scurt contează\n2. **Programați apeluri video** – Fețele vă apropie\n3. **Trimiteți surprize** – Scrisori, colete, flori\n4. **Aveți un calendar comun** – Numărătoare inversă până la revedere\n5. **Creați ritualuri** – \"Noapte bună\" la aceeași oră\n\n<CTA />\n\n## Articole conexe\n\n- [Fraze pentru apeluri video cu familia](/ro/fr/french-video-call-phrases-family)\n- [Mesaje de bună dimineața și noapte bună în franceză](/ro/fr/french-good-morning-goodnight-phrases)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "50509d3a-a6e1-4943-9345-e0f9311c53dd",
+      "title": "Fraze pentru relații la distanță în spaniolă",
+      "native_lang": "ro",
+      "target_lang": "es",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nRelațiile la distanță sunt dificile, dar limba poate fi puntea care vă conectează inimile. Când îi spui partenerului că îți lipsește în limba lui, cuvintele capătă o putere specială.\n\n<PhraseOfDay\n  word=\"Te extraño muchísimo\"\n  translation=\"Îmi lipsești foarte mult\"\n  pronunciation=\"\"\n  context=\"Expresia perfectă pentru când ești departe de cel drag\"\n/>\n\n## Expresii pentru dor și lipsă\n\n<VocabCard\n  word=\"Te extraño muchísimo\"\n  translation=\"Îmi lipsești foarte mult\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Estoy pensando en ti\"\n  translation=\"Mă gândesc la tine\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇪🇸\" title=\"Exprimarea dorului\">\nSpaniolii și latino-americanii sunt foarte expresivi. Scuzele sincere sunt adesea însoțite de gesturi afectuoase și explicații detaliate.\n</CultureTip>\n\n## Menținerea conexiunii\n\n| Spaniolă | Română |\n|---------|---------|\n| Te extraño muchísimo | Îmi lipsești foarte mult |\n| No puedo esperar para verte | Abia aștept să te văd |\n| Estoy pensando en ti | Mă gândesc la tine |\n| Contando los días | Număr zilele |\n\n<VocabCard\n  word=\"No puedo esperar para verte\"\n  translation=\"Abia aștept să te văd\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru relații la distanță\n\n1. **Comunicați zilnic** – Chiar și un mesaj scurt contează\n2. **Programați apeluri video** – Fețele vă apropie\n3. **Trimiteți surprize** – Scrisori, colete, flori\n4. **Aveți un calendar comun** – Numărătoare inversă până la revedere\n5. **Creați ritualuri** – \"Noapte bună\" la aceeași oră\n\n<CTA />\n\n## Articole conexe\n\n- [Fraze pentru apeluri video cu familia](/ro/es/spanish-video-call-phrases-family)\n- [Mesaje de bună dimineața și noapte bună în spaniolă](/ro/es/spanish-good-morning-goodnight-phrases)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "5088f9bc-b93f-4e1b-ba9b-20395be08da3",
+      "title": "30+ Complimente în cehă pentru partenerul tău",
+      "native_lang": "ro",
+      "target_lang": "cs",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nComplimentele sunt limbajul dragostei. Când îi spui partenerului ceva frumos în limba lui maternă, cuvintele capătă o semnificație specială.\n\n<PhraseOfDay\n  word=\"Jsi krásná/ý\"\n  translation=\"Ești frumoasă/frumos\"\n  pronunciation=\"\"\n  context=\"Cel mai clasic compliment romantic\"\n/>\n\n## Complimente pentru aspect fizic\n\n<VocabCard\n  word=\"Jsi krásná/ý\"\n  translation=\"Ești frumoasă/frumos\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇨🇿\" title=\"Cultura complimentelor\">\nCehii apreciază scuzele sincere și directe. Un 'promiň' din inimă este mai valoros decât scuze elaborate - arată că îți pasă.\n</CultureTip>\n\n## Complimente pentru personalitate\n\n| Cehă | Română |\n|---------|---------|\n| Jsi tak chytrý/á | Ești atât de inteligent/ă |\n| Jsi tak milý/á | Ești atât de drăguț/ă |\n| Jsi úžasný/á | Ești uimitor/oare |\n| Jsi vtipný/á | Ești amuzant/ă |\n\n<VocabCard\n  word=\"Jsi tak chytrý/á\"\n  translation=\"Ești atât de inteligent/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Jsi tak milý/á\"\n  translation=\"Ești atât de drăguț/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru complimente sincere\n\n1. **Fii specific** – \"Îmi place cum râzi\" e mai bun decât \"Ești frumoasă\"\n2. **Fii autentic** – Spune doar ce simți cu adevărat\n3. **Alege momentul** – Complimentele spontane sunt cele mai prețuite\n4. **Nu exagera** – Un compliment sincer e mai valoros decât zece superficiale\n5. **Include acțiuni** – \"Îmi place cum mă asculți când vorbesc\"\n\n<CTA />\n\n## Articole conexe\n\n- [Exprimarea emoțiilor în cehă](/ro/cs/czech-expressing-emotions)\n- [Alinturile în cehă](/ro/cs/czech-pet-names-and-terms-of-endearment-50)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0446",
+  "articles": [
+    {
+      "id": "8061c830-9ffb-4b68-b99d-c11b51424670",
+      "title": "Ukraynaca Telaffuz Rehberi: Türkler Icin Kapsamli Kilavuz",
+      "native_lang": "tr",
+      "target_lang": "uk",
+      "category": "pronunciation",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nUkraynaca telaffuz, Rusca'ya benzer ama önemli farklari vardir. Alfabe ögrenildiginde, telaffuz nispeten tutarlidir.\n\n## Ukrayna Kiril Alfabesi\n\n<PhraseOfDay\n  word=\"Українська мова красива\"\n  translation=\"Ukraynaca güzel bir dildir\"\n  pronunciation=\"uk-ra-yin-ska mo-va kra-si-va\"\n  context=\"Ukraynaca hakkinda söylenecek güzel bir cümle\"\n/>\n\n### Ukraynaca'ya Özgü Harfler\n\n| Harf | Ses | Rusca'dan Farki |\n|------|-----|-----------------|\n| **І і** | i | Rusca'da \"И\" |\n| **Ї ї** | yi | Sadece Ukraynaca |\n| **Є є** | ye | Rusca'da \"Е\" |\n| **Ґ ґ** | g (sert) | Sadece Ukraynaca |\n\n<VocabCard\n  word=\"Україна\"\n  translation=\"Ukrayna\"\n  pronunciation=\"uk-ra-yi-na\"\n  example=\"У=U, к=k, р=r, а=a, ї=yi, н=n, а=a\"\n/>\n\n<CultureTip title=\"Ukraynaca vs. Rusca\" flag=\"🇺🇦\">\nUkraynaca ve Rusca benzer ama farkli dillerdir. Ukraynaca daha melodik ve yumusak bir sese sahiptir. Birçok kelime farklidir.\n</CultureTip>\n\n### Farkli Görünümlü Harfler\n\n| Kiril | Ses |\n|-------|-----|\n| **В в** | v |\n| **Н н** | n |\n| **Р р** | r |\n| **С с** | s |\n| **Г г** | h (yumusak) |\n\n## Vurgu Kurallari\n\nUkraynaca'da vurgu kelimeden kelimeye degisir:\n\n| Kelime | Vurgu | Anlam |\n|--------|-------|-------|\n| **КОхати** | 1. hece | sevmek |\n| **коХАння** | 2. hece | ask |\n| **украЇНська** | 3. hece | Ukraynaca |\n\n## Özel Sesler\n\n### \"И\" vs. \"І\"\n\n| Harf | Ses | Örnek |\n|------|-----|-------|\n| **И** | i (kalin) | ти (ti) - sen |\n| **І** | i (ince) | він (vin) - o |\n\n### Yumusak Isaret (Ь)\n\n<VocabCard\n  word=\"Любов\"\n  translation=\"Ask\"\n  pronunciation=\"lyu-bov\"\n  example=\"Ь harfi önceki ünsüzü yumusatir\"\n/>\n\n## Ciftler Icin Pratik\n\n| Cümle | Telaffuz | Anlam |\n|-------|----------|-------|\n| **Я тебе кохаю** | ya te-be ko-ha-yu | Seni seviyorum |\n| **Як справи?** | yak spra-vi | Nasilsin? |\n| **Дякую** | dya-ku-yu | Tesekkürler |\n| **Будь ласка** | bud las-ka | Lütfen |\n\n<PhraseOfDay\n  word=\"Практика робить майстра\"\n  translation=\"Pratik usta yapar\"\n  pronunciation=\"prak-ti-ka ro-bit mays-tra\"\n  context=\"Ukraynaca telaffuz pratigi icin\"\n/>\n\n## Öğrenmeye Devam Et\n\n- **[Ukraynaca Telaffuz](/learn/tr/uk/ukrainian-pronunciation-guide/)** - Sesleri öğrenin\n- **[Temel Ukraynaca İfadeler](/learn/tr/uk/ukrainian-essential-phrases-for-couples/)** - Pratik iletişim\n- **[Ukraynaca Zor mu?](/learn/tr/uk/is-ukrainian-hard-to-learn/)** - Dürüst analiz\n- **[Ukraynaca Selamlaşmalar](/learn/tr/uk/ukrainian-greetings-farewells/)** - Temel konuşma\n\n<CTA text=\"Ukraynaca telaffuzunuzu geliştirmek ister misiniz?\" buttonText=\"Hemen Başlayın\" />\n",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 268,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Özel Sesler"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "80661f83-122b-4d02-980c-c83dddd3d3ec",
+      "title": "Almanca Sevgi Sözcükleri ve Takma Adlar",
+      "native_lang": "tr",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport CTA from '@components/CTA.astro';\n\n# Almanca Sevgi Sözcükleri ve Takma Adlar\n\nSevgi sözcükleri, partnerinize onun sizin için ne kadar önemli olduğunu göstermenin harika bir yoludur. Partneriniz Almanca konuşuyorsa, bu sevgi dolu ifadeleri kullandığınızda mutlu olacaktır!\n\n## Sevgi Sözcükleri Neden Önemli?\n\nSevgi sözcükleri yakınlık yaratır ve sevgi gösterir. İki kişi arasında özel bir bağ gibidir – sadece ikinize ait özel bir şey.\n\n## Klasik Sevgi Sözcükleri\n\nZamansız klasikler her dilde işe yarar:\n\n- **Tatlım** - evrensel favori\n- **Canım** - klasik ve zarif\n- **Kalbim** - duygusal ve şiirsel\n- **Aşkım** - romantik ve nazik\n\n<CultureTip>\nSevgi sözcükleri genellikle bölgeden bölgeye değişir. Bir yerde yaygın olan, başka bir yerde alışılmadık gelebilir. Partnerinize memleketinde hangi isimlerin kullanıldığını sorun!\n</CultureTip>\n\n## Tatlı Hayvan İsimleri\n\nBirçok kültürde olduğu gibi, Almancade de hayvan isimleri sevgiyle kullanılır:\n\n- **Ayıcığım** - sevimli ve güçlü\n- **Faremin** - tatlı ve minnoş\n- **Tavşanım** - şefkatli\n- **Kuşum** - sevgi dolu\n\n## Romantik İfadeler\n\nÖzel anlar için:\n\n- **Bir tanem** - biri sizin için her şey olduğunda\n- **Ruh eşim** - derin bağlantılar için\n- **Güneşim** - hayatınızı aydınlatan biri için\n\n## Farklı Durumlar İçin Sevgi Sözcükleri\n\n### Günlük Hayatta\nGünlük kullanım için kısa, rahat isimler. Hızlı bir \"Selam, tatlım!\" her zaman işe yarar.\n\n### Romantik Anlar İçin\nDaha uzun, daha duygusal ifadeler özel anlara yakışır. Partnerinize onun sizin için ne ifade ettiğini söyleyin.\n\n### Şakalaşmak İçin\nEsprili sevgi sözcükleri ilişkinizi renklendirebilir – ama partnerinizin bu espriyi paylaştığından emin olun!\n\n## Kullanım İpuçları\n\n1. **Partnerinize sorun**: Herkes her sevgi sözcüğünü sevmez. Neyi sevdiğini sorun.\n2. **Telaffuza dikkat edin**: Doğru telaffuzu öğrenin – doğru söylenen bir sevgi sözcüğünden daha romantik bir şey yok.\n3. **Samimi olun**: Size ve çift olarak size uyan isimleri kullanın.\n4. **Kendi isimlerinizi yaratın**: En kişisel sevgi sözcükleri genellikle kendiniz uydurduklarınızdır!\n5. **Tepkiyi izleyin**: En iyi sevgi sözcüğü, partnerinizi gülümseten sözcüktür.\n\n## Dilin Gücü\n\nSevgi sözcükleri kelimelerden fazlasıdır – günlük hayatta küçük aşk itiraflarıdır. Partnerinizle iletişim kurmak için Almanca öğreniyorsanız, sevgi sözcükleri harika bir başlangıçtır.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Farklı Durumlar İçin Sevgi Sözcükleri"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "806e5a7b-87e9-47b7-8971-69230d2ad493",
+      "title": "Węgierskie zwroty do kłótni i nieporozumień dla par",
+      "native_lang": "pl",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "Węgrzy i Polacy mają długą historię przyjaźni. W związku z osobą mówiącą po węgiersku warto znać zwroty, które pomogą w konstruktywnym rozwiązywaniu konfliktów.\n\n## Węgierska kultura komunikacji\n\nWęgrzy są bezpośredni i szczerzy. Cenią lojalność i głębokie relacje. W konflikcie ważne jest, by zachować szacunek i nie atakować godności partnera.\n\n## Wyrażanie niezgody\n\n### \"Nem értek egyet veled\"\n*Nie zgadzam się z Tobą*\n\nWymowa: nem ER-tek E-djet WE-led\n\nUprzejmy sposób wyrażenia odmiennego zdania.\n\n### \"Én másképp látom\"\n*Widzę to inaczej*\n\nWymowa: en MASZ-kep LA-tom\n\nDelikatniejsza forma niezgody.\n\n### \"Beszélhetünk erről nyugodtan?\"\n*Czy możemy o tym spokojnie porozmawiać?*\n\nWymowa: be-SEL-he-tunk ER-röl NJU-god-tan\n\nProśba o spokojną rozmowę.\n\n## Wyrażanie uczuć\n\n### \"Frusztrált vagyok, amikor...\"\n*Czuję frustrację, kiedy...*\n\nWymowa: FRUS-tralt WA-djok A-mi-kor\n\nKomunikat typu \"ja\".\n\n### \"Ez nagyon zavar engem\"\n*To bardzo mnie niepokoi*\n\nWymowa: ez NA-djon ZA-war EN-gem\n\nJasne wyrażenie problemu.\n\n### \"Szükségem van egy kis időre magamnak\"\n*Potrzebuję trochę czasu dla siebie*\n\nWymowa: SUK-sze-gem wan edj kisz I-dö-re MA-gam-nak\n\nProśba o przestrzeń.\n\n## Zrozumienie partnera\n\n### \"Segíts megérteni a nézőpontodat\"\n*Pomóż mi zrozumieć Twój punkt widzenia*\n\nWymowa: sze-GICZ me-GER-te-ni a NE-zö-pon-to-dat\n\nOtwartość na perspektywę partnera.\n\n### \"Ha jól értem...\"\n*Jeśli dobrze rozumiem...*\n\nWymowa: ha jol ER-tem\n\nParafrazowanie.\n\n### \"Arra gondolsz, hogy...?\"\n*Masz na myśli, że...?*\n\nWymowa: AR-ra GON-dolsz hodj\n\nPytanie klaryfikujące.\n\n## Szukanie rozwiązań\n\n### \"Hogyan oldhatnánk meg ezt együtt?\"\n*Jak możemy to razem rozwiązać?*\n\nWymowa: HO-djan OLD-hat-nank meg est E-djütt\n\nNastawienie na współpracę.\n\n### \"Találjunk kompromisszumot\"\n*Znajdźmy kompromis*\n\nWymowa: ta-LAL-junk kom-pro-MI-szu-mot\n\nGotowość do ustępstw.\n\n### \"Szerintem mindkettőnknek kell...\"\n*Myślę, że oboje musimy...*\n\nWymowa: SE-rin-tem mind-ket-tönk-nek kel\n\nWspółodpowiedzialność.\n\n## Łagodzenie napięcia\n\n### \"Szeretlek, még akkor is, ha veszekedünk\"\n*Kocham Cię, nawet gdy się kłócimy*\n\nWymowa: SE-ret-lek meg AK-kor isz ha WE-se-ke-dunk\n\nPrzypomnienie o miłości.\n\n### \"Ezt együtt fogjuk megoldani\"\n*Damy radę razem*\n\nWymowa: est E-djütt FOG-juk me-GOL-da-ni\n\nOptymizm.\n\n## Czego unikać\n\n- **\"Te mindig...\"** (Zawsze...) - generalizacje\n- **\"Soha nem hallgatsz meg\"** (Nigdy mnie nie słuchasz)\n- **\"Nem érdekel\"** (Nie obchodzi mnie to)\n- **\"Fogd be\"** (Zamknij się) - bardzo niegrzeczne\n\n## Wskazówki kulturowe\n\nWęgrzy i Polacy mają podobne wartości - rodzina, honor, lojalność. Węgrzy cenią gościnność. Po kłótni wspólny posiłek - może gulasz? - może pomóc w pojednaniu.\n\nA szerelem mindent legyőz! (Miłość zwycięża wszystko!)",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Wyrażanie niezgody",
+              "## Wyrażanie uczuć",
+              "## Zrozumienie partnera",
+              "## Szukanie rozwiązań",
+              "## Łagodzenie napięcia"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "807127f8-2e6c-4933-aa2f-83fbbd1d839c",
+      "title": "Argot norvegien pour SMS : communiquez avec votre partenaire",
+      "native_lang": "fr",
+      "target_lang": "no",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nVotre partenaire norvegien(ne) vous envoie des messages mysterieux ? Decouvrez le langage des SMS norvegiens !\n\n<PhraseOfDay\n  word=\"Kos\"\n  translation=\"Câlin / Confort\"\n  pronunciation=\"kouss\"\n  context=\"Mot très utilise pour exprimer tendresse et confort.\"\n/>\n\n## Abreviations essentielles\n\n### Salutations\n\n<VocabCard\n  word=\"Hei / Heia\"\n  translation=\"Salut\"\n  pronunciation=\"hay / HAY-a\"\n  example=\"Salutation informelle\"\n/>\n\n<VocabCard\n  word=\"Gm / God morgen\"\n  translation=\"Bonjour (matin)\"\n  pronunciation=\"-\"\n  example=\"Abreviation de God morgen\"\n/>\n\n<VocabCard\n  word=\"Gn / God natt\"\n  translation=\"Bonne nuit\"\n  pronunciation=\"-\"\n  example=\"Abreviation de God natt\"\n/>\n\n<VocabCard\n  word=\"Ha det / Hadet\"\n  translation=\"Au revoir / Salut\"\n  pronunciation=\"ha dè / HA-det\"\n  example=\"Forme courte de 'Ha det bra'\"\n/>\n\n### Reponses courtes\n\n| Abreviation | Signification | Français |\n|-------------|---------------|----------|\n| **Ok / Okei** | Okei | OK |\n| **Ja** | Ja | Oui |\n| **Nei** | Nei | Non |\n| **Takk** | Takk | Merci |\n| **Np / Ingen problem** | Ingen problem | Pas de problème |\n| **Pga** | På grunn av | À cause de |\n| **Btw** | By the way (anglais) | Au fait |\n\n<CultureTip title=\"Influence anglaise\" flag=\"🇳🇴\">\nLes Norvegiens melangent souvent norvegien et anglais dans leurs textos. Ne soyez pas surpris de voir « nice », « btw » ou « omg » dans les messages de votre partenaire !\n</CultureTip>\n\n## Expressions romantiques par texto\n\n<VocabCard\n  word=\"Kjære\"\n  translation=\"Cheri(e)\"\n  pronunciation=\"CHÈR-e\"\n  example=\"Terme affectueux classique\"\n/>\n\n<VocabCard\n  word=\"Jeg elsker deg\"\n  translation=\"Je t'aime\"\n  pronunciation=\"yay EL-sker day\"\n  example=\"L'expression essentielle\"\n/>\n\n<VocabCard\n  word=\"Jeg savner deg\"\n  translation=\"Tu me manques\"\n  pronunciation=\"yay SAV-ner day\"\n  example=\"Expression du manque\"\n/>\n\n<VocabCard\n  word=\"Klem / Kyss\"\n  translation=\"Câlin / Bisou\"\n  pronunciation=\"klèm / chys\"\n  example=\"Pour terminer un message\"\n/>\n\n### Petits noms\n\n| Norvegien | Prononciation | Français |\n|-----------|---------------|----------|\n| **Kjære** | CHÈR-e | Cheri(e) |\n| **Elskling** | ÈL-skling | Mon amour |\n| **Søtnos** | SEUT-nouss | Petit(e) sucre |\n| **Hjertet mitt** | YÈR-tet mit | Mon cœur |\n| **Snuppa** | SNU-pa | Ma puce |\n\n<CultureTip title=\"Kos og klem\" flag=\"🇳🇴\">\n« Kos og klem » (confort et câlin) est une façon très norvegienne de terminer un message affectueux. C'est chaleureux et tres apprecie !\n</CultureTip>\n\n## Questions et reponses par texto\n\n<VocabCard\n  word=\"Hvor er du?\"\n  translation=\"T'es où ?\"\n  pronunciation=\"vour èr du\"\n  example=\"Question classique\"\n/>\n\n<VocabCard\n  word=\"Hva gjør du?\"\n  translation=\"Tu fais quoi ?\"\n  pronunciation=\"va yeur du\"\n  example=\"Pour prendre des nouvelles\"\n/>\n\n<VocabCard\n  word=\"Når kommer du?\"\n  translation=\"Tu arrives quand ?\"\n  pronunciation=\"nor KO-mer du\"\n  example=\"Pour les rendez-vous\"\n/>\n\n### Reponses typiques\n\n| Question | Reponse | Signification |\n|----------|---------|---------------|\n| Hvor er du? | Hjemme / På jobb | A la maison / Au travail |\n| Hva gjør du? | Ikke mye | Pas grand-chose |\n| Hvordan går det? | Bra / Fint | Ca va / Bien |\n\n## Argot courant\n\n<VocabCard\n  word=\"Kult\"\n  translation=\"Cool\"\n  pronunciation=\"kult\"\n  example=\"Expression positive\"\n/>\n\n<VocabCard\n  word=\"Fett\"\n  translation=\"Super / Genial\"\n  pronunciation=\"fèt\"\n  example=\"Très positif\"\n/>\n\n<VocabCard\n  word=\"Deilig\"\n  translation=\"Delicieux / Agreable\"\n  pronunciation=\"DAY-li\"\n  example=\"Multi-usage\"\n/>\n\n<VocabCard\n  word=\"Koselig\"\n  translation=\"Chaleureux / Agreable\"\n  pronunciation=\"KOU-se-li\"\n  example=\"Concept norvegien important\"\n/>\n\n<VocabCard\n  word=\"Digg\"\n  translation=\"Trop bien / Genial\"\n  pronunciation=\"dig\"\n  example=\"Argot des jeunes\"\n/>\n\n## Mini-conversation type\n\n```\n- Hei elskling! Hvordan går det?\n- Heia kjære! Bra, og du?\n- Savner deg 😘\n- Jeg også! Når ses vi?\n- I kveld?\n- Fett! Når?\n- Klokka 7?\n- Ok! Gleder meg\n- Jeg også! Klem!\n- ❤️\n```\n\n<CultureTip title=\"Gleder meg\" flag=\"🇳🇴\">\n« Gleder meg » (je me rejouis) est une façon très norvegienne d'exprimer l'impatience de voir quelqu'un. C'est une expression chaleureuse et sincère.\n</CultureTip>\n\n## Expressions utiles par texto\n\n| Norvegien | Signification |\n|-----------|---------------|\n| **Lyst på...?** | Envie de... ? |\n| **Vi snakkes** | On se parle |\n| **Vi ses** | On se voit |\n| **Må stikke** | Je dois y aller |\n| **Kos og klem** | Confort et câlin |\n\n## En cas de dispute\n\n<VocabCard\n  word=\"Beklager\"\n  translation=\"Pardon / Je suis desole\"\n  pronunciation=\"be-KLA-ger\"\n  example=\"Pour s'excuser\"\n/>\n\n<VocabCard\n  word=\"Unnskyld\"\n  translation=\"Excuse-moi\"\n  pronunciation=\"UN-shyl\"\n  example=\"Plus direct\"\n/>\n\n<VocabCard\n  word=\"Kan vi snakke om det?\"\n  translation=\"On peut en parler ?\"\n  pronunciation=\"kan vi SNA-ke om dè\"\n  example=\"Pour resoudre un conflit\"\n/>\n\n<VocabCard\n  word=\"Jeg elsker deg fortsatt\"\n  translation=\"Je t'aime toujours\"\n  pronunciation=\"yay EL-sker day FORT-sat\"\n  example=\"Rassurer\"\n/>\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Abreviations essentielles"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "807ed6bf-1da8-4349-82d6-81fa44a1c04b",
+      "title": "Zweedse Zinnen over Jaloezie en Vertrouwen",
+      "native_lang": "nl",
+      "target_lang": "sv",
+      "category": "communication",
+      "content": "Zweden waarderen open communicatie in relaties. Deze zinnen helpen je om jaloezie kalm te bespreken.\n\n## Essentiële zinnen\n\n### 1. \"Jag känner mig osäker när...\"\n**Betekenis:** Ik voel me onzeker wanneer...\n**Uitspraak:** *jaag sjen-ner mij oe-see-ker ner*\n\n### 2. \"Jag litar helt på dig\"\n**Betekenis:** Ik vertrouw je volledig\n**Uitspraak:** *jaag lie-tar heelt po dij*\n\n### 3. \"Kan du lugna mig?\"\n**Betekenis:** Kun je me geruststellen?\n**Uitspraak:** *kan due loeg-na mij*\n\n### 4. \"Jag är inte svartsjuk, bara orolig\"\n**Betekenis:** Ik ben niet jaloers, alleen bezorgd\n**Uitspraak:** *jaag er ien-te svart-sjuek, ba-ra oe-roe-lie*\n\n### 5. \"Vem var den personen du pratade med?\"\n**Betekenis:** Wie was de persoon met wie je praatte?\n**Uitspraak:** *vem var den per-soe-nen due pra-ta-de meed*\n\n### 6. \"Jag behöver veta att jag kan lita på dig\"\n**Betekenis:** Ik moet weten dat ik je kan vertrouwen\n**Uitspraak:** *jaag be-heu-ver vee-ta at jaag kan lie-ta po dij*\n\n### 7. \"Du har inget att oroa dig för\"\n**Betekenis:** Je hebt je nergens zorgen over te maken\n**Uitspraak:** *due har ing-et at oe-roe-a dij fer*\n\n### 8. \"Jag har bara ögon för dig\"\n**Betekenis:** Ik heb alleen oog voor jou\n**Uitspraak:** *jaag har ba-ra eu-gon fer dij*\n\n### 9. \"Låt oss prata om vad som stör dig\"\n**Betekenis:** Laten we praten over wat je dwarszit\n**Uitspraak:** *lot os pra-ta om vad som steur dij*\n\n### 10. \"Jag skulle aldrig göra något för att såra dig\"\n**Betekenis:** Ik zou nooit iets doen om je pijn te doen\n**Uitspraak:** *jaag skoe-le al-drie jeu-ra no-got fer at so-ra dij*\n\n### 11. \"Ditt förflutna definierar inte oss\"\n**Betekenis:** Je verleden bepaalt ons niet\n**Uitspraak:** *diet fer-floet-na de-fie-nie-rar ien-te os*\n\n### 12. \"Jag jobbar på mina osäkerheter\"\n**Betekenis:** Ik werk aan mijn onzekerheden\n**Uitspraak:** *jaag job-ar po mie-na oe-see-ker-hee-ter*\n\n## Conclusie\n\nGebruik deze zinnen voor kalme communicatie over vertrouwen met je Zweedse partner.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Essentiële zinnen"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

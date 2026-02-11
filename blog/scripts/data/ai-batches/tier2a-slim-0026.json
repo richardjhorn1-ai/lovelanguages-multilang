@@ -1,0 +1,540 @@
+{
+  "batchId": "tier2a-slim-0026",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "366cec8c-9888-455b-8a26-e886de5c78f0",
+      "title": "Udtryk Følelser på Tjekkisk: Komplet Guide for Par",
+      "native_lang": "da",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Reagere på Partnerens Følelser",
+          "subsections": [
+            "### Støttende Svar",
+            "### Trøstende Ord"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "366e6e80-9ba6-4e00-ae63-f99a1eb3d7d1",
+      "title": "Английское произношение для начинающих: учитесь говорить вместе с любимым",
+      "native_lang": "ru",
+      "target_lang": "en",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Основные английские звуки: начнём с простого",
+          "subsections": [
+            "### Гласные звуки (Vowel Sounds)",
+            "### Согласные звуки (Consonant Sounds)"
+          ]
+        },
+        {
+          "header": "## Типичные ошибки и как их избежать",
+          "subsections": [
+            "### Ошибка 1: Замена W на V",
+            "### Ошибка 2: Русская р",
+            "### Ошибка 3: Долгие и краткие гласные"
+          ]
+        },
+        {
+          "header": "## Практические упражнения для пары",
+          "subsections": [
+            "### Упражнение 1: Зеркальное произношение",
+            "### Упражнение 2: Романтический диктант",
+            "### Упражнение 3: Песенная практика"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "368eb012-d65e-4702-a51e-00c4aa3d585e",
+      "title": "Frases de 'Te Extraño' en Portugués: El Arte de la Saudade",
+      "native_lang": "es",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## El Concepto de Saudade",
+          "subsections": [
+            "### \"Estou com saudades de você\"",
+            "### \"Tenho muitas saudades suas\"",
+            "### \"A saudade aperta o coração\""
+          ]
+        },
+        {
+          "header": "## Expresiones Emotivas",
+          "subsections": [
+            "### \"Queria tanto que você estivesse aqui\"",
+            "### \"Cada momento sem você é uma eternidade\"",
+            "### \"Você está sempre nos meus pensamentos\""
+          ]
+        },
+        {
+          "header": "## Para Mensajes Diarios",
+          "subsections": [
+            "### \"Acordei pensando em você\"",
+            "### \"Boa noite, estou com saudades\"",
+            "### \"Contando os dias para te ver\""
+          ]
+        },
+        {
+          "header": "## Expresiones Profundas",
+          "subsections": [
+            "### \"Meu coração dói de saudade\"",
+            "### \"Você é a parte que falta em mim\"",
+            "### \"Sem você, nada tem graça\""
+          ]
+        },
+        {
+          "header": "## Portugués de Brasil vs Portugal",
+          "subsections": [
+            "### Estilo Brasileño",
+            "### Estilo Portugués"
+          ]
+        },
+        {
+          "header": "## Frases para Videollamadas",
+          "subsections": [
+            "### \"Ver o teu rosto alegra o meu dia\"",
+            "### \"Queria poder te abraçar agora\""
+          ]
+        },
+        {
+          "header": "## Mensajes Románticos",
+          "subsections": [
+            "### \"Bom dia, meu amor, estou com saudades\"",
+            "### \"Não vejo a hora de te ter nos meus braços\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "369397f6-fa2b-4649-b71b-9fceb8307903",
+      "title": "Переезд вместе на венгерский: Важные фразы",
+      "native_lang": "ru",
+      "target_lang": "hu",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Поиск жилья",
+          "subsections": [
+            "### Разговор с риелтором",
+            "### Описание того, что нужно"
+          ]
+        },
+        {
+          "header": "## День переезда",
+          "subsections": [
+            "### Организация переезда",
+            "### Работа együtt"
+          ]
+        },
+        {
+          "header": "## Обустройство дома",
+          "subsections": [
+            "### Расстановка a bútorok",
+            "### Принятие решений вместе"
+          ]
+        },
+        {
+          "header": "## Знакомство с соседями",
+          "subsections": [
+            "### Первая встреча",
+            "### Построение отношений"
+          ]
+        },
+        {
+          "header": "## Разделение обязанностей",
+          "subsections": [
+            "### Домашние дела",
+            "### Обсуждение"
+          ]
+        },
+        {
+          "header": "## Ваш первый вечер дома",
+          "subsections": [
+            "### Особенный момент",
+            "### Создание уюта"
+          ]
+        },
+        {
+          "header": "## Решение проблем",
+          "subsections": [
+            "### Бытовые вопросы",
+            "### Разговор с арендодателем"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "369760e8-89be-4913-bafd-cd26af3a2afc",
+      "title": "Norwegische Liebesbrief-Phrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Anreden",
+          "subsections": [
+            "### \"Min kjære...\"",
+            "### \"Mitt hjerte...\"",
+            "### \"Min elskede...\"",
+            "### \"Kjæresten min...\""
+          ]
+        },
+        {
+          "header": "## Einleitungen",
+          "subsections": [
+            "### \"Jeg skriver for å fortelle deg hvor mye jeg elsker deg\"",
+            "### \"Det finnes ikke ord nok til å beskrive det jeg føler for deg\""
+          ]
+        },
+        {
+          "header": "## Ausdrücke der Liebe",
+          "subsections": [
+            "### \"Du er det beste som noen gang har skjedd meg\"",
+            "### \"Livet mitt forandret seg for alltid den dagen jeg møtte deg\"",
+            "### \"Jeg blir mer forelsket i deg for hver dag\"",
+            "### \"Du lyser opp livet mitt med din tilstedeværelse\"",
+            "### \"Med deg har jeg oppdaget hva ekte kjærlighet er\""
+          ]
+        },
+        {
+          "header": "## Zukunftsversprechen",
+          "subsections": [
+            "### \"Jeg lover å elske deg betingelsesløst\"",
+            "### \"Jeg vil tilbringe resten av livet mitt med deg\"",
+            "### \"Min kjærlighet til deg vil bare vokse\""
+          ]
+        },
+        {
+          "header": "## Abschlüsse",
+          "subsections": [
+            "### \"Din for alltid...\"",
+            "### \"Med all min kjærlighet...\"",
+            "### \"Jeg elsker deg, i dag og for alltid\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "36a160ed-4509-4a23-8400-57d27310e2db",
+      "title": "Английские фразы о прощении",
+      "native_lang": "ru",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Фразы для просьбы о прощении",
+          "subsections": [
+            "### 1. I'm truly sorry for what I did",
+            "### 2. Please forgive me",
+            "### 3. I know I hurt you, and I'm deeply sorry",
+            "### 4. It won't happen again, I promise",
+            "### 5. I take full responsibility for my actions"
+          ]
+        },
+        {
+          "header": "## Фразы для выражения прощения",
+          "subsections": [
+            "### 6. I forgive you",
+            "### 7. Let's put this behind us",
+            "### 8. I'm ready to move forward",
+            "### 9. I appreciate your apology",
+            "### 10. It takes courage to apologize, thank you"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "36dc963a-22ba-4c97-8b2b-f8e1499a208d",
+      "title": "Vocabular pentru Bebeluși și Sarcină în Turcă: Expresii Esențiale",
+      "native_lang": "ro",
+      "target_lang": "tr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Anunțarea Sarcinii",
+          "subsections": [
+            "### Expresii pentru Anunț",
+            "### Anunțuri Creative"
+          ]
+        },
+        {
+          "header": "## Vocabular Medical",
+          "subsections": [
+            "### Termeni pentru Consultații"
+          ]
+        },
+        {
+          "header": "## Evoluția Sarcinii",
+          "subsections": [
+            "### Primul Trimestru (Săptămânile 1-12)",
+            "### Al Doilea Trimestru (Săptămânile 13-26)",
+            "### Al Treilea Trimestru (Săptămânile 27-40)"
+          ]
+        },
+        {
+          "header": "## Pregătirea pentru Bebeluș",
+          "subsections": [
+            "### Obiecte Esențiale",
+            "### Camera Bebelușului"
+          ]
+        },
+        {
+          "header": "## Expresii de Felicitare",
+          "subsections": [
+            "### Pentru Anunț",
+            "### Pentru Naștere"
+          ]
+        },
+        {
+          "header": "## Tradiții și Superstiții",
+          "subsections": [
+            "### Superstiții Comune"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "36de68f3-abbf-4368-a0d5-d7a2650a99cc",
+      "title": "Російська Вимова для Початківців: Як Говорити Закохано",
+      "native_lang": "uk",
+      "target_lang": "ru",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Основні Правила Вимови",
+          "subsections": [
+            "### 1. Російські Голосні: Проста Формула",
+            "### 2. М'якість — Секрет Романтики",
+            "### 3. Наголос: Музика Речення"
+          ]
+        },
+        {
+          "header": "## Складні Звуки для Закоханих",
+          "subsections": [
+            "### Російське «Р» — Мова Пристрасті",
+            "### Шиплячі Звуки: Ніжність у Звуках"
+          ]
+        },
+        {
+          "header": "## Поширені Помилки Пар",
+          "subsections": [
+            "### Помилка 1: Занадто буквальна вимова",
+            "### Помилка 2: Ігнорування м'якості",
+            "### Помилка 3: Український акцент на «г»"
+          ]
+        },
+        {
+          "header": "## Вправи для Пар",
+          "subsections": [
+            "### Вправа 1: «М'якість у темряві»",
+            "### Вправа 2: «Дзеркало любові»",
+            "### Вправа 3: «Телефон закоханих»"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "36e9cd7f-b1e0-4c29-8fee-baeb46826b4b",
+      "title": "İtalyanca Kıskançlık ve Güven İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kıskançlığı İfade Etme",
+          "subsections": [
+            "### 1. \"Mi sento un po' geloso/a quando...\"",
+            "### 2. \"Puoi rassicurarmi?\"",
+            "### 3. \"Mi fido di te, ma non di loro\"",
+            "### 4. \"Mi mette a disagio quando...\"",
+            "### 5. \"Ho bisogno di sapere che sono la tua priorità\""
+          ]
+        },
+        {
+          "header": "## Güven İnşa Etme",
+          "subsections": [
+            "### 6. \"Mi fido completamente di te\"",
+            "### 7. \"Sei l'unica persona per me\"",
+            "### 8. \"Non farei mai nulla per ferirti\"",
+            "### 9. \"Non hai nulla di cui preoccuparti\"",
+            "### 10. \"Sono impegnato/a solo con te\"",
+            "### 11. \"Parliamo delle tue preoccupazioni\"",
+            "### 12. \"Cosa posso fare per farti sentire più sicuro/a?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "36f56a00-af64-498e-8318-44b9165035fc",
+      "title": "55+ Ukrainische Date-Phrasen: Ти чудово виглядаєш",
+      "native_lang": "de",
+      "target_lang": "uk",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Im Restaurant",
+          "subsections": [
+            "### Reservierung und Ankunft",
+            "### Bestellen"
+          ]
+        },
+        {
+          "header": "## Gespräche beim Date",
+          "subsections": [
+            "### Fragen stellen",
+            "### Gefühle ausdrücken"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "370dda10-f22c-4397-a191-f3e0e53106a4",
+      "title": "Rusça Sevgi Sözcükleri ve Takma Adlar",
+      "native_lang": "tr",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Farklı Durumlar İçin Sevgi Sözcükleri",
+          "subsections": [
+            "### Günlük Hayatta",
+            "### Romantik Anlar İçin",
+            "### Şakalaşmak İçin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "37125b5c-68cc-4f59-b041-8894b4f92958",
+      "title": "Romanian Jealousy & Trust Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressing Jealousy",
+          "subsections": [
+            "### Sunt gelos/geloasă",
+            "### Devin gelos/geloasă când...",
+            "### Nu-mi place gelozia asta pe care o simt"
+          ]
+        },
+        {
+          "header": "## Seeking Reassurance",
+          "subsections": [
+            "### Mă iubești doar pe mine?",
+            "### Am nevoie să mă asiguri că totul e în regulă"
+          ]
+        },
+        {
+          "header": "## Building Trust",
+          "subsections": [
+            "### Am încredere în tine",
+            "### Vreau să am încredere completă în tine",
+            "### Cum putem construi mai multă încredere?"
+          ]
+        },
+        {
+          "header": "## Giving Reassurance",
+          "subsections": [
+            "### Am ochi doar pentru tine",
+            "### Ești singurul/singura pentru mine",
+            "### Nu ai de ce să-ți faci griji",
+            "### Inima mea îți aparține"
+          ]
+        },
+        {
+          "header": "## Setting Boundaries",
+          "subsections": [
+            "### Gelozia afectează relația noastră",
+            "### Am nevoie de spațiul meu personal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "371afe38-9eb1-41c7-9ca7-7112c02763a7",
+      "title": "Expresii de Călătorie pentru Luna de Miere în Greacă: Ghid pentru",
+      "native_lang": "ro",
+      "target_lang": "el",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## La Restaurant",
+          "subsections": [
+            "### Expresii de Bază",
+            "### Cină Romantică"
+          ]
+        },
+        {
+          "header": "## Transport și Explorare",
+          "subsections": [
+            "### Mijloace de Transport",
+            "### Expresii Utile"
+          ]
+        },
+        {
+          "header": "## Activități pentru Cupluri",
+          "subsections": [
+            "### Romantice",
+            "### Aventuroase"
+          ]
+        },
+        {
+          "header": "## Fotografii și Amintiri",
+          "subsections": [
+            "### Expresii pentru Fotografii",
+            "### Documentarea Călătoriei"
+          ]
+        },
+        {
+          "header": "## În Caz de Urgență",
+          "subsections": [
+            "### Numere și Expresii Utile",
+            "### Expresii de Urgență"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "373332a9-55af-4545-8d83-bd2a605f8a94",
+      "title": "Norveççe Sevgi Sözcükleri ve Takma Adlar",
+      "native_lang": "tr",
+      "target_lang": "no",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Farklı Durumlar İçin Sevgi Sözcükleri",
+          "subsections": [
+            "### Günlük Hayatta",
+            "### Romantik Anlar İçin",
+            "### Şakalaşmak İçin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "373d9eb0-674e-45dd-9ae3-a7b70e92ed62",
+      "title": "Dán összeköltözési szókincs",
+      "native_lang": "hu",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Költözési kifejezések",
+            "### Háztartási szókincs"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,390 @@
+{
+  "batchId": "tier2a-slim-0068",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "5b281730-5ea5-4145-bec8-b4a8db0b7496",
+      "title": "Rencontrer la belle-famille en suédois : Impressionner svärföräldrarna",
+      "native_lang": "fr",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Premières salutations",
+          "subsections": [
+            "### \"Så trevligt att äntligen träffas\"",
+            "### \"Jag har hört så mycket fint om er\"",
+            "### \"Tack så mycket för inbjudan\""
+          ]
+        },
+        {
+          "header": "## Montrer du respect",
+          "subsections": [
+            "### \"Ni har ett så fint hem\"",
+            "### \"Maten är jättegod, tack\""
+          ]
+        },
+        {
+          "header": "## Parler de votre partenaire",
+          "subsections": [
+            "### \"[Namn] betyder allt för mig\"",
+            "### \"Ni har uppfostrat en underbar människa\""
+          ]
+        },
+        {
+          "header": "## Au départ",
+          "subsections": [
+            "### \"Tack för en underbar dag\"",
+            "### \"Jag hoppas vi ses snart igen\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5b2a6baa-616b-4a18-b79c-62d639ade93a",
+      "title": "Török Flörtölő Kifejezések Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Flörtölő Kifejezések",
+          "subsections": [
+            "### 1. Çok güzelsin (Csok güzelszin)",
+            "### 2. Gözlerin çok güzel (Gözlerin csok güzel)",
+            "### 3. Seni bir kahveye davet edebilir miyim? (Szeni bir kahveje davet edebilir mijim?)",
+            "### 4. Senden hoşlanıyorum (Szenden hoslanijorum)",
+            "### 5. Benimle dans eder misin? (Benimle dansz eder miszin?)",
+            "### 6. Gülüşün harika (Gülüsün harika)",
+            "### 7. Seninle tekrar görüşmek isterim (Szeninle tekrar görüsmek iszterim)",
+            "### 8. Sen çok özelsin (Szen csok özelszin)",
+            "### 9. Numaranı alabilir miyim? (Numarani alabilir mijim?)",
+            "### 10. Seninle olmak çok güzel (Szeninle olmak csok güzel)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5b387923-9913-4b93-9cad-cc2858750405",
+      "title": "40 Norwegisch Komplimente für Deinen Partner",
+      "native_lang": "de",
+      "target_lang": "no",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Situationsbezogene Komplimente",
+          "subsections": [
+            "### Nach dem Aufwachen",
+            "### Beim Ausgehen",
+            "### Im Alltag"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5b513980-5c7c-4cf5-834f-d77a4a2b25da",
+      "title": "Phrases anglaises sur le pardon en couple",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions pour demander pardon",
+          "subsections": [
+            "### S'excuser sincèrement",
+            "### Exprimer ses regrets",
+            "### S'engager à changer"
+          ]
+        },
+        {
+          "header": "## Expressions pour pardonner",
+          "subsections": [
+            "### Accorder le pardon",
+            "### Exprimer la réconciliation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5b5299d0-8759-4870-9abb-50f20c5112d7",
+      "title": "Türkische Phrasen für die Schwiegereltern",
+      "native_lang": "de",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Erste Begegnung",
+          "subsections": [
+            "### \"Sonunda sizinle tanışmak büyük bir zevk\"",
+            "### \"Sizin hakkınızda çok şey duydum\"",
+            "### \"Beni evinizde ağırladığınız için teşekkür ederim\"",
+            "### \"Eviniz çok güzel\""
+          ]
+        },
+        {
+          "header": "## Bei Mahlzeiten",
+          "subsections": [
+            "### \"Çok lezzetli! Tarifi alabilir miyim?\"",
+            "### \"Bu harika yemek için teşekkür ederim\"",
+            "### \"Bir şeyde yardım edebilir miyim?\""
+          ]
+        },
+        {
+          "header": "## Über Ihre Beziehung",
+          "subsections": [
+            "### \"Oğlunuz/Kızınız benim için her şey demek\"",
+            "### \"Hayatımda [Name] olduğu için çok minnettarım\"",
+            "### \"[Name]'e her zaman iyi bakacağıma söz veriyorum\""
+          ]
+        },
+        {
+          "header": "## Dankbarkeit zeigen",
+          "subsections": [
+            "### \"Böyle harika bir insan yetiştirdiğiniz için teşekkür ederim\"",
+            "### \"Sıcak karşılamanızı çok takdir ediyorum\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5b879797-e3ee-408a-a835-520f7c0af850",
+      "title": "Expresii de Flirt în Norvegiană pentru Români",
+      "native_lang": "ro",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale de Flirt",
+          "subsections": [
+            "### Complimente Naturale",
+            "### Expresii Romantice",
+            "### Replici Jucăușe",
+            "### Declarații Profunde"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5b9713a1-0d3c-40d8-9142-b040015b4dee",
+      "title": "Polacco: 15 Modi Romantici per Dire Ti Amo",
+      "native_lang": "it",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Frasi per Momenti Quotidiani",
+          "subsections": [
+            "### Al Mattino",
+            "### Prima di Uscire",
+            "### Alla Sera",
+            "### Prima di Dormire"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5ba3431d-6a74-41b7-83a7-18c08c4b7214",
+      "title": "Φράσεις για Γνωριμία με τους Πεθερικούς στα Νορβηγικά",
+      "native_lang": "el",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για την Πρώτη Γνωριμία",
+          "subsections": [
+            "### 1. Hyggelig å treffe dere (Χίγκελι ο τρέφε ντέρε)",
+            "### 2. Jeg har hørt så mye om dere (Γιάι χαρ χορτ σο μίε ομ ντέρε)",
+            "### 3. Takk for at dere tar imot meg (Τακ φορ ατ ντέρε ταρ ίμοτ μάι)"
+          ]
+        },
+        {
+          "header": "## Φράσεις Εκτίμησης",
+          "subsections": [
+            "### 4. Sønnen/Datteren deres er fantastisk (Σόνεν/Ντάτερεν ντέρες ερ φαντάστισκ)",
+            "### 5. Dere har oppdratt et fantastisk menneske (Ντέρε χαρ οπντράτ ετ φαντάστισκ μέννεσκε)",
+            "### 6. Maten er kjempegod (Μάτεν ερ σέμπεγκουντ)",
+            "### 7. Dere har et vakkert hjem (Ντέρε χαρ ετ βάκερτ γιεμ)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για Συζήτηση",
+          "subsections": [
+            "### 8. Jeg vil gjerne vite mer om familien deres (Γιάι βιλ γιέρνε βίτε μερ ομ φαμίλιεν ντέρες)",
+            "### 9. Hvordan var han/hun som barn? (Χβόρνταν βαρ χαν/χουν σομ μπαρν)",
+            "### 10. Jeg håper vi kan tilbringe mer tid sammen (Γιάι χόπερ βι καν τίλμπρινγκε μερ τιντ σάμεν)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5bad7733-cf5b-4963-9d87-afe352371149",
+      "title": "Hongaarse Zinnen over Vergeving",
+      "native_lang": "nl",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Nagyon sajnálom\" - *na-djon sjaj-na-lom*",
+            "### 2. \"Kérlek, bocsáss meg\" - *keer-lek, bo-tsjaasj meg*",
+            "### 3. \"Megbocsátok neked\" - *meg-bo-tsja-tok ne-ked*",
+            "### 4. \"Meg tudod találni a szívedben, hogy megbocsáss?\" - *meg toe-dod ta-lal-nie a sie-ved-ben, hodzj meg-bo-tsjaasj*",
+            "### 5. \"Tévedtem és sajnálom\" - *tee-ved-tem eesj sjaj-na-lom*",
+            "### 6. \"Soha többé nem fogom megtenni\" - *sjo-ha teub-bee nem fo-gom meg-ten-nie*",
+            "### 7. \"Mit tehetek, hogy jóvá tegyem?\" - *miet te-he-tek, hodzj jo-va te-djem*",
+            "### 8. \"Elfogadom a bocsánatkérésedet\" - *el-fo-ga-dom a bo-tsja-nat-kee-ree-sje-det*",
+            "### 9. \"Menjünk tovább\" - *menj-juenk to-vaab*",
+            "### 10. \"Tudom, hogy megbántottalak\" - *toe-dom, hodzj meg-ban-tot-ta-lak*",
+            "### 11. \"Megígérem, hogy jobb leszek\" - *meg-ie-gee-rem, hodzj job le-sek*",
+            "### 12. \"Időbe telik, de megpróbálok megbocsátani\" - *ie-deu-be te-liek, de meg-pro-ba-lok meg-bo-tsja-ta-nie*"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5bba6d03-ec9d-46a5-be38-88880432aa70",
+      "title": "Tcheco para Casais: 35+ Frases Essenciais",
+      "native_lang": "pt",
+      "target_lang": "cs",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Frases para o Cotidiano",
+          "subsections": [
+            "### Fazendo Planos",
+            "### Demonstrando Cuidado"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5bc0de05-b86f-4e70-9950-567fc4eadbf9",
+      "title": "Danca Barışma ve Uzlaşma İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Barışma İfadeleri",
+          "subsections": [
+            "### 1. \"Undskyld for det, jeg sagde\"",
+            "### 2. \"Kan vi starte forfra?\"",
+            "### 3. \"Jeg hader at skændes med dig\"",
+            "### 4. \"Lad os ikke gå i seng vrede\"",
+            "### 5. \"Jeg tilgiver dig\"",
+            "### 6. \"Jeg tog fejl\"",
+            "### 7. \"Hvordan kan jeg gøre det godt igen?\"",
+            "### 8. \"Jeg elsker dig mere end dette skænderi\"",
+            "### 9. \"Lad os løse det her sammen\"",
+            "### 10. \"Jeg savner, hvordan vi var før skænderiet\"",
+            "### 11. \"Du betyder alt for mig\"",
+            "### 12. \"Jeg lover at blive bedre\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5bc89a3c-0665-4873-a0b1-b6e44141862a",
+      "title": "Macarca Ögrenmek Zor mu? Türkler Icin Dürüst Bir Degerlendirme",
+      "native_lang": "tr",
+      "target_lang": "hu",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Macarca'nin Zor Yanlari",
+          "subsections": [
+            "### 1. Hal Sistemi (18 Hal!)",
+            "### 2. Fiil Cekimleri (Belirli ve Belirsiz)",
+            "### 3. Uzun Kelimeler",
+            "### 4. Kelime Hazinesi"
+          ]
+        },
+        {
+          "header": "## Macarca'nin Kolay Yanlari",
+          "subsections": [
+            "### 1. Fonetik Yazim",
+            "### 2. Sadece Bir Zaman!",
+            "### 3. Artikeller Yok (Çok Basit)",
+            "### 4. Sesli Uyumu (Türkce'de de Var!)"
+          ]
+        },
+        {
+          "header": "## Ne Kadar Sürede Ögrenirim?",
+          "subsections": [
+            "### Seviye Hedefleri"
+          ]
+        },
+        {
+          "header": "## Basari Icin Ipuclari",
+          "subsections": [
+            "### 1. Ask Motivasyonu Kullanin",
+            "### 2. Sesli Uyumuna Güvenin",
+            "### 3. Halleri Yavas Yavas Ögrenin",
+            "### 4. Belirli/Belirsiz Cekime Odaklanin",
+            "### 5. Medya Kullanin"
+          ]
+        },
+        {
+          "header": "## Gercekcı Beklentiler",
+          "subsections": [
+            "### Baslangicta Beklediginiz Zorluklar:",
+            "### Zaman Icinde Kolaylasan Seyler:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5bd1aa63-8169-4f62-be20-a97ac5259017",
+      "title": "Συνάντηση με την Οικογένεια του Συντρόφου σας στα Πολωνικά: Φράσεις για να Κερδίσετε τις Εντυπώσεις",
+      "native_lang": "el",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Συγκεκριμένες Καταστάσεις",
+          "subsections": [
+            "### Όταν Φτάνετε στο Σπίτι",
+            "### Στο Τραπέζι",
+            "### Δείχνοντας Φωτογραφίες"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5bdd2517-d7ed-4a75-8eb9-54d1bde48665",
+      "title": "Frases para Conhecer os Sogros em Grego: Guia Completo",
+      "native_lang": "pt",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para o Primeiro Encontro",
+          "subsections": [
+            "### Apresentação",
+            "### Elogiando",
+            "### Mostrando Interesse",
+            "### Expressando Gratidão"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5be58911-2fda-4084-a423-a0e7dcaf1636",
+      "title": "Как извиняться на немецком языке: полное руководство",
+      "native_lang": "ru",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Извинения за конкретные ситуации",
+          "subsections": [
+            "### За опоздание",
+            "### За ошибку",
+            "### За причинённую боль"
+          ]
+        }
+      ]
+    }
+  ]
+}

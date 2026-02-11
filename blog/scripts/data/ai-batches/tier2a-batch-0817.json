@@ -1,0 +1,111 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0817",
+  "articles": [
+    {
+      "id": "ea711315-bf29-46a8-bf2e-25f170720c62",
+      "title": "Польские фразы для первого свидания",
+      "native_lang": "ru",
+      "target_lang": "pl",
+      "category": "communication",
+      "content": "Польская культура ценит галантность и романтику. Эти фразы помогут вам на первом свидании.\n\n## Начало разговора\n\n### 1. Wyglądasz dziś wieczorem pięknie\n**Произношение:** Выгло́ндаш джищь вечо́рэм пье́кне\n\n**Перевод:** Ты прекрасно выглядишь сегодня вечером\n\n### 2. Bardzo czekałem/czekałam na to spotkanie\n**Произношение:** Ба́рдзо чэка́вэм/чэка́вам на то спотка́не\n\n**Перевод:** Я очень ждал/ждала этой встречи\n\n### 3. Opowiedz mi o sobie\n**Произношение:** Оповедж ми о со́бе\n\n**Перевод:** Расскажи мне о себе\n\n### 4. Co lubisz robić w wolnym czasie?\n**Произношение:** Цо лю́бищь ро́бичь в во́льным ча́ще?\n\n**Перевод:** Чем тебе нравится заниматься в свободное время?\n\n### 5. Masz piękny uśmiech\n**Произношение:** Маш пье́кны ущьмех\n\n**Перевод:** У тебя красивая улыбка\n\n### 6. Chciałbym/Chciałabym cię znowu zobaczyć\n**Произношение:** Хчя́вбым/Хчя́вабым че зно́ву зоба́чычь\n\n**Перевод:** Я хотел/хотела бы увидеть тебя снова\n\n### 7. Świetnie się dziś bawiłem/bawiłam\n**Произношение:** Щьве́тне ще джищь ба́вивэм/ба́вивам\n\n**Перевод:** Я прекрасно провёл/провела время сегодня\n\n### 8. Czy mogę do ciebie zadzwonić jutro?\n**Произношение:** Чы мо́гэ до че́бе задзво́ничь ю́тро?\n\n**Перевод:** Можно я позвоню тебе завтра?\n\n## Культурные особенности\n\nПоляки ценят галантность. Мужчины часто открывают двери, помогают с пальто. Цветы на первом свидании — хороший жест. Будьте искренни и заинтересованы.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 185,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Начало разговора"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "eaa5a5bf-cbcd-4df2-81e5-6b8a0d3208cc",
+      "title": "Urări de Ziua de Naștere pentru Partener în Ucraineană: Mesaje",
+      "native_lang": "ro",
+      "target_lang": "uk",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nZiua de naștere a partenerului tău este ocazia perfectă de a-i arăta cât de mult îl/o iubești. Aceste expresii te vor ajuta să creezi un mesaj de neuitat.\n\nPentru mai multe expresii romantice, consultă [expresii romantice pentru fiecare ocazie](/learn/ro/uk/uk-romantic-phrases-for-every-occasion).\n\n<PhraseOfDay\n  word=\"La mulți ani, iubirea mea!\"\n  translation=\"Happy Birthday, my love!\"\n  pronunciation=\"urare specială\"\n  context=\"Cea mai dulce urare pentru persoana iubită.\"\n/>\n\n## Urări de Bază\n\n<VocabCard\n  word=\"La mulți ani!\"\n  translation=\"Happy Birthday!\"\n  pronunciation=\"urare clasică\"\n  example=\"La mulți ani, dragostea mea!\"\n/>\n\n<VocabCard\n  word=\"Să ai o zi minunată!\"\n  translation=\"Have a wonderful day!\"\n  pronunciation=\"urare caldă\"\n  example=\"Să ai cea mai frumoasă zi!\"\n/>\n\n### Expresii Esențiale\n\n| Română | Context |\n|--------|--------|\n| La mulți ani fericiți! | Urare completă |\n| Zi de naștere fericită! | Alternativă |\n| Să trăiești! | Tradițional |\n| Sărbătoare fericită! | General |\n\n<CultureTip flag=\"🎂\" title=\"Tradiții de Zi de Naștere\">\nÎn diferite culturi, zilele de naștere sunt sărbătorite în moduri unice. Unii suflă în lumânări și își pun o dorință, alții primesc \"bătăi prietenoase\" de fiecare an de viață, iar alții celebrează cu tort și prieteni.\n</CultureTip>\n\n## Mesaje Romantice\n\n### Scurte și Dulci\n- **La mulți ani celui mai minunat om din lume!**\n- **Ziua ta, dar cadoul meu ești tu în viața mea**\n- **Un an mai mare, dar tot la fel de frumos/frumoasă**\n- **Să îmbătrânim frumos împreună!**\n\n### Mesaje Mai Lungi\n- **Astăzi sărbătorim ziua în care universul mi-a dat cel mai frumos cadou: pe tine.**\n- **La mulți ani celui care face fiecare zi din viața mea mai frumoasă!**\n- **Cu fiecare an care trece, te iubesc mai mult. La mulți ani, sufletul meu pereche!**\n- **Ești dovada că dorințele se împlinesc. La mulți ani!**\n\n<VocabCard\n  word=\"Ești cel mai frumos cadou.\"\n  translation=\"You are the best gift.\"\n  pronunciation=\"romantic\"\n  example=\"Pentru mine, tu ești cel mai frumos cadou.\"\n/>\n\n## Mesaje pentru Diferite Personalități\n\n### Pentru Partenerul Romantic\n| Stil | Mesaj |\n|------|-------|\n| Poetic | Ești poezia vieții mele |\n| Dulce | Te iubesc până la lună și înapoi |\n| Profund | Ai schimbat totul spre mai bine |\n\n### Pentru Partenerul cu Umor\n- **La mulți ani! Nu-ți spun câți, că nu vrei să știi! 😄**\n- **Un an mai înțelept, dar tot atât de nebun! Te iubesc!**\n- **Încă un an și tot nu m-ai schimbat cu nimeni! Bravo!**\n\n<CultureTip flag=\"🎁\" title=\"Cadouri vs. Prezență\">\nUnii parteneri preferă cadouri elaborate, alții apreciază mai mult timpul petrecut împreună sau experiențele. Cunoaște limbajul iubirii al partenerului tău pentru a face ziua cu adevărat specială.\n</CultureTip>\n\n## Mesaje pentru Card\n\n### Format Scurt\n- La mulți ani fericiți! ❤️\n- Ziua ta specială pentru persoana mea specială 💕\n- Cu dragoste infinită, la mulți ani! 💑\n- Tu + Eu + Tort = Perfecțiune 🎂\n\n### Format Lung\nDragul meu / Draga mea,\n\nAstăzi e ziua ta și vreau să știi cât de norocos/norocoasă mă simt că te am în viața mea. Tu faci fiecare zi mai frumoasă, mai plină de sens și de râs.\n\nÎți doresc tot ce e mai bun în noul tău an: sănătate, fericire și toate visurile împlinite. Și să știi că voi fi mereu aici, alături de tine.\n\nLa mulți ani, iubirea vieții mele!\n\nCu toată dragostea,\n[Numele tău]\n\n## Idei de Surprize\n\n### Gesturi Romantice\n| Idee | Descriere |\n|------|----------|\n| Mic dejun la pat | Începe ziua special |\n| Scrisoare de dragoste | 10 motive pentru care îl/o iubești |\n| Album foto | Cu amintiri frumoase |\n| Cină surpriză | Gătită de tine |\n| Escapadă | Weekend romantic |\n\n<VocabCard\n  word=\"Vreau să îți fac ziua specială.\"\n  translation=\"I want to make your day special.\"\n  pronunciation=\"intenție romantică\"\n  example=\"Astăzi, vreau să îți fac ziua memorabilă.\"\n/>\n\n## Mesaje de Dimineață\n\n### Pentru Început de Zi\n- **Bună dimineața, frumoaso/frumosule! La mulți ani!**\n- **Primul lucru pe care vreau să-l faci azi: să zâmbești!**\n- **Trezește-te, e ziua ta specială!**\n- **Un nou an plin de aventuri începe azi!**\n\n## Tradiții de Cuplu\n\n### Idei pentru Noi Tradiții\n- Scrie o scrisoare în fiecare an\n- Fă o fotografie în același loc\n- Împlinește o dorință mică\n- Creează un album de amintiri\n- Planifică o aventură nouă\n\n## Sfaturi Finale\n\n1. **Personalizează mesajul** - include lucruri specifice\n2. **Fii sincer** - sentimentele adevărate contează\n3. **Surprinde-l/o** - gesturile neașteptate sunt speciale\n4. **Fă-l să se simtă important** - e ziua lui/ei\n5. **Spune-i în limba lui/ei** - dacă e diferită de a ta\n\n<CTA />\n\n## Concluzie\n\nZiua de naștere a partenerului este o oportunitate minunată de a celebra persoana pe care o iubești. Cu aceste idei și expresii, vei putea crea amintiri de neuitat.\n\nLa mulți ani celui/celei mai special/ă din viața ta!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Mesaje Romantice",
+              "## Mesaje pentru Diferite Personalități",
+              "## Mesaje pentru Card",
+              "## Idei de Surprize",
+              "## Mesaje de Dimineață",
+              "## Tradiții de Cuplu"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "eabefaae-3beb-4d61-b14a-bb25d1ba223c",
+      "title": "Mød Svigerforældrene på Ungarsk: Essentielle Udtryk",
+      "native_lang": "da",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "# Mød Svigerforældrene på Ungarsk: Essentielle Udtryk\n\nAt møde ungarske svigerforældre er en oplevelse fyldt med traditioner og varme. Ungarsk er et unikt og udfordrende sprog, men ungarere sætter enorm pris på, at udlændinge gør en indsats. Med de rigtige udtryk kan du imponere og vinde familiens hjerte.\n\n## Kulturelle Tips inden Mødet\n\nUngarere bruger formelle tiltaleformer til ældre og nye bekendtskaber. Medbring blomster (ulige antal) til værtinden og vin eller palinka til familien. Vær forberedt på rigelig mad – ungarsk gæstfrihed er generøs!\n\n## De Vigtigste Udtryk\n\n### 1. Nagyon örülök, hogy megismerhetem Önöket\n**Udtale:** ˈnɒɟon ˈørylok hoɟ ˈmɛɡiʃmɛrhɛtɛm ˈønøkɛt (NA-dyon UH-ruh-luhk hody MEG-ish-mer-he-tem UH-nuh-ket)\n\n**Betydning:** Jeg er meget glad for at møde Dem.\n\n**Kulturelt råd:** \"Önöket\" er den formelle tiltaleform og viser respekt.\n\n### 2. Nagyon köszönöm a meghívást\n**Udtale:** ˈnɒɟon ˈkøsønøm ɒ ˈmɛɡhiːvaːʃt (NA-dyon KUH-suh-nuhm a MEG-hee-vasht)\n\n**Betydning:** Mange tak for invitationen.\n\n**Kulturelt råd:** Vis taknemmelighed fra starten.\n\n### 3. Gyönyörű otthonuk van\n**Udtale:** ˈɟøɲøryː ˈotthonuk vɒn (DYUH-nyuh-ruu OT-tho-nook van)\n\n**Betydning:** De har et smukt hjem.\n\n**Kulturelt råd:** Ungarere er stolte af deres hjem – komplimenter værdsættes.\n\n### 4. Sokat hallottam Önökről\n**Udtale:** ˈʃokɒt ˈhɒlottɒm ˈønøkrøl (SHO-kat HAL-lot-tam UH-nuhk-ruhl)\n\n**Betydning:** Jeg har hørt meget om Dem.\n\n**Kulturelt råd:** Dette viser, at din partner respekterer sin familie.\n\n### 5. Nagyon finom! Megkaphatnám a receptet?\n**Udtale:** ˈnɒɟon ˈfinom ˈmɛɡkɒphɒtnaːm ɒ ˈrɛt͡sɛptɛt (NA-dyon FEE-nom MEG-kap-hat-nam a REH-tsep-tet)\n\n**Betydning:** Meget lækkert! Må jeg få opskriften?\n\n**Kulturelt råd:** Ungarsk køkken er rigt – vis interesse i gulyas, paprikás og andre traditioner.\n\n### 6. Nagyon örülök, hogy itt lehetek\n**Udtale:** ˈnɒɟon ˈørylok hoɟ it ˈlɛhɛtɛk (NA-dyon UH-ruh-luhk hody it LEH-he-tek)\n\n**Betydning:** Jeg er meget glad for at være her.\n\n**Kulturelt råd:** Vis din glæde åbent – ungarere sætter pris på oprigtighed.\n\n### 7. Segíthetek az asztal leszedésében?\n**Udtale:** ˈʃɛɡiːthɛtɛk ɒz ˈɒstɒl ˈlɛsɛdeːʃeːbɛn (SHEH-geet-he-tek az AS-tal LEH-se-deh-sheh-ben)\n\n**Betydning:** Må jeg hjælpe med at rydde bordet?\n\n**Kulturelt råd:** At tilbyde hjælp viser gode manerer og respekt.\n\n### 8. A fiuk/lányuk nagyon sokat jelent nekem\n**Udtale:** ɒ ˈfiuk/ˈlaːɲuk ˈnɒɟon ˈʃokɒt ˈjɛlɛnt ˈnɛkɛm (a FEE-ook/LA-nyook NA-dyon SHO-kat YEH-lent NEH-kem)\n\n**Betydning:** Deres søn/datter betyder meget for mig.\n\n**Kulturelt råd:** Ungarske forældre værdsætter ærlighed om følelser.\n\n### 9. Remélem, hamarosan újra találkozunk\n**Udtale:** ˈrɛmeːlɛm ˈhɒmɒroʃɒn ˈuːjrɒ ˈtɒlaːlkozunk (REH-meh-lem HA-ma-ro-shan OOY-ra TA-lal-ko-zoonk)\n\n**Bedeutning:** Jeg håber, vi ses igen snart.\n\n**Kulturelt råd:** Vis ønske om fremtidige møder og familietilknytning.\n\n### 10. Köszönöm ezt a csodálatos estét\n**Udtale:** ˈkøsønøm ˈɛst ɒ ˈt͡ʃodaːlɒtoʃ ˈɛʃteːt (KUH-suh-nuhm est a CHO-da-la-tosh ESH-teht)\n\n**Betydning:** Tak for denne vidunderlige aften.\n\n**Kulturelt råd:** Afslut altid med varme taknemmelighed.\n\n### 11. Egészségére!\n**Udtale:** ˈɛɡeːʃːeːɡeːrɛ (EH-gehsh-sheh-geh-reh)\n\n**Betydning:** Skål! (Til Deres sundhed!)\n\n**Kulturelt råd:** Den klassiske ungarske skål – ofte med pálinka!\n\n## Samtaleeksempel\n\n**Svigermor:** Isten hozta! Tessék bejönni!\n**Dig:** Nagyon köszönöm a meghívást. Gyönyörű otthonuk van!\n**Svigerfar:** Tessék leülni.\n**Dig:** Köszönöm. Sokat hallottam Önökről.\n\n## Afsluttende Råd\n\nUngarere værdsætter respekt, traditioner og varme. Vær forberedt på rigelig mad, pálinka-toasts og lange samtaler. Vis ægte interesse i ungarsk kultur og historie – det vil åbne mange døre. Og husk – at gøre en indsats for at lære ungarsk, selv bare et par ord, imponerer enormt!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## De Vigtigste Udtryk"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "eac585ad-9c9a-474c-9884-1f26becc4ac7",
+      "title": "Phrases anglaises pour les disputes de couple",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "communication",
+      "content": "Les désaccords font partie de toute relation amoureuse. Savoir exprimer ses frustrations et ses limites en anglais peut vous aider à traverser ces moments difficiles avec votre partenaire anglophone.\n\n## Pourquoi apprendre ces expressions ?\n\nLes disputes dans une langue étrangère peuvent être particulièrement stressantes. Vous devez non seulement gérer vos émotions, mais aussi trouver les mots justes pour vous exprimer clairement. Ce guide vous aidera à communiquer efficacement pendant les moments de tension.\n\n## Expressions essentielles pour les désaccords\n\n### Exprimer son désaccord\n\n**\"I don't agree with you on this.\"**\n*Je ne suis pas d'accord avec toi sur ce point.*\nUtilisez cette phrase pour exprimer un désaccord respectueux sans être agressif.\n\n**\"That's not how I see it.\"**\n*Ce n'est pas comme ça que je vois les choses.*\nCette expression permet d'introduire votre point de vue différent de manière calme.\n\n**\"I feel like you're not listening to me.\"**\n*J'ai l'impression que tu ne m'écoutes pas.*\nParfait pour exprimer votre frustration quand vous ne vous sentez pas entendu(e).\n\n### Exprimer ses émotions\n\n**\"I'm really frustrated right now.\"**\n*Je suis vraiment frustré(e) en ce moment.*\nNommer ses émotions aide à désamorcer les conflits.\n\n**\"This hurts my feelings.\"**\n*Ça me blesse.*\nUne façon directe de communiquer l'impact émotionnel des paroles ou actions.\n\n**\"I need some space to calm down.\"**\n*J'ai besoin d'espace pour me calmer.*\nEssentiel pour éviter l'escalade quand les émotions sont trop fortes.\n\n### Fixer des limites\n\n**\"Please don't raise your voice at me.\"**\n*S'il te plaît, ne hausse pas le ton avec moi.*\nImportant pour maintenir une communication respectueuse.\n\n**\"I won't tolerate being spoken to like that.\"**\n*Je n'accepterai pas qu'on me parle comme ça.*\nPour poser une limite claire sur le ton de la conversation.\n\n**\"Can we discuss this calmly?\"**\n*Pouvons-nous en discuter calmement ?*\nPour ramener la conversation à un niveau constructif.\n\n### Chercher à comprendre\n\n**\"Help me understand your point of view.\"**\n*Aide-moi à comprendre ton point de vue.*\nMontre votre volonté d'écouter malgré le désaccord.\n\n**\"What would you like me to do differently?\"**\n*Que voudrais-tu que je fasse différemment ?*\nOuvre la porte à des solutions concrètes.\n\n**\"Let's try to find a compromise.\"**\n*Essayons de trouver un compromis.*\nOriente la discussion vers une résolution.\n\n## Conseils culturels\n\nLes anglophones valorisent souvent l'expression directe des émotions en utilisant des phrases commençant par \"I feel...\" (Je ressens...). Cette approche, appelée \"I-statements\", est considérée comme plus constructive que les accusations commençant par \"You always...\" (Tu fais toujours...).\n\n## Conclusion\n\nLes disputes sont inévitables, mais avec le bon vocabulaire, elles peuvent devenir des opportunités de mieux se comprendre. Pratiquez ces expressions pour vous sentir plus confiant(e) lors des moments difficiles avec votre partenaire.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Expressions essentielles pour les désaccords"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "eac749a4-a036-46c9-9716-0f62c7b325e0",
+      "title": "Γράψτε Ερωτικά Γράμματα στα Τουρκικά",
+      "native_lang": "el",
+      "target_lang": "tr",
+      "category": "communication",
+      "content": "# Πώς να Γράψετε Ερωτικά Γράμματα στα Τουρκικά: Οδηγός για Ελληνόφωνους\n\nΤα τουρκικά έχουν πλούσια ρομαντική παράδοση, επηρεασμένη από την οθωμανική ποίηση και τη μεσογειακή κουλτούρα. Ως γείτονες, Έλληνες και Τούρκοι μοιράζονται την αγάπη για τη θερμή έκφραση συναισθημάτων.\n\n## Φράσεις για την Αρχή του Γράμματος\n\n### 1. Aşkım (Ασκίμ)\n**Προφορά:** ασ-ΚΙΜ\n**Σημασία:** Αγάπη μου\n\n### 2. Canım (Τζανίμ)\n**Προφορά:** τζα-ΝΙΜ\n**Σημασία:** Ψυχή μου / Ζωή μου\n\n### 3. Sevgilim (Σεβγκιλίμ)\n**Προφορά:** σεβ-γκι-ΛΙΜ\n**Σημασία:** Αγαπημένε/η μου\n\n## Φράσεις για το Κυρίως Μέρος\n\n### 4. Sen hayatımın aşkısın (Σεν χαγιατιμίν ασκισίν)\n**Προφορά:** ΣΕΝ χα-για-τι-ΜΙΝ ασ-κι-ΣΙΝ\n**Σημασία:** Είσαι ο έρωτας της ζωής μου\n\n### 5. Her geçen gün seni daha çok seviyorum (Χερ γκετσέν γκιουν σενί νταχά τσοκ σεβιγιορούμ)\n**Προφορά:** ΧΕΡ γκε-ΤΣΕΝ γκιουν σε-ΝΙ ντα-ΧΑ ΤΣΟΚ σε-βι-γιο-ΡΟΥΜ\n**Σημασία:** Κάθε μέρα που περνά σ' αγαπώ περισσότερο\n\n### 6. Kalbim sadece senin için atıyor (Καλμπίμ σαντετζέ σενίν ιτσίν ατιγιόρ)\n**Προφορά:** καλ-ΜΠΙ σα-ντε-ΤΖΕ σε-ΝΙΝ ι-ΤΣΙΝ α-τι-ΓΙΟΡ\n**Σημασία:** Η καρδιά μου χτυπά μόνο για σένα\n\n### 7. Seninle çok mutluyum (Σενινλέ τσοκ μουτλουγιούμ)\n**Προφορά:** σε-νιν-ΛΕ ΤΣΟΚ μουτ-λου-ΓΙΟΥΜ\n**Σημασία:** Είμαι πολύ ευτυχισμένος/η μαζί σου\n\n### 8. Sana delicesine aşığım (Σανά ντελιτζεσινέ ασιγίμ)\n**Προφορά:** σα-ΝΑ ντε-λι-τζε-σι-ΝΕ α-σι-ΓΙΜ\n**Σημασία:** Είμαι τρελά ερωτευμένος/η μαζί σου\n\n### 9. Sen benim her şeyimsin (Σεν μπενίμ χερ σεϊμσίν)\n**Προφορά:** ΣΕΝ μπε-ΝΙΜ ΧΕΡ σε-ιμ-ΣΙΝ\n**Σημασία:** Είσαι τα πάντα μου\n\n### 10. Sensiz bir hiçim (Σενσίζ μπιρ χιτσίμ)\n**Προφορά:** σεν-ΣΙΖ ΜΠΙΡ χι-ΤΣΙΜ\n**Σημασία:** Χωρίς εσένα δεν είμαι τίποτα\n\n## Φράσεις για το Κλείσιμο\n\n### 11. Sonsuza dek senin (Σονσουζά ντεκ σενίν)\n**Προφορά:** σον-σου-ΖΑ ΝΤΕΚ σε-ΝΙΝ\n**Σημασία:** Για πάντα δικός/ή σου\n\n### 12. Bütün aşkımla (Μπιουτούν ασκιμλά)\n**Προφορά:** μπιου-ΤΟΥΝ ασ-κιμ-ΛΑ\n**Σημασία:** Με όλη μου την αγάπη\n\n## Πολιτιστικές Συμβουλές\n\nΟι Τούρκοι είναι θερμοί και εκφραστικοί στα συναισθήματά τους. Τα ερωτικά γράμματα μπορούν να είναι παθιασμένα και γεμάτα μεταφορές.\n\nΤα τουρκικά έχουν πολλά χαϊδευτικά: «canım» (ψυχή μου), «tatlım» (γλυκιά μου), «hayatım» (ζωή μου), «birtanem» (μοναδική μου).\n\nΗ οθωμανική ποιητική παράδοση έχει αφήσει πλούσια κληρονομιά στη ρομαντική έκφραση - μεταφορές με αστέρια, φεγγάρι και λουλούδια είναι δημοφιλείς.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Φράσεις για την Αρχή του Γράμματος",
+              "## Φράσεις για το Κυρίως Μέρος",
+              "## Φράσεις για το Κλείσιμο"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

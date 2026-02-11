@@ -1,0 +1,288 @@
+{
+  "native_lang": "da",
+  "wave": 1,
+  "target_langs_reviewed": ["en", "es", "fr", "de", "it", "pt"],
+  "articles_reviewed": 12,
+  "clean_articles": 4,
+  "issues": [
+    {
+      "article_id": "37c88561-3e67-4a5b-9f29-71b31a48a3a1",
+      "slug": "english-moving-in-together",
+      "target_lang": "en",
+      "issue_type": "wrong_vocabulary",
+      "severity": "high",
+      "description": "All vocabulary tables contain wedding-themed words (honeymoon, ceremony, witness, wedding rings) instead of moving-in-together vocabulary. The English column shows words completely unrelated to the topic.",
+      "evidence": "honeymoon | flytte | [HA-ni-muun], ceremony | soveværelse | [SER-e-mo-ni], ceremony | køkken | [SER-e-mo-ni]"
+    },
+    {
+      "article_id": "37c88561-3e67-4a5b-9f29-71b31a48a3a1",
+      "slug": "english-moving-in-together",
+      "target_lang": "en",
+      "issue_type": "wrong_pronunciations",
+      "severity": "high",
+      "description": "Pronunciations are for wedding words, not the Danish translations. Same pronunciation [SER-e-mo-ni] repeated for completely different Danish words like soveværelse, køkken, badeværelse, stue.",
+      "evidence": "ceremony | soveværelse | [SER-e-mo-ni], ceremony | køkken | [SER-e-mo-ni], ceremony | badeværelse | [SER-e-mo-ni]"
+    },
+    {
+      "article_id": "37c88561-3e67-4a5b-9f29-71b31a48a3a1",
+      "slug": "english-moving-in-together",
+      "target_lang": "en",
+      "issue_type": "truncated_words",
+      "severity": "high",
+      "description": "Several English words in tables are truncated fragments: 'cer', 'cere', 'cerem' instead of actual English words for household items.",
+      "evidence": "cer | seng, cere | sofa, cerem | bord"
+    },
+    {
+      "article_id": "37c88561-3e67-4a5b-9f29-71b31a48a3a1",
+      "slug": "english-moving-in-together",
+      "target_lang": "en",
+      "issue_type": "mismatched_translations",
+      "severity": "high",
+      "description": "The English-Danish pairs are nonsensical. 'honeymoon' is paired with 'flytte' (to move), 'ceremony' with 'lejlighed' (apartment). These are not translations of each other.",
+      "evidence": "honeymoon | flytte, ceremony | lejlighed, witness | leje"
+    },
+    {
+      "article_id": "37c88561-3e67-4a5b-9f29-71b31a48a3a1",
+      "slug": "english-moving-in-together",
+      "target_lang": "en",
+      "issue_type": "wrong_culture_tip",
+      "severity": "medium",
+      "description": "CultureTip about 'something old, something new, something borrowed, something blue' is a wedding tradition, irrelevant to moving in together. Second CultureTip mentions 'holde tale ved brylluppet' (giving a wedding speech).",
+      "evidence": "I engelsktalende lande er der tradition for noget gammelt, noget nyt, noget lånt og noget blåt til bruden."
+    },
+    {
+      "article_id": "37c88561-3e67-4a5b-9f29-71b31a48a3a1",
+      "slug": "english-moving-in-together",
+      "target_lang": "en",
+      "issue_type": "missing_pronunciations",
+      "severity": "medium",
+      "description": "Multiple table rows have empty pronunciation fields where guidance should be provided.",
+      "evidence": "home | hus | (empty), wedding | nøgle | (empty), Will y? | Hvor er...? | (empty)"
+    },
+    {
+      "article_id": "37c88561-3e67-4a5b-9f29-71b31a48a3a1",
+      "slug": "english-moving-in-together",
+      "target_lang": "en",
+      "issue_type": "vocabcard_wrong_word",
+      "severity": "high",
+      "description": "VocabCard shows 'ceremony' as the word to learn with translation 'soveværelse' (bedroom). The word 'ceremony' has nothing to do with bedroom. Similarly, another VocabCard maps 'ceremony' to 'Hvad skal vi have til aftensmad?'",
+      "evidence": "VocabCard word=\"ceremony\" translation=\"soveværelse\", VocabCard word=\"ceremony\" translation=\"Hvad skal vi have til aftensmad?\""
+    },
+    {
+      "article_id": "00f2743e-6235-412c-944f-9a0f31d54b9b",
+      "slug": "spanish-proposal-engagement-phrases",
+      "target_lang": "es",
+      "issue_type": "wrong_vocabulary",
+      "severity": "high",
+      "description": "Vocabulary tables contain wedding/toast words (boda, matrimonio, ¡Salud!, ¡Felicidades!) paired with engagement/proposal Danish translations. 'boda' means wedding but is translated as 'frieri' (proposal). 'anillos de boda' means wedding rings but is translated as 'forlovelsesring' (engagement ring).",
+      "evidence": "boda | frieri | [BO-da], matrimonio | forlovelse, ¡Salud! | Selvfølgelig! | [sa-LUD]"
+    },
+    {
+      "article_id": "00f2743e-6235-412c-944f-9a0f31d54b9b",
+      "slug": "spanish-proposal-engagement-phrases",
+      "target_lang": "es",
+      "issue_type": "mismatched_translations",
+      "severity": "high",
+      "description": "Spanish words are reused across tables with different Danish translations that don't match. 'para siempre' (forever) is translated as both 'Jeg vil tilbringe mit liv med dig' and 'For evigt' and 'Jeg har drømt om dette'. '¡Salud!' (cheers) is used for 'Selvfølgelig!', 'Helt sikkert!', and 'fejring'.",
+      "evidence": "para siempre | Jeg vil tilbringe mit liv med dig, para siempre | For evigt, para siempre | Jeg har drømt om dette"
+    },
+    {
+      "article_id": "00f2743e-6235-412c-944f-9a0f31d54b9b",
+      "slug": "spanish-proposal-engagement-phrases",
+      "target_lang": "es",
+      "issue_type": "truncated_words",
+      "severity": "high",
+      "description": "In the 'Possible Answers' table, '¡Fe!' appears as a truncated form of '¡Felicidades!' but the pronunciation is for the full word.",
+      "evidence": "¡Fe! | Ja! | [fe-li-si-DA-des]"
+    },
+    {
+      "article_id": "00f2743e-6235-412c-944f-9a0f31d54b9b",
+      "slug": "spanish-proposal-engagement-phrases",
+      "target_lang": "es",
+      "issue_type": "wrong_culture_tip",
+      "severity": "medium",
+      "description": "CultureTip about 'bruden bærer sort undertøj for at afværge onde ånder' is a debatable/dubious claim about Spanish wedding traditions, and the article is about proposals, not weddings.",
+      "evidence": "I Spanien er det tradition, at bruden bærer sort undertøj for at afværge onde ånder."
+    },
+    {
+      "article_id": "00f2743e-6235-412c-944f-9a0f31d54b9b",
+      "slug": "spanish-proposal-engagement-phrases",
+      "target_lang": "es",
+      "issue_type": "vocabcard_mismatch",
+      "severity": "high",
+      "description": "VocabCard maps '¡Por los novios!' (toast: 'For the newlyweds!') to 'Vi er forlovede!' (We are engaged!). These are not translations of each other.",
+      "evidence": "VocabCard word=\"¡Por los novios!\" translation=\"Vi er forlovede!\""
+    },
+    {
+      "article_id": "179d4128-5ee7-48ec-b900-7530e250a5d4",
+      "slug": "french-anniversary-wishes",
+      "target_lang": "fr",
+      "issue_type": "wrong_vocabulary",
+      "severity": "high",
+      "description": "Vocabulary tables reuse the same few French words (mariage, ans, Je t'aime, pour toujours, mon coeur, ensemble) for all entries, paired with different Danish phrases. 'mariage' appears 5 times with translations: bryllupsdag, første bryllupsdag, sølvbryllup, guldbryllup.",
+      "evidence": "mariage | bryllupsdag, mariage | første bryllupsdag, mariage | sølvbryllup, mariage | guldbryllup"
+    },
+    {
+      "article_id": "179d4128-5ee7-48ec-b900-7530e250a5d4",
+      "slug": "french-anniversary-wishes",
+      "target_lang": "fr",
+      "issue_type": "mismatched_translations",
+      "severity": "high",
+      "description": "French words are not actual translations of the Danish phrases. 'bonheur' (happiness) is translated as 'minder' (memories). 'Veux-tu m'épouser?' (Will you marry me?) is translated as 'At gifte mig med dig var den bedste beslutning' (Marrying you was the best decision).",
+      "evidence": "bonheur | minder, Veux-tu m'épouser? | At gifte mig med dig var den bedste beslutning"
+    },
+    {
+      "article_id": "179d4128-5ee7-48ec-b900-7530e250a5d4",
+      "slug": "french-anniversary-wishes",
+      "target_lang": "fr",
+      "issue_type": "missing_pronunciations",
+      "severity": "medium",
+      "description": "Multiple rows in vocabulary tables have empty pronunciation fields.",
+      "evidence": "ans | år | (empty), ans | fem år | (empty), ans | ti år | (empty)"
+    },
+    {
+      "article_id": "179d4128-5ee7-48ec-b900-7530e250a5d4",
+      "slug": "french-anniversary-wishes",
+      "target_lang": "fr",
+      "issue_type": "wrong_culture_tip",
+      "severity": "low",
+      "description": "CultureTip about 'ægteskabskontrakten hos borgmesteren' is about wedding procedures, not anniversary traditions. The article is about anniversary wishes.",
+      "evidence": "I Frankrig underskriver parret ægteskabskontrakten hos borgmesteren før den kirkelige ceremoni."
+    },
+    {
+      "article_id": "179d4128-5ee7-48ec-b900-7530e250a5d4",
+      "slug": "french-anniversary-wishes",
+      "target_lang": "fr",
+      "issue_type": "wrong_phrase_of_day",
+      "severity": "medium",
+      "description": "PhraseOfDay uses 'Felicitations!' which means 'Congratulations!' not 'Tillykke med bryllupsdagen' (Happy anniversary). The correct French for anniversary wishes would be 'Joyeux anniversaire de mariage'.",
+      "evidence": "PhraseOfDay word=\"Félicitations!\" translation=\"Tillykke med bryllupsdagen\""
+    },
+    {
+      "article_id": "c3170a45-651b-4160-b822-9aee5ffd278c",
+      "slug": "french-jealous-phrases-for-danish-speakers",
+      "target_lang": "fr",
+      "issue_type": "spelling_error",
+      "severity": "low",
+      "description": "The Danish word 'jalousii' is misspelled throughout. The correct Danish spelling is 'jalousi' (one i).",
+      "evidence": "Jalousii er et universelt tema, Fraser om jalousii og tillid, samtaler om tillid og jalousii"
+    },
+    {
+      "article_id": "c3170a45-651b-4160-b822-9aee5ffd278c",
+      "slug": "french-jealous-phrases-for-danish-speakers",
+      "target_lang": "fr",
+      "issue_type": "rendering_issue",
+      "severity": "medium",
+      "description": "In content_html, the VocabCard for 'la confiance' is rendered inline within a paragraph (inside <p> tags) instead of as a standalone block element, causing malformed HTML with a closing </p> after the div.",
+      "evidence": "<p>...beroligelse. <div class=\"speakable-vocab...\">...</div></p>"
+    },
+    {
+      "article_id": "c3170a45-651b-4160-b822-9aee5ffd278c",
+      "slug": "french-jealous-phrases-for-danish-speakers",
+      "target_lang": "fr",
+      "issue_type": "typo_in_content",
+      "severity": "low",
+      "description": "The word 'ituresætte' in the introduction paragraph appears to be a misspelling. The intended word is likely 'italesætte' (to articulate/address).",
+      "evidence": "redskaber til alt fra at ituresætte svære bekymringer"
+    },
+    {
+      "article_id": "248858d8-f6c9-410f-8627-67e6aa2d9ed2",
+      "slug": "tyske-udtryk-til-foelsesmaessig-stoette-og-troest-support",
+      "target_lang": "de",
+      "issue_type": "vocabcard_translation_mismatch",
+      "severity": "medium",
+      "description": "VocabCard for 'Du musst stark sein' has translation 'Du skal ikke være stærk hele tiden' but the German literally means 'You must be strong'. The example sentence clarifies the intended meaning, but the word field is misleading.",
+      "evidence": "VocabCard word=\"Du musst stark sein\" translation=\"Du skal ikke være stærk hele tiden\""
+    },
+    {
+      "article_id": "248858d8-f6c9-410f-8627-67e6aa2d9ed2",
+      "slug": "tyske-udtryk-til-foelsesmaessig-stoette-og-troest-support",
+      "target_lang": "de",
+      "issue_type": "corrupted_pronunciation",
+      "severity": "high",
+      "description": "VocabCard for 'Mein Herz gehort dir' contains Devanagari script characters in the pronunciation field, mixing scripts incorrectly.",
+      "evidence": "Udtale: MAIN h \u090f\u092f\u0930t guh-HURT deer"
+    },
+    {
+      "article_id": "248858d8-f6c9-410f-8627-67e6aa2d9ed2",
+      "slug": "tyske-udtryk-til-foelsesmaessig-stoette-og-troest-support",
+      "target_lang": "de",
+      "issue_type": "german_label_error",
+      "severity": "low",
+      "description": "Two items use 'Bedeutning' (German-Danish hybrid) instead of 'Betydning' (correct Danish). This appears in items #9 and in the 'Are you always this charming?' section of the English flirt article.",
+      "evidence": "**Bedeutning:** Dine f\u00f8lelser er berettigede."
+    },
+    {
+      "article_id": "e883aebb-d064-4010-88f0-ee8cde45cd33",
+      "slug": "italian-baby-pregnancy-vocabulary",
+      "target_lang": "it",
+      "issue_type": "wrong_vocabulary",
+      "severity": "high",
+      "description": "All Italian vocabulary is wedding-themed (sposa=bride, cerimonia=ceremony, testimone=witness, matrimonio=marriage, luna di miele=honeymoon, fedi nuziali=wedding rings) but the article is about baby/pregnancy vocabulary. None of the Italian words are actual baby/pregnancy terms.",
+      "evidence": "sposa | gravid, cerimonia | graviditet, testimone | l\u00e6ge, luna di miele | barnevogn, fedi nuziali | tremmeseng"
+    },
+    {
+      "article_id": "e883aebb-d064-4010-88f0-ee8cde45cd33",
+      "slug": "italian-baby-pregnancy-vocabulary",
+      "target_lang": "it",
+      "issue_type": "mismatched_translations",
+      "severity": "high",
+      "description": "Italian words are completely wrong translations. 'sposa' (bride) is translated as 'gravid' (pregnant). 'cerimonia' (ceremony) as 'ultralyd' (ultrasound). 'luna di miele' (honeymoon) as 'barnevogn' (stroller). 'fedi nuziali' (wedding rings) as 'tremmeseng' (crib).",
+      "evidence": "sposa | gravid, cerimonia | ultralyd, luna di miele | barnevogn, fedi nuziali | tremmeseng"
+    },
+    {
+      "article_id": "e883aebb-d064-4010-88f0-ee8cde45cd33",
+      "slug": "italian-baby-pregnancy-vocabulary",
+      "target_lang": "it",
+      "issue_type": "wrong_culture_tip",
+      "severity": "medium",
+      "description": "CultureTip mentions 'bruden bærer et grønt smykke for held og lykke' (bride wearing green jewelry for luck) - a wedding tradition irrelevant to pregnancy/babies.",
+      "evidence": "I Italien er det tradition, at bruden b\u00e6rer et gr\u00f8nt smykke for held og lykke."
+    },
+    {
+      "article_id": "e883aebb-d064-4010-88f0-ee8cde45cd33",
+      "slug": "italian-baby-pregnancy-vocabulary",
+      "target_lang": "it",
+      "issue_type": "wrong_phrase_of_day",
+      "severity": "medium",
+      "description": "PhraseOfDay uses 'Congratulazioni!' translated as 'Vi skal have en baby!' but Congratulazioni just means Congratulations, not 'We are having a baby'.",
+      "evidence": "PhraseOfDay word=\"Congratulazioni!\" translation=\"Vi skal have en baby!\""
+    },
+    {
+      "article_id": "e883aebb-d064-4010-88f0-ee8cde45cd33",
+      "slug": "italian-baby-pregnancy-vocabulary",
+      "target_lang": "it",
+      "issue_type": "missing_pronunciations",
+      "severity": "medium",
+      "description": "Multiple table rows have empty pronunciation fields.",
+      "evidence": "sposa | gravid | (empty), bambino | baby | (empty), bambino | nyf\u00f8dt | (empty)"
+    },
+    {
+      "article_id": "e883aebb-d064-4010-88f0-ee8cde45cd33",
+      "slug": "italian-baby-pregnancy-vocabulary",
+      "target_lang": "it",
+      "issue_type": "truncated_words",
+      "severity": "high",
+      "description": "Italian words in the baby equipment table include truncated fragments: 'fedi' (from 'fedi nuziali') and 'ceri' (from 'cerimonia'), which are not real Italian words for baby items.",
+      "evidence": "fedi | ble | (empty), ceri | sutteflaske | (empty)"
+    },
+    {
+      "article_id": "6cefc836-3748-42c3-9c0c-65c880dd0cce",
+      "slug": "english-flirt-phrases-for-danish-speakers",
+      "target_lang": "en",
+      "issue_type": "german_label_error",
+      "severity": "low",
+      "description": "One label uses 'Bedeutning' (German for meaning) instead of the Danish 'Betydning' in the 'Are you always this charming?' section.",
+      "evidence": "**Bedeutning:** Er du altid s\u00e5 charmerende?"
+    }
+  ],
+  "systemic_patterns": [
+    "Wedding vocabulary contamination: Articles about non-wedding topics (moving in together, baby/pregnancy, proposals, anniversaries) have their vocabulary tables populated with wedding-related words (ceremony, honeymoon, witness, wedding rings, bride/groom). The Danish translations are topically correct, but the target language words are from a wedding template. This affects articles: english-moving-in-together, spanish-proposal-engagement-phrases, french-anniversary-wishes, italian-baby-pregnancy-vocabulary.",
+    "Vocabulary recycling in tables: The same target-language word is reused multiple times within a single article with different Danish translations. For example, 'ceremony' appears 10+ times in the English moving-in article, 'mariage' appears 5 times in the French anniversary article, 'para siempre' appears 3 times in the Spanish proposal article.",
+    "Missing pronunciations: Multiple articles with table-based vocabulary have empty pronunciation cells, particularly in english-moving-in-together, french-anniversary-wishes, and italian-baby-pregnancy-vocabulary.",
+    "Truncated word fragments: Several articles contain truncated word fragments in vocabulary tables (cer, cere, cerem, fedi, ceri, Fe!), suggesting a text generation or template issue that cut off words.",
+    "High-quality long-form articles vs. broken table-based articles: Articles that use a prose-based format with individual phrase explanations (english-flirt-phrases, german-emotional-support, german-in-laws, italian-in-laws, portuguese-in-laws-both, spanish-greetings, french-jealousy) are substantially higher quality with correct vocabulary, proper translations, and helpful cultural tips. The broken articles are all those using the import+table+VocabCard template pattern.",
+    "Culture tips from wrong template: Several articles contain culture tips about wedding traditions even when the article topic is different (moving in together, pregnancy). This further confirms the wedding template contamination issue.",
+    "Occasional language crossover: 'Bedeutning' (German) appears instead of 'Betydning' (Danish) in two articles, suggesting template or model confusion between target and native language labels."
+  ]
+}

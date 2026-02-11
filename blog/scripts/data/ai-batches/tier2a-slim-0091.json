@@ -1,0 +1,552 @@
+{
+  "batchId": "tier2a-slim-0091",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "6d6982b0-9a79-4084-9959-a3c84def0358",
+      "title": "Англійська лексика про вагітність та материнство",
+      "native_lang": "uk",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Основна лексика про вагітність",
+          "subsections": []
+        },
+        {
+          "header": "## Оголошення про вагітність англійською",
+          "subsections": [
+            "### Як поділитися новиною"
+          ]
+        },
+        {
+          "header": "## Покупки для малюка",
+          "subsections": [
+            "### Що потрібно купити"
+          ]
+        },
+        {
+          "header": "## Пологи та лікарня",
+          "subsections": [
+            "### У пологовому будинку",
+            "### Після народження"
+          ]
+        },
+        {
+          "header": "## Перші місяці з малюком",
+          "subsections": [
+            "### Корисна лексика"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6d800b52-429a-4bf0-8959-5ea150f382b8",
+      "title": "Dutch First Date Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Making a Great First Impression",
+          "subsections": [
+            "### Je ziet er geweldig uit",
+            "### Leuk je te ontmoeten"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6dad209f-a602-41e0-95e4-6426e3da9ab1",
+      "title": "Spanische Hochzeitsphrasen und romantische Glückwünsche",
+      "native_lang": "de",
+      "target_lang": "es",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Die wichtigsten Hochzeitsphrasen",
+          "subsections": [
+            "### Der Heiratsantrag",
+            "### Das Ehegelübde",
+            "### Glückwünsche aussprechen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6db2d8ce-73b6-470f-8d50-43a49a934881",
+      "title": "Tyska Fraser för Första Dejten",
+      "native_lang": "sv",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Bryta Isen",
+          "subsections": [
+            "### 1. \"Es freut mich, dich endlich kennenzulernen\"",
+            "### 2. \"Du siehst toll aus\"",
+            "### 3. \"Ich habe mich sehr auf heute gefreut\"",
+            "### 4. \"Erzähl mir von dir\"",
+            "### 5. \"Was machst du gerne in deiner Freizeit?\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Visa Intresse",
+          "subsections": [
+            "### 6. \"Das ist wirklich interessant\"",
+            "### 7. \"Ich würde gerne mehr darüber erfahren\"",
+            "### 8. \"Wir haben viel gemeinsam\"",
+            "### 9. \"Ich unterhalte mich sehr gerne mit dir\"",
+            "### 10. \"Du hast einen tollen Humor\""
+          ]
+        },
+        {
+          "header": "## Fraser för Dejten Slutar",
+          "subsections": [
+            "### 11. \"Ich hatte eine wunderbare Zeit\"",
+            "### 12. \"Können wir uns wiedersehen?\"",
+            "### 13. \"Ich würde das gerne wiederholen\"",
+            "### 14. \"Lass mich die Rechnung bezahlen\"",
+            "### 15. \"Schreib mir, wenn du zu Hause angekommen bist\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6dd42b32-38eb-4f7d-8c4c-bde1922a140f",
+      "title": "Francia 'Hiányzol' Kifejezések Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Kifejezések",
+          "subsections": [
+            "### 1. Tu me manques",
+            "### 2. Tu me manques beaucoup",
+            "### 3. Tu me manques terriblement",
+            "### 4. Je pense à toi tout le temps",
+            "### 5. Si seulement tu étais là",
+            "### 6. Tu es toujours dans mes pensées",
+            "### 7. Je compte les jours jusqu'à te revoir",
+            "### 8. Mon cœur languit de toi",
+            "### 9. Tu es tout pour moi",
+            "### 10. J'ai hâte de te revoir"
+          ]
+        },
+        {
+          "header": "## Romantikus Kifejezések",
+          "subsections": [
+            "### 11. Tu me manques à chaque instant",
+            "### 12. Sans toi, rien n'a de sens"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6e0ebc60-166e-4f8e-ab75-ae2fafc91bb9",
+      "title": "Norske sms- og chatbeskeder til par",
+      "native_lang": "da",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende kærlige beskeder",
+          "subsections": [
+            "### \"Jeg savner deg\"",
+            "### \"Jeg tenker på deg\"",
+            "### \"Jeg gleder meg til å se deg\""
+          ]
+        },
+        {
+          "header": "## Populære norske kælenavne",
+          "subsections": [
+            "### \"Kjæresten min\"",
+            "### \"Skatten min\"",
+            "### \"Elskling\""
+          ]
+        },
+        {
+          "header": "## Norske sms-forkortelser",
+          "subsections": [
+            "### \"Jeg elsker deg\" / \"JED\"",
+            "### \"Klem\" / \"Stor klem\"",
+            "### \"God natt\""
+          ]
+        },
+        {
+          "header": "## Romantiske beskeder",
+          "subsections": [
+            "### \"Du er alt for meg\"",
+            "### \"God morgen, kjære\"",
+            "### \"Sov godt, elskling\""
+          ]
+        },
+        {
+          "header": "## Hverdagsbeskeder",
+          "subsections": [
+            "### \"Hvordan har du det?\"",
+            "### \"Jeg er på vei\"",
+            "### \"Vi snakkes\""
+          ]
+        },
+        {
+          "header": "## Specielle udtryk",
+          "subsections": [
+            "### \"Du er livet mitt\"",
+            "### \"Puss og klem\"",
+            "### \"Jeg er glad i deg\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6e124d4c-80f0-44bd-a8c8-fd667b57895f",
+      "title": "Der italienische Congiuntivo erklärt",
+      "native_lang": "de",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Bildung des Congiuntivo Presente",
+          "subsections": [
+            "### Regelmäßige -are Verben",
+            "### Regelmäßige -ere und -ire Verben",
+            "### Wichtige unregelmäßige Verben"
+          ]
+        },
+        {
+          "header": "## Wann braucht man den Congiuntivo?",
+          "subsections": [
+            "### 1. Nach Verben der Meinung und des Glaubens",
+            "### 2. Nach Emotionen",
+            "### 3. Nach Wünschen und Befehlen",
+            "### 4. Nach unpersönlichen Ausdrücken"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6e34ab65-7acd-476d-be79-028434109974",
+      "title": "Mutatul Împreună în Spaniolă: Vocabular și Expresii pentru Noua",
+      "native_lang": "ro",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Mobila și Obiectele Casnice",
+          "subsections": [
+            "### Living",
+            "### Dormitor",
+            "### Bucătărie"
+          ]
+        },
+        {
+          "header": "## Procesul Mutării",
+          "subsections": [
+            "### Înainte de Mutare",
+            "### În Ziua Mutării"
+          ]
+        },
+        {
+          "header": "## Decorarea Împreună",
+          "subsections": [
+            "### Stiluri de Design",
+            "### Compromis în Decor"
+          ]
+        },
+        {
+          "header": "## Comunicare în Cuplu",
+          "subsections": [
+            "### Expresii pentru Armonie",
+            "### Rezolvarea Conflictelor"
+          ]
+        },
+        {
+          "header": "## Lista de Verificare",
+          "subsections": [
+            "### Documente Necesare",
+            "### Prima Săptămână"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6e41ee3e-67af-4503-bc43-9cd69804f1a0",
+      "title": "Portugese Zinnen over Vergeving",
+      "native_lang": "nl",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Me desculpe de verdade\" / \"Desculpa-me, a sério\"",
+            "### 2. \"Por favor, me perdoe\"",
+            "### 3. \"Eu te perdoo\"",
+            "### 4. \"Você pode encontrar em seu coração me perdoar?\"",
+            "### 5. \"Eu estava errado/a e sinto muito\"",
+            "### 6. \"Nunca vou fazer isso de novo\"",
+            "### 7. \"O que posso fazer para compensar?\"",
+            "### 8. \"Aceito suas desculpas\"",
+            "### 9. \"Vamos seguir em frente\"",
+            "### 10. \"Sei que te magoei\"",
+            "### 11. \"Prometo fazer melhor\"",
+            "### 12. \"Leva tempo, mas vou tentar perdoar\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6e5b8559-beba-4b02-934b-734c89d76757",
+      "title": "Duńskie zwroty do godzenia się i pojednania dla par",
+      "native_lang": "pl",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Przepraszanie z serca",
+          "subsections": [
+            "### \"Jeg er virkelig ked af det\"",
+            "### \"Vær venlig at tilgive mig\"",
+            "### \"Jeg tog fejl\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie żalu",
+          "subsections": [
+            "### \"Jeg har det dårligt over det, der skete\"",
+            "### \"Jeg ville ikke såre dig\"",
+            "### \"Jeg ville ønske, jeg kunne gøre det ugjort\""
+          ]
+        },
+        {
+          "header": "## Otwieranie dialogu",
+          "subsections": [
+            "### \"Kan vi tale om det, der skete?\"",
+            "### \"Jeg vil gerne forstå, hvordan du har det\"",
+            "### \"Fortæl mig, hvad du tænker\""
+          ]
+        },
+        {
+          "header": "## Obietnice zmiany",
+          "subsections": [
+            "### \"Jeg vil prøve at blive bedre\"",
+            "### \"Det sker ikke igen\"",
+            "### \"Jeg arbejder på mig selv\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie miłości",
+          "subsections": [
+            "### \"Jeg elsker dig mere end noget andet\"",
+            "### \"Du betyder alt for mig\"",
+            "### \"Jeg vil ikke miste dig\""
+          ]
+        },
+        {
+          "header": "## Przytulne pojednanie",
+          "subsections": [
+            "### \"Kom her, lad mig holde om dig\"",
+            "### \"Lad os starte forfra\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6e6e8cbf-9f81-4874-a324-aee01f938694",
+      "title": "Englische Trost- und Unterstützungsphrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlegende Unterstützung",
+          "subsections": [
+            "### \"I'm here for you\"",
+            "### \"I'm always on your side\"",
+            "### \"You're not alone in this\"",
+            "### \"Whatever you need, I'm here\""
+          ]
+        },
+        {
+          "header": "## Bei Trauer",
+          "subsections": [
+            "### \"I'm so sorry for your loss\"",
+            "### \"Take all the time you need\"",
+            "### \"I can't imagine what you're going through\"",
+            "### \"It's okay to cry\""
+          ]
+        },
+        {
+          "header": "## Bei Stress und Sorgen",
+          "subsections": [
+            "### \"We'll figure this out together\"",
+            "### \"One step at a time\"",
+            "### \"It's okay to not be okay\"",
+            "### \"This too shall pass\"",
+            "### \"Don't be so hard on yourself\""
+          ]
+        },
+        {
+          "header": "## Ermutigung",
+          "subsections": [
+            "### \"I believe in you\"",
+            "### \"You're stronger than you think\"",
+            "### \"I'm so proud of you\"",
+            "### \"You've got this\"",
+            "### \"I admire your strength\""
+          ]
+        },
+        {
+          "header": "## Aktive Hilfe anbieten",
+          "subsections": [
+            "### \"What can I do to help?\"",
+            "### \"Do you want to talk about it?\"",
+            "### \"I'm listening\"",
+            "### \"Would you like some space, or would you like company?\""
+          ]
+        },
+        {
+          "header": "## Langfristige Unterstützung",
+          "subsections": [
+            "### \"I'll always be here, no matter what\"",
+            "### \"We're in this together\"",
+            "### \"Nothing will change how I feel about you\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6e7bd001-7e6b-4a8b-9396-b60cc5c259c1",
+      "title": "Румынские фразы о ревности и доверии",
+      "native_lang": "ru",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Фразы для выражения ревности",
+          "subsections": [
+            "### 1. Sunt gelos/geloasă când...",
+            "### 2. Mă deranjează când petreci atât de mult timp cu...",
+            "### 3. Uneori am nevoie să mă liniștești"
+          ]
+        },
+        {
+          "header": "## Фразы для укрепления доверия",
+          "subsections": [
+            "### 4. Am încredere deplină în tine",
+            "### 5. Ești singurul/singura pentru mine",
+            "### 6. Nu aș face niciodată ceva care să ne afecteze relația",
+            "### 7. Nu ai de ce să te îngrijorezi",
+            "### 8. Lasă-mă să-ți explic ce s-a întâmplat",
+            "### 9. Sentimentele tale sunt importante pentru mine",
+            "### 10. Putem stabili împreună niște limite?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6ea7c2a2-7aac-4387-92df-1f32b40b49be",
+      "title": "Çekçe Kayınvalide Kayınpeder İfadeleri: Aile Tanışması",
+      "native_lang": "tr",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Önemli İfadeler",
+          "subsections": [
+            "### Tanışma",
+            "### İltifatlar",
+            "### Yardım Teklifi",
+            "### Veda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6ea7f5e9-cefc-4896-8eed-f077359bfdc0",
+      "title": "Pronunția Rusă pentru Începători: Ghidul Complet pentru Cupluri",
+      "native_lang": "ro",
+      "target_lang": "ru",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Sunetele Dificile pentru Români",
+          "subsections": [
+            "### Ы - Sunetul Misterios",
+            "### Р Rulant"
+          ]
+        },
+        {
+          "header": "## Vocalele: Simplu și Clar",
+          "subsections": [
+            "### Vocale Pure"
+          ]
+        },
+        {
+          "header": "## Consoanele: Prieteni și Dușmani",
+          "subsections": [
+            "### Consoane Mouate (мягкие)",
+            "### Consoane Tari (твёрдые)"
+          ]
+        },
+        {
+          "header": "## Exerciții pentru Cupluri",
+          "subsections": [
+            "### 1. Practicați Împreună: Cuvinte Romantice",
+            "### 2. Jocul \"Spune-Mi\""
+          ]
+        },
+        {
+          "header": "## Greșeli Comune și Cum să Le Evitați",
+          "subsections": [
+            "### 1. Confundarea В și Б",
+            "### 2. Ignorarea Stresului",
+            "### 3. R-ul Englezesc"
+          ]
+        },
+        {
+          "header": "## Practica Face Perfectul",
+          "subsections": [
+            "### Sfaturi pentru Exerciții Zilnice:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6ea9cccc-ff91-4663-89f8-c15156946fbb",
+      "title": "Φράσεις για Γνωριμία με τους Πεθερικούς στα Ουγγρικά",
+      "native_lang": "el",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για την Πρώτη Γνωριμία",
+          "subsections": [
+            "### 1. Örülök, hogy megismerhetem Önöket (Ορούλοκ, χοτζ μεγκισμέρχετεμ Ονόκετ)",
+            "### 2. Sokat hallottam Önökről (Σόκατ χαλόταμ Ονοκρολ)",
+            "### 3. Köszönöm, hogy fogadnak (Κοσόνομ, χοτζ φογκάντνακ)"
+          ]
+        },
+        {
+          "header": "## Φράσεις Εκτίμησης",
+          "subsections": [
+            "### 4. A fiuk/lányuk csodálatos (Α φίουκ/λάνιουκ τσοντάλατος)",
+            "### 5. Nagyszerű embert neveltek (Νάτζσερου έμμπερτ νέβελτεκ)",
+            "### 6. Nagyon finom! (Νάτζον φίνομ)",
+            "### 7. Gyönyörű otthonuk van (Τζονιορού οτχόνουκ βαν)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για Συζήτηση",
+          "subsections": [
+            "### 8. Szívesen tudnék többet a családjukról (Σίβεσεν τούντνεκ τομπέτ α τσαλάντγιουκρολ)",
+            "### 9. Milyen volt gyerekkorában? (Μίλιεν βολτ τζέρεκκοράμπαν)",
+            "### 10. Remélem, több időt tölthetünk együtt (Ρεμέλεμ, τομπ ίντοτ τολτχέτουνκ έτζιουτ)"
+          ]
+        }
+      ]
+    }
+  ]
+}

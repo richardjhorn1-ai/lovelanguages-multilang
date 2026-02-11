@@ -1,0 +1,371 @@
+{
+  "batchId": "tier2a-slim-0325",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "db68c5dc-3ae2-432f-bce0-78347850a238",
+      "title": "Spanish Pronunciation: Master Key Sounds",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Essential Consonant Sounds for Beginners",
+          "subsections": [
+            "### The Rolled R: **rr** [rr]",
+            "### The Soft J: **j** [h]",
+            "### The LL Sound: **ll** [y/zh]"
+          ]
+        },
+        {
+          "header": "## Common Pronunciation Mistakes for English Speakers",
+          "subsections": [
+            "### Silent H",
+            "### B vs. V",
+            "### Single vs. Double Consonants"
+          ]
+        },
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Exercise 1: Vowel Warm-up",
+            "### Exercise 2: Romantic Dialogue Practice",
+            "### Exercise 3: Tongue Twisters for Fun"
+          ]
+        },
+        {
+          "header": "## Building Your Spanish Pronunciation Practice Routine",
+          "subsections": [
+            "### Daily 10-Minute Sessions",
+            "### Weekly Challenges",
+            "### Use Technology Together"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "db9da54d-167b-44e8-956b-dfb4d81f0e1d",
+      "title": "Argot Italien de SMS pour les Couples",
+      "native_lang": "fr",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Exemples de Conversations",
+          "subsections": [
+            "### Le Matin",
+            "### Le Soir"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dba9da8b-cbde-49bc-8aa2-bbec7d6a2aa1",
+      "title": "Engelse Grammatica voor Beginners: De Basis Uitgelegd",
+      "native_lang": "nl",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Lidwoorden: A, An, The",
+          "subsections": [
+            "### A vs An",
+            "### The"
+          ]
+        },
+        {
+          "header": "## Ontkenningen",
+          "subsections": [
+            "### Met \"Do/Does + Not\"",
+            "### Verkorte Vormen"
+          ]
+        },
+        {
+          "header": "## Tijden: Een Overzicht",
+          "subsections": [
+            "### Tegenwoordige Tijd",
+            "### Verleden Tijd",
+            "### Toekomende Tijd"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dc35356b-b411-45da-aa9a-683e565a1f28",
+      "title": "Holenderski dla Par: 40+ Niezbędnych Zwrotow",
+      "native_lang": "pl",
+      "target_lang": "nl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## W domu razem",
+          "subsections": [
+            "### Prace domowe",
+            "### Gotowanie"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Poranna rutyna",
+            "### Cwiczenie 2: Wieczorna rozmowa",
+            "### Cwiczenie 3: Jeden dzień po holendersku"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dd0bc34a-44e9-4059-a713-34e134fbc4d4",
+      "title": "Wegierski dla Par: 40+ Niezbędnych Zwrotow",
+      "native_lang": "pl",
+      "target_lang": "hu",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Poranny rytual",
+            "### Wieczorny check-in",
+            "### SMS po wegiersku"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dd6390c5-4fbc-40b9-859d-cd09316e7fa5",
+      "title": "50 Russiske Hilsner og Farvel: Fra Første Hej til Sødt Farvel",
+      "native_lang": "da",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Sådan Bruger I Disse Hilsener Sammen",
+          "subsections": [
+            "### Øv Jer Sammen",
+            "### Almindelige Fejl at Undgå"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dd7ff421-06ed-48d8-972a-0bc83098a822",
+      "title": "Lehce Telaffuz Rehberi: Türkler Icin Kapsamli Kilavuz",
+      "native_lang": "tr",
+      "target_lang": "pl",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Zor Sesler ve Pratik",
+          "subsections": [
+            "### \"Ł\" Sesi",
+            "### Nazal Sesler",
+            "### Ünsüz Kümeleri"
+          ]
+        },
+        {
+          "header": "## Ciftler Icin Telaffuz Pratigi",
+          "subsections": [
+            "### Birlikte Calisma",
+            "### Pratik Cümleler"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dd80d02b-f973-4356-85be-520334085eed",
+      "title": "Isveçli Partnerinizin Ailesiyle Tanışma: Temel Ifadeler",
+      "native_lang": "tr",
+      "target_lang": "sv",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Özel Durumlar",
+          "subsections": [
+            "### Hediye Getirme",
+            "### Tatiller ve Özel Günler"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ddea958e-3ebb-4f80-8dae-4e1490ea9b3a",
+      "title": "French Negation: Saying No with Ne...Pas and More",
+      "native_lang": "en",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Common Negative Expressions for Couples",
+          "subsections": [
+            "### Expressing Reassurance",
+            "### Expressing Commitment",
+            "### Setting Boundaries"
+          ]
+        },
+        {
+          "header": "## Practice Scenarios for Couples",
+          "subsections": [
+            "### Scenario 1: Making Plans",
+            "### Scenario 2: Reassuring Each Other",
+            "### Scenario 3: Expressing Dedication"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "de07eece-24e3-4504-bc21-3d3fe1441dff",
+      "title": "Pronounce Polish Letters: Ś Ć Ź Ż Ł",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Memory Techniques for Couples",
+          "subsections": [
+            "### The \"Couple's Method\":",
+            "### Daily Practice Routine:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "de8bc66e-e6b7-4e1c-9774-b5fc501e94e5",
+      "title": "50 Phrases Romantiques Polonaises pour Faire Fondre Partenaire",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Comment Utiliser Ces Phrases Avec Succès",
+          "subsections": [
+            "### Astuces pour des déclarations authentiques :"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deb11658-afef-4015-9f33-d1c311b98d14",
+      "title": "At møde din italienske partners familie: Væsentlige fraser og kulturelle tips",
+      "native_lang": "da",
+      "target_lang": "it",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Specifikke scenarier med svigerfamilien",
+          "subsections": [
+            "### 1. Første møde ved døren",
+            "### 2. Komplimenter til maden (SUPERVIGTIGT!)",
+            "### 3. Samtaler om familien"
+          ]
+        },
+        {
+          "header": "## Udvidet ordforråd til familiesammenkomster",
+          "subsections": [
+            "### Familiemedlemmer",
+            "### Beskrivende ord"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dee5032f-b1b8-40b8-b4b0-baa3ce7e6e0b",
+      "title": "Wymowa rosyjska i cyrylica - przewodnik dla Polaków",
+      "native_lang": "pl",
+      "target_lang": "ru",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Miękkość spółgłosek",
+          "subsections": [
+            "### Znak miękki Ь",
+            "### Miękkie przed Е, Ё, И, Ю, Я"
+          ]
+        },
+        {
+          "header": "## Dźwięki trudne dla Polaków",
+          "subsections": [
+            "### Ы - twarde \"y\"",
+            "### Ш vs Щ",
+            "### Ж - twarde \"ż\""
+          ]
+        },
+        {
+          "header": "## Ćwiczenia",
+          "subsections": [
+            "### Ćwiczenie 1: Alfabet",
+            "### Ćwiczenie 2: Redukcja O",
+            "### Ćwiczenie 3: Romantyczne słowa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "df0a2d83-23ea-4905-8ecb-55cc2e7540b4",
+      "title": "Spotkanie z turecka rodzina partnera - przewodnik językowy",
+      "native_lang": "pl",
+      "target_lang": "tr",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Wskazowki kulturowe",
+          "subsections": [
+            "### Co robic:",
+            "### Czego unikac:"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia przygotowawcze",
+          "subsections": [
+            "### Scenka: Powitanie",
+            "### Opowiadanie o sobie",
+            "### Komplementy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "df2bbafe-9ac1-45df-92e5-4062d1ee12f3",
+      "title": "Is Czech Hard to Learn? Honest Answer",
+      "native_lang": "en",
+      "target_lang": "cs",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## What Makes Czech Challenging",
+          "subsections": [
+            "### 1. The Case System",
+            "### 2. The Ř Sound",
+            "### 3. Consonant Clusters",
+            "### 4. Verb Aspects"
+          ]
+        },
+        {
+          "header": "## What Makes Czech Easier Than You Think",
+          "subsections": [
+            "### 1. Phonetic Spelling",
+            "### 2. No Articles",
+            "### 3. Borrowed Words",
+            "### 4. Logical Patterns"
+          ]
+        },
+        {
+          "header": "## Effective Strategies for English Speakers",
+          "subsections": [
+            "### Start with High-Frequency Words",
+            "### Embrace the Music",
+            "### Use Cognates",
+            "### Practice Daily Routines"
+          ]
+        },
+        {
+          "header": "## Common Mistakes to Avoid",
+          "subsections": [
+            "### 1. Perfectionist Paralysis",
+            "### 2. Ignoring Gender",
+            "### 3. Literal Translation"
+          ]
+        }
+      ]
+    }
+  ]
+}

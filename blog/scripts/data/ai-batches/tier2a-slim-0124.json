@@ -1,0 +1,454 @@
+{
+  "batchId": "tier2a-slim-0124",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "8bede4ce-41c0-456a-a4e9-f1e5a65dc61a",
+      "title": "Gramática Tcheca para Iniciantes: Aprenda Juntos e Fortaleçam sua Conexão",
+      "native_lang": "pt",
+      "target_lang": "cs",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Os Fundamentos Essenciais",
+          "subsections": [
+            "### 1. Artigos? Não Existem!",
+            "### 2. Gênero: Masculino, Feminino e Neutro",
+            "### 3. Conjugação Verbal: A Magia dos Verbos"
+          ]
+        },
+        {
+          "header": "## Exemplos Práticos para Casais",
+          "subsections": [
+            "### Frases do Dia a Dia"
+          ]
+        },
+        {
+          "header": "## Padrões Comuns que Vocês Precisam Saber",
+          "subsections": [
+            "### 1. \"Eu quero...\" - Expressando Desejos",
+            "### 2. \"Eu gosto...\" - Expressando Preferências",
+            "### 3. Perguntas Básicas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8c251dbd-1364-4385-82c7-ab608a0d094b",
+      "title": "Ukrainisch Kosenamen und Liebkosungen für Paare",
+      "native_lang": "de",
+      "target_lang": "uk",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Kosenamen für verschiedene Anlässe",
+          "subsections": [
+            "### Im Alltag",
+            "### Für romantische Momente",
+            "### Zum Necken"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8c259622-bd8b-4d94-8acd-eae9099df0c2",
+      "title": "Guía de Pronunciación del Checo para Hispanohablantes",
+      "native_lang": "es",
+      "target_lang": "cs",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Otras Consonantes Especiales",
+          "subsections": [
+            "### Ě - E suavizada",
+            "### Ň - Como \"ñ\" española",
+            "### Ď y Ť - D y T suavizadas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8c2d6ae8-316a-430e-b68a-a6397a35bb83",
+      "title": "Tyrkiske udtryk til at møde svigerforældre",
+      "native_lang": "da",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Vigtige sætninger",
+          "subsections": [
+            "### 1. Tanıştığımıza çok memnun oldum",
+            "### 2. Sizin hakkınızda çok şey duydum",
+            "### 3. Davetiniz için çok teşekkür ederim",
+            "### 4. Size küçük bir hediye getirdim",
+            "### 5. Eviniz çok güzel",
+            "### 6. Yemekler çok lezzetliydi",
+            "### 7. Oğlunuzu/Kızınızı çok seviyorum",
+            "### 8. Birlikte çok mutluyuz",
+            "### 9. Sizi daha iyi tanımak isterim",
+            "### 10. Size yardımcı olabilir miyim?",
+            "### 11. Bu çok güzel bir aile geleneği",
+            "### 12. Sizi tekrar görmeyi dört gözle bekliyorum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8c2dc810-5efa-45c0-93c9-94a689d5a0f3",
+      "title": "Frases de Apoyo Emocional en Griego: Cómo Consolar a Tu Pareja",
+      "native_lang": "es",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases de Consuelo Básicas",
+          "subsections": [
+            "### \"Είμαι εδώ για σένα\" (Eímai edó gia séna)",
+            "### \"Όλα θα πάνε καλά\" (Óla tha páne kalá)",
+            "### \"Λυπάμαι πολύ που περνάς αυτό\" (Lypámai polý pou pernás aftó)"
+          ]
+        },
+        {
+          "header": "## Ofreciendo Apoyo",
+          "subsections": [
+            "### \"Τι χρειάζεσαι τώρα;\" (Ti chreiázesai tóra?)",
+            "### \"Θα κάνω ό,τι μπορώ για να βοηθήσω\" (Tha káno óti boró gia na voithíso)",
+            "### \"Θέλεις να μιλήσεις γι' αυτό;\" (Théleis na milíseis gi' aftó?)",
+            "### \"Σε ακούω\" (Se akoúo)"
+          ]
+        },
+        {
+          "header": "## Validando Emociones",
+          "subsections": [
+            "### \"Είναι φυσιολογικό να νιώθεις έτσι\" (Eínai fysiologikó na niotheis étsi)",
+            "### \"Τα συναισθήματά σου είναι απόλυτα κατανοητά\" (Ta synaisthímatá sou eínai apólyta katanoitá)"
+          ]
+        },
+        {
+          "header": "## Frases de Ánimo",
+          "subsections": [
+            "### \"Είσαι πιο δυνατός/ή από όσο νομίζεις\" (Eísai pio dynatós/í apó óso nomízeis)",
+            "### \"Πιστεύω σε σένα\" (Pistévo se séna)",
+            "### \"Θα τα καταφέρουμε μαζί\" (Tha ta kataféroume mazí)"
+          ]
+        },
+        {
+          "header": "## Expresando Amor",
+          "subsections": [
+            "### \"Σ' αγαπώ ό,τι κι αν γίνει\" (S' agapó óti ki an gínei)",
+            "### \"Δεν είσαι μόνος/η\" (Den eísai mónos/i)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8c3e215f-9dfd-41ff-87c5-8cf24379f5fa",
+      "title": "Danca Kayınvalide ve Kayınpeder İfadeleri: Aile Tanışması",
+      "native_lang": "tr",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Hitap Şekilleri",
+          "subsections": [
+            "### 1. \"Svigermor\" / \"Svigerfar\"",
+            "### 2. \"Dejligt at møde dig\""
+          ]
+        },
+        {
+          "header": "## Önemli İfadeler",
+          "subsections": [
+            "### 3. \"Tak fordi I inviterede mig\"",
+            "### 4. \"Maden var lækker\"",
+            "### 5. \"Jeres hjem er meget smukt\"",
+            "### 6. \"Jeg elsker jeres barn højt\"",
+            "### 7. \"Kan jeg hjælpe med noget?\"",
+            "### 8. \"Fortæl mig mere om jeres familie\"",
+            "### 9. \"Vi er så glade for at være her\"",
+            "### 10. \"Tak for en hyggelig aften\"",
+            "### 11. \"Jeg glæder mig til at lære jer bedre at kende\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8c4c2824-5114-4780-a6c5-45862af67bca",
+      "title": "Német kifejezések megbocsátáshoz",
+      "native_lang": "hu",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bocsánatkérés",
+          "subsections": [
+            "### 1. \"Es tut mir wirklich leid\"",
+            "### 2. \"Bitte verzeih mir\"",
+            "### 3. \"Ich übernehme die volle Verantwortung\"",
+            "### 4. \"Ich lag falsch und gebe es zu\"",
+            "### 5. \"Ich verspreche, es wird nicht wieder passieren\""
+          ]
+        },
+        {
+          "header": "## Megbocsátás",
+          "subsections": [
+            "### 6. \"Ich verzeihe dir\"",
+            "### 7. \"Es ist okay, ich verstehe\"",
+            "### 8. \"Ich bin bereit weiterzumachen\"",
+            "### 9. \"Lassen wir das hinter uns\"",
+            "### 10. \"Ich trage dir nichts nach\"",
+            "### 11. \"Jeder macht Fehler\"",
+            "### 12. \"Ich schätze deine Entschuldigung\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8c5a4e46-9151-45cb-a338-98e465128ac7",
+      "title": "Svéd esküvői kifejezések: Szókincs a nagy napra",
+      "native_lang": "hu",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Gratulációk és jókívánságok",
+            "### Köszöntők"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8c655364-2dac-4998-9fe5-6be003ca5c4b",
+      "title": "Romence İlk Buluşma İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Karşılama",
+          "subsections": [
+            "### 1. \"E atât de frumos să te întâlnesc în sfârșit\"",
+            "### 2. \"Arăți și mai bine decât în poze\"",
+            "### 3. \"Abia așteptam să te cunosc\""
+          ]
+        },
+        {
+          "header": "## Sohbet",
+          "subsections": [
+            "### 4. \"Povestește-mi despre tine\"",
+            "### 5. \"Ce îți place să faci în timpul liber?\"",
+            "### 6. \"Ai mai fost aici?\""
+          ]
+        },
+        {
+          "header": "## İltifatlar",
+          "subsections": [
+            "### 7. \"Ai un zâmbet frumos\"",
+            "### 8. \"Îmi place stilul tău\"",
+            "### 9. \"E ușor să vorbesc cu tine\""
+          ]
+        },
+        {
+          "header": "## Sonlandırma",
+          "subsections": [
+            "### 10. \"M-am simțit foarte bine\"",
+            "### 11. \"Putem repeta?\"",
+            "### 12. \"Mi-ar plăcea să te revăd\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8c86d55e-feec-464f-9d54-7904aa4469a1",
+      "title": "Frases en Sueco para Discutir y Resolver Desacuerdos con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Expresar Desacuerdo",
+          "subsections": [
+            "### \"Jag ser det annorlunda\"",
+            "### \"Kan vi prata om det här lugnt?\"",
+            "### \"Det gör ont när du...\"",
+            "### \"Det var inte det jag menade\"",
+            "### \"Jag behöver tid att tänka\"",
+            "### \"Försök förstå min sida\"",
+            "### \"Jag vill inte bråka\"",
+            "### \"Du lyssnar inte på mig\"",
+            "### \"Låt oss hitta en kompromiss\"",
+            "### \"Det här är viktigt för mig\"",
+            "### \"Vi behöver båda lugna ner oss\"",
+            "### \"Jag känner mig sårad\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8c8a29ff-2298-46b2-ba48-04b8d726bcbe",
+      "title": "French Honeymoon Travel Phrases: Romantic Vocabulary for Your Trip",
+      "native_lang": "en",
+      "target_lang": "fr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Planning Your Trip",
+          "subsections": [
+            "### Choosing a Destination",
+            "### Booking Vocabulary"
+          ]
+        },
+        {
+          "header": "## At the Airport",
+          "subsections": [
+            "### Essential Phrases",
+            "### Airport Vocabulary"
+          ]
+        },
+        {
+          "header": "## At Your Hotel",
+          "subsections": [
+            "### Checking In",
+            "### Room Types"
+          ]
+        },
+        {
+          "header": "## Romantic Moments",
+          "subsections": [
+            "### On the Beach",
+            "### At Dinner"
+          ]
+        },
+        {
+          "header": "## Adventure Activities",
+          "subsections": [
+            "### Exploring Together",
+            "### Activity Vocabulary"
+          ]
+        },
+        {
+          "header": "## Creating Memories",
+          "subsections": [
+            "### Photo Moment Phrases"
+          ]
+        },
+        {
+          "header": "## Returning Home",
+          "subsections": [
+            "### End of Trip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8c8c545b-81a2-4c99-a689-ede0810f1f6f",
+      "title": "Turkiska Fraser för Förlåtelse",
+      "native_lang": "sv",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Be om Förlåtelse",
+          "subsections": [
+            "### 1. \"Gerçekten özür dilerim\"",
+            "### 2. \"Lütfen beni affet\"",
+            "### 3. \"Tüm sorumluluğu üstleniyorum\"",
+            "### 4. \"Hatalıydım ve biliyorum\"",
+            "### 5. \"Bunu nasıl telafi edebilirim?\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Ge Förlåtelse",
+          "subsections": [
+            "### 6. \"Seni affediyorum\"",
+            "### 7. \"Bunu geride bırakalım\"",
+            "### 8. \"Anlıyorum ve özrünü takdir ediyorum\"",
+            "### 9. \"Hepimiz hata yaparız\"",
+            "### 10. \"Özür dilemek cesaret ister\"",
+            "### 11. \"Dürüstlüğünü takdir ediyorum\"",
+            "### 12. \"Önemli olan birlikte ilerlememiz\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8c927de9-a3bd-4e26-817f-057ebccc6470",
+      "title": "Знайомство з нідерландською родиною: необхідні фрази",
+      "native_lang": "uk",
+      "target_lang": "nl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Перші привітання",
+          "subsections": [
+            "### Формальні (для батьків)",
+            "### Неформальні"
+          ]
+        },
+        {
+          "header": "## Голландський етикет: що очікувати",
+          "subsections": [
+            "### Drie zoenen (Три поцілунки)",
+            "### Прямота"
+          ]
+        },
+        {
+          "header": "## Компліменти для родини",
+          "subsections": [
+            "### Для мами партнера",
+            "### Для тата партнера"
+          ]
+        },
+        {
+          "header": "## Фрази за столом",
+          "subsections": [
+            "### Перед їжею",
+            "### Під час їжі",
+            "### Коли досить"
+          ]
+        },
+        {
+          "header": "## Правила етикету",
+          "subsections": [
+            "### Що робити",
+            "### Чого уникати"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8c984dc7-fb00-4e90-a544-8f9700d83a3c",
+      "title": "Trabalenguas Polacos Divertidos",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Haciéndolo Divertido como Pareja",
+          "subsections": [
+            "### Ideas de Juegos:",
+            "### Giro Romántico:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8c9b0be2-fa26-44c7-ac42-0717bae9e700",
+      "title": "50+ итальянских фраз для романтического вечера",
+      "native_lang": "ru",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Практические упражнения",
+          "subsections": [
+            "### Ролевая игра «В ресторане»:",
+            "### «Комплименты на время»:",
+            "### «Планируем свидание»:"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0823",
+  "articles": [
+    {
+      "id": "ebf87e4c-5acd-40a3-b068-73c479bec5a9",
+      "title": "Como Escrever Cartas de Amor em Sueco: Romance Nórdico",
+      "native_lang": "pt",
+      "target_lang": "sv",
+      "category": "communication",
+      "content": "O sueco oferece formas sinceras e profundas de expressar amor em cartas. A sinceridade escandinava resulta em declarações genuínas.\n\n## Estrutura de uma Carta de Amor\n\n### Abertura Carinhosa\n\n**Min älskling,**\n*Meu amor,*\n\n**Mitt hjärta,**\n*Meu coração,*\n\n**Käraste,**\n*Queridíssimo(a),*\n\n### Expressando Seus Sentimentos\n\n**Jag skriver till dig för att ord ibland säger mer än samtal.**\n*Te escrevo porque palavras às vezes dizem mais que conversas.*\n\n**Sedan jag träffade dig har mitt liv fått en ny mening.**\n*Desde que te encontrei, minha vida ganhou novo sentido.*\n\n**Varje dag med dig är en gåva.**\n*Cada dia com você é um presente.*\n\n### Declarações de Amor\n\n**Jag älskar dig mer än ord kan uttrycka.**\n*Te amo mais do que palavras podem expressar.*\n\n**Min kärlek till dig växer för varje dag.**\n*Meu amor por você cresce a cada dia.*\n\n**Du är mitt allt.**\n*Você é meu tudo.*\n\n### Promessas\n\n**Jag lovar att älska och värdesätta dig för alltid.**\n*Prometo te amar e valorizar para sempre.*\n\n**Vad som än händer, jag kommer alltid att finnas där för dig.**\n*Aconteça o que acontecer, sempre estarei lá para você.*\n\n### Encerramentos\n\n**Din för alltid,**\n*Seu/Sua para sempre,*\n\n**Med all min kärlek,**\n*Com todo meu amor,*\n\n## Exemplo de Carta\n\n*Min älskling,*\n\n*Jag skriver dessa rader som kommer från djupet av mitt hjärta. Du är det bästa som hänt mig.*\n\n*Med all min kärlek,*\n*[Seu nome]*\n\nKärleken känner inga gränser - o amor não conhece fronteiras!",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 238,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Estrutura de uma Carta de Amor"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ec1d70ba-ce10-4534-aa09-589526c954c2",
+      "title": "Almanca İlk Buluşma İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "de",
+      "category": "communication",
+      "content": "İlk buluşma heyecan verici olabilir. Almanca konuşan biriyle buluşuyorsanız, doğru ifadeleri bilmek önemlidir.\n\n## Karşılama ve Tanışma\n\n### 1. \"Es ist so schön, dich endlich zu treffen\"\n**Telaffuz:** *Es ist zo şön, dih entlih tsu trefen*\n\n**Anlam:** \"Sonunda seninle tanışmak çok güzel\"\n\n### 2. \"Du siehst noch besser aus als auf deinen Fotos\"\n**Telaffuz:** *Du zist noh beser aus als auf daynen fotos*\n\n**Anlam:** \"Fotoğraflarından bile daha iyi görünüyorsun\"\n\n### 3. \"Ich habe mich sehr darauf gefreut\"\n**Telaffuz:** *İh habe mih zer darauf gefrout*\n\n**Anlam:** \"Bunu çok bekliyordum\"\n\n## Sohbet Başlatıcılar\n\n### 4. \"Erzähl mir von dir\"\n**Telaffuz:** *Ertsel mir fon dir*\n\n**Anlam:** \"Bana kendinden bahset\"\n\n### 5. \"Was machst du gerne in deiner Freizeit?\"\n**Telaffuz:** *Vas mahst du gerne in dayner frayttsayt?*\n\n**Anlam:** \"Boş zamanlarında ne yapmayı seversin?\"\n\n### 6. \"Warst du schon mal hier?\"\n**Telaffuz:** *Varst du şon mal hir?*\n\n**Anlam:** \"Daha önce buraya geldin mi?\"\n\n### 7. \"Welche Art von Musik magst du?\"\n**Telaffuz:** *Velhe art fon muzik makst du?*\n\n**Anlam:** \"Ne tür müzik seversin?\"\n\n## İltifatlar\n\n### 8. \"Du hast ein wunderschönes Lächeln\"\n**Telaffuz:** *Du hast ayn vunderşönes leheln*\n\n**Anlam:** \"Çok güzel bir gülüşün var\"\n\n### 9. \"Ich mag deinen Stil\"\n**Telaffuz:** *İh mag daynen ştil*\n\n**Anlam:** \"Tarzını beğeniyorum\"\n\n### 10. \"Mit dir kann man sich so leicht unterhalten\"\n**Telaffuz:** *Mit dir kan man zih zo layht unterhalten*\n\n**Anlam:** \"Seninle konuşmak çok kolay\"\n\n## Buluşmayı Sonlandırma\n\n### 11. \"Ich hatte eine wirklich tolle Zeit\"\n**Telaffuz:** *İh hate ayne virkliş tole tsayt*\n\n**Anlam:** \"Gerçekten harika vakit geçirdim\"\n\n### 12. \"Können wir das mal wiederholen?\"\n**Telaffuz:** *Könen vir das mal viderholen?*\n\n**Anlam:** \"Bunu tekrarlayabilir miyiz?\"\n\n### 13. \"Ich würde dich gerne wiedersehen\"\n**Telaffuz:** *İh vürde dih gerne viderzeen*\n\n**Anlam:** \"Seni tekrar görmek isterim\"\n\nBu ifadelerle Almanca konuşan biriyle başarılı bir ilk buluşma yapabilirsiniz.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 295,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Karşılama ve Tanışma",
+              "## Sohbet Başlatıcılar",
+              "## İltifatlar",
+              "## Buluşmayı Sonlandırma"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ec22b418-fa3d-420c-812e-b49c067db5e3",
+      "title": "Hongaarse Zinnen over Jaloezie en Vertrouwen",
+      "native_lang": "nl",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "In Hongaarse relaties is vertrouwen essentieel. Deze zinnen helpen je om jaloezie te bespreken.\n\n## Essentiële zinnen\n\n### 1. \"Bizonytalanul érzem magam, amikor...\"\n**Betekenis:** Ik voel me onzeker wanneer...\n**Uitspraak:** *bie-zonj-ta-la-noel eer-zem ma-gam, a-mie-kor*\n\n### 2. \"Teljesen megbízom benned\"\n**Betekenis:** Ik vertrouw je volledig\n**Uitspraak:** *tel-je-sjen meg-bie-zom ben-ned*\n\n### 3. \"Meg tudnál nyugtatni?\"\n**Betekenis:** Kun je me geruststellen?\n**Uitspraak:** *meg toed-naal njoegtad-nie*\n\n### 4. \"Nem vagyok féltékeny, csak aggódok\"\n**Betekenis:** Ik ben niet jaloers, alleen bezorgd\n**Uitspraak:** *nem va-djok feel-tee-kenj, tsjak ag-go-dok*\n\n### 5. \"Ki volt az a személy, akivel beszéltél?\"\n**Betekenis:** Wie was de persoon met wie je praatte?\n**Uitspraak:** *kie volt az a se-meelj, a-kie-vel be-seelteel*\n\n### 6. \"Tudnom kell, hogy megbízhatok benned\"\n**Betekenis:** Ik moet weten dat ik je kan vertrouwen\n**Uitspraak:** *toed-nom kel, hodzj meg-biez-ha-tok ben-ned*\n\n### 7. \"Nincs miért aggódnod\"\n**Betekenis:** Je hoeft je nergens zorgen over te maken\n**Uitspraak:** *nientsj mie-eert ag-god-nod*\n\n### 8. \"Csak téged látlak\"\n**Betekenis:** Ik zie alleen jou\n**Uitspraak:** *tsjak tee-ged laat-lak*\n\n### 9. \"Beszéljünk arról, ami zavar\"\n**Betekenis:** Laten we praten over wat je dwarszit\n**Uitspraak:** *be-seelj-juenk ar-rol, a-mie za-var*\n\n### 10. \"Soha nem tennék semmit, ami fájna neked\"\n**Betekenis:** Ik zou nooit iets doen om je pijn te doen\n**Uitspraak:** *sjo-ha nem ten-neek sjem-miet, a-mie faaj-na ne-ked*\n\n### 11. \"A múltad nem határoz meg minket\"\n**Betekenis:** Je verleden bepaalt ons niet\n**Uitspraak:** *a moel-tad nem ha-ta-roz meg mien-ket*\n\n### 12. \"Dolgozom a bizonytalanságaimon\"\n**Betekenis:** Ik werk aan mijn onzekerheden\n**Uitspraak:** *dol-go-zom a bie-zonj-ta-lan-sjaa-gaj-mon*\n\n## Conclusie\n\nGebruik deze zinnen voor open communicatie over vertrouwen met je Hongaarse partner.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 259,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Essentiële zinnen"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ec33e986-ccb3-4dce-a7fa-e1662d028f04",
+      "title": "Романтичні португальські фрази для закоханих пар",
+      "native_lang": "uk",
+      "target_lang": "pt",
+      "category": "phrases",
+      "content": "import CTA from '@components/CTA.astro';\n\n# Романтичні португальські фрази для закоханих пар\n\nПортугальська — мова saudade та fado, сповнена глибоких емоцій. Ці фрази допоможуть висловити ваші почуття красиво та щиро.\n\n## Компліменти для партнера\n\n### Для неї\n\n- **Você é linda** (Восе е лінда) — Ти красива\n- **Você é maravilhosa** (Восе е маравільоза) — Ти чудова\n- **Seus olhos são lindos** — Твої очі прекрасні\n- **Você tem um sorriso lindo** — У тебе чудова посмішка\n- **Você é a mulher mais bonita do mundo** — Ти найкрасивіша жінка у світі\n\n### Для нього\n\n- **Você é lindo** — Ти красивий\n- **Você é o melhor** — Ти найкращий\n- **Você me faz sentir segura** — З тобою я почуваюся захищеною\n- **Você é meu herói** — Ти мій герой\n\n## Визнання в коханні\n\n| Португальська | Українська |\n|--------------|------------|\n| Você é a pessoa mais importante da minha vida | Ти найважливіша людина в моєму житті |\n| Não consigo imaginar minha vida sem você | Не уявляю своє життя без тебе |\n| Quero envelhecer ao seu lado | Хочу старіти поруч з тобою |\n| Você é meu destino | Ти моя доля |\n| Com você, me sinto completo/a | З тобою я відчуваю себе цілісним/цілісною |\n\n## Повсякденні романтичні фрази\n\n### Вранці\n\n- **Bom dia, meu amor** — Доброго ранку, моя любов\n- **Como você dormiu?** — Як тобі спалося?\n- **Sonhei com você** — Ти мені снився/снилася\n\n### Протягом дня\n\n- **Estou pensando em você** — Думаю про тебе\n- **Sinto sua falta** — Скучаю за тобою\n- **Mal posso esperar para te ver** — Не можу дочекатися, щоб тебе побачити\n\n### Увечері\n\n- **Como foi seu dia?** — Як минув твій день?\n- **Boa noite, amor** — Надобраніч, любов\n- **Bons sonhos** — Солодких снів\n- **Te amo, durma bem** — Кохаю, спи добре\n\n## Фрази для особливих моментів\n\n### На побаченні\n\n- **Você está linda/lindo hoje** — Ти сьогодні чудова/чудовий\n- **Adoro estar com você** — Обожнюю бути з тобою\n- **Esta noite é perfeita** — Цей вечір ідеальний\n- **Podemos ficar assim para sempre?** — Чи можемо залишитися так назавжди?\n\n### Після сварки\n\n- **Me desculpa** — Вибач мені\n- **Eu estava errado/a** — Я помилявся/помилялася\n- **Não quero te perder** — Не хочу тебе втратити\n- **Vamos fazer as pazes** — Давай помиримося\n\n### У важкі часи\n\n- **Estou aqui por você** — Я тут для тебе\n- **Vamos superar isso juntos** — Ми подолаємо це разом\n- **Sempre estarei ao seu lado** — Я завжди буду поруч\n- **Você pode contar comigo** — Ти можеш на мене розраховувати\n\n## Поетичні вислови\n\nПортугальська відома своєю поезією:\n\n- **Você é a luz da minha vida** — Ти світло мого життя\n- **Meu coração bate por você** — Моє серце б'ється для тебе\n- **Você é meu primeiro pensamento de manhã** — Ти моя перша думка вранці\n- **Em seus olhos, eu encontro meu lar** — У твоїх очах я знаходжу свій дім\n- **Seu amor é meu porto seguro** — Твоя любов — моя тиха гавань\n\n## Saudade — унікальне португальське почуття\n\n**Saudade** — це більше, ніж просто «скучаю». Це глибока туга за кимось або чимось, змішана з любов'ю та ніжністю.\n\n- **Morro de saudades de você** — Помираю від туги за тобою\n- **A saudade que sinto é enorme** — Туга, яку я відчуваю, величезна\n- **Você é minha maior saudade** — Ти — моя найбільша туга\n\nПрактикуйте ці фрази зі своїм партнером, і ваші стосунки наповняться португальською романтикою!\n\n<CTA\n  text=\"Готові опанувати португальську з партнером? Практикуйте з AI голосовим чатом, зберігайте фрази в Love Log, а партнер може стати вашим вчителем. Ідеально для двомовних пар!\"\n  buttonText=\"Почати Зараз\"\n/>\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Компліменти для партнера",
+              "## Повсякденні романтичні фрази",
+              "## Фрази для особливих моментів"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ec36afca-6494-4fa5-a0ad-31763a37cbbd",
+      "title": "Görög baba és terhességi szókincs",
+      "native_lang": "hu",
+      "target_lang": "el",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nA baba érkezése az élet egyik legcsodálatosabb eseménye. Ha görögul szeretnél kommunikálni a terhességről és a babáról, ezek a kifejezések nélkülözhetetlenek.\n\nAz alapvető kifejezésekért nézd meg az [Görög alapvető kifejezések](/learn/hu/el/greek-essential-phrases-for-couples) útmutatónkat.\n\n<PhraseOfDay\n  word=\"Συγχαρητήρια!\"\n  translation=\"Gratulálok!\"\n  pronunciation=\"siŋxariˈtirja\"\n  context=\"Az esküvői köszöntés alapja.\"\n/>\n\n## Alapvető szókincs\n\nA baba és terhesség alapvető görög szókincse:\n\n<VocabCard\n  word=\"γάμος\"\n  translation=\"esküvő\"\n  pronunciation=\"ˈɣamos\"\n  example=\"Ο γάμος ήταν υπέροχος.\"\n/>\n\n| Görög | Magyar | Használat |\n|---|---|---|\n| νύφη | menyasszony | A nő |\n| γαμπρός | vőlegény | A férfi |\n| όρκοι | fogadalmak | Esküvői ígéretek |\n| τελετή | szertartás | A hivatalos rész |\n| δεξίωση | fogadás | Az ünneplés |\n| πρόποση | köszöntő | Pohárköszöntő |\n\n<CultureTip flag=\"🌍\" title=\"Görög kulturális tippek\">\nA görög kultúrában a terhesség és a baba érkezése körül sok hagyomány és babona létezik. Érdemes megismerni ezeket a párod családjával.\n</CultureTip>\n\n## Hasznos kifejezések\n\n### Terhességi kifejezések\n\nA várandósság alatt hasznos kifejezések:\n\n- **Babát várunk!** - A nagy bejelentés\n- **Mikor a várható időpont?** - Gyakori kérdés\n- **Fiú vagy lány?** - A nem iránti érdeklődés\n\n### Baba szókincs\nAmikor megérkezik a baba:\n\n- **Megszületett a baba!** - Az örömhír\n- **Gratulálok!** - Jókívánság a szülőknek\n\n<VocabCard\n  word=\"μήνας του μέλιτος\"\n  translation=\"nászút\"\n  pronunciation=\"ˈminas tu ˈmelitos\"\n  example=\"Πήγαν στο μήνα του μέλιτος.\"\n/>\n\n## Gyakorlati helyzetek\n\n| Helyzet | Mit mondj |\n|---|---|\n| Bejelentés | Babát várunk! |\n| Orvosnál | Kérdezz a terhességről |\n| Születésnél | A baba megszületett! |\n| Gratulációk | Fogadd a jókívánságokat |\n\n<CultureTip flag=\"💡\" title=\"Hasznos tipp\">\nA terhesség alatt sok új szóval találkozol. Készíts listát az orvosi kifejezésekről, hogy az időpontok során magabiztosabban kommunikálhass.\n</CultureTip>\n\n## Összefoglaló táblázat\n\n| Helyzet | Görög kifejezés |\n|---|---|\n| Gratuláció | Συγχαρητήρια! |\n| Az esemény | γάμος |\n| A nő | νύφη |\n| A férfi | γαμπρός |\n| Esküvői ígéretek | όρκοι |\n\n## További tanulás\n\nHa tovább szeretnéd fejleszteni a görög nyelvtudásod, nézd meg ezeket a cikkeinket:\n\n- [Görög romantikus kifejezések minden alkalomra](/learn/hu/el/greek-romantic-phrases-for-every-occasion)\n- [Hogyan mondd: Szeretlek görögul](/learn/hu/el/greek-how-to-say-i-love-you)\n- [Görög alapvető kifejezések pároknak](/learn/hu/el/greek-essential-phrases-for-couples)\n\nEzek a források segítenek elmélyíteni a tudásod és magabiztosabbá válni a görög nyelvben.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 272,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Hasznos kifejezések"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

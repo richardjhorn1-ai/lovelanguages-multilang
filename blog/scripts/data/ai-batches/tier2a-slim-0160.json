@@ -1,0 +1,509 @@
+{
+  "batchId": "tier2a-slim-0160",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "ab375249-5034-4265-a97d-6e114b599790",
+      "title": "Türkische Trost- und Unterstützungsphrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlegende Unterstützung",
+          "subsections": [
+            "### \"Yanındayım\"",
+            "### \"Her zaman senin yanında olacağım\"",
+            "### \"Bunda yalnız değilsin\"",
+            "### \"Ne ihtiyacın olursa, buradayım\""
+          ]
+        },
+        {
+          "header": "## Bei Trauer",
+          "subsections": [
+            "### \"Kaybın için çok üzgünüm\"",
+            "### \"İhtiyacın olan zamanı al\"",
+            "### \"Ağlamak normal\"",
+            "### \"Başın sağ olsun\""
+          ]
+        },
+        {
+          "header": "## Bei Stress und Sorgen",
+          "subsections": [
+            "### \"Bunu birlikte çözeceğiz\"",
+            "### \"Adım adım\"",
+            "### \"İyi olmamak normal\"",
+            "### \"Bu da geçer\"",
+            "### \"Kendine bu kadar sert davranma\""
+          ]
+        },
+        {
+          "header": "## Ermutigung",
+          "subsections": [
+            "### \"Sana inanıyorum\"",
+            "### \"Düşündüğünden daha güçlüsün\"",
+            "### \"Seninle çok gurur duyuyorum\"",
+            "### \"Başaracaksın\""
+          ]
+        },
+        {
+          "header": "## Aktive Hilfe anbieten",
+          "subsections": [
+            "### \"Sana nasıl yardımcı olabilirim?\"",
+            "### \"Bunun hakkında konuşmak ister misin?\"",
+            "### \"Dinliyorum\""
+          ]
+        },
+        {
+          "header": "## Langfristige Unterstützung",
+          "subsections": [
+            "### \"Ne olursa olsun, her zaman burada olacağım\"",
+            "### \"Bu işte birlikteyiz\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ab48727a-085c-46bb-a568-294aa9d30b81",
+      "title": "Expresii 'Mi-e Dor de Tine' în Maghiară pentru Români",
+      "native_lang": "ro",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale de Dor",
+          "subsections": [
+            "### Expresii Calde",
+            "### Expresii Poetice",
+            "### Mesaje Romantice",
+            "### Promisiuni"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ab57a838-7d99-4370-994b-fd794ecf37ff",
+      "title": "Russiske Kærlighedsbreve for Danskere",
+      "native_lang": "da",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Indledninger",
+          "subsections": [
+            "### \"Любовь моя\" / \"Жизнь моя\" / \"Сердце моё\"",
+            "### \"Дорогой/Дорогая моя\""
+          ]
+        },
+        {
+          "header": "## Udtryk for Kærlighed",
+          "subsections": [
+            "### \"Слова не могут выразить то, что я чувствую к тебе\"",
+            "### \"Ты лучшее, что случилось в моей жизни\"",
+            "### \"Каждый день с тобой — это подарок\"",
+            "### \"Ты делаешь меня лучше\""
+          ]
+        },
+        {
+          "header": "## Romantiske Erklæringer",
+          "subsections": [
+            "### \"Когда я смотрю тебе в глаза, я вижу своё будущее\"",
+            "### \"Твоя улыбка освещает мой мир\"",
+            "### \"Я влюбляюсь в тебя всё больше с каждым днём\"",
+            "### \"Ты моя скала, мой якорь, моё убежище\""
+          ]
+        },
+        {
+          "header": "## Løfter",
+          "subsections": [
+            "### \"Я обещаю любить тебя в радости и в горе\"",
+            "### \"Я хочу состариться рядом с тобой\"",
+            "### \"Моя любовь к тебе никогда не угаснет\"",
+            "### \"Я выбираю тебя сегодня и навсегда\""
+          ]
+        },
+        {
+          "header": "## Afslutninger",
+          "subsections": [
+            "### \"Навсегда твой/твоя\"",
+            "### \"Со всей моей любовью\"",
+            "### \"Вечно твой/твоя\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ab5c1ae1-c314-4247-9571-bfda7919b804",
+      "title": "Néerlandais : 15 Façons de Dire Je T'aime",
+      "native_lang": "fr",
+      "target_lang": "nl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Phrases Romantiques Pour Faire Fondre les Coeurs",
+          "subsections": [
+            "### \"Tu Représentes Tout Pour Moi\"",
+            "### \"Je Ne Peux Pas Vivre Sans Toi\"",
+            "### \"Tu Es l'Amour de Ma Vie\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ab649071-89c1-4c6a-94dc-70b6e56a13bf",
+      "title": "Polska Fraser för Svartsjuka och Förtroende",
+      "native_lang": "sv",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Uttrycka Svartsjuka",
+          "subsections": [
+            "### 1. \"Czuję się niepewnie, kiedy...\"",
+            "### 2. \"Możesz mi pomóc zrozumieć twoją relację z...?\"",
+            "### 3. \"Ufam ci, ale zmagam się z moimi uczuciami\"",
+            "### 4. \"Potrzebuję zapewnienia\"",
+            "### 5. \"Przeszkadza mi, kiedy...\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Bygga Förtroende",
+          "subsections": [
+            "### 6. \"Mam oczy tylko dla ciebie\"",
+            "### 7. \"Jesteś jedyną osobą dla mnie\"",
+            "### 8. \"Nigdy nie zrobiłbym/abym nic, żeby cię zranić\"",
+            "### 9. \"Bądźmy szczerzy wobec siebie\"",
+            "### 10. \"Chcę, żebyś poznał/a moich przyjaciół\"",
+            "### 11. \"Nie masz się czym martwić\"",
+            "### 12. \"Wybieram cię każdego dnia\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ab77d400-3861-4fcb-8724-c2b8b758b13f",
+      "title": "Gramatica Poloneza de Baza pentru Incepatori: Ghid pentru Romani",
+      "native_lang": "ro",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Conjugarea Verbelor",
+          "subsections": [
+            "### Prezentul",
+            "### Verbul BYC (A Fi)",
+            "### Verbul MIEC (A Avea)"
+          ]
+        },
+        {
+          "header": "## Provocari și Avantaje pentru Romani",
+          "subsections": [
+            "### Avantaje",
+            "### Provocari"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ab8b5cc6-82cd-4300-ba55-9e9c74d7b875",
+      "title": "Yunanca Kıskançlık ve Güven İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kıskançlığı İfade Etme",
+          "subsections": [
+            "### 1. \"Νιώθω λίγο ζηλιάρης/α όταν...\"",
+            "### 2. \"Μπορείς να με καθησυχάσεις;\"",
+            "### 3. \"Σε εμπιστεύομαι, αλλά δεν εμπιστεύομαι αυτούς\"",
+            "### 4. \"Με κάνει να νιώθω άβολα όταν...\"",
+            "### 5. \"Χρειάζομαι να ξέρω ότι είμαι η προτεραιότητά σου\""
+          ]
+        },
+        {
+          "header": "## Güven İnşa Etme",
+          "subsections": [
+            "### 6. \"Σε εμπιστεύομαι απόλυτα\"",
+            "### 7. \"Είσαι ο/η μόνος/η για μένα\"",
+            "### 8. \"Δεν θα έκανα ποτέ τίποτα για να σε πληγώσω\"",
+            "### 9. \"Δεν έχεις τίποτα να ανησυχείς\"",
+            "### 10. \"Είμαι αφοσιωμένος/η μόνο σε σένα\"",
+            "### 11. \"Ας μιλήσουμε για τις ανησυχίες σου\"",
+            "### 12. \"Τι μπορώ να κάνω για να νιώθεις πιο ασφαλής;\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aba7bc89-1a42-4a96-8104-ecebc3bf700c",
+      "title": "Знайомство з італійською родиною: необхідні фрази",
+      "native_lang": "uk",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Перші привітання",
+          "subsections": [
+            "### Формальні (для батьків, бабусь та дідусів)",
+            "### Неформальні (для братів, сестер, молодших родичів)"
+          ]
+        },
+        {
+          "header": "## Компліменти для родини",
+          "subsections": [
+            "### Для мами партнера",
+            "### Для тата партнера"
+          ]
+        },
+        {
+          "header": "## Важливі правила етикету",
+          "subsections": [
+            "### Що робити:",
+            "### Чого уникати:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "abab2287-13cf-4dee-9711-dc1bf3e8ae8c",
+      "title": "Frases en Inglés sobre Celos y Confianza para Parejas",
+      "native_lang": "es",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Expresar Celos de Manera Saludable",
+          "subsections": [
+            "### \"I feel a bit jealous when...\"",
+            "### \"Can we talk about something that's bothering me?\"",
+            "### \"I trust you, but I'm feeling insecure\"",
+            "### \"Who was that person you were talking to?\""
+          ]
+        },
+        {
+          "header": "## Frases para Pedir Seguridad",
+          "subsections": [
+            "### \"I need some reassurance\"",
+            "### \"Can you help me feel more secure?\"",
+            "### \"I know it's irrational, but...\""
+          ]
+        },
+        {
+          "header": "## Frases para Construir Confianza",
+          "subsections": [
+            "### \"I trust you completely\"",
+            "### \"You're the only one for me\"",
+            "### \"I don't have eyes for anyone else\"",
+            "### \"There's nothing to worry about\"",
+            "### \"You can trust me\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "abb60b93-4e44-4f59-b32e-7db45086bf29",
+      "title": "Phrases suédoises pour se réconcilier en couple",
+      "native_lang": "fr",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions essentielles pour se réconcilier",
+          "subsections": [
+            "### S'excuser sincèrement",
+            "### Exprimer ses sentiments",
+            "### Proposer une résolution",
+            "### Réaffirmer son amour"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "abbba484-60be-49d0-9b9a-b022175ac895",
+      "title": "Englische Phrasen für die Schwiegereltern",
+      "native_lang": "de",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Erste Begegnung",
+          "subsections": [
+            "### \"It's so nice to finally meet you\"",
+            "### \"I've heard so much about you\"",
+            "### \"Thank you for having me\"",
+            "### \"Your home is lovely\""
+          ]
+        },
+        {
+          "header": "## Höfliche Konversation",
+          "subsections": [
+            "### \"How was your day?\"",
+            "### \"Could you tell me more about...?\"",
+            "### \"That's fascinating\"",
+            "### \"I'd love to hear more about your experiences\""
+          ]
+        },
+        {
+          "header": "## Bei Mahlzeiten",
+          "subsections": [
+            "### \"This is delicious! May I have the recipe?\"",
+            "### \"Everything looks wonderful\"",
+            "### \"Thank you for this lovely meal\"",
+            "### \"Can I help with anything?\""
+          ]
+        },
+        {
+          "header": "## Über Ihre Beziehung",
+          "subsections": [
+            "### \"Your son/daughter means the world to me\"",
+            "### \"I'm so grateful to have [Name] in my life\"",
+            "### \"I promise to always take care of [Name]\"",
+            "### \"We make each other very happy\""
+          ]
+        },
+        {
+          "header": "## Familienfeiern",
+          "subsections": [
+            "### \"I'm honored to be part of your family celebration\"",
+            "### \"Happy holidays! Thank you for including me\"",
+            "### \"I brought something for everyone\""
+          ]
+        },
+        {
+          "header": "## Dankbarkeit zeigen",
+          "subsections": [
+            "### \"Thank you for raising such a wonderful person\"",
+            "### \"I really appreciate your warm welcome\"",
+            "### \"You've made me feel so welcome\""
+          ]
+        },
+        {
+          "header": "## Schwierige Situationen",
+          "subsections": [
+            "### \"I understand your perspective\"",
+            "### \"I'd like to find a solution that works for everyone\"",
+            "### \"I really value your opinion\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "abc94224-c760-4171-8c9f-4b4bf8ff6aea",
+      "title": "Les Bases de la Grammaire Polonaise pour Débutants",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Erreurs Grammaticales Courantes à Éviter",
+          "subsections": [
+            "### 1. Oublier l'Accord des Adjectifs",
+            "### 2. Utiliser le Mauvais Cas",
+            "### 3. Omettre les Pronoms Incorrectement",
+            "### 4. Mélanger Formel et Informel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "abd7c2fa-7fdf-4ecd-81a2-fce95a675973",
+      "title": "Φράσεις για Γνωριμία με τους Πεθερικούς στα Ουκρανικά",
+      "native_lang": "el",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για την Πρώτη Γνωριμία",
+          "subsections": [
+            "### 1. Дуже радий/рада вас бачити (Ντούζε ράντι/ράντα βας μπάτσιτι)",
+            "### 2. Я багато про вас чув/чула (Για μπαγκάτο προ βας τσουφ/τσούλα)",
+            "### 3. Дякую, що запросили мене (Ντιάκουγιου, στσο ζαπροσίλι μενέ)"
+          ]
+        },
+        {
+          "header": "## Φράσεις Εκτίμησης",
+          "subsections": [
+            "### 4. Ваш син/Ваша донька чудовий/а (Βας σιν/Βάσα ντόνκα τσουντόβι/α)",
+            "### 5. Ви виховали чудову людину (Βι βίχοβαλι τσουντόβου λιουντίνου)",
+            "### 6. Дуже смачно! (Ντούζε σμάτσνο)",
+            "### 7. У вас гарний дім (Ου βας γκάρνι ντιμ)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για Συζήτηση",
+          "subsections": [
+            "### 8. Хотів/ла б дізнатися більше про вашу родину (Χοτίφ/λα μπ ντιζνάτισια μπίλσε προ βάσου ροντίνου)",
+            "### 9. Яким він/вона був/ла в дитинстві? (Γιακίμ βιν/βονά μπουφ/λα β ντιτίνστβι)",
+            "### 10. Сподіваюся, ми зможемо проводити більше часу разом (Σποντιβάγιουσια, μι ζμόζεμο προβοντίτι μπίλσε τσάσου ράζομ)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "abf28f88-eb5a-45a4-a333-0392c58ecfe7",
+      "title": "іспанська для пар: 45+ фраз для подорожей",
+      "native_lang": "uk",
+      "target_lang": "es",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## У готелі",
+          "subsections": [
+            "### Заселення",
+            "### Запити в готелі"
+          ]
+        },
+        {
+          "header": "## Транспорт",
+          "subsections": [
+            "### Таксі",
+            "### Оренда авто"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "abf94ef7-f8b2-4765-b65c-f5760f4f5b52",
+      "title": "Portugiesische Phrasen für die Schwiegereltern",
+      "native_lang": "de",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Erste Begegnung",
+          "subsections": [
+            "### \"É um prazer finalmente conhecê-los\"",
+            "### \"Ouvi falar muito de vocês\"",
+            "### \"Obrigado/a por me receberem em sua casa\"",
+            "### \"A casa de vocês é linda\""
+          ]
+        },
+        {
+          "header": "## Bei Mahlzeiten",
+          "subsections": [
+            "### \"Está delicioso! Posso ter a receita?\"",
+            "### \"Obrigado/a por essa refeição maravilhosa\"",
+            "### \"Posso ajudar em alguma coisa?\""
+          ]
+        },
+        {
+          "header": "## Über Ihre Beziehung",
+          "subsections": [
+            "### \"Seu filho/Sua filha significa tudo para mim\"",
+            "### \"Sou muito grato/a por ter [Name] na minha vida\"",
+            "### \"Prometo sempre cuidar de [Name]\"",
+            "### \"Nós nos fazemos muito felizes\""
+          ]
+        },
+        {
+          "header": "## Dankbarkeit zeigen",
+          "subsections": [
+            "### \"Obrigado/a por terem criado uma pessoa tão maravilhosa\"",
+            "### \"Agradeço muito a recepção calorosa\""
+          ]
+        }
+      ]
+    }
+  ]
+}

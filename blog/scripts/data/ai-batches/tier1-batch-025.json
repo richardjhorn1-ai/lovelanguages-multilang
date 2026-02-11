@@ -1,0 +1,54 @@
+{
+  "tier": 1,
+  "batchId": "tier1-batch-025",
+  "articles": [
+    {
+      "id": "41c1af9c-b63e-443b-b28f-98b268c89e2d",
+      "title": "Greske svigerfamilie-uttrykk for nordmenn",
+      "native_lang": "no",
+      "target_lang": "el",
+      "category": "communication",
+      "content": "Greske familier er varme, livlige og svært tett sammenvevde. Å bli akseptert er viktig. Her er din guide til å møte greske svigerforeldre.\n\n## Første møtet\n\n**Είναι μεγάλη χαρά που σας γνωρίζω επιτέλους.**\n*Íne megáli chará pu sas gnorízo epitélus.*\n*Det er en stor glede å endelig møte dere.*\n\n**Έχω ακούσει πολλά για εσάς.**\n*Écho akúsi pollá ya esás.*\n*Jeg har hørt mye om dere.*\n\n**Σας ευχαριστώ για την πρόσκληση.**\n*Sas efcharistó ya tin prósklisi.*\n*Takk for invitasjonen.*\n\n**Έχετε ένα υπέροχο σπίτι.**\n*Échete éna ypérocho spíti.*\n*Dere har et fantastisk hjem.*\n\n## Komplimenter og takknemlighet\n\n**Το φαγητό είναι εξαιρετικό. Ευχαριστώ πολύ.**\n*To fayitó íne exeretikó. Efcharistó polý.*\n*Maten er utmerket. Tusen takk.*\n\n**Έχετε μεγαλώσει έναν υπέροχο άνθρωπο.**\n*Échete megalósi énan ypérocho ánthropo.*\n*Dere har oppdratt et fantastisk menneske.*\n\n**Τώρα καταλαβαίνω από πού έχει την καλοσύνη του/της ο/η [partnerens navn].**\n*Tóra katalavéno apó pú échi tin kalosýni tu/tis o/i [partnerens navn].*\n*Nå forstår jeg hvor [partnerens navn] har godheten sin fra.*\n\n## Vise interesse\n\n**Θα ήθελα να μάθω περισσότερα για τις οικογενειακές σας παραδόσεις.**\n*Tha íthela na mátho perissótera ya tis ikoyeniakés sas paradósis.*\n*Jeg vil gjerne lære mer om familietradisjonene deres.*\n\n**Πώς γνωριστήκατε;**\n*Pós gnoristíkate?*\n*Hvordan møttes dere?*\n\n**Πώς ήταν ο/η [partnerens navn] όταν ήταν παιδί;**\n*Pós ítan o/i [partnerens navn] ótan ítan pedí?*\n*Hvordan var [partnerens navn] som barn?*\n\n## Tilby hjelp\n\n**Μπορώ να βοηθήσω σε κάτι;**\n*Boró na voithíso se káti?*\n*Kan jeg hjelpe med noe?*\n\n**Αφήστε με να βοηθήσω με τα πιάτα.**\n*Afíste me na voithíso me ta piáta.*\n*La meg hjelpe med oppvasken.*\n\n## Ved avskjed\n\n**Σας ευχαριστώ πολύ για όλα. Ήταν υπέροχα.**\n*Sas efcharistó polý ya óla. Ítan ypérocha.*\n*Tusen takk for alt. Det var fantastisk.*\n\n**Χάρηκα πολύ που σας γνώρισα.**\n*Chárika polý pu sas gnórisa.*\n*Veldig hyggelig å møte dere.*\n\n**Ελπίζω να σας δω σύντομα ξανά.**\n*Elpízo na sas do síntoma xaná.*\n*Jeg håper å se dere igjen snart.*\n\n## Kulturelle tips\n\n- Gjestfrihet er hellig i Hellas\n- Aksepter mat og drikke\n- Familien er ekstremt viktig\n- Høylytt samtale er normalt\n- Respekt for eldre\n- Ortodokse tradisjoner kan spille inn",
+      "issues": [
+        {
+          "type": "truncated_content",
+          "details": {
+            "endingChars": "kse tradisjoner kan spille inn"
+          }
+        }
+      ]
+    },
+    {
+      "id": "41ed8867-873e-40eb-b3d5-e9d859f8fd35",
+      "title": "Cum să îți ceri scuze în portugheză – Expresii esențiale pentru cupluri",
+      "native_lang": "ro",
+      "target_lang": "pt",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nA ști să îți ceri scuze cu sinceritate în limba partenerului tău este esențial pentru o relație sănătoasă. În portugheză, există multe modalități de a exprima regretul, de la scuze simple la cereri elaborate de iertare.\n\n<PhraseOfDay\n  word=\"Desculpa\"\n  translation=\"Îmi pare rău\"\n  pronunciation=\"\"\n  context=\"Expresia principală pentru scuze în portugheză\"\n/>\n\n## Scuze de bază în Portugheză\n\nAceste expresii sunt fundamentale pentru orice conversație în care trebuie să îți ceri scuze:\n\n<VocabCard\n  word=\"Desculpa\"\n  translation=\"Îmi pare rău\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Me perdoa, por favor\"\n  translation=\"Te rog să mă ierți\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"É minha culpa\"\n  translation=\"E vina mea\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇵🇹\" title=\"Cultura scuzelor\">\nBrazilienii și portughezii sunt călduroși și afectuoși. Scuzele sincere sunt adesea însoțite de îmbrățișări și gesturi tandre.\n</CultureTip>\n\n## Expresii pentru a cere iertare\n\nCând ai greșit mai serios, ai nevoie de expresii mai puternice:\n\n| Portugheză | Română |\n|---------|---------|\n| Desculpa | Îmi pare rău |\n| Me perdoa, por favor | Te rog să mă ierți |\n| É minha culpa | E vina mea |\n| Eu estava errado/a | Am greșit |\n| Vamos fazer as pazes | Hai să ne împăcăm |\n\n## Expresii de reconciliere\n\nDupă ce ți-ai cerut scuze, aceste fraze te ajută să reconstruiești legătura:\n\n<VocabCard\n  word=\"Vamos fazer as pazes\"\n  translation=\"Hai să ne împăcăm\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Cum să accepți scuzele cuiva\n\nCând partenerul tău își cere scuze, poți răspunde cu aceste expresii:\n\n| Portugheză | Română |\n|---------|---------|\n| Tudo bem | E în regulă |\n\n## Sfaturi pentru scuze sincere în Portugheză\n\n1. **Fii specific** – Menționează exact ce ai făcut greșit\n2. **Arată empatie** – Recunoaște cum s-a simțit partenerul tău\n3. **Evită scuzele** – Nu da vina pe circumstanțe\n4. **Oferă soluții** – Spune ce vei face diferit pe viitor\n5. **Dă-i timp** – Nu forța iertarea imediată\n\n<CTA />\n\n## Articole conexe\n\n- [Exprimarea emoțiilor în portugheză](/ro/pt/portuguese-expressing-emotions)\n- [Fraze romantice în portugheză](/ro/pt/portuguese-romantic-phrases-for-every-occasion)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "4272b553-90ea-473c-ba1e-194188bed587",
+      "title": "Turkse Liefdesbrieven Schrijven voor Nederlanders",
+      "native_lang": "nl",
+      "target_lang": "tr",
+      "category": "communication",
+      "content": "## Liefdesbrieven Schrijven in het Turks\n\nTurks heeft een rijke traditie van liefdespoëzie, van de Ottomaanse divan-literatuur tot moderne Turkse lovesongs. Een aşk mektubu in het Turks is warm, expressief en vol gevoel.\n\n### De Opening\n\n**\"Canım,\"**\n*Mijn ziel/leven,*\nDe meest gebruikte koosnaam.\n\n**\"Aşkım,\"**\n*Mijn liefde,*\nDirect en romantisch.\n\n**\"Hayatım,\"**\n*Mijn leven,*\nDiep en intiem.\n\n**\"Biricik aşkım,\"**\n*Mijn enige liefde,*\nKrachtig en exclusief.\n\n### Gevoelens Uitdrukken\n\n**\"Kelimeler benim için ne kadar önemli olduğunu anlatmaya yetmiyor.\"**\n*Woorden zijn niet genoeg om te vertellen hoe belangrijk je voor me bent.*\n\n**\"Seninle geçirdiğim her gün paha biçilmez bir armağan.\"**\n*Elke dag met jou is een onbetaalbaar geschenk.*\n\n**\"Sen hayatımın ışığısın.\"**\n*Je bent het licht van mijn leven.*\n\n**\"Seni sevmek başıma gelen en güzel şey.\"**\n*Van je houden is het mooiste wat me is overkomen.*\n\n### Herinneringen en Beloftes\n\n**\"Seni ilk gördüğüm anı hâlâ hatırlıyorum...\"**\n*Ik herinner me nog steeds het moment dat ik je voor het eerst zag...*\n\n**\"Seni ömrümün sonuna kadar sevmeye söz veriyorum.\"**\n*Ik beloof van je te houden tot het einde van mijn leven.*\n\n**\"Sana olan aşkım her geçen gün büyüyor.\"**\n*Mijn liefde voor jou groeit elke dag.*\n\n**\"Seni seçiyorum, bugün ve sonsuza kadar.\"**\n*Ik kies jou, vandaag en voor altijd.*\n\n### De Afsluiting\n\n**\"Sonsuza kadar senin,\"**\n*Voor altijd de jouwe,*\n\n**\"Tüm sevgimle,\"**\n*Met al mijn liefde,*\n\n**\"Ebediyen senin,\"**\n*Eeuwig de jouwe,*\n\n**\"Seni öpüyorum,\"**\n*Ik kus je,*\n\n### Turkse Koosnamen in Brieven\n\n- **Canım** - Mijn ziel\n- **Hayatım** - Mijn leven\n- **Aşkım** - Mijn liefde\n- **Tatlım** - Mijn zoete\n- **Bir tanem** - Mijn enige",
+      "issues": [
+        {
+          "type": "truncated_content",
+          "details": {
+            "endingChars": "e\n- **Bir tanem** - Mijn enige"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,173 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0359",
+  "articles": [
+    {
+      "id": "6635a657-05f0-4e52-91e8-5a7ee38a73cc",
+      "title": "Gefühle auf Rumänisch ausdrücken – Emotionen in deiner Beziehung teilen",
+      "native_lang": "de",
+      "target_lang": "ro",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\n# Gefühle auf Rumänisch ausdrücken – Emotionen in deiner Beziehung teilen\n\nIn einer Beziehung ist es wichtig, über Gefühle sprechen zu können. Wenn dein Partner Rumänisch spricht, wird er es besonders schätzen, wenn du deine Emotionen in seiner Sprache ausdrücken kannst. Diese Phrasen helfen dir dabei, eine tiefere Verbindung aufzubauen.\n\n<PhraseOfDay\n  word=\"I love you\"\n  translation=\"Ich liebe dich\"\n  pronunciation=\"ai lav juu\"\n  context=\"Eine der wichtigsten Phrasen, um Zuneigung auszudrücken\"\n/>\n\n## Positive Gefühle ausdrücken\n\n### Liebe und Zuneigung\n\n<VocabCard\n  word=\"I love you so much\"\n  translation=\"Ich liebe dich\"\n  pronunciation=\"ai lav juu sou matsch\"\n  example=\"I love you so much, darling.\"\n/>\n\n<VocabCard\n  word=\"I'm in love with you\"\n  translation=\"Ich bin verliebt in dich\"\n  pronunciation=\"aim in lav with juu\"\n  example=\"I'm completely in love with you.\"\n/>\n\n| Rumänisch | Deutsch | Aussprache |\n|-------------|---------|------------|\n| You mean everything to me | Du bedeutest mir viel | juu mien EV-ri-thing tu mii |\n| I need you | Ich brauche dich | ai nied juu |\n| You make me happy | Du machst mich glücklich | juu meik mii HÄP-pie |\n\n### Glück und Freude\n\n<VocabCard\n  word=\"I'm happy\"\n  translation=\"Ich bin glücklich\"\n  pronunciation=\"aim HÄP-pie\"\n  example=\"I'm so happy when I'm with you.\"\n/>\n\n| Rumänisch | Deutsch |\n|-------------|---------|\n| I'm delighted | Ich freue mich |\n| This makes me glad | Das macht mich froh |\n| I'm so glad to have you | Ich bin so froh, dich zu haben |\n| You make me the happiest | Du machst mich zum glücklichsten Menschen |\n\n<CultureTip flag=\"🇷🇴\" title=\"Kultureller Kontext\">\nExpressing emotions openly shows trust and deepens your relationship. Don't be afraid to share your feelings.\n</CultureTip>\n\n## Schwierige Gefühle teilen\n\nEs ist auch wichtig, über schwierige Gefühle sprechen zu können:\n\n### Traurigkeit und Sorgen\n\n| Rumänisch | Deutsch |\n|-------------|---------|\n| I'm sad | Ich bin traurig |\n| I'm worried | Ich mache mir Sorgen |\n| I feel lonely | Ich fühle mich einsam |\n| I'm disappointed | Ich bin enttäuscht |\n\n<VocabCard\n  word=\"I need your support\"\n  translation=\"Ich brauche deine Unterstützung\"\n  pronunciation=\"ai nied jor suh-PORT\"\n  example=\"I need your support right now.\"\n/>\n\n### Stress und Überforderung\n\n| Rumänisch | Deutsch |\n|-------------|---------|\n| I'm stressed | Ich bin gestresst |\n| I'm exhausted | Ich bin erschöpft |\n| I need a break | Ich brauche eine Pause |\n| I feel overwhelmed | Ich fühle mich überfordert |\n\n## Fragen nach Gefühlen\n\nSo fragst du deinen Partner nach seinen Gefühlen:\n\n<VocabCard\n  word=\"How are you?\"\n  translation=\"Wie geht es dir?\"\n  pronunciation=\"hau ar juu?\"\n  example=\"How are you feeling today?\"\n/>\n\n| Rumänisch | Deutsch |\n|-------------|---------|\n| How do you feel? | Wie fühlst du dich? |\n| Is everything okay? | Ist alles in Ordnung? |\n| What's on your mind? | Was hast du auf dem Herzen? |\n\n## Unterstützung anbieten\n\nWenn dein Partner durch eine schwere Zeit geht:\n\n| Rumänisch | Deutsch |\n|-------------|---------|\n| I'm here for you | Ich bin für dich da |\n| You can talk to me | Du kannst mit mir reden |\n| I'll support you | Ich werde dich unterstützen |\n| We'll get through this together | Wir schaffen das zusammen |\n\n<CultureTip flag=\"🇷🇴\" title=\"Tipp für Paare\">\nNimm dir regelmäßig Zeit, um mit deinem Partner über Gefühle zu sprechen. In seiner Muttersprache fühlt er sich dabei möglicherweise wohler und kann sich besser ausdrücken.\n</CultureTip>\n\n## Verwandte Artikel\n\n- [Rumänische Kosenamen](/de/blog/romanian-pet-names-terms-of-endearment)\n- [Romantische Phrasen auf Rumänisch](/de/blog/romanian-romantic-phrases-for-every-occasion)\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Positive Gefühle ausdrücken"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "6639c006-9165-4e27-bd7c-044cf8e1cd81",
+      "title": "Expresii în Ucraineană pentru Reconciliere și Împăcare în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "uk",
+      "category": "communication",
+      "content": "Ucrainenii aduc în reconciliere aceeași căldură și loialitate care le caracterizează relațiile. Dacă partenerul tău vorbește ucraineană, a ști cum să-ți exprimi regretul și să reconstruiești legătura în limba lui poate transforma un conflict într-o oportunitate de a vă apropia.\n\n## Reconcilierea în Cultura Ucraineană\n\nÎn Ucraina, familia și relațiile sunt valori fundamentale. Ucrainenii sunt cunoscuți pentru reziliența lor - și asta se aplică și la relații. Un conflict nu este sfârșitul, ci un obstacol de depășit împreună. Reconcilierea sinceră poate întări legătura.\n\n## Expresii pentru Cererea Scuzelor\n\n### Scuze Sincere\n\n**\"Вибач мені за те, що я сказав/сказала.\"** (Vybach meni za te, shcho ya skazav/skazala.)\n*Iartă-mă pentru ce am spus.*\n\n**\"Я помилився/помилилася. Вибач.\"** (Ya pomylyvsya/pomylylasya. Vybach.)\n*Am greșit. Iartă-mă.*\n\n**\"Я не повинен/повинна був/була так реагувати.\"** (Ya ne povynen/povynna buv/bula tak reahuvaty.)\n*N-ar fi trebuit să reacționez așa.*\n\n**\"Мені дуже шкода, що я тебе образив/образила.\"** (Meni duzhe shkoda, shcho ya tebe obrazyv/obrazyla.)\n*Îmi pare foarte rău că te-am rănit.*\n\n### Exprimarea Regretului\n\n**\"Мені дуже погано через те, що сталося.\"** (Meni duzhe pohano cherez te, shcho stalosya.)\n*Mă simt foarte rău din cauza celor întâmplate.*\n\n**\"Я розчарований/розчарована в собі.\"** (Ya rozcharovanyy/rozcharovana v sobi.)\n*Sunt dezamăgit/ă de mine.*\n\n## Expresii pentru Împăcare\n\n### Inițierea Dialogului\n\n**\"Можемо поговорити про те, що сталося?\"** (Mozhemo pohovoryty pro te, shcho stalosya?)\n*Putem vorbi despre ce s-a întâmplat?*\n\n**\"Я не хочу, щоб ми лягали спати посварені.\"** (Ya ne khochu, shchob my lyahaly spaty posvareni.)\n*Nu vreau să ne culcăm certați.*\n\n**\"Мені тебе бракує. Бракує нас.\"** (Meni tebe brakuye. Brakuye nas.)\n*Îmi lipsești. Ne lipsește \"noi\".*\n\n### Declarații de Dragoste\n\n**\"Я тебе кохаю, і це ніколи не зміниться.\"** (Ya tebe kokhayu, i tse nikoly ne zminyt'sya.)\n*Te iubesc, și asta nu se va schimba niciodată.*\n\n**\"Ти найважливіша людина в моєму житті.\"** (Ty nayvazhlyyvisha lyudyna v moyemu zhytti.)\n*Ești persoana cea mai importantă din viața mea.*\n\n**\"Наше кохання сильніше за будь-яку сварку.\"** (Nashe kokhannya syl'nishe za bud'-yaku svarku.)\n*Iubirea noastră e mai puternică decât orice ceartă.*\n\n### Reconstruirea Conexiunii\n\n**\"Можна тебе обійняти?\"** (Mozhna tebe obiynyaty?)\n*Pot să te îmbrățișez?*\n\n**\"Давай почнемо спочатку.\"** (Davay pochnemo spochatku.)\n*Să o luăm de la capăt.*\n\n**\"Що я можу зробити, щоб все виправити?\"** (Shcho ya mozhu zrobyty, shchob vse vypravyty?)\n*Ce pot face să repar totul?*\n\n**\"Давай помиримось, кохання.\"** (Davay pomyrymos', kokhannya.)\n*Să ne împăcăm, dragule/draga.*\n\n## Acceptarea Scuzelor\n\n**\"Я тебе пробачаю.\"** (Ya tebe probachayu.)\n*Te iert.*\n\n**\"Дякую, що вибачився/вибачилася.\"** (Dyakuyu, shcho vybachyvsya/vybachylasya.)\n*Mulțumesc că ți-ai cerut scuze.*\n\n**\"Давай залишимо це в минулому.\"** (Davay zalyshymo tse v mynulomu.)\n*Să lăsăm asta în trecut.*\n\n## Gesturi de Reconciliere\n\n### Ospitalitatea\nGătitul împreună sau o masă tradițională ucraineană (borș, varenyky) poate fi perfectă pentru reconciliere.\n\n### Florile\nFlorile sunt întotdeauna apreciate - un număr impar, ca și în Rusia.\n\n### Timpul Împreună\nO plimbare, o seară liniștită acasă, sau vizitarea locurilor speciale pentru voi.\n\n### Reziliența\nUcrainenii apreciază partenerii care nu renunță ușor. Arată că ești acolo pentru bine și pentru rău.\n\n## Expresii de Evitat\n\n- **\"Вибач, якщо тебе образив\"** - \"Dacă\" minimizează scuza\n- **\"Вибач, але...\"** - Justificările anulează scuza\n- **\"Ну добре, вибач\"** - Prea superficial\n\n## Sfaturi Practice\n\n1. **Fii sincer/ă** - Ucrainenii prețuiesc autenticitatea\n2. **Arată loialitate** - Demonstrează că ești acolo pe termen lung\n3. **Gesturile contează** - Mâncare, flori, atenție\n4. **Respectă tradițiile** - Mai ales în prezența familiei\n5. **Fii rezistent/ă** - Nu renunța la primul obstacol\n\n## Concluzie\n\nReconcilierea în ucraineană necesită sinceritate, loialitate și căldură. Cu aceste expresii și o atitudine de devotament, vei putea transforma orice conflict într-o oportunitate de a demonstra profunzimea angajamentului tău în relație.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Expresii pentru Cererea Scuzelor",
+              "## Expresii pentru Împăcare",
+              "## Gesturi de Reconciliere"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "665f70e5-a9b8-4b83-9bc9-5e337e7a6527",
+      "title": "Грецькі фрази про ревнощі та довіру",
+      "native_lang": "uk",
+      "target_lang": "el",
+      "category": "communication",
+      "content": "Греки — пристрасний народ. Ось як обговорювати ревнощі.\n\n## Вираження ревнощів\n\n### \"Είμαι ζηλιάρης/ζηλιάρα\" (Eímai ziliáris/ziliára)\n**Вимова:** Іме зіліаріс/зіліара\n\n**Значення:** Я ревную\n\n### \"Ζηλεύω όταν...\" (Zilévo ótan...)\n**Вимова:** Зілево отан...\n\n**Значення:** Я ревную, коли...\n\n### \"Μερικές φορές νιώθω ανασφάλεια\" (Merikés forés niótho anasfália)\n**Вимова:** Мерікес форес ньотхо анасфаліа\n\n**Значення:** Іноді я відчуваю невпевненість\n\n## Запитання та довіра\n\n### \"Ποιος/Ποια ήταν;\" (Piós/Piá ítan?)\n**Вимова:** Пьос/Пья ітан?\n\n**Значення:** Хто це був/була?\n\n### \"Από πού τον/την ξέρεις;\" (Apó poú ton/tin xéreis?)\n**Вимова:** Апо пу тон/тін ксеріс?\n\n**Значення:** Звідки ти його/її знаєш?\n\n### \"Σε εμπιστεύομαι απόλυτα\" (Se empistévomai apólita)\n**Вимова:** Се емпістевоме аполіта\n\n**Значення:** Я повністю тобі довіряю\n\n### \"Δεν υπάρχει λόγος ανησυχίας\" (Den ipárchi lógos anisichías)\n**Вимова:** Ден іпархі логос анісіхіас\n\n**Значення:** Немає причин для занепокоєння\n\n### \"Είναι απλά φίλος/φίλη\" (Eínai aplá fílos/fíli)\n**Вимова:** Іне апла філос/філі\n\n**Значення:** Це просто друг/подруга\n\n### \"Είσαι ο μόνος/η μόνη για μένα\" (Eísai o mónos/i móni gia ména)\n**Вимова:** Ісе о монос/і моні я мена\n\n**Значення:** Ти — єдиний/єдина для мене\n\n## Обговорення\n\n### \"Μπορούμε να το συζητήσουμε;\" (Boroúme na to sizitísoume?)\n**Вимова:** Борумe на то сізітісуме?\n\n**Значення:** Чи можемо ми поговорити про це?\n\n### \"Δουλεύω πάνω στη ζήλια μου\" (Doulévo páno sti zília mou)\n**Вимова:** Дулево пано сті зіліа му\n\n**Значення:** Я працюю над своїми ревнощами\n\n## Культурні поради\n\n**Пристрасть:** Греки емоційні та відкриті.\n\n**Православ'я:** Греція та Україна мають спільну релігійну традицію.\n\nЗдорова комунікація — основа міцних стосунків.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 232,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Вираження ревнощів",
+              "## Запитання та довіра",
+              "## Обговорення"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "6678102c-3b4a-462a-b690-54d5f2b3e704",
+      "title": "En Yaygın 100 İsveççe Kelime",
+      "native_lang": "tr",
+      "target_lang": "sv",
+      "category": "communication",
+      "content": "İsveççe öğrenmeye başlarken en yaygın kelimeleri bilmek önemlidir.\n\n## Temel Zamirler\n\n### 1. Jag /yag/ - Ben\n### 2. Du /du/ - Sen\n### 3. Han /han/ - O (erkek)\n### 4. Hon /hon/ - O (kadın)\n### 5. Vi /vi/ - Biz\n### 6. Ni /ni/ - Siz\n### 7. De /de/ - Onlar\n\n### 8. Och /ok/ - Ve\n### 9. Men /men/ - Ama\n### 10. Eller /eller/ - Veya\n\n## Temel Fiiller\n\n### 11. Vara /vara/ - Olmak\n### 12. Ha /ha/ - Sahip olmak\n### 13. Göra /yöra/ - Yapmak\n### 14. Säga /seya/ - Söylemek\n### 15. Gå /go/ - Gitmek\n### 16. Komma /komma/ - Gelmek\n### 17. Kunna /künna/ - Yapabilmek\n### 18. Veta /veta/ - Bilmek\n### 19. Vilja /vilya/ - İstemek\n### 20. Se /se/ - Görmek\n\n## Sıfatlar\n\n### 21. Bra /bra/ - İyi\n### 22. Dålig /dolig/ - Kötü\n### 23. Stor /stor/ - Büyük\n### 24. Liten /liten/ - Küçük\n### 25. Ny /nü/ - Yeni\n### 26. Gammal /gammal/ - Eski/yaşlı\n### 27. Lång /long/ - Uzun\n### 28. Kort /kort/ - Kısa\n### 29. Varm /varm/ - Sıcak\n### 30. Kall /kal/ - Soğuk\n\n## Zaman İfadeleri\n\n### 31. Nu /nu/ - Şimdi\n### 32. Idag /idag/ - Bugün\n### 33. Imorgon /imorgon/ - Yarın\n### 34. Igår /igor/ - Dün\n### 35. Alltid /alltid/ - Her zaman\n### 36. Aldrig /aldri/ - Asla\n### 37. Ibland /ibland/ - Bazen\n\n## Soru Kelimeleri\n\n### 38. Vad /vad/ - Ne\n### 39. Var /var/ - Nerede\n### 40. När /ner/ - Ne zaman\n### 41. Varför /varför/ - Neden\n### 42. Hur /hur/ - Nasıl\n### 43. Vem /vem/ - Kim\n\n## Sayılar\n\n### 44. Ett /et/ - Bir\n### 45. Två /tvo/ - İki\n### 46. Tre /tre/ - Üç\n### 47. Fyra /füra/ - Dört\n### 48. Fem /fem/ - Beş\n### 49. Tio /tio/ - On\n### 50. Hundra /hundra/ - Yüz\n\n## Günlük Kelimeler\n\n### 51. Ja /ya/ - Evet\n### 52. Nej /ney/ - Hayır\n### 53. Snälla /snela/ - Lütfen\n### 54. Tack /tak/ - Teşekkürler\n### 55. Förlåt /förlot/ - Özür dilerim\n### 56. Hej /hey/ - Merhaba\n### 57. Hej då /hey do/ - Hoşça kal\n### 58. Kärlek /çerlek/ - Aşk\n### 59. Vän /ven/ - Arkadaş\n### 60. Familj /familiy/ - Aile\n\nBu kelimeleri öğrenmek İsveççe iletişiminizi güçlendirecektir.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Temel Zamirler",
+              "### 1. Jag /yag/ - Ben",
+              "### 2. Du /du/ - Sen",
+              "### 3. Han /han/ - O (erkek)",
+              "### 4. Hon /hon/ - O (kadın)",
+              "### 5. Vi /vi/ - Biz",
+              "### 6. Ni /ni/ - Siz",
+              "### 7. De /de/ - Onlar",
+              "### 8. Och /ok/ - Ve",
+              "### 9. Men /men/ - Ama",
+              "### 10. Eller /eller/ - Veya",
+              "## Temel Fiiller",
+              "### 11. Vara /vara/ - Olmak",
+              "### 12. Ha /ha/ - Sahip olmak",
+              "### 13. Göra /yöra/ - Yapmak",
+              "### 14. Säga /seya/ - Söylemek",
+              "### 15. Gå /go/ - Gitmek",
+              "### 16. Komma /komma/ - Gelmek",
+              "### 17. Kunna /künna/ - Yapabilmek",
+              "### 18. Veta /veta/ - Bilmek",
+              "### 19. Vilja /vilya/ - İstemek",
+              "### 20. Se /se/ - Görmek",
+              "## Sıfatlar",
+              "### 21. Bra /bra/ - İyi",
+              "### 22. Dålig /dolig/ - Kötü",
+              "### 23. Stor /stor/ - Büyük",
+              "### 24. Liten /liten/ - Küçük",
+              "### 25. Ny /nü/ - Yeni",
+              "### 26. Gammal /gammal/ - Eski/yaşlı",
+              "### 27. Lång /long/ - Uzun",
+              "### 28. Kort /kort/ - Kısa",
+              "### 29. Varm /varm/ - Sıcak",
+              "### 30. Kall /kal/ - Soğuk",
+              "## Zaman İfadeleri",
+              "### 31. Nu /nu/ - Şimdi",
+              "### 32. Idag /idag/ - Bugün",
+              "### 33. Imorgon /imorgon/ - Yarın",
+              "### 34. Igår /igor/ - Dün",
+              "### 35. Alltid /alltid/ - Her zaman",
+              "### 36. Aldrig /aldri/ - Asla",
+              "### 37. Ibland /ibland/ - Bazen",
+              "## Soru Kelimeleri",
+              "### 38. Vad /vad/ - Ne",
+              "### 39. Var /var/ - Nerede",
+              "### 40. När /ner/ - Ne zaman",
+              "### 41. Varför /varför/ - Neden",
+              "### 42. Hur /hur/ - Nasıl",
+              "### 43. Vem /vem/ - Kim",
+              "## Sayılar",
+              "### 44. Ett /et/ - Bir",
+              "### 45. Två /tvo/ - İki",
+              "### 46. Tre /tre/ - Üç",
+              "### 47. Fyra /füra/ - Dört",
+              "### 48. Fem /fem/ - Beş",
+              "### 49. Tio /tio/ - On",
+              "### 50. Hundra /hundra/ - Yüz",
+              "## Günlük Kelimeler",
+              "### 51. Ja /ya/ - Evet",
+              "### 52. Nej /ney/ - Hayır",
+              "### 53. Snälla /snela/ - Lütfen",
+              "### 54. Tack /tak/ - Teşekkürler",
+              "### 55. Förlåt /förlot/ - Özür dilerim",
+              "### 56. Hej /hey/ - Merhaba",
+              "### 57. Hej då /hey do/ - Hoşça kal",
+              "### 58. Kärlek /çerlek/ - Aşk",
+              "### 59. Vän /ven/ - Arkadaş"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "667ef295-c506-485b-a55f-7cb1a4700a65",
+      "title": "Spaanse Sms-Taal voor Stellen: Van TQ tot BS",
+      "native_lang": "nl",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nSpaanse sms-taal is creatief, expressief en vol afkortingen. Als je met je Spaanstalige partner chat, wil je deze kennen! Van \"TQ\" tot \"BS\" - hier zijn alle essentials.\n\n## Romantische Afkortingen\n\n<PhraseOfDay\n  word=\"TQ / TQM\"\n  translation=\"Te Quiero / Te Quiero Mucho\"\n  pronunciation=\"tee-kie / tee-kie-em\"\n  context=\"De meest gebruikte romantische afkorting in het Spaans.\"\n/>\n\n### Liefdesverklaringen\n\n<VocabCard\n  word=\"TQ\"\n  translation=\"Te Quiero - Ik hou van je\"\n  pronunciation=\"tee-kie\"\n  example=\"Buenas noches, TQ! (Welterusten, ik hou van je!)\"\n/>\n\n<VocabCard\n  word=\"TQM\"\n  translation=\"Te Quiero Mucho - Ik hou heel veel van je\"\n  pronunciation=\"tee-kie-em\"\n  example=\"Nos vemos manana, TQM! 💕\"\n/>\n\n<VocabCard\n  word=\"TA\"\n  translation=\"Te Amo - Ik hou (heel veel) van je\"\n  pronunciation=\"tee-a\"\n  example=\"TA con toda mi alma. 💕\"\n/>\n\n<VocabCard\n  word=\"TQMX\"\n  translation=\"Te Quiero Mucho por Siempre - Ik hou voor altijd veel van je\"\n  pronunciation=\"tee-kie-em-eks\"\n  example=\"TQMX, nunca lo olvides.\"\n/>\n\n<CultureTip title=\"TQ Overal\" flag=\"💕\">\n\"TQ\" is ZO populair in Spaanstalige landen dat je het overal ziet - berichten, social media, zelfs graffiti! Het is de standaard manier om \"ik hou van je\" te typen.\n</CultureTip>\n\n## Kusjes en Knuffels\n\n<VocabCard\n  word=\"BS / BSS\"\n  translation=\"Besos - Kusjes\"\n  pronunciation=\"bee-es\"\n  example=\"Hasta luego, bss! (Tot later, kusjes!)\"\n/>\n\n<VocabCard\n  word=\"1B\"\n  translation=\"Un Beso - Een kus\"\n  pronunciation=\"oen-bee\"\n  example=\"Buenas noches, 1B!\"\n/>\n\n<VocabCard\n  word=\"MBS\"\n  translation=\"Muchos Besos - Veel kusjes\"\n  pronunciation=\"em-bee-es\"\n  example=\"Te extrano, MBS 💋\"\n/>\n\n<VocabCard\n  word=\"BSTS\"\n  translation=\"Besitos - Kusjes (verkleind)\"\n  pronunciation=\"be-sie-tos\"\n  example=\"Duerme bien, bsts!\"\n/>\n\n<VocabCard\n  word=\"ABZ\"\n  translation=\"Abrazos - Knuffels\"\n  pronunciation=\"a-bee-see\"\n  example=\"Muchos abz! 🤗\"\n/>\n\n### Combinaties\n\n| Afkorting | Betekenis |\n|-----------|-----------|\n| TQ + BS | Te quiero + besos |\n| MBS + ABZ | Muchos besos + abrazos |\n| TQM BB | Te quiero mucho bebe |\n\n## Begroetingen en Afscheid\n\n<VocabCard\n  word=\"Hla / Ola\"\n  translation=\"Hola - Hoi\"\n  pronunciation=\"oo-la\"\n  example=\"Hla guapa! ¿Que tal?\"\n/>\n\n<VocabCard\n  word=\"BN\"\n  translation=\"Buenos/Buenas - Goedendag\"\n  pronunciation=\"bee-en\"\n  example=\"Bn! ¿Como amaneciste?\"\n/>\n\n<VocabCard\n  word=\"HL\"\n  translation=\"Hasta Luego - Tot later\"\n  pronunciation=\"a-tsjee-el\"\n  example=\"Me voy, HL! TQ!\"\n/>\n\n<VocabCard\n  word=\"Ns vms\"\n  translation=\"Nos Vemos - Tot ziens\"\n  pronunciation=\"nos-vee-mos\"\n  example=\"Ns vms en una hora!\"\n/>\n\n## Dagelijkse Communicatie\n\n<VocabCard\n  word=\"Q tl?\"\n  translation=\"¿Que tal? - Hoe gaat het?\"\n  pronunciation=\"kee-tal\"\n  example=\"Hla bb, q tl?\"\n/>\n\n<VocabCard\n  word=\"Q hcs?\"\n  translation=\"¿Que haces? - Wat doe je?\"\n  pronunciation=\"kee-a-ses\"\n  example=\"Q hcs ahora?\"\n/>\n\n<VocabCard\n  word=\"Dnd stas?\"\n  translation=\"¿Donde estas? - Waar ben je?\"\n  pronunciation=\"don-de-es-tas\"\n  example=\"Oye, dnd stas? Te espero.\"\n/>\n\n<VocabCard\n  word=\"Kmo?\"\n  translation=\"¿Como? - Hoe/Wat?\"\n  pronunciation=\"ko-moo\"\n  example=\"Kmo? No entendi.\"\n/>\n\n<VocabCard\n  word=\"Pq?\"\n  translation=\"¿Por que? - Waarom?\"\n  pronunciation=\"por-kee\"\n  example=\"Pq no vienes?\"\n/>\n\n<CultureTip title=\"Q = Que\" flag=\"📱\">\nDe letter \"Q\" vervangt bijna altijd \"Que\" in Spaanse sms-taal. \"Q\" klinkt hetzelfde als \"que\" wanneer je het uitspreekt!\n</CultureTip>\n\n## Gemis en Verlangen\n\n<VocabCard\n  word=\"TE\"\n  translation=\"Te Extrano - Ik mis je\"\n  pronunciation=\"tee-ee\"\n  example=\"Llevo todo el dia pensando en ti. TE 💕\"\n/>\n\n<VocabCard\n  word=\"TEM\"\n  translation=\"Te Extrano Mucho - Ik mis je heel erg\"\n  pronunciation=\"tee-ee-em\"\n  example=\"Cuando vuelves? TEM!\"\n/>\n\n<VocabCard\n  word=\"QVA?\"\n  translation=\"¿Cuando Vienes Aqui? - Wanneer kom je?\"\n  pronunciation=\"kwan-do-vie-nes\"\n  example=\"TEM! QVA?\"\n/>\n\n## Reacties en Emoties\n\n<VocabCard\n  word=\"Jaja / Jeje\"\n  translation=\"Haha (lachen)\"\n  pronunciation=\"cha-cha / chee-chee\"\n  example=\"Jajaja eres muy gracioso 😂\"\n/>\n\n<VocabCard\n  word=\"KK\"\n  translation=\"Caca (milde vloek/frustratie)\"\n  pronunciation=\"ka-ka\"\n  example=\"Tengo que trabajar manana, kk 😞\"\n/>\n\n<VocabCard\n  word=\"OMG\"\n  translation=\"Oh My God (ook in Spaans gebruikt)\"\n  pronunciation=\"oo-em-djie\"\n  example=\"OMG no me lo creo!\"\n/>\n\n<VocabCard\n  word=\"XD\"\n  translation=\"Lachend gezicht\"\n  pronunciation=\"eks-de\"\n  example=\"Que tonto eres XD\"\n/>\n\n<VocabCard\n  word=\"Ntk\"\n  translation=\"No Te Kejes - Klaag niet\"\n  pronunciation=\"no-tee-kee-ches\"\n  example=\"Ntk, que tu tampoco trabajas!\"\n/>\n\n<CultureTip title=\"Jajaja\" flag=\"😂\">\nSpanjaarden lachen met \"jajaja\" (uitgesproken als cha-cha-cha), niet met \"hahaha\"! De J klinkt als een zachte g/ch in het Spaans.\n</CultureTip>\n\n## Plannen Maken\n\n<VocabCard\n  word=\"Kdms?\"\n  translation=\"¿Quedamos? - Spreken we af?\"\n  pronunciation=\"ke-da-mos\"\n  example=\"Kdms esta noche?\"\n/>\n\n<VocabCard\n  word=\"Vns?\"\n  translation=\"¿Vienes? - Kom je?\"\n  pronunciation=\"vie-nes\"\n  example=\"Estoy en el bar, vns?\"\n/>\n\n<VocabCard\n  word=\"AK\"\n  translation=\"Aqui - Hier\"\n  pronunciation=\"a-kie\"\n  example=\"Ya estoy ak. Dnd stas?\"\n/>\n\n<VocabCard\n  word=\"Dps\"\n  translation=\"Despues - Later\"\n  pronunciation=\"des-pwes\"\n  example=\"Ahora no puedo, dps te llamo.\"\n/>\n\n<VocabCard\n  word=\"Xa\"\n  translation=\"Para - Voor\"\n  pronunciation=\"pa-ra\"\n  example=\"Esto es xa ti. 💝\"\n/>\n\n## Spaanse Lettersubstituties\n\n| Letter | Vervangt | Voorbeeld |\n|--------|----------|-----------|\n| K | Que/Ca | Kiero = Quiero |\n| Q | Que | Q tal = Que tal |\n| X | Por/Para | Xq = Por que |\n| D | De | Dnd = Donde |\n| TB/TM | Tambien | Yo tb = Yo tambien |\n| + | Mas | Te quiero + = mucho mas |\n\n## Romantische Berichten\n\n### Goedemorgen Bericht\n```\nBn dias mi amor! 🌞\nQ tl dormiste?\nTQM, ns vms luego!\nBss 💕\n```\n\n### Tijdens het Werk\n```\nQ hcs bb?\nEstoy en el trabajo pensando en ti\nTEM! 💕\nKdms x la noche?\n```\n\n### Goedenacht Bericht\n```\nBn noches cielo 🌙\nGracias x un dia genial\nTQM con todo mi corazon\nSuena conmigo\nBss! 💕\n```\n\n## Koosnaampjes in Berichten\n\n| Afkorting | Betekenis |\n|-----------|-----------|\n| BB | Bebe - Schatje |\n| MI | Mi amor - Mijn liefde |\n| Cri | Carino - Lieverd |\n| Grdto/a | Gordito/a - Schatje |\n| Peke | Pequeno/a - Kleintje |\n\n<VocabCard\n  word=\"Hla bb\"\n  translation=\"Hola bebe - Hoi schatje\"\n  pronunciation=\"oo-la bee-bee\"\n  example=\"Hla bb, TQ! Dnd stas?\"\n/>\n\n## Veelgebruikte Uitdrukkingen\n\n<VocabCard\n  word=\"NTC\"\n  translation=\"No Te Creas - Geloof het niet/Grapje\"\n  pronunciation=\"no-tee-kree-as\"\n  example=\"Me caso manana. NTC! 😂\"\n/>\n\n<VocabCard\n  word=\"TVL\"\n  translation=\"Te Veo Luego - Tot later\"\n  pronunciation=\"tee-vee-el\"\n  example=\"Me voy, TVL! BS!\"\n/>\n\n<VocabCard\n  word=\"TMB\"\n  translation=\"Tambien - Ook\"\n  pronunciation=\"tam-bien\"\n  example=\"- TQ! - Yo tmb! 💕\"\n/>\n\n<VocabCard\n  word=\"NPH\"\n  translation=\"No Puedo Hablar - Ik kan niet praten\"\n  pronunciation=\"no-pwee-doo-ab-lar\"\n  example=\"Estoy en reunion, NPH. Dps te llamo.\"\n/>\n\n## Emoji's en Combinaties\n\nPopulaire emoji-combinaties in Spaanse berichten:\n\n| Combinatie | Gebruik |\n|------------|---------|\n| TQ + 💕❤️ | Liefde |\n| 😘 + BS | Kusjes |\n| 🥰 + BB | Schatje |\n| 😂 + jaja | Lachen |\n| 🔥 | Heet/Aantrekkelijk |\n| 💋 | Kussen |\n\n## Tips voor Spaans Chatten\n\n1. **Gebruik Q veel** - Het is de meest voorkomende afkorting\n2. **Vergeet de accenten** - In sms-taal slaat iedereen ze over\n3. **Jajaja voor lachen** - Niet hahaha\n4. **TQ is essentieel** - Gebruik het vaak!\n5. **Wees expressief** - Emoji's horen erbij\n\n## Snelle Referentiekaart\n\n| Situatie | Afkortingen |\n|----------|-------------|\n| Liefde uitdrukken | TQ, TQM, TA, BS |\n| Begroeten | Hla, Bn, Q tl? |\n| Afscheid | HL, TVL, Ns vms |\n| Gemis | TE, TEM |\n| Plannen | Kdms?, Vns?, Dps |\n| Lachen | Jaja, XD |\n\n<CTA\n  text=\"Klaar om te chatten met je Spaanse liefde?\"\n  buttonText=\"Begin Samen te Leren\"\n/>\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Romantische Berichten"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

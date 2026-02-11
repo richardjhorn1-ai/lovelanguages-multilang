@@ -1,0 +1,525 @@
+{
+  "batchId": "tier2a-slim-0327",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "e588237c-a5d5-435c-94ec-1960e5c079a9",
+      "title": "50 Saluti e Addii in Svedese per Coppie Innamorate",
+      "native_lang": "it",
+      "target_lang": "sv",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Come Usare i Saluti con il Vostro Partner",
+          "subsections": [
+            "### Creare Rituali Speciali",
+            "### Errori Comuni da Evitare"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e5ce84cf-bdee-48d7-8311-2d41029213cf",
+      "title": "Ukrainskie powitania i pożegnania dla par",
+      "native_lang": "pl",
+      "target_lang": "uk",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Specjalne okazje",
+          "subsections": [
+            "### Przed podróżą",
+            "### Przed ważnym wydarzeniem"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Poranna rutyna",
+            "### Ćwiczenie 2: SMS-y",
+            "### Ćwiczenie 3: Wieczorna rutyna"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e5d18419-f4da-4302-acae-fcf2f553ca46",
+      "title": "French Romantic Phrases for Every Occasion: Complete Guide",
+      "native_lang": "en",
+      "target_lang": "fr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## First Meeting and Flirting",
+          "subsections": [
+            "### Breaking the Ice",
+            "### Flirtatious Compliments"
+          ]
+        },
+        {
+          "header": "## Early Relationship Phrases",
+          "subsections": [
+            "### Expressing Growing Feelings",
+            "### Asking Someone Out"
+          ]
+        },
+        {
+          "header": "## Deep Love and Commitment",
+          "subsections": [
+            "### Expressing Devotion",
+            "### Marriage and Forever"
+          ]
+        },
+        {
+          "header": "## Daily Affection Phrases",
+          "subsections": [
+            "### Good Morning/Goodnight",
+            "### Throughout the Day"
+          ]
+        },
+        {
+          "header": "## Romantic Compliments",
+          "subsections": [
+            "### Physical Beauty",
+            "### Inner Beauty"
+          ]
+        },
+        {
+          "header": "## Comfort and Support",
+          "subsections": [
+            "### Being There",
+            "### After a Disagreement"
+          ]
+        },
+        {
+          "header": "## Phrases for Special Moments",
+          "subsections": [
+            "### Anniversary",
+            "### Valentine's Day"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e609233d-92e1-4b3f-906a-24aa7cb943e5",
+      "title": "Spanish Past Tense for Couples: Preterite vs Imperfect",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Understanding the Two Past Tenses",
+          "subsections": [
+            "### The Preterite: Completed Actions",
+            "### The Imperfect: Ongoing or Habitual Actions"
+          ]
+        },
+        {
+          "header": "## Preterite Conjugation Patterns",
+          "subsections": [
+            "### Regular -AR Verbs: Hablar (to speak)",
+            "### Regular -ER/-IR Verbs: Comer (to eat)"
+          ]
+        },
+        {
+          "header": "## Imperfect Conjugation Patterns",
+          "subsections": [
+            "### Regular -AR Verbs: Amar (to love)",
+            "### Regular -ER/-IR Verbs: Querer (to want/love)"
+          ]
+        },
+        {
+          "header": "## When to Use Each Tense: Romantic Examples",
+          "subsections": [
+            "### Telling Your Love Story"
+          ]
+        },
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Exercise 1: How We Met Story",
+            "### Exercise 2: Childhood Memories",
+            "### Exercise 3: Important Dates"
+          ]
+        },
+        {
+          "header": "## Common Irregular Verbs",
+          "subsections": [
+            "### Ser (to be) - Imperfect",
+            "### Ir (to go) - Imperfect"
+          ]
+        },
+        {
+          "header": "## Key Time Expressions",
+          "subsections": [
+            "### Preterite Triggers",
+            "### Imperfect Triggers"
+          ]
+        },
+        {
+          "header": "## Common Mistakes to Avoid",
+          "subsections": [
+            "### Mistake 1: Using Preterite for Descriptions",
+            "### Mistake 2: Using Imperfect for Completed Actions",
+            "### Mistake 3: Forgetting to Combine Tenses"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e63f618a-d90f-4e6f-bbe6-0bbd03ff8465",
+      "title": "Vocabulaire Polonais Bébé et Grossesse",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Vocabulaire essentiel de la grossesse",
+          "subsections": [
+            "### Termes médicaux",
+            "### Étapes et symptômes de la grossesse"
+          ]
+        },
+        {
+          "header": "## Vocabulaire du bébé",
+          "subsections": [
+            "### Termes de base pour bébé",
+            "### Essentiels des soins pour bébé",
+            "### Chambre et équipement du bébé"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e674caf9-0c02-4636-83f3-696f02600f1d",
+      "title": "Conhecendo a Família do Seu Parceiro Ucraniano: Frases Essenciais para Conquistar os Corações de Todos",
+      "native_lang": "pt",
+      "target_lang": "uk",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Cenários Comuns Durante a Visita",
+          "subsections": [
+            "### Chegada e Primeiras Impressões",
+            "### Na Mesa de Jantar",
+            "### Conversas Familiares"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e6ff441b-77b7-41d0-9248-a04ef2027f11",
+      "title": "Знакомство с семьёй норвежского партнёра",
+      "native_lang": "ru",
+      "target_lang": "no",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Члены семьи",
+          "subsections": [
+            "### Основные слова",
+            "### Расширенная семья"
+          ]
+        },
+        {
+          "header": "## Норвежские праздники и традиции",
+          "subsections": [
+            "### Ключевые праздники"
+          ]
+        },
+        {
+          "header": "## Практические ситуации",
+          "subsections": [
+            "### Сценарий 1: Прибытие",
+            "### Сценарий 2: За ужином",
+            "### Сценарий 3: Уход"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e7ff4925-e98e-4b2d-b0c7-7324689a11f5",
+      "title": "Întâlnirea cu Familia Partenerului în Engleză: Expresii Esențiale pentru Cupluri",
+      "native_lang": "ro",
+      "target_lang": "en",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale pentru Prima Întâlnire",
+          "subsections": [
+            "### Salutări și Prezentări",
+            "### Despre Relația Voastră"
+          ]
+        },
+        {
+          "header": "## Scenarii Comune și Dialoguri Practice",
+          "subsections": [
+            "### Scenariul 1: Sosirea la Casă",
+            "### Scenariul 2: La Cină",
+            "### Scenariul 3: Discuții despre Viitor"
+          ]
+        },
+        {
+          "header": "## Vocabular pentru Conversații",
+          "subsections": [
+            "### Despre Muncă și Interese",
+            "### Despre Familie și Valori"
+          ]
+        },
+        {
+          "header": "## Formalitate și Politete",
+          "subsections": [
+            "### Nivele de Formalitate",
+            "### Expresii Politicoase Must-Know"
+          ]
+        },
+        {
+          "header": "## Dacă Lucrurile Nu Mer conform Planului",
+          "subsections": [
+            "### Când Nu Înțelegi",
+            "### Când Ești Nervos(ă)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e84ee2c0-cb97-41ca-a325-d450c6f3b529",
+      "title": "Le Turc Est-Il Difficile à Apprendre ? Guide Honnête Pour Francophones",
+      "native_lang": "fr",
+      "target_lang": "tr",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Ce Qui Rend le Turc Différent",
+          "subsections": [
+            "### Les Parties Difficiles"
+          ]
+        },
+        {
+          "header": "## Ce Qui Rend le Turc Plus Facile Que Vous Ne Le Pensez",
+          "subsections": [
+            "### 1. Orthographe Phonétique",
+            "### 2. Pas d'Articles",
+            "### 3. Pas de Genre Grammatical",
+            "### 4. Conjugaison Régulière",
+            "### 5. Structure Logique"
+          ]
+        },
+        {
+          "header": "## Calendrier Réaliste Pour les Couples",
+          "subsections": [
+            "### Mois 1-3 : Turc de Survie",
+            "### Mois 4-6 : Bases Conversationnelles",
+            "### Mois 7-12 : Communication Confortable",
+            "### Année 2+ : Vers la Maîtrise"
+          ]
+        },
+        {
+          "header": "## Conseils Pour Réussir",
+          "subsections": [
+            "### 1. Acceptez les Suffixes",
+            "### 2. Pratiquez la Prononciation Tôt",
+            "### 3. Apprenez les Racines",
+            "### 4. Utilisez les Médias Turcs",
+            "### 5. N'Ayez Pas Peur des Erreurs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e933ce1f-48a2-4d88-8428-3f4b9b87708a",
+      "title": "Dunski dla Par: 40+ Niezbędnych Zwrotow",
+      "native_lang": "pl",
+      "target_lang": "da",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## W domu razem",
+          "subsections": [
+            "### Prace domowe",
+            "### Gotowanie"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Poranna rutyna",
+            "### Cwiczenie 2: Wieczorna rozmowa",
+            "### Cwiczenie 3: Hygge wieczor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e95f768a-d367-45f7-9339-670036066869",
+      "title": "Norwegian Pronunciation Guide for English Speakers",
+      "native_lang": "en",
+      "target_lang": "no",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Consonant Combinations",
+          "subsections": [
+            "### RS Combination",
+            "### Retroflex Sounds"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ea462eb9-64b3-4373-b57b-c862ff8f7c01",
+      "title": "Wymowa wloska - kompletny przewodnik dla Polaków",
+      "native_lang": "pl",
+      "target_lang": "it",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Trudniejsze kombinacje",
+          "subsections": [
+            "### C i G - zasady",
+            "### SC - dwie wymowy",
+            "### GL i GN"
+          ]
+        },
+        {
+          "header": "## Akcent",
+          "subsections": [
+            "### Gdzie pada akcent?",
+            "### Wyjątki - akcent graficzny"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia wymowy",
+          "subsections": [
+            "### Ćwiczenie 1: Językowiec",
+            "### Ćwiczenie 2: Podwójne litery",
+            "### Ćwiczenie 3: C i G",
+            "### Ćwiczenie 4: Romantyczne frazy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eaa50552-d34e-48e1-8fa9-6791cd991e06",
+      "title": "Dänisch für Schwiegereltern: So überzeugst du deine dänische Schwiegerfamilie",
+      "native_lang": "de",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Gespräche mit den Eltern",
+          "subsections": [
+            "### Mit der Mutter sprechen",
+            "### Mit dem Vater sprechen"
+          ]
+        },
+        {
+          "header": "## Spezielle Wortschatz-Listen",
+          "subsections": [
+            "### Familienmitglieder",
+            "### Essen und Trinken (wichtig bei Familienfesten!)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eaa8b458-aeba-44eb-bc54-c056223c7993",
+      "title": "50 Compliments en Anglais pour Votre Partenaire",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Compliments sur l'apparence physique",
+          "subsections": [
+            "### Les classiques indémodables",
+            "### Tableau des compliments sur l'apparence",
+            "### Compliments plus spécifiques"
+          ]
+        },
+        {
+          "header": "## Compliments sur la personnalité",
+          "subsections": [
+            "### Qualités de caractère"
+          ]
+        },
+        {
+          "header": "## Compliments romantiques profonds",
+          "subsections": [
+            "### Exprimer l'importance de l'autre",
+            "### L'effet de votre partenaire sur vous"
+          ]
+        },
+        {
+          "header": "## Compliments du quotidien",
+          "subsections": [
+            "### Petites attentions"
+          ]
+        },
+        {
+          "header": "## Exercices pratiques pour couples",
+          "subsections": [
+            "### Rituel du compliment quotidien",
+            "### Challenge : compliments créatifs",
+            "### Jeu : compliments en chaîne"
+          ]
+        },
+        {
+          "header": "## Les erreurs à éviter",
+          "subsections": [
+            "### Faux compliments"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eac7e14e-c935-4fa7-8303-77bba2e0c833",
+      "title": "Humour Polonais : Blagues et Jeux de Mots",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Blagues mignonnes pour couples en polonais",
+          "subsections": [
+            "### Jeux de mots simples",
+            "### Blagues sur le thème de l'amour"
+          ]
+        },
+        {
+          "header": "## Exprimer le rire en polonais",
+          "subsections": [
+            "### Différentes façons de dire « C'est drôle ! »"
+          ]
+        },
+        {
+          "header": "## Situations d'humour polonais classiques",
+          "subsections": [
+            "### Les blagues de « Jasiu »"
+          ]
+        },
+        {
+          "header": "## Taquineries ludiques entre partenaires",
+          "subsections": [
+            "### Phrases pour chambrer gentiment",
+            "### Humour auto-dérisoire"
+          ]
+        },
+        {
+          "header": "## Utiliser l'humour dans les conversations quotidiennes",
+          "subsections": [
+            "### Humour du matin",
+            "### Quand votre partenaire fait une erreur",
+            "### Complimenter avec humour"
+          ]
+        },
+        {
+          "header": "## Construire votre vocabulaire comique",
+          "subsections": [
+            "### Mots de réaction"
+          ]
+        }
+      ]
+    }
+  ]
+}

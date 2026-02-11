@@ -1,0 +1,116 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0405",
+  "articles": [
+    {
+      "id": "73d6d3b0-8024-4d17-b5b6-7aeee365e1b2",
+      "title": "Çek Partnerinizin Ailesiyle Tanışmak: Çiftler İçin Temel İfade Rehberi",
+      "native_lang": "tr",
+      "target_lang": "cs",
+      "category": "situations",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nPartnerinizin Çek ailesiyle tanışmak hem heyecan verici hem de biraz gergin olabilir. Bu özel anı daha da özel kılmak için Çekçe konuşmaya çalışmak, aileyle olan bağınızı güçlendirecek ve partnerinizin kalbini kazanacaktır. Bu rehberle, özgüvenli bir şekilde selamlaşmaktan sohbet etmeye kadar her şeyi öğreneceksiniz!\n\n<PhraseOfDay\n  word=\"Těší mě\"\n  translation=\"Tanıştığıma memnun oldum\"\n  pronunciation=\"TEH-shee myeh\"\n  context=\"İlk tanışmada en çok kullanılan ifade - partnerinizin annesine gülümseyerek söyleyin!\"\n/>\n\n## Tanışmadan Önce: Hazırlık Zamanı\n\nİlk buluşmadan önce birkaç şeyi bilmek faydalı olacaktır. Çek aileleri genellikle sıcakkanlıdır, ama biraz mesafeli olabilirler. İlk izlenim her şeydir!\n\n<VocabCard\n  word=\"Rodina\"\n  translation=\"Aile\"\n  pronunciation=\"ROH-dee-nah\"\n  example=\"Tvoje rodina je moc milá.\"\n/>\n\n<CultureTip flag=\"🇨🇿\" title=\"İlk Buluşma Nasıl Olur?\">\nÇek kültüründe, resmi olmayan durumlarda el sıkışmak yerine sarılmak bile mümkündür! Ama ilk tanışmada güvenli oynayın - el sıkışın ve göz teması kurun. Partnerinizin annesine çiçek götürmek güzel bir jest olur.\n</CultureTip>\n\nİlk tanışmada daha fazla yardımcı olabilecek [Çekçe temel ifadeler rehberimize](/learn/tr/cs/essential-czech-phrases-for-couples/) göz atabilirsiniz.\n\n## Temel Selamlaşma İfadeleri\n\n| Çekçe | Türkçe | Telaffuz | Kullanım Durumu |\n|--------|---------|---------------|-------|\n| **Dobrý den** | İyi günler | DOH-bree dehn | Resmi selamlaşma |\n| **Ahoj** | Merhaba | AH-hoy | Gündelik selamlaşma |\n| **Nazdar** | Selam | NAHZ-dahr | Arkadaşça selamlaşma |\n| **Jak se máte?** | Nasılsınız? | yahk seh MAH-teh | Resmi |\n| **Jak se máš?** | Nasılsın? | yahk seh mahsh | Gündelik |\n| **Těší mě** | Tanıştığıma memnun oldum | TEH-shee myeh | İlk tanışma |\n| **Jsem [isim]** | Ben [isim] | ysem [isim] | Kendini tanıtma |\n| **Odkud jste?** | Nerelisiniz? | OHD-kood ysteh? | Nereli olduğunu sorma |\n| **Jsem z Turecka** | Türkiye'denim | ysem z TUR-et-see-kah | Türkiye'den geldiğini söyleme |\n\n## Özel Senaryolar\n\n### Akşam Yemeği Daveti\n\nPartnerinizin ailesi sizi akşam yemeğine davet ettiğinde:\n\n**Mini Diyalog:**\n```\nPartnerinizin Annesi: \"Dobrou chuť!\" (Afiyet olsun)\nSiz: \"Děkuji, vypadá to skvěle!\" (Teşekkürler, harika görünüyor!)\n```\n\n<VocabCard\n  word=\"Děkuji\"\n  translation=\"Teşekkürler\"\n  pronunciation=\"DZHEH-koo-yee\"\n  example=\"Děkuji za večeři, byla výborná!\"\n/>\n\n### Çay/Kahve İkramı\n\nBir şey ikram edildiğinde nazikçe kabul etmek veya reddetmek:\n\n- **Ano, děkuji** (Evet, teşekkürler) - AH-noh DZHEH-koo-yee\n- **Ne, děkuju** (Hayır, teşekkürler) - Nye DZHEH-koo-yee\n- **Moc děkuju** (Çok teşekkürler) - MOHTS DZHEH-koo-yee\n\n<CultureTip flag=\"🇨🇿\" title=\"İkram Etme Kültürü\">\nÇeklerde bir şey ikram edildiğinde ilk başta nazikçe reddetmek kibarlık olarak görülür. İkramcı ısrar ederse, o zaman kabul etmek gerekir. Bu bir oyun gibidir!\n</CultureTip>\n\n### Aile Hakkında Konuşmak\n\nPartnerinizin ailesiyle sohbet etmek için faydalı ifadeler:\n\n| Çekçe | Türkçe | Telaffuz |\n|--------|---------|---------------|\n| **Máte krásný dům** | Eviniz çok güzel | MAH-teh KRAH-snih doohm |\n| **Vaše dcera je skvělá** | Kızınız harika | VAH-sheh DHTSEH-rah yeh skveh-lah |\n| **Kde jste se narodili?** | Nerede doğdunuz? | gdeh ysteh seh nah-ROH-djee-lee? |\n| **Co děláte v práci?** | Ne iş yapıyorsunuz? | tsoh DZHEH-lah-teh v prah-tsee? |\n\nRomantik partnerinizle ilgili daha fazla konuşma konusu için [Çekçe romantik ifadeler rehberimize](/learn/tr/cs/romantic-czech-phrases-for-every-occasion/) göz atabilirsiniz.\n\n## Aile Üyelerini Tanımak\n\n### Aile Bireyleri Kelimeleri\n\n| Çekçe | Türkçe | Telaffuz |\n|--------|---------|---------------|\n| **Matka** | Anne | MAHT-kah |\n| **Otec** | Baba | OH-tets |\n| **Sestra** | Kız kardeş | SEH-strah |\n| **Bratr** | Erkek kardeş | BRAH-tr |\n| **Babička** | Büyükanne | BAH-beech-kah |\n| **Dědeček** | Büyükbaba | DZHEH-deh-chek |\n| **Teta** | Teyze/Hala | TEH-tah |\n| **Strýc** | Amca/Dayı | STRIBE-ts |\n\n## Kibar İfadeler ve Nezaket\n\n### Saygılı Olma Sanatı\n\nÇek kültüründe nezaket çok önemlidir. İşte temel kibar ifadeler:\n\n<VocabCard\n  word=\"Prosím\"\n  translation=\"Lütfen / Rica ederim\"\n  pronunciation=\"PROH-seem\"\n  example=\"Prosím, můžu si vzít vodu?\"\n/>\n\n### Formal vs. Gündelik\n\n- **Vy** (Siz) - vih: Resmi hitap\n- **Ty** (Sen) - tih: Gündelik hitap\n\n<CultureTip flag=\"🇨🇿\" title=\"Hitap Şekli Ne Zaman Değişir?\">\nÇekçede \"vy\" (siz) formunu kullanmak güvenli bir başlangıçtır. Partnerinizin anne-babası sizi \"ty\" (sen) diye çağırmaya başladığında, bu samimiyetin geliştiğini gösterir - büyük bir ilerleme!\n</CultureTip>\n\n## Sorun Yaşanırsa Ne Yapmalı?\n\n### Anlamadığınızda Kullanabilecekleriniz\n\n| Çekçe | Türkçe | Telaffuz |\n|--------|---------|---------------|\n| **Nerozumím** | Anlamıyorum | NEH-roh-zoo-meem |\n| **Můžete zopakovat?** | Tekrar edebilir misiniz? | MOO-zheh-teh zoh-pah-koh-vaht? |\n| **Mluvíte anglicky?** | İngilizce biliyor musunuz? | MLOO-vee-teh AHN-gleets-kih? |\n| **Pomůžete mi?** | Yardım eder misiniz? | POH-moo-zheh-teh mee? |\n| **Je mi to líto** | Üzgünüm | yeh mee toh LEE-toh |\n\n## Profesyonel İpuçları\n\n1. **Çiçek Getirin**: Partnerinizin annesine çiçek götürmek her zaman kazandırır. \"Pro maminku\" (Anneciğe) deyin.\n\n2. **Ayakkabı Çıkarın**: Evlerde ayakkabı çıkarılır, terlik giyilir. Partneriniz ne yapıyorsa onu takip edin.\n\n3. **Yemek Bitmeden Kalkmayın**: Çeklerde yemek sosyal bir olaydır. \"Dobrou chuť\" demeyi unutmayın!\n\n4. **Göz Teması**: Konuşurken göz teması kurmak güvenilirlik gösterir.\n\n5. **Kendi Kültürünüzü Paylaşın**: Türk çaydan veya tatlılardan bahsetmek harika bir sohbet başlatıcıdır.\n\n6. **Fotoğraf Gösterin**: Ailenizin fotoğraflarını göstermek samimiyet yaratır.\n\n7. **Çekçe Deneyin**: Hatalı konuşsanız bile denemek bile takdir toplar. \"Omlouvám se, učím se česky\" (Özür dilerim, Çekçe öğreniyorum) deyin.\n\n<CultureTip flag=\"🇨🇿\" title=\"Çek Mizah Anlayışı\">\nÇekler kuru mizahı sever! Küçük espiriler yapabilirseniz (özellikle dil hatalarınızla ilgili), herkesi güldürürsünüz. \"Moje čeština je jako vařená kaše\" (Çekçem haşlanmış yulaf gibi) gibi basit şeyler işe yarar.\n</CultureTip>\n\n## Hızlı Referans Kartı - En Çok Kullanılan 10 İfade\n\n1. **Dobrý den** - İyi günler (DOH-bree dehn)\n2. **Těší mě** - Tanıştığıma memnun oldum (TEH-shee myeh)\n3. **Děkuji** - Teşekkürler (DZHEH-koo-yee)\n4. **Prosím** - Lütfen/Rica ederim (PROH-seem)\n5. **Ano** - Evet (AH-noh)\n6. **Ne** - Hayır (Neh)\n7. **Jak se máte?** - Nasılsınız? (yahk seh MAH-teh)\n8. **Moc děkuji za večeři** - Akşam yemeği için çok teşekkürler (MOHTS DZHEH-koo-yee zah VEH-kheh-rzhee)\n9. **Máte krásný dům** - Eviniz çok güzel (MAH-teh KRAH-snih doohm)\n10. **Omlouvám se** - Özür dilerim (OHM-loh-oo-vahm seh)\n\nPartnerinizin ailesiyle tanışmak, ilişkinizde önemli bir kilometre taşıdır. Bu ifadeleri birlikte pratik yapın, birbirinize destek olun ve unutmayın - çaba göstermek bile en güzel hediyedir. Şimdi gidin ve onların kalbini kazanın!\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Özel Senaryolar",
+              "## Aile Üyelerini Tanımak",
+              "## Kibar İfadeler ve Nezaket",
+              "## Sorun Yaşanırsa Ne Yapmalı?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "73dc68ef-9a40-4a21-8a3f-ec8630bee7b3",
+      "title": "Frases en Turco para Pedir y Ofrecer Perdón a tu Pareja",
+      "native_lang": "es",
+      "target_lang": "tr",
+      "category": "communication",
+      "content": "El turco tiene expresiones sinceras para el perdón. Si tu pareja es turca, estas frases te ayudarán a sanar la relación.\n\n## Frases para Pedir Perdón\n\n### \"Gerçekten özür dilerim\"\n**Pronunciación:** ger-CHEK-ten ö-ZÜR di-le-RIM\n\n**Significado:** Lo siento de verdad\n\n### \"Lütfen beni affet\"\n**Pronunciación:** LÜT-fen be-NI af-FET\n\n**Significado:** Por favor, perdóname\n\n### \"Seni incittiğimi biliyorum ve çok pişmanım\"\n**Pronunciación:** se-NI in-jit-ti-i-MI bi-li-YO-rum ve chok pish-ma-NIM\n\n**Significado:** Sé que te herí y estoy muy arrepentido/a\n\n### \"Bunu yapmakla hata ettim\"\n**Pronunciación:** bu-NU yap-mak-LA ja-TA et-TIM\n\n**Significado:** Estuvo mal que hiciera eso\n\n### \"Bunu nasıl telafi edebilirim?\"\n**Pronunciación:** bu-NU na-SIL te-la-FI e-de-bi-li-RIM\n\n**Significado:** ¿Cómo puedo compensarte?\n\n### \"Bir daha olmayacağına söz veriyorum\"\n**Pronunciación:** bir da-JA ol-ma-ya-ja-I-na söz ve-ri-YO-rum\n\n**Significado:** Prometo que no volverá a pasar\n\n## Frases para Ofrecer Perdón\n\n### \"Seni affediyorum\"\n**Pronunciación:** se-NI af-fe-di-YO-rum\n\n**Significado:** Te perdono\n\n### \"Bunu geride bırakalım\"\n**Pronunciación:** bu-NU ge-ri-DE bi-ra-ka-LIM\n\n**Significado:** Dejemos esto atrás\n\n### \"İlerlemeye hazırım\"\n**Pronunciación:** i-ler-le-me-YE ja-zi-RIM\n\n**Significado:** Estoy listo/a para seguir adelante\n\n### \"Herkes hata yapar\"\n**Pronunciación:** jer-KES ja-TA ya-PAR\n\n**Significado:** Todos cometemos errores\n\n### \"Özrünü takdir ediyorum\"\n**Pronunciación:** öz-rü-NÜ tak-DIR e-di-YO-rum\n\n**Significado:** Aprecio tu disculpa\n\n### \"Hâlâ seni seviyorum\"\n**Pronunciación:** ja-LA se-NI se-vi-YO-rum\n\n**Significado:** Todavía te amo\n\n## Conclusión\n\nEl perdón en turco fortalece los lazos familiares y de pareja.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 210,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frases para Pedir Perdón",
+              "## Frases para Ofrecer Perdón"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "7426edc2-5b17-44a7-94b6-7d2bb9e3c30d",
+      "title": "Polske 'Jeg Savner Dig' Sætninger for Danskere",
+      "native_lang": "da",
+      "target_lang": "pl",
+      "category": "communication",
+      "content": "Polsk er et sprog med dybe følelsesmæssige udtryk. At kunne sige \"jeg savner dig\" på polsk viser din partner, at du virkelig bryder dig om at kommunikere på deres modersmål.\n\n## Savn på Polsk\n\nDet polske \"tęsknię za tobą\" udtrykker en dyb, næsten fysisk længsel. Det er et stærkt og oprigtigt udtryk for savn.\n\n## Grundlæggende Udtryk\n\n### \"Tęsknię za tobą\"\n**Udtale:** TEN-sknje za TO-bon\n\n**Betydning:** Jeg savner dig\n\nDen klassiske og mest almindelige måde at udtrykke savn.\n\n### \"Bardzo za tobą tęsknię\"\n**Udtale:** BAR-dzo za TO-bon TEN-sknje\n\n**Betydning:** Jeg savner dig meget\n\nTilføjer intensitet.\n\n### \"Ciągle o tobie myślę\"\n**Udtale:** TƩONG-gle o TO-bje MI-ʃle\n\n**Betydning:** Jeg tænker hele tiden på dig\n\nViser at personen konstant er i dine tanker.\n\n## Dybere Udtryk\n\n### \"Każda chwila bez ciebie to wieczność\"\n**Udtale:** KAʒ-da XVI-la bez TƩJE-bje to VJETƩ-noʃtʃ\n\n**Betydning:** Hvert øjeblik uden dig er en evighed\n\nPoetisk og romantisk.\n\n### \"Jesteś pierwszą myślą, gdy się budzę\"\n**Udtale:** JES-teʃ PJER-ʃon MI-ʃlon gdi ʃe BU-dze\n\n**Betydning:** Du er min første tanke, når jeg vågner\n\nRomantisk morgenbekendelse.\n\n### \"Tak bardzo chcę, żebyś tu był/była\"\n**Udtale:** tak BAR-dzo htsE ʒE-biʃ tu biw/BI-wa\n\n**Betydning:** Jeg vil så gerne have, at du var her\n\nBrug \"był\" til mænd, \"była\" til kvinder.\n\n## Hverdagens Savn\n\n### \"Tęsknię za twoim uśmiechem\"\n**Udtale:** TEN-sknje za TFO-im u-ƩMJE-hem\n\n**Bedeutning:** Jeg savner dit smil\n\nSpecifikt og kærligt.\n\n### \"Tęsknię za zasypianiem obok ciebie\"\n**Udtale:** TEN-sknje za za-si-PJA-njem O-bok TƩJE-bje\n\n**Betydning:** Jeg savner at falde i søvn ved siden af dig\n\nIntimt.\n\n### \"Tęsknię za naszymi rozmowami\"\n**Udtale:** TEN-sknje za NA-ʃi-mi roz-MO-va-mi\n\n**Betydning:** Jeg savner vores samtaler\n\nViser at du savner forbindelsen.\n\n## Intense Udtryk\n\n### \"Tęsknię za tobą bardziej niż słowa mogą wyrazić\"\n**Udtale:** TEN-sknje za TO-bon BAR-dʒej niʃ SWO-va MO-gon vi-RA-ʒitʃ\n\n**Betydning:** Jeg savner dig mere end ord kan udtrykke\n\nNår savnet er overvældende.\n\n### \"Być z dala od ciebie to najtrudniejsza rzecz\"\n**Udtale:** bitʃ z DA-la od TƩJE-bje to naj-trud-NJEJ-ʃa ʒetʃ\n\n**Betydning:** At være langt fra dig er det sværeste\n\nUdtrykker smerten.\n\n### \"Liczę dni do naszego spotkania\"\n**Udtale:** LI-tʃe dni do NA-ʃe-go spot-KA-nja\n\n**Betydning:** Jeg tæller dagene til vores møde\n\nHåbefuldt fokus.\n\n## Trøstende Sætninger\n\n### \"Odległość nic nie znaczy, gdy ktoś znaczy wszystko\"\n**Udtale:** od-LEG-woʃtʃ nits nje ZNA-tʃi gdi ktoʃ ZNA-tʃi FʃIS-tko\n\n**Betydning:** Afstand betyder intet, når nogen betyder alt\n\nSmuk påmindelse.\n\n### \"Gdziekolwiek jesteś, zawsze jesteś w moim sercu\"\n**Udtale:** gdʒe-KOL-vjek JES-teʃ ZAV-ʃe JES-teʃ v MO-im SER-tsu\n\n**Betydning:** Uanset hvor du er, er du altid i mit hjerte\n\nTrøstende og kærlig.\n\n## Kulturelle Tips\n\n**Oprigtighed:** Polakker værdsætter ægte følelser. Vær oprigtig i dine udtryk.\n\n**Blomster og gaver:** At sende blomster eller små gaver betyder meget.\n\n**Familie:** Del familienyheder – det viser engagement.\n\n**Traditioner:** Respekter polske helligdage og traditioner.\n\n## Afsluttende Ord\n\nPolsk giver dig mulighed for at udtrykke savn med dybde og oprigtighed. Din polske partner vil værdsætte, at du har lært at udtrykke dine følelser på deres sprog.\n\nPamiętaj: Prawdziwa miłość nie zna odległości. (Husk: Sand kærlighed kender ingen afstand.)",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Grundlæggende Udtryk",
+              "## Dybere Udtryk",
+              "## Hverdagens Savn",
+              "## Intense Udtryk",
+              "## Trøstende Sætninger"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "74452ae5-ad72-4a53-a3fa-659c93cd8c8c",
+      "title": "Frases para Conhecer os Sogros em Italiano: Guia Completo",
+      "native_lang": "pt",
+      "target_lang": "it",
+      "category": "communication",
+      "content": "Conhecer os sogros italianos é mergulhar na cultura da famiglia. Os italianos são calorosos e a família é o centro da vida social.\n\n## A Importância da Famiglia Italiana\n\nNa Itália, a aprovação da família é fundamental. Os sogros (suoceri) frequentemente têm papel ativo na vida do casal, especialmente a suocera (sogra).\n\n## Frases para o Primeiro Encontro\n\n### Apresentação\n\n**È un piacere conoscervi finalmente.**\n*É um prazer finalmente conhecê-los.*\n\n**[Nome] mi ha parlato tanto di voi.**\n*[Nome] me falou tanto sobre vocês.*\n\n**Grazie mille per avermi accolto.**\n*Muito obrigado(a) por me receberem.*\n\n**Non vedevo l'ora di conoscervi.**\n*Estava ansioso(a) para conhecê-los.*\n\n### Elogiando\n\n**Avete una casa bellissima.**\n*Vocês têm uma casa lindíssima.*\n\n**Questo pranzo è squisito.**\n*Este almoço está requintado.*\n\n**Adesso capisco da chi [nome] ha preso la sua [qualidade].**\n*Agora entendo de quem [nome] herdou [qualidade].*\n\n**Grazie per aver cresciuto una persona così meravigliosa.**\n*Obrigado(a) por terem criado uma pessoa tão maravilhosa.*\n\n### Mostrando Interesse\n\n**Mi piacerebbe sapere di più sulle tradizioni della famiglia.**\n*Gostaria de saber mais sobre as tradições da família.*\n\n**Come vi siete conosciuti?**\n*Como vocês se conheceram?*\n\n**Com'era [nome] da bambino/bambina?**\n*Como era [nome] quando criança?*\n\n### Expressando Gratidão\n\n**Grazie per farmi sentire così benvenuto/a.**\n*Obrigado(a) por me fazerem sentir tão bem-vindo(a).*\n\n**Apprezzo molto la vostra ospitalità.**\n*Agradeço muito a hospitalidade de vocês.*\n\n## Oferecendo Ajuda\n\n**Posso aiutare in qualcosa?**\n*Posso ajudar em algo?*\n\n**Mi lasci aiutare con i piatti.**\n*Deixe-me ajudar com a louça.*\n\n## Despedindo-se\n\n**Grazie per questo momento meraviglioso.**\n*Obrigado(a) por este momento maravilhoso.*\n\n**Spero di rivedervi presto.**\n*Espero revê-los em breve.*\n\n**È stato un vero piacere conoscervi.**\n*Foi um verdadeiro prazer conhecê-los.*\n\n## Dicas Culturais\n\n- **Comida** - Elogie e aceite segundas porções\n- **Gestos** - Os italianos são expressivos\n- **\"Lei\" vs \"tu\"** - Use \"Lei\" formalmente\n- **Presente** - Doces, vinho ou flores\n- **Mamma** - A mãe é central na família\n\nLa famiglia è tutto - a família é tudo!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frases para o Primeiro Encontro"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "7445ac9c-e93e-49cc-85fd-57c67056057e",
+      "title": "Tyska SMS- och chattfraser för kärleksrelationer",
+      "native_lang": "sv",
+      "target_lang": "de",
+      "category": "communication",
+      "content": "## Inledning\n\nTyska har rykte om sig att vara ett hårt språk, men när det kommer till romantik har tyskan en överraskande mjuk och öm sida. Med sina många smeknamn och kärleksfulla uttryck kan tyska vara otroligt romantiskt.\n\nSom svensk har du fördelen att tyskan delar många likheter med svenska – både är germanska språk. Den här guiden hjälper dig att ta steget från vardaglig tyska till romantisk kommunikation.\n\n## Kärleksfulla hälsningar\n\n### \"Guten Morgen, mein Schatz\"\n**Uttal:** /ˈguːtən ˈmɔʁɡən maɪ̯n ʃats/\n\n**Betydelse:** God morgon, min skatt\n\n\"Schatz\" (skatt) är det absolut vanligaste smeknamnet på tyska. Det används dagligen och i alla åldrar.\n\n### \"Hallo, mein Liebling\"\n**Uttal:** /haˈloː maɪ̯n ˈliːplɪŋ/\n\n**Betydelse:** Hej, min älskling\n\n\"Liebling\" är mjukare och mer intim än \"Schatz\" och passar perfekt för textmeddelanden.\n\n### \"Wie geht es dir, mein Herz?\"\n**Uttal:** /viː ɡeːt ɛs diːʁ maɪ̯n hɛʁts/\n\n**Betydelse:** Hur mår du, mitt hjärta?\n\n\"Mein Herz\" används precis som \"mitt hjärta\" på svenska.\n\n## Att uttrycka saknad\n\n### \"Ich vermisse dich\"\n**Uttal:** /ɪç fɛʁˈmɪsə dɪç/\n\n**Betydelse:** Jag saknar dig\n\nEnkelt och direkt – precis som tyskarna gillar det.\n\n### \"Ich denke an dich\"\n**Uttal:** /ɪç ˈdɛŋkə an dɪç/\n\n**Betydelse:** Jag tänker på dig\n\nEtt klassiskt meddelande att skicka mitt på dagen.\n\n### \"Du fehlst mir so sehr\"\n**Uttal:** /duː feːlst miːʁ zoː zeːʁ/\n\n**Betydelse:** Jag saknar dig så mycket\n\nBokstavligen \"du fattas mig så mycket\" – en vacker konstruktion.\n\n## Kärleksförklaringar\n\n### \"Ich liebe dich\"\n**Uttal:** /ɪç ˈliːbə dɪç/\n\n**Betydelse:** Jag älskar dig\n\nDe tre viktigaste orden på tyska. Tyskar säger detta mer sällan än engelsktalande – det har verklig tyngd.\n\n### \"Ich liebe dich über alles\"\n**Uttal:** /ɪç ˈliːbə dɪç ˈyːbɐ ˈaləs/\n\n**Betydelse:** Jag älskar dig över allt annat\n\nEn starkare version som visar total hängivenhet.\n\n### \"Du bist die Liebe meines Lebens\"\n**Uttal:** /duː bɪst diː ˈliːbə ˈmaɪ̯nəs ˈleːbəns/\n\n**Betydelse:** Du är mitt livs kärlek\n\nEn djup kärleksförklaring för speciella tillfällen.\n\n### \"Ich hab dich lieb\"\n**Uttal:** /ɪç haːp dɪç liːp/\n\n**Bedeutelse:** Jag tycker om dig / Jag har dig kär\n\nMjukare än \"Ich liebe dich\" – perfekt för vardagliga meddelanden. Kan också användas till familj och nära vänner.\n\n## Flirtiga fraser\n\n### \"Du machst mich glücklich\"\n**Uttal:** /duː maxst mɪç ˈɡlʏklɪç/\n\n**Bedeutelse:** Du gör mig lycklig\n\nEn vacker komplimang som visar uppskattning.\n\n### \"Ich kann es kaum erwarten, dich zu sehen\"\n**Uttal:** /ɪç kan ɛs kaʊ̯m ɛʁˈvaʁtən dɪç tsuː ˈzeːən/\n\n**Betydelse:** Jag kan knappt vänta med att se dig\n\nUttrycker längtan och förväntan.\n\n### \"Du bist wunderschön\"\n**Uttal:** /duː bɪst ˈvʊndɐʃøːn/\n\n**Betydelse:** Du är underbart vacker\n\n\"Wunderschön\" är starkare än bara \"schön\" (vacker) – det betyder bokstavligen \"underbart vacker\".\n\n## Godnattmeddelanden\n\n### \"Gute Nacht, träum süß\"\n**Uttal:** /ˈɡuːtə naxt trɔʏ̯m zyːs/\n\n**Betydelse:** God natt, dröm sött\n\nDen klassiska tyska godnattfrasen mellan älskande.\n\n### \"Schlaf gut, mein Engel\"\n**Uttal:** /ʃlaːf ɡuːt maɪ̯n ˈɛŋəl/\n\n**Betydelse:** Sov gott, min ängel\n\n\"Mein Engel\" är ett ömt smeknamn som används ofta.\n\n### \"Bis morgen, Süße/Süßer\"\n**Uttal:** /bɪs ˈmɔʁɡən ˈzyːsə/\n\n**Betydelse:** Vi ses imorgon, söta/sötis\n\n\"Süße\" till en kvinna, \"Süßer\" till en man.\n\n## Tyska smeknamn\n\n- **Schatz** – Skatt (mest använt)\n- **Liebling** – Älskling\n- **Mein Herz** – Mitt hjärta\n- **Mein Engel** – Min ängel\n- **Süße/Süßer** – Söta/Sötis\n- **Maus/Mäuschen** – Mus/Lilla musen\n- **Hase** – Kanin\n- **Bärchen** – Lilla björnen\n\n## Förkortningar i tyska SMS\n\n- **ILD** = Ich liebe dich\n- **HDL** = Hab dich lieb\n- **HDGDL** = Hab dich ganz doll lieb (Tycker väldigt mycket om dig)\n- **GLG** = Ganz liebe Grüße (Kärleksfulla hälsningar)\n- **Bussi** = Puss\n\n## Kulturella tips\n\nTyskar värderar ärlighet och direkthet. \"Ich liebe dich\" sägs inte lättvindigt – när en tysk säger det menar de verkligen det. I vardagen används \"Ich hab dich lieb\" oftare i textmeddelanden.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Kärleksfulla hälsningar",
+              "## Att uttrycka saknad",
+              "## Kärleksförklaringar",
+              "## Flirtiga fraser",
+              "## Godnattmeddelanden"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

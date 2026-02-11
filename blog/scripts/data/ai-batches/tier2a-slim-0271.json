@@ -1,0 +1,355 @@
+{
+  "batchId": "tier2a-slim-0271",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "68aa6ec2-ceb0-4d9b-ad0b-254ee9df7f4f",
+      "title": "Czech Grammar Basics: Simple Rules for Romantic Conversations",
+      "native_lang": "en",
+      "target_lang": "cs",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## The Basics: 5 Core Rules",
+          "subsections": [
+            "### 1. Word Order is Flexible",
+            "### 2. Gender Affects Everything",
+            "### 3. Cases Change Word Endings",
+            "### 4. Verbs Conjugate by Person",
+            "### 5. Adjectives Match Nouns"
+          ]
+        },
+        {
+          "header": "## Common Patterns for Daily Use",
+          "subsections": [
+            "### Present Tense Patterns",
+            "### Making Questions",
+            "### Negative Forms"
+          ]
+        },
+        {
+          "header": "## Common Mistakes to Avoid",
+          "subsections": [
+            "### 1. Mixing Formal and Informal",
+            "### 2. Wrong Gender Endings",
+            "### 3. Word Order Confusion",
+            "### 4. Case Mistakes",
+            "### 5. Verb Conjugation Errors"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6948211e-a439-4714-8f5b-9449b1b783a3",
+      "title": "Rysk Grammatik för Nybörjare: Lär dig tala med din partner på ryska",
+      "native_lang": "sv",
+      "target_lang": "ru",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Grundreglerna: 5 Saker Du Måste Veta",
+          "subsections": [
+            "### 1. Ordföljd: SVO (Subjekt-Verb-Objekt)",
+            "### 2. Genus: Maskulinum, femininum och neutrum",
+            "### 3. Verb Böjs Efter Person",
+            "### 4. Ingen Artikel!",
+            "### 5. Frågor: Ordföljden Ändras Inte"
+          ]
+        },
+        {
+          "header": "## Vanliga Misstag (och Hur man Undviker Dem)",
+          "subsections": [
+            "### 1. **Att Blanda \"Ты\" och \"Вы\"**",
+            "### 2. **Fel Genus på Adjektiv**",
+            "### 3. **Att Glömma Falländelser**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6ad21e2a-84bd-46dd-8bce-dd14cb72e7ee",
+      "title": "Συνάντηση με τη Σουηδική Οικογένεια του Συντρόφου σου: Βασικές Φράσεις για Ζεστή Πρώτη Εντύπωση",
+      "native_lang": "el",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Κοινά σενάρια κατά τη συνάντηση",
+          "subsections": [
+            "### Όταν φτάνεις στο σπίτι",
+            "### Στο τραπέζι",
+            "### Συζήτηση για τη σχέση σας"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6b216414-86fd-4ebd-a633-88e8cf61e9d8",
+      "title": "Conhecendo a Família do Seu Parceiro Turco: Frases Essenciais para Conquistar Corações",
+      "native_lang": "pt",
+      "target_lang": "tr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Cenários Comuns: Prepare-se para Estes Momentos",
+          "subsections": [
+            "### Chegada na Casa",
+            "### Na Hora do Jantar",
+            "### Conversas Sobre Você"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6b9aa885-64bc-4e5e-8d1e-c52d4b3af447",
+      "title": "Guía de pronunciación holandesa para principiantes: Aprende a decir 'te amo' como un nativo",
+      "native_lang": "es",
+      "target_lang": "nl",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Errores comunes que las parejas cometen (¡y cómo evitarlos!)",
+          "subsections": [
+            "### 1. La trampa de la 'g' española",
+            "### 2. Las vocales cortas vs largas",
+            "### 3. El ritmo musical"
+          ]
+        },
+        {
+          "header": "## Ejercicios de pareja para perfeccionar la pronunciación",
+          "subsections": [
+            "### Ejercicio 1: El espejo romántico",
+            "### Ejercicio 2: La serenata holandesa",
+            "### Ejercicio 3: El murmullo nocturno"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6ca9cfc1-8a14-4df0-9bd3-8d45e69bd5f2",
+      "title": "Mød din partners polske familie: Væsentlige sætninger og kulturelle tips",
+      "native_lang": "da",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Specifikke scenarier",
+          "subsections": [
+            "### Mød forældrene",
+            "### Samtale om jeres forhold",
+            "### Hjælp i køkkenet"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6d7b37cc-df92-4ee7-9ae6-0c96815fe693",
+      "title": "Je Portugese Partner se Familie Ontmoet: Essentiële Frases voor een Onvergetelijke Kennismaking",
+      "native_lang": "nl",
+      "target_lang": "pt",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Specifieke Scenario's Tijdens het Bezoek",
+          "subsections": [
+            "### 1. Aankomen bij het Huis",
+            "### 2. Aan Tafel Gaan",
+            "### 3. Over Jullie Relatie Vertellen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6fb26fd4-a544-408c-a85d-827bbc99db17",
+      "title": "Συνάντηση με την Οικογένεια του Συντρόφου σου στα Νορβηγικά: Βασικές Φράσεις για να Κερδίσεις τις Εντυπώσεις",
+      "native_lang": "el",
+      "target_lang": "no",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Κοινές Καταστάσεις",
+          "subsections": [
+            "### Όταν Φτάνεις στο Σπίτι",
+            "### Κατά τη Διάρκεια του Γεύματος",
+            "### Συζήτηση για την Ελλάδα"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "71b80494-0658-4901-849e-3f9ea57abc02",
+      "title": "Ukrainska grammatik för nybörjare: Lär dig kommunicera med din älskling på ett hjärtligt sätt",
+      "native_lang": "sv",
+      "target_lang": "uk",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De Tre Viktigaste Reglerna för Par",
+          "subsections": [
+            "### 1. Kön på Substantiv: Han, Hon eller Det?",
+            "### 2. Verb Böjs Efter Person",
+            "### 3. Adjektiv Anpassar Sig"
+          ]
+        },
+        {
+          "header": "## Vanliga Mönster i Vardagen",
+          "subsections": [
+            "### Present Tense: Nu och Här",
+            "### Framtidsformer"
+          ]
+        },
+        {
+          "header": "## Vanliga Misstag (och Hur Ni Undviker Dem)",
+          "subsections": [
+            "### 1. Kön på Substantiv",
+            "### 2. Verbändelser",
+            "### 3. Adjektivets Kön"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "722858cb-fe3e-4d19-a737-dbd7f97e9580",
+      "title": "Ghid de Pronunție Greacă pentru Începători: Vorbește cu Iubitul Tău ca un Nativ",
+      "native_lang": "ro",
+      "target_lang": "el",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Consoanele Care Vor Face Ca El Să Zâmbească",
+          "subsections": [
+            "### Consoanele Speciale Grecești"
+          ]
+        },
+        {
+          "header": "## Greșeli Comune pe Care Le Veți Evita Împreună",
+          "subsections": [
+            "### 1. Pronunția lui Χ χ",
+            "### 2. Accentul pe Ρ ρ",
+            "### 3. Υ υ vs Ι ι"
+          ]
+        },
+        {
+          "header": "## Exerciții pentru Cupluri Îndrăgostite",
+          "subsections": [
+            "### Exercițiul 1: Sunetele de Dragoste",
+            "### Exercițiul 2: Declarații Zilnice",
+            "### Exercițiul 3: Cântecul Alfabetului"
+          ]
+        },
+        {
+          "header": "## Ghid Rapid de Salvat",
+          "subsections": [
+            "### Vocala Grecească Perfectă",
+            "### Consoane Speciale"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "74bf35f8-a40e-444b-9a08-c6d5a8769b94",
+      "title": "40 Francouzských Pozdravů a Rozloučení pro Zamilované Páry",
+      "native_lang": "cs",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Speciální Příležitosti",
+          "subsections": [
+            "### Telefonní Pozdravy",
+            "### Pozdravy v Textových Zprávách"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "74c231c8-05b6-4495-829b-9f14b7d9765a",
+      "title": "50 Πολωνικοί Χαιρετισμοί και Αποχαιρετισμοί για να Λιώσει η Καρδιά του Συντρόφου σου",
+      "native_lang": "el",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Ειδικοί Χαιρετισμοί: Για Ξεχωριστές Περιστάσεις",
+          "subsections": [
+            "### Στο Τηλέφωνο",
+            "### Μετά από Καιρό",
+            "### Γραπτά Μηνύματα"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "757ef9e9-6429-4931-9bb7-09a06890b85d",
+      "title": "50 Russische Begrüßungen und Abschiedsformeln für Paare - Von Zar bis Do svidaniya",
+      "native_lang": "de",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## So nutzt ihr diese Begrüßungen als Paar",
+          "subsections": [
+            "### Tägliche Praxis",
+            "### Häufige Fehler zu vermeiden"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "76b9bd3f-7e91-4dfa-908e-d63ac5f808e8",
+      "title": "Pronunciación Francesa para Principiantes: Cómo Sonar como un Nativo con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "fr",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Las Reglas Doradas de la Pronunciación",
+          "subsections": [
+            "### 1. Las Letras Finales Suenan (o No)",
+            "### 2. El Encadenamiento Musical",
+            "### 3. La Magia del 'e' Mudo"
+          ]
+        },
+        {
+          "header": "## Los Sonidos Problemáticos para Hispanohablantes",
+          "subsections": [
+            "### El 'r' Francés vs. El 'r' Español",
+            "### Las Vocales Nasales"
+          ]
+        },
+        {
+          "header": "## Errores Comunes que Evitar",
+          "subsections": [
+            "### 1. Pronunciar Todas las Letras",
+            "### 2. El 'h' Mudo",
+            "### 3. Confundir 'u' y 'ou'",
+            "### 4. El 's' Entre Vocales"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7745473c-6a90-47a6-b183-acf3e71109b8",
+      "title": "Mød din tjekkiske partners familie: Essentielle fraser og kulturelle tips",
+      "native_lang": "da",
+      "target_lang": "cs",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Samtaleemner der hitter",
+          "subsections": [
+            "### Mad og drikke (altid populært!)",
+            "### Familie og traditioner"
+          ]
+        },
+        {
+          "header": "## Ordlister til hurtig reference",
+          "subsections": [
+            "### Familiemedlemmer",
+            "### Mad og drikke"
+          ]
+        }
+      ]
+    }
+  ]
+}

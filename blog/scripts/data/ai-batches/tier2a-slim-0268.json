@@ -1,0 +1,349 @@
+{
+  "batchId": "tier2a-slim-0268",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "42af9ed1-16c1-49f5-9f5d-d6a54a4a90ac",
+      "title": "Guida alla Pronuncia Turca per Principianti: Parla con il Cuore alla tua Metà",
+      "native_lang": "it",
+      "target_lang": "tr",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Le Tre Regole D'Oro della Pronuncia Turca",
+          "subsections": [
+            "### 1. Ogni Lettera si Pronuncia Sempre Uguale",
+            "### 2. Le Vocali Armonizzano",
+            "### 3. L'Accento è Sull'Ultima Sillaba"
+          ]
+        },
+        {
+          "header": "## Errori Comuni da Evitare",
+          "subsections": [
+            "### 1. La Trappola di \"Ğ\"",
+            "### 2. La \"I\" Senza Punto",
+            "### 3. L'Accento Sbagliato"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "42e5f9c0-b5db-49d7-9062-94204b30583d",
+      "title": "Találkozás a görög partner családjával: Alapvető kifejezések és tiszteleti szabályok pároknak",
+      "native_lang": "hu",
+      "target_lang": "el",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Tipikus találkozási forgatókönyvek",
+          "subsections": [
+            "### 1. A szülők házában",
+            "### 2. Nagy családi vacsora",
+            "### 3. Templomlátogatás"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "43f6d742-58ec-4b9e-9ac6-596019145dff",
+      "title": "Je Romaanse familie ontmoeten: Essentiële Roemeense frasen voor koppels",
+      "native_lang": "nl",
+      "target_lang": "ro",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Specifieke scenario's tijdens het bezoek",
+          "subsections": [
+            "### Aankomst bij hun huis",
+            "### Aan tafel",
+            "### Cadeautjes geven"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4441bcf6-b99b-4a8a-afd8-c7902fd7fe3d",
+      "title": "Wymowa portugalska - kompletny przewodnik dla Polaków",
+      "native_lang": "pl",
+      "target_lang": "pt",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Samogłoski",
+          "subsections": [
+            "### Podstawowe samogłoski",
+            "### Samogłoski nosowe"
+          ]
+        },
+        {
+          "header": "## Spółgłoski",
+          "subsections": [
+            "### Proste spółgłoski",
+            "### Specjalne kombinacje"
+          ]
+        },
+        {
+          "header": "## Różnice PT vs BR w szczegółach",
+          "subsections": [
+            "### D i T przed i/e",
+            "### Końcowe -e"
+          ]
+        },
+        {
+          "header": "## Akcent",
+          "subsections": [
+            "### Gdzie pada akcent?",
+            "### Akcenty graficzne"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia wymowy",
+          "subsections": [
+            "### Ćwiczenie 1: Samogłoski nosowe",
+            "### Ćwiczenie 2: R i RR",
+            "### Ćwiczenie 3: LH i NH",
+            "### Ćwiczenie 4: Romantyczne frazy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "446f2036-b74d-43b4-a4f6-73669f6060f4",
+      "title": "Mød din franske partners familie: De essentielle sætninger og kulturelle tips",
+      "native_lang": "da",
+      "target_lang": "fr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Specifikke situationer med familien",
+          "subsections": [
+            "### Ved ankomsten til huset",
+            "### Under middagen",
+            "### Når samtalen går i stå"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4498726b-1160-4cb2-ad20-9ef4bd176efe",
+      "title": "Polish Love Songs to Learn From",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Classic Polish Love Songs",
+          "subsections": [
+            "### \"Kocham Cię, kochanie moje\" by Seweryn Krajewski",
+            "### \"Jeszcze się tam żagiel bieli\" by Czesław Niemen"
+          ]
+        },
+        {
+          "header": "## Modern Polish Love Songs",
+          "subsections": [
+            "### \"Miłość do kwadratu\" by Piotr Rubik",
+            "### \"Całuj mnie\" by Kayah"
+          ]
+        },
+        {
+          "header": "## Folk-Inspired Love Songs",
+          "subsections": [
+            "### \"Czerwone jagody\" - Traditional",
+            "### \"Hej, sokoły\" - Traditional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4628fa15-50ba-4da9-a465-759ac240b610",
+      "title": "Conocer a la Familia de tu Pareja en Sueco: Frases Esenciales para Impresionar",
+      "native_lang": "es",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Escenarios Comunes Durante la Visita",
+          "subsections": [
+            "### La Llegada al Hogar Sueco",
+            "### Durante la Cena"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "462a770e-c54c-4ece-a3c0-185244e22f5e",
+      "title": "Знайомство з родиною партнера англійською: фрази, які зроблять приємне враження",
+      "native_lang": "uk",
+      "target_lang": "en",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Конкретні сценарії під час візиту",
+          "subsections": [
+            "### Сценарій 1: Прибуття до дому",
+            "### Сценарій 2: За обіднім столом",
+            "### Сценарій 3: Розмова про ваші стосунки"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "46c3de3f-6693-45a4-981c-b00a285643c4",
+      "title": "Görög kiejtés kezdőknek: Tanulj meg romantikus szavakat kedvesednek",
+      "native_lang": "hu",
+      "target_lang": "el",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Gyakori kiejtési hibák és javításuk",
+          "subsections": [
+            "### 1. A 'θ' (théta) kiejtése",
+            "### 2. A 'χ' (hi) kiejtése",
+            "### 3. A 'γ' (gamma) kiejtése"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4715a4e6-0ef8-4e31-b324-f0db5754a131",
+      "title": "Guide de prononciation anglaise : Parlez clairement à votre partenaire",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Les sons difficiles pour les francophones",
+          "subsections": [
+            "### Le son \"TH\" - Le cauchemar de tous les Français",
+            "### Le son \"H\" - Ne le faites pas français !",
+            "### Le son \"R\" - Pas de gargarisme ici !"
+          ]
+        },
+        {
+          "header": "## Les voyelles anglaises - Le vrai défi",
+          "subsections": [
+            "### Les voyelles courtes vs longues"
+          ]
+        },
+        {
+          "header": "## Exercices de prononciation pour couples",
+          "subsections": [
+            "### 1. Le jeu des minimal pairs",
+            "### 2. Les phrases qui enchaînent les sons difficiles",
+            "### 3. Les chansons d'amour"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "48221ba0-a265-4d14-af79-8fc73d287f94",
+      "title": "Знакомство с семьёй вашего партнёра на турецком: фразы и советы для пар",
+      "native_lang": "ru",
+      "target_lang": "tr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Разговор за столом: типичные сценарии",
+          "subsections": [
+            "### Сценарий 1: Первые минуты в доме",
+            "### Сценарий 2: Обсуждение вашей страны",
+            "### Сценарий 3: Комплименты еде"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "48944ec7-07e5-4ac7-b1e7-2beaddecc508",
+      "title": "Pronuncia Inglese per Principianti: Come Parlare Chiaramente con il Tuo Partner",
+      "native_lang": "it",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Le Sillabe è l'Accento",
+          "subsections": [
+            "### Regola d'Oro: Accento sulla **prima** o **seconda** sillaba"
+          ]
+        },
+        {
+          "header": "## Esercizi per Coppie",
+          "subsections": [
+            "### 1. Il Gioco delle Vocali",
+            "### 2. TH Challenge",
+            "### 3. Silly Sentences"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4a01e423-56b1-43ac-a200-734745186c3c",
+      "title": "Spotkanie z rodziną Twojego rumuńskiego partnera: kluczowe zwroty dla par",
+      "native_lang": "pl",
+      "target_lang": "ro",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Konkretne scenariusze",
+          "subsections": [
+            "### Wyjście z domu partnera",
+            "### Obiad z rodziną",
+            "### Pokazywanie zdjęć i opowiadanie historii"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4abf5f04-cdeb-4405-89b5-88aef019061f",
+      "title": "Grekiska Grammatik för Nybörjare: Lär Dig Tala med Din Partner på Ett Naturligt Sätt",
+      "native_lang": "sv",
+      "target_lang": "el",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De Fem Grundläggande Reglerna",
+          "subsections": [
+            "### 1. **Artiklar Är Din Vän**",
+            "### 2. **Verbändelser Berättar Vem Som Gör Vad**",
+            "### 3. **Genus Påverkar Adjektiv**",
+            "### 4. **Frågeord Kommer Först**",
+            "### 5. **Personliga Pronomen Är Valfria**"
+          ]
+        },
+        {
+          "header": "## Vanliga Mönster i Vardagen",
+          "subsections": [
+            "### Att Bjuda Ut",
+            "### Att Ge Komplimanger",
+            "### Att Be om Hjälp"
+          ]
+        },
+        {
+          "header": "## Vanliga Misstag (och Hur Ni Undvikar Dem)",
+          "subsections": [
+            "### 1. **Fel Genus på Adjektiv**",
+            "### 2. **Fel Verbform**",
+            "### 3. **Artikel Före Namn**",
+            "### 4. **Direkt Översättning av \"Det\"**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4b7521af-5481-435c-918c-74f6c201c639",
+      "title": "Seznámení s partnerovou rodinou ve španělštině: Jak zapůsobit a vytvořit si pouto",
+      "native_lang": "cs",
+      "target_lang": "es",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Konkrétní scénáře při setkání",
+          "subsections": [
+            "### Představování partnerovým rodičům",
+            "### Když vám nabízejí jídlo",
+            "### Komentáře o vašem vztahu"
+          ]
+        }
+      ]
+    }
+  ]
+}

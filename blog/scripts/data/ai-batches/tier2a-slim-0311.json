@@ -1,0 +1,405 @@
+{
+  "batchId": "tier2a-slim-0311",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "941b38ae-4205-4fc4-ae0d-83aa990b8eb7",
+      "title": "50+ tureckich zdrobnień, które roztopią serce",
+      "native_lang": "pl",
+      "target_lang": "tr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Jak uzywac zdrobnien naturalnie",
+          "subsections": [
+            "### Na poczatek dnia",
+            "### Podczas rozmowy",
+            "### Na pożegnańie",
+            "### W wiadomosciach tekstowych"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Gra w zdrobnienia",
+            "### Tworzcie własne",
+            "### Praktyka dzieńna"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "94b20b35-8f74-40d6-af88-35b026bbb425",
+      "title": "Italian Shopping Vocabulary: Essential Words for Going to the Store Together",
+      "native_lang": "en",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Basic Shopping Phrases",
+          "subsections": [
+            "### Entering and Greeting",
+            "### Asking for Help"
+          ]
+        },
+        {
+          "header": "## At the Grocery Store",
+          "subsections": [
+            "### Common Food Items",
+            "### Fruits and Vegetables",
+            "### Quantities and Measurements"
+          ]
+        },
+        {
+          "header": "## Clothing and Fashion Shopping",
+          "subsections": [
+            "### Basic Phrases",
+            "### Sizes",
+            "### Clothes Vocabulary",
+            "### Complimenting Your Partner"
+          ]
+        },
+        {
+          "header": "## At the Market",
+          "subsections": [
+            "### Market Phrases"
+          ]
+        },
+        {
+          "header": "## Sample Shopping Dialogues",
+          "subsections": [
+            "### At the Market",
+            "### At a Clothing Store"
+          ]
+        },
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Exercise 1: Make a Shopping List",
+            "### Exercise 2: Role Play Shopping",
+            "### Exercise 3: Price Check"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "94e9fffb-c44f-4b18-9d89-bc40e79c7bd1",
+      "title": "Hollandaca Mesajlasma Dili: Partnerinizle Dijital Iletisim",
+      "native_lang": "tr",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Günlük Konusma Kisaltmalari",
+          "subsections": [
+            "### Soru ve Cevaplar",
+            "### Yanitlar"
+          ]
+        },
+        {
+          "header": "## Mesaj Örnekleri",
+          "subsections": [
+            "### Sabah Mesaji",
+            "### Gün Ici Mesajlasma",
+            "### Aksam Mesaji"
+          ]
+        },
+        {
+          "header": "## Duygulari Ifade Etme",
+          "subsections": [
+            "### Mutluluk",
+            "### Özlem",
+            "### Üzüntü/Özür"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "95263a55-f22a-4fb4-ac39-a868910dbba3",
+      "title": "Engelse Huwelijksuitdrukkingen: Romantische Zinnen voor Jullie Grote Dag",
+      "native_lang": "nl",
+      "target_lang": "en",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## De Huwelijksceremonie",
+          "subsections": [
+            "### Tijdens de Geloften"
+          ]
+        },
+        {
+          "header": "## Praktische Zinnen voor de Bruiloft",
+          "subsections": [
+            "### Bij de Receptie",
+            "### Emotionele Momenten"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9548037b-f76d-46f0-a469-7fd20c415464",
+      "title": "French Phone Calls Guide: Essential Phrases for Couples",
+      "native_lang": "en",
+      "target_lang": "fr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Making a Call",
+          "subsections": [
+            "### Starting the Conversation",
+            "### Checking In"
+          ]
+        },
+        {
+          "header": "## Phone Problems and Solutions",
+          "subsections": [
+            "### Connection Issues",
+            "### When You Can't Talk"
+          ]
+        },
+        {
+          "header": "## Making Reservations",
+          "subsections": [
+            "### Restaurant Reservations",
+            "### Confirming Details"
+          ]
+        },
+        {
+          "header": "## Sample Phone Conversations",
+          "subsections": [
+            "### Conversation 1: Checking In with Partner",
+            "### Conversation 2: Making Dinner Plans",
+            "### Conversation 3: Quick Call"
+          ]
+        },
+        {
+          "header": "## Ending a Phone Call",
+          "subsections": [
+            "### Casual (With Partner)",
+            "### More Formal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "95711408-0d46-4d17-a530-6b94d2987104",
+      "title": "Jerga de Mensajes de Texto en Alemán",
+      "native_lang": "es",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Abreviaturas Esenciales",
+          "subsections": [
+            "### Saludos y Despedidas",
+            "### Expresiones Comunes",
+            "### Preguntas y Respuestas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "976ab7dc-3bf4-471c-91b9-574f87b825db",
+      "title": "Ispanyolca Telaffuz Rehberi: Türkler Icin Kolay Kilavuz",
+      "native_lang": "tr",
+      "target_lang": "es",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Sessiz Harfler",
+          "subsections": [
+            "### Türkce ile Ayni Sesler",
+            "### Dikkat Edilmesi Gereken Sessizler"
+          ]
+        },
+        {
+          "header": "## Türkler Icin Zor Sesler",
+          "subsections": [
+            "### 1. RR (Titresimli R)",
+            "### 2. J ve G (bogaz sesi)",
+            "### 3. Ñ (ny sesi)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "97ee9702-59df-4811-a532-39fd1394e37c",
+      "title": "Learn Polish from TV Shows and Movies",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Best Polish TV Shows for Language Learners",
+          "subsections": [
+            "### For Beginners",
+            "### For Intermediate Learners"
+          ]
+        },
+        {
+          "header": "## Essential Polish Movies for Couples",
+          "subsections": [
+            "### Classic Cinema",
+            "### Contemporary Films"
+          ]
+        },
+        {
+          "header": "## Effective Strategies for Learning Together",
+          "subsections": [
+            "### The Three-Pass Method",
+            "### Active Viewing Techniques"
+          ]
+        },
+        {
+          "header": "## Overcoming Common Challenges",
+          "subsections": [
+            "### Fast-Paced Dialogue",
+            "### Regional Accents",
+            "### Cultural References"
+          ]
+        },
+        {
+          "header": "## Building Your Polish Media Library",
+          "subsections": [
+            "### Streaming Platforms",
+            "### Documentary Recommendations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "98164161-4536-4cd3-9488-795eb5a94350",
+      "title": "Lettres d'Amour en Polonais",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Phrases romantiques essentielles",
+          "subsections": [
+            "### Exprimer l'amour et le manque",
+            "### Décrire votre bien-aimé(e)"
+          ]
+        },
+        {
+          "header": "## Structure d'une lettre d'amour polonaise",
+          "subsections": [
+            "### Ouverture (Rozpoczęcie)",
+            "### Corps (Główna część)",
+            "### Clôture (Zakończenie)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "983a56e4-62dc-495c-9bae-fea6602feba9",
+      "title": "50+ Schwedische Kos- und Kosenamen für Paare",
+      "native_lang": "de",
+      "target_lang": "sv",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## So verwendet ihr Kosenamen wie ein echter Schwede",
+          "subsections": [
+            "### 1. Beginnt langsam",
+            "### 2. Passt eure Kosenamen an",
+            "### 3. Erfindet gemeinsame Kosenamen",
+            "### 4. Nutzt die Macht der kleinen Wörter",
+            "### 5. Übt die Aussprache gemeinsam"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "98771c00-fa84-4211-a948-c6e88edea2e3",
+      "title": "German Word Order Guide",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Questions: Verb First or Second",
+          "subsections": [
+            "### Yes/No Questions: Verb First",
+            "### W-Questions: Question Word First, Verb Second"
+          ]
+        },
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Exercise 1: Rearrange the Sentence",
+            "### Exercise 2: Connect with Weil",
+            "### Exercise 3: Question Practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9880389c-73f1-4d84-9116-bde1450f6db3",
+      "title": "50 Russiske Date Night Ord for Par: Din Komplette Romantiske Ordliste",
+      "native_lang": "da",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Praktiske Tips til Jeres Russiske Date Night",
+          "subsections": [
+            "### 1. Øv Jer Sammen",
+            "### 2. Start Småt",
+            "### 3. Vær Tålmodig",
+            "### 4. Brug Det I Øjeblikket"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "994115b9-d91c-498f-bf35-0bb3d6b27b9c",
+      "title": "Συνάντηση με την Τουρκική Οικογένεια του Συντρόφου σας: Οδηγός με 25+ Βασικές Φράσεις για Ζευγάρια",
+      "native_lang": "el",
+      "target_lang": "tr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Συγκεκριμένα Σενάρια",
+          "subsections": [
+            "### 1. Άφιξη στο Σπίτι",
+            "### 2. Γεύμα με την Οικογένεια",
+            "### 3. Συζήτηση για την Οικογένεια"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "99497a26-440a-4668-a913-7cf1c50c1de3",
+      "title": "Romantyczne hiszpanskie zwroty na każda okazje",
+      "native_lang": "pl",
+      "target_lang": "es",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Kartka na okazje",
+            "### Cwiczenie 2: Codzieńne wyznanie",
+            "### Cwiczenie 3: Toast"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "99aa1774-8a0d-447f-829a-c2faf48b6bdd",
+      "title": "50+ Polských Slov Pro Rande: Kompletní Slovník Pro Zamilované Páry",
+      "native_lang": "cs",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Jak Používat Tato Slova Na Rande",
+          "subsections": [
+            "### Tipy Pro Úspěšné Použití:"
+          ]
+        }
+      ]
+    }
+  ]
+}

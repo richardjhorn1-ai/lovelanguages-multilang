@@ -1,0 +1,459 @@
+{
+  "batchId": "tier2a-slim-0020",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "30b968f9-76b2-4069-9b32-817409d3ce78",
+      "title": "Spanish Date Night: 42+ Romance Essentials",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Role-Playing Scenarios",
+            "### Memory Games"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "30be6af0-37a5-4b8d-a91f-8ac70555eee9",
+      "title": "Dánské fráze pro hádky a neshody ve vztahu",
+      "native_lang": "cs",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní fráze pro vyjádření nesouhlasu",
+          "subsections": [
+            "### 1. Jeg er ikke enig med dig",
+            "### 2. Jeg ser det anderledes",
+            "### 3. Jeg føler mig såret, når du...",
+            "### 4. Vær venlig ikke at råbe af mig",
+            "### 5. Jeg har brug for tid til at tænke"
+          ]
+        },
+        {
+          "header": "## Fráze pro pochopení partnera",
+          "subsections": [
+            "### 6. Hjælp mig med at forstå dit synspunkt",
+            "### 7. Det jeg prøver at sige er...",
+            "### 8. Mener du, at...?"
+          ]
+        },
+        {
+          "header": "## Fráze pro hledání řešení",
+          "subsections": [
+            "### 9. Lad os finde et kompromis",
+            "### 10. Jeg vil ikke skændes om det her",
+            "### 11. Vi er på samme hold",
+            "### 12. Kan vi starte forfra?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "30d2ade5-3f54-487d-a0a8-e81b8e71a35e",
+      "title": "Conversazioni Quotidiane in Russo per Coppie",
+      "native_lang": "it",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Conversazione Prima di Uscire",
+          "subsections": [
+            "### Dialogo: Vai al Lavoro"
+          ]
+        },
+        {
+          "header": "## Messaggi Durante il Giorno",
+          "subsections": [
+            "### Dialogo: Messaggi"
+          ]
+        },
+        {
+          "header": "## Conversazione Serale",
+          "subsections": [
+            "### Dialogo: Bentornato/a"
+          ]
+        },
+        {
+          "header": "## Fare Piani Insieme",
+          "subsections": [
+            "### Dialogo: Weekend"
+          ]
+        },
+        {
+          "header": "## Questioni Domestiche",
+          "subsections": [
+            "### Dialogo: Faccende"
+          ]
+        },
+        {
+          "header": "## Serata Rilassante",
+          "subsections": [
+            "### Dialogo: Film Insieme"
+          ]
+        },
+        {
+          "header": "## Prima di Dormire",
+          "subsections": [
+            "### Dialogo: Buonanotte"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "30d77932-938f-4eb9-af49-0d6a7d6dafb4",
+      "title": "Török 'Hiányzol' Kifejezések Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Kifejezések",
+          "subsections": [
+            "### 1. Seni özledim",
+            "### 2. Seni çok özledim",
+            "### 3. Seni düşünmeden duramıyorum",
+            "### 4. Keşke burada olsaydın",
+            "### 5. Hep aklımdasın",
+            "### 6. Seni göreceğim günü sayıyorum",
+            "### 7. Kalbim seni özlüyor",
+            "### 8. Sen benim için her şeysin",
+            "### 9. Seni görmek için sabırsızlanıyorum",
+            "### 10. Sensiz her şey boş"
+          ]
+        },
+        {
+          "header": "## Romantikus Kifejezések",
+          "subsections": [
+            "### 11. Sen hayatımın aşkısın",
+            "### 12. Sana ihtiyacım var"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "30ecd152-14c1-4aca-8ae8-9edfc511c185",
+      "title": "Zwroty na pierwszą randkę po ukraińsku",
+      "native_lang": "pl",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Rozpoczęcie rozmowy",
+          "subsections": [
+            "### Cześć! Miło Cię wreszcie poznać!",
+            "### Świetnie wyglądasz!",
+            "### Nie mogłem/mogłam się doczekać"
+          ]
+        },
+        {
+          "header": "## Poznawanie się",
+          "subsections": [
+            "### Opowiedz mi o sobie",
+            "### Co lubisz robić w wolnym czasie?",
+            "### Jaki jest Twój ulubiony...?"
+          ]
+        },
+        {
+          "header": "## Wyrażanie zainteresowania",
+          "subsections": [
+            "### To naprawdę interesujące",
+            "### Opowiedz mi więcej",
+            "### Chciałbym/Chciałabym wiedzieć więcej"
+          ]
+        },
+        {
+          "header": "## Dzielenie się o sobie",
+          "subsections": [
+            "### Pasjonuję się...",
+            "### Zawsze chciałem/chciałam..."
+          ]
+        },
+        {
+          "header": "## Komplementy",
+          "subsections": [
+            "### Uwielbiam Twój uśmiech",
+            "### Masz świetne poczucie humoru",
+            "### Świetnie się z Tobą bawię"
+          ]
+        },
+        {
+          "header": "## Planowanie następnego spotkania",
+          "subsections": [
+            "### Bardzo chciałbym/chciałabym Cię znowu zobaczyć",
+            "### Kiedy możemy to powtórzyć?",
+            "### Miałem/Miałam cudowny wieczór"
+          ]
+        },
+        {
+          "header": "## Pożegnanie",
+          "subsections": [
+            "### To było naprawdę cudowne",
+            "### Nie mogę się doczekać kolejnego spotkania"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "30f27ba1-a13b-4e14-bf67-4ca19076a10b",
+      "title": "Φράσεις «Μου Λείπεις» στα Ολλανδικά",
+      "native_lang": "el",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις",
+          "subsections": [
+            "### 1. Ik mis je",
+            "### 2. Ik mis je zo erg",
+            "### 3. Ik kan niet stoppen aan je te denken",
+            "### 4. Ik wou dat je hier was",
+            "### 5. Je bent altijd in mijn gedachten",
+            "### 6. Ik verlang naar je",
+            "### 7. Elke dag zonder jou is moeilijk",
+            "### 8. Ik tel de dagen tot ik je weer zie",
+            "### 9. Mijn hart doet pijn zonder jou",
+            "### 10. Afstand maakt het hart sterker"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "31013284-3ec9-4ebf-850b-8d2c3b937799",
+      "title": "Переезд вместе на греческий: Важные фразы",
+      "native_lang": "ru",
+      "target_lang": "el",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Поиск жилья",
+          "subsections": [
+            "### Разговор с риелтором",
+            "### Описание того, что нужно"
+          ]
+        },
+        {
+          "header": "## День переезда",
+          "subsections": [
+            "### Организация переезда",
+            "### Работа μαζί"
+          ]
+        },
+        {
+          "header": "## Обустройство дома",
+          "subsections": [
+            "### Расстановка τα έπιπλα",
+            "### Принятие решений вместе"
+          ]
+        },
+        {
+          "header": "## Знакомство с соседями",
+          "subsections": [
+            "### Первая встреча",
+            "### Построение отношений"
+          ]
+        },
+        {
+          "header": "## Разделение обязанностей",
+          "subsections": [
+            "### Домашние дела",
+            "### Обсуждение"
+          ]
+        },
+        {
+          "header": "## Ваш первый вечер дома",
+          "subsections": [
+            "### Особенный момент",
+            "### Создание уюта"
+          ]
+        },
+        {
+          "header": "## Решение проблем",
+          "subsections": [
+            "### Бытовые вопросы",
+            "### Разговор с арендодателем"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "310d2de0-bc18-4526-aba4-ef2630868b6d",
+      "title": "50 Phrases Russes pour Faire Fondre Son Coeur",
+      "native_lang": "fr",
+      "target_lang": "ru",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Pour les anniversaires",
+          "subsections": [
+            "### Anniversaire de naissance",
+            "### Anniversaire de couple"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3116820d-11ca-4ab8-8cbb-23ca8087e624",
+      "title": "Cseh Flörtölő Kifejezések Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Flörtölő Kifejezések",
+          "subsections": [
+            "### 1. Jsi moc krásná (Jszi moc krászná)",
+            "### 2. Máš krásné oči (Más krászné ocsi)",
+            "### 3. Mohu tě pozvat na kávu? (Mohu tye pozvat na kávu?)",
+            "### 4. Líbíš se mi (Líbís sze mi)",
+            "### 5. Zatančíš si se mnou? (Zatancsís szi sze mnou?)",
+            "### 6. Máš nádherný úsměv (Más nádherní úszmjev)",
+            "### 7. Rád bych tě zase viděl (Rád bih tye zasze vigyel)",
+            "### 8. Jsi výjimečná (Jszi víjimecsná)",
+            "### 9. Můžu dostat tvoje číslo? (Múzsu dosztat tvoje csíszlo?)",
+            "### 10. Je mi s tebou dobře (Je mi sz tebou dobrzse)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3135bdbb-8dd5-43cb-89bb-5ce9cd59b839",
+      "title": "Sådan Undskylder Du på Tyrkisk: Vejledning for Par",
+      "native_lang": "da",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Specifikke Situationer",
+          "subsections": [
+            "### Når Du Har Glemt Noget",
+            "### Når Du Har Sagt Noget Sårende",
+            "### Når Du Er Kommet For Sent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "313a4c2b-9d2d-4bef-9d27-6404b77518ba",
+      "title": "Phrases tchèques pour se réconcilier en couple",
+      "native_lang": "fr",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions essentielles pour se réconcilier",
+          "subsections": [
+            "### S'excuser sincèrement",
+            "### Exprimer ses sentiments",
+            "### Proposer une résolution",
+            "### Réaffirmer son amour"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3145a68d-8515-4e92-acba-6691988d8790",
+      "title": "El Futuro en Alemán - Haciendo Planes Juntos",
+      "native_lang": "es",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Frases Románticas para Hacer Planes",
+          "subsections": [
+            "### Planes Inmediatos",
+            "### Planes de Vacaciones",
+            "### Planes a Largo Plazo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "314734a8-ff68-4d96-a09d-e9230cca5cf4",
+      "title": "Maďarské fráze pro hádky a neshody ve vztahu",
+      "native_lang": "cs",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní fráze pro vyjádření nesouhlasu",
+          "subsections": [
+            "### 1. Nem értek veled egyet",
+            "### 2. Én ezt másképp látom",
+            "### 3. Bántva érzem magam, amikor te...",
+            "### 4. Kérlek, ne kiabálj velem",
+            "### 5. Időre van szükségem, hogy gondolkodjak"
+          ]
+        },
+        {
+          "header": "## Fráze pro pochopení partnera",
+          "subsections": [
+            "### 6. Segíts megérteni a nézőpontodat",
+            "### 7. Amit mondani próbálok, az...",
+            "### 8. Arra gondolsz, hogy...?"
+          ]
+        },
+        {
+          "header": "## Fráze pro hledání řešení",
+          "subsections": [
+            "### 9. Találjunk kompromisszumot",
+            "### 10. Nem akarok ezen veszekedni",
+            "### 11. Egy csapatban vagyunk",
+            "### 12. Kezdhetjük elölről?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "314ab67c-1f49-4c8a-9d14-ceedcfd66dfb",
+      "title": "İsveççe Kayınvalide ve Kayınpeder İfadeleri: Aile Tanışması",
+      "native_lang": "tr",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Hitap Şekilleri",
+          "subsections": [
+            "### 1. \"Svärmor\" / \"Svärfar\"",
+            "### 2. \"Trevligt att träffas\""
+          ]
+        },
+        {
+          "header": "## Önemli İfadeler",
+          "subsections": [
+            "### 3. \"Tack för att ni bjöd in mig\"",
+            "### 4. \"Maten var underbar\"",
+            "### 5. \"Ert hem är väldigt vackert\"",
+            "### 6. \"Jag älskar ert barn så mycket\"",
+            "### 7. \"Kan jag hjälpa till med något?\"",
+            "### 8. \"Berätta mer om er familj\"",
+            "### 9. \"Vi är så glada att vara här\"",
+            "### 10. \"Tack för en underbar kväll\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "314f7c92-45fc-40c6-a786-32ddca5a83cf",
+      "title": "50+ Angielskie Słodkie Przydomki dla Twojej Drugiej Połówki",
+      "native_lang": "pl",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Jak Używać Przydomków z Twoim Partnerem",
+          "subsections": [
+            "### Zacznij Stopniowo",
+            "### Kontekst jest Kluczowy",
+            "### Unikaj w Publicznych Sytuacjach Biznesowych"
+          ]
+        }
+      ]
+    }
+  ]
+}

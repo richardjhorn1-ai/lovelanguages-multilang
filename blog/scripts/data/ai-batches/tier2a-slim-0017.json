@@ -1,0 +1,398 @@
+{
+  "batchId": "tier2a-slim-0017",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "2e78a9fe-37fd-493f-8006-7d7e1cc8a08e",
+      "title": "Переїзд разом: турецькою слова для спільного життя",
+      "native_lang": "uk",
+      "target_lang": "tr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика",
+          "subsections": []
+        },
+        {
+          "header": "## Обговорення переїзду",
+          "subsections": [
+            "### Як запропонувати спільне життя турецькою"
+          ]
+        },
+        {
+          "header": "## Пошук житла",
+          "subsections": [
+            "### Лексика для оренди/покупки",
+            "### Кімнати в домі"
+          ]
+        },
+        {
+          "header": "## Меблі та предмети побуту",
+          "subsections": [
+            "### У спальні",
+            "### На кухні",
+            "### У вітальні"
+          ]
+        },
+        {
+          "header": "## Розподіл обов'язків",
+          "subsections": [
+            "### Домашні справи турецькою",
+            "### Як обговорити обов'язки"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2e7d84af-f3fb-4112-bb0d-7ad14a7ecf2a",
+      "title": "Italian Past Tense for Couples: Passato Prossimo vs Imperfetto",
+      "native_lang": "en",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Exercise 1: Yesterday's Story",
+            "### Exercise 2: Childhood Memories",
+            "### Exercise 3: Your First Date"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2e8fc2f6-4fdd-49ff-8b58-e8337f19e266",
+      "title": "Gírias e Abreviações em Húngaro para Mensagens",
+      "native_lang": "pt",
+      "target_lang": "hu",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Conversas de Exemplo",
+          "subsections": [
+            "### Pela Manhã",
+            "### Antes de Dormir"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2e92338c-f35d-4cb7-a9c3-468bff22b033",
+      "title": "Phrases roumaines sur la jalousie et la confiance en couple",
+      "native_lang": "fr",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions pour aborder la jalousie",
+          "subsections": [
+            "### Exprimer ses sentiments",
+            "### Demander des réassurances",
+            "### Construire la confiance",
+            "### Réaffirmer son engagement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2e9a62f3-31ad-404c-9997-e15e911767e3",
+      "title": "Frases de Paquera em Grego: Romance Mediterrâneo com Alma Antiga",
+      "native_lang": "pt",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases Essenciais de Paquera",
+          "subsections": [
+            "### Elogios Apaixonados",
+            "### Expressando Interesse",
+            "### Cantadas Gregas",
+            "### Para Relacionamentos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2ea41286-bfd1-411d-8310-fd203615c148",
+      "title": "Vocabulario de Comida Húngara para Parejas",
+      "native_lang": "es",
+      "target_lang": "hu",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Platos Tradicionales",
+          "subsections": [
+            "### El Famoso Gulyás",
+            "### Otros Platos Principales",
+            "### El Rey de los Ingredientes: Pimentón"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2eae29d8-69a6-44ff-9255-9fec99643b02",
+      "title": "Frases de Paquera em Russo: Romance com Alma Eslava",
+      "native_lang": "pt",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases Essenciais de Paquera",
+          "subsections": [
+            "### Elogios Apaixonados",
+            "### Expressando Interesse",
+            "### Cantadas Russas",
+            "### Para Relacionamentos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2eb96a62-2ef8-4fe3-aa35-2b3cabcbed3d",
+      "title": "50+ Apelidos Alemaes para Derreter Seu Amor",
+      "native_lang": "pt",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Atividades para Praticar",
+          "subsections": [
+            "### Rotina Matinal",
+            "### Mensagens Diarias",
+            "### Jogo de Apelidos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2edf4d59-3f0a-4156-9f25-e02061f82ef4",
+      "title": "Noorse Sms-Taal voor Stellen: Van Kos tot Klem",
+      "native_lang": "nl",
+      "target_lang": "no",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Dagelijkse Communicatie",
+          "subsections": [
+            "### Begroetingen",
+            "### Gemis Uitdrukken"
+          ]
+        },
+        {
+          "header": "## Complete Berichtvoorbeelden",
+          "subsections": [
+            "### Goedemorgen Bericht",
+            "### Tijdens het Werk",
+            "### Goedenacht Bericht"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2ee88f9f-c556-489a-80f1-5dd3ef6c0aef",
+      "title": "Como Escrever Cartas de Amor em Alemão: Romance Sincero",
+      "native_lang": "pt",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Estrutura de uma Carta de Amor",
+          "subsections": [
+            "### Abertura Carinhosa",
+            "### Expressando Seus Sentimentos",
+            "### Elogiando Seu Amor",
+            "### Declarações de Amor",
+            "### Promessas e Compromissos",
+            "### Encerramentos Românticos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2ef22bc7-2588-469f-a394-005efd9b6ee7",
+      "title": "Lengyel 'Hiányzol' Kifejezések Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Kifejezések",
+          "subsections": [
+            "### 1. Tęsknię za tobą",
+            "### 2. Bardzo za tobą tęsknię",
+            "### 3. Nie mogę przestać o tobie myśleć",
+            "### 4. Chciałbym, żebyś tu była",
+            "### 5. Jesteś zawsze w moich myślach",
+            "### 6. Liczę dni do naszego spotkania",
+            "### 7. Moje serce tęskni za tobą",
+            "### 8. Jesteś dla mnie wszystkim",
+            "### 9. Nie mogę się doczekać, aż cię zobaczę",
+            "### 10. Bez ciebie wszystko jest puste"
+          ]
+        },
+        {
+          "header": "## Romantikus Kifejezések",
+          "subsections": [
+            "### 11. Jesteś miłością mojego życia",
+            "### 12. Potrzebuję cię"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2f0041c8-236c-49b7-ad9d-570a449a7a68",
+      "title": "Phrases de drague en roumain : Romance latine des Carpates",
+      "native_lang": "fr",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Phrases de base pour séduire",
+          "subsections": [
+            "### \"Ești foarte frumoasă/frumos\"",
+            "### \"Ai un zâmbet minunat\"",
+            "### \"Ochii tăi sunt ca stelele\""
+          ]
+        },
+        {
+          "header": "## Exprimer l'attirance",
+          "subsections": [
+            "### \"Nu mă pot opri să mă gândesc la tine\"",
+            "### \"Mă faci să-mi pierd mințile\"",
+            "### \"Cu tine mă simt cel mai fericit/fericită\""
+          ]
+        },
+        {
+          "header": "## Déclarations d'amour",
+          "subsections": [
+            "### \"Ești totul pentru mine\"",
+            "### \"Te iubesc\"",
+            "### \"Ești dragostea vieții mele\""
+          ]
+        },
+        {
+          "header": "## Phrases quotidiennes",
+          "subsections": [
+            "### \"Îmi este dor de tine\"",
+            "### \"Îmbrățișează-mă\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2f238ab2-25d9-4c5c-8250-67f8e8aa2b19",
+      "title": "Rumænske fraser til forsoning og genopbygning af tillid",
+      "native_lang": "da",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser til forsoning",
+          "subsections": [
+            "### At undskylde oprigtigt",
+            "### At genopbygge forbindelsen",
+            "### At tilbyde forsoning",
+            "### At acceptere en undskyldning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2f31042c-03ac-439e-b2b5-fcf5cdc698ed",
+      "title": "Rumænske Udtryk til Følelsesmæssig Støtte og Trøst",
+      "native_lang": "da",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Støtteudtryk",
+          "subsections": [
+            "### 1. Sunt aici pentru tine",
+            "### 2. Totul va fi bine",
+            "### 3. Cred în tine",
+            "### 4. Ia-ți tot timpul de care ai nevoie",
+            "### 5. Îmi pare foarte rău pentru ce treci"
+          ]
+        },
+        {
+          "header": "## Dybere Trøst",
+          "subsections": [
+            "### 6. E normal să plângi",
+            "### 7. Nu trebuie să treci prin asta singur/singură",
+            "### 8. Sunt foarte mândru/mândră de puterea ta",
+            "### 9. Sentimentele tale sunt valide",
+            "### 10. Orice s-ar întâmpla, vom face față împreună"
+          ]
+        },
+        {
+          "header": "## Kærlige Trøsteord",
+          "subsections": [
+            "### 11. Iubirea mea, voi fi mereu lângă tine",
+            "### 12. Te iubesc, și asta nu se va schimba niciodată"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2f35bdd5-02de-4860-8ccd-f4221839916d",
+      "title": "Angol kifejezések érzelmi támogatáshoz és vigasztaláshoz",
+      "native_lang": "hu",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető vigasztaló kifejezések",
+          "subsections": [
+            "### I'm here for you",
+            "### Everything will be okay",
+            "### It's going to be alright",
+            "### I'm so sorry you're going through this"
+          ]
+        },
+        {
+          "header": "## Empátia kifejezése",
+          "subsections": [
+            "### I can only imagine how hard this must be",
+            "### That sounds really difficult",
+            "### Your feelings are completely valid",
+            "### It's okay to feel this way"
+          ]
+        },
+        {
+          "header": "## Támogatás felajánlása",
+          "subsections": [
+            "### What do you need right now?",
+            "### How can I help?",
+            "### I'm here to listen",
+            "### Take all the time you need"
+          ]
+        },
+        {
+          "header": "## Gyász és veszteség",
+          "subsections": [
+            "### I'm so sorry for your loss",
+            "### They will always be in your heart",
+            "### Grief takes time, and that's okay"
+          ]
+        },
+        {
+          "header": "## Nehéz időkben",
+          "subsections": [
+            "### You're not alone in this",
+            "### We'll get through this together",
+            "### You're stronger than you think",
+            "### This too shall pass"
+          ]
+        },
+        {
+          "header": "## Bátorítás",
+          "subsections": [
+            "### I believe in you",
+            "### You've got this",
+            "### I'm proud of you"
+          ]
+        }
+      ]
+    }
+  ]
+}

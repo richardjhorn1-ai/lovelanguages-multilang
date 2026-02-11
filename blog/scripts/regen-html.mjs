@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 /**
- * Regenerate content_html for articles with apostrophes in component props.
- * Fixes the apostrophe truncation bug caused by the old extractProp regex.
+ * Regenerate content_html for all articles (or filtered subset).
+ * Re-renders MDX → HTML using the current component-converters and updates Supabase.
+ * Use --only-stale to only process articles where HTML would actually change.
  */
 import { createClient } from '@supabase/supabase-js';
 import fs from 'fs';
@@ -30,25 +31,9 @@ const LIMIT = (() => {
 // Load articles
 const data = JSON.parse(fs.readFileSync(path.join(__dirname, 'data/articles-local.json'), 'utf-8'));
 
-// Find articles whose component props contain apostrophes
-const affected = [];
-const COMPONENT_RE = /<(?:VocabCard|PhraseOfDay|CultureTip|ConjugationTable)[\s\S]*?\/>/gi;
-
-for (const a of data.articles) {
-  if (a.target_lang === 'all') continue;
-  const content = a.content || '';
-  const tags = content.match(COMPONENT_RE) || [];
-  for (const tag of tags) {
-    // Check if any prop value contains an apostrophe
-    // Match: propName="value with ' inside"
-    if (/\w+\s*=\s*"[^"]*'[^"]*"/.test(tag)) {
-      affected.push(a);
-      break;
-    }
-  }
-}
-
-console.log(`Found ${affected.length} articles with apostrophes in component props`);
+// Collect all articles (skip target_lang='all')
+const affected = data.articles.filter(a => a.target_lang !== 'all');
+console.log(`Found ${affected.length} articles to process`);
 if (DRY_RUN) console.log('(DRY RUN)');
 
 const toProcess = LIMIT ? affected.slice(0, LIMIT) : affected;
@@ -90,7 +75,7 @@ for (let i = 0; i < toProcess.length; i++) {
     failed++;
   } else {
     fixed++;
-    if (fixed % 50 === 0) console.log(`  Progress: ${fixed} regenerated...`);
+    if (fixed % 200 === 0) console.log(`  Progress: ${fixed} regenerated (${i + 1}/${toProcess.length} checked)...`);
   }
 }
 

@@ -1,0 +1,467 @@
+{
+  "batchId": "tier2a-slim-0180",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "bda33fd3-df97-4dcf-a01f-b2e3a75572f1",
+      "title": "100 Συχνές Λέξεις (uk): Οδηγός για Ελληνόφωνα Ζευγάρια",
+      "native_lang": "el",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Κατηγορίες Λέξεων",
+          "subsections": [
+            "### Αγάπη & Τρυφερότητα",
+            "### Καθημερινές Λέξεις",
+            "### Συναισθήματα",
+            "### Χρόνος",
+            "### Τοποθεσία",
+            "### Ερωτήσεις",
+            "### Ρήματα"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bdab2398-c875-41ef-a80a-07e0c4896eed",
+      "title": "50+ итальянских прозвищ, которые растопят сердце",
+      "native_lang": "ru",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Использование в предложениях",
+          "subsections": [
+            "### Приветствия:",
+            "### Признания:",
+            "### Прощания:"
+          ]
+        },
+        {
+          "header": "## Практика для пар",
+          "subsections": [
+            "### Выберите «ваше» прозвище:",
+            "### Используйте в SMS:",
+            "### Создайте традицию:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bdb280b7-e29a-4f21-a7ae-e62f90da9cb5",
+      "title": "Engelska fraser för att säga 'Jag saknar dig' – Uttryck längtan till din partner",
+      "native_lang": "sv",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Enkla men kraftfulla fraser",
+          "subsections": [
+            "### \"I miss you so much\"",
+            "### \"I can't stop thinking about you\"",
+            "### \"I wish you were here\""
+          ]
+        },
+        {
+          "header": "## Djupare uttryck för saknad",
+          "subsections": [
+            "### \"My heart aches for you\"",
+            "### \"You're always on my mind\"",
+            "### \"Every moment without you feels incomplete\""
+          ]
+        },
+        {
+          "header": "## Romantiska fraser för kvällar",
+          "subsections": [
+            "### \"I miss falling asleep next to you\"",
+            "### \"The bed feels empty without you\"",
+            "### \"I miss your warmth beside me\""
+          ]
+        },
+        {
+          "header": "## Fraser för vardagen",
+          "subsections": [
+            "### \"I saw something today that reminded me of you\"",
+            "### \"I miss our little moments together\"",
+            "### \"Everything reminds me of you\""
+          ]
+        },
+        {
+          "header": "## Hoppfulla fraser om återförening",
+          "subsections": [
+            "### \"I can't wait to see you again\"",
+            "### \"Counting down the days until we're together\"",
+            "### \"Soon we'll be in each other's arms again\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bdc3fc4b-9e1e-4ace-baad-84cd8ad16ef0",
+      "title": "Основи румунської граматики для початківців",
+      "native_lang": "uk",
+      "target_lang": "ro",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Важливі неправильні дієслова",
+          "subsections": [
+            "### A fi (бути)",
+            "### A avea (мати)",
+            "### A vrea (хотіти)"
+          ]
+        },
+        {
+          "header": "## Займенники",
+          "subsections": [
+            "### Особові займенники",
+            "### Присвійні займенники"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bdd5f479-19e6-477d-96a9-d032ee3827e3",
+      "title": "Španělské fráze pro usmíření a nápravu vztahu",
+      "native_lang": "cs",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fráze pro omluvu",
+          "subsections": [
+            "### 1. Lo siento mucho por lo que dije",
+            "### 2. Estaba equivocado/a",
+            "### 3. Por favor, perdóname",
+            "### 4. Asumo toda la responsabilidad"
+          ]
+        },
+        {
+          "header": "## Fráze pro obnovení spojení",
+          "subsections": [
+            "### 5. ¿Podemos hablar de lo que pasó?",
+            "### 6. Echo de menos cómo éramos",
+            "### 7. No nos acostemos enfadados",
+            "### 8. Todavía te quiero"
+          ]
+        },
+        {
+          "header": "## Fráze pro nový začátek",
+          "subsections": [
+            "### 9. ¿Podemos empezar de nuevo?",
+            "### 10. Quiero compensarte",
+            "### 11. Superemos esto juntos",
+            "### 12. Te valoro mucho"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bdeb9b99-308d-45d0-8375-71a30a754a64",
+      "title": "Włoskie zwroty do godzenia się i pojednania dla par",
+      "native_lang": "pl",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Przepraszanie z serca",
+          "subsections": [
+            "### \"Mi dispiace tantissimo\"",
+            "### \"Perdonami, ti prego\"",
+            "### \"Ho sbagliato e lo ammetto\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie żalu",
+          "subsections": [
+            "### \"Mi sento malissimo per quello che è successo\"",
+            "### \"Non volevo farti del male\"",
+            "### \"Vorrei poter tornare indietro\""
+          ]
+        },
+        {
+          "header": "## Otwieranie dialogu",
+          "subsections": [
+            "### \"Possiamo parlare di quello che è successo?\"",
+            "### \"Voglio capire come ti senti\"",
+            "### \"Dimmi cosa pensi\""
+          ]
+        },
+        {
+          "header": "## Obietnice zmiany",
+          "subsections": [
+            "### \"Farò del mio meglio\"",
+            "### \"Non succederà più\"",
+            "### \"Sto lavorando su me stesso/stessa\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie miłości",
+          "subsections": [
+            "### \"Ti amo più della mia vita\"",
+            "### \"Sei tutto per me\"",
+            "### \"Non voglio perderti mai\""
+          ]
+        },
+        {
+          "header": "## Romantyczne pojednanie",
+          "subsections": [
+            "### \"Vieni qui, abbracciami\"",
+            "### \"Facciamo la pace con un bacio\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bdece80c-2ac7-41e4-bd40-8a0c822b880e",
+      "title": "Tjekkisk Udtale for Par: Lyd Romantisk fra Dag Ét",
+      "native_lang": "da",
+      "target_lang": "cs",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De Sværeste Bogstaver (Og Sådan Overvinder I Dem)",
+          "subsections": [
+            "### Ř - Den Berømte Tjekkiske Lyd",
+            "### Č, Š, Ž - De Bløde Lyde"
+          ]
+        },
+        {
+          "header": "## De Tre Største Udtalefejl (Og Hvordan I Undgår Dem)",
+          "subsections": [
+            "### 1. Den Hårde CH vs Bløde H",
+            "### 2. Accent På Forkert Stavelse",
+            "### 3. Rulle-R vs Danske R"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bdf4fd57-d226-4495-b697-75c6521b3273",
+      "title": "Romanian Birthday Wishes for Your Partner: Sweet Messages That Touch the Heart",
+      "native_lang": "en",
+      "target_lang": "ro",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Sweet Birthday Messages",
+          "subsections": [
+            "### Simple Wishes",
+            "### Romantic Messages"
+          ]
+        },
+        {
+          "header": "## Birthday Card Messages",
+          "subsections": [
+            "### Heartfelt Short Messages",
+            "### Longer Romantic Messages"
+          ]
+        },
+        {
+          "header": "## Planning the Perfect Birthday",
+          "subsections": [
+            "### Party Vocabulary",
+            "### Surprise Party Phrases"
+          ]
+        },
+        {
+          "header": "## Birthday Milestone Messages",
+          "subsections": [
+            "### 30th Birthday",
+            "### 40th Birthday",
+            "### 50th Birthday"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bdfae37a-fcc2-4a5b-bce4-5d722613c749",
+      "title": "Венгерские фразы для первого свидания",
+      "native_lang": "ru",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Фразы для первого свидания",
+          "subsections": [
+            "### 1. Gyönyörűen nézel ki ma este",
+            "### 2. Nagyon vártam ezt a találkozót",
+            "### 3. Mesélj magadról",
+            "### 4. Mit szeretsz csinálni a szabadidődben?",
+            "### 5. Gyönyörű a mosolyod",
+            "### 6. Szívesen találkoznék veled újra",
+            "### 7. Nagyon jól éreztem magam ma este",
+            "### 8. Felhívhatlak holnap?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "be0261eb-35ef-486a-bf9a-6b88d4068907",
+      "title": "Polish Name Days and Traditions",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## How to Celebrate Name Days",
+          "subsections": [
+            "### Traditional Greetings",
+            "### Gift-Giving Traditions"
+          ]
+        },
+        {
+          "header": "## Seasonal and Holiday Traditions",
+          "subsections": [
+            "### Easter Celebrations",
+            "### Christmas Traditions"
+          ]
+        },
+        {
+          "header": "## How to Participate as a Couple",
+          "subsections": [
+            "### Learning Together",
+            "### Essential Phrases for Celebrations",
+            "### Making Cultural Connections"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "be097a0e-560e-493a-a14b-c7c512a8b0b9",
+      "title": "Німецькі фрази про прощення",
+      "native_lang": "uk",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Прохання про прощення",
+          "subsections": [
+            "### \"Bitte verzeih mir\"",
+            "### \"Ich hoffe, du kannst mir verzeihen\"",
+            "### \"Ich weiß, dass ich deine Vergebung nicht verdiene, aber...\""
+          ]
+        },
+        {
+          "header": "## Надання прощення",
+          "subsections": [
+            "### \"Ich verzeihe dir\"",
+            "### \"Es ist in Ordnung, ich verstehe\"",
+            "### \"Jeder macht Fehler\"",
+            "### \"Ich bin bereit, das hinter mir zu lassen\""
+          ]
+        },
+        {
+          "header": "## Обіцянки",
+          "subsections": [
+            "### \"Ich verspreche, das wird nicht wieder passieren\"",
+            "### \"Wie kann ich es wieder gutmachen?\"",
+            "### \"Gib mir noch eine Chance\""
+          ]
+        },
+        {
+          "header": "## Труднощі",
+          "subsections": [
+            "### \"Ich bin noch nicht bereit zu verzeihen\"",
+            "### \"Ich brauche mehr Zeit\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "be0e3db2-c9f0-48a6-a7db-ba77706c31c1",
+      "title": "Dán évfordulós kívánságok és üzenetek",
+      "native_lang": "hu",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Évfordulós köszöntések",
+            "### Hosszabb üzenetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "be0e4fe8-4bac-45eb-a8d6-34cafe98893a",
+      "title": "Ukrainske udtryk til at møde svigerforældre",
+      "native_lang": "da",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Vigtige sætninger",
+          "subsections": [
+            "### 1. Дуже приємно з вами познайомитися",
+            "### 2. Я багато про вас чув/чула",
+            "### 3. Дуже дякую за запрошення",
+            "### 4. Я приніс/принесла вам невеликий подарунок",
+            "### 5. У вас дуже гарний дім",
+            "### 6. Було дуже смачно",
+            "### 7. Я дуже кохаю вашого сина/вашу доньку",
+            "### 8. Ми дуже щасливі разом",
+            "### 9. Я хотів би/хотіла б познайомитися з вами краще",
+            "### 10. Чи можу я чимось допомогти?",
+            "### 11. Це чудова сімейна традиція",
+            "### 12. Сподіваюся, ми скоро знову побачимося"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "be0e55cf-dffa-44a4-8fb6-0cb66b462cf2",
+      "title": "С днём рождения на шведский: Пожелания для любимого человека",
+      "native_lang": "ru",
+      "target_lang": "sv",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Романтические пожелания на день рождения",
+          "subsections": [
+            "### Сладкие и простые",
+            "### Глубокие послания"
+          ]
+        },
+        {
+          "header": "## Фразы для открытки",
+          "subsections": [
+            "### Романтические послания",
+            "### Длинные послания"
+          ]
+        },
+        {
+          "header": "## Планирование сюрприза",
+          "subsections": [
+            "### Лексика для överraskning",
+            "### Фразы для сюрприза"
+          ]
+        },
+        {
+          "header": "## Сообщения для социальных сетей",
+          "subsections": [
+            "### Подписи для публикаций"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "be22e9f9-d4dc-4fea-b4b0-21c1f2eef0de",
+      "title": "Francia évfordulós kívánságok és üzenetek",
+      "native_lang": "hu",
+      "target_lang": "fr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Évfordulós köszöntések",
+            "### Hosszabb üzenetek"
+          ]
+        }
+      ]
+    }
+  ]
+}

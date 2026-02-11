@@ -1,0 +1,543 @@
+{
+  "batchId": "tier2a-slim-0232",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "e90cdfa9-95f0-4cf9-8d4d-78199f6b086e",
+      "title": "Румунська vs англійська: ключові відмінності для українців",
+      "native_lang": "uk",
+      "target_lang": "ro",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Вимова",
+          "subsections": [
+            "### Румунська — майже фонетична"
+          ]
+        },
+        {
+          "header": "## Артиклі",
+          "subsections": [
+            "### Англійська — перед словом",
+            "### Румунська — ПІСЛЯ слова (постпозитивні)"
+          ]
+        },
+        {
+          "header": "## Дієвідміни",
+          "subsections": [
+            "### Англійська — мінімальні зміни",
+            "### Румунська — повна система"
+          ]
+        },
+        {
+          "header": "## Відмінки",
+          "subsections": [
+            "### Англійська — немає відмінків",
+            "### Румунська — має відмінки"
+          ]
+        },
+        {
+          "header": "## Займенники",
+          "subsections": [
+            "### Англійська вимагає займенників",
+            "### Румунська дозволяє пропускати"
+          ]
+        },
+        {
+          "header": "## Порядок слів",
+          "subsections": [
+            "### Англійська — фіксований",
+            "### Румунська — гнучкий"
+          ]
+        },
+        {
+          "header": "## Питання",
+          "subsections": [
+            "### Англійська — допоміжні дієслова",
+            "### Румунська — інтонація"
+          ]
+        },
+        {
+          "header": "## Унікальні особливості румунської",
+          "subsections": [
+            "### Vocativ (кличний відмінок)",
+            "### Зменшувальні суфікси"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e92424c1-f31b-4af3-85a6-5709b8a3979e",
+      "title": "Spanyol Kifejezések a Leendő Apóséknak – Bemutatkozás és Első Találkozás",
+      "native_lang": "hu",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bemutatkozás",
+          "subsections": [
+            "### 1. Mucho gusto en conocerles.",
+            "### 2. He oído hablar mucho de ustedes.",
+            "### 3. Gracias por recibirme en su casa.",
+            "### 4. [Nombre] siempre habla muy bien de ustedes.",
+            "### 5. Estoy muy feliz de estar aquí."
+          ]
+        },
+        {
+          "header": "## Bókok és Elismerések",
+          "subsections": [
+            "### 6. Tienen una casa muy bonita.",
+            "### 7. La comida está deliciosa.",
+            "### 8. Ahora entiendo de dónde [pareja] heredó su [cualidad].",
+            "### 9. Gracias por haber criado a una persona tan maravillosa."
+          ]
+        },
+        {
+          "header": "## Udvariasságok",
+          "subsections": [
+            "### 10. ¿Puedo ayudar en algo?",
+            "### 11. Por favor, déjeme fregar los platos.",
+            "### 12. Me encantaría saber más sobre [tema]."
+          ]
+        },
+        {
+          "header": "## Kulturális Tippek",
+          "subsections": [
+            "### Család Fontossága",
+            "### Csók vagy Kézfogás?",
+            "### Étkezés",
+            "### Magázás"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e92d3c51-5472-4a72-bfae-9262edc50fd2",
+      "title": "Conjugação de Verbos em Espanhol: Guia Básico para Iniciantes",
+      "native_lang": "pt",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Verbos Irregulares Essenciais",
+          "subsections": [
+            "### Ser (ser permanente)",
+            "### Estar (estados temporários)",
+            "### Tener (ter)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e93f0fca-bf01-45d7-8048-b5c9f91a3e0f",
+      "title": "Podstawy gramatyki hiszpanskiej dla polskich par",
+      "native_lang": "pl",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Czasowniki nieregularne - najważniejsze",
+          "subsections": [
+            "### SER (byc - trwale cechy)",
+            "### ESTAR (byc - stan, lokalizacja)",
+            "### TENER (miec)",
+            "### IR (isc/jechac)"
+          ]
+        },
+        {
+          "header": "## Pytania i przeczenia",
+          "subsections": [
+            "### Tworzenie pytan",
+            "### Slowa pytajne",
+            "### Przeczenia"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: SER vs ESTAR",
+            "### Cwiczenie 2: Odmiana czasownikow",
+            "### Cwiczenie 3: Pytania i odpowiedzi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e940bcb7-c22b-4abe-8ae2-de25572dda8f",
+      "title": "Isveççe: Seni Seviyorum Demenin 12 Romantik Yolu",
+      "native_lang": "tr",
+      "target_lang": "sv",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## \"Seni Seviyorum\" Demenin Alternatif Yollari",
+          "subsections": [
+            "### Daha Derin Baglantilar Için",
+            "### Günlük ve Tatli Ifadeler"
+          ]
+        },
+        {
+          "header": "## Çiftler için Pratik Aktiviteleri",
+          "subsections": [
+            "### Sabah Onaylamalari",
+            "### Ask Notlari",
+            "### Yatma Zamani Ifadeleri"
+          ]
+        },
+        {
+          "header": "## Isveççe Ask Kelime Dağarciğinizi Olusturma",
+          "subsections": [
+            "### Temel Askla Ilgili Kelimeler",
+            "### Romantizm için Eylem Kelimeleri"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e942154a-3bc5-4f4f-9ade-83d1b606aee9",
+      "title": "Dánská výslovnost pro začátečníky: Naučte se mluvit srdcem svého partnera",
+      "native_lang": "cs",
+      "target_lang": "da",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Základní pravidla dánské výslovnosti",
+          "subsections": [
+            "### 1. Měkké D",
+            "### 2. Stavelseskombinace",
+            "### 3. Zvláštní písmeno Ø"
+          ]
+        },
+        {
+          "header": "## Párová cvičení: Procvičte společně!",
+          "subsections": [
+            "### Cvičení 1: Rytmické opakování",
+            "### Cvičení 2: Romantické šepoty"
+          ]
+        },
+        {
+          "header": "## Nejčastější chyby a jak se jim vyvarovat",
+          "subsections": [
+            "### 1. Příliš tvrdé R",
+            "### 2. Přehnané koncovky",
+            "### 3. Nesprávné Ø"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e945f6f5-3039-472c-9dd2-fa3d0bc1afb7",
+      "title": "Guide de prononciation suédois : Parlez comme un natif avec votre partenaire",
+      "native_lang": "fr",
+      "target_lang": "sv",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Les sons difficiles décodés",
+          "subsections": [
+            "### Le son \"sj\" (le sifflement romantique)",
+            "### Le roulé R suédois"
+          ]
+        },
+        {
+          "header": "## Sons nasaux et voyelles complexes",
+          "subsections": [
+            "### Voyelles longues vs courtes",
+            "### Le son \"y\" suédois"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e952faec-5fff-4baf-90cc-218335da46bc",
+      "title": "Polish Verb Conjugation: Present Tense",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Practice Tips for Couples",
+          "subsections": [
+            "### Daily Conjugation Challenges",
+            "### Create Your Own Sentences",
+            "### The \"We\" Focus"
+          ]
+        },
+        {
+          "header": "## Common Mistakes to Avoid",
+          "subsections": [
+            "### Mixing Up Conjugation Groups",
+            "### Forgetting Soft Consonants",
+            "### Stress Placement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e9680973-f064-4188-ba34-d89dc37d0f06",
+      "title": "50+ румунських ласкавих слів, які розтоплять серце",
+      "native_lang": "uk",
+      "target_lang": "ro",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Найпопулярніші пестливі звертання",
+          "subsections": [
+            "### Iubire (Юбіре)",
+            "### Dragă (Драге)",
+            "### Scump/Scumpă (Скумп/Скумпе)"
+          ]
+        },
+        {
+          "header": "## Особливі румунські звертання",
+          "subsections": [
+            "### Puiuț (Пуюц)",
+            "### Suflet (Суфлет)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e976de68-4e76-48f6-bcf5-9246397e6413",
+      "title": "Румунська привітання з річницею: романтичні побажання",
+      "native_lang": "uk",
+      "target_lang": "ro",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика про річницю",
+          "subsections": []
+        },
+        {
+          "header": "## Романтичні побажання з річницею",
+          "subsections": [
+            "### Класичні привітання"
+          ]
+        },
+        {
+          "header": "## Побажання для різних річниць",
+          "subsections": [
+            "### Перша річниця",
+            "### П'ята річниця",
+            "### Десята річниця та далі"
+          ]
+        },
+        {
+          "header": "## Як написати привітання з річницею",
+          "subsections": [
+            "### Структура ідеального привітання:",
+            "### Приклад привітання:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e985a0d9-c713-4c78-9b73-946d2d5964c4",
+      "title": "Переезд вместе на датский: Важные фразы",
+      "native_lang": "ru",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Поиск жилья",
+          "subsections": [
+            "### Разговор с риелтором",
+            "### Описание того, что нужно"
+          ]
+        },
+        {
+          "header": "## День переезда",
+          "subsections": [
+            "### Организация переезда",
+            "### Работа sammen"
+          ]
+        },
+        {
+          "header": "## Обустройство дома",
+          "subsections": [
+            "### Расстановка møbler",
+            "### Принятие решений вместе"
+          ]
+        },
+        {
+          "header": "## Знакомство с соседями",
+          "subsections": [
+            "### Первая встреча",
+            "### Построение отношений"
+          ]
+        },
+        {
+          "header": "## Разделение обязанностей",
+          "subsections": [
+            "### Домашние дела",
+            "### Обсуждение"
+          ]
+        },
+        {
+          "header": "## Ваш первый вечер дома",
+          "subsections": [
+            "### Особенный момент",
+            "### Создание уюта"
+          ]
+        },
+        {
+          "header": "## Решение проблем",
+          "subsections": [
+            "### Бытовые вопросы",
+            "### Разговор с арендодателем"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e988d0f3-9932-4a5f-b71e-5f3844d86825",
+      "title": "Nederländska Fraser för Förlåtelse",
+      "native_lang": "sv",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Be om Förlåtelse",
+          "subsections": [
+            "### 1. \"Het spijt me oprecht\"",
+            "### 2. \"Vergeef me alsjeblieft\"",
+            "### 3. \"Ik neem de volledige verantwoordelijkheid\"",
+            "### 4. \"Ik had ongelijk en ik weet het\"",
+            "### 5. \"Hoe kan ik het goedmaken?\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Ge Förlåtelse",
+          "subsections": [
+            "### 6. \"Ik vergeef je\"",
+            "### 7. \"Laten we dit achter ons laten\"",
+            "### 8. \"Ik begrijp het en waardeer je excuses\"",
+            "### 9. \"We maken allemaal fouten\"",
+            "### 10. \"Het vergt moed om je excuses aan te bieden\"",
+            "### 11. \"Ik waardeer je eerlijkheid\"",
+            "### 12. \"Waar het om gaat is dat we samen verder gaan\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e9910921-910f-4f16-a7a3-65383ac93d1b",
+      "title": "Rumänska SMS- och chattfraser för kärleksrelationer",
+      "native_lang": "sv",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Morgonhälsningar",
+          "subsections": [
+            "### \"Bună dimineața, iubirea mea\"",
+            "### \"Salut, dragul meu\" / \"Salut, draga mea\"",
+            "### \"Cum ai dormit, sufletul meu?\""
+          ]
+        },
+        {
+          "header": "## Att uttrycka saknad",
+          "subsections": [
+            "### \"Mi-e dor de tine\"",
+            "### \"Mă gândesc la tine\"",
+            "### \"Abia aștept să te văd\""
+          ]
+        },
+        {
+          "header": "## Kärleksförklaringar",
+          "subsections": [
+            "### \"Te iubesc\"",
+            "### \"Te iubesc mult\"",
+            "### \"Te iubesc din toată inima\"",
+            "### \"Ești iubirea vieții mele\"",
+            "### \"Ești totul pentru mine\""
+          ]
+        },
+        {
+          "header": "## Flirtiga meddelanden",
+          "subsections": [
+            "### \"Mă faci fericit/fericită\"",
+            "### \"Ești foarte frumoasă\" / \"Ești foarte frumos\"",
+            "### \"Sunt nebun/nebună după tine\"",
+            "### \"Mi-ai furat inima\""
+          ]
+        },
+        {
+          "header": "## Godnattmeddelanden",
+          "subsections": [
+            "### \"Noapte bună, iubirea mea\"",
+            "### \"Vise frumoase\"",
+            "### \"Îți trimit sărutări\"",
+            "### \"Te pup dulce\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e99ac5b7-bc5b-4aa8-b680-9032fade8dc3",
+      "title": "50+ German Pet Names to Charm Your Partner",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Practicing Together: Couple Activities",
+          "subsections": [
+            "### Morning Routine Practice",
+            "### Text Message Challenge",
+            "### Role-Play Scenarios"
+          ]
+        },
+        {
+          "header": "## Building Your Vocabulary Gradually",
+          "subsections": [
+            "### Week 1: Master the Basics",
+            "### Week 2: Add Animal Names",
+            "### Week 3: Food Terms",
+            "### Week 4: Regional and Creative Terms"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e9ab29c0-2ff4-43bc-9ee4-807aadf27a21",
+      "title": "Phrases de drague en anglais : Séduisez avec charme",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Phrases pour attirer l'attention",
+          "subsections": [
+            "### \"You look absolutely stunning today\"",
+            "### \"I can't stop thinking about you\"",
+            "### \"Your smile lights up the room\""
+          ]
+        },
+        {
+          "header": "## Phrases pour approfondir la connexion",
+          "subsections": [
+            "### \"There's something special about you\"",
+            "### \"I love the way you laugh\"",
+            "### \"You make my heart skip a beat\""
+          ]
+        },
+        {
+          "header": "## Phrases audacieuses",
+          "subsections": [
+            "### \"I'd love to take you out sometime\"",
+            "### \"You're the highlight of my day\"",
+            "### \"I feel so lucky to be with you\""
+          ]
+        },
+        {
+          "header": "## Phrases pour les moments intimes",
+          "subsections": [
+            "### \"You're incredibly attractive\"",
+            "### \"I could get lost in your eyes\""
+          ]
+        }
+      ]
+    }
+  ]
+}

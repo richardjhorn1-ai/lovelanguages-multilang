@@ -1,0 +1,514 @@
+{
+  "batchId": "tier2a-slim-0044",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "45f7779a-5c21-41a1-b660-ddbefbb6f9d4",
+      "title": "Svensk Grammatik for Begyndere: Lær Grundreglerne Sammen med Din Partner",
+      "native_lang": "da",
+      "target_lang": "sv",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De 4 Grundregler Du Skal Kende",
+          "subsections": [
+            "### 1. Ordvalg: En eller Et?",
+            "### 2. Verb Bøjes Efter Subjekt",
+            "### 3. Spørgsmål Er Nemme!",
+            "### 4. Nej/Tak/Vel"
+          ]
+        },
+        {
+          "header": "## De Mest Almindelige Mønstre",
+          "subsections": [
+            "### Nutid (Præsens)",
+            "### Fortid (Preteritum)"
+          ]
+        },
+        {
+          "header": "## De 3 Største Fejl (Og Sådan Undgår I Dem)",
+          "subsections": [
+            "### 1. **Blande en/ett sammen**",
+            "### 2. **Glemme ordstilling i spørgsmål**",
+            "### 3. **Bruge danske ord**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "45f7eb26-f4d2-42d7-8f48-134b97ddd646",
+      "title": "30+ Piropos en rumano: Cumplidos para Enamorar a tu Pareja",
+      "native_lang": "es",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Cumplidos Sobre la Apariencia",
+          "subsections": [
+            "### Belleza General",
+            "### Características Específicas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "461bd8b7-28d4-4d1c-92d0-9e9eb735a1a6",
+      "title": "Ingilizce: Seni Seviyorum Demenin 15 Romantik Yolu",
+      "native_lang": "tr",
+      "target_lang": "en",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## \"Seni Seviyorum\" Demenin Alternatif Yollari",
+          "subsections": [
+            "### Daha Derin Baglantilar Icin",
+            "### Gündelik ve Tatli Ifadeler"
+          ]
+        },
+        {
+          "header": "## Ciftler Icin Pratik Aktiviteler",
+          "subsections": [
+            "### Sabah Teyitleri",
+            "### Ask Notlari",
+            "### Yatmadan Önce Ifadeler"
+          ]
+        },
+        {
+          "header": "## Ingilizce Ask Kelime Dagarcigi Olusturma",
+          "subsections": [
+            "### Temel Askla Ilgili Kelimeler",
+            "### Romantizm Icin Eylem Kelimeleri"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "461df261-020d-4cd1-a489-507fc9f46659",
+      "title": "Almanca Temel Gramer: Türkler Icin Baslangic Rehberi",
+      "native_lang": "tr",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Düzensiz Fiiller",
+          "subsections": [
+            "### SEIN (olmak)",
+            "### HABEN (sahip olmak)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "464f3439-d61e-4066-8e1b-5560387571ee",
+      "title": "Як сказати «Я тебе кохаю» французькою: Повний посібник з Je t'aime",
+      "native_lang": "uk",
+      "target_lang": "fr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Щоденні фрази кохання",
+          "subsections": [
+            "### Вранці",
+            "### Протягом дня",
+            "### Увечері"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "46571e21-e17f-4d96-abc1-6384ab11e1bc",
+      "title": "Spanish Jealousy & Trust Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressing Jealousy",
+          "subsections": [
+            "### Estoy celoso/a",
+            "### Me pongo celoso/a cuando...",
+            "### No me gustan los celos que siento"
+          ]
+        },
+        {
+          "header": "## Seeking Reassurance",
+          "subsections": [
+            "### ¿Me quieres solo a mí?",
+            "### Necesito que me asegures que todo está bien",
+            "### ¿Puedes ayudarme a sentirme más seguro/a?"
+          ]
+        },
+        {
+          "header": "## Building Trust",
+          "subsections": [
+            "### Confío en ti",
+            "### Quiero confiar completamente en ti",
+            "### ¿Cómo podemos construir más confianza?"
+          ]
+        },
+        {
+          "header": "## Giving Reassurance",
+          "subsections": [
+            "### Solo tengo ojos para ti",
+            "### Eres el único/la única para mí",
+            "### No tienes nada de qué preocuparte",
+            "### Mi corazón es tuyo"
+          ]
+        },
+        {
+          "header": "## Setting Healthy Boundaries",
+          "subsections": [
+            "### Los celos están afectando nuestra relación",
+            "### Necesito mi espacio personal",
+            "### Confiar es importante para mí"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "465b7b80-b2cf-4903-99c1-5bfe6a36f7f1",
+      "title": "Grammaire norvegienne : les bases essentielles pour debutants",
+      "native_lang": "fr",
+      "target_lang": "no",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## L'ordre des mots",
+          "subsections": [
+            "### Phrase affirmative",
+            "### Le verbe en deuxième position (V2)"
+          ]
+        },
+        {
+          "header": "## Le passe",
+          "subsections": [
+            "### Le preterit (passe simple)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "465e121f-4e5d-4010-8fcf-2bdcca3aabea",
+      "title": "Swedish Proposal & Engagement Phrases: How to Pop the Question",
+      "native_lang": "en",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Ways to Propose",
+          "subsections": [
+            "### The Classic Proposal",
+            "### More Romantic Variations"
+          ]
+        },
+        {
+          "header": "## Preparing Your Proposal",
+          "subsections": [
+            "### Practice Tips",
+            "### Setting the Scene"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "465fce1c-26aa-4409-adeb-769ecebae3d2",
+      "title": "Російські фрази для примирення після сварки",
+      "native_lang": "uk",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Щирі вибачення",
+          "subsections": [
+            "### \"Прости меня\"",
+            "### \"Извини, пожалуйста\"",
+            "### \"Я был неправ / была неправа, мне очень жаль\""
+          ]
+        },
+        {
+          "header": "## Визнання провини",
+          "subsections": [
+            "### \"Мне не стоило это говорить\"",
+            "### \"Я был/была несправедлив/несправедлива к тебе\"",
+            "### \"Я беру на себя ответственность\""
+          ]
+        },
+        {
+          "header": "## Вираження любові",
+          "subsections": [
+            "### \"Я люблю тебя и не хочу ссориться\"",
+            "### \"Ты для меня всё\"",
+            "### \"Ненавижу, когда мы ссоримся\""
+          ]
+        },
+        {
+          "header": "## Прохання та обіцянки",
+          "subsections": [
+            "### \"Ты можешь меня простить?\"",
+            "### \"Обещаю исправиться\"",
+            "### \"Это больше не повторится\""
+          ]
+        },
+        {
+          "header": "## Відновлення зв'язку",
+          "subsections": [
+            "### \"Давай начнём сначала?\"",
+            "### \"Давай оставим это позади\"",
+            "### \"Хочу, чтобы у нас всё было хорошо\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "466c0d9e-c8a2-4402-8606-e744b3d85181",
+      "title": "Dán kifejezések érzelmi támogatáshoz és vigasztaláshoz",
+      "native_lang": "hu",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető vigasztaló kifejezések",
+          "subsections": [
+            "### Jeg er her for dig",
+            "### Det kommer til at gå godt",
+            "### Alt skal nok gå",
+            "### Jeg er så ked af det, du går igennem"
+          ]
+        },
+        {
+          "header": "## Empátia kifejezése",
+          "subsections": [
+            "### Jeg forstår, hvordan du har det",
+            "### Det må være virkelig svært",
+            "### Dine følelser er helt berettigede",
+            "### Det er okay at føle sådan"
+          ]
+        },
+        {
+          "header": "## Támogatás felajánlása",
+          "subsections": [
+            "### Hvad har du brug for lige nu?",
+            "### Hvordan kan jeg hjælpe dig?",
+            "### Jeg er her for at lytte",
+            "### Tag al den tid, du har brug for"
+          ]
+        },
+        {
+          "header": "## Gyász és veszteség",
+          "subsections": [
+            "### Jeg er så ked af dit tab",
+            "### Han/Hun vil altid være i dit hjerte",
+            "### Min dybeste medfølelse",
+            "### Kondolerer"
+          ]
+        },
+        {
+          "header": "## Nehéz időkben",
+          "subsections": [
+            "### Du er ikke alene i det her",
+            "### Vi kommer igennem det her sammen",
+            "### Du er stærkere, end du tror",
+            "### Det her går også over"
+          ]
+        },
+        {
+          "header": "## Bátorítás",
+          "subsections": [
+            "### Jeg tror på dig",
+            "### Du kan klare det her",
+            "### Jeg er stolt af dig"
+          ]
+        },
+        {
+          "header": "## Szeretetteljes kifejezések",
+          "subsections": [
+            "### Jeg elsker dig, skat",
+            "### Jeg vil altid være her for dig"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "466d6181-331b-40c7-bdb3-5e3af4b4e6a1",
+      "title": "Dänische Ich-vermisse-dich-Sprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlegende Ausdrücke",
+          "subsections": [
+            "### \"Jeg savner dig\"",
+            "### \"Jeg savner dig så meget\"",
+            "### \"Jeg kan ikke stoppe med at tænke på dig\""
+          ]
+        },
+        {
+          "header": "## Emotionale Ausdrücke",
+          "subsections": [
+            "### \"Jeg ville ønske, du var her\"",
+            "### \"Hvert øjeblik uden dig føles som en evighed\"",
+            "### \"Mit hjerte længes efter dig\"",
+            "### \"Det føles tomt uden dig\""
+          ]
+        },
+        {
+          "header": "## Liebevolle Nachrichten",
+          "subsections": [
+            "### \"Jeg tæller dagene til jeg ser dig igen\"",
+            "### \"Du er min første tanke om morgenen og min sidste om aftenen\"",
+            "### \"Afstanden betyder intet, når nogen betyder alt\""
+          ]
+        },
+        {
+          "header": "## Tröstende Worte",
+          "subsections": [
+            "### \"Snart er vi sammen igen\"",
+            "### \"Vores kærlighed er stærkere end enhver afstand\"",
+            "### \"Selv langt væk er du altid i mit hjerte\""
+          ]
+        },
+        {
+          "header": "## Für besondere Momente",
+          "subsections": [
+            "### \"Jeg savner dit smil, din latter, alt ved dig\"",
+            "### \"Ingen kan sammenlignes med dig\"",
+            "### \"Du er uerstattelig\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "466ef260-1c6b-47ec-88d6-d066a2d13961",
+      "title": "Portugál Szerelmes Levél Írása Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kezdő Kifejezések",
+          "subsections": [
+            "### 1. Meu amor",
+            "### 2. Meu querido / Minha querida",
+            "### 3. Meu coração"
+          ]
+        },
+        {
+          "header": "## Érzelmek Kifejezése",
+          "subsections": [
+            "### 4. Amo-te mais do que tudo no mundo",
+            "### 5. És a luz da minha vida",
+            "### 6. O meu coração pertence-te",
+            "### 7. A cada dia amo-te mais",
+            "### 8. És o meu sonho tornado realidade",
+            "### 9. Tenho uma saudade imensa de ti",
+            "### 10. Não consigo imaginar a minha vida sem ti"
+          ]
+        },
+        {
+          "header": "## Záró Kifejezések",
+          "subsections": [
+            "### 11. Teu/Tua para sempre",
+            "### 12. Com todo o meu amor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "46719e81-67a8-4c47-938b-f4afe7402097",
+      "title": "Preguntas en Polaco: Cómo Formularlas",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Preguntas Esenciales para Parejas",
+          "subsections": [
+            "### Sobre Sentimientos y Emociones",
+            "### Sobre la Vida Diaria y Planes",
+            "### Sobre la Relación"
+          ]
+        },
+        {
+          "header": "## Patrones de Preguntas Avanzadas",
+          "subsections": [
+            "### Preguntas con Preposiciones",
+            "### Preguntas Complejas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "468a476a-2156-4641-8c90-61e4c3a1f557",
+      "title": "Szwedzkie zwroty do kłótni i nieporozumień dla par",
+      "native_lang": "pl",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Wyrażanie niezgody",
+          "subsections": [
+            "### \"Jag håller inte med dig\"",
+            "### \"Jag ser det annorlunda\"",
+            "### \"Kan vi prata om det här lugnt?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie uczuć",
+          "subsections": [
+            "### \"Jag känner mig frustrerad när...\"",
+            "### \"Det här stör mig verkligen\"",
+            "### \"Jag behöver lite tid för mig själv\""
+          ]
+        },
+        {
+          "header": "## Zrozumienie partnera",
+          "subsections": [
+            "### \"Hjälp mig förstå din synvinkel\"",
+            "### \"Om jag förstår dig rätt...\"",
+            "### \"Menar du att...?\""
+          ]
+        },
+        {
+          "header": "## Szukanie rozwiązań",
+          "subsections": [
+            "### \"Hur kan vi lösa det här tillsammans?\"",
+            "### \"Låt oss hitta en kompromiss\"",
+            "### \"Jag tror att vi båda behöver...\""
+          ]
+        },
+        {
+          "header": "## Łagodzenie napięcia",
+          "subsections": [
+            "### \"Jag älskar dig, även när vi bråkar\"",
+            "### \"Vi klarar det här tillsammans\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "468b8038-643d-485f-a2ba-505c43fbdd36",
+      "title": "Guide de prononciation grecque pour débutants : Parlez comme un(e) natif avec votre partenaire",
+      "native_lang": "fr",
+      "target_lang": "el",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Les erreurs qui font sourire (et comment les éviter)",
+          "subsections": [
+            "### 1. Le piège de \"ει\" et \"οι\"",
+            "### 2. Le \"γ\" mouvant",
+            "### 3. Les doubles consonnes"
+          ]
+        },
+        {
+          "header": "## Exercices de prononciation pour couples",
+          "subsections": [
+            "### 1. Le jeu des émotions",
+            "### 2. Les mots doux du soir"
+          ]
+        }
+      ]
+    }
+  ]
+}

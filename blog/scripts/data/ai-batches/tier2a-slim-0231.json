@@ -1,0 +1,435 @@
+{
+  "batchId": "tier2a-slim-0231",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "e855a68b-424c-4448-b9d9-ffcce07227d9",
+      "title": "Frases en Italiano: Amor y Romance",
+      "native_lang": "es",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ejercicios de Práctica para Parejas",
+          "subsections": [
+            "### Ideas de Desafíos Diarios:",
+            "### Escenarios de Juego de Roles:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e85ed6f2-6c43-4c74-be6e-51805fafa9bf",
+      "title": "Conjugacao de Verbos em Frances: O Basico para Casais",
+      "native_lang": "pt",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Verbos Irregulares Essenciais",
+          "subsections": [
+            "### Etre (Ser/Estar)",
+            "### Avoir (Ter)",
+            "### Faire (Fazer)"
+          ]
+        },
+        {
+          "header": "## Exercicios para Praticar Juntos",
+          "subsections": [
+            "### Jogo de Conjugacao",
+            "### Diario Compartilhado"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e885e03a-8b04-45ac-9787-760dce8ff47b",
+      "title": "Rumunské fráze pro setkání s rodiči partnera",
+      "native_lang": "cs",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## První setkání",
+          "subsections": [
+            "### \"Îmi pare foarte bine să vă cunosc.\"",
+            "### \"[Partner] mi-a povestit mult despre dumneavoastră.\"",
+            "### \"Vă mulțumesc foarte mult pentru invitație.\"",
+            "### \"Aveți o casă foarte frumoasă.\""
+          ]
+        },
+        {
+          "header": "## U jídla",
+          "subsections": [
+            "### \"Este delicios! Aș putea să am rețeta?\"",
+            "### \"Totul arată minunat.\""
+          ]
+        },
+        {
+          "header": "## Projevení zájmu",
+          "subsections": [
+            "### \"Mi-ar plăcea să văd poze cu [partner] din copilărie.\"",
+            "### \"Cum v-ați cunoscut?\""
+          ]
+        },
+        {
+          "header": "## Nabídka pomoci",
+          "subsections": [
+            "### \"Pot să ajut cu ceva?\"",
+            "### \"Permiteți-mi să vă ajut cu vasele.\""
+          ]
+        },
+        {
+          "header": "## Rozloučení",
+          "subsections": [
+            "### \"Vă mulțumesc pentru o seară minunată.\"",
+            "### \"Sper să ne revedem curând.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e8862c89-1c02-4d93-a5a9-0acb9007461b",
+      "title": "Expresii de Suport Emoțional în Spaniolă pentru Români",
+      "native_lang": "ro",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii de Confort",
+          "subsections": [
+            "### Prezență și Ascultare",
+            "### Validare Emoțională",
+            "### Încurajare",
+            "### Ajutor Concret"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e887a8c9-190d-4df3-b50f-50ee6cd182c9",
+      "title": "Godmorgen og Godnat på Hollandsk: Søde Fraser til Din Partner",
+      "native_lang": "da",
+      "target_lang": "nl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Tekstbeskeder",
+          "subsections": [
+            "### Morgenbeskeder",
+            "### Aftenbeskeder"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e88b3518-1781-4e51-be72-9e6758527944",
+      "title": "Conjugación de Verbos en Francés",
+      "native_lang": "es",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Juegos de Conjugación Divertidos para Parejas",
+          "subsections": [
+            "### Juego 1: Citas Rápidas de Conjugación",
+            "### Juego 2: Creación de Historia de Amor",
+            "### Juego 3: Conjugación de Rutina Matutina"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e8a4917c-0a06-427b-bd96-24d716b7faba",
+      "title": "Τσεχικές Φράσεις για Διαφωνίες: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις για Διαφωνίες",
+          "subsections": [
+            "### Έκφραση Διαφωνίας",
+            "### Αίτηση για Κατανόηση",
+            "### Έκφραση Συναισθημάτων",
+            "### Αναζήτηση Λύσης"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e8b12497-5872-49fb-ad8d-8b92f7ad5d55",
+      "title": "İsveççe Aşk Mektubu Yazma: Romantik İfadeler",
+      "native_lang": "tr",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Mektuba Başlangıç",
+          "subsections": [
+            "### 1. \"Kära\" + isim",
+            "### 2. \"Min älskade\"",
+            "### 3. \"Mitt hjärta\""
+          ]
+        },
+        {
+          "header": "## Duygu İfadeleri",
+          "subsections": [
+            "### 4. \"Jag älskar dig mer än ord kan beskriva\"",
+            "### 5. \"Du är mitt allt\"",
+            "### 6. \"Mitt liv förändrades den dagen jag träffade dig\"",
+            "### 7. \"Du gör varje dag speciell\"",
+            "### 8. \"Jag är tacksam för varje ögonblick med dig\""
+          ]
+        },
+        {
+          "header": "## Mektubu Bitirme",
+          "subsections": [
+            "### 9. \"Med all min kärlek\"",
+            "### 10. \"För evigt din\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e8c8ac4e-7976-4c5f-86d6-e0363b6d77d6",
+      "title": "Tschechische Ich-vermisse-dich-Sprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlegende Ausdrücke",
+          "subsections": [
+            "### \"Chybíš mi\"",
+            "### \"Moc mi chybíš\"",
+            "### \"Nemůžu přestat myslet na tebe\""
+          ]
+        },
+        {
+          "header": "## Emotionale Ausdrücke",
+          "subsections": [
+            "### \"Kéž bys tu byl\" / \"Kéž bys tu byla\"",
+            "### \"Každý okamžik bez tebe je jako věčnost\"",
+            "### \"Moje srdce touží po tobě\"",
+            "### \"Bez tebe cítím prázdnotu\""
+          ]
+        },
+        {
+          "header": "## Liebevolle Nachrichten",
+          "subsections": [
+            "### \"Počítám dny do našeho setkání\"",
+            "### \"Jsi moje první myšlenka ráno a poslední večer\"",
+            "### \"Vzdálenost neznamená nic, když někdo znamená všechno\""
+          ]
+        },
+        {
+          "header": "## Tröstende Worte",
+          "subsections": [
+            "### \"Brzy budeme zase spolu\"",
+            "### \"Naše láska je silnější než jakákoli vzdálenost\"",
+            "### \"I daleko od sebe jsi vždy v mém srdci\""
+          ]
+        },
+        {
+          "header": "## Für besondere Momente",
+          "subsections": [
+            "### \"Chybí mi tvůj úsměv, tvůj smích, všechno\"",
+            "### \"Nikdo se ti nevyrovná\"",
+            "### \"Jsi nenahraditelná\" / \"Jsi nenahraditelný\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e8e1c9bf-c9f8-44eb-9a36-0d253fa4a1fd",
+      "title": "Ukrán kiejtési útmutató kezdőknek: Hogyan ejtsd romantikus szavaidat tökéletesen",
+      "native_lang": "hu",
+      "target_lang": "uk",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Az ukrán ábécé és kiejtése",
+          "subsections": [
+            "### Magánhangzók - A romantika alapjai",
+            "### Fontos mássalhangzók"
+          ]
+        },
+        {
+          "header": "## Párok számára fontos szavak kiejtése",
+          "subsections": [
+            "### Romantikus kifejezések helyes kiejtése",
+            "### Gyakorló mondatok pároknak"
+          ]
+        },
+        {
+          "header": "## A leggyakoribb kiejtési hibák - És hogyan kerüld el őket",
+          "subsections": [
+            "### 1. A \"г\" betű kiejtése",
+            "### 2. Az \"и\" és \"і\" összekeverése",
+            "### 3. A hangsúly helytelen elhelyezése"
+          ]
+        },
+        {
+          "header": "## Kiejtési gyakorlatok pároknak",
+          "subsections": [
+            "### 1. Tükörgyakorlat",
+            "### 2. Hangfelvétel módszer",
+            "### 3. Az érzelmi skála"
+          ]
+        },
+        {
+          "header": "## Gyors kiejtési csalólap - Mentsd le a telefonodra!",
+          "subsections": [
+            "### Legfontosabb romantikus szavak",
+            "### Hasznos kifejezések"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e8e26b2c-0439-40c8-b34a-d0e741661a7f",
+      "title": "100 самых важных нидерландских слов для пар",
+      "native_lang": "ru",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Обращения",
+          "subsections": [
+            "### 1. Ik / Jij / Wij",
+            "### 2. Schat / Lieverd / Mijn liefde"
+          ]
+        },
+        {
+          "header": "## Чувства",
+          "subsections": [
+            "### 3. Liefde / Blij / Verdrietig"
+          ]
+        },
+        {
+          "header": "## Действия",
+          "subsections": [
+            "### 4. Eten / Drinken / Slapen",
+            "### 5. Gaan / Komen / Blijven"
+          ]
+        },
+        {
+          "header": "## Время",
+          "subsections": [
+            "### 6. Vandaag / Morgen / Gisteren"
+          ]
+        },
+        {
+          "header": "## Важные фразы",
+          "subsections": [
+            "### 7. Ik hou van je",
+            "### 8. Ik mis je",
+            "### 9. Dank je / Sorry / Alsjeblieft",
+            "### 10. Ja / Nee",
+            "### 11. Kus / Knuffel",
+            "### 12. Welterusten"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e8e2f942-9467-4cf7-9959-42be360c6e2d",
+      "title": "Привітання з днем народження російською для коханої людини",
+      "native_lang": "uk",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика",
+          "subsections": []
+        },
+        {
+          "header": "## Романтичні привітання з днем народження",
+          "subsections": [
+            "### Класичні побажання"
+          ]
+        },
+        {
+          "header": "## Як написати ідеальне привітання",
+          "subsections": [
+            "### Структура:",
+            "### Приклад російською:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e8f5fac1-f306-487f-8187-8965815ae4bb",
+      "title": "Φράσεις Φλερτ στα Τουρκικά",
+      "native_lang": "el",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις Φλερτ",
+          "subsections": [
+            "### 1. Çok güzelsin (Τσοκ γκιουζέλσιν)",
+            "### 2. Gözlerin çok güzel (Γκιοζλερίν τσοκ γκιουζέλ)",
+            "### 3. Seninle tanışabilir miyim? (Σενινλέ τανισαμπιλίρ μιγίμ;)",
+            "### 4. Senden hoşlanıyorum (Σεντέν χοσλανιγιορούμ)",
+            "### 5. Bir kahve içmek ister misin? (Μπιρ καχβέ ιτσμέκ ιστέρ μισίν;)",
+            "### 6. Gülüşün muhteşem (Γκιουλουσούν μουχτεσέμ)",
+            "### 7. Seni tekrar görmek istiyorum (Σενί τεκράρ γκιορμέκ ιστιγιορούμ)",
+            "### 8. Çok tatlısın (Τσοκ τατλισίν)",
+            "### 9. Kalbimi çaldın (Καλμπιμί τσαλντίν)",
+            "### 10. Numaranı alabilir miyim? (Νουμαρανί αλαμπιλίρ μιγίμ;)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e9019f09-1ea0-4f03-ab1c-16695b742faf",
+      "title": "30+ Rumænske Komplimenter til Din Partner: Romantiske Fraser",
+      "native_lang": "da",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Komplimenter til Specielle Lejligheder",
+          "subsections": [
+            "### Til en Date",
+            "### Ved Milepæle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e90ccd5d-fb0f-4293-841a-ff6444d91dbc",
+      "title": "Hiányzol Kifejezések Franciául – Tu Me Manques és Más",
+      "native_lang": "hu",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Hiányzol Kifejezések",
+          "subsections": [
+            "### 1. Tu me manques",
+            "### 2. Tu me manques beaucoup",
+            "### 3. Tu me manques terriblement",
+            "### 4. Je n'arrête pas de penser à toi",
+            "### 5. Si seulement tu étais là",
+            "### 6. Mon cœur est vide sans toi",
+            "### 7. Je compte les jours jusqu'à notre rencontre",
+            "### 8. Tu es toujours dans mes pensées",
+            "### 9. Je languis de toi",
+            "### 10. Tu me manques à chaque instant"
+          ]
+        },
+        {
+          "header": "## Kulturális Tippek",
+          "subsections": [
+            "### A Francia Szerkezet",
+            "### Romantikus Kultúra",
+            "### Tegezés és Magázás"
+          ]
+        }
+      ]
+    }
+  ]
+}

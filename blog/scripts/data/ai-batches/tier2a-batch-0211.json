@@ -1,0 +1,118 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0211",
+  "articles": [
+    {
+      "id": "3bb07da8-bc69-4245-934f-a368d60de95b",
+      "title": "Φράσεις για το Πρώτο Ραντεβού (ro): Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "ro",
+      "category": "communication",
+      "content": "Το πρώτο ραντεβού είναι συναρπαστικό! Αυτές οι φράσεις θα σας βοηθήσουν να εντυπωσιάσετε.\n\n## Βασικές Φράσεις\n\n### Γνωριμία\n\nΧαίρομαι που σε γνωρίζω, Είσαι υπέροχος/η, Περίμενα αυτή τη στιγμή.\n\n### Συζήτηση\n\nΠες μου για σένα, Τι σου αρέσει να κάνεις, Αυτό είναι ενδιαφέρον!\n\n### Φλερτ\n\nΈχεις υπέροχο χαμόγελο, Νιώθω κάτι ξεχωριστό, Περνάω υπέροχα.\n\n### Κλείσιμο\n\nΘα ήθελα να σε ξαναδώ, Μπορώ να σε πάρω, Ήταν υπέροχη βραδιά.\n\n## Συμπέρασμα\n\nΜε σεβασμό και αυθεντικότητα, θα κάνετε το πρώτο σας ραντεβού αξέχαστο!",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 79,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Βασικές Φράσεις"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "3bc18cd7-08b5-42b9-bf89-4d64da0fd4bb",
+      "title": "Hogyan mondjuk hollandul, hogy szeretlek: 12 romantikus mód párként",
+      "native_lang": "hu",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nAmikor holland partnerednek szeretnéd kimutatni az érzelmeidet, a legfontosabb mondat: \"szeretlek\". De tudtad, hogy a holland nyelv tele van gyönyörű, romantikus módokkal kifejezni ezt az érzést? Akár egy éve együtt vagytok, akár most kezdődik a kapcsolatotok, ezek a kifejezések segítenek elmélyíteni a köteléketeket. Ha [romantikus holland kifejezéseket](/learn/hu/nl/romantic-dutch-phrases-for-every-occasion/) keresel minden alkalomra, ez a cikk tökéletes kiindulópont.\n\n<PhraseOfDay\n  word=\"Ik hou van jou\"\n  translation=\"Szeretlek téged\"\n  pronunciation=\"ik hau vahn yow\"\n  context=\"A legklasszikusabb és leggyakoribb szerelmi vallomás hollandul. Használd bátran minden nap!\"\n/>\n\n## A legegyszerűbb válasz\n\n### Ik hou van jou\n**Kiejtés:** ik hau vahn yow\n**Jelentés:** Szeretlek téged\n\nEz a legismertebb és legfontosabb módja annak, hogy hollandul kimondjad: szeretlek. A holland nyelvben ez a kifejezés minden romantikus kapcsolat alapja. Tudj meg többet a [holland kiejtés alapjairól](/learn/hu/nl/pronunciation-guide-for-beginners/)!\n\n<VocabCard\n  word=\"hou\"\n  translation=\"szeretek\"\n  pronunciation=\"hau\"\n  example=\"Ik hou van jou, schat.\"\n/>\n\n## Formális vs. Informális használat\n\n| Formális | Informális | Használat |\n|----------|------------|-----------|\n| Ik heb veel respect voor u | Ik hou van jou | Idősebbek, munkahely |\n| Ik waardeer u zeer | Ik ben dol op je | Barátok, partnered |\n\n<CultureTip flag=\"🇳🇱\" title=\"Holland udvariasság\">\nA hollandok általában közvetlenek, de fontos a formális és informális tegezés közötti különbség. Partnereddel mindig használhatod az informális formát!\n</CultureTip>\n\n## Romantikus variációk (8 mód)\n\n| Holland kifejezés | Kiejtés | Magyar jelentés | Használati kontextus |\n|-------------------|---------|-----------------|---------------------|\n| **Ik ben verliefd op jou** | ik ben ver-leefd op yow | Beléd szerettem | Amikor először mondod el |\n| **Ik vind je lief** | ik vind yuh leef | Édesnek talállak | Hétköznapi, aranyos |\n| **Ik ben gek op jou** | ik ben ghek op yow | Megőrülök érted | Játékos, szeretetteljes |\n| **Jij bent mijn alles** | yay bent mayn AHL-les | Te vagy mindenem | Nagyon romantikus |\n| **Ik kan niet zonder jou** | ik kahn neet ZOHN-der yow | Nem tudok nélküled élni | Drámai szerelmi vallomás |\n| **Jij maakt me gelukkig** | yay mahkt muh geh-LUHK-kikh | Boldoggá teszel | Hálás szeretet |\n| **Ik heb je nodig** | ik heb yuh NOH-dikh | Szükségem van rád | Amikor hiányzik partnered |\n| **Jij bent de liefde van mijn leven** | yay bent deh LEEF-deh vahn mayn LEH-vehn | Te vagy az életem szerelme | Végleges szerelmi nyilatkozat |\n\n<VocabCard\n  word=\"verliefd\"\n  translation=\"szerelmes\"\n  pronunciation=\"ver-leefd\"\n  example=\"Ik ben verliefd op jou.\"\n/>\n\n<VocabCard\n  word=\"liefde\"\n  translation=\"szerelem\"\n  pronunciation=\"LEEF-deh\"\n  example=\"Onze liefde is sterk.\"\n/>\n\n## Regionális különbségek\n\nAmi Hollandiában így hangzik: \"Ik hou van jou\", Belgium flamand részén gyakran \"Ik zie u graag\" (ik zee oo ghrahgh) formában is hallható. Mindkettő ugyanazt jelenti, de a flamand változat kicsit formálisabb hangzású.\n\n## Gyakori hibák\n\n❌ **Ik hou van je** - Hiányzik a \"jou\" hangsúlya\n✅ **Ik hou van jou** - Helyes formában\n\n❌ **Ik love jou** - Angol szó bekeverése\n✅ **Ik hou van jou** - Tiszta holland\n\n<CultureTip flag=\"🇳🇱\" title=\"Holland közvetlenség\">\nA hollandok nyíltan kimondják az érzéseiket. Ne félj gyakran mondani partnerednek, hogy szereted őt – ez teljesen természetes náluk!\n</CultureTip>\n\n## Mondatokban való használat\n\n1. **\"Ik hou van jou, ook al ben je soms lastig.\"**\n   *Szeretlek, még akkor is, ha néha nehéz természetű vagy.*\n   [kiejtés]: ik hau vahn yow, ohk ahl ben yuh SOM-s LAH-stikh\n\n2. **\"Weet je dat ik echt van jou hou?\"**\n   *Tudod, hogy tényleg szeretlek téged?*\n   [kiejtés]: vayt yuh daht ik ehkht vahn yow hau?\n\n3. **\"Ik hou zoveel van jou, mijn schat.\"**\n   *Annyira szeretlek, édesem.*\n   [kiejtés]: ik hau zoh-vayl vahn yow, mayn skhaht\n\n4. **\"Elke dag hou ik meer van jou.\"**\n   *Minden nap egyre jobban szeretlek.*\n   [kiejtés]: EHL-keh dahgh hau ik mayr vahn yow\n\n5. **\"Jij bent degene van wie ik hou.\"**\n   *Te vagy az, akit szeretek.*\n   [kiejtés]: yay bent deh-HEH-neh vahn vee ik hau\n\n## Kapcsolódó kifejezések\n\n| Holland | Kiejtés | Magyar |\n|---------|---------|--------|\n| **Ik mis je** | ik mis yuh | Hiányzol |\n| **Denk aan jou** | denk ahn yow | Rád gondolok |\n| **Jouw glimlach maakt mijn dag** | yow GLIM-lahch mahkt mayn dahgh | A mosolyod bearanyozza a napom |\n| **Samen voor altijd** | SAH-men fohr AHL-tayft | Együtt örökre |\n| **Jij bent mijn soulmate** | yay bent mayn SOHL-mayt | Te vagy a lelkitársam |\n\nHa szeretnél még több romantikus szót tanulni, nézd meg a [holland édesnevek gyűjteményét partnerednek](/learn/hu/nl/dutch-pet-names-for-your-partner/).\n\n## Záró gondolatok\n\nA \"szeretlek\" kimondása hollandul nem csak egy fordítás – ez egy szívélyes, őszinte kultúra kifejezése, amely értékeli a nyílt kommunikációt a kapcsolatokban. Gyakoroljátok együtt ezeket a kifejezéseket, és nézd meg, hogyan mélyül el a kapcsolatotok minden egyes szóval. A nyelvtanulás szeretetből a partneredért a legszebb ajándék, amit adhattok egymásnak.\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## A legegyszerűbb válasz"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "3bcf7593-874f-464b-b8bd-860e0a66e163",
+      "title": "Phrases de réconfort en allemand : Soutenir son partenaire",
+      "native_lang": "fr",
+      "target_lang": "de",
+      "category": "communication",
+      "content": "## Soutenir son partenaire en allemand\n\nLes Allemands peuvent sembler réservés mais apprécient le soutien sincère. Voici comment les réconforter.\n\n## Phrases de réconfort de base\n\n### \"Ich bin für dich da\"\n**Prononciation :** ich bin fur dich DA\n\n**Signification :** Je suis là pour toi\n\n### \"Alles wird gut\"\n**Prononciation :** A-léss virt GOUT\n\n**Signification :** Tout ira bien\n\n### \"Du bist damit nicht allein\"\n**Prononciation :** dou bist da-MIT nicht a-LAÏN\n\n**Signification :** Tu n'es pas seul(e) dans cette épreuve\n\n## Écouter et valider\n\n### \"Ich verstehe, wie du dich fühlst\"\n**Prononciation :** ich fér-CHTÉ-é vi dou dich FULST\n\n**Signification :** Je comprends ce que tu ressens\n\n### \"Es ist okay, so zu fühlen\"\n**Prononciation :** éss ist o-KÉ zo tsou FU-len\n\n**Signification :** C'est normal de ressentir ça\n\n### \"Deine Gefühle sind berechtigt\"\n**Prononciation :** DAÏ-né gué-FU-lé zint bé-RÉCH-tikt\n\n**Signification :** Tes sentiments sont légitimes\n\n## Offrir du soutien actif\n\n### \"Was kann ich tun, um dir zu helfen?\"\n**Prononciation :** vass kann ich TOUN oum dir tsou HÉL-fen\n\n**Signification :** Que puis-je faire pour t'aider ?\n\n### \"Ich bin immer hier, um zuzuhören\"\n**Prononciation :** ich bin I-mer HIER oum TSOU-tsou-heu-ren\n\n**Signification :** Je suis toujours là pour t'écouter\n\n### \"Nimm dir die Zeit, die du brauchst\"\n**Prononciation :** nim dir di TSAÏT di dou BRAOUCHST\n\n**Signification :** Prends le temps dont tu as besoin\n\n## Encouragement\n\n### \"Du bist stärker als du denkst\"\n**Prononciation :** dou bist CHTAR-ker alss dou DÉNKST\n\n**Signification :** Tu es plus fort(e) que tu ne le penses\n\n### \"Ich glaube an dich\"\n**Prononciation :** ich GLAO-bé an dich\n\n**Signification :** Je crois en toi\n\n### \"Du schaffst das\"\n**Prononciation :** dou CHAFST dass\n\n**Signification :** Tu vas y arriver\n\n## Moments difficiles\n\n### \"Es tut mir so leid, dass du das durchmachst\"\n**Prononciation :** éss tout mir zo LAÏT dass dou dass DOURK-makhst\n\n**Signification :** Je suis vraiment désolé(e) que tu traverses ça\n\n### \"Lass mich dich in den Arm nehmen\"\n**Prononciation :** lass mich dich in dén ARM NÉ-men\n\n**Signification :** Laisse-moi te prendre dans mes bras\n\n### \"Wir schaffen das zusammen\"\n**Prononciation :** vir CHA-fen dass tsou-ZA-men\n\n**Signification :** On va y arriver ensemble\n\n## Conseils culturels allemands\n\n**Sincérité :** Les Allemands apprécient l'honnêteté.\n\n**Actions concrètes :** Proposez une aide pratique.\n\n**Espace :** Respectez leur besoin de réflexion.\n\n## Conclusion\n\nLe soutien émotionnel en allemand est sincère et fiable. Montrez que vous êtes là, de façon constante et pratique.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Phrases de réconfort de base",
+              "## Écouter et valider",
+              "## Offrir du soutien actif",
+              "## Encouragement",
+              "## Moments difficiles"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "3bcfdaec-599d-4484-b1a7-818e14d20f4b",
+      "title": "Датские фразы для примирения",
+      "native_lang": "ru",
+      "target_lang": "da",
+      "category": "communication",
+      "content": "Датская культура с её понятием «hygge» (уют) ценит гармонию в отношениях. Примирение обычно проходит спокойно, с юмором и желанием восстановить комфорт.\n\n## Основные фразы для примирения\n\n### 1. Undskyld, jeg tog fejl\n**Произношение:** У́нскюль, яй то файль\n\n**Перевод:** Прости, я был/была неправ/неправа\n\nИскреннее признание ошибки.\n\n### 2. Kan vi blive venner igen?\n**Произношение:** Кан ви бли́вэ вэ́нэр иге́н?\n\n**Перевод:** Можем мы снова стать друзьями?\n\nПриглашение к примирению.\n\n### 3. Jeg ville ikke såre dig\n**Произношение:** Яй ви́лле и́ккэ со́рэ дай\n\n**Перевод:** Я не хотел/хотела тебя обидеть\n\nОбъяснение отсутствия злого умысла.\n\n### 4. Jeg elsker dig mere end dette skænderi\n**Произношение:** Яй э́льскэр дай мэ́рэ эн дэ́тэ скэ́нэри\n\n**Перевод:** Я люблю тебя больше, чем эта ссора\n\nНапоминание о приоритете любви.\n\n### 5. Lad os starte forfra\n**Произношение:** Ла ос ста́ртэ форфра́\n\n**Перевод:** Давай начнём сначала\n\nПредложение оставить прошлое позади.\n\n### 6. Jeg tilgiver dig\n**Произношение:** Яй ти́льгивэр дай\n\n**Перевод:** Я прощаю тебя\n\nОсвобождение от обиды.\n\n### 7. Hvad kan jeg gøre for at fikse det?\n**Произношение:** Ва кан яй гё́рэ фор ат фи́ксэ дэ?\n\n**Перевод:** Что я могу сделать, чтобы это исправить?\n\nГотовность к действиям.\n\n### 8. Jeg savner vores lykke\n**Произношение:** Яй са́внэр во́рэс лю́ккэ\n\n**Перевод:** Мне не хватает нашего счастья\n\nВыражение тоски по гармонии.\n\n### 9. Lad os ikke gå i seng vrede\n**Произношение:** Ла ос и́ккэ го и сэнг врэ́дэ\n\n**Перевод:** Давай не будем ложиться спать в гневе\n\nСтремление к примирению.\n\n### 10. Tak fordi du prøver at forstå mig\n**Произношение:** Так форди́ ду прё́вэр ат форсто́ май\n\n**Перевод:** Спасибо, что стараешься меня понять\n\nБлагодарность за усилия.\n\n## Культурные особенности\n\nДатчане ценят лёгкость и юмор даже в серьёзных ситуациях. Способность посмеяться над собой помогает разрядить обстановку. Обращение «Skat» (сокровище) или «Elskede» (любимый/любимая) добавляет теплоты.\n\nФраза «Det går nok» (Всё будет хорошо) — типично датский оптимистичный подход.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 298,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Основные фразы для примирения"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "3c1599f9-7ae0-49b9-a75d-9895aefecd94",
+      "title": "Ρωσικές Φράσεις Φλερτ για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "ru",
+      "category": "communication",
+      "content": "Η ρωσική γλώσσα είναι γνωστή για την εκφραστικότητά της και τον πλούτο των λέξεων που περιγράφουν συναισθήματα. Οι Ρώσοι είναι πολύ ρομαντικοί και εκτιμούν τις βαθιές εκφράσεις αγάπης.\n\n## Βασικές Φράσεις Φλερτ\n\n### 1. Ты прекрасна/прекрасен\n**Προφορά:** Τι πρεκράσνα/πρεκράσεν\n\n**Σημασία:** Είσαι υπέροχη/ος\n\nΧρησιμοποιήστε \"прекрасна\" για γυναίκα και \"прекрасен\" για άντρα.\n\n### 2. Ты сводишь меня с ума\n**Προφορά:** Τι σβόντις μενιά σ ουμά\n\n**Σημασία:** Με τρελαίνεις\n\nΈντονη έκφραση πάθους.\n\n### 3. У тебя красивая улыбка\n**Προφορά:** Ου τεμπιά κρασίβαγια ουλίμπκα\n\n**Σημασία:** Έχεις όμορφο χαμόγελο\n\nΈνα τρυφερό κομπλιμέντο.\n\n## Ρομαντικές Εκφράσεις\n\n### 4. Я не могу перестать думать о тебе\n**Προφορά:** Για νε μαγκού περεστάτ ντούματ ο τεμπέ\n\n**Σημασία:** Δεν μπορώ να σταματήσω να σκέφτομαι εσένα\n\nΓια ρομαντικά μηνύματα.\n\n### 5. Ты любовь всей моей жизни\n**Προφορά:** Τι λιουμπόβ φσέι μαέι ζίζνι\n\n**Σημασία:** Είσαι η αγάπη όλης μου της ζωής\n\nΓια σημαντικές δηλώσεις.\n\n### 6. Ты делаешь меня счастливым/счастливой\n**Προφορά:** Τι ντέλαγιες μενιά στσασλίβιμ/στσασλίβοϊ\n\n**Σημασία:** Με κάνεις ευτυχισμένο/η\n\nΑπλή και βαθιά έκφραση.\n\n## Παιχνιδιάρικες Φράσεις\n\n### 7. Иди сюда, милый/милая\n**Προφορά:** Ιντί σιουντά, μίλιϊ/μίλαγια\n\n**Σημασία:** Έλα εδώ, αγαπημένε/η\n\nΤρυφερή πρόσκληση.\n\n### 8. Ты неотразим/неотразима\n**Προφορά:** Τι νεοτραζίμ/νεοτραζίμα\n\n**Σημασία:** Είσαι ακαταμάχητος/η\n\nΔείχνει ότι δεν μπορείτε να αντισταθείτε.\n\n### 9. Мне так повезло, что ты есть\n**Προφορά:** Μνιε τακ ποβεζλό, στο τι γιεστ\n\n**Σημασία:** Είμαι τόσο τυχερός/ή που υπάρχεις\n\nΕκφράζει ευγνωμοσύνη.\n\n## Τρυφερές Στιγμές\n\n### 10. У тебя красивые глаза\n**Προφορά:** Ου τεμπιά κρασίβιγιε γκλαζά\n\n**Σημασία:** Έχεις όμορφα μάτια\n\nΚλασικό ρωσικό κομπλιμέντο.\n\n### 11. Я схожу по тебе с ума\n**Προφορά:** Για σχοζού πο τεμπέ σ ουμά\n\n**Σημασία:** Τρελαίνομαι για σένα\n\nΈντονη έκφραση πάθους.\n\n### 12. Каждый день я люблю тебя больше\n**Προφορά:** Κάζντιϊ ντεν για λιουμπλιού τεμπιά μπόλσε\n\n**Σημασία:** Κάθε μέρα σε αγαπώ περισσότερο\n\nΔείχνει αυξανόμενη αγάπη.\n\n## Ρωσικά Υποκοριστικά\n\n- **Милый/Милая** (μίλιϊ/μίλαγια) - Αγαπημένε/η\n- **Солнышко** (σόλνισκο) - Ηλιαχτίδα μου\n- **Зайка** (ζάικα) - Λαγουδάκι μου\n- **Котик/Котёнок** (κότικ/κοτιόνοκ) - Γατάκι μου\n\n## Πολιτιστικές Συμβουλές\n\n**Ειλικρίνεια:** Οι Ρώσοι εκτιμούν τη βαθιά συναισθηματική έκφραση.\n\n**Κυριλλικό αλφάβητο:** Μάθετε να διαβάζετε κυριλλικά για καλύτερη κατανόηση.\n\n**Υποκοριστικά:** Τα υποκοριστικά είναι πολύ σημαντικά στη ρωσική κουλτούρα.\n\nΗ ρωσική ψυχή είναι βαθιά και συναισθηματική. Εκφραστείτε από την καρδιά!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Βασικές Φράσεις Φλερτ",
+              "## Ρομαντικές Εκφράσεις",
+              "## Παιχνιδιάρικες Φράσεις",
+              "## Τρυφερές Στιγμές"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

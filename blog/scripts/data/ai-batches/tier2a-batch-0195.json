@@ -1,0 +1,118 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0195",
+  "articles": [
+    {
+      "id": "375d48ab-2cab-421f-af1d-02a74d1870f5",
+      "title": "Frases en Sueco para tu Primera Cita",
+      "native_lang": "es",
+      "target_lang": "sv",
+      "category": "communication",
+      "content": "Las citas con suecos valoran la calma y la sinceridad. Estas frases te ayudarán.\n\n## Frases para Romper el Hielo\n\n### \"Det är så kul att äntligen träffa dig\"\n**Pronunciación:** De e so kul at ENT-li-gen TRE-fa dey\n\n**Significado:** Es tan agradable conocerte por fin\n\n### \"Du ser fantastisk ut\"\n**Pronunciación:** Du ser fan-TAS-tisk ut\n\n**Significado:** Te ves fantástico/a\n\n### \"Jag har sett fram emot det här\"\n**Pronunciación:** Yag jar set fram e-MOT de jer\n\n**Significado:** Esperaba esto con ganas\n\n## Frases para Conocerse\n\n### \"Berätta om dig själv\"\n**Pronunciación:** be-RE-ta om dey shelv\n\n**Significado:** Cuéntame de ti\n\n### \"Vad gillar du att göra på fritiden?\"\n**Pronunciación:** Vad YI-lar du at YÖ-ra po FRI-ti-den\n\n**Significado:** ¿Qué te gusta hacer en tu tiempo libre?\n\n## Frases Románticas\n\n### \"Jag trivs verkligen\"\n**Pronunciación:** Yag trivs VERK-li-gen\n\n**Significado:** Realmente la paso bien\n\n### \"Du har ett fantastiskt leende\"\n**Pronunciación:** Du jar et fan-TAS-tiskt LE-en-de\n\n**Significado:** Tienes una sonrisa fantástica\n\n### \"Jag känner mig bekväm med dig\"\n**Pronunciación:** Yag CHEN-er mey be-KVEM med dey\n\n**Significado:** Me siento cómodo/a contigo\n\n## Frases para Terminar\n\n### \"Det var en underbar kväll\"\n**Pronunciación:** De var en UN-der-bar kvell\n\n**Significado:** Fue una noche maravillosa\n\n### \"Kan vi ses igen?\"\n**Pronunciación:** Kan vi ses i-YEN\n\n**Significado:** ¿Podemos vernos de nuevo?\n\n### \"Meddela mig när du kommit hem\"\n**Pronunciación:** me-DE-la mey ner du KO-mit jem\n\n**Significado:** Avísame cuando llegues a casa\n\n## Conclusión\n\nLas citas suecas son tranquilas pero significativas.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 240,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frases para Romper el Hielo",
+              "## Frases para Conocerse",
+              "## Frases Románticas",
+              "## Frases para Terminar"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "37651d4d-fc44-430d-b020-7b5f447fd394",
+      "title": "Βασικά Ισπανικά Γραμματική: Μάθε να μιλάς για τον έρωτά σου",
+      "native_lang": "el",
+      "target_lang": "es",
+      "category": "grammar",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport ConjugationTable from '@components/ConjugationTable.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΞεκινάτε το ταξίδι σας στα Ισπανικά μαζί με τον σύντροφό σας; Η γραμματική μπορεί να φαίνεται τρομακτική, αλλά εδώ θα μάθετε τα βασικά με τον πιο απλό και ρομαντικό τρόπο. Μέχρι το τέλος αυτού του άρθρου, θα μπορείτε να σχηματίσετε απλές προτάσεις για να εκφράσετε τα συναισθήματά σας στα Ισπανικά!\n\n<PhraseOfDay\n  word=\"Te quiero\"\n  translation=\"Σ' αγαπώ\"\n  pronunciation=\"teh KYEH-roh\"\n  context=\"Η πιο τρυφερή φράση που θα χρησιμοποιήσετε ξανά και ξανά με τον σύντροφό σας.\"\n/>\n\n## Η Απλή Εξήγηση: Πώς λειτουργεί η Ισπανική Γραμματική\n\nΣκεφτείτε την ισπανική γραμματική σαν έναν χάρτη αγάπης. Όπως μαθαίνετε να βρίσκετε το δρόμο σας σε μια νέα πόλη μαζί, έτσι μαθαίνετε και τη γραμματική. Τα βασικά είναι απλά:\n\n- Τα ουσιαστικά έχουν γένος (αρσενικό/θηλυκό)\n- Τα ρήματα αλλάζουν ανάλογα με το υποκείμενο\n- Η σειρά των λέξεων είναι παρόμοια με τα Ελληνικά\n\n## Τα 5 Βασικά Κανόνια για Ζευγάρια\n\n### 1. Το Γένος των Ουσιαστικών\n\nΤα ουσιαστικά που τελειώνουν σε **-o** είναι συνήθως αρσενικά, ενώ αυτά που τελειώνουν σε **-a** είναι συνήθως θηλυκά.\n\n<VocabCard\n  word=\"novio\"\n  translation=\"αγόρι/σύντροφος\"\n  pronunciation=\"NOH-bee-oh\"\n  example=\"Mi novio es muy cariñoso.\"\n/>\n\n<VocabCard\n  word=\"novia\"\n  translation=\"κορίτσι/σύντροφος\"\n  pronunciation=\"NOH-bee-ah\"\n  example=\"Mi novia es muy inteligente.\"\n/>\n\n### 2. Το Άρθρο πρέπει να ταιριάζει\n\nΤο άρθρο πρέπει να συμφωνεί σε γένος και αριθμό με το ουσιαστικό.\n\n| Άρθρο | Χρήση | Παράδειγμα |\n|--------|--------|------------|\n| **el** | αρσενικό ενικό | el amor (ο έρωτας) |\n| **la** | θηλυκό ενικό | la pareja (το ζευγάρι) |\n| **los** | αρσενικό πληθυντικό | los besos (τα φιλιά) |\n| **las** | θηλυκό πληθυντικό | las flores (τα λουλούδια) |\n\n### 3. Ρήματα: Οι 3 Κατηγορίες\n\nΤα ισπανικά ρήματα χωρίζονται σε 3 κατηγορίες που τελειώνουν σε **-ar**, **-er**, **-ir**.\n\n<CultureTip flag=\"🇪🇸\" title=\"Κοινή Χρήση για Ζευγάρια\">\nΣτα Ισπανικά, χρησιμοποιούμε περισσότερο τις προσωπικές αντωνυμίες από ότι στα Ελληνικά για έμφαση, ειδικά όταν εκφράζουμε συναισθήματα.\n</CultureTip>\n\n### 4. Η Προσωπική Αντωνυμία (υποκείμενο)\n\n<ConjugationTable\n  verb=\"hablar\"\n  meaning=\"μιλάω\"\n  conjugations={[\n    { person: \"Yo\", polish: \"hablo\", english: \"μιλάω\" },\n    { person: \"Tú\", polish: \"hablas\", english: \"μιλάς\" },\n    { person: \"Él/Ella\", polish: \"habla\", english: \"μιλάει\" },\n    { person: \"Nosotros\", polish: \"hablamos\", english: \"μιλάμε\" },\n    { person: \"Vosotros\", polish: \"habláis\", english: \"μιλάτε\" },\n    { person: \"Ellos\", polish: \"hablan\", english: \"μιλάνε\" }\n  ]}\n/>\n\n### 5. Οι Ερωτήσεις είναι Απλές\n\nΣτα Ισπανικά, οι ερωτήσεις σχηματίζονται με ύψωση της φωνής στο τέλος της πρότασης.\n\n## Ρομαντικά Παραδείγματα για Καθημερινή Χρήση\n\n| Ισπανική Φράση | Μετάφραση | Γραμματική Σημείωση |\n|----------------|-----------|---------------------|\n| **Te amo** | Σ' αγαπώ | Ρήμα αγάπης, απλός χρόνος |\n| **Eres mi vida** | Είσαι η ζωή μου | Σύνδεσμος \"είσαι\" |\n| **Mi corazón** | Η καρδιά μου | Άρθρο + ουσιαστικό |\n| **Tus ojos** | Τα μάτια σου | Κτητική αντωνυμία |\n| **Nuestro amor** | Η αγάπη μας | Κτητικό επίθετο |\n\nΜάθετε περισσότερες [ρομαντικές φράσεις για κάθε περίσταση](/learn/el/es/romantic-spanish-phrases-for-every-occasion/) και εκπλήξτε τον σύντροφό σας!\n\n## Κοινά Προβλήματα και Λύσεις\n\n### 1. Σύγχυση με το \"ser\" και \"estar\"\n\nΚαι τα δύο σημαίνουν \"είμαι\", αλλά:\n\n- **Ser** για μόνιμα χαρακτηριστικά: \"Eres guapo\" (Είσαι όμορφος)\n- **Estar** για προσωρινές καταστάσεις: \"Estás cansado\" (Είσαι κουρασμένος)\n\n### 2. Το γένος των επίθετων\n\nΤα επίθετα πρέπει να συμφωνούν σε γένος με το ουσιαστικό:\n- **El chico guapo** (ο όμορφος άντρας)\n- **La chica guapa** (η όμορφη γυναίκα)\n\n### 3. Η σειρά των λέξεων\n\nΗ βασική σειρά είναι: Υποκείμενο - Ρήμα - Αντικείμενο, όπως στα Ελληνικά.\n\n## Προτάσεις για Εξάσκηση με τον Σύντροφό Σας\n\n1. **¿Cómo estás, mi amor?** (Πώς είσαι, αγάπη μου;)\n2. **¿Quieres cenar conmigo?** (Θέλεις να δειπνήσεις μαζί μου;)\n3. **Eres muy especial para mí.** (Είσαι πολύ ξεχωριστός/η για μένα.)\n4. **Me haces muy feliz.** (Με κάνεις πολύ ευτυχισμένο/η.)\n5. **¿Podemos hablar en español?** (Μπορούμε να μιλάμε Ισπανικά;)\n\nΓια περισσότερες [βασικές φράσεις για ζευγάρια](/learn/el/es/essential-spanish-phrases-for-couples/), δείτε τον οδηγό μας!\n\n## Γρήγορο Σημειωματάριο\n\n### Βασικοί Χρόνοι Ρημάτων\n- **-ar** ρήματα: hablo, hablas, habla, hablamos, habláis, hablan\n- **-er** ρήματα: como, comes, come, comemos, coméis, comen\n- **-ir** ρήματα: vivo, vives, vivo, vivimos, vivís, viven\n\n### Άρθρα\n- **el/la** (ο/η) για ενικό\n- **los/las** (οι) για πληθυντικό\n\n### Βασικές Ερωτήσεις\n- **¿Qué?** (Τι;)\n- **¿Quién?** (Ποιος;)\n- **¿Dónde?** (Πού;)\n- **¿Cuándo?** (Πότε;)\n\n## Τι Έρχεται Μετά;\n\nΤώρα που ξέρετε τα βασικά, ήρθε η ώρα να μάθετε:\n- [Πώς να πεις \"σ' αγαπώ\" στα Ισπανικά](/learn/el/es/how-to-say-i-love-you-in-spanish/)\n- Ρήματα σε διαφορετικούς χρόνους\n- Πιο περίπλοκες γραμματικές δομές\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Τα 5 Βασικά Κανόνια για Ζευγάρια",
+              "## Κοινά Προβλήματα και Λύσεις",
+              "## Γρήγορο Σημειωματάριο"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "37721aae-db32-4871-8625-32bd63e2d7ae",
+      "title": "Dutch Making Up & Reconciliation Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "nl",
+      "category": "communication",
+      "content": "The Dutch value directness and honesty—including when making up after disagreements. When your partner speaks Dutch, knowing how to reconcile in their language shows commitment to the relationship. Here are essential Dutch phrases for those important moments of healing.\n\n## Apologizing Sincerely\n\n### Het spijt me echt\n**Pronunciation:** ut spite muh ehkht\n\n**Meaning:** \"I'm really sorry\"\n\n**When to use it:** A sincere apology. \"Echt\" (really) emphasizes authenticity.\n\n### Vergeef me\n**Pronunciation:** fur-GHAYF muh\n\n**Meaning:** \"Forgive me\"\n\n**When to use it:** A direct, vulnerable request for forgiveness.\n\n### Ik had ongelijk\n**Pronunciation:** ik hahd OHN-ghuh-lake\n\n**Meaning:** \"I was wrong\"\n\n**When to use it:** When clearly taking responsibility.\n\n### Dat had ik niet moeten zeggen\n**Pronunciation:** daht hahd ik neet MOO-tun ZEH-ghun\n\n**Meaning:** \"I shouldn't have said that\"\n\n**When to use it:** When regretting specific words from the argument.\n\n## Expressing Your Feelings\n\n### Ik haat het als we ruzie hebben\n**Pronunciation:** ik haht ut ahls vuh ROO-zee HEB-un\n\n**Meaning:** \"I hate it when we fight\"\n\n**When to use it:** To express how much conflict bothers you.\n\n### Ik mis je als we zo zijn\n**Pronunciation:** ik miss yuh ahls vuh zoh zine\n\n**Meaning:** \"I miss you when we're like this\"\n\n**When to use it:** To express longing for closeness during tension.\n\n### Het doet pijn als we boos op elkaar zijn\n**Pronunciation:** ut doot pine ahls vuh bohs op el-KAHR zine\n\n**Meaning:** \"It hurts when we're angry at each other\"\n\n**When to use it:** To share the emotional pain of conflict.\n\n## Reaching Out\n\n### Kunnen we praten?\n**Pronunciation:** KUH-nun vuh PRAH-tun\n\n**Meaning:** \"Can we talk?\"\n\n**When to use it:** To break the ice and begin reconciliation.\n\n### Ik wil dit oplossen\n**Pronunciation:** ik vil dit OP-loh-sun\n\n**Meaning:** \"I want to resolve this\"\n\n**When to use it:** To show commitment to fixing things.\n\n### Kunnen we opnieuw beginnen?\n**Pronunciation:** KUH-nun vuh op-NEEW buh-GHIH-nun\n\n**Meaning:** \"Can we start over?\"\n\n**When to use it:** When you want to reset and move forward.\n\n## Expressing Love and Commitment\n\n### Ik hou van je, dat verandert niet\n**Pronunciation:** ik how vahn yuh, daht fur-AHN-durt neet\n\n**Meaning:** \"I love you, that doesn't change\"\n\n**When to use it:** To reassure your partner during reconciliation.\n\n### Jij bent belangrijker dan deze ruzie\n**Pronunciation:** yay bent buh-LAHNG-ray-kur dahn DAY-zuh ROO-zee\n\n**Meaning:** \"You're more important than this fight\"\n\n**When to use it:** To prioritize the relationship.\n\n### Ik wil je niet kwijtraken\n**Pronunciation:** ik vil yuh neet KVAYT-rah-kun\n\n**Meaning:** \"I don't want to lose you\"\n\n**When to use it:** To express how much the relationship matters.\n\n### We zijn een team\n**Pronunciation:** vuh zine un teem\n\n**Meaning:** \"We're a team\"\n\n**When to use it:** To remind each other you're partners.\n\n## Moving Forward\n\n### Hoe kunnen we dit in de toekomst vermijden?\n**Pronunciation:** hoo KUH-nun vuh dit in duh TOO-komst fur-MAY-dun\n\n**Meaning:** \"How can we avoid this in the future?\"\n\n**When to use it:** To focus on prevention and growth.\n\n### Ik beloof het beter te doen\n**Pronunciation:** ik buh-LOHF ut BAY-tur tuh doon\n\n**Meaning:** \"I promise to do better\"\n\n**When to use it:** To commit to positive change.\n\n## Dutch Reconciliation Style\n\nDutch culture values practical honesty over dramatic displays. A sincere, straightforward apology often carries more weight than elaborate gestures.\n\nThe Dutch appreciate discussing what went wrong and how to prevent it—this problem-solving approach shows respect for the relationship.\n\nAfter making up, simple acts of care—making coffee together, a walk, or just comfortable togetherness—help restore \"gezelligheid\" (coziness, togetherness).\n\n## Restoring Connection\n\n\"Ik hou van je\" (I love you) spoken after reconciliation reminds your partner that your bond is solid. Dutch making up is about honest communication, genuine apology, and practical steps forward—together.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Apologizing Sincerely",
+              "## Expressing Your Feelings",
+              "## Reaching Out",
+              "## Expressing Love and Commitment",
+              "## Moving Forward"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "3772bd4c-c52c-493a-8806-ea45f7ef82e2",
+      "title": "Frases de Apoyo Emocional en Francés: Cómo Consolar a Tu Pareja",
+      "native_lang": "es",
+      "target_lang": "fr",
+      "category": "communication",
+      "content": "El francés tiene una delicadeza perfecta para expresar apoyo emocional. Estas frases te ayudarán a consolar a tu pareja francófona.\n\n## Frases de Consuelo Básicas\n\n### \"Je suis là pour toi\"\n**Pronunciación:** ye sui la pur tua\n\n**Significado:** Estoy aquí para ti\n\n### \"Tout va bien se passer\"\n**Pronunciación:** tu va biá se pasé\n\n**Significado:** Todo va a salir bien\n\n### \"Je suis vraiment désolé(e) que tu traverses ça\"\n**Pronunciación:** ye sui vremán desolé ke tü travérs sa\n\n**Significado:** Siento mucho que estés pasando por esto\n\n## Ofreciendo Apoyo\n\n### \"De quoi as-tu besoin en ce moment?\"\n**Pronunciación:** de kua a tü besuan an se momán\n\n**Significado:** ¿Qué necesitas en este momento?\n\n### \"Je ferai tout ce que je peux pour t'aider\"\n**Pronunciación:** ye ferré tu se ke ye pú pur tedé\n\n**Significado:** Haré todo lo posible para ayudarte\n\n### \"Tu veux en parler?\"\n**Pronunciación:** tü vú an parlé\n\n**Significado:** ¿Quieres hablar de ello?\n\n### \"Je t'écoute\"\n**Pronunciación:** ye tekút\n\n**Significado:** Te escucho\n\n## Validando Emociones\n\n### \"C'est normal de se sentir comme ça\"\n**Pronunciación:** se normál de se santír kom sa\n\n**Significado:** Es normal sentirse así\n\n### \"Tes sentiments sont tout à fait légitimes\"\n**Pronunciación:** te santimán son tut a fé leyitím\n\n**Significado:** Tus sentimientos son completamente legítimos\n\n### \"Tu as le droit d'être bouleversé(e)\"\n**Pronunciación:** tü a le drua detr bulversé\n\n**Significado:** Tienes derecho a estar afectado/a\n\n## Frases de Ánimo\n\n### \"Tu es plus fort(e) que tu ne le penses\"\n**Pronunciación:** tü e plü for ke tü ne le páns\n\n**Significado:** Eres más fuerte de lo que piensas\n\n### \"Tu as déjà surmonté des moments difficiles\"\n**Pronunciación:** tü a deyá surmontá de momán difísil\n\n**Significado:** Ya has superado momentos difíciles\n\n### \"Je crois en toi\"\n**Pronunciación:** ye krua an tua\n\n**Significado:** Creo en ti\n\n### \"On va s'en sortir ensemble\"\n**Pronunciación:** on va san sortír ansámbl\n\n**Significado:** Saldremos de esto juntos\n\n## Expresando Amor\n\n### \"Je t'aime quoi qu'il arrive\"\n**Pronunciación:** ye tem kua kil arív\n\n**Significado:** Te amo pase lo que pase\n\n### \"Rien ne changera ce que je ressens pour toi\"\n**Pronunciación:** rién ne shanyrá se ke ye resán pur tua\n\n**Significado:** Nada cambiará lo que siento por ti\n\n### \"Tu n'es pas seul(e) dans cette épreuve\"\n**Pronunciación:** tü ne pa sél dan set eprév\n\n**Significado:** No estás solo/a en esta prueba\n\n## Consejos Culturales\n\nLos franceses aprecian:\n- **La delicadeza** - Palabras cuidadosamente elegidas\n- **El tiempo** - No apresurar el proceso\n- **La presencia** - Estar ahí físicamente\n\nEl apoyo emocional en francés combina elegancia con sinceridad. ¡Courage!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frases de Consuelo Básicas",
+              "## Ofreciendo Apoyo",
+              "## Validando Emociones",
+              "## Frases de Ánimo",
+              "## Expresando Amor"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "377327f3-7d4f-4b44-a653-aa173ce9dc8a",
+      "title": "Guia de Pronúncia do Húngaro para Falantes de Português",
+      "native_lang": "pt",
+      "target_lang": "hu",
+      "category": "pronunciation",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nO húngaro usa o alfabeto latino com acentos especiais. A boa notícia é que a pronúncia é muito consistente!\n\n<PhraseOfDay\n  word=\"Szeretlek\"\n  translation=\"Eu te amo\"\n  pronunciation=\"SE-ret-lek\"\n  context=\"A frase mais importante - vamos pronunciá-la perfeitamente!\"\n/>\n\n## O Alfabeto Húngaro\n\n<CultureTip title=\"Consistência é a Chave\" flag=\"🇭🇺\">\nO húngaro é muito fonético - cada letra sempre tem o mesmo som. Uma vez que você aprende, pode ler qualquer palavra!\n</CultureTip>\n\n### Vogais\n\nO húngaro tem 14 vogais! As versões longas (com acento) são mantidas por mais tempo:\n\n| Curta | Longa | Som |\n|-------|-------|-----|\n| a | á | a aberto / a longo |\n| e | é | e aberto / e fechado longo |\n| i | í | i / i longo |\n| o | ó | o / o longo |\n| ö | ő | ô (francês) / longo |\n| u | ú | u / u longo |\n| ü | ű | u (francês) / longo |\n\n<VocabCard\n  word=\"Szerelem\"\n  translation=\"Amor\"\n  pronunciation=\"SE-re-lem\"\n  example=\"A szerelem szép.\"\n/>\n\n### Consoantes Especiais\n\n| Letra | Som | Exemplo |\n|-------|-----|---------|\n| **c** | ts | cigaretta |\n| **cs** | tch | csók (beijo) |\n| **gy** | dj | magyar |\n| **j/ly** | i | jó (bom) |\n| **ny** | nh | anya (mãe) |\n| **s** | ch | só (sal) |\n| **sz** | s | szép (bonito) |\n| **ty** | t suave | kutya (cachorro) |\n| **zs** | j (francês) | zseb (bolso) |\n\n<VocabCard\n  word=\"Csók\"\n  translation=\"Beijo\"\n  pronunciation=\"chok\"\n  example=\"Adj egy csókot! (Me dá um beijo!)\"\n/>\n\n## Regras de Pronúncia\n\n### Acento na Primeira Sílaba\n\nEm húngaro, o acento SEMPRE cai na primeira sílaba:\n\n| Palavra | Pronúncia | Significado |\n|---------|-----------|-------------|\n| **SZE**-ret-lek | SZE-ret-lek | eu te amo |\n| **GYÖ**-nyö-rű | DJO-nyo-ru | lindo |\n| **BU**-da-pest | BU-da-pesht | Budapeste |\n\n### Harmonia Vocálica\n\nO húngaro tem harmonia vocálica - sufixos mudam baseados nas vogais da raiz:\n\n- Vogais posteriores (a, o, u): usam sufixos com a, o, u\n- Vogais anteriores (e, i, ö, ü): usam sufixos com e, ö\n\n<VocabCard\n  word=\"Szeretem\"\n  translation=\"Eu amo (algo/alguém específico)\"\n  pronunciation=\"SE-re-tem\"\n  example=\"Szeretem a kávét. (Eu amo café.)\"\n/>\n\n## Comparação com Português\n\n| Aspecto | Português | Húngaro |\n|---------|-----------|---------|\n| Alfabeto | Latino | Latino + acentos |\n| Acento tônico | Variável | Sempre 1ª sílaba |\n| Pronúncia | Variável | Muito consistente |\n\n## Frases para Praticar\n\n### Nível Iniciante\n\n<VocabCard\n  word=\"Igen, értem\"\n  translation=\"Sim, eu entendo\"\n  pronunciation=\"I-gen, ER-tem\"\n  example=\"Igen, értem téged.\"\n/>\n\n<VocabCard\n  word=\"Köszönöm szépen\"\n  translation=\"Muito obrigado\"\n  pronunciation=\"KO-so-nom SE-pen\"\n  example=\"Köszönöm szépen mindenért!\"\n/>\n\n### Nível Intermediário\n\n<VocabCard\n  word=\"Te vagy a legszebb\"\n  translation=\"Você é a mais bonita\"\n  pronunciation=\"te vadj a LEG-sebb\"\n  example=\"Számomra te vagy a legszebb.\"\n/>\n\n<VocabCard\n  word=\"Boldog vagyok veled\"\n  translation=\"Sou feliz com você\"\n  pronunciation=\"BOL-dog VA-djok VE-led\"\n  example=\"Minden nap boldog vagyok veled.\"\n/>\n\n## Dicas Finais\n\n1. **Acento na primeira sílaba** - Regra de ouro!\n2. **Vogais longas** - Preste atenção aos acentos\n3. **Pratique os sons especiais** - gy, ny, ty, sz\n4. **Peça feedback** - Seu parceiro é seu melhor professor!\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Regras de Pronúncia",
+              "## Frases para Praticar"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,124 @@
+{
+  "native_lang": "es",
+  "wave": 1,
+  "target_langs_reviewed": ["en", "fr", "de", "it", "pt", "pl"],
+  "articles_reviewed": 12,
+  "clean_articles": 5,
+  "issues": [
+    {
+      "article_id": "7df2c087-cd70-4402-b2d4-8d1e7762446f",
+      "slug": "english-restaurant-vocabulary",
+      "target_lang": "en",
+      "issue_type": "bad_pronunciation",
+      "severity": "high",
+      "description": "Four VocabCards reuse the pronunciation for 'I'd like to make a reservation' ([aid laik tu meik a re-ser-vei-shon]) instead of their own correct pronunciations. Affected phrases: 'I'm ready to order', 'I'm allergic to...', 'I'm vegetarian/vegan'. A learner would be seriously misled.",
+      "evidence": "word=\"I'm ready to order\" pronunciation=\"[aid laik tu meik a re-ser-véi-shon]\" / word=\"I'm allergic to...\" pronunciation=\"[aid laik tu meik a re-ser-véi-shon]\""
+    },
+    {
+      "article_id": "7df2c087-cd70-4402-b2d4-8d1e7762446f",
+      "slug": "english-restaurant-vocabulary",
+      "target_lang": "en",
+      "issue_type": "rendering_bug",
+      "severity": "high",
+      "description": "The 'Steak Doneness' ConjugationTable renders as a table with 15 completely empty cells in the HTML output. The MDX content uses 'pronoun' and 'es' keys instead of 'person', 'word', 'translation' which the component expects. All 5 rows (Rare, Medium-rare, Medium, Medium-well, Well-done) are invisible to readers.",
+      "evidence": "<td class=\"px-4 py-3 font-medium text-gray-600 w-1/4\"></td><td class=\"px-4 py-3 font-bold text-accent\"></td><td class=\"px-4 py-3 text-gray-600\"></td>"
+    },
+    {
+      "article_id": "0ca320a0-512c-41f5-abca-8a778fe308d0",
+      "slug": "how-to-say-i-love-you-in-french",
+      "target_lang": "fr",
+      "issue_type": "bad_pronunciation",
+      "severity": "medium",
+      "description": "The pronunciation for 'Veux-tu m'épouser?' uses the IPA symbol ø ('vø ty me-pu-ze') which is inconsistent with all other pronunciations in the article that use phonetic Spanish-friendly guides. A Spanish-speaking reader would not know how to interpret ø.",
+      "evidence": "pronunciation=\"vø ty me-pu-ze\""
+    },
+    {
+      "article_id": "0ca320a0-512c-41f5-abca-8a778fe308d0",
+      "slug": "how-to-say-i-love-you-in-french",
+      "target_lang": "fr",
+      "issue_type": "bad_pronunciation",
+      "severity": "low",
+      "description": "The inline pronunciation guide for 'Je' uses IPA notation [ʒə] in the explanatory text. While it is followed by a Spanish-friendly description, the IPA symbol itself may confuse readers unfamiliar with phonetic notation.",
+      "evidence": "**Je** [ʒə] - Como una \"y\" suave mezclada con \"sh\", seguida de una \"e\" muda"
+    },
+    {
+      "article_id": "b0c46cce-f4b1-4a25-8291-84147dcebbb7",
+      "slug": "french-pet-names-terms-of-endearment",
+      "target_lang": "fr",
+      "issue_type": "bad_pronunciation",
+      "severity": "low",
+      "description": "Two pronunciations use non-standard characters that a Spanish speaker may not understand: 'mõ tre-zor' uses the Portuguese nasal tilde (õ), and '[ma PÜS]' / '[tü e la-MUR...]' use the German umlaut (ü). These are inconsistent with the otherwise Spanish-friendly phonetic style used in the rest of the article.",
+      "evidence": "pronunciation=\"mõ tre-zor\" / pronunciation=\"[ma PÜS]\" / pronunciation=\"[tü e la-MUR de ma VI]\""
+    },
+    {
+      "article_id": "cf57acfa-26ae-4d5b-9ff2-8a25b27ddb03",
+      "slug": "italian-date-night-vocabulary",
+      "target_lang": "it",
+      "issue_type": "generic_filler",
+      "severity": "low",
+      "description": "Several VocabCard 'example' fields contain usage instructions in Spanish instead of actual Italian example sentences. For a vocabulary article, the example should demonstrate usage in the target language.",
+      "evidence": "example=\"Un piropo dulce y sincero\" / example=\"Para proponer otra cita\" / example=\"Cuando quieres pagar tú\" / example=\"Un gesto galante\""
+    },
+    {
+      "article_id": "032b7847-9d49-4866-83f6-775c6935dfe4",
+      "slug": "italian-weather-vocabulary",
+      "target_lang": "it",
+      "issue_type": "bad_pronunciation",
+      "severity": "high",
+      "description": "Five VocabCards reuse the pronunciation for 'C'è l'arcobaleno' ([chè lar-co-ba-LE-no]) instead of their own correct pronunciations. Affected words: 'C'è il sole' (should be [chè il SO-le]), 'È nuvoloso' (should be [è nu-vo-LO-so]), 'C'è vento' (should be [chè VEN-to]), 'C'è nebbia' (should be [chè NE-bia]), and even 'C'è l'arcobaleno!' itself is correct but reused incorrectly for the others.",
+      "evidence": "word=\"C'è il sole\" pronunciation=\"[chè lar-co-ba-LE-no]\" / word=\"C'è vento\" pronunciation=\"[chè lar-co-ba-LE-no]\" / word=\"C'è nebbia\" pronunciation=\"[chè lar-co-ba-LE-no]\""
+    },
+    {
+      "article_id": "032b7847-9d49-4866-83f6-775c6935dfe4",
+      "slug": "italian-weather-vocabulary",
+      "target_lang": "it",
+      "issue_type": "rendering_bug",
+      "severity": "high",
+      "description": "Two ConjugationTables ('Tipos de Lluvia' and 'Le Stagioni') render as tables with 27 completely empty cells in the HTML output. The MDX content uses 'pronoun' and 'es' keys instead of 'person', 'word', 'translation' which the component expects. All vocabulary rows (Pioggia, Pioggerella, Acquazzone, etc. and Primavera, Estate, Autunno, Inverno) are invisible to readers.",
+      "evidence": "conjugations={[{ pronoun: \"Pioggia\", es: \"Lluvia\" }, ...]} renders as empty <td></td> cells"
+    },
+    {
+      "article_id": "76cd32a3-d3eb-4d8d-8015-7baa2699cbf1",
+      "slug": "portuguese-weather-vocabulary",
+      "target_lang": "pt",
+      "issue_type": "wrong_language",
+      "severity": "high",
+      "description": "ALL Portuguese target-language words are missing essential diacritical marks (accents, tildes, cedillas). Portuguese requires these marks for correct spelling and sometimes for disambiguation. 'Está' appears as 'Esta', 'estão' as 'estao', 'verão' as 'verao', 'trovão' as 'trovao', 'previsão' as 'previsao', 'amanhã' as 'amanha', 'você' as 'voce', 'pôr do sol' as 'por do sol', etc. This is a systemic failure across the entire article.",
+      "evidence": "word=\"Esta fazendo sol\" (should be \"Está fazendo sol\") / word=\"Quantos graus estao fazendo?\" (should be \"estão\") / word=\"Adoro o verao\" (should be \"verão\")"
+    },
+    {
+      "article_id": "76cd32a3-d3eb-4d8d-8015-7baa2699cbf1",
+      "slug": "portuguese-weather-vocabulary",
+      "target_lang": "pt",
+      "issue_type": "wrong_language",
+      "severity": "high",
+      "description": "ALL Spanish translations and prose are also missing accents. The native language (Spanish) text reads 'Esta haciendo sol', 'Cuantos grados hace?', 'conversacion', 'pais', 'Espana'. This makes the Spanish text incorrect and looks unprofessional. No accented character (á, é, í, ó, ú, ñ) appears anywhere in the entire article.",
+      "evidence": "translation=\"Como esta el tiempo hoy?\" (should be \"¿Cómo está el tiempo hoy?\") / \"Brasil es un pais tropical, asi que...\" (should be \"país\", \"así\")"
+    },
+    {
+      "article_id": "e50a87c0-5737-4dca-b125-a9f553bb25c7",
+      "slug": "portuguese-conditional-explained",
+      "target_lang": "pt",
+      "issue_type": "wrong_language",
+      "severity": "high",
+      "description": "Portuguese target-language words in VocabCards are systematically missing diacritical marks. 'você' appears as 'voce', 'incrível' as 'incrivel', 'possível' as 'possivel' throughout all VocabCard word fields. Title also has 'Portugues' instead of 'Português'. The Spanish prose paragraphs DO have correct accents, making this inconsistency worse.",
+      "evidence": "word=\"Voce poderia me ajudar?\" (should be \"Você\") / word=\"Seria incrivel morar junto\" (should be \"incrível\") / title=\"El Condicional en Portugues Explicado\""
+    },
+    {
+      "article_id": "e50a87c0-5737-4dca-b125-a9f553bb25c7",
+      "slug": "portuguese-conditional-explained",
+      "target_lang": "pt",
+      "issue_type": "wrong_language",
+      "severity": "medium",
+      "description": "Spanish translations in VocabCards are missing accents and inverted punctuation. 'Me gustaria' should be 'Me gustaría', 'Podrias ayudarme?' should be '¿Podrías ayudarme?', 'Que harias en mi lugar?' should be '¿Qué harías en mi lugar?'. ConjugationTable translations also lack accents: 'yo amaria' should be 'yo amaría'.",
+      "evidence": "translation=\"Me encantaria viajar contigo\" (should be \"Me encantaría\") / translation=\"Podrias ayudarme?\" (should be \"¿Podrías ayudarme?\")"
+    }
+  ],
+  "systemic_patterns": [
+    "Copy-pasted pronunciations: Articles 0 (en) and 7 (it) both have multiple VocabCards where the pronunciation from one phrase was lazily copy-pasted to 3-5 other unrelated phrases, giving completely wrong phonetic guidance to learners.",
+    "ConjugationTable prop format mismatch: Articles 0 (en) and 7 (it) use {pronoun, es} keys in ConjugationTable conjugations, but the rendering component expects {person, word, translation}. This causes tables to render with completely empty cells -- a rendering bug that makes educational content invisible.",
+    "Portuguese articles systematically missing diacritical marks: Both Portuguese articles (8 and 9) have target-language words stripped of all accents, tildes, and cedillas. Article 8 additionally has its Spanish prose stripped of accents. This suggests the content generation pipeline may be stripping or failing to preserve Unicode diacritics for Portuguese.",
+    "French pronunciation guides occasionally use IPA or non-Spanish characters (ʒ, ø, õ, ü) which are unhelpful for the Spanish-speaking target audience. Other articles consistently use Spanish-friendly phonetic approximations.",
+    "Several Italian VocabCard 'example' props contain Spanish usage instructions ('Un piropo dulce y sincero', 'Para proponer otra cita') rather than actual example sentences in Italian, reducing their educational value."
+  ]
+}

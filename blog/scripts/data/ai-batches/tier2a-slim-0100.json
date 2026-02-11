@@ -1,0 +1,430 @@
+{
+  "batchId": "tier2a-slim-0100",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "760b13a0-86c6-4f51-b322-3ae603b2f8b7",
+      "title": "Italiaanse SMS-taal en Afkortingen voor Stellen",
+      "native_lang": "nl",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Romantische Berichten",
+          "subsections": [
+            "### Goedemorgen Berichten",
+            "### Overdag",
+            "### Welterusten"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7622ec48-426d-4d3b-8701-36b3aeeb9321",
+      "title": "Holland nyelvtan kezdőknek: Tanuljatok együtt, szeressetek együtt",
+      "native_lang": "hu",
+      "target_lang": "nl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Alapvető szabályok három lépésben",
+          "subsections": [
+            "### 1. A szórend: alany + ige + tárgy",
+            "### 2. A névelők: de vagy het?",
+            "### 3. Az ige ragozása: mindössze két alak!"
+          ]
+        },
+        {
+          "header": "## Tipikus hibák, amiket elkerülhettek",
+          "subsections": [
+            "### 1. A szórend felcserélése",
+            "### 2. Rossz névelő használata",
+            "### 3. Az ige ragozása"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7627ab3c-c7b7-417e-a2a3-85015a9b1be6",
+      "title": "Prononciation ukrainienne : guide complet pour francophones",
+      "native_lang": "fr",
+      "target_lang": "uk",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Lettres spécifiquement ukrainiennes",
+          "subsections": [
+            "### Les voyelles ukrainiennes uniques",
+            "### La lettre Ґ - uniquement ukrainienne !"
+          ]
+        },
+        {
+          "header": "## Les sons difficiles",
+          "subsections": [
+            "### Le son Г (h aspiré)",
+            "### Les chuintantes",
+            "### Le signe mou"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7663a7f5-7e46-45de-8520-851771113a0c",
+      "title": "Spanske SMS- og chattefraser for par",
+      "native_lang": "no",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kulturelle tips",
+          "subsections": [
+            "### Te quiero vs. Te amo",
+            "### Kjønnsformer",
+            "### Emosjoner er normalt"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "769c6c88-7edc-41e1-bcd8-024e84deeadb",
+      "title": "Czeskie powitania i pożegnania",
+      "native_lang": "pl",
+      "target_lang": "cs",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia",
+          "subsections": [
+            "### Cwiczenie 1: Powitania",
+            "### Cwiczenie 2: Pozegnania",
+            "### Cwiczenie 3: Wiadomosci"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "769cee3a-0174-4617-b88f-0873493bb748",
+      "title": "Holland összeköltözési szókincs",
+      "native_lang": "hu",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Költözési kifejezések",
+            "### Háztartási szókincs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "76a2bff0-0a0c-44b9-9c8b-e5f06340fcd0",
+      "title": "Poolse Zinnen voor een Eerste Date",
+      "native_lang": "nl",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Miło cię w końcu poznać\" - *mie-wo tjee f kon-tsoe poz-natj*",
+            "### 2. \"Wyglądasz niesamowicie\" - *vie-glon-dasj nje-sa-mo-vie-tjee*",
+            "### 3. \"Opowiedz mi o sobie\" - *o-po-vjedz mie o so-bje*",
+            "### 4. \"Czym się zajmujesz?\" - *tsjiem sjee zaj-moe-jesj*",
+            "### 5. \"Świetnie się bawię\" - *sjvjet-nje sjee ba-vje*",
+            "### 6. \"Chcesz coś jeszcze do picia?\" - *chtses tsosj jesj-tsje do pie-tsja*",
+            "### 7. \"Jakiej muzyki słuchasz?\" - *ja-kej moe-zie-kie swoe-chasj*",
+            "### 8. \"Chętnie bym cię znów zobaczył/a\" - *chent-nje biem tjee znoef zo-ba-tsjiew/a*",
+            "### 9. \"Mogę cię odprowadzić do domu?\" - *mo-gee tjee od-pro-va-dzjietj do do-moe*",
+            "### 10. \"Bardzo podobał mi się ten wieczór\" - *bar-dzo po-do-baw mie sjee ten vje-tsoer*",
+            "### 11. \"Jakie masz hobby?\" - *ja-kje masj hob-bie*",
+            "### 12. \"Masz piękny uśmiech\" - *masj pjenk-nie oesj-mjech*"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "76bd107f-2392-432c-9c01-9b37cdac3fad",
+      "title": "Hollandske udtryk til at møde svigerforældre",
+      "native_lang": "da",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Vigtige sætninger",
+          "subsections": [
+            "### 1. Leuk om jullie te ontmoeten",
+            "### 2. Ik heb veel over jullie gehoord",
+            "### 3. Bedankt voor de uitnodiging",
+            "### 4. Ik heb iets voor jullie meegebracht",
+            "### 5. Wat een gezellig huis hebben jullie!",
+            "### 6. Het eten was heerlijk",
+            "### 7. Ik hou heel veel van jullie zoon/dochter",
+            "### 8. We zijn heel gelukkig samen",
+            "### 9. Ik zou jullie graag beter leren kennen",
+            "### 10. Kan ik ergens mee helpen?",
+            "### 11. Dit is echt gezellig",
+            "### 12. Ik kijk uit naar de volgende keer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "76cfcf21-f5ab-4b10-85b7-a60043eb8905",
+      "title": "Romence Mesajlaşma İfadeleri: Sevgilinizle Dijital Romantizm",
+      "native_lang": "tr",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Sevgi İfadeleri",
+          "subsections": [
+            "### Te iubesc",
+            "### Te ador"
+          ]
+        },
+        {
+          "header": "## Sevgi Sözcükleri",
+          "subsections": [
+            "### Dragostea mea",
+            "### Iubire / Iubirea mea",
+            "### Puiule",
+            "### Sufletul meu",
+            "### Scumpule / Scumpo"
+          ]
+        },
+        {
+          "header": "## Özlem ve Düşünce",
+          "subsections": [
+            "### Îmi lipsești",
+            "### Mă gândesc la tine"
+          ]
+        },
+        {
+          "header": "## Günlük Mesajlaşma İfadeleri",
+          "subsections": [
+            "### Ce faci?",
+            "### Pupici / Sărutări",
+            "### Noapte bună",
+            "### Pa pa"
+          ]
+        },
+        {
+          "header": "## Romantik İfadeler",
+          "subsections": [
+            "### Ești frumoasă/frumos",
+            "### Abia aștept să te văd",
+            "### Ne vedem?"
+          ]
+        },
+        {
+          "header": "## Duygusal Destek",
+          "subsections": [
+            "### Sunt aici pentru tine",
+            "### Poți să reușești!",
+            "### Te pup"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "76d5ace5-8b2e-4166-a3bd-602a22c08336",
+      "title": "Δανέζικη Γραμματική για Αρχάριους: Μάθετε να μιλάτε με το ταίρι σας στα Δανέζικα",
+      "native_lang": "el",
+      "target_lang": "da",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Συνηθισμένα Λάθη που Κάνουν τα Ζευγάρια",
+          "subsections": [
+            "### 1. Ξεχνούν τα Άρθρα",
+            "### 2. Μπερδεύουν την Άρνηση",
+            "### 3. Λάθος Σειρά σε Ερωτήσεις"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "76da7d63-ca24-42fb-a9bc-eb85a6f94aa2",
+      "title": "Engelska fraser för emotionellt stöd – Trösta din partner på engelska",
+      "native_lang": "sv",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande stöd",
+          "subsections": [
+            "### \"I'm here for you\"",
+            "### \"You're not alone in this\"",
+            "### \"I'm always on your side\""
+          ]
+        },
+        {
+          "header": "## Visa empati",
+          "subsections": [
+            "### \"I can only imagine how hard this must be for you\"",
+            "### \"Your feelings are completely valid\"",
+            "### \"It's okay to feel this way\"",
+            "### \"I understand why you're upset\""
+          ]
+        },
+        {
+          "header": "## Tröstande fraser",
+          "subsections": [
+            "### \"This too shall pass\"",
+            "### \"We'll get through this together\"",
+            "### \"Take all the time you need\"",
+            "### \"It's okay to not be okay\""
+          ]
+        },
+        {
+          "header": "## Erbjuda praktiskt stöd",
+          "subsections": [
+            "### \"What do you need from me right now?\"",
+            "### \"Would you like to talk about it, or would you prefer a distraction?\"",
+            "### \"Can I do anything to help?\"",
+            "### \"I'm here to listen whenever you're ready\""
+          ]
+        },
+        {
+          "header": "## Vid förlust och sorg",
+          "subsections": [
+            "### \"I'm so sorry for your loss\"",
+            "### \"There are no words, but I'm here\"",
+            "### \"Take all the time you need to grieve\""
+          ]
+        },
+        {
+          "header": "## Vid stress och utmattning",
+          "subsections": [
+            "### \"You don't have to carry this alone\"",
+            "### \"Remember to be gentle with yourself\"",
+            "### \"It's okay to take a break\""
+          ]
+        },
+        {
+          "header": "## Uppmuntrande fraser",
+          "subsections": [
+            "### \"I believe in you\"",
+            "### \"You're stronger than you know\"",
+            "### \"I'm so proud of you\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "76dd30a3-0338-46de-83d6-057819826107",
+      "title": "Mød Svigerforældrene på Tjekkisk: Essentielle Udtryk",
+      "native_lang": "da",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## De Vigtigste Udtryk",
+          "subsections": [
+            "### 1. Těší mě, že vás poznávám",
+            "### 2. Děkuji mockrát za pozvání",
+            "### 3. Máte krásný dům",
+            "### 4. Slyšel/Slyšela jsem o vás jen to nejlepší",
+            "### 5. To je vynikající! Můžu dostat recept?",
+            "### 6. Jsem moc rád/ráda, že tu jsem",
+            "### 7. Můžu vám pomoct s úklidem?",
+            "### 8. Váš syn/Vaše dcera pro mě hodně znamená",
+            "### 9. Doufám, že se brzy zase uvidíme",
+            "### 10. Děkuji za krásný večer",
+            "### 11. Na zdraví!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "76f7841c-4a03-4fcd-97b4-67120dc84843",
+      "title": "Французские фразы для примирения",
+      "native_lang": "ru",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Основные фразы для примирения",
+          "subsections": [
+            "### 1. Je suis désolé(e), j'avais tort",
+            "### 2. On peut se réconcilier?",
+            "### 3. Je ne voulais pas te blesser",
+            "### 4. Je t'aime plus que cette dispute",
+            "### 5. Recommençons à zéro",
+            "### 6. Je te pardonne",
+            "### 7. Qu'est-ce que je peux faire pour arranger les choses?",
+            "### 8. Notre bonheur me manque",
+            "### 9. Ne nous couchons pas fâchés",
+            "### 10. Merci d'essayer de me comprendre"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "76fe9c3b-43df-4337-a1c8-4a0db4600687",
+      "title": "Tjekkiske Flirtesætninger for Danskere",
+      "native_lang": "da",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Komplimenter",
+          "subsections": [
+            "### \"Máš krásné oči\"",
+            "### \"Jsi moc hezká/hezký\"",
+            "### \"Máš krásný úsměv\""
+          ]
+        },
+        {
+          "header": "## Romantiske Udtryk",
+          "subsections": [
+            "### \"Pořád na tebe myslím\"",
+            "### \"Děláš mě šťastným/šťastnou\"",
+            "### \"Cítím se s tebou v bezpečí\""
+          ]
+        },
+        {
+          "header": "## Legende Flirt",
+          "subsections": [
+            "### \"Chodíš sem často?\"",
+            "### \"Neznáme se odněkud?\""
+          ]
+        },
+        {
+          "header": "## Invitationer",
+          "subsections": [
+            "### \"Dáš si se mnou kafe?\"",
+            "### \"Můžu tě pozvat na večeři?\""
+          ]
+        },
+        {
+          "header": "## Kærlige Kælenavne",
+          "subsections": [
+            "### \"Miláčku\"",
+            "### \"Lásko\"",
+            "### \"Zlatíčko\"",
+            "### \"Broučku\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "77279e63-9f2e-4568-9680-e433ac402b85",
+      "title": "30+ Ukrainske Komplimenter til Din Partner: Romantiske Fraser",
+      "native_lang": "da",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Komplimenter til Specielle Lejligheder",
+          "subsections": [
+            "### Til en Date",
+            "### Ved Milepæle"
+          ]
+        }
+      ]
+    }
+  ]
+}

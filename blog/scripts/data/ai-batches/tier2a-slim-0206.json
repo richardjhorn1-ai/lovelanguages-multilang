@@ -1,0 +1,481 @@
+{
+  "batchId": "tier2a-slim-0206",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "d398a02b-a51c-4d11-b94e-ab3059f57114",
+      "title": "Yunanca Öğrenmek Zor mu? Türk Öğrenciler İçin Dürüst Bir Değerlendirme",
+      "native_lang": "tr",
+      "target_lang": "el",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Zorlu Yönler",
+          "subsections": [
+            "### 1. Farklı Alfabe",
+            "### 2. Cinsiyet Sistemi",
+            "### 3. Hal Sistemi",
+            "### 4. Fiil Çekimleri"
+          ]
+        },
+        {
+          "header": "## Avantajlarınız",
+          "subsections": [
+            "### 1. Ortak Kelimeler",
+            "### 2. Komşu Kültürler",
+            "### 3. Türkçe'nin Avantajları",
+            "### 4. Tutarlı Yazım"
+          ]
+        },
+        {
+          "header": "## Başarı Stratejileri",
+          "subsections": [
+            "### 1. Önce Alfabeyi Fethet",
+            "### 2. Çiftler Avantajı",
+            "### 3. Yunan Müziği ve Filmleri",
+            "### 4. Benzerliklerden Yararlanın",
+            "### 5. Düzenli Pratik"
+          ]
+        },
+        {
+          "header": "## Motivasyon Kaynakları",
+          "subsections": [
+            "### Neden Yunanca Öğrenmeli?"
+          ]
+        },
+        {
+          "header": "## Yaygın Yanılgılar",
+          "subsections": [
+            "### \"Yunan alfabesi çok zor\"",
+            "### \"Yunanca antik bir dil, kimse konuşmuyor\"",
+            "### \"Türkçe ve Yunanca hiç benzemez\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d3a158e5-c903-4aad-b2b4-df58ed5b7262",
+      "title": "Phrases italiennes sur le pardon en couple",
+      "native_lang": "fr",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions pour demander pardon",
+          "subsections": [
+            "### S'excuser sincèrement",
+            "### Exprimer ses regrets",
+            "### S'engager à changer"
+          ]
+        },
+        {
+          "header": "## Expressions pour pardonner",
+          "subsections": [
+            "### Accorder le pardon",
+            "### Exprimer la réconciliation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d3a53e7a-497d-491e-b8e0-5badf601df30",
+      "title": "Olasz lánykérési és eljegyzési kifejezések",
+      "native_lang": "hu",
+      "target_lang": "it",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### A nagy kérdés",
+            "### Az eljegyzés bejelentése"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d3cb1588-5a50-4c9e-aedd-c03cad0d9430",
+      "title": "Svenske Kærlighedsbreve for Danskere",
+      "native_lang": "da",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Indledninger",
+          "subsections": [
+            "### \"Min älskling\" / \"Min kärlek\" / \"Mitt hjärta\"",
+            "### \"Käraste\" / \"Älskade\""
+          ]
+        },
+        {
+          "header": "## Udtryk for Kærlighed",
+          "subsections": [
+            "### \"Ord räcker inte till för att beskriva vad jag känner för dig\"",
+            "### \"Du är det bästa som någonsin hänt mig\"",
+            "### \"Varje dag med dig är en gåva\"",
+            "### \"Du gör mig till en bättre människa\""
+          ]
+        },
+        {
+          "header": "## Romantiske Erklæringer",
+          "subsections": [
+            "### \"När jag ser in i dina ögon ser jag min framtid\"",
+            "### \"Ditt leende lyser upp min värld\"",
+            "### \"Jag blir mer förälskad i dig för varje dag\"",
+            "### \"Du är min klippa, mitt ankare, min fristad\""
+          ]
+        },
+        {
+          "header": "## Løfter",
+          "subsections": [
+            "### \"Jag lovar att älska dig i med- och motgång\"",
+            "### \"Jag vill bli gammal med dig\"",
+            "### \"Min kärlek till dig kommer aldrig att slockna\"",
+            "### \"Jag väljer dig, idag och för alltid\""
+          ]
+        },
+        {
+          "header": "## Afslutninger",
+          "subsections": [
+            "### \"För evigt din\"",
+            "### \"Med all min kärlek\"",
+            "### \"Evigt din\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d3d15762-9a37-43ef-baad-0a0cfbdaf2ce",
+      "title": "Романтичні данські фрази для пар",
+      "native_lang": "uk",
+      "target_lang": "da",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Романтичні фрази на різні випадки",
+          "subsections": [
+            "### Ранок разом",
+            "### Вечір удвох"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d3e30f03-ed52-4b7e-9902-bdfc05e2bc21",
+      "title": "Alemán para Principiantes: Guía de Pronunciación para Enamorados",
+      "native_lang": "es",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Las Combinaciones Mágicas",
+          "subsections": [
+            "### 'Ch' - El Desafío Dulce"
+          ]
+        },
+        {
+          "header": "## Guía Rápida de Salvación",
+          "subsections": [
+            "### Sonidos que Nunca Fallan"
+          ]
+        },
+        {
+          "header": "## Práctica Diaria para Parejas",
+          "subsections": [
+            "### Rutina de 5 Minutos",
+            "### Juego de la Semana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d3f01e19-7f02-4f10-95f3-0d4939df8a19",
+      "title": "Greek Flirting Phrases: Passionate Expressions for Your Greek Partner",
+      "native_lang": "en",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essential Flirting Phrases",
+          "subsections": [
+            "### Heartfelt Compliments",
+            "### Expressing Attraction",
+            "### Romantic Declarations",
+            "### Sweet Expressions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d3f403cc-e667-41fd-8433-84f763c11af7",
+      "title": "Polska fraser för att säga 'Jag saknar dig' – Uttryck längtan på polska",
+      "native_lang": "sv",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande fraser",
+          "subsections": [
+            "### \"Tęsknię za tobą\"",
+            "### \"Bardzo za tobą tęsknię\"",
+            "### \"Ciągle o tobie myślę\""
+          ]
+        },
+        {
+          "header": "## Djupare uttryck",
+          "subsections": [
+            "### \"Moje serce tęskni za tobą\"",
+            "### \"Każda chwila bez ciebie to wieczność\"",
+            "### \"Brakuje mi ciebie niesamowicie\""
+          ]
+        },
+        {
+          "header": "## Romantiska kvällsfraser",
+          "subsections": [
+            "### \"Tęsknię za zasypianiem przy tobie\"",
+            "### \"Łóżko jest puste bez ciebie\"",
+            "### \"Tęsknię za twoim ciepłem\""
+          ]
+        },
+        {
+          "header": "## Vardagliga uttryck",
+          "subsections": [
+            "### \"Dziś widziałem coś, co mi ciebie przypomniało\"",
+            "### \"Tęsknię za naszymi małymi chwilami\"",
+            "### \"Wszystko mi ciebie przypomina\""
+          ]
+        },
+        {
+          "header": "## Hoppfulla fraser",
+          "subsections": [
+            "### \"Nie mogę się doczekać, aż cię znowu zobaczę\"",
+            "### \"Liczę dni do naszego spotkania\"",
+            "### \"Niedługo będziemy znowu razem\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d3f580e2-6f32-4a3a-aa7d-0415285fa471",
+      "title": "Frases de Amor en Sueco que Enamorarán a Tu Pareja",
+      "native_lang": "es",
+      "target_lang": "sv",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Frases para la Cita",
+          "subsections": [
+            "### Invitar a Salir",
+            "### Durante la Cita",
+            "### Cumplidos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d3f7aa3c-6ef3-4b3f-8e33-19404659f222",
+      "title": "Mutatul Împreună în Italiană: Vocabular și Expresii pentru Noua",
+      "native_lang": "ro",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Mobila și Obiectele Casnice",
+          "subsections": [
+            "### Living",
+            "### Dormitor",
+            "### Bucătărie"
+          ]
+        },
+        {
+          "header": "## Procesul Mutării",
+          "subsections": [
+            "### Înainte de Mutare",
+            "### În Ziua Mutării"
+          ]
+        },
+        {
+          "header": "## Decorarea Împreună",
+          "subsections": [
+            "### Stiluri de Design",
+            "### Compromis în Decor"
+          ]
+        },
+        {
+          "header": "## Comunicare în Cuplu",
+          "subsections": [
+            "### Expresii pentru Armonie",
+            "### Rezolvarea Conflictelor"
+          ]
+        },
+        {
+          "header": "## Lista de Verificare",
+          "subsections": [
+            "### Documente Necesare",
+            "### Prima Săptămână"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d408d158-1140-4474-be4e-51fd3c45420d",
+      "title": "Mutatul Împreună în Norvegiană: Vocabular și Expresii pentru Noua",
+      "native_lang": "ro",
+      "target_lang": "no",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Mobila și Obiectele Casnice",
+          "subsections": [
+            "### Living",
+            "### Dormitor",
+            "### Bucătărie"
+          ]
+        },
+        {
+          "header": "## Procesul Mutării",
+          "subsections": [
+            "### Înainte de Mutare",
+            "### În Ziua Mutării"
+          ]
+        },
+        {
+          "header": "## Decorarea Împreună",
+          "subsections": [
+            "### Stiluri de Design",
+            "### Compromis în Decor"
+          ]
+        },
+        {
+          "header": "## Comunicare în Cuplu",
+          "subsections": [
+            "### Expresii pentru Armonie",
+            "### Rezolvarea Conflictelor"
+          ]
+        },
+        {
+          "header": "## Lista de Verificare",
+          "subsections": [
+            "### Documente Necesare",
+            "### Prima Săptămână"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d4140e0e-1e20-4a4a-90f5-4a27e3b374c9",
+      "title": "Grammaire Tchèque pour Couples : Apprenez à Vous Exprimer avec votre Partenaire",
+      "native_lang": "fr",
+      "target_lang": "cs",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Les Bases Essentielles",
+          "subsections": [
+            "### 1. La Structure des Phrases",
+            "### 2. Les Pronoms Personnels",
+            "### 3. Les Articles ? Ils N'Existent Pas !"
+          ]
+        },
+        {
+          "header": "## Erreurs Courantes à Éviter",
+          "subsections": [
+            "### 1. Confondre \"Miluji\" et \"Mám rád\"",
+            "### 2. Oublier les Changements de Genre",
+            "### 3. Les Déclinaisons (Cas)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d41bafd5-0f6d-49d8-9770-f206ec3d8aeb",
+      "title": "50+ Frasi Romantiche Tedesche per Ogni Momento",
+      "native_lang": "it",
+      "target_lang": "de",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Frasi per Appuntamenti",
+          "subsections": [
+            "### Invitare a Uscire",
+            "### Durante l'Appuntamento"
+          ]
+        },
+        {
+          "header": "## Frasi per Occasioni Speciali",
+          "subsections": [
+            "### Per un Anniversario",
+            "### Per San Valentino"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d42c5566-6aef-471c-99cf-eb569f47f9af",
+      "title": "Vocabular pentru Bebeluși și Sarcină în Ucraineană: Expresii Esențiale",
+      "native_lang": "ro",
+      "target_lang": "uk",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Anunțarea Sarcinii",
+          "subsections": [
+            "### Expresii pentru Anunț",
+            "### Anunțuri Creative"
+          ]
+        },
+        {
+          "header": "## Vocabular Medical",
+          "subsections": [
+            "### Termeni pentru Consultații"
+          ]
+        },
+        {
+          "header": "## Evoluția Sarcinii",
+          "subsections": [
+            "### Primul Trimestru (Săptămânile 1-12)",
+            "### Al Doilea Trimestru (Săptămânile 13-26)",
+            "### Al Treilea Trimestru (Săptămânile 27-40)"
+          ]
+        },
+        {
+          "header": "## Pregătirea pentru Bebeluș",
+          "subsections": [
+            "### Obiecte Esențiale",
+            "### Camera Bebelușului"
+          ]
+        },
+        {
+          "header": "## Expresii de Felicitare",
+          "subsections": [
+            "### Pentru Anunț",
+            "### Pentru Naștere"
+          ]
+        },
+        {
+          "header": "## Tradiții și Superstiții",
+          "subsections": [
+            "### Superstiții Comune"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d43b117a-f48c-4bdd-8002-63c7a92e067a",
+      "title": "50+ італійських ласкавих слів, які розтоплять серце",
+      "native_lang": "uk",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Найпопулярніші пестливі звертання",
+          "subsections": [
+            "### Amore (Аморе)",
+            "### Tesoro (Тезоро)",
+            "### Caro/Cara (Каро/Кара)"
+          ]
+        }
+      ]
+    }
+  ]
+}

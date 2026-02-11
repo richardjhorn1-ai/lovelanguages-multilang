@@ -1,0 +1,540 @@
+{
+  "batchId": "tier2a-slim-0029",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "388ab54d-f59e-4c22-ba0d-2da5d33f5567",
+      "title": "Πολωνικές Φράσεις Συγχώρεσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις Συγχώρεσης",
+          "subsections": [
+            "### Αίτηση Συγχώρεσης",
+            "### Έκφραση Μετάνοιας",
+            "### Προσφορά Συγχώρεσης",
+            "### Χρόνος για Θεραπεία"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "388c06cf-a198-4696-95b0-bc217b549691",
+      "title": "Expresii de Călătorie pentru Luna de Miere în Daneză: Ghid pentru",
+      "native_lang": "ro",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## La Restaurant",
+          "subsections": [
+            "### Expresii de Bază",
+            "### Cină Romantică"
+          ]
+        },
+        {
+          "header": "## Transport și Explorare",
+          "subsections": [
+            "### Mijloace de Transport",
+            "### Expresii Utile"
+          ]
+        },
+        {
+          "header": "## Activități pentru Cupluri",
+          "subsections": [
+            "### Romantice",
+            "### Aventuroase"
+          ]
+        },
+        {
+          "header": "## Fotografii și Amintiri",
+          "subsections": [
+            "### Expresii pentru Fotografii",
+            "### Documentarea Călătoriei"
+          ]
+        },
+        {
+          "header": "## În Caz de Urgență",
+          "subsections": [
+            "### Numere și Expresii Utile",
+            "### Expresii de Urgență"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "38990c8f-17ad-4871-8fcc-faf49f6602ac",
+      "title": "Як сказати «Я тебе кохаю» іспанською: Повний посібник з Te quiero та Te amo",
+      "native_lang": "uk",
+      "target_lang": "es",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Щоденні фрази кохання",
+          "subsections": [
+            "### Вранці",
+            "### Протягом дня",
+            "### Увечері"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "38c73988-3271-49db-b841-c6cb7c18fe35",
+      "title": "Orosz évfordulós kívánságok és üzenetek",
+      "native_lang": "hu",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Évfordulós köszöntések",
+            "### Hosszabb üzenetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "38dd6cf6-c105-4bca-b81b-d01373bc196a",
+      "title": "Portugheza: 16 Moduri Pasionale de a Spune Te Iubesc",
+      "native_lang": "ro",
+      "target_lang": "pt",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Fraze pentru Momente Speciale",
+          "subsections": [
+            "### Prima Declarație",
+            "### Cerere în Căsătorie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "38eba6b1-8b54-4442-894f-7495db4c2a47",
+      "title": "Tyska fraser för emotionellt stöd – Trösta din partner på tyska",
+      "native_lang": "sv",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande stöd",
+          "subsections": [
+            "### \"Ich bin für dich da\"",
+            "### \"Du bist damit nicht allein\"",
+            "### \"Ich stehe immer an deiner Seite\""
+          ]
+        },
+        {
+          "header": "## Visa empati",
+          "subsections": [
+            "### \"Ich kann mir nur vorstellen, wie schwer das für dich sein muss\"",
+            "### \"Deine Gefühle sind völlig berechtigt\"",
+            "### \"Es ist okay, so zu fühlen\"",
+            "### \"Ich verstehe, warum du aufgebracht bist\""
+          ]
+        },
+        {
+          "header": "## Tröstande fraser",
+          "subsections": [
+            "### \"Auch das wird vorübergehen\"",
+            "### \"Wir werden das gemeinsam durchstehen\"",
+            "### \"Nimm dir alle Zeit, die du brauchst\"",
+            "### \"Es ist okay, nicht okay zu sein\""
+          ]
+        },
+        {
+          "header": "## Erbjuda stöd",
+          "subsections": [
+            "### \"Was brauchst du gerade von mir?\"",
+            "### \"Möchtest du darüber reden oder lieber abgelenkt werden?\"",
+            "### \"Kann ich irgendetwas tun, um zu helfen?\"",
+            "### \"Ich bin hier, um zuzuhören, wenn du bereit bist\""
+          ]
+        },
+        {
+          "header": "## Vid förlust",
+          "subsections": [
+            "### \"Es tut mir so leid für deinen Verlust\"",
+            "### \"Mir fehlen die Worte, aber ich bin hier\""
+          ]
+        },
+        {
+          "header": "## Uppmuntrande fraser",
+          "subsections": [
+            "### \"Ich glaube an dich\"",
+            "### \"Du bist stärker, als du denkst\"",
+            "### \"Ich bin so stolz auf dich\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "38ecb23e-e01f-4187-a1e3-09322cc8da45",
+      "title": "Polske Kærlighedsbreve for Danskere",
+      "native_lang": "da",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Indledninger",
+          "subsections": [
+            "### \"Moja miłości\" / \"Mój skarbie\" / \"Moje serce\"",
+            "### \"Kochanie moje\""
+          ]
+        },
+        {
+          "header": "## Udtryk for Kærlighed",
+          "subsections": [
+            "### \"Słowa nie są w stanie wyrazić, co do ciebie czuję\"",
+            "### \"Jesteś najlepszą rzeczą, jaka mi się przydarzyła\"",
+            "### \"Każdy dzień z tobą jest prezentem\"",
+            "### \"Sprawiasz, że chcę być lepszym człowiekiem\""
+          ]
+        },
+        {
+          "header": "## Romantiske Erklæringer",
+          "subsections": [
+            "### \"Kiedy patrzę ci w oczy, widzę swoją przyszłość\"",
+            "### \"Twój uśmiech rozświetla mój świat\"",
+            "### \"Każdego dnia zakochuję się w tobie jeszcze bardziej\"",
+            "### \"Jesteś moją skałą, moją kotwicą, moim schronieniem\""
+          ]
+        },
+        {
+          "header": "## Løfter",
+          "subsections": [
+            "### \"Obiecuję kochać cię w dobrych i złych chwilach\"",
+            "### \"Chcę się z tobą zestarzeć\"",
+            "### \"Moja miłość do ciebie nigdy nie zgaśnie\"",
+            "### \"Wybieram ciebie, dziś i na zawsze\""
+          ]
+        },
+        {
+          "header": "## Afslutninger",
+          "subsections": [
+            "### \"Na zawsze Twój/Twoja\"",
+            "### \"Z całą moją miłością\"",
+            "### \"Wiecznie Twój/Twoja\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "38f22fb2-2f02-41b7-8f52-4751ed5055bc",
+      "title": "Türkische SMS-Sprache und Chat-Slang",
+      "native_lang": "de",
+      "target_lang": "tr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Typische Chat-Gespräche",
+          "subsections": [
+            "### Morgen-Chat",
+            "### Tagsüber",
+            "### Abend-Chat"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "38ff89e1-65ed-4dde-a7f7-30f6466b21c3",
+      "title": "Francouzské fráze pro usmíření a nápravu vztahu",
+      "native_lang": "cs",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fráze pro omluvu",
+          "subsections": [
+            "### 1. Je suis vraiment désolé(e) pour ce que j'ai dit",
+            "### 2. J'avais tort",
+            "### 3. S'il te plaît, pardonne-moi",
+            "### 4. J'assume l'entière responsabilité"
+          ]
+        },
+        {
+          "header": "## Fráze pro obnovení spojení",
+          "subsections": [
+            "### 5. Est-ce qu'on peut parler de ce qui s'est passé?",
+            "### 6. Tu me manques",
+            "### 7. Ne nous couchons pas fâchés",
+            "### 8. Je t'aime toujours"
+          ]
+        },
+        {
+          "header": "## Fráze pro nový začátek",
+          "subsections": [
+            "### 9. On peut repartir à zéro?",
+            "### 10. Je veux me faire pardonner",
+            "### 11. Traversons cette épreuve ensemble",
+            "### 12. Je tiens à toi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "38ffc255-bb89-42c9-b1cc-39490f3a1d73",
+      "title": "Zwroty na pierwszą randkę po duńsku",
+      "native_lang": "pl",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Rozpoczęcie rozmowy",
+          "subsections": [
+            "### Cześć! Miło Cię wreszcie poznać!",
+            "### Świetnie wyglądasz!",
+            "### Nie mogłem/mogłam się doczekać"
+          ]
+        },
+        {
+          "header": "## Poznawanie się",
+          "subsections": [
+            "### Opowiedz mi o sobie",
+            "### Co lubisz robić w wolnym czasie?",
+            "### Jaki jest Twój ulubiony...?"
+          ]
+        },
+        {
+          "header": "## Wyrażanie zainteresowania",
+          "subsections": [
+            "### To naprawdę interesujące",
+            "### Opowiedz mi więcej",
+            "### Chciałbym/Chciałabym wiedzieć więcej"
+          ]
+        },
+        {
+          "header": "## Dzielenie się o sobie",
+          "subsections": [
+            "### Pasjonuję się...",
+            "### Zawsze chciałem/chciałam..."
+          ]
+        },
+        {
+          "header": "## Komplementy",
+          "subsections": [
+            "### Uwielbiam Twój uśmiech",
+            "### Masz świetne poczucie humoru",
+            "### Świetnie się z Tobą bawię"
+          ]
+        },
+        {
+          "header": "## Planowanie następnego spotkania",
+          "subsections": [
+            "### Bardzo chciałbym/chciałabym Cię znowu zobaczyć",
+            "### Kiedy możemy to powtórzyć?",
+            "### Miałem/Miałam cudowny wieczór"
+          ]
+        },
+        {
+          "header": "## Pożegnanie",
+          "subsections": [
+            "### To było naprawdę cudowne",
+            "### Nie mogę się doczekać kolejnego spotkania"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "390a7bde-387e-443a-8b18-962519975788",
+      "title": "Vocabular pentru Bebeluși și Sarcină în Suedeză: Expresii Esențiale",
+      "native_lang": "ro",
+      "target_lang": "sv",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Anunțarea Sarcinii",
+          "subsections": [
+            "### Expresii pentru Anunț",
+            "### Anunțuri Creative"
+          ]
+        },
+        {
+          "header": "## Vocabular Medical",
+          "subsections": [
+            "### Termeni pentru Consultații"
+          ]
+        },
+        {
+          "header": "## Evoluția Sarcinii",
+          "subsections": [
+            "### Primul Trimestru (Săptămânile 1-12)",
+            "### Al Doilea Trimestru (Săptămânile 13-26)",
+            "### Al Treilea Trimestru (Săptămânile 27-40)"
+          ]
+        },
+        {
+          "header": "## Pregătirea pentru Bebeluș",
+          "subsections": [
+            "### Obiecte Esențiale",
+            "### Camera Bebelușului"
+          ]
+        },
+        {
+          "header": "## Expresii de Felicitare",
+          "subsections": [
+            "### Pentru Anunț",
+            "### Pentru Naștere"
+          ]
+        },
+        {
+          "header": "## Tradiții și Superstiții",
+          "subsections": [
+            "### Superstiții Comune"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "390aecd0-5c6b-4097-b988-ae8ee4e27b79",
+      "title": "İsveççe Kıskançlık ve Güven İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kıskançlığı İfade Etme",
+          "subsections": [
+            "### 1. \"Jag känner mig lite svartsjuk när...\"",
+            "### 2. \"Kan du lugna mig?\"",
+            "### 3. \"Jag litar på dig, men inte på dem\"",
+            "### 4. \"Det gör mig obekväm när...\"",
+            "### 5. \"Jag behöver veta att jag är din prioritet\""
+          ]
+        },
+        {
+          "header": "## Güven İnşa Etme",
+          "subsections": [
+            "### 6. \"Jag litar helt på dig\"",
+            "### 7. \"Du är den enda för mig\"",
+            "### 8. \"Jag skulle aldrig göra något för att såra dig\"",
+            "### 9. \"Du har inget att oroa dig för\"",
+            "### 10. \"Jag är bara engagerad i dig\"",
+            "### 11. \"Låt oss prata om dina bekymmer\"",
+            "### 12. \"Vad kan jag göra för att du ska känna dig tryggare?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "392e1c45-57b4-4494-ad25-87b25e537974",
+      "title": "Orosz baba és terhességi szókincs",
+      "native_lang": "hu",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Terhességi kifejezések",
+            "### Baba szókincs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "39681320-587c-4a3f-95e0-187f0bed2a10",
+      "title": "Expresii de Călătorie pentru Luna de Miere în Cehă: Ghid pentru",
+      "native_lang": "ro",
+      "target_lang": "cs",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## La Restaurant",
+          "subsections": [
+            "### Expresii de Bază",
+            "### Cină Romantică"
+          ]
+        },
+        {
+          "header": "## Transport și Explorare",
+          "subsections": [
+            "### Mijloace de Transport",
+            "### Expresii Utile"
+          ]
+        },
+        {
+          "header": "## Activități pentru Cupluri",
+          "subsections": [
+            "### Romantice",
+            "### Aventuroase"
+          ]
+        },
+        {
+          "header": "## Fotografii și Amintiri",
+          "subsections": [
+            "### Expresii pentru Fotografii",
+            "### Documentarea Călătoriei"
+          ]
+        },
+        {
+          "header": "## În Caz de Urgență",
+          "subsections": [
+            "### Numere și Expresii Utile",
+            "### Expresii de Urgență"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "396ba3b4-71a6-4b14-86df-e6c4c77b0685",
+      "title": "Portuguese Honeymoon Travel Phrases: Romantic Vocabulary for Your Trip",
+      "native_lang": "en",
+      "target_lang": "pt",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Planning Your Trip",
+          "subsections": [
+            "### Choosing a Destination",
+            "### Booking Vocabulary"
+          ]
+        },
+        {
+          "header": "## At the Airport",
+          "subsections": [
+            "### Essential Phrases",
+            "### Airport Vocabulary"
+          ]
+        },
+        {
+          "header": "## At Your Hotel",
+          "subsections": [
+            "### Checking In",
+            "### Room Types"
+          ]
+        },
+        {
+          "header": "## Romantic Moments",
+          "subsections": [
+            "### On the Beach",
+            "### At Dinner"
+          ]
+        },
+        {
+          "header": "## Adventure Activities",
+          "subsections": [
+            "### Exploring Together",
+            "### Activity Vocabulary"
+          ]
+        },
+        {
+          "header": "## Creating Memories",
+          "subsections": [
+            "### Photo Moment Phrases"
+          ]
+        },
+        {
+          "header": "## Returning Home",
+          "subsections": [
+            "### End of Trip"
+          ]
+        }
+      ]
+    }
+  ]
+}

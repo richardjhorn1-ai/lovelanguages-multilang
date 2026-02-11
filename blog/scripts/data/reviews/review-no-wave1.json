@@ -1,0 +1,271 @@
+{
+  "native_lang": "no",
+  "wave": 1,
+  "target_langs_reviewed": ["en", "es", "fr", "de", "it", "pt"],
+  "articles_reviewed": 12,
+  "clean_articles": 2,
+  "issues": [
+    {
+      "article_id": "241f1fc3-3184-4af5-90f3-efc63f931252",
+      "slug": "english-proposal-engagement-phrases",
+      "target_lang": "en",
+      "issue_type": "language_error",
+      "severity": "medium",
+      "description": "Table row mixes English and Norwegian in the English column: 'We have forlovet oss!' should be 'We are engaged!' — 'forlovet oss' is Norwegian, not English.",
+      "evidence": "| **We have forlovet oss!** | Vi har forlovet oss! |"
+    },
+    {
+      "article_id": "e5b204d9-bd1a-4ca3-9843-81022e1c2b1e",
+      "slug": "english-video-call-phrases-family",
+      "target_lang": "en",
+      "issue_type": "generic_filler",
+      "severity": "high",
+      "description": "All 13 rows in the main phrase table have 'Viktig frase' as the Norwegian translation instead of actual translations. This is placeholder content that was never filled in.",
+      "evidence": "| Can you hear me? | Viktig frase | | Can you see me clearly? | Viktig frase | | The connection is bad | Viktig frase |"
+    },
+    {
+      "article_id": "e5b204d9-bd1a-4ca3-9843-81022e1c2b1e",
+      "slug": "english-video-call-phrases-family",
+      "target_lang": "en",
+      "issue_type": "generic_filler",
+      "severity": "medium",
+      "description": "PhraseOfDay translation is 'En viktig frase' instead of the actual Norwegian translation of 'Can you hear me?' (Kan du høre meg?)",
+      "evidence": "translation=\"En viktig frase\" context=\"Bruk denne frasen daglig\""
+    },
+    {
+      "article_id": "e5b204d9-bd1a-4ca3-9843-81022e1c2b1e",
+      "slug": "english-video-call-phrases-family",
+      "target_lang": "en",
+      "issue_type": "language_error",
+      "severity": "low",
+      "description": "CultureTip title uses English word 'English' instead of Norwegian 'Engelsk': 'English kulturtips' should be 'Engelske kulturtips'.",
+      "evidence": "<CultureTip flag=\"🇬🇧\" title=\"English kulturtips\">"
+    },
+    {
+      "article_id": "e5b204d9-bd1a-4ca3-9843-81022e1c2b1e",
+      "slug": "english-video-call-phrases-family",
+      "target_lang": "en",
+      "issue_type": "rendering",
+      "severity": "low",
+      "description": "content_html contains an <h1> tag which should not appear in article body content (title is rendered separately by the layout).",
+      "evidence": "<h1>Fraser for videosamtaler med familie på engelsk – Snakk med svigerforeldre</h1>"
+    },
+    {
+      "article_id": "633db6c1-934a-4368-aee6-949531bd49ad",
+      "slug": "es-makeup-phrases-for-norwegian-speakers",
+      "target_lang": "es",
+      "issue_type": "component_inversion",
+      "severity": "medium",
+      "description": "PhraseList rendered HTML shows Norwegian text as the prominent 'word' (bold accent) and Spanish as secondary text. The target language (Spanish) should be the prominent word, not the native language.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\">Jeg er lei for det</span> <span class=\"text-lg text-gray-900\">Lo siento</span>"
+    },
+    {
+      "article_id": "df65682f-41da-4e72-9bd7-a863f913a28f",
+      "slug": "spanish-expressing-emotions",
+      "target_lang": "es",
+      "issue_type": "template_artifact",
+      "severity": "medium",
+      "description": "Content starts with raw MDX import statements that should not be in the content field.",
+      "evidence": "import VocabCard from '@components/VocabCard.astro'; import CultureTip from '@components/CultureTip.astro';"
+    },
+    {
+      "article_id": "df65682f-41da-4e72-9bd7-a863f913a28f",
+      "slug": "spanish-expressing-emotions",
+      "target_lang": "es",
+      "issue_type": "rendering",
+      "severity": "high",
+      "description": "PhraseOfDay word is not rendered in the HTML — the span is empty. The word 'Estoy feliz' is missing from the rendered output.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span> <span class=\"text-lg text-gray-900\">Jeg er glad</span>"
+    },
+    {
+      "article_id": "df65682f-41da-4e72-9bd7-a863f913a28f",
+      "slug": "spanish-expressing-emotions",
+      "target_lang": "es",
+      "issue_type": "generic_filler",
+      "severity": "medium",
+      "description": "VocabCard example sentences are generic filler instead of real example sentences: 'Bruk denne frasen i daglige samtaler' and 'En nyttig frase for par'.",
+      "evidence": "example=\"Bruk denne frasen i daglige samtaler\" ... example=\"En nyttig frase for par\""
+    },
+    {
+      "article_id": "df65682f-41da-4e72-9bd7-a863f913a28f",
+      "slug": "spanish-expressing-emotions",
+      "target_lang": "es",
+      "issue_type": "language_error",
+      "severity": "low",
+      "description": "Table header and CultureTip title use English 'Spanish' instead of Norwegian 'Spansk'.",
+      "evidence": "| Spanish | Norsk | Uttale | ... title=\"Spanish kulturtips\""
+    },
+    {
+      "article_id": "df65682f-41da-4e72-9bd7-a863f913a28f",
+      "slug": "spanish-expressing-emotions",
+      "target_lang": "es",
+      "issue_type": "content_quality",
+      "severity": "low",
+      "description": "Dangling text 'Sjekk ut våre andre artikler om spansk:' appears near the top with no links following it.",
+      "evidence": "Sjekk ut våre andre artikler om spansk:\\n\\n<PhraseOfDay"
+    },
+    {
+      "article_id": "98da648a-8c46-4cf5-aa81-f926acb03682",
+      "slug": "french-anniversary-wishes",
+      "target_lang": "fr",
+      "issue_type": "content_quality",
+      "severity": "low",
+      "description": "VocabCard example sentences for 'Mon ame soeur', 'Cherir', and 'Une etape' are in Norwegian instead of French, unlike the pattern in other well-formed articles where examples use the target language.",
+      "evidence": "example=\"Du er min sjelevenn for alltid.\" ... example=\"Jeg vil verne om hvert øyeblikk vi deler.\""
+    },
+    {
+      "article_id": "13a7b41f-a3e5-460e-9aa8-a381e1bd26c5",
+      "slug": "french-honeymoon-travel-phrases",
+      "target_lang": "fr",
+      "issue_type": "language_error",
+      "severity": "medium",
+      "description": "French grammar error in VocabCard example: 'Est-ce que du pouvez nous prendre en photo ?' — 'du' is not a French word here; should be 'vous' (Est-ce que vous pouvez...).",
+      "evidence": "example=\"Est-ce que du pouvez nous prendre en photo ?\""
+    },
+    {
+      "article_id": "937b7011-1556-458f-b4d2-fc87a0db9d7e",
+      "slug": "german-baby-pregnancy-vocabulary",
+      "target_lang": "de",
+      "issue_type": "template_artifact",
+      "severity": "high",
+      "description": "CRITICAL: Entire article is an unfilled template. All VocabCard/PhraseOfDay word fields contain 'phrase1'/'phrase2' placeholders. Pronunciations are 'uttale' (the Norwegian word for pronunciation). No actual German vocabulary exists in this article.",
+      "evidence": "word=\"phrase1\" translation=\"Vi venter barn!\" pronunciation=\"uttale\" ... | **phrase1** | Vi venter barn! | | **phrase2** | Babyselskap |"
+    },
+    {
+      "article_id": "937b7011-1556-458f-b4d2-fc87a0db9d7e",
+      "slug": "german-baby-pregnancy-vocabulary",
+      "target_lang": "de",
+      "issue_type": "template_artifact",
+      "severity": "high",
+      "description": "Content starts with raw MDX import statements. Also contains raw <CTA /> component tag.",
+      "evidence": "import VocabCard from '@components/VocabCard.astro'; ... <CTA />"
+    },
+    {
+      "article_id": "937b7011-1556-458f-b4d2-fc87a0db9d7e",
+      "slug": "german-baby-pregnancy-vocabulary",
+      "target_lang": "de",
+      "issue_type": "content_quality",
+      "severity": "high",
+      "description": "Article is only 96 words — far too thin to be a useful vocabulary article. Essentially just boilerplate wrapper with no real content.",
+      "evidence": "_wordCount: 96"
+    },
+    {
+      "article_id": "77b19f62-fd1f-4cfa-a8de-5cb10133f825",
+      "slug": "german-long-distance-relationship",
+      "target_lang": "de",
+      "issue_type": "generic_filler",
+      "severity": "high",
+      "description": "All 15 rows in the main phrase table have 'Viktig frase' as the Norwegian translation instead of actual translations. This is placeholder content.",
+      "evidence": "| Ich vermisse dich so sehr | Viktig frase | | Ich wünschte, du wärst hier | Viktig frase |"
+    },
+    {
+      "article_id": "77b19f62-fd1f-4cfa-a8de-5cb10133f825",
+      "slug": "german-long-distance-relationship",
+      "target_lang": "de",
+      "issue_type": "generic_filler",
+      "severity": "medium",
+      "description": "PhraseOfDay translation is 'En viktig frase' instead of the actual Norwegian translation of 'Ich vermisse dich so sehr' (Jeg savner deg så mye).",
+      "evidence": "translation=\"En viktig frase\" context=\"Bruk denne frasen daglig\""
+    },
+    {
+      "article_id": "77b19f62-fd1f-4cfa-a8de-5cb10133f825",
+      "slug": "german-long-distance-relationship",
+      "target_lang": "de",
+      "issue_type": "language_error",
+      "severity": "low",
+      "description": "Table header and CultureTip title use English 'German' instead of Norwegian 'Tysk'.",
+      "evidence": "| German | Norsk | ... title=\"German kulturtips\""
+    },
+    {
+      "article_id": "77b19f62-fd1f-4cfa-a8de-5cb10133f825",
+      "slug": "german-long-distance-relationship",
+      "target_lang": "de",
+      "issue_type": "rendering",
+      "severity": "low",
+      "description": "content_html contains an <h1> tag which should not appear in article body content.",
+      "evidence": "<h1>Fraser for langdistanseforhold på tysk – Hold kjærligheten levende</h1>"
+    },
+    {
+      "article_id": "ec6a2e78-8239-430c-961d-b861aa15eea1",
+      "slug": "italian-honeymoon-travel-phrases",
+      "target_lang": "it",
+      "issue_type": "template_artifact",
+      "severity": "high",
+      "description": "Top section of article has unfilled placeholders: PhraseOfDay word is 'phrase1', pronunciation is 'uttale'. Table has 'phrase1' and 'phrase2'. These render literally in HTML.",
+      "evidence": "word=\"phrase1\" translation=\"Bryllupsreise\" pronunciation=\"uttale\" ... | **phrase1** | Bryllupsreise | | **phrase2** | Rom med utsikt |"
+    },
+    {
+      "article_id": "ec6a2e78-8239-430c-961d-b861aa15eea1",
+      "slug": "italian-honeymoon-travel-phrases",
+      "target_lang": "it",
+      "issue_type": "content_quality",
+      "severity": "medium",
+      "description": "Article has split personality: top half is unfilled template, bottom half (after HR separator) has real Italian content. The two halves feel stitched together from different generation passes.",
+      "evidence": "Top: word=\"phrase1\" ... Bottom: word=\"Vorrei prenotare\" translation=\"Jeg vil gjerne reservere\""
+    },
+    {
+      "article_id": "2d62fecc-52be-49ac-890a-d444f167389a",
+      "slug": "italian-good-morning-goodnight-phrases",
+      "target_lang": "it",
+      "issue_type": "template_artifact",
+      "severity": "medium",
+      "description": "Content starts with raw MDX import statements. Also contains raw <CTA /> component tag.",
+      "evidence": "import VocabCard from '@components/VocabCard.astro'; ... <CTA />"
+    },
+    {
+      "article_id": "2d62fecc-52be-49ac-890a-d444f167389a",
+      "slug": "italian-good-morning-goodnight-phrases",
+      "target_lang": "it",
+      "issue_type": "rendering",
+      "severity": "high",
+      "description": "PhraseOfDay word is not rendered in the HTML — the span for the word 'Buongiorno, amore mio' is empty in the output.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span> <span class=\"text-lg text-gray-900\">God morgen, min kjære</span>"
+    },
+    {
+      "article_id": "2d62fecc-52be-49ac-890a-d444f167389a",
+      "slug": "italian-good-morning-goodnight-phrases",
+      "target_lang": "it",
+      "issue_type": "generic_filler",
+      "severity": "medium",
+      "description": "VocabCard example sentences are generic filler: 'Bruk denne frasen daglig' and 'En nyttig frase for par' instead of real Italian example sentences.",
+      "evidence": "example=\"Bruk denne frasen daglig\" ... example=\"En nyttig frase for par\""
+    },
+    {
+      "article_id": "2d62fecc-52be-49ac-890a-d444f167389a",
+      "slug": "italian-good-morning-goodnight-phrases",
+      "target_lang": "it",
+      "issue_type": "language_error",
+      "severity": "low",
+      "description": "Table header and CultureTip title use English 'Italian' instead of Norwegian 'Italiensk'.",
+      "evidence": "| Italian | Norsk | Uttale | ... title=\"Italian kulturtips\""
+    },
+    {
+      "article_id": "923ead29-202b-42ad-a584-1a22b1908fb9",
+      "slug": "portuguese-anniversary-wishes",
+      "target_lang": "pt",
+      "issue_type": "language_error",
+      "severity": "low",
+      "description": "Minor Norwegian spelling: 'portugisisketalende' should be 'portugisisktalende'.",
+      "evidence": "I portugisisketalende kulturer kan det være unike tradisjoner"
+    },
+    {
+      "article_id": "b5020c30-50a6-4d90-9e45-8caddcc819d5",
+      "slug": "portuguese-meeting-your-partner-s-family",
+      "target_lang": "pt",
+      "issue_type": "rendering",
+      "severity": "high",
+      "description": "PhraseOfDay word 'Muito prazer em conhece-lo/a' is not rendered in the HTML output — the word span is empty, only translation and pronunciation show.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span> <span class=\"text-lg text-gray-900\">Hyggelig å møte deg</span>"
+    }
+  ],
+  "systemic_patterns": [
+    "PhraseOfDay rendering bug: When PhraseOfDay is used, the 'word' prop is not rendered in the HTML output for at least 4 articles (es/spanish-expressing-emotions, it/italian-good-morning-goodnight-phrases, pt/portuguese-meeting-your-partner-s-family, and partially in the es/makeup-phrases article). The word span in content_html is empty even though the MDX source has the word filled in.",
+    "Generic 'Viktig frase' placeholder pattern: Two articles (en/video-call, de/long-distance) have large phrase tables where every Norwegian translation column is 'Viktig frase' instead of actual translations. These appear to be from a template generation pass that filled the target-language column but used a placeholder for the native translation.",
+    "Template placeholder pattern 'phrase1/phrase2/uttale': Three articles (de/baby-pregnancy, it/honeymoon-travel top section, and seen in wave 2 Polish article) contain literal 'phrase1', 'phrase2' as word values and 'uttale' as pronunciation — completely unfilled template stubs.",
+    "Raw MDX imports in content: At least 4 articles contain 'import VocabCard from ...' statements at the start of the content field. These are MDX artifacts that should have been stripped during content processing. Some also contain raw <CTA /> tags.",
+    "English language names in Norwegian articles: Multiple articles use English language names ('English', 'Spanish', 'German', 'Italian') in table headers and CultureTip titles instead of the Norwegian equivalents ('Engelsk', 'Spansk', 'Tysk', 'Italiensk'). This appears to be a systematic issue with the template system inserting the English language name.",
+    "Generic VocabCard examples: Several articles from the 'list-based' generation template use generic filler like 'Bruk denne frasen daglig' or 'En nyttig frase for par' instead of actual example sentences in the target language.",
+    "Quality variance by generation method: Articles appear to come from at least 3 different generation pipelines — (1) 'template-based' articles with placeholder stubs, (2) 'list-based' articles with real phrases but generic translations/examples, and (3) 'prose-based' articles with full original content. The prose-based articles (en/proposal, fr/anniversary, fr/honeymoon, pt/anniversary, pt/meeting-family) are significantly higher quality.",
+    "H1 tags in content_html: Some articles (en/video-call, de/long-distance) have H1 tags in the content body HTML, which would create duplicate headings if the page layout also renders the title as H1."
+  ]
+}

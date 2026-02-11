@@ -1,0 +1,123 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0519",
+  "articles": [
+    {
+      "id": "96d8f877-ba3a-471d-8b3f-69e2e6e9949b",
+      "title": "Apprendre le tchèque avec des chansons d'amour",
+      "native_lang": "fr",
+      "target_lang": "cs",
+      "category": "culture",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nLa musique tchèque est riche en ballades romantiques. Découvrez les chansons qui vous aideront à apprendre la langue tout en comprenant l'âme tchèque.\n\n<PhraseOfDay\n  word=\"Láska je tu s námi\"\n  translation=\"L'amour est ici avec nous\"\n  pronunciation=\"LAAS-ka yé tou s NAA-mi\"\n  context=\"Un thème récurrent dans les chansons tchèques.\"\n/>\n\n## Vocabulaire des chansons romantiques\n\n### Mots essentiels\n\n<VocabCard\n  word=\"Láska\"\n  translation=\"Amour\"\n  pronunciation=\"LAAS-ka\"\n  example=\"Le mot le plus important !\"\n/>\n\n<VocabCard\n  word=\"Srdce\"\n  translation=\"Cœur\"\n  pronunciation=\"SRD-tsé\"\n  example=\"Moje srdce\"\n/>\n\n<VocabCard\n  word=\"Duše\"\n  translation=\"Âme\"\n  pronunciation=\"DOU-ché\"\n  example=\"Má duše\"\n/>\n\n<VocabCard\n  word=\"Sen\"\n  translation=\"Rêve\"\n  pronunciation=\"sén\"\n  example=\"Můj sen\"\n/>\n\n<VocabCard\n  word=\"Osud\"\n  translation=\"Destin\"\n  pronunciation=\"O-soud\"\n  example=\"Náš osud\"\n/>\n\n### Expressions poétiques\n\n| Tchèque | Prononciation | Français |\n|---------|---------------|----------|\n| **Věčná láska** | VYÉTCH-naa LAAS-ka | Amour éternel |\n| **První láska** | PRV-nii LAAS-ka | Premier amour |\n| **Zlomené srdce** | ZLO-mé-né SRD-tsé | Cœur brisé |\n| **Hvězdy na nebi** | HVYÉZ-di na NÉ-bi | Étoiles dans le ciel |\n| **Světlo mého života** | SVYÉT-lo MÉ-ho JI-vo-ta | Lumière de ma vie |\n\n<CultureTip title=\"La musique tchèque\" flag=\"🇨🇿\">\nLa République tchèque a une riche tradition musicale, de la musique classique (Dvořák, Smetana) au rock et à la pop moderne. Les chansons d'amour tchèques sont souvent mélancoliques et poétiques.\n</CultureTip>\n\n## Artistes à découvrir\n\n### Karel Gott\n\nLe « rossignol d'or » de la Tchécoslovaquie, légende nationale.\n\n<VocabCard\n  word=\"Být stále mlád\"\n  translation=\"Rester toujours jeune\"\n  pronunciation=\"biit STAA-lé mlaad\"\n  example=\"Une de ses chansons les plus célèbres\"\n/>\n\n<VocabCard\n  word=\"Lady Carneval\"\n  translation=\"Lady Carnaval\"\n  pronunciation=\"LÉ-di KAR-né-val\"\n  example=\"Classique des années 60\"\n/>\n\n### Lucie Bílá\n\nLa plus grande chanteuse pop tchèque actuelle.\n\n<VocabCard\n  word=\"Láska je láska\"\n  translation=\"L'amour est l'amour\"\n  pronunciation=\"LAAS-ka yé LAAS-ka\"\n  example=\"Ballade romantique\"\n/>\n\n### Chinaski\n\nGroupe de pop-rock très populaire.\n\n<VocabCard\n  word=\"Víno\"\n  translation=\"Vin\"\n  pronunciation=\"VII-no\"\n  example=\"Chanson entraînante\"\n/>\n\n### Kryštof\n\nGroupe de rock mélodique avec des textes poétiques.\n\n<VocabCard\n  word=\"Zůstaň tu se mnou\"\n  translation=\"Reste ici avec moi\"\n  pronunciation=\"ZOUS-tan tou sé mnou\"\n  example=\"Ballade romantique\"\n/>\n\n## Extraits de paroles à apprendre\n\n### Expressions romantiques\n\n<VocabCard\n  word=\"Bez tebe nemůžu žít\"\n  translation=\"Je ne peux pas vivre sans toi\"\n  pronunciation=\"béz TÉ-bé NÉ-mou-jou jiit\"\n  example=\"Phrase classique des chansons d'amour\"\n/>\n\n<VocabCard\n  word=\"Jsi všechno, co mám\"\n  translation=\"Tu es tout ce que j'ai\"\n  pronunciation=\"ysi FCHÉKH-no tso maam\"\n  example=\"Déclaration d'amour\"\n/>\n\n<VocabCard\n  word=\"Navždy s tebou\"\n  translation=\"Pour toujours avec toi\"\n  pronunciation=\"NAV-jdi s TÉ-bou\"\n  example=\"Promesse d'amour éternel\"\n/>\n\n### Vocabulaire des paroles\n\n| Tchèque | Prononciation | Français |\n|---------|---------------|----------|\n| **Nezapomenu** | NÉ-za-po-mé-nou | Je n'oublierai pas |\n| **Vrať se** | vrat' sé | Reviens |\n| **Čekám** | TCHÉ-kaam | J'attends |\n| **Chybíš mi** | KHI-biich mi | Tu me manques |\n| **Sním** | sniim | Je rêve |\n| **Věřím** | VYÉR-jiim | Je crois |\n\n## Chansons folkloriques\n\nLes chansons traditionnelles moraves et bohémiennes sont magnifiques.\n\n<VocabCard\n  word=\"Ach synku, synku\"\n  translation=\"Oh, mon fils, mon fils\"\n  pronunciation=\"akh SIN-kou SIN-kou\"\n  example=\"Chanson folklorique célèbre\"\n/>\n\n<VocabCard\n  word=\"Teče voda, teče\"\n  translation=\"L'eau coule, elle coule\"\n  pronunciation=\"TÉ-tché VO-da TÉ-tché\"\n  example=\"Chanson traditionnelle morave\"\n/>\n\n<CultureTip title=\"La Moravie musicale\" flag=\"🇨🇿\">\nLa Moravie (région est de la Tchéquie) a une tradition musicale folklorique très riche. Les chansons moraves sont souvent mélancoliques et parlent d'amour, de nature et de vie villageoise. Demandez à votre partenaire ses chansons préférées !\n</CultureTip>\n\n## Créer une playlist d'apprentissage\n\n### Chansons recommandées\n\n| Artiste | Chanson | Niveau |\n|---------|---------|--------|\n| Karel Gott | Být stále mlád | Débutant |\n| Lucie Bílá | Láska je láska | Débutant |\n| Kryštof | Zůstaň tu se mnou | Intermédiaire |\n| Chinaski | Víno | Intermédiaire |\n| Aneta Langerová | Voda živá | Avancé |\n\n### Comment apprendre avec la musique\n\n1. **Écoutez d'abord** - Familiarisez-vous avec la mélodie\n2. **Lisez les paroles** - Cherchez-les sur internet\n3. **Traduisez** - Comprenez le sens général\n4. **Chantez** - Répétez avec la musique\n5. **Mémorisez** - Les phrases resteront gravées\n\n## Expressions tirées de chansons\n\n<VocabCard\n  word=\"Jsi v mém srdci\"\n  translation=\"Tu es dans mon cœur\"\n  pronunciation=\"ysi v mém SRD-tsi\"\n  example=\"Phrase romantique classique\"\n/>\n\n<VocabCard\n  word=\"Budu tě milovat věčně\"\n  translation=\"Je t'aimerai éternellement\"\n  pronunciation=\"BOU-dou tyé MI-lo-vat VYÉTCH-nyé\"\n  example=\"Promesse d'amour\"\n/>\n\n<VocabCard\n  word=\"Ty jsi můj svět\"\n  translation=\"Tu es mon monde\"\n  pronunciation=\"ti ysi mouï svyét\"\n  example=\"Déclaration poétique\"\n/>\n\n<VocabCard\n  word=\"S tebou je všechno jinak\"\n  translation=\"Avec toi, tout est différent\"\n  pronunciation=\"s TÉ-bou yé FCHÉKH-no YI-nak\"\n  example=\"Expression de changement positif\"\n/>\n\n## Conseils pour progresser\n\n- **Écoutez tous les jours** - Même en fond sonore\n- **Chantez ensemble** - Karaoké avec votre partenaire !\n- **Variez les styles** - Pop, rock, folk\n- **Demandez des recommandations** - Votre partenaire connaît les meilleures\n- **Regardez les clips** - Les visuels aident à comprendre\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Vocabulaire des chansons romantiques",
+              "## Artistes à découvrir",
+              "## Extraits de paroles à apprendre",
+              "## Créer une playlist d'apprentissage"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "96ec1dbe-173e-4d6b-ad6c-1154be655f47",
+      "title": "Portugisiske sms- og chatbeskeder til par",
+      "native_lang": "da",
+      "target_lang": "pt",
+      "category": "communication",
+      "content": "# Portugisiske sms- og chatbeskeder til par\n\nPortugisisk er et melodisk og passioneret sprog, der tales i både Portugal og Brasilien. Når du har en portugisisktalende partner, åbner der sig en verden af varme og romantiske udtryk.\n\n## Hvorfor lære portugisiske chatfraser?\n\nPortugisisk har en unik blanding af blødhed og passion. Kærligheds-udtrykkene er ofte poetiske og følelsesladede, og din partner vil elske at modtage beskeder på deres modersmål.\n\n## Grundlæggende kærlige beskeder\n\n### \"Sinto a tua falta\" (PT) / \"Sinto sua falta\" (BR)\n**Udtale:** sintu a tua falta / sintu sua falta\n\n**Betydning:** Jeg savner dig\n\nBemærk forskellen mellem europæisk portugisisk (PT) og brasiliansk portugisisk (BR).\n\n---\n\n### \"Estou pensando em você\"\n**Udtale:** estou pensandu en vose\n\n**Betydning:** Jeg tænker på dig\n\nEn klassisk og romantisk besked.\n\n---\n\n### \"Mal posso esperar para te ver\"\n**Udtale:** mal posso esperar para te ver\n\n**Betydning:** Jeg kan næsten ikke vente med at se dig\n\nPerfekt når I snart skal mødes.\n\n---\n\n## Populære portugisiske kælenavne\n\n### \"Amor\"\n**Udtale:** amor\n\n**Betydning:** Kærlighed\n\nDet mest brugte kælenavn på portugisisk.\n\n---\n\n### \"Querido\" / \"Querida\"\n**Udtale:** keridu / kerida\n\n**Betydning:** Kære (maskulin/feminin)\n\nEt varmt og klassisk kælenavn.\n\n---\n\n### \"Meu bem\"\n**Udtale:** meu ben\n\n**Betydning:** Min kære (bogstaveligt: mit gode)\n\nSærligt populært i Brasilien.\n\n---\n\n## Portugisiske sms-forkortelser\n\n### \"Te amo\" / \"TA\"\n**Udtale:** te amu\n\n**Betydning:** Jeg elsker dig\n\nDen ultimative kærlighedserklæring.\n\n---\n\n### \"Bjs\" (Beijos)\n**Udtale:** bejʒus\n\n**Betydning:** Kys\n\nMeget brugt forkortelse til at afslutte beskeder.\n\n---\n\n### \"Sdd\" (Saudade)\n**Udtale:** saudade\n\n**Betydning:** Længsel/savn\n\nSaudade er et unikt portugisisk ord for dyb længsel.\n\n---\n\n## Romantiske beskeder\n\n### \"Você é tudo para mim\"\n**Udtale:** vose e tudu para min\n\n**Betydning:** Du er alt for mig\n\nEn dybt romantisk erklæring.\n\n---\n\n### \"Bom dia, meu amor\"\n**Udtale:** bon dia meu amor\n\n**Betydning:** Godmorgen, min kærlighed\n\nStart din partners dag med varme.\n\n---\n\n### \"Boa noite, meu bem\"\n**Udtale:** boa nojte meu ben\n\n**Betydning:** Godnat, min kære\n\nEn sød godnatbesked.\n\n---\n\n## Hverdagsbeskeder\n\n### \"Tudo bem?\"\n**Udtale:** tudu ben\n\n**Betydning:** Går det godt? / Hvordan har du det?\n\nDen mest almindelige måde at tjekke ind på.\n\n---\n\n### \"Já vou\" / \"Estou indo\"\n**Udtale:** ʒa vou / estou indu\n\n**Betydning:** Jeg er på vej\n\nPraktisk besked når du er undervejs.\n\n---\n\n### \"Até logo\"\n**Udtale:** ate logu\n\n**Betydning:** Vi ses / Farvel\n\nAfslappet farvel.\n\n---\n\n## Specielle udtryk\n\n### \"Você é o amor da minha vida\"\n**Udtale:** vose e u amor da minja vida\n\n**Betydning:** Du er mit livs kærlighed\n\nNår du virkelig vil vise din kærlighed.\n\n---\n\n## Kulturelle tips\n\nPortugisisk har to hovedvarianter: europæisk (Portugal) og brasiliansk. De er gensidigt forståelige, men udtale og nogle ord adskiller sig.\n\nBrasilianere er generelt mere åbne og varme i deres kommunikation, mens portugisere kan være lidt mere reserverede - lidt som forskellen mellem amerikanere og briter.\n\n\"Saudade\" er et særligt portugisisk ord, der beskriver en dyb følelse af længsel og nostalgi. Der findes ikke et direkte dansk ord for det.\n\nEmojis bruges flittigt, særligt hjerter ❤️ og kys 😘.\n\nMed disse fraser kan du kommunikere kærligt med din portugisisktalende partner.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Grundlæggende kærlige beskeder",
+              "## Populære portugisiske kælenavne",
+              "## Portugisiske sms-forkortelser",
+              "## Romantiske beskeder",
+              "## Hverdagsbeskeder",
+              "## Specielle udtryk"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "97110aec-2754-4337-9758-46dc4abc9df4",
+      "title": "Выражение эмоций на греческом языке",
+      "native_lang": "ru",
+      "target_lang": "el",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nУмение выражать свои чувства — ключ к глубоким и искренним отношениям. Давайте научимся говорить о эмоциях на греческом языке!\n\n<PhraseOfDay\n  word=\"Σ'αγαπώ\"\n  translation=\"Я тебя люблю\"\n  context=\"Самое важное выражение эмоций на греческом языке\"\n/>\n\n## Почему важно выражать эмоции на языке партнёра\n\nВ межкультурных отношениях понимание эмоционального языка партнёра критически важно. Когда вы можете выразить свои чувства на его родном языке, это создаёт особую близость.\n\n## Положительные эмоции\n\n### Радость и счастье\n\n<VocabCard\n  word=\"Είμαι χαρούμενη/ος\"\n  translation=\"Я счастлив(а)\"\n  example=\"Είμαι τόσο χαρούμενη/ος μαζί σου.\"\n  exampleTranslation=\"Я так счастлив(а) с тобой.\"\n/>\n\n<CultureTip flag=\"🇬🇷\" title=\"Выражение радости\">\nВ греческом культуре эмоции выражаются по-своему. Понимание этих нюансов поможет вам лучше понимать партнёра.\n</CultureTip>\n\n### Любовь и привязанность\n\n<VocabCard\n  word=\"Σ'αγαπώ\"\n  translation=\"Я тебя люблю\"\n  example=\"Σ'αγαπώ πιο πολύ από οτιδήποτε.\"\n  exampleTranslation=\"Я люблю тебя больше всего на свете.\"\n/>\n\n<VocabCard\n  word=\"Μου λείπεις\"\n  translation=\"Я скучаю по тебе\"\n  example=\"Μου λείπεις πολύ.\"\n  exampleTranslation=\"Я очень скучаю по тебе.\"\n/>\n\n## Негативные эмоции\n\nВажно уметь выражать и негативные чувства — это часть здорового общения.\n\n### Грусть\n\n<VocabCard\n  word=\"Είμαι λυπημένη/ος\"\n  translation=\"Мне грустно\"\n  example=\"Είμαι λυπημένη/ος.\"\n  exampleTranslation=\"Мне грустно.\"\n/>\n\n<CultureTip flag=\"🇬🇷\" title=\"Выражение негативных эмоций\">\nВ здоровых отношениях важно уметь говорить о любых чувствах. Это помогает партнёру лучше вас понимать.\n</CultureTip>\n\n## Как спросить о чувствах партнёра\n\n<VocabCard\n  word=\"Πώς είσαι;\"\n  translation=\"Как ты себя чувствуешь?\"\n  example=\"Τι κάνεις;\"\n  exampleTranslation=\"Как у тебя дела?\"\n/>\n\n## Слова поддержки и утешения\n\nКогда партнёр расстроен, важно уметь поддержать его на его родном языке:\n\n| Greek | Русский |\n|----------|---------|\n| Σ'αγαπώ | Я люблю тебя |\n| Σκέφτομαι εσένα | Я думаю о тебе |\n| Για πάντα δική/ός σου | Всегда твой/твоя |\n\n<CTA \n  title=\"Учите язык эмоций вместе\"\n  description=\"Love Languages поможет вам глубже понимать друг друга\"\n/>\n\n## Связанные статьи\n\n- [Комплименты на греческом языке](/ru/blog/greek-giving-compliments)\n- [Ласковые прозвища на греческом](/ru/blog/greek-pet-names-terms-of-endearment)\n\nУмение говорить о чувствах на языке партнёра укрепляет вашу связь и показывает глубину ваших отношений.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 158,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Положительные эмоции"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "971b71c3-284c-4c4e-b28b-560d5039940f",
+      "title": "Portugalskie zwroty do flirtowania dla Polaków",
+      "native_lang": "pl",
+      "target_lang": "pt",
+      "category": "communication",
+      "content": "Portugalski, szczególnie w brazylijskiej wersji, jest językiem pełnym ciepła i ekspresji. Flirtowanie po portugalsku to połączenie romantyzmu i bezpośredniości, które może podbić każde serce.\n\n## Dwa światy portugalskiego\n\nPortugalski europejski i brazylijski różnią się stylem flirtu. Brazylijczycy są bardziej bezpośredni i ekspresyjni, Portugalczycy nieco bardziej powściągliwi. Ten przewodnik obejmuje oba warianty.\n\n## Podstawowe komplementy\n\n**Você é muito bonito/bonita.**\n*Jesteś bardzo przystojny/piękna.*\nUniwersalny komplement działający wszędzie.\n\n**Você tem um sorriso lindo.**\n*Masz piękny uśmiech.*\nProsty i romantyczny.\n\n**Seus olhos são incríveis.**\n*Twoje oczy są niesamowite.*\nKlasyczny komplement.\n\n## Wyrażanie zainteresowania\n\n**Eu gosto muito de você.**\n*Bardzo Cię lubię.*\nBezpośrednie wyrażenie sympatii.\n\n**Não consigo parar de pensar em você.**\n*Nie mogę przestać o Tobie myśleć.*\nRomantyczne wyznanie.\n\n**Você é especial.**\n*Jesteś wyjątkowy/wyjątkowa.*\nProste, ale skuteczne.\n\n## Namiętne wyrażenia\n\n**Você me deixa louco/louca.**\n*Doprowadzasz mnie do szaleństwa.*\nTypowo brazylijskie, pełne pasji.\n\n**Você é o amor da minha vida.**\n*Jesteś miłością mojego życia.*\nMocne wyznanie.\n\n**Meu coração bate mais forte quando te vejo.**\n*Moje serce bije szybciej, gdy Cię widzę.*\nPoetyckie i romantyczne.\n\n## Portugalskie/brazylijskie zdrobnienia\n\n**Meu amor** - *Moja miłości*\n**Querido/Querida** - *Drogi/Droga*\n**Meu bem** - *Moje dobro* (popularne w Brazylii)\n**Gato/Gata** - *Kot/Kotka* (brazylijski slang = przystojniak/piękność)\n**Fofo/Fofa** - *Słodziak*\n\n## Zaproszenia na randkę\n\n**Quer tomar um café comigo?**\n*Chcesz się napić ze mną kawy?*\n\n**Posso te convidar para jantar?**\n*Mogę Cię zaprosić na kolację?*\n\n**Vamos sair juntos?**\n*Wyjdziemy gdzieś razem?*\n\n## Romantyczne zwroty\n\n**Você faz meu dia mais feliz.**\n*Sprawiasz, że mój dzień jest szczęśliwszy.*\n\n**Com você, tudo é mais bonito.**\n*Z Tobą wszystko jest piękniejsze.*\n\n**Adoro passar tempo com você.**\n*Uwielbiam spędzać z Tobą czas.*\n\n## Brazylijski flirt (bardziej bezpośredni)\n\n**Você é muito gato/gata!**\n*Jesteś bardzo przystojny/przystojna!* (slang)\n\n**Tô afim de você.**\n*Lecę na Ciebie.* (bardzo bezpośrednie!)\n\n**Você é demais!**\n*Jesteś niesamowity/a!*\n\n## Wskazówki kulturowe\n\n### Brazylia:\n- Bardzo ekspresyjna i dotykowa kultura\n- Flirt jest naturalny i swobodny\n- \"Beijo\" (pocałunek) na powitanie jest normą\n- Muzyka i taniec są częścią flirtu\n\n### Portugalia:\n- Bardziej powściągliwa niż Brazylia\n- Flirt jest subtelniejszy\n- Szacunek i elegancja są ważne\n- Romantyzm bardziej tradycyjny\n\n## Podsumowanie\n\nPortugalski to język ciepła i pasji. Niezależnie czy Twój partner jest z Brazylii czy Portugalii, doceni Twoje starania. Bądź autentyczny, nie bój się ekspresji, a Twoje portugalskie komplementy trafią prosto do serca. Boa sorte! (Powodzenia!)",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Wskazówki kulturowe"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "9720d7fc-a07b-4a2d-8104-3fed2580e590",
+      "title": "Frases de Apoyo Emocional en Rumano: Cómo Consolar a Tu Pareja",
+      "native_lang": "es",
+      "target_lang": "ro",
+      "category": "communication",
+      "content": "El rumano permite expresar apoyo emocional con la calidez latina compartida. Estas frases te ayudarán a consolar a tu pareja rumana.\n\n## Frases de Consuelo Básicas\n\n### \"Sunt aici pentru tine\"\n**Pronunciación:** sunt aích péntru tíne\n\n**Significado:** Estoy aquí para ti\n\n### \"Totul va fi bine\"\n**Pronunciación:** tótul va fi bíne\n\n**Significado:** Todo estará bien\n\n### \"Îmi pare foarte rău că treci prin asta\"\n**Pronunciación:** îmi páre fóarte ráu ká trétsi prin ásta\n\n**Significado:** Siento mucho que estés pasando por esto\n\n## Ofreciendo Apoyo\n\n### \"Ce ai nevoie acum?\"\n**Pronunciación:** tse ai nevóie akúm\n\n**Significado:** ¿Qué necesitas ahora?\n\n### \"Voi face tot ce pot să te ajut\"\n**Pronunciación:** vói fáche tot tse pot sá te azhút\n\n**Significado:** Haré todo lo que pueda para ayudarte\n\n### \"Vrei să vorbești despre asta?\"\n**Pronunciación:** vrei sá vorbéshti déspre ásta\n\n**Significado:** ¿Quieres hablar de ello?\n\n### \"Te ascult\"\n**Pronunciación:** te askúlt\n\n**Significado:** Te escucho\n\n## Validando Emociones\n\n### \"E normal să te simți așa\"\n**Pronunciación:** e normál sá te símtsi ásha\n\n**Significado:** Es normal sentirse así\n\n### \"Sentimentele tale sunt complet înțelese\"\n**Pronunciación:** sentiméntele tále sunt komplét întsielése\n\n**Significado:** Tus sentimientos son completamente comprensibles\n\n## Frases de Ánimo\n\n### \"Ești mai puternică/puternic decât crezi\"\n**Pronunciación:** yeshti mai puternícá/puterník dekát krezi\n\n**Significado:** Eres más fuerte de lo que crees\n\n### \"Cred în tine\"\n**Pronunciación:** kred în tíne\n\n**Significado:** Creo en ti\n\n### \"Vom trece prin asta împreună\"\n**Pronunciación:** vom tréche prin ásta împreuná\n\n**Significado:** Pasaremos por esto juntos\n\n## Expresando Amor\n\n### \"Te iubesc indiferent ce se întâmplă\"\n**Pronunciación:** te yubésk indiferént tse se întámpla\n\n**Significado:** Te amo sin importar lo que pase\n\n### \"Nu ești singură/singur\"\n**Pronunciación:** nu yeshti singúra/singúr\n\n**Significado:** No estás sola/solo\n\nEl apoyo rumano une la calidez latina. ¡Curaj!",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 288,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frases de Consuelo Básicas",
+              "## Ofreciendo Apoyo",
+              "## Validando Emociones",
+              "## Frases de Ánimo",
+              "## Expresando Amor"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

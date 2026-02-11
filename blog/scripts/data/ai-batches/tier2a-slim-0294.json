@@ -1,0 +1,471 @@
+{
+  "batchId": "tier2a-slim-0294",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "3a658bad-07a9-4b66-a50d-67dc5915f2b8",
+      "title": "Francia kiejtés kezdőknek: Tanuljatok együtt, hogy romantikusan hassatok",
+      "native_lang": "hu",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Az Alap Hangok: Kezdjük Az Elején!",
+          "subsections": [
+            "### A Magánhangzók Titkai",
+            "### A Nasális Hangok: A Francia Bűbáj"
+          ]
+        },
+        {
+          "header": "## A Kiejtés 5 Aranyszabálya Pároknak",
+          "subsections": [
+            "### 1. A Végén Csend Van",
+            "### 2. A Hangzók Összeolvadása",
+            "### 3. A Súlyozás Fontossága",
+            "### 4. A Francia 'H' Titka",
+            "### 5. A Kettőzött Betűk Hangja"
+          ]
+        },
+        {
+          "header": "## Romantikus Gyakorlatok Pároknak",
+          "subsections": [
+            "### 1. Szerelmes Suttogás Gyakorlat",
+            "### 2. A Csók Előtti Kiejtés"
+          ]
+        },
+        {
+          "header": "## Gyakori Kiejtési Hibák, Amiket Elkerülhettek",
+          "subsections": [
+            "### 1. Az 'R' Magyarosítása",
+            "### 2. A Nasális Túlzása",
+            "### 3. A Szótagsúly Rossz Helye",
+            "### 4. A 'J' és 'G' Összekeverése"
+          ]
+        },
+        {
+          "header": "## Kiejtési Gyakorlatok Mindennapra",
+          "subsections": [
+            "### Reggeli Rutin",
+            "### Esti Búcsú"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3b4a3d0f-44b7-407c-9f1d-b5a976ca8610",
+      "title": "Poèmes Romantiques Polonais Traduits",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Poèmes d'amour polonais classiques",
+          "subsections": [
+            "### \"Do M***\" d'Adam Mickiewicz",
+            "### L'amour moderne : Wisława Szymborska"
+          ]
+        },
+        {
+          "header": "## Poésie d'amour polonaise contemporaine",
+          "subsections": [
+            "### Vers modernes courts parfaits pour les couples"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3bc0b7ba-a9d2-4fe5-8afe-22fe54b53370",
+      "title": "50+ Fransızca Randevu İfadesi | Paris'te Romantizm",
+      "native_lang": "tr",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Yemek ve Icecek",
+          "subsections": [
+            "### Yemek Kategorileri",
+            "### Icecekler"
+          ]
+        },
+        {
+          "header": "## Ciftler Icin Randevu Gecesi Plani",
+          "subsections": [
+            "### Hazirlık",
+            "### Restoranda",
+            "### Romantik An",
+            "### Eve Dönüs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3bd10445-a5ef-4058-a24a-1532ddd4856e",
+      "title": "Знакомство с семьёй датского партнёра",
+      "native_lang": "ru",
+      "target_lang": "da",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Члены семьи",
+          "subsections": [
+            "### Основные слова",
+            "### Расширенная семья"
+          ]
+        },
+        {
+          "header": "## Датские праздники и традиции",
+          "subsections": [
+            "### Ключевые праздники"
+          ]
+        },
+        {
+          "header": "## Практические ситуации",
+          "subsections": [
+            "### Сценарий 1: Прибытие",
+            "### Сценарий 2: За ужином",
+            "### Сценарий 3: Уход"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3c476454-487b-474d-88cb-e5b735c8ff18",
+      "title": "Rencontrer la famille de votre partenaire en polonais : phrases essentielles pour faire bonne impression",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Conversations typiques avec la famille",
+          "subsections": [
+            "### Avec les parents",
+            "### Avec les frères et sœurs"
+          ]
+        },
+        {
+          "header": "## Vocabulaire familial essentiel",
+          "subsections": [
+            "### Les membres de la famille",
+            "### Animaux de compagnie familiaux"
+          ]
+        },
+        {
+          "header": "## Phrases de politesse et formules de respect",
+          "subsections": [
+            "### À table",
+            "### En partant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3c5e007b-f2fe-4470-b4ed-82d37a1db637",
+      "title": "French Restaurant Vocabulary: Dining Out Guide for Couples",
+      "native_lang": "en",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Understanding the Menu",
+          "subsections": [
+            "### Menu Sections",
+            "### Common Menu Terms"
+          ]
+        },
+        {
+          "header": "## Ordering Food",
+          "subsections": [
+            "### Basic Ordering Phrases",
+            "### Asking About Dishes",
+            "### Dietary Needs"
+          ]
+        },
+        {
+          "header": "## Common French Foods",
+          "subsections": [
+            "### Entrees (Starters)",
+            "### Plats (Main Courses)",
+            "### How You Want It Cooked",
+            "### Desserts"
+          ]
+        },
+        {
+          "header": "## Ordering Drinks",
+          "subsections": [
+            "### Beverages",
+            "### Wine Ordering Phrases"
+          ]
+        },
+        {
+          "header": "## During the Meal",
+          "subsections": [
+            "### Getting Attention",
+            "### Common Requests",
+            "### Complimenting the Food"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3cb46b7a-0ffc-4c73-bbff-2d2b317c8896",
+      "title": "50+ Dänische Kosename und Kosenamen für Verliebte",
+      "native_lang": "de",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## So verwendest du dänische Kosename richtig",
+          "subsections": [
+            "### Die wichtigsten Regeln:",
+            "### Typische Fehler zu vermeiden:",
+            "### Praktische Beispiele für den Alltag:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3d773092-fb0c-4078-ae26-1538f88288bc",
+      "title": "Ukrainian Texting Slang & Chat Language",
+      "native_lang": "en",
+      "target_lang": "uk",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Modern Ukrainian Slang",
+          "subsections": [
+            "### Expressions of Agreement/Approval",
+            "### Expressions of Disagreement/Surprise"
+          ]
+        },
+        {
+          "header": "## Reactions and Responses",
+          "subsections": [
+            "### Quick Positive Responses",
+            "### Quick Negative/Neutral Responses"
+          ]
+        },
+        {
+          "header": "## Sample Text Conversations",
+          "subsections": [
+            "### Morning Check-in",
+            "### Making Plans"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3d80b951-0067-4053-8d76-dd1434733b5e",
+      "title": "Is Spanish Hard? Honest Assessment",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## The Good News: Why Spanish Loves English Speakers",
+          "subsections": [
+            "### Familiar Alphabet and Sounds",
+            "### Thousands of Shared Words",
+            "### Logical Grammar Patterns"
+          ]
+        },
+        {
+          "header": "## The Challenges: Where Spanish Gets Spicy",
+          "subsections": [
+            "### Verb Conjugations: The Big Boss Battle",
+            "### Gendered Nouns: Everything Has a Personality",
+            "### Rolling Rs and Tricky Pronunciation"
+          ]
+        },
+        {
+          "header": "## The Romance Factor: Learning Spanish as a Couple",
+          "subsections": [
+            "### Built-in Practice Partner",
+            "### Romantic Motivation",
+            "### Daily Practice Ideas for Couples"
+          ]
+        },
+        {
+          "header": "## Realistic Timeline: What to Expect",
+          "subsections": [
+            "### First 3 Months: The Honeymoon Phase",
+            "### Months 3-6: Building Momentum",
+            "### Months 6-12: The Breakthrough"
+          ]
+        },
+        {
+          "header": "## Making It Easier: Pro Tips for Couples",
+          "subsections": [
+            "### Start with Shared Interests",
+            "### Embrace Mistakes Together",
+            "### Set Realistic Goals",
+            "### Use Technology Wisely"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3d8b805f-77f6-4c11-899c-35d8ff36825c",
+      "title": "Traditions de Noel allemandes pour couples",
+      "native_lang": "fr",
+      "target_lang": "de",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Exercices pratiques pour couples",
+          "subsections": [
+            "### Exercice 1 : Planifiez votre Noel allemand",
+            "### Exercice 2 : Ecrivez une carte de Noel",
+            "### Exercice 3 : Chantez ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3df8d18f-ab00-4034-9d06-047c1f0dd8bf",
+      "title": "Συνάντηση με την Οικογένεια του Συντρόφου σου στα Γερμανικά: Οδηγός για Ζευγάρια",
+      "native_lang": "el",
+      "target_lang": "de",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Συγκεκριμένα Σενάρια",
+          "subsections": [
+            "### 1. Η Πρώτη Είσοδος στο Σπίτι",
+            "### 2. Γεύμα με την Οικογένεια",
+            "### 3. Συζήτηση για την Ελλάδα και την Κουλτούρα",
+            "### 4. Αποχαιρετισμός"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3e3191a4-f0dd-4242-9628-d4ebd5fa802a",
+      "title": "Is Turkish Hard to Learn? Honest Guide for English Speakers",
+      "native_lang": "en",
+      "target_lang": "tr",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## What Makes Turkish Different",
+          "subsections": [
+            "### The Challenging Parts"
+          ]
+        },
+        {
+          "header": "## What Makes Turkish Easier Than You Think",
+          "subsections": [
+            "### 1. Phonetic Spelling",
+            "### 2. No Articles",
+            "### 3. No Grammatical Gender",
+            "### 4. Regular Conjugation",
+            "### 5. Logical Structure"
+          ]
+        },
+        {
+          "header": "## Realistic Timeline for Couples",
+          "subsections": [
+            "### Months 1-3: Survival Turkish",
+            "### Months 4-6: Conversational Basics",
+            "### Months 7-12: Comfortable Communication",
+            "### Year 2+: Approaching Fluency"
+          ]
+        },
+        {
+          "header": "## Tips for Success",
+          "subsections": [
+            "### 1. Embrace the Suffixes",
+            "### 2. Practice Pronunciation Early",
+            "### 3. Learn Root Words",
+            "### 4. Use Turkish Media",
+            "### 5. Don't Fear Mistakes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3e978158-5ff4-436f-8304-cc47c4133927",
+      "title": "Rencontrer la famille de votre partenaire hongrois : Phrases essentielles pour faire bonne impression",
+      "native_lang": "fr",
+      "target_lang": "hu",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Avant la rencontre : Préparez-vous ensemble",
+          "subsections": [
+            "### Ce que vous devez savoir"
+          ]
+        },
+        {
+          "header": "## Scénarios typiques",
+          "subsections": [
+            "### En arrivant chez eux",
+            "### À table",
+            "### Conversation autour de photos"
+          ]
+        },
+        {
+          "header": "## Vocabulaire essentiel par catégories",
+          "subsections": [
+            "### Membres de la famille",
+            "### Compliments et politesse"
+          ]
+        },
+        {
+          "header": "## Si les choses ne se passent pas comme prévu",
+          "subsections": [
+            "### Phrases de secours",
+            "### Expressions d'excuse"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3f165b18-6522-43e9-a45d-4b234a99b026",
+      "title": "Wloskie powitania i pożegnania dla par",
+      "native_lang": "pl",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Specjalne okazje",
+          "subsections": [
+            "### Przed podróżą",
+            "### Przed ważnym wydarzeniem"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Poranna rutyna",
+            "### Ćwiczenie 2: SMS-y",
+            "### Ćwiczenie 3: Wieczorna rutyna"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3f5cfac4-7931-484b-b34e-d90be9db7ff3",
+      "title": "Cartas de Amor en Polaco: Cómo",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Frases Románticas Esenciales",
+          "subsections": [
+            "### Expresando Amor y Anhelo",
+            "### Describiendo a Tu Ser Amado"
+          ]
+        },
+        {
+          "header": "## Estructura de una Carta de Amor Polaca",
+          "subsections": [
+            "### Apertura (Rozpoczęcie)",
+            "### Cuerpo (Główna część)",
+            "### Cierre (Zakończenie)"
+          ]
+        }
+      ]
+    }
+  ]
+}

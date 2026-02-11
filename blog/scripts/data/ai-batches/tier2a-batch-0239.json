@@ -1,0 +1,128 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0239",
+  "articles": [
+    {
+      "id": "442564e2-fba1-4f4a-aa0b-f37d65cc19f3",
+      "title": "Γερμανικά Βασικά Γραμματικά: Μάθετε να μιλάτε με τον σύντροφό σας χωρίς άγχος",
+      "native_lang": "el",
+      "target_lang": "de",
+      "category": "grammar",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport ConjugationTable from '@components/ConjugationTable.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nΞεκινάτε τα γερμανικά μαζί με τον σύντροφό σας; Η γερμανική γραμματική μπορεί να φαίνεται τρομακτική, αλλά εδώ θα μάθετε μόνο όσα χρειάζεστε για να επικοινωνήσετε με τον άνθρωπό σας. Μέχρι το τέλος αυτού του άρθρου, θα μπορείτε να σχηματίζετε απλές προτάσεις για την καθημερινότητά σας και να εκφράζετε τα συναισθήματά σας στα γερμανικά.\n\n<PhraseOfDay\n  word=\"Ich liebe dich\"\n  translation=\"Σ' αγαπώ\"\n  pronunciation=\"ιχ ΛΙ-μπε ντιχ\"\n  context=\"Η πιο σημαντική φράση που θα μάθετε - οι Γερμανοί τη χρησιμοποιούν σπάνια, γι' αυτό έχει μεγάλη αξία όταν τη λέτε.\"\n/>\n\n## Η Απλή Εξήγηση: Τα Γερμανικά Σαν Παζλ\n\nΣκεφτείτε τη γερμανική γραμματική σαν να χτίζετε ένα παζλ με τον σύντροφό σας. Κάθε κομμάτι έχει τη θέση του, αλλά δεν χρειάζεται να είναι τέλειο για να δείτε την εικόνα. Οι Γερμανοί καταλαβαίνουν ακόμα κι αν κάνετε λάθη - το σημαντικό είναι να προσπαθείτε μαζί!\n\n## Οι 4 Βασικοί Κανόνες\n\n### 1. Τα Άρθρα: Ο, Η, Το στα Γερμανικά\n\nΤα γερμανικά έχουν τρία γένη: **der** (αρσενικό), **die** (θηλυκό), **das** (ουδέτερο). Αλλά μην ανησυχείτε - δεν χρειάζεται να τα μάθετε όλα απ' έξω!\n\n<VocabCard\n  word=\"der Partner / die Partnerin\"\n  translation=\"ο σύντροφος / η σύντροφος\"\n  pronunciation=\"ντερ ΠΑΡΤ-νερ / ντι ΠΑΡΤ-νεριν\"\n  example=\"Mein Partner ist lieb.\"\n/>\n\n### 2. Τα Ρήματα: Η Καρδιά της Πρότασης\n\nΤο ρήμα πάντα δεύτερο στη σειρά σε απλές προτάσεις. Είναι σαν να λέτε \"Εγώ αγαπώ εσένα\" - το ρήμα είναι στο κέντρο.\n\n<ConjugationTable\n  verb=\"lieben\"\n  meaning=\"αγαπώ\"\n  conjugations={[\n    { person: \"ich\", polish: \"liebe\", english: \"εγώ αγαπώ\" },\n    { person: \"du\", polish: \"liebst\", english: \"εσύ αγαπάς\" },\n    { person: \"er/sie\", polish: \"liebt\", english: \"αυτός/αυτή αγαπά\" },\n    { person: \"wir\", polish: \"lieben\", english: \"εμείς αγαπούμε\" },\n    { person: \"ihr\", polish: \"liebt\", english: \"εσείς αγαπάτε\" },\n    { person: \"sie\", polish: \"lieben\", english: \"αυτοί αγαπούν\" }\n  ]}\n/>\n\n### 3. Οι Προσωπικές Αντωνυμίες\n\n| Γερμανικά | Ελληνικά | Προφορά |\n|-----------|----------|---------|\n| **ich** | εγώ | ιχ |\n| **du** | εσύ | ντου |\n| **er/sie/es** | αυτός/αυτή/αυτό | ερ/ζι/ες |\n| **wir** | εμείς | βιρ |\n| **ihr** | εσείς | ιρ |\n| **sie** | αυτοί | ζι |\n\n### 4. Οι Ερωτήσεις Είναι Εύκολες\n\nΓια ερωτήσεις, απλά βάζετε το ρήμα πρώτο: **Magst du mich?** (Μ' αγαπάς;)\n\n## Ρομαντικά Παραδείγματα για Ζευγάρια\n\n| Γερμανικά | Ελληνικά | Σημείωση Γραμματικής |\n|-----------|----------|---------------------|\n| **Ich vermisse dich** | Μου λείπεις | ich + ρήμα + αντικείμενο |\n| **Du bist schön** | Είσαι όμορφος/η | du + είμαι + επίθετο |\n| **Wir haben Zeit** | Έχουμε χρόνο | wir + ρήμα + αντικείμενο |\n| **Kommst du heute?** | Έρχεσαι σήμερα; | ρήμα + du + χρόνος |\n| **Ich koche für dich** | Μαγειρεύω για σένα | ich + ρήμα + για + dich |\n\n<CultureTip flag=\"🇩🇪\" title=\"Η Γερμανική Αμεσότητα\">\nΟι Γερμανοί είναι άμεσοι στα συναισθήματά τους. Όταν λένε \"Ich mag dich\" (Μ' αρέσεις), το εννοούν! Μην περιμένετε πολλά ποιητικά λόγια - η απλότητα έχει αξία.\n</CultureTip>\n\n## Οι Πιο Χρήσιμοι Χρόνοι\n\n### Παρόν (Präsens) - Για την Καθημερινότητα\n\nΤο παρόν χρησιμοποιείται για ό,τι συμβαίνει τώρα ή γενικά:\n\n- **Ich arbeite** - Δουλεύω\n- **Du lernst Deutsch** - Μαθαίνεις γερμανικά\n- **Wir gehen ins Kino** - Πάμε σινεμά\n\n### Μέλλονς (Futur I) - Για Σχέδια\n\nΒάλτε **werden** πριν το ρήμα:\n\n- **Wir werden reisen** - Θα ταξιδέψουμε\n- **Ich werde dich anrufen** - Θα σε πάρω τηλέφωνο\n\n## Προτάσεις για Εξάσκηση με τον Σύντροφό Σας\n\n1. **Ich liebe dich sehr** - Σ' αγαπώ πολύ\n2. **Du bist mein Schatz** - Είσαι ο θησαυρός μου\n3. **Hast du Hunger?** - Πεινάς;\n4. **Wir gehen spazieren** - Πηγαίνουμε βόλτα\n5. **Ich warte auf dich** - Σε περιμένω\n6. **Gefällt dir das?** - Σου αρέσει αυτό;\n7. **Ich bin glücklich mit dir** - Είμαι ευτυχισμένος/η μαζί σου\n\n<CultureTip flag=\"🇩🇪\" title=\"Το 'Du' vs 'Sie'\">\nΜε τον σύντροφό σας πάντα χρησιμοποιείτε **du** (εσύ). Το **Sie** είναι για επίσημες καταστάσεις. Όταν γνωρίζετε κάποιον νέο, ξεκινήστε με **Sie** και περιμένετε να σας προσφέρουν το **du**.\n</CultureTip>\n\n## Τα Πιο Συνηθισμένα Λάθη\n\n### 1. Η Σειρά των Λέξεων\n**Λάθος:** Ich dich liebe\n**Σωστό:** Ich liebe dich\n\n### 2. Τα Άρθρα με Ονόματα\n**Λάθος:** Die Anna ist schön\n**Σωστό:** Anna ist schön (τα ονόματα δεν παίρνουν άρθρο)\n\n### 3. Το Ρήμα Δεύτερο\n**Λάθος:** Ich sehr dich liebe\n**Σωστό:** Ich liebe dich sehr\n\n## Γρήγορο Οδηγό Αναφοράς\n\n| Τι Θέλετε | Γερμανικά | Προφορά |\n|-----------|-----------|---------|\n| Να πεις \"σ' αγαπώ\" | Ich liebe dich | ιχ ΛΙ-μπε ντιχ |\n| Να ρωτήσεις \"τι κάνεις;\" | Was machst du? | βας μαχστ ντου |\n| Να πεις \"καλά\" | Gut | γκουτ |\n| Να ρωτήσεις \"πότε;\" | Wann? | βαν |\n| Να πεις \"εδώ\" | Hier | χιρ |\n\nΜόλις μάθατε τα βασικά! Για περισσότερες ρομαντικές φράσεις, δείτε τον οδηγό μας για [πώς να πείτε σ' αγαπώ στα γερμανικά](/learn/el/de/how-to-say-i-love-you-in-german/). Και αν θέλετε να μάθετε γλυκά ψευδώνυμα για τον σύντροφό σας, ρίξτε μια ματιά στα [γερμανικά ψευδώνυμα για το ταίρι σας](/learn/el/de/german-pet-names-for-your-partner/).\n\n## Τι Έπεται;\n\nΤώρα που ξέρετε τα βασικά, μπορείτε να:\n- Μάθετε [βασικές φράσεις για ζευγάρια](/learn/el/de/essential-german-phrases-for-couples/)\n- Εξασκηθείτε στην [προφορά για αρχάριους](/learn/el/de/pronunciation-guide-for-beginners/)\n- Ανακαλύψτε [λέξεις για ραντεβού](/learn/el/de/german-date-night-vocabulary/)\n\nΗ γραμματική είναι μόνο η αρχή - το ταξίδι σας στα γερμανικά ξεκινάει τώρα!\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Οι 4 Βασικοί Κανόνες",
+              "## Οι Πιο Χρήσιμοι Χρόνοι",
+              "## Τα Πιο Συνηθισμένα Λάθη"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "44259688-af41-46cb-bd08-5496ac680d8b",
+      "title": "Frases en Portugués para tu Primera Cita",
+      "native_lang": "es",
+      "target_lang": "pt",
+      "category": "communication",
+      "content": "Una primera cita con alguien lusófono es cálida y acogedora. Estas frases te ayudarán.\n\n## Frases para Romper el Hielo\n\n### \"É um prazer finalmente te conhecer\"\n**Pronunciación:** E um pra-ZER fi-nal-MEN-te te co-ñe-SER\n\n**Significado:** Es un placer conocerte por fin\n\n### \"Você está lindo/a\"\n**Pronunciación:** Vo-SE es-TA LIN-do/a\n\n**Significado:** Estás guapísimo/a\n\n### \"Estava ansioso/a por esse momento\"\n**Pronunciación:** Es-TA-va an-sio-SO/a por E-se mo-MEN-to\n\n**Significado:** Estaba deseando este momento\n\n## Frases para Conocerse\n\n### \"Me conta sobre você\"\n**Pronunciación:** Me CON-ta SO-bre vo-SE\n\n**Significado:** Cuéntame sobre ti\n\n### \"O que você gosta de fazer pra se divertir?\"\n**Pronunciación:** O que vo-SE GOS-ta de fa-ZER pra se di-ver-TIR\n\n**Significado:** ¿Qué te gusta hacer para divertirte?\n\n### \"Qual é o seu... favorito?\"\n**Pronunciación:** Cual e o seu... fa-vo-RI-to\n\n**Significado:** ¿Cuál es tu... favorito?\n\n### \"Quero saber mais sobre isso\"\n**Pronunciación:** QUE-ro sa-BER mais SO-bre I-so\n\n**Significado:** Quiero saber más sobre eso\n\n## Frases Románticas\n\n### \"Estou me divertindo muito\"\n**Pronunciación:** Es-TOU me di-ver-TIN-do MUI-to\n\n**Significado:** Me estoy divirtiendo mucho\n\n### \"Você tem um sorriso lindo\"\n**Pronunciación:** Vo-SE tem um so-RI-so LIN-do\n\n**Significado:** Tienes una sonrisa preciosa\n\n### \"Me sinto muito bem com você\"\n**Pronunciación:** Me SIN-to MUI-to bem com vo-SE\n\n**Significado:** Me siento muy bien contigo\n\n## Frases para Terminar\n\n### \"Foi uma noite maravilhosa\"\n**Pronunciación:** Foi U-ma NOI-te ma-ra-vi-LIO-sa\n\n**Significado:** Fue una noche maravillosa\n\n### \"Podemos nos ver de novo?\"\n**Pronunciación:** Po-DE-mos nos ver de NO-vo\n\n**Significado:** ¿Podemos vernos de nuevo?\n\n### \"Me avisa quando chegar bem\"\n**Pronunciación:** Me a-VI-sa CUAN-do che-GAR bem\n\n**Significado:** Avísame cuando llegues bien\n\n## Conclusión\n\nEl portugués es cálido y acogedor para las primeras citas.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 269,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frases para Romper el Hielo",
+              "## Frases para Conocerse",
+              "## Frases Románticas",
+              "## Frases para Terminar"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "44368041-1ad7-4f9d-bdb3-98b03dc7a994",
+      "title": "Portugál összeköltözési szókincs",
+      "native_lang": "hu",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nAz összeköltözés fontos mérföldkő a kapcsolatban. Ha portugálul kell kommunikálnod a költözésről és a háztartásról, ezek a kifejezések segítenek.\n\nTovábbi praktikus kifejezésekért nézd meg az [Portugál alapvető kifejezések](/learn/hu/pt/portuguese-essential-phrases-for-couples) útmutatónkat.\n\n<PhraseOfDay\n  word=\"Parabéns!\"\n  translation=\"Gratulálok!\"\n  pronunciation=\"pɐɾɐˈβɐ̃jʃ\"\n  context=\"Az esküvői köszöntés alapja.\"\n/>\n\n## Alapvető szókincs\n\nAz összeköltözés és háztartás portugál szókincse:\n\n<VocabCard\n  word=\"casamento\"\n  translation=\"esküvő\"\n  pronunciation=\"kazaˈmẽtu\"\n  example=\"O casamento foi lindo.\"\n/>\n\n| Portugál | Magyar | Használat |\n|---|---|---|\n| noiva | menyasszony | A nő |\n| noivo | vőlegény | A férfi |\n| votos | fogadalmak | Esküvői ígéretek |\n| cerimónia | szertartás | A hivatalos rész |\n| receção | fogadás | Az ünneplés |\n| brinde | köszöntő | Pohárköszöntő |\n\n<CultureTip flag=\"🌍\" title=\"Portugál kulturális tippek\">\nA portugál kultúrában az összeköltözésnek különböző jelentőségei lehetnek. Egyes helyeken ez formális lépés, máshol természetes átmenet a kapcsolatban.\n</CultureTip>\n\n## Hasznos kifejezések\n\n### Költözési kifejezések\n\nAz összeköltözéskor hasznos mondatok:\n\n- **Összeköltözünk!** - A nagy bejelentés\n- **Hol van a...?** - Tárgyak keresése\n- **Ezt hova tegyük?** - Berendezés\n\n### Háztartási szókincs\nA mindennapi élethez:\n\n- **Ki viszi le a szemetet?** - Háztartási kérdések\n- **Mit főzzünk vacsorára?** - Közös étkezés\n\n<VocabCard\n  word=\"lua de mel\"\n  translation=\"nászút\"\n  pronunciation=\"ˈlu.ɐ dɨ ˈmɛl\"\n  example=\"Foram para a lua de mel.\"\n/>\n\n## Gyakorlati helyzetek\n\n| Helyzet | Mit mondj |\n|---|---|\n| Bejelentés | Összeköltözünk! |\n| Költözéskor | Segíts ezzel! |\n| Berendezéskor | Hova tegyük ezt? |\n| Vendégeknek | Üdvözöljük az új otthonunkban! |\n\n<CultureTip flag=\"💡\" title=\"Hasznos tipp\">\nAz összeköltözés jó alkalom a nyelvtanulásra! Címkézd fel a tárgyakat a házban az idegen nyelven, és gyakorolj minden nap.\n</CultureTip>\n\n## Összefoglaló táblázat\n\n| Helyzet | Portugál kifejezés |\n|---|---|\n| Gratuláció | Parabéns! |\n| Az esemény | casamento |\n| A nő | noiva |\n| A férfi | noivo |\n| Esküvői ígéretek | votos |\n\n## További tanulás\n\nHa tovább szeretnéd fejleszteni a portugál nyelvtudásod, nézd meg ezeket a cikkeinket:\n\n- [Portugál romantikus kifejezések minden alkalomra](/learn/hu/pt/portuguese-romantic-phrases-for-every-occasion)\n- [Hogyan mondd: Szeretlek portugálul](/learn/hu/pt/portuguese-how-to-say-i-love-you)\n- [Portugál alapvető kifejezések pároknak](/learn/hu/pt/portuguese-essential-phrases-for-couples)\n\nEzek a források segítenek elmélyíteni a tudásod és magabiztosabbá válni a portugál nyelvben.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 264,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Hasznos kifejezések"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "44550e76-42a6-4dbb-9f5d-5c2cb198f3bc",
+      "title": "Ungarische Trost- und Unterstützungsphrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "Ungarn sind bekannt für ihre Gastfreundschaft und emotionale Wärme. Hier lernst du wichtige Trost-Phrasen.\n\n## Grundlegende Unterstützung\n\n### \"Itt vagyok neked\"\n**Bedeutung:** Ich bin für dich da\n\n### \"Mindig melletted leszek\"\n**Bedeutung:** Ich werde immer an deiner Seite sein\n\n### \"Nem vagy egyedül ebben\"\n**Bedeutung:** Du bist damit nicht allein\n\n### \"Bármire is van szükséged, itt vagyok\"\n**Bedeutung:** Was auch immer du brauchst, ich bin hier\n\n## Bei Trauer\n\n### \"Őszinte részvétem\"\n**Bedeutung:** Mein aufrichtiges Beileid\n\n### \"Vedd ki az időt, amire szükséged van\"\n**Bedeutung:** Nimm dir die Zeit, die du brauchst\n\n### \"Rendben van sírni\"\n**Bedeutung:** Es ist in Ordnung zu weinen\n\n## Bei Stress und Sorgen\n\n### \"Együtt megoldjuk\"\n**Bedeutung:** Wir werden das zusammen lösen\n\n### \"Lépésről lépésre\"\n**Bedeutung:** Schritt für Schritt\n\n### \"Rendben van, ha nem vagy rendben\"\n**Bedeutung:** Es ist okay, nicht okay zu sein\n\n### \"Ez is el fog múlni\"\n**Bedeutung:** Auch das wird vorübergehen\n\n### \"Ne légy olyan kemény magaddal\"\n**Bedeutung:** Sei nicht so streng mit dir selbst\n\n## Ermutigung\n\n### \"Hiszek benned\"\n**Bedeutung:** Ich glaube an dich\n\n### \"Erősebb vagy, mint gondolod\"\n**Bedeutung:** Du bist stärker, als du denkst\n\n### \"Nagyon büszke vagyok rád\"\n**Bedeutung:** Ich bin sehr stolz auf dich\n\n### \"Meg fogod csinálni\"\n**Bedeutung:** Du wirst es schaffen\n\n## Aktive Hilfe anbieten\n\n### \"Mit tehetek, hogy segítsek?\"\n**Bedeutung:** Was kann ich tun, um zu helfen?\n\n### \"Szeretnél beszélni róla?\"\n**Bedeutung:** Möchtest du darüber reden?\n\n### \"Hallgatlak\"\n**Bedeutung:** Ich höre dir zu\n\n## Langfristige Unterstützung\n\n### \"Mindig itt leszek, bármi is történjen\"\n**Bedeutung:** Ich werde immer hier sein, egal was passiert\n\n### \"Együtt vagyunk ebben\"\n**Bedeutung:** Wir stecken da gemeinsam drin\n\n## Kulturelle Hinweise\n\nUngarn zeigen Unterstützung durch Präsenz und gemeinsames Essen. Die ungarische Küche ist oft Teil des Trosts. Gastfreundschaft ist tief verwurzelt.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 292,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Grundlegende Unterstützung",
+              "## Bei Trauer",
+              "## Bei Stress und Sorgen",
+              "## Ermutigung",
+              "## Aktive Hilfe anbieten",
+              "## Langfristige Unterstützung"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "4460ed11-a2c1-4fc2-9d1e-292e29fa7299",
+      "title": "Udtryk Følelser på Norsk: Komplet Guide for Par",
+      "native_lang": "da",
+      "target_lang": "no",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nAt kunne udtrykke dine følelser på din partners sprog skaber en unik forbindelse. Når du fortæller din partner hvordan du har det på norsk, viser du en sårbarhed der styrker jeres forhold. Denne guide giver dig ordforrådet til at dele glæde, sorg, kærlighed og alt derimellem. Kombiner dette med vores [norske romantiske fraser](/learn/da/no/norwegian-romantic-phrases-for-every-occasion/).\n\n<PhraseOfDay\n  word=\"I feel happy\"\n  translation=\"Jeg føler mig glad\"\n  pronunciation=\"ai fiil ha-pi\"\n  context=\"En vigtig følelsesudtryk på norsk\"\n/>\n\n## Positive Følelser\n\nLad os starte med de gode følelser:\n\n<VocabCard\n  word=\"I'm happy\"\n  translation=\"Jeg er lykkelig\"\n  pronunciation=\"aim ha-pi\"\n  example=\"I'm so happy with you.\"\n/>\n\n### Glæde og Lykke\n\n| Norsk | Dansk | Udtale |\n|---------|-------|--------|\n| **I'm happy** | Jeg er lykkelig | aim ha-pi |\n| **I'm filled with joy** | Jeg er fyldt med glæde | aim fild wid joi |\n| **I'm excited** | Jeg er begejstret | aim ek-sai-ted |\n| **I'm grateful** | Jeg er taknemmelig | aim grei-ful |\n| **I'm content** | Jeg er tilfreds | aim kon-tent |\n\n### Kærlighed og Hengivenhed\n\n- **I'm in love** (Jeg er forelsket) - \"aim in lav\"\n- **I adore you** (Jeg tilbeder dig) - \"ai uh-dor juu\"\n- **I'm crazy about you** (Jeg er vild med dig) - \"aim krei-zi uh-baut juu\"\n- **You mean everything to me** (Du betyder alt for mig) - \"juu miin ev-ri-thing\"\n\n<CultureTip flag=\"🇳🇴\" title=\"Følelseskultur\">\nEnglændere udtrykker ofte følelser mere subtilt. 'I'm quite happy' kan betyde 'jeg er meget glad'.\n</CultureTip>\n\n## Negative Følelser\n\nDet er vigtigt at kunne dele de svære følelser:\n\n<VocabCard\n  word=\"I'm sad\"\n  translation=\"Jeg er trist\"\n  pronunciation=\"aim sad\"\n  example=\"I'm feeling sad today.\"\n/>\n\n### Tristhed og Sorg\n\n| Norsk | Dansk | Udtale |\n|---------|-------|--------|\n| **I'm sad** | Jeg er trist | aim sad |\n| **I'm upset** | Jeg er ked af det | aim up-set |\n| **I'm disappointed** | Jeg er skuffet | aim dis-uh-poin-ted |\n| **I'm hurt** | Jeg er såret | aim hart |\n| **I feel lonely** | Jeg føler mig ensom | ai fiil loun-li |\n\n### Frustrationer\n\n- **I'm frustrated** (Jeg er frustreret) - \"aim frus-trei-ted\"\n- **I'm stressed** (Jeg er stresset) - \"aim strest\"\n- **I'm worried** (Jeg er bekymret) - \"aim wu-riid\"\n- **I'm overwhelmed** (Jeg er overvældet) - \"aim ou-vur-welmd\"\n\n## Fysiske Fornemmelser\n\n| Norsk | Dansk | Udtale |\n|---------|-------|--------|\n| **I'm tired** | Jeg er træt | aim tai-urd |\n| **I'm full of energy** | Jeg er fuld af energi | aim ful ov e-nur-ji |\n| **I'm relaxed** | Jeg er afslappet | aim ri-lakst |\n| **I feel sick** | Jeg har det dårligt | ai fiil sik |\n\n## Spørge til Partnerens Følelser\n\n<VocabCard\n  word=\"How are you feeling?\"\n  translation=\"Hvordan har du det?\"\n  pronunciation=\"hau ar juu fii-ling?\"\n  example=\"How are you feeling today?\"\n/>\n\n- **What's wrong?** (Hvad er der galt?) - \"wots rong?\"\n- **Tell me how you feel** (Fortæl mig hvad du føler) - \"tel mi hau juu fiil\"\n- **Can I help?** (Kan jeg hjælpe?) - \"kan ai help?\"\n- **I'm here for you** (Jeg er her for dig) - \"aim hiir for juu\"\n\n<CultureTip flag=\"🇳🇴\" title=\"At dele følelser\">\nEnglændere kan være tilbageholdende med følelser. Giv din partner tid og rum.\n</CultureTip>\n\n## Reagere på Partnerens Følelser\n\n### Støttende Svar\n- **I understand** (Jeg forstår)\n- **I'm sorry to hear that** (Det er jeg ked af at høre)\n- **You're not alone** (Du er ikke alene)\n- **We'll get through this together** (Vi klarer det sammen)\n\n### Trøstende Ord\n- **It will be alright** (Det bliver okay)\n- **I love you** (Jeg elsker dig)\n- **Come, let me hold you** (Kom, lad mig holde dig)\n- **You're strong** (Du er stærk)\n\n## \"Du Gør Mig...\" Fraser\n\n| Norsk | Dansk |\n|---------|-------|\n| **You make me happy** | Du gør mig lykkelig |\n| **You make me smile** | Du får mig til at smile |\n| **You make me laugh** | Du får mig til at grine |\n| **You make me feel special** | Du får mig til at føle mig speciel |\n\n## Tips til Emotionel Kommunikation\n\n1. **Brug \"jeg\"-sætninger** - \"Jeg føler...\" i stedet for \"Du gør mig...\"\n2. **Vær specifik** - Fortæl præcis hvad du føler\n3. **Accepter alle følelser** - Der er ingen forkerte følelser\n4. **Lyt aktivt** - Vis forståelse med nikke og øjenkontakt\n\nFor flere måder at udtrykke kærlighed, se [hvordan man siger jeg elsker dig på norsk](/learn/da/no/norwegian-how-to-say-i-love-you/).\n\nAt mestre det emotionelle ordforråd på norsk åbner for dybere samtaler med din partner.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Reagere på Partnerens Følelser"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

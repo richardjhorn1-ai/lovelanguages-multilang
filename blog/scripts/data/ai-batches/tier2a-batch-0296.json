@@ -1,0 +1,120 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0296",
+  "articles": [
+    {
+      "id": "55017705-8d06-46ff-89bf-16a3efb3b669",
+      "title": "50+ Spaanse Liefkozingen om Harten te Veroveren",
+      "native_lang": "nl",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nSpaans is beroemd om zijn warme en expressieve koosnaampjes. Van het klassieke \"mi amor\" tot het speelse \"gordito\" - Spanjaarden hebben voor elke situatie een lief woordje. Leer de mooiste om je partner te verrassen!\n\n## De Klassiekers\n\n<PhraseOfDay\n  word=\"Mi amor\"\n  translation=\"Mijn liefde\"\n  pronunciation=\"mie a-mor\"\n  context=\"Het meest universele en geliefde koosnaampje in het Spaans.\"\n/>\n\n### De Meest Gebruikte Koosnaampjes\n\n<VocabCard\n  word=\"Mi amor\"\n  translation=\"Mijn liefde\"\n  pronunciation=\"mie a-mor\"\n  example=\"¿Como estas, mi amor? (Hoe gaat het, mijn liefde?)\"\n/>\n\n<VocabCard\n  word=\"Carino\"\n  translation=\"Schat/Lieverd\"\n  pronunciation=\"ka-rie-njo\"\n  example=\"Carino, ¿quieres cenar? (Schat, wil je eten?)\"\n/>\n\n<VocabCard\n  word=\"Mi vida\"\n  translation=\"Mijn leven\"\n  pronunciation=\"mie vie-da\"\n  example=\"Gracias por todo, mi vida. (Bedankt voor alles, mijn leven.)\"\n/>\n\n<VocabCard\n  word=\"Corazon\"\n  translation=\"Hart/Hartje\"\n  pronunciation=\"ko-ra-son\"\n  example=\"Te extrano, corazon. (Ik mis je, hartje.)\"\n/>\n\n<CultureTip title=\"Expressieve Cultuur\" flag=\"🇪🇸\">\nSpanjaarden gebruiken koosnaampjes veel vaker dan Nederlanders. Het is heel normaal om je partner constant \"mi amor\" of \"carino\" te noemen, ook in het openbaar. Dit is geen overdreven gedoe, maar oprechte warmte!\n</CultureTip>\n\n## Hemelse Koosnaampjes\n\n<VocabCard\n  word=\"Cielo\"\n  translation=\"Hemel/Hemelke\"\n  pronunciation=\"sie-ee-loo\"\n  example=\"Hola, cielo. ¿Que tal tu dia? (Hoi schat. Hoe was je dag?)\"\n/>\n\n<VocabCard\n  word=\"Mi cielo\"\n  translation=\"Mijn hemel\"\n  pronunciation=\"mie sie-ee-loo\"\n  example=\"Eres todo para mi, mi cielo.\"\n/>\n\n<VocabCard\n  word=\"Angel\"\n  translation=\"Engel\"\n  pronunciation=\"an-chel\"\n  example=\"Buenos dias, mi angel. (Goedemorgen, mijn engel.)\"\n/>\n\n<VocabCard\n  word=\"Mi sol\"\n  translation=\"Mijn zon\"\n  pronunciation=\"mie sol\"\n  example=\"Tu eres mi sol, mi alegria.\"\n/>\n\n## Koninklijke Koosnaampjes\n\n<VocabCard\n  word=\"Mi rey\"\n  translation=\"Mijn koning\"\n  pronunciation=\"mie ree\"\n  example=\"Gracias, mi rey. (Bedankt, mijn koning.)\"\n/>\n\n<VocabCard\n  word=\"Mi reina\"\n  translation=\"Mijn koningin\"\n  pronunciation=\"mie ree-na\"\n  example=\"Eres mi reina, siempre. (Je bent mijn koningin, altijd.)\"\n/>\n\n<VocabCard\n  word=\"Principe/Princesa\"\n  translation=\"Prins/Prinses\"\n  pronunciation=\"prien-sie-pee/prien-see-sa\"\n  example=\"Buenos noches, mi princesa.\"\n/>\n\n## Schat-Gerelateerde Koosnaampjes\n\n<VocabCard\n  word=\"Tesoro\"\n  translation=\"Schat\"\n  pronunciation=\"te-so-roo\"\n  example=\"Eres mi tesoro mas preciado.\"\n/>\n\n<VocabCard\n  word=\"Mi tesoro\"\n  translation=\"Mijn schat\"\n  pronunciation=\"mie te-so-roo\"\n  example=\"Ven aqui, mi tesoro. (Kom hier, mijn schat.)\"\n/>\n\n## Lieflijke Bijnamen\n\n<VocabCard\n  word=\"Precioso/Preciosa\"\n  translation=\"Schat/Prachtige\"\n  pronunciation=\"pre-sie-oo-soo/sa\"\n  example=\"Hola, preciosa. ¿Lista para salir?\"\n/>\n\n<VocabCard\n  word=\"Hermoso/Hermosa\"\n  translation=\"Mooie/Knappe\"\n  pronunciation=\"er-moo-soo/sa\"\n  example=\"Buenos dias, hermosa. (Goedemorgen, mooie.)\"\n/>\n\n<VocabCard\n  word=\"Guapo/Guapa\"\n  translation=\"Knappe/Mooie\"\n  pronunciation=\"gwa-poo/gwa-pa\"\n  example=\"¿Que tal, guapo? (Hoe gaat het, knappe?)\"\n/>\n\n<VocabCard\n  word=\"Lindo/Linda\"\n  translation=\"Lieve/Schatje\"\n  pronunciation=\"lien-doo/lien-da\"\n  example=\"Ven, linda. (Kom, liefje.)\"\n/>\n\n<CultureTip title=\"Geslacht!\" flag=\"⚠️\">\nOnthoud dat Spaanse bijvoeglijke naamwoorden veranderen naar geslacht! Gebruik **-o** voor mannen en **-a** voor vrouwen: precioso/preciosa, hermoso/hermosa, lindo/linda.\n</CultureTip>\n\n## Speelse en Unieke Koosnaampjes\n\n### Dier-Gerelateerde\n\n<VocabCard\n  word=\"Osito/Osita\"\n  translation=\"Beertje\"\n  pronunciation=\"o-sie-too/ta\"\n  example=\"Ven a abrazarme, osito. (Kom me knuffelen, beertje.)\"\n/>\n\n<VocabCard\n  word=\"Gatito/Gatita\"\n  translation=\"Katje\"\n  pronunciation=\"ga-tie-too/ta\"\n  example=\"¿Que quieres hacer hoy, gatita?\"\n/>\n\n<VocabCard\n  word=\"Conejito/Conejita\"\n  translation=\"Konijntje\"\n  pronunciation=\"ko-ne-chie-too/ta\"\n  example=\"Mi conejita hermosa.\"\n/>\n\n### Voedsel-Gerelateerde\n\n<VocabCard\n  word=\"Dulzura\"\n  translation=\"Zoetje\"\n  pronunciation=\"doel-soe-ra\"\n  example=\"Hola, dulzura. (Hoi, zoetje.)\"\n/>\n\n<VocabCard\n  word=\"Bombón\"\n  translation=\"Bonbon/Lekkerdje\"\n  pronunciation=\"bom-bon\"\n  example=\"Eres un bombon. (Je bent een lekkerdje.)\"\n/>\n\n<VocabCard\n  word=\"Caramelo\"\n  translation=\"Snoepje\"\n  pronunciation=\"ka-ra-me-loo\"\n  example=\"Ven aqui, caramelo.\"\n/>\n\n## Het Beroemde \"Gordito/Gordita\"\n\n<VocabCard\n  word=\"Gordito/Gordita\"\n  translation=\"Dikkerdje (liefkozend!)\"\n  pronunciation=\"gor-die-too/ta\"\n  example=\"Te quiero, gordita. (Ik hou van je, schatje.)\"\n/>\n\n<CultureTip title=\"Gordito is Lief!\" flag=\"🥰\">\nIn tegenstelling tot in Nederland is \"gordito/gordita\" een heel lief koosnaampje in Spaanse culturen! Het heeft niets te maken met gewicht, maar drukt juist tederheid en genegenheid uit. Je hoort het vaak tussen stellen.\n</CultureTip>\n\n## Verkleinwoorden (-ito/-ita)\n\nEen typisch Spaanse manier om iets liever te maken is het toevoegen van **-ito** of **-ita**:\n\n| Basis | Verkleinwoord | Betekenis |\n|-------|---------------|-----------|\n| Amor | Amorcito | Liefje |\n| Bebe | Bebecito | Baby'tje |\n| Lindo | Lindito | Liefje |\n| Sol | Solecito | Zonnetje |\n| Corazon | Corazoncito | Hartje |\n\n<VocabCard\n  word=\"Mi amorcito\"\n  translation=\"Mijn liefje\"\n  pronunciation=\"mie a-mor-sie-too\"\n  example=\"Buenas noches, mi amorcito.\"\n/>\n\n## Regionale Verschillen\n\n### Spanje\n\n| Koosnaampje | Betekenis | Regio |\n|-------------|-----------|-------|\n| Cielo | Schat | Heel Spanje |\n| Churri | Schatje | Madrid, jong |\n| Pichon | Duifje | Traditioneel |\n\n### Mexico\n\n| Koosnaampje | Betekenis |\n|-------------|-----------|\n| Mi chula/o | Mijn mooie |\n| Mamacita/Papacito | Lekkerdje |\n| Mi chiquita/o | Mijn kleintje |\n\n### Argentinie\n\n| Koosnaampje | Betekenis |\n|-------------|-----------|\n| Mi gordi | Mijn schatje |\n| Boludo/a | Maat (informeel!) |\n| Mi flaco/a | Mijn dunne |\n\n<CultureTip title=\"Pas op met Regionale Woorden\" flag=\"🌎\">\nSommige koosnaampjes kunnen per land verschillen in betekenis. \"Coger\" betekent \"pakken\" in Spanje maar heeft een heel andere (expliciete) betekenis in Latijns-Amerika!\n</CultureTip>\n\n## Koosnaampjes voor Specifieke Momenten\n\n### 's Ochtends\n\n<VocabCard\n  word=\"Buenos dias, sol\"\n  translation=\"Goedemorgen, zon\"\n  pronunciation=\"boe-ee-nos die-as sol\"\n  example=\"Buenos dias, sol. ¿Dormiste bien?\"\n/>\n\n### Romantisch\n\n<VocabCard\n  word=\"Mi media naranja\"\n  translation=\"Mijn wederhelft (letterlijk: halve sinaasappel)\"\n  pronunciation=\"mie mee-dia na-ran-cha\"\n  example=\"Tu eres mi media naranja.\"\n/>\n\n### Troostend\n\n<VocabCard\n  word=\"Mi pequeno/a\"\n  translation=\"Mijn kleintje\"\n  pronunciation=\"mie pe-kee-njo/nja\"\n  example=\"No te preocupes, mi pequena.\"\n/>\n\n## Combinaties\n\nSpanjaarden combineren vaak meerdere koosnaampjes:\n\n| Combinatie | Betekenis |\n|------------|-----------|\n| Mi amor precioso | Mijn prachtige liefde |\n| Carino mio | Mijn schat |\n| Mi vida hermosa | Mijn mooie leven |\n| Tesoro de mi vida | Schat van mijn leven |\n\n## Tips voor Gebruik\n\n1. **Begin met de basis** - \"Mi amor\" en \"carino\" zijn altijd goed\n2. **Let op geslacht** - -o voor mannen, -a voor vrouwen\n3. **Wees niet verlegen** - Spanjaarden zijn expressief!\n4. **Gebruik verkleinwoorden** - Ze maken alles liever\n5. **Mix en match** - Combineer voor extra effect\n\n## Snelle Referentiekaart\n\n| Situatie | Koosnaampjes |\n|----------|--------------|\n| Algemeen | Mi amor, carino, cielo |\n| Romantisch | Mi vida, corazon, tesoro |\n| Speels | Gordito/a, osito/a, bombon |\n| Complimenterend | Guapo/a, hermoso/a, precioso/a |\n\n<CTA\n  text=\"Klaar om je Spaanse partner te verrassen? Met Love Languages oefen je de uitspraak met AI-spraakchat - zonder oordeel. Je partner kan liefkozingen als 'woordcadeaus' naar je sturen, zodat je precies leert wat zij romantisch vinden. Samen leren, samen groeien.\"\n  buttonText=\"Start Samen met Spaans Leren\"\n/>\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Speelse en Unieke Koosnaampjes",
+              "## Regionale Verschillen",
+              "## Koosnaampjes voor Specifieke Momenten"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "55121330-e5e9-4158-877a-1c4ae52b7669",
+      "title": "Lengyel kifejezések megbocsátáshoz",
+      "native_lang": "hu",
+      "target_lang": "pl",
+      "category": "communication",
+      "content": "A megbocsátás a kapcsolat gyógyításának kulcsa. Ha lengyel anyanyelvű partnered van, ezek a kifejezések segítenek.\n\n## Bocsánatkérés\n\n### 1. \"Naprawdę przepraszam\"\n**Jelentés:** Igazán sajnálom\n\n### 2. \"Proszę, wybacz mi\"\n**Jelentés:** Kérlek, bocsáss meg\n\n### 3. \"Biorę pełną odpowiedzialność\"\n**Jelentés:** Teljes felelősséget vállalok\n\n### 4. \"Myliłem/am się i przyznaję to\"\n**Jelentés:** Tévedtem és beismerem\n\n### 5. \"Obiecuję, że to się nie powtórzy\"\n**Jelentés:** Megígérem, nem fog újra megtörténni\n\n## Megbocsátás\n\n### 6. \"Wybaczam ci\"\n**Jelentés:** Megbocsátok neked\n\n### 7. \"W porządku, rozumiem\"\n**Jelentés:** Rendben van, megértem\n\n### 8. \"Jestem gotowy/a iść dalej\"\n**Jelentés:** Készen állok továbblépni\n\n### 9. \"Zostawmy to za sobą\"\n**Jelentés:** Hagyjuk magunk mögött\n\n### 10. \"Nie chowam urazy\"\n**Jelentés:** Nem tartok haragot\n\n### 11. \"Każdy popełnia błędy\"\n**Jelentés:** Mindenki hibázik\n\n### 12. \"Doceniam twoje przeprosiny\"\n**Jelentés:** Értékelem a bocsánatkérésedet\n\n## Összefoglalás\n\nA lengyel-magyar barátság a megbocsátásban is segít.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 140,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Bocsánatkérés",
+              "## Megbocsátás"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "5516f8ed-a3c2-40d7-b74b-7a8b945b9720",
+      "title": "Portekizce Telaffuz Rehberi: Partnerinizle Birlikte Hemen Konuşmaya Başlayın",
+      "native_lang": "tr",
+      "target_lang": "pt",
+      "category": "pronunciation",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport ConjugationTable from '@components/ConjugationTable.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nPortekizce öğrenmeye başladığınızda, doğru telaffuz partnerinizle olan bağınızı daha da güçlendirebilir. İster Brezilya'da romantik bir tatil planlıyor olun, ister Portekizli sevgilinizin ailesiyle tanışın, doğru telaffuz sizi anında daha yakın hissettirecek. Bu rehberle birlikte, en yaygın Portekizce sesleri kolayca öğrenecek ve partnerinizle güzel anlar yaratacaksınız.\n\n<PhraseOfDay\n  word=\"Eu te amo\"\n  translation=\"Seni seviyorum\"\n  pronunciation=\"EH-oo chee AH-moh\"\n  context=\"En romantik ifade - her çiftin bilmesi gereken temel kalp sözü.\"\n/>\n\n## Portekizce Seslerin Sırrı\n\nPortekizce telaffuz aslında çok daha basit göründüğünden! Türkçeden farklı olarak, bazı seslerin ağzınızda yeni bir konum bulması gerekiyor. Ama merak etmeyin, partnerinizle birlikte pratik yaparken bu yeni sesler size doğal gelecek.\n\n### Türkçeye Benzer Sesler (Rahatlık Bölgesi!)\n- **M, N, S, L** sesleri Türkçeyle aynı\n- **B, D, T, F, V** sesleri de tanıdık\n- **R** sesi İspanyolca'daki gibi dilin ucuyla\n\n### Yeni Keşfedeceğiniz Sesler\n- **LH** sesi: \"Milho\" (mısır) - \"MEEL-yoh\"\n- **NH** sesi: \"Banho\" (banyo) - \"BAH-nyoh\"\n- **RR** sesi: \"Carro\" (araba) - \"KAH-hoh\"\n\n<VocabCard\n  word=\"Beijo\"\n  translation=\"Öpücük\"\n  pronunciation=\"BAY-zhoh\"\n  example=\"Um beijo para você, meu amor.\"\n/>\n\n## Vokaller: Kalbin Sesi\n\nPortekizce'de vokaller Türkçeden daha net ve açık telaffuz edilir. İşte hayati önemdeki vokaller:\n\n| Harf | Türkçe Karşılığı | Örnek | Telaffuz |\n|------|------------------|--------|-----------|\n| **A** | A (anne) | Amor (aşk) | ah-MOHR |\n| **E** | E (evet) | Quente (sıcak) | KEHN-chee |\n| **I** | İ (isim) | Fino (ince) | FEE-noh |\n| **O** | O (ol) | Bom (iyi) | bohng |\n| **U** | U (uldu) | Azul (mavi) | ah-ZOOH |\n\n<CultureTip flag=\"🇵🇹\" title=\"Vokal Uzunluğu\">\nPortekizce'de vokaller genellikle kısa telaffuz edilir. Uzun vokaller genellikle vurgulu hecelerde ortaya çıkar. Partnerinizle konuşurken doğal ritmi dinlemeye çalışın!\n</CultureTip>\n\n## Romantik Vurgu Desenleri\n\nPortekizce'de vurgu genellikle son hecededir. Bu, romantik ifadelerinizi daha duygusal kılar:\n\n- **Eu te a**mo - EH-oo chee AH-moh\n- **Você é lin**da - voh-SEH eh LEEN-dah\n- **Que a**mor - keh ah-MOHR\n\n[Romantik Portekizce ifadeler](/learn/tr/pt/portuguese-romantic-phrases-every-occasion/) hakkında daha fazla bilgi edinin.\n\n## Konsonantların Sihri\n\n### Özel Portekizce Konsonantlar\n\n**Ç** sesi: \"Chá\" (çay) - \"SHAH\"\n**X** sesi: \"Exemplo\" (örnek) - \"eh-ZEHM-ploh\"\n**G** sesi: \"Gente\" (insan) - \"ZHEHN-chee\"\n\n### Nasıl ve Ne Zaman Sesi Değiştirmeli\n\n| Harf | Başta | Ortada | Sonda |\n|------|-------|---------|--------|\n| **D** | D | DJ | D |\n| **T** | T | CH | T |\n| **S** | S | Z | S |\n\n<VocabCard\n  word=\"Saudade\"\n  translation=\"Özlem / Hasret\"\n  pronunciation=\"sah-oo-DAH-jee\"\n  example=\"Tenho saudade de você, meu amor.\"\n/>\n\n## Günlük Hayatta Kullanılan Desenler\n\nPartnerinizle en çok kullanacağınız kelimelerdeki telaffuz desenlerini öğrenin:\n\n### Sabah Selamlaşması\n- **Bom dia** - bohng DEE-ah\n- **Como você está?** - KOH-moh voh-SEH ehs-TAH?\n\n### Akşam Romantizmi\n- **Boa noite** - BOH-ah NOY-chee\n- **Sonhos doces** - SOHN-yohs DOH-sis\n\n### Öğle Vakti\n- **Boa tarde** - BOH-ah TAHR-jee\n- **Vamos almoçar?** - VAH-mohs ahl-moh-SAHR?\n\n[Portekizce selamlaşmalar ve vedalaşmalar](/learn/tr/pt/portuguese-greetings-farewells/) hakkında detaylı rehberimizi inceleyin.\n\n## En Yaygın Hatalar ve Çözümleri\n\n### 1. R Sesini Güçlendirmek\n**Yanlış:** \"Pohtugal\"\n**Doğru:** \"Poh-tchee-GOW\" (dilin ucuyla yuvarlak R)\n\n### 2. NH Sesini İhmal Etmek\n**Yanlış:** \"Ban-yo\"\n**Doğru:** \"BAH-nyoh\" (burun sesiyle)\n\n### 3. Vurguyu Son Hecede Bırakmak\n**Yanlış:** \"Á-mo\"\n**Doğru:** \"ah-MOH\"\n\n<CultureTip flag=\"🇵🇹\" title=\"Brezilya vs. Portekiz Telaffuzu\">\nBrezilya Portekizcesi daha açık ve melodiktir. Portekiz Portekizcesi ise daha kapalı ve hızlıdır. Partneriniz hangi bölgeden ise, onun aksanını taklit etmeye çalışın - bu onu çok mutlu edecektir!\n</CultureTip>\n\n## Pratik Cümlelerle Telaffuz Alıştırması\n\nAşağıdaki cümleleri her gün partnerinizle birlikte tekrarlayın:\n\n1. **Você é muito especial para mim.** (voh-SEH eh MOO-ee-toh eh-speh-see-AHL pah-rah meeng)\n2. **Eu adoro passar tempo com você.** (EH-oo ah-DOH-roh pah-SAHR TEHM-poh kohng voh-SEH)\n3. **Você me faz feliz.** (voh-SEH mee fahsh feh-LEEZ)\n4. **Que dia lindo estamos tendo!** (kee DEE-ah LEEN-doh ehs-TAH-mohs TEHN-doh)\n5. **Vamos tomar um café juntos?** (VAH-mohs toh-MAHR oong kah-FEH ZHOON-tohs)\n\n## Hızlı Referans Tablosu\n\n| Durum | Telaffuz İpucu | Örnek |\n|-------|----------------|--------|\n| Soru sorma | Sesi yükselt | **Como está?** |\n| Heyecanlı | Vurgulu vokaller | **Que lindo!** |\n| Romantik | Yavaş ve yumuşak | **Meu amor...** |\n| Resmi | Net ve açık | **Muito prazer.** |\n| Samimi | Kısaltmalar | **Tudo bem?** → **Tá bom?** |\n\n## Bir Sonraki Adım: Pratik Zamanı!\n\nArtık temel telaffuz kurallarını biliyorsunuz! Partnerinizle birlikte her gün 10 dakika pratik yapın. En iyi yöntem? [Portekizce tatil planlamak](/learn/tr/pt/portuguese-date-night-vocabulary/) veya [tatlı takma adlar](/learn/tr/pt/portuguese-pet-names-terms-of-endearment/) kullanmak!\n\nUnutmayın, mükemmel telaffuz bir gecede olmaz. Önemli olan partnerinizle birlikte bu yolculuğu yaşamak ve birbirinizi desteklemek. Her denemeniz, aranızdaki bağı daha da güçlendirecek.\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Konsonantların Sihri",
+              "## En Yaygın Hatalar ve Çözümleri"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "55220e0d-2fb2-4638-b0a5-91237d0ee703",
+      "title": "Norweskie zwroty o przebaczeniu dla par",
+      "native_lang": "pl",
+      "target_lang": "no",
+      "category": "communication",
+      "content": "Norwegowie cenią spokój i harmonię. Przebaczenie powinno być wyrażone spokojnie i rzeczowo.\n\n## Proszenie o przebaczenie\n\n### \"Vær så snill, tilgi meg\"\n*Proszę, wybacz mi* - Wymowa: wer so snil TIL-gi maj\n\n### \"Jeg håper du kan tilgi meg\"\n*Mam nadzieję, że mi wybaczysz* - Wymowa: jaj HO-per du kan TIL-gi maj\n\n## Wyrażanie przebaczenia\n\n### \"Jeg tilgir deg\"\n*Przebaczam Ci* - Wymowa: jaj TIL-gir daj\n\n### \"Det er greit, jeg forstår\"\n*W porządku, rozumiem* - Wymowa: de er grajt jaj for-STOR\n\n### \"La oss legge dette bak oss\"\n*Zostawmy to za sobą* - Wymowa: la os LE-ge DE-te bak os\n\n## Proces przebaczenia\n\n### \"Jeg jobber med å tilgi deg\"\n*Pracuję nad tym, żeby Ci wybaczyć* - Wymowa: jaj JO-ber me o TIL-gi daj\n\n### \"Jeg trenger tid, men jeg vil tilgi deg\"\n*Potrzebuję czasu, ale wybaczę Ci* - Wymowa: jaj TRENG-er tid men jaj wil TIL-gi daj\n\n## Głębokie przebaczenie\n\n### \"Jeg tilgir deg fullstendig\"\n*Przebaczam Ci całkowicie* - Wymowa: jaj TIL-gir daj ful-STEN-dig\n\n### \"Jeg slipper smerten\"\n*Puszczam ten ból* - Wymowa: jaj SLI-per SMER-ten\n\n## Wspólne wyjście naprzód\n\n### \"La oss starte på nytt\"\n*Zacznijmy od nowa* - Wymowa: la os STAR-te po nyt\n\n### \"Vår kjærlighet er sterkere enn denne feilen\"\n*Nasza miłość jest silniejsza niż ten błąd* - Wymowa: wor CZAR-li-het er STER-ke-re en DE-ne FAJ-len\n\n## Granice przebaczenia\n\n### \"Jeg tilgir deg, men dette må ikke skje igjen\"\n*Przebaczam Ci, ale to nie może się powtórzyć* - Wymowa: jaj TIL-gir daj men DE-te mo ik-ke sze i-JEN\n\nTilgivelse helbreder hjertet! (Przebaczenie uzdrawia serce!)",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 260,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Proszenie o przebaczenie",
+              "## Wyrażanie przebaczenia",
+              "## Proces przebaczenia",
+              "## Głębokie przebaczenie",
+              "## Wspólne wyjście naprzód",
+              "## Granice przebaczenia"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "5522369b-1dfe-4fad-9861-d546cf13b52a",
+      "title": "Hiányzol kifejezések hollandul",
+      "native_lang": "hu",
+      "target_lang": "nl",
+      "category": "communication",
+      "content": "# \"Hiányzol\" kifejezések hollandul magyar anyanyelvűeknek\n\nA holland nyelv közeli rokona a németnek, de saját karaktere van. Ha szeretted messze van, ezek a kifejezések segítenek az érzéseid közvetítésében.\n\n## Alapvető \"hiányzol\" kifejezések\n\n### 1. Ik mis je (Ik misz je)\n**Jelentés:** Hiányzol\n\n**Kiejtés:** ik MISZ je\n\n**Kulturális tipp:** Ez a standard kifejezés – egyszerű és őszinte.\n\n---\n\n### 2. Ik mis je zo erg (Ik misz je zó erh)\n**Jelentés:** Nagyon hiányzol\n\n**Kiejtés:** ik MISZ je ZÓ ERH\n\n**Kulturális tipp:** A \"zo erg\" (annyira) erősíti az érzést.\n\n---\n\n### 3. Ik mis je heel veel (Ik misz je hél vél)\n**Jelentés:** Nagyon-nagyon hiányzol\n\n**Kiejtés:** ik MISZ je HÉL VÉL\n\n**Kulturális tipp:** Még erősebb kifejezés – romantikus kontextusban használatos.\n\n---\n\n### 4. Ik moet steeds aan je denken (Ik mút sztédsz án je denken)\n**Jelentés:** Folyton rád gondolok\n\n**Kiejtés:** ik MÚT SZTÉDSZ án je DEN-ken\n\n**Kulturális tipp:** Romantikus és intenzív – erős érzelmi kötődést mutat.\n\n---\n\n### 5. Ik wou dat je hier was (Ik vau dat je hír vasz)\n**Jelentés:** Bárcsak itt lennél\n\n**Kiejtés:** ik VAU dat je HÍR VASZ\n\n**Kulturális tipp:** Vágyakozást fejez ki – természetes és őszinte.\n\n---\n\n### 6. Elk moment zonder jou voelt leeg (Elk moment zonder jau fúlt léh)\n**Jelentés:** Minden pillanat üres nélküled\n\n**Kiejtés:** ELK mo-MENT ZON-der JAU FÚLT LÉH\n\n**Kulturális tipp:** Költői kifejezés – szerelmi üzenetekben szép.\n\n---\n\n### 7. Je bent altijd in mijn gedachten (Je bent áltájd in májn hedahten)\n**Jelentés:** Mindig a gondolataimban vagy\n\n**Kiejtés:** je BENT ÁL-tájd in MÁJN he-DAH-ten\n\n**Kulturális tipp:** Klasszikus romantikus kifejezés.\n\n---\n\n### 8. Ik tel de dagen tot ik je weer zie (Ik tel de dáhen tot ik je vér zí)\n**Jelentés:** Számolom a napokat, amíg újra látlak\n\n**Kiejtés:** ik TEL de DÁ-hen tot ik je VÉR ZÍ\n\n**Kulturális tipp:** Távkapcsolatokban használatos.\n\n---\n\n### 9. Mijn hart doet pijn zonder jou (Májn hart dút pájn zonder jau)\n**Jelentés:** A szívem fáj nélküled\n\n**Kiejtés:** MÁJN HART DÚT PÁJN ZON-der JAU\n\n**Kulturális tipp:** Intenzív kifejezés – mély érzelmi fájdalmat fejez ki.\n\n---\n\n### 10. Afstand verandert niets aan mijn gevoelens (Afsztand ferandert nítsz án májn hefúlensz)\n**Jelentés:** A távolság nem változtat az érzéseimen\n\n**Kiejtés:** AF-sztand fe-RAN-dert NÍTSZ án MÁJN he-FÚ-lensz\n\n**Kulturális tipp:** Biztató kifejezés – távkapcsolatokban erősíti a köteléket.\n\n---\n\n## Kulturális tudnivalók\n\nA hollandok általában egyenesek és őszinték – az érzelmek kifejezése direkt, de nem túlzó.\n\nA \"je\" (te) tegező forma használata intimitást jelez. A \"jou\" hangsúlyosabb forma, amely nyomatékosítja a személyt.\n\nA hollandok értékelik az egyszerűséget és az őszinteséget – a túlzottan költői kifejezések kevésbé jellemzőek, de a romantikus kontextusban elfogadottak.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Alapvető \"hiányzol\" kifejezések"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

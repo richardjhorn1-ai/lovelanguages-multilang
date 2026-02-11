@@ -1,0 +1,466 @@
+{
+  "batchId": "tier2a-slim-0207",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "d441bfd2-b34c-4652-b8bf-79badac03964",
+      "title": "Turkish Jealousy & Trust Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressing Jealousy",
+          "subsections": [
+            "### Kıskanıyorum",
+            "### ...olduğunda kıskanıyorum",
+            "### Bu kıskançlığı hissetmekten hoşlanmıyorum"
+          ]
+        },
+        {
+          "header": "## Seeking Reassurance",
+          "subsections": [
+            "### Sadece beni mi seviyorsun?",
+            "### Beni rahatlatmana ihtiyacım var",
+            "### Kendimi daha güvende hissetmeme yardım edebilir misin?"
+          ]
+        },
+        {
+          "header": "## Building Trust",
+          "subsections": [
+            "### Sana güveniyorum",
+            "### Sana tamamen güvenmek istiyorum",
+            "### Nasıl daha fazla güven inşa edebiliriz?"
+          ]
+        },
+        {
+          "header": "## Giving Reassurance",
+          "subsections": [
+            "### Gözüm sadece seni görüyor",
+            "### Benim için tek sensin",
+            "### Endişelenmene gerek yok",
+            "### Kalbim seninle"
+          ]
+        },
+        {
+          "header": "## Setting Boundaries",
+          "subsections": [
+            "### Kıskançlık ilişkimizi etkiliyor",
+            "### Kişisel alana ihtiyacım var",
+            "### Güven benim için önemli"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d4444b46-5cc8-4ad4-a5ba-77f5b63bb837",
+      "title": "Ruské fráze pro setkání s rodiči partnera",
+      "native_lang": "cs",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## První setkání",
+          "subsections": [
+            "### \"Очень приятно познакомиться.\"",
+            "### \"[Partner] много рассказывал/а о вас.\"",
+            "### \"Большое спасибо за приглашение.\"",
+            "### \"У вас очень красивый дом.\""
+          ]
+        },
+        {
+          "header": "## U jídla",
+          "subsections": [
+            "### \"Это очень вкусно! Можно попросить рецепт?\"",
+            "### \"Всё выглядит замечательно.\""
+          ]
+        },
+        {
+          "header": "## Projevení zájmu",
+          "subsections": [
+            "### \"Я бы хотел/а посмотреть фотографии [partnera] в детстве.\"",
+            "### \"Как вы познакомились?\""
+          ]
+        },
+        {
+          "header": "## Nabídka pomoci",
+          "subsections": [
+            "### \"Могу ли я чем-нибудь помочь?\"",
+            "### \"Позвольте мне помочь с посудой.\""
+          ]
+        },
+        {
+          "header": "## Rozloučení",
+          "subsections": [
+            "### \"Спасибо за чудесный вечер.\"",
+            "### \"Надеюсь скоро увидеться снова.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d447931a-6ae0-4914-adac-e604270a8d25",
+      "title": "Cómo Escribir Cartas de Amor en Noruego: El Kjærlighetsbrev",
+      "native_lang": "es",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Saludos Románticos",
+          "subsections": [
+            "### \"Min kjære...\"",
+            "### \"Min elskede...\"",
+            "### \"Kjæresten min...\""
+          ]
+        },
+        {
+          "header": "## Expresiones de Apertura",
+          "subsections": [
+            "### \"Jeg skriver til deg fra dypet av mitt hjerte\"",
+            "### \"Hver dag uten deg føles som en evighet\""
+          ]
+        },
+        {
+          "header": "## Frases del Cuerpo de la Carta",
+          "subsections": [
+            "### \"Du er det beste som har skjedd meg\"",
+            "### \"Mitt hjerte tilhører bare deg\"",
+            "### \"Med deg føler jeg meg hel\"",
+            "### \"Du er lyset i livet mitt\""
+          ]
+        },
+        {
+          "header": "## Promesas de Amor",
+          "subsections": [
+            "### \"Jeg vil alltid elske deg\"",
+            "### \"Jeg vil alltid være der for deg\""
+          ]
+        },
+        {
+          "header": "## Despedidas Románticas",
+          "subsections": [
+            "### \"For alltid din...\"",
+            "### \"Med all min kjærlighet...\"",
+            "### \"Din [nombre] som elsker deg\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d453b6a2-b6d8-4869-a38f-0aefc512db80",
+      "title": "Rencontrer la Famille de Votre Partenaire Polonais",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Choses à Éviter",
+          "subsections": [
+            "### Ne faites pas :",
+            "### Faites :"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d4590116-26df-4da2-a70b-637bc9a7a075",
+      "title": "Польская грамматика для пар: любовь в каждом слове",
+      "native_lang": "ru",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Основные правила: учимся вместе",
+          "subsections": [
+            "### 1. Род существительных",
+            "### 2. Базовые местоимения",
+            "### 3. Глагол \"быть\" в настоящем времени"
+          ]
+        },
+        {
+          "header": "## Базовые паттерны для повседневной жизни",
+          "subsections": [
+            "### Вопросительные фразы:",
+            "### Утвердительные фразы:"
+          ]
+        },
+        {
+          "header": "## Типичные ошибки, которых можно избежать",
+          "subsections": [
+            "### Ошибка 1: Неверный род прилагательного",
+            "### Ошибка 2: Путаница в падежах",
+            "### Ошибка 3: Забывание о мягких согласных"
+          ]
+        },
+        {
+          "header": "## Шпаргалка для быстрого использования",
+          "subsections": [
+            "### Основные конструкции:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d46a2aa7-d413-4e88-a2fd-deb59c3a95fe",
+      "title": "Φράσεις για το Πρώτο Ραντεβού (pl): Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις",
+          "subsections": [
+            "### Γνωριμία",
+            "### Συζήτηση",
+            "### Φλερτ",
+            "### Κλείσιμο"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d4968d26-f1e7-461b-b8d4-2355421ca87f",
+      "title": "Gefühle auf Französisch ausdrücken – Emotionen in deiner Beziehung teilen",
+      "native_lang": "de",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Positive Gefühle ausdrücken",
+          "subsections": [
+            "### Liebe und Zuneigung",
+            "### Glück und Freude"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d4ae008e-b8bc-484b-8303-8f795ff35324",
+      "title": "Portugál baba és terhességi szókincs",
+      "native_lang": "hu",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Terhességi kifejezések",
+            "### Baba szókincs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d4dac0fb-79a2-4d0d-ba81-1ad047c41ca4",
+      "title": "Řecké fráze pro emocionální podporu a útěchu",
+      "native_lang": "cs",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní fráze soucitu",
+          "subsections": [
+            "### 1. Είμαι εδώ για σένα (Eímai edó gia séna)",
+            "### 2. Λυπάμαι πολύ (Lypámai polý)",
+            "### 3. Σε καταλαβαίνω (Se katalavaíno)"
+          ]
+        },
+        {
+          "header": "## Povzbuzující fráze",
+          "subsections": [
+            "### 4. Θα τα καταφέρεις (Tha ta kataféreis)",
+            "### 5. Όλα θα πάνε καλά (Óla tha páne kalá)",
+            "### 6. Κουράγιο (Kourágio)"
+          ]
+        },
+        {
+          "header": "## Nabídka pomoci",
+          "subsections": [
+            "### 7. Πώς μπορώ να βοηθήσω; (Pós boró na voithíso?)",
+            "### 8. Μπορείς να με υπολογίζεις (Boreís na me ypologízeis)"
+          ]
+        },
+        {
+          "header": "## Útěcha v těžkých chvílích",
+          "subsections": [
+            "### 9. Δεν είσαι μόνος/μόνη (Den eísai mónos/móni)",
+            "### 10. Κλάψε, θα σε ανακουφίσει (Klápse, tha se anakofísei)",
+            "### 11. Ο χρόνος γιατρεύει τα πάντα (O chrónos giatrévi ta pánda)",
+            "### 12. Θα είμαι πάντα δίπλα σου (Tha eímai pánta dípla sou)"
+          ]
+        },
+        {
+          "header": "## Tradiční řecké fráze",
+          "subsections": [
+            "### 13. Ζωή σε λόγου σου (Zoí se lógou sou)",
+            "### 14. Να είσαι δυνατός/δυνατή (Na eísai dynatós/dynatí)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d4db7297-78e8-4af7-8d3b-fbb065d3563a",
+      "title": "Il Danese e Difficile da Imparare? Una Valutazione Onesta",
+      "native_lang": "it",
+      "target_lang": "da",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Cosa Rende il Danese Difficile",
+          "subsections": [
+            "### 1. Pronuncia",
+            "### 2. Lo Stød (Colpo di Glottide)",
+            "### 3. Sistema Numerico"
+          ]
+        },
+        {
+          "header": "## Cosa Rende il Danese Piu Facile",
+          "subsections": [
+            "### 1. La Grammatica e Relativamente Semplice",
+            "### 2. Somiglianze di Vocabolario",
+            "### 3. Risorse e Supporto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d4dbde06-5f56-4bd1-a932-57a77e3f6424",
+      "title": "Tsjechisch voor Geliefden: 'Miluji tě' en Meer",
+      "native_lang": "nl",
+      "target_lang": "cs",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Speciale Momenten",
+          "subsections": [
+            "### Op een Date",
+            "### Bij Verzoening",
+            "### Op een Verjaardag"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d4f26103-ca31-44a8-998d-454cd7e1a0b8",
+      "title": "Frases para Conhecer os Sogros em Alemão: Guia Completo",
+      "native_lang": "pt",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para o Primeiro Encontro",
+          "subsections": [
+            "### Apresentação",
+            "### Elogiando",
+            "### Mostrando Interesse",
+            "### Expressando Gratidão"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d4fc4ca9-47c3-4a00-8cfd-63a8b968d18d",
+      "title": "İspanyolca Tartışma ve Anlaşmazlık İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Tartışma İfadeleri",
+          "subsections": [
+            "### 1. \"Me siento herido/a cuando...\"",
+            "### 2. \"¿Podemos hablar con calma?\"",
+            "### 3. \"Entiendo tu punto de vista, pero...\"",
+            "### 4. \"No levantemos la voz\"",
+            "### 5. \"Eso no es lo que quise decir\"",
+            "### 6. \"Necesito un momento a solas\"",
+            "### 7. \"Busquemos una solución juntos\"",
+            "### 8. \"No quería hacerte daño\"",
+            "### 9. \"¿Me puedes explicar cómo te sientes?\"",
+            "### 10. \"Creo que ambos necesitamos calmarnos\""
+          ]
+        },
+        {
+          "header": "## Ek Yararlı İfadeler",
+          "subsections": [
+            "### 11. \"No me gusta pelear contigo\"",
+            "### 12. \"Hablemos de esto más tarde\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d4fe4024-f579-487a-8874-ae88f0974481",
+      "title": "Phrases allemandes pour les disputes de couple",
+      "native_lang": "fr",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions essentielles pour les désaccords",
+          "subsections": [
+            "### Exprimer son désaccord",
+            "### Exprimer ses émotions",
+            "### Fixer des limites",
+            "### Chercher à comprendre"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d502693e-8bb4-4d6b-ad14-72569cd8e304",
+      "title": "Німецькі фрази для суперечок і розбіжностей",
+      "native_lang": "uk",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Початок серйозної розмови",
+          "subsections": [
+            "### \"Wir müssen reden\"",
+            "### \"Ich fühle mich verletzt, wenn du...\"",
+            "### \"Können wir das in Ruhe besprechen?\""
+          ]
+        },
+        {
+          "header": "## Вираження незгоди",
+          "subsections": [
+            "### \"Ich bin anderer Meinung\"",
+            "### \"Ich sehe das anders\"",
+            "### \"Das habe ich nicht gemeint\""
+          ]
+        },
+        {
+          "header": "## Емоційні вирази",
+          "subsections": [
+            "### \"Das verletzt mich\"",
+            "### \"Ich bin frustriert\"",
+            "### \"Ich brauche, dass du mir zuhörst\""
+          ]
+        },
+        {
+          "header": "## Прохання про простір",
+          "subsections": [
+            "### \"Ich brauche Zeit zum Nachdenken\"",
+            "### \"Lass uns eine Pause machen\""
+          ]
+        },
+        {
+          "header": "## Пошук рішення",
+          "subsections": [
+            "### \"Wie können wir das lösen?\"",
+            "### \"Lass uns einen Kompromiss finden\"",
+            "### \"Ich bin bereit, Zugeständnisse zu machen\""
+          ]
+        },
+        {
+          "header": "## Визнання помилки",
+          "subsections": [
+            "### \"Du hast recht, ich habe mich geirrt\"",
+            "### \"Das hätte ich nicht sagen sollen\""
+          ]
+        }
+      ]
+    }
+  ]
+}

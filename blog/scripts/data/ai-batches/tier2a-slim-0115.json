@@ -1,0 +1,526 @@
+{
+  "batchId": "tier2a-slim-0115",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "84309155-55b5-4096-b1e7-4fc599787acb",
+      "title": "Duet duński dla początkujących: Jak wymawiać jak prawdziwy Duńczyk z twoją drugą połówką",
+      "native_lang": "pl",
+      "target_lang": "da",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Najczęstsze błędy, których unikniecie razem",
+          "subsections": [
+            "### 1. **\"Jeg\"** nie jest \"jeg\"",
+            "### 2. **\"Dig\"** vs **\"dej\"**",
+            "### 3. **\"Tak\"** z odpowiednim akcentem"
+          ]
+        },
+        {
+          "header": "## Praktyczne ćwiczenia dla was dwojga",
+          "subsections": [
+            "### Ćwiczenie 1: **R** gardłowe",
+            "### Ćwiczenie 2: Samogłoski",
+            "### Ćwiczenie 3: Stumme litery"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8438f01e-9fb5-4f96-84d2-bf10e5d58663",
+      "title": "Як зробити пропозицію французькою: фрази для заручин",
+      "native_lang": "uk",
+      "target_lang": "fr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Підготовка до пропозиції",
+          "subsections": [
+            "### Чек-лист:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8448b973-1670-4eee-b9b6-d5cd2cca91ea",
+      "title": "50+ італійських фраз для романтичного вечора",
+      "native_lang": "uk",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## В ресторані",
+          "subsections": [
+            "### Резервація столика",
+            "### Замовлення",
+            "### Корисні фрази"
+          ]
+        },
+        {
+          "header": "## На прогулянці",
+          "subsections": [
+            "### Запрошення",
+            "### Під час прогулянки"
+          ]
+        },
+        {
+          "header": "## В барі / кав'ярні",
+          "subsections": [
+            "### Замовлення напоїв",
+            "### Тости"
+          ]
+        },
+        {
+          "header": "## Завершення вечора",
+          "subsections": [
+            "### Компліменти",
+            "### Плани на майбутнє"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8453c86a-18b3-4a5e-b548-680c838f70d3",
+      "title": "Polske Flirtesætninger for Danskere",
+      "native_lang": "da",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Komplimenter",
+          "subsections": [
+            "### \"Masz piękne oczy\"",
+            "### \"Wyglądasz wspaniale\"",
+            "### \"Bardzo mi się podobasz\""
+          ]
+        },
+        {
+          "header": "## Romantiske Udtryk",
+          "subsections": [
+            "### \"Ciągle o tobie myślę\"",
+            "### \"Sprawiasz, że jestem szczęśliwy/szczęśliwa\"",
+            "### \"Przy tobie czuję się bezpiecznie\""
+          ]
+        },
+        {
+          "header": "## Legende Flirt",
+          "subsections": [
+            "### \"Czy my się skądś znamy?\"",
+            "### \"Czy wierzysz w miłość od pierwszego wejrzenia?\""
+          ]
+        },
+        {
+          "header": "## Invitationer",
+          "subsections": [
+            "### \"Może napijemy się kawy?\"",
+            "### \"Czy mogę cię zaprosić na kolację?\""
+          ]
+        },
+        {
+          "header": "## Kærlige Kælenavne",
+          "subsections": [
+            "### \"Kochanie\"",
+            "### \"Skarbie\"",
+            "### \"Misiu\"",
+            "### \"Kotku\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "84601795-82b0-4211-87b5-c0b30d1653ed",
+      "title": "Italské fráze Chybíš mi pro Čechy",
+      "native_lang": "cs",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní fráze",
+          "subsections": [
+            "### \"Mi manchi.\"",
+            "### \"Mi manchi tantissimo.\"",
+            "### \"Vorrei che tu fossi qui.\"",
+            "### \"Non riesco a smettere di pensare a te.\""
+          ]
+        },
+        {
+          "header": "## Vášnivé fráze",
+          "subsections": [
+            "### \"Ogni momento senza di te è un'eternità.\"",
+            "### \"Il mio cuore è con te.\"",
+            "### \"Conto i giorni fino a quando ti rivedrò.\"",
+            "### \"Sei il mio primo pensiero al mattino e l'ultimo alla sera.\""
+          ]
+        },
+        {
+          "header": "## Fráze pro zprávy",
+          "subsections": [
+            "### \"Penso a te.\"",
+            "### \"Non vedo l'ora di abbracciarti.\"",
+            "### \"Mi manchi ogni giorno di più.\"",
+            "### \"La distanza non cambia quello che provo per te.\""
+          ]
+        },
+        {
+          "header": "## Povzbudivé fráze",
+          "subsections": [
+            "### \"Presto saremo insieme.\"",
+            "### \"L'attesa vale la pena.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "846480bf-6fd4-4b12-8f86-f286384f0f1a",
+      "title": "Conhecendo a Família do Seu Parceiro Italiano: Frases Essenciais",
+      "native_lang": "pt",
+      "target_lang": "it",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Primeiras Impressões",
+          "subsections": [
+            "### Cumprimentos Formais"
+          ]
+        },
+        {
+          "header": "## Elogios que Conquistam",
+          "subsections": [
+            "### Para a Mãe",
+            "### Para a Casa e Família"
+          ]
+        },
+        {
+          "header": "## Conversas à Mesa",
+          "subsections": [
+            "### Ofertas de Comida"
+          ]
+        },
+        {
+          "header": "## Falando Sobre o Relacionamento",
+          "subsections": [
+            "### Se Perguntarem Sobre Seus Planos"
+          ]
+        },
+        {
+          "header": "## Despedindo-se",
+          "subsections": [
+            "### Agradecimentos Finais"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "84713dba-8f92-4aeb-bfdb-60f821039167",
+      "title": "Anglické fráze pro setkání s rodiči partnera",
+      "native_lang": "cs",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## První setkání",
+          "subsections": [
+            "### \"It's so nice to finally meet you.\"",
+            "### \"[Partner] has told me so much about you.\"",
+            "### \"Thank you so much for having me.\"",
+            "### \"You have a lovely home.\""
+          ]
+        },
+        {
+          "header": "## Konverzace u jídla",
+          "subsections": [
+            "### \"This is delicious! Could I have the recipe?\"",
+            "### \"I'd love to learn how to make this.\"",
+            "### \"Everything looks wonderful.\""
+          ]
+        },
+        {
+          "header": "## Projevení zájmu",
+          "subsections": [
+            "### \"I'd love to see some photos of [partner] growing up.\"",
+            "### \"How did you two meet?\"",
+            "### \"What do you enjoy doing in your free time?\""
+          ]
+        },
+        {
+          "header": "## Nabídka pomoci",
+          "subsections": [
+            "### \"Can I help with anything?\"",
+            "### \"Please let me help with the dishes.\""
+          ]
+        },
+        {
+          "header": "## Rozloučení",
+          "subsections": [
+            "### \"Thank you for a wonderful evening.\"",
+            "### \"I hope to see you again soon.\"",
+            "### \"It was lovely meeting you.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "848ecf8e-fddb-4ccf-a39a-a5af4b0f30f3",
+      "title": "Лексика о беременности на французский: Словарь для будущих родителей",
+      "native_lang": "ru",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Объявление о беременности",
+          "subsections": [
+            "### Для близких родственников",
+            "### Для друзей"
+          ]
+        },
+        {
+          "header": "## Лексика для визитов к врачу",
+          "subsections": [
+            "### На приёме",
+            "### Вопросы для врача"
+          ]
+        },
+        {
+          "header": "## Покупки для малыша",
+          "subsections": [
+            "### Необходимые вещи",
+            "### В магазине"
+          ]
+        },
+        {
+          "header": "## Разговор с семьёй партнёра",
+          "subsections": [
+            "### Делимся новостями",
+            "### Обсуждение планов"
+          ]
+        },
+        {
+          "header": "## Имена для малыша",
+          "subsections": [
+            "### Обсуждение имён"
+          ]
+        },
+        {
+          "header": "## После рождения",
+          "subsections": [
+            "### Объявление о рождении",
+            "### Первые дни"
+          ]
+        },
+        {
+          "header": "## Полезные фразы",
+          "subsections": [
+            "### Ежедневные выражения"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "84a27aa8-33ef-4c34-a772-f092f01cab8c",
+      "title": "Engelse Zinnen voor Ruzie en Meningsverschillen",
+      "native_lang": "nl",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen voor meningsverschillen",
+          "subsections": [
+            "### 1. \"I feel hurt when you...\"",
+            "### 2. \"Can we talk about this calmly?\"",
+            "### 3. \"I understand your point, but...\"",
+            "### 4. \"Let's take a break and cool down\"",
+            "### 5. \"That's not what I meant\"",
+            "### 6. \"I need you to listen to me\"",
+            "### 7. \"Can you help me understand your perspective?\"",
+            "### 8. \"I don't want to fight about this\"",
+            "### 9. \"We need to find a compromise\"",
+            "### 10. \"I'm sorry for raising my voice\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "84c3e09c-cf62-49d9-9617-d0cdb750d29f",
+      "title": "Frases Essenciais em Frances para Casais",
+      "native_lang": "pt",
+      "target_lang": "fr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Pratica Diaria para Casais",
+          "subsections": [
+            "### Manha",
+            "### Tarde",
+            "### Noite"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "84d356af-83fc-457e-82d1-7fda178bab78",
+      "title": "Danish Jealousy & Trust Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressing Jealousy",
+          "subsections": [
+            "### Jeg er jaloux",
+            "### Jeg bliver jaloux, når...",
+            "### Jeg kan ikke lide den her jalousi, jeg føler"
+          ]
+        },
+        {
+          "header": "## Seeking Reassurance",
+          "subsections": [
+            "### Elsker du kun mig?",
+            "### Jeg har brug for, at du beroliger mig"
+          ]
+        },
+        {
+          "header": "## Building Trust",
+          "subsections": [
+            "### Jeg stoler på dig",
+            "### Jeg vil gerne stole helt på dig",
+            "### Hvordan kan vi opbygge mere tillid?"
+          ]
+        },
+        {
+          "header": "## Giving Reassurance",
+          "subsections": [
+            "### Jeg har kun øjne for dig",
+            "### Du er den eneste for mig",
+            "### Du behøver ikke at bekymre dig",
+            "### Mit hjerte tilhører dig"
+          ]
+        },
+        {
+          "header": "## Setting Boundaries",
+          "subsections": [
+            "### Jalousi påvirker vores forhold",
+            "### Jeg har brug for mit eget rum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "84e6a81d-03b6-4c00-a366-34e605bb5aca",
+      "title": "Німецькі фрази для примирення після сварки",
+      "native_lang": "uk",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Щирі вибачення",
+          "subsections": [
+            "### \"Es tut mir leid\"",
+            "### \"Verzeih mir bitte\"",
+            "### \"Ich lag falsch, es tut mir wirklich leid\""
+          ]
+        },
+        {
+          "header": "## Визнання провини",
+          "subsections": [
+            "### \"Das hätte ich nicht sagen sollen\"",
+            "### \"Ich war ungerecht zu dir\"",
+            "### \"Ich übernehme die volle Verantwortung\""
+          ]
+        },
+        {
+          "header": "## Вираження любові",
+          "subsections": [
+            "### \"Ich liebe dich und will nicht streiten\"",
+            "### \"Du bedeutest mir alles\"",
+            "### \"Ich hasse es, wenn wir streiten\""
+          ]
+        },
+        {
+          "header": "## Прохання про прощення",
+          "subsections": [
+            "### \"Kannst du mir verzeihen?\"",
+            "### \"Bitte sei mir nicht böse\"",
+            "### \"Ich hoffe, du kannst mir verzeihen\""
+          ]
+        },
+        {
+          "header": "## Обіцянки на майбутнє",
+          "subsections": [
+            "### \"Ich verspreche, es besser zu machen\"",
+            "### \"Das wird nicht wieder passieren\"",
+            "### \"Ich werde an meiner Geduld arbeiten\""
+          ]
+        },
+        {
+          "header": "## Відновлення зв'язку",
+          "subsections": [
+            "### \"Können wir von vorne anfangen?\"",
+            "### \"Lass uns das hinter uns lassen\"",
+            "### \"Ich will nur, dass alles zwischen uns gut ist\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "84f09444-81a5-48ab-bf74-284bf0f1b677",
+      "title": "Este Ucraineana Greu de Învațăt? Ghid Sincer",
+      "native_lang": "ro",
+      "target_lang": "uk",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Ce Face Ucraineana Provocatoare",
+          "subsections": [
+            "### 1. Complexitatea Gramaticala",
+            "### 2. Provocari de Pronuntie"
+          ]
+        },
+        {
+          "header": "## Ce Face Ucraineana Mai Usoara Decat Crezi",
+          "subsections": [
+            "### 1. Ortografie Fonetica",
+            "### 2. Vocabular Comun cu Romana",
+            "### 3. Fără Sistem Tonal",
+            "### 4. Modele Regulate"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "84f2d806-ff65-4363-b559-551e6bcf4362",
+      "title": "50+ Nomignoli Russi per Sciogliere il Cuore",
+      "native_lang": "it",
+      "target_lang": "ru",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Quando Usare Questi Nomignoli",
+          "subsections": [
+            "### In Privato",
+            "### In Pubblico",
+            "### Con la Famiglia",
+            "### Via Messaggi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "84f49fd9-5c1d-4760-8c75-63da26e4b465",
+      "title": "Sådan Undskylder Du på Spansk: Vejledning for Par",
+      "native_lang": "da",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Specifikke Situationer",
+          "subsections": [
+            "### Når Du Har Glemt Noget",
+            "### Når Du Har Sagt Noget Sårende",
+            "### Når Du Er Kommet For Sent"
+          ]
+        }
+      ]
+    }
+  ]
+}

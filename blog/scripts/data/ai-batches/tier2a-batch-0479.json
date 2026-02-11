@@ -1,0 +1,174 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0479",
+  "articles": [
+    {
+      "id": "8a33998f-7035-4d72-93d4-eeb8f675d72d",
+      "title": "100 Meest Gebruikte Duitse Woorden voor Relaties",
+      "native_lang": "nl",
+      "target_lang": "de",
+      "category": "communication",
+      "content": "Als je een Duitstalige partner hebt, zijn dit de woorden die je het vaakst zult gebruiken.\n\n## Basis liefdeswoorden\n\n### 1. Liebe - *lie-be* - Liefde\n### 2. Herz - *herts* - Hart\n### 3. Kuss - *koes* - Kus\n### 4. Umarmung - *oem-ar-moeng* - Knuffel\n### 5. Zusammen - *tsoe-za-men* - Samen\n### 6. Für immer - *fuer ie-mer* - Voor altijd\n### 7. Immer - *ie-mer* - Altijd\n### 8. Schön - *sjoen* - Mooi\n### 9. Glücklich - *gluek-lieg* - Gelukkig\n### 10. Schatz - *sjats* - Schat\n\n## Dagelijkse communicatie\n\n### 11. Ja - *ja* - Ja\n### 12. Nein - *nain* - Nee\n### 13. Bitte - *bi-te* - Alsjeblieft\n### 14. Danke - *dan-ke* - Dank je\n### 15. Entschuldigung - *ent-sjoel-die-goeng* - Sorry\n### 16. Guten Morgen - *goe-ten mor-gen* - Goedemorgen\n### 17. Gute Nacht - *goe-te nacht* - Goedenacht\n### 18. Hallo - *ha-lo* - Hallo\n### 19. Tschüss - *tsjues* - Tot ziens\n### 20. Wie geht's? - *wie geets* - Hoe gaat het?\n\n## Gevoelens uitdrukken\n\n### 21. Ich liebe dich - *ieg lie-be dieg* - Ik hou van je\n### 22. Ich vermisse dich - *ieg fer-mi-se dieg* - Ik mis je\n### 23. Ich brauche dich - *ieg braw-ge dieg* - Ik heb je nodig\n### 24. Ich vertraue dir - *ieg fer-traw-e dier* - Ik vertrouw je\n### 25. Ich bin stolz auf dich - *ieg bin sjolts awf dieg* - Ik ben trots op je\n### 26. Ich verzeihe dir - *ieg fer-tsai-e dier* - Ik vergeef je\n### 27. Ich verstehe - *ieg fer-stee-e* - Ik begrijp het\n### 28. Du machst mich glücklich - *doe machst mieg gluek-lieg* - Je maakt me gelukkig\n### 29. Du bist alles für mich - *doe bist a-les fuer mieg* - Je bent alles voor mij\n### 30. Ich denke an dich - *ieg den-ke an dieg* - Ik denk aan je\n\n## Vragen stellen\n\n### 31. Was? - *vas* - Wat?\n### 32. Wo? - *vo* - Waar?\n### 33. Wann? - *van* - Wanneer?\n### 34. Warum? - *va-roem* - Waarom?\n### 35. Wie? - *vie* - Hoe?\n### 36. Wer? - *veer* - Wie?\n\n## Tijd\n\n### 37. Heute - *hoi-te* - Vandaag\n### 38. Morgen - *mor-gen* - Morgen\n### 39. Gestern - *ges-tern* - Gisteren\n### 40. Jetzt - *jetst* - Nu\n### 41. Später - *sjpee-ter* - Later\n### 42. Bald - *balt* - Binnenkort\n### 43. Nie - *nie* - Nooit\n### 44. Manchmal - *man-ch-mal* - Soms\n### 45. Oft - *oft* - Vaak\n\n## Belangrijke zinnen\n\n### 46. \"Ich bin für dich da\" - Ik ben er voor je\n### 47. \"Du bedeutest mir alles\" - Je betekent alles voor me\n### 48. \"Ich freue mich auf dich\" - Ik verheug me op je\n### 49. \"Ich hab dich lieb\" - Ik hou van je (informeel)\n### 50. \"Kommst du mit?\" - Ga je mee?\n\n## Conclusie\n\nMet deze woorden heb je een sterke basis voor communicatie met je Duitse partner.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Basis liefdeswoorden",
+              "### 1. Liebe - *lie-be* - Liefde",
+              "### 2. Herz - *herts* - Hart",
+              "### 3. Kuss - *koes* - Kus",
+              "### 4. Umarmung - *oem-ar-moeng* - Knuffel",
+              "### 5. Zusammen - *tsoe-za-men* - Samen",
+              "### 6. Für immer - *fuer ie-mer* - Voor altijd",
+              "### 7. Immer - *ie-mer* - Altijd",
+              "### 8. Schön - *sjoen* - Mooi",
+              "### 9. Glücklich - *gluek-lieg* - Gelukkig",
+              "### 10. Schatz - *sjats* - Schat",
+              "## Dagelijkse communicatie",
+              "### 11. Ja - *ja* - Ja",
+              "### 12. Nein - *nain* - Nee",
+              "### 13. Bitte - *bi-te* - Alsjeblieft",
+              "### 14. Danke - *dan-ke* - Dank je",
+              "### 15. Entschuldigung - *ent-sjoel-die-goeng* - Sorry",
+              "### 16. Guten Morgen - *goe-ten mor-gen* - Goedemorgen",
+              "### 17. Gute Nacht - *goe-te nacht* - Goedenacht",
+              "### 18. Hallo - *ha-lo* - Hallo",
+              "### 19. Tschüss - *tsjues* - Tot ziens",
+              "### 20. Wie geht's? - *wie geets* - Hoe gaat het?",
+              "## Gevoelens uitdrukken",
+              "### 21. Ich liebe dich - *ieg lie-be dieg* - Ik hou van je",
+              "### 22. Ich vermisse dich - *ieg fer-mi-se dieg* - Ik mis je",
+              "### 23. Ich brauche dich - *ieg braw-ge dieg* - Ik heb je nodig",
+              "### 24. Ich vertraue dir - *ieg fer-traw-e dier* - Ik vertrouw je",
+              "### 25. Ich bin stolz auf dich - *ieg bin sjolts awf dieg* - Ik ben trots op je",
+              "### 26. Ich verzeihe dir - *ieg fer-tsai-e dier* - Ik vergeef je",
+              "### 27. Ich verstehe - *ieg fer-stee-e* - Ik begrijp het",
+              "### 28. Du machst mich glücklich - *doe machst mieg gluek-lieg* - Je maakt me gelukkig",
+              "### 29. Du bist alles für mich - *doe bist a-les fuer mieg* - Je bent alles voor mij",
+              "### 30. Ich denke an dich - *ieg den-ke an dieg* - Ik denk aan je",
+              "## Vragen stellen",
+              "### 31. Was? - *vas* - Wat?",
+              "### 32. Wo? - *vo* - Waar?",
+              "### 33. Wann? - *van* - Wanneer?",
+              "### 34. Warum? - *va-roem* - Waarom?",
+              "### 35. Wie? - *vie* - Hoe?",
+              "### 36. Wer? - *veer* - Wie?",
+              "## Tijd",
+              "### 37. Heute - *hoi-te* - Vandaag",
+              "### 38. Morgen - *mor-gen* - Morgen",
+              "### 39. Gestern - *ges-tern* - Gisteren",
+              "### 40. Jetzt - *jetst* - Nu",
+              "### 41. Später - *sjpee-ter* - Later",
+              "### 42. Bald - *balt* - Binnenkort",
+              "### 43. Nie - *nie* - Nooit",
+              "### 44. Manchmal - *man-ch-mal* - Soms",
+              "### 45. Oft - *oft* - Vaak",
+              "## Belangrijke zinnen",
+              "### 46. \"Ich bin für dich da\" - Ik ben er voor je",
+              "### 47. \"Du bedeutest mir alles\" - Je betekent alles voor me",
+              "### 48. \"Ich freue mich auf dich\" - Ik verheug me op je",
+              "### 49. \"Ich hab dich lieb\" - Ik hou van je (informeel)",
+              "### 50. \"Kommst du mit?\" - Ga je mee?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "8a411c4d-d49e-4c4b-95bd-dc7a93493ecc",
+      "title": "Frases de Apoio Emocional em Grego: Confortando Seu Parceiro",
+      "native_lang": "pt",
+      "target_lang": "el",
+      "category": "communication",
+      "content": "Oferecer apoio emocional em grego permite demonstrar cuidado com a paixão mediterrânea.\n\n## Frases de Apoio Básico\n\n### Demonstrando Presença\n\n**Είμαι εδώ για σένα, ό,τι κι αν συμβεί.** (Eímai edó gia séna, ó,ti ki an symveí)\n*Estou aqui para você, aconteça o que acontecer.*\n\n**Δεν χρειάζεται να περάσεις αυτό μόνος/η.** (Den chreiázetai na perásis aftó mónos/i)\n*Você não precisa passar por isso sozinho(a).*\n\n**Είμαι δίπλα σου.** (Eímai dípla sou)\n*Estou ao seu lado.*\n\n### Validando Sentimentos\n\n**Είναι εντάξει να νιώθεις έτσι.** (Eínai entáxei na niótheis étsi)\n*Está tudo bem sentir-se assim.*\n\n**Τα συναισθήματά σου είναι απόλυτα έγκυρα.** (Ta synaisthímatá sou eínai apólyta énkyra)\n*Seus sentimentos são completamente válidos.*\n\n### Oferecendo Conforto\n\n**Όλα θα πάνε καλά.** (Óla tha páne kalá)\n*Tudo vai ficar bem.*\n\n**Θα το περάσουμε μαζί.** (Tha to perásoume mazí)\n*Vamos superar isso juntos.*\n\n**Κι αυτό θα περάσει.** (Ki aftó tha perási)\n*Isso também vai passar.*\n\n## Perguntas de Apoio\n\n**Πώς μπορώ να σε βοηθήσω;** (Pós boró na se voithíso?)\n*Como posso te ajudar?*\n\n**Θέλεις να μιλήσουμε γι' αυτό;** (Théleis na milísoume gi' aftó?)\n*Quer falar sobre isso?*\n\n## Encorajamento\n\n**Είμαι τόσο περήφανος/η για σένα.** (Eímai tóso perífanos/i gia séna)\n*Estou tão orgulhoso(a) de você.*\n\n**Είσαι πιο δυνατός/ή από ό,τι νομίζεις.** (Eísai pio dynatós/í apó ó,ti nomízeis)\n*Você é mais forte do que pensa.*\n\nΗ αγάπη φαίνεται στις δύσκολες στιγμές - o amor se mostra nos momentos difíceis.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 229,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frases de Apoio Básico"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "8a5ce3e8-31a8-4161-945e-a961e4aca4e8",
+      "title": "Expresii în Greacă pentru Discuții și Dezacorduri în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "el",
+      "category": "communication",
+      "content": "Grecii sunt cunoscuți pentru temperamentul lor pasional și pentru importanța pe care o acordă familiei și relațiilor. Dacă partenerul tău vorbește greacă, a înțelege cum să comunici în timpul conflictelor în limba lui te va ajuta să navighezi certurile cu intensitatea și căldura specifice culturii grecești.\n\n## Cultura Greacă și Conflictul în Relații\n\nÎn Grecia, emoțiile puternice sunt normale și acceptate. Grecii nu se feresc să-și exprime sentimentele cu voce tare, dar asta nu înseamnă că relația e în pericol. Dimpotrivă, pasiunea poate fi un semn că îți pasă. Familia extinsă joacă adesea un rol important în viața de cuplu.\n\n## Expresii Esențiale pentru Discuții\n\n### Exprimarea Frustrării\n\n**\"Νιώθω απογοητευμένος/η όταν...\"** (Niotho apoghoitevmenos/i otan...)\n*Mă simt frustrat/ă când...*\nFormularea bazată pe sentimente proprii.\n\n**\"Πρέπει να μιλήσουμε για κάτι σημαντικό.\"** (Prepi na milissoume ya kati simantiko.)\n*Trebuie să vorbim despre ceva important.*\n\n**\"Με πληγώνει όταν το λες έτσι.\"** (Me pligoni otan to les etsi.)\n*Mă rănește când spui așa.*\n\n### Cererea de Clarificări\n\n**\"Τι εννοείς με αυτό;\"** (Ti enois me afto?)\n*Ce vrei să spui cu asta?*\n\n**\"Βοήθησέ με να καταλάβω την άποψή σου.\"** (Voithisse me na katalavo tin apopsi sou.)\n*Ajută-mă să înțeleg punctul tău de vedere.*\n\n**\"Γιατί νιώθεις έτσι;\"** (Yati niothis etsi?)\n*De ce te simți așa?*\n\n### Stabilirea Limitelor\n\n**\"Χρειάζομαι λίγο χρόνο να ηρεμήσω.\"** (Chriazome ligo chrono na iremisso.)\n*Am nevoie de puțin timp să mă calmez.*\n\n**\"Ας μην πούμε πράγματα που θα μετανιώσουμε.\"** (As min poume pragmata pou tha metaniossoume.)\n*Să nu spunem lucruri de care vom regreta.*\n\n**\"Μη μου μιλάς έτσι, σε παρακαλώ.\"** (Mi mou milas etsi, se parakalo.)\n*Nu-mi vorbi așa, te rog.*\n\n### Recunoașterea și Empatia\n\n**\"Έχεις δίκιο σε αυτό.\"** (Echis dikio se afto.)\n*Ai dreptate în privința asta.*\n\n**\"Δεν έπρεπε να το πω αυτό.\"** (Den eprepe na to po afto.)\n*N-ar fi trebuit să spun asta.*\n\n**\"Καταλαβαίνω γιατί είσαι θυμωμένος/η.\"** (Katalaveno yati ise thimomenos/i.)\n*Înțeleg de ce ești supărat/ă.*\n\n### Căutarea Soluțiilor\n\n**\"Πώς μπορούμε να το λύσουμε μαζί;\"** (Pos boroume na to lissoume mazi?)\n*Cum putem rezolva asta împreună?*\n\n**\"Τι χρειάζεσαι από μένα τώρα;\"** (Ti chriazesse apo mena tora?)\n*Ce ai nevoie de la mine acum?*\n\n**\"Ας βρούμε μια μέση λύση.\"** (As vroume mia messi lissi.)\n*Să găsim o cale de mijloc.*\n\n## Nuanțe Culturale Importante\n\n### Filotimo\nConceptul de \"φιλότιμο\" (filotimo) - onoare, respect și devotament - este central. Tratează-ți partenerul cu demnitate.\n\n### Familia\nFamilia extinsă este foarte implicată. Fii pregătit/ă pentru opinii de la socri, mătuși și unchi.\n\n### Pasiunea\nGrecii sunt pasionali în tot ce fac. O ceartă intensă nu înseamnă sfârșitul - poate fi un preludiu la o reconciliere la fel de intensă.\n\n### Mâncarea\nMâncarea unește. O masă împreună poate fi cel mai bun cadru pentru reconciliere.\n\n## Expresii de Evitat\n\n- **\"Πάντα κάνεις...\"** (Mereu faci...) - Generalizările provoacă defensivă\n- **\"Δεν με νοιάζει\"** (Nu-mi pasă) - Foarte dureros\n- **\"Είσαι αδύνατος/η\"** (Ești imposibil/ă) - Atacă persoana\n\n## Sfaturi Practice\n\n1. **Nu te speria de intensitate** - E normal în cultura greacă\n2. **Respectă familia** - Chiar dacă nu ești de acord, arată respect\n3. **Mâncarea vindecă** - O masă preparată cu dragoste ajută la reconciliere\n4. **Gesturile contează** - Grecii apreciază romantismul și afecțiunea fizică\n5. **Nu pleca supărat/ă** - Grecii preferă să rezolve pe loc\n\n## Concluzie\n\nA gestiona conflictele în greacă necesită acceptarea pasiunii și respectul pentru tradiții. Cu aceste expresii, vei putea comunica eficient chiar și în momentele fierbinți, transformând certurile în oportunități de apropiere. Amintește-ți că pentru greci, a te certa cu pasiune poate fi un semn că relația e vie și importantă.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Expresii Esențiale pentru Discuții",
+              "## Nuanțe Culturale Importante"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "8a62606f-2fc3-4a11-818e-c72b29ea3978",
+      "title": "Russo para Casais: 50+ Frases Essenciais",
+      "native_lang": "pt",
+      "target_lang": "ru",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nComunicar-se com seu parceiro russo vai muito além de dizer \"eu te amo\". O dia a dia de um casal envolve dezenas de interações que, quando feitas no idioma do seu amor, se tornam muito mais especiais!\n\n## Cumprimentos do Dia a Dia\n\n<PhraseOfDay\n  word=\"Привет, любимый/любимая!\"\n  translation=\"Oi, amor!\"\n  pronunciation=\"pri-VYET, lyu-BI-miy/lyu-BI-ma-ya\"\n  context=\"O cumprimento informal perfeito para seu parceiro.\"\n/>\n\n### Pela Manhã\n\n<VocabCard\n  word=\"Доброе утро, солнышко\"\n  translation=\"Bom dia, solzinho\"\n  pronunciation=\"DOB-ro-ye U-tro, SOL-nish-ko\"\n  example=\"Доброе утро, солнышко. Как спалось?\"\n/>\n\n<VocabCard\n  word=\"Как ты спал/спала?\"\n  translation=\"Como você dormiu? (masc./fem.)\"\n  pronunciation=\"kak ti spal/spa-LA\"\n  example=\"Доброе утро! Как ты спала, милая?\"\n/>\n\n<VocabCard\n  word=\"Ты мне снился/снилась\"\n  translation=\"Sonhei com você (masc./fem.)\"\n  pronunciation=\"ti mnye SNI-lsya/sni-LAS\"\n  example=\"Ты мне снилась всю ночь.\"\n/>\n\n### À Noite\n\n<VocabCard\n  word=\"Спокойной ночи, любимый/любимая\"\n  translation=\"Boa noite, amor\"\n  pronunciation=\"spa-KOY-noy NO-chi, lyu-BI-miy/lyu-BI-ma-ya\"\n  example=\"Спокойной ночи, любимая. Сладких снов.\"\n/>\n\n<VocabCard\n  word=\"Сладких снов\"\n  translation=\"Bons sonhos\"\n  pronunciation=\"SLAD-kikh snov\"\n  example=\"Спокойной ночи, сладких снов, моя радость.\"\n/>\n\n## Expressões de Afeto\n\n<CultureTip title=\"Expressando Carinho na Rússia\" flag=\"🇷🇺\">\nOs russos podem parecer sérios em público, mas são muito calorosos e expressivos em relacionamentos íntimos. Não se surpreenda com apelidos carinhosos e demonstrações de afeto em casa!\n</CultureTip>\n\n<VocabCard\n  word=\"Я скучаю по тебе\"\n  translation=\"Estou com saudades de você\"\n  pronunciation=\"ya sku-CHA-yu po te-BYE\"\n  example=\"Целый день я скучаю по тебе.\"\n/>\n\n<VocabCard\n  word=\"Я думаю о тебе\"\n  translation=\"Estou pensando em você\"\n  pronunciation=\"ya DU-ma-yu o te-BYE\"\n  example=\"Всё время думаю о тебе.\"\n/>\n\n<VocabCard\n  word=\"Ты замечательный/замечательная\"\n  translation=\"Você é maravilhoso/maravilhosa\"\n  pronunciation=\"ti za-me-CHA-tel-niy/za-me-CHA-tel-na-ya\"\n  example=\"Знаешь что? Ты замечательная.\"\n/>\n\n<VocabCard\n  word=\"Я тебя обожаю\"\n  translation=\"Eu adoro você\"\n  pronunciation=\"ya te-BYA o-bo-JA-yu\"\n  example=\"Я тебя обожаю, милая.\"\n/>\n\n## Frases para o Cotidiano\n\n### Fazendo Planos\n\n<VocabCard\n  word=\"Что хочешь делать сегодня?\"\n  translation=\"O que você quer fazer hoje?\"\n  pronunciation=\"shto KHO-chesh DYE-lat se-VOD-nya\"\n  example=\"Хорошая погода. Что хочешь делать сегодня?\"\n/>\n\n<VocabCard\n  word=\"Пойдём гулять\"\n  translation=\"Vamos passear\"\n  pronunciation=\"poy-DYOM gu-LYAT\"\n  example=\"Погода отличная, пойдём гулять.\"\n/>\n\n<VocabCard\n  word=\"У меня есть идея!\"\n  translation=\"Tenho uma ideia!\"\n  pronunciation=\"u me-NYA yest i-DYE-ya\"\n  example=\"У меня есть идея! Пойдём в кино.\"\n/>\n\n### Demonstrando Cuidado\n\n<VocabCard\n  word=\"Всё в порядке?\"\n  translation=\"Está tudo bem?\"\n  pronunciation=\"vsyo v po-RYAD-ke\"\n  example=\"Ты выглядишь грустной. Всё в порядке?\"\n/>\n\n<VocabCard\n  word=\"Как ты себя чувствуешь?\"\n  translation=\"Como você está se sentindo?\"\n  pronunciation=\"kak ti se-BYA CHUST-vu-yesh\"\n  example=\"Как ты себя чувствуешь сегодня, милая?\"\n/>\n\n<VocabCard\n  word=\"Я всегда рядом\"\n  translation=\"Estou sempre aqui\"\n  pronunciation=\"ya vseg-DA RYA-dom\"\n  example=\"Помни, я всегда рядом с тобой.\"\n/>\n\n## Expressões de Apoio\n\n<VocabCard\n  word=\"Я в тебя верю\"\n  translation=\"Acredito em você\"\n  pronunciation=\"ya v te-BYA VYE-ryu\"\n  example=\"У тебя получится, я в тебя верю.\"\n/>\n\n<VocabCard\n  word=\"У тебя получится\"\n  translation=\"Você consegue\"\n  pronunciation=\"u te-BYA po-LU-chit-sya\"\n  example=\"Это сложно, но я знаю, у тебя получится.\"\n/>\n\n<VocabCard\n  word=\"Я горжусь тобой\"\n  translation=\"Estou orgulhoso/a de você\"\n  pronunciation=\"ya gor-JHUS to-BOY\"\n  example=\"Ты отлично справился! Я горжусь тобой.\"\n/>\n\n<VocabCard\n  word=\"Я всегда буду рядом\"\n  translation=\"Sempre estarei ao seu lado\"\n  pronunciation=\"ya vseg-DA BU-du RYA-dom\"\n  example=\"Что бы ни случилось, я всегда буду рядом.\"\n/>\n\n## Frases Românticas\n\n<VocabCard\n  word=\"Ты прекрасно выглядишь\"\n  translation=\"Você está linda/lindo\"\n  pronunciation=\"ti pre-KRAS-no VIG-lya-dish\"\n  example=\"Ты прекрасно выглядишь сегодня, любимая.\"\n/>\n\n<VocabCard\n  word=\"Ты самый важный человек в моей жизни\"\n  translation=\"Você é a pessoa mais importante na minha vida\"\n  pronunciation=\"ti SA-miy VAZH-niy che-lo-VYEK v mo-YEY ZHIZ-ni\"\n  example=\"Ты знаешь? Ты самый важный человек в моей жизни.\"\n/>\n\n<VocabCard\n  word=\"Не могу дождаться, когда тебя увижу\"\n  translation=\"Mal posso esperar para te ver\"\n  pronunciation=\"ne mo-GU dozh-DAT-sya, kog-DA te-BYA u-VI-zhu\"\n  example=\"Еду домой! Не могу дождаться, когда тебя увижу.\"\n/>\n\n## Tabela de Referência Rápida\n\n| Russo | Português | Quando Usar |\n|-------|-----------|-------------|\n| Привет! | Oi! | Cumprimento casual |\n| Я тебя люблю | Eu te amo | Declaração de amor |\n| Скучаю по тебе | Sinto sua falta | Quando estão separados |\n| Прости | Desculpa | Para pedir perdão |\n| Спасибо | Obrigado/a | Agradecer |\n| Пожалуйста | Por favor | Pedir algo |\n| Спокойной ночи | Boa noite | Ao dormir |\n| Доброе утро | Bom dia | Pela manhã |\n| Как дела? | Como você está? | Perguntar sobre bem-estar |\n| Всё хорошо | Tudo bem | Responder que está bem |\n\n## Frases para Resolver Conflitos\n\n<VocabCard\n  word=\"Прости меня\"\n  translation=\"Me desculpe\"\n  pronunciation=\"pras-TI me-NYA\"\n  example=\"Прости меня. Я не хотел тебя обидеть.\"\n/>\n\n<VocabCard\n  word=\"Я не хотел/хотела тебя обидеть\"\n  translation=\"Não queria te magoar\"\n  pronunciation=\"ya ne kho-TYEL/kho-TYE-la te-BYA o-BI-det\"\n  example=\"Прости, я правда не хотел тебя обидеть.\"\n/>\n\n<VocabCard\n  word=\"Давай поговорим?\"\n  translation=\"Vamos conversar?\"\n  pronunciation=\"da-VAY po-go-vo-RIM\"\n  example=\"Пожалуйста, давай поговорим об этом.\"\n/>\n\n<VocabCard\n  word=\"Я тебя прощаю\"\n  translation=\"Eu te perdoo\"\n  pronunciation=\"ya te-BYA pro-SHCHA-yu\"\n  example=\"Я знаю, что ты не хотел. Я тебя прощаю.\"\n/>\n\n<CTA\n  text=\"Pronto para melhorar a comunicação com seu parceiro? Love Languages oferece Modo Escuta para jantares em família, o Love Log para salvar frases especiais, e a possibilidade do seu parceiro criar desafios personalizados como tutor.\"\n  buttonText=\"Começar Grátis\"\n/>\n",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 193,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frases para o Cotidiano"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "8a875a4b-eacf-4fa9-beb8-c9b450ccfda8",
+      "title": "Выражение эмоций на чешском языке",
+      "native_lang": "ru",
+      "target_lang": "cs",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nУмение выражать свои чувства — ключ к глубоким и искренним отношениям. Давайте научимся говорить о эмоциях на чешском языке!\n\n<PhraseOfDay\n  word=\"Miluji tě\"\n  translation=\"Я тебя люблю\"\n  context=\"Самое важное выражение эмоций на чешском языке\"\n/>\n\n## Почему важно выражать эмоции на языке партнёра\n\nВ межкультурных отношениях понимание эмоционального языка партнёра критически важно. Когда вы можете выразить свои чувства на его родном языке, это создаёт особую близость.\n\n## Положительные эмоции\n\n### Радость и счастье\n\n<VocabCard\n  word=\"Jsem šťastný/á\"\n  translation=\"Я счастлив(а)\"\n  example=\"Jsem s tebou tak šťastný/á.\"\n  exampleTranslation=\"Я так счастлив(а) с тобой.\"\n/>\n\n<CultureTip flag=\"🇨🇿\" title=\"Выражение радости\">\nВ чешском культуре эмоции выражаются по-своему. Понимание этих нюансов поможет вам лучше понимать партнёра.\n</CultureTip>\n\n### Любовь и привязанность\n\n<VocabCard\n  word=\"Miluji tě\"\n  translation=\"Я тебя люблю\"\n  example=\"Miluji tě víc než cokoliv jiného.\"\n  exampleTranslation=\"Я люблю тебя больше всего на свете.\"\n/>\n\n<VocabCard\n  word=\"Chybíš mi\"\n  translation=\"Я скучаю по тебе\"\n  example=\"Moc mi chybíš.\"\n  exampleTranslation=\"Я очень скучаю по тебе.\"\n/>\n\n## Негативные эмоции\n\nВажно уметь выражать и негативные чувства — это часть здорового общения.\n\n### Грусть\n\n<VocabCard\n  word=\"Jsem smutný/á\"\n  translation=\"Мне грустно\"\n  example=\"Jsem smutný/á.\"\n  exampleTranslation=\"Мне грустно.\"\n/>\n\n<CultureTip flag=\"🇨🇿\" title=\"Выражение негативных эмоций\">\nВ здоровых отношениях важно уметь говорить о любых чувствах. Это помогает партнёру лучше вас понимать.\n</CultureTip>\n\n## Как спросить о чувствах партнёра\n\n<VocabCard\n  word=\"Jak se máš?\"\n  translation=\"Как ты себя чувствуешь?\"\n  example=\"Jak se ti daří?\"\n  exampleTranslation=\"Как у тебя дела?\"\n/>\n\n## Слова поддержки и утешения\n\nКогда партнёр расстроен, важно уметь поддержать его на его родном языке:\n\n| Czech | Русский |\n|----------|---------|\n| Miluji tě | Я люблю тебя |\n| Myslím na tebe | Я думаю о тебе |\n| Navždy tvůj/tvá | Всегда твой/твоя |\n\n<CTA \n  title=\"Учите язык эмоций вместе\"\n  description=\"Love Languages поможет вам глубже понимать друг друга\"\n/>\n\n## Связанные статьи\n\n- [Комплименты на чешском языке](/ru/blog/czech-giving-compliments)\n- [Ласковые прозвища на чешском](/ru/blog/czech-pet-names-terms-of-endearment)\n\nУмение говорить о чувствах на языке партнёра укрепляет вашу связь и показывает глубину ваших отношений.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 158,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Положительные эмоции"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

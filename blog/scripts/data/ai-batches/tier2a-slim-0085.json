@@ -1,0 +1,461 @@
+{
+  "batchId": "tier2a-slim-0085",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "68b675d6-4276-4797-a2fc-225eff69515b",
+      "title": "Skriva kärleksbrev på polska – Romantiska fraser för din partner",
+      "native_lang": "sv",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Inledande hälsningar",
+          "subsections": [
+            "### \"Moja miłości\"",
+            "### \"Kochanie moje\"",
+            "### \"Moje serce\"",
+            "### \"Skarbie mój\""
+          ]
+        },
+        {
+          "header": "## Uttrycka känslor",
+          "subsections": [
+            "### \"Słowa nie potrafią wyrazić, jak wiele dla mnie znaczysz\"",
+            "### \"Każdego dnia zakochuję się w tobie coraz bardziej\"",
+            "### \"Jesteś dla mnie wszystkim – moim słońcem, księżycem i gwiazdami\"",
+            "### \"Moje serce należy do ciebie, teraz i na zawsze\"",
+            "### \"Z tobą poznałem/poznałam prawdziwe znaczenie miłości\""
+          ]
+        },
+        {
+          "header": "## Beskriva din partner",
+          "subsections": [
+            "### \"Twój uśmiech rozświetla mój świat\"",
+            "### \"Twoja dobroć i ciepło inspirują mnie każdego dnia\"",
+            "### \"Kiedy na mnie patrzysz, czuję się najszczęśliwszą osobą na świecie\""
+          ]
+        },
+        {
+          "header": "## Minnen och framtid",
+          "subsections": [
+            "### \"Cenię każdą chwilę, którą spędziliśmy razem\"",
+            "### \"Od pierwszej chwili wiedziałem/wiedziałam, że jesteś wyjątkowa/wyjątkowy\"",
+            "### \"Nie mogę się doczekać, co przyniesie nam przyszłość\"",
+            "### \"Starzeć się z tobą to moje największe marzenie\""
+          ]
+        },
+        {
+          "header": "## Löften",
+          "subsections": [
+            "### \"Obiecuję kochać cię w dobrych i złych chwilach\"",
+            "### \"Zawsze będę przy tobie, cokolwiek się stanie\"",
+            "### \"Moja miłość do ciebie rośnie każdego dnia\""
+          ]
+        },
+        {
+          "header": "## Avslutningar",
+          "subsections": [
+            "### \"Na zawsze twój/twoja\"",
+            "### \"Z całą moją miłością\"",
+            "### \"Wiecznie twój/twoja\"",
+            "### \"Kocham cię całym sercem\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "68c49821-8c85-4429-8c91-db06c0b45e07",
+      "title": "Guide de prononciation italienne : Comment parler comme un(e) véritable amoureux(se)",
+      "native_lang": "fr",
+      "target_lang": "it",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Sons difficiles : le guide ultime",
+          "subsections": [
+            "### Le R roulé",
+            "### Le GLI parfait",
+            "### Le GN authentique"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "68ce2ca1-b593-4bb1-9b26-058cbac674f3",
+      "title": "Vocabular pentru Bebeluși și Sarcină în Cehă: Expresii Esențiale",
+      "native_lang": "ro",
+      "target_lang": "cs",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Anunțarea Sarcinii",
+          "subsections": [
+            "### Expresii pentru Anunț",
+            "### Anunțuri Creative"
+          ]
+        },
+        {
+          "header": "## Vocabular Medical",
+          "subsections": [
+            "### Termeni pentru Consultații"
+          ]
+        },
+        {
+          "header": "## Evoluția Sarcinii",
+          "subsections": [
+            "### Primul Trimestru (Săptămânile 1-12)",
+            "### Al Doilea Trimestru (Săptămânile 13-26)",
+            "### Al Treilea Trimestru (Săptămânile 27-40)"
+          ]
+        },
+        {
+          "header": "## Pregătirea pentru Bebeluș",
+          "subsections": [
+            "### Obiecte Esențiale",
+            "### Camera Bebelușului"
+          ]
+        },
+        {
+          "header": "## Expresii de Felicitare",
+          "subsections": [
+            "### Pentru Anunț",
+            "### Pentru Naștere"
+          ]
+        },
+        {
+          "header": "## Tradiții și Superstiții",
+          "subsections": [
+            "### Superstiții Comune"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "68ce45af-854e-4faa-8465-f25cf685be0e",
+      "title": "Phrases turques pour les disputes de couple",
+      "native_lang": "fr",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions essentielles pour les désaccords",
+          "subsections": [
+            "### Exprimer son désaccord",
+            "### Exprimer ses émotions",
+            "### Fixer des limites",
+            "### Chercher à comprendre"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "68cf9889-8056-4369-a6f8-777c92bea5c0",
+      "title": "Griechische Trost- und Unterstützungsphrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlegende Unterstützung",
+          "subsections": [
+            "### \"Είμαι εδώ για σένα\" (Eímai edó gia séna)",
+            "### \"Θα είμαι πάντα στο πλευρό σου\"",
+            "### \"Δεν είσαι μόνος/μόνη σε αυτό\"",
+            "### \"Ό,τι κι αν χρειαστείς, είμαι εδώ\""
+          ]
+        },
+        {
+          "header": "## Bei Trauer",
+          "subsections": [
+            "### \"Συλλυπητήρια\" (Syllypitíria)",
+            "### \"Πάρε όσο χρόνο χρειάζεσαι\"",
+            "### \"Είναι εντάξει να κλαις\""
+          ]
+        },
+        {
+          "header": "## Bei Stress und Sorgen",
+          "subsections": [
+            "### \"Θα το λύσουμε μαζί\"",
+            "### \"Ένα βήμα τη φορά\"",
+            "### \"Είναι εντάξει να μην είσαι καλά\"",
+            "### \"Κι αυτό θα περάσει\"",
+            "### \"Μην είσαι τόσο σκληρός/σκληρή με τον εαυτό σου\""
+          ]
+        },
+        {
+          "header": "## Ermutigung",
+          "subsections": [
+            "### \"Πιστεύω σε σένα\"",
+            "### \"Είσαι πιο δυνατός/δυνατή απ' ό,τι νομίζεις\"",
+            "### \"Είμαι τόσο περήφανος/περήφανη για σένα\"",
+            "### \"Θα τα καταφέρεις\""
+          ]
+        },
+        {
+          "header": "## Aktive Hilfe anbieten",
+          "subsections": [
+            "### \"Τι μπορώ να κάνω για να σε βοηθήσω?\"",
+            "### \"Θέλεις να μιλήσουμε γι' αυτό?\"",
+            "### \"Σε ακούω\""
+          ]
+        },
+        {
+          "header": "## Langfristige Unterstützung",
+          "subsections": [
+            "### \"Θα είμαι πάντα εδώ, ό,τι κι αν συμβεί\"",
+            "### \"Είμαστε μαζί σε αυτό\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "68d7c5ed-e852-40b8-aa99-9b74085d9abf",
+      "title": "Романтичні німецькі фрази для пар: Повний посібник",
+      "native_lang": "uk",
+      "target_lang": "de",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Щоденні романтичні фрази",
+          "subsections": [
+            "### Вранці",
+            "### Протягом дня",
+            "### Увечері"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "68eff89b-46a1-425a-9add-e182ae952d45",
+      "title": "Ukrainische Grüße und Verabschiedungen",
+      "native_lang": "de",
+      "target_lang": "uk",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Verabschiedungen",
+          "subsections": [
+            "### Informelle Verabschiedungen",
+            "### Formelle Verabschiedungen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "690b6c58-10a7-4aee-ac0a-28bccc1419e1",
+      "title": "Переїзд разом: польською слова для спільного життя",
+      "native_lang": "uk",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика",
+          "subsections": []
+        },
+        {
+          "header": "## Обговорення переїзду",
+          "subsections": [
+            "### Як запропонувати спільне життя польською"
+          ]
+        },
+        {
+          "header": "## Пошук житла",
+          "subsections": [
+            "### Лексика для оренди/покупки",
+            "### Кімнати в домі"
+          ]
+        },
+        {
+          "header": "## Меблі та предмети побуту",
+          "subsections": [
+            "### У спальні",
+            "### На кухні",
+            "### У вітальні"
+          ]
+        },
+        {
+          "header": "## Розподіл обов'язків",
+          "subsections": [
+            "### Домашні справи польською",
+            "### Як обговорити обов'язки"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6910982c-733f-49f3-b869-7cb28bcb7893",
+      "title": "Portugiesischer SMS-Slang für Paare",
+      "native_lang": "de",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Beispiel-Konversationen",
+          "subsections": [
+            "### Morgens",
+            "### Abends"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "691c11e0-ebee-474d-a17b-06a6ba8187af",
+      "title": "Ungarische Liebessätze, die das Herz berühren",
+      "native_lang": "de",
+      "target_lang": "hu",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Besondere Momente",
+          "subsections": [
+            "### Erstes \"Ich Liebe Dich\"",
+            "### Nach Langer Zeit Zusammen",
+            "### Abschied (Vorübergehend)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "691d0914-ce07-478d-aa44-497c09e594f9",
+      "title": "Lehce: Seni Seviyorum Demenin 15 Romantik Yolu",
+      "native_lang": "tr",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## \"Seni Seviyorum\" Demenin Alternatif Yollari",
+          "subsections": [
+            "### Daha Derin Baglantilar Icin",
+            "### Gündelik ve Tatli Ifadeler"
+          ]
+        },
+        {
+          "header": "## Ciftler Icin Pratik Aktiviteler",
+          "subsections": [
+            "### Sabah Teyitleri",
+            "### Ask Notlari",
+            "### Yatmadan Önce Ifadeler"
+          ]
+        },
+        {
+          "header": "## Lehce Ask Kelime Dagarcigi Olusturma",
+          "subsections": [
+            "### Temel Askla Ilgili Kelimeler",
+            "### Romantizm Icin Eylem Kelimeleri"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "69277115-2004-4d57-88b5-a48883a7ec3e",
+      "title": "Знайомство з румунською родиною: необхідні фрази",
+      "native_lang": "uk",
+      "target_lang": "ro",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Перші привітання",
+          "subsections": [
+            "### Формальні (для батьків, бабусь та дідусів)",
+            "### Неформальні (для братів, сестер)"
+          ]
+        },
+        {
+          "header": "## Компліменти для родини",
+          "subsections": [
+            "### Для мами партнера",
+            "### Для тата партнера"
+          ]
+        },
+        {
+          "header": "## Фрази за столом",
+          "subsections": [
+            "### Перед їжею",
+            "### Під час їжі",
+            "### Коли досить"
+          ]
+        },
+        {
+          "header": "## Правила етикету",
+          "subsections": [
+            "### Що робити",
+            "### Чого уникати"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "694dd443-47ad-4fbf-982c-79b0a090485e",
+      "title": "Romence Affetme İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Af Dileme",
+          "subsections": [
+            "### 1. \"Îmi pare foarte rău pentru ce am făcut\"",
+            "### 2. \"Te rog, iartă-mă\"",
+            "### 3. \"Îmi asum întreaga responsabilitate\"",
+            "### 4. \"Știu că te-am rănit și îmi pare foarte rău\"",
+            "### 5. \"Poți găsi în inima ta să mă ierți?\""
+          ]
+        },
+        {
+          "header": "## Affetme",
+          "subsections": [
+            "### 6. \"Te iert\"",
+            "### 7. \"Sunt gata să las asta în urmă\"",
+            "### 8. \"Să lăsăm asta în urmă\"",
+            "### 9. \"Nu țin ranchiună\"",
+            "### 10. \"Toată lumea greșește\"",
+            "### 11. \"Te iubesc mai mult decât furia mea\"",
+            "### 12. \"Îți accept scuzele\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6984e7dc-49cc-41c5-8c09-b0e0175e8cf9",
+      "title": "Rencontrer la famille de votre partenaire tchèque : guide complet",
+      "native_lang": "fr",
+      "target_lang": "cs",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Conseils culturels",
+          "subsections": [
+            "### À faire",
+            "### À éviter"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6985f8ed-8a56-471a-834f-75dfecb772a0",
+      "title": "Czy norweski jest trudny do nauki?",
+      "native_lang": "pl",
+      "target_lang": "no",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Co jest trudne?",
+          "subsections": [
+            "### 1. Wymowa",
+            "### 2. Rodzajniki en/et",
+            "### 3. Szyk zdania V2",
+            "### 4. Bokmal vs Nynorsk"
+          ]
+        },
+        {
+          "header": "## Porownanie z innymi językami",
+          "subsections": [
+            "### Norweski vs Niemiecki",
+            "### Norweski vs Angielski"
+          ]
+        }
+      ]
+    }
+  ]
+}

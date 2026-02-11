@@ -1,0 +1,124 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0155",
+  "articles": [
+    {
+      "id": "2c278950-3bb4-429d-8ee9-71b4c93d88ea",
+      "title": "Frases de Apoyo Emocional en Ruso: Cómo Consolar a Tu Pareja",
+      "native_lang": "es",
+      "target_lang": "ru",
+      "category": "communication",
+      "content": "El ruso tiene una capacidad única para expresar emociones profundas. Estas frases te ayudarán a consolar a tu pareja rusa.\n\n## Frases de Consuelo Básicas\n\n### \"Я рядом\" (Ya ryadom)\n**Pronunciación:** ya riadam\n\n**Significado:** Estoy a tu lado\n\n### \"Всё будет хорошо\" (Vsyo budet khorosho)\n**Pronunciación:** vsió búdet jarosho\n\n**Significado:** Todo estará bien\n\n### \"Мне очень жаль, что тебе приходится через это проходить\" (Mne ochen' zhal', chto tebe prikhoditsya cherez eto prokhodit')\n**Pronunciación:** mne óchin zhal, shto tibié prijóditsa chiéres eta prahadít\n\n**Significado:** Siento mucho que tengas que pasar por esto\n\n## Ofreciendo Apoyo\n\n### \"Что тебе сейчас нужно?\" (Chto tebe seychas nuzhno?)\n**Pronunciación:** shto tibié seichás núzhna\n\n**Significado:** ¿Qué necesitas ahora?\n\n### \"Я сделаю всё, что могу, чтобы помочь\" (Ya sdelayu vsyo, chto mogu, chtoby pomoch')\n**Pronunciación:** ya sdélayu vsió, shto magú, shtóbi pamóch\n\n**Significado:** Haré todo lo que pueda para ayudar\n\n### \"Хочешь поговорить об этом?\" (Khochesh' pogovorit' ob etom?)\n**Pronunciación:** jóchesh pagavarít ab étam\n\n**Significado:** ¿Quieres hablar de ello?\n\n### \"Я слушаю\" (Ya slushayu)\n**Pronunciación:** ya slúshayu\n\n**Significado:** Te escucho\n\n## Validando Emociones\n\n### \"Это нормально — так себя чувствовать\" (Eto normal'no — tak sebya chuvstvovat')\n**Pronunciación:** éta normálna - tak sibiá chúvstvavat\n\n**Significado:** Es normal sentirse así\n\n### \"Твои чувства абсолютно понятны\" (Tvoi chuvstva absolyutno ponyatny)\n**Pronunciación:** tvaí chúvstva absaliútna paniátni\n\n**Significado:** Tus sentimientos son completamente comprensibles\n\n## Frases de Ánimo\n\n### \"Ты сильнее, чем думаешь\" (Ty sil'neye, chem dumayesh')\n**Pronunciación:** ti silnéye, chem dúmayesh\n\n**Significado:** Eres más fuerte de lo que piensas\n\n### \"Я верю в тебя\" (Ya veryu v tebya)\n**Pronunciación:** ya viériu v tibiá\n\n**Significado:** Creo en ti\n\n### \"Мы справимся вместе\" (My spravivmsya vmeste)\n**Pronunciación:** mi správimsia vmiéstie\n\n**Significado:** Lo superaremos juntos\n\n## Expresando Amor\n\n### \"Я люблю тебя, что бы ни случилось\" (Ya lyublyu tebya, chto by ni sluchilos')\n**Pronunciación:** ya liubliú tibiá, shto bi ni sluchílas\n\n**Significado:** Te amo, pase lo que pase\n\n### \"Ты не одна/один\" (Ty ne odna/odin)\n**Pronunciación:** ti ne adná/adín\n\n**Significado:** No estás sola/solo\n\nEl alma rusa expresa apoyo con profundidad emocional. ¡Держись!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frases de Consuelo Básicas",
+              "## Ofreciendo Apoyo",
+              "## Validando Emociones",
+              "## Frases de Ánimo",
+              "## Expresando Amor"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "2c3598fc-8bc4-4a32-bcac-2c099d1d6408",
+      "title": "Griekse Uitspraak voor Beginners: Zo Leer Je Seksier Klinken voor Je Partner",
+      "native_lang": "nl",
+      "target_lang": "el",
+      "category": "grammar",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport ConjugationTable from '@components/ConjugationTable.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nStel je voor: je zit in een romantisch taverna in Athene met je partner, en je bestelt wijn in vloeiend Grieks. De ober glimlacht appreciatief, maar jouw geliefde glimt nog breder. Goede uitspraak is de sleutel tot het winnen van harten - zowel van locals als van je partner! Samen leren klinken als een echte Griek maakt jullie [reis naar Griekenland](/learn/nl/el/essential-greek-travel-phrases-for-couples/) onvergetelijk.\n\n<PhraseOfDay\n  word=\"Σ'αγαπώ\"\n  translation=\"Ik hou van je\"\n  pronunciation=\"sah-ghah-POH\"\n  context=\"De meest romantische frase - perfect om te oefenen met zachte 'g' en klemtoon op de laatste lettergreep.\"\n/>\n\n## De Magie van Griekse Klanken\n\nHet Grieks klinkt als muziek in je oren, maar sommige klanken zijn uniek. Denk aan het als leren dansen - eerst de basisstappen, dan pas de elegantie. Laten we beginnen met de klanken die Nederlands niet heeft, maar die je partner zeker zal opvallen.\n\n### De Zachte 'G' (γ)\nDe Griekse gamma (γ) klinkt als een zachte 'gh', alsof je een beetje tanden poetst terwijl je praat. Geen harde 'g' zoals in \"grap\", maar een zachte, bijna fluisterende klank.\n\n<VocabCard\n  word=\"γλυκό\"\n  translation=\"zoet\"\n  pronunciation=\"ghlee-KOH\"\n  example=\"'Το φιλί σου είναι γλυκό' (Toh fee-LEE soo EE-neh ghlee-KOH - Je kus is zoet)\"\n/>\n\n### De Rollende 'R' (ρ)\nNet als in het Spaans rollen Grieken hun 'r'. Maar geen zorgen - als je het niet kunt, is een licht getrilde 'r' ook goed. Je partner vindt het schattig als je je best doet!\n\n<CultureTip flag=\"🇬🇷\" title=\"Uitspraak is Liefde\">\nGrieken waarderen het enorm wanneer buitenlanders hun taal proberen te spreken. Ze zullen je helpen en corrigeren met een glimlach - perfecte kans om nieuwe vrienden te maken samen!\n</CultureTip>\n\n## Klemtonen: Waar Ligt de Druk?\n\nIn het Grieks bepaalt de klemtoon de hele betekenis. Gelukkig is er een simpel trucje: in woorden van meer dan één lettergreep, staat de klemtoon meestal op één van de laatste drie lettergrepen.\n\n| Woord | Uitspraak | Betekenis | Klemtoon |\n|--------|-----------|-----------|----------|\n| **αγάπη** | ah-GAH-pee | liefde | LAATSTE |\n| **φιλία** | fee-LEE-ah | vriendschap | MIDDELSTE |\n| **όμορφος** | OH-mor-fos | mooi | EERSTE |\n\n## De 5 Valkuilen voor Nederlanders\n\n### 1. De 'TH' Verwarring\nGrieks heeft geen 'th' klank zoals het Engels. De theta (θ) is gewoon een zachte 't', niet \"the\".\n\n<VocabCard\n  word=\"θάλασσα\"\n  translation=\"zee\"\n  pronunciation=\"THAH-lah-sah\"\n  example=\"'Η θάλασσα είναι όμορφη' (EE THAH-lah-sah EE-neh OH-mor-fee - De zee is mooi)\"\n/>\n\n### 2. De 'P' vs 'Π'\nDe Griekse pi (π) is altijd een harde 'p', nooit een zachte 'b' klank.\n\n### 3. Silent Letters Bestaan Niet\nIn het Grieks spreek je ELKE letter uit. Geen geheimen zoals in het Frans of Engels!\n\n### 4. De 'O' is Altijd Puur\nOmicron (ο) en omega (ω) klinken allebei als een duidelijke 'o', nooit als 'oe' of 'aa'.\n\n### 5. 'E' is Altijd 'E'\nEpsilon (ε) en eta (η) zijn beide een heldere 'e', zoals in \"bed\".\n\n## Koppel-oefening: Romantische Uitspraak\n\nOefen samen met deze [romantische Griekse frases](/learn/nl/el/romantic-greek-phrases-for-couples/). Probeer ze tegen elkaar te zeggen met de juiste klemtoon:\n\n1. **\"Είσαι όμορφος/η\"** (EE-seh OH-mor-fos/fee) - Je bent mooi\n2. **\"Μου λείπεις\"** (moo LEE-peece) - Ik mis je\n3. **\"Θέλω να είμαστε μαζί\"** (THEH-loh nah EE-mahs-teh mah-ZEE) - Ik wil samen zijn\n\n<CultureTip flag=\"🇬🇷\" title=\"Intonatie is Alles\">\nGrieken gebruiken intonatie om emotie uit te drukken. Een vraag klinkt automatisch anders dan een verklaring. Luister naar hoe je partner klinkt - het is als muziek!\n</CultureTip>\n\n## De Grote Uitspraak-test\n\nTijd voor een liefdesverklaring! Oefen deze samen en beoordeel elkaar vriendelijk:\n\n**\"Σε αγαπώ περισσότερο από οτιδήποτε στον κόσμο\"**\n(SEH ah-ghah-POH peh-ree-SOH-teh-roh AH-poh oh-tee-THEE-poh-tee stohn KOHS-moh)\n*Ik hou van je meer dan alles op de wereld*\n\n## Snelle Hulp voor Onderweg\n\n| Klank | Grieks Letter | Nederlandse Vergelijking | Voorbeeld |\n|--------|---------------|-------------------------|-----------|\n| **Ps** | ψ | \"lips\" | ψάρι (PSAH-ree - vis) |\n| **Ks** | ξ | \"box\" | ξενοδοχείο (kseh-noh-doh-CHEE-oh - hotel) |\n| **Ng** | γκ | \"sing\" | αγκαλιά (ahn-gah-LEE-ah - knuffel) |\n| **Ny** | νι | \"new\" | νιώθω (NYOH-thoh - ik voel) |\n\n## Jullie Griekse Avontuur Begint\n\nMet deze uitspraakbasis ben je klaar voor jullie eerste Griekse gesprekken. Onthoud: perfectie is niet het doel, verbinding wel. Elke keer dat je een Griekse klank uitspreekt, kom je dichter bij je partner en bij een nieuwe cultuur.\n\nKlaar om [Griekse schatten van zoetheid](/learn/nl/el/greek-pet-names-for-your-partner/) te leren voor je geliefde? Of wil je beginnen met [essentiële frases voor koppels](/learn/nl/el/essential-phrases-for-couples/)? Waar jullie ook beginnen, doe het samen - dat maakt het leren twee keer zo mooi.\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## De 5 Valkuilen voor Nederlanders"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "2c40ff90-ee80-4068-9611-0be215da2d9b",
+      "title": "Portugisiska fraser för att träffa svärföräldrarna – Gör ett gott intryck",
+      "native_lang": "sv",
+      "target_lang": "pt",
+      "category": "communication",
+      "content": "I lusofona kulturer är familjen central. Rätt fraser hjälper dig vinna svärföräldrarnas förtroende.\n\n## Första mötet\n\n### \"É um prazer finalmente conhecê-los\"\n**Betydelse:** Det är ett nöje att äntligen träffa er\n\n### \"Ouvi falar muito de vocês\"\n**Betydelse:** Jag har hört mycket om er\n\n### \"Muito obrigado/a por me receberem\"\n**Betydelse:** Tack så mycket för att ni tar emot mig\n\n## Artiga fraser\n\n### \"Por favor, me chamem de [namn]\"\n**Betydelse:** Kalla mig gärna [namn]\n\n### \"Vocês têm uma casa linda\"\n**Betydelse:** Ni har ett underbart hem\n\n### \"Posso ajudar em alguma coisa?\"\n**Betydelse:** Kan jag hjälpa till med något?\n\n### \"A comida está deliciosa\"\n**Betydelse:** Maten är utsökt\n\n## Om din relation\n\n### \"Seu filho/Sua filha significa tudo para mim\"\n**Betydelse:** Er son/dotter betyder allt för mig\n\n### \"Me sinto muito sortudo/a por ter conhecido [namn]\"\n**Betydelse:** Jag känner mig lycklig att ha träffat [namn]\n\n### \"Nos fazemos muito felizes\"\n**Betydelse:** Vi gör varandra lyckliga\n\n## Visa intresse\n\n### \"Gostaria de saber mais sobre [ämne]\"\n**Betydelse:** Jag skulle gärna veta mer om [ämne]\n\n### \"Como vocês se conheceram?\"\n**Betydelse:** Hur träffades ni?\n\n## Avskedsfraser\n\n### \"Obrigado/a por esta noite maravilhosa\"\n**Betydelse:** Tack för denna underbara kväll\n\n### \"Foi um verdadeiro prazer conhecê-los\"\n**Betydelse:** Det var ett sant nöje att träffa er\n\n### \"Espero que possamos nos encontrar novamente em breve\"\n**Betydelse:** Jag hoppas vi kan ses igen snart\n\n## Kulturella tips (Brasilien vs Portugal)\n\n**Brasilien:** Mer informellt och varmt. Kramande vanligt.\n\n**Portugal:** Något mer reserverat men fortfarande hjärtligt.\n\n**Mat:** Generösa portioner förväntas ätas.\n\n**Gåvor:** Blommor, vin eller dessert uppskattas.\n\n## Avslutande tankar\n\nVisa värme, respekt och genuint intresse för familjen.\n\nBoa sorte!",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 273,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Första mötet",
+              "## Artiga fraser",
+              "## Om din relation",
+              "## Visa intresse",
+              "## Avskedsfraser"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "2c50eaee-505f-4574-ad6e-06c16383cc88",
+      "title": "Mutatul Împreună în Greacă: Vocabular și Expresii pentru Noua Voastră",
+      "native_lang": "ro",
+      "target_lang": "el",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nMutatul împreună este un pas important în relație. Acest ghid te va ajuta să înveți vocabularul necesar pentru a face această tranziție mai ușoară.\n\nPentru expresii de bază, consultă [expresii esențiale pentru cupluri](/learn/ro/el/el-essential-phrases-for-couples).\n\n<PhraseOfDay\n  word=\"Ne mutăm împreună!\"\n  translation=\"We're moving in together!\"\n  pronunciation=\"anunț mare\"\n  context=\"Vestea care marchează un nou capitol.\"\n/>\n\n## Vocabular de Bază\n\n<VocabCard\n  word=\"a se muta\"\n  translation=\"to move\"\n  pronunciation=\"schimbare de adresă\"\n  example=\"Ne mutăm luna viitoare.\"\n/>\n\n<VocabCard\n  word=\"apartament\"\n  translation=\"apartment\"\n  pronunciation=\"locuință\"\n  example=\"Am găsit apartamentul perfect.\"\n/>\n\n<VocabCard\n  word=\"chirie\"\n  translation=\"rent\"\n  pronunciation=\"plată lunară\"\n  example=\"Chiria e împărțită în doi.\"\n/>\n\n### Tipuri de Locuințe\n\n| Română | Descriere |\n|--------|----------|\n| Apartament | Locuință în bloc |\n| Garsonieră | Apartament mic |\n| Casă | Locuință individuală |\n| Studio | Cameră unică |\n| Duplex | Pe două nivele |\n\n<CultureTip flag=\"🏠\" title=\"Prima Casă Împreună\">\nÎn diferite culturi, mutatul împreună înainte de căsătorie are semnificații diferite. În unele locuri e normal, în altele mai tradiționale poate fi neobișnuit. Important e să vă simțiți confortabil cu decizia voastră.\n</CultureTip>\n\n## Camerele Casei\n\n<VocabCard\n  word=\"bucătărie\"\n  translation=\"kitchen\"\n  pronunciation=\"loc de gătit\"\n  example=\"Bucătăria e spațioasă.\"\n/>\n\n### Vocabular pentru Camere\n| Cameră | Funcție |\n|--------|--------|\n| Living | Zona de relaxare |\n| Dormitor | Pentru somn |\n| Bucătărie | Gătit și mâncat |\n| Baie | Igienă |\n| Balcon | Spațiu exterior |\n| Debara | Depozitare |\n| Birou | Lucru de acasă |\n\n## Mobila și Obiectele Casnice\n\n### Living\n| Obiect | Utilizare |\n|--------|----------|\n| Canapea | Relaxare |\n| Televizor | Divertisment |\n| Masă de cafea | Decorativ/funcțional |\n| Raft | Depozitare |\n| Covor | Confort |\n\n### Dormitor\n| Obiect | Descriere |\n|--------|----------|\n| Pat | Dublu, pentru cuplu |\n| Noptieră | Lângă pat |\n| Dulap | Haine |\n| Comodă | Depozitare |\n| Lenjerie | Așternuturi |\n\n### Bucătărie\n| Obiect | Funcție |\n|--------|--------|\n| Frigider | Păstrare alimente |\n| Aragaz | Gătit |\n| Cuptor | Coacere |\n| Chiuvetă | Spălat |\n| Mașină de spălat vase | Curățenie |\n\n<CultureTip flag=\"🛒\" title=\"IKEA și Alte Magazine\">\nIKEA a devenit sinonim cu mobilarea primei case împreună. Montarea mobilei IKEA împreună e considerată un \"test\" pentru relație! Există o glumă că dacă supraviețuiți montării unui dulap PAX, puteți supraviețui oricărui lucru.\n</CultureTip>\n\n## Împărțirea Responsabilităților\n\n<VocabCard\n  word=\"trebuie să discutăm\"\n  translation=\"we need to talk\"\n  pronunciation=\"comunicare\"\n  example=\"Trebuie să discutăm despre treburile casnice.\"\n/>\n\n### Treburi Casnice\n| Activitate | Frecvență |\n|------------|----------|\n| Gătit | Zilnic |\n| Curățenie | Săptămânal |\n| Spălat rufe | Săptămânal |\n| Cumpărături | Săptămânal |\n| Plata facturilor | Lunar |\n\n### Expresii Utile\n- **E rândul tău să...** - It's your turn to...\n- **Putem împărți...** - We can split...\n- **Vreau să ajut cu...** - I want to help with...\n- **Facem împreună?** - Shall we do it together?\n\n## Procesul Mutării\n\n### Înainte de Mutare\n| Pas | Descriere |\n|-----|----------|\n| Căutare | Găsește locuința potrivită |\n| Vizionare | Vizitează opțiunile |\n| Decizie | Alege împreună |\n| Contract | Semnează actele |\n| Planificare | Organizează mutarea |\n\n### În Ziua Mutării\n- **Cutii de carton** - pentru ambalat\n- **Bandă adezivă** - pentru sigilat\n- **Marker** - pentru etichetat\n- **Firmă de mutări** - pentru transport\n\n<VocabCard\n  word=\"Am ajuns acasă!\"\n  translation=\"We're home!\"\n  pronunciation=\"sentiment de împlinire\"\n  example=\"În sfârșit, am ajuns acasă la noi!\"\n/>\n\n## Decorarea Împreună\n\n### Stiluri de Design\n| Stil | Caracteristici |\n|------|---------------|\n| Modern | Linii simple, minimalist |\n| Scandinav | Luminos, functional |\n| Boho | Colorat, eclectic |\n| Industrial | Brut, urban |\n\n### Compromis în Decor\n- **Zona lui/ei** - spațiu personal\n- **Zona comună** - decizii împreună\n- **Buget comun** - pentru achiziții mari\n\n<CultureTip flag=\"💰\" title=\"Finanțele Comune\">\nMulți cupluri care se mută împreună deschid un cont bancar comun pentru cheltuieli casnice (chirie, utilități, mâncare) păstrând și conturi separate pentru cheltuieli personale.\n</CultureTip>\n\n## Comunicare în Cuplu\n\n### Expresii pentru Armonie\n- **Cum vrei să facem?** - How do you want to do this?\n- **Ce părere ai?** - What do you think?\n- **Sunt flexibil/ă** - I'm flexible\n- **E important pentru tine?** - Is it important to you?\n\n### Rezolvarea Conflictelor\n- **Hai să găsim o soluție** - Let's find a solution\n- **Înțeleg punctul tău de vedere** - I understand your point\n- **Putem face un compromis?** - Can we compromise?\n\n## Lista de Verificare\n\n### Documente Necesare\n- [ ] Contract de închiriere\n- [ ] Asigurare\n- [ ] Schimbare adresă\n- [ ] Contracte utilități\n\n### Prima Săptămână\n- [ ] Despachetare esențiale\n- [ ] Organizare bucătărie\n- [ ] Configurare dormitor\n- [ ] Internet și TV\n\n## Sfaturi Finale\n\n1. **Comunică deschis** - despre așteptări și nevoi\n2. **Respectă spațiul personal** - fiecare are nevoie de timp singur\n3. **Împarte responsabilitățile** - echitabil\n4. **Fii flexibil** - compromisul e cheia\n5. **Celebrează** - prima noapte în casa nouă e specială!\n\n<CTA />\n\n## Concluzie\n\nMutatul împreună e un pas emoționant și uneori provocator. Cu comunicare bună și vocabularul potrivit, veți transforma această tranziție într-o aventură frumoasă.\n\nMult succes în noua voastră casă!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Mobila și Obiectele Casnice",
+              "## Procesul Mutării",
+              "## Decorarea Împreună",
+              "## Comunicare în Cuplu",
+              "## Lista de Verificare"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "2c514bf1-0c23-48ce-a340-f02f14e6e218",
+      "title": "Polska Fraser för Förlåtelse",
+      "native_lang": "sv",
+      "target_lang": "pl",
+      "category": "communication",
+      "content": "Förlåtelse, eller \"przebaczenie\" på polska, är djupt rotat i polsk kultur.\n\n## Fraser för att Be om Förlåtelse\n\n### 1. \"Naprawdę przepraszam\"\n**Uttal:** na-prav-deh psheh-pra-sham\n\n**Betydelse:** Jag är verkligen ledsen\n\n### 2. \"Proszę, wybacz mi\"\n**Uttal:** pro-sheh vi-bach mee\n\n**Betydelse:** Snälla förlåt mig\n\n### 3. \"Biorę pełną odpowiedzialność\"\n**Uttal:** byo-reh pew-nom od-po-vyeh-djal-noshch\n\n**Betydelse:** Jag tar fullt ansvar\n\n### 4. \"Myliłem/am się i wiem o tym\"\n**Uttal:** mi-lee-wem/am syeh ee vyem o tim\n\n**Betydelse:** Jag hade fel och jag vet det\n\n### 5. \"Jak mogę to naprawić?\"\n**Uttal:** yak mo-geh to na-pra-veech\n\n**Betydelse:** Hur kan jag gottgöra det?\n\n## Fraser för att Ge Förlåtelse\n\n### 6. \"Przebaczam ci\"\n**Uttal:** psheh-ba-cham chee\n\n**Betydelse:** Jag förlåter dig\n\n### 7. \"Zostawmy to za sobą\"\n**Uttal:** zo-stav-mi to za so-bom\n\n**Betydelse:** Låt oss lägga det bakom oss\n\n### 8. \"Rozumiem i doceniam twoje przeprosiny\"\n**Uttal:** ro-zoo-myem ee do-tseh-nyam tvo-yeh psheh-pro-shee-ni\n\n**Betydelse:** Jag förstår och uppskattar din ursäkt\n\n### 9. \"Wszyscy popełniamy błędy\"\n**Uttal:** fshi-stsi po-pew-nya-mi bwen-di\n\n**Betydelse:** Vi gör alla misstag\n\n### 10. \"Potrzeba odwagi, żeby przeprosić\"\n**Uttal:** po-tsheh-ba od-va-gee zheh-bi psheh-pro-sheech\n\n**Betydelse:** Det krävs mod att be om ursäkt\n\n### 11. \"Doceniam twoją szczerość\"\n**Uttal:** do-tseh-nyam tvo-yom shcheh-roshch\n\n**Betydelse:** Jag uppskattar din uppriktighet\n\n### 12. \"Ważne jest, żebyśmy szli razem do przodu\"\n**Uttal:** vazh-neh yest zheh-bish-mi shlee ra-zem do psho-doo\n\n**Betydelse:** Det viktiga är att vi går vidare tillsammans\n\n## Avslutande Tankar\n\nMed dessa fraser kan du be om och ge förlåtelse med din polsktalande partner.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 242,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Fraser för att Be om Förlåtelse",
+              "## Fraser för att Ge Förlåtelse"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

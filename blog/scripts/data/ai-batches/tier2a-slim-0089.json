@@ -1,0 +1,452 @@
+{
+  "batchId": "tier2a-slim-0089",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "6b7e660c-683e-4a61-abd9-735b54949d2e",
+      "title": "Slang italien et textos pour couples",
+      "native_lang": "fr",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Exercices pour couples",
+          "subsections": [
+            "### Challenge textos",
+            "### Traduction rapide",
+            "### Création de messages"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6b869861-ae8e-4b6f-b933-7cb78276da9c",
+      "title": "Spanyol kifejezések féltékenységhez és bizalomhoz",
+      "native_lang": "hu",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kifejezések a féltékenység kifejezéséhez",
+          "subsections": [
+            "### 1. \"Me siento celoso/a cuando...\"",
+            "### 2. \"Necesito que me tranquilices\"",
+            "### 3. \"Confío en ti, pero estoy luchando con mis sentimientos\"",
+            "### 4. \"¿Podemos hablar de lo que pasó?\"",
+            "### 5. \"No quiero ser celoso/a, pero...\""
+          ]
+        },
+        {
+          "header": "## Kifejezések a bizalom építéséhez",
+          "subsections": [
+            "### 6. \"Confío en ti completamente\"",
+            "### 7. \"Eres el/la único/a para mí\"",
+            "### 8. \"Nunca haría nada para herirte\"",
+            "### 9. \"Entre nosotros no hay nada\"",
+            "### 10. \"Estoy comprometido/a contigo\"",
+            "### 11. \"Seamos honestos el uno con el otro\"",
+            "### 12. \"No quiero que los celos nos separen\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6b874225-6d3d-4f1d-8fdd-ee1843c8c11e",
+      "title": "Modo Subjuntivo em Espanhol: Explicado de Forma Simples",
+      "native_lang": "pt",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Presente do Subjuntivo",
+          "subsections": [
+            "### Verbos em -AR (como \"amar\")",
+            "### Verbos em -ER/-IR (como \"querer\")"
+          ]
+        },
+        {
+          "header": "## Indicadores que Exigem Subjuntivo",
+          "subsections": [
+            "### WEIRDO (mnemônico em inglês)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6b8ec880-ef5e-4b80-b2ed-dfaa84e5e48f",
+      "title": "Выражение эмоций на украинском языке",
+      "native_lang": "ru",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Положительные эмоции",
+          "subsections": [
+            "### Радость и счастье",
+            "### Любовь и привязанность"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6ba40351-935a-4469-94ec-2644d29a1740",
+      "title": "Італійські фрази для суперечок і розбіжностей",
+      "native_lang": "uk",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Початок розмови",
+          "subsections": [
+            "### \"Dobbiamo parlare\"",
+            "### \"Mi sento ferito/ferita quando tu...\"",
+            "### \"Possiamo discuterne con calma?\""
+          ]
+        },
+        {
+          "header": "## Вираження незгоди",
+          "subsections": [
+            "### \"Non sono d'accordo\"",
+            "### \"La vedo diversamente\"",
+            "### \"Non intendevo questo\""
+          ]
+        },
+        {
+          "header": "## Емоційні вирази",
+          "subsections": [
+            "### \"Mi fa male quello che dici\"",
+            "### \"Sono frustrato/frustrata\"",
+            "### \"Ho bisogno che mi ascolti\""
+          ]
+        },
+        {
+          "header": "## Прохання про простір",
+          "subsections": [
+            "### \"Ho bisogno di tempo per pensare\"",
+            "### \"Facciamo una pausa\""
+          ]
+        },
+        {
+          "header": "## Пошук рішення",
+          "subsections": [
+            "### \"Come possiamo risolvere questo?\"",
+            "### \"Troviamo un compromesso\"",
+            "### \"Sono disposto/disposta a venire incontro\""
+          ]
+        },
+        {
+          "header": "## Визнання помилки",
+          "subsections": [
+            "### \"Hai ragione, ho sbagliato\"",
+            "### \"Non avrei dovuto dire così\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6bbc7b61-a157-4dc1-a767-ef72888d5e55",
+      "title": "Турецька привітання з річницею: романтичні побажання",
+      "native_lang": "uk",
+      "target_lang": "tr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика про річницю",
+          "subsections": []
+        },
+        {
+          "header": "## Романтичні побажання з річницею",
+          "subsections": [
+            "### Класичні привітання"
+          ]
+        },
+        {
+          "header": "## Побажання для різних річниць",
+          "subsections": [
+            "### Перша річниця",
+            "### П'ята річниця",
+            "### Десята річниця та далі"
+          ]
+        },
+        {
+          "header": "## Як написати привітання з річницею",
+          "subsections": [
+            "### Структура ідеального привітання:",
+            "### Приклад привітання:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6bc1a20e-3dc5-4810-9e03-0fb64e486f34",
+      "title": "Романтичні французькі фрази для пар: Повний посібник",
+      "native_lang": "uk",
+      "target_lang": "fr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Щоденні романтичні фрази",
+          "subsections": [
+            "### Вранці",
+            "### Протягом дня",
+            "### Увечері"
+          ]
+        },
+        {
+          "header": "## Романтичні фрази на особливі моменти",
+          "subsections": [
+            "### На побаченні",
+            "### На річницю",
+            "### Під час розлуки"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6bcb2aa1-3b83-4a09-b0fa-f282cc81e3af",
+      "title": "Niederländische Liebesbrief-Phrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Anreden",
+          "subsections": [
+            "### \"Mijn liefste...\"",
+            "### \"Mijn schat...\"",
+            "### \"Lieve [Name]...\"",
+            "### \"Mijn hartje...\""
+          ]
+        },
+        {
+          "header": "## Einleitungen",
+          "subsections": [
+            "### \"Ik schrijf je deze brief om je te vertellen hoeveel ik van je hou\"",
+            "### \"Er zijn geen woorden genoeg om te beschrijven wat ik voor je voel\""
+          ]
+        },
+        {
+          "header": "## Ausdrücke der Liebe",
+          "subsections": [
+            "### \"Je bent het beste wat me ooit is overkomen\"",
+            "### \"Mijn leven is voor altijd veranderd op de dag dat ik je ontmoette\"",
+            "### \"Ik word elke dag meer verliefd op je\"",
+            "### \"Je verlicht mijn leven met je aanwezigheid\"",
+            "### \"Met jou heb ik ontdekt wat echte liefde is\""
+          ]
+        },
+        {
+          "header": "## Zukunftsversprechen",
+          "subsections": [
+            "### \"Ik beloof je onvoorwaardelijk lief te hebben\"",
+            "### \"Ik wil de rest van mijn leven met je doorbrengen\"",
+            "### \"Mijn liefde voor jou zal alleen maar groeien\""
+          ]
+        },
+        {
+          "header": "## Abschlüsse",
+          "subsections": [
+            "### \"Voor altijd de jouwe...\"",
+            "### \"Met al mijn liefde...\"",
+            "### \"Ik hou van je, nu en voor altijd\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6bce8aa4-55a0-4bec-b05d-84d39c5191bb",
+      "title": "Hogyan mondjam svédül, hogy szeretlek: 12 romantikus mód pároknak",
+      "native_lang": "hu",
+      "target_lang": "sv",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Romantikus variációk (8 mód)",
+          "subsections": [
+            "### 1. Klasszikus és időtálló",
+            "### 2. Érzelmileg mély",
+            "### 3. Hétköznapi, mégis édes",
+            "### 4. Szenvedélyes"
+          ]
+        },
+        {
+          "header": "## Mondatokban használva",
+          "subsections": [
+            "### Romantikus vacsora közben",
+            "### Reggeli ölelésnél",
+            "### Különleges pillanatban"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6bebb033-580e-4464-b663-16278e96d72e",
+      "title": "Βασικά Ουγγρικά Γραμματική: Μάθετε να μιλάτε με τον σύντροφό σας",
+      "native_lang": "el",
+      "target_lang": "hu",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Τα Βασικά: 5 Κανόνες για να Ξεκινήσετε",
+          "subsections": [
+            "### 1. Η Σειρά των Λέξεων Είναι Ευέλικτη",
+            "### 2. Οι Πτώσεις Δείχνουν τη Σχέση Μεταξύ Λέξεων",
+            "### 3. Τα Ρήματα Συζυγούν Ανάλογα με το Υποκείμενο",
+            "### 4. Η Επιθετική Κατάληξη Δείχνει την Ιδιοκτησία",
+            "### 5. Οι Ερωτήσεις Έχουν Ειδική Σήμανση"
+          ]
+        },
+        {
+          "header": "## Οι Πιο Χρήσιμοι Χρόνοι για Καθημερινή Χρήση",
+          "subsections": [
+            "### Ενεστώτας (Jelen idő)",
+            "### Μέλλοντας (Jövő idő)"
+          ]
+        },
+        {
+          "header": "## Συνηθισμένα Λάθη και Πώς να Τα Αποφύγετε",
+          "subsections": [
+            "### Λάθος #1: Ξεχνάτε την Προσωπική Κατάληξη",
+            "### Λάθος #2: Χρησιμοποιείτε Λάθος Τάξη",
+            "### Λάθος #3: Μπερδεύετε τις Προθέσεις"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6bf7fefe-722d-4348-af8b-63f59fec8bc2",
+      "title": "Frases en Ruso para Reconciliarte con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Pedir Disculpas",
+          "subsections": [
+            "### \"Прости меня за то, что я сказал(а)\" (Prosti menya za to, chto ya skazal(a))",
+            "### \"Я не хотел(а) тебя обидеть\" (Ya ne khotel(a) tebya obidet')",
+            "### \"Можем начать сначала?\" (Mozhem nachat' snachala?)",
+            "### \"Я был(а) неправ(а)\" (Ya byl(a) neprav(a))"
+          ]
+        },
+        {
+          "header": "## Frases para Expresar Amor",
+          "subsections": [
+            "### \"Я люблю тебя, даже когда мы ссоримся\" (Ya lyublyu tebya, dazhe kogda my ssorimsa)",
+            "### \"Ты для меня всё\" (Ty dlya menya vsyo)",
+            "### \"Я ненавижу ссориться с тобой\" (Ya nenavizhu ssorit'sya s toboy)"
+          ]
+        },
+        {
+          "header": "## Frases para Reconstruir",
+          "subsections": [
+            "### \"Давай поговорим спокойно\" (Davay pogovorim spokoyno)",
+            "### \"Я хочу лучше тебя понимать\" (Ya khochu luchshe tebya ponimat')",
+            "### \"Что я могу сделать, чтобы всё исправить?\" (Chto ya mogu sdelat', chtoby vsyo ispravit'?)",
+            "### \"Обещаю стараться больше\" (Obeschhayu starat'sya bol'she)",
+            "### \"Можно тебя обнять?\" (Mozhno tebya obnyat'?)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6c0c239d-4656-43c2-8ad3-ffc119abde8d",
+      "title": "Hiányzol kifejezések portugálul",
+      "native_lang": "hu",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető \"hiányzol\" kifejezések",
+          "subsections": [
+            "### 1. Sinto a tua falta (Szintu a túa fálta)",
+            "### 2. Tenho saudades de ti (Tenyu szaudádesz de ti)",
+            "### 3. Sinto muito a tua falta (Szintu mujntu a túa fálta)",
+            "### 4. Não consigo parar de pensar em ti (Náu konszígu parár de penzár en ti)",
+            "### 5. Quem dera estivesses aqui (Ken déra esztivészesz akí)",
+            "### 6. Cada momento sem ti é vazio (Káda momentu szen ti é vazíu)",
+            "### 7. Estás sempre no meu pensamento (Esztász szempre nu méu penzamentu)",
+            "### 8. Conto os dias até te ver (Kontu uz díasz até te vér)",
+            "### 9. O meu coração sofre sem ti (U méu koraszáu szofre szen ti)",
+            "### 10. A distância não muda o que sinto por ti (A disztánszja náu múda u ke szintu por ti)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6c1c27c7-3658-4082-887b-190b25c4040b",
+      "title": "Rysk Uttal för Nybörjare: Lär Dig Prata Kärlek på Ryska med Din Partner",
+      "native_lang": "sv",
+      "target_lang": "ru",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Grundläggande Ljud: Byggstenarna för Romantik",
+          "subsections": [
+            "### Vokaler som Sjunger om Kärlek",
+            "### Konsonanter som Formar Kärleksord"
+          ]
+        },
+        {
+          "header": "## Par-Fokuserade Uttalsregler",
+          "subsections": [
+            "### 1. Betoningen är Nyckeln",
+            "### 2. Mjuka och Hårda Tecken",
+            "### 3. Rullande R:n"
+          ]
+        },
+        {
+          "header": "## Vanliga Uttalsfällor för Par",
+          "subsections": [
+            "### 1. Intonation i Frågor",
+            "### 2. Vokalföreduktion",
+            "### 3. Konsonantkluster"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6c44e9b6-6705-4947-b55e-ceaaea71460a",
+      "title": "50+ czeskich zdrobnień, które roztopią serce",
+      "native_lang": "pl",
+      "target_lang": "cs",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Poranki",
+            "### Ćwiczenie 2: Wybierz swoje",
+            "### Ćwiczenie 3: Sytuacyjne"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6c58a276-c867-4b17-ba8e-2d8178278e81",
+      "title": "Norveççe Duygusal Destek İfadeleri: Teselli ve Güç Veren Sözler",
+      "native_lang": "tr",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Destek İfadeleri",
+          "subsections": [
+            "### 1. \"Jeg er her for deg\"",
+            "### 2. \"Du er ikke alene\"",
+            "### 3. \"Det kommer til å gå bra\"",
+            "### 4. \"Jeg forstår deg\"",
+            "### 5. \"Det er greit å føle det slik\"",
+            "### 6. \"Jeg er stolt av deg\"",
+            "### 7. \"Du kan stole på meg\"",
+            "### 8. \"Du er sterkere enn du tror\"",
+            "### 9. \"Du trenger ikke gå gjennom dette alene\"",
+            "### 10. \"Jeg elsker deg uansett hva som skjer\"",
+            "### 11. \"Jeg er her for å lytte\"",
+            "### 12. \"Ta deg den tiden du trenger\""
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,564 @@
+{
+  "batchId": "tier2a-slim-0220",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "dee55e94-ee26-4d9d-8510-002ee29c4db3",
+      "title": "Spanyol kifejezések érzelmi támogatáshoz és vigasztaláshoz",
+      "native_lang": "hu",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető vigasztaló kifejezések",
+          "subsections": [
+            "### Estoy aquí para ti",
+            "### Todo va a estar bien",
+            "### Todo saldrá bien",
+            "### Siento mucho lo que estás pasando"
+          ]
+        },
+        {
+          "header": "## Empátia kifejezése",
+          "subsections": [
+            "### Entiendo cómo te sientes",
+            "### Debe ser muy difícil",
+            "### Tus sentimientos son válidos",
+            "### Está bien sentirse así"
+          ]
+        },
+        {
+          "header": "## Támogatás felajánlása",
+          "subsections": [
+            "### ¿Qué necesitas ahora?",
+            "### ¿Cómo puedo ayudarte?",
+            "### Estoy aquí para escucharte",
+            "### Tómate el tiempo que necesites"
+          ]
+        },
+        {
+          "header": "## Gyász és veszteség",
+          "subsections": [
+            "### Lo siento mucho por tu pérdida",
+            "### Siempre estará en tu corazón",
+            "### Mi más sentido pésame"
+          ]
+        },
+        {
+          "header": "## Nehéz időkben",
+          "subsections": [
+            "### No estás solo/a en esto",
+            "### Juntos superaremos esto",
+            "### Eres más fuerte de lo que crees",
+            "### Esto también pasará"
+          ]
+        },
+        {
+          "header": "## Bátorítás",
+          "subsections": [
+            "### Creo en ti",
+            "### Tú puedes",
+            "### Estoy muy orgulloso/a de ti"
+          ]
+        },
+        {
+          "header": "## Szeretetteljes kifejezések",
+          "subsections": [
+            "### Te quiero mucho, mi amor",
+            "### Aquí estaré siempre para ti"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deeeacdf-b5ec-4e7f-818c-41ac1ec42c49",
+      "title": "Saludos y Despedidas en Danés: Guía Completa para Parejas",
+      "native_lang": "es",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Situaciones Especiales",
+          "subsections": [
+            "### Cuando Llegas a Casa",
+            "### Por Teléfono"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "defb7232-6179-49f0-8965-fc607a38550f",
+      "title": "Vocabulário de Comida e Restaurante em Polonês para Casais",
+      "native_lang": "pt",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## No Restaurante",
+          "subsections": [
+            "### Frases Essenciais",
+            "### Fazendo o Pedido"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "df01c195-21a1-4c71-841c-ee65fc496653",
+      "title": "Expresii în Poloneză pentru Discuții și Dezacorduri în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale pentru Discuții",
+          "subsections": [
+            "### Exprimarea Frustrării",
+            "### Cererea de Clarificări",
+            "### Stabilirea Limitelor",
+            "### Recunoașterea și Empatia",
+            "### Căutarea Soluțiilor"
+          ]
+        },
+        {
+          "header": "## Nuanțe Culturale Importante",
+          "subsections": [
+            "### Onoarea și Respectul",
+            "### Rolul Familiei",
+            "### Religia și Tradițiile",
+            "### Expresivitatea Emoțională"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "df097d95-b610-4f51-b22a-4aeec7b36e9d",
+      "title": "Román kifejezések az após és anyós megismeréséhez",
+      "native_lang": "hu",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető üdvözlések",
+          "subsections": [
+            "### Bună ziua!",
+            "### Încântat de cunoștință",
+            "### Mă numesc..."
+          ]
+        },
+        {
+          "header": "## Tiszteletteljes megszólítások",
+          "subsections": [
+            "### Doamnă / Domnule",
+            "### Soacră / Socru"
+          ]
+        },
+        {
+          "header": "## Bókok és köszönet",
+          "subsections": [
+            "### Aveți o casă foarte frumoasă",
+            "### Mulțumesc pentru invitație",
+            "### Este foarte gustos!",
+            "### Sărut mâna"
+          ]
+        },
+        {
+          "header": "## A kapcsolatról",
+          "subsections": [
+            "### Îl / O iubesc foarte mult pe fiul / fiica dumneavoastră",
+            "### Suntem foarte fericiți împreună"
+          ]
+        },
+        {
+          "header": "## Érdeklődés",
+          "subsections": [
+            "### Aș vrea să cunosc mai bine cultura dumneavoastră",
+            "### Mă puteți învăța să gătesc această mâncare?"
+          ]
+        },
+        {
+          "header": "## Búcsúzás",
+          "subsections": [
+            "### La revedere!",
+            "### A fost foarte plăcut!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "df0eb8a4-2bf0-4620-9032-c9b93dd13f79",
+      "title": "Іспанські фрази про ревнощі та довіру",
+      "native_lang": "uk",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Вираження ревнощів",
+          "subsections": [
+            "### \"Estoy celoso/celosa\"",
+            "### \"Me pone celoso/celosa cuando...\"",
+            "### \"A veces me siento inseguro/insegura\""
+          ]
+        },
+        {
+          "header": "## Запитання",
+          "subsections": [
+            "### \"¿Quién era?\"",
+            "### \"¿De dónde lo/la conoces?\"",
+            "### \"¿Debería preocuparme?\""
+          ]
+        },
+        {
+          "header": "## Довіра та заспокоєння",
+          "subsections": [
+            "### \"Confío en ti completamente\"",
+            "### \"No hay de qué preocuparse\"",
+            "### \"Solo es un amigo/una amiga\"",
+            "### \"No tienes nada de qué estar celoso/celosa\"",
+            "### \"Eres el único/la única para mí\""
+          ]
+        },
+        {
+          "header": "## Обговорення",
+          "subsections": [
+            "### \"¿Podemos hablar de esto?\"",
+            "### \"Necesito que seas honesto/honesta conmigo\"",
+            "### \"Estoy trabajando en mis celos\"",
+            "### \"No quiero que los celos nos destruyan\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "df3cee91-a13e-40b4-a5e2-001acca09bf5",
+      "title": "Italienska Fraser för Bråk och Meningsskiljaktigheter",
+      "native_lang": "sv",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande Fraser för Konfliktsituationer",
+          "subsections": [
+            "### 1. \"Mi sento ferito/a quando...\"",
+            "### 2. \"Possiamo parlarne con calma?\"",
+            "### 3. \"Ho bisogno di un momento\"",
+            "### 4. \"Non voglio litigare con te\"",
+            "### 5. \"Capisco il tuo punto di vista\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Lösa Konflikter",
+          "subsections": [
+            "### 6. \"Come possiamo risolvere questo?\"",
+            "### 7. \"Non volevo ferirti\"",
+            "### 8. \"Troviamo un compromesso\"",
+            "### 9. \"Ti sto ascoltando\"",
+            "### 10. \"Ne parliamo dopo?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "df5afbd8-77e7-4228-90f6-4fd41c84a087",
+      "title": "Португальський сленг для листування: як пишуть закохані",
+      "native_lang": "uk",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Бразильський сленг",
+          "subsections": [
+            "### Привітання",
+            "### Прощання",
+            "### Реакції"
+          ]
+        },
+        {
+          "header": "## Повсякденні фрази для переписки",
+          "subsections": [
+            "### Вранці",
+            "### Протягом дня",
+            "### Увечері"
+          ]
+        },
+        {
+          "header": "## Сленг для коханих",
+          "subsections": [
+            "### Бразильський",
+            "### Приклади діалогів"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "df74387a-8d11-4e19-b47e-78d36b021557",
+      "title": "Skriva kärleksbrev på ukrainska – Romantiska fraser för din partner",
+      "native_lang": "sv",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Inledande hälsningar",
+          "subsections": [
+            "### \"Кохання моє\" (Kokhannya moye)",
+            "### \"Любий мій\" / \"Люба моя\" (Lyubiy miy/Lyuba moya)",
+            "### \"Серце моє\" (Sertse moye)",
+            "### \"Сонечко моє\" (Sonechko moye)"
+          ]
+        },
+        {
+          "header": "## Uttrycka känslor",
+          "subsections": [
+            "### \"Слова не можуть висловити, як багато ти для мене значиш\"",
+            "### \"Щодня я закохуюсь у тебе все більше\"",
+            "### \"Ти для мене все – моє сонце, місяць і зірки\"",
+            "### \"Моє серце належить тобі, зараз і назавжди\"",
+            "### \"З тобою я пізнав/пізнала справжнє кохання\""
+          ]
+        },
+        {
+          "header": "## Beskriva din partner",
+          "subsections": [
+            "### \"Твоя усмішка освітлює мій світ\"",
+            "### \"Твоя доброта і тепло надихають мене щодня\"",
+            "### \"Коли ти дивишся на мене, я відчуваю себе найщасливішою людиною\""
+          ]
+        },
+        {
+          "header": "## Minnen och framtid",
+          "subsections": [
+            "### \"Я ціную кожну мить, проведену разом\"",
+            "### \"З першої миті я знав/знала, що ти особливий/особлива\"",
+            "### \"Я не можу дочекатися того, що принесе нам майбутнє\"",
+            "### \"Старіти поруч з тобою – моя найбільша мрія\""
+          ]
+        },
+        {
+          "header": "## Löften",
+          "subsections": [
+            "### \"Обіцяю любити тебе і в радості, і в горі\"",
+            "### \"Я завжди буду поруч з тобою, що б не сталося\"",
+            "### \"Моє кохання до тебе росте з кожним днем\""
+          ]
+        },
+        {
+          "header": "## Avslutningar",
+          "subsections": [
+            "### \"Назавжди твій/твоя\"",
+            "### \"З усією моєю любов'ю\"",
+            "### \"Вічно твій/твоя\"",
+            "### \"Кохаю тебе всім серцем\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "df91c785-7471-4cfd-a2df-45e405d9f2f0",
+      "title": "Jak powiedziec «I love you» po angielsku - romantyczne zwroty dla par",
+      "native_lang": "pl",
+      "target_lang": "en",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Alternatywne sposoby mowienia \"I love you\"",
+          "subsections": [
+            "### Dla glebokich polaczen",
+            "### Swobodne i slodkie wyrazenia"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Poranne afirmacje",
+            "### Liściki milosne",
+            "### Zwroty przed snem"
+          ]
+        },
+        {
+          "header": "## Slownictwo milosne",
+          "subsections": [
+            "### Podstawowe słowa zwiazane z miloscia",
+            "### Czasowniki romantyczne"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "df945872-b393-40a1-a586-2aebde3f85b5",
+      "title": "Frases para Conhecer os Sogros em Inglês: Guia Completo",
+      "native_lang": "pt",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para o Primeiro Encontro",
+          "subsections": [
+            "### Apresentação",
+            "### Elogiando",
+            "### Mostrando Interesse",
+            "### Expressando Gratidão"
+          ]
+        },
+        {
+          "header": "## Frases para Ocasiões Especiais",
+          "subsections": [
+            "### Feriados e Celebrações",
+            "### Pedindo Ajuda ou Conselhos"
+          ]
+        },
+        {
+          "header": "## Construindo o Relacionamento",
+          "subsections": [
+            "### Oferecendo Ajuda",
+            "### Despedindo-se"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "df9459e1-51b1-4458-8054-8d9125e7696f",
+      "title": "Urări de Ziua de Naștere pentru Partener în Portugheză: Mesaje",
+      "native_lang": "ro",
+      "target_lang": "pt",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Mesaje Romantice",
+          "subsections": [
+            "### Scurte și Dulci",
+            "### Mesaje Mai Lungi"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Diferite Personalități",
+          "subsections": [
+            "### Pentru Partenerul Romantic",
+            "### Pentru Partenerul cu Umor"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Card",
+          "subsections": [
+            "### Format Scurt",
+            "### Format Lung"
+          ]
+        },
+        {
+          "header": "## Idei de Surprize",
+          "subsections": [
+            "### Gesturi Romantice"
+          ]
+        },
+        {
+          "header": "## Mesaje de Dimineață",
+          "subsections": [
+            "### Pentru Început de Zi"
+          ]
+        },
+        {
+          "header": "## Tradiții de Cuplu",
+          "subsections": [
+            "### Idei pentru Noi Tradiții"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dfba61af-1807-457a-8d5f-a27f3a05d62c",
+      "title": "Saludos y Despedidas en Checo: Guía Completa para Parejas",
+      "native_lang": "es",
+      "target_lang": "cs",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Situaciones Especiales",
+          "subsections": [
+            "### Cuando Conoces a los Padres de tu Pareja",
+            "### Cuando Llamas por Teléfono"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dfc5d75c-bf2b-4231-8e40-dab033d7f585",
+      "title": "50+ Deense Liefkozingen om Harten te Veroveren",
+      "native_lang": "nl",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Do's en Don'ts",
+          "subsections": [
+            "### Do's",
+            "### Don'ts"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dfd1310f-5aad-453c-b00b-49ed72cd690b",
+      "title": "100 Meest Gebruikte Hongaarse Woorden voor Relaties",
+      "native_lang": "nl",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Basis liefdeswoorden",
+          "subsections": [
+            "### 1. Szerelem - *se-re-lem* - Liefde",
+            "### 2. Szív - *siev* - Hart",
+            "### 3. Csók - *tsjok* - Kus",
+            "### 4. Ölelés - *eu-le-leesj* - Knuffel",
+            "### 5. Együtt - *e-djuet* - Samen",
+            "### 6. Örökké - *eu-reuk-kee* - Voor altijd",
+            "### 7. Mindig - *mien-dieg* - Altijd",
+            "### 8. Szép - *seep* - Mooi",
+            "### 9. Boldog - *bol-dog* - Gelukkig",
+            "### 10. Drágám - *dra-gam* - Schat"
+          ]
+        },
+        {
+          "header": "## Dagelijkse communicatie",
+          "subsections": [
+            "### 11. Igen - *ie-gen* - Ja",
+            "### 12. Nem - *nem* - Nee",
+            "### 13. Kérem - *kee-rem* - Alsjeblieft",
+            "### 14. Köszönöm - *keu-seu-neum* - Dank je",
+            "### 15. Bocsánat - *bo-tsja-nat* - Sorry",
+            "### 16. Jó reggelt - *jo reg-gelt* - Goedemorgen",
+            "### 17. Jó éjszakát - *jo eej-sa-kaat* - Goedenacht",
+            "### 18. Szia - *szie-a* - Hallo",
+            "### 19. Viszlát - *vies-laat* - Tot ziens",
+            "### 20. Hogy vagy? - *hodzj vadzj* - Hoe gaat het?"
+          ]
+        },
+        {
+          "header": "## Gevoelens uitdrukken",
+          "subsections": [
+            "### 21. Szeretlek - *se-ret-lek* - Ik hou van je",
+            "### 22. Hiányzol - *hie-anj-zol* - Ik mis je",
+            "### 23. Szükségem van rád - *suek-sjee-gem van raad* - Ik heb je nodig",
+            "### 24. Megbízom benned - *meg-bie-zom ben-ned* - Ik vertrouw je",
+            "### 25. Megbocsátok - *meg-bo-tsja-tok* - Ik vergeef je",
+            "### 26. Értem - *eer-tem* - Ik begrijp het",
+            "### 27. Boldoggá teszel - *bol-dog-ga te-sel* - Je maakt me gelukkig",
+            "### 28. Rád gondolok - *raad gon-do-lok* - Ik denk aan je"
+          ]
+        },
+        {
+          "header": "## Tijd",
+          "subsections": [
+            "### 29. Ma - *ma* - Vandaag",
+            "### 30. Holnap - *hol-nap* - Morgen",
+            "### 31. Tegnap - *teg-nap* - Gisteren",
+            "### 32. Most - *mosht* - Nu",
+            "### 33. Később - *kee-sjeubb* - Later",
+            "### 34. Hamarosan - *ha-ma-ro-sjan* - Binnenkort",
+            "### 35. Soha - *sjo-ha* - Nooit",
+            "### 36. Néha - *nee-ha* - Soms",
+            "### 37. Gyakran - *djak-ran* - Vaak"
+          ]
+        }
+      ]
+    }
+  ]
+}

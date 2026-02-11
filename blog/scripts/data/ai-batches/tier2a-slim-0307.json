@@ -1,0 +1,437 @@
+{
+  "batchId": "tier2a-slim-0307",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "8104f421-8382-46da-89b8-003e32bdcc34",
+      "title": "Turkse Huwelijksuitdrukkingen: Romantische Zinnen voor een Düğün",
+      "native_lang": "nl",
+      "target_lang": "tr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## De Huwelijksceremonie",
+          "subsections": [
+            "### Traditionele Uitdrukkingen"
+          ]
+        },
+        {
+          "header": "## Felicitaties voor het Bruidspaar",
+          "subsections": [
+            "### Korte Felicitaties",
+            "### Langere Felicitaties"
+          ]
+        },
+        {
+          "header": "## Romantische Zinnen",
+          "subsections": [
+            "### Voor je Partner"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8116346a-74c0-41c2-9c0e-262ac2a37aa1",
+      "title": "Danish Numbers and Dates for Everyday Life",
+      "native_lang": "en",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Telling Time",
+          "subsections": [
+            "### Basic Time Expressions",
+            "### The Danish \"Half\" System"
+          ]
+        },
+        {
+          "header": "## Important Dates for Couples",
+          "subsections": [
+            "### Anniversary Vocabulary",
+            "### Romantic Date Vocabulary"
+          ]
+        },
+        {
+          "header": "## Practical Number Situations",
+          "subsections": [
+            "### Shopping and Prices",
+            "### Phone Numbers",
+            "### Addresses"
+          ]
+        },
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Daily Number Practice",
+            "### Fun Number Games"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "81284e49-f5b3-484b-88f4-9f69e8eda81b",
+      "title": "Niemiecki dla Par: 50+ Niezbędnych Zwrotow",
+      "native_lang": "pl",
+      "target_lang": "de",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Praktyczne codzieńne zwroty",
+          "subsections": [
+            "### W kuchni",
+            "### W domu"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Poranna rutyna",
+            "### Cwiczenie 2: Wieczorna refleksja",
+            "### Cwiczenie 3: Gra w tłumaczenia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8130b100-ce1d-4011-bb77-84284179d408",
+      "title": "50+ Søte Spanske Kosenavn for Deg og Din Elskede",
+      "native_lang": "no",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hvordan Bruuke Kosenavn med Din Partner",
+          "subsections": [
+            "### Start Forsiktig",
+            "### Match Personligheten",
+            "### Bruk i Hverdagen",
+            "### Vær Konsistent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "81fd16a2-907c-401a-9bd5-ce293d31b8f1",
+      "title": "Rumunski dla Par: 40+ Niezbędnych Zwrotow",
+      "native_lang": "pl",
+      "target_lang": "ro",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Poranny rytual",
+            "### Wieczorny check-in",
+            "### SMS po rumunsku"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "822143fc-4b6e-4394-9141-68fb3625fa33",
+      "title": "Çiftler İçin İngilizce: 25 Temel İfade",
+      "native_lang": "tr",
+      "target_lang": "en",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Planlar ve Oneriler",
+          "subsections": [
+            "### Aktivite Onerileri"
+          ]
+        },
+        {
+          "header": "## Gunluk Ev Ifadeleri",
+          "subsections": [
+            "### Ev Isleri"
+          ]
+        },
+        {
+          "header": "## Aksam ve Gece Ifadeleri",
+          "subsections": [
+            "### Aksam Rutini",
+            "### Yatmadan Once"
+          ]
+        },
+        {
+          "header": "## Tartisma ve Cozum Ifadeleri",
+          "subsections": [
+            "### Sakin Kalma"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "825dcbae-c112-4b5c-81d9-a0b0455abbec",
+      "title": "Møte din ukrainske partners familie: Essensielle setninger for å gjøre et godt førsteinntrykk",
+      "native_lang": "no",
+      "target_lang": "uk",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Spesifikke scenarioer",
+          "subsections": [
+            "### Møte med foreldrene",
+            "### Samtale rundt middagsbordet",
+            "### Lære om familietradisjoner"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "82e256fb-1342-416e-b1fc-f97d144b4f50",
+      "title": "Italiaanse Grammatica voor Beginners: De Basis Uitgelegd",
+      "native_lang": "nl",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Essere en Avere - De Belangrijkste Werkwoorden",
+          "subsections": [
+            "### Essere (zijn)",
+            "### Avere (hebben)"
+          ]
+        },
+        {
+          "header": "## Tijden: Een Overzicht",
+          "subsections": [
+            "### Tegenwoordige Tijd (Presente)",
+            "### Verleden Tijd (Passato Prossimo)",
+            "### Toekomende Tijd (Futuro)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "84aa4d3b-86f4-4850-a9f9-dd8bab9ca2e7",
+      "title": "Spotkanie z angielskojezyczna rodzina partnera - niezbędne zwroty",
+      "native_lang": "pl",
+      "target_lang": "en",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Nawiazywanie relacji",
+          "subsections": [
+            "### Wyrazanie zainteresowania",
+            "### Oferowanie pomocy"
+          ]
+        },
+        {
+          "header": "## Trudne sytuacje",
+          "subsections": [
+            "### Gdy nie rozumiesz"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia przed spotkaniem",
+          "subsections": [
+            "### Cwiczenie 1: Odgrywanie scenek",
+            "### Cwiczenie 2: Przygotowanie odpowiedzi",
+            "### Cwiczenie 3: Komplementy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8555b950-ccc4-4cfe-9655-200d76619039",
+      "title": "Polish Gender: Masculine, Feminine, Neuter",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Practical Rules for Gender Recognition",
+          "subsections": [
+            "### Quick Gender Check Method:",
+            "### Tricky Examples:"
+          ]
+        },
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Exercise 1: Gender Guessing Game",
+            "### Exercise 2: Adjective Agreement",
+            "### Exercise 3: Daily Objects"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "856cd6c3-18e7-4e89-b629-1fe8927a1bab",
+      "title": "El Pasado en Francés para Parejas: Passé Composé vs Imparfait",
+      "native_lang": "es",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Cuándo Usar Cada Tiempo: La Clave del Romance",
+          "subsections": [
+            "### Passé Composé - Momentos Específicos",
+            "### Imparfait - El Contexto y los Sentimientos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "85beb6a8-924c-47ab-bd23-13b4098797a9",
+      "title": "Ist Türkisch Schwer zu Lernen? Ehrlicher Leitfaden für Deutschsprachige",
+      "native_lang": "de",
+      "target_lang": "tr",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Was Türkisch Anders Macht",
+          "subsections": [
+            "### Die Herausfordernden Teile"
+          ]
+        },
+        {
+          "header": "## Was Türkisch Einfacher Macht Als Du Denkst",
+          "subsections": [
+            "### 1. Phonetische Schreibweise",
+            "### 2. Keine Artikel",
+            "### 3. Kein Grammatisches Geschlecht",
+            "### 4. Regelmäßige Konjugation",
+            "### 5. Logische Struktur"
+          ]
+        },
+        {
+          "header": "## Realistischer Zeitplan Für Paare",
+          "subsections": [
+            "### Monate 1-3: Überlebens-Türkisch",
+            "### Monate 4-6: Konversationsgrundlagen",
+            "### Monate 7-12: Komfortable Kommunikation",
+            "### Jahr 2+: Annäherung an Flüssigkeit"
+          ]
+        },
+        {
+          "header": "## Tipps Für Den Erfolg",
+          "subsections": [
+            "### 1. Akzeptiere Die Suffixe",
+            "### 2. Übe Früh Die Aussprache",
+            "### 3. Lerne Wortstämme",
+            "### 4. Nutze Türkische Medien",
+            "### 5. Hab Keine Angst Vor Fehlern"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "861790c6-471e-4941-bc0b-ee40c1130275",
+      "title": "Pronunția Franceză pentru Începători: Ghidul Cuplurilor Romantice",
+      "native_lang": "ro",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Cele 5 Sunete Esențiale Franceze",
+          "subsections": [
+            "### 1. Sunetele Nazale (Les sons nasales)",
+            "### 2. R-ul Francez (Le R français)",
+            "### 3. E-ul Mute (Le e muet)",
+            "### 4. Liason-ul (Legătura)",
+            "### 5. Accente și Diacritice"
+          ]
+        },
+        {
+          "header": "## Pronunția Vocalelor Franceze",
+          "subsections": [
+            "### Vocală | Pronunție | Exemplu | Traducere",
+            "### Vocalele Combinat"
+          ]
+        },
+        {
+          "header": "## Consoane Problemă și Cum Să Le Stăpânești",
+          "subsections": [
+            "### Consoană | Pronunție | Exemplu | Traducere"
+          ]
+        },
+        {
+          "header": "## Exerciții pentru Cupluri: Practică Împreună",
+          "subsections": [
+            "### Exercițiul 1: Sunete Nazale",
+            "### Exercițiul 2: R-ul Francez",
+            "### Exercițiul 3: Fraze Romantice"
+          ]
+        },
+        {
+          "header": "## Greșeli Comune și Cum Să Le Evitați",
+          "subsections": [
+            "### 1. Pronunția lui \"Je\"",
+            "### 2. Sunetul \"eu\"",
+            "### 3. Finalurile în \"-ent\"",
+            "### 4. H-ul Aspirat vs Mute"
+          ]
+        },
+        {
+          "header": "## Ghid Rapid de Salvare",
+          "subsections": [
+            "### **Consoane Finale**",
+            "### **Accentul Tonic**",
+            "### **Liason Rapid**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "865e5841-93b5-4e1e-bbac-eaa2ff3d894e",
+      "title": "Ispanyol Partnerinizin Ailesiyle Tanisma: Kültür ve Ifade Rehberi",
+      "native_lang": "tr",
+      "target_lang": "es",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Ispanyol Ailelerinde Özel Durumlar",
+          "subsections": [
+            "### Öpüsme Selamlama",
+            "### Fiziksel Yakinlik"
+          ]
+        },
+        {
+          "header": "## Kültürel Hassasiyetler",
+          "subsections": [
+            "### Kacinin",
+            "### Yapin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "86d0bcda-81e7-4ed8-af8b-debd0fe7bf45",
+      "title": "German Anniversary Wishes",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Anniversary Card Messages",
+          "subsections": [
+            "### Short Messages",
+            "### Longer Card Message"
+          ]
+        },
+        {
+          "header": "## Wedding Anniversary Milestones",
+          "subsections": [
+            "### Traditional Anniversary Names"
+          ]
+        },
+        {
+          "header": "## Gifts and Gestures",
+          "subsections": [
+            "### Gift-Giving Phrases",
+            "### Romantic Gestures"
+          ]
+        },
+        {
+          "header": "## Practice Activities for Couples",
+          "subsections": [
+            "### Activity 1: Write an Anniversary Letter",
+            "### Activity 2: Create Anniversary Vows",
+            "### Activity 3: Memory Timeline"
+          ]
+        }
+      ]
+    }
+  ]
+}

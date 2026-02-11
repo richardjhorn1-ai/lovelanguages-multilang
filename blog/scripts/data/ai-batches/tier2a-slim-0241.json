@@ -1,0 +1,409 @@
+{
+  "batchId": "tier2a-slim-0241",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "f0a5dfeb-bbad-4858-b609-9f1f3c8a8f12",
+      "title": "Svéd baba és terhességi szókincs",
+      "native_lang": "hu",
+      "target_lang": "sv",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Terhességi kifejezések",
+            "### Baba szókincs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f0ae6a5d-800a-4d56-9352-2aa0c59f2850",
+      "title": "Англійська vs Українська: Ключові відмінності для вивчення",
+      "native_lang": "uk",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Складніші аспекти: На що звернути увагу",
+          "subsections": [
+            "### 1. Артиклі (Articles)",
+            "### 2. Порядок слів (Word Order)",
+            "### 3. Дієслово \"To Be\"",
+            "### 4. Часова система (Tenses)"
+          ]
+        },
+        {
+          "header": "## Вимова: Звуки, яких немає в українській",
+          "subsections": [
+            "### TH звук",
+            "### W vs V",
+            "### R звук"
+          ]
+        },
+        {
+          "header": "## Помилки українців та як їх уникнути",
+          "subsections": [
+            "### Помилка 1: Пропуск артиклів",
+            "### Помилка 2: Пропуск \"to be\"",
+            "### Помилка 3: Неправильний порядок слів у питаннях",
+            "### Помилка 4: Подвійне заперечення",
+            "### Помилка 5: Забуття -s у третій особі"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f0d32e49-9e6a-464d-9c91-450f794b4f91",
+      "title": "Выражение эмоций на датском языке",
+      "native_lang": "ru",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Положительные эмоции",
+          "subsections": [
+            "### Радость и счастье",
+            "### Любовь и привязанность"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f0df88b9-0a06-4493-9fcd-ca887712bb29",
+      "title": "Preposiciones en Inglés: Guía Completa",
+      "native_lang": "es",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Preposiciones Problemáticas para Hispanohablantes",
+          "subsections": [
+            "### Married TO (no \"with\")",
+            "### Depend ON (no \"of\")",
+            "### Dream ABOUT (no \"with\")",
+            "### Think ABOUT/OF (no \"in\")"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f0eaca6a-f02e-47c1-bb2e-fc36bf2c04ea",
+      "title": "Dán Flörtölő Kifejezések – Hygge és Romantika Dánul",
+      "native_lang": "hu",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Flörtölő Kifejezések",
+          "subsections": [
+            "### 1. Du er meget smuk (Dü ér májet szmuk)",
+            "### 2. Du har smukke øjne (Dü hár szmukke öjne)",
+            "### 3. Jeg kan godt lide dig (Jaj ká got líde daj)",
+            "### 4. Skal vi tage en kop kaffe? (Szkal vi tá en kop kaffe?)",
+            "### 5. Dejligt at møde dig (Dajlit at möde daj)",
+            "### 6. Du er speciel (Dü ér szpesziell)",
+            "### 7. Jeg kan ikke lade være med at tænke på dig (Jaj ká ikke láde vére med at tenke pó daj)",
+            "### 8. Dit smil gør mig glad (Dit szmil jör maj glá)",
+            "### 9. Jeg har det godt med dig (Jaj hár det got med daj)",
+            "### 10. Du er mit livs kærlighed (Dü ér mit lívsz kjérlihed)"
+          ]
+        },
+        {
+          "header": "## Kulturális Tippek",
+          "subsections": [
+            "### Hygge",
+            "### Egyenlőség",
+            "### Kerékpárkultúra",
+            "### Sör és Bor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f0f03576-2bdf-4d16-b0c5-3e3914ad0d89",
+      "title": "Αγγλικές Φράσεις για το Πρώτο Ραντεβού: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για το Πρώτο Ραντεβού",
+          "subsections": [
+            "### Γνωριμία",
+            "### Συζήτηση",
+            "### Φλερτ",
+            "### Κλείσιμο"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f0ff1a6a-b0a2-4bc9-9095-a502bdaa5bd0",
+      "title": "Czy niemiecki jest trudny do nauki? Przewodnik dla Polaków",
+      "native_lang": "pl",
+      "target_lang": "de",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Wyzwania dla Polaków",
+          "subsections": [
+            "### 1. Der, die, das - rodzaje!",
+            "### 2. Szyk zdania - czasownik na 2. miejscu!",
+            "### 3. Długie słowa złożone",
+            "### 4. Umlauty (ä, ö, ü)"
+          ]
+        },
+        {
+          "header": "## Porównanie trudności",
+          "subsections": [
+            "### Niemiecki vs inne języki dla Polaków"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f1095712-b25b-452e-b7c3-b4a960ab9ab4",
+      "title": "Данська привітання з річницею: романтичні побажання",
+      "native_lang": "uk",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика про річницю",
+          "subsections": []
+        },
+        {
+          "header": "## Романтичні побажання з річницею",
+          "subsections": [
+            "### Класичні привітання"
+          ]
+        },
+        {
+          "header": "## Побажання для різних річниць",
+          "subsections": [
+            "### Перша річниця",
+            "### П'ята річниця",
+            "### Десята річниця та далі"
+          ]
+        },
+        {
+          "header": "## Як написати привітання з річницею",
+          "subsections": [
+            "### Структура ідеального привітання:",
+            "### Приклад привітання:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f117d69a-adfc-46df-8548-c9e2a8a6eddf",
+      "title": "Zwroty na pierwszą randkę po norwesku",
+      "native_lang": "pl",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Rozpoczęcie rozmowy",
+          "subsections": [
+            "### Cześć! Miło Cię wreszcie poznać!",
+            "### Świetnie wyglądasz!",
+            "### Nie mogłem/mogłam się doczekać"
+          ]
+        },
+        {
+          "header": "## Poznawanie się",
+          "subsections": [
+            "### Opowiedz mi o sobie",
+            "### Co lubisz robić w wolnym czasie?",
+            "### Jaki jest Twój ulubiony...?"
+          ]
+        },
+        {
+          "header": "## Wyrażanie zainteresowania",
+          "subsections": [
+            "### To naprawdę interesujące",
+            "### Opowiedz mi więcej",
+            "### Chciałbym/Chciałabym wiedzieć więcej"
+          ]
+        },
+        {
+          "header": "## Dzielenie się o sobie",
+          "subsections": [
+            "### Pasjonuję się...",
+            "### Zawsze chciałem/chciałam..."
+          ]
+        },
+        {
+          "header": "## Komplementy",
+          "subsections": [
+            "### Uwielbiam Twój uśmiech",
+            "### Masz świetne poczucie humoru",
+            "### Świetnie się z Tobą bawię"
+          ]
+        },
+        {
+          "header": "## Planowanie następnego spotkania",
+          "subsections": [
+            "### Bardzo chciałbym/chciałabym Cię znowu zobaczyć",
+            "### Kiedy możemy to powtórzyć?",
+            "### Miałem/Miałam cudowny wieczór"
+          ]
+        },
+        {
+          "header": "## Pożegnanie",
+          "subsections": [
+            "### To było naprawdę cudowne",
+            "### Nie mogę się doczekać kolejnego spotkania"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f119ec8e-2fd6-4f50-be69-2e6be8a7bfbf",
+      "title": "Ukrán kifejezések féltékenységhez és bizalomhoz",
+      "native_lang": "hu",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kifejezések a féltékenységhez",
+          "subsections": [
+            "### 1. \"Я ревную, коли ти...\"",
+            "### 2. \"Мені потрібно, щоб ти мене заспокоїв/ла\"",
+            "### 3. \"Я тобі довіряю, але борюся зі своїми почуттями\"",
+            "### 4. \"Чи можемо поговорити про те, що сталося?\"",
+            "### 5. \"Я не хочу ревнувати, але...\"",
+            "### 6. \"Я повністю тобі довіряю\"",
+            "### 7. \"Ти єдиний/єдина для мене\"",
+            "### 8. \"Я ніколи не зроблю нічого, щоб тебе образити\"",
+            "### 9. \"Між нами нічого немає\"",
+            "### 10. \"Я тобі вірний/вірна\"",
+            "### 11. \"Давай будемо чесними одне з одним\"",
+            "### 12. \"Я не хочу, щоб ревнощі нас розлучили\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f134c451-e119-4858-b9e2-30d6fa2c6b61",
+      "title": "100 Συχνές Λέξεις (da): Οδηγός για Ελληνόφωνα Ζευγάρια",
+      "native_lang": "el",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Κατηγορίες Λέξεων",
+          "subsections": [
+            "### Αγάπη & Τρυφερότητα",
+            "### Καθημερινές Λέξεις",
+            "### Συναισθήματα",
+            "### Χρόνος",
+            "### Τοποθεσία",
+            "### Ερωτήσεις",
+            "### Ρήματα"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f13f2f2b-dca8-416e-bea4-156bbcc0d8cf",
+      "title": "Tureckie zwroty o zazdrości i zaufaniu dla par",
+      "native_lang": "pl",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Wyrażanie uczuć zazdrości",
+          "subsections": [
+            "### \"...olduğunda biraz kıskanç hissediyorum\"",
+            "### \"...konusunda kendimi güvensiz hissediyorum\"",
+            "### \"Sen... yaptığında beni rahatsız ediyor\""
+          ]
+        },
+        {
+          "header": "## Pytania budujące zaufanie",
+          "subsections": [
+            "### \"...konusunda beni rahatlatabilir misin?\"",
+            "### \"Konuştuğun o kişi kimdi?\"",
+            "### \"Abartıyor muyum?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie potrzeby zaufania",
+          "subsections": [
+            "### \"Bana karşı dürüst olmanı istiyorum\"",
+            "### \"Sana güveniyorum ama... ile mücadele ediyorum\""
+          ]
+        },
+        {
+          "header": "## Uspokajanie partnera",
+          "subsections": [
+            "### \"Endişelenecek bir şey yok\"",
+            "### \"Sen benim için tek kişisin\"",
+            "### \"Seni incitecek hiçbir şey yapmam\""
+          ]
+        },
+        {
+          "header": "## Budowanie zaufania",
+          "subsections": [
+            "### \"Birbirimize karşı daha açık olalım\"",
+            "### \"Birbirimize tamamen güvenmemizi istiyorum\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f146c9df-d981-4130-9fd6-478df0968b00",
+      "title": "Macarca Kayınvalide Kayınpeder İfadeleri: Aile Tanışması",
+      "native_lang": "tr",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Önemli İfadeler",
+          "subsections": [
+            "### Tanışma",
+            "### İltifatlar",
+            "### Yardım Teklifi",
+            "### Veda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f14ccb0c-91c2-4e3d-98dd-27e4102ce8d3",
+      "title": "Török összeköltözési szókincs",
+      "native_lang": "hu",
+      "target_lang": "tr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Költözési kifejezések",
+            "### Háztartási szókincs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f161a001-25bd-430d-83dc-b7b30ff06bfd",
+      "title": "Small Talk på Rumænsk: Samtalestartere for Par",
+      "native_lang": "da",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassiske Emner",
+          "subsections": [
+            "### Vejret",
+            "### Weekendplaner",
+            "### Ferier og Rejser"
+          ]
+        }
+      ]
+    }
+  ]
+}

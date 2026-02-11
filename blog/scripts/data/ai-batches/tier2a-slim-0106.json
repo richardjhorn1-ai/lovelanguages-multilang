@@ -1,0 +1,414 @@
+{
+  "batchId": "tier2a-slim-0106",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "7b668c66-9e60-44e9-b8b3-9dfe01e751b4",
+      "title": "Le Hongrois Est-il Difficile à Apprendre ? Un Guide Honnête",
+      "native_lang": "fr",
+      "target_lang": "hu",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Les Défis (Soyons Honnêtes)",
+          "subsections": [
+            "### 1. Le Système de Cas",
+            "### 2. Harmonie Vocalique",
+            "### 3. Conjugaison Verbale"
+          ]
+        },
+        {
+          "header": "## Les Bonnes Nouvelles (Ce N'est Pas Tout Effrayant !)",
+          "subsections": [
+            "### 1. Orthographe Phonétique",
+            "### 2. Pas de Genre Grammatical",
+            "### 3. Formation Logique des Mots",
+            "### 4. Pas de Confusion d'Articles"
+          ]
+        },
+        {
+          "header": "## Conseils pour Réussir",
+          "subsections": [
+            "### Commencez par Ce Qui Compte",
+            "### Embrassez l'Imperfection",
+            "### Utilisez des Motifs, Pas des Règles",
+            "### Pratiquez Quotidiennement avec Votre Partenaire"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7b751575-77a8-4175-a4af-57ffe61a7e95",
+      "title": "Gramatică Olandeză de Bază pentru Începători: Ghid pentru Români",
+      "native_lang": "ro",
+      "target_lang": "nl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Substantivele și Pluralul",
+          "subsections": [
+            "### Formarea Pluralului"
+          ]
+        },
+        {
+          "header": "## Ordinea Cuvintelor",
+          "subsections": [
+            "### Propoziții Afirmative",
+            "### Propoziții cu Inversiune"
+          ]
+        },
+        {
+          "header": "## Întrebările",
+          "subsections": [
+            "### Întrebări Da/Nu",
+            "### Cuvinte Interogative"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7b7b8d83-228d-4e91-b556-affc550d5fa4",
+      "title": "Vocabular pentru Seri Romantice în Germană: Ghid Complet",
+      "native_lang": "ro",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## La Restaurant",
+          "subsections": [
+            "### Sosirea și Rezervarea",
+            "### Comanda",
+            "### Vocabular de Restaurant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7b7c9df1-c681-449c-841c-f3afe843c4b8",
+      "title": "Small Talk på Fransk: Samtalestartere for Par",
+      "native_lang": "da",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassiske Emner",
+          "subsections": [
+            "### Vejret",
+            "### Weekendplaner",
+            "### Ferier og Rejser"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7b9b1a51-c119-42a8-9c04-f0df0dd9a278",
+      "title": "англійська для пар: 45+ фраз для подорожей",
+      "native_lang": "uk",
+      "target_lang": "en",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## У готелі",
+          "subsections": [
+            "### Заселення (Check-in)",
+            "### Запити в готелі"
+          ]
+        },
+        {
+          "header": "## Транспорт",
+          "subsections": [
+            "### Таксі/Uber",
+            "### Оренда авто"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7ba22010-06a8-4690-86c5-948ef378914e",
+      "title": "Orosz születésnapi kívánságok párodnak",
+      "native_lang": "hu",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Születésnapi köszöntések",
+            "### Romantikus üzenetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7ba62093-94ef-4693-8030-72554ce909c9",
+      "title": "Expresii în Germană pentru Discuții și Dezacorduri în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale pentru Discuții",
+          "subsections": [
+            "### Exprimarea Frustrării",
+            "### Cererea de Clarificări",
+            "### Stabilirea Limitelor",
+            "### Recunoașterea și Concesiile",
+            "### Căutarea Soluțiilor"
+          ]
+        },
+        {
+          "header": "## Nuanțe Culturale Importante",
+          "subsections": [
+            "### Directitatea ca Respect",
+            "### Structura și Planificarea",
+            "### Separarea Problemei de Persoană"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7bd073b0-ab33-4fe2-b7b4-88e1911e63f8",
+      "title": "Expressions de Mariage en Hongrois : Guide Complet",
+      "native_lang": "fr",
+      "target_lang": "hu",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## La Réception",
+          "subsections": [
+            "### Vocabulaire de la Fête"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7bdc906a-71a1-4143-8cbd-f9a4c29a7953",
+      "title": "30+ Piropos en inglés: Cumplidos para Enamorar a tu Pareja",
+      "native_lang": "es",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Cumplidos Sobre la Apariencia",
+          "subsections": [
+            "### Belleza General",
+            "### Características Específicas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7be3573e-e7ae-43c1-a459-16e68f8498ec",
+      "title": "Dán kifejezések első randira",
+      "native_lang": "hu",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bemutatkozás",
+          "subsections": [
+            "### 1. \"Dejligt endelig at møde dig\"",
+            "### 2. \"Du ser fantastisk ud\"",
+            "### 3. \"Fortæl mig om dig selv\"",
+            "### 4. \"Hvad laver du til daglig?\"",
+            "### 5. \"Hvad er dine hobbyer?\""
+          ]
+        },
+        {
+          "header": "## Beszélgetés",
+          "subsections": [
+            "### 6. \"Det er virkelig interessant\"",
+            "### 7. \"Jeg har det på samme måde\"",
+            "### 8. \"Hvilken musik kan du lide?\"",
+            "### 9. \"Har du rejst meget?\"",
+            "### 10. \"Jeg hygger mig rigtig meget\""
+          ]
+        },
+        {
+          "header": "## Randi vége",
+          "subsections": [
+            "### 11. \"Jeg har haft en dejlig aften\"",
+            "### 12. \"Kan vi ses igen?\"",
+            "### 13. \"Jeg vil gerne gøre dette igen\"",
+            "### 14. \"Må jeg følge dig hjem?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7be45dc6-7d7c-4786-a22e-b834f9db199f",
+      "title": "Yunanca Kayınvalide ve Kayınpeder İfadeleri: Aile Tanışması",
+      "native_lang": "tr",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Hitap Şekilleri",
+          "subsections": [
+            "### 1. \"Πεθερά\" / \"Πεθερός\" (Pethera / Petheros)",
+            "### 2. \"Χαίρω πολύ\" (Hero poli)"
+          ]
+        },
+        {
+          "header": "## Önemli İfadeler",
+          "subsections": [
+            "### 3. \"Σας ευχαριστώ που με καλέσατε\" (Sas efharisto pou me kalesate)",
+            "### 4. \"Το φαγητό ήταν υπέροχο\" (To fagito itan iperoho)",
+            "### 5. \"Το σπίτι σας είναι πολύ όμορφο\" (To spiti sas ine poli omorfo)",
+            "### 6. \"Αγαπώ πολύ το παιδί σας\" (Agapo poli to pedi sas)",
+            "### 7. \"Μπορώ να βοηθήσω σε κάτι;\" (Boro na voithiso se kati?)",
+            "### 8. \"Πείτε μου περισσότερα για την οικογένειά σας\" (Pite mou perissotera gia tin ikogenia sas)",
+            "### 9. \"Είμαστε πολύ χαρούμενοι που είμαστε εδώ\" (Imaste poli harumeni pou imaste edo)",
+            "### 10. \"Ευχαριστώ για μια υπέροχη βραδιά\" (Efharisto gia mia iperohi vradia)",
+            "### 11. \"Ανυπομονώ να σας γνωρίσω καλύτερα\" (Anipomono na sas gnoriso kalitera)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7bf2fa49-93a7-43c9-91d8-13fdfeed1757",
+      "title": "Udtryk Følelser på Fransk: Komplet Guide for Par",
+      "native_lang": "da",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Reagere på Partnerens Følelser",
+          "subsections": [
+            "### Støttende Svar",
+            "### Trøstende Ord"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7c12aaee-cc23-4195-8b55-9f38ef6737ec",
+      "title": "Російські фрази для суперечок і розбіжностей",
+      "native_lang": "uk",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Початок серйозної розмови",
+          "subsections": [
+            "### \"Нам нужно поговорить\"",
+            "### \"Мне больно, когда ты...\"",
+            "### \"Можем поговорить об этом спокойно?\""
+          ]
+        },
+        {
+          "header": "## Вираження незгоди",
+          "subsections": [
+            "### \"Я не согласен/согласна\"",
+            "### \"Я вижу это по-другому\"",
+            "### \"Я не это имел/имела в виду\""
+          ]
+        },
+        {
+          "header": "## Емоційні вирази",
+          "subsections": [
+            "### \"Это меня ранит\"",
+            "### \"Я расстроен/расстроена\"",
+            "### \"Мне нужно, чтобы ты меня выслушал/выслушала\""
+          ]
+        },
+        {
+          "header": "## Прохання про простір",
+          "subsections": [
+            "### \"Мне нужно время подумать\"",
+            "### \"Давай сделаем перерыв\""
+          ]
+        },
+        {
+          "header": "## Пошук рішення",
+          "subsections": [
+            "### \"Как мы можем это решить?\"",
+            "### \"Давай найдём компромисс\"",
+            "### \"Я готов/готова уступить\""
+          ]
+        },
+        {
+          "header": "## Визнання помилки",
+          "subsections": [
+            "### \"Ты прав/права, я ошибся/ошиблась\"",
+            "### \"Мне не стоило это говорить\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7c1cc436-590a-4bd5-9ca9-7237e7b43152",
+      "title": "Italiensk kælenavne og kærlige udtryk for par",
+      "native_lang": "da",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Kælenavne til forskellige lejligheder",
+          "subsections": [
+            "### I hverdagen",
+            "### Til romantiske øjeblikke",
+            "### Til at drille"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7c1f2f34-95d2-4d0d-bb27-28962bdcbd6e",
+      "title": "Tjekkiske sms- og chatbeskeder til par",
+      "native_lang": "da",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende kærlige beskeder",
+          "subsections": [
+            "### \"Chybíš mi\"",
+            "### \"Myslím na tebe\"",
+            "### \"Nemůžu se dočkat, až tě uvidím\""
+          ]
+        },
+        {
+          "header": "## Populære tjekkiske kælenavne",
+          "subsections": [
+            "### \"Lásko\"",
+            "### \"Miláčku\"",
+            "### \"Zlato\" / \"Zlatíčko\""
+          ]
+        },
+        {
+          "header": "## Tjekkiske sms-forkortelser",
+          "subsections": [
+            "### \"Miluji tě\" / \"MT\"",
+            "### \"Pusu\" / \"Pusinku\"",
+            "### \"Dobrou noc\""
+          ]
+        },
+        {
+          "header": "## Romantiske beskeder",
+          "subsections": [
+            "### \"Jsi pro mě všechno\"",
+            "### \"Dobré ráno, lásko\"",
+            "### \"Sladké sny, miláčku\""
+          ]
+        },
+        {
+          "header": "## Hverdagsbeskeder",
+          "subsections": [
+            "### \"Jak se máš?\"",
+            "### \"Už jedu\"",
+            "### \"Měj se\""
+          ]
+        },
+        {
+          "header": "## Specielle udtryk",
+          "subsections": [
+            "### \"Srdíčko\" / \"Srdce moje\"",
+            "### \"Mám tě rád\" / \"Mám tě ráda\"",
+            "### \"Objímám tě\""
+          ]
+        }
+      ]
+    }
+  ]
+}

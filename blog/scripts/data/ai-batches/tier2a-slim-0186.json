@@ -1,0 +1,437 @@
+{
+  "batchId": "tier2a-slim-0186",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "c2ae0061-5d9f-4897-ac54-6bdbaf5e78aa",
+      "title": "Чеська vs англійська: Ключові відмінності для українців",
+      "native_lang": "uk",
+      "target_lang": "cs",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Граматичні відмінності",
+          "subsections": [
+            "### Відмінки",
+            "### Артиклі",
+            "### Дієслово «бути»",
+            "### Порядок слів"
+          ]
+        },
+        {
+          "header": "## Вимова",
+          "subsections": [
+            "### Чеська вимова",
+            "### Порівняння звуків"
+          ]
+        },
+        {
+          "header": "## Лексика",
+          "subsections": [
+            "### Спільнослов'янські слова",
+            "### «Фальшиві друзі» (обережно!)"
+          ]
+        },
+        {
+          "header": "## Часи дієслів",
+          "subsections": [
+            "### Чеська система часів",
+            "### Англійська система часів"
+          ]
+        },
+        {
+          "header": "## Практичні приклади",
+          "subsections": [
+            "### Романтична фраза",
+            "### Питання"
+          ]
+        },
+        {
+          "header": "## Висновки",
+          "subsections": [
+            "### Чому чеська легша для українців:",
+            "### Що все ж треба вивчити:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2c28f13-f652-4f34-ae30-3df1be2f7037",
+      "title": "De Familie Ontmoeten: Essentiële Tsjechische Zinnen",
+      "native_lang": "nl",
+      "target_lang": "cs",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Eerste Begroetingen",
+          "subsections": [
+            "### Formeel (voor ouders/grootouders)",
+            "### Informeel (voor broers/zussen)"
+          ]
+        },
+        {
+          "header": "## Culturele Tips",
+          "subsections": [
+            "### Schoenen uit!",
+            "### Handdruk",
+            "### Bloemen",
+            "### Aanbod weigeren"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2c43b23-c5f4-41ca-bdfc-0ca42d2d46d0",
+      "title": "Αγγλικές Φράσεις Συμφιλίωσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις Συμφιλίωσης",
+          "subsections": [
+            "### Έναρξη Συμφιλίωσης",
+            "### Έκφραση Μετάνοιας",
+            "### Έκφραση Αγάπης",
+            "### Πρόταση Λύσης"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2d02b66-87e5-40b5-9451-a43973095bcf",
+      "title": "Grammaire norvégienne pour débutants : Apprenez ensemble pour renforcer votre lien",
+      "native_lang": "fr",
+      "target_lang": "no",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Les bases essentielles",
+          "subsections": [
+            "### 1. **Ordre des mots simple**",
+            "### 2. **Pas de genre pour les objets**",
+            "### 3. **Articles définis attachés**",
+            "### 4. **Questions = inversion simple**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2dce1b1-960e-4c20-b01a-d3c1d33f0142",
+      "title": "Переезд вместе на норвежский: Важные фразы",
+      "native_lang": "ru",
+      "target_lang": "no",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Поиск жилья",
+          "subsections": [
+            "### Разговор с риелтором",
+            "### Описание того, что нужно"
+          ]
+        },
+        {
+          "header": "## День переезда",
+          "subsections": [
+            "### Организация переезда",
+            "### Работа sammen"
+          ]
+        },
+        {
+          "header": "## Обустройство дома",
+          "subsections": [
+            "### Расстановка møbler",
+            "### Принятие решений вместе"
+          ]
+        },
+        {
+          "header": "## Знакомство с соседями",
+          "subsections": [
+            "### Первая встреча",
+            "### Построение отношений"
+          ]
+        },
+        {
+          "header": "## Разделение обязанностей",
+          "subsections": [
+            "### Домашние дела",
+            "### Обсуждение"
+          ]
+        },
+        {
+          "header": "## Ваш первый вечер дома",
+          "subsections": [
+            "### Особенный момент",
+            "### Создание уюта"
+          ]
+        },
+        {
+          "header": "## Решение проблем",
+          "subsections": [
+            "### Бытовые вопросы",
+            "### Разговор с арендодателем"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c3014c6f-b05f-4902-bcc6-03f744305a99",
+      "title": "Görög üzenetküldő kifejezések magyar anyanyelvűeknek",
+      "native_lang": "hu",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető üdvözlések",
+          "subsections": [
+            "### 1. Καλημέρα, αγάπη μου",
+            "### 2. Μου λείπεις",
+            "### 3. Σ'αγαπώ"
+          ]
+        },
+        {
+          "header": "## Mindennapi üzenetek",
+          "subsections": [
+            "### 4. Τι κάνεις;",
+            "### 5. Έρχομαι",
+            "### 6. Φιλιά / Φιλάκια"
+          ]
+        },
+        {
+          "header": "## Romantikus kifejezések",
+          "subsections": [
+            "### 7. Είσαι τα πάντα μου",
+            "### 8. Μωρό μου / Ψυχή μου",
+            "### 9. Ονειρεύτηκα εσένα"
+          ]
+        },
+        {
+          "header": "## Chat rövidítések",
+          "subsections": [
+            "### 10. Ευχ / Ευχαριστώ",
+            "### 11. Οκ / Οκέι",
+            "### 12. 💋 Φ / Φιλί"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c3170a45-651b-4160-b822-9aee5ffd278c",
+      "title": "Franske fraser om jalousii og tillid for par",
+      "native_lang": "da",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser om jalousii og tillid",
+          "subsections": [
+            "### At udtrykke bekymring",
+            "### At opbygge tillid",
+            "### At sætte grænser",
+            "### At berolige din partner"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c32bb43d-c606-46a0-81a1-8de03684659e",
+      "title": "Udtryk Følelser på Spansk: Komplet Guide for Par",
+      "native_lang": "da",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Reagere på Partnerens Følelser",
+          "subsections": [
+            "### Støttende Svar",
+            "### Trøstende Ord"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c338ca0b-2b6a-411e-948a-474acfe51ab5",
+      "title": "Hiányzol Kifejezések Oroszul – Я Скучаю По Тебе és Más",
+      "native_lang": "hu",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Hiányzol Kifejezések",
+          "subsections": [
+            "### 1. Я скучаю по тебе (Ja szkucsáju po tyebe)",
+            "### 2. Я очень скучаю по тебе (Ja ocseny szkucsáju po tyebe)",
+            "### 3. Ты мне очень нужна/нужен (Tü mnye ocseny nuzsna/nuzsem)",
+            "### 4. Я не могу перестать думать о тебе (Ja nye mogu pereztaty dumaty o tyebe)",
+            "### 5. Хотел/а бы, чтобы ты был/а здесь (Hotyel/a bü, stobü tü bül/a zdyesz)",
+            "### 6. Без тебя мне пусто (Bez tyebya mnye puszto)",
+            "### 7. Считаю дни до встречи (Scsitaju dnyi do vsztrecsi)",
+            "### 8. Ты всегда в моих мыслях (Tü vszegda v moih müszljah)",
+            "### 9. Моё сердце тоскует по тебе (Majó szerdzse toszkujet po tyebe)",
+            "### 10. Без тебя я не целое (Bez tyebya ja nye celoje)"
+          ]
+        },
+        {
+          "header": "## Kulturális Tippek",
+          "subsections": [
+            "### Orosz Lélek",
+            "### Tegezés és Magázás",
+            "### Cirill Betűk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c33f9780-6e2d-4fd2-896f-c03079d6d6c9",
+      "title": "Lengyel nászutas utazási kifejezések",
+      "native_lang": "hu",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Utazási alapkifejezések",
+            "### Romantikus helyzetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c37e416d-efe0-4bbd-ad72-0516c2640ac2",
+      "title": "Ουγγρικές Φράσεις για Ζήλια & Εμπιστοσύνη: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για Ζήλια & Εμπιστοσύνη",
+          "subsections": [
+            "### Έκφραση Ανησυχίας",
+            "### Χτίσιμο Εμπιστοσύνης",
+            "### Αντιμετώπιση Ζήλιας",
+            "### Συζήτηση για Όρια"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c3a7114f-b096-4f03-9faa-748cba50a93f",
+      "title": "Ungarische Flirtsprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassische Komplimente",
+          "subsections": [
+            "### \"Gyönyörű vagy\"",
+            "### \"Nagyon szép szemeid vannak\"",
+            "### \"Csodálatos a mosolyod\""
+          ]
+        },
+        {
+          "header": "## Romantische Ausdrücke",
+          "subsections": [
+            "### \"Te vagy életem szerelme\"",
+            "### \"Nem tudok nem rád gondolni\"",
+            "### \"Nagyon boldoggá teszel\""
+          ]
+        },
+        {
+          "header": "## Süße Kosenamen",
+          "subsections": [
+            "### \"Szerelmem\"",
+            "### \"Édesem\"",
+            "### \"Kincsem\"",
+            "### \"Szívem\"",
+            "### \"Babám\"",
+            "### \"Csillagom\""
+          ]
+        },
+        {
+          "header": "## Herzliche Ausdrücke",
+          "subsections": [
+            "### \"Szeretlek\"",
+            "### \"Mindenem vagy\"",
+            "### \"Őrülten szeretlek\"",
+            "### \"Elraboltad a szívemet\"",
+            "### \"Örökké veled akarok lenni\""
+          ]
+        },
+        {
+          "header": "## Spielerische Sprüche",
+          "subsections": [
+            "### \"Hiszel a szerelemben első látásra, vagy menjek el még egyszer?\"",
+            "### \"Tolvaj az apád? Mert ellopta a csillagokat az égről és a szemeidbe tette\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c3acc940-a324-4f81-8c92-4d467a1b8390",
+      "title": "50 Expresii Ucrainene pentru Seri Romantice: Vocabular pentru Cupluri",
+      "native_lang": "ro",
+      "target_lang": "uk",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Cum să Folosești Aceste Expresii Împreună",
+          "subsections": [
+            "### Sfaturi Practice pentru Cupluri"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c3cffdb9-7e92-45ce-9aa0-943ae691a8c3",
+      "title": "Francia születésnapi kívánságok párodnak",
+      "native_lang": "hu",
+      "target_lang": "fr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Születésnapi köszöntések",
+            "### Romantikus üzenetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c3d08e3f-b977-4854-91da-9a86a738f412",
+      "title": "Φράσεις για Γνωριμία με τους Πεθερικούς στα Τουρκικά",
+      "native_lang": "el",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για την Πρώτη Γνωριμία",
+          "subsections": [
+            "### 1. Tanıştığımıza çok memnun oldum (Τανισντιγκιμίζα τσοκ μεμνούν ολντούμ)",
+            "### 2. Sizin hakkınızda çok şey duydum (Σιζίν χακκινιζντά τσοκ σέι ντουϊντούμ)",
+            "### 3. Beni evinize kabul ettiğiniz için teşekkür ederim (Μπενί εβινιζέ καμπούλ εττιγκινίζ ιτσίν τεσεκκούρ εντερίμ)"
+          ]
+        },
+        {
+          "header": "## Φράσεις Εκτίμησης",
+          "subsections": [
+            "### 4. Oğlunuz/Kızınız harika (Ολουνούζ/Κιζινίζ χαρίκα)",
+            "### 5. Harika bir insan yetiştirmişsiniz (Χαρίκα μπιρ ινσάν γιετιστιρμισσινίζ)",
+            "### 6. Yemek çok lezzetli! (Γιεμέκ τσοκ λεζετλί)",
+            "### 7. Çok güzel bir eviniz var (Τσοκ γκιουζέλ μπιρ εβινίζ βαρ)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για Συζήτηση",
+          "subsections": [
+            "### 8. Aileniz hakkında daha fazla bilgi edinmek isterim (Αϊλενίζ χακκιντά νταχά φαζλά μπιλγκί εντινμέκ ιστερίμ)",
+            "### 9. Çocukken nasıldı? (Τσοτζούκκεν νασιλντί)",
+            "### 10. Umarım daha fazla vakit geçirebiliriz (Ουμαρίμ νταχά φαζλά βακίτ γκετσιρεμπιλιρίζ)"
+          ]
+        }
+      ]
+    }
+  ]
+}

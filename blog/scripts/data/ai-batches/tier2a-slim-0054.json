@@ -1,0 +1,511 @@
+{
+  "batchId": "tier2a-slim-0054",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "4ddf61a4-ff1c-4d56-b5ef-d34f33a30224",
+      "title": "50+ Hollandaca Sevgi Sözcügü: Partnerinizi Eritin",
+      "native_lang": "tr",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Günlük Hayatta Kullanım",
+          "subsections": [
+            "### Sabah İfadeleri",
+            "### Gün İçi Mesajları",
+            "### Akşam İfadeleri"
+          ]
+        },
+        {
+          "header": "## Pratik İpuçları",
+          "subsections": [
+            "### Telaffuz İpuçları",
+            "### Ne Zaman Hangi İfadeyi Kullanmalı"
+          ]
+        },
+        {
+          "header": "## Öğrenme Aktiviteleri",
+          "subsections": [
+            "### Günlük Pratik",
+            "### Sevgi Notları",
+            "### Birlikte Telaffuz"
+          ]
+        },
+        {
+          "header": "## Özel Durumlar İçin",
+          "subsections": [
+            "### Romantik Anlar",
+            "### Destek Anları"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4e029eea-47aa-47de-b17f-846f8bbac7d5",
+      "title": "Portekizce Kıskançlık ve Güven İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kıskançlığı İfade Etme",
+          "subsections": [
+            "### 1. \"Eu me sinto um pouco ciumento/a quando...\"",
+            "### 2. \"Você pode me tranquilizar?\"",
+            "### 3. \"Confio em você, mas não confio neles\"",
+            "### 4. \"Me incomoda quando...\"",
+            "### 5. \"Preciso saber que sou sua prioridade\""
+          ]
+        },
+        {
+          "header": "## Güven İnşa Etme",
+          "subsections": [
+            "### 6. \"Confio completamente em você\"",
+            "### 7. \"Você é a única pessoa para mim\"",
+            "### 8. \"Eu nunca faria nada para te magoar\"",
+            "### 9. \"Você não tem com o que se preocupar\"",
+            "### 10. \"Estou comprometido/a apenas com você\"",
+            "### 11. \"Vamos falar sobre suas preocupações\"",
+            "### 12. \"O que posso fazer para você se sentir mais seguro/a?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4e1471c9-2e61-4d4f-a719-16fa92dda478",
+      "title": "Węgierskie zwroty o zazdrości i zaufaniu dla par",
+      "native_lang": "pl",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Wyrażanie uczuć zazdrości",
+          "subsections": [
+            "### \"Kicsit féltékenynek érzem magam, amikor...\"",
+            "### \"Bizonytalannak érzem magam ...-val kapcsolatban\"",
+            "### \"Zavar, amikor te...\""
+          ]
+        },
+        {
+          "header": "## Pytania budujące zaufanie",
+          "subsections": [
+            "### \"Meg tudsz nyugtatni ...-val kapcsolatban?\"",
+            "### \"Ki volt az a személy, akivel beszéltél?\"",
+            "### \"Túlzok?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie potrzeby zaufania",
+          "subsections": [
+            "### \"Szükségem van rá, hogy őszinte légy velem\"",
+            "### \"Bízom benned, de küzdök a...-val\""
+          ]
+        },
+        {
+          "header": "## Uspokajanie partnera",
+          "subsections": [
+            "### \"Nincs miért aggódnod\"",
+            "### \"Te vagy az egyetlen nekem\"",
+            "### \"Soha nem tennék semmit, ami fájna neked\""
+          ]
+        },
+        {
+          "header": "## Budowanie zaufania",
+          "subsections": [
+            "### \"Legyünk nyitottabbak egymással\"",
+            "### \"Azt akarom, hogy teljesen bízzunk egymásban\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4e1d6bb8-de41-4ed7-841b-f6ce7bd58194",
+      "title": "Первое знакомство с семьёй вашего венгерского партнёра: фразы, которые сблизят вас всех",
+      "native_lang": "ru",
+      "target_lang": "hu",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Конкретные сценарии",
+          "subsections": [
+            "### При входе в дом",
+            "### Комплименты и маленький разговор",
+            "### Когда предлагают сесть"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4e1ec957-20e4-4e9e-83f1-a0b1d273f33b",
+      "title": "100 Meest Gebruikte Portugese Woorden voor Relaties",
+      "native_lang": "nl",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Basis liefdeswoorden",
+          "subsections": [
+            "### 1. Amor - *a-mor* - Liefde",
+            "### 2. Coração - *ko-ra-saw* - Hart",
+            "### 3. Beijo - *bei-zjo* - Kus",
+            "### 4. Abraço - *a-bra-so* - Knuffel",
+            "### 5. Juntos - *zjoen-tos* - Samen",
+            "### 6. Para sempre - *pa-ra sem-pre* - Voor altijd",
+            "### 7. Sempre - *sem-pre* - Altijd",
+            "### 8. Lindo/a - *lien-do/a* - Mooi",
+            "### 9. Feliz - *fe-lies* - Gelukkig",
+            "### 10. Querido/a - *ke-rie-do/a* - Schat"
+          ]
+        },
+        {
+          "header": "## Dagelijkse communicatie",
+          "subsections": [
+            "### 11. Sim - *siem* - Ja",
+            "### 12. Não - *naw* - Nee",
+            "### 13. Por favor - *por fa-vor* - Alsjeblieft",
+            "### 14. Obrigado/a - *o-brie-ga-do/a* - Dank je",
+            "### 15. Desculpa - *des-koel-pa* - Sorry",
+            "### 16. Bom dia - *bom djie-a* - Goedemorgen",
+            "### 17. Boa noite - *bo-a noi-tjee* - Goedenacht",
+            "### 18. Olá - *o-la* - Hallo",
+            "### 19. Tchau - *tsjaw* - Tot ziens",
+            "### 20. Como vai? - *ko-mo vai* - Hoe gaat het?"
+          ]
+        },
+        {
+          "header": "## Gevoelens uitdrukken",
+          "subsections": [
+            "### 21. Eu te amo - *ee-oe tee a-mo* - Ik hou van je",
+            "### 22. Sinto sua falta - *sien-to soe-a fal-ta* - Ik mis je",
+            "### 23. Preciso de você - *pre-sie-zo djee vo-see* - Ik heb je nodig",
+            "### 24. Confio em você - *kon-fie-o em vo-see* - Ik vertrouw je",
+            "### 25. Tenho orgulho de você - *ten-jo or-goel-jo djee vo-see* - Ik ben trots op je",
+            "### 26. Eu te perdoo - *ee-oe tee per-doe-o* - Ik vergeef je",
+            "### 27. Entendo - *en-ten-do* - Ik begrijp het",
+            "### 28. Você me faz feliz - *vo-see mee faz fe-lies* - Je maakt me gelukkig",
+            "### 29. Você é tudo para mim - *vo-see ee toe-do pa-ra miem* - Je bent alles voor mij",
+            "### 30. Estou pensando em você - *es-toe pen-san-do em vo-see* - Ik denk aan je"
+          ]
+        },
+        {
+          "header": "## Tijd",
+          "subsections": [
+            "### 31. Hoje - *o-zjee* - Vandaag",
+            "### 32. Amanhã - *a-man-ja* - Morgen",
+            "### 33. Ontem - *on-tem* - Gisteren",
+            "### 34. Agora - *a-go-ra* - Nu",
+            "### 35. Depois - *de-pois* - Later",
+            "### 36. Logo - *lo-go* - Binnenkort",
+            "### 37. Nunca - *noen-ka* - Nooit",
+            "### 38. Às vezes - *as ve-zes* - Soms",
+            "### 39. Frequentemente - *fre-kwen-te-men-tee* - Vaak"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4e26b1ea-cd13-4e3d-81c2-35b1d776a66a",
+      "title": "Ρωσικές Φράσεις Συγχώρεσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις Συγχώρεσης",
+          "subsections": [
+            "### Αίτηση Συγχώρεσης",
+            "### Έκφραση Μετάνοιας",
+            "### Προσφορά Συγχώρεσης",
+            "### Χρόνος για Θεραπεία"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4e27ac00-a748-4fc2-9e17-9d1ba16bf871",
+      "title": "Olandeza: 14 Moduri Sincere de a Spune Te Iubesc",
+      "native_lang": "ro",
+      "target_lang": "nl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Expresii pentru Momente Speciale",
+          "subsections": [
+            "### Dimineața",
+            "### Seara",
+            "### După o Ceartă"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4e3261ca-1cd1-4f19-aeec-11af3745103f",
+      "title": "Il Greco e Difficile da Imparare? Guida Onesta",
+      "native_lang": "it",
+      "target_lang": "el",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Cosa Rende il Greco Impegnativo",
+          "subsections": [
+            "### 1. Complessita Grammaticale",
+            "### 2. Sfide di Pronuncia"
+          ]
+        },
+        {
+          "header": "## Cosa Rende il Greco Piu Facile di Quanto Pensi",
+          "subsections": [
+            "### 1. Ortografia Fonetica",
+            "### 2. Vocabolario Condiviso",
+            "### 3. Nessun Sistema Tonale",
+            "### 4. Modelli Regolari"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4e367ce5-779b-4e05-a9cb-aa06776fee33",
+      "title": "Норвезький сленг для переписки пар",
+      "native_lang": "uk",
+      "target_lang": "no",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Типові повідомлення",
+          "subsections": [
+            "### Ранок",
+            "### Протягом дня",
+            "### Вечір",
+            "### Перед сном"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4e428b96-25ca-438f-b014-22c7e3a2ffc4",
+      "title": "Portugese Zinnen voor Verzoening en Goedmaken",
+      "native_lang": "nl",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen voor verzoening",
+          "subsections": [
+            "### 1. \"Desculpa pelo que eu disse\"",
+            "### 2. \"Podemos começar de novo?\"",
+            "### 3. \"Eu não queria te magoar\"",
+            "### 4. \"Você é tudo para mim\"",
+            "### 5. \"Eu estava errado/a e admito\"",
+            "### 6. \"Te amo mais do que qualquer briga\"",
+            "### 7. \"O que posso fazer para compensar?\"",
+            "### 8. \"Eu te perdoo\"",
+            "### 9. \"Vamos deixar isso para trás\"",
+            "### 10. \"Vem cá, me dá um abraço\"",
+            "### 11. \"Nosso amor é mais forte que isso\"",
+            "### 12. \"Nunca quero te perder\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4e4afa1e-c7b2-476b-8ae3-4eed49c89e0c",
+      "title": "Шведська фрази для медового місяця та романтичних подорожей",
+      "native_lang": "uk",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна туристична лексика",
+          "subsections": []
+        },
+        {
+          "header": "## У готелі",
+          "subsections": [
+            "### Реєстрація",
+            "### Корисні фрази для готелю"
+          ]
+        },
+        {
+          "header": "## У ресторані",
+          "subsections": [
+            "### Романтична вечеря",
+            "### Тости для двох"
+          ]
+        },
+        {
+          "header": "## Пляжний відпочинок",
+          "subsections": [
+            "### Лексика для пляжу",
+            "### Романтичні пляжні активності"
+          ]
+        },
+        {
+          "header": "## Екскурсії для пар",
+          "subsections": [
+            "### Романтичні активності",
+            "### Корисні фрази"
+          ]
+        },
+        {
+          "header": "## Фотографії на пам'ять",
+          "subsections": [
+            "### Як попросити зробити фото"
+          ]
+        },
+        {
+          "header": "## Покупки сувенірів",
+          "subsections": [
+            "### Подарунки для рідних"
+          ]
+        },
+        {
+          "header": "## Проблеми в подорожі",
+          "subsections": [
+            "### Якщо щось пішло не так"
+          ]
+        },
+        {
+          "header": "## Повернення додому",
+          "subsections": [
+            "### Прощання з відпусткою"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4e8f4382-5d51-4aee-b9ab-fae68213f7da",
+      "title": "Cseh kifejezések kibéküléshez és megbékéléshez",
+      "native_lang": "hu",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető kifejezések a kibéküléshez",
+          "subsections": [
+            "### 1. \"Moc se omlouvám\"",
+            "### 2. \"Můžeme začít znovu?\"",
+            "### 3. \"Měl/a jsem chybu\"",
+            "### 4. \"Usmířme se\"",
+            "### 5. \"Odpouštím ti\"",
+            "### 6. \"Miluji tě, i když se hádáme\"",
+            "### 7. \"Nechtěl/a jsem ti ublížit\"",
+            "### 8. \"Můžeš mi odpustit?\"",
+            "### 9. \"Nenávidím, když se hádáme\"",
+            "### 10. \"Nechoďme spát ve zlém\"",
+            "### 11. \"Slibuji, že to bude lepší\"",
+            "### 12. \"Jsi pro mě důležitý/á\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4e9163f9-ab20-4e8f-bd08-7e937645d0da",
+      "title": "Expresii de Flirt în Spaniolă pentru Români",
+      "native_lang": "ro",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii de Flirt Esențiale",
+          "subsections": [
+            "### Complimente Fermecătoare",
+            "### Expresii Pasionale",
+            "### Replici Jucăușe",
+            "### Mesaje Romantice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4e9770da-42eb-4076-8466-10d480aecafc",
+      "title": "Guide de prononciation du russe : Parlez avec assurance à votre moitié",
+      "native_lang": "fr",
+      "target_lang": "ru",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Les bases : Sons qui n'existent pas en français",
+          "subsections": [
+            "### 1. Les voyelles spéciales russes",
+            "### 2. Les consonnes qui font la différence"
+          ]
+        },
+        {
+          "header": "## Les patterns de base",
+          "subsections": [
+            "### Pattern 1 : Questions avec intonation montante",
+            "### Pattern 2 : Consonnes doubles"
+          ]
+        },
+        {
+          "header": "## Erreurs courantes à éviter",
+          "subsections": [
+            "### 1. La lettre **Г** (ne se prononce pas \"guh\")",
+            "### 2. Le son **Ы** (pas un \"i\" français)",
+            "### 3. L'accent sur la mauvaise syllabe",
+            "### 4. Les consonnes mouillées"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4ecd2a8e-99ab-4905-8c9a-25b1a9b2d3ee",
+      "title": "Фразы для медового месяца на нидерландский: Романтическое путешествие",
+      "native_lang": "ru",
+      "target_lang": "nl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## В аэропорту",
+          "subsections": [
+            "### Регистрация",
+            "### На борту"
+          ]
+        },
+        {
+          "header": "## В отеле",
+          "subsections": [
+            "### Регистрация",
+            "### Романтические просьбы"
+          ]
+        },
+        {
+          "header": "## На пляже",
+          "subsections": [
+            "### Пляжная лексика",
+            "### Романтические фразы на het strand"
+          ]
+        },
+        {
+          "header": "## Ужин вдвоём",
+          "subsections": [
+            "### В ресторане",
+            "### Романтические тосты"
+          ]
+        },
+        {
+          "header": "## Экскурсии и приключения",
+          "subsections": [
+            "### Планирование het avontuur",
+            "### Создание de herinneringen"
+          ]
+        },
+        {
+          "header": "## Романтические моменты",
+          "subsections": [
+            "### Фразы для особых моментов",
+            "### Закат"
+          ]
+        },
+        {
+          "header": "## Покупка сувениров",
+          "subsections": [
+            "### В магазине",
+            "### Идеи подарков"
+          ]
+        }
+      ]
+    }
+  ]
+}

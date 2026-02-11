@@ -1,0 +1,480 @@
+{
+  "batchId": "tier2a-slim-0078",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "6307f8cb-6495-459f-a356-8e02f6668c2b",
+      "title": "Dire \"Tu me manques\" en italien : La nostalgie méditerranéenne",
+      "native_lang": "fr",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Phrases essentielles",
+          "subsections": [
+            "### \"Mi manchi\"",
+            "### \"Mi manchi tanto\"",
+            "### \"Mi manchi da morire\""
+          ]
+        },
+        {
+          "header": "## Expressions passionnées",
+          "subsections": [
+            "### \"Senza di te non è lo stesso\"",
+            "### \"Ogni momento senza te è un'eternità\"",
+            "### \"Il mio cuore ti cerca\""
+          ]
+        },
+        {
+          "header": "## Phrases quotidiennes",
+          "subsections": [
+            "### \"Vorrei che tu fossi qui\"",
+            "### \"Conto i giorni fino a rivederti\"",
+            "### \"Non vedo l'ora di rivederti\""
+          ]
+        },
+        {
+          "header": "## Expressions romantiques",
+          "subsections": [
+            "### \"Penso a te ogni momento\"",
+            "### \"La distanza non cambia quello che provo\"",
+            "### \"Sei sempre nel mio cuore\""
+          ]
+        },
+        {
+          "header": "## Pour les messages",
+          "subsections": [
+            "### \"Un bacio da lontano\"",
+            "### \"Penso a te\"",
+            "### \"Buonanotte amore, mi manchi\""
+          ]
+        },
+        {
+          "header": "## Expressions poétiques",
+          "subsections": [
+            "### \"Sei la mia casa ovunque tu sia\"",
+            "### \"Il tuo sorriso mi manca ogni giorno\"",
+            "### \"L'amore vero non conosce distanze\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6313eb64-d3c2-49c8-870b-20e167e9584f",
+      "title": "Dánská gramatika pro začátečníky: Jak mluvit s partnerem bez chyb",
+      "native_lang": "cs",
+      "target_lang": "da",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Nejčastější chyby a jak se jim vyvarovat",
+          "subsections": [
+            "### 1. **\"Jeg elsker du\" místo \"Jeg elsker dig\"**",
+            "### 2. **Zapomenutí \"r\" v slovesech**",
+            "### 3. **Špatné umístění \"ikke\"**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6343e3c2-e579-4bec-983e-3e1bc9ebab90",
+      "title": "Γράψτε Ερωτικά Γράμματα στα Αγγλικά",
+      "native_lang": "el",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για την Αρχή του Γράμματος",
+          "subsections": [
+            "### 1. My dearest... (Μάι ντίρεστ...)",
+            "### 2. To the love of my life (Του δε λαβ οβ μάι λάιφ)",
+            "### 3. My darling (Μάι ντάρλινγκ)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για το Κυρίως Μέρος",
+          "subsections": [
+            "### 4. Every moment with you is precious (Έβρι μόμεντ γουιδ γιου ιζ πρέσιους)",
+            "### 5. You make my heart skip a beat (Γιου μέικ μάι χαρτ σκιπ ε μπιτ)",
+            "### 6. I fall more in love with you every day (Άι φολ μορ ιν λαβ γουιδ γιου έβρι ντέι)",
+            "### 7. You are my everything (Γιου αρ μάι έβριθινγκ)",
+            "### 8. My love for you knows no bounds (Μάι λαβ φορ γιου νόουζ νο μπάουντς)",
+            "### 9. Being with you feels like home (Μπίινγκ γουιδ γιου φιλς λάικ χόουμ)",
+            "### 10. You light up my world (Γιου λάιτ απ μάι γουέρλντ)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για το Κλείσιμο",
+          "subsections": [
+            "### 11. Forever yours (Φορέβερ γιορς)",
+            "### 12. With all my love (Γουιδ ολ μάι λαβ)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6344a88a-cc79-4d96-a626-922086364396",
+      "title": "Wymowa ukrainska i cyrylica - przewodnik dla Polaków",
+      "native_lang": "pl",
+      "target_lang": "uk",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Dźwięki trudniejsze",
+          "subsections": [
+            "### И - twarde \"y\"",
+            "### Г - miękkie \"h\"",
+            "### Ї - \"ji\""
+          ]
+        },
+        {
+          "header": "## Akcent",
+          "subsections": [
+            "### Gdzie pada akcent?"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia wymowy",
+          "subsections": [
+            "### Ćwiczenie 1: Alfabet",
+            "### Ćwiczenie 2: Podobne słowa",
+            "### Ćwiczenie 3: Romantyczne frazy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "634b3f0f-7d63-4b25-b459-c1ce6a3b62e0",
+      "title": "Angol lánykérési és eljegyzési kifejezések",
+      "native_lang": "hu",
+      "target_lang": "en",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### A nagy kérdés",
+            "### Az eljegyzés bejelentése"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "63545d47-0cbb-49a0-aeaa-5d70ca2215d8",
+      "title": "Frases para Conocer a los Suegros en Sueco: Guía para los Svärföräldrar",
+      "native_lang": "es",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Saludos y Presentaciones",
+          "subsections": [
+            "### \"Trevligt att äntligen träffas\"",
+            "### \"Jag har hört så mycket om er\"",
+            "### \"Tack så mycket för inbjudan\""
+          ]
+        },
+        {
+          "header": "## Cumplidos Sinceros",
+          "subsections": [
+            "### \"Ni har ett fint hem\"",
+            "### \"Maten är jättegod\"",
+            "### \"Er son/dotter gör mig väldigt lycklig\""
+          ]
+        },
+        {
+          "header": "## Ofreciendo Ayuda",
+          "subsections": [
+            "### \"Kan jag hjälpa till med något?\"",
+            "### \"Låt mig hjälpa till med disken\""
+          ]
+        },
+        {
+          "header": "## Mostrando Interés",
+          "subsections": [
+            "### \"Jag skulle vilja veta mer om era familjetraditioner\"",
+            "### \"Hur träffades ni?\""
+          ]
+        },
+        {
+          "header": "## Despedidas",
+          "subsections": [
+            "### \"Tack för en trevlig kväll\"",
+            "### \"Det var trevligt att träffas\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6356edf9-cccb-4341-a5a0-a584f4a65105",
+      "title": "Danske SMS- og chattefraser for par",
+      "native_lang": "no",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kulturelle tips",
+          "subsections": [
+            "### Hygge",
+            "### Norsk vs. dansk – små forskjeller",
+            "### Danske kosenavn"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "637752f1-281b-43ca-82fb-44a1cc393113",
+      "title": "Ρουμανικές Φράσεις Συμφιλίωσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις Συμφιλίωσης",
+          "subsections": [
+            "### Έναρξη Συμφιλίωσης",
+            "### Έκφραση Μετάνοιας",
+            "### Έκφραση Αγάπης",
+            "### Πρόταση Λύσης"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "637be9ff-de58-4f1c-a6f4-8c678dfbcc4a",
+      "title": "Écrire une lettre d'amour en allemand : La profondeur romantique",
+      "native_lang": "fr",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Formules d'ouverture",
+          "subsections": [
+            "### \"Mein Schatz\" / \"Mein Liebling\"",
+            "### \"Meine große Liebe\"",
+            "### \"Mein Ein und Alles\""
+          ]
+        },
+        {
+          "header": "## Exprimer l'amour profond",
+          "subsections": [
+            "### \"Du bist das Beste, was mir je passiert ist\"",
+            "### \"Mein Herz gehört dir für immer\"",
+            "### \"Mit jedem Tag liebe ich dich mehr\""
+          ]
+        },
+        {
+          "header": "## Expressions poétiques",
+          "subsections": [
+            "### \"Du bist die Melodie meiner Seele\"",
+            "### \"In deinen Augen habe ich mein Zuhause gefunden\"",
+            "### \"Du bist mein Heute und alle meine Morgen\""
+          ]
+        },
+        {
+          "header": "## Décrire ce que l'autre apporte",
+          "subsections": [
+            "### \"Du machst mich zu einem besseren Menschen\"",
+            "### \"Bei dir bin ich endlich ich selbst\"",
+            "### \"Du bringst Licht in mein Leben\""
+          ]
+        },
+        {
+          "header": "## Engagements et promesses",
+          "subsections": [
+            "### \"Ich verspreche, dich in guten und schlechten Zeiten zu lieben\"",
+            "### \"Ich werde immer an deiner Seite sein\"",
+            "### \"Meine Liebe zu dir ist bedingungslos und ewig\""
+          ]
+        },
+        {
+          "header": "## Formules de conclusion",
+          "subsections": [
+            "### \"Für immer dein/deine\"",
+            "### \"Mit all meiner Liebe\"",
+            "### \"In ewiger Liebe\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "639a0476-7ac0-45e0-8640-f042664b63d0",
+      "title": "Phrases roumaines pour les disputes de couple",
+      "native_lang": "fr",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions essentielles pour les désaccords",
+          "subsections": [
+            "### Exprimer son désaccord",
+            "### Exprimer ses émotions",
+            "### Fixer des limites",
+            "### Chercher à comprendre"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "63a30d74-c548-4adf-98e2-fa45b90422ee",
+      "title": "50+ norweskich zdrobnień, które roztopią serce",
+      "native_lang": "pl",
+      "target_lang": "no",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Zdrobnienia na rozne okazje",
+          "subsections": [
+            "### Rano",
+            "### Wieczorem",
+            "### W trudnych chwilach"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Wybierz swoje zdrobnienie",
+            "### Cwiczenie 2: Nowe zdrobnienie codzieńnie",
+            "### Cwiczenie 3: Zdrobnienia od zwierzat"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "63a66bfc-f2f7-40f7-ac52-ea2aff7cded3",
+      "title": "Φράσεις για Γνωριμία με τους Πεθερικούς στα Ρουμανικά",
+      "native_lang": "el",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για την Πρώτη Γνωριμία",
+          "subsections": [
+            "### 1. Îmi pare bine să vă cunosc (Ιμι πάρε μπίνε σα βα κουνόσκ)",
+            "### 2. Am auzit multe despre dumneavoastră (Αμ αουζίτ μούλτε ντέσπρε ντουμνεαβοάστρα)",
+            "### 3. Vă mulțumesc că m-ați primit în casa dumneavoastră (Βα μουλτσουμέσκ κα ματσί πριμίτ ιν κάσα ντουμνεαβοάστρα)"
+          ]
+        },
+        {
+          "header": "## Φράσεις Εκτίμησης",
+          "subsections": [
+            "### 4. Fiul/Fiica dumneavoastră este minunat/ă (Φίουλ/Φίικα ντουμνεαβοάστρα έστε μινουνάτ/α)",
+            "### 5. Ați crescut o persoană extraordinară (Ατσί κρεσκούτ ο περσοάνα εξτραορντινάρα)",
+            "### 6. Este foarte gustos! (Έστε φοάρτε γκουστός)",
+            "### 7. Aveți o casă frumoasă (Αβέτσι ο κάσα φρουμοάσα)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για Συζήτηση",
+          "subsections": [
+            "### 8. Mi-ar plăcea să aflu mai multe despre familia dumneavoastră (Μιαρ πλατσέα σα αφλού μάι μούλτε ντέσπρε φαμίλια ντουμνεαβοάστρα)",
+            "### 9. Cum era când era copil? (Κουμ έρα καντ έρα κοπίλ)",
+            "### 10. Sper să putem petrece mai mult timp împreună (Σπερ σα πουτέμ πετρέτσε μάι μουλτ τιμπ ιμπρεούνα)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "63b1452c-0e4b-4d79-a83b-d803d05dc6dc",
+      "title": "Hollandalı Partnerinizin Ailesiyle Tanışma: Kültürel Rehber ve İfadeler",
+      "native_lang": "tr",
+      "target_lang": "nl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Aile Üyelerine Hitap",
+          "subsections": [
+            "### Ebeveynler",
+            "### Diğer Aile Üyeleri"
+          ]
+        },
+        {
+          "header": "## Sofra Adabı",
+          "subsections": [
+            "### Yemek Davetinde",
+            "### Sohbet Konuları",
+            "### İyi Sohbet Konuları",
+            "### Kaçınılması Gereken Konular"
+          ]
+        },
+        {
+          "header": "## Zorlu Durumlar",
+          "subsections": [
+            "### Dil Engeli",
+            "### İltifatlar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "63bc99f6-c0f4-4476-8892-4ccb3673876a",
+      "title": "Argot tchèque pour SMS : communiquez avec votre partenaire",
+      "native_lang": "fr",
+      "target_lang": "cs",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Abréviations essentielles",
+          "subsections": [
+            "### Salutations",
+            "### Réponses courtes"
+          ]
+        },
+        {
+          "header": "## Messages pour différentes situations",
+          "subsections": [
+            "### Le matin",
+            "### Le soir",
+            "### En cas de dispute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "63c2172a-4761-401e-84cd-b9d66275dcd5",
+      "title": "Franske Flirtesætninger for Danskere",
+      "native_lang": "da",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Komplimenter",
+          "subsections": [
+            "### \"Tu as de beaux yeux\"",
+            "### \"Tu es ravissant(e)\"",
+            "### \"J'adore ton sourire\""
+          ]
+        },
+        {
+          "header": "## Romantiske Udtryk",
+          "subsections": [
+            "### \"Je pense à toi tout le temps\"",
+            "### \"Tu me fais craquer\"",
+            "### \"Je suis tombé(e) sous ton charme\""
+          ]
+        },
+        {
+          "header": "## Subtil Fransk Flirt",
+          "subsections": [
+            "### \"On se connaît, non?\"",
+            "### \"Tu viens souvent ici?\""
+          ]
+        },
+        {
+          "header": "## Invitationer på Fransk",
+          "subsections": [
+            "### \"Je t'invite à prendre un verre?\"",
+            "### \"Ça te dirait de dîner avec moi?\""
+          ]
+        },
+        {
+          "header": "## Kærlige Kælenavne",
+          "subsections": [
+            "### \"Mon cœur\"",
+            "### \"Mon amour\""
+          ]
+        }
+      ]
+    }
+  ]
+}

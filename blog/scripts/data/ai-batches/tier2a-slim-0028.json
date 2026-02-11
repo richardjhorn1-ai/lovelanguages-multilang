@@ -1,0 +1,421 @@
+{
+  "batchId": "tier2a-slim-0028",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "37d58d60-2605-4136-93db-b5db3042c0ca",
+      "title": "Türkische Hochzeitsphrasen und romantische Glückwünsche",
+      "native_lang": "de",
+      "target_lang": "tr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Die wichtigsten Hochzeitsphrasen",
+          "subsections": [
+            "### Der Heiratsantrag",
+            "### Das Ehegelübde",
+            "### Glückwünsche aussprechen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "37dce4fe-59fb-49da-8cf3-45b6853ac900",
+      "title": "Frases en Italiano para Discutir y Resolver Desacuerdos con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Expresar Desacuerdo",
+          "subsections": [
+            "### \"La vedo diversamente\"",
+            "### \"Possiamo parlarne con calma?\"",
+            "### \"Mi fa male quando tu...\"",
+            "### \"Non intendevo questo\"",
+            "### \"Ho bisogno di tempo per pensare\"",
+            "### \"Cerca di capire il mio punto di vista\"",
+            "### \"Non voglio litigare\"",
+            "### \"Non mi stai ascoltando\"",
+            "### \"Troviamo un compromesso\"",
+            "### \"Questo è importante per me\"",
+            "### \"Dobbiamo calmarci tutti e due\"",
+            "### \"Mi sento ferito/a\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "37ee1037-f4cf-4d13-83a4-7f210da45bb4",
+      "title": "Frases en Francés para Reconciliarte con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Pedir Disculpas",
+          "subsections": [
+            "### \"Je suis désolé(e) pour ce que j'ai dit\"",
+            "### \"Je ne voulais pas te blesser\"",
+            "### \"On peut recommencer?\"",
+            "### \"J'avais tort\""
+          ]
+        },
+        {
+          "header": "## Frases para Expresar Amor Después del Conflicto",
+          "subsections": [
+            "### \"Je t'aime, même quand on se dispute\"",
+            "### \"Tu comptes énormément pour moi\"",
+            "### \"Je déteste me disputer avec toi\""
+          ]
+        },
+        {
+          "header": "## Frases para Reconstruir la Conexión",
+          "subsections": [
+            "### \"Parlons-en calmement\"",
+            "### \"Je veux mieux te comprendre\"",
+            "### \"Qu'est-ce que je peux faire pour arranger ça?\"",
+            "### \"Je promets de faire des efforts\"",
+            "### \"Je peux te prendre dans mes bras?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "37f07255-46e7-477e-81ca-932ae19363f7",
+      "title": "Frases en Inglés para Discutir y Resolver Desacuerdos con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Expresar Desacuerdo de Manera Respetuosa",
+          "subsections": [
+            "### \"I see things differently\"",
+            "### \"Can we talk about this calmly?\"",
+            "### \"I feel hurt when you...\"",
+            "### \"That's not what I meant\"",
+            "### \"Let's not raise our voices\"",
+            "### \"I need some time to think\"",
+            "### \"Can you help me understand your point of view?\"",
+            "### \"I don't want to fight, I want to solve this\"",
+            "### \"You're not listening to me\"",
+            "### \"Let's find a compromise\""
+          ]
+        },
+        {
+          "header": "## Frases para Momentos de Mayor Tensión",
+          "subsections": [
+            "### \"I think we both need to cool down\"",
+            "### \"This is important to me\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3809eb1f-46bb-4b4c-a640-52cc5dc95bad",
+      "title": "Ungarische Phrasen für die Schwiegereltern",
+      "native_lang": "de",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Erste Begegnung",
+          "subsections": [
+            "### \"Nagyon örülök, hogy végre megismerhetem önöket\"",
+            "### \"Sokat hallottam önökről\"",
+            "### \"Köszönöm, hogy befogadtak\"",
+            "### \"Gyönyörű az otthonuk\""
+          ]
+        },
+        {
+          "header": "## Bei Mahlzeiten",
+          "subsections": [
+            "### \"Ez nagyon finom! Megkaphatom a receptet?\"",
+            "### \"Köszönöm ezt a csodálatos ételt\"",
+            "### \"Segíthetek valamiben?\""
+          ]
+        },
+        {
+          "header": "## Über Ihre Beziehung",
+          "subsections": [
+            "### \"A fiuk/lányuk mindent jelent nekem\"",
+            "### \"Nagyon hálás vagyok, hogy [Name] az életemben van\"",
+            "### \"Megígérem, hogy mindig vigyázni fogok [Name]-ra\""
+          ]
+        },
+        {
+          "header": "## Dankbarkeit zeigen",
+          "subsections": [
+            "### \"Köszönöm, hogy ilyen csodálatos embert neveltek\"",
+            "### \"Nagyon értékelem a meleg fogadtatást\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "38293aa0-3f7c-4832-8ba8-f43adcf0f3c6",
+      "title": "Είναι τα Πορτογαλικά Δύσκολα να Μάθεις; Οδηγός για Έλληνες",
+      "native_lang": "el",
+      "target_lang": "pt",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Τι Κάνει τα Πορτογαλικά Εύκολα",
+          "subsections": [
+            "### 1. Λατινικό Αλφάβητο",
+            "### 2. Παρόμοιο Λεξιλόγιο",
+            "### 3. Λογική Γραμματική"
+          ]
+        },
+        {
+          "header": "## Τι Κάνει τα Πορτογαλικά Δύσκολα",
+          "subsections": [
+            "### 1. Προφορά",
+            "### 2. Ρήματα"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "384fbac4-5628-451d-bf0f-fd1c08c04b17",
+      "title": "Russian Making Up & Reconciliation Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Apologizing Sincerely",
+          "subsections": [
+            "### Прости меня (Prosti menya)",
+            "### Мне очень жаль (Mne ochen' zhal')",
+            "### Я был неправ / Я была неправа (Ya byl neprav / Ya byla neprava)",
+            "### Я не должен был это говорить (Ya ne dolzhen byl eto govorit')"
+          ]
+        },
+        {
+          "header": "## Expressing Your Feelings",
+          "subsections": [
+            "### Я ненавижу, когда мы ссоримся (Ya nenavizhu, kogda my ssorimsa)",
+            "### Я скучаю по тебе, когда мы так (Ya skuchayu po tebe, kogda my tak)",
+            "### Мне больно, когда мы злимся (Mne bol'no, kogda my zlimsya)"
+          ]
+        },
+        {
+          "header": "## Reaching Out",
+          "subsections": [
+            "### Можем поговорить? (Mozhem pogovorit'?)",
+            "### Я хочу всё исправить (Ya khochu vsyo ispravit')",
+            "### Давай начнём сначала (Davay nachnyom snachala)"
+          ]
+        },
+        {
+          "header": "## Expressing Love and Commitment",
+          "subsections": [
+            "### Я тебя люблю, это не изменится (Ya tebya lyublyu, eto ne izmenitsya)",
+            "### Ты важнее, чем эта ссора (Ty vazhnee, chem eta ssora)",
+            "### Я не хочу тебя потерять (Ya ne khochu tebya poteryat')"
+          ]
+        },
+        {
+          "header": "## Moving Forward",
+          "subsections": [
+            "### Как мы можем избежать этого в будущем? (Kak my mozhem izbezhat' etogo v budushchem?)",
+            "### Обещаю стараться быть лучше (Obeshchayu starat'sya byt' luchshe)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "38587511-9cfe-463a-9228-f107d85f74ae",
+      "title": "Expresii în Italiană pentru Discuții și Dezacorduri în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale pentru Discuții",
+          "subsections": [
+            "### Exprimarea Frustrării",
+            "### Cererea de Clarificări",
+            "### Exprimarea Intensă",
+            "### Stabilirea Limitelor",
+            "### Recunoașterea și Empatia",
+            "### Căutarea Soluțiilor"
+          ]
+        },
+        {
+          "header": "## Nuanțe Culturale Importante",
+          "subsections": [
+            "### Gesturile și Tonul",
+            "### Reconcilierea",
+            "### Familia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3862e68b-3b85-424e-9ead-a20f1bcfba22",
+      "title": "Italian Emotional Support Phrases: Comfort Your Partner in Difficult Times",
+      "native_lang": "en",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## During Specific Situations",
+          "subsections": [
+            "### Grief and Loss",
+            "### Stress and Anxiety",
+            "### Disappointment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3865c74e-6b56-4dbb-b5bc-3577bbd55ea1",
+      "title": "Török nászutas utazási kifejezések",
+      "native_lang": "hu",
+      "target_lang": "tr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Utazási alapkifejezések",
+            "### Romantikus helyzetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "386fca83-d7f5-4569-bf9c-6847d082fbd6",
+      "title": "Vocabulaire italien au restaurant",
+      "native_lang": "fr",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Exercices pour couples",
+          "subsections": [
+            "### Jeu de rôle",
+            "### Menu du jour",
+            "### Sortie réelle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "387af244-860f-4fee-8899-03704ae609cc",
+      "title": "Swedish Phrases for Meeting the In-Laws: Make a Great Impression",
+      "native_lang": "en",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## First Impressions",
+          "subsections": [
+            "### Greetings"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "387e6e55-fc73-4adb-899b-1ad5e26de6f1",
+      "title": "Cum să îi cunoști familia în italiană: Fraze esențiale pentru cupluri",
+      "native_lang": "ro",
+      "target_lang": "it",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Scenarii comune și dialoguri",
+          "subsections": [
+            "### 1. Cina în familie",
+            "### 2. Discuții despre familie",
+            "### 3. Arătând fotografii"
+          ]
+        },
+        {
+          "header": "## Vocabular pentru conversații de familie",
+          "subsections": [
+            "### Despre relația voastră",
+            "### Despre copii și nepoți"
+          ]
+        },
+        {
+          "header": "## Ce faci dacă lucrurile nu merg conform planului?",
+          "subsections": [
+            "### Dacă nu înțelegi",
+            "### Dacă faci o greșeală"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "38846983-0008-41fe-85fc-2c7e3488858b",
+      "title": "Frases en Turco para Reconciliarte con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Pedir Disculpas",
+          "subsections": [
+            "### \"Söylediğim için özür dilerim\"",
+            "### \"Seni incitmek istememiştim\"",
+            "### \"Baştan başlayabilir miyiz?\"",
+            "### \"Hatalıydım\""
+          ]
+        },
+        {
+          "header": "## Frases para Expresar Amor",
+          "subsections": [
+            "### \"Kavga etsek bile seni seviyorum\"",
+            "### \"Sen benim her şeyimsin\"",
+            "### \"Seninle kavga etmekten nefret ediyorum\""
+          ]
+        },
+        {
+          "header": "## Frases para Reconstruir",
+          "subsections": [
+            "### \"Sakin sakin konuşalım\"",
+            "### \"Seni daha iyi anlamak istiyorum\"",
+            "### \"Bunu düzeltmek için ne yapabilirim?\"",
+            "### \"Daha çok çabalayacağıma söz veriyorum\"",
+            "### \"Sana sarılabilir miyim?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "388496bf-5124-43ca-bd3b-94b68a6ca720",
+      "title": "Как сказать «Я тебя люблю» на португальском",
+      "native_lang": "ru",
+      "target_lang": "pt",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ответы на признание",
+          "subsections": [
+            "### Если чувства взаимны:"
+          ]
+        },
+        {
+          "header": "## Фразы для особых моментов",
+          "subsections": [
+            "### Утром:",
+            "### Перед сном:",
+            "### При расставании:"
+          ]
+        },
+        {
+          "header": "## Практика для пар",
+          "subsections": [
+            "### Утренний ритуал:",
+            "### Вечерний ритуал:",
+            "### В течение дня:"
+          ]
+        }
+      ]
+    }
+  ]
+}

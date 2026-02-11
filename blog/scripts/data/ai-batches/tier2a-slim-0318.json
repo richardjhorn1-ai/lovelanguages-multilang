@@ -1,0 +1,424 @@
+{
+  "batchId": "tier2a-slim-0318",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "b8d078b8-c9b9-4af8-8ea2-dd78ef68f2f3",
+      "title": "L'Ucraino È Difficile da Imparare? Una Guida Onesta per gli Italofoni",
+      "native_lang": "it",
+      "target_lang": "uk",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Le Sfide",
+          "subsections": [
+            "### 1. L'Alfabeto Cirillico",
+            "### 2. I Casi Grammaticali",
+            "### 3. Gli Aspetti Verbali",
+            "### 4. La Pronuncia"
+          ]
+        },
+        {
+          "header": "## I Vantaggi",
+          "subsections": [
+            "### 1. Ortografia Fonetica",
+            "### 2. Niente Articoli",
+            "### 3. Ordine delle Parole Flessibile",
+            "### 4. Vocabolario Condiviso"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b94da0f5-fc58-4e46-bcac-f8127e92e951",
+      "title": "Polish Speakers: Global Statistics",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Where in the World Do People Speak Polish?",
+          "subsections": [
+            "### Poland: The Heart of Polish Culture",
+            "### Major Polish Communities Worldwide"
+          ]
+        },
+        {
+          "header": "## Why These Numbers Matter for Language Learners",
+          "subsections": [
+            "### Global Communication Opportunities",
+            "### Growing Language Interest"
+          ]
+        },
+        {
+          "header": "## The Future of Polish",
+          "subsections": [
+            "### Demographic Trends",
+            "### Learning Resources Growth"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b9ed34ea-3f46-4c44-8137-3ab10e7a33e6",
+      "title": "Je Oekraïense schoonfamilie ontmoeten: essentiële frasen voor koppels",
+      "native_lang": "nl",
+      "target_lang": "uk",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Specifieke scenario's tijdens het bezoek",
+          "subsections": [
+            "### Bij binnenkomst",
+            "### Aan de eettafel",
+            "### Cadeautje overhandigen"
+          ]
+        },
+        {
+          "header": "## Praktische vocabulaire voor het bezoek",
+          "subsections": [
+            "### Huis en comfort",
+            "### Gespreksonderwerpen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ba6395a0-0400-4d3a-a2b2-e552a2f1f417",
+      "title": "30 Dansk Hilsener og Farvel for Kjærester - Lær Dansk Sammen",
+      "native_lang": "no",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Slik Bruker Dere Hilsener Sammen",
+          "subsections": [
+            "### Lag Dere Egne Ritualer",
+            "### Vanlige Feil å Unngå"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baecf09d-d89f-478d-9eae-ebe0dd5fcd8c",
+      "title": "Griekse Grammatica Basics voor Beginners",
+      "native_lang": "nl",
+      "target_lang": "el",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Werkwoorden: Tegenwoordige Tijd",
+          "subsections": [
+            "### Groep 1: Werkwoorden op -ω",
+            "### Groep 2: Werkwoorden op -άω/-ώ"
+          ]
+        },
+        {
+          "header": "## Belangrijke Werkwoorden",
+          "subsections": [
+            "### Είμαι (zijn)",
+            "### Έχω (hebben)",
+            "### Θέλω (willen)"
+          ]
+        },
+        {
+          "header": "## Vragen Stellen",
+          "subsections": [
+            "### Vraagwoorden"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bc563118-dd08-47d8-a274-d00a48bc07a9",
+      "title": "Przewodnik po wymowie greckiej dla polskich par",
+      "native_lang": "pl",
+      "target_lang": "el",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Spolgloski greckie",
+          "subsections": [
+            "### Spolgloski podobne do polskich",
+            "### Spolgloski wymagajace uwagi",
+            "### Podwojne spolgloski"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia wymowy dla par",
+          "subsections": [
+            "### Cwiczenie 1: Samogloski",
+            "### Cwiczenie 2: Trudne spolgloski",
+            "### Cwiczenie 3: Romantyczne frazy"
+          ]
+        },
+        {
+          "header": "## Typowe bledy Polaków",
+          "subsections": [
+            "### Bled 1: Mylenie \"δ\" i \"d\"",
+            "### Bled 2: Ignorowanie podwojnych spolglosek",
+            "### Bled 3: Bledny akcent"
+          ]
+        },
+        {
+          "header": "## Intonacja w zdaniach",
+          "subsections": [
+            "### Zdania oznajmujace",
+            "### Pytania tak/nie",
+            "### Pytania że slowem pytajnym"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bcdab934-4c1d-47c3-a65e-bdf981646c55",
+      "title": "Spotkanie z rodziną Twojego francuskiego partnera: niezbędne zwroty dla par",
+      "native_lang": "pl",
+      "target_lang": "fr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Typowe scenariusze rodzinne",
+          "subsections": [
+            "### 1. Przywitanie w drzwiach",
+            "### 2. Przy stole",
+            "### 3. Rozmowa o waszym związku"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "be1cee46-04f6-48e8-a2fc-41597d082a7e",
+      "title": "Traditions de Noël espagnoles pour couples",
+      "native_lang": "fr",
+      "target_lang": "es",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Les voeux de Noël",
+          "subsections": [
+            "### Comment souhaiter un joyeux Noël",
+            "### Messages romantiques de Noël"
+          ]
+        },
+        {
+          "header": "## Le vocabulaire de Noël",
+          "subsections": [
+            "### Décorations et symboles",
+            "### Les personnages"
+          ]
+        },
+        {
+          "header": "## Les traditions espagnoles de Noël",
+          "subsections": [
+            "### La Nochebuena (24 décembre)",
+            "### La Nochevieja (31 décembre)",
+            "### Los Reyes Magos (6 janvier)"
+          ]
+        },
+        {
+          "header": "## La gastronomie de Noël",
+          "subsections": [
+            "### Les plats traditionnels",
+            "### Préparer ensemble"
+          ]
+        },
+        {
+          "header": "## Activités de Noël en couple",
+          "subsections": [
+            "### Activités romantiques",
+            "### Les cadeaux"
+          ]
+        },
+        {
+          "header": "## Dialogues de Noël",
+          "subsections": [
+            "### Décorer le sapin ensemble",
+            "### Nochevieja - Minuit"
+          ]
+        },
+        {
+          "header": "## Exercices de pratique pour couples",
+          "subsections": [
+            "### Exercice 1 : Vos traditions",
+            "### Exercice 2 : Planifiez votre Noël",
+            "### Exercice 3 : Écrivez une carte"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "be58f755-0335-4343-ab48-38a8a83ca62d",
+      "title": "Dutch Pronunciation: Master Key Sounds",
+      "native_lang": "en",
+      "target_lang": "nl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Consonants That Differ From English",
+          "subsections": [
+            "### W - Softer Than English",
+            "### R - Various Pronunciations",
+            "### J - Like English \"Y\"",
+            "### SCH - A Combined Sound"
+          ]
+        },
+        {
+          "header": "## Pronunciation Rules Summary",
+          "subsections": [
+            "### End Consonant Devoicing",
+            "### Double Consonants",
+            "### The \"N\" at End of Verbs"
+          ]
+        },
+        {
+          "header": "## Practice Words by Sound",
+          "subsections": [
+            "### G/Ch Practice",
+            "### Vowel Practice",
+            "### Combined Challenge Words"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bed8cd71-a935-478b-baf1-70dc9eaf4a19",
+      "title": "7 Erreurs de Prononciation Polonaise",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Exercices de pratique pour les couples",
+          "subsections": [
+            "### Exercices de prononciation quotidiens",
+            "### Pratique d'écoute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "beed1f15-bb1b-4c01-8ec9-6f9ac73e80b1",
+      "title": "Portugese Grammatica Basics voor Beginners",
+      "native_lang": "nl",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Belangrijke Onregelmatige Werkwoorden",
+          "subsections": [
+            "### Ser (zijn - permanent)",
+            "### Estar (zijn - tijdelijk)",
+            "### Ter (hebben)",
+            "### Ir (gaan)"
+          ]
+        },
+        {
+          "header": "## Vragen Stellen",
+          "subsections": [
+            "### Vraagwoorden",
+            "### Vraagzinnen"
+          ]
+        },
+        {
+          "header": "## Verleden Tijd (Pretérito Perfeito)",
+          "subsections": [
+            "### -AR Werkwoorden"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bf17deee-9d45-44fc-9292-7f28e92cda62",
+      "title": "50+ Szwedzkich Słodkich Przydomków dla Zakochanych",
+      "native_lang": "pl",
+      "target_lang": "sv",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Jak Używać Przydomków z Grace",
+          "subsections": [
+            "### Czas i miejsce",
+            "### Dostosuj do osobowości",
+            "### Tradycja vs. innowacja"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c0f152e4-8522-48f5-89db-7c32dada30db",
+      "title": "60+ Frases Románticas en Polaco para Enamorar",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ocasiones Especiales y Celebraciones",
+          "subsections": [
+            "### Frases de Aniversario",
+            "### Frases de Propuesta y Boda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c12a003e-6f1d-4954-a958-24db3af80a0e",
+      "title": "Fransizca: Seni Seviyorum Demenin 15 Romantik Yolu",
+      "native_lang": "tr",
+      "target_lang": "fr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Günlük Romantik Ifadeler",
+          "subsections": [
+            "### Sabah",
+            "### Gün Icinde",
+            "### Gece"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c15335da-a877-4e8e-9384-723c96d47556",
+      "title": "Portugees vs. Nederlands: De Belangrijkste Verschillen",
+      "native_lang": "nl",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Grammatica: De Grote Verschillen",
+          "subsections": [
+            "### 1. Werkwoordvervoegingen",
+            "### 2. Ser vs. Estar (Twee \"Zijn\"!)",
+            "### 3. Subjunctivo (Aanvoegende Wijs)",
+            "### 4. Lidwoorden bij Namen"
+          ]
+        },
+        {
+          "header": "## Uitspraak Verschillen",
+          "subsections": [
+            "### Nasale Klanken",
+            "### De 'r' Klanken",
+            "### De 'lh' en 'nh'"
+          ]
+        },
+        {
+          "header": "## Woordvolgorde",
+          "subsections": [
+            "### Bijvoeglijke Naamwoorden NA het Zelfstandig Naamwoord",
+            "### Voornaamwoorden bij Werkwoorden"
+          ]
+        },
+        {
+          "header": "## Meest Gemaakte Fouten",
+          "subsections": [
+            "### 1. Ser en Estar Verwarren",
+            "### 2. Bijvoeglijk Naamwoord voor Zelfstandig Naamwoord",
+            "### 3. Werkwoord Niet Vervoegen",
+            "### 4. Nasale Klanken Vergeten"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0756",
+  "articles": [
+    {
+      "id": "da767685-8b5b-42ce-9788-da7d756fdaa1",
+      "title": "Phrases de drague en norvégien : L'amour au pays des fjords",
+      "native_lang": "fr",
+      "target_lang": "no",
+      "category": "communication",
+      "content": "## Séduire dans la langue des Vikings\n\nLa Norvège, pays des fjords majestueux et des aurores boréales, a une culture romantique unique. Les Norvégiens valorisent l'authenticité, la nature et l'égalité. Si votre cœur bat pour un(e) Norvégien(ne), ces phrases vous aideront à exprimer vos sentiments.\n\n## Phrases de base pour charmer\n\n### \"Du er veldig vakker/kjekk\"\n**Prononciation :** dou èr VEL-di VA-ker / TCHÉK\n\n**Signification :** Tu es très belle/beau\n\n\"Veldig\" intensifie le compliment. \"Vakker\" est pour les femmes, \"kjekk\" pour les hommes.\n\n### \"Du har et nydelig smil\"\n**Prononciation :** dou har ét NY-dé-li SMIL\n\n**Signification :** Tu as un sourire magnifique\n\n\"Nydelig\" est un mot chaleureux qui exprime quelque chose de beau et agréable.\n\n### \"Øynene dine er vakre\"\n**Prononciation :** EUY-né-né DI-né èr VAK-ré\n\n**Signification :** Tes yeux sont beaux\n\n## Exprimer l'attirance\n\n### \"Jeg klarer ikke å slutte å tenke på deg\"\n**Prononciation :** yaï KLA-rer I-ké o SLOU-té o TÉN-ké po daï\n\n**Signification :** Je n'arrive pas à arrêter de penser à toi\n\n### \"Du gjør meg så lykkelig\"\n**Prononciation :** dou yeur maï so LYK-ké-li\n\n**Signification :** Tu me rends si heureux(se)\n\n### \"Det er noe spesielt med deg\"\n**Prononciation :** dé èr NOU-é spé-si-ÉLT mé daï\n\n**Signification :** Il y a quelque chose de spécial en toi\n\n## Déclarations profondes\n\n### \"Du betyr alt for meg\"\n**Prononciation :** dou bé-TYR ALT for maï\n\n**Signification :** Tu comptes énormément pour moi\n\n### \"Jeg elsker deg\"\n**Prononciation :** yaï ÉL-sker daï\n\n**Signification :** Je t'aime\n\nComme en suédois, cette déclaration est très sérieuse en Norvège.\n\n### \"Du er kjærligheten i livet mitt\"\n**Prononciation :** dou èr TCHÉR-li-hé-tén i LI-vé mit\n\n**Signification :** Tu es l'amour de ma vie\n\n## Phrases quotidiennes\n\n### \"Jeg savner deg\"\n**Prononciation :** yaï SAV-ner daï\n\n**Signification :** Tu me manques\n\n### \"Klem meg\"\n**Prononciation :** KLÉM maï\n\n**Signification :** Prends-moi dans tes bras\n\n### \"Kos og klem\"\n**Prononciation :** KOSS o KLÉM\n\n**Signification :** Câlin et bisou\n\n## Petits noms affectueux norvégiens\n\n- **Kjære** (tchè-ré) - Chéri(e)\n- **Elskede** - Bien-aimé(e)\n- **Vennen min** - Mon ami(e) / Mon amour\n- **Skatt** - Trésor\n- **Hjertet mitt** - Mon cœur\n\n## Conseils culturels norvégiens\n\n**Nature sacrée :** Les Norvégiens adorent la nature. Une randonnée en montagne ou une sortie en kayak peut être très romantique.\n\n**Égalité scandinave :** Comme en Suède, l'égalité est fondamentale. Partagez les initiatives et les frais.\n\n**\"Koselig\" :** Ce concept norvégien (similaire au hygge danois) décrit une atmosphère chaleureuse et intime. Créer un moment \"koselig\" est très romantique.\n\n**Réserve initiale :** Les Norvégiens peuvent sembler réservés. Patience - la chaleur vient avec la confiance.\n\n**Alcool et socialisation :** L'alcool joue souvent un rôle dans les premières rencontres sociales en Norvège. C'est culturel.\n\n**Friluftsliv :** L'amour de la vie en plein air est profond. Montrez votre appréciation de la nature.\n\n**Indépendance :** Les Norvégiens valorisent beaucoup l'espace personnel et l'indépendance.\n\n## Le norvégien bokmål vs nynorsk\n\nLa Norvège a deux formes écrites officielles. Le bokmål (utilisé ici) est le plus courant. Votre partenaire appréciera vos efforts quelle que soit la variante.\n\n## Conclusion\n\nFlirter en norvégien demande authenticité et patience. Les Norvégiens apprécient la sincérité plus que les belles paroles. Votre effort pour apprendre quelques phrases touchera certainement votre partenaire. Lykke til med kjærligheten ! (Bonne chance en amour !)",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Phrases de base pour charmer",
+              "## Exprimer l'attirance",
+              "## Déclarations profondes",
+              "## Phrases quotidiennes"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "da7a4558-863a-4807-bf2e-c31f3e334c37",
+      "title": "Грецька фрази для медового місяця та романтичних подорожей",
+      "native_lang": "uk",
+      "target_lang": "el",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport CTA from '@components/CTA.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\n\n# Грецька фрази для медового місяця та романтичних подорожей\n\nМедовий місяць — це незабутня подорож для молодят! Якщо ви плануєте романтичну поїздку в країну, де розмовляють грецькою, ця стаття допоможе вам.\n\n<PhraseOfDay\n  phrase=\"This is our honeymoon!\"\n  translation=\"Це наш медовий місяць!\"\n  context=\"Для особливого ставлення в готелі\"\n/>\n\n## Основна туристична лексика\n\n\n\n## У готелі\n\n### Реєстрація\n\n1. \"Ми забронювали номер\" — перша фраза на ресепшені\n2. \"Це наш медовий місяць\" — можливо, отримаєте апгрейд!\n3. \"Чи є у вас номери з видом?\" — для романтичної атмосфери\n\n<CultureTip>\nБагато готелів пропонують особливі послуги для молодят — шампанське, пелюстки троянд, романтичну вечерю. Не соромтеся попросити!\n</CultureTip>\n\n### Корисні фрази для готелю\n\n| Грецька | Українська |\n|----------------|------------|\n| Double room | Двомісний номер |\n| King-size bed | Велике ліжко |\n| Room service | Обслуговування номерів |\n| Late checkout | Пізній виїзд |\n| Honeymoon suite | Номер для молодят |\n\n## У ресторані\n\n### Романтична вечеря\n\n1. \"Столик для двох, будь ласка\"\n2. \"Чи є у вас романтичний куточок?\"\n3. \"Що ви рекомендуєте?\"\n4. \"Рахунок, будь ласка\"\n\n### Тости для двох\n\n- \"За нас!\"\n- \"За наше кохання!\"\n- \"За щасливе майбутнє!\"\n\n## Пляжний відпочинок\n\n### Лексика для пляжу\n\n- Пляж\n- Море\n- Сонце\n- Купальник\n- Рушник\n- Шезлонг\n- Парасолька\n\n### Романтичні пляжні активності\n\n1. **Прогулянка на заході сонця** — класика!\n2. **Плавання вночі** — незабутнє враження\n3. **Пікнік на пляжі** — романтична вечеря\n\n<CultureTip>\nПравила пляжного етикету відрізняються в різних країнах. Дізнайтеся заздалегідь про дрес-код та місцеві традиції.\n</CultureTip>\n\n## Екскурсії для пар\n\n### Романтичні активності\n\n- Круїз на заході сонця\n- Дегустація вина\n- Масаж для двох\n- Урок кулінарії\n- Повітряна куля\n\n### Корисні фрази\n\n1. \"Чи є екскурсії для пар?\"\n2. \"Ми хотіли б щось романтичне\"\n3. \"Скільки це коштує на двох?\"\n\n## Фотографії на пам'ять\n\n### Як попросити зробити фото\n\n1. \"Ви можете нас сфотографувати?\"\n2. \"Ще раз, будь ласка\"\n3. \"Дякую!\"\n\n## Покупки сувенірів\n\n### Подарунки для рідних\n\n- \"Це подарунок\" — для гарного пакування\n- \"Чи є знижка?\" — спробуйте поторгуватися\n- \"Приймаєте картку?\" — для оплати\n\n## Проблеми в подорожі\n\n### Якщо щось пішло не так\n\n- \"Нам потрібна допомога\"\n- \"Де найближча аптека?\"\n- \"Ми загубилися\"\n- \"Викликайте поліцію/швидку\"\n\n## Повернення додому\n\n### Прощання з відпусткою\n\n- \"Це була найкраща подорож!\"\n- \"Ми обов'язково повернемося\"\n- \"Дякуємо за чудовий сервіс\"\n\n## Продовжуйте вивчення\n\nТепер ви готові до романтичної подорожі! Вивчайте більше:\n\n- [Грецька туристичні фрази](/uk/blog/essential-greek-travel-phrases-for-couples)\n- [Грецька романтичні фрази](/uk/blog/romantic-greek-phrases-for-couples)\n\n<CTA \n  text=\"Підготуйтеся до медового місяця з нашим додатком!\"\n  buttonText=\"Почати вивчення\"\n  href=\"/uk/learn/el\"\n/>",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Основна туристична лексика",
+              "## У готелі",
+              "## У ресторані",
+              "## Пляжний відпочинок",
+              "## Екскурсії для пар",
+              "## Фотографії на пам'ять",
+              "## Покупки сувенірів",
+              "## Проблеми в подорожі",
+              "## Повернення додому"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "da8552de-32a6-4dcb-a523-7db27dffdb54",
+      "title": "Frans vs Nederlands: De Belangrijkste Verschillen",
+      "native_lang": "nl",
+      "target_lang": "fr",
+      "category": "grammar",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport ConjugationTable from '@components/ConjugationTable.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nFrans en Nederlands zijn buurlanden, maar de talen zijn heel verschillend. Frans is een Romaanse taal (afstammend van Latijn), terwijl Nederlands Germaans is. Toch zijn er verrassende overeenkomsten en voorspelbare valkuilen!\n\n## Taalfamilies\n\n<PhraseOfDay\n  word=\"Langues romanes vs germaniques\"\n  translation=\"Romaanse vs Germaanse talen\"\n  pronunciation=\"lohg ro-man vs zjer-ma-niek\"\n  context=\"Frans stamt af van het Latijn, Nederlands van het Germaans.\"\n/>\n\n| Frans (Romaans) | Nederlands (Germaans) |\n|-----------------|----------------------|\n| Latijn als basis | Germaans als basis |\n| Italiaans, Spaans, Portugees | Duits, Engels, Zweeds |\n| Veel vervoegingen | Meer samenstellingen |\n\n<CultureTip title=\"Voordeel!\" flag=\"🎉\">\nVeel Nederlandse woorden zijn geleend uit het Frans! Woorden zoals \"restaurant,\" \"bureau,\" \"paraplu\" en \"trottoir\" maken het leren makkelijker.\n</CultureTip>\n\n## Uitspraak: De Grootste Uitdaging\n\n### Klanken die niet bestaan in Nederlands\n\n<VocabCard\n  word=\"Le son 'u'\"\n  translation=\"De 'u' klank\"\n  pronunciation=\"ue (lippen tuiten, 'ie' zeggen)\"\n  example=\"Tu, du, rue - tussen 'oe' en 'ie' in\"\n/>\n\n<VocabCard\n  word=\"Les nasales\"\n  translation=\"Nasale klanken\"\n  pronunciation=\"door de neus\"\n  example=\"Mon, bon, vin, un - klanken door de neus\"\n/>\n\n<VocabCard\n  word=\"Le 'r' francais\"\n  translation=\"De Franse 'r'\"\n  pronunciation=\"achter in de keel\"\n  example=\"Anders dan de Nederlandse rollende 'r'\"\n/>\n\n### Stomme Letters\n\n| Geschreven | Uitgesproken |\n|------------|--------------|\n| ils parlent | il parl |\n| les enfants | lee zoh-foh |\n| petit | puh-tie |\n| beaucoup | bo-koe |\n\n<CultureTip title=\"Liaison\" flag=\"🔗\">\nIn het Frans verbind je soms woorden: \"les amis\" wordt \"lee za-mie\" (de s verbindt met de volgende klinker). Dit heet liaison en is heel belangrijk!\n</CultureTip>\n\n## Werkwoordvervoegingen: Complex!\n\n### Nederlands: Relatief Simpel\n- Ik werk, jij werkt, hij werkt, wij werken\n\n### Frans: Veel Vormen\n\n<ConjugationTable\n  verb=\"Parler (praten)\"\n  meaning=\"vergelijking\"\n  conjugations={[\n    { person: \"Je\", polish: \"parle\", english: \"ik praat\" },\n    { person: \"Tu\", polish: \"parles\", english: \"jij praat\" },\n    { person: \"Il/Elle\", polish: \"parle\", english: \"hij/zij praat\" },\n    { person: \"Nous\", polish: \"parlons\", english: \"wij praten\" },\n    { person: \"Vous\", polish: \"parlez\", english: \"u praat / jullie praten\" },\n    { person: \"Ils/Elles\", polish: \"parlent\", english: \"zij praten\" }\n  ]}\n/>\n\n**Troost:** \"Je parle,\" \"tu parles,\" \"il parle\" en \"ils parlent\" klinken allemaal HETZELFDE!\n\n## Geslacht: Twee Systemen\n\n### Nederlands: de/het (soms verwarrend)\n\n### Frans: le/la (altijd duidelijk, maar moet je leren)\n\n<VocabCard\n  word=\"Le livre / La table\"\n  translation=\"Het boek / De tafel\"\n  pronunciation=\"luh lievr / la tabl\"\n  example=\"In het Frans is het geslacht anders dan in het Nederlands!\"\n/>\n\n| Nederlands | Frans | Let op! |\n|------------|-------|---------|\n| de tafel (de) | la table (la) | Beide vrouwelijk |\n| het boek (het) | le livre (le) | Nederlands onzijdig, Frans mannelijk |\n| de zon (de) | le soleil (le) | Nederlands vrouwelijk, Frans mannelijk |\n\n<CultureTip title=\"Leer met Lidwoord!\" flag=\"📝\">\nLeer Franse woorden ALTIJD met hun lidwoord. Niet \"table\" maar \"la table.\" Dit voorkomt fouten later!\n</CultureTip>\n\n## Woordvolgorde\n\n### Bijvoeglijke Naamwoorden\n\n| Nederlands | Frans |\n|------------|-------|\n| Een mooi huis | Une belle maison |\n| Een grote auto | Une grande voiture |\n| Een interessant boek | Un livre interessant |\n\n**Regel:** In het Frans komen bijvoeglijke naamwoorden meestal NA het zelfstandig naamwoord, behalve korte, veelvoorkomende woorden (grand, petit, beau, joli, etc.)\n\n## Ontkenning\n\n### Nederlands: niet / geen\n\n### Frans: ne...pas (om het werkwoord)\n\n<VocabCard\n  word=\"Je ne comprends pas\"\n  translation=\"Ik begrijp het niet\"\n  pronunciation=\"zjuh nuh koh-proh pa\"\n  example=\"NE voor het werkwoord, PAS erna!\"\n/>\n\n| Nederlands | Frans |\n|------------|-------|\n| Ik begrijp niet | Je ne comprends pas |\n| Hij komt niet | Il ne vient pas |\n| Ik heb geen tijd | Je n'ai pas le temps |\n\n## Tu vs Vous\n\n<VocabCard\n  word=\"Tu / Vous\"\n  translation=\"Jij / U (formeel) of jullie\"\n  pronunciation=\"tue / voo\"\n  example=\"Frans maakt onderscheid, net als Nederlands ooit deed met 'gij'\"\n/>\n\n| Gebruik TU | Gebruik VOUS |\n|------------|--------------|\n| Vrienden | Onbekenden |\n| Familie | Ouderen |\n| Kinderen | Professioneel |\n| Huisdieren | Eerste ontmoetingen |\n\n<CultureTip title=\"Vouvoyer is Respect\" flag=\"🎩\">\nBegin ALTIJD met \"vous\" bij volwassenen die je niet kent. Overschakelen naar \"tu\" is een stap in de relatie. Als je twijfelt, gebruik \"vous.\"\n</CultureTip>\n\n## Valse Vrienden (Faux Amis)\n\n| Frans | Lijkt op | Betekent eigenlijk | Nederlands voor Frans woord |\n|-------|----------|--------------------|-----------------------------|\n| Attendre | Attenderen | Wachten | Rendre attentif |\n| Blesser | Blessen | Verwonden | Blesser (maar andere betekenis) |\n| Coin | Koin (munt) | Hoek | Piece de monnaie |\n| Commander | Commanderen | Bestellen | Ordonner |\n| Douche | Douche | Douche | Douche (zelfde!) |\n| Formidable | Formidabel | Geweldig | Formidable (hetzelfde!) |\n\n<VocabCard\n  word=\"J'attends le bus\"\n  translation=\"Ik wacht op de bus\"\n  pronunciation=\"zja-toh luh bues\"\n  example=\"'Attendre' = wachten, NIET attenderen!\"\n/>\n\n## Leeftijd en Lichamelijke Staten\n\n### \"Hebben\" in het Frans\n\n<VocabCard\n  word=\"J'ai 30 ans\"\n  translation=\"Ik ben 30 jaar (letterlijk: ik heb 30 jaar)\"\n  pronunciation=\"zjee treht oh\"\n  example=\"In het Frans 'heb' je jaren!\"\n/>\n\n| Nederlands | Frans (letterlijk) |\n|------------|--------------------|\n| Ik ben 30 jaar | J'ai 30 ans (Ik heb 30 jaar) |\n| Ik heb honger | J'ai faim (Ik heb honger) |\n| Ik heb dorst | J'ai soif (Ik heb dorst) |\n| Ik heb het warm | J'ai chaud (Ik heb warm) |\n| Ik heb het koud | J'ai froid (Ik heb koud) |\n\n## Vraagzinnen\n\n### Drie Manieren in het Frans\n\n1. **Intonatie** (makkelijkst)\n   - Tu viens? (↗)\n\n2. **Est-ce que** (veel gebruikt)\n   - Est-ce que tu viens?\n\n3. **Inversie** (formeel)\n   - Viens-tu?\n\n<VocabCard\n  word=\"Est-ce que tu m'aimes?\"\n  translation=\"Hou je van me?\"\n  pronunciation=\"es-kuh tue mem\"\n  example=\"Est-ce que + normale zinsvolgorde\"\n/>\n\n## Getallen en Cijfers\n\nFrans tellen is... interessant:\n\n| Getal | Frans | Letterlijk |\n|-------|-------|------------|\n| 70 | soixante-dix | 60-10 |\n| 80 | quatre-vingts | 4-20 |\n| 90 | quatre-vingt-dix | 4-20-10 |\n| 99 | quatre-vingt-dix-neuf | 4-20-10-9 |\n\n<CultureTip title=\"Belgisch/Zwitsers Frans\" flag=\"🇧🇪\">\nIn Belgie en Zwitserland is het logischer: septante (70), huitante/octante (80), nonante (90). Veel handiger!\n</CultureTip>\n\n## Tips voor Succes\n\n1. **Leer woorden met lidwoord** - \"la table\" niet \"table\"\n2. **Oefen uitspraak** - Nasale klanken en de 'u'\n3. **Begin met vous** - Overschakelen kan later\n4. **Negatie: ne...pas** - Vergeet de \"ne\" niet\n5. **Let op valse vrienden** - Ze zijn overal!\n\n## Snelle Vergelijkingstabel\n\n| Aspect | Nederlands | Frans |\n|--------|------------|-------|\n| Lidwoorden | de/het | le/la/les |\n| Formeel/informeel | je/u (weinig verschil meer) | tu/vous (heel belangrijk!) |\n| Bijvoeglijk naamwoord | VOOR zn | Meestal NA zn |\n| Negatie | niet/geen | ne...pas |\n| Leeftijd | Ik ben... jaar | J'ai... ans |\n| Uitspraak | Fonetisch | Veel stomme letters |\n\n<CTA\n  text=\"Klaar om de verschillen onder de knie te krijgen?\"\n  buttonText=\"Begin Samen te Leren\"\n/>\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Uitspraak: De Grootste Uitdaging",
+              "## Werkwoordvervoegingen: Complex!",
+              "## Geslacht: Twee Systemen",
+              "### Nederlands: de/het (soms verwarrend)",
+              "## Woordvolgorde",
+              "## Ontkenning",
+              "### Nederlands: niet / geen",
+              "## Leeftijd en Lichamelijke Staten",
+              "## Vraagzinnen"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "da9036e3-258b-4907-851b-456d5a8f8f20",
+      "title": "Olasz Kifejezések a Leendő Apósékhoz Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "it",
+      "category": "communication",
+      "content": "# Olasz Kifejezések a Leendő Apósékhoz Magyarul Beszélőknek\n\nAz olasz kultúrában a család (la famiglia) minden. Az apósékkal való találkozás nagy esemény, és a családba fogadás meleg és szívélyes.\n\n## Bemutatkozás\n\n### 1. È un piacere conoscervi\n**Jelentés:** Örülök, hogy megismerhetem Önöket\n**Kiejtés:** e un pja-CSÉ-re ko-NO-ser-vi\n**Használat:** Formális bemutatkozás.\n\n### 2. Ho sentito molto parlare di voi\n**Jelentés:** Sokat hallottam Önökről\n**Kiejtés:** o szen-TÍ-to MOL-to par-LÁ-re di voj\n**Használat:** Pozitív nyitás.\n\n### 3. Grazie per avermi accolto nella vostra casa\n**Jelentés:** Köszönöm, hogy fogadtak az otthonukban\n**Kiejtés:** GRÁ-cje per a-VÉR-mi ak-KOL-to NEL-la VOSZ-tra KÁ-za\n**Használat:** Vendégszeretet megköszönése.\n\n## A Kapcsolatról\n\n### 4. Vostro figlio/Vostra figlia è tutto per me\n**Jelentés:** A fia/lánya mindent jelent nekem\n**Kiejtés:** VOSZ-tro FÍ-ljo/VOSZ-tra FÍ-lja e TUT-to per me\n**Használat:** Érzelmek kifejezése.\n\n### 5. Sono onorato di far parte della vostra famiglia\n**Jelentés:** Megtiszteltetés a család részének lenni\n**Kiejtés:** SZO-no o-no-RÁ-to di far PAR-te DEL-la VOSZ-tra fa-MÍ-lja\n**Használat:** Hála kifejezése.\n\n## Bókok\n\n### 6. Avete una casa bellissima\n**Jelentés:** Gyönyörű az otthonuk\n**Kiejtés:** a-VÉ-te U-na KÁ-za bel-LÍ-szi-ma\n**Használat:** Otthon dicsérése.\n\n### 7. Questo pranzo è squisito\n**Jelentés:** Ez az ebéd fenséges\n**Kiejtés:** KUESZ-to PRAN-co e szkui-ZÍ-to\n**Használat:** Főzés dicsérése - ez NAGYON fontos az olaszoknál!\n\n### 8. Capisco da dove viene il suo fascino\n**Jelentés:** Értem, honnan örökölte a bájosságát\n**Kiejtés:** ka-PÍ-szko da DO-ve VJÉ-ne il szu-o fa-SÍ-no\n**Használat:** Bók a szülőknek.\n\n## Kulturális Tippek\n\n**Étkezés:** Az olasz étkezés szent! Soha ne utasíts vissza ételt!\n**Család:** A \"mamma\" központi figura - tiszteld különösen!\n**Gesztikulálás:** Az olaszok sokat gesztikulálnak - ez normális.\n**Érzelmek:** Mutasd ki az érzelmeidet - az olaszok expresszívek.\n\n## Hasznos Mondatok\n\n- **Posso aiutare?** - Segíthetek?\n- **Mi chiamino pure [nome]** - Szólítsanak [név]-nek\n- **Grazie mille per la vostra ospitalità** - Köszönöm a vendégszeretetüket\n\n## Fontos Tipp\n\nAz olasz anyós (la suocera) döntő fontosságú! Ha megnyered, minden más könnyű lesz.\n\nAz olasz család meleg és szenvedélyes - élvezd az élményt és egyél sokat!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Bemutatkozás",
+              "## A Kapcsolatról",
+              "## Bókok"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "da984576-b24e-4f3c-ad3f-37cf67b0d222",
+      "title": "Holenderskie zwroty o przebaczeniu dla par",
+      "native_lang": "pl",
+      "target_lang": "nl",
+      "category": "communication",
+      "content": "Holendrzy cenią szczerość i bezpośredniość. Przebaczenie powinno być wyrażone jasno i konkretnie.\n\n## Proszenie o przebaczenie\n\n### \"Vergeef me alsjeblieft\"\n*Proszę, wybacz mi* - Wymowa: fer-CHEF me als-je-BLIFT\n\n### \"Ik hoop dat je me kunt vergeven\"\n*Mam nadzieję, że mi wybaczysz* - Wymowa: ik hop dat je me könt fer-CHE-wen\n\n## Wyrażanie przebaczenia\n\n### \"Ik vergeef je\"\n*Przebaczam Ci* - Wymowa: ik fer-CHEF je\n\n### \"Het is oké, ik begrijp het\"\n*W porządku, rozumiem* - Wymowa: het is o-KE ik be-CHRAJP het\n\n### \"Laten we dit achter ons laten\"\n*Zostawmy to za sobą* - Wymowa: LA-ten we dit ACH-ter ons LA-ten\n\n## Proces przebaczenia\n\n### \"Ik werk eraan om je te vergeven\"\n*Pracuję nad tym, żeby Ci wybaczyć* - Wymowa: ik werk er-AN om je te fer-CHE-wen\n\n### \"Ik heb tijd nodig, maar ik zal je vergeven\"\n*Potrzebuję czasu, ale wybaczę Ci* - Wymowa: ik hep tajt NO-dich mar ik zal je fer-CHE-wen\n\n## Głębokie przebaczenie\n\n### \"Ik vergeef je volledig\"\n*Przebaczam Ci całkowicie* - Wymowa: ik fer-CHEF je fol-LE-dich\n\n### \"Ik laat de pijn los\"\n*Puszczam ten ból* - Wymowa: ik lat de pajn los\n\n## Wspólne wyjście naprzód\n\n### \"Laten we opnieuw beginnen\"\n*Zacznijmy od nowa* - Wymowa: LA-ten we op-NIW be-CHI-nen\n\n### \"Onze liefde is sterker dan deze fout\"\n*Nasza miłość jest silniejsza niż ten błąd* - Wymowa: ON-ze LIF-de is STER-ker dan DE-ze faut\n\n## Granice przebaczenia\n\n### \"Ik vergeef je, maar dit mag niet weer gebeuren\"\n*Przebaczam Ci, ale to nie może się powtórzyć* - Wymowa: ik fer-CHEF je mar dit mach nit wer che-BÖ-ren\n\n## Wskazówki kulturowe\n\nHolendrzy cenią działania ponad słowa. Po przebaczeniu oczekują zmiany zachowania.\n\nVergeving geneest het hart! (Przebaczenie uzdrawia serce!)",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 280,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Proszenie o przebaczenie",
+              "## Wyrażanie przebaczenia",
+              "## Proces przebaczenia",
+              "## Głębokie przebaczenie",
+              "## Wspólne wyjście naprzód",
+              "## Granice przebaczenia"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

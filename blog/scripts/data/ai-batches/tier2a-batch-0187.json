@@ -1,0 +1,118 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0187",
+  "articles": [
+    {
+      "id": "3507d2b5-501e-42bd-bb21-ef2bc3f1d1d0",
+      "title": "Основи шведської граматики для початківців",
+      "native_lang": "uk",
+      "target_lang": "sv",
+      "category": "grammar",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\n# Основи шведської граматики для початківців\n\nШведська граматика значно простіша за українську — немає відмінювання іменників за відмінками! Цей посібник допоможе вам швидко опанувати основи.\n\n## Ключове правило\n\n<PhraseOfDay\n  word=\"Jag älskar dig\"\n  translation=\"Я тебе кохаю\"\n  pronunciation=\"яг ЕЛЬ-скар дей\"\n  context=\"Порядок слів: Підмет + Дієслово + Додаток (як в українській)\"\n/>\n\n## Артиклі — чого немає в українській\n\nШведська має два роди: **en-слова** (спільний рід) та **ett-слова** (середній рід).\n\n| Тип | Неозначений | Означений | Приклад |\n|-----|-------------|-----------|---------|\n| **En-слова** | en bok | boken | книга / книга (ця) |\n| **Ett-слова** | ett hus | huset | дім / дім (цей) |\n\n<VocabCard\n  word=\"En flicka → Flickan\"\n  translation=\"Дівчина → Ця дівчина\"\n  pronunciation=\"ен ФЛІК-ка → ФЛІК-кан\"\n  example=\"Flickan är vacker. (Дівчина красива.)\"\n/>\n\n<CultureTip title=\"Як запам'ятати рід слів\" flag=\"🇸🇪\">\nБлизько 75% шведських слів — це en-слова. Ett-слова часто позначають предмети та абстрактні поняття. Найкраще вчити слова разом з артиклем!\n</CultureTip>\n\n## Особові займенники\n\n| Шведська | Українська | Вимова |\n|----------|------------|--------|\n| **Jag** | Я | яг |\n| **Du** | Ти | дю |\n| **Han** | Він | хан |\n| **Hon** | Вона | хун |\n| **Vi** | Ми | ві |\n| **Ni** | Ви | ні |\n| **De** | Вони | дом |\n\n## Дієслова — простіше, ніж в українській!\n\nШведські дієслова не змінюються за особами! Одна форма для всіх:\n\n| Особа | Українська | Шведська |\n|-------|------------|----------|\n| Я | кохаю | älskar |\n| Ти | кохаєш | älskar |\n| Він/Вона | кохає | älskar |\n| Ми | кохаємо | älskar |\n| Ви | кохаєте | älskar |\n| Вони | кохають | älskar |\n\n<VocabCard\n  word=\"Att älska → Jag älskar\"\n  translation=\"Кохати → Я кохаю\"\n  pronunciation=\"ат ЕЛЬ-ска → яг ЕЛЬ-скар\"\n  example=\"Vi älskar att resa tillsammans.\"\n/>\n\n## Часи дієслів\n\n### Теперішній час\nДодайте **-r** до основи: *älska* → *älskar*\n\n### Минулий час\nЄ кілька груп дієслів:\n\n| Група | Інфінітив | Минулий | Приклад |\n|-------|-----------|---------|---------|\n| 1 | tala (говорити) | talade | Jag talade (Я говорив) |\n| 2 | köpa (купувати) | köpte | Jag köpte (Я купив) |\n| 3 | bo (жити) | bodde | Jag bodde (Я жив) |\n\n## Заперечення\n\nПросто додайте **inte** після дієслова:\n\n<VocabCard\n  word=\"Jag förstår inte\"\n  translation=\"Я не розумію\"\n  pronunciation=\"яг фер-СТОР ІН-те\"\n  example=\"Förlåt, jag förstår inte svenska så bra.\"\n/>\n\n## Питання\n\nПоміняйте місцями підмет і дієслово:\n\n| Твердження | Питання |\n|------------|---------|\n| Du älskar mig (Ти мене кохаєш) | Älskar du mig? (Ти мене кохаєш?) |\n| Hon är hemma (Вона вдома) | Är hon hemma? (Вона вдома?) |\n\n## Питальні слова\n\n| Шведська | Українська | Вимова |\n|----------|------------|--------|\n| **Vad?** | Що? | вад |\n| **Vem?** | Хто? | вем |\n| **Var?** | Де? | вар |\n| **När?** | Коли? | неар |\n| **Hur?** | Як? | хюр |\n| **Varför?** | Чому? | вар-ФЕР |\n\n<VocabCard\n  word=\"Var bor du?\"\n  translation=\"Де ти живеш?\"\n  pronunciation=\"вар бур дю\"\n  example=\"Hej! Var bor du? — I Stockholm.\"\n/>\n\n## Прикметники\n\nПрикметники узгоджуються з іменником:\n\n| Рід | Структура | Приклад |\n|-----|-----------|---------|\n| En-слова | en + прикметник + іменник | en vacker flicka |\n| Ett-слова | ett + прикметник + **t** + іменник | ett vackert hus |\n| Множина | прикметник + **a** + іменник | vackra blommor |\n\nПрактикуйте ці основи щодня, і шведська граматика стане для вас другою природою!\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Часи дієслів"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "350ae831-f196-4fd5-b269-a810d62047d6",
+      "title": "Norsk Grammatik for Begyndere: Lær at Elske Din Partners Sprog",
+      "native_lang": "da",
+      "target_lang": "no",
+      "category": "grammar",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport ConjugationTable from '@components/ConjugationTable.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nForestil dig at sidde sammen med din norske partner og kunne udtrykke dine følelser på deres modersmål. Det handler ikke om perfekt grammatik - det handler om forbindelse. Norsk grammatik kan virke overvældende, men når du lærer det sammen med din elskede, bliver det til en romantisk rejse. Ved slutningen af denne guide vil du kunne danne enkle sætninger og [fortælle din partner, at du elsker dem](/learn/da/no/how-to-say-i-love-you-in-norwegian/) på norsk!\n\n<PhraseOfDay\n  word=\"Jeg elsker deg\"\n  translation=\"Jeg elsker dig\"\n  pronunciation=\"yai el-sker dai\"\n  context=\"Den mest romantiske sætning du nogensinde vil lære. Brug den med din partner!\"\n/>\n\n## Den Simple Forklaring: Hvad Gør Norsk Særligt?\n\nNorsk er som danskens blide fætter - genkendelig, men med sin egen charme. Tænk på det som en dans, hvor ordene flyder sammen på en melodisk måde. Den store forskel? Norsk har en mere afslappet tilgang til grammatik end mange andre sprog, hvilket gør det perfekt for par, der vil lære sammen.\n\n## De 5 Grundlæggende Regler for Norsk Grammatik\n\n### 1. Ordstilling: V2-reglen\nI norsk sætninger skal verbet komme som det andet led - altid! Dette gælder også efter indledende ord som \"i går\" eller \" måske\".\n\n**Eksempel:**\n- *I går spiste vi middag sammen* (I går spiste vi middag sammen)\n- *Kanskje kommer han senere* (Måske kommer han senere)\n\n### 2. Køn: Tre køn i stedet for to\nNorsk har mandlig (-en), kvindelig (-a) og intetkøn (-et). Det lyder kompliceret, men din partner vil elsse at hjælpe dig med det!\n\n<VocabCard\n  word=\"kjæresten\"\n  translation=\"kæresten\"\n  pronunciation=\"sher-es-ten\"\n  example=\"Kjæresten min er fra Norge.\"\n/>\n\n### 3. Bestemt form: Tilføj en endelse\nI stedet for \"den\" eller \"det\" som i dansk, tilføjer norsk en endelse for at gøre noget bestemt.\n\n- *en bok* → *boka* (en bog → bogen)\n- *et hus* → *huset* (et hus → huset)\n\n### 4. Flertal: Forskellige mønstre\nNorsk flertal følger forskellige mønstre, men de mest almindelige er -er og -e.\n\n### 5. Personbøjning: Simpel og regelmæssig\nNorske verber ændrer sig meget lidt mellem personer - perfekt for begyndere!\n\n## Romantiske Eksempler: Sætninger til Din Partner\n\n| Norsk | Dansk | Betydning | Grammatik Note |\n|-------|-------|-----------|----------------|\n| **Du er vakker** | Du er smuk | Kompliment | \"er\" = er (uforandret) |\n| **Jeg savner deg** | Jeg savner dig | Kærlig erklæring | \"deg\" = dig (objektform) |\n| **Skal vi gå ut?** | Skal vi gå ud? | Invitation | \"skal\" = skal (fremtid) |\n| **Jeg liker deg** | Jeg kan lide dig | Indledende kærlighed | \"liker\" = kan lide |\n| **God morgen, min venn** | God morgen, min ven | Hilsen | \"min\" = min (tilhørsforhold) |\n\n<CultureTip flag=\"🇳🇴\" title=\"Norsk Kærlighedskultur\">\nNordmænd er generelt mere reserverede med kærlighedserklæringer end danskere. De foretrækker handlinger frem for ord, så når din partner siger \"Jeg elsker dig\" på norsk, mener de det dybt!\n</CultureTip>\n\n## Verb Bøjning: Nutid\n\n<ConjugationTable\n  verb=\"å elske\"\n  meaning=\"at elske\"\n  conjugations={[\n    { person: \"jeg\", word: \"elsker\", translation: \"jeg elsker\" },\n    { person: \"du\", word: \"elsker\", translation: \"du elsker\" },\n    { person: \"han/hun\", word: \"elsker\", translation: \"han/hun elsker\" },\n    { person: \"vi\", word: \"elsker\", translation: \"vi elsker\" },\n    { person: \"dere\", word: \"elsker\", translation: \"I elsker\" },\n    { person: \"de\", word: \"elsker\", translation: \"de elsker\" }\n  ]}\n/>\n\nDet smukke ved norsk? Verbformerne ændrer sig næsten ikke! Det gør det nemt at fokusere på din partner i stedet for grammatikbøger.\n\n## Øvningssætninger: For Par\n\n1. **Hvordan har du det, min elskede?**\n   *Kor-dern har doo deh, min el-sked-e?*\n\n2. **Vil du have kaffe med mig?**\n   *Vil doo ha kah-feh med mee?*\n\n3. **Du betyder alt for mig**\n   *Doo beh-ten-der ahlt for mee*\n\n4. **Skal vi se en film sammen i aften?**\n   *Skal vi seh en film sem-men ee ahv-en?*\n\n5. **Jeg tænker på dig hele tiden**\n   *Yai tenk-er paw dee heh-leh tee-den*\n\n## Almindelige Fejl at Undgå\n\n| Forkert | Korrekt | Forklaring |\n|---------|---------|------------|\n| *Jeg elsker du* | **Jeg elsker deg** | Husk: \"deg\" ikke \"du\" som objekt |\n| *Min kjæreste* | **Kjæresten min** | Bestemt form først i norsk |\n| *Jeg kan godt lide deg* | **Jeg liker deg** | \"Liker\" er mere naturligt end dansk \"kan godt lide\" |\n| *Hva tid?* | **Når?** | Brug \"når\" for \"hvornår\" i daglig tale |\n\n<CultureTip flag=\"🇳🇴\" title=\"Norsk Skandinavisk Charme\">\nNordmænd bruger ofte \"kos\" (hygge) som et verb: \"Skal vi kose oss?\" betyder \"Skal vi hygge os?\" Det er deres måde at invitere til nærvær på.\n</CultureTip>\n\n## Hurtig Reference: Din Grammatik Cheat Sheet\n\n**Vigtige stedord:**\n- jeg (jeg), du (du), han/hun (han/hun), vi (vi), dere (I), de (de)\n\n**Hovedverb i nutid:**\n- å være → er (at være → er)\n- å ha → har (at have → har)\n- å gjøre → gjør (at gøre → gør)\n\n**Romantiske ord:**\n- vakker (smuk), snill (venlig), morsom (sjov), koselig (hyggelig)\n\n## Hvad Nu? Din Næste Skridt\n\nDu har nu de grundlæggende byggesten til at [udtrykke kærlighed på norsk](/learn/da/no/romantic-phrases-for-every-occasion/). Prøv at bruge \"Jeg elsker deg\" med din partner i dag! For mere inspiration, tjek vores guide til [norske kælenavne til din partner](/learn/da/no/norwegian-pet-names-for-your-partner/) og gør din læring endnu mere romantisk.\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## De 5 Grundlæggende Regler for Norsk Grammatik"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "3510ea01-22c0-4e1a-86d1-c730c9ca3315",
+      "title": "Expresii de Suport Emoțional în Engleză pentru Români",
+      "native_lang": "ro",
+      "target_lang": "en",
+      "category": "communication",
+      "content": "Când persoana iubită trece prin momente grele, cuvintele potrivite pot face o diferență enormă. Acest ghid te ajută să oferi suport emoțional în engleză.\n\n## De Ce Contează Sprijinul Emoțional\n\nÎntr-o relație, capacitatea de a oferi confort în momentele dificile este esențială. Să poți face asta în limba partenerului adaugă un nivel de intimitate.\n\n## Expresii de Confort\n\n### Prezență și Ascultare\n\n<Phrase>\n  <Original>I'm here for you, no matter what.</Original>\n  <Transliteration>Aim hir for iu, no mater uot.</Transliteration>\n  <Translation>Sunt aici pentru tine, orice ar fi.</Translation>\n  <Context>Asigură-l că ești prezent.</Context>\n</Phrase>\n\n<Phrase>\n  <Original>I'm listening. Take your time.</Original>\n  <Transliteration>Aim lisening. Teic iur taim.</Transliteration>\n  <Translation>Te ascult. Ia-ți timpul necesar.</Translation>\n  <Context>Arată că ești dispus să asculți.</Context>\n</Phrase>\n\n<Phrase>\n  <Original>You don't have to go through this alone.</Original>\n  <Transliteration>Iu dont hav tu go tru dis alon.</Transliteration>\n  <Translation>Nu trebuie să treci prin asta singur/singură.</Translation>\n  <Context>Oferă prezența ta.</Context>\n</Phrase>\n\n### Validare Emoțională\n\n<Phrase>\n  <Original>It's okay to feel this way.</Original>\n  <Transliteration>Its ochei tu fil dis uei.</Transliteration>\n  <Translation>E normal să te simți așa.</Translation>\n  <Context>Validează sentimentele.</Context>\n</Phrase>\n\n<Phrase>\n  <Original>Your feelings are completely valid.</Original>\n  <Transliteration>Iur filings ar complitli valid.</Transliteration>\n  <Translation>Sentimentele tale sunt complet valide.</Translation>\n  <Context>Arată că înțelegi.</Context>\n</Phrase>\n\n<Phrase>\n  <Original>Anyone would feel the same in your situation.</Original>\n  <Transliteration>Eniuan uud fil de seim in iur situeishan.</Transliteration>\n  <Translation>Oricine s-ar simți la fel în situația ta.</Translation>\n  <Context>Normalizează emoțiile.</Context>\n</Phrase>\n\n### Încurajare\n\n<Phrase>\n  <Original>I believe in you.</Original>\n  <Transliteration>Ai biliv in iu.</Transliteration>\n  <Translation>Cred în tine.</Translation>\n  <Context>Oferă încurajare.</Context>\n</Phrase>\n\n<Phrase>\n  <Original>You're stronger than you think.</Original>\n  <Transliteration>Iur stronger den iu thinc.</Transliteration>\n  <Translation>Ești mai puternic/puternică decât crezi.</Translation>\n  <Context>Amintește-i de forța lui/ei.</Context>\n</Phrase>\n\n<Phrase>\n  <Original>We'll get through this together.</Original>\n  <Transliteration>Uil ghet tru dis tugeder.</Transliteration>\n  <Translation>Vom trece prin asta împreună.</Translation>\n  <Context>Subliniază parteneriatul.</Context>\n</Phrase>\n\n### Oferirea Ajutorului Concret\n\n<Phrase>\n  <Original>What can I do to help?</Original>\n  <Transliteration>Uot can ai du tu help?</Transliteration>\n  <Translation>Ce pot face să te ajut?</Translation>\n  <Context>Oferă ajutor practic.</Context>\n</Phrase>\n\n<Phrase>\n  <Original>Let me take care of you.</Original>\n  <Transliteration>Let mi teic cher of iu.</Transliteration>\n  <Translation>Lasă-mă să am grijă de tine.</Translation>\n  <Context>Oferă îngrijire.</Context>\n</Phrase>\n\n<Phrase>\n  <Original>I'll handle everything, just focus on yourself.</Original>\n  <Transliteration>Ail hendl evrithing, giast foches on iurself.</Transliteration>\n  <Translation>Mă ocup de tot, tu concentrează-te pe tine.</Translation>\n  <Context>Eliberează-l de responsabilități.</Context>\n</Phrase>\n\n## Sfaturi Pentru Suport Eficient\n\n**Ascultă activ**: Uneori, persoana are nevoie doar să fie ascultată, nu să primească soluții.\n\n**Evită clișeele**: Fraze ca \"va fi bine\" pot părea superficiale. Fii specific și sincer.\n\n**Fii prezent fizic**: Uneori, o îmbrățișare sau o mână pe umăr spune mai mult decât cuvintele.\n\n**Respectă ritmul lor**: Nu forța conversația dacă persoana nu e pregătită.\n\n## Concluzie\n\nSuportul emoțional în limba partenerului creează o conexiune profundă. Fii prezent, empatic și sincer!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Expresii de Confort"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "3517fdc6-8c9b-42a4-aa79-61c1388a4bb4",
+      "title": "Greckie zwroty o przebaczeniu dla par",
+      "native_lang": "pl",
+      "target_lang": "el",
+      "category": "communication",
+      "content": "Grecy są namiętni i ekspresyjni. W relacji z osobą mówiącą po grecku przebaczenie może być wyrażone z wielką emocją.\n\n## Proszenie o przebaczenie\n\n### \"Σε παρακαλώ, συγχώρεσέ με\"\n*Proszę, wybacz mi* - Wymowa: se pa-ra-ka-LO sig-CHO-re-se me\n\n### \"Ελπίζω να μπορέσεις να με συγχωρέσεις\"\n*Mam nadzieję, że mi wybaczysz* - Wymowa: el-PI-zo na bo-RE-sis na me sig-cho-RE-sis\n\n## Wyrażanie przebaczenia\n\n### \"Σε συγχωρώ\"\n*Przebaczam Ci* - Wymowa: se sig-cho-RO\n\n### \"Είναι εντάξει, καταλαβαίνω\"\n*W porządku, rozumiem* - Wymowa: I-ne en-DAK-si ka-ta-la-WE-no\n\n### \"Ας αφήσουμε αυτό πίσω μας\"\n*Zostawmy to za sobą* - Wymowa: as a-FI-su-me af-TO PI-so mas\n\n## Proces przebaczenia\n\n### \"Προσπαθώ να σε συγχωρήσω\"\n*Pracuję nad tym, żeby Ci wybaczyć* - Wymowa: pro-spa-THO na se sig-cho-RI-so\n\n### \"Χρειάζομαι χρόνο, αλλά θα σε συγχωρήσω\"\n*Potrzebuję czasu, ale wybaczę Ci* - Wymowa: chri-A-zo-me CHRO-no a-LA tha se sig-cho-RI-so\n\n## Głębokie przebaczenie\n\n### \"Σε συγχωρώ πλήρως\"\n*Przebaczam Ci całkowicie* - Wymowa: se sig-cho-RO PLI-ros\n\n### \"Αφήνω τον πόνο να φύγει\"\n*Puszczam ten ból* - Wymowa: a-FI-no ton PO-no na FI-gi\n\n## Wspólne wyjście naprzód\n\n### \"Ας ξεκινήσουμε από την αρχή\"\n*Zacznijmy od nowa* - Wymowa: as kse-ki-NI-su-me a-PO tin ar-CHI\n\n### \"Η αγάπη μας είναι δυνατότερη από αυτό το λάθος\"\n*Nasza miłość jest silniejsza niż ten błąd* - Wymowa: i a-GA-pi mas I-ne di-na-TO-te-ri a-PO af-TO to LA-thos\n\n## Granice przebaczenia\n\n### \"Σε συγχωρώ, αλλά αυτό δεν πρέπει να ξανασυμβεί\"\n*Przebaczam Ci, ale to nie może się powtórzyć* - Wymowa: se sig-cho-RO a-LA af-TO den PRE-pi na ksa-na-sim-WI\n\nΗ συγχώρηση θεραπεύει την καρδιά! (Przebaczenie uzdrawia serce!)",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 255,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Proszenie o przebaczenie",
+              "## Wyrażanie przebaczenia",
+              "## Proces przebaczenia",
+              "## Głębokie przebaczenie",
+              "## Wspólne wyjście naprzód",
+              "## Granice przebaczenia"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "35320015-95eb-48ba-ad93-ae47d349b654",
+      "title": "Frases en Danés para Reconciliarte con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "da",
+      "category": "communication",
+      "content": "Los daneses valoran la armonía y el \"hygge\" - bienestar compartido. Si tu pareja es danesa, estas frases te ayudarán a restaurar la paz.\n\n## La Reconciliación Danesa\n\nEn Dinamarca, restaurar el hygge después de un conflicto es importante. Las reconciliaciones son tranquilas y pragmáticas.\n\n## Frases para Pedir Disculpas\n\n### \"Undskyld for det, jeg sagde\"\n**Pronunciación:** UN-skil for de yai SA-de\n\n**Significado:** Perdona por lo que dije\n\n### \"Jeg ville ikke såre dig\"\n**Pronunciación:** Yai VI-le I-ke SO-re dai\n\n**Significado:** No quería herirte\n\n### \"Kan vi starte forfra?\"\n**Pronunciación:** Kan vi STAR-te for-FRA\n\n**Significado:** ¿Podemos empezar de nuevo?\n\n### \"Jeg tog fejl\"\n**Pronunciación:** Yai to fail\n\n**Significado:** Me equivoqué\n\n## Frases para Expresar Amor\n\n### \"Jeg elsker dig, selv når vi skændes\"\n**Pronunciación:** Yai ELS-ker dai selv nor vi SKEN-des\n\n**Significado:** Te amo, incluso cuando discutimos\n\n### \"Du betyder alt for mig\"\n**Pronunciación:** Du be-TI-der alt for mai\n\n**Significado:** Significas todo para mí\n\n### \"Jeg hader at skændes med dig\"\n**Pronunciación:** Yai HA-der at SKEN-des med dai\n\n**Significado:** Odio discutir contigo\n\n## Frases para Reconstruir\n\n### \"Lad os tale roligt\"\n**Pronunciación:** Lad os TA-le RO-lit\n\n**Significado:** Hablemos con calma\n\n### \"Jeg vil forstå dig bedre\"\n**Pronunciación:** Yai vil for-STO dai BED-re\n\n**Significado:** Quiero entenderte mejor\n\n### \"Hvad kan jeg gøre for at rette op på det?\"\n**Pronunciación:** Va kan yai GÖ-re for at RE-te op po de\n\n**Significado:** ¿Qué puedo hacer para arreglarlo?\n\n### \"Jeg lover at prøve hårdere\"\n**Pronunciación:** Yai LO-ver at PRÖ-ve HOR-de-re\n\n**Significado:** Prometo esforzarme más\n\n### \"Må jeg kramme dig?\"\n**Pronunciación:** Mo yai KRA-me dai\n\n**Significado:** ¿Puedo abrazarte?\n\n## Conclusión\n\nRestaurar el hygge con tu pareja danesa es posible con estas frases sinceras y directas.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 280,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frases para Pedir Disculpas",
+              "## Frases para Expresar Amor",
+              "## Frases para Reconstruir"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

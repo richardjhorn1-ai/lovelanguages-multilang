@@ -1,0 +1,507 @@
+{
+  "batchId": "tier2a-slim-0182",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "bee24097-dd07-4082-987f-4126dc722689",
+      "title": "Poolse Zinnen over Vergeving",
+      "native_lang": "nl",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Naprawdę przepraszam\"",
+            "### 2. \"Proszę, wybacz mi\"",
+            "### 3. \"Przebaczam ci\"",
+            "### 4. \"Czy możesz znaleźć w sercu przebaczenie?\"",
+            "### 5. \"Nie miałem/am racji i przepraszam\"",
+            "### 6. \"Nigdy więcej tego nie zrobię\"",
+            "### 7. \"Co mogę zrobić, żeby to naprawić?\"",
+            "### 8. \"Przyjmuję twoje przeprosiny\"",
+            "### 9. \"Idźmy dalej\"",
+            "### 10. \"Wiem, że cię zraniłem/am\"",
+            "### 11. \"Obiecuję się poprawić\"",
+            "### 12. \"To wymaga czasu, ale postaram się wybaczyć\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "befb45ba-9392-4150-b7f1-b75299d777a6",
+      "title": "Russische Phrasen für die Schwiegereltern",
+      "native_lang": "de",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Erste Begegnung",
+          "subsections": [
+            "### \"Очень рад/рада наконец с вами познакомиться\"",
+            "### \"Я много о вас слышал/слышала\"",
+            "### \"Спасибо, что приняли меня\"",
+            "### \"У вас прекрасный дом\""
+          ]
+        },
+        {
+          "header": "## Bei Mahlzeiten",
+          "subsections": [
+            "### \"Это очень вкусно! Можно узнать рецепт?\"",
+            "### \"Спасибо за этот чудесный ужин\"",
+            "### \"Могу я чем-то помочь?\""
+          ]
+        },
+        {
+          "header": "## Über Ihre Beziehung",
+          "subsections": [
+            "### \"Ваш сын/Ваша дочь значит для меня всё\"",
+            "### \"Я очень благодарен/благодарна за то, что [Name] есть в моей жизни\"",
+            "### \"Обещаю всегда заботиться о [Name]\""
+          ]
+        },
+        {
+          "header": "## Dankbarkeit zeigen",
+          "subsections": [
+            "### \"Спасибо за то, что вы вырастили такого замечательного человека\"",
+            "### \"Я очень ценю ваш тёплый приём\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bf2ec167-565b-4897-a034-a0240fd4b34c",
+      "title": "Danca Seni Özledim İfadeleri: Hasret Sözleri",
+      "native_lang": "tr",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Özlem İfadeleri",
+          "subsections": [
+            "### 1. \"Jeg savner dig\"",
+            "### 2. \"Jeg savner dig så meget\"",
+            "### 3. \"Jeg længes efter dig\"",
+            "### 4. \"Jeg ville ønske, du var her\"",
+            "### 5. \"Jeg tænker på dig hele tiden\"",
+            "### 6. \"Det føles tomt uden dig\"",
+            "### 7. \"Jeg tæller dagene, indtil vi ses\"",
+            "### 8. \"Du betyder alt for mig\"",
+            "### 9. \"Mit hjerte længes efter dig\"",
+            "### 10. \"Vi ses snart, håber jeg\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bf335069-0b2a-441c-ab90-a109445e34aa",
+      "title": "Macarca: Seni Seviyorum Demenin 15 Romantik Yolu",
+      "native_lang": "tr",
+      "target_lang": "hu",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## \"Seni Seviyorum\" Demenin Alternatif Yollari",
+          "subsections": [
+            "### Daha Derin Baglantilar Icin",
+            "### Gündelik ve Tatli Ifadeler"
+          ]
+        },
+        {
+          "header": "## Ciftler Icin Pratik Aktiviteler",
+          "subsections": [
+            "### Sabah Teyitleri",
+            "### Ask Notlari",
+            "### Yatmadan Önce Ifadeler"
+          ]
+        },
+        {
+          "header": "## Macarca Ask Kelime Dagarcigi Olusturma",
+          "subsections": [
+            "### Temel Askla Ilgili Kelimeler",
+            "### Romantizm Icin Eylem Kelimeleri"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bf4cf490-5d4e-4b5e-b7dc-c53f2b4db64f",
+      "title": "Expresii în Engleză pentru Discuții și Dezacorduri în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale pentru Discuții",
+          "subsections": [
+            "### Exprimarea Frustrării",
+            "### Cererea de Clarificări",
+            "### Stabilirea Limitelor",
+            "### Recunoașterea Greșelilor",
+            "### Căutarea Soluțiilor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bf56757d-f054-4b02-a465-f5cf8ad36d37",
+      "title": "Danish Making Up & Reconciliation Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Apologizing Sincerely",
+          "subsections": [
+            "### Tilgiv mig / Undskyld",
+            "### Jeg er virkelig ked af det",
+            "### Jeg tog fejl",
+            "### Det burde jeg ikke have sagt"
+          ]
+        },
+        {
+          "header": "## Expressing Your Feelings",
+          "subsections": [
+            "### Jeg hader, når vi skændes",
+            "### Jeg savner dig, når vi er sådan",
+            "### Det gør ondt, når vi er vrede"
+          ]
+        },
+        {
+          "header": "## Reaching Out",
+          "subsections": [
+            "### Kan vi tale?",
+            "### Jeg vil gerne løse det her",
+            "### Kan vi starte forfra?"
+          ]
+        },
+        {
+          "header": "## Expressing Love and Commitment",
+          "subsections": [
+            "### Jeg elsker dig, det ændrer sig ikke",
+            "### Du er vigtigere end det her skænderi",
+            "### Jeg vil ikke miste dig",
+            "### Vi er et hold"
+          ]
+        },
+        {
+          "header": "## Moving Forward",
+          "subsections": [
+            "### Hvordan kan vi undgå det her i fremtiden?",
+            "### Jeg lover at blive bedre"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bf65d496-9fd0-44d6-96a2-cb9ef4a7b2af",
+      "title": "50+ portugalskich zdrobnień, które roztopią serce",
+      "native_lang": "pl",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Poranki",
+            "### Ćwiczenie 2: Znajdź swoje zdrobnienie",
+            "### Ćwiczenie 3: Wiadomości"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bf679c00-f46c-4cae-ab0a-cc3cc6d159d1",
+      "title": "Norwegian Grammar Basics for Couples: Simple Rules for Romantic Conversations",
+      "native_lang": "en",
+      "target_lang": "no",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## The Three Core Rules",
+          "subsections": [
+            "### 1. Word Order: Subject-Verb-Object",
+            "### 2. No Verb Conjugation by Person",
+            "### 3. Two Grammatical Genders"
+          ]
+        },
+        {
+          "header": "## Common Grammar Mistakes (And How to Avoid Them)",
+          "subsections": [
+            "### 1. Word Order in Questions",
+            "### 2. Forgetting \"å\" with Infinitives",
+            "### 3. Double Negatives",
+            "### 4. Adjective Agreement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bf726e10-e6fd-4d67-b4da-495bcd38eb33",
+      "title": "Expresii despre Gelozie și Încredere în Cuplu în Cehă",
+      "native_lang": "ro",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii pentru a Discuta despre Gelozie",
+          "subsections": [
+            "### Recunoașterea Sentimentelor",
+            "### Construirea Încrederii",
+            "### Răspunsuri la Gelozie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bf84c92c-380d-4907-b127-75bf2243645e",
+      "title": "Фразы для медового месяца на норвежский: Романтическое путешествие",
+      "native_lang": "ru",
+      "target_lang": "no",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## В аэропорту",
+          "subsections": [
+            "### Регистрация",
+            "### На борту"
+          ]
+        },
+        {
+          "header": "## В отеле",
+          "subsections": [
+            "### Регистрация",
+            "### Романтические просьбы"
+          ]
+        },
+        {
+          "header": "## На пляже",
+          "subsections": [
+            "### Пляжная лексика",
+            "### Романтические фразы на strand"
+          ]
+        },
+        {
+          "header": "## Ужин вдвоём",
+          "subsections": [
+            "### В ресторане",
+            "### Романтические тосты"
+          ]
+        },
+        {
+          "header": "## Экскурсии и приключения",
+          "subsections": [
+            "### Планирование eventyr",
+            "### Создание minner"
+          ]
+        },
+        {
+          "header": "## Романтические моменты",
+          "subsections": [
+            "### Фразы для особых моментов",
+            "### Закат"
+          ]
+        },
+        {
+          "header": "## Покупка сувениров",
+          "subsections": [
+            "### В магазине",
+            "### Идеи подарков"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bf881701-f52a-4e4f-ae1f-8c59d6b09ad5",
+      "title": "Romantische Engelse Zinnen voor Stellen: Verover Je Partner",
+      "native_lang": "nl",
+      "target_lang": "en",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Complimenten voor Je Partner",
+          "subsections": [
+            "### Over Hun Uiterlijk",
+            "### Over Hun Persoonlijkheid"
+          ]
+        },
+        {
+          "header": "## Romantische Verklaringen",
+          "subsections": [
+            "### Grote Liefdesverklaringen"
+          ]
+        },
+        {
+          "header": "## Zinnen voor Speciale Momenten",
+          "subsections": [
+            "### Bij Een Speciale Gelegenheid",
+            "### Bij Een Romantisch Diner"
+          ]
+        },
+        {
+          "header": "## Liefdevolle Berichten",
+          "subsections": [
+            "### Voor Tekstberichten",
+            "### Voor Kaartjes en Brieven"
+          ]
+        },
+        {
+          "header": "## Zinnen voor Moeilijke Momenten",
+          "subsections": [
+            "### Na een Ruzie",
+            "### Om Te Troosten"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bf97563b-b982-4e6b-9262-40a8ad67bb16",
+      "title": "Frases de Apoio Emocional em Turco: Confortando Seu Parceiro",
+      "native_lang": "pt",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases de Apoio Básico",
+          "subsections": [
+            "### Demonstrando Presença",
+            "### Validando Sentimentos",
+            "### Oferecendo Conforto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bfbd1e1e-790d-4eea-84fd-a9d11eb27adb",
+      "title": "Трудно ли выучить греческий? Честный ответ для русскоговорящих",
+      "native_lang": "ru",
+      "target_lang": "el",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Что СЛОЖНО в греческом",
+          "subsections": [
+            "### 1. Греческий алфавит",
+            "### 2. Два звука без аналогов в русском",
+            "### 3. Три буквы для звука \"и\"",
+            "### 4. Система глаголов"
+          ]
+        },
+        {
+          "header": "## Что ПРОСТО в греческом для русскоговорящих",
+          "subsections": [
+            "### 1. Знакомая система падежей",
+            "### 2. Грамматический род — как дома",
+            "### 3. Много интернациональных слов",
+            "### 4. Фонетическое письмо",
+            "### 5. Нет сложной системы времён"
+          ]
+        },
+        {
+          "header": "## Советы для успешного изучения",
+          "subsections": [
+            "### 1. Начните с алфавита",
+            "### 2. Учите слова с артиклями",
+            "### 3. Смотрите греческие фильмы",
+            "### 4. Слушайте греческую музыку",
+            "### 5. Найдите греческого партнёра"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bfcd70d6-9bf9-4035-8926-89e8cda90eca",
+      "title": "Italiană vs. Română: Diferențe Cheie și Similarități",
+      "native_lang": "ro",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Diferența #1: Poziția Articolului",
+          "subsections": [
+            "### Română: Articol Postpus",
+            "### Italiană: Articol Antepus"
+          ]
+        },
+        {
+          "header": "## Diferența #2: Genurile (Simplificat!)",
+          "subsections": [
+            "### Română: 3 genuri",
+            "### Italiană: 2 genuri"
+          ]
+        },
+        {
+          "header": "## Diferența #3: Fără Cazuri!",
+          "subsections": [
+            "### Română: 5 cazuri",
+            "### Italiană: Fără cazuri!"
+          ]
+        },
+        {
+          "header": "## Similarități Gramaticale Majore",
+          "subsections": [
+            "### Conjugările Verbale",
+            "### Acordul Adjectivelor",
+            "### Formarea Pluralului"
+          ]
+        },
+        {
+          "header": "## Rezumat: De Ce Italiana e Ușoară pentru Români",
+          "subsections": [
+            "### Avantajele Tale IMENSE:",
+            "### Singurul Lucru de Învățat:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bfcdd6d8-bed5-4fa1-b428-aade6569f1d1",
+      "title": "Турецькі фрази для примирення після сварки",
+      "native_lang": "uk",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Щирі вибачення",
+          "subsections": [
+            "### \"Özür dilerim\"",
+            "### \"Lütfen beni affet\"",
+            "### \"Hatalıydım, çok özür dilerim\""
+          ]
+        },
+        {
+          "header": "## Визнання провини",
+          "subsections": [
+            "### \"Bunu söylememeliyidim\"",
+            "### \"Sana karşı adaletsiz davrandım\"",
+            "### \"Tüm sorumluluğu üstleniyorum\""
+          ]
+        },
+        {
+          "header": "## Вираження любові",
+          "subsections": [
+            "### \"Seni seviyorum ve kavga etmek istemiyorum\"",
+            "### \"Sen benim her şeyimsin\"",
+            "### \"Kavga ettiğimizde nefret ediyorum\""
+          ]
+        },
+        {
+          "header": "## Прохання та обіцянки",
+          "subsections": [
+            "### \"Beni affeder misin?\"",
+            "### \"Daha iyi olmaya söz veriyorum\"",
+            "### \"Bu bir daha olmayacak\""
+          ]
+        },
+        {
+          "header": "## Відновлення зв'язку",
+          "subsections": [
+            "### \"Yeniden başlayabilir miyiz?\"",
+            "### \"Bunu geride bırakalım\"",
+            "### \"Sadece aramızın iyi olmasını istiyorum\""
+          ]
+        }
+      ]
+    }
+  ]
+}

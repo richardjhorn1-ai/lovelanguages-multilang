@@ -1,0 +1,418 @@
+{
+  "batchId": "tier2a-slim-0104",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "79c3c517-426c-4fe1-8b04-f6a53d3dbb2c",
+      "title": "Podstawy gramatyki francuskiej dla polskich par",
+      "native_lang": "pl",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Czasowniki nieregularne - najważniejsze",
+          "subsections": [
+            "### ETRE (byc)",
+            "### AVOIR (miec)",
+            "### ALLER (isc)"
+          ]
+        },
+        {
+          "header": "## Pytania i przeczenia",
+          "subsections": [
+            "### Tworzenie pytan",
+            "### Slowa pytajne",
+            "### Przeczenia"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Odmiana czasownikow",
+            "### Cwiczenie 2: Passe Compose",
+            "### Cwiczenie 3: Pytania i odpowiedzi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "79c94c5f-6474-44b0-ac9f-9b0404712825",
+      "title": "Bases de la grammaire roumaine : Apprenez ensemble pour une connexion plus forte",
+      "native_lang": "fr",
+      "target_lang": "ro",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Les articles : plus simples qu'en français",
+          "subsections": [
+            "### Articles définis",
+            "### Articles indéfinis"
+          ]
+        },
+        {
+          "header": "## Questions : Plus faciles qu'en français",
+          "subsections": [
+            "### Forme 1 : Intonation",
+            "### Forme 2 : Avec \"est-ce que\""
+          ]
+        },
+        {
+          "header": "## Référence rapide : Cheat Sheet",
+          "subsections": [
+            "### Articles",
+            "### Être et avoir",
+            "### Mots magiques"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "79ecd7e8-870a-40d6-9709-707984e9a2d5",
+      "title": "Sådan Undskylder Du på Tysk: Vejledning for Par",
+      "native_lang": "da",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Specifikke Situationer",
+          "subsections": [
+            "### Når Du Har Glemt Noget",
+            "### Når Du Har Sagt Noget Sårende",
+            "### Når Du Er Kommet For Sent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "79ef9f2f-2887-4d0f-a251-da4a8bd7f837",
+      "title": "Danska Fraser för Försoning och Att Göra Upp",
+      "native_lang": "sv",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Inleda Försoning",
+          "subsections": [
+            "### 1. \"Undskyld\"",
+            "### 2. \"Kan vi starte forfra?\"",
+            "### 3. \"Jeg hader at skændes med dig\"",
+            "### 4. \"Du er alt for mig\"",
+            "### 5. \"Jeg tog fejl og indrømmer det\""
+          ]
+        },
+        {
+          "header": "## Fraser för Djupare Försoning",
+          "subsections": [
+            "### 6. \"Lad os ikke gå i seng vrede\"",
+            "### 7. \"Jeg elsker dig mere end nogen skænderi\"",
+            "### 8. \"Må jeg få et kram?\"",
+            "### 9. \"Jeg vil gerne forstå dig bedre\"",
+            "### 10. \"Vi er stærkere end dette\"",
+            "### 11. \"Jeg lover at blive bedre\"",
+            "### 12. \"Tak for din tålmodighed med mig\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "79fa3d4e-12f6-4440-8f0e-5b8333920dd6",
+      "title": "Украинские фразы о прощении",
+      "native_lang": "ru",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Фразы для просьбы о прощении",
+          "subsections": [
+            "### 1. Мені дуже шкода за те, що я зробив/зробила",
+            "### 2. Будь ласка, пробач мені",
+            "### 3. Я знаю, що завдав/завдала тобі болю, і щиро шкодую",
+            "### 4. Це більше не повториться, обіцяю",
+            "### 5. Я беру повну відповідальність за свої вчинки"
+          ]
+        },
+        {
+          "header": "## Фразы для выражения прощения",
+          "subsections": [
+            "### 6. Я прощаю тебе",
+            "### 7. Залишимо це в минулому",
+            "### 8. Я готовий/готова йти далі",
+            "### 9. Я ціную твої вибачення",
+            "### 10. Потрібна сміливість, щоб вибачитися, дякую"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "79feb7d5-ac28-4926-aa2a-998dc8412010",
+      "title": "Данські фрази про ревнощі та довіру",
+      "native_lang": "uk",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Вираження ревнощів",
+          "subsections": [
+            "### \"Jeg er jaloux\"",
+            "### \"Jeg bliver jaloux, når...\"",
+            "### \"Nogle gange føler jeg mig usikker\""
+          ]
+        },
+        {
+          "header": "## Запитання та довіра",
+          "subsections": [
+            "### \"Hvem var det?\"",
+            "### \"Hvordan kender du ham/hende?\"",
+            "### \"Jeg stoler fuldstændigt på dig\"",
+            "### \"Der er ikke noget at bekymre sig om\"",
+            "### \"Det er bare en ven\"",
+            "### \"Du er den eneste for mig\""
+          ]
+        },
+        {
+          "header": "## Обговорення",
+          "subsections": [
+            "### \"Kan vi tale om det her?\"",
+            "### \"Jeg arbejder på min jalousi\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7a05fd80-c9e1-43fd-a405-233145930143",
+      "title": "L'italien est-il difficile a apprendre ?",
+      "native_lang": "fr",
+      "target_lang": "it",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Activités amusantes pour couples apprenant l'italien",
+          "subsections": [
+            "### 1. Soirées romantiques en italien",
+            "### 2. Conversations café du matin",
+            "### 3. Cuisiner italien ensemble"
+          ]
+        },
+        {
+          "header": "## Rendre l'italien plus facile : Stratégies éprouvées pour couples",
+          "subsections": [
+            "### 1. Créez des « heures italiennes »",
+            "### 2. Regardez du contenu italien ensemble",
+            "### 3. Utilisez la technologie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7a232c43-7567-4670-b811-311f650cf55b",
+      "title": "Spanish for Couples: 25 Essential Phrases",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Practice Tips for Couples",
+          "subsections": [
+            "### Daily Practice Routines",
+            "### Fun Learning Activities"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7a2e4178-d6f1-4fda-8e2c-a8ab663004c7",
+      "title": "Spanisch Kosenamen und Liebkosungen für Paare",
+      "native_lang": "de",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Kosenamen für verschiedene Anlässe",
+          "subsections": [
+            "### Im Alltag",
+            "### Für romantische Momente",
+            "### Zum Necken"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7a3d4265-6c1b-408f-891a-9344f1b851a1",
+      "title": "Ukrainian Emotional Support Phrases: Comfort Your Partner in Difficult Times",
+      "native_lang": "en",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Specific Situations",
+          "subsections": [
+            "### Grief",
+            "### Stress",
+            "### Disappointment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7a3edc97-4407-4aec-941a-50972847bb02",
+      "title": "Norsk kælenavne og kærlige udtryk for par",
+      "native_lang": "da",
+      "target_lang": "no",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Kælenavne til forskellige lejligheder",
+          "subsections": [
+            "### I hverdagen",
+            "### Til romantiske øjeblikke",
+            "### Til at drille"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7a436bb6-104d-4cd6-b143-ccb33f6c58f2",
+      "title": "Conocer a la Familia de tu Pareja Alemana",
+      "native_lang": "es",
+      "target_lang": "de",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Cosas que Evitar",
+          "subsections": [
+            "### No hagas:",
+            "### Haz:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7a6a0852-39d3-4cef-9489-e32e37c9a483",
+      "title": "Švédské fráze pro usmíření a nápravu vztahu",
+      "native_lang": "cs",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fráze pro omluvu",
+          "subsections": [
+            "### 1. Jag är verkligen ledsen för vad jag sa",
+            "### 2. Jag hade fel",
+            "### 3. Snälla, förlåt mig",
+            "### 4. Jag tar fullt ansvar"
+          ]
+        },
+        {
+          "header": "## Fráze pro obnovení spojení",
+          "subsections": [
+            "### 5. Kan vi prata om vad som hände?",
+            "### 6. Jag saknar dig",
+            "### 7. Låt oss inte gå och lägga oss arga",
+            "### 8. Jag älskar dig fortfarande"
+          ]
+        },
+        {
+          "header": "## Fráze pro nový začátek",
+          "subsections": [
+            "### 9. Kan vi börja om på nytt?",
+            "### 10. Jag vill gottgöra det",
+            "### 11. Låt oss ta oss igenom det här tillsammans",
+            "### 12. Jag uppskattar dig så mycket"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7a70a3b6-153f-4734-8b1a-3773e34f0c8f",
+      "title": "I Love You in French + Romantic Phrases",
+      "native_lang": "en",
+      "target_lang": "fr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Romantic Variations and Intensifiers",
+          "subsections": [
+            "### Expressing Deep Love",
+            "### Sweet and Tender Expressions"
+          ]
+        },
+        {
+          "header": "## Practice Scenarios for Couples",
+          "subsections": [
+            "### Morning Declarations",
+            "### Goodnight Sweet Dreams",
+            "### Surprise Expressions"
+          ]
+        },
+        {
+          "header": "## Beyond \"I Love You\"",
+          "subsections": [
+            "### Expressing Attraction",
+            "### Deeper Commitment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7a7161b4-8b59-4b59-a11d-597289ac84c4",
+      "title": "Franske Kærlighedsbreve for Danskere",
+      "native_lang": "da",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Indledninger",
+          "subsections": [
+            "### \"Mon amour\" / \"Mon cœur\" / \"Mon trésor\"",
+            "### \"Ma chérie\" / \"Mon chéri\"",
+            "### \"À l'amour de ma vie\""
+          ]
+        },
+        {
+          "header": "## Udtryk for Kærlighed",
+          "subsections": [
+            "### \"Les mots me manquent pour exprimer ce que je ressens pour toi\"",
+            "### \"Tu es la plus belle chose qui me soit arrivée\"",
+            "### \"Chaque jour à tes côtés est un cadeau\"",
+            "### \"Tu me donnes envie d'être meilleur(e)\""
+          ]
+        },
+        {
+          "header": "## Romantiske Erklæringer",
+          "subsections": [
+            "### \"Quand je te regarde dans les yeux, je vois mon avenir\"",
+            "### \"Ton sourire illumine ma vie\"",
+            "### \"Je tombe amoureux/amoureuse de toi un peu plus chaque jour\"",
+            "### \"Tu es mon rocher, mon ancre, mon refuge\""
+          ]
+        },
+        {
+          "header": "## Minder",
+          "subsections": [
+            "### \"Je n'oublierai jamais le moment où je t'ai vu(e) pour la première fois\"",
+            "### \"Te souviens-tu quand...?\"",
+            "### \"Cette nuit-là a changé ma vie pour toujours\""
+          ]
+        },
+        {
+          "header": "## Løfter",
+          "subsections": [
+            "### \"Je promets de t'aimer dans les bons comme dans les mauvais moments\"",
+            "### \"Je veux vieillir à tes côtés\"",
+            "### \"Mon amour pour toi ne s'éteindra jamais\"",
+            "### \"Je te choisis aujourd'hui et pour toujours\""
+          ]
+        },
+        {
+          "header": "## Afslutninger",
+          "subsections": [
+            "### \"À toi pour toujours\"",
+            "### \"Avec tout mon amour\"",
+            "### \"Éternellement tien/tienne\"",
+            "### \"En attendant de te revoir, mon cœur t'appartient\""
+          ]
+        }
+      ]
+    }
+  ]
+}

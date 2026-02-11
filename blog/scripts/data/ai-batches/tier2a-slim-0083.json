@@ -1,0 +1,428 @@
+{
+  "batchId": "tier2a-slim-0083",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "6723d12a-6fc9-4635-b7bd-8202b886b2fe",
+      "title": "Întâlnirea cu Familia Partenerului Tău Turc: Ghid Complet pentru Cupluri",
+      "native_lang": "ro",
+      "target_lang": "tr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Scenarii Comune: La Cină cu Familia",
+          "subsections": [
+            "### Sosirea la Casă",
+            "### La Masă"
+          ]
+        },
+        {
+          "header": "## Vocabular pentru Conversații de Familie",
+          "subsections": [
+            "### Despre Relația Voastră",
+            "### Despre România și Cultura Ta"
+          ]
+        },
+        {
+          "header": "## Formule de Politete și Respect",
+          "subsections": [
+            "### Pentru Vârstnici"
+          ]
+        },
+        {
+          "header": "## Dacă Lucurile Nu merg cum ai Planificat",
+          "subsections": [
+            "### Când Nu Înțelegi",
+            "### Când Ai Nevoie de Ajutor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "674d73b8-e957-4239-8042-a75902988b9e",
+      "title": "Frases de Apoyo Emocional en Noruego: Cómo Consolar a Tu Pareja",
+      "native_lang": "es",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases de Consuelo Básicas",
+          "subsections": [
+            "### \"Jeg er her for deg\"",
+            "### \"Alt kommer til å ordne seg\"",
+            "### \"Jeg er så lei for at du går gjennom dette\""
+          ]
+        },
+        {
+          "header": "## Ofreciendo Apoyo",
+          "subsections": [
+            "### \"Hva trenger du akkurat nå?\"",
+            "### \"Jeg skal gjøre alt jeg kan for å hjelpe\"",
+            "### \"Vil du snakke om det?\"",
+            "### \"Jeg lytter\""
+          ]
+        },
+        {
+          "header": "## Validando Emociones",
+          "subsections": [
+            "### \"Det er greit å føle sånn\"",
+            "### \"Følelsene dine er helt forståelige\""
+          ]
+        },
+        {
+          "header": "## Frases de Ánimo",
+          "subsections": [
+            "### \"Du er sterkere enn du tror\"",
+            "### \"Jeg tror på deg\"",
+            "### \"Vi klarer dette sammen\""
+          ]
+        },
+        {
+          "header": "## Expresando Amor",
+          "subsections": [
+            "### \"Jeg elsker deg uansett hva som skjer\"",
+            "### \"Du er ikke alene\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6756bc3a-ac59-4841-80e6-0bbc848ffded",
+      "title": "Lengyel kifejezések kibéküléshez és megbékéléshez",
+      "native_lang": "hu",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető kifejezések a kibéküléshez",
+          "subsections": [
+            "### 1. \"Bardzo cię przepraszam\"",
+            "### 2. \"Możemy zacząć od nowa?\"",
+            "### 3. \"Myliłem/myliłam się\"",
+            "### 4. \"Pogódźmy się\"",
+            "### 5. \"Wybaczam ci\"",
+            "### 6. \"Kocham cię, nawet gdy się kłócimy\"",
+            "### 7. \"Nie chciałem/chciałam cię zranić\"",
+            "### 8. \"Czy możesz mi wybaczyć?\"",
+            "### 9. \"Nie znoszę, gdy się kłócimy\"",
+            "### 10. \"Nie idźmy spać w gniewie\"",
+            "### 11. \"Obiecuję, że będę lepszy/a\"",
+            "### 12. \"Jesteś dla mnie ważny/a\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "675727a3-4d7a-4575-a6a7-54204036fd03",
+      "title": "50+ португальських ласкавих слів, які розтоплять серце",
+      "native_lang": "uk",
+      "target_lang": "pt",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Найпопулярніші пестливі звертання",
+          "subsections": [
+            "### Amor (Амор)",
+            "### Querido/Querida (Керіду/Керіда)",
+            "### Bem (Бем)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6758eb85-d28a-4b01-858f-60959fbd60c8",
+      "title": "Expresii în Maghiară pentru Reconciliere și Împăcare în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Gesturi de Reconciliere",
+          "subsections": [
+            "### Mâncarea Tradițională",
+            "### Vinul sau Pálinka",
+            "### Florile",
+            "### Loialitatea"
+          ]
+        },
+        {
+          "header": "## Nuanțe Culturale",
+          "subsections": [
+            "### Mândria Maghiară",
+            "### Tradițiile",
+            "### Directitatea"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "676c9930-3041-4115-8f30-02d59c88fc6c",
+      "title": "Magyar kiejtés kezdőknek: Hogyan beszélhetsz magyarul partnerednek már az első leckétől",
+      "native_lang": "ro",
+      "target_lang": "hu",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## A legfontosabb kiejtési szabályok pároknak",
+          "subsections": [
+            "### 1. Szótagolás: A kulcs a jó kiejtéshez",
+            "### 2. A mássalhangzók kiejtése",
+            "### 3. A hosszúság számít!"
+          ]
+        },
+        {
+          "header": "## Gyakori hibák elkerülése",
+          "subsections": [
+            "### 1. A \"gy\" és \"ty\" keverése",
+            "### 2. A \"sz\" és \"s\" összekeverése",
+            "### 3. A hosszú magánhangzók figyelmen kívül hagyása"
+          ]
+        },
+        {
+          "header": "## Kiejtési trükkök és tippek",
+          "subsections": [
+            "### 1. Hallgasd meg partneredet",
+            "### 2. Használj kiejtési alkalmazásokat",
+            "### 3. Gyakorold a szótagolást",
+            "### 4. Rögzítsd magad"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6777922c-f918-432d-8398-abed3af7ec83",
+      "title": "Φράσεις Φλερτ στα Ρουμανικά",
+      "native_lang": "el",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις Φλερτ",
+          "subsections": [
+            "### 1. Ești foarte frumoasă (Έστι φοάρτε φρουμοάσα)",
+            "### 2. Ai un zâmbet minunat (Άι ουν ζιμπέτ μινουνάτ)",
+            "### 3. Pot să te cunosc? (Ποτ σα τε κουνόσκ;)",
+            "### 4. Îmi placi (Ιμί πλατς)",
+            "### 5. Vrei să bem o cafea împreună? (Βρέι σα μπεμ ο καφέα ιμπρεούνα;)",
+            "### 6. Ai ochi superbi (Άι όκι σουπέρμπι)",
+            "### 7. Aș vrea să te revăd (Ας βρέα σα τε ρεβάντ)",
+            "### 8. Ești specială (Έστι σπετσιάλα)",
+            "### 9. Mă faci să zâmbesc (Μα φατς σα ζιμπέσκ)",
+            "### 10. Îmi poți da numărul tău? (Ιμί ποτς ντα νουμάρουλ τάου;)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "677b7265-9149-4c90-bed8-301fb6d36d3f",
+      "title": "Cseh kifejezések féltékenységhez és bizalomhoz",
+      "native_lang": "hu",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kifejezések a féltékenységhez",
+          "subsections": [
+            "### 1. \"Jsem žárlivý/á, když ty...\"",
+            "### 2. \"Potřebuji, abys mě uklidnil/a\"",
+            "### 3. \"Věřím ti, ale bojuji se svými pocity\"",
+            "### 4. \"Můžeme si promluvit o tom, co se stalo?\"",
+            "### 5. \"Nechci být žárlivý/á, ale...\"",
+            "### 6. \"Plně ti věřím\"",
+            "### 7. \"Jsi pro mě jediný/á\"",
+            "### 8. \"Nikdy bych neudělal/a nic, co by ti ublížilo\"",
+            "### 9. \"Mezi námi nic není\"",
+            "### 10. \"Jsem ti věrný/á\"",
+            "### 11. \"Buďme k sobě upřímní\"",
+            "### 12. \"Nechci, aby nás žárlivost rozdělila\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "677e0d31-f5b1-439e-9bc7-d49aa109155b",
+      "title": "Macarca Sevgi Sözcükleri ve Takma Adlar",
+      "native_lang": "tr",
+      "target_lang": "hu",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Farklı Durumlar İçin Sevgi Sözcükleri",
+          "subsections": [
+            "### Günlük Hayatta",
+            "### Romantik Anlar İçin",
+            "### Şakalaşmak İçin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6782fa10-bccb-4087-88c9-f92e70d788c7",
+      "title": "İsveççe Barışma ve Uzlaşma İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Barışma İfadeleri",
+          "subsections": [
+            "### 1. \"Förlåt för det jag sa\"",
+            "### 2. \"Kan vi börja om?\"",
+            "### 3. \"Jag hatar att bråka med dig\"",
+            "### 4. \"Låt oss inte gå och lägga oss arga\"",
+            "### 5. \"Jag förlåter dig\"",
+            "### 6. \"Jag hade fel\"",
+            "### 7. \"Hur kan jag gottgöra det?\"",
+            "### 8. \"Jag älskar dig mer än det här bråket\"",
+            "### 9. \"Låt oss lösa det här tillsammans\"",
+            "### 10. \"Jag saknar hur vi var innan bråket\"",
+            "### 11. \"Du betyder allt för mig\"",
+            "### 12. \"Jag lovar att bli bättre\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6791d375-0401-4631-8c45-086acfeee0e5",
+      "title": "100 самых важных французских слов для пар",
+      "native_lang": "ru",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Местоимения и обращения",
+          "subsections": [
+            "### 1. Je / Tu / Nous",
+            "### 2. Mon amour / Chéri(e) / Mon cœur"
+          ]
+        },
+        {
+          "header": "## Чувства и эмоции",
+          "subsections": [
+            "### 3. Amour",
+            "### 4. Heureux / Triste",
+            "### 5. Fâché / Fatigué"
+          ]
+        },
+        {
+          "header": "## Повседневные действия",
+          "subsections": [
+            "### 6. Manger / Boire / Dormir",
+            "### 7. Aller / Venir / Rester",
+            "### 8. Travailler / Se reposer"
+          ]
+        },
+        {
+          "header": "## Время",
+          "subsections": [
+            "### 9. Aujourd'hui / Demain / Hier",
+            "### 10. Matin / Soir / Nuit",
+            "### 11. Maintenant / Plus tard / Bientôt"
+          ]
+        },
+        {
+          "header": "## Важные фразы",
+          "subsections": [
+            "### 12. Je t'aime",
+            "### 13. Tu me manques",
+            "### 14. J'ai besoin de toi",
+            "### 15. Merci",
+            "### 16. Pardon / Je suis désolé(e)",
+            "### 17. S'il te plaît",
+            "### 18. Oui / Non",
+            "### 19. Bisou / Câlin",
+            "### 20. Bonne nuit"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "679735c0-1d83-4140-9c65-b9fcf173d350",
+      "title": "Podstawy gramatyki rosyjskiej: Od pierwszych słów do romantycznych zdań z Twoją drugą połówką",
+      "native_lang": "pl",
+      "target_lang": "ru",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Najważniejsze wzorce dla par",
+          "subsections": [
+            "### 1. Chcieć + dopełniacz",
+            "### 2. Móc + bezokolicznik",
+            "### 3. Mieć + dopełniacz",
+            "### 4. Być + instrumentalny"
+          ]
+        },
+        {
+          "header": "## Najczęstsze błędy i jak ich unikać",
+          "subsections": [
+            "### 1. **Mylenie \"ты\" i \"вы\"**",
+            "### 2. **Zapominanie o miękkości**",
+            "### 3. **Niewłaściwa kolejność w pytaniach**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "67bc491b-4974-4ea8-8252-059ba8810881",
+      "title": "Húngaro Romântico: Frases que Derretem o Coração",
+      "native_lang": "pt",
+      "target_lang": "hu",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Momentos Especiais",
+          "subsections": [
+            "### Primeiro \"Eu Te Amo\"",
+            "### Depois de Muito Tempo Juntos",
+            "### Dizendo Adeus (Temporariamente)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "67c790ea-438a-433b-9a08-44ee30b5cd2d",
+      "title": "100 Συχνές Λέξεις (tr): Οδηγός για Ελληνόφωνα Ζευγάρια",
+      "native_lang": "el",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Κατηγορίες Λέξεων",
+          "subsections": [
+            "### Αγάπη & Τρυφερότητα",
+            "### Καθημερινές Λέξεις",
+            "### Συναισθήματα",
+            "### Χρόνος",
+            "### Τοποθεσία",
+            "### Ερωτήσεις",
+            "### Ρήματα"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "67c9345c-9601-4f68-98e2-6695ab9724bf",
+      "title": "Yunanca Seni Özledim İfadeleri: Hasret Sözleri",
+      "native_lang": "tr",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Özlem İfadeleri",
+          "subsections": [
+            "### 1. \"Μου λείπεις\" (Mou lipis)",
+            "### 2. \"Μου λείπεις πολύ\" (Mou lipis poli)",
+            "### 3. \"Λαχταράω να σε δω\" (Lahtarao na se do)",
+            "### 4. \"Μακάρι να ήσουν εδώ\" (Makari na isoun edo)",
+            "### 5. \"Σκέφτομαι συνέχεια εσένα\" (Skeftome sinehia esena)",
+            "### 6. \"Νιώθω άδεια χωρίς εσένα\" (Niotho adia horis esena)",
+            "### 7. \"Μετράω τις μέρες μέχρι να σε δω\" (Metrao tis meres mehri na se do)",
+            "### 8. \"Είσαι τα πάντα για μένα\" (Ise ta panda gia mena)",
+            "### 9. \"Η καρδιά μου σε λαχταράει\" (I kardia mou se lahtarai)",
+            "### 10. \"Ελπίζω να σε δω σύντομα\" (Elpizo na se do sindoma)"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,447 @@
+{
+  "batchId": "tier2a-slim-0096",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "72dab978-5e1e-44cc-b24a-5db4c107c5df",
+      "title": "Основы венгерской грамматики для начинающих",
+      "native_lang": "ru",
+      "target_lang": "hu",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Падежная система",
+          "subsections": [
+            "### 18+ падежей"
+          ]
+        },
+        {
+          "header": "## Спряжение глаголов",
+          "subsections": [
+            "### Два типа спряжения",
+            "### Глагол SZERETNI (любить) — неопределённое",
+            "### Глагол SZERETNI — определённое",
+            "### Особая форма: я → тебя"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "72e118f6-876c-4da5-bb93-f980b9c71c35",
+      "title": "Saludos y Despedidas en Polaco: Guía Completa para Parejas",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## La Pronunciación Polaca",
+          "subsections": [
+            "### Sonidos Difíciles"
+          ]
+        },
+        {
+          "header": "## Situaciones Especiales",
+          "subsections": [
+            "### Conociendo a los Padres",
+            "### Por Teléfono"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "72e34306-cf4e-4f1f-8add-f9bd46568ea4",
+      "title": "Phrases hongroises pour se réconcilier en couple",
+      "native_lang": "fr",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions essentielles pour se réconcilier",
+          "subsections": [
+            "### S'excuser sincèrement",
+            "### Exprimer ses sentiments",
+            "### Proposer une résolution",
+            "### Réaffirmer son amour"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "72f91a9c-69ad-49b9-9375-f2f01bc1cdfe",
+      "title": "Tschechisch Kosenamen und Liebkosungen für Paare",
+      "native_lang": "de",
+      "target_lang": "cs",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Kosenamen für verschiedene Anlässe",
+          "subsections": [
+            "### Im Alltag",
+            "### Für romantische Momente",
+            "### Zum Necken"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "730b9a35-ac18-40fe-bf20-3c0d4c640a05",
+      "title": "Portugál kifejezések első randira",
+      "native_lang": "hu",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bemutatkozás",
+          "subsections": [
+            "### 1. \"É um prazer finalmente te conhecer\"",
+            "### 2. \"Você está lindo/a\"",
+            "### 3. \"Me conta sobre você\"",
+            "### 4. \"O que você faz?\"",
+            "### 5. \"Quais são seus hobbies?\""
+          ]
+        },
+        {
+          "header": "## Beszélgetés",
+          "subsections": [
+            "### 6. \"Isso é muito interessante\"",
+            "### 7. \"Eu sinto o mesmo\"",
+            "### 8. \"Que tipo de música você gosta?\"",
+            "### 9. \"Você já viajou muito?\"",
+            "### 10. \"Estou me divertindo muito\""
+          ]
+        },
+        {
+          "header": "## Randi vége",
+          "subsections": [
+            "### 11. \"Eu me diverti muito\"",
+            "### 12. \"Podemos nos ver de novo?\"",
+            "### 13. \"Adoraria fazer isso de novo\"",
+            "### 14. \"Posso te levar para casa?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "730ba0ae-f37c-4d18-b3e8-a83ed7ffd9c4",
+      "title": "Dire \"Tu me manques\" en hongrois : Le hiány magyar",
+      "native_lang": "fr",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Phrases essentielles",
+          "subsections": [
+            "### \"Hiányzol\"",
+            "### \"Nagyon hiányzol\"",
+            "### \"Rettenetesen hiányzol\""
+          ]
+        },
+        {
+          "header": "## Expressions profondes",
+          "subsections": [
+            "### \"Minden nap nélküled örökkévalóságnak tűnik\"",
+            "### \"Minden percben rád gondolok\"",
+            "### \"Nélküled semmi sem ugyanaz\""
+          ]
+        },
+        {
+          "header": "## Phrases quotidiennes",
+          "subsections": [
+            "### \"Bárcsak itt lennél\"",
+            "### \"Számlálom a napokat, amíg találkozunk\"",
+            "### \"Alig várom, hogy lássalak\""
+          ]
+        },
+        {
+          "header": "## Expressions romantiques",
+          "subsections": [
+            "### \"A távolság nem változtatja meg az érzéseimet\"",
+            "### \"A szívem mindig veled van\"",
+            "### \"Te vagy az otthonom\""
+          ]
+        },
+        {
+          "header": "## Pour les messages",
+          "subsections": [
+            "### \"Rád gondolok\"",
+            "### \"Hiányzol, drágám\"",
+            "### \"Puszi távolról\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "730edade-f4a8-4a57-905b-24e41d0e48b1",
+      "title": "İtalyanca Barışma ve Uzlaşma İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Barışma İfadeleri",
+          "subsections": [
+            "### 1. \"Perdonami per quello che ho detto\"",
+            "### 2. \"Possiamo ricominciare da capo?\"",
+            "### 3. \"Odio litigare con te\"",
+            "### 4. \"Non andiamo a letto arrabbiati\"",
+            "### 5. \"Ti perdono\"",
+            "### 6. \"Avevo torto\"",
+            "### 7. \"Come posso farmi perdonare?\"",
+            "### 8. \"Ti amo più di questa discussione\"",
+            "### 9. \"Risolviamo insieme\"",
+            "### 10. \"Mi manca come eravamo prima del litigio\"",
+            "### 11. \"Sei tutto per me\"",
+            "### 12. \"Prometto di fare meglio\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "73370cd3-9a13-46f4-8a17-aad0132b5697",
+      "title": "Γερμανικές Φράσεις Φλερτ για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις Φλερτ",
+          "subsections": [
+            "### 1. Du siehst wunderschön aus",
+            "### 2. Du machst mich verrückt",
+            "### 3. Ich liebe dein Lächeln"
+          ]
+        },
+        {
+          "header": "## Ρομαντικές Εκφράσεις",
+          "subsections": [
+            "### 4. Ich kann nicht aufhören, an dich zu denken",
+            "### 5. Du bist die Liebe meines Lebens",
+            "### 6. Du machst mich so glücklich"
+          ]
+        },
+        {
+          "header": "## Παιχνιδιάρικες Φράσεις",
+          "subsections": [
+            "### 7. Komm her, mein Schatz",
+            "### 8. Du bist unwiderstehlich",
+            "### 9. Ich bin so froh, dass ich dich habe"
+          ]
+        },
+        {
+          "header": "## Τρυφερές Εκφράσεις",
+          "subsections": [
+            "### 10. Du hast wunderschöne Augen",
+            "### 11. Ich bin verrückt nach dir",
+            "### 12. Jeden Tag liebe ich dich mehr"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "73427e49-c491-4d13-9ad1-d7178fa571de",
+      "title": "Румунські фрази про ревнощі та довіру",
+      "native_lang": "uk",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Вираження ревнощів",
+          "subsections": [
+            "### \"Sunt gelos/geloasă\"",
+            "### \"Mă face gelos/geloasă când...\"",
+            "### \"Uneori mă simt nesigur/nesigură\""
+          ]
+        },
+        {
+          "header": "## Запитання та довіра",
+          "subsections": [
+            "### \"Cine era?\"",
+            "### \"De unde îl/o cunoști?\"",
+            "### \"Am încredere deplină în tine\"",
+            "### \"Nu e nimic de care să te îngrijorezi\"",
+            "### \"E doar un prieten/o prietenă\"",
+            "### \"Ești singurul/singura pentru mine\""
+          ]
+        },
+        {
+          "header": "## Обговорення",
+          "subsections": [
+            "### \"Putem vorbi despre asta?\"",
+            "### \"Lucrez la gelozia mea\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7354b069-a1d3-4563-81d6-2d22a31bf824",
+      "title": "Small Talk på Tjekkisk: Samtalestartere for Par",
+      "native_lang": "da",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassiske Emner",
+          "subsections": [
+            "### Vejret",
+            "### Weekendplaner",
+            "### Ferier og Rejser"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "73595651-1216-4dc5-a3c3-434b33bed5f4",
+      "title": "Основи чеської граматики для початківців: Гід для українців",
+      "native_lang": "uk",
+      "target_lang": "cs",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Приклад відмінювання іменників",
+          "subsections": [
+            "### Чоловічий рід: «muž» (чоловік)",
+            "### Жіночий рід: «žena» (жінка)"
+          ]
+        },
+        {
+          "header": "## Дієслова: Теперішній час",
+          "subsections": [
+            "### Регулярні групи дієслів"
+          ]
+        },
+        {
+          "header": "## Порівняння з українською",
+          "subsections": [
+            "### Схожості:",
+            "### Відмінності:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "735bb62c-6c83-4f23-9370-89a6792a95ea",
+      "title": "Conversazioni Quotidiane in Ceco per Coppie",
+      "native_lang": "it",
+      "target_lang": "cs",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Prima di Uscire",
+          "subsections": [
+            "### Dialogo"
+          ]
+        },
+        {
+          "header": "## Conversazione Serale",
+          "subsections": [
+            "### Dialogo: Bentornato/a"
+          ]
+        },
+        {
+          "header": "## Prima di Dormire",
+          "subsections": [
+            "### Dialogo: Buonanotte"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7380a091-cb0b-4278-a869-2fa1fefd4ade",
+      "title": "Lo spagnolo è difficile da imparare? La verità per le coppie italiane",
+      "native_lang": "it",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Cosa rende lo spagnolo FACILE per gli italiani",
+          "subsections": [
+            "### Vantaggi immediati:",
+            "### Le uniche piccole sfide:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "739337ef-cd78-4816-89c6-b960489a0da2",
+      "title": "Russiske 'Jeg Savner Dig' Sætninger for Danskere",
+      "native_lang": "da",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Udtryk",
+          "subsections": [
+            "### \"Я скучаю по тебе\" (Ya skuchayu po tebe)",
+            "### \"Я очень скучаю по тебе\" (Ya ochen' skuchayu po tebe)",
+            "### \"Я постоянно думаю о тебе\" (Ya postoyanno dumayu o tebe)"
+          ]
+        },
+        {
+          "header": "## Dybere Udtryk",
+          "subsections": [
+            "### \"Каждый момент без тебя — вечность\" (Kazhdiy moment bez tebya — vechnost')",
+            "### \"Ты первое, о чём я думаю, когда просыпаюсь\" (Ty pervoye, o chyom ya dumayu, kogda prosypayus')",
+            "### \"Как бы я хотел/хотела, чтобы ты был/была здесь\" (Kak by ya khotel/khotela, chtoby ty byl/byla zdes')"
+          ]
+        },
+        {
+          "header": "## Hverdagens Savn",
+          "subsections": [
+            "### \"Скучаю по твоей улыбке\" (Skuchayu po tvoyey ulybke)",
+            "### \"Скучаю по тому, как мы засыпаем вместе\" (Skuchayu po tomu, kak my zasypayem vmeste)",
+            "### \"Скучаю по нашим разговорам\" (Skuchayu po nashim razgovoram)"
+          ]
+        },
+        {
+          "header": "## Intense Udtryk",
+          "subsections": [
+            "### \"Скучаю больше, чем слова могут выразить\" (Skuchayu bol'she, chem slova mogut vyrazit')",
+            "### \"Быть вдали от тебя — самое тяжёлое\" (Byt' vdali ot tebya — samoye tyazhyoloye)",
+            "### \"Считаю дни до нашей встречи\" (Schitayu dni do nashey vstrechi)"
+          ]
+        },
+        {
+          "header": "## Trøstende Sætninger",
+          "subsections": [
+            "### \"Расстояние ничего не значит, когда кто-то значит всё\" (Rasstoyaniye nichego ne znachit, kogda kto-to znachit vsyo)",
+            "### \"Где бы ты ни был/была, ты всегда в моём сердце\" (Gde by ty ni byl/byla, ty vsegda v moyom serdtse)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7394d055-7153-4fcf-8314-f62ed2a0ae3d",
+      "title": "50+ duńskich zdrobnień, które roztopią serce",
+      "native_lang": "pl",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Kiedy używać duńskich zdrobnień",
+          "subsections": [
+            "### Na osobności",
+            "### Przy rodzinie partnera",
+            "### W wiadomościach tekstowych",
+            "### Rano i wieczorem"
+          ]
+        },
+        {
+          "header": "## Zdrobnienia na rozne okazje",
+          "subsections": [
+            "### Rano",
+            "### Wieczorem",
+            "### W trudnych chwilach"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Wybierz swoje zdrobnienie",
+            "### Cwiczenie 2: Nowe zdrobnienie codzieńnie",
+            "### Cwiczenie 3: Zdrobnienia \"hygge\""
+          ]
+        }
+      ]
+    }
+  ]
+}

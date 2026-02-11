@@ -1,0 +1,403 @@
+{
+  "batchId": "tier2a-slim-0216",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "dbe90e0d-3189-44ca-b71b-53b199f7d341",
+      "title": "Basi della Coniugazione Verbale Portoghese",
+      "native_lang": "it",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Verbi Irregolari Essenziali",
+          "subsections": [
+            "### Ser (Essere - permanente)",
+            "### Estar (Essere - temporaneo)",
+            "### Ter (Avere)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dbf221f7-b360-4303-a31f-f4a2a8916d0a",
+      "title": "Rumänische Aussprache: Ein Guide für Deutsche",
+      "native_lang": "de",
+      "target_lang": "ro",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Vokale",
+          "subsections": [
+            "### Einfache Vokale",
+            "### Besondere Vokale"
+          ]
+        },
+        {
+          "header": "## Konsonanten",
+          "subsections": [
+            "### Wie im Deutschen",
+            "### Besondere Konsonanten"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dbf8be0f-1036-4b09-9251-719dc399f5b9",
+      "title": "німецька для пар: 45+ фраз для подорожей",
+      "native_lang": "uk",
+      "target_lang": "de",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## У готелі",
+          "subsections": [
+            "### Заселення",
+            "### Запити в готелі"
+          ]
+        },
+        {
+          "header": "## Транспорт",
+          "subsections": [
+            "### Таксі",
+            "### Громадський транспорт"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dbfde275-de98-4485-9568-4943fa3c1689",
+      "title": "Frases en Ruso para Discutir y Resolver Desacuerdos con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Expresar Desacuerdo",
+          "subsections": [
+            "### \"Я вижу это иначе\" (Ya vizhu eto inache)",
+            "### \"Можем поговорить спокойно?\" (Mozhem pogovorit' spokoyno?)",
+            "### \"Мне больно, когда ты...\" (Mne bol'no, kogda ty...)",
+            "### \"Я имел(а) в виду не это\" (Ya imel(a) v vidu ne eto)",
+            "### \"Мне нужно время подумать\" (Mne nuzhno vremya podumat')",
+            "### \"Попробуй понять мою точку зрения\" (Poprobuy ponyat' moyu tochku zreniya)",
+            "### \"Я не хочу ссориться\" (Ya ne khochu ssorit'sya)",
+            "### \"Ты меня не слушаешь\" (Ty menya ne slushayesh')",
+            "### \"Давай найдём компромисс\" (Davay naydom kompromiss)",
+            "### \"Это важно для меня\" (Eto vazhno dlya menya)",
+            "### \"Нам обоим нужно успокоиться\" (Nam oboim nuzhno uspokoit'sya)",
+            "### \"Мне обидно\" (Mne obidno)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dc10f885-1e25-4124-a476-d65f0b72521d",
+      "title": "Phrases italiennes sur la jalousie et la confiance en couple",
+      "native_lang": "fr",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions pour aborder la jalousie",
+          "subsections": [
+            "### Exprimer ses sentiments",
+            "### Demander des réassurances",
+            "### Construire la confiance",
+            "### Réaffirmer son engagement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dc136d5a-f5bd-41d8-9572-a78b859dedc9",
+      "title": "Lehçe Barışma ve Uzlaşma İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Barışma İfadeleri",
+          "subsections": [
+            "### 1. \"Przepraszam za to, co powiedziałem/am\"",
+            "### 2. \"Czy możemy zacząć od nowa?\"",
+            "### 3. \"Nienawidzę się z tobą kłócić\"",
+            "### 4. \"Nie chodźmy spać zły/a\"",
+            "### 5. \"Wybaczam ci\"",
+            "### 6. \"Myliłem/am się\"",
+            "### 7. \"Jak mogę to naprawić?\"",
+            "### 8. \"Kocham cię bardziej niż tę kłótnię\"",
+            "### 9. \"Rozwiążmy to razem\"",
+            "### 10. \"Tęsknię za tym, jak było przed kłótnią\"",
+            "### 11. \"Jesteś dla mnie wszystkim\"",
+            "### 12. \"Obiecuję się poprawić\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dc18b2e4-9a0b-4167-b373-37364901f2e4",
+      "title": "Włoskie zwroty do kłótni i nieporozumień dla par",
+      "native_lang": "pl",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Wyrażanie niezgody",
+          "subsections": [
+            "### \"Non sono d'accordo con te\"",
+            "### \"La vedo diversamente\"",
+            "### \"Possiamo parlarne con calma?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie uczuć",
+          "subsections": [
+            "### \"Mi sento frustrato/frustrata quando...\"",
+            "### \"Questa cosa mi dà molto fastidio\"",
+            "### \"Ho bisogno di un momento per me\""
+          ]
+        },
+        {
+          "header": "## Zrozumienie partnera",
+          "subsections": [
+            "### \"Aiutami a capire il tuo punto di vista\"",
+            "### \"Se ho capito bene, stai dicendo che...\"",
+            "### \"Vuoi dire che...?\""
+          ]
+        },
+        {
+          "header": "## Szukanie rozwiązań",
+          "subsections": [
+            "### \"Come possiamo risolvere questo insieme?\"",
+            "### \"Troviamo un compromesso\"",
+            "### \"Penso che entrambi dobbiamo...\""
+          ]
+        },
+        {
+          "header": "## Łagodzenie napięcia",
+          "subsections": [
+            "### \"Ti amo, anche quando litighiamo\"",
+            "### \"Ce la faremo insieme\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dc30b2b6-d609-4e4b-92eb-a0e813d10dbb",
+      "title": "Phrases de réconfort en ukrainien : Soutenir son partenaire",
+      "native_lang": "fr",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Phrases de réconfort",
+          "subsections": [
+            "### \"Я поруч\" / \"Я тут для тебе\"",
+            "### \"Все буде добре\"",
+            "### \"Ти не сам/сама в цьому\""
+          ]
+        },
+        {
+          "header": "## Écouter et valider",
+          "subsections": [
+            "### \"Я розумію, що ти відчуваєш\""
+          ]
+        },
+        {
+          "header": "## Soutien actif",
+          "subsections": [
+            "### \"Що я можу зробити, щоб допомогти?\""
+          ]
+        },
+        {
+          "header": "## Encouragement",
+          "subsections": [
+            "### \"Ти сильніший/сильніша, ніж ти думаєш\"",
+            "### \"Я вірю в тебе\"",
+            "### \"Ти впораєшся\""
+          ]
+        },
+        {
+          "header": "## Moments difficiles",
+          "subsections": [
+            "### \"Обійми мене\" / \"Ходи, обійму тебе\"",
+            "### \"Ми пройдемо через це разом\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dc359c87-adc2-43f2-bc04-58ff9a08524f",
+      "title": "Як зробити пропозицію нідерландською: фрази для заручин",
+      "native_lang": "uk",
+      "target_lang": "nl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Підготовка до пропозиції",
+          "subsections": [
+            "### Чек-лист:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dc3a75ab-6b31-4cdf-b74a-97cce5081808",
+      "title": "30+ Piropos en húngaro: Cumplidos para Enamorar a tu Pareja",
+      "native_lang": "es",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Cumplidos Sobre la Apariencia",
+          "subsections": [
+            "### Belleza General",
+            "### Características Específicas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dc3d1c8d-3af4-4947-81de-353cd9f11618",
+      "title": "Guia de Pronúncia do Grego para Falantes de Português",
+      "native_lang": "pt",
+      "target_lang": "el",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Sons Desafiadores",
+          "subsections": [
+            "### O som de Γ (gama)",
+            "### O som de Χ (qui)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dc446980-7cf6-457b-b91e-41075e2a806a",
+      "title": "Dán kifejezések az após és anyós megismeréséhez",
+      "native_lang": "hu",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető üdvözlések",
+          "subsections": [
+            "### Hej!",
+            "### Goddag!",
+            "### Dejligt at møde dig",
+            "### Jeg hedder..."
+          ]
+        },
+        {
+          "header": "## Bókok és köszönet",
+          "subsections": [
+            "### I har et virkelig dejligt hjem",
+            "### Tak for invitationen",
+            "### Det var virkelig lækkert!",
+            "### Tak for mad"
+          ]
+        },
+        {
+          "header": "## A kapcsolatról",
+          "subsections": [
+            "### Jeg elsker jeres søn / datter meget højt",
+            "### Vi er meget lykkelige sammen"
+          ]
+        },
+        {
+          "header": "## Érdeklődés",
+          "subsections": [
+            "### Jeg vil gerne lære mere om jeres kultur",
+            "### Kan I lære mig at lave denne ret?"
+          ]
+        },
+        {
+          "header": "## Hygge beszélgetések",
+          "subsections": [
+            "### Det er meget hyggeligt her",
+            "### Hvad laver I normalt i weekenden?"
+          ]
+        },
+        {
+          "header": "## Búcsúzás",
+          "subsections": [
+            "### Hej hej!",
+            "### Tak for en hyggelig aften"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dc4e1b53-0445-4996-9683-3daf31dd0c45",
+      "title": "Englisch Kosenamen und Liebkosungen für Paare",
+      "native_lang": "de",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Kosenamen für verschiedene Anlässe",
+          "subsections": [
+            "### Im Alltag",
+            "### Für romantische Momente",
+            "### Zum Necken"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dc534f8a-48d8-48ef-9bfb-1f0d7fcc5a83",
+      "title": "Expresii despre Gelozie și Încredere în Cuplu în Norvegiană",
+      "native_lang": "ro",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii pentru a Discuta despre Gelozie",
+          "subsections": [
+            "### Recunoașterea Sentimentelor",
+            "### Construirea Încrederii",
+            "### Răspunsuri la Gelozie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dc704cf4-8e94-4b7e-9724-d1b943e6a479",
+      "title": "Řecké fráze pro usmíření a nápravu vztahu",
+      "native_lang": "cs",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fráze pro omluvu",
+          "subsections": [
+            "### 1. Λυπάμαι πολύ για αυτά που είπα",
+            "### 2. Έκανα λάθος",
+            "### 3. Σε παρακαλώ, συγχώρεσέ με",
+            "### 4. Αναλαμβάνω όλη την ευθύνη"
+          ]
+        },
+        {
+          "header": "## Fráze pro obnovení spojení",
+          "subsections": [
+            "### 5. Μπορούμε να μιλήσουμε για αυτό που έγινε;",
+            "### 6. Μου λείπεις",
+            "### 7. Ας μην κοιμηθούμε θυμωμένοι",
+            "### 8. Σ' αγαπώ ακόμα"
+          ]
+        },
+        {
+          "header": "## Fráze pro nový začátek",
+          "subsections": [
+            "### 9. Μπορούμε να ξεκινήσουμε από την αρχή;",
+            "### 10. Θέλω να το επανορθώσω",
+            "### 11. Ας το ξεπεράσουμε μαζί",
+            "### 12. Σε εκτιμώ πολύ"
+          ]
+        }
+      ]
+    }
+  ]
+}

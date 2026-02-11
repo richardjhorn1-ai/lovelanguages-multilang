@@ -1,0 +1,125 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0389",
+  "articles": [
+    {
+      "id": "6ea9cccc-ff91-4663-89f8-c15156946fbb",
+      "title": "Φράσεις για Γνωριμία με τους Πεθερικούς στα Ουγγρικά",
+      "native_lang": "el",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "# Φράσεις για Γνωριμία με τους Πεθερικούς στα Ουγγρικά: Οδηγός για Ελληνόφωνους\n\nΗ ουγγρική κουλτούρα εκτιμά τη φιλοξενία και τον σεβασμό. Η οικογένεια είναι πολύ σημαντική στην ουγγρική κοινωνία.\n\n## Φράσεις για την Πρώτη Γνωριμία\n\n### 1. Örülök, hogy megismerhetem Önöket (Ορούλοκ, χοτζ μεγκισμέρχετεμ Ονόκετ)\n**Προφορά:** Ο-ρου-λοκ ΧΟΤΖ με-γκισ-ΜΕΡ-χε-τεμ Ο-νο-κετ\n**Σημασία:** Χαίρομαι που σας γνωρίζω\n\n### 2. Sokat hallottam Önökről (Σόκατ χαλόταμ Ονοκρολ)\n**Προφορά:** ΣΟ-κατ χα-ΛΟ-ταμ Ο-νοκ-ρολ\n**Σημασία:** Έχω ακούσει πολλά για εσάς\n\n### 3. Köszönöm, hogy fogadnak (Κοσόνομ, χοτζ φογκάντνακ)\n**Προφορά:** ΚΟ-σο-νομ ΧΟΤΖ ΦΟ-γκαντ-νακ\n**Σημασία:** Ευχαριστώ που με δέχεστε\n\n## Φράσεις Εκτίμησης\n\n### 4. A fiuk/lányuk csodálatos (Α φίουκ/λάνιουκ τσοντάλατος)\n**Προφορά:** α ΦΙ-ουκ/ΛΑ-νιουκ τσο-ΝΤΑ-λα-τος\n**Σημασία:** Ο γιος/η κόρη σας είναι υπέροχος/η\n\n### 5. Nagyszerű embert neveltek (Νάτζσερου έμμπερτ νέβελτεκ)\n**Προφορά:** ΝΑΤΖ-σε-ρου ΕΜ-μπερτ ΝΕ-βελ-τεκ\n**Σημασία:** Έχετε μεγαλώσει έναν υπέροχο άνθρωπο\n\n### 6. Nagyon finom! (Νάτζον φίνομ)\n**Προφορά:** ΝΑ-τζον ΦΙ-νομ\n**Σημασία:** Πολύ νόστιμο!\n\n### 7. Gyönyörű otthonuk van (Τζονιορού οτχόνουκ βαν)\n**Προφορά:** ΤΖΟ-νιο-ρου ΟΤ-χο-νουκ ΒΑΝ\n**Σημασία:** Έχετε ένα πανέμορφο σπίτι\n\n## Φράσεις για Συζήτηση\n\n### 8. Szívesen tudnék többet a családjukról (Σίβεσεν τούντνεκ τομπέτ α τσαλάντγιουκρολ)\n**Προφορά:** ΣΙ-βε-σεν ΤΟΥΝΤ-νεκ ΤΟ-μπετ α τσα-ΛΑΝΤ-γιουκ-ρολ\n**Σημασία:** Θα ήθελα να μάθω περισσότερα για την οικογένειά σας\n\n### 9. Milyen volt gyerekkorában? (Μίλιεν βολτ τζέρεκκοράμπαν)\n**Προφορά:** ΜΙ-λιεν ΒΟΛΤ ΤΖΕ-ρεκ-κο-ρα-μπαν\n**Σημασία:** Πώς ήταν σαν παιδί;\n\n### 10. Remélem, több időt tölthetünk együtt (Ρεμέλεμ, τομπ ίντοτ τολτχέτουνκ έτζιουτ)\n**Προφορά:** ρε-ΜΕ-λεμ ΤΟΜΠ Ι-ντοτ ΤΟΛΤ-χε-τουνκ Ε-τζιουτ\n**Σημασία:** Ελπίζω να μπορέσουμε να περάσουμε περισσότερο χρόνο μαζί\n\n## Πολιτιστικές Συμβουλές\n\nΧρησιμοποιήστε το «Ön» (επίσημο εσείς) μέχρι να σας προσκαλέσουν να χρησιμοποιήσετε το «te».\n\nΦέρτε λουλούδια (περιττός αριθμός) και ποτό (κρασί Tokaji είναι εξαιρετική επιλογή).\n\nΗ ουγγρική φιλοξενία είναι γενναιόδωρη - περιμένετε πολύ φαγητό και να σας πιέσουν να φάτε περισσότερο!",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 278,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Φράσεις για την Πρώτη Γνωριμία",
+              "## Φράσεις Εκτίμησης",
+              "## Φράσεις για Συζήτηση"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "6eab7e3d-01b5-451c-9738-afab18944655",
+      "title": "Russiske SMS- og chattefraser for par",
+      "native_lang": "no",
+      "target_lang": "ru",
+      "category": "communication",
+      "content": "Russisk er et rikt og uttrykksfullt språk med dype romantiske tradisjoner. Fra Pushkins poesi til moderne kjærlighetsuttrykk – russisk har en spesiell evne til å uttrykke følelser. For norske par med russisk forbindelse gir disse frasene en vakker måte å kommunisere kjærlighet på.\n\n## Hvorfor russiske chattefraser?\n\nRussisk kultur har sterke romantiske tradisjoner, og språket reflekterer dette med et rikt utvalg av kjærlighetsuttrykk og kallenavn. Russiske chattefraser kombinerer dybde og varme på en unik måte.\n\n## Kjærlige kallenavn\n\n**Любимый / Любимая** (Lyubimyy / Lyubimaya)\n*Kjære/Elskede*\n«Любимый» til menn, «Любимая» til kvinner. Veldig vanlig.\n\n**Солнышко** (Solnyshko)\n*Lille sol*\nEt av de mest populære russiske kallenavnene.\n\n**Милый / Милая** (Milyy / Milaya)\n*Søte/Kjære*\n«Милый» til menn, «Милая» til kvinner.\n\n**Зайка** (Zayka)\n*Lille hare*\nVeldig populært og søtt kallenavn.\n\n## Morgen- og kveldsmeldinger\n\n**Доброе утро, любимая/любимый** (Dobroye utro, lyubimaya/lyubimyy)\n*God morgen, kjære*\nEn varm russisk morgenhilsen.\n\n**Спокойной ночи, сладких снов** (Spokoynoy nochi, sladkikh snov)\n*God natt, søte drømmer*\nPerfekt kveldshilsen.\n\n**Как спалось?** (Kak spalos?)\n*Hvordan sov du?*\nOmtenksom morgenmelding.\n\n**Пусть тебе приснюсь** (Pust tebe prisnyus)\n*Måtte du drømme om meg*\nRomantisk god natt-ønske.\n\n## Hverdagslige kjærlighetsuttrykk\n\n**Скучаю по тебе** (Skuchayu po tebe)\n*Jeg savner deg*\nStandard savnuttrykk på russisk.\n\n**Я тебя люблю** (Ya tebya lyublyu)\n*Jeg elsker deg*\nDen klassiske russiske kjærlighetserklæringen.\n\n**Ты мне нравишься** (Ty mne nravishsya)\n*Jeg liker deg*\nMildere enn «люблю», brukes tidlig i forhold.\n\n**Думаю о тебе** (Dumayu o tebe)\n*Jeg tenker på deg*\nEnkel og fin måte å vise omsorg.\n\n## Lekne og flørtefraser\n\n**Ты такая красивая** (Ty takaya krasivaya)\n*Du er så vakker*\nTil kvinner. Til menn: «Ты такой красивый» (Ty takoy krasivyy).\n\n**Ты делаешь меня счастливым/счастливой** (Ty delayesh menya schastlivym/schastlivoy)\n*Du gjør meg lykkelig*\nViser hvordan partneren påvirker deg.\n\n**Ты чудесная/чудесный** (Ty chudesnaya/chudesnyy)\n*Du er fantastisk*\nEt sterkt kompliment.\n\n**Обожаю твою улыбку** (Obozhayu tvoyu ulybku)\n*Jeg elsker smilet ditt*\nEt personlig og romantisk kompliment.\n\n## Praktiske hverdagsfraser\n\n**Уже еду!** (Uzhe yedu!)\n*Er på vei!*\nKort beskjed om at du er underveis.\n\n**Немного опаздываю, извини** (Nemnogo opazdyvayu, izvini)\n*Jeg er litt forsinket, unnskyld*\nNyttig når du er sent ute.\n\n**Что ты хочешь на ужин?** (Chto ty khochesh na uzhin?)\n*Hva vil du ha til middag?*\nKlassisk hverdagsmelding.\n\n**Скоро увидимся!** (Skoro uvidimsya!)\n*Vi ses snart!*\nBrukes når dere skal møtes.\n\n## Russiske forkortelser og SMS-språk\n\n- **Лю** = Люблю (Elsker)\n- **Тя** = Тебя (Deg)\n- **Спс** = Спасибо (Takk)\n- **Прив** = Привет (Hei)\n- **Оч** = Очень (Veldig)\n- **))** = Smil (jo flere parenteser, jo bredere smil)\n- **Хах** / **Ахах** = Latter\n\n## Romantiske uttrykk\n\n**Ты любовь всей моей жизни** (Ty lyubov vsey moyey zhizni)\n*Du er kjærligheten i hele mitt liv*\nEn dyp kjærlighetserklæring.\n\n**Не могу жить без тебя** (Ne mogu zhit bez tebya)\n*Jeg kan ikke leve uten deg*\nIntens og romantisk.\n\n**Навсегда** (Navsegda)\n*For alltid*\nKlassisk romantisk avslutning.\n\n**Ты для меня всё** (Ty dlya menya vsyo)\n*Du er alt for meg*\nEnkel men kraftfull.\n\n## Kulturelle tips\n\n### Det kyrilliske alfabetet\nRussisk bruker det kyrilliske alfabetet. For SMS bruker mange russere også latinsk transkripsjon (translitterasjon), spesielt når de skriver på vestlige tastaturer:\n- Я тебя люблю → Ya tebya lyublyu\n\n### Russiske kosenavn\nRussere elsker diminutiver:\n- **Котик/Котенок** (Kotik/Kotenok) – Lille katt/Kattunge\n- **Зайчик/Зайка** (Zaychik/Zayka) – Lille hare\n- **Рыбка** (Rybka) – Lille fisk\n- **Птичка** (Ptichka) – Lille fugl\n- **Медвежонок** (Medvezhonok) – Lille bjørn\n\n### Kjønnsformer\nRussiske adjektiver endres basert på kjønn:\n- **-ый/-ой** for menn: красивый, милый\n- **-ая** for kvinner: красивая, милая\n\n## Emojier og avslutninger\n\nRussere bruker gjerne:\n- ❤️ – Сердце (hjerte)\n- 😘💋 – Поцелуй (kyss)\n- «))» – Smil (vanligere enn emojier)\n- «Целую» (Tseluyu) – Kysser deg\n- «Обнимаю» (Obnimayu) – Klemmer deg\n- «Люблю» – Elsker (som avslutning)\n\n## Vanlige feil å unngå\n\n1. **Lær grunnleggende kyrillisk** – Det hjelper mye med uttale og forståelse.\n2. **Kjønnsformer er viktige** – Bruk riktig form til riktig person.\n3. **Tonalitet** – Russisk kan virke direkte, men det er normalt.\n\n## Typiske setninger for ulike situasjoner\n\n**Når du savner partneren:**\n«Очень скучаю» (Ochen skuchayu) – Savner deg veldig\n\n**Før en date:**\n«Жду не дождусь встречи» (Zhdu ne dozhdus vstrechi) – Kan knapt vente til vi møtes\n\n**Etter en fin opplevelse:**\n«Спасибо за чудесный день» (Spasibo za chudesnyy den) – Takk for en fantastisk dag\n\n**God morgen-melding:**\n«Доброе утро, солнышко! Хорошего дня!» (Dobroye utro, solnyshko! Khoroshego dnya!) – God morgen, lille sol! Ha en fin dag!\n\nRussiske chattefraser gir deg tilgang til et dypt og poetisk språk. Med sine rike tradisjoner for kjærlighetsuttrykk tilbyr russisk unike måter å uttrykke følelser på – fra hverdagslig varme til dyp romantikk.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Kulturelle tips"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "6eb126fb-9595-45b4-af2b-6a1ccaa659ea",
+      "title": "Як зробити пропозицію шведською: фрази для заручин",
+      "native_lang": "uk",
+      "target_lang": "sv",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport CTA from '@components/CTA.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\n\n# Як зробити пропозицію шведською: фрази для заручин\n\nВи готові зробити найважливіше питання у житті? Якщо ваш партнер розмовляє шведською, цей посібник допоможе вам підготувати ідеальну пропозицію!\n\nВід класичних слів до сучасних варіантів — тут ви знайдете все необхідне для цього особливого моменту.\n\n<PhraseOfDay\n  phrase=\"Will you marry me?\"\n  translation=\"Вийдеш за мене заміж? / Одружишся зі мною?\"\n  context=\"Найважливіше питання\"\n/>\n\n## Як зробити пропозицію шведською\n\nКласичне питання про одруження шведською звучить по-різному залежно від статі партнера та культурних традицій. Ось основні варіанти:\n\n### Основна лексика заручин\n\n\n\n## Романтичні фрази для пропозиції\n\nПеред тим як поставити питання, ви можете сказати щось особливе:\n\n### Вступні слова\n\n1. **Скажіть про свої почуття** — \"Я кохаю тебе більше за все на світі\"\n2. **Поділіться мріями** — \"Я хочу провести з тобою все життя\"\n3. **Зробіть комплімент** — \"Ти робиш мене найщасливішою людиною\"\n\n<CultureTip>\nТрадиції пропозиції відрізняються в різних країнах. Дізнайтеся, що прийнято в культурі вашого партнера — чи потрібно просити дозволу у батьків, чи є особливі ритуали.\n</CultureTip>\n\n## Оголошення про заручини\n\nПісля того як ваш партнер скаже \"так\", час поділитися радісною новиною з рідними та друзями!\n\n### Як оголосити про заручини шведською\n\n- \"Ми заручені!\" \n- \"Він/вона сказав(ла) так!\"\n- \"Ми одружуємося!\"\n\n## Лексика про каблучку\n\nОбручка — важлива частина заручин. Ось корисні слова:\n\n| Шведська | Українська |\n|----------------|------------|\n| Ring | Каблучка |\n| Diamond | Діамант |\n| Engagement ring | Обручка для заручин |\n| Wedding band | Весільна обручка |\n\n## Культурні особливості\n\n<CultureTip>\nУ деяких культурах заручини включають офіційну церемонію з участю обох родин. Це може бути окрема подія до весілля, де родини зустрічаються та обмінюються подарунками.\n</CultureTip>\n\n## Підготовка до пропозиції\n\n### Чек-лист:\n- ✓ Вивчіть правильну вимову фраз\n- ✓ Дізнайтеся культурні традиції\n- ✓ Оберіть особливе місце\n- ✓ Підготуйте каблучку\n- ✓ Заплануйте як оголосити новину\n\n## Після заручин\n\nКоли ви вже заручені, з'являється нова лексика:\n\n- Наречений / Наречена\n- Весільні плани\n- Дата весілля\n- Список гостей\n\n## Продовжуйте вивчення\n\nТепер ви готові до пропозиції шведською! Вивчайте більше романтичних фраз:\n\n- [Шведська весільна лексика](/uk/blog/swedish-wedding-phrases)\n- [Романтичні фрази шведською](/uk/blog/romantic-swedish-phrases-for-couples)\n\n<CTA \n  text=\"Готові вивчати мову кохання шведською? Наш додаток допоможе!\"\n  buttonText=\"Спробувати безкоштовно\"\n  href=\"/uk/learn/sv\"\n/>",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 278,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "### Основна лексика заручин",
+              "## Підготовка до пропозиції"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "6ecd2997-a5bd-43e1-8882-261edc7793c9",
+      "title": "Angol kifejezések megbocsátáshoz",
+      "native_lang": "hu",
+      "target_lang": "en",
+      "category": "communication",
+      "content": "A megbocsátás a kapcsolatok alapja. Ha angol anyanyelvű partnered van, ezek a kifejezések segítenek kifejezni a megbocsátást vagy bocsánatot kérni.\n\n## A megbocsátás fontossága\n\nMinden kapcsolatban előfordulnak hibák. A fontos, hogy tudjuk, hogyan kérjünk bocsánatot és hogyan bocsássunk meg.\n\n## Bocsánatkérés kifejezések\n\n### 1. \"I'm truly sorry\"\n**Kiejtés:** Ájm trúli szári\n\n**Jelentés:** Igazán sajnálom\n\n**Példa:** \"I'm truly sorry for what I did. It was wrong.\"\n\n### 2. \"Please forgive me\"\n**Kiejtés:** Plíz forgiv mí\n\n**Jelentés:** Kérlek, bocsáss meg\n\n**Példa:** \"I know I hurt you. Please forgive me.\"\n\n### 3. \"I take full responsibility\"\n**Kiejtés:** Áj tejk ful riszpanszibilitri\n\n**Jelentés:** Teljes felelősséget vállalok\n\n**Példa:** \"I take full responsibility for my actions.\"\n\n### 4. \"I was wrong and I admit it\"\n**Kiejtés:** Áj voz rong end áj edmit it\n\n**Jelentés:** Tévedtem és beismerem\n\n**Példa:** \"I was wrong and I admit it. I'm sorry.\"\n\n### 5. \"I promise it won't happen again\"\n**Kiejtés:** Áj promisz it vont heppen egén\n\n**Jelentés:** Megígérem, nem fog újra megtörténni\n\n**Példa:** \"I promise it won't happen again. I've learned my lesson.\"\n\n## Megbocsátás kifejezések\n\n### 6. \"I forgive you\"\n**Kiejtés:** Áj forgiv jú\n\n**Jelentés:** Megbocsátok neked\n\n**Példa:** \"I forgive you. Let's move forward.\"\n\n### 7. \"It's okay, I understand\"\n**Kiejtés:** Itsz okej, áj andörsztend\n\n**Jelentés:** Rendben van, megértem\n\n**Példa:** \"It's okay, I understand why you did it.\"\n\n### 8. \"I'm ready to move past this\"\n**Kiejtés:** Ájm redi tu múv paszt disz\n\n**Jelentés:** Készen állok továbblépni\n\n**Példa:** \"I'm ready to move past this and focus on us.\"\n\n### 9. \"Let's put this behind us\"\n**Kiejtés:** Letsz put disz bihánd asz\n\n**Jelentés:** Hagyjuk magunk mögött\n\n**Példa:** \"Let's put this behind us and start fresh.\"\n\n### 10. \"I'm not holding a grudge\"\n**Kiejtés:** Ájm nat hólding e gradzs\n\n**Jelentés:** Nem tartok haragot\n\n**Példa:** \"I'm not holding a grudge. I just needed time.\"\n\n### 11. \"Everyone makes mistakes\"\n**Kiejtés:** Evrivon mejksz misztéjksz\n\n**Jelentés:** Mindenki hibázik\n\n**Példa:** \"Everyone makes mistakes. What matters is that you're sorry.\"\n\n### 12. \"I appreciate your apology\"\n**Kiejtés:** Áj eprísiét jór epolodzsi\n\n**Jelentés:** Értékelem a bocsánatkérésedet\n\n**Példa:** \"I appreciate your apology. It means a lot to me.\"\n\n## Összefoglalás\n\nA megbocsátás gyógyítja a kapcsolatot. Tanulj meg őszintén bocsánatot kérni és nagylelkűen megbocsátani.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Bocsánatkérés kifejezések",
+              "## Megbocsátás kifejezések"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "6ed12fd0-ae6c-4c39-b9da-b8ffedc73029",
+      "title": "Frases en Francés para tu Primera Cita",
+      "native_lang": "es",
+      "target_lang": "fr",
+      "category": "communication",
+      "content": "Una primera cita con alguien francés puede ser muy romántica. Estas frases te ayudarán a impresionar.\n\n## Frases para Romper el Hielo\n\n### \"C'est un plaisir de te rencontrer enfin\"\n**Pronunciación:** Se un ple-SIR de te ran-con-TRÉ an-FAN\n\n**Significado:** Es un placer conocerte por fin\n\n### \"Tu es magnifique\"\n**Pronunciación:** Tü e ma-ñi-FIK\n\n**Significado:** Estás magnífico/a\n\n### \"J'attendais ce moment avec impatience\"\n**Pronunciación:** Ya-tan-DÉ se mo-MAN a-VEC im-pa-SIANS\n\n**Significado:** Esperaba este momento con impaciencia\n\n## Frases para Conocerse\n\n### \"Parle-moi de toi\"\n**Pronunciación:** Parl-MUA de tua\n\n**Significado:** Háblame de ti\n\n### \"Qu'est-ce que tu aimes faire pour t'amuser?\"\n**Pronunciación:** Kes-ke tü em fer pur ta-mü-ZÉ\n\n**Significado:** ¿Qué te gusta hacer para divertirte?\n\n### \"Quel est ton/ta... préféré(e)?\"\n**Pronunciación:** Kel e ton/ta... pre-fe-RÉ\n\n**Significado:** ¿Cuál es tu... favorito/a?\n\n### \"J'adorerais en savoir plus\"\n**Pronunciación:** Ya-do-re-RÉ an sa-VUAR plü\n\n**Significado:** Me encantaría saber más\n\n## Frases Románticas\n\n### \"Je passe un excellent moment\"\n**Pronunciación:** Ye pas un ex-se-LAN mo-MAN\n\n**Significado:** La estoy pasando muy bien\n\n### \"Tu as un sourire magnifique\"\n**Pronunciación:** Tü a un su-RIR ma-ñi-FIK\n\n**Significado:** Tienes una sonrisa preciosa\n\n### \"Je me sens vraiment bien avec toi\"\n**Pronunciación:** Ye me san vre-MAN bian a-VEC tua\n\n**Significado:** Me siento muy bien contigo\n\n## Frases para Terminar\n\n### \"J'ai passé une soirée merveilleuse\"\n**Pronunciación:** Yé pa-SÉ ün sua-RÉ mer-ve-YÖZ\n\n**Significado:** Pasé una noche maravillosa\n\n### \"Est-ce qu'on peut se revoir?\"\n**Pronunciación:** Es-kon pe se re-VUAR\n\n**Significado:** ¿Podemos vernos de nuevo?\n\n### \"Préviens-moi quand tu es bien rentrée\"\n**Pronunciación:** Pre-VIEN-mua can tü e bian ran-TRÉ\n\n**Significado:** Avísame cuando llegues bien\n\n## Conclusión\n\nEl francés añade romance a cualquier primera cita. Usa estas frases con confianza.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 273,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frases para Romper el Hielo",
+              "## Frases para Conocerse",
+              "## Frases Románticas",
+              "## Frases para Terminar"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

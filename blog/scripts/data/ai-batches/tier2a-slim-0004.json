@@ -1,0 +1,494 @@
+{
+  "batchId": "tier2a-slim-0004",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "0adac385-8c3d-4aeb-873f-eafb7e7bc344",
+      "title": "Engelska Fraser för Svartsjuka och Förtroende",
+      "native_lang": "sv",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Uttrycka Svartsjuka",
+          "subsections": [
+            "### 1. \"I feel insecure when...\"",
+            "### 2. \"Can you help me understand your relationship with...?\"",
+            "### 3. \"I trust you, but I'm struggling with my feelings\"",
+            "### 4. \"I need some reassurance\"",
+            "### 5. \"It bothers me when...\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Bygga Förtroende",
+          "subsections": [
+            "### 6. \"I only have eyes for you\"",
+            "### 7. \"You're the only one for me\"",
+            "### 8. \"I would never do anything to hurt you\"",
+            "### 9. \"Let's be open with each other\"",
+            "### 10. \"I want you to meet my friends\"",
+            "### 11. \"There's nothing to worry about\"",
+            "### 12. \"I choose you every day\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0ade265f-ed99-4508-b111-12272111163b",
+      "title": "Alinturile în Germană pentru Partenerul Tău: Ghid Complet",
+      "native_lang": "ro",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Alinturi Regionale",
+          "subsections": [
+            "### Germania",
+            "### Austria",
+            "### Elveția"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0ae5d204-5c49-428e-8c44-bcde6c6d36dc",
+      "title": "Macarca Özlem İfadeleri: Seni Özledim ve Hasret Sözleri",
+      "native_lang": "tr",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Özlem İfadeleri",
+          "subsections": [
+            "### 1. \"Hiányzol\"",
+            "### 2. \"Nagyon hiányzol\"",
+            "### 3. \"Vágyom utánad\"",
+            "### 4. \"Bárcsak itt lennél\"",
+            "### 5. \"Folyton rád gondolok\"",
+            "### 6. \"Nélküled üres minden\"",
+            "### 7. \"Számolom a napokat, amíg találkozunk\"",
+            "### 8. \"Mindent jelentesz nekem\"",
+            "### 9. \"A szívem érted dobog\"",
+            "### 10. \"Remélem, hamarosan látlak\"",
+            "### 11. \"Minden nap nélküled nehéz\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0af842a8-1380-4cda-b5eb-7d97d2dd25b8",
+      "title": "Ghid de Pronuntie Greaca: Sunete Esentiale pentru Romani",
+      "native_lang": "ro",
+      "target_lang": "el",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Combinatii de Litere",
+          "subsections": [
+            "### Diftongi",
+            "### Consoane Duble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0b06dc06-1cb0-42f7-a531-38cac35b1a74",
+      "title": "Guia de Pronúncia Polonesa para Casais: Aprenda a Falar Com Amor",
+      "native_lang": "pt",
+      "target_lang": "pl",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Os Sons Misteriosos Desmistificados",
+          "subsections": [
+            "### Os \"C\" e \"Cz\" - Não São o Que Parecem!",
+            "### O Som \"Ś\" - O Segredo do Sotaque"
+          ]
+        },
+        {
+          "header": "## Vogais Que Mudam Tudo",
+          "subsections": [
+            "### Nasalizadas - Sim, Temos Isso!"
+          ]
+        },
+        {
+          "header": "## Consoantes Conquistadas",
+          "subsections": [
+            "### Grupos Que Assustam, Mas São Simples"
+          ]
+        },
+        {
+          "header": "## Sons Românticos Essenciais",
+          "subsections": [
+            "### Frases Que Você Precisa Acertar"
+          ]
+        },
+        {
+          "header": "## Exercícios Para Casais",
+          "subsections": [
+            "### Prática de Pares Mínimos",
+            "### Desafio do Dia: Sons de Carinho"
+          ]
+        },
+        {
+          "header": "## Guia Rápido de Salvamento",
+          "subsections": [
+            "### Sons Mais Importantes Memorizar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0b31b4ef-5b97-4b22-af52-9a9773307031",
+      "title": "Γράψτε Ερωτικά Γράμματα στα Ιταλικά",
+      "native_lang": "el",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για την Αρχή του Γράμματος",
+          "subsections": [
+            "### 1. Amore mio (Αμόρε μίο)",
+            "### 2. Tesoro mio (Τεζόρο μίο)",
+            "### 3. Cuore mio (Κουόρε μίο)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για το Κυρίως Μέρος",
+          "subsections": [
+            "### 4. Sei l'amore della mia vita (Σέι λαμόρε ντέλα μία βίτα)",
+            "### 5. Ti amo sempre di più (Τι άμο σέμπρε ντι πιού)",
+            "### 6. Il mio cuore batte solo per te (Ιλ μίο κουόρε μπάτε σόλο περ τε)",
+            "### 7. Mi fai felice (Μι φάι φελίτσε)",
+            "### 8. Sono pazzo/a di te (Σόνο πάτσο/α ντι τε)",
+            "### 9. Sei il mio tutto (Σέι ιλ μίο τούτο)",
+            "### 10. Senza di te non sono niente (Σέντσα ντι τε νον σόνο νιέντε)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για το Κλείσιμο",
+          "subsections": [
+            "### 11. Tuo/a per sempre (Τούο/α περ σέμπρε)",
+            "### 12. Con tutto il mio amore (Κον τούτο ιλ μίο αμόρε)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0b6ff37f-e19c-4d48-a15e-e92994eeee54",
+      "title": "Greckie zwroty do godzenia się i pojednania dla par",
+      "native_lang": "pl",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Przepraszanie z serca",
+          "subsections": [
+            "### \"Συγγνώμη, πολύ\"",
+            "### \"Σε παρακαλώ, συγχώρεσέ με\"",
+            "### \"Έκανα λάθος και το παραδέχομαι\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie żalu",
+          "subsections": [
+            "### \"Νιώθω πολύ άσχημα για αυτό που έγινε\"",
+            "### \"Δεν ήθελα να σε πληγώσω\"",
+            "### \"Μακάρι να μπορούσα να το πάρω πίσω\""
+          ]
+        },
+        {
+          "header": "## Otwieranie dialogu",
+          "subsections": [
+            "### \"Μπορούμε να μιλήσουμε για αυτό που έγινε;\"",
+            "### \"Θέλω να καταλάβω πώς νιώθεις\"",
+            "### \"Πες μου τι σκέφτεσαι\""
+          ]
+        },
+        {
+          "header": "## Obietnice zmiany",
+          "subsections": [
+            "### \"Θα προσπαθήσω να γίνω καλύτερος/καλύτερη\"",
+            "### \"Δεν θα ξανασυμβεί\"",
+            "### \"Δουλεύω πάνω στον εαυτό μου\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie miłości",
+          "subsections": [
+            "### \"Σ'αγαπώ περισσότερο από οτιδήποτε\"",
+            "### \"Είσαι τα πάντα για μένα\"",
+            "### \"Δεν θέλω να σε χάσω\""
+          ]
+        },
+        {
+          "header": "## Ciepłe pojednanie",
+          "subsections": [
+            "### \"Έλα εδώ, θέλω να σε αγκαλιάσω\"",
+            "### \"Ας κάνουμε ειρήνη\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0b75d017-1a5e-4a16-8857-fb294fcee10e",
+      "title": "Como Escrever Cartas de Amor em Turco: Paixão Oriental",
+      "native_lang": "pt",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Estrutura de uma Carta de Amor",
+          "subsections": [
+            "### Abertura Carinhosa",
+            "### Expressando Seus Sentimentos",
+            "### Declarações de Amor",
+            "### Promessas",
+            "### Encerramentos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0b87ad71-5e9f-4a33-bd72-bf95d795e3d9",
+      "title": "Οδηγός Προφοράς Ουγγρικών για Αρχάριους: Μάθε να μιλάς για τον σύντροφό σου",
+      "native_lang": "el",
+      "target_lang": "hu",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Οι Βασικοί Κανόνες Προφοράς",
+          "subsections": [
+            "### 1. Οι Φωνήεντα: A, E, I, O, U",
+            "### 2. Τα Ιδιαίτερα Φωνήεντα: Ö και Ü",
+            "### 3. Οι Σύμφωνοι με Ξεχωριστό Ήχο"
+          ]
+        },
+        {
+          "header": "## Κοινές Παγίδες Προφοράς",
+          "subsections": [
+            "### 1. Το \"Sz\" vs \"S\"",
+            "### 2. Το Gy-Ήχος",
+            "### 3. Η Έμφαση στις Λέξεις"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0b90369e-5b78-4391-923c-d78947a1401e",
+      "title": "Выражение эмоций на итальянском языке",
+      "native_lang": "ru",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Положительные эмоции",
+          "subsections": [
+            "### Радость и счастье",
+            "### Любовь и привязанность"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0bb1f2b1-ee7e-467f-8575-8b885a8a5d07",
+      "title": "Romantische Noorse Zinnen voor Stellen: Verover Je Partner",
+      "native_lang": "nl",
+      "target_lang": "no",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Complimenten voor Je Partner",
+          "subsections": [
+            "### Over Hun Uiterlijk",
+            "### Over Hun Persoonlijkheid"
+          ]
+        },
+        {
+          "header": "## Romantische Verklaringen",
+          "subsections": [
+            "### Grote Liefdesverklaringen"
+          ]
+        },
+        {
+          "header": "## Zinnen voor Speciale Momenten",
+          "subsections": [
+            "### Bij Een Speciale Gelegenheid",
+            "### Bij Een Romantisch Diner"
+          ]
+        },
+        {
+          "header": "## Liefdevolle Berichten",
+          "subsections": [
+            "### Voor Tekstberichten",
+            "### Voor Kaartjes en Brieven"
+          ]
+        },
+        {
+          "header": "## Zinnen voor Moeilijke Momenten",
+          "subsections": [
+            "### Na een Ruzie",
+            "### Om Te Troosten"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0bd9fc4e-2c73-4790-9c42-a5b2c3126c88",
+      "title": "Φράσεις για το Πρώτο Ραντεβού (it): Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις",
+          "subsections": [
+            "### Γνωριμία",
+            "### Συζήτηση",
+            "### Φλερτ",
+            "### Κλείσιμο"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0beca3e6-2b0d-478b-b2bb-f7fccea4af0d",
+      "title": "Portugiesische Trost- und Unterstützungsphrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlegende Unterstützung",
+          "subsections": [
+            "### \"Estou aqui para você\"",
+            "### \"Sempre estarei ao seu lado\"",
+            "### \"Você não está sozinho/sozinha nisso\"",
+            "### \"O que você precisar, estou aqui\""
+          ]
+        },
+        {
+          "header": "## Bei Trauer",
+          "subsections": [
+            "### \"Sinto muito pela sua perda\"",
+            "### \"Tome todo o tempo que precisar\"",
+            "### \"Está tudo bem chorar\""
+          ]
+        },
+        {
+          "header": "## Bei Stress und Sorgen",
+          "subsections": [
+            "### \"Vamos resolver isso juntos\"",
+            "### \"Um passo de cada vez\"",
+            "### \"Está tudo bem não estar bem\"",
+            "### \"Isso também vai passar\"",
+            "### \"Não seja tão duro/dura consigo mesmo/mesma\""
+          ]
+        },
+        {
+          "header": "## Ermutigung",
+          "subsections": [
+            "### \"Eu acredito em você\"",
+            "### \"Você é mais forte do que pensa\"",
+            "### \"Tenho muito orgulho de você\"",
+            "### \"Você vai conseguir\""
+          ]
+        },
+        {
+          "header": "## Aktive Hilfe anbieten",
+          "subsections": [
+            "### \"O que posso fazer para ajudar?\"",
+            "### \"Quer falar sobre isso?\"",
+            "### \"Estou ouvindo\""
+          ]
+        },
+        {
+          "header": "## Langfristige Unterstützung",
+          "subsections": [
+            "### \"Sempre estarei aqui, aconteça o que acontecer\"",
+            "### \"Estamos juntos nisso\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0bf9dd3e-eee4-4cd5-ac54-bf9243bea2a3",
+      "title": "Ukrán kifejezések megbocsátáshoz",
+      "native_lang": "hu",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bocsánatkérés",
+          "subsections": [
+            "### 1. \"Мені дуже шкода\" (Meni duzhe shkoda)",
+            "### 2. \"Будь ласка, вибач мені\" (Bud' laska, vybach meni)",
+            "### 3. \"Я беру на себе повну відповідальність\" (Ya beru na sebe povnu vidpovidal'nist')",
+            "### 4. \"Я помилявся/лася і визнаю це\" (Ya pomylyavsya/lasya i vyznayu tse)",
+            "### 5. \"Обіцяю, це не повториться\" (Obitsyayu, tse ne povtoryt'sya)"
+          ]
+        },
+        {
+          "header": "## Megbocsátás",
+          "subsections": [
+            "### 6. \"Я тебе прощаю\" (Ya tebe proshchayu)",
+            "### 7. \"Все добре, я розумію\" (Vse dobre, ya rozumiyu)",
+            "### 8. \"Я готовий/а рухатися далі\" (Ya hotovyy/a rukhatysya dali)",
+            "### 9. \"Давай залишимо це позаду\" (Davay zalyshymo tse pozadu)",
+            "### 10. \"Я не тримаю образи\" (Ya ne trymayu obrazy)",
+            "### 11. \"Всі помиляються\" (Vsi pomylyayut'sya)",
+            "### 12. \"Я ціную твої вибачення\" (Ya tsinuyu tvoji vybachennya)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0c1d0178-8b90-4cdb-8bec-d0eb8bb6ca0e",
+      "title": "Dánské fráze pro emocionální podporu a útěchu",
+      "native_lang": "cs",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní fráze soucitu",
+          "subsections": [
+            "### 1. Jeg er her for dig",
+            "### 2. Jeg er så ked af det",
+            "### 3. Jeg forstår dig"
+          ]
+        },
+        {
+          "header": "## Povzbuzující fráze",
+          "subsections": [
+            "### 4. Du klarer det",
+            "### 5. Det skal nok gå",
+            "### 6. Hold ud"
+          ]
+        },
+        {
+          "header": "## Nabídka pomoci",
+          "subsections": [
+            "### 7. Hvad kan jeg gøre for dig?",
+            "### 8. Du kan regne med mig"
+          ]
+        },
+        {
+          "header": "## Útěcha v těžkých chvílích",
+          "subsections": [
+            "### 9. Du er ikke alene",
+            "### 10. Det er okay at græde",
+            "### 11. Tiden læger alle sår",
+            "### 12. Jeg vil altid være her for dig"
+          ]
+        },
+        {
+          "header": "## Dánské kulturní koncepty",
+          "subsections": [
+            "### 13. Skal vi hygge os lidt?",
+            "### 14. Pas på dig selv"
+          ]
+        }
+      ]
+    }
+  ]
+}

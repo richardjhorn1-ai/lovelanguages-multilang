@@ -1,0 +1,114 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0249",
+  "articles": [
+    {
+      "id": "46cc210a-d32f-4e1a-9268-99199d74c78c",
+      "title": "Holland kifejezések első randira",
+      "native_lang": "hu",
+      "target_lang": "nl",
+      "category": "communication",
+      "content": "Az első randi izgalmas pillanat. Ha holland anyanyelvű személlyel randevúzol, ezek a kifejezések segítenek.\n\n## Bemutatkozás\n\n### 1. \"Leuk om je eindelijk te ontmoeten\"\n**Jelentés:** Jó végre találkozni\n\n### 2. \"Je ziet er geweldig uit\"\n**Jelentés:** Csodálatosan nézel ki\n\n### 3. \"Vertel me over jezelf\"\n**Jelentés:** Mesélj magadról\n\n### 4. \"Wat doe je voor werk?\"\n**Jelentés:** Mi a foglalkozásod?\n\n### 5. \"Wat zijn je hobby's?\"\n**Jelentés:** Mik a hobbijaid?\n\n## Beszélgetés\n\n### 6. \"Dat is echt interessant\"\n**Jelentés:** Ez tényleg érdekes\n\n### 7. \"Ik voel hetzelfde\"\n**Jelentés:** Én is így érzek\n\n### 8. \"Welke muziek vind je leuk?\"\n**Jelentés:** Milyen zenét szeretsz?\n\n### 9. \"Heb je veel gereisd?\"\n**Jelentés:** Sokat utaztál?\n\n### 10. \"Ik geniet hier echt van\"\n**Jelentés:** Nagyon élvezem\n\n## Randi vége\n\n### 11. \"Ik heb een geweldige tijd gehad\"\n**Jelentés:** Csodálatos időt töltöttem\n\n### 12. \"Kunnen we elkaar weer zien?\"\n**Jelentés:** Találkozhatunk újra?\n\n### 13. \"Ik zou dit graag nog eens doen\"\n**Jelentés:** Szívesen megismételném\n\n### 14. \"Mag ik je naar huis brengen?\"\n**Jelentés:** Hazakísérhetlek?\n\n## Összefoglalás\n\nA holland randevú direkt és őszinte.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 176,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Bemutatkozás",
+              "## Beszélgetés",
+              "## Randi vége"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "46dc7db2-f190-49f3-a242-821ab69bae9c",
+      "title": "Турецькі фрази для суперечок і розбіжностей",
+      "native_lang": "uk",
+      "target_lang": "tr",
+      "category": "communication",
+      "content": "Турецька культура поєднує східну емоційність із сучасними цінностями. Розуміння турецького підходу до суперечок допоможе вам будувати гармонійні стосунки з вашим партнером.\n\n## Початок серйозної розмови\n\n### \"Konuşmamız lazım\"\n**Вимова:** Конушмамиз лязим\n\n**Значення:** Нам потрібно поговорити\n\n\"Lazım\" виражає необхідність. Фраза сигналізує про серйозну розмову.\n\n### \"Sen ... yaptığında kendimi kötü hissediyorum\"\n**Вимова:** Сен ... яптиинда кендімі кйотю хіссєдійорум\n\n**Значення:** Коли ти робиш ..., я почуваюся погано\n\nВираження почуттів без прямого звинувачення.\n\n### \"Bunu sakin bir şekilde konuşabilir miyiz?\"\n**Вимова:** Буну сакін бір шекільде конушабілір міїз?\n\n**Значення:** Чи можемо ми обговорити це спокійно?\n\n\"Sakin\" означає спокійний, врівноважений.\n\n## Вираження незгоди\n\n### \"Katılmıyorum\"\n**Вимова:** Катилмийорум\n\n**Значення:** Я не згоден/згодна\n\nПряме, але ввічливе вираження незгоди.\n\n### \"Ben farklı görüyorum\"\n**Вимова:** Бен фарклі ґйорюйорум\n\n**Значення:** Я бачу це інакше\n\nМ'якший спосіб висловити іншу думку.\n\n### \"Demek istediğim bu değildi\"\n**Вимова:** Демек істедіім бу деільді\n\n**Значення:** Я не це хотів/хотіла сказати\n\nДля прояснення непорозумінь.\n\n## Емоційні вирази\n\n### \"Bu beni üzüyor\"\n**Вимова:** Бу бені юзюйор\n\n**Значення:** Це мене засмучує\n\nВираження смутку чи болю.\n\n### \"Hayal kırıklığına uğradım\"\n**Вимова:** Хаял кириклиина уурадим\n\n**Значення:** Я розчарований/розчарована\n\n\"Hayal kırıklığı\" — буквально \"розбита мрія\".\n\n### \"Beni dinlemeni istiyorum\"\n**Вимова:** Бені дінлеменї істійорум\n\n**Значення:** Я хочу, щоб ти мене вислухав/вислухала\n\nПрохання про увагу.\n\n## Прохання про простір\n\n### \"Düşünmek için zamana ihtiyacım var\"\n**Вимова:** Дюшюнмек ічін замана іхтіяджим вар\n\n**Значення:** Мені потрібен час, щоб подумати\n\nПрохання про час на роздуми.\n\n### \"Biraz ara verelim\"\n**Вимова:** Біраз ара верелім\n\n**Значення:** Давай трохи перепочинемо\n\nПропозиція зробити перерву.\n\n## Пошук рішення\n\n### \"Bunu nasıl çözebiliriz?\"\n**Вимова:** Буну насил чьозебілїріз?\n\n**Значення:** Як ми можемо це вирішити?\n\nОрієнтація на спільне рішення.\n\n### \"Bir uzlaşma bulalım\"\n**Вимова:** Бір узлашма булялим\n\n**Значення:** Давай знайдемо компроміс\n\n\"Uzlaşma\" — згода, компроміс.\n\n### \"Taviz vermeye hazırım\"\n**Вимова:** Тавіз вермейє хазирим\n\n**Значення:** Я готовий/готова поступитися\n\n\"Taviz\" — поступка.\n\n## Визнання помилки\n\n### \"Haklısın, hata yaptım\"\n**Вимова:** Хаклисин, хата яптим\n\n**Значення:** Ти маєш рацію, я помилився/помилилась\n\n\"Haklı\" — той, хто має рацію.\n\n### \"Bunu söylememeliyidim\"\n**Вимова:** Буну сйойлємемеліїдім\n\n**Значення:** Мені не варто було це говорити\n\nВизнання неправильних слів.\n\n## Культурні особливості\n\n**Честь:** Поняття \"честі\" (onur, namus) важливе в турецькій культурі. Уникайте публічного приниження партнера.\n\n**Сім'я:** Турецька культура сімейно орієнтована. Сім'я партнера може впливати на стосунки.\n\n**Гостинність:** Турки дуже гостинні. Спільний чай (çay) може допомогти заспокоїти атмосферу.\n\n**Емоційність:** Турки можуть бути емоційними, але цінують повагу та ввічливість.\n\n**Примирення:** Після суперечки важливо відновити гармонію. Слова \"Özür dilerim\" (вибач) та жести примирення цінуються.\n\n**Формальність:** Форма звертання важлива. \"Sen\" (ти) використовується з близькими людьми.\n\nОволодіння цими фразами допоможе вам підтримувати здорові стосунки з турецькомовним партнером.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Початок серйозної розмови",
+              "## Вираження незгоди",
+              "## Емоційні вирази",
+              "## Прохання про простір",
+              "## Пошук рішення",
+              "## Визнання помилки"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "46f5e27d-da80-48e6-b892-89c161dd638d",
+      "title": "Engelse Zinnen over Vergeving",
+      "native_lang": "nl",
+      "target_lang": "en",
+      "category": "communication",
+      "content": "Vergeving is essentieel voor een gezonde relatie. Deze Engelse zinnen helpen je om excuses te maken en vergeving te geven.\n\n## Essentiële zinnen\n\n### 1. \"I'm truly sorry\"\n**Betekenis:** Het spijt me oprecht\n**Uitspraak:** *ajm troe-lie sorrie*\n\n### 2. \"Please forgive me\"\n**Betekenis:** Vergeef me alsjeblieft\n**Uitspraak:** *plies forgiv mie*\n\n### 3. \"I forgive you\"\n**Betekenis:** Ik vergeef je\n**Uitspraak:** *aj forgiv joe*\n\n### 4. \"Can you find it in your heart to forgive me?\"\n**Betekenis:** Kun je het in je hart vinden om me te vergeven?\n**Uitspraak:** *ken joe faind it in jor hart toe forgiv mie*\n\n### 5. \"I was wrong and I'm sorry\"\n**Betekenis:** Ik had ongelijk en het spijt me\n**Uitspraak:** *aj wos rong end ajm sorrie*\n\n### 6. \"I'll never do it again\"\n**Betekenis:** Ik zal het nooit meer doen\n**Uitspraak:** *ajl ne-ver doe it egeen*\n\n### 7. \"What can I do to make it up to you?\"\n**Betekenis:** Wat kan ik doen om het goed te maken?\n**Uitspraak:** *wot ken aj doe toe meek it ap toe joe*\n\n### 8. \"I accept your apology\"\n**Betekenis:** Ik accepteer je excuses\n**Uitspraak:** *aj eksept jor epo-le-dzjie*\n\n### 9. \"Let's move past this\"\n**Betekenis:** Laten we hier voorbij gaan\n**Uitspraak:** *lets moev paast dis*\n\n### 10. \"I know I hurt you\"\n**Betekenis:** Ik weet dat ik je pijn heb gedaan\n**Uitspraak:** *aj noo aj hurt joe*\n\n### 11. \"I promise to do better\"\n**Betekenis:** Ik beloof het beter te doen\n**Uitspraak:** *aj pro-mis toe doe be-ter*\n\n### 12. \"It takes time, but I'll try to forgive\"\n**Betekenis:** Het kost tijd, maar ik zal proberen te vergeven\n**Uitspraak:** *it teeks taim, bat ajl traj toe forgiv*\n\n## Tips voor vergeving\n\n**Wees oprecht:** Lege excuses worden doorgeprikt.\n\n**Geef tijd:** Vergeving kan niet worden afgedwongen.\n\n**Laat acties volgen:** Laat je gedrag je woorden bevestigen.\n\n## Conclusie\n\nVergeving versterkt relaties. Gebruik deze zinnen om een brug te slaan naar je partner.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Essentiële zinnen"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "46f67a77-6c09-4dbf-936d-62edc7d1842c",
+      "title": "Polské flirtovací fráze pro Čechy",
+      "native_lang": "cs",
+      "target_lang": "pl",
+      "category": "communication",
+      "content": "Polština je češtině velmi blízká, což vám dává výhodu při učení romantických frází. Přesto existují důležité rozdíly ve výslovnosti a slovní zásobě. Poláci jsou vřelí a rodinně orientovaní lidé, kteří oceňují upřímné vyjádření citů.\n\n## Základní lichotky\n\n### \"Jesteś piękna/piękny.\"\n**Výslovnost:** Jesteš pjenkna/pjenkny.\n\n**Překlad:** Jsi krásná/krásný.\n\n**Kdy použít:** Univerzální lichotka. \"Piękna\" pro ženy, \"piękny\" pro muže.\n\n---\n\n### \"Masz przepiękny uśmiech.\"\n**Výslovnost:** Maš pšepjenkny ušmjech.\n\n**Překlad:** Máš nádherný úsměv.\n\n**Kdy použít:** Specifická lichotka, která ukazuje, že si všímáte detailů.\n\n---\n\n### \"Bardzo mi się podobasz.\"\n**Výslovnost:** Bardzo mi še podobaš.\n\n**Překlad:** Velmi se mi líbíš.\n\n**Kdy použít:** Přímé vyjádření zájmu.\n\n---\n\n### \"Jesteś niesamowita/niesamowity.\"\n**Výslovnost:** Jesteš ňesamovíta/ňesamovíty.\n\n**Překlad:** Jsi úžasná/úžasný.\n\n**Kdy použít:** Všestranná lichotka pro různé příležitosti.\n\n---\n\n## Romantické fráze\n\n### \"Nie mogę przestać o tobie myśleć.\"\n**Výslovnost:** Ňe mogé pšestat o tobje myšlec.\n\n**Překlad:** Nemůžu přestat myslet na tebe.\n\n**Kdy použít:** Sladká zpráva během dne.\n\n---\n\n### \"Sprawiasz, że jestem szczęśliwa/szczęśliwy.\"\n**Výslovnost:** Spravjaš, že jestem ščéšlíva/ščéšlívy.\n\n**Překlad:** Děláš mě šťastnou/šťastným.\n\n**Kdy použít:** Upřímné vyjádření štěstí ve vztahu.\n\n---\n\n### \"Moje serce bije szybciej, kiedy cię widzę.\"\n**Výslovnost:** Moje serce bije šybcej, kjedy če vidzé.\n\n**Překlad:** Moje srdce bije rychleji, když tě vidím.\n\n**Kdy použít:** Romantické vyjádření přitažlivosti.\n\n---\n\n### \"Szaleję za tobą.\"\n**Výslovnost:** Šalejé za tobom.\n\n**Překlad:** Šílím po tobě.\n\n**Kdy použít:** Vášnivé prohlášení.\n\n---\n\n## Hravé fráze\n\n### \"Wierzysz w miłość od pierwszego wejrzenia, czy mam przejść jeszcze raz?\"\n**Výslovnost:** Vjéžyš v míwoščj od pjervšego vejžeňa, čy mam pšejščj ješče raz?\n\n**Překlad:** Věříš na lásku na první pohled, nebo mám projít ještě jednou?\n\n**Kdy použít:** Klasická svůdná fráze s humorem.\n\n---\n\n### \"Czy jesteś zmęczona? Cały dzień biegasz mi po głowie.\"\n**Výslovnost:** Čy jesteš zmenčona? Cawy džeň bjegaš mi po gwovje.\n\n**Překlad:** Jsi unavená? Celý den mi běžíš po hlavě.\n\n**Kdy použít:** Vtipná fráze kombinující humor s lichotkou.\n\n---\n\n### \"Jest w tobie coś wyjątkowego.\"\n**Výslovnost:** Jest v tobje coš vyjontkovego.\n\n**Překlad:** Je v tobě něco výjimečného.\n\n**Kdy použít:** Hluboká lichotka oceňující jedinečnost.\n\n---\n\n## Fráze pro zprávy\n\n### \"Dzień dobry, kochanie.\"\n**Výslovnost:** Džeň dobry, kochaňe.\n\n**Překlad:** Dobrý den, miláčku.\n\n**Kdy použít:** Sladký způsob, jak pozdravit partnera. \"Kochanie\" je velmi běžné oslovení.\n\n---\n\n### \"Tęsknię za tobą.\"\n**Výslovnost:** Tenskňé za tobom.\n\n**Překlad:** Stýská se mi po tobě.\n\n**Kdy použít:** Když jste od partnera daleko.\n\n---\n\n### \"Nie mogę się doczekać, aż cię znowu zobaczę.\"\n**Výslovnost:** Ňe mogé še dočekač, až če znovu zobačé.\n\n**Překlad:** Nemůžu se dočkat, až tě zase uvidím.\n\n**Kdy použít:** Po schůzce nebo před plánovaným setkáním.\n\n---\n\n## Podobnosti a rozdíly s češtinou\n\n**Podobná slova:** Mnohá slova jsou si velmi podobná – \"srdce/serce\", \"oči/oczy\", \"láska/miłość\".\n\n**Falešní přátelé:** Pozor na slova, která znějí podobně, ale znamenají něco jiného.\n\n**Výslovnost:** Polská výslovnost je měkčí, s častými sykavkami (sz, cz, ż).\n\n---\n\n## Kulturní tipy\n\n**Rodina:** Poláci jsou velmi rodinně orientovaní. Zájem o rodinu partnera je oceňován.\n\n**Galantnost:** Tradiční galantnost (otevírání dveří, podávání kabátu) je v Polsku stále ceněna.\n\n**Oslovení:** \"Kochanie\" (miláčku), \"skarbie\" (pokladu), \"kotku\" (kočičko) jsou běžná.\n\n**Katolictví:** Polsko je velmi katolická země. Respektujte náboženské tradice.\n\nS těmito frázemi okouzlíte svého polsky mluvícího partnera s přirozeností díky podobnosti jazyků.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Základní lichotky",
+              "## Romantické fráze",
+              "## Hravé fráze",
+              "## Fráze pro zprávy"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "4704d89e-b7c1-4716-a281-576bdbdfe581",
+      "title": "Gefühle auf Türkisch ausdrücken – Emotionen in deiner Beziehung teilen",
+      "native_lang": "de",
+      "target_lang": "tr",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\n# Gefühle auf Türkisch ausdrücken – Emotionen in deiner Beziehung teilen\n\nIn einer Beziehung ist es wichtig, über Gefühle sprechen zu können. Wenn dein Partner Türkisch spricht, wird er es besonders schätzen, wenn du deine Emotionen in seiner Sprache ausdrücken kannst. Diese Phrasen helfen dir dabei, eine tiefere Verbindung aufzubauen.\n\n<PhraseOfDay\n  word=\"I love you\"\n  translation=\"Ich liebe dich\"\n  pronunciation=\"ai lav juu\"\n  context=\"Eine der wichtigsten Phrasen, um Zuneigung auszudrücken\"\n/>\n\n## Positive Gefühle ausdrücken\n\n### Liebe und Zuneigung\n\n<VocabCard\n  word=\"I love you so much\"\n  translation=\"Ich liebe dich\"\n  pronunciation=\"ai lav juu sou matsch\"\n  example=\"I love you so much, darling.\"\n/>\n\n<VocabCard\n  word=\"I'm in love with you\"\n  translation=\"Ich bin verliebt in dich\"\n  pronunciation=\"aim in lav with juu\"\n  example=\"I'm completely in love with you.\"\n/>\n\n| Türkisch | Deutsch | Aussprache |\n|-------------|---------|------------|\n| You mean everything to me | Du bedeutest mir viel | juu mien EV-ri-thing tu mii |\n| I need you | Ich brauche dich | ai nied juu |\n| You make me happy | Du machst mich glücklich | juu meik mii HÄP-pie |\n\n### Glück und Freude\n\n<VocabCard\n  word=\"I'm happy\"\n  translation=\"Ich bin glücklich\"\n  pronunciation=\"aim HÄP-pie\"\n  example=\"I'm so happy when I'm with you.\"\n/>\n\n| Türkisch | Deutsch |\n|-------------|---------|\n| I'm delighted | Ich freue mich |\n| This makes me glad | Das macht mich froh |\n| I'm so glad to have you | Ich bin so froh, dich zu haben |\n| You make me the happiest | Du machst mich zum glücklichsten Menschen |\n\n<CultureTip flag=\"🇹🇷\" title=\"Kultureller Kontext\">\nExpressing emotions openly shows trust and deepens your relationship. Don't be afraid to share your feelings.\n</CultureTip>\n\n## Schwierige Gefühle teilen\n\nEs ist auch wichtig, über schwierige Gefühle sprechen zu können:\n\n### Traurigkeit und Sorgen\n\n| Türkisch | Deutsch |\n|-------------|---------|\n| I'm sad | Ich bin traurig |\n| I'm worried | Ich mache mir Sorgen |\n| I feel lonely | Ich fühle mich einsam |\n| I'm disappointed | Ich bin enttäuscht |\n\n<VocabCard\n  word=\"I need your support\"\n  translation=\"Ich brauche deine Unterstützung\"\n  pronunciation=\"ai nied jor suh-PORT\"\n  example=\"I need your support right now.\"\n/>\n\n### Stress und Überforderung\n\n| Türkisch | Deutsch |\n|-------------|---------|\n| I'm stressed | Ich bin gestresst |\n| I'm exhausted | Ich bin erschöpft |\n| I need a break | Ich brauche eine Pause |\n| I feel overwhelmed | Ich fühle mich überfordert |\n\n## Fragen nach Gefühlen\n\nSo fragst du deinen Partner nach seinen Gefühlen:\n\n<VocabCard\n  word=\"How are you?\"\n  translation=\"Wie geht es dir?\"\n  pronunciation=\"hau ar juu?\"\n  example=\"How are you feeling today?\"\n/>\n\n| Türkisch | Deutsch |\n|-------------|---------|\n| How do you feel? | Wie fühlst du dich? |\n| Is everything okay? | Ist alles in Ordnung? |\n| What's on your mind? | Was hast du auf dem Herzen? |\n\n## Unterstützung anbieten\n\nWenn dein Partner durch eine schwere Zeit geht:\n\n| Türkisch | Deutsch |\n|-------------|---------|\n| I'm here for you | Ich bin für dich da |\n| You can talk to me | Du kannst mit mir reden |\n| I'll support you | Ich werde dich unterstützen |\n| We'll get through this together | Wir schaffen das zusammen |\n\n<CultureTip flag=\"🇹🇷\" title=\"Tipp für Paare\">\nNimm dir regelmäßig Zeit, um mit deinem Partner über Gefühle zu sprechen. In seiner Muttersprache fühlt er sich dabei möglicherweise wohler und kann sich besser ausdrücken.\n</CultureTip>\n\n## Verwandte Artikel\n\n- [Türkische Kosenamen](/de/blog/turkish-pet-names-terms-of-endearment)\n- [Romantische Phrasen auf Türkisch](/de/blog/turkish-romantic-phrases-for-every-occasion)\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Positive Gefühle ausdrücken"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

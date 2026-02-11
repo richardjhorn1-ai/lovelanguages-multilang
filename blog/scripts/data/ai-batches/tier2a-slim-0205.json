@@ -1,0 +1,517 @@
+{
+  "batchId": "tier2a-slim-0205",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "d2bb6cab-ce3c-4368-bbf3-a558f497acbb",
+      "title": "Greckie powitania i pożegnania - codzieńne zwroty",
+      "native_lang": "pl",
+      "target_lang": "el",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Poranny rytual",
+            "### Pozegnanie przed wyjsciem",
+            "### SMS po grecku",
+            "### Wieczorny rytual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d2c74176-4678-4bb5-82df-bba68a97643f",
+      "title": "Frases de Saudade em Dinamarquês: Jeg Savner Dig - Saudade com Hygge",
+      "native_lang": "pt",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases Essenciais de Saudade",
+          "subsections": [
+            "### Expressões Básicas",
+            "### Saudade Profunda",
+            "### Para Relacionamentos à Distância",
+            "### Saudade Doce"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d2d06352-2a58-4cd1-b01c-88af3ac88d00",
+      "title": "50+ Franse Liefkozingen om Harten te Veroveren",
+      "native_lang": "nl",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Regionale Variaties",
+          "subsections": [
+            "### Parijs en Noord-Frankrijk",
+            "### Zuid-Frankrijk (Provencaals)",
+            "### Quebec (Frans-Canada)"
+          ]
+        },
+        {
+          "header": "## Koosnaampjes voor Specifieke Momenten",
+          "subsections": [
+            "### Romantisch",
+            "### Speels",
+            "### Troostend"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d2ddcafc-31da-4101-845b-2eb23ff80386",
+      "title": "Пожелания на годовщину на польский: Романтические фразы",
+      "native_lang": "ru",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Простые пожелания на годовщину",
+          "subsections": [
+            "### Короткие и сладкие",
+            "### Для вашего партнёра"
+          ]
+        },
+        {
+          "header": "## Романтические послания на годовщину",
+          "subsections": [
+            "### Сердечные признания",
+            "### Задумчивые послания"
+          ]
+        },
+        {
+          "header": "## Послания по годам",
+          "subsections": [
+            "### Первая годовщина",
+            "### Пятая годовщина",
+            "### Десятая годовщина",
+            "### Двадцать пятая годовщина (серебряная)",
+            "### Пятидесятая годовщина (золотая)"
+          ]
+        },
+        {
+          "header": "## Планирование празднования годовщины",
+          "subsections": [
+            "### Романтические идеи",
+            "### Выражение благодарности"
+          ]
+        },
+        {
+          "header": "## Сообщения для социальных сетей",
+          "subsections": [
+            "### Подписи для публикаций"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d2e42a9f-1093-4745-b006-d3078f9ca8c4",
+      "title": "Türkische Liebesbrief-Phrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Anreden",
+          "subsections": [
+            "### \"Canım...\"",
+            "### \"Aşkım...\"",
+            "### \"Hayatım...\"",
+            "### \"Birtanem...\""
+          ]
+        },
+        {
+          "header": "## Einleitungen",
+          "subsections": [
+            "### \"Sana ne kadar çok sevdiğimi söylemek için yazıyorum\"",
+            "### \"Sana olan hislerimi ifade edecek kelimeler yok\""
+          ]
+        },
+        {
+          "header": "## Ausdrücke der Liebe",
+          "subsections": [
+            "### \"Hayatımda başıma gelen en güzel şey sensin\"",
+            "### \"Seninle tanıştığım gün hayatım sonsuza dek değişti\"",
+            "### \"Her gün sana biraz daha aşık oluyorum\"",
+            "### \"Varlığınla hayatımı aydınlatıyorsun\"",
+            "### \"Seninle gerçek aşkın ne olduğunu öğrendim\"",
+            "### \"Sen benim güneşim, ayım ve tüm yıldızlarımsın\""
+          ]
+        },
+        {
+          "header": "## Zukunftsversprechen",
+          "subsections": [
+            "### \"Seni koşulsuz sevmeye söz veriyorum\"",
+            "### \"Hayatımın geri kalanını seninle geçirmek istiyorum\"",
+            "### \"Sana olan aşkım sadece büyüyecek\""
+          ]
+        },
+        {
+          "header": "## Abschlüsse",
+          "subsections": [
+            "### \"Sonsuza dek senin...\"",
+            "### \"Tüm sevgimle...\"",
+            "### \"Seni seviyorum, bugün ve sonsuza dek\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d30389f0-6827-49e5-b0ce-3b46c911746d",
+      "title": "Portugisisk uttale for nybegynnere: Slik lærer du å uttale kjerlighetsord riktig for partneren din",
+      "native_lang": "no",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Konsonanter som nordmenn uttaler feil",
+          "subsections": [
+            "### R-lyden (den store utfordringen!)",
+            "### LH-lyden"
+          ]
+        },
+        {
+          "header": "## Stryk over vokaler - hva betyr de?",
+          "subsections": [
+            "### Ão (mest vanlig)",
+            "### Ãe og Õe"
+          ]
+        },
+        {
+          "header": "## Vanlige uttalefeil nordmenn gjør",
+          "subsections": [
+            "### Feil 1: Å uttale \"ão\" som \"ao\"",
+            "### Feil 2: Å uttale \"r\" som norsk R",
+            "### Feil 3: Å uttale \"lh\" som \"l\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d303ef7a-b8db-4a8f-b7e0-2cbdbb66f173",
+      "title": "Sådan Undskylder Du på Rumænsk: Vejledning for Par",
+      "native_lang": "da",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Specifikke Situationer",
+          "subsections": [
+            "### Når Du Har Glemt Noget",
+            "### Når Du Har Sagt Noget Sårende",
+            "### Når Du Er Kommet For Sent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d30e0e7f-49f3-4d89-bfa3-a2a3a4c14fb5",
+      "title": "Spanyol Kifejezések a Leendő Apósékhoz Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bemutatkozás",
+          "subsections": [
+            "### 1. Es un placer conocerlos",
+            "### 2. He escuchado mucho sobre ustedes",
+            "### 3. Gracias por recibirme en su casa"
+          ]
+        },
+        {
+          "header": "## A Kapcsolatról",
+          "subsections": [
+            "### 4. Su hijo/hija es muy especial para mí",
+            "### 5. Estoy muy agradecido de formar parte de su familia",
+            "### 6. Prometo cuidar bien de él/ella"
+          ]
+        },
+        {
+          "header": "## Bókok",
+          "subsections": [
+            "### 7. Tienen una casa muy hermosa",
+            "### 8. La comida está deliciosa",
+            "### 9. Ahora entiendo de dónde viene su encanto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d31ea7fb-a4d3-4168-92f3-a96f89041653",
+      "title": "Greek Making Up & Reconciliation Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Apologizing Sincerely",
+          "subsections": [
+            "### Συγγνώμη (Signómi)",
+            "### Με συγχωρείς; (Me sinhorís?)",
+            "### Είχα άδικο (Íha ádiko)",
+            "### Δεν έπρεπε να το πω αυτό (Den éprepe na to po aftó)"
+          ]
+        },
+        {
+          "header": "## Expressing Your Feelings",
+          "subsections": [
+            "### Μισώ να τσακωνόμαστε (Misó na tsakonómaste)",
+            "### Μου λείπεις όταν είμαστε έτσι (Mou lípis ótan ímaste étsi)",
+            "### Με πονάει όταν είμαστε θυμωμένοι (Me ponái ótan ímaste thimomeni)"
+          ]
+        },
+        {
+          "header": "## Reaching Out",
+          "subsections": [
+            "### Μπορούμε να μιλήσουμε; (Boroúme na milísoume?)",
+            "### Θέλω να τα φτιάξουμε (Thélo na ta ftiáxoume)",
+            "### Μπορούμε να ξεκινήσουμε από την αρχή; (Boroúme na xekinísoume apó tin arhí?)"
+          ]
+        },
+        {
+          "header": "## Expressing Love and Commitment",
+          "subsections": [
+            "### Σ'αγαπώ, αυτό δεν αλλάζει (S'agapó, aftó den allázi)",
+            "### Είσαι πιο σημαντικός/ή από αυτόν τον καβγά (Íse pio simandikós/í apó aftón ton kavgá)",
+            "### Δεν θέλω να σε χάσω (Den thélo na se háso)"
+          ]
+        },
+        {
+          "header": "## Moving Forward",
+          "subsections": [
+            "### Πώς μπορούμε να το αποφύγουμε στο μέλλον; (Pós boroúme na to apofígoume sto méllon?)",
+            "### Υπόσχομαι να προσπαθήσω να γίνω καλύτερος/η (Ipóshomai na prospathíso na gíno kalíteros/i)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d328bfe4-7cc3-475d-a9ef-75c23d850ad9",
+      "title": "Rumuńskie zwroty do kłótni i nieporozumień dla par",
+      "native_lang": "pl",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Wyrażanie niezgody",
+          "subsections": [
+            "### \"Nu sunt de acord cu tine\"",
+            "### \"Eu văd lucrurile altfel\"",
+            "### \"Putem vorbi despre asta calm?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie uczuć",
+          "subsections": [
+            "### \"Mă simt frustrat/frustrată când...\"",
+            "### \"Asta mă deranjează foarte mult\"",
+            "### \"Am nevoie de un moment pentru mine\""
+          ]
+        },
+        {
+          "header": "## Zrozumienie partnera",
+          "subsections": [
+            "### \"Ajută-mă să înțeleg punctul tău de vedere\"",
+            "### \"Dacă am înțeles bine...\"",
+            "### \"Vrei să spui că...?\""
+          ]
+        },
+        {
+          "header": "## Szukanie rozwiązań",
+          "subsections": [
+            "### \"Cum putem rezolva asta împreună?\"",
+            "### \"Să găsim un compromis\"",
+            "### \"Cred că amândoi trebuie să...\""
+          ]
+        },
+        {
+          "header": "## Łagodzenie napięcia",
+          "subsections": [
+            "### \"Te iubesc, chiar și când ne certăm\"",
+            "### \"Vom trece prin asta împreună\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d3292b13-d4c6-4592-bdfd-79921b2db48d",
+      "title": "Turkse Zinnen voor Ruzie en Meningsverschillen",
+      "native_lang": "nl",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen voor meningsverschillen",
+          "subsections": [
+            "### 1. \"Sen ... yaptığında inciniyorum\"",
+            "### 2. \"Bunu sakin bir şekilde konuşabilir miyiz?\"",
+            "### 3. \"Senin bakış açını anlıyorum, ama...\"",
+            "### 4. \"Sakinleşmek için biraz zamana ihtiyacım var\"",
+            "### 5. \"Demek istediğim bu değildi\"",
+            "### 6. \"Lütfen beni dinle\"",
+            "### 7. \"Nasıl hissettiğini bana açıklayabilir misin?\"",
+            "### 8. \"Bunun için kavga etmek istemiyorum\"",
+            "### 9. \"Birlikte bir uzlaşma bulalım\"",
+            "### 10. \"Sesimi yükselttiğim için özür dilerim\"",
+            "### 11. \"Bu benim için çok önemli\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d34873e5-3b99-4e03-af52-d0368813a4ba",
+      "title": "Italienska SMS- och chattfraser för kärleksrelationer",
+      "native_lang": "sv",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Morgonhälsningar",
+          "subsections": [
+            "### \"Buongiorno, amore mio\"",
+            "### \"Ciao, tesoro\"",
+            "### \"Come stai, cuore mio?\""
+          ]
+        },
+        {
+          "header": "## Att uttrycka saknad",
+          "subsections": [
+            "### \"Mi manchi tantissimo\"",
+            "### \"Penso sempre a te\"",
+            "### \"Non vedo l'ora di vederti\""
+          ]
+        },
+        {
+          "header": "## Kärleksförklaringar",
+          "subsections": [
+            "### \"Ti amo\"",
+            "### \"Ti voglio bene\"",
+            "### \"Sei tutto per me\"",
+            "### \"Sei la mia vita\""
+          ]
+        },
+        {
+          "header": "## Flirtiga meddelanden",
+          "subsections": [
+            "### \"Mi fai impazzire\"",
+            "### \"Sei bellissimo/bellissima\"",
+            "### \"Mi hai rubato il cuore\""
+          ]
+        },
+        {
+          "header": "## Godnattmeddelanden",
+          "subsections": [
+            "### \"Buonanotte, angelo mio\"",
+            "### \"Sogni d'oro\"",
+            "### \"Un bacio prima di dormire\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d3675697-7eee-4950-abdc-9089fadc5fb4",
+      "title": "Román üzenetküldő kifejezések magyar anyanyelvűeknek",
+      "native_lang": "hu",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető üdvözlések",
+          "subsections": [
+            "### 1. Bună dimineața, iubirea mea",
+            "### 2. Mi-e dor de tine",
+            "### 3. Te iubesc"
+          ]
+        },
+        {
+          "header": "## Mindennapi üzenetek",
+          "subsections": [
+            "### 4. Ce faci?",
+            "### 5. Ajung imediat",
+            "### 6. Pupici / Pup"
+          ]
+        },
+        {
+          "header": "## Romantikus kifejezések",
+          "subsections": [
+            "### 7. Ești totul pentru mine",
+            "### 8. Puiule / Dragule",
+            "### 9. Am visat cu tine"
+          ]
+        },
+        {
+          "header": "## Chat rövidítések",
+          "subsections": [
+            "### 10. Ms / Mersi",
+            "### 11. Ok / Okei",
+            "### 12. Te pup / Pup dulce"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d36fe11f-e0f2-4c01-ab45-91516b642392",
+      "title": "Γράψτε Ερωτικά Γράμματα στα Σουηδικά",
+      "native_lang": "el",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για την Αρχή του Γράμματος",
+          "subsections": [
+            "### 1. Min älskling (Μιν έλσκλινγκ)",
+            "### 2. Mitt hjärta (Μιτ γιέρτα)",
+            "### 3. Älskade (Έλσκαντε)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για το Κυρίως Μέρος",
+          "subsections": [
+            "### 4. Du är mitt livs kärlek (Ντου αρ μιτ λιβς σέρλεκ)",
+            "### 5. Jag älskar dig mer för varje dag (Γιαγκ έλσκαρ ντιγκ μερ φορ βάργιε νταγκ)",
+            "### 6. Mitt hjärta slår bara för dig (Μιτ γιέρτα σλορ μπάρα φορ ντιγκ)",
+            "### 7. Du gör mig lycklig (Ντου γιορ μέι λίκλιγκ)",
+            "### 8. Jag är galen i dig (Γιαγκ αρ γκάλεν ι ντιγκ)",
+            "### 9. Du är allt för mig (Ντου αρ αλτ φορ μέι)",
+            "### 10. Utan dig är jag ingenting (Ούταν ντιγκ αρ γιαγκ ίνγκεντινγκ)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για το Κλείσιμο",
+          "subsections": [
+            "### 11. Din för evigt (Ντιν φορ έβιτ)",
+            "### 12. Med all min kärlek (Μεντ αλ μιν σέρλεκ)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d377de67-bcfd-4d00-88c7-b45c2fa3cfdf",
+      "title": "Saludos y Despedidas en Húngaro: Guía Completa para Parejas",
+      "native_lang": "es",
+      "target_lang": "hu",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## La Pronunciación Húngara",
+          "subsections": [
+            "### Sonidos Únicos"
+          ]
+        },
+        {
+          "header": "## Situaciones Especiales",
+          "subsections": [
+            "### Conociendo a los Padres",
+            "### Por Teléfono"
+          ]
+        }
+      ]
+    }
+  ]
+}

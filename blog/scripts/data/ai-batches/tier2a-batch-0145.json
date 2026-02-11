@@ -1,0 +1,124 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0145",
+  "articles": [
+    {
+      "id": "294f49b9-69fe-494d-a34f-9cb2a26ceab7",
+      "title": "50+ Surnoms Espagnols et Mots Tendres pour Faire Fondre le Cœur de Votre Partenaire",
+      "native_lang": "fr",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport ConjugationTable from '@components/ConjugationTable.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nApprendre l'espagnol avec votre partenaire, c'est aussi savoir comment l'appeler avec amour. Ces petits surnoms créent des moments de connexion unique, même dans les journées les plus simples. Que vous soyez en train de [lui dire je t'aime en espagnol](/learn/fr/es/how-to-say-i-love-you-in-spanish/) ou que vous prépariez un [dîner romantique](/learn/fr/es/spanish-date-night-vocabulary/), ces termes d'affection transformeront votre relation.\n\n<PhraseOfDay\n  word=\"Mi amor\"\n  translation=\"Mon amour\"\n  pronunciation=\"mee ah-MOHR\"\n  context=\"Le classique intemporel - utilisez-le quand vous le/la regardez dans les yeux.\"\n/>\n\n## Les Essentiels : 10 Surnoms Quotidiens\n\nCes dix termes sont parfaits pour débuter. Ils sont simples, authentiques et traversent toutes les cultures hispanophones.\n\n<VocabCard\n  word=\"Cariño\"\n  translation=\"Chéri(e)\"\n  pronunciation=\"kah-REE-nyoh\"\n  example=\"¿Cómo estás, cariño?\"\n/>\n\n| Espagnol | Français | Prononciation | Moment d'utilisation |\n|----------|----------|---------------|---------------------|\n| **Mi vida** | Ma vie | mee VEE-dah | Très affectueux, quotidien |\n| **Corazón** | Cœur | koh-rah-SOHN | Classique et romantique |\n| **Mi cielo** | Mon ciel | mee see-EH-loh | Tendre et poétique |\n| **Querido/a** | Bien-aimé(e) | keh-REE-doh/dah | Formel mais doux |\n| **Tesoro** | Trésor | teh-SOH-roh | Pour dire \"mon trésor\" |\n| **Nene/a** | Bébé | NEH-neh/NEH-neh | Affectueux et joueur |\n| **Bombón** | Bonbon | bohm-BOHN | Pour quelqu'un de délicieux |\n| **Muñeca** | Poupée | moo-NYEH-kah | Mignon et doux |\n| **Sol** | Soleil | sohl | Pour illuminer votre journée |\n\n<CultureTip flag=\"🇪🇸\" title=\"L'accent importe\">\nEn espagnol, l'accent change le sens ! \"Papá\" (papa) vs \"papa\" (patate). Attention à bien prononcer pour éviter les malentendus amusants avec votre partenaire.\n</CultureTip>\n\n## Surnoms Animaux : Quand l'Amour Devient Mignon\n\nLes Hispaniques adorent comparer leur amour aux animaux - c'est plus mignon que vous ne le pensez !\n\n| Espagnol | Français | Prononciation | Pourquoi c'est mignon |\n|----------|----------|---------------|----------------------|\n| **Osito** | Petit ours | oh-SEE-toh | À utiliser quand vous vous câlinez |\n| **Gatito** | Petit chat | gah-TEE-toh | Pour quelqu'un de joueur |\n| **Perrito** | Petit chien | peh-REE-toh | Fidèle et affectueux |\n| **Conejito** | Petit lapin | koh-neh-HEE-toh | Doux et rapide |\n| **Pollito** | Petit poulet | poh-YEE-toh | Mignon et vulnérable |\n| **Tigre** | Tigre | TEE-greh | Pour la passion |\n| **Oso** | Ours | OH-soh | Protecteur et fort |\n\n<VocabCard\n  word=\"Mi osito\"\n  translation=\"Mon petit ours\"\n  pronunciation=\"mee oh-SEE-toh\"\n  example=\"Ven aquí, mi osito.\"\n/>\n\n## Douceurs Gourmandes : Surnoms Culinaires\n\nParce que l'amour passe aussi par l'estomac ! Ces [surnoms espagnols pour votre partenaire](/learn/fr/es/spanish-pet-names-for-your-partner/) ont un goût sucré.\n\n- **Caramelo** (caramel) - \"kah-rah-MEH-loh\" - Doux et collant\n- **Azúcar** (sucre) - \"ah-SOO-kahr\" - Essential dans la vie\n- **Miel** (miel) - \"mee-EHL\" - Naturellement doux\n- **Chocolate** (chocolat) - \"choh-koh-LAH-teh\" - Réconfortant\n- **Pastelito** (petit gâteau) - \"pahs-tehl-LEE-toh\" - Fait pour célébrer\n\n<CultureTip flag=\"🇪🇸\" title=\"Culture sucrée\">\nEn Espagne, les noms de nourriture douce sont très populaires comme termes d'affection. C'est une façon de dire \"tu rends ma vie plus sucrée !\"\n</CultureTip>\n\n## Expressions Poétiques : Quand l'Amour Devient Art\n\nLes Espagnols sont des maîtres de la poésie quotidienne. Ces expressions transformeront vos moments ensemble.\n\n| Espagnol | Français | Prononciation | Utilisation |\n|----------|----------|---------------|-------------|\n| **Luz de mis ojos** | Lumière de mes yeux | loose deh mees OH-hohs | Très romantique |\n| **Dueño de mi corazón** | Propriétaire de mon cœur | doo-EH-nyoh deh mee koh-rah-SOHN | Passionné |\n| **Amor de mi vida** | Amour de ma vie | ah-MOHR deh mee VEE-dah | Pour les grandes déclarations |\n| **Media naranja** | Demi-orange | MEH-dee-ah nah-RAHN-hah | Vous complétez l'autre |\n| **Alma gemela** | Âme sœur | AHL-mah heh-MEH-lah | Spirituel et profond |\n\n## Surnoms Joyeux : Pour les Couples Ludiques\n\nParfait pour [égayer votre relation](/learn/fr/es/romantic-spanish-phrases-for-every-occasion/) avec humour et légèreté.\n\n<VocabCard\n  word=\"Chiquito/a\"\n  translation=\"Petit(e)\"\n  pronunciation=\"chee-KEE-toh/tah\"\n  example=\"¡Pasa, chiquita!\"\n/>\n\n- **Enano/a** (nain) - \"eh-NAH-noh/nah\" - Pour quelqu'un de petit\n- **Flaco/a** (maigre) - \"FLAH-koh/kah\" - Souvent ironique et affectueux\n- **Loco/a** (fou/folle) - \"LOH-koh/kah\" - Pour vos moments fous\n- **Perezoso/a** (paresseux/euse) - \"peh-reh-SOH-soh/sah\" - Le dimanche matin\n- **Travieso/a** (espiegle) - \"trah-vee-EH-soh/sah\" - Pour les taquineries\n\n## Comment Utiliser Ces Surnoms Naturellement\n\n### Le Contexte est Roi\nUtilisez **mi amor** dans des moments calmes, **cariño** dans la vie quotidienne, et **corazón** pour les moments intimes. Écoutez comment votre partenaire réagit - certains préfèrent les classiques, d'autres les créatifs.\n\n### Les Erreurs à Éviter\n- Ne surchargez pas : un ou deux surnoms par conversation suffisent\n- Soyez authentique : si \"mi cielo\" ne vous vient pas naturellement, choisissez autre chose\n- Respectez la culture : certains surnoms peuvent varier selon les pays hispanophones\n\n<CultureTip flag=\"🇪🇸\" title=\"Variété régionale\">\nEn Argentine, \"mi vida\" est omniprésent, tandis qu'au Mexique, \"cariño\" domine. En Espagne, \"mi cielo\" est très courant. Adaptez-vous à la culture de votre partenaire !\n</CultureTip>\n\n### Pratiquez Ensemble\nCommencez par en choisir trois qui vous parlent tous les deux. Utilisez-les pendant une semaine, puis ajoutez-en de nouveaux. Faites-en un jeu : qui trouvera le surnom le plus créatif ?\n\nCes [phrases espagnoles essentielles pour les couples](/learn/fr/es/essential-spanish-phrases-for-couples/) ne sont que le début de votre voyage linguistique ensemble. Chaque surnom que vous maîtrisez renforce votre connexion et crée des souvenirs partagés uniques. Alors, quel sera votre préféré ?\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Comment Utiliser Ces Surnoms Naturellement"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "2962ee37-c8b6-4501-97e3-470acaa4a1c1",
+      "title": "Hiszpańskie zwroty do kłótni i nieporozumień dla par",
+      "native_lang": "pl",
+      "target_lang": "es",
+      "category": "communication",
+      "content": "Związek z osobą mówiącą po hiszpańsku to wspaniała przygoda, ale nawet najlepsze relacje mają trudne momenty. Hiszpanie słyną z temperamentu i ekspresyjności, dlatego warto znać odpowiednie zwroty, by konflikty rozwiązywać z szacunkiem.\n\n## Kultura konfliktu w krajach hiszpańskojęzycznych\n\nHiszpanie i Latynosi często wyrażają emocje bardziej otwarcie niż Polacy. Głośniejsza rozmowa niekoniecznie oznacza poważną kłótnię - to może być po prostu żywa dyskusja. Zrozumienie tego kontekstu pomoże Ci lepiej interpretować reakcje partnera.\n\n## Podstawowe zwroty wyrażające niezgodę\n\n### \"No estoy de acuerdo contigo\"\n*Nie zgadzam się z Tobą*\n\nWymowa: no es-TOY de a-KWER-do kon-TI-go\n\nBezpośredni, ale uprzejmy sposób wyrażenia odmiennego zdania.\n\n### \"Yo lo veo de otra manera\"\n*Ja to widzę inaczej*\n\nWymowa: yo lo VE-o de O-tra ma-NE-ra\n\nDelikatniejsza forma przedstawienia swojej perspektywy.\n\n### \"¿Podemos hablar de esto con calma?\"\n*Czy możemy porozmawiać o tym spokojnie?*\n\nWymowa: po-DE-mos a-BLAR de ES-to kon KAL-ma\n\nŚwietny zwrot, gdy emocje zaczynają się unosić.\n\n## Wyrażanie uczuć\n\n### \"Me siento frustrado/frustrada cuando...\"\n*Czuję frustrację, kiedy...*\n\nWymowa: me SYEN-to frus-TRA-do/frus-TRA-da KWAN-do\n\nUżywaj \"frustrado\" jeśli jesteś mężczyzną, \"frustrada\" jeśli kobietą. To technika \"ja-komunikatów\".\n\n### \"Esto me está molestando mucho\"\n*To bardzo mnie niepokoi*\n\nWymowa: ES-to me es-TA mo-les-TAN-do MU-cho\n\nJasno komunikuje wagę problemu bez oskarżeń.\n\n### \"Necesito un momento para pensar\"\n*Potrzebuję chwili do namysłu*\n\nWymowa: ne-se-SI-to un mo-MEN-to PA-ra pen-SAR\n\nPozwala na ochłonięcie emocji.\n\n## Próby zrozumienia partnera\n\n### \"Ayúdame a entender tu punto de vista\"\n*Pomóż mi zrozumieć Twój punkt widzenia*\n\nWymowa: a-YU-da-me a en-ten-DER tu PUN-to de VIS-ta\n\nPokazuje otwartość i chęć zrozumienia.\n\n### \"Lo que entiendo es que...\"\n*To, co rozumiem, to...*\n\nWymowa: lo ke en-TYEN-do es ke\n\nParafrazowanie pomaga uniknąć nieporozumień.\n\n### \"¿Quieres decir que...?\"\n*Czy chcesz powiedzieć, że...?*\n\nWymowa: KYE-res de-SIR ke\n\nPytanie klaryfikujące intencje partnera.\n\n## Szukanie rozwiązań\n\n### \"¿Cómo podemos solucionar esto juntos?\"\n*Jak możemy to razem rozwiązać?*\n\nWymowa: KO-mo po-DE-mos so-lu-syo-NAR ES-to HUN-tos\n\nPodkreśla, że jesteście drużyną.\n\n### \"Busquemos un compromiso\"\n*Poszukajmy kompromisu*\n\nWymowa: bus-KE-mos un kom-pro-MI-so\n\nSygnalizuje gotowość do ustępstw.\n\n### \"Creo que los dos necesitamos...\"\n*Myślę, że oboje musimy...*\n\nWymowa: KRE-o ke los dos ne-se-si-TA-mos\n\nPrzyjmuje współodpowiedzialność.\n\n## Zwroty łagodzące napięcie\n\n### \"Te quiero, aunque ahora estemos discutiendo\"\n*Kocham Cię, mimo że teraz się kłócimy*\n\nWymowa: te KYE-ro AUN-ke a-O-ra es-TE-mos dis-ku-TYEN-do\n\nPrzypomina o fundamencie waszej relacji.\n\n### \"Esto pasará, somos un equipo\"\n*To minie, jesteśmy zespołem*\n\nWymowa: ES-to pa-sa-RA SO-mos un e-KI-po\n\nBuduje poczucie wspólnoty.\n\n## Czego unikać\n\n- **\"Siempre haces...\"** (Zawsze robisz...) - generalizacje\n- **\"Nunca me escuchas\"** (Nigdy mnie nie słuchasz) - oskarżenia\n- **\"Da igual\"** (Wszystko jedno) - lekceważące\n- **\"Cállate\"** (Zamknij się) - bardzo obraźliwe\n\n## Wskazówki praktyczne\n\nHiszpanie cenią szczerość i bezpośredniość, ale zawsze w atmosferze szacunku. Dotyk i bliskość fizyczna są naturalne nawet podczas nieporozumień. Nie interpretuj gestykulacji jako agresji - to część ekspresyjnej kultury.\n\nPamiętaj, że celem jest rozwiązanie problemu, nie wygranie kłótni. ¡Buena suerte! (Powodzenia!)",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Podstawowe zwroty wyrażające niezgodę",
+              "## Wyrażanie uczuć",
+              "## Próby zrozumienia partnera",
+              "## Szukanie rozwiązań",
+              "## Zwroty łagodzące napięcie"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "2990798e-ab5d-45c5-acec-eeff4efc2762",
+      "title": "Zwroty na pierwszą randkę po węgiersku",
+      "native_lang": "pl",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "Pierwsza randka to ekscytujący moment. Oto kluczowe zwroty, które pomogą Ci zrobić świetne wrażenie.\n\n## Rozpoczęcie rozmowy\n\n### Cześć! Miło Cię wreszcie poznać!\nCiepłe powitanie, które pokazuje entuzjazm.\n\n### Świetnie wyglądasz!\nProsty, szczery komplement.\n\n### Nie mogłem/mogłam się doczekać\nPokazuje zainteresowanie.\n\n## Poznawanie się\n\n### Opowiedz mi o sobie\nKlasyczne otwarcie do głębszej rozmowy.\n\n### Co lubisz robić w wolnym czasie?\nPoznawanie hobby i zainteresowań.\n\n### Jaki jest Twój ulubiony...?\nFilm, książka, jedzenie - świetny sposób na poznanie gustów.\n\n## Wyrażanie zainteresowania\n\n### To naprawdę interesujące\nPokazuje, że słuchasz aktywnie.\n\n### Opowiedz mi więcej\nZachęca do kontynuowania.\n\n### Chciałbym/Chciałabym wiedzieć więcej\nWyraża autentyczne zainteresowanie.\n\n## Dzielenie się o sobie\n\n### Pasjonuję się...\nDzielenie się swoimi zainteresowaniami.\n\n### Zawsze chciałem/chciałam...\nDzielenie się marzeniami.\n\n## Komplementy\n\n### Uwielbiam Twój uśmiech\nSzczery, osobisty komplement.\n\n### Masz świetne poczucie humoru\nDocenianie osobowości.\n\n### Świetnie się z Tobą bawię\nPokazuje, że randka idzie dobrze.\n\n## Planowanie następnego spotkania\n\n### Bardzo chciałbym/chciałabym Cię znowu zobaczyć\nBezpośrednie wyrażenie zainteresowania.\n\n### Kiedy możemy to powtórzyć?\nKonkretna propozycja.\n\n### Miałem/Miałam cudowny wieczór\nPodsumowanie randki.\n\n## Pożegnanie\n\n### To było naprawdę cudowne\nCiepłe pożegnanie.\n\n### Nie mogę się doczekać kolejnego spotkania\nPokazuje entuzjazm.\n\nSok szerencsét! (Powodzenia!)",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 196,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Rozpoczęcie rozmowy",
+              "## Poznawanie się",
+              "## Wyrażanie zainteresowania",
+              "## Dzielenie się o sobie",
+              "## Komplementy",
+              "## Planowanie następnego spotkania",
+              "## Pożegnanie"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "299877e0-4d6c-449f-9690-98ecc19d8e2a",
+      "title": "Ουγγρικές Φράσεις Συμφιλίωσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "Η συμφιλίωση είναι βασική για κάθε σχέση. Όταν ο σύντροφός σας μιλάει ουγγρικά, αυτές οι φράσεις θα σας βοηθήσουν.\n\n## Φράσεις Συμφιλίωσης\n\n### Έναρξη Συμφιλίωσης\n\n<Phrase term=\"Bocsáss meg\" pronunciation=\"Μπότσας μεγκ\">\n  <Trans>Συγχώρεσέ με</Trans>\n  <Note>Αίτημα συγχώρεσης</Note>\n</Phrase>\n\n<Phrase term=\"Beszélhetünk erről?\" pronunciation=\"Μπεσέλχετουνκ έρολ;\">\n  <Trans>Μπορούμε να μιλήσουμε γι' αυτό;</Trans>\n  <Note>Έναρξη διαλόγου</Note>\n</Phrase>\n\n<Phrase term=\"Nem akarok többet veszekedni\" pronunciation=\"Νεμ ακάροκ τέμπετ βεσεκέντνι\">\n  <Trans>Δεν θέλω να τσακωνόμαστε άλλο</Trans>\n  <Note>Επιθυμία ειρήνης</Note>\n</Phrase>\n\n### Έκφραση Μετάνοιας\n\n<Phrase term=\"Tévedtem\" pronunciation=\"Τέβεντεμ\">\n  <Trans>Έκανα λάθος</Trans>\n  <Note>Παραδοχή λάθους</Note>\n</Phrase>\n\n<Phrase term=\"Nem kellett volna ezt mondanom\" pronunciation=\"Νεμ κέλετ βόλνα εστ μοντάνομ\">\n  <Trans>Δεν έπρεπε να το πω</Trans>\n  <Note>Μετάνοια για λόγια</Note>\n</Phrase>\n\n<Phrase term=\"Nem akartalak megbántani\" pronunciation=\"Νεμ ακάρταλακ μεγκμπάνταni\">\n  <Trans>Δεν ήθελα να σε πληγώσω</Trans>\n  <Note>Διευκρίνιση προθέσεων</Note>\n</Phrase>\n\n### Έκφραση Αγάπης\n\n<Phrase term=\"Szeretlek és sajnálom\" pronunciation=\"Σερέτλεκ ες σάιναλομ\">\n  <Trans>Σ' αγαπώ και λυπάμαι</Trans>\n  <Note>Αγάπη και συγγνώμη</Note>\n</Phrase>\n\n<Phrase term=\"Te vagy nekem minden\" pronunciation=\"Τε βαντζ νέκεμ μίντεν\">\n  <Trans>Είσαι τα πάντα για μένα</Trans>\n  <Note>Επιβεβαίωση αγάπης</Note>\n</Phrase>\n\n<Phrase term=\"Utálok veled veszekedni\" pronunciation=\"Ουτάλοκ βέλεντ βεσεκέντνι\">\n  <Trans>Μισώ να τσακώνομαι μαζί σου</Trans>\n  <Note>Η σύγκρουση πονάει</Note>\n</Phrase>\n\n### Πρόταση Λύσης\n\n<Phrase term=\"Kezdjük elölről\" pronunciation=\"Κέζντγιουκ ελέλρολ\">\n  <Trans>Ας ξεκινήσουμε από την αρχή</Trans>\n  <Note>Νέα αρχή</Note>\n</Phrase>\n\n<Phrase term=\"Gyere, ölelj meg\" pronunciation=\"Ντζέρε, έλελγ μεγκ\">\n  <Trans>Έλα, αγκάλιασέ με</Trans>\n  <Note>Σωματική επανασύνδεση</Note>\n</Phrase>\n\n<Phrase term=\"Ígérem, hogy jobb leszek\" pronunciation=\"Ίγκερεμ, χοντζ γιομπ λέσεκ\">\n  <Trans>Υπόσχομαι να γίνω καλύτερος/η</Trans>\n  <Note>Δέσμευση βελτίωσης</Note>\n</Phrase>\n\n## Πολιτιστικές Συμβουλές\n\nΟι Ούγγροι εκτιμούν την ειλικρίνεια και τη θερμότητα. Η οικογένεια είναι πολύ σημαντική, οπότε δείξτε ότι θέλετε να διατηρήσετε την αρμονία στη σχέση σας.\n\n## Συμπέρασμα\n\nΜε αυτές τις φράσεις, μπορείτε να επανασυνδεθείτε με τον ουγγρόφωνο σύντροφό σας με θερμότητα και ειλικρίνεια.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 252,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Φράσεις Συμφιλίωσης"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "29989a7d-0e84-4d93-9191-0f6c1bf7a0ae",
+      "title": "Frases para Conocer a los Suegros en Griego: Conquistando a los Πεθερικά",
+      "native_lang": "es",
+      "target_lang": "el",
+      "category": "communication",
+      "content": "Los πεθερικά (suegros) griegos son el centro de la vida familiar. Conquistarles requiere calidez y respeto por las tradiciones.\n\n## Saludos y Presentaciones\n\n### \"Χαίρομαι πολύ που σας γνωρίζω\" (Chaíromai polý pou sas gnorízo)\n**Pronunciación:** jérome polí pu sas gnorízo\n\n**Significado:** Me alegro mucho de conocerles\n\n### \"Έχω ακούσει τόσα πολλά για εσάς\" (Écho akoúsei tósa pollá gia esás)\n**Pronunciación:** éjo akúsi tósa polá ya esás\n\n**Significado:** He escuchado tantas cosas de ustedes\n\n### \"Σας ευχαριστώ πολύ για την πρόσκληση\" (Sas efcharistó polý gia tin próskli̱si̱)\n**Pronunciación:** sas efjaristó polí ya tin prósklisi\n\n**Significado:** Les agradezco mucho la invitación\n\n## Cumplidos\n\n### \"Έχετε ένα πολύ όμορφο σπίτι\" (Échete éna polý ómorfo spíti)\n**Pronunciación:** éjete éna polí ómorfo spíti\n\n**Significado:** Tienen una casa muy bonita\n\n### \"Το φαγητό είναι απίστευτα νόστιμο\" (To fagitó eínai apísteuta nóstimo)\n**Pronunciación:** to fayitó íne apístevta nóstimo\n\n**Significado:** La comida está increíblemente deliciosa\n\n### \"Ο γιος/Η κόρη σας με κάνει πολύ ευτυχισμένο/η\" (O gios/I kóri sas me kánei polý eftychisméno/i)\n**Pronunciación:** o yos/i kóri sas me káni polí eftijizméno/i\n\n**Significado:** Su hijo/a me hace muy feliz\n\n## Ofreciendo Ayuda\n\n### \"Μπορώ να βοηθήσω σε κάτι;\" (Boró na voithíso se káti?)\n**Pronunciación:** boró na voizíso se káti\n\n**Significado:** ¿Puedo ayudar en algo?\n\n## Despedidas\n\n### \"Σας ευχαριστώ για την υπέροχη βραδιά\" (Sas efcharistó gia tin ypérochi vradiá)\n**Pronunciación:** sas efjaristó ya tin ipéroji vradiá\n\n**Significado:** Gracias por la maravillosa velada\n\n### \"Χάρηκα πολύ που σας γνώρισα\" (Chárika polý pou sas gnórisa)\n**Pronunciación:** járika polí pu sas gnórisa\n\n**Significado:** Me alegro mucho de haberles conocido\n\n## Cultura Griega\n\n- **Filoxenia** - Hospitalidad legendaria\n- **Familia extendida** - Muy unida\n- **Comida** - Central en las reuniones\n- **Respeto** - A los mayores profundamente\n\n## Conexión Mediterránea\n\nComo hispanohablante, compartes:\n- Pasión expresiva\n- Importancia de la familia\n- Calidez en las relaciones\n\nLos πεθερικά griegos aprecian la calidez y el respeto. ¡Καλή τύχη!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Saludos y Presentaciones",
+              "## Cumplidos",
+              "## Ofreciendo Ayuda",
+              "## Despedidas"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

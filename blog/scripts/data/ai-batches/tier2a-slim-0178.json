@@ -1,0 +1,499 @@
+{
+  "batchId": "tier2a-slim-0178",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "bb4fcc37-9843-4100-818c-bc67cd5ef446",
+      "title": "Tyrkiske sms- og chatbeskeder til par",
+      "native_lang": "da",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende kærlige beskeder",
+          "subsections": [
+            "### \"Seni özledim\"",
+            "### \"Seni düşünüyorum\"",
+            "### \"Seni görmeyi çok istiyorum\""
+          ]
+        },
+        {
+          "header": "## Populære tyrkiske kælenavne",
+          "subsections": [
+            "### \"Aşkım\"",
+            "### \"Canım\"",
+            "### \"Tatlım\""
+          ]
+        },
+        {
+          "header": "## Tyrkiske sms-forkortelser",
+          "subsections": [
+            "### \"Seni seviyorum\" / \"SS\"",
+            "### \"Öpüyorum\" / \"Öpt\"",
+            "### \"İyi geceler\""
+          ]
+        },
+        {
+          "header": "## Romantiske beskeder",
+          "subsections": [
+            "### \"Sen benim her şeyimsin\"",
+            "### \"Günaydın, aşkım\"",
+            "### \"Tatlı rüyalar, canım\""
+          ]
+        },
+        {
+          "header": "## Hverdagsbeskeder",
+          "subsections": [
+            "### \"Nasılsın?\"",
+            "### \"Geliyorum\"",
+            "### \"Görüşürüz\""
+          ]
+        },
+        {
+          "header": "## Specielle udtryk",
+          "subsections": [
+            "### \"Hayatım\"",
+            "### \"Sana bayılıyorum\"",
+            "### \"Kocaman öpüyorum\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bb8257f1-cfe9-4fb9-8240-451f0e873a8e",
+      "title": "50+ Schwedische Liebessaetze, die Herzen schmelzen",
+      "native_lang": "de",
+      "target_lang": "sv",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Date-Nacht Saetze",
+          "subsections": [
+            "### Jemanden Einladen",
+            "### Waehrend des Dates",
+            "### Komplimente"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bba1f370-b642-4846-8f32-e3c1b617d942",
+      "title": "Norska fraser för emotionellt stöd – Trösta din partner på norska",
+      "native_lang": "sv",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande stöd",
+          "subsections": [
+            "### \"Jeg er her for deg\"",
+            "### \"Du er ikke alene om dette\"",
+            "### \"Jeg vil alltid være på din side\""
+          ]
+        },
+        {
+          "header": "## Visa empati",
+          "subsections": [
+            "### \"Jeg kan bare forestille meg hvor vanskelig dette må være\"",
+            "### \"Følelsene dine er helt forståelige\"",
+            "### \"Det er greit å føle det sånn\""
+          ]
+        },
+        {
+          "header": "## Tröstande fraser",
+          "subsections": [
+            "### \"Dette også skal gå over\"",
+            "### \"Vi kommer gjennom dette sammen\"",
+            "### \"Ta all den tiden du trenger\"",
+            "### \"Det er greit å ikke være greit\""
+          ]
+        },
+        {
+          "header": "## Erbjuda stöd",
+          "subsections": [
+            "### \"Hva trenger du fra meg akkurat nå?\"",
+            "### \"Vil du snakke om det, eller vil du heller ha avledning?\"",
+            "### \"Er det noe jeg kan gjøre for å hjelpe?\""
+          ]
+        },
+        {
+          "header": "## Vid förlust",
+          "subsections": [
+            "### \"Jeg er så lei meg for tapet ditt\"",
+            "### \"Jeg finner ikke ord, men jeg er her\""
+          ]
+        },
+        {
+          "header": "## Uppmuntrande fraser",
+          "subsections": [
+            "### \"Jeg tror på deg\"",
+            "### \"Du er sterkere enn du tror\"",
+            "### \"Jeg er så stolt av deg\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bba4d28b-7574-4eda-ac37-ec51c3d8a1b9",
+      "title": "Italien du Nord vs du Sud : les différences",
+      "native_lang": "fr",
+      "target_lang": "it",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Conseils pour les voyages en couple",
+          "subsections": [
+            "### Dans le Nord",
+            "### Dans le Sud"
+          ]
+        },
+        {
+          "header": "## Exercices pour couples",
+          "subsections": [
+            "### Comparaison culinaire",
+            "### Écoute active",
+            "### Quiz régional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bbbcf3d7-c889-4a16-b691-c5c8ee0a7dbb",
+      "title": "Prononciation portugaise : Le guide romantique pour les couples francophones",
+      "native_lang": "fr",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Les Sons Portugais Qui Vont Changer Votre Vie",
+          "subsections": [
+            "### Le R Portugais : Votre Nouvel Allié",
+            "### Le ÃO Magique"
+          ]
+        },
+        {
+          "header": "## Sons Difficiles Pour Les Francophones",
+          "subsections": [
+            "### Le S Zézayant",
+            "### Les Voyelles Nasales"
+          ]
+        },
+        {
+          "header": "## Erreurs Fréquentes des Francophones",
+          "subsections": [
+            "### ❌ « Je » au lieu de « Eu »",
+            "### ❌ R français trop fort",
+            "### ❌ Nasales françaises"
+          ]
+        },
+        {
+          "header": "## Exercices Pour Couples",
+          "subsections": [
+            "### Le Jeu des 5 Mots",
+            "### La Conversation Douce"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bbbfef19-e3fd-4d0d-ba68-8fdb16ff9ac4",
+      "title": "Német kiejtési útmutató kezdőknek: Tanuljatok együtt, hogy szebben hasson a hangotok",
+      "native_lang": "hu",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## A leggyakoribb hibák és hogyan kerüljük el őket",
+          "subsections": [
+            "### 1. Az \"R\" túlzása",
+            "### 2. A \"CH\" két arca",
+            "### 3. Az \"Umlautok\" (Ä, Ö, Ü)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bbd147e0-2e41-4758-a81d-1e4fbdd72eb4",
+      "title": "Cómo Escribir Cartas de Amor en Danés: El Kærlighedsbrev con Hygge",
+      "native_lang": "es",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Saludos Románticos",
+          "subsections": [
+            "### \"Min elskede...\"",
+            "### \"Min skat...\"",
+            "### \"Kære...\""
+          ]
+        },
+        {
+          "header": "## Expresiones de Apertura",
+          "subsections": [
+            "### \"Jeg skriver til dig fra dybet af mit hjerte\"",
+            "### \"Hver dag uden dig føles som en evighed\""
+          ]
+        },
+        {
+          "header": "## Frases del Cuerpo de la Carta",
+          "subsections": [
+            "### \"Du er det bedste, der er sket for mig\"",
+            "### \"Mit hjerte tilhører kun dig\"",
+            "### \"Med dig føler jeg mig hel\"",
+            "### \"Du er lyset i mit liv\""
+          ]
+        },
+        {
+          "header": "## Promesas de Amor",
+          "subsections": [
+            "### \"Jeg vil altid elske dig\"",
+            "### \"Jeg vil altid være der for dig\""
+          ]
+        },
+        {
+          "header": "## Despedidas Románticas",
+          "subsections": [
+            "### \"For evigt din...\"",
+            "### \"Med al min kærlighed...\"",
+            "### \"Din [nombre] som elsker dig\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bbebe258-4453-41e3-86a8-cba6a1d231b7",
+      "title": "Hungarian Love Letter Writing: Unique Phrases for Your Partner",
+      "native_lang": "en",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Opening Your Letter",
+          "subsections": [
+            "### Salutations"
+          ]
+        },
+        {
+          "header": "## Expressing Your Feelings",
+          "subsections": [
+            "### Opening Lines",
+            "### Declarations of Love"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bbfc5cfb-f424-47ad-aecb-624d70eb7789",
+      "title": "Gramática Rumana para Principiantes: Conecta con tu Pareja en Rumano",
+      "native_lang": "es",
+      "target_lang": "ro",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Errores Comunes que Evitar",
+          "subsections": [
+            "### 1. Olvidar la Concordancia",
+            "### 2. Confundir Géneros",
+            "### 3. Pronombres en la Posición Incorrecta",
+            "### 4. Usar Español Directamente"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bc268767-01f7-44bf-98c7-1800098591ee",
+      "title": "Französische Flirtsprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassische Komplimente",
+          "subsections": [
+            "### \"Tu es magnifique\"",
+            "### \"Tu as de beaux yeux\"",
+            "### \"Tu me fais craquer\""
+          ]
+        },
+        {
+          "header": "## Romantische Ausdrücke",
+          "subsections": [
+            "### \"Je suis fou de toi\" / \"Je suis folle de toi\"",
+            "### \"Tu es l'amour de ma vie\"",
+            "### \"Je ne peux pas vivre sans toi\""
+          ]
+        },
+        {
+          "header": "## Süße Kosenamen",
+          "subsections": [
+            "### \"Mon amour\"",
+            "### \"Mon cœur\"",
+            "### \"Ma chérie\" / \"Mon chéri\"",
+            "### \"Mon trésor\""
+          ]
+        },
+        {
+          "header": "## Charmante Sprüche",
+          "subsections": [
+            "### \"Tu as volé mon cœur\"",
+            "### \"Quand je te vois, mon cœur s'emballe\"",
+            "### \"Tu illumines ma vie\""
+          ]
+        },
+        {
+          "header": "## Spielerische Ausdrücke",
+          "subsections": [
+            "### \"Est-ce que ça fait mal quand tu es tombé du ciel?\"",
+            "### \"Tu dois être fatiguée d'avoir couru dans ma tête toute la journée\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bc33e77c-0086-41c5-b389-8d8e79ab695c",
+      "title": "İngilizce Kıskançlık ve Güven İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kıskançlığı İfade Etme",
+          "subsections": [
+            "### 1. \"I feel a little jealous when...\"",
+            "### 2. \"Can you reassure me?\"",
+            "### 3. \"I trust you, but I don't trust them\"",
+            "### 4. \"It makes me uncomfortable when...\"",
+            "### 5. \"I need to know I'm your priority\""
+          ]
+        },
+        {
+          "header": "## Güven İnşa Etme",
+          "subsections": [
+            "### 6. \"I completely trust you\"",
+            "### 7. \"You're the only one for me\"",
+            "### 8. \"I would never do anything to hurt you\"",
+            "### 9. \"You have nothing to worry about\"",
+            "### 10. \"I'm committed only to you\""
+          ]
+        },
+        {
+          "header": "## Sorunları Çözme",
+          "subsections": [
+            "### 11. \"Let's talk about your concerns\"",
+            "### 12. \"What can I do to make you feel more secure?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bc3dce48-650b-406c-8439-61fd525fba66",
+      "title": "Frases para Conhecer os Sogros em Tcheco: Guia Completo",
+      "native_lang": "pt",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para o Primeiro Encontro",
+          "subsections": [
+            "### Apresentação",
+            "### Elogiando",
+            "### Mostrando Interesse",
+            "### Expressando Gratidão"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bc5d0269-76c8-4319-8e77-6f7b6fb91ba3",
+      "title": "Noorse Zinnen voor Verzoening en Goedmaken",
+      "native_lang": "nl",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen voor verzoening",
+          "subsections": [
+            "### 1. \"Unnskyld for det jeg sa\"",
+            "### 2. \"Kan vi begynne på nytt?\"",
+            "### 3. \"Jeg ville ikke såre deg\"",
+            "### 4. \"Du betyr alt for meg\"",
+            "### 5. \"Jeg tok feil og innrømmer det\"",
+            "### 6. \"Jeg elsker deg mer enn noen krangel\"",
+            "### 7. \"Hva kan jeg gjøre for å gjøre det godt igjen?\"",
+            "### 8. \"Jeg tilgir deg\"",
+            "### 9. \"La oss legge dette bak oss\"",
+            "### 10. \"Kom hit og klem meg\"",
+            "### 11. \"Kjærligheten vår er sterkere enn dette\"",
+            "### 12. \"Jeg vil aldri miste deg\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bc5df973-d743-42fe-bc74-6f74de844426",
+      "title": "Swedish Jealousy & Trust Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressing Jealousy",
+          "subsections": [
+            "### Jag är svartsjuk",
+            "### Jag blir svartsjuk när...",
+            "### Jag gillar inte svartsjukan jag känner"
+          ]
+        },
+        {
+          "header": "## Seeking Reassurance",
+          "subsections": [
+            "### Älskar du bara mig?",
+            "### Jag behöver att du lugnar mig"
+          ]
+        },
+        {
+          "header": "## Building Trust",
+          "subsections": [
+            "### Jag litar på dig",
+            "### Jag vill lita helt på dig",
+            "### Hur kan vi bygga mer förtroende?"
+          ]
+        },
+        {
+          "header": "## Giving Reassurance",
+          "subsections": [
+            "### Jag har bara ögon för dig",
+            "### Du är den enda för mig",
+            "### Du behöver inte oroa dig",
+            "### Mitt hjärta tillhör dig"
+          ]
+        },
+        {
+          "header": "## Setting Boundaries",
+          "subsections": [
+            "### Svartsjuka påverkar vårt förhållande",
+            "### Jag behöver mitt eget utrymme"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bc8fb76c-a083-44b2-a501-dbb8fd3855bf",
+      "title": "Porecle și Nume de Alint în Italiană: Ghid Complet pentru Cupluri",
+      "native_lang": "ro",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Porecle Regionale",
+          "subsections": [
+            "### Nord (Milano)",
+            "### Centru (Roma)",
+            "### Sud (Napoli)",
+            "### Sicilia"
+          ]
+        }
+      ]
+    }
+  ]
+}

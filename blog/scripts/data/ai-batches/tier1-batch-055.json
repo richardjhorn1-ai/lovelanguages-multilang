@@ -1,0 +1,56 @@
+{
+  "tier": 1,
+  "batchId": "tier1-batch-055",
+  "articles": [
+    {
+      "id": "96fa0480-bf38-44c6-afbf-8f4cc610840d",
+      "title": "Bună dimineața și noapte bună în maghiară – Mesaje drăguțe",
+      "native_lang": "ro",
+      "target_lang": "hu",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nZiua începe și se termină mai frumos când îi urezi partenerului în limba lui. Aceste mesaje vor aduce zâmbete în fiecare zi.\n\n<PhraseOfDay\n  word=\"Jó reggelt\"\n  translation=\"Bună dimineața\"\n  pronunciation=\"\"\n  context=\"Începe fiecare zi cu o urare caldă\"\n/>\n\n## Mesaje de bună dimineața\n\n<VocabCard\n  word=\"Jó reggelt\"\n  translation=\"Bună dimineața\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇭🇺\" title=\"Saluturile zilnice\">\nMaghiarii apreciază sinceritatea și căldura. Scuzele din inimă sunt foarte prețuite - arată că îți pasă cu adevărat de relație.\n</CultureTip>\n\n## Mesaje de noapte bună\n\n| Maghiară | Română |\n|---------|---------|\n| Jó éjszakát | Noapte bună |\n| Szép álmokat | Vise frumoase |\n| Aludj jól | Somn ușor |\n\n<VocabCard\n  word=\"Jó éjszakát\"\n  translation=\"Noapte bună\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Szép álmokat\"\n  translation=\"Vise frumoase\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru mesajele zilnice\n\n1. **Fii consistent** – Un mesaj zilnic creează un ritual frumos\n2. **Personalizează** – Adaugă o amintire sau o glumă internă\n3. **Variază** – Nu folosi aceeași frază în fiecare zi\n4. **Adaugă emoji** – 💕 și 😘 sunt universale\n5. **Fii spontan** – Uneori, un mesaj în mijlocul nopții e cel mai romantic\n\n<CTA />\n\n## Articole conexe\n\n- [Fraze pentru relații la distanță în maghiară](/ro/hu/hungarian-long-distance-relationship)\n- [Alinturile în maghiară](/ro/hu/hungarian-pet-names-and-terms-of-endearment-50)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "970ef505-55c5-4588-b31f-272932932ead",
+      "title": "Szerelmes Levél Írása Svédül – Romantikus Kifejezések és Tippek",
+      "native_lang": "hu",
+      "target_lang": "sv",
+      "category": "communication",
+      "content": "# Szerelmes Levél Írása Svédül – Romantikus Kifejezések és Tippek\n\nA svéd szerelmes levelek visszafogottak, de őszinték – tipikusan skandináv stílusban. Ha svédül szeretnéd kifejezni érzelmeidet, ez az útmutató segít megtalálni a megfelelő szavakat.\n\n## Megszólítások\n\n### 1. Min älskling\n**Jelentés:** Drágám/Kedvesem\n\n**Kiejtés:** min-ELSZ-kling\n\nA leggyakoribb svéd kedveskedés.\n\n### 2. Min kärlek\n**Jelentés:** Szerelmem\n\n**Kiejtés:** min-CSÉR-lek\n\nRomantikus és mély.\n\n### 3. Mitt hjärta\n**Jelentés:** Szívem\n\n**Kiejtés:** mit-JÉR-ta\n\nGyengéd és intim.\n\n### 4. Min raring\n**Jelentés:** Drágám\n\n**Kiejtés:** min-RÁ-ring\n\nKedves és barátságos.\n\n### 5. Min skatt\n**Jelentés:** Kincsem\n\n**Kiejtés:** min-SZKAT\n\nKifejezi, mennyire értékes.\n\n## Kezdő Mondatok\n\n### 6. Jag skriver för att berätta hur mycket jag älskar dig.\n**Jelentés:** Azért írok, hogy elmondjam, mennyire szeretlek.\n\n### 7. Ord kan inte uttrycka vad jag känner för dig.\n**Jelentés:** Szavak nem tudják kifejezni, mit érzek irántad.\n\n### 8. Sedan jag träffade dig har mitt liv fått en ny mening.\n**Jelentés:** Mióta megismertelek, az életemnek új értelme van.\n\n### 9. Varje stund med dig är en gåva.\n**Jelentés:** Minden veled töltött pillanat ajándék.\n\n### 10. Du är det bästa som hänt mig.\n**Jelentés:** Te vagy a legjobb, ami velem történt.\n\n## Érzelmek Kifejezése\n\n### 11. Mitt hjärta tillhör dig.\n**Jelentés:** A szívem a tiéd.\n\n### 12. Du gör mig hel.\n**Jelentés:** Teljessé teszel.\n\n### 13. Din kärlek ger mig styrka.\n**Jelentés:** A szerelmed erőt ad.\n\n### 14. Jag blir mer kär i dig för varje dag.\n**Jelentés:** Minden nap jobban beleszeretek.\n\n### 15. Du är min själsfrände.\n**Jelentés:** Te vagy a lelki társam.\n\n## Lezárások\n\n### 16. För alltid din\n**Jelentés:** Örökké a tiéd\n\n### 17. Med all min kärlek\n**Jelentés:** Minden szeretetemmel\n\n### 18. Din för evigt\n**Jelentés:** A tiéd örökké\n\n### 19. Tills vi ses igen\n**Jelentés:** Amíg újra találkozunk\n\n### 20. Jag älskar dig av hela mitt hjärta\n**Jelentés:** Teljes szívemből szeretlek\n\n## Kulturális Tippek\n\n### Lagom\nA \"lagom\" (épp elég) a svéd kultúra kulcsa. A szerelmes levél is legyen őszinte, de ne túlzó.\n\n### Természetesség\nA svédek értékelik a természetességet és az őszinteséget. Kerüld a túl dagályos kifejezéseket.\n\n### Fika\nA \"fika\" (kávészünet) a svéd társas élet része. Említheted a közös fikáitokat!\n\n## Minta Levél\n\n*Min älskling,*\n\n*Jag skriver det här brevet för att det finns saker i mitt hjärta som jag måste dela med dig. Från det ögonblick jag träffade dig förändrades mitt liv för alltid.*\n\n*Varje dag vid din sida är en gåva. Ditt leende lyser upp mina mörkaste dagar, och din kärlek ger mig en styrka jag inte visste att jag hade. För varje stund som går blir jag djupare förälskad i dig.*\n\n*Du är min bästa vän, min förtrogna, och kärleken i mitt liv. Jag kan inte föreställa mig min värld utan dig.*\n\n*För alltid din,*\n*[A neved]*\n\n## Tippek\n\n1. **Légy őszinte** – A svédek értékelik az autentikusságot\n2. **Kerüld a túlzásokat** – Az egyszerű kifejezések erősebbek\n3. **Említs közös emlékeket** – Ez személyessé teszi a levelet\n4. **Olvasd fel hangosan** – Ellenőrizd a természetes hangzást",
+      "issues": [
+        {
+          "type": "truncated_content",
+          "details": {
+            "endingChars": "enőrizd a természetes hangzást"
+          }
+        }
+      ]
+    },
+    {
+      "id": "97e89b0b-e68f-41aa-acf1-a65af29da74a",
+      "title": "Mød Svigerforældrene på Rumænsk: Vigtige Udtryk",
+      "native_lang": "da",
+      "target_lang": "ro",
+      "category": "communication",
+      "content": "# Mød Svigerforældrene på Rumænsk: Vigtige Udtryk\n\nAt møde rumænske svigerforældre er en varm og hjertelig oplevelse. Rumænere er kendt for deres gæstfrihed, varme og tætte familiebånd. Med de rigtige udtryk kan du hurtigt vinde familiens hjerter.\n\n## Kulturelle Tips inden Mødet\n\nRumænere bruger den formelle \"dumneavoastră\" til ældre og nye bekendtskaber. Medbring blomster (ulige antal) til værtinden og vin eller chokolade til familien. Vær forberedt på rigelig mad og drikke – at afslå betragtes som uhøfligt.\n\n## De Vigtigste Udtryk\n\n### 1. Îmi pare foarte bine să vă cunosc\n**Udtale:** ɨmʲ ˈpare ˈfwarte ˈbine sə və kuˈnosk (uhm PA-reh FWAR-teh BEE-neh suh vuh koo-NOSK)\n\n**Betydning:** Det glæder mig meget at møde Dem.\n\n**Kulturelt tip:** Brug den formelle \"să vă cunosc\" for at vise respekt.\n\n### 2. Vă mulțumesc mult pentru invitație\n**Udtale:** və multsʊˈmesk mult ˈpentru inviˈtatsie (vuh mool-tsoo-MESK moolt PEN-troo in-vee-TA-tsee-eh)\n\n**Betydning:** Jeg takker Dem meget for invitationen.\n\n**Kulturelt tip:** Vis taknemmelighed fra starten – rumænere sætter pris på høflighed.\n\n### 3. Aveți o casă foarte frumoasă\n**Udtale:** aˈvetsʲ o ˈkasə ˈfwarte fruˈmwasə (a-VETS o KA-suh FWAR-teh froo-MWA-suh)\n\n**Betydning:** De har et meget smukt hjem.\n\n**Kulturelt tip:** Rumænere er stolte af deres hjem og vil værdsætte komplimenten.\n\n### 4. Am auzit multe lucruri frumoase despre dumneavoastră\n**Udtale:** am auˈzit ˈmulte ˈlukrurʲ fruˈmwase ˈdespre dumneavˈwastrə (am a-oo-ZEET MOOL-teh LOO-kroor froo-MWA-seh DES-preh doom-neh-a-VWAS-truh)\n\n**Betydning:** Jeg har hørt mange gode ting om Dem.\n\n**Kulturelt tip:** Dette viser, at din partner respekterer sin familie.\n\n### 5. E delicios! Pot să cer rețeta?\n**Udtale:** e deliˈtʃos pot sə tʃer reˈtseta (eh deh-lee-CHYOS pot suh chair reh-TSEH-ta)\n\n**Betydning:** Det er lækkert! Må jeg få opskriften?\n\n**Kulturelt tip:** Mad er central i rumænsk kultur – at spørge om opskriften er en stor ære.\n\n### 6. Sunt foarte fericit/fericită că sunt aici\n**Udtale:** sunt ˈfwarte feriˈtʃit/feriˈtʃitə kə sunt aˈitʃʲ (soont FWAR-teh feh-ree-CHEET/feh-ree-CHEE-tuh kuh soont a-EECH)\n\n**Betydning:** Jeg er meget glad for at være her.\n\n**Kulturelt tip:** Mænd siger \"fericit\", kvinder siger \"fericită\".\n\n### 7. Pot să vă ajut să strângeți masa?\n**Udtale:** pot sə və aˈʒut sə strɨnˈʒetsʲ ˈmasa (pot suh vuh a-ZHOOT suh struhn-ZHETS MA-sa)\n\n**Betydning:** Må jeg hjælpe Dem med at rydde bordet?\n\n**Kulturelt tip:** At tilbyde hjælp viser gode manerer.\n\n### 8. Fiul/Fiica dumneavoastră înseamnă foarte mult pentru mine\n**Udtale:** ˈfiul/ˈfiika dumneavˈwastrə ɨnˈseamnə ˈfwarte mult ˈpentru ˈmine (FEE-ool/FEE-ka doom-neh-a-VWAS-truh uhn-SEAM-nuh FWAR-teh moolt PEN-troo MEE-neh)\n\n**Betydning:** Deres søn/datter betyder meget for mig.\n\n**Kulturelt tip:** Rumænske forældre sætter pris på ærlighed om følelser.\n\n### 9. Sper să ne revedem curând\n**Udtale:** sper sə ne reˈvedem kuˈrɨnd (sper suh neh reh-VEH-dem koo-RUHND)\n\n**Betydning:** Jeg håber, vi ses igen snart.\n\n**Kulturelt tip:** Vis ønske om fremtidige møder og familietilknytning.\n\n### 10. Vă mulțumesc pentru această seară minunată\n**Udtale:** və multsʊˈmesk ˈpentru aˈtʃastə ˈsearə minuˈnatə (vuh mool-tsoo-MESK PEN-troo a-CHAS-tuh SEA-ruh mee-noo-NA-tuh)\n\n**Betydning:** Tak for denne vidunderlige aften.\n\n**Kulturelt tip:** Afslut altid med varme taknemmelighed.\n\n### 11. Noroc!\n**Udtale:** noˈrok (no-ROK)\n\n**Betydning:** Skål! (Bogstaveligt: Held!)\n\n**Kulturelt tip:** Den klassiske rumænske skål – kort og hjertelig.\n\n## Samtaleeksempel\n\n**Svigermor:** Bine ați venit! Intrați, vă rog!\n**Dig:** Vă mulțumesc mult pentru invitație. Aveți o casă foarte frumoasă!\n**Svigerfar:** Luați loc, vă rog.\n**Dig:** Mulțumesc. Am auzit multe lucruri frumoase despre dumneavoastră.\n\n## Afsluttende Råd\n\nRumænere værdsætter varme, respekt og gæstfrihed. Vær forberedt på rigelig mad, țuică (rumænsk brændevin) og lange samtaler. Vis ægte interesse i familien og deres traditioner – rumænsk gæstfrihed er legendarisk!",
+      "issues": [
+        {
+          "type": "english_prose_markers",
+          "details": {
+            "markers_found": [
+              "tip:"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

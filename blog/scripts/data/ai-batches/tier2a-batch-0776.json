@@ -1,0 +1,145 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0776",
+  "articles": [
+    {
+      "id": "dfd1310f-5aad-453c-b00b-49ed72cd690b",
+      "title": "100 Meest Gebruikte Hongaarse Woorden voor Relaties",
+      "native_lang": "nl",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "Hongaars is uniek in Europa. Hier zijn de essentiële woorden voor je relatie.\n\n## Basis liefdeswoorden\n\n### 1. Szerelem - *se-re-lem* - Liefde\n### 2. Szív - *siev* - Hart\n### 3. Csók - *tsjok* - Kus\n### 4. Ölelés - *eu-le-leesj* - Knuffel\n### 5. Együtt - *e-djuet* - Samen\n### 6. Örökké - *eu-reuk-kee* - Voor altijd\n### 7. Mindig - *mien-dieg* - Altijd\n### 8. Szép - *seep* - Mooi\n### 9. Boldog - *bol-dog* - Gelukkig\n### 10. Drágám - *dra-gam* - Schat\n\n## Dagelijkse communicatie\n\n### 11. Igen - *ie-gen* - Ja\n### 12. Nem - *nem* - Nee\n### 13. Kérem - *kee-rem* - Alsjeblieft\n### 14. Köszönöm - *keu-seu-neum* - Dank je\n### 15. Bocsánat - *bo-tsja-nat* - Sorry\n### 16. Jó reggelt - *jo reg-gelt* - Goedemorgen\n### 17. Jó éjszakát - *jo eej-sa-kaat* - Goedenacht\n### 18. Szia - *szie-a* - Hallo\n### 19. Viszlát - *vies-laat* - Tot ziens\n### 20. Hogy vagy? - *hodzj vadzj* - Hoe gaat het?\n\n## Gevoelens uitdrukken\n\n### 21. Szeretlek - *se-ret-lek* - Ik hou van je\n### 22. Hiányzol - *hie-anj-zol* - Ik mis je\n### 23. Szükségem van rád - *suek-sjee-gem van raad* - Ik heb je nodig\n### 24. Megbízom benned - *meg-bie-zom ben-ned* - Ik vertrouw je\n### 25. Megbocsátok - *meg-bo-tsja-tok* - Ik vergeef je\n### 26. Értem - *eer-tem* - Ik begrijp het\n### 27. Boldoggá teszel - *bol-dog-ga te-sel* - Je maakt me gelukkig\n### 28. Rád gondolok - *raad gon-do-lok* - Ik denk aan je\n\n## Tijd\n\n### 29. Ma - *ma* - Vandaag\n### 30. Holnap - *hol-nap* - Morgen\n### 31. Tegnap - *teg-nap* - Gisteren\n### 32. Most - *mosht* - Nu\n### 33. Később - *kee-sjeubb* - Later\n### 34. Hamarosan - *ha-ma-ro-sjan* - Binnenkort\n### 35. Soha - *sjo-ha* - Nooit\n### 36. Néha - *nee-ha* - Soms\n### 37. Gyakran - *djak-ran* - Vaak\n\n## Conclusie\n\nMet deze woorden spreek je de unieke Hongaarse taal!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Basis liefdeswoorden",
+              "### 1. Szerelem - *se-re-lem* - Liefde",
+              "### 2. Szív - *siev* - Hart",
+              "### 3. Csók - *tsjok* - Kus",
+              "### 4. Ölelés - *eu-le-leesj* - Knuffel",
+              "### 5. Együtt - *e-djuet* - Samen",
+              "### 6. Örökké - *eu-reuk-kee* - Voor altijd",
+              "### 7. Mindig - *mien-dieg* - Altijd",
+              "### 8. Szép - *seep* - Mooi",
+              "### 9. Boldog - *bol-dog* - Gelukkig",
+              "### 10. Drágám - *dra-gam* - Schat",
+              "## Dagelijkse communicatie",
+              "### 11. Igen - *ie-gen* - Ja",
+              "### 12. Nem - *nem* - Nee",
+              "### 13. Kérem - *kee-rem* - Alsjeblieft",
+              "### 14. Köszönöm - *keu-seu-neum* - Dank je",
+              "### 15. Bocsánat - *bo-tsja-nat* - Sorry",
+              "### 16. Jó reggelt - *jo reg-gelt* - Goedemorgen",
+              "### 17. Jó éjszakát - *jo eej-sa-kaat* - Goedenacht",
+              "### 18. Szia - *szie-a* - Hallo",
+              "### 19. Viszlát - *vies-laat* - Tot ziens",
+              "### 20. Hogy vagy? - *hodzj vadzj* - Hoe gaat het?",
+              "## Gevoelens uitdrukken",
+              "### 21. Szeretlek - *se-ret-lek* - Ik hou van je",
+              "### 22. Hiányzol - *hie-anj-zol* - Ik mis je",
+              "### 23. Szükségem van rád - *suek-sjee-gem van raad* - Ik heb je nodig",
+              "### 24. Megbízom benned - *meg-bie-zom ben-ned* - Ik vertrouw je",
+              "### 25. Megbocsátok - *meg-bo-tsja-tok* - Ik vergeef je",
+              "### 26. Értem - *eer-tem* - Ik begrijp het",
+              "### 27. Boldoggá teszel - *bol-dog-ga te-sel* - Je maakt me gelukkig",
+              "### 28. Rád gondolok - *raad gon-do-lok* - Ik denk aan je",
+              "## Tijd",
+              "### 29. Ma - *ma* - Vandaag",
+              "### 30. Holnap - *hol-nap* - Morgen",
+              "### 31. Tegnap - *teg-nap* - Gisteren",
+              "### 32. Most - *mosht* - Nu",
+              "### 33. Később - *kee-sjeubb* - Later",
+              "### 34. Hamarosan - *ha-ma-ro-sjan* - Binnenkort",
+              "### 35. Soha - *sjo-ha* - Nooit",
+              "### 36. Néha - *nee-ha* - Soms",
+              "### 37. Gyakran - *djak-ran* - Vaak"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dfe5a236-bee0-4f60-90f3-95de7c7137ca",
+      "title": "rumunsky Výslovnost pro Páry: Zněte Romanticky od Prvního Dne",
+      "native_lang": "cs",
+      "target_lang": "ro",
+      "category": "pronunciation",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport ConjugationTable from '@components/ConjugationTable.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nUčíte se rumunsky spolu se svým partnerem? Správná výslovnost je klíčová pro romantické rozhovory! Tento průvodce vás naučí základy rumunské výslovnosti, abyste mohli mluvit s jistotou a okouzlit svého milovaného. Do konce tohoto článku budete umět vyslovovat nejdůležitější romantické fráze jako rodilý mluvčí.\n\n<PhraseOfDay\n  word=\"Te iubesc\"\n  translation=\"Miluji tě\"\n  pronunciation=\"teh yoo-BESK\"\n  context=\"Nejdůležitější fráze v rumunštině - perfektní pro romantické chvilky.\"\n/>\n\n## Rumunská abeceda: Základní znalost\n\nRumunská abeceda má 31 písmen a je založená na latince, což je skvělá zpráva pro české mluvčí! Většina písmen se vyslovuje podobně jako v češtině, ale existují speciální znaky, které potřebujete znát:\n\n### Speciální písmená a jejich výslovnost\n\n| Písmeno | Výslovnost | Příklad | Překlad |\n|---------|------------|---------|---------|\n| **ă** | jako 'e' v českém \"den\" | măr | jablko |\n| **â/î** | jako 'y' v českém \"syrový\" | câine | pes |\n| **ş** | jako 'š' | şapte | šepot |\n| **ţ** | jako 'č' s tvrdým 't' | ţară | země |\n| **ea** | jako 'ea' v anglickém \"bear\" | seară | večer |\n| **oa** | jako 'oa' v anglickém \"boat\" | floare | květina |\n\n## Samohlásky: Klíč k rumunské melodii\n\nRumunské samohlásky jsou čisté a krátké. Zde je jejich správná výslovnost:\n\n<VocabCard\n  word=\"a\"\n  translation=\"jako 'a' v češtině\"\n  pronunciation=\"ah\"\n  example=\"casă (KAH-suh) - dům\"\n/>\n\n### Rumunské samohlásky\n\n| Písmeno | Výslovnost | Příklad slova | Překlad |\n|---------|------------|---------------|---------|\n| **a** | krátké 'a' | mare | velký |\n| **e** | jako 'e' v \"les\" | mere | jablka |\n| **i** | jako 'i' v \"kimono\" | mic | malý |\n| **o** | jako 'o' v \"kolo\" | orbă | slepá |\n| **u** | jako 'u' v \"ruch\" | lucru | práce |\n\n<CultureTip flag=\"🇷🇴\" title=\"Rumunská melodie\">\nRumunština má příjemnou melodii díky otevřeným samohláskám. Když mluvíte, snažte se zpívat slova spíše než je říkat monotónně - váš partner to ocení!\n</CultureTip>\n\n## Souhlásky: Zvláštnosti, které musíte znát\n\nNěkteré rumunské souhlásky se vyslovují jinak než v češtině:\n\n### Kritické rozdíly\n\n1. **c + e/i** = č: **cer** (nebe) se vyslovuje \"čer\"\n2. **g + e/i** = ř: **ger** (mráz) se vyslovuje \"řer\"\n3. **j** = ž: **jean** (džíny) se vyslovuje \"žan\"\n4. **h** = ch: **hotel** se vyslovuje \"chotel\"\n\n<VocabCard\n  word=\"ce\"\n  translation=\"co\"\n  pronunciation=\"cheh\"\n  example=\"Ce faci? (cheh FAH-chee) - Co děláš?\"\n/>\n\n## Romantické fráze s perfektní výslovností\n\nNaučte se tyto fráze a okouzlete svého partnera správnou výslovností:\n\n| Rumunsky | Výslovnost | Česky | Kdy použít |\n|----------|------------|--------|------------|\n| **Dragă** | DRAH-guh | Miláčku | Každodenní oslovení |\n| **Iubire** | yoo-BEE-reh | Láska | Když mluvíte o lásce |\n| **Frumoasă** | froo-MOH-sah | Krásná | Pro kompliment |\n| **Drăgut** | druh-GOOT | Roztomilý | Pro roztomilé situace |\n\nChcete se naučit více romantických frází? Podívejte se na náš průvodce [rumunskými romantickými frázemi](/learn/cs/ro/romantic-phrases-for-every-occasion/).\n\n## Nejčastější chyby českých mluvčí\n\n### 1. Přízvuk na špatné slabice\n**ŠPATNĚ:** iuBIRE (na konci)\n**SPRÁVNĚ:** IUbiRE (na začátku)\n\n### 2. Příliš česká výslovnost 'r'\n**ŠPATNĚ:** tři (české ř)\n**SPRÁVNĚ:** trei (měkké rumunské r)\n\n### 3. Nesprávné 'ă'\n**ŠPATNĚ:** măre (s tvrdým 'a')\n**SPRÁVNĚ:** măr (s 'ă' jako 'e' v 'den')\n\n## Procvičte si spolu\n\nZkuste si spolu vyslovit tyto romantické věty:\n\n1. **Ești foarte frumoasă.** (yehsht FOH-ah-reh froo-MOH-sah) - Jsi velmi krásná.\n2. **Mă gândesc la tine.** (muh guhn-DESK lah TEE-neh) - Myslím na tebe.\n3. **Vreau să te țin în brațe.** (VREH-ow suh teh tseen uhn BRAH-tseh) - Chci tě držet v náručí.\n4. **Ești iubirea mea.** (yehsht yoo-BEE-reh-ah MEH-ah) - Jsi moje láska.\n\nPro více romantických výrazů navštivte náš článek o [tom, jak říct miluji tě v rumunštině](/learn/cs/ro/how-to-say-i-love-you-in-romanian/).\n\n## Praktická cvičení pro páry\n\n### Cvičení 1: Zrcadlení\nJeden z vás řekne rumunské slovo, druhý ho zopakuje. Zaměřte se na:\n\n- **piatra** (kámen) — výslovnost: *pee-AH-trah*\n- **lumină** (světlo) — výslovnost: *loo-MEE-nuh*\n- **apă** (voda) — výslovnost: *AH-puh*\n\n### Cvičení 2: Romantické čtení\nČtete si navzájem rumunské [milostné přezdívky](/learn/cs/ro/romanian-pet-names-for-your-partner/) a opravujte si výslovnost.\n\n## Rychlá referenční tabulka\n\n| Písmeno | Český ekvivalent | Příklad |\n|---------|-------------------|---------|\n| **ă** | e v \"den\" | măr |\n| **â/î** | y v \"syrový\" | câine |\n| **ş** | š | şapte |\n| **ţ** | c s tvrdým t | ţară |\n| **ce/ci** | č | cer, cină |\n| **ge/gi** | ř | ger, gin |\n\n## Co dál?\n\nNyní, když zvládáte základy rumunské výslovnosti, jste připraveni na další krok! Procvičte si [slovní zásobu na rande](/learn/cs/ro/date-night-vocabulary/) nebo se naučte [základní fráze pro páry](/learn/cs/ro/essential-romanian-phrases-for-couples/).\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Nejčastější chyby českých mluvčí",
+              "## Praktická cvičení pro páry"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dfed4316-a05a-4b90-9be0-92dfec0909ef",
+      "title": "Ισπανικές Φράσεις Συμφιλίωσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "es",
+      "category": "communication",
+      "content": "Η συμφιλίωση μετά από μια διαφωνία είναι ουσιαστική για κάθε σχέση. Όταν ο σύντροφός σας μιλάει ισπανικά, αυτές οι φράσεις θα σας βοηθήσουν να επανασυνδεθείτε.\n\n## Φράσεις Συμφιλίωσης\n\n### Έναρξη Συμφιλίωσης\n\n<Phrase term=\"Lo siento mucho\" pronunciation=\"Λο σιέντο μούτσο\">\n  <Trans>Λυπάμαι πολύ</Trans>\n  <Note>Ειλικρινής συγγνώμη</Note>\n</Phrase>\n\n<Phrase term=\"¿Podemos hablar?\" pronunciation=\"Ποδέμος αμπλάρ;\">\n  <Trans>Μπορούμε να μιλήσουμε;</Trans>\n  <Note>Ξεκινήστε τον διάλογο</Note>\n</Phrase>\n\n<Phrase term=\"No quiero pelear más\" pronunciation=\"Νο κιέρο πελεάρ μας\">\n  <Trans>Δεν θέλω να τσακωνόμαστε άλλο</Trans>\n  <Note>Επιθυμία για ειρήνη</Note>\n</Phrase>\n\n### Έκφραση Μετάνοιας\n\n<Phrase term=\"Me equivoqué\" pronunciation=\"Με εκιβοκέ\">\n  <Trans>Έκανα λάθος</Trans>\n  <Note>Παραδοχή λάθους</Note>\n</Phrase>\n\n<Phrase term=\"No debí decir eso\" pronunciation=\"Νο ντεμπί ντεθίρ έσο\">\n  <Trans>Δεν έπρεπε να το πω αυτό</Trans>\n  <Note>Μετάνοια για λόγια</Note>\n</Phrase>\n\n<Phrase term=\"No quería hacerte daño\" pronunciation=\"Νο κερία αθέρτε ντάνιο\">\n  <Trans>Δεν ήθελα να σε πληγώσω</Trans>\n  <Note>Ξεκαθάρισμα προθέσεων</Note>\n</Phrase>\n\n### Έκφραση Αγάπης\n\n<Phrase term=\"Te amo y lo siento\" pronunciation=\"Τε άμο ι λο σιέντο\">\n  <Trans>Σ' αγαπώ και ζητώ συγγνώμη</Trans>\n  <Note>Συνδυασμός αγάπης και συγγνώμης</Note>\n</Phrase>\n\n<Phrase term=\"Eres todo para mí\" pronunciation=\"Έρες τόδο πάρα μι\">\n  <Trans>Είσαι τα πάντα για μένα</Trans>\n  <Note>Επιβεβαίωση αγάπης</Note>\n</Phrase>\n\n<Phrase term=\"Odio pelear contigo\" pronunciation=\"Όδιο πελεάρ κοντίγο\">\n  <Trans>Μισώ να τσακώνομαι μαζί σου</Trans>\n  <Note>Η σύγκρουση πονάει</Note>\n</Phrase>\n\n### Πρόταση Λύσης\n\n<Phrase term=\"Empecemos de nuevo\" pronunciation=\"Εμπεθέμος ντε νουέβο\">\n  <Trans>Ας ξεκινήσουμε από την αρχή</Trans>\n  <Note>Νέα αρχή</Note>\n</Phrase>\n\n<Phrase term=\"¿Me das un abrazo?\" pronunciation=\"Με δας ουν αμπράθο;\">\n  <Trans>Μου δίνεις μια αγκαλιά;</Trans>\n  <Note>Σωματική επανασύνδεση</Note>\n</Phrase>\n\n<Phrase term=\"Prometo hacerlo mejor\" pronunciation=\"Προμέτο αθέρλο μεχόρ\">\n  <Trans>Υπόσχομαι να κάνω καλύτερα</Trans>\n  <Note>Δέσμευση βελτίωσης</Note>\n</Phrase>\n\n## Πολιτιστικές Συμβουλές\n\nΟι Ισπανόφωνοι είναι συναισθηματικά εκφραστικοί και εκτιμούν την ειλικρίνεια. Μην φοβάστε να δείξετε τα συναισθήματά σας. Η σωματική επαφή—αγκαλιές, φιλιά—είναι σημαντικό μέρος της συμφιλίωσης στην ισπανική κουλτούρα.\n\n## Συμπέρασμα\n\nΜε αυτές τις φράσεις, μπορείτε να εκφράσετε τη μετάνοιά σας και να επανασυνδεθείτε με τον ισπανόφωνο σύντροφό σας.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 277,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Φράσεις Συμφιλίωσης"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "e019ecac-cbb0-42a6-9595-6a8229ffdfa9",
+      "title": "Macarca Duygusal Destek İfadeleri: Teselli ve Güç Veren Sözler",
+      "native_lang": "tr",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "# Macarca Duygusal Destek İfadeleri: Teselli ve Güç Veren Sözler\n\nMacarlar tutkulu ve duygusal bir kültüre sahiptir. Zor zamanlarda yanınızda olmayı ve destek vermeyi önemserler. Bu rehberde Macarca duygusal destek ifadelerini öğreneceksiniz.\n\n## Temel Destek İfadeleri\n\n### 1. \"Itt vagyok neked\"\n**Telaffuz:** \"İt vadyok neked\"\n**Anlam:** Senin için buradayım\n\n### 2. \"Nem vagy egyedül\"\n**Telaffuz:** \"Nem vady edyedül\"\n**Anlam:** Yalnız değilsin\n\n### 3. \"Minden rendben lesz\"\n**Telaffuz:** \"Minden rendben les\"\n**Anlam:** Her şey yoluna girecek\n\n### 4. \"Megértelek\"\n**Telaffuz:** \"Meğertelek\"\n**Anlam:** Seni anlıyorum\n\n### 5. \"Normális így érezni\"\n**Telaffuz:** \"Normaliş idy erezni\"\n**Anlam:** Böyle hissetmek normal\n\n### 6. \"Büszke vagyok rád\"\n**Telaffuz:** \"Büske vadyok rad\"\n**Anlam:** Seninle gurur duyuyorum\n\n### 7. \"Számíthatsz rám\"\n**Telaffuz:** \"Samithats ram\"\n**Anlam:** Bana güvenebilirsin\n\n### 8. \"Erősebb vagy, mint gondolnád\"\n**Telaffuz:** \"Erösebb vady, mint gondolnad\"\n**Anlam:** Düşündüğünden daha güçlüsün\n\n### 9. \"Nem kell egyedül átmenned ezen\"\n**Telaffuz:** \"Nem kel edyedül atmenned ezen\"\n**Anlam:** Bunu tek başına yaşamak zorunda değilsin\n\n### 10. \"Szeretlek, bármi is történjen\"\n**Telaffuz:** \"Seretlek, barmi iş törtenyyen\"\n**Anlam:** Ne olursa olsun seni seviyorum\n\n### 11. \"Itt vagyok, hogy meghallgassalak\"\n**Telaffuz:** \"İt vadyok, hody meghalğaşşalak\"\n**Anlam:** Dinlemek için buradayım\n\n### 12. \"Vedd el az időt, amire szükséged van\"\n**Telaffuz:** \"Ved el az idöt, amire sükşeğed van\"\n**Anlam:** İhtiyacın olan zamanı al\n\n### 13. \"Kitartás!\"\n**Telaffuz:** \"Kitartaş!\"\n**Anlam:** Dayanıklılık! / Sabır!\n\nMacarların sık kullandığı güçlü bir teşvik sözü.\n\n## Kültürel İpuçları\n\n**Duygusal İfade:** Macarlar duygularını açıkça ifade eder. Destek verirken duygusal olmak normaldir.\n\n**Fiziksel Temas:** Sarılmak ve el tutmak yaygın destek göstergeleridir.\n\n**Yemek ve Şarap:** Macarlar zor zamanlarda yemek ve pálinka (meyve rakısı) ikram etmeyi sever. Bu, destek ve misafirperverliğin bir göstergesidir.\n\n**Aile Bağları:** Aile Macar kültüründe çok önemlidir. Zor zamanlarda aile bir araya gelir.\n\n**Müzik:** Macar müziği genellikle duygusal ve melankoliktir. Zor zamanlarda müzik paylaşmak anlamlı olabilir.\n\n## Sonuç\n\nMacarca duygusal destek ifadelerini öğrenmek, Macar sevdiklerinize zor zamanlarda yardımcı olmanızı sağlar. Tutkulu ve samimi bir şekilde yanlarında olun!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Temel Destek İfadeleri"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "e03ee502-2053-459a-95d6-6db449771d3a",
+      "title": "Norske fraser til uenigheder og diskussioner for par",
+      "native_lang": "da",
+      "target_lang": "no",
+      "category": "communication",
+      "content": "Som nære skandinaviske naboer deler danskere og nordmænd mange kulturelle værdier. Alligevel er der nuancer i kommunikation, der kan styrke jeres forhold, når du mestrer dem på norsk.\n\n## Skandinavisk familiaritet\n\nDansk og norsk er så tæt beslægtede, at meget af kommunikationen kommer naturligt. Dog kan der opstå misforståelser netop fordi man antager, at alt er ens. Denne guide hjælper dig med at udtrykke dig præcist på norsk.\n\n## Vigtige fraser\n\n### At udtrykke følelser\n\n<Phrase>\n  <Original>Det gjør vondt når du sier det</Original>\n  <Translation>Det gør ondt, når du siger det</Translation>\n  <Context>Udtryk din følelsesmæssige smerte.</Context>\n  <Pronunciation>Deh yör vonnt nohr duu sai-er deh</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Jeg trenger litt tid til å tenke</Original>\n  <Translation>Jeg har brug for lidt tid til at tænke</Translation>\n  <Context>Bed om tid til refleksion.</Context>\n  <Pronunciation>Yai treng-er leet teed til oh ten-keh</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Kan vi snakke rolig om dette?</Original>\n  <Translation>Kan vi tale roligt om det her?</Translation>\n  <Context>Invitation til en mere afbalanceret samtale.</Context>\n  <Pronunciation>Kahn vee snah-keh roo-lee om deh-teh</Pronunciation>\n</Phrase>\n\n### At lytte og forstå\n\n<Phrase>\n  <Original>Jeg forstår synspunktet ditt</Original>\n  <Translation>Jeg forstår dit synspunkt</Translation>\n  <Context>Anerkend partnerens perspektiv.</Context>\n  <Pronunciation>Yai for-stohr süns-poonk-teh deet</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Hjelp meg å forstå</Original>\n  <Translation>Hjælp mig med at forstå</Translation>\n  <Context>Bed om mere forklaring.</Context>\n  <Pronunciation>Yelp mai oh for-stoh</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Jeg lytter til deg</Original>\n  <Translation>Jeg lytter til dig</Translation>\n  <Context>Vis din opmærksomhed.</Context>\n  <Pronunciation>Yai lüt-ter til dai</Pronunciation>\n</Phrase>\n\n### At finde løsninger\n\n<Phrase>\n  <Original>La oss finne et kompromiss</Original>\n  <Translation>Lad os finde et kompromis</Translation>\n  <Context>Foreslå en fælles løsning.</Context>\n  <Pronunciation>Lah oss fin-neh et kom-proh-miss</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Jeg vil ikke krangle med deg</Original>\n  <Translation>Jeg vil ikke skændes med dig</Translation>\n  <Context>Udtryk dit ønske om fred.</Context>\n  <Pronunciation>Yai vil ik-keh krahng-leh med dai</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Hvordan kan vi løse dette?</Original>\n  <Translation>Hvordan kan vi løse det her?</Translation>\n  <Context>Fokusér på løsningen.</Context>\n  <Pronunciation>Vor-dahn kahn vee lö-seh deh-teh</Pronunciation>\n</Phrase>\n\n### At sætte grænser\n\n<Phrase>\n  <Original>Det er ikke akseptabelt for meg</Original>\n  <Translation>Det er ikke acceptabelt for mig</Translation>\n  <Context>Klar grænsemarkering.</Context>\n  <Pronunciation>Deh är ik-keh ahk-sep-tah-belt for mai</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Vær så snill, ikke hev stemmen</Original>\n  <Translation>Vær venlig, hæv ikke stemmen</Translation>\n  <Context>Anmod om roligere tone.</Context>\n  <Pronunciation>Vär so sneel ik-keh hev stem-men</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>La oss ta en pause</Original>\n  <Translation>Lad os tage en pause</Translation>\n  <Context>Foreslå en afkølingsperiode.</Context>\n  <Pronunciation>Lah oss tah en pow-seh</Pronunciation>\n</Phrase>\n\n## Skandinavisk broderskab\n\nDansk-norske forhold har en særlig dynamik:\n- **Sproglig nærhed** - let at forstå hinanden, men pas på \"falske venner\"\n- **Kulturelt slægtskab** - fælles historie og værdier\n- **Humor** - begge kulturer værdsætter ironi og selvironi\n- **Friluftsliv** - nordmænd er ofte mere fokuserede på naturen\n\n## Tips til danske partnere\n\n1. **Respektér naturen** - friluftsliv er en central del af norsk identitet\n2. **Undgå at gøre nar** - især af norsk sprog eller dialekter\n3. **Vær ægte** - nordmænd værdsætter autenticitet\n4. **Del oplevelser** - turer og aktiviteter styrker båndet\n\nMed disse fraser kan du kommunikere klart og styrke jeres skandinaviske forhold.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Vigtige fraser"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

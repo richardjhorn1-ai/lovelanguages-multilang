@@ -1,0 +1,428 @@
+{
+  "batchId": "tier2a-slim-0315",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "a818a72f-dfb6-4c41-af96-b1512b4ada66",
+      "title": "French Future Tense: Making Plans Together as a Couple",
+      "native_lang": "en",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Romantic Future Expressions",
+          "subsections": [
+            "### Making Promises",
+            "### Planning Travel Together"
+          ]
+        },
+        {
+          "header": "## Couple Activities: Planning Your Future",
+          "subsections": [
+            "### Activity 1: Dream Vacation Planning",
+            "### Activity 2: Life Goals Conversation",
+            "### Activity 3: Weekend Planning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a85c4af2-b7a2-4c19-8ce0-81db13aab583",
+      "title": "Norsk Grammatik för Svenskar: Enkel Guide för Kärlekspar",
+      "native_lang": "sv",
+      "target_lang": "no",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Vanliga Misstag Svenskar Gör",
+          "subsections": [
+            "### 1. **Blanda ihop \"meg\" och \"med\"**",
+            "### 2. **Använda svensk ordföljd i frågor**",
+            "### 3. **Glömma norska bokstäver**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a89f6aaa-b50d-4732-ae00-cb779fa25f0d",
+      "title": "Norwegisch für den Familienbesuch beim Partner: So überzeugst du mit charmanten Sprüchen",
+      "native_lang": "de",
+      "target_lang": "no",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Typische Familien-Szenarien",
+          "subsections": [
+            "### Beim gemeinsamen Essen",
+            "### Die Haus-Tour",
+            "### Gespräche über die Beziehung"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a913300f-8d44-4159-b7b9-b59b26ca7c24",
+      "title": "50+ датских фраз для романтического вечера",
+      "native_lang": "ru",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Практические упражнения",
+          "subsections": [
+            "### Ролевая игра: В ресторане",
+            "### Ролевая игра: Hygge-вечер"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a9c78035-6123-484c-9f07-8221f88dc035",
+      "title": "Italian Phone Calls: Master Conversations with Your Partner",
+      "native_lang": "en",
+      "target_lang": "it",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Answering the Phone",
+          "subsections": [
+            "### Standard Greetings",
+            "### When Your Partner Calls"
+          ]
+        },
+        {
+          "header": "## Making a Phone Call",
+          "subsections": [
+            "### When They Answer",
+            "### Checking If It's a Good Time"
+          ]
+        },
+        {
+          "header": "## During the Call",
+          "subsections": [
+            "### Keeping the Conversation Going",
+            "### When You Can't Hear Well"
+          ]
+        },
+        {
+          "header": "## Romantic Phone Phrases",
+          "subsections": [
+            "### Expressing Your Feelings",
+            "### Sweet Things to Say"
+          ]
+        },
+        {
+          "header": "## Ending the Call",
+          "subsections": [
+            "### Saying Goodbye"
+          ]
+        },
+        {
+          "header": "## Video Calls",
+          "subsections": [
+            "### Starting a Video Call"
+          ]
+        },
+        {
+          "header": "## Common Phone Scenarios",
+          "subsections": [
+            "### Running Late",
+            "### Checking In",
+            "### Making Plans",
+            "### Goodnight Call"
+          ]
+        },
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Exercise 1: Role Play",
+            "### Exercise 2: Leave a Message",
+            "### Exercise 3: Video Date"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aa0d0c94-e4ef-4593-ab95-b68e57cc5a57",
+      "title": "Russische Huwelijksuitdrukkingen: Romantische Zinnen voor een Traditionele Svadba",
+      "native_lang": "nl",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## De Huwelijksceremonie",
+          "subsections": [
+            "### Traditionele Geloften"
+          ]
+        },
+        {
+          "header": "## Felicitaties voor het Bruidspaar",
+          "subsections": [
+            "### Korte Felicitaties",
+            "### Langere Felicitaties voor Kaarten"
+          ]
+        },
+        {
+          "header": "## Romantische Zinnen",
+          "subsections": [
+            "### Voor je Partner"
+          ]
+        },
+        {
+          "header": "## Praktische Zinnen",
+          "subsections": [
+            "### Op de Receptie",
+            "### Op de Dansvloer"
+          ]
+        },
+        {
+          "header": "## Je Eigen Geloften Schrijven",
+          "subsections": [
+            "### Russische Gelofte-inspiratie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aa8bb2e4-f650-43f8-8e0e-30efdcf17cbf",
+      "title": "75+ Norveççe Aşk İfadesi: Kalbini Fethet",
+      "native_lang": "tr",
+      "target_lang": "no",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Özel Günler için İfadeler",
+          "subsections": [
+            "### Yıldönümü",
+            "### Sevgililer Günü",
+            "### Doğum Günü"
+          ]
+        },
+        {
+          "header": "## Günlük Romantik Jestler",
+          "subsections": [
+            "### Kısa Mesajlar için",
+            "### Romantik Notlar için"
+          ]
+        },
+        {
+          "header": "## Pratik: Günlük Romantik Rutininizi Oluşturun",
+          "subsections": [
+            "### Sabah Rutini",
+            "### Gün İçi",
+            "### Akşam Rutini"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aaa208b9-1a2c-491e-b593-580c5cdf7007",
+      "title": "Questions en Polonais : Mots Interrogatifs",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Questions essentielles pour les couples",
+          "subsections": [
+            "### Sur les sentiments et émotions",
+            "### Sur la vie quotidienne et les projets",
+            "### Sur la relation"
+          ]
+        },
+        {
+          "header": "## Schémas de questions avancés",
+          "subsections": [
+            "### Questions avec prépositions",
+            "### Questions complexes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aac24902-29c4-473b-b375-f4bb5ca0f3af",
+      "title": "Tureckie romantyczne zwroty na każda okazje",
+      "native_lang": "pl",
+      "target_lang": "tr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Kalendarz romantyczny",
+            "### Liściki milosne",
+            "### Codzieńne \"kocham cie\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ab2e8592-1457-470c-a275-3dbb2e1b13f4",
+      "title": "Isveççe Mesajlaşma Kısaltmaları ve Günlük Dil",
+      "native_lang": "tr",
+      "target_lang": "sv",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Örnek Mesajlaşmalar",
+          "subsections": [
+            "### Sabah Mesajı",
+            "### Plan Yapma",
+            "### Romantik Akşam"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ab2eaeb7-734b-49ce-8147-3c1768bd7d24",
+      "title": "Spotkanie z czeska rodzina partnera",
+      "native_lang": "pl",
+      "target_lang": "cs",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Typowe sytuacje",
+          "subsections": [
+            "### Kawa i deser",
+            "### Pozegnanie"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia",
+          "subsections": [
+            "### Cwiczenie 1: Przedstawienie sie",
+            "### Cwiczenie 2: Rozmowa o Polsce",
+            "### Cwiczenie 3: Scenariusze"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ab31dbec-9af8-416b-83ec-1dbff0cdfb02",
+      "title": "Il Polacco è Difficile da Imparare? Guida Onesta per Italiani",
+      "native_lang": "it",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Le Sfide Principali per Italiani",
+          "subsections": [
+            "### 1. I Sette Casi Grammaticali",
+            "### 2. La Pronuncia",
+            "### 3. L'Aspetto Verbale"
+          ]
+        },
+        {
+          "header": "## I Lati Positivi: Cosa Rende il Polacco Accessibile",
+          "subsections": [
+            "### 1. Scrittura Latina",
+            "### 2. Pronuncia Regolare",
+            "### 3. Niente Articoli",
+            "### 4. Ordine delle Parole Flessibile"
+          ]
+        },
+        {
+          "header": "## Strategia Realistica per Imparare",
+          "subsections": [
+            "### Fase 1: Prime 100 Ore (Mesi 1-3)",
+            "### Fase 2: 100-300 Ore (Mesi 4-8)",
+            "### Fase 3: 300-500 Ore (Mesi 9-14)"
+          ]
+        },
+        {
+          "header": "## Consigli Pratici per Coppie",
+          "subsections": [
+            "### 1. Sfrutta il Partner Nativo",
+            "### 2. Etichetta la Casa",
+            "### 3. Parla Polacco a Letto",
+            "### 4. Guarda Film Polacchi Insieme"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ab582165-4921-44ff-af58-23028267549e",
+      "title": "Il Ceco È Difficile? Risposta Onesta",
+      "native_lang": "it",
+      "target_lang": "cs",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Cosa Rende il Ceco Impegnativo",
+          "subsections": [
+            "### 1. Il Sistema dei Casi",
+            "### 2. Il Suono Ř",
+            "### 3. Gruppi di Consonanti",
+            "### 4. Aspetti Verbali"
+          ]
+        },
+        {
+          "header": "## Cosa Rende il Ceco Più Facile di Quanto Pensi",
+          "subsections": [
+            "### 1. Ortografia Fonetica",
+            "### 2. Niente Articoli",
+            "### 3. Parole in Prestito",
+            "### 4. Schemi Logici"
+          ]
+        },
+        {
+          "header": "## Strategie Efficaci per Italofoni",
+          "subsections": [
+            "### Inizia con Parole ad Alta Frequenza",
+            "### Abbraccia la Musica",
+            "### Usa i Cognati",
+            "### Pratica le Routine Quotidiane"
+          ]
+        },
+        {
+          "header": "## Errori Comuni da Evitare",
+          "subsections": [
+            "### 1. Paralisi Perfezionista",
+            "### 2. Ignorare il Genere",
+            "### 3. Traduzione Letterale"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "abacbcb3-3729-4512-91ba-80c1e59935ce",
+      "title": "Francuskie powitania i pożegnania dla par",
+      "native_lang": "pl",
+      "target_lang": "fr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Specjalne okazje",
+          "subsections": [
+            "### Przed podróżą",
+            "### Przed ważnym wydarzeniem"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Poranna rutyna",
+            "### Cwiczenie 2: La bise",
+            "### Cwiczenie 3: SMS-y"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ad3b9b05-58fa-448c-9e45-cf00d5716184",
+      "title": "Small Talk en Polonais : Phrases Clés",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Trouver des points communs",
+          "subsections": [
+            "### Loisirs et centres d'intérêt",
+            "### Voyages et lieux"
+          ]
+        }
+      ]
+    }
+  ]
+}

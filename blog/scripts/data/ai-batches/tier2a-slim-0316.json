@@ -1,0 +1,576 @@
+{
+  "batchId": "tier2a-slim-0316",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "ad524242-d348-4f54-bf95-39084f026cd2",
+      "title": "Czech Romantic Phrases for Every Occasion",
+      "native_lang": "en",
+      "target_lang": "cs",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Special Occasions and Celebrations",
+          "subsections": [
+            "### Anniversary Phrases",
+            "### Proposal and Wedding Phrases"
+          ]
+        },
+        {
+          "header": "## Romantic Phrases by Situation",
+          "subsections": [
+            "### Long Distance Relationships",
+            "### After an Argument",
+            "### Just Because"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ad54fbc6-37f4-4d15-9237-0c3fb780a135",
+      "title": "Falsos Amigos em Espanhol e Português: Guia Completo",
+      "native_lang": "pt",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Falsos Amigos do Cotidiano",
+          "subsections": [
+            "### Aceite",
+            "### Polvo",
+            "### Vaso"
+          ]
+        },
+        {
+          "header": "## Mais Falsos Amigos Importantes",
+          "subsections": [
+            "### Rato",
+            "### Presunto",
+            "### Cola"
+          ]
+        },
+        {
+          "header": "## Expressões Problemáticas",
+          "subsections": [
+            "### \"Estoy constipado/a\"",
+            "### \"Tengo calor\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ad81750a-f536-470a-b811-8f0c79baf10b",
+      "title": "Hollandaca Telaffuz Rehberi: Türk Öğrenciler İçin Sesler ve Kurallar",
+      "native_lang": "tr",
+      "target_lang": "nl",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Zor Ünsüzler",
+          "subsections": [
+            "### \"G\" ve \"Ch\" Sesleri",
+            "### \"R\" Sesi",
+            "### \"W\" Sesi"
+          ]
+        },
+        {
+          "header": "## Çiftler İçin Pratik Telaffuz",
+          "subsections": [
+            "### Romantik Kelimeler",
+            "### Sık Yapılan Telaffuz Hataları"
+          ]
+        },
+        {
+          "header": "## Türkçe Konuşanlar İçin İpuçları",
+          "subsections": [
+            "### Avantajlarınız",
+            "### Zorlanacağınız Sesler"
+          ]
+        },
+        {
+          "header": "## Telaffuz Egzersizleri",
+          "subsections": [
+            "### Temel Sesler",
+            "### Cümle Pratiği",
+            "### Partnerinizle Pratik"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ae243a50-2b5b-4eb1-a347-1c2c732572be",
+      "title": "Polish Stress: Where to Put Emphasis",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Practical Exercises for Couples",
+          "subsections": [
+            "### Exercise 1: Daily Vocabulary",
+            "### Exercise 2: Love Phrases"
+          ]
+        },
+        {
+          "header": "## Common Mistakes to Avoid",
+          "subsections": [
+            "### 1. English Interference",
+            "### 2. Moving Stress with Endings",
+            "### 3. Overthinking Compounds"
+          ]
+        },
+        {
+          "header": "## Advanced Tips for Fluency",
+          "subsections": [
+            "### Sentence Stress",
+            "### Practice with Poetry"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ae270823-1e3f-4e7e-b465-50b30b02ec84",
+      "title": "Spanish Christmas Traditions for Couples",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Essential Christmas Vocabulary",
+          "subsections": [
+            "### Basic Holiday Terms"
+          ]
+        },
+        {
+          "header": "## Key Spanish Christmas Traditions",
+          "subsections": [
+            "### Nochebuena (Christmas Eve)",
+            "### Los Reyes Magos (Three Wise Men)"
+          ]
+        },
+        {
+          "header": "## Christmas Greetings and Wishes",
+          "subsections": [
+            "### Festive Greetings",
+            "### Romantic Christmas Messages"
+          ]
+        },
+        {
+          "header": "## Traditional Christmas Food",
+          "subsections": [
+            "### Spanish Holiday Foods",
+            "### Latin American Christmas Foods"
+          ]
+        },
+        {
+          "header": "## Decorating Together",
+          "subsections": [
+            "### Decoration Vocabulary",
+            "### Decorating Phrases for Couples"
+          ]
+        },
+        {
+          "header": "## Gift Giving",
+          "subsections": [
+            "### Gift Vocabulary",
+            "### Gift Phrases"
+          ]
+        },
+        {
+          "header": "## Christmas Songs (Villancicos)",
+          "subsections": [
+            "### Famous Spanish Christmas Carols"
+          ]
+        },
+        {
+          "header": "## Planning a Spanish Christmas Together",
+          "subsections": [
+            "### Conversation Starters",
+            "### Making Plans"
+          ]
+        },
+        {
+          "header": "## New Year's Traditions",
+          "subsections": [
+            "### Nochevieja (New Year's Eve)",
+            "### Romantic New Year's Phrases"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ae485e5f-42de-4195-89b6-891929711f77",
+      "title": "Les questions en allemand : comment tout demander",
+      "native_lang": "fr",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Questions pour mieux connaître votre partenaire",
+          "subsections": [
+            "### Questions sur l'identité",
+            "### Questions sur les préférences",
+            "### Questions sur les sentiments"
+          ]
+        },
+        {
+          "header": "## Questions pour le quotidien du couple",
+          "subsections": [
+            "### Le matin",
+            "### Pendant la journée",
+            "### Pour faire des plans"
+          ]
+        },
+        {
+          "header": "## Exercices pratiques pour couples",
+          "subsections": [
+            "### Exercice 1 : Interview de votre partenaire",
+            "### Exercice 2 : Le jeu des 20 questions",
+            "### Exercice 3 : Questions profondes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ae54623e-2eb7-4762-b428-38789661be14",
+      "title": "50+ Σουηδικοί Χαιρετισμοί και Αποχαιρετισμοί για να Λιώσει η Καρδιά του Συντρόφου σου",
+      "native_lang": "el",
+      "target_lang": "sv",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Αποχαιρετισμοί για Κάθε Περίσταση",
+          "subsections": [
+            "### Όταν Φεύγετε για Δουλειά"
+          ]
+        },
+        {
+          "header": "## Χαιρετισμοί για Ξεχωριστές Στιγμές",
+          "subsections": [
+            "### Όταν Συναντάτε την Οικογένεια",
+            "### Ρομαντικοί Χαιρετισμοί"
+          ]
+        },
+        {
+          "header": "## Πώς να Εξασκηθείτε Μαζί",
+          "subsections": [
+            "### Καθημερινές Πρακτικές",
+            "### Συνηθισμένα Λάθη"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ae8f0bd8-66da-401f-8616-37eec8ac8e30",
+      "title": "Guía de pronunciación danesa para principiantes: Habla con tu pareja desde el primer día",
+      "native_lang": "es",
+      "target_lang": "da",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Los 5 sonidos más importantes para parejas",
+          "subsections": [
+            "### 1. El sonido \"æ\" - El secreto del cariño",
+            "### 2. El sonido \"ø\" - El corazón danés",
+            "### 3. El sonido \"å\" - Profundo y cálido",
+            "### 4. La \"d\" suave - La diferencia entre turista y local",
+            "### 5. La \"g\" silenciosa - El toque mágico"
+          ]
+        },
+        {
+          "header": "## Los errores más comunes que hacen parejas (y cómo evitarlos)",
+          "subsections": [
+            "### Error #1: Pronunciar las \"d\" finales como en español",
+            "### Error #2: Retorcer la \"r\" española",
+            "### Error #3: Separar las palabras compuestas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aea980a7-eb89-462e-999f-592efb3b2084",
+      "title": "German Romantic Phrases for Every Occasion",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Special Occasions Quick Reference",
+          "subsections": [
+            "### Date Night",
+            "### Anniversary",
+            "### When They're Sick",
+            "### Surprise Moments"
+          ]
+        },
+        {
+          "header": "## Practice Activities for Couples",
+          "subsections": [
+            "### Activity 1: Daily Love Notes",
+            "### Activity 2: Pet Name Creation",
+            "### Activity 3: Movie Translation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aebed4a7-4c1c-42ac-8464-bb1a28f33834",
+      "title": "Çiftler İçin İtalyanca: 25 Temel İfade",
+      "native_lang": "tr",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Sevgi ve Ilgi Ifadeleri",
+          "subsections": [
+            "### Günlük Sevgi Sözcükleri"
+          ]
+        },
+        {
+          "header": "## Günlük Iletisim",
+          "subsections": [
+            "### Sormak ve Cevaplamak",
+            "### Izin ve Rica Etme"
+          ]
+        },
+        {
+          "header": "## Planlar ve Öneriler",
+          "subsections": [
+            "### Birlikte Plan Yapmak"
+          ]
+        },
+        {
+          "header": "## Yemek ve Mutfak",
+          "subsections": [
+            "### Birlikte Yemek"
+          ]
+        },
+        {
+          "header": "## Duygulari Ifade Etme",
+          "subsections": [
+            "### Mutluluk ve Memnuniyet",
+            "### Üzüntü ve Destek"
+          ]
+        },
+        {
+          "header": "## Aksam ve Gece Ifadeleri",
+          "subsections": [
+            "### Aksam Rutini",
+            "### Yatmadan Önce"
+          ]
+        },
+        {
+          "header": "## Özel Anlar Icin",
+          "subsections": [
+            "### Övgü ve Iltifat"
+          ]
+        },
+        {
+          "header": "## Tartisma ve Baris",
+          "subsections": [
+            "### Anlayis Göstermek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "af2dc864-688d-462b-a5c6-1beaa0d95841",
+      "title": "Cek Partnerinizin Ailesiyle Tanisin: Kültür ve Ifadeler Rehberi",
+      "native_lang": "tr",
+      "target_lang": "cs",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Cek Ev Ziyareti Görgü Kurallari",
+          "subsections": [
+            "### Hediye Götürme",
+            "### Hediye Ifadeleri",
+            "### Ayakkabi Cikarma"
+          ]
+        },
+        {
+          "header": "## Sohbet Konulari",
+          "subsections": [
+            "### Güvenli Konular",
+            "### Kacinilmasi Gereken Konular"
+          ]
+        },
+        {
+          "header": "## Iltifat Etme",
+          "subsections": [
+            "### Yemege Iltifat",
+            "### Eve Iltifat"
+          ]
+        },
+        {
+          "header": "## Resmi ve Samimi Dil",
+          "subsections": [
+            "### \"Vy\" Formu (Resmi)",
+            "### \"Ty\" Formuna Gecis"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "af318226-5a7f-4160-a6c1-4d29094ce813",
+      "title": "50 maďarských pozdravů a rozloučení pro páry – od prvního ahoj po milovanou dobrou noc",
+      "native_lang": "cs",
+      "target_lang": "hu",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Jak používat maďarské pozdravy ve vztahu",
+          "subsections": [
+            "### Praktické tipy pro páry:",
+            "### Časté chyby, kterým se vyhněte:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "af34a268-b1e4-4824-adfc-c9fc60bfa294",
+      "title": "50 Řeckých Romantických Frází pro Každou Příležitost: Od První Schůzky po Navždy",
+      "native_lang": "cs",
+      "target_lang": "el",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Jak Úspěšně Používat Tyto Fráze",
+          "subsections": [
+            "### Praktické Tipy pro Páry",
+            "### Časté Chyby, Kterým se Vyhnout"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "af5abf6f-2b0c-4234-ae5e-67e8db290a41",
+      "title": "Spanish Texting Slang: Decode Your Partner's Messages",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Essential Texting Abbreviations",
+          "subsections": [
+            "### The Most Common Shortcuts",
+            "### Number-Based Shortcuts",
+            "### Letter Substitutions"
+          ]
+        },
+        {
+          "header": "## Romantic Texting Phrases",
+          "subsections": [
+            "### Sweet Messages for Your Partner",
+            "### Good Morning/Night Messages"
+          ]
+        },
+        {
+          "header": "## Chat Expressions and Reactions",
+          "subsections": [
+            "### Common Reactions",
+            "### Expressing Agreement and Reactions"
+          ]
+        },
+        {
+          "header": "## WhatsApp and Social Media Slang",
+          "subsections": [
+            "### Popular Internet Slang",
+            "### Voice Message Related"
+          ]
+        },
+        {
+          "header": "## Texting Conversations for Couples",
+          "subsections": [
+            "### Sample Conversation 1: Making Plans",
+            "### Sample Conversation 2: Goodnight"
+          ]
+        },
+        {
+          "header": "## Regional Variations",
+          "subsections": [
+            "### Spain vs Latin America",
+            "### Country-Specific Slang"
+          ]
+        },
+        {
+          "header": "## Emojis and Their Spanish Meanings",
+          "subsections": [
+            "### Common Emoji Usage"
+          ]
+        },
+        {
+          "header": "## Practice: Decode These Messages!",
+          "subsections": [
+            "### Challenge 1",
+            "### Challenge 2",
+            "### Challenge 3"
+          ]
+        },
+        {
+          "header": "## Tips for Texting in Spanish",
+          "subsections": [
+            "### Do's",
+            "### Don'ts"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "afdd356c-d79e-41c2-84d2-77fa2c726ea6",
+      "title": "Frases Polacas para Bodas",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Esenciales de la Ceremonia de Boda",
+          "subsections": [
+            "### El Intercambio de Votos",
+            "### Intercambio de Anillos"
+          ]
+        },
+        {
+          "header": "## Celebraciones de Recepción",
+          "subsections": [
+            "### Brindis y Buenos Deseos",
+            "### Felicitaciones de Boda"
+          ]
+        },
+        {
+          "header": "## Tradiciones de Boda Polacas",
+          "subsections": [
+            "### La Ceremonia del Pan y la Sal",
+            "### El Baile del Dinero"
+          ]
+        },
+        {
+          "header": "## Frases de Baile y Entretenimiento",
+          "subsections": [
+            "### Canciones de Boda Populares",
+            "### Invitando a Alguien a Bailar"
+          ]
+        },
+        {
+          "header": "## Expresando Emociones y Sentimientos",
+          "subsections": [
+            "### Alegría y Emoción"
+          ]
+        },
+        {
+          "header": "## Frases Prácticas de Boda",
+          "subsections": [
+            "### Fotografía y Recuerdos",
+            "### Dando Regalos"
+          ]
+        },
+        {
+          "header": "## Después de la Boda",
+          "subsections": [
+            "### Mensajes de Agradecimiento"
+          ]
+        }
+      ]
+    }
+  ]
+}

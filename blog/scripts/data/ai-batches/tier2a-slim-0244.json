@@ -1,0 +1,409 @@
+{
+  "batchId": "tier2a-slim-0244",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "f3121942-3d05-4ed4-9b61-020df90a17f9",
+      "title": "Как сделать предложение на румынский: Фразы для помолвки",
+      "native_lang": "ru",
+      "target_lang": "ro",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Способы сделать предложение",
+          "subsections": [
+            "### Классическое предложение",
+            "### Более романтические варианты"
+          ]
+        },
+        {
+          "header": "## Подготовка к предложению",
+          "subsections": [
+            "### Советы по практике",
+            "### Создание атмосферы"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f3226d36-119e-4c4c-9bf4-1544bb2f017d",
+      "title": "Schwedische Grammatik für Anfänger: So meisterst du die Grundlagen für deinen Partner",
+      "native_lang": "de",
+      "target_lang": "sv",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Die 5 Grundregeln für schwedische Grammatik",
+          "subsections": [
+            "### 1. Keine Fälle, kein Drama",
+            "### 2. Bestimmte und unbestimmte Artikel",
+            "### 3. Die Wortstellung: V2-Regel",
+            "### 4. Keine Geschlechter für Nomen",
+            "### 5. Perfekt statt Präteritum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f3270019-6b98-4a3d-a790-0b199e389ccf",
+      "title": "Russian 'I Miss You' Phrases: Express Your Longing Deeply",
+      "native_lang": "en",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essential 'I Miss You' Phrases",
+          "subsections": [
+            "### Heartfelt Expressions",
+            "### Deep Longing",
+            "### Romantic Yearning",
+            "### Tender Messages"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f32dc17f-b955-43a8-85f4-5c8282b25c29",
+      "title": "Expresii de Călătorie pentru Luna de Miere în Suedeză: Ghid pentru",
+      "native_lang": "ro",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## La Restaurant",
+          "subsections": [
+            "### Expresii de Bază",
+            "### Cină Romantică"
+          ]
+        },
+        {
+          "header": "## Transport și Explorare",
+          "subsections": [
+            "### Mijloace de Transport",
+            "### Expresii Utile"
+          ]
+        },
+        {
+          "header": "## Activități pentru Cupluri",
+          "subsections": [
+            "### Romantice",
+            "### Aventuroase"
+          ]
+        },
+        {
+          "header": "## Fotografii și Amintiri",
+          "subsections": [
+            "### Expresii pentru Fotografii",
+            "### Documentarea Călătoriei"
+          ]
+        },
+        {
+          "header": "## În Caz de Urgență",
+          "subsections": [
+            "### Numere și Expresii Utile",
+            "### Expresii de Urgență"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f3461ec3-6d8b-4dc1-acdc-7caca0ae1989",
+      "title": "Πολωνικές Φράσεις Συμφιλίωσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις Συμφιλίωσης",
+          "subsections": [
+            "### Έναρξη Συμφιλίωσης",
+            "### Έκφραση Μετάνοιας",
+            "### Έκφραση Αγάπης",
+            "### Πρόταση Λύσης"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f3472915-c09a-4ce0-b253-cdcda342870d",
+      "title": "Urări de Aniversare în Cehă: Mesaje Romantice pentru Partener",
+      "native_lang": "ro",
+      "target_lang": "cs",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Mesaje Romantice",
+          "subsections": [
+            "### Pentru Prima Aniversare",
+            "### Pentru Aniversări Mai Lungi"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Diferite Aniversări",
+          "subsections": [
+            "### 1-5 Ani",
+            "### 5-10 Ani",
+            "### 10+ Ani"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Carduri",
+          "subsections": [
+            "### Scurte și Dulci",
+            "### Mesaje Lungi"
+          ]
+        },
+        {
+          "header": "## Amintiri de Împărtășit",
+          "subsections": [
+            "### Întrebări pentru Reflecție"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f361c419-f293-4d0a-bfa8-775154242005",
+      "title": "Portugalské fráze pro setkání s rodiči partnera",
+      "native_lang": "cs",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## První setkání",
+          "subsections": [
+            "### \"Prazer em conhecê-los.\"",
+            "### \"[Partner] me falou muito sobre vocês.\"",
+            "### \"Muito obrigado/a pelo convite.\"",
+            "### \"Vocês têm uma casa linda.\""
+          ]
+        },
+        {
+          "header": "## U jídla",
+          "subsections": [
+            "### \"Está delicioso! Poderia me dar a receita?\"",
+            "### \"Tudo parece maravilhoso.\""
+          ]
+        },
+        {
+          "header": "## Projevení zájmu",
+          "subsections": [
+            "### \"Adoraria ver fotos de [partner] criança.\"",
+            "### \"Como vocês se conheceram?\""
+          ]
+        },
+        {
+          "header": "## Nabídka pomoci",
+          "subsections": [
+            "### \"Posso ajudar em alguma coisa?\"",
+            "### \"Deixe-me ajudar com a louça.\""
+          ]
+        },
+        {
+          "header": "## Rozloučení",
+          "subsections": [
+            "### \"Obrigado/a por uma noite maravilhosa.\"",
+            "### \"Espero vê-los em breve.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f3748708-e2dd-4b60-a01f-b785b772aa62",
+      "title": "De Familie Ontmoeten: Essentiële Griekse Zinnen",
+      "native_lang": "nl",
+      "target_lang": "el",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Do's en Don'ts",
+          "subsections": [
+            "### Do's",
+            "### Don'ts"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f3770286-3bb0-43f6-8d2f-225ec2172c79",
+      "title": "Італійська привітання з річницею: романтичні побажання",
+      "native_lang": "uk",
+      "target_lang": "it",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика про річницю",
+          "subsections": []
+        },
+        {
+          "header": "## Романтичні побажання з річницею",
+          "subsections": [
+            "### Класичні привітання"
+          ]
+        },
+        {
+          "header": "## Побажання для різних річниць",
+          "subsections": [
+            "### Перша річниця",
+            "### П'ята річниця",
+            "### Десята річниця та далі"
+          ]
+        },
+        {
+          "header": "## Як написати привітання з річницею",
+          "subsections": [
+            "### Структура ідеального привітання:",
+            "### Приклад привітання:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f37ef6cd-3984-41d0-afe7-6bc1149f3773",
+      "title": "Jak napsat milostný dopis v italštině",
+      "native_lang": "cs",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Úvodní oslovení",
+          "subsections": [
+            "### \"Amore mio\"",
+            "### \"Tesoro mio\"",
+            "### \"Anima mia\""
+          ]
+        },
+        {
+          "header": "## Úvodní věty",
+          "subsections": [
+            "### \"Ti scrivo questa lettera per dirti quanto sei importante per me.\"",
+            "### \"Le parole non possono esprimere quello che provo per te.\"",
+            "### \"Dal momento in cui ti ho incontrato, la mia vita è cambiata per sempre.\""
+          ]
+        },
+        {
+          "header": "## Vyjádření lásky",
+          "subsections": [
+            "### \"Sei la cosa più bella che mi sia mai capitata.\"",
+            "### \"Ti amo ogni giorno di più.\"",
+            "### \"Il mio cuore ti appartiene, ora e per sempre.\"",
+            "### \"Con te ho trovato la vera felicità.\"",
+            "### \"Sei il mio sogno diventato realtà.\""
+          ]
+        },
+        {
+          "header": "## Ocenění partnera",
+          "subsections": [
+            "### \"Ammiro la tua forza, la tua gentilezza e la tua bella anima.\"",
+            "### \"Grazie per amarmi così come sono.\""
+          ]
+        },
+        {
+          "header": "## Závěrečné fráze",
+          "subsections": [
+            "### \"Tuo/Tua per sempre\"",
+            "### \"Con tutto il mio amore\"",
+            "### \"Eternamente tuo/tua\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f39ab843-5996-4a60-bacf-d099b52a6d64",
+      "title": "Grammaire ukrainienne pour débutants : apprenez ensemble pour renforcer votre lien",
+      "native_lang": "fr",
+      "target_lang": "uk",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Les bases essentielles",
+          "subsections": [
+            "### 1. Les cas : les sept \"costumes\" des mots",
+            "### 2. Les genres : masculin, féminin, neutre"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f3abaced-0ce0-4574-adb6-7a299f1f32e8",
+      "title": "De Familie Ontmoeten: Essentiële Spaanse Zinnen",
+      "native_lang": "nl",
+      "target_lang": "es",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Beleefdheidsfrases",
+          "subsections": [
+            "### Complimenten Geven",
+            "### Hulp Aanbieden"
+          ]
+        },
+        {
+          "header": "## Culturele Tips",
+          "subsections": [
+            "### De Begroeting",
+            "### Cadeaus Meenemen",
+            "### Dresscode"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f3ac1df3-9d40-4417-b8a3-222899af37c3",
+      "title": "50+ Frasi Ucraine per Serate Romantiche Perfette",
+      "native_lang": "it",
+      "target_lang": "uk",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Al Ristorante",
+          "subsections": [
+            "### Arrivare e Ordinare",
+            "### Brindisi Romantici"
+          ]
+        },
+        {
+          "header": "## Vocabolario Utile",
+          "subsections": [
+            "### Luoghi per Appuntamenti",
+            "### Aggettivi Romantici"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f3b4bd08-3ea9-4fa0-ba50-245cf7595e76",
+      "title": "Suedois : Phrases d'Amour pour Chaque Moment",
+      "native_lang": "fr",
+      "target_lang": "sv",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Phrases pour le Rendez-vous",
+          "subsections": [
+            "### Inviter Quelqu'un",
+            "### Pendant le Rendez-vous",
+            "### Compliments"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f3b92c9a-ca4a-4e8b-90b2-4f02f077eaaa",
+      "title": "Norveççe Kayınvalide Kayınpeder İfadeleri: Aile Tanışması",
+      "native_lang": "tr",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Önemli İfadeler",
+          "subsections": [
+            "### Tanışma",
+            "### İltifatlar",
+            "### Yardım Teklifi",
+            "### Veda"
+          ]
+        }
+      ]
+    }
+  ]
+}

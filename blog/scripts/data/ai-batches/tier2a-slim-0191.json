@@ -1,0 +1,445 @@
+{
+  "batchId": "tier2a-slim-0191",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "c73e5810-42cc-4c01-b8d5-1caefebec788",
+      "title": "De Familie Ontmoeten: Essentiële Noorse Zinnen",
+      "native_lang": "nl",
+      "target_lang": "no",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Beleefdheidsfrases",
+          "subsections": [
+            "### Complimenten Geven",
+            "### Hulp Aanbieden"
+          ]
+        },
+        {
+          "header": "## Gesprekken Voeren",
+          "subsections": [
+            "### Over Jezelf Vertellen",
+            "### Interesse Tonen"
+          ]
+        },
+        {
+          "header": "## Noorse Tradities",
+          "subsections": [
+            "### Koselig (Gezelligheid)",
+            "### Winterse Tradities"
+          ]
+        },
+        {
+          "header": "## Culturele Tips",
+          "subsections": [
+            "### Noorse Gewoontes",
+            "### Cadeau Etiquette"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c73feff3-1738-4e54-ba59-83c51d526d9d",
+      "title": "50+ шведских фраз для романтического вечера",
+      "native_lang": "ru",
+      "target_lang": "sv",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Практические упражнения",
+          "subsections": [
+            "### Ролевая игра: В ресторане",
+            "### Ролевая игра: Приглашение"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c7413306-eb1d-4293-953f-dc7e3da8b1d3",
+      "title": "Saludos y Despedidas en Alemán",
+      "native_lang": "es",
+      "target_lang": "de",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Saludos Alemanes Esenciales para Parejas",
+          "subsections": [
+            "### Saludos Diarios Básicos",
+            "### Saludos Informales para Momentos Íntimos"
+          ]
+        },
+        {
+          "header": "## Despedidas en Alemán para Toda Ocasión",
+          "subsections": [
+            "### Despedidas Formales",
+            "### Despedidas Casuales",
+            "### Despedidas Románticas"
+          ]
+        },
+        {
+          "header": "## Ejercicios de Práctica para Parejas",
+          "subsections": [
+            "### Rutina Matutina en Alemán",
+            "### Práctica de Despedida por la Tarde",
+            "### Escenarios de Juego de Roles"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c750555f-5f61-4b00-81b8-e448d25f110c",
+      "title": "Как извиняться на украинском языке: полное руководство",
+      "native_lang": "ru",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Извинения за конкретные ситуации",
+          "subsections": [
+            "### За опоздание",
+            "### За ошибку",
+            "### За причинённую боль"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c7571397-6731-4ed7-976d-46cbd89528b5",
+      "title": "Czeskie słówka dla zakochanych: Podstawy gramatyki, które pokochasz",
+      "native_lang": "pl",
+      "target_lang": "cs",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Podstawy gramatyki w 5 krokach",
+          "subsections": [
+            "### 1. Rzeczowniki: rodzaje i końcówki",
+            "### 2. Zaimki osobowe - niezbędne w miłości!",
+            "### 3. Czasownik \"mít\" (mieć) - kluczowy!",
+            "### 4. Przymiotniki: zgoda z rzeczownikiem",
+            "### 5. Liczby 1-10 - dla romantycznych porannych"
+          ]
+        },
+        {
+          "header": "## Najczęstsze błędy Polaków",
+          "subsections": [
+            "### 1. **\"y\" vs \"i\"**",
+            "### 2. **Długie samogłoski**",
+            "### 3. **Rodzaj przymiotnika**",
+            "### 4. **\"ů\" vs \"ou\"**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c75a041f-f25e-458f-a619-09929bff8003",
+      "title": "Expresii de Călătorie pentru Luna de Miere în Poloneză: Ghid pentru",
+      "native_lang": "ro",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## La Restaurant",
+          "subsections": [
+            "### Expresii de Bază",
+            "### Cină Romantică"
+          ]
+        },
+        {
+          "header": "## Transport și Explorare",
+          "subsections": [
+            "### Mijloace de Transport",
+            "### Expresii Utile"
+          ]
+        },
+        {
+          "header": "## Activități pentru Cupluri",
+          "subsections": [
+            "### Romantice",
+            "### Aventuroase"
+          ]
+        },
+        {
+          "header": "## Fotografii și Amintiri",
+          "subsections": [
+            "### Expresii pentru Fotografii",
+            "### Documentarea Călătoriei"
+          ]
+        },
+        {
+          "header": "## În Caz de Urgență",
+          "subsections": [
+            "### Numere și Expresii Utile",
+            "### Expresii de Urgență"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c75b1587-9f52-4ff6-8e2c-cef4c9ec7b00",
+      "title": "Szerelmes Levél Írása Olaszul – Romantikus Kifejezések és Tippek",
+      "native_lang": "hu",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Megszólítások",
+          "subsections": [
+            "### 1. Amore mio",
+            "### 2. Tesoro mio",
+            "### 3. Cuore mio",
+            "### 4. Vita mia",
+            "### 5. Anima mia"
+          ]
+        },
+        {
+          "header": "## Kezdő Mondatok",
+          "subsections": [
+            "### 6. Ti scrivo per dirti quanto ti amo.",
+            "### 7. Non trovo le parole per esprimere ciò che provo per te.",
+            "### 8. Da quando ti ho conosciuto, la mia vita ha un nuovo significato.",
+            "### 9. Ogni momento con te è un tesoro.",
+            "### 10. Sei la cosa più bella che mi sia mai capitata."
+          ]
+        },
+        {
+          "header": "## Érzelmek Kifejezése",
+          "subsections": [
+            "### 11. Il mio cuore ti appartiene.",
+            "### 12. Mi rendi completo/a.",
+            "### 13. Il tuo amore mi dà forza.",
+            "### 14. Mi innamoro di te ogni giorno di più.",
+            "### 15. Sei la mia anima gemella."
+          ]
+        },
+        {
+          "header": "## Lezárások",
+          "subsections": [
+            "### 16. Per sempre tuo/a",
+            "### 17. Con tutto il mio amore",
+            "### 18. Tuo/a per sempre",
+            "### 19. Fino a quando ci rivedremo",
+            "### 20. Ti amo con tutto il cuore"
+          ]
+        },
+        {
+          "header": "## Kulturális Tippek",
+          "subsections": [
+            "### Olasz Szenvedély",
+            "### Operai Hagyomány",
+            "### Gesztusok"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c75b3d69-d6ae-4030-8e93-e740d9e25a0f",
+      "title": "Как сделать предложение на греческий: Фразы для помолвки",
+      "native_lang": "ru",
+      "target_lang": "el",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Способы сделать предложение",
+          "subsections": [
+            "### Классическое предложение",
+            "### Более романтические варианты"
+          ]
+        },
+        {
+          "header": "## Подготовка к предложению",
+          "subsections": [
+            "### Советы по практике",
+            "### Создание атмосферы"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c788868f-5f01-4289-9a41-de04897c9b88",
+      "title": "Hollandske fraser til uenigheder og diskussioner for par",
+      "native_lang": "da",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Vigtige fraser",
+          "subsections": [
+            "### At udtrykke følelser",
+            "### At lytte og forstå",
+            "### At finde løsninger",
+            "### At sætte grænser"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c788d0e4-5038-422a-8867-03f5baa6fc79",
+      "title": "Phrases turques sur le pardon en couple",
+      "native_lang": "fr",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions pour demander pardon",
+          "subsections": [
+            "### S'excuser sincèrement",
+            "### Exprimer ses regrets",
+            "### S'engager à changer"
+          ]
+        },
+        {
+          "header": "## Expressions pour pardonner",
+          "subsections": [
+            "### Accorder le pardon",
+            "### Exprimer la réconciliation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c79899d1-8a5d-4789-ad6d-75c94c6636b0",
+      "title": "Πορτογαλικές Φράσεις Φλερτ για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις Φλερτ",
+          "subsections": [
+            "### 1. Você é lindo/linda",
+            "### 2. Você me deixa louco/louca",
+            "### 3. Adoro o seu sorriso"
+          ]
+        },
+        {
+          "header": "## Ρομαντικές Εκφράσεις",
+          "subsections": [
+            "### 4. Não consigo parar de pensar em você",
+            "### 5. Você é o amor da minha vida",
+            "### 6. Você me faz tão feliz"
+          ]
+        },
+        {
+          "header": "## Παιχνιδιάρικες Φράσεις",
+          "subsections": [
+            "### 7. Vem cá, meu amor",
+            "### 8. Você é irresistível",
+            "### 9. Tenho muita sorte de ter você"
+          ]
+        },
+        {
+          "header": "## Τρυφερές Στιγμές",
+          "subsections": [
+            "### 10. Você tem olhos lindos",
+            "### 11. Sou louco/louca por você",
+            "### 12. Te amo mais a cada dia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c799adec-db6f-4a43-8939-9969715592e6",
+      "title": "Fraze de Susținere Emoțională în Turcă",
+      "native_lang": "ro",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraze Esențiale de Confort",
+          "subsections": [
+            "### 1. Yanındayım",
+            "### 2. Üzülme",
+            "### 3. Her şey güzel olacak",
+            "### 4. Seni anlıyorum",
+            "### 5. Başın sağ olsun",
+            "### 6. Merak etme",
+            "### 7. Güçlü ol",
+            "### 8. Seninle gurur duyuyorum",
+            "### 9. Her zaman buradayım",
+            "### 10. Geçmiş olsun"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c7a7e78e-2704-4d34-8e49-335a747b14aa",
+      "title": "Expresii de Călătorie pentru Luna de Miere în Spaniolă: Ghid pentru",
+      "native_lang": "ro",
+      "target_lang": "es",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## La Restaurant",
+          "subsections": [
+            "### Expresii de Bază",
+            "### Cină Romantică"
+          ]
+        },
+        {
+          "header": "## Transport și Explorare",
+          "subsections": [
+            "### Mijloace de Transport",
+            "### Expresii Utile"
+          ]
+        },
+        {
+          "header": "## Activități pentru Cupluri",
+          "subsections": [
+            "### Romantice",
+            "### Aventuroase"
+          ]
+        },
+        {
+          "header": "## Fotografii și Amintiri",
+          "subsections": [
+            "### Expresii pentru Fotografii",
+            "### Documentarea Călătoriei"
+          ]
+        },
+        {
+          "header": "## În Caz de Urgență",
+          "subsections": [
+            "### Numere și Expresii Utile",
+            "### Expresii de Urgență"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c7d8631f-bc76-4a84-9118-73735795b310",
+      "title": "Frases de Saudade em Russo: Я Скучаю По Тебе - A Profundidade Eslava",
+      "native_lang": "pt",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases Essenciais de Saudade",
+          "subsections": [
+            "### Expressões Básicas",
+            "### Saudade Profunda",
+            "### Para Relacionamentos à Distância",
+            "### Saudade Doce"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c7db5d9c-229e-4355-8c05-b0bc1e44f3aa",
+      "title": "Svéd évfordulós kívánságok és üzenetek",
+      "native_lang": "hu",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Évfordulós köszöntések",
+            "### Hosszabb üzenetek"
+          ]
+        }
+      ]
+    }
+  ]
+}

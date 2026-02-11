@@ -1,0 +1,56 @@
+{
+  "tier": 1,
+  "batchId": "tier1-batch-085",
+  "articles": [
+    {
+      "id": "f44a1973-ff45-4a97-a348-f4362a1ba98b",
+      "title": "30+ Complimente în olandeză pentru partenerul tău",
+      "native_lang": "ro",
+      "target_lang": "nl",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nComplimentele sunt limbajul dragostei. Când îi spui partenerului ceva frumos în limba lui maternă, cuvintele capătă o semnificație specială.\n\n<PhraseOfDay\n  word=\"Je bent prachtig\"\n  translation=\"Ești frumoasă/frumos\"\n  pronunciation=\"\"\n  context=\"Cel mai clasic compliment romantic\"\n/>\n\n## Complimente pentru aspect fizic\n\n<VocabCard\n  word=\"Je bent prachtig\"\n  translation=\"Ești frumoasă/frumos\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇳🇱\" title=\"Cultura complimentelor\">\nOlandezii sunt foarte direcți. Scuzele simple și sincere sunt mai apreciate decât elaborările dramatice - fii clar și autentic.\n</CultureTip>\n\n## Complimente pentru personalitate\n\n| Olandeză | Română |\n|---------|---------|\n| Je bent zo slim | Ești atât de inteligent/ă |\n| Je bent zo aardig | Ești atât de drăguț/ă |\n| Je bent geweldig | Ești uimitor/oare |\n| Je bent grappig | Ești amuzant/ă |\n\n<VocabCard\n  word=\"Je bent zo slim\"\n  translation=\"Ești atât de inteligent/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Je bent zo aardig\"\n  translation=\"Ești atât de drăguț/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru complimente sincere\n\n1. **Fii specific** – \"Îmi place cum râzi\" e mai bun decât \"Ești frumoasă\"\n2. **Fii autentic** – Spune doar ce simți cu adevărat\n3. **Alege momentul** – Complimentele spontane sunt cele mai prețuite\n4. **Nu exagera** – Un compliment sincer e mai valoros decât zece superficiale\n5. **Include acțiuni** – \"Îmi place cum mă asculți când vorbesc\"\n\n<CTA />\n\n## Articole conexe\n\n- [Exprimarea emoțiilor în olandeză](/ro/nl/dutch-expressing-emotions)\n- [Alinturile în olandeză](/ro/nl/dutch-pet-names-and-terms-of-endearment-50)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "f5879f34-8904-45cb-9400-39cf75bf47fb",
+      "title": "30+ Complimente în rusă pentru partenerul tău",
+      "native_lang": "ro",
+      "target_lang": "ru",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nComplimentele sunt limbajul dragostei. Când îi spui partenerului ceva frumos în limba lui maternă, cuvintele capătă o semnificație specială.\n\n<PhraseOfDay\n  word=\"Ты красивая/ый\"\n  translation=\"Ești frumoasă/frumos\"\n  pronunciation=\"\"\n  context=\"Cel mai clasic compliment romantic\"\n/>\n\n## Complimente pentru aspect fizic\n\n<VocabCard\n  word=\"Ты красивая/ый\"\n  translation=\"Ești frumoasă/frumos\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇷🇺\" title=\"Cultura complimentelor\">\nRușii pot părea mai rezervați, dar scuzele sincere sunt foarte prețuite. Un 'прости' din inimă are mare greutate în cultura rusă.\n</CultureTip>\n\n## Complimente pentru personalitate\n\n| Rusă | Română |\n|---------|---------|\n| Ты такой/ая умный/ая | Ești atât de inteligent/ă |\n| Ты такой/ая добрый/ая | Ești atât de drăguț/ă |\n| Ты удивительный/ая | Ești uimitor/oare |\n| Ты смешной/ая | Ești amuzant/ă |\n\n<VocabCard\n  word=\"Ты такой/ая умный/ая\"\n  translation=\"Ești atât de inteligent/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Ты такой/ая добрый/ая\"\n  translation=\"Ești atât de drăguț/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru complimente sincere\n\n1. **Fii specific** – \"Îmi place cum râzi\" e mai bun decât \"Ești frumoasă\"\n2. **Fii autentic** – Spune doar ce simți cu adevărat\n3. **Alege momentul** – Complimentele spontane sunt cele mai prețuite\n4. **Nu exagera** – Un compliment sincer e mai valoros decât zece superficiale\n5. **Include acțiuni** – \"Îmi place cum mă asculți când vorbesc\"\n\n<CTA />\n\n## Articole conexe\n\n- [Exprimarea emoțiilor în rusă](/ro/ru/russian-expressing-emotions)\n- [Alinturile în rusă](/ro/ru/russian-pet-names-and-terms-of-endearment-50)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "f5ba76d8-8ba8-4a01-ae9d-d4e2dba6a0a5",
+      "title": "Smalltalk auf Dänisch – Gesprächseinstiege für Paare",
+      "native_lang": "de",
+      "target_lang": "da",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\n# Smalltalk auf Dänisch – Gesprächseinstiege für Paare\n\nSmalltalk ist eine Kunst, die in jeder Sprache wichtig ist. Wenn du die Familie und Freunde deines Partners kennenlernst, helfen dir diese Dänischen Phrasen dabei, das Eis zu brechen und interessante Gespräche zu führen.\n\n<PhraseOfDay\n  word=\"How are you?\"\n  translation=\"Wie geht es dir/Ihnen?\"\n  pronunciation=\"hau ar juu?\"\n  context=\"Ein klassischer Gesprächseinstieg\"\n/>\n\n## Gespräche beginnen\n\n<VocabCard\n  word=\"How are you?\"\n  translation=\"Wie geht es dir/Ihnen?\"\n  pronunciation=\"hau ar juu?\"\n  example=\"How are you today?\"\n/>\n\n<VocabCard\n  word=\"Nice weather today, isn't it?\"\n  translation=\"Schönes Wetter heute, nicht wahr?\"\n  pronunciation=\"nais WEH-dhör tu-DEI\"\n  example=\"Nice weather we're having!\"\n/>\n\n| Dänisch | Deutsch |\n|-------------|---------|\n| Where are you from? | Woher kommen Sie? |\n| What do you do for work? | Was machen Sie beruflich? |\n| Have we met before? | Kennen wir uns? |\n\n<CultureTip flag=\"🇩🇰\" title=\"Kultureller Kontext\">\nSmall talk helps build rapport. Show genuine interest and ask follow-up questions.\n</CultureTip>\n\n## Über Hobbys und Interessen\n\n| Dänisch | Deutsch |\n|-------------|---------|\n| What are your hobbies? | Was sind Ihre Hobbys? |\n| Do you like sports? | Mögen Sie Sport? |\n| What music do you like? | Welche Musik hören Sie gern? |\n| Do you like to travel? | Reisen Sie gern? |\n\n## Über Arbeit und Beruf\n\n<VocabCard\n  word=\"What do you do?\"\n  translation=\"Was arbeiten Sie?\"\n  pronunciation=\"wot du juu duu?\"\n  example=\"What do you do for a living?\"\n/>\n\n| Dänisch | Deutsch |\n|-------------|---------|\n| Do you enjoy your work? | Gefällt Ihnen Ihre Arbeit? |\n| How long have you worked there? | Seit wann arbeiten Sie dort? |\n| That sounds interesting | Das klingt interessant |\n\n## Über das Wetter\n\nEin Klassiker, der immer funktioniert:\n\n| Dänisch | Deutsch |\n|-------------|---------|\n| Nice weather today | Schönes Wetter heute |\n| It's warm/cold today | Es ist heute warm/kalt |\n| Hopefully it won't rain | Hoffentlich regnet es nicht |\n| The summer was nice | Der Sommer war schön |\n\n## Gespräche am Laufen halten\n\n| Dänisch | Deutsch |\n|-------------|---------|\n| That's interesting! | Das ist interessant! |\n| Tell me more | Erzählen Sie mehr |\n| Really? | Wirklich? |\n| I understand | Ich verstehe |\n\n## Höflich nachfragen\n\n<VocabCard\n  word=\"Could you repeat that?\"\n  translation=\"Können Sie das wiederholen?\"\n  pronunciation=\"kud juu ri-PIET dhät?\"\n  example=\"I'm sorry, could you repeat that?\"\n/>\n\n| Dänisch | Deutsch |\n|-------------|---------|\n| Could you speak slower? | Können Sie langsamer sprechen? |\n| What does that mean? | Was bedeutet das? |\n| I'm still learning | Ich lerne noch Dänisch |\n\n<CultureTip flag=\"🇩🇰\" title=\"Tipp für Smalltalk\">\nStelle offene Fragen und zeige echtes Interesse an den Antworten. Die Familie deines Partners wird es schätzen, dass du dich bemühst, sie kennenzulernen.\n</CultureTip>\n\n## Verwandte Artikel\n\n- [Dänische Begrüßungen](/de/blog/danish-greetings-and-farewells)\n- [Die Familie deines Partners treffen](/de/blog/danish-meeting-your-partner-s-family)\n\n<CTA />",
+      "issues": [
+        {
+          "type": "language_fingerprint_mismatch",
+          "details": {
+            "nativeLang": "de",
+            "nativeStopWordRatio": 6,
+            "englishStopWordRatio": 10
+          }
+        }
+      ]
+    }
+  ]
+}

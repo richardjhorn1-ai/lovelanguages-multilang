@@ -1,0 +1,432 @@
+{
+  "batchId": "tier2a-slim-0264",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "f75f9ebe-a36d-4485-99a8-a044af2c21c0",
+      "title": "Italienisch vs Deutsch: Die Wichtigsten Unterschiede fur Deutsche",
+      "native_lang": "de",
+      "target_lang": "it",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Aussprache: Die Unterschiede",
+          "subsections": [
+            "### Einfacher als Deutsch",
+            "### Doppelkonsonanten",
+            "### Das Italienische R"
+          ]
+        },
+        {
+          "header": "## Grammatik-Vergleich",
+          "subsections": [
+            "### Keine Falle!",
+            "### Nur Zwei Geschlechter",
+            "### Konjugation: Ahnlich",
+            "### Artikel: Mehr Varianten",
+            "### Ein Verb fur \"Sein\""
+          ]
+        },
+        {
+          "header": "## Kulturelle Unterschiede",
+          "subsections": [
+            "### Formlichkeit: Du und Lei",
+            "### Gesten",
+            "### Diminutive"
+          ]
+        },
+        {
+          "header": "## Tipps fur Deutsche Lerner",
+          "subsections": [
+            "### Deine Vorteile",
+            "### Herausforderungen",
+            "### Strategie fur Paare"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fc3e0167-23c9-4c50-8e9a-1f03cff8cef4",
+      "title": "Gramática Italiana Básica para Principiantes",
+      "native_lang": "es",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Errores Gramaticales Comunes a Evitar",
+          "subsections": [
+            "### 1. Olvidar la Concordancia de Adjetivos",
+            "### 2. Posición de los Adjetivos",
+            "### 3. Tu vs. Lei",
+            "### 4. ¡Las Dobles Negaciones Son Correctas!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fdb169d9-5b96-4795-a067-750a1be94cfd",
+      "title": "Aleman vs Espanol: Diferencias Clave para Hispanohablantes",
+      "native_lang": "es",
+      "target_lang": "de",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Desafios de Pronunciacion para Hispanohablantes",
+          "subsections": [
+            "### Sonidos Nuevos",
+            "### Las Umlauts (a, o, u)",
+            "### Sonidos Familiares"
+          ]
+        },
+        {
+          "header": "## Comparacion de Estructura Gramatical",
+          "subsections": [
+            "### Casos: El Mayor Desafio",
+            "### Tres Generos",
+            "### Orden de Palabras: Reglas del Verbo",
+            "### Palabras Compuestas"
+          ]
+        },
+        {
+          "header": "## Diferencias Culturales en el Lenguaje",
+          "subsections": [
+            "### Formalidad: Du vs Sie",
+            "### Comunicacion Directa",
+            "### Los Titulos Importan"
+          ]
+        },
+        {
+          "header": "## Consejos de Aprendizaje para Hispanohablantes",
+          "subsections": [
+            "### Aprovecha Tus Ventajas",
+            "### Trabaja en Estos Desafios",
+            "### Estrategia para Parejas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "016f0f41-5f54-43e9-aa53-72e2ef551952",
+      "title": "Apprendre le Polonais en 2025 : Méthodes",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## L'approche moderne : les applications d'apprentissage des langues",
+          "subsections": [
+            "### Applications interactives pour couples",
+            "### Fonctionnalités de gamification"
+          ]
+        },
+        {
+          "header": "## Méthodes traditionnelles qui fonctionnent toujours",
+          "subsections": [
+            "### Flashcards : numériques et physiques",
+            "### Apprentissage par manuels"
+          ]
+        },
+        {
+          "header": "## Techniques d'immersion pour les couples",
+          "subsections": [
+            "### Créez un environnement polonais à la maison",
+            "### Pratique de conversation"
+          ]
+        },
+        {
+          "header": "## Plan hebdomadaire structuré",
+          "subsections": [
+            "### Lundi : **Poniedziałek** - Focus grammaire",
+            "### Mercredi : **Środa** - Jour de conversation",
+            "### Vendredi : **Piątek** - Immersion culturelle",
+            "### Week-end : **Weekend** - Activités ludiques"
+          ]
+        },
+        {
+          "header": "## Erreurs courantes à éviter",
+          "subsections": [
+            "### Ne sautez pas les bases",
+            "### Se surcharger"
+          ]
+        },
+        {
+          "header": "## Outils technologiques pour 2025",
+          "subsections": [
+            "### Partenaires de conversation propulsés par l'IA",
+            "### Expériences polonaises en réalité virtuelle"
+          ]
+        },
+        {
+          "header": "## Mesurer vos progrès",
+          "subsections": [
+            "### Jalons mensuels",
+            "### Célébrez ensemble"
+          ]
+        },
+        {
+          "header": "## Construire des habitudes à long terme",
+          "subsections": [
+            "### La règle du \"**Codziennie po trochu**\" (Un peu chaque jour)",
+            "### Le rendre social"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0203d6ad-366e-4719-a750-a286d9ac32b0",
+      "title": "Греческое произношение для начинающих: научитесь говорить с любимым",
+      "native_lang": "ru",
+      "target_lang": "el",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Советы для быстрого прогресса",
+          "subsections": [
+            "### Упражнения для пар"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0239bb43-359b-486a-9385-7d5025ccba3c",
+      "title": "Знайомство з родиною вашого партнера угорською: фрази, що створять тепле враження",
+      "native_lang": "uk",
+      "target_lang": "hu",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Конкретні сценарії: як все пройде",
+          "subsections": [
+            "### При вході до дому",
+            "### За столом",
+            "### Розмова про сім'ю"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "02671f93-3209-4648-b647-7c092c16ad91",
+      "title": "Знайомство з родиною партнера нідерландською: фрази, які допоможуть справити гарне враження",
+      "native_lang": "uk",
+      "target_lang": "nl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Типові сценарії під час зустрічі",
+          "subsections": [
+            "### Сценарій 1: Прибуття до дому",
+            "### Сценарій 2: За столом",
+            "### Сценарій 3: Розмова про плани"
+          ]
+        },
+        {
+          "header": "## Словник для знайомства з родиною",
+          "subsections": [
+            "### Члени родини",
+            "### Подарунки та компліменти"
+          ]
+        },
+        {
+          "header": "## Що робити, якщо щось пішло не так?",
+          "subsections": [
+            "### Фрази для складних ситуацій"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "03499741-d3e5-4a61-b6df-fb84f0d994d0",
+      "title": "Γαλλική Προφορά για Αρχάριους: Μάθετε να Μιλάτε Γαλλικά με τον Σύντροφό σας",
+      "native_lang": "el",
+      "target_lang": "fr",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Σύμφωνα που Προκαλούν Σύγχυση",
+          "subsections": [
+            "### Οι Δύσκολοι Ήχοι"
+          ]
+        },
+        {
+          "header": "## Κοινά Λάθη που Κάνουν τα Ζευγάρια",
+          "subsections": [
+            "### 1. **Η Παγίδα του Τελικού Γράμματος**",
+            "### 2. **Το Ρολόι της Προφοράς**",
+            "### 3. **Η Μύτη Ξεχωριστά**"
+          ]
+        },
+        {
+          "header": "## Γρήγορο Οδηγό Προφοράς",
+          "subsections": [
+            "### Οι 10 Πιο Σημαντικές Λέξεις για Ζευγάρια"
+          ]
+        },
+        {
+          "header": "## Ασκήσεις για Ζευγάρια",
+          "subsections": [
+            "### Πρακτική 1: Το Πρωί Μαζί",
+            "### Πρακτική 2: Το Βράδυ",
+            "### Πρακτική 3: Κομπλιμέντα"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0392d993-64ee-4e04-b30e-5f2886953ca3",
+      "title": "Gramática Danesa para Principiantes: Aprende Juntos con Tu Pareja",
+      "native_lang": "es",
+      "target_lang": "da",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Los Fundamentos (Reglas Core)",
+          "subsections": [
+            "### 1. El Orden de Palabras Básico",
+            "### 2. Los Artículos: En y Et",
+            "### 3. Pronombres Personales Simples",
+            "### 4. Verbos: La Magia del Presente"
+          ]
+        },
+        {
+          "header": "## Patrones Comunes en la Vida Diaria",
+          "subsections": [
+            "### El Verbo \"At Være\" (Ser/Estar)",
+            "### Frases Útiles con \"At Være\""
+          ]
+        },
+        {
+          "header": "## Errores Comunes que Parejas Cometen",
+          "subsections": [
+            "### 1. Confundir \"Jeg\" y \"Mig\"",
+            "### 2. Olvidar el Artículo",
+            "### 3. Orden de Palabras en Preguntas"
+          ]
+        },
+        {
+          "header": "## Guía Rápida de Referencia",
+          "subsections": [
+            "### Artículos",
+            "### Verbos Essenciales",
+            "### Preguntas Básicas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "040d7e4a-a831-4ea2-91a4-e4257188d9d1",
+      "title": "Die Familie deines tschechischen Partners treffen: Wichtige Phrasen zum Beeindrucken",
+      "native_lang": "de",
+      "target_lang": "cs",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Familienmitglieder begrüßen und ansprechen",
+          "subsections": [
+            "### Spezifische Begrüßungen für verschiedene Familienmitglieder:"
+          ]
+        },
+        {
+          "header": "## Gesprächsstarter und Small Talk",
+          "subsections": [
+            "### Über das Wetter sprechen (immer ein sicheres Thema):",
+            "### Über die Familie erfahren:",
+            "### Über Tschechien sprechen:"
+          ]
+        },
+        {
+          "header": "## Was tun, wenn etwas schiefgeht?",
+          "subsections": [
+            "### Verständnisprobleme:",
+            "### Sich für Verspätung entschuldigen:",
+            "### Nervosität ausdrücken:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0460ab65-2c53-4edb-a293-af53770d29af",
+      "title": "Conhecendo a Família do Seu Parceiro em Francês: Frases Essenciais para Impressionar",
+      "native_lang": "pt",
+      "target_lang": "fr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Conversas que Conquistam",
+          "subsections": [
+            "### Sobre o Brasil",
+            "### Sobre sua relação",
+            "### Elogios discretos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "04c61e56-ffbe-4e87-9bcf-5f18cc270273",
+      "title": "Знайомство з родиною вашого партнера французькою: фрази для впевненого спілкування",
+      "native_lang": "uk",
+      "target_lang": "fr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Типові сценарії знайомства",
+          "subsections": [
+            "### Сценарій 1: Привітання батьків",
+            "### Сценарій 2: Розмова про те, як ви познайомилися",
+            "### Сценарій 3: Компліменти про будинок або їжу"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "08105a6c-90ff-495e-9754-e972cc7f6299",
+      "title": "Rosyjska wymowa dla początkujących: Jak mówić do serca swojego partnera",
+      "native_lang": "pl",
+      "target_lang": "ru",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Najczęstsze błędy Polaków (i jak ich unikać!)",
+          "subsections": [
+            "### 🚫 Błąd 1: \"Ы\" zamiast \"И\"",
+            "### 🚫 Błąd 2: Twarda wymowa \"C\"",
+            "### 🚫 Błąd 3: Nacisk na złą sylabę"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "094aca07-59bf-4712-98a7-7ef143e963c7",
+      "title": "Conoscere la Famiglia del Tuo Partner Danese: Frasi Essenziali per Colpire Tutti",
+      "native_lang": "it",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Scenari Comuni Durante la Visita",
+          "subsections": [
+            "### Durante il Pranzo/Dinner",
+            "### Guardare le Foto di Famiglia",
+            "### Aiutare in Cucina"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "09597ade-0b73-4a6d-bee9-db0af8fa393a",
+      "title": "Conocer a la familia de tu pareja en francés: Frases esenciales para causar una buena impresión",
+      "native_lang": "es",
+      "target_lang": "fr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Escenarios comunes durante la visita",
+          "subsections": [
+            "### Cuando llegas a casa",
+            "### En la mesa durante la cena",
+            "### Conversación después de la cena"
+          ]
+        }
+      ]
+    }
+  ]
+}

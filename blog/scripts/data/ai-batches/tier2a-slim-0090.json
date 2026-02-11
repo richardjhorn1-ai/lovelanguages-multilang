@@ -1,0 +1,464 @@
+{
+  "batchId": "tier2a-slim-0090",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "6c5ed512-098d-4dfa-b31f-89d29fa4dc14",
+      "title": "Como Escrever Cartas de Amor em Húngaro: Romance Magyar",
+      "native_lang": "pt",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Estrutura de uma Carta de Amor",
+          "subsections": [
+            "### Abertura Carinhosa",
+            "### Expressando Seus Sentimentos",
+            "### Declarações de Amor",
+            "### Promessas",
+            "### Encerramentos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6c61e74a-001d-47a1-906b-5d392e680784",
+      "title": "Ukrajinské fráze Chybíš mi pro Čechy",
+      "native_lang": "cs",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní fráze",
+          "subsections": [
+            "### \"Я сумую за тобою.\"",
+            "### \"Я дуже сумую за тобою.\"",
+            "### \"Мені тебе не вистачає.\"",
+            "### \"Хотіла/хотів би, щоб ти був/була тут.\""
+          ]
+        },
+        {
+          "header": "## Romantické fráze",
+          "subsections": [
+            "### \"Кожна мить без тебе - вічність.\"",
+            "### \"Моє серце з тобою.\"",
+            "### \"Рахую дні до нашої зустрічі.\"",
+            "### \"Ти моя перша думка вранці і остання ввечері.\""
+          ]
+        },
+        {
+          "header": "## Fráze pro zprávy",
+          "subsections": [
+            "### \"Думаю про тебе.\"",
+            "### \"Не можу дочекатися обійняти тебе.\"",
+            "### \"Відстань не змінює моїх почуттів.\""
+          ]
+        },
+        {
+          "header": "## Povzbudivé fráze",
+          "subsections": [
+            "### \"Скоро будемо разом.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6c914006-cdd9-4b37-af32-877e16cc3793",
+      "title": "Engelske Sætninger til at Møde Svigerforældre for Danskere",
+      "native_lang": "da",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Det Første Møde",
+          "subsections": [
+            "### \"It's so nice to finally meet you\"",
+            "### \"I've heard so much about you\"",
+            "### \"Thank you so much for having me\""
+          ]
+        },
+        {
+          "header": "## Komplimenter",
+          "subsections": [
+            "### \"You have a lovely home\"",
+            "### \"This meal is absolutely delicious\"",
+            "### \"I can see where [partner] gets their [quality] from\""
+          ]
+        },
+        {
+          "header": "## Samtale og Interesse",
+          "subsections": [
+            "### \"I'd love to hear more about [partner]'s childhood\"",
+            "### \"What do you like to do in your free time?\"",
+            "### \"How did you two meet?\""
+          ]
+        },
+        {
+          "header": "## Tilbud om Hjælp",
+          "subsections": [
+            "### \"Can I help with anything?\"",
+            "### \"Let me help you clear the table\"",
+            "### \"I'd be happy to do the dishes\""
+          ]
+        },
+        {
+          "header": "## Om Forholdet",
+          "subsections": [
+            "### \"Your son/daughter makes me very happy\"",
+            "### \"I feel very lucky to have met [partner]\"",
+            "### \"We're taking things one step at a time\""
+          ]
+        },
+        {
+          "header": "## Afsked",
+          "subsections": [
+            "### \"Thank you for a wonderful evening\"",
+            "### \"I hope we can do this again soon\"",
+            "### \"It was lovely to meet you\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6ca02c59-ae47-4ae2-832d-f506344c7780",
+      "title": "Holenderska wymowa dla początkujących: Jak mówić jak Twój partner",
+      "native_lang": "pl",
+      "target_lang": "nl",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Najtrudniejsze Dźwięki - Poradnik dla Zakochanych",
+          "subsections": [
+            "### Sch - holenderski szyk",
+            "### Ng - jak w \"sing\""
+          ]
+        },
+        {
+          "header": "## Najczęstsze Błędy (i Jak Ich Unikać)",
+          "subsections": [
+            "### 1. Twarda wymowa polskich \"t\" i \"d\"",
+            "### 2. Polskie \"ł\" zamiast holenderskiego \"w\"",
+            "### 3. Zapominanie o końcowych dźwiękach"
+          ]
+        },
+        {
+          "header": "## Szybki Przewodnik - Zapisz Sobie!",
+          "subsections": [
+            "### Podstawowe zasady wymowy:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6cc158c8-2462-44c7-9897-f37ae27124ea",
+      "title": "Ukrán nászutas utazási kifejezések",
+      "native_lang": "hu",
+      "target_lang": "uk",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Utazási alapkifejezések",
+            "### Romantikus helyzetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6ccbd6a9-8bc6-45f9-98c7-8fe73c6d032a",
+      "title": "Hiányzol kifejezések oroszul",
+      "native_lang": "hu",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető \"hiányzol\" kifejezések",
+          "subsections": [
+            "### 1. Я скучаю по тебе (Ja szkucsáju po tyebé)",
+            "### 2. Я очень скучаю по тебе (Ja ocseny szkucsáju po tyebé)",
+            "### 3. Ты мне очень нужен/нужна (Tü mnye ocseny núzsen/nuzsná)",
+            "### 4. Я постоянно думаю о тебе (Ja posztojánno dúmaju o tyebé)",
+            "### 5. Как бы я хотел/хотела, чтобы ты был/была здесь (Kak bü ja hatyél/hatyéla, stobü tü büil/büilá zdész)",
+            "### 6. Каждый момент без тебя пустой (Kazsdi moment bez tyebjá pusztój)",
+            "### 7. Ты всегда в моих мыслях (Tü vszegdá v moih müszljah)",
+            "### 8. Я считаю дни до нашей встречи (Ja scsitáju dnyi do násej vsztrecsi)",
+            "### 9. Моё сердце тоскует по тебе (Majó szerddce toszkújet po tyebé)",
+            "### 10. Расстояние не меняет моих чувств (Raszsztojányije nye menyájet moih csuvsztv)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6cceb256-d5ac-44d9-90e0-4d1ba05f4f27",
+      "title": "Czy rosyjski jest trudny do nauki? Przewodnik dla Polaków",
+      "native_lang": "pl",
+      "target_lang": "ru",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Wyzwania dla Polaków",
+          "subsections": [
+            "### 1. Cyrylica - nowy alfabet",
+            "### 2. Redukcja samogłosek",
+            "### 3. Akcent ruchomy",
+            "### 4. Aspekt czasowników"
+          ]
+        },
+        {
+          "header": "## Porównanie trudności",
+          "subsections": [
+            "### Rosyjski vs inne języki dla Polaków"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6cdb13dc-7823-4981-ae83-e8b2de0c5f6b",
+      "title": "Гид по испанскому произношению для пар: звучи как носитель вместе",
+      "native_lang": "ru",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Основные правила испанского произношения",
+          "subsections": [
+            "### 1. Гласные звуки — ваши лучшие друзья",
+            "### 2. Согласные, которые вас удивят",
+            "### 3. Ударение — музыка речи"
+          ]
+        },
+        {
+          "header": "## Сложные звуки для русскоговорящих",
+          "subsections": [
+            "### Буква R — ваша новая лучшая подруга",
+            "### Различие B и V"
+          ]
+        },
+        {
+          "header": "## Практические упражнения для пар",
+          "subsections": [
+            "### Упражнение 1: Зеркальная практика",
+            "### Упражнение 2: Романтический диктант",
+            "### Упражнение 3: Скороговорки-целования"
+          ]
+        },
+        {
+          "header": "## Шпаргалка по произношению",
+          "subsections": [
+            "### Гласные",
+            "### Дифтонги",
+            "### Сложные сочетания"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6cefc836-3748-42c3-9c0c-65c880dd0cce",
+      "title": "Engelske Flirtesætninger for Danskere",
+      "native_lang": "da",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Flirtesætninger",
+          "subsections": [
+            "### \"You have the most beautiful smile\"",
+            "### \"I can't stop thinking about you\"",
+            "### \"Would you like to grab a coffee sometime?\""
+          ]
+        },
+        {
+          "header": "## Romantiske Komplimenter",
+          "subsections": [
+            "### \"You're absolutely stunning\"",
+            "### \"There's something special about you\"",
+            "### \"I love the way you laugh\""
+          ]
+        },
+        {
+          "header": "## Legende Flirt",
+          "subsections": [
+            "### \"Are you always this charming?\"",
+            "### \"You're trouble, aren't you?\""
+          ]
+        },
+        {
+          "header": "## Dybere Forbindelse",
+          "subsections": [
+            "### \"I feel so comfortable around you\"",
+            "### \"You make me want to be a better person\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6cf7a72c-86d0-4274-9ee3-d41ac166c6f0",
+      "title": "Török kifejezések féltékenységhez és bizalomhoz",
+      "native_lang": "hu",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kifejezések a féltékenységhez",
+          "subsections": [
+            "### 1. \"Sen ... yaptığında kıskanıyorum\"",
+            "### 2. \"Beni rahatlatmana ihtiyacım var\"",
+            "### 3. \"Sana güveniyorum ama duygularımla mücadele ediyorum\"",
+            "### 4. \"Ne olduğu hakkında konuşabilir miyiz?\"",
+            "### 5. \"Kıskanç olmak istemiyorum ama...\"",
+            "### 6. \"Sana tamamen güveniyorum\"",
+            "### 7. \"Benim için tek kişi sensin\"",
+            "### 8. \"Seni incitecek hiçbir şey yapmam\"",
+            "### 9. \"Aramızda hiçbir şey yok\"",
+            "### 10. \"Sana sadığım\"",
+            "### 11. \"Birbirimize karşı dürüst olalım\"",
+            "### 12. \"Kıskançlığın aramızı açmasını istemiyorum\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6d085585-dabd-4366-b43f-c7ea8a7ccbb2",
+      "title": "Pronunția portugheză pentru începători: Ghidul complet pentru cupluri",
+      "native_lang": "ro",
+      "target_lang": "pt",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Sunetele portugheze esențiale",
+          "subsections": [
+            "### Vocalele - inimă limbii",
+            "### Consoanele speciale"
+          ]
+        },
+        {
+          "header": "## Greșelile comune și cum să le eviți",
+          "subsections": [
+            "### 1. **R-ul de la începutul cuvintelor**",
+            "### 2. **S-urile între vocale**",
+            "### 3. **Accentul greșit**"
+          ]
+        },
+        {
+          "header": "## Exerciții pentru cupluri",
+          "subsections": [
+            "### Exercițiul 1: Vocale nazale",
+            "### Exercițiul 2: R-ul portughez",
+            "### Exercițiul 3: Diminutive drăgăstoase"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6d40c3c4-97c7-4ea7-a9d6-a26b87187311",
+      "title": "Italian Verb Conjugation Basics",
+      "native_lang": "en",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Practice Activities for Couples",
+          "subsections": [
+            "### Morning Routine Conjugation",
+            "### Romantic Conjugation Game",
+            "### Daily Activities Chart"
+          ]
+        },
+        {
+          "header": "## Common Mistakes to Avoid",
+          "subsections": [
+            "### Subject Pronouns",
+            "### Formal vs. Informal \"You\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6d528a9d-efc1-4c45-8ee4-2bc40a702fb3",
+      "title": "İspanyolca İlk Buluşma İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Karşılama ve Tanışma",
+          "subsections": [
+            "### 1. \"Es un placer conocerte por fin\"",
+            "### 2. \"Te ves aún mejor que en tus fotos\"",
+            "### 3. \"Tenía muchas ganas de conocerte\""
+          ]
+        },
+        {
+          "header": "## Sohbet Başlatıcılar",
+          "subsections": [
+            "### 4. \"Cuéntame sobre ti\"",
+            "### 5. \"¿Qué te gusta hacer para divertirte?\"",
+            "### 6. \"¿Has estado aquí antes?\"",
+            "### 7. \"¿Qué tipo de música te gusta?\""
+          ]
+        },
+        {
+          "header": "## İltifatlar",
+          "subsections": [
+            "### 8. \"Tienes una sonrisa hermosa\"",
+            "### 9. \"Me encanta tu estilo\"",
+            "### 10. \"Eres muy fácil de hablar\""
+          ]
+        },
+        {
+          "header": "## Buluşmayı Sonlandırma",
+          "subsections": [
+            "### 11. \"La pasé muy bien\"",
+            "### 12. \"¿Podemos repetir esto algún día?\"",
+            "### 13. \"Me encantaría verte otra vez\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6d569c60-929c-4503-bf58-e9ec76920b04",
+      "title": "Græske udtryk til at møde svigerforældre",
+      "native_lang": "da",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Vigtige sætninger",
+          "subsections": [
+            "### 1. Χαίρω πολύ που σας γνωρίζω",
+            "### 2. Έχω ακούσει πολλά για εσάς",
+            "### 3. Σας ευχαριστώ πολύ για την πρόσκληση",
+            "### 4. Σας έφερα ένα μικρό δώρο",
+            "### 5. Έχετε ένα πολύ όμορφο σπίτι",
+            "### 6. Το φαγητό ήταν εξαιρετικό",
+            "### 7. Αγαπώ πολύ τον γιο/την κόρη σας",
+            "### 8. Είμαστε πολύ ευτυχισμένοι μαζί",
+            "### 9. Θα ήθελα να σας γνωρίσω καλύτερα",
+            "### 10. Μπορώ να βοηθήσω σε κάτι;",
+            "### 11. Είναι μια υπέροχη οικογενειακή παράδοση",
+            "### 12. Ανυπομονώ να σας ξαναδώ"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6d686483-542b-4ee9-9ac9-613ad2d6bfe5",
+      "title": "Hollandske fraser til forsoning og genopbygning af tillid",
+      "native_lang": "da",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser til forsoning",
+          "subsections": [
+            "### At undskylde oprigtigt",
+            "### At genopbygge forbindelsen",
+            "### At tilbyde forsoning",
+            "### At acceptere en undskyldning"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,412 @@
+{
+  "batchId": "tier2a-slim-0255",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "fcc5ad7e-0f62-4845-895e-8968c05e4629",
+      "title": "Dutch Forgiveness Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Asking for Forgiveness",
+          "subsections": [
+            "### Vergeef me"
+          ]
+        },
+        {
+          "header": "## Granting Forgiveness",
+          "subsections": [
+            "### Ik vergeef je"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fcf2fe37-6378-4a58-85ec-0825ec6b1e4e",
+      "title": "Er Ungarsk Vanskelig å Lære? En Ærlig Guide for Par",
+      "native_lang": "no",
+      "target_lang": "hu",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hva Som Gjør Ungarsk Vanskelig",
+          "subsections": [
+            "### Utfordringene:"
+          ]
+        },
+        {
+          "header": "## Hva Som Gjør Det Lettere",
+          "subsections": [
+            "### Fordelene:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fcfff343-66d7-4e6f-852b-48f5d7b3ef1e",
+      "title": "Portekizce Barışma ve Uzlaşma İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Barışma İfadeleri",
+          "subsections": [
+            "### 1. \"Me perdoa pelo que eu disse\"",
+            "### 2. \"Podemos começar do zero?\"",
+            "### 3. \"Odeio brigar com você\"",
+            "### 4. \"Não vamos dormir brigados\"",
+            "### 5. \"Eu te perdoo\"",
+            "### 6. \"Eu estava errado/a\"",
+            "### 7. \"Como posso compensar?\"",
+            "### 8. \"Te amo mais do que essa discussão\"",
+            "### 9. \"Vamos resolver isso juntos\"",
+            "### 10. \"Sinto falta de como éramos antes da briga\"",
+            "### 11. \"Você é tudo para mim\"",
+            "### 12. \"Prometo melhorar\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fd0e4234-079d-4b2d-b096-741565a159c5",
+      "title": "Greckie zwroty do kłótni i nieporozumień dla par",
+      "native_lang": "pl",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Wyrażanie niezgody",
+          "subsections": [
+            "### \"Δεν συμφωνώ μαζί σου\"",
+            "### \"Το βλέπω διαφορετικά\"",
+            "### \"Μπορούμε να το συζητήσουμε ήρεμα;\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie uczuć",
+          "subsections": [
+            "### \"Νιώθω απογοητευμένος/απογοητευμένη όταν...\"",
+            "### \"Αυτό με ενοχλεί πολύ\"",
+            "### \"Χρειάζομαι λίγο χρόνο για τον εαυτό μου\""
+          ]
+        },
+        {
+          "header": "## Zrozumienie partnera",
+          "subsections": [
+            "### \"Βοήθησέ με να καταλάβω την άποψή σου\"",
+            "### \"Αν κατάλαβα σωστά...\"",
+            "### \"Εννοείς ότι...;\""
+          ]
+        },
+        {
+          "header": "## Szukanie rozwiązań",
+          "subsections": [
+            "### \"Πώς μπορούμε να το λύσουμε μαζί;\"",
+            "### \"Ας βρούμε έναν συμβιβασμό\"",
+            "### \"Νομίζω ότι και οι δύο πρέπει να...\""
+          ]
+        },
+        {
+          "header": "## Łagodzenie napięcia",
+          "subsections": [
+            "### \"Σ'αγαπώ, ακόμα και όταν τσακωνόμαστε\"",
+            "### \"Θα τα καταφέρουμε μαζί\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fd3b060f-82fa-42dd-b3f3-be00023d12a0",
+      "title": "Τσεχικές Φράσεις Συμφιλίωσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις Συμφιλίωσης",
+          "subsections": [
+            "### Έναρξη Συμφιλίωσης",
+            "### Έκφραση Μετάνοιας",
+            "### Έκφραση Αγάπης",
+            "### Πρόταση Λύσης"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fd3d3216-a97b-436a-a19c-07accbbd463c",
+      "title": "50+ Italienische Liebesphrasen: Amore pur",
+      "native_lang": "de",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Romantische Alltagsphrasen",
+          "subsections": [
+            "### Morgengrüße",
+            "### Abschiedsphrasen",
+            "### Gute-Nacht-Phrasen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fd4269d4-0e91-4791-8bb0-86f24fd29186",
+      "title": "Engelse Zinnen over Jaloezie en Vertrouwen",
+      "native_lang": "nl",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"I feel insecure when...\"",
+            "### 2. \"I trust you completely\"",
+            "### 3. \"Can you reassure me?\"",
+            "### 4. \"I'm not jealous, just concerned\"",
+            "### 5. \"Who was that you were talking to?\"",
+            "### 6. \"I need to know I can trust you\"",
+            "### 7. \"You have nothing to worry about\"",
+            "### 8. \"I only have eyes for you\"",
+            "### 9. \"Let's talk about what's bothering you\"",
+            "### 10. \"I would never do anything to hurt you\"",
+            "### 11. \"Your past doesn't define us\"",
+            "### 12. \"I'm working on my insecurities\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fd56b9af-bd09-4502-a0d1-a8c7a531764e",
+      "title": "Saludos y Despedidas en Turco para Parejas",
+      "native_lang": "es",
+      "target_lang": "tr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Despedidas",
+          "subsections": [
+            "### Despedidas Casuales",
+            "### Despedidas Románticas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fd692f14-f002-42a8-ad99-bee6da734893",
+      "title": "Нідерландські фрази про прощення",
+      "native_lang": "uk",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Прохання про прощення",
+          "subsections": [
+            "### \"Vergeef me alsjeblieft\"",
+            "### \"Ik hoop dat je me kunt vergeven\""
+          ]
+        },
+        {
+          "header": "## Надання прощення",
+          "subsections": [
+            "### \"Ik vergeef je\"",
+            "### \"Het is oké, ik begrijp het\"",
+            "### \"Iedereen maakt fouten\""
+          ]
+        },
+        {
+          "header": "## Обіцянки",
+          "subsections": [
+            "### \"Ik beloof dat het niet meer zal gebeuren\"",
+            "### \"Hoe kan ik het goedmaken?\"",
+            "### \"Geef me nog een kans\""
+          ]
+        },
+        {
+          "header": "## Труднощі",
+          "subsections": [
+            "### \"Ik ben nog niet klaar om te vergeven\"",
+            "### \"Ik heb meer tijd nodig\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fd70f868-8642-4d1e-8a56-10f366c6b7b4",
+      "title": "Italienska Fraser för Försoning och Att Göra Upp",
+      "native_lang": "sv",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Inleda Försoning",
+          "subsections": [
+            "### 1. \"Mi dispiace tanto\"",
+            "### 2. \"Possiamo ricominciare da capo?\"",
+            "### 3. \"Odio litigare con te\"",
+            "### 4. \"Sei tutto per me\"",
+            "### 5. \"Avevo torto e lo ammetto\""
+          ]
+        },
+        {
+          "header": "## Fraser för Djupare Försoning",
+          "subsections": [
+            "### 6. \"Non andiamo a letto arrabbiati\"",
+            "### 7. \"Ti amo più di qualsiasi litigio\"",
+            "### 8. \"Mi fai un abbraccio?\"",
+            "### 9. \"Voglio capirti meglio\"",
+            "### 10. \"Siamo più forti di così\"",
+            "### 11. \"Prometto di fare meglio\"",
+            "### 12. \"Grazie per la tua pazienza con me\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fd72725c-26a6-4a0f-8fa4-a7be6780b3b7",
+      "title": "Guten Morgen und Gute Nacht auf Spanisch – Süße Phrasen für jeden Tag",
+      "native_lang": "de",
+      "target_lang": "es",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Guten Morgen sagen",
+          "subsections": [
+            "### Klassische Morgengrüße",
+            "### Romantische Morgengrüße"
+          ]
+        },
+        {
+          "header": "## Gute Nacht sagen",
+          "subsections": [
+            "### Klassische Nachtgrüße",
+            "### Romantische Nachtgrüße"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fd96e7ad-c021-4278-9767-d2140ffe4e4e",
+      "title": "Frases en Italiano para Pedir y Ofrecer Perdón a tu Pareja",
+      "native_lang": "es",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Pedir Perdón",
+          "subsections": [
+            "### \"Mi dispiace davvero\"",
+            "### \"Per favore, perdonami\"",
+            "### \"So di averti ferito/a, e me ne pento profondamente\"",
+            "### \"Ho sbagliato a farlo\"",
+            "### \"Come posso farmi perdonare?\"",
+            "### \"Ti prometto che non succederà più\""
+          ]
+        },
+        {
+          "header": "## Frases para Ofrecer Perdón",
+          "subsections": [
+            "### \"Ti perdono\"",
+            "### \"Lasciamoci tutto alle spalle\"",
+            "### \"Sono pronto/a ad andare avanti\"",
+            "### \"Tutti sbagliano\"",
+            "### \"Apprezzo le tue scuse\"",
+            "### \"Ti amo ancora\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fdb357bc-d673-4481-93b6-56bde5203df4",
+      "title": "Expresii despre Gelozie și Încredere în Cuplu în Suedeză",
+      "native_lang": "ro",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii pentru a Discuta despre Gelozie",
+          "subsections": [
+            "### Recunoașterea Sentimentelor",
+            "### Construirea Încrederii",
+            "### Răspunsuri la Gelozie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fdbf40cd-7839-491e-b456-ed3fe74dc427",
+      "title": "Przewodnik po wymowie tureckiej dla polskich par",
+      "native_lang": "pl",
+      "target_lang": "tr",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Spolgloski tureckie",
+          "subsections": [
+            "### Spolgloski podobne do polskich",
+            "### Spolgloski specjalne",
+            "### 'Ğ' - Miękkie G"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia wymowy dla par",
+          "subsections": [
+            "### Cwiczenie 1: Samogloski",
+            "### Cwiczenie 2: Trudne spolgloski",
+            "### Cwiczenie 3: Romantyczne frazy"
+          ]
+        },
+        {
+          "header": "## Typowe bledy Polaków",
+          "subsections": [
+            "### Bled 1: Mylenie \"ı\" i \"i\"",
+            "### Bled 2: Ignorowanie 'ğ'",
+            "### Bled 3: Mylenie \"c\" i \"ç\""
+          ]
+        },
+        {
+          "header": "## Intonacja w zdaniach",
+          "subsections": [
+            "### Zdania oznajmujace",
+            "### Pytania tak/nie",
+            "### Pytania że slowem pytajnym"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fddc5cd6-03a4-432e-a324-9caa453b9238",
+      "title": "Ungarische Aussprache: Ein Guide für Deutsche",
+      "native_lang": "de",
+      "target_lang": "hu",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Vokale",
+          "subsections": [
+            "### Kurze Vokale",
+            "### Lange Vokale (mit Akzent)"
+          ]
+        },
+        {
+          "header": "## Konsonanten",
+          "subsections": [
+            "### Einfache Konsonanten (wie im Deutschen)",
+            "### Besondere Konsonanten",
+            "### Doppelkonsonanten"
+          ]
+        },
+        {
+          "header": "## Häufige Fehler vermeiden",
+          "subsections": [
+            "### S vs. Sz",
+            "### A vs. Á"
+          ]
+        }
+      ]
+    }
+  ]
+}

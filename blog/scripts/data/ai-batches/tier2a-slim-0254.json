@@ -1,0 +1,509 @@
+{
+  "batchId": "tier2a-slim-0254",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "fc293498-95af-4ac6-b3ef-83ae908e96dc",
+      "title": "Çekçe Aşk Mektubu Yazma Rehberi: Romantik İfadeler",
+      "native_lang": "tr",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Mektuba Başlangıç",
+          "subsections": [
+            "### 1. \"Drahá\" / \"Drahý\" + isim",
+            "### 2. \"Má lásko\"",
+            "### 3. \"Moje srdce\""
+          ]
+        },
+        {
+          "header": "## Duygu İfadeleri",
+          "subsections": [
+            "### 4. \"Miluji tě víc, než slova dokážou popsat\"",
+            "### 5. \"Jsi pro mě všechno\"",
+            "### 6. \"Můj život se změnil v den, kdy jsem tě potkal/a\"",
+            "### 7. \"Děláš každý den výjimečným\"",
+            "### 8. \"Jsem vděčný/á za každou chvíli s tebou\"",
+            "### 9. \"Jsi nejkrásnější člověk, kterého znám\"",
+            "### 10. \"Chci s tebou strávit zbytek života\""
+          ]
+        },
+        {
+          "header": "## Mektubu Bitirme",
+          "subsections": [
+            "### 11. \"S veškerou láskou\"",
+            "### 12. \"Navždy tvůj/tvá\"",
+            "### 13. \"Miluji tě\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fc2a6f64-f8e2-47d2-8ef2-5dd1d153fe06",
+      "title": "Φράσεις «Μου Λείπεις» στα Ισπανικά",
+      "native_lang": "el",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις",
+          "subsections": [
+            "### 1. Te echo de menos",
+            "### 2. Te extraño (Λατινική Αμερική)",
+            "### 3. Te echo mucho de menos",
+            "### 4. No puedo dejar de pensar en ti",
+            "### 5. Ojalá estuvieras aquí",
+            "### 6. Siempre estás en mi mente",
+            "### 7. Me haces mucha falta",
+            "### 8. Cada día sin ti es difícil",
+            "### 9. Cuento los días para verte",
+            "### 10. Mi corazón te anhela"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fc3035bd-a676-4242-b222-a334bc0d5990",
+      "title": "Erros Comuns de Brasileiros ao Falar Espanhol: Como Evitá-los",
+      "native_lang": "pt",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Falsos Cognatos: Os Piores Vilões",
+          "subsections": [
+            "### Vergüenza ≠ Vergonha"
+          ]
+        },
+        {
+          "header": "## Erros de Pronúncia",
+          "subsections": [
+            "### O Som do J e G",
+            "### O Som do Ñ"
+          ]
+        },
+        {
+          "header": "## Erros com Verbos",
+          "subsections": [
+            "### Ser vs Estar",
+            "### Tener vs Haber",
+            "### Conjugações que Confundem"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fc359f22-b1ec-4c9e-ada6-fa54ba9b9e68",
+      "title": "Portuguese Baby & Pregnancy Vocabulary: Essential Words for Expecting Couples",
+      "native_lang": "en",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Announcing the News",
+          "subsections": [
+            "### To Your Partner's Family",
+            "### To Friends"
+          ]
+        },
+        {
+          "header": "## Nursery and Baby Items",
+          "subsections": [
+            "### Setting Up the quarto do bebê",
+            "### Shopping Vocabulary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fc372502-8a46-443d-b67c-b47bc5d9ab6b",
+      "title": "Danish Arguing & Disagreement Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressing Disagreement",
+          "subsections": [
+            "### Jeg er ikke enig",
+            "### Det er ikke fair",
+            "### Du misforstår mig",
+            "### Du lytter ikke til mig"
+          ]
+        },
+        {
+          "header": "## Expressing Frustration",
+          "subsections": [
+            "### Jeg er frustreret",
+            "### Det generer mig, når...",
+            "### Jeg har brug for et øjeblik",
+            "### Det gør ondt"
+          ]
+        },
+        {
+          "header": "## Setting Boundaries",
+          "subsections": [
+            "### Tal ikke sådan til mig",
+            "### Det går for vidt",
+            "### Vi skal tale roligt om det her"
+          ]
+        },
+        {
+          "header": "## Seeking Resolution",
+          "subsections": [
+            "### Kan vi finde en løsning sammen?",
+            "### Jeg vil gerne forstå dig",
+            "### Hvad kan vi gøre?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fc379596-06a5-4f4e-8d15-f031b4f6aef7",
+      "title": "Ukrán kifejezések érzelmi támogatáshoz és vigasztaláshoz",
+      "native_lang": "hu",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető vigasztaló kifejezések",
+          "subsections": [
+            "### Я поруч (Ya poruch)",
+            "### Все буде добре (Vse bude dobre)",
+            "### Все налагодиться (Vse nalahodytsya)",
+            "### Мені дуже шкода, що тобі доводиться через це проходити"
+          ]
+        },
+        {
+          "header": "## Empátia kifejezése",
+          "subsections": [
+            "### Я розумію, як тобі важко (Ya rozumiyu, yak tobi vazhko)",
+            "### Це, напевно, дуже важко (Tse, napevno, duzhe vazhko)",
+            "### Твої почуття зрозумілі (Tvoi pochuttya zrozumili)",
+            "### Це нормально так себе почувати (Tse normalno tak sebe pochuvaty)"
+          ]
+        },
+        {
+          "header": "## Támogatás felajánlása",
+          "subsections": [
+            "### Що тобі зараз потрібно? (Shcho tobi zaraz potribno?)",
+            "### Як я можу допомогти? (Yak ya mozhu dopomohty?)",
+            "### Я тут, щоб тебе вислухати (Ya tut, shchob tebe vyslukhaty)",
+            "### Не поспішай (Ne pospishay)"
+          ]
+        },
+        {
+          "header": "## Gyász és veszteség",
+          "subsections": [
+            "### Мені дуже шкода через твою втрату (Meni duzhe shkoda cherez tvoyu vtratu)",
+            "### Він/Вона завжди буде у твоєму серці (Vin/Vona zavzhdy bude u tvoyemu sertsi)",
+            "### Мої співчуття (Moyi spivchuttya)",
+            "### Тримайся (Trymaysya)"
+          ]
+        },
+        {
+          "header": "## Nehéz időkben",
+          "subsections": [
+            "### Ти не сам/сама в цьому (Ty ne sam/sama v tsomu)",
+            "### Ми пройдемо через це разом (My proydemo cherez tse razom)",
+            "### Ти сильніший/сильніша, ніж думаєш (Ty sylnishyy/sylnisha, nizh dumayesh)",
+            "### Це теж мине (Tse tezh myne)"
+          ]
+        },
+        {
+          "header": "## Bátorítás",
+          "subsections": [
+            "### Я вірю в тебе (Ya viryu v tebe)",
+            "### Ти впораєшся (Ty vporayeshsya)",
+            "### Я пишаюся тобою (Ya pyshayusya toboyu)"
+          ]
+        },
+        {
+          "header": "## Szeretetteljes kifejezések",
+          "subsections": [
+            "### Я тебе кохаю, коханий/кохана (Ya tebe kokhayu, kokhanyy/kokhana)",
+            "### Я завжди буду поруч (Ya zavzhdy budu poruch)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fc3a0405-7cb0-401b-bb27-56c33387171c",
+      "title": "Russiske sms- og chatbeskeder til par",
+      "native_lang": "da",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende kærlige beskeder",
+          "subsections": [
+            "### \"Я скучаю по тебе\" (Ya skuchayu po tebe)",
+            "### \"Думаю о тебе\" (Dumayu o tebe)",
+            "### \"Не могу дождаться встречи\" (Ne mogu dozhdatsya vstrechi)"
+          ]
+        },
+        {
+          "header": "## Populære russiske kælenavne",
+          "subsections": [
+            "### \"Любимый\" / \"Любимая\" (Lyubimyy/Lyubimaya)",
+            "### \"Солнышко\" (Solnyshko)",
+            "### \"Зайка\" / \"Зайчик\" (Zayka/Zaychik)"
+          ]
+        },
+        {
+          "header": "## Russiske sms-forkortelser",
+          "subsections": [
+            "### \"Я тебя люблю\" / \"ЛЮ\" (Ya tebya lyublyu)",
+            "### \"Целую\" (Tseluyu)",
+            "### \"Спокойной ночи\" / \"СН\" (Spokoynoy nochi)"
+          ]
+        },
+        {
+          "header": "## Romantiske beskeder",
+          "subsections": [
+            "### \"Ты для меня всё\" (Ty dlya menya vsyo)",
+            "### \"Доброе утро, любимая\" (Dobroye utro, lyubimaya)",
+            "### \"Сладких снов, милая\" (Sladkikh snov, milaya)"
+          ]
+        },
+        {
+          "header": "## Hverdagsbeskeder",
+          "subsections": [
+            "### \"Как дела?\" (Kak dela?)",
+            "### \"Уже еду\" (Uzhe yedu)",
+            "### \"Пока\" (Poka)"
+          ]
+        },
+        {
+          "header": "## Specielle udtryk",
+          "subsections": [
+            "### \"Котик\" / \"Котёнок\" (Kotik/Kotyonok)",
+            "### \"Я без тебя не могу\" (Ya bez tebya ne mogu)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fc5c7c5f-9db7-4bd4-beff-1aba6d8cf39e",
+      "title": "Angielskie zwroty o przebaczeniu dla par",
+      "native_lang": "pl",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Proszenie o przebaczenie",
+          "subsections": [
+            "### \"Please forgive me\"",
+            "### \"I hope you can forgive me\"",
+            "### \"Can you find it in your heart to forgive me?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie przebaczenia",
+          "subsections": [
+            "### \"I forgive you\"",
+            "### \"It's okay, I understand\"",
+            "### \"Let's move past this\""
+          ]
+        },
+        {
+          "header": "## Proces przebaczenia",
+          "subsections": [
+            "### \"I'm working on forgiving you\"",
+            "### \"I need some time, but I will forgive you\"",
+            "### \"I'm not ready yet, but I want to get there\""
+          ]
+        },
+        {
+          "header": "## Głębokie przebaczenie",
+          "subsections": [
+            "### \"I forgive you completely\"",
+            "### \"I'm letting go of the hurt\"",
+            "### \"I won't bring this up again\""
+          ]
+        },
+        {
+          "header": "## Wspólne wyjście naprzód",
+          "subsections": [
+            "### \"Let's start fresh\"",
+            "### \"Our love is stronger than this mistake\"",
+            "### \"We can get through this together\""
+          ]
+        },
+        {
+          "header": "## Granice przebaczenia",
+          "subsections": [
+            "### \"I forgive you, but this can't happen again\"",
+            "### \"I need to see change to fully heal\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fc7c5810-32c8-4c93-a155-6e60aaf105ee",
+      "title": "Falsos Amigos: Frances vs. Portugues",
+      "native_lang": "pt",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Exercicio para Casais",
+          "subsections": [
+            "### Jogo dos Falsos Amigos",
+            "### Criando Frases"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fc7e0dc3-4ac3-43bf-ad17-651ca37a48d6",
+      "title": "Spaanse Zinnen over Vergeving",
+      "native_lang": "nl",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Lo siento de verdad\"",
+            "### 2. \"Por favor, perdóname\"",
+            "### 3. \"Te perdono\"",
+            "### 4. \"¿Puedes encontrar en tu corazón perdonarme?\"",
+            "### 5. \"Estaba equivocado/a y lo siento\"",
+            "### 6. \"Nunca lo volveré a hacer\"",
+            "### 7. \"¿Qué puedo hacer para compensarte?\"",
+            "### 8. \"Acepto tu disculpa\"",
+            "### 9. \"Superemos esto\"",
+            "### 10. \"Sé que te hice daño\"",
+            "### 11. \"Prometo hacerlo mejor\"",
+            "### 12. \"Lleva tiempo, pero intentaré perdonar\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fc82165c-a9c7-4777-95c6-8327071e6219",
+      "title": "Francia Kifejezések a Leendő Apóséknak – Bemutatkozás és Első Találkozás",
+      "native_lang": "hu",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bemutatkozás",
+          "subsections": [
+            "### 1. Je suis ravi(e) de vous rencontrer.",
+            "### 2. J'ai beaucoup entendu parler de vous.",
+            "### 3. Merci de m'accueillir chez vous.",
+            "### 4. [Prénom] parle toujours très bien de vous.",
+            "### 5. Je suis très heureux/heureuse d'être ici."
+          ]
+        },
+        {
+          "header": "## Bókok és Elismerések",
+          "subsections": [
+            "### 6. Vous avez une maison magnifique.",
+            "### 7. C'est délicieux.",
+            "### 8. Je comprends maintenant d'où [partenaire] tient sa [qualité].",
+            "### 9. Merci d'avoir élevé une personne aussi merveilleuse."
+          ]
+        },
+        {
+          "header": "## Udvariasságok",
+          "subsections": [
+            "### 10. Puis-je vous aider?",
+            "### 11. Laissez-moi faire la vaisselle.",
+            "### 12. J'aimerais en savoir plus sur [sujet]."
+          ]
+        },
+        {
+          "header": "## Kulturális Tippek",
+          "subsections": [
+            "### La Bise",
+            "### Magázás (Vouvoiement)",
+            "### Étkezés",
+            "### Ajándék"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fc971960-cfa2-44a1-991c-dec2b1e7634f",
+      "title": "Guide de prononciation norvégienne pour débutants : Parlez à votre partenaire avec confiance",
+      "native_lang": "fr",
+      "target_lang": "no",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Astuces pour améliorer rapidement",
+          "subsections": [
+            "### 1. Enregistrez-vous",
+            "### 2. Chantez ensemble",
+            "### 3. Répétez, répétez, répétez",
+            "### 4. Focus sur les phrases utiles"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fca9f060-bdbc-4a42-82fd-6cdf2123fc45",
+      "title": "Salutations et au revoir en tchèque : guide complet",
+      "native_lang": "fr",
+      "target_lang": "cs",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Au revoir",
+          "subsections": [
+            "### Informel",
+            "### Formel",
+            "### Romantique"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fcb385fb-d325-4361-b674-13437606ec22",
+      "title": "Conversazioni Quotidiane in Ungherese per Coppie",
+      "native_lang": "it",
+      "target_lang": "hu",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Prima di Uscire",
+          "subsections": [
+            "### Dialogo"
+          ]
+        },
+        {
+          "header": "## Conversazione Serale",
+          "subsections": [
+            "### Dialogo: Bentornato/a"
+          ]
+        },
+        {
+          "header": "## Prima di Dormire",
+          "subsections": [
+            "### Dialogo: Buonanotte"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fcb4f52e-25e3-4484-b718-cf6eb6e89278",
+      "title": "50+ Frases Francesas para Encontros Românticos de Sonho",
+      "native_lang": "pt",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Planeje seu Encontro Frances",
+          "subsections": [
+            "### Em Casa",
+            "### Em um Restaurante"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0414",
+  "articles": [
+    {
+      "id": "769c6c88-7edc-41e1-bcd8-024e84deeadb",
+      "title": "Czeskie powitania i pożegnania",
+      "native_lang": "pl",
+      "target_lang": "cs",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nCzeskie powitania są bardzo podobne do polskich! Jako Polak szybko je opanujesz. Poznaj najważniejsze zwroty!\n\n## Podstawowe powitania\n\n<PhraseOfDay\n  word=\"Ahoj\"\n  translation=\"Cześć\"\n  pronunciation=\"a-hoj\"\n  context=\"Uniwersalne nieformalne powitanie\"\n/>\n\n| Czeski | Wymowa | Polski | Formalność |\n|--------|--------|--------|------------|\n| **Ahoj** | a-hoj | Cześć | Nieformalne |\n| **Cau** | czau | Cześć/Pa | Nieformalne |\n| **Dobry den** | dob-ri den | Dzień dobry | Formalne |\n| **Nazdar** | naz-dar | Siema | Bardzo nieformalne |\n\n<CultureTip title=\"Ahoj!\" flag=\"🇨🇿\">\n\"Ahoj\" to najpopularniejsze czeskie powitanie! Można go użyć zarówno na powitanie jak i pożegnańie - jak polskie \"cześć\".\n</CultureTip>\n\n## Powitania zależne od pory dnia\n\n<VocabCard\n  word=\"Dobre rano\"\n  translation=\"Dzień dobry (rano)\"\n  pronunciation=\"dob-re ra-no\"\n  example=\"Dobre rano, złoto! Jak ses vyspal/a?\"\n/>\n\n| Czeski | Wymowa | Polski | Kiedy |\n|--------|--------|--------|-------|\n| **Dobre rano** | dob-re ra-no | Dzień dobry | Do 9:00 |\n| **Dobry den** | dob-ri den | Dzień dobry | 9:00-18:00 |\n| **Dobry vecer** | dob-ri ve-czer | Dobry wieczor | Po 18:00 |\n| **Dobrou noc** | dob-rou noc | Dobranoc | Przed snem |\n\n## Nieformalne powitania\n\n<PhraseOfDay\n  word=\"Nazdar!\"\n  translation=\"Siema!\"\n  pronunciation=\"naz-dar\"\n  context=\"Bardzo nieformalne powitanie\"\n/>\n\n| Czeski | Wymowa | Polski |\n|--------|--------|--------|\n| **Ahoj** | a-hoj | Cześć |\n| **Cau** | czau | Cześć |\n| **Nazdar** | naz-dar | Siema |\n| **Zdar** | zdar | Ejo |\n| **Cus** | czus | Hej |\n\n## Powitania dla par\n\n<VocabCard\n  word=\"Ahoj złoto\"\n  translation=\"Cześć zlotko\"\n  pronunciation=\"a-hoj zla-to\"\n  example=\"Ahoj złoto! Jak se mas?\"\n/>\n\n| Czeski | Wymowa | Polski |\n|--------|--------|--------|\n| **Ahoj lasko** | a-hoj las-ko | Cześć kochanie |\n| **Dobre rano miláčku** | dob-re ra-no mi-lacz-ku | Dzień dobry kochanie |\n| **Ahoj srdícko** | a-hoj sr-dicz-ko | Cześć serduszko |\n| **Cau krasna** | czau kras-na | Cześć piękna |\n\n## Pytanie o samopoczucie\n\n<PhraseOfDay\n  word=\"Jak se máš?\"\n  translation=\"Jak się masz?\"\n  pronunciation=\"jak se masz\"\n  context=\"Standardowe pytanie po powitaniu\"\n/>\n\n| Czeski | Wymowa | Polski |\n|--------|--------|--------|\n| **Jak se mas?** | jak se masz | Jak się masz? |\n| **Jak se vede?** | jak se ve-de | Jak leci? |\n| **Co je noveho?** | co je no-ve-ho | Co nowego? |\n| **Vsechno v poradku?** | vszech-no v po-rzad-ku | Wszystko w porządku? |\n| **A ty?** | a ti | A ty? |\n\n### Odpowiedzi\n\n| Czeski | Wymowa | Polski |\n|--------|--------|--------|\n| **Dobre, dekuji** | dob-rze, de-ku-ji | Dobrze, dziekuje |\n| **Skvele!** | skve-le | Świetnie! |\n| **Vyborne!** | vi-bor-nie | Doskonale! |\n| **Ujde to** | uj-de to | Tak sobie |\n| **Moc ne** | moc ne | Nie za dobrze |\n\n<CultureTip title=\"Szczera odpowiedz\" flag=\"🇨🇿\">\nCzesi moga odpowiedziec szczerze na \"Jak se mas?\" - jeśli maja zly dzień, powiedza! To nie tylko grzecznosc.\n</CultureTip>\n\n## Pozegnania podstawowe\n\n<VocabCard\n  word=\"Na shledanou\"\n  translation=\"Do widzenia\"\n  pronunciation=\"na schle-da-nou\"\n  example=\"Na shledanou! Uvidime se zitra!\"\n/>\n\n| Czeski | Wymowa | Polski | Formalność |\n|--------|--------|--------|------------|\n| **Na shledanou** | na schle-da-nou | Do widzenia | Formalne |\n| **Ahoj** | a-hoj | Pa | Nieformalne |\n| **Cau** | czau | Pa | Nieformalne |\n| **Mejse** | mej-se | Trzymaj się | Bardzo nieformalne |\n\n## Pozegnania z konkretnym czasem\n\n<PhraseOfDay\n  word=\"Uvidíme se zítra\"\n  translation=\"Zobaczymy się jutro\"\n  pronunciation=\"u-vi-di-me se zi-tra\"\n  context=\"Gdy widzisz się jutro\"\n/>\n\n| Czeski | Wymowa | Polski |\n|--------|--------|--------|\n| **Uvidime se** | u-vi-di-me se | Do zobaczenia |\n| **Uvidime se brzy** | u-vi-di-me se br-zi | Do zobaczenia wkrótce |\n| **Uvidime se zitra** | u-vi-di-me se zi-tra | Do jutra |\n| **Uvidime se vecer** | u-vi-di-me se ve-czer | Do wieczora |\n| **Pristi tyden** | przisz-ti ti-den | W przyszlym tygodniu |\n\n## Pozegnania dla par\n\n<VocabCard\n  word=\"Spi dobre, miláčku\"\n  translation=\"Spij dobrze, kochanie\"\n  pronunciation=\"spi dob-rze, mi-lacz-ku\"\n  example=\"Je pozde. Spi dobre, milacku!\"\n/>\n\n| Czeski | Wymowa | Polski |\n|--------|--------|--------|\n| **Spi dobre** | spi dob-rze | Spij dobrze |\n| **Dobrou noc** | dob-rou noc | Dobranoc |\n| **Sladke sny** | slad-ke sni | Slodkich snow |\n| **Uvidime se rano** | u-vi-di-me se ra-no | Do rana |\n| **Pusinky** | pu-sin-ki | Caluski |\n\n## Przez telefon\n\n| Czeski | Wymowa | Polski |\n|--------|--------|--------|\n| **Halo** | ha-lo | Halo |\n| **Prosim** | pro-sim | Slucham |\n| **U telefonu [imie]** | u te-le-fo-nu | Przy telefonie [imie] |\n| **Zavolam pozdeji** | za-vo-lam poz-de-ji | Zadzwonie później |\n| **Ahoj!** | a-hoj | Pa! |\n\n## SMS i czaty\n\n<CultureTip title=\"Skroty\" flag=\"🇨🇿\">\nW wiadomosciach Czesi uzywaja skrotow: \"dik\" = dekuji (dziekuje), \"pls\" = prosim (prosze).\n</CultureTip>\n\n| Czeski | Znaczenie |\n|--------|-----------|\n| **ahoj** | cześć/pa |\n| **cau** | cześć/pa |\n| **dik** | dzięki |\n| **pusa** | calus |\n| **obj** | uscisk |\n| **❤** | serce |\n\n## Porownanie z polskim\n\n| Polski | Czeski |\n|--------|--------|\n| Cześć | Ahoj |\n| Dzień dobry | Dobry den |\n| Do widzenia | Na shledanou |\n| Dobranoc | Dobrou noc |\n| Jak się masz? | Jak se mas? |\n| Dziekuje | Dekuji |\n\n<CultureTip title=\"Podobienstwa!\" flag=\"🇨🇿\">\nCzeski i polski są bardzo podobne! Wiele slow brzmi prawie tak samo - to duza zaleta dla Polaków!\n</CultureTip>\n\n## Ćwiczenia\n\n### Cwiczenie 1: Powitania\nCwicz rozne powitania w ciagu dnia.\n\n### Cwiczenie 2: Pozegnania\nUzywaj roznych pożegnań z partnerem.\n\n### Cwiczenie 3: Wiadomosci\nPisz SMS-y po czesku.\n\n## Podsumowanie\n\nCzeskie powitania i pożegnania są bardzo podobne do polskich! Od nieformalnego \"Ahoj\" po slodkie \"Spi dobre, milacku\" - uzywaj ich codzieńnie!\n\n## Kontynuuj nauke\n\n- **[Niezbędne zwroty dla par](/learn/pl/cs/czech-essential-phrases-for-couples/)** - Codzieńne wyrazenia\n- **[Czeskie zdrobnienia](/learn/pl/cs/czech-pet-names-terms-of-endearment/)** - Czule zwroty\n- **[Jak powiedziec kocham cie](/learn/pl/cs/how-to-say-i-love-you-in-czech/)** - Romantyczne wyznania\n- **[Wymowa czeska](/learn/pl/cs/czech-pronunciation-guide/)** - Jak wymawiać\n\n<CTA text=\"Gotowi na czeskie powitania?\" buttonText=\"Zacznij teraz\" />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Ćwiczenia"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "769cee3a-0174-4617-b88f-0873493bb748",
+      "title": "Holland összeköltözési szókincs",
+      "native_lang": "hu",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nAz összeköltözés fontos mérföldkő a kapcsolatban. Ha hollandul kell kommunikálnod a költözésről és a háztartásról, ezek a kifejezések segítenek.\n\nTovábbi praktikus kifejezésekért nézd meg az [Holland alapvető kifejezések](/learn/hu/nl/dutch-essential-phrases-for-couples) útmutatónkat.\n\n<PhraseOfDay\n  word=\"Gefeliciteerd!\"\n  translation=\"Gratulálok!\"\n  pronunciation=\"ɣəfeːlisiˈteːrt\"\n  context=\"Az esküvői köszöntés alapja.\"\n/>\n\n## Alapvető szókincs\n\nAz összeköltözés és háztartás holland szókincse:\n\n<VocabCard\n  word=\"bruiloft\"\n  translation=\"esküvő\"\n  pronunciation=\"ˈbrœylɔft\"\n  example=\"De bruiloft was prachtig.\"\n/>\n\n| Holland | Magyar | Használat |\n|---|---|---|\n| bruid | menyasszony | A nő |\n| bruidegom | vőlegény | A férfi |\n| geloften | fogadalmak | Esküvői ígéretek |\n| ceremonie | szertartás | A hivatalos rész |\n| receptie | fogadás | Az ünneplés |\n| toast | köszöntő | Pohárköszöntő |\n\n<CultureTip flag=\"🌍\" title=\"Holland kulturális tippek\">\nA holland kultúrában az összeköltözésnek különböző jelentőségei lehetnek. Egyes helyeken ez formális lépés, máshol természetes átmenet a kapcsolatban.\n</CultureTip>\n\n## Hasznos kifejezések\n\n### Költözési kifejezések\n\nAz összeköltözéskor hasznos mondatok:\n\n- **Összeköltözünk!** - A nagy bejelentés\n- **Hol van a...?** - Tárgyak keresése\n- **Ezt hova tegyük?** - Berendezés\n\n### Háztartási szókincs\nA mindennapi élethez:\n\n- **Ki viszi le a szemetet?** - Háztartási kérdések\n- **Mit főzzünk vacsorára?** - Közös étkezés\n\n<VocabCard\n  word=\"huwelijksreis\"\n  translation=\"nászút\"\n  pronunciation=\"ˈɦywələksrɛis\"\n  example=\"Ze gingen op huwelijksreis.\"\n/>\n\n## Gyakorlati helyzetek\n\n| Helyzet | Mit mondj |\n|---|---|\n| Bejelentés | Összeköltözünk! |\n| Költözéskor | Segíts ezzel! |\n| Berendezéskor | Hova tegyük ezt? |\n| Vendégeknek | Üdvözöljük az új otthonunkban! |\n\n<CultureTip flag=\"💡\" title=\"Hasznos tipp\">\nAz összeköltözés jó alkalom a nyelvtanulásra! Címkézd fel a tárgyakat a házban az idegen nyelven, és gyakorolj minden nap.\n</CultureTip>\n\n## Összefoglaló táblázat\n\n| Helyzet | Holland kifejezés |\n|---|---|\n| Gratuláció | Gefeliciteerd! |\n| Az esemény | bruiloft |\n| A nő | bruid |\n| A férfi | bruidegom |\n| Esküvői ígéretek | geloften |\n\n## További tanulás\n\nHa tovább szeretnéd fejleszteni a holland nyelvtudásod, nézd meg ezeket a cikkeinket:\n\n- [Holland romantikus kifejezések minden alkalomra](/learn/hu/nl/dutch-romantic-phrases-for-every-occasion)\n- [Hogyan mondd: Szeretlek hollandul](/learn/hu/nl/dutch-how-to-say-i-love-you)\n- [Holland alapvető kifejezések pároknak](/learn/hu/nl/dutch-essential-phrases-for-couples)\n\nEzek a források segítenek elmélyíteni a tudásod és magabiztosabbá válni a holland nyelvben.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 264,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Hasznos kifejezések"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "76a2bff0-0a0c-44b9-9c8b-e5f06340fcd0",
+      "title": "Poolse Zinnen voor een Eerste Date",
+      "native_lang": "nl",
+      "target_lang": "pl",
+      "category": "communication",
+      "content": "Een eerste date in het Pools? Hier zijn de zinnen!\n\n## Essentiële zinnen\n\n### 1. \"Miło cię w końcu poznać\" - *mie-wo tjee f kon-tsoe poz-natj*\n### 2. \"Wyglądasz niesamowicie\" - *vie-glon-dasj nje-sa-mo-vie-tjee*\n### 3. \"Opowiedz mi o sobie\" - *o-po-vjedz mie o so-bje*\n### 4. \"Czym się zajmujesz?\" - *tsjiem sjee zaj-moe-jesj*\n### 5. \"Świetnie się bawię\" - *sjvjet-nje sjee ba-vje*\n### 6. \"Chcesz coś jeszcze do picia?\" - *chtses tsosj jesj-tsje do pie-tsja*\n### 7. \"Jakiej muzyki słuchasz?\" - *ja-kej moe-zie-kie swoe-chasj*\n### 8. \"Chętnie bym cię znów zobaczył/a\" - *chent-nje biem tjee znoef zo-ba-tsjiew/a*\n### 9. \"Mogę cię odprowadzić do domu?\" - *mo-gee tjee od-pro-va-dzjietj do do-moe*\n### 10. \"Bardzo podobał mi się ten wieczór\" - *bar-dzo po-do-baw mie sjee ten vje-tsoer*\n### 11. \"Jakie masz hobby?\" - *ja-kje masj hob-bie*\n### 12. \"Masz piękny uśmiech\" - *masj pjenk-nie oesj-mjech*\n\n## Conclusie\n\nMet deze zinnen maak je een goede indruk op je Poolse date!",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 157,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Essentiële zinnen",
+              "### 1. \"Miło cię w końcu poznać\" - *mie-wo tjee f kon-tsoe poz-natj*",
+              "### 2. \"Wyglądasz niesamowicie\" - *vie-glon-dasj nje-sa-mo-vie-tjee*",
+              "### 3. \"Opowiedz mi o sobie\" - *o-po-vjedz mie o so-bje*",
+              "### 4. \"Czym się zajmujesz?\" - *tsjiem sjee zaj-moe-jesj*",
+              "### 5. \"Świetnie się bawię\" - *sjvjet-nje sjee ba-vje*",
+              "### 6. \"Chcesz coś jeszcze do picia?\" - *chtses tsosj jesj-tsje do pie-tsja*",
+              "### 7. \"Jakiej muzyki słuchasz?\" - *ja-kej moe-zie-kie swoe-chasj*",
+              "### 8. \"Chętnie bym cię znów zobaczył/a\" - *chent-nje biem tjee znoef zo-ba-tsjiew/a*",
+              "### 9. \"Mogę cię odprowadzić do domu?\" - *mo-gee tjee od-pro-va-dzjietj do do-moe*",
+              "### 10. \"Bardzo podobał mi się ten wieczór\" - *bar-dzo po-do-baw mie sjee ten vje-tsoer*",
+              "### 11. \"Jakie masz hobby?\" - *ja-kje masj hob-bie*",
+              "### 12. \"Masz piękny uśmiech\" - *masj pjenk-nie oesj-mjech*"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "76bd107f-2392-432c-9c01-9b37cdac3fad",
+      "title": "Hollandske udtryk til at møde svigerforældre",
+      "native_lang": "da",
+      "target_lang": "nl",
+      "category": "communication",
+      "content": "# Hollandske udtryk til at møde svigerforældre\n\nSom dansker vil du opdage mange ligheder mellem dansk og hollandsk - sprogene er beslægtede, og kulturerne har også fælles træk. Hollændere er kendte for deres direkte kommunikationsstil og afslappede tilgang. Her er de udtryk og tips, du har brug for.\n\n## Kulturel kontekst\n\nHollændere er generelt afslappede og egalitære. Svigerforældre kaldes \"schoonouders\", svigermor er \"schoonmoeder\" og svigerfar er \"schoonvader\". Hilsen er typisk tre kindkys (højre-venstre-højre) blandt kvinder og mellem kønnene, mens mænd giver hånd. \"U\" (De-formen) bruges sjældent - \"je/jij\" er normalt selv til ældre.\n\n## Vigtige sætninger\n\n### 1. Leuk om jullie te ontmoeten\n**Dansk:** Dejligt at møde jer\n**Udtale:** løyk ɔm jʏ-li tə ɔnt-mu-tən\n**Råd:** Hollændere sætter pris på afslappet venlighed\n\n### 2. Ik heb veel over jullie gehoord\n**Dansk:** Jeg har hørt meget om jer\n**Udtale:** ɪk hɛp feːl o-vər jʏ-li xə-hoːrt\n**Råd:** Viser at din partner taler positivt om sin familie\n\n### 3. Bedankt voor de uitnodiging\n**Dansk:** Tak for invitationen\n**Udtale:** bə-daŋkt foːr də œyt-no-di-xɪŋ\n**Råd:** Kortfattet taknemmelighed værdsættes\n\n### 4. Ik heb iets voor jullie meegebracht\n**Dansk:** Jeg har medbragt noget til jer\n**Udtale:** ɪk hɛp its foːr jʏ-li meː-xə-braxt\n**Råd:** Blomster, vin eller chokolade er passende gaver\n\n### 5. Wat een gezellig huis hebben jullie!\n**Dansk:** Sikke et hyggeligt hjem I har!\n**Udtale:** vat ən xə-zɛ-ləx hœys hɛ-bən jʏ-li\n**Råd:** \"Gezellig\" er et kernebegreb i hollandsk kultur - brug det!\n\n### 6. Het eten was heerlijk\n**Dansk:** Maden var dejlig\n**Udtale:** hɛt e-tən vas heːr-lək\n**Råd:** Anerkend madlavningen, men uden at overdrive\n\n### 7. Ik hou heel veel van jullie zoon/dochter\n**Dansk:** Jeg elsker jeres søn/datter meget\n**Udtale:** ɪk haw heːl feːl fan jʏ-li zoːn / dɔx-tər\n**Råd:** Hollændere værdsætter ærlighed - vær oprigtig\n\n### 8. We zijn heel gelukkig samen\n**Dansk:** Vi er meget lykkelige sammen\n**Udtale:** və zɛin heːl xə-lʏ-kəx sa-mən\n**Råd:** Bekræfter forholdet uden at være overdreven\n\n### 9. Ik zou jullie graag beter leren kennen\n**Dansk:** Jeg vil gerne lære jer bedre at kende\n**Udtale:** ɪk zaw jʏ-li xraːx be-tər le-rən kɛ-nən\n**Råd:** Viser interesse i at opbygge et forhold\n\n### 10. Kan ik ergens mee helpen?\n**Dansk:** Kan jeg hjælpe med noget?\n**Udtale:** kan ɪk ɛr-xəns meː hɛl-pən\n**Råd:** At tilbyde hjælp er god skik\n\n### 11. Dit is echt gezellig\n**Dansk:** Det her er virkelig hyggeligt\n**Udtale:** dɪt ɪs ɛxt xə-zɛ-ləx\n**Råd:** \"Gezellig\" dækker hygge, varme og samvær - brug det ofte\n\n### 12. Ik kijk uit naar de volgende keer\n**Dansk:** Jeg ser frem til næste gang\n**Udtale:** ɪk kɛik œyt naːr də fɔl-xən-də keːr\n**Råd:** Signalerer ønske om fortsat kontakt\n\n## Yderligere kulturelle tips\n\n**Direkte kommunikation:** Hollændere er berømte for at sige tingene lige ud. Tag ikke kritik personligt - det er deres måde at kommunikere på.\n\n**Punktlighed:** Ligesom i Danmark er punktlighed vigtig. Ankom til tiden, men ikke alt for tidligt.\n\n**Kaffe og gebak:** Formiddagskaffe med et stykke kage (gebak) er en tradition. Forvent \"één koekje\" (én kage) - hollændere er nøjsomme.\n\n**Aftensmad:** Det hollandske aftensmåltid (avondeten) er typisk tidligt (omkring kl. 18) og mere beskedent end i sydeuropæiske lande.\n\n**Gezelligheid:** Dette begreb er centralt - det handler om hygge, varme og samhørighed. Vis at du værdsætter det.\n\n**Cykelkultur:** Hvis din partners familie cykler (hvilket de sandsynligvis gør), så vis interesse for det. Cykling er en national passion.\n\n**Humor:** Hollændere har en tør humor og kan godt lide at drille venligt. Tag det som et tegn på accept.\n\n**Going Dutch:** Selvom udtrykket eksisterer, deler familier normalt ikke regningen ved familiesammenkomster. Som gæst behøver du ikke tilbyde at betale.\n\nMed disse udtryk og kulturelle indsigter er du godt forberedt til at møde dine hollandske svigerforældre. Veel succes!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Vigtige sætninger"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "76cfcf21-f5ab-4b10-85b7-a60043eb8905",
+      "title": "Romence Mesajlaşma İfadeleri: Sevgilinizle Dijital Romantizm",
+      "native_lang": "tr",
+      "target_lang": "ro",
+      "category": "communication",
+      "content": "Romence, Latin kökenli sıcak ve melodik bir dildir. Sevgiliniz Romence konuşuyorsa, mesajlaşırken bu dilin romantik doğasını yansıtan ifadeleri bilmek ilişkinizi güçlendirecektir. Bu rehberde, Romence romantik mesajlaşma ifadelerini öğreneceksiniz.\n\n## Temel Sevgi İfadeleri\n\n### Te iubesc\n**Okunuşu:** \"Te yubesk\"\n\n**Türkçe karşılığı:** Seni seviyorum\n\nRomence'nin en önemli aşk ifadesi. Ciddi ilişkilerde kullanılır.\n\n> *Örnek:* \"Noapte bună dragostea mea, te iubesc 💕\" (İyi geceler aşkım, seni seviyorum)\n\n### Te ador\n**Okunuşu:** \"Te ador\"\n\n**Türkçe karşılığı:** Sana tapıyorum\n\n\"Te iubesc\" kadar yoğun, çok romantik bir ifade.\n\n> *Örnek:* \"Ești minunată, te ador 🥰\" (Harikasin, sana tapıyorum)\n\n## Sevgi Sözcükleri\n\n### Dragostea mea\n**Okunuşu:** \"Dragostea mea\"\n\n**Türkçe karşılığı:** Aşkım\n\nRomence'nin en klasik sevgi hitabı.\n\n> *Örnek:* \"Bună dimineața dragostea mea! ☀️\" (Günaydın aşkım!)\n\n### Iubire / Iubirea mea\n**Okunuşu:** \"Yubire / Yubirea mea\"\n\n**Türkçe karşılığı:** Sevgilim / Aşkım\n\nÇok tatlı ve yaygın bir hitap.\n\n> *Örnek:* \"Ce faci iubire? 💕\" (Nasılsın sevgilim?)\n\n### Puiule\n**Okunuşu:** \"Puyule\"\n\n**Türkçe karşılığı:** Yavrum / Civcivim\n\nÇok sevimli ve samimi bir hitap.\n\n> *Örnek:* \"Te aștept puiule 🐣\" (Seni bekliyorum yavrum)\n\n### Sufletul meu\n**Okunuşu:** \"Sufletul meu\"\n\n**Türkçe karşılığı:** Ruhum\n\nÇok derin ve romantik bir ifade.\n\n> *Örnek:* \"Tu ești sufletul meu ❤️\" (Sen benim ruhumsun)\n\n### Scumpule / Scumpo\n**Okunuşu:** \"Skumpule / Skumpo\"\n\n**Türkçe karşılığı:** Canım / Değerlim\n\nErkekler için \"scumpule\", kadınlar için \"scumpo\".\n\n> *Örnek:* \"La revedere scumpo, ne vedem mâine 💋\" (Hoşça kal canım, yarın görüşürüz)\n\n## Özlem ve Düşünce\n\n### Îmi lipsești\n**Okunuşu:** \"Imi lipsești\"\n\n**Türkçe karşılığı:** Seni özlüyorum\n\nUzak mesafe ilişkilerde çok kullanılan bir ifade.\n\n> *Örnek:* \"Îmi lipsești foarte mult 😢\" (Seni çok özlüyorum)\n\n### Mă gândesc la tine\n**Okunuşu:** \"Mı gındesc la tine\"\n\n**Türkçe karşılığı:** Seni düşünüyorum\n\nGün içinde tatlı bir sürpriz mesaj.\n\n> *Örnek:* \"Sunt la muncă dar mă gândesc la tine 💭\" (İşteyim ama seni düşünüyorum)\n\n## Günlük Mesajlaşma İfadeleri\n\n### Ce faci?\n**Okunuşu:** \"Çe façi\"\n\n**Türkçe karşılığı:** Ne yapıyorsun? / Nasılsın?\n\nSohbet başlatmak için temel ifade.\n\n> *Örnek:* \"Salut iubire, ce faci? 📱\" (Merhaba sevgilim, nasılsın?)\n\n### Pupici / Sărutări\n**Okunuşu:** \"Pupiçi / Sırutıri\"\n\n**Türkçe karşılığı:** Öpücükler\n\nMesaj sonlarında çok yaygın.\n\n> *Örnek:* \"Pe mâine, pupici! 💋\" (Yarına kadar, öpücükler!)\n\n### Noapte bună\n**Okunuşu:** \"Noapte bunı\"\n\n**Türkçe karşılığı:** İyi geceler\n\nGece mesajlarında standart.\n\n> *Örnek:* \"Noapte bună, vise frumoase! 🌙\" (İyi geceler, tatlı rüyalar!)\n\n### Pa pa\n**Okunuşu:** \"Pa pa\"\n\n**Türkçe karşılığı:** Bay bay\n\nSamimi vedalaşma.\n\n> *Örnek:* \"Pa pa scumpo, te sun mai târziu! 👋\" (Bay bay canım, seni daha sonra ararım!)\n\n## Romantik İfadeler\n\n### Ești frumoasă/frumos\n**Okunuşu:** \"Yești frumoası/frumos\"\n\n**Türkçe karşılığı:** Güzelsin\n\nKadınlar için \"frumoasă\", erkekler için \"frumos\".\n\n> *Örnek:* \"În poză ești foarte frumoasă! 😍\" (Fotoğrafta çok güzelsin!)\n\n### Abia aștept să te văd\n**Okunuşu:** \"Abia aștept sı te vıd\"\n\n**Türkçe karşılığı:** Seni görmek için sabırsızlanıyorum\n\nBuluşma öncesi heyecanınızı ifade eder.\n\n> *Örnek:* \"Mai sunt 2 ore, abia aștept să te văd! 🥰\" (Daha 2 saat var, seni görmek için sabırsızlanıyorum!)\n\n### Ne vedem?\n**Okunuşu:** \"Ne vedem\"\n\n**Türkçe karşılığı:** Görüşelim mi?\n\nBuluşma teklifi için rahat bir ifade.\n\n> *Örnek:* \"Weekend-ul ăsta ne vedem? 🎬\" (Bu hafta sonu görüşelim mi?)\n\n## Duygusal Destek\n\n### Sunt aici pentru tine\n**Okunuşu:** \"Sunt aiçi pentru tine\"\n\n**Türkçe karşılığı:** Senin için buradayım\n\nZor zamanlarda destek vermek için güçlü bir ifade.\n\n> *Örnek:* \"Orice s-ar întâmpla, sunt aici pentru tine ❤️\" (Ne olursa olsun, senin için buradayım)\n\n### Poți să reușești!\n**Okunuşu:** \"Potsi sı reușești\"\n\n**Türkçe karşılığı:** Başaracaksın!\n\nMotivasyon vermek için mükemmel.\n\n> *Örnek:* \"Baftă la examen, poți să reușești! 💪\" (Sınavda bol şans, başaracaksın!)\n\n### Te pup\n**Okunuşu:** \"Te pup\"\n\n**Türkçe karşılığı:** Seni öpüyorum\n\nMesaj sonlarında çok yaygın ve tatlı.\n\n> *Örnek:* \"Trebuie să plec, te pup! 💋\" (Gitmem lazım, seni öpüyorum!)\n\n## Romence Özel Karakterler\n\nRomence bazı özel karakterler içerir:\n\n- **ă** - \"a\" ile \"ı\" arası bir ses\n- **â / î** - Türkçe \"ı\"ya benzer\n- **ș** - Türkçe \"ş\" gibi\n- **ț** - Türkçe \"ts\" gibi\n\nMesajlaşmada bu karakterler olmadan da yazılabilir ama doğru yazım daha etkileyicidir.\n\n## Romen Mesajlaşma Kültürü\n\nRomenler mesajlaşmada bazı özelliklere sahiptir:\n\n- **Çok sıcakkanlılar** - Duygusal ifadeler normaldir\n- **Emoji severler** - Özellikle kalp emojileri\n- **\"Pupici\" çok yaygın** - Neredeyse her mesajda\n\n## Pratik Önerileri\n\n1. **Cinsiyet uyumu** - Sıfatlar cinsiyete göre değişir (-ă kadın, değişik erkek)\n2. **Türkçe ile benzerlikler** - Osmanlı döneminden kalma bazı ortak kelimeler var\n3. **Latin kökler** - İspanyolca veya İtalyanca biliyorsanız Romence öğrenmek daha kolay\n4. **Samimi olun** - Romenler sıcak ve samimi iletişimi severler\n\nRomence mesajlaşma, ilişkinize Balkan sıcaklığı ve Latin romantizmi katacaktır. Mult noroc cu dragostea ta! (Aşkında bol şans!) 💕",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Temel Sevgi İfadeleri",
+              "## Sevgi Sözcükleri",
+              "## Özlem ve Düşünce",
+              "## Günlük Mesajlaşma İfadeleri",
+              "## Romantik İfadeler",
+              "## Duygusal Destek"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

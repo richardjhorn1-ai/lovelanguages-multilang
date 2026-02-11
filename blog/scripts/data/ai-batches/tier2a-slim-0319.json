@@ -1,0 +1,505 @@
+{
+  "batchId": "tier2a-slim-0319",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "c16f8dec-0d3a-407a-ac8b-79dfe276703e",
+      "title": "I Love You in Spanish + 15 Phrases",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## The Two Main Ways to Say \"I Love You\" in Spanish",
+          "subsections": [
+            "### Te Amo vs. Te Quiero"
+          ]
+        },
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Daily Practice Routine",
+            "### Conversation Starters"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c22f85ae-f176-4a78-a765-46df5e2ea69f",
+      "title": "Setkání s rodinou vašeho partnera v rumunštině: Získejte si jejich srdce správnými frázemi",
+      "native_lang": "cs",
+      "target_lang": "ro",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Konkrétní scénáře: Co vás čeká",
+          "subsections": [
+            "### Příchod do domu",
+            "### U stolu",
+            "### Fotografie a vzpomínky"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c2e10148-7d98-4637-91d3-db965eb93ec2",
+      "title": "Jerga de Mensajes de Texto en Francés",
+      "native_lang": "es",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Abreviaturas Esenciales para Parejas",
+          "subsections": [
+            "### Saludos y Despedidas",
+            "### Expresiones de Amor",
+            "### Preguntas Comunes",
+            "### Respuestas Rápidas"
+          ]
+        },
+        {
+          "header": "## Expresiones Modernas y Argot",
+          "subsections": [
+            "### Palabras del Verlan (Inversión de Sílabas)",
+            "### Expresiones de Moda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c33c8c2c-c19e-438b-b4e1-263b882632f4",
+      "title": "100 Most Common German Words",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Tips for Learning These Words",
+          "subsections": [
+            "### 1. Learn in Context",
+            "### 2. Practice Daily",
+            "### 3. Use Spaced Repetition",
+            "### 4. Make it Personal",
+            "### 5. Label Your Home"
+          ]
+        },
+        {
+          "header": "## Practice Activities for Couples",
+          "subsections": [
+            "### Activity 1: Daily Word Challenge",
+            "### Activity 2: Story Time",
+            "### Activity 3: Word Association",
+            "### Activity 4: Translation Race"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c3c63649-c3cc-4799-94a6-c63ad25c726a",
+      "title": "Lehce Selamlasmalar ve Vedalasmakar: Kapsamli Rehber",
+      "native_lang": "tr",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Zamana Göre Selamlasmalar",
+          "subsections": [
+            "### Sabah ve Gündüz",
+            "### Aksam (Wieczór)",
+            "### Gece (Noc)"
+          ]
+        },
+        {
+          "header": "## Vedalasma Ifadeleri",
+          "subsections": [
+            "### Samimi Vedalasma",
+            "### Resmi Vedalasma",
+            "### Zaman Belirten Vedalasma"
+          ]
+        },
+        {
+          "header": "## Telefonda ve Mesajda",
+          "subsections": [
+            "### Telefon Acma",
+            "### Telefon Kapatma"
+          ]
+        },
+        {
+          "header": "## Ciftler Icin Özel Selamlasmalar",
+          "subsections": [
+            "### Sabah",
+            "### Aksam",
+            "### Gece"
+          ]
+        },
+        {
+          "header": "## Özel Durumlar",
+          "subsections": [
+            "### Birine Rastladiginda",
+            "### Tanitma"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c3f9f7d9-39f8-4112-9c99-2106eed72ce5",
+      "title": "Conjugación de Verbos en Inglés",
+      "native_lang": "es",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Presente Simple (Simple Present)",
+          "subsections": [
+            "### La Regla Básica",
+            "### Reglas para la Tercera Persona (He/She/It)"
+          ]
+        },
+        {
+          "header": "## Pasado Simple (Simple Past)",
+          "subsections": [
+            "### Verbos Regulares",
+            "### Reglas para Formar el Pasado Regular",
+            "### Verbos Irregulares Comunes"
+          ]
+        },
+        {
+          "header": "## Negaciones",
+          "subsections": [
+            "### Con verbos regulares: do/does + not + verbo base",
+            "### Con \"to be\": verbo + not"
+          ]
+        },
+        {
+          "header": "## Preguntas",
+          "subsections": [
+            "### Con verbos regulares: Do/Does + sujeto + verbo base?",
+            "### Con \"to be\": Verbo + sujeto?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c3fe5d35-5176-49d2-8bdd-cd218c944150",
+      "title": "Les Appels Téléphoniques en Espagnol",
+      "native_lang": "fr",
+      "target_lang": "es",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Passer un appel",
+          "subsections": [
+            "### Salutations au téléphone",
+            "### Pour votre partenaire"
+          ]
+        },
+        {
+          "header": "## Pendant l'appel",
+          "subsections": [
+            "### Phrases utiles pendant la conversation",
+            "### Maintenir la conversation"
+          ]
+        },
+        {
+          "header": "## Terminer l'appel",
+          "subsections": [
+            "### Façons de dire au revoir",
+            "### Messages d'amour pour finir"
+          ]
+        },
+        {
+          "header": "## Dialogues pratiques",
+          "subsections": [
+            "### Appel du matin",
+            "### Appel pour faire des plans",
+            "### Appel d'urgence romantique"
+          ]
+        },
+        {
+          "header": "## Problèmes techniques courants",
+          "subsections": [
+            "### Quand la connexion est mauvaise",
+            "### Phrases pour les problèmes"
+          ]
+        },
+        {
+          "header": "## Vocabulaire du téléphone",
+          "subsections": [
+            "### Les actions",
+            "### Le matériel"
+          ]
+        },
+        {
+          "header": "## Exercices de pratique pour couples",
+          "subsections": [
+            "### Exercice 1 : Jeu de rôle téléphonique",
+            "### Exercice 2 : Que diriez-vous ?",
+            "### Exercice 3 : Vraie conversation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c41a6b22-71b3-4fa3-a181-65bf9688d1bd",
+      "title": "Appels téléphoniques en polonais : Comme un local",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Phrases téléphoniques essentielles",
+          "subsections": [
+            "### Demander à parler à quelqu'un",
+            "### Quand quelqu'un n'est pas disponible",
+            "### Prendre des messages"
+          ]
+        },
+        {
+          "header": "## Terminer les appels poliment",
+          "subsections": [
+            "### Fins décontractées",
+            "### Fins formelles"
+          ]
+        },
+        {
+          "header": "## Scénarios d'appels courants",
+          "subsections": [
+            "### Appeler un restaurant",
+            "### Appeler pour des renseignements"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c44f1328-5e48-4ac4-ae32-230d2af00360",
+      "title": "¿Es Difícil el Checo? Respuesta Honesta",
+      "native_lang": "es",
+      "target_lang": "cs",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Qué Hace al Checo Desafiante",
+          "subsections": [
+            "### 1. El Sistema de Casos",
+            "### 2. El Sonido Ř",
+            "### 3. Grupos de Consonantes",
+            "### 4. Aspectos Verbales"
+          ]
+        },
+        {
+          "header": "## Qué Hace al Checo Más Fácil de lo que Piensas",
+          "subsections": [
+            "### 1. Ortografía Fonética",
+            "### 2. Sin Artículos",
+            "### 3. Palabras Prestadas",
+            "### 4. Patrones Lógicos"
+          ]
+        },
+        {
+          "header": "## Estrategias Efectivas para Hispanohablantes",
+          "subsections": [
+            "### Empieza con Palabras de Alta Frecuencia",
+            "### Abraza la Música",
+            "### Usa Cognados",
+            "### Practica Rutinas Diarias"
+          ]
+        },
+        {
+          "header": "## Errores Comunes a Evitar",
+          "subsections": [
+            "### 1. Parálisis Perfeccionista",
+            "### 2. Ignorar el Género",
+            "### 3. Traducción Literal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c532e954-7f31-4005-b0b2-916863ae5ab8",
+      "title": "Dire Beau/Belle en Polonais",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Magnifique et éblouissant : mots de beauté avancés",
+          "subsections": [
+            "### Wspaniały/Wspaniała (Merveilleux/Magnifique)",
+            "### Cudny/Cudna (Superbe)",
+            "### Zachwycający/Zachwycająca (Enchanteur)"
+          ]
+        },
+        {
+          "header": "## Phrases de compliments romantiques",
+          "subsections": [
+            "### Pour votre copine/épouse",
+            "### Pour votre copain/mari"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c5b82908-bdd7-492a-9723-c4b8a0a603c2",
+      "title": "Приветствия и прощания на шведский для пар",
+      "native_lang": "ru",
+      "target_lang": "sv",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Как использовать эти фразы с партнёром",
+          "subsections": [
+            "### Создайте ритуалы",
+            "### Практикуйте вместе",
+            "### Добавляйте жесты",
+            "### Ошибки, которых стоит избегать"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c5c2f3d5-53ac-42e8-8e0c-55f4124ce362",
+      "title": "Przewodnik po wymowie wegierskiej dla polskich par",
+      "native_lang": "pl",
+      "target_lang": "hu",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Spolgloski wegierskie",
+          "subsections": [
+            "### Spolgloski podobne do polskich",
+            "### Spolgloski wymagajace uwagi",
+            "### Spolgloski palatalne"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia wymowy dla par",
+          "subsections": [
+            "### Cwiczenie 1: Samogloski",
+            "### Cwiczenie 2: Trudne spolgloski",
+            "### Cwiczenie 3: Romantyczne frazy"
+          ]
+        },
+        {
+          "header": "## Typowe bledy Polaków",
+          "subsections": [
+            "### Bled 1: Mylenie \"sz\" i \"s\"",
+            "### Bled 2: Ignorowanie dlugosci samoglosek",
+            "### Bled 3: Akcent nie na pierwszej sylabie"
+          ]
+        },
+        {
+          "header": "## Intonacja w zdaniach",
+          "subsections": [
+            "### Zdania oznajmujace",
+            "### Pytania tak/nie",
+            "### Pytania że slowem pytajnym"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c5ead227-60e4-4de1-9ec3-642ea531b83a",
+      "title": "Expresar Emociones en Polaco",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Frases Emocionales para Parejas",
+          "subsections": [
+            "### Expresando Amor y Afecto",
+            "### Durante Tiempos Difíciles"
+          ]
+        },
+        {
+          "header": "## Escenarios de Práctica para Parejas",
+          "subsections": [
+            "### Registro Matutino",
+            "### Ofreciendo Apoyo",
+            "### Celebrando Juntos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c631e372-a201-4df5-aef3-a3f4414f8ecb",
+      "title": "Zweeds vs Nederlands: De Belangrijkste Verschillen",
+      "native_lang": "nl",
+      "target_lang": "sv",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Geslacht: En vs Ett",
+          "subsections": [
+            "### Nederlands: De/Het (lastig!)",
+            "### Zweeds: En/Ett (iets makkelijker)"
+          ]
+        },
+        {
+          "header": "## Formeel vs Informeel",
+          "subsections": [
+            "### Nederlands: U/Je verschil",
+            "### Zweeds: Altijd \"Du\"!"
+          ]
+        },
+        {
+          "header": "## Bijvoeglijke Naamwoorden",
+          "subsections": [
+            "### Nederlands: Soms -e, soms niet",
+            "### Zweeds: Systeem met en/ett/bepaald/meervoud"
+          ]
+        },
+        {
+          "header": "## Uitspraak Verschillen",
+          "subsections": [
+            "### Unieke Zweedse Klanken"
+          ]
+        },
+        {
+          "header": "## Woordvolgorde",
+          "subsections": [
+            "### Beide: V2-regel",
+            "### Verschil: Bijzinnen"
+          ]
+        },
+        {
+          "header": "## Bezittelijke Voornaamwoorden",
+          "subsections": [
+            "### Nederlands: Mijn, jouw, etc.",
+            "### Zweeds: Veranderen met het zelfstandig naamwoord!"
+          ]
+        },
+        {
+          "header": "## Getallen en Tijd",
+          "subsections": [
+            "### Tijd Zeggen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c6ce5abf-5b78-4269-adc7-62d5a5f12618",
+      "title": "Swedish Texting Slang: Chat with Your Partner Like a Native",
+      "native_lang": "en",
+      "target_lang": "sv",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Slang Words for Texting",
+          "subsections": [
+            "### Expressing Emotions",
+            "### Affectionate Slang"
+          ]
+        },
+        {
+          "header": "## Cute Couple Text Messages",
+          "subsections": [
+            "### Good Morning Texts",
+            "### Good Night Texts",
+            "### \"Miss You\" Texts"
+          ]
+        }
+      ]
+    }
+  ]
+}

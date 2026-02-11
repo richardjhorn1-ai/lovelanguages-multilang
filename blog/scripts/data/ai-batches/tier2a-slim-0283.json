@@ -1,0 +1,508 @@
+{
+  "batchId": "tier2a-slim-0283",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "085068c0-7102-48d1-a2f4-48cef363337f",
+      "title": "50+ Angielskich Zwrotów na Romantyczną Randkę",
+      "native_lang": "pl",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Slownictwo gastronomiczne",
+          "subsections": [
+            "### Rodzaje restauracji",
+            "### Na talerzu"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Odgrywanie scenek",
+            "### Cwiczenie 2: Planowanie randki",
+            "### Cwiczenie 3: 10 komplementow",
+            "### Cwiczenie 4: Rozmowa przy kolacji"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "08872f4c-50b6-4a14-b090-3e1d19c0b278",
+      "title": "German Birthday Wishes",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Birthday Card Messages",
+          "subsections": [
+            "### Short and Sweet",
+            "### Longer Card Messages"
+          ]
+        },
+        {
+          "header": "## Birthday Vocabulary",
+          "subsections": [
+            "### Essential Words",
+            "### Talking About Age"
+          ]
+        },
+        {
+          "header": "## Birthday Wishes by Milestone",
+          "subsections": [
+            "### Significant Birthdays"
+          ]
+        },
+        {
+          "header": "## Practice Activities for Couples",
+          "subsections": [
+            "### Activity 1: Write a German Birthday Card",
+            "### Activity 2: Learn the Birthday Song",
+            "### Activity 3: Plan a Birthday in German"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "08ba939b-a06a-466e-8482-2a4b5d5d2172",
+      "title": "L'allemand est-il difficile à apprendre ?",
+      "native_lang": "fr",
+      "target_lang": "de",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Ce qui rend l'allemand plus facile qu'on ne le pense",
+          "subsections": [
+            "### Vocabulaire partagé",
+            "### Prononciation prévisible",
+            "### Schémas grammaticaux logiques"
+          ]
+        },
+        {
+          "header": "## Façons amusantes d'apprendre l'allemand en couple",
+          "subsections": [
+            "### 1. Conversations café du matin",
+            "### 2. Cuisiner des recettes allemandes ensemble",
+            "### 3. Soirées cinéma allemand",
+            "### 4. Planifier un voyage en allemand"
+          ]
+        },
+        {
+          "header": "## Surmonter les défis courants ensemble",
+          "subsections": [
+            "### Le redouté « Der, Die, Das »",
+            "### Confusion sur l'ordre des mots",
+            "### Baisses de motivation"
+          ]
+        },
+        {
+          "header": "## Créer votre routine d'apprentissage de l'allemand",
+          "subsections": [
+            "### Quotidien (15-20 minutes)",
+            "### Hebdomadaire (1-2 heures)",
+            "### Mensuel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "08f11f60-4a84-4136-9acf-2310ade1d199",
+      "title": "Seznámení s rodinou vašeho partnera v maďarštině: Jak udělat skvělý první dojem",
+      "native_lang": "cs",
+      "target_lang": "hu",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Rodinné tradice a zvyky",
+          "subsections": [
+            "### Maďarské svátky a oslavy",
+            "### Fráze pro speciální příležitosti"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0926b44f-4115-4d2d-8971-28cb471dc5d1",
+      "title": "Películas Románticas Polacas: Top Cine",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Películas Románticas Polacas Clásicas",
+          "subsections": [
+            "### Seksmisja (Misión Sexual) - 1984",
+            "### Czterdziestolatek (El Cuarentón) - 1975"
+          ]
+        },
+        {
+          "header": "## Cine Romántico Polaco Moderno",
+          "subsections": [
+            "### Planeta Singli (Planeta Solteros) - 2016",
+            "### Jestem Mordercą (Soy un Asesino) - 2016"
+          ]
+        },
+        {
+          "header": "## Éxitos Internacionales con Temas Polacos",
+          "subsections": [
+            "### Cold War (Guerra Fría) - 2018",
+            "### Ida - 2013"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0ae24a44-9c86-4885-93a3-1a21bdeee744",
+      "title": "Знайомство з родиною вашого партнера німецькою: фрази для впевненого спілкування",
+      "native_lang": "uk",
+      "target_lang": "de",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Конкретні сценарії",
+          "subsections": [
+            "### При вході до дому",
+            "### За обіднім столом",
+            "### Розмова про сім'ю та роботу"
+          ]
+        },
+        {
+          "header": "## Список важливої лексики",
+          "subsections": [
+            "### Члени родини",
+            "### Подарунки та компліменти"
+          ]
+        },
+        {
+          "header": "## Ввічливість та формальність",
+          "subsections": [
+            "### Формальні фрази",
+            "### Інформальні фрази (коли дозволено)"
+          ]
+        },
+        {
+          "header": "## Що робити, якщо щось пішло не так?",
+          "subsections": [
+            "### Якщо ви не розумієте",
+            "### Просити про допомогу"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0ae8687d-24a1-4c2b-ada2-1af6aca59aa7",
+      "title": "Conhecendo a Família do Seu Parceiro em Inglês: Frases Essenciais para Fazer uma Boa Impressão",
+      "native_lang": "pt",
+      "target_lang": "en",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Frases Essenciais para o Primeiro Encontro",
+          "subsections": [
+            "### Cumprimentos e Apresentações",
+            "### Conversas Iniciais"
+          ]
+        },
+        {
+          "header": "## Cenários Comuns e Diálogos Práticos",
+          "subsections": [
+            "### No Jantar de Apresentação",
+            "### Conversando com Irmãos"
+          ]
+        },
+        {
+          "header": "## Vocabulário para Presentes e Comprimentos",
+          "subsections": [
+            "### Palavras sobre Presentes",
+            "### Complementos Sinceros"
+          ]
+        },
+        {
+          "header": "## Formalidade e Educação",
+          "subsections": [
+            "### Mostrando Respeito"
+          ]
+        },
+        {
+          "header": "## Quando as Coisas Não Saem Como Planejado",
+          "subsections": [
+            "### Frases de Salvamento"
+          ]
+        },
+        {
+          "header": "## Cartão de Referência Rápida",
+          "subsections": [
+            "### Top 10 Frases para Memorizar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0b0a1049-859c-4c52-98b9-efe421b4bba4",
+      "title": "Fransizca Selamlasmalar ve Vedalasma: Ciftler Icin Rehber",
+      "native_lang": "tr",
+      "target_lang": "fr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Özel Günler Icin Selamlasmalar",
+          "subsections": [
+            "### Dogum Günü",
+            "### Diger Özel Günler"
+          ]
+        },
+        {
+          "header": "## Günlük Kullanim Senaryolari",
+          "subsections": [
+            "### Sabah Rutini",
+            "### Isten Cikarken",
+            "### Eve Dönüste",
+            "### Yatmadan Önce"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0bd38a43-d312-43ac-bd12-558d3b40fc52",
+      "title": "Argot Portugais de SMS pour les Couples",
+      "native_lang": "fr",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Exemples de Conversations",
+          "subsections": [
+            "### Le Matin",
+            "### Le Soir"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0c65f74e-6b72-4085-bbbc-9ecc3603a205",
+      "title": "Møte din tyske partners familie: Essensielle fraser for å gjøre et godt inntrykk",
+      "native_lang": "no",
+      "target_lang": "de",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Vanlige scenarioer og hva du kan forvente deg",
+          "subsections": [
+            "### Ankomst til huset",
+            "### Rundt middagsbordet",
+            "### Samtaleemner og spørsmål"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0d708412-f082-4a81-a6e0-f1c873ac0a42",
+      "title": "Wymowa holenderska - przewodnik dla Polaków",
+      "native_lang": "pl",
+      "target_lang": "nl",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Samogloski holenderskie",
+          "subsections": [
+            "### Krotkie samogloski",
+            "### Dlugie samogloski"
+          ]
+        },
+        {
+          "header": "## Spolgloski",
+          "subsections": [
+            "### Podobne do polskich",
+            "### Inne niz polskie"
+          ]
+        },
+        {
+          "header": "## Koncowki wyrazow",
+          "subsections": [
+            "### Koncowka \"-en\"",
+            "### Ubezdźwięcznienie"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia wymowy",
+          "subsections": [
+            "### Cwiczenie 1: Gardlowe G",
+            "### Cwiczenie 2: Dyftongi",
+            "### Cwiczenie 3: Romantyczne słowa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0dd3488a-7599-40ac-9439-28ef1b319ce2",
+      "title": "Spanish Negation: Saying No with Confidence",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Deep Dive: Each Negative Word",
+          "subsections": [
+            "### Nunca / Jamás (Never)",
+            "### Nada (Nothing)",
+            "### Nadie (Nobody)",
+            "### Ninguno/a (None, Not any)",
+            "### Tampoco (Neither, Not Either)",
+            "### Ni... Ni (Neither... Nor)"
+          ]
+        },
+        {
+          "header": "## Romantic Negative Phrases",
+          "subsections": [
+            "### Promises of Forever",
+            "### Expressing Loyalty"
+          ]
+        },
+        {
+          "header": "## Answering Questions Negatively",
+          "subsections": [
+            "### Polite Negative Responses",
+            "### Complete Negative Answers"
+          ]
+        },
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Exercise 1: Transform to Negative",
+            "### Exercise 2: Respond Negatively",
+            "### Exercise 3: Romantic Promises"
+          ]
+        },
+        {
+          "header": "## Common Mistakes to Avoid",
+          "subsections": [
+            "### Mistake 1: Forgetting Double Negatives",
+            "### Mistake 2: Using \"No\" with Negative Words Before Verbs",
+            "### Mistake 3: Forgetting \"a\" Before \"nadie\" as Object"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0e2f43f4-6670-43e6-ba6b-5db769ef62eb",
+      "title": "Spotkanie z rumunska rodzina partnera - przewodnik językowy",
+      "native_lang": "pl",
+      "target_lang": "ro",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Wskazowki kulturowe",
+          "subsections": [
+            "### Co robic:",
+            "### Czego unikac:"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia przygotowawcze",
+          "subsections": [
+            "### Scenka: Powitanie",
+            "### Opowiadanie o sobie",
+            "### Komplementy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0e7f8e6b-51f1-4664-aca9-f4da78f4ee25",
+      "title": "Spanish Shopping Vocabulary for Couples",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Entering a Store",
+          "subsections": [
+            "### Greetings and First Phrases"
+          ]
+        },
+        {
+          "header": "## Clothing (La Ropa)",
+          "subsections": [
+            "### Basic Clothing Items",
+            "### More Clothing",
+            "### Accessories (Los Accesorios)"
+          ]
+        },
+        {
+          "header": "## Sizes and Fit",
+          "subsections": [
+            "### Asking About Size",
+            "### Size Terms",
+            "### Describing Fit"
+          ]
+        },
+        {
+          "header": "## Paying and Prices",
+          "subsections": [
+            "### Asking About Price",
+            "### Making Payment"
+          ]
+        },
+        {
+          "header": "## At the Market (En el Mercado)",
+          "subsections": [
+            "### Market Vocabulary",
+            "### Bargaining Phrases"
+          ]
+        },
+        {
+          "header": "## Shopping Together as a Couple",
+          "subsections": [
+            "### Asking Opinions",
+            "### Giving Opinions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0e895fbc-b628-4fc5-b470-100111b66a0e",
+      "title": "French Anniversary Wishes: Romantic Messages for Couples",
+      "native_lang": "en",
+      "target_lang": "fr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Romantic Anniversary Messages",
+          "subsections": [
+            "### Short and Sweet Wishes",
+            "### Deeply Romantic Messages",
+            "### Milestone Anniversary Messages"
+          ]
+        },
+        {
+          "header": "## Expressing Gratitude",
+          "subsections": [
+            "### Thanking Your Partner"
+          ]
+        },
+        {
+          "header": "## Anniversary Card Messages",
+          "subsections": [
+            "### Opening Lines",
+            "### Closing Lines"
+          ]
+        },
+        {
+          "header": "## Complete Anniversary Messages",
+          "subsections": [
+            "### Simple and Romantic",
+            "### Deeply Heartfelt"
+          ]
+        },
+        {
+          "header": "## Anniversary Celebration Vocabulary",
+          "subsections": [
+            "### Planning the Celebration",
+            "### Anniversary Activities"
+          ]
+        }
+      ]
+    }
+  ]
+}

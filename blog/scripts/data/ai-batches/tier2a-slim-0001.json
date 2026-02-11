@@ -1,0 +1,398 @@
+{
+  "batchId": "tier2a-slim-0001",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "000925f2-73b3-4617-923d-ed8e23444df3",
+      "title": "50 Romantische Deense Uitdrukkingen voor Elk Moment Samen",
+      "native_lang": "nl",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hoe te Gebruiken: Praktische Tips",
+          "subsections": [
+            "### Timing is Alles",
+            "### Cultuurverschillen",
+            "### Veelgemaakte Fouten"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "00104d68-945c-4dd7-8f87-02f2cb4fc3dc",
+      "title": "Jak napsat milostný dopis ve španělštině",
+      "native_lang": "cs",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Úvodní oslovení",
+          "subsections": [
+            "### \"Mi querido/querida [jméno]\"",
+            "### \"Amor de mi vida\"",
+            "### \"Mi cielo\""
+          ]
+        },
+        {
+          "header": "## Úvodní věty",
+          "subsections": [
+            "### \"Te escribo esta carta para decirte cuánto significas para mí.\"",
+            "### \"Las palabras no pueden expresar lo que siento por ti, pero lo intentaré.\"",
+            "### \"Desde el momento en que te conocí, mi vida cambió para siempre.\""
+          ]
+        },
+        {
+          "header": "## Vyjádření lásky",
+          "subsections": [
+            "### \"Eres lo mejor que me ha pasado en la vida.\"",
+            "### \"Cada día me enamoro más de ti.\"",
+            "### \"Mi corazón te pertenece, ahora y siempre.\"",
+            "### \"Contigo he encontrado la felicidad verdadera.\"",
+            "### \"Eres mi sueño hecho realidad.\""
+          ]
+        },
+        {
+          "header": "## Ocenění partnera",
+          "subsections": [
+            "### \"Admiro tu fuerza, tu bondad y tu hermosa alma.\"",
+            "### \"Gracias por amarme tal como soy.\"",
+            "### \"Me haces querer ser mejor persona.\""
+          ]
+        },
+        {
+          "header": "## Závěrečné fráze",
+          "subsections": [
+            "### \"Tuyo/Tuya para siempre\"",
+            "### \"Con todo mi amor\"",
+            "### \"Eternamente tuyo/tuya\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "001abf39-48a2-435c-9e0e-5d5c57b3e4b8",
+      "title": "De Familie Ontmoeten: Essentiële Franse Zinnen",
+      "native_lang": "nl",
+      "target_lang": "fr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Beleefdheidsfrases",
+          "subsections": [
+            "### Complimenten Geven",
+            "### Hulp Aanbieden"
+          ]
+        },
+        {
+          "header": "## Aan Tafel",
+          "subsections": [
+            "### Tafelmanieren",
+            "### Over Het Eten Praten"
+          ]
+        },
+        {
+          "header": "## Culturele Tips",
+          "subsections": [
+            "### Cadeaus Meenemen",
+            "### Tafelmanieren",
+            "### Dresscode"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "001c1e54-adcf-4e9d-a898-86a030b50e4a",
+      "title": "Переїзд разом: італійською слова для спільного життя",
+      "native_lang": "uk",
+      "target_lang": "it",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика",
+          "subsections": []
+        },
+        {
+          "header": "## Обговорення переїзду",
+          "subsections": [
+            "### Як запропонувати спільне життя італійською"
+          ]
+        },
+        {
+          "header": "## Пошук житла",
+          "subsections": [
+            "### Лексика для оренди/покупки",
+            "### Кімнати в домі"
+          ]
+        },
+        {
+          "header": "## Меблі та предмети побуту",
+          "subsections": [
+            "### У спальні",
+            "### На кухні",
+            "### У вітальні"
+          ]
+        },
+        {
+          "header": "## Розподіл обов'язків",
+          "subsections": [
+            "### Домашні справи італійською",
+            "### Як обговорити обов'язки"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0024fd3e-4672-4b7d-98e0-78e9beba429f",
+      "title": "Норвезька vs англійська: ключові відмінності",
+      "native_lang": "uk",
+      "target_lang": "no",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Відмінність 3: Вимова",
+          "subsections": [
+            "### Унікальні норвезькі звуки:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "01ddb00f-50b1-436b-b117-76bd4fd5c6d2",
+      "title": "O Romeno e Dificil de Aprender? Uma Avaliacao Honesta",
+      "native_lang": "pt",
+      "target_lang": "ro",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## As Boas Noticias: Por Que o Romeno e Mais Facil do Que Voce Pensa",
+          "subsections": [
+            "### 1. O Romeno e uma Lingua Romanica",
+            "### 2. Ortografia Fonetica",
+            "### 3. Similaridades com o Portugues"
+          ]
+        },
+        {
+          "header": "## Os Desafios: O Que Torna o Romeno Complicado",
+          "subsections": [
+            "### 1. Casos Gramaticais",
+            "### 2. Tres Generos Gramaticais",
+            "### 3. Sons Unicos do Romeno",
+            "### 4. O Artigo Definido se Anexa aos Substantivos"
+          ]
+        },
+        {
+          "header": "## Dicas para o Sucesso",
+          "subsections": [
+            "### 1. Comece com os Cognatos",
+            "### 2. Foque nos Padroes",
+            "### 3. Pratique Falar Cedo",
+            "### 4. Abrace os Erros"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "01e6a8b7-f9a2-4a86-b9f4-dea377066e9e",
+      "title": "Spaanse Zinnen voor Verzoening en Goedmaken",
+      "native_lang": "nl",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen voor verzoening",
+          "subsections": [
+            "### 1. \"Lo siento mucho por lo que dije\"",
+            "### 2. \"¿Podemos empezar de nuevo?\"",
+            "### 3. \"No quería hacerte daño\"",
+            "### 4. \"Eres lo más importante para mí\"",
+            "### 5. \"Me equivoqué y lo admito\"",
+            "### 6. \"Te amo más que cualquier discusión\"",
+            "### 7. \"¿Qué puedo hacer para compensarte?\"",
+            "### 8. \"Te perdono\"",
+            "### 9. \"Dejemos esto atrás\"",
+            "### 10. \"Ven aquí, dame un abrazo\"",
+            "### 11. \"Somos más fuertes que esto\"",
+            "### 12. \"Nunca quiero perderte\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "01f3a682-3783-4f27-978e-3690f0f8f484",
+      "title": "Ungerska Fraser för Bråk och Meningsskiljaktigheter",
+      "native_lang": "sv",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande Fraser för Konfliktsituationer",
+          "subsections": [
+            "### 1. \"Rosszul érzem magam, amikor...\"",
+            "### 2. \"Tudunk nyugodtan beszélni erről?\"",
+            "### 3. \"Szükségem van egy percre\"",
+            "### 4. \"Nem akarok veled veszekedni\"",
+            "### 5. \"Értem a nézőpontodat\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Lösa Konflikter",
+          "subsections": [
+            "### 6. \"Hogyan tudjuk ezt megoldani?\"",
+            "### 7. \"Nem akartam megbántani téged\"",
+            "### 8. \"Találjunk kompromisszumot\"",
+            "### 9. \"Figyelek rád\"",
+            "### 10. \"Beszéljünk erről később\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "01f55f2e-59e1-4b1b-af46-c2c29f3b6f0c",
+      "title": "50+ Spaanse Koosnaampjes om Harten te Laten Smelten",
+      "native_lang": "nl",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Regionale Variaties",
+          "subsections": [
+            "### Spanje",
+            "### Mexico",
+            "### Argentinie",
+            "### Colombia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "021deadf-0556-4796-bc4e-4be9a770dfa9",
+      "title": "Slang Russo per Messaggi tra Coppie",
+      "native_lang": "it",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Esempi di Conversazioni",
+          "subsections": [
+            "### Al Mattino",
+            "### La Sera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "02e3bb7f-0c4d-4a0d-b2b4-7a550705d3eb",
+      "title": "100 Συχνές Λέξεις (fr): Οδηγός για Ελληνόφωνα Ζευγάρια",
+      "native_lang": "el",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Κατηγορίες Λέξεων",
+          "subsections": [
+            "### Αγάπη & Τρυφερότητα",
+            "### Καθημερινές Λέξεις",
+            "### Συναισθήματα",
+            "### Χρόνος",
+            "### Τοποθεσία",
+            "### Ερωτήσεις",
+            "### Ρήματα"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "02e62a3a-9802-4d91-8067-4b9c29b74ffb",
+      "title": "Polish Future Tense: How to Make Plans",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Romantic Future Plans",
+          "subsections": [
+            "### Short-term Romance",
+            "### Long-term Dreams"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "02fd1026-0d28-46a7-8378-560c16a592da",
+      "title": "Conhecendo a Familia do seu Parceiro Alemao",
+      "native_lang": "pt",
+      "target_lang": "de",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Dicas Culturais Essenciais",
+          "subsections": [
+            "### Antes da Visita",
+            "### Durante a Visita",
+            "### Apos a Visita"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "031781a4-28fc-46e6-8b8d-71f4ecc8a523",
+      "title": "Hungarian 'I Miss You' Phrases: Express Your Longing Uniquely",
+      "native_lang": "en",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essential 'I Miss You' Phrases",
+          "subsections": [
+            "### Tender Expressions",
+            "### Deep Longing",
+            "### Romantic Yearning",
+            "### Heartfelt Messages"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0319ec4a-d13d-4286-82b0-b4dbd0f58f34",
+      "title": "Переїзд разом: португальською слова для спільного життя",
+      "native_lang": "uk",
+      "target_lang": "pt",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика",
+          "subsections": []
+        },
+        {
+          "header": "## Обговорення переїзду",
+          "subsections": [
+            "### Як запропонувати спільне життя португальською"
+          ]
+        },
+        {
+          "header": "## Пошук житла",
+          "subsections": [
+            "### Лексика для оренди/покупки",
+            "### Кімнати в домі"
+          ]
+        },
+        {
+          "header": "## Меблі та предмети побуту",
+          "subsections": [
+            "### У спальні",
+            "### На кухні",
+            "### У вітальні"
+          ]
+        },
+        {
+          "header": "## Розподіл обов'язків",
+          "subsections": [
+            "### Домашні справи португальською",
+            "### Як обговорити обов'язки"
+          ]
+        }
+      ]
+    }
+  ]
+}

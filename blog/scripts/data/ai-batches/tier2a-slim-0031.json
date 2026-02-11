@@ -1,0 +1,588 @@
+{
+  "batchId": "tier2a-slim-0031",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "3a56a7ee-9ed0-4f92-9632-8c769d324c43",
+      "title": "Argot turc pour SMS : communiquez avec votre partenaire",
+      "native_lang": "fr",
+      "target_lang": "tr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Abréviations essentielles",
+          "subsections": [
+            "### Salutations",
+            "### Réponses courtes"
+          ]
+        },
+        {
+          "header": "## Messages pour différentes situations",
+          "subsections": [
+            "### Le matin",
+            "### Le soir",
+            "### En cas de dispute"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3a6064f3-80f3-49c1-b887-7b6790395242",
+      "title": "Данська вимова для початківців: Як звучати як рідний для вашого партнера",
+      "native_lang": "uk",
+      "target_lang": "da",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Поширені помилки, яких можна уникнути",
+          "subsections": [
+            "### 1. Занадто чітке вимовляння кінцівок",
+            "### 2. Неправильне наголос",
+            "### 3. Англійське \"th\" замість данського \"d\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3a636e62-78f4-47f3-aad1-a28eb7ec258a",
+      "title": "30+ Tjekkiske Komplimenter til Din Partner: Romantiske Fraser",
+      "native_lang": "da",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Komplimenter til Specielle Lejligheder",
+          "subsections": [
+            "### Til en Date",
+            "### Ved Milepæle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3a6a9d77-dc8b-4d44-9250-3db727b62184",
+      "title": "Frases en Rumano para Reconciliarte con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Pedir Disculpas",
+          "subsections": [
+            "### \"Îmi pare rău pentru ce am spus\"",
+            "### \"Nu am vrut să te rănesc\"",
+            "### \"Putem să o luăm de la capăt?\"",
+            "### \"Am greșit\""
+          ]
+        },
+        {
+          "header": "## Frases para Expresar Amor",
+          "subsections": [
+            "### \"Te iubesc, chiar și când ne certăm\"",
+            "### \"Ești totul pentru mine\"",
+            "### \"Urăsc să mă cert cu tine\""
+          ]
+        },
+        {
+          "header": "## Frases para Reconstruir",
+          "subsections": [
+            "### \"Hai să vorbim calm\"",
+            "### \"Vreau să te înțeleg mai bine\"",
+            "### \"Ce pot face să repar asta?\"",
+            "### \"Promit să mă străduiesc mai mult\"",
+            "### \"Pot să te îmbrățișez?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3a90ff8b-a085-4c14-ac97-4346bdea7cbd",
+      "title": "Переезд вместе на английский: Важные фразы",
+      "native_lang": "ru",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Поиск жилья",
+          "subsections": [
+            "### Разговор с риелтором",
+            "### Описание того, что нужно"
+          ]
+        },
+        {
+          "header": "## День переезда",
+          "subsections": [
+            "### Организация переезда",
+            "### Работа together"
+          ]
+        },
+        {
+          "header": "## Обустройство дома",
+          "subsections": [
+            "### Расстановка furniture",
+            "### Принятие решений вместе"
+          ]
+        },
+        {
+          "header": "## Знакомство с соседями",
+          "subsections": [
+            "### Первая встреча",
+            "### Построение отношений"
+          ]
+        },
+        {
+          "header": "## Разделение обязанностей",
+          "subsections": [
+            "### Домашние дела",
+            "### Обсуждение"
+          ]
+        },
+        {
+          "header": "## Ваш первый вечер дома",
+          "subsections": [
+            "### Особенный момент",
+            "### Создание уюта"
+          ]
+        },
+        {
+          "header": "## Решение проблем",
+          "subsections": [
+            "### Бытовые вопросы",
+            "### Разговор с арендодателем"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3aa7d9a3-b61e-437f-902f-ac39c23ae480",
+      "title": "Rosyjskie zwroty do godzenia się i pojednania dla par",
+      "native_lang": "pl",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Przepraszanie z serca",
+          "subsections": [
+            "### \"Прости меня, пожалуйста\"",
+            "### \"Мне очень жаль\"",
+            "### \"Я был неправ / Я была неправа\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie żalu",
+          "subsections": [
+            "### \"Мне очень плохо из-за того, что произошло\"",
+            "### \"Я не хотел/хотела тебя обидеть\"",
+            "### \"Если бы я мог/могла всё изменить\""
+          ]
+        },
+        {
+          "header": "## Otwieranie dialogu",
+          "subsections": [
+            "### \"Давай поговорим о том, что случилось\"",
+            "### \"Я хочу понять, что ты чувствуешь\"",
+            "### \"Расскажи мне, о чём ты думаешь\""
+          ]
+        },
+        {
+          "header": "## Obietnice zmiany",
+          "subsections": [
+            "### \"Я постараюсь стать лучше\"",
+            "### \"Это больше не повторится\"",
+            "### \"Я работаю над собой\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie miłości",
+          "subsections": [
+            "### \"Я люблю тебя больше жизни\"",
+            "### \"Ты для меня всё\"",
+            "### \"Я не хочу тебя потерять\""
+          ]
+        },
+        {
+          "header": "## Ciepłe pojednanie",
+          "subsections": [
+            "### \"Иди ко мне, обними меня\"",
+            "### \"Давай помиримся\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3aafa315-e800-4616-b718-c92d4e041f7e",
+      "title": "Португальские фразы для первого свидания",
+      "native_lang": "ru",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Начало разговора",
+          "subsections": [
+            "### 1. Você está lindo/linda esta noite",
+            "### 2. Estava ansioso/ansiosa para te conhecer",
+            "### 3. Me conta mais sobre você"
+          ]
+        },
+        {
+          "header": "## Поддержание беседы",
+          "subsections": [
+            "### 4. O que você gosta de fazer nas horas livres?"
+          ]
+        },
+        {
+          "header": "## Выражение интереса",
+          "subsections": [
+            "### 5. Adoraria te ver de novo",
+            "### 6. Me diverti muito esta noite"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3ab77149-74de-48ba-b57e-2358c9b4e893",
+      "title": "Ukrainian Baby & Pregnancy Vocabulary: Essential Words for Expecting Couples",
+      "native_lang": "en",
+      "target_lang": "uk",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Announcing the News",
+          "subsections": [
+            "### To Your Partner's Family",
+            "### To Friends"
+          ]
+        },
+        {
+          "header": "## Nursery and Baby Items",
+          "subsections": [
+            "### Setting Up the дитяча",
+            "### Shopping Vocabulary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3adcf0c3-0799-443b-992a-46760ade4f8d",
+      "title": "Hungarian Baby & Pregnancy Vocabulary: Essential Words for Expecting Couples",
+      "native_lang": "en",
+      "target_lang": "hu",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Announcing the News",
+          "subsections": [
+            "### To Your Partner's Family",
+            "### To Friends"
+          ]
+        },
+        {
+          "header": "## Nursery and Baby Items",
+          "subsections": [
+            "### Setting Up the babaszoba",
+            "### Shopping Vocabulary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3b0c4ee7-b750-4f18-a735-c3b707c90219",
+      "title": "Svéd születésnapi kívánságok párodnak",
+      "native_lang": "hu",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Születésnapi köszöntések",
+            "### Romantikus üzenetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3b23aae8-2099-40ac-a975-5fbd6c319a5e",
+      "title": "En Yaygın 100 Ukraynaca Kelime",
+      "native_lang": "tr",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Zamirler",
+          "subsections": [
+            "### 1. Я /ya/ - Ben",
+            "### 2. Ти /tı/ - Sen",
+            "### 3. Він /vin/ - O (erkek)",
+            "### 4. Вона /vona/ - O (kadın)",
+            "### 5. Ми /mı/ - Biz",
+            "### 6. Ви /vı/ - Siz",
+            "### 7. Вони /vonı/ - Onlar",
+            "### 8. І /i/ - Ve",
+            "### 9. Але /ale/ - Ama",
+            "### 10. Або /abo/ - Veya"
+          ]
+        },
+        {
+          "header": "## Temel Fiiller",
+          "subsections": [
+            "### 11. Бути /butı/ - Olmak",
+            "### 12. Мати /matı/ - Sahip olmak",
+            "### 13. Робити /robıtı/ - Yapmak",
+            "### 14. Говорити /govorıtı/ - Söylemek",
+            "### 15. Йти /ytı/ - Gitmek",
+            "### 16. Приходити /prıhodıtı/ - Gelmek",
+            "### 17. Могти /mogtı/ - Yapabilmek",
+            "### 18. Знати /znatı/ - Bilmek",
+            "### 19. Хотіти /hotitı/ - İstemek",
+            "### 20. Бачити /baçıtı/ - Görmek"
+          ]
+        },
+        {
+          "header": "## Sıfatlar",
+          "subsections": [
+            "### 21. Добрий /dobrıy/ - İyi",
+            "### 22. Поганий /poganıy/ - Kötü",
+            "### 23. Великий /velıkıy/ - Büyük",
+            "### 24. Малий /malıy/ - Küçük",
+            "### 25. Новий /novıy/ - Yeni",
+            "### 26. Старий /starıy/ - Eski/yaşlı",
+            "### 27. Довгий /dovgıy/ - Uzun",
+            "### 28. Короткий /korotkıy/ - Kısa",
+            "### 29. Гарячий /garyaçıy/ - Sıcak",
+            "### 30. Холодний /holodnıy/ - Soğuk"
+          ]
+        },
+        {
+          "header": "## Zaman İfadeleri",
+          "subsections": [
+            "### 31. Зараз /zaraz/ - Şimdi",
+            "### 32. Сьогодні /sogodni/ - Bugün",
+            "### 33. Завтра /zavtra/ - Yarın",
+            "### 34. Вчора /vçora/ - Dün",
+            "### 35. Завжди /zavjdı/ - Her zaman",
+            "### 36. Ніколи /nikolı/ - Asla",
+            "### 37. Іноді /inodi/ - Bazen"
+          ]
+        },
+        {
+          "header": "## Soru Kelimeleri",
+          "subsections": [
+            "### 38. Що /şço/ - Ne",
+            "### 39. Де /de/ - Nerede",
+            "### 40. Коли /kolı/ - Ne zaman",
+            "### 41. Чому /çomu/ - Neden",
+            "### 42. Як /yak/ - Nasıl",
+            "### 43. Хто /hto/ - Kim"
+          ]
+        },
+        {
+          "header": "## Sayılar",
+          "subsections": [
+            "### 44. Один /odın/ - Bir",
+            "### 45. Два /dva/ - İki",
+            "### 46. Три /trı/ - Üç",
+            "### 47. Чотири /çotırı/ - Dört",
+            "### 48. П'ять /pyat/ - Beş",
+            "### 49. Десять /desyat/ - On",
+            "### 50. Сто /sto/ - Yüz"
+          ]
+        },
+        {
+          "header": "## Günlük Kelimeler",
+          "subsections": [
+            "### 51. Так /tak/ - Evet",
+            "### 52. Ні /ni/ - Hayır",
+            "### 53. Будь ласка /bud laska/ - Lütfen",
+            "### 54. Дякую /dyakuyu/ - Teşekkürler",
+            "### 55. Вибачте /vıbaçte/ - Özür dilerim",
+            "### 56. Привіт /prıvit/ - Merhaba",
+            "### 57. До побачення /do pobaçennya/ - Hoşça kal",
+            "### 58. Кохання /kohannya/ - Aşk",
+            "### 59. Друг /drug/ - Arkadaş",
+            "### 60. Сім'я /simya/ - Aile"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3b23b4a3-7a0e-43d9-a605-5033c9db42e5",
+      "title": "Phrases de drague en ukrainien : L'amour au cœur slave",
+      "native_lang": "fr",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Phrases de base pour charmer",
+          "subsections": [
+            "### \"Ти дуже красива/красивий\"",
+            "### \"У тебе чарівна посмішка\"",
+            "### \"Твої очі як зірки\""
+          ]
+        },
+        {
+          "header": "## Exprimer l'attirance",
+          "subsections": [
+            "### \"Я не можу перестати думати про тебе\"",
+            "### \"Ти зводиш мене з розуму\"",
+            "### \"З тобою я почуваюся щасливим/щасливою\""
+          ]
+        },
+        {
+          "header": "## Déclarations profondes",
+          "subsections": [
+            "### \"Ти моє все\"",
+            "### \"Я кохаю тебе\"",
+            "### \"Ти кохання мого життя\""
+          ]
+        },
+        {
+          "header": "## Phrases tendres du quotidien",
+          "subsections": [
+            "### \"Я сумую за тобою\"",
+            "### \"Обійми мене\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3b2484af-bda8-425d-aaaf-be245719497f",
+      "title": "Переезд вместе на испанский: Важные фразы",
+      "native_lang": "ru",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Поиск жилья",
+          "subsections": [
+            "### Разговор с риелтором",
+            "### Описание того, что нужно"
+          ]
+        },
+        {
+          "header": "## День переезда",
+          "subsections": [
+            "### Организация переезда",
+            "### Работа juntos"
+          ]
+        },
+        {
+          "header": "## Обустройство дома",
+          "subsections": [
+            "### Расстановка los muebles",
+            "### Принятие решений вместе"
+          ]
+        },
+        {
+          "header": "## Знакомство с соседями",
+          "subsections": [
+            "### Первая встреча",
+            "### Построение отношений"
+          ]
+        },
+        {
+          "header": "## Разделение обязанностей",
+          "subsections": [
+            "### Домашние дела",
+            "### Обсуждение"
+          ]
+        },
+        {
+          "header": "## Ваш первый вечер дома",
+          "subsections": [
+            "### Особенный момент",
+            "### Создание уюта"
+          ]
+        },
+        {
+          "header": "## Решение проблем",
+          "subsections": [
+            "### Бытовые вопросы",
+            "### Разговор с арендодателем"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3b28c258-9c3d-43c8-a940-c1a8cf2e55a4",
+      "title": "Portuguese Anniversary Wishes: Romantic Messages for Your Love",
+      "native_lang": "en",
+      "target_lang": "pt",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Simple Anniversary Wishes",
+          "subsections": [
+            "### Short and Sweet",
+            "### For Your Partner"
+          ]
+        },
+        {
+          "header": "## Romantic Anniversary Messages",
+          "subsections": [
+            "### Heartfelt Declarations",
+            "### Reflective Messages"
+          ]
+        },
+        {
+          "header": "## Anniversary Messages by Year",
+          "subsections": [
+            "### First Anniversary",
+            "### Fifth Anniversary",
+            "### Tenth Anniversary",
+            "### Twenty-Fifth Anniversary (Silver)",
+            "### Fiftieth Anniversary (Golden)"
+          ]
+        },
+        {
+          "header": "## Planning Your Anniversary Celebration",
+          "subsections": [
+            "### Romantic Ideas",
+            "### What to Say at Dinner"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3b2d1726-f7fb-48ab-a38d-ff0399ae13a0",
+      "title": "Переїзд разом: чеською слова для спільного життя",
+      "native_lang": "uk",
+      "target_lang": "cs",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика",
+          "subsections": []
+        },
+        {
+          "header": "## Обговорення переїзду",
+          "subsections": [
+            "### Як запропонувати спільне життя чеською"
+          ]
+        },
+        {
+          "header": "## Пошук житла",
+          "subsections": [
+            "### Лексика для оренди/покупки",
+            "### Кімнати в домі"
+          ]
+        },
+        {
+          "header": "## Меблі та предмети побуту",
+          "subsections": [
+            "### У спальні",
+            "### На кухні",
+            "### У вітальні"
+          ]
+        },
+        {
+          "header": "## Розподіл обов'язків",
+          "subsections": [
+            "### Домашні справи чеською",
+            "### Як обговорити обов'язки"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,545 @@
+{
+  "batchId": "tier2a-slim-0158",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "a9b0f403-41fd-41ad-a576-20ba4215f63b",
+      "title": "Niederländische Flirtsprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassische Komplimente",
+          "subsections": [
+            "### \"Je bent mooi\"",
+            "### \"Je hebt prachtige ogen\"",
+            "### \"Je bent geweldig\""
+          ]
+        },
+        {
+          "header": "## Romantische Ausdrücke",
+          "subsections": [
+            "### \"Je bent de liefde van mijn leven\"",
+            "### \"Ik kan niet stoppen met aan je denken\"",
+            "### \"Je maakt me gelukkig\""
+          ]
+        },
+        {
+          "header": "## Süße Kosenamen",
+          "subsections": [
+            "### \"Schat\"",
+            "### \"Lieverd\"",
+            "### \"Liefje\"",
+            "### \"Mijn hartje\"",
+            "### \"Knuffelbeertje\""
+          ]
+        },
+        {
+          "header": "## Herzliche Ausdrücke",
+          "subsections": [
+            "### \"Ik ben gek op je\"",
+            "### \"Je betekent alles voor me\"",
+            "### \"Met jou is alles beter\"",
+            "### \"Ik wil voor altijd bij je zijn\""
+          ]
+        },
+        {
+          "header": "## Spielerische Sprüche",
+          "subsections": [
+            "### \"Geloof je in liefde op het eerste gezicht, of moet ik nog een keer langslopen?\"",
+            "### \"Is je vader een dief? Want hij heeft de sterren uit de hemel gestolen en in jouw ogen gezet\"",
+            "### \"Ben je een parkeerboete? Want je hebt 'prachtig' op je voorhoofd geschreven\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a9c15185-26aa-4a4d-80ca-4428672ec660",
+      "title": "Лексика о беременности на турецкий: Словарь для будущих родителей",
+      "native_lang": "ru",
+      "target_lang": "tr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Объявление о беременности",
+          "subsections": [
+            "### Для близких родственников",
+            "### Для друзей"
+          ]
+        },
+        {
+          "header": "## Лексика для визитов к врачу",
+          "subsections": [
+            "### На приёме",
+            "### Вопросы для врача"
+          ]
+        },
+        {
+          "header": "## Покупки для малыша",
+          "subsections": [
+            "### Необходимые вещи",
+            "### В магазине"
+          ]
+        },
+        {
+          "header": "## Разговор с семьёй партнёра",
+          "subsections": [
+            "### Делимся новостями",
+            "### Обсуждение планов"
+          ]
+        },
+        {
+          "header": "## Имена для малыша",
+          "subsections": [
+            "### Обсуждение имён"
+          ]
+        },
+        {
+          "header": "## После рождения",
+          "subsections": [
+            "### Объявление о рождении",
+            "### Первые дни"
+          ]
+        },
+        {
+          "header": "## Полезные фразы",
+          "subsections": [
+            "### Ежедневные выражения"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a9c427d4-3fb2-456e-a1cf-4d17a58ae08f",
+      "title": "Датские фразы о прощении",
+      "native_lang": "ru",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Фразы для просьбы о прощении",
+          "subsections": [
+            "### 1. Jeg er virkelig ked af det, jeg gjorde",
+            "### 2. Vær venlig at tilgive mig",
+            "### 3. Jeg ved, at jeg sårede dig, og jeg fortryder det dybt",
+            "### 4. Det vil ikke ske igen, det lover jeg",
+            "### 5. Jeg tager det fulde ansvar for mine handlinger"
+          ]
+        },
+        {
+          "header": "## Фразы для выражения прощения",
+          "subsections": [
+            "### 6. Jeg tilgiver dig",
+            "### 7. Lad os lægge det her bag os",
+            "### 8. Jeg er klar til at gå videre",
+            "### 9. Jeg sætter pris på din undskyldning",
+            "### 10. Det kræver mod at undskylde, tak"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a9c755a6-4492-4cb2-a929-2a40da5aa0c0",
+      "title": "Portugalskie zwroty do kłótni i nieporozumień dla par",
+      "native_lang": "pl",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Wyrażanie niezgody",
+          "subsections": [
+            "### \"Não concordo contigo\"",
+            "### \"Eu vejo isso de outra forma\"",
+            "### \"Podemos falar sobre isso com calma?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie uczuć",
+          "subsections": [
+            "### \"Eu me sinto frustrado/frustrada quando...\"",
+            "### \"Isso está me incomodando muito\"",
+            "### \"Preciso de um momento para pensar\""
+          ]
+        },
+        {
+          "header": "## Zrozumienie partnera",
+          "subsections": [
+            "### \"Me ajuda a entender o teu ponto de vista\"",
+            "### \"Se eu entendi bem, você está dizendo que...\"",
+            "### \"Você quer dizer que...?\""
+          ]
+        },
+        {
+          "header": "## Szukanie rozwiązań",
+          "subsections": [
+            "### \"Como podemos resolver isso juntos?\"",
+            "### \"Vamos encontrar um meio-termo\"",
+            "### \"Acho que nós dois precisamos...\""
+          ]
+        },
+        {
+          "header": "## Łagodzenie napięcia",
+          "subsections": [
+            "### \"Eu te amo, mesmo quando brigamos\"",
+            "### \"Vamos superar isso juntos\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a9df7de2-5d87-4aa8-82d9-0b53410c2764",
+      "title": "Dänische Liebesbrief-Phrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Anreden",
+          "subsections": [
+            "### \"Min elskede...\"",
+            "### \"Mit hjerte...\"",
+            "### \"Min kærlighed...\"",
+            "### \"Skat...\""
+          ]
+        },
+        {
+          "header": "## Einleitungen",
+          "subsections": [
+            "### \"Jeg skriver for at fortælle dig, hvor meget jeg elsker dig\"",
+            "### \"Der findes ikke ord nok til at beskrive, hvad jeg føler for dig\""
+          ]
+        },
+        {
+          "header": "## Ausdrücke der Liebe",
+          "subsections": [
+            "### \"Du er det bedste, der nogensinde er sket for mig\"",
+            "### \"Mit liv ændrede sig for altid den dag, jeg mødte dig\"",
+            "### \"Jeg bliver mere forelsket i dig for hver dag\"",
+            "### \"Du lyser mit liv op med dit nærvær\"",
+            "### \"Med dig har jeg opdaget, hvad ægte kærlighed er\""
+          ]
+        },
+        {
+          "header": "## Zukunftsversprechen",
+          "subsections": [
+            "### \"Jeg lover at elske dig betingelsesløst\"",
+            "### \"Jeg vil tilbringe resten af mit liv med dig\"",
+            "### \"Min kærlighed til dig vil kun vokse\""
+          ]
+        },
+        {
+          "header": "## Abschlüsse",
+          "subsections": [
+            "### \"Din for evigt...\"",
+            "### \"Med al min kærlighed...\"",
+            "### \"Jeg elsker dig, i dag og for evigt\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a9e671c6-e8bc-4c56-b92e-60b5ee524a01",
+      "title": "Cum Să Scrii o Scrisoare de Dragoste în Italiană",
+      "native_lang": "ro",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Începutul Scrisorii",
+          "subsections": [
+            "### Formule de Adresare",
+            "### Primele Rânduri"
+          ]
+        },
+        {
+          "header": "## Corpul Scrisorii",
+          "subsections": [
+            "### Exprimarea Sentimentelor"
+          ]
+        },
+        {
+          "header": "## Finalul Scrisorii",
+          "subsections": [
+            "### Promisiuni",
+            "### Formule de Încheiere"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a9eb94e1-cdd2-4c39-9ef5-b30e07ce4029",
+      "title": "Fraze Romantice în Olandeză pentru Cupluri",
+      "native_lang": "ro",
+      "target_lang": "nl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Fraze pentru Momente Speciale",
+          "subsections": [
+            "### La o Întâlnire",
+            "### La Aniversări",
+            "### Dimineața"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aa0f4647-b3f9-4f44-9ab9-f569f39972fd",
+      "title": "Spaans voor Stellen: 45+ Essentiële Reiszinnen",
+      "native_lang": "nl",
+      "target_lang": "es",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## In Het Hotel",
+          "subsections": [
+            "### Inchecken",
+            "### Verzoeken"
+          ]
+        },
+        {
+          "header": "## In Een Restaurant",
+          "subsections": [
+            "### Een Tafel Krijgen",
+            "### Bestellen"
+          ]
+        },
+        {
+          "header": "## Vervoer",
+          "subsections": [
+            "### Taxi",
+            "### Openbaar Vervoer"
+          ]
+        },
+        {
+          "header": "## Bezienswaardigheden",
+          "subsections": [
+            "### Kaartjes Kopen",
+            "### De Weg Vragen"
+          ]
+        },
+        {
+          "header": "## Handige Woordenlijst",
+          "subsections": [
+            "### Vliegveld",
+            "### Hotel",
+            "### Vervoer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aa2408d0-61ce-4922-ace1-d393016b004b",
+      "title": "Gefühle auf Griechisch ausdrücken – Emotionen in deiner Beziehung teilen",
+      "native_lang": "de",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Positive Gefühle ausdrücken",
+          "subsections": [
+            "### Liebe und Zuneigung",
+            "### Glück und Freude"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aa41e412-7d1c-4c85-9d75-1425e7e21430",
+      "title": "Tyrkiske Kærlighedsbreve for Danskere",
+      "native_lang": "da",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Indledninger",
+          "subsections": [
+            "### \"Aşkım\" / \"Canım\" / \"Hayatım\"",
+            "### \"Sevgilim\" / \"Biricik aşkım\""
+          ]
+        },
+        {
+          "header": "## Udtryk for Kærlighed",
+          "subsections": [
+            "### \"Kelimeler sana olan hislerimi anlatmaya yetmiyor\"",
+            "### \"Sen hayatıma gelen en güzel şeysin\"",
+            "### \"Seninle geçirdiğim her gün bir hediye\"",
+            "### \"Sen beni daha iyi bir insan yapıyorsun\""
+          ]
+        },
+        {
+          "header": "## Romantiske Erklæringer",
+          "subsections": [
+            "### \"Gözlerine baktığımda geleceğimi görüyorum\"",
+            "### \"Gülüşün dünyamı aydınlatıyor\"",
+            "### \"Her gün sana biraz daha aşık oluyorum\"",
+            "### \"Sen benim kayam, çıpam, sığınağımsın\""
+          ]
+        },
+        {
+          "header": "## Løfter",
+          "subsections": [
+            "### \"İyi günde kötü günde seni sevmeye söz veriyorum\"",
+            "### \"Seninle yaşlanmak istiyorum\"",
+            "### \"Sana olan aşkım asla sönmeyecek\"",
+            "### \"Seni seçiyorum, bugün ve sonsuza dek\""
+          ]
+        },
+        {
+          "header": "## Afslutninger",
+          "subsections": [
+            "### \"Sonsuza dek senin\"",
+            "### \"Tüm sevgimle\"",
+            "### \"Ebediyen senin\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aa484f0e-3ea5-49ab-9942-3d8337764d24",
+      "title": "Polish Emotional Support Phrases: Comfort Your Partner in Difficult Times",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Specific Situations",
+          "subsections": [
+            "### Grief",
+            "### Stress",
+            "### Disappointment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aa69e434-308f-404e-b76d-c4b03fc060d2",
+      "title": "Canciones de Amor Rusas para Aprender el Idioma",
+      "native_lang": "es",
+      "target_lang": "ru",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Clásicos Soviéticos",
+          "subsections": [
+            "### \"Миллион алых роз\" (Un Millón de Rosas Rojas)",
+            "### \"Надежда\" (Esperanza)"
+          ]
+        },
+        {
+          "header": "## Baladas Rusas Modernas",
+          "subsections": [
+            "### \"Я тебя люблю\" (Te Amo)",
+            "### \"Ты\" (Tú) - Глюк'оZа"
+          ]
+        },
+        {
+          "header": "## Artistas para Escuchar",
+          "subsections": [
+            "### Романтicos/Baladas",
+            "### Pop Moderno"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aa6a999d-a890-4488-907d-7b01fa2a90da",
+      "title": "Prononciation turque : maitriser les sons",
+      "native_lang": "fr",
+      "target_lang": "tr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Erreurs de Prononciation Courantes",
+          "subsections": [
+            "### Erreur 1 : Prononcer C Comme K ou S",
+            "### Erreur 2 : Ignorer le I Sans Point",
+            "### Erreur 3 : Prononcer Ğ Comme G",
+            "### Erreur 4 : Avaler le H"
+          ]
+        },
+        {
+          "header": "## Mots d'Entraînement par Son",
+          "subsections": [
+            "### Pratiquez le I Sans Point (ı)",
+            "### Pratiquez le Ö",
+            "### Pratiquez le Ü",
+            "### Pratiquez le Ğ"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aa731eea-1506-44fa-bc64-9e4fdf0949f6",
+      "title": "Frases de 'Te Extraño' en Polaco: Tęsknota con Alma Eslava",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresiones Esenciales",
+          "subsections": [
+            "### \"Tęsknię za tobą\"",
+            "### \"Bardzo za tobą tęsknię\"",
+            "### \"Chciałbym/chciałabym, żebyś tu był/była\""
+          ]
+        },
+        {
+          "header": "## Frases Emotivas",
+          "subsections": [
+            "### \"Każda chwila bez ciebie to wieczność\"",
+            "### \"Zawsze jesteś w moich myślach\"",
+            "### \"Odległość nic nie zmienia w moich uczuciach\""
+          ]
+        },
+        {
+          "header": "## Para Mensajes Diarios",
+          "subsections": [
+            "### \"Obudziłem/obudziłam się myśląc o tobie\"",
+            "### \"Dobranoc, tęsknię\"",
+            "### \"Liczę dni do naszego spotkania\""
+          ]
+        },
+        {
+          "header": "## Expresiones Profundas",
+          "subsections": [
+            "### \"Moje serce boli z tęsknoty\"",
+            "### \"Jesteś brakującym elementem mojego życia\"",
+            "### \"Bez ciebie wszystko traci sens\""
+          ]
+        },
+        {
+          "header": "## Frases para Videollamadas",
+          "subsections": [
+            "### \"Widzieć twoją twarz sprawia mi radość\"",
+            "### \"Chciałbym/chciałabym cię przytulić przez ekran\""
+          ]
+        },
+        {
+          "header": "## Mensajes Románticos",
+          "subsections": [
+            "### \"Dzień dobry, kochanie, tęsknię\"",
+            "### \"Nie mogę się doczekać, żeby cię zobaczyć\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aa837350-50d8-4d1d-88f2-081049c7ecee",
+      "title": "Dán nászutas utazási kifejezések",
+      "native_lang": "hu",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Utazási alapkifejezések",
+            "### Romantikus helyzetek"
+          ]
+        }
+      ]
+    }
+  ]
+}

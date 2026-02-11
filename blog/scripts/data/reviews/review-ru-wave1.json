@@ -1,0 +1,251 @@
+{
+  "native_lang": "ru",
+  "wave": 1,
+  "target_langs_reviewed": ["en", "es", "fr", "de", "it", "pt"],
+  "articles_reviewed": 12,
+  "clean_articles": 1,
+  "issues": [
+    {
+      "article_id": "02c9686b-c07b-47ad-af0f-9c6e49d5dc1d",
+      "slug": "english-giving-compliments",
+      "target_lang": "en",
+      "issue_type": "truncated_pronunciation",
+      "severity": "high",
+      "description": "Multiple VocabCards have truncated/useless pronunciations. 'You're beautiful' is rendered as just 'Ю', 'You're amazing' as 'Ю', 'I'm thinking of you' as 'Ай'. These single-syllable guides do not help a Russian speaker pronounce the full English phrase.",
+      "evidence": "pronunciation=\"Ю\" for 'You're beautiful', pronunciation=\"Ай\" for 'I'm thinking of you'"
+    },
+    {
+      "article_id": "02c9686b-c07b-47ad-af0f-9c6e49d5dc1d",
+      "slug": "english-giving-compliments",
+      "target_lang": "en",
+      "issue_type": "missing_vocabcard_prop",
+      "severity": "medium",
+      "description": "Several VocabCards are missing the exampleTranslation prop. The later VocabCards (e.g. 'You look stunning', 'I love your sense of humor', 'You're so talented') have example sentences in English but no exampleTranslation, while earlier cards have them.",
+      "evidence": "VocabCard word='You look stunning' has example but no exampleTranslation prop"
+    },
+    {
+      "article_id": "02c9686b-c07b-47ad-af0f-9c6e49d5dc1d",
+      "slug": "english-giving-compliments",
+      "target_lang": "en",
+      "issue_type": "grammar_error",
+      "severity": "low",
+      "description": "Minor Russian grammatical error: 'В английском культуре' should be 'В английской культуре' (feminine adjective agreement with 'культуре').",
+      "evidence": "В английском культуре комплименты играют важную роль"
+    },
+    {
+      "article_id": "8ceeea2f-1736-41d9-8f73-fc4f41b5eb0f",
+      "slug": "english-meeting-your-partner-s-family",
+      "target_lang": "en",
+      "issue_type": "inconsistent_pronunciation_system",
+      "severity": "high",
+      "description": "Article mixes Cyrillic phonetic guides (e.g. 'АЙМ ик-САЙ-тэд ту МИИТ йу') with IPA-like symbols (e.g. 'THÆŋk yu fər HÆ-vɪŋ mi', 'ðɪs ɪz fər yu'). For Russian-native readers, IPA symbols like ð, ɪ, æ, ŋ, ʃ are incomprehensible. The requirement is Cyrillic pronunciations for Russian native.",
+      "evidence": "THÆŋk yu fər HÆ-vɪŋ mi, ðɪs ɪz fər yu, kæn aɪ help wɪð EN-i-thɪŋ?"
+    },
+    {
+      "article_id": "8ceeea2f-1736-41d9-8f73-fc4f41b5eb0f",
+      "slug": "english-meeting-your-partner-s-family",
+      "target_lang": "en",
+      "issue_type": "missing_vocabcard_prop",
+      "severity": "medium",
+      "description": "The VocabCard for 'I'm excited to meet you' is missing exampleTranslation prop. Only the English example is shown.",
+      "evidence": "VocabCard word=\"I'm excited to meet you\" has example but no exampleTranslation"
+    },
+    {
+      "article_id": "8ceeea2f-1736-41d9-8f73-fc4f41b5eb0f",
+      "slug": "english-meeting-your-partner-s-family",
+      "target_lang": "en",
+      "issue_type": "template_placeholder",
+      "severity": "medium",
+      "description": "Dialog scripts contain bracketed Russian placeholders that should be filled in by the reader, but may confuse as template artifacts: '[расскажите вашу историю]' and '[супруг/супруга]'.",
+      "evidence": "We met [расскажите вашу историю]... Your [супруг/супруга] raised such an amazing person."
+    },
+    {
+      "article_id": "8ceeea2f-1736-41d9-8f73-fc4f41b5eb0f",
+      "slug": "english-meeting-your-partner-s-family",
+      "target_lang": "en",
+      "issue_type": "html_nesting_error",
+      "severity": "medium",
+      "description": "In content_html, a VocabCard div for 'hospitality' is nested inside a <p> tag paragraph. The HTML shows the speakable-vocab div opening inside a paragraph that was not closed, resulting in broken nesting.",
+      "evidence": "<p>В англоязычной культуре... <div class=\"speakable-vocab..."
+    },
+    {
+      "article_id": "1a29ab79-9d9c-43ab-ae70-114e9c1ae9dd",
+      "slug": "es-in-laws-phrases-for-russian-speakers",
+      "target_lang": "es",
+      "issue_type": "missing_pronunciation_inline",
+      "severity": "medium",
+      "description": "Most phrases lack inline Cyrillic pronunciation guides. Only the first phrase has one ('Мучо густо эн коносэрлес'). Many other key phrases (Gracias por invitarme, Tienen una casa muy bonita, etc.) have no pronunciation guide at all.",
+      "evidence": "Gracias por invitarme. *Спасибо за приглашение.* (no pronunciation)"
+    },
+    {
+      "article_id": "1a29ab79-9d9c-43ab-ae70-114e9c1ae9dd",
+      "slug": "es-in-laws-phrases-for-russian-speakers",
+      "target_lang": "es",
+      "issue_type": "language_mixing",
+      "severity": "medium",
+      "description": "One phrase mixes Spanish and Russian: '¿Cómo era [имя] когда era pequeño/a?' The word 'когда' is Russian inserted mid-Spanish sentence. Should be '¿Cómo era [имя] cuando era pequeño/a?'",
+      "evidence": "¿Cómo era [имя] когда era pequeño/a?"
+    },
+    {
+      "article_id": "1a29ab79-9d9c-43ab-ae70-114e9c1ae9dd",
+      "slug": "es-in-laws-phrases-for-russian-speakers",
+      "target_lang": "es",
+      "issue_type": "no_phrase_of_day",
+      "severity": "low",
+      "description": "Article has no PhraseOfDay component, unlike other articles in the wave. This is a structural inconsistency rather than a bug.",
+      "evidence": "No <PhraseOfDay> found in content"
+    },
+    {
+      "article_id": "a8753b30-f2c4-44f5-b285-c5ee96cd0916",
+      "slug": "es-100-common-phrases-for-russian-speakers",
+      "target_lang": "es",
+      "issue_type": "title_mismatch",
+      "severity": "medium",
+      "description": "Title promises '100 самых важных испанских слов' but article only covers approximately 20 words/phrases. The numbered items go from 1 to 20. The title is misleading.",
+      "evidence": "Title: '100 самых важных испанских слов для пар', actual content covers items ### 1 through ### 20"
+    },
+    {
+      "article_id": "a8753b30-f2c4-44f5-b285-c5ee96cd0916",
+      "slug": "es-100-common-phrases-for-russian-speakers",
+      "target_lang": "es",
+      "issue_type": "no_phrase_of_day",
+      "severity": "low",
+      "description": "Article has no PhraseOfDay component.",
+      "evidence": "No <PhraseOfDay> found in content"
+    },
+    {
+      "article_id": "a8753b30-f2c4-44f5-b285-c5ee96cd0916",
+      "slug": "es-100-common-phrases-for-russian-speakers",
+      "target_lang": "es",
+      "issue_type": "grammar_error_target",
+      "severity": "low",
+      "description": "VocabCard example for 'Quedarse' has incorrect grammar: '¿Quieres salir o prefieres quedarse en casa?' should use 'quedarte' (tú form) not 'quedarse' (infinitive/usted form) since the sentence uses informal 'Quieres'.",
+      "evidence": "¿Quieres salir o prefieres quedarse en casa?"
+    },
+    {
+      "article_id": "5e78173f-267c-461d-b6f3-a6b44b5907f8",
+      "slug": "fr-flirt-phrases-for-russian-speakers",
+      "target_lang": "fr",
+      "issue_type": "no_vocabcards",
+      "severity": "medium",
+      "description": "Article contains no VocabCard or PhraseOfDay components at all. All phrases are presented as bold text with inline pronunciations. This is structurally different from other articles and loses the interactive/visual card format.",
+      "evidence": "No <VocabCard> or <PhraseOfDay> components in the article"
+    },
+    {
+      "article_id": "6791d375-0401-4631-8c45-086acfeee0e5",
+      "slug": "fr-100-common-phrases-for-russian-speakers",
+      "target_lang": "fr",
+      "issue_type": "title_mismatch",
+      "severity": "medium",
+      "description": "Title promises '100 самых важных французских слов' but article only covers approximately 20 words/phrases. Same issue as the Spanish 100-words article.",
+      "evidence": "Title: '100 самых важных французских слов для пар', actual content covers items ### 1 through ### 20"
+    },
+    {
+      "article_id": "6791d375-0401-4631-8c45-086acfeee0e5",
+      "slug": "fr-100-common-phrases-for-russian-speakers",
+      "target_lang": "fr",
+      "issue_type": "grammar_error_target",
+      "severity": "low",
+      "description": "VocabCard example for 'Se reposer': 'Nous allons se reposer ce soir' is grammatically incorrect. Should be 'Nous allons nous reposer ce soir' (reflexive pronoun must match the subject 'nous').",
+      "evidence": "Nous allons se reposer ce soir."
+    },
+    {
+      "article_id": "6791d375-0401-4631-8c45-086acfeee0e5",
+      "slug": "fr-100-common-phrases-for-russian-speakers",
+      "target_lang": "fr",
+      "issue_type": "no_phrase_of_day",
+      "severity": "low",
+      "description": "Article has no PhraseOfDay component.",
+      "evidence": "No <PhraseOfDay> found in content"
+    },
+    {
+      "article_id": "9ed6fdf7-bf12-4d31-bca0-e8556076f814",
+      "slug": "de-texting-phrases-for-russian-speakers",
+      "target_lang": "de",
+      "issue_type": "no_vocabcards",
+      "severity": "medium",
+      "description": "Article contains no VocabCard, PhraseOfDay, or CultureTip components. All content is plain bold text with Russian translations. Structurally inconsistent with other articles in the wave.",
+      "evidence": "No <VocabCard>, <PhraseOfDay>, or <CultureTip> components found"
+    },
+    {
+      "article_id": "9ed6fdf7-bf12-4d31-bca0-e8556076f814",
+      "slug": "de-texting-phrases-for-russian-speakers",
+      "target_lang": "de",
+      "issue_type": "missing_pronunciations",
+      "severity": "medium",
+      "description": "No Cyrillic pronunciation guides are provided for any of the German phrases. A Russian speaker would not know how to pronounce 'Schlaf gut, träum was Schönes' or 'Ich bin so froh, dass es dich gibt' without phonetic guidance.",
+      "evidence": "No pronunciation guides anywhere in the article"
+    },
+    {
+      "article_id": "fbb02c15-1a0a-4bf8-8650-b78520291d7c",
+      "slug": "de-in-laws-phrases-for-russian-speakers",
+      "target_lang": "de",
+      "issue_type": "heading_level_error",
+      "severity": "low",
+      "description": "Article content starts with '# Знакомство с родителями...' (h1) which gets rendered as <h1> in content_html. The title is already the h1 in the page layout, so the content should use h2 as the top-level heading. Also uses ### (h3) for sections where ## (h2) would be expected.",
+      "evidence": "content starts with '# Знакомство с родителями партнёра: фразы на немецком', sections use ### instead of ##"
+    },
+    {
+      "article_id": "18d1753d-c6f3-4728-832e-5c3d4e648093",
+      "slug": "it-argue-phrases-for-russian-speakers",
+      "target_lang": "it",
+      "issue_type": "forced_analogies",
+      "severity": "low",
+      "description": "Article uses forced/awkward analogies that feel AI-generated and reduce content quality: lighthouse metaphor, cloud types (cirrus/cumulonimbus) for disagreement levels, and pickled vegetables for conflict resolution.",
+      "evidence": "Как разные облака на небе – перистые cirrus для лёгких замечаний, грозовые cumulonimbus для серьёзных возражений"
+    },
+    {
+      "article_id": "ae5dc374-8fb1-48c0-b73a-f31b575a781c",
+      "slug": "portuguese-giving-compliments",
+      "target_lang": "pt",
+      "issue_type": "example_in_wrong_language",
+      "severity": "high",
+      "description": "Two VocabCards have their example sentences in Russian instead of Portuguese. The 'example' prop should contain a Portuguese sentence, but instead contains Russian text.",
+      "evidence": "VocabCard word='Você é muito inteligente' example='Мне нравится, как ты рассуждаешь, ты очень умный.'"
+    },
+    {
+      "article_id": "ae5dc374-8fb1-48c0-b73a-f31b575a781c",
+      "slug": "portuguese-giving-compliments",
+      "target_lang": "pt",
+      "issue_type": "grammar_error",
+      "severity": "low",
+      "description": "Minor Russian grammatical error: 'В португальском культуре' should be 'В португальской культуре' (feminine adjective agreement).",
+      "evidence": "В португальском культуре комплименты играют важную роль"
+    },
+    {
+      "article_id": "ae5dc374-8fb1-48c0-b73a-f31b575a781c",
+      "slug": "portuguese-giving-compliments",
+      "target_lang": "pt",
+      "issue_type": "flag_mismatch",
+      "severity": "low",
+      "description": "CultureTip uses Portugal flag (PT) but article content discusses Brazilian Portuguese too. Since the article mixes both variants, the flag choice may be misleading.",
+      "evidence": "CultureTip flag='🇵🇹' but article discusses Brazilian Portuguese expressions"
+    },
+    {
+      "article_id": "3903550d-638d-4858-8c7d-54582566bfe7",
+      "slug": "pt-texting-phrases-for-russian-speakers",
+      "target_lang": "pt",
+      "issue_type": "no_vocabcards",
+      "severity": "medium",
+      "description": "Article contains no VocabCard, PhraseOfDay, or CultureTip components. All content is plain bold text. Structurally inconsistent with other articles.",
+      "evidence": "No <VocabCard>, <PhraseOfDay>, or <CultureTip> components found"
+    },
+    {
+      "article_id": "3903550d-638d-4858-8c7d-54582566bfe7",
+      "slug": "pt-texting-phrases-for-russian-speakers",
+      "target_lang": "pt",
+      "issue_type": "missing_pronunciations",
+      "severity": "medium",
+      "description": "No Cyrillic pronunciation guides are provided for any Portuguese phrases. Russian speakers would not know how to pronounce 'Acordei pensando em você' or 'Estou com saudade'.",
+      "evidence": "No pronunciation guides anywhere in the article"
+    }
+  ],
+  "systemic_patterns": [
+    "Pronunciation inconsistency: Three articles (de-texting, pt-texting, fr-flirt) have ZERO pronunciation guides. Others mix Cyrillic with IPA symbols. The en-meeting-family article is the worst offender, using IPA notation (ð, ɪ, æ, ŋ) which Russian speakers cannot read.",
+    "Missing interactive components: Three articles (de-texting, pt-texting, fr-flirt) contain no VocabCard/PhraseOfDay/CultureTip components at all — just bold text with translations. This creates a structurally inconsistent reader experience across the wave.",
+    "Title-content mismatch on '100 words' articles: Both es-100 and fr-100 promise 100 words but deliver only ~20. These titles are misleading and could damage SEO credibility if users bounce.",
+    "Repeated grammar template: The Portuguese and English compliment articles share an identical structure and even the same Russian grammar error pattern ('В [language]ском культуре' instead of 'В [language]ской культуре'), suggesting they were generated from the same template with insufficient language-specific review.",
+    "VocabCard exampleTranslation prop inconsistently populated: Some VocabCards have exampleTranslation, others omit it entirely. This varies even within the same article.",
+    "Bracketed placeholders in dialog scripts: The en-meeting-family article uses [расскажите вашу историю] and [супруг/супруга] and the es-in-laws article uses [имя] — these are intentional fill-in-the-blank markers but could be mistaken for template artifacts. They should be consistently styled or explained."
+  ]
+}

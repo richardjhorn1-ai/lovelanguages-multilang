@@ -1,0 +1,412 @@
+{
+  "batchId": "tier2a-slim-0297",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "4a59cabd-e4a6-4150-a40c-1ae6174db2f5",
+      "title": "Polish Emotions: Express Your Feelings",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Emotional Phrases for Couples",
+          "subsections": [
+            "### Expressing Love and Affection",
+            "### During Difficult Times"
+          ]
+        },
+        {
+          "header": "## Practice Scenarios for Couples",
+          "subsections": [
+            "### Morning Check-in",
+            "### Offering Support",
+            "### Celebrating Together"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4b3d1391-afb4-4d14-bd22-30232a574f4b",
+      "title": "Jerga Francesa de Mensajes para Parejas",
+      "native_lang": "es",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Conversaciones de Ejemplo",
+          "subsections": [
+            "### Por la Mañana",
+            "### Por la Noche"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4b96a426-902e-4ef5-a3cc-0b59858ffe75",
+      "title": "40+ Danca Randevu İfadesi | Restoran ve Romantik Anlar",
+      "native_lang": "tr",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Restoranda",
+          "subsections": [
+            "### Giriş ve Rezervasyon",
+            "### Menüyü Okuma",
+            "### Sipariş Verme",
+            "### Yemek Sırasında Konuşmalar",
+            "### Ödeme"
+          ]
+        },
+        {
+          "header": "## Romantik Konuşmalar",
+          "subsections": [
+            "### Akşam Boyunca",
+            "### Akşamın Sonunda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4bdb5fb5-1966-49ba-8c6b-76259f6db473",
+      "title": "Норвежские приветствия и прощания",
+      "native_lang": "ru",
+      "target_lang": "no",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Романтические приветствия и прощания",
+          "subsections": [
+            "### Для пар"
+          ]
+        },
+        {
+          "header": "## При встрече и расставании",
+          "subsections": [
+            "### Когда партнёр уходит",
+            "### Когда партнёр возвращается"
+          ]
+        },
+        {
+          "header": "## Практические упражнения",
+          "subsections": [
+            "### Утренняя рутина",
+            "### Вечерняя рутина",
+            "### Ролевая игра: Телефонный звонок"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4d43d601-3978-470a-b8a6-0168dfcfdfa3",
+      "title": "50 Frases Románticas en Neerlandés para Cada Momento Especial",
+      "native_lang": "es",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Frases para Ocasiones Especiales",
+          "subsections": [
+            "### Aniversarios y Momentos Importantes",
+            "### Pedidas de Cita y Citas Románticas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4db07a66-73ec-4761-acb0-283268493003",
+      "title": "Норвежское произношение для пар: научитесь говорить так, чтобы ваш партнёр улыбнулся",
+      "native_lang": "ru",
+      "target_lang": "no",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Звуки, которые вызывают трудности",
+          "subsections": [
+            "### Уникальные норвежские звуки"
+          ]
+        },
+        {
+          "header": "## Романтические фразы для практики",
+          "subsections": [
+            "### Базовые выражения любви",
+            "### Сложные звуки в простых фразах"
+          ]
+        },
+        {
+          "header": "## Распространённые ошибки русскоговорящих",
+          "subsections": [
+            "### Топ-5 ошибок и как их избежать"
+          ]
+        },
+        {
+          "header": "## Таблица быстрого справочника",
+          "subsections": [
+            "### Основные звуки для сохранения"
+          ]
+        },
+        {
+          "header": "## Практические упражнения для пар",
+          "subsections": [
+            "### Упражнение 1: Утренние фразы",
+            "### Упражнение 2: Вечернее время",
+            "### Упражнение 3: Романтические комплименты"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4e61d830-a117-4381-b32e-af866242e198",
+      "title": "Spotkanie z wegierska rodzina partnera - przewodnik językowy",
+      "native_lang": "pl",
+      "target_lang": "hu",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Wskazowki kulturowe",
+          "subsections": [
+            "### Co robic:",
+            "### Czego unikac:"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia przygotowawcze",
+          "subsections": [
+            "### Scenka: Powitanie",
+            "### Opowiadanie o sobie",
+            "### Komplementy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4f1fb64b-213f-4f48-9d2e-270143d87a89",
+      "title": "Poemas Románticos Polacos Traducidos",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Poemas de Amor Polacos Clásicos",
+          "subsections": [
+            "### \"Do M***\" de Adam Mickiewicz",
+            "### Amor Moderno: Wisława Szymborska"
+          ]
+        },
+        {
+          "header": "## Poesía de Amor Polaca Contemporánea",
+          "subsections": [
+            "### Versos Modernos Cortos Perfectos para Parejas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4faa03f4-b94e-45ce-a11b-bfd54b6c8aaa",
+      "title": "Romantyczne wloskie zwroty na każda okazje",
+      "native_lang": "pl",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Kartka na okazję",
+            "### Ćwiczenie 2: Codzieńne wyznanie",
+            "### Ćwiczenie 3: Toast rocznicowy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4fc6a0fe-320f-48dc-b6a7-07369c958812",
+      "title": "Tchèque : 50+ Phrases d'Amour pour Charmer",
+      "native_lang": "fr",
+      "target_lang": "cs",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Occasions Spéciales et Célébrations",
+          "subsections": [
+            "### Phrases d'Anniversaire",
+            "### Phrases de Demande en Mariage"
+          ]
+        },
+        {
+          "header": "## Phrases Romantiques par Situation",
+          "subsections": [
+            "### Relations à Distance",
+            "### Après une Dispute",
+            "### Juste Comme Ça"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "500ae55e-e0b6-4ebc-960f-7abbbf197a88",
+      "title": "Accentuation Polonaise : Règles Clés",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Exercices pratiques pour couples",
+          "subsections": [
+            "### Exercice 1 : Vocabulaire quotidien",
+            "### Exercice 2 : Phrases romantiques"
+          ]
+        },
+        {
+          "header": "## Erreurs courantes à éviter",
+          "subsections": [
+            "### 1. Interférence du français",
+            "### 2. Déplacer l'accent avec les terminaisons",
+            "### 3. Trop réfléchir aux mots composés"
+          ]
+        },
+        {
+          "header": "## Conseils avancés pour la fluidité",
+          "subsections": [
+            "### Accent de phrase",
+            "### Pratiquer avec la poésie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "517bb309-eedf-4d56-9b9f-a10f44bdeb60",
+      "title": "Ist Niederländisch Schwer zu Lernen?",
+      "native_lang": "de",
+      "target_lang": "nl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Warum Niederländisch Leichter Ist Als Du Denkst",
+          "subsections": [
+            "### 1. Vertrautes Vokabular",
+            "### 2. Vereinfachte Grammatik",
+            "### 3. Logische Zusammengesetzte Wörter"
+          ]
+        },
+        {
+          "header": "## Tipps, Um Niederländisch Noch Leichter Zu Machen",
+          "subsections": [
+            "### 1. Nutze Deine Deutschkenntnisse",
+            "### 2. Übe Die Laute Früh",
+            "### 3. Lerne Artikel Mit Substantiven",
+            "### 4. Tauche Ein Durch Medien",
+            "### 5. Akzeptiere Fehler"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "51859011-abb7-46d7-97ed-f11b555a12ca",
+      "title": "Is Greek Hard? Honest Assessment",
+      "native_lang": "en",
+      "target_lang": "el",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## What Makes Greek Challenging",
+          "subsections": [
+            "### 1. The Greek Alphabet",
+            "### 2. Noun Genders and Cases",
+            "### 3. Verb Conjugations"
+          ]
+        },
+        {
+          "header": "## What Makes Greek Easier Than You Think",
+          "subsections": [
+            "### 1. Phonetic Spelling",
+            "### 2. No Silent Letters (Mostly)",
+            "### 3. Familiar Vocabulary",
+            "### 4. Subject Pronouns Are Optional",
+            "### 5. Flexible Word Order"
+          ]
+        },
+        {
+          "header": "## The Hardest Parts (And How to Handle Them)",
+          "subsections": [
+            "### Challenge 1: The \"Γ\" Sound",
+            "### Challenge 2: Multiple \"E\" and \"I\" Sounds",
+            "### Challenge 3: Aspect (Perfective vs. Imperfective)"
+          ]
+        },
+        {
+          "header": "## Tips for Success",
+          "subsections": [
+            "### 1. Leverage Your Relationship",
+            "### 2. Start With What Matters",
+            "### 3. Embrace the Alphabet Early",
+            "### 4. Focus on Listening"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "51c56bb7-c7a1-49fd-a940-f0f6fd1ec8f2",
+      "title": "Romanian Texting Slang: Chat With Your Partner Like a Native",
+      "native_lang": "en",
+      "target_lang": "ro",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Quick Reference: Texting Cheat Sheet",
+          "subsections": [
+            "### Abbreviations",
+            "### Romantic",
+            "### Quick Responses",
+            "### Reactions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "51f84a3a-134a-4617-b595-5c00435ef76c",
+      "title": "Polish Pronunciation for Couples: Master Polish Sounds Together",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Master the Most Romantic Sounds",
+          "subsections": [
+            "### The Soft Sounds of Love",
+            "### The Nasal Vowels (Easier Than You Think!)"
+          ]
+        },
+        {
+          "header": "## The Tricky Sounds English Speakers Struggle With",
+          "subsections": [
+            "### The Rolling R",
+            "### The Difference Between Ś and SZ"
+          ]
+        },
+        {
+          "header": "## Practice Together: Romantic Sound Exercises",
+          "subsections": [
+            "### Sound Pairs for Couples",
+            "### Tongue Twisters for Two"
+          ]
+        },
+        {
+          "header": "## Common Pronunciation Mistakes (And How to Fix Them)",
+          "subsections": [
+            "### 1. Pronouncing Ł as L",
+            "### 2. Making Polish Too \"Hard\"",
+            "### 3. Ignoring Vowel Length"
+          ]
+        },
+        {
+          "header": "## Your Pronunciation Toolkit",
+          "subsections": [
+            "### Quick Reference Chart",
+            "### Daily Practice Routine for Couples"
+          ]
+        }
+      ]
+    }
+  ]
+}

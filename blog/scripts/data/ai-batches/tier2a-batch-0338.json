@@ -1,0 +1,118 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0338",
+  "articles": [
+    {
+      "id": "60c60927-02f1-4bd2-9198-ef18fd935cd0",
+      "title": "Італійська Вимова для Початківців: Як Звучати Романтично для Свого Партнера",
+      "native_lang": "uk",
+      "target_lang": "it",
+      "category": "grammar",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport ConjugationTable from '@components/ConjugationTable.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nПочинаєте вивчати італійську разом з коханою людиною? Правильна вимова — це ключ до справжнього італійського шарму! Коли ви вимовляєте \"Ti amo\" (Я тебе кохаю) з правильним італійським акцентом, ваш партнер точно помітить різницю. До кінця цієї статті ви зможете вимовляти улюблені романтичні фрази з впевненістю справжнього італійця.\n\n<PhraseOfDay\n  word=\"Ti amo\"\n  translation=\"Я тебе кохаю\"\n  pronunciation=\"tee AH-moh\"\n  context=\"Найважливіша фраза для пари — вивчіть правильну вимову разом!\"\n/>\n\n## Чому Італійська Вимова Особлива для Пар\n\nІталійська мова звучить як музика — кожне слово ллється плавно, ніби пісня. Для пар це ідеальна мова для вираження почуттів. На відміну від української, італійська має чіткі правила вимови, які легко запам'ятати разом.\n\n<VocabCard\n  word=\"Amore\"\n  translation=\"Кохання\"\n  pronunciation=\"ah-MOH-reh\"\n  example=\"Sei il mio amore. (Ти моє кохання.)\"\n/>\n\n## Просте Пояснення: Італійські Звуки\n\nПодумайте про італійську як про пісню, де кожна буква співається. Усі голосні звуки чисті та відкриті, а приголосні — м'які. Найголовніше: **вимовляйте все так, як написано** — італійська майже не має винятків!\n\n## Основні Правила Вимови\n\n### 1. Голосні Звуки — Ваша Музична Основа\n\n| Літера | Вимова | Приклад | Переклад |\n|--------|--------|---------|----------|\n| **A** | а (як в \"мама\") | *casa* (КАH-sah) | будинок |\n| **E** | е (відкрите) | *bene* (BEH-neh) | добре |\n| **I** | і (коротке) | *vino* (VEE-noh) | вино |\n| **O** | о (відкрите) | *amore* (ah-MOH-reh) | кохання |\n| **U** | у (губне) | *luna* (LOO-nah) | місяць |\n\n### 2. Приголосні, Які Змінюють Все\n\n<VocabCard\n  word=\"Ciao\"\n  translation=\"Привіт/Бувай\"\n  pronunciation=\"CHAH-oh\"\n  example=\"Ciao, amore mio! (Привіт, моє кохання!)\"\n/>\n\n<CultureTip flag=\"🇮🇹\" title=\"Італійський Шарм\">\nІталійці використовують жести разом з вимовою. Коли вітаєтеся \"Ciao\", посміхніться і злегка нахиліть голову — це додасть автентичності!\n</CultureTip>\n\n### 3. Подвійні Приголосні — Секрет Мелодії\n\nПодвійні літери вимовляються довше. Порівняйте:\n- *anno* (AHN-noh) — рік\n- *ano* (AH-noh) — анус\n\nРізниця важлива для пар! 😊\n\n## Типові Помилки Україномовних Пар\n\n### Помилка 1: Глухі Приголосні\n**Правильно:** *pasta* (PAH-stah) — паста\n**Неправильно:** \"паста\" з приглушеним \"п\"\n\n### Помилка 2: Наголос\n**Правильно:** *cafè* (kah-FEH) — кав'ярня\n**Неправильно:** \"КА-фе\" (наголос на першому складі)\n\n### Помилка 3: М'які Приголосні\n**Правильно:** *gnocchi* (NYOH-kee) — ньоккі\n**Неправильно:** \"гноккі\" з твердим \"г\"\n\n## Романтичні Фрази для Практики\n\nПрактикуйте ці фрази разом — вони ідеальні для пар:\n\n| Італійська | Українська | Вимова | Використання |\n|------------|------------|---------|--------------|\n| **Ti amo** | Я тебе кохаю | tee AH-moh | [Найважливіше \"я тебе кохаю\"](/learn/uk/it/how-to-say-i-love-you-in-italian/) |\n| **Bella** | Красуня | BEHL-lah | Комплімент для неї |\n| **Amore mio** | Моє кохання | ah-MOH-reh MEE-oh | Ніжне звернення |\n| **Tesoro** | Скарб | teh-SOH-roh | [Миле пестливе ім'я](/learn/uk/it/italian-pet-names-for-your-partner/) |\n| **Sei speciale** | Ти особливий(а) | seh-ee speh-CHAH-leh | Підтримка партнера |\n\n<VocabCard\n  word=\"Bacino\"\n  translation=\"Поцілунок (зменш.)\"\n  pronunciation=\"bah-CHEE-noh\"\n  example=\"Un bacino per te. (Поцілунок для тебе.)\"\n/>\n\n## Практичні Поради для Пар\n\n### Вправа 1: Дзеркальна Вимова\nСтоячи один навпроти одного, повторюйте слова синхронно. Це весело і ефективно!\n\n### Вправа 2: Романтичний Челлендж\nКожен день вивчайте по одному романтичному слову та використовуйте його протягом дня. Наприклад, почніть з [основних привітань](/learn/uk/it/greetings-and-farewells/).\n\n### Вправа 3: Фільмова Ніч\nДивіться італійські фільми з субтитрами, звертаючи увагу на вимову. Повторюйте улюблені фрази разом!\n\n<CultureTip flag=\"🇮🇹\" title=\"Регіональні Відмінності\">\nНа півночі Італії вимова чистіша, на півдні — м'якша. Обидва варіанти красиві, вибирайте той, який подобається вам обом!\n</CultureTip>\n\n## Швидка Довідка: Основи За 5 Хвилин\n\n**Голосні:** A=а, E=е, I=і, O=о, U=у\n**Подвійні:** NN, LL, RR — вимовляти довше\n**GH:** вимовляється як глухе \"г\"\n**GLI:** як \"льі\" (м'яке)\n**GN:** як \"нь\" (аньyo)\n\n## Що Далі?\n\nВи освоїли основи! Тепер ви можете:\n\n1. Практикувати [романтичні фрази для пар](/learn/uk/it/romantic-italian-phrases-for-couples/)\n2. Вивчити [словничок для побачень](/learn/uk/it/italian-date-night-vocabulary/)\n3. Підготуватися до [знайомства з родиною](/learn/uk/it/meeting-your-partner-s-family/)\n\nПам'ятайте: ідеальна вимова приходить з практикою. Головне — говорити з любов'ю. Ваш партнер оцінить зусилля, навіть якщо акцент ще не ідеальний!\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Основні Правила Вимови",
+              "## Типові Помилки Україномовних Пар",
+              "## Практичні Поради для Пар"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "60c65fd5-eb75-4f9d-9811-9c1e33db932d",
+      "title": "Rumuńskie zwroty do godzenia się i pojednania dla par",
+      "native_lang": "pl",
+      "target_lang": "ro",
+      "category": "communication",
+      "content": "Rumuni są ciepli i emocjonalni. W związku z osobą mówiącą po rumuńsku szczere przeprosiny i wyrażenie uczuć mogą szybko naprawić nawet poważne nieporozumienia.\n\n## Rumuńska kultura pojednania\n\nRumuni cenią szczerość i autentyczność. Są bardzo rodzinni i wybaczający. Pojednanie jest ważne dla zachowania harmonii.\n\n## Przepraszanie z serca\n\n### \"Îmi pare foarte rău\"\n*Bardzo przepraszam*\n\nWymowa: ym PA-re FOAR-te rău\n\nNajbardziej uniwersalne przeprosiny.\n\n### \"Te rog să mă ierți\"\n*Proszę, wybacz mi*\n\nWymowa: te rog să mă JERCI\n\nBardziej osobista prośba.\n\n### \"Am greșit și recunosc\"\n*Pomyliłem/Pomyliłam się i przyznaję to*\n\nWymowa: am gre-SZIT szi re-ku-NOSK\n\nPrzyznanie się do błędu.\n\n## Wyrażanie żalu\n\n### \"Mă simt foarte rău pentru ce s-a întâmplat\"\n*Czuję się bardzo źle z powodu tego, co się stało*\n\nWymowa: mă simt FOAR-te rău PEN-tru cze sa yn-tym-PLAT\n\nGłębokie żałowanie.\n\n### \"Nu am vrut să te rănesc\"\n*Nie chciałem/chciałam Cię zranić*\n\nWymowa: nu am WRUT să te ră-NESK\n\nWyjaśnienie intencji.\n\n### \"Mi-aș dori să pot da timpul înapoi\"\n*Chciałbym/Chciałabym móc cofnąć czas*\n\nWymowa: mjasz do-RI să pot da TIM-pul yna-POJ\n\nPoetyckie wyrażenie żalu.\n\n## Otwieranie dialogu\n\n### \"Putem vorbi despre ce s-a întâmplat?\"\n*Czy możemy porozmawiać o tym, co się stało?*\n\nWymowa: pu-TEM wor-BI DES-pre cze sa yn-tym-PLAT\n\nZaproszenie do rozmowy.\n\n### \"Vreau să înțeleg ce simți\"\n*Chcę zrozumieć, co czujesz*\n\nWymowa: WRAU să yn-ce-LEG cze simci\n\nPokazuje empatię.\n\n### \"Spune-mi ce gândești\"\n*Powiedz mi, co myślisz*\n\nWymowa: SPU-ne-mi cze gyn-DESZT\n\nOtwartość na partnera.\n\n## Obietnice zmiany\n\n### \"O să încerc să fiu mai bun/bună\"\n*Postaram się być lepszy/lepsza*\n\nWymowa: o să yn-CZERK să fiu maj bun/BU-nă\n\nObietnica poprawy.\n\n### \"Nu se va mai întâmpla\"\n*To się nie powtórzy*\n\nWymowa: nu se wa maj yn-tym-PLA\n\nStanowcza deklaracja.\n\n### \"Lucrez la mine\"\n*Pracuję nad sobą*\n\nWymowa: lu-KREZ la MI-ne\n\nZaangażowanie w rozwój.\n\n## Wyrażanie miłości\n\n### \"Te iubesc mai mult decât orice\"\n*Kocham Cię ponad wszystko*\n\nWymowa: te ju-BESK maj mult de-KYT o-ri-CZE\n\nIntensywne wyznanie miłości.\n\n### \"Ești totul pentru mine\"\n*Jesteś dla mnie wszystkim*\n\nWymowa: jeszt TO-tul PEN-tru MI-ne\n\nPodkreśla wartość partnera.\n\n### \"Nu vreau să te pierd\"\n*Nie chcę Cię stracić*\n\nWymowa: nu WRAU să te pjerd\n\nWyraża głębokie przywiązanie.\n\n## Ciepłe pojednanie\n\n### \"Vino aici, lasă-mă să te îmbrățișez\"\n*Chodź tu, pozwól że Cię przytulę*\n\nWymowa: WI-no a-ICZJ LA-să-mă să te ym-bră-ci-SZEZ\n\nZaproszenie do przytulenia.\n\n### \"Hai să facem pace\"\n*Pogódźmy się*\n\nWymowa: haj să FA-czem PA-cze\n\nPropozycja pojednania.\n\n## Wskazówki kulturowe\n\nRumuni cenią gościnność i wspólne posiłki. Wspólna kolacja po kłótni to świetny sposób na pojednanie. Rumuńska kuchnia jest bogata i pyszna - sarmale czy mămăligă mogą być symbolem ciepła i pojednania.\n\nDragostea iartă totul! (Miłość wszystko wybacza!)",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Przepraszanie z serca",
+              "## Wyrażanie żalu",
+              "## Otwieranie dialogu",
+              "## Obietnice zmiany",
+              "## Wyrażanie miłości",
+              "## Ciepłe pojednanie"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "60ce70e9-bb91-4f59-b7fb-5d28b8d43e5d",
+      "title": "Ρουμανικές Φράσεις Συγχώρεσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "ro",
+      "category": "communication",
+      "content": "Η συγχώρεση θεραπεύει. Όταν ο σύντροφός σας μιλάει ρουμανικά, αυτές οι φράσεις θα βοηθήσουν.\n\n## Φράσεις Συγχώρεσης\n\n### Αίτηση Συγχώρεσης\n\n<Phrase term=\"Te rog, iartă-mă\" pronunciation=\"Τε ρογκ, γιάρτα-μα\">\n  <Trans>Σε παρακαλώ, συγχώρεσέ με</Trans>\n  <Note>Αίτηση</Note>\n</Phrase>\n\n<Phrase term=\"Îmi pare foarte rău pentru ce am făcut\" pronunciation=\"Ιμι πάρε φοάρτε ράου πέντρου τσε αμ φακούτ\">\n  <Trans>Λυπάμαι πολύ για αυτό που έκανα</Trans>\n  <Note>Αναγνώριση</Note>\n</Phrase>\n\n<Phrase term=\"Știu că te-am rănit\" pronunciation=\"Στίου κα τεαμ ρανίτ\">\n  <Trans>Ξέρω ότι σε πλήγωσα</Trans>\n  <Note>Πόνος</Note>\n</Phrase>\n\n### Έκφραση Μετάνοιας\n\n<Phrase term=\"Nu voi mai face asta niciodată\" pronunciation=\"Νου βόι μάι φάτσε άστα νιτσιοντάτα\">\n  <Trans>Δεν θα το ξανακάνω</Trans>\n  <Note>Υπόσχεση</Note>\n</Phrase>\n\n<Phrase term=\"Am învățat lecția\" pronunciation=\"Αμ ινβατσάτ λέκτσια\">\n  <Trans>Έμαθα το μάθημα</Trans>\n  <Note>Μάθηση</Note>\n</Phrase>\n\n<Phrase term=\"Vreau să repar lucrurile\" pronunciation=\"Βρέαου σα ρεπάρ λουκρούριλε\">\n  <Trans>Θέλω να διορθώσω τα πράγματα</Trans>\n  <Note>Επανόρθωση</Note>\n</Phrase>\n\n### Προσφορά Συγχώρεσης\n\n<Phrase term=\"Te iert\" pronunciation=\"Τε γιερτ\">\n  <Trans>Σε συγχωρώ</Trans>\n  <Note>Συγχώρεση</Note>\n</Phrase>\n\n<Phrase term=\"Hai să lăsăm asta în urmă\" pronunciation=\"Χάι σα λασάμ άστα ιν ούρμα\">\n  <Trans>Ας το αφήσουμε πίσω</Trans>\n  <Note>Νέα αρχή</Note>\n</Phrase>\n\n<Phrase term=\"Sunt gata să merg mai departe\" pronunciation=\"Σουντ γκάτα σα μεργκ μάι ντεπάρτε\">\n  <Trans>Είμαι έτοιμος/η να προχωρήσω</Trans>\n  <Note>Δέσμευση</Note>\n</Phrase>\n\n### Χρόνος για Θεραπεία\n\n<Phrase term=\"Am nevoie de timp să mă vindec\" pronunciation=\"Αμ νεβόιε ντε τιμπ σα μα βίντεκ\">\n  <Trans>Χρειάζομαι χρόνο να επουλωθώ</Trans>\n  <Note>Χώρος</Note>\n</Phrase>\n\n<Phrase term=\"Lucrez la asta ca să te iert\" pronunciation=\"Λουκρέζ λα άστα κα σα τε γιερτ\">\n  <Trans>Εργάζομαι για να σε συγχωρήσω</Trans>\n  <Note>Διαδικασία</Note>\n</Phrase>\n\n## Πολιτιστικές Συμβουλές\n\nΟι Ρουμάνοι είναι συναισθηματικοί. Η συγχώρεση συνοδεύεται από θερμές εκφράσεις αγάπης.\n\n## Συμπέρασμα\n\nΜε αυτές τις φράσεις, μπορείτε να διαχειριστείτε τη συγχώρεση με τον ρουμανόφωνο σύντροφό σας.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 251,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Φράσεις Συγχώρεσης"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "60df680f-576e-42d1-8c80-590f3cb48c14",
+      "title": "Ungerska flörtfraser för par – Charma din partner på ungerska",
+      "native_lang": "sv",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "Ungerska är ett unikt språk – inte besläktat med något grannspråk – med en rik poetisk tradition. Att lära sig flörta på ungerska visar verklig hängivenhet till din partner.\n\n## Ungerskas unika skönhet\n\nUngerska står ensamt i Europa, med rötter i uraliska språk. Denna unikhet ger språket en speciell charm, och ungrare uppskattar enormt när utlänningar försöker lära sig deras språk.\n\n## Klassiska komplimanger\n\n### \"Gyönyörű vagy\"\n**Uttal:** DYÖ-nyö-rü vadj\n\n**Betydelse:** Du är underbart vacker\n\nEtt kraftfullt uttryck för beundran.\n\n### \"A legszebb szemed van a világon\"\n**Uttal:** a LEG-seb SE-med van a VEE-la-gon\n\n**Betydelse:** Du har de vackraste ögonen i världen\n\nEn klassisk komplimang.\n\n### \"A mosolyod beragyogja a napomat\"\n**Uttal:** a MO-shoj-od BE-ra-djog-ja a NA-po-mat\n\n**Betydelse:** Ditt leende lyser upp min dag\n\nPoetiskt och hjärtvärmande.\n\n## Passionerade uttryck\n\n### \"Megőrülök érted\"\n**Uttal:** MEG-ö-rü-lök ER-ted\n\n**Betydelse:** Jag är galen i dig\n\nUttrycker intensiv passion.\n\n### \"Nem tudok abbahagyni a rád gondolást\"\n**Uttal:** nem TU-dok AB-ba-hadj-ni a raad GON-do-lasht\n\n**Betydelse:** Jag kan inte sluta tänka på dig\n\nVisar hur din partner upptar dina tankar.\n\n### \"Te vagy a mindenem\"\n**Uttal:** te vadj a MIN-de-nem\n\n**Betydelse:** Du är mitt allt\n\nEn djup kärleksförklaring.\n\n## Lekfulla fraser\n\n### \"Hiszel a szerelemben első látásra, vagy menjek el még egyszer?\"\n**Uttal:** HI-sel a SE-re-lem-ben EL-shö LAA-taash-ra, vadj MEN-jek el meg EDJ-ser\n\n**Betydelse:** Tror du på kärlek vid första ögonkastet, eller ska jag gå förbi igen?\n\nKlassisk pick-up line.\n\n### \"Van térképed? Eltévedtem a szemeidben\"\n**Uttal:** van TER-ke-ped? EL-te-ved-tem a SE-me-id-ben\n\n**Betydelse:** Har du en karta? Jag har gått vilse i dina ögon\n\nRomantiskt och charmigt.\n\n### \"Angyal vagy, aki leesett az égből?\"\n**Uttal:** AN-djal vadj, a-ki LE-e-shett az EG-böl\n\n**Betydelse:** Är du en ängel som föll ner från himlen?\n\nPoetisk och charmig.\n\n## Djupt romantiska uttryck\n\n### \"Te vagy az életem szerelme\"\n**Uttal:** te vadj az E-le-tem SE-rel-me\n\n**Betydelse:** Du är mitt livs kärlek\n\nDen ultimata kärleksförklaringen.\n\n### \"Minden veled töltött pillanat értékes\"\n**Uttal:** MIN-den VE-led TÖL-tött PIL-la-nat ER-te-kesh\n\n**Betydelse:** Varje ögonblick med dig är värdefullt\n\nUttrycker djup uppskattning.\n\n### \"Melletted otthon érzem magam\"\n**Uttal:** MEL-let-ted OT-thon ER-zem MA-gam\n\n**Betydelse:** Bredvid dig känner jag mig hemma\n\nEtt vackert uttryck för trygghet.\n\n## Ungerska smeknamn\n\n- **Szerelmem** (SE-rel-mem) – Min kärlek\n- **Drágám** (DRAA-gaam) – Min kära\n- **Édesem** (E-de-shem) – Min söta\n- **Szívem** (SEE-vem) – Mitt hjärta\n- **Kincsem** (KIN-tshem) – Min skatt\n- **Cicám** (TSI-tsaam) – Min kattunge\n\n## Kulturella insikter\n\n**Språket är viktigt.** Ungrare är stolta över sitt unika språk. Att försöka tala ungerska visar enorm respekt.\n\n**Romantik uppskattas.** Ungersk kultur värdesätter romantiska gester och djupa känslor.\n\n**Familjen är central.** Relationer involverar ofta familjen.\n\n**Musik och poesi.** Ungern har en rik tradition av kärleksvisor och romantisk poesi.\n\n## Tips för uttal\n\nUngerska har några unika ljud, inklusive \"gy\" (som ett mjukt d+j), \"ny\" (som nj), och långa vokaler markerade med accenter. Ta det lugnt – dina ansträngningar kommer att uppskattas enormt.\n\n## Avslutande tankar\n\nUngerska flörtfraser kräver lite extra ansträngning att lära sig, men belöningen är stor. Din partner kommer bli djupt rörd av att du tar dig tid att lära deras unika språk.\n\nSok sikert a szerelemben! (Lycka till i kärleken!)",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Klassiska komplimanger",
+              "## Passionerade uttryck",
+              "## Lekfulla fraser",
+              "## Djupt romantiska uttryck"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "60e02320-f4da-4702-b6ac-3e3e68a354ef",
+      "title": "італійська для пар: 45+ фраз для подорожей",
+      "native_lang": "uk",
+      "target_lang": "it",
+      "category": "phrases",
+      "content": "\n# Необхідні італійські фрази для подорожей удвох\n\nРомантична подорож до Італії — мрія багатьох пар. Ці фрази допоможуть вам почуватися впевнено та отримати максимум від вашої пригоди.\n\n## В аеропорту та на вокзалі\n\n- **Dov'è l'uscita?** (Дове люшіта?) — Де вихід?\n- **Dove possiamo prendere un taxi?** — Де можна взяти таксі?\n- **A che ora parte il treno per Roma?** — О котрій відправляється поїзд до Риму?\n- **Due biglietti, per favore** — Два квитки, будь ласка\n- **Andata e ritorno** — Туди і назад\n- **Solo andata** — В один бік\n\n## В готелі\n\n### Реєстрація\n\n| Італійська | Українська |\n|-----------|------------|\n| Abbiamo una prenotazione | Ми маємо бронювання |\n| Una camera matrimoniale | Номер з двоспальним ліжком |\n| Con vista, per favore | З видом, будь ласка |\n| A che ora è la colazione? | О котрій сніданок? |\n| Dov'è l'ascensore? | Де ліфт? |\n\n### Прохання до персоналу\n\n- **Potete portare più asciugamani?** — Чи можете принести більше рушників?\n- **La camera è troppo fredda/calda** — У номері занадто холодно/гаряче\n- **Non funziona l'aria condizionata** — Кондиціонер не працює\n- **Possiamo avere il servizio in camera?** — Чи можемо замовити в номер?\n\n### Виселення\n\n- **Vorremmo fare il check-out** — Ми хочемо виселитися\n- **Possiamo lasciare i bagagli qui?** — Чи можемо залишити багаж тут?\n\n## В ресторані\n\n### Пошук столика\n\n- **Un tavolo per due, per favore** — Столик на двох, будь ласка\n- **Avete un tavolo fuori?** — У вас є столик на вулиці?\n- **Un tavolo romantico, se possibile** — Романтичний столик, якщо можливо\n\n### Замовлення\n\n- **Cosa ci consiglia?** — Що нам порадите?\n- **Siamo vegetariani** — Ми вегетаріанці\n- **Sono allergico/a a...** — У мене алергія на...\n- **Possiamo dividere questo piatto?** — Чи можемо розділити цю страву?\n- **Il conto, per favore** — Рахунок, будь ласка\n\n## Орієнтування в місті\n\n### Запитання дороги\n\n- **Scusi, dov'è...?** — Вибачте, де знаходиться...?\n- **Come arriviamo a...?** — Як нам дістатися до...?\n- **È lontano da qui?** — Це далеко звідси?\n- **Possiamo andare a piedi?** — Чи можемо дійти пішки?\n\n### Корисні напрямки\n\n| Італійська | Українська |\n|-----------|------------|\n| a destra | направо |\n| a sinistra | наліво |\n| dritto | прямо |\n| vicino | близько |\n| lontano | далеко |\n| all'angolo | на розі |\n\n## Покупки\n\n- **Quanto costa?** — Скільки це коштує?\n- **È troppo caro** — Це занадто дорого\n- **Accettate carte di credito?** — Ви приймаєте кредитні картки?\n- **Posso provarlo/a?** — Чи можу приміряти?\n- **Lo/La prendo** — Я беру це\n\n## Романтичні місця\n\n### На пляжі\n\n- **Quanto costa un ombrellone per due?** — Скільки коштує парасоля на двох?\n- **Dove possiamo nuotare?** — Де можна плавати?\n- **Il tramonto è bellissimo!** — Захід сонця прекрасний!\n\n### Огляд визначних місць\n\n- **Due biglietti per il museo** — Два квитки до музею\n- **Facciamo una foto insieme?** — Зробимо фото разом?\n- **Che posto magico!** — Яке чарівне місце!\n\n## Екстрені ситуації\n\n### Важливі фрази\n\n- **Ho bisogno di aiuto** — Мені потрібна допомога\n- **Chiamate un'ambulanza!** — Викличте швидку!\n- **Dov'è la farmacia più vicina?** — Де найближча аптека?\n- **Ho perso il passaporto** — Я загубив/загубила паспорт\n- **Dov'è la stazione di polizia?** — Де відділення поліції?\n\n### Важливі номери\n\n- **112** — Екстрена допомога (загальноєвропейський)\n- **113** — Поліція\n- **118** — Швидка допомога\n- **115** — Пожежна служба\n\n## Корисні фрази для пар\n\n- **Possiamo noleggiare una vespa per due?** — Чи можемо орендувати скутер на двох?\n- **Cerchiamo un posto romantico per cenare** — Шукаємо романтичне місце для вечері\n- **Vogliamo vedere il tramonto** — Хочемо подивитися на захід сонця\n- **È la nostra luna di miele** — Це наша медова місяць\n\nBuon viaggio! Гарної подорожі!\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## В готелі",
+              "## В ресторані",
+              "## Орієнтування в місті",
+              "## Романтичні місця",
+              "## Екстрені ситуації"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,462 @@
+{
+  "batchId": "tier2a-slim-0189",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "c56746d5-14c6-4031-a73c-19a77abaa547",
+      "title": "Ukrainian Love Letter Writing: Tender Phrases for Your Кохання",
+      "native_lang": "en",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Opening Your Letter",
+          "subsections": [
+            "### Salutations"
+          ]
+        },
+        {
+          "header": "## Expressing Your Feelings",
+          "subsections": [
+            "### Opening Lines",
+            "### Declarations of Love"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c56c8073-ed3a-4930-b7ba-abc6e9d5ac40",
+      "title": "Saludos y Despedidas en Noruego: Guía Completa para Parejas",
+      "native_lang": "es",
+      "target_lang": "no",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## La Pronunciación Noruega",
+          "subsections": [
+            "### Sonidos Especiales"
+          ]
+        },
+        {
+          "header": "## Situaciones Especiales",
+          "subsections": [
+            "### Conociendo a la Familia",
+            "### Por Teléfono",
+            "### Expresiones Útiles"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c5870eaf-0903-4d75-962b-f8d0da1b1c1f",
+      "title": "Frases para Conocer a los Suegros en Checo: Guía para los Tchán y Tchyně",
+      "native_lang": "es",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Saludos y Presentaciones",
+          "subsections": [
+            "### \"Jsem velmi rád/ráda, že vás konečně poznávám\"",
+            "### \"Slyšel/Slyšela jsem o vás tolik dobrého\"",
+            "### \"Děkuji za pozvání\""
+          ]
+        },
+        {
+          "header": "## Cumplidos",
+          "subsections": [
+            "### \"Máte krásný domov\"",
+            "### \"Jídlo je vynikající\"",
+            "### \"Váš syn/Vaše dcera mě činí velmi šťastným/šťastnou\""
+          ]
+        },
+        {
+          "header": "## Ofreciendo Ayuda",
+          "subsections": [
+            "### \"Mohu vám s něčím pomoci?\""
+          ]
+        },
+        {
+          "header": "## Despedidas",
+          "subsections": [
+            "### \"Děkuji za krásný večer\"",
+            "### \"Bylo mi potěšením vás poznat\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c58abb61-973f-44dd-a117-7251aac301dc",
+      "title": "Conversazioni Quotidiane in Danese per Coppie",
+      "native_lang": "it",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Prima di Uscire",
+          "subsections": [
+            "### Dialogo"
+          ]
+        },
+        {
+          "header": "## Conversazione Serale",
+          "subsections": [
+            "### Dialogo: Bentornato/a"
+          ]
+        },
+        {
+          "header": "## Prima di Dormire",
+          "subsections": [
+            "### Dialogo: Buonanotte"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c58c94d8-1ab9-4e43-b944-32d7cf65ce43",
+      "title": "Udtryk Følelser på Italiensk: Komplet Guide for Par",
+      "native_lang": "da",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Reagere på Partnerens Følelser",
+          "subsections": [
+            "### Støttende Svar",
+            "### Trøstende Ord"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c5a46137-b43f-4617-9374-db471db0a098",
+      "title": "40+ Greek Pet Names and Endearments",
+      "native_lang": "en",
+      "target_lang": "el",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Quick Reference: Pet Names by Mood",
+          "subsections": [
+            "### Everyday Use",
+            "### Deep Romance",
+            "### Playful Moments",
+            "### Poetic Expression"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c5ba7a80-6663-4740-9840-315bd0b77d85",
+      "title": "Выражение эмоций на нидерландском языке",
+      "native_lang": "ru",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Положительные эмоции",
+          "subsections": [
+            "### Радость и счастье",
+            "### Любовь и привязанность"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c5c0ef0f-a1f5-4a71-b4fb-360f75fc3c57",
+      "title": "Szerelmes Levél Írása Oroszul – Romantikus Kifejezések és Tippek",
+      "native_lang": "hu",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Megszólítások",
+          "subsections": [
+            "### 1. Любимая / Любимый (Ljubimaja / Ljubimüj)",
+            "### 2. Дорогая / Дорогой (Dorogaja / Dorogoj)",
+            "### 3. Солнышко (Szonüsko)",
+            "### 4. Родная / Родной (Rodnaja / Rodnoj)",
+            "### 5. Моя душа (Maja dusa)"
+          ]
+        },
+        {
+          "header": "## Kezdő Mondatok",
+          "subsections": [
+            "### 6. Я пишу тебе, чтобы сказать, как сильно я тебя люблю.",
+            "### 7. Слова не могут выразить то, что я чувствую к тебе.",
+            "### 8. С тех пор как я тебя встретил/а, моя жизнь обрела новый смысл.",
+            "### 9. Каждый момент с тобой – это сокровище.",
+            "### 10. Ты лучшее, что случилось в моей жизни."
+          ]
+        },
+        {
+          "header": "## Érzelmek Kifejezése",
+          "subsections": [
+            "### 11. Моё сердце принадлежит тебе.",
+            "### 12. Ты делаешь меня целым/целой.",
+            "### 13. Твоя любовь даёт мне силу.",
+            "### 14. Я влюбляюсь в тебя сильнее с каждым днём.",
+            "### 15. Ты моя родственная душа."
+          ]
+        },
+        {
+          "header": "## Lezárások",
+          "subsections": [
+            "### 16. Навсегда твоя/твой",
+            "### 17. Со всей моей любовью",
+            "### 18. Твоя/Твой навеки",
+            "### 19. До скорой встречи",
+            "### 20. Люблю тебя всем сердцем"
+          ]
+        },
+        {
+          "header": "## Kulturális Tippek",
+          "subsections": [
+            "### Az Orosz Lélek",
+            "### Irodalmi Hagyomány",
+            "### Cirill Ábécé"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c5d87e62-285b-4156-801b-7ed46d891ac3",
+      "title": "Romanian Anniversary Wishes: Romantic Messages for Your Love",
+      "native_lang": "en",
+      "target_lang": "ro",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Simple Anniversary Wishes",
+          "subsections": [
+            "### Short and Sweet",
+            "### For Your Partner"
+          ]
+        },
+        {
+          "header": "## Romantic Anniversary Messages",
+          "subsections": [
+            "### Heartfelt Declarations",
+            "### Reflective Messages"
+          ]
+        },
+        {
+          "header": "## Anniversary Messages by Year",
+          "subsections": [
+            "### First Anniversary",
+            "### Fifth Anniversary",
+            "### Tenth Anniversary",
+            "### Twenty-Fifth Anniversary (Silver)",
+            "### Fiftieth Anniversary (Golden)"
+          ]
+        },
+        {
+          "header": "## Planning Your Anniversary Celebration",
+          "subsections": [
+            "### Romantic Ideas",
+            "### What to Say at Dinner"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c5e38959-2c7e-4bca-a175-1db7030a098d",
+      "title": "Norwegian Daily Conversations for Couples",
+      "native_lang": "en",
+      "target_lang": "no",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Evening Routine",
+          "subsections": [
+            "### Dinner Time",
+            "### Relaxing Together"
+          ]
+        },
+        {
+          "header": "## Quick Reference: Daily Phrases",
+          "subsections": [
+            "### Morning",
+            "### During the Day",
+            "### Evening",
+            "### Night"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c5f67640-2596-4127-a104-9f0b1ce28129",
+      "title": "Spanish First Date Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Making a Great First Impression",
+          "subsections": [
+            "### Estás muy guapo/guapa",
+            "### Encantado/Encantada de conocerte",
+            "### Gracias por quedar conmigo"
+          ]
+        },
+        {
+          "header": "## Getting to Know Each Other",
+          "subsections": [
+            "### ¿A qué te dedicas?",
+            "### ¿Qué te gusta hacer en tu tiempo libre?",
+            "### ¿De dónde eres?",
+            "### Cuéntame más sobre ti"
+          ]
+        },
+        {
+          "header": "## Expressing Interest",
+          "subsections": [
+            "### Me encanta hablar contigo",
+            "### Tienes una sonrisa preciosa",
+            "### Me haces reír"
+          ]
+        },
+        {
+          "header": "## During the Date",
+          "subsections": [
+            "### ¿Qué quieres tomar/comer?",
+            "### Esto está delicioso",
+            "### La estoy pasando muy bien"
+          ]
+        },
+        {
+          "header": "## Ending the Date",
+          "subsections": [
+            "### Me gustaría volver a verte",
+            "### ¿Podemos vernos otra vez?",
+            "### Llegaste bien a casa?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c5fa78fe-262c-4513-8cf6-7c5c95c84384",
+      "title": "Este Greaca Greu de Învațăt? Ghid Sincer",
+      "native_lang": "ro",
+      "target_lang": "el",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Ce Face Greaca Provocatoare",
+          "subsections": [
+            "### 1. Complexitatea Gramaticala",
+            "### 2. Provocari de Pronuntie"
+          ]
+        },
+        {
+          "header": "## Ce Face Greaca Mai Usoara Decat Crezi",
+          "subsections": [
+            "### 1. Ortografie Fonetica",
+            "### 2. Vocabular Comun",
+            "### 3. Fără Sistem Tonal",
+            "### 4. Modele Regulate"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c602975b-e8e6-4484-9b3c-021bc68c4da6",
+      "title": "Expressions de Mariage en Espagnol : Guide Complet",
+      "native_lang": "fr",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## La Réception",
+          "subsections": [
+            "### Vocabulaire de la Fête"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c60a673e-23dd-40e2-9686-17eaad14cc75",
+      "title": "Німецькі фрази про ревнощі та довіру",
+      "native_lang": "uk",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Вираження ревнощів",
+          "subsections": [
+            "### \"Ich bin eifersüchtig\"",
+            "### \"Es macht mich eifersüchtig, wenn...\"",
+            "### \"Manchmal fühle ich mich unsicher\""
+          ]
+        },
+        {
+          "header": "## Запитання",
+          "subsections": [
+            "### \"Wer war das?\"",
+            "### \"Woher kennst du ihn/sie?\"",
+            "### \"Sollte ich mir Sorgen machen?\""
+          ]
+        },
+        {
+          "header": "## Довіра та заспокоєння",
+          "subsections": [
+            "### \"Ich vertraue dir vollkommen\"",
+            "### \"Es gibt keinen Grund zur Sorge\"",
+            "### \"Das ist nur ein Freund/eine Freundin\"",
+            "### \"Du hast keinen Grund, eifersüchtig zu sein\"",
+            "### \"Du bist der/die Einzige für mich\""
+          ]
+        },
+        {
+          "header": "## Обговорення",
+          "subsections": [
+            "### \"Können wir darüber reden?\"",
+            "### \"Ich brauche, dass du ehrlich zu mir bist\"",
+            "### \"Ich arbeite an meiner Eifersucht\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c6269875-9ee0-4f8a-9fe5-4502fe75b495",
+      "title": "Польські фрази про ревнощі та довіру",
+      "native_lang": "uk",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Вираження ревнощів",
+          "subsections": [
+            "### \"Jestem zazdrosny/zazdrosna\"",
+            "### \"Robię się zazdrosny/zazdrosna, kiedy...\"",
+            "### \"Czasami czuję się niepewnie\""
+          ]
+        },
+        {
+          "header": "## Запитання",
+          "subsections": [
+            "### \"Kto to był/była?\"",
+            "### \"Skąd go/ją znasz?\""
+          ]
+        },
+        {
+          "header": "## Довіра",
+          "subsections": [
+            "### \"Ufam ci całkowicie\"",
+            "### \"Nie ma się czym martwić\"",
+            "### \"To tylko przyjaciel/przyjaciółka\"",
+            "### \"Nie masz powodu do zazdrości\"",
+            "### \"Jesteś dla mnie jedyny/jedyna\""
+          ]
+        },
+        {
+          "header": "## Обговорення",
+          "subsections": [
+            "### \"Możemy o tym porozmawiać?\"",
+            "### \"Pracuję nad swoją zazdrością\""
+          ]
+        }
+      ]
+    }
+  ]
+}

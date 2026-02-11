@@ -1,0 +1,545 @@
+{
+  "batchId": "tier2a-slim-0093",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "6f49a5ce-b9de-4227-99f9-dcf87acb937c",
+      "title": "Phrases ukrainiennes pour les disputes de couple",
+      "native_lang": "fr",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions essentielles pour les désaccords",
+          "subsections": [
+            "### Exprimer son désaccord",
+            "### Exprimer ses émotions",
+            "### Fixer des limites",
+            "### Chercher à comprendre"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6f4e9660-5ef7-4b94-a23d-6a65ebfcc1f8",
+      "title": "Polska fraser för att träffa svärföräldrarna – Gör ett gott intryck",
+      "native_lang": "sv",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Första mötet",
+          "subsections": [
+            "### \"To wielka przyjemność wreszcie państwa poznać\"",
+            "### \"Dużo o państwu słyszałem/słyszałam\"",
+            "### \"Dziękuję bardzo za zaproszenie\""
+          ]
+        },
+        {
+          "header": "## Artiga fraser",
+          "subsections": [
+            "### \"Proszę mówić do mnie [namn]\"",
+            "### \"Mają państwo piękny dom\"",
+            "### \"Czy mogę w czymś pomóc?\"",
+            "### \"Jedzenie jest przepyszne\""
+          ]
+        },
+        {
+          "header": "## Om din relation",
+          "subsections": [
+            "### \"Państwa syn/córka bardzo wiele dla mnie znaczy\"",
+            "### \"Czuję się bardzo szczęśliwy/szczęśliwa, że poznałem/poznałam [namn]\"",
+            "### \"Jesteśmy ze sobą bardzo szczęśliwi\""
+          ]
+        },
+        {
+          "header": "## Visa intresse",
+          "subsections": [
+            "### \"Chciałbym/Chciałabym dowiedzieć się więcej o [ämne]\"",
+            "### \"Jak państwo się poznali?\""
+          ]
+        },
+        {
+          "header": "## Avskedsfraser",
+          "subsections": [
+            "### \"Dziękuję za cudowny wieczór\"",
+            "### \"To była prawdziwa przyjemność państwa poznać\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6f56941d-3411-40ae-8b2a-cb7de02c13b0",
+      "title": "Венгерское произношение для начинающих: научитесь говорить с любимым человеком",
+      "native_lang": "ru",
+      "target_lang": "hu",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Основные правила произношения",
+          "subsections": [
+            "### 1. Гласные звуки — ключ к успеху",
+            "### 2. Специальные венгерские звуки"
+          ]
+        },
+        {
+          "header": "## Типичные ошибки и как их избежать",
+          "subsections": [
+            "### Ошибка 1: Путаница с \"s\" и \"sz\"",
+            "### Ошибка 2: Игнорирование долгих гласных",
+            "### Ошибка 3: Неправильное ударение",
+            "### Ошибка 4: Произношение \"gy\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6f5900cd-4770-47b4-8e21-a03342c2df80",
+      "title": "Zwroty na pierwszą randkę po portugalsku",
+      "native_lang": "pl",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Rozpoczęcie rozmowy",
+          "subsections": [
+            "### Cześć! Miło Cię wreszcie poznać!",
+            "### Świetnie wyglądasz!",
+            "### Nie mogłem/mogłam się doczekać"
+          ]
+        },
+        {
+          "header": "## Poznawanie się",
+          "subsections": [
+            "### Opowiedz mi o sobie",
+            "### Co lubisz robić w wolnym czasie?",
+            "### Jaki jest Twój ulubiony...?"
+          ]
+        },
+        {
+          "header": "## Wyrażanie zainteresowania",
+          "subsections": [
+            "### To naprawdę interesujące",
+            "### Opowiedz mi więcej",
+            "### Chciałbym/Chciałabym wiedzieć więcej"
+          ]
+        },
+        {
+          "header": "## Dzielenie się o sobie",
+          "subsections": [
+            "### Pasjonuję się...",
+            "### Zawsze chciałem/chciałam..."
+          ]
+        },
+        {
+          "header": "## Komplementy",
+          "subsections": [
+            "### Uwielbiam Twój uśmiech",
+            "### Masz świetne poczucie humoru",
+            "### Świetnie się z Tobą bawię"
+          ]
+        },
+        {
+          "header": "## Planowanie następnego spotkania",
+          "subsections": [
+            "### Bardzo chciałbym/chciałabym Cię znowu zobaczyć",
+            "### Kiedy możemy to powtórzyć?",
+            "### Miałem/Miałam cudowny wieczór"
+          ]
+        },
+        {
+          "header": "## Pożegnanie",
+          "subsections": [
+            "### To było naprawdę cudowne",
+            "### Nie mogę się doczekać kolejnego spotkania"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6f59c682-f35e-4db6-9b6e-53bb8575d85b",
+      "title": "Φράσεις Φλερτ στα Νορβηγικά",
+      "native_lang": "el",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις Φλερτ",
+          "subsections": [
+            "### 1. Du er veldig vakker (Ντου ερ βέλντι βάκερ)",
+            "### 2. Du har et fantastisk smil (Ντου χαρ ετ φαντάστισκ σμιλ)",
+            "### 3. Kan jeg by deg på en kaffe? (Καν γιάι μπι ντάι πο εν κάφε;)",
+            "### 4. Jeg liker deg (Γιάι λίκερ ντάι)",
+            "### 5. Du har vakre øyne (Ντου χαρ βάκρε όινε)",
+            "### 6. Vil du danse? (Βιλ ντου ντάνσε;)",
+            "### 7. Jeg vil gjerne se deg igjen (Γιάι βιλ γιέρνε σε ντάι ιγκέν)",
+            "### 8. Du er spesiell (Ντου ερ σπεσιέλ)",
+            "### 9. Du får meg til å smile (Ντου φορ μάι τιλ ο σμίλε)",
+            "### 10. Kan jeg få nummeret ditt? (Καν γιάι φο νούμερετ ντιτ;)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6f61ba74-cf23-4aa8-b72c-a158b003a0b6",
+      "title": "Danca Aşk Mektubu Yazma: Romantik İfadeler Rehberi",
+      "native_lang": "tr",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Mektuba Başlangıç İfadeleri",
+          "subsections": [
+            "### 1. Min elskede",
+            "### 2. Mit hjertes kærlighed",
+            "### 3. Kære skat"
+          ]
+        },
+        {
+          "header": "## Duygularınızı İfade Eden Cümleler",
+          "subsections": [
+            "### 4. Jeg elsker dig mere end ord kan beskrive",
+            "### 5. Du er mit alt",
+            "### 6. Med dig føler jeg mig hel",
+            "### 7. Du har ændret mit liv",
+            "### 8. Hver dag med dig er en gave",
+            "### 9. Jeg drømmer om vores fremtid sammen"
+          ]
+        },
+        {
+          "header": "## Mektubu Bitiriş İfadeleri",
+          "subsections": [
+            "### 10. Med al min kærlighed",
+            "### 11. For evigt din",
+            "### 12. Knus og kys"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6f7ad612-4b94-48f6-9fcd-bef1c6a71314",
+      "title": "Expresii în Turcă pentru Reconciliere și Împăcare în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii pentru Cererea Scuzelor",
+          "subsections": [
+            "### Scuze Sincere",
+            "### Exprimarea Regretului Profund"
+          ]
+        },
+        {
+          "header": "## Expresii pentru Împăcare",
+          "subsections": [
+            "### Inițierea Dialogului",
+            "### Declarații de Dragoste",
+            "### Reconstruirea Conexiunii"
+          ]
+        },
+        {
+          "header": "## Gesturi de Reconciliere în Cultura Turcă",
+          "subsections": [
+            "### Çay (Ceaiul)",
+            "### Mâncarea",
+            "### Cadourile",
+            "### Timpul Împreună",
+            "### Respectul pentru Onoare"
+          ]
+        },
+        {
+          "header": "## Nuanțe Culturale",
+          "subsections": [
+            "### Onoarea",
+            "### Familia",
+            "### Gesturile Romantice",
+            "### Privatețea"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6f91ff73-c20c-4cd6-96c2-4be118c765b4",
+      "title": "Niederländische Aussprache: Ein Leitfaden für Deutsche",
+      "native_lang": "de",
+      "target_lang": "nl",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Vokale",
+          "subsections": [
+            "### Kurze Vokale",
+            "### Lange Vokale"
+          ]
+        },
+        {
+          "header": "## Konsonanten",
+          "subsections": [
+            "### Besondere Konsonanten",
+            "### Endkonsonanten"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6fb27719-f5f2-4f51-9466-13b4e5d2adfa",
+      "title": "Expressions de Mariage en Portugais : Guide Complet",
+      "native_lang": "fr",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## La Réception",
+          "subsections": [
+            "### Vocabulaire de la Fête"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6fc68f52-91c2-4487-9889-4b35b69d7b8c",
+      "title": "Γερμανικές Φράσεις Συμφιλίωσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις Συμφιλίωσης",
+          "subsections": [
+            "### Έναρξη Συμφιλίωσης",
+            "### Έκφραση Μετάνοιας",
+            "### Έκφραση Αγάπης",
+            "### Πρόταση Λύσης"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6fd518e1-b306-47b6-a7b0-7601ce799404",
+      "title": "Pronunția Germană pentru Începători: Ghidul Cuplurilor pentru un Sunet Romantic",
+      "native_lang": "ro",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Sunetele Germane Esențiale",
+          "subsections": [
+            "### Vocalele: Inima Limbii",
+            "### Consoanele: Puterea Sunetelor"
+          ]
+        },
+        {
+          "header": "## Reguli Simple de Pronunție",
+          "subsections": [
+            "### 1. Accentul Cade pe Primă Silabă",
+            "### 2. Vocala \"R\" - Sunetul Inimii",
+            "### 3. Consoane Duble = Consoane Lungi"
+          ]
+        },
+        {
+          "header": "## Greșeli Comune pe Care să le Evitați",
+          "subsections": [
+            "### 1. Pronunția Lui \"ICH\"",
+            "### 2. Vocala \"IE\"",
+            "### 3. Consoanele Finale"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6ff3d72a-ee97-442a-983e-02415e2cbd11",
+      "title": "Vocabular pentru Bebeluși și Sarcină în Italiană: Expresii Esențiale",
+      "native_lang": "ro",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Anunțarea Sarcinii",
+          "subsections": [
+            "### Expresii pentru Anunț",
+            "### Anunțuri Creative"
+          ]
+        },
+        {
+          "header": "## Vocabular Medical",
+          "subsections": [
+            "### Termeni pentru Consultații"
+          ]
+        },
+        {
+          "header": "## Evoluția Sarcinii",
+          "subsections": [
+            "### Primul Trimestru (Săptămânile 1-12)",
+            "### Al Doilea Trimestru (Săptămânile 13-26)",
+            "### Al Treilea Trimestru (Săptămânile 27-40)"
+          ]
+        },
+        {
+          "header": "## Pregătirea pentru Bebeluș",
+          "subsections": [
+            "### Obiecte Esențiale",
+            "### Camera Bebelușului"
+          ]
+        },
+        {
+          "header": "## Expresii de Felicitare",
+          "subsections": [
+            "### Pentru Anunț",
+            "### Pentru Naștere"
+          ]
+        },
+        {
+          "header": "## Tradiții și Superstiții",
+          "subsections": [
+            "### Superstiții Comune"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7026304c-ce89-49aa-8847-b10b39ca3136",
+      "title": "Urări de Aniversare în Daneză: Mesaje Romantice pentru Partener",
+      "native_lang": "ro",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Mesaje Romantice",
+          "subsections": [
+            "### Pentru Prima Aniversare",
+            "### Pentru Aniversări Mai Lungi"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Diferite Aniversări",
+          "subsections": [
+            "### 1-5 Ani",
+            "### 5-10 Ani",
+            "### 10+ Ani"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Carduri",
+          "subsections": [
+            "### Scurte și Dulci",
+            "### Mesaje Lungi"
+          ]
+        },
+        {
+          "header": "## Amintiri de Împărtășit",
+          "subsections": [
+            "### Întrebări pentru Reflecție"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "702c4cfa-201e-42bc-963f-395907f54f89",
+      "title": "Frases de 'Te Extraño' en Alemán: Expresando la Sehnsucht",
+      "native_lang": "es",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresiones Esenciales",
+          "subsections": [
+            "### \"Ich vermisse dich\"",
+            "### \"Ich vermisse dich so sehr\"",
+            "### \"Ich wünschte, du wärst hier\""
+          ]
+        },
+        {
+          "header": "## El Concepto de Sehnsucht",
+          "subsections": [
+            "### \"Ich habe Sehnsucht nach dir\""
+          ]
+        },
+        {
+          "header": "## Frases Emotivas",
+          "subsections": [
+            "### \"Jeder Moment ohne dich fühlt sich wie eine Ewigkeit an\"",
+            "### \"Du bist immer in meinen Gedanken\"",
+            "### \"Die Entfernung ändert nichts an meinen Gefühlen\""
+          ]
+        },
+        {
+          "header": "## Para Mensajes Diarios",
+          "subsections": [
+            "### \"Ich bin aufgewacht und habe an dich gedacht\"",
+            "### \"Gute Nacht, ich vermisse dich\"",
+            "### \"Ich zähle die Tage, bis ich dich wiedersehe\""
+          ]
+        },
+        {
+          "header": "## Expresiones Profundas",
+          "subsections": [
+            "### \"Mein Herz schmerzt vor Sehnsucht\"",
+            "### \"Du fehlst mir in jedem Moment\"",
+            "### \"Ohne dich ist alles nur halb so schön\""
+          ]
+        },
+        {
+          "header": "## Frases para Videollamadas",
+          "subsections": [
+            "### \"Dein Gesicht zu sehen macht mich glücklich\"",
+            "### \"Ich wünschte, ich könnte dich durch den Bildschirm umarmen\""
+          ]
+        },
+        {
+          "header": "## Mensajes de Voz",
+          "subsections": [
+            "### \"Ich wollte nur deine Stimme hören\"",
+            "### \"Ruf mich an, wenn du kannst, ich vermisse dich\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "705d15ff-8f43-48d0-930a-2e142b5b8b74",
+      "title": "Écrire une lettre d'amour en roumain : Le dor en mots",
+      "native_lang": "fr",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Formules d'ouverture",
+          "subsections": [
+            "### \"Iubirea mea\" / \"Dragostea mea\"",
+            "### \"Sufletul meu\""
+          ]
+        },
+        {
+          "header": "## Exprimer l'amour profond",
+          "subsections": [
+            "### \"Ești cel mai bun lucru care mi s-a întâmplat\"",
+            "### \"Inima mea îți aparține pentru totdeauna\"",
+            "### \"Cu fiecare zi te iubesc mai mult\""
+          ]
+        },
+        {
+          "header": "## Expressions poétiques",
+          "subsections": [
+            "### \"Ești poezia pe care sufletul meu o căuta\"",
+            "### \"În ochii tăi am găsit casa mea\"",
+            "### \"Ești azi-ul meu și toate mâinele mele\""
+          ]
+        },
+        {
+          "header": "## Engagements et promesses",
+          "subsections": [
+            "### \"Promit să te iubesc la bine și la greu\"",
+            "### \"Voi fi mereu alături de tine\""
+          ]
+        },
+        {
+          "header": "## Formules de conclusion",
+          "subsections": [
+            "### \"Al tău/A ta pentru totdeauna\"",
+            "### \"Cu toată dragostea mea\""
+          ]
+        }
+      ]
+    }
+  ]
+}

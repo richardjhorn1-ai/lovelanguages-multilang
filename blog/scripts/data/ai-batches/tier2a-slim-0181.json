@@ -1,0 +1,413 @@
+{
+  "batchId": "tier2a-slim-0181",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "be24e656-2ed6-4ba5-b51e-d0aa0968d87b",
+      "title": "Conocer a la Familia de Tu Pareja Turca",
+      "native_lang": "es",
+      "target_lang": "tr",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Frases Corteses Esenciales",
+          "subsections": [
+            "### Respeto Formal",
+            "### Expresiones de Respeto"
+          ]
+        },
+        {
+          "header": "## En Su Casa",
+          "subsections": [
+            "### Al Llegar",
+            "### Durante la Comida",
+            "### Elogiando Su Hogar y Cocina"
+          ]
+        },
+        {
+          "header": "## Al Despedirse y Seguimiento",
+          "subsections": [
+            "### Al Irse",
+            "### Invitándolos de Vuelta"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "be2d96f0-2bf7-4b47-b7ca-614ac51b9183",
+      "title": "Allemand pour Couples : 25 Phrases Essentielles",
+      "native_lang": "fr",
+      "target_lang": "de",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Exercices de pratique pour couples",
+          "subsections": [
+            "### Routine du matin",
+            "### Réflexion du soir",
+            "### Jeu de rôle restaurant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "be4d25bb-77ce-4b84-b945-be4a72f98a5b",
+      "title": "Spanyol kiejtés kezdőknek: Tanuljatok együtt a szerelmetekkel",
+      "native_lang": "hu",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## A leggyakoribb hibák és hogyan kerüld el őket",
+          "subsections": [
+            "### 1. **Az R hang problémája**",
+            "### 2. **A J hang kiejtése**",
+            "### 3. **A V és B összekeverése**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "be51d6b9-58ad-45b7-a6a3-681586079597",
+      "title": "50+ szwedzkich zdrobnień, które roztopią serce",
+      "native_lang": "pl",
+      "target_lang": "sv",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Zdrobnienia na rozne okazje",
+          "subsections": [
+            "### Rano",
+            "### Wieczorem",
+            "### W trudnych chwilach"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Wybierz swoje zdrobnienie",
+            "### Cwiczenie 2: Nowe zdrobnienie codzieńnie",
+            "### Cwiczenie 3: Zdrobnienia od zwierzat"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "be614b80-5e67-48cd-a7d9-65216a55d04c",
+      "title": "Fraze în Olandeză pentru Întâlnirea cu Familia Partenerului",
+      "native_lang": "ro",
+      "target_lang": "nl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Răspunsuri la Întrebări Comune",
+          "subsections": [
+            "### \"Wat voor werk doe je?\" (Cu ce te ocupi?)",
+            "### \"Waar kom je vandaan?\" (De unde ești?)",
+            "### \"Hoe hebben jullie elkaar ontmoet?\" (Cum v-ați cunoscut?)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "be758324-0bbd-4f60-8dc4-ebc008621761",
+      "title": "Olasz igeidők pároknak: Tanuljátok meg együtt az alapokat",
+      "native_lang": "hu",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Alapigék: A \"coppia\" (pár) szintaxisa",
+          "subsections": [
+            "### 1. A jelen (Presente)",
+            "### 2. A múlt (Passato Prossimo)",
+            "### 3. A jövő (Futuro Semplice)"
+          ]
+        },
+        {
+          "header": "## Gyakori minták pároknak",
+          "subsections": [
+            "### Szeretem kifejezése",
+            "### Kérdések a mindennapokban"
+          ]
+        },
+        {
+          "header": "## Gyakori hibák, amiket elkerülhettek",
+          "subsections": [
+            "### 1. A \"mi\" és \"ti\" keverése",
+            "### 2. A passato prossimo segédigéje",
+            "### 3. A jövő idő túlzás használata"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "be7d7dd1-854e-49fc-826e-17a82c3d47b2",
+      "title": "30+ Tyrkiske Komplimenter til Din Partner: Romantiske Fraser",
+      "native_lang": "da",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Komplimenter til Specielle Lejligheder",
+          "subsections": [
+            "### Til en Date",
+            "### Ved Milepæle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "be884084-6391-4180-b16f-96888bdb9a3c",
+      "title": "Çekçe Affetme İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Af Dileme",
+          "subsections": [
+            "### 1. \"Je mi opravdu líto za to, co jsem udělal/a\"",
+            "### 2. \"Prosím, odpusť mi\"",
+            "### 3. \"Beru na sebe plnou zodpovědnost\"",
+            "### 4. \"Vím, že jsem ti ublížil/a a je mi to moc líto\"",
+            "### 5. \"Můžeš najít ve svém srdci, abys mi odpustil/a?\""
+          ]
+        },
+        {
+          "header": "## Affetme",
+          "subsections": [
+            "### 6. \"Odpouštím ti\"",
+            "### 7. \"Jsem připraven/a to nechat za námi\"",
+            "### 8. \"Nechme to za námi\"",
+            "### 9. \"Nechci zášť\"",
+            "### 10. \"Každý dělá chyby\"",
+            "### 11. \"Miluji tě víc než svůj hněv\"",
+            "### 12. \"Přijímám tvou omluvu\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "be942f45-4aed-487b-a471-4f46e8513094",
+      "title": "Основы украинской грамматики для начинающих",
+      "native_lang": "ru",
+      "target_lang": "uk",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Падежная система",
+          "subsections": [
+            "### Семь падежей"
+          ]
+        },
+        {
+          "header": "## Спряжение глаголов",
+          "subsections": [
+            "### Глагол КОХАТИ (любить)",
+            "### Глагол БУТИ (быть)",
+            "### Прошедшее время"
+          ]
+        },
+        {
+          "header": "## Местоимения",
+          "subsections": [
+            "### Личные местоимения",
+            "### Притяжательные местоимения"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "beaf6ab0-c018-4bb6-8b7d-ec7788ee1591",
+      "title": "Пожелания на годовщину на португальский: Романтические фразы",
+      "native_lang": "ru",
+      "target_lang": "pt",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Простые пожелания на годовщину",
+          "subsections": [
+            "### Короткие и сладкие",
+            "### Для вашего партнёра"
+          ]
+        },
+        {
+          "header": "## Романтические послания на годовщину",
+          "subsections": [
+            "### Сердечные признания",
+            "### Задумчивые послания"
+          ]
+        },
+        {
+          "header": "## Послания по годам",
+          "subsections": [
+            "### Первая годовщина",
+            "### Пятая годовщина",
+            "### Десятая годовщина",
+            "### Двадцать пятая годовщина (серебряная)",
+            "### Пятидесятая годовщина (золотая)"
+          ]
+        },
+        {
+          "header": "## Планирование празднования годовщины",
+          "subsections": [
+            "### Романтические идеи",
+            "### Выражение благодарности"
+          ]
+        },
+        {
+          "header": "## Сообщения для социальных сетей",
+          "subsections": [
+            "### Подписи для публикаций"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "beb3e2a1-a491-451d-95f5-0682fc239692",
+      "title": "Переїзд разом: шведською слова для спільного життя",
+      "native_lang": "uk",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика",
+          "subsections": []
+        },
+        {
+          "header": "## Обговорення переїзду",
+          "subsections": [
+            "### Як запропонувати спільне життя шведською"
+          ]
+        },
+        {
+          "header": "## Пошук житла",
+          "subsections": [
+            "### Лексика для оренди/покупки",
+            "### Кімнати в домі"
+          ]
+        },
+        {
+          "header": "## Меблі та предмети побуту",
+          "subsections": [
+            "### У спальні",
+            "### На кухні",
+            "### У вітальні"
+          ]
+        },
+        {
+          "header": "## Розподіл обов'язків",
+          "subsections": [
+            "### Домашні справи шведською",
+            "### Як обговорити обов'язки"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "beb75e10-df1c-4b92-a0eb-8a6670c3aaed",
+      "title": "Італійська весільна лексика: слова та фрази для особливого дня",
+      "native_lang": "uk",
+      "target_lang": "it",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Традиційні весільні фрази",
+          "subsections": [
+            "### Привітання молодят"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bec1b93e-2da0-4006-9144-aeb3b9b1cab1",
+      "title": "Guida alla Pronuncia Ucraina per Principianti: Impara a Parlare con il Tuo Partner",
+      "native_lang": "it",
+      "target_lang": "uk",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Suoni Difficili per Italiani: Le Sfide Romantiche",
+          "subsections": [
+            "### Ш, Ж, Ч: I Sibilanti Speciali",
+            "### Г vs Х: I Suoni Gutturali"
+          ]
+        },
+        {
+          "header": "## Pratica di Coppia: Esercizi Romantici",
+          "subsections": [
+            "### 1. Giorno per Giorno",
+            "### 2. Messaggi d'Amore",
+            "### 3. Lettura Condivisa"
+          ]
+        },
+        {
+          "header": "## Errori Comuni da Evitare (e Abbracciare!)",
+          "subsections": [
+            "### 1. La \"и\" Maledetta",
+            "### 2. La \"е\" Ingannevole",
+            "### 3. Consonanti Finali"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bec570b6-6ebf-4f67-8ea5-f230ab5d495d",
+      "title": "Italienisch vs. Deutsch - Falsche Freunde",
+      "native_lang": "de",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Wahre vs. Falsche Freunde",
+          "subsections": [
+            "### Echte Freunde (gleiche Bedeutung)",
+            "### Falsche Freunde (andere Bedeutung!)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bed7ee50-7049-499e-b2ba-3d8c080284e6",
+      "title": "Turkiska flörtfraser för par – Förför din partner på turkiska",
+      "native_lang": "sv",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassiska komplimanger",
+          "subsections": [
+            "### \"Çok güzelsin\"",
+            "### \"Gözlerin çok güzel\"",
+            "### \"Gülüşün beni büyülüyor\""
+          ]
+        },
+        {
+          "header": "## Passionerade uttryck",
+          "subsections": [
+            "### \"Sana deli gibi aşığım\"",
+            "### \"Seni düşünmeden duramıyorum\"",
+            "### \"Sen benim her şeyimsin\""
+          ]
+        },
+        {
+          "header": "## Lekfulla fraser",
+          "subsections": [
+            "### \"İlk görüşte aşka inanıyor musun, yoksa bir daha mı geçeyim?\"",
+            "### \"Bir haritanız var mı? Gözlerinizde kayboldum\"",
+            "### \"Melek misin? Çünkü cennetten düşmüşsün gibi görünüyorsun\""
+          ]
+        },
+        {
+          "header": "## Djupt romantiska uttryck",
+          "subsections": [
+            "### \"Sen hayatımın aşkısın\"",
+            "### \"Seninle her an değerli\"",
+            "### \"Seninle kendimi evimde hissediyorum\""
+          ]
+        }
+      ]
+    }
+  ]
+}

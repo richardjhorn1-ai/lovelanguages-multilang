@@ -1,0 +1,402 @@
+{
+  "batchId": "tier2a-slim-0035",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "3ddd92c0-2ccf-4671-941b-ac19d161ea3e",
+      "title": "Ukrainska flörtfraser för par – Charma din partner på ukrainska",
+      "native_lang": "sv",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassiska komplimanger",
+          "subsections": [
+            "### \"Ти виглядаєш чудово\" (Ty vyhlyadayesh chudovo)",
+            "### \"У тебе найгарніші очі\" (U tebe nayharnishi ochi)",
+            "### \"Твоя усмішка освітлює моє життя\" (Tvoya usmishka osvitlyuye moye zhyttya)"
+          ]
+        },
+        {
+          "header": "## Passionerade uttryck",
+          "subsections": [
+            "### \"Я божеволію від тебе\" (Ya bozhevilyu vid tebe)",
+            "### \"Я не можу перестати думати про тебе\" (Ya ne mozhu perestaty dumaty pro tebe)",
+            "### \"Ти - моє все\" (Ty - moye vse)"
+          ]
+        },
+        {
+          "header": "## Lekfulla fraser",
+          "subsections": [
+            "### \"Ти віриш у кохання з першого погляду, чи мені пройти ще раз?\"",
+            "### \"У тебе є карта? Я загубився в твоїх очах\"",
+            "### \"Якби ти була зіркою, ти б була найяскравішою\""
+          ]
+        },
+        {
+          "header": "## Djupt romantiska uttryck",
+          "subsections": [
+            "### \"Ти - кохання мого життя\" (Ty - kokhannya moho zhyttya)",
+            "### \"Кожна мить з тобою - це подарунок\" (Kozhna myt' z toboyu - tse podarunok)",
+            "### \"Поруч з тобою я вдома\" (Poruch z toboyu ya vdoma)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3e04cbf7-7f62-41a7-a973-fde00ae80e5f",
+      "title": "Norské fráze pro hádky a neshody ve vztahu",
+      "native_lang": "cs",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní fráze pro vyjádření nesouhlasu",
+          "subsections": [
+            "### 1. Jeg er ikke enig med deg",
+            "### 2. Jeg ser det annerledes",
+            "### 3. Jeg føler meg såret når du...",
+            "### 4. Vær så snill, ikke skrik til meg",
+            "### 5. Jeg trenger tid til å tenke"
+          ]
+        },
+        {
+          "header": "## Fráze pro pochopení partnera",
+          "subsections": [
+            "### 6. Hjelp meg å forstå ditt synspunkt",
+            "### 7. Det jeg prøver å si er...",
+            "### 8. Mener du at...?"
+          ]
+        },
+        {
+          "header": "## Fráze pro hledání řešení",
+          "subsections": [
+            "### 9. La oss finne et kompromiss",
+            "### 10. Jeg vil ikke krangle om dette",
+            "### 11. Vi er på samme lag",
+            "### 12. Kan vi begynne på nytt?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3e0758ac-8c48-4c5c-9a4f-1c603a785379",
+      "title": "Czech Forgiveness Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Asking for Forgiveness",
+          "subsections": [
+            "### Odpusť mi"
+          ]
+        },
+        {
+          "header": "## Granting Forgiveness",
+          "subsections": [
+            "### Odpouštím ti"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3e181520-b214-48ab-9104-37be3ba30730",
+      "title": "Expresii de Flirt în Rusă pentru Români",
+      "native_lang": "ro",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale de Flirt",
+          "subsections": [
+            "### Complimente Frumoase",
+            "### Expresii Romantice",
+            "### Replici Șarmante",
+            "### Declarații de Dragoste"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3e19e347-689d-41dd-8bef-751dc10e94fb",
+      "title": "Frases de Apoio Emocional em Húngaro: Confortando Seu Parceiro",
+      "native_lang": "pt",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases de Apoio Básico",
+          "subsections": [
+            "### Demonstrando Presença",
+            "### Validando Sentimentos",
+            "### Oferecendo Conforto"
+          ]
+        },
+        {
+          "header": "## Para Situações Específicas",
+          "subsections": [
+            "### Perda e Luto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3e1ebfaf-4e4c-4c53-bd70-b70ef986c958",
+      "title": "Frases de Paquera em Alemão: Conquistando Corações Germânicos",
+      "native_lang": "pt",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases Essenciais de Paquera",
+          "subsections": [
+            "### Elogios Sinceros",
+            "### Expressando Interesse",
+            "### Cantadas Alemãs",
+            "### Para Relacionamentos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3e3416a7-ab1e-4d2d-a294-02a47b94d485",
+      "title": "Häufige Italienisch-Fehler von Deutschsprachigen",
+      "native_lang": "de",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Fehler 8: Aussprache-Fehler",
+          "subsections": [
+            "### Doppelkonsonanten",
+            "### Die Buchstaben C und G"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3e5415fa-0ff1-4dda-993e-e0278b8dfd44",
+      "title": "Frases para Conhecer os Sogros em Romeno: Guia Completo",
+      "native_lang": "pt",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para o Primeiro Encontro",
+          "subsections": [
+            "### Apresentação",
+            "### Elogiando",
+            "### Mostrando Interesse",
+            "### Expressando Gratidão"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3e616ccc-635a-4457-8b35-4831fc841aeb",
+      "title": "Датский для пар: 25 основных фраз",
+      "native_lang": "ru",
+      "target_lang": "da",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Практические упражнения",
+          "subsections": [
+            "### Утренняя рутина",
+            "### Вечерний ритуал"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3e6978db-d656-4042-9211-14140253f91a",
+      "title": "Expresii de Flirt în Maghiară pentru Români",
+      "native_lang": "ro",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale de Flirt",
+          "subsections": [
+            "### Complimente Calde",
+            "### Expresii Romantice",
+            "### Replici Jucăușe",
+            "### Declarații de Dragoste"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3e7df76f-a0ee-496b-b175-8fc1030d2824",
+      "title": "Nederländska Fraser för Försoning och Att Göra Upp",
+      "native_lang": "sv",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Inleda Försoning",
+          "subsections": [
+            "### 1. \"Het spijt me echt\"",
+            "### 2. \"Kunnen we opnieuw beginnen?\"",
+            "### 3. \"Ik haat ruzie maken met jou\"",
+            "### 4. \"Je bent alles voor mij\"",
+            "### 5. \"Ik had ongelijk en ik geef het toe\""
+          ]
+        },
+        {
+          "header": "## Fraser för Djupare Försoning",
+          "subsections": [
+            "### 6. \"Laten we niet boos gaan slapen\"",
+            "### 7. \"Ik hou meer van je dan van elke ruzie\"",
+            "### 8. \"Mag ik een knuffel?\"",
+            "### 9. \"Ik wil je beter begrijpen\"",
+            "### 10. \"We zijn sterker dan dit\"",
+            "### 11. \"Ik beloof beter te zijn\"",
+            "### 12. \"Bedankt voor je geduld met mij\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3e9f234b-fdc6-4397-b234-564c5fb9ee0b",
+      "title": "Polnische Grammatik Grundlagen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Häufige Fehler von Deutschen",
+          "subsections": [
+            "### 1. Fallverwechslung nach Präpositionen",
+            "### 2. Aspekt ignorieren",
+            "### 3. Geschlechtsendungen bei Vergangenheit"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3eb01fcc-8f4d-49bd-a431-6f2662840f55",
+      "title": "Noorse Zinnen over Jaloezie en Vertrouwen",
+      "native_lang": "nl",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Jeg føler meg usikker når...\"",
+            "### 2. \"Jeg stoler helt på deg\"",
+            "### 3. \"Kan du berolige meg?\"",
+            "### 4. \"Jeg er ikke sjalu, bare bekymret\"",
+            "### 5. \"Hvem var den personen du snakket med?\"",
+            "### 6. \"Jeg trenger å vite at jeg kan stole på deg\"",
+            "### 7. \"Du har ingenting å bekymre deg for\"",
+            "### 8. \"Jeg har bare øyne for deg\"",
+            "### 9. \"La oss snakke om det som plager deg\"",
+            "### 10. \"Jeg ville aldri gjort noe for å såre deg\"",
+            "### 11. \"Din fortid definerer ikke oss\"",
+            "### 12. \"Jeg jobber med mine usikkerheter\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3eb3a3cd-d224-40a6-9025-2b90848cfd1f",
+      "title": "Hiszpańskie zwroty o zazdrości i zaufaniu dla par",
+      "native_lang": "pl",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Wyrażanie uczuć zazdrości",
+          "subsections": [
+            "### \"Me siento un poco celoso/celosa cuando...\"",
+            "### \"Me siento inseguro/insegura sobre...\"",
+            "### \"Me molesta cuando tú...\""
+          ]
+        },
+        {
+          "header": "## Pytania budujące zaufanie",
+          "subsections": [
+            "### \"¿Puedes tranquilizarme sobre...?\"",
+            "### \"¿Quién era esa persona con la que hablabas?\"",
+            "### \"¿Estoy exagerando?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie potrzeby zaufania",
+          "subsections": [
+            "### \"Necesito que seas sincero/sincera conmigo\"",
+            "### \"Confío en ti, pero me cuesta...\"",
+            "### \"¿Podemos hablar de los límites?\""
+          ]
+        },
+        {
+          "header": "## Uspokajanie partnera",
+          "subsections": [
+            "### \"No tienes nada de qué preocuparte\"",
+            "### \"Eres el único/la única para mí\"",
+            "### \"Nunca haría nada para hacerte daño\""
+          ]
+        },
+        {
+          "header": "## Budowanie zaufania",
+          "subsections": [
+            "### \"Seamos más abiertos el uno con el otro\"",
+            "### \"Quiero que confiemos plenamente el uno en el otro\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3ec40484-82dd-428f-924a-da0fe8bf6287",
+      "title": "Lehce Temel Dilbilgisi: Türkler Icin Baslangic Rehberi",
+      "native_lang": "tr",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Sifatlar",
+          "subsections": [
+            "### Cinsiyet Uyumu",
+            "### Sifat Konumu"
+          ]
+        },
+        {
+          "header": "## Fiil Cekimi",
+          "subsections": [
+            "### Simdiki Zaman",
+            "### Önemli Fiiller"
+          ]
+        },
+        {
+          "header": "## Zamirler",
+          "subsections": [
+            "### Özne Zamirleri"
+          ]
+        },
+        {
+          "header": "## Soru Cümleleri",
+          "subsections": [
+            "### Evet/Hayir Sorulari",
+            "### Soru Kelimeleri"
+          ]
+        },
+        {
+          "header": "## Cümle Yapisi",
+          "subsections": [
+            "### Temel Sira"
+          ]
+        },
+        {
+          "header": "## Ciftler Icin Pratik",
+          "subsections": [
+            "### Günlük Dilbilgisi Pratigi",
+            "### Örnek Diyalog"
+          ]
+        }
+      ]
+    }
+  ]
+}

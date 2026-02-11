@@ -1,0 +1,128 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0269",
+  "articles": [
+    {
+      "id": "4c91a97d-c8a2-4691-a1c4-0865bbf18f41",
+      "title": "Norvég lánykérési és eljegyzési kifejezések",
+      "native_lang": "hu",
+      "target_lang": "no",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nA lánykérés az élet egyik legizgalmasabb pillanata. Ha norvégul szeretnéd feltenni a nagy kérdést vagy megérteni ezt a különleges eseményt, ezek a kifejezések nélkülözhetetlenek.\n\nAz alapvető szerelmi kifejezésekért nézd meg a [Hogyan mondd: Szeretlek norvégul](/learn/hu/no/norwegian-how-to-say-i-love-you) cikkünket.\n\n<PhraseOfDay\n  word=\"Gratulerer!\"\n  translation=\"Gratulálok!\"\n  pronunciation=\"ɡrɑtʉˈleːrər\"\n  context=\"Az esküvői köszöntés alapja.\"\n/>\n\n## Alapvető szókincs\n\nIsmerd meg a legfontosabb norvég lánykérési és eljegyzési szavakat:\n\n<VocabCard\n  word=\"bryllup\"\n  translation=\"esküvő\"\n  pronunciation=\"ˈbrʏlːʉp\"\n  example=\"Bryllupet var vakkert.\"\n/>\n\n| Norvég | Magyar | Használat |\n|---|---|---|\n| brud | menyasszony | A nő |\n| brudgom | vőlegény | A férfi |\n| løfter | fogadalmak | Esküvői ígéretek |\n| seremoni | szertartás | A hivatalos rész |\n| mottakelse | fogadás | Az ünneplés |\n| skål | köszöntő | Pohárköszöntő |\n\n<CultureTip flag=\"🌍\" title=\"Norvég kulturális tippek\">\nA norvég nyelvű kultúrákban a lánykérésnek különleges hagyományai vannak. Egyes helyeken a szülők beleegyezését kérik, máshol romantikus helyszíneket választanak.\n</CultureTip>\n\n## Hasznos kifejezések\n\n### A nagy kérdés\n\nA lánykérés pillanatában ezeket mondd:\n\n- **Gratulerer!** - Gratulálok!\n- **Veled akarom tölteni az életemet** - Romantikus vallomás\n- **Te vagy az egyetlen** - Szerelmi vallomás\n\n### Az eljegyzés bejelentése\nAmikor megosztod a hírt:\n\n- **Eljegyeztük magunkat!** - A nagy bejelentés\n- **Igent mondott!** - Az öröm kifejezése\n\n<VocabCard\n  word=\"bryllupsreise\"\n  translation=\"nászút\"\n  pronunciation=\"ˈbrʏlːʉpsˌrɑjsə\"\n  example=\"De dro på bryllupsreise.\"\n/>\n\n## Gyakorlati helyzetek\n\n| Helyzet | Mit mondj |\n|---|---|\n| A nagy kérdés | Térdre ereszkedve tedd fel a kérdést |\n| Ha igent mond | Fejezd ki a boldogságod |\n| Bejelentés | Oszd meg a hírt a szeretteiddel |\n| Gratulációk fogadása | Köszönd meg a jókívánságokat |\n\n<CultureTip flag=\"💡\" title=\"Hasznos tipp\">\nA lánykérés előtt gyakorold az alapvető kifejezéseket. A pillanatnyi izgalomban nehéz lehet idegen nyelven beszélni, ezért készülj fel előre.\n</CultureTip>\n\n## Összefoglaló táblázat\n\n| Helyzet | Norvég kifejezés |\n|---|---|\n| Gratuláció | Gratulerer! |\n| Az esemény | bryllup |\n| A nő | brud |\n| A férfi | brudgom |\n| Esküvői ígéretek | løfter |\n\n## További tanulás\n\nHa tovább szeretnéd fejleszteni a norvég nyelvtudásod, nézd meg ezeket a cikkeinket:\n\n- [Norvég romantikus kifejezések minden alkalomra](/learn/hu/no/norwegian-romantic-phrases-for-every-occasion)\n- [Hogyan mondd: Szeretlek norvégul](/learn/hu/no/norwegian-how-to-say-i-love-you)\n- [Norvég alapvető kifejezések pároknak](/learn/hu/no/norwegian-essential-phrases-for-couples)\n\nEzek a források segítenek elmélyíteni a tudásod és magabiztosabbá válni a norvég nyelvben.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 293,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Hasznos kifejezések"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "4c91f13e-79c3-44a9-b7e7-18a334f93d21",
+      "title": "Нидерландские фразы для первого свидания",
+      "native_lang": "ru",
+      "target_lang": "nl",
+      "category": "communication",
+      "content": "Эти фразы помогут вам произвести хорошее впечатление на первом свидании.\n\n## Начало разговора\n\n### 1. Je ziet er prachtig uit vanavond\n**Произношение:** Йе зит эр пра́хтих эйт фанафо́нд\n\n**Перевод:** Ты прекрасно выглядишь сегодня вечером\n\nКомплимент для начала вечера.\n\n### 2. Ik keek hier erg naar uit\n**Произношение:** Ик кэйк хир эрх нар эйт\n\n**Перевод:** Я очень ждал/ждала этого\n\nВыражение энтузиазма.\n\n### 3. Vertel me meer over jezelf\n**Произношение:** Фэртэ́л мэ мэр о́фэр йезэ́лф\n\n**Перевод:** Расскажи мне больше о себе\n\nПриглашение к разговору.\n\n## Поддержание беседы\n\n### 4. Wat doe je graag in je vrije tijd?\n**Произношение:** Ват ду йе храх ин йе фрэ́йе тэйд\n\n**Перевод:** Чем тебе нравится заниматься в свободное время?\n\nВопрос об увлечениях.\n\n## Выражение интереса\n\n### 5. Ik zou je graag nog eens zien\n**Произношение:** Ик зау йе храх нох энс зин\n\n**Перевод:** Мне бы хотелось увидеть тебя снова\n\nВыражение романтического интереса.\n\n### 6. Ik heb een geweldige avond gehad\n**Произношение:** Ик хэп эн хэвэ́лдихэ а́фонд хэха́д\n\n**Перевод:** Я прекрасно провёл/провела вечер\n\nПозитивная оценка свидания.\n\n## Культурные особенности\n\nГолландцы — прямые и честные. Разделение счёта — норма. Будьте собой!",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 182,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Начало разговора",
+              "## Поддержание беседы",
+              "## Выражение интереса"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "4c9bfcaf-ebe5-45d0-902c-9607c6238f62",
+      "title": "Écrire une lettre d'amour en ukrainien : La tendresse mélodieuse",
+      "native_lang": "fr",
+      "target_lang": "uk",
+      "category": "communication",
+      "content": "## L'art de la любовний лист ukrainienne\n\nL'ukrainien, langue mélodieuse souvent comparée au français, offre des expressions d'une grande tendresse pour les lettres d'amour.\n\n## Formules d'ouverture\n\n### \"Кохання моє\" / \"Коханий мій/Кохана моя\"\n**Transcription :** Kokhannya moye / Kokhanyy miy/Kokhana moya\n**Prononciation :** ko-KHAN-nya mo-YÉ / ko-KHA-niï miï/ko-KHA-na mo-YA\n\n**Signification :** Mon amour / Mon bien-aimé/Ma bien-aimée\n\n### \"Сонце моє\"\n**Transcription :** Sontse moye\n**Prononciation :** SON-tsé mo-YÉ\n\n**Signification :** Mon soleil\n\n## Exprimer l'amour profond\n\n### \"Ти найкраще, що трапилось у моєму житті\"\n**Transcription :** Ty naykrashche, shcho trapylos u moyemu zhytti\n**Prononciation :** ti naï-KRA-chtché cho tra-PI-loss ou mo-YÉ-mou ji-TTI\n\n**Signification :** Tu es la meilleure chose qui soit arrivée dans ma vie\n\n### \"Моє серце належить тобі назавжди\"\n**Transcription :** Moye sertse nalezhyt tobi nazavzhdy\n**Prononciation :** mo-YÉ SÉR-tsé na-lé-JIT to-BI na-ZAV-jdi\n\n**Signification :** Mon cœur t'appartient pour toujours\n\n### \"З кожним днем я кохаю тебе сильніше\"\n**Transcription :** Z kozhnym dnem ya kokhayu tebe sylnishe\n**Prononciation :** z KOJ-nim dnèm ya ko-KHA-you TÉ-bé sil-NI-ché\n\n**Signification :** Chaque jour je t'aime plus fort\n\n## Expressions poétiques\n\n### \"Ти поезія, яку шукала моя душа\"\n**Transcription :** Ty poeziya, yaku shukala moya dusha\n**Prononciation :** ti po-É-zi-ya ya-KOU chou-KA-la mo-YA dou-CHA\n\n**Signification :** Tu es la poésie que cherchait mon âme\n\n### \"У твоїх очах я знайшов свій дім\"\n**Transcription :** U tvoyikh ochakh ya znayshov sviy dim\n**Prononciation :** ou tvo-YIKH o-TCHAKH ya znaï-CHOV sviï DIM\n\n**Signification :** Dans tes yeux j'ai trouvé ma maison\n\n### \"Ти моє сьогодні і всі мої завтра\"\n**Transcription :** Ty moye sogodni i vsi moyi zavtra\n**Prononciation :** ti mo-YÉ syo-HOD-ni i VSI mo-YI ZAV-tra\n\n**Signification :** Tu es mon aujourd'hui et tous mes lendemains\n\n## Engagements et promesses\n\n### \"Обіцяю кохати тебе в радості і в горі\"\n**Transcription :** Obitsyayu kokhaty tebe v radosti i v hori\n**Prononciation :** o-bi-TSA-you ko-KHA-ti TÉ-bé v RA-dos-ti i v HO-ri\n\n**Signification :** Je promets de t'aimer dans la joie et la peine\n\n### \"Я завжди буду поруч з тобою\"\n**Transcription :** Ya zavzhdy budu poruch z toboyu\n**Prononciation :** ya ZAV-jdi BOU-dou PO-routch z to-BO-you\n\n**Signification :** Je serai toujours à tes côtés\n\n## Formules de conclusion\n\n### \"Назавжди твій/твоя\"\n**Transcription :** Nazavzhdy tviy/tvoya\n**Prononciation :** na-ZAV-jdi tviï/tvo-YA\n\n**Signification :** À toi pour toujours\n\n### \"З усією моєю любов'ю\"\n**Transcription :** Z usiyeyu moyeyu lyubovyu\n**Prononciation :** z ou-si-YÉ-you mo-YÉ-you lyou-BOV-you\n\n**Signification :** Avec tout mon amour\n\n### \"Кохаю тебе сьогодні, завтра і завжди\"\n**Prononciation :** ko-KHA-you TÉ-bé syo-HOD-ni ZAV-tra i ZAV-jdi\n\n**Signification :** Je t'aime aujourd'hui, demain et toujours\n\n## Conseils culturels ukrainiens\n\n**Poésie appréciée :** Citer Taras Chevtchenko ou Lessya Oukraïnka impressionnera.\n\n**Traditions :** Les broderies (vychyvanka) peuvent accompagner une lettre.\n\n**Contexte actuel :** Vos mots d'amour ont une résonance particulière.\n\n## Conclusion\n\nUne lettre d'amour en ukrainien chante avec la mélodie de cette belle langue. Кохання пишеться серцем. (L'amour s'écrit avec le cœur.)",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Formules d'ouverture",
+              "## Exprimer l'amour profond",
+              "## Expressions poétiques",
+              "## Engagements et promesses",
+              "## Formules de conclusion"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "4ca57558-d6d0-41d1-9b3a-d064af1bcfa1",
+      "title": "Jak napsat milostný dopis v maďarštině",
+      "native_lang": "cs",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "Maďarština je jedinečný jazyk s bohatou slovní zásobou pro vyjádření emocí. Maďarské milostné dopisy jsou vřelé a poetické.\n\n## Úvodní oslovení\n\n### \"Szerelmem\"\n**Překlad:** Lásko moje\n\n---\n\n### \"Édesem\"\n**Překlad:** Sladká/sladký\n\n---\n\n### \"Drágám\"\n**Překlad:** Drahá/drahý\n\n---\n\n## Úvodní věty\n\n### \"Azért írom neked ezt a levelet, hogy elmondjam, mennyit jelentesz nekem.\"\n**Překlad:** Píšu ti tento dopis, abych ti řekl/a, jak moc pro mě znamenáš.\n\n---\n\n### \"A szavak nem tudják kifejezni, amit irántad érzek.\"\n**Překlad:** Slova nemohou vyjádřit, co k tobě cítím.\n\n---\n\n## Vyjádření lásky\n\n### \"Te vagy a legjobb dolog, ami valaha történt velem.\"\n**Překlad:** Jsi to nejlepší, co se mi kdy přihodilo.\n\n---\n\n### \"Minden nap jobban szeretlek.\"\n**Překlad:** Miluji tě každý den víc.\n\n---\n\n### \"A szívem a tiéd, most és mindörökké.\"\n**Překlad:** Moje srdce je tvé, teď a navždy.\n\n---\n\n### \"Veled megtaláltam az igazi boldogságot.\"\n**Překlad:** S tebou jsem našel/našla pravé štěstí.\n\n---\n\n## Ocenění partnera\n\n### \"Csodálom az erődet, kedvességedet és gyönyörű lelkedet.\"\n**Překlad:** Obdivuji tvou sílu, laskavost a krásnou duši.\n\n---\n\n### \"Köszönöm, hogy úgy szeretsz, amilyen vagyok.\"\n**Překlad:** Děkuji, že mě miluješ takového/takovou, jaký/á jsem.\n\n---\n\n## Závěrečné fráze\n\n### \"Örökké a tiéd\"\n**Překlad:** Navždy tvůj/tvoje\n\n---\n\n### \"Minden szeretetemmel\"\n**Překlad:** Se vší mou láskou\n\n---\n\n## Kulturní tipy\n\n**Poezie:** Maďarská literatura má bohatou milostnou tradici - Petőfi Sándor.\n\n**Jedinečnost:** Psát maďarsky je velmi oceňováno.\n\nS těmito frázemi napíšete vřelý maďarský milostný dopis.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 227,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Úvodní oslovení",
+              "## Úvodní věty",
+              "## Vyjádření lásky",
+              "## Ocenění partnera",
+              "## Závěrečné fráze"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "4cae7482-9ded-41ca-8cba-8c58c377137f",
+      "title": "Шведська vs англійська: ключові відмінності",
+      "native_lang": "uk",
+      "target_lang": "sv",
+      "category": "grammar",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\n# Шведська vs англійська: ключові відмінності\n\nЯкщо ви вже знаєте англійську, вивчення шведської буде легшим! Обидві мови належать до германської групи та мають багато спільного. Але є й важливі відмінності.\n\n## Факт дня\n\n<PhraseOfDay\n  word=\"Engelska och svenska är kusiner\"\n  translation=\"Англійська і шведська — кузини\"\n  pronunciation=\"ен-ГЕЛ-ска ок СВЕН-ска ер ку-СІ-нер\"\n  context=\"Обидві мови походять від давньогерманської мови.\"\n/>\n\n## Схожі слова (когнати)\n\nБагато слів звучать схоже в обох мовах:\n\n| Англійська | Шведська | Українська |\n|------------|----------|------------|\n| house | hus | дім |\n| book | bok | книга |\n| man | man | чоловік |\n| water | vatten | вода |\n| green | grön | зелений |\n| night | natt | ніч |\n\n<VocabCard\n  word=\"Vatten\"\n  translation=\"Вода\"\n  pronunciation=\"ВАТ-тен\"\n  example=\"Kan jag få lite vatten? (Can I have some water?)\"\n/>\n\n## Відмінність 1: Артиклі\n\n**Англійська**: артикль перед словом (the book, a house)\n**Шведська**: означений артикль приєднується до кінця слова\n\n| Англійська | Шведська |\n|------------|----------|\n| a book | en bok |\n| the book | boken |\n| a house | ett hus |\n| the house | huset |\n\n<CultureTip title=\"Два роди замість трьох\" flag=\"🇸🇪\">\nНа відміну від німецької (три роди) та української (три роди), шведська має лише два: спільний (en) та середній (ett). Це спрощує вивчення!\n</CultureTip>\n\n## Відмінність 2: Порядок слів\n\nОбидві мови мають схожий базовий порядок: Підмет + Дієслово + Додаток\n\nАле шведська має правило V2 (дієслово на другому місці):\n\n| Англійська | Шведська |\n|------------|----------|\n| Yesterday I saw him | Igår **såg jag** honom |\n| Today we are going | Idag **går vi** |\n\n<VocabCard\n  word=\"Igår träffade jag henne\"\n  translation=\"Вчора я зустрів її\"\n  pronunciation=\"і-ГОР ТРЕФ-фа-де яг ХЕН-не\"\n  example=\"Yesterday I met her — дієслово на 2-му місці!\"\n/>\n\n## Відмінність 3: Вимова\n\n### Унікальні шведські звуки:\n\n| Буква | Шведський звук | Приклад |\n|-------|---------------|---------|\n| **å** | як укр. «о» | gå (йти) |\n| **ä** | як укр. «е» | äta (їсти) |\n| **ö** | між «е» і «о» | öl (пиво) |\n| **sj** | як м'яке «ш» | sjö (озеро) |\n| **tj/kj** | як м'яке «щ» | tjugo (двадцять) |\n\n## Відмінність 4: Дієслова\n\n**Англійська**: дієслова змінюються за особами (I am, you are, he is)\n**Шведська**: одна форма для всіх осіб!\n\n| Англійська | Шведська |\n|------------|----------|\n| I am | Jag är |\n| You are | Du är |\n| He/She is | Han/Hon är |\n| We are | Vi är |\n\n<VocabCard\n  word=\"Är\"\n  translation=\"Є (бути)\"\n  pronunciation=\"ер\"\n  example=\"Jag är glad. Du är glad. Vi är glada.\"\n/>\n\n## Відмінність 5: Питання\n\n**Англійська**: потребує допоміжного дієслова (Do you speak...?)\n**Шведська**: просто міняємо порядок слів\n\n| Англійська | Шведська |\n|------------|----------|\n| Do you speak Swedish? | Talar du svenska? |\n| Can you help me? | Kan du hjälpa mig? |\n\n## Фальшиві друзі\n\nОбережно! Деякі слова виглядають схоже, але мають різні значення:\n\n| Шведська | Здається | Насправді |\n|----------|----------|-----------|\n| **gift** | подарунок | одружений |\n| **semester** | семестр | відпустка |\n| **glass** | скло | морозиво |\n| **bra** | бюстгальтер | добре |\n| **rolig** | котиться | смішний |\n\n<VocabCard\n  word=\"Det var roligt!\"\n  translation=\"Це було смішно!\"\n  pronunciation=\"дет вар РУ-лігт\"\n  example=\"Не плутайте з англійським 'rolling'!\"\n/>\n\n## Переваги для тих, хто знає англійську\n\n1. **Схожа лексика** — тисячі когнатів\n2. **Проста граматика** — менше форм, ніж в англійській\n3. **Латинський алфавіт** — легко читати\n4. **Багато англіцизмів** — шведи часто використовують англійські слова\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Відмінність 3: Вимова"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

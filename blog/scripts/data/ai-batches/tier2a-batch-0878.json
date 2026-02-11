@@ -1,0 +1,124 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0878",
+  "articles": [
+    {
+      "id": "fcb4f52e-25e3-4484-b718-cf6eb6e89278",
+      "title": "50+ Frases Francesas para Encontros Românticos de Sonho",
+      "native_lang": "pt",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport ConjugationTable from '@components/ConjugationTable.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nPlanejar um encontro romantico em frances adiciona uma camada especial de romance a qualquer relacao. Seja para uma viagem a Paris ou simplesmente para criar uma atmosfera francesa em casa, este vocabulario vai transformar suas noites romanticas.\n\n## Convidando para um Encontro\n\n<VocabCard\n  word=\"Tu veux sortir avec moi ce soir ?\"\n  translation=\"Voce quer sair comigo hoje a noite?\"\n  pronunciation=\"[tu vuh sor-TEER a-VEK mwa suh SWAR]\"\n  example=\"Ma cherie, tu veux sortir avec moi ce soir ?\"\n/>\n\n<VocabCard\n  word=\"J'ai reserve une table pour deux\"\n  translation=\"Reservei uma mesa para dois\"\n  pronunciation=\"[zhay reh-zer-VAY un TABL pur DUH]\"\n  example=\"Surprise ! J'ai reserve une table pour deux au restaurant francais.\"\n/>\n\n<PhraseOfDay\n  word=\"C'est un rendez-vous\"\n  translation=\"E um encontro\"\n  pronunciation=\"[seh uh rah-day-VU]\"\n  context=\"Confirmar que voces tem um encontro romantico marcado\"\n/>\n\n## No Restaurante\n\n<VocabCard\n  word=\"Une table pour deux, s'il vous plait\"\n  translation=\"Uma mesa para dois, por favor\"\n  pronunciation=\"[un TABL pur duh seel vu PLEH]\"\n  example=\"Bonsoir. Une table pour deux, s'il vous plait.\"\n/>\n\n<VocabCard\n  word=\"La carte, s'il vous plait\"\n  translation=\"O cardapio, por favor\"\n  pronunciation=\"[la KART seel vu PLEH]\"\n  example=\"Pouvons-nous avoir la carte, s'il vous plait ?\"\n/>\n\n<VocabCard\n  word=\"Qu'est-ce que tu recommandes ?\"\n  translation=\"O que voce recomenda?\"\n  pronunciation=\"[kes-kuh tu ruh-ko-MAHD]\"\n  example=\"Ce menu a l'air delicieux. Qu'est-ce que tu recommandes ?\"\n/>\n\n<CultureTip title=\"Etiqueta de Restaurante Frances\" flag=\"🇫🇷\">\nNa Franca, o garcom nao trara a conta ate voce pedir. Diga \"L'addition, s'il vous plait\" (a conta, por favor). E comum dividir a entrada e sobremesa, mas cada um pede seu prato principal.\n</CultureTip>\n\n## Pedindo Bebidas\n\n<VocabCard\n  word=\"Une bouteille de vin rouge\"\n  translation=\"Uma garrafa de vinho tinto\"\n  pronunciation=\"[un bu-TEY duh van RUZH]\"\n  example=\"Nous voudrions une bouteille de vin rouge, s'il vous plait.\"\n/>\n\n<VocabCard\n  word=\"Tchin-tchin !\"\n  translation=\"Saude! / Tim-tim!\"\n  pronunciation=\"[tchin-TCHIN]\"\n  example=\"Tchin-tchin mon amour ! A nous deux !\"\n/>\n\n## Elogios Durante o Jantar\n\n<VocabCard\n  word=\"Tu es magnifique ce soir\"\n  translation=\"Voce esta magnifico(a) hoje a noite\"\n  pronunciation=\"[tu eh ma-nyi-FEEK suh SWAR]\"\n  example=\"Tu es vraiment magnifique ce soir, ma cherie.\"\n/>\n\n<VocabCard\n  word=\"C'est delicieux\"\n  translation=\"Esta delicioso\"\n  pronunciation=\"[seh day-lee-SYUH]\"\n  example=\"Mmm, c'est delicieux ! Tu veux gouter ?\"\n/>\n\n<VocabCard\n  word=\"J'adore passer du temps avec toi\"\n  translation=\"Adoro passar tempo com voce\"\n  pronunciation=\"[zha-DOR pa-SAY du TAH a-VEK twa]\"\n  example=\"J'adore passer du temps avec toi, mon coeur.\"\n/>\n\n## Vocabulario de Comida Romantica\n\n| Frances | Portugues | Pronuncia |\n|---------|-----------|-----------|\n| **les huitres** | as ostras | [lez WEE-truh] |\n| **le champagne** | o champanhe | [luh shahm-PA-nyuh] |\n| **le dessert** | a sobremesa | [luh deh-SAIR] |\n| **les chandelles** | as velas | [leh shah-DEL] |\n| **le diner aux chandelles** | jantar a luz de velas | [luh dee-NAY o shah-DEL] |\n\n## Verbo \"Prendre\" - Pegar/Tomar\n\n<ConjugationTable\n  verb=\"prendre\"\n  meaning=\"pegar/tomar\"\n  conjugations={[\n    { \"person\": \"Je\", \"word\": \"prends\", \"translation\": \"Eu pego/tomo\" },\n    { \"person\": \"Tu\", \"word\": \"prends\", \"translation\": \"Tu pegas / Voce pega\" },\n    { \"person\": \"Il/Elle\", \"word\": \"prend\", \"translation\": \"Ele/Ela pega\" },\n    { \"person\": \"Nous\", \"word\": \"prenons\", \"translation\": \"Nos pegamos\" },\n    { \"person\": \"Vous\", \"word\": \"prenez\", \"translation\": \"Voces pegam\" },\n    { \"person\": \"Ils/Elles\", \"word\": \"prennent\", \"translation\": \"Eles/Elas pegam\" }\n  ]}\n/>\n\n## Apos o Jantar\n\n<VocabCard\n  word=\"On se promene ?\"\n  translation=\"Vamos passear?\"\n  pronunciation=\"[oh suh pro-MEN]\"\n  example=\"Le diner etait parfait. On se promene ?\"\n/>\n\n<VocabCard\n  word=\"La soiree etait parfaite\"\n  translation=\"A noite foi perfeita\"\n  pronunciation=\"[la swa-RAY ay-TEH par-FET]\"\n  example=\"Merci mon amour, la soiree etait parfaite.\"\n/>\n\n<VocabCard\n  word=\"J'ai passe une soiree merveilleuse\"\n  translation=\"Tive uma noite maravilhosa\"\n  pronunciation=\"[zhay pa-SAY un swa-RAY mair-vay-YUHZ]\"\n  example=\"Merci, j'ai passe une soiree merveilleuse avec toi.\"\n/>\n\n<CultureTip title=\"O Romance Frances\" flag=\"🇫🇷\">\nOs franceses valorizam o \"art de vivre\" - a arte de viver. Encontros romanticos sao para saborear, nao apressar. Aproveitem cada momento, desde o aperitivo ate o cafe.\n</CultureTip>\n\n## Planeje seu Encontro Frances\n\n### Em Casa\n1. Preparem um jantar frances juntos\n2. Coloquem musica francesa de fundo\n3. Pratiquem todo o vocabulario enquanto cozinham\n\n### Em um Restaurante\n1. Escolham um bistrô ou restaurante frances\n2. Facam os pedidos em frances\n3. Brindem com \"Tchin-tchin !\"\n\n<CTA\n  text=\"Queres dominar o francês para noites românticas? Love Languages oferece prática vocal com IA, um Love Log para guardar frases de amor e Word Gifts para partilhar momentos especiais.\"\n  buttonText=\"Aprende Francês em Casal\"\n/>\n",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 181,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Planeje seu Encontro Frances"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fcc5ad7e-0f62-4845-895e-8968c05e4629",
+      "title": "Dutch Forgiveness Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "nl",
+      "category": "communication",
+      "content": "Forgiveness is essential for lasting love. When you're with a Dutch speaker, knowing how to ask for and grant forgiveness in their language makes healing more meaningful.\n\n## Asking for Forgiveness\n\n### Vergeef me\n**Pronunciation:** fair-GHAYF muh\n\n**Meaning:** \"Forgive me\"\n\n**When to use it:** A direct, heartfelt request for forgiveness.\n\n## Granting Forgiveness\n\n### Ik vergeef je\n**Pronunciation:** ik fair-GHAYF yuh\n\n**Meaning:** \"I forgive you\"\n\n**When to use it:** To grant forgiveness directly and sincerely.\n\n## Key Phrases\n\nAsking forgiveness sincerely requires vulnerability. Express that you know you caused pain, take responsibility without excuses, and show genuine regret.\n\nGranting forgiveness is equally important. Let your partner know you're releasing resentment and choosing to move forward together.\n\nWhen you need time to process, it's okay to say you want to forgive but need space. Forgiveness is a process, not always an instant decision.\n\n## Moving Forward Together\n\nAfter forgiveness, focus on how to prevent similar hurts and strengthen your bond. Forgiveness isn't forgetting—it's choosing love over resentment.\n\nThe concept of \"Vergeving\" in Dutch represents this healing power. These conversations, though difficult, restore the foundation of your relationship.\n\n## Cultural Notes\n\nDutch speakers often value sincere emotional expression during reconciliation. A heartfelt apology shows humility and respect for the relationship. Physical closeness and quality time together help restore connection after forgiveness is granted.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 221,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Asking for Forgiveness",
+              "## Granting Forgiveness"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fcf2fe37-6378-4a58-85ec-0825ec6b1e4e",
+      "title": "Er Ungarsk Vanskelig å Lære? En Ærlig Guide for Par",
+      "native_lang": "no",
+      "target_lang": "hu",
+      "category": "vocabulary",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nSkal du lære ungarsk for kjæresten din? Du lurer sikkert på om dette blir umulig. Her er sannheten: **ja, ungarsk er annerledes**, men det er ikke umulig! Faktisk har par som lærer sammen et stort fortrinn. Når du har en ungarsk partner som støtter deg og hjelper deg øve hver dag, blir denne unike språkreisen mye mer overkommelig - og romantisk!\n\n<PhraseOfDay\n  word=\"Szeretlek\"\n  translation=\"Jeg elsker deg\"\n  pronunciation=\"SER-et-lek\"\n  context=\"Det viktigste du noensinne vil si på ungarsk - og det er faktisk ganske enkelt å uttale!\"\n/>\n\n## Den Ærlige Vurderingen: Hvor Vanskelig Er Det Egnetlig?\n\nLa oss være ærlige: ungarsk regnes som et av de vanskeligste språkene for nordmenn å lære. Ifølge US Foreign Service Institute (FSI) tar det gjennomsnittlig **44 uker** (1100 timer) med intensiv studie å nå generell profesjonell ferdighet.\n\n**Men her er det gode nytt:** Du trenger ikke bli flytende for å ha meningsfulle samtaler med partneren din! De fleste par når komfortabelt samtale-nivå på **12-18 måneder** med jevnlig praksis.\n\n### Vanskelighetsgrad: 4/5 - Utfordrende, men Overvinnelig\n\n<CultureTip flag=\"🇭🇺\" title=\"Ungarsk er Ikke Indo-Europeisk\">\nDette er grunnen til at ungarsk føles så annerledes! Ungarsk tilhører den finsk-ugriske språkfamilien, ikke den indoeuropeiske familien som norsk. Det betyr at grammatikken, ordforrådet og strukturen er helt unik sammenlignet med andre europeiske språk.\n</CultureTip>\n\n## Hva Som Gjør Ungarsk Vanskelig\n\n### Utfordringene:\n\n**1. Vokalharmoni**\nUngarsk har en kompleks vokalharmoni-system hvor suffikser endrer seg basert på vokalene i ordets stamme.\n<VocabCard\n  word=\"házban\"\n  translation=\"i huset\"\n  pronunciation=\"hahz-bahn\"\n  example=\"Vokalharmoni påvirker hvordan suffikser uttales.\"\n/>\n\n**2. 26 Kasus (Grammatiske Kasus)**\nJa, du leste riktig! Ungarsk har 26 forskjellige kasus, som hver har sin egen ending. Men ikke panikk - du trenger bare 5-6 for daglig samtale.\n\n**3. Agglutinasjon**\nOrd kan bli veldig lange når flere suffikser legges til hverandre. \"Házainkban\" betyr \"i våre hus\".\n\n**4. Ingen Kjønn**\nHeldigvis trenger du ikke lære hankjønn og hunkjønn - ungarsk har ikke grammatisk kjønn!\n\n**5. Unikt Ordforråd**\nLite felles med europeiske språk. \"Kjærlighet\" er \"szerelem\" - høres ikke ut som noe du kjenner igjen.\n\n## Hva Som Gjør Det Lettere\n\n### Fordelene:\n\n**1. Fonettisk Uttale**\nUngarsk uttales omtrent som det staves. Når du lærer lydene, er det lite overraskelser.\n\n**2. Logisk Grammatikk**\nNår du først forstår systemet, er det veldig konsekvent. Unntakene er få!\n\n**3. Ingen Grammatisk Kjønn**\nSlipp bekymringene om \"en\" eller \"et\" - alt er nøytralt.\n\n**4. Din Partner som Læreressurs**\nÅ ha en ungarsk partner er som å ha en privat lærer tilgjengelig 24/7!\n\n**5. Kulturell Motivasjon**\nNår du lærer for noen du elsker, er motivasjonen mye sterkere enn i et klasserom.\n\n<CultureTip flag=\"🇭🇺\" title=\"Ungarsk Er Et Statussymbol\">\nBlant språklærere er ungarsk kjent som et \"prestigespråk\" - de som lærer det får ekstra respekt! Din partner vil bli imponert over din dedikasjon.\n</CultureTip>\n\n## Realistisk Tidslinje for Par\n\n| Nivå | Tid med Partner | Tid Uten Partner | Hva Du Kan Gjøre |\n|------|-----------------|------------------|-------------------|\n| **Basisfraser** | 4-6 uker | 8-12 uker | Si \"Jeg elsker deg\", telle, hilse |\n| **Enkle Samtaler** | 3-6 måneder | 6-12 måneder | Bestille mat, introdusere deg selv |\n| **Familie-klar** | 6-12 måneder | 1-2 år | Småprat med svigerfamilien |\n| **Flytende** | 2-3 år | 4-5 år | Dype samtaler, vitser, konflikter |\n\n*Merk: Å ha en ungarsk partner kan halvere læretiden!*\n\n## Fordelen Som Par\n\nNår du lærer ungarsk sammen med partneren din, har du noen unike fordeler:\n\n- **Innebygd Øvingspartner** - Ingen flere unnskyldninger for å ikke øve!\n- **Ekte Kontekst** - Du lærer ord og fraser som faktisk betyr noe for dere\n- **Kulturell Dybde** - Partneren din kan dele historier og tradisjoner\n- **Umiddelbar Belønning** - Når du sier noe på ungarsk, ser du gleden i øynene deres\n\nHvis du vil starte med de viktigste frasene for par, sjekk ut [essensielle ungarske fraser for par](/learn/no/hu/essential-hungarian-phrases-for-couples/).\n\n## Tips for Suksess Som Par\n\n1. **Start med Kjærlighetsfraser** - Lær \"szeretlek\" og andre romantiske ord først. Det gjør det gøy!\n2. **Øv Daglig, Men Kort** - 15 minutter hver dag slår 2 timer én gang i uken\n3. **Ikke Vær Redd for Å Gjøre Feil** - Din partner vil elske innsatsen, uansett\n4. **Lag Ungarske Dato-kvelder** - Se ungarske filmer, lag ungarsk mat, snakk ungarsk\n5. **Bruk Teknologi** - Love Languages-appen er designet spesielt for par som lærer sammen\n6. **Lær Kulturen Samtidig** - Forstå historien og tradisjonene bak språket\n7. **Vær Tålmodig** - Dette tar tid, men hvert ord du lærer styrker båndet deres\n\nFor å mestre uttalen, les vår [uttaleguide for nybegynnere](/learn/no/hu/pronunciation-guide-for-beginners/).\n\n## Hva Du Bør Lære Først\n\n1. **Kjærlighetsfraser** - \"Jeg elsker deg\", \"Du er vakker\", \"God morgen\"\n2. **Hilsener** - [Grunnleggende hilsener og farvel](/learn/no/hu/hungarian-greetings-and-farewells/)\n3. **Grunnleggende grammatikk** - Start med vokalharmoni og de viktigste kasusene\n4. **Tall og tid** - Veldig praktisk for hverdagen\n5. **Familieord** - Viktig når du [møter partnerens familie](/learn/no/hu/meeting-your-partner-s-family/)\n\n## Konklusjon: Ja, Du Klarer Det!\n\nEr ungarsk vanskelig? Absolutt. Men er det umulig? **Overhodet ikke!**\n\nNår du lærer for kjærligheten, får hvert ord du mestrer en spesiell betydning. Din ungarske partner vil bli rørt av innsatsen din, uansett hvor mange feil du gjør underveis. Og når du endelig kan ha en samtale på ungarsk - selv en enkel en - vil det føles som den største seieren i verden.\n\nHusk: Du trenger ikke bli perfekt. Du trenger bare å vise at du bryr deg nok til å prøve. Og det er kanskje den mest romantiske tingen du noensinne kan gjøre.\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Hva Som Gjør Ungarsk Vanskelig",
+              "## Hva Som Gjør Det Lettere"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fcfff343-66d7-4e6f-852b-48f5d7b3ef1e",
+      "title": "Portekizce Barışma ve Uzlaşma İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "pt",
+      "category": "communication",
+      "content": "Tartışmalardan sonra barışmak, sağlıklı bir ilişkinin önemli bir parçasıdır. Portekizce konuşan partnerinizle barışma ifadelerini bilmek ilişkinizi güçlendirir.\n\n## Temel Barışma İfadeleri\n\n### 1. \"Me perdoa pelo que eu disse\"\n**Telaffuz:** *Mi perdoa pelu ki eu disi*\n\n**Anlam:** \"Söylediklerim için beni affet\"\n\n**Örnek:** \"Me perdoa pelo que eu disse. Não quis te magoar.\" (Söylediklerim için beni affet. Seni incitmek istemedim.)\n\n### 2. \"Podemos começar do zero?\"\n**Telaffuz:** *Podemos komesar du zeru?*\n\n**Anlam:** \"Sıfırdan başlayabilir miyiz?\"\n\n### 3. \"Odeio brigar com você\"\n**Telaffuz:** *Odeyu brigar kom vose*\n\n**Anlam:** \"Seninle kavga etmekten nefret ediyorum\"\n\n### 4. \"Não vamos dormir brigados\"\n**Telaffuz:** *Nau vamus dormir brigadus*\n\n**Anlam:** \"Küs yatmayalım\"\n\n### 5. \"Eu te perdoo\"\n**Telaffuz:** *Eu çi perdou*\n\n**Anlam:** \"Seni affediyorum\"\n\n### 6. \"Eu estava errado/a\"\n**Telaffuz:** *Eu iştava erradu/a*\n\n**Anlam:** \"Yanılmışım\"\n\n### 7. \"Como posso compensar?\"\n**Telaffuz:** *Komu posu kompensar?*\n\n**Anlam:** \"Nasıl telafi edebilirim?\"\n\n### 8. \"Te amo mais do que essa discussão\"\n**Telaffuz:** *Çi amu mais du ki esa diskusau*\n\n**Anlam:** \"Seni bu tartışmadan daha çok seviyorum\"\n\n### 9. \"Vamos resolver isso juntos\"\n**Telaffuz:** *Vamus resolver isu huntus*\n\n**Anlam:** \"Bunu birlikte çözelim\"\n\n### 10. \"Sinto falta de como éramos antes da briga\"\n**Telaffuz:** *Sintu falta di komu eramus anteş da briga*\n\n**Anlam:** \"Kavgadan önceki halimizi özlüyorum\"\n\n### 11. \"Você é tudo para mim\"\n**Telaffuz:** *Vose e tudu para mim*\n\n**Anlam:** \"Sen benim için her şeysin\"\n\n### 12. \"Prometo melhorar\"\n**Telaffuz:** *Prometu melyorar*\n\n**Anlam:** \"Daha iyi olmaya söz veriyorum\"\n\n## Portekizce Barışma Kültürü\n\nPortekizce konuşan kültürlerde sıcaklık önemlidir. \"Meu amor\" (aşkım) veya \"Querido/a\" (sevgilim) hitapları barışmayı yumuşatır.\n\nBu ifadelerle Portekizce konuşan partnerinizle samimi barışmalar yaşayabilirsiniz.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 262,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Temel Barışma İfadeleri"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fd0e4234-079d-4b2d-b096-741565a159c5",
+      "title": "Greckie zwroty do kłótni i nieporozumień dla par",
+      "native_lang": "pl",
+      "target_lang": "el",
+      "category": "communication",
+      "content": "Grecy są znani z temperamentu i pasji. W związku z osobą mówiącą po grecku konflikty mogą być głośne i emocjonalne, ale to część kultury - nie oznacza końca świata.\n\n## Grecka kultura wyrażania emocji\n\nGrecy wyrażają emocje otwarcie i ekspresyjnie. Głośna dyskusja to norma. Gestykulacja i podniesiony głos nie zawsze oznaczają gniew - to może być po prostu żywa rozmowa.\n\n## Wyrażanie niezgody\n\n### \"Δεν συμφωνώ μαζί σου\"\n*Nie zgadzam się z Tobą*\n\nWymowa: den sim-fo-NO ma-ZI su\n\nUprzejmy sposób wyrażenia odmiennego zdania.\n\n### \"Το βλέπω διαφορετικά\"\n*Widzę to inaczej*\n\nWymowa: to WLE-po dja-fo-re-ti-KA\n\nDelikatniejsza forma niezgody.\n\n### \"Μπορούμε να το συζητήσουμε ήρεμα;\"\n*Czy możemy o tym spokojnie porozmawiać?*\n\nWymowa: bo-RU-me na to si-zi-TI-su-me I-re-ma\n\nProśba o spokojną rozmowę.\n\n## Wyrażanie uczuć\n\n### \"Νιώθω απογοητευμένος/απογοητευμένη όταν...\"\n*Czuję frustrację, kiedy...*\n\nWymowa: NJO-to a-po-go-i-tew-ME-nos/a-po-go-i-tew-ME-ni O-tan\n\nKomunikat typu \"ja\".\n\n### \"Αυτό με ενοχλεί πολύ\"\n*To bardzo mnie niepokoi*\n\nWymowa: af-TO me e-no-CHLI po-LI\n\nJasne wyrażenie problemu.\n\n### \"Χρειάζομαι λίγο χρόνο για τον εαυτό μου\"\n*Potrzebuję trochę czasu dla siebie*\n\nWymowa: chri-A-zo-me LI-go CHRO-no ja ton e-af-TO mu\n\nProśba o przestrzeń.\n\n## Zrozumienie partnera\n\n### \"Βοήθησέ με να καταλάβω την άποψή σου\"\n*Pomóż mi zrozumieć Twój punkt widzenia*\n\nWymowa: wo-I-ti-se me na ka-ta-LA-wo tin A-po-psi su\n\nOtwartość na perspektywę partnera.\n\n### \"Αν κατάλαβα σωστά...\"\n*Jeśli dobrze zrozumiałem...*\n\nWymowa: an ka-TA-la-wa so-STA\n\nParafrazowanie.\n\n### \"Εννοείς ότι...;\"\n*Masz na myśli, że...?*\n\nWymowa: e-no-IS O-ti\n\nPytanie klaryfikujące.\n\n## Szukanie rozwiązań\n\n### \"Πώς μπορούμε να το λύσουμε μαζί;\"\n*Jak możemy to razem rozwiązać?*\n\nWymowa: pos bo-RU-me na to LI-su-me ma-ZI\n\nNastawienie na współpracę.\n\n### \"Ας βρούμε έναν συμβιβασμό\"\n*Znajdźmy kompromis*\n\nWymowa: as WRU-me E-nan sim-wi-wa-ZMO\n\nGotowość do ustępstw.\n\n### \"Νομίζω ότι και οι δύο πρέπει να...\"\n*Myślę, że oboje musimy...*\n\nWymowa: no-MI-zo O-ti ke i DIO PRE-pi na\n\nWspółodpowiedzialność.\n\n## Łagodzenie napięcia\n\n### \"Σ'αγαπώ, ακόμα και όταν τσακωνόμαστε\"\n*Kocham Cię, nawet gdy się kłócimy*\n\nWymowa: sa-ga-PO A-ko-ma ke O-tan tsa-ko-NO-ma-ste\n\nPrzypomnienie o miłości.\n\n### \"Θα τα καταφέρουμε μαζί\"\n*Damy radę razem*\n\nWymowa: ta ta ka-ta-FE-ru-me ma-ZI\n\nOptymizm.\n\n## Czego unikać\n\n- **\"Πάντα κάνεις...\"** (Zawsze robisz...) - generalizacje\n- **\"Ποτέ δεν με ακούς\"** (Nigdy mnie nie słuchasz)\n- **\"Δεν με νοιάζει\"** (Nie obchodzi mnie to)\n- **\"Σκάσε\"** (Zamknij się) - niegrzeczne\n\n## Wskazówki kulturowe\n\nGrecy cenią rodzinę i bliskie relacje. Jedzenie jest ważne - wspólny posiłek po kłótni to świetny sposób na pojednanie. Grecy szybko wybaczają i nie trzymają urazy.\n\nΗ αγάπη νικά τα πάντα! (Miłość zwycięża wszystko!)",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Wyrażanie niezgody",
+              "## Wyrażanie uczuć",
+              "## Zrozumienie partnera",
+              "## Szukanie rozwiązań",
+              "## Łagodzenie napięcia"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

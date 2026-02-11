@@ -1,0 +1,118 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0032",
+  "articles": [
+    {
+      "id": "0866f302-b9d7-402a-85c1-dcb274081b1c",
+      "title": "Spanische Verbkonjugation - Grundlagen",
+      "native_lang": "de",
+      "target_lang": "es",
+      "category": "grammar",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport ConjugationTable from '@components/ConjugationTable.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\n# Spanische Verbkonjugation - Grundlagen\n\nDie spanische Verbkonjugation sieht auf den ersten Blick kompliziert aus - aber mit System ist sie leichter als gedacht! Hier lernen Sie die wichtigsten Grundlagen.\n\n## Die drei Verbgruppen\n\nIm Spanischen gibt es drei Verbgruppen, erkennbar an der Endung:\n- **-ar**: hablar (sprechen), amar (lieben), trabajar (arbeiten)\n- **-er**: comer (essen), beber (trinken), querer (wollen/lieben)\n- **-ir**: vivir (leben), escribir (schreiben), dormir (schlafen)\n\n<PhraseOfDay\n  verb=\"Te quiero mucho\"\n  meaning=\"Ich hab dich sehr lieb\"\n  pronunciation=\"te KJE-ro MU-tscho\"\n  context=\"'Querer' ist eines der wichtigsten Verben - es bedeutet sowohl 'wollen' als auch 'lieben'\"\n/>\n\n## Presente - Gegenwart\n\n### -AR Verben: amar (lieben)\n\n<ConjugationTable\n  verb=\"amar\"\n  meaning=\"lieben\"\n  conjugations={[\n    { person: \"yo\", word: \"amo\" },\n    { person: \"tú\", word: \"amas\" },\n    { person: \"él/ella/usted\", word: \"ama\" },\n    { person: \"nosotros\", word: \"amamos\" },\n    { person: \"vosotros\", word: \"amáis\" },\n    { person: \"ellos/ustedes\", word: \"aman\" }\n  ]}\n/>\n\n<VocabCard\n  verb=\"Te amo con todo mi corazón\"\n  meaning=\"Ich liebe dich von ganzem Herzen\"\n  pronunciation=\"te A-mo kon TO-do mi ko-ra-THON\"\n  example=\"Siempre te amo con todo mi corazón.\"\n/>\n\n### -ER Verben: querer (wollen/lieben)\n\n<ConjugationTable\n  verb=\"querer\"\n  meaning=\"wollen/lieben\"\n  conjugations={[\n    { person: \"yo\", word: \"quiero\" },\n    { person: \"tú\", word: \"quieres\" },\n    { person: \"él/ella/usted\", word: \"quiere\" },\n    { person: \"nosotros\", word: \"queremos\" },\n    { person: \"vosotros\", word: \"queréis\" },\n    { person: \"ellos/ustedes\", word: \"quieren\" }\n  ]}\n/>\n\n<CultureTip\n  title=\"Wichtige unregelmäßige Verben\"\n  flag=\"🇪🇸\"\n>\n  \"Querer\" hat einen Stammwechsel (e → ie). Solche Stammwechsel sind im Spanischen häufig: pensar → pienso, poder → puedo, dormir → duermo. Aber keine Sorge - die Endungen bleiben gleich!\n</CultureTip>\n\n### -IR Verben: vivir (leben)\n\n<ConjugationTable\n  verb=\"vivir\"\n  meaning=\"leben\"\n  conjugations={[\n    { person: \"yo\", word: \"vivo\" },\n    { person: \"tú\", word: \"vives\" },\n    { person: \"él/ella/usted\", word: \"vive\" },\n    { person: \"nosotros\", word: \"vivimos\" },\n    { person: \"vosotros\", word: \"vivís\" },\n    { person: \"ellos/ustedes\", word: \"viven\" }\n  ]}\n/>\n\n<VocabCard\n  verb=\"Vivo contigo en mi corazón\"\n  meaning=\"Du lebst in meinem Herzen\"\n  pronunciation=\"WI-wo kon-TI-go en mi ko-ra-THON\"\n  example=\"Aunque estés lejos, vives conmigo en mi corazón.\"\n/>\n\n## Die wichtigsten unregelmäßigen Verben\n\n### Ser (sein - dauerhaft)\n\n<ConjugationTable\n  verb=\"ser\"\n  meaning=\"sein (dauerhaft)\"\n  conjugations={[\n    { person: \"yo\", word: \"soy\" },\n    { person: \"tú\", word: \"eres\" },\n    { person: \"él/ella/usted\", word: \"es\" },\n    { person: \"nosotros\", word: \"somos\" },\n    { person: \"vosotros\", word: \"sois\" },\n    { person: \"ellos/ustedes\", word: \"son\" }\n  ]}\n/>\n\n### Estar (sein - temporär/Ort)\n\n<ConjugationTable\n  verb=\"estar\"\n  meaning=\"sein (temporär/Ort)\"\n  conjugations={[\n    { person: \"yo\", word: \"estoy\" },\n    { person: \"tú\", word: \"estás\" },\n    { person: \"él/ella/usted\", word: \"está\" },\n    { person: \"nosotros\", word: \"estamos\" },\n    { person: \"vosotros\", word: \"estáis\" },\n    { person: \"ellos/ustedes\", word: \"están\" }\n  ]}\n/>\n\n<CultureTip\n  title=\"Ser vs. Estar\"\n  flag=\"🇩🇪\"\n>\n  Der Unterschied zwischen \"ser\" und \"estar\" ist für Deutsche schwierig! \"Ser\" = dauerhafte Eigenschaften (Soy alemán - Ich bin Deutsch). \"Estar\" = temporäre Zustände oder Orte (Estoy cansado - Ich bin müde).\n</CultureTip>\n\n### Tener (haben)\n\n<ConjugationTable\n  verb=\"tener\"\n  meaning=\"haben\"\n  conjugations={[\n    { person: \"yo\", word: \"tengo\" },\n    { person: \"tú\", word: \"tienes\" },\n    { person: \"él/ella/usted\", word: \"tiene\" },\n    { person: \"nosotros\", word: \"tenemos\" },\n    { person: \"vosotros\", word: \"tenéis\" },\n    { person: \"ellos/ustedes\", word: \"tienen\" }\n  ]}\n/>\n\n<VocabCard\n  verb=\"Tengo suerte de tenerte\"\n  meaning=\"Ich habe Glück, dich zu haben\"\n  pronunciation=\"TEN-go SWER-te de te-NER-te\"\n  example=\"Cada día pienso: tengo suerte de tenerte.\"\n/>\n\n## Vergangenheit - Pretérito Indefinido\n\nFür abgeschlossene Handlungen in der Vergangenheit:\n\n<VocabCard\n  verb=\"Ayer te vi y me enamoré\"\n  meaning=\"Gestern sah ich dich und verliebte mich\"\n  pronunciation=\"a-JER te wi i me e-na-mo-RE\"\n  example=\"La primera vez que te vi - ¡fue amor a primera vista!\"\n/>\n\n| Person | -AR (hablar) | -ER (comer) | -IR (vivir) |\n|--------|--------------|-------------|-------------|\n| yo | hablé | comí | viví |\n| tú | hablaste | comiste | viviste |\n| él/ella | habló | comió | vivió |\n| nosotros | hablamos | comimos | vivimos |\n| ellos | hablaron | comieron | vivieron |\n\n## Zukunft - Futuro Simple\n\nDie gute Nachricht: Das Futur ist einfach! Alle Verben bekommen die gleichen Endungen:\n\n<VocabCard\n  verb=\"Te amaré para siempre\"\n  meaning=\"Ich werde dich für immer lieben\"\n  pronunciation=\"te a-ma-RE PA-ra SJEM-pre\"\n  example=\"Pase lo que pase, te amaré para siempre.\"\n/>\n\n| Person | amar | querer | vivir |\n|--------|------|--------|-------|\n| yo | amaré | querré | viviré |\n| tú | amarás | querrás | vivirás |\n| él/ella | amará | querrá | vivirá |\n| nosotros | amaremos | querremos | viviremos |\n| ellos | amarán | querrán | vivirán |\n\n## Praktische Phrasen\n\n<VocabCard\n  verb=\"¿Quieres casarte conmigo?\"\n  meaning=\"Willst du mich heiraten?\"\n  pronunciation=\"KJE-res ka-SAR-te kon-MI-go\"\n  example=\"Te amo. ¿Quieres casarte conmigo?\"\n/>\n\n<VocabCard\n  verb=\"Estoy pensando en ti\"\n  meaning=\"Ich denke an dich\"\n  pronunciation=\"es-TOI pen-SAN-do en ti\"\n  example=\"Solo quería decirte que estoy pensando en ti.\"\n/>\n\n<CTA\n  text=\"Üben Sie spanische Verben mit Ihrem Partner\"\n  buttonText=\"Love Languages starten\"\n/>\n",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 250,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Presente - Gegenwart",
+              "## Die wichtigsten unregelmäßigen Verben"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "087691ae-6160-4956-a390-e6f38b8be099",
+      "title": "Engelsk kælenavne og kærlige udtryk for par",
+      "native_lang": "da",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport CTA from '@components/CTA.astro';\n\n# Engelsk kælenavne og kærlige udtryk for par\n\nKælenavne er en vidunderlig måde at vise din partner, hvor meget han eller hun betyder for dig. Hvis din partner taler engelsk, vil det helt sikkert glæde dem, når du bruger disse kærlige udtryk!\n\n## Hvorfor er kælenavne vigtige?\n\nKælenavne skaber intimitet og viser hengivenhed. De er som et hemmeligt bånd mellem to mennesker – noget særligt, der kun tilhører jer to.\n\n## Klassiske kælenavne\n\nDe tidløse klassikere virker på alle sprog:\n\n- **Skat** - den universelle favorit\n- **Kæreste** - klassisk og elegant\n- **Mit hjerte** - følelsesfuld og poetisk\n- **Min elskede** - romantisk og øm\n\n<CultureTip>\nKælenavne varierer ofte fra region til region. Hvad der er almindeligt ét sted, kan lyde usædvanligt et andet. Spørg din partner, hvilke navne der bruges i hans/hendes hjemland!\n</CultureTip>\n\n## Søde dyrenavne\n\nSom i mange kulturer bruges dyrenavne også på engelsk:\n\n- **Bamse** (lille bjørn) - nusset og stærk\n- **Mus/Musse** (lille mus) - sød og nuttet\n- **Kanin** (lille kanin) - øm\n- **Spurv** (lille spurv) - kærlig\n\n## Romantiske udtryk\n\nTil særlige øjeblikke:\n\n- **Mit et og alt** - når nogen er alt for dig\n- **Min sjæleven** - til dybe forbindelser\n- **Mit solskin** - til en, der lyser op i dit liv\n\n## Kælenavne til forskellige lejligheder\n\n### I hverdagen\nKorte, afslappede navne til daglig brug. Et hurtigt \"Hej, skat!\" virker altid.\n\n### Til romantiske øjeblikke\nLængere, mere følelsesfulde udtryk passer til særlige øjeblikke. Fortæl din partner, hvad de betyder for dig.\n\n### Til at drille\nHumoristiske kælenavne kan løsne stemningen i jeres forhold – men sørg for, at din partner deler humoren!\n\n## Tips til brug\n\n1. **Spørg din partner**: Ikke alle kan lide alle kælenavne. Spørg, hvad han/hun kan lide.\n2. **Pas på udtalen**: Øv den rigtige udtale – intet er mere romantisk end et korrekt udtalt kælenavn.\n3. **Vær autentisk**: Brug navne, der passer til jer som par.\n4. **Skab egne navne**: De mest personlige kælenavne er ofte selvopfundne!\n5. **Læg mærke til reaktionen**: Det bedste kælenavn er det, der får din partner til at smile.\n\n## Sprogets magt\n\nKælenavne er mere end ord – de er små kærlighedserklæringer i hverdagen. Når du lærer engelsk for at kommunikere med din partner, er kælenavne en vidunderlig begyndelse.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Kælenavne til forskellige lejligheder"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "0880ff6b-2fa1-401f-a2b8-3fa719cd66bd",
+      "title": "Frases de Apoio Emocional em Alemão: Confortando Seu Parceiro",
+      "native_lang": "pt",
+      "target_lang": "de",
+      "category": "communication",
+      "content": "Oferecer apoio emocional em alemão permite demonstrar cuidado genuíno de forma direta e sincera.\n\n## Frases de Apoio Básico\n\n### Demonstrando Presença\n\n**Ich bin für dich da, egal was passiert.**\n*Estou aqui para você, não importa o que aconteça.*\n\n**Du musst das nicht alleine durchstehen.**\n*Você não precisa passar por isso sozinho(a).*\n\n**Ich bin an deiner Seite.**\n*Estou ao seu lado.*\n\n**Was auch immer du brauchst, ich bin hier.**\n*O que você precisar, estou aqui.*\n\n### Validando Sentimentos\n\n**Es ist in Ordnung, so zu fühlen.**\n*Está tudo bem sentir-se assim.*\n\n**Deine Gefühle sind völlig berechtigt.**\n*Seus sentimentos são completamente válidos.*\n\n**Ich verstehe, warum du aufgebracht bist.**\n*Entendo por que você está chateado(a).*\n\n**Es ist normal, sich manchmal überfordert zu fühlen.**\n*É normal sentir-se sobrecarregado(a) às vezes.*\n\n### Oferecendo Conforto\n\n**Alles wird gut werden.**\n*Tudo vai ficar bem.*\n\n**Wir schaffen das zusammen.**\n*Vamos superar isso juntos.*\n\n**Auch das wird vorübergehen.**\n*Isso também vai passar.*\n\n**Nimm dir alle Zeit, die du brauchst.**\n*Tome todo o tempo que precisar.*\n\n## Para Situações Específicas\n\n### Perda e Luto\n\n**Es tut mir so leid für deinen Verlust.**\n*Sinto muito pela sua perda.*\n\n**Ich kann mir nicht vorstellen, was du durchmachst.**\n*Não consigo imaginar o que você está passando.*\n\n**Es ist in Ordnung zu weinen.**\n*Está tudo bem chorar.*\n\n### Estresse\n\n**Ich glaube fest an dich.**\n*Acredito firmemente em você.*\n\n**Du bist fähiger als du denkst.**\n*Você é mais capaz do que pensa.*\n\n**Sei nicht so hart zu dir selbst.**\n*Não seja tão duro(a) consigo mesmo(a).*\n\n## Perguntas de Apoio\n\n**Wie kann ich dir helfen?**\n*Como posso te ajudar?*\n\n**Möchtest du darüber reden?**\n*Quer falar sobre isso?*\n\n**Was brauchst du gerade?**\n*O que você precisa agora?*\n\n## Encorajamento\n\n**Ich bin so stolz darauf, wie du damit umgehst.**\n*Estou tão orgulhoso(a) de como você está lidando com isso.*\n\n**Du bist stärker als du denkst.**\n*Você é mais forte do que pensa.*\n\nLiebe zeigt sich in schweren Zeiten - o amor se mostra nos momentos difíceis.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frases de Apoio Básico",
+              "## Para Situações Específicas"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "088ae5a0-6e95-4664-ad1e-50d74d682b6f",
+      "title": "Italienske sms- og chatbeskeder til par",
+      "native_lang": "da",
+      "target_lang": "it",
+      "category": "communication",
+      "content": "# Italienske sms- og chatbeskeder til par\n\nItaliensk er fyldt med passion og romantik, og det afspejles i sprogets kærlighedsudtryk. Når du har en italiensk partner, kan du imponere med smukke beskeder, der kommer direkte fra hjertet.\n\n## Hvorfor lære italienske chatfraser?\n\nItalienere er kendt for deres ekspressive natur og kærlighed til romantik. At kunne sende beskeder på italiensk viser din partner, at du virkelig gør en indsats for at forstå deres kultur.\n\n## Grundlæggende kærlige beskeder\n\n### \"Mi manchi\"\n**Udtale:** mi manki\n\n**Betydning:** Jeg savner dig\n\nLigesom på fransk siger italienere \"du mangler mig\".\n\n---\n\n### \"Penso a te\"\n**Udtale:** penso a te\n\n**Betydning:** Jeg tænker på dig\n\nEn klassisk og romantisk besked.\n\n---\n\n### \"Non vedo l'ora di vederti\"\n**Udtale:** non vedo lora di vederti\n\n**Betydning:** Jeg kan ikke vente med at se dig\n\nPerfekt når I snart skal mødes.\n\n---\n\n## Populære italienske kælenavne\n\n### \"Amore mio\"\n**Udtale:** amore mio\n\n**Betydning:** Min kærlighed\n\nDet klassiske italienske kælenavn, som du sikkert kender fra film.\n\n---\n\n### \"Tesoro\"\n**Udtale:** tezoro\n\n**Betydning:** Skat (bogstaveligt: skattekiste)\n\nMeget brugt mellem italienske par.\n\n---\n\n### \"Cucciolo\" / \"Cucciola\"\n**Udtale:** kutsjolo / kutsjola\n\n**Betydning:** Hundehvalp\n\nEt sødt og legende kælenavn.\n\n---\n\n## Italienske sms-forkortelser\n\n### \"TVB\" (Ti voglio bene)\n**Udtale:** ti voljo bene\n\n**Betydning:** Jeg holder af dig\n\nMindre intenst end \"Ti amo\", men stadig kærligt.\n\n---\n\n### \"TAT\" (Ti amo tanto)\n**Udtale:** ti amo tanto\n\n**Betydning:** Jeg elsker dig så meget\n\nDen stærke kærlighedserklæring.\n\n---\n\n### \"Baci\" \n**Udtale:** batji\n\n**Betydning:** Kys\n\nBruges ofte til at afslutte beskeder.\n\n---\n\n## Romantiske beskeder\n\n### \"Sei tutto per me\"\n**Udtale:** sej tutto per me\n\n**Betydning:** Du er alt for mig\n\nEn dybt romantisk erklæring.\n\n---\n\n### \"Buongiorno, amore\"\n**Udtale:** bwondsjorno amore\n\n**Betydning:** Godmorgen, kærlighed\n\nStart din partners dag med italiensk varme.\n\n---\n\n### \"Sogni d'oro, tesoro mio\"\n**Udtale:** sonji doro tezoro mio\n\n**Betydning:** Gyldne drømme, min skat\n\nEn smuk italiensk godnatbesked.\n\n---\n\n## Hverdagsbeskeder\n\n### \"Come stai?\"\n**Udtale:** kome staj\n\n**Betydning:** Hvordan har du det?\n\nStandard måde at tjekke ind på.\n\n---\n\n### \"Arrivo\"\n**Udtale:** arrivo\n\n**Betydning:** Jeg er på vej / Jeg kommer\n\nKort og praktisk.\n\n---\n\n### \"A dopo\"\n**Udtale:** a dopo\n\n**Betydning:** Vi ses senere\n\nAfslappet farvel.\n\n---\n\n## Lidt ekstra romantik\n\n### \"Sei la mia vita\"\n**Udtale:** sej la mia vita\n\n**Betydning:** Du er mit liv\n\nNår du virkelig vil udtrykke din kærlighed.\n\n---\n\n## Kulturelle tips\n\nItalienere udtrykker følelser åbent og passioneret. Det, der kan føles overdrevet på dansk, er helt normalt på italiensk. Vær ikke bange for at være romantisk!\n\nBemærk forskellen mellem \"Ti voglio bene\" (jeg holder af dig) og \"Ti amo\" (jeg elsker dig). Det første bruges også til familie og venner, mens det andet er reserveret til romantisk kærlighed.\n\nEmojis bruges flittigt, og italienere elsker hjerter ❤️, kys 😘 og solskin ☀️ i deres beskeder.\n\nMed disse fraser kan du tilføje italiensk passion til jeres kommunikation.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Grundlæggende kærlige beskeder",
+              "## Populære italienske kælenavne",
+              "## Italienske sms-forkortelser",
+              "## Romantiske beskeder",
+              "## Hverdagsbeskeder",
+              "## Lidt ekstra romantik"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "0890bf47-1fa3-4a46-80b8-0f75ef1f68fe",
+      "title": "100 Συχνές Λέξεις (ru): Οδηγός για Ελληνόφωνα Ζευγάρια",
+      "native_lang": "el",
+      "target_lang": "ru",
+      "category": "communication",
+      "content": "Η εκμάθηση βασικού λεξιλογίου είναι θεμελιώδης για κάθε ζευγάρι. Αυτές οι λέξεις θα σας βοηθήσουν στην καθημερινή επικοινωνία με τον σύντροφό σας.\n\n## Βασικές Κατηγορίες Λέξεων\n\n### Αγάπη & Τρυφερότητα\n\nΑγάπη, Καρδιά, Φιλί, Αγκαλιά, Αγαπητός/ή\n\n### Καθημερινές Λέξεις\n\nΝαι, Όχι, Παρακαλώ, Ευχαριστώ, Συγγνώμη, Καλημέρα, Καληνύχτα\n\n### Συναισθήματα\n\nΧαρούμενος/η, Λυπημένος/η, Κουρασμένος/η, Θυμωμένος/η, Ενθουσιασμένος/η\n\n### Χρόνος\n\nΣήμερα, Αύριο, Χθες, Τώρα, Αργότερα, Πάντα, Ποτέ\n\n### Τοποθεσία\n\nΕδώ, Εκεί, Σπίτι, Δουλειά, Μαζί\n\n### Ερωτήσεις\n\nΤι, Πού, Πότε, Γιατί, Πώς, Ποιος\n\n### Ρήματα\n\nΕίμαι, Έχω, Θέλω, Μπορώ, Πρέπει, Αγαπώ, Χρειάζομαι\n\n## Συμπέρασμα\n\nΜε αυτές τις βασικές λέξεις, μπορείτε να ξεκινήσετε να επικοινωνείτε καθημερινά με τον σύντροφό σας. Η πρακτική κάνει τέλειο!",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 106,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Βασικές Κατηγορίες Λέξεων"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

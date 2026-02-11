@@ -1,0 +1,377 @@
+{
+  "batchId": "tier2a-slim-0298",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "52019c87-3683-41ab-9d82-f8d8acbc2bcf",
+      "title": "Polish Medical Vocabulary: At the Doctor",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## At the Doctor's Office - U lekarza",
+          "subsections": [
+            "### Common Doctor Questions",
+            "### Your Responses"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "52d5d83d-2520-46aa-8b0d-85f5515301f1",
+      "title": "Danimarkalı Partnerinizin Ailesiyle Tanışma: Temel İfadeler",
+      "native_lang": "tr",
+      "target_lang": "da",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Özel Durumlar",
+          "subsections": [
+            "### Hediye Getirme",
+            "### Tatiller ve Özel Günler"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "53293ca3-b8f1-4a00-abcc-dbb77b904e02",
+      "title": "50+ Portugál Becézési Név a Párodnak - Szerelmes Szavak, Amiktől Megolvad a Szíve",
+      "native_lang": "hu",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hogyan Használjátok Ezeket a Gyakorlatban?",
+          "subsections": [
+            "### 1. Kezdjétek az egyszerűvel!",
+            "### 2. Kombináljatok!",
+            "### 3. Tegyetek hozzá magyarázatot!",
+            "### 4. Gyakoroljatok együtt!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "534d11fb-1e82-478f-9526-9c96b7b94b6e",
+      "title": "Les Appels Téléphoniques en Allemand: Parler à Votre Partenaire",
+      "native_lang": "fr",
+      "target_lang": "de",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Pendant l'appel",
+          "subsections": [
+            "### Demander des nouvelles",
+            "### Exprimer vos sentiments"
+          ]
+        },
+        {
+          "header": "## Exercices pratiques pour couples",
+          "subsections": [
+            "### Exercice 1 : Simulation d'appel",
+            "### Exercice 2 : Messages vocaux",
+            "### Exercice 3 : Jeu de rôle « Problème technique »"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "53691d27-6d1a-41d1-8818-012b23935834",
+      "title": "Macarca Telaffuz Rehberi: Partnerinizi Etkileyin",
+      "native_lang": "tr",
+      "target_lang": "hu",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Dikkat Gerektiren Sesler",
+          "subsections": [
+            "### \"S\" Harfi",
+            "### \"Gy\" Sesi",
+            "### \"Ny\" Sesi"
+          ]
+        },
+        {
+          "header": "## Ciftler Icin Telaffuz Oyunlari",
+          "subsections": [
+            "### Oyun 1: Minimal Ciftler",
+            "### Oyun 2: Romantik Tekerleme",
+            "### Oyun 3: Sevgi Sözcükleri Pratigi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "539ea92c-cd6d-4ad2-8962-13210f21fc7d",
+      "title": "50+ Rumuńskich Zwrotów na Romantyczną Randkę",
+      "native_lang": "pl",
+      "target_lang": "ro",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Scenka: W restauracji",
+            "### Planowanie randki",
+            "### Quiz romantyczny"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "54359229-fbab-423c-af85-98fc5ac74880",
+      "title": "Portugisiske grammatik-grundlæggende: Lær at elske sproget sammen",
+      "native_lang": "da",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De 5 Grundlæggende Regler (Med Romantiske Eksempler)",
+          "subsections": [
+            "### 1. Verb-bøjning: Jeg, du, vi, de...",
+            "### 2. Køn: Maskulint og feminint",
+            "### 3. Spørgsmål: Bare omvendt rækkefølge!",
+            "### 4. Nutid: Tre Verb-typer",
+            "### 5. Possessiver: Min, din, vores..."
+          ]
+        },
+        {
+          "header": "## Almindelige Mønstre til Daglig Brug",
+          "subsections": [
+            "### At udtrykke følelser:",
+            "### At planlægge sammen:",
+            "### At give komplimenter:"
+          ]
+        },
+        {
+          "header": "## De 3 Største Fejl (Og Sådan Undgår I Dem)",
+          "subsections": [
+            "### 1. **Forveksling af \"ser\" og \"estar\"**",
+            "### 2. **Forkert køn på ord**",
+            "### 3. **At glemme person-bøjning**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "543f2c82-d465-42e6-8844-11d7c0779c76",
+      "title": "Italian Subjunctive Basics: Expressing Wishes and Desires",
+      "native_lang": "en",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Present Subjunctive Conjugations",
+          "subsections": [
+            "### Regular -ARE Verbs",
+            "### Regular -ERE Verbs",
+            "### Regular -IRE Verbs"
+          ]
+        },
+        {
+          "header": "## Essential Irregular Subjunctives",
+          "subsections": [
+            "### Essere (to be)",
+            "### Avere (to have)",
+            "### More Irregular Subjunctives"
+          ]
+        },
+        {
+          "header": "## When to Use the Subjunctive",
+          "subsections": [
+            "### Expressing Wishes (Desideri)",
+            "### Expressing Emotions (Emozioni)",
+            "### Expressing Opinions (Opinioni)",
+            "### Expressing Doubt (Dubbi)"
+          ]
+        },
+        {
+          "header": "## Practice Conversations",
+          "subsections": [
+            "### Expressing Care",
+            "### Making Plans",
+            "### Sharing Feelings"
+          ]
+        },
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Exercise 1: Express Your Wishes",
+            "### Exercise 2: Share Your Feelings",
+            "### Exercise 3: Give Opinions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "55f03ba6-4779-4ce6-bffe-7f972118bb7e",
+      "title": "50+ Rosyjskich Zwrotów na Romantyczną Randkę",
+      "native_lang": "pl",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Rosyjska kuchnia na randkę",
+          "subsections": [
+            "### Typowe dania",
+            "### Napoje"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Rezerwacja",
+            "### Ćwiczenie 2: Zamawianie",
+            "### Ćwiczenie 3: Planowanie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "560e4d2a-2ace-4333-970d-e2baf9160230",
+      "title": "Orden de Palabras Polaco vs Español",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Patrones Prácticos para Parejas",
+          "subsections": [
+            "### Expresando Amor y Sentimientos",
+            "### Haciendo Planes Juntos"
+          ]
+        },
+        {
+          "header": "## Errores Comunes que Cometen los Hispanohablantes",
+          "subsections": [
+            "### 1. Uso Excesivo de Pronombres Sujeto",
+            "### 2. Orden de Palabras Rígido",
+            "### 3. Formación de Preguntas"
+          ]
+        },
+        {
+          "header": "## Ejercicios de Práctica para Parejas",
+          "subsections": [
+            "### Ejercicio 1: Cambios de Énfasis",
+            "### Ejercicio 2: Preguntas Naturales"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5624f108-530f-465e-a93d-750d7b5069a3",
+      "title": "50 Ungarische Begrüßungen und Abschiedsformeln für Paare - Von Hallo bis Ich liebe dich",
+      "native_lang": "de",
+      "target_lang": "hu",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Praktische Tipps für Paare",
+          "subsections": [
+            "### 1. Übt gemeinsam",
+            "### 2. Sei nicht zu formell",
+            "### 3. Die Macht des Tonfalls",
+            "### 4. Kombiniere mit Körpersprache"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "562a5825-f86a-41ac-a943-b14a7494a3ca",
+      "title": "Hvordan si Jeg elsker deg på tsjekkisk: 12 Romantiske Måter for Par",
+      "native_lang": "no",
+      "target_lang": "cs",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## 12 romantiske variasjoner",
+          "subsections": [
+            "### Klassiske og tidløse",
+            "### Dype og lidenskapelige",
+            "### Søte og lekne uttrykk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5678724a-ae90-4af8-b564-7d609458dade",
+      "title": "Podstawy gramatyki portugalskiej dla Polaków",
+      "native_lang": "pl",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Rodzaj rzeczowników",
+          "subsections": [
+            "### Zasada podstawowa",
+            "### Liczba mnoga"
+          ]
+        },
+        {
+          "header": "## Czasowniki - trzy koniugacje",
+          "subsections": [
+            "### Koniugacja -AR (największa!)",
+            "### Koniugacja -ER",
+            "### Koniugacja -IR"
+          ]
+        },
+        {
+          "header": "## Przymiotniki",
+          "subsections": [
+            "### Pozycja i odmiana",
+            "### Pozycja przymiotnika"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Rodzajniki",
+            "### Ćwiczenie 2: Czasownik SER i ESTAR",
+            "### Ćwiczenie 3: Romantyczne zdania"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "57078c3d-1564-4572-86ea-c8fda06cc600",
+      "title": "La négation en allemand : dire non avec amour",
+      "native_lang": "fr",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Exercices pratiques pour couples",
+          "subsections": [
+            "### Exercice 1 : Nicht ou Kein ?",
+            "### Exercice 2 : Transformez en négatif",
+            "### Exercice 3 : Vos promesses"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "57adc6dd-a8a2-420c-9c33-8b283f6c606c",
+      "title": "50+ Frases de Amor em Tcheco para Encantar",
+      "native_lang": "pt",
+      "target_lang": "cs",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ocasiões Especiais e Celebrações",
+          "subsections": [
+            "### Frases de Aniversário",
+            "### Frases de Pedido de Casamento"
+          ]
+        },
+        {
+          "header": "## Frases Românticas por Situação",
+          "subsections": [
+            "### Relacionamentos à Distância",
+            "### Depois de uma Discussão",
+            "### Só Porque Sim"
+          ]
+        }
+      ]
+    }
+  ]
+}

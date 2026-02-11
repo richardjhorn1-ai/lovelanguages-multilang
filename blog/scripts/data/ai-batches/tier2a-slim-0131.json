@@ -1,0 +1,434 @@
+{
+  "batchId": "tier2a-slim-0131",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "92d73a58-484e-42b2-9ca7-61e7cefdc194",
+      "title": "Ukrán összeköltözési szókincs",
+      "native_lang": "hu",
+      "target_lang": "uk",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Költözési kifejezések",
+            "### Háztartási szókincs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "92d7d601-c6e8-400c-8cb9-70c268ab90cf",
+      "title": "Çekçe: Seni Seviyorum Demenin 15 Romantik Yolu",
+      "native_lang": "tr",
+      "target_lang": "cs",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## \"Seni Seviyorum\" Demenin Alternatif Yollari",
+          "subsections": [
+            "### Daha Derin Baglantilar Icin",
+            "### Gündelik ve Tatli Ifadeler"
+          ]
+        },
+        {
+          "header": "## Ciftler Icin Pratik Aktiviteler",
+          "subsections": [
+            "### Sabah Teyitleri",
+            "### Ask Notlari",
+            "### Yatmadan Önce Ifadeler"
+          ]
+        },
+        {
+          "header": "## Cekce Ask Kelime Dagarcigi Olusturma",
+          "subsections": [
+            "### Temel Askla Ilgili Kelimeler",
+            "### Romantizm Icin Eylem Kelimeleri"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "92e12f37-762c-4881-96b6-7be9cc1043cd",
+      "title": "Frases para Coquetear en Noruego: Romance en la Tierra de los Fiordos",
+      "native_lang": "es",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Cumplidos Sinceros",
+          "subsections": [
+            "### \"Du er veldig vakker/kjekk\"",
+            "### \"Du har vakre øyne\"",
+            "### \"Du har et fantastisk smil\""
+          ]
+        },
+        {
+          "header": "## Expresiones de Interés",
+          "subsections": [
+            "### \"Har du lyst til å ta en kaffe?\"",
+            "### \"Jeg liker å tilbringe tid med deg\"",
+            "### \"Det er noe spesielt med deg\""
+          ]
+        },
+        {
+          "header": "## Declaraciones Románticas",
+          "subsections": [
+            "### \"Jeg kan ikke slutte å tenke på deg\"",
+            "### \"Du har stjålet hjertet mitt\"",
+            "### \"Jeg har blitt forelsket i deg\""
+          ]
+        },
+        {
+          "header": "## Frases Tiernas",
+          "subsections": [
+            "### \"Du gjør meg lykkelig\"",
+            "### \"Hjertet mitt slår fortere når du er nær\"",
+            "### \"Jeg liker deg veldig mye\""
+          ]
+        },
+        {
+          "header": "## Mensajes de Texto",
+          "subsections": [
+            "### \"God morgen, kjære\"",
+            "### \"Jeg savner deg\"",
+            "### \"God natt, skatt\"",
+            "### \"Vi ses snart\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "92e4c438-7910-4b24-9c77-d23a92ee9bca",
+      "title": "Ukrainische Hochzeitsphrasen und romantische Glückwünsche",
+      "native_lang": "de",
+      "target_lang": "uk",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Die wichtigsten Hochzeitsphrasen",
+          "subsections": [
+            "### Der Heiratsantrag",
+            "### Das Ehegelübde",
+            "### Glückwünsche aussprechen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "92f6011f-6887-42c6-a4ee-c1a6f525d140",
+      "title": "Нідерландська весільна лексика: слова та фрази для особливого дня",
+      "native_lang": "uk",
+      "target_lang": "nl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Традиційні весільні фрази",
+          "subsections": [
+            "### Привітання молодят"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "93183f02-33c1-480b-aa66-54f97439b16d",
+      "title": "Знайомство з родиною: Основні угорські фрази",
+      "native_lang": "uk",
+      "target_lang": "hu",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Що робити і чого не робити",
+          "subsections": [
+            "### Що робити",
+            "### Чого не робити"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "931ddd67-96c1-4e6e-94b0-0dcba77ba245",
+      "title": "Çekçe Özlem İfadeleri: Seni Özledim ve Hasret Sözleri",
+      "native_lang": "tr",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Özlem İfadeleri",
+          "subsections": [
+            "### 1. \"Chybíš mi\"",
+            "### 2. \"Moc mi chybíš\"",
+            "### 3. \"Stýská se mi po tobě\"",
+            "### 4. \"Kéž bys tu byl/a\"",
+            "### 5. \"Pořád na tebe myslím\"",
+            "### 6. \"Bez tebe je mi smutno\"",
+            "### 7. \"Počítám dny do našeho setkání\"",
+            "### 8. \"Jsi pro mě všechno\"",
+            "### 9. \"Moje srdce po tobě touží\"",
+            "### 10. \"Těším se, až se uvidíme\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "932bf953-bca8-41b6-be7c-309990bae5fb",
+      "title": "Englische Liebesbrief-Phrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Anreden",
+          "subsections": [
+            "### \"My dearest...\"",
+            "### \"My darling...\"",
+            "### \"To the love of my life...\"",
+            "### \"My beloved...\""
+          ]
+        },
+        {
+          "header": "## Einleitungen",
+          "subsections": [
+            "### \"I'm writing this letter to tell you how much you mean to me\"",
+            "### \"There are so many things I want to say, but words seem inadequate\"",
+            "### \"As I sit down to write this, my heart is overflowing with love for you\""
+          ]
+        },
+        {
+          "header": "## Ausdrücke der Liebe",
+          "subsections": [
+            "### \"You are the best thing that has ever happened to me\"",
+            "### \"My life changed forever the day I met you\"",
+            "### \"You make every day brighter just by being in it\"",
+            "### \"I fall more in love with you each day\"",
+            "### \"You complete me in ways I never knew I needed\""
+          ]
+        },
+        {
+          "header": "## Erinnerungen teilen",
+          "subsections": [
+            "### \"Do you remember when...\"",
+            "### \"One of my favorite memories is...\"",
+            "### \"I'll never forget the moment...\""
+          ]
+        },
+        {
+          "header": "## Zukunftsversprechen",
+          "subsections": [
+            "### \"I promise to love you unconditionally\"",
+            "### \"I want to spend the rest of my life with you\"",
+            "### \"No matter what challenges we face, we'll face them together\"",
+            "### \"My love for you will only grow stronger with time\""
+          ]
+        },
+        {
+          "header": "## Abschlüsse",
+          "subsections": [
+            "### \"Forever yours...\"",
+            "### \"With all my love...\"",
+            "### \"Yours eternally...\"",
+            "### \"All my heart...\"",
+            "### \"Until we meet again, know that you are always in my thoughts\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "933d9115-edee-40cc-ad87-c391166940d5",
+      "title": "French Proposal & Engagement Phrases: How to Pop the Question",
+      "native_lang": "en",
+      "target_lang": "fr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Ways to Propose",
+          "subsections": [
+            "### The Classic Proposal",
+            "### More Romantic Variations"
+          ]
+        },
+        {
+          "header": "## Preparing Your Proposal",
+          "subsections": [
+            "### Practice Tips",
+            "### Setting the Scene"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "93451636-8399-42ba-819d-a2329c4d0918",
+      "title": "Norska Fraser för Svartsjuka och Förtroende",
+      "native_lang": "sv",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Uttrycka Svartsjuka",
+          "subsections": [
+            "### 1. \"Jeg føler meg usikker når...\"",
+            "### 2. \"Kan du hjelpe meg å forstå forholdet ditt med...?\"",
+            "### 3. \"Jeg stoler på deg, men jeg sliter med følelsene mine\"",
+            "### 4. \"Jeg trenger litt bekreftelse\"",
+            "### 5. \"Det plager meg når...\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Bygga Förtroende",
+          "subsections": [
+            "### 6. \"Jeg har bare øyne for deg\"",
+            "### 7. \"Du er den eneste for meg\"",
+            "### 8. \"Jeg ville aldri gjort noe for å såre deg\"",
+            "### 9. \"La oss være ærlige med hverandre\"",
+            "### 10. \"Jeg vil at du skal møte vennene mine\"",
+            "### 11. \"Du har ingenting å bekymre deg for\"",
+            "### 12. \"Jeg velger deg hver dag\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "93584175-e838-4994-a07a-4ca9f256c31b",
+      "title": "Guida alla Pronuncia Greca: Suoni Essenziali per Italiani",
+      "native_lang": "it",
+      "target_lang": "el",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Combinazioni di Lettere",
+          "subsections": [
+            "### Dittonghi",
+            "### Consonanti Doppie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "93584442-866f-4098-bf7b-fda27c401237",
+      "title": "Frases en Alemán para Discutir y Resolver Desacuerdos con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Expresar Desacuerdo",
+          "subsections": [
+            "### \"Ich sehe das anders\"",
+            "### \"Können wir in Ruhe darüber reden?\"",
+            "### \"Es verletzt mich, wenn du...\"",
+            "### \"Das habe ich nicht gemeint\"",
+            "### \"Ich brauche Zeit zum Nachdenken\"",
+            "### \"Bitte versuche, mich zu verstehen\"",
+            "### \"Ich will nicht streiten\"",
+            "### \"Du hörst mir nicht zu\"",
+            "### \"Lass uns einen Kompromiss finden\"",
+            "### \"Das ist mir wichtig\"",
+            "### \"Wir sollten uns beide beruhigen\"",
+            "### \"Ich fühle mich verletzt\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "936086e1-e2d4-4287-acc3-2c2939c15adc",
+      "title": "Frases de Apoio Emocional em Russo: Confortando Seu Parceiro",
+      "native_lang": "pt",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases de Apoio Básico",
+          "subsections": [
+            "### Demonstrando Presença",
+            "### Validando Sentimentos",
+            "### Oferecendo Conforto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9364dabd-f2da-4572-a7e3-6160839b96b1",
+      "title": "50+ чешских прозвищ, которые растопят сердце",
+      "native_lang": "ru",
+      "target_lang": "cs",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Прозвища в контексте",
+          "subsections": [
+            "### В сообщениях:",
+            "### Утром:",
+            "### Вечером:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "936d7e95-ff62-4777-b63b-36bae3b3a1b0",
+      "title": "100 Meest Gebruikte Russische Woorden voor Relaties",
+      "native_lang": "nl",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Basis liefdeswoorden",
+          "subsections": [
+            "### 1. Любовь (Lyubov') - *ljoe-bof* - Liefde",
+            "### 2. Сердце (Serdtse) - *sjer-tse* - Hart",
+            "### 3. Поцелуй (Potseluy) - *pa-tse-loej* - Kus",
+            "### 4. Объятие (Ob'yatiye) - *ab-ja-tjie-je* - Knuffel",
+            "### 5. Вместе (Vmeste) - *vmjes-tje* - Samen",
+            "### 6. Навсегда (Navsegda) - *nav-sjeg-da* - Voor altijd",
+            "### 7. Всегда (Vsegda) - *vsjeg-da* - Altijd",
+            "### 8. Красивый/ая (Krasivyy/aya) - *kra-sjie-vie/a-ja* - Mooi",
+            "### 9. Счастливый/ая (Schastlivyy/aya) - *sjast-ljie-vie/a-ja* - Gelukkig",
+            "### 10. Дорогой/ая (Dorogoy/aya) - *da-ra-goj/a-ja* - Schat"
+          ]
+        },
+        {
+          "header": "## Dagelijkse communicatie",
+          "subsections": [
+            "### 11. Да (Da) - *da* - Ja",
+            "### 12. Нет (Net) - *njet* - Nee",
+            "### 13. Пожалуйста (Pozhaluysta) - *pa-zja-loe-sta* - Alsjeblieft",
+            "### 14. Спасибо (Spasibo) - *spa-sjie-ba* - Dank je",
+            "### 15. Извини (Izvini) - *iez-vie-njie* - Sorry",
+            "### 16. Доброе утро (Dobroye utro) - *dob-ra-je oe-tra* - Goedemorgen",
+            "### 17. Спокойной ночи (Spokoynoy nochi) - *spa-koj-naj no-tsji* - Goedenacht",
+            "### 18. Привет (Privet) - *prie-vjet* - Hallo",
+            "### 19. Пока (Poka) - *pa-ka* - Tot ziens",
+            "### 20. Как дела? (Kak dela?) - *kak dje-la* - Hoe gaat het?"
+          ]
+        },
+        {
+          "header": "## Gevoelens uitdrukken",
+          "subsections": [
+            "### 21. Я тебя люблю (Ya tebya lyublyu) - *ja tje-bja ljoe-bljoe* - Ik hou van je",
+            "### 22. Я скучаю (Ya skuchayu) - *ja skoe-tsja-joe* - Ik mis je",
+            "### 23. Ты мне нужен/на (Ty mne nuzhen/na) - *tie mnje noe-zjen/na* - Ik heb je nodig",
+            "### 24. Я тебе доверяю (Ya tebe doveryayu) - *ja tje-bje da-vje-rja-joe* - Ik vertrouw je",
+            "### 25. Я тебя прощаю (Ya tebya proshchayu) - *ja tje-bja pra-sjtsja-joe* - Ik vergeef je",
+            "### 26. Понимаю (Ponimayu) - *pa-njie-ma-joe* - Ik begrijp het",
+            "### 27. Ты делаешь меня счастливым/ой (Ty delayesh' menya schastlivym/oy) - *tie dje-la-jesj mje-nja sjtast-ljie-viem/oj* - Je maakt me gelukkig",
+            "### 28. Думаю о тебе (Dumayu o tebe) - *doe-ma-joe a tje-bje* - Ik denk aan je"
+          ]
+        },
+        {
+          "header": "## Tijd",
+          "subsections": [
+            "### 29. Сегодня (Segodnya) - *sje-god-nja* - Vandaag",
+            "### 30. Завтра (Zavtra) - *zav-tra* - Morgen",
+            "### 31. Вчера (Vchera) - *ftjie-ra* - Gisteren",
+            "### 32. Сейчас (Seychas) - *sjej-tsjas* - Nu",
+            "### 33. Потом (Potom) - *pa-tom* - Later",
+            "### 34. Скоро (Skoro) - *sko-ra* - Binnenkort",
+            "### 35. Никогда (Nikogda) - *njie-kag-da* - Nooit",
+            "### 36. Иногда (Inogda) - *ie-nag-da* - Soms",
+            "### 37. Часто (Chasto) - *tsjas-ta* - Vaak"
+          ]
+        }
+      ]
+    }
+  ]
+}

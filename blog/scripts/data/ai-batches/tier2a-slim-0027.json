@@ -1,0 +1,517 @@
+{
+  "batchId": "tier2a-slim-0027",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "3744df6b-ceb1-4259-9c11-986f497c3703",
+      "title": "Portugisiske 'Jeg Savner Dig' Sætninger for Danskere",
+      "native_lang": "da",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Udtryk",
+          "subsections": [
+            "### \"Tenho saudades tuas\" / \"Sinto sua falta\"",
+            "### \"Sinto muito a sua falta\"",
+            "### \"Não consigo parar de pensar em você\""
+          ]
+        },
+        {
+          "header": "## Dybere Udtryk",
+          "subsections": [
+            "### \"Cada momento sem você parece uma eternidade\"",
+            "### \"Você é a primeira coisa em que penso ao acordar\"",
+            "### \"Queria tanto que você estivesse aqui\""
+          ]
+        },
+        {
+          "header": "## Hverdagens Savn",
+          "subsections": [
+            "### \"Sinto falta do seu sorriso\"",
+            "### \"Sinto falta de dormir ao seu lado\"",
+            "### \"Sinto falta das nossas conversas\""
+          ]
+        },
+        {
+          "header": "## Passionerede Udtryk",
+          "subsections": [
+            "### \"Sinto sua falta mais do que palavras podem expressar\"",
+            "### \"Estar longe de você é a coisa mais difícil\"",
+            "### \"Estou contando os dias para te ver de novo\""
+          ]
+        },
+        {
+          "header": "## Trøstende Sætninger",
+          "subsections": [
+            "### \"A distância não significa nada quando alguém significa tudo\"",
+            "### \"Onde quer que você esteja, você está sempre no meu coração\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3754989d-bb74-4901-8e66-61d4dcb7f26d",
+      "title": "Grammatica Ucraina di Base: Guida per Principianti",
+      "native_lang": "it",
+      "target_lang": "uk",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Coniugazione dei Verbi",
+          "subsections": [
+            "### Presente del Verbo \"Amare\"",
+            "### Passato"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3756576e-71ea-440f-be62-dc764faae3ae",
+      "title": "Ukrán évfordulós kívánságok és üzenetek",
+      "native_lang": "hu",
+      "target_lang": "uk",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Évfordulós köszöntések",
+            "### Hosszabb üzenetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "375bbfd1-f03e-4187-aba1-207762fb368d",
+      "title": "Основы немецкой грамматики для пар",
+      "native_lang": "ru",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Порядок слов",
+          "subsections": [
+            "### Основное правило: глагол на втором месте!",
+            "### При инверсии (если не подлежащее первое):",
+            "### В придаточных предложениях — глагол в конце:"
+          ]
+        },
+        {
+          "header": "## Практика для пар",
+          "subsections": [
+            "### Упражнение «Падежи»:",
+            "### Упражнение «Спряжение»:",
+            "### Упражнение «Порядок слов»:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "375d48ab-2cab-421f-af1d-02a74d1870f5",
+      "title": "Frases en Sueco para tu Primera Cita",
+      "native_lang": "es",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Romper el Hielo",
+          "subsections": [
+            "### \"Det är så kul att äntligen träffa dig\"",
+            "### \"Du ser fantastisk ut\"",
+            "### \"Jag har sett fram emot det här\""
+          ]
+        },
+        {
+          "header": "## Frases para Conocerse",
+          "subsections": [
+            "### \"Berätta om dig själv\"",
+            "### \"Vad gillar du att göra på fritiden?\""
+          ]
+        },
+        {
+          "header": "## Frases Románticas",
+          "subsections": [
+            "### \"Jag trivs verkligen\"",
+            "### \"Du har ett fantastiskt leende\"",
+            "### \"Jag känner mig bekväm med dig\""
+          ]
+        },
+        {
+          "header": "## Frases para Terminar",
+          "subsections": [
+            "### \"Det var en underbar kväll\"",
+            "### \"Kan vi ses igen?\"",
+            "### \"Meddela mig när du kommit hem\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "37651d4d-fc44-430d-b020-7b5f447fd394",
+      "title": "Βασικά Ισπανικά Γραμματική: Μάθε να μιλάς για τον έρωτά σου",
+      "native_lang": "el",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Τα 5 Βασικά Κανόνια για Ζευγάρια",
+          "subsections": [
+            "### 1. Το Γένος των Ουσιαστικών",
+            "### 2. Το Άρθρο πρέπει να ταιριάζει",
+            "### 3. Ρήματα: Οι 3 Κατηγορίες",
+            "### 4. Η Προσωπική Αντωνυμία (υποκείμενο)",
+            "### 5. Οι Ερωτήσεις είναι Απλές"
+          ]
+        },
+        {
+          "header": "## Κοινά Προβλήματα και Λύσεις",
+          "subsections": [
+            "### 1. Σύγχυση με το \"ser\" και \"estar\"",
+            "### 2. Το γένος των επίθετων",
+            "### 3. Η σειρά των λέξεων"
+          ]
+        },
+        {
+          "header": "## Γρήγορο Σημειωματάριο",
+          "subsections": [
+            "### Βασικοί Χρόνοι Ρημάτων",
+            "### Άρθρα",
+            "### Βασικές Ερωτήσεις"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "37721aae-db32-4871-8625-32bd63e2d7ae",
+      "title": "Dutch Making Up & Reconciliation Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Apologizing Sincerely",
+          "subsections": [
+            "### Het spijt me echt",
+            "### Vergeef me",
+            "### Ik had ongelijk",
+            "### Dat had ik niet moeten zeggen"
+          ]
+        },
+        {
+          "header": "## Expressing Your Feelings",
+          "subsections": [
+            "### Ik haat het als we ruzie hebben",
+            "### Ik mis je als we zo zijn",
+            "### Het doet pijn als we boos op elkaar zijn"
+          ]
+        },
+        {
+          "header": "## Reaching Out",
+          "subsections": [
+            "### Kunnen we praten?",
+            "### Ik wil dit oplossen",
+            "### Kunnen we opnieuw beginnen?"
+          ]
+        },
+        {
+          "header": "## Expressing Love and Commitment",
+          "subsections": [
+            "### Ik hou van je, dat verandert niet",
+            "### Jij bent belangrijker dan deze ruzie",
+            "### Ik wil je niet kwijtraken",
+            "### We zijn een team"
+          ]
+        },
+        {
+          "header": "## Moving Forward",
+          "subsections": [
+            "### Hoe kunnen we dit in de toekomst vermijden?",
+            "### Ik beloof het beter te doen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3772bd4c-c52c-493a-8806-ea45f7ef82e2",
+      "title": "Frases de Apoyo Emocional en Francés: Cómo Consolar a Tu Pareja",
+      "native_lang": "es",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases de Consuelo Básicas",
+          "subsections": [
+            "### \"Je suis là pour toi\"",
+            "### \"Tout va bien se passer\"",
+            "### \"Je suis vraiment désolé(e) que tu traverses ça\""
+          ]
+        },
+        {
+          "header": "## Ofreciendo Apoyo",
+          "subsections": [
+            "### \"De quoi as-tu besoin en ce moment?\"",
+            "### \"Je ferai tout ce que je peux pour t'aider\"",
+            "### \"Tu veux en parler?\"",
+            "### \"Je t'écoute\""
+          ]
+        },
+        {
+          "header": "## Validando Emociones",
+          "subsections": [
+            "### \"C'est normal de se sentir comme ça\"",
+            "### \"Tes sentiments sont tout à fait légitimes\"",
+            "### \"Tu as le droit d'être bouleversé(e)\""
+          ]
+        },
+        {
+          "header": "## Frases de Ánimo",
+          "subsections": [
+            "### \"Tu es plus fort(e) que tu ne le penses\"",
+            "### \"Tu as déjà surmonté des moments difficiles\"",
+            "### \"Je crois en toi\"",
+            "### \"On va s'en sortir ensemble\""
+          ]
+        },
+        {
+          "header": "## Expresando Amor",
+          "subsections": [
+            "### \"Je t'aime quoi qu'il arrive\"",
+            "### \"Rien ne changera ce que je ressens pour toi\"",
+            "### \"Tu n'es pas seul(e) dans cette épreuve\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "377327f3-7d4f-4b44-a653-aa173ce9dc8a",
+      "title": "Guia de Pronúncia do Húngaro para Falantes de Português",
+      "native_lang": "pt",
+      "target_lang": "hu",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Regras de Pronúncia",
+          "subsections": [
+            "### Acento na Primeira Sílaba",
+            "### Harmonia Vocálica"
+          ]
+        },
+        {
+          "header": "## Frases para Praticar",
+          "subsections": [
+            "### Nível Iniciante",
+            "### Nível Intermediário"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "378fff75-4fcd-4439-beea-0d5ad66d30ea",
+      "title": "Danish Flirting Phrases: Charming Expressions for Your Danish Partner",
+      "native_lang": "en",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essential Flirting Phrases",
+          "subsections": [
+            "### Heartfelt Compliments",
+            "### Expressing Attraction",
+            "### Romantic Declarations",
+            "### Sweet Expressions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3797e016-886e-44ff-893e-b3d4f069312a",
+      "title": "50+ украинских прозвищ, которые растопят сердце",
+      "native_lang": "ru",
+      "target_lang": "uk",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Использование в предложениях",
+          "subsections": [
+            "### Приветствия:",
+            "### Признания:",
+            "### Прощания:"
+          ]
+        },
+        {
+          "header": "## Практика для пар",
+          "subsections": [
+            "### Выберите «ваше» прозвище:",
+            "### Используйте в SMS:",
+            "### Создайте традицию:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "379842c0-b99a-4d4f-b0f4-d8a84230f7a2",
+      "title": "Argot neerlandais pour SMS : communiquez avec votre partenaire",
+      "native_lang": "fr",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Abreviations essentielles",
+          "subsections": [
+            "### Salutations",
+            "### Reponses courtes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "37ad84c5-8d6b-4b71-969e-0a2cd23d36e7",
+      "title": "Szerelmes Levél Írása Törökül – Romantikus Kifejezések és Tippek",
+      "native_lang": "hu",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Megszólítások",
+          "subsections": [
+            "### 1. Aşkım",
+            "### 2. Canım",
+            "### 3. Hayatım",
+            "### 4. Tatlım",
+            "### 5. Birtanem"
+          ]
+        },
+        {
+          "header": "## Kezdő Mondatok",
+          "subsections": [
+            "### 6. Sana ne kadar çok sevdiğimi söylemek için yazıyorum.",
+            "### 7. Kelimeler sana hissettiklerimi ifade edemez.",
+            "### 8. Seni tanıdığımdan beri hayatım anlam kazandı.",
+            "### 9. Seninle geçirdiğim her an bir hazine.",
+            "### 10. Sen hayatımda olan en güzel şeysin."
+          ]
+        },
+        {
+          "header": "## Érzelmek Kifejezése",
+          "subsections": [
+            "### 11. Kalbim sana ait.",
+            "### 12. Sen beni tamamlıyorsun.",
+            "### 13. Aşkın bana güç veriyor.",
+            "### 14. Her gün sana daha çok aşık oluyorum.",
+            "### 15. Sen benim ruh eşimsin."
+          ]
+        },
+        {
+          "header": "## Lezárások",
+          "subsections": [
+            "### 16. Sonsuza dek senin",
+            "### 17. Tüm sevgimle",
+            "### 18. Sonsuza kadar senin",
+            "### 19. Tekrar görüşene kadar",
+            "### 20. Seni tüm kalbimle seviyorum"
+          ]
+        },
+        {
+          "header": "## Kulturális Tippek",
+          "subsections": [
+            "### Török Romantika",
+            "### Család Fontossága",
+            "### Hasret"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "37c1f4e7-f9a9-45dc-b0b3-1188b9b8886e",
+      "title": "Привітання з днем народження чеською для коханої людини",
+      "native_lang": "uk",
+      "target_lang": "cs",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика",
+          "subsections": []
+        },
+        {
+          "header": "## Романтичні привітання з днем народження",
+          "subsections": [
+            "### Класичні побажання"
+          ]
+        },
+        {
+          "header": "## Як написати ідеальне привітання",
+          "subsections": [
+            "### Структура:",
+            "### Приклад чеською:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "37c617e7-8603-4a73-a746-0296ec5400bb",
+      "title": "Engleză vs. Română: Diferențe Cheie pe Care Trebuie să le Știi",
+      "native_lang": "ro",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Articolele",
+          "subsections": [
+            "### Articolul Hotărât",
+            "### Articolul Nehotărât"
+          ]
+        },
+        {
+          "header": "## Genurile Gramaticale",
+          "subsections": [
+            "### Română: 3 Genuri",
+            "### Engleză: Practic Inexistente"
+          ]
+        },
+        {
+          "header": "## Declinările",
+          "subsections": [
+            "### Română: 5 Cazuri",
+            "### Engleză: Fără Declinări"
+          ]
+        },
+        {
+          "header": "## Conjugarea Verbelor",
+          "subsections": [
+            "### Română: Complexă",
+            "### Engleză: Simplă"
+          ]
+        },
+        {
+          "header": "## Pronumele de Politețe",
+          "subsections": [
+            "### Română: Tu vs. Dumneavoastră",
+            "### Engleză: Doar \"You\""
+          ]
+        },
+        {
+          "header": "## Negația",
+          "subsections": [
+            "### Română",
+            "### Engleză"
+          ]
+        },
+        {
+          "header": "## Întrebările",
+          "subsections": [
+            "### Română",
+            "### Engleză"
+          ]
+        },
+        {
+          "header": "## Timpuri Verbale Diferite",
+          "subsections": [
+            "### Present Continuous (nu există în română)",
+            "### Present Perfect (diferit în română)"
+          ]
+        }
+      ]
+    }
+  ]
+}

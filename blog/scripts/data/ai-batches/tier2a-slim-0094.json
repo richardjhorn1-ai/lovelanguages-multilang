@@ -1,0 +1,367 @@
+{
+  "batchId": "tier2a-slim-0094",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "70679a24-b729-484c-a5c3-4898857e7615",
+      "title": "Niemiecka wymowa dla początkujących: Jak mówić do swojego partnera bez błędów",
+      "native_lang": "pl",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Alfabet i dźwięki, które musisz znać",
+          "subsections": [
+            "### Niemieckie litery specjalne",
+            "### Ukryte kombinacje liter"
+          ]
+        },
+        {
+          "header": "## Praktyczne zdania dla par",
+          "subsections": [
+            "### Codzienne rozmowy"
+          ]
+        },
+        {
+          "header": "## Najczęstsze błędy Polaków",
+          "subsections": [
+            "### 1. \"Ich\" vs \"Iš\"",
+            "### 2. \"U\" vs \"Ü\"",
+            "### 3. \"R\" na końcu",
+            "### 4. Długość samogłosek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "70681019-dd84-4474-a8cd-87decb50904d",
+      "title": "Portugalské flirtovací fráze pro Čechy",
+      "native_lang": "cs",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní lichotky",
+          "subsections": [
+            "### \"Você é lindo/linda.\"",
+            "### \"Você tem um sorriso maravilhoso.\"",
+            "### \"Eu gosto muito de você.\"",
+            "### \"Você é incrível.\""
+          ]
+        },
+        {
+          "header": "## Romantické fráze",
+          "subsections": [
+            "### \"Não consigo parar de pensar em você.\"",
+            "### \"Você me faz muito feliz.\"",
+            "### \"Meu coração bate mais forte por você.\"",
+            "### \"Eu sou louco/louca por você.\""
+          ]
+        },
+        {
+          "header": "## Hravé fráze",
+          "subsections": [
+            "### \"Você acredita em amor à primeira vista ou eu preciso passar de novo?\"",
+            "### \"Se beleza fosse tempo, você seria a eternidade.\"",
+            "### \"Você é a pessoa mais especial que eu já conheci.\""
+          ]
+        },
+        {
+          "header": "## Fráze pro zprávy",
+          "subsections": [
+            "### \"Bom dia, meu amor.\"",
+            "### \"Estou com saudades de você.\"",
+            "### \"Mal posso esperar para te ver.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7069af00-4802-4f8d-9030-e990b43dfa71",
+      "title": "Expresii de Flirt în Engleză pentru Români",
+      "native_lang": "ro",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale de Flirt",
+          "subsections": [
+            "### Complimente Clasice",
+            "### Replici Jucăușe",
+            "### Expresii Romantice Profunde",
+            "### Flirt Prin Mesaje"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "70b4feeb-f3a0-4743-84a9-54ac27fc8e28",
+      "title": "Англійська весільна лексика: слова та фрази для особливого дня",
+      "native_lang": "uk",
+      "target_lang": "en",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Традиційні весільні фрази",
+          "subsections": [
+            "### Привітання молодят"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "70be53ac-c838-429d-9db1-b89cccd9c447",
+      "title": "Συνάντηση με την Οικογένεια του Συντρόφου σου στα Τσέχικα: Φράσεις που Θα Σου Φέρουν Κοντά",
+      "native_lang": "el",
+      "target_lang": "cs",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Συγκεκριμένες Καταστάσεις",
+          "subsections": [
+            "### Όταν Μπαίνεις στο Σπίτι",
+            "### Στο Τραπέζι",
+            "### Συζήτηση για την Ελλάδα"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "70c3b9cb-3879-4fc9-8d90-69eaa890bf7e",
+      "title": "Романтические итальянские фразы на все случаи",
+      "native_lang": "ru",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Утренние и вечерние фразы",
+          "subsections": [
+            "### Утром:",
+            "### Вечером:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "70e40889-76b6-482d-9906-da5e569e48da",
+      "title": "Чешские фразы о прощении",
+      "native_lang": "ru",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Фразы для просьбы о прощении",
+          "subsections": [
+            "### 1. Opravdu se omlouvám za to, co jsem udělal/udělala",
+            "### 2. Prosím, odpusť mi",
+            "### 3. Vím, že jsem ti ublížil/ublížila, a hluboce toho lituji",
+            "### 4. Tohle se už nestane, slibuji",
+            "### 5. Přebírám plnou odpovědnost za své činy"
+          ]
+        },
+        {
+          "header": "## Фразы для выражения прощения",
+          "subsections": [
+            "### 6. Odpouštím ti",
+            "### 7. Nechme to za sebou",
+            "### 8. Jsem připraven/připravena jít dál",
+            "### 9. Vážím si tvé omluvy",
+            "### 10. Omluvit se vyžaduje odvahu, děkuji"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "70e8cd51-4376-4e7a-acb3-4e0404ca4262",
+      "title": "Este Maghiara Greu de Învațăt? Ghid Sincer",
+      "native_lang": "ro",
+      "target_lang": "hu",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Ce Face Maghiara Provocatoare",
+          "subsections": [
+            "### 1. Sistemul de Cazuri (18 cazuri!)",
+            "### 2. Conjugarea Verbala",
+            "### 3. Ordinea Cuvintelor"
+          ]
+        },
+        {
+          "header": "## Ce Face Maghiara Mai Usoara Decat Crezi",
+          "subsections": [
+            "### 1. Fără Gen Gramatical",
+            "### 2. Pronuntie Fonetica",
+            "### 3. Accentul Este Mereu pe Prima Silaba",
+            "### 4. Vocabular International"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "710dc0cc-662a-4bc7-806c-11888308d510",
+      "title": "Tjeckisk Uttal för Par: Lär Dig Tala Som en Lokal med Din Älskling",
+      "native_lang": "sv",
+      "target_lang": "cs",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## De Fem Värsta Ljuden (och Hur Ni Mästrar Dem Tillsammans)",
+          "subsections": [
+            "### 1. Ř - Det Beryktade Ljudet",
+            "### 2. Ď, Ť, Ň - De Mjuka Konsonanterna",
+            "### 3. Ch - Inte Som Svenska \"Ch\"",
+            "### 4. C - Alltid \"Ts\"",
+            "### 5. H - Hårdare Än Svenskt"
+          ]
+        },
+        {
+          "header": "## De Sex Grundläggande Reglerna för Par",
+          "subsections": [
+            "### 1. Varje Bokstav Uttalas",
+            "### 2. Betoning på Första Stavelsen",
+            "### 3. Långa och Korta Vokaler",
+            "### 4. Intonation Går Uppåt",
+            "### 5. Diakritiska Tecken Är Väsentliga",
+            "### 6. Öva Tillsammans Dagligen"
+          ]
+        },
+        {
+          "header": "## Vanliga Uttalsmisstag Par Gör (och Hur Ni Undviker Dem)",
+          "subsections": [
+            "### 1. \"Miluji\" som \"Milooji\"",
+            "### 2. \"Ř\" som \"R\"",
+            "### 3. \"Dě\" som \"De\""
+          ]
+        },
+        {
+          "header": "## Din Veckoliga Uttalsutmaning för Par",
+          "subsections": [
+            "### Dag 1-2: Vokaler",
+            "### Dag 3-4: Konsonantkombinationer",
+            "### Dag 5-6: Romantiska Fraser",
+            "### Dag 7: Testa På Stad"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "71183352-0a3e-4cff-ad0d-91f76f11d1e6",
+      "title": "Meeting Your Italian Partner's Family",
+      "native_lang": "en",
+      "target_lang": "it",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Things to Avoid",
+          "subsections": [
+            "### Don't:",
+            "### Do:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "71279135-6098-4dc4-80ac-c24a5fd4cfd2",
+      "title": "Russian Restaurant Vocabulary for Dining Out",
+      "native_lang": "en",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Reading the Menu",
+          "subsections": [
+            "### Menu Sections"
+          ]
+        },
+        {
+          "header": "## Quick Reference",
+          "subsections": [
+            "### Arriving",
+            "### Ordering",
+            "### During Meal",
+            "### Paying"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "714ff31a-98fb-4c01-bde5-6175b40945dd",
+      "title": "Romence Sevgi Sözcükleri ve Takma Adlar",
+      "native_lang": "tr",
+      "target_lang": "ro",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Farklı Durumlar İçin Sevgi Sözcükleri",
+          "subsections": [
+            "### Günlük Hayatta",
+            "### Romantik Anlar İçin",
+            "### Şakalaşmak İçin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "715a454b-c5c4-42ba-892d-a3034bc528a5",
+      "title": "Знакомство с семьёй вашего француза: ключевые фразы для тёплого приёма",
+      "native_lang": "ru",
+      "target_lang": "fr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Конкретные сценарии общения",
+          "subsections": [
+            "### При входе в дом",
+            "### За обеденным столом"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "717f4fe2-c68e-43b1-8e8f-8dac6c4c083e",
+      "title": "Portugalski dla Par: Podstawy Gramatyki, Które Pokochasz od Pierwszej Randki",
+      "native_lang": "pl",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## 5 Złotych Zasad Portugalskiej Gramatyki dla Par",
+          "subsections": [
+            "### 1. Osoby - Prostsze Niż Po Polsku!",
+            "### 2. Czas Teraźniejszy - Trzy Końcówki Do Zapamiętania",
+            "### 3. Płeć Rzeczowników - Intuicyjna!",
+            "### 4. Przyimki - Mniej Niż Po Polsku!",
+            "### 5. Pytania - Prostsze Niż Myślisz!"
+          ]
+        },
+        {
+          "header": "## Najczęstsze Błędy Par - I Jak Ich Uniknąć",
+          "subsections": [
+            "### 1. **\"Eu amo você\"** zamiast **\"Eu te amo\"**",
+            "### 2. **Zapominanie o przyimku \"de\"**",
+            "### 3. **Używanie \"tu\" zamiast \"você\" bez pozwolenia**",
+            "### 4. **Myślenie, że portugalski = hiszpański**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "71836dfc-2a03-4645-921c-2fbf588a9d5b",
+      "title": "Expresii 'Mi-e Dor de Tine' în Italiană pentru Români",
+      "native_lang": "ro",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale de Dor",
+          "subsections": [
+            "### Expresii Pasionale",
+            "### Expresii Poetice",
+            "### Mesaje Romantice",
+            "### Promisiuni de Amor"
+          ]
+        }
+      ]
+    }
+  ]
+}

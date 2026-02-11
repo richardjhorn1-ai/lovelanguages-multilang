@@ -1,0 +1,388 @@
+{
+  "batchId": "tier2a-slim-0284",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "0e958ac6-c10a-49d2-b6a8-fdb8671d83bb",
+      "title": "Pascua Polaca: Tradiciones Wielkanoc",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Vocabulario Esencial de Pascua para Parejas",
+          "subsections": [
+            "### Términos Religiosos",
+            "### Comida y Celebración",
+            "### Expresiones Románticas de Pascua"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0eeb1157-e43a-4551-b6e7-aa9051c3d89b",
+      "title": "Francuski dla Par: 50+ Niezbędnych Zwrotow",
+      "native_lang": "pl",
+      "target_lang": "fr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Praktyczne codzieńne zwroty",
+          "subsections": [
+            "### W kuchni",
+            "### W domu"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Poranna rutyna po francusku",
+            "### Cwiczenie 2: Wieczorna refleksja",
+            "### Cwiczenie 3: Komplementy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0f319f17-bc1e-4d04-b824-25fb00a7b8e9",
+      "title": "Conoscere la Famiglia del Tuo Partner in Ungherese: Frasi Essenziali per Fare una Grande Impressione",
+      "native_lang": "it",
+      "target_lang": "hu",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Scenari Comuni Durante la Visita",
+          "subsections": [
+            "### Quando Ti Presentano i Parenti",
+            "### A Cena: Complimenti per il Cibo",
+            "### Conversazioni di Base"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0f59c716-dd29-4c9b-85c5-0ad6f2a6b108",
+      "title": "50+ Italské Mazlící Přezdívky pro Zamilované Páry",
+      "native_lang": "cs",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Jak Mazlící Přezdívky Používat",
+          "subsections": [
+            "### Začněte Pomalu",
+            "### Čas a Místo",
+            "### Osobní Dotek",
+            "### Časté Chyby"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0fcb0669-cb24-464e-aad1-bb45bb1be5d5",
+      "title": "Norweski dla Par: 40+ Niezbędnych Zwrotow",
+      "native_lang": "pl",
+      "target_lang": "no",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## W domu razem",
+          "subsections": [
+            "### Prace domowe",
+            "### Gotowanie"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Poranna rutyna",
+            "### Cwiczenie 2: Wieczorna rozmowa",
+            "### Cwiczenie 3: Jeden dzień po norwesku"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0ff7fa51-e8ac-4400-8508-56fa0fcc2c67",
+      "title": "Angielskie powitania i pożegnania dla par",
+      "native_lang": "pl",
+      "target_lang": "en",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Specjalne okazje",
+          "subsections": [
+            "### Przed podroza",
+            "### Przed ważnym wydarzeniem"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Poranna rutyna",
+            "### Cwiczenie 2: SMS-y po angielsku",
+            "### Cwiczenie 3: Odgrywanie scenek",
+            "### Cwiczenie 4: Powitania formalne vs nieformalne"
+          ]
+        },
+        {
+          "header": "## Kulturowe niuanse",
+          "subsections": [
+            "### USA vs UK",
+            "### Bledy do unikania"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "102643bc-c85a-4166-b5a2-8609e9f96492",
+      "title": "Swedish Pronunciation Guide: Master the Sounds English Doesn't Have",
+      "native_lang": "en",
+      "target_lang": "sv",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Consonant Challenges",
+          "subsections": [
+            "### The \"SJ\" Sound",
+            "### The \"TJ/KJ\" Sound",
+            "### The Swedish \"R\"",
+            "### RS Combinations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1035ece2-4444-488d-a2dd-f3765493182d",
+      "title": "Conocer a la Familia de tu Pareja en Neerlandés: Frases Esenciales para Impresionar",
+      "native_lang": "es",
+      "target_lang": "nl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Conversaciones Durante la Cena",
+          "subsections": [
+            "### Comentarios Sobre la Comida",
+            "### Preguntas Sobre la Familia"
+          ]
+        },
+        {
+          "header": "## Si Te Preguntan Sobre Ti",
+          "subsections": [
+            "### Sobre Tu País y Cultura",
+            "### Sobre Tu Relación"
+          ]
+        },
+        {
+          "header": "## Si Algo Sale Mal",
+          "subsections": [
+            "### Si No Entiendes",
+            "### Cambiar de Tema Suavemente"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "10a99618-6a77-44b2-a2ca-1302bd6fccd1",
+      "title": "Voeux d'anniversaire de mariage en espagnol",
+      "native_lang": "fr",
+      "target_lang": "es",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Les voeux de base",
+          "subsections": [
+            "### Comment dire « Joyeux anniversaire de mariage »",
+            "### Phrases romantiques essentielles"
+          ]
+        },
+        {
+          "header": "## Les noms des anniversaires",
+          "subsections": [
+            "### Anniversaires traditionnels"
+          ]
+        },
+        {
+          "header": "## Messages romantiques selon les années",
+          "subsections": [
+            "### Premiers anniversaires (1-5 ans)",
+            "### Anniversaires intermédiaires (10-20 ans)",
+            "### Grandes anniversaires (25+ ans)"
+          ]
+        },
+        {
+          "header": "## Vocabulaire du mariage",
+          "subsections": [
+            "### Termes essentiels",
+            "### Expressions romantiques"
+          ]
+        },
+        {
+          "header": "## Messages pour la carte d'anniversaire",
+          "subsections": [
+            "### Message court et doux",
+            "### Message romantique",
+            "### Message nostalgique"
+          ]
+        },
+        {
+          "header": "## Dialogues d'anniversaire",
+          "subsections": [
+            "### Au réveil",
+            "### Durante la cena romántica"
+          ]
+        },
+        {
+          "header": "## Idées pour célébrer",
+          "subsections": [
+            "### Activités romantiques",
+            "### Cadeaux traditionnels"
+          ]
+        },
+        {
+          "header": "## Exercices de pratique pour couples",
+          "subsections": [
+            "### Exercice 1 : Escribir votos renovados",
+            "### Exercice 2 : Recordar su boda",
+            "### Exercice 3 : Planificar el próximo aniversario"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "111df263-7a9c-46ed-a831-9f7ee125901e",
+      "title": "Is Dutch Hard? Honest Assessment",
+      "native_lang": "en",
+      "target_lang": "nl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Dutch Grammar: The Easy Parts",
+          "subsections": [
+            "### Word Order is Similar",
+            "### No Case System",
+            "### Two Genders (Practically)"
+          ]
+        },
+        {
+          "header": "## Tips for Success",
+          "subsections": [
+            "### 1. Embrace the Sounds",
+            "### 2. Learn Chunks, Not Just Words",
+            "### 3. Watch Dutch TV Together",
+            "### 4. Use Apps and Resources",
+            "### 5. Make Mistakes Proudly"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1146dd55-faf1-4cee-981a-0c38a948a0e9",
+      "title": "Conversación Casual Polaca: Charlas",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Encontrando Terreno Común",
+          "subsections": [
+            "### Pasatiempos e Intereses",
+            "### Viajes y Lugares"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "11ee3edb-352b-4a14-852f-af3a8a6da01d",
+      "title": "Spanish Verb Conjugation Basics",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## The Three Verb Groups Explained",
+          "subsections": [
+            "### First Group: -AR Verbs",
+            "### Second Group: -ER Verbs",
+            "### Third Group: -IR Verbs"
+          ]
+        },
+        {
+          "header": "## Fun Conjugation Exercises for Couples",
+          "subsections": [
+            "### Exercise 1: Daily Routine Sharing",
+            "### Exercise 2: Love Declarations",
+            "### Exercise 3: Future Plans"
+          ]
+        },
+        {
+          "header": "## Common Beginner Mistakes to Avoid Together",
+          "subsections": [
+            "### 1. Forgetting Subject-Verb Agreement",
+            "### 2. Mixing Up Verb Groups",
+            "### 3. Irregular Verbs Confusion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "121ffebd-77fc-4798-8bc6-43c777c780ee",
+      "title": "Exprimer ses Émotions en Polonais",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Phrases émotionnelles pour les couples",
+          "subsections": [
+            "### Exprimer l'amour et l'affection",
+            "### Dans les moments difficiles"
+          ]
+        },
+        {
+          "header": "## Scénarios de pratique pour les couples",
+          "subsections": [
+            "### Bilan matinal",
+            "### Offrir du soutien",
+            "### Célébrer ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "122a0fb8-5564-403a-9aae-d24cc8c7c760",
+      "title": "Conoscere la Famiglia del Tuo Partner in Francese: Frasi Essenziali per Fare una Grande Impressione",
+      "native_lang": "it",
+      "target_lang": "fr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Scenari Comuni Durante la Visita",
+          "subsections": [
+            "### All'Arrivo a Casa",
+            "### A Cena",
+            "### Mostrare Interesse per la Famiglia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "123f8bef-e850-4e73-b554-4cfb2e4d8673",
+      "title": "50+ Tureckie Zdrobnienia i Określenia Miłosne, Które Sprawią, Że Twój Partner się Roztopi",
+      "native_lang": "pl",
+      "target_lang": "tr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Jak Używać Tureckich Zdrobnień",
+          "subsections": [
+            "### 1. Zacznij od podstaw",
+            "### 2. Obserwuj reakcję",
+            "### 3. Twórzcie własne",
+            "### 4. Kontekst jest kluczowy"
+          ]
+        }
+      ]
+    }
+  ]
+}

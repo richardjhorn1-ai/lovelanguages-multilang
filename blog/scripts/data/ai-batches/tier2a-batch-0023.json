@@ -1,0 +1,127 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0023",
+  "articles": [
+    {
+      "id": "05d0f55f-f1ba-496f-80c3-d6e357a02249",
+      "title": "Cseh születésnapi kívánságok párodnak",
+      "native_lang": "hu",
+      "target_lang": "cs",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nA párod születésnapja tökéletes alkalom, hogy megmutasd, mennyire szereted. Ha csehul szeretnél szívből jövő kívánságokat mondani, ezek a kifejezések segítenek.\n\nAz alapvető szerelmi kifejezésekért nézd meg a [Hogyan mondd: Szeretlek csehul](/learn/hu/cs/czech-how-to-say-i-love-you) cikkünket.\n\n<PhraseOfDay\n  word=\"Gratuluju!\"\n  translation=\"Gratulálok!\"\n  pronunciation=\"ˈɡratʊlʊjʊ\"\n  context=\"Az esküvői köszöntés alapja.\"\n/>\n\n## Alapvető szókincs\n\nA születésnapi jókívánságok cseh szókincse:\n\n<VocabCard\n  word=\"svatba\"\n  translation=\"esküvő\"\n  pronunciation=\"ˈsvatba\"\n  example=\"Svatba byla krásná.\"\n/>\n\n| Cseh | Magyar | Használat |\n|---|---|---|\n| nevěsta | menyasszony | A nő |\n| ženich | vőlegény | A férfi |\n| sliby | fogadalmak | Esküvői ígéretek |\n| obřad | szertartás | A hivatalos rész |\n| recepce | fogadás | Az ünneplés |\n| přípitek | köszöntő | Pohárköszöntő |\n\n<CultureTip flag=\"🌍\" title=\"Cseh kulturális tippek\">\nA cseh kultúrában a születésnapokat különböző módon ünneplik. Egyesek nagy családi összejöveteleket tartanak, mások inkább intimebb ünnepléseket részesítenek előnyben.\n</CultureTip>\n\n## Hasznos kifejezések\n\n### Születésnapi köszöntések\n\nA nagy napon mondd:\n\n- **Gratuluju!** - Gratulálok!\n- **Kívánj valamit!** - A gyertyák elfújásánál\n- **Ez a te napod!** - Ünneplés\n\n### Romantikus üzenetek\nHa különlegessé akarod tenni:\n\n- **Minden évben jobban szeretlek** - Időtlen vallomás\n- **Te vagy a legjobb ajándék az életemben** - Szívből jövő\n\n<VocabCard\n  word=\"líbánky\"\n  translation=\"nászút\"\n  pronunciation=\"ˈliːbaːŋkɪ\"\n  example=\"Jeli na líbánky.\"\n/>\n\n## Gyakorlati helyzetek\n\n| Helyzet | Mit mondj |\n|---|---|\n| Reggeli ébresztés | Boldog születésnapot, szerelmem! |\n| Torta átadás | Kívánj valamit! |\n| Ajándék átadás | Remélem tetszik! |\n| Este | Ma minden rólad szól |\n\n<CultureTip flag=\"💡\" title=\"Hasznos tipp\">\nHa kártyát írsz, kérj segítséget a nyelvtanhoz. Egy-egy kis hiba kedves lehet, de ügyelj a legfontosabb szavak helyesírására.\n</CultureTip>\n\n## Összefoglaló táblázat\n\n| Helyzet | Cseh kifejezés |\n|---|---|\n| Gratuláció | Gratuluju! |\n| Az esemény | svatba |\n| A nő | nevěsta |\n| A férfi | ženich |\n| Esküvői ígéretek | sliby |\n\n## További tanulás\n\nHa tovább szeretnéd fejleszteni a cseh nyelvtudásod, nézd meg ezeket a cikkeinket:\n\n- [Cseh romantikus kifejezések minden alkalomra](/learn/hu/cs/czech-romantic-phrases-for-every-occasion)\n- [Hogyan mondd: Szeretlek csehul](/learn/hu/cs/czech-how-to-say-i-love-you)\n- [Cseh alapvető kifejezések pároknak](/learn/hu/cs/czech-essential-phrases-for-couples)\n\nEzek a források segítenek elmélyíteni a tudásod és magabiztosabbá válni a cseh nyelvben.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 273,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Hasznos kifejezések"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "05e40a43-5e01-44da-8c14-b123e09fdf82",
+      "title": "Phrases de réconfort en hongrois : Soutenir son partenaire",
+      "native_lang": "fr",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "## Soutenir son partenaire en hongrois\n\nLes Hongrois sont chaleureux et solidaires. Voici comment réconforter.\n\n## Phrases de réconfort\n\n### \"Itt vagyok neked\"\n**Prononciation :** itt VA-dyok NÉ-kéd\n\n**Signification :** Je suis là pour toi\n\n### \"Minden rendben lesz\"\n**Prononciation :** MIN-dén RÉND-bén léss\n\n**Signification :** Tout ira bien\n\n### \"Nem vagy egyedül ebben\"\n**Prononciation :** NÉM vadj É-dyé-dul ÉB-bén\n\n**Signification :** Tu n'es pas seul(e)\n\n## Écouter et valider\n\n### \"Megértem, hogyan érzel\"\n**Prononciation :** még-ÉR-tém HO-dyan ÉR-zél\n\n**Signification :** Je comprends ce que tu ressens\n\n### \"Normális így érezni\"\n**Prononciation :** nor-MA-lich idj É-réz-ni\n\n**Signification :** C'est normal de ressentir ça\n\n## Soutien actif\n\n### \"Mit tehetek, hogy segítsek?\"\n**Prononciation :** mit TÉ-hé-ték hody ché-GIT-chék\n\n**Signification :** Que puis-je faire pour t'aider ?\n\n### \"Mindig itt vagyok, hogy meghallgassalak\"\n**Prononciation :** MIN-dig itt VA-dyok hody még-hal-GAT-cha-lak\n\n**Signification :** Je suis toujours là pour t'écouter\n\n## Encouragement\n\n### \"Erősebb vagy, mint gondolnád\"\n**Prononciation :** É-reu-chéb vadj mint GON-dol-nad\n\n**Signification :** Tu es plus fort(e) que tu ne le penses\n\n### \"Hiszek benned\"\n**Prononciation :** HI-sék BÉN-néd\n\n**Signification :** Je crois en toi\n\n### \"Meg fogod csinálni\"\n**Prononciation :** még FO-god tchi-NAL-ni\n\n**Signification :** Tu vas y arriver\n\n## Moments difficiles\n\n### \"Nagyon sajnálom, hogy ezen mész keresztül\"\n**Prononciation :** NA-dyon CHAY-na-lom hody É-zén MÉSS KÉ-rész-tul\n\n**Signification :** Je suis vraiment désolé(e) que tu traverses ça\n\n### \"Gyere, hadd öleljelek meg\"\n**Prononciation :** DYÉ-ré had EU-lél-yé-lék még\n\n**Signification :** Viens, laisse-moi te serrer dans mes bras\n\n### \"Együtt megyünk át ezen\"\n**Prononciation :** É-dyut MÉ-dyunk at É-zén\n\n**Signification :** On va surmonter ça ensemble\n\n## Conclusion\n\nLe soutien en hongrois est chaleureux et sincère. Votre effort pour cette langue unique sera très apprécié.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 283,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Phrases de réconfort",
+              "## Écouter et valider",
+              "## Soutien actif",
+              "## Encouragement",
+              "## Moments difficiles"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "05f0de77-b051-4f93-9373-09f1a7fa1e6d",
+      "title": "Rencontrer la belle-famille en roumain : Impressionner les socri",
+      "native_lang": "fr",
+      "target_lang": "ro",
+      "category": "communication",
+      "content": "## Rencontrer la belle-famille roumaine\n\nLa famille roumaine est chaleureuse et accueillante. Voici comment faire bonne impression.\n\n## Premières salutations\n\n### \"Este o plăcere să vă cunosc în sfârșit\"\n**Prononciation :** YES-té o pla-TCHÉ-ré sa va kou-NOSK un SFUR-chit\n\n**Signification :** C'est un plaisir de vous rencontrer enfin\n\n### \"Am auzit multe lucruri frumoase despre dumneavoastră\"\n**Prononciation :** am a-ou-ZIT MOUL-té LOU-krouri frou-MOA-sé DÉSS-pré doum-néa-VOAS-tra\n\n**Signification :** J'ai entendu beaucoup de belles choses sur vous\n\n### \"Mulțumesc mult că m-ați invitat\"\n**Prononciation :** moul-tsou-MÉSK moult ka matsi in-vi-TAT\n\n**Signification :** Merci beaucoup de m'avoir invité(e)\n\n## Montrer du respect\n\n### \"Aveți o casă foarte frumoasă\"\n**Prononciation :** a-VÉTSI o KA-sa FOAR-té frou-MOA-sa\n\n**Signification :** Vous avez une très belle maison\n\n### \"Mâncarea este delicioasă, mulțumesc\"\n**Prononciation :** mun-KA-réa YES-té dé-li-tchi-OA-sa moul-tsou-MÉSK\n\n**Signification :** La nourriture est délicieuse, merci\n\n## Parler de votre partenaire\n\n### \"[Nume] înseamnă totul pentru mine\"\n**Prononciation :** [nom] un-SÉAM-na TO-toul PÉN-trou MI-né\n\n**Signification :** [Nom] signifie tout pour moi\n\n### \"Ați crescut o persoană minunată\"\n**Prononciation :** atsi krés-KOUT o pér-SOA-na mi-nou-NA-ta\n\n**Signification :** Vous avez élevé une personne merveilleuse\n\n## Au départ\n\n### \"Mulțumesc pentru o zi minunată\"\n**Prononciation :** moul-tsou-MÉSK PÉN-trou o zi mi-nou-NA-ta\n\n**Signification :** Merci pour cette merveilleuse journée\n\n### \"Sper să ne vedem curând din nou\"\n**Prononciation :** spér sa né VÉ-dém kou-RUND din NOU\n\n**Signification :** J'espère vous revoir bientôt\n\n## Conseils culturels\n\n**\"Dumneavoastră\" :** Toujours vouvoyer.\n**Hospitalité :** Les Roumains sont très accueillants.\n**Nourriture :** Mangez beaucoup - refuser est mal vu.\n**Vin maison :** Acceptez avec plaisir.\n\n## Conclusion\n\nLes Roumains apprécient la chaleur et le respect. Votre effort sera très apprécié.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 274,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Premières salutations",
+              "## Montrer du respect",
+              "## Parler de votre partenaire",
+              "## Au départ"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "06221d68-20df-4c54-9c5f-8bdb18304492",
+      "title": "Cseh kifejezések vitákhoz és nézeteltérésekhez",
+      "native_lang": "hu",
+      "target_lang": "cs",
+      "category": "communication",
+      "content": "A cseh és magyar kultúra sok hasonlóságot mutat – mindkettő közép-európai, és értékeli az őszinte, direkt kommunikációt. Ha cseh anyanyelvű partnered van, ezek a kifejezések segítenek a nézeteltérések kezelésében.\n\n## A cseh vitakultúra\n\nA csehek pragmatikusak és gyakran szkeptikusak – de ez nem jelent hideget. A viták általában nyugodtak, és a problémamegoldásra fókuszálnak.\n\n## Alapvető kifejezések nézeteltérésekhez\n\n### 1. \"Cítím se zraněný/á, když ty...\"\n**Kiejtés:** Cítím sze zranění/á, kdizs ti\n\n**Jelentés:** Bántva érzem magam, amikor te...\n\n**Példa:** \"Cítím se zraněná, když mi nezavoláš zpátky.\"\n\n### 2. \"Můžeme si o tom promluvit v klidu?\"\n**Kiejtés:** Múzseme szi o tom promluvit v klidu\n\n**Jelentés:** Beszélhetünk erről nyugodtan?\n\n**Példa:** \"Vím, že jsme oba naštvaní, ale můžeme si o tom promluvit v klidu?\"\n\n### 3. \"Rozumím tvému pohledu, ale...\"\n**Kiejtés:** Rozumím tvému pohledu, ale\n\n**Jelentés:** Értem a nézőpontodat, de...\n\n**Példa:** \"Rozumím tvému pohledu, ale já to vidím jinak.\"\n\n### 4. \"Nekřičme na sebe\"\n**Kiejtés:** Nekricsme na szebe\n\n**Jelentés:** Ne kiabáljunk egymásra\n\n**Példa:** \"Prosím, nekřičme na sebe.\"\n\n### 5. \"Potřebuji čas na přemýšlení\"\n**Kiejtés:** Potrebuji csasz na prseműslení\n\n**Jelentés:** Időre van szükségem a gondolkodáshoz\n\n**Példa:** \"Jsem teď moc naštvaný/á. Potřebuji čas na přemýšlení.\"\n\n### 6. \"To jsem neměl/a na mysli\"\n**Kiejtés:** To jszem nemnyel/a na miszli\n\n**Jelentés:** Nem erre gondoltam\n\n**Példa:** \"To jsem neměla na mysli. Nech mě to vysvětlit jinak.\"\n\n### 7. \"Dokážeš se vžít do mé situace?\"\n**Kiejtés:** Dokázses sze vzhít do mé szituáce\n\n**Jelentés:** Bele tudod magad képzelni a helyzetembe?\n\n**Példa:** \"Dokážeš se na chvíli vžít do mé situace?\"\n\n### 8. \"Nechtěl/a jsem ti ublížit\"\n**Kiejtés:** Nehtjel/a jszem tyi ublízsit\n\n**Jelentés:** Nem akartalak megbántani\n\n**Példa:** \"Promiň, nechtěla jsem ti ublížit svými slovy.\"\n\n### 9. \"Najděme kompromis\"\n**Kiejtés:** Najgyeme kompromisz\n\n**Jelentés:** Találjunk kompromisszumot\n\n**Példa:** \"Oba máme pravdu. Najděme kompromis.\"\n\n### 10. \"Mám pocit, že mě neposloucháš\"\n**Kiejtés:** Mám pocit, zse mnye neposzlouhás\n\n**Jelentés:** Úgy érzem, nem hallgatsz meg\n\n**Példa:** \"Mám pocit, že mě neposloucháš, když mluvím.\"\n\n### 11. \"To mě bolí\"\n**Kiejtés:** To mnye bolí\n\n**Jelentés:** Ez fáj nekem\n\n**Példa:** \"Když takhle mluvíš, bolí mě to.\"\n\n## Cseh kulturális sajátosságok\n\n**Közép-európai közösség:** A cseh és magyar kultúra közel áll egymáshoz – ez segít a megértésben.\n\n**Pragmatizmus:** A csehek praktikusak és megoldás-orientáltak.\n\n**Ty vs. Vy:** Párkapcsolatban mindig a \"ty\" (tegező) formát használd.\n\n**Humor:** A csehek szeretik a humort, de vita közben légy óvatos vele.\n\n## Hasznos békülő kifejezések\n\n- \"Promiň\" (Bocsáss meg)\n- \"Usmířme se\" (Békéljünk ki)\n- \"Miluji tě\" (Szeretlek)\n- \"Nezlob se\" (Ne haragudj)\n\n## Összefoglalás\n\nA cseh nyelvű viták megtanulása könnyű lehet a kulturális hasonlóságok miatt. Használd ki ezt az előnyt, és építsd a kapcsolatotokat a közös közép-európai értékekre.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Alapvető kifejezések nézeteltérésekhez"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "06305329-11c6-4a31-a4eb-8fcb9fe5dd28",
+      "title": "Podstawy gramatyki czeskiej - przewodnik dla Polaków",
+      "native_lang": "pl",
+      "target_lang": "cs",
+      "category": "grammar",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport ConjugationTable from '@components/ConjugationTable.astro';\nimport CTA from '@components/CTA.astro';\n\nCzeska gramatyka jest BARDZO podobna do polskiej! Dla Polaka to najłatwiejsza gramatyka do opanowania - te same przypadki, podobna koniugacja, niemal identyczna składnia!\n\n## Przypadki - identyczne jak w polskim!\n\n<PhraseOfDay\n  word=\"7 pádů jako v polštině\"\n  translation=\"7 przypadków jak w polskim\"\n  pronunciation=\"sedm PA-duf ja-ko f POL-sztyi-nie\"\n  context=\"Czeski ma DOKŁADNIE te same przypadki!\"\n/>\n\n| Polski | Czeski | Pytanie |\n|--------|--------|---------|\n| Mianownik | Nominativ | Kto? Co? |\n| Dopełniacz | Genitiv | Kogo? Czego? |\n| Celownik | Dativ | Komu? Czemu? |\n| Biernik | Akuzativ | Kogo? Co? |\n| Wołacz | Vokativ | O! |\n| Narzędnik | Instrumentál | Z kim? Z czym? |\n| Miejscownik | Lokál | O kim? O czym? |\n\n<CultureTip title=\"Identyczne przypadki!\" flag=\"🇨🇿🇵🇱\">\nCzeski ma DOKŁADNIE te same 7 przypadków co polski! Nawet działają podobnie. To OGROMNA zaleta dla Polaków - nie musisz uczyć się konceptu przypadków!\n</CultureTip>\n\n### Przykład odmiany\n\n<VocabCard\n  word=\"Žena (kobieta)\"\n  translation=\"Kobieta - odmiana\"\n  pronunciation=\"ŻE-na\"\n  example=\"Vidím ženu. - Widzę kobietę.\"\n/>\n\n| Przypadek | Czeski | Polski |\n|-----------|--------|--------|\n| Nominativ | žen**a** | kobiet**a** |\n| Genitiv | žen**y** | kobiet**y** |\n| Dativ | žen**ě** | kobiec**ie** |\n| Akuzativ | žen**u** | kobiet**ę** |\n| Vokativ | žen**o**! | kobiet**o**! |\n| Instrumentál | žen**ou** | kobiet**ą** |\n| Lokál | o žen**ě** | o kobiec**ie** |\n\n## Rodzaje gramatyczne\n\nCzeski ma 3 rodzaje - identycznie jak polski:\n\n| Rodzaj | Czeski | Końcówki | Przykłady |\n|--------|--------|----------|-----------|\n| Męski | Mužský rod | spółgłoska | muž, dům, stůl |\n| Żeński | Ženský rod | -a, -e | žena, růže |\n| Nijaki | Střední rod | -o, -í, -e | město, kuře |\n\n<CultureTip title=\"Intuicyjne rodzaje!\" flag=\"🇨🇿🇵🇱\">\nRodzaje w czeskim działają prawie identycznie jak w polskim! \"Žena\" (kobieta) jest żeńska, \"muž\" (mężczyzna) męski, \"město\" (miasto) nijakie - jak w polskim!\n</CultureTip>\n\n## Czasowniki - czas teraźniejszy\n\n### Wzory koniugacji\n\n<PhraseOfDay\n  word=\"Být - być\"\n  translation=\"Najważniejszy czasownik czeski\"\n  pronunciation=\"bit\"\n  context=\"Podstawa gramatyki\"\n/>\n\n\n### Regularne czasowniki\n\n<VocabCard\n  word=\"Milovat (kochać)\"\n  translation=\"Koniugacja -ovat\"\n  pronunciation=\"MI-lo-wat\"\n  example=\"Miluji tě. - Kocham cię.\"\n/>\n\n| Osoba | Milovat | Dělat | Mít |\n|-------|---------|-------|-----|\n| já | miluj**i** | děl**ám** | m**ám** |\n| ty | miluj**eš** | děl**áš** | m**áš** |\n| on/ona | miluj**e** | děl**á** | m**á** |\n| my | miluj**eme** | děl**áme** | m**áme** |\n| vy | miluj**ete** | děl**áte** | m**áte** |\n| oni | miluj**í** | děl**ají** | m**ají** |\n\n<CultureTip title=\"Podobne końcówki!\" flag=\"🇨🇿🇵🇱\">\nCzeskie końcówki czasowników przypominają polskie! \"-ám, -áš, -á\" to jak polskie \"-am, -asz, -a\". Wzory są intuicyjne!\n</CultureTip>\n\n## Zaimki\n\n### Zaimki osobowe\n\n| Polski | Czeski | Wymowa |\n|--------|--------|--------|\n| ja | já | ja |\n| ty | ty | ty |\n| on | on | on |\n| ona | ona | ona |\n| ono | ono | ono |\n| my | my | my |\n| wy | vy | wy |\n| oni/one | oni/ony | oni/ony |\n\n### Zaimki dzierżawcze\n\n<VocabCard\n  word=\"Můj, tvůj, jeho, její\"\n  translation=\"Mój, twój, jego, jej\"\n  pronunciation=\"muj, twuj, JE-ho, JE-ji\"\n  example=\"Jsi moje láska. - Jesteś moją miłością.\"\n/>\n\n| Polski | Czeski (m.) | Czeski (f.) | Czeski (n.) |\n|--------|-------------|-------------|-------------|\n| mój | můj | moje/má | moje/mé |\n| twój | tvůj | tvoje/tvá | tvoje/tvé |\n| jego | jeho | jeho | jeho |\n| jej | její | její | její |\n| nasz | náš | naše | naše |\n| wasz | váš | vaše | vaše |\n| ich | jejich | jejich | jejich |\n\n## Przeczenia\n\nCzeski tworzy przeczenia identycznie jak polski - przedrostkiem **ne-**:\n\n<VocabCard\n  word=\"Nevím\"\n  translation=\"Nie wiem\"\n  pronunciation=\"NE-wim\"\n  example=\"Nevím, co dělat. - Nie wiem, co robić.\"\n/>\n\n| Twierdzenie | Przeczenie | Polski |\n|-------------|------------|--------|\n| vím | **ne**vím | nie wiem |\n| chci | **ne**chci | nie chcę |\n| mám | **ne**mám | nie mam |\n| můžu | **ne**můžu | nie mogę |\n| rozumím | **ne**rozumím | nie rozumiem |\n\n## Pytania\n\nPytania tworzy się podobnie jak w polskim - intonacją lub zaimkami pytającymi:\n\n| Czeski | Polski | Wymowa |\n|--------|--------|--------|\n| **Kdo?** | Kto? | gdo |\n| **Co?** | Co? | co |\n| **Kde?** | Gdzie? | gde |\n| **Kdy?** | Kiedy? | gdy |\n| **Jak?** | Jak? | jak |\n| **Proč?** | Dlaczego? | procz |\n| **Kolik?** | Ile? | KO-lik |\n\n<CultureTip title=\"Prawie identyczne!\" flag=\"🇨🇿🇵🇱\">\nZaimki pytające są PRAWIE identyczne! \"Kdo\" = kto, \"co\" = co, \"kde\" = gdzie, \"jak\" = jak. Tylko wymowa trochę inna!\n</CultureTip>\n\n## Przymiotniki\n\nPrzymiotniki odmieniają się przez przypadki i rodzaje:\n\n<VocabCard\n  word=\"Krásný, krásná, krásné\"\n  translation=\"Piękny, piękna, piękne\"\n  pronunciation=\"KRAS-ni, KRAS-na, KRAS-ne\"\n  example=\"Máš krásné oči. - Masz piękne oczy.\"\n/>\n\n| Rodzaj | Czeski | Polski |\n|--------|--------|--------|\n| Męski | krásn**ý** | piękn**y** |\n| Żeński | krásn**á** | piękn**a** |\n| Nijaki | krásn**é** | piękn**e** |\n| Męski (l.mn.) | krásn**í** | piękn**i** |\n| Pozostałe (l.mn.) | krásn**é** | piękn**e** |\n\n## Porównania\n\n| Stopień | Czeski | Polski | Przykład |\n|---------|--------|--------|----------|\n| Równy | krásný | piękny | Jsi krásná |\n| Wyższy | krásnější | piękniejszy | Jsi krásnější |\n| Najwyższy | nejkrásnější | najpiękniejszy | Jsi nejkrásnější |\n\n<CultureTip title=\"Nej- = naj-!\" flag=\"🇨🇿🇵🇱\">\nStopień najwyższy tworzy się przedrostkiem \"nej-\" - identycznie jak polskie \"naj-\"! \"Nejlepší\" = najlepszy, \"nejkrásnější\" = najpiękniejszy.\n</CultureTip>\n\n## Ćwiczenia dla par\n\n### Ćwiczenie 1: Odmiana\nOdmieńcie razem: \"láska\" (miłość), \"muž\" (mężczyzna), \"srdce\" (serce).\n\n### Ćwiczenie 2: Koniugacja\nOdmieńcie: \"milovat\" (kochać), \"chtít\" (chcieć), \"mít\" (mieć).\n\n### Ćwiczenie 3: Zdania\nTwórzcie zdania:\n- \"Miluji tě\" (Kocham cię)\n- \"Jsi krásná/ý\" (Jesteś piękna/y)\n- \"Chci být s tebou\" (Chcę być z tobą)\n\n## Podsumowanie\n\nCzeska gramatyka to dla Polaków pestka! Identyczne przypadki, podobna koniugacja, te same rodzaje. Jeśli znasz polski - 80% czeskiej gramatyki już umiesz!\n\n## Kontynuuj naukę\n\n- **[Wymowa czeska](/learn/pl/cs/czech-pronunciation-guide/)** - Opanuj dźwięki\n- **[Niezbędne zwroty](/learn/pl/cs/czech-essential-phrases-for-couples/)** - Praktyczna komunikacja\n- **[Czy czeski jest trudny?](/learn/pl/cs/is-czech-hard-to-learn/)** - Szczera odpowiedź\n- **[Czeskie powitania](/learn/pl/cs/czech-greetings-farewells/)** - Podstawy rozmowy\n\n<CTA text=\"Gotowi na czeską gramatykę?\" buttonText=\"Zacznij teraz\" />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Czasowniki - czas teraźniejszy",
+              "## Zaimki",
+              "## Ćwiczenia dla par"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

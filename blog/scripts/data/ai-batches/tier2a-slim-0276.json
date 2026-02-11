@@ -1,0 +1,419 @@
+{
+  "batchId": "tier2a-slim-0276",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "ad35cb5b-a9ce-4631-a510-99de3aeff7ba",
+      "title": "50 Romantiske Tyrkiske Sætninger til Hver Lejlighed - Lær at Udtrykke Kærlighed på Tyrkisk",
+      "native_lang": "da",
+      "target_lang": "tr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Sådan Bruger I Disse Sætninger Sammen",
+          "subsections": [
+            "### Practice-Tips for Par",
+            "### Kulturel Kontekst"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ae829a03-17db-4097-bfa0-98fb4e32f1ac",
+      "title": "40 Tsjekkiske Hilsener og Farvel som Smelter Partnerens Hjerte",
+      "native_lang": "no",
+      "target_lang": "cs",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Spesielle Anledninger",
+          "subsections": [
+            "### Fødselsdag og Høytider",
+            "### Når Du Møter Familien"
+          ]
+        },
+        {
+          "header": "## Hvordan Øve Sammen",
+          "subsections": [
+            "### Rollespill Øvelser",
+            "### Daglige Utfordringer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b07024c3-4459-46f2-bf23-ad0bd419f098",
+      "title": "Знайомство з родиною вашого партнера данською: фрази, які створять перше враження",
+      "native_lang": "uk",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Конкретні сценарії",
+          "subsections": [
+            "### При вході до дому",
+            "### За столом",
+            "### Розмова про ваші стосунки"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b0bc057e-8f36-496e-9e2a-c829a8439db7",
+      "title": "Podstawy gramatyki niemieckiej dla par: Zacznij mówić do swojej drugiej połówki od pierwszych lekcji",
+      "native_lang": "pl",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Podstawowe zasady (5 prostych reguł)",
+          "subsections": [
+            "### 1. Zaimki osobowe – kto jest kim w waszym związku",
+            "### 2. Podstawowe czasowniki – wasze wspólne działania",
+            "### 3. Rzeczowniki z rodzajnikiem – ważne rzeczy w waszym życiu",
+            "### 4. Kolejność wyrazów w zdaniu",
+            "### 5. Pytania – jak pytać swojego partnera"
+          ]
+        },
+        {
+          "header": "## Najczęstsze wzorce – gotowe formułki",
+          "subsections": [
+            "### Codzienne wyznania miłości",
+            "### Planowanie wspólnego czasu"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b42a6c4c-5624-4768-a2f7-fe4a11d6f818",
+      "title": "Mød din partners rumænske familie: Væsentlige fraser og kulturelle tips",
+      "native_lang": "da",
+      "target_lang": "ro",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Specifikke scenarier under besøget",
+          "subsections": [
+            "### 1. Ankomst til huset",
+            "### 2. Ved middagsbordet",
+            "### 3. Vis interesse for familien"
+          ]
+        },
+        {
+          "header": "## Vigtigt ordforråd til familiesamvær",
+          "subsections": [
+            "### Familiemedlemmer",
+            "### Komplimenter og høflighed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b5655967-6693-455b-a715-bc4578ada64e",
+      "title": "Conhecendo a Família do Seu Parceiro Polonês: Frases Essenciais para Fazer uma Boa Impressão",
+      "native_lang": "pt",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Apresentações e Cumprimentos",
+          "subsections": [
+            "### Cumprimentando os Pais"
+          ]
+        },
+        {
+          "header": "## Quando as Coisas Não Saem Como o Planejado",
+          "subsections": [
+            "### Se Não Entender",
+            "### Emergências Sociais"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b74b23e0-3554-4218-b464-894618dac256",
+      "title": "Polsk Grammatikk for Par: Enkel Veiledning for Kjærester",
+      "native_lang": "no",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Grunnleggende Regler (Kjerneregler)",
+          "subsections": [
+            "### 1. Ordstilling: Subjekt + Verb + Objekt",
+            "### 2. Kjønn: Maskulin, feminin og nøytrum",
+            "### 3. Verb bøyes etter person",
+            "### 4. Ingen bestemt artikkel",
+            "### 5. Preposisjoner styrer kasus"
+          ]
+        },
+        {
+          "header": "## Vanlige Feil (Og Hvordan Unngå Dem)",
+          "subsections": [
+            "### 1. **Blander kjønn på adjektiver**",
+            "### 2. **Glemmer å bøye verb**",
+            "### 3. **Feil preposisjon**",
+            "### 4. **Forvirrer \"ty\" og \"cię\"**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b75abf99-7d80-4cc9-977d-7a9884534090",
+      "title": "Møte din partners familie på engelsk: Trygge fraser for å gjøre et godt inntrykk",
+      "native_lang": "no",
+      "target_lang": "en",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Vanlige samtale-scenarioer",
+          "subsections": [
+            "### Scenario 1: Ankomst og første presentasjoner",
+            "### Scenario 2: Middagssamtalen",
+            "### Scenario 3: Å tilby hjelp"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b8e8a83f-d5c4-4d07-9c07-8eeb6467a421",
+      "title": "Pronuncia Romena per Principianti: Come Parlare con il Cuore del Tuo Partner",
+      "native_lang": "it",
+      "target_lang": "ro",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Le Combinazioni che Ti Faranno Impazzire (Ma che il Tuo Partner Adorerà)",
+          "subsections": [
+            "### \"Ce\" e \"Ci\" - Non Come in Italiano!",
+            "### \"Ghe\" e \"Ghi\" - I Suoni del Nord"
+          ]
+        },
+        {
+          "header": "## Gli Inganni Fonologici: Non Farti Ingannare!",
+          "subsections": [
+            "### False Amicizie con l'Italiano",
+            "### Le Lettere Mute che Cambiano Tutto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "baaece3f-ec71-418d-876e-c2826edf25eb",
+      "title": "Je Griekse partners familie ontmoeten: Essentiële zinnen voor een onvergetelijke eerste indruk",
+      "native_lang": "nl",
+      "target_lang": "el",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Specifieke scenarios voor het ontmoeten van familie",
+          "subsections": [
+            "### Bij aankomst bij hun huis",
+            "### Tijdens het diner"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bab4b19e-a6a4-456c-b8e6-34f8836b007e",
+      "title": "Gramatica Ucraineană de Bază pentru Începători: Învață alături de Partenerul Tău",
+      "native_lang": "ro",
+      "target_lang": "uk",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Bazele Esențiale: 5 Reguli Fundamentale",
+          "subsections": [
+            "### 1. Genurile Substantivelor",
+            "### 2. Pronumele Personale",
+            "### 3. Verbul \"A Fi\" - Бути",
+            "### 4. Genitivul pentru Exprimarea Posesiei",
+            "### 5. Prezentul Simplu"
+          ]
+        },
+        {
+          "header": "## Conjugarea Verbelor: Cele Mai Importante",
+          "subsections": [
+            "### Verbul \"A Iubi\" - Любити",
+            "### Alte Verbe Esențiale pentru Cupluri"
+          ]
+        },
+        {
+          "header": "## Greșeli Comune și Cum să Le Evitați",
+          "subsections": [
+            "### 1. Genul Greșit al Adjectivelor",
+            "### 2. Confuzia între \"Твій\" și \"Ваш\"",
+            "### 3. Ordinea Cuvintelor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bac77786-718e-47c3-9d21-d8c83f187829",
+      "title": "Aprender Polaco Solo vs en Pareja",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Por Qué Tu Cerebro Ama Aprender con Tu **Ukochana Osoba** (Persona Amada)",
+          "subsections": [
+            "### 1. **Partner do Konwersacji** (Compañero de Conversación) Incorporado",
+            "### 2. Motivación Natural a Través de la **Konkurencja** (Competencia)",
+            "### 3. Red de Seguridad Emocional"
+          ]
+        },
+        {
+          "header": "## La Ciencia Detrás de **Nauka w Parze** (Aprender en Pareja)",
+          "subsections": [
+            "### Mejora de la Memoria",
+            "### Responsabilidad que Realmente Funciona"
+          ]
+        },
+        {
+          "header": "## Errores Comunes del Aprendizaje en Solitario",
+          "subsections": [
+            "### El Problema de la Pronunciación",
+            "### Confusión Gramatical Sin Aclaración",
+            "### Falta de Contexto Cultural"
+          ]
+        },
+        {
+          "header": "## Cómo las Parejas Aceleran el Dominio del Polaco",
+          "subsections": [
+            "### 1. **Codzienne Rozmowy** (Conversaciones Diarias)",
+            "### 2. **Wspólne Cele** (Metas Compartidas)",
+            "### 3. **Błędy jako Zespół** (Errores en Equipo)"
+          ]
+        },
+        {
+          "header": "## Superando **Typowe Wyzwania** (Desafíos Comunes)",
+          "subsections": [
+            "### Diferentes Velocidades de Aprendizaje",
+            "### Dinámicas de Relación",
+            "### Encontrar Tiempo Juntos"
+          ]
+        },
+        {
+          "header": "## Haciéndolo Funcionar: **Praktyczne Wskazówki** (Consejos Prácticos)",
+          "subsections": [
+            "### Empezar Pequeño",
+            "### Celebrar **Sukcesy** (Éxitos)",
+            "### Crear **Tradycje** (Tradiciones)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bcc8c62a-f7f9-4026-b374-45d2923947e8",
+      "title": "Polish Valentine's Day: Walentynki",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Essential Valentine's Day Phrases in Polish",
+          "subsections": [
+            "### Declarations of Love",
+            "### Romantic Compliments",
+            "### Sweet Valentine's Messages"
+          ]
+        },
+        {
+          "header": "## Polish Valentine's Day Traditions",
+          "subsections": [
+            "### Gift-Giving Customs",
+            "### Romantic Dinner Traditions",
+            "### Poetry and Letters"
+          ]
+        },
+        {
+          "header": "## Modern Polish Valentine's Celebrations",
+          "subsections": [
+            "### City Celebrations",
+            "### Valentine's Cards - Kartki Walentynkowe"
+          ]
+        },
+        {
+          "header": "## Valentine's Day Vocabulary for Couples",
+          "subsections": [
+            "### Essential Words",
+            "### Romantic Actions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "be13f13b-bacd-40f5-9490-a0d1f150cc43",
+      "title": "Guía de Pronunciación Checa para Principiantes: Habla Checo con tu Pareja en Semanas",
+      "native_lang": "es",
+      "target_lang": "cs",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Los Sonidos Más Difíciles (¡Y Cómo Dominarlos!)",
+          "subsections": [
+            "### El Famoso Ř",
+            "### Č, Š, Ž - Tus Nuevos Mejores Amigos"
+          ]
+        },
+        {
+          "header": "## Vocales Checas: Simples Pero Importantes",
+          "subsections": [
+            "### Vocales Cortas vs. Largas",
+            "### Las Vocales con Diéresis"
+          ]
+        },
+        {
+          "header": "## Errores Comunes que Evitar",
+          "subsections": [
+            "### 1. Pronunciar \"J\" como en Español",
+            "### 2. Ignorar los Diacríticos",
+            "### 3. Españolizar las \"R\"",
+            "### 4. Separar Consonantes",
+            "### 5. La Temida \"Ř\""
+          ]
+        },
+        {
+          "header": "## Ejercicios Diarios para Practicar Juntos",
+          "subsections": [
+            "### Ejercicio 1: El Espejo",
+            "### Ejercicio 2: Historias con Ř",
+            "### Ejercicio 3: Canciones de Amor"
+          ]
+        },
+        {
+          "header": "## Guía Rápida de Rescate",
+          "subsections": [
+            "### Sonidos Difíciles en una Tabla",
+            "### Frases de Emergencia (Bien Pronunciadas)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "bffbaa6c-f117-47cd-a7e3-a3b3cc939211",
+      "title": "Întâlnirea cu Familia Partenerului Grec: Ghidul Complet pentru Cupluri",
+      "native_lang": "ro",
+      "target_lang": "el",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Scenarii Comune și Dialoguri Practice",
+          "subsections": [
+            "### 1. Sosirea la Casă",
+            "### 2. La Masă - Marea Provocare",
+            "### 3. Conversații despre Relație"
+          ]
+        },
+        {
+          "header": "## Vocabular pentru Conversații de Bază",
+          "subsections": [
+            "### Despre Familie",
+            "### Despre Tine"
+          ]
+        }
+      ]
+    }
+  ]
+}

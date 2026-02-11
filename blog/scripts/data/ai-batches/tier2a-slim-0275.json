@@ -1,0 +1,401 @@
+{
+  "batchId": "tier2a-slim-0275",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "a077d048-07a1-4bf7-b29e-4e6432deb65c",
+      "title": "Guia de Pronúncia do Francês para Iniciantes: Sons que Conectarão Vocês Dois",
+      "native_lang": "pt",
+      "target_lang": "fr",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Erros Comuns que Vocês Evitarão",
+          "subsections": [
+            "### 1. Não Pronunciar Sons Nasais",
+            "### 2. Pronunciar \"R\" como em Português",
+            "### 3. Esquecer Consoantes Mudas"
+          ]
+        },
+        {
+          "header": "## Exercícios para Praticarem Juntos",
+          "subsections": [
+            "### Exercício 1: Sons Nasais",
+            "### Exercício 2: Vogais",
+            "### Exercício 3: Romântico"
+          ]
+        },
+        {
+          "header": "## Dicas de Mestre para Casais",
+          "subsections": [
+            "### Técnica do Espelho",
+            "### Gravação Romântica",
+            "### Ritmo e Música"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a22e9225-6da0-4bfe-ab08-8bc4fcda0ac5",
+      "title": "Ukrainische Grammatik für Anfänger: Liebe beginnt mit den Grundlagen",
+      "native_lang": "de",
+      "target_lang": "uk",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Die 5 Grundregeln für Paare",
+          "subsections": [
+            "### 1. Keine Artikel - hurra!",
+            "### 2. Die persönlichen Fürwörter",
+            "### 3. Die 3 Geschlechter",
+            "### 4. Präsens - Gegenwart",
+            "### 5. Die wichtigste Frageform"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2ee8136-7f86-43a1-b256-68a1dbe722c7",
+      "title": "Nederländsk Grammatik för Par: Lär er tillsammans med enkla regler",
+      "native_lang": "sv",
+      "target_lang": "nl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De 5 Grundläggande Reglerna för Par",
+          "subsections": [
+            "### 1. Personliga Pronomen - \"Jag och Du\"",
+            "### 2. Verb Böjning - Enkelt i Presens",
+            "### 3. Artiklar - De eller Het?",
+            "### 4. Ordningen i Meningen",
+            "### 5. Possessiva Pronomen - \"Min\", \"Din\", \"Vår\""
+          ]
+        },
+        {
+          "header": "## Vanliga Mönster i Vardagen",
+          "subsections": [
+            "### Presentera Er för Familjen",
+            "### Planera En Dejt",
+            "### Diskutera Framtiden"
+          ]
+        },
+        {
+          "header": "## Vanliga Misstag att Undvika",
+          "subsections": [
+            "### 1. **Blanda ihop \"je\" och \"jou\"**",
+            "### 2. **Fel artikel**",
+            "### 3. **Fel verbform**",
+            "### 4. **Direkt översättning från svenska**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a4d93635-237a-4ea2-a92c-f4db3b45dbd7",
+      "title": "Conhecendo a Família do Seu Parceiro Holandês: Frases Essenciais para Impressionar",
+      "native_lang": "pt",
+      "target_lang": "nl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Frases para Situações Comuns",
+          "subsections": [
+            "### Quando Não Entender",
+            "### Comentários Sobre a Holanda",
+            "### Expressando Gratidão"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a51a9017-514d-450f-b49b-1276bc2b1178",
+      "title": "Apprendre le Polonais : Combien de Temps ?",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Facteurs qui accélèrent vos progrès",
+          "subsections": [
+            "### Apprendre en couple :",
+            "### Ce qui aide le plus :",
+            "### Obstacles courants :"
+          ]
+        },
+        {
+          "header": "## Créer votre plan d'apprentissage en couple",
+          "subsections": [
+            "### Routine quotidienne (30 minutes) :",
+            "### Objectifs hebdomadaires :",
+            "### Défis mensuels :"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a5232ad2-fa29-45ee-8067-87491f399e36",
+      "title": "Canciones de Amor Polacas Románticas",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Canciones de Amor Polacas Clásicas",
+          "subsections": [
+            "### \"Kocham Cię, kochanie moje\" de Seweryn Krajewski",
+            "### \"Jeszcze się tam żagiel bieli\" de Czesław Niemen"
+          ]
+        },
+        {
+          "header": "## Canciones de Amor Polacas Modernas",
+          "subsections": [
+            "### \"Miłość do kwadratu\" de Piotr Rubik",
+            "### \"Całuj mnie\" de Kayah"
+          ]
+        },
+        {
+          "header": "## Canciones de Amor con Inspiración Folclórica",
+          "subsections": [
+            "### \"Czerwone jagody\" - Tradicional",
+            "### \"Hej, sokoły\" - Tradicional"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a59fb59a-485b-4c6f-b8cd-fe7622d01c2a",
+      "title": "Incontrare la Famiglia del Tuo Partner Russo: Frasi Essenziali per Connetterti con Amore",
+      "native_lang": "it",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Conversazioni con Cuore: Domande e Risposte",
+          "subsections": [
+            "### Scenario 1: La Mamma Curiosa",
+            "### Scenario 2: Il Papà Interessato",
+            "### Scenario 3: La Nonna Dolce"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a630d530-7014-4ded-b7f2-b290ae6f7cb0",
+      "title": "Græske Grundregler for Kærestepar: Lær Grammatik Sammen på En Romantisk Måde",
+      "native_lang": "da",
+      "target_lang": "el",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De 5 Grundregler for Kærestepar",
+          "subsections": [
+            "### 1. Artiklerne: Den, Det, De",
+            "### 2. Verbets Tider: Nutid, Datid, Fremtid",
+            "### 3. Personlige Pronomen",
+            "### 4. Spørgsmål: Nemmere End Du Tror!",
+            "### 5. Det Vigtige \"Na\" (Να)"
+          ]
+        },
+        {
+          "header": "## Almindelige Mønstre for Par",
+          "subsections": [
+            "### Kælenavne og Hengivenhed",
+            "### Daglige Rutiner"
+          ]
+        },
+        {
+          "header": "## De 3 Største Fejl (Og Sådan Undgår I Dem)",
+          "subsections": [
+            "### 1. Artikel-sammensætning",
+            "### 2. Nutids-endelser",
+            "### 3. Nutids-versus fremtid"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a64c9385-6e1d-49db-ba9e-cdd811686e15",
+      "title": "Conoscere la Famiglia del Tuo Partner Tedesco: Frasi Essenziali per Fare una Grande Impressione",
+      "native_lang": "it",
+      "target_lang": "de",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Scenari Pratici: Dialoghi Veri",
+          "subsections": [
+            "### Scenario 1: Arrivo a Casa",
+            "### Scenario 2: A Cena",
+            "### Scenario 3: Conversazione su di Voi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a7453587-af03-49ab-84a5-f7fead3cf7a8",
+      "title": "Die Familie deines Partners auf Spanisch treffen: Wichtige Phrasen für einen tollen ersten Eindruck",
+      "native_lang": "de",
+      "target_lang": "es",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Konkrete Szenarien beim Familienessen",
+          "subsections": [
+            "### Beim Betreten des Hauses",
+            "### Small Talk am Tisch",
+            "### Komplimente für das Essen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a7f4e33b-7607-41b7-95f4-adf83b9a8bd4",
+      "title": "Cum să îți întâlnești familia partenerului în cehă: Fraze esențiale pentru cupluri",
+      "native_lang": "ro",
+      "target_lang": "cs",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Înainte să mergeți: Pregătiți-vă împreună",
+          "subsections": [
+            "### Ce trebuie să știți despre cultura cehă",
+            "### Întrebări esențiale pentru partenerul tău"
+          ]
+        },
+        {
+          "header": "## Scenarii comune și dialoguri practice",
+          "subsections": [
+            "### 1. Când intri în casă",
+            "### 2. La masă",
+            "### 3. Când ți se arată poze de familie",
+            "### 4. Când pleci"
+          ]
+        },
+        {
+          "header": "## Vocabular esențial pentru familie",
+          "subsections": [
+            "### Membri ai familiei",
+            "### Adjective pozitive"
+          ]
+        },
+        {
+          "header": "## Cum să fii politicos: Formal vs Informal",
+          "subsections": [
+            "### Formă formală (cu părinți și bunici)",
+            "### Formă informală (cu frați și veri de vârsta ta)"
+          ]
+        },
+        {
+          "header": "## Dacă lucrurile nu merg conform planului",
+          "subsections": [
+            "### Când nu înțelegi",
+            "### Când ești nervos",
+            "### Situații de urgență minoră"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a8cde9c6-bf0a-4b28-9adf-e679c93fa0c0",
+      "title": "Conocer a la Familia de tu Pareja Checa: Frases Esenciales para Impresionar",
+      "native_lang": "es",
+      "target_lang": "cs",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Frases Esenciales para la Presentación",
+          "subsections": [
+            "### Saludos y Presentaciones",
+            "### Hablando de tu Relación"
+          ]
+        },
+        {
+          "header": "## Conversaciones Comunes: Escenarios Reales",
+          "subsections": [
+            "### Escenario 1: La Primera Conversación con los Padres",
+            "### Escenario 2: En la Mesa",
+            "### Escenario 3: Hablando del Futuro"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aa96aa31-7a40-4b48-a05f-60680b50b401",
+      "title": "50 Romantiske Polske Sætninger til Hver Lejlighed - Lær at Udtrykke Din Kærlighed",
+      "native_lang": "da",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Særlige Lejligheder",
+          "subsections": [
+            "### Fødselsdag og Jubilæer",
+            "### Bryllup og Forlovelse"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "abc4c04c-d2c6-4046-8134-a2138b743e16",
+      "title": "Знакомство с семьёй вашего датского партнёра: фразы и советы для тёплых встреч",
+      "native_lang": "ru",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Конкретные сценарии",
+          "subsections": [
+            "### Знакомство с родителями",
+            "### Знакомство с братьями и сестрами",
+            "### Разговор за обедом"
+          ]
+        },
+        {
+          "header": "## Список полезной лексики",
+          "subsections": [
+            "### Члены семьи",
+            "### Предметы в доме"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "abfd250c-d63d-4d4c-9774-9c0674352cc5",
+      "title": "Conhecendo a Família do Seu Parceiro(a) Norueguês: Frases e Dicas para um Primeiro Encontro Inesquecível",
+      "native_lang": "pt",
+      "target_lang": "no",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Cenários Comuns Durante a Visita",
+          "subsections": [
+            "### Quando Chegar",
+            "### Na Hora do Jantar",
+            "### Conversas Sobre Vocês Dois"
+          ]
+        },
+        {
+          "header": "## Vocabulário para Conversas Familiares",
+          "subsections": [
+            "### Sobre a Família",
+            "### Elogios e Comentários Positivos",
+            "### Oferecendo Ajuda"
+          ]
+        },
+        {
+          "header": "## Frases Polidas e Formalidade",
+          "subsections": [
+            "### Mostrando Respeito",
+            "### Endereçando os Pais"
+          ]
+        },
+        {
+          "header": "## Se Algo Der Errado?",
+          "subsections": [
+            "### Quando Não Entender",
+            "### Salvando a Situação com Humor"
+          ]
+        }
+      ]
+    }
+  ]
+}

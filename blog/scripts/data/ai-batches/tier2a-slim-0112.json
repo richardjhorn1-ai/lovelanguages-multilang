@@ -1,0 +1,495 @@
+{
+  "batchId": "tier2a-slim-0112",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "815a48d8-453f-4b97-81da-8a154dacb560",
+      "title": "Podstawy gramatyki greckiej dla par - prosty przewodnik",
+      "native_lang": "pl",
+      "target_lang": "el",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Pytania",
+          "subsections": [
+            "### Pytania tak/nie",
+            "### Pytania że slowem pytajnym"
+          ]
+        },
+        {
+          "header": "## Przydatne struktury dla par",
+          "subsections": [
+            "### Wyrazanie checi",
+            "### Wyrazanie umiejetnosci"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Odmiana \"αγαπώ\"",
+            "### Cwiczenie 2: Przymiotniki",
+            "### Cwiczenie 3: Pytania i odpowiedzi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8164b62f-a9ab-4e5d-97bd-d3a63b384388",
+      "title": "Pronunția Italiană pentru Începători: Ghidul Cuplurilor Îndrăgostite",
+      "native_lang": "ro",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Cele 5 Reguli Esențiale pentru Pronunție Perfectă",
+          "subsections": [
+            "### 1. Accentul pe Penultima Silabă",
+            "### 2. Dublarea Consoanelor",
+            "### 3. Grupurile de Consoane Speciale",
+            "### 4. Vocala Finală \"E\"",
+            "### 5. R-ul Italian"
+          ]
+        },
+        {
+          "header": "## Sunetele Romantice: Alfabetul Iubirii",
+          "subsections": [
+            "### Vocala \"I\" - Secretul Romanticilor",
+            "### Grupările Cele Mai Frumoase"
+          ]
+        },
+        {
+          "header": "## Exerciții pentru Cupluri: Practică Împreună",
+          "subsections": [
+            "### Exercițiul 1: Sunetele de Bază",
+            "### Exercițiul 2: Cuvinte Romantice",
+            "### Exercițiul 3: Dialogul Zilnic"
+          ]
+        },
+        {
+          "header": "## Greșeli Comune de Evitat",
+          "subsections": [
+            "### 1. Pronunția Greșită a Lui \"Gli\"",
+            "### 2. Accentul Greșit pe \"Ciao\"",
+            "### 3. Vocala \"E\" Finală Mută",
+            "### 4. Consoanele Duble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "81753b81-83c1-4e9b-a0ef-c7828f667727",
+      "title": "Grammatica Ceca di Base: Guida per Principianti",
+      "native_lang": "it",
+      "target_lang": "cs",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Coniugazione dei Verbi",
+          "subsections": [
+            "### Presente di \"Milovat\" (Amare)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8179250a-f957-470d-ba15-32dbe66a0092",
+      "title": "Frases de 'Te Extraño' en Húngaro: Hiány desde las Orillas del Danubio",
+      "native_lang": "es",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresiones Esenciales",
+          "subsections": [
+            "### \"Hiányzol\"",
+            "### \"Nagyon hiányzol\"",
+            "### \"Bárcsak itt lennél\""
+          ]
+        },
+        {
+          "header": "## Frases Emotivas",
+          "subsections": [
+            "### \"Minden pillanat nélküled örökkévalóságnak tűnik\"",
+            "### \"Mindig a gondolataimban vagy\"",
+            "### \"A távolság nem változtatja meg az érzéseimet\""
+          ]
+        },
+        {
+          "header": "## Para Mensajes Diarios",
+          "subsections": [
+            "### \"Rád gondolva ébredtem\"",
+            "### \"Jó éjszakát, hiányzol\"",
+            "### \"Számolom a napokat, amíg újra látlak\""
+          ]
+        },
+        {
+          "header": "## Expresiones Profundas",
+          "subsections": [
+            "### \"A szívem fáj nélküled\"",
+            "### \"Te vagy az életem hiányzó darabja\"",
+            "### \"Nélküled minden szürke\""
+          ]
+        },
+        {
+          "header": "## Frases para Videollamadas",
+          "subsections": [
+            "### \"Az arcod látása boldoggá tesz\"",
+            "### \"Bárcsak megölelhetnelek most\""
+          ]
+        },
+        {
+          "header": "## Mensajes Románticos",
+          "subsections": [
+            "### \"Jó reggelt, szerelmem, hiányzol\"",
+            "### \"Alig várom, hogy lássalak\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "818b4d98-debe-41de-8bf6-3364a65974f8",
+      "title": "Frases en Italiano para tu Primera Cita",
+      "native_lang": "es",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Romper el Hielo",
+          "subsections": [
+            "### \"È un piacere conoscerti finalmente\"",
+            "### \"Sei bellissimo/a\"",
+            "### \"Non vedevo l'ora di questo momento\""
+          ]
+        },
+        {
+          "header": "## Frases para Conocerse",
+          "subsections": [
+            "### \"Raccontami di te\"",
+            "### \"Cosa ti piace fare nel tempo libero?\"",
+            "### \"Qual è il tuo... preferito?\"",
+            "### \"Mi piacerebbe saperne di più\""
+          ]
+        },
+        {
+          "header": "## Frases Románticas",
+          "subsections": [
+            "### \"Mi sto divertendo molto\"",
+            "### \"Hai un sorriso bellissimo\"",
+            "### \"Mi sento davvero bene con te\""
+          ]
+        },
+        {
+          "header": "## Frases para Terminar",
+          "subsections": [
+            "### \"Ho passato una serata meravigliosa\"",
+            "### \"Possiamo rivederci?\"",
+            "### \"Fammi sapere quando sei arrivato/a bene\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "819b4655-c878-4d4e-bfd6-d4391ebbf81a",
+      "title": "Polska Fraser för Bråk och Meningsskiljaktigheter",
+      "native_lang": "sv",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande Fraser för Konfliktsituationer",
+          "subsections": [
+            "### 1. \"Czuję się zraniony/a, kiedy...\"",
+            "### 2. \"Czy możemy porozmawiać spokojnie?\"",
+            "### 3. \"Potrzebuję chwili\"",
+            "### 4. \"Nie chcę się z tobą kłócić\"",
+            "### 5. \"Rozumiem twój punkt widzenia\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Lösa Konflikter",
+          "subsections": [
+            "### 6. \"Jak możemy to rozwiązać?\"",
+            "### 7. \"Nie chciałem/am cię zranić\"",
+            "### 8. \"Znajdźmy kompromis\"",
+            "### 9. \"Słucham cię\"",
+            "### 10. \"Porozmawiajmy o tym później\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "81b2f439-f9cb-437d-910b-8feecd00760b",
+      "title": "50 Norwegian Compliments for Your Partner",
+      "native_lang": "en",
+      "target_lang": "no",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Complimenting Appearance",
+          "subsections": [
+            "### For Women",
+            "### For Men"
+          ]
+        },
+        {
+          "header": "## Complimenting Specific Features",
+          "subsections": [
+            "### Eyes",
+            "### Smile",
+            "### Voice"
+          ]
+        },
+        {
+          "header": "## Personality Compliments",
+          "subsections": [
+            "### Kindness and Character",
+            "### Intelligence and Talent",
+            "### Humor and Fun"
+          ]
+        },
+        {
+          "header": "## Quick Reference: Essential Compliments",
+          "subsections": [
+            "### For Her",
+            "### For Him",
+            "### Universal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "81b4cc4a-92ad-4d06-85f6-b17b7af8226c",
+      "title": "Frases de Saudade em Polonês: Tęsknię Za Tobą - Anseio por Você",
+      "native_lang": "pt",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases Essenciais de Saudade",
+          "subsections": [
+            "### Expressões Básicas",
+            "### Saudade Profunda",
+            "### Para Relacionamentos à Distância",
+            "### Saudade Doce"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "81e46ab2-0219-465c-b8d0-0303c069ba40",
+      "title": "Знайомство з чеською родиною: Необхідні фрази та етикет",
+      "native_lang": "uk",
+      "target_lang": "cs",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ввічливі фрази",
+          "subsections": [
+            "### Подяка",
+            "### Компліменти дому"
+          ]
+        },
+        {
+          "header": "## Культурні поради",
+          "subsections": [
+            "### Що робити:",
+            "### Чого уникати:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "820956a3-553c-40d4-adcb-5e70f0fa3642",
+      "title": "Tjeckiska SMS- och chattfraser för kärleksrelationer",
+      "native_lang": "sv",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Morgonhälsningar",
+          "subsections": [
+            "### \"Dobré ráno, lásko\"",
+            "### \"Ahoj, miláčku\"",
+            "### \"Jak se ti spalo, zlatíčko?\""
+          ]
+        },
+        {
+          "header": "## Att uttrycka saknad",
+          "subsections": [
+            "### \"Chybíš mi\"",
+            "### \"Myslím na tebe\"",
+            "### \"Těším se, až tě uvidím\""
+          ]
+        },
+        {
+          "header": "## Kärleksförklaringar",
+          "subsections": [
+            "### \"Miluji tě\"",
+            "### \"Mám tě rád/ráda\"",
+            "### \"Miluji tě z celého srdce\"",
+            "### \"Jsi láska mého života\"",
+            "### \"Jsi pro mě všechno\""
+          ]
+        },
+        {
+          "header": "## Flirtiga meddelanden",
+          "subsections": [
+            "### \"Děláš mě šťastným/šťastnou\"",
+            "### \"Jsi krásná\" / \"Jsi krásný\"",
+            "### \"Jsem do tebe blázen/bláznivá\"",
+            "### \"Ukradla/Ukradl jsi mi srdce\""
+          ]
+        },
+        {
+          "header": "## Godnattmeddelanden",
+          "subsections": [
+            "### \"Dobrou noc, lásko\"",
+            "### \"Sladké sny\"",
+            "### \"Líbám tě\"",
+            "### \"Sni o mně\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "820d197a-daf5-42b6-8f25-f369011caeff",
+      "title": "Rencontrer la belle-famille en tchèque : Impressionner les tchestí rodiče",
+      "native_lang": "fr",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Premières salutations",
+          "subsections": [
+            "### \"Těší mě, že vás konečně poznávám\"",
+            "### \"Slyšel/slyšela jsem o vás jen to nejlepší\"",
+            "### \"Děkuji za pozvání\""
+          ]
+        },
+        {
+          "header": "## Montrer du respect",
+          "subsections": [
+            "### \"Máte krásný domov\"",
+            "### \"Jídlo je výborné, děkuji\""
+          ]
+        },
+        {
+          "header": "## Parler de votre partenaire",
+          "subsections": [
+            "### \"[Jméno] pro mě znamená všechno\"",
+            "### \"Vychovali jste úžasného člověka\""
+          ]
+        },
+        {
+          "header": "## Au départ",
+          "subsections": [
+            "### \"Děkuji za krásný den\"",
+            "### \"Doufám, že se brzy zase uvidíme\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "820d3dd6-3c4f-43da-8b4a-00013efd5a3f",
+      "title": "Шведська Вимова для Початківців: Як Говорити З Вашим Коханим, щоб Його Серце Танцювало",
+      "native_lang": "uk",
+      "target_lang": "sv",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Основні Правила Вимови (Простіше, Ніж Ти Думаєш)",
+          "subsections": [
+            "### 1. Голосні Літери: Твої Музичні Ноти",
+            "### 2. Складні Літери: Твої Секретні Коди",
+            "### 3. Тонові Підвищення: Твоя Романтична Мелодія"
+          ]
+        },
+        {
+          "header": "## Поширені Помилки (та Як Їх Уникнути)",
+          "subsections": [
+            "### 1. **Rullande R** (Котяче R)",
+            "### 2. **Довгі vs Короткі Голосні**",
+            "### 3. **Sk/Kj Перед Голосними**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "82160197-10b7-42ad-a1c9-9eb20cc27931",
+      "title": "Expresii 'Mi-e Dor de Tine' în Cehă pentru Români",
+      "native_lang": "ro",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale de Dor",
+          "subsections": [
+            "### Expresii Directe",
+            "### Expresii Profunde",
+            "### Mesaje Zilnice",
+            "### Promisiuni"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "821da465-c24c-4bf4-b792-cf2122cd314c",
+      "title": "Francouzské fráze Chybíš mi pro Čechy",
+      "native_lang": "cs",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní fráze",
+          "subsections": [
+            "### \"Tu me manques.\"",
+            "### \"Tu me manques tellement.\"",
+            "### \"J'aimerais que tu sois là.\"",
+            "### \"Je ne peux pas arrêter de penser à toi.\""
+          ]
+        },
+        {
+          "header": "## Romantické fráze",
+          "subsections": [
+            "### \"Chaque moment sans toi est une éternité.\"",
+            "### \"Mon coeur est avec toi.\"",
+            "### \"Je compte les jours jusqu'à notre retrouvaille.\"",
+            "### \"Tu es ma première pensée le matin et ma dernière le soir.\""
+          ]
+        },
+        {
+          "header": "## Fráze pro zprávy",
+          "subsections": [
+            "### \"Je pense à toi.\"",
+            "### \"J'ai hâte de te revoir.\"",
+            "### \"Tu me manques à chaque instant.\"",
+            "### \"La distance ne change rien à mes sentiments.\""
+          ]
+        },
+        {
+          "header": "## Povzbudivé fráze",
+          "subsections": [
+            "### \"Bientôt, nous serons ensemble.\"",
+            "### \"L'attente en vaut la peine.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8224824b-7876-4643-8256-8306bc94bda3",
+      "title": "Grammaire tchèque : les bases essentielles pour débutants",
+      "native_lang": "fr",
+      "target_lang": "cs",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Conjugaison des verbes",
+          "subsections": [
+            "### Le présent",
+            "### Le passé"
+          ]
+        }
+      ]
+    }
+  ]
+}

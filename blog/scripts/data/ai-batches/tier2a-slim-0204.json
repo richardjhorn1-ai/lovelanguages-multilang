@@ -1,0 +1,436 @@
+{
+  "batchId": "tier2a-slim-0204",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "d1e51ed9-299f-43ce-95c5-9cb05286183f",
+      "title": "Как извиняться на польском языке: полное руководство",
+      "native_lang": "ru",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Извинения за конкретные ситуации",
+          "subsections": [
+            "### За опоздание",
+            "### За ошибку",
+            "### За причинённую боль"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d1ffdd80-db3d-42ce-9d23-07f35008f496",
+      "title": "Meeting Spanish Family: Key Phrases",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Role-Playing Scenarios",
+            "### Memory Games"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d2098c52-a81e-477c-9f4c-45ba7bc1039b",
+      "title": "Норвезька лексика про вагітність та материнство",
+      "native_lang": "uk",
+      "target_lang": "no",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Основна лексика про вагітність",
+          "subsections": []
+        },
+        {
+          "header": "## Оголошення про вагітність норвезькою",
+          "subsections": [
+            "### Як поділитися новиною"
+          ]
+        },
+        {
+          "header": "## Покупки для малюка",
+          "subsections": [
+            "### Що потрібно купити"
+          ]
+        },
+        {
+          "header": "## Пологи та лікарня",
+          "subsections": [
+            "### У пологовому будинку",
+            "### Після народження"
+          ]
+        },
+        {
+          "header": "## Перші місяці з малюком",
+          "subsections": [
+            "### Корисна лексика"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d20b8501-e718-4e3e-8fe3-7275bbc7653f",
+      "title": "Portuguese Jealousy & Trust Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressing Jealousy",
+          "subsections": [
+            "### Estou com ciúmes",
+            "### Fico com ciúmes quando...",
+            "### Não gosto de sentir estes ciúmes"
+          ]
+        },
+        {
+          "header": "## Seeking Reassurance",
+          "subsections": [
+            "### Amas-me só a mim?",
+            "### Preciso que me assegures que está tudo bem",
+            "### Podes ajudar-me a sentir-me mais seguro/a?"
+          ]
+        },
+        {
+          "header": "## Building Trust",
+          "subsections": [
+            "### Confio em ti",
+            "### Quero confiar completamente em ti",
+            "### Como podemos construir mais confiança?"
+          ]
+        },
+        {
+          "header": "## Giving Reassurance",
+          "subsections": [
+            "### Só tenho olhos para ti",
+            "### És o único/a única para mim",
+            "### Não tens com que te preocupar",
+            "### O meu coração é teu"
+          ]
+        },
+        {
+          "header": "## Setting Healthy Boundaries",
+          "subsections": [
+            "### O ciúme está a afetar a nossa relação",
+            "### Preciso do meu espaço pessoal",
+            "### A confiança é importante para mim"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d23943c5-134c-4293-a776-1ff2df8560f1",
+      "title": "Podstawy gramatyki wegierskiej dla par - prosty przewodnik",
+      "native_lang": "pl",
+      "target_lang": "hu",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Pytania",
+          "subsections": [
+            "### Pytania tak/nie",
+            "### Pytania że slowem pytajnym"
+          ]
+        },
+        {
+          "header": "## Przydatne struktury dla par",
+          "subsections": [
+            "### Wyrazanie checi",
+            "### Wyrazanie umiejetnosci"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Odmiana \"szeretni\"",
+            "### Cwiczenie 2: Przypadki",
+            "### Cwiczenie 3: Pytania i odpowiedzi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d2470990-fcf5-4723-b021-4a152ed7f8d7",
+      "title": "French Birthday Wishes for Your Partner: Sweet Messages That Touch the Heart",
+      "native_lang": "en",
+      "target_lang": "fr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Sweet Birthday Messages",
+          "subsections": [
+            "### Simple Wishes",
+            "### Romantic Messages"
+          ]
+        },
+        {
+          "header": "## Birthday Card Messages",
+          "subsections": [
+            "### Heartfelt Short Messages",
+            "### Longer Romantic Messages"
+          ]
+        },
+        {
+          "header": "## Planning the Perfect Birthday",
+          "subsections": [
+            "### Party Vocabulary",
+            "### Surprise Party Phrases"
+          ]
+        },
+        {
+          "header": "## Birthday Milestone Messages",
+          "subsections": [
+            "### 30th Birthday",
+            "### 40th Birthday",
+            "### 50th Birthday"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d2555e6e-6ec4-411a-9a12-74b3943a772b",
+      "title": "Vocabular pentru Bebeluși și Sarcină în Portugheză: Expresii Esențiale",
+      "native_lang": "ro",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Anunțarea Sarcinii",
+          "subsections": [
+            "### Expresii pentru Anunț",
+            "### Anunțuri Creative"
+          ]
+        },
+        {
+          "header": "## Vocabular Medical",
+          "subsections": [
+            "### Termeni pentru Consultații"
+          ]
+        },
+        {
+          "header": "## Evoluția Sarcinii",
+          "subsections": [
+            "### Primul Trimestru (Săptămânile 1-12)",
+            "### Al Doilea Trimestru (Săptămânile 13-26)",
+            "### Al Treilea Trimestru (Săptămânile 27-40)"
+          ]
+        },
+        {
+          "header": "## Pregătirea pentru Bebeluș",
+          "subsections": [
+            "### Obiecte Esențiale",
+            "### Camera Bebelușului"
+          ]
+        },
+        {
+          "header": "## Expresii de Felicitare",
+          "subsections": [
+            "### Pentru Anunț",
+            "### Pentru Naștere"
+          ]
+        },
+        {
+          "header": "## Tradiții și Superstiții",
+          "subsections": [
+            "### Superstiții Comune"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d26a4c0d-d223-4421-bfc6-d03c31a1f86f",
+      "title": "İspanyolca Affetme İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Af Dileme",
+          "subsections": [
+            "### 1. \"Lo siento mucho por lo que hice\"",
+            "### 2. \"Por favor, perdóname\"",
+            "### 3. \"Asumo toda la responsabilidad\"",
+            "### 4. \"Sé que te lastimé y lo siento mucho\"",
+            "### 5. \"¿Puedes encontrar en tu corazón perdonarme?\""
+          ]
+        },
+        {
+          "header": "## Affetme",
+          "subsections": [
+            "### 6. \"Te perdono\"",
+            "### 7. \"Estoy listo/a para superar esto\"",
+            "### 8. \"Dejemos esto atrás\"",
+            "### 9. \"No guardo rencor\"",
+            "### 10. \"Todos cometemos errores\"",
+            "### 11. \"Te amo más que mi enojo\"",
+            "### 12. \"Acepto tu disculpa\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d27acf27-4b45-43f4-94bc-2245ced077ae",
+      "title": "Wymowa norweska - przewodnik dla Polaków",
+      "native_lang": "pl",
+      "target_lang": "no",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Samogloski norweskie",
+          "subsections": [
+            "### Krotkie i długie",
+            "### Specjalne samogloski: Æ, O, A"
+          ]
+        },
+        {
+          "header": "## Trudne spolgloski",
+          "subsections": [
+            "### KJ-dzwiek",
+            "### SJ/SKJ-dzwiek",
+            "### R-dzwiek"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia wymowy",
+          "subsections": [
+            "### Cwiczenie 1: KJ-dzwiek",
+            "### Cwiczenie 2: Æ, O, A",
+            "### Cwiczenie 3: Romantyczne słowa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d27e690f-57d4-4d7d-8712-0df36fb6dd4a",
+      "title": "Anglais pour Couples : 25 Phrases Essentielles",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Conseils de pratique pour couples",
+          "subsections": [
+            "### Routines de pratique quotidienne",
+            "### Activités d'apprentissage ludiques"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d27eb809-f248-48c1-a649-e4723f1ec5bb",
+      "title": "Vocabulario Alemao para Restaurantes e Comida",
+      "native_lang": "pt",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Planeje sua Noite Gastronomica Alema",
+          "subsections": [
+            "### Em Casa",
+            "### No Restaurante"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d288b9ff-6f74-4283-8f98-5cd2b06f9a99",
+      "title": "Franska Fraser för Försoning och Att Göra Upp",
+      "native_lang": "sv",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Inleda Försoning",
+          "subsections": [
+            "### 1. \"Je suis vraiment désolé(e)\"",
+            "### 2. \"On peut recommencer à zéro?\"",
+            "### 3. \"Je déteste me disputer avec toi\"",
+            "### 4. \"Tu es tout pour moi\"",
+            "### 5. \"J'avais tort et je l'admets\""
+          ]
+        },
+        {
+          "header": "## Fraser för Djupare Försoning",
+          "subsections": [
+            "### 6. \"Ne nous couchons pas fâchés\"",
+            "### 7. \"Je t'aime plus que n'importe quelle dispute\"",
+            "### 8. \"Tu me fais un câlin?\"",
+            "### 9. \"Je veux mieux te comprendre\"",
+            "### 10. \"On est plus forts que ça\"",
+            "### 11. \"Je promets de faire mieux\"",
+            "### 12. \"Merci pour ta patience avec moi\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d28df75d-c7e5-4984-bb12-bbfeaddb24f1",
+      "title": "Румынские фразы для споров и разногласий",
+      "native_lang": "ru",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Основные фразы для выражения несогласия",
+          "subsections": [
+            "### 1. Nu sunt de acord cu tine",
+            "### 2. Putem vorbi despre asta calm?",
+            "### 3. Mă doare când spui asta",
+            "### 4. Să nu ridicăm vocea",
+            "### 5. Am nevoie să înțelegi punctul meu de vedere",
+            "### 6. Nu asta am vrut să spun",
+            "### 7. Putem găsi un compromis?",
+            "### 8. Cred că amândoi avem nevoie de spațiu",
+            "### 9. Te rog, respectă-mi opinia",
+            "### 10. Te ascult, dar nu sunt de acord"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d296af36-4746-4c0f-9e0f-62562f7e7a5a",
+      "title": "50 Elogios em Polonês para Seu Parceiro",
+      "native_lang": "pt",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Elogios para Momentos Especiais",
+          "subsections": [
+            "### Num Encontro",
+            "### Depois de uma Conquista",
+            "### No Dia a Dia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d2afb5f8-91ba-4ef3-b536-cba04ccae769",
+      "title": "Çiftler İçin Yunanca: 25 Temel İfade",
+      "native_lang": "tr",
+      "target_lang": "el",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Duygusal İfadeler",
+          "subsections": [
+            "### Mutluluk İfade Etme",
+            "### Destek İfadeleri"
+          ]
+        },
+        {
+          "header": "## Akşam İfadeleri",
+          "subsections": [
+            "### Akşam Yemeği Zamanı",
+            "### Gece İfadeleri"
+          ]
+        }
+      ]
+    }
+  ]
+}

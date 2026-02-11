@@ -1,0 +1,119 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0054",
+  "articles": [
+    {
+      "id": "0e8d5684-24af-456c-a0d6-31a202328be1",
+      "title": "Román összeköltözési szókincs",
+      "native_lang": "hu",
+      "target_lang": "ro",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nAz összeköltözés fontos mérföldkő a kapcsolatban. Ha románul kell kommunikálnod a költözésről és a háztartásról, ezek a kifejezések segítenek.\n\nTovábbi praktikus kifejezésekért nézd meg az [Román alapvető kifejezések](/learn/hu/ro/romanian-essential-phrases-for-couples) útmutatónkat.\n\n<PhraseOfDay\n  word=\"Felicitări!\"\n  translation=\"Gratulálok!\"\n  pronunciation=\"felit͡ʃiˈtər\"\n  context=\"Az esküvői köszöntés alapja.\"\n/>\n\n## Alapvető szókincs\n\nAz összeköltözés és háztartás román szókincse:\n\n<VocabCard\n  word=\"nuntă\"\n  translation=\"esküvő\"\n  pronunciation=\"ˈnuntə\"\n  example=\"Nunta a fost frumoasă.\"\n/>\n\n| Román | Magyar | Használat |\n|---|---|---|\n| mireasă | menyasszony | A nő |\n| mire | vőlegény | A férfi |\n| jurăminte | fogadalmak | Esküvői ígéretek |\n| ceremonie | szertartás | A hivatalos rész |\n| recepție | fogadás | Az ünneplés |\n| toast | köszöntő | Pohárköszöntő |\n\n<CultureTip flag=\"🌍\" title=\"Román kulturális tippek\">\nA román kultúrában az összeköltözésnek különböző jelentőségei lehetnek. Egyes helyeken ez formális lépés, máshol természetes átmenet a kapcsolatban.\n</CultureTip>\n\n## Hasznos kifejezések\n\n### Költözési kifejezések\n\nAz összeköltözéskor hasznos mondatok:\n\n- **Összeköltözünk!** - A nagy bejelentés\n- **Hol van a...?** - Tárgyak keresése\n- **Ezt hova tegyük?** - Berendezés\n\n### Háztartási szókincs\nA mindennapi élethez:\n\n- **Ki viszi le a szemetet?** - Háztartási kérdések\n- **Mit főzzünk vacsorára?** - Közös étkezés\n\n<VocabCard\n  word=\"luna de miere\"\n  translation=\"nászút\"\n  pronunciation=\"luna de ˈmjere\"\n  example=\"Au plecat în luna de miere.\"\n/>\n\n## Gyakorlati helyzetek\n\n| Helyzet | Mit mondj |\n|---|---|\n| Bejelentés | Összeköltözünk! |\n| Költözéskor | Segíts ezzel! |\n| Berendezéskor | Hova tegyük ezt? |\n| Vendégeknek | Üdvözöljük az új otthonunkban! |\n\n<CultureTip flag=\"💡\" title=\"Hasznos tipp\">\nAz összeköltözés jó alkalom a nyelvtanulásra! Címkézd fel a tárgyakat a házban az idegen nyelven, és gyakorolj minden nap.\n</CultureTip>\n\n## Összefoglaló táblázat\n\n| Helyzet | Román kifejezés |\n|---|---|\n| Gratuláció | Felicitări! |\n| Az esemény | nuntă |\n| A nő | mireasă |\n| A férfi | mire |\n| Esküvői ígéretek | jurăminte |\n\n## További tanulás\n\nHa tovább szeretnéd fejleszteni a román nyelvtudásod, nézd meg ezeket a cikkeinket:\n\n- [Román romantikus kifejezések minden alkalomra](/learn/hu/ro/romanian-romantic-phrases-for-every-occasion)\n- [Hogyan mondd: Szeretlek románul](/learn/hu/ro/romanian-how-to-say-i-love-you)\n- [Román alapvető kifejezések pároknak](/learn/hu/ro/romanian-essential-phrases-for-couples)\n\nEzek a források segítenek elmélyíteni a tudásod és magabiztosabbá válni a román nyelvben.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 264,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Hasznos kifejezések"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "0e9571a6-61d3-4a97-a086-9885f011d10d",
+      "title": "Czech First Date Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "cs",
+      "category": "communication",
+      "content": "First dates are exciting moments of possibility. When your date speaks Czech, knowing key phrases creates instant connection. Here are essential Czech phrases for that memorable first meeting.\n\n## Making a Great First Impression\n\n### Vypadáš skvěle\n**Pronunciation:** VUI-pah-dahsh SKVYEH-leh\n\n**Meaning:** \"You look amazing\"\n\n**When to use it:** When greeting your date—a sincere compliment starts things right.\n\n### Těší mě\n**Pronunciation:** TYEH-shee myeh\n\n**Meaning:** \"Nice to meet you\" / \"Pleased to meet you\"\n\n**When to use it:** A warm greeting to begin your date.\n\n## Getting to Know Each Other\n\nAsk about their life—their work, passions, dreams, and interests. Show genuine curiosity. Good questions lead to meaningful conversations.\n\nShare about yourself too. Be authentic and open. Connection happens when both people are truly present.\n\n## Expressing Interest\n\nGive sincere compliments—about their smile, their laugh, their thoughts. Tell them you're enjoying spending time together. Let your interest show naturally.\n\n## During the Date\n\nBe attentive and engaged. Comment positively on your shared experience—the food, the place, the conversation. Put away distractions and focus on each other.\n\n## Ending the Date\n\nIf you want to see them again, say it clearly. Ask about meeting again. A thoughtful message afterward shows you care.\n\n## Cultural Considerations\n\nCzech speakers appreciate genuine interest and respect. Be yourself while showing curiosity about their background and culture. Follow their lead on physical greetings.\n\n## The Magic of Effort\n\nSpeaking even a few words in Czech shows respect and creates warmth. First dates are about discovering possibility—let your authentic self shine through.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 254,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Making a Great First Impression"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "0e9c58b8-e58b-48e8-bc56-3a61bfcc9ac9",
+      "title": "Engelse Zinnen voor een Eerste Date",
+      "native_lang": "nl",
+      "target_lang": "en",
+      "category": "communication",
+      "content": "Je eerste date in een andere taal kan zenuwslopend zijn. Deze Engelse zinnen helpen je om een goede indruk te maken.\n\n## Essentiële zinnen\n\n### 1. \"It's so nice to finally meet you\"\n**Betekenis:** Het is zo fijn om je eindelijk te ontmoeten\n**Uitspraak:** *its soo nais toe fai-ne-lie miet joe*\n\n### 2. \"You look amazing\"\n**Betekenis:** Je ziet er geweldig uit\n**Uitspraak:** *joe loek e-mee-zing*\n\n### 3. \"Tell me about yourself\"\n**Betekenis:** Vertel me over jezelf\n**Uitspraak:** *tel mie e-baut jor-self*\n\n### 4. \"What do you do for a living?\"\n**Betekenis:** Wat doe je voor werk?\n**Uitspraak:** *wot doe joe doe for e li-ving*\n\n### 5. \"I'm having a great time\"\n**Betekenis:** Ik heb het heel leuk\n**Uitspraak:** *ajm he-ving e greet taim*\n\n### 6. \"Would you like another drink?\"\n**Betekenis:** Wil je nog iets drinken?\n**Uitspraak:** *woed joe laik e-na-ther drink*\n\n### 7. \"What kind of music do you like?\"\n**Betekenis:** Van wat voor muziek hou je?\n**Uitspraak:** *wot kaind of mjoe-zik doe joe laik*\n\n### 8. \"I'd love to see you again\"\n**Betekenis:** Ik zou je graag nog eens willen zien\n**Uitspraak:** *ajd lav toe sie joe e-geen*\n\n### 9. \"Can I walk you home?\"\n**Betekenis:** Mag ik je naar huis brengen?\n**Uitspraak:** *ken aj waak joe hoom*\n\n### 10. \"I really enjoyed tonight\"\n**Betekenis:** Ik heb echt genoten van vanavond\n**Uitspraak:** *aj rie-lie en-dzjoid toe-nait*\n\n### 11. \"What are your hobbies?\"\n**Betekenis:** Wat zijn je hobby's?\n**Uitspraak:** *wot ar jor ho-bies*\n\n### 12. \"You have a beautiful smile\"\n**Betekenis:** Je hebt een mooie glimlach\n**Uitspraak:** *joe hev e bjoe-ti-ful smail*\n\n## Tips voor een eerste date\n\n**Wees jezelf:** Authenticiteit is aantrekkelijk.\n\n**Stel vragen:** Toon interesse in je date.\n\n**Luister actief:** Laat zien dat je geïnteresseerd bent.\n\n## Conclusie\n\nMet deze zinnen ben je goed voorbereid op je eerste Engelstalige date!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Essentiële zinnen"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "0eb5423a-0dd9-4cf7-b124-53d30571b825",
+      "title": "Hiányzol Kifejezések Olaszul – Mi Manchi és Más",
+      "native_lang": "hu",
+      "target_lang": "it",
+      "category": "communication",
+      "content": "# Hiányzol Kifejezések Olaszul – Mi Manchi és Más\n\nAz olasz nyelv dallamossága és szenvedélye tökéletes a hiányzás kifejezésére. Ha olasz anyanyelvű szeretted van, ezek a kifejezések segítenek elmondani, mennyire hiányzik.\n\n## Alapvető Hiányzol Kifejezések\n\n### 1. Mi manchi\n**Jelentés:** Hiányzol\n\n**Kiejtés:** mi-MAN-ki\n\nA legegyszerűbb és leggyakoribb kifejezés. Az olasz szerkezet hasonló a magyarhoz: \"Nekem hiányzol.\"\n\n### 2. Mi manchi tanto\n**Jelentés:** Nagyon hiányzol\n\n**Kiejtés:** mi-MAN-ki-TAN-to\n\nA \"tanto\" (annyira) erősíti az érzést.\n\n### 3. Mi manchi da morire\n**Jelentés:** Halálosan hiányzol (szó szerint)\n\n**Kiejtés:** mi-MAN-ki-da-mo-RÍ-re\n\nOlasz típusú túlzás – nagyon intenzív hiányt fejez ki.\n\n### 4. Non riesco a smettere di pensare a te\n**Jelentés:** Nem tudok abbahagyni, hogy rád gondoljak\n\n**Kiejtés:** non-ri-E-sko-a-ZMET-te-re-di-pen-SZÁ-re-a-te\n\nMély érzelmi kötődést mutat.\n\n### 5. Vorrei che tu fossi qui\n**Jelentés:** Bárcsak itt lennél\n\n**Kiejtés:** vor-RÉJ-ke-tu-FO-szi-kui\n\nRomantikus és vágyakozó.\n\n### 6. Il mio cuore è vuoto senza te\n**Jelentés:** A szívem üres nélküled\n\n**Kiejtés:** il-MÍ-o-KUÓ-re-e-VUÓ-to-SZEN-ca-te\n\nNagyon költői és romantikus.\n\n### 7. Conto i giorni fino a rivederti\n**Jelentés:** Számolom a napokat, amíg újra látlak\n\n**Kiejtés:** KON-to-i-DZSÓR-ni-FÍ-no-a-ri-ve-DER-ti\n\nKifejezi a várakozás izgalmát.\n\n### 8. Sei sempre nei miei pensieri\n**Jelentés:** Mindig a gondolataimban vagy\n\n**Kiejtés:** széj-SZEM-pre-néj-MJÉJ-pen-SZJÉ-ri\n\nGyengéd és romantikus.\n\n### 9. Ti desidero\n**Jelentés:** Vágyom rád\n\n**Kiejtés:** ti-de-ZÍ-de-ro\n\nSzenvedélyes és intenzív.\n\n### 10. Senza te non sono completo/a\n**Jelentés:** Nélküled nem vagyok teljes\n\n**Kiejtés:** SZEN-ca-te-non-SZÓ-no-kom-PLÉ-to/a\n\nMély érzelmi kötődést fejez ki. A végződés nemtől függ.\n\n## Kulturális Tippek\n\n### Olasz Szenvedély\nAz olaszok nyíltan fejezik ki érzelmeiket. A túlzás elfogadott – \"da morire\" (halálosan) gyakori kifejezés.\n\n### Gesztusok\nAz olaszok sokat gesztikulálnak. A telefon- vagy videóhívás közben is használj gesztusokat!\n\n### Család\nAz olasz kultúrában a család központi. Ha hiányzik a partner, valószínűleg a családja is hiányzik.\n\n## Kedveskedő Megszólításokkal\n\n- **Mi manchi, amore mio** – Hiányzol, szerelmem\n- **Mi manchi, tesoro** – Hiányzol, kincsem\n- **Mi manchi, caro/cara** – Hiányzol, drágám\n- **Mi manchi, cuore mio** – Hiányzol, szívem\n- **Mi manchi, vita mia** – Hiányzol, életem\n\n## Válaszok\n\n- **Anche tu mi manchi** – Te is hiányzol\n- **Mi manchi di più** – Jobban hiányzol\n- **Anch'io** – Én is\n- **Moltissimo** – Nagyon (megerősítés)\n\n## Canzone d'Amore – Szerelmes Dalokban\n\nAz olasz zene tele van hiányról szóló dalokkal:\n- \"Mi manchi\" – Fausto Leali\n- \"Ti amo\" – Umberto Tozzi\n- Az olasz opera és canzone gazdag nyelvleckeforrás!\n\n## Kiejtési Tippek\n\n- Az olasz kiejtés nagyrészt fonetikus\n- **c** + e/i = cs\n- **c** + a/o/u = k\n- **g** + e/i = dzs\n- **g** + a/o/u = g\n- **gli** = lj\n- **gn** = ny\n- A kettős mássalhangzók hosszabbak!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Alapvető Hiányzol Kifejezések",
+              "## Kulturális Tippek"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "0eba85d8-cffa-4815-a169-7d0d374f2968",
+      "title": "Чеська весільна лексика: слова та фрази для особливого дня",
+      "native_lang": "uk",
+      "target_lang": "cs",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport CTA from '@components/CTA.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\n\n# Чеська весільна лексика: слова та фрази для особливого дня\n\nВесілля — це один із найважливіших днів у житті пари. Якщо ви плануєте весілля за кордоном, ваш партнер розмовляє чеською, або ви просто хочете привітати когось особливими словами — ця стаття для вас!\n\nТут ви знайдете найважливішу чеськау весільну лексику: від основних слів до традиційних тостів та привітань.\n\n<PhraseOfDay\n  phrase=\"Gratuluju!\"\n  translation=\"Вітаю!\"\n  context=\"Традиційне привітання молодят\"\n/>\n\n## Основна весільна лексика\n\nПочнемо з найважливіших слів, які вам знадобляться:\n\n\n<VocabCard \n  word=\"svatba\"\n  translation=\"весілля\"\n  pronunciation=\"/ˈsvatba/\"\n  example=\"Naše svatba bude v červnu.\"\n  exampleTranslation=\"Наше весілля буде у червні.\"\n/>\n\n<VocabCard \n  word=\"nevěsta\"\n  translation=\"наречена\"\n  pronunciation=\"/ˈnɛvjɛsta/\"\n  example=\"Nevěsta vypadá krásně.\"\n  exampleTranslation=\"Наречена виглядає чудово.\"\n/>\n\n<VocabCard \n  word=\"ženich\"\n  translation=\"наречений\"\n  pronunciation=\"/ˈʒɛɲɪx/\"\n  example=\"Ženich čeká u oltáře.\"\n  exampleTranslation=\"Наречений чекає біля вівтаря.\"\n/>\n\n<VocabCard \n  word=\"sliby\"\n  translation=\"клятви / обітниці\"\n  pronunciation=\"/ˈslɪbɪ/\"\n  example=\"Napsali si vlastní sliby.\"\n  exampleTranslation=\"Вони написали власні клятви.\"\n/>\n\n<VocabCard \n  word=\"Ano, beru\"\n  translation=\"Так, згоден/згодна\"\n  pronunciation=\"/ˈano ˈbɛru/\"\n  example=\"Když řekneš \"Ano\", jsi ženatý/vdaná.\"\n  exampleTranslation=\"Коли ви говорите \"Ano\", ви одружені.\"\n/>\n\n<VocabCard \n  word=\"snubní prsten\"\n  translation=\"обручка\"\n  pronunciation=\"/ˈsnubɲiː ˈprstɛn/\"\n  example=\"Nasadil jí snubní prsten na prst.\"\n  exampleTranslation=\"Він надів обручку на її палець.\"\n/>\n\n<VocabCard \n  word=\"obřad\"\n  translation=\"церемонія\"\n  pronunciation=\"/ˈobrʒat/\"\n  example=\"Obřad byl velmi dojemný.\"\n  exampleTranslation=\"Церемонія була дуже зворушливою.\"\n/>\n\n<VocabCard \n  word=\"hostina\"\n  translation=\"банкет / прийом\"\n  pronunciation=\"/ˈɦostɪna/\"\n  example=\"Hostina je v 19 hodin.\"\n  exampleTranslation=\"Банкет о 19:00.\"\n/>\n\n<VocabCard \n  word=\"svědek\"\n  translation=\"свідок\"\n  pronunciation=\"/ˈsvjɛdɛk/\"\n  example=\"Můj bratr bude můj svědek.\"\n  exampleTranslation=\"Мій брат буде свідком.\"\n/>\n\n<VocabCard \n  word=\"družička\"\n  translation=\"дружка\"\n  pronunciation=\"/ˈdruʒɪtʃka/\"\n  example=\"Její sestra je družička.\"\n  exampleTranslation=\"Її сестра буде дружкою.\"\n/>\n\n<VocabCard \n  word=\"přípitek\"\n  translation=\"тост\"\n  pronunciation=\"/ˈprʒiːpɪtɛk/\"\n  example=\"Připijme na novomanžele!\"\n  exampleTranslation=\"Дозвольте підняти тост за молодят!\"\n/>\n\n<VocabCard \n  word=\"Gratuluju!\"\n  translation=\"Вітаю!\"\n  pronunciation=\"/ɡratʊˈlʊjʊ/\"\n  example=\"Gratuluju k svatbě!\"\n  exampleTranslation=\"Вітаю з весіллям!\"\n/>\n\n<VocabCard \n  word=\"novomanželé\"\n  translation=\"молодята\"\n  pronunciation=\"/ˈnɔvɔmanʒɛlɛː/\"\n  example=\"Novomanželé odjeli na líbánky.\"\n  exampleTranslation=\"Молодята поїхали у медовий місяць.\"\n/>\n\n<VocabCard \n  word=\"svatební šaty\"\n  translation=\"весільна сукня\"\n  pronunciation=\"/ˈsvatɛbɲiː ˈʃatɪ/\"\n  example=\"Vybrala si krásné svatební šaty.\"\n  exampleTranslation=\"Вона обрала чудову весільну сукню.\"\n/>\n\n<VocabCard \n  word=\"kytice\"\n  translation=\"букет\"\n  pronunciation=\"/ˈkɪcɪtsɛ/\"\n  example=\"Nevěsta hodila kytici.\"\n  exampleTranslation=\"Наречена кинула букет.\"\n/>\n\n\n## Традиційні весільні фрази\n\n### Привітання молодят\n\nНа весіллі прийнято вітати молодят. Ось кілька корисних фраз чеською:\n\n| Чеська | Українська |\n|----------------|------------|\n| Gratuluju! | Вітаю! |\n| přípitek | Тост! |\n\n<CultureTip>\nВесільні традиції відрізняються в різних культурах. Наприклад, традиційна церемонія чеською може включати унікальні ритуали та звичаї, які варто знати заздалегідь.\n</CultureTip>\n\n## Організація весілля\n\nЯкщо ви плануєте весілля з партнером, який розмовляє чеською, вам знадобиться лексика для обговорення деталей:\n\n### Місце проведення\n- Церква / Храм\n- Ресторан\n- Готель\n- На відкритому повітрі\n\n### Важливі деталі\n- Запрошення гостей\n- Вибір дати\n- Дрес-код\n- Меню\n\n## Весільні тости\n\nТрадиційний тост чеською — це ціле мистецтво! Ось кілька порад:\n\n1. **Почніть з привітання** — зверніться до молодят та гостей\n2. **Поділіться історією** — розкажіть щось особисте про пару\n3. **Побажайте щастя** — завершіть теплими побажаннями\n4. **Підніміть келих** — традиційно кажуть тост перед тим, як випити\n\n<CultureTip>\nУ багатьох культурах тост супроводжується особливими словами. Дізнайтеся заздалегідь, які фрази прийняті на весіллі чеською.\n</CultureTip>\n\n## Весільні обітниці\n\nЯкщо ви плануєте написати власні обітниці чеською, ось корисна структура:\n\n1. Звернення до партнера\n2. Чому ви його/її кохаєте\n3. Ваші обіцянки на майбутнє\n4. Завершальні слова любові\n\n## Корисні вирази для гостей\n\nЯкщо вас запросили на весілля, де розмовляють чеською, запам'ятайте ці фрази:\n\n- Як привітати молодят\n- Як відповісти на запрошення\n- Як подякувати за гостинність\n\n## Подальше вивчення\n\nТепер ви знаєте основну весільну лексику чеською! Продовжуйте вивчати мову зі статтями:\n\n- [Чеська романтичні фрази для пар](/uk/blog/czech-romantic-phrases-for-couples)\n- [Як сказати \"Я тебе кохаю\" чеською](/uk/blog/how-to-say-i-love-you-in-czech)\n\n<CTA \n  text=\"Хочете вивчити більше чеськіих слів для стосунків? Спробуйте наш додаток!\"\n  buttonText=\"Почати вивчення\"\n  href=\"/uk/learn/cs\"\n/>",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 287,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Традиційні весільні фрази"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

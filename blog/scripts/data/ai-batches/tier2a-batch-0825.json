@@ -1,0 +1,161 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0825",
+  "articles": [
+    {
+      "id": "ec88c5be-c749-4fb8-9590-a72a66c10d6d",
+      "title": "100 Meest Gebruikte Italiaanse Woorden voor Relaties",
+      "native_lang": "nl",
+      "target_lang": "it",
+      "category": "communication",
+      "content": "De Italiaanse taal van de liefde! Hier zijn de woorden die je nodig hebt.\n\n## Basis liefdeswoorden\n\n### 1. Amore - *a-mo-re* - Liefde\n### 2. Cuore - *kwo-re* - Hart\n### 3. Bacio - *ba-tsjo* - Kus\n### 4. Abbraccio - *ab-bra-tsjo* - Knuffel\n### 5. Insieme - *ien-sje-me* - Samen\n### 6. Per sempre - *per sem-pre* - Voor altijd\n### 7. Sempre - *sem-pre* - Altijd\n### 8. Bello/a - *bel-lo/a* - Mooi\n### 9. Felice - *fe-lie-tsje* - Gelukkig\n### 10. Tesoro - *te-zo-ro* - Schat\n\n## Dagelijkse communicatie\n\n### 11. Sì - *sie* - Ja\n### 12. No - *no* - Nee\n### 13. Per favore - *per fa-vo-re* - Alsjeblieft\n### 14. Grazie - *gra-tsje* - Dank je\n### 15. Scusa - *skoe-za* - Sorry\n### 16. Buongiorno - *bwon-djor-no* - Goedemorgen\n### 17. Buonanotte - *bwo-na-not-te* - Goedenacht\n### 18. Ciao - *tsjaw* - Hallo/Tot ziens\n### 19. Come stai? - *ko-me stai* - Hoe gaat het?\n### 20. Arrivederci - *ar-rie-ve-der-tsji* - Tot ziens\n\n## Gevoelens uitdrukken\n\n### 21. Ti amo - *tie a-mo* - Ik hou van je\n### 22. Mi manchi - *mie man-kie* - Ik mis je\n### 23. Ho bisogno di te - *o bie-zon-jo die te* - Ik heb je nodig\n### 24. Mi fido di te - *mie fie-do die te* - Ik vertrouw je\n### 25. Sono orgoglioso/a di te - *so-no or-go-ljo-zo/a die te* - Ik ben trots op je\n### 26. Ti perdono - *tie per-do-no* - Ik vergeef je\n### 27. Capisco - *ka-pies-ko* - Ik begrijp het\n### 28. Mi rendi felice - *mie ren-die fe-lie-tsje* - Je maakt me gelukkig\n### 29. Sei tutto per me - *see toe-to per me* - Je bent alles voor mij\n### 30. Penso a te - *pen-so a te* - Ik denk aan je\n\n## Vragen\n\n### 31. Cosa? - *ko-za* - Wat?\n### 32. Dove? - *do-ve* - Waar?\n### 33. Quando? - *kwan-do* - Wanneer?\n### 34. Perché? - *per-kee* - Waarom?\n### 35. Come? - *ko-me* - Hoe?\n### 36. Chi? - *kie* - Wie?\n\n## Tijd\n\n### 37. Oggi - *od-djie* - Vandaag\n### 38. Domani - *do-ma-nie* - Morgen\n### 39. Ieri - *je-rie* - Gisteren\n### 40. Adesso - *a-des-so* - Nu\n### 41. Dopo - *do-po* - Later\n### 42. Presto - *pres-to* - Binnenkort\n### 43. Mai - *mai* - Nooit\n### 44. A volte - *a vol-te* - Soms\n### 45. Spesso - *spes-so* - Vaak\n\n## Conclusie\n\nMet deze woorden spreek je de taal van de Italiaanse liefde!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Basis liefdeswoorden",
+              "### 1. Amore - *a-mo-re* - Liefde",
+              "### 2. Cuore - *kwo-re* - Hart",
+              "### 3. Bacio - *ba-tsjo* - Kus",
+              "### 4. Abbraccio - *ab-bra-tsjo* - Knuffel",
+              "### 5. Insieme - *ien-sje-me* - Samen",
+              "### 6. Per sempre - *per sem-pre* - Voor altijd",
+              "### 7. Sempre - *sem-pre* - Altijd",
+              "### 8. Bello/a - *bel-lo/a* - Mooi",
+              "### 9. Felice - *fe-lie-tsje* - Gelukkig",
+              "### 10. Tesoro - *te-zo-ro* - Schat",
+              "## Dagelijkse communicatie",
+              "### 11. Sì - *sie* - Ja",
+              "### 12. No - *no* - Nee",
+              "### 13. Per favore - *per fa-vo-re* - Alsjeblieft",
+              "### 14. Grazie - *gra-tsje* - Dank je",
+              "### 15. Scusa - *skoe-za* - Sorry",
+              "### 16. Buongiorno - *bwon-djor-no* - Goedemorgen",
+              "### 17. Buonanotte - *bwo-na-not-te* - Goedenacht",
+              "### 18. Ciao - *tsjaw* - Hallo/Tot ziens",
+              "### 19. Come stai? - *ko-me stai* - Hoe gaat het?",
+              "### 20. Arrivederci - *ar-rie-ve-der-tsji* - Tot ziens",
+              "## Gevoelens uitdrukken",
+              "### 21. Ti amo - *tie a-mo* - Ik hou van je",
+              "### 22. Mi manchi - *mie man-kie* - Ik mis je",
+              "### 23. Ho bisogno di te - *o bie-zon-jo die te* - Ik heb je nodig",
+              "### 24. Mi fido di te - *mie fie-do die te* - Ik vertrouw je",
+              "### 25. Sono orgoglioso/a di te - *so-no or-go-ljo-zo/a die te* - Ik ben trots op je",
+              "### 26. Ti perdono - *tie per-do-no* - Ik vergeef je",
+              "### 27. Capisco - *ka-pies-ko* - Ik begrijp het",
+              "### 28. Mi rendi felice - *mie ren-die fe-lie-tsje* - Je maakt me gelukkig",
+              "### 29. Sei tutto per me - *see toe-to per me* - Je bent alles voor mij",
+              "### 30. Penso a te - *pen-so a te* - Ik denk aan je",
+              "## Vragen",
+              "### 31. Cosa? - *ko-za* - Wat?",
+              "### 32. Dove? - *do-ve* - Waar?",
+              "### 33. Quando? - *kwan-do* - Wanneer?",
+              "### 34. Perché? - *per-kee* - Waarom?",
+              "### 35. Come? - *ko-me* - Hoe?",
+              "### 36. Chi? - *kie* - Wie?",
+              "## Tijd",
+              "### 37. Oggi - *od-djie* - Vandaag",
+              "### 38. Domani - *do-ma-nie* - Morgen",
+              "### 39. Ieri - *je-rie* - Gisteren",
+              "### 40. Adesso - *a-des-so* - Nu",
+              "### 41. Dopo - *do-po* - Later",
+              "### 42. Presto - *pres-to* - Binnenkort",
+              "### 43. Mai - *mai* - Nooit",
+              "### 44. A volte - *a vol-te* - Soms",
+              "### 45. Spesso - *spes-so* - Vaak"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "eca00e44-0635-404a-9c52-c752fb1199b8",
+      "title": "İspanyolca Mesajlaşma İfadeleri: Aşkınıza Dijital Tutku",
+      "native_lang": "tr",
+      "target_lang": "es",
+      "category": "communication",
+      "content": "İspanyolca, dünyanın en romantik dillerinden biri olarak bilinir. Sevgiliniz İspanyolca konuşuyorsa, mesajlaşırken bu dilin sıcaklığını ve tutkusunu yansıtan ifadeleri bilmek ilişkinize farklı bir boyut katacaktır. Bu rehberde, İspanyolca romantik mesajlaşma ifadelerini öğreneceksiniz.\n\n## Temel Sevgi İfadeleri\n\n### Te quiero mucho (TQM)\n**Okunuşu:** \"Te kiyero muço\"\n\n**Türkçe karşılığı:** Seni çok seviyorum\n\nİspanyolca mesajlaşmada en yaygın kısaltmalardan biri. \"Te quiero\" sevgi, \"Te amo\" ise daha derin aşk ifade eder.\n\n> *Örnek:* \"Buenas noches mi amor, TQM 💕\" (İyi geceler aşkım, seni çok seviyorum)\n\n### Te amo\n**Okunuşu:** \"Te amo\"\n\n**Türkçe karşılığı:** Seni seviyorum (derin aşk)\n\nBu ifade, \"te quiero\"dan daha yoğun bir duygu ifade eder ve ciddi ilişkilerde kullanılır.\n\n> *Örnek:* \"Eres todo para mí, te amo ❤️\" (Sen benim her şeyimsin, seni seviyorum)\n\n## Sevgi Sözcükleri\n\n### Mi amor\n**Okunuşu:** \"Mi amor\"\n\n**Türkçe karşılığı:** Aşkım\n\nİspanyolca'da en yaygın sevgi hitabı. Hem erkekler hem kadınlar için kullanılır.\n\n> *Örnek:* \"Buenos días mi amor, cómo dormiste? 🌅\" (Günaydın aşkım, nasıl uyudun?)\n\n### Mi vida\n**Okunuşu:** \"Mi vida\"\n\n**Türkçe karşılığı:** Hayatım\n\nÇok romantik ve tutkulu bir hitap şekli.\n\n> *Örnek:* \"Te extraño mi vida 😢\" (Seni özlüyorum hayatım)\n\n### Cariño\n**Okunuşu:** \"Karinyo\"\n\n**Türkçe karşılığı:** Canım / Tatlım\n\nDaha tatlı ve günlük kullanıma uygun bir hitap.\n\n> *Örnek:* \"Cariño, a qué hora nos vemos? 🕐\" (Canım, saat kaçta buluşuyoruz?)\n\n## Özlem ve Düşünce\n\n### Te extraño\n**Okunuşu:** \"Te ekstranyo\"\n\n**Türkçe karşılığı:** Seni özlüyorum\n\nUzak mesafe ilişkilerde veya uzun bir gün sonunda sıkça kullanılır.\n\n> *Örnek:* \"Solo 3 días más y estaré contigo, te extraño mucho 💔\" (Sadece 3 gün daha ve seninle olacağım, seni çok özlüyorum)\n\n### Pensando en ti\n**Okunuşu:** \"Pensando en ti\"\n\n**Türkçe karşılığı:** Seni düşünüyorum\n\nGün içinde ani bir mesaj olarak harika.\n\n> *Örnek:* \"En el trabajo pero pensando en ti todo el día 💭\" (İşteyim ama bütün gün seni düşünüyorum)\n\n## Günlük Mesajlaşma Kısaltmaları\n\n### Q haces? / Qué haces?\n**Okunuşu:** \"Ke ases\"\n\n**Türkçe karşılığı:** Ne yapıyorsun?\n\nİspanyolca mesajlaşmada \"que\" genellikle \"q\" olarak kısaltılır.\n\n> *Örnek:* \"Hola amor, q haces? 📱\" (Merhaba aşkım, ne yapıyorsun?)\n\n### Bss / Besos\n**Okunuşu:** \"Besos\"\n\n**Türkçe karşılığı:** Öpücükler\n\nMesajları tatlı bir şekilde bitirmek için kullanılır.\n\n> *Örnek:* \"Hasta mañana, bss 😘\" (Yarına kadar, öpücükler)\n\n### Tqm\n**Okunuşu:** \"Te kiyero muço\"\n\n**Türkçe karşılığı:** Seni çok seviyorum\n\nHızlı mesajlaşmada çok yaygın.\n\n> *Örnek:* \"Gracias por todo, tqm ❤️\" (Her şey için teşekkürler, seni çok seviyorum)\n\n## Romantik Planlar\n\n### Quedamos?\n**Okunuşu:** \"Kedamos\"\n\n**Türkçe karşılığı:** Buluşalım mı?\n\nRandevu teklif etmenin rahat bir yolu.\n\n> *Örnek:* \"Este finde quedamos? 🎬\" (Bu hafta sonu buluşalım mı?)\n\n### Tengo ganas de verte\n**Okunuşu:** \"Tengo ganas de verte\"\n\n**Türkçe karşılığı:** Seni görmek istiyorum / Seni görmeyi çok istiyorum\n\nÖzlem dolu ve romantik bir ifade.\n\n> *Örnek:* \"Ya es viernes, tengo muchas ganas de verte 😍\" (Sonunda cuma, seni görmeyi çok istiyorum)\n\n## Duygusal Destek\n\n### Estoy contigo\n**Okunuşu:** \"Estoy kontigo\"\n\n**Türkçe karşılığı:** Seninleyim / Yanındayım\n\nZor zamanlarda destek vermek için.\n\n> *Örnek:* \"Pase lo que pase, estoy contigo 💪\" (Ne olursa olsun, seninleyim)\n\n### Tú puedes!\n**Okunuşu:** \"Tu puedes\"\n\n**Türkçe karşılığı:** Yapabilirsin! / Başaracaksın!\n\nMotivasyon vermek için mükemmel.\n\n> *Örnek:* \"Mucha suerte en tu examen, tú puedes! 🍀\" (Sınavında bol şans, yapabilirsin!)\n\n## İspanyolca Emojilerin Anlamı\n\nİspanyollar emoji kullanmayı sever:\n\n- **❤️ 💕** - Sevgi (\"amor\")\n- **😘 💋** - Öpücük (\"beso\")\n- **🔥** - \"Estás muy guapo/a\" (Çok yakışıklı/güzelsin)\n- **😍** - \"Me encantas\" (Sana bayılıyorum)\n- **🥰** - \"Eres adorable\" (Çok tatlısın)\n\n## Pratik Önerileri\n\n1. **\"Tú\" ve \"Usted\" farkına dikkat edin** - Sevgilinizle her zaman \"tú\" (sen) kullanın\n2. **Ünlem işaretine dikkat** - İspanyolca'da cümle başında ters ünlem (¡) kullanılır ama mesajlaşmada genellikle atlanır\n3. **Latin Amerika vs İspanya** - Bazı ifadeler bölgeye göre değişir; sevgilinizin hangi ülkeden olduğunu bilin\n4. **Tutkulu olun** - İspanyolca duygusal bir dildir, duygularınızı ifade etmekten çekinmeyin\n\nİspanyolca mesajlaşma, ilişkinize tutku ve sıcaklık katacaktır. ¡Buena suerte con tu amor! (Aşkınızda bol şans!) 💕",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Temel Sevgi İfadeleri",
+              "## Sevgi Sözcükleri",
+              "## Özlem ve Düşünce",
+              "## Günlük Mesajlaşma Kısaltmaları",
+              "## Romantik Planlar",
+              "## Duygusal Destek"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ecbb90c3-375d-4afe-92a6-86614e604ecd",
+      "title": "Tjekkiske fraser til uenigheder og diskussioner for par",
+      "native_lang": "da",
+      "target_lang": "cs",
+      "category": "communication",
+      "content": "Tjekkisk kultur kombinerer centraleuropæisk pragmatisme med en rig tradition for humor og ironi. At kunne navigere i konflikter på tjekkisk viser din partner, at du tager forholdet seriøst.\n\n## Tjekkisk kommunikation\n\nTjekkere værdsætter direkte kommunikation og har ofte en tør, sarkastisk humor. De er generelt praktiske og fokuserer på at finde løsninger frem for at dvæle ved problemer.\n\n## Vigtige fraser\n\n### At udtrykke følelser\n\n<Phrase>\n  <Original>Bolí mě, když to říkáš</Original>\n  <Translation>Det gør ondt, når du siger det</Translation>\n  <Context>Udtryk din følelsesmæssige smerte.</Context>\n  <Pronunciation>Boh-lee myeh gdihzh toh rzhee-kahsh</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Potřebuji chvilku na přemýšlení</Original>\n  <Translation>Jeg har brug for et øjeblik til at tænke</Translation>\n  <Context>Bed om tid til refleksion.</Context>\n  <Pronunciation>Poh-trzheh-boo-yee khveel-koo nah przheh-mih-shleh-nyee</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Můžeme si o tom promluvit v klidu?</Original>\n  <Translation>Kan vi tale roligt om det?</Translation>\n  <Context>Invitation til en mere afbalanceret samtale.</Context>\n  <Pronunciation>Moo-zheh-meh see oh tohm prohm-loo-veet v klee-doo</Pronunciation>\n</Phrase>\n\n### At lytte og forstå\n\n<Phrase>\n  <Original>Chápu tvůj úhel pohledu</Original>\n  <Translation>Jeg forstår dit synspunkt</Translation>\n  <Context>Anerkend partnerens perspektiv.</Context>\n  <Pronunciation>Khah-poo tvooy oo-hel poh-leh-doo</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Pomoz mi to pochopit</Original>\n  <Translation>Hjælp mig med at forstå</Translation>\n  <Context>Bed om mere forklaring.</Context>\n  <Pronunciation>Poh-mohz mee toh poh-khoh-peet</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Poslouchám tě</Original>\n  <Translation>Jeg lytter til dig</Translation>\n  <Context>Vis din opmærksomhed.</Context>\n  <Pronunciation>Poh-sloo-khahm tyeh</Pronunciation>\n</Phrase>\n\n### At finde løsninger\n\n<Phrase>\n  <Original>Najděme kompromis</Original>\n  <Translation>Lad os finde et kompromis</Translation>\n  <Context>Foreslå en fælles løsning.</Context>\n  <Pronunciation>Nai-dyeh-meh kom-proh-mees</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Nechci se s tebou hádat</Original>\n  <Translation>Jeg vil ikke skændes med dig</Translation>\n  <Context>Udtryk dit ønske om fred.</Context>\n  <Pronunciation>Nekh-tsee seh s teh-bow hah-daht</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Jak to můžeme vyřešit?</Original>\n  <Translation>Hvordan kan vi løse det?</Translation>\n  <Context>Fokusér på løsningen.</Context>\n  <Pronunciation>Yahk toh moo-zheh-meh vih-rzheh-sheet</Pronunciation>\n</Phrase>\n\n### At sætte grænser\n\n<Phrase>\n  <Original>To je pro mě nepřijatelné</Original>\n  <Translation>Det er uacceptabelt for mig</Translation>\n  <Context>Klar grænsemarkering.</Context>\n  <Pronunciation>Toh yeh proh myeh neh-przhee-yah-tel-neh</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Prosím, nekřič</Original>\n  <Translation>Vær venlig, råb ikke</Translation>\n  <Context>Anmod om roligere tone.</Context>\n  <Pronunciation>Proh-seem neh-krzhich</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Dejme si pauzu</Original>\n  <Translation>Lad os holde en pause</Translation>\n  <Context>Foreslå en afkølingsperiode.</Context>\n  <Pronunciation>Dey-meh see pow-zoo</Pronunciation>\n</Phrase>\n\n## Kulturelle indsigter\n\nTjekkisk kultur har karakteristiske træk:\n- **Pragmatisme** - fokus på praktiske løsninger\n- **Humor** - ironi og sarkasme bruges hyppigt\n- **Privatliv** - personlige anliggender deles sjældent offentligt\n- **Øl-kultur** - mange samtaler og forsoninger sker over en øl\n\n## Tips til danske partnere\n\n1. **Værdsæt humoren** - den kan virke tør, men er ment venligt\n2. **Vær praktisk** - undgå overdreven følelsesmæssighed\n3. **Respektér privatliv** - undgå offentlige scener\n4. **Del kulturelle oplevelser** - det styrker båndet\n\nMed disse fraser kan du kommunikere effektivt og vise din tjekkiske partner respekt.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Vigtige fraser"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ecca0ac7-4128-4f3d-b06e-e7f6823d088b",
+      "title": "Rumunské fráze Chybíš mi pro Čechy",
+      "native_lang": "cs",
+      "target_lang": "ro",
+      "category": "communication",
+      "content": "Rumunština má unikátní koncept dor - hlubokou nostalgickou touhu podobnou portugalskému saudade. Tyto fráze vám pomohou vyjádřit stesk po vašem rumunsky mluvícím partnerovi.\n\n## Základní fráze\n\n### \"Mi-e dor de tine.\"\n**Výslovnost:** Mi-e dor de tine.\n\n**Překlad:** Stýská se mi po tobě. / Chybíš mi.\n\n**Kdy použít:** Základní fráze využívající koncept dor.\n\n---\n\n### \"Mi-e foarte dor de tine.\"\n**Výslovnost:** Mi-e foárte dor de tíne.\n\n**Překlad:** Velmi mi chybíš.\n\n**Kdy použít:** Zesílená verze.\n\n---\n\n### \"Aș vrea să fii aici.\"\n**Výslovnost:** Aš vrea sé fij ačí.\n\n**Překlad:** Přál/a bych si, abys tu byl/a.\n\n**Kdy použít:** Vyjádření přání.\n\n---\n\n### \"Nu mă pot opri să mă gândesc la tine.\"\n**Výslovnost:** Nu mé pot oprí sé mé gyndésk la tíne.\n\n**Překlad:** Nemůžu přestat myslet na tebe.\n\n**Kdy použít:** Konstantní myšlenky.\n\n---\n\n## Romantické fráze\n\n### \"Fiecare clipă fără tine este o veșnicie.\"\n**Výslovnost:** Fiekáre klipé féré tíne jeste o vešníčie.\n\n**Překlad:** Každý okamžik bez tebe je věčnost.\n\n**Kdy použít:** Poetické vyjádření.\n\n---\n\n### \"Inima mea este cu tine.\"\n**Výslovnost:** Inima mea jeste ku tíne.\n\n**Překlad:** Moje srdce je s tebou.\n\n**Kdy použít:** Romantické ujištění.\n\n---\n\n### \"Număr zilele până te voi revedea.\"\n**Výslovnost:** Numér zílele pyné te voj revedea.\n\n**Překlad:** Počítám dny, než tě zase uvidím.\n\n**Kdy použít:** Těšení na setkání.\n\n---\n\n### \"Ești primul meu gând dimineața și ultimul seara.\"\n**Výslovnost:** Ješti primul meu gynd dimineaca ši últimul seara.\n\n**Překlad:** Jsi mou první myšlenkou ráno a poslední večer.\n\n**Kdy použít:** Hluboké vyjádření.\n\n---\n\n## Fráze pro zprávy\n\n### \"Mă gândesc la tine.\"\n**Výslovnost:** Mé gyndésk la tíne.\n\n**Překlad:** Myslím na tebe.\n\n**Kdy použít:** Krátká zpráva.\n\n---\n\n### \"Abia aștept să te îmbrățișez.\"\n**Výslovnost:** Abja aštept sé te ymbrécišez.\n\n**Překlad:** Nemůžu se dočkat, až tě obejmu.\n\n**Kdy použít:** Touha po blízkosti.\n\n---\n\n### \"Distanța nu schimbă ceea ce simt pentru tine.\"\n**Výslovnost:** Distanca nu skimbé čeja če simt pentru tíne.\n\n**Překlad:** Vzdálenost nemění to, co k tobě cítím.\n\n**Kdy použít:** Ujištění.\n\n---\n\n## Povzbudivé fráze\n\n### \"În curând vom fi împreună.\"\n**Výslovnost:** Yn kurynd vom fi ympreuné.\n\n**Překlad:** Brzy budeme spolu.\n\n**Kdy použít:** Optimismus.\n\n---\n\n## Kulturní tipy\n\n**Dor:** Tento unikátní rumunský koncept vyjadřuje hlubokou nostalgickou touhu.\n\n**Oslovení:** \"Iubirea mea\" (lásko moje), \"dragă\" (drahá/ý), \"sufletul meu\" (duše moje).\n\n**Poezie:** Rumuni oceňují poetické vyjadřování citů.\n\nS těmito frázemi vyjádříte autentický rumunský dor.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Základní fráze",
+              "## Romantické fráze",
+              "## Fráze pro zprávy",
+              "## Povzbudivé fráze"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "ecce07b5-a451-4e7f-b4ab-c0ea9e1ddd63",
+      "title": "Lengyel évfordulós kívánságok és üzenetek",
+      "native_lang": "hu",
+      "target_lang": "pl",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nAz évforduló a kapcsolatotok ünneplésének különleges alkalma. Ha lengyelul szeretnéd kifejezni az érzéseidet ezen a napon, ezek a kifejezések segítenek.\n\nTovábbi romantikus kifejezésekért nézd meg az [Lengyel romantikus kifejezések](/learn/hu/pl/polish-romantic-phrases-for-every-occasion) útmutatónkat.\n\n<PhraseOfDay\n  word=\"Gratulacje!\"\n  translation=\"Gratulálok!\"\n  pronunciation=\"ɡratuˈlat͡sjɛ\"\n  context=\"Az esküvői köszöntés alapja.\"\n/>\n\n## Alapvető szókincs\n\nAz évfordulós köszöntések alapvető lengyel szókincse:\n\n<VocabCard\n  word=\"ślub\"\n  translation=\"esküvő\"\n  pronunciation=\"ʃlup\"\n  example=\"Ślub był piękny.\"\n/>\n\n| Lengyel | Magyar | Használat |\n|---|---|---|\n| panna młoda | menyasszony | A nő |\n| pan młody | vőlegény | A férfi |\n| przysięga | fogadalmak | Esküvői ígéretek |\n| ceremonia | szertartás | A hivatalos rész |\n| przyjęcie | fogadás | Az ünneplés |\n| toast | köszöntő | Pohárköszöntő |\n\n<CultureTip flag=\"🌍\" title=\"Lengyel kulturális tippek\">\nA lengyel kultúrában az évfordulóknak különleges jelentőségük van. Egyes helyeken hagyományos ajándékokat adnak az évek számától függően.\n</CultureTip>\n\n## Hasznos kifejezések\n\n### Évfordulós köszöntések\n\nAz évforduló napján mondd:\n\n- **Gratulacje!** - Gratulálok!\n- **Minden nap jobban szeretlek** - Romantikus vallomás\n- **Köszönöm, hogy velem vagy** - Hálás szavak\n\n### Hosszabb üzenetek\nHa többet szeretnél mondani:\n\n- **Veled minden nap különleges** - Romantikus\n- **A legjobb döntés volt, hogy igentet mondtam** - Visszatekintő\n\n<VocabCard\n  word=\"miesiąc miodowy\"\n  translation=\"nászút\"\n  pronunciation=\"ˈmjɛɕɔnt͡s mjɔˈdɔvɨ\"\n  example=\"Pojechali na miesiąc miodowy.\"\n/>\n\n## Gyakorlati helyzetek\n\n| Helyzet | Mit mondj |\n|---|---|\n| Reggeli köszöntés | Boldog évfordulót kívánok! |\n| Kártyára | Írj személyes üzenetet |\n| Vacsoránál | Mondj köszöntőt |\n| Lefekvés előtt | Fejezd ki a háládat |\n\n<CultureTip flag=\"💡\" title=\"Hasznos tipp\">\nÍrd le előre, amit mondani szeretnél. Az évforduló érzelmes pillanat, és a leírt szavak segítenek, hogy ne felejtsd el, amit mondani akarsz.\n</CultureTip>\n\n## Összefoglaló táblázat\n\n| Helyzet | Lengyel kifejezés |\n|---|---|\n| Gratuláció | Gratulacje! |\n| Az esemény | ślub |\n| A nő | panna młoda |\n| A férfi | pan młody |\n| Esküvői ígéretek | przysięga |\n\n## További tanulás\n\nHa tovább szeretnéd fejleszteni a lengyel nyelvtudásod, nézd meg ezeket a cikkeinket:\n\n- [Lengyel romantikus kifejezések minden alkalomra](/learn/hu/pl/polish-romantic-phrases-for-every-occasion)\n- [Hogyan mondd: Szeretlek lengyelul](/learn/hu/pl/polish-how-to-say-i-love-you)\n- [Lengyel alapvető kifejezések pároknak](/learn/hu/pl/polish-essential-phrases-for-couples)\n\nEzek a források segítenek elmélyíteni a tudásod és magabiztosabbá válni a lengyel nyelvben.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 276,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Hasznos kifejezések"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

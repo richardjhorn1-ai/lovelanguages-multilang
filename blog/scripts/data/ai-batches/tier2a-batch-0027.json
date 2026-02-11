@@ -1,0 +1,116 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0027",
+  "articles": [
+    {
+      "id": "06f99893-25be-4c69-8bf9-1e6f3057c0d9",
+      "title": "Jak napsat milostný dopis v němčině",
+      "native_lang": "cs",
+      "target_lang": "de",
+      "category": "communication",
+      "content": "Německé milostné dopisy jsou upřímné a hluboké. I když němčina nemusí znít tak melodicky jako románské jazyky, umí vyjádřit city s velkou intenzitou.\n\n## Úvodní oslovení\n\n### \"Mein Schatz\"\n**Překlad:** Můj poklad\n\n---\n\n### \"Mein Liebling\"\n**Překlad:** Můj miláčku\n\n---\n\n### \"Meine große Liebe\"\n**Překlad:** Má velká lásko\n\n---\n\n## Úvodní věty\n\n### \"Ich schreibe dir diesen Brief, um dir zu sagen, wie viel du mir bedeutest.\"\n**Překlad:** Píšu ti tento dopis, abych ti řekl/a, jak moc pro mě znamenáš.\n\n---\n\n### \"Worte können nicht ausdrücken, was ich für dich empfinde.\"\n**Překlad:** Slova nemohou vyjádřit, co k tobě cítím.\n\n---\n\n### \"Seit dem Moment, als ich dich traf, hat sich mein Leben für immer verändert.\"\n**Překlad:** Od chvíle, kdy jsem tě potkal/a, se můj život navždy změnil.\n\n---\n\n## Vyjádření lásky\n\n### \"Du bist das Beste, was mir je passiert ist.\"\n**Překlad:** Jsi to nejlepší, co se mi kdy přihodilo.\n\n---\n\n### \"Ich liebe dich jeden Tag mehr.\"\n**Překlad:** Miluji tě každý den víc.\n\n---\n\n### \"Mein Herz gehört dir, jetzt und für immer.\"\n**Překlad:** Moje srdce patří tobě, teď a navždy.\n\n---\n\n### \"Mit dir habe ich wahres Glück gefunden.\"\n**Překlad:** S tebou jsem našel/našla pravé štěstí.\n\n---\n\n## Ocenění partnera\n\n### \"Ich bewundere deine Stärke, Güte und deine schöne Seele.\"\n**Překlad:** Obdivuji tvou sílu, laskavost a krásnou duši.\n\n---\n\n### \"Danke, dass du mich so liebst, wie ich bin.\"\n**Překlad:** Děkuji, že mě miluješ takového/takovou, jaký/á jsem.\n\n---\n\n### \"Du gibst mir das Gefühl, ein besserer Mensch sein zu wollen.\"\n**Překlad:** Díky tobě chci být lepším člověkem.\n\n---\n\n## Závěrečné fráze\n\n### \"Für immer dein/deine\"\n**Překlad:** Navždy tvůj/tvoje\n\n---\n\n### \"In Liebe\"\n**Překlad:** S láskou\n\n---\n\n### \"Mit all meiner Liebe\"\n**Překlad:** Se vší mou láskou\n\n---\n\n## Kulturní tipy\n\n**Upřímnost:** Němci oceňují přímé, upřímné vyjádření citů.\n\n**Goethe:** Německá literatura má bohatou tradici milostné poezie.\n\nS těmito frázemi napíšete upřímný německý milostný dopis.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Úvodní oslovení",
+              "## Úvodní věty",
+              "## Vyjádření lásky",
+              "## Ocenění partnera",
+              "## Závěrečné fráze"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "07055585-36b6-45ab-a138-7f1898be4f98",
+      "title": "Guten Morgen und Gute Nacht auf Russisch – Süße Phrasen für jeden Tag",
+      "native_lang": "de",
+      "target_lang": "ru",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\n# Guten Morgen und Gute Nacht auf Russisch\n\nEs gibt kaum etwas Schöneres, als den Tag mit liebevollen Worten zu beginnen und zu beenden. Diese Russischen Phrasen helfen dir, deinem Partner jeden Tag zu zeigen, wie viel er dir bedeutet – vom ersten Moment am Morgen bis zum letzten Kuss in der Nacht.\n\n<PhraseOfDay\n  word=\"Good morning\"\n  translation=\"Guten Morgen\"\n  pronunciation=\"gud MOR-ning\"\n  context=\"Der klassische Morgengruß für deinen Partner\"\n/>\n\n## Guten Morgen sagen\n\n### Klassische Morgengrüße\n\n<VocabCard\n  word=\"Good morning, my darling\"\n  translation=\"Guten Morgen, mein Schatz\"\n  pronunciation=\"gud MOR-ning mai DAR-ling\"\n  example=\"Good morning, my darling! Rise and shine.\"\n/>\n\n<VocabCard\n  word=\"Wake up, my love\"\n  translation=\"Aufwachen, mein Liebling\"\n  pronunciation=\"weik ap mai lav\"\n  example=\"Wake up, my love! It's a beautiful day.\"\n/>\n\n| Russisch | Deutsch |\n|-------------|---------|\n| Did you sleep well? | Hast du gut geschlafen? |\n| Time to get up | Zeit aufzustehen |\n| I made breakfast | Ich habe Frühstück gemacht |\n\n### Romantische Morgengrüße\n\n| Russisch | Deutsch |\n|-------------|---------|\n| You're the first thing on my mind | Du bist das Erste, woran ich denke |\n| Have a wonderful day, angel | Einen wunderschönen Tag, mein Engel |\n| I love waking up next to you | Ich liebe es, neben dir aufzuwachen |\n| You're my sunshine | Du bist mein Sonnenschein |\n\n<CultureTip flag=\"🇷🇺\" title=\"Kultureller Kontext\">\nDaily greetings in your partner's language show you care. Make it a sweet habit!\n</CultureTip>\n\n## Gute Nacht sagen\n\n### Klassische Nachtgrüße\n\n<VocabCard\n  word=\"Good night\"\n  translation=\"Gute Nacht\"\n  pronunciation=\"gud nait\"\n  example=\"Good night, sweet dreams.\"\n/>\n\n<VocabCard\n  word=\"Sleep well\"\n  translation=\"Schlaf gut\"\n  pronunciation=\"sliep wel\"\n  example=\"Sleep well, my love.\"\n/>\n\n| Russisch | Deutsch |\n|-------------|---------|\n| Sweet dreams | Süße Träume |\n| See you tomorrow | Bis morgen |\n| Sleep tight | Schlaf schön |\n\n### Romantische Nachtgrüße\n\n| Russisch | Deutsch |\n|-------------|---------|\n| I'll dream of you | Ich träume von dir |\n| You're my last thought before sleep | Du bist der letzte Gedanke vor dem Einschlafen |\n| Sleep well, my heart | Schlaf gut, mein Herz |\n| I can't wait to see you tomorrow | Ich kann es kaum erwarten, dich morgen zu sehen |\n\n## Für Textnachrichten\n\nPerfekt für süße SMS und WhatsApp-Nachrichten:\n\n| Russisch | Deutsch |\n|-------------|---------|\n| Good morning, thinking of you | Guten Morgen, ich denke an dich |\n| Have a great day | Hab einen tollen Tag |\n| Good night, I miss you | Gute Nacht, ich vermisse dich |\n| Sweet dreams | Träum süß |\n| Until tomorrow, love you | Bis morgen, ich liebe dich |\n\n<CultureTip flag=\"🇷🇺\" title=\"Tipp für Paare\">\nBeginne und beende jeden Tag mit einer liebevollen Nachricht auf Russisch. Diese kleinen Gesten stärken eure Beziehung und helfen dir beim Sprachenlernen!\n</CultureTip>\n\n## Verwandte Artikel\n\n- [Romantische Phrasen auf Russisch](/de/blog/russian-romantic-phrases-for-every-occasion)\n- [Russische Kosenamen](/de/blog/russian-pet-names-terms-of-endearment)\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Guten Morgen sagen",
+              "## Gute Nacht sagen"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "0707aaae-6b8a-4464-81e4-25d2f2bff47a",
+      "title": "Russian Jealousy & Trust Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "ru",
+      "category": "communication",
+      "content": "Russian relationships often involve deep emotional intensity. When you're with a Russian speaker, knowing how to discuss jealousy and trust in their language shows profound commitment. Here are essential Russian phrases for these important conversations.\n\n## Expressing Jealousy\n\n### Я ревную (Ya revnuyu)\n**Pronunciation:** yah rehv-NOO-yoo\n\n**Meaning:** \"I'm jealous\"\n\n**When to use it:** To honestly admit your feelings.\n\n### Я начинаю ревновать, когда... (Ya nachinAyu revnovAt', kogdA)\n**Pronunciation:** yah nah-chee-NAH-yoo rehv-noh-VAHT, kahg-DAH\n\n**Meaning:** \"I start getting jealous when...\"\n\n**When to use it:** To explain your triggers.\n\n**Example:** \"Я начинаю ревновать, когда ты проводишь время с ней.\" (I start getting jealous when you spend time with her.)\n\n### Мне не нравится эта ревность, которую я чувствую\n**Pronunciation:** mnye neh NRAH-veet-sah EH-tah REHV-nohst, kah-TOH-roo-yoo yah CHOO-stvoo-yoo\n\n**Meaning:** \"I don't like this jealousy I feel\"\n\n**When to use it:** To show self-awareness.\n\n## Seeking Reassurance\n\n### Ты любишь только меня? (Ty lyUbish' tol'ko menyA?)\n**Pronunciation:** tui LYOO-beesh TOHL-kah meh-NYAH\n\n**Meaning:** \"Do you love only me?\"\n\n**When to use it:** When seeking reassurance.\n\n### Мне нужно, чтобы ты меня успокоил/а (Mne nUzhno, chtOby ty menyA uspokOil/a)\n**Pronunciation:** mnye NOOZH-nah, SHTOH-bui tui meh-NYAH oos-pah-KOH-eel/ah\n\n**Meaning:** \"I need you to reassure me\"\n\n**When to use it:** When asking for comfort.\n\n### Ты можешь помочь мне чувствовать себя увереннее? (Ty mOzhesh' pomOch' mne chUvstvovat' sebyA uverennee?)\n**Pronunciation:** tui MOH-zhesh pah-MOHCH mnye CHOOST-vah-vaht seh-BYAH oo-veh-REH-neh-yeh\n\n**Meaning:** \"Can you help me feel more secure?\"\n\n**When to use it:** To ask for support.\n\n## Building Trust\n\n### Я тебе доверяю (Ya tebE doveryAyu)\n**Pronunciation:** yah teh-BYEH dah-vehr-YAH-yoo\n\n**Meaning:** \"I trust you\"\n\n**When to use it:** To express trust directly.\n\n### Я хочу полностью тебе доверять (Ya khochU pOlnost'yu tebE doveryAt')\n**Pronunciation:** yah khah-CHOO POHL-nahs-tyoo teh-BYEH dah-vehr-YAHT\n\n**Meaning:** \"I want to trust you completely\"\n\n**When to use it:** When building deeper trust.\n\n### Как мы можем построить больше доверия? (Kak my mOzhem postroit' bol'she doveriya?)\n**Pronunciation:** kahk mui MOH-zhehm pahs-troh-EET BOHL-sheh dah-vehr-EE-yah\n\n**Meaning:** \"How can we build more trust?\"\n\n**When to use it:** To strengthen trust together.\n\n## Giving Reassurance\n\n### Я вижу только тебя (Ya vIzhu tOl'ko tebyA)\n**Pronunciation:** yah VEE-zhoo TOHL-kah teh-BYAH\n\n**Meaning:** \"I only see you\"\n\n**When to use it:** A romantic reassurance.\n\n### Ты единственная/единственный для меня (Ty edInstvennyy/edInstennaya dlya menyA)\n**Pronunciation:** tui yeh-DEEN-stveh-nui/nah-yah dlyah meh-NYAH\n\n**Meaning:** \"You're the only one for me\"\n\n**When to use it:** To affirm commitment.\n\n### Тебе не о чем беспокоиться (TebE ne o chom bespokoitʹsya)\n**Pronunciation:** teh-BYEH nyeh oh chom beh-spah-KOH-eet-sah\n\n**Meaning:** \"You have nothing to worry about\"\n\n**When to use it:** To calm concerns.\n\n### Моё сердце принадлежит тебе (Moyo serdtse prinadlezhit tebe)\n**Pronunciation:** mah-YOH SEHR-tseh pree-nahd-leh-ZHIT teh-BYEH\n\n**Meaning:** \"My heart belongs to you\"\n\n**When to use it:** A romantic declaration.\n\n## Setting Boundaries\n\n### Ревность влияет на наши отношения (Revnostʹ vliyayet na nashi otnosheniya)\n**Pronunciation:** REHV-nahst VLEE-yah-yet nah NAH-shee aht-nah-SHEH-nee-yah\n\n**Meaning:** \"Jealousy is affecting our relationship\"\n\n**When to use it:** When jealousy becomes problematic.\n\n### Мне нужно личное пространство (Mne nUzhno lichnoe prostranstvo)\n**Pronunciation:** mnye NOOZH-nah LEECH-nah-yeh prahs-TRAHN-stvah\n\n**Meaning:** \"I need personal space\"\n\n**When to use it:** To establish boundaries.\n\n## Cultural Notes\n\nRussian relationships often involve deep emotional expression. Some jealousy may be seen as caring, but excessive jealousy is considered problematic.\n\n\"Доверие\" (trust) is earned through loyalty and consistent actions over time. Words alone aren't enough.\n\nEmotional honesty is valued. Expressing vulnerability about jealousy shows trust in your partner.\n\n## Building Deep Trust\n\n\"Доверие строится годами\" (Trust is built over years). These conversations, though difficult, strengthen the foundation of your relationship.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Expressing Jealousy",
+              "## Seeking Reassurance",
+              "## Building Trust",
+              "## Giving Reassurance",
+              "## Setting Boundaries"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "0715393a-77d9-4678-9d16-f4255d066d7a",
+      "title": "Румунські фрази про прощення",
+      "native_lang": "uk",
+      "target_lang": "ro",
+      "category": "communication",
+      "content": "Прощення важливе в румунській культурі. Ось основні фрази.\n\n## Прохання про прощення\n\n### \"Te rog, iartă-mă\"\n**Вимова:** Те роґ, ярте-ме\n\n**Значення:** Будь ласка, пробач мене\n\n### \"Sper că mă poți ierta\"\n**Вимова:** Спер ке ме поць єрта\n\n**Значення:** Сподіваюсь, ти зможеш мене пробачити\n\n## Надання прощення\n\n### \"Te iert\"\n**Вимова:** Те єрт\n\n**Значення:** Я тебе прощаю\n\n### \"E în regulă, înțeleg\"\n**Вимова:** Е ин реґуле, интелеґ\n\n**Значення:** Все добре, я розумію\n\n### \"Toți facem greșeli\"\n**Вимова:** Тоць фачем ґрешель\n\n**Значення:** Всі роблять помилки\n\n## Обіцянки\n\n### \"Promit că nu se va mai întâmpla\"\n**Вимова:** Проміт ке ну се ва май интимпла\n\n**Значення:** Обіцяю, це більше не повториться\n\n### \"Cum pot să repar asta?\"\n**Вимова:** Кум пот се репар аста?\n\n**Значення:** Як я можу це виправити?\n\n### \"Dă-mi încă o șansă\"\n**Вимова:** Де-мі инке о шансе\n\n**Значення:** Дай мені ще один шанс\n\n## Труднощі\n\n### \"Nu sunt încă pregătit/pregătită să iert\"\n**Вимова:** Ну сунт инке преґетіт/преґетіте се єрт\n\n**Значення:** Я ще не готовий/готова прощати\n\n### \"Am nevoie de mai mult timp\"\n**Вимова:** Ам невоє де май мулт тімп\n\n**Значення:** Мені потрібно більше часу\n\n## Культурні поради\n\n**Православ'я:** Румунія та Україна мають спільну релігійну традицію.\n\n**Сусідство:** Культурна близькість.\n\nПрощення — це шлях до гармонії.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 202,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Прохання про прощення",
+              "## Надання прощення",
+              "## Обіцянки",
+              "## Труднощі"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "07344972-757a-4055-8791-659f61d6b896",
+      "title": "Turkish Flirting Phrases: Passionate Expressions for Your Aşkım",
+      "native_lang": "en",
+      "target_lang": "tr",
+      "category": "communication",
+      "content": "Turkish romance combines passion, poetry, and warmth in expressions that will make your partner's heart flutter. The language offers unique phrases and endearments that English simply cannot match.\n\n## The Turkish Heart of Romance\n\nTurkish culture values deep emotional connections. Romance (*aşk*) is expressed passionately, and the language provides beautiful tools for conveying love with intensity and poetry.\n\n## Essential Flirting Phrases\n\n### Captivating Compliments\n\n**Çok güzelsin**\n*(Chok gew-zel-sin)*\n*You are very beautiful*\n\nDirect and powerful—*güzel* (beautiful) is the quintessential Turkish compliment.\n\n**Gözlerin çok güzel**\n*(Goz-le-rin chok gew-zel)*\n*Your eyes are very beautiful*\n\nEyes hold special romantic significance in Turkish culture.\n\n**Gülüşün beni büyülüyor**\n*(Gew-lew-shewn beni bew-yew-lew-yor)*\n*Your smile enchants me*\n\n*Büyülemek* means to cast a spell—they bewitch you with their smile.\n\n### Expressing Deep Attraction\n\n**Seni düşünmeden duramıyorum**\n*(Seni dew-shewn-me-den du-ra-muh-yo-rum)*\n*I can't stop thinking about you*\n\nA confession that they completely occupy your thoughts.\n\n**Beni deli ediyorsun**\n*(Beni deli edi-yor-sun)*\n*You drive me crazy*\n\nPlayful and passionate—they make you lose your mind with desire.\n\n**Kalbim sadece senin için atıyor**\n*(Kal-bim sa-de-je se-nin i-chin a-tuh-yor)*\n*My heart beats only for you*\n\nA complete declaration of devoted love.\n\n### Romantic Declarations\n\n**Sen hayatımın aşkısın**\n*(Sen ha-ya-tuh-muhn ash-kuh-suhn)*\n*You are the love of my life*\n\nReserve this for deep commitment—it carries tremendous weight.\n\n**Seninle çok mutluyum**\n*(Se-nin-le chok mut-lu-yum)*\n*I'm very happy with you*\n\nSimple but profound—their presence brings genuine joy.\n\n**Sen benim her şeyimsin**\n*(Sen benim her shey-im-sin)*\n*You are my everything*\n\nThey encompass your entire world.\n\n### Sweet Turkish Expressions\n\n**Seni çok özlüyorum**\n*(Seni chok oz-lew-yo-rum)*\n*I miss you so much*\n\nTurkish *özlemek* conveys a deep longing for someone's presence.\n\n**Her gün seni daha çok seviyorum**\n*(Her gewn seni da-ha chok se-vi-yo-rum)*\n*Every day I love you more*\n\nLove that grows continuously stronger.\n\n**Yanında olmak istiyorum**\n*(Ya-nuhn-da ol-mak is-ti-yo-rum)*\n*I want to be by your side*\n\nExpressing desire for closeness and presence.\n\n## Turkish Endearments\n\nTurkish has wonderfully unique terms of affection:\n\n- **Aşkım** (ash-kuhm) — My love\n- **Canım** (ja-nuhm) — My soul/life\n- **Hayatım** (ha-ya-tuhm) — My life\n- **Tatlım** (tat-luhm) — My sweet\n- **Bir tanem** (bir ta-nem) — My one and only\n\n## Turkish Romantic Culture\n\n**Passion is expected**: Turkish culture embraces emotional expression.\n\n**Family respect**: Meeting family indicates serious intentions.\n\n**Poetry tradition**: Turkish has a rich tradition of romantic poetry (*şiir*).\n\n**Formal vs. informal**: Using *sen* (you-informal) shows intimacy.\n\n## Pronunciation Tips\n\n- **Ü** sounds like German ü or French u\n- **Ö** sounds like German ö\n- **Ş** sounds like \"sh\"\n- **Ç** sounds like \"ch\"\n- **Ğ** lengthens the preceding vowel\n\n## Making It Natural\n\nStart with compliments and common endearments like *Aşkım* or *Canım*. Your Turkish-speaking partner will melt hearing these tender expressions in their native language.\n\nThe passion and warmth of Turkish romance creates a deep emotional connection. Every effort you make to speak their language shows love beyond words.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Essential Flirting Phrases"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

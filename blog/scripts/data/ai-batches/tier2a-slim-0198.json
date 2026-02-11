@@ -1,0 +1,479 @@
+{
+  "batchId": "tier2a-slim-0198",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "cd4f5df5-072c-4362-811d-46bddf98010f",
+      "title": "Rumänische Phrasen für die Schwiegereltern",
+      "native_lang": "de",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Erste Begegnung",
+          "subsections": [
+            "### \"Este o plăcere să vă cunosc în sfârșit\"",
+            "### \"Am auzit multe despre dumneavoastră\"",
+            "### \"Vă mulțumesc că m-ați primit în casa dumneavoastră\""
+          ]
+        },
+        {
+          "header": "## Bei Mahlzeiten",
+          "subsections": [
+            "### \"Este delicios! Pot primi rețeta?\"",
+            "### \"Vă mulțumesc pentru această masă minunată\"",
+            "### \"Pot să ajut cu ceva?\""
+          ]
+        },
+        {
+          "header": "## Über Ihre Beziehung",
+          "subsections": [
+            "### \"Fiul/Fiica dumneavoastră înseamnă totul pentru mine\"",
+            "### \"Sunt foarte recunoscător/recunoscătoare că îl/o am pe [Name] în viața mea\"",
+            "### \"Promit să am întotdeauna grijă de [Name]\""
+          ]
+        },
+        {
+          "header": "## Dankbarkeit zeigen",
+          "subsections": [
+            "### \"Vă mulțumesc că ați crescut o persoană atât de minunată\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cd5be498-1ee8-4d17-b9cb-6ea2fa507c6d",
+      "title": "Jak powiedziec kocham cie po dunsku",
+      "native_lang": "pl",
+      "target_lang": "da",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Codzieńne wyznania",
+            "### Cwiczenie 2: Karteczki milosne",
+            "### Cwiczenie 3: Wideo-wyznanie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cd6c7286-8818-474e-a519-212bfa475b15",
+      "title": "Phrases de drague en tchèque : Charme au cœur de l'Europe",
+      "native_lang": "fr",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Phrases de base pour séduire",
+          "subsections": [
+            "### \"Jsi moc krásná/krásný\"",
+            "### \"Máš úžasný úsměv\"",
+            "### \"Tvoje oči jsou nádherné\""
+          ]
+        },
+        {
+          "header": "## Exprimer l'attirance",
+          "subsections": [
+            "### \"Nemůžu přestat myslet na tebe\"",
+            "### \"S tebou jsem šťastný/šťastná\"",
+            "### \"Je na tobě něco zvláštního\""
+          ]
+        },
+        {
+          "header": "## Déclarations profondes",
+          "subsections": [
+            "### \"Znamenáš pro mě všechno\"",
+            "### \"Miluji tě\"",
+            "### \"Jsi láska mého života\""
+          ]
+        },
+        {
+          "header": "## Phrases quotidiennes",
+          "subsections": [
+            "### \"Chybíš mi\"",
+            "### \"Obejmi mě\"",
+            "### \"Pusa\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cd6ef5e3-89d4-4aa6-b254-6e13af368e75",
+      "title": "Tschechische Aussprache: Ein Guide für Deutsche",
+      "native_lang": "de",
+      "target_lang": "cs",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Vokale",
+          "subsections": [
+            "### Kurze Vokale",
+            "### Lange Vokale (mit Háček oder Čárka)"
+          ]
+        },
+        {
+          "header": "## Besondere Buchstaben",
+          "subsections": [
+            "### Der Háček (ˇ) - Das wichtigste Zeichen",
+            "### Das berühmte Ř"
+          ]
+        },
+        {
+          "header": "## Konsonanten",
+          "subsections": [
+            "### Wie im Deutschen",
+            "### Besondere Konsonanten",
+            "### Weiche Konsonanten"
+          ]
+        },
+        {
+          "header": "## Häufige Fehler vermeiden",
+          "subsections": [
+            "### C vs. Č vs. Ch",
+            "### Ě - Der besondere Vokal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cd8736f8-6304-4238-a961-1c0d5b128d2d",
+      "title": "Rumunské fráze pro hádky a neshody ve vztahu",
+      "native_lang": "cs",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní fráze pro vyjádření nesouhlasu",
+          "subsections": [
+            "### 1. Nu sunt de acord cu tine",
+            "### 2. Eu văd lucrurile diferit",
+            "### 3. Mă simt rănit/ă când tu...",
+            "### 4. Te rog, nu țipa la mine",
+            "### 5. Am nevoie de timp să mă gândesc"
+          ]
+        },
+        {
+          "header": "## Fráze pro pochopení partnera",
+          "subsections": [
+            "### 6. Ajută-mă să înțeleg punctul tău de vedere",
+            "### 7. Ceea ce încerc să spun este...",
+            "### 8. Vrei să spui că...?"
+          ]
+        },
+        {
+          "header": "## Fráze pro hledání řešení",
+          "subsections": [
+            "### 9. Hai să găsim un compromis",
+            "### 10. Nu vreau să ne certăm pentru asta",
+            "### 11. Suntem în aceeași echipă",
+            "### 12. Putem să o luăm de la capăt?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cd8a4b88-0531-4906-9720-fa20594a49cd",
+      "title": "Phrases néerlandaises sur le pardon en couple",
+      "native_lang": "fr",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions pour demander pardon",
+          "subsections": [
+            "### S'excuser sincèrement",
+            "### Exprimer ses regrets",
+            "### S'engager à changer"
+          ]
+        },
+        {
+          "header": "## Expressions pour pardonner",
+          "subsections": [
+            "### Accorder le pardon",
+            "### Exprimer la réconciliation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cd8f815b-2f54-448e-a0cb-7fc1aa9cb877",
+      "title": "Fraze Romantice Daneze pentru Cupluri: Expresii pentru Orice Ocazie",
+      "native_lang": "ro",
+      "target_lang": "da",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Pentru Momente Speciale",
+          "subsections": [
+            "### Aniversari",
+            "### Cerere in Casatorie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cd97ffd7-c872-45a6-becf-b4bad8f96cce",
+      "title": "Γράψτε Ερωτικά Γράμματα στα Τσεχικά",
+      "native_lang": "el",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για την Αρχή του Γράμματος",
+          "subsections": [
+            "### 1. Moje lásko (Μόγιε λάσκο)",
+            "### 2. Miláčku (Μιλάτσκου)",
+            "### 3. Můj drahý / Má drahá (Μουι ντράχι / Μα ντράχα)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για το Κυρίως Μέρος",
+          "subsections": [
+            "### 4. Jsi láska mého života (Γσι λάσκα μέχο ζίβοτα)",
+            "### 5. Miluji tě každým dnem víc (Μίλουγι τε κάζντιμ ντνεμ βιτς)",
+            "### 6. Mé srdce bije jen pro tebe (Με σρντσε μπίγιε γιεν προ τέμπε)",
+            "### 7. Děláš mě šťastným/šťastnou (Ντέλας με στιάστνιμ/στιάστνου)",
+            "### 8. Jsem do tebe blázen/bláznivá (Γσεμ ντο τέμπε μπλάζεν/μπλάζνιβα)",
+            "### 9. Jsi pro mě všechno (Γσι προ με φσέχνο)",
+            "### 10. Bez tebe nejsem nic (Μπεζ τέμπε νέϊσεμ νιτς)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για το Κλείσιμο",
+          "subsections": [
+            "### 11. Navždy tvůj/tvá (Νάβζντι τβουι/τβα)",
+            "### 12. S veškerou mou láskou (Σ βέσκερου μου λάσκου)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdb43efb-33af-4f3b-a321-2205af0a4f95",
+      "title": "Italyanca: Seni Seviyorum Demenin 15 Romantik Yolu",
+      "native_lang": "tr",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## \"Seni Seviyorum\" Demenin Alternatif Yollari",
+          "subsections": [
+            "### Daha Derin Baglantilar Icin",
+            "### Gündelik ve Tatli Ifadeler"
+          ]
+        },
+        {
+          "header": "## Ciftler Icin Pratik Aktiviteler",
+          "subsections": [
+            "### Sabah Teyitleri",
+            "### Ask Notlari",
+            "### Yatmadan Önce Ifadeler"
+          ]
+        },
+        {
+          "header": "## Italyanca Ask Kelime Dagarcigi Olusturma",
+          "subsections": [
+            "### Temel Askla Ilgili Kelimeler",
+            "### Romantizm Icin Eylem Kelimeleri"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdc2fa60-73c7-4f0c-a0ca-0c470f49fead",
+      "title": "Frases en Rumano para Pedir y Ofrecer Perdón a tu Pareja",
+      "native_lang": "es",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Pedir Perdón",
+          "subsections": [
+            "### \"Îmi pare foarte rău\"",
+            "### \"Te rog, iartă-mă\"",
+            "### \"Știu că te-am rănit și îmi pare profund rău\"",
+            "### \"Am greșit făcând asta\"",
+            "### \"Cum pot să repar asta?\"",
+            "### \"Promit că nu se va mai întâmpla\""
+          ]
+        },
+        {
+          "header": "## Frases para Ofrecer Perdón",
+          "subsections": [
+            "### \"Te iert\"",
+            "### \"Hai să lăsăm asta în urmă\"",
+            "### \"Sunt gata să mergem mai departe\"",
+            "### \"Toată lumea greșește\"",
+            "### \"Te iubesc în continuare\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdddcd68-78f0-4e81-b710-f043d120efab",
+      "title": "Anglické fráze pro usmíření a nápravu vztahu",
+      "native_lang": "cs",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fráze pro omluvu",
+          "subsections": [
+            "### 1. I'm sorry for what I said",
+            "### 2. I was wrong",
+            "### 3. Please forgive me",
+            "### 4. I take full responsibility"
+          ]
+        },
+        {
+          "header": "## Fráze pro obnovení spojení",
+          "subsections": [
+            "### 5. Can we talk about what happened?",
+            "### 6. I miss us",
+            "### 7. Let's not go to bed angry",
+            "### 8. I still love you"
+          ]
+        },
+        {
+          "header": "## Fráze pro nový začátek",
+          "subsections": [
+            "### 9. Can we start fresh?",
+            "### 10. I want to make it up to you",
+            "### 11. Let's work through this together",
+            "### 12. I appreciate you"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cddf4e0c-7da1-45b0-b53d-cf3b4c899726",
+      "title": "Frases para Coquetear en Checo: Romance en el Corazón de Europa",
+      "native_lang": "es",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Cumplidos Encantadores",
+          "subsections": [
+            "### \"Jsi moc krásná/krásný\"",
+            "### \"Máš krásné oči\"",
+            "### \"Tvůj úsměv je nádherný\""
+          ]
+        },
+        {
+          "header": "## Expresiones de Interés",
+          "subsections": [
+            "### \"Dáš si se mnou kávu?\"",
+            "### \"Rád/ráda trávím s tebou čas\"",
+            "### \"Je na tobě něco zvláštního\""
+          ]
+        },
+        {
+          "header": "## Declaraciones Románticas",
+          "subsections": [
+            "### \"Nemůžu přestat myslet na tebe\"",
+            "### \"Ukradla/ukradl jsi mi srdce\"",
+            "### \"Zamiloval/zamilovala jsem se do tebe\""
+          ]
+        },
+        {
+          "header": "## Frases Tiernas",
+          "subsections": [
+            "### \"Děláš mě šťastným/šťastnou\"",
+            "### \"Mé srdce bije rychleji, když jsi blízko\"",
+            "### \"Moc se mi líbíš\""
+          ]
+        },
+        {
+          "header": "## Mensajes de Texto",
+          "subsections": [
+            "### \"Dobré ráno, miláčku\"",
+            "### \"Chybíš mi\"",
+            "### \"Dobrou noc, lásko\"",
+            "### \"Těším se na tebe\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cdf45aaa-e9c6-4472-8750-75b564c0d851",
+      "title": "Spanyol kifejezések vitákhoz és nézeteltérésekhez",
+      "native_lang": "hu",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető kifejezések vitákhoz",
+          "subsections": [
+            "### 1. \"Me siento herido/a cuando...\"",
+            "### 2. \"¿Podemos hablar de esto con calma?\"",
+            "### 3. \"Entiendo tu punto de vista, pero...\"",
+            "### 4. \"No levantemos la voz\"",
+            "### 5. \"Necesito tiempo para pensar\"",
+            "### 6. \"No quise decir eso\"",
+            "### 7. \"¿Puedes ponerte en mi lugar?\"",
+            "### 8. \"No era mi intención hacerte daño\"",
+            "### 9. \"Busquemos un punto medio\"",
+            "### 10. \"Siento que no me escuchas\"",
+            "### 11. \"No me hables así\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ce017f8b-6311-4720-8c71-32157ed7581d",
+      "title": "40+ Danca Sevgi Sözcügü: Partnerinizin Kalbini Fethedin",
+      "native_lang": "tr",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Günlük Kullanımda Takma Adlar",
+          "subsections": [
+            "### Sabah Selamlamaları",
+            "### Akşam İfadeleri"
+          ]
+        },
+        {
+          "header": "## Pratik: Takma Adları Günlük Hayatta Kullanma",
+          "subsections": [
+            "### Metin Mesajlarında",
+            "### Telefon Görüşmelerinde"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ce0678dc-65cd-4478-8930-8e272562ab87",
+      "title": "Romence Kıskançlık ve Güven İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kıskançlığı İfade Etme",
+          "subsections": [
+            "### 1. \"Mă simt puțin gelos/oasă când...\"",
+            "### 2. \"Poți să mă liniștești?\"",
+            "### 3. \"Am încredere în tine, dar nu în ei\"",
+            "### 4. \"Mă face să mă simt inconfortabil când...\"",
+            "### 5. \"Am nevoie să știu că sunt prioritatea ta\""
+          ]
+        },
+        {
+          "header": "## Güven İnşa Etme",
+          "subsections": [
+            "### 6. \"Am încredere totală în tine\"",
+            "### 7. \"Ești singura persoană pentru mine\"",
+            "### 8. \"Nu aș face niciodată nimic să te rănesc\"",
+            "### 9. \"Nu ai de ce să îți faci griji\"",
+            "### 10. \"Sunt dedicat/ă doar ție\"",
+            "### 11. \"Hai să vorbim despre îngrijorările tale\"",
+            "### 12. \"Ce pot face ca să te simți mai în siguranță?\""
+          ]
+        }
+      ]
+    }
+  ]
+}

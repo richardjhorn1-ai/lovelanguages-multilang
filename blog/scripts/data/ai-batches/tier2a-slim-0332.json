@@ -1,0 +1,186 @@
+{
+  "batchId": "tier2a-slim-0332",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "fe62a7fc-85a0-447e-9ac2-1b2a8ce24035",
+      "title": "Guida alla Pronuncia Ucraina per Italiani",
+      "native_lang": "it",
+      "target_lang": "uk",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Suoni Speciali",
+          "subsections": [
+            "### Il Segno Morbido (ь)",
+            "### Il Suono Ц (TS)",
+            "### Il Suono Ч (CH)",
+            "### Il Suono Ш (SH)",
+            "### Il Suono Щ (SHCH)"
+          ]
+        },
+        {
+          "header": "## Errori Comuni degli Italiani",
+          "subsections": [
+            "### 1. Confondere В e Б",
+            "### 2. Pronunciare Г come G",
+            "### 3. Dimenticare il Segno Morbido"
+          ]
+        },
+        {
+          "header": "## Esercizi di Pronuncia",
+          "subsections": [
+            "### Livello 1: Parole Semplici",
+            "### Livello 2: Frasi Romantiche",
+            "### Livello 3: Espressioni Complesse"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fe79e29e-bfa3-43cf-8cb6-87de0769047d",
+      "title": "Шведский для влюблённых: 50+ фраз для сердца",
+      "native_lang": "ru",
+      "target_lang": "sv",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Для особых моментов",
+          "subsections": [
+            "### Предложение руки и сердца",
+            "### Свадебные фразы"
+          ]
+        },
+        {
+          "header": "## Практические упражнения",
+          "subsections": [
+            "### Утренние сообщения",
+            "### Вечерние признания"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ff23782b-b75e-4df0-a10e-07c16551d592",
+      "title": "Romanian Restaurant Vocabulary: Dining Out With Your Partner",
+      "native_lang": "en",
+      "target_lang": "ro",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Types of Dishes",
+          "subsections": [
+            "### Traditional Romanian Foods",
+            "### Meat and Protein",
+            "### Vegetables and Sides"
+          ]
+        },
+        {
+          "header": "## Quick Reference: Restaurant Vocabulary",
+          "subsections": [
+            "### Making Reservations",
+            "### Ordering",
+            "### During the Meal",
+            "### Paying"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "32d75fc5-f404-4fad-8f92-0bd5632670fe",
+      "title": "Franse Uitspraak Gids voor Beginners: Klink als een Local met Je Partner",
+      "native_lang": "nl",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Oefeningen Voor Koppels",
+          "subsections": [
+            "### Oefening 1: De Kus Test",
+            "### Oefening 2: Complimenten Challenge",
+            "### Oefening 3: Franse Date Night"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "35a183d9-6bf5-4af2-a470-364f6a876624",
+      "title": "Die Familie deines schwedischen Partners kennenlernen: So überzeugst du mit Liebe und Sprache",
+      "native_lang": "de",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Typische Szenarien beim Familienbesuch",
+          "subsections": [
+            "### Beim Essen zusammensitzen",
+            "### Das Haus erkunden",
+            "### Geschenke überreichen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3aac51e1-8f28-49a2-831d-d7f817a8ff93",
+      "title": "Noors Uitspraakgids voor Beginners: Klink Precies Zoals Jouw Partner Het Wil Horen",
+      "native_lang": "nl",
+      "target_lang": "no",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De 5 Gouden Regels Voor Noors Klinken",
+          "subsections": [
+            "### 1. Rol Je R's (Maar Niet Te)",
+            "### 2. De Magische KJ-Klank",
+            "### 3. Eindig Nooit Met Een Harde T",
+            "### 4. De Æ Is Je Nieuwe Beste Vriend",
+            "### 5. Toon Is Alles"
+          ]
+        },
+        {
+          "header": "## Stomme Consonanten Gemaakt Simpel",
+          "subsections": [
+            "### G = Altijd Zacht",
+            "### K = Kort En Krachtig",
+            "### Sk = Sh-Vriend"
+          ]
+        },
+        {
+          "header": "## De Grootste Uitspraak Fouten (En Hoe Ze Te Vermijden)",
+          "subsections": [
+            "### 1. \"Jeg\" Niet Als \"Jag\"",
+            "### 2. \"Deg\" Geen \"Dag\"",
+            "### 3. Korte Vs Lange Klinkers"
+          ]
+        },
+        {
+          "header": "## Perfecte Uitspraak In 5 Minuten Per Dag",
+          "subsections": [
+            "### Dag 1-7: Klinker Bootcamp",
+            "### Week 2: Romantische Frasen Challenge",
+            "### Week 3: Netflix & Skill",
+            "### Week 4: Call Your Shot"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7fe219bc-356e-4904-99ed-375a5fa49754",
+      "title": "50+ Surnoms Polonais Tendres pour Faire Fondre Partenaire",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Comment utiliser naturellement les surnoms polonais",
+          "subsections": [
+            "### Commencez petit",
+            "### Adaptez au moment",
+            "### L'accord de genre compte",
+            "### Sensibilité culturelle"
+          ]
+        }
+      ]
+    }
+  ]
+}

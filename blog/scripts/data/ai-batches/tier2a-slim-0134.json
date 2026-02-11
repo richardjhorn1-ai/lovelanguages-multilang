@@ -1,0 +1,438 @@
+{
+  "batchId": "tier2a-slim-0134",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "95254e08-21b7-4d98-a819-d695b394fd19",
+      "title": "Spanske Udtryk til Følelsesmæssig Støtte og Trøst",
+      "native_lang": "da",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Støtteudtryk",
+          "subsections": [
+            "### 1. Estoy aquí para ti",
+            "### 2. Todo va a salir bien",
+            "### 3. Creo en ti",
+            "### 4. Tómate todo el tiempo que necesites",
+            "### 5. Siento mucho lo que estás pasando"
+          ]
+        },
+        {
+          "header": "## Dybere Trøst",
+          "subsections": [
+            "### 6. Está bien llorar",
+            "### 7. No tienes que pasar por esto solo/sola",
+            "### 8. Estoy muy orgulloso/orgullosa de tu fortaleza",
+            "### 9. Tus sentimientos son válidos",
+            "### 10. Pase lo que pase, lo enfrentaremos juntos"
+          ]
+        },
+        {
+          "header": "## Kærlige Trøsteord",
+          "subsections": [
+            "### 11. Mi amor, todo estará bien",
+            "### 12. Te quiero muchísimo, y siempre estaré a tu lado"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9544cd78-80eb-49fd-b36d-b7b4f52ce9c1",
+      "title": "Polona: 15 Moduri Romantice de a Spune Te Iubesc",
+      "native_lang": "ro",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Expresii de Dragoste Poetice",
+          "subsections": [
+            "### \"Esti Totul pentru Mine\"",
+            "### \"Mi-ai Furat Inima\"",
+            "### \"Ma Gandesc Mereu la Tine\""
+          ]
+        },
+        {
+          "header": "## Fraze pentru Momente Cotidiene",
+          "subsections": [
+            "### Dimineata",
+            "### Inainte de Plecare",
+            "### Seara",
+            "### Inainte de Somn"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9554fd0c-d8ea-4883-9ae9-8ef37326394f",
+      "title": "Переїзд разом: норвезькою слова для спільного життя",
+      "native_lang": "uk",
+      "target_lang": "no",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика",
+          "subsections": []
+        },
+        {
+          "header": "## Обговорення переїзду",
+          "subsections": [
+            "### Як запропонувати спільне життя норвезькою"
+          ]
+        },
+        {
+          "header": "## Пошук житла",
+          "subsections": [
+            "### Лексика для оренди/покупки",
+            "### Кімнати в домі"
+          ]
+        },
+        {
+          "header": "## Меблі та предмети побуту",
+          "subsections": [
+            "### У спальні",
+            "### На кухні",
+            "### У вітальні"
+          ]
+        },
+        {
+          "header": "## Розподіл обов'язків",
+          "subsections": [
+            "### Домашні справи норвезькою",
+            "### Як обговорити обов'язки"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "95748a84-33a1-4fe8-ba44-5a85f6cca1f0",
+      "title": "Tjeckiska flörtfraser för par – Charma din partner på tjeckiska",
+      "native_lang": "sv",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassiska komplimanger",
+          "subsections": [
+            "### \"Vypadáš nádherně\"",
+            "### \"Máš nejkrásnější oči na světě\"",
+            "### \"Tvůj úsměv mi rozzáří den\""
+          ]
+        },
+        {
+          "header": "## Passionerade uttryck",
+          "subsections": [
+            "### \"Jsem do tebe blázen/bláznivá\"",
+            "### \"Nemůžu přestat myslet na tebe\"",
+            "### \"Jsi pro mě všechno\""
+          ]
+        },
+        {
+          "header": "## Lekfulla fraser",
+          "subsections": [
+            "### \"Věříš na lásku na první pohled, nebo mám projít znovu?\"",
+            "### \"Máš mapu? Ztratil jsem se v tvých očích\"",
+            "### \"Jsi anděl spadlý z nebe?\""
+          ]
+        },
+        {
+          "header": "## Djupt romantiska uttryck",
+          "subsections": [
+            "### \"Jsi láska mého života\"",
+            "### \"Každý okamžik s tebou je vzácný\"",
+            "### \"Vedle tebe se cítím doma\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "95b876b3-34fc-4bef-bb65-6c75de14096b",
+      "title": "Rumänische Grüße und Verabschiedungen",
+      "native_lang": "de",
+      "target_lang": "ro",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Verabschiedungen",
+          "subsections": [
+            "### Informelle Verabschiedungen",
+            "### Formelle Verabschiedungen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "95c357b5-98cd-4f94-87ed-e30aa3478ff0",
+      "title": "Cum Să Ceri în Căsătorie: Expresii pentru Logodnă în Franceză",
+      "native_lang": "ro",
+      "target_lang": "fr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Răspunsuri la Cerere",
+          "subsections": [
+            "### Răspunsuri Pozitive"
+          ]
+        },
+        {
+          "header": "## Vocabular pentru Inele",
+          "subsections": [
+            "### Pietre Prețioase",
+            "### Metale"
+          ]
+        },
+        {
+          "header": "## După Logodnă",
+          "subsections": [
+            "### Pașii Următori"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "95c714b0-c67d-481c-9743-5b2e901fe6f8",
+      "title": "Frases para Conocer a los Suegros en Francés: Causar Buena Impresión a la Francesa",
+      "native_lang": "es",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Saludos y Presentaciones",
+          "subsections": [
+            "### \"Je suis enchanté(e) de vous rencontrer\"",
+            "### \"J'ai tellement entendu parler de vous\"",
+            "### \"Merci beaucoup de m'accueillir chez vous\""
+          ]
+        },
+        {
+          "header": "## Cumplidos a la Familia",
+          "subsections": [
+            "### \"Votre maison est magnifique\"",
+            "### \"Ce repas est absolument délicieux\"",
+            "### \"Je comprends d'où vient le charme de [nombre]\""
+          ]
+        },
+        {
+          "header": "## Hablando de Tu Pareja",
+          "subsections": [
+            "### \"Votre fils/fille me rend très heureux/heureuse\"",
+            "### \"Je me sens très chanceux/chanceuse de l'avoir dans ma vie\"",
+            "### \"Il/Elle m'a beaucoup parlé de son enfance ici\""
+          ]
+        },
+        {
+          "header": "## Ofreciendo Ayuda",
+          "subsections": [
+            "### \"Puis-je vous aider en quelque chose?\"",
+            "### \"Laissez-moi vous aider avec la vaisselle\"",
+            "### \"Je serais ravi(e) de mettre la table\""
+          ]
+        },
+        {
+          "header": "## Mostrando Interés",
+          "subsections": [
+            "### \"J'aimerais en savoir plus sur vos traditions familiales\"",
+            "### \"Comment vous êtes-vous rencontrés?\"",
+            "### \"Comment était [nombre] quand il/elle était petit(e)?\""
+          ]
+        },
+        {
+          "header": "## Despedidas Elegantes",
+          "subsections": [
+            "### \"Merci pour cette merveilleuse soirée\"",
+            "### \"J'ai été ravi(e) de faire votre connaissance\"",
+            "### \"J'espère vous revoir bientôt\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "95d90be4-2887-49f3-9809-408e4662f2d5",
+      "title": "O Húngaro é Difícil de Aprender? Um Guia Honesto",
+      "native_lang": "pt",
+      "target_lang": "hu",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Os Desafios (Sejamos Honestos)",
+          "subsections": [
+            "### 1. O Sistema de Casos",
+            "### 2. Harmonia Vocálica",
+            "### 3. Conjugação Verbal"
+          ]
+        },
+        {
+          "header": "## As Boas Notícias (Não é Tudo Assustador!)",
+          "subsections": [
+            "### 1. Ortografia Fonética",
+            "### 2. Sem Gênero Gramatical",
+            "### 3. Formação Lógica de Palavras",
+            "### 4. Sem Confusão de Artigos"
+          ]
+        },
+        {
+          "header": "## Dicas para o Sucesso",
+          "subsections": [
+            "### Comece com o Que Importa",
+            "### Abrace a Imperfeição",
+            "### Use Padrões, Não Regras",
+            "### Pratique Diariamente com Seu Parceiro"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "95e84556-8e7f-44b0-b84f-d2ffaa2bc993",
+      "title": "Expresii de Flirt în Cehă pentru Români",
+      "native_lang": "ro",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale de Flirt",
+          "subsections": [
+            "### Complimente Sincere",
+            "### Expresii Romantice",
+            "### Replici Jucăușe",
+            "### Declarații Profunde"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "95e9fe68-331c-4d09-b562-d19c6b390b56",
+      "title": "Anglické fráze pro emoční podporu partnera",
+      "native_lang": "cs",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní podpora",
+          "subsections": [
+            "### \"I'm here for you.\"",
+            "### \"You're not alone in this.\"",
+            "### \"I believe in you.\"",
+            "### \"Whatever happens, we'll face it together.\""
+          ]
+        },
+        {
+          "header": "## Útěcha v těžkých chvílích",
+          "subsections": [
+            "### \"I'm so sorry you're going through this.\"",
+            "### \"It's okay to feel this way.\"",
+            "### \"Take all the time you need.\"",
+            "### \"You don't have to be strong all the time.\""
+          ]
+        },
+        {
+          "header": "## Povzbuzení",
+          "subsections": [
+            "### \"I'm so proud of you.\"",
+            "### \"You've handled this amazingly.\"",
+            "### \"This won't last forever.\"",
+            "### \"You're stronger than you think.\""
+          ]
+        },
+        {
+          "header": "## Praktická podpora",
+          "subsections": [
+            "### \"What do you need right now?\"",
+            "### \"Let me take care of this for you.\"",
+            "### \"Would you like to talk about it?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "95f2bc92-86b1-4152-8a52-29970a1cf13c",
+      "title": "Román kifejezések vitákhoz és nézeteltérésekhez",
+      "native_lang": "hu",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető kifejezések nézeteltérésekhez",
+          "subsections": [
+            "### 1. \"Mă simt rănit/ă când tu...\"",
+            "### 2. \"Putem vorbi despre asta calm?\"",
+            "### 3. \"Înțeleg punctul tău de vedere, dar...\"",
+            "### 4. \"Să nu țipăm\"",
+            "### 5. \"Am nevoie de timp să mă gândesc\"",
+            "### 6. \"Nu la asta m-am referit\"",
+            "### 7. \"Te poți pune în locul meu?\"",
+            "### 8. \"Nu am vrut să te rănesc\"",
+            "### 9. \"Să găsim un compromis\"",
+            "### 10. \"Simt că nu mă asculți\"",
+            "### 11. \"Asta mă doare\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9605c060-b102-48e3-806b-2f2cdd38d7c6",
+      "title": "Expressions de Mariage en Suédois : Guide Complet",
+      "native_lang": "fr",
+      "target_lang": "sv",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## La Réception",
+          "subsections": [
+            "### Vocabulaire de la Fête"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9625575a-d8c0-4d08-8794-c5ef2427ddea",
+      "title": "Guida alla Pronuncia Svedese: Suoni Essenziali per Italiani",
+      "native_lang": "it",
+      "target_lang": "sv",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Vocali",
+          "subsections": [
+            "### Vocali Lunghe e Corte"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "968bc985-d68c-48af-ac93-753246f02f16",
+      "title": "50+ Italiaanse Koosnaampjes om Harten te Laten Smelten",
+      "native_lang": "nl",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Regionale Variaties",
+          "subsections": [
+            "### Noord-Italië",
+            "### Midden-Italië (Rome)",
+            "### Zuid-Italië (Napels/Sicilië)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "969421eb-4a50-451b-afab-012c81953233",
+      "title": "Expresii de Flirt în Ucraineană pentru Români",
+      "native_lang": "ro",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale de Flirt",
+          "subsections": [
+            "### Complimente Calde",
+            "### Expresii Romantice",
+            "### Replici Fermecătoare",
+            "### Declarații de Dragoste"
+          ]
+        }
+      ]
+    }
+  ]
+}

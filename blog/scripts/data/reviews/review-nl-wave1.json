@@ -1,0 +1,225 @@
+{
+  "native_lang": "nl",
+  "wave": 1,
+  "target_langs_reviewed": ["en", "es", "fr", "de", "it", "pt"],
+  "articles_reviewed": 12,
+  "clean_articles": 2,
+  "issues": [
+    {
+      "article_id": "6b392f9b-8610-438f-831f-7dfbd1f38520",
+      "slug": "english-moving-in-together",
+      "target_lang": "en",
+      "issue_type": "language_correctness",
+      "severity": "high",
+      "description": "Vocabulary table labeled 'Engelse' has Dutch words in BOTH columns instead of English-Dutch pairs. 'Verhuizen', 'Appartement', 'Huis', 'Huur' etc. are all Dutch, not English. The article fails to teach English vocabulary in its tables.",
+      "evidence": "| Engelse | Nederlands | |Verhuizen | Van huis veranderen | |Appartement | Een flat |"
+    },
+    {
+      "article_id": "6b392f9b-8610-438f-831f-7dfbd1f38520",
+      "slug": "english-moving-in-together",
+      "target_lang": "en",
+      "issue_type": "language_correctness",
+      "severity": "high",
+      "description": "All phrase lists (Praktische Zinnen, Taken Verdelen, Romantische Zinnen, Discussies) contain only Dutch sentences. No English translations or target-language phrases are provided, defeating the article's purpose.",
+      "evidence": "\"Dit is ons nieuwe huis!\", \"Waar zullen we dit zetten?\", \"Dit is jouw helft van de kast\""
+    },
+    {
+      "article_id": "6b392f9b-8610-438f-831f-7dfbd1f38520",
+      "slug": "english-moving-in-together",
+      "target_lang": "en",
+      "issue_type": "content_quality",
+      "severity": "medium",
+      "description": "Only 1 unique VocabCard teaching actual English content. The rest of the article is entirely in Dutch with no English words to learn beyond 'Let's move in together'. Extremely thin for a vocabulary article.",
+      "evidence": "VocabCard word=\"Let's move in together!\" (this is the only English taught via VocabCard)"
+    },
+    {
+      "article_id": "a8c7b606-ba37-45e1-9500-1b2830bdd076",
+      "slug": "spanish-giving-compliments",
+      "target_lang": "es",
+      "issue_type": "content_quality",
+      "severity": "medium",
+      "description": "VocabCard examples are generic descriptions rather than real example sentences showing the phrase in context. Both VocabCards use placeholder-style text.",
+      "evidence": "example=\"Gebruik deze zin in dagelijkse conversaties\" / example=\"Een veelgebruikte uitdrukking\""
+    },
+    {
+      "article_id": "a8c7b606-ba37-45e1-9500-1b2830bdd076",
+      "slug": "spanish-giving-compliments",
+      "target_lang": "es",
+      "issue_type": "content_quality",
+      "severity": "medium",
+      "description": "The 'Meer Uitdrukkingen' section promises more phrases but contains only one VocabCard and nothing else. Empty section suggests incomplete generation.",
+      "evidence": "## Meer Uitdrukkingen\\n\\nBreid je vocabulaire uit met deze extra zinnen:\\n\\n<VocabCard ... /> (then nothing)"
+    },
+    {
+      "article_id": "de7dcf2b-0b8d-4ecd-ba29-713c4eb29e18",
+      "slug": "spanish-proposal-engagement-phrases",
+      "target_lang": "es",
+      "issue_type": "rendering",
+      "severity": "high",
+      "description": "PhraseOfDay renders with empty word span in content_html. The special characters in the Spanish question mark are lost, resulting in an empty display for the featured phrase.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span> (empty - should show the Spanish proposal phrase)"
+    },
+    {
+      "article_id": "de7dcf2b-0b8d-4ecd-ba29-713c4eb29e18",
+      "slug": "spanish-proposal-engagement-phrases",
+      "target_lang": "es",
+      "issue_type": "content_quality",
+      "severity": "low",
+      "description": "VocabCard examples are descriptions rather than contextual example sentences showing the phrase in use.",
+      "evidence": "example=\"De meest gebruikte en romantische manier\" / example=\"Het enthousiaste antwoord\""
+    },
+    {
+      "article_id": "85f49e22-1307-4f1b-9758-bf2a28c12c3d",
+      "slug": "french-giving-compliments",
+      "target_lang": "fr",
+      "issue_type": "content_quality",
+      "severity": "medium",
+      "description": "Near-identical template clone of spanish-giving-compliments. Same structure, same generic VocabCard examples, same empty 'Meer Uitdrukkingen' section, same CultureTip text with only language name swapped.",
+      "evidence": "example=\"Gebruik deze zin in dagelijkse conversaties\" / CultureTip: same text as Spanish version with 'Franse' replacing 'Spaanse'"
+    },
+    {
+      "article_id": "85f49e22-1307-4f1b-9758-bf2a28c12c3d",
+      "slug": "french-giving-compliments",
+      "target_lang": "fr",
+      "issue_type": "language_correctness",
+      "severity": "medium",
+      "description": "Pronunciation for 'Tu es belle' is 'Tu e bel' which just copies the word back without providing Dutch-accessible phonetic guidance. The accent marks are decorative rather than helpful for pronunciation.",
+      "evidence": "pronunciation=\"Tu e bel\""
+    },
+    {
+      "article_id": "9f3c86c3-25c3-4adc-91e2-4f6071974a3b",
+      "slug": "fr-flirt-phrases-for-dutch-speakers",
+      "target_lang": "fr",
+      "issue_type": "component_integrity",
+      "severity": "medium",
+      "description": "No VocabCard or PhraseOfDay components used despite other articles in the wave using them. Uses only markdown bold/italic format. Inconsistent with the component-rich approach of sibling articles.",
+      "evidence": "Article uses **bold** and *italic* markdown only, zero VocabCard/PhraseOfDay/CTA components"
+    },
+    {
+      "article_id": "4e806a23-58bc-40ec-96cb-4b1ccb20af08",
+      "slug": "german-pet-names-and-endearments",
+      "target_lang": "de",
+      "issue_type": "language_correctness",
+      "severity": "medium",
+      "description": "VocabCard example sentences mix Dutch and German unnaturally. Examples should be full German sentences showing the word in context, not Dutch sentences with the German word dropped in.",
+      "evidence": "example=\"Hase, kom je?\" (should be German: \"Hase, kommst du?\") / example=\"Mijn kleine Susse/r!\""
+    },
+    {
+      "article_id": "4e806a23-58bc-40ec-96cb-4b1ccb20af08",
+      "slug": "german-pet-names-and-endearments",
+      "target_lang": "de",
+      "issue_type": "language_correctness",
+      "severity": "low",
+      "description": "Translation of 'Susse/r' as 'schatje (letterlijk: klein dier)' is incorrect. Susse/r means 'sweetie/cutie' (from suss = sweet), not 'small animal'.",
+      "evidence": "translation=\"schatje (letterlijk: klein dier)\""
+    },
+    {
+      "article_id": "4e806a23-58bc-40ec-96cb-4b1ccb20af08",
+      "slug": "german-pet-names-and-endearments",
+      "target_lang": "de",
+      "issue_type": "content_quality",
+      "severity": "low",
+      "description": "Missing H1 heading. Article starts directly with paragraph text without the standard title heading that other articles include.",
+      "evidence": "Content starts with: \"Koosnaampjes zijn in elke taal speciaal...\" (no # heading)"
+    },
+    {
+      "article_id": "b6429336-072a-4705-a6d5-4406d3742bab",
+      "slug": "german-date-night-vocabulary",
+      "target_lang": "de",
+      "issue_type": "language_correctness",
+      "severity": "high",
+      "description": "Multiple tables labeled 'Duits' contain Dutch phrases in both columns. The 'Bestellen', 'Romantische Zinnen', and 'In de Bioscoop' tables all have Dutch in the 'Duits' column, completely failing to teach German vocabulary.",
+      "evidence": "| Duits | Nederlands | |De menukaart | De menukaart | |Mag ik bestellen? | Mag ik bestellen? |"
+    },
+    {
+      "article_id": "b6429336-072a-4705-a6d5-4406d3742bab",
+      "slug": "german-date-night-vocabulary",
+      "target_lang": "de",
+      "issue_type": "language_correctness",
+      "severity": "high",
+      "description": "VocabCard words are Dutch phrases with single German words mixed in, rather than proper German phrases. The word prop should contain the target language (German), not Dutch.",
+      "evidence": "word=\"Je ziet er schon uit\" / word=\"Zullen we wandelen?\" / word=\"Dit was romantisch\" (all Dutch)"
+    },
+    {
+      "article_id": "b6429336-072a-4705-a6d5-4406d3742bab",
+      "slug": "german-date-night-vocabulary",
+      "target_lang": "de",
+      "issue_type": "language_correctness",
+      "severity": "medium",
+      "description": "PhraseOfDay word 'romantisch' is identical in Dutch and German, providing zero learning value. Should use a distinctly German word/phrase.",
+      "evidence": "word=\"romantisch\" translation=\"romantisch\""
+    },
+    {
+      "article_id": "588c68c9-6e8d-4270-a1a1-27e9450ac1c9",
+      "slug": "italian-video-call-phrases-family",
+      "target_lang": "it",
+      "issue_type": "content_quality",
+      "severity": "medium",
+      "description": "VocabCard examples use generic placeholder descriptions instead of actual Italian example sentences showing the phrase in context.",
+      "evidence": "example=\"Gebruik deze zin in dagelijkse conversaties\" / example=\"Een veelgebruikte uitdrukking\""
+    },
+    {
+      "article_id": "588c68c9-6e8d-4270-a1a1-27e9450ac1c9",
+      "slug": "italian-video-call-phrases-family",
+      "target_lang": "it",
+      "issue_type": "language_correctness",
+      "severity": "high",
+      "description": "Pronunciation for 'L'immagine si e bloccata' is just 'el-le' which is completely inadequate and wrong. This complex Italian phrase needs a full phonetic guide.",
+      "evidence": "pronunciation=\"el-le\" (for the phrase \"L'immagine si e bloccata\")"
+    },
+    {
+      "article_id": "ec1b5091-5b7f-4d32-bb78-d42879e14dbb",
+      "slug": "100-most-common-portuguese-words",
+      "target_lang": "pt",
+      "issue_type": "content_quality",
+      "severity": "high",
+      "description": "Title promises '100 most common Portuguese words' but delivers only ~10 words total across all sections. Massive gap between title promise and actual content.",
+      "evidence": "Title: 'De 100 Meest Voorkomende Portugeese Woorden' but only eu, tu, e, ter, pode, bonito/a, amor, coracao, beijo listed"
+    },
+    {
+      "article_id": "ec1b5091-5b7f-4d32-bb78-d42879e14dbb",
+      "slug": "100-most-common-portuguese-words",
+      "target_lang": "pt",
+      "issue_type": "language_correctness",
+      "severity": "high",
+      "description": "Romantische Woorden table has swapped/wrong translations: 'coracao' translated as 'liefde' (should be 'hart'), 'bonito' translated as 'hart' (should be 'mooi/knap'). Translations are mixed up.",
+      "evidence": "| coracao | liefde | (should be 'hart') | bonito | hart | (should be 'mooi/knap')"
+    },
+    {
+      "article_id": "ec1b5091-5b7f-4d32-bb78-d42879e14dbb",
+      "slug": "100-most-common-portuguese-words",
+      "target_lang": "pt",
+      "issue_type": "language_correctness",
+      "severity": "medium",
+      "description": "PhraseOfDay pronunciation 'eh-OO tee AH-moo' is the pronunciation for 'eu te amo' (I love you), not for 'amor' (love) which is the word shown. Mismatched word and pronunciation.",
+      "evidence": "word=\"amor\" pronunciation=\"eh-OO tee AH-moo\""
+    },
+    {
+      "article_id": "ec1b5091-5b7f-4d32-bb78-d42879e14dbb",
+      "slug": "100-most-common-portuguese-words",
+      "target_lang": "pt",
+      "issue_type": "language_correctness",
+      "severity": "medium",
+      "description": "Example sentence 'tu e bonito/a' has grammatical errors. Should be 'Tu es bonito/a' (European) or 'Voce e bonito/a' (Brazilian). Missing verb conjugation.",
+      "evidence": "example=\"tu bonito/a\" exampleTranslation=\"Jij bent mooi.\""
+    },
+    {
+      "article_id": "c7ec7aab-9b32-4cdb-a4fc-5f34b58d9755",
+      "slug": "pt-support-phrases-for-dutch-speakers",
+      "target_lang": "pt",
+      "issue_type": "language_correctness",
+      "severity": "medium",
+      "description": "Portuguese sentence contains Dutch word 'en' instead of Portuguese 'e' (and). Language mixing in target-language content.",
+      "evidence": "\"Isso e muito dificil, en voce esta lidando muito bem\" - 'en' should be 'e'"
+    }
+  ],
+  "systemic_patterns": [
+    "Generic VocabCard examples: Multiple articles (es-compliments, fr-compliments, it-video-call) use identical placeholder text 'Gebruik deze zin in dagelijkse conversaties' and 'Een veelgebruikte uitdrukking' instead of real example sentences in the target language.",
+    "Dutch-in-both-columns tables: Two articles (en-moving-in-together, de-date-night) have vocabulary tables where the target language column contains Dutch words instead of the actual target language, completely defeating the learning purpose.",
+    "Template cloning without customization: The French compliments article is a near-exact structural clone of the Spanish compliments article, with only language names swapped and identical generic content.",
+    "Title-content mismatch: The Portuguese '100 most common words' article delivers fewer than 10 words, and the Spanish '30+ compliments' article delivers about 15.",
+    "Missing or inadequate pronunciations: Some pronunciations are truncated ('el-le' for a full Italian phrase), identical to the source word ('Tu e bel' for French), or mismatched to a different word ('eh-OO tee AH-moo' for 'amor' instead of 'eu te amo').",
+    "Inconsistent component usage: Some articles (fr-flirt, it-argue) use no VocabCard/PhraseOfDay components at all, relying on markdown bold/italic, while sibling articles in the same wave use them extensively.",
+    "VocabCard word prop in wrong language: German date-night article puts Dutch phrases in the 'word' prop where the target language (German) should be, and German pet-names article uses Dutch example sentences."
+  ]
+}

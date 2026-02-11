@@ -1,0 +1,128 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0477",
+  "articles": [
+    {
+      "id": "89cf45f1-b6b3-4b14-bfae-b0f57b868bbf",
+      "title": "Russische Liebesbrief-Phrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "ru",
+      "category": "communication",
+      "content": "Russische Liebesbriefe sind bekannt für ihre emotionale Tiefe. Die \"russische Seele\" zeigt sich in poetischen, tiefgründigen Ausdrücken.\n\n## Anreden\n\n### \"Любимая моя\" / \"Любимый мой\"\n**Aussprache:** lju-BI-ma-ja ma-JA / lju-BI-mij moj\n**Bedeutung:** Mein/e Geliebte/r\n\n### \"Моя родная\" / \"Мой родной\"\n**Bedeutung:** Meine Liebe (wörtlich: mein Eigenes)\n\n### \"Солнышко моё\"\n**Bedeutung:** Mein Sonnenschein\n\n## Einleitungen\n\n### \"Я пишу тебе, чтобы сказать, как сильно я тебя люблю\"\n**Bedeutung:** Ich schreibe dir, um dir zu sagen, wie sehr ich dich liebe\n\n### \"Нет слов, чтобы выразить то, что я к тебе чувствую\"\n**Bedeutung:** Es gibt keine Worte, um auszudrücken, was ich für dich empfinde\n\n## Ausdrücke der Liebe\n\n### \"Ты — лучшее, что случилось в моей жизни\"\n**Bedeutung:** Du bist das Beste, was in meinem Leben passiert ist\n\n### \"Моя жизнь изменилась навсегда в тот день, когда я тебя встретил\"\n**Bedeutung:** Mein Leben hat sich für immer verändert an dem Tag, als ich dich traf\n\n### \"Я влюбляюсь в тебя всё больше с каждым днём\"\n**Bedeutung:** Ich verliebe mich jeden Tag mehr in dich\n\n### \"Ты освещаешь мою жизнь своим присутствием\"\n**Bedeutung:** Du erhellst mein Leben mit deiner Anwesenheit\n\n### \"С тобой я понял, что такое настоящая любовь\"\n**Bedeutung:** Mit dir habe ich verstanden, was wahre Liebe ist\n\n## Zukunftsversprechen\n\n### \"Обещаю любить тебя безусловно\"\n**Bedeutung:** Ich verspreche, dich bedingungslos zu lieben\n\n### \"Хочу провести с тобой всю оставшуюся жизнь\"\n**Bedeutung:** Ich möchte mein restliches Leben mit dir verbringen\n\n### \"Моя любовь к тебе будет только расти\"\n**Bedeutung:** Meine Liebe zu dir wird nur wachsen\n\n## Abschlüsse\n\n### \"Навсегда твой\" / \"Навсегда твоя\"\n**Bedeutung:** Für immer dein/deine\n\n### \"Со всей моей любовью...\"\n**Bedeutung:** Mit all meiner Liebe...\n\n### \"Я люблю тебя, сегодня и всегда\"\n**Bedeutung:** Ich liebe dich, heute und immer\n\n## Kulturelle Hinweise\n\nRussen nehmen Liebesbriefe sehr ernst. Sie werden aufbewahrt und immer wieder gelesen. Die Tiefe der Gefühle wird geschätzt!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Anreden",
+              "## Einleitungen",
+              "## Ausdrücke der Liebe",
+              "## Zukunftsversprechen",
+              "## Abschlüsse"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "89d14e45-ddbc-4e4b-8e87-e61fff9a2612",
+      "title": "Franse Zinnen voor een Eerste Date",
+      "native_lang": "nl",
+      "target_lang": "fr",
+      "category": "communication",
+      "content": "Een romantische eerste date in het Frans? Voilà de zinnen die je nodig hebt!\n\n## Essentiële zinnen\n\n### 1. \"C'est un plaisir de te rencontrer enfin\" - *see tun plee-zier deu teu ron-kon-tree on-fen*\n### 2. \"Tu es magnifique\" - *tue ee man-jie-fiek*\n### 3. \"Parle-moi de toi\" - *parl-mwa deu twa*\n### 4. \"Qu'est-ce que tu fais dans la vie?\" - *kes-keu tue fee don la vie*\n### 5. \"Je passe un très bon moment\" - *zjeu pas un tree bon mo-mon*\n### 6. \"Tu veux prendre autre chose?\" - *tue veu prondr otr sjoz*\n### 7. \"Quel genre de musique tu aimes?\" - *kel zjonr deu mue-ziek tue em*\n### 8. \"J'aimerais beaucoup te revoir\" - *zjeem-ree bo-koe teu reu-vwar*\n### 9. \"Je peux te raccompagner?\" - *zjeu peu teu ra-kom-pan-jee*\n### 10. \"J'ai vraiment apprécié cette soirée\" - *zjee vree-mon a-pree-sjee set swa-ree*\n### 11. \"Quels sont tes loisirs?\" - *kel son tee lwa-zier*\n### 12. \"Tu as un très beau sourire\" - *tue a un tree bo soe-rier*\n\n## Conclusie\n\nMet deze zinnen ben je klaar voor een romantische Franse date!",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 185,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Essentiële zinnen",
+              "### 1. \"C'est un plaisir de te rencontrer enfin\" - *see tun plee-zier deu teu ron-kon-tree on-fen*",
+              "### 2. \"Tu es magnifique\" - *tue ee man-jie-fiek*",
+              "### 3. \"Parle-moi de toi\" - *parl-mwa deu twa*",
+              "### 4. \"Qu'est-ce que tu fais dans la vie?\" - *kes-keu tue fee don la vie*",
+              "### 5. \"Je passe un très bon moment\" - *zjeu pas un tree bon mo-mon*",
+              "### 6. \"Tu veux prendre autre chose?\" - *tue veu prondr otr sjoz*",
+              "### 7. \"Quel genre de musique tu aimes?\" - *kel zjonr deu mue-ziek tue em*",
+              "### 8. \"J'aimerais beaucoup te revoir\" - *zjeem-ree bo-koe teu reu-vwar*",
+              "### 9. \"Je peux te raccompagner?\" - *zjeu peu teu ra-kom-pan-jee*",
+              "### 10. \"J'ai vraiment apprécié cette soirée\" - *zjee vree-mon a-pree-sjee set swa-ree*",
+              "### 11. \"Quels sont tes loisirs?\" - *kel son tee lwa-zier*",
+              "### 12. \"Tu as un très beau sourire\" - *tue a un tree bo soe-rier*"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "89deaeb4-ac0d-494b-9b52-d47113ddb78d",
+      "title": "Svéd kifejezések féltékenységhez és bizalomhoz",
+      "native_lang": "hu",
+      "target_lang": "sv",
+      "category": "communication",
+      "content": "A svéd kultúra a nyugodt kommunikációról híres. Ha svéd anyanyelvű partnered van, ezek a kifejezések segítenek.\n\n## Kifejezések a féltékenységhez\n\n### 1. \"Jag blir svartsjuk när du...\"\n**Kiejtés:** Jág blir szvártsjúk när dü\n\n**Jelentés:** Féltékeny leszek, amikor te...\n\n### 2. \"Jag behöver bli lugnad\"\n**Kiejtés:** Jág behöver bli lúgnad\n\n**Jelentés:** Megnyugtatásra van szükségem\n\n### 3. \"Jag litar på dig, men jag kämpar med mina känslor\"\n**Kiejtés:** Jág lítar pó dej, men jág kempar med mína sänszlor\n\n**Jelentés:** Megbízom benned, de küzdök az érzéseimmel\n\n### 4. \"Kan vi prata om vad som hände?\"\n**Kiejtés:** Kan vi práta om vad szom hende\n\n**Jelentés:** Beszélhetünk arról, ami történt?\n\n### 5. \"Jag vill inte vara svartsjuk, men...\"\n**Kiejtés:** Jág vil inte vára szvártsjúk, men\n\n**Jelentés:** Nem akarok féltékeny lenni, de...\n\n### 6. \"Jag litar fullständigt på dig\"\n**Kiejtés:** Jág lítar fülsztändigt pó dej\n\n**Jelentés:** Teljesen megbízom benned\n\n### 7. \"Du är den enda för mig\"\n**Kiejtés:** Dü är den enda för mej\n\n**Jelentés:** Te vagy az egyetlen nekem\n\n### 8. \"Jag skulle aldrig göra något för att såra dig\"\n**Kiejtés:** Jág szkulle áldrig jöra nógot för att szóra dej\n\n**Jelentés:** Soha nem tennék semmit, ami fájna neked\n\n### 9. \"Det finns inget mellan oss\"\n**Kiejtés:** De finnsz inget mellan osz\n\n**Jelentés:** Nincs köztünk semmi\n\n### 10. \"Jag är trogen dig\"\n**Kiejtés:** Jág är trógen dej\n\n**Jelentés:** Hű vagyok hozzád\n\n### 11. \"Låt oss vara ärliga mot varandra\"\n**Kiejtés:** Lót osz vára ärliga mot várandra\n\n**Jelentés:** Legyünk őszinték egymással\n\n### 12. \"Jag vill inte att svartsjuka ska komma mellan oss\"\n**Kiejtés:** Jág vil inte att szvártsjúka szka koma mellan osz\n\n**Jelentés:** Nem akarom, hogy a féltékenység közénk álljon\n\n## Összefoglalás\n\nA svéd kultúra a higgadt kommunikációt értékeli – a féltékenység is nyugodtan kezelhető.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 288,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Kifejezések a féltékenységhez"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "89efb755-0d3f-453a-af3b-91d657cd6019",
+      "title": "Danca Sevgi Sözcükleri ve Takma Adlar",
+      "native_lang": "tr",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport CTA from '@components/CTA.astro';\n\n# Danca Sevgi Sözcükleri ve Takma Adlar\n\nSevgi sözcükleri, partnerinize onun sizin için ne kadar önemli olduğunu göstermenin harika bir yoludur. Partneriniz Danca konuşuyorsa, bu sevgi dolu ifadeleri kullandığınızda mutlu olacaktır!\n\n## Sevgi Sözcükleri Neden Önemli?\n\nSevgi sözcükleri yakınlık yaratır ve sevgi gösterir. İki kişi arasında özel bir bağ gibidir – sadece ikinize ait özel bir şey.\n\n## Klasik Sevgi Sözcükleri\n\nZamansız klasikler her dilde işe yarar:\n\n- **Tatlım** - evrensel favori\n- **Canım** - klasik ve zarif\n- **Kalbim** - duygusal ve şiirsel\n- **Aşkım** - romantik ve nazik\n\n<CultureTip>\nSevgi sözcükleri genellikle bölgeden bölgeye değişir. Bir yerde yaygın olan, başka bir yerde alışılmadık gelebilir. Partnerinize memleketinde hangi isimlerin kullanıldığını sorun!\n</CultureTip>\n\n## Tatlı Hayvan İsimleri\n\nBirçok kültürde olduğu gibi, Dancade de hayvan isimleri sevgiyle kullanılır:\n\n- **Ayıcığım** - sevimli ve güçlü\n- **Faremin** - tatlı ve minnoş\n- **Tavşanım** - şefkatli\n- **Kuşum** - sevgi dolu\n\n## Romantik İfadeler\n\nÖzel anlar için:\n\n- **Bir tanem** - biri sizin için her şey olduğunda\n- **Ruh eşim** - derin bağlantılar için\n- **Güneşim** - hayatınızı aydınlatan biri için\n\n## Farklı Durumlar İçin Sevgi Sözcükleri\n\n### Günlük Hayatta\nGünlük kullanım için kısa, rahat isimler. Hızlı bir \"Selam, tatlım!\" her zaman işe yarar.\n\n### Romantik Anlar İçin\nDaha uzun, daha duygusal ifadeler özel anlara yakışır. Partnerinize onun sizin için ne ifade ettiğini söyleyin.\n\n### Şakalaşmak İçin\nEsprili sevgi sözcükleri ilişkinizi renklendirebilir – ama partnerinizin bu espriyi paylaştığından emin olun!\n\n## Kullanım İpuçları\n\n1. **Partnerinize sorun**: Herkes her sevgi sözcüğünü sevmez. Neyi sevdiğini sorun.\n2. **Telaffuza dikkat edin**: Doğru telaffuzu öğrenin – doğru söylenen bir sevgi sözcüğünden daha romantik bir şey yok.\n3. **Samimi olun**: Size ve çift olarak size uyan isimleri kullanın.\n4. **Kendi isimlerinizi yaratın**: En kişisel sevgi sözcükleri genellikle kendiniz uydurduklarınızdır!\n5. **Tepkiyi izleyin**: En iyi sevgi sözcüğü, partnerinizi gülümseten sözcüktür.\n\n## Dilin Gücü\n\nSevgi sözcükleri kelimelerden fazlasıdır – günlük hayatta küçük aşk itiraflarıdır. Partnerinizle iletişim kurmak için Danca öğreniyorsanız, sevgi sözcükleri harika bir başlangıçtır.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Farklı Durumlar İçin Sevgi Sözcükleri"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "89f36287-db6d-4671-9544-ca53b9f3737f",
+      "title": "Conocer a la familia de tu pareja en polaco: Frases esenciales para conquistar corazones",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "situations",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nEl momento de conocer a la familia de tu pareja polaca puede definir el curso de tu relación. Imagina entrar a su hogar y saludar a su mamá con un cálido *Dzień dobry, pani* ( Buenos días, señora) - su sonrisa de aprobación valdrá más que mil palabras. Esta guía te ayudará a navegar este momento crucial con confianza y cariño.\n\n<PhraseOfDay\n  word=\"Miło mi pana poznać\"\n  translation=\"Encantado de conocerlo\"\n  pronunciation=\"MEE-woh mee PAH-nah POHZ-nahch\"\n  context=\"La frase más importante para presentarte formalmente. Usa 'pani' en lugar de 'pana' con mujeres.\"\n/>\n\n## Antes de entrar: Preparación emocional y cultural\n\n<CultureTip flag=\"🇵🇱\" title=\"Primera impresión dorada\">\nEn Polonia, la familia es sagrada. Trae un pequeño regalo ( flores para mamá, algo dulce) y saluda a los mayores primero. ¡Tu pareja estará orgullosísim@!\n</CultureTip>\n\n<VocabCard\n  word=\"Przyniosę kwiaty\"\n  translation=\"Traeré flores\"\n  pronunciation=\"pshih-NYOH-seh KFAH-tih\"\n  example=\"Przyniosę kwiaty dla twojej mamy.\"\n/>\n\n## Frases esenciales para el primer encuentro\n\n| Polaco | Pronunciación | Traducción | Cuándo usar |\n|--------|---------------|------------|-------------|\n| **Dzień dobry** | djen DOH-brih | Buenos días | Saludo formal inicial |\n| **Miło mi** | MEE-woh mee | Es un placer | Después de presentarte |\n| **Jak się masz?** | yahk sheh mahsh | ¿Cómo estás? | Preguntar cómo están |\n| **Co słychać?** | tsoh SWIH-hahch | ¿Qué hay de nuevo? | Conversación casual |\n| **Piękny dom** | PYEN-knih dohm | Hermosa casa | Al entrar |\n| **Dziękuję za zaproszenie** | djen-KOO-yeh zah zah-PROH-sheh-nee-eh | Gracias por la invitación | Mostrar agradecimiento |\n\n### Presentándote a cada miembro\n\n<VocabCard\n  word=\"To jest mój chłopak/moja dziewczyna\"\n  translation=\"Este es mi novio/Esta es mi novia\"\n  pronunciation=\"toh yest moy HWOH-pahk/MOH-yah djeh-VOO-zhi-nah\"\n  example=\"Mamo, to jest moja dziewczyna Marta.\"\n/>\n\n## Conversaciones auténticas: Escenarios reales\n\n### En la cocina con mamá\n\n**Mamá**: *Czy chcesz spróbować mojego pieroga?* (¿Quieres probar mi pierogi?)\n**Tú**: *Tak, bardzo chętnie! Jak zrobiłaś ciasto?* (¡Sí, con mucho gusto! ¿Cómo hiciste la masa?)\n\nAprende más sobre [vocabulario para citas románticas en polaco](/learn/es/pl/essential-polish-date-night-vocabulary-for-couples/) para seguir impresionando.\n\n### Conversando con papá sobre trabajo\n\n**Papá**: *Gdzie pracujesz?* (¿Dónde trabajas?)\n**Tú**: *Pracuję jako [tu profesión]. Uczę się polskiego dla waszej córki.* (Trabajo como [tu profesión]. Estoy aprendiendo polaco por tu hija.)\n\n<CultureTip flag=\"🇵🇱\" title=\"El orgullo papal\">\nLos padres polacos valoran la estabilidad laboral. Menciona tus planes futuros y verás cómo asienten con aprobación.\n</CultureTip>\n\n## Vocabulario de la familia: Conoce a tu nueva tribu\n\n| Polaco | Pronunciación | Traducción |\n|--------|---------------|------------|\n| **mama** | MAH-mah | mamá |\n| **tata** | TAH-tah | papá |\n| **babcia** | BAHM-chah | abuela |\n| **dziadek** | DJAH-dehk | abuelo |\n| **siostra** | SHOH-strah | hermana |\n| **brat** | braht | hermano |\n| **ciocia** | CHOH-chah | tía |\n| **wujek** | VOO-yek | tío |\n| **kuzyn/kuzynka** | KOO-zihn/KOO-zihn-kah | primo/prima |\n\n## Cómo halagar sin parecer falso\n\n<VocabCard\n  word=\"Twoja córka jest wspaniała\"\n  translation=\"Tu hija es maravillosa\"\n  pronunciation=\"TVOH-yah TSOOR-kah yest vspah-NYAH-wah\"\n  example=\"Mamo, twoja córka jest wspaniała.\"\n/>\n\n### Frases ganadoras de puntos\n\n- *Pani gotuje przepysznie!* (¡Señora, cocina deliciosamente!) - pah-NEE GOH-tyen-yeh preh-PIHSH-nyeh\n- *Jakie ładne zdjęcia rodzinne!* (¡Qué bonitas fotos familiares!) - YAH-kyeh WAHd-neh ZDJEN-yeh roh-DJEE-neh\n- *Wasz dom jest taki przytulny* (Su hogar es tan acogedor) - vahsh dohm yest TAH-kee pshih-TOOL-nih\n\n## Cuando las cosas se complican\n\n<CultureTip flag=\"🇵🇱\" title=\"Salvando el día\">\nSi no entiendes, sonríe y di *\"Przepraszam, jeszcze raz\"* (Perdón, una vez más). ¡Los polacos aprecian el esfuerzo más que la perfección!\n</CultureTip>\n\n| Polaco | Pronunciación | Traducción |\n|--------|---------------|------------|\n| **Przepraszam, nie rozumiem** | psheh-PRAH-shahm nyeh roh-ZOO-myem | Perdón, no entiendo |\n| **Czy możesz powtórzyć?** | tchih MOH-sheh pohl-TOH-zhich | ¿Puedes repetir? |\n| **Mówię tylko trochę po polsku** | MOH-vee-eh TIH-koh TROH-heh poh POHL-skoo | Solo hablo un poco de polaco |\n| **Jak powiedzieć...?** | yahk poh-vee-DZHEECH | ¿Cómo se dice...? |\n\nPractica estas frases con tu pareja antes del gran día. Nuestra guía sobre [cómo discutir constructivamente en polaco](/learn/es/pl/arguing-constructively-in-polish-communication-phrases-for-couples/) también puede ayudarte en momentos tensos.\n\n## Momentos especiales: Creando conexiones\n\n### Compartiendo historias de amor\n\n**Tú**: *Poznałem [jej imię] na studiach. Od pierwszej chwili wiedziałem, że jest wyjątkowa.* (Conocí a [su nombre] en la universidad. Desde el primer momento supe que era especial.)\n\n### Expresando gratitud sincera\n\n<VocabCard\n  word=\"Dziękuję, że przyjęliście mnie tak serdecznie\"\n  translation=\"Gracias por recibirme con tanto cariño\"\n  pronunciation=\"djen-KOO-yeh sheh pshih-YEHL-ee-sheh mee-neh tahk sehr-DETCH-nee-eh\"\n  example=\"Wasza gościnność jest niesamowita.\"\n/>\n\n## Consejos de oro para triunfar\n\n1. **Aprende los nombres**: Usa *ciocia Basia* (tía Bárbara), no solo *ciocia*\n2. **Participa en tradiciones**: Si celebran *imieniny* (onomásticos), felicita con *\"Sto lat!\"*\n3. **Come con gusto**: Incluso si estás llen@, prueba un poco de todo\n4. **Pregunta por la familia**: Muestra interés genuino en sus historias\n5. **Ofrece ayuda**: *\"Czy mogę pomóc?\"* (¿Puedo ayudar?) en la cocina\n6. **Comparte tu cultura**: Trae algo típico de tu país\n7. **Sé paciente**: Las familias polacas pueden ser reservadas al principio\n\n## Tarjeta de referencia rápida\n\n**Top 10 frases para screenshot:**\n1. Dzień dobry - Buenos días\n2. Miło mi pana/panią poznać - Encantad@ de conocerlo/la\n3. Dziękuję za zaproszenie - Gracias por la invitación\n4. Piękny dom - Hermosa casa\n5. Jak się masz? - ¿Cómo estás?\n6. Proszę bardzo - Con mucho gusto\n7. Twoja córka jest wspaniała - Tu hija es maravillosa\n8. Pani gotuje przepysznie - Cocina deliciosamente\n9. Czy mogę pomóc? - ¿Puedo ayudar?\n10. Do zobaczenia - Hasta luego\n\nCon estas frases en tu arsenal, conquistarás corazones polacos. Recuerda: lo más importante es el amor que compartes con su hija/hijo. ¡Eso se nota más allá de cualquier idioma!\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Conversaciones auténticas: Escenarios reales",
+              "## Momentos especiales: Creando conexiones"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

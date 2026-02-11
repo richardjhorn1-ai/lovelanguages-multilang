@@ -1,0 +1,120 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0328",
+  "articles": [
+    {
+      "id": "5e71b479-f313-4587-bf14-e2e0caed9c33",
+      "title": "Frases de Apoio Emocional em Romeno: Confortando Seu Parceiro",
+      "native_lang": "pt",
+      "target_lang": "ro",
+      "category": "communication",
+      "content": "Oferecer apoio emocional em romeno permite demonstrar cuidado com a paixão latina dos Bálcãs.\n\n## Frases de Apoio Básico\n\n### Demonstrando Presença\n\n**Sunt aici pentru tine, orice s-ar întâmpla.**\n*Estou aqui para você, aconteça o que acontecer.*\n\n**Nu trebuie să treci prin asta singur/ă.**\n*Você não precisa passar por isso sozinho(a).*\n\n**Sunt alături de tine.**\n*Estou ao seu lado.*\n\n### Validando Sentimentos\n\n**E normal să te simți așa.**\n*É normal sentir-se assim.*\n\n**Sentimentele tale sunt complet valide.**\n*Seus sentimentos são completamente válidos.*\n\n### Oferecendo Conforto\n\n**Totul va fi bine.**\n*Tudo vai ficar bem.*\n\n**Vom trece prin asta împreună.**\n*Vamos superar isso juntos.*\n\n**Și asta va trece.**\n*Isso também vai passar.*\n\n## Perda e Luto\n\n**Îmi pare foarte rău pentru pierderea ta.**\n*Sinto muito pela sua perda.*\n\n## Perguntas de Apoio\n\n**Cum te pot ajuta?**\n*Como posso te ajudar?*\n\n**Vrei să vorbim despre asta?**\n*Quer falar sobre isso?*\n\n## Encorajamento\n\n**Sunt atât de mândru/ă de cum gestionezi asta.**\n*Estou tão orgulhoso(a) de como você está lidando com isso.*\n\n**Ești mai puternic/ă decât crezi.**\n*Você é mais forte do que pensa.*\n\nDragostea se arată în momentele dificile - o amor se mostra nos momentos difíceis.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 193,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frases de Apoio Básico"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "5e7cf295-2a37-40f4-83b0-4e6a316bcbaa",
+      "title": "Mutatul Împreună în Cehă: Vocabular și Expresii pentru Noua Voastră",
+      "native_lang": "ro",
+      "target_lang": "cs",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nMutatul împreună este un pas important în relație. Acest ghid te va ajuta să înveți vocabularul necesar pentru a face această tranziție mai ușoară.\n\nPentru expresii de bază, consultă [expresii esențiale pentru cupluri](/learn/ro/cs/cs-essential-phrases-for-couples).\n\n<PhraseOfDay\n  word=\"Ne mutăm împreună!\"\n  translation=\"We're moving in together!\"\n  pronunciation=\"anunț mare\"\n  context=\"Vestea care marchează un nou capitol.\"\n/>\n\n## Vocabular de Bază\n\n<VocabCard\n  word=\"a se muta\"\n  translation=\"to move\"\n  pronunciation=\"schimbare de adresă\"\n  example=\"Ne mutăm luna viitoare.\"\n/>\n\n<VocabCard\n  word=\"apartament\"\n  translation=\"apartment\"\n  pronunciation=\"locuință\"\n  example=\"Am găsit apartamentul perfect.\"\n/>\n\n<VocabCard\n  word=\"chirie\"\n  translation=\"rent\"\n  pronunciation=\"plată lunară\"\n  example=\"Chiria e împărțită în doi.\"\n/>\n\n### Tipuri de Locuințe\n\n| Română | Descriere |\n|--------|----------|\n| Apartament | Locuință în bloc |\n| Garsonieră | Apartament mic |\n| Casă | Locuință individuală |\n| Studio | Cameră unică |\n| Duplex | Pe două nivele |\n\n<CultureTip flag=\"🏠\" title=\"Prima Casă Împreună\">\nÎn diferite culturi, mutatul împreună înainte de căsătorie are semnificații diferite. În unele locuri e normal, în altele mai tradiționale poate fi neobișnuit. Important e să vă simțiți confortabil cu decizia voastră.\n</CultureTip>\n\n## Camerele Casei\n\n<VocabCard\n  word=\"bucătărie\"\n  translation=\"kitchen\"\n  pronunciation=\"loc de gătit\"\n  example=\"Bucătăria e spațioasă.\"\n/>\n\n### Vocabular pentru Camere\n| Cameră | Funcție |\n|--------|--------|\n| Living | Zona de relaxare |\n| Dormitor | Pentru somn |\n| Bucătărie | Gătit și mâncat |\n| Baie | Igienă |\n| Balcon | Spațiu exterior |\n| Debara | Depozitare |\n| Birou | Lucru de acasă |\n\n## Mobila și Obiectele Casnice\n\n### Living\n| Obiect | Utilizare |\n|--------|----------|\n| Canapea | Relaxare |\n| Televizor | Divertisment |\n| Masă de cafea | Decorativ/funcțional |\n| Raft | Depozitare |\n| Covor | Confort |\n\n### Dormitor\n| Obiect | Descriere |\n|--------|----------|\n| Pat | Dublu, pentru cuplu |\n| Noptieră | Lângă pat |\n| Dulap | Haine |\n| Comodă | Depozitare |\n| Lenjerie | Așternuturi |\n\n### Bucătărie\n| Obiect | Funcție |\n|--------|--------|\n| Frigider | Păstrare alimente |\n| Aragaz | Gătit |\n| Cuptor | Coacere |\n| Chiuvetă | Spălat |\n| Mașină de spălat vase | Curățenie |\n\n<CultureTip flag=\"🛒\" title=\"IKEA și Alte Magazine\">\nIKEA a devenit sinonim cu mobilarea primei case împreună. Montarea mobilei IKEA împreună e considerată un \"test\" pentru relație! Există o glumă că dacă supraviețuiți montării unui dulap PAX, puteți supraviețui oricărui lucru.\n</CultureTip>\n\n## Împărțirea Responsabilităților\n\n<VocabCard\n  word=\"trebuie să discutăm\"\n  translation=\"we need to talk\"\n  pronunciation=\"comunicare\"\n  example=\"Trebuie să discutăm despre treburile casnice.\"\n/>\n\n### Treburi Casnice\n| Activitate | Frecvență |\n|------------|----------|\n| Gătit | Zilnic |\n| Curățenie | Săptămânal |\n| Spălat rufe | Săptămânal |\n| Cumpărături | Săptămânal |\n| Plata facturilor | Lunar |\n\n### Expresii Utile\n- **E rândul tău să...** - It's your turn to...\n- **Putem împărți...** - We can split...\n- **Vreau să ajut cu...** - I want to help with...\n- **Facem împreună?** - Shall we do it together?\n\n## Procesul Mutării\n\n### Înainte de Mutare\n| Pas | Descriere |\n|-----|----------|\n| Căutare | Găsește locuința potrivită |\n| Vizionare | Vizitează opțiunile |\n| Decizie | Alege împreună |\n| Contract | Semnează actele |\n| Planificare | Organizează mutarea |\n\n### În Ziua Mutării\n- **Cutii de carton** - pentru ambalat\n- **Bandă adezivă** - pentru sigilat\n- **Marker** - pentru etichetat\n- **Firmă de mutări** - pentru transport\n\n<VocabCard\n  word=\"Am ajuns acasă!\"\n  translation=\"We're home!\"\n  pronunciation=\"sentiment de împlinire\"\n  example=\"În sfârșit, am ajuns acasă la noi!\"\n/>\n\n## Decorarea Împreună\n\n### Stiluri de Design\n| Stil | Caracteristici |\n|------|---------------|\n| Modern | Linii simple, minimalist |\n| Scandinav | Luminos, functional |\n| Boho | Colorat, eclectic |\n| Industrial | Brut, urban |\n\n### Compromis în Decor\n- **Zona lui/ei** - spațiu personal\n- **Zona comună** - decizii împreună\n- **Buget comun** - pentru achiziții mari\n\n<CultureTip flag=\"💰\" title=\"Finanțele Comune\">\nMulți cupluri care se mută împreună deschid un cont bancar comun pentru cheltuieli casnice (chirie, utilități, mâncare) păstrând și conturi separate pentru cheltuieli personale.\n</CultureTip>\n\n## Comunicare în Cuplu\n\n### Expresii pentru Armonie\n- **Cum vrei să facem?** - How do you want to do this?\n- **Ce părere ai?** - What do you think?\n- **Sunt flexibil/ă** - I'm flexible\n- **E important pentru tine?** - Is it important to you?\n\n### Rezolvarea Conflictelor\n- **Hai să găsim o soluție** - Let's find a solution\n- **Înțeleg punctul tău de vedere** - I understand your point\n- **Putem face un compromis?** - Can we compromise?\n\n## Lista de Verificare\n\n### Documente Necesare\n- [ ] Contract de închiriere\n- [ ] Asigurare\n- [ ] Schimbare adresă\n- [ ] Contracte utilități\n\n### Prima Săptămână\n- [ ] Despachetare esențiale\n- [ ] Organizare bucătărie\n- [ ] Configurare dormitor\n- [ ] Internet și TV\n\n## Sfaturi Finale\n\n1. **Comunică deschis** - despre așteptări și nevoi\n2. **Respectă spațiul personal** - fiecare are nevoie de timp singur\n3. **Împarte responsabilitățile** - echitabil\n4. **Fii flexibil** - compromisul e cheia\n5. **Celebrează** - prima noapte în casa nouă e specială!\n\n<CTA />\n\n## Concluzie\n\nMutatul împreună e un pas emoționant și uneori provocator. Cu comunicare bună și vocabularul potrivit, veți transforma această tranziție într-o aventură frumoasă.\n\nMult succes în noua voastră casă!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Mobila și Obiectele Casnice",
+              "## Procesul Mutării",
+              "## Decorarea Împreună",
+              "## Comunicare în Cuplu",
+              "## Lista de Verificare"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "5e808339-f401-47cc-97cc-0bdad1e65fe0",
+      "title": "Como Escrever Cartas de Amor em Tcheco: Romance Centro-Europeu",
+      "native_lang": "pt",
+      "target_lang": "cs",
+      "category": "communication",
+      "content": "O tcheco oferece formas poéticas e profundas de expressar amor em cartas. Praga, uma das cidades mais românticas do mundo, inspira declarações apaixonadas.\n\n## Estrutura de uma Carta de Amor\n\n### Abertura Carinhosa\n\n**Má lásko,**\n*Meu amor,*\n\n**Miláčku,**\n*Querido(a),*\n\n**Můj drahý / Moje drahá,**\n*Meu querido / Minha querida,*\n\n### Expressando Seus Sentimentos\n\n**Píšu ti, protože slova někdy říkají víc než rozhovory.**\n*Te escrevo porque palavras às vezes dizem mais que conversas.*\n\n**Od té doby, co jsem tě poznal/a, má můj život nový smysl.**\n*Desde que te conheci, minha vida tem novo sentido.*\n\n**Každý den s tebou je dar.**\n*Cada dia com você é um presente.*\n\n### Declarações de Amor\n\n**Miluji tě víc, než slova mohou vyjádřit.**\n*Te amo mais do que palavras podem expressar.*\n\n**Má láska k tobě každým dnem roste.**\n*Meu amor por você cresce a cada dia.*\n\n**Jsi pro mě všechno.**\n*Você é tudo para mim.*\n\n### Promessas\n\n**Slibuji, že tě budu milovat a vážit si tě navždy.**\n*Prometo te amar e valorizar para sempre.*\n\n**Ať se stane cokoli, budu vždy při tobě.**\n*Aconteça o que acontecer, sempre estarei com você.*\n\n### Encerramentos\n\n**Navždy tvůj/tvá,**\n*Para sempre seu/sua,*\n\n**S veškerou láskou,**\n*Com todo amor,*\n\n## Exemplo de Carta\n\n*Má lásko,*\n\n*Píšu ti tyto řádky, které přicházejí z hloubi mého srdce. Jsi to nejkrásnější, co mě potkalo.*\n\n*S veškerou láskou,*\n*[Seu nome]*\n\nLáska nezná hranice - o amor não conhece fronteiras!",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 233,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Estrutura de uma Carta de Amor"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "5e81657f-62a4-441d-afd0-499ef631c035",
+      "title": "Frases para Conocer a los Suegros en Inglés: Guía para Causar Buena Impresión",
+      "native_lang": "es",
+      "target_lang": "en",
+      "category": "communication",
+      "content": "Conocer a los suegros puede ser estresante, especialmente en otro idioma. Esta guía te ayudará a causar una excelente primera impresión con la familia anglófona de tu pareja.\n\n## Saludos y Presentaciones\n\n### \"It's so nice to finally meet you\"\n**Pronunciación:** its sou náis tu fáinali miit yuu\n\n**Significado:** Es tan agradable conocerles por fin\n\nPerfecto para el primer encuentro.\n\n### \"I've heard so many wonderful things about you\"\n**Pronunciación:** aiv jerd sou méni wánderful zings abáut yuu\n\n**Significado:** He escuchado tantas cosas maravillosas de ustedes\n\n### \"Thank you so much for having me\"\n**Pronunciación:** zenk yuu sou mach for jáving mi\n\n**Significado:** Muchísimas gracias por recibirme\n\n## Cumplidos a la Familia\n\n### \"You have a beautiful home\"\n**Pronunciación:** yuu jav a biútiful jóum\n\n**Significado:** Tienen un hogar hermoso\n\n### \"This meal is absolutely delicious\"\n**Pronunciación:** dis miil is ábsolutli delíshas\n\n**Significado:** Esta comida está absolutamente deliciosa\n\n### \"I can see where [nombre] gets their wonderful qualities\"\n**Pronunciación:** ai kan sii wer [nombre] guets der wánderful kuólitis\n\n**Significado:** Puedo ver de dónde viene [nombre] con sus cualidades maravillosas\n\n## Hablando de Tu Pareja\n\n### \"Your son/daughter makes me very happy\"\n**Pronunciación:** yor san/dóter meiks mi véri jápi\n\n**Significado:** Su hijo/a me hace muy feliz\n\n### \"I feel so lucky to have them in my life\"\n**Pronunciación:** ai fiil sou láki tu jav dem in mai laif\n\n**Significado:** Me siento muy afortunado/a de tenerle en mi vida\n\n### \"They've told me so much about their childhood here\"\n**Pronunciación:** deiv tóuld mi sou mach abáut der cháildhjud jír\n\n**Significado:** Me ha contado mucho sobre su infancia aquí\n\n## Ofreciendo Ayuda\n\n### \"Can I help with anything?\"\n**Pronunciación:** kan ai jelp wiz énizing\n\n**Significado:** ¿Puedo ayudar en algo?\n\n### \"Please let me help with the dishes\"\n**Pronunciación:** pliis let mi jelp wiz de díshes\n\n**Significado:** Por favor, déjenme ayudar con los platos\n\n### \"I'd love to help set the table\"\n**Pronunciación:** aid lov tu jelp set de téibl\n\n**Significado:** Me encantaría ayudar a poner la mesa\n\n## Mostrando Interés\n\n### \"I'd love to hear more about your family traditions\"\n**Pronunciación:** aid lov tu jír mor abáut yor fámili tradíshans\n\n**Significado:** Me encantaría saber más sobre sus tradiciones familiares\n\n### \"How did you two meet?\"\n**Pronunciación:** jáu did yuu tuu miit\n\n**Significado:** ¿Cómo se conocieron ustedes dos?\n\n### \"What was [nombre] like as a child?\"\n**Pronunciación:** wot was [nombre] laik as a chaild\n\n**Significado:** ¿Cómo era [nombre] de niño/a?\n\n## Despedidas Amables\n\n### \"Thank you for such a lovely evening\"\n**Pronunciación:** zenk yuu for sach a lávli íivning\n\n**Significado:** Gracias por una noche tan encantadora\n\n### \"I really enjoyed meeting you\"\n**Pronunciación:** ai ríili enyóid míiting yuu\n\n**Significado:** Realmente disfruté conocerles\n\n### \"I hope to see you again soon\"\n**Pronunciación:** ai jóup tu sii yuu aguén suun\n\n**Significado:** Espero verles de nuevo pronto\n\n## Consejos Culturales\n\n- **Puntualidad** - Llega a tiempo o un poco antes\n- **Regalos** - Lleva vino, flores o postre\n- **Contacto visual** - Demuestra confianza y respeto\n- **Escucha activa** - Muestra interés genuino\n\n## Temas Seguros de Conversación\n\n- Viajes y vacaciones\n- Hobbies e intereses\n- Comida y recetas\n- Historia familiar\n\n## Temas a Evitar\n\n- Política\n- Religión (a menos que te pregunten)\n- Finanzas personales\n- Problemas de pareja\n\n## Cómo Dirigirse a Ellos\n\nPregunta: \"What should I call you?\"\n(¿Cómo debería llamarles?)\n\nOpciones comunes:\n- Mr./Mrs. + apellido (formal)\n- Nombre de pila (si te invitan)\n\nCausar buena impresión con los suegros anglófonos es cuestión de respeto, interés genuino y buena educación. ¡Good luck!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Saludos y Presentaciones",
+              "## Cumplidos a la Familia",
+              "## Hablando de Tu Pareja",
+              "## Ofreciendo Ayuda",
+              "## Mostrando Interés",
+              "## Despedidas Amables"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "5e8a1ff5-3042-4ec9-96f7-e9043b7d7446",
+      "title": "Gíria Polonesa de Mensagens para Casais",
+      "native_lang": "pt",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nQuando você troca mensagens com seu parceiro polonês, vai encontrar rapidamente abreviações e gírias que não aparecem em nenhum livro didático. Aqui está seu guia da linguagem de mensagens polonesa para sempre entender o que eles querem dizer!\n\n## Abreviações de Amor Essenciais\n\n<PhraseOfDay\n  word=\"Kc\"\n  translation=\"Kocham cię (Te amo)\"\n  pronunciation=\"KC\"\n  context=\"A forma mais curta de escrever 'te amo' - perfeita para mensagens rápidas.\"\n/>\n\n### Abreviações Românticas\n\n| Abreviação | Polonês | Português |\n|------------|---------|-----------|\n| **Kc** | Kocham cię | Te amo |\n| **Kcb** | Kocham cię bardzo | Te amo muito |\n| **Tcm** | Tęsknię za tobą | Sinto sua falta |\n| **Cb** | Ciebie (também: całuję) | Você (também: beijos) |\n| **Kch** | Kochanie | Amor/Querido(a) |\n| **Bdz** | Buziaki | Beijinhos |\n\n<VocabCard\n  word=\"Kc skarbie\"\n  translation=\"Te amo, tesouro\"\n  pronunciation=\"KC SKAR-byeh\"\n  example=\"Dobranoc kch, kc! (Boa noite amor, te amo!)\"\n/>\n\n## Abreviações Comuns de Chat\n\n| Abreviação | Polonês | Português |\n|------------|---------|-----------|\n| **Nw** | Nie wiem | Não sei |\n| **Spk** | Spoko / Spokojnie | OK / Sem problema |\n| **Dz** | Dzięki / Dziękuję | Obrigado(a) |\n| **Nzc** | Nie za co | De nada |\n| **Pp** | Przepraszam | Desculpa |\n| **Zw** | Zaraz wracam | Já volto |\n| **Jj** | Już jestem | Já estou aqui |\n| **Nwm** | Nie wiem, może | Não sei, talvez |\n| **Omg** | O mój Boże | Meu Deus |\n\n<CultureTip title=\"Abreviações Polonesas vs. Inglesas\" flag=\"🇵🇱\">\nMuitos poloneses também usam abreviações em inglês como \"lol\", \"omg\" ou \"btw\". Mas usar abreviações polonesas mostra que você está se esforçando - e isso é muito valorizado!\n</CultureTip>\n\n## Expressões Emocionais\n\n<VocabCard\n  word=\"No weź!\"\n  translation=\"Ah, vai! / Deixa disso!\"\n  pronunciation=\"no vesh\"\n  example=\"No weź, nie marudź! (Ah, vai, não reclama!)\"\n/>\n\n<VocabCard\n  word=\"Serio?\"\n  translation=\"Sério? / Mesmo?\"\n  pronunciation=\"SE-ryo\"\n  example=\"Serio? To super! (Sério? Que legal!)\"\n/>\n\n| Expressão | Significado | Uso |\n|-----------|-------------|-----|\n| **Ale super!** | Que legal! | Alegria |\n| **Jejku!** | Nossa! | Surpresa |\n| **O rany!** | Uau! / Caramba! | Espanto |\n| **Matko!** | Mãe! (≈Meu Deus!) | Choque |\n| **No nie!** | Não acredito! | Incredulidade |\n| **Ja cię!** | Eu você! (≈Uau!) | Assombro |\n\n## Mensagens Doces\n\n<VocabCard\n  word=\"Myślę o tobie\"\n  translation=\"Estou pensando em você\"\n  pronunciation=\"MY-shleh o TO-byeh\"\n  example=\"Hej kochanie, myślę o tobie. Kc!\"\n/>\n\n<VocabCard\n  word=\"Tęsknię\"\n  translation=\"Sinto sua falta\"\n  pronunciation=\"TENSS-knyeh\"\n  example=\"Kch, tęsknię. Kiedy wracasz?\"\n/>\n\n<VocabCard\n  word=\"Całusy\"\n  translation=\"Beijinhos\"\n  pronunciation=\"tsa-WU-sy\"\n  example=\"Dobranoc, całusy!\"\n/>\n\n### Mensagens Românticas Curtas\n\n| Mensagem | Significado |\n|----------|-------------|\n| **Kc ♥** | Te amo |\n| **Ściskam** | Te abraço |\n| **Pa pa kch** | Tchau amor |\n| **Buziaczki** | Beijinhos |\n| **Śnij o mnie** | Sonha comigo |\n| **Miłych snów** | Bons sonhos |\n\n## Bom Dia e Boa Noite\n\n| Polonês | Português |\n|---------|-----------|\n| **Dzień dobry kochanie!** | Bom dia amor! |\n| **Jak się spało?** | Dormiu bem? |\n| **Miłego dnia!** | Tenha um bom dia! |\n| **Dobranoc skarbie** | Boa noite tesouro |\n| **Śpij dobrze** | Durma bem |\n| **Do jutra!** | Até amanhã! |\n\n## Perguntas e Respostas Comuns\n\n| Pergunta | Resposta |\n|----------|----------|\n| **Co robisz?** (O que você está fazendo?) | Nic / Nudzę się (Nada / Estou entediado) |\n| **Gdzie jesteś?** (Onde você está?) | W domu / W pracy (Em casa / No trabalho) |\n| **Kiedy wrócisz?** (Quando você volta?) | Za chwilę / Zaraz (Daqui a pouco / Logo) |\n| **Wszystko ok?** (Tudo bem?) | Spk / Tak (OK / Sim) |\n\n## Uso de Emojis na Polônia\n\n<CultureTip title=\"Cultura de Emojis\" flag=\"🇵🇱\">\nOs emojis são usados na Polônia como em todo lugar, mas alguns têm significados especiais. O ❤️ é universal, claro, mas o 😘 é usado muito frequentemente entre casais - mais do que em muitos outros países.\n</CultureTip>\n\n| Emoji | Uso Polonês |\n|-------|-------------|\n| 😘 | Buziaki (Beijos) - muito comum |\n| ❤️ | Kocham (Te amo) |\n| 🥰 | Kochanie (Amor) |\n| 😊 | Amigável, simpático |\n| 😂 | Śmieszne (Engraçado) |\n| 🙈 | Wstyd (Vergonha) |\n| 💋 | Całusy (Beijos) |\n\n## Reações\n\n<VocabCard\n  word=\"Hahaha / Xd\"\n  translation=\"Hahaha / LOL\"\n  pronunciation=\"a-a-a / iks-de\"\n  example=\"To było dobre xd (Isso foi bom rsrs)\"\n/>\n\n| Reação | Significado | Uso |\n|--------|-------------|-----|\n| **Xd / xD** | LOL | Riso |\n| **Xddd** | Muito engraçado | Risada forte |\n| **Nom** | Nhami | Para fotos de comida |\n| **Oj** | Ai | Simpatia |\n| **Ło!** | Uau! | Impressionado |\n| **Uff** | Ufa | Alívio |\n\n## Exemplos de Conversas\n\n### De Manhã\n\n> **Você:** Dzień dobry kochanie! Jak się spało?\n> **Parceiro:** Hej! Dobrze, tęskniłam za tobą. Kc!\n> **Você:** Kc skarbie. Widzimy się wieczorem?\n> **Parceiro:** Tak! Nie mogę się doczekać 😘\n\n### À Noite\n\n> **Você:** Kch, zaraz kończę pracę. Gdzie się spotkamy?\n> **Parceiro:** Spk, może ta nowa restauracja?\n> **Você:** Super pomysł! Za 30 min będę\n> **Parceiro:** Dz! Czekam 💋\n\n## Mensagens de Flerte\n\n| Polonês | Português |\n|---------|-----------|\n| **Jesteś piękna/przystojny** | Você é linda/lindo |\n| **Nie mogę przestać o tobie myśleć** | Não consigo parar de pensar em você |\n| **Kiedy cię zobaczę?** | Quando vou te ver? |\n| **Tęsknię za twoimi buziakami** | Sinto falta dos seus beijos |\n| **Jesteś moją miłością** | Você é meu amor |\n\n## Dicas de Pro\n\n1. **Não abrevie tudo** - Muitas abreviações podem confundir\n2. **Considere o contexto** - Algumas abreviações são muito informais\n3. **Use emojis** - Eles tornam as mensagens mais calorosas\n4. **Pergunte se não entender** - Se não entender algo, simplesmente pergunte!\n\n<VocabCard\n  word=\"Co to znaczy?\"\n  translation=\"O que isso significa?\"\n  pronunciation=\"tso to ZNA-chy\"\n  example=\"Przepraszam, co to znaczy 'nwm'?\"\n/>\n\nCom esse conhecimento, você está pronto para conversar em polonês! Divirta-se trocando mensagens com seu parceiro.\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Exemplos de Conversas"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

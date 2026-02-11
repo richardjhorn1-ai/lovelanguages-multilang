@@ -1,0 +1,491 @@
+{
+  "batchId": "tier2a-slim-0055",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "4ed2a399-76b3-4fcd-b132-8940b2b2b0c9",
+      "title": "Russisk uttale for nybegynnere: Lær å uttale kjekre ord til din partner",
+      "native_lang": "no",
+      "target_lang": "ru",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Grunnleggende Uttaleregler",
+          "subsections": [
+            "### 1. Vokallydene - Hjertet i Språket",
+            "### 2. Konsonanter Med Kjærlig Klang"
+          ]
+        },
+        {
+          "header": "## Uttaletrening for Kjærestepar",
+          "subsections": [
+            "### Setninger å Øve På Sammen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4edb28db-09ca-48e7-bb4a-1ea5c96c7bf4",
+      "title": "Φράσεις Φλερτ στα Ουκρανικά",
+      "native_lang": "el",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις Φλερτ",
+          "subsections": [
+            "### 1. Ти дуже гарна (Ty duzhe harna)",
+            "### 2. У тебе чарівна посмішка (U tebe charivna posmishka)",
+            "### 3. Можна з тобою познайомитись? (Mozhna z toboyu poznayomytys?)",
+            "### 4. Ти мені подобаєшся (Ty meni podobayeshsya)",
+            "### 5. Хочеш випити щось разом? (Hochesh vypyty shchos razom?)",
+            "### 6. Ти маєш прекрасні очі (Ty mayesh prekrasni ochi)",
+            "### 7. Можу тебе провести? (Mozhu tebe provesty?)",
+            "### 8. Ти справді особлива (Ty spravdi osoblyva)",
+            "### 9. Хотілося б побачитись знову (Khotilosya b pobachytys znovu)",
+            "### 10. Ти змусила мене посміхатися (Ty zmusyla mene posmihatysya)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4ede3c86-2456-46e9-a7c4-9aa70a5008c3",
+      "title": "Cekce Ögrenmek Zor mu? Türkler Icin Dürüst Bir Degerlendirme",
+      "native_lang": "tr",
+      "target_lang": "cs",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Cekce'nin Zor Yanlari",
+          "subsections": [
+            "### 1. Hal Sistemi (7 Hal)",
+            "### 2. Cinsiyet Sistemi (3 Cinsiyet)",
+            "### 3. Fiil Cekimleri",
+            "### 4. Telaffuz Zorluklari"
+          ]
+        },
+        {
+          "header": "## Cekce'nin Kolay Yanlari",
+          "subsections": [
+            "### 1. Fonetik Yazim",
+            "### 2. Kelime Sirasi Esnekligi",
+            "### 3. Artikeller Yok",
+            "### 4. Ortak Kelimeler"
+          ]
+        },
+        {
+          "header": "## Basari Icin Ipuclari",
+          "subsections": [
+            "### 1. Ask Motivasyonu Kullanin",
+            "### 2. Kaliplarla Baslayin",
+            "### 3. Halleri Yavas Yavas Ögrenin",
+            "### 4. Telaffuza Öncelik Verin",
+            "### 5. Medya Kullanin"
+          ]
+        },
+        {
+          "header": "## Gercekcı Beklentiler",
+          "subsections": [
+            "### Baslangicta Bekleyebileceginiz Zorluklar:",
+            "### Zaman Icinde Kolaylasan Seyler:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4ef93656-0a22-419d-8944-6d6eff900a35",
+      "title": "Лексика о беременности на испанский: Словарь для будущих родителей",
+      "native_lang": "ru",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Объявление о беременности",
+          "subsections": [
+            "### Для близких родственников",
+            "### Для друзей"
+          ]
+        },
+        {
+          "header": "## Лексика для визитов к врачу",
+          "subsections": [
+            "### На приёме",
+            "### Вопросы для врача"
+          ]
+        },
+        {
+          "header": "## Покупки для малыша",
+          "subsections": [
+            "### Необходимые вещи",
+            "### В магазине"
+          ]
+        },
+        {
+          "header": "## Разговор с семьёй партнёра",
+          "subsections": [
+            "### Делимся новостями",
+            "### Обсуждение планов"
+          ]
+        },
+        {
+          "header": "## Имена для малыша",
+          "subsections": [
+            "### Обсуждение имён"
+          ]
+        },
+        {
+          "header": "## После рождения",
+          "subsections": [
+            "### Объявление о рождении",
+            "### Первые дни"
+          ]
+        },
+        {
+          "header": "## Полезные фразы",
+          "subsections": [
+            "### Ежедневные выражения"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4f03bbd5-bc83-4951-b611-07d37ec3dba3",
+      "title": "Noors vs Nederlands: De Belangrijkste Verschillen",
+      "native_lang": "nl",
+      "target_lang": "no",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Geslacht: Drie Opties",
+          "subsections": [
+            "### Nederlands: De/Het (twee geslachten in praktijk)",
+            "### Noors: En/Ei/Et (drie geslachten)"
+          ]
+        },
+        {
+          "header": "## Formeel vs Informeel",
+          "subsections": [
+            "### Nederlands: U/Je verschil",
+            "### Noors: Altijd \"Du\"!"
+          ]
+        },
+        {
+          "header": "## Bijvoeglijke Naamwoorden",
+          "subsections": [
+            "### Nederlands: Soms -e, soms niet",
+            "### Noors: Systeem met geslacht en bepaaldheid"
+          ]
+        },
+        {
+          "header": "## Uitspraak Verschillen",
+          "subsections": [
+            "### Unieke Noorse Klanken"
+          ]
+        },
+        {
+          "header": "## Woordvolgorde",
+          "subsections": [
+            "### Beide: V2-regel",
+            "### Verschil: Bijzinnen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4f04ff9f-3a10-4a84-904c-5cdb04c7b524",
+      "title": "Griechische Hochzeitsphrasen und romantische Glückwünsche",
+      "native_lang": "de",
+      "target_lang": "el",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Die wichtigsten Hochzeitsphrasen",
+          "subsections": [
+            "### Der Heiratsantrag",
+            "### Das Ehegelübde",
+            "### Glückwünsche aussprechen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4f0e828b-316e-4e32-b6b4-d5f3c70839e1",
+      "title": "Cómo Escribir Cartas de Amor en Húngaro: La Szerelmes Levél",
+      "native_lang": "es",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Saludos Románticos",
+          "subsections": [
+            "### \"Szerelmem...\"",
+            "### \"Drágám...\"",
+            "### \"Édesem...\"",
+            "### \"Kincsem...\""
+          ]
+        },
+        {
+          "header": "## Expresiones de Apertura",
+          "subsections": [
+            "### \"A szívem mélyéből írok neked\"",
+            "### \"Minden nap nélküled örökkévalóságnak tűnik\""
+          ]
+        },
+        {
+          "header": "## Frases del Cuerpo de la Carta",
+          "subsections": [
+            "### \"Te vagy a legjobb, ami valaha történt velem\"",
+            "### \"A szívem csak a tiéd\"",
+            "### \"Veled teljes vagyok\"",
+            "### \"Te vagy az életem fénye\"",
+            "### \"Minden gondolatom rólad szól\""
+          ]
+        },
+        {
+          "header": "## Promesas de Amor",
+          "subsections": [
+            "### \"Örökké szeretni foglak\"",
+            "### \"Mindig melletted leszek\"",
+            "### \"A szerelmünk örök\""
+          ]
+        },
+        {
+          "header": "## Despedidas Románticas",
+          "subsections": [
+            "### \"Örökké a tiéd...\"",
+            "### \"Minden szeretetemmel...\"",
+            "### \"A téged szerető [nombre]\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4f12a1ce-7553-47e6-a581-f0f2b8e1e815",
+      "title": "50+ Frases Românticas em Espanhol para Encantar",
+      "native_lang": "pt",
+      "target_lang": "es",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Frases para Momentos Especiais",
+          "subsections": [
+            "### Para Aniversários",
+            "### Para Momentos Difíceis"
+          ]
+        },
+        {
+          "header": "## Frases Carinhosas do Cotidiano",
+          "subsections": [
+            "### Ao Sair de Casa",
+            "### Ao Se Reencontrar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4f199cf6-e5fb-440e-84f6-4b2c61f67b40",
+      "title": "Ukrainische Flirtsprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassische Komplimente",
+          "subsections": [
+            "### \"Ти красива\" / \"Ти красивий\" (Ty krasyva/Ty krasyvyy)",
+            "### \"У тебе гарні очі\" (U tebe harni ochi)",
+            "### \"Ти чарівна\" / \"Ти чарівний\""
+          ]
+        },
+        {
+          "header": "## Romantische Ausdrücke",
+          "subsections": [
+            "### \"Ти кохання мого життя\" (Ty kokhannya moho zhyttya)",
+            "### \"Я не можу перестати думати про тебе\"",
+            "### \"Ти робиш мене щасливим\" / \"щасливою\""
+          ]
+        },
+        {
+          "header": "## Süße Kosenamen",
+          "subsections": [
+            "### \"Кохана\" / \"Коханий\" (Kokhana/Kokhanyy)",
+            "### \"Сонечко\" (Sonechko)",
+            "### \"Зайчик\" / \"Зайка\" (Zaychyk/Zayka)",
+            "### \"Любий\" / \"Люба\" (Lyubyy/Lyuba)",
+            "### \"Рибка\" (Rybka)"
+          ]
+        },
+        {
+          "header": "## Herzliche Ausdrücke",
+          "subsections": [
+            "### \"Я тебе кохаю\" (Ya tebe kokhayu)",
+            "### \"Ти для мене все\" (Ty dlya mene vse)",
+            "### \"Я божеволію від тебе\"",
+            "### \"Ти вкрала моє серце\" / \"Ти вкрав моє серце\""
+          ]
+        },
+        {
+          "header": "## Spielerische Sprüche",
+          "subsections": [
+            "### \"Ти віриш у кохання з першого погляду, чи мені пройти ще раз?\"",
+            "### \"Твій батько злодій? Бо він вкрав зірки з неба і вклав їх у твої очі\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4f33cf26-c212-4735-be0c-3353376e2f93",
+      "title": "Итальянские фразы для примирения",
+      "native_lang": "ru",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Основные фразы для примирения",
+          "subsections": [
+            "### 1. Mi dispiace, avevo torto",
+            "### 2. Facciamo pace?",
+            "### 3. Non volevo ferirti",
+            "### 4. Ti amo più di questo litigio",
+            "### 5. Ricominciamo da capo",
+            "### 6. Ti perdono",
+            "### 7. Cosa posso fare per rimediare?",
+            "### 8. Mi manca la nostra felicità",
+            "### 9. Non andiamo a dormire arrabbiati",
+            "### 10. Grazie per cercare di capirmi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4f374d73-db13-43ee-a176-45bb5e8763de",
+      "title": "Wymowa włoska dla początkujących: Jak mówić romantycznie jak Romeo",
+      "native_lang": "pl",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Praktyka z Partnerem: Ćwiczenia Dla Dwojga",
+          "subsections": [
+            "### Ćwiczenie 1: Samogłoski razem",
+            "### Ćwiczenie 2: Romans w akcencie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4f41477c-a87c-4cdc-9e97-bd19ae47ae5e",
+      "title": "Czeskie skroty i slang w wiadomosciach",
+      "native_lang": "pl",
+      "target_lang": "cs",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Ćwiczenia",
+          "subsections": [
+            "### Cwiczenie 1: Przetlumacz SMS",
+            "### Cwiczenie 2: Odpowiedz",
+            "### Cwiczenie 3: Uzywaj skrotow"
+          ]
+        },
+        {
+          "header": "## Przyklady rozmow",
+          "subsections": [
+            "### Rozmowa 1: Planowanie randki",
+            "### Rozmowa 2: Poranna wiadomosc"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4f7665e7-d7de-4d14-9d50-5cef9193c8ed",
+      "title": "Expresii în Germană despre Gelozie și Încredere în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii despre Gelozie",
+          "subsections": [
+            "### Recunoașterea Sentimentelor",
+            "### Exprimarea Nevoilor",
+            "### Construirea Încrederii",
+            "### Răspunsuri la Gelozie",
+            "### Stabilirea Limitelor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4f7c87ba-bcb0-4525-9652-c55877cce7c1",
+      "title": "Cseh 'Hiányzol' Kifejezések Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Kifejezések",
+          "subsections": [
+            "### 1. Chybíš mi",
+            "### 2. Moc mi chybíš",
+            "### 3. Nemůžu přestat myslet na tebe",
+            "### 4. Kéž bys tu byl/byla",
+            "### 5. Jsi pořád v mých myšlenkách",
+            "### 6. Počítám dny do našeho setkání",
+            "### 7. Mé srdce touží po tobě",
+            "### 8. Jsi pro mě všechno",
+            "### 9. Nemůžu se dočkat, až tě uvidím",
+            "### 10. Bez tebe je všechno prázdné"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4f8d25d4-377f-40db-904e-117e43ccab2c",
+      "title": "Greckie zwroty o zazdrości i zaufaniu dla par",
+      "native_lang": "pl",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Wyrażanie uczuć zazdrości",
+          "subsections": [
+            "### \"Νιώθω λίγο ζηλιάρης/ζηλιάρα όταν...\"",
+            "### \"Νιώθω ανασφάλεια για...\"",
+            "### \"Με ενοχλεί όταν εσύ...\""
+          ]
+        },
+        {
+          "header": "## Pytania budujące zaufanie",
+          "subsections": [
+            "### \"Μπορείς να με καθησυχάσεις για...;\"",
+            "### \"Ποιος/Ποια ήταν εκείνος/εκείνη με τον οποίο/την οποία μιλούσες;\"",
+            "### \"Υπερβάλλω;\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie potrzeby zaufania",
+          "subsections": [
+            "### \"Χρειάζομαι να είσαι ειλικρινής μαζί μου\"",
+            "### \"Σε εμπιστεύομαι, αλλά δυσκολεύομαι με...\""
+          ]
+        },
+        {
+          "header": "## Uspokajanie partnera",
+          "subsections": [
+            "### \"Δεν έχεις τίποτα να ανησυχείς\"",
+            "### \"Είσαι ο μόνος/η μόνη για μένα\"",
+            "### \"Δεν θα έκανα ποτέ κάτι για να σε πληγώσω\""
+          ]
+        },
+        {
+          "header": "## Budowanie zaufania",
+          "subsections": [
+            "### \"Ας είμαστε πιο ανοιχτοί μεταξύ μας\"",
+            "### \"Θέλω να εμπιστευόμαστε πλήρως ο ένας τον άλλο\""
+          ]
+        }
+      ]
+    }
+  ]
+}

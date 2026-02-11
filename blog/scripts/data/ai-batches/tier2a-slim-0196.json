@@ -1,0 +1,493 @@
+{
+  "batchId": "tier2a-slim-0196",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "cb60b68a-bc46-4278-b180-255cac5c6457",
+      "title": "Svéd kifejezések első randira",
+      "native_lang": "hu",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bemutatkozás",
+          "subsections": [
+            "### 1. \"Kul att äntligen träffa dig\"",
+            "### 2. \"Du ser fantastisk ut\"",
+            "### 3. \"Berätta om dig själv\"",
+            "### 4. \"Vad jobbar du med?\"",
+            "### 5. \"Vilka hobbyer har du?\""
+          ]
+        },
+        {
+          "header": "## Beszélgetés",
+          "subsections": [
+            "### 6. \"Det är verkligen intressant\"",
+            "### 7. \"Jag känner likadant\"",
+            "### 8. \"Vilken musik gillar du?\"",
+            "### 9. \"Har du rest mycket?\"",
+            "### 10. \"Jag trivs jättebra\""
+          ]
+        },
+        {
+          "header": "## Randi vége",
+          "subsections": [
+            "### 11. \"Jag har haft en underbar kväll\"",
+            "### 12. \"Kan vi ses igen?\"",
+            "### 13. \"Jag skulle gärna göra om det här\"",
+            "### 14. \"Får jag följa dig hem?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cb75b089-a70e-42c6-b3f3-99fb5cb1c1ed",
+      "title": "Orosz kifejezések első randira",
+      "native_lang": "hu",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bemutatkozás",
+          "subsections": [
+            "### 1. \"Приятно наконец познакомиться\" (Priyatno nakonets poznakomit'sya)",
+            "### 2. \"Ты прекрасно выглядишь\" (Ty prekrasno vyglyadish')",
+            "### 3. \"Расскажи о себе\" (Rasskazhi o sebe)",
+            "### 4. \"Чем ты занимаешься?\" (Chem ty zanimayesh'sya?)",
+            "### 5. \"Какие у тебя хобби?\" (Kakiye u tebya khobbi?)"
+          ]
+        },
+        {
+          "header": "## Beszélgetés",
+          "subsections": [
+            "### 6. \"Это действительно интересно\" (Eto deystvitel'no interesno)",
+            "### 7. \"Я чувствую то же самое\" (Ya chuvstvuyu to zhe samoye)",
+            "### 8. \"Какую музыку ты любишь?\" (Kakuyu muzyku ty lyubish'?)",
+            "### 9. \"Ты много путешествовал/а?\" (Ty mnogo puteshestvoval/a?)",
+            "### 10. \"Мне очень нравится\" (Mne ochen' nravitsya)"
+          ]
+        },
+        {
+          "header": "## Randi vége",
+          "subsections": [
+            "### 11. \"Я прекрасно провёл/а время\" (Ya prekrasno provyol/a vremya)",
+            "### 12. \"Мы можем встретиться снова?\" (My mozhem vstretit'sya snova?)",
+            "### 13. \"Я бы с удовольствием повторил/а\" (Ya by s udovol'stviyem povtoril/a)",
+            "### 14. \"Можно тебя проводить домой?\" (Mozhno tebya provodit' domoy?)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cb90da6a-b634-4cbf-8eb9-d603ec3dc076",
+      "title": "Чешские приветствия и прощания",
+      "native_lang": "ru",
+      "target_lang": "cs",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## При встрече и расставании",
+          "subsections": [
+            "### При встрече:",
+            "### При расставании:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cbc0eb8e-5214-4aa1-b481-45ad5765b8ef",
+      "title": "Hungarian Honeymoon Travel Phrases: Romantic Vocabulary for Your Trip",
+      "native_lang": "en",
+      "target_lang": "hu",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Planning Your Trip",
+          "subsections": [
+            "### Choosing a Destination",
+            "### Booking Vocabulary"
+          ]
+        },
+        {
+          "header": "## At the Airport",
+          "subsections": [
+            "### Essential Phrases",
+            "### Airport Vocabulary"
+          ]
+        },
+        {
+          "header": "## At Your Hotel",
+          "subsections": [
+            "### Checking In",
+            "### Room Types"
+          ]
+        },
+        {
+          "header": "## Romantic Moments",
+          "subsections": [
+            "### On the Beach",
+            "### At Dinner"
+          ]
+        },
+        {
+          "header": "## Adventure Activities",
+          "subsections": [
+            "### Exploring Together",
+            "### Activity Vocabulary"
+          ]
+        },
+        {
+          "header": "## Creating Memories",
+          "subsections": [
+            "### Photo Moment Phrases"
+          ]
+        },
+        {
+          "header": "## Returning Home",
+          "subsections": [
+            "### End of Trip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cbc116d0-1899-4034-be72-fe9ab7a5272c",
+      "title": "Grammaire danoise : les bases essentielles pour debutants",
+      "native_lang": "fr",
+      "target_lang": "da",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## L'ordre des mots",
+          "subsections": [
+            "### Phrase affirmative",
+            "### Le verbe en deuxième position (V2)"
+          ]
+        },
+        {
+          "header": "## Le passe",
+          "subsections": [
+            "### Le preterit (passe simple)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cbc818e3-52cc-47fa-9fa5-b07c65221163",
+      "title": "Gramática Griega para Principiantes: Aprende Juntos con Tu Pareja",
+      "native_lang": "es",
+      "target_lang": "el",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Los Fundamentos: 5 Reglas Esenciales",
+          "subsections": [
+            "### 1. Los Artículos Definidos",
+            "### 2. Los Verbos se Conjugan por Persona",
+            "### 3. Las Raíces de los Verbos",
+            "### 4. Los Adjetivos Acuerdan",
+            "### 5. Las Partículas de Negación"
+          ]
+        },
+        {
+          "header": "## Errores Comunes que Debes Evitar",
+          "subsections": [
+            "### 1. Olvidar la Concordancia",
+            "### 2. Usar el Artículo Incorrecto",
+            "### 3. Confundir \"Είμαι\" y \"Έχω\"",
+            "### 4. Negación Doble"
+          ]
+        },
+        {
+          "header": "## Guía Rápida de Referencia",
+          "subsections": [
+            "### Artículos Definidos Básicos",
+            "### Pronombres de Objeto Directo",
+            "### Partículas de Pregunta"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cbd452dc-153b-4560-9d22-48c5ce87d5fa",
+      "title": "Frases de Paquera em Dinamarquês: Romance com Hygge",
+      "native_lang": "pt",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases Essenciais de Paquera",
+          "subsections": [
+            "### Elogios Genuínos",
+            "### Expressando Interesse",
+            "### Cantadas Dinamarquesas",
+            "### Para Relacionamentos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cbdc4423-9dfc-4b9a-b585-31ee5bbf26bf",
+      "title": "Hungarian Moving In Together: Essential Household Vocabulary for Couples",
+      "native_lang": "en",
+      "target_lang": "hu",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Finding Your Home",
+          "subsections": [
+            "### Apartment/House Hunting",
+            "### Key Phrases for Viewing"
+          ]
+        },
+        {
+          "header": "## Moving Day Vocabulary",
+          "subsections": [
+            "### Coordinating the Move",
+            "### Essential Moving Terms"
+          ]
+        },
+        {
+          "header": "## Setting Up Your Home",
+          "subsections": [
+            "### Room by Room",
+            "### Organizing Together"
+          ]
+        },
+        {
+          "header": "## Shopping for Your Home",
+          "subsections": [
+            "### At the Furniture Store",
+            "### Household Items"
+          ]
+        },
+        {
+          "header": "## Living Together",
+          "subsections": [
+            "### Daily Life Vocabulary",
+            "### Meeting the Neighbors"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cbfcc90a-eef0-4f73-a344-203ac26eeb56",
+      "title": "Ghid de Pronuntie Ucraineana: Sunete Esentiale pentru Romani",
+      "native_lang": "ro",
+      "target_lang": "uk",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Sunete Speciale",
+          "subsections": [
+            "### Sunetul И",
+            "### Semnul Moale (Ь)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cc013db0-768d-4de5-bc8e-74733ab215f9",
+      "title": "Écrire une lettre d'amour en portugais : La saudade en mots",
+      "native_lang": "fr",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Formules d'ouverture",
+          "subsections": [
+            "### \"Meu amor\" / \"Amor da minha vida\"",
+            "### \"Minha alma gémea\"",
+            "### \"Meu coração\""
+          ]
+        },
+        {
+          "header": "## Exprimer l'amour profond",
+          "subsections": [
+            "### \"Você é a melhor coisa que já me aconteceu\"",
+            "### \"Meu coração pertence a você para sempre\"",
+            "### \"Cada dia que passa, te amo mais\""
+          ]
+        },
+        {
+          "header": "## Expressions poétiques",
+          "subsections": [
+            "### \"Você é a poesia que minha alma buscava\"",
+            "### \"Nos seus olhos encontrei meu lar\"",
+            "### \"Você é meu presente e todos os meus amanhãs\""
+          ]
+        },
+        {
+          "header": "## Décrire ce que l'autre apporte",
+          "subsections": [
+            "### \"Com você descobri o que é amar de verdade\"",
+            "### \"Você me faz querer ser uma pessoa melhor\"",
+            "### \"Seu amor me transforma\""
+          ]
+        },
+        {
+          "header": "## Engagements et promesses",
+          "subsections": [
+            "### \"Prometo te amar nos momentos bons e difíceis\"",
+            "### \"Estarei sempre ao seu lado, aconteça o que acontecer\"",
+            "### \"Meu amor por você é infinito e eterno\""
+          ]
+        },
+        {
+          "header": "## Formules de conclusion",
+          "subsections": [
+            "### \"Seu/Sua para sempre\"",
+            "### \"Com todo meu amor e minha alma\"",
+            "### \"Te amo hoje, amanhã e para sempre\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cc1463a3-b5cf-4902-96eb-ba698020bbe3",
+      "title": "Çekçe Barışma ve Uzlaşma İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Barışma İfadeleri",
+          "subsections": [
+            "### 1. \"Promiň za to, co jsem řekl/a\"",
+            "### 2. \"Můžeme začít znovu?\"",
+            "### 3. \"Nesnáším se s tebou hádat\"",
+            "### 4. \"Nechoďme spát naštvaní\"",
+            "### 5. \"Odpouštím ti\"",
+            "### 6. \"Měl/a jsem nepravdu\"",
+            "### 7. \"Jak to mohu napravit?\"",
+            "### 8. \"Miluji tě víc než tuhle hádku\"",
+            "### 9. \"Vyřešme to společně\"",
+            "### 10. \"Chybí mi, jak jsme byli před hádkou\"",
+            "### 11. \"Jsi pro mě všechno\"",
+            "### 12. \"Slibuji, že se zlepším\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cc1c076f-64c5-4ca5-a1fb-1b46609bbd43",
+      "title": "Ukraynaca Ogrenmek Zor mu? Türkler Icin Rehber",
+      "native_lang": "tr",
+      "target_lang": "uk",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Ukraynaca'nin Kolay Yönleri",
+          "subsections": [
+            "### 1. Hal Sistemi Benzerligi",
+            "### 2. Tutarli Telaffuz",
+            "### 3. Artikelsiz Dil",
+            "### 4. Melodik Ses"
+          ]
+        },
+        {
+          "header": "## Ukraynaca'nin Zor Yönleri",
+          "subsections": [
+            "### 1. Kiril Alfabesi",
+            "### 2. Yedi Hal",
+            "### 3. Cinsiyet Sistemi",
+            "### 4. Fiil Görünüsü"
+          ]
+        },
+        {
+          "header": "## Basari Ipuclari",
+          "subsections": [
+            "### 1. Alfabeyle Baslayin",
+            "### 2. Her Gün Pratik",
+            "### 3. Ukrayna Medyasi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cc2c5c43-4bef-4ee4-af99-5796e1c2721c",
+      "title": "Norweska gramatyka dla par: Podstawy, które pokochasz",
+      "native_lang": "pl",
+      "target_lang": "no",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Najczęstsze błędy i jak ich unikać",
+          "subsections": [
+            "### 1. **\"Er\" zamiast \"er\"**",
+            "### 2. **Polskie \"czy\"**",
+            "### 3. **Zapomniany czasownik**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cc35be92-1cbc-4021-a688-4e78a7da34a1",
+      "title": "Пожелания на годовщину на испанский: Романтические фразы",
+      "native_lang": "ru",
+      "target_lang": "es",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Простые пожелания на годовщину",
+          "subsections": [
+            "### Короткие и сладкие",
+            "### Для вашего партнёра"
+          ]
+        },
+        {
+          "header": "## Романтические послания на годовщину",
+          "subsections": [
+            "### Сердечные признания",
+            "### Задумчивые послания"
+          ]
+        },
+        {
+          "header": "## Послания по годам",
+          "subsections": [
+            "### Первая годовщина",
+            "### Пятая годовщина",
+            "### Десятая годовщина",
+            "### Двадцать пятая годовщина (серебряная)",
+            "### Пятидесятая годовщина (золотая)"
+          ]
+        },
+        {
+          "header": "## Планирование празднования годовщины",
+          "subsections": [
+            "### Романтические идеи",
+            "### Выражение благодарности"
+          ]
+        },
+        {
+          "header": "## Сообщения для социальных сетей",
+          "subsections": [
+            "### Подписи для публикаций"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cc3c1750-d3d1-4f07-ad9e-6f4ae43f41ef",
+      "title": "Турецкие фразы для первого свидания",
+      "native_lang": "ru",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Начало разговора",
+          "subsections": [
+            "### 1. Bu gece çok güzel görünüyorsun",
+            "### 2. Bu buluşmayı çok bekliyordum",
+            "### 3. Kendinden bahset",
+            "### 4. Boş zamanlarında ne yapmaktan hoşlanırsın?",
+            "### 5. Gülümsemen çok güzel",
+            "### 6. Seni tekrar görmek isterim",
+            "### 7. Bu gece çok güzel geçti",
+            "### 8. Yarın seni arayabilir miyim?"
+          ]
+        }
+      ]
+    }
+  ]
+}

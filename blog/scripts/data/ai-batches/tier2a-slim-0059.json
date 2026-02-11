@@ -1,0 +1,540 @@
+{
+  "batchId": "tier2a-slim-0059",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "52195cb4-38e9-4e9c-9af3-87b448035f07",
+      "title": "Guten Morgen und Gute Nacht auf Dänisch – Süße Phrasen für jeden Tag",
+      "native_lang": "de",
+      "target_lang": "da",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Guten Morgen sagen",
+          "subsections": [
+            "### Klassische Morgengrüße",
+            "### Romantische Morgengrüße"
+          ]
+        },
+        {
+          "header": "## Gute Nacht sagen",
+          "subsections": [
+            "### Klassische Nachtgrüße",
+            "### Romantische Nachtgrüße"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5231805d-47b3-4914-a9cf-e8ccc7d6ca36",
+      "title": "Нидерландские фразы о прощении",
+      "native_lang": "ru",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Фразы для просьбы о прощении",
+          "subsections": [
+            "### 1. Het spijt me echt voor wat ik heb gedaan",
+            "### 2. Vergeef me alsjeblieft",
+            "### 3. Ik weet dat ik je pijn heb gedaan, en het spijt me oprecht",
+            "### 4. Dit zal niet meer gebeuren, ik beloof het",
+            "### 5. Ik neem de volledige verantwoordelijkheid voor mijn acties"
+          ]
+        },
+        {
+          "header": "## Фразы для выражения прощения",
+          "subsections": [
+            "### 6. Ik vergeef je",
+            "### 7. Laten we dit achter ons laten",
+            "### 8. Ik ben klaar om verder te gaan",
+            "### 9. Ik waardeer je excuses",
+            "### 10. Het vraagt moed om je excuses aan te bieden, bedankt"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "526edebc-0576-4646-94f5-85e5a7ca755b",
+      "title": "Чешская Произношение для Начинающих: Учитесь Говорить с Любимым",
+      "native_lang": "ru",
+      "target_lang": "cs",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Самые Важные Звуды для Пар",
+          "subsections": [
+            "### 1. Ř - Король Чешских Звуков",
+            "### 2. Ě - Мягкий и Нежный",
+            "### 3. Dě, Tě, Ně - Небные Звуки"
+          ]
+        },
+        {
+          "header": "## Практика для Двоих",
+          "subsections": [
+            "### Упражнение 1: \"Я и Ты\"",
+            "### Упражнение 2: Нежные Слова"
+          ]
+        },
+        {
+          "header": "## Распространённые Ошибки",
+          "subsections": [
+            "### 1. **Ch** как \"ч\"",
+            "### 2. **Dě** как \"де\"",
+            "### 3. **Soft Sign Игнорирование**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "526f5a7b-f2f2-419c-9a24-386d61d6d295",
+      "title": "Norweska wymowa dla początkujących: Jak mówić romantycznie i naturalnie",
+      "native_lang": "pl",
+      "target_lang": "no",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Podstawowe zasady wymowy",
+          "subsections": [
+            "### 1. **Akcent zawsze na pierwszej sylabie**",
+            "### 2. **\"R\" się toczy**",
+            "### 3. **\"Kj\" i \"Sj\" brzmią jak polskie \"sz\"**"
+          ]
+        },
+        {
+          "header": "## Najważniejsze romantyczne dźwięki",
+          "subsections": [
+            "### Długie samogłoski = długie uczucia!"
+          ]
+        },
+        {
+          "header": "## Praktyczne ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Romantyczne \"r\"",
+            "### Ćwiczenie 2: Miękkie \"kj\"",
+            "### Ćwiczenie 3: Melodia miłości"
+          ]
+        },
+        {
+          "header": "## Najczęstsze błędy Polaków",
+          "subsections": [
+            "### 1. **Twarde \"r\" zamiast toczonego**",
+            "### 2. **Zły akcent**",
+            "### 3. **\"Æ\" jak polskie \"a\"**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5276ebc8-b446-421e-9bda-078752d9ea1a",
+      "title": "Norweskie zwroty do kłótni i nieporozumień dla par",
+      "native_lang": "pl",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Wyrażanie niezgody",
+          "subsections": [
+            "### \"Jeg er ikke enig med deg\"",
+            "### \"Jeg ser det annerledes\"",
+            "### \"Kan vi snakke om dette rolig?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie uczuć",
+          "subsections": [
+            "### \"Jeg føler meg frustrert når...\"",
+            "### \"Dette plager meg virkelig\"",
+            "### \"Jeg trenger litt tid for meg selv\""
+          ]
+        },
+        {
+          "header": "## Zrozumienie partnera",
+          "subsections": [
+            "### \"Hjelp meg å forstå ditt synspunkt\"",
+            "### \"Hvis jeg forstår deg riktig...\"",
+            "### \"Mener du at...?\""
+          ]
+        },
+        {
+          "header": "## Szukanie rozwiązań",
+          "subsections": [
+            "### \"Hvordan kan vi løse dette sammen?\"",
+            "### \"La oss finne et kompromiss\"",
+            "### \"Jeg tror vi begge må...\""
+          ]
+        },
+        {
+          "header": "## Łagodzenie napięcia",
+          "subsections": [
+            "### \"Jeg elsker deg, selv når vi krangler\"",
+            "### \"Vi klarer dette sammen\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "52d3dca2-dd53-406f-bba4-82c792f3886e",
+      "title": "¿Es Difícil Aprender Sueco? Una Evaluación Honesta",
+      "native_lang": "es",
+      "target_lang": "sv",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Las Buenas Noticias: Por Qué el Sueco Es Más Fácil de lo Que Piensas",
+          "subsections": [
+            "### 1. Gramática Simplificada",
+            "### 2. Vocabulario Internacional",
+            "### 3. Los Suecos Hablan Excelente Inglés (y a Menudo Español)"
+          ]
+        },
+        {
+          "header": "## Los Desafíos: Lo Que Hace al Sueco Complicado",
+          "subsections": [
+            "### 1. La Pronunciación Requiere Práctica",
+            "### 2. El Acento Tonal",
+            "### 3. En vs. Ett",
+            "### 4. Reglas de Orden de Palabras"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "52d5d71a-e0bf-4c42-a195-ada0ca2ecd56",
+      "title": "Spanyol kifejezések kibéküléshez és megbékéléshez",
+      "native_lang": "hu",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető kifejezések a kibéküléshez",
+          "subsections": [
+            "### 1. \"Lo siento mucho\"",
+            "### 2. \"¿Podemos empezar de nuevo?\"",
+            "### 3. \"Estaba equivocado/a\"",
+            "### 4. \"Hagamos las paces\"",
+            "### 5. \"Te perdono\"",
+            "### 6. \"Te quiero, incluso cuando peleamos\"",
+            "### 7. \"No quería hacerte daño\"",
+            "### 8. \"¿Puedes perdonarme?\"",
+            "### 9. \"Odio cuando peleamos\"",
+            "### 10. \"No nos acostemos enfadados\"",
+            "### 11. \"Prometo hacerlo mejor\"",
+            "### 12. \"Te amo\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "52ecfa8c-9af1-42f4-ba5b-5211626c547e",
+      "title": "Νορβηγικές Φράσεις Συμφιλίωσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις Συμφιλίωσης",
+          "subsections": [
+            "### Έναρξη Συμφιλίωσης",
+            "### Έκφραση Μετάνοιας",
+            "### Έκφραση Αγάπης",
+            "### Πρόταση Λύσης"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "531f5e11-6c2f-4b26-9631-9a5e0c8a62a9",
+      "title": "50 Ukrainian Compliments for Your Partner",
+      "native_lang": "en",
+      "target_lang": "uk",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Complimenting Appearance",
+          "subsections": [
+            "### For Women",
+            "### For Men"
+          ]
+        },
+        {
+          "header": "## Complimenting Specific Features",
+          "subsections": [
+            "### Eyes",
+            "### Smile",
+            "### Voice"
+          ]
+        },
+        {
+          "header": "## Personality Compliments",
+          "subsections": [
+            "### Kindness and Character",
+            "### Intelligence and Talent",
+            "### Humor and Fun"
+          ]
+        },
+        {
+          "header": "## Quick Reference: Essential Compliments",
+          "subsections": [
+            "### For Her",
+            "### For Him",
+            "### Universal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "533b296b-9a7f-435a-9b0e-cea43ff42a59",
+      "title": "Las 100 Palabras Más Comunes en Polaco para Parejas",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Palabras de Amor y Afecto",
+          "subsections": [
+            "### Miłość (MI-woshch) - Amor",
+            "### Kochanie (ko-JA-nie) - Cariño",
+            "### Skarb (skarb) - Tesoro",
+            "### Piękny/Piękna (PIENK-ni/PIENK-na) - Hermoso/a",
+            "### Pocałunek (po-tsa-WU-nek) - Beso",
+            "### Uścisk (USH-chisk) - Abrazo",
+            "### Serce (SER-tse) - Corazón",
+            "### Słodki/Słodka (SWOD-ki/SWOD-ka) - Dulce"
+          ]
+        },
+        {
+          "header": "## Palabras para el Hogar",
+          "subsections": [
+            "### Dom (dom) - Casa",
+            "### Kuchnia (KUJ-nia) - Cocina",
+            "### Sypialnia (si-PIAL-nia) - Dormitorio",
+            "### Łazienka (wa-ZIEN-ka) - Baño",
+            "### Kolacja (ko-LA-tsya) - Cena",
+            "### Śniadanie (shnia-DA-nie) - Desayuno",
+            "### Obiad (O-biad) - Almuerzo"
+          ]
+        },
+        {
+          "header": "## Palabras de Tiempo",
+          "subsections": [
+            "### Dzisiaj (DZI-shai) - Hoy",
+            "### Jutro (YU-tro) - Mañana",
+            "### Wczoraj (VCHO-rai) - Ayer",
+            "### Dziś wieczorem (dzish vie-CHO-rem) - Esta noche",
+            "### Weekend (VI-kend) - Fin de semana",
+            "### Później (PUZH-niey) - Después",
+            "### Zawsze (ZAV-she) - Siempre"
+          ]
+        },
+        {
+          "header": "## Verbos Esenciales",
+          "subsections": [
+            "### Chcieć (JCHECH) - Querer",
+            "### Potrzebować (po-tshe-BO-vach) - Necesitar",
+            "### Lubić (LU-bich) - Gustar",
+            "### Myśleć (MISH-lech) - Pensar",
+            "### Czuć (chuch) - Sentir",
+            "### Pomagać (po-MA-gach) - Ayudar",
+            "### Czekać (CHE-kach) - Esperar",
+            "### Przyjść (PSHIYSHCH) - Venir",
+            "### Iść (ishch) - Ir",
+            "### Zostać (ZOS-tach) - Quedarse"
+          ]
+        },
+        {
+          "header": "## Adjetivos Importantes",
+          "subsections": [
+            "### Szczęśliwy/a (shchen-SHLI-vi/a) - Feliz",
+            "### Smutny/a (SMUT-ni/a) - Triste",
+            "### Zmęczony/a (zmen-CHO-ni/a) - Cansado/a",
+            "### Głodny/a (GWOD-ni/a) - Hambriento/a",
+            "### Zimno (ZIM-no) - Frío",
+            "### Ciepło (CHEP-wo) - Caliente/Cálido"
+          ]
+        },
+        {
+          "header": "## Frases de Cortesía",
+          "subsections": [
+            "### Proszę (PRO-she) - Por favor",
+            "### Dziękuję (dzien-KU-ye) - Gracias",
+            "### Przepraszam (pshe-PRA-sham) - Perdona/Lo siento",
+            "### Nie ma za co (nie ma za tso) - De nada"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "53437b71-d09d-4178-ae32-bc2aed3a7d6f",
+      "title": "Spanish Baby & Pregnancy Vocabulary: Essential Words for Expecting Couples",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Announcing the News",
+          "subsections": [
+            "### To Your Partner's Family",
+            "### To Friends"
+          ]
+        },
+        {
+          "header": "## Nursery and Baby Items",
+          "subsections": [
+            "### Setting Up the habitación del bebé",
+            "### Shopping Vocabulary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "534e9af3-b1a2-4a40-bf05-f7d95c9453c2",
+      "title": "Τουρκικές Φράσεις για Ζήλια & Εμπιστοσύνη: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για Ζήλια & Εμπιστοσύνη",
+          "subsections": [
+            "### Έκφραση Ανησυχίας",
+            "### Χτίσιμο Εμπιστοσύνης",
+            "### Αντιμετώπιση Ζήλιας",
+            "### Συζήτηση για Όρια"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5379ca47-488b-4e5a-b7dc-748b435b0f1b",
+      "title": "45+ Mots Allemands pour une Romantische Date Réussie",
+      "native_lang": "fr",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Exercices de pratique pour couples",
+          "subsections": [
+            "### Exercice 1 : Jeux de rôle au restaurant",
+            "### Exercice 2 : Exprimez vos sentiments",
+            "### Exercice 3 : Planifiez une soirée allemande"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "537ac0a2-697d-4635-9700-dbda0db497c2",
+      "title": "Лексика о беременности на шведский: Словарь для будущих родителей",
+      "native_lang": "ru",
+      "target_lang": "sv",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Объявление о беременности",
+          "subsections": [
+            "### Для близких родственников",
+            "### Для друзей"
+          ]
+        },
+        {
+          "header": "## Лексика для визитов к врачу",
+          "subsections": [
+            "### На приёме",
+            "### Вопросы для врача"
+          ]
+        },
+        {
+          "header": "## Покупки для малыша",
+          "subsections": [
+            "### Необходимые вещи",
+            "### В магазине"
+          ]
+        },
+        {
+          "header": "## Разговор с семьёй партнёра",
+          "subsections": [
+            "### Делимся новостями",
+            "### Обсуждение планов"
+          ]
+        },
+        {
+          "header": "## Имена для малыша",
+          "subsections": [
+            "### Обсуждение имён"
+          ]
+        },
+        {
+          "header": "## После рождения",
+          "subsections": [
+            "### Объявление о рождении",
+            "### Первые дни"
+          ]
+        },
+        {
+          "header": "## Полезные фразы",
+          "subsections": [
+            "### Ежедневные выражения"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5386a8fd-2cb8-4c57-b8dd-6927cd55be98",
+      "title": "Переезд вместе на нидерландский: Важные фразы",
+      "native_lang": "ru",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Поиск жилья",
+          "subsections": [
+            "### Разговор с риелтором",
+            "### Описание того, что нужно"
+          ]
+        },
+        {
+          "header": "## День переезда",
+          "subsections": [
+            "### Организация переезда",
+            "### Работа samen"
+          ]
+        },
+        {
+          "header": "## Обустройство дома",
+          "subsections": [
+            "### Расстановка de meubels",
+            "### Принятие решений вместе"
+          ]
+        },
+        {
+          "header": "## Знакомство с соседями",
+          "subsections": [
+            "### Первая встреча",
+            "### Построение отношений"
+          ]
+        },
+        {
+          "header": "## Разделение обязанностей",
+          "subsections": [
+            "### Домашние дела",
+            "### Обсуждение"
+          ]
+        },
+        {
+          "header": "## Ваш первый вечер дома",
+          "subsections": [
+            "### Особенный момент",
+            "### Создание уюта"
+          ]
+        },
+        {
+          "header": "## Решение проблем",
+          "subsections": [
+            "### Бытовые вопросы",
+            "### Разговор с арендодателем"
+          ]
+        }
+      ]
+    }
+  ]
+}

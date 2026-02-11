@@ -1,0 +1,124 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0543",
+  "articles": [
+    {
+      "id": "9db76263-de60-4696-b9c7-8498c814c92f",
+      "title": "Angol kifejezések első randira",
+      "native_lang": "hu",
+      "target_lang": "en",
+      "category": "communication",
+      "content": "Az első randi izgalmas és idegesítő egyszerre. Ha angol anyanyelvű személlyel randevúzol, ezek a kifejezések segítenek.\n\n## Bemutatkozás és ismerkedés\n\n### 1. \"It's so nice to finally meet you\"\n**Kiejtés:** Itsz szó nájsz tu fájneli mít jú\n\n**Jelentés:** Nagyon jó végre személyesen találkozni\n\n### 2. \"You look amazing\"\n**Kiejtés:** Jú luk eméjzing\n\n**Jelentés:** Csodálatosan nézel ki\n\n### 3. \"Tell me about yourself\"\n**Kiejtés:** Tel mí ebaut jörszelf\n\n**Jelentés:** Mesélj magadról\n\n### 4. \"What do you do for a living?\"\n**Kiejtés:** Vat du jú du for e living\n\n**Jelentés:** Mi a foglalkozásod?\n\n### 5. \"What are your hobbies?\"\n**Kiejtés:** Vat ár jór hobíz\n\n**Jelentés:** Mik a hobbijaid?\n\n## Beszélgetés fenntartása\n\n### 6. \"That's really interesting\"\n**Kiejtés:** Dätsz ríli intöreszting\n\n**Jelentés:** Ez tényleg érdekes\n\n### 7. \"I feel the same way\"\n**Kiejtés:** Áj fíl dö szejm véj\n\n**Jelentés:** Én is így érzek\n\n### 8. \"What kind of music do you like?\"\n**Kiejtés:** Vat kájnd of mjúzik du jú lájk\n\n**Jelentés:** Milyen zenét szeretsz?\n\n### 9. \"Have you traveled much?\"\n**Kiejtés:** Hev jú treveld macs\n\n**Jelentés:** Sokat utaztál?\n\n### 10. \"I'm really enjoying this\"\n**Kiejtés:** Ájm ríli endzsojing disz\n\n**Jelentés:** Nagyon élvezem ezt\n\n## Randi vége\n\n### 11. \"I had a wonderful time\"\n**Kiejtés:** Áj hed e vanderful tájm\n\n**Jelentés:** Csodálatos időt töltöttem\n\n### 12. \"Can I see you again?\"\n**Kiejtés:** Ken áj szí jú egén\n\n**Jelentés:** Találkozhatunk újra?\n\n### 13. \"I'd love to do this again\"\n**Kiejtés:** Ájd lav tu du disz egén\n\n**Jelentés:** Szívesen megismételném\n\n### 14. \"Can I walk you home?\"\n**Kiejtés:** Ken áj vók jú hóm\n\n**Jelentés:** Hazakísérhetlek?\n\n## Összefoglalás\n\nAz első randi sikere a természetes beszélgetésen múlik. Légy önmagad és élvezd a pillanatot!",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 275,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Bemutatkozás és ismerkedés",
+              "## Beszélgetés fenntartása",
+              "## Randi vége"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "9dcb9243-5931-40cc-aabe-d5fb25670c6f",
+      "title": "Slang Rusesc pentru Mesaje: Cum să Trimiți SMS-uri Romantice",
+      "native_lang": "ro",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nVrei să surprinzi partenerul tău rus cu mesaje drăguțe? Cu acest slang și aceste abrevieri, vei comunica ca un adevărat rus!\n\n## Expresii Populare\n\n<PhraseOfDay\n  word=\"Люблю / ЛЮ\"\n  translation=\"Te iubesc (prescurtat)\"\n  pronunciation=\"lyoo-BLYOO / lyoo\"\n  context=\"Cea mai romantică expresie în formă scurtă!\"\n/>\n\n<VocabCard\n  word=\"Целую\"\n  translation=\"Te sărut\"\n  pronunciation=\"tse-LOO-yoo\"\n  example=\"Спокойной ночи! Целую! 💋\"\n/>\n\n<VocabCard\n  word=\"Обнимаю\"\n  translation=\"Te îmbrățișez\"\n  pronunciation=\"ab-nee-MA-yoo\"\n  example=\"Скучаю! Обнимаю! 🤗\"\n/>\n\n<VocabCard\n  word=\"Привет / Прив\"\n  translation=\"Salut (informal)\"\n  pronunciation=\"pree-VYET / priv\"\n  example=\"Прив, любимая! Как дела?\"\n/>\n\n<VocabCard\n  word=\"Пока / Покедова\"\n  translation=\"Pa\"\n  pronunciation=\"pa-KA / pa-kee-DO-va\"\n  example=\"Пока! Увидимся завтра! 👋\"\n/>\n\n<CultureTip title=\"Translit\" flag=\"🇷🇺\">\nMulți ruși folosesc și alfabetul latin (translit) când nu au tastatură chirilică: \"Lyublyu tebya\" = \"Люблю тебя\". E acceptabil în mesaje!\n</CultureTip>\n\n## Mesaje de Dragoste\n\n<VocabCard\n  word=\"Скучаю ❤️\"\n  translation=\"Îmi lipsești\"\n  pronunciation=\"skoo-CHA-yoo\"\n  example=\"Очень скучаю! Когда увидимся?\"\n/>\n\n<VocabCard\n  word=\"Думаю о тебе\"\n  translation=\"Mă gândesc la tine\"\n  pronunciation=\"DOO-ma-yoo a tee-BYE\"\n  example=\"Скучно на работе... Думаю о тебе! 💭\"\n/>\n\n<VocabCard\n  word=\"Ты лучшая/лучший\"\n  translation=\"Ești cea mai bună/cel mai bun\"\n  pronunciation=\"ti LOOCH-sha-ya/LOOCH-shiy\"\n  example=\"Спасибо! Ты лучшая! 💕\"\n/>\n\n<VocabCard\n  word=\"Не могу перестать думать о тебе\"\n  translation=\"Nu pot să nu mă gândesc la tine\"\n  pronunciation=\"nye ma-GU pee-rees-TAT DOO-mat a tee-BYE\"\n  example=\"Не могу перестать думать о тебе... Приезжай! 🥺\"\n/>\n\n## Mesaje Zilnice\n\n<VocabCard\n  word=\"Доброе утро, солнышко!\"\n  translation=\"Bună dimineața, soarele meu!\"\n  pronunciation=\"DOB-ra-ye OO-tra SOL-nish-ka\"\n  example=\"Доброе утро, солнышко! Как спалось? ☀️\"\n/>\n\n<VocabCard\n  word=\"Спокойной ночи, сладких снов\"\n  translation=\"Noapte bună, vise dulci\"\n  pronunciation=\"spa-KOY-nay NO-chi SLAD-kikh snof\"\n  example=\"Спокойной ночи, любимая, сладких снов! 💤\"\n/>\n\n<VocabCard\n  word=\"Что делаешь?\"\n  translation=\"Ce faci?\"\n  pronunciation=\"shto DYE-la-yesh\"\n  example=\"Привет! Что делаешь?\"\n/>\n\n<VocabCard\n  word=\"Где ты?\"\n  translation=\"Unde ești?\"\n  pronunciation=\"gdye ti\"\n  example=\"Где ты? Жду!\"\n/>\n\n<VocabCard\n  word=\"Еду\"\n  translation=\"Vin (în drum)\"\n  pronunciation=\"YE-doo\"\n  example=\"Еду! 5 минут! 🏃\"\n/>\n\n## Abrevieri Populare\n\n| Abreviere | Complet | Traducere |\n|-----------|---------|-----------|\n| ЛЮ | Люблю | Te iubesc |\n| СПС | Спасибо | Mulțumesc |\n| НЗЧ | Не за что | Cu plăcere |\n| ОК / ОКИ | Окей | OK |\n| ЧД | Что делаешь? | Ce faci? |\n| КД | Когда? | Când? |\n| Спн / СПН | Спокойной ночи | Noapte bună |\n\n<VocabCard\n  word=\"Спн любимая! ЛЮ! ❤️\"\n  translation=\"Noapte bună, iubito! Te iubesc!\"\n  pronunciation=\"-\"\n  example=\"Mesaj scurt de noapte bună!\"\n/>\n\n## Planificarea Întâlnirilor\n\n<VocabCard\n  word=\"Увидимся сегодня?\"\n  translation=\"Ne vedem azi?\"\n  pronunciation=\"oo-VI-dim-sya see-VOD-nya\"\n  example=\"Увидимся сегодня вечером? Хочу тебя видеть!\"\n/>\n\n<VocabCard\n  word=\"Где и когда?\"\n  translation=\"Unde și când?\"\n  pronunciation=\"gdye i kag-DA\"\n  example=\"Отлично! Где и когда?\"\n/>\n\n<VocabCard\n  word=\"Ты дома?\"\n  translation=\"Ești acasă?\"\n  pronunciation=\"ti DO-ma\"\n  example=\"Ты дома? Заскочу!\"\n/>\n\n<VocabCard\n  word=\"Скоро буду\"\n  translation=\"Vin curând\"\n  pronunciation=\"SKO-ra BOO-doo\"\n  example=\"Скоро буду! 10 минут!\"\n/>\n\n<CultureTip title=\"Сейчас\" flag=\"⏰\">\n\"Сейчас\" (acum/imediat) în rusă poate însemna \"în curând\" - nu neapărat chiar acum! Dar dacă partenerul te așteaptă, încearcă să fii punctual! 😄\n</CultureTip>\n\n## Emoji-uri și Reacții\n\n### Combinații Populare\n\n| Emoji | Context Rusesc |\n|-------|----------------|\n| ❤️ | Люблю |\n| 😘 | Целую |\n| 🥰 | Любимая / Солнышко |\n| 💕 | Мы вместе |\n| 🤗 | Обнимаю |\n| 😊 | Рад/а |\n| 🇷🇺 | Россия |\n\n<VocabCard\n  word=\"😘 Целую целую\"\n  translation=\"Sărut sărut\"\n  pronunciation=\"tse-LOO-yoo tse-LOO-yoo\"\n  example=\"Пока! Целую целую! 😘😘\"\n/>\n\n## Reacții Rapide\n\n<VocabCard\n  word=\"Хаха / Лол\"\n  translation=\"Haha\"\n  pronunciation=\"kha-kha / lol\"\n  example=\"Хаха это было смешно! 😂\"\n/>\n\n<VocabCard\n  word=\"Круто!\"\n  translation=\"Cool!/Mișto!\"\n  pronunciation=\"KROO-ta\"\n  example=\"Круто! 🤩\"\n/>\n\n<VocabCard\n  word=\"Как мило!\"\n  translation=\"Ce drăguț!\"\n  pronunciation=\"kak MI-la\"\n  example=\"Как мило! 🥺\"\n/>\n\n<VocabCard\n  word=\"Серьёзно?\"\n  translation=\"Serios?\"\n  pronunciation=\"seer-YOZ-na\"\n  example=\"Серьёзно? Не верю! 😱\"\n/>\n\n## Alinturi în Mesaje\n\n| Rusă | Română |\n|------|--------|\n| Любимая/ый | Iubit/o |\n| Солнышко | Soarele meu |\n| Зайка | Iepurașule |\n| Котик | Pisicuță |\n| Рыбка | Peștișorule |\n| Малыш/ка | Puișorule |\n\n<VocabCard\n  word=\"Привет, зайка! Как ты?\"\n  translation=\"Hei, iepurașule! Ce mai faci?\"\n  pronunciation=\"pree-VYET ZAY-ka\"\n  example=\"Привет, зайка! Как ты там?\"\n/>\n\n## Confirmări\n\n<VocabCard\n  word=\"Да! / Ага!\"\n  translation=\"Da!\"\n  pronunciation=\"da / a-GA\"\n  example=\"Да! Супер!\"\n/>\n\n<VocabCard\n  word=\"Хорошо / Ладно\"\n  translation=\"Bine\"\n  pronunciation=\"kha-ra-SHO / LAD-na\"\n  example=\"Хорошо, любимая, увидимся!\"\n/>\n\n<VocabCard\n  word=\"Отлично!\"\n  translation=\"Excelent!\"\n  pronunciation=\"at-LICH-na\"\n  example=\"Отлично! Жду!\"\n/>\n\n<VocabCard\n  word=\"Конечно!\"\n  translation=\"Desigur!\"\n  pronunciation=\"ka-NYESH-na\"\n  example=\"Конечно, солнышко! Всё для тебя!\"\n/>\n\n\n## Conversație Exemplu\n\n**A:** Прив солнышко! Что делаешь? 💕\n\n**B:** Привет, любимый! На работе. Скучаю!\n\n**A:** Я тоже. Увидимся вечером?\n\n**B:** Да! Отлично! Где и когда?\n\n**A:** У меня дома? В 7?\n\n**B:** Хорошо! Жду! Целую! ❤️\n\n**A:** ЛЮ! Целую целую! 😘\n\n\n## Ghid Rapid pentru Mesaje\n\n| Română | Rusă |\n|--------|------|\n| Te iubesc | Люблю (тебя) |\n| Bună dimineața | Доброе утро |\n| Noapte bună | Спокойной ночи |\n| Sărut | Целую |\n| Îmbrățișare | Обнимаю |\n| Îmi lipsești | Скучаю |\n| Ne vedem | Увидимся |\n\n<CTA\n  text=\"Vrei să comunici fluent cu partenerul tău rus?\"\n  buttonText=\"Începe Călătoria Ta în Rusă\"\n/>\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Emoji-uri și Reacții"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "9de765f0-b753-410b-a7af-3a393d2ba60c",
+      "title": "Frases de Apoyo Emocional en Húngaro: Cómo Consolar a Tu Pareja",
+      "native_lang": "es",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "El húngaro permite expresar apoyo emocional con profundidad única. Estas frases te ayudarán a consolar a tu pareja húngara.\n\n## Frases de Consuelo Básicas\n\n### \"Itt vagyok neked\"\n**Pronunciación:** it vádyok néked\n\n**Significado:** Estoy aquí para ti\n\n### \"Minden rendben lesz\"\n**Pronunciación:** mínden réndben les\n\n**Significado:** Todo estará bien\n\n### \"Nagyon sajnálom, hogy ezt kell átélned\"\n**Pronunciación:** nádyon sháynálom, hodi est kel átélned\n\n**Significado:** Siento mucho que tengas que pasar por esto\n\n## Ofreciendo Apoyo\n\n### \"Mire van szükséged most?\"\n**Pronunciación:** míre van súkshéged mosht\n\n**Significado:** ¿Qué necesitas ahora?\n\n### \"Mindent megteszek, hogy segítsek\"\n**Pronunciación:** míndent mégtések, hodi ségítsek\n\n**Significado:** Haré todo lo que pueda para ayudar\n\n### \"Szeretnél beszélni róla?\"\n**Pronunciación:** serétnél bésélni róla\n\n**Significado:** ¿Te gustaría hablar de ello?\n\n### \"Hallgatlak\"\n**Pronunciación:** hálgátlak\n\n**Significado:** Te escucho\n\n## Validando Emociones\n\n### \"Normális, hogy így érzel\"\n**Pronunciación:** normális, hodi ídy érsel\n\n**Significado:** Es normal sentirse así\n\n### \"Az érzéseid teljesen érthetőek\"\n**Pronunciación:** az érzésheid téllyesen érthetoek\n\n**Significado:** Tus sentimientos son completamente comprensibles\n\n## Frases de Ánimo\n\n### \"Erősebb vagy, mint gondolod\"\n**Pronunciación:** eroshébb vádj, mint góndolod\n\n**Significado:** Eres más fuerte de lo que piensas\n\n### \"Hiszek benned\"\n**Pronunciación:** hísek bénned\n\n**Significado:** Creo en ti\n\n### \"Együtt átvészeljük\"\n**Pronunciación:** édyút átvéselyük\n\n**Significado:** Lo superaremos juntos\n\n## Expresando Amor\n\n### \"Szeretlek, bármi is történjen\"\n**Pronunciación:** seretlek, bármi ish tuértényen\n\n**Significado:** Te amo, pase lo que pase\n\n### \"Nem vagy egyedül\"\n**Pronunciación:** nem vádj édyedúl\n\n**Significado:** No estás solo/a\n\n## La Singularidad del Húngaro\n\nEl húngaro permite expresar matices emocionales únicos gracias a su sistema de sufijos. Aprender estas frases impresionará a tu pareja.\n\nEl apoyo húngaro viene con profundidad emocional única. ¡Kitartást!",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 270,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frases de Consuelo Básicas",
+              "## Ofreciendo Apoyo",
+              "## Validando Emociones",
+              "## Frases de Ánimo",
+              "## Expresando Amor"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "9dece9ce-e351-4439-84b6-5e7c804690d5",
+      "title": "Dire \"Tu me manques\" en espagnol : L'écho du cœur",
+      "native_lang": "fr",
+      "target_lang": "es",
+      "category": "communication",
+      "content": "## Exprimer le manque en espagnol\n\nL'espagnol, langue de passion, offre des expressions particulièrement intenses pour dire combien quelqu'un nous manque. Ces phrases vous aideront à maintenir le lien avec votre partenaire hispanophone pendant les séparations.\n\n## Phrases essentielles\n\n### \"Te extraño mucho\"\n**Prononciation :** té éks-TRA-nyo MOU-tcho\n\n**Signification :** Tu me manques beaucoup\n\nL'expression la plus courante en Amérique latine. \"Mucho\" intensifie le sentiment.\n\n### \"Te echo de menos\"\n**Prononciation :** té É-tcho dé MÉ-noss\n\n**Signification :** Tu me manques\n\nExpression plus utilisée en Espagne. Littéralement \"Je ressens ton absence\".\n\n### \"No puedo dejar de pensar en ti\"\n**Prononciation :** no POUÉ-do dé-HAR dé pén-SAR én ti\n\n**Signification :** Je n'arrive pas à arrêter de penser à toi\n\n## Expressions passionnées\n\n### \"Cada minuto sin ti es una eternidad\"\n**Prononciation :** KA-da mi-NOU-to sin ti éss OU-na é-tér-ni-DAD\n\n**Signification :** Chaque minute sans toi est une éternité\n\nExprime l'intensité du manque avec le dramatisme espagnol.\n\n### \"Me haces falta\"\n**Prononciation :** mé A-séss FAL-ta\n\n**Signification :** Tu me manques / J'ai besoin de toi\n\nExpression qui combine manque et besoin. Très forte.\n\n### \"Mi corazón te busca\"\n**Prononciation :** mi ko-ra-SON té BOUS-ka\n\n**Signification :** Mon cœur te cherche\n\nPoétique et profondément romantique.\n\n## Phrases quotidiennes\n\n### \"Ojalá estuvieras aquí\"\n**Prononciation :** o-ha-LA éss-tou-VIÉ-rass a-KI\n\n**Signification :** J'aimerais que tu sois ici\n\n\"Ojalá\" vient de l'arabe et exprime un souhait profond.\n\n### \"Cuento los días para verte\"\n**Prononciation :** KOUEN-to loss DI-ass PA-ra VÉR-té\n\n**Signification :** Je compte les jours pour te voir\n\n### \"Desearía tenerte a mi lado\"\n**Prononciation :** dé-sé-a-RI-a té-NÉR-té a mi LA-do\n\n**Signification :** J'aimerais t'avoir à mes côtés\n\n## Expressions romantiques\n\n### \"La distancia no cambia lo que siento por ti\"\n**Prononciation :** la dis-TAN-sia no KAM-bia lo ké SIÉN-to por ti\n\n**Signification :** La distance ne change pas ce que je ressens pour toi\n\nRassurance parfaite pour votre partenaire.\n\n### \"Eres lo primero que pienso al despertar\"\n**Prononciation :** É-réss lo pri-MÉ-ro ké PIÉN-so al déss-pér-TAR\n\n**Signification :** Tu es la première chose à laquelle je pense en me réveillant\n\n### \"Tu ausencia me duele\"\n**Prononciation :** tou a-ou-SÉN-sia mé DOUÉ-lé\n\n**Signification :** Ton absence me fait mal\n\nExpression intense typique de la passion hispanique.\n\n## Pour les messages\n\n### \"Pensando en ti\"\n**Prononciation :** pén-SAN-do én ti\n\n**Signification :** Je pense à toi\n\nSimple et tendre pour un petit message.\n\n### \"No veo la hora de verte\"\n**Prononciation :** no VÉ-o la O-ra dé VÉR-té\n\n**Signification :** J'ai hâte de te voir (litt. \"Je ne vois pas l'heure de te voir\")\n\n### \"Un abrazo desde la distancia\"\n**Prononciation :** oun a-BRA-so DÉSS-dé la diss-TAN-sia\n\n**Signification :** Un câlin depuis la distance\n\n## Différences régionales\n\n**En Espagne :** \"Te echo de menos\" est préféré\n**En Amérique latine :** \"Te extraño\" est plus courant\n**Au Mexique :** \"Te extraño un chingo\" (très familier, très fort)\n**En Argentine :** \"Te extraño horrores\" (intensification typique)\n\n## Conseils culturels\n\n**Expressivité bienvenue :** Les hispanophones apprécient les démonstrations émotionnelles. N'hésitez pas à être intense.\n\n**Messages vocaux :** En Amérique latine, les notes vocales sont très appréciées - plus personnelles que les textes.\n\n**Petits mots tendres :** \"Mi amor\", \"cariño\", \"corazón\" accompagnent naturellement ces phrases.\n\n## Conclusion\n\nL'espagnol permet d'exprimer le manque avec une passion unique. Ces phrases vous aideront à maintenir la flamme avec votre partenaire hispanophone, même à des milliers de kilomètres. La distancia es nada cuando el amor lo es todo ! (La distance n'est rien quand l'amour est tout !)",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Phrases essentielles",
+              "## Expressions passionnées",
+              "## Phrases quotidiennes",
+              "## Expressions romantiques",
+              "## Pour les messages"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "9dfd4dbb-b172-4f4b-90e4-8faaafd9027c",
+      "title": "Norska flörtfraser för par – Charma din partner på norska",
+      "native_lang": "sv",
+      "target_lang": "no",
+      "category": "communication",
+      "content": "Norska och svenska är nära besläktade, men det finns subtila skillnader som gör det värdefullt att lära sig flörta på just norska. Att tala din partners språk korrekt visar omtanke och respekt.\n\n## Norskas nordiska charm\n\nNorge delar mycket med Sverige kulturellt, men har sin egen romantiska tradition. Norsk natur – fjordar, berg och norrsken – inspirerar ett språk med poetisk skönhet.\n\n## Klassiska komplimanger\n\n### \"Du ser fantastisk ut\"\n**Uttal:** du sär fan-TAS-tisk ut\n\n**Betydelse:** Du ser fantastisk ut\n\nNästan identiskt med svenska men med norsk betoning.\n\n### \"Du har de vakreste øynene jeg noensinne har sett\"\n**Uttal:** du har de VAK-res-te ÖJ-ne-ne jaj NON-sin-ne har sett\n\n**Betydelse:** Du har de vackraste ögonen jag någonsin sett\n\nEn klassisk komplimang med norskt ordval.\n\n### \"Smilet ditt lyser opp dagen min\"\n**Uttal:** SMEE-let ditt LY-ser op DA-gen min\n\n**Betydelse:** Ditt leende lyser upp min dag\n\nPoetiskt och hjärtvärmande.\n\n## Kärleksfulla uttryck\n\n### \"Jeg er helt vill etter deg\"\n**Uttal:** jaj är helt vill ET-ter daj\n\n**Betydelse:** Jag är helt galen i dig\n\nUttrycker stark attraktion.\n\n### \"Jeg kan ikke slutte å tenke på deg\"\n**Uttal:** jaj kan IK-ke SLUT-te å TENK-e på daj\n\n**Betydelse:** Jag kan inte sluta tänka på dig\n\nVisar hur din partner upptar dina tankar.\n\n### \"Du betyr alt for meg\"\n**Uttal:** du be-TYR alt for maj\n\n**Betydelse:** Du betyder allt för mig\n\nEn djup kärleksförklaring.\n\n## Lekfulla fraser\n\n### \"Tror du på kjærlighet ved første blikk, eller skal jeg gå forbi en gang til?\"\n**Uttal:** trur du på KJÄR-li-het ve FÖR-ste blikk, EL-ler skal jaj gå for-BI en gang til\n\n**Betydelse:** Tror du på kärlek vid första ögonkastet, eller ska jag gå förbi en gång till?\n\nKlassisk pick-up line.\n\n### \"Har du et kart? Jeg har gått meg bort i øynene dine\"\n**Uttal:** har du et kart? jaj har gått maj bort i ÖJ-ne-ne DEE-ne\n\n**Betydelse:** Har du en karta? Jag har gått vilse i dina ögon\n\nCharmigt och romantiskt.\n\n### \"Unnskyld, er du en stjerne? For du lyser opp hele rommet\"\n**Uttal:** UN-shild, är du en STJER-ne? for du LY-ser op HE-le ROM-met\n\n**Betydelse:** Ursäkta, är du en stjärna? För du lyser upp hela rummet\n\nCharmig komplimang.\n\n## Djupt romantiska uttryck\n\n### \"Du er kjærligheten i livet mitt\"\n**Uttal:** du är KJÄR-li-he-ten i LEE-vet mitt\n\n**Betydelse:** Du är kärleken i mitt liv\n\nDen ultimata kärleksförklaringen.\n\n### \"Hvert øyeblikk med deg er dyrebart\"\n**Uttal:** värt ÖJ-e-blikk me daj är DY-re-bart\n\n**Betydelse:** Varje ögonblick med dig är dyrbart\n\nUttrycker djup uppskattning.\n\n### \"Når jeg er med deg, føler jeg meg hjemme\"\n**Uttal:** når jaj är me daj, FÖ-ler jaj maj JEM-me\n\n**Betydelse:** När jag är med dig känner jag mig hemma\n\nEtt vackert uttryck för trygghet.\n\n## Norska smeknamn\n\n- **Kjære** (KJÄH-re) – Kära\n- **Elskling** (ELSH-ling) – Älskling\n- **Skatten min** (SKAT-ten min) – Min skatt\n- **Hjertet mitt** (JJER-tet mitt) – Mitt hjärta\n- **Snuppa** (SNUP-pa) – Sötnos\n- **Bamsen** (BAM-sen) – Nallen\n\n## Skillnader från svenska\n\n**Ordval:** Norska använder ibland andra ord – \"kjærlighet\" (kärlek), \"øyne\" (ögon), \"vakker\" (vacker).\n\n**Uttal:** Norska har en distinkt melodi och andra ljud, särskilt kj-ljudet.\n\n**Kultur:** Norrmän kan vara något mer reserverade, men uppskattar ärlighet och värme.\n\n## Tips för framgång\n\nSom svensk har du en fördel – du förstår redan mycket. Men var uppmärksam på de subtila skillnaderna. Din partner kommer uppskatta att du anstränger dig att tala just norska.\n\n## Avslutande tankar\n\nNorska flörtfraser kombinerar nordisk enkelhet med värme. Var dig själv, visa genuint intresse, och låt kärleken tala.\n\nLykke til med kjærligheten!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Klassiska komplimanger",
+              "## Kärleksfulla uttryck",
+              "## Lekfulla fraser",
+              "## Djupt romantiska uttryck"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

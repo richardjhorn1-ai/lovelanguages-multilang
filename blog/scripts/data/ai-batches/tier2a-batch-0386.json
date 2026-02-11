@@ -1,0 +1,117 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0386",
+  "articles": [
+    {
+      "id": "6d686483-542b-4ee9-9ac9-613ad2d6bfe5",
+      "title": "Hollandske fraser til forsoning og genopbygning af tillid",
+      "native_lang": "da",
+      "target_lang": "nl",
+      "category": "communication",
+      "content": "Hollandsk og dansk kultur deler mange værdier, herunder direkthed og ærlighed. At kunne forsone sig på hollandsk kræver de samme kvaliteter - klar kommunikation og oprigtighed.\n\n## Forsoning på hollandsk\n\nHollændere værdsætter ærlighed og praktiske løsninger. En god forsoning på hollandsk er direkte, ærlig og fokuseret på at komme videre sammen.\n\n## Fraser til forsoning\n\n### At undskylde oprigtigt\n\n<Phrase>\n  <Original>Het spijt me echt heel erg</Original>\n  <Translation>Jeg er virkelig meget ked af det</Translation>\n  <Context>En oprigtig undskyldning.</Context>\n  <Pronunciation>Het spait muh ekht hayl erkh</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Ik wilde je niet kwetsen</Original>\n  <Translation>Jeg ville ikke såre dig</Translation>\n  <Context>Forklar at skaden ikke var tilsigtet.</Context>\n  <Pronunciation>Ik vil-duh yuh neet kwet-sen</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Ik had ongelijk en dat geef ik toe</Original>\n  <Translation>Jeg tog fejl, og det indrømmer jeg</Translation>\n  <Context>Tag ansvar for din fejl.</Context>\n  <Pronunciation>Ik had on-khuh-laik en dat khayf ik too</Pronunciation>\n</Phrase>\n\n### At genopbygge forbindelsen\n\n<Phrase>\n  <Original>Kunnen we opnieuw beginnen?</Original>\n  <Translation>Kan vi starte forfra?</Translation>\n  <Context>Bed om en ny begyndelse.</Context>\n  <Pronunciation>Kun-nen vuh op-neew buh-khin-nen</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Ik haat het als we ruzie maken</Original>\n  <Translation>Jeg hader, når vi skændes</Translation>\n  <Context>Udtryk dit ubehag ved konflikten.</Context>\n  <Pronunciation>Ik haht het als vuh roo-zee mah-ken</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Je betekent alles voor mij</Original>\n  <Translation>Du betyder alt for mig</Translation>\n  <Context>Bekræft din partners betydning.</Context>\n  <Pronunciation>Yuh buh-tay-kent al-les vohr mai</Pronunciation>\n</Phrase>\n\n### At tilbyde forsoning\n\n<Phrase>\n  <Original>Laat me het goedmaken</Original>\n  <Translation>Lad mig gøre det godt igen</Translation>\n  <Context>Tilbyd at kompensere for fejlen.</Context>\n  <Pronunciation>Laht muh het khoot-mah-ken</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Wat kan ik doen om dit op te lossen?</Original>\n  <Translation>Hvad kan jeg gøre for at løse det?</Translation>\n  <Context>Vis villighed til at handle.</Context>\n  <Pronunciation>Wat kan ik doon om dit op tuh los-sen</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Ik beloof dat ik het beter zal doen</Original>\n  <Translation>Jeg lover, at jeg vil gøre det bedre</Translation>\n  <Context>Giv et løfte om forbedring.</Context>\n  <Pronunciation>Ik buh-lohf dat ik het bay-ter zal doon</Pronunciation>\n</Phrase>\n\n### At acceptere en undskyldning\n\n<Phrase>\n  <Original>Ik vergeef je</Original>\n  <Translation>Jeg tilgiver dig</Translation>\n  <Context>Giv tilgivelse.</Context>\n  <Pronunciation>Ik fer-khayf yuh</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Laten we dit achter ons laten</Original>\n  <Translation>Lad os lægge det bag os</Translation>\n  <Context>Signal om at gå fremad.</Context>\n  <Pronunciation>Lah-ten vuh dit akh-ter ons lah-ten</Pronunciation>\n</Phrase>\n\n<Phrase>\n  <Original>Ik hou van je, wat er ook gebeurt</Original>\n  <Translation>Jeg elsker dig, uanset hvad der sker</Translation>\n  <Context>Bekræft kærligheden.</Context>\n  <Pronunciation>Ik how fan yuh wat er ohk khuh-burt</Pronunciation>\n</Phrase>\n\n## Kulturelle tips\n\n1. **Direkthed** - vær ærlig og klar i din undskyldning\n2. **Handling** - følg ord op med konkrete handlinger\n3. **Gezelligheid** - genopbyg hyggen sammen efter konflikten\n4. **Praktisk** - fokusér på løsninger, ikke drama\n\nMed disse fraser kan du forsone dig på hollandsk med den ærlighed og direkthed, begge kulturer værdsætter.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Fraser til forsoning"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "6d6982b0-9a79-4084-9959-a3c84def0358",
+      "title": "Англійська лексика про вагітність та материнство",
+      "native_lang": "uk",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport CTA from '@components/CTA.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\n\n# Англійська лексика про вагітність та материнство\n\nОчікування малюка — це чудовий час! Якщо ваш партнер розмовляє англійською або ви плануєте народжувати за кордоном, ця лексика стане вам у пригоді.\n\n<PhraseOfDay\n  phrase=\"We're expecting a baby!\"\n  translation=\"Ми чекаємо на малюка!\"\n  context=\"Оголошення радісної новини\"\n/>\n\n## Основна лексика про вагітність\n\n\n\n## Оголошення про вагітність англійською\n\n### Як поділитися новиною\n\n1. \"Ми чекаємо на малюка!\" — класичний спосіб\n2. \"Я вагітна!\" — прямо та радісно\n3. \"Ми станемо батьками!\" — для обох партнерів\n4. \"Наша сім'я збільшується!\" — якщо це не перша дитина\n\n<CultureTip>\nУ різних культурах є свої традиції щодо оголошення вагітності. Деякі чекають до 12 тижнів, інші — до дізнаються стать. Дізнайтеся, що прийнято в сім'ї вашого партнера.\n</CultureTip>\n\n## Лексика для візиту до лікаря\n\nВажливо знати медичну термінологію англійською:\n\n### У кабінеті лікаря\n- УЗД / Ультразвук\n- Аналіз крові\n- Термін вагітності\n- Дата народження\n\n### Важливі слова\n- Тиждень вагітності\n- Триместр\n- Ранній токсикоз\n- Рух дитини\n\n## Покупки для малюка\n\n### Що потрібно купити\n\n| Англійська | Українська |\n|----------------|------------|\n| Crib | Ліжечко |\n| Stroller | Коляска |\n| Diapers | Підгузки |\n| Baby clothes | Дитячий одяг |\n| Bottle | Пляшечка |\n| Pacifier | Соска |\n\n<CultureTip>\nТрадиції baby shower (свята перед народженням) відрізняються в різних країнах. Дізнайтеся, чи прийнято це в культурі вашого партнера.\n</CultureTip>\n\n## Пологи та лікарня\n\n### У пологовому будинку\n\nКорисні фрази:\n- \"Де пологове відділення?\"\n- \"У мене почалися перейми\"\n- \"Мені потрібен лікар\"\n- \"Як часто перейми?\"\n\n### Після народження\n\n- \"Дитина народилася!\"\n- \"Хлопчик/Дівчинка!\"\n- \"Мама і дитина здорові\"\n- \"Скільки важить малюк?\"\n\n## Імена для дитини\n\nВибір імені — важлива справа! Популярні англійські імена:\n\n### Для хлопчиків\n- [Популярні імена країни]\n- Класичні імена\n- Сучасні імена\n\n### Для дівчаток\n- [Популярні імена країни]\n- Класичні імена\n- Сучасні імена\n\n## Перші місяці з малюком\n\n### Корисна лексика\n\n- Годування (грудне/штучне)\n- Зміна підгузка\n- Купання\n- Колискова\n- Сон малюка\n\n## Привітання з народженням\n\nЯк привітати батьків англійською:\n\n1. \"Вітаю з народженням малюка!\"\n2. \"Нехай дитина росте здоровою та щасливою!\"\n3. \"Радості батьківства!\"\n\n## Продовжуйте вивчення\n\nТепер ви знаєте основну англійськау лексику про вагітність! Вивчайте більше:\n\n- [Англійська слова для спільного життя](/uk/blog/english-moving-in-together)\n- [Англійська фрази для родинних зустрічей](/uk/blog/meeting-the-family-english-phrases)\n\n<CTA \n  text=\"Підготуйтеся до батьківства англійською з нашим додатком!\"\n  buttonText=\"Почати навчання\"\n  href=\"/uk/learn/en\"\n/>",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Основна лексика про вагітність",
+              "## Оголошення про вагітність англійською",
+              "## Покупки для малюка",
+              "## Пологи та лікарня",
+              "## Перші місяці з малюком"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "6d800b52-429a-4bf0-8959-5ea150f382b8",
+      "title": "Dutch First Date Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "nl",
+      "category": "communication",
+      "content": "First dates are exciting moments of connection. When your date speaks Dutch, knowing key phrases shows effort and creates chemistry. Here are essential Dutch phrases for that important first meeting.\n\n## Making a Great First Impression\n\n### Je ziet er geweldig uit\n**Pronunciation:** yuh zeet air ghuh-VEL-dikh owt\n\n**Meaning:** \"You look great\"\n\n**When to use it:** When greeting your date—a sincere compliment sets a positive tone.\n\n### Leuk je te ontmoeten\n**Pronunciation:** luk yuh tuh ont-MOO-tuhn\n\n**Meaning:** \"Nice to meet you\"\n\n**When to use it:** A warm, friendly greeting to start the date.\n\n## Getting to Know Each Other\n\nAsk about their work, hobbies, and background. Show genuine curiosity about their life, dreams, and interests. Good questions create good conversation.\n\nListen actively and respond thoughtfully. Share about yourself too—conversation is a two-way street.\n\n## Expressing Interest\n\nCompliment them sincerely—their smile, their laugh, their intelligence. Tell them you're enjoying the conversation. Let them know they make you happy to be there.\n\n## During the Date\n\nOffer to help with ordering if they seem unsure. Comment positively on the food, the atmosphere, the company. Be present and engaged—put away your phone.\n\n## Ending the Date Well\n\nIf you want to see them again, say so! Ask if you can meet again. A simple message checking they got home safely shows thoughtfulness.\n\n## Cultural Tips\n\nDutch speakers appreciate genuine interest and respect. Be yourself while showing appreciation for their culture. Physical greetings vary—follow their lead.\n\n## Making It Special\n\nYour effort to speak Dutch—even just a few phrases—shows care and creates connection. First dates are about possibility—let your authentic interest shine through.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 269,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Making a Great First Impression"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "6dad209f-a602-41e0-95e4-6426e3da9ab1",
+      "title": "Spanische Hochzeitsphrasen und romantische Glückwünsche",
+      "native_lang": "de",
+      "target_lang": "es",
+      "category": "situations",
+      "content": "# Spanische Hochzeitsphrasen und romantische Glückwünsche\n\nEine Hochzeit ist einer der schönsten Momente im Leben eines Paares. Wenn Sie eine spanische Hochzeit besuchen oder Ihren Partner auf Spanisch beeindrucken möchten, ist dieses Vokabular unverzichtbar.\n\n## Grundlegende Hochzeitsvokabeln\n\nBevor wir zu den Phrasen kommen, lernen wir die wichtigsten Wörter rund um die Hochzeit:\n\n<VocabCard word=\"anillo de boda\" translation=\"der Ehering\" example=\"Der anillo de boda symbolisiert die ewige Liebe.\" />\n\n<VocabCard word=\"vestido de novia\" translation=\"das Hochzeitskleid\" example=\"Das vestido de novia war wunderschön.\" />\n\n<VocabCard word=\"ceremonia\" translation=\"die Zeremonie\" example=\"Die ceremonia war sehr bewegend.\" />\n\n<VocabCard word=\"luna de miel\" translation=\"die Flitterwochen\" example=\"Wohin fahrt ihr in die luna de miel?\" />\n\n## Die wichtigsten Hochzeitsphrasen\n\n### Der Heiratsantrag\n\nDie wohl wichtigste Frage, die Sie auf Spanisch stellen können:\n\n<PhraseOfDay phrase=\"¿Quieres casarte conmigo?\" translation=\"Willst du mich heiraten?\" context=\"Die traditionelle Frage beim Heiratsantrag\" />\n\n### Das Ehegelübde\n\nBei der Zeremonie hören Sie oft:\n\n**\"Sí, acepto\"** - \"Ja, ich will\"\n\nDies ist die traditionelle Antwort auf die Frage des Standesbeamten oder Priesters.\n\n### Glückwünsche aussprechen\n\nNach der Trauung gratulieren Sie dem Brautpaar:\n\n**\"¡Felicidades a los recién casados!\"** - \"Herzlichen Glückwunsch den Frischvermählten!\"\n\nBeim Anstoßen sagen Sie:\n\n**\"¡Por los novios!\"** - \"Auf das Brautpaar!\"\n\n<CultureTip title=\"Hochzeitsbräuche\">\nIn Spanischsprachigen Ländern gibt es einzigartige Hochzeitstraditionen. Informieren Sie sich vor dem Besuch einer Hochzeit über lokale Bräuche.\n</CultureTip>\n\n## Vokabeln für die Hochzeitsgesellschaft\n\n<VocabCard word=\"damas de honor\" translation=\"die Brautjungfern\" example=\"Die damas de honor trugen blaue Kleider.\" />\n\n<VocabCard word=\"padrinos de boda\" translation=\"die Trauzeugen\" example=\"Die padrinos de boda organisierten den Junggesellenabschied.\" />\n\n<VocabCard word=\"padrino\" translation=\"der Trauzeuge\" example=\"Der padrino hielt eine tolle Rede.\" />\n\n<VocabCard word=\"dama de honor\" translation=\"die Trauzeugin\" example=\"Die dama de honor half bei der Planung.\" />\n\n## Romantische Versprechen\n\nEin typisches Ehegelübde enthält oft Sätze wie:\n\n**\"Prometo amarte para siempre\"** - \"Ich verspreche, dich für immer zu lieben\"\n\nDiese Worte werden während der Zeremonie ausgetauscht und sind der emotionale Höhepunkt jeder Hochzeit.\n\n## Die Feier\n\n<VocabCard word=\"La recepción será en...\" translation=\"Der Empfang wird stattfinden bei...\" example=\"La recepción será en...\" />\n\n<VocabCard word=\"primer baile\" translation=\"der erste Tanz\" example=\"Ihr primer baile war sehr romantisch.\" />\n\n## Praktische Phrasen für Hochzeitsgäste\n\nAls Gast einer spanischen Hochzeit sollten Sie folgende Ausdrücke kennen:\n\n- \"Wo findet die Zeremonie statt?\" - Fragen Sie nach dem Veranstaltungsort\n- \"Wann beginnt der Empfang?\" - Erkundigen Sie sich nach dem Zeitplan\n- \"Darf ich dem Brautpaar gratulieren?\" - Höflich um Erlaubnis bitten\n\n<CultureTip title=\"Geschenke und Etikette\">\nIn verschiedenen Kulturen gibt es unterschiedliche Erwartungen an Hochzeitsgeschenke. Manche bevorzugen Geldgeschenke, andere traditionelle Gaben.\n</CultureTip>\n\n## Übung macht den Meister\n\nÜben Sie diese Phrasen regelmäßig, damit Sie bei der nächsten Hochzeit selbstbewusst auf Spanisch kommunizieren können. Beginnen Sie mit den grundlegenden Glückwünschen und arbeiten Sie sich zu komplexeren Ausdrücken vor.\n\n## Weiterführende Ressourcen\n\nWenn Sie Ihre romantischen Spanischkenntnisse vertiefen möchten, empfehlen wir Ihnen unsere anderen Artikel zu [Verlobungsphrasen](/de/blog/spanish-proposal-engagement-phrases) und [Jahrestagswünschen](/de/blog/spanish-anniversary-wishes).\n\n<CTA text=\"Üben Sie diese Hochzeitsphrasen mit unserem interaktiven Sprachtrainer\" buttonText=\"Jetzt starten\" href=\"/de\" />\n\n---\n\n*Mit diesen Phrasen sind Sie bestens auf jede spanische Hochzeit vorbereitet!*",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 288,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Die wichtigsten Hochzeitsphrasen"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "6db2d8ce-73b6-470f-8d50-43a49a934881",
+      "title": "Tyska Fraser för Första Dejten",
+      "native_lang": "sv",
+      "target_lang": "de",
+      "category": "communication",
+      "content": "Första dejten på tyska kräver artighet och genuint intresse. Dessa fraser hjälper dig göra ett bra intryck.\n\n## Fraser för att Bryta Isen\n\n### 1. \"Es freut mich, dich endlich kennenzulernen\"\n**Uttal:** es froyt mikh dikh ent-likh ken-en-tsoo-ler-nen\n\n**Betydelse:** Det gläder mig att äntligen lära känna dig\n\n### 2. \"Du siehst toll aus\"\n**Uttal:** doo zeest tol ows\n\n**Betydelse:** Du ser fantastisk ut\n\n### 3. \"Ich habe mich sehr auf heute gefreut\"\n**Uttal:** ikh ha-buh mikh zeyr owf hoy-tuh guh-froyt\n\n**Betydelse:** Jag har sett fram emot idag\n\n### 4. \"Erzähl mir von dir\"\n**Uttal:** er-tseyl meer fon deer\n\n**Betydelse:** Berätta om dig själv\n\n### 5. \"Was machst du gerne in deiner Freizeit?\"\n**Uttal:** vas makhst doo ger-nuh in dai-ner frai-tsait\n\n**Betydelse:** Vad gör du gärna på din fritid?\n\n## Fraser för att Visa Intresse\n\n### 6. \"Das ist wirklich interessant\"\n**Uttal:** das ist veerk-likh in-te-re-sant\n\n**Betydelse:** Det är verkligen intressant\n\n### 7. \"Ich würde gerne mehr darüber erfahren\"\n**Uttal:** ikh vür-duh ger-nuh mehr da-rü-ber er-fa-ren\n\n**Betydelse:** Jag skulle gärna veta mer om det\n\n### 8. \"Wir haben viel gemeinsam\"\n**Uttal:** veer ha-ben feel guh-main-zam\n\n**Betydelse:** Vi har mycket gemensamt\n\n### 9. \"Ich unterhalte mich sehr gerne mit dir\"\n**Uttal:** ikh un-ter-hal-tuh mikh zeyr ger-nuh mit deer\n\n**Betydelse:** Jag pratar väldigt gärna med dig\n\n### 10. \"Du hast einen tollen Humor\"\n**Uttal:** doo hast ai-nen to-len hoo-mor\n\n**Betydelse:** Du har fantastisk humor\n\n## Fraser för Dejten Slutar\n\n### 11. \"Ich hatte eine wunderbare Zeit\"\n**Uttal:** ikh ha-tuh ai-nuh vun-der-ba-ruh tsait\n\n**Betydelse:** Jag hade en underbar tid\n\n### 12. \"Können wir uns wiedersehen?\"\n**Uttal:** kö-nen veer uns vee-der-zey-en\n\n**Betydelse:** Kan vi träffas igen?\n\n### 13. \"Ich würde das gerne wiederholen\"\n**Uttal:** ikh vür-duh das ger-nuh vee-der-ho-len\n\n**Betydelse:** Jag skulle gärna upprepa det här\n\n### 14. \"Lass mich die Rechnung bezahlen\"\n**Uttal:** las mikh dee rekh-nung buh-tsa-len\n\n**Betydelse:** Låt mig betala notan\n\n### 15. \"Schreib mir, wenn du zu Hause angekommen bist\"\n**Uttal:** shraip meer ven doo tsoo how-zuh an-guh-ko-men bist\n\n**Betydelse:** Skriv till mig när du kommit hem\n\n## Kulturella Tips\n\nI tysk kultur värderas punktlighet, ärlighet och genuint intresse. Det är vanligt att dela notan på första dejten.\n\n## Avslutande Tankar\n\nMed dessa fraser kan du navigera din första dejt med självförtroende och artighet.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Fraser för att Bryta Isen",
+              "## Fraser för att Visa Intresse",
+              "## Fraser för Dejten Slutar"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

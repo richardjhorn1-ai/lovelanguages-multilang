@@ -1,0 +1,58 @@
+{
+  "tier": 1,
+  "batchId": "tier1-batch-057",
+  "articles": [
+    {
+      "id": "9a878a98-de00-413b-bfab-28601901286f",
+      "title": "Frases em Norueguês para Videochamadas com a Família",
+      "native_lang": "pt",
+      "target_lang": "no",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nVideochamadas com a família do seu parceiro podem ser intimidantes, especialmente em outro idioma! Se a família do seu amor fala Norueguês, estas frases vão ajudá-lo a causar uma ótima impressão!\n\n<PhraseOfDay word=\"Hello everyone!\" translation=\"Olá a todos!\" pronunciation=\"re-LÔU ÉV-ri-uan\" context=\"Uma forma educada de cumprimentar a família\" />\n\n## Cumprimentos Iniciais\n\n| Norueguês | Pronúncia | Português |\n|-----------|-----------|-----------|\n| Hello everyone | re-LÔU ÉV-ri-uan | Olá a todos |\n| Nice to see you | náis tu sí iu | Prazer em ver vocês |\n| How are you doing? | ráu ar iu DÚ-ing | Como vocês estão? |\n| It's so good to see you all | its sôu gud tu sí iu ól | É tão bom ver todos vocês |\n\n<VocabCard word=\"Hello everyone\" translation=\"Olá a todos\" pronunciation=\"re-LÔU ÉV-ri-uan\" example=\"Perfeito para iniciar a videochamada.\" />\n\n<CultureTip flag=\"🇳🇴\" title=\"Formalidade com a Família\">\nVista-se adequadamente para causar boa impressão na família.\n</CultureTip>\n\n## Perguntas Educadas\n\n| Norueguês | Pronúncia | Português |\n|-----------|-----------|-----------|\n| How have you been? | ráu hév iu bín | Como tem passado? |\n| How's work going? | ráuz uérk GÔU-ing | Como está o trabalho? |\n| What's new with you? | uóts niú uith iu | O que há de novo? |\n\n<VocabCard word=\"How have you been?\" translation=\"Como tem passado?\" pronunciation=\"ráu hév iu bín\" example=\"Demonstre interesse genuíno.\" />\n\n## Problemas Técnicos\n\n| Norueguês | Pronúncia | Português |\n|-----------|-----------|-----------|\n| Can you hear me? | ken iu hír mi | Consegue me ouvir? |\n| Sorry, the connection is bad | SÓ-ri dê ko-NÉK-shon iz béd | Desculpe, a conexão está ruim |\n| You're breaking up | iur BRÉI-king âp | Está cortando |\n\n<CultureTip flag=\"🇳🇴\" title=\"Dicas para a Chamada\">\nMantenha contato visual olhando para a câmera.\n</CultureTip>\n\n## Despedidas Calorosas\n\n| Norueguês | Pronúncia | Português |\n|-----------|-----------|-----------|\n| It was lovely talking to you | it uóz LÂV-li TÓ-king tu iu | Foi ótimo conversar com vocês |\n| Talk to you soon | tók tu iu sun | Falamos em breve |\n| Take care | teik kér | Cuide-se |\n\n<VocabCard word=\"It was lovely talking to you\" translation=\"Foi ótimo conversar com vocês\" pronunciation=\"it uóz LÂV-li TÓ-king tu iu\" example=\"Termine a chamada deixando uma boa impressão.\" />\n\n## Dicas para Videochamadas\n\n1. **Vista-se adequadamente** — Mesmo em casa, cause boa impressão\n2. **Ambiente calmo** — Sem distrações ou barulhos\n3. **Tenha paciência** — Se não entender algo, peça para repetirem\n4. **Sorria** — A linguagem corporal comunica muito\n5. **Prepare frases** — Tenha este guia por perto!\n\n<CultureTip flag=\"🇳🇴\" title=\"Mantendo o Contato\">\nPrepare algumas perguntas sobre a família para mostrar interesse.\n</CultureTip>\n\nPara saber mais sobre conhecer a família, confira nosso [guia para conhecer a família do parceiro norueguês](/learn/pt/no/meeting-your-norwegian-partners-family/). E para conversas informais, veja [como iniciar conversas em Norueguês](/learn/pt/no/norwegian-small-talk-conversation-starters/).\n\nCom prática e dedicação, você vai conquistar a família do seu amor!\n\n<CTA />",
+      "issues": [
+        {
+          "type": "language_fingerprint_mismatch",
+          "details": {
+            "nativeLang": "pt",
+            "nativeStopWordRatio": 5,
+            "englishStopWordRatio": 10
+          }
+        }
+      ]
+    },
+    {
+      "id": "9b06e682-0b54-4514-bfb6-2408a1a860da",
+      "title": "Bună dimineața și noapte bună în ucraineană – Mesaje drăguțe",
+      "native_lang": "ro",
+      "target_lang": "uk",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nZiua începe și se termină mai frumos când îi urezi partenerului în limba lui. Aceste mesaje vor aduce zâmbete în fiecare zi.\n\n<PhraseOfDay\n  word=\"Доброго ранку\"\n  translation=\"Bună dimineața\"\n  pronunciation=\"\"\n  context=\"Începe fiecare zi cu o urare caldă\"\n/>\n\n## Mesaje de bună dimineața\n\n<VocabCard\n  word=\"Доброго ранку\"\n  translation=\"Bună dimineața\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇺🇦\" title=\"Saluturile zilnice\">\nUcrainenii sunt călduroși și expresivi. Scuzele sincere, posibil însoțite de un gest afectuos, sunt foarte prețuite în cultura ucraineană.\n</CultureTip>\n\n## Mesaje de noapte bună\n\n| Ucraineană | Română |\n|---------|---------|\n| На добраніч | Noapte bună |\n| Солодких снів | Vise frumoase |\n| Спи добре | Somn ușor |\n\n<VocabCard\n  word=\"На добраніч\"\n  translation=\"Noapte bună\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Солодких снів\"\n  translation=\"Vise frumoase\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru mesajele zilnice\n\n1. **Fii consistent** – Un mesaj zilnic creează un ritual frumos\n2. **Personalizează** – Adaugă o amintire sau o glumă internă\n3. **Variază** – Nu folosi aceeași frază în fiecare zi\n4. **Adaugă emoji** – 💕 și 😘 sunt universale\n5. **Fii spontan** – Uneori, un mesaj în mijlocul nopții e cel mai romantic\n\n<CTA />\n\n## Articole conexe\n\n- [Fraze pentru relații la distanță în ucraineană](/ro/uk/ukrainian-long-distance-relationship)\n- [Alinturile în ucraineană](/ro/uk/ukrainian-pet-names-and-terms-of-endearment-50)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "9bc0c315-c1ec-42f7-b6b1-337f41b2d6a2",
+      "title": "Smalltalk auf Russisch – Gesprächseinstiege für Paare",
+      "native_lang": "de",
+      "target_lang": "ru",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\n# Smalltalk auf Russisch – Gesprächseinstiege für Paare\n\nSmalltalk ist eine Kunst, die in jeder Sprache wichtig ist. Wenn du die Familie und Freunde deines Partners kennenlernst, helfen dir diese Russischen Phrasen dabei, das Eis zu brechen und interessante Gespräche zu führen.\n\n<PhraseOfDay\n  word=\"How are you?\"\n  translation=\"Wie geht es dir/Ihnen?\"\n  pronunciation=\"hau ar juu?\"\n  context=\"Ein klassischer Gesprächseinstieg\"\n/>\n\n## Gespräche beginnen\n\n<VocabCard\n  word=\"How are you?\"\n  translation=\"Wie geht es dir/Ihnen?\"\n  pronunciation=\"hau ar juu?\"\n  example=\"How are you today?\"\n/>\n\n<VocabCard\n  word=\"Nice weather today, isn't it?\"\n  translation=\"Schönes Wetter heute, nicht wahr?\"\n  pronunciation=\"nais WEH-dhör tu-DEI\"\n  example=\"Nice weather we're having!\"\n/>\n\n| Russisch | Deutsch |\n|-------------|---------|\n| Where are you from? | Woher kommen Sie? |\n| What do you do for work? | Was machen Sie beruflich? |\n| Have we met before? | Kennen wir uns? |\n\n<CultureTip flag=\"🇷🇺\" title=\"Kultureller Kontext\">\nSmall talk helps build rapport. Show genuine interest and ask follow-up questions.\n</CultureTip>\n\n## Über Hobbys und Interessen\n\n| Russisch | Deutsch |\n|-------------|---------|\n| What are your hobbies? | Was sind Ihre Hobbys? |\n| Do you like sports? | Mögen Sie Sport? |\n| What music do you like? | Welche Musik hören Sie gern? |\n| Do you like to travel? | Reisen Sie gern? |\n\n## Über Arbeit und Beruf\n\n<VocabCard\n  word=\"What do you do?\"\n  translation=\"Was arbeiten Sie?\"\n  pronunciation=\"wot du juu duu?\"\n  example=\"What do you do for a living?\"\n/>\n\n| Russisch | Deutsch |\n|-------------|---------|\n| Do you enjoy your work? | Gefällt Ihnen Ihre Arbeit? |\n| How long have you worked there? | Seit wann arbeiten Sie dort? |\n| That sounds interesting | Das klingt interessant |\n\n## Über das Wetter\n\nEin Klassiker, der immer funktioniert:\n\n| Russisch | Deutsch |\n|-------------|---------|\n| Nice weather today | Schönes Wetter heute |\n| It's warm/cold today | Es ist heute warm/kalt |\n| Hopefully it won't rain | Hoffentlich regnet es nicht |\n| The summer was nice | Der Sommer war schön |\n\n## Gespräche am Laufen halten\n\n| Russisch | Deutsch |\n|-------------|---------|\n| That's interesting! | Das ist interessant! |\n| Tell me more | Erzählen Sie mehr |\n| Really? | Wirklich? |\n| I understand | Ich verstehe |\n\n## Höflich nachfragen\n\n<VocabCard\n  word=\"Could you repeat that?\"\n  translation=\"Können Sie das wiederholen?\"\n  pronunciation=\"kud juu ri-PIET dhät?\"\n  example=\"I'm sorry, could you repeat that?\"\n/>\n\n| Russisch | Deutsch |\n|-------------|---------|\n| Could you speak slower? | Können Sie langsamer sprechen? |\n| What does that mean? | Was bedeutet das? |\n| I'm still learning | Ich lerne noch Russisch |\n\n<CultureTip flag=\"🇷🇺\" title=\"Tipp für Smalltalk\">\nStelle offene Fragen und zeige echtes Interesse an den Antworten. Die Familie deines Partners wird es schätzen, dass du dich bemühst, sie kennenzulernen.\n</CultureTip>\n\n## Verwandte Artikel\n\n- [Russische Begrüßungen](/de/blog/russian-greetings-and-farewells)\n- [Die Familie deines Partners treffen](/de/blog/russian-meeting-your-partner-s-family)\n\n<CTA />",
+      "issues": [
+        {
+          "type": "language_fingerprint_mismatch",
+          "details": {
+            "nativeLang": "de",
+            "nativeStopWordRatio": 6,
+            "englishStopWordRatio": 10
+          }
+        }
+      ]
+    }
+  ]
+}

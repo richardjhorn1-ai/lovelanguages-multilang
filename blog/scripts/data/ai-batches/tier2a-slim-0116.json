@@ -1,0 +1,432 @@
+{
+  "batchId": "tier2a-slim-0116",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "84ffdf24-00d8-4fe4-8140-54416763c762",
+      "title": "50+ румунських фраз для романтичного вечора",
+      "native_lang": "uk",
+      "target_lang": "ro",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## В ресторані",
+          "subsections": [
+            "### Резервація столика",
+            "### Замовлення",
+            "### Корисні фрази"
+          ]
+        },
+        {
+          "header": "## На прогулянці",
+          "subsections": [
+            "### Запрошення",
+            "### Під час прогулянки"
+          ]
+        },
+        {
+          "header": "## В барі / кав'ярні",
+          "subsections": [
+            "### Замовлення напоїв",
+            "### Тости"
+          ]
+        },
+        {
+          "header": "## Завершення вечора",
+          "subsections": [
+            "### Компліменти",
+            "### Плани на майбутнє"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "85163a75-7a97-4c28-90fc-6b9932acde8d",
+      "title": "Polish Questions: How to Ask Anything",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Essential Questions for Couples",
+          "subsections": [
+            "### About Feelings and Emotions",
+            "### About Daily Life and Plans",
+            "### About the Relationship"
+          ]
+        },
+        {
+          "header": "## Advanced Question Patterns",
+          "subsections": [
+            "### Questions with Prepositions",
+            "### Complex Questions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8525e264-7a45-4b56-9796-36a79861c201",
+      "title": "Frases en Húngaro para tu Primera Cita",
+      "native_lang": "es",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Romper el Hielo",
+          "subsections": [
+            "### \"Nagyon örülök, hogy végre találkozhatok veled\"",
+            "### \"Csodálatosan nézel ki\"",
+            "### \"Nagyon vártam ezt a pillanatot\""
+          ]
+        },
+        {
+          "header": "## Frases para Conocerse",
+          "subsections": [
+            "### \"Mesélj magadról\"",
+            "### \"Mit szeretsz csinálni szabadidődben?\"",
+            "### \"Mi a kedvenc...?\""
+          ]
+        },
+        {
+          "header": "## Frases Románticas",
+          "subsections": [
+            "### \"Nagyon élvezem ezt\"",
+            "### \"Gyönyörű a mosolyod\"",
+            "### \"Nagyon jól érzem magam veled\""
+          ]
+        },
+        {
+          "header": "## Frases para Terminar",
+          "subsections": [
+            "### \"Csodálatos este volt\"",
+            "### \"Találkozhatunk újra?\"",
+            "### \"Írj, ha hazaértél\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "855d4b4a-d2c2-482b-bd05-9feb89ad72ec",
+      "title": "Ruská výslovnost pro začátečníky: Jak mluvit s láskou",
+      "native_lang": "cs",
+      "target_lang": "ru",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## 5 klíčových zvuků, které musíte znát",
+          "subsections": [
+            "### 1. Písmeno \"Ы\" - tajemný zvuk",
+            "### 2. Měkké znaménko \"Ь\"",
+            "### 3. Tvrdé \"Ш\" vs. měkké \"Щ\"",
+            "### 4. Vokál \"Э\"",
+            "### 5. Přízvuk je klíčový!"
+          ]
+        },
+        {
+          "header": "## Přízvuková pravidla v praxi",
+          "subsections": [
+            "### Kde dávat přízvuk?"
+          ]
+        },
+        {
+          "header": "## Nejčastější chyby Čechů",
+          "subsections": [
+            "### 1. Zaměna \"Ы\" za \"И\"",
+            "### 2. Ignorování měkkého znaménka",
+            "### 3. Nesprávný přízvuk"
+          ]
+        },
+        {
+          "header": "## Rychlá nápověda",
+          "subsections": [
+            "### Základní abeceda s výslovností"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "85617ab1-7ed1-45e4-9b74-4f266b7e343b",
+      "title": "Francouzské flirtovací fráze pro Čechy",
+      "native_lang": "cs",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Elegantní lichotky",
+          "subsections": [
+            "### \"Tu es magnifique.\"",
+            "### \"Tu as un sourire irrésistible.\"",
+            "### \"Tu me plais beaucoup.\"",
+            "### \"J'adore tes yeux.\""
+          ]
+        },
+        {
+          "header": "## Romantické fráze",
+          "subsections": [
+            "### \"Je ne peux pas arrêter de penser à toi.\"",
+            "### \"Tu fais battre mon cœur.\"",
+            "### \"Je suis fou/folle de toi.\""
+          ]
+        },
+        {
+          "header": "## Svůdné fráze",
+          "subsections": [
+            "### \"Tu as quelque chose de spécial.\"",
+            "### \"Je pourrais me perdre dans tes yeux.\"",
+            "### \"Tu me rends heureux/heureuse.\""
+          ]
+        },
+        {
+          "header": "## Fráze pro zprávy",
+          "subsections": [
+            "### \"Bonjour mon amour.\"",
+            "### \"Tu me manques.\"",
+            "### \"J'ai hâte de te revoir.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8566e5fb-828f-4de2-a4c4-96559dcd002d",
+      "title": "Macarca Tartışma ve Anlaşmazlık İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Tartışma İfadeleri",
+          "subsections": [
+            "### 1. \"Bántottnak érzem magam, amikor...\"",
+            "### 2. \"Beszélhetünk erről nyugodtan?\"",
+            "### 3. \"Megértem a nézőpontodat, de...\"",
+            "### 4. \"Ne kiabáljunk\"",
+            "### 5. \"Nem ezt akartam mondani\"",
+            "### 6. \"Szükségem van egy kis időre egyedül\"",
+            "### 7. \"Keressünk kompromisszumot\"",
+            "### 8. \"Nem akartalak megbántani\"",
+            "### 9. \"Elmondanád, hogyan érzel?\"",
+            "### 10. \"Azt hiszem, mindkettőnknek le kell nyugodnia\"",
+            "### 11. \"Szeretlek, de dühös vagyok\"",
+            "### 12. \"Beszéljünk erről később\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "859624fe-538d-4ea8-8d98-ad8059ca721b",
+      "title": "Is Italian Hard? Honest Assessment",
+      "native_lang": "en",
+      "target_lang": "it",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Fun Activities for Couples Learning Italian",
+          "subsections": [
+            "### 1. Romantic Date Nights in Italian",
+            "### 2. Morning Coffee Conversations",
+            "### 3. Cooking Italian Together"
+          ]
+        },
+        {
+          "header": "## Making Italian Easier: Proven Strategies for Couples",
+          "subsections": [
+            "### 1. Create Italian-Only Hours",
+            "### 2. Watch Italian Content Together",
+            "### 3. Use Technology"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "85a174d1-5a24-4e8a-be1c-2ab1311b4747",
+      "title": "Godmorgen og Godnat på Polsk: Søde Fraser til Din Partner",
+      "native_lang": "da",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Tekstbeskeder",
+          "subsections": [
+            "### Morgenbeskeder",
+            "### Aftenbeskeder"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "85b4e3c3-e342-4840-97df-4a03d69deff2",
+      "title": "Ryska fraser för att träffa svärföräldrarna – Gör ett gott intryck",
+      "native_lang": "sv",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Första mötet",
+          "subsections": [
+            "### \"Очень рад/рада наконец с вами познакомиться\" (Ochen' rad/rada nakonets s vami poznakomit'sya)",
+            "### \"Я много о вас слышал/слышала\" (Ya mnogo o vas slyshal/slyshala)",
+            "### \"Большое спасибо, что пригласили меня\" (Bol'shoye spasibo, chto priglasili menya)"
+          ]
+        },
+        {
+          "header": "## Artiga fraser",
+          "subsections": [
+            "### \"Пожалуйста, зовите меня [namn]\" (Pozhaluysta, zovite menya [namn])",
+            "### \"У вас прекрасный дом\" (U vas prekrasnyy dom)",
+            "### \"Могу ли я чем-то помочь?\" (Mogu li ya chem-to pomoch'?)",
+            "### \"Еда очень вкусная\" (Yeda ochen' vkusnaya)"
+          ]
+        },
+        {
+          "header": "## Om din relation",
+          "subsections": [
+            "### \"Ваш сын/Ваша дочь очень много для меня значит\"",
+            "### \"Мне очень повезло, что я встретил/встретила [namn]\"",
+            "### \"Мы очень счастливы вместе\" (My ochen' schastlivy vmeste)"
+          ]
+        },
+        {
+          "header": "## Visa intresse",
+          "subsections": [
+            "### \"Расскажите, пожалуйста, больше о [ämne]\"",
+            "### \"Как вы познакомились?\" (Kak vy poznakomilis'?)"
+          ]
+        },
+        {
+          "header": "## Avskedsfraser",
+          "subsections": [
+            "### \"Спасибо за чудесный вечер\" (Spasibo za chudesnyy vecher)",
+            "### \"Было очень приятно познакомиться\" (Bylo ochen' priyatno poznakomit'sya)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "85c87c71-5ed8-41e2-a77c-2676276da2e4",
+      "title": "Испанский для пар: 25 основных фраз",
+      "native_lang": "ru",
+      "target_lang": "es",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Утренние и вечерние фразы",
+          "subsections": [
+            "### Утром:",
+            "### Вечером:"
+          ]
+        },
+        {
+          "header": "## Практические упражнения",
+          "subsections": [
+            "### «Вопрос дня» на испанском:",
+            "### «Комплимент дня»:",
+            "### «Планы на вечер»:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "85cfd99c-9531-4439-a9d8-22de706144a1",
+      "title": "Spanish Flirting Phrases: Romantic Ways to Charm Your Partner",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essential Flirting Phrases",
+          "subsections": [
+            "### Complimenting Their Appearance",
+            "### Expressing Attraction",
+            "### Playful Teasing",
+            "### Romantic Declarations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "85d97aec-7015-4490-bfab-04e2eb013c87",
+      "title": "Γράψτε Ερωτικά Γράμματα στα Πορτογαλικά",
+      "native_lang": "el",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για την Αρχή του Γράμματος",
+          "subsections": [
+            "### 1. Meu amor (Μέου αμόρ)",
+            "### 2. Meu tesouro (Μέου τεζόρου)",
+            "### 3. Meu coração (Μέου κορασάο)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για το Κυρίως Μέρος",
+          "subsections": [
+            "### 4. Tu és o amor da minha vida (Του ες ου αμόρ ντα μίνια βίντα)",
+            "### 5. Cada dia te amo mais (Κάντα ντία τε άμου μάις)",
+            "### 6. Meu coração bate só por ti (Μέου κορασάο μπάτε σο πορ τι)",
+            "### 7. Tu me fazes feliz (Του με φάζες φελίζ)",
+            "### 8. Sou louco/a por ti (Σόου λόκου/α πορ τι)",
+            "### 9. Tu és o meu tudo (Του ες ου μέου τούντου)",
+            "### 10. Sem ti não sou nada (Σεμ τι νάο σόου νάντα)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για το Κλείσιμο",
+          "subsections": [
+            "### 11. Teu/tua para sempre (Τέου/τούα πάρα σέμπρε)",
+            "### 12. Com todo o meu amor (Κομ τόντου ου μέου αμόρ)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8630dee3-edb6-4d5f-857b-6717ec14997d",
+      "title": "Spotkanie z rodziną Twojego greckiego partnera: niezbędne zwroty dla zakochanych",
+      "native_lang": "pl",
+      "target_lang": "el",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Typowe Scenariusze",
+          "subsections": [
+            "### Przywitanie z Rodzicami",
+            "### Prezenty i Podziękowania"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8632c7f9-04b7-47ce-97b6-a1d8e2a9ae84",
+      "title": "Slang Suedez pentru Mesaje: Cum să Trimiți SMS-uri Romantice",
+      "native_lang": "ro",
+      "target_lang": "sv",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Emoji-uri și Reacții",
+          "subsections": [
+            "### Combinații Populare"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "863ef258-4164-4a1b-a7d9-19abcc68c78b",
+      "title": "Γερμανικές Φράσεις Συγχώρεσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις Συγχώρεσης",
+          "subsections": [
+            "### Αίτηση Συγχώρεσης",
+            "### Έκφραση Μετάνοιας",
+            "### Προσφορά Συγχώρεσης",
+            "### Χρόνος για Θεραπεία"
+          ]
+        }
+      ]
+    }
+  ]
+}

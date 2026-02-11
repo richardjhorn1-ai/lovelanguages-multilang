@@ -1,0 +1,553 @@
+{
+  "batchId": "tier2a-slim-0138",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "991e7edb-7888-4e36-b248-6e4ead50e8eb",
+      "title": "50+ Apodos Turcos para Derretir el Corazón",
+      "native_lang": "es",
+      "target_lang": "tr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Apodos por Situación",
+          "subsections": [
+            "### Saludos Matutinos",
+            "### Deseos de Buenas Noches",
+            "### Cuando Extrañas a Alguien"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9941ab8b-6b5a-49b1-8793-483a4e4eb5d2",
+      "title": "Dutch Birthday Wishes for Your Partner: Sweet Messages That Touch the Heart",
+      "native_lang": "en",
+      "target_lang": "nl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Sweet Birthday Messages",
+          "subsections": [
+            "### Simple Wishes",
+            "### Romantic Messages"
+          ]
+        },
+        {
+          "header": "## Birthday Card Messages",
+          "subsections": [
+            "### Heartfelt Short Messages",
+            "### Longer Romantic Messages"
+          ]
+        },
+        {
+          "header": "## Planning the Perfect Birthday",
+          "subsections": [
+            "### Party Vocabulary",
+            "### Surprise Party Phrases"
+          ]
+        },
+        {
+          "header": "## Birthday Milestone Messages",
+          "subsections": [
+            "### 30th Birthday",
+            "### 40th Birthday",
+            "### 50th Birthday"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "994471b2-cae1-4a97-b0e4-0e85fbff315c",
+      "title": "En Yaygın 100 Norveççe Kelime",
+      "native_lang": "tr",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Zamirler",
+          "subsections": [
+            "### 1. Jeg /yay/ - Ben",
+            "### 2. Du /du/ - Sen",
+            "### 3. Han /han/ - O (erkek)",
+            "### 4. Hun /hun/ - O (kadın)",
+            "### 5. Vi /vi/ - Biz",
+            "### 6. Dere /dere/ - Siz",
+            "### 7. De /de/ - Onlar",
+            "### 8. Og /og/ - Ve",
+            "### 9. Men /men/ - Ama",
+            "### 10. Eller /eller/ - Veya"
+          ]
+        },
+        {
+          "header": "## Temel Fiiller",
+          "subsections": [
+            "### 11. Være /vere/ - Olmak",
+            "### 12. Ha /ha/ - Sahip olmak",
+            "### 13. Gjøre /yöre/ - Yapmak",
+            "### 14. Si /si/ - Söylemek",
+            "### 15. Gå /go/ - Gitmek",
+            "### 16. Komme /komme/ - Gelmek",
+            "### 17. Kunne /künne/ - Yapabilmek",
+            "### 18. Vite /vite/ - Bilmek",
+            "### 19. Ville /ville/ - İstemek",
+            "### 20. Se /se/ - Görmek"
+          ]
+        },
+        {
+          "header": "## Sıfatlar",
+          "subsections": [
+            "### 21. God /god/ - İyi",
+            "### 22. Dårlig /dorlig/ - Kötü",
+            "### 23. Stor /stor/ - Büyük",
+            "### 24. Liten /liten/ - Küçük",
+            "### 25. Ny /nü/ - Yeni",
+            "### 26. Gammel /gammel/ - Eski/yaşlı",
+            "### 27. Lang /lang/ - Uzun",
+            "### 28. Kort /kort/ - Kısa",
+            "### 29. Varm /varm/ - Sıcak",
+            "### 30. Kald /kald/ - Soğuk"
+          ]
+        },
+        {
+          "header": "## Zaman İfadeleri",
+          "subsections": [
+            "### 31. Nå /no/ - Şimdi",
+            "### 32. I dag /i dag/ - Bugün",
+            "### 33. I morgen /i morgen/ - Yarın",
+            "### 34. I går /i gor/ - Dün",
+            "### 35. Alltid /alltid/ - Her zaman",
+            "### 36. Aldri /aldri/ - Asla",
+            "### 37. Noen ganger /noen ganger/ - Bazen"
+          ]
+        },
+        {
+          "header": "## Soru Kelimeleri",
+          "subsections": [
+            "### 38. Hva /va/ - Ne",
+            "### 39. Hvor /vor/ - Nerede",
+            "### 40. Når /nor/ - Ne zaman",
+            "### 41. Hvorfor /vorfor/ - Neden",
+            "### 42. Hvordan /vordan/ - Nasıl",
+            "### 43. Hvem /vem/ - Kim"
+          ]
+        },
+        {
+          "header": "## Sayılar",
+          "subsections": [
+            "### 44. En /en/ - Bir",
+            "### 45. To /to/ - İki",
+            "### 46. Tre /tre/ - Üç",
+            "### 47. Fire /fire/ - Dört",
+            "### 48. Fem /fem/ - Beş",
+            "### 49. Ti /ti/ - On",
+            "### 50. Hundre /hundre/ - Yüz"
+          ]
+        },
+        {
+          "header": "## Günlük Kelimeler",
+          "subsections": [
+            "### 51. Ja /ya/ - Evet",
+            "### 52. Nei /nay/ - Hayır",
+            "### 53. Vær så snill /ver so snil/ - Lütfen",
+            "### 54. Takk /tak/ - Teşekkürler",
+            "### 55. Unnskyld /unşüld/ - Özür dilerim",
+            "### 56. Hei /hay/ - Merhaba",
+            "### 57. Ha det /ha de/ - Hoşça kal",
+            "### 58. Kjærlighet /çerlihet/ - Aşk",
+            "### 59. Venn /ven/ - Arkadaş",
+            "### 60. Familie /familiye/ - Aile"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "994bd11a-fe7d-4a81-b6e2-e6e1a3b109f2",
+      "title": "Романтические польские фразы на все случаи",
+      "native_lang": "ru",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Утренние и вечерние фразы",
+          "subsections": [
+            "### Утром:",
+            "### Вечером:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9950d797-8644-4ec0-a2cc-81710575a213",
+      "title": "Rusça Gramer Temelleri: Sevgilinizle Birlikte Öğrenmenin En Kolay Yolu",
+      "native_lang": "tr",
+      "target_lang": "ru",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Temel 5 Kural (Bu Kadar!)",
+          "subsections": [
+            "### 1. Fiil Çekimleri: Konuşan Kişiye Göre Değişir",
+            "### 2. Cinsiyet: Her Şeyin Erkek, Dişi veya Nötr Cinsi Var",
+            "### 3. Vaka Sistemi: Türkçede Olmayan Ama Öğrenmesi Kolay",
+            "### 4. Soru Sözcükleri: Hep Aynı Yerde",
+            "### 5. Basit Cümle Yapısı: Özne + Nesne + Fiil"
+          ]
+        },
+        {
+          "header": "## En Yaygın Hatalar (Ve Nasıl Düzeltilir)",
+          "subsections": [
+            "### 1. Cinsiyet Karışıklığı",
+            "### 2. Fiil Uyuşmazlığı",
+            "### 3. Vurgu Hataları",
+            "### 4. \"Seni\" Kelimesini Unutmak",
+            "### 5. Formal/Informal Karıştırmak"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "995398aa-cb7e-45fa-ae7e-7dd9c238e904",
+      "title": "Cum Să Scrii o Scrisoare de Dragoste în Franceză",
+      "native_lang": "ro",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Începutul Scrisorii",
+          "subsections": [
+            "### Formule de Adresare",
+            "### Primele Rânduri"
+          ]
+        },
+        {
+          "header": "## Corpul Scrisorii",
+          "subsections": [
+            "### Exprimarea Sentimentelor",
+            "### Amintiri"
+          ]
+        },
+        {
+          "header": "## Finalul Scrisorii",
+          "subsections": [
+            "### Promisiuni",
+            "### Formule de Încheiere"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "995a8ce1-bf9c-49b9-a3d7-fc2a3ffc8f69",
+      "title": "Román Flörtölő Kifejezések – Bűvöld El Románul",
+      "native_lang": "hu",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Flörtölő Kifejezések",
+          "subsections": [
+            "### 1. Ești foarte frumoasă (Jesti foarte frumoaszá)",
+            "### 2. Ai ochi frumoși (Áj oki frumosi)",
+            "### 3. Îmi placi (Ími pláci)",
+            "### 4. Vrei să ieșim la o cafea? (Vrej szá jesím la o kafea?)",
+            "### 5. Mă bucur că te-am cunoscut (Mö bukur ká tyám kunoszcut)",
+            "### 6. Ești specială (Jesti specsálá)",
+            "### 7. Nu mă pot opri să mă gândesc la tine (Nu mö pot oprí szá mö gíndeszk la tyine)",
+            "### 8. Zâmbetul tău îmi luminează ziua (Zímbetul táu ími luminezá zíua)",
+            "### 9. Mă simt bine cu tine (Mö szimt bíne ku tyine)",
+            "### 10. Ești dragostea vieții mele (Jesti dragoszty vjetyi mele)"
+          ]
+        },
+        {
+          "header": "## Kulturális Tippek",
+          "subsections": [
+            "### Latin Temperamentum",
+            "### Virágok",
+            "### Család",
+            "### Ünnepek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "996e5d56-bbdf-494c-aad2-073219a0ff84",
+      "title": "Португальські фрази для суперечок і розбіжностей",
+      "native_lang": "uk",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Початок серйозної розмови",
+          "subsections": [
+            "### \"Precisamos conversar\"",
+            "### \"Eu me sinto magoado/magoada quando você...\"",
+            "### \"Podemos discutir isso com calma?\""
+          ]
+        },
+        {
+          "header": "## Вираження незгоди",
+          "subsections": [
+            "### \"Não concordo\"",
+            "### \"Eu vejo isso de forma diferente\"",
+            "### \"Não foi isso que eu quis dizer\""
+          ]
+        },
+        {
+          "header": "## Емоційні вирази",
+          "subsections": [
+            "### \"Isso me machuca\"",
+            "### \"Estou frustrado/frustrada\"",
+            "### \"Preciso que você me escute\""
+          ]
+        },
+        {
+          "header": "## Прохання про простір",
+          "subsections": [
+            "### \"Preciso de tempo para pensar\"",
+            "### \"Vamos fazer uma pausa\""
+          ]
+        },
+        {
+          "header": "## Пошук рішення",
+          "subsections": [
+            "### \"Como podemos resolver isso?\"",
+            "### \"Vamos encontrar um meio-termo\"",
+            "### \"Estou disposto/disposta a ceder\""
+          ]
+        },
+        {
+          "header": "## Визнання помилки",
+          "subsections": [
+            "### \"Você tem razão, eu errei\"",
+            "### \"Eu não deveria ter dito isso\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "99787fee-36bf-40c5-aaf2-b4dfbcbbdca9",
+      "title": "Udtryk Følelser på Tyrkisk: Komplet Guide for Par",
+      "native_lang": "da",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Reagere på Partnerens Følelser",
+          "subsections": [
+            "### Støttende Svar",
+            "### Trøstende Ord"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "997a8a85-a450-480c-8452-1644261a5ebf",
+      "title": "Çekçe Kayınvalide ve Kayınpeder İfadeleri: Aile Tanışması",
+      "native_lang": "tr",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Hitap Şekilleri",
+          "subsections": [
+            "### 1. \"Tchyně\" / \"Tchán\"",
+            "### 2. \"Těší mě\""
+          ]
+        },
+        {
+          "header": "## Önemli İfadeler",
+          "subsections": [
+            "### 3. \"Děkuji, že jste mě pozvali\"",
+            "### 4. \"Jídlo bylo výborné\"",
+            "### 5. \"Váš domov je velmi krásný\"",
+            "### 6. \"Velmi miluji vaše dítě\"",
+            "### 7. \"Mohu vám s něčím pomoct?\"",
+            "### 8. \"Řekněte mi více o vaší rodině\"",
+            "### 9. \"Jsme velmi rádi, že jsme tady\"",
+            "### 10. \"Děkuji za krásný večer\"",
+            "### 11. \"Těším se, až vás poznám lépe\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "998221d0-b6bc-4832-87f8-cc81fdf39020",
+      "title": "Le Norvégien Est-il Difficile à Apprendre ? Guide Réaliste",
+      "native_lang": "fr",
+      "target_lang": "no",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Les Bonnes Nouvelles : Pourquoi le Norvégien Est Plus Facile que Vous ne le Pensez",
+          "subsections": [
+            "### 1. Grammaire Simplifiée",
+            "### 2. Similarité avec l'Anglais",
+            "### 3. Le Son \"Ø\" Vous Est Familier"
+          ]
+        },
+        {
+          "header": "## Les Défis : Ce Qui Pourrait Être Difficile",
+          "subsections": [
+            "### 1. Prononciation",
+            "### 2. L'Accent Tonal",
+            "### 3. Langue Écrite vs Parlée"
+          ]
+        },
+        {
+          "header": "## Conseils pour Apprendre le Norvégien Ensemble",
+          "subsections": [
+            "### 1. Commencez par les Bases",
+            "### 2. Profitez de Vos Connaissances en Anglais",
+            "### 3. Pratiquez Quotidiennement",
+            "### 4. N'Ayez Pas Peur des Erreurs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "999064c9-a2f3-4cbf-9b3d-6f10acfacb6b",
+      "title": "Gramática Turca para Principiantes: Aprende Juntos los Fundamentos del Amor",
+      "native_lang": "es",
+      "target_lang": "tr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Los Fundamentos: 5 Reglas Esenciales",
+          "subsections": [
+            "### 1. El Orden: Sujeto + Objeto + Verbo",
+            "### 2. Armonía Vocálica: Las Vocales Deben Combinarse",
+            "### 3. Sin Artículos: No hay \"el\" ni \"la\"",
+            "### 4. Sufijos de Posesión: Mostrar Pertenencia",
+            "### 5. No hay Género Gramatical"
+          ]
+        },
+        {
+          "header": "## Errores Comunes que Evitar",
+          "subsections": [
+            "### 1. Confundir \"Ben\" y \"Benim\"",
+            "### 2. Olvidar la Armonía Vocálica",
+            "### 3. Orden Incorrecto",
+            "### 4. Negación Doble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "99990082-3857-42a2-b769-2e71e660ca5d",
+      "title": "Görög 'Hiányzol' Kifejezések Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Kifejezések",
+          "subsections": [
+            "### 1. Μου λείπεις (Mu lípisz)",
+            "### 2. Μου λείπεις πολύ (Mu lípisz polí)",
+            "### 3. Δεν μπορώ να σταματήσω να σκέφτομαι εσένα (Den boró na sztamatíszo na szkéftome eszéna)",
+            "### 4. Μακάρι να ήσουν εδώ (Makári na íszun edó)",
+            "### 5. Είσαι πάντα στη σκέψη μου (Ísze pánda szti szképsi mu)",
+            "### 6. Μετράω τις μέρες μέχρι να σε δω (Metráo tisz méresz méhri na sze do)",
+            "### 7. Η καρδιά μου λαχταρά για σένα (I kardiá mu lahtará ja széna)",
+            "### 8. Είσαι τα πάντα για μένα (Ísze ta pánda ja ména)",
+            "### 9. Ανυπομονώ να σε δω (Anipononó na sze do)",
+            "### 10. Χωρίς εσένα όλα είναι άδεια (Horísz eszéna óla íne ádja)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "999b1705-c150-45b6-8207-8da50adf8361",
+      "title": "Tyske Flirtesætninger for Danskere",
+      "native_lang": "da",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Komplimenter",
+          "subsections": [
+            "### \"Du hast wunderschöne Augen\"",
+            "### \"Du siehst heute toll aus\"",
+            "### \"Ich mag dein Lächeln\""
+          ]
+        },
+        {
+          "header": "## Romantiske Udtryk",
+          "subsections": [
+            "### \"Ich denke ständig an dich\"",
+            "### \"Du machst mich glücklich\"",
+            "### \"Bei dir fühle ich mich wohl\""
+          ]
+        },
+        {
+          "header": "## Legende Flirt",
+          "subsections": [
+            "### \"Kommst du öfter hierher?\"",
+            "### \"Glaubst du an Liebe auf den ersten Blick, oder soll ich nochmal vorbeigehen?\""
+          ]
+        },
+        {
+          "header": "## Invitationer",
+          "subsections": [
+            "### \"Hast du Lust, einen Kaffee trinken zu gehen?\"",
+            "### \"Darf ich dich zum Abendessen einladen?\""
+          ]
+        },
+        {
+          "header": "## Kærlige Kælenavne",
+          "subsections": [
+            "### \"Schatz\"",
+            "### \"Liebling\"",
+            "### \"Maus\" / \"Mausi\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "99c1c46c-8093-42a5-8718-fabde99104c4",
+      "title": "Orosz kifejezések az após és anyós megismeréséhez",
+      "native_lang": "hu",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető üdvözlések és bemutatkozás",
+          "subsections": [
+            "### Здравствуйте!",
+            "### Очень приятно познакомиться",
+            "### Меня зовут..."
+          ]
+        },
+        {
+          "header": "## Bókok és elismerés",
+          "subsections": [
+            "### У вас очень уютный дом",
+            "### Спасибо за приглашение",
+            "### Очень вкусно!"
+          ]
+        },
+        {
+          "header": "## A kapcsolatról beszélni",
+          "subsections": [
+            "### Я очень люблю вашего сына / вашу дочь",
+            "### Мы очень счастливы вместе"
+          ]
+        },
+        {
+          "header": "## Kulturális tippek",
+          "subsections": [
+            "### Я хотел(а) бы узнать вашу культуру",
+            "### Научите меня готовить это блюдо"
+          ]
+        },
+        {
+          "header": "## Búcsúzás",
+          "subsections": [
+            "### До свидания!",
+            "### Было очень приятно!"
+          ]
+        }
+      ]
+    }
+  ]
+}

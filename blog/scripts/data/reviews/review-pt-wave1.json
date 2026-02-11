@@ -1,0 +1,306 @@
+{
+  "native_lang": "pt",
+  "wave": 1,
+  "target_langs_reviewed": ["en", "es", "fr", "de", "it", "pl"],
+  "articles_reviewed": 12,
+  "clean_articles": 1,
+  "issues": [
+    {
+      "article_id": "5f342ad6-5d74-4886-9922-37f49ad8dcde",
+      "slug": "english-food-and-restaurant-vocabulary",
+      "target_lang": "en",
+      "issue_type": "pronunciation",
+      "severity": "medium",
+      "description": "Pronunciation of 'Meal' is 'MEE-ool' which is incorrect. 'Meal' is one syllable pronounced approximately 'míol' or 'míl', not two syllables.",
+      "evidence": "pronunciation=\"MEE-ool\""
+    },
+    {
+      "article_id": "5f342ad6-5d74-4886-9922-37f49ad8dcde",
+      "slug": "english-food-and-restaurant-vocabulary",
+      "target_lang": "en",
+      "issue_type": "pronunciation",
+      "severity": "low",
+      "description": "Pronunciation of 'Scrambled eggs' written as 'skrem-bold egs' -- 'bold' is misleading for '-bled'. Should be closer to 'skrém-bld egs'.",
+      "evidence": "pronunciation=\"skrem-bold egs\""
+    },
+    {
+      "article_id": "5f342ad6-5d74-4886-9922-37f49ad8dcde",
+      "slug": "english-food-and-restaurant-vocabulary",
+      "target_lang": "en",
+      "issue_type": "pronunciation",
+      "severity": "medium",
+      "description": "Pronunciation of 'I'll have the...' is 'ail rev de' -- 'rev' is wrong for 'have'. Should be 'ail rev de' -> 'ail hev de'. The 'h' is audible in 'have'.",
+      "evidence": "pronunciation=\"ail rev de\""
+    },
+    {
+      "article_id": "5f342ad6-5d74-4886-9922-37f49ad8dcde",
+      "slug": "english-food-and-restaurant-vocabulary",
+      "target_lang": "en",
+      "issue_type": "pronunciation",
+      "severity": "medium",
+      "description": "Pronunciation 'rau uud yu laik yor steik' for 'How would you like your steak?' -- 'rau' for 'How' is confusing. Should be 'hau' not 'rau'.",
+      "evidence": "pronunciation=\"rau uud yu laik yor steik\""
+    },
+    {
+      "article_id": "0e81a9a4-3c08-4e4e-a5ac-c1a50bea44a1",
+      "slug": "english-pronunciation-guide-for-beginners",
+      "target_lang": "en",
+      "issue_type": "pronunciation",
+      "severity": "medium",
+      "description": "PhraseOfDay pronunciation of 'Love' is 'LAV' but the article later says 'Love' (lav) with boca arredondada. The uppercase 'LAV' in the PhraseOfDay is fine but the guide text says 'O = ou' mapping Love to 'lav' which contradicts the vowel table showing O->ou.",
+      "evidence": "O | \"ou\" | **Love** (lav) -- the O in Love is not 'ou', it's more like 'ah'"
+    },
+    {
+      "article_id": "9c406475-d40b-4055-b808-dda26fb5d08d",
+      "slug": "spanish-video-call-phrases-family",
+      "target_lang": "es",
+      "issue_type": "rendering",
+      "severity": "high",
+      "description": "Content includes raw import statements (import VocabCard from '@components/VocabCard.astro' etc.) which should be stripped. These are Astro framework imports that should not appear in the stored article content.",
+      "evidence": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';"
+    },
+    {
+      "article_id": "9c406475-d40b-4055-b808-dda26fb5d08d",
+      "slug": "spanish-video-call-phrases-family",
+      "target_lang": "es",
+      "issue_type": "rendering",
+      "severity": "high",
+      "description": "PhraseOfDay word is missing from rendered HTML. The word span is empty: <span class=\"...font-header\"></span>. The PhraseOfDay was rendered as a VocabCard (speakable-vocab) instead of a PhraseOfDay (speakable-phrase), losing the word text.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span>"
+    },
+    {
+      "article_id": "fcb4f52e-25e3-4484-b718-cf6eb6e89278",
+      "slug": "french-date-night-vocabulary",
+      "target_lang": "fr",
+      "issue_type": "pronunciation",
+      "severity": "high",
+      "description": "Multiple VocabCards have wrong pronunciations copied from other entries. 'J'ai reserve une table pour deux' has pronunciation '[je pa-SE un sua-RE mer-ve-IOZ]' which is actually the pronunciation for 'J'ai passe une soiree merveilleuse'. Same wrong pronunciation reused 3 times.",
+      "evidence": "\"J'ai reserve une table pour deux\" -> \"[je pa-SE un sua-RE mer-ve-IOZ]\" (pronunciation of a different phrase)"
+    },
+    {
+      "article_id": "fcb4f52e-25e3-4484-b718-cf6eb6e89278",
+      "slug": "french-date-night-vocabulary",
+      "target_lang": "fr",
+      "issue_type": "pronunciation",
+      "severity": "high",
+      "description": "'C'est delicieux' has pronunciation '[se-tan ran-de-VU]' which is the pronunciation for 'C'est un rendez-vous', not 'C'est delicieux'. Completely wrong pronunciation assigned.",
+      "evidence": "\"C'est delicieux\" -> \"[se-tan ran-de-VU]\""
+    },
+    {
+      "article_id": "fcb4f52e-25e3-4484-b718-cf6eb6e89278",
+      "slug": "french-date-night-vocabulary",
+      "target_lang": "fr",
+      "issue_type": "language_correctness",
+      "severity": "high",
+      "description": "Portuguese prose text is systematically missing diacritical marks throughout. Words like 'voce' (should be 'voce'), 'nao' (nao), 'frances' (frances), 'romantico' (romantico), 'relacao' (relacao), 'cardapio', 'musica' all lack accents. At least 15+ instances.",
+      "evidence": "Planejar um encontro romantico em frances adiciona uma camada especial de romance a qualquer relacao"
+    },
+    {
+      "article_id": "fcb4f52e-25e3-4484-b718-cf6eb6e89278",
+      "slug": "french-date-night-vocabulary",
+      "target_lang": "fr",
+      "issue_type": "language_correctness",
+      "severity": "high",
+      "description": "French target-language words in VocabCards are missing French diacritical marks. 'reserve' should be 'reserve' (with accent), 'delicieux' should be 'delicieux', 'soiree' should be 'soiree', 'etait' should be 'etait'. This teaches incorrect French spelling.",
+      "evidence": "word=\"J'ai reserve une table pour deux\" (missing: reserve), word=\"C'est delicieux\" (missing: delicieux)"
+    },
+    {
+      "article_id": "fcb4f52e-25e3-4484-b718-cf6eb6e89278",
+      "slug": "french-date-night-vocabulary",
+      "target_lang": "fr",
+      "issue_type": "pronunciation",
+      "severity": "medium",
+      "description": "Pronunciations use square bracket notation [like this] inconsistently -- some entries use brackets, one does not. Also some use IPA-like symbols (u-with-diaeresis). The table pronunciation column uses a different format [lez WEE-truh] mixing English phonetics.",
+      "evidence": "Pronunciation styles: [tu vo sor-TIR a-VEK mua se SUAR] vs 'un ron-de-vu' vs [lez WEE-truh]"
+    },
+    {
+      "article_id": "80f71c2e-0493-4631-af06-d76ecd4dec53",
+      "slug": "german-long-distance-relationship",
+      "target_lang": "de",
+      "issue_type": "rendering",
+      "severity": "high",
+      "description": "Content includes raw import statements that should be stripped before storage.",
+      "evidence": "import VocabCard from '@components/VocabCard.astro';"
+    },
+    {
+      "article_id": "80f71c2e-0493-4631-af06-d76ecd4dec53",
+      "slug": "german-long-distance-relationship",
+      "target_lang": "de",
+      "issue_type": "rendering",
+      "severity": "high",
+      "description": "PhraseOfDay rendered with empty word span in HTML. The German phrase 'Ich vermisse dich so sehr' is lost in the HTML output.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span>"
+    },
+    {
+      "article_id": "80f71c2e-0493-4631-af06-d76ecd4dec53",
+      "slug": "german-long-distance-relationship",
+      "target_lang": "de",
+      "issue_type": "content_quality",
+      "severity": "medium",
+      "description": "Tips section is identical boilerplate shared with Italian and Polish LDR articles. All 5 tips are word-for-word the same generic advice not specific to German culture or language.",
+      "evidence": "1. Comunicacao regular 2. Surpresas virtuais 3. Planejem juntos 4. Assistam filmes juntos 5. Aprendam o idioma"
+    },
+    {
+      "article_id": "0cfc3e96-c7ca-4796-917c-7018a39eacdb",
+      "slug": "german-meeting-your-partner-s-family",
+      "target_lang": "de",
+      "issue_type": "rendering",
+      "severity": "high",
+      "description": "Content includes raw import statements that should be stripped.",
+      "evidence": "import VocabCard from '@components/VocabCard.astro';"
+    },
+    {
+      "article_id": "0cfc3e96-c7ca-4796-917c-7018a39eacdb",
+      "slug": "german-meeting-your-partner-s-family",
+      "target_lang": "de",
+      "issue_type": "rendering",
+      "severity": "high",
+      "description": "PhraseOfDay rendered with empty word span in HTML. 'Es freut mich, Sie kennenzulernen' is missing from the rendered output.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span>"
+    },
+    {
+      "article_id": "0cfc3e96-c7ca-4796-917c-7018a39eacdb",
+      "slug": "german-meeting-your-partner-s-family",
+      "target_lang": "de",
+      "issue_type": "language_correctness",
+      "severity": "low",
+      "description": "Minor Portuguese grammar issue: 'Sua genuino interesse' should be 'Seu genuino interesse' (masculine article for 'interesse') or better 'Seu interesse genuino'.",
+      "evidence": "Sua genuino interesse na familia e cultura deles vai brilhar"
+    },
+    {
+      "article_id": "7342bfc2-4e31-40b6-a0eb-f802cfecb462",
+      "slug": "italian-long-distance-relationship",
+      "target_lang": "it",
+      "issue_type": "rendering",
+      "severity": "high",
+      "description": "Content includes raw import statements that should be stripped.",
+      "evidence": "import VocabCard from '@components/VocabCard.astro';"
+    },
+    {
+      "article_id": "7342bfc2-4e31-40b6-a0eb-f802cfecb462",
+      "slug": "italian-long-distance-relationship",
+      "target_lang": "it",
+      "issue_type": "rendering",
+      "severity": "high",
+      "description": "PhraseOfDay rendered with empty word span in HTML. 'Mi manchi tantissimo' is missing from the rendered output.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span>"
+    },
+    {
+      "article_id": "7342bfc2-4e31-40b6-a0eb-f802cfecb462",
+      "slug": "italian-long-distance-relationship",
+      "target_lang": "it",
+      "issue_type": "content_quality",
+      "severity": "medium",
+      "description": "Tips section is identical boilerplate shared verbatim with German and Polish LDR articles. No Italian-specific cultural advice.",
+      "evidence": "1. Comunicacao regular 2. Surpresas virtuais 3. Planejem juntos 4. Assistam filmes juntos 5. Aprendam o idioma"
+    },
+    {
+      "article_id": "ae7728a9-3199-4449-a0c8-7cd2e79dc9d6",
+      "slug": "italian-argue-phrases-for-portuguese-speakers",
+      "target_lang": "it",
+      "issue_type": "component_integrity",
+      "severity": "medium",
+      "description": "Uses non-standard <Phrase> component with <Original>, <Translation>, <Pronunciation>, <Context> sub-tags instead of the standard VocabCard component. While it renders correctly in HTML (converted to vocab cards), the content source uses a different component pattern than all other articles.",
+      "evidence": "<Phrase><Original>Sono arrabbiato/a per quello che e successo.</Original><Translation>...</Translation></Phrase>"
+    },
+    {
+      "article_id": "b5eefaa9-35aa-48da-9eec-213158a47fc1",
+      "slug": "polish-long-distance-relationship",
+      "target_lang": "pl",
+      "issue_type": "language_correctness",
+      "severity": "high",
+      "description": "CRITICAL: All vocabulary, phrases, tables, and VocabCards contain ENGLISH instead of POLISH. The article claims to teach Polish but every single phrase is in English (e.g., 'I miss you', 'I wish you were here', 'Distance means nothing'). Not a single Polish word appears in the vocabulary.",
+      "evidence": "Table header says 'Polones' but entries are: 'I miss you | ai mis iu | Sinto sua falta'"
+    },
+    {
+      "article_id": "b5eefaa9-35aa-48da-9eec-213158a47fc1",
+      "slug": "polish-long-distance-relationship",
+      "target_lang": "pl",
+      "issue_type": "pronunciation",
+      "severity": "high",
+      "description": "All pronunciations are English phonetic guides (e.g., 'ai mis iu', 'ai uish iu uer hir') because the words themselves are English. These are English pronunciation guides, not Polish.",
+      "evidence": "pronunciation=\"ai mis iu sou match\" for word=\"I miss you so much\""
+    },
+    {
+      "article_id": "b5eefaa9-35aa-48da-9eec-213158a47fc1",
+      "slug": "polish-long-distance-relationship",
+      "target_lang": "pl",
+      "issue_type": "rendering",
+      "severity": "high",
+      "description": "Content includes raw import statements that should be stripped.",
+      "evidence": "import VocabCard from '@components/VocabCard.astro';"
+    },
+    {
+      "article_id": "b5eefaa9-35aa-48da-9eec-213158a47fc1",
+      "slug": "polish-long-distance-relationship",
+      "target_lang": "pl",
+      "issue_type": "rendering",
+      "severity": "high",
+      "description": "PhraseOfDay rendered with empty word span in HTML.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span>"
+    },
+    {
+      "article_id": "b5eefaa9-35aa-48da-9eec-213158a47fc1",
+      "slug": "polish-long-distance-relationship",
+      "target_lang": "pl",
+      "issue_type": "content_quality",
+      "severity": "medium",
+      "description": "Tips section is identical boilerplate shared with German and Italian LDR articles.",
+      "evidence": "1. Comunicacao regular 2. Surpresas virtuais 3. Planejem juntos"
+    },
+    {
+      "article_id": "81b4cc4a-92ad-4d06-85f6-b17b7af8226c",
+      "slug": "polish-miss-you-phrases-for-portuguese-speakers",
+      "target_lang": "pl",
+      "issue_type": "pronunciation",
+      "severity": "medium",
+      "description": "Pronunciation notes section uses IPA notation (/teng-sk-nye/, /serts-e/, /mee-wosh-ch/) instead of Portuguese-friendly phonetic guides. The rest of the article avoids IPA, but this section drops into technical IPA symbols that a typical learner would not understand.",
+      "evidence": "\"Teskniy\" - /teng-sk-nye/ - O 'e' e nasal; \"Serce\" - /serts-e/; \"Milosc\" - /mee-wosh-ch/"
+    },
+    {
+      "article_id": "81b4cc4a-92ad-4d06-85f6-b17b7af8226c",
+      "slug": "polish-miss-you-phrases-for-portuguese-speakers",
+      "target_lang": "pl",
+      "issue_type": "component_integrity",
+      "severity": "medium",
+      "description": "Only 1 VocabCard in the entire article despite having 15+ Polish phrases. Most phrases are presented as raw bold text with translations in italics, lacking the interactive VocabCard component that provides structured pronunciation and examples.",
+      "evidence": "**Teskniy za toba bardzo.** *Sinto muito a sua falta.* (no VocabCard wrapper)"
+    },
+    {
+      "article_id": "81b4cc4a-92ad-4d06-85f6-b17b7af8226c",
+      "slug": "polish-miss-you-phrases-for-portuguese-speakers",
+      "target_lang": "pl",
+      "issue_type": "content_quality",
+      "severity": "low",
+      "description": "No PhraseOfDay component used. Article jumps directly into content without the standard featured phrase that other articles include.",
+      "evidence": "Article starts with prose paragraph, no <PhraseOfDay> component"
+    },
+    {
+      "article_id": "3f681053-a029-4bfb-adc0-7542a1823b51",
+      "slug": "french-in-laws-phrases-for-portuguese-speakers",
+      "target_lang": "fr",
+      "issue_type": "component_integrity",
+      "severity": "medium",
+      "description": "Zero VocabCard, PhraseOfDay, or CultureTip components used. All phrases are presented as raw bold text with translations in italics. This makes the article inconsistent with other articles that use interactive components for vocabulary presentation.",
+      "evidence": "**C'est un plaisir de vous rencontrer enfin.** *E um prazer finalmente conhece-los.* (no VocabCard)"
+    },
+    {
+      "article_id": "3f681053-a029-4bfb-adc0-7542a1823b51",
+      "slug": "french-in-laws-phrases-for-portuguese-speakers",
+      "target_lang": "fr",
+      "issue_type": "content_quality",
+      "severity": "low",
+      "description": "No pronunciation guides provided for any of the French phrases. Unlike other articles that include phonetic pronunciation, this article gives only the French text and Portuguese translation with no help on how to actually say the phrases.",
+      "evidence": "**Merci beaucoup de m'accueillir.** *Muito obrigado(a) por me receberem.* -- no pronunciation"
+    }
+  ],
+  "systemic_patterns": [
+    "Import statements in content: 5 of 12 articles (articles 2, 6, 7, 8, 10) include raw Astro import statements (import VocabCard from '@components/VocabCard.astro') that should be stripped during content generation or processing.",
+    "PhraseOfDay rendering broken when imports present: All 5 articles with import statements have their PhraseOfDay component rendered as a VocabCard with an empty word span, causing the featured phrase text to disappear from the HTML output.",
+    "LDR article boilerplate: The three long-distance relationship articles (German, Italian, Polish) share identical tips sections, identical closing paragraphs, and identical Portuguese prose structure. Only the vocabulary differs (and in the Polish case, even that is wrong).",
+    "Polish LDR article completely in wrong language: Article 10 (polish-long-distance-relationship) has ALL target-language content in English instead of Polish. Every table entry, VocabCard, and pronunciation guide teaches English, not Polish. This is the most severe single issue in the wave.",
+    "French date night article (article 4) has systematic accent stripping: Both Portuguese prose and French vocabulary words are missing diacritical marks throughout, and 3 VocabCards have copy-pasted wrong pronunciations from other entries.",
+    "Component usage inconsistency: Some articles (5, 9, 11) use minimal or no interactive components (VocabCard, PhraseOfDay, CultureTip), presenting phrases as raw bold text instead. This creates an inconsistent learning experience compared to articles that use the full component set.",
+    "Pronunciation guide quality varies widely: Article 0 uses Portuguese-adapted phonetics, article 4 uses square-bracket notation with French phonetic symbols, article 11 drops into IPA notation in one section. No consistent pronunciation style across the wave."
+  ]
+}

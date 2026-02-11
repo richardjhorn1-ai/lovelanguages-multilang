@@ -1,0 +1,125 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0205",
+  "articles": [
+    {
+      "id": "39fd8b9c-6f33-4ca8-b4f5-38eea6e3bb72",
+      "title": "Deense SMS-Taal voor Stellen: Lieve Berichtjes Sturen",
+      "native_lang": "nl",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nWil je je Deense partner verrassen met schattige berichtjes? Met deze sms-taal en afkortingen chat je als een echte Deen!\n\n## Populaire Afkortingen\n\n<PhraseOfDay\n  word=\"E.D. / Elsker dig\"\n  translation=\"Ik hou van je\"\n  pronunciation=\"EL-sker dai\"\n  context=\"De meest romantische afkorting om te kennen!\"\n/>\n\n<VocabCard\n  word=\"Ked\"\n  translation=\"Knus en dikke\"\n  pronunciation=\"keth\"\n  example=\"Ked! Ses i morgen! (Knuffel! Tot morgen!)\"\n/>\n\n<VocabCard\n  word=\"Hejsa\"\n  translation=\"Heey / Hoi (vrolijk)\"\n  pronunciation=\"HAI-sa\"\n  example=\"Hejsa skat! Hvordan går det?\"\n/>\n\n<VocabCard\n  word=\"Kh\"\n  translation=\"Kærlig hilsen (liefs)\"\n  pronunciation=\"kehr-lee HIL-sen\"\n  example=\"Sover snart. Kh!\"\n/>\n\n<VocabCard\n  word=\"Iø\"\n  translation=\"I øvrigt (trouwens)\"\n  pronunciation=\"ee UH-vrit\"\n  example=\"Iø, hvad skal vi lave i aften?\"\n/>\n\n<CultureTip title=\"Deense Directheid\" flag=\"🇩🇰\">\nDenen zijn direct in hun communicatie, ook in tekst. Korte berichten zijn normaal en niet onbeleefd!\n</CultureTip>\n\n## Liefdesberichtjes\n\n<VocabCard\n  word=\"Savner dig ❤️\"\n  translation=\"Ik mis je\"\n  pronunciation=\"SOW-ner dai\"\n  example=\"Savner dig så meget! Kom snart hjem.\"\n/>\n\n<VocabCard\n  word=\"Tænker på dig\"\n  translation=\"Ik denk aan je\"\n  pronunciation=\"TEN-ker po dai\"\n  example=\"Keder mig på arbejde. Tænker på dig!\"\n/>\n\n<VocabCard\n  word=\"Du er den bedste\"\n  translation=\"Jij bent de beste\"\n  pronunciation=\"doo er den BEH-ste\"\n  example=\"Du er den bedste, skat! 💕\"\n/>\n\n<VocabCard\n  word=\"Kan ikke vente\"\n  translation=\"Kan niet wachten\"\n  pronunciation=\"kan IK-ke VEN-te\"\n  example=\"Kan ikke vente med at se dig i aften!\"\n/>\n\n<VocabCard\n  word=\"Kram\"\n  translation=\"Knuffel\"\n  pronunciation=\"kram\"\n  example=\"Stort kram til dig! 🤗\"\n/>\n\n## Dagelijkse Berichten\n\n<VocabCard\n  word=\"Gm / God morgen\"\n  translation=\"Goedemorgen\"\n  pronunciation=\"go MOR-en\"\n  example=\"Gm skat! Sov du godt?\"\n/>\n\n<VocabCard\n  word=\"Gn / God nat\"\n  translation=\"Goedenacht\"\n  pronunciation=\"go nat\"\n  example=\"Gn min elskede! Drøm sødt! 💤\"\n/>\n\n<VocabCard\n  word=\"Hvad laver du?\"\n  translation=\"Wat doe je?\"\n  pronunciation=\"va LAH-ver doo\"\n  example=\"Hej! Hvad laver du?\"\n/>\n\n<VocabCard\n  word=\"Lige nu\"\n  translation=\"Nu / op dit moment\"\n  pronunciation=\"LEE-e noo\"\n  example=\"Er hjemme lige nu. Kom forbi!\"\n/>\n\n<VocabCard\n  word=\"Senere\"\n  translation=\"Later\"\n  pronunciation=\"SEH-ne-re\"\n  example=\"Snakkes senere! 👋\"\n/>\n\n## Afspraken Maken\n\n<VocabCard\n  word=\"Skal vi ses?\"\n  translation=\"Zullen we afspreken?\"\n  pronunciation=\"skal vee ses\"\n  example=\"Skal vi ses i aften?\"\n/>\n\n<VocabCard\n  word=\"Hvor og hvornår?\"\n  translation=\"Waar en wanneer?\"\n  pronunciation=\"vor o vor-NOR\"\n  example=\"Skal vi ses? Hvor og hvornår?\"\n/>\n\n<VocabCard\n  word=\"Er du hjemme?\"\n  translation=\"Ben je thuis?\"\n  pronunciation=\"er doo YEM-me\"\n  example=\"Er du hjemme? Jeg kommer forbi!\"\n/>\n\n<VocabCard\n  word=\"Kommer snart\"\n  translation=\"Kom zo\"\n  pronunciation=\"KOM-mer snart\"\n  example=\"Kommer snart! 5 min 🏃\"\n/>\n\n<VocabCard\n  word=\"Er på vej\"\n  translation=\"Ben onderweg\"\n  pronunciation=\"er po vai\"\n  example=\"Er på vej nu!\"\n/>\n\n<CultureTip title=\"Punctueel SMS'en\" flag=\"⏰\">\nAls je zegt dat je eraan komt, verwachten Denen dat je ook echt komt. Laat weten als je vertraagd bent!\n</CultureTip>\n\n## Emoji's en Reacties\n\n### Populaire Combinaties\n\n| Emoji | Deense Context |\n|-------|---------------|\n| ❤️ | Elsker dig / E.D. |\n| 😘 | Kys (kus) |\n| 🥰 | Skat / Elskede |\n| 💕 | Vi to |\n| 🤗 | Kram (knuffel) |\n| 😊 | Glad / Dejligt |\n| 🇩🇰 | Nationale trots |\n\n<VocabCard\n  word=\"😘 Kys\"\n  translation=\"Kus\"\n  pronunciation=\"kuus\"\n  example=\"Kys kys! Ses snart! 😘😘\"\n/>\n\n## Grappige Reacties\n\n<VocabCard\n  word=\"Haha / Hihi\"\n  translation=\"Haha\"\n  pronunciation=\"ha-ha / hee-hee\"\n  example=\"Haha det var sjovt! 😂\"\n/>\n\n<VocabCard\n  word=\"Ej hvor sjovt!\"\n  translation=\"Wat grappig!\"\n  pronunciation=\"ai vor shovt\"\n  example=\"Ej hvor sjovt! 🤣\"\n/>\n\n<VocabCard\n  word=\"Ej hvor sødt!\"\n  translation=\"Wat lief!\"\n  pronunciation=\"ai vor suht\"\n  example=\"Ej hvor sødt af dig! 🥺\"\n/>\n\n<VocabCard\n  word=\"Nej!\"\n  translation=\"Nee! (verbaasd)\"\n  pronunciation=\"nai\"\n  example=\"Nej! Det passer ikke! 😱\"\n/>\n\n## Zoete Koosnaampjes (SMS-versie)\n\n| Deens | Nederlands |\n|-------|------------|\n| Skat | Schat |\n| Søde | Lieverd |\n| Min skat | Mijn schat |\n| Babe | Babe |\n| Kæreste | Liefje |\n| Min elskede | Mijn geliefde |\n\n<VocabCard\n  word=\"Hej søde!\"\n  translation=\"Hoi lieverd!\"\n  pronunciation=\"hai SUH-the\"\n  example=\"Hej søde! Har du det godt?\"\n/>\n\n## Bevestigingen\n\n<VocabCard\n  word=\"Ja!\"\n  translation=\"Ja!\"\n  pronunciation=\"ya\"\n  example=\"Ja! Det lyder perfekt!\"\n/>\n\n<VocabCard\n  word=\"Ok / Okay\"\n  translation=\"Oké\"\n  pronunciation=\"oh-KAY\"\n  example=\"Ok skat, ses der!\"\n/>\n\n<VocabCard\n  word=\"Fedt!\"\n  translation=\"Vet! / Cool!\"\n  pronunciation=\"fet\"\n  example=\"Fedt! Glæder mig!\"\n/>\n\n<VocabCard\n  word=\"Perfekt!\"\n  translation=\"Perfect!\"\n  pronunciation=\"per-FEKT\"\n  example=\"Perfekt! Kl. 19 ved caféen!\"\n/>\n\n<VocabCard\n  word=\"Selvfølgelig\"\n  translation=\"Natuurlijk\"\n  pronunciation=\"sel-FUL-ge-lee\"\n  example=\"Selvfølgelig skat! Alt for dig!\"\n/>\n\n## Uitdrukkingen van Genegenheid\n\n<VocabCard\n  word=\"Du betyder alt for mig\"\n  translation=\"Je betekent alles voor mij\"\n  pronunciation=\"doo be-TUU-ther alt for mai\"\n  example=\"Ved du det? Du betyder alt for mig ❤️\"\n/>\n\n<VocabCard\n  word=\"Glæder mig til at se dig\"\n  translation=\"Ik kijk ernaar uit je te zien\"\n  pronunciation=\"GLEH-ther mai til at seh dai\"\n  example=\"Glæder mig så meget til at se dig! 🥰\"\n/>\n\n<VocabCard\n  word=\"Drøm sødt om mig\"\n  translation=\"Droom lief over mij\"\n  pronunciation=\"druhm suht om mai\"\n  example=\"Gn skat! Drøm sødt om mig! 😴💕\"\n/>\n\n\n## SMS Snelgids\n\n| Situatie | Deens | Afkorting |\n|----------|-------|-----------|\n| Ik hou van je | Elsker dig | E.D. |\n| Goedemorgen | God morgen | Gm |\n| Goedenacht | God nat | Gn |\n| Knuffel | Kram | - |\n| Kus | Kys | - |\n| Liefs | Kærlig hilsen | Kh |\n| Tot ziens | Vi ses | - |\n\n## Voorbeeldgesprek\n\n**A:** Hejsa skat! Hvad laver du? 💕\n\n**B:** Hej søde! Er lige kommet hjem. Savner dig!\n\n**A:** Aww 🥰 Skal vi ses i aften?\n\n**B:** Ja! Fedt! Hvor og hvornår?\n\n**A:** Kl 19 ved Nyhavn? 🍷\n\n**B:** Perfekt! Glæder mig! E.D. ❤️\n\n**A:** E.D. også! Ses snart! Kys kys 😘\n\n<CultureTip title=\"Keep it Simple\" flag=\"📱\">\nDeense sms-taal is praktisch en direct. Je hoeft niet alles uit te schrijven - korte berichten zijn heel normaal!\n</CultureTip>\n\n<CTA\n  text=\"Wil je vloeiend Deens leren chatten met je partner?\"\n  buttonText=\"Start Je Deense Taalreis\"\n/>\n",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 265,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Emoji's en Reacties"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "3a184906-db3d-47e2-b126-e297b951f318",
+      "title": "Phrases danoises sur le pardon en couple",
+      "native_lang": "fr",
+      "target_lang": "da",
+      "category": "communication",
+      "content": "Le pardon est essentiel pour maintenir l'harmonie dans une relation. Avec un partenaire danois, l'objectif est de retrouver le \"hygge\" - ce sentiment de bien-être ensemble.\n\n## Le pardon dans la culture danoise\n\nLes Danois préfèrent résoudre les conflits rapidement pour retrouver l'atmosphère chaleureuse et confortable qui caractérise leurs relations.\n\n## Expressions pour demander pardon\n\n### S'excuser sincèrement\n\n**\"Jeg er virkelig ked af det, jeg gjorde.\"**\n*Je suis vraiment désolé(e) pour ce que j'ai fait.*\n\n**\"Jeg tog fejl, og jeg fortryder det dybt.\"**\n*J'avais tort et je le regrette profondément.*\n\n**\"Der er ingen undskyldning for min opførsel.\"**\n*Il n'y a pas d'excuse pour mon comportement.*\n\n### Exprimer ses regrets\n\n**\"Jeg ville aldrig såre dig.\"**\n*Je n'ai jamais voulu te blesser.*\n\n**\"Hvis jeg kunne gøre det ugjort, ville jeg gøre det.\"**\n*Si je pouvais le défaire, je le ferais.*\n\n### S'engager à changer\n\n**\"Jeg lover at blive bedre.\"**\n*Je promets de m'améliorer.*\n\n**\"Jeg vil arbejde på mig selv.\"**\n*Je vais travailler sur moi-même.*\n\n## Expressions pour pardonner\n\n### Accorder le pardon\n\n**\"Jeg tilgiver dig.\"**\n*Je te pardonne.*\n\n**\"Alle laver fejl. Jeg forstår.\"**\n*Tout le monde fait des erreurs. Je comprends.*\n\n**\"Lad os lægge dette bag os.\"**\n*Laissons cela derrière nous.*\n\n### Exprimer la réconciliation\n\n**\"Jeg vil ikke have, at dette kommer imellem os.\"**\n*Je ne veux pas que cela nous sépare.*\n\n**\"Det vigtigste er, at vi går videre sammen.\"**\n*L'important est qu'on avance ensemble.*\n\n## Retrouver le \"hygge\"\n\nAprès le pardon, les Danois cherchent à restaurer le \"hygge\". Un moment chaleureux ensemble, peut-être avec des bougies et un bon repas.\n\n## Conclusion\n\nLe pardon danois vise à restaurer l'harmonie. Utilisez ces expressions pour retrouver le bien-être dans votre relation.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 278,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Expressions pour demander pardon",
+              "## Expressions pour pardonner"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "3a1998bd-c761-44bb-815c-22749546a39d",
+      "title": "Expresii în Engleză pentru Reconciliere și Împăcare în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "en",
+      "category": "communication",
+      "content": "După o ceartă, momentul reconcilierii este la fel de important ca modul în care ai gestionat conflictul. Dacă partenerul tău vorbește engleză, a ști cum să-ți ceri scuze și să reconstruiești legătura în limba lui poate transforma o experiență dureroasă într-o oportunitate de apropiere.\n\n## De Ce Contează Reconcilierea\n\nStudiile arată că cuplurile de succes nu sunt cele care nu se ceartă, ci cele care știu să se împace. Reconcilierea autentică vindecă rănile și poate chiar întări relația. Dar trebuie făcută corect - scuzele superficiale sau forțate pot face mai mult rău decât bine.\n\n## Expresii pentru Cererea Scuzelor\n\n### Scuze Sincere\n\n**\"I'm sorry for what I said.\"**\n*Îmi pare rău pentru ce am spus.*\nO scuză simplă și directă pentru cuvinte dureroase.\n\n**\"I was wrong, and I apologize.\"**\n*Am greșit și îmi cer scuze.*\nRecunoașterea clară a greșelii, fără justificări.\n\n**\"I shouldn't have reacted that way.\"**\n*N-ar fi trebuit să reacționez așa.*\nÎți asumi responsabilitatea pentru comportament.\n\n**\"I'm sorry for hurting you. That wasn't my intention.\"**\n*Îmi pare rău că te-am rănit. Nu a fost intenția mea.*\nRecunoști impactul acțiunilor tale.\n\n### Exprimarea Regretului Profund\n\n**\"I feel terrible about what happened.\"**\n*Mă simt groaznic din cauza celor întâmplate.*\nExprimi regretul autentic.\n\n**\"I hate that I made you feel that way.\"**\n*Urăsc că te-am făcut să te simți așa.*\nArați că îți pasă de sentimentele partenerului.\n\n**\"I wish I could take it back.\"**\n*Aș vrea să pot lua înapoi ce am spus/făcut.*\nExprimi dorința de a repara.\n\n## Expresii pentru Împăcare\n\n### Inițierea Dialogului\n\n**\"Can we talk about what happened?\"**\n*Putem vorbi despre ce s-a întâmplat?*\nDeschizi ușa pentru reconciliere.\n\n**\"I don't want us to go to bed angry.\"**\n*Nu vreau să ne culcăm supărați.*\nExprimi dorința de rezolvare rapidă.\n\n**\"I miss the way things were between us.\"**\n*Îmi lipsește cum erau lucrurile între noi.*\nArați că îți dorești să reveniți la normal.\n\n### Oferirea de Siguranță\n\n**\"I love you, and this doesn't change that.\"**\n*Te iubesc, și asta nu schimbă nimic.*\nReafirmi iubirea în ciuda conflictului.\n\n**\"We're going to be okay.\"**\n*O să fim bine.*\nOferi asigurare despre viitorul relației.\n\n**\"This is just a bump in the road.\"**\n*E doar un hop în drum.*\nPui conflictul în perspectivă.\n\n### Reconstruirea Conexiunii\n\n**\"Can I give you a hug?\"**\n*Pot să te îmbrățișez?*\nCeri permisiunea pentru contact fizic - important după o ceartă.\n\n**\"Let's start fresh.\"**\n*Să o luăm de la capăt.*\nPropui un nou început.\n\n**\"What can I do to make it up to you?\"**\n*Ce pot face să repar?*\nArați disponibilitatea de a acționa.\n\n## Acceptarea Scuzelor\n\n**\"I forgive you.\"**\n*Te iert.*\nSimplă și puternică.\n\n**\"I appreciate you apologizing.\"**\n*Apreciez că ți-ai cerut scuze.*\nRecunoști efortul partenerului.\n\n**\"Let's put this behind us.\"**\n*Să lăsăm asta în urmă.*\nSemnalezi disponibilitatea de a merge mai departe.\n\n**\"I know you didn't mean to hurt me.\"**\n*Știu că n-ai vrut să mă rănești.*\nArăți înțelegere.\n\n## Nuanțe Importante\n\n### Timing\nNu forța reconcilierea prea devreme. Uneori ambii aveți nevoie de timp să vă calmați.\n\n### Acțiuni vs Cuvinte\nÎn cultura anglofonă, acțiunile care urmează scuzelor sunt la fel de importante ca cuvintele. Demonstrează prin fapte că ai înțeles.\n\n### Evită Repetarea\nScuzele își pierd valoarea dacă comportamentul se repetă. Promite doar ce poți respecta.\n\n## Expresii de Evitat\n\n- **\"I'm sorry you feel that way\"** - Nu e o scuză reală; transferi vina pe partener\n- **\"I'm sorry, but...\"** - Justificările anulează scuza\n- **\"Fine, I'm sorry\"** - Tonul pasiv-agresiv face mai mult rău\n\n## Sfaturi Practice\n\n1. **Privește în ochi** - Contactul vizual arată sinceritate\n2. **Alege momentul potrivit** - Nu când partenerul e încă foarte supărat\n3. **Fii specific** - Scuzele pentru lucruri concrete sunt mai puternice\n4. **Nu te aștepta la iertare imediată** - Dă timp partenerului să proceseze\n5. **Urmează cu acțiuni** - Arată prin fapte că ai înțeles\n\n## Concluzie\n\nReconcilierea în engleză cu partenerul necesită sinceritate, răbdare și acțiuni concrete. Cu aceste expresii, vei putea repara legătura după un conflict și chiar să o întărești. Amintește-ți: modul în care te împaci spune mai multe despre relație decât modul în care te cerți.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Expresii pentru Cererea Scuzelor",
+              "## Expresii pentru Împăcare",
+              "## Nuanțe Importante"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "3a1fde0c-558d-4968-9acb-a657e5f09f43",
+      "title": "Francuskie zwroty o zazdrości i zaufaniu dla par",
+      "native_lang": "pl",
+      "target_lang": "fr",
+      "category": "communication",
+      "content": "Francuzi mają reputację romantycznych kochanków, ale zazdrość może pojawić się w każdym związku. W relacji z osobą mówiącą po francusku ważne jest, by otwarcie komunikować uczucia.\n\n## Francuska kultura a zazdrość\n\nFrancuzi cenią dyskrecję i elegancję, także w wyrażaniu emocji. Otwarta rozmowa jest ważna, ale bez dramatyzowania.\n\n## Wyrażanie uczuć zazdrości\n\n### \"Je me sens un peu jaloux/jalouse quand...\"\n*Czuję się trochę zazdrosny/zazdrosna, kiedy...*\n\nWymowa: że mə son ön pö ża-LU/ża-LUZ kon\n\n### \"Je me sens en insécurité à propos de...\"\n*Czuję się niepewnie w kwestii...*\n\nWymowa: że mə son on en-se-ky-ri-TE a pro-PO də\n\n### \"Ça me dérange quand tu...\"\n*Przeszkadza mi, kiedy ty...*\n\nWymowa: sa mə de-RONŻ kon ty\n\n## Pytania budujące zaufanie\n\n### \"Peux-tu me rassurer sur...?\"\n*Czy możesz mnie uspokoić w kwestii...?*\n\nWymowa: pö ty mə ra-sy-RE syr\n\n### \"Qui était cette personne à qui tu parlais?\"\n*Kim była ta osoba, z którą rozmawiałeś?*\n\nWymowa: ki e-TE set per-SON a ki ty par-LE\n\n### \"Est-ce que j'exagère?\"\n*Czy przesadzam?*\n\nWymowa: es kə żeg-za-ŻER\n\n## Wyrażanie potrzeby zaufania\n\n### \"J'ai besoin que tu sois honnête avec moi\"\n*Potrzebuję, żebyś był/była ze mną szczery/szczera*\n\nWymowa: że be-ZWEN kə ty swa o-NET a-WEK mwa\n\n### \"Je te fais confiance, mais j'ai du mal avec...\"\n*Ufam Ci, ale trudno mi z...*\n\nWymowa: że tə fe kon-FJONS me że dy mal a-WEK\n\n### \"On peut parler de nos limites?\"\n*Czy możemy porozmawiać o granicach?*\n\nWymowa: on pö par-LE də no li-MIT\n\n## Uspokajanie partnera\n\n### \"Tu n'as pas à t'inquiéter\"\n*Nie musisz się martwić*\n\nWymowa: ty na pa a ten-kje-TE\n\n### \"Tu es le seul/la seule pour moi\"\n*Jesteś jedyny/jedyna dla mnie*\n\nWymowa: ty e lə söl/la söl pur mwa\n\n### \"Je ne ferais jamais rien pour te blesser\"\n*Nigdy nie zrobiłbym nic, co by Cię zraniło*\n\nWymowa: że nə fə-RE ża-ME rjen pur tə ble-SE\n\n## Budowanie zaufania\n\n### \"Soyons plus ouverts l'un envers l'autre\"\n*Bądźmy bardziej otwarci wobec siebie*\n\nWymowa: swa-JON ply zu-WER lön on-WER lotr\n\n### \"Je veux qu'on se fasse entièrement confiance\"\n*Chcę, żebyśmy sobie całkowicie ufali*\n\nWymowa: że wö kon sə fas on-tjer-MON kon-FJONS\n\n## Czego unikać\n\n- **\"Tu es ridicule\"** - bagatelizuje uczucia\n- **\"Tu es toujours jaloux/jalouse\"** - oskarżenie\n- **\"Je parle à qui je veux\"** - zamyka dialog\n\n## Wskazówki kulturowe\n\nFrancuzi cenią dyskrecję. Otwarta zazdrość może być postrzegana jako brak klasy. Lepiej wyrazić uczucia spokojnie i prywatnie.\n\nLa confiance est le fondement de l'amour! (Zaufanie jest fundamentem miłości!)",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Wyrażanie uczuć zazdrości",
+              "## Pytania budujące zaufanie",
+              "## Wyrażanie potrzeby zaufania",
+              "## Uspokajanie partnera",
+              "## Budowanie zaufania"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "3a38e84c-2084-490d-a754-1d543584f415",
+      "title": "Turkse Zinnen over Jaloezie en Vertrouwen",
+      "native_lang": "nl",
+      "target_lang": "tr",
+      "category": "communication",
+      "content": "In Turkse cultuur is vertrouwen in relaties essentieel. Deze zinnen helpen je om jaloezie te bespreken.\n\n## Essentiële zinnen\n\n### 1. \"Kendimi güvensiz hissediyorum...\"\n**Betekenis:** Ik voel me onzeker...\n**Uitspraak:** *ken-die-mie gue-ven-siz hies-se-die-jo-roem*\n\n### 2. \"Sana tamamen güveniyorum\"\n**Betekenis:** Ik vertrouw je volledig\n**Uitspraak:** *sa-na ta-ma-men gue-ve-nie-jo-roem*\n\n### 3. \"Beni rahatlatabilir misin?\"\n**Betekenis:** Kun je me geruststellen?\n**Uitspraak:** *be-nie ra-hat-la-ta-bie-lier mie-sien*\n\n### 4. \"Kıskanmıyorum, sadece endişeleniyorum\"\n**Betekenis:** Ik ben niet jaloers, alleen bezorgd\n**Uitspraak:** *kies-kan-mie-jo-roem, sa-de-dze en-die-sje-le-nie-jo-roem*\n\n### 5. \"Konuştuğun kişi kimdi?\"\n**Betekenis:** Wie was de persoon met wie je praatte?\n**Uitspraak:** *ko-noe-sjtoe-oen kie-sjie kjem-die*\n\n### 6. \"Sana güvenebileceğimi bilmem gerekiyor\"\n**Betekenis:** Ik moet weten dat ik je kan vertrouwen\n**Uitspraak:** *sa-na gue-ve-ne-bie-le-dze-ie-mie biel-mem ge-re-kie-jor*\n\n### 7. \"Endişelenecek bir şey yok\"\n**Betekenis:** Er is niets om je zorgen over te maken\n**Uitspraak:** *en-die-sje-le-ne-dzek bier sjej jok*\n\n### 8. \"Gözlerim sadece seni görüyor\"\n**Betekenis:** Mijn ogen zien alleen jou\n**Uitspraak:** *geuz-le-riem sa-de-dze se-nie geu-rue-jor*\n\n### 9. \"Seni rahatsız eden şeyi konuşalım\"\n**Betekenis:** Laten we praten over wat je dwarszit\n**Uitspraak:** *se-nie ra-hat-siez e-den sje-jie ko-noe-sja-liem*\n\n### 10. \"Seni incitecek hiçbir şey yapmam\"\n**Betekenis:** Ik zou nooit iets doen om je pijn te doen\n**Uitspraak:** *se-nie ien-djie-te-dzek hietj-bier sjej jap-mam*\n\n### 11. \"Geçmişin bizi tanımlamıyor\"\n**Betekenis:** Je verleden bepaalt ons niet\n**Uitspraak:** *getj-mie-sjien bie-zie ta-niem-la-mie-jor*\n\n### 12. \"Güvensizliklerim üzerinde çalışıyorum\"\n**Betekenis:** Ik werk aan mijn onzekerheden\n**Uitspraak:** *gue-ven-siez-liek-le-riem ue-ze-rien-de tsja-lie-sjie-jo-roem*\n\n## Conclusie\n\nGebruik deze zinnen voor open communicatie over vertrouwen met je Turkse partner.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 242,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Essentiële zinnen"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

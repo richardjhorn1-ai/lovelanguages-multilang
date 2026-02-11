@@ -1,0 +1,235 @@
+{
+  "native_lang": "it",
+  "wave": 1,
+  "target_langs_reviewed": ["en", "es", "fr", "de", "pt", "pl"],
+  "articles_reviewed": 12,
+  "clean_articles": 3,
+  "issues": [
+    {
+      "article_id": "8752cd90-3adf-409a-a116-427a40637ea4",
+      "slug": "en-in-laws-phrases-for-italian-speakers",
+      "target_lang": "en",
+      "issue_type": "pronunciation_ipa",
+      "severity": "high",
+      "description": "All 17 pronunciations use IPA symbols (ɪ, ʊ, θ, ð, ʌ, ɛ, etc.) instead of Italian-friendly phonetic guides. An Italian learner cannot read IPA; other articles use simplified guides like 'lets go on a deit'.",
+      "evidence": "pronunciation=\"ɪts soʊ naɪs tuː ˈfaɪnəli miːt juː\" — compare to article 0: \"wud yu laik tu go aut tu-NAIT\""
+    },
+    {
+      "article_id": "8752cd90-3adf-409a-a116-427a40637ea4",
+      "slug": "en-in-laws-phrases-for-italian-speakers",
+      "target_lang": "en",
+      "issue_type": "wrong_component",
+      "severity": "high",
+      "description": "Uses non-existent 'PhraseCard' component instead of 'VocabCard' or 'PhraseOfDay'. No import statements present. The converter rendered it as a VocabCard in HTML, but the MDX source references a component that does not exist in the blog system.",
+      "evidence": "<PhraseCard phrase=\"It's so nice to finally meet you\" translation=\"...\" />"
+    },
+    {
+      "article_id": "8752cd90-3adf-409a-a116-427a40637ea4",
+      "slug": "en-in-laws-phrases-for-italian-speakers",
+      "target_lang": "en",
+      "issue_type": "missing_imports",
+      "severity": "medium",
+      "description": "Article has no import statements for any components. Other articles properly import VocabCard, CultureTip, PhraseOfDay, CTA from @components/.",
+      "evidence": "Content starts directly with prose text, no import block"
+    },
+    {
+      "article_id": "8752cd90-3adf-409a-a116-427a40637ea4",
+      "slug": "en-in-laws-phrases-for-italian-speakers",
+      "target_lang": "en",
+      "issue_type": "missing_cta",
+      "severity": "low",
+      "description": "Article has no CTA component at the end, unlike most other articles which include a call-to-action for Love Languages.",
+      "evidence": "Article ends with: 'Con queste frasi, sarai pronto per questo momento importante!'"
+    },
+    {
+      "article_id": "e0ea3e13-21c8-472c-97f8-49148e0075a0",
+      "slug": "english-date-night-vocabulary",
+      "target_lang": "en",
+      "issue_type": "content_quality",
+      "severity": "low",
+      "description": "Title promises '50+ Frasi' but VocabCards + table entries total roughly 28 items, well short of 50+.",
+      "evidence": "Title: '50+ Frasi Inglesi per Cene Romantiche Indimenticabili' — actual count ~28"
+    },
+    {
+      "article_id": "4d2c4f8e-5678-4abc-9012-def345678901",
+      "slug": "spanish-texting-slang-for-couples",
+      "target_lang": "es",
+      "issue_type": "content_accuracy",
+      "severity": "medium",
+      "description": "TMQ is defined as 'Te Mando un Qeso' but the correct expansion is 'Te Mando un Queso' (itself slang for 'beso'/kiss). The misspelling 'Qeso' instead of 'Queso' could confuse learners about what the abbreviation stands for.",
+      "evidence": "translation=\"Te Mando un Qeso (Ti mando un bacio)\""
+    },
+    {
+      "article_id": "4d2c4f8e-5678-4abc-9012-def345678901",
+      "slug": "spanish-texting-slang-for-couples",
+      "target_lang": "es",
+      "issue_type": "missing_imports",
+      "severity": "medium",
+      "description": "Article has no import statements for components (VocabCard, CultureTip, PhraseOfDay). The content starts directly with an h1 heading.",
+      "evidence": "Content starts with: '# Slang e Abbreviazioni Spagnole per Messaggiare'"
+    },
+    {
+      "article_id": "4d2c4f8e-5678-4abc-9012-def345678901",
+      "slug": "spanish-texting-slang-for-couples",
+      "target_lang": "es",
+      "issue_type": "missing_cta",
+      "severity": "low",
+      "description": "Article has no CTA component at the end.",
+      "evidence": "Article ends after the CultureTip about hearts"
+    },
+    {
+      "article_id": "a1b2c3d4-5678-9abc-def0-123456789abc",
+      "slug": "german-moving-in-together",
+      "target_lang": "de",
+      "issue_type": "template_artifact",
+      "severity": "high",
+      "description": "The 'Espressioni Romantiche' table uses numbered placeholders instead of actual German expressions: 'Espressione 1', 'Espressione 2', etc. The German column contains no German words at all — only generic placeholder labels.",
+      "evidence": "| Espressione 1 | Ti amo | | Espressione 2 | Sei speciale | | Espressione 3 | Mi manchi |"
+    },
+    {
+      "article_id": "a1b2c3d4-5678-9abc-def0-123456789abc",
+      "slug": "german-moving-in-together",
+      "target_lang": "de",
+      "issue_type": "wrong_language_vocabcards",
+      "severity": "high",
+      "description": "All three VocabCards contain Italian words ('Ti amo', 'Amore', 'Per sempre') instead of German. In a German-learning article, VocabCard words should be in German (e.g., 'Ich liebe dich', 'Liebe', 'Für immer').",
+      "evidence": "word=\"Ti amo\" translation=\"Ti amo\" pronunciation=\"ti A-mo\" — word and translation are identical Italian"
+    },
+    {
+      "article_id": "a1b2c3d4-5678-9abc-def0-123456789abc",
+      "slug": "german-moving-in-together",
+      "target_lang": "de",
+      "issue_type": "wrong_language_phraseofday",
+      "severity": "high",
+      "description": "PhraseOfDay shows 'Ti amo' (Italian) with Italian pronunciation, not a German phrase. The word and translation are identical, making it useless for learning German.",
+      "evidence": "word=\"Ti amo\" translation=\"Ti amo\" pronunciation=\"ti A-mo\" context=\"L'espressione più importante in qualsiasi lingua\""
+    },
+    {
+      "article_id": "a1b2c3d4-5678-9abc-def0-123456789abc",
+      "slug": "german-moving-in-together",
+      "target_lang": "de",
+      "issue_type": "empty_cta",
+      "severity": "medium",
+      "description": "CTA component is used with no props — it will render with no text or button label. Other articles provide text and buttonText props.",
+      "evidence": "<CTA />"
+    },
+    {
+      "article_id": "a1b2c3d4-5678-9abc-def0-123456789abc",
+      "slug": "german-moving-in-together",
+      "target_lang": "de",
+      "issue_type": "generic_culture_tip",
+      "severity": "medium",
+      "description": "CultureTip contains completely generic text with no Germany-specific or moving-in-together content: 'Ogni cultura ha le proprie tradizioni romantiche. Imparare la lingua del tuo partner significa anche comprendere la sua cultura.' This is filler, not actionable cultural insight.",
+      "evidence": "Ogni cultura ha le proprie tradizioni romantiche. Imparare la lingua del tuo partner significa anche comprendere la sua cultura e le sue tradizioni."
+    },
+    {
+      "article_id": "a1b2c3d4-5678-9abc-def0-123456789abc",
+      "slug": "german-moving-in-together",
+      "target_lang": "de",
+      "issue_type": "missing_h1",
+      "severity": "low",
+      "description": "Article has no h1 (#) heading. Content starts with generic intro prose, then goes straight to imports and components. The title 'Andare a Vivere Insieme in Tedesco' is only in metadata, not the article body.",
+      "evidence": "Content begins: 'Scopri le frasi essenziali in tedesco per convivenza.'"
+    },
+    {
+      "article_id": "b2c3d4e5-6789-0abc-def1-234567890bcd",
+      "slug": "portuguese-compliments-for-your-partner",
+      "target_lang": "pt",
+      "issue_type": "rendering_phraseofday",
+      "severity": "medium",
+      "description": "PhraseOfDay component rendered as speakable-vocab (VocabCard style) instead of speakable-phrase (PhraseOfDay style) in HTML. The word field appears empty in the rendered HTML, showing an empty span where the Portuguese phrase should be.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span> — empty word, only translation 'Sei raggiante oggi' visible"
+    },
+    {
+      "article_id": "c3d4e5f6-7890-1abc-def2-345678901cde",
+      "slug": "french-pet-names-terms-of-endearment",
+      "target_lang": "fr",
+      "issue_type": "cta_typo",
+      "severity": "medium",
+      "description": "CTA text contains a grammatical error: 'È la Modalità Ascolto cattura le espressioni' should be 'E la Modalità Ascolto cattura le espressioni' (conjunction 'e' meaning 'and', not 'È' meaning 'is').",
+      "evidence": "...le parole che ama sentire. È la Modalità Ascolto cattura le espressioni durante le cene con la sua famiglia."
+    },
+    {
+      "article_id": "c3d4e5f6-7890-1abc-def2-345678901cde",
+      "slug": "french-pet-names-terms-of-endearment",
+      "target_lang": "fr",
+      "issue_type": "content_quality",
+      "severity": "low",
+      "description": "Title promises '50+ Vezzeggiativi' but the article contains roughly 15 distinct terms of endearment (including table entries), well short of 50+.",
+      "evidence": "Title: '50+ Vezzeggiativi Francesi per Far Sciogliere il Cuore' — actual unique terms ~15"
+    },
+    {
+      "article_id": "d4e5f6a7-8901-2bcd-ef34-456789012def",
+      "slug": "polish-date-night-vocabulary",
+      "target_lang": "pl",
+      "issue_type": "typo_target_language",
+      "severity": "low",
+      "description": "Italian typo: 'dietà' should be 'dieta' (dieta vegetariana). The accent is incorrect in Italian.",
+      "evidence": "Per chi segue una dietà vegetariana"
+    },
+    {
+      "article_id": "e5f6a7b8-9012-3cde-f456-567890123ef0",
+      "slug": "polish-grammar-basics-for-beginners",
+      "target_lang": "pl",
+      "issue_type": "typo_target_language",
+      "severity": "medium",
+      "description": "Polish spelling error in VocabCard example: 'mężczyna' should be 'mężczyzna' (missing 'z'). The word appears correctly elsewhere but the example sentence has the misspelling.",
+      "evidence": "example=\"To jest mężczyna. (Questo è un uomo.)\" — should be 'mężczyzna'"
+    },
+    {
+      "article_id": "e5f6a7b8-9012-3cde-f456-567890123ef0",
+      "slug": "polish-grammar-basics-for-beginners",
+      "target_lang": "pl",
+      "issue_type": "grammar_error_native",
+      "severity": "medium",
+      "description": "Italian typo in opening paragraph: 'i suoi sette casi è il complesso sistema verbale' should be 'i suoi sette casi e il complesso sistema verbale' (conjunction 'e' meaning 'and', not 'è' meaning 'is').",
+      "evidence": "con i suoi sette casi è il complesso sistema verbale, ma comprendere"
+    },
+    {
+      "article_id": "e5f6a7b8-9012-3cde-f456-567890123ef0",
+      "slug": "polish-grammar-basics-for-beginners",
+      "target_lang": "pl",
+      "issue_type": "content_accuracy",
+      "severity": "high",
+      "description": "Incorrect Polish formal address: 'Dzień dobry, Panu' is grammatically wrong. The correct vocative form when addressing a man is 'Dzień dobry Panie' (vocative of Pan). 'Panu' is the dative case, not vocative. This would teach learners to say something ungrammatical to their partner's father.",
+      "evidence": "Padre del partner: \"Dzień dobry, Panu.\" (Buongiorno, signore.) — should be 'Dzień dobry, Panie'"
+    },
+    {
+      "article_id": "e5f6a7b8-9012-3cde-f456-567890123ef0",
+      "slug": "polish-grammar-basics-for-beginners",
+      "target_lang": "pl",
+      "issue_type": "missing_cta",
+      "severity": "low",
+      "description": "Article has no CTA component at the end, unlike most other articles.",
+      "evidence": "Article ends with: 'Il tuo partner apprezzerà ogni sforzo che fai per imparare la sua lingua!'"
+    },
+    {
+      "article_id": "e5f6a7b8-9012-3cde-f456-567890123ef0",
+      "slug": "polish-grammar-basics-for-beginners",
+      "target_lang": "pl",
+      "issue_type": "missing_imports",
+      "severity": "medium",
+      "description": "Article has no import statements for VocabCard or CultureTip components used in the content.",
+      "evidence": "Content starts with: '# Grammatica Polacca di Base per Principianti'"
+    },
+    {
+      "article_id": "e5f6a7b8-9012-3cde-f456-567890123ef0",
+      "slug": "polish-grammar-basics-for-beginners",
+      "target_lang": "pl",
+      "issue_type": "content_quality",
+      "severity": "low",
+      "description": "Several paragraphs are excessively verbose filler that pad word count without teaching. The 'Errori Grammaticali Comuni' intro spans 3 paragraphs of abstract platitudes before reaching any actual content.",
+      "evidence": "Imparare il polacco è un viaggio entusiasmante, ma come ogni percorso nuovo, presenta delle sfide specifiche..."
+    }
+  ],
+  "systemic_patterns": [
+    "Article 6 (german-moving-in-together) is fundamentally broken: all VocabCards and PhraseOfDay contain Italian words instead of German, the expressions table uses numbered placeholders, and the CTA has no props. This appears to be an incomplete template that was never properly filled with German content.",
+    "Four articles (1, 3, 11, and parts of 6) are missing import statements for their MDX components. The HTML converter handles this gracefully, but the MDX source files would fail to build in Astro without imports.",
+    "Article 1 (en-in-laws) uses IPA notation (ɪts soʊ naɪs tuː) for all pronunciations while every other article uses simplified Italian-friendly phonetic guides (lets go on a deit). IPA is unreadable for most Italian learners without linguistic training.",
+    "Article 1 uses a non-existent 'PhraseCard' component instead of the standard VocabCard or PhraseOfDay components. This is the only article with this pattern.",
+    "Three articles (1, 3, 11) are missing CTA components at the end. While not critical, this is inconsistent with the other 9 articles that include CTAs.",
+    "The 'è' vs 'e' confusion (Italian 'is' vs 'and') appears in two separate articles (5 and 11), suggesting a systematic AI generation error where the accent mark is incorrectly applied to the conjunction.",
+    "Articles promising '50+' items in their titles (articles 0 and 5) deliver roughly 15-28 items, which is a significant shortfall that may affect SEO credibility and user trust.",
+    "Article 9 (Portuguese compliments) has a PhraseOfDay that rendered as a VocabCard style with an empty word field in the HTML, suggesting a converter bug when the PhraseOfDay component uses a full sentence as its word value."
+  ]
+}

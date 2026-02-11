@@ -1,0 +1,518 @@
+{
+  "batchId": "tier2a-slim-0121",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "89a45183-37d7-48a6-877f-d0446676b63c",
+      "title": "Jak napsat milostný dopis ve francouzštině",
+      "native_lang": "cs",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Úvodní oslovení",
+          "subsections": [
+            "### \"Mon amour\"",
+            "### \"Mon coeur\"",
+            "### \"Ma chérie / Mon chéri\""
+          ]
+        },
+        {
+          "header": "## Úvodní věty",
+          "subsections": [
+            "### \"Je t'écris cette lettre pour te dire combien tu comptes pour moi.\"",
+            "### \"Les mots ne peuvent exprimer ce que je ressens pour toi.\"",
+            "### \"Depuis le jour où je t'ai rencontré(e), ma vie a changé pour toujours.\""
+          ]
+        },
+        {
+          "header": "## Vyjádření lásky",
+          "subsections": [
+            "### \"Tu es la plus belle chose qui me soit arrivée.\"",
+            "### \"Je t'aime plus chaque jour.\"",
+            "### \"Mon coeur t'appartient, maintenant et pour toujours.\"",
+            "### \"Avec toi, j'ai trouvé le vrai bonheur.\"",
+            "### \"Tu es mon rêve devenu réalité.\""
+          ]
+        },
+        {
+          "header": "## Ocenění partnera",
+          "subsections": [
+            "### \"J'admire ta force, ta gentillesse et ta belle âme.\"",
+            "### \"Merci de m'aimer tel(le) que je suis.\"",
+            "### \"Tu me donnes envie d'être une meilleure personne.\""
+          ]
+        },
+        {
+          "header": "## Závěrečné fráze",
+          "subsections": [
+            "### \"À toi pour toujours\"",
+            "### \"Avec tout mon amour\"",
+            "### \"Éternellement tien/tienne\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "89b296c1-9b36-4aad-aae5-859741a9d844",
+      "title": "Φράσεις για το Πρώτο Ραντεβού (da): Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις",
+          "subsections": [
+            "### Γνωριμία",
+            "### Συζήτηση",
+            "### Φλερτ",
+            "### Κλείσιμο"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "89beb988-f007-47c2-bd19-73902184b05b",
+      "title": "Grecka wymowa dla początkujących: Jak mówić pięknie do swojego partnera",
+      "native_lang": "pl",
+      "target_lang": "el",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Najczęstsze Błędy Polaków",
+          "subsections": [
+            "### 1. **Th** vs **T**",
+            "### 2. **R** Greckie",
+            "### 3. **Długość Samogłosek**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "89c1bb0b-97f1-4f01-ad20-724deb72e40b",
+      "title": "Hiányzol Kifejezések Portugálul – Sinto Sua Falta és Más",
+      "native_lang": "hu",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Hiányzol Kifejezések",
+          "subsections": [
+            "### 1. Sinto sua falta / Sinto a tua falta",
+            "### 2. Estou com saudade de você / Tenho saudades tuas",
+            "### 3. Sinto muito a sua falta",
+            "### 4. Não consigo parar de pensar em você",
+            "### 5. Queria que você estivesse aqui",
+            "### 6. Meu coração está vazio sem você",
+            "### 7. Conto os dias até te ver de novo",
+            "### 8. Você está sempre nos meus pensamentos",
+            "### 9. Anseio por você",
+            "### 10. Sem você não sou completo/a"
+          ]
+        },
+        {
+          "header": "## Kulturális Tippek",
+          "subsections": [
+            "### Saudade – A Portugál Lélek",
+            "### Brazília vs. Portugália",
+            "### Expresszív Kultúra"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "89cf45f1-b6b3-4b14-bfae-b0f57b868bbf",
+      "title": "Russische Liebesbrief-Phrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Anreden",
+          "subsections": [
+            "### \"Любимая моя\" / \"Любимый мой\"",
+            "### \"Моя родная\" / \"Мой родной\"",
+            "### \"Солнышко моё\""
+          ]
+        },
+        {
+          "header": "## Einleitungen",
+          "subsections": [
+            "### \"Я пишу тебе, чтобы сказать, как сильно я тебя люблю\"",
+            "### \"Нет слов, чтобы выразить то, что я к тебе чувствую\""
+          ]
+        },
+        {
+          "header": "## Ausdrücke der Liebe",
+          "subsections": [
+            "### \"Ты — лучшее, что случилось в моей жизни\"",
+            "### \"Моя жизнь изменилась навсегда в тот день, когда я тебя встретил\"",
+            "### \"Я влюбляюсь в тебя всё больше с каждым днём\"",
+            "### \"Ты освещаешь мою жизнь своим присутствием\"",
+            "### \"С тобой я понял, что такое настоящая любовь\""
+          ]
+        },
+        {
+          "header": "## Zukunftsversprechen",
+          "subsections": [
+            "### \"Обещаю любить тебя безусловно\"",
+            "### \"Хочу провести с тобой всю оставшуюся жизнь\"",
+            "### \"Моя любовь к тебе будет только расти\""
+          ]
+        },
+        {
+          "header": "## Abschlüsse",
+          "subsections": [
+            "### \"Навсегда твой\" / \"Навсегда твоя\"",
+            "### \"Со всей моей любовью...\"",
+            "### \"Я люблю тебя, сегодня и всегда\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "89d14e45-ddbc-4e4b-8e87-e61fff9a2612",
+      "title": "Franse Zinnen voor een Eerste Date",
+      "native_lang": "nl",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"C'est un plaisir de te rencontrer enfin\" - *see tun plee-zier deu teu ron-kon-tree on-fen*",
+            "### 2. \"Tu es magnifique\" - *tue ee man-jie-fiek*",
+            "### 3. \"Parle-moi de toi\" - *parl-mwa deu twa*",
+            "### 4. \"Qu'est-ce que tu fais dans la vie?\" - *kes-keu tue fee don la vie*",
+            "### 5. \"Je passe un très bon moment\" - *zjeu pas un tree bon mo-mon*",
+            "### 6. \"Tu veux prendre autre chose?\" - *tue veu prondr otr sjoz*",
+            "### 7. \"Quel genre de musique tu aimes?\" - *kel zjonr deu mue-ziek tue em*",
+            "### 8. \"J'aimerais beaucoup te revoir\" - *zjeem-ree bo-koe teu reu-vwar*",
+            "### 9. \"Je peux te raccompagner?\" - *zjeu peu teu ra-kom-pan-jee*",
+            "### 10. \"J'ai vraiment apprécié cette soirée\" - *zjee vree-mon a-pree-sjee set swa-ree*",
+            "### 11. \"Quels sont tes loisirs?\" - *kel son tee lwa-zier*",
+            "### 12. \"Tu as un très beau sourire\" - *tue a un tree bo soe-rier*"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "89deaeb4-ac0d-494b-9b52-d47113ddb78d",
+      "title": "Svéd kifejezések féltékenységhez és bizalomhoz",
+      "native_lang": "hu",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kifejezések a féltékenységhez",
+          "subsections": [
+            "### 1. \"Jag blir svartsjuk när du...\"",
+            "### 2. \"Jag behöver bli lugnad\"",
+            "### 3. \"Jag litar på dig, men jag kämpar med mina känslor\"",
+            "### 4. \"Kan vi prata om vad som hände?\"",
+            "### 5. \"Jag vill inte vara svartsjuk, men...\"",
+            "### 6. \"Jag litar fullständigt på dig\"",
+            "### 7. \"Du är den enda för mig\"",
+            "### 8. \"Jag skulle aldrig göra något för att såra dig\"",
+            "### 9. \"Det finns inget mellan oss\"",
+            "### 10. \"Jag är trogen dig\"",
+            "### 11. \"Låt oss vara ärliga mot varandra\"",
+            "### 12. \"Jag vill inte att svartsjuka ska komma mellan oss\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "89efb755-0d3f-453a-af3b-91d657cd6019",
+      "title": "Danca Sevgi Sözcükleri ve Takma Adlar",
+      "native_lang": "tr",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Farklı Durumlar İçin Sevgi Sözcükleri",
+          "subsections": [
+            "### Günlük Hayatta",
+            "### Romantik Anlar İçin",
+            "### Şakalaşmak İçin"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "89f36287-db6d-4671-9544-ca53b9f3737f",
+      "title": "Conocer a la familia de tu pareja en polaco: Frases esenciales para conquistar corazones",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Conversaciones auténticas: Escenarios reales",
+          "subsections": [
+            "### En la cocina con mamá",
+            "### Conversando con papá sobre trabajo"
+          ]
+        },
+        {
+          "header": "## Momentos especiales: Creando conexiones",
+          "subsections": [
+            "### Compartiendo historias de amor",
+            "### Expresando gratitud sincera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "89f895b2-313e-4804-bccb-c905a1d642f3",
+      "title": "Expresii în Poloneză pentru Reconciliere și Împăcare în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii pentru Cererea Scuzelor",
+          "subsections": [
+            "### Scuze Sincere",
+            "### Exprimarea Regretului Profund"
+          ]
+        },
+        {
+          "header": "## Expresii pentru Împăcare",
+          "subsections": [
+            "### Inițierea Dialogului",
+            "### Declarații de Dragoste",
+            "### Reconstruirea Conexiunii"
+          ]
+        },
+        {
+          "header": "## Gesturi de Reconciliere în Cultura Poloneză",
+          "subsections": [
+            "### Florile",
+            "### Mâncarea",
+            "### Timpul Împreună",
+            "### Gesturile Religioase"
+          ]
+        },
+        {
+          "header": "## Nuanțe Culturale",
+          "subsections": [
+            "### Onoarea",
+            "### Loialitatea",
+            "### Familia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8a10f176-bd70-4999-bf73-6253f3551bb5",
+      "title": "Griekse Zinnen over Jaloezie en Vertrouwen",
+      "native_lang": "nl",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Νιώθω ανασφαλής όταν...\" (Niotho anasfaleis otan...)",
+            "### 2. \"Σε εμπιστεύομαι απόλυτα\" (Se embistewomai apolyta)",
+            "### 3. \"Μπορείς να με καθησυχάσεις;\" (Boreis na me kathisychasis?)",
+            "### 4. \"Δεν ζηλεύω, απλά ανησυχώ\" (Den zilevo, apla anisycho)",
+            "### 5. \"Ποιος ήταν αυτός/ή που μιλούσες;\" (Poios itan aftos/i pou milouses?)",
+            "### 6. \"Χρειάζομαι να ξέρω ότι μπορώ να σε εμπιστευτώ\" (Chriazomai na xero oti boro na se embistevto)",
+            "### 7. \"Δεν έχεις τίποτα να ανησυχείς\" (Den echeis tipota na anisycheis)",
+            "### 8. \"Έχω μάτια μόνο για σένα\" (Echo matia mono gia sena)",
+            "### 9. \"Ας μιλήσουμε για αυτό που σε ενοχλεί\" (As milissoume gia afto pou se enochli)",
+            "### 10. \"Δεν θα έκανα ποτέ τίποτα για να σε πληγώσω\" (Den tha ekana pote tipota gia na se pligoso)",
+            "### 11. \"Το παρελθόν σου δεν μας καθορίζει\" (To parelthon sou den mas kathorizei)",
+            "### 12. \"Δουλεύω πάνω στις ανασφάλειές μου\" (Doulevo pano stis anasfalies mou)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8a2aa592-a7a6-4323-a765-1c706899f8c4",
+      "title": "С днём рождения на немецкий: Пожелания для любимого человека",
+      "native_lang": "ru",
+      "target_lang": "de",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Романтические пожелания на день рождения",
+          "subsections": [
+            "### Сладкие и простые",
+            "### Глубокие послания"
+          ]
+        },
+        {
+          "header": "## Фразы для открытки",
+          "subsections": [
+            "### Романтические послания",
+            "### Длинные послания"
+          ]
+        },
+        {
+          "header": "## Планирование сюрприза",
+          "subsections": [
+            "### Лексика для die Überraschung",
+            "### Фразы для сюрприза"
+          ]
+        },
+        {
+          "header": "## Сообщения для социальных сетей",
+          "subsections": [
+            "### Подписи для публикаций"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8a3170ee-d861-4058-a967-4950193d9b61",
+      "title": "Нидерландские фразы о ревности и доверии",
+      "native_lang": "ru",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Фразы для выражения ревности",
+          "subsections": [
+            "### 1. Ik ben jaloers als...",
+            "### 2. Het stoort me als je zoveel tijd doorbrengt met...",
+            "### 3. Soms heb ik bevestiging nodig"
+          ]
+        },
+        {
+          "header": "## Фразы для укрепления доверия",
+          "subsections": [
+            "### 4. Ik vertrouw je volledig",
+            "### 5. Jij bent de enige voor mij",
+            "### 6. Ik zou nooit iets doen dat onze relatie zou schaden",
+            "### 7. Je hoeft je geen zorgen te maken",
+            "### 8. Laat me uitleggen wat er gebeurd is",
+            "### 9. Jouw gevoelens zijn belangrijk voor mij",
+            "### 10. Kunnen we samen grenzen stellen?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8a323b3b-977a-43fb-90c8-4a18c8962b82",
+      "title": "Yunanca Affetme İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Af Dileme",
+          "subsections": [
+            "### 1. \"Λυπάμαι πραγματικά για αυτό που έκανα\"",
+            "### 2. \"Σε παρακαλώ, συγχώρεσέ με\"",
+            "### 3. \"Αναλαμβάνω πλήρη ευθύνη\"",
+            "### 4. \"Ξέρω ότι σε πλήγωσα και λυπάμαι πολύ\"",
+            "### 5. \"Μπορείς να βρεις στην καρδιά σου να με συγχωρέσεις;\""
+          ]
+        },
+        {
+          "header": "## Affetme",
+          "subsections": [
+            "### 6. \"Σε συγχωρώ\"",
+            "### 7. \"Είμαι έτοιμος/η να αφήσω αυτό πίσω μας\"",
+            "### 8. \"Ας αφήσουμε αυτό πίσω μας\"",
+            "### 9. \"Δεν κρατάω κακία\"",
+            "### 10. \"Όλοι κάνουν λάθη\"",
+            "### 11. \"Σ'αγαπώ περισσότερο από τον θυμό μου\"",
+            "### 12. \"Δέχομαι τη συγγνώμη σου\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8a33998f-7035-4d72-93d4-eeb8f675d72d",
+      "title": "100 Meest Gebruikte Duitse Woorden voor Relaties",
+      "native_lang": "nl",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Basis liefdeswoorden",
+          "subsections": [
+            "### 1. Liebe - *lie-be* - Liefde",
+            "### 2. Herz - *herts* - Hart",
+            "### 3. Kuss - *koes* - Kus",
+            "### 4. Umarmung - *oem-ar-moeng* - Knuffel",
+            "### 5. Zusammen - *tsoe-za-men* - Samen",
+            "### 6. Für immer - *fuer ie-mer* - Voor altijd",
+            "### 7. Immer - *ie-mer* - Altijd",
+            "### 8. Schön - *sjoen* - Mooi",
+            "### 9. Glücklich - *gluek-lieg* - Gelukkig",
+            "### 10. Schatz - *sjats* - Schat"
+          ]
+        },
+        {
+          "header": "## Dagelijkse communicatie",
+          "subsections": [
+            "### 11. Ja - *ja* - Ja",
+            "### 12. Nein - *nain* - Nee",
+            "### 13. Bitte - *bi-te* - Alsjeblieft",
+            "### 14. Danke - *dan-ke* - Dank je",
+            "### 15. Entschuldigung - *ent-sjoel-die-goeng* - Sorry",
+            "### 16. Guten Morgen - *goe-ten mor-gen* - Goedemorgen",
+            "### 17. Gute Nacht - *goe-te nacht* - Goedenacht",
+            "### 18. Hallo - *ha-lo* - Hallo",
+            "### 19. Tschüss - *tsjues* - Tot ziens",
+            "### 20. Wie geht's? - *wie geets* - Hoe gaat het?"
+          ]
+        },
+        {
+          "header": "## Gevoelens uitdrukken",
+          "subsections": [
+            "### 21. Ich liebe dich - *ieg lie-be dieg* - Ik hou van je",
+            "### 22. Ich vermisse dich - *ieg fer-mi-se dieg* - Ik mis je",
+            "### 23. Ich brauche dich - *ieg braw-ge dieg* - Ik heb je nodig",
+            "### 24. Ich vertraue dir - *ieg fer-traw-e dier* - Ik vertrouw je",
+            "### 25. Ich bin stolz auf dich - *ieg bin sjolts awf dieg* - Ik ben trots op je",
+            "### 26. Ich verzeihe dir - *ieg fer-tsai-e dier* - Ik vergeef je",
+            "### 27. Ich verstehe - *ieg fer-stee-e* - Ik begrijp het",
+            "### 28. Du machst mich glücklich - *doe machst mieg gluek-lieg* - Je maakt me gelukkig",
+            "### 29. Du bist alles für mich - *doe bist a-les fuer mieg* - Je bent alles voor mij",
+            "### 30. Ich denke an dich - *ieg den-ke an dieg* - Ik denk aan je"
+          ]
+        },
+        {
+          "header": "## Vragen stellen",
+          "subsections": [
+            "### 31. Was? - *vas* - Wat?",
+            "### 32. Wo? - *vo* - Waar?",
+            "### 33. Wann? - *van* - Wanneer?",
+            "### 34. Warum? - *va-roem* - Waarom?",
+            "### 35. Wie? - *vie* - Hoe?",
+            "### 36. Wer? - *veer* - Wie?"
+          ]
+        },
+        {
+          "header": "## Tijd",
+          "subsections": [
+            "### 37. Heute - *hoi-te* - Vandaag",
+            "### 38. Morgen - *mor-gen* - Morgen",
+            "### 39. Gestern - *ges-tern* - Gisteren",
+            "### 40. Jetzt - *jetst* - Nu",
+            "### 41. Später - *sjpee-ter* - Later",
+            "### 42. Bald - *balt* - Binnenkort",
+            "### 43. Nie - *nie* - Nooit",
+            "### 44. Manchmal - *man-ch-mal* - Soms",
+            "### 45. Oft - *oft* - Vaak"
+          ]
+        },
+        {
+          "header": "## Belangrijke zinnen",
+          "subsections": [
+            "### 46. \"Ich bin für dich da\" - Ik ben er voor je",
+            "### 47. \"Du bedeutest mir alles\" - Je betekent alles voor me",
+            "### 48. \"Ich freue mich auf dich\" - Ik verheug me op je",
+            "### 49. \"Ich hab dich lieb\" - Ik hou van je (informeel)",
+            "### 50. \"Kommst du mit?\" - Ga je mee?"
+          ]
+        }
+      ]
+    }
+  ]
+}

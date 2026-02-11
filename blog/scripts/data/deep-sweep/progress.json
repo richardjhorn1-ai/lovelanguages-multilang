@@ -1,0 +1,45 @@
+{
+  "lastUpdated": "2026-02-10T05:05:13.519Z",
+  "pairs": {
+    "es-en": {
+      "status": "applied",
+      "totalArticles": 59,
+      "totalBatches": 8,
+      "batchesReviewed": 1,
+      "batchesApplied": 1,
+      "reviewed": {
+        "clean": 0,
+        "fixed": 8,
+        "needsHuman": 0
+      },
+      "applied": {
+        "articles": 6,
+        "failed": {
+          "2ebfa83a-e542-4bcf-8d2a-db4a37395fc0": [
+            "VocabCard #1 has empty/short word prop"
+          ],
+          "5d1a45cb-aaf6-4ba5-98ed-a59b31f3e213": [
+            "DB error: TypeError: fetch failed"
+          ]
+        }
+      },
+      "issueSummary": {
+        "copiedPronunciations": 7,
+        "doubleBracketPronunciation": 6,
+        "importStatementsInContent": 6,
+        "pronunciationIssue": 1,
+        "pronunciationMismatch": 1,
+        "wrongLanguageExample": 2,
+        "fakePronunciation": 1,
+        "titleContentMismatch": 1
+      }
+    }
+  },
+  "globalStats": {
+    "totalPairs": 306,
+    "completed": 1,
+    "inProgress": 0,
+    "totalArticlesReviewed": 59,
+    "totalFixed": 6
+  }
+}

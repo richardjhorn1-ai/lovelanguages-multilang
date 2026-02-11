@@ -1,0 +1,446 @@
+{
+  "batchId": "tier2a-slim-0290",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "25b95c87-b263-438d-baab-72b552f7d833",
+      "title": "Danish Pronunciation Guide for English Speakers",
+      "native_lang": "en",
+      "target_lang": "da",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Common Pronunciation Mistakes",
+          "subsections": [
+            "### Mistake 1: Hard D Instead of Soft D",
+            "### Mistake 2: Pronouncing Silent Letters",
+            "### Mistake 3: English R Sound"
+          ]
+        },
+        {
+          "header": "## Daily Practice Routine for Couples",
+          "subsections": [
+            "### Morning (5 minutes)",
+            "### During the Day (whenever you text)",
+            "### Evening (10 minutes)"
+          ]
+        },
+        {
+          "header": "## Resources for Pronunciation Practice",
+          "subsections": [
+            "### Listen Together",
+            "### Watch Together"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "25d28760-8360-4caf-a129-5df6d5d833b9",
+      "title": "50 Romantických rusky Frází pro Každou Příležitost",
+      "native_lang": "cs",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Jak používat romantické fráze správně",
+          "subsections": [
+            "### Kontext je klíč",
+            "### Intonace záleží",
+            "### Začněte jednoduše"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "26939d37-9a7c-4337-8f27-0fa2014acf5b",
+      "title": "Italian Restaurant Vocabulary: Romantic Dining Guide for Couples",
+      "native_lang": "en",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Understanding the Menu",
+          "subsections": [
+            "### Menu Sections (Il Menu)",
+            "### Common Pasta Dishes",
+            "### Common Second Courses"
+          ]
+        },
+        {
+          "header": "## During the Meal",
+          "subsections": [
+            "### Complimenting the Food",
+            "### Sharing with Your Partner"
+          ]
+        },
+        {
+          "header": "## Ending the Meal",
+          "subsections": [
+            "### Dessert and Coffee",
+            "### Getting the Bill"
+          ]
+        },
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Exercise 1: Menu Reading",
+            "### Exercise 2: Role Play",
+            "### Exercise 3: Plan Your Date"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "26b60473-c50b-4297-887e-4fb252e4af65",
+      "title": "Il Tedesco è Difficile da Imparare? La Guida Onesta per Coppie",
+      "native_lang": "it",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Cosa Rende il Tedesco Difficile",
+          "subsections": [
+            "### Le Sfide Principali:"
+          ]
+        },
+        {
+          "header": "## Cosa Rende il Tedesco Facile (Sì, Hai Letto Bene!)",
+          "subsections": [
+            "### I Vantaggi per Italiani:"
+          ]
+        },
+        {
+          "header": "## Cosa Imparare Per Prima: La Strategia Coppia",
+          "subsections": [
+            "### Settimana 1-2: Le Super-Basic",
+            "### Settimana 3-4: La Famiglia",
+            "### Mese 2: Le Date",
+            "### Mese 3: La Vita Quotidiana"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "26f57bba-4eae-4ec5-a984-9bd5f104a8d8",
+      "title": "L'anglais est-il difficile a apprendre ?",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Ce qui est PLUS FACILE en anglais qu'en français",
+          "subsections": [
+            "### 1. Pas de genre grammatical",
+            "### 2. Les adjectifs ne s'accordent pas",
+            "### 3. La conjugaison simplifiée au présent",
+            "### 4. Pas de subjonctif complexe"
+          ]
+        },
+        {
+          "header": "## Ce qui est PLUS DIFFICILE en anglais",
+          "subsections": [
+            "### 1. La prononciation imprévisible",
+            "### 2. Les « phrasal verbs »",
+            "### 3. L'orthographe incohérente",
+            "### 4. L'accent tonique variable"
+          ]
+        },
+        {
+          "header": "## Pourquoi apprendre en couple change tout",
+          "subsections": [
+            "### Les avantages uniques",
+            "### Activités d'apprentissage pour couples"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "27011386-72cd-418d-a76b-345129138421",
+      "title": "L'Ukrainien Est-il Difficile à Apprendre? Un Guide Honnête pour les Francophones",
+      "native_lang": "fr",
+      "target_lang": "uk",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Les Défis",
+          "subsections": [
+            "### 1. L'Alphabet Cyrillique",
+            "### 2. Les Cas Grammaticaux",
+            "### 3. Les Aspects Verbaux",
+            "### 4. La Prononciation"
+          ]
+        },
+        {
+          "header": "## Les Avantages",
+          "subsections": [
+            "### 1. Orthographe Phonétique",
+            "### 2. Pas d'Articles",
+            "### 3. Ordre des Mots Flexible",
+            "### 4. Vocabulaire Partagé"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2746e6a9-3e18-4415-b353-e7039635519f",
+      "title": "Le Néerlandais Est-il Difficile à Apprendre ?",
+      "native_lang": "fr",
+      "target_lang": "nl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Pourquoi le Néerlandais est Plus Facile que Vous ne Pensez",
+          "subsections": [
+            "### 1. Grammaire Simplifiée",
+            "### 2. Mots Composés Logiques",
+            "### 3. Prononciation Cohérente"
+          ]
+        },
+        {
+          "header": "## Les Défis : Soyons Honnêtes",
+          "subsections": [
+            "### 1. Le Fameux Son \"G\" Néerlandais",
+            "### 2. Combinaisons de Voyelles",
+            "### 3. Les Articles De vs. Het",
+            "### 4. Ordre des Mots dans les Phrases Complexes"
+          ]
+        },
+        {
+          "header": "## Conseils Pour Faciliter le Néerlandais",
+          "subsections": [
+            "### 1. Profitez de Vos Connaissances en Anglais",
+            "### 2. Pratiquez les Sons Tôt",
+            "### 3. Apprenez les Articles avec les Noms",
+            "### 4. Immergez-vous via les Médias",
+            "### 5. Acceptez les Erreurs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "278ef986-4283-4816-be5a-c09417b93c28",
+      "title": "50+ Nombres de Mascotas y Términos de Cariño en Húngaro para Conectar con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "hu",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Cómo Usar Apodos Húngaros con tu Pareja",
+          "subsections": [
+            "### Comienza Despacito",
+            "### Observa sus Reacciones",
+            "### Tiempos Perfectos para Apodos",
+            "### Combinaciones de Éxito",
+            "### Evita Estos Errores"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "27b17a80-a408-4464-b37a-936922c49198",
+      "title": "Conocer a la Familia de tu Pareja Húngara: Frases Esenciales para Impresionar",
+      "native_lang": "es",
+      "target_lang": "hu",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Frases Esenciales para la Primera Reunión",
+          "subsections": [
+            "### Presentaciones y Saludos",
+            "### Hablando de tu Relación"
+          ]
+        },
+        {
+          "header": "## Escenarios Comunes Durante la Visita",
+          "subsections": [
+            "### 1. El Almuerzo Familiar",
+            "### 2. Mostrando Fotos de Familia",
+            "### 3. Conversación General"
+          ]
+        },
+        {
+          "header": "## Vocabulario para Conocer a la Familia",
+          "subsections": [
+            "### Miembros de la Familia",
+            "### Adjetivos Positivos para Impresionar"
+          ]
+        },
+        {
+          "header": "## Frases de Cortesía y Formalidad",
+          "subsections": [
+            "### Mostrando Respeto"
+          ]
+        },
+        {
+          "header": "## ¿Y si Algo Sale Mal?",
+          "subsections": [
+            "### Frases de Rescate",
+            "### Temas Tabú a Evitar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "27dfe3bd-ea6b-4445-ba5d-ae6c0841340e",
+      "title": "Guia de Pronúncia do Francês para Brasileiros: Sons Essenciais",
+      "native_lang": "pt",
+      "target_lang": "fr",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Os Sons Mais Desafiadores",
+          "subsections": [
+            "### O \"R\" Francês",
+            "### O \"U\" Francês (diferente de \"OU\")"
+          ]
+        },
+        {
+          "header": "## Sons que Não Existem em Português",
+          "subsections": [
+            "### O Som \"EU\" [ø/œ]",
+            "### O Som \"OI\" [wa]"
+          ]
+        },
+        {
+          "header": "## Exercícios de Pronúncia",
+          "subsections": [
+            "### Exercício 1: Vogais Nasais",
+            "### Exercício 2: U vs OU",
+            "### Exercício 3: R Francês",
+            "### Exercício 4: Frases Românticas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "27f17ebb-5e29-4ace-a1f2-42fde089fb77",
+      "title": "Vocabulaire Courses en Polonais",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Catégories et produits alimentaires",
+          "subsections": [
+            "### Produits laitiers - **Nabiał** (na-BIAOU)",
+            "### Viande - **Mięso** (MIÈN-so)",
+            "### Fruits - **Owoce** (o-VO-tsé)",
+            "### Légumes - **Warzywa** (va-JI-va)"
+          ]
+        },
+        {
+          "header": "## Phrases essentielles pour les courses",
+          "subsections": [
+            "### Pour commencer",
+            "### Au comptoir",
+            "### Au moment de payer"
+          ]
+        },
+        {
+          "header": "## Défis courants lors des courses",
+          "subsections": [
+            "### Quand vous ne trouvez pas quelque chose",
+            "### Quand c'est trop cher"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "285909c1-82a0-4c68-961c-b4812ae9a035",
+      "title": "Portugalskie powitania i pożegnania dla par",
+      "native_lang": "pl",
+      "target_lang": "pt",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Specjalne okazje",
+          "subsections": [
+            "### Przed podróżą",
+            "### Przed ważnym wydarzeniem"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Poranna rutyna",
+            "### Ćwiczenie 2: SMS-y",
+            "### Ćwiczenie 3: Wieczorna rutyna"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "286c7376-94ac-491d-ab3e-ef2ea4745efc",
+      "title": "Ingilizce Dilbilgisi Temelleri: Ciftler Icin Rehber",
+      "native_lang": "tr",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Zamanlar (Tenses)",
+          "subsections": [
+            "### Simdiki Zaman (Present Simple)",
+            "### Simdiki Surekli Zaman (Present Continuous)",
+            "### Gecmis Zaman (Past Simple)",
+            "### Gelecek Zaman (Future Simple)"
+          ]
+        },
+        {
+          "header": "## Zamirier (Pronouns)",
+          "subsections": [
+            "### Kisisel Zamirler"
+          ]
+        },
+        {
+          "header": "## Sifatlar ve Zarflar",
+          "subsections": [
+            "### Sifatlar",
+            "### Zarflar"
+          ]
+        },
+        {
+          "header": "## Ciftler Icin Pratik",
+          "subsections": [
+            "### Diyalog Ornegi",
+            "### Dilbilgisi Oyunu"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "289e7012-7046-40c8-9b2f-988d74368756",
+      "title": "Spotkanie z wloska rodzina partnera - niezbędne zwroty",
+      "native_lang": "pl",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Przedstawienie",
+            "### Ćwiczenie 2: Komplementy",
+            "### Ćwiczenie 3: Przy stole"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2964479f-ab32-4f19-ac7a-f93b864d2872",
+      "title": "50+ Ukrainska Smeknamn och Kärleksfulla Uttryck för Er Relation",
+      "native_lang": "sv",
+      "target_lang": "uk",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hur man Använder Smeknamn med Din Partner",
+          "subsections": [
+            "### Börja Långsamt",
+            "### Matcha Tonen",
+            "### Kulturell Känslighet",
+            "### Öva Tillsammans"
+          ]
+        }
+      ]
+    }
+  ]
+}

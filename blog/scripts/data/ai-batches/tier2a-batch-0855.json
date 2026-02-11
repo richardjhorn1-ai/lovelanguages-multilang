@@ -1,0 +1,121 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0855",
+  "articles": [
+    {
+      "id": "f580e272-a4c5-42c9-b4e1-b2058f3da79b",
+      "title": "Russian Moving In Together: Essential Household Vocabulary for Couples",
+      "native_lang": "en",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nMoving in вместе is a major milestone in any relationship. When you're creating a дом with your Russian-speaking partner, knowing the essential household vocabulary in Russian makes everything from coordinating the переезд to organizing your мебель much easier and more fun.\n\nFor everyday conversations at home, check out our guide on [Russian daily conversations for couples](/blog/en/russian-daily-conversations-couples).\n\n<PhraseOfDay\n  word=\"дом\"\n  translation=\"home\"\n  pronunciation=\"дом\"\n  context=\"The most important word for your new life together.\"\n/>\n\n## Essential Moving Vocabulary\n\n<VocabCard\n  word=\"вместе\"\n  translation=\"together\"\n  pronunciation=\"вместе\"\n  example=\"Finally living вместе!\"\n/>\n\n| Russian | English | Usage |\n|---|---|---|\n| квартира | apartment | Type of dwelling |\n| дом | house | Type of dwelling |\n| переезд | move/moving | The process |\n| мебель | furniture | Home items |\n| ключи | keys | Essential item |\n| аренда | rent | Monthly payment |\n| дом | home | Your place |\n| вместе | together | United |\n| распаковать | unpack | After moving |\n| соседи | neighbors | People nearby |\n\n<CultureTip flag=\"🇷🇺\" title=\"Russian Housing Culture\">\nIn Russian-speaking countries, housing customs can differ significantly. Rental agreements, deposits, and what's included in an квартира may vary. Your partner can help navigate these cultural differences.\n</CultureTip>\n\n## Finding Your Home\n\n### Apartment/House Hunting\n- **I like this квартира** - Expressing preference\n- **This дом is perfect** - Making a decision\n- **What's the аренда?** - Practical question\n- **We'll take it!** - Final decision\n\n### Key Phrases for Viewing\n| Russian | English | When to Use |\n|---|---|---|\n| квартира | apartment | Discussing options |\n| дом | house | Bigger option |\n| аренда | rent | Cost discussion |\n| ключи | keys | Receiving access |\n| соседи | neighbors | Asking about area |\n\n<VocabCard\n  word=\"ключи\"\n  translation=\"keys\"\n  pronunciation=\"ключи\"\n  example=\"We got the ключи!\"\n/>\n\n## Moving Day Vocabulary\n\n### Coordinating the Move\n- **Time to переезд!** - Getting started\n- **Where does this go?** - Organizing\n- **Careful with the мебель!** - Being cautious\n- **Almost done!** - Progress update\n\n### Essential Moving Terms\n| Russian | English | Context |\n|---|---|---|\n| переезд | move | The big day |\n| мебель | furniture | Items to move |\n| распаковать | unpack | After arrival |\n| Box | box | For packing |\n| Heavy | heavy | Warning |\n\n<CultureTip flag=\"🇷🇺\" title=\"Moving In Traditions\">\nIn some Russian-speaking cultures, there are traditions for blessing a new дом or bringing specific items (like bread and salt) to ensure prosperity. Ask your partner about any family traditions.\n</CultureTip>\n\n## Setting Up Your Home\n\n### Room by Room\n| Room | Russian | Items to Discuss |\n|---|---|---|\n| Kitchen | kitchen | Appliances, dishes |\n| Bedroom | bedroom | Bed, мебель |\n| Living room | living room | Sofa, TV |\n| Bathroom | bathroom | Essentials |\n\n### Organizing Together\n- **Let's распаковать this room first** - Prioritizing\n- **Where should we put the мебель?** - Planning\n- **This looks like дом!** - Feeling settled\n\n<VocabCard\n  word=\"мебель\"\n  translation=\"furniture\"\n  pronunciation=\"мебель\"\n  example=\"We need new мебель.\"\n/>\n\n## Shopping for Your Home\n\n### At the Furniture Store\n- **We need a new...** - Shopping list item\n- **This мебель is nice** - Expressing preference\n- **How much is this?** - Price question\n- **Delivery, please** - Requesting service\n\n### Household Items\n| Russian | English | Where |\n|---|---|---|\n| Bed | bed | Bedroom |\n| Table | table | Kitchen/dining |\n| Sofa | sofa | Living room |\n| Lamp | lamp | Any room |\n| Curtains | curtains | Windows |\n\n## Living Together\n\n### Daily Life Vocabulary\n- **I'm дом!** - Arriving home\n- **Let's clean вместе** - Sharing chores\n- **The соседи are nice** - Social observation\n- **Our дом is beautiful** - Appreciation\n\n<CultureTip flag=\"🇷🇺\" title=\"Household Responsibilities\">\nDiscuss how household chores are traditionally divided in Russian-speaking households. Open communication about expectations helps create harmony in your new дом.\n</CultureTip>\n\n### Meeting the Neighbors\n| Russian | English | Situation |\n|---|---|---|\n| Hello, соседи | Hello, neighbors | Introduction |\n| We just moved in | We just moved in | Explanation |\n| Nice to meet you | Nice to meet you | Greeting |\n| We live вместе | We live together | Clarification |\n\n## Quick Reference Card\n\n| Need | Vocabulary |\n|---|---|\n| Finding home | квартира, дом, аренда |\n| Moving day | переезд, мебель, распаковать |\n| New home | ключи, дом, вместе |\n| Community | соседи |\n\nBuilding a дом вместе in two languages creates a unique blend of cultures. Every piece of мебель you choose, every room you organize, becomes part of your beautiful multicultural life.\n\nFor more relationship vocabulary, explore our [essential Russian phrases for couples](/blog/en/essential-russian-phrases-for-couples) guide.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Finding Your Home",
+              "## Moving Day Vocabulary",
+              "## Setting Up Your Home",
+              "## Shopping for Your Home",
+              "## Living Together"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "f58c48ef-db1e-4558-a897-17a7aa95b686",
+      "title": "Датские фразы о ревности и доверии",
+      "native_lang": "ru",
+      "target_lang": "da",
+      "category": "communication",
+      "content": "Датская культура с её понятием «hygge» ценит комфорт и гармонию. Ревность обсуждается спокойно, часто с юмором, но всегда с уважением.\n\n## Фразы для выражения ревности\n\n### 1. Jeg bliver jaloux, når...\n**Произношение:** Яй бли́вэр жалу́, нор...\n\n**Перевод:** Я ревную, когда...\n\nЧестное признание чувств.\n\n### 2. Det generer mig, når du bruger så meget tid med...\n**Произношение:** Дэ гэнэ́рэр май, нор ду бру́эр со ма́йэт тид мэд...\n\n**Перевод:** Меня беспокоит, когда ты проводишь столько времени с...\n\nВыражение дискомфорта.\n\n### 3. Nogle gange har jeg brug for, at du beroliger mig\n**Произношение:** Но́лэ га́нгэ ха яй бру фор, ат ду бэро́лиэр май\n\n**Перевод:** Иногда мне нужно, чтобы ты меня успокоил/успокоила\n\nЧестная просьба о поддержке.\n\n## Фразы для укрепления доверия\n\n### 4. Jeg stoler fuldstændigt på dig\n**Произношение:** Яй сто́лэр фу́льстэндит по дай\n\n**Перевод:** Я полностью тебе доверяю\n\nВажное подтверждение.\n\n### 5. Du er den eneste for mig\n**Произношение:** Ду эр дэн э́нэстэ фор май\n\n**Перевод:** Ты единственный/единственная для меня\n\nВыражение преданности.\n\n### 6. Jeg ville aldrig gøre noget, der skader vores forhold\n**Произношение:** Яй ви́лле а́льдри гё́рэ но́эт, дэр ска́дэр во́рэс форхо́ль\n\n**Перевод:** Я никогда не сделаю ничего, что навредит нашим отношениям\n\nОбещание верности.\n\n### 7. Du behøver ikke bekymre dig\n**Произношение:** Ду бэхё́вэр и́ккэ бэчю́мрэ дай\n\n**Перевод:** Тебе не о чем беспокоиться\n\nУспокоение партнёра.\n\n### 8. Lad mig forklare, hvad der skete\n**Произношение:** Ла май форкла́рэ, ва дэр скэ́тэ\n\n**Перевод:** Позволь мне объяснить, что произошло\n\nОткрытость к диалогу.\n\n### 9. Dine følelser er vigtige for mig\n**Произношение:** Ди́нэ фё́лэльсэр эр ви́гтиэ фор май\n\n**Перевод:** Твои чувства важны для меня\n\nПризнание значимости эмоций.\n\n### 10. Kan vi sætte grænser sammen?\n**Произношение:** Кан ви сэ́тэ грэ́нсэр са́ммэн?\n\n**Перевод:** Можем ли мы вместе установить границы?\n\nКонструктивный подход.\n\n## Культурные особенности\n\nДатчане ценят лёгкость в общении и способность посмеяться над собой. Ревность обсуждается без драмы, с фокусом на решение. Доверие строится на открытости и уважении к личному пространству.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Фразы для выражения ревности",
+              "## Фразы для укрепления доверия"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "f598bdbc-14f1-47dd-abc9-736f0b781c27",
+      "title": "Румынские фразы для первого свидания",
+      "native_lang": "ru",
+      "target_lang": "ro",
+      "category": "communication",
+      "content": "Румыны — романтичный и эмоциональный народ. Эти фразы помогут вам на первом свидании.\n\n## Фразы для первого свидания\n\n### 1. Arăți superb în seara asta\n**Произношение:** Арэ́ць супэ́рб ын ся́ра а́ста\n\n**Перевод:** Ты потрясающе выглядишь сегодня вечером\n\n### 2. Abia așteptam această întâlnire\n**Произношение:** А́бья аштэпта́м ача́стэ ынтылни́рэ\n\n**Перевод:** Я очень ждал/ждала этой встречи\n\n### 3. Spune-mi mai multe despre tine\n**Произношение:** Спу́нэ-мь май му́лтэ дэспрэ ти́нэ\n\n**Перевод:** Расскажи мне больше о себе\n\n### 4. Ce îți place să faci în timpul liber?\n**Произношение:** Че ыць пла́чэ сэ фачь ын ти́мпул ли́бэр?\n\n**Перевод:** Чем тебе нравится заниматься в свободное время?\n\n### 5. Ai un zâmbet minunat\n**Произношение:** Ай ун зымбэ́т мину́нат\n\n**Перевод:** У тебя прекрасная улыбка\n\n### 6. Mi-ar plăcea să te văd din nou\n**Произношение:** Мь-ар плэ́ча сэ тэ вэд дин но́у\n\n**Перевод:** Мне бы хотелось увидеть тебя снова\n\n### 7. Am petrecut o seară minunată\n**Произношение:** Ам пэтрэку́т о ся́рэ мину́натэ\n\n**Перевод:** Я прекрасно провёл/провела вечер\n\n### 8. Pot să te sun mâine?\n**Произношение:** Пот сэ тэ сун мы́йнэ?\n\n**Перевод:** Можно я позвоню тебе завтра?\n\n## Культурные особенности\n\nРумыны эмоциональны и выразительны. Комплименты приветствуются. Галантность ценится — открывайте двери, помогайте с пальто. Цветы — отличный жест.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 198,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Фразы для первого свидания"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "f5a6d45e-9393-4bbe-b54f-04df597c7ee6",
+      "title": "Frases de 'Te Extraño' en Ucraniano: Сум con Corazón Ucraniano",
+      "native_lang": "es",
+      "target_lang": "uk",
+      "category": "communication",
+      "content": "El ucraniano expresa la añoranza con una dulzura especial. Si extrañas a alguien especial de Ucrania, estas frases te ayudarán a comunicar la profundidad de tus sentimientos.\n\n## Expresiones Esenciales\n\n### \"Я сумую за тобою\" (Ya sumuyu za toboyu)\n**Pronunciación:** ya sumúyu za tobóyu\n\n**Significado:** Te extraño\n\nLa forma más común de expresar añoranza en ucraniano.\n\n### \"Я дуже сумую за тобою\" (Ya duzhe sumuyu za toboyu)\n**Pronunciación:** ya dúzhe sumúyu za tobóyu\n\n**Significado:** Te extraño mucho\n\n### \"Мені так тебе не вистачає\" (Meni tak tebe ne vystachaye)\n**Pronunciación:** mení tak tebé ne vistacháye\n\n**Significado:** Me haces tanta falta\n\n## Diferencia con el Ruso\n\nEn ucraniano se usa \"сумувати\" (sumuvaty) mientras que en ruso es \"скучать\" (skuchat'). El ucraniano tiene su propia melodía emocional.\n\n## Frases Emotivas\n\n### \"Кожна мить без тебе здається вічністю\" (Kozhna myt' bez tebe zdayetsya vichnistyu)\n**Pronunciación:** kózhna mit bez tebé zdáyetsia víchnistiu\n\n**Significado:** Cada momento sin ti parece una eternidad\n\n### \"Ти завжди в моїх думках\" (Ty zavzhdy v moyikh dumkakh)\n**Pronunciación:** ti závzhdi v moyíj dúmkaj\n\n**Significado:** Siempre estás en mis pensamientos\n\n### \"Відстань нічого не змінює в моїх почуттях\" (Vidstan' nichoho ne zminyuye v moyikh pochuttyakh)\n**Pronunciación:** vídstan níchogo ne zmíniuye v moyíj pochútiaj\n\n**Significado:** La distancia no cambia nada en mis sentimientos\n\n## Para Mensajes Diarios\n\n### \"Прокинувся/прокинулась і відразу подумав/ла про тебе\" (Prokynuvsya/prokynulas' i vidrazu podumav/la pro tebe)\n**Pronunciación:** prokínuvsia/prokínulas i vídrazu podúmav/la pro tebé\n\n**Significado:** Me desperté y enseguida pensé en ti\n\n### \"На добраніч, сумую\" (Na dobranich, sumuyu)\n**Pronunciación:** na dobraních, sumúyu\n\n**Significado:** Buenas noches, te extraño\n\n### \"Рахую дні до нашої зустрічі\" (Rakhuyu dni do nashoyi zustrichi)\n**Pronunciación:** rajúyu dni do náshoyí zústrichí\n\n**Significado:** Cuento los días hasta nuestro encuentro\n\n## Expresiones Profundas\n\n### \"Моє серце сумує за тобою\" (Moye sertse sumye za toboyu)\n**Pronunciación:** moyé sértse súmuye za tobóyu\n\n**Significado:** Mi corazón te extraña\n\n### \"Без тебе все втрачає сенс\" (Bez tebe vse vtrachaye sens)\n**Pronunciación:** bez tebé vse vtracháye sens\n\n**Significado:** Sin ti todo pierde sentido\n\n### \"Ти — частинка, якої мені бракує\" (Ty — chastynka, yakoyi meni brakuye)\n**Pronunciación:** ti - chastínka, yakóyi mení brakúye\n\n**Significado:** Tú eres la parte que me falta\n\n## Frases para Videollamadas\n\n### \"Бачити тебе — щастя\" (Bachyty tebe — shchastya)\n**Pronunciación:** báchiti tebé - shchástia\n\n**Significado:** Verte es felicidad\n\n### \"Хочу обійняти тебе прямо зараз\" (Khochu obiynyaty tebe pryamo zaraz)\n**Pronunciación:** jóchu obiyniáti tebé priámo zarás\n\n**Significado:** Quiero abrazarte ahora mismo\n\n## Cultura Ucraniana del Amor\n\n- **Calidez** - Los ucranianos son muy cariñosos\n- **Poesía** - Rica tradición de canciones de amor\n- **Resiliencia** - El amor ucraniano es fuerte\n- **Familia** - Los lazos familiares son fundamentales\n\n## Mensajes Románticos\n\n### \"Доброго ранку, кохана/коханий, сумую\" (Dobroho ranku, kokhana/kokhanyy, sumuyu)\n**Pronunciación:** dóbroho ránku, kojána/kojániy, sumúyu\n\n**Significado:** Buenos días, amor, te extraño\n\n### \"Чекаю не дочекаюся побачити тебе\" (Chekayu ne dochekayusya pobachyty tebe)\n**Pronunciación:** chekáyu ne dochekáyusia pobáchiti tebé\n\n**Significado:** No puedo esperar a verte\n\n## Palabras de Consuelo\n\n- **Скоро побачимось** (skóro pobáchimost) - Pronto nos veremos\n- **Я чекаю на тебе** (ya chekáyu na tebé) - Te espero\n- **Ти в моєму серці** (ti v moyému sértsi) - Estás en mi corazón\n\nEl ucraniano convierte la añoranza en сум - un sentimiento dulce y profundo. ¡Бажаю успіху з коханням на відстані!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Expresiones Esenciales",
+              "## Frases Emotivas",
+              "## Para Mensajes Diarios",
+              "## Expresiones Profundas",
+              "## Frases para Videollamadas",
+              "## Mensajes Románticos"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "f5a7af1b-7250-432f-a804-89d2286c6893",
+      "title": "Венгерские фразы для примирения",
+      "native_lang": "ru",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "Венгры могут казаться сдержанными, но в близких отношениях они эмоциональны и страстны. Примирение требует искренности и готовности показать свои чувства.\n\n## Основные фразы для примирения\n\n### 1. Bocsánat, tévedtem\n**Произношение:** Бо́чанат, тэ́вэдтэм\n\n**Перевод:** Прости, я ошибся/ошиблась\n\nИскреннее признание ошибки.\n\n### 2. Kibékülhetünk?\n**Произношение:** Кибэ́кюльхэтюнк?\n\n**Перевод:** Можем мы помириться?\n\nПриглашение к примирению.\n\n### 3. Nem akartalak megbántani\n**Произношение:** Нэм а́карталак мэгба́нтани\n\n**Перевод:** Я не хотел/хотела тебя обидеть\n\nОбъяснение отсутствия злого умысла.\n\n### 4. Jobban szeretlek, mint ezt a veszekedést\n**Произношение:** Ё́ббан сэ́рэтлэк, минт эст а вэ́сэкэдэшт\n\n**Перевод:** Я люблю тебя больше, чем эта ссора\n\nНапоминание о приоритете любви.\n\n### 5. Kezdjük elölről\n**Произношение:** Кэ́зджюк э́лёльрёль\n\n**Перевод:** Давай начнём сначала\n\nПредложение оставить прошлое позади.\n\n### 6. Megbocsátok neked\n**Произношение:** Мэгбо́чаток нэ́кэд\n\n**Перевод:** Я прощаю тебя\n\nОсвобождение от обиды.\n\n### 7. Mit tehetek, hogy jóvátegyem?\n**Произношение:** Мит тэ́хэтэк, ходь йо́ватэдьэм?\n\n**Перевод:** Что я могу сделать, чтобы это исправить?\n\nГотовность к действиям.\n\n### 8. Hiányzik a boldogságunk\n**Произношение:** Хиа́ньзик а бо́лдогша́гунк\n\n**Перевод:** Мне не хватает нашего счастья\n\nВыражение тоски по гармонии.\n\n### 9. Ne feküdjünk le haraggal\n**Произношение:** Нэ фэ́кюдьюнк лэ ха́раггал\n\n**Перевод:** Давай не будем ложиться спать в гневе\n\nСтремление к примирению.\n\n### 10. Köszönöm, hogy próbálsz megérteni\n**Произношение:** Кё́сёнём, ходь про́балш мэгэ́ртэни\n\n**Перевод:** Спасибо, что стараешься меня понять\n\nБлагодарность за усилия.\n\n## Культурные особенности\n\nВенгры ценят глубокие, искренние отношения. Примирение требует настоящих эмоций. Обращения «Drágám» (дорогой/дорогая), «Szerelmem» (любовь моя) или «Édesem» (сладкий/сладкая) добавляют теплоты.\n\nФраза «Gyere ide» (Иди сюда) — приглашение к близости и примирению.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 243,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Основные фразы для примирения"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

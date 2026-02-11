@@ -1,0 +1,260 @@
+{
+  "native_lang": "uk",
+  "wave": 1,
+  "target_langs_reviewed": ["en", "es", "fr", "de", "it", "pt"],
+  "articles_reviewed": 12,
+  "clean_articles": 2,
+  "issues": [
+    {
+      "article_id": "71679a84-c1fa-4ddb-82b1-2fff8122cfe5",
+      "slug": "english-video-call-phrases-family",
+      "target_lang": "en",
+      "issue_type": "language_error",
+      "severity": "high",
+      "description": "Recurring Ukrainian grammatical error: 'англійськаою' should be 'англійською'. The instrumental case of 'англійська' is 'англійською', not 'англійськаою'. Appears in title and multiple times in body text.",
+      "evidence": "Title: \"Фрази англійськаою для відеодзвінків з родиною\" (should be \"англійською\")"
+    },
+    {
+      "article_id": "71679a84-c1fa-4ddb-82b1-2fff8122cfe5",
+      "slug": "english-video-call-phrases-family",
+      "target_lang": "en",
+      "issue_type": "rendering_bug",
+      "severity": "high",
+      "description": "PhraseOfDay component renders as a VocabCard in content_html with an empty word field. The word 'Hello' is present in MDX source but missing from the rendered HTML span element.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span>"
+    },
+    {
+      "article_id": "71679a84-c1fa-4ddb-82b1-2fff8122cfe5",
+      "slug": "english-video-call-phrases-family",
+      "target_lang": "en",
+      "issue_type": "content_thin",
+      "severity": "medium",
+      "description": "Article is quite thin at 210 words with only 2 VocabCards. For a phrase-focused article about video calls with family, it covers very few scenarios. Tables have only 9 total entries across 4 sections.",
+      "evidence": "_wordCount: 210, VocabCards: 2"
+    },
+    {
+      "article_id": "48ebefad-8fb2-4b37-afd8-4e8f1266c7c6",
+      "slug": "english-small-talk-conversation-starters",
+      "target_lang": "en",
+      "issue_type": "language_error",
+      "severity": "high",
+      "description": "Same recurring Ukrainian grammatical error: 'англійськаою' should be 'англійською'. Appears in title and body text.",
+      "evidence": "Title: \"Small talk англійськаою: Як почати розмову\""
+    },
+    {
+      "article_id": "48ebefad-8fb2-4b37-afd8-4e8f1266c7c6",
+      "slug": "english-small-talk-conversation-starters",
+      "target_lang": "en",
+      "issue_type": "missing_component",
+      "severity": "low",
+      "description": "Article is missing the CTA component at the end. Also missing import statements at the top of the content (other articles include them).",
+      "evidence": "No <CTA /> found in content; no import statements"
+    },
+    {
+      "article_id": "5a95364b-cfd3-41d5-ad4b-7db216d0f11b",
+      "slug": "spanish-date-night-vocabulary",
+      "target_lang": "es",
+      "issue_type": "missing_component",
+      "severity": "low",
+      "description": "Article is missing the CTA component at the end.",
+      "evidence": "No <CTA /> found in content"
+    },
+    {
+      "article_id": "0d829802-c549-40d7-8977-53f68141854d",
+      "slug": "spanish-essential-phrases-for-couples",
+      "target_lang": "es",
+      "issue_type": "rendering_bug",
+      "severity": "high",
+      "description": "PhraseOfDay component renders with an empty word field in content_html. The word 'Te quiero' is present in MDX source but missing from the rendered HTML.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span>"
+    },
+    {
+      "article_id": "727be459-969d-4c83-86ad-732a279c6bb0",
+      "slug": "meeting-the-family-french-phrases",
+      "target_lang": "fr",
+      "issue_type": "template_artifact",
+      "severity": "low",
+      "description": "VocabCard example contains a bracketed placeholder '[Partner]' that should be replaced with an actual name or a generic Ukrainian equivalent like 'ваш партнер'.",
+      "evidence": "example=\"J'ai beaucoup entendu parler de vous. [Partner] parle souvent de sa famille.\""
+    },
+    {
+      "article_id": "727be459-969d-4c83-86ad-732a279c6bb0",
+      "slug": "meeting-the-family-french-phrases",
+      "target_lang": "fr",
+      "issue_type": "missing_component",
+      "severity": "low",
+      "description": "Article is missing the CTA component at the end.",
+      "evidence": "No <CTA /> found in content"
+    },
+    {
+      "article_id": "9436a2a9-3a0f-4b4f-a0cb-03c2c2fa9e00",
+      "slug": "essential-french-travel-phrases-for-couples",
+      "target_lang": "fr",
+      "issue_type": "language_error",
+      "severity": "medium",
+      "description": "Article title starts with a lowercase letter. 'французька' should be capitalized to 'Французька' at the beginning of the title.",
+      "evidence": "Title: \"французька для пар: 45+ фраз для подорожей\""
+    },
+    {
+      "article_id": "9436a2a9-3a0f-4b4f-a0cb-03c2c2fa9e00",
+      "slug": "essential-french-travel-phrases-for-couples",
+      "target_lang": "fr",
+      "issue_type": "missing_component",
+      "severity": "low",
+      "description": "Article is missing the CTA component at the end.",
+      "evidence": "No <CTA /> found in content"
+    },
+    {
+      "article_id": "7f6f50bf-d872-40a5-a450-7e29aa721a25",
+      "slug": "german-long-distance-relationship",
+      "target_lang": "de",
+      "issue_type": "language_error",
+      "severity": "high",
+      "description": "Recurring Ukrainian grammatical error: 'німецькаою' should be 'німецькою'. The instrumental case of 'німецька' is 'німецькою', not 'німецькаою'. Appears in title and body text.",
+      "evidence": "Title: \"Фрази німецькаою для стосунків на відстані\" (should be \"німецькою\")"
+    },
+    {
+      "article_id": "7f6f50bf-d872-40a5-a450-7e29aa721a25",
+      "slug": "german-long-distance-relationship",
+      "target_lang": "de",
+      "issue_type": "rendering_bug",
+      "severity": "high",
+      "description": "PhraseOfDay component renders with an empty word field in content_html. The word 'Du fehlst mir' is present in MDX source but missing from the rendered HTML.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span>"
+    },
+    {
+      "article_id": "7f6f50bf-d872-40a5-a450-7e29aa721a25",
+      "slug": "german-long-distance-relationship",
+      "target_lang": "de",
+      "issue_type": "content_thin",
+      "severity": "medium",
+      "description": "Article is thin at 222 words with only 2 VocabCards. For a topic like long-distance relationship phrases, it offers very limited vocabulary. Tables contain only 10 total entries.",
+      "evidence": "_wordCount: 222, VocabCards: 2"
+    },
+    {
+      "article_id": "5b3c39ff-7e5b-4538-ac7f-d065b0fdaf11",
+      "slug": "german-how-to-apologize",
+      "target_lang": "de",
+      "issue_type": "language_error",
+      "severity": "high",
+      "description": "Recurring Ukrainian grammatical error: 'німецькаою' should be 'німецькою'. Appears in title and body text.",
+      "evidence": "Title: \"Як вибачитися німецькаою: Фрази для примирення\""
+    },
+    {
+      "article_id": "5b3c39ff-7e5b-4538-ac7f-d065b0fdaf11",
+      "slug": "german-how-to-apologize",
+      "target_lang": "de",
+      "issue_type": "missing_component",
+      "severity": "low",
+      "description": "Article is missing the CTA component at the end.",
+      "evidence": "No <CTA /> found in content"
+    },
+    {
+      "article_id": "823773cb-64fe-4721-abeb-0cc99a1ad2e7",
+      "slug": "italian-proposal-engagement-phrases",
+      "target_lang": "it",
+      "issue_type": "wrong_language",
+      "severity": "high",
+      "description": "PhraseOfDay uses English phrase 'Will you marry me?' instead of Italian. For an article about Italian proposal phrases, the featured phrase should be in Italian (e.g., 'Mi vuoi sposare?'). Also uses non-standard prop name 'phrase=' instead of 'word='.",
+      "evidence": "<PhraseOfDay phrase=\"Will you marry me?\" translation=\"Вийдеш за мене заміж?\"...>"
+    },
+    {
+      "article_id": "823773cb-64fe-4721-abeb-0cc99a1ad2e7",
+      "slug": "italian-proposal-engagement-phrases",
+      "target_lang": "it",
+      "issue_type": "wrong_language",
+      "severity": "high",
+      "description": "Vocabulary table labeled 'Італійська' (Italian) contains English words instead of Italian. 'Ring', 'Diamond', 'Engagement ring', 'Wedding band' should be 'Anello', 'Diamante', 'Anello di fidanzamento', 'Fede nuziale'.",
+      "evidence": "| Італійська | Українська | | Ring | Каблучка | | Diamond | Діамант |"
+    },
+    {
+      "article_id": "823773cb-64fe-4721-abeb-0cc99a1ad2e7",
+      "slug": "italian-proposal-engagement-phrases",
+      "target_lang": "it",
+      "issue_type": "content_stub",
+      "severity": "high",
+      "description": "Multiple empty sections with no content. 'Основна лексика заручин' section is completely empty. 'Після заручин' section lists items in Ukrainian only without Italian translations. 'Оголошення про заручини' section has Ukrainian-only bullet points without Italian equivalents. Only 1 VocabCard in the entire article.",
+      "evidence": "### Основна лексика заручин [empty] / list items: 'Наречений / Наречена', 'Весільні плани' (no Italian)"
+    },
+    {
+      "article_id": "823773cb-64fe-4721-abeb-0cc99a1ad2e7",
+      "slug": "italian-proposal-engagement-phrases",
+      "target_lang": "it",
+      "issue_type": "rendering_bug",
+      "severity": "medium",
+      "description": "Content starts with an H1 markdown heading which renders as <h1> in HTML. Blog articles should not include H1 tags in content as the page template already provides the H1 from the title field.",
+      "evidence": "Content starts with: \"# Як зробити пропозицію італійською\" => <h1> in HTML"
+    },
+    {
+      "article_id": "823773cb-64fe-4721-abeb-0cc99a1ad2e7",
+      "slug": "italian-proposal-engagement-phrases",
+      "target_lang": "it",
+      "issue_type": "missing_component",
+      "severity": "medium",
+      "description": "CultureTip components are missing the required 'flag' prop. Two CultureTip instances lack flag emoji, which would normally show the Italian flag for context.",
+      "evidence": "<CultureTip> (no flag=, no title= on second instance)"
+    },
+    {
+      "article_id": "823773cb-64fe-4721-abeb-0cc99a1ad2e7",
+      "slug": "italian-proposal-engagement-phrases",
+      "target_lang": "it",
+      "issue_type": "missing_component",
+      "severity": "low",
+      "description": "Article is missing import statements at the top and the CTA component at the end.",
+      "evidence": "No import statements; no <CTA /> at end"
+    },
+    {
+      "article_id": "2e2a814f-0c3c-431d-892f-791e026585e8",
+      "slug": "italian-greetings-and-farewells",
+      "target_lang": "it",
+      "issue_type": "rendering_bug",
+      "severity": "high",
+      "description": "PhraseOfDay component renders with an empty word field in content_html. The word 'Ciao amore mio' is present in MDX source but missing from the rendered HTML.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span>"
+    },
+    {
+      "article_id": "bfef0bbc-6835-4c7d-bc82-6df72d6ef293",
+      "slug": "portuguese-expressing-emotions",
+      "target_lang": "pt",
+      "issue_type": "language_error",
+      "severity": "high",
+      "description": "Recurring Ukrainian grammatical error: 'португальськаою' should be 'португальською'. The instrumental case of 'португальська' is 'португальською', not 'португальськаою'. Appears in title and body text.",
+      "evidence": "Title: \"Як виражати емоції португальськаою: Словник почуттів\""
+    },
+    {
+      "article_id": "bfef0bbc-6835-4c7d-bc82-6df72d6ef293",
+      "slug": "portuguese-expressing-emotions",
+      "target_lang": "pt",
+      "issue_type": "missing_component",
+      "severity": "low",
+      "description": "Article is missing the CTA component at the end.",
+      "evidence": "No <CTA /> found in content"
+    },
+    {
+      "article_id": "7cc2203d-e63b-42da-8e74-92454c7a8df1",
+      "slug": "pt-in-laws-phrases-for-ukrainian-speakers",
+      "target_lang": "pt",
+      "issue_type": "content_quality",
+      "severity": "medium",
+      "description": "VocabCard example sentences use an unusual pedagogical pattern of embedding Portuguese words directly within Ukrainian sentences rather than showing full Portuguese example sentences. While showing real-world code-switching, this makes examples less useful for learning proper Portuguese sentence construction.",
+      "evidence": "example=\"Завтра ми йдемо на вечерю до моїх sogros.\" / \"Цей пиріг має чудовий смак caseiro.\""
+    },
+    {
+      "article_id": "7cc2203d-e63b-42da-8e74-92454c7a8df1",
+      "slug": "pt-in-laws-phrases-for-ukrainian-speakers",
+      "target_lang": "pt",
+      "issue_type": "missing_component",
+      "severity": "low",
+      "description": "Article is missing the CTA component at the end. Also missing import statements.",
+      "evidence": "No <CTA /> found in content; no import statements"
+    }
+  ],
+  "systemic_patterns": [
+    "Ukrainian instrumental case error: 6 articles (0,1,6,7,10 titles+body) use incorrect form 'XxxxXxxxаою' instead of 'XxxxXxxxою' (e.g., 'англійськаою' -> 'англійською', 'німецькаою' -> 'німецькою', 'португальськаою' -> 'португальською'). This is a systematic AI generation error in the instrumental case of Ukrainian adjectives derived from language names.",
+    "PhraseOfDay rendering bug: 5 articles (0,3,6,9 confirmed + likely article 1) have the PhraseOfDay component rendering with an empty word span in the content_html, even though the MDX source contains the correct word= prop. The PhraseOfDay appears to be incorrectly converted to a VocabCard template (speakable-vocab class) instead of the PhraseOfDay template (speakable-phrase class).",
+    "Missing CTA component: 8 out of 12 articles are missing the <CTA /> component at the end. Only articles 0, 3, 6, 9 include it. This suggests the CTA was stripped or forgotten during content generation for the majority of articles.",
+    "Missing import statements: At least 3 articles (1, 8, 11) lack the standard import block at the top. While this may not affect rendering if handled at build time, it is inconsistent with articles that do include imports.",
+    "Article 8 (Italian proposal) is the worst quality article in the batch: it has English words where Italian should be, empty sections, stub content without target-language translations, wrong PhraseOfDay prop name, missing CultureTip flags, an H1 heading in content, and only 1 VocabCard. It reads like an incomplete draft or template that was not properly filled out.",
+    "Content depth is uneven across the batch. Spanish articles (2, 3) are rich with 29 and 5 VocabCards respectively, and article 3 delivers well on its '50 phrases' promise. French articles (4, 5) are also well-populated with 32 VocabCards each. In contrast, English article 0 and German article 6 are thin with only 2 VocabCards each and under 225 words."
+  ]
+}

@@ -1,0 +1,122 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0094",
+  "articles": [
+    {
+      "id": "1b932a32-fb4d-41ec-9f96-3e585c4883d8",
+      "title": "Russian First Date Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "ru",
+      "category": "communication",
+      "content": "First dates are exciting moments of possibility. When your date speaks Russian, knowing key phrases creates instant connection. Here are essential Russian phrases for that memorable first meeting.\n\n## Making a Great First Impression\n\n### Ты прекрасно выглядишь\n**Pronunciation:** tui preh-KRAHS-noh VUI-glah-deesh\n\n**Meaning:** \"You look amazing\"\n\n**When to use it:** When greeting your date—a sincere compliment starts things right.\n\n### Приятно познакомиться\n**Pronunciation:** pree-YAHT-noh pahz-nah-KOH-meet-sah\n\n**Meaning:** \"Nice to meet you\" / \"Pleased to meet you\"\n\n**When to use it:** A warm greeting to begin your date.\n\n## Getting to Know Each Other\n\nAsk about their life—their work, passions, dreams, and interests. Show genuine curiosity. Good questions lead to meaningful conversations.\n\nShare about yourself too. Be authentic and open. Connection happens when both people are truly present.\n\n## Expressing Interest\n\nGive sincere compliments—about their smile, their laugh, their thoughts. Tell them you're enjoying spending time together. Let your interest show naturally.\n\n## During the Date\n\nBe attentive and engaged. Comment positively on your shared experience—the food, the place, the conversation. Put away distractions and focus on each other.\n\n## Ending the Date\n\nIf you want to see them again, say it clearly. Ask about meeting again. A thoughtful message afterward shows you care.\n\n## Cultural Considerations\n\nRussian speakers appreciate genuine interest and respect. Be yourself while showing curiosity about their background and culture. Follow their lead on physical greetings.\n\n## The Magic of Effort\n\nSpeaking even a few words in Russian shows respect and creates warmth. First dates are about discovering possibility—let your authentic self shine through.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 256,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Making a Great First Impression"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "1b951cb7-70a1-47b5-a075-46d8788000e7",
+      "title": "Guten Morgen und Gute Nacht auf Englisch – Süße Phrasen für jeden Tag",
+      "native_lang": "de",
+      "target_lang": "en",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\n# Guten Morgen und Gute Nacht auf Englisch\n\nEs gibt kaum etwas Schöneres, als den Tag mit liebevollen Worten zu beginnen und zu beenden. Diese Englischen Phrasen helfen dir, deinem Partner jeden Tag zu zeigen, wie viel er dir bedeutet – vom ersten Moment am Morgen bis zum letzten Kuss in der Nacht.\n\n<PhraseOfDay\n  word=\"Good morning\"\n  translation=\"Guten Morgen\"\n  pronunciation=\"gud MOR-ning\"\n  context=\"Der klassische Morgengruß für deinen Partner\"\n/>\n\n## Guten Morgen sagen\n\n### Klassische Morgengrüße\n\n<VocabCard\n  word=\"Good morning, my darling\"\n  translation=\"Guten Morgen, mein Schatz\"\n  pronunciation=\"gud MOR-ning mai DAR-ling\"\n  example=\"Good morning, my darling! Rise and shine.\"\n/>\n\n<VocabCard\n  word=\"Wake up, my love\"\n  translation=\"Aufwachen, mein Liebling\"\n  pronunciation=\"weik ap mai lav\"\n  example=\"Wake up, my love! It's a beautiful day.\"\n/>\n\n| Englisch | Deutsch |\n|-------------|---------|\n| Did you sleep well? | Hast du gut geschlafen? |\n| Time to get up | Zeit aufzustehen |\n| I made breakfast | Ich habe Frühstück gemacht |\n\n### Romantische Morgengrüße\n\n| Englisch | Deutsch |\n|-------------|---------|\n| You're the first thing on my mind | Du bist das Erste, woran ich denke |\n| Have a wonderful day, angel | Einen wunderschönen Tag, mein Engel |\n| I love waking up next to you | Ich liebe es, neben dir aufzuwachen |\n| You're my sunshine | Du bist mein Sonnenschein |\n\n<CultureTip flag=\"🇬🇧\" title=\"Kultureller Kontext\">\nDaily greetings in your partner's language show you care. Make it a sweet habit!\n</CultureTip>\n\n## Gute Nacht sagen\n\n### Klassische Nachtgrüße\n\n<VocabCard\n  word=\"Good night\"\n  translation=\"Gute Nacht\"\n  pronunciation=\"gud nait\"\n  example=\"Good night, sweet dreams.\"\n/>\n\n<VocabCard\n  word=\"Sleep well\"\n  translation=\"Schlaf gut\"\n  pronunciation=\"sliep wel\"\n  example=\"Sleep well, my love.\"\n/>\n\n| Englisch | Deutsch |\n|-------------|---------|\n| Sweet dreams | Süße Träume |\n| See you tomorrow | Bis morgen |\n| Sleep tight | Schlaf schön |\n\n### Romantische Nachtgrüße\n\n| Englisch | Deutsch |\n|-------------|---------|\n| I'll dream of you | Ich träume von dir |\n| You're my last thought before sleep | Du bist der letzte Gedanke vor dem Einschlafen |\n| Sleep well, my heart | Schlaf gut, mein Herz |\n| I can't wait to see you tomorrow | Ich kann es kaum erwarten, dich morgen zu sehen |\n\n## Für Textnachrichten\n\nPerfekt für süße SMS und WhatsApp-Nachrichten:\n\n| Englisch | Deutsch |\n|-------------|---------|\n| Good morning, thinking of you | Guten Morgen, ich denke an dich |\n| Have a great day | Hab einen tollen Tag |\n| Good night, I miss you | Gute Nacht, ich vermisse dich |\n| Sweet dreams | Träum süß |\n| Until tomorrow, love you | Bis morgen, ich liebe dich |\n\n<CultureTip flag=\"🇬🇧\" title=\"Tipp für Paare\">\nBeginne und beende jeden Tag mit einer liebevollen Nachricht auf Englisch. Diese kleinen Gesten stärken eure Beziehung und helfen dir beim Sprachenlernen!\n</CultureTip>\n\n## Verwandte Artikel\n\n- [Romantische Phrasen auf Englisch](/de/blog/english-romantic-phrases-for-every-occasion)\n- [Englische Kosenamen](/de/blog/english-pet-names-terms-of-endearment)\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Guten Morgen sagen",
+              "## Gute Nacht sagen"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "1ba0a395-d965-4846-a453-f3199d9d3630",
+      "title": "Norveççe Duygusal Destek İfadeleri: Teselli Sözleri",
+      "native_lang": "tr",
+      "target_lang": "no",
+      "category": "communication",
+      "content": "# Norveççe Duygusal Destek İfadeleri\n\nHayatın zor anlarında sevdiklerimize destek olmak çok önemlidir. Bu rehberde Norveççe duygusal destek ifadelerini öğreneceksiniz.\n\n## Temel Destek İfadeleri\n\n### Varlık Gösterme\n\n- Senin için buradayım\n- Yalnız değilsin\n- Her şey iyi olacak\n\n### Anlayış\n\n- Seni anlıyorum\n- Böyle hissetmen normal\n- Seninle gurur duyuyorum\n\n### Güç Verme\n\n- Bana güvenebilirsin\n- Düşündüğünden daha güçlüsün\n- Bunu tek başına yaşamak zorunda değilsin\n\n### Sevgi\n\n- Ne olursa olsun seni seviyorum\n- Dinlemek için buradayım\n- İhtiyacın olan zamanı al\n\n## Kültürel İpuçları\n\nNorveç kültüründe duygusal destek önemlidir. Fiziksel temas (sarılmak, el tutmak) destek göstermenin değerli yollarıdır. Pratik yardım da duygusal destek kadar önemlidir.\n\n## Sonuç\n\nNorveççe duygusal destek ifadelerini öğrenmek, Norveç'lı sevdiklerinize zor zamanlarda yardımcı olmanızı sağlar. Samimi ve sıcak olun!",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 128,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Temel Destek İfadeleri"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "1ba8c9fc-c51b-4b29-a0ca-4b4d1f92a337",
+      "title": "Expresii în Portugheză despre Gelozie și Încredere în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "pt",
+      "category": "communication",
+      "content": "În culturile lusofone, gelozia poate fi expresie a iubirii, dar trebuie gestionată cu înțelepciune. Dacă partenerul tău vorbește portugheză, aceste expresii te vor ajuta să navighezi momentele de nesiguranță.\n\n## Expresii despre Gelozie\n\n### Recunoașterea Sentimentelor\n\n**\"Tenho que ser honesto/a - me senti um pouco ciumento/a.\"**\n*Trebuie să fiu sincer/ă - m-am simțit puțin gelos/geloasă.*\n\n**\"Sei que é irracional, mas me senti inseguro/a quando...\"**\n*Știu că e irațional, dar m-am simțit nesigur/ă când...*\n\n### Exprimarea Nevoilor\n\n**\"Preciso que você me tranquilize um pouco.\"**\n*Am nevoie să mă liniștești puțin.*\n\n**\"Confio em você, mas às vezes preciso ouvir isso.\"**\n*Am încredere în tine, dar uneori am nevoie să aud asta.*\n\n### Construirea Încrederii\n\n**\"Confio completamente em você.\"**\n*Am încredere totală în tine.*\n\n**\"Você é a única pessoa para mim.\"**\n*Ești singura persoană pentru mine.*\n\n**\"Só tenho olhos para você.\"**\n*Am ochi doar pentru tine.*\n\n### Răspunsuri la Gelozie\n\n**\"Eu entendo por que você pode se sentir assim.\"**\n*Înțeleg de ce te-ai putea simți așa.*\n\n**\"Você não tem com o que se preocupar.\"**\n*Nu ai de ce să-ți faci griji.*\n\n**\"Você é tudo o que eu quero.\"**\n*Tu ești tot ce vreau.*\n\n**\"Meu coração pertence só a você.\"**\n*Inima mea îți aparține numai ție.*\n\n## Fraze de Reasigurare\n\n**\"Você é o amor da minha vida.\"**\n*Ești dragostea vieții mele.*\n\n**\"Ninguém se compara a você.\"**\n*Nimeni nu se compară cu tine.*\n\n**\"Te escolho todos os dias.\"**\n*Te aleg în fiecare zi.*\n\n## Sfaturi Culturale\n\nÎn Brazilia și Portugalia, căldura și afecțiunea sunt normale. Reasigurarea fizică (îmbrățișări, săruturi) poate fi la fel de importantă ca cuvintele.\n\n## Concluzie\n\nCu aceste expresii calde, vei putea gestiona gelozia într-un mod sănătos și construi încrederea în relația ta.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 281,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Expresii despre Gelozie"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "1bd0a206-4c27-48ad-a60c-d1e6c3cc3ce3",
+      "title": "Macarca Telaffuz Rehberi: Partnerinizle Birlikte Konuşmayı Öğrenin",
+      "native_lang": "tr",
+      "target_lang": "hu",
+      "category": "grammar",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nPartnerinizle Macarca konuşmaya başlamak mı istiyorsunuz? Macarca telaffuz kulağa zor gelebilir, ama aslında çok mantıklı! Bu rehberle birlikte temel sesleri öğrenip, sevgilinizle güzelce konuşmaya başlayacaksınız. [Aşkınızı Macarca ilan etmek](/learn/tr/hu/how-to-say-i-love-you-in-hungarian/) için doğru telaffuz çok önemli!\n\n<PhraseOfDay\n  word=\"Szeretlek\"\n  translation=\"Seni seviyorum\"\n  pronunciation=\"SER-et-lek\"\n  context=\"En romantik kelime - kalbinizin doğru sesle atması için mükemmel bir başlangıç.\"\n/>\n\n## Macarca Telaffuz Temelleri\n\nMacarca, Türkçeden farklı olarak çok daha fazla sesli harf (vowel) içeriyor ve heceleme sistemi oldukça tutarlı. Neyse ki, Türkçe gibi Macarca da fonetik bir dil - yazıldığı gibi okunuyor!\n\n### Türkçe Olmayan Sesler\n\nMacarcanın bazı sesleri Türkçede yok. Ama endişelenmeyin, partnerinizle birlikte pratik yaparak çok kolay öğreneceksiniz:\n\n- **Á** (uzun a) - \"aa\" gibi, ama daha açık\n- **É** (uzun e) - \"ee\" gibi, daha kapalı\n- **Ö** (kısa ö) - Türkçedeki ö ile aynı!\n- **Ő** (uzun ö) - uzun süreli ö\n- **Ü** (kısa ü) - Türkçedeki ü ile aynı!\n- **Ű** (uzun ü) - uzun süreli ü\n\n<VocabCard\n  word=\"Köszönöm\"\n  translation=\"Teşekkür ederim\"\n  pronunciation=\"KÖ-sö-nöm\"\n  example=\"Köszönöm szépen! (Çok teşekkür ederim!)\"\n/>\n\n## Vokal Uyumu: Macarcanın Müziği\n\nMacarcada **vokal uyumu** çok önemlidir. Bu, bir kelimedeki sesli harflerin birbirine uyumlu olması gerektiği anlamına gelir. Türkçede de benzer bir sistem vardır!\n\n### Temel Kural\n- **İnce sesliler:** e, é, i, í, ö, ő, ü, ű\n- **Kalın sesliler:** a, á, o, ó, u, ú\n\n<CultureTip flag=\"🇭🇺\" title=\"Vokal Uyumu ve Aşk\">\nMacarcada doğru vokal uyumu yapmak, konuşmanızı daha doğal ve güzel kılar. Partnerinizin kalbini kazanmak için mükemmel telaffuz şart!\n</CultureTip>\n\n## En Çok Kullanılan Sesler\n\n### Sert ve Yumuşak Sesler\n\n| Harf | Türkçe Benzeri | Telaffuz | Örnek |\n|------|----------------|----------|--------|\n| **S** | her zaman sert | \"s\" | **szeret** (sevmek) |\n| **Sz** | sert s | \"s\" | **szép** (güzel) |\n| **Zs** | j sesi | \"zsh\" | **zsák** (çanta) |\n| **Cs** | ç sesi | \"ch\" | **csók** (öpücük) |\n| **Ty** | t+y | \"ti\" | **tyúk** (tavuk) |\n| **Gy** | d+y | \"di\" | **gyerek** (çocuk) |\n| **Ny** | n+y | \"ny\" | **nyár** (yaz) |\n| **Ly** | yumuşak j | \"j\" | **lyuk** (delik) |\n\n<VocabCard\n  word=\"Csók\"\n  translation=\"Öpücük\"\n  pronunciation=\"chohk\"\n  example=\"Egy csók kérlek! (Bir öpücük lütfen!)\"\n/>\n\n## Partnerinizle Pratik Yapın: Romantik Kelimeler\n\n### Aşk Dolu Kelimeler\n\n| Macarca | Türkçe | Telaffuz | Kullanım |\n|---------|---------|----------|----------|\n| **drágám** | sevgilim | DRAH-gaam | [Partnerinize seslenirken](/learn/tr/hu/hungarian-pet-names-for-your-partner/) |\n| **édesem** | tatlım | EH-deh-shem | Sevgi gösterirken |\n| **kedvesem** | canım | KED-ve-shem | Şefkatli bir şekilde |\n| **angyalom** | meleğim | AHN-djah-lohm | Çok romantik anlarda |\n| **szívem** | kalbim | SEE-vehm | Derin duygular için |\n\n<PhraseOfDay\n  word=\"Édesem, szeretlek!\"\n  translation=\"Tatlım, seni seviyorum!\"\n  pronunciation=\"EH-deh-shem SER-et-lek\"\n  context=\"Her gün kullanabileceğiniz, kalpten gelen bir ifade.\"\n/>\n\n## Hatalardan Kaçının\n\n### En Yaygın Telaffuz Hataları\n\n1. **Minden vs. Minden**\n   - **Minden** (her şey) - \"MIN-den\" şeklinde okunur\n   - **Mindent** (her şeyi) - \"MIN-dent\" şeklinde okunur\n\n2. **Jó vs. Jo**\n   - **Jó** (iyi) - \"yoh\" şeklinde, kısa ve net\n   - **Jo** isim değil, sadece **jó** doğru\n\n3. **É vs. E**\n   - **É** (uzun e) - \"ee\" gibi, daha uzun\n   - **E** (kısa e) - \"eh\" gibi, kısa\n\n<CultureTip flag=\"🇭🇺\" title=\"Macarca Güzel Telaffuz\">\nMacarlarda doğru telaffuz çok takdir edilir. Partnerinizin dilini doğru konuşmak, onlara saygı gösterdiğinizin en güzel kanıtıdır!\n</CultureTip>\n\n## Günlük Pratik Cümleler\n\nPartnerinizle birlikte [günlük konuşmaları](/learn/tr/hu/essential-hungarian-phrases-for-couples/) pratik yapın:\n\n| Macarca | Türkçe | Telaffuz |\n|---------|---------|----------|\n| **Jó reggelt!** | Günaydın! | yoh REH-ghelt |\n| **Jó éjszakát!** | İyi geceler! | yoh EY-sah-kaat |\n| **Hogy vagy?** | Nasılsın? | hodj vahj |\n| **Szeretlek téged.** | Seni seviyorum. | SER-et-lek TEH-gehd |\n| **Gyönyörű vagy!** | Harika görünüyorsun! | DJÖ-nyö-rö vahj |\n\n## Hızlı Referans Tablosu\n\n### Macarca Alfabesi ve Sesler\n\n| Harf | Ses | Türkçe Karşılık | Örnek |\n|------|-----|------------------|--------|\n| A a | ah | a | **apa** (baba) |\n| Á á | aa | uzun a | **fát** (ağaç - nesne hâli) |\n| E e | eh | e | **egy** (bir) |\n| É é | ee | uzun e | **ész** (akıl) |\n| I i | ih | ı | **itt** (burada) |\n| Í í | ee | uzun i | **így** (böylece) |\n| O o | oh | o | **ott** (orada) |\n| Ó ó | ooh | uzun o | **jó** (iyi) |\n| U u | uh | u | **utca** (sokak) |\n| Ú ú | uuh | uzun u | **út** (yol) |\n| Ö ö | ö | ö | **ös** (dalga) |\n| Ő ő | öö | uzun ö | **fő** (ana) |\n| Ü ü | ü | ü | **tüz** (tuz) |\n| Ű ű | üü | uzun ü | **fű** (ot) |\n\n## Sonraki Adımlar\n\nTebrikler! Artık Macarca telaffuz temellerini biliyorsunuz. Partnerinizle birlikte:\n- Her gün 5 yeni kelime telaffuz edin\n- [Romantik Macarca ifadeler](/learn/tr/hu/romantic-hungarian-phrases-for-every-occasion/) öğrenin\n- Birbirinizi dinleyin ve düzeltin\n- Macarca şarkılar dinleyin birlikte\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## En Çok Kullanılan Sesler",
+              "## Partnerinizle Pratik Yapın: Romantik Kelimeler",
+              "## Hatalardan Kaçının",
+              "## Hızlı Referans Tablosu"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

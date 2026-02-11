@@ -1,0 +1,56 @@
+{
+  "tier": 1,
+  "batchId": "tier1-batch-004",
+  "articles": [
+    {
+      "id": "068db665-0753-453c-a9a3-f271e8130749",
+      "title": "Exprimarea emoțiilor în ucraineană – Vocabular pentru sentimente",
+      "native_lang": "ro",
+      "target_lang": "uk",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nExprimarea emoțiilor este fundamentală pentru o relație sănătoasă. Când poți comunica cum te simți în limba partenerului tău, conexiunea devine mai profundă și mai autentică.\n\n<PhraseOfDay\n  word=\"Я тебе кохаю\"\n  translation=\"Te iubesc\"\n  pronunciation=\"\"\n  context=\"Cea mai importantă expresie pentru cupluri\"\n/>\n\n## Emoții pozitive în Ucraineană\n\n<VocabCard\n  word=\"Я щасливий/а\"\n  translation=\"Sunt fericit/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Я тебе кохаю\"\n  translation=\"Te iubesc\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Я в захваті\"\n  translation=\"Sunt entuziasmat/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇺🇦\" title=\"Expresivitatea emoțională\">\nUcrainenii sunt călduroși și expresivi. Scuzele sincere, posibil însoțite de un gest afectuos, sunt foarte prețuite în cultura ucraineană.\n</CultureTip>\n\n## Emoții negative în Ucraineană\n\nEste la fel de important să poți exprima emoțiile dificile:\n\n| Ucraineană | Română |\n|---------|---------|\n| Мені сумно | Sunt trist/ă |\n| Я злюся | Sunt supărat/ă |\n| Я за тобою сумую | Mi-e dor de tine |\n\n## Expresii pentru starea de spirit\n\n<VocabCard\n  word=\"Я за тобою сумую\"\n  translation=\"Mi-e dor de tine\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru exprimarea emoțiilor\n\n1. **Folosește \"eu\" în loc de \"tu\"** – \"Mă simt trist\" vs \"Tu mă faci trist\"\n2. **Fii specific** – Descrie exact ce simți\n3. **Validează emoțiile partenerului** – Repetă ce ai auzit pentru confirmare\n4. **Alege momentul potrivit** – Nu discuta emoții grele când ești obosit\n5. **Exersează regulat** – Vorbiți zilnic despre cum vă simțiți\n\n<CTA />\n\n## Articole conexe\n\n- [Cum să îți ceri scuze în ucraineană](/ro/uk/ukrainian-how-to-apologize)\n- [Complimente în ucraineană](/ro/uk/ukrainian-giving-compliments)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "070393fa-1453-4263-a305-97315d44c075",
+      "title": "Conversații și subiecte de discuție în spaniolă",
+      "native_lang": "ro",
+      "target_lang": "es",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nArta conversației ușoare este esențială pentru a te conecta cu familia și prietenii partenerului tău.\n\n<PhraseOfDay\n  word=\"¿Cómo estás?\"\n  translation=\"Ce mai faci? / Cum ești?\"\n  pronunciation=\"\"\n  context=\"Cel mai comun mod de a începe o conversație\"\n/>\n\n## Începe o conversație\n\n<VocabCard\n  word=\"¿Cómo estás?\"\n  translation=\"Ce mai faci? / Cum ești?\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Hace buen tiempo hoy\"\n  translation=\"Vremea e frumoasă azi\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇪🇸\" title=\"Cultura conversațiilor\">\nSpaniolii și latino-americanii sunt foarte expresivi. Scuzele sincere sunt adesea însoțite de gesturi afectuoase și explicații detaliate.\n</CultureTip>\n\n## Întrebări pentru a cunoaște pe cineva\n\n| Spaniolă | Română |\n|---------|---------|\n| ¿Cómo estás? | Ce mai faci? |\n| Hace buen tiempo hoy | Vremea e frumoasă azi |\n| ¿Tienes planes para el fin de semana? | Ai planuri pentru weekend? |\n| ¿Cuáles son tus pasatiempos? | Care sunt hobby-urile tale? |\n\n<VocabCard\n  word=\"¿Cuáles son tus pasatiempos?\"\n  translation=\"Care sunt hobby-urile tale?\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Subiecte sigure de conversație\n\n1. **Vremea** – Întotdeauna un început sigur\n2. **Mâncarea** – Laudă bucătăria locală\n3. **Hobby-urile** – Arată interes pentru pasiunile lor\n4. **Călătoriile** – Împărtășește experiențe comune\n5. **Familia** – Întreabă despre cei dragi\n\n<CTA />\n\n## Articole conexe\n\n- [Salutări și despărțiri în spaniolă](/ro/es/spanish-greetings-and-farewells)\n- [Întâlnirea cu familia partenerului în spaniolă](/ro/es/spanish-meeting-your-partner-s-family)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "0893ef88-013b-48a8-b3bd-d740f9025eb9",
+      "title": "Frases em Polonês para Videochamadas com a Família",
+      "native_lang": "pt",
+      "target_lang": "pl",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nVideochamadas com a família do seu parceiro podem ser intimidantes, especialmente em outro idioma! Se a família do seu amor fala Polonês, estas frases vão ajudá-lo a causar uma ótima impressão!\n\n<PhraseOfDay word=\"Hello everyone!\" translation=\"Olá a todos!\" pronunciation=\"re-LÔU ÉV-ri-uan\" context=\"Uma forma educada de cumprimentar a família\" />\n\n## Cumprimentos Iniciais\n\n| Polonês | Pronúncia | Português |\n|-----------|-----------|-----------|\n| Hello everyone | re-LÔU ÉV-ri-uan | Olá a todos |\n| Nice to see you | náis tu sí iu | Prazer em ver vocês |\n| How are you doing? | ráu ar iu DÚ-ing | Como vocês estão? |\n| It's so good to see you all | its sôu gud tu sí iu ól | É tão bom ver todos vocês |\n\n<VocabCard word=\"Hello everyone\" translation=\"Olá a todos\" pronunciation=\"re-LÔU ÉV-ri-uan\" example=\"Perfeito para iniciar a videochamada.\" />\n\n<CultureTip flag=\"🇵🇱\" title=\"Formalidade com a Família\">\nVista-se adequadamente para causar boa impressão na família.\n</CultureTip>\n\n## Perguntas Educadas\n\n| Polonês | Pronúncia | Português |\n|-----------|-----------|-----------|\n| How have you been? | ráu hév iu bín | Como tem passado? |\n| How's work going? | ráuz uérk GÔU-ing | Como está o trabalho? |\n| What's new with you? | uóts niú uith iu | O que há de novo? |\n\n<VocabCard word=\"How have you been?\" translation=\"Como tem passado?\" pronunciation=\"ráu hév iu bín\" example=\"Demonstre interesse genuíno.\" />\n\n## Problemas Técnicos\n\n| Polonês | Pronúncia | Português |\n|-----------|-----------|-----------|\n| Can you hear me? | ken iu hír mi | Consegue me ouvir? |\n| Sorry, the connection is bad | SÓ-ri dê ko-NÉK-shon iz béd | Desculpe, a conexão está ruim |\n| You're breaking up | iur BRÉI-king âp | Está cortando |\n\n<CultureTip flag=\"🇵🇱\" title=\"Dicas para a Chamada\">\nMantenha contato visual olhando para a câmera.\n</CultureTip>\n\n## Despedidas Calorosas\n\n| Polonês | Pronúncia | Português |\n|-----------|-----------|-----------|\n| It was lovely talking to you | it uóz LÂV-li TÓ-king tu iu | Foi ótimo conversar com vocês |\n| Talk to you soon | tók tu iu sun | Falamos em breve |\n| Take care | teik kér | Cuide-se |\n\n<VocabCard word=\"It was lovely talking to you\" translation=\"Foi ótimo conversar com vocês\" pronunciation=\"it uóz LÂV-li TÓ-king tu iu\" example=\"Termine a chamada deixando uma boa impressão.\" />\n\n## Dicas para Videochamadas\n\n1. **Vista-se adequadamente** — Mesmo em casa, cause boa impressão\n2. **Ambiente calmo** — Sem distrações ou barulhos\n3. **Tenha paciência** — Se não entender algo, peça para repetirem\n4. **Sorria** — A linguagem corporal comunica muito\n5. **Prepare frases** — Tenha este guia por perto!\n\n<CultureTip flag=\"🇵🇱\" title=\"Mantendo o Contato\">\nPrepare algumas perguntas sobre a família para mostrar interesse.\n</CultureTip>\n\nPara saber mais sobre conhecer a família, confira nosso [guia para conhecer a família do parceiro polonês](/learn/pt/pl/meeting-your-polish-partners-family/). E para conversas informais, veja [como iniciar conversas em Polonês](/learn/pt/pl/polish-small-talk-conversation-starters/).\n\nCom prática e dedicação, você vai conquistar a família do seu amor!\n\n<CTA />",
+      "issues": [
+        {
+          "type": "language_fingerprint_mismatch",
+          "details": {
+            "nativeLang": "pt",
+            "nativeStopWordRatio": 5,
+            "englishStopWordRatio": 10
+          }
+        }
+      ]
+    }
+  ]
+}

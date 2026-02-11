@@ -1,0 +1,642 @@
+{
+  "batchId": "tier2a-slim-0041",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "434bff47-5b4a-4903-8ad5-4e2038bd25d1",
+      "title": "Czy wloski jest trudny do nauki? Przewodnik dla Polaków",
+      "native_lang": "pl",
+      "target_lang": "it",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Wyzwania dla Polaków",
+          "subsections": [
+            "### 1. Rodzajniki (il, la, un, una)",
+            "### 2. Podwójne spółgłoski",
+            "### 3. Czasy przeszłe",
+            "### 4. Tryb łączący (congiuntivo)"
+          ]
+        },
+        {
+          "header": "## Porównanie trudności",
+          "subsections": [
+            "### Włoski vs inne języki dla Polaków"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4354e0f9-adb2-4988-ab75-0c42bceef338",
+      "title": "Svéd kifejezések az após és anyós megismeréséhez",
+      "native_lang": "hu",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető üdvözlések",
+          "subsections": [
+            "### Hej!",
+            "### God dag!",
+            "### Trevligt att träffas",
+            "### Jag heter..."
+          ]
+        },
+        {
+          "header": "## Bókok és köszönet",
+          "subsections": [
+            "### Ni har ett väldigt fint hem",
+            "### Tack för inbjudan",
+            "### Det var jättegott!",
+            "### Tack för maten"
+          ]
+        },
+        {
+          "header": "## A kapcsolatról",
+          "subsections": [
+            "### Jag älskar er son / dotter väldigt mycket",
+            "### Vi är väldigt lyckliga tillsammans"
+          ]
+        },
+        {
+          "header": "## Érdeklődés",
+          "subsections": [
+            "### Jag skulle gärna vilja lära mig mer om er kultur",
+            "### Kan ni lära mig att laga den här rätten?"
+          ]
+        },
+        {
+          "header": "## Beszélgetésindítók",
+          "subsections": [
+            "### Hur länge har ni bott här?",
+            "### Vad jobbar ni med?"
+          ]
+        },
+        {
+          "header": "## Búcsúzás",
+          "subsections": [
+            "### Hej då!",
+            "### Tack för en trevlig kväll"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "435bd5af-8255-4b59-a349-47c77cf6af4a",
+      "title": "Norvég üzenetküldő kifejezések magyar anyanyelvűeknek",
+      "native_lang": "hu",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető üdvözlések",
+          "subsections": [
+            "### 1. God morgen, kjære",
+            "### 2. Jeg savner deg",
+            "### 3. Jeg elsker deg"
+          ]
+        },
+        {
+          "header": "## Mindennapi üzenetek",
+          "subsections": [
+            "### 4. Hvordan har du det?",
+            "### 5. Jeg er snart der",
+            "### 6. Klem / Kyss"
+          ]
+        },
+        {
+          "header": "## Romantikus kifejezések",
+          "subsections": [
+            "### 7. Du er alt for meg",
+            "### 8. Skatt / Vennen min",
+            "### 9. Jeg drømte om deg"
+          ]
+        },
+        {
+          "header": "## Chat rövidítések",
+          "subsections": [
+            "### 10. Takk / Tks",
+            "### 11. Ok / Okei",
+            "### 12. Kos / Klem og kyss"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "436a3ea4-2572-4eab-927f-b4a09c27a1fb",
+      "title": "Szerelmes Levél Írása Lengyelül – Romantikus Kifejezések és Tippek",
+      "native_lang": "hu",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Megszólítások",
+          "subsections": [
+            "### 1. Kochanie",
+            "### 2. Moje serce",
+            "### 3. Moja miłości",
+            "### 4. Skarbie",
+            "### 5. Najdroższa / Najdroższy"
+          ]
+        },
+        {
+          "header": "## Kezdő Mondatok",
+          "subsections": [
+            "### 6. Piszę do Ciebie, żeby Ci powiedzieć, jak bardzo Cię kocham.",
+            "### 7. Słowa nie są w stanie wyrazić tego, co do Ciebie czuję.",
+            "### 8. Od kiedy Cię poznałem/am, moje życie ma nowy sens.",
+            "### 9. Każda chwila z Tobą jest skarbem.",
+            "### 10. Jesteś najlepszym, co mnie spotkało."
+          ]
+        },
+        {
+          "header": "## Érzelmek Kifejezése",
+          "subsections": [
+            "### 11. Moje serce należy do Ciebie.",
+            "### 12. Czynisz mnie kompletnym/ą.",
+            "### 13. Twoja miłość daje mi siłę.",
+            "### 14. Każdego dnia zakochuję się w Tobie bardziej.",
+            "### 15. Jesteś moją bratnią duszą."
+          ]
+        },
+        {
+          "header": "## Lezárások",
+          "subsections": [
+            "### 16. Na zawsze Twoja/Twój",
+            "### 17. Z całą moją miłością",
+            "### 18. Twoja/Twój na wieki",
+            "### 19. Do zobaczenia",
+            "### 20. Kocham Cię całym sercem"
+          ]
+        },
+        {
+          "header": "## Kulturális Tippek",
+          "subsections": [
+            "### Lengyel Romantika",
+            "### Virágok és Ajándékok",
+            "### Katolikus Hagyomány"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "43967928-435a-4895-b41a-95c0e35323fc",
+      "title": "Frases para Conhecer os Sogros em Ucraniano: Guia Completo",
+      "native_lang": "pt",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para o Primeiro Encontro",
+          "subsections": [
+            "### Apresentação",
+            "### Elogiando",
+            "### Mostrando Interesse",
+            "### Expressando Gratidão"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "43969863-665a-4e64-929c-c79ed3b0af83",
+      "title": "En Yaygın 100 Portekizce Kelime",
+      "native_lang": "tr",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Zamirler",
+          "subsections": [
+            "### 1. Eu /eu/ - Ben",
+            "### 2. Tu/Você /tu/vose/ - Sen",
+            "### 3. Ele /eli/ - O (erkek)",
+            "### 4. Ela /ela/ - O (kadın)",
+            "### 5. Nós /nos/ - Biz",
+            "### 6. Vocês /voses/ - Siz",
+            "### 7. Eles/Elas /elis/elas/ - Onlar",
+            "### 8. E /i/ - Ve",
+            "### 9. Mas /mas/ - Ama",
+            "### 10. Ou /ou/ - Veya"
+          ]
+        },
+        {
+          "header": "## Temel Fiiller",
+          "subsections": [
+            "### 11. Ser /ser/ - Olmak",
+            "### 12. Estar /istar/ - Olmak (durum)",
+            "### 13. Ter /ter/ - Sahip olmak",
+            "### 14. Fazer /fazer/ - Yapmak",
+            "### 15. Dizer /dizer/ - Söylemek",
+            "### 16. Ir /ir/ - Gitmek",
+            "### 17. Vir /vir/ - Gelmek",
+            "### 18. Poder /poder/ - Yapabilmek",
+            "### 19. Saber /saber/ - Bilmek",
+            "### 20. Querer /kerer/ - İstemek",
+            "### 21. Ver /ver/ - Görmek",
+            "### 22. Dar /dar/ - Vermek",
+            "### 23. Falar /falar/ - Konuşmak",
+            "### 24. Amar /amar/ - Sevmek",
+            "### 25. Comer /komer/ - Yemek"
+          ]
+        },
+        {
+          "header": "## Sıfatlar",
+          "subsections": [
+            "### 26. Bom /bom/ - İyi",
+            "### 27. Mau /mau/ - Kötü",
+            "### 28. Grande /grande/ - Büyük",
+            "### 29. Pequeno /pekenu/ - Küçük",
+            "### 30. Novo /novu/ - Yeni",
+            "### 31. Velho /velyu/ - Eski/yaşlı",
+            "### 32. Longo /longu/ - Uzun",
+            "### 33. Curto /kurtu/ - Kısa",
+            "### 34. Quente /kente/ - Sıcak",
+            "### 35. Frio /friu/ - Soğuk"
+          ]
+        },
+        {
+          "header": "## Zaman İfadeleri",
+          "subsections": [
+            "### 36. Agora /agora/ - Şimdi",
+            "### 37. Hoje /oje/ - Bugün",
+            "### 38. Amanhã /amanya/ - Yarın",
+            "### 39. Ontem /ontem/ - Dün",
+            "### 40. Sempre /sempre/ - Her zaman",
+            "### 41. Nunca /nunka/ - Asla",
+            "### 42. Às vezes /as vezes/ - Bazen"
+          ]
+        },
+        {
+          "header": "## Soru Kelimeleri",
+          "subsections": [
+            "### 43. O quê /u ke/ - Ne",
+            "### 44. Onde /onde/ - Nerede",
+            "### 45. Quando /kuandu/ - Ne zaman",
+            "### 46. Por quê /pur ke/ - Neden",
+            "### 47. Como /komu/ - Nasıl",
+            "### 48. Quem /kem/ - Kim"
+          ]
+        },
+        {
+          "header": "## Sayılar",
+          "subsections": [
+            "### 49. Um /um/ - Bir",
+            "### 50. Dois /doys/ - İki",
+            "### 51. Três /tres/ - Üç",
+            "### 52. Quatro /kuatru/ - Dört",
+            "### 53. Cinco /sinku/ - Beş",
+            "### 54. Dez /des/ - On",
+            "### 55. Cem /sem/ - Yüz"
+          ]
+        },
+        {
+          "header": "## Günlük Kelimeler",
+          "subsections": [
+            "### 56. Sim /sim/ - Evet",
+            "### 57. Não /nau/ - Hayır",
+            "### 58. Por favor /pur favor/ - Lütfen",
+            "### 59. Obrigado/a /obrigadu/a/ - Teşekkürler",
+            "### 60. Desculpa /deskupa/ - Özür dilerim",
+            "### 61. Olá /ola/ - Merhaba",
+            "### 62. Tchau /çau/ - Hoşça kal",
+            "### 63. Amor /amor/ - Aşk",
+            "### 64. Amigo /amigu/ - Arkadaş",
+            "### 65. Família /familiya/ - Aile"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "439b40cd-4dfb-4267-9587-a3bd0fdbfb05",
+      "title": "Произношение украинского языка: полное руководство",
+      "native_lang": "ru",
+      "target_lang": "uk",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Особые согласные",
+          "subsections": [
+            "### Буква Г — два звука",
+            "### Буква Щ",
+            "### Буква Ь"
+          ]
+        },
+        {
+          "header": "## Упражнения для пар",
+          "subsections": [
+            "### 1. Мягкое «г»:",
+            "### 2. Романтическая практика:",
+            "### 3. Йотированные гласные:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "43a0d278-e8e1-4841-97c4-cfc4daed9432",
+      "title": "Frases para Coquetear en Neerlandés: Conquistando Corazones Holandeses",
+      "native_lang": "es",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Cumplidos Sinceros",
+          "subsections": [
+            "### \"Je hebt mooie ogen\"",
+            "### \"Je ziet er geweldig uit\"",
+            "### \"Je bent echt knap\""
+          ]
+        },
+        {
+          "header": "## Invitaciones Casuales",
+          "subsections": [
+            "### \"Zin om een koffie te drinken?\"",
+            "### \"Wil je een keer afspreken?\"",
+            "### \"Ik vind het leuk om tijd met jou door te brengen\""
+          ]
+        },
+        {
+          "header": "## Expresiones Románticas",
+          "subsections": [
+            "### \"Ik denk vaak aan je\"",
+            "### \"Je maakt me gelukkig\"",
+            "### \"Ik ben gek op je\""
+          ]
+        },
+        {
+          "header": "## El Estilo Holandés",
+          "subsections": [
+            "### \"Ik vind je leuk\"",
+            "### \"Er is iets speciaals aan jou\"",
+            "### \"Je lach is aanstekelijk\""
+          ]
+        },
+        {
+          "header": "## Mensajes de Texto",
+          "subsections": [
+            "### \"Goedemorgen, schat\"",
+            "### \"Ik mis je\"",
+            "### \"Slaap lekker\"",
+            "### \"Tot gauw\""
+          ]
+        },
+        {
+          "header": "## Frases Avanzadas",
+          "subsections": [
+            "### \"Je hebt mijn hart gestolen\"",
+            "### \"Ik kan niet stoppen met aan je denken\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "43acea5d-f85a-4e43-ac51-85fd31c7ce25",
+      "title": "Frases de Apoyo Emocional en Inglés: Cómo Consolar a Tu Pareja",
+      "native_lang": "es",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases de Consuelo Básicas",
+          "subsections": [
+            "### \"I'm here for you\"",
+            "### \"Everything is going to be okay\"",
+            "### \"I'm so sorry you're going through this\""
+          ]
+        },
+        {
+          "header": "## Ofreciendo Apoyo Activo",
+          "subsections": [
+            "### \"What do you need from me right now?\"",
+            "### \"I'll do whatever I can to help\"",
+            "### \"Would you like to talk about it?\"",
+            "### \"I'm listening\""
+          ]
+        },
+        {
+          "header": "## Validando Emociones",
+          "subsections": [
+            "### \"It's okay to feel this way\"",
+            "### \"Your feelings are completely valid\"",
+            "### \"You have every right to be upset\"",
+            "### \"I understand why you feel that way\""
+          ]
+        },
+        {
+          "header": "## Frases de Ánimo",
+          "subsections": [
+            "### \"You're stronger than you think\"",
+            "### \"You've gotten through hard times before\"",
+            "### \"I believe in you\"",
+            "### \"We'll get through this together\""
+          ]
+        },
+        {
+          "header": "## Expresando Amor en Momentos Difíciles",
+          "subsections": [
+            "### \"I love you no matter what\"",
+            "### \"Nothing will change how I feel about you\"",
+            "### \"You're not alone in this\""
+          ]
+        },
+        {
+          "header": "## Frases para Momentos Específicos",
+          "subsections": [
+            "### Pérdida de empleo",
+            "### Problemas de salud",
+            "### Conflictos familiares"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "43f92655-7c59-4d6e-9cd0-10476969e4a3",
+      "title": "Rumänska Fraser för Svartsjuka och Förtroende",
+      "native_lang": "sv",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Uttrycka Svartsjuka",
+          "subsections": [
+            "### 1. \"Mă simt nesigur/ă când...\"",
+            "### 2. \"Poți să mă ajuți să înțeleg relația ta cu...?\"",
+            "### 3. \"Am încredere în tine, dar mă lupt cu sentimentele mele\"",
+            "### 4. \"Am nevoie să mă liniștești\"",
+            "### 5. \"Mă deranjează când...\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Bygga Förtroende",
+          "subsections": [
+            "### 6. \"Am ochi doar pentru tine\"",
+            "### 7. \"Ești singura persoană pentru mine\"",
+            "### 8. \"Nu aș face niciodată nimic care să te rănească\"",
+            "### 9. \"Să fim sinceri unul cu celălalt\"",
+            "### 10. \"Vreau să-mi cunoști prietenii\"",
+            "### 11. \"Nu ai de ce să te îngrijorezi\"",
+            "### 12. \"Te aleg pe tine în fiecare zi\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4402a1f1-55b0-4d57-9d7d-82afb333230e",
+      "title": "Английский для пар: 25 основных фраз",
+      "native_lang": "ru",
+      "target_lang": "en",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Фразы для особых моментов",
+          "subsections": [
+            "### Утренние фразы:",
+            "### Вечерние фразы:"
+          ]
+        },
+        {
+          "header": "## Практические упражнения для пар",
+          "subsections": [
+            "### «Вопрос дня»:",
+            "### «Комплимент дня»:",
+            "### «Планы на выходные»:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4411a8ac-5aae-44c6-a42f-dbe5adcaac4a",
+      "title": "Çekçe Kıskançlık ve Güven İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kıskançlığı İfade Etme",
+          "subsections": [
+            "### 1. \"Cítím se trochu žárlivý/á, když...\"",
+            "### 2. \"Můžeš mě uklidnit?\"",
+            "### 3. \"Věřím ti, ale jim ne\"",
+            "### 4. \"Je mi nepříjemně, když...\"",
+            "### 5. \"Potřebuji vědět, že jsem tvá priorita\""
+          ]
+        },
+        {
+          "header": "## Güven İnşa Etme",
+          "subsections": [
+            "### 6. \"Úplně ti věřím\"",
+            "### 7. \"Jsi jediná osoba pro mě\"",
+            "### 8. \"Nikdy bych neudělal/a nic, co by ti ublížilo\"",
+            "### 9. \"Nemáš se čeho bát\"",
+            "### 10. \"Jsem oddaný/á jen tobě\"",
+            "### 11. \"Pojďme si promluvit o tvých obavách\"",
+            "### 12. \"Co mohu udělat, abys se cítil/a bezpečněji?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4415a784-3bb9-490f-966f-9e8508af6762",
+      "title": "Выражение эмоций на шведском языке",
+      "native_lang": "ru",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Положительные эмоции",
+          "subsections": [
+            "### Радость и счастье",
+            "### Любовь и привязанность"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "441d62c3-06e6-416b-a97e-eef790f429b0",
+      "title": "Frases de 'Te Extraño' en Rumano: Dor con Alma Latina",
+      "native_lang": "es",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## El Concepto de Dor",
+          "subsections": [
+            "### \"Mi-e dor de tine\"",
+            "### \"Mi-e foarte dor de tine\"",
+            "### \"Mi-aș dori să fii aici\""
+          ]
+        },
+        {
+          "header": "## Frases Emotivas",
+          "subsections": [
+            "### \"Fiecare clipă fără tine pare o eternitate\"",
+            "### \"Ești mereu în gândurile mele\"",
+            "### \"Distanța nu schimbă nimic din sentimentele mele\""
+          ]
+        },
+        {
+          "header": "## Para Mensajes Diarios",
+          "subsections": [
+            "### \"M-am trezit gândindu-mă la tine\"",
+            "### \"Noapte bună, mi-e dor\"",
+            "### \"Număr zilele până te voi vedea\""
+          ]
+        },
+        {
+          "header": "## Expresiones Profundas",
+          "subsections": [
+            "### \"Inima mea suferă de dor\"",
+            "### \"Ești piesa care-mi lipsește\"",
+            "### \"Fără tine, totul pare gri\""
+          ]
+        },
+        {
+          "header": "## Frases para Videollamadas",
+          "subsections": [
+            "### \"Să-ți văd fața îmi face ziua mai bună\"",
+            "### \"Aș vrea să te îmbrățișez acum\""
+          ]
+        },
+        {
+          "header": "## Mensajes Románticos",
+          "subsections": [
+            "### \"Bună dimineața, iubirea mea, mi-e dor\"",
+            "### \"Abia aștept să te văd\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "442564e2-fba1-4f4a-aa0b-f37d65cc19f3",
+      "title": "Γερμανικά Βασικά Γραμματικά: Μάθετε να μιλάτε με τον σύντροφό σας χωρίς άγχος",
+      "native_lang": "el",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Οι 4 Βασικοί Κανόνες",
+          "subsections": [
+            "### 1. Τα Άρθρα: Ο, Η, Το στα Γερμανικά",
+            "### 2. Τα Ρήματα: Η Καρδιά της Πρότασης",
+            "### 3. Οι Προσωπικές Αντωνυμίες",
+            "### 4. Οι Ερωτήσεις Είναι Εύκολες"
+          ]
+        },
+        {
+          "header": "## Οι Πιο Χρήσιμοι Χρόνοι",
+          "subsections": [
+            "### Παρόν (Präsens) - Για την Καθημερινότητα",
+            "### Μέλλονς (Futur I) - Για Σχέδια"
+          ]
+        },
+        {
+          "header": "## Τα Πιο Συνηθισμένα Λάθη",
+          "subsections": [
+            "### 1. Η Σειρά των Λέξεων",
+            "### 2. Τα Άρθρα με Ονόματα",
+            "### 3. Το Ρήμα Δεύτερο"
+          ]
+        }
+      ]
+    }
+  ]
+}

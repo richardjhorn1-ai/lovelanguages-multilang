@@ -1,0 +1,111 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0689",
+  "articles": [
+    {
+      "id": "c7db5d9c-229e-4355-8c05-b0bc1e44f3aa",
+      "title": "Svéd évfordulós kívánságok és üzenetek",
+      "native_lang": "hu",
+      "target_lang": "sv",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nAz évforduló a kapcsolatotok ünneplésének különleges alkalma. Ha svédul szeretnéd kifejezni az érzéseidet ezen a napon, ezek a kifejezések segítenek.\n\nTovábbi romantikus kifejezésekért nézd meg az [Svéd romantikus kifejezések](/learn/hu/sv/swedish-romantic-phrases-for-every-occasion) útmutatónkat.\n\n<PhraseOfDay\n  word=\"Grattis!\"\n  translation=\"Gratulálok!\"\n  pronunciation=\"ˈɡratɪs\"\n  context=\"Az esküvői köszöntés alapja.\"\n/>\n\n## Alapvető szókincs\n\nAz évfordulós köszöntések alapvető svéd szókincse:\n\n<VocabCard\n  word=\"bröllop\"\n  translation=\"esküvő\"\n  pronunciation=\"ˈbrœlːɔp\"\n  example=\"Bröllopet var vackert.\"\n/>\n\n| Svéd | Magyar | Használat |\n|---|---|---|\n| brud | menyasszony | A nő |\n| brudgum | vőlegény | A férfi |\n| löften | fogadalmak | Esküvői ígéretek |\n| ceremoni | szertartás | A hivatalos rész |\n| mottagning | fogadás | Az ünneplés |\n| skål | köszöntő | Pohárköszöntő |\n\n<CultureTip flag=\"🌍\" title=\"Svéd kulturális tippek\">\nA svéd kultúrában az évfordulóknak különleges jelentőségük van. Egyes helyeken hagyományos ajándékokat adnak az évek számától függően.\n</CultureTip>\n\n## Hasznos kifejezések\n\n### Évfordulós köszöntések\n\nAz évforduló napján mondd:\n\n- **Grattis!** - Gratulálok!\n- **Minden nap jobban szeretlek** - Romantikus vallomás\n- **Köszönöm, hogy velem vagy** - Hálás szavak\n\n### Hosszabb üzenetek\nHa többet szeretnél mondani:\n\n- **Veled minden nap különleges** - Romantikus\n- **A legjobb döntés volt, hogy igentet mondtam** - Visszatekintő\n\n<VocabCard\n  word=\"bröllopsresa\"\n  translation=\"nászút\"\n  pronunciation=\"ˈbrœlːɔpsˌreːsa\"\n  example=\"De åkte på bröllopsresa.\"\n/>\n\n## Gyakorlati helyzetek\n\n| Helyzet | Mit mondj |\n|---|---|\n| Reggeli köszöntés | Boldog évfordulót kívánok! |\n| Kártyára | Írj személyes üzenetet |\n| Vacsoránál | Mondj köszöntőt |\n| Lefekvés előtt | Fejezd ki a háládat |\n\n<CultureTip flag=\"💡\" title=\"Hasznos tipp\">\nÍrd le előre, amit mondani szeretnél. Az évforduló érzelmes pillanat, és a leírt szavak segítenek, hogy ne felejtsd el, amit mondani akarsz.\n</CultureTip>\n\n## Összefoglaló táblázat\n\n| Helyzet | Svéd kifejezés |\n|---|---|\n| Gratuláció | Grattis! |\n| Az esemény | bröllop |\n| A nő | brud |\n| A férfi | brudgum |\n| Esküvői ígéretek | löften |\n\n## További tanulás\n\nHa tovább szeretnéd fejleszteni a svéd nyelvtudásod, nézd meg ezeket a cikkeinket:\n\n- [Svéd romantikus kifejezések minden alkalomra](/learn/hu/sv/swedish-romantic-phrases-for-every-occasion)\n- [Hogyan mondd: Szeretlek svédul](/learn/hu/sv/swedish-how-to-say-i-love-you)\n- [Svéd alapvető kifejezések pároknak](/learn/hu/sv/swedish-essential-phrases-for-couples)\n\nEzek a források segítenek elmélyíteni a tudásod és magabiztosabbá válni a svéd nyelvben.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 272,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Hasznos kifejezések"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "c7e3c51f-e35c-4963-b477-7196401bfcd1",
+      "title": "Griechisch Kosenamen und Liebkosungen für Paare",
+      "native_lang": "de",
+      "target_lang": "el",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport CTA from '@components/CTA.astro';\n\n# Griechisch Kosenamen und Liebkosungen für Paare\n\nKosenamen sind eine wunderbare Art, deinem Partner zu zeigen, wie viel er oder sie dir bedeutet. Wenn dein Partner Griechisch spricht, wird es ihn oder sie sicher freuen, wenn du diese liebevollen Ausdrücke verwendest!\n\n## Warum Kosenamen wichtig sind\n\nKosenamen schaffen Intimität und zeigen Zuneigung. Sie sind wie ein geheimes Band zwischen zwei Menschen – etwas Besonderes, das nur euch beiden gehört.\n\n## Klassische Kosenamen\n\nDie zeitlosen Klassiker funktionieren in jeder Sprache:\n\n- **Schatz** - der universelle Liebling\n- **Liebling** - klassisch und elegant\n- **Mein Herz** - gefühlvoll und poetisch\n- **Meine Liebe** - romantisch und zärtlich\n\n<CultureTip>\nKosenamen variieren oft von Region zu Region. Was in einer Gegend üblich ist, kann anderswo ungewöhnlich klingen. Frage deinen Partner, welche Namen in seiner Heimat gebräuchlich sind!\n</CultureTip>\n\n## Süße Tiernamen\n\nWie in vielen Kulturen werden auch im Griechischen gerne Tiernamen verwendet:\n\n- **Bärchen** (kleiner Bär) - kuschelig und stark\n- **Mäuschen** (kleine Maus) - süß und niedlich\n- **Häschen** (kleiner Hase) - zärtlich\n- **Spätzchen** (kleiner Spatz) - liebevoll\n\n## Romantische Ausdrücke\n\nFür besondere Momente:\n\n- **Mein Ein und Alles** - wenn jemand alles für dich ist\n- **Seelenverwandter** - für tiefe Verbindungen\n- **Mein Sonnenschein** - für jemanden, der dein Leben erhellt\n\n## Kosenamen für verschiedene Anlässe\n\n### Im Alltag\nKurze, lockere Namen für den täglichen Gebrauch. Ein schnelles \"Hey, Schatz!\" funktioniert immer.\n\n### Für romantische Momente\nLängere, gefühlvollere Ausdrücke passen zu besonderen Momenten. Sag deinem Partner, was er oder sie dir bedeutet.\n\n### Zum Necken\nHumorvolle Kosenamen können eure Beziehung auflockern – aber achte darauf, dass dein Partner den Humor teilt!\n\n## Tipps zur Verwendung\n\n1. **Frage deinen Partner**: Nicht jeder mag jeden Kosenamen. Frage, was ihm/ihr gefällt.\n2. **Achte auf die Aussprache**: Übe die richtige Aussprache – nichts ist romantischer als ein korrekt ausgesprochener Kosename.\n3. **Sei authentisch**: Verwende Namen, die zu euch als Paar passen.\n4. **Kreiere eigene Namen**: Die persönlichsten Kosenamen sind oft selbst erfunden!\n5. **Beobachte die Reaktion**: Der beste Kosename ist der, bei dem dein Partner lächelt.\n\n## Die Kraft der Sprache\n\nKosenamen sind mehr als Worte – sie sind kleine Liebeserklärungen im Alltag. Wenn du Griechisch lernst, um mit deinem Partner zu kommunizieren, sind Kosenamen ein wundervoller Anfang.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Kosenamen für verschiedene Anlässe"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "c7e5c60c-c99c-48a4-aba1-2c5edbd412fa",
+      "title": "Poolse SMS-Taal voor Stellen: Lieve Berichtjes Sturen",
+      "native_lang": "nl",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nWil je je Poolse partner verrassen met schattige berichtjes? Met deze sms-taal en afkortingen chat je als een echte Pool!\n\n## Populaire Afkortingen\n\n<PhraseOfDay\n  word=\"Kc / Kocham Cię\"\n  translation=\"Ik hou van je\"\n  pronunciation=\"KO-ham tsjeh\"\n  context=\"De meest romantische afkorting om te kennen!\"\n/>\n\n<VocabCard\n  word=\"Kc\"\n  translation=\"Kocham Cię (Ik hou van je)\"\n  pronunciation=\"ka-tseh\"\n  example=\"Dobranoc, kc! 😘\"\n/>\n\n<VocabCard\n  word=\"Cmok\"\n  translation=\"Kusje\"\n  pronunciation=\"tsmok\"\n  example=\"Miłego dnia! Cmok! 💋\"\n/>\n\n<VocabCard\n  word=\"Buzi\"\n  translation=\"Kusje/Zoentje\"\n  pronunciation=\"BOO-zee\"\n  example=\"Pa pa, buzi! 😘\"\n/>\n\n<VocabCard\n  word=\"Hej\"\n  translation=\"Hoi (informeel)\"\n  pronunciation=\"hey\"\n  example=\"Hej kochanie! Co robisz?\"\n/>\n\n<VocabCard\n  word=\"Nara / Pa\"\n  translation=\"Doei\"\n  pronunciation=\"NA-ra / pa\"\n  example=\"Nara, do zobaczenia! 👋\"\n/>\n\n<CultureTip title=\"Poolse Emoticons\" flag=\"🇵🇱\">\nPolen gebruiken veel emoticons in berichten! :* betekent een kusje, ;) is knipoog, en ❤️ is universeel voor liefde.\n</CultureTip>\n\n## Liefdesberichtjes\n\n<VocabCard\n  word=\"Tęsknię ❤️\"\n  translation=\"Ik mis je\"\n  pronunciation=\"TENS-knjeh\"\n  example=\"Bardzo tęsknię! Kiedy się widzimy?\"\n/>\n\n<VocabCard\n  word=\"Myślę o Tobie\"\n  translation=\"Ik denk aan je\"\n  pronunciation=\"MISH-leh o TO-bjeh\"\n  example=\"Nudno w pracy... Myślę o Tobie! 💭\"\n/>\n\n<VocabCard\n  word=\"Jesteś najlepszy/a\"\n  translation=\"Je bent de beste\"\n  pronunciation=\"YES-tesh nay-LEP-shi/sha\"\n  example=\"Jesteś najlepsza, kochanie! 💕\"\n/>\n\n<VocabCard\n  word=\"Nie mogę przestać o Tobie myśleć\"\n  translation=\"Ik kan niet stoppen met aan je denken\"\n  pronunciation=\"njeh MO-geh PSHE-statj o TO-bjeh MISH-letj\"\n  example=\"Nie mogę przestać o Tobie myśleć... wracaj! 🥺\"\n/>\n\n## Dagelijkse Berichten\n\n<VocabCard\n  word=\"Dzień dobry słonko!\"\n  translation=\"Goedemorgen zonnetje!\"\n  pronunciation=\"dzjen DOB-ri SWON-ko\"\n  example=\"Dzień dobry słonko! Dobrze spałaś? ☀️\"\n/>\n\n<VocabCard\n  word=\"Dobranoc, słodkich snów\"\n  translation=\"Goedenacht, zoete dromen\"\n  pronunciation=\"do-BRA-nots SWOD-kih snoov\"\n  example=\"Dobranoc kochanie, słodkich snów! 💤\"\n/>\n\n<VocabCard\n  word=\"Co robisz?\"\n  translation=\"Wat doe je?\"\n  pronunciation=\"tso RO-bish\"\n  example=\"Hej! Co robisz?\"\n/>\n\n<VocabCard\n  word=\"Gdzie jesteś?\"\n  translation=\"Waar ben je?\"\n  pronunciation=\"GDZJEH YES-tesh\"\n  example=\"Gdzie jesteś? Czekam!\"\n/>\n\n<VocabCard\n  word=\"Jadę\"\n  translation=\"Ik kom eraan\"\n  pronunciation=\"YA-deh\"\n  example=\"Jadę! 5 minut! 🏃\"\n/>\n\n## Afspraken Maken\n\n<VocabCard\n  word=\"Spotkamy się?\"\n  translation=\"Zullen we afspreken?\"\n  pronunciation=\"spot-KA-mi sjeh\"\n  example=\"Spotkamy się dziś wieczorem?\"\n/>\n\n<VocabCard\n  word=\"Gdzie i kiedy?\"\n  translation=\"Waar en wanneer?\"\n  pronunciation=\"GDZJEH ee KYE-di\"\n  example=\"OK! Gdzie i kiedy?\"\n/>\n\n<VocabCard\n  word=\"Jesteś w domu?\"\n  translation=\"Ben je thuis?\"\n  pronunciation=\"YES-tesh v DO-moo\"\n  example=\"Jesteś w domu? Wpadam!\"\n/>\n\n<VocabCard\n  word=\"Jestem w drodze\"\n  translation=\"Ik ben onderweg\"\n  pronunciation=\"YES-tem v DRO-dze\"\n  example=\"Jestem w drodze! Zaraz będę!\"\n/>\n\n<CultureTip title=\"Zaraz\" flag=\"⏰\">\n\"Zaraz\" betekent \"zo meteen\" - maar net als in veel culturen kan dit wat langer duren dan je denkt! 😄\n</CultureTip>\n\n## Emoji's en Reacties\n\n### Populaire Combinaties\n\n| Emoji | Poolse Context |\n|-------|----------------|\n| ❤️ | Kocham Cię / Kc |\n| 😘 | Cmok / Buzi |\n| 🥰 | Kochanie / Słonko |\n| 💕 | My razem |\n| 🤗 | Przytulam |\n| 😊 | Cieszę się |\n| 🇵🇱 | Polska |\n\n<VocabCard\n  word=\"😘 Cmok cmok\"\n  translation=\"Kusje kusje\"\n  pronunciation=\"tsmok tsmok\"\n  example=\"Pa pa! Cmok cmok! 😘😘\"\n/>\n\n## Grappige Reacties\n\n<VocabCard\n  word=\"Haha / Lol\"\n  translation=\"Haha\"\n  pronunciation=\"ha-ha / lol\"\n  example=\"Haha to było dobre! 😂\"\n/>\n\n<VocabCard\n  word=\"Super!\"\n  translation=\"Super!\"\n  pronunciation=\"SOO-per\"\n  example=\"Super! 🤩\"\n/>\n\n<VocabCard\n  word=\"Ale słodkie!\"\n  translation=\"Wat schattig!\"\n  pronunciation=\"A-leh SWOD-kyeh\"\n  example=\"Ale słodkie! 🥺\"\n/>\n\n<VocabCard\n  word=\"Serio?\"\n  translation=\"Echt waar?/Serieus?\"\n  pronunciation=\"SER-yo\"\n  example=\"Serio? Nie wierzę! 😱\"\n/>\n\n## Zoete Koosnaampjes (SMS-versie)\n\n| Pools | Nederlands |\n|-------|------------|\n| Kochanie | Schatje |\n| Skarbie | Schat |\n| Słonko | Zonnetje |\n| Misiu | Beertje |\n| Kotku | Poesje |\n| Złotko | Goudstukje |\n\n<VocabCard\n  word=\"Hej misiu!\"\n  translation=\"Hoi beertje!\"\n  pronunciation=\"hey MEE-shoo\"\n  example=\"Hej misiu! Jak tam?\"\n/>\n\n## Bevestigingen\n\n<VocabCard\n  word=\"Tak!\"\n  translation=\"Ja!\"\n  pronunciation=\"tak\"\n  example=\"Tak! Super!\"\n/>\n\n<VocabCard\n  word=\"Ok / Okej\"\n  translation=\"Oké\"\n  pronunciation=\"o-KAY\"\n  example=\"Okej kochanie, do zobaczenia!\"\n/>\n\n<VocabCard\n  word=\"Spoko\"\n  translation=\"Cool / Prima\"\n  pronunciation=\"SPO-ko\"\n  example=\"Spoko! Nie ma sprawy!\"\n/>\n\n<VocabCard\n  word=\"Jasne!\"\n  translation=\"Zeker! / Natuurlijk!\"\n  pronunciation=\"YAS-neh\"\n  example=\"Jasne skarbie! Wszystko dla Ciebie!\"\n/>\n\n\n## SMS Snelgids\n\n| Situatie | Pools |\n|----------|-------|\n| Ik hou van je | Kc / Kocham Cię |\n| Goedemorgen | Dzień dobry |\n| Goedenacht | Dobranoc |\n| Kusje | Cmok / Buzi |\n| Knuffel | Przytulam |\n| Ik mis je | Tęsknię |\n| Tot ziens | Nara / Pa |\n\n## Voorbeeldgesprek\n\n**A:** Hej słonko! Co robisz? 💕\n\n**B:** Hej kochanie! W pracy, a Ty?\n\n**A:** Ja też. Tęsknię! Spotkamy się wieczorem?\n\n**B:** Tak! Super! Gdzie i kiedy?\n\n**A:** O 19 w kawiarni? ☕\n\n**B:** Spoko! Nie mogę się doczekać! Kc! ❤️\n\n**A:** Ja też Kc! Cmok cmok! 😘\n\n<CultureTip title=\"Informeel = Normaal\" flag=\"📱\">\nPoolse sms-taal is heel informeel. Afkortingen en verkleinwoorden zijn normaal en tonen genegenheid!\n</CultureTip>\n\n<CTA\n  text=\"Wil je vloeiend Pools leren chatten met je partner?\"\n  buttonText=\"Start Je Poolse Taalreis\"\n/>\n",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 241,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Emoji's en Reacties"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "c7f389cc-803d-441b-b631-c07f5419706a",
+      "title": "Griekse Zinnen voor Verzoening en Goedmaken",
+      "native_lang": "nl",
+      "target_lang": "el",
+      "category": "communication",
+      "content": "Grieken zijn passievol in liefde en in verzoening. Na een conflict zijn er warme manieren om de band te herstellen.\n\n## Essentiële zinnen voor verzoening\n\n### 1. \"Συγγνώμη για αυτά που είπα\" (Signomi gia afta pou eipa)\n**Betekenis:** Sorry voor wat ik heb gezegd\n\n**Uitspraak:** *sie-gno-mie ja af-ta poe ie-pa*\n\n### 2. \"Μπορούμε να ξεκινήσουμε από την αρχή;\" (Boroume na xekinissoume apo tin archi?)\n**Betekenis:** Kunnen we opnieuw beginnen?\n\n**Uitspraak:** *bo-roe-me na kse-kie-nie-soe-me a-po tien ar-chie*\n\n### 3. \"Δεν ήθελα να σε πληγώσω\" (Den ithela na se pligoso)\n**Betekenis:** Ik wilde je niet kwetsen\n\n**Uitspraak:** *djen ie-the-la na se plie-go-so*\n\n### 4. \"Είσαι τα πάντα για μένα\" (Eisai ta panta gia mena)\n**Betekenis:** Je bent alles voor mij\n\n**Uitspraak:** *ie-se ta pan-ta ja me-na*\n\n### 5. \"Έκανα λάθος και το παραδέχομαι\" (Ekana lathos kai to paradechomai)\n**Betekenis:** Ik had ongelijk en ik geef het toe\n\n**Uitspraak:** *e-ka-na la-thos ke to pa-ra-dhe-cho-me*\n\n### 6. \"Σ' αγαπώ περισσότερο από κάθε καβγά\" (S' agapo perissotero apo kathe kavga)\n**Betekenis:** Ik hou meer van je dan van elke ruzie\n\n**Uitspraak:** *sa-ga-po pe-ries-so-te-ro a-po ka-the kav-ga*\n\n### 7. \"Τι μπορώ να κάνω για να το διορθώσω;\" (Ti boro na kano gia na to diorthoso?)\n**Betekenis:** Wat kan ik doen om het goed te maken?\n\n**Uitspraak:** *tie bo-ro na ka-no ja na to dhior-tho-so*\n\n### 8. \"Σε συγχωρώ\" (Se sighoro)\n**Betekenis:** Ik vergeef je\n\n**Uitspraak:** *se sie-cho-ro*\n\n### 9. \"Ας το αφήσουμε πίσω μας\" (As to afisoume piso mas)\n**Betekenis:** Laten we dit achter ons laten\n\n**Uitspraak:** *as to a-fie-soe-me pie-so mas*\n\n### 10. \"Έλα εδώ, αγκάλιασέ με\" (Ela edo, agaliase me)\n**Betekenis:** Kom hier, omhels me\n\n**Uitspraak:** *e-la e-dho, an-ga-lja-se me*\n\n### 11. \"Η αγάπη μας είναι δυνατότερη από αυτό\" (I agapi mas einai dynatoteri apo afto)\n**Betekenis:** Onze liefde is sterker dan dit\n\n**Uitspraak:** *ie a-ga-pie mas ie-ne dhie-na-to-te-rie a-po af-to*\n\n### 12. \"Δεν θέλω ποτέ να σε χάσω\" (Den thelo pote na se chaso)\n**Betekenis:** Ik wil je nooit verliezen\n\n**Uitspraak:** *djen the-lo po-te na se cha-so*\n\n## Culturele context\n\nGrieken zijn expressief en fysiek in hun affectie. Verzoening omvat vaak knuffels en woorden van liefde.\n\n## Conclusie\n\nGebruik deze zinnen voor een warme, passionele verzoening met je Griekse partner.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Essentiële zinnen voor verzoening"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "c7f8d208-0a8d-4237-82aa-df4d6b070f7c",
+      "title": "Phrases néerlandaises pour les disputes de couple",
+      "native_lang": "fr",
+      "target_lang": "nl",
+      "category": "communication",
+      "content": "Les désaccords font partie de toute relation saine. Avec un partenaire néerlandophone, il est utile de connaître les expressions appropriées pour communiquer pendant les moments de tension.\n\n## La communication directe à la néerlandaise\n\nLes Néerlandais sont réputés pour leur franchise. Cette caractéristique culturelle se reflète dans leur façon de gérer les conflits - ils préfèrent généralement une communication directe et honnête plutôt que de tourner autour du pot.\n\n## Expressions essentielles pour les désaccords\n\n### Exprimer son désaccord\n\n**\"Ik ben het niet met je eens.\"**\n*Je ne suis pas d'accord avec toi.*\nL'expression standard pour exprimer un désaccord.\n\n**\"Ik zie het anders.\"**\n*Je vois les choses différemment.*\nUne façon plus nuancée de présenter votre point de vue.\n\n**\"Ik heb het gevoel dat je niet naar me luistert.\"**\n*J'ai l'impression que tu ne m'écoutes pas.*\nPour exprimer votre frustration.\n\n### Exprimer ses émotions\n\n**\"Ik ben nu erg gefrustreerd.\"**\n*Je suis très frustré(e) en ce moment.*\nNommer ses émotions aide à les gérer.\n\n**\"Dat doet me pijn.\"**\n*Ça me fait mal.*\nSimple et direct pour la douleur émotionnelle.\n\n**\"Ik heb even tijd nodig om te kalmeren.\"**\n*J'ai besoin d'un moment pour me calmer.*\nPour prendre du recul.\n\n### Fixer des limites\n\n**\"Schreeuw alsjeblieft niet tegen me.\"**\n*S'il te plaît, ne me crie pas dessus.*\nPose une limite claire sur le ton.\n\n**\"Zo wil ik niet behandeld worden.\"**\n*Je ne veux pas être traité(e) ainsi.*\nAffirme votre dignité.\n\n**\"Kunnen we hier rustig over praten?\"**\n*Pouvons-nous en parler calmement ?*\nInvite à une discussion sereine.\n\n### Chercher à comprendre\n\n**\"Help me je standpunt te begrijpen.\"**\n*Aide-moi à comprendre ton point de vue.*\nMontre votre ouverture.\n\n**\"Wat wil je dat ik anders doe?\"**\n*Que veux-tu que je fasse différemment ?*\nOrientation vers les solutions.\n\n**\"Laten we een compromis zoeken.\"**\n*Cherchons un compromis.*\nPropose une approche collaborative.\n\n## La culture néerlandaise du conflit\n\nLes Néerlandais valorisent le \"bespreekbaarheid\" - la capacité de discuter ouvertement de tout sujet. Ne soyez pas surpris si votre partenaire aborde les problèmes de front. Cette approche, bien que parfois déconcertante pour les Français, vise à résoudre les conflits rapidement et efficacement.\n\n## Conclusion\n\nAvec ces expressions, vous pourrez communiquer clairement pendant les disputes tout en respectant le style direct de votre partenaire néerlandophone.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Expressions essentielles pour les désaccords"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

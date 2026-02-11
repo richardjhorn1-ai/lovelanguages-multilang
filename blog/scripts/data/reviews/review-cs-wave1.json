@@ -1,0 +1,343 @@
+{
+  "native_lang": "cs",
+  "wave": 1,
+  "target_langs_reviewed": ["en", "es", "fr", "de", "it", "pt"],
+  "articles_reviewed": 12,
+  "clean_articles": 2,
+  "issues": [
+    {
+      "article_id": "b81d2105-e335-416e-971a-ce0a46bf8f5c",
+      "slug": "english-honeymoon-travel-phrases",
+      "target_lang": "en",
+      "issue_type": "content_thin",
+      "severity": "medium",
+      "description": "The initial VocabCard example is just 'Nase libanky' (Our honeymoon) which is not a useful example sentence. Should be a full English example sentence demonstrating usage.",
+      "evidence": "example=\"Nase libanky\""
+    },
+    {
+      "article_id": "94f669b2-11ee-431b-8a1f-1be81f759b73",
+      "slug": "english-pronunciation-guide-for-beginners",
+      "target_lang": "en",
+      "issue_type": "pronunciation_error",
+      "severity": "high",
+      "description": "The pronunciation guide for 'thirst' is given as 'THURST' which is misleading for Czech speakers. The vowel sound in 'thirst' is closer to /th3:st/. Also, the guide says 'this' is pronounced 'dis' which is incorrect - 'dis' removes the dental fricative entirely rather than teaching it.",
+      "evidence": "pronunciation=\"THURST\" ... word=\"this\" pronunciation=\"dis\""
+    },
+    {
+      "article_id": "94f669b2-11ee-431b-8a1f-1be81f759b73",
+      "slug": "english-pronunciation-guide-for-beginners",
+      "target_lang": "en",
+      "issue_type": "content_error",
+      "severity": "medium",
+      "description": "Article says 'water' is correctly pronounced 'votr' and 'very' is 'veri', not 'weri'. This is backwards: 'water' starts with /w/ sound (not Czech v), and 'very' starts with /v/. The guide confuses the very distinction it claims to teach.",
+      "evidence": "\"water\" - spravne \"votr\", ne \"vater\" / \"very\" - spravne \"veri\", ne \"weri\""
+    },
+    {
+      "article_id": "94f669b2-11ee-431b-8a1f-1be81f759b73",
+      "slug": "english-pronunciation-guide-for-beginners",
+      "target_lang": "en",
+      "issue_type": "title_typo",
+      "severity": "low",
+      "description": "Title contains grammatical error in Czech: 'aby vas vam partner rozumel' has an extra 'vam' that makes it ungrammatical. Should be 'aby vam partner rozumel'.",
+      "evidence": "Jak spravne mluvit, aby vas vam partner rozumel"
+    },
+    {
+      "article_id": "cc162ddf-fe63-49e7-85c9-f96df6845412",
+      "slug": "spanish-good-morning-goodnight-phrases",
+      "target_lang": "es",
+      "issue_type": "content_mismatch",
+      "severity": "high",
+      "description": "Title promises 'good morning and goodnight phrases' but the VocabCards and tables contain apology phrases (Perdoname, Disculpame, Fue mi culpa, No volvera a pasar, etc.). The article is actually about apologies, not morning/evening greetings. Only the PhraseOfDay matches the title.",
+      "evidence": "Title: Dobre rano a dobrou noc spanelsky. VocabCards: Perdoname, Disculpame, Fue mi culpa"
+    },
+    {
+      "article_id": "cc162ddf-fe63-49e7-85c9-f96df6845412",
+      "slug": "spanish-good-morning-goodnight-phrases",
+      "target_lang": "es",
+      "issue_type": "pronunciation_mismatch",
+      "severity": "high",
+      "description": "PhraseOfDay word is 'Buenos dias, mi amor' but the pronunciation shown is 'loh SYEHN-toh' which is actually the pronunciation of 'Lo siento' (I'm sorry). Completely wrong pronunciation for this phrase.",
+      "evidence": "word=\"Buenos dias, mi amor\" pronunciation=\"loh SYEHN-toh\""
+    },
+    {
+      "article_id": "cc162ddf-fe63-49e7-85c9-f96df6845412",
+      "slug": "spanish-good-morning-goodnight-phrases",
+      "target_lang": "es",
+      "issue_type": "template_artifact",
+      "severity": "medium",
+      "description": "Content field contains raw import statements that should have been stripped: 'import VocabCard from @components/VocabCard.astro' etc. These are template artifacts.",
+      "evidence": "import VocabCard from '@components/VocabCard.astro';"
+    },
+    {
+      "article_id": "cc162ddf-fe63-49e7-85c9-f96df6845412",
+      "slug": "spanish-good-morning-goodnight-phrases",
+      "target_lang": "es",
+      "issue_type": "empty_prop",
+      "severity": "medium",
+      "description": "VocabCard for 'Fue mi culpa' has an empty example prop, making the rendered card incomplete.",
+      "evidence": "example=\"\""
+    },
+    {
+      "article_id": "cc162ddf-fe63-49e7-85c9-f96df6845412",
+      "slug": "spanish-good-morning-goodnight-phrases",
+      "target_lang": "es",
+      "issue_type": "missing_culturetip_props",
+      "severity": "low",
+      "description": "CultureTip component is missing flag and title props. Renders with default values instead of Spanish-specific content.",
+      "evidence": "<CultureTip>\\nRanni a vecerni pozdravy..."
+    },
+    {
+      "article_id": "15a63269-4940-4db3-8fd4-5e7ec171c97c",
+      "slug": "spanish-expressing-emotions",
+      "target_lang": "es",
+      "issue_type": "content_mismatch",
+      "severity": "high",
+      "description": "Title is 'Expressing Emotions in Spanish' but the initial VocabCards section is identical to the apology article - Perdoname, Disculpame, Fue mi culpa. The first half is a copy-paste of apology content. Only the second half (from 'Budovani hlubsiho pouta') contains emotion-relevant content.",
+      "evidence": "Title: Vyjadrovani emoci spanelsky. VocabCards: Perdoname, Disculpame, Fue mi culpa (identical to spanish-good-morning article)"
+    },
+    {
+      "article_id": "15a63269-4940-4db3-8fd4-5e7ec171c97c",
+      "slug": "spanish-expressing-emotions",
+      "target_lang": "es",
+      "issue_type": "pronunciation_mismatch",
+      "severity": "high",
+      "description": "PhraseOfDay word is 'Estoy feliz' (I'm happy) but pronunciation is 'loh SYEN-toh' which is the pronunciation of 'Lo siento' (I'm sorry). Completely wrong.",
+      "evidence": "word=\"Estoy feliz\" pronunciation=\"loh SYEN-toh\""
+    },
+    {
+      "article_id": "15a63269-4940-4db3-8fd4-5e7ec171c97c",
+      "slug": "spanish-expressing-emotions",
+      "target_lang": "es",
+      "issue_type": "grammar_error",
+      "severity": "low",
+      "description": "Czech text has lowercase 'spanelske' in CultureTip where it should be capitalized: 'spanelske kultura' should be 'Spanelska kultura' (also wrong declension - kultura is feminine, should be 'spanelska').",
+      "evidence": "spanelske kultura ma specificky zpusob"
+    },
+    {
+      "article_id": "15a63269-4940-4db3-8fd4-5e7ec171c97c",
+      "slug": "spanish-expressing-emotions",
+      "target_lang": "es",
+      "issue_type": "empty_prop",
+      "severity": "medium",
+      "description": "VocabCard for 'Fue mi culpa' has an empty example prop.",
+      "evidence": "example=\"\""
+    },
+    {
+      "article_id": "15a63269-4940-4db3-8fd4-5e7ec171c97c",
+      "slug": "spanish-expressing-emotions",
+      "target_lang": "es",
+      "issue_type": "vocabcard_example_in_czech",
+      "severity": "medium",
+      "description": "Several VocabCard examples are in Czech instead of Spanish. For a Spanish learning article, examples should show target language usage. 'Me haces muy feliz' example is 'Dekuji za vsechno, delas me velmi stastnym' (Czech).",
+      "evidence": "word=\"Me haces muy feliz\" example=\"Dekuji za vsechno, delas me velmi stastnym.\""
+    },
+    {
+      "article_id": "1faf15d2-a026-4137-bbce-12afd1bd85fd",
+      "slug": "french-giving-compliments",
+      "target_lang": "fr",
+      "issue_type": "content_mismatch",
+      "severity": "high",
+      "description": "Title promises '30+ French compliments for your partner' but the VocabCards and tables contain apology phrases (Pardonne-moi, Excuse-moi, C'etait ma faute). The article body teaches apologies, not compliments. Only the PhraseOfDay relates to compliments.",
+      "evidence": "Title: 30+ francouzskych komplimentu. VocabCards: Pardonne-moi, Excuse-moi, C'etait ma faute"
+    },
+    {
+      "article_id": "1faf15d2-a026-4137-bbce-12afd1bd85fd",
+      "slug": "french-giving-compliments",
+      "target_lang": "fr",
+      "issue_type": "pronunciation_mismatch",
+      "severity": "high",
+      "description": "PhraseOfDay word is 'Tu es magnifique' but pronunciation is 'zhe SUI deh-zo-LEH' which is actually 'Je suis desole' (I'm sorry). Completely wrong pronunciation for this phrase.",
+      "evidence": "word=\"Tu es magnifique\" pronunciation=\"zhe SUI deh-zo-LEH\""
+    },
+    {
+      "article_id": "1faf15d2-a026-4137-bbce-12afd1bd85fd",
+      "slug": "french-giving-compliments",
+      "target_lang": "fr",
+      "issue_type": "template_artifact",
+      "severity": "medium",
+      "description": "Content field contains raw import statements.",
+      "evidence": "import VocabCard from '@components/VocabCard.astro';"
+    },
+    {
+      "article_id": "1faf15d2-a026-4137-bbce-12afd1bd85fd",
+      "slug": "french-giving-compliments",
+      "target_lang": "fr",
+      "issue_type": "empty_prop",
+      "severity": "medium",
+      "description": "VocabCard for 'C'etait ma faute' has an empty example prop.",
+      "evidence": "example=\"\""
+    },
+    {
+      "article_id": "046845b3-c5a6-4321-b27b-d8e42bf70fa6",
+      "slug": "french-date-night-vocabulary",
+      "target_lang": "fr",
+      "issue_type": "template_artifact",
+      "severity": "medium",
+      "description": "Content field contains raw import statements (VocabCard, ConjugationTable, CultureTip, PhraseOfDay, CTA).",
+      "evidence": "import VocabCard from '@components/VocabCard.astro';"
+    },
+    {
+      "article_id": "046845b3-c5a6-4321-b27b-d8e42bf70fa6",
+      "slug": "french-date-night-vocabulary",
+      "target_lang": "fr",
+      "issue_type": "title_grammar",
+      "severity": "low",
+      "description": "Title has incorrect Czech grammar: '50 francouzsky Slovicek' should be '50 francouzskych slovicek'. Also inconsistent capitalization mixing Czech and German-style noun caps.",
+      "evidence": "50 francouzsky Slovicek pro Romanticke Vecery Spolecne"
+    },
+    {
+      "article_id": "046845b3-c5a6-4321-b27b-d8e42bf70fa6",
+      "slug": "french-date-night-vocabulary",
+      "target_lang": "fr",
+      "issue_type": "self_referencing_link",
+      "severity": "low",
+      "description": "Article links to itself: 'pruvodce francouzskymi rande frazemi' links to /learn/cs/fr/french-date-night-vocabulary/ which is the same article.",
+      "evidence": "href=\"/learn/cs/fr/french-date-night-vocabulary/\""
+    },
+    {
+      "article_id": "f0ee793b-0b19-4a9d-bcde-6a2754a7bdeb",
+      "slug": "german-video-call-phrases-family",
+      "target_lang": "de",
+      "issue_type": "content_mismatch",
+      "severity": "high",
+      "description": "Title promises 'German phrases for video calls with family' but the first VocabCards section contains apology phrases (Verzeih mir, Entschuldige, Das war mein Fehler) and the tables contain more apology content. Only the PhraseOfDay and the later-added VocabCards are relevant to video calls.",
+      "evidence": "Title: Nemecke fraze pro videohovory s rodinou. VocabCards: Verzeih mir, Entschuldige, Das war mein Fehler"
+    },
+    {
+      "article_id": "f0ee793b-0b19-4a9d-bcde-6a2754a7bdeb",
+      "slug": "german-video-call-phrases-family",
+      "target_lang": "de",
+      "issue_type": "empty_prop",
+      "severity": "medium",
+      "description": "VocabCard for 'Das war mein Fehler' has an empty example prop.",
+      "evidence": "example=\"\""
+    },
+    {
+      "article_id": "f0ee793b-0b19-4a9d-bcde-6a2754a7bdeb",
+      "slug": "german-video-call-phrases-family",
+      "target_lang": "de",
+      "issue_type": "grammar_error",
+      "severity": "low",
+      "description": "Czech text has grammatical error: 'Pri videohovorech s nemecke rodinou' should be 's nemeckou rodinou' (wrong declension of adjective).",
+      "evidence": "Pri videohovorech s nemecke rodinou"
+    },
+    {
+      "article_id": "bec184e9-07aa-4a45-b9bd-2b0a6f1b0444",
+      "slug": "german-birthday-wishes-partner",
+      "target_lang": "de",
+      "issue_type": "pronunciation_questionable",
+      "severity": "medium",
+      "description": "German pronunciation guides use Czech-phonetic approximations that are sometimes misleading. 'zum' is written as 'cum' which could confuse readers (Czech c = /ts/). 'Geburtstag' as 'geburtstak' loses the final voiced consonant distinction.",
+      "evidence": "pronunciation=\"ales gute cum geburtstak\""
+    },
+    {
+      "article_id": "bec184e9-07aa-4a45-b9bd-2b0a6f1b0444",
+      "slug": "german-birthday-wishes-partner",
+      "target_lang": "de",
+      "issue_type": "vocabcard_example_not_useful",
+      "severity": "low",
+      "description": "First VocabCard example for 'Alles Gute zum Geburtstag' is just 'Narozeninove prani' (Birthday wish) in Czech - not an actual example sentence showing usage.",
+      "evidence": "example=\"Narozeninove prani\""
+    },
+    {
+      "article_id": "3e0e79b5-c514-40e1-9064-20f211433006",
+      "slug": "italian-honeymoon-travel-phrases",
+      "target_lang": "it",
+      "issue_type": "vocabcard_example_not_useful",
+      "severity": "low",
+      "description": "First VocabCard example for 'luna di miele' is just 'Nase libanky' (Our honeymoon) in Czech, not an actual example sentence.",
+      "evidence": "example=\"Nase libanky\""
+    },
+    {
+      "article_id": "ec24b675-b243-4457-a41f-c0b3851bc708",
+      "slug": "italian-greetings-and-farewells",
+      "target_lang": "it",
+      "issue_type": "rendering_bug",
+      "severity": "high",
+      "description": "In content_html, the PhraseOfDay for 'Ciao bella' rendered as a VocabCard with an EMPTY word field. The span for the word is empty: '<span class=\"text-2xl font-bold text-accent font-header\"></span>'. The word 'Ciao bella' is missing from the rendered output.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span>"
+    },
+    {
+      "article_id": "ec24b675-b243-4457-a41f-c0b3851bc708",
+      "slug": "italian-greetings-and-farewells",
+      "target_lang": "it",
+      "issue_type": "template_artifact",
+      "severity": "medium",
+      "description": "Content field contains raw import statements.",
+      "evidence": "import VocabCard from '@components/VocabCard.astro';"
+    },
+    {
+      "article_id": "ec24b675-b243-4457-a41f-c0b3851bc708",
+      "slug": "italian-greetings-and-farewells",
+      "target_lang": "it",
+      "issue_type": "title_grammar",
+      "severity": "low",
+      "description": "Title has incorrect Czech grammar: '50 italsky Pozdravu' should be '50 italskych pozdravu'. Also uses German-style noun capitalization.",
+      "evidence": "50 italsky Pozdravu a Louceni, ktere Rozpusti Srdce"
+    },
+    {
+      "article_id": "ec24b675-b243-4457-a41f-c0b3851bc708",
+      "slug": "italian-greetings-and-farewells",
+      "target_lang": "it",
+      "issue_type": "grammar_error",
+      "severity": "low",
+      "description": "Czech text 'Italska pozdravy' has wrong gender agreement. 'Pozdravy' is masculine plural, should be 'Italske pozdravy'.",
+      "evidence": "Italska pozdravy a rozlouceni nejsou jen slova"
+    },
+    {
+      "article_id": "1e1ead30-5230-4edd-93fa-1c2a9fd3bfc7",
+      "slug": "portuguese-good-morning-goodnight-phrases",
+      "target_lang": "pt",
+      "issue_type": "content_mismatch",
+      "severity": "high",
+      "description": "Title promises 'good morning and goodnight Portuguese phrases' but the VocabCards contain apology phrases (Perdoa-me, Me desculpe, Foi minha culpa). Same pattern as Spanish and French articles. Only the PhraseOfDay matches the title.",
+      "evidence": "Title: Dobre rano a dobrou noc portugalsky. VocabCards: Perdoa-me, Me desculpe, Foi minha culpa"
+    },
+    {
+      "article_id": "1e1ead30-5230-4edd-93fa-1c2a9fd3bfc7",
+      "slug": "portuguese-good-morning-goodnight-phrases",
+      "target_lang": "pt",
+      "issue_type": "pronunciation_mismatch",
+      "severity": "high",
+      "description": "PhraseOfDay word is 'Bom dia, meu amor' but pronunciation is 'dess-KOOL-pah' which is the pronunciation of 'Desculpa' (sorry). Completely wrong pronunciation for this phrase.",
+      "evidence": "word=\"Bom dia, meu amor\" pronunciation=\"dess-KOOL-pah\""
+    },
+    {
+      "article_id": "1e1ead30-5230-4edd-93fa-1c2a9fd3bfc7",
+      "slug": "portuguese-good-morning-goodnight-phrases",
+      "target_lang": "pt",
+      "issue_type": "template_artifact",
+      "severity": "medium",
+      "description": "Content field contains raw import statements.",
+      "evidence": "import VocabCard from '@components/VocabCard.astro';"
+    },
+    {
+      "article_id": "1e1ead30-5230-4edd-93fa-1c2a9fd3bfc7",
+      "slug": "portuguese-good-morning-goodnight-phrases",
+      "target_lang": "pt",
+      "issue_type": "empty_prop",
+      "severity": "medium",
+      "description": "VocabCard for 'Foi minha culpa' has an empty example prop.",
+      "evidence": "example=\"\""
+    },
+    {
+      "article_id": "e2fad716-7c6e-4c52-88d2-fa1ef9ee919a",
+      "slug": "portuguese-anniversary-wishes",
+      "target_lang": "pt",
+      "issue_type": "vocabcard_example_not_useful",
+      "severity": "low",
+      "description": "First VocabCard example for 'Feliz Aniversario' is just 'Prani k vyroci' (Anniversary wish) in Czech - meta-description, not an example sentence.",
+      "evidence": "example=\"Prani k vyroci\""
+    }
+  ],
+  "systemic_patterns": [
+    "CRITICAL: 5 of 12 articles (es good-morning, es emotions, fr compliments, de video-calls, pt good-morning) have title/content mismatch where the title promises one topic but the VocabCards and tables are filled with apology-themed content from a shared template. This appears to be a generation bug where an apology article template was used as the base and only the title/PhraseOfDay were customized.",
+    "CRITICAL: 4 PhraseOfDay components (es good-morning, es emotions, fr compliments, pt good-morning) have pronunciation values that belong to a DIFFERENT word (lo siento, je suis desole, desculpa). The pronunciations appear to come from the apology template source and were not updated when the PhraseOfDay word was changed.",
+    "6 of 12 articles have raw 'import ... from @components/...' statements in their content field. These should have been stripped during content processing. The content_html does not contain them (they were correctly stripped there), but the content field still has them.",
+    "5 VocabCards across multiple articles have empty example=\"\" props, creating incomplete rendered cards without example sentences. These all appear in the apology-template articles for the 'It was my fault' phrase.",
+    "Several VocabCard examples are in Czech (the native language) instead of showing a target-language example sentence that demonstrates usage. This reduces the learning value since the example should show the word used in a real target-language sentence.",
+    "Multiple article titles contain Czech grammar errors with adjective declension (e.g., '50 francouzsky Slovicek' instead of '50 francouzskych slovicek', '50 italsky Pozdravu' instead of '50 italskych pozdravu'). This suggests the title generation did not properly apply Czech grammar rules.",
+    "The two 'clean' long-form articles (en pronunciation guide, fr date night, it greetings, pt anniversary) have substantially better content quality with real pedagogical value, suggesting the generation pipeline produces much better results when articles get full unique content rather than template-based short stubs.",
+    "Czech prose throughout is generally correct and natural-sounding, with only minor grammar issues (wrong adjective declension in a few spots). The language itself reads authentically Czech, not machine-translated."
+  ]
+}

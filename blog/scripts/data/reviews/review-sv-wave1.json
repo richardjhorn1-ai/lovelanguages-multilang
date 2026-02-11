@@ -1,0 +1,225 @@
+{
+  "native_lang": "sv",
+  "wave": 1,
+  "target_langs_reviewed": ["en", "es", "fr", "de", "it", "pt"],
+  "articles_reviewed": 12,
+  "clean_articles": 3,
+  "issues": [
+    {
+      "article_id": "d15f488e-a34c-4ad5-aaba-cb83a2e0c87c",
+      "slug": "100-most-common-spanish-words",
+      "target_lang": "es",
+      "issue_type": "template_artifact",
+      "severity": "medium",
+      "description": "Raw MDX import statements left in the content field. The content begins with 'import VocabCard from...' lines that should have been stripped before generating content_html.",
+      "evidence": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';"
+    },
+    {
+      "article_id": "d15f488e-a34c-4ad5-aaba-cb83a2e0c87c",
+      "slug": "100-most-common-spanish-words",
+      "target_lang": "es",
+      "issue_type": "content_mismatch",
+      "severity": "medium",
+      "description": "Title promises '100 most common Spanish words' but the article contains roughly 50-60 words at most. The title oversells the content significantly.",
+      "evidence": "Title: 'De 100 vanligaste spanska orden att lara sig' but word lists total ~55 items"
+    },
+    {
+      "article_id": "f63e3448-1dc1-4192-b380-f9eb9cce690d",
+      "slug": "french-essential-phrases-for-couples",
+      "target_lang": "fr",
+      "issue_type": "template_artifact",
+      "severity": "medium",
+      "description": "Raw MDX import statements left in the content field including ConjugationTable import that is never used in the article.",
+      "evidence": "import ConjugationTable from '@components/ConjugationTable.astro';"
+    },
+    {
+      "article_id": "ba0a626d-cecd-45b3-af18-0546fbcee95f",
+      "slug": "italian-video-call-phrases-family",
+      "target_lang": "it",
+      "issue_type": "template_artifact",
+      "severity": "medium",
+      "description": "Raw MDX import statements left in the content field.",
+      "evidence": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';"
+    },
+    {
+      "article_id": "ba0a626d-cecd-45b3-af18-0546fbcee95f",
+      "slug": "italian-video-call-phrases-family",
+      "target_lang": "it",
+      "issue_type": "content_quality",
+      "severity": "high",
+      "description": "Article is extremely thin at 146 words. Only 3 Italian phrases in tables (Ciao, Come stai, Mi senti, Grazie, Abbi cura di te, A presto). For a topic like 'video calls with family', this is far too sparse to be useful.",
+      "evidence": "_wordCount: 146. Only 6 vocabulary items total across 3 small tables."
+    },
+    {
+      "article_id": "ba0a626d-cecd-45b3-af18-0546fbcee95f",
+      "slug": "italian-video-call-phrases-family",
+      "target_lang": "it",
+      "issue_type": "rendering",
+      "severity": "high",
+      "description": "PhraseOfDay component in content_html renders with an empty word span. The 'Ciao' text is missing from the speakable-vocab div's first span element in the HTML output.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span>"
+    },
+    {
+      "article_id": "ba0a626d-cecd-45b3-af18-0546fbcee95f",
+      "slug": "italian-video-call-phrases-family",
+      "target_lang": "it",
+      "issue_type": "language_correctness",
+      "severity": "medium",
+      "description": "Translation of 'Come stai?' given as 'Hur mar ni?' but 'Come stai' is the informal singular (tu) form. The formal/plural would be 'Come state?' or 'Come sta?'. Should be 'Hur mar du?'",
+      "evidence": "Come stai? | Hur mar ni? | KO-me staj"
+    },
+    {
+      "article_id": "2bccd38a-304d-487f-9f6c-4081c1cc0deb",
+      "slug": "german-travel-phrases-for-swedish-speakers",
+      "target_lang": "de",
+      "issue_type": "component_integrity",
+      "severity": "high",
+      "description": "Article has zero VocabCard, PhraseOfDay, or CultureTip components. Uses only bold+italic formatting for phrase/translation pairs. This is inconsistent with all other articles and provides no pronunciation guidance.",
+      "evidence": "No VocabCard, PhraseOfDay, or CultureTip components. Only bold/italic text pairs."
+    },
+    {
+      "article_id": "9f7ff5cc-0ba5-445d-b6b4-4bd6464f3aea",
+      "slug": "german-expressing-emotions",
+      "target_lang": "de",
+      "issue_type": "language_correctness",
+      "severity": "medium",
+      "description": "VocabCard example sentences mix German and Swedish in the same sentence unnaturally: 'Ich liebe dich mer an ord kan beskriva' and 'Ich bin so glucklich att vara med dig'. These are not valid example sentences in either language.",
+      "evidence": "example=\"Ich liebe dich mer an ord kan beskriva.\""
+    },
+    {
+      "article_id": "9f7ff5cc-0ba5-445d-b6b4-4bd6464f3aea",
+      "slug": "german-expressing-emotions",
+      "target_lang": "de",
+      "issue_type": "language_correctness",
+      "severity": "medium",
+      "description": "Additional VocabCards also use hybrid German-Swedish example sentences that would confuse learners. Examples should be fully in the target language with a separate Swedish translation.",
+      "evidence": "example=\"Ich freue mich pa var middag ikvall.\""
+    },
+    {
+      "article_id": "c993d095-bacf-4155-b557-daac1f016c86",
+      "slug": "es-love-letter-phrases-for-swedish-speakers",
+      "target_lang": "es",
+      "issue_type": "template_artifact",
+      "severity": "medium",
+      "description": "The example love letter contains bracketed placeholders [specifik detalj] and [annan detalj] that were not filled in with actual content. Also [Ditt namn] at the end.",
+      "evidence": "Amo la forma en que [specifik detalj]. Amo como [annan detalj]...Con todo mi amor, [Ditt namn]"
+    },
+    {
+      "article_id": "c993d095-bacf-4155-b557-daac1f016c86",
+      "slug": "es-love-letter-phrases-for-swedish-speakers",
+      "target_lang": "es",
+      "issue_type": "component_integrity",
+      "severity": "medium",
+      "description": "Article has no PhraseOfDay component despite all other articles in this wave having one. Missing the featured phrase highlight at the top.",
+      "evidence": "No PhraseOfDay component found in content."
+    },
+    {
+      "article_id": "4a3ed6fa-8f65-4e1b-9ada-df4eef77a946",
+      "slug": "english-long-distance-relationship",
+      "target_lang": "en",
+      "issue_type": "language_correctness",
+      "severity": "low",
+      "description": "Some VocabCard example sentences mix English and Swedish: 'I miss you sa mycket' and 'I love you, trots avistandet'. While this could be intentional to show code-switching, it may confuse learners.",
+      "evidence": "example=\"I miss you sa mycket.\""
+    },
+    {
+      "article_id": "4a3ed6fa-8f65-4e1b-9ada-df4eef77a946",
+      "slug": "english-long-distance-relationship",
+      "target_lang": "en",
+      "issue_type": "language_correctness",
+      "severity": "low",
+      "description": "Pronunciation guide 'gud MAR-ning' for 'Good morning' uses Swedish phonetics that may mislead. The 'oo' sound in 'good' is not captured by 'gud'.",
+      "evidence": "Good morning | God morgon | gud MAR-ning"
+    },
+    {
+      "article_id": "11a6c61b-a684-4ebc-a901-896ab0559d47",
+      "slug": "portuguese-travel-phrases-for-swedish-speakers",
+      "target_lang": "pt",
+      "issue_type": "language_correctness",
+      "severity": "medium",
+      "description": "Portuguese error: 'Pelo menos temos um au outro' should be 'Pelo menos temos um ao outro'. 'au' is not correct Portuguese; the correct preposition is 'ao'.",
+      "evidence": "Pelo menos temos um au outro."
+    },
+    {
+      "article_id": "11a6c61b-a684-4ebc-a901-896ab0559d47",
+      "slug": "portuguese-travel-phrases-for-swedish-speakers",
+      "target_lang": "pt",
+      "issue_type": "language_correctness",
+      "severity": "medium",
+      "description": "Portuguese error: 'Vou lembrar dessa viagem para sempre' should be 'Vou lembrar desta viagem para sempre' or 'Vou me lembrar desta viagem para sempre'. 'dessa' is demonstrative for something distant, context suggests 'desta'.",
+      "evidence": "Vou lembrar dessa viagem para sempre."
+    },
+    {
+      "article_id": "11a6c61b-a684-4ebc-a901-896ab0559d47",
+      "slug": "portuguese-travel-phrases-for-swedish-speakers",
+      "target_lang": "pt",
+      "issue_type": "component_integrity",
+      "severity": "high",
+      "description": "Article has no PhraseOfDay or CultureTip components. Only 3 VocabCards with example sentences in Swedish instead of Portuguese. Missing pronunciation for all inline phrases.",
+      "evidence": "VocabCard example=\"Min flickvan talar lite portugisiska.\" — example in Swedish, not Portuguese"
+    },
+    {
+      "article_id": "11a6c61b-a684-4ebc-a901-896ab0559d47",
+      "slug": "portuguese-travel-phrases-for-swedish-speakers",
+      "target_lang": "pt",
+      "issue_type": "rendering",
+      "severity": "medium",
+      "description": "content_html has redundant duplicate H2 headers at the top: 'Portugisiska resefraser for par' followed immediately by 'Res tillsammans pa portugisiska'. The first H2 duplicates the article title.",
+      "evidence": "<h2>Portugisiska resefraser for par</h2>\n<h2>Res tillsammans pa portugisiska</h2>"
+    },
+    {
+      "article_id": "5689f2c0-37da-4be4-aaa0-ee33dd332b5a",
+      "slug": "engelska-wedding-phrases",
+      "target_lang": "en",
+      "issue_type": "language_correctness",
+      "severity": "low",
+      "description": "Pronunciation for 'Bride' is listed as 'brayd' which is correct, but pronunciation for 'Kiss' as 'kis' is slightly misleading - the vowel is short /I/ not long /i/.",
+      "evidence": "Kiss | Kyss | kis"
+    },
+    {
+      "article_id": "b2285734-b8ba-4e6d-ac5a-e2f3c5cda376",
+      "slug": "pt-first-date-phrases-for-swedish-speakers",
+      "target_lang": "pt",
+      "issue_type": "component_integrity",
+      "severity": "medium",
+      "description": "Article has no PhraseOfDay or CultureTip components. Only 3 VocabCards for 15 phrases. Most phrases lack structured pronunciation guidance; pronunciation is only in inline text.",
+      "evidence": "No PhraseOfDay or CultureTip components. Only VocabCards for 'papo', 'afinidade', and 'saideira'."
+    },
+    {
+      "article_id": "df3cee91-a13e-40b4-a5e2-001acca09bf5",
+      "slug": "it-argue-phrases-for-swedish-speakers",
+      "target_lang": "it",
+      "issue_type": "component_integrity",
+      "severity": "medium",
+      "description": "Article has no PhraseOfDay or CultureTip components despite having cultural content. Cultural tips section is plain text rather than using the CultureTip component.",
+      "evidence": "Cultural tips section is unformatted bullet list, no CultureTip component used."
+    },
+    {
+      "article_id": "c44f56aa-46a2-4511-81cd-25ac71d38cdf",
+      "slug": "franska-proposal-engagement-phrases",
+      "target_lang": "fr",
+      "issue_type": "language_correctness",
+      "severity": "low",
+      "description": "Translation of 'Je veux passer l'eternite avec toi' is given as 'Jag vill spendera resten av livet med dig' but 'l'eternite' means 'eternity', not 'rest of life'. More accurate: 'Jag vill tillbringa evigheten med dig'.",
+      "evidence": "translation=\"Jag vill spendera resten av livet med dig\" — l'eternite = evigheten"
+    },
+    {
+      "article_id": "9f7ff5cc-0ba5-445d-b6b4-4bd6464f3aea",
+      "slug": "german-expressing-emotions",
+      "target_lang": "de",
+      "issue_type": "language_correctness",
+      "severity": "low",
+      "description": "Pronunciation of 'Ich liebe dich' given as 'ich LII-be dich'. The 'ch' in 'ich' and 'dich' should indicate the voiceless palatal fricative sound, not just 'ch'. Could confuse Swedish speakers who may read 'ch' as in 'check'.",
+      "evidence": "pronunciation=\"ich LII-be dich\""
+    }
+  ],
+  "systemic_patterns": [
+    "Raw MDX import statements remain in the 'content' field for 3 articles (es-vocabulary, fr-vocabulary, it-phrases). These are stripped from content_html but pollute the content source.",
+    "VocabCard example sentences frequently mix target language and Swedish in the same sentence rather than providing a full target-language example with a separate translation. This occurs in EN, DE, and PT articles.",
+    "Several articles lack PhraseOfDay and/or CultureTip components (DE travel, PT travel, PT first-date, IT argue), making the component usage inconsistent across the wave.",
+    "The German travel article and Portuguese travel article use a completely different formatting pattern (bold/italic pairs) with no structured components, making them structurally inconsistent with the rest of the wave.",
+    "Content depth varies dramatically: IT video-call article is only 146 words while FR essential phrases is 1133 words and ES love letter is 1004 words. The thin articles (IT video-call at 146w, DE travel at 309w) provide minimal learning value.",
+    "Pronunciation guides are inconsistent in style across articles: some use IPA notation (Spanish article), some use simplified phonetic guides (English, French articles), and some mix both approaches within the same article.",
+    "VocabCard example fields in PT articles contain Swedish text instead of target-language sentences, undermining the component's purpose of showing the word in context."
+  ]
+}

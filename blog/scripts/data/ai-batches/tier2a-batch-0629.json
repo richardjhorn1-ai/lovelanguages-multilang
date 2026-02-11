@@ -1,0 +1,114 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0629",
+  "articles": [
+    {
+      "id": "b5f03275-ec52-401f-9248-60fae7c242ff",
+      "title": "Tyska Fraser för Förlåtelse",
+      "native_lang": "sv",
+      "target_lang": "de",
+      "category": "communication",
+      "content": "Förlåtelse, eller \"Vergebung\" på tyska, kräver direkthet och ärlighet. Dessa fraser hjälper dig navigera förlåtelse med din tysktalande partner.\n\n## Fraser för att Be om Förlåtelse\n\n### 1. \"Es tut mir aufrichtig leid\"\n**Uttal:** es toot meer owf-rikh-tikh lait\n\n**Betydelse:** Jag är uppriktigt ledsen\n\n### 2. \"Bitte verzeih mir\"\n**Uttal:** bit-tuh fer-tsai meer\n\n**Betydelse:** Snälla förlåt mig\n\n### 3. \"Ich übernehme die volle Verantwortung\"\n**Uttal:** ikh ü-ber-ney-muh dee fo-luh fer-ant-vor-tung\n\n**Betydelse:** Jag tar fullt ansvar\n\n### 4. \"Ich hatte Unrecht und ich weiß es\"\n**Uttal:** ikh ha-tuh oon-rekht oond ikh vais es\n\n**Betydelse:** Jag hade fel och jag vet det\n\n### 5. \"Wie kann ich es wiedergutmachen?\"\n**Uttal:** vee kan ikh es vee-der-goot-ma-khen\n\n**Betydelse:** Hur kan jag gottgöra det?\n\n## Fraser för att Ge Förlåtelse\n\n### 6. \"Ich verzeihe dir\"\n**Uttal:** ikh fer-tsai-uh deer\n\n**Betydelse:** Jag förlåter dig\n\n### 7. \"Lassen wir das hinter uns\"\n**Uttal:** la-sen veer das hin-ter uns\n\n**Betydelse:** Låt oss lägga det bakom oss\n\n### 8. \"Ich verstehe und schätze deine Entschuldigung\"\n**Uttal:** ikh fer-shtey-uh oond she-tsuh dai-nuh ent-shul-di-gung\n\n**Betydelse:** Jag förstår och uppskattar din ursäkt\n\n### 9. \"Wir alle machen Fehler\"\n**Uttal:** veer a-luh ma-khen fey-ler\n\n**Betydelse:** Vi gör alla misstag\n\n### 10. \"Es erfordert Mut, sich zu entschuldigen\"\n**Uttal:** es er-for-dert moot zikh tsoo ent-shul-di-gen\n\n**Betydelse:** Det krävs mod att be om ursäkt\n\n### 11. \"Ich schätze deine Ehrlichkeit\"\n**Uttal:** ikh she-tsuh dai-nuh ehr-likh-kait\n\n**Betydelse:** Jag uppskattar din ärlighet\n\n### 12. \"Wichtig ist, dass wir gemeinsam weitergehen\"\n**Uttal:** vikh-tikh ist das veer guh-main-zam vai-ter-gey-en\n\n**Betydelse:** Det viktiga är att vi går vidare tillsammans\n\n## Kulturella Tips\n\nI tysk kultur värderas direkta och uppriktiga ursäkter. Förlåtelse ses som ett rationellt beslut baserat på ärlighet och ansvar.\n\n## Avslutande Tankar\n\nMed dessa fraser kan du be om och ge förlåtelse med din tysktalande partner.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 298,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Fraser för att Be om Förlåtelse",
+              "## Fraser för att Ge Förlåtelse"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "b5f32697-e4a5-4b9f-aef1-874bcf8bd4e0",
+      "title": "Rusa: 14 Moduri Profunde de a Spune Te Iubesc",
+      "native_lang": "ro",
+      "target_lang": "ru",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport ConjugationTable from '@components/ConjugationTable.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nRusa este o limbă profund expresivă cu o bogăție de expresii romantice. Dacă înveți rusa pentru partenerul tău, această ghid te va ajuta să exprimi dragostea în cel mai autentic mod!\n\nCa vorbitor de română, vei descoperi că rusa are propria frumusețe când vine vorba de declarații de dragoste - profundă și plină de emoție!\n\n## Expresia Fundamentală: Я тебя люблю\n\n<PhraseOfDay\n  word=\"Я тебя люблю\"\n  translation=\"Te iubesc\"\n  pronunciation=\"ya tee-BYA lyoo-BLYOO\"\n  context=\"Declarația de dragoste cea mai importantă și puternică în rusă.\"\n/>\n\n**Я тебя люблю** este declarația de dragoste prin excelență în rusă. Este o expresie foarte puternică și se folosește pentru dragoste sinceră și profundă. Rușii nu o rostesc ușor - când o auzi, e semnificativ!\n\n## Structura Expresiei\n\nÎn rusă, ordinea poate varia pentru emfază:\n\n<VocabCard\n  word=\"Я тебя люблю vs. Я люблю тебя\"\n  translation=\"Ambele înseamnă 'Te iubesc'\"\n  pronunciation=\"ya tee-BYA lyoo-BLYOO / ya lyoo-BLYOO tee-BYA\"\n  example=\"'Я тебя люблю' pune accent pe 'tine', 'Я люблю тебя' e mai neutru\"\n/>\n\n<VocabCard\n  word=\"Люблю тебя\"\n  translation=\"Te iubesc (fără 'eu' - mai intim)\"\n  pronunciation=\"lyoo-BLYOO tee-BYA\"\n  example=\"Люблю тебя очень сильно!\"\n/>\n\n<CultureTip title=\"Notă Culturală Importantă\" flag=\"🇷🇺\">\nRușii folosesc \"Я тебя люблю\" doar pentru dragoste profundă. Pentru \"îmi place de tine\" în sens mai ușor, folosesc \"Ты мне нравишься\". Dacă partenerul îți spune \"Я тебя люблю\", e foarte semnificativ!\n</CultureTip>\n\n## Verbul \"Любить\" - A Iubi\n\n<ConjugationTable\n  verb=\"Любить\"\n  meaning=\"a iubi\"\n  conjugations={[\n    { person: \"Я\", polish: \"люблю\", english: \"eu iubesc\" },\n    { person: \"Ты\", polish: \"любишь\", english: \"tu iubești\" },\n    { person: \"Он/Она\", polish: \"любит\", english: \"el/ea iubește\" },\n    { person: \"Мы\", polish: \"любим\", english: \"noi iubim\" },\n    { person: \"Вы\", polish: \"любите\", english: \"voi iubiți\" },\n    { person: \"Они\", polish: \"любят\", english: \"ei/ele iubesc\" }\n  ]}\n/>\n\n## Variații Romantice\n\n<VocabCard\n  word=\"Я тебя очень люблю\"\n  translation=\"Te iubesc foarte mult\"\n  pronunciation=\"ya tee-BYA O-chen lyoo-BLYOO\"\n  example=\"Я тебя очень люблю, моя любимая.\"\n/>\n\n<VocabCard\n  word=\"Я люблю тебя всем сердцем\"\n  translation=\"Te iubesc din toată inimă\"\n  pronunciation=\"ya lyoo-BLYOO tee-BYA vsyem SERD-tsem\"\n  example=\"Я люблю тебя всем сердцем и всей душой.\"\n/>\n\n<VocabCard\n  word=\"Я люблю тебя больше всего на свете\"\n  translation=\"Te iubesc mai mult decât orice pe lume\"\n  pronunciation=\"ya lyoo-BLYOO tee-BYA BOL-she vsee-VO na SVYE-tye\"\n  example=\"Ты для меня всё. Я люблю тебя больше всего на свете.\"\n/>\n\n<VocabCard\n  word=\"Я влюбился/влюбилась в тебя\"\n  translation=\"M-am îndrăgostit de tine (m/f)\"\n  pronunciation=\"ya vlyoo-BIL-sya / vlyoo-BI-las v tee-BYA\"\n  example=\"Я влюбился в тебя с первого взгляда.\"\n/>\n\n<VocabCard\n  word=\"Ты любовь моей жизни\"\n  translation=\"Ești iubirea vieții mele\"\n  pronunciation=\"ti lyoo-BOV ma-YEY ZHIZ-ni\"\n  example=\"Ты любовь моей жизни, мой единственный.\"\n/>\n\n## Expresii Poetice de Dragoste\n\n<VocabCard\n  word=\"Я не могу жить без тебя\"\n  translation=\"Nu pot trăi fără tine\"\n  pronunciation=\"ya nye ma-GU zhit byez tee-BYA\"\n  example=\"Я не могу жить без тебя, ты моё всё.\"\n/>\n\n<VocabCard\n  word=\"Ты для меня всё\"\n  translation=\"Ești totul pentru mine\"\n  pronunciation=\"ti dlya mee-NYA vsyo\"\n  example=\"Ты для меня всё, любимая моя.\"\n/>\n\n<VocabCard\n  word=\"Ты украла моё сердце\"\n  translation=\"Mi-ai furat inimă\"\n  pronunciation=\"ti oo-KRA-la ma-YO SERD-tse\"\n  example=\"Ты украла моё сердце с первой встречи.\"\n/>\n\n<VocabCard\n  word=\"Я постоянно думаю о тебе\"\n  translation=\"Mă gândesc constant la tine\"\n  pronunciation=\"ya pas-ta-YA-na DOO-ma-yoo a tee-BYE\"\n  example=\"Я постоянно думаю о тебе, даже когда работаю.\"\n/>\n\n## Alinturile Afectuoase în Rusă\n\n| Rusă | Română | Pronunție |\n|------|--------|-----------|\n| Любимый/Любимая | Iubitule/Iubito | lyoo-BI-miy/lyoo-BI-ma-ya |\n| Дорогой/Дорогая | Dragule/Draga | da-ra-GOY/da-ra-GA-ya |\n| Милый/Милая | Dragule/Draga | MI-liy/MI-la-ya |\n| Солнышко | Soarele meu | SOL-nish-ka |\n| Зайчик/Зайка | Iepurașule | ZAY-chik/ZAY-ka |\n| Котик/Котёнок | Pisicuță | KO-tik/ka-TYO-nak |\n| Рыбка | Peștișor | RIB-ka |\n\n<CultureTip title=\"Солнышко și Зайчик\" flag=\"☀️🐰\">\n\"Солнышко\" (soarele mic) și \"Зайчик\" (iepurașul) sunt dîntre cele mai populare alinturi rusești. Rușii adoră diminutivele afectuoase!\n</CultureTip>\n\n## Fraze pentru Momente Speciale\n\n### Dimineața\n\n<VocabCard\n  word=\"Доброе утро, любимая\"\n  translation=\"Bună dimineața, iubito\"\n  pronunciation=\"DOB-ra-ye OO-tra lyoo-BI-ma-ya\"\n  example=\"Доброе утро, любимая! Как спалось?\"\n/>\n\n### Seara\n\n<VocabCard\n  word=\"Спокойной ночи, люблю тебя\"\n  translation=\"Noapte bună, te iubesc\"\n  pronunciation=\"spa-KOY-nay NO-chi lyoo-BLYOO tee-BYA\"\n  example=\"Спокойной ночи, любимый. Сладких снов.\"\n/>\n\n### Când Îți Este Dor\n\n<VocabCard\n  word=\"Я очень скучаю по тебе\"\n  translation=\"Îmi lipsești foarte mult\"\n  pronunciation=\"ya O-chen skoo-CHA-yoo pa tee-BYE\"\n  example=\"Я очень скучаю по тебе. Приезжай скорее!\"\n/>\n\n## Cum să Răspunzi\n\n<VocabCard\n  word=\"Я тебя тоже люблю\"\n  translation=\"Și eu te iubesc\"\n  pronunciation=\"ya tee-BYA TO-zhe lyoo-BLYOO\"\n  example=\"- Я тебя люблю. - Я тебя тоже люблю, очень.\"\n/>\n\n<VocabCard\n  word=\"Я люблю тебя ещё больше\"\n  translation=\"Te iubesc și mai mult\"\n  pronunciation=\"ya lyoo-BLYOO tee-BYA yee-SHCHO BOL-she\"\n  example=\"- Я тебя люблю. - А я люблю тебя ещё больше!\"\n/>\n\n\n## Fișă de Referință Rapidă\n\n| Frază | Pronunție | Intensitate |\n|-------|-----------|-------------|\n| Ты мне нравишься | ti mnye NRA-vish-sya | Îmi place de tine |\n| Я тебя люблю | ya tee-BYA lyoo-BLYOO | Te iubesc |\n| Я тебя очень люблю | ya tee-BYA O-chen lyoo-BLYOO | Foarte intens |\n| Я люблю тебя всем сердцем | ya lyoo-BLYOO tee-BYA vsyem SERD-tsem | Profund |\n| Ты любовь моей жизни | ti lyoo-BOV ma-YEY ZHIZ-ni | Declarație |\n\n## Sfaturi pentru Pronunție\n\nRusa are sunete specifice:\n1. **Ы** - Un sunet între \"i\" și \"â\"\n2. **Ж** - Ca \"j\" în română (jean)\n3. **Ш** - Ca \"ș\" în română\n4. **Ч** - Ca \"ci\" în română\n5. **Accentul** - Foarte important în rusă!\n\n<CultureTip title=\"Sufletul Rus\" flag=\"🇷🇺\">\nRușii sunt cunoscuți pentru \"sufletul rus\" (русская душа) - o expresivitate emoțională profundă. Când îți declari dragostea în rusă, o faci cu tot sufletul!\n</CultureTip>\n\n<CTA\n  text=\"Vrei sa-i spui 'Я тебя люблю' perfect? Cu Love Languages, exersezi pronunția cu chat vocal AI - fără jenă. Partenerul tău devine tutore, creează provocări și îți trimite cuvinte cadou. Iar in Modul Ascultare, captezi conversațiile reale cu familia rusa.\"\n  buttonText=\"Începe Acum\"\n/>\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Fraze pentru Momente Speciale"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "b5f90aef-bed0-4e64-9523-5df426cbad9d",
+      "title": "Yunanca Özlem İfadeleri: Seni Özledim Demenin Yolları",
+      "native_lang": "tr",
+      "target_lang": "el",
+      "category": "communication",
+      "content": "## Yunanca Özlemi İfade Etmek\n\nYunanistan'da özlem ifade etmek, kültürün tutkulu ve duygusal yapısını yansıtır. Yunanlılar duygularını açıkça ve canlı bir şekilde ifade eder. Bu rehberde, Yunanca özlem ifadelerini ve bunları nasıl kullanacağınızı öğreneceksiniz.\n\n## Temel Özlem İfadeleri\n\n### 1. Μου λείπεις (Mou leipeis)\n**Telaffuz:** /mu lipis/\n**Anlam:** Seni özlüyorum\n\nEn temel ve yaygın özlem ifadesi. Her türlü ilişkide kullanılabilir.\n\n### 2. Μου λείπεις πολύ (Mou leipeis poly)\n**Telaffuz:** /mu lipis poli/\n**Anlam:** Seni çok özlüyorum\n\n\"Πολύ\" (çok) ekleyerek duygunun yoğunluğunu vurgularsınız.\n\n### 3. Νοσταλγώ για σένα (Nostalgo gia sena)\n**Telaffuz:** /nostalgo ya sena/\n**Anlam:** Sana hasret çekiyorum\n\nDaha derin ve şiirsel bir özlem ifadesi. \"Nostalji\" kelimesinin Yunanca kökenini görebilirsiniz.\n\n### 4. Είσαι πάντα στη σκέψη μου (Eisai panta sti skepsi mou)\n**Telaffuz:** /ise panda sti skepsi mu/\n**Anlam:** Her zaman aklımdasın\n\nBirinin sürekli düşüncelerinizde olduğunu ifade eden romantik bir cümle.\n\n### 5. Μακάρι να ήσουν εδώ (Makari na isoun edo)\n**Telaffuz:** /makari na isun edo/\n**Anlam:** Keşke burada olsaydın\n\nÖzleminizi ve birlikte olmak istediğinizi gösteren duygusal bir cümle.\n\n### 6. Μετράω τις μέρες μέχρι να σε δω (Metrao tis meres mehri na se do)\n**Telaffuz:** /metrao tis meres mehri na se do/\n**Anlam:** Seni görene kadar günleri sayıyorum\n\nSabırsızlığı ve özlemi ifade eden romantik bir cümle.\n\n### 7. Η καρδιά μου είναι άδεια χωρίς εσένα (I kardia mou einai adeia horis esena)\n**Telaffuz:** /i kardia mu ine adia horis esena/\n**Anlam:** Kalbim sensiz boş\n\nDerin bağlılık ve özlem ifade eden şiirsel bir cümle.\n\n### 8. Κάθε μέρα χωρίς εσένα είναι δύσκολη (Kathe mera horis esena einai diskoli)\n**Telaffuz:** /kathe mera horis esena ine diskoli/\n**Anlam:** Sensiz her gün zor\n\nAyrılığın zorluğunu samimiyetle ifade eder.\n\n### 9. Δεν μπορώ να σταματήσω να σκέφτομαι εσένα (Den boro na stamatiso na skeftome esena)\n**Telaffuz:** /den boro na stamatiso na skeftome esena/\n**Anlam:** Seni düşünmekten kendimi alamıyorum\n\nBirinin sürekli aklınızda olduğunu gösteren romantik bir ifade.\n\n### 10. Θα τα πούμε σύντομα (Tha ta poume syntoma)\n**Telaffuz:** /tha ta pume sindoma/\n**Anlam:** Yakında görüşürüz/konuşuruz\n\nUmut ve sabırsızlık ifade eden pozitif bir cümle.\n\n## Kültürel İpuçları\n\n**Tutkulu İfade:** Yunanlılar duygularını yoğun ve tutkulu bir şekilde ifade eder. Özlem ifadelerinde dramatik olmak normaldir ve takdir edilir.\n\n**Aile Bağları:** Aile Yunan kültürünün merkezindedir. Aileden ayrı olmak gerçek bir duygusal yük taşır.\n\n**Yüz Yüze İletişim:** Yunanlılar yüz yüze iletişimi tercih eder. Video görüşmeleri mesajlardan daha değerlidir.\n\n**Paskalya ve Bayramlar:** Özellikle Paskalya'da aile ile birlikte olmak çok önemlidir. Bu dönemlerde özlem ifadeleri daha yoğun olur.\n\n**Türk-Yunan Yakınlığı:** İki kültür arasında birçok benzerlik vardır - misafirperverlik, aile önemi, duygusal ifade. Bu ortak noktalar özlem ifadelerini daha anlamlı kılar.\n\n## Mesaj Örnekleri\n\n**Romantik Mesaj:**\n\"Αγάπη μου! Μου λείπεις τόσο πολύ. Κάθε μέρα χωρίς εσένα μοιάζει αιώνας. Νοσταλγώ το χαμόγελό σου. Σε φιλώ!\"\n\n(Aşkım! Seni çok özlüyorum. Sensiz her gün bir asır gibi geliyor. Gülümsemeni özlüyorum. Öpüyorum!)\n\n**Aile Mesajı:**\n\"Γεια σου μαμά! Μου λείπεις πολύ εσύ και ο μπαμπάς. Ελπίζω να σας δω σύντομα. Αγκαλιές!\"\n\n(Merhaba anne! Seni ve babamı çok özlüyorum. Umarım yakında görüşürüz. Sarılmalar!)\n\n## Telaffuz Notları\n\nYunanca alfabe farklıdır ancak telaffuz Türkçeye göre nispeten kolaydır:\n- **γ** (gamma) → Yumuşak \"g\" veya \"y\" sesi\n- **δ** (delta) → İngilizce \"th\" gibi (the kelimesindeki)\n- **θ** (theta) → İngilizce \"th\" gibi (think kelimesindeki)\n- **χ** (chi) → Boğazdan gelen \"h\" sesi\n\n## Sonuç\n\nYunanca özlem ifadeleri, kültürün sıcaklığını ve tutkusunu yansıtır. Bu cümleleri öğrenerek, Yunan sevdiğiniz kişiye duygularınızı en derin şekilde ifade edebilirsiniz.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Temel Özlem İfadeleri"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "b5ff5596-12a6-43b4-9fbc-19b00887213d",
+      "title": "Portugál kifejezések megbocsátáshoz",
+      "native_lang": "hu",
+      "target_lang": "pt",
+      "category": "communication",
+      "content": "A megbocsátás a kapcsolat gyógyításának kulcsa. Ha portugál anyanyelvű partnered van, ezek a kifejezések segítenek.\n\n## Bocsánatkérés\n\n### 1. \"Eu realmente sinto muito\"\n**Jelentés:** Igazán sajnálom\n\n### 2. \"Por favor, me perdoa\"\n**Jelentés:** Kérlek, bocsáss meg\n\n### 3. \"Eu assumo toda a responsabilidade\"\n**Jelentés:** Teljes felelősséget vállalok\n\n### 4. \"Eu estava errado/a e admito\"\n**Jelentés:** Tévedtem és beismerem\n\n### 5. \"Prometo que não vai acontecer de novo\"\n**Jelentés:** Megígérem, nem fog újra megtörténni\n\n## Megbocsátás\n\n### 6. \"Eu te perdoo\"\n**Jelentés:** Megbocsátok neked\n\n### 7. \"Está tudo bem, eu entendo\"\n**Jelentés:** Rendben van, megértem\n\n### 8. \"Estou pronto/a para seguir em frente\"\n**Jelentés:** Készen állok továbblépni\n\n### 9. \"Vamos deixar isso para trás\"\n**Jelentés:** Hagyjuk magunk mögött\n\n### 10. \"Não guardo rancor\"\n**Jelentés:** Nem tartok haragot\n\n### 11. \"Todo mundo erra\"\n**Jelentés:** Mindenki hibázik\n\n### 12. \"Agradeço o seu pedido de desculpas\"\n**Jelentés:** Értékelem a bocsánatkérésedet\n\n## Összefoglalás\n\nA portugál megbocsátás meleg és szívből jövő.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 155,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Bocsánatkérés",
+              "## Megbocsátás"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "b60a792d-4610-4687-9fce-86e05f32548c",
+      "title": "Phrases allemandes sur le pardon en couple",
+      "native_lang": "fr",
+      "target_lang": "de",
+      "category": "communication",
+      "content": "Le pardon est essentiel pour maintenir une relation saine. Avec un partenaire germanophone, la sincérité et la clarté sont appréciées dans l'expression du pardon.\n\n## Le pardon dans la culture allemande\n\nLes Allemands valorisent l'honnêteté et les engagements concrets. Le pardon ne se limite pas aux mots - il doit être accompagné d'actions qui démontrent un véritable changement.\n\n## Expressions pour demander pardon\n\n### S'excuser sincèrement\n\n**\"Es tut mir wirklich leid, was ich getan habe.\"**\n*Je suis vraiment désolé(e) pour ce que j'ai fait.*\nUne excuse directe et sincère.\n\n**\"Ich war im Unrecht und bereue es zutiefst.\"**\n*J'avais tort et je le regrette profondément.*\nReconnaître son erreur.\n\n**\"Es gibt keine Entschuldigung für mein Verhalten.\"**\n*Il n'y a pas d'excuse pour mon comportement.*\nAssumer sa responsabilité.\n\n### Exprimer ses regrets\n\n**\"Ich wollte dich nie verletzen.\"**\n*Je n'ai jamais voulu te blesser.*\nMontrer l'absence d'intention malveillante.\n\n**\"Wenn ich es ungeschehen machen könnte, würde ich es tun.\"**\n*Si je pouvais défaire ce que j'ai fait, je le ferais.*\nExprimer un regret profond.\n\n**\"Es tut mir weh, dass ich dir dieses Gefühl gegeben habe.\"**\n*Ça me fait mal de t'avoir fait ressentir ça.*\nReconnaître l'impact de ses actions.\n\n### S'engager à changer\n\n**\"Ich verspreche, es besser zu machen.\"**\n*Je promets de faire mieux.*\nUn engagement pour l'avenir.\n\n**\"Ich werde an mir arbeiten.\"**\n*Je vais travailler sur moi-même.*\nMontrer sa volonté de s'améliorer.\n\n## Expressions pour pardonner\n\n### Accorder le pardon\n\n**\"Ich verzeihe dir.\"**\n*Je te pardonne.*\nSimple et direct.\n\n**\"Jeder macht Fehler. Ich verstehe das.\"**\n*Tout le monde fait des erreurs. Je comprends.*\nMontrer de la compréhension.\n\n**\"Lassen wir das hinter uns.\"**\n*Laissons cela derrière nous.*\nProposer d'avancer.\n\n### Exprimer la réconciliation\n\n**\"Ich möchte nicht, dass das zwischen uns steht.\"**\n*Je ne veux pas que cela nous sépare.*\nPrioriser la relation.\n\n**\"Das Wichtigste ist, dass wir gemeinsam weitergehen.\"**\n*L'important est qu'on avance ensemble.*\nSe concentrer sur l'avenir.\n\n## L'approche allemande du pardon\n\nLes Allemands apprécient les excuses suivies d'actions concrètes. Montrez par vos actes que vous avez tiré les leçons de vos erreurs.\n\n## Conclusion\n\nLe pardon avec un partenaire allemand doit être sincère et accompagné d'engagements concrets. Ces expressions vous aideront à traverser les moments difficiles.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Expressions pour demander pardon",
+              "## Expressions pour pardonner"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

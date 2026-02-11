@@ -1,0 +1,425 @@
+{
+  "batchId": "tier2a-slim-0119",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "87e51a2f-20ce-48b8-a604-9f7fcf84b23d",
+      "title": "50+ Frases Alemanas para Enamorar a Tu Pareja",
+      "native_lang": "es",
+      "target_lang": "de",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Declaraciones de Amor",
+          "subsections": [
+            "### Las Clásicas",
+            "### Declaraciones Profundas"
+          ]
+        },
+        {
+          "header": "## Buenos Días y Buenas Noches",
+          "subsections": [
+            "### Por la Mañana",
+            "### Por la Noche"
+          ]
+        },
+        {
+          "header": "## Cumplidos Románticos",
+          "subsections": [
+            "### Sobre su Apariencia",
+            "### Sobre su Personalidad"
+          ]
+        },
+        {
+          "header": "## Durante una Cita",
+          "subsections": [
+            "### Invitando a Salir",
+            "### Durante la Cita"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "87fedef4-e5ac-4459-b320-e7f4643ade2b",
+      "title": "Tyrkiske 'Jeg Savner Dig' Sætninger for Danskere",
+      "native_lang": "da",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Udtryk",
+          "subsections": [
+            "### \"Seni özledim\"",
+            "### \"Seni çok özledim\"",
+            "### \"Seni düşünmeden duramıyorum\""
+          ]
+        },
+        {
+          "header": "## Dybere Udtryk",
+          "subsections": [
+            "### \"Sensiz her an bir ömür gibi\"",
+            "### \"Uyandığımda ilk düşündüğüm sensin\"",
+            "### \"Keşke burada olsaydın\""
+          ]
+        },
+        {
+          "header": "## Hverdagens Savn",
+          "subsections": [
+            "### \"Gülüşünü özledim\"",
+            "### \"Yanında uyumayı özledim\"",
+            "### \"Sohbetlerimizi özledim\""
+          ]
+        },
+        {
+          "header": "## Intense Udtryk",
+          "subsections": [
+            "### \"Seni kelimelerle anlatamayacağım kadar özledim\"",
+            "### \"Senden uzak olmak en zor şey\"",
+            "### \"Seni tekrar göreceğim günü sayıyorum\""
+          ]
+        },
+        {
+          "header": "## Trøstende Sætninger",
+          "subsections": [
+            "### \"Biri herşey demekse mesafe hiçbir şey demek\"",
+            "### \"Nerede olursan ol, hep kalbimdesin\""
+          ]
+        },
+        {
+          "header": "## Tyrkiske Kærlige Vendinger",
+          "subsections": [
+            "### \"Canım seni özlüyor\"",
+            "### \"Hasretinle yanıyorum\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "880ba676-977f-4d36-9f3d-f7f63e30f47c",
+      "title": "Gramática Básica do Ucraniano: Guia para Iniciantes",
+      "native_lang": "pt",
+      "target_lang": "uk",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Verbos Ucranianos",
+          "subsections": [
+            "### Conjugação Básica - Presente",
+            "### Passado",
+            "### Futuro"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8814aa54-2b73-475f-b609-a87eb8584159",
+      "title": "Russische Zinnen voor een Eerste Date",
+      "native_lang": "nl",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Приятно наконец познакомиться\" (Priyatno nakonets poznakomit'sya) - *prie-jat-na na-ka-njets paz-na-ko-miet-sja*",
+            "### 2. \"Ты выглядишь потрясающе\" (Ty vyglyadish' potryasayushche) - *tie vie-glja-diesj pa-trja-sa-joe-sjtje*",
+            "### 3. \"Расскажи о себе\" (Rasskazhi o sebe) - *ras-ka-zjie a sje-bje*",
+            "### 4. \"Чем ты занимаешься?\" (Chem ty zanimayesh'sya?) - *tsjem tie za-njie-ma-jesj-sja*",
+            "### 5. \"Мне очень хорошо\" (Mne ochen' khorosho) - *mnje o-tsjen cha-ra-sjo*",
+            "### 6. \"Хочешь ещё что-нибудь выпить?\" (Khochesh' yeshchyo chto-nibud' vypit'?) - *cho-tsjesj je-sjtjo sjto-njie-boet vie-pjiet*",
+            "### 7. \"Какую музыку ты слушаешь?\" (Kakuyu muzyku ty slushayesh'?) - *ka-koe-joe moe-zie-koe tie sloe-sja-jesj*",
+            "### 8. \"Хотел/а бы увидеть тебя снова\" (Khotel/a by uvidet' tebya snova) - *cha-tjel/a bie oe-vie-djet tje-bja sno-va*",
+            "### 9. \"Можно проводить тебя домой?\" (Mozhno provodit' tebya domoy?) - *mozj-na pra-va-djiet tje-bja da-moj*",
+            "### 10. \"Мне очень понравился вечер\" (Mne ochen' ponravilsya vecher) - *mnje o-tsjen pan-ra-vjiel-sja vje-tsjer*",
+            "### 11. \"Какие у тебя хобби?\" (Kakie u tebya khobbi?) - *ka-kie-je oe tje-bja chob-bie*",
+            "### 12. \"У тебя красивая улыбка\" (U tebya krasivaya ulybka) - *oe tje-bja kra-sjie-va-ja oe-lieb-ka*"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8814b2c5-715d-4510-b693-98d80dc68d97",
+      "title": "Græske fraser til uenigheder og diskussioner for par",
+      "native_lang": "da",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Vigtige fraser",
+          "subsections": [
+            "### At udtrykke følelser",
+            "### At lytte og forstå",
+            "### At finde løsninger",
+            "### At sætte grænser"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "88231bae-90c4-42b3-825a-f6994d8aaeaf",
+      "title": "Prononciation norvegienne : guide complet pour francophones",
+      "native_lang": "fr",
+      "target_lang": "no",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Les consonnes speciales",
+          "subsections": [
+            "### Le 'J'",
+            "### Le 'G' devant e, i, y, ei",
+            "### Le 'K' devant i, y",
+            "### Le 'KJ'",
+            "### Le 'SJ' et 'SKJ'"
+          ]
+        },
+        {
+          "header": "## Pieges de prononciation",
+          "subsections": [
+            "### Le 'D' muet",
+            "### Le 'G' final",
+            "### Le 'R' norvegien"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "88385e39-5b51-447e-8e53-b0ae13204c9a",
+      "title": "De Familie Ontmoeten: Essentiële Engelse Zinnen",
+      "native_lang": "nl",
+      "target_lang": "en",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Beleefdheidsfrases",
+          "subsections": [
+            "### Complimenten Geven",
+            "### Hulp Aanbieden"
+          ]
+        },
+        {
+          "header": "## Gesprekken Voeren",
+          "subsections": [
+            "### Over Jezelf Vertellen",
+            "### Interesse Tonen"
+          ]
+        },
+        {
+          "header": "## Lastige Situaties Navigeren",
+          "subsections": [
+            "### Als Je Iets Niet Begrijpt",
+            "### Als Je Nog Leert"
+          ]
+        },
+        {
+          "header": "## Culturele Tips per Regio",
+          "subsections": [
+            "### Amerikaans",
+            "### Brits",
+            "### Australisch"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "883920cd-c21a-4cac-b8c4-3215a0307b4f",
+      "title": "Swedish Flirting Phrases: Sweet Expressions for Your Swedish Partner",
+      "native_lang": "en",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essential Flirting Phrases",
+          "subsections": [
+            "### Sincere Compliments",
+            "### Expressing Attraction",
+            "### Romantic Declarations",
+            "### Sweet Expressions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "883f9337-7763-49fc-90a5-146869219358",
+      "title": "Török üzenetküldő kifejezések magyar anyanyelvűeknek",
+      "native_lang": "hu",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető üdvözlések",
+          "subsections": [
+            "### 1. Günaydın, aşkım",
+            "### 2. Seni özledim",
+            "### 3. Seni seviyorum"
+          ]
+        },
+        {
+          "header": "## Mindennapi üzenetek",
+          "subsections": [
+            "### 4. Nasılsın?",
+            "### 5. Geliyorum",
+            "### 6. Öpüyorum"
+          ]
+        },
+        {
+          "header": "## Romantikus kifejezések",
+          "subsections": [
+            "### 7. Sen benim her şeyimsin",
+            "### 8. Canım / Tatlım",
+            "### 9. Seni rüyamda gördüm"
+          ]
+        },
+        {
+          "header": "## Chat rövidítések",
+          "subsections": [
+            "### 10. Slm (Selam)",
+            "### 11. Nbr (Ne haber)",
+            "### 12. Öpt / Öpüldün"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "884e105e-c84e-4f86-8b35-d18c2f1cd397",
+      "title": "Украинские фразы о ревности и доверии",
+      "native_lang": "ru",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Фразы для выражения ревности",
+          "subsections": [
+            "### 1. Я ревную, коли...",
+            "### 2. Мене турбує, коли ти проводиш стільки часу з...",
+            "### 3. Іноді мені потрібно, щоб ти мене заспокоїв/заспокоїла"
+          ]
+        },
+        {
+          "header": "## Фразы для укрепления доверия",
+          "subsections": [
+            "### 4. Я повністю тобі довіряю",
+            "### 5. Ти єдиний/єдина для мене",
+            "### 6. Я ніколи не зроблю нічого, що зашкодить нашим стосункам",
+            "### 7. Тобі нема про що хвилюватися",
+            "### 8. Дозволь мені пояснити, що сталося",
+            "### 9. Твої почуття для мене важливі",
+            "### 10. Чи можемо ми разом встановити межі?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "88555eeb-c66e-4362-a934-761b31c6c9fa",
+      "title": "Я тебя люблю по-нидерландски + романтические фразы",
+      "native_lang": "ru",
+      "target_lang": "nl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Романтические вариации",
+          "subsections": [
+            "### \"Я очень тебя люблю\"",
+            "### \"Я люблю тебя всем сердцем\"",
+            "### \"Ты — моё всё\"",
+            "### \"Я без ума от тебя\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "886d8785-cf52-4f76-aafc-94d9f885a06a",
+      "title": "50+ Rumence Sevgi Sözcüğü: Romantizmi Keşfedin",
+      "native_lang": "tr",
+      "target_lang": "ro",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Günlük Hayatta Kullanım",
+          "subsections": [
+            "### Sabah İfadeleri",
+            "### Gün İçi Mesajları",
+            "### Akşam İfadeleri"
+          ]
+        },
+        {
+          "header": "## Pratik İpuçları",
+          "subsections": [
+            "### Telaffuz İpuçları",
+            "### Ne Zaman Hangi İfadeyi Kullanmalı"
+          ]
+        },
+        {
+          "header": "## Öğrenme Aktiviteleri",
+          "subsections": [
+            "### Günlük Pratik",
+            "### Sevgi Notları",
+            "### Birlikte Telaffuz"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "888bee45-cd6e-4a8b-b501-1be86f193e73",
+      "title": "Lengyel kifejezések féltékenységhez és bizalomhoz",
+      "native_lang": "hu",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kifejezések a féltékenységhez",
+          "subsections": [
+            "### 1. \"Jestem zazdrosny/zazdrosna, kiedy ty...\"",
+            "### 2. \"Potrzebuję zapewnienia\"",
+            "### 3. \"Ufam ci, ale zmagam się z uczuciami\"",
+            "### 4. \"Możemy porozmawiać o tym, co się stało?\"",
+            "### 5. \"Nie chcę być zazdrosny/a, ale...\"",
+            "### 6. \"Ufam ci całkowicie\"",
+            "### 7. \"Jesteś jedyną osobą dla mnie\"",
+            "### 8. \"Nigdy nie zrobiłbym czegoś, co by cię zraniło\"",
+            "### 9. \"Między nami nic nie ma\"",
+            "### 10. \"Jestem ci wierny/a\"",
+            "### 11. \"Bądźmy szczerzy wobec siebie\"",
+            "### 12. \"Nie chcę, żeby zazdrość nas rozdzieliła\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "889378aa-08c9-4875-99e1-8e69bf639267",
+      "title": "Portugese SMS-Taal voor Stellen: Lieve Berichtjes Sturen",
+      "native_lang": "nl",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Emoji's en Reacties",
+          "subsections": [
+            "### Populaire Combinaties"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "88b7b82e-c99a-42d3-8f18-928f67149ffe",
+      "title": "Норвежские фразы для первого свидания",
+      "native_lang": "ru",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Фразы для первого свидания",
+          "subsections": [
+            "### 1. Du ser fantastisk ut i kveld",
+            "### 2. Jeg har gledet meg til dette",
+            "### 3. Fortell meg mer om deg selv",
+            "### 4. Hva liker du å gjøre på fritiden?",
+            "### 5. Du har et vakkert smil",
+            "### 6. Jeg vil gjerne se deg igjen",
+            "### 7. Jeg hadde en fantastisk kveld",
+            "### 8. Kan jeg ringe deg i morgen?"
+          ]
+        }
+      ]
+    }
+  ]
+}

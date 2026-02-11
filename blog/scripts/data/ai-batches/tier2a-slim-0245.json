@@ -1,0 +1,471 @@
+{
+  "batchId": "tier2a-slim-0245",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "f3c01cb9-3228-4894-9784-9d505403e255",
+      "title": "Portugisiska Grammatik för Nybörjare: Lär Dig Tala Med Kärlek",
+      "native_lang": "sv",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Snabbreferens: Könsbestämmelse",
+          "subsections": [
+            "### Slutar på... → Troligen...",
+            "### Undantag att memorera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f3c2a380-504f-434b-bb67-d8ffa0cf3edc",
+      "title": "Phrases de réconfort en roumain : Soutenir son partenaire",
+      "native_lang": "fr",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Phrases de réconfort",
+          "subsections": [
+            "### \"Sunt aici pentru tine\"",
+            "### \"Totul va fi bine\"",
+            "### \"Nu ești singur/singură în asta\""
+          ]
+        },
+        {
+          "header": "## Écouter et valider",
+          "subsections": [
+            "### \"Înțeleg ce simți\"",
+            "### \"Este normal să te simți așa\""
+          ]
+        },
+        {
+          "header": "## Soutien actif",
+          "subsections": [
+            "### \"Ce pot face să te ajut?\""
+          ]
+        },
+        {
+          "header": "## Encouragement",
+          "subsections": [
+            "### \"Ești mai puternic/puternică decât crezi\"",
+            "### \"Cred în tine\"",
+            "### \"O să reușești\""
+          ]
+        },
+        {
+          "header": "## Moments difficiles",
+          "subsections": [
+            "### \"Îmi pare rău că treci prin asta\"",
+            "### \"Lasă-mă să te îmbrățișez\"",
+            "### \"Vom trece prin asta împreună\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f3c53056-c70d-439b-869a-e414d2dc4050",
+      "title": "Tjekkisk kælenavne og kærlige udtryk for par",
+      "native_lang": "da",
+      "target_lang": "cs",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Kælenavne til forskellige lejligheder",
+          "subsections": [
+            "### I hverdagen",
+            "### Til romantiske øjeblikke",
+            "### Til at drille"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f3eea832-98b5-4028-816d-6d86099a8320",
+      "title": "El Futuro en Italiano Explicado",
+      "native_lang": "es",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Usos del Futuro",
+          "subsections": [
+            "### 1. Planes y Predicciones",
+            "### 2. Promesas",
+            "### 3. Suposiciones (Futuro de Probabilidad)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f3facea6-7ea1-4f63-8195-623b91274437",
+      "title": "Norské fráze pro setkání s rodiči partnera",
+      "native_lang": "cs",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## První setkání",
+          "subsections": [
+            "### \"Hyggelig å møte dere.\"",
+            "### \"[Partner] har fortalt meg så mye om dere.\"",
+            "### \"Tusen takk for invitasjonen.\"",
+            "### \"Dere har et vakkert hjem.\""
+          ]
+        },
+        {
+          "header": "## U jídla",
+          "subsections": [
+            "### \"Dette er kjempegodt! Kan jeg få oppskriften?\"",
+            "### \"Alt ser fantastisk ut.\""
+          ]
+        },
+        {
+          "header": "## Projevení zájmu",
+          "subsections": [
+            "### \"Jeg vil gjerne se bilder av [partner] som barn.\"",
+            "### \"Hvordan møttes dere?\""
+          ]
+        },
+        {
+          "header": "## Nabídka pomoci",
+          "subsections": [
+            "### \"Kan jeg hjelpe til med noe?\"",
+            "### \"La meg hjelpe til med oppvasken.\""
+          ]
+        },
+        {
+          "header": "## Rozloučení",
+          "subsections": [
+            "### \"Takk for en herlig kveld.\"",
+            "### \"Jeg håper vi ses snart igjen.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f406a50f-d9b6-4787-b7da-dca9006576bb",
+      "title": "Tsjekkisk Uttale for Nybegynnere: Lær å Snakke Med Din Elskede",
+      "native_lang": "no",
+      "target_lang": "cs",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Grunnleggende Uttaleregler",
+          "subsections": [
+            "### 1. **Hver Bokstav Har Sin Lyd**",
+            "### 2. **Trykk på Første Stavelse**",
+            "### 3. **De Spesielle Tsjekkiske Lydene**"
+          ]
+        },
+        {
+          "header": "## Vanskelige Lyder for Nordmenn",
+          "subsections": [
+            "### Rulle-R",
+            "### H-lyden"
+          ]
+        },
+        {
+          "header": "## Romantiske Uttaleøvelser for Par",
+          "subsections": [
+            "### Nivå 1: Enkle Kjærtegn",
+            "### Nivå 2: Dype Følelser"
+          ]
+        },
+        {
+          "header": "## Vanlige Uttalefeil (og Hvordan Unngå Dem)",
+          "subsections": [
+            "### Feil 1: For Sterk Vokal på Slutten",
+            "### Feil 2: Norsk Melodi på Ja/Nei",
+            "### Feil 3: Myk T-lyd"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f40ef29a-5d58-4e52-a499-cf1a65f580b5",
+      "title": "Знайомство з родиною: Основні турецькі фрази",
+      "native_lang": "uk",
+      "target_lang": "tr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Що робити і чого не робити",
+          "subsections": [
+            "### Що робити",
+            "### Чого не робити"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f429891c-4f36-4a1e-894d-1ec41505d473",
+      "title": "¿Es Difícil Aprender Danés? Una Evaluación Honesta",
+      "native_lang": "es",
+      "target_lang": "da",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Qué Hace al Danés Desafiante",
+          "subsections": [
+            "### 1. Pronunciación",
+            "### 2. El Stød (Parada Glotal)",
+            "### 3. Sistema de Números"
+          ]
+        },
+        {
+          "header": "## Qué Hace al Danés Más Fácil",
+          "subsections": [
+            "### 1. La Gramática Es Relativamente Simple",
+            "### 2. Similitudes de Vocabulario",
+            "### 3. Recursos y Apoyo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f429a08c-be84-489f-ba1c-966e449d5554",
+      "title": "Знакомство с семьёй польского партнёра",
+      "native_lang": "ru",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Разговоры",
+          "subsections": [
+            "### О себе:",
+            "### Популярные темы:",
+            "### Темы, которых лучше избегать:"
+          ]
+        },
+        {
+          "header": "## Полезные фразы",
+          "subsections": [
+            "### Если не поняли:",
+            "### Комплименты семье:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f4354b18-23b0-48ec-a77a-2dab4cc8f8a9",
+      "title": "Frases de 'Te Extraño' en Danés: Savner con Calidez Hygge",
+      "native_lang": "es",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresiones Esenciales",
+          "subsections": [
+            "### \"Jeg savner dig\"",
+            "### \"Jeg savner dig så meget\"",
+            "### \"Jeg ville ønske, du var her\""
+          ]
+        },
+        {
+          "header": "## Frases Emotivas",
+          "subsections": [
+            "### \"Hvert øjeblik uden dig føles som en evighed\"",
+            "### \"Du er altid i mine tanker\"",
+            "### \"Afstanden ændrer ikke mine følelser\""
+          ]
+        },
+        {
+          "header": "## Para Mensajes Diarios",
+          "subsections": [
+            "### \"Vågnede og tænkte på dig\"",
+            "### \"Godnat, jeg savner dig\"",
+            "### \"Tæller dagene til jeg ser dig igen\""
+          ]
+        },
+        {
+          "header": "## Expresiones Profundas",
+          "subsections": [
+            "### \"Mit hjerte længes efter dig\"",
+            "### \"Du er den manglende brik i mit liv\"",
+            "### \"Uden dig er alt lidt gråt\""
+          ]
+        },
+        {
+          "header": "## Frases para Videollamadas",
+          "subsections": [
+            "### \"At se dit ansigt gør mig glad\"",
+            "### \"Ville ønske, jeg kunne kramme dig gennem skærmen\""
+          ]
+        },
+        {
+          "header": "## Mensajes Románticos",
+          "subsections": [
+            "### \"Godmorgen, skat, jeg savner dig\"",
+            "### \"Glæder mig til at se dig\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f4387c52-d651-4f06-b028-6c3b3bb554ae",
+      "title": "Переїзд разом: російською слова для спільного життя",
+      "native_lang": "uk",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика",
+          "subsections": []
+        },
+        {
+          "header": "## Обговорення переїзду",
+          "subsections": [
+            "### Як запропонувати спільне життя російською"
+          ]
+        },
+        {
+          "header": "## Пошук житла",
+          "subsections": [
+            "### Лексика для оренди/покупки",
+            "### Кімнати в домі"
+          ]
+        },
+        {
+          "header": "## Меблі та предмети побуту",
+          "subsections": [
+            "### У спальні",
+            "### На кухні",
+            "### У вітальні"
+          ]
+        },
+        {
+          "header": "## Розподіл обов'язків",
+          "subsections": [
+            "### Домашні справи російською",
+            "### Як обговорити обов'язки"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f43be169-c4e0-4c7f-85e8-18dd0429f143",
+      "title": "Italienske fraser til uenigheder og diskussioner for par",
+      "native_lang": "da",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Vigtige fraser",
+          "subsections": [
+            "### At udtrykke følelser",
+            "### At lytte og forstå",
+            "### At finde løsninger",
+            "### At sætte grænser"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f43c5433-1829-4e58-b0e6-68243796a5e0",
+      "title": "Norwegian Jealousy & Trust Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressing Jealousy",
+          "subsections": [
+            "### Jeg er sjalu",
+            "### Jeg blir sjalu når...",
+            "### Jeg liker ikke sjalusien jeg føler"
+          ]
+        },
+        {
+          "header": "## Seeking Reassurance",
+          "subsections": [
+            "### Elsker du bare meg?",
+            "### Jeg trenger at du berolige meg"
+          ]
+        },
+        {
+          "header": "## Building Trust",
+          "subsections": [
+            "### Jeg stoler på deg",
+            "### Jeg vil stole helt på deg",
+            "### Hvordan kan vi bygge mer tillit?"
+          ]
+        },
+        {
+          "header": "## Giving Reassurance",
+          "subsections": [
+            "### Jeg har bare øyne for deg",
+            "### Du er den eneste for meg",
+            "### Du trenger ikke å bekymre deg",
+            "### Mitt hjerte tilhører deg"
+          ]
+        },
+        {
+          "header": "## Setting Boundaries",
+          "subsections": [
+            "### Sjalusi påvirker forholdet vårt",
+            "### Jeg trenger mitt eget rom"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f44a3815-efb9-4d57-8902-161924fb0687",
+      "title": "Jak powiedziec «Szeretlek» po wegiersku - romantyczne zwroty dla par",
+      "native_lang": "pl",
+      "target_lang": "hu",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Alternatywne sposoby mowienia \"Kocham cie\"",
+          "subsections": [
+            "### Dla glebokich polaczen",
+            "### Formalne i poetyckie wyrazenia"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Poranne afirmacje",
+            "### Liściki milosne",
+            "### Zwroty przed snem"
+          ]
+        },
+        {
+          "header": "## Slownictwo milosne",
+          "subsections": [
+            "### Podstawowe słowa zwiazane z miloscia",
+            "### Czasowniki romantyczne"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f4515716-6ca5-42d1-9ea4-75fa187702cd",
+      "title": "Dán kifejezések kibéküléshez és megbékéléshez",
+      "native_lang": "hu",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető kifejezések a kibéküléshez",
+          "subsections": [
+            "### 1. \"Jeg er virkelig ked af det\"",
+            "### 2. \"Kan vi starte forfra?\"",
+            "### 3. \"Jeg tog fejl\"",
+            "### 4. \"Lad os blive gode venner igen\"",
+            "### 5. \"Jeg tilgiver dig\"",
+            "### 6. \"Jeg elsker dig, selv når vi skændes\"",
+            "### 7. \"Jeg ville ikke såre dig\"",
+            "### 8. \"Kan du tilgive mig?\"",
+            "### 9. \"Jeg hader, når vi skændes\"",
+            "### 10. \"Lad os ikke gå i seng sure\"",
+            "### 11. \"Jeg lover at gøre det bedre\"",
+            "### 12. \"Du betyder meget for mig\""
+          ]
+        }
+      ]
+    }
+  ]
+}

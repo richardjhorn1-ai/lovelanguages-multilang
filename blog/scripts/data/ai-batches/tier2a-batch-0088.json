@@ -1,0 +1,119 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0088",
+  "articles": [
+    {
+      "id": "19eb71ea-2f20-445d-abc7-34ab81065020",
+      "title": "İspanyolca Kıskançlık ve Güven İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "es",
+      "category": "communication",
+      "content": "Kıskançlık, ilişkilerde doğal bir duygu olabilir. İspanyolca konuşan partnerinizle bu konuları sağlıklı bir şekilde konuşmak için temel ifadeler.\n\n## Kıskançlığı İfade Etme\n\n### 1. \"Me siento un poco celoso/a cuando...\"\n**Telaffuz:** *Me siyento un poko seloso/a kuando...*\n\n**Anlam:** \"...olduğunda biraz kıskanç hissediyorum\"\n\n**Örnek:** \"Me siento celosa cuando hablas tanto con ella.\" (Onunla çok konuştuğunda kıskanç hissediyorum.)\n\n### 2. \"¿Puedes tranquilizarme?\"\n**Telaffuz:** *Puedes trankiligarme?*\n\n**Anlam:** \"Beni rahatlatabilir misin?\"\n\n### 3. \"Confío en ti, pero no confío en ellos\"\n**Telaffuz:** *Konfiyo en ti, pero no konfiyo en elyos*\n\n**Anlam:** \"Sana güveniyorum, ama onlara güvenmiyorum\"\n\n### 4. \"Me incomoda cuando...\"\n**Telaffuz:** *Me inkomoda kuando...*\n\n**Anlam:** \"...olduğunda rahatsız oluyorum\"\n\n### 5. \"Necesito saber que soy tu prioridad\"\n**Telaffuz:** *Nesesito saber ke soy tu priyoridad*\n\n**Anlam:** \"Senin önceliğin olduğumu bilmem gerekiyor\"\n\n## Güven İnşa Etme\n\n### 6. \"Confío completamente en ti\"\n**Telaffuz:** *Konfiyo kompletamente en ti*\n\n**Anlam:** \"Sana tamamen güveniyorum\"\n\n### 7. \"Eres la única persona para mí\"\n**Telaffuz:** *Eres la unika persona para mi*\n\n**Anlam:** \"Benim için tek kişi sensin\"\n\n### 8. \"Nunca haría nada para lastimarte\"\n**Telaffuz:** *Nunka ariya nada para lastimarte*\n\n**Anlam:** \"Seni incitecek hiçbir şey yapmam\"\n\n### 9. \"No tienes de qué preocuparte\"\n**Telaffuz:** *No tiyenes de ke preokuparte*\n\n**Anlam:** \"Endişelenecek hiçbir şeyin yok\"\n\n### 10. \"Solo estoy comprometido/a contigo\"\n**Telaffuz:** *Solo estoy komprometido/a kontigo*\n\n**Anlam:** \"Sadece sana bağlıyım\"\n\n### 11. \"Hablemos de tus preocupaciones\"\n**Telaffuz:** *Ablemos de tus preokupasyones*\n\n**Anlam:** \"Endişelerin hakkında konuşalım\"\n\n### 12. \"¿Qué puedo hacer para que te sientas más seguro/a?\"\n**Telaffuz:** *Ke puedo aser para ke te siyentas mas seguro/a?*\n\n**Anlam:** \"Kendini daha güvende hissetmen için ne yapabilirim?\"\n\n## İspanyolca Güven Kültürü\n\n\"Mi amor\" (aşkım) ve \"Solo te quiero a ti\" (sadece seni seviyorum) güven veren ifadelerdir.\n\nBu ifadelerle İspanyolca konuşan partnerinizle güven dolu bir ilişki kurabilirsiniz.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 291,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Kıskançlığı İfade Etme",
+              "## Güven İnşa Etme"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "19f55521-5ce3-4fcf-8e08-1cdc140c263d",
+      "title": "Portekizce Tartışma ve Anlaşmazlık İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "pt",
+      "category": "communication",
+      "content": "Portekizce konuşan bir partnerinizle sağlıklı tartışmalar için doğru ifadeleri bilmek önemlidir. İşte temel Portekizce tartışma ifadeleri.\n\n## Temel Tartışma İfadeleri\n\n### 1. \"Eu me sinto magoado/a quando...\"\n**Telaffuz:** *Eu mi sintu magouadu/a kuandu...*\n\n**Anlam:** \"...olduğunda incinmiş hissediyorum\"\n\nKadınlar \"magoada\", erkekler \"magoado\" kullanır.\n\n**Örnek:** \"Eu me sinto magoada quando você não me ouve.\" (Beni dinlemediğinde incinmiş hissediyorum.)\n\n### 2. \"Podemos conversar sobre isso com calma?\"\n**Telaffuz:** *Podemos konversar sobri isso kom kalma?*\n\n**Anlam:** \"Bu konuyu sakin bir şekilde konuşabilir miyiz?\"\n\n### 3. \"Eu entendo seu ponto de vista, mas...\"\n**Telaffuz:** *Eu entendu seu pontu di vista, mas...*\n\n**Anlam:** \"Senin bakış açını anlıyorum, ama...\"\n\n### 4. \"Não vamos gritar\"\n**Telaffuz:** *Nau vamus gritar*\n\n**Anlam:** \"Bağırmayalım\"\n\n### 5. \"Não foi isso que eu quis dizer\"\n**Telaffuz:** *Nau foi issu ki eu kis dizer*\n\n**Anlam:** \"Demek istediğim bu değildi\"\n\n### 6. \"Preciso de um momento sozinho/a\"\n**Telaffuz:** *Presizu di um momentu sozinyu/a*\n\n**Anlam:** \"Yalnız bir ana ihtiyacım var\"\n\n### 7. \"Vamos encontrar um meio-termo\"\n**Telaffuz:** *Vamus enkontrar um meyu-termu*\n\n**Anlam:** \"Bir orta yol bulalım\"\n\n**Örnek:** \"Vamos encontrar um meio-termo que funcione para nós dois.\" (İkimiz için de işe yarayan bir orta yol bulalım.)\n\n### 8. \"Eu não queria te magoar\"\n**Telaffuz:** *Eu nau keria ti magoar*\n\n**Anlam:** \"Seni incitmek istemedim\"\n\n### 9. \"Você pode me explicar como se sente?\"\n**Telaffuz:** *Vose podi mi eksplikar komu si senti?*\n\n**Anlam:** \"Nasıl hissettiğini bana açıklar mısın?\"\n\n### 10. \"Acho que nós dois precisamos nos acalmar\"\n**Telaffuz:** *Aşu ki nos dois presizamus nos akalmar*\n\n**Anlam:** \"Sanırım ikimizin de sakinleşmesi gerekiyor\"\n\n### 11. \"Eu te amo, mas estou chateado/a\"\n**Telaffuz:** *Eu çi amu, mas istou şateadu/a*\n\n**Anlam:** \"Seni seviyorum, ama üzgünüm/kızgınım\"\n\n### 12. \"Vamos falar sobre isso depois\"\n**Telaffuz:** *Vamus falar sobri issu depois*\n\n**Anlam:** \"Bunu daha sonra konuşalım\"\n\n## Portekizce İletişim Kültürü\n\nPortekizce konuşan kültürlerde sıcaklık ve yakınlık önemlidir. \"Meu amor\" (aşkım) veya \"querido/a\" (sevgilim) gibi hitaplar tartışmayı yumuşatır.\n\n\"Desculpa\" (özür dilerim) kelimesini içtenlikle kullanın.\n\nBu ifadelerle Portekizce konuşan partnerinizle daha yapıcı diyaloglar kurabilirsiniz.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Temel Tartışma İfadeleri"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "1a0cc245-55d7-4fd9-982f-e66c7e625b16",
+      "title": "Французькі фрази для суперечок і розбіжностей",
+      "native_lang": "uk",
+      "target_lang": "fr",
+      "category": "communication",
+      "content": "Французи цінують мистецтво дискусії та вміння аргументувати свою позицію. Розуміння французького підходу до суперечок допоможе вам ефективно спілкуватися з вашим партнером.\n\n## Початок розмови\n\n### \"Il faut qu'on parle\"\n**Вимова:** Іль фо кон парль\n\n**Значення:** Нам потрібно поговорити\n\nКласична фраза для початку серйозної бесіди. \"Il faut\" виражає необхідність.\n\n### \"Je me sens blessé(e) quand tu...\"\n**Вимова:** Же ме сан блесе кан тю...\n\n**Значення:** Мені боляче, коли ти...\n\nДодайте \"e\" в кінці \"blessé\" якщо ви жінка. Вираження почуттів цінується у французькій культурі.\n\n### \"Est-ce qu'on peut en discuter calmement?\"\n**Вимова:** Ес ке он пе ан діскюте кальмман?\n\n**Значення:** Чи можемо ми обговорити це спокійно?\n\n\"Discuter\" — обговорювати, дискутувати. Французи люблять глибокі розмови.\n\n## Вираження незгоди\n\n### \"Je ne suis pas d'accord\"\n**Вимова:** Же не сюі па дакор\n\n**Значення:** Я не згоден/згодна\n\nПряме, але прийнятне вираження незгоди у французькій культурі.\n\n### \"Je vois les choses différemment\"\n**Вимова:** Же вуа ле шоз діферамман\n\n**Значення:** Я бачу речі інакше\n\nЕлегантний спосіб висловити іншу точку зору.\n\n### \"Ce n'est pas ce que je voulais dire\"\n**Вимова:** Се не па се ке же вуле дір\n\n**Значення:** Я не це хотів/хотіла сказати\n\nКорисна фраза для уточнення вашої позиції.\n\n## Емоційні вирази\n\n### \"Ça me fait de la peine\"\n**Вимова:** Са ме фе де ля пен\n\n**Значення:** Це мене засмучує\n\n\"Peine\" означає біль або сум. Дуже емоційна фраза.\n\n### \"Je suis frustré(e)\"\n**Вимова:** Же сюі фрюстре\n\n**Значення:** Я розчарований/розчарована\n\nЧесне вираження фрустрації.\n\n### \"J'ai besoin que tu m'écoutes\"\n**Вимова:** Же безуен ке тю мекут\n\n**Значення:** Мені потрібно, щоб ти мене вислухав/вислухала\n\nПрохання про увагу та розуміння.\n\n## Прохання про простір\n\n### \"J'ai besoin de temps pour réfléchir\"\n**Вимова:** Же безуен де тан пур рефлешір\n\n**Значення:** Мені потрібен час, щоб подумати\n\nФранцузи цінують рефлексію та обдумування.\n\n### \"Faisons une pause\"\n**Вимова:** Фезон юн поз\n\n**Значення:** Давай зробимо перерву\n\nПропозиція відпочити від напруженої розмови.\n\n## Пошук компромісу\n\n### \"Comment peut-on résoudre ce problème?\"\n**Вимова:** Коман пе-тон резудр се проблем?\n\n**Значення:** Як ми можемо вирішити цю проблему?\n\nФраза, спрямована на пошук рішення.\n\n### \"Trouvons un compromis\"\n**Вимова:** Трувон ен компромі\n\n**Значення:** Давай знайдемо компроміс\n\nПряма пропозиція до співпраці.\n\n### \"Je suis prêt(e) à faire des concessions\"\n**Вимова:** Же сюі пре а фер де консесьон\n\n**Значення:** Я готовий/готова піти на поступки\n\nДодайте \"e\" до \"prêt\" якщо ви жінка.\n\n## Визнання помилки\n\n### \"Tu as raison, j'ai eu tort\"\n**Вимова:** Тю а резон, же е тор\n\n**Значення:** Ти маєш рацію, я помилявся/помилялась\n\n\"Tort\" означає неправоту, помилку.\n\n### \"Je n'aurais pas dû dire ça\"\n**Вимова:** Же норе па дю дір са\n\n**Значення:** Мені не варто було це говорити\n\nВизнання неправильних слів.\n\n## Культурні особливості\n\n**Мистецтво дебатів:** Французи люблять дискутувати та аргументувати. Це не завжди означає конфлікт — часто це інтелектуальна вправа.\n\n**Прямота:** Французи можуть бути досить прямими у вираженні незгоди, але це вважається чесністю, а не грубістю.\n\n**Логіка:** Аргументи мають бути логічними та обґрунтованими. Французи цінують раціональний підхід.\n\n**Примирення:** Після суперечки важливо відновити емоційний зв'язок. Спільна вечеря або келих вина можуть допомогти.\n\nВолодіння цими фразами дозволить вам вести змістовні розмови з франкомовним партнером навіть у складних ситуаціях.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Початок розмови",
+              "## Вираження незгоди",
+              "## Емоційні вирази",
+              "## Прохання про простір",
+              "## Пошук компромісу",
+              "## Визнання помилки"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "1a1d6e0c-551d-4b61-a828-89c53bbe06f9",
+      "title": "German Proposal & Engagement Phrases: How to Pop the Question",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nProposing in your partner's native language is one of the most romantic gestures you can make. Whether you're planning an elaborate Heiratsantrag or a simple, heartfelt moment, knowing how to express your intentions in German will make this milestone unforgettable. This guide covers everything from the perfect proposal phrases to announcing your Verlobung to family and friends.\n\nFor more romantic expressions, see our guide on [German pet names and terms of endearment](/blog/en/german-pet-names-and-terms-of-endearment).\n\n<PhraseOfDay\n  word=\"Willst du mich heiraten?\"\n  translation=\"Will you marry me?\"\n  pronunciation=\"Willst du mich heiraten?\"\n  context=\"The most important question you'll ever ask.\"\n/>\n\n## The Proposal Vocabulary\n\nMaster these essential words before your big moment:\n\n<VocabCard\n  word=\"Ring\"\n  translation=\"ring\"\n  pronunciation=\"Ring\"\n  example=\"The engagement Ring sparkles beautifully.\"\n/>\n\n| German | English | Context |\n|---|---|---|\n| Heiratsantrag | proposal | The act of proposing |\n| Verlobung | engagement | The period before marriage |\n| Ring | ring | The engagement ring |\n| Verlobter | fiancé | Engaged man |\n| Verlobte | fiancée | Engaged woman |\n| ja | yes | The answer you're hoping for |\n| für immer | forever | For eternity |\n| Liebe meines Lebens | love of my life | Romantic declaration |\n\n<CultureTip flag=\"🇩🇪\" title=\"Proposal Traditions\">\nIn German-speaking cultures, proposal traditions may include asking the parents for their blessing beforehand. This traditional gesture is still valued by many families and can make a wonderful impression.\n</CultureTip>\n\n## Ways to Propose\n\n### The Classic Proposal\n**\"Willst du mich heiraten?\"** - Will you marry me?\n\nThis simple, direct question is perfect for any setting. Practice the pronunciation until it feels natural.\n\n### More Romantic Variations\n- **\"You are the Liebe meines Lebens. Willst du mich heiraten?\"** - Adding a declaration of love\n- **\"I want to spend für immer with you.\"** - Building to the question\n- **\"Will you make me the happiest person in the world?\"** - An alternative approach\n\n<VocabCard\n  word=\"verlobt\"\n  translation=\"engaged\"\n  pronunciation=\"verlobt\"\n  example=\"We are verlobt!\"\n/>\n\n## Announcing Your Engagement\n\nOnce your partner says \"ja!\", you'll want to share the news:\n\n### To Family\n- **\"We're verlobt!\"** - The joyful announcement\n- **\"Verlobter/Verlobte said ja!\"** - Sharing the excitement\n- **\"We have wonderful news!\"** - Building anticipation\n\n### To Friends\n- **\"Guess what happened?\"** - Creating suspense\n- **\"Look at my Ring!\"** - Showing off the ring\n- **\"We're getting married!\"** - Direct and joyful\n\n### On Social Media\n- **\"She/He said ja!\"** - Classic announcement\n- **\"für immer starts now!\"** - Romantic caption\n- **\"verlobt to my Liebe meines Lebens\"** - Heartfelt declaration\n\n<CultureTip flag=\"🇩🇪\" title=\"Engagement Celebrations\">\nIn many German-speaking families, an Verlobung party is held to celebrate the couple. This gathering allows both families to meet and celebrate the upcoming union together.\n</CultureTip>\n\n## Ring Vocabulary\n\nThe Ring is central to the Heiratsantrag:\n\n| German | English | Description |\n|---|---|---|\n| Ring | ring | The piece of jewelry |\n| Engagement Ring | engagement ring | The symbol of commitment |\n| Diamond | diamond | Popular gemstone |\n| Gold | gold | Common metal |\n| Fit | fit | How the ring sits |\n\n## Preparing Your Proposal\n\n### Practice Tips\n1. **Record yourself** saying the proposal\n2. **Practice with your partner's name**\n3. **Time your delivery** for natural flow\n4. **Prepare for emotion** - it's okay to be nervous\n\n### Setting the Scene\nConsider these romantic elements:\n- A meaningful location\n- The right moment\n- Having someone to photograph (secretly!)\n- The Ring ready and accessible\n\n## After They Say Yes\n\nThe moments after the Heiratsantrag are magical:\n\n| Moment | What to Say | Translation |\n|---|---|---|\n| Right after | I love you so much! | Declaration of love |\n| First call | We're verlobt! | Announcement |\n| First photo | My Verlobter/Verlobte! | New title |\n\nFor more ways to express your love, explore our [how to say I love you in German](/blog/en/how-to-say-i-love-you-in-german) guide.\n\n## Quick Reference\n\n| Purpose | Phrase |\n|---|---|\n| Propose | Willst du mich heiraten? |\n| React to yes | You said ja! |\n| Announce | We're verlobt! |\n| Introduce | My Verlobter/Verlobte |\n\nYour Heiratsantrag in German will be a story you'll tell für immer. Take your time, speak from the heart, and let your love shine through every word.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Ways to Propose",
+              "## Preparing Your Proposal"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "1a1fd238-4e2a-4e07-9c39-9ed57a7cfc30",
+      "title": "Як зробити пропозицію португальською: фрази для заручин",
+      "native_lang": "uk",
+      "target_lang": "pt",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport CTA from '@components/CTA.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\n\n# Як зробити пропозицію португальською: фрази для заручин\n\nВи готові зробити найважливіше питання у житті? Якщо ваш партнер розмовляє португальською, цей посібник допоможе вам підготувати ідеальну пропозицію!\n\nВід класичних слів до сучасних варіантів — тут ви знайдете все необхідне для цього особливого моменту.\n\n<PhraseOfDay\n  phrase=\"Will you marry me?\"\n  translation=\"Вийдеш за мене заміж? / Одружишся зі мною?\"\n  context=\"Найважливіше питання\"\n/>\n\n## Як зробити пропозицію португальською\n\nКласичне питання про одруження португальською звучить по-різному залежно від статі партнера та культурних традицій. Ось основні варіанти:\n\n### Основна лексика заручин\n\n\n\n## Романтичні фрази для пропозиції\n\nПеред тим як поставити питання, ви можете сказати щось особливе:\n\n### Вступні слова\n\n1. **Скажіть про свої почуття** — \"Я кохаю тебе більше за все на світі\"\n2. **Поділіться мріями** — \"Я хочу провести з тобою все життя\"\n3. **Зробіть комплімент** — \"Ти робиш мене найщасливішою людиною\"\n\n<CultureTip>\nТрадиції пропозиції відрізняються в різних країнах. Дізнайтеся, що прийнято в культурі вашого партнера — чи потрібно просити дозволу у батьків, чи є особливі ритуали.\n</CultureTip>\n\n## Оголошення про заручини\n\nПісля того як ваш партнер скаже \"так\", час поділитися радісною новиною з рідними та друзями!\n\n### Як оголосити про заручини португальською\n\n- \"Ми заручені!\" \n- \"Він/вона сказав(ла) так!\"\n- \"Ми одружуємося!\"\n\n## Лексика про каблучку\n\nОбручка — важлива частина заручин. Ось корисні слова:\n\n| Португальська | Українська |\n|----------------|------------|\n| Ring | Каблучка |\n| Diamond | Діамант |\n| Engagement ring | Обручка для заручин |\n| Wedding band | Весільна обручка |\n\n## Культурні особливості\n\n<CultureTip>\nУ деяких культурах заручини включають офіційну церемонію з участю обох родин. Це може бути окрема подія до весілля, де родини зустрічаються та обмінюються подарунками.\n</CultureTip>\n\n## Підготовка до пропозиції\n\n### Чек-лист:\n- ✓ Вивчіть правильну вимову фраз\n- ✓ Дізнайтеся культурні традиції\n- ✓ Оберіть особливе місце\n- ✓ Підготуйте каблучку\n- ✓ Заплануйте як оголосити новину\n\n## Після заручин\n\nКоли ви вже заручені, з'являється нова лексика:\n\n- Наречений / Наречена\n- Весільні плани\n- Дата весілля\n- Список гостей\n\n## Продовжуйте вивчення\n\nТепер ви готові до пропозиції португальською! Вивчайте більше романтичних фраз:\n\n- [Португальська весільна лексика](/uk/blog/portuguese-wedding-phrases)\n- [Романтичні фрази португальською](/uk/blog/romantic-portuguese-phrases-for-couples)\n\n<CTA \n  text=\"Готові вивчати мову кохання португальською? Наш додаток допоможе!\"\n  buttonText=\"Спробувати безкоштовно\"\n  href=\"/uk/learn/pt\"\n/>",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 278,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "### Основна лексика заручин",
+              "## Підготовка до пропозиції"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

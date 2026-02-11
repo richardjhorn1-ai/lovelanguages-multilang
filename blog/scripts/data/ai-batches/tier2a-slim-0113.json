@@ -1,0 +1,404 @@
+{
+  "batchId": "tier2a-slim-0113",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "8225316b-7ea5-474e-ba32-1dba6ede1cc7",
+      "title": "Polish Phone Calls: Answer Like a Local",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Essential Phone Phrases",
+          "subsections": [
+            "### Asking to Speak with Someone",
+            "### When Someone Isn't Available",
+            "### Taking Messages"
+          ]
+        },
+        {
+          "header": "## Ending Phone Calls Politely",
+          "subsections": [
+            "### Casual Endings",
+            "### Formal Endings"
+          ]
+        },
+        {
+          "header": "## Common Phone Call Scenarios",
+          "subsections": [
+            "### Calling a Restaurant",
+            "### Calling for Information"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8225e844-984a-4521-b136-076390643d6e",
+      "title": "Φράσεις για το Πρώτο Ραντεβού (pt): Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις",
+          "subsections": [
+            "### Γνωριμία",
+            "### Συζήτηση",
+            "### Φλερτ",
+            "### Κλείσιμο"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "822f0e7f-cea4-47fd-989d-e8f4f347b3a8",
+      "title": "Seznámení s partnerovou rodinou v turečtině: Získejte si jejich srdce správnými frázemi",
+      "native_lang": "cs",
+      "target_lang": "tr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Konverzace s rodinou",
+          "subsections": [
+            "### S maminkou vašeho partnera",
+            "### S tatínkem"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "822fa14e-597c-4750-bbe8-8d68e6576c5b",
+      "title": "Expresii 'Mi-e Dor de Tine' în Germană pentru Români",
+      "native_lang": "ro",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale de Dor",
+          "subsections": [
+            "### Expresii Directe",
+            "### Expresii Profunde",
+            "### Mesaje de Dimineață și Seară",
+            "### Promisiuni"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "823773cb-64fe-4721-abeb-0cc99a1ad2e7",
+      "title": "Як зробити пропозицію італійською: фрази для заручин",
+      "native_lang": "uk",
+      "target_lang": "it",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Підготовка до пропозиції",
+          "subsections": [
+            "### Чек-лист:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "82432481-50aa-4d1c-aa49-d1dd37eb0d9c",
+      "title": "Frases Essenciais em Alemao para Casais",
+      "native_lang": "pt",
+      "target_lang": "de",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Pratica Diaria para Casais",
+          "subsections": [
+            "### Manha",
+            "### Durante o Dia",
+            "### Noite"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "824d91b6-f802-405b-9e30-af1129bcfaa1",
+      "title": "French Forgiveness Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Asking for Forgiveness",
+          "subsections": [
+            "### Pardonne-moi",
+            "### Je te demande pardon",
+            "### Peux-tu me pardonner?",
+            "### Je sais que je t'ai fait du mal et j'en suis profondément désolé(e)",
+            "### Je n'ai aucune excuse"
+          ]
+        },
+        {
+          "header": "## Expressing Regret",
+          "subsections": [
+            "### Je regrette profondément",
+            "### Si je pouvais revenir en arrière, je ferais autrement",
+            "### Je n'ai jamais voulu te faire du mal"
+          ]
+        },
+        {
+          "header": "## Granting Forgiveness",
+          "subsections": [
+            "### Je te pardonne",
+            "### Je ne t'en veux pas",
+            "### C'est oublié",
+            "### On fait tous des erreurs"
+          ]
+        },
+        {
+          "header": "## Processing Forgiveness",
+          "subsections": [
+            "### J'ai besoin de temps pour pardonner",
+            "### Je veux te pardonner, mais j'ai besoin de temps"
+          ]
+        },
+        {
+          "header": "## Moving Forward",
+          "subsections": [
+            "### Comment pouvons-nous avancer?",
+            "### Je veux qu'on surmonte ça ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "82a7ccf2-c8e3-40f5-b23b-3d2a40f43154",
+      "title": "50+ Turkish Pet Names and Endearments",
+      "native_lang": "en",
+      "target_lang": "tr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Pet Names by Situation",
+          "subsections": [
+            "### Morning Greetings",
+            "### Goodnight Wishes",
+            "### When Missing Someone"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "82aa1ae1-9016-4fba-9944-58d2995ab9b2",
+      "title": "30+ Italienske Komplimenter til Din Partner: Romantiske Fraser",
+      "native_lang": "da",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Komplimenter til Specielle Lejligheder",
+          "subsections": [
+            "### Til en Date",
+            "### Ved Milepæle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "82ab8923-1629-47db-9261-0df93114089f",
+      "title": "Frases en Checo para tu Primera Cita",
+      "native_lang": "es",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Romper el Hielo",
+          "subsections": [
+            "### \"Je skvělé tě konečně potkat\"",
+            "### \"Vypadáš skvěle\"",
+            "### \"Těšil/a jsem se na to\""
+          ]
+        },
+        {
+          "header": "## Frases para Conocerse",
+          "subsections": [
+            "### \"Řekni mi něco o sobě\"",
+            "### \"Co rád/a děláš ve volném čase?\""
+          ]
+        },
+        {
+          "header": "## Frases Románticas",
+          "subsections": [
+            "### \"Moc si to užívám\"",
+            "### \"Máš krásný úsměv\"",
+            "### \"Cítím se s tebou dobře\""
+          ]
+        },
+        {
+          "header": "## Frases para Terminar",
+          "subsections": [
+            "### \"Byl to skvělý večer\"",
+            "### \"Můžeme se znovu setkat?\"",
+            "### \"Napiš mi, až budeš doma\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "82beb0b7-77b4-44b3-a07b-873387c97d86",
+      "title": "French Pronunciation: Master Key Sounds",
+      "native_lang": "en",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Essential French Sounds to Master",
+          "subsections": [
+            "### The French R [ʁ]",
+            "### Nasal Sounds",
+            "### The Silent H"
+          ]
+        },
+        {
+          "header": "## Couple Practice Activities",
+          "subsections": [
+            "### 1. Mirror Practice",
+            "### 2. Recording Sessions",
+            "### 3. Romantic Role-Play"
+          ]
+        },
+        {
+          "header": "## Common Pronunciation Mistakes to Avoid",
+          "subsections": [
+            "### Stress Patterns",
+            "### The Letter E",
+            "### Vowel Precision"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "82d0248b-c7b4-4486-953d-cd4e95ba7a5b",
+      "title": "40+ Frases Italianas para Enamorar Seu Amor",
+      "native_lang": "pt",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Frases para Declarar Seu Amor",
+          "subsections": [
+            "### Expressões de Amor Profundo"
+          ]
+        },
+        {
+          "header": "## Frases para o Dia a Dia do Casal",
+          "subsections": [
+            "### Pela Manhã",
+            "### À Noite"
+          ]
+        },
+        {
+          "header": "## Frases para Momentos Especiais",
+          "subsections": [
+            "### Pedido de Casamento",
+            "### Aniversários"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "82dc0cad-94ac-44cd-acfa-25fccba58a5a",
+      "title": "Urări de Ziua de Naștere pentru Partener în Poloneză: Mesaje Romantice",
+      "native_lang": "ro",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Mesaje Romantice",
+          "subsections": [
+            "### Scurte și Dulci",
+            "### Mesaje Mai Lungi"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Diferite Personalități",
+          "subsections": [
+            "### Pentru Partenerul Romantic",
+            "### Pentru Partenerul cu Umor"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Card",
+          "subsections": [
+            "### Format Scurt",
+            "### Format Lung"
+          ]
+        },
+        {
+          "header": "## Idei de Surprize",
+          "subsections": [
+            "### Gesturi Romantice"
+          ]
+        },
+        {
+          "header": "## Mesaje de Dimineață",
+          "subsections": [
+            "### Pentru Început de Zi"
+          ]
+        },
+        {
+          "header": "## Tradiții de Cuplu",
+          "subsections": [
+            "### Idei pentru Noi Tradiții"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "82dc62d9-9c3b-4e19-ad5e-d9298a62ad6c",
+      "title": "Russiske fraser til forsoning og genopbygning af tillid",
+      "native_lang": "da",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser til forsoning",
+          "subsections": [
+            "### At undskylde oprigtigt",
+            "### At genopbygge forbindelsen",
+            "### At tilbyde forsoning",
+            "### At acceptere en undskyldning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8308481e-ab7f-432c-908a-8c9dc16e7ff9",
+      "title": "Les verbes irréguliers italiens essentiels",
+      "native_lang": "fr",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## POTERE, VOLERE, DOVERE - Les modaux",
+          "subsections": [
+            "### POTERE (pouvoir)",
+            "### VOLERE (vouloir)",
+            "### DOVERE (devoir)"
+          ]
+        },
+        {
+          "header": "## DARE (donner) et DIRE (dire)",
+          "subsections": [
+            "### DARE",
+            "### DIRE"
+          ]
+        },
+        {
+          "header": "## Exercices pour couples",
+          "subsections": [
+            "### Conjugaison challenge",
+            "### Phrases romantiques",
+            "### Quiz quotidien"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,412 @@
+{
+  "batchId": "tier2a-slim-0328",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "eaf61c21-1cd1-429c-a40b-10cd5a25699f",
+      "title": "Genre Polonais : Masculin, Féminin, Neutre",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Règles pratiques pour reconnaître le genre",
+          "subsections": [
+            "### Méthode de vérification rapide du genre :",
+            "### Exemples délicats :"
+          ]
+        },
+        {
+          "header": "## Exercices de pratique pour couples",
+          "subsections": [
+            "### Exercice 1 : Jeu de devinette du genre",
+            "### Exercice 2 : Accord des adjectifs",
+            "### Exercice 3 : Objets quotidiens"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eb0629c4-3b21-4b14-a372-75b608cf55f8",
+      "title": "70+ Mots Polonais pour Romantyczna Randka Parfaite",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Planifier votre rendez-vous",
+          "subsections": [
+            "### Proposer une sortie",
+            "### Types de rendez-vous"
+          ]
+        },
+        {
+          "header": "## Au restaurant",
+          "subsections": [
+            "### Arriver et s'installer",
+            "### Commander ensemble"
+          ]
+        },
+        {
+          "header": "## Vocabulaire romantique de table",
+          "subsections": [
+            "### La nourriture et les boissons",
+            "### Complimenter le repas"
+          ]
+        },
+        {
+          "header": "## Au cinéma",
+          "subsections": [
+            "### Acheter les billets",
+            "### Pendant le film"
+          ]
+        },
+        {
+          "header": "## Promenade romantique",
+          "subsections": [
+            "### Vocabulaire de balade",
+            "### Phrases romantiques pour la promenade"
+          ]
+        },
+        {
+          "header": "## Fin de soirée",
+          "subsections": [
+            "### Se dire au revoir",
+            "### Le baiser de bonne nuit"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eb214ead-8913-467a-ba34-3b440f5acbe6",
+      "title": "İsveççe Selamlaşma ve Vedalaşma: Temel İfadeler Rehberi",
+      "native_lang": "tr",
+      "target_lang": "sv",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Vedalaşma İfadeleri",
+          "subsections": [
+            "### Temel Vedalaşmalar",
+            "### Samimi Vedalaşmalar",
+            "### Zaman Belirten Vedalaşmalar"
+          ]
+        },
+        {
+          "header": "## Çiftler İçin Özel İfadeler",
+          "subsections": [
+            "### Sabah Selamlaşması",
+            "### Akşam/Gece Vedalaşması"
+          ]
+        },
+        {
+          "header": "## Mesaj/Yazışma İfadeleri",
+          "subsections": [
+            "### Mesaj Başlatma",
+            "### Mesaj Bitirme"
+          ]
+        },
+        {
+          "header": "## Özel Durumlar",
+          "subsections": [
+            "### Mağazada/Restoranda",
+            "### İş Ortamında"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eb58ed16-9279-494a-9036-a565d49d881b",
+      "title": "Romanian for Couples: Romantic Phrases",
+      "native_lang": "en",
+      "target_lang": "ro",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Quick Reference: Romantic Phrases",
+          "subsections": [
+            "### Declarations of Love",
+            "### Romantic Compliments",
+            "### Future Together"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eb8321b7-6acc-4251-b411-c9867c9b7e53",
+      "title": "Pâques Polonaises : Wielkanoc Expliqué",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Vocabulaire essentiel de Pâques pour les couples",
+          "subsections": [
+            "### Termes religieux",
+            "### Nourriture et célébration",
+            "### Expressions romantiques de Pâques"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eb9a8f29-f400-4d0c-952c-ea45fb8d04f6",
+      "title": "Felicitaciones de Cumpleaños en Francés",
+      "native_lang": "es",
+      "target_lang": "fr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Felicitaciones Románticas para Tu Pareja",
+          "subsections": [
+            "### Mensajes Cortos y Dulces",
+            "### Mensajes Más Largos"
+          ]
+        },
+        {
+          "header": "## Dando y Recibiendo Regalos",
+          "subsections": [
+            "### Al Dar un Regalo",
+            "### Al Recibir un Regalo"
+          ]
+        },
+        {
+          "header": "## Mensajes para Tarjetas de Cumpleaños",
+          "subsections": [
+            "### Tarjetas Románticas",
+            "### Mensaje Completo de Ejemplo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ebe0a955-6c7c-49bd-ad40-502451b8ad6b",
+      "title": "Szwedzkie romantyczne zwroty na każda okazje",
+      "native_lang": "pl",
+      "target_lang": "sv",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia",
+          "subsections": [
+            "### Cwiczenie 1: Kartka na okazje",
+            "### Cwiczenie 2: Nagranie wideo",
+            "### Cwiczenie 3: Codzieńne wyrazenia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ec5bef7c-cc79-454f-9ae0-cb6cd81f65a9",
+      "title": "Danois pour Couples : 25 Expressions Essentielles",
+      "native_lang": "fr",
+      "target_lang": "da",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Conseils de pratique pour les couples",
+          "subsections": [
+            "### Routines quotidiennes",
+            "### Activités d'apprentissage amusantes",
+            "### Construisez votre vocabulaire ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ec627376-c40d-47d3-94ca-4b57f37bce93",
+      "title": "French Subjunctive Basics: Expressing Wishes and Emotions",
+      "native_lang": "en",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## How to Form the Subjunctive",
+          "subsections": [
+            "### Regular Verbs",
+            "### Essential Irregular Subjunctives",
+            "### Other Common Irregular Subjunctives"
+          ]
+        },
+        {
+          "header": "## Romantic Subjunctive Phrases",
+          "subsections": [
+            "### Expressing Wishes",
+            "### Expressing Emotions",
+            "### Expressing Necessity"
+          ]
+        },
+        {
+          "header": "## Common Subjunctive Triggers for Couples",
+          "subsections": [
+            "### Verbs of Wanting and Wishing",
+            "### Verbs of Emotion",
+            "### Impersonal Expressions"
+          ]
+        },
+        {
+          "header": "## Practice Scenarios for Couples",
+          "subsections": [
+            "### Scenario 1: Expressing Wishes",
+            "### Scenario 2: Sharing Emotions",
+            "### Scenario 3: Discussing Needs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ec75c9d8-8e85-401d-ae4a-295b288063f5",
+      "title": "Italiaanse Huwelijksuitdrukkingen: Romantische Zinnen voor il Matrimonio",
+      "native_lang": "nl",
+      "target_lang": "it",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## De Huwelijksceremonie",
+          "subsections": [
+            "### Traditionele Geloften"
+          ]
+        },
+        {
+          "header": "## Felicitaties voor het Bruidspaar",
+          "subsections": [
+            "### Korte Felicitaties",
+            "### Langere Felicitaties voor Kaarten"
+          ]
+        },
+        {
+          "header": "## Romantische Zinnen",
+          "subsections": [
+            "### Voor je Partner"
+          ]
+        },
+        {
+          "header": "## Praktische Zinnen",
+          "subsections": [
+            "### Op de Receptie",
+            "### Op de Dansvloer"
+          ]
+        },
+        {
+          "header": "## Je Eigen Geloften Schrijven",
+          "subsections": [
+            "### Italiaanse Gelofte-inspiratie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ec781011-f2d9-4715-b6cb-5c56ea563de4",
+      "title": "50+ Δανέζικα Ψευδώνυμα για το Ταίρι σου - Γλυκές Λέξεις για Βαθύτερη Σύνδεση",
+      "native_lang": "el",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Πώς να Χρησιμοποιήσετε τα Ψευδώνυμα με το Ταίρι σας",
+          "subsections": [
+            "### Βασικοί Κανόνες:",
+            "### Συνηθισμένα Λάθη:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ec8e271c-8056-4385-a6f1-496e3ef75849",
+      "title": "50+ greckich zdrobnień, które roztopią serce",
+      "native_lang": "pl",
+      "target_lang": "el",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Kiedy uzywac poszczegolnych zdrobnien",
+          "subsections": [
+            "### Prywatnie vs publicznie",
+            "### Formalne vs nieformalne"
+          ]
+        },
+        {
+          "header": "## Jak uzywac zdrobnien naturalnie",
+          "subsections": [
+            "### Na poczatek dnia",
+            "### Podczas rozmowy",
+            "### Na pożegnańie",
+            "### W wiadomosciach tekstowych"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Gra w zdrobnienia",
+            "### Tworzcie własne",
+            "### Praktyka dzieńna"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ec9ba6b9-ec38-4b0d-bfa7-548a0e8f27b4",
+      "title": "Spotkanie z niemiecka rodzina partnera - niezbędne zwroty",
+      "native_lang": "pl",
+      "target_lang": "de",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Trudne sytuacje",
+          "subsections": [
+            "### Gdy nie rozumiesz"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia przed spotkaniem",
+          "subsections": [
+            "### Ćwiczenie 1: Sie-Formeln",
+            "### Ćwiczenie 2: Powitanie i przedstawienie",
+            "### Ćwiczenie 3: Komplementy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ecb79419-2145-4757-ade9-eca356a3917b",
+      "title": "Hiszpanski dla Par: 50+ Niezbędnych Zwrotow",
+      "native_lang": "pl",
+      "target_lang": "es",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Praktyczne codzieńne zwroty",
+          "subsections": [
+            "### W kuchni",
+            "### W domu"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Poranna rutyna po hiszpansku",
+            "### Cwiczenie 2: Wieczorna refleksja",
+            "### Cwiczenie 3: Gra w tlumaczenia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ee185828-2d7d-44c0-bbe9-a3f7c4295d5b",
+      "title": "50+ Frases Húngaras de Amor que Enamoran",
+      "native_lang": "es",
+      "target_lang": "hu",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Momentos Especiales",
+          "subsections": [
+            "### Primer \"Te Quiero\"",
+            "### Después de Mucho Tiempo Juntos",
+            "### Despedida (Temporal)"
+          ]
+        }
+      ]
+    }
+  ]
+}

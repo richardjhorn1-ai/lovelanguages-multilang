@@ -1,0 +1,435 @@
+{
+  "batchId": "tier2a-slim-0197",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "cc42ee62-addf-400e-87c6-768c71200802",
+      "title": "Danish Phrases for Meeting the In-Laws: Make a Great Impression",
+      "native_lang": "en",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## First Impressions",
+          "subsections": [
+            "### Greetings"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cc47ca03-e93a-4311-9b6c-81cbe13f896e",
+      "title": "Włoskie zwroty na pierwszą randkę",
+      "native_lang": "pl",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Rozpoczęcie rozmowy",
+          "subsections": [
+            "### \"Ciao! Che piacere conoscerti finalmente!\"",
+            "### \"Sei bellissimo/bellissima!\"",
+            "### \"Non vedevo l'ora di vederti\""
+          ]
+        },
+        {
+          "header": "## Poznawanie się",
+          "subsections": [
+            "### \"Raccontami di te\"",
+            "### \"Cosa ti piace fare nel tempo libero?\"",
+            "### \"Qual è il tuo... preferito?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie zainteresowania",
+          "subsections": [
+            "### \"È davvero interessante\"",
+            "### \"Dimmi di più\"",
+            "### \"Mi piacerebbe saperne di più\""
+          ]
+        },
+        {
+          "header": "## Dzielenie się o sobie",
+          "subsections": [
+            "### \"Sono appassionato/a di...\"",
+            "### \"Qualcosa che forse non sai di me...\"",
+            "### \"Ho sempre voluto...\""
+          ]
+        },
+        {
+          "header": "## Komplementy",
+          "subsections": [
+            "### \"Adoro il tuo sorriso\"",
+            "### \"Hai un grande senso dell'umorismo\"",
+            "### \"Mi sto divertendo tantissimo con te\""
+          ]
+        },
+        {
+          "header": "## Planowanie następnego spotkania",
+          "subsections": [
+            "### \"Mi piacerebbe molto rivederti\"",
+            "### \"Quando possiamo rifarlo?\"",
+            "### \"È stata una serata meravigliosa\""
+          ]
+        },
+        {
+          "header": "## Pożegnanie",
+          "subsections": [
+            "### \"È stato davvero bello\"",
+            "### \"Non vedo l'ora di rivederti\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cc590ac3-9ced-4b78-903e-595a6330c494",
+      "title": "50+ török szeretetnév és becézés, ami meglágyítja a szíved",
+      "native_lang": "hu",
+      "target_lang": "tr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hogyan használd ezeket a pároddal?",
+          "subsections": [
+            "### Kezdjétek lassan!",
+            "### Kombináljátok!",
+            "### Figyeljetek a kiejtésre!",
+            "### Kulturális érzékenység"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cc6c1f78-24d3-4a90-b728-38ba46d6ab9e",
+      "title": "Græske fraser til forsoning og genopbygning af tillid",
+      "native_lang": "da",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser til forsoning",
+          "subsections": [
+            "### At undskylde oprigtigt",
+            "### At genopbygge forbindelsen",
+            "### At tilbyde forsoning",
+            "### At acceptere en undskyldning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ccbc0cf1-4723-4017-a9e2-6e3ef8c19963",
+      "title": "Holland kifejezések érzelmi támogatáshoz és vigasztaláshoz",
+      "native_lang": "hu",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető vigasztaló kifejezések",
+          "subsections": [
+            "### Ik ben er voor je",
+            "### Het komt allemaal goed",
+            "### Alles komt goed",
+            "### Ik vind het heel erg wat je doormaakt"
+          ]
+        },
+        {
+          "header": "## Empátia kifejezése",
+          "subsections": [
+            "### Ik begrijp hoe je je voelt",
+            "### Dat moet heel moeilijk zijn",
+            "### Je gevoelens zijn volkomen terecht",
+            "### Het is oké om je zo te voelen"
+          ]
+        },
+        {
+          "header": "## Támogatás felajánlása",
+          "subsections": [
+            "### Wat heb je nu nodig?",
+            "### Hoe kan ik je helpen?",
+            "### Ik ben hier om naar je te luisteren",
+            "### Neem alle tijd die je nodig hebt"
+          ]
+        },
+        {
+          "header": "## Gyász és veszteség",
+          "subsections": [
+            "### Ik vind het heel erg voor je verlies",
+            "### Hij/Zij zal altijd in je hart zijn",
+            "### Gecondoleerd",
+            "### Sterkte"
+          ]
+        },
+        {
+          "header": "## Nehéz időkben",
+          "subsections": [
+            "### Je staat er niet alleen voor",
+            "### We komen hier samen doorheen",
+            "### Je bent sterker dan je denkt",
+            "### Dit gaat ook voorbij"
+          ]
+        },
+        {
+          "header": "## Bátorítás",
+          "subsections": [
+            "### Ik geloof in je",
+            "### Je kunt dit",
+            "### Ik ben trots op je"
+          ]
+        },
+        {
+          "header": "## Szeretetteljes kifejezések",
+          "subsections": [
+            "### Ik hou van je, schat",
+            "### Ik zal er altijd voor je zijn"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ccc09206-445d-4e91-89cf-5a6fbe52376e",
+      "title": "Fare Complimenti in Francese: 40+ Frasi per Innamorare",
+      "native_lang": "it",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Complimenti sull'Aspetto Fisico",
+          "subsections": [
+            "### Bellezza Generale",
+            "### Complimenti sugli Occhi",
+            "### Complimenti sul Sorriso"
+          ]
+        },
+        {
+          "header": "## Complimenti sulla Personalità",
+          "subsections": [
+            "### Intelligenza e Cultura",
+            "### Gentilezza e Cuore",
+            "### Carattere e Forza"
+          ]
+        },
+        {
+          "header": "## Complimenti per Occasioni Speciali",
+          "subsections": [
+            "### Quando Si Veste Elegantemente",
+            "### Complimenti Quotidiani"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ccd18434-2f28-40e0-956e-85d1c862357c",
+      "title": "Sådan Siger Du Jeg Elsker Dig på Spansk: 12 Romantiske Måder for Par",
+      "native_lang": "da",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## 12 Romantiske Måder at Sige \"Jeg Elsker Dig\"",
+          "subsections": [
+            "### Klassiske Udtryk",
+            "### Poetiske & Passionerede",
+            "### Søde & Legesyge"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ccd6915d-8459-4550-a2be-ad36e930fd74",
+      "title": "Svensk kælenavne og kærlige udtryk for par",
+      "native_lang": "da",
+      "target_lang": "sv",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Kælenavne til forskellige lejligheder",
+          "subsections": [
+            "### I hverdagen",
+            "### Til romantiske øjeblikke",
+            "### Til at drille"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ccfb6d48-3163-44f4-a30e-4a92aacc5f8e",
+      "title": "Romantyczne frazy do wysyłania SMS-ów po niemiecku dla par",
+      "native_lang": "pl",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Romantyczne frazy SMS-owe",
+          "subsections": [
+            "### 1. **Ich liebe dich**",
+            "### 2. **Du bist mein Ein und Alles**",
+            "### 3. **Ich denke an dich**",
+            "### 4. **Du machst mich glücklich**",
+            "### 5. **Du bist mein Herz**",
+            "### 6. **Komm zu mir**",
+            "### 7. **Ich vermisse dich**",
+            "### 8. **Du bist mein Traum**",
+            "### 9. **Mit dir kann ich alles schaffen**",
+            "### 10. **Mein Schatz**",
+            "### 11. **Ich freue mich auf dich**",
+            "### 12. **Du hast mein Herz gestohlen**",
+            "### 13. **Meine Liebe für dich ist grenzenlos**",
+            "### 14. **Du machst mein Leben schöner**",
+            "### 15. **Ich will mit dir alt werden**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ccfe5f7e-103a-450d-8cc6-e251280bfdd7",
+      "title": "Small Talk på Spansk: Samtalestartere for Par",
+      "native_lang": "da",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassiske Emner",
+          "subsections": [
+            "### Vejret",
+            "### Weekendplaner",
+            "### Ferier og Rejser"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cd1cb6f4-e0f7-456b-8548-0d39ec05911f",
+      "title": "Rusca Ogrenmek Zor mu? Türkler Icin Rehber",
+      "native_lang": "tr",
+      "target_lang": "ru",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Rusca'nin Kolay Yönleri",
+          "subsections": [
+            "### 1. Hal Sistemi Benzerligi",
+            "### 2. Artikelsiz Dil",
+            "### 3. Tutarli Telaffuz",
+            "### 4. Fiil Basitligi"
+          ]
+        },
+        {
+          "header": "## Rusca'nin Zor Yönleri",
+          "subsections": [
+            "### 1. Kiril Alfabesi",
+            "### 2. Alti Hal",
+            "### 3. Cinsiyet Sistemi",
+            "### 4. Fiil Görünüsü",
+            "### 5. Vurgu Degiskenligi"
+          ]
+        },
+        {
+          "header": "## Basari Ipuclari",
+          "subsections": [
+            "### 1. Alfabeyle Baslayin",
+            "### 2. Her Gün Pratik",
+            "### 3. Rus Medyasi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cd29b3c2-dcca-4af1-9173-dfb998751cff",
+      "title": "Rumuński przewodnik wymowy dla początkujących: Jak mówić romantycznie i naturalnie",
+      "native_lang": "pl",
+      "target_lang": "ro",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Sekrety Wymowy, Które Sprawią, Że Brzmisz Naturalnie",
+          "subsections": [
+            "### 1. Melodia jest wszystkim",
+            "### 2. \"CI\" i \"CE\" - miękkie brzmienie",
+            "### 3. \"GI\" i \"GE\" - dźwięk pełen ciepła"
+          ]
+        },
+        {
+          "header": "## Najczęstsze błędy i jak ich unikać",
+          "subsections": [
+            "### Błąd 1: Twarda \"R\"",
+            "### Błąd 2: Angielskie \"H\"",
+            "### Błąd 3: Niewłaściwe akcentowanie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cd2b004d-966c-4412-a154-f8ae263b36b6",
+      "title": "Russische Uitspraak Leren: Simpele Gids Voor Koppels Die Samen Willen Spreken",
+      "native_lang": "nl",
+      "target_lang": "ru",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De Basis: Russische Klanken Die Jullie Nodig Hebben",
+          "subsections": [
+            "### 1. De Vriendelijke Klinkers",
+            "### 2. De \"Moeilijke\" Medeklinkers (Die Eigenlijk Simpel Zijn)"
+          ]
+        },
+        {
+          "header": "## Uitspraakregels Voor Koppels",
+          "subsections": [
+            "### Regel 1: Stress is Alles",
+            "### Regel 2: Verzachtende Tekens",
+            "### Regel 3: De Rolletjes"
+          ]
+        },
+        {
+          "header": "## Veelvoorkomende Uitspraakfouten (En Hoe Je Ze Vermijdt)",
+          "subsections": [
+            "### Fout 1: Te Harde 'G'",
+            "### Fout 2: Verkeerde Klemtoon",
+            "### Fout 3: 'Ы' Uitspraak"
+          ]
+        },
+        {
+          "header": "## Praktijk Samen: Dagelijkse Uitspraakoefeningen",
+          "subsections": [
+            "### Oefening 1: Ochtendgroet",
+            "### Oefening 2: Avondroutine",
+            "### Oefening 3: Weekendoefening"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cd34cef1-14af-47c6-899f-77817b87e665",
+      "title": "Görög évfordulós kívánságok és üzenetek",
+      "native_lang": "hu",
+      "target_lang": "el",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Évfordulós köszöntések",
+            "### Hosszabb üzenetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cd482ab5-8187-48e3-946e-df78c2e7ecb7",
+      "title": "Lengyel összeköltözési szókincs",
+      "native_lang": "hu",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Költözési kifejezések",
+            "### Háztartási szókincs"
+          ]
+        }
+      ]
+    }
+  ]
+}

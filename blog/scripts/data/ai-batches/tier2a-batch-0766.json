@@ -1,0 +1,125 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0766",
+  "articles": [
+    {
+      "id": "dd003df5-72ef-4529-81fa-e01b9774ae34",
+      "title": "Frases en Danés sobre Celos y Confianza para Parejas",
+      "native_lang": "es",
+      "target_lang": "da",
+      "category": "communication",
+      "content": "Los daneses valoran la armonía en las relaciones. Si tu pareja es danesa, estas frases te ayudarán a hablar de celos de manera constructiva.\n\n## Frases para Expresar Celos\n\n### \"Jeg føler mig lidt jaloux, når...\"\n**Pronunciación:** Yai FÖ-ler mai lit ya-LU nor\n\n**Significado:** Me siento un poco celoso/a cuando...\n\n### \"Kan vi tale om noget, der generer mig?\"\n**Pronunciación:** Kan vi TA-le om NO-et der ye-NE-rer mai\n\n**Significado:** ¿Podemos hablar de algo que me molesta?\n\n### \"Jeg stoler på dig, men jeg føler mig usikker\"\n**Pronunciación:** Yai STO-ler po dai men yai FÖ-ler mai u-SI-ker\n\n**Significado:** Confío en ti, pero me siento inseguro/a\n\n### \"Hvem var den person?\"\n**Pronunciación:** Vem var den per-SON\n\n**Significado:** ¿Quién era esa persona?\n\n## Frases para Pedir Seguridad\n\n### \"Jeg har brug for at blive beroliget\"\n**Pronunciación:** Yai jar bru for at BLI-ve be-RO-li-get\n\n**Significado:** Necesito que me tranquilicen\n\n### \"Jeg ved, det er irrationelt, men...\"\n**Pronunciación:** Yai ved de e i-ra-sho-NELT men\n\n**Significado:** Sé que es irracional, pero...\n\n## Frases para Construir Confianza\n\n### \"Jeg stoler fuldstændigt på dig\"\n**Pronunciación:** Yai STO-ler ful-STEN-dit po dai\n\n**Significado:** Confío completamente en ti\n\n### \"Du er den eneste for mig\"\n**Pronunciación:** Du e den E-nes-te for mai\n\n**Significado:** Eres el/la único/a para mí\n\n### \"Jeg har kun øjne for dig\"\n**Pronunciación:** Yai jar kun ÖI-ne for dai\n\n**Significado:** Solo tengo ojos para ti\n\n### \"Der er intet at bekymre sig om\"\n**Pronunciación:** Der e IN-tet at be-KIM-re sai om\n\n**Significado:** No hay nada de qué preocuparse\n\n### \"Du kan stole på mig\"\n**Pronunciación:** Du kan STO-le po mai\n\n**Significado:** Puedes confiar en mí\n\n## Conclusión\n\nMantener el hygge mientras hablas de celos fortalecerá tu relación danesa.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 280,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frases para Expresar Celos",
+              "## Frases para Pedir Seguridad",
+              "## Frases para Construir Confianza"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dd099d8d-afd5-443a-85df-8117617fce1d",
+      "title": "Román születésnapi kívánságok párodnak",
+      "native_lang": "hu",
+      "target_lang": "ro",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nA párod születésnapja tökéletes alkalom, hogy megmutasd, mennyire szereted. Ha románul szeretnél szívből jövő kívánságokat mondani, ezek a kifejezések segítenek.\n\nAz alapvető szerelmi kifejezésekért nézd meg a [Hogyan mondd: Szeretlek románul](/learn/hu/ro/romanian-how-to-say-i-love-you) cikkünket.\n\n<PhraseOfDay\n  word=\"Felicitări!\"\n  translation=\"Gratulálok!\"\n  pronunciation=\"felit͡ʃiˈtər\"\n  context=\"Az esküvői köszöntés alapja.\"\n/>\n\n## Alapvető szókincs\n\nA születésnapi jókívánságok román szókincse:\n\n<VocabCard\n  word=\"nuntă\"\n  translation=\"esküvő\"\n  pronunciation=\"ˈnuntə\"\n  example=\"Nunta a fost frumoasă.\"\n/>\n\n| Román | Magyar | Használat |\n|---|---|---|\n| mireasă | menyasszony | A nő |\n| mire | vőlegény | A férfi |\n| jurăminte | fogadalmak | Esküvői ígéretek |\n| ceremonie | szertartás | A hivatalos rész |\n| recepție | fogadás | Az ünneplés |\n| toast | köszöntő | Pohárköszöntő |\n\n<CultureTip flag=\"🌍\" title=\"Román kulturális tippek\">\nA román kultúrában a születésnapokat különböző módon ünneplik. Egyesek nagy családi összejöveteleket tartanak, mások inkább intimebb ünnepléseket részesítenek előnyben.\n</CultureTip>\n\n## Hasznos kifejezések\n\n### Születésnapi köszöntések\n\nA nagy napon mondd:\n\n- **Felicitări!** - Gratulálok!\n- **Kívánj valamit!** - A gyertyák elfújásánál\n- **Ez a te napod!** - Ünneplés\n\n### Romantikus üzenetek\nHa különlegessé akarod tenni:\n\n- **Minden évben jobban szeretlek** - Időtlen vallomás\n- **Te vagy a legjobb ajándék az életemben** - Szívből jövő\n\n<VocabCard\n  word=\"luna de miere\"\n  translation=\"nászút\"\n  pronunciation=\"luna de ˈmjere\"\n  example=\"Au plecat în luna de miere.\"\n/>\n\n## Gyakorlati helyzetek\n\n| Helyzet | Mit mondj |\n|---|---|\n| Reggeli ébresztés | Boldog születésnapot, szerelmem! |\n| Torta átadás | Kívánj valamit! |\n| Ajándék átadás | Remélem tetszik! |\n| Este | Ma minden rólad szól |\n\n<CultureTip flag=\"💡\" title=\"Hasznos tipp\">\nHa kártyát írsz, kérj segítséget a nyelvtanhoz. Egy-egy kis hiba kedves lehet, de ügyelj a legfontosabb szavak helyesírására.\n</CultureTip>\n\n## Összefoglaló táblázat\n\n| Helyzet | Román kifejezés |\n|---|---|\n| Gratuláció | Felicitări! |\n| Az esemény | nuntă |\n| A nő | mireasă |\n| A férfi | mire |\n| Esküvői ígéretek | jurăminte |\n\n## További tanulás\n\nHa tovább szeretnéd fejleszteni a román nyelvtudásod, nézd meg ezeket a cikkeinket:\n\n- [Román romantikus kifejezések minden alkalomra](/learn/hu/ro/romanian-romantic-phrases-for-every-occasion)\n- [Hogyan mondd: Szeretlek románul](/learn/hu/ro/romanian-how-to-say-i-love-you)\n- [Román alapvető kifejezések pároknak](/learn/hu/ro/romanian-essential-phrases-for-couples)\n\nEzek a források segítenek elmélyíteni a tudásod és magabiztosabbá válni a román nyelvben.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 273,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Hasznos kifejezések"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dd106812-6c8d-481d-8c5a-a589452a2193",
+      "title": "Spaanse Zinnen voor een Eerste Date",
+      "native_lang": "nl",
+      "target_lang": "es",
+      "category": "communication",
+      "content": "Een eerste date in het Spaans? Geen zorgen! Deze zinnen helpen je.\n\n## Essentiële zinnen\n\n### 1. \"Es un placer conocerte por fin\" - *es oen pla-seer ko-no-seer-tee por fien*\n**Betekenis:** Het is een genoegen je eindelijk te ontmoeten\n\n### 2. \"Te ves increíble\" - *tee ves ien-kre-ie-ble*\n**Betekenis:** Je ziet er ongelooflijk uit\n\n### 3. \"Cuéntame sobre ti\" - *kwen-ta-mee so-bre tie*\n**Betekenis:** Vertel me over jezelf\n\n### 4. \"¿A qué te dedicas?\" - *a kee tee de-die-kas*\n**Betekenis:** Wat doe je voor werk?\n\n### 5. \"La estoy pasando muy bien\" - *la es-toj pa-san-do mwi bjen*\n**Betekenis:** Ik heb het heel leuk\n\n### 6. \"¿Quieres tomar algo más?\" - *kje-res to-mar al-go mas*\n**Betekenis:** Wil je nog iets drinken?\n\n### 7. \"¿Qué tipo de música te gusta?\" - *kee tie-po dee moe-sie-ka tee goes-ta*\n**Betekenis:** Van wat voor muziek hou je?\n\n### 8. \"Me encantaría verte de nuevo\" - *mee en-kan-ta-rie-a ver-tee dee nwe-vo*\n**Betekenis:** Ik zou je graag nog eens willen zien\n\n### 9. \"¿Puedo acompañarte a casa?\" - *pwee-do a-kom-pa-njar-tee a ka-sa*\n**Betekenis:** Mag ik je naar huis brengen?\n\n### 10. \"Disfruté mucho esta noche\" - *dies-froe-tee moe-tsjo es-ta no-tsje*\n**Betekenis:** Ik heb echt genoten van vanavond\n\n### 11. \"¿Cuáles son tus pasatiempos?\" - *kwa-les son toes pa-sa-tjem-pos*\n**Betekenis:** Wat zijn je hobby's?\n\n### 12. \"Tienes una sonrisa hermosa\" - *tje-nes oe-na son-rie-sa er-mo-sa*\n**Betekenis:** Je hebt een mooie glimlach\n\n## Conclusie\n\nMet deze zinnen maak je zeker een goede indruk op je Spaanstalige date!",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 249,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Essentiële zinnen"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dd1c8957-75bb-41df-a6ea-74bb9b13bcff",
+      "title": "Almanca Mesajlaşma İfadeleri: Sevgilinizle Dijital Bağlantı",
+      "native_lang": "tr",
+      "target_lang": "de",
+      "category": "communication",
+      "content": "Almanca, ilk bakışta katı ve resmi görünse de romantik ilişkilerde son derece tatlı ve samimi olabilir. Sevgiliniz Almanca konuşuyorsa, mesajlaşmada kullanılan ifadeleri ve kısaltmaları bilmek iletişiminizi güçlendirecektir. Bu rehberde, Almanca romantik mesajlaşma ifadelerini öğreneceksiniz.\n\n## Temel Sevgi İfadeleri\n\n### Ich liebe dich (ILD)\n**Okunuşu:** \"İh libe dih\"\n\n**Türkçe karşılığı:** Seni seviyorum\n\nAlmanca'nın en önemli aşk ifadesi. Mesajlaşmada bazen \"ILD\" olarak kısaltılır.\n\n> *Örnek:* \"Gute Nacht Schatz, ILD 💕\" (İyi geceler tatlım, seni seviyorum)\n\n### Ich hab dich lieb (HDL)\n**Okunuşu:** \"İh hab dih lip\"\n\n**Türkçe karşılığı:** Seni seviyorum (daha hafif)\n\n\"Ich liebe dich\"ten biraz daha hafif, günlük kullanıma daha uygun.\n\n> *Örnek:* \"Bis später, HDL! 😘\" (Sonra görüşürüz, seni seviyorum!)\n\n## Sevgi Sözcükleri\n\n### Schatz\n**Okunuşu:** \"Şats\"\n\n**Türkçe karşılığı:** Hazinem / Tatlım\n\nAlmanca'da en yaygın sevgi hitabı. Hem erkekler hem kadınlar için kullanılır.\n\n> *Örnek:* \"Guten Morgen Schatz! ☀️\" (Günaydın tatlım!)\n\n### Liebling\n**Okunuşu:** \"Libling\"\n\n**Türkçe karşılığı:** Sevgilim\n\nKlasik ve romantik bir hitap.\n\n> *Örnek:* \"Wie geht's dir, Liebling? 💕\" (Nasılsın sevgilim?)\n\n### Maus / Mausi\n**Okunuşu:** \"Maus / Mauzı\"\n\n**Türkçe karşılığı:** Fareciğim\n\nKulağa garip gelebilir ama Almanca'da çok tatlı bir hitap!\n\n> *Örnek:* \"Vermisse dich, Mausi 🐭💕\" (Seni özlüyorum fareciğim)\n\n### Bärchen\n**Okunuşu:** \"Berhen\"\n\n**Türkçe karşılığı:** Ayıcığım\n\nErkek arkadaşlar için özellikle popüler.\n\n> *Örnek:* \"Schlaf gut, mein Bärchen 🐻\" (İyi uykular ayıcığım)\n\n## Özlem ve Düşünce\n\n### Ich vermisse dich\n**Okunuşu:** \"İh fermise dih\"\n\n**Türkçe karşılığı:** Seni özlüyorum\n\nUzak mesafe ilişkilerde çok önemli bir ifade.\n\n> *Örnek:* \"Nur noch 2 Tage, ich vermisse dich so sehr! 😢\" (Sadece 2 gün daha, seni çok özlüyorum!)\n\n### Ich denke an dich\n**Okunuşu:** \"İh denke an dih\"\n\n**Türkçe karşılığı:** Seni düşünüyorum\n\nGün içinde tatlı bir mesaj.\n\n> *Örnek:* \"Bin bei der Arbeit aber ich denke an dich 💭\" (İşteyim ama seni düşünüyorum)\n\n## Günlük Mesajlaşma Kısaltmaları\n\n### GN - Gute Nacht\n**Okunuşu:** \"Gute naht\"\n\n**Türkçe karşılığı:** İyi geceler\n\nGece mesajlarında çok yaygın.\n\n> *Örnek:* \"GN Schatz, träum süß! 🌙\" (İyi geceler tatlım, tatlı rüyalar!)\n\n### WE - Wochenende\n**Okunuşu:** \"Vohenenede\"\n\n**Türkçe karşılığı:** Hafta sonu\n\nPlan yaparken kullanışlı.\n\n> *Örnek:* \"Was machen wir am WE? 🎉\" (Hafta sonu ne yapıyoruz?)\n\n### LG - Liebe Grüße\n**Okunuşu:** \"Libe grüse\"\n\n**Türkçe karşılığı:** Sevgilerle\n\nMesaj sonlarında kullanılır.\n\n> *Örnek:* \"Bis morgen, LG 💕\" (Yarına kadar, sevgilerle)\n\n### GLG - Ganz liebe Grüße\n**Okunuşu:** \"Gants libe grüse\"\n\n**Türkçe karşılığı:** Çok sevgilerle\n\nDaha duygusal bir kapanış.\n\n> *Örnek:* \"Viel Erfolg heute, GLG 🍀\" (Bugün başarılar, çok sevgilerle)\n\n## Romantik Planlar\n\n### Treffen wir uns?\n**Okunuşu:** \"Trefen vir uns\"\n\n**Türkçe karşılığı:** Buluşalım mı?\n\nRandevu teklifi için temel ifade.\n\n> *Örnek:* \"Hast du heute Abend Zeit? Treffen wir uns? 🍽️\" (Bu akşam vaktin var mı? Buluşalım mı?)\n\n### Ich freue mich auf dich\n**Okunuşu:** \"İh froye mih auf dih\"\n\n**Türkçe karşılığı:** Seni dört gözle bekliyorum\n\nBuluşma öncesi heyecanınızı ifade eder.\n\n> *Örnek:* \"Nur noch 1 Stunde, ich freue mich so auf dich! 😍\" (Sadece 1 saat daha, seni çok bekliyorum!)\n\n## Duygusal Destek\n\n### Ich bin für dich da\n**Okunuşu:** \"İh bin für dih da\"\n\n**Türkçe karşılığı:** Senin için buradayım\n\nZor zamanlarda destek vermek için.\n\n> *Örnek:* \"Egal was passiert, ich bin für dich da ❤️\" (Ne olursa olsun, senin için buradayım)\n\n### Du schaffst das!\n**Okunuşu:** \"Du şafst das\"\n\n**Türkçe karşılığı:** Başaracaksın!\n\nMotivasyon vermek için mükemmel.\n\n> *Örnek:* \"Viel Glück bei deiner Prüfung, du schaffst das! 💪\" (Sınavında bol şans, başaracaksın!)\n\n### Bussi\n**Okunuşu:** \"Busi\"\n\n**Türkçe karşılığı:** Öpücük\n\nÖzellikle Avusturya ve Güney Almanya'da yaygın.\n\n> *Örnek:* \"Bussi, bis später! 💋\" (Öpücük, sonra görüşürüz!)\n\n## Alman Mesajlaşma Kültürü\n\nAlmanlar mesajlaşmada bazı özelliklere sahiptir:\n\n- **Noktalama önemli** - Almanlar genellikle doğru noktalama kullanır\n- **Direkt iletişim** - Duyguları net ifade etmekten çekinmezler\n- **Emoji kullanımı yaygın** - Ama abartılmadan\n\n## Pratik Önerileri\n\n1. **\"Du\" ve \"Sie\" farkı** - Sevgilinizle her zaman \"du\" kullanın\n2. **Büyük harflere dikkat** - Almanca'da tüm isimler büyük harfle başlar\n3. **Umlaut (ä, ö, ü)** - Bu harfleri doğru yazmak önemli, klavyenizde yoksa ae, oe, ue kullanabilirsiniz\n4. **Birleşik kelimeler** - Almanca uzun kelimeler sever: \"Lieblingsmensch\" (en sevdiğim insan)\n\nAlmanca mesajlaşma, başta zor görünse de öğrendikçe çok tatlı bir deneyim olacaktır. Viel Erfolg mit deiner Liebe! (Aşkında bol başarılar!) 💕",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Temel Sevgi İfadeleri",
+              "## Sevgi Sözcükleri",
+              "## Özlem ve Düşünce",
+              "## Günlük Mesajlaşma Kısaltmaları",
+              "## Romantik Planlar",
+              "## Duygusal Destek"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "dd1de4ad-9817-4de0-bfc7-e3e0ab6dd1e1",
+      "title": "Romanian Emotional Support Phrases: Comfort Your Partner in Difficult Times",
+      "native_lang": "en",
+      "target_lang": "ro",
+      "category": "communication",
+      "content": "When your Romanian-speaking partner faces difficult times, offering comfort in their native language creates profound emotional connection. Romanian warmth makes it perfect for heartfelt support.\n\n## Phrases of Presence\n\n**Sunt aici pentru tine**\n*(Sunt a-ich pen-tru ti-ne)*\n*I'm here for you*\n\n**Nu ești singur/singură în asta**\n*(Nu yeshti sin-gur/sin-gu-ruh uhn as-ta)*\n*You're not alone in this*\n\n**Poți conta mereu pe mine**\n*You can always count on me*\n\n## Expressing Empathy\n\n**Înțeleg prin ce treci**\n*I understand what you're going through*\n\n**E normal să te simți așa**\n*It's normal to feel this way*\n\n**Sentimentele tale sunt complet valide**\n*Your feelings are completely valid*\n\n## Offering Comfort\n\n**Totul va fi bine**\n*Everything will be okay*\n\n**Împreună vom trece peste asta**\n*Together we'll get through this*\n\n**Sunt foarte mândru/mândră de tine**\n*I'm very proud of you*\n\n## Active Support\n\n**Ce pot face pentru a te ajuta?**\n*What can I do to help you?*\n\n**Vrei să vorbim despre asta sau preferi să stăm împreună în liniște?**\n*Do you want to talk about it or prefer we stay together quietly?*\n\n**Spune-mi ce ai nevoie**\n*Tell me what you need*\n\n## Specific Situations\n\n### Grief\n**Îmi pare foarte rău pentru pierderea ta**\n*I'm so sorry for your loss*\n\n### Stress\n**Respiră împreună cu mine**\n*Breathe with me*\n\n**Hai pas cu pas**\n*Let's take it step by step*\n\n### Disappointment\n**Știu cât de mult însemna asta pentru tine**\n*I know how much this meant to you*\n\n**Nu trebuie să fii puternic/puternică tot timpul**\n*You don't always have to be strong*\n\n## Physical Comfort\n\n**Vino aici, lasă-mă să te îmbrățișez**\n*Come here, let me hug you*\n\n## Encouragement\n\n**Ești mai puternic/puternică decât crezi**\n*You're stronger than you think*\n\n**Cred în tine**\n*I believe in you*\n\n## Being Present\n\n**Nu trebuie să spui nimic**\n*You don't have to say anything*\n\n**Vreau doar să fiu aici cu tine**\n*I just want to be here with you*\n\nRomanian warmth creates profound comfort.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Specific Situations"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,462 @@
+{
+  "batchId": "tier2a-slim-0082",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "6639c006-9165-4e27-bd7c-044cf8e1cd81",
+      "title": "Expresii în Ucraineană pentru Reconciliere și Împăcare în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii pentru Cererea Scuzelor",
+          "subsections": [
+            "### Scuze Sincere",
+            "### Exprimarea Regretului"
+          ]
+        },
+        {
+          "header": "## Expresii pentru Împăcare",
+          "subsections": [
+            "### Inițierea Dialogului",
+            "### Declarații de Dragoste",
+            "### Reconstruirea Conexiunii"
+          ]
+        },
+        {
+          "header": "## Gesturi de Reconciliere",
+          "subsections": [
+            "### Ospitalitatea",
+            "### Florile",
+            "### Timpul Împreună",
+            "### Reziliența"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "665f70e5-a9b8-4b83-9bc9-5e337e7a6527",
+      "title": "Грецькі фрази про ревнощі та довіру",
+      "native_lang": "uk",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Вираження ревнощів",
+          "subsections": [
+            "### \"Είμαι ζηλιάρης/ζηλιάρα\" (Eímai ziliáris/ziliára)",
+            "### \"Ζηλεύω όταν...\" (Zilévo ótan...)",
+            "### \"Μερικές φορές νιώθω ανασφάλεια\" (Merikés forés niótho anasfália)"
+          ]
+        },
+        {
+          "header": "## Запитання та довіра",
+          "subsections": [
+            "### \"Ποιος/Ποια ήταν;\" (Piós/Piá ítan?)",
+            "### \"Από πού τον/την ξέρεις;\" (Apó poú ton/tin xéreis?)",
+            "### \"Σε εμπιστεύομαι απόλυτα\" (Se empistévomai apólita)",
+            "### \"Δεν υπάρχει λόγος ανησυχίας\" (Den ipárchi lógos anisichías)",
+            "### \"Είναι απλά φίλος/φίλη\" (Eínai aplá fílos/fíli)",
+            "### \"Είσαι ο μόνος/η μόνη για μένα\" (Eísai o mónos/i móni gia ména)"
+          ]
+        },
+        {
+          "header": "## Обговорення",
+          "subsections": [
+            "### \"Μπορούμε να το συζητήσουμε;\" (Boroúme na to sizitísoume?)",
+            "### \"Δουλεύω πάνω στη ζήλια μου\" (Doulévo páno sti zília mou)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6678102c-3b4a-462a-b690-54d5f2b3e704",
+      "title": "En Yaygın 100 İsveççe Kelime",
+      "native_lang": "tr",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Zamirler",
+          "subsections": [
+            "### 1. Jag /yag/ - Ben",
+            "### 2. Du /du/ - Sen",
+            "### 3. Han /han/ - O (erkek)",
+            "### 4. Hon /hon/ - O (kadın)",
+            "### 5. Vi /vi/ - Biz",
+            "### 6. Ni /ni/ - Siz",
+            "### 7. De /de/ - Onlar",
+            "### 8. Och /ok/ - Ve",
+            "### 9. Men /men/ - Ama",
+            "### 10. Eller /eller/ - Veya"
+          ]
+        },
+        {
+          "header": "## Temel Fiiller",
+          "subsections": [
+            "### 11. Vara /vara/ - Olmak",
+            "### 12. Ha /ha/ - Sahip olmak",
+            "### 13. Göra /yöra/ - Yapmak",
+            "### 14. Säga /seya/ - Söylemek",
+            "### 15. Gå /go/ - Gitmek",
+            "### 16. Komma /komma/ - Gelmek",
+            "### 17. Kunna /künna/ - Yapabilmek",
+            "### 18. Veta /veta/ - Bilmek",
+            "### 19. Vilja /vilya/ - İstemek",
+            "### 20. Se /se/ - Görmek"
+          ]
+        },
+        {
+          "header": "## Sıfatlar",
+          "subsections": [
+            "### 21. Bra /bra/ - İyi",
+            "### 22. Dålig /dolig/ - Kötü",
+            "### 23. Stor /stor/ - Büyük",
+            "### 24. Liten /liten/ - Küçük",
+            "### 25. Ny /nü/ - Yeni",
+            "### 26. Gammal /gammal/ - Eski/yaşlı",
+            "### 27. Lång /long/ - Uzun",
+            "### 28. Kort /kort/ - Kısa",
+            "### 29. Varm /varm/ - Sıcak",
+            "### 30. Kall /kal/ - Soğuk"
+          ]
+        },
+        {
+          "header": "## Zaman İfadeleri",
+          "subsections": [
+            "### 31. Nu /nu/ - Şimdi",
+            "### 32. Idag /idag/ - Bugün",
+            "### 33. Imorgon /imorgon/ - Yarın",
+            "### 34. Igår /igor/ - Dün",
+            "### 35. Alltid /alltid/ - Her zaman",
+            "### 36. Aldrig /aldri/ - Asla",
+            "### 37. Ibland /ibland/ - Bazen"
+          ]
+        },
+        {
+          "header": "## Soru Kelimeleri",
+          "subsections": [
+            "### 38. Vad /vad/ - Ne",
+            "### 39. Var /var/ - Nerede",
+            "### 40. När /ner/ - Ne zaman",
+            "### 41. Varför /varför/ - Neden",
+            "### 42. Hur /hur/ - Nasıl",
+            "### 43. Vem /vem/ - Kim"
+          ]
+        },
+        {
+          "header": "## Sayılar",
+          "subsections": [
+            "### 44. Ett /et/ - Bir",
+            "### 45. Två /tvo/ - İki",
+            "### 46. Tre /tre/ - Üç",
+            "### 47. Fyra /füra/ - Dört",
+            "### 48. Fem /fem/ - Beş",
+            "### 49. Tio /tio/ - On",
+            "### 50. Hundra /hundra/ - Yüz"
+          ]
+        },
+        {
+          "header": "## Günlük Kelimeler",
+          "subsections": [
+            "### 51. Ja /ya/ - Evet",
+            "### 52. Nej /ney/ - Hayır",
+            "### 53. Snälla /snela/ - Lütfen",
+            "### 54. Tack /tak/ - Teşekkürler",
+            "### 55. Förlåt /förlot/ - Özür dilerim",
+            "### 56. Hej /hey/ - Merhaba",
+            "### 57. Hej då /hey do/ - Hoşça kal",
+            "### 58. Kärlek /çerlek/ - Aşk",
+            "### 59. Vän /ven/ - Arkadaş",
+            "### 60. Familj /familiy/ - Aile"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "667ef295-c506-485b-a55f-7cb1a4700a65",
+      "title": "Spaanse Sms-Taal voor Stellen: Van TQ tot BS",
+      "native_lang": "nl",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Romantische Berichten",
+          "subsections": [
+            "### Goedemorgen Bericht",
+            "### Tijdens het Werk",
+            "### Goedenacht Bericht"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "668d578b-9df3-4238-a3db-de5c02151c9f",
+      "title": "German Date Night: 38+ Romantic Words",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Exercise 1: Role-Play Restaurant Scenarios",
+            "### Exercise 2: Express Your Feelings",
+            "### Exercise 3: Plan a German Evening"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "66a17b68-ead2-4bfc-a992-1262761fec8b",
+      "title": "İsveççe Flört İfadeleri: Romantik İlgi Göstermenin Yolları",
+      "native_lang": "tr",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Flört İfadeleri",
+          "subsections": [
+            "### 1. \"Du är väldigt söt\"",
+            "### 2. \"Jag gillar ditt leende\"",
+            "### 3. \"Vill du ta en fika med mig?\"",
+            "### 4. \"Du har vackra ögon\"",
+            "### 5. \"Jag kan inte sluta tänka på dig\"",
+            "### 6. \"Du gör mig glad\"",
+            "### 7. \"Får jag bjuda dig på en drink?\"",
+            "### 8. \"Jag trivs verkligen med dig\"",
+            "### 9. \"Du är annorlunda – på ett bra sätt\"",
+            "### 10. \"Ska vi ses igen?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "66be8cb1-b7bc-4a72-881b-ca504317f8ff",
+      "title": "İsveççe Flört İfadeleri: Romantik Konuşmalar için Rehber",
+      "native_lang": "tr",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Flört İfadeleri",
+          "subsections": [
+            "### 1. Du är väldigt söt",
+            "### 2. Jag tycker om dig",
+            "### 3. Vill du ta en fika med mig?",
+            "### 4. Du har vackra ögon",
+            "### 5. Jag kan inte sluta tänka på dig",
+            "### 6. Kan jag få ditt nummer?",
+            "### 7. Du får mig att le",
+            "### 8. Jag vill lära känna dig bättre",
+            "### 9. Du är fantastisk",
+            "### 10. Ska vi ses igen?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "66cc773a-7928-4eb3-9248-a9e9fb73cb0e",
+      "title": "Spaanse Zinnen over Jaloezie en Vertrouwen",
+      "native_lang": "nl",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Me siento inseguro/a cuando...\"",
+            "### 2. \"Confío en ti completamente\"",
+            "### 3. \"¿Puedes tranquilizarme?\"",
+            "### 4. \"No estoy celoso/a, solo preocupado/a\"",
+            "### 5. \"¿Quién era esa persona con la que hablabas?\"",
+            "### 6. \"Necesito saber que puedo confiar en ti\"",
+            "### 7. \"No tienes de qué preocuparte\"",
+            "### 8. \"Solo tengo ojos para ti\"",
+            "### 9. \"Hablemos de lo que te molesta\"",
+            "### 10. \"Nunca haría nada para hacerte daño\"",
+            "### 11. \"Tu pasado no nos define\"",
+            "### 12. \"Estoy trabajando en mis inseguridades\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "66d2b7eb-c558-4703-a6cf-6e2904fc27f1",
+      "title": "Este Limbă Cehă Greu de Învățat? Ghid Onest pentru Cupluri",
+      "native_lang": "ro",
+      "target_lang": "cs",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Ce O Face Dificilă",
+          "subsections": [
+            "### Provocările Principale:",
+            "### Avantajele pentru Vorbitorii de Română:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "66d6af9e-0f78-498c-9bdc-0e3a0c2dedc9",
+      "title": "Poznanie ukraińskiej rodziny Twojego partnera: niezbędne zwroty dla par",
+      "native_lang": "pl",
+      "target_lang": "uk",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Przedstawianie się i rozmowa",
+          "subsections": [
+            "### Scenariusz 1: Pierwsze przedstawienie",
+            "### Scenariusz 2: Rozmowa o rodzinie"
+          ]
+        },
+        {
+          "header": "## Słownictwo - rodzina i relacje",
+          "subsections": [
+            "### Członkowie rodziny",
+            "### Przymiotniki i opisy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "66e3a362-6d9c-4886-ad7e-32006b447913",
+      "title": "Грецький сленг для повідомлень: Як надсилати романтичні SMS",
+      "native_lang": "uk",
+      "target_lang": "el",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Емоджі та реакції",
+          "subsections": [
+            "### Популярні комбінації"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "66e60bd6-ad09-465e-9cb1-e32bdf9e599c",
+      "title": "Πορτογαλικές Φράσεις για Ζήλια & Εμπιστοσύνη: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για Ζήλια & Εμπιστοσύνη",
+          "subsections": [
+            "### Έκφραση Ανησυχίας",
+            "### Χτίσιμο Εμπιστοσύνης",
+            "### Αντιμετώπιση Ζήλιας",
+            "### Συζήτηση για Όρια"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "66edef84-f1b2-43fa-814a-d697eefdabfe",
+      "title": "Переезд вместе на французский: Важные фразы",
+      "native_lang": "ru",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Поиск жилья",
+          "subsections": [
+            "### Разговор с риелтором",
+            "### Описание того, что нужно"
+          ]
+        },
+        {
+          "header": "## День переезда",
+          "subsections": [
+            "### Организация переезда",
+            "### Работа ensemble"
+          ]
+        },
+        {
+          "header": "## Обустройство дома",
+          "subsections": [
+            "### Расстановка les meubles",
+            "### Принятие решений вместе"
+          ]
+        },
+        {
+          "header": "## Знакомство с соседями",
+          "subsections": [
+            "### Первая встреча",
+            "### Построение отношений"
+          ]
+        },
+        {
+          "header": "## Разделение обязанностей",
+          "subsections": [
+            "### Домашние дела",
+            "### Обсуждение"
+          ]
+        },
+        {
+          "header": "## Ваш первый вечер дома",
+          "subsections": [
+            "### Особенный момент",
+            "### Создание уюта"
+          ]
+        },
+        {
+          "header": "## Решение проблем",
+          "subsections": [
+            "### Бытовые вопросы",
+            "### Разговор с арендодателем"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "670aef03-b655-4c2e-a943-5d38b4b942db",
+      "title": "Норвежские фразы о ревности и доверии",
+      "native_lang": "ru",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Фразы для выражения ревности",
+          "subsections": [
+            "### 1. Jeg blir sjalu når...",
+            "### 2. Det plager meg når du tilbringer så mye tid med...",
+            "### 3. Noen ganger trenger jeg at du berolige meg"
+          ]
+        },
+        {
+          "header": "## Фразы для укрепления доверия",
+          "subsections": [
+            "### 4. Jeg stoler fullstendig på deg",
+            "### 5. Du er den eneste for meg",
+            "### 6. Jeg ville aldri gjøre noe som skader forholdet vårt",
+            "### 7. Du trenger ikke å bekymre deg",
+            "### 8. La meg forklare hva som skjedde",
+            "### 9. Følelsene dine er viktige for meg",
+            "### 10. Kan vi sette grenser sammen?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "67166c46-9a1a-4fff-a29d-536c5ee6f6b6",
+      "title": "Salutations et au revoir en russe : guide complet",
+      "native_lang": "fr",
+      "target_lang": "ru",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Au revoir",
+          "subsections": [
+            "### Informel",
+            "### Formel",
+            "### Romantique"
+          ]
+        }
+      ]
+    }
+  ]
+}

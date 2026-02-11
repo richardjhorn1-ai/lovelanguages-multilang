@@ -1,0 +1,439 @@
+{
+  "batchId": "tier2a-slim-0213",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "d96a6a10-e63d-42e9-b37b-558830323a24",
+      "title": "Hiányzol kifejezések franciául",
+      "native_lang": "hu",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető \"hiányzol\" kifejezések",
+          "subsections": [
+            "### 1. Tu me manques (Tü mö mank)",
+            "### 2. Tu me manques beaucoup (Tü mö mank bokú)",
+            "### 3. Tu me manques terriblement (Tü mö mank teriblemán)",
+            "### 4. Je pense à toi tout le temps (Zsö pansz a tová tú lö tán)",
+            "### 5. J'aimerais que tu sois là (Zsémeré kö tü szová lá)",
+            "### 6. Chaque instant sans toi est vide (Sak ensztán szán tová é vid)",
+            "### 7. Tu es toujours dans mes pensées (Tü é tuzsúr dán mé panszé)",
+            "### 8. Je compte les jours jusqu'à notre retrouvaille (Zsö kont lé zsúr zsüszká notr rötruváj)",
+            "### 9. Mon cœur souffre de ton absence (Mon kör szufr dö ton abszansz)",
+            "### 10. La distance ne change rien à mes sentiments (La disztansz nö sánzs rién a mé szantimán)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d97cbfd8-8f4d-4d2d-bdf2-01336bcfc0d8",
+      "title": "Niederländische Trost- und Unterstützungsphrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlegende Unterstützung",
+          "subsections": [
+            "### \"Ik ben er voor je\"",
+            "### \"Ik sta altijd aan jouw kant\"",
+            "### \"Je bent hier niet alleen in\"",
+            "### \"Wat je ook nodig hebt, ik ben er\""
+          ]
+        },
+        {
+          "header": "## Bei Trauer",
+          "subsections": [
+            "### \"Ik vind het zo erg voor je verlies\"",
+            "### \"Neem alle tijd die je nodig hebt\"",
+            "### \"Het is oké om te huilen\""
+          ]
+        },
+        {
+          "header": "## Bei Stress und Sorgen",
+          "subsections": [
+            "### \"We lossen dit samen op\"",
+            "### \"Stap voor stap\"",
+            "### \"Het is oké om niet oké te zijn\"",
+            "### \"Dit gaat ook voorbij\"",
+            "### \"Wees niet zo hard voor jezelf\""
+          ]
+        },
+        {
+          "header": "## Ermutigung",
+          "subsections": [
+            "### \"Ik geloof in je\"",
+            "### \"Je bent sterker dan je denkt\"",
+            "### \"Ik ben zo trots op je\"",
+            "### \"Je kunt dit\""
+          ]
+        },
+        {
+          "header": "## Aktive Hilfe anbieten",
+          "subsections": [
+            "### \"Wat kan ik doen om te helpen?\"",
+            "### \"Wil je erover praten?\"",
+            "### \"Ik luister\""
+          ]
+        },
+        {
+          "header": "## Langfristige Unterstützung",
+          "subsections": [
+            "### \"Ik zal er altijd zijn, wat er ook gebeurt\"",
+            "### \"We zitten hier samen in\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d99d10db-9d2a-4de2-8870-ba7abe17f2b6",
+      "title": "Лексика о беременности на румынский: Словарь для будущих родителей",
+      "native_lang": "ru",
+      "target_lang": "ro",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Объявление о беременности",
+          "subsections": [
+            "### Для близких родственников",
+            "### Для друзей"
+          ]
+        },
+        {
+          "header": "## Лексика для визитов к врачу",
+          "subsections": [
+            "### На приёме",
+            "### Вопросы для врача"
+          ]
+        },
+        {
+          "header": "## Покупки для малыша",
+          "subsections": [
+            "### Необходимые вещи",
+            "### В магазине"
+          ]
+        },
+        {
+          "header": "## Разговор с семьёй партнёра",
+          "subsections": [
+            "### Делимся новостями",
+            "### Обсуждение планов"
+          ]
+        },
+        {
+          "header": "## Имена для малыша",
+          "subsections": [
+            "### Обсуждение имён"
+          ]
+        },
+        {
+          "header": "## После рождения",
+          "subsections": [
+            "### Объявление о рождении",
+            "### Первые дни"
+          ]
+        },
+        {
+          "header": "## Полезные фразы",
+          "subsections": [
+            "### Ежедневные выражения"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d9b10cbc-b6da-4751-9d7e-9557c617bba9",
+      "title": "Macarca Duygusal Destek İfadeleri: Teselli Sözleri",
+      "native_lang": "tr",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Destek İfadeleri",
+          "subsections": [
+            "### Varlık Gösterme",
+            "### Anlayış",
+            "### Güç Verme",
+            "### Sevgi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d9c11b5a-cfba-44a3-8e25-e25779307bc6",
+      "title": "Сложно ли выучить шведский язык?",
+      "native_lang": "ru",
+      "target_lang": "sv",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Что делает шведский относительно лёгким",
+          "subsections": [
+            "### 1. Простая грамматика",
+            "### 2. Латинский алфавит",
+            "### 3. Много интернациональных слов",
+            "### 4. Логичное словообразование"
+          ]
+        },
+        {
+          "header": "## Что может быть сложным",
+          "subsections": [
+            "### 1. Произношение",
+            "### 2. Тональный акцент",
+            "### 3. Артикли",
+            "### 4. V2-правило"
+          ]
+        },
+        {
+          "header": "## Сроки изучения",
+          "subsections": [
+            "### Реалистичные ожидания"
+          ]
+        },
+        {
+          "header": "## Преимущества для пар",
+          "subsections": [
+            "### Почему учить вместе — легче"
+          ]
+        },
+        {
+          "header": "## Советы для русскоговорящих",
+          "subsections": [
+            "### 1. Начните с произношения",
+            "### 2. Используйте сходства",
+            "### 3. Не бойтесь длинных слов",
+            "### 4. Практикуйте мелодику",
+            "### 5. Говорите с первого дня"
+          ]
+        },
+        {
+          "header": "## Полезные ресурсы",
+          "subsections": [
+            "### Для начинающих",
+            "### Для практики с партнёром"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d9c206e7-f068-4ec9-a144-811a1bcbb33e",
+      "title": "Νορβηγικές Φράσεις για Διαφωνίες: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις για Διαφωνίες",
+          "subsections": [
+            "### Έκφραση Διαφωνίας",
+            "### Αίτηση για Κατανόηση",
+            "### Έκφραση Συναισθημάτων",
+            "### Αναζήτηση Λύσης"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d9cb6d7b-5d5a-4242-848a-df8b37efa474",
+      "title": "Engelske udtryk til følelsesmæssig støtte og trøst",
+      "native_lang": "da",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Vigtige sætninger",
+          "subsections": [
+            "### 1. I'm here for you",
+            "### 2. I'm so sorry you're going through this",
+            "### 3. It's okay to feel this way",
+            "### 4. Take all the time you need",
+            "### 5. I'm listening",
+            "### 6. You don't have to go through this alone",
+            "### 7. That sounds really difficult",
+            "### 8. I love you, no matter what",
+            "### 9. Would you like to talk about it?",
+            "### 10. Is there anything I can do to help?",
+            "### 11. I believe in you",
+            "### 12. This too shall pass"
+          ]
+        },
+        {
+          "header": "## Yderligere nyttige udtryk",
+          "subsections": [
+            "### Ved sorg",
+            "### Ved stress og udbrændthed",
+            "### Ved skuffelse"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d9cbdaa5-ea13-4a43-8963-1e7d58c8d5ab",
+      "title": "Як зробити пропозицію данською: фрази для заручин",
+      "native_lang": "uk",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Підготовка до пропозиції",
+          "subsections": [
+            "### Чек-лист:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d9e29462-5d4b-4f80-807d-2ee1d368fe07",
+      "title": "Frases en Ucraniano para Discutir y Resolver Desacuerdos con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Expresar Desacuerdo",
+          "subsections": [
+            "### \"Я бачу це інакше\" (Ya bachu tse inakshe)",
+            "### \"Чи можемо поговорити спокійно?\" (Chy mozhemo pohovoryty spokiyno?)",
+            "### \"Мені боляче, коли ти...\" (Meni bolyache, koly ty...)",
+            "### \"Я мав/мала на увазі не це\" (Ya mav/mala na uvazi ne tse)",
+            "### \"Мені потрібен час подумати\" (Meni potriben chas podumaty)",
+            "### \"Спробуй зрозуміти мою точку зору\" (Sprobuy zrozumity moyu tochku zoru)",
+            "### \"Я не хочу сваритися\" (Ya ne khochu svarytysya)",
+            "### \"Ти мене не слухаєш\" (Ty mene ne slukhayesh)",
+            "### \"Давай знайдемо компроміс\" (Davay znaydemo kompromis)",
+            "### \"Це важливо для мене\" (Tse vazhlyvo dlya mene)",
+            "### \"Нам обом треба заспокоїтися\" (Nam obom treba zaspokoyitysya)",
+            "### \"Мені прикро\" (Meni prykro)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d9fe8481-dbce-4d31-b51a-f92652697a2c",
+      "title": "Oekraïense Zinnen voor Verzoening en Goedmaken",
+      "native_lang": "nl",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen voor verzoening",
+          "subsections": [
+            "### 1. \"Вибач мені за те, що я сказав/ла\" (Vybach meni za te, shcho ya skazav/la)",
+            "### 2. \"Чи можемо почати спочатку?\" (Chy mozhemo pochaty spochatku?)",
+            "### 3. \"Я не хотів/ла тебе образити\" (Ya ne khotiv/la tebe obrazyty)",
+            "### 4. \"Ти для мене все\" (Ty dlya mene vse)",
+            "### 5. \"Я помилявся/лась і визнаю це\" (Ya pomylyavsya/las' i vyznaju tse)",
+            "### 6. \"Я кохаю тебе більше за будь-яку сварку\" (Ya kokhayu tebe bil'she za bud'-yaku svarku)",
+            "### 7. \"Що я можу зробити, щоб все виправити?\" (Shcho ya mozhu zrobyty, shchob vse vypravyty?)",
+            "### 8. \"Я тебе пробачаю\" (Ya tebe probachayu)",
+            "### 9. \"Залишимо це позаду\" (Zalyshymo tse pozadu)",
+            "### 10. \"Іди до мене, обійми мене\" (Idy do mene, obiymy mene)",
+            "### 11. \"Наше кохання сильніше за це\" (Nashe kokhannya syl'nishe za tse)",
+            "### 12. \"Я ніколи не хочу тебе втратити\" (Ya nikoly ne khochu tebe vtratyty)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "da137098-6fed-430b-bec6-3610a28432bc",
+      "title": "Svéd nászutas utazási kifejezések",
+      "native_lang": "hu",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Utazási alapkifejezések",
+            "### Romantikus helyzetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "da13f443-2077-435b-bfae-ef92b5451ac1",
+      "title": "Duitse Zinnen over Vergeving",
+      "native_lang": "nl",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Es tut mir wirklich leid\"",
+            "### 2. \"Bitte verzeih mir\"",
+            "### 3. \"Ich verzeihe dir\"",
+            "### 4. \"Kannst du es in deinem Herzen finden, mir zu verzeihen?\"",
+            "### 5. \"Ich hatte Unrecht und es tut mir leid\"",
+            "### 6. \"Ich werde es nie wieder tun\"",
+            "### 7. \"Was kann ich tun, um es wieder gutzumachen?\"",
+            "### 8. \"Ich nehme deine Entschuldigung an\"",
+            "### 9. \"Lass uns das hinter uns lassen\"",
+            "### 10. \"Ich weiß, dass ich dich verletzt habe\"",
+            "### 11. \"Ich verspreche, es besser zu machen\"",
+            "### 12. \"Es braucht Zeit, aber ich werde versuchen zu verzeihen\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "da2c7206-b56a-49fe-8cb4-cdc3dce9867a",
+      "title": "Orosz Flörtölő Kifejezések Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Flörtölő Kifejezések",
+          "subsections": [
+            "### 1. Ты очень красивая (Ti ocseny kraszivaja)",
+            "### 2. У тебя красивые глаза (U tyebja kraszivije glaza)",
+            "### 3. Можно тебя угостить? (Mozsno tyebja ugosztyity?)",
+            "### 4. Ты мне нравишься (Ti mnye nravissza)",
+            "### 5. Хочешь потанцевать? (Hocsess potancevaty?)",
+            "### 6. Какая у тебя улыбка! (Kakaja u tyebja ulibka!)",
+            "### 7. Давай встретимся снова (Davaj vsztyretyimsza sznova)",
+            "### 8. Ты особенная (Ti oszobyennaja)",
+            "### 9. Могу я узнать твой номер? (Mogu ja uznaty tvoj nomer?)",
+            "### 10. Мне хорошо с тобой (Mnye harasó sz toboj)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "da2da381-7326-499b-bd47-1f7b4d9abeb4",
+      "title": "Griechische Grüße und Verabschiedungen",
+      "native_lang": "de",
+      "target_lang": "el",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Verabschiedungen",
+          "subsections": [
+            "### Informelle Verabschiedungen",
+            "### Formelle Verabschiedungen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "da3eb93e-4af0-4074-acbd-f94ca5cd4c7b",
+      "title": "Portugisiske fraser til forsoning og genopbygning af tillid",
+      "native_lang": "da",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser til forsoning",
+          "subsections": [
+            "### At undskylde oprigtigt",
+            "### At genopbygge forbindelsen",
+            "### At tilbyde forsoning",
+            "### At acceptere en undskyldning"
+          ]
+        }
+      ]
+    }
+  ]
+}

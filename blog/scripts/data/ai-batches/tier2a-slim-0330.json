@@ -1,0 +1,434 @@
+{
+  "batchId": "tier2a-slim-0330",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "f3c3871f-e6ac-4385-a222-f8305ef19286",
+      "title": "German Texting Slang",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Sample Text Conversations",
+          "subsections": [
+            "### Morning Check-in",
+            "### Making Plans",
+            "### Good Night Texts"
+          ]
+        },
+        {
+          "header": "## WhatsApp and Social Media German",
+          "subsections": [
+            "### Common Reactions",
+            "### Status and Story Phrases"
+          ]
+        },
+        {
+          "header": "## Practice Activities for Couples",
+          "subsections": [
+            "### Activity 1: Text Each Other",
+            "### Activity 2: Decode the Message",
+            "### Activity 3: Voice Message Challenge"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f4283400-3ad7-4b28-8d07-1a8b974957a7",
+      "title": "50+ Szwedzkich Zwrotów na Romantyczną Randkę",
+      "native_lang": "pl",
+      "target_lang": "sv",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Slownictwo gastronomiczne",
+          "subsections": [
+            "### Rodzaje restauracji",
+            "### Na talerzu"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Odgrywanie scenek",
+            "### Cwiczenie 2: Planowanie randki",
+            "### Cwiczenie 3: Komplimenty"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f4a9fc7e-4e2e-4b85-996f-3609a0fe4119",
+      "title": "50 Essentiële Portugese Zinnen voor Koppels om Samen te Leren",
+      "native_lang": "nl",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hoe Jullie Deze Zinnen Kunnen Gebruiken",
+          "subsections": [
+            "### Dagelijkse Oefening",
+            "### Veelgemaakte Fouten Vermijden",
+            "### Culturele Context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f4abcd44-aae3-4f7e-9572-be0e7f02267a",
+      "title": "Norweskie romantyczne zwroty na każda okazje",
+      "native_lang": "pl",
+      "target_lang": "no",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia",
+          "subsections": [
+            "### Cwiczenie 1: Kartka na okazje",
+            "### Cwiczenie 2: Nagranie wideo",
+            "### Cwiczenie 3: Codzieńne wyrazenia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f4e4a7d3-2945-457b-a2d1-bcfd7956d3c6",
+      "title": "Spanish Anniversary Wishes for Couples",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Essential Anniversary Vocabulary",
+          "subsections": [
+            "### Basic Anniversary Terms"
+          ]
+        },
+        {
+          "header": "## Anniversary Milestone Names",
+          "subsections": [
+            "### Wedding Anniversary Names in Spanish"
+          ]
+        },
+        {
+          "header": "## Romantic Anniversary Messages",
+          "subsections": [
+            "### Short Anniversary Wishes",
+            "### Heartfelt Anniversary Messages"
+          ]
+        },
+        {
+          "header": "## Expressing Gratitude",
+          "subsections": [
+            "### Thank You Messages for Your Partner"
+          ]
+        },
+        {
+          "header": "## Anniversary Promises and Vows",
+          "subsections": [
+            "### Renewing Your Commitment",
+            "### Looking to the Future"
+          ]
+        },
+        {
+          "header": "## Celebrating Your Anniversary",
+          "subsections": [
+            "### Planning the Celebration",
+            "### Toasting Together"
+          ]
+        },
+        {
+          "header": "## Reflecting on Your Journey",
+          "subsections": [
+            "### Looking Back",
+            "### Special Memories"
+          ]
+        },
+        {
+          "header": "## Different Types of Anniversaries",
+          "subsections": [
+            "### Dating vs Wedding Anniversaries",
+            "### Monthly Anniversaries (Mensarios)"
+          ]
+        },
+        {
+          "header": "## Anniversary Gift Ideas with Spanish Labels",
+          "subsections": [
+            "### Traditional Gifts by Year"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f508b84b-a9d1-4601-93c6-7e2375f18c10",
+      "title": "Hollandaca Selamlaşma ve Vedalaşma: Temel İfadeler Rehberi",
+      "native_lang": "tr",
+      "target_lang": "nl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Vedalaşma İfadeleri",
+          "subsections": [
+            "### Temel Vedalaşmalar",
+            "### Samimi Vedalaşmalar",
+            "### Zaman Belirten Vedalaşmalar"
+          ]
+        },
+        {
+          "header": "## Çiftler İçin Özel İfadeler",
+          "subsections": [
+            "### Sabah Selamlaşması",
+            "### Akşam/Gece Vedalaşması"
+          ]
+        },
+        {
+          "header": "## Mesaj/Yazışma İfadeleri",
+          "subsections": [
+            "### Mesaj Başlatma",
+            "### Mesaj Bitirme"
+          ]
+        },
+        {
+          "header": "## Özel Durumlar",
+          "subsections": [
+            "### Mağazada/Restoranda",
+            "### İş Ortamında"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f541bfa0-a992-45c3-879d-a5d698b96e73",
+      "title": "Pronunciación Neerlandesa: Domina Sonidos",
+      "native_lang": "es",
+      "target_lang": "nl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Consonantes que Difieren del Español",
+          "subsections": [
+            "### W - Más Suave que en Español",
+            "### R - Varias Pronunciaciones",
+            "### J - Como la \"Y\" Española",
+            "### SCH - Un Sonido Combinado"
+          ]
+        },
+        {
+          "header": "## Resumen de Reglas de Pronunciación",
+          "subsections": [
+            "### Ensordecimiento de Consonantes Finales",
+            "### Consonantes Dobles",
+            "### La \"N\" al Final de los Verbos"
+          ]
+        },
+        {
+          "header": "## Palabras de Práctica por Sonido",
+          "subsections": [
+            "### Práctica de G/Ch",
+            "### Práctica de Vocales",
+            "### Palabras de Desafío Combinado"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f58a09c4-740d-487d-bdb1-961173d1e831",
+      "title": "Întâlnirea cu Familia Partenerului în Ucraineană: Fraze Esențiale pentru Cupluri",
+      "native_lang": "ro",
+      "target_lang": "uk",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Scenarii Comune și Dialoguri Practice",
+          "subsections": [
+            "### 1. Când Ajungi la Ușă",
+            "### 2. Conversația la Masă",
+            "### 3. Să Faci Complimente"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f5994b8f-9077-4b9b-934f-bbb66681f667",
+      "title": "¿Es Difícil Aprender Turco? Guía Honesta para Hispanohablantes",
+      "native_lang": "es",
+      "target_lang": "tr",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Qué Hace al Turco Diferente",
+          "subsections": [
+            "### Las Partes Desafiantes"
+          ]
+        },
+        {
+          "header": "## Qué Hace al Turco Más Fácil de lo Que Crees",
+          "subsections": [
+            "### 1. Ortografía Fonética",
+            "### 2. Sin Artículos",
+            "### 3. Sin Género Gramatical",
+            "### 4. Conjugación Regular",
+            "### 5. Estructura Lógica"
+          ]
+        },
+        {
+          "header": "## Cronograma Realista Para Parejas",
+          "subsections": [
+            "### Meses 1-3: Turco de Supervivencia",
+            "### Meses 4-6: Bases Conversacionales",
+            "### Meses 7-12: Comunicación Cómoda",
+            "### Año 2+: Acercándose a la Fluidez"
+          ]
+        },
+        {
+          "header": "## Consejos Para el Éxito",
+          "subsections": [
+            "### 1. Acepta los Sufijos",
+            "### 2. Practica la Pronunciación Temprano",
+            "### 3. Aprende Raíces de Palabras",
+            "### 4. Usa Medios Turcos",
+            "### 5. No Temas los Errores"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f5bd1751-36dd-433a-93b4-c026b6dd1644",
+      "title": "50+ Niderlandzkich Zwrotów na Romantyczną Randkę",
+      "native_lang": "pl",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Slownictwo gastronomiczne",
+          "subsections": [
+            "### Rodzaje restauracji",
+            "### Na talerzu"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Odgrywanie scenek",
+            "### Cwiczenie 2: Planowanie randki",
+            "### Cwiczenie 3: Komplimenty"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f64f2ca8-253a-441e-acc5-1b054c5e0dce",
+      "title": "Conhecendo a Família do Seu Parceiro na República Tcheca: Frases Essenciais para Conquistar os Corações de Todos",
+      "native_lang": "pt",
+      "target_lang": "cs",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Cenários Comuns Durante a Visita",
+          "subsections": [
+            "### Na Sala de Estar",
+            "### Na Hora do Jantar",
+            "### Conversas Sobre o Relacionamento"
+          ]
+        },
+        {
+          "header": "## O que Fazer se Algo Der Errado?",
+          "subsections": [
+            "### Se não entender algo",
+            "### Se cometer um erro"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f6544c32-ae39-4953-a687-d7bebce67ec0",
+      "title": "Guide de prononciation allemande pour débutants : Parlez comme un natif avec votre partenaire",
+      "native_lang": "fr",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Les 5 Erreurs de Prononciation à Éviter",
+          "subsections": [
+            "### 1. Le 'w' = 'v'",
+            "### 2. Le 'v' = 'f'",
+            "### 3. Le 'z' = 'ts'",
+            "### 4. Les Umlauts (ä, ö, ü)",
+            "### 5. Le 'sp' et 'st'"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f681d1fb-e842-4fca-be6a-b2ac79c4fd7f",
+      "title": "Engels vs Nederlands: De Belangrijkste Verschillen",
+      "native_lang": "nl",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Lidwoorden: De/Het vs The",
+          "subsections": [
+            "### Nederlands: Twee lidwoorden",
+            "### Engels: Een lidwoord"
+          ]
+        },
+        {
+          "header": "## Bezittelijke Vormen",
+          "subsections": [
+            "### 's of of?"
+          ]
+        },
+        {
+          "header": "## Ontkenningen",
+          "subsections": [
+            "### Nederlands: Niet/Geen",
+            "### Engels: Not/Don't/Doesn't"
+          ]
+        },
+        {
+          "header": "## Getallen en Data",
+          "subsections": [
+            "### Datum Volgorde",
+            "### Decimalen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f6dce3fd-bfcb-4db0-b2cb-17c8df663a4e",
+      "title": "Pronunciar Letras Polacas: Ś Ć Ź Ż Ł",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Técnicas de Memoria para Parejas",
+          "subsections": [
+            "### El \"Método de Pareja\":",
+            "### Rutina de Práctica Diaria:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f73876c7-09aa-4afe-adfd-104f83a4a74e",
+      "title": "75 de Expresii Romantice Rusești pentru Fiecare Ocazie",
+      "native_lang": "ro",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Cum să folosești aceste expresii",
+          "subsections": [
+            "### Începeți încet",
+            "### Practicați împreună",
+            "### Fiți autentici",
+            "### Adăugați context"
+          ]
+        }
+      ]
+    }
+  ]
+}

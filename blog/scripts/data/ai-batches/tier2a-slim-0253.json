@@ -1,0 +1,394 @@
+{
+  "batchId": "tier2a-slim-0253",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "fb5b1869-4c2f-4c59-bf73-1e24965af37f",
+      "title": "Expressions de Mariage en Roumain : Guide Complet",
+      "native_lang": "fr",
+      "target_lang": "ro",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## La Réception",
+          "subsections": [
+            "### Vocabulaire de la Fête"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fb651db6-4ff4-4634-ab43-6b8c328dc917",
+      "title": "Φράσεις «Μου Λείπεις» στα Γερμανικά",
+      "native_lang": "el",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις",
+          "subsections": [
+            "### 1. Ich vermisse dich",
+            "### 2. Du fehlst mir so sehr",
+            "### 3. Ich kann nicht aufhören, an dich zu denken",
+            "### 4. Ich wünschte, du wärst hier",
+            "### 5. Du bist immer in meinen Gedanken",
+            "### 6. Ich sehne mich nach dir",
+            "### 7. Jeder Tag ohne dich ist schwer",
+            "### 8. Ich zähle die Tage, bis ich dich wiedersehe",
+            "### 9. Mein Herz schmerzt nach dir",
+            "### 10. Die Entfernung macht die Liebe stärker"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fb71956a-c983-4c69-b3a0-cf5940b6917d",
+      "title": "Σουηδικές Φράσεις Συγχώρεσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις Συγχώρεσης",
+          "subsections": [
+            "### Αίτηση Συγχώρεσης",
+            "### Έκφραση Μετάνοιας",
+            "### Προσφορά Συγχώρεσης",
+            "### Χρόνος για Θεραπεία"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fb7dcc6d-2ed0-4d46-ab04-065fee831c3f",
+      "title": "Yunanca Aşk Mektubu Yazma Rehberi: Romantik İfadeler",
+      "native_lang": "tr",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Mektuba Başlangıç",
+          "subsections": [
+            "### 1. \"Αγαπημένε μου\" / \"Αγαπημένη μου\" (Agapimene mou)",
+            "### 2. \"Καρδιά μου\" (Kardia mou)",
+            "### 3. \"Ψυχή μου\" (Psihi mou)"
+          ]
+        },
+        {
+          "header": "## Duygu İfadeleri",
+          "subsections": [
+            "### 4. \"Σ' αγαπώ περισσότερο από ό,τι τα λόγια μπορούν να περιγράψουν\" (S' agapo perissotero apo oti ta logia boroun na perigrapso\"",
+            "### 5. \"Είσαι τα πάντα για μένα\" (Ise ta panda gia mena)",
+            "### 6. \"Η ζωή μου άλλαξε τη μέρα που σε γνώρισα\" (I zoi mou allakse ti mera pou se gnorisa)",
+            "### 7. \"Κάνεις κάθε μέρα ξεχωριστή\" (Kanis kathe mera xehoristi)",
+            "### 8. \"Είμαι ευγνώμων για κάθε στιγμή μαζί σου\" (Ime evgnomon gia kathe stigmi mazi sou)",
+            "### 9. \"Είσαι ο πιο όμορφος άνθρωπος που ξέρω\" (Ise o pio omorfos anthropos pou xero)",
+            "### 10. \"Θέλω να περάσω την υπόλοιπη ζωή μου μαζί σου\" (Thelo na peraso tin ipolipi zoi mou mazi sou)"
+          ]
+        },
+        {
+          "header": "## Mektubu Bitirme",
+          "subsections": [
+            "### 11. \"Με όλη μου την αγάπη\" (Me oli mou tin agapi)",
+            "### 12. \"Για πάντα δικός/δική σου\" (Gia panda dikos/diki sou)",
+            "### 13. \"Σ' αγαπώ\" (S'agapo)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fb83c9de-747c-40ce-a2cf-0bcfcf661e8b",
+      "title": "Germană vs. Română: Diferențe Cheie și Similarități",
+      "native_lang": "ro",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Diferența #2: Ordinea Cuvintelor",
+          "subsections": [
+            "### Română: Flexibilă",
+            "### Germană: Reguli Stricte"
+          ]
+        },
+        {
+          "header": "## Diferența #3: Articolul",
+          "subsections": [
+            "### Română: Articol Postpus",
+            "### Germană: Articol Antepus"
+          ]
+        },
+        {
+          "header": "## Rezumat: Avantaje și Provocări",
+          "subsections": [
+            "### Avantajele Tale ca Român:",
+            "### Provocările de Urmărit:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fb9cdc89-f74b-4b60-8735-1111eccf6dfa",
+      "title": "Phrases norvégiennes pour se réconcilier en couple",
+      "native_lang": "fr",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions essentielles pour se réconcilier",
+          "subsections": [
+            "### S'excuser sincèrement",
+            "### Exprimer ses sentiments",
+            "### Proposer une résolution",
+            "### Réaffirmer son amour"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fba70d84-5364-433e-9be1-05f5067d8b0e",
+      "title": "Schwedische SMS-Sprache und Chat-Slang",
+      "native_lang": "de",
+      "target_lang": "sv",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Typische Chat-Gespräche",
+          "subsections": [
+            "### Morgen-Chat",
+            "### Tagsüber",
+            "### Abend-Chat"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fbb7e99d-c587-4e4a-a1ef-a2440be54541",
+      "title": "Mød Svigerforældrene på Portugisisk: Vigtige Udtryk",
+      "native_lang": "da",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## De Vigtigste Udtryk",
+          "subsections": [
+            "### 1. Muito prazer em conhecê-los",
+            "### 2. Obrigado/Obrigada pelo convite",
+            "### 3. Vocês têm uma casa muito bonita",
+            "### 4. Já ouvi falar muito bem de vocês",
+            "### 5. Está delicioso! Qual é a receita?",
+            "### 6. Estou muito feliz por estar aqui",
+            "### 7. Posso ajudar a arrumar a mesa?",
+            "### 8. O vosso filho/A vossa filha é muito importante para mim",
+            "### 9. Espero que nos possamos ver novamente em breve",
+            "### 10. Muito obrigado/obrigada por esta noite maravilhosa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fbb94c71-b100-4849-b375-1c7f41f44f64",
+      "title": "Φράσεις «Μου λείπεις» στα Ουγγρικά",
+      "native_lang": "el",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις",
+          "subsections": [
+            "### 1. Hiányzol (Χιάνιζολ)",
+            "### 2. Nagyon hiányzol (Νάτζον χιάνιζολ)",
+            "### 3. Szükségem van rád (Σιούκσέγκεμ βαν ραντ)",
+            "### 4. Vágyom rád (Βάτζομ ραντ)",
+            "### 5. Számolom a napokat, amíg találkozunk (Σάμολομ α νάποκατ αμίγκ ταλάλκοζουνκ)",
+            "### 6. Alig várom, hogy lássalak (Αλίγκ βάρομ χοτζ λάσαλακ)",
+            "### 7. Minden nap rád gondolok (Μίντεν ναπ ραντ γκοντόλοκ)",
+            "### 8. A szívem veled van (Α σίβεμ βέλεντ βαν)",
+            "### 9. Mindig a gondolataimban vagy (Μίντιγκ α γκοντολατάιμμπαν βατζ)",
+            "### 10. Bárcsak itt lennél (Μπάρτσακ ιτ λεννέλ)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fbd5ae84-5114-4d63-b20c-0ea69f9b8a85",
+      "title": "Hungarian Making Up & Reconciliation Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Apologizing Sincerely",
+          "subsections": [
+            "### Bocsáss meg / Bocsánat",
+            "### Nagyon sajnálom",
+            "### Tévedtem",
+            "### Ezt nem kellett volna mondanom"
+          ]
+        },
+        {
+          "header": "## Expressing Your Feelings",
+          "subsections": [
+            "### Utálom, amikor veszekedünk",
+            "### Hiányzol, amikor ilyenek vagyunk",
+            "### Fáj, amikor haragszunk"
+          ]
+        },
+        {
+          "header": "## Reaching Out",
+          "subsections": [
+            "### Beszélhetünk?",
+            "### Rendbe akarom hozni a dolgokat",
+            "### Kezdhetjük elölről?"
+          ]
+        },
+        {
+          "header": "## Expressing Love and Commitment",
+          "subsections": [
+            "### Szeretlek, ez nem változik",
+            "### Fontosabb vagy nekem ennél a veszekedésnél",
+            "### Nem akarlak elveszíteni",
+            "### Egy csapat vagyunk"
+          ]
+        },
+        {
+          "header": "## Moving Forward",
+          "subsections": [
+            "### Hogyan kerülhetjük el ezt a jövőben?",
+            "### Megígérem, hogy jobb leszek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fbef1ec0-1cf0-4af3-8711-bed1d1375a7f",
+      "title": "Гид по венгерскому произношению",
+      "native_lang": "ru",
+      "target_lang": "hu",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Романтические слова",
+          "subsections": [
+            "### Потренируемся!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fc02eab1-f2d2-4841-8ff1-13c8a6a48244",
+      "title": "Російські фрази про ревнощі та довіру",
+      "native_lang": "uk",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Вираження ревнощів",
+          "subsections": [
+            "### \"Я ревную\"",
+            "### \"Меня задевает, когда...\"",
+            "### \"Иногда я чувствую себя неуверенно\""
+          ]
+        },
+        {
+          "header": "## Запитання",
+          "subsections": [
+            "### \"Кто это был/была?\"",
+            "### \"Откуда ты его/её знаешь?\""
+          ]
+        },
+        {
+          "header": "## Довіра",
+          "subsections": [
+            "### \"Я полностью тебе доверяю\"",
+            "### \"Не о чем беспокоиться\"",
+            "### \"Это просто друг/подруга\"",
+            "### \"Тебе нечего ревновать\"",
+            "### \"Ты для меня единственный/единственная\""
+          ]
+        },
+        {
+          "header": "## Обговорення",
+          "subsections": [
+            "### \"Можем поговорить об этом?\"",
+            "### \"Я работаю над своей ревностью\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fc06ceca-d9b5-464a-b597-c93391bf6976",
+      "title": "Norvég 'Hiányzol' Kifejezések Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Kifejezések",
+          "subsections": [
+            "### 1. Jeg savner deg",
+            "### 2. Jeg savner deg så mye",
+            "### 3. Jeg klarer ikke slutte å tenke på deg",
+            "### 4. Jeg skulle ønske du var her",
+            "### 5. Du er alltid i tankene mine",
+            "### 6. Jeg teller dagene til jeg ser deg",
+            "### 7. Hjertet mitt lengter etter deg",
+            "### 8. Du betyr alt for meg",
+            "### 9. Jeg gleder meg til å se deg",
+            "### 10. Uten deg er alt tomt"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fc151b19-c951-40e8-ac85-4068fc0cf6f2",
+      "title": "Οδηγός Προφοράς Ισπανικών για Ζευγάρια: Μάθετε να Μιλάτε με την Καρδιά σας",
+      "native_lang": "el",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Οι 5 Χρυσοί Κανόνες της Ισπανικής Προφοράς",
+          "subsections": [
+            "### 1. **Κάθε γράμμα μετράει**",
+            "### 2. **Το Η ελληνικό δεν υπάρχει**",
+            "### 3. **Το κυλικείο του τρόμου: R & RR**",
+            "### 4. **Το Ñ είναι μοναδικό**",
+            "### 5. **Η διαφορά B & V**"
+          ]
+        },
+        {
+          "header": "## Κοινές Παγίδες και Πώς να τις Αποφύγετε",
+          "subsections": [
+            "### Λάθος #1: Να λέτε το «Z» σαν «Ζ»",
+            "### Λάθος #2: Να μην τονίζετε σωστά",
+            "### Λάθος #3: Να λέτε το «LL» σαν «Λ»"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fc19b5a6-e326-4ea9-95e2-c5d1b7d05a73",
+      "title": "Lengyel Flörtölő Kifejezések Magyar Anyanyelvűeknek",
+      "native_lang": "hu",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Romantikus Lengyel Flörtölő Kifejezések",
+          "subsections": [
+            "### \"Masz piękny uśmiech.\"",
+            "### \"Nie mogę przestać o tobie myśleć.\"",
+            "### \"Chciałbyś/Chciałabyś gdzieś ze mną wyjść?\"",
+            "### \"Jesteś dla mnie kimś wyjątkowym.\"",
+            "### \"Bardzo mi się podobasz.\"",
+            "### \"Masz piękne oczy.\"",
+            "### \"Dobrze mi z tobą.\"",
+            "### \"Sprawiasz, że jestem szczęśliwy/szczęśliwa.\"",
+            "### \"Rozśmieszasz mnie.\"",
+            "### \"Skradłeś/Skradłaś mi serce.\""
+          ]
+        }
+      ]
+    }
+  ]
+}

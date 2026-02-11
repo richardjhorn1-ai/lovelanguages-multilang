@@ -1,0 +1,500 @@
+{
+  "batchId": "tier2a-slim-0243",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "f24c9248-ff54-4ef9-a7dc-d86a8b6b1191",
+      "title": "Conversazioni Quotidiane in Svedese per Coppie",
+      "native_lang": "it",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Prima di Uscire",
+          "subsections": [
+            "### Dialogo"
+          ]
+        },
+        {
+          "header": "## Conversazione Serale",
+          "subsections": [
+            "### Dialogo: Bentornato/a"
+          ]
+        },
+        {
+          "header": "## Prima di Dormire",
+          "subsections": [
+            "### Dialogo: Buonanotte"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f24e5f17-6de2-4eba-888e-74a4fb2143e2",
+      "title": "Polsk kælenavne og kærlige udtryk for par",
+      "native_lang": "da",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Kælenavne til forskellige lejligheder",
+          "subsections": [
+            "### I hverdagen",
+            "### Til romantiske øjeblikke",
+            "### Til at drille"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f2885c75-74b6-4fe2-ae83-27fc33aaad6e",
+      "title": "Spanish Phrases for Meeting the In-Laws: Make a Great Impression",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## First Impressions",
+          "subsections": [
+            "### Greetings"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f2a3105b-d6a4-4812-b1d0-0b8d1de865a0",
+      "title": "Frases en Polaco para Pedir y Ofrecer Perdón a tu Pareja",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Pedir Perdón",
+          "subsections": [
+            "### \"Naprawdę mi przykro\"",
+            "### \"Proszę, wybacz mi\"",
+            "### \"Wiem, że cię zraniłem/zraniłam, i głęboko tego żałuję\"",
+            "### \"To było złe z mojej strony\"",
+            "### \"Jak mogę to naprawić?\"",
+            "### \"Obiecuję, że to się nie powtórzy\""
+          ]
+        },
+        {
+          "header": "## Frases para Ofrecer Perdón",
+          "subsections": [
+            "### \"Wybaczam ci\"",
+            "### \"Zostawmy to za sobą\"",
+            "### \"Jestem gotowy/gotowa iść dalej\"",
+            "### \"Każdy popełnia błędy\"",
+            "### \"Doceniam twoje przeprosiny\"",
+            "### \"Wciąż cię kocham\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f2a63e50-8494-4d5f-aef0-18a96a5d02a6",
+      "title": "Expresii în Franceză pentru Reconciliere și Împăcare în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii pentru Cererea Scuzelor",
+          "subsections": [
+            "### Scuze Sincere",
+            "### Exprimarea Regretului Profund"
+          ]
+        },
+        {
+          "header": "## Expresii pentru Împăcare",
+          "subsections": [
+            "### Inițierea Dialogului",
+            "### Declarații de Dragoste",
+            "### Reconstruirea Conexiunii"
+          ]
+        },
+        {
+          "header": "## Gesturi de Reconciliere în Stilul Francez",
+          "subsections": [
+            "### Un Dîner en Tête-à-Tête",
+            "### Les Fleurs",
+            "### Le Vin",
+            "### Une Promenade"
+          ]
+        },
+        {
+          "header": "## Nuanțe Culturale",
+          "subsections": [
+            "### Intimitatea",
+            "### Eleganța",
+            "### Timpul Împreună"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f2b325ee-29b3-4a53-b675-b1b85c6a920d",
+      "title": "Лексика о беременности на нидерландский: Словарь для будущих родителей",
+      "native_lang": "ru",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Объявление о беременности",
+          "subsections": [
+            "### Для близких родственников",
+            "### Для друзей"
+          ]
+        },
+        {
+          "header": "## Лексика для визитов к врачу",
+          "subsections": [
+            "### На приёме",
+            "### Вопросы для врача"
+          ]
+        },
+        {
+          "header": "## Покупки для малыша",
+          "subsections": [
+            "### Необходимые вещи",
+            "### В магазине"
+          ]
+        },
+        {
+          "header": "## Разговор с семьёй партнёра",
+          "subsections": [
+            "### Делимся новостями",
+            "### Обсуждение планов"
+          ]
+        },
+        {
+          "header": "## Имена для малыша",
+          "subsections": [
+            "### Обсуждение имён"
+          ]
+        },
+        {
+          "header": "## После рождения",
+          "subsections": [
+            "### Объявление о рождении",
+            "### Первые дни"
+          ]
+        },
+        {
+          "header": "## Полезные фразы",
+          "subsections": [
+            "### Ежедневные выражения"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f2baf668-718e-45cf-853d-b89769372061",
+      "title": "Phrases de drague en allemand : Séduire avec style germanique",
+      "native_lang": "fr",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Phrases de base pour séduire",
+          "subsections": [
+            "### \"Du siehst heute wunderschön aus\"",
+            "### \"Du hast wunderschöne Augen\"",
+            "### \"Ich mag dein Lächeln sehr\""
+          ]
+        },
+        {
+          "header": "## Phrases pour exprimer l'attirance",
+          "subsections": [
+            "### \"Du bist etwas ganz Besonderes\"",
+            "### \"Ich kann nicht aufhören, an dich zu denken\"",
+            "### \"Du bringst mein Herz zum Schmelzen\""
+          ]
+        },
+        {
+          "header": "## Phrases pour approfondir la relation",
+          "subsections": [
+            "### \"Mit dir fühle ich mich glücklich\"",
+            "### \"Du bedeutest mir sehr viel\"",
+            "### \"Ich habe mich in dich verliebt\""
+          ]
+        },
+        {
+          "header": "## Phrases tendres du quotidien",
+          "subsections": [
+            "### \"Du bist mein Ein und Alles\"",
+            "### \"Ich vermisse dich\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f2d23e6a-6710-498c-ba67-0c60e47b7918",
+      "title": "Знайомство з родиною вашого партнера грецькою: фрази для впевненого спілкування",
+      "native_lang": "uk",
+      "target_lang": "el",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Конкретні сценарії",
+          "subsections": [
+            "### При зустрічі з батьками",
+            "### Розмова за столом",
+            "### Розмови про вашу пару"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f2d27fbb-9726-435a-8c89-f1cfc2378863",
+      "title": "Italian Arguing & Disagreement Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressing Disagreement",
+          "subsections": [
+            "### Non sono d'accordo",
+            "### Non è giusto",
+            "### Mi stai fraintendendo",
+            "### Non mi stai ascoltando"
+          ]
+        },
+        {
+          "header": "## Expressing Frustration",
+          "subsections": [
+            "### Sono frustrato/a",
+            "### Mi dà fastidio quando...",
+            "### Ho bisogno di un momento",
+            "### Questo mi fa male"
+          ]
+        },
+        {
+          "header": "## Setting Boundaries",
+          "subsections": [
+            "### Non parlarmi così",
+            "### Mi fai del male",
+            "### Dobbiamo parlarne con calma"
+          ]
+        },
+        {
+          "header": "## Seeking Resolution",
+          "subsections": [
+            "### Possiamo trovare una soluzione insieme?",
+            "### Voglio capirti",
+            "### Cosa possiamo fare?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f2e89269-df70-4c68-bbe3-8047ef2cb844",
+      "title": "Franske udtryk til at møde svigerforældre",
+      "native_lang": "da",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Vigtige sætninger",
+          "subsections": [
+            "### 1. Enchanté(e) de vous rencontrer",
+            "### 2. J'ai beaucoup entendu parler de vous",
+            "### 3. Merci de m'accueillir chez vous",
+            "### 4. Votre maison est magnifique",
+            "### 5. Je vous ai apporté un petit quelque chose",
+            "### 6. Le repas était délicieux",
+            "### 7. J'aime vraiment votre fils/fille",
+            "### 8. Nous sommes très heureux ensemble",
+            "### 9. J'aimerais beaucoup apprendre à mieux vous connaître",
+            "### 10. Puis-je vous aider avec quelque chose?",
+            "### 11. C'est une tradition familiale très intéressante",
+            "### 12. Merci pour cette merveilleuse journée"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f2f797c5-b32b-4a20-b6e7-3e6726331c87",
+      "title": "Olasz 'Hiányzol' Kifejezések Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Kifejezések",
+          "subsections": [
+            "### 1. Mi manchi",
+            "### 2. Mi manchi tanto",
+            "### 3. Mi manchi da morire",
+            "### 4. Non smetto di pensare a te",
+            "### 5. Vorrei che fossi qui",
+            "### 6. Sei sempre nei miei pensieri",
+            "### 7. Conto i giorni per rivederti",
+            "### 8. Il mio cuore soffre senza di te",
+            "### 9. Sei tutto per me",
+            "### 10. Non vedo l'ora di rivederti"
+          ]
+        },
+        {
+          "header": "## Romantikus Kifejezések",
+          "subsections": [
+            "### 11. Senza di te non sono niente",
+            "### 12. Sei l'amore della mia vita"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f2fc8ead-6e34-4558-b046-9ea9adbce3f5",
+      "title": "Російські фрази про прощення",
+      "native_lang": "uk",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Прохання про прощення",
+          "subsections": [
+            "### \"Пожалуйста, прости меня\"",
+            "### \"Надеюсь, ты сможешь меня простить\""
+          ]
+        },
+        {
+          "header": "## Надання прощення",
+          "subsections": [
+            "### \"Я тебя прощаю\"",
+            "### \"Всё хорошо, я понимаю\"",
+            "### \"Все совершают ошибки\""
+          ]
+        },
+        {
+          "header": "## Обіцянки",
+          "subsections": [
+            "### \"Обещаю, это больше не повторится\"",
+            "### \"Как я могу это исправить?\"",
+            "### \"Дай мне ещё один шанс\""
+          ]
+        },
+        {
+          "header": "## Труднощі",
+          "subsections": [
+            "### \"Я ещё не готов/готова простить\"",
+            "### \"Мне нужно больше времени\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f303e28f-181e-445f-ad9d-08c6791d98af",
+      "title": "Schwedische Flirtsprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassische Komplimente",
+          "subsections": [
+            "### \"Du är vacker\" / \"Du är snygg\"",
+            "### \"Du har vackra ögon\"",
+            "### \"Du har ett underbart leende\""
+          ]
+        },
+        {
+          "header": "## Romantische Ausdrücke",
+          "subsections": [
+            "### \"Du är mitt livs kärlek\"",
+            "### \"Jag kan inte sluta tänka på dig\"",
+            "### \"Du gör mig så lycklig\""
+          ]
+        },
+        {
+          "header": "## Süße Kosenamen",
+          "subsections": [
+            "### \"Älskling\"",
+            "### \"Gull\" / \"Gullet\"",
+            "### \"Hjärtat\" / \"Mitt hjärta\"",
+            "### \"Raring\"",
+            "### \"Sötis\" / \"Sötnos\""
+          ]
+        },
+        {
+          "header": "## Herzliche Ausdrücke",
+          "subsections": [
+            "### \"Jag älskar dig\"",
+            "### \"Du betyder allt för mig\"",
+            "### \"Jag är galen i dig\"",
+            "### \"Du har stulit mitt hjärta\"",
+            "### \"Jag vill vara med dig för alltid\""
+          ]
+        },
+        {
+          "header": "## Spielerische Sprüche",
+          "subsections": [
+            "### \"Tror du på kärlek vid första ögonkastet, eller ska jag gå förbi en gång till?\"",
+            "### \"Är din pappa tjuv? För han har stulit stjärnorna från himlen och satt dem i dina ögon\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f30ec8ff-7c23-4e75-a6ed-30690888efe7",
+      "title": "Expresii în Spaniolă pentru Reconciliere și Împăcare în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii pentru Cererea Scuzelor",
+          "subsections": [
+            "### Scuze Sincere",
+            "### Exprimarea Regretului Profund"
+          ]
+        },
+        {
+          "header": "## Expresii pentru Împăcare",
+          "subsections": [
+            "### Inițierea Dialogului",
+            "### Declarații de Dragoste",
+            "### Reconstruirea Conexiunii"
+          ]
+        },
+        {
+          "header": "## Gesturi de Reconciliere în Cultura Hispanică",
+          "subsections": [
+            "### Gesturile Fizice",
+            "### Mâncarea",
+            "### Florile și Cadourile",
+            "### Muzica și Dansul"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f311ef4a-9c3a-41e5-98d3-bc0ca1e34f40",
+      "title": "Hollandaca Tartışma ve Anlaşmazlık İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Tartışma İfadeleri",
+          "subsections": [
+            "### 1. \"Ik voel me gekwetst als...\"",
+            "### 2. \"Kunnen we hier rustig over praten?\"",
+            "### 3. \"Ik begrijp je standpunt, maar...\"",
+            "### 4. \"Laten we niet schreeuwen\"",
+            "### 5. \"Dat bedoelde ik niet\"",
+            "### 6. \"Ik heb even een moment voor mezelf nodig\"",
+            "### 7. \"Laten we een compromis vinden\"",
+            "### 8. \"Ik wilde je niet kwetsen\"",
+            "### 9. \"Kun je me uitleggen hoe je je voelt?\"",
+            "### 10. \"Ik denk dat we allebei moeten kalmeren\"",
+            "### 11. \"Ik hou van je, maar ik ben boos\"",
+            "### 12. \"Laten we hier later over praten\""
+          ]
+        }
+      ]
+    }
+  ]
+}

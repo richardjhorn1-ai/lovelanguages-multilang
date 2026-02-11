@@ -1,0 +1,371 @@
+{
+  "batchId": "tier2a-slim-0313",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "9ce1ae91-2f5b-4230-a20f-c50a0d590e0e",
+      "title": "Je Duitse Partner Ouders Ontmoeten: Essentiële Duitse Frases Voor Het Perfecte Eerste Indruk",
+      "native_lang": "nl",
+      "target_lang": "de",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Gesprekken Starten: Vragen en Antwoorden",
+          "subsections": [
+            "### Over Jezelf Vertellen",
+            "### Over Hun Familie en Interesses"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9cee77bd-828e-420e-a51d-0016b26c1b84",
+      "title": "50+ Petits Noms Hongrois pour Couples Amoureux",
+      "native_lang": "fr",
+      "target_lang": "hu",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Comment Utiliser Ces Petits Noms avec votre Partenaire",
+          "subsections": [
+            "### Les Bonnes Pratiques",
+            "### À Éviter"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9d669188-16ee-4edd-b506-fd3a966615eb",
+      "title": "Almanca Telaffuz Rehberi: Türkler Icin Kolay Kilavuz",
+      "native_lang": "tr",
+      "target_lang": "de",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Özel Sessiz Harfler",
+          "subsections": [
+            "### CH Sesi",
+            "### SCH Sesi",
+            "### W ve V Sesleri",
+            "### Z Sesi",
+            "### ß (Eszett)"
+          ]
+        },
+        {
+          "header": "## Harf Kombinasyonlari",
+          "subsections": [
+            "### EI ve IE",
+            "### EU ve ÄU"
+          ]
+        },
+        {
+          "header": "## Türkler Icin Zor Sesler",
+          "subsections": [
+            "### 1. CH (yumusak)",
+            "### 2. R (bogaz)",
+            "### 3. Uzun vs Kisa Sesliler"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9dc306b7-391a-45bf-9338-11d8ba74e2e4",
+      "title": "Danca Aşk Sözleri: Kalbini Fethedecek 50+ İfade",
+      "native_lang": "tr",
+      "target_lang": "da",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Özel Günler için İfadeler",
+          "subsections": [
+            "### Yıldönümü",
+            "### Sevgililer Günü",
+            "### Doğum Günü"
+          ]
+        },
+        {
+          "header": "## Günlük Romantik Jestler",
+          "subsections": [
+            "### Kısa Mesajlar için",
+            "### Hygge Romantizmi"
+          ]
+        },
+        {
+          "header": "## Pratik: Günlük Romantik Rutininizi Oluşturun",
+          "subsections": [
+            "### Sabah Rutini",
+            "### Gün İçi",
+            "### Akşam Rutini"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9e13e333-3456-4625-81c8-eb6a25afe9fa",
+      "title": "Fêtes Polonaises : Traditions et Phrases",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Comment célébrer les fêtes",
+          "subsections": [
+            "### Vœux traditionnels",
+            "### Traditions de cadeaux"
+          ]
+        },
+        {
+          "header": "## Traditions saisonnières et de vacances",
+          "subsections": [
+            "### Célébrations de Pâques",
+            "### Traditions de Noël"
+          ]
+        },
+        {
+          "header": "## Comment participer en tant que couple",
+          "subsections": [
+            "### Apprendre ensemble",
+            "### Phrases essentielles pour les célébrations",
+            "### Créer des connexions culturelles"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9e198b11-b83c-4d94-9b23-0b5d02a5bd59",
+      "title": "Guia de Pronúncia Sueca para Iniciantes: Como Falar com seu Parceiro com Confiança",
+      "native_lang": "pt",
+      "target_lang": "sv",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Erros Comuns que Casais Cometem",
+          "subsections": [
+            "### 1. Confundir \"J\" com \"I\"",
+            "### 2. Pronunciar \"R\" Muito Forte",
+            "### 3. Ignorar os Pontos de Entonação"
+          ]
+        },
+        {
+          "header": "## Pratiquem Juntos: Exercícios para Casais",
+          "subsections": [
+            "### Exercício 1: Troca de Carinhos",
+            "### Exercício 2: Perguntas do Dia a Dia",
+            "### Exercício 3: Declarações Simples"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9e19ffc1-7544-4eac-a0a8-65480fb54dc0",
+      "title": "Norveççe Selamlaşma ve Vedalaşma: Temel İfadeler Rehberi",
+      "native_lang": "tr",
+      "target_lang": "no",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Vedalaşma İfadeleri",
+          "subsections": [
+            "### Temel Vedalaşmalar",
+            "### Samimi Vedalaşmalar",
+            "### Zaman Belirten Vedalaşmalar"
+          ]
+        },
+        {
+          "header": "## Çiftler İçin Özel İfadeler",
+          "subsections": [
+            "### Sabah Selamlaşması",
+            "### Akşam/Gece Vedalaşması"
+          ]
+        },
+        {
+          "header": "## Mesaj/Yazışma İfadeleri",
+          "subsections": [
+            "### Mesaj Başlatma",
+            "### Mesaj Bitirme"
+          ]
+        },
+        {
+          "header": "## Özel Durumlar",
+          "subsections": [
+            "### Mağazada/Restoranda",
+            "### İş Ortamında"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9e9ea48a-62ae-4259-87f2-d9fa9ef67ad4",
+      "title": "Romantiske tyske fraser for hvert øyeblikk sammen",
+      "native_lang": "no",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hvordan bruke disse frasene med din tyske partner",
+          "subsections": [
+            "### Praktiske tips for naturlig bruk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9f2f7567-e624-4649-bbc2-3f39658446b5",
+      "title": "Prononciation Polonaise : Comment Parler à Votre Partenaire avec Confiance",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Les Sons Spéciaux : Votre Arsenal Romantique",
+          "subsections": [
+            "### Le Chuintement Doux (ś, ć, ź)",
+            "### Le \"L\" qui Rend Fou (ł)"
+          ]
+        },
+        {
+          "header": "## Les Voyelles : Le Cœur de la Prononciation",
+          "subsections": [
+            "### Les Voyelles Courtes et Longues"
+          ]
+        },
+        {
+          "header": "## Les Erreurs Courantes des Couples (et Comment les Corriger)",
+          "subsections": [
+            "### 1. Le **\"ę\"** Final",
+            "### 2. Le **\"ch\"** et **\"h\"**",
+            "### 3. Le **\"rz\"** Mystérieux"
+          ]
+        },
+        {
+          "header": "## Exercices à Deux : Pratiquez Ensemble",
+          "subsections": [
+            "### Exercice 1 : Le Chuchotement",
+            "### Exercice 2 : Le Défi des Consonnes",
+            "### Exercice 3 : Les Phrases d'Amour"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a02047c3-c098-4639-b0b4-e922962d4772",
+      "title": "50+ Yunanca Randevu İfadesi | Romantik Buluşmalar",
+      "native_lang": "tr",
+      "target_lang": "el",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Restoranda",
+          "subsections": [
+            "### Giriş ve Oturma",
+            "### Menü ve Sipariş",
+            "### Yemek Kelimeleri",
+            "### Yemek Sırasında"
+          ]
+        },
+        {
+          "header": "## Evde Romantik Akşam",
+          "subsections": [
+            "### Yemek Hazırlama",
+            "### Ortam Yaratma"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a0261d38-3e87-46b2-96f7-1d92cecadc0c",
+      "title": "Πώς να πεις Σ'αγαπώ στα Γαλλικά: 12 Ρομαντικοί Τρόποι για Ζευγάρια",
+      "native_lang": "el",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Περιφράσεις για Διαφορετικές Περιστάσεις",
+          "subsections": [
+            "### Όταν είστε μόνοι",
+            "### Όταν θέλετε να είστε παιχνιδιάρηδες",
+            "### Όταν θέλετε να είστε ποιητικοί"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a04cdf8b-a850-41ce-bd8a-a043344d0906",
+      "title": "50 Komplementów po czesku dla Partnera",
+      "native_lang": "pl",
+      "target_lang": "cs",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Ćwiczenia",
+          "subsections": [
+            "### Cwiczenie 1: Komplement na dzień dobry",
+            "### Cwiczenie 2: 5 komplementow",
+            "### Cwiczenie 3: Komplement o charakterze"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a0eb2e93-669d-41c7-a951-e10e2fe52bad",
+      "title": "100 mots espagnols les plus courants",
+      "native_lang": "fr",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Exercices de pratique pour couples",
+          "subsections": [
+            "### Exercice 1 : Association",
+            "### Exercice 2 : Complétez les phrases",
+            "### Exercice 3 : Créez des phrases"
+          ]
+        },
+        {
+          "header": "## Plan de révision en couple",
+          "subsections": [
+            "### Semaine 1 : Pronoms et articles (1-15)",
+            "### Semaine 2 : Verbes (16-40)",
+            "### Semaine 3 : Noms (41-60)",
+            "### Semaine 4 : Adjectifs et adverbes (61-90)",
+            "### Semaine 5 : Mots de liaison (91-100)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a15b1c11-1152-4685-a91c-740bcf5b67f1",
+      "title": "Norsk uttal för nybörjare: Så låter du som en infödd med din partner",
+      "native_lang": "sv",
+      "target_lang": "no",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Övningar för Par: Lek med Ljuden",
+          "subsections": [
+            "### 1. Söta Ljud-leken",
+            "### 2. Den Romantiska Körövningen",
+            "### 3. Fejk-norsk Utmaning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a28e7769-edd9-4a0b-b5d1-a405b005619e",
+      "title": "Roumain pour Couples : 50 Phrases Essentielles",
+      "native_lang": "fr",
+      "target_lang": "ro",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Carte de référence rapide",
+          "subsections": [
+            "### Essentiels quotidiens",
+            "### Expressions romantiques",
+            "### Faire la paix"
+          ]
+        }
+      ]
+    }
+  ]
+}

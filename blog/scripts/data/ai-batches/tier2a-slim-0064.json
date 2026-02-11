@@ -1,0 +1,437 @@
+{
+  "batchId": "tier2a-slim-0064",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "572296eb-839a-4248-afc0-c90d31c48bdb",
+      "title": "Dán születésnapi kívánságok párodnak",
+      "native_lang": "hu",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Születésnapi köszöntések",
+            "### Romantikus üzenetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "572c136f-5509-4d5a-811f-7e723075fbf9",
+      "title": "Португальська весільна лексика: слова та фрази для особливого дня",
+      "native_lang": "uk",
+      "target_lang": "pt",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Традиційні весільні фрази",
+          "subsections": [
+            "### Привітання молодят"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "57a79025-4237-4f8b-a084-ee0e35ca470d",
+      "title": "Expresii în Portugheză pentru Discuții și Dezacorduri în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale pentru Discuții",
+          "subsections": [
+            "### Exprimarea Frustrării",
+            "### Cererea de Clarificări",
+            "### Stabilirea Limitelor",
+            "### Recunoașterea și Empatia",
+            "### Căutarea Soluțiilor"
+          ]
+        },
+        {
+          "header": "## Diferențe între Portugheză Europeană și Braziliană",
+          "subsections": [
+            "### Portugheză Europeană",
+            "### Portugheză Braziliană"
+          ]
+        },
+        {
+          "header": "## Nuanțe Culturale Importante",
+          "subsections": [
+            "### Contactul Fizic",
+            "### Saudade și Reconciliere",
+            "### Familia și Prietenii"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "57b51942-1b7d-413f-bdbe-041e52e30c2e",
+      "title": "Ist Russisch schwer zu lernen? Ein Leitfaden für Deutsche",
+      "native_lang": "de",
+      "target_lang": "ru",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Die Herausforderungen",
+          "subsections": [
+            "### 1. Das kyrillische Alphabet",
+            "### 2. Die sechs Fälle",
+            "### 3. Das Verbaspekt"
+          ]
+        },
+        {
+          "header": "## Die Vorteile für Deutsche",
+          "subsections": [
+            "### 1. Keine Artikel",
+            "### 2. Flexibles Satzstellung",
+            "### 3. Phonetische Schreibweise",
+            "### 4. Gemeinsame Wurzeln"
+          ]
+        },
+        {
+          "header": "## Tipps für schnellen Fortschritt",
+          "subsections": [
+            "### 1. Nutze deinen Partner",
+            "### 2. Fokussiere auf das Wichtige",
+            "### 3. Akzeptiere Fehler"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "57bc3ecf-db9a-454e-a638-d89415389bb0",
+      "title": "Cseh kifejezések érzelmi támogatáshoz és vigasztaláshoz",
+      "native_lang": "hu",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető vigasztaló kifejezések",
+          "subsections": [
+            "### Jsem tu pro tebe",
+            "### Všechno bude v pořádku",
+            "### Všechno se spraví",
+            "### Je mi moc líto, čím procházíš"
+          ]
+        },
+        {
+          "header": "## Empátia kifejezése",
+          "subsections": [
+            "### Chápu, jak se cítíš",
+            "### To musí být velmi těžké",
+            "### Tvoje pocity jsou oprávněné",
+            "### Je normální cítit se tak"
+          ]
+        },
+        {
+          "header": "## Támogatás felajánlása",
+          "subsections": [
+            "### Co teď potřebuješ?",
+            "### Jak ti můžu pomoct?",
+            "### Jsem tu, abych tě vyslechl(a)",
+            "### Dej si tolik času, kolik potřebuješ"
+          ]
+        },
+        {
+          "header": "## Gyász és veszteség",
+          "subsections": [
+            "### Je mi moc líto tvé ztráty",
+            "### On/Ona bude navždy ve tvém srdci",
+            "### Upřímnou soustrast",
+            "### Drž se"
+          ]
+        },
+        {
+          "header": "## Nehéz időkben",
+          "subsections": [
+            "### Nejsi v tom sám/sama",
+            "### Projdeme tím spolu",
+            "### Jsi silnější, než si myslíš",
+            "### I tohle přejde"
+          ]
+        },
+        {
+          "header": "## Bátorítás",
+          "subsections": [
+            "### Věřím v tebe",
+            "### Zvládneš to",
+            "### Jsem na tebe pyšný/pyšná"
+          ]
+        },
+        {
+          "header": "## Szeretetteljes kifejezések",
+          "subsections": [
+            "### Miluji tě, lásko",
+            "### Vždy tu pro tebe budu"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "57cd9b99-a0f3-4b04-b3d1-090be8af42d2",
+      "title": "Fransızca Barışma ve Uzlaşma İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Barışma İfadeleri",
+          "subsections": [
+            "### 1. \"Pardonne-moi pour ce que j'ai dit\"",
+            "### 2. \"On peut recommencer à zéro?\"",
+            "### 3. \"Je déteste me disputer avec toi\"",
+            "### 4. \"Ne nous couchons pas fâchés\"",
+            "### 5. \"Je te pardonne\"",
+            "### 6. \"J'avais tort\"",
+            "### 7. \"Comment puis-je me rattraper?\"",
+            "### 8. \"Je t'aime plus que cette dispute\"",
+            "### 9. \"Réglons ça ensemble\"",
+            "### 10. \"Tu me manques comme avant notre dispute\"",
+            "### 11. \"Tu es tout pour moi\"",
+            "### 12. \"Je promets de faire mieux\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "57ea7ca3-7390-4608-9bcb-b0620be8c826",
+      "title": "Φράσεις «Μου Λείπεις» στα Ιταλικά",
+      "native_lang": "el",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις",
+          "subsections": [
+            "### 1. Mi manchi",
+            "### 2. Mi manchi tanto",
+            "### 3. Non riesco a smettere di pensare a te",
+            "### 4. Vorrei che tu fossi qui",
+            "### 5. Sei sempre nel mio cuore",
+            "### 6. Bramo di vederti",
+            "### 7. Ogni giorno senza di te è difficile",
+            "### 8. Conto i giorni fino a rivederti",
+            "### 9. Il mio cuore soffre per la tua assenza",
+            "### 10. La lontananza rafforza l'amore"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "57f23eeb-f730-4bb0-932b-95a5426ea482",
+      "title": "Portugalské fráze Chybíš mi pro Čechy",
+      "native_lang": "cs",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní fráze",
+          "subsections": [
+            "### \"Estou com saudades de você.\" (BR) / \"Tenho saudades tuas.\" (PT)",
+            "### \"Sinto muito a sua falta.\"",
+            "### \"Queria que você estivesse aqui.\"",
+            "### \"Não consigo parar de pensar em você.\""
+          ]
+        },
+        {
+          "header": "## Romantické fráze",
+          "subsections": [
+            "### \"Cada momento sem você é uma eternidade.\"",
+            "### \"Meu coração está com você.\"",
+            "### \"Conto os dias até te ver de novo.\"",
+            "### \"Você é meu primeiro pensamento de manhã e o último à noite.\""
+          ]
+        },
+        {
+          "header": "## Fráze pro zprávy",
+          "subsections": [
+            "### \"Pensando em você.\"",
+            "### \"Mal posso esperar para te abraçar.\"",
+            "### \"A distância não muda o que sinto por você.\""
+          ]
+        },
+        {
+          "header": "## Povzbudivé fráze",
+          "subsections": [
+            "### \"Logo estaremos juntos.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "580109c8-d66a-4ec9-9877-ffe8f31d45f8",
+      "title": "Expressions de Mariage en Tchèque : Guide Complet",
+      "native_lang": "fr",
+      "target_lang": "cs",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## La Réception",
+          "subsections": [
+            "### Vocabulaire de la Fête"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "580539f4-4b4c-4f43-ab33-8f076cc3acd5",
+      "title": "Jak powiedziec «Seni seviyorum» po turecku - romantyczne zwroty dla par",
+      "native_lang": "pl",
+      "target_lang": "tr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Alternatywne sposoby mowienia \"Kocham cie\"",
+          "subsections": [
+            "### Dla glebokich polaczen",
+            "### Poetyckie i silne wyrazenia"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Poranne afirmacje",
+            "### Liściki milosne",
+            "### Zwroty przed snem"
+          ]
+        },
+        {
+          "header": "## Slownictwo milosne",
+          "subsections": [
+            "### Podstawowe słowa zwiazane z miloscia",
+            "### Czasowniki romantyczne"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "581989d2-d200-423f-855f-2cd87b151c8b",
+      "title": "Dán Flörtölő Kifejezések Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Flörtölő Kifejezések",
+          "subsections": [
+            "### 1. Du er meget smuk (Du er májet szmuk)",
+            "### 2. Du har smukke øjne (Du hár szmukke öjne)",
+            "### 3. Må jeg byde dig på en kaffe? (Mó jej büde dej pó en kaffe?)",
+            "### 4. Jeg kan godt lide dig (Jej kan got li dej)",
+            "### 5. Vil du danse med mig? (Vil du dansze med mej?)",
+            "### 6. Du har et vidunderligt smil (Du hár et vidunderlit szmil)",
+            "### 7. Jeg vil gerne ses igen (Jej vil gerne szesz íjen)",
+            "### 8. Du er noget specielt (Du er noget szpeszielt)",
+            "### 9. Må jeg få dit nummer? (Mó jej fó dit nummer?)",
+            "### 10. Det er hyggeligt at være sammen med dig (Det er higgeli at vere szammen med dej)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "58246ba6-7196-44d6-b0f0-452d57fcc1bd",
+      "title": "Francouzské fráze o žárlivosti a důvěře ve vztahu",
+      "native_lang": "cs",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Vyjádření pocitů žárlivosti",
+          "subsections": [
+            "### 1. Je me sens un peu jaloux/jalouse",
+            "### 2. Je me sens en insécurité quand...",
+            "### 3. Peux-tu m'aider à comprendre ta relation avec...?"
+          ]
+        },
+        {
+          "header": "## Budování důvěry",
+          "subsections": [
+            "### 4. J'ai totalement confiance en toi",
+            "### 5. Parfois j'ai besoin d'être rassuré(e)",
+            "### 6. Tu es le seul/la seule pour moi"
+          ]
+        },
+        {
+          "header": "## Řešení situací",
+          "subsections": [
+            "### 7. Je travaille sur ma jalousie",
+            "### 8. Pouvons-nous établir des limites ensemble?",
+            "### 9. Je n'essaie pas de te contrôler",
+            "### 10. Tes amitiés sont importantes pour moi aussi",
+            "### 11. Parlons de ce qui nous fait nous sentir en sécurité",
+            "### 12. J'apprécie ton honnêteté"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "58424a10-9d69-4b28-816c-826c7c4a7551",
+      "title": "Іспанська Вимова для Початківців: Як Говорити Романтичні Фрази Чисто",
+      "native_lang": "uk",
+      "target_lang": "es",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Основні Правила Іспанської Вимови",
+          "subsections": [
+            "### 1. Голосні Завжди Однакові",
+            "### 2. Подвійні Літери",
+            "### 3. Правило М'якого та Твердого"
+          ]
+        },
+        {
+          "header": "## Поширені Помилки Українців",
+          "subsections": [
+            "### Помилка 1: Вимова \"J\"",
+            "### Помилка 2: Подовжені Голосні",
+            "### Помилка 3: Ігнорування Акцентів"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "587ab7f6-792d-4ecd-b54e-a45709b22d5f",
+      "title": "Török születésnapi kívánságok párodnak",
+      "native_lang": "hu",
+      "target_lang": "tr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Születésnapi köszöntések",
+            "### Romantikus üzenetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "587b9fa1-b4ca-46f9-9330-b5a9c32efd0f",
+      "title": "Шведское произношение для начинающих: учимся говорить с любимым",
+      "native_lang": "ru",
+      "target_lang": "sv",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Основные звуки, которые нужно знать",
+          "subsections": [
+            "### Гласные звуки — душа шведского языка",
+            "### Согласные звуки — секреты произношения"
+          ]
+        },
+        {
+          "header": "## Общие ошибки и как их избежать",
+          "subsections": [
+            "### Ошибка 1: Замена шведских гласных на русские",
+            "### Ошибка 2: Игнорирование долгих гласных",
+            "### Ошибка 3: Переделывание R под русский",
+            "### Ошибка 4: Пропуск мягкости"
+          ]
+        }
+      ]
+    }
+  ]
+}

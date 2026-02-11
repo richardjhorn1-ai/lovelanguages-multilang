@@ -1,0 +1,520 @@
+{
+  "batchId": "tier2a-slim-0105",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "7a9fdaa9-9b6f-494e-8b36-2432c7c6a8f1",
+      "title": "100 mots italiens les plus courants pour les couples",
+      "native_lang": "fr",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Mots essentiels pour les couples",
+          "subsections": [
+            "### Pronoms et déterminants",
+            "### Verbes d'action quotidiens",
+            "### Émotions et sentiments",
+            "### Temps et moments",
+            "### Maison et quotidien",
+            "### Relations",
+            "### Questions courantes",
+            "### Réponses et affirmations"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7ab64c8b-0697-4af5-a49d-2c02cae433bc",
+      "title": "Dänisch Kosenamen und Liebkosungen für Paare",
+      "native_lang": "de",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Kosenamen für verschiedene Anlässe",
+          "subsections": [
+            "### Im Alltag",
+            "### Für romantische Momente",
+            "### Zum Necken"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7ab80180-acf7-484e-821b-d3ba71eda416",
+      "title": "Mød Svigerforældrene på Græsk: Vigtige Udtryk",
+      "native_lang": "da",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## De Vigtigste Udtryk",
+          "subsections": [
+            "### 1. Χαίρω πολύ που σας γνωρίζω",
+            "### 2. Ευχαριστώ πολύ για την πρόσκληση",
+            "### 3. Έχετε ένα πανέμορφο σπίτι",
+            "### 4. Έχω ακούσει πολλά καλά για εσάς",
+            "### 5. Είναι υπέροχο! Μπορώ να έχω τη συνταγή;",
+            "### 6. Είμαι πολύ χαρούμενος/χαρούμενη που είμαι εδώ",
+            "### 7. Μπορώ να βοηθήσω να μαζέψουμε;",
+            "### 8. Ο γιος/Η κόρη σας σημαίνει πολλά για μένα",
+            "### 9. Ελπίζω να τα ξαναπούμε σύντομα",
+            "### 10. Ευχαριστώ για αυτή την υπέροχη βραδιά",
+            "### 11. Στην υγειά σας!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7abdf296-b65b-4a6b-a380-9ae4528480a0",
+      "title": "С днём рождения на португальский: Пожелания для любимого человека",
+      "native_lang": "ru",
+      "target_lang": "pt",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Романтические пожелания на день рождения",
+          "subsections": [
+            "### Сладкие и простые",
+            "### Глубокие послания"
+          ]
+        },
+        {
+          "header": "## Фразы для открытки",
+          "subsections": [
+            "### Романтические послания",
+            "### Длинные послания"
+          ]
+        },
+        {
+          "header": "## Планирование сюрприза",
+          "subsections": [
+            "### Лексика для a surpresa",
+            "### Фразы для сюрприза"
+          ]
+        },
+        {
+          "header": "## Сообщения для социальных сетей",
+          "subsections": [
+            "### Подписи для публикаций"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7af3ce55-f81b-4cfa-9a2d-4f51a8afeaaf",
+      "title": "Holenderskie zwroty o zazdrości i zaufaniu dla par",
+      "native_lang": "pl",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Wyrażanie uczuć zazdrości",
+          "subsections": [
+            "### \"Ik voel me een beetje jaloers als...\"",
+            "### \"Ik voel me onzeker over...\"",
+            "### \"Het stoort me als je...\""
+          ]
+        },
+        {
+          "header": "## Pytania budujące zaufanie",
+          "subsections": [
+            "### \"Kun je me geruststellen over...?\"",
+            "### \"Wie was die persoon met wie je praatte?\"",
+            "### \"Overdrijf ik?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie potrzeby zaufania",
+          "subsections": [
+            "### \"Ik heb nodig dat je eerlijk tegen me bent\"",
+            "### \"Ik vertrouw je, maar ik worstel met...\""
+          ]
+        },
+        {
+          "header": "## Uspokajanie partnera",
+          "subsections": [
+            "### \"Je hoeft je nergens zorgen over te maken\"",
+            "### \"Jij bent de enige voor mij\"",
+            "### \"Ik zou nooit iets doen om je te kwetsen\""
+          ]
+        },
+        {
+          "header": "## Budowanie zaufania",
+          "subsections": [
+            "### \"Laten we opener zijn naar elkaar\"",
+            "### \"Ik wil dat we elkaar volledig vertrouwen\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7af680cd-0682-4906-bdf2-eea0d8961638",
+      "title": "Sådan Undskylder Du på Polsk: Vejledning for Par",
+      "native_lang": "da",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Specifikke Situationer",
+          "subsections": [
+            "### Når Du Har Glemt Noget",
+            "### Når Du Har Sagt Noget Sårende",
+            "### Når Du Er Kommet For Sent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7afbc49e-18b8-46b8-8ac6-839a3489b174",
+      "title": "Las 100 Palabras Más Comunes en Inglés para Parejas",
+      "native_lang": "es",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Palabras de Amor y Afecto",
+          "subsections": [
+            "### Love (lov) - Amor",
+            "### Honey (JO-ni) - Cariño/Miel",
+            "### Darling (DAR-ling) - Querido/a",
+            "### Sweetheart (SUIT-jart) - Corazón",
+            "### Beautiful (BIIU-ti-ful) - Hermoso/a",
+            "### Handsome (JAN-som) - Guapo",
+            "### Kiss (kis) - Beso",
+            "### Hug (jog) - Abrazo"
+          ]
+        },
+        {
+          "header": "## Palabras para el Hogar",
+          "subsections": [
+            "### Home (joum) - Casa/Hogar",
+            "### Kitchen (KI-chen) - Cocina",
+            "### Bedroom (BED-rum) - Dormitorio",
+            "### Bathroom (BAZ-rum) - Baño",
+            "### Dinner (DI-ner) - Cena",
+            "### Breakfast (BREK-fast) - Desayuno"
+          ]
+        },
+        {
+          "header": "## Palabras de Tiempo",
+          "subsections": [
+            "### Today (tu-DEI) - Hoy",
+            "### Tomorrow (tu-MO-rou) - Mañana",
+            "### Yesterday (IES-ter-dei) - Ayer",
+            "### Tonight (tu-NAIT) - Esta noche",
+            "### Weekend (UIIK-end) - Fin de semana",
+            "### Later (LEI-ter) - Después/Más tarde"
+          ]
+        },
+        {
+          "header": "## Verbos Esenciales",
+          "subsections": [
+            "### Want (uant) - Querer",
+            "### Need (niid) - Necesitar",
+            "### Like (laik) - Gustar",
+            "### Think (zink) - Pensar",
+            "### Feel (fiil) - Sentir",
+            "### Help (jelp) - Ayudar",
+            "### Wait (ueit) - Esperar",
+            "### Come (com) - Venir",
+            "### Go (gou) - Ir",
+            "### Stay (stei) - Quedarse"
+          ]
+        },
+        {
+          "header": "## Adjetivos Importantes",
+          "subsections": [
+            "### Happy (JA-pi) - Feliz",
+            "### Sad (sad) - Triste",
+            "### Tired (TAIRD) - Cansado/a",
+            "### Hungry (JON-gri) - Hambriento/a",
+            "### Cold (could) - Frío",
+            "### Hot (jot) - Caliente",
+            "### Good (gud) - Bueno/a",
+            "### Bad (bad) - Malo/a"
+          ]
+        },
+        {
+          "header": "## Frases de Cortesía",
+          "subsections": [
+            "### Please (pliis) - Por favor",
+            "### Thank you (zenk iú) - Gracias",
+            "### Sorry (SO-ri) - Lo siento",
+            "### Excuse me (ex-KIÚS mi) - Disculpa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7b23b761-7c26-4836-baf9-849acc113fc1",
+      "title": "Основи російської граматики для початківців: Гід для українців",
+      "native_lang": "uk",
+      "target_lang": "ru",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Приклад відмінювання іменників",
+          "subsections": [
+            "### Чоловічий рід: «друг» (друг)",
+            "### Жіночий рід: «жена» (дружина)"
+          ]
+        },
+        {
+          "header": "## Дієслова: Теперішній час",
+          "subsections": [
+            "### Перша дієвідміна: «читать»",
+            "### Друга дієвідміна: «говорить»"
+          ]
+        },
+        {
+          "header": "## Питальні речення",
+          "subsections": [
+            "### 1. Інтонацією (як в українській)",
+            "### 2. Питальними словами"
+          ]
+        },
+        {
+          "header": "## Порівняння з українською",
+          "subsections": [
+            "### Майже ідентичні аспекти:",
+            "### Відмінності:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7b35b2e6-3b3f-475a-9633-7573c210272d",
+      "title": "Italienska fraser för emotionellt stöd – Trösta din partner på italienska",
+      "native_lang": "sv",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande stöd",
+          "subsections": [
+            "### \"Sono qui per te\"",
+            "### \"Non sei solo/sola in questo\"",
+            "### \"Sarò sempre al tuo fianco\""
+          ]
+        },
+        {
+          "header": "## Visa empati",
+          "subsections": [
+            "### \"Posso solo immaginare quanto sia difficile per te\"",
+            "### \"I tuoi sentimenti sono completamente validi\"",
+            "### \"Va bene sentirsi così\"",
+            "### \"Capisco perché sei sconvolto/a\""
+          ]
+        },
+        {
+          "header": "## Tröstande fraser",
+          "subsections": [
+            "### \"Anche questo passerà\"",
+            "### \"Ce la faremo insieme\"",
+            "### \"Prenditi tutto il tempo di cui hai bisogno\"",
+            "### \"Va bene non stare bene\""
+          ]
+        },
+        {
+          "header": "## Erbjuda stöd",
+          "subsections": [
+            "### \"Di cosa hai bisogno da me adesso?\"",
+            "### \"Vuoi parlarne o preferisci distrarti?\"",
+            "### \"Posso fare qualcosa per aiutarti?\"",
+            "### \"Sono qui per ascoltarti quando sei pronto/a\""
+          ]
+        },
+        {
+          "header": "## Vid förlust",
+          "subsections": [
+            "### \"Mi dispiace tanto per la tua perdita\"",
+            "### \"Non ho parole, ma sono qui\""
+          ]
+        },
+        {
+          "header": "## Uppmuntrande fraser",
+          "subsections": [
+            "### \"Credo in te\"",
+            "### \"Sei più forte di quanto pensi\"",
+            "### \"Sono così fiero/a di te\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7b360af2-b016-4e90-9022-f7ae7fe9d7da",
+      "title": "Привітання з днем народження норвезькою для коханої людини",
+      "native_lang": "uk",
+      "target_lang": "no",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика",
+          "subsections": []
+        },
+        {
+          "header": "## Романтичні привітання з днем народження",
+          "subsections": [
+            "### Класичні побажання"
+          ]
+        },
+        {
+          "header": "## Як написати ідеальне привітання",
+          "subsections": [
+            "### Структура:",
+            "### Приклад норвезькою:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7b391a4e-5a58-4643-9de3-62c4b7539b68",
+      "title": "Vocabulario de Restaurante en Turco para Cenar Fuera",
+      "native_lang": "es",
+      "target_lang": "tr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Leyendo el Menú",
+          "subsections": [
+            "### Secciones del Menú"
+          ]
+        },
+        {
+          "header": "## Referencia Rápida",
+          "subsections": [
+            "### Llegando",
+            "### Ordenando",
+            "### Durante la Comida",
+            "### Pagando"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7b3a762e-afb5-4387-a1ee-1322e1c40176",
+      "title": "Cum Să Ceri în Căsătorie: Expresii pentru Logodnă în Turcă",
+      "native_lang": "ro",
+      "target_lang": "tr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Răspunsuri la Cerere",
+          "subsections": [
+            "### Răspunsuri Pozitive"
+          ]
+        },
+        {
+          "header": "## Vocabular pentru Inele",
+          "subsections": [
+            "### Pietre Prețioase",
+            "### Metale"
+          ]
+        },
+        {
+          "header": "## După Logodnă",
+          "subsections": [
+            "### Pașii Următori"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7b44c9dd-adb1-4901-aac8-47e902776ef4",
+      "title": "Выражение эмоций на французском языке",
+      "native_lang": "ru",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Положительные эмоции",
+          "subsections": [
+            "### Радость и счастье",
+            "### Любовь и привязанность"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7b5b491c-0e98-4028-8048-078990c25aaf",
+      "title": "Grammatica Olandese per Principianti: Impara le Basi per Parlare con il Tuo Partner",
+      "native_lang": "it",
+      "target_lang": "nl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Le Regole di Base (Che Davvero Contano)",
+          "subsections": [
+            "### 1. L'Ordine delle Parole è Tuo Amico",
+            "### 2. I Verbi Cambiano (Ma in Modo Prevedibile)",
+            "### 3. Gli Articoli: De e Het (Il Mistero Olandese)"
+          ]
+        },
+        {
+          "header": "## I Modelli Più Utili per la Vita Quotidiana",
+          "subsections": [
+            "### Presente Semplice (Tegenwoordige tijd)",
+            "### Domande: Semplici Inversione!",
+            "### Negazione: Geen vs Niet"
+          ]
+        },
+        {
+          "header": "## Errori Comuni (e Come Evitarli)",
+          "subsections": [
+            "### 1. \"Ik ben gaan\" invece di \"Ik ga\"",
+            "### 2. Dimenticare l'inversione nelle domande",
+            "### 3. Mescolare \"zijn\" e \"hebben\"",
+            "### 4. Pronuncia di \"ij\" e \"ei\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7b64b600-9199-464e-8c54-e615757a5932",
+      "title": "Német Kifejezések a Leendő Apóséknak – Bemutatkozás és Első Találkozás",
+      "native_lang": "hu",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bemutatkozás",
+          "subsections": [
+            "### 1. Es freut mich sehr, Sie kennenzulernen.",
+            "### 2. Ich habe schon viel von Ihnen gehört.",
+            "### 3. Vielen Dank für die Einladung.",
+            "### 4. [Name] spricht immer sehr positiv von Ihnen.",
+            "### 5. Ich freue mich sehr, hier zu sein."
+          ]
+        },
+        {
+          "header": "## Bókok és Elismerések",
+          "subsections": [
+            "### 6. Sie haben ein wunderschönes Zuhause.",
+            "### 7. Das Essen schmeckt ausgezeichnet.",
+            "### 8. Jetzt verstehe ich, woher [Partner] seine/ihre [Eigenschaft] hat.",
+            "### 9. Danke, dass Sie so einen wunderbaren Menschen großgezogen haben."
+          ]
+        },
+        {
+          "header": "## Udvariasságok",
+          "subsections": [
+            "### 10. Kann ich Ihnen helfen?",
+            "### 11. Darf ich beim Abwasch helfen?",
+            "### 12. Ich würde gerne mehr über [Thema] erfahren."
+          ]
+        },
+        {
+          "header": "## Kulturális Tippek",
+          "subsections": [
+            "### Pontosság",
+            "### Magázás (Sie)",
+            "### Kézfogás",
+            "### Ajándék"
+          ]
+        }
+      ]
+    }
+  ]
+}

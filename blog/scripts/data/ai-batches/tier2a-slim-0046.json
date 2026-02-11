@@ -1,0 +1,410 @@
+{
+  "batchId": "tier2a-slim-0046",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "47407188-f94d-417e-9791-c9a1a1f67ec2",
+      "title": "Vocabular pentru Bebeluși și Sarcină în Maghiară: Expresii Esențiale",
+      "native_lang": "ro",
+      "target_lang": "hu",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Anunțarea Sarcinii",
+          "subsections": [
+            "### Expresii pentru Anunț",
+            "### Anunțuri Creative"
+          ]
+        },
+        {
+          "header": "## Vocabular Medical",
+          "subsections": [
+            "### Termeni pentru Consultații"
+          ]
+        },
+        {
+          "header": "## Evoluția Sarcinii",
+          "subsections": [
+            "### Primul Trimestru (Săptămânile 1-12)",
+            "### Al Doilea Trimestru (Săptămânile 13-26)",
+            "### Al Treilea Trimestru (Săptămânile 27-40)"
+          ]
+        },
+        {
+          "header": "## Pregătirea pentru Bebeluș",
+          "subsections": [
+            "### Obiecte Esențiale",
+            "### Camera Bebelușului"
+          ]
+        },
+        {
+          "header": "## Expresii de Felicitare",
+          "subsections": [
+            "### Pentru Anunț",
+            "### Pentru Naștere"
+          ]
+        },
+        {
+          "header": "## Tradiții și Superstiții",
+          "subsections": [
+            "### Superstiții Comune"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "47499502-d95f-498b-ab7d-acc76c5bc591",
+      "title": "Francese: 15 Modi Romantici per Dire Ti Amo",
+      "native_lang": "it",
+      "target_lang": "fr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Frasi per Momenti Quotidiani",
+          "subsections": [
+            "### Al Mattino",
+            "### Prima di Uscire",
+            "### Alla Sera",
+            "### Prima di Dormire"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4759ac8b-b951-4321-a98c-7659ce1dc678",
+      "title": "Alinturile în Italiană pentru Partenerul Tău: Ghid Complet",
+      "native_lang": "ro",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Alinturi Regionale",
+          "subsections": [
+            "### Nord (Milano, Torino)",
+            "### Centru (Roma, Firenze)",
+            "### Sud (Napoli, Sicilia)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "47607554-6e3f-43e1-9b32-72bd9c78c2e3",
+      "title": "Ουκρανικές Φράσεις για Διαφωνίες: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις για Διαφωνίες",
+          "subsections": [
+            "### Έκφραση Διαφωνίας",
+            "### Αίτηση για Κατανόηση",
+            "### Έκφραση Συναισθημάτων",
+            "### Αναζήτηση Λύσης"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "47772cb2-54a2-4b1f-946d-bc75730f07c2",
+      "title": "Portugisiska Fraser för Försoning och Att Göra Upp",
+      "native_lang": "sv",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Inleda Försoning",
+          "subsections": [
+            "### 1. \"Me desculpa\"",
+            "### 2. \"Podemos começar de novo?\"",
+            "### 3. \"Eu odeio brigar com você\"",
+            "### 4. \"Você é tudo pra mim\"",
+            "### 5. \"Eu estava errado/a e admito\""
+          ]
+        },
+        {
+          "header": "## Fraser för Djupare Försoning",
+          "subsections": [
+            "### 6. \"Não vamos dormir brigados\"",
+            "### 7. \"Te amo mais do que qualquer briga\"",
+            "### 8. \"Me dá um abraço?\"",
+            "### 9. \"Quero te entender melhor\"",
+            "### 10. \"Somos mais fortes que isso\"",
+            "### 11. \"Prometo ser melhor\"",
+            "### 12. \"Obrigado/a pela sua paciência comigo\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "47894e6c-2b2f-41ba-97f0-d87a24365bcd",
+      "title": "Французькі фрази про прощення",
+      "native_lang": "uk",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Прохання про прощення",
+          "subsections": [
+            "### \"S'il te plaît, pardonne-moi\"",
+            "### \"J'espère que tu pourras me pardonner\"",
+            "### \"Je sais que je ne mérite pas ton pardon, mais...\""
+          ]
+        },
+        {
+          "header": "## Надання прощення",
+          "subsections": [
+            "### \"Je te pardonne\"",
+            "### \"C'est bon, je comprends\"",
+            "### \"Tout le monde fait des erreurs\"",
+            "### \"Je suis prêt(e) à passer à autre chose\""
+          ]
+        },
+        {
+          "header": "## Обіцянки",
+          "subsections": [
+            "### \"Je promets que ça n'arrivera plus\"",
+            "### \"Comment puis-je me faire pardonner?\"",
+            "### \"Donne-moi une autre chance\""
+          ]
+        },
+        {
+          "header": "## Труднощі",
+          "subsections": [
+            "### \"Je ne suis pas encore prêt(e) à pardonner\"",
+            "### \"J'ai besoin de plus de temps\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "478f34eb-7eff-4712-be72-3633eed016c3",
+      "title": "Pronuncia Olandese per Coppie: Guida Semplice per Suonare Naturale con il Tuo Partner",
+      "native_lang": "it",
+      "target_lang": "nl",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Trucchi per Migliorare con il Tuo Partner",
+          "subsections": [
+            "### 1. Giochi di Pronuncia",
+            "### 2. Lezione di 5 Minuti",
+            "### 3. Canzoni Olandesi",
+            "### 4. Registra le Vostre Voci"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "47987386-496b-4df4-bf7d-c895d5c232eb",
+      "title": "German Emotional Support Phrases: Comfort Your Partner in Difficult Times",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## During Specific Situations",
+          "subsections": [
+            "### Grief and Loss",
+            "### Stress and Anxiety",
+            "### Disappointment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "47a19732-5cb5-4b5d-9e98-36d65d9b8fb6",
+      "title": "Frases en Turco para tu Primera Cita",
+      "native_lang": "es",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Romper el Hielo",
+          "subsections": [
+            "### \"Sonunda seninle tanışmak çok güzel\"",
+            "### \"Harika görünüyorsun\"",
+            "### \"Bu anı dört gözle bekliyordum\""
+          ]
+        },
+        {
+          "header": "## Frases para Conocerse",
+          "subsections": [
+            "### \"Bana kendinden bahset\"",
+            "### \"Eğlenmek için ne yapmayı seversin?\"",
+            "### \"En sevdiğin... hangisi?\""
+          ]
+        },
+        {
+          "header": "## Frases Románticas",
+          "subsections": [
+            "### \"Seninle çok iyi vakit geçiriyorum\"",
+            "### \"Çok güzel bir gülüşün var\"",
+            "### \"Seninle çok rahatım\""
+          ]
+        },
+        {
+          "header": "## Frases para Terminar",
+          "subsections": [
+            "### \"Harika bir gece geçirdim\"",
+            "### \"Tekrar görüşebilir miyiz?\"",
+            "### \"Eve vardığında haber ver\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "47a904b4-ee2c-46de-8a39-e4ea70eec66a",
+      "title": "Spotkanie z grecka rodzina partnera - przewodnik językowy",
+      "native_lang": "pl",
+      "target_lang": "el",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Tradycje rodzinne",
+          "subsections": [
+            "### Greckie swieta"
+          ]
+        },
+        {
+          "header": "## Wskazowki kulturowe",
+          "subsections": [
+            "### Co robic:",
+            "### Czego unikac:"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia przygotowawcze",
+          "subsections": [
+            "### Scenka: Powitanie",
+            "### Komplementy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "47d2f7c6-a7bb-4e25-a747-1c422bcd5d57",
+      "title": "Γαλλικές Φράσεις για το Πρώτο Ραντεβού: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για το Πρώτο Ραντεβού",
+          "subsections": [
+            "### Γνωριμία",
+            "### Συζήτηση",
+            "### Φλερτ",
+            "### Κλείσιμο"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "47def044-766d-4c9d-a78c-0a06d932c6df",
+      "title": "Francouzské fráze pro emoční podporu partnera",
+      "native_lang": "cs",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní podpora",
+          "subsections": [
+            "### \"Je suis là pour toi.\"",
+            "### \"Tu n'es pas seul(e) dans cette situation.\"",
+            "### \"Je crois en toi.\"",
+            "### \"Quoi qu'il arrive, nous y ferons face ensemble.\""
+          ]
+        },
+        {
+          "header": "## Útěcha",
+          "subsections": [
+            "### \"Je suis vraiment désolé(e) que tu traverses ça.\"",
+            "### \"C'est normal de ressentir ça.\"",
+            "### \"Prends tout le temps dont tu as besoin.\"",
+            "### \"Tu n'as pas à être fort(e) tout le temps.\""
+          ]
+        },
+        {
+          "header": "## Povzbuzení",
+          "subsections": [
+            "### \"Je suis tellement fier/fière de toi.\"",
+            "### \"Tu as géré ça de façon incroyable.\"",
+            "### \"Ça ne durera pas éternellement.\"",
+            "### \"Tu es plus fort(e) que tu ne le penses.\""
+          ]
+        },
+        {
+          "header": "## Praktická podpora",
+          "subsections": [
+            "### \"De quoi as-tu besoin en ce moment?\"",
+            "### \"Laisse-moi m'en occuper pour toi.\"",
+            "### \"Tu voudrais en parler?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "47eda8c6-3d11-40c1-bd4b-22e033410984",
+      "title": "Norska Fraser för Bråk och Meningsskiljaktigheter",
+      "native_lang": "sv",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande Fraser för Konfliktsituationer",
+          "subsections": [
+            "### 1. \"Jeg føler meg såret når...\"",
+            "### 2. \"Kan vi snakke rolig om dette?\"",
+            "### 3. \"Jeg trenger litt tid\"",
+            "### 4. \"Jeg vil ikke krangle med deg\"",
+            "### 5. \"Jeg forstår ditt synspunkt\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Lösa Konflikter",
+          "subsections": [
+            "### 6. \"Hvordan kan vi løse dette?\"",
+            "### 7. \"Jeg mente ikke å såre deg\"",
+            "### 8. \"La oss finne et kompromiss\"",
+            "### 9. \"Jeg hører på deg\"",
+            "### 10. \"La oss snakke om dette senere\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "47ef30bc-1b54-4b3f-a59c-f6f7762e7c67",
+      "title": "Italian for Couples: Essential Phrases",
+      "native_lang": "en",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Daily Challenge Ideas:",
+            "### Role-Playing Scenarios:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "481a590d-c7b3-45f7-80ce-865e6c148d29",
+      "title": "Fêtes ukrainiennes : célébrez avec votre partenaire",
+      "native_lang": "fr",
+      "target_lang": "uk",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Autres fêtes importantes",
+          "subsections": [
+            "### Anniversaire de mariage",
+            "### Anniversaire",
+            "### Fête des mères"
+          ]
+        }
+      ]
+    }
+  ]
+}

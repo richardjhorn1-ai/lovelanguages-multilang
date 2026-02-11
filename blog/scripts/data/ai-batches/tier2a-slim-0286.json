@@ -1,0 +1,550 @@
+{
+  "batchId": "tier2a-slim-0286",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "1583c520-6b59-4a2b-a8c4-25b9511c741d",
+      "title": "Portekizce Telaffuz Rehberi: Türkler Icin Kapsamli Kilavuz",
+      "native_lang": "tr",
+      "target_lang": "pt",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Ünsüzler (Consoantes)",
+          "subsections": [
+            "### R Sesi - En Zor Ses",
+            "### Özel Ünsüz Kombinasyonlari",
+            "### D ve T Brezilya'da"
+          ]
+        },
+        {
+          "header": "## Vurgu Kurallari",
+          "subsections": [
+            "### Genel Kurallar",
+            "### Aksan Isaretleri"
+          ]
+        },
+        {
+          "header": "## Brezilya Portekizcesi Özel Özellikleri",
+          "subsections": [
+            "### Kelime Sonu Sesleri",
+            "### Kelime Sonu \"O\""
+          ]
+        },
+        {
+          "header": "## Ciftler Icin Telaffuz Pratigi",
+          "subsections": [
+            "### Birlikte Calisma",
+            "### Pratik Cümleler"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "158f1f9e-ba7e-451b-bda3-34be97dfe454",
+      "title": "Spotkanie z norweska rodzina partnera",
+      "native_lang": "pl",
+      "target_lang": "no",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Typowe sytuacje",
+          "subsections": [
+            "### Kawa i ciasto",
+            "### Pozegnanie"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia",
+          "subsections": [
+            "### Cwiczenie 1: Przedstawienie sie",
+            "### Cwiczenie 2: Rozmowa o Polsce",
+            "### Cwiczenie 3: Scenariusze"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "15a6dbb8-368a-46d7-8616-494b01105ef6",
+      "title": "German Past Tense for Couples",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Exercise 1: Tell Your Story",
+            "### Exercise 2: Yesterday's Adventures",
+            "### Exercise 3: Memory Lane"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "15ffb8e8-d785-499b-bb8b-a81ebd5026c7",
+      "title": "O Tcheco É Difícil? Resposta Honesta",
+      "native_lang": "pt",
+      "target_lang": "cs",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## O Que Torna o Tcheco Desafiador",
+          "subsections": [
+            "### 1. O Sistema de Casos",
+            "### 2. O Som Ř",
+            "### 3. Grupos de Consoantes",
+            "### 4. Aspectos Verbais"
+          ]
+        },
+        {
+          "header": "## O Que Torna o Tcheco Mais Fácil do Que Você Pensa",
+          "subsections": [
+            "### 1. Ortografia Fonética",
+            "### 2. Sem Artigos",
+            "### 3. Palavras Emprestadas",
+            "### 4. Padrões Lógicos"
+          ]
+        },
+        {
+          "header": "## Estratégias Eficazes para Falantes de Português",
+          "subsections": [
+            "### Comece com Palavras de Alta Frequência",
+            "### Abrace a Música",
+            "### Use Cognatos",
+            "### Pratique Rotinas Diárias"
+          ]
+        },
+        {
+          "header": "## Erros Comuns a Evitar",
+          "subsections": [
+            "### 1. Paralisia Perfeccionista",
+            "### 2. Ignorar o Gênero",
+            "### 3. Tradução Literal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "160e8096-62a1-40b5-afbf-f2c716bd746d",
+      "title": "Spanish Restaurant Vocabulary for Couples",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Arriving at the Restaurant",
+          "subsections": [
+            "### Getting a Table"
+          ]
+        },
+        {
+          "header": "## Understanding the Menu",
+          "subsections": [
+            "### Menu Sections",
+            "### Common Menu Terms"
+          ]
+        },
+        {
+          "header": "## Ordering Food",
+          "subsections": [
+            "### Asking Questions",
+            "### Placing Your Order",
+            "### Dietary Needs and Preferences"
+          ]
+        },
+        {
+          "header": "## Food Vocabulary",
+          "subsections": [
+            "### Proteins (Las Proteínas)",
+            "### Vegetables (Las Verduras)",
+            "### Desserts (Los Postres)"
+          ]
+        },
+        {
+          "header": "## Drinks (Las Bebidas)",
+          "subsections": [
+            "### Non-Alcoholic",
+            "### Alcoholic"
+          ]
+        },
+        {
+          "header": "## During the Meal",
+          "subsections": [
+            "### Useful Phrases",
+            "### Getting Attention"
+          ]
+        },
+        {
+          "header": "## Paying the Bill",
+          "subsections": [
+            "### Asking for the Check"
+          ]
+        },
+        {
+          "header": "## Romantic Dining Phrases",
+          "subsections": [
+            "### Complimenting the Evening",
+            "### Making It Special"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "160ea11f-d76c-4cd6-8469-b9e2fb886d58",
+      "title": "Luna de Miel en Polonia: Frases",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Destinos Polacos Más Románticos",
+          "subsections": [
+            "### Cracovia - El Corazón Cultural",
+            "### Zakopane - Romance de Montaña",
+            "### Gdańsk - Magia Costera"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1676542d-988f-408a-b8dd-61c0534d78ae",
+      "title": "Isveççe Gramer Temelleri: Başlangıç Rehberi",
+      "native_lang": "tr",
+      "target_lang": "sv",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Isimler ve Artikeller",
+          "subsections": [
+            "### Cinsiyet Sistemi",
+            "### Belirli Artikel (Tanımlık)",
+            "### Çoğul Yapımı"
+          ]
+        },
+        {
+          "header": "## Fiil Çekimi",
+          "subsections": [
+            "### Harika Haber: Şahıslara Göre Çekim Yok!",
+            "### Fiil Grupları",
+            "### Temel Zamanlar"
+          ]
+        },
+        {
+          "header": "## Sıfatlar",
+          "subsections": [
+            "### Sıfat Uyumu",
+            "### Belirli Form"
+          ]
+        },
+        {
+          "header": "## Cümle Yapısı",
+          "subsections": [
+            "### V2 Kuralı (Fiil İkinci Pozisyonda)",
+            "### Soru Cümleleri"
+          ]
+        },
+        {
+          "header": "## Zamirler",
+          "subsections": [
+            "### Şahıs Zamirleri",
+            "### Iyelik Zamirleri"
+          ]
+        },
+        {
+          "header": "## Pratik Cümleler",
+          "subsections": [
+            "### Romantik Ifadeler",
+            "### Günlük Ifadeler"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "16b449e0-4e1b-413e-ae65-d066922e3a3c",
+      "title": "Podstawy gramatyki wloskiej dla Polaków",
+      "native_lang": "pl",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Rodzaj rzeczowników",
+          "subsections": [
+            "### Zasada podstawowa",
+            "### Liczba mnoga"
+          ]
+        },
+        {
+          "header": "## Czasowniki - trzy koniugacje",
+          "subsections": [
+            "### Koniugacja -ARE (większość!)",
+            "### Koniugacja -ERE",
+            "### Koniugacja -IRE"
+          ]
+        },
+        {
+          "header": "## Przymiotniki",
+          "subsections": [
+            "### Pozycja i odmiana",
+            "### Przymiotniki przed rzeczownikiem"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Rodzajniki",
+            "### Ćwiczenie 2: Czasownik ESSERE",
+            "### Ćwiczenie 3: Romantyczne zdania"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "171c58b1-1c23-4c5f-86ed-427293e7baed",
+      "title": "Felicitaciones de Aniversario en Polaco",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Felicitaciones Románticas para Tu Pareja",
+          "subsections": [
+            "### Mensajes Dulces y Sencillos",
+            "### Mensajes Profundos y Poéticos"
+          ]
+        },
+        {
+          "header": "## Mensajes para Tarjetas de Aniversario",
+          "subsections": [
+            "### Para Tu Esposo",
+            "### Para Tu Esposa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "17c44afb-246d-486d-acce-d29cf1303bdd",
+      "title": "50 Dänische Begrüßungen und Abschiedsformeln für Paare - Von morgendlichem Hallo bis zu süßen Träumen",
+      "native_lang": "de",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Praktische Tipps für Paare",
+          "subsections": [
+            "### 1. Erstelle morgendliche Rituale",
+            "### 2. Nutze Koseformen",
+            "### 3. Übt gemeinsam"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1823212f-47c0-4f38-9ccc-be19da8f2209",
+      "title": "Nombres et dates en italien",
+      "native_lang": "fr",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Les dates (Le date)",
+          "subsections": [
+            "### Les jours de la semaine",
+            "### Les mois de l'année",
+            "### Format de date"
+          ]
+        },
+        {
+          "header": "## Exercices pour couples",
+          "subsections": [
+            "### Quiz des dates importantes",
+            "### L'heure en italien",
+            "### Planification"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "183a0877-7c97-474c-bc82-9352d4b55b9c",
+      "title": "Spanish Romantic Phrases for Every Occasion",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Morning Sweet Nothings",
+          "subsections": [
+            "### Waking Up Together",
+            "### Starting the Day"
+          ]
+        },
+        {
+          "header": "## Throughout the Day",
+          "subsections": [
+            "### Quick Love Texts",
+            "### Pick-Me-Ups for Hard Days"
+          ]
+        },
+        {
+          "header": "## Evening Romance",
+          "subsections": [
+            "### Coming Home",
+            "### Dinner Together",
+            "### Bedtime"
+          ]
+        },
+        {
+          "header": "## Special Occasions",
+          "subsections": [
+            "### Celebrating Achievements",
+            "### During Illness"
+          ]
+        },
+        {
+          "header": "## Romantic Compliments",
+          "subsections": [
+            "### Physical Compliments",
+            "### Personality Compliments"
+          ]
+        },
+        {
+          "header": "## Apologizing and Making Up",
+          "subsections": [
+            "### Saying Sorry",
+            "### Reconciliation"
+          ]
+        },
+        {
+          "header": "## Deep Love Declarations",
+          "subsections": [
+            "### Profound Love",
+            "### Forever Promises"
+          ]
+        },
+        {
+          "header": "## Playful and Flirty",
+          "subsections": [
+            "### Teasing with Love",
+            "### Flirting"
+          ]
+        },
+        {
+          "header": "## Gratitude and Appreciation",
+          "subsections": [
+            "### Saying Thank You"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "184b9064-8856-41d9-b41d-0503be1a56a9",
+      "title": "Die ungarische Familie deines Partners treffen: Wichtige Phrasen für einen herzerwärmenden ersten Eindruck",
+      "native_lang": "de",
+      "target_lang": "hu",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Beim ersten Treffen: Was du sagen kannst",
+          "subsections": [
+            "### Die Eltern begrüßen"
+          ]
+        },
+        {
+          "header": "## Small Talk und Komplimente",
+          "subsections": [
+            "### Über das Essen sprechen (wird kommen!)",
+            "### Komplimente für das Zuhause"
+          ]
+        },
+        {
+          "header": "## Typische Familien-Szenarien",
+          "subsections": [
+            "### Beim Essen",
+            "### Fotos anschauen"
+          ]
+        },
+        {
+          "header": "## Höflichkeitsgrade und Formen",
+          "subsections": [
+            "### Formal vs. Informal"
+          ]
+        },
+        {
+          "header": "## Wenn etwas schiefgeht",
+          "subsections": [
+            "### Verständnis-Probleme",
+            "### Höfliche Ausweich-Strategien"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "18f8027f-3324-474f-af95-f75b6a93c857",
+      "title": "Incontrare la Famiglia del Tuo Partner Ucraino: Frasi Essenziali per Connetterti",
+      "native_lang": "it",
+      "target_lang": "uk",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Scenari Comuni Durante la Visita",
+          "subsections": [
+            "### A Cena con la Famiglia",
+            "### Quando Ti Fanno Domande"
+          ]
+        },
+        {
+          "header": "## Vocabolario per Conversazioni di Base",
+          "subsections": [
+            "### Parlando della Tua Famiglia",
+            "### Complimenti che Funzionano Sempre"
+          ]
+        },
+        {
+          "header": "## Frasi di Cortesia e Formalità",
+          "subsections": [
+            "### Livelli di Formalità",
+            "### Frasi che Mostrano Rispetto"
+          ]
+        },
+        {
+          "header": "## Se Qualcosa Va Storto...",
+          "subsections": [
+            "### Quando Non Capisci"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "19264674-5fde-4dc7-9af8-5b07a8bb4abe",
+      "title": "Conjugaison anglaise : verbes de base",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Les verbes auxiliaires essentiels",
+          "subsections": [
+            "### To be (être)",
+            "### To have (avoir)",
+            "### To do (faire/auxiliaire)"
+          ]
+        },
+        {
+          "header": "## Former les questions et négations",
+          "subsections": [
+            "### Questions : auxiliaire + sujet + verbe",
+            "### Négations : auxiliaire + NOT + verbe"
+          ]
+        },
+        {
+          "header": "## Exercices pratiques pour couples",
+          "subsections": [
+            "### Exercice 1 : Le journal de votre histoire",
+            "### Exercice 2 : Questions-réponses",
+            "### Exercice 3 : Verbes irréguliers en couple"
+          ]
+        }
+      ]
+    }
+  ]
+}

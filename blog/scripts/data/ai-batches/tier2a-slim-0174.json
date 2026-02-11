@@ -1,0 +1,484 @@
+{
+  "batchId": "tier2a-slim-0174",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "b7ff39e0-77f1-43cc-aedb-a41dff6f6f90",
+      "title": "Mød Svigerforældrene på Tyrkisk: Essentielle Udtryk",
+      "native_lang": "da",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## De Vigtigste Udtryk",
+          "subsections": [
+            "### 1. Tanıştığımıza çok memnun oldum",
+            "### 2. Davet için çok teşekkür ederim",
+            "### 3. Eviniz çok güzel",
+            "### 4. Sizden çok bahsedildi",
+            "### 5. Çok lezzetli! Tarifini alabilir miyim?",
+            "### 6. Burada olmaktan çok mutluyum",
+            "### 7. Sofrayı toplamaya yardım edebilir miyim?",
+            "### 8. Oğlunuz/Kızınız benim için çok önemli",
+            "### 9. Umarım yakında tekrar görüşürüz",
+            "### 10. Bu harika akşam için teşekkürler",
+            "### 11. Elinize sağlık"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b80c1b1e-9640-4102-b095-d3159dfdf23c",
+      "title": "Expresii în Olandeză pentru Reconciliere și Împăcare în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii pentru Cererea Scuzelor",
+          "subsections": [
+            "### Scuze Sincere",
+            "### Exprimarea Regretului"
+          ]
+        },
+        {
+          "header": "## Expresii pentru Împăcare",
+          "subsections": [
+            "### Inițierea Dialogului",
+            "### Declarații de Angajament",
+            "### Reconstruirea Conexiunii"
+          ]
+        },
+        {
+          "header": "## Gesturi de Reconciliere în Stilul Olandez",
+          "subsections": [
+            "### Gezelligheid",
+            "### Activități Împreună",
+            "### Comunicare Clară",
+            "### Simplitate"
+          ]
+        },
+        {
+          "header": "## Nuanțe Culturale",
+          "subsections": [
+            "### Sinceritatea",
+            "### Pragmatismul",
+            "### Egalitatea"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b80f8d0f-c49c-4ad8-8ebd-23b469bac99c",
+      "title": "Норвезька фрази для медового місяця та романтичних подорожей",
+      "native_lang": "uk",
+      "target_lang": "no",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна туристична лексика",
+          "subsections": []
+        },
+        {
+          "header": "## У готелі",
+          "subsections": [
+            "### Реєстрація",
+            "### Корисні фрази для готелю"
+          ]
+        },
+        {
+          "header": "## У ресторані",
+          "subsections": [
+            "### Романтична вечеря",
+            "### Тости для двох"
+          ]
+        },
+        {
+          "header": "## Пляжний відпочинок",
+          "subsections": [
+            "### Лексика для пляжу",
+            "### Романтичні пляжні активності"
+          ]
+        },
+        {
+          "header": "## Екскурсії для пар",
+          "subsections": [
+            "### Романтичні активності",
+            "### Корисні фрази"
+          ]
+        },
+        {
+          "header": "## Фотографії на пам'ять",
+          "subsections": [
+            "### Як попросити зробити фото"
+          ]
+        },
+        {
+          "header": "## Покупки сувенірів",
+          "subsections": [
+            "### Подарунки для рідних"
+          ]
+        },
+        {
+          "header": "## Проблеми в подорожі",
+          "subsections": [
+            "### Якщо щось пішло не так"
+          ]
+        },
+        {
+          "header": "## Повернення додому",
+          "subsections": [
+            "### Прощання з відпусткою"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b82bbd77-740f-4e80-b2c8-59ef66ffbefa",
+      "title": "Italské fráze o žárlivosti a důvěře ve vztahu",
+      "native_lang": "cs",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Vyjádření pocitů žárlivosti",
+          "subsections": [
+            "### 1. Mi sento un po' geloso/a",
+            "### 2. Mi sento insicuro/a quando...",
+            "### 3. Puoi aiutarmi a capire il tuo rapporto con...?"
+          ]
+        },
+        {
+          "header": "## Budování důvěry",
+          "subsections": [
+            "### 4. Mi fido completamente di te",
+            "### 5. A volte ho bisogno di essere rassicurato/a",
+            "### 6. Sei l'unico/a per me"
+          ]
+        },
+        {
+          "header": "## Řešení situací",
+          "subsections": [
+            "### 7. Sto lavorando sulla mia gelosia",
+            "### 8. Possiamo stabilire dei limiti insieme?",
+            "### 9. Non sto cercando di controllarti",
+            "### 10. Le tue amicizie sono importanti anche per me",
+            "### 11. Parliamo di cosa ci fa sentire sicuri",
+            "### 12. Apprezzo la tua onestà"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b835c01d-1f3a-4812-b1d2-3e770447860b",
+      "title": "Турецкие фразы для споров и разногласий",
+      "native_lang": "ru",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Основные фразы для выражения несогласия",
+          "subsections": [
+            "### 1. Seninle aynı fikirde değilim",
+            "### 2. Bunu sakin bir şekilde konuşabilir miyiz?",
+            "### 3. Böyle söylediğinde canım acıyor",
+            "### 4. Sesimizi yükseltmeyelim",
+            "### 5. Benim bakış açımı anlamanı istiyorum",
+            "### 6. Bunu kastetmemiştim",
+            "### 7. Bir uzlaşma bulabilir miyiz?",
+            "### 8. İkimizin de biraz alana ihtiyacı var sanırım",
+            "### 9. Lütfen fikrimi say",
+            "### 10. Seni dinliyorum ama katılmıyorum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b83df7d3-4caa-4501-ac7e-8ea32aaaa5df",
+      "title": "Нідерландська привітання з річницею: романтичні побажання",
+      "native_lang": "uk",
+      "target_lang": "nl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика про річницю",
+          "subsections": []
+        },
+        {
+          "header": "## Романтичні побажання з річницею",
+          "subsections": [
+            "### Класичні привітання"
+          ]
+        },
+        {
+          "header": "## Побажання для різних річниць",
+          "subsections": [
+            "### Перша річниця",
+            "### П'ята річниця",
+            "### Десята річниця та далі"
+          ]
+        },
+        {
+          "header": "## Як написати привітання з річницею",
+          "subsections": [
+            "### Структура ідеального привітання:",
+            "### Приклад привітання:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b84f3392-de87-4a28-bb55-94ba3e3e5b25",
+      "title": "Frases en Ucraniano para Reconciliarte con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Pedir Disculpas",
+          "subsections": [
+            "### \"Вибач мені за те, що я сказав/сказала\" (Vybach meni za te, shcho ya skazav/skazala)",
+            "### \"Я не хотів/хотіла тебе образити\" (Ya ne khotiv/khotila tebe obrazyty)",
+            "### \"Можемо почати спочатку?\" (Mozhemo pochaty spochatku?)",
+            "### \"Я був/була неправий/неправа\" (Ya buv/bula nepravyy/neprava)"
+          ]
+        },
+        {
+          "header": "## Frases para Expresar Amor",
+          "subsections": [
+            "### \"Я кохаю тебе, навіть коли ми сваримось\" (Ya kokhayu tebe, navit' koly my svarymosya)",
+            "### \"Ти для мене все\" (Ty dlya mene vse)",
+            "### \"Я ненавиджу сваритися з тобою\" (Ya nenavydzhu svarytysya z toboyu)"
+          ]
+        },
+        {
+          "header": "## Frases para Reconstruir",
+          "subsections": [
+            "### \"Давай поговоримо спокійно\" (Davay pohovorymo spokiyno)",
+            "### \"Я хочу краще тебе розуміти\" (Ya khochu krashche tebe rozumity)",
+            "### \"Що я можу зробити, щоб виправити це?\" (Shcho ya mozhu zrobyty, shchob vypravyty tse?)",
+            "### \"Обіцяю старатися більше\" (Obitsyayu staratysya bil'she)",
+            "### \"Можна тебе обійняти?\" (Mozhna tebe obiynyaty?)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b85b5a93-c18f-43e6-a5c9-6e0798dafb98",
+      "title": "Frases para Conhecer os Sogros em Dinamarquês: Guia Completo",
+      "native_lang": "pt",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para o Primeiro Encontro",
+          "subsections": [
+            "### Apresentação",
+            "### Elogiando",
+            "### Mostrando Interesse",
+            "### Expressando Gratidão"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b85e7f3c-c258-4159-a119-9b342acc972f",
+      "title": "Как сказать «Я тебя люблю» на чешском",
+      "native_lang": "ru",
+      "target_lang": "cs",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Варианты признания",
+          "subsections": [
+            "### По степени чувств"
+          ]
+        },
+        {
+          "header": "## В особых моментах",
+          "subsections": [
+            "### Предложение руки и сердца",
+            "### На свадьбе"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b8613e4d-609a-432c-b44d-1d448aff46d8",
+      "title": "Dutch Restaurant Vocabulary for Dining Out",
+      "native_lang": "en",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Reading the Menu",
+          "subsections": [
+            "### Menu Sections"
+          ]
+        },
+        {
+          "header": "## Quick Reference",
+          "subsections": [
+            "### Arriving",
+            "### Ordering",
+            "### During Meal",
+            "### Paying"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b8633698-06ae-45c3-9be8-a66f679f979a",
+      "title": "Rumänisch Kosenamen und Liebkosungen für Paare",
+      "native_lang": "de",
+      "target_lang": "ro",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Kosenamen für verschiedene Anlässe",
+          "subsections": [
+            "### Im Alltag",
+            "### Für romantische Momente",
+            "### Zum Necken"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b86931da-c50a-4a05-afe8-e864ca388f0e",
+      "title": "Zwroty na pierwszą randkę po szwedzku",
+      "native_lang": "pl",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Rozpoczęcie rozmowy",
+          "subsections": [
+            "### Cześć! Miło Cię wreszcie poznać!",
+            "### Świetnie wyglądasz!",
+            "### Nie mogłem/mogłam się doczekać"
+          ]
+        },
+        {
+          "header": "## Poznawanie się",
+          "subsections": [
+            "### Opowiedz mi o sobie",
+            "### Co lubisz robić w wolnym czasie?",
+            "### Jaki jest Twój ulubiony...?"
+          ]
+        },
+        {
+          "header": "## Wyrażanie zainteresowania",
+          "subsections": [
+            "### To naprawdę interesujące",
+            "### Opowiedz mi więcej",
+            "### Chciałbym/Chciałabym wiedzieć więcej"
+          ]
+        },
+        {
+          "header": "## Dzielenie się o sobie",
+          "subsections": [
+            "### Pasjonuję się...",
+            "### Zawsze chciałem/chciałam..."
+          ]
+        },
+        {
+          "header": "## Komplementy",
+          "subsections": [
+            "### Uwielbiam Twój uśmiech",
+            "### Masz świetne poczucie humoru",
+            "### Świetnie się z Tobą bawię"
+          ]
+        },
+        {
+          "header": "## Planowanie następnego spotkania",
+          "subsections": [
+            "### Bardzo chciałbym/chciałabym Cię znowu zobaczyć",
+            "### Kiedy możemy to powtórzyć?",
+            "### Miałem/Miałam cudowny wieczór"
+          ]
+        },
+        {
+          "header": "## Pożegnanie",
+          "subsections": [
+            "### To było naprawdę cudowne",
+            "### Nie mogę się doczekać kolejnego spotkania"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b8896131-f829-4e90-a3f9-da02a56f05b4",
+      "title": "30+ Franske Komplimenter til Din Partner: Romantiske Fraser",
+      "native_lang": "da",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Komplimenter til Specielle Lejligheder",
+          "subsections": [
+            "### Til en Date",
+            "### Ved Milepæle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b8ab2e25-1c4c-4390-b6d4-91121b146941",
+      "title": "Итальянские фразы о прощении",
+      "native_lang": "ru",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Фразы для просьбы о прощении",
+          "subsections": [
+            "### 1. Mi dispiace davvero per quello che ho fatto",
+            "### 2. Ti prego, perdonami",
+            "### 3. So che ti ho fatto male, e mi dispiace profondamente",
+            "### 4. Non succederà più, te lo prometto",
+            "### 5. Mi assumo tutta la responsabilità delle mie azioni"
+          ]
+        },
+        {
+          "header": "## Фразы для выражения прощения",
+          "subsections": [
+            "### 6. Ti perdono",
+            "### 7. Mettiamoci questo alle spalle",
+            "### 8. Sono pronto/pronta ad andare avanti",
+            "### 9. Apprezzo le tue scuse",
+            "### 10. Ci vuole coraggio per scusarsi, grazie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b8bbf772-0d31-41ad-a8be-f678c397e9ee",
+      "title": "Cum Să Ceri în Căsătorie: Expresii pentru Logodnă în Cehă",
+      "native_lang": "ro",
+      "target_lang": "cs",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Răspunsuri la Cerere",
+          "subsections": [
+            "### Răspunsuri Pozitive"
+          ]
+        },
+        {
+          "header": "## Vocabular pentru Inele",
+          "subsections": [
+            "### Pietre Prețioase",
+            "### Metale"
+          ]
+        },
+        {
+          "header": "## După Logodnă",
+          "subsections": [
+            "### Pașii Următori"
+          ]
+        }
+      ]
+    }
+  ]
+}

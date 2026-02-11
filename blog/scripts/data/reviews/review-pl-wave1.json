@@ -1,0 +1,314 @@
+{
+  "native_lang": "pl",
+  "wave": 1,
+  "target_langs_reviewed": ["en", "es", "fr", "de", "it", "pt"],
+  "articles_reviewed": 12,
+  "clean_articles": 3,
+  "issues": [
+    {
+      "article_id": "dbad7430-2613-4ccb-9dd9-073b17f7c74e",
+      "slug": "english-giving-compliments",
+      "target_lang": "en",
+      "issue_type": "language_error",
+      "severity": "medium",
+      "description": "Repeated Polish grammatical error: 'po angielskiu' should be 'po angielsku'. The locative case of 'angielski' is 'angielsku', not 'angielskiu'. Appears in title and multiple places in body.",
+      "evidence": "\"30+ Komplementów po angielskiu\" / \"Naucz się chwalić partnera po angielskiu\""
+    },
+    {
+      "article_id": "dbad7430-2613-4ccb-9dd9-073b17f7c74e",
+      "slug": "english-giving-compliments",
+      "target_lang": "en",
+      "issue_type": "rendering_bug",
+      "severity": "high",
+      "description": "PhraseOfDay component renders with empty word field in content_html. The target-language word 'You look beautiful' is missing from the rendered HTML span element.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span>"
+    },
+    {
+      "article_id": "dbad7430-2613-4ccb-9dd9-073b17f7c74e",
+      "slug": "english-giving-compliments",
+      "target_lang": "en",
+      "issue_type": "content_thin",
+      "severity": "medium",
+      "description": "Article promises '30+ compliments' in the title but only delivers 6 vocabulary items across 3 tables. Significantly under-delivers on the title promise.",
+      "evidence": "Title: '30+ Komplementów po angielskiu' but only 6 entries total"
+    },
+    {
+      "article_id": "6e799e86-c3a5-43b2-89bb-f0a6b2aca864",
+      "slug": "english-honeymoon-travel-phrases",
+      "target_lang": "en",
+      "issue_type": "language_error",
+      "severity": "low",
+      "description": "Table headers use inconsistent Polish locative form 'Angielsku' (should be 'Angielski' as a column header for the language name, or 'Po angielsku' as a phrase).",
+      "evidence": "| Angielsku | Polski |"
+    },
+    {
+      "article_id": "6e799e86-c3a5-43b2-89bb-f0a6b2aca864",
+      "slug": "english-honeymoon-travel-phrases",
+      "target_lang": "en",
+      "issue_type": "pronunciation_quality",
+      "severity": "medium",
+      "description": "Pronunciation 'hani-mun' for 'Honeymoon' is oversimplified and misleading. The first syllable is closer to 'ha-ni' but English 'honey' starts with a short 'u' sound. Polish speakers would benefit from 'ha-ni-muun'.",
+      "evidence": "pronunciation=\"hani-mun\""
+    },
+    {
+      "article_id": "6e799e86-c3a5-43b2-89bb-f0a6b2aca864",
+      "slug": "english-honeymoon-travel-phrases",
+      "target_lang": "en",
+      "issue_type": "missing_pronunciation",
+      "severity": "medium",
+      "description": "Vocabulary tables throughout the article lack pronunciation guides entirely. Tables only have 'Angielsku | Polski' columns with no pronunciation column, unlike other articles that include pronunciation.",
+      "evidence": "| Angielsku | Polski | (no pronunciation column in any table)"
+    },
+    {
+      "article_id": "8e6b86db-19e7-4369-862a-c354979af1c6",
+      "slug": "spanish-giving-compliments",
+      "target_lang": "es",
+      "issue_type": "language_error",
+      "severity": "medium",
+      "description": "Polish grammatical error: 'po hiszpańskiu' should be 'po hiszpańsku'. Same locative case error as the English article. Appears in title and body.",
+      "evidence": "\"30+ Komplementów po hiszpańskiu\" / \"chwalić partnera po hiszpańskiu\""
+    },
+    {
+      "article_id": "8e6b86db-19e7-4369-862a-c354979af1c6",
+      "slug": "spanish-giving-compliments",
+      "target_lang": "es",
+      "issue_type": "rendering_bug",
+      "severity": "high",
+      "description": "PhraseOfDay component renders with empty word field in content_html. The Spanish phrase 'Estas guapisimo/a' is missing from the rendered HTML.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span>"
+    },
+    {
+      "article_id": "8e6b86db-19e7-4369-862a-c354979af1c6",
+      "slug": "spanish-giving-compliments",
+      "target_lang": "es",
+      "issue_type": "content_thin",
+      "severity": "medium",
+      "description": "Title promises '30+ compliments' but article only contains 6 vocabulary items. Massively under-delivers on title promise.",
+      "evidence": "Title: '30+ Komplementów po hiszpańskiu' but only 6 entries"
+    },
+    {
+      "article_id": "8e6b86db-19e7-4369-862a-c354979af1c6",
+      "slug": "spanish-giving-compliments",
+      "target_lang": "es",
+      "issue_type": "pronunciation_error",
+      "severity": "medium",
+      "description": "Pronunciation 'lo a-ses che-njal' for 'Lo haces genial' is incorrect. Spanish 'genial' starts with a 'kh' or 'he' sound (like Polish 'ch'), not 'che'. Should be closer to 'lo a-ses che-nial' or 'lo a-thes he-nial'.",
+      "evidence": "pronunciation: lo a-ses che-njal (for 'Lo haces genial')"
+    },
+    {
+      "article_id": "f26d3594-c8a2-4a68-8854-8fdc6a69d552",
+      "slug": "french-giving-compliments",
+      "target_lang": "fr",
+      "issue_type": "language_error",
+      "severity": "medium",
+      "description": "Polish grammatical error: 'po francuskiu' should be 'po francusku'. Same locative case error pattern as other compliments articles.",
+      "evidence": "\"30+ Komplementów po francuskiu\" / \"chwalić partnera po francuskiu\""
+    },
+    {
+      "article_id": "f26d3594-c8a2-4a68-8854-8fdc6a69d552",
+      "slug": "french-giving-compliments",
+      "target_lang": "fr",
+      "issue_type": "rendering_bug",
+      "severity": "high",
+      "description": "PhraseOfDay component renders with empty word field in content_html. The French phrase 'Tu es magnifique' is missing from the rendered HTML.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span>"
+    },
+    {
+      "article_id": "f26d3594-c8a2-4a68-8854-8fdc6a69d552",
+      "slug": "french-giving-compliments",
+      "target_lang": "fr",
+      "issue_type": "content_thin",
+      "severity": "medium",
+      "description": "Title promises '30+ compliments' but article only contains 6 vocabulary items. Same pattern as EN and ES compliment articles.",
+      "evidence": "Title: '30+ Komplementów po francuskiu' but only 6 entries"
+    },
+    {
+      "article_id": "bcdab934-4c1d-47c3-a65e-bdf981646c55",
+      "slug": "french-meeting-your-partner-s-family",
+      "target_lang": "fr",
+      "issue_type": "rendering_bug",
+      "severity": "high",
+      "description": "PhraseOfDay component renders with empty word field in content_html. The French word 'Enchante(e)' is missing from the rendered HTML.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span>"
+    },
+    {
+      "article_id": "bcdab934-4c1d-47c3-a65e-bdf981646c55",
+      "slug": "french-meeting-your-partner-s-family",
+      "target_lang": "fr",
+      "issue_type": "typo",
+      "severity": "low",
+      "description": "Polish typo in CultureTip: 'bardwo' should be 'bardzo' (very).",
+      "evidence": "Rodzina Twojego partnera zobaczy, jak bardwo Ci zależy!"
+    },
+    {
+      "article_id": "4ae6ff11-acb9-4854-8472-79383f8cbb32",
+      "slug": "german-small-talk-conversation-starters",
+      "target_lang": "de",
+      "issue_type": "vocabcard_example_language",
+      "severity": "medium",
+      "description": "VocabCard examples are in Polish instead of the target language (German). The 'example' prop should show a German sentence demonstrating usage, but instead shows Polish context text.",
+      "evidence": "example=\"Przepraszam, czy tu jest wolne? Mogę się dosiąść?\""
+    },
+    {
+      "article_id": "4ae6ff11-acb9-4854-8472-79383f8cbb32",
+      "slug": "german-small-talk-conversation-starters",
+      "target_lang": "de",
+      "issue_type": "vocabcard_example_language",
+      "severity": "medium",
+      "description": "Second VocabCard also has Polish-only example. Should include German example sentence.",
+      "evidence": "example=\"Co Pan/Pani sądzi o tym koncercie? Bardzo mi się podoba!\""
+    },
+    {
+      "article_id": "4ae6ff11-acb9-4854-8472-79383f8cbb32",
+      "slug": "german-small-talk-conversation-starters",
+      "target_lang": "de",
+      "issue_type": "vocabcard_example_language",
+      "severity": "medium",
+      "description": "Third VocabCard also has Polish-only example instead of German.",
+      "evidence": "example=\"Czy mogę Pana/Panią o coś zapytać? Szukam dworca.\""
+    },
+    {
+      "article_id": "91d6ffba-acfa-479a-9581-f659e5199748",
+      "slug": "de-in-laws-phrases-for-polish-speakers",
+      "target_lang": "de",
+      "issue_type": "language_error",
+      "severity": "high",
+      "description": "German grammatical error: 'Sie have einen wunderbaren Menschen großgezogen' - 'have' is English, should be 'haben'.",
+      "evidence": "Sie have einen wunderbaren Menschen großgezogen."
+    },
+    {
+      "article_id": "91d6ffba-acfa-479a-9581-f659e5199748",
+      "slug": "de-in-laws-phrases-for-polish-speakers",
+      "target_lang": "de",
+      "issue_type": "vocabcard_example_language",
+      "severity": "medium",
+      "description": "VocabCard examples are in Polish instead of German. The 'example' prop for 'die Gastfreundschaft' shows a Polish sentence rather than a German one.",
+      "evidence": "example=\"Dziękuję bardzo za Państwa gościnność.\""
+    },
+    {
+      "article_id": "91d6ffba-acfa-479a-9581-f659e5199748",
+      "slug": "de-in-laws-phrases-for-polish-speakers",
+      "target_lang": "de",
+      "issue_type": "vocabcard_example_language",
+      "severity": "medium",
+      "description": "VocabCard for 'das Mitbringsel' has Polish-only example instead of German.",
+      "evidence": "example=\"To drobny upominek z Polski dla Państwa.\""
+    },
+    {
+      "article_id": "91d6ffba-acfa-479a-9581-f659e5199748",
+      "slug": "de-in-laws-phrases-for-polish-speakers",
+      "target_lang": "de",
+      "issue_type": "vocabcard_example_language",
+      "severity": "medium",
+      "description": "VocabCard for 'die Aufmerksamkeit' has Polish-only example instead of German.",
+      "evidence": "example=\"To tylko drobny gest wdzięczności za zaproszenie.\""
+    },
+    {
+      "article_id": "91d6ffba-acfa-479a-9581-f659e5199748",
+      "slug": "de-in-laws-phrases-for-polish-speakers",
+      "target_lang": "de",
+      "issue_type": "template_placeholder",
+      "severity": "medium",
+      "description": "Bracketed placeholder '[Name]' remains in the German phrases. While this could be intentional as a fill-in-the-blank, it uses English 'Name' instead of Polish 'Imię' consistently (some lines use [Imię] but the German phrases use [Name]).",
+      "evidence": "[Name] erzählt immer nur Gutes von Ihnen. / [Name] macht mich sehr glücklich."
+    },
+    {
+      "article_id": "63f6cd71-4dff-42d0-8c47-057208329c64",
+      "slug": "italian-good-morning-goodnight-phrases",
+      "target_lang": "it",
+      "issue_type": "language_error",
+      "severity": "medium",
+      "description": "Polish grammatical error: 'po włoskiu' should be 'po włosku'. Same locative case error pattern.",
+      "evidence": "\"Dzień Dobry i Dobranoc po włoskiu: Codzienne Zwroty\""
+    },
+    {
+      "article_id": "63f6cd71-4dff-42d0-8c47-057208329c64",
+      "slug": "italian-good-morning-goodnight-phrases",
+      "target_lang": "it",
+      "issue_type": "rendering_bug",
+      "severity": "high",
+      "description": "PhraseOfDay component renders with empty word field in content_html. The Italian phrase 'Buongiorno tesoro' is missing from the rendered HTML.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span>"
+    },
+    {
+      "article_id": "63f6cd71-4dff-42d0-8c47-057208329c64",
+      "slug": "italian-good-morning-goodnight-phrases",
+      "target_lang": "it",
+      "issue_type": "content_thin",
+      "severity": "medium",
+      "description": "Very thin article at only 98 words. Only 6 vocabulary items across 3 tables. Title promises 'daily phrases' but content is extremely sparse.",
+      "evidence": "_wordCount: 98, only 6 vocab entries across whole article"
+    },
+    {
+      "article_id": "4faa03f4-b94e-45ce-a11b-bfd54b6c8aaa",
+      "slug": "italian-romantic-phrases-every-occasion",
+      "target_lang": "it",
+      "issue_type": "language_error",
+      "severity": "medium",
+      "description": "Polish title has missing diacritics: 'wloskie' should be 'włoskie', 'kazda' should be 'każdą', 'okazje' should be 'okazję'. Multiple diacritic errors in the title.",
+      "evidence": "\"Romantyczne wloskie zwroty na kazda okazje\""
+    },
+    {
+      "article_id": "4faa03f4-b94e-45ce-a11b-bfd54b6c8aaa",
+      "slug": "italian-romantic-phrases-every-occasion",
+      "target_lang": "it",
+      "issue_type": "language_error",
+      "severity": "low",
+      "description": "Polish spelling error: 'Codzieńne' should be 'Codzienne' (daily). The word 'codzienny' does not have an accent on 'n'. Appears multiple times (section header and exercises).",
+      "evidence": "## Codzieńne romantyczne zwroty / Ćwiczenie 2: Codzieńne wyznanie"
+    },
+    {
+      "article_id": "4faa03f4-b94e-45ce-a11b-bfd54b6c8aaa",
+      "slug": "italian-romantic-phrases-every-occasion",
+      "target_lang": "it",
+      "issue_type": "language_error",
+      "severity": "low",
+      "description": "Polish spelling error: 'codzieńnie' should be 'codziennie'. Same root word error.",
+      "evidence": "Przez tydzień mówcie sobie codzieńnie inny romantyczny zwrot"
+    },
+    {
+      "article_id": "4faa03f4-b94e-45ce-a11b-bfd54b6c8aaa",
+      "slug": "italian-romantic-phrases-every-occasion",
+      "target_lang": "it",
+      "issue_type": "language_error",
+      "severity": "low",
+      "description": "Polish spelling error: 'Kontynuuj' should be 'Kontynuuj' is actually correct imperative form, but the linked paths use '/learn/pl/it/' pattern which is inconsistent with the blog URL pattern '/pl/blog/'.",
+      "evidence": "## Kontynuuj naukę - links use /learn/pl/it/ pattern"
+    },
+    {
+      "article_id": "d5bf0efb-8289-44e2-a1b5-67f8cd5773f1",
+      "slug": "portuguese-expressing-emotions",
+      "target_lang": "pt",
+      "issue_type": "language_error",
+      "severity": "medium",
+      "description": "Polish grammatical error: 'po portugalskiu' should be 'po portugalsku'. Same locative case error pattern.",
+      "evidence": "\"Wyrażanie Emocji po portugalskiu: Słownictwo Uczuć\""
+    },
+    {
+      "article_id": "3ce29bce-256d-4804-8666-92d23ac046f2",
+      "slug": "pt-makeup-phrases-for-polish-speakers",
+      "target_lang": "pt",
+      "issue_type": "pronunciation_error",
+      "severity": "medium",
+      "description": "Pronunciation for 'me desculpa' in VocabCard is 'mi dżis-KUŁ-pa' which is inconsistent with the later inline pronunciation 'mi dis-KUL-pa'. The VocabCard version incorrectly uses 'dżis' suggesting a 'j' sound that doesn't exist in Portuguese.",
+      "evidence": "VocabCard: pronunciation=\"mi dżis-KUŁ-pa\" vs inline: mi dis-KUL-pa"
+    },
+    {
+      "article_id": "3ce29bce-256d-4804-8666-92d23ac046f2",
+      "slug": "pt-makeup-phrases-for-polish-speakers",
+      "target_lang": "pt",
+      "issue_type": "language_error",
+      "severity": "low",
+      "description": "Polish grammar issue: 'Twoje przeprosiny zabrzmi' - subject-verb disagreement. 'Przeprosiny' is plural, so it should be 'zabrzmią' (plural form), not 'zabrzmi' (singular).",
+      "evidence": "Twoje przeprosiny zabrzmi albo zbyt lekko, albo przesadnie dramatycznie"
+    }
+  ],
+  "systemic_patterns": [
+    "PhraseOfDay rendering bug: In 5 out of 12 articles, the PhraseOfDay component renders with an empty word span in content_html. The 'word' prop value is lost during HTML conversion. This affects articles: english-giving-compliments, spanish-giving-compliments, french-giving-compliments, french-meeting-your-partner-s-family, italian-good-morning-goodnight-phrases. The pattern appears to be specific to the PhraseOfDay component; VocabCard components render the word correctly.",
+    "Systemic Polish locative case error: 'po [język]iu' instead of correct 'po [język]u'. Affects 5 articles with error in titles and body text: 'angielskiu', 'hiszpańskiu', 'francuskiu', 'włoskiu', 'portugalskiu'. All should end in '-sku' or '-sku'. This is a consistent AI generation error suggesting the prompt or template may be producing this pattern.",
+    "Compliment articles (EN, ES, FR) are structurally identical clones with identical section headers, identical structure, and only 6 vocabulary items each despite all promising '30+' in their titles. These appear to be minimal template expansions rather than substantive articles.",
+    "VocabCard example prop language inconsistency: In German articles, VocabCard examples are written in Polish instead of the target language. In other languages (ES, FR, PT, IT), examples are correctly in the target language. This suggests the German article generation had a different prompt or post-processing issue.",
+    "Deep-content articles (es-argue-phrases, french-meeting-family, de-in-laws, italian-romantic-phrases, pt-makeup-phrases) are substantially better quality than the template-based short articles. They contain genuine cultural insights, grammar explanations, and realistic scenarios. The quality gap between 'short template' articles (~100-120 words) and 'long-form' articles (~500-1200 words) is extreme.",
+    "Pronunciation guides are generally helpful Polish-phonetic approximations rather than IPA, which is appropriate for the audience. However, there are occasional inconsistencies where the same word gets different pronunciations in different contexts within the same article (e.g., Portuguese 'desculpa')."
+  ]
+}

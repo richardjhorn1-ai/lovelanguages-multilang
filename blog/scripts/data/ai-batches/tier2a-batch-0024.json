@@ -1,0 +1,116 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0024",
+  "articles": [
+    {
+      "id": "06413c0a-d89c-45f9-8787-8cf0ee12ac9e",
+      "title": "30+ Græske Komplimenter til Din Partner: Romantiske Fraser",
+      "native_lang": "da",
+      "target_lang": "el",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nKomplimenter er kærlighedens lille daglige vitamin. Et par velvalgte ord på din partners modersmål kan forvandle en almindelig dag til noget særligt. I denne guide finder du over 30 smukke komplimenter på græsk. Kombiner med vores [græske kælenavne](/learn/da/el/greek-pet-names-and-endearments/) for maksimal romantisk effekt!\n\n<PhraseOfDay\n  word=\"You're beautiful\"\n  translation=\"Du er smuk\"\n  pronunciation=\"joor byu-ti-ful\"\n  context=\"En romantisk kompliment på græsk\"\n/>\n\n## Komplimenter om Udseende\n\nDe klassiske komplimenter der får din partner til at føle sig smuk:\n\n<VocabCard\n  word=\"You're beautiful\"\n  translation=\"Du er smuk\"\n  pronunciation=\"joor byu-ti-ful\"\n  example=\"You look beautiful today.\"\n/>\n\n| Græsk | Dansk | Udtale | Bruges til |\n|---------|-------|--------|------------|\n| **You're beautiful** | Du er smuk | joor byu-ti-ful | Kvinder |\n| **You're handsome** | Du er flot | joor han-sam | Mænd |\n| **You're gorgeous** | Du er fantastisk smuk | joor gor-jus | Alle |\n| **You're attractive** | Du er tiltrækkende | joor uh-trak-tiv | Alle |\n| **You're stunning** | Du er betagende | joor stu-ning | Alle |\n\n### Specifikke Komplimenter\n\n- **You have beautiful eyes** (Du har smukke øjne) - \"juu hav byu-ti-ful aiz\"\n- **Your smile is amazing** (Dit smil er fantastisk) - \"joor smail iz uh-mei-zing\"\n- **You look great in that** (Du ser godt ud i det) - \"juu luk greit in dat\"\n- **I love your hair** (Jeg elsker dit hår) - \"ai lav joor hehr\"\n\n<CultureTip flag=\"🇬🇷\" title=\"Komplimentkultur\">\nEnglændere kan være subtile med komplimenter. 'You look nice' er højt ros!\n</CultureTip>\n\n## Komplimenter om Personlighed\n\nDisse komplimenter rører hjertet endnu dybere:\n\n<VocabCard\n  word=\"You're so kind\"\n  translation=\"Du er venlig\"\n  pronunciation=\"joor sou kaind\"\n  example=\"You're so kind to everyone.\"\n/>\n\n| Græsk | Dansk | Udtale |\n|---------|-------|--------|\n| **You're so kind** | Du er venlig | joor sou kaind |\n| **You're smart** | Du er klog | joor smart |\n| **You're funny** | Du er sjov | joor fa-ni |\n| **You're caring** | Du er omsorgsfuld | joor keh-ring |\n| **You're brave** | Du er modig | joor breiv |\n| **You're talented** | Du er talentfuld | joor ta-len-ted |\n\n### Dybere Komplimenter\n\n- **You inspire me** (Du inspirerer mig)\n- **You make me a better person** (Du gør mig til et bedre menneske)\n- **I'm so lucky to have you** (Jeg er så heldig at have dig)\n- **You're amazing** (Du er fantastisk)\n\n## Romantiske Komplimenter\n\n- **I love everything about you** (Jeg elsker alt ved dig) - \"ai lav ev-ri-thing uh-baut juu\"\n- **You're perfect for me** (Du er perfekt for mig) - \"joor pur-fekt for mi\"\n- **You're my dream** (Du er min drøm) - \"joor mai driim\"\n- **You're my everything** (Du er mit alt) - \"joor mai ev-ri-thing\"\n\n<CultureTip flag=\"🇬🇷\" title=\"Timing\">\nGiv komplimenter spontant for størst effekt.\n</CultureTip>\n\n## Hverdagskomplimenter\n\n<VocabCard\n  word=\"Your cooking is amazing\"\n  translation=\"Din mad smager fantastisk\"\n  pronunciation=\"joor ku-king iz uh-mei-zing\"\n  example=\"Your cooking is always so good!\"\n/>\n\n| Situation | Græsk | Dansk |\n|-----------|---------|-------|\n| Madlavning | **Your cooking is amazing** | Din mad smager fantastisk |\n| Arbejde | **You work so hard** | Du arbejder så hårdt |\n| Hjælp | **You're so helpful** | Du er så hjælpsom |\n| Humor | **You always make me laugh** | Du får mig altid til at grine |\n\n## Komplimenter til Specielle Lejligheder\n\n### Til en Date\n- **You look amazing tonight** (Du ser fantastisk ud i aften)\n- **I enjoy every moment with you** (Jeg nyder hvert øjeblik med dig)\n\n### Ved Milepæle\n- **I'm so proud of you** (Jeg er så stolt af dig)\n- **You've done so well** (Du har klaret det så godt)\n\n## Tips til at Give Komplimenter\n\n1. **Vær specifik** - \"Du har smukke øjne\" slår \"Du er pæn\"\n2. **Mén det** - Din partner kan mærke om det er ægte\n3. **Overrask** - Give komplimenter på uventede tidspunkter\n4. **Varier** - Komplimenter ikke altid det samme\n5. **Brug græsk** - Det betyder mere på deres modersmål\n\nFor flere romantiske udtryk, tjek [græske romantiske fraser](/learn/da/el/greek-romantic-phrases-for-every-occasion/).\n\nEn kompliment på græsk er mere end ord – det er en gave af kærlighed.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Komplimenter til Specielle Lejligheder"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "06563736-ce31-4df7-ba35-70bbc3fd7614",
+      "title": "Как извиняться на английском языке: полное руководство",
+      "native_lang": "ru",
+      "target_lang": "en",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nУмение правильно извиняться — важнейший навык для любых отношений. Когда ваш партнёр говорит на английском языке, особенно важно уметь выразить сожаление искренне и грамотно.\n\n<PhraseOfDay\n  word=\"I'm sorry\"\n  translation=\"Мне жаль / Извини\"\n  context=\"Основное выражение для извинения на английском языке\"\n/>\n\n## Почему важно правильно извиняться\n\nВ межкультурных отношениях умение извиняться на языке партнёра показывает вашу заботу и уважение. Это демонстрирует готовность приложить усилия для сохранения гармонии.\n\n## Основные фразы для извинений\n\n<VocabCard\n  word=\"I'm sorry\"\n  translation=\"Мне жаль / Извини\"\n  example=\"I'm sorry for being late.\"\n  exampleTranslation=\"Извини, что опоздал.\"\n/>\n\n<VocabCard\n  word=\"Please forgive me\"\n  translation=\"Пожалуйста, прости меня\"\n  example=\"Please forgive me.\"\n  exampleTranslation=\"Пожалуйста, прости меня.\"\n/>\n\n<CultureTip flag=\"🇬🇧\" title=\"Культурный контекст\">\nВ английском культуре извинения играют важную роль в поддержании отношений. Искренность и тон голоса так же важны, как и сами слова.\n</CultureTip>\n\n## Извинения за конкретные ситуации\n\n### За опоздание\n\nОпоздания случаются, и важно уметь правильно извиниться. Фраза «I'm sorry for being late.» поможет в такой ситуации.\n\n### За ошибку\n\nПризнание своей ошибки — признак зрелости. Используйте фразу «I'm sorry» и объясните, что произошло.\n\n### За причинённую боль\n\nКогда вы обидели партнёра, важно показать, что понимаете его чувства и искренне сожалеете.\n\n## Как просить прощения\n\nИскреннее извинение включает несколько элементов:\n\n1. **Признание ошибки** — скажите, что именно вы сделали неправильно\n2. **Выражение сожаления** — покажите, что вам действительно жаль\n3. **Объяснение** — кратко объясните ситуацию (но не оправдывайтесь)\n4. **Обещание измениться** — покажите готовность исправиться\n\n## Фразы для примирения\n\nПосле извинения покажите, что хотите исправить ситуацию:\n\n| English | Русский |\n|----------|---------|\n| I'm sorry | Мне жаль |\n| Please forgive me | Пожалуйста, прости меня |\n\n## Как принять извинение\n\nКогда партнёр извиняется перед вами, важно также знать, как правильно ответить и показать, что вы готовы простить.\n\n## Практические советы\n\n1. **Будьте искренни** — пустые слова хуже молчания\n2. **Смотрите в глаза** — это показывает вашу честность\n3. **Не оправдывайтесь** — объяснения можно дать позже\n4. **Предложите решение** — покажите готовность исправить ситуацию\n5. **Дайте время** — не требуйте немедленного прощения\n\n<CTA \n  title=\"Практикуйте с партнёром\"\n  description=\"Изучайте английский язык вместе с Love Languages — приложением для пар\"\n/>\n\n## Связанные статьи\n\n- [Выражение эмоций на английском языке](/ru/blog/english-expressing-emotions)\n- [Романтические фразы на английском](/ru/blog/english-romantic-phrases-every-occasion)\n\nПомните: настоящее извинение — это не слабость, а сила. Умение признать свою ошибку делает отношения только крепче.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 287,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Извинения за конкретные ситуации"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "065cca73-a7ab-45c2-905e-6bbcdcd02d25",
+      "title": "Portugisiska Fraser för Svartsjuka och Förtroende",
+      "native_lang": "sv",
+      "target_lang": "pt",
+      "category": "communication",
+      "content": "Svartsjuka, eller \"ciúme\" på portugisiska, är en känsla som kräver öppen kommunikation. Dessa fraser hjälper dig hantera dessa känslor med din portugisisktalande partner.\n\n## Fraser för att Uttrycka Svartsjuka\n\n### 1. \"Me sinto inseguro/a quando...\"\n**Uttal:** meh seen-too een-seh-goo-roo/a kwan-doo\n\n**Betydelse:** Jag känner mig osäker när...\n\n### 2. \"Você pode me ajudar a entender sua relação com...?\"\n**Uttal:** voh-seh po-deh meh a-zhoo-dar a en-ten-der soo-a reh-la-sow kon\n\n**Betydelse:** Kan du hjälpa mig förstå din relation med...?\n\n### 3. \"Confio em você, mas estou lutando com meus sentimentos\"\n**Uttal:** kon-fee-oo en voh-seh mas es-toh loo-tan-doo kon meh-oos sen-tee-men-toos\n\n**Betydelse:** Jag litar på dig, men jag kämpar med mina känslor\n\n### 4. \"Preciso que você me tranquilize\"\n**Uttal:** preh-see-zoo keh voh-seh meh tran-kwee-lee-zeh\n\n**Betydelse:** Jag behöver att du lugnar mig\n\n### 5. \"Me incomoda quando...\"\n**Uttal:** meh een-ko-mo-da kwan-doo\n\n**Betydelse:** Det stör mig när...\n\n## Fraser för att Bygga Förtroende\n\n### 6. \"Só tenho olhos para você\"\n**Uttal:** soh ten-yoo o-lyoos pa-ra voh-seh\n\n**Betydelse:** Jag har bara ögon för dig\n\n### 7. \"Você é a única pessoa para mim\"\n**Uttal:** voh-seh eh a oo-nee-ka peh-so-a pa-ra meem\n\n**Betydelse:** Du är den enda personen för mig\n\n### 8. \"Eu nunca faria nada para te machucar\"\n**Uttal:** eh-oo noon-ka fa-ree-a na-da pa-ra teh ma-shoo-kar\n\n**Betydelse:** Jag skulle aldrig göra något för att såra dig\n\n### 9. \"Vamos ser sinceros um com o outro\"\n**Uttal:** va-moos ser seen-seh-roos oom kon oo oh-troo\n\n**Betydelse:** Låt oss vara ärliga mot varandra\n\n### 10. \"Quero que você conheça meus amigos\"\n**Uttal:** keh-roo keh voh-seh koh-nyeh-sa meh-oos a-mee-goos\n\n**Betydelse:** Jag vill att du träffar mina vänner\n\n### 11. \"Você não tem com o que se preocupar\"\n**Uttal:** voh-seh now ten kon oo keh seh preh-o-koo-par\n\n**Betydelse:** Du har inget att oroa dig för\n\n### 12. \"Eu escolho você todos os dias\"\n**Uttal:** eh-oo es-ko-lyoo voh-seh to-doos oos dee-as\n\n**Betydelse:** Jag väljer dig varje dag\n\n## Kulturella Tips\n\nI portugisisk kultur värderas lojalitet och familj högt. Öppen kommunikation om känslor uppskattas, och värme i relationer är centralt.\n\n## Avslutande Tankar\n\nMed dessa fraser kan du kommunicera öppet om svartsjuka och bygga förtroende med din portugisisktalande partner.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Fraser för att Uttrycka Svartsjuka",
+              "## Fraser för att Bygga Förtroende"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "0665eb6b-a6fc-4f7d-952a-74527c1be479",
+      "title": "Brasilianisches vs. Europäisches Portugiesisch",
+      "native_lang": "de",
+      "target_lang": "pt",
+      "category": "culture",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport ConjugationTable from '@components/ConjugationTable.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\n# Brasilianisches vs. Europäisches Portugiesisch\n\nWie Deutsch in Deutschland, Österreich und der Schweiz hat auch Portugiesisch regionale Varianten. Die Unterschiede zwischen Brasilien und Portugal sind jedoch oft größer als viele erwarten.\n\n## Die Ausspracheunterschiede\n\n<PhraseOfDay\n  verb=\"Aussprache\"\n  meaning=\"Der auffälligste Unterschied zwischen den Varianten\"\n  pronunciation=\"Europäisches PT = geschlossener, Brasilianisches PT = offener\"\n  context=\"Brasilianer sprechen jeden Vokal deutlich aus, Portugiesen 'verschlucken' unbetonte Vokale\"\n/>\n\n<VocabCard\n  verb=\"Telefone (Brasilien)\"\n  meaning=\"Telefon\"\n  pronunciation=\"te-le-FO-nee (alle Vokale deutlich)\"\n  example=\"Brasilianische Aussprache ist für Anfänger oft leichter zu verstehen.\"\n/>\n\n<VocabCard\n  verb=\"Telefone (Portugal)\"\n  meaning=\"Telefon\"\n  pronunciation=\"tleh-FON (Vokale verkürzt)\"\n  example=\"Europäisches Portugiesisch klingt oft 'verschluckter'.\"\n/>\n\n<CultureTip\n  title=\"Tipp für deutsche Lerner\"\n  flag=\"🇩🇪\"\n>\n  Viele Deutsche finden brasilianisches Portugiesisch anfangs leichter zu verstehen, da alle Silben klar ausgesprochen werden. Europäisches Portugiesisch klingt manchmal wie \"Russisch\" - eine Überraschung für viele!\n</CultureTip>\n\n## Das \"R\" - Der größte Unterschied\n\n<VocabCard\n  verb=\"Rio (Brasilien)\"\n  meaning=\"Fluss / Rio de Janeiro\"\n  pronunciation=\"HEE-oo (wie deutsches H)\"\n  example=\"Das R am Wortanfang wird in Brasilien wie H ausgesprochen.\"\n/>\n\n<VocabCard\n  verb=\"Rio (Portugal)\"\n  meaning=\"Fluss\"\n  pronunciation=\"RREE-oo (gerolltes R)\"\n  example=\"In Portugal wird das R ähnlich wie im Spanischen gerollt.\"\n/>\n\n## Pronomen und Anredeformen\n\n| Konzept | Brasilien | Portugal |\n|---------|-----------|----------|\n| Du (informell) | você | tu |\n| Sie (formell) | o senhor/a senhora | o senhor/a senhora |\n| Wir (umgangssprach.) | a gente | nós |\n\n<VocabCard\n  verb=\"Você quer café? (Brasilien)\"\n  meaning=\"Möchtest du Kaffee?\"\n  pronunciation=\"Vo-seh kehr ka-feh?\"\n  example=\"'Você' ist in Brasilien die Standard-Anrede für fast alle Situationen.\"\n/>\n\n<VocabCard\n  verb=\"Tu queres café? (Portugal)\"\n  meaning=\"Möchtest du Kaffee?\"\n  pronunciation=\"Tu keh-resh ka-feh?\"\n  example=\"In Portugal ist 'tu' unter Freunden und Familie üblich.\"\n/>\n\n## Vokabularunterschiede\n\n<ConjugationTable\n  verb=\"Unterschiedliche Wörter\"\n  meaning=\"Brasilien vs. Portugal\"\n  conjugations={[\n    { person: \"Bus\", word: \"ônibus / autocarro\" },\n    { person: \"Zug\", word: \"trem / comboio\" },\n    { person: \"Handy\", word: \"celular / telemóvel\" },\n    { person: \"Badezimmer\", word: \"banheiro / casa de banho\" },\n    { person: \"Frühstück\", word: \"café da manhã / pequeno-almoço\" },\n    { person: \"Eis\", word: \"sorvete / gelado\" }\n  ]}\n/>\n\n<VocabCard\n  verb=\"Onde fica o banheiro? (Brasilien)\"\n  meaning=\"Wo ist die Toilette?\"\n  pronunciation=\"On-dschee fee-ka oo ba-nyey-roo?\"\n  example=\"In Brasilien sagt man 'banheiro' für Toilette/Badezimmer.\"\n/>\n\n<VocabCard\n  verb=\"Onde fica a casa de banho? (Portugal)\"\n  meaning=\"Wo ist die Toilette?\"\n  pronunciation=\"On-dschee fee-ka a ka-za dschee ba-nyoo?\"\n  example=\"In Portugal verwendet man 'casa de banho'.\"\n/>\n\n## Grammatikalische Unterschiede\n\n### Pronomenstellung\n\n<VocabCard\n  verb=\"Me dá um beijo (Brasilien)\"\n  meaning=\"Gib mir einen Kuss\"\n  pronunciation=\"Mee da ung bey-schoo\"\n  example=\"In Brasilien steht das Pronomen oft am Satzanfang (eigentlich grammatisch 'falsch').\"\n/>\n\n<VocabCard\n  verb=\"Dá-me um beijo (Portugal)\"\n  meaning=\"Gib mir einen Kuss\"\n  pronunciation=\"Da-mee ung bey-schoo\"\n  example=\"In Portugal folgt das Pronomen dem Verb (klassische Regel).\"\n/>\n\n### Gerundium vs. Infinitiv\n\n<VocabCard\n  verb=\"Estou lendo (Brasilien)\"\n  meaning=\"Ich lese gerade\"\n  pronunciation=\"Esh-toh len-doo\"\n  example=\"Brasilien verwendet das Gerundium (-ndo) wie im Englischen/Spanischen.\"\n/>\n\n<VocabCard\n  verb=\"Estou a ler (Portugal)\"\n  meaning=\"Ich lese gerade\"\n  pronunciation=\"Esh-toh a lehr\"\n  example=\"Portugal verwendet 'estar a + Infinitiv' für die Verlaufsform.\"\n/>\n\n<CultureTip\n  title=\"Welche Variante lernen?\"\n  flag=\"🇧🇷\"\n>\n  Wenn Ihr Partner aus Brasilien kommt, lernen Sie brasilianisches Portugiesisch - und umgekehrt. Beide Varianten sind zu 90% identisch, und Sie werden beide verstehen, sobald Sie sich eingehört haben. Es ist wie Hochdeutsch und Schweizerdeutsch!\n</CultureTip>\n\n## Kulturelle Unterschiede in der Kommunikation\n\nBrasilianer kommunizieren generell offener und direkter emotional, während Portugiesen oft etwas reservierter sind - ähnlich wie der Unterschied zwischen Norddeutschen und Süddeutschen.\n\n<CTA\n  text=\"Lernen Sie die Variante, die zu Ihrer Beziehung passt\"\n  buttonText=\"Mit Love Languages starten\"\n/>\n",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 121,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Grammatikalische Unterschiede"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "066a8693-6cfe-49e3-9223-54c014c09adc",
+      "title": "Französische Phrasen für die Schwiegereltern",
+      "native_lang": "de",
+      "target_lang": "fr",
+      "category": "communication",
+      "content": "Das Kennenlernen der französischen Schwiegereltern (\"beaux-parents\") erfordert Eleganz und gute Manieren. Hier lernst du die wichtigsten Phrasen.\n\n## Erste Begegnung\n\n### \"C'est un plaisir de vous rencontrer enfin\"\n**Bedeutung:** Es ist mir eine Freude, Sie endlich kennenzulernen\n\n### \"J'ai beaucoup entendu parler de vous\"\n**Bedeutung:** Ich habe viel von Ihnen gehört\n\n### \"Merci de m'accueillir chez vous\"\n**Bedeutung:** Danke, dass Sie mich bei sich aufnehmen\n\n### \"Votre maison est magnifique\"\n**Bedeutung:** Ihr Haus ist wunderschön\n\n## Höfliche Konversation\n\n### \"Comment allez-vous?\"\n**Bedeutung:** Wie geht es Ihnen?\n\n### \"J'aimerais en savoir plus sur...\"\n**Bedeutung:** Ich würde gerne mehr über... erfahren\n\n### \"C'est vraiment intéressant\"\n**Bedeutung:** Das ist wirklich interessant\n\n## Bei Mahlzeiten\n\n### \"C'est délicieux! Puis-je avoir la recette?\"\n**Bedeutung:** Das ist köstlich! Darf ich das Rezept haben?\n\n### \"Tout a l'air merveilleux\"\n**Bedeutung:** Alles sieht wunderbar aus\n\n### \"Merci pour ce repas délicieux\"\n**Bedeutung:** Danke für dieses köstliche Essen\n\n### \"Puis-je vous aider en quelque chose?\"\n**Bedeutung:** Kann ich Ihnen irgendwie helfen?\n\n## Über Ihre Beziehung\n\n### \"Votre fils/fille compte énormément pour moi\"\n**Bedeutung:** Ihr Sohn/Ihre Tochter bedeutet mir sehr viel\n\n### \"Je suis très reconnaissant(e) d'avoir [Name] dans ma vie\"\n**Bedeutung:** Ich bin sehr dankbar, [Name] in meinem Leben zu haben\n\n### \"Je promets de toujours prendre soin de [Name]\"\n**Bedeutung:** Ich verspreche, immer auf [Name] aufzupassen\n\n### \"Nous nous rendons très heureux l'un l'autre\"\n**Bedeutung:** Wir machen uns gegenseitig sehr glücklich\n\n## Dankbarkeit zeigen\n\n### \"Merci d'avoir élevé une personne si merveilleuse\"\n**Bedeutung:** Danke, dass Sie so eine wunderbare Person großgezogen haben\n\n### \"J'apprécie vraiment votre accueil chaleureux\"\n**Bedeutung:** Ich schätze Ihren herzlichen Empfang sehr\n\n### \"Vous m'avez fait sentir si bienvenu(e)\"\n**Bedeutung:** Sie haben mir das Gefühl gegeben, so willkommen zu sein\n\n## Kulturelle Tipps\n\n- **Anrede**: \"Vous\" (höfliche Form) verwenden, bis sie das \"tu\" anbieten.\n- **Begrüßung**: \"La bise\" (Wangenkuss) ist üblich – die Anzahl variiert je nach Region.\n- **Gastgeschenke**: Wein, Blumen oder Pralinen sind angemessen.\n- **Tischmanieren**: Hände auf dem Tisch, nicht auf dem Schoß.\n- **Essen**: Franzosen nehmen Essen ernst – zeigen Sie Wertschätzung!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Erste Begegnung",
+              "## Höfliche Konversation",
+              "## Bei Mahlzeiten",
+              "## Über Ihre Beziehung",
+              "## Dankbarkeit zeigen"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,180 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0502",
+  "articles": [
+    {
+      "id": "916c684d-678b-4d26-a38d-a889be0e3841",
+      "title": "En Yaygın 100 Lehçe Kelime",
+      "native_lang": "tr",
+      "target_lang": "pl",
+      "category": "communication",
+      "content": "Lehçe öğrenmeye başlarken en yaygın kelimeleri bilmek önemlidir.\n\n## Temel Zamirler\n\n### 1. Ja /ya/ - Ben\n### 2. Ty /tı/ - Sen\n### 3. On /on/ - O (erkek)\n### 4. Ona /ona/ - O (kadın)\n### 5. My /mı/ - Biz\n### 6. Wy /vı/ - Siz\n### 7. Oni/One /oni/one/ - Onlar\n\n### 8. I /i/ - Ve\n### 9. Ale /ale/ - Ama\n### 10. Lub /lub/ - Veya\n\n## Temel Fiiller\n\n### 11. Być /bıç/ - Olmak\n### 12. Mieć /myeç/ - Sahip olmak\n### 13. Robić /robiç/ - Yapmak\n### 14. Mówić /muviç/ - Söylemek\n### 15. Iść /işç/ - Gitmek\n### 16. Przyjść /pşıyşç/ - Gelmek\n### 17. Móc /muç/ - Yapabilmek\n### 18. Wiedzieć /vyedjeç/ - Bilmek\n### 19. Chcieć /hçeç/ - İstemek\n### 20. Widzieć /vidjeç/ - Görmek\n\n## Sıfatlar\n\n### 21. Dobry /dobrı/ - İyi\n### 22. Zły /zwı/ - Kötü\n### 23. Duży /dujı/ - Büyük\n### 24. Mały /mauı/ - Küçük\n### 25. Nowy /novı/ - Yeni\n### 26. Stary /starı/ - Eski/yaşlı\n### 27. Długi /duugi/ - Uzun\n### 28. Krótki /krutki/ - Kısa\n### 29. Gorący /gorontsı/ - Sıcak\n### 30. Zimny /jimnı/ - Soğuk\n\n## Zaman İfadeleri\n\n### 31. Teraz /teraz/ - Şimdi\n### 32. Dzisiaj /djişay/ - Bugün\n### 33. Jutro /yutro/ - Yarın\n### 34. Wczoraj /fçoray/ - Dün\n### 35. Zawsze /zavşe/ - Her zaman\n### 36. Nigdy /nigdı/ - Asla\n### 37. Czasami /çasami/ - Bazen\n\n## Soru Kelimeleri\n\n### 38. Co /tso/ - Ne\n### 39. Gdzie /gdje/ - Nerede\n### 40. Kiedy /kyedı/ - Ne zaman\n### 41. Dlaczego /dlaçego/ - Neden\n### 42. Jak /yak/ - Nasıl\n### 43. Kto /kto/ - Kim\n\n## Sayılar\n\n### 44. Jeden /yeden/ - Bir\n### 45. Dwa /dva/ - İki\n### 46. Trzy /tşı/ - Üç\n### 47. Cztery /çterı/ - Dört\n### 48. Pięć /pyenç/ - Beş\n### 49. Dziesięć /djeşenç/ - On\n### 50. Sto /sto/ - Yüz\n\n## Günlük Kelimeler\n\n### 51. Tak /tak/ - Evet\n### 52. Nie /nye/ - Hayır\n### 53. Proszę /proşe/ - Lütfen\n### 54. Dziękuję /djenkulye/ - Teşekkürler\n### 55. Przepraszam /pşepraşam/ - Özür dilerim\n### 56. Cześć /çeşç/ - Merhaba\n### 57. Do widzenia /do vidzenia/ - Hoşça kal\n### 58. Miłość /miuoşç/ - Aşk\n### 59. Przyjaciel /pşıyaçel/ - Arkadaş\n### 60. Rodzina /rodzina/ - Aile\n\nBu kelimeleri öğrenmek Lehçe iletişiminizi güçlendirecektir.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Temel Zamirler",
+              "### 1. Ja /ya/ - Ben",
+              "### 2. Ty /tı/ - Sen",
+              "### 3. On /on/ - O (erkek)",
+              "### 4. Ona /ona/ - O (kadın)",
+              "### 5. My /mı/ - Biz",
+              "### 6. Wy /vı/ - Siz",
+              "### 7. Oni/One /oni/one/ - Onlar",
+              "### 8. I /i/ - Ve",
+              "### 9. Ale /ale/ - Ama",
+              "### 10. Lub /lub/ - Veya",
+              "## Temel Fiiller",
+              "### 11. Być /bıç/ - Olmak",
+              "### 12. Mieć /myeç/ - Sahip olmak",
+              "### 13. Robić /robiç/ - Yapmak",
+              "### 14. Mówić /muviç/ - Söylemek",
+              "### 15. Iść /işç/ - Gitmek",
+              "### 16. Przyjść /pşıyşç/ - Gelmek",
+              "### 17. Móc /muç/ - Yapabilmek",
+              "### 18. Wiedzieć /vyedjeç/ - Bilmek",
+              "### 19. Chcieć /hçeç/ - İstemek",
+              "### 20. Widzieć /vidjeç/ - Görmek",
+              "## Sıfatlar",
+              "### 21. Dobry /dobrı/ - İyi",
+              "### 22. Zły /zwı/ - Kötü",
+              "### 23. Duży /dujı/ - Büyük",
+              "### 24. Mały /mauı/ - Küçük",
+              "### 25. Nowy /novı/ - Yeni",
+              "### 26. Stary /starı/ - Eski/yaşlı",
+              "### 27. Długi /duugi/ - Uzun",
+              "### 28. Krótki /krutki/ - Kısa",
+              "### 29. Gorący /gorontsı/ - Sıcak",
+              "### 30. Zimny /jimnı/ - Soğuk",
+              "## Zaman İfadeleri",
+              "### 31. Teraz /teraz/ - Şimdi",
+              "### 32. Dzisiaj /djişay/ - Bugün",
+              "### 33. Jutro /yutro/ - Yarın",
+              "### 34. Wczoraj /fçoray/ - Dün",
+              "### 35. Zawsze /zavşe/ - Her zaman",
+              "### 36. Nigdy /nigdı/ - Asla",
+              "### 37. Czasami /çasami/ - Bazen",
+              "## Soru Kelimeleri",
+              "### 38. Co /tso/ - Ne",
+              "### 39. Gdzie /gdje/ - Nerede",
+              "### 40. Kiedy /kyedı/ - Ne zaman",
+              "### 41. Dlaczego /dlaçego/ - Neden",
+              "### 42. Jak /yak/ - Nasıl",
+              "### 43. Kto /kto/ - Kim",
+              "## Sayılar",
+              "### 44. Jeden /yeden/ - Bir",
+              "### 45. Dwa /dva/ - İki",
+              "### 46. Trzy /tşı/ - Üç",
+              "### 47. Cztery /çterı/ - Dört",
+              "### 48. Pięć /pyenç/ - Beş",
+              "### 49. Dziesięć /djeşenç/ - On",
+              "### 50. Sto /sto/ - Yüz",
+              "## Günlük Kelimeler",
+              "### 51. Tak /tak/ - Evet",
+              "### 52. Nie /nye/ - Hayır",
+              "### 53. Proszę /proşe/ - Lütfen",
+              "### 54. Dziękuję /djenkulye/ - Teşekkürler",
+              "### 55. Przepraszam /pşepraşam/ - Özür dilerim",
+              "### 56. Cześć /çeşç/ - Merhaba",
+              "### 57. Do widzenia /do vidzenia/ - Hoşça kal",
+              "### 58. Miłość /miuoşç/ - Aşk",
+              "### 59. Przyjaciel /pşıyaçel/ - Arkadaş"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "91700813-0574-43ef-bd12-1eebb77b84b1",
+      "title": "Переїзд разом: данською слова для спільного життя",
+      "native_lang": "uk",
+      "target_lang": "da",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport CTA from '@components/CTA.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\n\n# Переїзд разом: данські слова для спільного життя\n\nПереїзд до спільного дому — це великий крок у стосунках! Якщо ви плануєте жити з партнером, який розмовляє данською, ця стаття допоможе вам комунікувати про дім та побут.\n\n<PhraseOfDay\n  phrase=\"Let's move in together!\"\n  translation=\"Давай жити разом!\"\n  context=\"Пропозиція спільного життя\"\n/>\n\n## Основна лексика\n\n\n\n## Обговорення переїзду\n\n### Як запропонувати спільне життя данською\n\n1. \"Давай жити разом!\" — пряма пропозиція\n2. \"Я хочу прокидатися поруч з тобою кожен день\" — романтичний варіант\n3. \"Готовий/готова до наступного кроку?\" — обережний підхід\n\n<CultureTip>\nСтавлення до спільного життя до шлюбу відрізняється в різних культурах. Обговоріть це з партнером та його родиною, якщо це важливо для них.\n</CultureTip>\n\n## Пошук житла\n\n### Лексика для оренди/покупки\n\n| Данська | Українська |\n|----------------|------------|\n| Apartment | Квартира |\n| House | Будинок |\n| Rent | Орендна плата |\n| Deposit | Депозит |\n| Landlord | Орендодавець |\n| Lease | Договір оренди |\n\n### Кімнати в домі\n\n- Спальня\n- Кухня\n- Вітальня\n- Ванна кімната\n- Балкон\n- Гараж\n\n## Меблі та предмети побуту\n\n### У спальні\n- Ліжко\n- Шафа\n- Комод\n- Тумбочка\n- Дзеркало\n\n### На кухні\n- Холодильник\n- Плита\n- Мікрохвильовка\n- Посуд\n- Столові прибори\n\n### У вітальні\n- Диван\n- Телевізор\n- Книжкова полиця\n- Столик\n- Килим\n\n<CultureTip>\nОбговорення фінансів — важлива частина спільного життя. Дізнайтеся данські слова для розмови про бюджет, рахунки та витрати.\n</CultureTip>\n\n## Розподіл обов'язків\n\n### Домашні справи данською\n\n- Прибирання\n- Прання\n- Приготування їжі\n- Миття посуду\n- Покупки продуктів\n- Вивезення сміття\n\n### Як обговорити обов'язки\n\n1. \"Як ми розподілимо домашні справи?\"\n2. \"Я можу готувати, а ти прибирати?\"\n3. \"Давай складемо графік\"\n\n## Перший вечір у спільному домі\n\nТрадиції новосілля різні в різних культурах. Ось ідеї:\n\n1. **Романтична вечеря вдома** — приготуйте разом\n2. **Запрошення друзів** — маленьке свято\n3. **Спокійний вечір** — просто насолодіться моментом\n\n## Вирішення конфліктів\n\nСпільне життя потребує компромісів. Корисні фрази:\n\n- \"Давай обговоримо це спокійно\"\n- \"Як ми можемо вирішити це разом?\"\n- \"Мені важлива твоя думка\"\n- \"Пробачте, якщо я щось зробив не так\"\n\n## Продовжуйте вивчення\n\nТепер ви готові до спільного життя данською! Вивчайте більше:\n\n- [Данська побутова лексика](/uk/blog/danish-date-night-vocabulary)\n- [Данська фрази для пар](/uk/blog/danish-essential-phrases-for-couples)\n\n<CTA \n  text=\"Вивчайте данськау для спільного життя з коханою людиною!\"\n  buttonText=\"Почати безкоштовно\"\n  href=\"/uk/learn/da\"\n/>",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Основна лексика",
+              "## Обговорення переїзду",
+              "## Пошук житла",
+              "## Меблі та предмети побуту",
+              "## Розподіл обов'язків"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "9175d217-b007-48af-96e4-2c07b52f8bac",
+      "title": "Італійська vs англійська: ключові відмінності для українців",
+      "native_lang": "uk",
+      "target_lang": "it",
+      "category": "grammar",
+      "content": "\n# Італійська vs англійська: ключові відмінності для українців\n\nЯкщо ви вже знаєте англійську, італійська може здатися і легшою, і складнішою. Розглянемо основні відмінності та що буде простіше для українців.\n\n## Вимова\n\n### Італійська — фонетична мова\nСлова читаються так, як пишуться. На відміну від англійської з її непередбачуваною вимовою.\n\n| Англійська | Вимова | Італійська | Вимова |\n|-----------|--------|-----------|--------|\n| through | θruː | attraverso | аттраверсо |\n| enough | ɪˈnʌf | abbastanza | аббастанца |\n| beautiful | ˈbjuːtɪfl | bello | белло |\n\n**Для українців:** Італійська вимова НАБАГАТО легша, бо схожа на українську — що бачиш, те й читаєш.\n\n## Артиклі\n\n### Англійська\n- a / an (неозначений)\n- the (означений)\n\n### Італійська\n- un / uno / una / un' (неозначені)\n- il / lo / la / l' / i / gli / le (означені)\n\n**Для українців:** В українській артиклів немає, тому обидві мови вимагають звикання. Але італійські артиклі більш логічні — вони узгоджуються з родом та числом.\n\n## Рід іменників\n\n| | Англійська | Італійська | Українська |\n|--|-----------|-----------|------------|\n| Роди | немає | 2 (ч, ж) | 3 (ч, ж, с) |\n\n**Приклади:**\n- table (без роду) → **la** tavola (ж.р.) → стіл (ч.р.)\n- book (без роду) → **il** libro (ч.р.) → книга (ж.р.)\n\n**Для українців:** Ми вже звикли до родів, тому італійська система здається природною.\n\n## Дієвідміни\n\n### Англійська — мінімальні зміни\n- I speak, you speak, he speak**s**, we speak\n\n### Італійська — повна система закінчень\n- io parl**o**, tu parl**i**, lui parl**a**, noi parl**iamo**\n\n**Для українців:** Схоже на українську! Ми теж змінюємо дієслова: говор**ю**, говор**иш**, говор**ить**.\n\n## Займенники\n\n### Англійська вимагає займенників\n- **I** am happy\n- **She** speaks Italian\n\n### Італійська дозволяє пропускати\n- Sono felice (без \"io\")\n- Parla italiano (без \"lei\")\n\n**Для українців:** Як в українській! Ми теж кажемо \"Іду\" без \"Я\".\n\n## Порядок слів\n\n### Англійська — фіксований\n- Subject + Verb + Object\n- She reads **a book**\n\n### Італійська — гнучкий\n- Можна: Lei legge **un libro**\n- Або: **Un libro** legge lei (для емфази)\n\n| Структура | Англійська | Італійська |\n|-----------|-----------|-----------|\n| Питання | **Do** you speak...? | Parli...? (інтонація) |\n| Заперечення | I **do not** speak | **Non** parlo |\n\n**Для українців:** Італійська гнучкість схожа на українську.\n\n## Часи\n\n| | Англійська | Італійська |\n|--|-----------|-----------|\n| Теперішні | 4 (Simple, Continuous, Perfect, Perfect Continuous) | 2 |\n| Минулі | 4 | 5 |\n| Майбутні | 4 | 2 |\n\n**Італійська має:**\n- Менше теперішніх часів\n- Більше минулих (passato prossimo, imperfetto, passato remoto...)\n\n**Для українців:** Італійські минулі часи нагадують наші доконані/недоконані дієслова.\n\n## Прикметники\n\n### Англійська\n- Завжди перед іменником\n- Не змінюються: beautiful girl, beautiful boy\n\n### Італійська\n- Зазвичай після іменника\n- Узгоджуються: ragazza bell**a**, ragazzo bell**o**\n\n**Для українців:** Схоже на українську — красив**а** дівчина, красив**ий** хлопець.\n\n## Що легше для українців?\n\n| Аспект | Легше |\n|--------|-------|\n| Вимова | Італійська ✅ |\n| Дієвідміни | Італійська ✅ |\n| Порядок слів | Італійська ✅ |\n| Прикметники | Італійська ✅ |\n| Артиклі | Однаково складно |\n| Часи | Англійська (менше форм) |\n\n## Висновок\n\nДля українців італійська часто легша за англійську завдяки:\n- Фонетичному письму\n- Граматичним категоріям роду та числа\n- Системі дієвідмін\n- Гнучкому порядку слів\n\nЯкщо ви вже знаєте англійську — чудово! Багато слів схожі (латинське походження). Але граматично італійська буде інтуїтивно зрозумілішою.\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Вимова",
+              "## Артиклі",
+              "## Дієвідміни",
+              "## Займенники",
+              "## Порядок слів",
+              "## Прикметники"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "919b8983-afda-42cb-a3c6-b624637f75d9",
+      "title": "Cseh évfordulós kívánságok és üzenetek",
+      "native_lang": "hu",
+      "target_lang": "cs",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nAz évforduló a kapcsolatotok ünneplésének különleges alkalma. Ha csehul szeretnéd kifejezni az érzéseidet ezen a napon, ezek a kifejezések segítenek.\n\nTovábbi romantikus kifejezésekért nézd meg az [Cseh romantikus kifejezések](/learn/hu/cs/czech-romantic-phrases-for-every-occasion) útmutatónkat.\n\n<PhraseOfDay\n  word=\"Gratuluju!\"\n  translation=\"Gratulálok!\"\n  pronunciation=\"ˈɡratʊlʊjʊ\"\n  context=\"Az esküvői köszöntés alapja.\"\n/>\n\n## Alapvető szókincs\n\nAz évfordulós köszöntések alapvető cseh szókincse:\n\n<VocabCard\n  word=\"svatba\"\n  translation=\"esküvő\"\n  pronunciation=\"ˈsvatba\"\n  example=\"Svatba byla krásná.\"\n/>\n\n| Cseh | Magyar | Használat |\n|---|---|---|\n| nevěsta | menyasszony | A nő |\n| ženich | vőlegény | A férfi |\n| sliby | fogadalmak | Esküvői ígéretek |\n| obřad | szertartás | A hivatalos rész |\n| recepce | fogadás | Az ünneplés |\n| přípitek | köszöntő | Pohárköszöntő |\n\n<CultureTip flag=\"🌍\" title=\"Cseh kulturális tippek\">\nA cseh kultúrában az évfordulóknak különleges jelentőségük van. Egyes helyeken hagyományos ajándékokat adnak az évek számától függően.\n</CultureTip>\n\n## Hasznos kifejezések\n\n### Évfordulós köszöntések\n\nAz évforduló napján mondd:\n\n- **Gratuluju!** - Gratulálok!\n- **Minden nap jobban szeretlek** - Romantikus vallomás\n- **Köszönöm, hogy velem vagy** - Hálás szavak\n\n### Hosszabb üzenetek\nHa többet szeretnél mondani:\n\n- **Veled minden nap különleges** - Romantikus\n- **A legjobb döntés volt, hogy igentet mondtam** - Visszatekintő\n\n<VocabCard\n  word=\"líbánky\"\n  translation=\"nászút\"\n  pronunciation=\"ˈliːbaːŋkɪ\"\n  example=\"Jeli na líbánky.\"\n/>\n\n## Gyakorlati helyzetek\n\n| Helyzet | Mit mondj |\n|---|---|\n| Reggeli köszöntés | Boldog évfordulót kívánok! |\n| Kártyára | Írj személyes üzenetet |\n| Vacsoránál | Mondj köszöntőt |\n| Lefekvés előtt | Fejezd ki a háládat |\n\n<CultureTip flag=\"💡\" title=\"Hasznos tipp\">\nÍrd le előre, amit mondani szeretnél. Az évforduló érzelmes pillanat, és a leírt szavak segítenek, hogy ne felejtsd el, amit mondani akarsz.\n</CultureTip>\n\n## Összefoglaló táblázat\n\n| Helyzet | Cseh kifejezés |\n|---|---|\n| Gratuláció | Gratuluju! |\n| Az esemény | svatba |\n| A nő | nevěsta |\n| A férfi | ženich |\n| Esküvői ígéretek | sliby |\n\n## További tanulás\n\nHa tovább szeretnéd fejleszteni a cseh nyelvtudásod, nézd meg ezeket a cikkeinket:\n\n- [Cseh romantikus kifejezések minden alkalomra](/learn/hu/cs/czech-romantic-phrases-for-every-occasion)\n- [Hogyan mondd: Szeretlek csehul](/learn/hu/cs/czech-how-to-say-i-love-you)\n- [Cseh alapvető kifejezések pároknak](/learn/hu/cs/czech-essential-phrases-for-couples)\n\nEzek a források segítenek elmélyíteni a tudásod és magabiztosabbá válni a cseh nyelvben.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 272,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Hasznos kifejezések"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "91b09d90-0406-4ad2-847b-14a204541e1d",
+      "title": "Frases en Sueco para Reconciliarte con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "sv",
+      "category": "communication",
+      "content": "Los suecos prefieren reconciliaciones tranquilas y sinceras. Si tu pareja es sueca, estas frases te ayudarán a hacer las paces de manera efectiva.\n\n## La Reconciliación en Suecia\n\nEn Suecia se valora la calma y la reflexión. Las reconciliaciones son momentos para reconectar con tranquilidad.\n\n## Frases para Pedir Disculpas\n\n### \"Förlåt för vad jag sa\"\n**Pronunciación:** för-LOT för vad yag sa\n\n**Significado:** Perdona por lo que dije\n\nDisculpa sincera.\n\n### \"Jag ville inte såra dig\"\n**Pronunciación:** Yag VI-le IN-te SO-ra dey\n\n**Significado:** No quería herirte\n\nAclara intenciones.\n\n### \"Kan vi börja om?\"\n**Pronunciación:** Kan vi BÖR-ya om\n\n**Significado:** ¿Podemos empezar de nuevo?\n\nNuevo comienzo.\n\n### \"Jag hade fel\"\n**Pronunciación:** Yag HA-de fel\n\n**Significado:** Estuve mal\n\nAdmitir error.\n\n## Frases para Expresar Amor\n\n### \"Jag älskar dig, även när vi bråkar\"\n**Pronunciación:** Yag ELS-kar dey E-ven ner vi BRO-kar\n\n**Significado:** Te amo, incluso cuando discutimos\n\nReafirma amor.\n\n### \"Du betyder allt för mig\"\n**Pronunciación:** Du be-TI-der alt för mey\n\n**Significado:** Significas todo para mí\n\nImportancia de la pareja.\n\n### \"Jag hatar att bråka med dig\"\n**Pronunciación:** Yag HA-tar at BRO-ka med dey\n\n**Significado:** Odio discutir contigo\n\nPrefieres armonía.\n\n## Frases para Reconstruir\n\n### \"Låt oss prata lugnt\"\n**Pronunciación:** Lot os PRA-ta lungnt\n\n**Significado:** Hablemos con calma\n\nConversación tranquila.\n\n### \"Jag vill förstå dig bättre\"\n**Pronunciación:** Yag vil för-STO dey BE-tre\n\n**Significado:** Quiero entenderte mejor\n\nDisposición.\n\n### \"Vad kan jag göra för att rätta till det?\"\n**Pronunciación:** Vad kan yag YÖ-ra för at RE-ta til de\n\n**Significado:** ¿Qué puedo hacer para arreglarlo?\n\nOfrece reparar.\n\n### \"Jag lovar att anstränga mig mer\"\n**Pronunciación:** Yag LO-var at an-STRENG-a mey mer\n\n**Significado:** Prometo esforzarme más\n\nCompromiso.\n\n### \"Får jag krama dig?\"\n**Pronunciación:** For yag KRA-ma dey\n\n**Significado:** ¿Puedo abrazarte?\n\nContacto físico.\n\n## Conclusión\n\nLa calma y la sinceridad son clave con una pareja sueca. Estas frases te ayudarán a reconciliarte efectivamente.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frases para Pedir Disculpas",
+              "## Frases para Expresar Amor",
+              "## Frases para Reconstruir"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

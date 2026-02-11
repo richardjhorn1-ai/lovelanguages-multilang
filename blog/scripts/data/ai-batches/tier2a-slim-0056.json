@@ -1,0 +1,497 @@
+{
+  "batchId": "tier2a-slim-0056",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "4f8eb458-0b22-4370-93df-1af3f309e291",
+      "title": "Румунські фрази для примирення після сварки",
+      "native_lang": "uk",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Щирі вибачення",
+          "subsections": [
+            "### \"Îmi pare rău\"",
+            "### \"Te rog, iartă-mă\"",
+            "### \"Am greșit, îmi pare foarte rău\""
+          ]
+        },
+        {
+          "header": "## Визнання провини",
+          "subsections": [
+            "### \"Nu ar fi trebuit să spun asta\"",
+            "### \"Am fost nedrept/nedreaptă cu tine\"",
+            "### \"Îmi asum întreaga responsabilitate\""
+          ]
+        },
+        {
+          "header": "## Вираження любові",
+          "subsections": [
+            "### \"Te iubesc și nu vreau să ne certăm\"",
+            "### \"Ești totul pentru mine\"",
+            "### \"Urăsc când ne certăm\""
+          ]
+        },
+        {
+          "header": "## Прохання та обіцянки",
+          "subsections": [
+            "### \"Mă poți ierta?\"",
+            "### \"Promit să fiu mai bun/bună\"",
+            "### \"Nu se va mai întâmpla\""
+          ]
+        },
+        {
+          "header": "## Відновлення зв'язку",
+          "subsections": [
+            "### \"Putem începe de la zero?\"",
+            "### \"Să lăsăm asta în urmă\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4f9f2775-6cbf-4b4c-be58-cd20b2ca18a0",
+      "title": "Grekiska fraser för att träffa svärföräldrarna – Gör ett gott intryck",
+      "native_lang": "sv",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Första mötet",
+          "subsections": [
+            "### \"Χαίρομαι πολύ που σας γνωρίζω επιτέλους\" (Chaíromai polý pou sas gnorízo epitélous)",
+            "### \"Έχω ακούσει πολλά για εσάς\" (Écho akoúsei pollá gia esás)",
+            "### \"Σας ευχαριστώ πολύ που με δεχτήκατε\" (Sas efcharistó polý pou me dechtíkate)"
+          ]
+        },
+        {
+          "header": "## Artiga fraser",
+          "subsections": [
+            "### \"Παρακαλώ, να με λέτε [namn]\" (Parakaló, na me léte [namn])",
+            "### \"Έχετε ένα πανέμορφο σπίτι\" (Échete éna panémorfo spíti)",
+            "### \"Μπορώ να βοηθήσω σε κάτι;\" (Boró na voithíso se káti?)",
+            "### \"Το φαγητό είναι υπέροχο\" (To fagitó eínai ypérocho)"
+          ]
+        },
+        {
+          "header": "## Om din relation",
+          "subsections": [
+            "### \"Ο γιος/Η κόρη σας σημαίνει τα πάντα για μένα\"",
+            "### \"Νιώθω πολύ τυχερός/τυχερή που γνώρισα τον/την [namn]\"",
+            "### \"Κάνουμε ο ένας τον άλλον πολύ ευτυχισμένο\""
+          ]
+        },
+        {
+          "header": "## Visa intresse",
+          "subsections": [
+            "### \"Θα ήθελα να μάθω περισσότερα για [ämne]\"",
+            "### \"Πώς γνωριστήκατε;\" (Pós gnoristíkate?)"
+          ]
+        },
+        {
+          "header": "## Avskedsfraser",
+          "subsections": [
+            "### \"Σας ευχαριστώ για μια υπέροχη βραδιά\"",
+            "### \"Ήταν πραγματική χαρά που σας γνώρισα\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4fbebf31-658d-42d6-90f7-3ace3170d65e",
+      "title": "Norwegische Flirtsprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassische Komplimente",
+          "subsections": [
+            "### \"Du er vakker\" / \"Du er kjekk\"",
+            "### \"Du har vakre øyne\"",
+            "### \"Du har et fantastisk smil\""
+          ]
+        },
+        {
+          "header": "## Romantische Ausdrücke",
+          "subsections": [
+            "### \"Du er kjærligheten i mitt liv\"",
+            "### \"Jeg kan ikke slutte å tenke på deg\"",
+            "### \"Du gjør meg så lykkelig\""
+          ]
+        },
+        {
+          "header": "## Süße Kosenamen",
+          "subsections": [
+            "### \"Kjære\" / \"Kjæreste\"",
+            "### \"Elskling\"",
+            "### \"Skatt\"",
+            "### \"Snuppa\"",
+            "### \"Søte\""
+          ]
+        },
+        {
+          "header": "## Herzliche Ausdrücke",
+          "subsections": [
+            "### \"Jeg elsker deg\"",
+            "### \"Du betyr alt for meg\"",
+            "### \"Jeg er helt vill etter deg\"",
+            "### \"Du har stjålet hjertet mitt\"",
+            "### \"Jeg vil være sammen med deg for alltid\""
+          ]
+        },
+        {
+          "header": "## Spielerische Sprüche",
+          "subsections": [
+            "### \"Tror du på kjærlighet ved første blikk, eller skal jeg gå forbi en gang til?\"",
+            "### \"Er faren din tyv? For han har stjålet stjernene fra himmelen og satt dem i øynene dine\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4fca2d0a-5c31-4d30-9e03-545d1b896432",
+      "title": "Немецкий для пар: 25 основных фраз",
+      "native_lang": "ru",
+      "target_lang": "de",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Утренние и вечерние фразы",
+          "subsections": [
+            "### Утром:",
+            "### Вечером:"
+          ]
+        },
+        {
+          "header": "## Практические упражнения",
+          "subsections": [
+            "### «Вопрос дня»:",
+            "### «Комплимент дня»:",
+            "### «Планы на вечер»:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4fcca37f-2aec-4933-b0d6-728b9e93a0dc",
+      "title": "Rencontrer la Famille de Votre Partenaire Allemand",
+      "native_lang": "fr",
+      "target_lang": "de",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Choses à Éviter",
+          "subsections": [
+            "### Ne faites pas :",
+            "### Faites :"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4fd00e3f-3427-42af-b037-cbc726c20e90",
+      "title": "Romanian Baby & Pregnancy Vocabulary: Essential Words for Expecting Couples",
+      "native_lang": "en",
+      "target_lang": "ro",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Announcing the News",
+          "subsections": [
+            "### To Your Partner's Family",
+            "### To Friends"
+          ]
+        },
+        {
+          "header": "## Nursery and Baby Items",
+          "subsections": [
+            "### Setting Up the camera bebelușului",
+            "### Shopping Vocabulary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4fd829f7-331a-46c7-9a71-926aedabd282",
+      "title": "Portugál lánykérési és eljegyzési kifejezések",
+      "native_lang": "hu",
+      "target_lang": "pt",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### A nagy kérdés",
+            "### Az eljegyzés bejelentése"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4fda6484-a972-43e0-ae55-fda22af6ce1e",
+      "title": "Romence Tartışma ve Anlaşmazlık İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Tartışma İfadeleri",
+          "subsections": [
+            "### 1. \"Mă simt rănit/ă când...\"",
+            "### 2. \"Putem vorbi despre asta calm?\"",
+            "### 3. \"Înțeleg punctul tău de vedere, dar...\"",
+            "### 4. \"Să nu țipăm\"",
+            "### 5. \"Nu la asta m-am referit\"",
+            "### 6. \"Am nevoie de un moment pentru mine\"",
+            "### 7. \"Să găsim un compromis\"",
+            "### 8. \"Nu am vrut să te rănesc\"",
+            "### 9. \"Poți să-mi explici cum te simți?\"",
+            "### 10. \"Cred că amândoi trebuie să ne calmăm\"",
+            "### 11. \"Te iubesc, dar sunt supărat/ă\"",
+            "### 12. \"Să vorbim despre asta mai târziu\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4ff68a5b-6c59-479b-b7db-28d76cda4e2a",
+      "title": "Franska fraser för emotionellt stöd – Trösta din partner på franska",
+      "native_lang": "sv",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande stöd",
+          "subsections": [
+            "### \"Je suis là pour toi\"",
+            "### \"Tu n'es pas seul(e) dans cette épreuve\"",
+            "### \"Je serai toujours à tes côtés\""
+          ]
+        },
+        {
+          "header": "## Visa empati",
+          "subsections": [
+            "### \"Je ne peux qu'imaginer à quel point c'est difficile pour toi\"",
+            "### \"Tes sentiments sont tout à fait légitimes\"",
+            "### \"C'est normal de ressentir ça\"",
+            "### \"Je comprends pourquoi tu es bouleversé(e)\""
+          ]
+        },
+        {
+          "header": "## Tröstande fraser",
+          "subsections": [
+            "### \"Ça aussi, ça passera\"",
+            "### \"On va traverser ça ensemble\"",
+            "### \"Prends tout le temps qu'il te faut\"",
+            "### \"C'est normal de ne pas aller bien\""
+          ]
+        },
+        {
+          "header": "## Erbjuda stöd",
+          "subsections": [
+            "### \"De quoi as-tu besoin en ce moment?\"",
+            "### \"Tu veux en parler ou tu préfères te changer les idées?\"",
+            "### \"Est-ce que je peux faire quelque chose pour t'aider?\"",
+            "### \"Je suis là pour t'écouter quand tu seras prêt(e)\""
+          ]
+        },
+        {
+          "header": "## Vid förlust",
+          "subsections": [
+            "### \"Je suis vraiment désolé(e) pour ta perte\"",
+            "### \"Les mots me manquent, mais je suis là\""
+          ]
+        },
+        {
+          "header": "## Uppmuntrande fraser",
+          "subsections": [
+            "### \"Je crois en toi\"",
+            "### \"Tu es plus fort(e) que tu ne le penses\"",
+            "### \"Je suis tellement fier/fière de toi\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4fff6b30-24b8-4fd8-b4ed-31a41732257a",
+      "title": "Portugisiska Fraser för Förlåtelse",
+      "native_lang": "sv",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Be om Förlåtelse",
+          "subsections": [
+            "### 1. \"Eu sinto muito\"",
+            "### 2. \"Por favor, me perdoa\"",
+            "### 3. \"Eu assumo toda a responsabilidade\"",
+            "### 4. \"Eu estava errado/a e sei disso\"",
+            "### 5. \"Como posso me redimir?\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Ge Förlåtelse",
+          "subsections": [
+            "### 6. \"Eu te perdoo\"",
+            "### 7. \"Vamos deixar isso para trás\"",
+            "### 8. \"Eu entendo e agradeço suas desculpas\"",
+            "### 9. \"Todos cometemos erros\"",
+            "### 10. \"É preciso coragem para pedir desculpas\"",
+            "### 11. \"Agradeço sua sinceridade\"",
+            "### 12. \"O importante é seguirmos em frente juntos\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5003a079-05cf-4b2c-8b16-dc620cdac54f",
+      "title": "Franske 'Jeg Savner Dig' Sætninger for Danskere",
+      "native_lang": "da",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Udtryk",
+          "subsections": [
+            "### \"Tu me manques\"",
+            "### \"Tu me manques tellement\"",
+            "### \"Je pense à toi tout le temps\""
+          ]
+        },
+        {
+          "header": "## Dybere Udtryk",
+          "subsections": [
+            "### \"Chaque instant sans toi est une éternité\"",
+            "### \"Tu es la première chose à laquelle je pense en me réveillant\"",
+            "### \"J'aimerais tellement que tu sois là\""
+          ]
+        },
+        {
+          "header": "## Hverdagens Savn",
+          "subsections": [
+            "### \"Ton sourire me manque\"",
+            "### \"M'endormir à côté de toi me manque\"",
+            "### \"Nos conversations me manquent\""
+          ]
+        },
+        {
+          "header": "## Romantiske Udtryk",
+          "subsections": [
+            "### \"Tu me manques plus que les mots ne peuvent le dire\"",
+            "### \"Être loin de toi est la chose la plus difficile\"",
+            "### \"Je compte les jours jusqu'à ce que je te revoie\""
+          ]
+        },
+        {
+          "header": "## Trøstende Sætninger",
+          "subsections": [
+            "### \"La distance ne signifie rien quand quelqu'un signifie tout\"",
+            "### \"Où que tu sois, tu es toujours dans mon cœur\""
+          ]
+        },
+        {
+          "header": "## Franske Udtryk for Længsel",
+          "subsections": [
+            "### \"J'ai le mal de toi\"",
+            "### \"Mon cœur t'appelle\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5016d846-fc84-4e66-8bf9-3f7d41d9a296",
+      "title": "Νορβηγικές Φράσεις για Ζήλια & Εμπιστοσύνη: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για Ζήλια & Εμπιστοσύνη",
+          "subsections": [
+            "### Έκφραση Ανησυχίας",
+            "### Χτίσιμο Εμπιστοσύνης",
+            "### Αντιμετώπιση Ζήλιας",
+            "### Συζήτηση για Όρια"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5034b4d7-2bf9-4c62-b78a-242ada30922e",
+      "title": "Ukrainische Aussprache für Deutsche",
+      "native_lang": "de",
+      "target_lang": "uk",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Ausspracheregeln",
+          "subsections": [
+            "### 1. Betonung",
+            "### 2. Stimmlose und stimmhafte Konsonanten",
+            "### 3. Das weiche Zeichen (Ь)",
+            "### 4. Der Apostroph"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "503648df-f2f0-4e94-ad8c-d683430117dc",
+      "title": "Turkish Pronunciation: Master Key Sounds",
+      "native_lang": "en",
+      "target_lang": "tr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Common Pronunciation Mistakes",
+          "subsections": [
+            "### Mistake 1: Pronouncing C as K or S",
+            "### Mistake 2: Ignoring the Dotless I",
+            "### Mistake 3: Pronouncing G Like G",
+            "### Mistake 4: Swallowing the H"
+          ]
+        },
+        {
+          "header": "## Practice Words by Sound",
+          "subsections": [
+            "### Practice the Dotless I (ı)",
+            "### Practice the Soft O (o)",
+            "### Practice the Soft U (u)",
+            "### Practice the Soft G (g)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "50744d82-d28b-4ac7-b8aa-f1b0decc460c",
+      "title": "Rumen Partnerinizin Ailesiyle Tanışma: Kültürel Rehber ve İfadeler",
+      "native_lang": "tr",
+      "target_lang": "ro",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Aile Üyelerine Hitap",
+          "subsections": [
+            "### Ebeveynler",
+            "### Diğer Aile Üyeleri"
+          ]
+        },
+        {
+          "header": "## Sofra Adabı",
+          "subsections": [
+            "### Yemek Davetinde",
+            "### Sohbet Başlatıcılar"
+          ]
+        },
+        {
+          "header": "## Zorlu Durumlar",
+          "subsections": [
+            "### Dil Engeli",
+            "### İltifatlar"
+          ]
+        }
+      ]
+    }
+  ]
+}

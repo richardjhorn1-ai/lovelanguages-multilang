@@ -1,0 +1,407 @@
+{
+  "batchId": "tier2a-slim-0242",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "f1807e4b-90dc-43c1-915d-97a75ebbd9b9",
+      "title": "Φράσεις για το Πρώτο Ραντεβού (tr): Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις",
+          "subsections": [
+            "### Γνωριμία",
+            "### Συζήτηση",
+            "### Φλερτ",
+            "### Κλείσιμο"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f197f78b-7cbf-4e5b-aa4e-1984993326ce",
+      "title": "Norwegian Love Letter Writing: Heartfelt Phrases for Your Kjæreste",
+      "native_lang": "en",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Opening Your Letter",
+          "subsections": [
+            "### Salutations"
+          ]
+        },
+        {
+          "header": "## Expressing Your Feelings",
+          "subsections": [
+            "### Opening Lines",
+            "### Declarations of Love"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f1a2fc7d-2ca2-4d09-b7e9-c7f3b525c8da",
+      "title": "İsveççe Tartışma ve Anlaşmazlık İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Tartışma İfadeleri",
+          "subsections": [
+            "### 1. \"Jag känner mig sårad när...\"",
+            "### 2. \"Kan vi prata om det här lugnt?\"",
+            "### 3. \"Jag förstår din synpunkt, men...\"",
+            "### 4. \"Låt oss inte skrika\"",
+            "### 5. \"Det var inte det jag menade\"",
+            "### 6. \"Jag behöver en stund för mig själv\"",
+            "### 7. \"Låt oss hitta en kompromiss\"",
+            "### 8. \"Jag ville inte såra dig\"",
+            "### 9. \"Kan du förklara hur du känner dig?\"",
+            "### 10. \"Jag tror vi båda behöver lugna ner oss\"",
+            "### 11. \"Jag älskar dig, men jag är arg\"",
+            "### 12. \"Låt oss prata om det här senare\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f1a39c77-1eb0-466b-b242-62e161218dab",
+      "title": "Jak Říct Miluji Tě anglicky",
+      "native_lang": "cs",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## The Essential Ways to Say I Love You",
+          "subsections": [
+            "### I Love You - The Classic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f1d1fff7-fa16-463e-95d5-b1dc64caffd7",
+      "title": "Переезд вместе на турецкий: Важные фразы",
+      "native_lang": "ru",
+      "target_lang": "tr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Поиск жилья",
+          "subsections": [
+            "### Разговор с риелтором",
+            "### Описание того, что нужно"
+          ]
+        },
+        {
+          "header": "## День переезда",
+          "subsections": [
+            "### Организация переезда",
+            "### Работа birlikte"
+          ]
+        },
+        {
+          "header": "## Обустройство дома",
+          "subsections": [
+            "### Расстановка mobilya",
+            "### Принятие решений вместе"
+          ]
+        },
+        {
+          "header": "## Знакомство с соседями",
+          "subsections": [
+            "### Первая встреча",
+            "### Построение отношений"
+          ]
+        },
+        {
+          "header": "## Разделение обязанностей",
+          "subsections": [
+            "### Домашние дела",
+            "### Обсуждение"
+          ]
+        },
+        {
+          "header": "## Ваш первый вечер дома",
+          "subsections": [
+            "### Особенный момент",
+            "### Создание уюта"
+          ]
+        },
+        {
+          "header": "## Решение проблем",
+          "subsections": [
+            "### Бытовые вопросы",
+            "### Разговор с арендодателем"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f1d6835f-67bd-4610-b2ee-39985609b039",
+      "title": "Іспанська весільна лексика: слова та фрази для особливого дня",
+      "native_lang": "uk",
+      "target_lang": "es",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Традиційні весільні фрази",
+          "subsections": [
+            "### Привітання молодят"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f1e64ead-db83-4d62-a747-4330c85411c0",
+      "title": "Tysk Udtaleguide for Begyndere: Sådan Lærer I at Tale Med Jeres Partners Familie",
+      "native_lang": "da",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De Fire Grundregler for Tysk Udtale",
+          "subsections": [
+            "### 1. **Tyske Vokaler Er Rene**",
+            "### 2. **CH Er Din Ven**",
+            "### 3. **R Er Blødt**",
+            "### 4. **Z Tæller Som TS**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f1f30891-0155-4c59-8e58-367441a4cdb3",
+      "title": "Произношение польского языка: полное руководство",
+      "native_lang": "ru",
+      "target_lang": "pl",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Особые согласные",
+          "subsections": [
+            "### Шипящие ряды",
+            "### Мягкие шипящие",
+            "### Буква Ł",
+            "### Буква W"
+          ]
+        },
+        {
+          "header": "## Буквосочетания",
+          "subsections": [
+            "### CH = H",
+            "### RZ = Ż"
+          ]
+        },
+        {
+          "header": "## Упражнения для пар",
+          "subsections": [
+            "### 1. Скороговорка:",
+            "### 2. Романтическая практика:",
+            "### 3. Носовые гласные:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f21bec93-8b56-4407-9ea3-16b391bfc012",
+      "title": "Греческие фразы для первого свидания",
+      "native_lang": "ru",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Фразы для первого свидания",
+          "subsections": [
+            "### 1. Είσαι πανέμορφη/πανέμορφος απόψε",
+            "### 2. Ανυπομονούσα για αυτή τη συνάντηση",
+            "### 3. Πες μου περισσότερα για σένα",
+            "### 4. Τι σου αρέσει να κάνεις στον ελεύθερο χρόνο σου;",
+            "### 5. Έχεις υπέροχο χαμόγελο",
+            "### 6. Θα ήθελα να σε ξαναδώ",
+            "### 7. Πέρασα υπέροχα απόψε",
+            "### 8. Μπορώ να σε πάρω τηλέφωνο αύριο;"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f222ec24-97b2-40cf-a768-598e087532e9",
+      "title": "Francia Flörtölő Kifejezések Magyar Anyanyelvűeknek",
+      "native_lang": "hu",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Elegáns Francia Flörtölő Kifejezések",
+          "subsections": [
+            "### \"Tu as un sourire magnifique.\"",
+            "### \"Je n'arrête pas de penser à toi.\"",
+            "### \"Est-ce que tu voudrais sortir avec moi?\"",
+            "### \"Tu es vraiment charmant(e).\"",
+            "### \"J'aime passer du temps avec toi.\"",
+            "### \"Tu as de beaux yeux.\"",
+            "### \"Tu me plais beaucoup.\"",
+            "### \"Je me sens bien avec toi.\"",
+            "### \"Tu es unique.\"",
+            "### \"Tu me fais craquer.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f2270275-0b7f-40b4-b205-9b9fd2f6a96c",
+      "title": "Ukrainische Ich-vermisse-dich-Sprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlegende Ausdrücke",
+          "subsections": [
+            "### \"Я сумую за тобою\" (Ya sumuyyu za toboyu)",
+            "### \"Я дуже сумую за тобою\"",
+            "### \"Я не можу перестати думати про тебе\""
+          ]
+        },
+        {
+          "header": "## Emotionale Ausdrücke",
+          "subsections": [
+            "### \"Я хотів би, щоб ти був тут\" / \"була тут\"",
+            "### \"Кожна мить без тебе здається вічністю\"",
+            "### \"Моє серце сумує за тобою\"",
+            "### \"Мені так порожньо без тебе\""
+          ]
+        },
+        {
+          "header": "## Liebevolle Nachrichten",
+          "subsections": [
+            "### \"Рахую дні до нашої зустрічі\"",
+            "### \"Ти моя перша думка вранці і остання перед сном\"",
+            "### \"Відстань нічого не значить, коли хтось значить усе\""
+          ]
+        },
+        {
+          "header": "## Tröstende Worte",
+          "subsections": [
+            "### \"Скоро ми знову будемо разом\"",
+            "### \"Наше кохання сильніше за будь-яку відстань\"",
+            "### \"Навіть далеко, ти завжди в моєму серці\""
+          ]
+        },
+        {
+          "header": "## Für besondere Momente",
+          "subsections": [
+            "### \"Мені не вистачає твоєї посмішки, твого сміху, всього\"",
+            "### \"Ніхто не може зрівнятися з тобою\"",
+            "### \"Ти незамінна\" / \"Ти незамінний\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f22cb815-d9ff-4f5a-a14a-a2dbe1e87141",
+      "title": "Holland kifejezések féltékenységhez és bizalomhoz",
+      "native_lang": "hu",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kifejezések a féltékenységhez",
+          "subsections": [
+            "### 1. \"Ik ben jaloers als jij...\"",
+            "### 2. \"Ik heb geruststelling nodig\"",
+            "### 3. \"Ik vertrouw je, maar ik worstel met mijn gevoelens\"",
+            "### 4. \"Kunnen we praten over wat er is gebeurd?\"",
+            "### 5. \"Ik wil niet jaloers zijn, maar...\"",
+            "### 6. \"Ik vertrouw je volledig\"",
+            "### 7. \"Jij bent de enige voor mij\"",
+            "### 8. \"Ik zou nooit iets doen om je te kwetsen\"",
+            "### 9. \"Er is niets tussen ons\"",
+            "### 10. \"Ik ben je trouw\"",
+            "### 11. \"Laten we eerlijk zijn tegen elkaar\"",
+            "### 12. \"Ik wil niet dat jaloezie tussen ons komt\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f22e4f54-f319-414f-bd0e-cefbb29f97b5",
+      "title": "Griechische SMS-Sprache und Chat-Slang",
+      "native_lang": "de",
+      "target_lang": "el",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Typische Chat-Gespräche",
+          "subsections": [
+            "### Morgen-Chat",
+            "### Tagsüber",
+            "### Abend-Chat"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f2399f5e-7c38-47eb-b0f5-9aff339a6d94",
+      "title": "Oekraïense Grammatica Basics voor Beginners",
+      "native_lang": "nl",
+      "target_lang": "uk",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Werkwoorden Vervoegen",
+          "subsections": [
+            "### Tegenwoordige Tijd: кохати (houden van)",
+            "### Бути (zijn) - Let op!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f248b36a-1a0c-4583-b174-c24f5dc667e7",
+      "title": "Cseh üzenetküldő kifejezések magyar anyanyelvűeknek",
+      "native_lang": "hu",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető üdvözlések",
+          "subsections": [
+            "### 1. Dobré ráno, lásko",
+            "### 2. Chybíš mi",
+            "### 3. Miluji tě"
+          ]
+        },
+        {
+          "header": "## Mindennapi üzenetek",
+          "subsections": [
+            "### 4. Jak se máš?",
+            "### 5. Hned tam budu",
+            "### 6. Pusu / Pusinka"
+          ]
+        },
+        {
+          "header": "## Romantikus kifejezések",
+          "subsections": [
+            "### 7. Jsi můj celý svět",
+            "### 8. Zlato / Miláčku",
+            "### 9. Zdálo se mi o tobě"
+          ]
+        },
+        {
+          "header": "## Chat rövidítések",
+          "subsections": [
+            "### 10. Díky / Dík",
+            "### 11. Ok / Okej",
+            "### 12. Mám tě rád/a"
+          ]
+        }
+      ]
+    }
+  ]
+}

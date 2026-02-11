@@ -1,0 +1,505 @@
+{
+  "batchId": "tier2a-slim-0192",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "c7e3c51f-e35c-4963-b477-7196401bfcd1",
+      "title": "Griechisch Kosenamen und Liebkosungen für Paare",
+      "native_lang": "de",
+      "target_lang": "el",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Kosenamen für verschiedene Anlässe",
+          "subsections": [
+            "### Im Alltag",
+            "### Für romantische Momente",
+            "### Zum Necken"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c7e5c60c-c99c-48a4-aba1-2c5edbd412fa",
+      "title": "Poolse SMS-Taal voor Stellen: Lieve Berichtjes Sturen",
+      "native_lang": "nl",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Emoji's en Reacties",
+          "subsections": [
+            "### Populaire Combinaties"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c7f389cc-803d-441b-b631-c07f5419706a",
+      "title": "Griekse Zinnen voor Verzoening en Goedmaken",
+      "native_lang": "nl",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen voor verzoening",
+          "subsections": [
+            "### 1. \"Συγγνώμη για αυτά που είπα\" (Signomi gia afta pou eipa)",
+            "### 2. \"Μπορούμε να ξεκινήσουμε από την αρχή;\" (Boroume na xekinissoume apo tin archi?)",
+            "### 3. \"Δεν ήθελα να σε πληγώσω\" (Den ithela na se pligoso)",
+            "### 4. \"Είσαι τα πάντα για μένα\" (Eisai ta panta gia mena)",
+            "### 5. \"Έκανα λάθος και το παραδέχομαι\" (Ekana lathos kai to paradechomai)",
+            "### 6. \"Σ' αγαπώ περισσότερο από κάθε καβγά\" (S' agapo perissotero apo kathe kavga)",
+            "### 7. \"Τι μπορώ να κάνω για να το διορθώσω;\" (Ti boro na kano gia na to diorthoso?)",
+            "### 8. \"Σε συγχωρώ\" (Se sighoro)",
+            "### 9. \"Ας το αφήσουμε πίσω μας\" (As to afisoume piso mas)",
+            "### 10. \"Έλα εδώ, αγκάλιασέ με\" (Ela edo, agaliase me)",
+            "### 11. \"Η αγάπη μας είναι δυνατότερη από αυτό\" (I agapi mas einai dynatoteri apo afto)",
+            "### 12. \"Δεν θέλω ποτέ να σε χάσω\" (Den thelo pote na se chaso)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c7f8d208-0a8d-4237-82aa-df4d6b070f7c",
+      "title": "Phrases néerlandaises pour les disputes de couple",
+      "native_lang": "fr",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions essentielles pour les désaccords",
+          "subsections": [
+            "### Exprimer son désaccord",
+            "### Exprimer ses émotions",
+            "### Fixer des limites",
+            "### Chercher à comprendre"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c7fd3ed3-e1ba-4dda-82a0-6b08a91062ec",
+      "title": "Cómo Escribir Cartas de Amor en Ruso: La Любовное письмо",
+      "native_lang": "es",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Saludos Románticos",
+          "subsections": [
+            "### \"Любимая моя / Любимый мой...\" (Lyubimaya moya / Lyubimyy moy)",
+            "### \"Милая / Милый...\" (Milaya / Milyy)",
+            "### \"Моё солнышко...\" (Moyë solnyshko)",
+            "### \"Душа моя...\" (Dusha moya)"
+          ]
+        },
+        {
+          "header": "## Expresiones de Apertura",
+          "subsections": [
+            "### \"Пишу тебе из глубины сердца\" (Pishu tebe iz glubiny serdtsa)",
+            "### \"Каждый день без тебя кажется вечностью\" (Kazhdyy den' bez tebya kazhetsya vechnost'yu)",
+            "### \"Слова не могут передать то, что я чувствую\" (Slova ne mogut peredat' to, chto ya chuvstvuyu)"
+          ]
+        },
+        {
+          "header": "## Frases del Cuerpo de la Carta",
+          "subsections": [
+            "### \"Ты — лучшее, что случилось в моей жизни\" (Ty — luchsheye, chto sluchilos' v moyey zhizni)",
+            "### \"Моё сердце принадлежит только тебе\" (Moyë serdtse prinadlezhit tol'ko tebe)",
+            "### \"С тобой я чувствую себя целым\" (S toboy ya chuvstvuyu sebya tselym)",
+            "### \"Ты — свет моей жизни\" (Ty — svet moyey zhizni)"
+          ]
+        },
+        {
+          "header": "## Promesas de Amor",
+          "subsections": [
+            "### \"Я буду любить тебя вечно\" (Ya budu lyubit' tebya vechno)",
+            "### \"Я всегда буду рядом\" (Ya vsegda budu ryadom)",
+            "### \"Наша любовь вечна\" (Nasha lyubov' vechna)"
+          ]
+        },
+        {
+          "header": "## Despedidas Románticas",
+          "subsections": [
+            "### \"Навсегда твоя/твой...\" (Navsegda tvoya/tvoy)",
+            "### \"С любовью...\" (S lyubov'yu)",
+            "### \"Целую нежно...\" (Tseluyu nezhno)",
+            "### \"Твоя/Твой [nombre], которая/который тебя любит\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c80d3781-af22-4632-bbe3-a83b5e6e3d81",
+      "title": "Ukrainske 'Jeg Savner Dig' Sætninger for Danskere",
+      "native_lang": "da",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Udtryk",
+          "subsections": [
+            "### \"Я сумую за тобою\" (Ya sumuyu za toboyu)",
+            "### \"Я дуже сумую за тобою\" (Ya duzhe sumuyu za toboyu)",
+            "### \"Я весь час думаю про тебе\" (Ya ves' chas dumayu pro tebe)"
+          ]
+        },
+        {
+          "header": "## Dybere Udtryk",
+          "subsections": [
+            "### \"Кожна мить без тебе — вічність\" (Kozhna myt' bez tebe — vichnist')",
+            "### \"Ти перше, про що я думаю, коли прокидаюся\" (Ty pershe, pro shcho ya dumayu, koly prokydayusya)",
+            "### \"Як би я хотів/хотіла, щоб ти був/була тут\" (Yak by ya khotiv/khotila, shchob ty buv/bula tut)"
+          ]
+        },
+        {
+          "header": "## Hverdagens Savn",
+          "subsections": [
+            "### \"Сумую за твоєю посмішкою\" (Sumuyu za tvoyeyu posmishkoyu)",
+            "### \"Сумую за тим, як ми засинаємо разом\" (Sumuyu za tym, yak my zasynayemo razom)",
+            "### \"Сумую за нашими розмовами\" (Sumuyu za nashymy rozmovamy)"
+          ]
+        },
+        {
+          "header": "## Intense Udtryk",
+          "subsections": [
+            "### \"Сумую більше, ніж слова можуть передати\" (Sumuyu bil'she, nizh slova mozhut' peredaty)",
+            "### \"Бути далеко від тебе — найважче\" (Buty daleko vid tebe — nayvazche)",
+            "### \"Рахую дні до нашої зустрічі\" (Rakhuyu dni do nashoyi zustrichi)"
+          ]
+        },
+        {
+          "header": "## Trøstende Sætninger",
+          "subsections": [
+            "### \"Відстань нічого не означає, коли хтось означає все\" (Vidstan' nichoho ne oznachaye, koly khtos' oznachaye vse)",
+            "### \"Де б ти не був/була, ти завжди в моєму серці\" (De b ty ne buv/bula, ty zavzhdy v moyemu sertsi)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c81d5eae-34e6-49af-a4b6-8d820206407f",
+      "title": "Swedish Arguing & Disagreement Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressing Disagreement",
+          "subsections": [
+            "### Jag håller inte med",
+            "### Det är inte rättvist",
+            "### Du missförstår mig",
+            "### Du lyssnar inte på mig"
+          ]
+        },
+        {
+          "header": "## Expressing Frustration",
+          "subsections": [
+            "### Jag är frustrerad",
+            "### Det stör mig när...",
+            "### Jag behöver en stund",
+            "### Det sårar mig"
+          ]
+        },
+        {
+          "header": "## Setting Boundaries",
+          "subsections": [
+            "### Prata inte så till mig",
+            "### Det går för långt",
+            "### Vi måste prata lugnt om det här"
+          ]
+        },
+        {
+          "header": "## Seeking Resolution",
+          "subsections": [
+            "### Kan vi hitta en lösning tillsammans?",
+            "### Jag vill förstå dig",
+            "### Vad kan vi göra?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c84f25d5-93a7-4ddd-b03e-52afde86922d",
+      "title": "Spanske Sætninger til at Møde Svigerforældre for Danskere",
+      "native_lang": "da",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Det Første Møde",
+          "subsections": [
+            "### \"Es un placer conocerles por fin\"",
+            "### \"He oído hablar mucho de ustedes\"",
+            "### \"Muchas gracias por invitarme\""
+          ]
+        },
+        {
+          "header": "## Komplimenter",
+          "subsections": [
+            "### \"Tienen una casa muy bonita\"",
+            "### \"La comida está deliciosa\"",
+            "### \"Ya veo de dónde [partner] sacó su [cualidad]\""
+          ]
+        },
+        {
+          "header": "## Samtale og Interesse",
+          "subsections": [
+            "### \"Me encantaría saber más sobre la infancia de [partner]\"",
+            "### \"¿Qué les gusta hacer en su tiempo libre?\"",
+            "### \"¿Cómo se conocieron ustedes?\""
+          ]
+        },
+        {
+          "header": "## Tilbud om Hjælp",
+          "subsections": [
+            "### \"¿Puedo ayudar en algo?\"",
+            "### \"Déjeme ayudarle a recoger la mesa\"",
+            "### \"Con mucho gusto lavo los platos\""
+          ]
+        },
+        {
+          "header": "## Om Forholdet",
+          "subsections": [
+            "### \"Su hijo/hija me hace muy feliz\"",
+            "### \"Me siento muy afortunado/a de haber conocido a [partner]\""
+          ]
+        },
+        {
+          "header": "## Afsked",
+          "subsections": [
+            "### \"Gracias por una noche maravillosa\"",
+            "### \"Espero que podamos repetirlo pronto\"",
+            "### \"Ha sido un placer conocerles\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c8576276-7cf6-4caf-93ff-c0b356db50e2",
+      "title": "Gefühle auf Tschechisch ausdrücken – Emotionen in deiner Beziehung teilen",
+      "native_lang": "de",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Positive Gefühle ausdrücken",
+          "subsections": [
+            "### Liebe und Zuneigung",
+            "### Glück und Freude"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c87619c6-c16f-4537-a301-2326d967fa85",
+      "title": "Urări de Aniversare în Olandeză: Mesaje Romantice pentru Partener",
+      "native_lang": "ro",
+      "target_lang": "nl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Mesaje Romantice",
+          "subsections": [
+            "### Pentru Prima Aniversare",
+            "### Pentru Aniversări Mai Lungi"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Diferite Aniversări",
+          "subsections": [
+            "### 1-5 Ani",
+            "### 5-10 Ani",
+            "### 10+ Ani"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Carduri",
+          "subsections": [
+            "### Scurte și Dulci",
+            "### Mesaje Lungi"
+          ]
+        },
+        {
+          "header": "## Amintiri de Împărtășit",
+          "subsections": [
+            "### Întrebări pentru Reflecție"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c88707fa-8689-4bf5-9740-506b24ee2386",
+      "title": "Jerga Polaca de Mensajes para Parejas",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Conversaciones de Ejemplo",
+          "subsections": [
+            "### Por la Mañana",
+            "### Por la Noche"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c899273a-ab8f-45de-9301-b34497707f1d",
+      "title": "Turkiska fraser för att träffa svärföräldrarna – Gör ett gott intryck",
+      "native_lang": "sv",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Första mötet",
+          "subsections": [
+            "### \"Sonunda sizinle tanıştığım için çok mutluyum\"",
+            "### \"Sizin hakkınızda çok şey duydum\"",
+            "### \"Beni kabul ettiğiniz için çok teşekkür ederim\""
+          ]
+        },
+        {
+          "header": "## Artiga fraser",
+          "subsections": [
+            "### \"Lütfen bana [namn] deyin\"",
+            "### \"Çok güzel bir eviniz var\"",
+            "### \"Bir şeyde yardımcı olabilir miyim?\"",
+            "### \"Yemek çok lezzetli\""
+          ]
+        },
+        {
+          "header": "## Om din relation",
+          "subsections": [
+            "### \"Oğlunuz/Kızınız benim için çok değerli\"",
+            "### \"[Namn] ile tanıştığım için çok şanslı hissediyorum\"",
+            "### \"Birbirimizi çok mutlu ediyoruz\""
+          ]
+        },
+        {
+          "header": "## Visa intresse",
+          "subsections": [
+            "### \"[Ämne] hakkında daha fazla bilmek isterim\"",
+            "### \"Nasıl tanıştınız?\""
+          ]
+        },
+        {
+          "header": "## Avskedsfraser",
+          "subsections": [
+            "### \"Harika bir akşam için teşekkürler\"",
+            "### \"Sizinle tanışmak gerçekten bir zevkti\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c8a248ec-1544-4522-85ac-927526589263",
+      "title": "Dánské flirtovací fráze pro Čechy",
+      "native_lang": "cs",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní lichotky",
+          "subsections": [
+            "### \"Du er virkelig smuk.\"",
+            "### \"Du har et dejligt smil.\"",
+            "### \"Jeg kan virkelig godt lide dig.\"",
+            "### \"Du er utrolig tiltrækkende.\""
+          ]
+        },
+        {
+          "header": "## Romantické fráze",
+          "subsections": [
+            "### \"Jeg kan ikke stoppe med at tænke på dig.\"",
+            "### \"Du gør mig så lykkelig.\"",
+            "### \"Mit hjerte banker hurtigere, når jeg ser dig.\"",
+            "### \"Jeg er vild med dig.\""
+          ]
+        },
+        {
+          "header": "## Hravé fráze",
+          "subsections": [
+            "### \"Tror du på kærlighed ved første blik, eller skal jeg gå forbi igen?\"",
+            "### \"Er du træt? Du har løbet rundt i mit hoved hele dagen.\"",
+            "### \"Der er noget særligt ved dig.\""
+          ]
+        },
+        {
+          "header": "## Fráze pro zprávy",
+          "subsections": [
+            "### \"Godmorgen, skat.\"",
+            "### \"Jeg savner dig.\"",
+            "### \"Jeg glæder mig til at se dig igen.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c8bacd47-9d2b-446f-897d-71b064e3a641",
+      "title": "Întâlnirea cu Familia: Fraze Norvegiene Esențiale",
+      "native_lang": "ro",
+      "target_lang": "no",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Ce Să Faci și Ce Să Nu Faci",
+          "subsections": [
+            "### Ce Să Faci",
+            "### Ce Să Nu Faci"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c8bb3e52-ff86-4b2d-a21a-b5b2bef4e8ed",
+      "title": "Portuguese Forgiveness Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Asking for Forgiveness",
+          "subsections": [
+            "### Perdoa-me",
+            "### Peço-te perdão",
+            "### Podes perdoar-me?",
+            "### Sei que te magoei e lamento profundamente",
+            "### Não tenho desculpas"
+          ]
+        },
+        {
+          "header": "## Expressing Regret",
+          "subsections": [
+            "### Arrependo-me profundamente",
+            "### Nunca quis magoar-te"
+          ]
+        },
+        {
+          "header": "## Granting Forgiveness",
+          "subsections": [
+            "### Eu perdoo-te",
+            "### Não te guardo rancor",
+            "### Já está esquecido",
+            "### Todos erramos"
+          ]
+        },
+        {
+          "header": "## Processing Forgiveness",
+          "subsections": [
+            "### Preciso de tempo para perdoar",
+            "### Ainda dói, mas eu perdoo-te"
+          ]
+        },
+        {
+          "header": "## Moving Forward",
+          "subsections": [
+            "### Como podemos seguir em frente?"
+          ]
+        }
+      ]
+    }
+  ]
+}

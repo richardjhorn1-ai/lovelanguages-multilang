@@ -1,0 +1,397 @@
+{
+  "batchId": "tier2a-slim-0024",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "3492d8f2-13f4-4c06-b89f-beccb3c9baea",
+      "title": "Fare Complimenti in Tedesco: 40+ Espressioni per il Tuo Amore",
+      "native_lang": "it",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Complimenti sull'Aspetto Fisico",
+          "subsections": [
+            "### Bellezza Generale",
+            "### Complimenti sugli Occhi",
+            "### Complimenti sul Sorriso"
+          ]
+        },
+        {
+          "header": "## Complimenti sulla Personalità",
+          "subsections": [
+            "### Intelligenza e Saggezza",
+            "### Gentilezza e Cuore",
+            "### Forza e Carattere"
+          ]
+        },
+        {
+          "header": "## Complimenti per Occasioni Speciali",
+          "subsections": [
+            "### Quando Si Veste Elegantemente",
+            "### Complimenti Quotidiani"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "34d55e0b-fa81-4519-a0f3-4fd9a6e48477",
+      "title": "Французька Вимова для Початківців: Як Говорити З Вашою Другою Половинкою",
+      "native_lang": "uk",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Поширені Помилки, Яких Слід Уникати",
+          "subsections": [
+            "### 1. Вимова кінцевих літер",
+            "### 2. Правильне наголошування",
+            "### 3. Звук 'H' - завжди мовчазний"
+          ]
+        },
+        {
+          "header": "## Практичні Вправи для Пар",
+          "subsections": [
+            "### Вправа 1: Ранкові Компліменти",
+            "### Вправа 2: SMS на Французькій",
+            "### Вправа 3: Вечірня Практика"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "34d8b000-aafa-4059-9e87-97c1742dc6da",
+      "title": "Ukrainsk uttaleguide for nybegynnere: Slik lærer du å uttale kjærlighetsord riktig",
+      "native_lang": "no",
+      "target_lang": "uk",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Uttaleutfordringer for Nordmenn",
+          "subsections": [
+            "### 1. Den myke \"L\" lyden",
+            "### 2. \"И\" vs \"І\"",
+            "### 3. Staving med \"Є є\""
+          ]
+        },
+        {
+          "header": "## Daglige Øvelser for Par",
+          "subsections": [
+            "### Morgenøvelse (2 minutter)",
+            "### Kveldsøvelse (3 minutter)",
+            "### Helgeøvelse (10 minutter)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "34e6fc5e-eabd-4889-a27a-a8af292d7f28",
+      "title": "Испанские фразы для споров и разногласий",
+      "native_lang": "ru",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Основные фразы для выражения несогласия",
+          "subsections": [
+            "### 1. No estoy de acuerdo contigo",
+            "### 2. ¿Podemos hablar de esto con calma?",
+            "### 3. Me duele cuando dices eso",
+            "### 4. No levantemos la voz",
+            "### 5. Necesito que entiendas mi punto de vista",
+            "### 6. Eso no es lo que quise decir",
+            "### 7. ¿Podemos encontrar un compromiso?",
+            "### 8. Creo que ambos necesitamos espacio",
+            "### 9. Respeta mi opinión, por favor",
+            "### 10. Te escucho, pero no estoy de acuerdo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "34ebb9eb-d63c-4612-a36e-d5b53d2cada4",
+      "title": "50 Cumplidos en Turco para Tu Pareja",
+      "native_lang": "es",
+      "target_lang": "tr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Elogiando la Apariencia",
+          "subsections": [
+            "### Para Mujeres",
+            "### Para Hombres"
+          ]
+        },
+        {
+          "header": "## Cumplidos en Momentos Específicos",
+          "subsections": [
+            "### Cuando Se Arreglan",
+            "### Después de Tiempo Separados",
+            "### Momentos Aleatorios"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "34f2cc9e-e54a-4634-a625-7e6d23db0806",
+      "title": "Испанские фразы для примирения",
+      "native_lang": "ru",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Основные фразы для примирения",
+          "subsections": [
+            "### 1. Lo siento, estaba equivocado/equivocada",
+            "### 2. ¿Podemos hacer las paces?",
+            "### 3. No quería hacerte daño",
+            "### 4. Te amo más que esta pelea",
+            "### 5. Empecemos de nuevo",
+            "### 6. Te perdono",
+            "### 7. ¿Qué puedo hacer para arreglarlo?",
+            "### 8. Echo de menos nuestra felicidad",
+            "### 9. No nos durmamos enojados",
+            "### 10. Gracias por intentar entenderme"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "34faca8d-92ba-413b-967e-b4584eee8eda",
+      "title": "Как извиняться на чешском языке: полное руководство",
+      "native_lang": "ru",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Извинения за конкретные ситуации",
+          "subsections": [
+            "### За опоздание",
+            "### За ошибку",
+            "### За причинённую боль"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "35061e33-4d5c-4478-9d72-fb2685037dce",
+      "title": "Αγγλικές Φράσεις για Ζήλια & Εμπιστοσύνη: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για Ζήλια & Εμπιστοσύνη",
+          "subsections": [
+            "### Έκφραση Ανησυχίας",
+            "### Χτίσιμο Εμπιστοσύνης",
+            "### Αντιμετώπιση Ζήλιας",
+            "### Συζήτηση για Όρια"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3506add1-fc71-4585-9792-9309353b0748",
+      "title": "Polská výslovnost pro začátečníky: Jak mluvit romanticky a správně",
+      "native_lang": "cs",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Základní pravidla polské výslovnosti",
+          "subsections": [
+            "### 1. Háčky a čárky mění všechno",
+            "### 2. Přízvuk je vždy na předposlední slabice",
+            "### 3. Skupiny souhlásek"
+          ]
+        },
+        {
+          "header": "## Nejčastější chyby Čechů při výslovnosti",
+          "subsections": [
+            "### 1. Míchání \"ą\" a \"ę\"",
+            "### 2. Příliš tvrdé \"ł\"",
+            "### 3. Nesprávný přízvuk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3507d2b5-501e-42bd-bb21-ef2bc3f1d1d0",
+      "title": "Основи шведської граматики для початківців",
+      "native_lang": "uk",
+      "target_lang": "sv",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Часи дієслів",
+          "subsections": [
+            "### Теперішній час",
+            "### Минулий час"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "350ae831-f196-4fd5-b269-a810d62047d6",
+      "title": "Norsk Grammatik for Begyndere: Lær at Elske Din Partners Sprog",
+      "native_lang": "da",
+      "target_lang": "no",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De 5 Grundlæggende Regler for Norsk Grammatik",
+          "subsections": [
+            "### 1. Ordstilling: V2-reglen",
+            "### 2. Køn: Tre køn i stedet for to",
+            "### 3. Bestemt form: Tilføj en endelse",
+            "### 4. Flertal: Forskellige mønstre",
+            "### 5. Personbøjning: Simpel og regelmæssig"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3510ea01-22c0-4e1a-86d1-c730c9ca3315",
+      "title": "Expresii de Suport Emoțional în Engleză pentru Români",
+      "native_lang": "ro",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii de Confort",
+          "subsections": [
+            "### Prezență și Ascultare",
+            "### Validare Emoțională",
+            "### Încurajare",
+            "### Oferirea Ajutorului Concret"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3517fdc6-8c9b-42a4-aa79-61c1388a4bb4",
+      "title": "Greckie zwroty o przebaczeniu dla par",
+      "native_lang": "pl",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Proszenie o przebaczenie",
+          "subsections": [
+            "### \"Σε παρακαλώ, συγχώρεσέ με\"",
+            "### \"Ελπίζω να μπορέσεις να με συγχωρέσεις\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie przebaczenia",
+          "subsections": [
+            "### \"Σε συγχωρώ\"",
+            "### \"Είναι εντάξει, καταλαβαίνω\"",
+            "### \"Ας αφήσουμε αυτό πίσω μας\""
+          ]
+        },
+        {
+          "header": "## Proces przebaczenia",
+          "subsections": [
+            "### \"Προσπαθώ να σε συγχωρήσω\"",
+            "### \"Χρειάζομαι χρόνο, αλλά θα σε συγχωρήσω\""
+          ]
+        },
+        {
+          "header": "## Głębokie przebaczenie",
+          "subsections": [
+            "### \"Σε συγχωρώ πλήρως\"",
+            "### \"Αφήνω τον πόνο να φύγει\""
+          ]
+        },
+        {
+          "header": "## Wspólne wyjście naprzód",
+          "subsections": [
+            "### \"Ας ξεκινήσουμε από την αρχή\"",
+            "### \"Η αγάπη μας είναι δυνατότερη από αυτό το λάθος\""
+          ]
+        },
+        {
+          "header": "## Granice przebaczenia",
+          "subsections": [
+            "### \"Σε συγχωρώ, αλλά αυτό δεν πρέπει να ξανασυμβεί\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "35320015-95eb-48ba-ad93-ae47d349b654",
+      "title": "Frases en Danés para Reconciliarte con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Pedir Disculpas",
+          "subsections": [
+            "### \"Undskyld for det, jeg sagde\"",
+            "### \"Jeg ville ikke såre dig\"",
+            "### \"Kan vi starte forfra?\"",
+            "### \"Jeg tog fejl\""
+          ]
+        },
+        {
+          "header": "## Frases para Expresar Amor",
+          "subsections": [
+            "### \"Jeg elsker dig, selv når vi skændes\"",
+            "### \"Du betyder alt for mig\"",
+            "### \"Jeg hader at skændes med dig\""
+          ]
+        },
+        {
+          "header": "## Frases para Reconstruir",
+          "subsections": [
+            "### \"Lad os tale roligt\"",
+            "### \"Jeg vil forstå dig bedre\"",
+            "### \"Hvad kan jeg gøre for at rette op på det?\"",
+            "### \"Jeg lover at prøve hårdere\"",
+            "### \"Må jeg kramme dig?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "353675ac-73f2-49e3-a67e-35c2adb8b12e",
+      "title": "Urări de Aniversare în Suedeză: Mesaje Romantice pentru Partener",
+      "native_lang": "ro",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Mesaje Romantice",
+          "subsections": [
+            "### Pentru Prima Aniversare",
+            "### Pentru Aniversări Mai Lungi"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Diferite Aniversări",
+          "subsections": [
+            "### 1-5 Ani",
+            "### 5-10 Ani",
+            "### 10+ Ani"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Carduri",
+          "subsections": [
+            "### Scurte și Dulci",
+            "### Mesaje Lungi"
+          ]
+        },
+        {
+          "header": "## Amintiri de Împărtășit",
+          "subsections": [
+            "### Întrebări pentru Reflecție"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,153 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0226",
+  "articles": [
+    {
+      "id": "40874d05-0c37-46cd-b5aa-2de4c69c533d",
+      "title": "100 Meest Gebruikte Oekraïense Woorden voor Relaties",
+      "native_lang": "nl",
+      "target_lang": "uk",
+      "category": "communication",
+      "content": "Oekraïens is een warme, melodieuze taal. Hier zijn de essentiële woorden.\n\n## Basis liefdeswoorden\n\n### 1. Кохання (Kokhannya) - *ko-chan-nja* - Liefde\n### 2. Серце (Sertse) - *ser-tse* - Hart\n### 3. Поцілунок (Potsilunok) - *po-tsie-loe-nok* - Kus\n### 4. Обійми (Obiymy) - *o-bij-mie* - Knuffel\n### 5. Разом (Razom) - *ra-zom* - Samen\n### 6. Назавжди (Nazavzhdy) - *na-zav-zj-die* - Voor altijd\n### 7. Завжди (Zavzhdy) - *zav-zj-die* - Altijd\n### 8. Гарний/а (Harnyy/a) - *har-nij/a* - Mooi\n### 9. Щасливий/а (Shchaslyvyy/a) - *sjtjas-lie-vij/a* - Gelukkig\n### 10. Коханий/а (Kokhanyy/a) - *ko-cha-nij/a* - Schat\n\n## Dagelijkse communicatie\n\n### 11. Так (Tak) - *tak* - Ja\n### 12. Ні (Ni) - *nie* - Nee\n### 13. Будь ласка (Bud' laska) - *boed las-ka* - Alsjeblieft\n### 14. Дякую (Dyakuyu) - *dja-koe-joe* - Dank je\n### 15. Вибач (Vybach) - *vie-batj* - Sorry\n### 16. Доброго ранку (Dobroho ranku) - *do-bro-ho ran-koe* - Goedemorgen\n### 17. На добраніч (Na dobranich) - *na do-bra-nietj* - Goedenacht\n### 18. Привіт (Pryvit) - *prie-viet* - Hallo\n### 19. Бувай (Buvay) - *boe-vaj* - Tot ziens\n### 20. Як справи? (Yak spravy?) - *jak spra-vie* - Hoe gaat het?\n\n## Gevoelens uitdrukken\n\n### 21. Я тебе кохаю (Ya tebe kokhayu) - *ja te-be ko-cha-joe* - Ik hou van je\n### 22. Я сумую (Ya sumuyu) - *ja soe-moe-joe* - Ik mis je\n### 23. Ти мені потрібен/на (Ty meni potriben/na) - *tie me-nie po-trie-ben/na* - Ik heb je nodig\n### 24. Я тобі довіряю (Ya tobi doviryayu) - *ja to-bie do-vie-rja-joe* - Ik vertrouw je\n### 25. Я тебе пробачаю (Ya tebe probachayu) - *ja te-be pro-ba-tsja-joe* - Ik vergeef je\n### 26. Розумію (Rozumiyu) - *ro-zoe-mie-joe* - Ik begrijp het\n### 27. Ти робиш мене щасливим/ою (Ty robysh mene shchaslyvym/oyu) - *tie ro-biesj me-ne sjtjas-lie-viem/o-joe* - Je maakt me gelukkig\n### 28. Думаю про тебе (Dumayu pro tebe) - *doe-ma-joe pro te-be* - Ik denk aan je\n\n## Tijd\n\n### 29. Сьогодні (S'ohodni) - *sjo-hod-nie* - Vandaag\n### 30. Завтра (Zavtra) - *zav-tra* - Morgen\n### 31. Вчора (Vchora) - *ftsjo-ra* - Gisteren\n### 32. Зараз (Zaraz) - *za-raz* - Nu\n### 33. Потім (Potim) - *po-tiem* - Later\n### 34. Незабаром (Nezabarom) - *ne-za-ba-rom* - Binnenkort\n### 35. Ніколи (Nikoly) - *nie-ko-lie* - Nooit\n### 36. Іноді (Inodi) - *ie-no-die* - Soms\n### 37. Часто (Chasto) - *tsjas-to* - Vaak\n\n## Conclusie\n\nMet deze woorden spreek je de warme Oekraïense taal!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Basis liefdeswoorden",
+              "### 1. Кохання (Kokhannya) - *ko-chan-nja* - Liefde",
+              "### 2. Серце (Sertse) - *ser-tse* - Hart",
+              "### 3. Поцілунок (Potsilunok) - *po-tsie-loe-nok* - Kus",
+              "### 4. Обійми (Obiymy) - *o-bij-mie* - Knuffel",
+              "### 5. Разом (Razom) - *ra-zom* - Samen",
+              "### 6. Назавжди (Nazavzhdy) - *na-zav-zj-die* - Voor altijd",
+              "### 7. Завжди (Zavzhdy) - *zav-zj-die* - Altijd",
+              "### 8. Гарний/а (Harnyy/a) - *har-nij/a* - Mooi",
+              "### 9. Щасливий/а (Shchaslyvyy/a) - *sjtjas-lie-vij/a* - Gelukkig",
+              "### 10. Коханий/а (Kokhanyy/a) - *ko-cha-nij/a* - Schat",
+              "## Dagelijkse communicatie",
+              "### 11. Так (Tak) - *tak* - Ja",
+              "### 12. Ні (Ni) - *nie* - Nee",
+              "### 13. Будь ласка (Bud' laska) - *boed las-ka* - Alsjeblieft",
+              "### 14. Дякую (Dyakuyu) - *dja-koe-joe* - Dank je",
+              "### 15. Вибач (Vybach) - *vie-batj* - Sorry",
+              "### 16. Доброго ранку (Dobroho ranku) - *do-bro-ho ran-koe* - Goedemorgen",
+              "### 17. На добраніч (Na dobranich) - *na do-bra-nietj* - Goedenacht",
+              "### 18. Привіт (Pryvit) - *prie-viet* - Hallo",
+              "### 19. Бувай (Buvay) - *boe-vaj* - Tot ziens",
+              "### 20. Як справи? (Yak spravy?) - *jak spra-vie* - Hoe gaat het?",
+              "## Gevoelens uitdrukken",
+              "### 21. Я тебе кохаю (Ya tebe kokhayu) - *ja te-be ko-cha-joe* - Ik hou van je",
+              "### 22. Я сумую (Ya sumuyu) - *ja soe-moe-joe* - Ik mis je",
+              "### 23. Ти мені потрібен/на (Ty meni potriben/na) - *tie me-nie po-trie-ben/na* - Ik heb je nodig",
+              "### 24. Я тобі довіряю (Ya tobi doviryayu) - *ja to-bie do-vie-rja-joe* - Ik vertrouw je",
+              "### 25. Я тебе пробачаю (Ya tebe probachayu) - *ja te-be pro-ba-tsja-joe* - Ik vergeef je",
+              "### 26. Розумію (Rozumiyu) - *ro-zoe-mie-joe* - Ik begrijp het",
+              "### 27. Ти робиш мене щасливим/ою (Ty robysh mene shchaslyvym/oyu) - *tie ro-biesj me-ne sjtjas-lie-viem/o-joe* - Je maakt me gelukkig",
+              "### 28. Думаю про тебе (Dumayu pro tebe) - *doe-ma-joe pro te-be* - Ik denk aan je",
+              "## Tijd",
+              "### 29. Сьогодні (S'ohodni) - *sjo-hod-nie* - Vandaag",
+              "### 30. Завтра (Zavtra) - *zav-tra* - Morgen",
+              "### 31. Вчора (Vchora) - *ftsjo-ra* - Gisteren",
+              "### 32. Зараз (Zaraz) - *za-raz* - Nu",
+              "### 33. Потім (Potim) - *po-tiem* - Later",
+              "### 34. Незабаром (Nezabarom) - *ne-za-ba-rom* - Binnenkort",
+              "### 35. Ніколи (Nikoly) - *nie-ko-lie* - Nooit",
+              "### 36. Іноді (Inodi) - *ie-no-die* - Soms",
+              "### 37. Часто (Chasto) - *tsjas-to* - Vaak"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "4088a0f7-9b6d-4f00-a140-34de9b69e7e0",
+      "title": "Ist Norwegisch Schwer zu Lernen? Ein Realistischer Leitfaden",
+      "native_lang": "de",
+      "target_lang": "no",
+      "category": "culture",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\n# Ist Norwegisch Schwer zu Lernen? Eine Ehrliche Einschätzung für Deutschsprachige\n\nWenn Sie erwägen, Norwegisch für Ihren Partner zu lernen, fragen Sie sich wahrscheinlich, wie schwierig es sein wird. Die gute Nachricht? Norwegisch ist für Deutschsprachige tatsächlich eine der leichteren Sprachen. Lassen Sie uns analysieren, warum - und welche Herausforderungen Sie erwarten könnten.\n\n<PhraseOfDay\n  word=\"Øvelse gjør mester\"\n  translation=\"Übung macht den Meister\"\n  pronunciation=\"UV-el-seh yur MES-ter\"\n  context=\"Ein norwegisches Sprichwort, das Sie auf Ihrer Sprachlernreise begleiten wird.\"\n/>\n\n## Die Guten Nachrichten: Warum Norwegisch Leichter Ist, Als Sie Denken\n\n### 1. Nahe Sprachfamilie\n\nNorwegisch und Deutsch sind beide germanische Sprachen und teilen einen gemeinsamen Vorfahren. Das bedeutet, dass Tausende von Wörtern ähnlich oder identisch sind.\n\n| Norwegisch | Deutsch | Anmerkungen |\n|------------|---------|-------------|\n| **Arm** | Arm | Identisch |\n| **Finger** | Finger | Identisch |\n| **Hammer** | Hammer | Identisch |\n| **Mann** | Mann | Identisch |\n| **Hus** | Haus | Sehr ähnlich |\n| **Bok** | Buch | Ähnlich |\n| **Grønn** | Grün | Ähnlich |\n\n<CultureTip title=\"Kognaten Sind Ihre Freunde\" flag=\"🇳🇴\">\nEtwa 1.500 norwegische Wörter sind fast identisch mit ihren deutschen Entsprechungen. Erkennen Sie diese Kognaten, und Sie haben einen Vorsprung beim Wortschatz!\n</CultureTip>\n\n### 2. Einfache Grammatik\n\nDie norwegische Grammatik ist bemerkenswert unkompliziert im Vergleich zu Deutsch:\n\n<VocabCard\n  word=\"Jeg snakker\"\n  translation=\"Ich spreche\"\n  pronunciation=\"yai SNAK-ker\"\n  example=\"Verben ändern sich nicht je nach Person - 'jeg snakker,' 'du snakker,' 'han snakker' verwenden alle dieselbe Form!\"\n/>\n\n**Was die norwegische Grammatik einfacher macht:**\n- Keine Verbkonjugation nach Person (anders als im Deutschen)\n- Keine grammatischen Fälle (keine Dativ- oder Akkusativ-Endungen!)\n- Einfache Vergangenheitsbildung\n- Wortstellung ähnlich wie im Deutschen\n\n### 3. Hohe Englischkenntnisse in Norwegen\n\nFast alle Norweger sprechen ausgezeichnetes Englisch, was bedeutet:\n- Sie können immer auf Englisch zurückgreifen, wenn Sie stecken bleiben\n- Ihr Partner kann Konzepte leicht erklären\n- Sie können in einer unterstützenden Umgebung üben\n\n## Die Herausforderungen: Was Schwierig Sein Könnte\n\n### 1. Aussprache\n\nNorwegisch hat Laute, die im Deutschen nicht existieren:\n\n| Buchstabe | Laut | Beispiel |\n|-----------|------|----------|\n| **Æ** | Wie ä | Være (sein) |\n| **Ø** | Wie ö | Øl (Bier) |\n| **Å** | Wie langes o | Gå (gehen) |\n\n<VocabCard\n  word=\"Kjæreste\"\n  translation=\"Freund/in\"\n  pronunciation=\"SHARE-es-teh\"\n  example=\"Der 'kj'-Laut ist besonders herausfordernd - es ist wie ein weiches 'sch', das hinten im Mund gebildet wird.\"\n/>\n\nAls Deutschsprachiger haben Sie jedoch einen Vorteil: Æ und Ø sind ähnlich wie ä und ö!\n\n### 2. Der Tonakzent\n\nNorwegisch verwendet Tonhöhe, um Wörter zu unterscheiden. Dieselbe Schreibweise kann je nach Tonhöhe unterschiedliche Bedeutungen haben:\n\n| Wort | Tonmuster | Bedeutung |\n|------|-----------|-----------|\n| **Bønner** | Ton 1 | Bohnen |\n| **Bønner** | Ton 2 | Gebete |\n| **Ånden** | Ton 1 | Der Atem |\n| **Ånden** | Ton 2 | Der Geist |\n\nMachen Sie sich darüber anfangs nicht zu viele Sorgen - der Kontext macht die Bedeutung normalerweise klar.\n\n### 3. Schrift- vs. Umgangssprache\n\nNorwegen hat zwei offizielle Schriftstandards:\n- **Bokmål** - Von etwa 85% der Bevölkerung verwendet\n- **Nynorsk** - Hauptsächlich in Westnorwegen verwendet\n\nDie meisten Lernenden konzentrieren sich auf Bokmål, das weiter verbreitet ist.\n\n<CultureTip title=\"Dialektvielfalt\" flag=\"🇳🇴\">\nNorwegen hat zahlreiche Dialekte, die sehr unterschiedlich vom Standard-Bokmål klingen können. Norweger sind stolz auf ihre Dialekte und verwenden sie in allen Situationen. Ihr Partner spricht möglicherweise anders als das, was Sie in Lehrbüchern lernen!\n</CultureTip>\n\n## Wie Lange Wird Es Dauern?\n\nFür Deutschsprachige ist Norwegisch eine der leichteren Sprachen aufgrund der gemeinsamen germanischen Wurzeln.\n\n| Kompetenzniveau | Geschätzte Zeit |\n|-----------------|-----------------|\n| Grundlegende Konversation | 2-3 Monate |\n| Mittleres Niveau | 5-7 Monate |\n| Fortgeschrittene Kenntnisse | 10-12 Monate |\n\nDas Lernen mit einem Partner kann dies aufgrund der täglichen Übungsmöglichkeiten erheblich beschleunigen.\n\n## Tipps für das Gemeinsame Norwegischlernen\n\n### 1. Beginnen Sie mit den Grundlagen\n<VocabCard\n  word=\"Kan du gjenta det?\"\n  translation=\"Kannst du das wiederholen?\"\n  pronunciation=\"kan doo YEN-tah deh\"\n  example=\"Ein unverzichtbarer Satz für jeden Sprachlernenden!\"\n/>\n\n### 2. Nutzen Sie die Ähnlichkeiten\nKonzentrieren Sie sich zunächst auf Wörter, die dem Deutschen ähnlich sind - das baut schnell Selbstvertrauen auf.\n\n### 3. Tägliches Üben\nSelbst 15 Minuten norwegischer Konversation täglich mit Ihrem Partner werden das Lernen dramatisch beschleunigen.\n\n### 4. Haben Sie Keine Angst vor Fehlern\nNorweger schätzen jeden Versuch, ihre Sprache zu lernen, und sind sehr unterstützend gegenüber Lernenden.\n\n## Fazit: Ist Norwegisch Schwer?\n\n**Für Deutschsprachige ist Norwegisch eine der leichteren Sprachen zu lernen.** Die Ähnlichkeiten im Wortschatz, die einfache Grammatik und die logische Struktur machen es sehr zugänglich. Die Hauptherausforderungen - Aussprache und Tonakzent - können mit Übung und einem geduldigen norwegischen Partner überwunden werden.\n\nDie Tatsache, dass Sie aus Liebe lernen, macht es noch einfacher. Motivation ist alles beim Sprachenlernen, und welche bessere Motivation gibt es, als sich mit Ihrem Partner in seiner Muttersprache zu verbinden?\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Die Guten Nachrichten: Warum Norwegisch Leichter Ist, Als Sie Denken",
+              "## Die Herausforderungen: Was Schwierig Sein Könnte",
+              "## Tipps für das Gemeinsame Norwegischlernen"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "408a021b-305b-4202-8d88-fd3a897d97dd",
+      "title": "Portugisiske udtryk til at møde svigerforældre",
+      "native_lang": "da",
+      "target_lang": "pt",
+      "category": "communication",
+      "content": "# Portugisiske udtryk til at møde svigerforældre\n\nPortugal og Brasilien deler et sprog, men har forskellige kulturelle nuancer. Begge kulturer værdsætter familie højt, og at blive accepteret af svigerforældrene er vigtigt. Denne guide fokuserer primært på europæisk portugisisk, men nævner også brasilianske variationer.\n\n## Kulturel kontekst\n\nPortugisere er varme og gæstfri. Svigerforældre kaldes \"sogros\", svigermor er \"sogra\" og svigerfar er \"sogro\". Hilsen involverer ofte to kindkys (kvinde-kvinde og kvinde-mand) eller håndtryk (mand-mand). \"Você\" bruges oftere end det formelle \"o senhor/a senhora\".\n\n## Vigtige sætninger\n\n### 1. Muito prazer em conhecê-los\n**Dansk:** Stor fornøjelse at møde jer\n**Udtale:** muĩ-tu pra-zer ẽj kõ-ɲe-se-luʃ\n**Anbefaling:** Ledsag med et varmt smil og øjenkontakt\n\n### 2. Ouvi falar muito de vocês\n**Dansk:** Jeg har hørt så meget om jer\n**Udtale:** o-vi fa-lar muĩ-tu dʒi vo-sεʃ\n**Anbefaling:** Viser at din partner værdsætter sin familie\n\n### 3. Muito obrigado/obrigada pelo convite\n**Dansk:** Mange tak for invitationen (mand/kvinde)\n**Udtale:** muĩ-tu o-bri-ga-du/a pe-lu kõ-vi-tʃi\n**Anbefaling:** Brug \"obrigado\" hvis du er mand, \"obrigada\" hvis du er kvinde\n\n### 4. Trouxe-vos uma lembrancinha\n**Dansk:** Jeg har medbragt en lille gave\n**Udtale:** tro-ʃe-vuʃ u-ma lẽ-brɐ̃-si-ɲa\n**Anbefaling:** Vin, chokolade eller blomster er gode valg\n\n### 5. Que casa tão bonita!\n**Dansk:** Sikke et smukt hjem!\n**Udtale:** ke ka-za tɐ̃w bo-ni-ta\n**Anbefaling:** Portugisere er stolte af deres hjem\n\n### 6. A comida estava deliciosa\n**Dansk:** Maden var lækker\n**Udtale:** a ko-mi-da iʃ-ta-va de-li-sjo-za\n**Anbefaling:** Mad er central i portugisisk kultur - ros den oprigtigt\n\n### 7. Amo muito o vosso filho/a vossa filha\n**Dansk:** Jeg elsker jeres søn/datter meget\n**Udtale:** a-mu muĩ-tu u vo-su fi-ʎu / a vo-sa fi-ʎa\n**Anbefaling:** Portugisere værdsætter åbne følelser\n\n### 8. Estamos muito felizes juntos\n**Dansk:** Vi er meget lykkelige sammen\n**Udtale:** iʃ-ta-muʃ muĩ-tu fe-li-zeʃ ʒũ-tuʃ\n**Anbefaling:** Bekræfter forholdets stabilitet\n\n### 9. Gostava de vos conhecer melhor\n**Dansk:** Jeg vil gerne lære jer bedre at kende\n**Udtale:** goʃ-ta-va dʒi vuʃ kõ-ɲe-ser me-ʎor\n**Anbefaling:** Viser ægte interesse i familien\n\n### 10. Posso ajudar em alguma coisa?\n**Dansk:** Kan jeg hjælpe med noget?\n**Udtale:** po-su a-ʒu-dar ẽj al-gu-ma koi-za\n**Anbefaling:** At tilbyde hjælp viser respekt og god opdragelse\n\n### 11. Esta receita é maravilhosa\n**Dansk:** Denne opskrift er vidunderlig\n**Udtale:** eʃ-ta re-sei-ta ε ma-ra-vi-ʎo-za\n**Anbefaling:** Ros specifikke retter - portugisere er stolte af deres madtraditioner\n\n### 12. Mal posso esperar para vos ver de novo\n**Dansk:** Jeg kan næsten ikke vente med at se jer igen\n**Udtale:** mal po-su iʃ-pe-rar pa-ra vuʃ ver dʒi no-vu\n**Anbefaling:** Viser entusiasme for fremtidige besøg\n\n## Yderligere kulturelle tips\n\n**Måltider:** Portugisiske måltider er lange og sociale. Frokost (almoço) er ofte det største måltid og kan vare i flere timer. Forvent flere retter, startende med suppe.\n\n**Bacalhau:** Torsk (bacalhau) er Portugals nationalret med angiveligt 365 forskellige opskrifter. Vis interesse og nyd det!\n\n**Kaffe:** Efter måltidet serveres espresso (\"uma bica\" i Lissabon, \"um cimbalino\" i Porto). Portugisere drikker ikke kaffe med mælk efter frokost.\n\n**Høflighed:** \"Faz favor\" (vær venlig) bruges flittigt. Bordmanerer er vigtige - hold hænderne på bordet, ikke i skødet.\n\n**Familietid:** Søndagsfrokost med familien er hellig i Portugal. Hvis du inviteres, er det et stort tegn på accept.\n\n**Brasiliansk portugisisk:** I Brasilien er kulturen mere afslappet. \"Vocês\" bruges mere end i Portugal, og udtalen er blødere. Brasilianske familier er ofte endnu mere varme og omfavnende.\n\nMed disse udtryk og kulturelle tips er du klar til at gøre et godt indtryk på dine portugisiske svigerforældre. Boa sorte!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Vigtige sætninger"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "408f0116-3672-4086-8411-970df033e8d2",
+      "title": "Englische Hochzeitsphrasen und romantische Glückwünsche",
+      "native_lang": "de",
+      "target_lang": "en",
+      "category": "situations",
+      "content": "# Englische Hochzeitsphrasen und romantische Glückwünsche\n\nEine Hochzeit ist einer der schönsten Momente im Leben eines Paares. Wenn Sie eine englische Hochzeit besuchen oder Ihren Partner auf Englisch beeindrucken möchten, ist dieses Vokabular unverzichtbar.\n\n## Grundlegende Hochzeitsvokabeln\n\nBevor wir zu den Phrasen kommen, lernen wir die wichtigsten Wörter rund um die Hochzeit:\n\n<VocabCard word=\"wedding ring\" translation=\"der Ehering\" example=\"Der wedding ring symbolisiert die ewige Liebe.\" />\n\n<VocabCard word=\"wedding dress\" translation=\"das Hochzeitskleid\" example=\"Das wedding dress war wunderschön.\" />\n\n<VocabCard word=\"ceremony\" translation=\"die Zeremonie\" example=\"Die ceremony war sehr bewegend.\" />\n\n<VocabCard word=\"honeymoon\" translation=\"die Flitterwochen\" example=\"Wohin fahrt ihr in die honeymoon?\" />\n\n## Die wichtigsten Hochzeitsphrasen\n\n### Der Heiratsantrag\n\nDie wohl wichtigste Frage, die Sie auf Englisch stellen können:\n\n<PhraseOfDay phrase=\"Will you marry me?\" translation=\"Willst du mich heiraten?\" context=\"Die traditionelle Frage beim Heiratsantrag\" />\n\n### Das Ehegelübde\n\nBei der Zeremonie hören Sie oft:\n\n**\"I do\"** - \"Ja, ich will\"\n\nDies ist die traditionelle Antwort auf die Frage des Standesbeamten oder Priesters.\n\n### Glückwünsche aussprechen\n\nNach der Trauung gratulieren Sie dem Brautpaar:\n\n**\"Congratulations to the newlyweds!\"** - \"Herzlichen Glückwunsch den Frischvermählten!\"\n\nBeim Anstoßen sagen Sie:\n\n**\"To the bride and groom!\"** - \"Auf das Brautpaar!\"\n\n<CultureTip title=\"Hochzeitsbräuche\">\nIn Englischsprachigen Ländern gibt es einzigartige Hochzeitstraditionen. Informieren Sie sich vor dem Besuch einer Hochzeit über lokale Bräuche.\n</CultureTip>\n\n## Vokabeln für die Hochzeitsgesellschaft\n\n<VocabCard word=\"bridesmaids\" translation=\"die Brautjungfern\" example=\"Die bridesmaids trugen blaue Kleider.\" />\n\n<VocabCard word=\"groomsmen\" translation=\"die Trauzeugen\" example=\"Die groomsmen organisierten den Junggesellenabschied.\" />\n\n<VocabCard word=\"best man\" translation=\"der Trauzeuge\" example=\"Der best man hielt eine tolle Rede.\" />\n\n<VocabCard word=\"maid of honor\" translation=\"die Trauzeugin\" example=\"Die maid of honor half bei der Planung.\" />\n\n## Romantische Versprechen\n\nEin typisches Ehegelübde enthält oft Sätze wie:\n\n**\"I promise to love you forever\"** - \"Ich verspreche, dich für immer zu lieben\"\n\nDiese Worte werden während der Zeremonie ausgetauscht und sind der emotionale Höhepunkt jeder Hochzeit.\n\n## Die Feier\n\n<VocabCard word=\"The reception will be held at...\" translation=\"Der Empfang wird stattfinden bei...\" example=\"The reception will be held at...\" />\n\n<VocabCard word=\"first dance\" translation=\"der erste Tanz\" example=\"Ihr first dance war sehr romantisch.\" />\n\n## Praktische Phrasen für Hochzeitsgäste\n\nAls Gast einer englischen Hochzeit sollten Sie folgende Ausdrücke kennen:\n\n- \"Wo findet die Zeremonie statt?\" - Fragen Sie nach dem Veranstaltungsort\n- \"Wann beginnt der Empfang?\" - Erkundigen Sie sich nach dem Zeitplan\n- \"Darf ich dem Brautpaar gratulieren?\" - Höflich um Erlaubnis bitten\n\n<CultureTip title=\"Geschenke und Etikette\">\nIn verschiedenen Kulturen gibt es unterschiedliche Erwartungen an Hochzeitsgeschenke. Manche bevorzugen Geldgeschenke, andere traditionelle Gaben.\n</CultureTip>\n\n## Übung macht den Meister\n\nÜben Sie diese Phrasen regelmäßig, damit Sie bei der nächsten Hochzeit selbstbewusst auf Englisch kommunizieren können. Beginnen Sie mit den grundlegenden Glückwünschen und arbeiten Sie sich zu komplexeren Ausdrücken vor.\n\n## Weiterführende Ressourcen\n\nWenn Sie Ihre romantischen Englischkenntnisse vertiefen möchten, empfehlen wir Ihnen unsere anderen Artikel zu [Verlobungsphrasen](/de/blog/english-proposal-engagement-phrases) und [Jahrestagswünschen](/de/blog/english-anniversary-wishes).\n\n<CTA text=\"Üben Sie diese Hochzeitsphrasen mit unserem interaktiven Sprachtrainer\" buttonText=\"Jetzt starten\" href=\"/de\" />\n\n---\n\n*Mit diesen Phrasen sind Sie bestens auf jede englische Hochzeit vorbereitet!*",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 291,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Die wichtigsten Hochzeitsphrasen"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "40950766-79c1-4b2d-ba7a-dcbbb2d0cc59",
+      "title": "Ιταλικές Φράσεις Συγχώρεσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "it",
+      "category": "communication",
+      "content": "Η συγχώρεση είναι θεμελιώδης. Όταν ο σύντροφός σας μιλάει ιταλικά, αυτές οι φράσεις θα βοηθήσουν.\n\n## Φράσεις Συγχώρεσης\n\n### Αίτηση Συγχώρεσης\n\n<Phrase term=\"Per favore, perdonami\" pronunciation=\"Περ φαβόρε, περδόναμι\">\n  <Trans>Σε παρακαλώ, συγχώρεσέ με</Trans>\n  <Note>Αίτηση</Note>\n</Phrase>\n\n<Phrase term=\"Mi dispiace davvero per quello che ho fatto\" pronunciation=\"Μι ντισπιάτσε νταβέρο περ κουέλο κε ο φάτο\">\n  <Trans>Λυπάμαι πραγματικά για αυτό που έκανα</Trans>\n  <Note>Αναγνώριση</Note>\n</Phrase>\n\n<Phrase term=\"So che ti ho fatto del male\" pronunciation=\"Σο κε τι ο φάτο ντελ μάλε\">\n  <Trans>Ξέρω ότι σε πλήγωσα</Trans>\n  <Note>Πόνος</Note>\n</Phrase>\n\n### Έκφραση Μετάνοιας\n\n<Phrase term=\"Non lo farò mai più\" pronunciation=\"Νον λο φαρό μάι πιου\">\n  <Trans>Δεν θα το ξανακάνω</Trans>\n  <Note>Υπόσχεση</Note>\n</Phrase>\n\n<Phrase term=\"Ho imparato la lezione\" pronunciation=\"Ο ιμπαράτο λα λετσιόνε\">\n  <Trans>Έμαθα το μάθημα</Trans>\n  <Note>Μάθηση</Note>\n</Phrase>\n\n<Phrase term=\"Voglio rimediare\" pronunciation=\"Βόλιο ριμεντιάρε\">\n  <Trans>Θέλω να επανορθώσω</Trans>\n  <Note>Επανόρθωση</Note>\n</Phrase>\n\n### Προσφορά Συγχώρεσης\n\n<Phrase term=\"Ti perdono\" pronunciation=\"Τι περδόνο\">\n  <Trans>Σε συγχωρώ</Trans>\n  <Note>Συγχώρεση</Note>\n</Phrase>\n\n<Phrase term=\"Lasciamoci questo alle spalle\" pronunciation=\"Λασιάμοτσι κουέστο άλε σπάλε\">\n  <Trans>Ας το αφήσουμε πίσω μας</Trans>\n  <Note>Νέα αρχή</Note>\n</Phrase>\n\n<Phrase term=\"Sono pronto/pronta ad andare avanti\" pronunciation=\"Σόνο πρόντο/πρόντα αντ αντάρε αβάντι\">\n  <Trans>Είμαι έτοιμος/η να προχωρήσω</Trans>\n  <Note>Δέσμευση</Note>\n</Phrase>\n\n### Χρόνος για Θεραπεία\n\n<Phrase term=\"Ho bisogno di tempo per guarire\" pronunciation=\"Ο μπιζόνιο ντι τέμπο περ γκουαρίρε\">\n  <Trans>Χρειάζομαι χρόνο να επουλωθώ</Trans>\n  <Note>Χώρος</Note>\n</Phrase>\n\n<Phrase term=\"Sto lavorando per perdonarti\" pronunciation=\"Στο λαβοράντο περ περντονάρτι\">\n  <Trans>Εργάζομαι για να σε συγχωρήσω</Trans>\n  <Note>Διαδικασία</Note>\n</Phrase>\n\n## Πολιτιστικές Συμβουλές\n\nΟι Ιταλοί εκφράζονται παθιασμένα. Η συγχώρεση συχνά συνοδεύεται από έντονες εκφράσεις αγάπης και αγκαλιές.\n\n## Συμπέρασμα\n\nΜε αυτές τις φράσεις, μπορείτε να διαχειριστείτε τη συγχώρεση με τον ιταλόφωνο σύντροφό σας.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 242,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Φράσεις Συγχώρεσης"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

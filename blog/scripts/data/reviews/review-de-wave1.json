@@ -1,0 +1,190 @@
+{
+  "native_lang": "de",
+  "wave": 1,
+  "target_langs_reviewed": ["en", "es", "fr", "it", "pt", "pl"],
+  "articles_reviewed": 12,
+  "clean_articles": 3,
+  "issues": [
+    {
+      "article_id": "1974a488-059c-4ca7-92bc-17bf355e9202",
+      "slug": "en-makeup-phrases-for-german-speakers",
+      "target_lang": "en",
+      "issue_type": "missing_pronunciation",
+      "severity": "medium",
+      "description": "PhrasePair components have no pronunciation prop. All 17 phrases render without pronunciation guides in the HTML. Learners get no phonetic help.",
+      "evidence": "<PhrasePair source=\"Es tut mir leid\" target=\"I'm sorry\" audio=\"im-sorry\" /> -- no pronunciation field"
+    },
+    {
+      "article_id": "b9bf42dc-3991-4a38-8b15-6f447e385bb5",
+      "slug": "spanish-texting-slang-for-couples",
+      "target_lang": "es",
+      "issue_type": "wrong_pronunciation",
+      "severity": "medium",
+      "description": "Pronunciation for 'Jajaja' is given as 'cha-cha-cha'. In Spanish, J is pronounced as a guttural /x/ (like German 'ch' in 'Bach'), not 'ch' as in English 'chair'. The guide should be 'cha-cha-cha' with clarification or better 'ha-ha-ha' for German speakers since German 'ch' is ambiguous.",
+      "evidence": "pronunciation=\"cha-cha-cha\" -- misleading for German speakers who may read 'ch' as in 'ich'"
+    },
+    {
+      "article_id": "b9bf42dc-3991-4a38-8b15-6f447e385bb5",
+      "slug": "spanish-texting-slang-for-couples",
+      "target_lang": "es",
+      "issue_type": "wrong_language_example",
+      "severity": "medium",
+      "description": "VocabCard for 'Xq / Pq' has its example sentence in German ('Warum antwortest du mir nicht?') instead of Spanish. All other VocabCard examples in this article correctly use Spanish.",
+      "evidence": "word=\"Xq / Pq\" ... example=\"Warum antwortest du mir nicht?\""
+    },
+    {
+      "article_id": "1309bf9f-21f4-4050-9c47-e32d433386da",
+      "slug": "spanish-greetings-and-farewells",
+      "target_lang": "es",
+      "issue_type": "typo",
+      "severity": "low",
+      "description": "German typo: 'meere' instead of 'mehr' in the closing paragraph.",
+      "evidence": "Und wenn ihr [meere romantische Phrasen](/learn/de/es/romantic-spanish-phrases-for-every-occasion/)"
+    },
+    {
+      "article_id": "c6b7ed7f-dbf8-4ddd-a6f5-debc0bd54a09",
+      "slug": "french-anniversary-wishes",
+      "target_lang": "fr",
+      "issue_type": "truncated_pronunciation",
+      "severity": "high",
+      "description": "Pronunciation for 'Je t'aime plus chaque jour' is truncated to just 'Scho t' -- appears cut off, likely due to the apostrophe in the word field breaking the parser.",
+      "evidence": "pronunciation=\"Scho t\""
+    },
+    {
+      "article_id": "c6b7ed7f-dbf8-4ddd-a6f5-debc0bd54a09",
+      "slug": "french-anniversary-wishes",
+      "target_lang": "fr",
+      "issue_type": "example_copies_word",
+      "severity": "medium",
+      "description": "Multiple VocabCards have the example field set to exactly the same text as the word field, providing no additional learning context. 7 of the first 8 VocabCards just repeat the phrase as the example.",
+      "evidence": "word=\"A toi pour toujours\" ... example=\"A toi pour toujours\""
+    },
+    {
+      "article_id": "c6b7ed7f-dbf8-4ddd-a6f5-debc0bd54a09",
+      "slug": "french-anniversary-wishes",
+      "target_lang": "fr",
+      "issue_type": "missing_target_language",
+      "severity": "high",
+      "description": "Section 'Jahrestags-Geschenke beschreiben' lists 3 phrases only in German without their French translations. In an article about French phrases, the target-language content is completely absent from this section.",
+      "evidence": "- \"Ich habe etwas Besonderes fur dich\" - Ankundigung einer Uberraschung (no French translation)"
+    },
+    {
+      "article_id": "c6b7ed7f-dbf8-4ddd-a6f5-debc0bd54a09",
+      "slug": "french-anniversary-wishes",
+      "target_lang": "fr",
+      "issue_type": "questionable_pronunciation",
+      "severity": "medium",
+      "description": "PhraseOfDay pronunciation 'Schwa-jos-ani-war-ssar do ma-riasch' for 'Joyeux anniversaire de mariage!' is rough. 'Joyeux' should be closer to 'Schwa-jo' and 'anniversaire' to 'ani-wer-ssehr'. The guide uses inconsistent phonetic conventions.",
+      "evidence": "pronunciation=\"Schwa-jos-ani-war-ssar do ma-riasch\""
+    },
+    {
+      "article_id": "45d0e310-d32e-4421-a31d-f35908864782",
+      "slug": "french-grammar-basics-for-beginners",
+      "target_lang": "fr",
+      "issue_type": "inconsistent_pronunciation_style",
+      "severity": "low",
+      "description": "Pronunciations mix German-adapted phonetics (like 'Scho' for 'je') with English-style phonetics ('zhuh parl' in the table, 'too eh' for 'tu es', 'eh-may' for 'aimer'). A German speaker would not naturally read 'zh' as the French J sound. The VocabCards use German-style but the tables use English-style.",
+      "evidence": "Table: 'zhuh parl' vs VocabCard: 'too eh la-moor duh ma vee' -- mix of English and pseudo-phonetic"
+    },
+    {
+      "article_id": "ed126f8d-b63f-44cc-a3b5-f915e0aa1fba",
+      "slug": "italian-moving-in-together",
+      "target_lang": "it",
+      "issue_type": "german_example_sentences",
+      "severity": "high",
+      "description": "Nearly all VocabCard examples are German sentences with the Italian word embedded, rather than actual Italian example sentences. This fails to show learners how the word is used in Italian context. 15 of 16 examples are in German.",
+      "evidence": "example=\"Das casa hat einen Garten.\" / example=\"Die cucina ist modern.\" / example=\"Das bagno hat eine Badewanne.\""
+    },
+    {
+      "article_id": "ed126f8d-b63f-44cc-a3b5-f915e0aa1fba",
+      "slug": "italian-moving-in-together",
+      "target_lang": "it",
+      "issue_type": "truncated_pronunciation",
+      "severity": "high",
+      "description": "Pronunciation for 'contratto d'affitto' is truncated to 'kon-trat-to d' -- cut off by the apostrophe in the word, same parser issue as the French article.",
+      "evidence": "pronunciation=\"kon-trat-to d\""
+    },
+    {
+      "article_id": "ed126f8d-b63f-44cc-a3b5-f915e0aa1fba",
+      "slug": "italian-moving-in-together",
+      "target_lang": "it",
+      "issue_type": "wrong_german_article",
+      "severity": "low",
+      "description": "Examples use wrong German articles for Italian nouns: 'Die affitto' (affitto is masculine in Italian, should be 'der' if mapping), 'Das camera da letto' (camera is feminine). Since these are German-language examples, the article assignment is confusing.",
+      "evidence": "example=\"Die affitto ist bezahlbar.\" -- affitto = l'affitto (m.)"
+    },
+    {
+      "article_id": "6409d05f-aeca-47cd-9f3d-b4e6ac78ae97",
+      "slug": "italian-anniversary-wishes",
+      "target_lang": "it",
+      "issue_type": "example_copies_word",
+      "severity": "medium",
+      "description": "Multiple VocabCards have the example field identical to the word field, giving no additional usage context. 7 of 10 examples just repeat the phrase.",
+      "evidence": "word=\"Ti amo di piu ogni giorno\" example=\"Ti amo di piu ogni giorno\""
+    },
+    {
+      "article_id": "6409d05f-aeca-47cd-9f3d-b4e6ac78ae97",
+      "slug": "italian-anniversary-wishes",
+      "target_lang": "it",
+      "issue_type": "missing_target_language",
+      "severity": "high",
+      "description": "Section 'Jahrestags-Geschenke beschreiben' lists 3 phrases only in German without Italian translations. Identical pattern to the French anniversary article -- appears to be a template that was not fully localized.",
+      "evidence": "- \"Ich habe etwas Besonderes fur dich\" - Ankundigung einer Uberraschung (no Italian)"
+    },
+    {
+      "article_id": "6409d05f-aeca-47cd-9f3d-b4e6ac78ae97",
+      "slug": "italian-anniversary-wishes",
+      "target_lang": "it",
+      "issue_type": "template_duplication",
+      "severity": "medium",
+      "description": "This article shares identical structural sections, German prose, and even identical CultureTip text with the French anniversary article (c6b7ed7f). The 'Jahrestags-Geschenke beschreiben', 'Geschenk-Traditionen' CultureTip, and 'Personliche Nachrichten schreiben' sections are near-identical templates with only the target-language words swapped.",
+      "evidence": "Both articles have identical: 'Traditionell gibt es fur jeden Jahrestag ein symbolisches Geschenk: Papier...' CultureTip"
+    },
+    {
+      "article_id": "aedc1ea9-6d3e-485d-9801-3f023df1434e",
+      "slug": "pl-argue-phrases-for-german-speakers",
+      "target_lang": "pl",
+      "issue_type": "missing_pronunciation",
+      "severity": "medium",
+      "description": "PhrasePair components have no pronunciation prop. All 15 Polish phrases render without pronunciation guides. Polish pronunciation is notoriously difficult for German speakers (sz, cz, rz, nasal vowels), making this omission especially impactful.",
+      "evidence": "<PhrasePair source=\"Das verletzt mich\" target=\"To mnie rani\" audio=\"to-mnie-rani\" /> -- no pronunciation"
+    },
+    {
+      "article_id": "80d28458-97c6-41cb-b818-31d96aad73ca",
+      "slug": "polish-pet-names-and-endearments",
+      "target_lang": "pl",
+      "issue_type": "missing_target_language_content",
+      "severity": "high",
+      "description": "Article titled 'Polnisch Kosenamen' but lists almost exclusively German pet names (Schatz, Liebling, Mein Herz, Barchen, Mauschen, Haschen, Spatzchen, etc.) without their Polish equivalents. Only 1 VocabCard ('Skarbie') has actual Polish content. The article completely fails to teach Polish pet names.",
+      "evidence": "Lists: Schatz, Liebling, Mein Herz, Meine Liebe, Barchen, Mauschen, Haschen, Spatzchen -- all German, no Polish"
+    },
+    {
+      "article_id": "80d28458-97c6-41cb-b818-31d96aad73ca",
+      "slug": "polish-pet-names-and-endearments",
+      "target_lang": "pl",
+      "issue_type": "content_mismatch",
+      "severity": "high",
+      "description": "The 'Klassische Kosenamen', 'Susse Tiernamen', and 'Romantische Ausdrucke' sections are entirely in German with no Polish translations whatsoever. This is a German article about German pet names, not Polish ones as the title promises.",
+      "evidence": "Section 'Klassische Kosenamen': Schatz, Liebling, Mein Herz, Meine Liebe -- zero Polish words"
+    },
+    {
+      "article_id": "80d28458-97c6-41cb-b818-31d96aad73ca",
+      "slug": "polish-pet-names-and-endearments",
+      "target_lang": "pl",
+      "issue_type": "missing_components",
+      "severity": "medium",
+      "description": "Article has only 1 VocabCard (Skarbie) compared to 15-20 VocabCards in other articles. The CultureTip lacks a flag prop. Most sections are plain text bullet lists with no interactive learning components.",
+      "evidence": "Only VocabCard: word=\"Skarbie\" -- entire article has just this one"
+    }
+  ],
+  "systemic_patterns": [
+    "PhrasePair component lacks pronunciation prop: Articles using PhrasePair (en-makeup #1, pl-argue #10) render without any pronunciation guides, unlike VocabCard which has a pronunciation field. This is a component design gap affecting 32 phrases across 2 articles.",
+    "Apostrophe truncation in pronunciations: Words containing apostrophes (contratto d'affitto, Je t'aime) have their pronunciation field truncated at the apostrophe character. Likely a parser/escaping bug during content generation.",
+    "Template reuse without localization: The French and Italian anniversary articles share identical German prose sections, identical CultureTip text, and identical structural templates. The 'Jahrestags-Geschenke beschreiben' section appears in both with only German text and no target-language translations, suggesting a template was copied but not completed.",
+    "Example field copies word field: Several articles (fr-anniversary, it-anniversary) have VocabCard examples that simply repeat the word/phrase verbatim instead of providing a contextual sentence showing usage.",
+    "German-only examples in Italian article: The Italian moving-in article systematically uses German sentences with the Italian word inserted (e.g., 'Das casa hat einen Garten') rather than authentic Italian example sentences. This pattern is unique to this article.",
+    "Polish pet names article is almost entirely in German: The worst-affected article contains German pet names in the lists without any Polish translations, defeating the entire purpose. Only 1 of ~15 items includes a Polish word.",
+    "Pronunciation style inconsistency: French articles mix German-adapted phonetics (VocabCards) with English-adapted phonetics (tables using 'zh' and 'oo' sounds). German speakers would struggle with English-style guides like 'zhuh' since 'zh' is not a German convention.",
+    "Articles 0 (en-greetings) and 2 (es-texting) are the strongest: Well-structured, authentic examples, correct language separation, helpful pronunciations, and rich interactive components. They serve as the quality benchmark."
+  ]
+}

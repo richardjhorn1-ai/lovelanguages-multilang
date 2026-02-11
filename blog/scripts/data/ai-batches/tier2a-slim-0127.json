@@ -1,0 +1,436 @@
+{
+  "batchId": "tier2a-slim-0127",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "8f27d4f4-989c-482e-85ba-966de54e6823",
+      "title": "Гид по шведскому произношению для русскоговорящих",
+      "native_lang": "ru",
+      "target_lang": "sv",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Гласные звуки",
+          "subsections": [
+            "### Основные гласные",
+            "### Особые гласные: Å, Ä, Ö"
+          ]
+        },
+        {
+          "header": "## Согласные звуки",
+          "subsections": [
+            "### Буквы с особым произношением",
+            "### Звук «sj» (шведский «щ»)",
+            "### Звук «tj» и «kj»"
+          ]
+        },
+        {
+          "header": "## Практические упражнения",
+          "subsections": [
+            "### Упражнение 1: Гласные",
+            "### Упражнение 2: Сложные звуки",
+            "### Упражнение 3: Романтические слова"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8f3a131e-6a22-46ba-a786-14319ed7b8cb",
+      "title": "Norvég flörtölős kifejezések",
+      "native_lang": "hu",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető flörtölős kifejezések",
+          "subsections": [
+            "### 1. Du er veldig vakker (Dü ér veldi vákker)",
+            "### 2. Du har fine øyne (Dü hár fíne öjne)",
+            "### 3. Vil du ta en kaffe med meg? (Vil dü tá en káffe med mej?)",
+            "### 4. Jeg liker deg (Jej líker dej)",
+            "### 5. Jeg vil gjerne bli bedre kjent med deg (Jej vil jérne bli bédre sent med dej)",
+            "### 6. Du er så søt (Dü ér szó szöt)",
+            "### 7. Kan jeg få nummeret ditt? (Kan jej fó nummere ditt?)",
+            "### 8. Du har et fint smil (Dü hár et fint szmíl)",
+            "### 9. Det er hyggelig å snakke med deg (Det ér hüggeli ó sznakke med dej)",
+            "### 10. Skal vi møtes igjen? (Skál vi mötesz íjen?)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8f430330-2f2d-4687-b246-a6b7631cae57",
+      "title": "Macarca İlk Buluşma İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Karşılama",
+          "subsections": [
+            "### 1. \"Nagyon örülök, hogy végre találkozunk\"",
+            "### 2. \"Még jobban nézel ki, mint a fotókon\"",
+            "### 3. \"Nagyon vártam ezt a találkozót\""
+          ]
+        },
+        {
+          "header": "## Sohbet",
+          "subsections": [
+            "### 4. \"Mesélj magadról\"",
+            "### 5. \"Mit szeretsz csinálni szabadidődben?\"",
+            "### 6. \"Voltál már itt korábban?\""
+          ]
+        },
+        {
+          "header": "## İltifatlar",
+          "subsections": [
+            "### 7. \"Gyönyörű a mosolyod\"",
+            "### 8. \"Tetszik a stílusod\"",
+            "### 9. \"Könnyű veled beszélgetni\""
+          ]
+        },
+        {
+          "header": "## Sonlandırma",
+          "subsections": [
+            "### 10. \"Nagyon jól éreztem magam\"",
+            "### 11. \"Megismételhetjük?\"",
+            "### 12. \"Szeretnélek újra látni\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8f502ee1-800d-4138-b37c-2702983202f3",
+      "title": "Spanska fraser för att säga 'Jag saknar dig' – Uttryck längtan till din partner",
+      "native_lang": "sv",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande fraser",
+          "subsections": [
+            "### \"Te echo de menos\" / \"Te extraño\"",
+            "### \"Te echo mucho de menos\"",
+            "### \"No puedo dejar de pensar en ti\""
+          ]
+        },
+        {
+          "header": "## Djupare uttryck",
+          "subsections": [
+            "### \"Me haces mucha falta\"",
+            "### \"Mi corazón te extraña\"",
+            "### \"Cada momento sin ti es eterno\""
+          ]
+        },
+        {
+          "header": "## Romantiska kvällsfraser",
+          "subsections": [
+            "### \"Extraño dormirme a tu lado\"",
+            "### \"La cama está vacía sin ti\"",
+            "### \"Extraño sentir tu calor junto a mí\""
+          ]
+        },
+        {
+          "header": "## Vardagliga uttryck",
+          "subsections": [
+            "### \"Hoy vi algo que me recordó a ti\"",
+            "### \"Extraño nuestros pequeños momentos\"",
+            "### \"Todo me recuerda a ti\""
+          ]
+        },
+        {
+          "header": "## Hoppfulla fraser",
+          "subsections": [
+            "### \"No puedo esperar a verte de nuevo\"",
+            "### \"Contando los días para estar juntos\"",
+            "### \"Pronto estaremos en los brazos del otro\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8f5be106-d82a-4c54-9fc7-58e1fa350838",
+      "title": "El Condicional Italiano Explicado",
+      "native_lang": "es",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Usos del Condicional",
+          "subsections": [
+            "### 1. Deseos y Sueños",
+            "### 2. Peticiones Corteses",
+            "### 3. Consejos y Sugerencias"
+          ]
+        },
+        {
+          "header": "## Oraciones Condicionales (Periodo Ipotetico)",
+          "subsections": [
+            "### Tipo 2: Posibilidad en el Presente",
+            "### Tipo 3: Imposibilidad en el Pasado"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8f63e853-c67a-44f2-9d73-e1e0ca487e70",
+      "title": "Prononciation russe : maitriser le cyrillique",
+      "native_lang": "fr",
+      "target_lang": "ru",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Défis de prononciation courants",
+          "subsections": [
+            "### Le son Ы",
+            "### Le R roulé",
+            "### Ш vs Щ"
+          ]
+        },
+        {
+          "header": "## Résumé des règles de prononciation",
+          "subsections": [
+            "### Toujours vrai",
+            "### Mots de pratique"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8f733f6d-34a5-4c19-bbcd-f53dd9f83a0e",
+      "title": "Tjeckiska Fraser för Förlåtelse",
+      "native_lang": "sv",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Be om Förlåtelse",
+          "subsections": [
+            "### 1. \"Opravdu se omlouvám\"",
+            "### 2. \"Prosím, odpusť mi\"",
+            "### 3. \"Přebírám plnou odpovědnost\"",
+            "### 4. \"Měl/a jsem nepravdu a vím to\"",
+            "### 5. \"Jak to mohu napravit?\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Ge Förlåtelse",
+          "subsections": [
+            "### 6. \"Odpouštím ti\"",
+            "### 7. \"Nechme to za sebou\"",
+            "### 8. \"Rozumím a vážím si tvé omluvy\"",
+            "### 9. \"Všichni děláme chyby\"",
+            "### 10. \"Je třeba odvahy se omluvit\"",
+            "### 11. \"Vážím si tvé upřímnosti\"",
+            "### 12. \"Důležité je, že jdeme dál společně\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8f7f3850-bf73-485e-a924-9b5151c58331",
+      "title": "Polske sms- og chatbeskeder til par",
+      "native_lang": "da",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende kærlige beskeder",
+          "subsections": [
+            "### \"Tęsknię za tobą\"",
+            "### \"Myślę o tobie\"",
+            "### \"Nie mogę się doczekać, żeby cię zobaczyć\""
+          ]
+        },
+        {
+          "header": "## Populære polske kælenavne",
+          "subsections": [
+            "### \"Kochanie\"",
+            "### \"Skarbie\"",
+            "### \"Misiu\" / \"Misiaczku\""
+          ]
+        },
+        {
+          "header": "## Polske sms-forkortelser",
+          "subsections": [
+            "### \"Kocham cię\" / \"KC\"",
+            "### \"Buziaki\"",
+            "### \"Pa\" / \"Papa\""
+          ]
+        },
+        {
+          "header": "## Romantiske beskeder",
+          "subsections": [
+            "### \"Jesteś dla mnie wszystkim\"",
+            "### \"Dzień dobry, kochanie\"",
+            "### \"Dobranoc, skarbie\""
+          ]
+        },
+        {
+          "header": "## Hverdagsbeskeder",
+          "subsections": [
+            "### \"Co słychać?\"",
+            "### \"Już jadę\"",
+            "### \"Do zobaczenia\""
+          ]
+        },
+        {
+          "header": "## Specielle udtryk",
+          "subsections": [
+            "### \"Całuję cię mocno\"",
+            "### \"Słoneczko\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8f8dda43-44c7-46b9-974e-5e6323fa082b",
+      "title": "Mød Din Partners Tyske Familie: En Praktisk Guide",
+      "native_lang": "da",
+      "target_lang": "de",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Kulturelle Tips",
+          "subsections": [
+            "### Medbringe Gaver"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8fb41fae-adde-45b2-8e7b-79886a0cc6d3",
+      "title": "Французька лексика про вагітність та материнство",
+      "native_lang": "uk",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Основна лексика про вагітність",
+          "subsections": []
+        },
+        {
+          "header": "## Оголошення про вагітність французькою",
+          "subsections": [
+            "### Як поділитися новиною"
+          ]
+        },
+        {
+          "header": "## Покупки для малюка",
+          "subsections": [
+            "### Що потрібно купити"
+          ]
+        },
+        {
+          "header": "## Пологи та лікарня",
+          "subsections": [
+            "### У пологовому будинку",
+            "### Після народження"
+          ]
+        },
+        {
+          "header": "## Перші місяці з малюком",
+          "subsections": [
+            "### Корисна лексика"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8fcc1727-8351-43eb-b341-eab847b5c1d9",
+      "title": "Expresii în Turcă pentru Discuții și Dezacorduri în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale pentru Discuții",
+          "subsections": [
+            "### Exprimarea Frustrării",
+            "### Cererea de Clarificări",
+            "### Stabilirea Limitelor",
+            "### Recunoașterea și Empatia",
+            "### Căutarea Soluțiilor"
+          ]
+        },
+        {
+          "header": "## Nuanțe Culturale Importante",
+          "subsections": [
+            "### Onoarea (Namus)",
+            "### Respectul pentru Vârstnici",
+            "### Ospitalitatea",
+            "### Exprimarea Indirectă"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8fe914b0-ac95-4740-b3b9-c5ee25e2bb3d",
+      "title": "Engelske fraser om jalousil og tillid for par",
+      "native_lang": "da",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser om jalousii og tillid",
+          "subsections": [
+            "### At udtrykke bekymring",
+            "### At opbygge tillid",
+            "### At sætte grænser",
+            "### At berolige din partner"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8fea5670-c47c-4019-80f2-845ac18b8284",
+      "title": "100 Wichtige Ukrainische Wörter",
+      "native_lang": "de",
+      "target_lang": "uk",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Grundlegende Wörter",
+          "subsections": [
+            "### Pronomen",
+            "### Wichtige Verben",
+            "### Fragewörter"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8feba34a-fd60-4a72-9829-0043ea72b1c2",
+      "title": "Angielski Przewodnik Wymowy: Zacznij Rozmawiać ze Swoim Partnerem Pewnie",
+      "native_lang": "pl",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Najczęstsze Błędy Polaków (i Jak Ich Unikać)",
+          "subsections": [
+            "### 1. \"Ship\" vs \"Sheep\"",
+            "### 2. \"Bad\" vs \"Bed\"",
+            "### 3. \"Th\" zamiast \"F\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "9024238d-1833-4781-8fea-3a1c2cc73bcd",
+      "title": "Tiempos Verbales en Inglés Explicados",
+      "native_lang": "es",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## El Futuro: Will vs Going To",
+          "subsections": [
+            "### Will - Decisiones Espontáneas y Promesas",
+            "### Going To - Planes e Intenciones"
+          ]
+        }
+      ]
+    }
+  ]
+}

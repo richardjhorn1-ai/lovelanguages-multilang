@@ -1,0 +1,461 @@
+{
+  "batchId": "tier2a-slim-0169",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "b34e54f9-9d27-4ec7-a08e-1911be3666a2",
+      "title": "Macarca Aşk Mektubu Yazma Rehberi: Romantik İfadeler",
+      "native_lang": "tr",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Mektuba Başlangıç",
+          "subsections": [
+            "### 1. \"Drága\" + isim",
+            "### 2. \"Szerelmem\"",
+            "### 3. \"Szívem\""
+          ]
+        },
+        {
+          "header": "## Duygu İfadeleri",
+          "subsections": [
+            "### 4. \"Jobban szeretlek, mint amit szavakkal ki tudok fejezni\"",
+            "### 5. \"Te vagy nekem minden\"",
+            "### 6. \"Az életem megváltozott azon a napon, amikor megismertelek\"",
+            "### 7. \"Minden napot különlegessé teszed\"",
+            "### 8. \"Hálás vagyok minden veled töltött pillanatért\"",
+            "### 9. \"Te vagy a legszebb ember, akit ismerek\"",
+            "### 10. \"Az életem hátralévő részét veled akarom tölteni\""
+          ]
+        },
+        {
+          "header": "## Mektubu Bitirme",
+          "subsections": [
+            "### 11. \"Minden szeretetemmel\"",
+            "### 12. \"Örökké a tiéd\"",
+            "### 13. \"Szeretlek\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b352c59c-b267-42a2-b9a6-1008de9c836c",
+      "title": "Portugál Kifejezések a Leendő Apósékhoz Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bemutatkozás",
+          "subsections": [
+            "### 1. É um prazer conhecê-los",
+            "### 2. Já ouvi falar muito sobre vocês",
+            "### 3. Obrigado/Obrigada por me receberem"
+          ]
+        },
+        {
+          "header": "## A Kapcsolatról",
+          "subsections": [
+            "### 4. O seu filho/A sua filha significa tudo para mim",
+            "### 5. Sinto-me muito grato por fazer parte da família"
+          ]
+        },
+        {
+          "header": "## Bókok",
+          "subsections": [
+            "### 6. Vocês têm uma casa muito bonita",
+            "### 7. A comida está deliciosa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b35d3640-5531-44e7-a076-7e9b99c1b9be",
+      "title": "Frases en Neerlandés para Reconciliarte con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Pedir Disculpas",
+          "subsections": [
+            "### \"Het spijt me wat ik heb gezegd\"",
+            "### \"Ik wilde je niet kwetsen\"",
+            "### \"Kunnen we opnieuw beginnen?\"",
+            "### \"Ik had ongelijk\""
+          ]
+        },
+        {
+          "header": "## Frases para Expresar Amor",
+          "subsections": [
+            "### \"Ik hou van je, ook als we ruzie hebben\"",
+            "### \"Je betekent alles voor mij\"",
+            "### \"Ik haat het om ruzie te maken met jou\""
+          ]
+        },
+        {
+          "header": "## Frases para Reconstruir",
+          "subsections": [
+            "### \"Laten we er rustig over praten\"",
+            "### \"Ik wil je beter begrijpen\"",
+            "### \"Wat kan ik doen om het goed te maken?\"",
+            "### \"Ik beloof me meer in te zetten\"",
+            "### \"Mag ik je vasthouden?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b3891834-df2e-4e4d-8f18-83972cf907e7",
+      "title": "Ruské fráze pro hádky a neshody ve vztahu",
+      "native_lang": "cs",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní fráze pro vyjádření nesouhlasu",
+          "subsections": [
+            "### 1. Я с тобой не согласен/согласна",
+            "### 2. Я вижу это по-другому",
+            "### 3. Мне больно, когда ты...",
+            "### 4. Пожалуйста, не кричи на меня",
+            "### 5. Мне нужно время подумать"
+          ]
+        },
+        {
+          "header": "## Fráze pro pochopení partnera",
+          "subsections": [
+            "### 6. Помоги мне понять твою точку зрения",
+            "### 7. Я пытаюсь сказать, что...",
+            "### 8. Ты хочешь сказать, что...?"
+          ]
+        },
+        {
+          "header": "## Fráze pro hledání řešení",
+          "subsections": [
+            "### 9. Давай найдём компромисс",
+            "### 10. Я не хочу из-за этого ссориться",
+            "### 11. Мы в одной команде",
+            "### 12. Можем начать сначала?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b39a15e5-5971-437f-a5e3-418ddeea03d8",
+      "title": "Danca İlk Buluşma İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Karşılama",
+          "subsections": [
+            "### 1. \"Hvor dejligt endelig at møde dig\"",
+            "### 2. \"Du ser endnu bedre ud end på billederne\"",
+            "### 3. \"Jeg har glædet mig til dette\""
+          ]
+        },
+        {
+          "header": "## Sohbet",
+          "subsections": [
+            "### 4. \"Fortæl mig om dig selv\"",
+            "### 5. \"Hvad kan du lide at lave i din fritid?\"",
+            "### 6. \"Har du været her før?\""
+          ]
+        },
+        {
+          "header": "## İltifatlar",
+          "subsections": [
+            "### 7. \"Du har et smukt smil\"",
+            "### 8. \"Jeg kan godt lide din stil\"",
+            "### 9. \"Det er nemt at tale med dig\""
+          ]
+        },
+        {
+          "header": "## Sonlandırma",
+          "subsections": [
+            "### 10. \"Jeg har haft en rigtig god aften\"",
+            "### 11. \"Kan vi gøre det her igen?\"",
+            "### 12. \"Jeg vil gerne møde dig igen\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b3a3c3df-a876-4107-a88e-0e656d585033",
+      "title": "Guía de Pronunciación del Húngaro para Hispanohablantes",
+      "native_lang": "es",
+      "target_lang": "hu",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Consonantes Especiales",
+          "subsections": [
+            "### Dígrafos (Dos Letras = Un Sonido)",
+            "### Consonantes Simples Diferentes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b3ad1b89-dfeb-4e71-8c44-949efa0453bc",
+      "title": "Svensk Grammatikk for Nybegynnere: Lær Deg Å Uttrykke Kjærlighet På Rett Måte",
+      "native_lang": "no",
+      "target_lang": "sv",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De 5 Grunnleggende Reglene",
+          "subsections": [
+            "### 1. Ordstilling: V2-regelen",
+            "### 2. Ingen kjønn som på norsk",
+            "### 3. Bestemt form endelse",
+            "### 4. Ingen bøyning av verb etter person",
+            "### 5. Spørsmål: Snudd ordstilling"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b3b4a612-2d0a-4151-aa53-b68dd2659ff7",
+      "title": "Ukrán 'Hiányzol' Kifejezések Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Kifejezések",
+          "subsections": [
+            "### 1. Я сумую за тобою (Ja szumuju za toboju)",
+            "### 2. Я дуже сумую за тобою (Ja duzse szumuju za toboju)",
+            "### 3. Я не можу перестати думати про тебе (Ja ne mozsu peresztati dumati pro tebe)",
+            "### 4. Як би я хотів, щоб ти був тут (Jak bi ja hotiv, scsob ti buv tut)",
+            "### 5. Ти завжди в моїх думках (Ti zavzsdi v mojíh dumkah)",
+            "### 6. Я рахую дні до нашої зустрічі (Ja rahuju dni do nasoji zusztrícsi)",
+            "### 7. Моє серце тужить за тобою (Moje szerce tuzsit za toboju)",
+            "### 8. Ти для мене все (Ti dlja mene vsze)",
+            "### 9. Не можу дочекатися, щоб побачити тебе (Ne mozsu docsekatisza, scsob pobacsiti tebe)",
+            "### 10. Без тебе все порожнє (Bez tebe vsze porozsnye)"
+          ]
+        },
+        {
+          "header": "## Romantikus Kifejezések",
+          "subsections": [
+            "### 11. Ти кохання мого життя (Ti kohannya moho zsittja)",
+            "### 12. Мені тебе не вистачає (Meni tebe ne visztacsaje)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b3b7f618-ca24-4f33-b17a-4ec21ad0cb5d",
+      "title": "Spanish 'I Miss You' Phrases: Express Your Longing to Your Partner",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essential 'I Miss You' Phrases",
+          "subsections": [
+            "### Simple and Sincere",
+            "### Expressing Deep Longing",
+            "### Romantic Yearning",
+            "### Tender Messages"
+          ]
+        },
+        {
+          "header": "## Phrases for Special Situations",
+          "subsections": [
+            "### Long-Distance Relationships",
+            "### After Arguments",
+            "### During Work Trips"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b3bcb668-b555-4c9b-a4f6-110f50509a29",
+      "title": "Almanca Kıskançlık ve Güven İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kıskançlığı İfade Etme",
+          "subsections": [
+            "### 1. \"Ich fühle mich ein bisschen eifersüchtig, wenn...\"",
+            "### 2. \"Kannst du mich beruhigen?\"",
+            "### 3. \"Ich vertraue dir, aber ich vertraue ihnen nicht\"",
+            "### 4. \"Es macht mich unwohl, wenn...\"",
+            "### 5. \"Ich muss wissen, dass ich deine Priorität bin\""
+          ]
+        },
+        {
+          "header": "## Güven İnşa Etme",
+          "subsections": [
+            "### 6. \"Ich vertraue dir vollkommen\"",
+            "### 7. \"Du bist die einzige Person für mich\"",
+            "### 8. \"Ich würde nie etwas tun, um dich zu verletzen\"",
+            "### 9. \"Du hast keinen Grund zur Sorge\"",
+            "### 10. \"Ich bin nur dir verpflichtet\"",
+            "### 11. \"Lass uns über deine Sorgen sprechen\"",
+            "### 12. \"Was kann ich tun, damit du dich sicherer fühlst?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b3c80816-d7e9-48e3-89db-1f07f93062a0",
+      "title": "Frases de Apoio Emocional em Espanhol: Confortando Seu Parceiro",
+      "native_lang": "pt",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases de Apoio Básico",
+          "subsections": [
+            "### Demonstrando Presença",
+            "### Validando Sentimentos",
+            "### Oferecendo Conforto"
+          ]
+        },
+        {
+          "header": "## Para Situações Específicas",
+          "subsections": [
+            "### Perda e Luto",
+            "### Estresse"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b3cbf09d-be6e-4710-85d3-0c58187a2189",
+      "title": "Almanca Affetme İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Af Dileme",
+          "subsections": [
+            "### 1. \"Es tut mir wirklich leid für das, was ich getan habe\"",
+            "### 2. \"Bitte verzeih mir\"",
+            "### 3. \"Ich übernehme die volle Verantwortung\"",
+            "### 4. \"Ich weiß, dass ich dich verletzt habe und es tut mir sehr leid\"",
+            "### 5. \"Kannst du es in deinem Herzen finden, mir zu vergeben?\""
+          ]
+        },
+        {
+          "header": "## Affetme",
+          "subsections": [
+            "### 6. \"Ich vergebe dir\"",
+            "### 7. \"Ich bin bereit, das hinter uns zu lassen\"",
+            "### 8. \"Lass uns das hinter uns lassen\"",
+            "### 9. \"Ich trage keinen Groll\"",
+            "### 10. \"Jeder macht Fehler\"",
+            "### 11. \"Ich liebe dich mehr als meine Wut\"",
+            "### 12. \"Ich akzeptiere deine Entschuldigung\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b3ec2b03-ad1e-4576-88b7-38a814d1df67",
+      "title": "Φράσεις «Μου Λείπεις» στα Αγγλικά",
+      "native_lang": "el",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις",
+          "subsections": [
+            "### 1. I miss you",
+            "### 2. I miss you so much",
+            "### 3. I can't stop thinking about you",
+            "### 4. I wish you were here",
+            "### 5. You're always on my mind",
+            "### 6. I long for you",
+            "### 7. Every day without you is hard",
+            "### 8. I'm counting the days until I see you",
+            "### 9. My heart aches for you",
+            "### 10. Distance makes my heart grow fonder"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b3f3a815-a22f-444c-b7bc-60e6b1790ee6",
+      "title": "Polska fraser för emotionellt stöd – Trösta din partner på polska",
+      "native_lang": "sv",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande stöd",
+          "subsections": [
+            "### \"Jestem tu dla ciebie\"",
+            "### \"Nie jesteś w tym sam/sama\"",
+            "### \"Zawsze będę przy tobie\""
+          ]
+        },
+        {
+          "header": "## Visa empati",
+          "subsections": [
+            "### \"Mogę sobie tylko wyobrazić, jak to musi być trudne\"",
+            "### \"Twoje uczucia są całkowicie uzasadnione\"",
+            "### \"To normalne, że tak się czujesz\""
+          ]
+        },
+        {
+          "header": "## Tröstande fraser",
+          "subsections": [
+            "### \"To też minie\"",
+            "### \"Przejdziemy przez to razem\"",
+            "### \"Weź tyle czasu, ile potrzebujesz\"",
+            "### \"Nie musisz być silny/silna cały czas\""
+          ]
+        },
+        {
+          "header": "## Erbjuda stöd",
+          "subsections": [
+            "### \"Czego teraz ode mnie potrzebujesz?\"",
+            "### \"Chcesz o tym porozmawiać czy wolisz się czymś zająć?\"",
+            "### \"Czy mogę coś zrobić, żeby pomóc?\""
+          ]
+        },
+        {
+          "header": "## Vid förlust",
+          "subsections": [
+            "### \"Bardzo mi przykro z powodu twojej straty\"",
+            "### \"Brakuje mi słów, ale jestem tutaj\""
+          ]
+        },
+        {
+          "header": "## Uppmuntrande fraser",
+          "subsections": [
+            "### \"Wierzę w ciebie\"",
+            "### \"Jesteś silniejszy/silniejsza niż myślisz\"",
+            "### \"Jestem z ciebie bardzo dumny/dumna\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b40c4720-9ed2-4ad0-a3cb-1cf975eede45",
+      "title": "Girias Alemas para Mensagens de Texto entre Casais",
+      "native_lang": "pt",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Pratica de Mensagens",
+          "subsections": [
+            "### Desafio para Casais"
+          ]
+        }
+      ]
+    }
+  ]
+}

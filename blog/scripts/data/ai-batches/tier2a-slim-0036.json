@@ -1,0 +1,433 @@
+{
+  "batchId": "tier2a-slim-0036",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "3ec9f884-43d0-41eb-9054-3890a11faf82",
+      "title": "Orosz kifejezések vitákhoz és nézeteltérésekhez",
+      "native_lang": "hu",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető kifejezések nézeteltérésekhez",
+          "subsections": [
+            "### 1. \"Мне больно, когда ты...\"",
+            "### 2. \"Можем поговорить об этом спокойно?\"",
+            "### 3. \"Я понимаю твою точку зрения, но...\"",
+            "### 4. \"Давай не будем кричать\"",
+            "### 5. \"Мне нужно время подумать\"",
+            "### 6. \"Я не это имел/имела в виду\"",
+            "### 7. \"Ты можешь поставить себя на моё место?\"",
+            "### 8. \"Я не хотел/хотела тебя обидеть\"",
+            "### 9. \"Давай найдём компромисс\"",
+            "### 10. \"Мне кажется, ты меня не слушаешь\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3ecaebab-4638-40a6-bf29-cc0a52c4ee07",
+      "title": "Expresii în Italiană pentru Reconciliere și Împăcare în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii pentru Cererea Scuzelor",
+          "subsections": [
+            "### Scuze Sincere",
+            "### Exprimarea Regretului Profund"
+          ]
+        },
+        {
+          "header": "## Expresii pentru Împăcare",
+          "subsections": [
+            "### Inițierea Dialogului",
+            "### Declarații de Dragoste",
+            "### Reconstruirea Conexiunii"
+          ]
+        },
+        {
+          "header": "## Gesturi de Reconciliere în Stilul Italian",
+          "subsections": [
+            "### Îmbrățișarea și Săruturile",
+            "### Mâncarea",
+            "### Florile",
+            "### O Seară Romantică"
+          ]
+        },
+        {
+          "header": "## Nuanțe Culturale",
+          "subsections": [
+            "### Intensitatea",
+            "### Gesturile Mari",
+            "### Familia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3edebe37-eb0d-407c-b167-770623578727",
+      "title": "Çekçe Telaffuz Rehberi: Aşkınızın Dilini Doğru Söylemenin Yolu",
+      "native_lang": "tr",
+      "target_lang": "cs",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Günlük Hayatta Kullanılan Sesler",
+          "subsections": [
+            "### Selamlaşma ve Veda",
+            "### Rakamların Telaffuzu"
+          ]
+        },
+        {
+          "header": "## Sık Yapılan Hatalar",
+          "subsections": [
+            "### 1. **Ř** Sesini Atlamak",
+            "### 2. **Ch** Sesini Kafana Göre Okumak",
+            "### 3. **Yumuşak L** Problemi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3ee60d31-7df3-49df-ad51-b5a67d9d0e19",
+      "title": "Russian Honeymoon Travel Phrases: Romantic Vocabulary for Your Trip",
+      "native_lang": "en",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Planning Your Trip",
+          "subsections": [
+            "### Choosing a Destination",
+            "### Booking Vocabulary"
+          ]
+        },
+        {
+          "header": "## At the Airport",
+          "subsections": [
+            "### Essential Phrases",
+            "### Airport Vocabulary"
+          ]
+        },
+        {
+          "header": "## At Your Hotel",
+          "subsections": [
+            "### Checking In",
+            "### Room Types"
+          ]
+        },
+        {
+          "header": "## Romantic Moments",
+          "subsections": [
+            "### On the Beach",
+            "### At Dinner"
+          ]
+        },
+        {
+          "header": "## Adventure Activities",
+          "subsections": [
+            "### Exploring Together",
+            "### Activity Vocabulary"
+          ]
+        },
+        {
+          "header": "## Creating Memories",
+          "subsections": [
+            "### Photo Moment Phrases"
+          ]
+        },
+        {
+          "header": "## Returning Home",
+          "subsections": [
+            "### End of Trip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3ee8608a-4adb-4631-b258-cb8205ebc6cd",
+      "title": "Hiányzol Kifejezések Németül – Du Fehlst Mir és Más",
+      "native_lang": "hu",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Hiányzol Kifejezések",
+          "subsections": [
+            "### 1. Du fehlst mir",
+            "### 2. Du fehlst mir so sehr",
+            "### 3. Ich vermisse dich",
+            "### 4. Ich vermisse dich wahnsinnig",
+            "### 5. Ich wünschte, du wärst hier",
+            "### 6. Ich kann nicht aufhören, an dich zu denken",
+            "### 7. Ich zähle die Tage bis ich dich wiedersehe",
+            "### 8. Du bist immer in meinen Gedanken",
+            "### 9. Mein Herz sehnt sich nach dir",
+            "### 10. Ohne dich bin ich nicht komplett"
+          ]
+        },
+        {
+          "header": "## Kulturális Tippek",
+          "subsections": [
+            "### Fehlen vs. Vermissen",
+            "### Német Visszafogottság",
+            "### Tegezés és Magázás"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3eef4e71-876b-476d-a14d-af4b6254bc17",
+      "title": "Dänische Grammatik für Anfänger: So lernt ihr gemeinsam die Grundlagen für mehr Romantik",
+      "native_lang": "de",
+      "target_lang": "da",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Die Basics: 5 Grundregeln für angehende Dänisch-Sprecher",
+          "subsections": [
+            "### 1. Die Wortreihenfolge ist entscheidend!",
+            "### 2. Fragen drehen einfach die Reihenfolge um",
+            "### 3. Bestimmte Artikel hängen direkt am Wort",
+            "### 4. Unbestimmte Artikel sind super einfach",
+            "### 5. Mehrzahl bildet ihr meist mit -(e)r"
+          ]
+        },
+        {
+          "header": "## Typische Anfängerfehler (und wie ihr sie vermeidet)",
+          "subsections": [
+            "### ❌ **\"Jeg elsker du\"** statt **\"Jeg elsker dig\"**",
+            "### ❌ **\"En hus\"** statt **\"Et hus\"**",
+            "### ❌ Falsche Wortstellung in Fragen",
+            "### ❌ **\"Jeg er 25 år gammel\"** (wortwörtlich übersetzt)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3ef74331-d78e-4e6c-90a3-ccc1cb93ce37",
+      "title": "Grammaire suedoise : les bases essentielles pour debutants",
+      "native_lang": "fr",
+      "target_lang": "sv",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## L'ordre des mots",
+          "subsections": [
+            "### Phrase affirmative",
+            "### Le verbe en deuxième position (V2)"
+          ]
+        },
+        {
+          "header": "## Le passe",
+          "subsections": [
+            "### Le preterit (passe simple)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3efe3397-cb6f-4c65-9057-2c0215e04a22",
+      "title": "Russische Hochzeitsphrasen und romantische Glückwünsche",
+      "native_lang": "de",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Die wichtigsten Hochzeitsphrasen",
+          "subsections": [
+            "### Der Heiratsantrag",
+            "### Das Ehegelübde",
+            "### Glückwünsche aussprechen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3efe7f12-e12f-4c45-af56-a6280529f59d",
+      "title": "50+ італійських прізвиськ, які розтоплять серце",
+      "native_lang": "uk",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Класичні прізвиська",
+          "subsections": [
+            "### Bello/Bella (Белло/Белла)",
+            "### Piccolo/Piccola (Піккол/Піккола)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3f0053d2-44aa-4b1a-91d0-b730e1b4516d",
+      "title": "Sådan Undskylder Du på Engelsk: Vejledning for Par",
+      "native_lang": "da",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Specifikke Situationer",
+          "subsections": [
+            "### Når Du Har Glemt Noget",
+            "### Når Du Har Sagt Noget Sårende",
+            "### Når Du Er Kommet For Sent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3f1cadf9-bd02-4186-b28c-878337d4ab4f",
+      "title": "Guia de Pronúncia do Holandês para Falantes de Português",
+      "native_lang": "pt",
+      "target_lang": "nl",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Consoantes Especiais",
+          "subsections": [
+            "### O som de W",
+            "### O som de R",
+            "### O som de J"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3f25e69f-32cf-462c-92af-0c317e7cebdc",
+      "title": "Dánské fráze pro setkání s rodiči partnera",
+      "native_lang": "cs",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## První setkání",
+          "subsections": [
+            "### \"Dejligt at møde jer.\"",
+            "### \"[Partner] har fortalt mig så meget om jer.\"",
+            "### \"Mange tak for invitationen.\"",
+            "### \"I har et smukt hjem.\""
+          ]
+        },
+        {
+          "header": "## U jídla",
+          "subsections": [
+            "### \"Det her er virkelig lækkert! Må jeg få opskriften?\"",
+            "### \"Alt ser vidunderligt ud.\""
+          ]
+        },
+        {
+          "header": "## Projevení zájmu",
+          "subsections": [
+            "### \"Jeg vil gerne se billeder af [partner] som barn.\"",
+            "### \"Hvordan mødtes I?\""
+          ]
+        },
+        {
+          "header": "## Nabídka pomoci",
+          "subsections": [
+            "### \"Kan jeg hjælpe med noget?\"",
+            "### \"Lad mig hjælpe med opvasken.\""
+          ]
+        },
+        {
+          "header": "## Rozloučení",
+          "subsections": [
+            "### \"Tak for en dejlig aften.\"",
+            "### \"Jeg håber, vi ses snart igen.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3f659046-eaf4-43d9-9c4b-f8db817ed62d",
+      "title": "Ukraińskie zwroty o przebaczeniu dla par",
+      "native_lang": "pl",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Proszenie o przebaczenie",
+          "subsections": [
+            "### \"Будь ласка, вибач мені\"",
+            "### \"Сподіваюся, ти зможеш мені пробачити\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie przebaczenia",
+          "subsections": [
+            "### \"Я тебе прощаю\"",
+            "### \"Все добре, я розумію\"",
+            "### \"Давай залишимо це позаду\""
+          ]
+        },
+        {
+          "header": "## Proces przebaczenia",
+          "subsections": [
+            "### \"Я працюю над тим, щоб тебе пробачити\"",
+            "### \"Мені потрібен час, але я тебе пробачу\""
+          ]
+        },
+        {
+          "header": "## Głębokie przebaczenie",
+          "subsections": [
+            "### \"Я тебе повністю прощаю\"",
+            "### \"Я відпускаю біль\""
+          ]
+        },
+        {
+          "header": "## Wspólne wyjście naprzód",
+          "subsections": [
+            "### \"Давай почнемо спочатку\"",
+            "### \"Наше кохання сильніше за цю помилку\""
+          ]
+        },
+        {
+          "header": "## Granice przebaczenia",
+          "subsections": [
+            "### \"Я тебе прощаю, але це не має повторитися\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3f681053-a029-4bfb-adc0-7542a1823b51",
+      "title": "Frases para Conhecer os Sogros em Francês: Guia Completo",
+      "native_lang": "pt",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para o Primeiro Encontro",
+          "subsections": [
+            "### Apresentação",
+            "### Elogiando",
+            "### Mostrando Interesse",
+            "### Expressando Gratidão"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3f6c8fa6-beb1-4e6b-8093-86649e59bedc",
+      "title": "Engelske fraser til forsoning og genopbygning af tillid",
+      "native_lang": "da",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser til forsoning",
+          "subsections": [
+            "### At undskylde oprigtigt",
+            "### At genopbygge forbindelsen",
+            "### At tilbyde forsoning",
+            "### At acceptere en undskyldning"
+          ]
+        }
+      ]
+    }
+  ]
+}

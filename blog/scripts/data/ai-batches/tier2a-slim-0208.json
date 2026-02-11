@@ -1,0 +1,436 @@
+{
+  "batchId": "tier2a-slim-0208",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "d506a325-e279-403b-b1ef-aee4ca81039c",
+      "title": "Duitse Uitspraakgids Voor Stellen: Van Hallo tot Ik Hou van Jou",
+      "native_lang": "nl",
+      "target_lang": "de",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## De Gouden Regels van Duitse Uitspraak",
+          "subsections": [
+            "### 1. Elke Letter Telt",
+            "### 2. De W-is-Een-V-Regel",
+            "### 3. De Zachte CH"
+          ]
+        },
+        {
+          "header": "## De Lastige Klanken Oefenen",
+          "subsections": [
+            "### De Umlaut (ä, ö, ü)",
+            "### De R-Klank"
+          ]
+        },
+        {
+          "header": "## Medeklinkers Die Het Verschil Maken",
+          "subsections": [
+            "### De Zachte S",
+            "### De Duitse Z",
+            "### De Combinatie SCH"
+          ]
+        },
+        {
+          "header": "## Veelvoorkomende Fouten (En Hun Oplossing)",
+          "subsections": [
+            "### Fout 1: Anglisismen",
+            "### Fout 2: De V-Wissel",
+            "### Fout 3: Umlauts Weglaten"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d51a43f8-d8f8-4556-b3f2-7126bf3d78b4",
+      "title": "Французские фразы для споров и разногласий",
+      "native_lang": "ru",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Основные фразы для выражения несогласия",
+          "subsections": [
+            "### 1. Je ne suis pas d'accord avec toi",
+            "### 2. Est-ce qu'on peut en parler calmement?",
+            "### 3. Ça me blesse quand tu dis ça",
+            "### 4. Ne haussons pas le ton",
+            "### 5. J'ai besoin que tu comprennes mon point de vue",
+            "### 6. Ce n'est pas ce que je voulais dire",
+            "### 7. Peut-on trouver un compromis?",
+            "### 8. Je pense qu'on a besoin de prendre du recul",
+            "### 9. Respecte mon opinion, s'il te plaît",
+            "### 10. Je t'écoute, mais je ne suis pas d'accord"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d51c47f7-b03d-4f94-b79f-3d6484d0985e",
+      "title": "Phrases russes sur la jalousie et la confiance en couple",
+      "native_lang": "fr",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions pour aborder la jalousie",
+          "subsections": [
+            "### Exprimer ses sentiments",
+            "### Demander des réassurances",
+            "### Construire la confiance",
+            "### Réaffirmer son engagement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d51eb162-1ead-47ac-ac23-9fe1b283486f",
+      "title": "Ukrán Flörtölő Kifejezések Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Flörtölő Kifejezések",
+          "subsections": [
+            "### 1. Ти дуже гарна (Ti duzse harna)",
+            "### 2. У тебе чарівна усмішка (U tebe csarivna uszmiska)",
+            "### 3. Можна тебе запросити на каву? (Mozsna tebe zaprositi na kavu?)",
+            "### 4. Ти мені подобаєшся (Ti meni podobajessza)",
+            "### 5. Хочеш потанцювати? (Hocsess potancjuvati?)",
+            "### 6. У тебе прекрасні очі (U tebe prekraszni ocsi)",
+            "### 7. Давай зустрінемося знову (Davaj zusztrinemosza znovu)",
+            "### 8. Ти особлива (Ti oszobliva)",
+            "### 9. Чи можу я дізнатися твій номер? (Csi mozsu ja diznatisza tvij nomer?)",
+            "### 10. Мені добре з тобою (Meni dobre z toboju)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d5298aa5-5dd4-4fc3-b01f-403cbb542704",
+      "title": "Angielskie zwroty do godzenia się i pojednania dla par",
+      "native_lang": "pl",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Przepraszanie z serca",
+          "subsections": [
+            "### \"I'm sorry for what I said\"",
+            "### \"I was wrong, and I apologize\"",
+            "### \"I didn't mean to hurt you\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie żalu",
+          "subsections": [
+            "### \"I feel terrible about what happened\"",
+            "### \"I regret my behavior\"",
+            "### \"I wish I could take it back\""
+          ]
+        },
+        {
+          "header": "## Otwieranie dialogu",
+          "subsections": [
+            "### \"Can we talk about what happened?\"",
+            "### \"I want to understand your feelings\"",
+            "### \"Tell me how you're feeling\""
+          ]
+        },
+        {
+          "header": "## Obietnice zmiany",
+          "subsections": [
+            "### \"I'll try to do better\"",
+            "### \"It won't happen again\"",
+            "### \"I'm working on myself\""
+          ]
+        },
+        {
+          "header": "## Potwierdzenie miłości",
+          "subsections": [
+            "### \"I love you, and I hate fighting with you\"",
+            "### \"You mean everything to me\"",
+            "### \"Our relationship is worth fighting for\""
+          ]
+        },
+        {
+          "header": "## Wspólne wyjście naprzód",
+          "subsections": [
+            "### \"Let's put this behind us\"",
+            "### \"How can I make it up to you?\"",
+            "### \"Let's start fresh\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d5334ab8-c572-4b6d-9bf5-d178af97af4c",
+      "title": "Frases en Francés: Amor y Romance",
+      "native_lang": "es",
+      "target_lang": "fr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Actividades de Práctica Divertidas para Parejas",
+          "subsections": [
+            "### 1. Ritual Matutino en Francés",
+            "### 2. Noches de Cita en Francés",
+            "### 3. Reto de Notas de Amor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d57d0dc5-e24a-408d-b4e2-93ee615beef1",
+      "title": "Francia Kifejezések a Leendő Apósékhoz Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bemutatkozás",
+          "subsections": [
+            "### 1. C'est un plaisir de vous rencontrer",
+            "### 2. J'ai beaucoup entendu parler de vous",
+            "### 3. Merci de m'accueillir chez vous"
+          ]
+        },
+        {
+          "header": "## A Kapcsolatról",
+          "subsections": [
+            "### 4. Votre fils/fille compte énormément pour moi",
+            "### 5. Je suis honoré de faire partie de votre famille"
+          ]
+        },
+        {
+          "header": "## Bókok",
+          "subsections": [
+            "### 6. Vous avez une maison magnifique",
+            "### 7. Ce repas est délicieux",
+            "### 8. Je comprends d'où vient son charme"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d5835741-fbb3-47f0-95f6-4ec40aa7257e",
+      "title": "Portugál születésnapi kívánságok párodnak",
+      "native_lang": "hu",
+      "target_lang": "pt",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Születésnapi köszöntések",
+            "### Romantikus üzenetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d58841fe-6667-472e-98ef-a00c7b4be240",
+      "title": "Spanska Uttal för Nybörjare: Lär Dig Låta Kärleksfull på Rätt Sätt",
+      "native_lang": "sv",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Konsonanter som Förändrar Allt",
+          "subsections": [
+            "### De Viktigaste Skillnaderna"
+          ]
+        },
+        {
+          "header": "## Vanliga Uttalsfällor för Svenskar",
+          "subsections": [
+            "### 1. **Z- och C-ljudet**",
+            "### 2. **Rullande R**",
+            "### 3. **H är tyst**",
+            "### 4. **G-ljud före E och I**"
+          ]
+        },
+        {
+          "header": "## Övningar för Par",
+          "subsections": [
+            "### 1. Vokal-leken",
+            "### 2. Romantisk upprepning",
+            "### 3. Räkna till 10 med kärlek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d5921628-6bcf-471b-9a04-33cbd290678f",
+      "title": "De Familie Ontmoeten: Essentiële Italiaanse Zinnen",
+      "native_lang": "nl",
+      "target_lang": "it",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Do's en Don'ts",
+          "subsections": [
+            "### Do's",
+            "### Don'ts"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d5a0beac-49db-4bc2-afc6-01b3d093b4b4",
+      "title": "Norvég kifejezések első randira",
+      "native_lang": "hu",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bemutatkozás",
+          "subsections": [
+            "### 1. \"Hyggelig å endelig møte deg\"",
+            "### 2. \"Du ser fantastisk ut\"",
+            "### 3. \"Fortell meg om deg selv\"",
+            "### 4. \"Hva jobber du med?\"",
+            "### 5. \"Hva er hobbyene dine?\""
+          ]
+        },
+        {
+          "header": "## Beszélgetés",
+          "subsections": [
+            "### 6. \"Det er virkelig interessant\"",
+            "### 7. \"Jeg føler det samme\"",
+            "### 8. \"Hvilken musikk liker du?\"",
+            "### 9. \"Har du reist mye?\"",
+            "### 10. \"Jeg koser meg veldig\""
+          ]
+        },
+        {
+          "header": "## Randi vége",
+          "subsections": [
+            "### 11. \"Jeg har hatt en fantastisk kveld\"",
+            "### 12. \"Kan vi møtes igjen?\"",
+            "### 13. \"Jeg vil gjerne gjøre dette igjen\"",
+            "### 14. \"Kan jeg følge deg hjem?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d5a27770-4605-438e-a54d-1e09b01702bf",
+      "title": "Знакомство с семьёй румынского партнёра",
+      "native_lang": "ru",
+      "target_lang": "ro",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Полезные фразы",
+          "subsections": [
+            "### Если не поняли:",
+            "### Комплименты семье:"
+          ]
+        },
+        {
+          "header": "## Темы для разговора",
+          "subsections": [
+            "### Хорошие темы:",
+            "### Избегайте:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d5a871a1-419c-4081-936a-e2a12006928f",
+      "title": "Grekiska Fraser för Svartsjuka och Förtroende",
+      "native_lang": "sv",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Uttrycka Svartsjuka",
+          "subsections": [
+            "### 1. \"Νιώθω ανασφάλεια όταν...\"",
+            "### 2. \"Μπορείς να με βοηθήσεις να καταλάβω τη σχέση σου με...;\"",
+            "### 3. \"Σε εμπιστεύομαι, αλλά παλεύω με τα συναισθήματά μου\"",
+            "### 4. \"Χρειάζομαι λίγη καθησύχαση\"",
+            "### 5. \"Με ενοχλεί όταν...\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Bygga Förtroende",
+          "subsections": [
+            "### 6. \"Έχω μάτια μόνο για σένα\"",
+            "### 7. \"Είσαι ο μόνος/η μόνη για μένα\"",
+            "### 8. \"Δεν θα έκανα ποτέ κάτι για να σε πληγώσω\"",
+            "### 9. \"Ας είμαστε ειλικρινείς μεταξύ μας\"",
+            "### 10. \"Θέλω να γνωρίσεις τους φίλους μου\"",
+            "### 11. \"Δεν έχεις να ανησυχείς για τίποτα\"",
+            "### 12. \"Σε διαλέγω κάθε μέρα\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d5bc8ebf-69ef-4fc4-a736-90970f276d14",
+      "title": "Nederländska Fraser för Svartsjuka och Förtroende",
+      "native_lang": "sv",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Uttrycka Svartsjuka",
+          "subsections": [
+            "### 1. \"Ik voel me onzeker als...\"",
+            "### 2. \"Kun je me helpen begrijpen wat je relatie met... is?\"",
+            "### 3. \"Ik vertrouw je, maar ik worstel met mijn gevoelens\"",
+            "### 4. \"Ik heb wat geruststelling nodig\"",
+            "### 5. \"Het stoort me als...\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Bygga Förtroende",
+          "subsections": [
+            "### 6. \"Ik heb alleen ogen voor jou\"",
+            "### 7. \"Jij bent de enige voor mij\"",
+            "### 8. \"Ik zou nooit iets doen om je te kwetsen\"",
+            "### 9. \"Laten we eerlijk zijn tegen elkaar\"",
+            "### 10. \"Ik wil dat je mijn vrienden ontmoet\"",
+            "### 11. \"Je hoeft je geen zorgen te maken\"",
+            "### 12. \"Ik kies elke dag voor jou\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d5be6788-e906-4bd7-b8d1-bb263d8df8b2",
+      "title": "Holland kifejezések megbocsátáshoz",
+      "native_lang": "hu",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bocsánatkérés",
+          "subsections": [
+            "### 1. \"Het spijt me echt\"",
+            "### 2. \"Vergeef me alsjeblieft\"",
+            "### 3. \"Ik neem de volledige verantwoordelijkheid\"",
+            "### 4. \"Ik had ongelijk en geef het toe\"",
+            "### 5. \"Ik beloof dat het niet meer zal gebeuren\""
+          ]
+        },
+        {
+          "header": "## Megbocsátás",
+          "subsections": [
+            "### 6. \"Ik vergeef je\"",
+            "### 7. \"Het is oké, ik begrijp het\"",
+            "### 8. \"Ik ben klaar om verder te gaan\"",
+            "### 9. \"Laten we dit achter ons laten\"",
+            "### 10. \"Ik koester geen wrok\"",
+            "### 11. \"Iedereen maakt fouten\"",
+            "### 12. \"Ik waardeer je excuses\""
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,451 @@
+{
+  "batchId": "tier2a-slim-0287",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "1928dc4b-3b77-4f8f-9e63-e75c634d360f",
+      "title": "50+ Frases en Checo para Enamorar a Tu Pareja",
+      "native_lang": "es",
+      "target_lang": "cs",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ocasiones Especiales y Celebraciones",
+          "subsections": [
+            "### Frases de Aniversario",
+            "### Frases de Propuesta y Boda"
+          ]
+        },
+        {
+          "header": "## Frases Románticas por Situación",
+          "subsections": [
+            "### Relaciones a Larga Distancia",
+            "### Después de una Discusión",
+            "### Solo Porque Sí"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1929a5af-1b18-4fd9-bc84-2c4d23d34530",
+      "title": "Conocer a la familia de tu pareja en Ucraniano: Frases esenciales para crear conexiones",
+      "native_lang": "es",
+      "target_lang": "uk",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Frases esenciales para el primer encuentro",
+          "subsections": [
+            "### Presentaciones formales",
+            "### Conversación básica con la familia",
+            "### Hablando sobre tu relación"
+          ]
+        },
+        {
+          "header": "## Escenarios comunes y cómo navegarlos",
+          "subsections": [
+            "### La cena familiar",
+            "### Mirando fotos familiares",
+            "### Ayudando en la cocina"
+          ]
+        },
+        {
+          "header": "## Vocabulario importante sobre la familia",
+          "subsections": [
+            "### Miembros de la familia",
+            "### En la mesa"
+          ]
+        },
+        {
+          "header": "## ¿Qué pasa si algo sale mal?",
+          "subsections": [
+            "### Si no entiendes",
+            "### Si necesitas ayuda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "193178d6-3a5d-4c3b-855f-9eb42d0bccf0",
+      "title": "Swedish Restaurant Vocabulary: Your Complete Guide to Dining Out",
+      "native_lang": "en",
+      "target_lang": "sv",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Common Swedish Foods",
+          "subsections": [
+            "### Proteins",
+            "### Vegetables and Sides",
+            "### Classic Swedish Dishes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "19d50bb3-fe84-4a24-a5ac-8b5bbe7ceeff",
+      "title": "Rumänische Grammatik: Grundlagen für Anfänger",
+      "native_lang": "de",
+      "target_lang": "ro",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Pronomen",
+          "subsections": [
+            "### Personalpronomen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1a2cb4f6-cf1c-448f-a674-91c7d06c5ad2",
+      "title": "Polish Diminutives: Making Words Cute",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## The Magic Suffixes: Your Toolkit for Cuteness",
+          "subsections": [
+            "### For Masculine Nouns",
+            "### For Feminine Nouns",
+            "### For Neuter Nouns"
+          ]
+        },
+        {
+          "header": "## Romantic Diminutives: Melting Hearts in Polish",
+          "subsections": [
+            "### Names That Make Hearts Flutter",
+            "### Terms of Endearment with Diminutives"
+          ]
+        },
+        {
+          "header": "## The Grammar Behind the Magic",
+          "subsections": [
+            "### Pronunciation Patterns",
+            "### Sound Changes"
+          ]
+        },
+        {
+          "header": "## Practical Usage: When and Where",
+          "subsections": [
+            "### Perfect Situations for Diminutives"
+          ]
+        },
+        {
+          "header": "## Advanced Diminutive Patterns",
+          "subsections": [
+            "### Irregular Diminutives",
+            "### Diminutives from Adjectives"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1a715ff9-89b3-40dc-aa63-f146fac0eda0",
+      "title": "Llamadas Telefónicas en Francés",
+      "native_lang": "es",
+      "target_lang": "fr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Identificándose y Preguntando por Alguien",
+          "subsections": [
+            "### Cuando Llamas",
+            "### Preguntando por Alguien"
+          ]
+        },
+        {
+          "header": "## Respuestas Comunes",
+          "subsections": [
+            "### Cuando la Persona Está Disponible",
+            "### Cuando la Persona No Está Disponible"
+          ]
+        },
+        {
+          "header": "## Dejando y Tomando Mensajes",
+          "subsections": [
+            "### Dejando un Mensaje",
+            "### Tomando un Mensaje"
+          ]
+        },
+        {
+          "header": "## Llamadas con Tu Pareja",
+          "subsections": [
+            "### Llamadas Cariñosas",
+            "### Coordinando Planes"
+          ]
+        },
+        {
+          "header": "## Despidiéndose",
+          "subsections": [
+            "### Despedidas Informales (con pareja/amigos)",
+            "### Despedidas Formales"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1a966b85-4b6c-41c2-9ad4-f126075769d0",
+      "title": "Rumunskie powitania i pożegnania - codzieńne zwroty",
+      "native_lang": "pl",
+      "target_lang": "ro",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Poranny rytual",
+            "### Pozegnanie przed wyjsciem",
+            "### SMS po rumunsku",
+            "### Wieczorny rytual"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1abf58b4-85f0-4394-baa3-c6af640ba04d",
+      "title": "German Phone Calls Guide",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Calling Your Partner",
+          "subsections": [
+            "### Opening Lines",
+            "### During the Call",
+            "### Ending a Call with Your Partner"
+          ]
+        },
+        {
+          "header": "## Answering Machine Messages",
+          "subsections": [
+            "### Leaving a Message",
+            "### Understanding Voicemail Greetings"
+          ]
+        },
+        {
+          "header": "## Practice Dialogues",
+          "subsections": [
+            "### Calling Your Partner at Work",
+            "### Making a Doctor's Appointment"
+          ]
+        },
+        {
+          "header": "## Practice Activities for Couples",
+          "subsections": [
+            "### Activity 1: Role Play Reservations",
+            "### Activity 2: Daily Check-in Calls",
+            "### Activity 3: Leave Voice Messages"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1aeff40e-d476-4a53-b586-cc1b9d702094",
+      "title": "Çiftler İçin Danca: 25 Temel İfade",
+      "native_lang": "tr",
+      "target_lang": "da",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Günlük İletişim",
+          "subsections": [
+            "### Soru Sorma",
+            "### Cevaplar"
+          ]
+        },
+        {
+          "header": "## Pratik Diyaloglar",
+          "subsections": [
+            "### Sabah Diyalogu",
+            "### Akşam Diyalogu"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1b095894-534a-47da-901c-ea0e8527ee61",
+      "title": "Cekce Temel Gramer: Ciftler Icin Baslangic Rehberi",
+      "native_lang": "tr",
+      "target_lang": "cs",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Fiil Cekimleri",
+          "subsections": [
+            "### Simdiki Zaman",
+            "### Gecmis Zaman"
+          ]
+        },
+        {
+          "header": "## Soru Cümleleri",
+          "subsections": [
+            "### Evet/Hayir Sorulari",
+            "### Soru Kelimeleri"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1b65d73c-07b6-4399-89b2-907facc90021",
+      "title": "Cekce Mesajlasma Dili: Partnerinizle Dijital Iletisim",
+      "native_lang": "tr",
+      "target_lang": "cs",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Günlük Konusma Kisaltmalari",
+          "subsections": [
+            "### Soru ve Cevaplar",
+            "### Yanitlar"
+          ]
+        },
+        {
+          "header": "## Mesaj Örnekleri",
+          "subsections": [
+            "### Sabah Mesaji",
+            "### Gün Ici Mesajlasma",
+            "### Aksam Mesaji"
+          ]
+        },
+        {
+          "header": "## Duygulari Ifade Etme",
+          "subsections": [
+            "### Mutluluk",
+            "### Özlem",
+            "### Üzüntü/Özür"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1b69f7df-c826-4554-8baa-186763ed0aab",
+      "title": "Le Grec Est-il Difficile a Apprendre ? Guide Honnete",
+      "native_lang": "fr",
+      "target_lang": "el",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Ce Qui Rend le Grec Difficile",
+          "subsections": [
+            "### 1. Complexite Grammaticale",
+            "### 2. Defis de Prononciation"
+          ]
+        },
+        {
+          "header": "## Ce Qui Rend le Grec Plus Facile Que Vous Ne Pensez",
+          "subsections": [
+            "### 1. Orthographe Phonetique",
+            "### 2. Vocabulaire Partage",
+            "### 3. Pas de Systeme Tonal",
+            "### 4. Schemas Reguliers"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1c4a6c6c-1be1-4e5a-89e1-66273077ca42",
+      "title": "German Shopping Vocabulary",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Clothing Vocabulary (Kleidung)",
+          "subsections": [
+            "### Basic Items",
+            "### Sizes and Fit"
+          ]
+        },
+        {
+          "header": "## Grocery Shopping (Lebensmittel)",
+          "subsections": [
+            "### Produce (Obst und Gemüse)",
+            "### Other Groceries"
+          ]
+        },
+        {
+          "header": "## Practice Activities for Couples",
+          "subsections": [
+            "### Activity 1: Shopping List in German",
+            "### Activity 2: Store Role Play",
+            "### Activity 3: Real Shopping Challenge"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1c822594-7ce9-445b-8c11-62bbd24c82bf",
+      "title": "Основы шведской грамматики для русскоговорящих",
+      "native_lang": "ru",
+      "target_lang": "sv",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Глаголы",
+          "subsections": [
+            "### Хорошие новости!",
+            "### Группы глаголов",
+            "### Времена глаголов"
+          ]
+        },
+        {
+          "header": "## Порядок слов",
+          "subsections": [
+            "### Прямой порядок (утверждение)",
+            "### Инверсия (V2-правило)",
+            "### Вопросы"
+          ]
+        },
+        {
+          "header": "## Местоимения",
+          "subsections": [
+            "### Личные местоимения",
+            "### Притяжательные местоимения"
+          ]
+        },
+        {
+          "header": "## Практические упражнения для пар",
+          "subsections": [
+            "### Упражнение 1: Артикли",
+            "### Упражнение 2: Глаголы",
+            "### Упражнение 3: Порядок слов"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1cc4cec5-ac8f-4890-ab72-0722a78e0449",
+      "title": "Ordre des Mots en Polonais vs Français",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Schémas pratiques pour couples",
+          "subsections": [
+            "### Exprimer l'amour et les sentiments",
+            "### Faire des plans ensemble"
+          ]
+        },
+        {
+          "header": "## Erreurs courantes des francophones",
+          "subsections": [
+            "### 1. Utilisation excessive des pronoms sujets",
+            "### 2. Ordre des mots rigide",
+            "### 3. Formation des questions"
+          ]
+        },
+        {
+          "header": "## Exercices de pratique pour couples",
+          "subsections": [
+            "### Exercice 1 : Changements d'emphase",
+            "### Exercice 2 : Questions naturelles"
+          ]
+        }
+      ]
+    }
+  ]
+}

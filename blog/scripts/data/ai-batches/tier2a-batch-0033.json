@@ -1,0 +1,120 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0033",
+  "articles": [
+    {
+      "id": "08a14b4e-6572-49a8-a7b6-4ef974cc2210",
+      "title": "Ungarische Ich-vermisse-dich-Sprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "Ungarisch ist eine einzigartige Sprache mit vielen zärtlichen Ausdrücken. Die ungarische Kultur schätzt tiefe Gefühle und herzliche Verbundenheit. Hier lernst du die schönsten ungarischen Phrasen für die Momente, in denen du deinen Partner vermisst.\n\n## Grundlegende Ausdrücke\n\n### \"Hiányzol\"\n**Aussprache:** HI-an-sol\n\n**Bedeutung:** Du fehlst mir\n\n### \"Nagyon hiányzol\"\n**Aussprache:** NA-djon HI-an-sol\n\n**Bedeutung:** Du fehlst mir sehr\n\n### \"Nem tudok nem rád gondolni\"\n**Aussprache:** nem TU-dok nem rad GON-dol-ni\n\n**Bedeutung:** Ich kann nicht aufhören, an dich zu denken\n\n## Emotionale Ausdrücke\n\n### \"Bárcsak itt lennél\"\n**Aussprache:** BAR-tschak itt LEN-nel\n\n**Bedeutung:** Ich wünschte, du wärst hier\n\n### \"Minden pillanat nélküled örökkévalóságnak tűnik\"\n**Aussprache:** MIN-den PIL-la-nat NEL-kü-led ö-rök-ke-wa-LO-schag-nak TÜ-nik\n\n**Bedeutung:** Jeder Moment ohne dich erscheint wie eine Ewigkeit\n\n### \"A szívem téged keres\"\n**Aussprache:** a SI-wem TE-ged KE-resch\n\n**Bedeutung:** Mein Herz sucht dich\n\n### \"Ürességet érzek nélküled\"\n**Aussprache:** ü-resch-SCHE-get ER-sek NEL-kü-led\n\n**Bedeutung:** Ich fühle eine Leere ohne dich\n\n## Liebevolle Nachrichten\n\n### \"Számolom a napokat, amíg újra látlak\"\n**Aussprache:** SA-mo-lom a NA-po-kat, a-MIG UJ-ra LAT-lak\n\n**Bedeutung:** Ich zähle die Tage, bis ich dich wiedersehe\n\n### \"Te vagy az első gondolatom reggel és az utolsó este\"\n**Aussprache:** te wadj as EL-schö GON-do-la-tom REG-gel esch as u-TOL-scho ESCH-te\n\n**Bedeutung:** Du bist mein erster Gedanke am Morgen und mein letzter am Abend\n\n### \"A távolság nem jelent semmit, ha valaki mindent jelent\"\n**Aussprache:** a TA-wol-schag nem JE-lent SCHEM-mit, ha wa-LA-ki MIN-dent JE-lent\n\n**Bedeutung:** Entfernung bedeutet nichts, wenn jemand alles bedeutet\n\n## Tröstende Worte\n\n### \"Hamarosan újra együtt leszünk\"\n**Aussprache:** ha-ma-RO-schan UJ-ra E-djütt LE-sünk\n\n**Bedeutung:** Bald werden wir wieder zusammen sein\n\n### \"A szerelmünk erősebb minden távolságnál\"\n**Aussprache:** a SE-rel-münk E-rö-schebb MIN-den TA-wol-schag-nal\n\n**Bedeutung:** Unsere Liebe ist stärker als jede Entfernung\n\n### \"Még ha távol is vagyunk, mindig a szívemben vagy\"\n**Aussprache:** meg ha TA-wol isch WA-djunk, MIN-dig a SI-wem-ben wadj\n\n**Bedeutung:** Auch wenn wir weit weg sind, bist du immer in meinem Herzen\n\n## Für besondere Momente\n\n### \"Hiányzik a mosolyod, a nevetésed, minden\"\n**Aussprache:** HI-an-sik a MO-scho-ljod, a NE-we-te-sched, MIN-den\n\n**Bedeutung:** Mir fehlt dein Lächeln, dein Lachen, alles\n\n### \"Senki nem fogható hozzád\"\n**Aussprache:** SCHEN-ki nem FOG-ha-to HOS-sad\n\n**Bedeutung:** Niemand kann sich mit dir vergleichen\n\n### \"Pótolhatatlan vagy\"\n**Aussprache:** PO-tol-ha-tat-lan wadj\n\n**Bedeutung:** Du bist unersetzlich\n\n## Aussprache-Tipps\n\n- \"Sz\" = \"s\", \"S\" = \"sch\", \"Zs\" = stimmhaftes \"sch\"\n- \"Cs\" = \"tsch\", \"Gy\" = weiches \"dj\", \"Ny\" = \"nj\"\n- Lange Vokale werden deutlich länger gesprochen\n\n## Kulturelle Hinweise\n\nUngarn sind bekannt für ihre Gastfreundschaft und tiefe Gefühle. Die Sprache hat unzählige Kosenamen und Verkleinerungsformen. Budapest bei Nacht ist eine der romantischsten Städte Europas. Mit diesen Ausdrücken zeigst du tiefe, aufrichtige Zuneigung!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Grundlegende Ausdrücke",
+              "## Emotionale Ausdrücke",
+              "## Liebevolle Nachrichten",
+              "## Tröstende Worte",
+              "## Für besondere Momente"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "08b0aa0c-8d89-48dc-a4c8-c1bd9f78ef9f",
+      "title": "Как извиняться на нидерландском языке: полное руководство",
+      "native_lang": "ru",
+      "target_lang": "nl",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nУмение правильно извиняться — важнейший навык для любых отношений. Когда ваш партнёр говорит на нидерландском языке, особенно важно уметь выразить сожаление искренне и грамотно.\n\n<PhraseOfDay\n  word=\"Het spijt me\"\n  translation=\"Мне жаль / Извини\"\n  context=\"Основное выражение для извинения на нидерландском языке\"\n/>\n\n## Почему важно правильно извиняться\n\nВ межкультурных отношениях умение извиняться на языке партнёра показывает вашу заботу и уважение. Это демонстрирует готовность приложить усилия для сохранения гармонии.\n\n## Основные фразы для извинений\n\n<VocabCard\n  word=\"Het spijt me\"\n  translation=\"Мне жаль / Извини\"\n  example=\"Het spijt me dat ik te laat ben.\"\n  exampleTranslation=\"Извини, что опоздал.\"\n/>\n\n<VocabCard\n  word=\"Vergeef me alsjeblieft\"\n  translation=\"Пожалуйста, прости меня\"\n  example=\"Vergeef me alsjeblieft.\"\n  exampleTranslation=\"Пожалуйста, прости меня.\"\n/>\n\n<CultureTip flag=\"🇳🇱\" title=\"Культурный контекст\">\nВ нидерландском культуре извинения играют важную роль в поддержании отношений. Искренность и тон голоса так же важны, как и сами слова.\n</CultureTip>\n\n## Извинения за конкретные ситуации\n\n### За опоздание\n\nОпоздания случаются, и важно уметь правильно извиниться. Фраза «Het spijt me dat ik te laat ben.» поможет в такой ситуации.\n\n### За ошибку\n\nПризнание своей ошибки — признак зрелости. Используйте фразу «Het spijt me» и объясните, что произошло.\n\n### За причинённую боль\n\nКогда вы обидели партнёра, важно показать, что понимаете его чувства и искренне сожалеете.\n\n## Как просить прощения\n\nИскреннее извинение включает несколько элементов:\n\n1. **Признание ошибки** — скажите, что именно вы сделали неправильно\n2. **Выражение сожаления** — покажите, что вам действительно жаль\n3. **Объяснение** — кратко объясните ситуацию (но не оправдывайтесь)\n4. **Обещание измениться** — покажите готовность исправиться\n\n## Фразы для примирения\n\nПосле извинения покажите, что хотите исправить ситуацию:\n\n| Dutch | Русский |\n|----------|---------|\n| Het spijt me | Мне жаль |\n| Vergeef me alsjeblieft | Пожалуйста, прости меня |\n\n## Как принять извинение\n\nКогда партнёр извиняется перед вами, важно также знать, как правильно ответить и показать, что вы готовы простить.\n\n## Практические советы\n\n1. **Будьте искренни** — пустые слова хуже молчания\n2. **Смотрите в глаза** — это показывает вашу честность\n3. **Не оправдывайтесь** — объяснения можно дать позже\n4. **Предложите решение** — покажите готовность исправить ситуацию\n5. **Дайте время** — не требуйте немедленного прощения\n\n<CTA \n  title=\"Практикуйте с партнёром\"\n  description=\"Изучайте нидерландский язык вместе с Love Languages — приложением для пар\"\n/>\n\n## Связанные статьи\n\n- [Выражение эмоций на нидерландском языке](/ru/blog/dutch-expressing-emotions)\n- [Романтические фразы на нидерландском](/ru/blog/dutch-romantic-phrases-every-occasion)\n\nПомните: настоящее извинение — это не слабость, а сила. Умение признать свою ошибку делает отношения только крепче.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 292,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Извинения за конкретные ситуации"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "08b3a576-fb59-4cc9-9a94-860692dae6ca",
+      "title": "Como Escrever Cartas de Amor em Dinamarquês: Romance com Hygge",
+      "native_lang": "pt",
+      "target_lang": "da",
+      "category": "communication",
+      "content": "O dinamarquês oferece formas calorosas de expressar amor, conectadas ao conceito de hygge. Uma carta de amor em dinamarquês transmite aconchego e sinceridade.\n\n## Estrutura de uma Carta de Amor\n\n### Abertura Carinhosa\n\n**Min elskede,**\n*Meu/Minha amado(a),*\n\n**Kære skat,**\n*Querido tesouro,*\n\n**Mit hjerte,**\n*Meu coração,*\n\n### Expressando Seus Sentimentos\n\n**Jeg skriver til dig, fordi ord nogle gange siger mere end samtaler.**\n*Te escrevo porque palavras às vezes dizem mais que conversas.*\n\n**Siden jeg mødte dig, har mit liv fået en ny mening.**\n*Desde que te encontrei, minha vida ganhou novo sentido.*\n\n**Hver dag med dig er en gave.**\n*Cada dia com você é um presente.*\n\n### Declarações de Amor\n\n**Jeg elsker dig mere end ord kan udtrykke.**\n*Te amo mais do que palavras podem expressar.*\n\n**Min kærlighed til dig vokser hver dag.**\n*Meu amor por você cresce a cada dia.*\n\n**Du er alt for mig.**\n*Você é tudo para mim.*\n\n### Promessas\n\n**Jeg lover at elske og værdsætte dig for evigt.**\n*Prometo te amar e valorizar para sempre.*\n\n**Uanset hvad der sker, vil jeg altid være der for dig.**\n*Aconteça o que acontecer, sempre estarei lá para você.*\n\n### Encerramentos\n\n**Din for evigt,**\n*Seu/Sua para sempre,*\n\n**Med al min kærlighed,**\n*Com todo meu amor,*\n\n## Exemplo de Carta\n\n*Min elskede,*\n\n*Jeg skriver disse linjer, der kommer fra dybet af mit hjerte. Du er det bedste, der er sket mig.*\n\n*Med al min kærlighed,*\n*[Seu nome]*\n\nKærlighed kender ingen grænser - o amor não conhece fronteiras!",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 245,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Estrutura de uma Carta de Amor"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "08d27850-4e42-4821-8e56-3162a2ddc796",
+      "title": "Phrases de réconfort en norvégien : Soutenir son partenaire",
+      "native_lang": "fr",
+      "target_lang": "no",
+      "category": "communication",
+      "content": "## Soutenir son partenaire en norvégien\n\n## Phrases de réconfort\n\n### \"Jeg er her for deg\"\n**Prononciation :** yaï èr HÉR for daï\n\n**Signification :** Je suis là pour toi\n\n### \"Alt kommer til å gå bra\"\n**Prononciation :** ALT KO-mer til o go BRA\n\n**Signification :** Tout ira bien\n\n### \"Du er ikke alene i dette\"\n**Prononciation :** dou èr IK-ké a-LÉ-né i DÉ-té\n\n**Signification :** Tu n'es pas seul(e)\n\n## Écouter et valider\n\n### \"Jeg forstår hvordan du føler deg\"\n**Prononciation :** yaï for-STOR vor-DAN dou FEU-ler daï\n\n**Signification :** Je comprends ce que tu ressens\n\n### \"Det er greit å føle det slik\"\n**Prononciation :** dé èr graït o FEU-lé dé SLIK\n\n**Signification :** C'est normal de ressentir ça\n\n## Soutien actif\n\n### \"Hva kan jeg gjøre for å hjelpe?\"\n**Prononciation :** va kan yaï YEU-ré for o YÉL-pé\n\n**Signification :** Que puis-je faire pour t'aider ?\n\n## Encouragement\n\n### \"Du er sterkere enn du tror\"\n**Prononciation :** dou èr STÉR-ké-ré én dou TROUR\n\n**Signification :** Tu es plus fort(e) que tu ne le crois\n\n### \"Jeg tror på deg\"\n**Prononciation :** yaï TROUR po daï\n\n**Signification :** Je crois en toi\n\n### \"Du klarer dette\"\n**Prononciation :** dou KLA-rer DÉ-té\n\n**Signification :** Tu vas y arriver\n\n## Moments difficiles\n\n### \"Jeg er så lei meg for at du går gjennom dette\"\n**Prononciation :** yaï èr so laï maï for at dou gor YÉ-nom DÉ-té\n\n**Signification :** Je suis désolé(e) que tu traverses ça\n\n### \"Kom her, jeg gir deg en klem\"\n**Prononciation :** kom HÉR yaï guir daï én KLÉM\n\n**Signification :** Viens, je te fais un câlin\n\n### \"Vi kommer gjennom dette sammen\"\n**Prononciation :** vi KO-mer YÉ-nom DÉ-té SA-men\n\n**Signification :** On va surmonter ça ensemble\n\n## Conclusion\n\nLe soutien en norvégien est sincère et authentique.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Soutenir son partenaire en norvégien",
+              "## Phrases de réconfort",
+              "## Écouter et valider",
+              "## Soutien actif",
+              "## Encouragement",
+              "## Moments difficiles"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "08df0874-d2ff-45e7-bb52-e2f0a89ce286",
+      "title": "Tsjechische Uitspraak voor Stellen: Spreek Zoals een Local met Je Partner",
+      "native_lang": "nl",
+      "target_lang": "cs",
+      "category": "grammar",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport ConjugationTable from '@components/ConjugationTable.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nStel je voor: je zit met je Tsjechische partner in een gezellig café in Praag. Je wil de ober aanspreken, maar durft niet omdat je bang bent om je te verspreken. Herkenbaar? Goede uitspraak is de sleutel tot verbinding met je geliefde en hun familie. Aan het einde van deze gids kun je met zelfvertrouwen Tsjechisch spreken en [romantische fraser fluisteren in het oor van je partner](/learn/nl/cs/romantic-czech-phrases-for-every-occasion/).\n\n<PhraseOfDay\n  word=\"Miluji tě\"\n  translation=\"Ik hou van je\"\n  pronunciation=\"mee-LOO-yee tye\"\n  context=\"De belangrijkste frase die je moet kennen - gebruik deze dagelijks met je partner!\"\n/>\n\n## Tsjechisch Uitspreken: De Gouden Regels\n\nTsjechisch klinkt misschien intimiderend met al die haceks (ˇ) en accenten, maar het is eenvoudiger dan je denkt! De uitspraak is fonetisch - wat je ziet, zeg je. Dat betekent dat letters altijd hetzelfde klinken, in tegenstelling tot het Nederlands of Engels.\n\n### De Vijf Basisprincipes\n\n1. **Elke letter telt** - Er zijn stille letters zelden in Tsjechisch\n2. **De klemtoon ligt altijd op de eerste lettergreep**\n3. **Lange en korte klinkers zijn belangrijk** - ze kunnen de betekenis veranderen\n4. **De hacek (ˇ) verandert de uitspraak volledig**\n5. **Oefen de 'ř' apart** - dit is de moeilijkste klank\n\n<CultureTip flag=\"🇨🇿\" title=\"Praat mee met de lokals\">\nTsjechen waarderen het enorm als je hun taal probeert te spreken. Zelfs met een zwaar Nederlands accent zullen ze je aanmoedigen. Je partner zal trots zijn dat je de moeite doet!\n</CultureTip>\n\n## De Tsjechische Alphabet Specials\n\nLaten we de letters starten die geen Nederlandse equivalent hebben:\n\n<VocabCard\n  word=\"č\"\n  translation=\"als 'tsj' in 'tsjaka'\"\n  pronunciation=\"tch\"\n  example=\"Čaj (thee) - klinkt als 'tsjaay'\"\n/>\n\n| Tsjechisch | Nederlandse Vergelijking | Voorbeeld |\n|------------|-------------------------|-----------|\n| **č** | tsj in tsjaka | **č**aj (thee) |\n| **š** | sj in sjaal | **š**álek (kopje) |\n| **ž** | zoals 's' in 'leisure' | **ž**ena (vrouw) |\n| **ř** | GEEN Nederlandse equivalent! | **ř**eka (rivier) |\n| **ď** | dy in 'doe jij' | **ď**abel (duivel) |\n| **ť** | ty in 'tja' | **ť**ukat (tikken) |\n| **ň** | ny in 'Spanjaard' | **ň**evěsta (bruid) |\n\n## Klinkers: Kort vs Lang\n\nIn Tsjechisch kunnen korte en lange klinkers de betekenis volledig veranderen:\n\n<VocabCard\n  word=\"káva\"\n  translation=\"koffie\"\n  pronunciation=\"KAA-vah\"\n  example=\"Met lange 'a' - klinkt als 'kaa'\"\n/>\n\n| Klinker | Kort Voorbeeld | Lang Voorbeeld |\n|---------|----------------|----------------|\n| **a** | **a**uto | k**á**va |\n| **e** | **e**lk | b**é**hat |\n| **i** | **i**n | p**í**vo |\n| **o** | **o**ver | l**ó**ve |\n| **u** | **u**it | **ú**směv |\n\n<CultureTip flag=\"🇨🇿\" title=\"Accenten maken het verschil\">\nDie accenten zijn geen decoratie! Zonder de juiste lengte kan 'káva' (koffie) klinken als 'kava' (cavia). Je partner zal het verschil horen, dus oefen samen!\n</CultureTip>\n\n## De Beruchte 'Ř': Samen Oefenen\n\nDe 'ř' is de moeilijkste Tsjechische klank. Hier is een truc:\n\n1. Begin met 'r' zoals in 'Parijs'\n2. Voeg een 'sj' geluid toe\n3. Laat je tong trillen terwijl je 'sj' zegt\n4. Oefen met je partner: **ř**eka, **ř**ízek, **ř**íjen\n\n<ConjugationTable\n  verb=\"Říkám\"\n  meaning=\"Ik zeg\"\n  conjugations={[\n    { person: \"Ik\", polish: \"řikám\", english: \"ik zeg\" },\n    { person: \"Jij\", polish: \"řikáš\", english: \"jij zegt\" },\n    { person: \"Hij/Zij\", polish: \"řiká\", english: \"hij/zij zegt\" },\n    { person: \"Wij\", polish: \"řikáme\", english: \"wij zeggen\" },\n    { person: \"Jullie\", polish: \"řikáte\", english: \"jullie zeggen\" },\n    { person: \"Zij\", polish: \"řikají\", english: \"zij zeggen\" }\n  ]}\n/>\n\n## Romantische Uitspraak: Voor Koppels\n\nTijd om [Tsjechische koosnaampjes](/learn/nl/cs/czech-pet-names-and-nicknames/) te oefenen met perfecte uitspraak:\n\n| Tsjechisch | Uitspraak | Betekenis | Gebruik |\n|------------|-----------|-----------|---------|\n| **miláčku** | mee-LAA-tskoo | schatje | Dagelijks gebruik |\n| **zlatíčko** | zlah-TEE-tskoh | goudje | Extra lief |\n| **kočičko** | koh-CHEE-tskoh | katje | Schattig |\n| **broučku** | BROH-tskoo | lieveheersbeestje | Super lief |\n| **drahá** | DRAH-haa | lieve | Formeel romantisch |\n\n<VocabCard\n  word=\"Miluji tě\"\n  translation=\"Ik hou van je\"\n  pronunciation=\"mee-LOO-yee tye\"\n  example=\"Oefen dit elke dag: 'Miluji tě, miláčku!'\"\n/>\n\n## Dagelijkse Oefenzinnen\n\nOefen deze zinnen samen - perfect voor koppels:\n\n1. **Jak se máš?** (yak seh maash?) - Hoe gaat het?\n2. **Mám tě rád/ráda** (maam tye raat/rahdah) - Ik mag je graag\n3. **Chci tě políbit** (kh-tsee tye poh-LEE-beat) - Ik wil je kussen\n4. **Jsi krásný/krásná** (y-see krahs-nee/krahs-naa) - Je bent mooi\n5. **Myslím na tebe** (mih-sleem nah teh-beh) - Ik denk aan jou\n6. **Chybíš mi** (khee-bheesh mee) - Ik mis je\n7. **Jdi spát se mnou** (y-dee spaat seh muh-noh) - Ga met mij slapen\n\n## Veelvoorkomende Fouten (en Hoe Ze te Vermijden)\n\n### Fout 1: Nederlandse 'g' gebruiken\n**Fout:** Řek**g**a (rivier)\n**Correct:** Ře**h**a (met zachte 'h')\n\n### Fout 2: Verkeerde klemtoon\n**Fout:** mi**LU**ji tě\n**Correct:** **MI**luji tě (klemtoon op eerste lettergreep)\n\n### Fout 3: Korte/lange klinkers door elkaar\n**Fout:** kava (klinkt als cavia)\n**Correct:** **ká**va (koffie)\n\n## Snelle Referentie: Uitspraak Gids\n\n**Screenshot deze tabel voor onderweg:**\n\n| Geluid | Nederlandse Vergelijking | Tsjechisch Voorbeeld |\n|--------|-------------------------|---------------------|\n| **č** | tsj in tsjaka | čaj |\n| **š** | sj in sjaal | šálek |\n| **ž** | s in leisure | žena |\n| **ř** | trillende r + sj | řeka |\n| **ch** | ch in Duits 'Bach' | chléb |\n| **ď** | dy in 'doe jij' | ďábel |\n| **ť** | ty in 'tja' | třešeň |\n\n## Wat Nu? Jullie Tsjechische Avontuur Begint!\n\nGefeliciteerd! Je hebt de basis van Tsjechische uitspraak onder de knie. Nu is het tijd om te oefenen met echte gesprekken. Begin met [simpele begroetingen](/learn/nl/cs/greetings-and-farewells/) en werk toe naar diepere gesprekken.\n\nOnthoud: je partner waardeert elke poging. Zelfs als je 'ř' nog niet perfect is, zal je inspanning hun hart verwarmen. Oefen samen, lach om de fouten, en vier de vooruitgang!\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Veelvoorkomende Fouten (en Hoe Ze te Vermijden)"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

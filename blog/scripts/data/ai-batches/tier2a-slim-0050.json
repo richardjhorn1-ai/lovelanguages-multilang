@@ -1,0 +1,500 @@
+{
+  "batchId": "tier2a-slim-0050",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "4b04b6b5-fcd1-427b-a9c3-8ba4001d2e14",
+      "title": "Polish Apologies: How to Say Sorry",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Apologizing for Specific Situations",
+          "subsections": [
+            "### Being Late",
+            "### Forgetting Something Important",
+            "### Hurting Someone's Feelings"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4b1fd84a-2255-4660-8f7b-95b4e0d88385",
+      "title": "Görög flörtölős kifejezések",
+      "native_lang": "hu",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető flörtölős kifejezések",
+          "subsections": [
+            "### 1. Είσαι πολύ όμορφη (Ísze polí omorfi)",
+            "### 2. Έχεις πανέμορφα μάτια (Ehisz panémorfa mátia)",
+            "### 3. Θα ήθελες να πιούμε έναν καφέ; (Tha íthelesz na piúme énan kafé?)",
+            "### 4. Μου αρέσεις (Mu arészisz)",
+            "### 5. Θέλω να σε γνωρίσω καλύτερα (Thélo na sze gnoriszo kalítera)",
+            "### 6. Είσαι πολύ γλυκιά (Ísze polí glikjá)",
+            "### 7. Μπορώ να έχω το τηλέφωνό σου; (Boró na ého to tiléfonó szu?)",
+            "### 8. Έχεις υπέροχο χαμόγελο (Ehisz ipéroho hamójelo)",
+            "### 9. Είσαι πολύ συμπαθητική (Ísze polí szimpatitikí)",
+            "### 10. Θέλεις να τα πούμε πάλι; (Thelisz na ta púme páli?)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4b200304-5d38-49a8-a881-9c4cf9511d5e",
+      "title": "İsveççe İlk Buluşma İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Karşılama",
+          "subsections": [
+            "### 1. \"Vad kul att äntligen träffa dig\"",
+            "### 2. \"Du ser ännu bättre ut än på bilderna\"",
+            "### 3. \"Jag har verkligen sett fram emot detta\""
+          ]
+        },
+        {
+          "header": "## Sohbet",
+          "subsections": [
+            "### 4. \"Berätta om dig själv\"",
+            "### 5. \"Vad gillar du att göra på fritiden?\"",
+            "### 6. \"Har du varit här förut?\""
+          ]
+        },
+        {
+          "header": "## İltifatlar",
+          "subsections": [
+            "### 7. \"Du har ett vackert leende\"",
+            "### 8. \"Jag gillar din stil\"",
+            "### 9. \"Det är lätt att prata med dig\""
+          ]
+        },
+        {
+          "header": "## Sonlandırma",
+          "subsections": [
+            "### 10. \"Jag hade en riktigt trevlig kväll\"",
+            "### 11. \"Kan vi göra om det här?\"",
+            "### 12. \"Jag skulle vilja träffa dig igen\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4b4cf53a-61a5-44f9-b78d-21affbbe4e07",
+      "title": "Dán üzenetküldő kifejezések magyar anyanyelvűeknek",
+      "native_lang": "hu",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető üdvözlések",
+          "subsections": [
+            "### 1. Godmorgen, skat",
+            "### 2. Jeg savner dig",
+            "### 3. Jeg elsker dig"
+          ]
+        },
+        {
+          "header": "## Mindennapi üzenetek",
+          "subsections": [
+            "### 4. Hvordan har du det?",
+            "### 5. Jeg er der snart",
+            "### 6. Knus / Kys"
+          ]
+        },
+        {
+          "header": "## Romantikus kifejezések",
+          "subsections": [
+            "### 7. Du er mit alt",
+            "### 8. Skat / Min elskede",
+            "### 9. Jeg drømte om dig"
+          ]
+        },
+        {
+          "header": "## Chat rövidítések",
+          "subsections": [
+            "### 10. Tak / Thx",
+            "### 11. Ok / Okay",
+            "### 12. Kh (Kærlig hilsen)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4b582418-e7f3-495d-ac12-9e7ec49d7861",
+      "title": "Як сказати «Я тебе кохаю» італійською мовою",
+      "native_lang": "uk",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Основні способи сказати «Я тебе кохаю»",
+          "subsections": [
+            "### Ti amo (Ті амо)",
+            "### Ti voglio bene (Ті вольйо бене)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4b68ec22-2f3e-4361-aa08-494a9685a2c0",
+      "title": "Almanca Ogrenmek Zor mu? Türkler Icin Rehber",
+      "native_lang": "tr",
+      "target_lang": "de",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Almanca'nin Kolay Yönleri",
+          "subsections": [
+            "### 1. Tutarli Telaffuz",
+            "### 2. Ö ve Ü Sesleri",
+            "### 3. Mantikli Sözcük Olusumu",
+            "### 4. Latin Alfabesi"
+          ]
+        },
+        {
+          "header": "## Almanca'nin Zor Yönleri",
+          "subsections": [
+            "### 1. Üc Cinsiyet",
+            "### 2. Dört Hal",
+            "### 3. Fiil Pozisyonu",
+            "### 4. Uzun Birlesik Kelimeler"
+          ]
+        },
+        {
+          "header": "## Basari Ipuclari",
+          "subsections": [
+            "### 1. Artikellerle Birlikte Ögrenin",
+            "### 2. Her Gün Pratik",
+            "### 3. Alman Medyasi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4b820b86-ea91-43d4-8ecd-087cfefcdf8a",
+      "title": "Ukraińskie zwroty do kłótni i nieporozumień dla par",
+      "native_lang": "pl",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Wyrażanie niezgody",
+          "subsections": [
+            "### \"Я з тобою не погоджуюся\"",
+            "### \"Я бачу це інакше\"",
+            "### \"Чи можемо поговорити про це спокійно?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie uczuć",
+          "subsections": [
+            "### \"Я відчуваю розчарування, коли...\"",
+            "### \"Це мене дуже турбує\"",
+            "### \"Мені потрібен час подумати\""
+          ]
+        },
+        {
+          "header": "## Zrozumienie partnera",
+          "subsections": [
+            "### \"Допоможи мені зрозуміти твою точку зору\"",
+            "### \"Якщо я правильно зрозумів/зрозуміла...\"",
+            "### \"Ти маєш на увазі, що...?\""
+          ]
+        },
+        {
+          "header": "## Szukanie rozwiązań",
+          "subsections": [
+            "### \"Як ми можемо вирішити це разом?\"",
+            "### \"Давай знайдемо компроміс\"",
+            "### \"Думаю, нам обом треба...\""
+          ]
+        },
+        {
+          "header": "## Łagodzenie napięcia",
+          "subsections": [
+            "### \"Я тебе кохаю, навіть коли ми сваримося\"",
+            "### \"Ми впораємося з цим разом\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4b982cf8-8ada-4cc9-8ca2-394182fd0fc1",
+      "title": "Französisch Kosenamen und Liebkosungen für Paare",
+      "native_lang": "de",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Kosenamen für verschiedene Anlässe",
+          "subsections": [
+            "### Im Alltag",
+            "### Für romantische Momente",
+            "### Zum Necken"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4b9995d6-0b7f-4e05-b43f-c373632fc141",
+      "title": "Nederländska Fraser för Bråk och Meningsskiljaktigheter",
+      "native_lang": "sv",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande Fraser för Konfliktsituationer",
+          "subsections": [
+            "### 1. \"Ik voel me gekwetst als...\"",
+            "### 2. \"Kunnen we hier rustig over praten?\"",
+            "### 3. \"Ik heb even tijd nodig\"",
+            "### 4. \"Laten we geen dingen zeggen waar we spijt van krijgen\"",
+            "### 5. \"Ik begrijp je standpunt\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Lösa Konflikter",
+          "subsections": [
+            "### 6. \"Hoe kunnen we dit oplossen?\"",
+            "### 7. \"Het was niet mijn bedoeling om je te kwetsen\"",
+            "### 8. \"Laten we een compromis vinden\"",
+            "### 9. \"Ik luister naar je\"",
+            "### 10. \"Laten we hier later over praten\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4ba378ea-bf72-43e2-826c-d228f0eaf06e",
+      "title": "Пожелания на годовщину на румынский: Романтические фразы",
+      "native_lang": "ru",
+      "target_lang": "ro",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Простые пожелания на годовщину",
+          "subsections": [
+            "### Короткие и сладкие",
+            "### Для вашего партнёра"
+          ]
+        },
+        {
+          "header": "## Романтические послания на годовщину",
+          "subsections": [
+            "### Сердечные признания",
+            "### Задумчивые послания"
+          ]
+        },
+        {
+          "header": "## Послания по годам",
+          "subsections": [
+            "### Первая годовщина",
+            "### Пятая годовщина",
+            "### Десятая годовщина",
+            "### Двадцать пятая годовщина (серебряная)",
+            "### Пятидесятая годовщина (золотая)"
+          ]
+        },
+        {
+          "header": "## Планирование празднования годовщины",
+          "subsections": [
+            "### Романтические идеи",
+            "### Выражение благодарности"
+          ]
+        },
+        {
+          "header": "## Сообщения для социальных сетей",
+          "subsections": [
+            "### Подписи для публикаций"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4bab38f4-dcd7-49cf-a29f-b9458acbc76a",
+      "title": "Frases en Neerlandés sobre Celos y Confianza para Parejas",
+      "native_lang": "es",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Expresar Celos",
+          "subsections": [
+            "### \"Ik voel me een beetje jaloers als...\"",
+            "### \"Kunnen we praten over iets dat me dwarszit?\"",
+            "### \"Ik vertrouw je, maar ik voel me onzeker\"",
+            "### \"Wie was die persoon?\""
+          ]
+        },
+        {
+          "header": "## Frases para Pedir Seguridad",
+          "subsections": [
+            "### \"Ik heb wat geruststelling nodig\"",
+            "### \"Kun je me helpen me veiliger te voelen?\"",
+            "### \"Ik weet dat het irrationeel is, maar...\""
+          ]
+        },
+        {
+          "header": "## Frases para Construir Confianza",
+          "subsections": [
+            "### \"Ik vertrouw je volledig\"",
+            "### \"Jij bent de enige voor mij\"",
+            "### \"Ik heb alleen ogen voor jou\"",
+            "### \"Er is niets om je zorgen over te maken\"",
+            "### \"Je kunt me vertrouwen\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4bc171f2-590b-4273-a2d8-798d98adf1b6",
+      "title": "Лексика о беременности на итальянский: Словарь для будущих родителей",
+      "native_lang": "ru",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Объявление о беременности",
+          "subsections": [
+            "### Для близких родственников",
+            "### Для друзей"
+          ]
+        },
+        {
+          "header": "## Лексика для визитов к врачу",
+          "subsections": [
+            "### На приёме",
+            "### Вопросы для врача"
+          ]
+        },
+        {
+          "header": "## Покупки для малыша",
+          "subsections": [
+            "### Необходимые вещи",
+            "### В магазине"
+          ]
+        },
+        {
+          "header": "## Разговор с семьёй партнёра",
+          "subsections": [
+            "### Делимся новостями",
+            "### Обсуждение планов"
+          ]
+        },
+        {
+          "header": "## Имена для малыша",
+          "subsections": [
+            "### Обсуждение имён"
+          ]
+        },
+        {
+          "header": "## После рождения",
+          "subsections": [
+            "### Объявление о рождении",
+            "### Первые дни"
+          ]
+        },
+        {
+          "header": "## Полезные фразы",
+          "subsections": [
+            "### Ежедневные выражения"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4bc5c8ae-294c-4e9a-929a-59b3a3974e0f",
+      "title": "German Verb Conjugation Basics",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Fun Conjugation Games for Couples",
+          "subsections": [
+            "### Game 1: Romantic Verb Race",
+            "### Game 2: Daily Life Conjugation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4bd6b4f1-1302-4e57-b620-d9f8b22de373",
+      "title": "Ukrainska Fraser för Försoning och Att Göra Upp",
+      "native_lang": "sv",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Inleda Försoning",
+          "subsections": [
+            "### 1. \"Вибач мені\"",
+            "### 2. \"Чи можемо почати спочатку?\"",
+            "### 3. \"Ненавиджу сваритися з тобою\"",
+            "### 4. \"Ти для мене все\"",
+            "### 5. \"Я помилявся/лась і визнаю це\""
+          ]
+        },
+        {
+          "header": "## Fraser för Djupare Försoning",
+          "subsections": [
+            "### 6. \"Не лягаймо спати в сварці\"",
+            "### 7. \"Я люблю тебе більше за будь-яку сварку\"",
+            "### 8. \"Можна тебе обійняти?\"",
+            "### 9. \"Хочу краще тебе розуміти\"",
+            "### 10. \"Ми сильніші за це\"",
+            "### 11. \"Обіцяю бути кращим/ою\"",
+            "### 12. \"Дякую за терпіння до мене\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4bde421c-2be7-441e-af4c-8fe5052cdb18",
+      "title": "Grekiska flörtfraser för par – Charma din partner på grekiska",
+      "native_lang": "sv",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassiska komplimanger",
+          "subsections": [
+            "### \"Είσαι πανέμορφη/πανέμορφος\" (Eísai panémorfi/panémorfos)",
+            "### \"Έχεις τα πιο όμορφα μάτια\" (Écheis ta pio ómorfa mátia)",
+            "### \"Το χαμόγελό σου φωτίζει τη μέρα μου\" (To chamógeló sou fotízei ti méra mou)"
+          ]
+        },
+        {
+          "header": "## Passionerade uttryck",
+          "subsections": [
+            "### \"Είμαι τρελός/τρελή για σένα\" (Eímai trelós/trelí gia séna)",
+            "### \"Δεν μπορώ να σταματήσω να σκέφτομαι εσένα\" (Den boró na stamatíso na skéftomai eséna)",
+            "### \"Είσαι τα πάντα μου\" (Eísai ta pánta mou)"
+          ]
+        },
+        {
+          "header": "## Lekfulla fraser",
+          "subsections": [
+            "### \"Πιστεύεις στον έρωτα με την πρώτη ματιά ή να περάσω ξανά;\"",
+            "### \"Έχεις χάρτη; Χάθηκα στα μάτια σου\"",
+            "### \"Είσαι άγγελος που έπεσε από τον ουρανό;\""
+          ]
+        },
+        {
+          "header": "## Djupt romantiska uttryck",
+          "subsections": [
+            "### \"Είσαι η αγάπη της ζωής μου\" (Eísai i agápi tis zoís mou)",
+            "### \"Κάθε στιγμή μαζί σου είναι πολύτιμη\" (Káthe stigmí mazí sou eínai polýtimi)",
+            "### \"Δίπλα σου νιώθω σπίτι μου\" (Dípla sou niótho spíti mou)"
+          ]
+        }
+      ]
+    }
+  ]
+}

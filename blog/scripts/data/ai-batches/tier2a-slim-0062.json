@@ -1,0 +1,411 @@
+{
+  "batchId": "tier2a-slim-0062",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "55e531c8-c489-454f-b3e7-6951b12e8cb1",
+      "title": "Godmorgen og Godnat på Italiensk: Søde Fraser til Din Partner",
+      "native_lang": "da",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Tekstbeskeder",
+          "subsections": [
+            "### Morgenbeskeder",
+            "### Aftenbeskeder"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5609c537-7432-4630-a2f4-bf582461c59d",
+      "title": "Гид по румынскому произношению",
+      "native_lang": "ru",
+      "target_lang": "ro",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Романтические слова",
+          "subsections": [
+            "### Потренируемся!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "560c241c-14d1-4c85-91aa-4253f42b97d4",
+      "title": "Zwroty na pierwszą randkę po holendersku",
+      "native_lang": "pl",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Rozpoczęcie rozmowy",
+          "subsections": [
+            "### Cześć! Miło Cię wreszcie poznać!",
+            "### Świetnie wyglądasz!",
+            "### Nie mogłem/mogłam się doczekać"
+          ]
+        },
+        {
+          "header": "## Poznawanie się",
+          "subsections": [
+            "### Opowiedz mi o sobie",
+            "### Co lubisz robić w wolnym czasie?",
+            "### Jaki jest Twój ulubiony...?"
+          ]
+        },
+        {
+          "header": "## Wyrażanie zainteresowania",
+          "subsections": [
+            "### To naprawdę interesujące",
+            "### Opowiedz mi więcej",
+            "### Chciałbym/Chciałabym wiedzieć więcej"
+          ]
+        },
+        {
+          "header": "## Dzielenie się o sobie",
+          "subsections": [
+            "### Pasjonuję się...",
+            "### Zawsze chciałem/chciałam..."
+          ]
+        },
+        {
+          "header": "## Komplementy",
+          "subsections": [
+            "### Uwielbiam Twój uśmiech",
+            "### Masz świetne poczucie humoru",
+            "### Świetnie się z Tobą bawię"
+          ]
+        },
+        {
+          "header": "## Planowanie następnego spotkania",
+          "subsections": [
+            "### Bardzo chciałbym/chciałabym Cię znowu zobaczyć",
+            "### Kiedy możemy to powtórzyć?",
+            "### Miałem/Miałam cudowny wieczór"
+          ]
+        },
+        {
+          "header": "## Pożegnanie",
+          "subsections": [
+            "### To było naprawdę cudowne",
+            "### Nie mogę się doczekać kolejnego spotkania"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "560dec71-aac6-4e6a-9047-476ec622016f",
+      "title": "Tyske fraser til forsoning og genopbygning af tillid",
+      "native_lang": "da",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser til forsoning",
+          "subsections": [
+            "### At undskylde oprigtigt",
+            "### At genopbygge forbindelsen",
+            "### At tilbyde forsoning",
+            "### At acceptere en undskyldning"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "561fdbaf-e367-4dfb-ab8f-c3f28521e128",
+      "title": "Fransk uttale for nybegynnere: Lær å snakke med hjertet ditt",
+      "native_lang": "no",
+      "target_lang": "fr",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## De 5 Viktigste Franske Lydene",
+          "subsections": [
+            "### 1. Den myke \"J\" (zh-lyden)",
+            "### 2. Den nasale \"on\"-lyden",
+            "### 3. Den stille \"e\" (e caduc)",
+            "### 4. Den franske \"r\"",
+            "### 5. Liaison - når ord danser sammen"
+          ]
+        },
+        {
+          "header": "## Uttaleutfordringer for Nordmenn",
+          "subsections": [
+            "### Problem 1: Den franske \"u\"",
+            "### Problem 2: Nasalvokalene",
+            "### Problem 3: Stille bokstaver"
+          ]
+        },
+        {
+          "header": "## Øvelser for Par",
+          "subsections": [
+            "### Øvelse 1: Kjærlighets-ekko",
+            "### Øvelse 2: Lyd-tabbing",
+            "### Øvelse 3: Romantisk lesing"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "562477d8-4dc1-489b-892d-8d6b664407dd",
+      "title": "Görög kifejezések féltékenységhez és bizalomhoz",
+      "native_lang": "hu",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kifejezések a féltékenységhez",
+          "subsections": [
+            "### 1. \"Ζηλεύω όταν εσύ...\"",
+            "### 2. \"Χρειάζομαι καθησυχασμό\"",
+            "### 3. \"Σε εμπιστεύομαι, αλλά παλεύω με τα συναισθήματά μου\"",
+            "### 4. \"Μπορούμε να μιλήσουμε για αυτό που έγινε;\"",
+            "### 5. \"Δεν θέλω να είμαι ζηλιάρης/α, αλλά...\"",
+            "### 6. \"Σε εμπιστεύομαι απόλυτα\"",
+            "### 7. \"Είσαι ο μόνος/η μόνη για μένα\"",
+            "### 8. \"Δεν θα έκανα ποτέ τίποτα για να σε πληγώσω\"",
+            "### 9. \"Δεν υπάρχει τίποτα μεταξύ μας\"",
+            "### 10. \"Σου είμαι πιστός/ή\"",
+            "### 11. \"Ας είμαστε ειλικρινείς ο ένας με τον άλλον\"",
+            "### 12. \"Δεν θέλω η ζήλια να μας χωρίσει\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5626dfc1-ef6e-4025-87a3-9d1d6054bc84",
+      "title": "Podstawy gramatyki duńskiej dla par: Jak mówić poprawnie i romantycznie",
+      "native_lang": "pl",
+      "target_lang": "da",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Podstawowe zasady (które natychmiast poprawią Twoje zdania)",
+          "subsections": [
+            "### 1. Kolejność słów w zdaniu",
+            "### 2. Rodzaje rzeczowników",
+            "### 3. Czasowniki bez odmiany przez osoby"
+          ]
+        },
+        {
+          "header": "## Najczęstsze wzorce, które musisz znać",
+          "subsections": [
+            "### 1. Posiadanie i pragnienie",
+            "### 2. Pytania (z czasownikiem na początku!)",
+            "### 3. Zapraszanie i proponowanie"
+          ]
+        },
+        {
+          "header": "## Najczęstsze błędy (i jak ich unikać)",
+          "subsections": [
+            "### 1. **Zła kolejność słów**",
+            "### 2. **Mylenie \"du\" i \"dig\"**",
+            "### 3. **Zapominanie o \"er\"**",
+            "### 4. **Niewłaściwe zaimki**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "56430e07-3c27-43a3-b6f0-9e152997c9e1",
+      "title": "Греческие фразы о прощении",
+      "native_lang": "ru",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Фразы для просьбы о прощении",
+          "subsections": [
+            "### 1. Λυπάμαι πραγματικά για αυτό που έκανα",
+            "### 2. Σε παρακαλώ, συγχώρεσέ με",
+            "### 3. Ξέρω ότι σε πλήγωσα και λυπάμαι βαθιά",
+            "### 4. Δεν θα ξανασυμβεί, στο υπόσχομαι",
+            "### 5. Αναλαμβάνω την πλήρη ευθύνη για τις πράξεις μου"
+          ]
+        },
+        {
+          "header": "## Фразы для выражения прощения",
+          "subsections": [
+            "### 6. Σε συγχωρώ",
+            "### 7. Ας αφήσουμε αυτό πίσω μας",
+            "### 8. Είμαι έτοιμος/έτοιμη να προχωρήσω",
+            "### 9. Εκτιμώ τη συγγνώμη σου",
+            "### 10. Χρειάζεται θάρρος να ζητήσεις συγγνώμη, ευχαριστώ"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "564a3c92-cdda-4bbe-86f2-10c2386f31e9",
+      "title": "Φράσεις «Μου λείπεις» στα Ρουμανικά",
+      "native_lang": "el",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις",
+          "subsections": [
+            "### 1. Îmi lipsești (Ιμι λιπσέστι)",
+            "### 2. Îmi lipsești foarte mult (Ιμι λιπσέστι φοάρτε μουλτ)",
+            "### 3. Am nevoie de tine (Αμ νεβόιε ντε τίνε)",
+            "### 4. Tânjesc după tine (Τανζέσκ ντουπά τίνε)",
+            "### 5. Număr zilele până ne vom revedea (Νουμάρ ζιλέλε πανά νε βομ ρεβεντέα)",
+            "### 6. Abia aștept să te văd (Αμπία αστέπτ σα τε βαντ)",
+            "### 7. Mă gândesc la tine în fiecare zi (Μα γκαντέσκ λα τίνε ιν φιεκάρε ζι)",
+            "### 8. Inima mea e cu tine (Ινίμα μέα ε κου τίνε)",
+            "### 9. Ești mereu în gândurile mele (Εστι μερέου ιν γκαντουρίλε μέλε)",
+            "### 10. Mi-e dor de tine (Μιε ντορ ντε τίνε)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5655c41e-04af-46e8-a516-06d434d82cd9",
+      "title": "Greek Greetings and Goodbyes for Couples",
+      "native_lang": "en",
+      "target_lang": "el",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Practice Scenarios for Couples",
+          "subsections": [
+            "### Scenario 1: Morning Routine",
+            "### Scenario 2: Leaving for Work",
+            "### Scenario 3: Bedtime"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "565c9892-9aad-465b-8925-ef4ce10de30f",
+      "title": "Dán 'Hiányzol' Kifejezések Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Kifejezések",
+          "subsections": [
+            "### 1. Jeg savner dig",
+            "### 2. Jeg savner dig så meget",
+            "### 3. Jeg kan ikke holde op med at tænke på dig",
+            "### 4. Jeg ville ønske, du var her",
+            "### 5. Du er altid i mine tanker",
+            "### 6. Jeg tæller dagene til jeg ser dig",
+            "### 7. Mit hjerte længes efter dig",
+            "### 8. Du betyder alt for mig",
+            "### 9. Jeg glæder mig til at se dig",
+            "### 10. Uden dig er alt tomt"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "565e8480-b27a-4956-b3b7-f11c34252de8",
+      "title": "Olasz kifejezések megbocsátáshoz",
+      "native_lang": "hu",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bocsánatkérés",
+          "subsections": [
+            "### 1. \"Mi dispiace davvero\"",
+            "### 2. \"Per favore, perdonami\"",
+            "### 3. \"Mi assumo tutta la responsabilità\"",
+            "### 4. \"Avevo torto e lo ammetto\"",
+            "### 5. \"Prometto che non succederà più\""
+          ]
+        },
+        {
+          "header": "## Megbocsátás",
+          "subsections": [
+            "### 6. \"Ti perdono\"",
+            "### 7. \"Va bene, capisco\"",
+            "### 8. \"Sono pronto/a ad andare avanti\"",
+            "### 9. \"Lasciamoci tutto alle spalle\"",
+            "### 10. \"Non ti porto rancore\"",
+            "### 11. \"Tutti fanno errori\"",
+            "### 12. \"Apprezzo le tue scuse\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "566da447-fc0d-4d82-ba46-83ae9006a859",
+      "title": "Portuguese Articles: Definite and Indefinite",
+      "native_lang": "en",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## When Portuguese Uses Articles Differently",
+          "subsections": [
+            "### With Possessives",
+            "### With Countries and Places",
+            "### With Days and Times"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5675a7ac-36e1-4680-a7be-ac360a03ac2c",
+      "title": "Οδηγός Προφοράς Σουηδικών για Ζευγάρια: Μάθε να Μιλάς με τον Σύντροφό σου",
+      "native_lang": "el",
+      "target_lang": "sv",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Οι 3 Χρυσοί Κανόνες των Σουηδικών",
+          "subsections": [
+            "### 1. Η Μελωδική Προσωδία",
+            "### 2. Το Μαγικό Του",
+            "### 3. Η Σιωπηλή Γ"
+          ]
+        },
+        {
+          "header": "## Οι Πιο Σημαντικοί Ήχοι για Ζευγάρια",
+          "subsections": [
+            "### Ρομαντικά Ρήματα",
+            "### Ήχοι που Κάνουν τη Διαφορά"
+          ]
+        },
+        {
+          "header": "## Συνηθισμένα Λάθη που Κάνουν τα Ζευγάρια",
+          "subsections": [
+            "### 1. Η Παγίδα του Ρ",
+            "### 2. Η Μελωδία του Ερωτήματος",
+            "### 3. Η Σιωπηλή Συλλαβή"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5690fc0a-5215-4e54-850d-9653469dcc40",
+      "title": "Norveççe Flört İfadeleri: Romantik Konuşmalar için Rehber",
+      "native_lang": "tr",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Flört İfadeleri",
+          "subsections": [
+            "### 1. Du er veldig søt",
+            "### 2. Jeg liker deg",
+            "### 3. Vil du ta en kaffe med meg?",
+            "### 4. Du har vakre øyne",
+            "### 5. Jeg kan ikke slutte å tenke på deg",
+            "### 6. Kan jeg få nummeret ditt?",
+            "### 7. Du får meg til å smile",
+            "### 8. Jeg vil gjerne bli bedre kjent med deg",
+            "### 9. Du er fantastisk",
+            "### 10. Skal vi møtes igjen?"
+          ]
+        }
+      ]
+    }
+  ]
+}

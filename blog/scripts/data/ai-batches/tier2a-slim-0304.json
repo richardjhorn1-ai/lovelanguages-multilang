@@ -1,0 +1,482 @@
+{
+  "batchId": "tier2a-slim-0304",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "7154b623-4b01-44df-8cea-97afde4f092c",
+      "title": "Romanian Weather and Seasons Vocabulary for Couples",
+      "native_lang": "en",
+      "target_lang": "ro",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## The Four Seasons",
+          "subsections": [
+            "### Primăvara - Spring",
+            "### Vara - Summer",
+            "### Toamna - Autumn/Fall",
+            "### Iarna - Winter"
+          ]
+        },
+        {
+          "header": "## Seasonal Activities to Suggest",
+          "subsections": [
+            "### Spring Activities",
+            "### Summer Activities",
+            "### Autumn Activities",
+            "### Winter Activities"
+          ]
+        },
+        {
+          "header": "## Quick Reference: Weather Vocabulary",
+          "subsections": [
+            "### Essential Weather Words",
+            "### Temperature Words",
+            "### The Seasons",
+            "### Useful Phrases"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "716f19d1-6952-4b48-80ad-1a95f6cf68ec",
+      "title": "Przewodnik po wymowie rumunskiej dla polskich par",
+      "native_lang": "pl",
+      "target_lang": "ro",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Spolgloski rumunskie",
+          "subsections": [
+            "### Spolgloski podobne do polskich",
+            "### Spolgloski wymagajace uwagi",
+            "### Litery że znakami diakrytycznymi"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia wymowy dla par",
+          "subsections": [
+            "### Cwiczenie 1: Samogloski specjalne",
+            "### Cwiczenie 2: C i G przed roznymi samogloskami",
+            "### Cwiczenie 3: Romantyczne frazy"
+          ]
+        },
+        {
+          "header": "## Typowe bledy Polaków",
+          "subsections": [
+            "### Bled 1: Mylenie \"ă\" z \"a\"",
+            "### Bled 2: Niepoprawne \"â/î\"",
+            "### Bled 3: Ignorowanie zmiekczen"
+          ]
+        },
+        {
+          "header": "## Intonacja w zdaniach",
+          "subsections": [
+            "### Zdania oznajmujace",
+            "### Pytania tak/nie",
+            "### Pytania że slowem pytajnym"
+          ]
+        },
+        {
+          "header": "## Polaczenia trudne dla Polaków",
+          "subsections": [
+            "### \"-esc\" na koncu czasownikow",
+            "### Litera \"j\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7198bd7f-420e-4679-ae02-641038d5be34",
+      "title": "Polish Shopping Vocabulary: Store Words",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Food Categories and Items",
+          "subsections": [
+            "### Dairy Products - **Nabiał** (nah-BYAW)",
+            "### Meat - **Mięso** (MYEN-so)",
+            "### Fruits - **Owoce** (o-VO-tseh)",
+            "### Vegetables - **Warzywa** (vah-ZHEE-vah)"
+          ]
+        },
+        {
+          "header": "## Essential Shopping Phrases",
+          "subsections": [
+            "### Getting Started",
+            "### At the Counter",
+            "### Payment"
+          ]
+        },
+        {
+          "header": "## Common Shopping Challenges",
+          "subsections": [
+            "### When You Can't Find Something",
+            "### When Something is Too Expensive"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "71bc3867-77d7-408a-8c9b-f21b211eeaa2",
+      "title": "Turkish Romantic Phrases for Every Occasion",
+      "native_lang": "en",
+      "target_lang": "tr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Morning and Night Phrases",
+          "subsections": [
+            "### Romantic Good Mornings",
+            "### Sweet Goodnights"
+          ]
+        },
+        {
+          "header": "## Compliments for Your Partner",
+          "subsections": [
+            "### For Her",
+            "### For Him"
+          ]
+        },
+        {
+          "header": "## Special Occasions",
+          "subsections": [
+            "### Anniversaries",
+            "### Birthdays",
+            "### Valentine's Day"
+          ]
+        },
+        {
+          "header": "## Proposing and Commitment",
+          "subsections": [
+            "### Marriage Proposals",
+            "### Expressing Commitment"
+          ]
+        },
+        {
+          "header": "## During Difficult Times",
+          "subsections": [
+            "### Comfort and Support",
+            "### Apologies and Making Up"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "71fb8534-ae45-4eb5-9b02-92dca3e575e0",
+      "title": "Frasi romantiche polacche per ogni occasione: Guida completa per coppie",
+      "native_lang": "it",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Frasi per Momenti Speciali",
+          "subsections": [
+            "### Anniversari e Date Importanti",
+            "### Buongiorno e Buonanotte"
+          ]
+        },
+        {
+          "header": "## Come Usare Queste Frasi con il Tuo Partner",
+          "subsections": [
+            "### Consigli Pratici",
+            "### Errori Comuni da Evitare"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7241d469-05ac-4453-9e35-8ee56c5a06f8",
+      "title": "Le futur en espagnol : faire des projets ensemble",
+      "native_lang": "fr",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Promesses et projets romantiques au futur",
+          "subsections": [
+            "### Promesses d'amour",
+            "### Projets de couple"
+          ]
+        },
+        {
+          "header": "## Planifier des activités ensemble",
+          "subsections": [
+            "### Projets de voyage",
+            "### Projets du quotidien"
+          ]
+        },
+        {
+          "header": "## Exercices de pratique pour couples",
+          "subsections": [
+            "### Exercice 1 : Vos projets pour demain",
+            "### Exercice 2 : Vos rêves pour l'avenir",
+            "### Exercice 3 : Promesses mutuelles"
+          ]
+        },
+        {
+          "header": "## Marqueurs temporels pour le futur",
+          "subsections": [
+            "### Futur proche (cette semaine, ce mois)",
+            "### Futur lointain"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "72acef64-550f-478d-b2fe-f37f0629de76",
+      "title": "Çiftler İçin Macarca: 25 Temel İfade",
+      "native_lang": "tr",
+      "target_lang": "hu",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Günlük Konusma Ifadeleri",
+          "subsections": [
+            "### Hal Hatir Sormak",
+            "### Yanitlar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "72c23f2f-363d-458f-977e-1db1954df3f4",
+      "title": "Spotkanie że szwedzka rodzina partnera",
+      "native_lang": "pl",
+      "target_lang": "sv",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Typowe sytuacje",
+          "subsections": [
+            "### Fika - kawa z ciastkiem",
+            "### Pozegnanie"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia",
+          "subsections": [
+            "### Cwiczenie 1: Przedstawienie sie",
+            "### Cwiczenie 2: Rozmowa o Polsce",
+            "### Cwiczenie 3: Scenariusze"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "732e67f2-8b71-4ed5-8a6f-1fcbdbd1e651",
+      "title": "İtalyanca Dilbilgisi Temelleri: Sevgilinizle Birlikte Kolayca Öğrenin",
+      "native_lang": "tr",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Temel Kurallar: 5 Altın Kural",
+          "subsections": [
+            "### 1. Artikel Kullanımı (il, la, i, le)",
+            "### 2. Fiil Çekimleri -are, -ere, -ire",
+            "### 3. Soru Sorma",
+            "### 4. Olumsuzluk",
+            "### 5. Cinsiyet Uyumu"
+          ]
+        },
+        {
+          "header": "## Günlük Hayatta Sık Kullanılan Kalıplar",
+          "subsections": [
+            "### En Yaygın Fiiller",
+            "### Zamirler (Pronomi)"
+          ]
+        },
+        {
+          "header": "## Sık Yapılan Hatalar",
+          "subsections": [
+            "### 1. \"Essere\" ve \"Stare\" Karışıklığı",
+            "### 2. Cinsiyet Uyumsuzluğu",
+            "### 3. \"Mi piace\" Kullanımı",
+            "### 4. Zamir Zorunluluğu"
+          ]
+        },
+        {
+          "header": "## Hızlı Referans Tablosu",
+          "subsections": [
+            "### Kişi Zamirleri",
+            "### Temel Fiil Çekimleri (-are)",
+            "### Soru Kelimeleri"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7336f3e6-853d-41c1-96c0-b52e8824bc1c",
+      "title": "Podstawy gramatyki holenderskiej",
+      "native_lang": "pl",
+      "target_lang": "nl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Przydatne wzorce dla par",
+          "subsections": [
+            "### Wyrazanie uczuc",
+            "### Pytania do partnera"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia",
+          "subsections": [
+            "### Cwiczenie 1: Rodzajniki",
+            "### Cwiczenie 2: Czasowniki",
+            "### Cwiczenie 3: Zdania"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "741cc349-4a9b-4a45-9e30-9fade6535241",
+      "title": "40 Ukrainske Hilsener og Farvel som Smelter Partnerens Hjerte",
+      "native_lang": "no",
+      "target_lang": "uk",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Spesielle Anledninger: Fra Første Møte til Farvel",
+          "subsections": [
+            "### Når Du Møter Noen for Første Gang (21-25)",
+            "### Når Dere Må Skilles (26-35)"
+          ]
+        },
+        {
+          "header": "## Hvordan Øve Sammen",
+          "subsections": [
+            "### Daglige Ritualer",
+            "### Øvingsaktiviteter",
+            "### Vanlige Feil Å Unngå"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "74ce643e-4739-4aa6-89a4-d779d5b99200",
+      "title": "50+ Nomes de Carinho Húngaros para Apaixonados: Guia Completo para Casais",
+      "native_lang": "pt",
+      "target_lang": "hu",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Como Usar os Nomes de Carinho na Prática",
+          "subsections": [
+            "### Momentos Perfeitos",
+            "### Erros Comuns a Evitar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7542b767-96d2-4c27-816b-7cae62f56736",
+      "title": "German Texting Slang for Couples",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Sample Conversations",
+          "subsections": [
+            "### Morning",
+            "### Evening"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "75511338-333c-4dfb-85ad-9016fb172e82",
+      "title": "Danish Texting Slang to Chat With Your Partner",
+      "native_lang": "en",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Romantic Texting Abbreviations",
+          "subsections": [
+            "### Love and Affection",
+            "### Common Sign-Offs"
+          ]
+        },
+        {
+          "header": "## Internet and Social Media Slang",
+          "subsections": [
+            "### Danish Versions of Common Slang",
+            "### Unique Danish Expressions"
+          ]
+        },
+        {
+          "header": "## Quick Response Texts",
+          "subsections": [
+            "### Affirmative Responses",
+            "### Negative or Hesitant Responses"
+          ]
+        },
+        {
+          "header": "## Flirty and Playful Texts",
+          "subsections": [
+            "### Flirty Messages",
+            "### Playful Teasing"
+          ]
+        },
+        {
+          "header": "## Making Plans via Text",
+          "subsections": [
+            "### Suggesting Activities",
+            "### Time Expressions"
+          ]
+        },
+        {
+          "header": "## Morning and Night Texts",
+          "subsections": [
+            "### Good Morning Messages",
+            "### Good Night Messages"
+          ]
+        },
+        {
+          "header": "## Expressing Emotions via Text",
+          "subsections": [
+            "### Positive Emotions",
+            "### When Something's Wrong"
+          ]
+        },
+        {
+          "header": "## Sample Text Conversations",
+          "subsections": [
+            "### Morning Check-in",
+            "### Making Plans",
+            "### Romantic Exchange"
+          ]
+        },
+        {
+          "header": "## Common Texting Mistakes to Avoid",
+          "subsections": [
+            "### Don't Be Too Formal",
+            "### Don't Over-Abbreviate",
+            "### Don't Forget Context"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "75ea6ba4-ed12-4f65-80f3-a74ed39241e7",
+      "title": "Jerga Alemana de Mensajes para Parejas",
+      "native_lang": "es",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Conversaciones de Ejemplo",
+          "subsections": [
+            "### Por la Mañana",
+            "### Por la Noche"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,474 @@
+{
+  "batchId": "tier2a-slim-0045",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "46a2067a-71bf-4240-82d5-12b1dd8a7523",
+      "title": "Russian Grammar Basics for Beginners",
+      "native_lang": "en",
+      "target_lang": "ru",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Common Grammar Mistakes to Avoid",
+          "subsections": [
+            "### 1. Forgetting Adjective Agreement",
+            "### 2. Using the Wrong Case",
+            "### 3. Formal vs. Informal \"You\"",
+            "### 4. Aspect Confusion"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "46a6f133-4188-4240-aded-53feec7b6372",
+      "title": "Лексика о беременности на английский: Словарь для будущих родителей",
+      "native_lang": "ru",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Объявление о беременности",
+          "subsections": [
+            "### Для близких родственников",
+            "### Для друзей"
+          ]
+        },
+        {
+          "header": "## Лексика для визитов к врачу",
+          "subsections": [
+            "### На приёме",
+            "### Вопросы для врача"
+          ]
+        },
+        {
+          "header": "## Покупки для малыша",
+          "subsections": [
+            "### Необходимые вещи",
+            "### В магазине"
+          ]
+        },
+        {
+          "header": "## Разговор с семьёй партнёра",
+          "subsections": [
+            "### Делимся новостями",
+            "### Обсуждение планов"
+          ]
+        },
+        {
+          "header": "## Имена для малыша",
+          "subsections": [
+            "### Обсуждение имён"
+          ]
+        },
+        {
+          "header": "## После рождения",
+          "subsections": [
+            "### Объявление о рождении",
+            "### Первые дни"
+          ]
+        },
+        {
+          "header": "## Полезные фразы",
+          "subsections": [
+            "### Ежедневные выражения"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "46ad2ea4-a525-4cba-b165-02bfc1d3956e",
+      "title": "Să-ți Cunoști Familia Partenerului în Spaniolă: Ghid pentru Cupluri",
+      "native_lang": "ro",
+      "target_lang": "es",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Scenarii Comune și Dialoguri Practice",
+          "subsections": [
+            "### 1. Ajungând la Casă",
+            "### 2. La Masă de Prânz",
+            "### 3. Conversație despre România"
+          ]
+        },
+        {
+          "header": "## Vocabular pentru Conversații de Familie",
+          "subsections": [
+            "### Despre Relația Voastră",
+            "### Despre Mâncare"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "46af7117-3e6c-4332-a46b-a8c914403cca",
+      "title": "Guida alla Pronuncia Russa per Italiani",
+      "native_lang": "it",
+      "target_lang": "ru",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## I Segni Speciali",
+          "subsections": [
+            "### Il Segno Morbido (ь)",
+            "### Il Segno Duro (ъ)"
+          ]
+        },
+        {
+          "header": "## Errori Comuni degli Italiani",
+          "subsections": [
+            "### 1. Pronunciare В come B",
+            "### 2. Non ridurre le vocali",
+            "### 3. Ignorare il segno morbido"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "46cc210a-d32f-4e1a-9268-99199d74c78c",
+      "title": "Holland kifejezések első randira",
+      "native_lang": "hu",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bemutatkozás",
+          "subsections": [
+            "### 1. \"Leuk om je eindelijk te ontmoeten\"",
+            "### 2. \"Je ziet er geweldig uit\"",
+            "### 3. \"Vertel me over jezelf\"",
+            "### 4. \"Wat doe je voor werk?\"",
+            "### 5. \"Wat zijn je hobby's?\""
+          ]
+        },
+        {
+          "header": "## Beszélgetés",
+          "subsections": [
+            "### 6. \"Dat is echt interessant\"",
+            "### 7. \"Ik voel hetzelfde\"",
+            "### 8. \"Welke muziek vind je leuk?\"",
+            "### 9. \"Heb je veel gereisd?\"",
+            "### 10. \"Ik geniet hier echt van\""
+          ]
+        },
+        {
+          "header": "## Randi vége",
+          "subsections": [
+            "### 11. \"Ik heb een geweldige tijd gehad\"",
+            "### 12. \"Kunnen we elkaar weer zien?\"",
+            "### 13. \"Ik zou dit graag nog eens doen\"",
+            "### 14. \"Mag ik je naar huis brengen?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "46dc7db2-f190-49f3-a242-821ab69bae9c",
+      "title": "Турецькі фрази для суперечок і розбіжностей",
+      "native_lang": "uk",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Початок серйозної розмови",
+          "subsections": [
+            "### \"Konuşmamız lazım\"",
+            "### \"Sen ... yaptığında kendimi kötü hissediyorum\"",
+            "### \"Bunu sakin bir şekilde konuşabilir miyiz?\""
+          ]
+        },
+        {
+          "header": "## Вираження незгоди",
+          "subsections": [
+            "### \"Katılmıyorum\"",
+            "### \"Ben farklı görüyorum\"",
+            "### \"Demek istediğim bu değildi\""
+          ]
+        },
+        {
+          "header": "## Емоційні вирази",
+          "subsections": [
+            "### \"Bu beni üzüyor\"",
+            "### \"Hayal kırıklığına uğradım\"",
+            "### \"Beni dinlemeni istiyorum\""
+          ]
+        },
+        {
+          "header": "## Прохання про простір",
+          "subsections": [
+            "### \"Düşünmek için zamana ihtiyacım var\"",
+            "### \"Biraz ara verelim\""
+          ]
+        },
+        {
+          "header": "## Пошук рішення",
+          "subsections": [
+            "### \"Bunu nasıl çözebiliriz?\"",
+            "### \"Bir uzlaşma bulalım\"",
+            "### \"Taviz vermeye hazırım\""
+          ]
+        },
+        {
+          "header": "## Визнання помилки",
+          "subsections": [
+            "### \"Haklısın, hata yaptım\"",
+            "### \"Bunu söylememeliyidim\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "46f5e27d-da80-48e6-b892-89c161dd638d",
+      "title": "Engelse Zinnen over Vergeving",
+      "native_lang": "nl",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"I'm truly sorry\"",
+            "### 2. \"Please forgive me\"",
+            "### 3. \"I forgive you\"",
+            "### 4. \"Can you find it in your heart to forgive me?\"",
+            "### 5. \"I was wrong and I'm sorry\"",
+            "### 6. \"I'll never do it again\"",
+            "### 7. \"What can I do to make it up to you?\"",
+            "### 8. \"I accept your apology\"",
+            "### 9. \"Let's move past this\"",
+            "### 10. \"I know I hurt you\"",
+            "### 11. \"I promise to do better\"",
+            "### 12. \"It takes time, but I'll try to forgive\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "46f67a77-6c09-4dbf-936d-62edc7d1842c",
+      "title": "Polské flirtovací fráze pro Čechy",
+      "native_lang": "cs",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní lichotky",
+          "subsections": [
+            "### \"Jesteś piękna/piękny.\"",
+            "### \"Masz przepiękny uśmiech.\"",
+            "### \"Bardzo mi się podobasz.\"",
+            "### \"Jesteś niesamowita/niesamowity.\""
+          ]
+        },
+        {
+          "header": "## Romantické fráze",
+          "subsections": [
+            "### \"Nie mogę przestać o tobie myśleć.\"",
+            "### \"Sprawiasz, że jestem szczęśliwa/szczęśliwy.\"",
+            "### \"Moje serce bije szybciej, kiedy cię widzę.\"",
+            "### \"Szaleję za tobą.\""
+          ]
+        },
+        {
+          "header": "## Hravé fráze",
+          "subsections": [
+            "### \"Wierzysz w miłość od pierwszego wejrzenia, czy mam przejść jeszcze raz?\"",
+            "### \"Czy jesteś zmęczona? Cały dzień biegasz mi po głowie.\"",
+            "### \"Jest w tobie coś wyjątkowego.\""
+          ]
+        },
+        {
+          "header": "## Fráze pro zprávy",
+          "subsections": [
+            "### \"Dzień dobry, kochanie.\"",
+            "### \"Tęsknię za tobą.\"",
+            "### \"Nie mogę się doczekać, aż cię znowu zobaczę.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4704d89e-b7c1-4716-a281-576bdbdfe581",
+      "title": "Gefühle auf Türkisch ausdrücken – Emotionen in deiner Beziehung teilen",
+      "native_lang": "de",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Positive Gefühle ausdrücken",
+          "subsections": [
+            "### Liebe und Zuneigung",
+            "### Glück und Freude"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "470a041d-7bba-441a-b143-90bf9bd95975",
+      "title": "Turkish Love Letter Writing: Passionate Phrases for Your Aşkım",
+      "native_lang": "en",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Opening Your Letter",
+          "subsections": [
+            "### Salutations"
+          ]
+        },
+        {
+          "header": "## Expressing Your Feelings",
+          "subsections": [
+            "### Opening Lines",
+            "### Declarations of Love"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "470d95ee-edcc-401e-b877-b3a466fa4d1d",
+      "title": "Νορβηγική Προφορά για Αρχάριους: Μάθετε να Μιλάτε με τον Σύντροφό σας",
+      "native_lang": "el",
+      "target_lang": "no",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Βασικοί Συνδυασμοί Γραμμάτων",
+          "subsections": [
+            "### Nordic Specials"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4714bfbd-4d0c-4f99-8263-e9ea36cbf477",
+      "title": "Турецька лексика про вагітність та материнство",
+      "native_lang": "uk",
+      "target_lang": "tr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Основна лексика про вагітність",
+          "subsections": []
+        },
+        {
+          "header": "## Оголошення про вагітність турецькою",
+          "subsections": [
+            "### Як поділитися новиною"
+          ]
+        },
+        {
+          "header": "## Покупки для малюка",
+          "subsections": [
+            "### Що потрібно купити"
+          ]
+        },
+        {
+          "header": "## Пологи та лікарня",
+          "subsections": [
+            "### У пологовому будинку",
+            "### Після народження"
+          ]
+        },
+        {
+          "header": "## Перші місяці з малюком",
+          "subsections": [
+            "### Корисна лексика"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4727c736-4899-4e81-b185-770b3606c50d",
+      "title": "Романтичні італійські фрази для закоханих пар",
+      "native_lang": "uk",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Компліменти для партнера",
+          "subsections": [
+            "### Для неї",
+            "### Для нього"
+          ]
+        },
+        {
+          "header": "## Фрази для особливих моментів",
+          "subsections": [
+            "### На побаченні",
+            "### Після сварки",
+            "### У важкі часи"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4731dc5a-4c15-4cde-b304-d9e89c2d8c2e",
+      "title": "С днём рождения на польский: Пожелания для любимого человека",
+      "native_lang": "ru",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Романтические пожелания на день рождения",
+          "subsections": [
+            "### Сладкие и простые",
+            "### Глубокие послания"
+          ]
+        },
+        {
+          "header": "## Фразы для открытки",
+          "subsections": [
+            "### Романтические послания",
+            "### Длинные послания"
+          ]
+        },
+        {
+          "header": "## Планирование сюрприза",
+          "subsections": [
+            "### Лексика для niespodzianka",
+            "### Фразы для сюрприза"
+          ]
+        },
+        {
+          "header": "## Сообщения для социальных сетей",
+          "subsections": [
+            "### Подписи для публикаций"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "473ca59c-4533-46a4-9adf-a32bb71e953b",
+      "title": "Francia alapok a szerelmedért: Igekötők és névmások, amiket minden nap használtok majd",
+      "native_lang": "hu",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## A 3 legfontosabb alapszabály",
+          "subsections": [
+            "### 1. A nemek világa",
+            "### 2. Az igeidők egyszerűen",
+            "### 3. A névmások varázsa"
+          ]
+        },
+        {
+          "header": "## A leggyakoribb hibák – és hogyan kerüld el őket",
+          "subsections": [
+            "### 1. A névelők összekeverése",
+            "### 2. A névmás elfelejtése",
+            "### 3. A kiejtés becsapós",
+            "### 4. A \"tu\" forma túlhasználata"
+          ]
+        },
+        {
+          "header": "## Gyors referencia – Tartsd kéznél!",
+          "subsections": [
+            "### Alapige: ÊTRE (lenni)",
+            "### Alapige: AVOIR (birtokolni)"
+          ]
+        }
+      ]
+    }
+  ]
+}

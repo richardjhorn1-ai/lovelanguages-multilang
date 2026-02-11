@@ -1,0 +1,54 @@
+{
+  "tier": 1,
+  "batchId": "tier1-batch-082",
+  "articles": [
+    {
+      "id": "e7b9adb8-aafd-4bad-996c-d7c0cb702ae8",
+      "title": "Fraze pentru apeluri video cu familia în italiană",
+      "native_lang": "ro",
+      "target_lang": "it",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nApelurile video cu familia partenerului pot fi intimidante, mai ales într-o limbă străină. Aceste fraze te vor ajuta să faci o impresie bună.\n\n<PhraseOfDay\n  word=\"Saluta tutti\"\n  translation=\"Transmite salutări tuturor\"\n  pronunciation=\"\"\n  context=\"O expresie politicoasă pentru încheiere\"\n/>\n\n## Salutări și introduceri\n\n<VocabCard\n  word=\"Come stai?\"\n  translation=\"Ce mai faci? / Cum ești?\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇮🇹\" title=\"Eticheta apelurilor video\">\nItalienii sunt foarte expresivi. Scuzele sincere sunt adesea însoțite de gesturi și explicații emoționale - arată că îți pasă cu adevărat.\n</CultureTip>\n\n## Probleme tehnice\n\n| Italiană | Română |\n|---------|---------|\n| Mi senti? | Mă auzi? |\n| Ti vedo | Te văd |\n| La connessione è scarsa | Conexiunea e proastă |\n| Saluta tutti | Transmite salutări tuturor |\n\n<VocabCard\n  word=\"Mi senti?\"\n  translation=\"Mă auzi?\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"La connessione è scarsa\"\n  translation=\"Conexiunea e proastă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru apeluri cu familia partenerului\n\n1. **Pregătește câteva fraze** – Exersează înainte de apel\n2. **Zâmbește mult** – Comunică bunăvoință fără cuvinte\n3. **Ascultă activ** – Dă din cap și reacționează\n4. **Nu-ți face griji pentru greșeli** – Vor aprecia efortul tău\n5. **Cere ajutor** – Partenerul poate traduce când e greu\n\n<CTA />\n\n## Articole conexe\n\n- [Întâlnirea cu familia partenerului în italiană](/ro/it/italian-meeting-your-partner-s-family)\n- [Conversații de zi cu zi în italiană](/ro/it/italian-small-talk-conversation-starters)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "e8714b79-ab70-4ca3-a832-fd821b45a347",
+      "title": "Bună dimineața și noapte bună în turcă – Mesaje drăguțe",
+      "native_lang": "ro",
+      "target_lang": "tr",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nZiua începe și se termină mai frumos când îi urezi partenerului în limba lui. Aceste mesaje vor aduce zâmbete în fiecare zi.\n\n<PhraseOfDay\n  word=\"Günaydın\"\n  translation=\"Bună dimineața\"\n  pronunciation=\"\"\n  context=\"Începe fiecare zi cu o urare caldă\"\n/>\n\n## Mesaje de bună dimineața\n\n<VocabCard\n  word=\"Günaydın\"\n  translation=\"Bună dimineața\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇹🇷\" title=\"Saluturile zilnice\">\nTurcii sunt foarte ospitalieri și călduroși. Scuzele sincere sunt importante pentru menținerea armoniei - arată respect și grijă.\n</CultureTip>\n\n## Mesaje de noapte bună\n\n| Turcă | Română |\n|---------|---------|\n| İyi geceler | Noapte bună |\n| Tatlı rüyalar | Vise frumoase |\n| İyi uykular | Somn ușor |\n\n<VocabCard\n  word=\"İyi geceler\"\n  translation=\"Noapte bună\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Tatlı rüyalar\"\n  translation=\"Vise frumoase\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru mesajele zilnice\n\n1. **Fii consistent** – Un mesaj zilnic creează un ritual frumos\n2. **Personalizează** – Adaugă o amintire sau o glumă internă\n3. **Variază** – Nu folosi aceeași frază în fiecare zi\n4. **Adaugă emoji** – 💕 și 😘 sunt universale\n5. **Fii spontan** – Uneori, un mesaj în mijlocul nopții e cel mai romantic\n\n<CTA />\n\n## Articole conexe\n\n- [Fraze pentru relații la distanță în turcă](/ro/tr/turkish-long-distance-relationship)\n- [Alinturile în turcă](/ro/tr/turkish-pet-names-and-terms-of-endearment-50)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "e92424c1-f31b-4af3-85a6-5709b8a3979e",
+      "title": "Spanyol Kifejezések a Leendő Apóséknak – Bemutatkozás és Első Találkozás",
+      "native_lang": "hu",
+      "target_lang": "es",
+      "category": "communication",
+      "content": "# Spanyol Kifejezések a Leendő Apóséknak – Bemutatkozás és Első Találkozás\n\nA spanyol kultúrában a család központi szerepet játszik. Ha spanyol anyanyelvű partnered szüleivel találkozol, ez az útmutató segít jó benyomást tenni.\n\n## Bemutatkozás\n\n### 1. Mucho gusto en conocerles.\n**Jelentés:** Nagyon örülök, hogy megismerhetem Önöket.\n\n**Kiejtés:** MU-cso-GUSZ-to-en-ko-no-SZER-lesz\n\nFormális, tiszteletteljes bemutatkozás.\n\n### 2. He oído hablar mucho de ustedes.\n**Jelentés:** Sokat hallottam Önökről.\n\n**Kiejtés:** e-o-Í-do-ab-LÁR-MU-cso-de-usz-TE-desz\n\nMutatja, hogy a partnered sokat mesélt.\n\n### 3. Gracias por recibirme en su casa.\n**Jelentés:** Köszönöm, hogy fogadnak az otthonukban.\n\n**Kiejtés:** GRÁ-szi-asz-por-re-szi-BÍR-me-en-szu-KÁ-sza\n\nUdvarias köszönet a vendéglátásért.\n\n### 4. [Nombre] siempre habla muy bien de ustedes.\n**Jelentés:** [Név] mindig nagyon szépen beszél Önökről.\n\n**Kiejtés:** ..-SZJEM-pre-Á-bla-muj-BJEN-de-usz-TE-desz\n\nPozitív kezdés.\n\n### 5. Estoy muy feliz de estar aquí.\n**Jelentés:** Nagyon boldog vagyok, hogy itt lehetek.\n\n**Kiejtés:** esz-TOJ-muj-fe-LÍSZ-de-esz-TÁR-a-KÍ\n\nŐszinte öröm kifejezése.\n\n## Bókok és Elismerések\n\n### 6. Tienen una casa muy bonita.\n**Jelentés:** Nagyon szép házuk van.\n\n**Kiejtés:** TJÉ-nen-U-na-KÁ-sza-muj-bo-NÍ-ta\n\nKlasszikus, udvarias bók.\n\n### 7. La comida está deliciosa.\n**Jelentés:** Az étel nagyon finom.\n\n**Kiejtés:** la-ko-MÍ-da-esz-TÁ-de-li-SZI-Ó-sza\n\nMindig dicsérj, ha főztek!\n\n### 8. Ahora entiendo de dónde [pareja] heredó su [cualidad].\n**Jelentés:** Most értem, honnan örökölte [partner] a [tulajdonságát].\n\n**Kiejtés:** a-Ó-ra-en-TJEN-do-de-DÓN-de-..-e-re-DÓ-szu-..\n\nOkos bók mindenkinek.\n\n### 9. Gracias por haber criado a una persona tan maravillosa.\n**Jelentés:** Köszönöm, hogy ilyen csodálatos embert neveltek.\n\n**Kiejtés:** GRÁ-szi-asz-por-a-BÉR-kri-Á-do-a-U-na-per-SZÓ-na-tan-ma-ra-vi-JÓ-sza\n\nMély elismerés a szülők felé.\n\n## Udvariasságok\n\n### 10. ¿Puedo ayudar en algo?\n**Jelentés:** Segíthetek valamiben?\n\n**Kiejtés:** PUÉ-do-a-ju-DÁR-en-AL-go\n\nMutasd, hogy segítőkész vagy.\n\n### 11. Por favor, déjeme fregar los platos.\n**Jelentés:** Kérem, hadd mossak el.\n\n**Kiejtés:** por-fa-VOR-DÉ-he-me-fre-GÁR-losz-PLÁ-tosz\n\nFelajánlás vacsora után.\n\n### 12. Me encantaría saber más sobre [tema].\n**Jelentés:** Szívesen hallanék többet [témáról].\n\n**Kiejtés:** me-en-kan-ta-RÍ-a-sza-BÉR-mász-SZOB-re-..\n\nMutass érdeklődést!\n\n## Kulturális Tippek\n\n### Család Fontossága\nA spanyol kultúrában a család szent. A szülők véleménye sokat számít.\n\n### Csók vagy Kézfogás?\n- Spanyolországban: két csók az arcra (nőknek)\n- Latin-Amerikában: változó, kövesd a házigazdákat\n\n### Étkezés\nA spanyol ebédek hosszúak és fontosak. Készülj fel beszélgetni!\n\n### Magázás\nHasználj \"usted/ustedes\" formát a szülőkkel – ez tiszteletet mutat.\n\n## Hasznos Kifejezések\n\n- **Con mucho gusto** – Nagyon szívesen\n- **Es usted muy amable** – Ön nagyon kedves\n- **Me encanta** – Imádom\n- **Qué rico** – De finom!\n\n## Tippek\n\n1. **Vigyél ajándékot** – Bor, édességek, virág jó választás\n2. **Légy figyelmes** – A spanyol kultúra értékeli az udvariasságot\n3. **Készülj fel hosszú ebédre** – A sobremesa (asztalnál maradás) fontos\n4. **Mutass érdeklődést a család iránt** – Kérdezz más családtagokról",
+      "issues": [
+        {
+          "type": "truncated_content",
+          "details": {
+            "endingChars": "* – Kérdezz más családtagokról"
+          }
+        }
+      ]
+    }
+  ]
+}

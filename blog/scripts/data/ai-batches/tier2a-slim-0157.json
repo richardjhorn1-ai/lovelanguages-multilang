@@ -1,0 +1,528 @@
+{
+  "batchId": "tier2a-slim-0157",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "a87934f5-260f-407a-abb6-fe4912edd3fd",
+      "title": "Dansk Uttaleguide for Nybegynnere: Lær å uttale kjærlighetsord som en innfødt",
+      "native_lang": "no",
+      "target_lang": "da",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## De 5 Vanskeligste Lydene (Og Slik Mestrer Du Dem)",
+          "subsections": [
+            "### 1. Det Danske \"R\"",
+            "### 2. Stød - Den Hemmelige Lyden",
+            "### 3. Den Myke \"D\"",
+            "### 4. Vokalen \"Ø\"",
+            "### 5. Kombinasjonen \"Ig\""
+          ]
+        },
+        {
+          "header": "## Øvelser for Par",
+          "subsections": [
+            "### 1. Kjærlighetsbingo",
+            "### 2. Filmkveld med uttale",
+            "### 3. Senga-tester"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a884234e-2cc0-420e-87cd-ce2c76ad5358",
+      "title": "Engleza: 15 Moduri de a Spune Te Iubesc cu Suflet",
+      "native_lang": "ro",
+      "target_lang": "en",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Fraze pentru Momente Cotidiene",
+          "subsections": [
+            "### Dimineața",
+            "### Înainte de Plecare",
+            "### Seara",
+            "### Înainte de Somn"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a8d53b2a-d853-4dda-9a53-fd1442a13d9a",
+      "title": "Expresii în Ucraineană pentru Discuții și Dezacorduri în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale pentru Discuții",
+          "subsections": [
+            "### Exprimarea Frustrării",
+            "### Cererea de Clarificări",
+            "### Stabilirea Limitelor",
+            "### Recunoașterea și Empatia",
+            "### Căutarea Soluțiilor"
+          ]
+        },
+        {
+          "header": "## Nuanțe Culturale Importante",
+          "subsections": [
+            "### Respectul pentru Familie",
+            "### Ospitalitatea",
+            "### Reziliența",
+            "### Tradițiile"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a8dae245-775b-4e90-85c2-4f0bf03766ac",
+      "title": "Романтические румынские фразы на все случаи",
+      "native_lang": "ru",
+      "target_lang": "ro",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Утром и вечером",
+          "subsections": [
+            "### Утром:",
+            "### Вечером:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a8e675f5-2192-4623-a42f-04ecac2a6d78",
+      "title": "Greek Arguing & Disagreement Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressing Disagreement",
+          "subsections": [
+            "### Δεν συμφωνώ (Den simfonó)",
+            "### Δεν είναι δίκαιο (Den íne díkeo)",
+            "### Με παρεξηγείς (Me parexigís)",
+            "### Δεν με ακούς (Den me akoús)"
+          ]
+        },
+        {
+          "header": "## Expressing Frustration",
+          "subsections": [
+            "### Είμαι απογοητευμένος/η (Íme apogoitevménos/i)",
+            "### Με ενοχλεί όταν... (Me enohli ótan)",
+            "### Χρειάζομαι λίγο χρόνο (Hriázome lígo hróno)",
+            "### Αυτό με πληγώνει (Aftó me pligóni)"
+          ]
+        },
+        {
+          "header": "## Setting Boundaries",
+          "subsections": [
+            "### Μη μου μιλάς έτσι (Mi mou milás étsi)",
+            "### Αυτό είναι υπερβολικό (Aftó íne ipervolikó)",
+            "### Πρέπει να μιλήσουμε ήρεμα (Prépi na milísoume írema)"
+          ]
+        },
+        {
+          "header": "## Seeking Resolution",
+          "subsections": [
+            "### Μπορούμε να βρούμε λύση μαζί; (Boroúme na vroúme lísi mazí?)",
+            "### Θέλω να σε καταλάβω (Thélo na se katalávo)",
+            "### Τι μπορούμε να κάνουμε; (Ti boroúme na kánoume?)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a8ee7bb0-870b-4ca7-b194-8354a6bb2819",
+      "title": "50+ Nume de Alint în Daneză pentru Partenerul Tău",
+      "native_lang": "ro",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Cum să folosești aceste nume de alint împreună",
+          "subsections": [
+            "### Sfaturi practice pentru cupluri",
+            "### Greșeli comune de evitat"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a910093a-f8c1-401c-956c-105412d664df",
+      "title": "Фразы для медового месяца на украинский: Романтическое путешествие",
+      "native_lang": "ru",
+      "target_lang": "uk",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## В аэропорту",
+          "subsections": [
+            "### Регистрация",
+            "### На борту"
+          ]
+        },
+        {
+          "header": "## В отеле",
+          "subsections": [
+            "### Регистрация",
+            "### Романтические просьбы"
+          ]
+        },
+        {
+          "header": "## На пляже",
+          "subsections": [
+            "### Пляжная лексика",
+            "### Романтические фразы на пляж"
+          ]
+        },
+        {
+          "header": "## Ужин вдвоём",
+          "subsections": [
+            "### В ресторане",
+            "### Романтические тосты"
+          ]
+        },
+        {
+          "header": "## Экскурсии и приключения",
+          "subsections": [
+            "### Планирование пригода",
+            "### Создание спогади"
+          ]
+        },
+        {
+          "header": "## Романтические моменты",
+          "subsections": [
+            "### Фразы для особых моментов",
+            "### Закат"
+          ]
+        },
+        {
+          "header": "## Покупка сувениров",
+          "subsections": [
+            "### В магазине",
+            "### Идеи подарков"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a94bcc2b-7956-4dbc-9621-590b9cf49dea",
+      "title": "Zwroty na pierwszą randkę po rumuńsku",
+      "native_lang": "pl",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Rozpoczęcie rozmowy",
+          "subsections": [
+            "### Cześć! Miło Cię wreszcie poznać!",
+            "### Świetnie wyglądasz!",
+            "### Nie mogłem/mogłam się doczekać"
+          ]
+        },
+        {
+          "header": "## Poznawanie się",
+          "subsections": [
+            "### Opowiedz mi o sobie",
+            "### Co lubisz robić w wolnym czasie?",
+            "### Jaki jest Twój ulubiony...?"
+          ]
+        },
+        {
+          "header": "## Wyrażanie zainteresowania",
+          "subsections": [
+            "### To naprawdę interesujące",
+            "### Opowiedz mi więcej",
+            "### Chciałbym/Chciałabym wiedzieć więcej"
+          ]
+        },
+        {
+          "header": "## Dzielenie się o sobie",
+          "subsections": [
+            "### Pasjonuję się...",
+            "### Zawsze chciałem/chciałam..."
+          ]
+        },
+        {
+          "header": "## Komplementy",
+          "subsections": [
+            "### Uwielbiam Twój uśmiech",
+            "### Masz świetne poczucie humoru",
+            "### Świetnie się z Tobą bawię"
+          ]
+        },
+        {
+          "header": "## Planowanie następnego spotkania",
+          "subsections": [
+            "### Bardzo chciałbym/chciałabym Cię znowu zobaczyć",
+            "### Kiedy możemy to powtórzyć?",
+            "### Miałem/Miałam cudowny wieczór"
+          ]
+        },
+        {
+          "header": "## Pożegnanie",
+          "subsections": [
+            "### To było naprawdę cudowne",
+            "### Nie mogę się doczekać kolejnego spotkania"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a9593382-3fc5-4356-8370-e43485bef19c",
+      "title": "Mutatul Împreună în Poloneză: Vocabular și Expresii pentru Noua",
+      "native_lang": "ro",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Mobila și Obiectele Casnice",
+          "subsections": [
+            "### Living",
+            "### Dormitor",
+            "### Bucătărie"
+          ]
+        },
+        {
+          "header": "## Procesul Mutării",
+          "subsections": [
+            "### Înainte de Mutare",
+            "### În Ziua Mutării"
+          ]
+        },
+        {
+          "header": "## Decorarea Împreună",
+          "subsections": [
+            "### Stiluri de Design",
+            "### Compromis în Decor"
+          ]
+        },
+        {
+          "header": "## Comunicare în Cuplu",
+          "subsections": [
+            "### Expresii pentru Armonie",
+            "### Rezolvarea Conflictelor"
+          ]
+        },
+        {
+          "header": "## Lista de Verificare",
+          "subsections": [
+            "### Documente Necesare",
+            "### Prima Săptămână"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a95c13ce-2a1e-4dc4-b08f-e2b7a8934bfb",
+      "title": "Czeskie zwroty o przebaczeniu dla par",
+      "native_lang": "pl",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Proszenie o przebaczenie",
+          "subsections": [
+            "### \"Prosím, odpusť mi\"",
+            "### \"Doufám, že mi můžeš odpustit\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie przebaczenia",
+          "subsections": [
+            "### \"Odpouštím ti\"",
+            "### \"Je to v pořádku, rozumím\"",
+            "### \"Nechme to za sebou\""
+          ]
+        },
+        {
+          "header": "## Proces przebaczenia",
+          "subsections": [
+            "### \"Pracuji na tom, abych ti odpustil/odpustila\"",
+            "### \"Potřebuji čas, ale odpustím ti\""
+          ]
+        },
+        {
+          "header": "## Głębokie przebaczenie",
+          "subsections": [
+            "### \"Odpouštím ti úplně\"",
+            "### \"Pouštím bolest pryč\""
+          ]
+        },
+        {
+          "header": "## Wspólne wyjście naprzód",
+          "subsections": [
+            "### \"Začněme znovu\"",
+            "### \"Naše láska je silnější než tato chyba\""
+          ]
+        },
+        {
+          "header": "## Granice przebaczenia",
+          "subsections": [
+            "### \"Odpouštím ti, ale tohle se nesmí opakovat\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a972da2b-a8b3-4e0b-8da1-efafae874095",
+      "title": "50+ Frases Românticas em Inglês para Derreter",
+      "native_lang": "pt",
+      "target_lang": "en",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Frases para Momentos Especiais",
+          "subsections": [
+            "### Para Aniversários de Namoro/Casamento",
+            "### Para Momentos Difíceis"
+          ]
+        },
+        {
+          "header": "## Frases Carinhosas do Cotidiano",
+          "subsections": [
+            "### Ao Sair de Casa",
+            "### Ao Se Reunir"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a987fda1-1544-41d0-bef4-82873edcd50e",
+      "title": "Italienska Fraser för Första Dejten",
+      "native_lang": "sv",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Bryta Isen",
+          "subsections": [
+            "### 1. \"È un piacere conoscerti finalmente\"",
+            "### 2. \"Sei bellissimo/a\"",
+            "### 3. \"Non vedevo l'ora che arrivasse questo momento\"",
+            "### 4. \"Parlami di te\"",
+            "### 5. \"Cosa ti piace fare nel tempo libero?\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Visa Intresse",
+          "subsections": [
+            "### 6. \"È davvero interessante\"",
+            "### 7. \"Mi piacerebbe saperne di più\"",
+            "### 8. \"Abbiamo molto in comune\"",
+            "### 9. \"Mi piace molto parlare con te\"",
+            "### 10. \"Hai un ottimo senso dell'umorismo\""
+          ]
+        },
+        {
+          "header": "## Fraser för Dejten Slutar",
+          "subsections": [
+            "### 11. \"Ho passato una serata meravigliosa\"",
+            "### 12. \"Possiamo rivederci?\"",
+            "### 13. \"Mi piacerebbe rifarlo\"",
+            "### 14. \"Lascia pagare a me\"",
+            "### 15. \"Scrivimi quando arrivi a casa\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a9a0dd39-3e19-435c-bdb8-7a18bbccb145",
+      "title": "Türkische Flirtsprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassische Komplimente",
+          "subsections": [
+            "### \"Çok güzelsin\"",
+            "### \"Gözlerin çok güzel\"",
+            "### \"Gülüşün harika\""
+          ]
+        },
+        {
+          "header": "## Romantische Ausdrücke",
+          "subsections": [
+            "### \"Sen hayatımın aşkısın\"",
+            "### \"Seni düşünmeden duramıyorum\"",
+            "### \"Seninle çok mutluyum\""
+          ]
+        },
+        {
+          "header": "## Süße Kosenamen",
+          "subsections": [
+            "### \"Aşkım\"",
+            "### \"Canım\"",
+            "### \"Hayatım\"",
+            "### \"Tatlım\"",
+            "### \"Güzelim\"",
+            "### \"Birtanem\""
+          ]
+        },
+        {
+          "header": "## Leidenschaftliche Ausdrücke",
+          "subsections": [
+            "### \"Seni seviyorum\"",
+            "### \"Sen benim her şeyimsin\"",
+            "### \"Sana aşığım\"",
+            "### \"Kalbimi çaldın\"",
+            "### \"Sensiz yapamam\""
+          ]
+        },
+        {
+          "header": "## Spielerische Sprüche",
+          "subsections": [
+            "### \"İlk görüşte aşka inanır mısın, yoksa bir daha mı geçeyim?\"",
+            "### \"Baban hırsız mı? Çünkü gökyüzünden yıldızları çalıp gözlerine koymuş\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a9a8acab-5b81-47f6-a52f-ec30cda90919",
+      "title": "Basico della Grammatica Greca: Impara le Regole Essenziali con il Tuo Partner",
+      "native_lang": "it",
+      "target_lang": "el",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Scheda di Riferimento Rapido",
+          "subsections": [
+            "### Articoli Definiti",
+            "### Pronomi Personali (quando servono)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a9ac1b5e-8e4d-40df-af7c-331421d4ccf6",
+      "title": "Romence Barışma ve Uzlaşma İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Barışma İfadeleri",
+          "subsections": [
+            "### 1. \"Iartă-mă pentru ce am spus\"",
+            "### 2. \"Putem să o luăm de la capăt?\"",
+            "### 3. \"Urăsc să mă cert cu tine\"",
+            "### 4. \"Să nu ne culcăm supărați\"",
+            "### 5. \"Te iert\"",
+            "### 6. \"Am greșit\"",
+            "### 7. \"Cum pot să îmi repar greșeala?\"",
+            "### 8. \"Te iubesc mai mult decât această ceartă\"",
+            "### 9. \"Hai să rezolvăm asta împreună\"",
+            "### 10. \"Îmi lipsește cum eram înainte de ceartă\"",
+            "### 11. \"Ești totul pentru mine\"",
+            "### 12. \"Promit să fiu mai bun/ă\""
+          ]
+        }
+      ]
+    }
+  ]
+}

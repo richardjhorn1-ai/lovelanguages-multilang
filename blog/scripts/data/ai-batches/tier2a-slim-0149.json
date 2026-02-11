@@ -1,0 +1,503 @@
+{
+  "batchId": "tier2a-slim-0149",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "a29b9f98-ed3e-4e1d-9a4a-7161b5122852",
+      "title": "Романтичні англійські фрази для пар: Повний посібник",
+      "native_lang": "uk",
+      "target_lang": "en",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Щоденні романтичні фрази",
+          "subsections": [
+            "### Вранці",
+            "### Протягом дня",
+            "### Увечері"
+          ]
+        },
+        {
+          "header": "## Романтичні фрази на особливі моменти",
+          "subsections": [
+            "### На побаченні",
+            "### На річницю",
+            "### Під час розлуки"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2a9a5f5-5589-49d0-8b9e-a1285d9c78f9",
+      "title": "Phrases portugaises pour un premier rendez-vous",
+      "native_lang": "fr",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions pour briser la glace",
+          "subsections": [
+            "### Se présenter",
+            "### Engager la conversation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2b8b886-0ddb-4176-8f96-757ff5076b88",
+      "title": "Φράσεις για το Πρώτο Ραντεβού (de): Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις",
+          "subsections": [
+            "### Γνωριμία",
+            "### Συζήτηση",
+            "### Φλερτ",
+            "### Κλείσιμο"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2be688c-31db-4bff-aebe-516f2abe5e6b",
+      "title": "Roemeense Zinnen over Jaloezie en Vertrouwen",
+      "native_lang": "nl",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Mă simt nesigur/ă când...\"",
+            "### 2. \"Am încredere totală în tine\"",
+            "### 3. \"Poți să mă liniștești?\"",
+            "### 4. \"Nu sunt gelos/geloasă, doar îngrijorat/ă\"",
+            "### 5. \"Cine era persoana cu care vorbeai?\"",
+            "### 6. \"Trebuie să știu că pot avea încredere în tine\"",
+            "### 7. \"Nu ai de ce să îți faci griji\"",
+            "### 8. \"Am ochi doar pentru tine\"",
+            "### 9. \"Hai să vorbim despre ce te deranjează\"",
+            "### 10. \"Nu aș face niciodată nimic să te rănesc\"",
+            "### 11. \"Trecutul tău nu ne definește\"",
+            "### 12. \"Lucrez la nesiguranțele mele\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2c510ae-110a-4a44-847e-a4cbfedbed0a",
+      "title": "Las 100 Palabras Más Comunes en Italiano para Parejas",
+      "native_lang": "es",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Palabras de Amor y Afecto",
+          "subsections": [
+            "### Amore (a-MO-re) - Amor",
+            "### Tesoro (te-SO-ro) - Tesoro/Cariño",
+            "### Caro/a (CA-ro/a) - Querido/a",
+            "### Bello/a (BE-lo/a) - Hermoso/a",
+            "### Bacio (BA-cho) - Beso",
+            "### Abbraccio (a-BRA-cho) - Abrazo",
+            "### Cuore (CUO-re) - Corazón",
+            "### Dolce (DOL-che) - Dulce"
+          ]
+        },
+        {
+          "header": "## Palabras para el Hogar",
+          "subsections": [
+            "### Casa (CA-sa) - Casa",
+            "### Cucina (cu-CHI-na) - Cocina",
+            "### Camera (CA-me-ra) - Habitación",
+            "### Bagno (BA-ño) - Baño",
+            "### Cena (CHE-na) - Cena",
+            "### Colazione (co-la-TSIO-ne) - Desayuno",
+            "### Pranzo (PRAN-tso) - Almuerzo"
+          ]
+        },
+        {
+          "header": "## Palabras de Tiempo",
+          "subsections": [
+            "### Oggi (O-yi) - Hoy",
+            "### Domani (do-MA-ni) - Mañana",
+            "### Ieri (IE-ri) - Ayer",
+            "### Stasera (sta-SE-ra) - Esta noche",
+            "### Fine settimana (FI-ne se-ti-MA-na) - Fin de semana",
+            "### Dopo (DO-po) - Después",
+            "### Sempre (SEM-pre) - Siempre"
+          ]
+        },
+        {
+          "header": "## Verbos Esenciales",
+          "subsections": [
+            "### Volere (vo-LE-re) - Querer",
+            "### Avere bisogno (a-VE-re bi-SO-ño) - Necesitar",
+            "### Piacere (pia-CHE-re) - Gustar",
+            "### Pensare (pen-SA-re) - Pensar",
+            "### Sentire (sen-TI-re) - Sentir",
+            "### Aiutare (a-yu-TA-re) - Ayudar",
+            "### Aspettare (as-pe-TA-re) - Esperar",
+            "### Venire (ve-NI-re) - Venir",
+            "### Andare (an-DA-re) - Ir",
+            "### Restare (res-TA-re) - Quedarse"
+          ]
+        },
+        {
+          "header": "## Adjetivos Importantes",
+          "subsections": [
+            "### Felice (fe-LI-che) - Feliz",
+            "### Triste (TRIS-te) - Triste",
+            "### Stanco/a (STAN-co/a) - Cansado/a",
+            "### Affamato/a (a-fa-MA-to/a) - Hambriento/a",
+            "### Freddo (FRE-do) - Frío",
+            "### Caldo (CAL-do) - Caliente"
+          ]
+        },
+        {
+          "header": "## Frases de Cortesía",
+          "subsections": [
+            "### Per favore (per fa-VO-re) - Por favor",
+            "### Grazie (GRA-tsie) - Gracias",
+            "### Scusa (SCU-sa) - Perdona/Disculpa",
+            "### Prego (PRE-go) - De nada"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2c5253d-8b10-4f39-b380-482c029449f6",
+      "title": "Ukrajinské fráze pro emocionální podporu a útěchu",
+      "native_lang": "cs",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní fráze soucitu",
+          "subsections": [
+            "### 1. Я поруч (Ja poruč)",
+            "### 2. Мені дуже шкода (Meni duže škoda)",
+            "### 3. Я тебе розумію (Ja tebe rozumiju)"
+          ]
+        },
+        {
+          "header": "## Povzbuzující fráze",
+          "subsections": [
+            "### 4. Ти впораєшся (Ty vporaješsja)",
+            "### 5. Все буде добре (Vse bude dobre)",
+            "### 6. Тримайся (Trymajsja)"
+          ]
+        },
+        {
+          "header": "## Nabídka pomoci",
+          "subsections": [
+            "### 7. Чим я можу допомогти? (Čym ja možu dopomohty?)",
+            "### 8. Можеш на мене розраховувати (Možeš na mene rozrachovuvaty)"
+          ]
+        },
+        {
+          "header": "## Útěcha v těžkých chvílích",
+          "subsections": [
+            "### 9. Ти не сам/сама (Ty ne sam/sama)",
+            "### 10. Поплач, стане легше (Poplač, stane lehše)",
+            "### 11. Час лікує (Čas likuje)",
+            "### 12. Я завжди буду поруч (Ja zavždy budu poruč)"
+          ]
+        },
+        {
+          "header": "## Speciální fráze pro současnou situaci",
+          "subsections": [
+            "### 13. Все буде Україна (Vse bude Ukrajina)",
+            "### 14. Слава Україні (Slava Ukrajini)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2d082f5-3a17-4b05-b6d0-45f8dffbeb15",
+      "title": "Danca Telaffuz Rehberi: Sevgilinize Güzel Seslenmenin Yolları",
+      "native_lang": "tr",
+      "target_lang": "da",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## En Yaygın Telaffuz Hataları",
+          "subsections": [
+            "### 1. **D ile T Karışımı**",
+            "### 2. **R Sesini Abartmak**",
+            "### 3. **Æ Harfini Kaçırmak**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2d30efd-31c1-4214-9d3f-3e191a54f826",
+      "title": "100 самых важных немецких слов для пар",
+      "native_lang": "ru",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Местоимения и обращения",
+          "subsections": [
+            "### 1. Ich / Du / Wir",
+            "### 2. Schatz / Liebling / Mein Herz"
+          ]
+        },
+        {
+          "header": "## Чувства и эмоции",
+          "subsections": [
+            "### 3. Liebe",
+            "### 4. Glücklich / Traurig",
+            "### 5. Wütend / Müde"
+          ]
+        },
+        {
+          "header": "## Повседневные действия",
+          "subsections": [
+            "### 6. Essen / Trinken / Schlafen",
+            "### 7. Gehen / Kommen / Bleiben",
+            "### 8. Arbeiten / Ausruhen"
+          ]
+        },
+        {
+          "header": "## Время",
+          "subsections": [
+            "### 9. Heute / Morgen / Gestern",
+            "### 10. Morgen / Abend / Nacht",
+            "### 11. Jetzt / Später / Bald"
+          ]
+        },
+        {
+          "header": "## Важные фразы",
+          "subsections": [
+            "### 12. Ich liebe dich",
+            "### 13. Du fehlst mir",
+            "### 14. Ich brauche dich",
+            "### 15. Danke",
+            "### 16. Es tut mir leid",
+            "### 17. Bitte",
+            "### 18. Ja / Nein",
+            "### 19. Kuss / Umarmung",
+            "### 20. Gute Nacht"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2de7ea7-5147-4658-a159-67bddf621d09",
+      "title": "Frases de Saudade em Romeno: Mi-e Dor de Tine - Saudade Latina",
+      "native_lang": "pt",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases Essenciais de Saudade",
+          "subsections": [
+            "### Expressões Básicas",
+            "### Saudade Profunda",
+            "### Para Relacionamentos à Distância",
+            "### Saudade Doce"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2e3d833-2039-43ee-9fe6-44b5f813335b",
+      "title": "Węgierska gramatyka dla par: Podstawy, które pokochasz",
+      "native_lang": "pl",
+      "target_lang": "hu",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## 5 podstawowych zasad węgierskiej gramatytyki",
+          "subsections": [
+            "### 1. Kolejność słów jest elastyczna",
+            "### 2. Przyrostki zamiast przyimków",
+            "### 3. Brak rodzajów gramatycznych",
+            "### 4. Jedno \"ty\" dla wszystkich",
+            "### 5. Wymowa = pisownia"
+          ]
+        },
+        {
+          "header": "## Najczęstsze błędy i jak ich unikać",
+          "subsections": [
+            "### 1. **Mylić przyrostki**",
+            "### 2. **Zła kolejność w pytaniach**",
+            "### 3. **Zapominanie o przyrostkach miejsca**",
+            "### 4. **Nieużywanie odpowiedniej formy czasownika**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a2e6f544-be0d-4da4-a108-6c53df0cf0f2",
+      "title": "Guía de pronunciación ucraniana: Cómo hablar claro para tu pareja",
+      "native_lang": "es",
+      "target_lang": "uk",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Errores Comunes que Evitar (¡y Reír Juntos!)",
+          "subsections": [
+            "### 1. La \"И\" Engañosa",
+            "### 2. La \"Є\" Misteriosa",
+            "### 3. Las R Vibrantes"
+          ]
+        },
+        {
+          "header": "## Ejercicios de Pareja: Hazlo Divertido",
+          "subsections": [
+            "### Ejercicio 1: El Repetidor de Amor",
+            "### Ejercicio 2: El Susurro Ucraniano",
+            "### Ejercicio 3: La Oda Fonética"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a3026958-9c0f-462a-8100-fc5ad1fd0cfb",
+      "title": "Német kifejezések érzelmi támogatáshoz és vigasztaláshoz",
+      "native_lang": "hu",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető vigasztaló kifejezések",
+          "subsections": [
+            "### Ich bin für dich da",
+            "### Alles wird gut",
+            "### Es wird alles wieder gut",
+            "### Es tut mir sehr leid, was du durchmachst"
+          ]
+        },
+        {
+          "header": "## Empátia kifejezése",
+          "subsections": [
+            "### Ich verstehe, wie du dich fühlst",
+            "### Das muss sehr schwer sein",
+            "### Deine Gefühle sind völlig berechtigt",
+            "### Es ist okay, so zu fühlen"
+          ]
+        },
+        {
+          "header": "## Támogatás felajánlása",
+          "subsections": [
+            "### Was brauchst du gerade?",
+            "### Wie kann ich dir helfen?",
+            "### Ich bin hier, um dir zuzuhören",
+            "### Nimm dir so viel Zeit, wie du brauchst"
+          ]
+        },
+        {
+          "header": "## Gyász és veszteség",
+          "subsections": [
+            "### Es tut mir sehr leid für deinen Verlust",
+            "### Er/Sie wird immer in deinem Herzen sein",
+            "### Mein herzliches Beileid"
+          ]
+        },
+        {
+          "header": "## Nehéz időkben",
+          "subsections": [
+            "### Du bist nicht allein damit",
+            "### Wir schaffen das zusammen",
+            "### Du bist stärker, als du denkst",
+            "### Auch das geht vorbei"
+          ]
+        },
+        {
+          "header": "## Bátorítás",
+          "subsections": [
+            "### Ich glaube an dich",
+            "### Du schaffst das",
+            "### Ich bin stolz auf dich"
+          ]
+        },
+        {
+          "header": "## Szeretetteljes kifejezések",
+          "subsections": [
+            "### Ich liebe dich, mein Schatz",
+            "### Ich werde immer für dich da sein"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a339ae65-fe42-44e0-afb0-cc4c4df810a4",
+      "title": "Török kiejtési útmutató kezdőknek: Hogyan ejtsd helyesen a romantikus szavakat kedvesednek",
+      "native_lang": "hu",
+      "target_lang": "tr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Gyakori kiejtési hibák magyaroknak",
+          "subsections": [
+            "### 1. Az \"ı\" és \"i\" összekeverése",
+            "### 2. A \"ğ\" kiejtése",
+            "### 3. Az \"ş\" és \"s\" keverése"
+          ]
+        },
+        {
+          "header": "## Romantikus kiejtési gyakorlatok",
+          "subsections": [
+            "### Napi 5 perces páros gyakorlás",
+            "### Hétvégi kihívás"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a33ee0d7-3859-4d40-9b29-15eb1c5fb179",
+      "title": "Expresii 'Mi-e Dor de Tine' în Olandeză pentru Români",
+      "native_lang": "ro",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale de Dor",
+          "subsections": [
+            "### Expresii Directe",
+            "### Expresii Profunde",
+            "### Mesaje Zilnice",
+            "### Promisiuni"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a34718f2-6fe6-48d5-9010-6c5187e0024d",
+      "title": "Frases en Alemán para Pedir y Ofrecer Perdón a tu Pareja",
+      "native_lang": "es",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Pedir Perdón",
+          "subsections": [
+            "### \"Es tut mir wirklich leid\"",
+            "### \"Bitte verzeih mir\"",
+            "### \"Ich weiß, dass ich dich verletzt habe, und ich bereue es zutiefst\"",
+            "### \"Es war falsch von mir, das zu tun\"",
+            "### \"Wie kann ich es wieder gutmachen?\"",
+            "### \"Ich verspreche, dass es nicht wieder passiert\""
+          ]
+        },
+        {
+          "header": "## Frases para Ofrecer Perdón",
+          "subsections": [
+            "### \"Ich verzeihe dir\"",
+            "### \"Lass uns das hinter uns lassen\"",
+            "### \"Ich bin bereit, weiterzumachen\"",
+            "### \"Jeder macht Fehler\"",
+            "### \"Ich schätze deine Entschuldigung\"",
+            "### \"Ich liebe dich immer noch\""
+          ]
+        }
+      ]
+    }
+  ]
+}

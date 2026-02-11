@@ -1,0 +1,399 @@
+{
+  "batchId": "tier2a-slim-0233",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "e9ab3166-825e-4595-a333-98ccc06a235f",
+      "title": "50+ Rusça Sevgi Sözcüğü: Kalbini Fethet",
+      "native_lang": "tr",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Romantik Baglamlarda Kullanim",
+          "subsections": [
+            "### Sabah Mesajlari",
+            "### Gece Mesajlari"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e9b3e7d0-fe27-4452-b79f-45ce73d6610d",
+      "title": "Основы чешской грамматики для начинающих",
+      "native_lang": "ru",
+      "target_lang": "cs",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Падежная система",
+          "subsections": [
+            "### Семь падежей"
+          ]
+        },
+        {
+          "header": "## Спряжение глаголов",
+          "subsections": [
+            "### Глагол MILOVAT (любить)",
+            "### Глагол BÝT (быть)",
+            "### Прошедшее время"
+          ]
+        },
+        {
+          "header": "## Местоимения",
+          "subsections": [
+            "### Личные местоимения",
+            "### Притяжательные местоимения"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e9bd4be0-588e-41a7-8233-c964576d6510",
+      "title": "Ιταλική Προφορά για Ζευγάρια: Μάθε να Μιλάς με την Καρδιά σου",
+      "native_lang": "el",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Οι 5 Χρυσοί Κανόνες της Ιταλικής Προφοράς",
+          "subsections": [
+            "### 1. Κάθε Γράμμα Μετράει",
+            "### 2. Το Ρομαντικό Ρ",
+            "### 3. Οι Διπλοί Ήχοι",
+            "### 4. Το Μυστικό του \"Gli\"",
+            "### 5. Οι Φωνήεντες Ποτέ Δεν Αλλάζουν"
+          ]
+        },
+        {
+          "header": "## Κοινά Λάθη που Κάνουν τα Ζευγάρια",
+          "subsections": [
+            "### Λάθος 1: Το Βαρύ \"R\"",
+            "### Λάθος 2: Η Σιωπηλή Λήξη",
+            "### Λάθος 3: Το Χαμένο \"I\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e9bef63f-1a31-41a9-b610-7d96d5d88dbe",
+      "title": "30+ Piropos en ucraniano: Cumplidos para Enamorar a tu Pareja",
+      "native_lang": "es",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Cumplidos Sobre la Apariencia",
+          "subsections": [
+            "### Belleza General",
+            "### Características Específicas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e9c686ef-b62d-437e-87b1-6b29e96eb6fb",
+      "title": "Angol évfordulós kívánságok és üzenetek",
+      "native_lang": "hu",
+      "target_lang": "en",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Évfordulós köszöntések",
+            "### Hosszabb üzenetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e9de747e-2791-4f28-a838-7f70f2f3289e",
+      "title": "100 Meest Gebruikte Roemeense Woorden voor Relaties",
+      "native_lang": "nl",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Basis liefdeswoorden",
+          "subsections": [
+            "### 1. Dragoste - *dra-gos-te* - Liefde",
+            "### 2. Inimă - *ie-nie-muh* - Hart",
+            "### 3. Sărut - *suh-roet* - Kus",
+            "### 4. Îmbrățișare - *uhm-bruh-tsji-sja-re* - Knuffel",
+            "### 5. Împreună - *uhm-pre-oe-nuh* - Samen",
+            "### 6. Pentru totdeauna - *pen-troe tot-dea-oe-na* - Voor altijd",
+            "### 7. Întotdeauna - *uhn-tot-dea-oe-na* - Altijd",
+            "### 8. Frumos/Frumoasă - *froe-mos/froe-moa-suh* - Mooi",
+            "### 9. Fericit/ă - *fe-rie-tjiet/uh* - Gelukkig",
+            "### 10. Iubito/Iubitule - *joe-bie-to/joe-bie-toe-le* - Schat"
+          ]
+        },
+        {
+          "header": "## Dagelijkse communicatie",
+          "subsections": [
+            "### 11. Da - *da* - Ja",
+            "### 12. Nu - *noe* - Nee",
+            "### 13. Te rog - *te rog* - Alsjeblieft",
+            "### 14. Mulțumesc - *moelts-oe-mesk* - Dank je",
+            "### 15. Scuză-mă - *skoe-zuh-muh* - Sorry",
+            "### 16. Bună dimineața - *boe-nuh die-mie-nea-tsa* - Goedemorgen",
+            "### 17. Noapte bună - *noap-te boe-nuh* - Goedenacht",
+            "### 18. Salut - *sa-loet* - Hallo",
+            "### 19. Pa - *pa* - Tot ziens",
+            "### 20. Ce faci? - *tsje fatsj* - Hoe gaat het?"
+          ]
+        },
+        {
+          "header": "## Gevoelens uitdrukken",
+          "subsections": [
+            "### 21. Te iubesc - *te joe-besk* - Ik hou van je",
+            "### 22. Îmi e dor de tine - *uhmie je dor de tjie-ne* - Ik mis je",
+            "### 23. Am nevoie de tine - *am ne-vo-je de tjie-ne* - Ik heb je nodig",
+            "### 24. Am încredere în tine - *am uhn-kre-de-re uhn tjie-ne* - Ik vertrouw je",
+            "### 25. Te iert - *te jert* - Ik vergeef je",
+            "### 26. Înțeleg - *uhn-tse-leg* - Ik begrijp het",
+            "### 27. Mă faci fericit/ă - *muh fatsj fe-rie-tjiet/uh* - Je maakt me gelukkig",
+            "### 28. Mă gândesc la tine - *muh guhn-desk la tjie-ne* - Ik denk aan je"
+          ]
+        },
+        {
+          "header": "## Tijd",
+          "subsections": [
+            "### 29. Azi - *a-zie* - Vandaag",
+            "### 30. Mâine - *muh-ie-ne* - Morgen",
+            "### 31. Ieri - *jerj* - Gisteren",
+            "### 32. Acum - *a-koem* - Nu",
+            "### 33. Mai târziu - *maj tuhr-zjoe* - Later",
+            "### 34. Curând - *koe-ruhnd* - Binnenkort",
+            "### 35. Niciodată - *nitsj-o-da-tuh* - Nooit",
+            "### 36. Uneori - *oe-ne-orj* - Soms",
+            "### 37. Des - *des* - Vaak"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e9e1c00f-ec03-4a32-b115-c0e23e2ee6d0",
+      "title": "Украинские фразы для споров и разногласий",
+      "native_lang": "ru",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Основные фразы для выражения несогласия",
+          "subsections": [
+            "### 1. Я не згоден/згодна з тобою",
+            "### 2. Чи можемо поговорити про це спокійно?",
+            "### 3. Мені боляче, коли ти так кажеш",
+            "### 4. Давай не будемо підвищувати голос",
+            "### 5. Мені потрібно, щоб ти зрозумів/зрозуміла мою точку зору",
+            "### 6. Я мав/мала на увазі не це",
+            "### 7. Чи можемо знайти компроміс?",
+            "### 8. Думаю, нам обом потрібен простір",
+            "### 9. Будь ласка, поважай мою думку",
+            "### 10. Я тебе слухаю, але не погоджуюся"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e9ea2726-3a13-4fba-825a-7bfdc4eba2a2",
+      "title": "Tjeckiska Fraser för Försoning och Att Göra Upp",
+      "native_lang": "sv",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Inleda Försoning",
+          "subsections": [
+            "### 1. \"Omlouvám se\"",
+            "### 2. \"Můžeme začít znovu?\"",
+            "### 3. \"Nesnáším se s tebou hádat\"",
+            "### 4. \"Jsi pro mě všechno\"",
+            "### 5. \"Měl/a jsem pravdu a přiznávám to\""
+          ]
+        },
+        {
+          "header": "## Fraser för Djupare Försoning",
+          "subsections": [
+            "### 6. \"Nechoďme spát nazlobení\"",
+            "### 7. \"Miluji tě víc než jakoukoli hádku\"",
+            "### 8. \"Můžu tě obejmout?\"",
+            "### 9. \"Chci ti lépe rozumět\"",
+            "### 10. \"Jsme silnější než tohle\"",
+            "### 11. \"Slibuji, že budu lepší\"",
+            "### 12. \"Děkuji za tvou trpělivost se mnou\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ea04d154-9262-4170-829f-7fdf8ae95118",
+      "title": "Spanyol nászutas utazási kifejezések",
+      "native_lang": "hu",
+      "target_lang": "es",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Utazási alapkifejezések",
+            "### Romantikus helyzetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ea09df1d-4dae-4157-900a-cda35f8841b8",
+      "title": "Tjeckiska fraser för emotionellt stöd – Trösta din partner på tjeckiska",
+      "native_lang": "sv",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande stöd",
+          "subsections": [
+            "### \"Jsem tady pro tebe\"",
+            "### \"V tom nejsi sám/sama\"",
+            "### \"Vždy budu na tvé straně\""
+          ]
+        },
+        {
+          "header": "## Visa empati",
+          "subsections": [
+            "### \"Umím si jen představit, jak těžké to pro tebe musí být\"",
+            "### \"Tvé pocity jsou naprosto pochopitelné\"",
+            "### \"Je normální cítit se tak\""
+          ]
+        },
+        {
+          "header": "## Tröstande fraser",
+          "subsections": [
+            "### \"I tohle přejde\"",
+            "### \"Projdeme tím spolu\"",
+            "### \"Vezmi si čas, který potřebuješ\"",
+            "### \"Je v pořádku nebýt v pořádku\""
+          ]
+        },
+        {
+          "header": "## Erbjuda stöd",
+          "subsections": [
+            "### \"Co ode mě teď potřebuješ?\"",
+            "### \"Chceš o tom mluvit nebo se raději rozptýlit?\"",
+            "### \"Mohu něco udělat, abych ti pomohl/a?\""
+          ]
+        },
+        {
+          "header": "## Vid förlust",
+          "subsections": [
+            "### \"Moc mě mrzí tvá ztráta\"",
+            "### \"Nemám slov, ale jsem tady\""
+          ]
+        },
+        {
+          "header": "## Uppmuntrande fraser",
+          "subsections": [
+            "### \"Věřím v tebe\"",
+            "### \"Jsi silnější, než si myslíš\"",
+            "### \"Jsem na tebe moc pyšný/á\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ea19ec90-3c00-43a4-a2bc-3fa725702750",
+      "title": "Expresii de Flirt în Portugheză pentru Români",
+      "native_lang": "ro",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale de Flirt",
+          "subsections": [
+            "### Complimente Calde",
+            "### Expresii Romantice",
+            "### Replici Jucăușe",
+            "### Declarații de Dragoste"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ea1d4f09-320a-49a3-abe4-2a16afb4b822",
+      "title": "Fraze Romantice în Engleză pentru Cupluri: Expresii de Dragoste",
+      "native_lang": "ro",
+      "target_lang": "en",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Fraze pentru Momente Speciale",
+          "subsections": [
+            "### Pentru Aniversări",
+            "### Pentru Cereri în Căsătorie",
+            "### Pentru Momente Dificile"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ea24f12d-5f52-4b08-b0c4-271121728c4a",
+      "title": "40+ Englische Liebesphrasen: I Love You & mehr",
+      "native_lang": "de",
+      "target_lang": "en",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Phrasen für besondere Momente",
+          "subsections": [
+            "### Beim ersten Date",
+            "### Zum Jahrestag"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ea27462c-d711-43e4-a147-42ed8c1a66ef",
+      "title": "Duitse Zinnen over Jaloezie en Vertrouwen",
+      "native_lang": "nl",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Ich fühle mich unsicher, wenn...\"",
+            "### 2. \"Ich vertraue dir vollkommen\"",
+            "### 3. \"Kannst du mich beruhigen?\"",
+            "### 4. \"Ich bin nicht eifersüchtig, nur besorgt\"",
+            "### 5. \"Wer war die Person, mit der du geredet hast?\"",
+            "### 6. \"Ich muss wissen, dass ich dir vertrauen kann\"",
+            "### 7. \"Du brauchst dir keine Sorgen zu machen\"",
+            "### 8. \"Ich habe nur Augen für dich\"",
+            "### 9. \"Lass uns darüber reden, was dich stört\"",
+            "### 10. \"Ich würde niemals etwas tun, um dich zu verletzen\"",
+            "### 11. \"Deine Vergangenheit definiert uns nicht\"",
+            "### 12. \"Ich arbeite an meinen Unsicherheiten\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ea2bea16-4eee-4049-9d9c-5e4ec9705654",
+      "title": "Italienisch Kosenamen und Liebkosungen für Paare",
+      "native_lang": "de",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Kosenamen für verschiedene Anlässe",
+          "subsections": [
+            "### Im Alltag",
+            "### Für romantische Momente",
+            "### Zum Necken"
+          ]
+        }
+      ]
+    }
+  ]
+}

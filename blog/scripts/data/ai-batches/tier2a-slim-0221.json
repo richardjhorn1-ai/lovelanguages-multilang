@@ -1,0 +1,456 @@
+{
+  "batchId": "tier2a-slim-0221",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "dfe5a236-bee0-4f60-90f3-95de7c7137ca",
+      "title": "rumunsky Výslovnost pro Páry: Zněte Romanticky od Prvního Dne",
+      "native_lang": "cs",
+      "target_lang": "ro",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Nejčastější chyby českých mluvčí",
+          "subsections": [
+            "### 1. Přízvuk na špatné slabice",
+            "### 2. Příliš česká výslovnost 'r'",
+            "### 3. Nesprávné 'ă'"
+          ]
+        },
+        {
+          "header": "## Praktická cvičení pro páry",
+          "subsections": [
+            "### Cvičení 1: Zrcadlení",
+            "### Cvičení 2: Romantické čtení"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dfed4316-a05a-4b90-9be0-92dfec0909ef",
+      "title": "Ισπανικές Φράσεις Συμφιλίωσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις Συμφιλίωσης",
+          "subsections": [
+            "### Έναρξη Συμφιλίωσης",
+            "### Έκφραση Μετάνοιας",
+            "### Έκφραση Αγάπης",
+            "### Πρόταση Λύσης"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e019ecac-cbb0-42a6-9595-6a8229ffdfa9",
+      "title": "Macarca Duygusal Destek İfadeleri: Teselli ve Güç Veren Sözler",
+      "native_lang": "tr",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Destek İfadeleri",
+          "subsections": [
+            "### 1. \"Itt vagyok neked\"",
+            "### 2. \"Nem vagy egyedül\"",
+            "### 3. \"Minden rendben lesz\"",
+            "### 4. \"Megértelek\"",
+            "### 5. \"Normális így érezni\"",
+            "### 6. \"Büszke vagyok rád\"",
+            "### 7. \"Számíthatsz rám\"",
+            "### 8. \"Erősebb vagy, mint gondolnád\"",
+            "### 9. \"Nem kell egyedül átmenned ezen\"",
+            "### 10. \"Szeretlek, bármi is történjen\"",
+            "### 11. \"Itt vagyok, hogy meghallgassalak\"",
+            "### 12. \"Vedd el az időt, amire szükséged van\"",
+            "### 13. \"Kitartás!\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e03ee502-2053-459a-95d6-6db449771d3a",
+      "title": "Norske fraser til uenigheder og diskussioner for par",
+      "native_lang": "da",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Vigtige fraser",
+          "subsections": [
+            "### At udtrykke følelser",
+            "### At lytte og forstå",
+            "### At finde løsninger",
+            "### At sætte grænser"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e04b0fb4-43c0-4d97-852c-21751a4c40e8",
+      "title": "Expresii în Norvegiană pentru Discuții și Dezacorduri în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale pentru Discuții",
+          "subsections": [
+            "### Exprimarea Frustrării",
+            "### Cererea de Clarificări",
+            "### Stabilirea Limitelor",
+            "### Recunoașterea și Concesiile",
+            "### Căutarea Soluțiilor"
+          ]
+        },
+        {
+          "header": "## Nuanțe Culturale Importante",
+          "subsections": [
+            "### Janteloven",
+            "### Natura și Spațiul",
+            "### Independența"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e078925d-6b99-4874-aa06-1f007ad3eef7",
+      "title": "Conjugacao de Verbos em Alemao: O Basico para Casais",
+      "native_lang": "pt",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Exercicios para Praticar Juntos",
+          "subsections": [
+            "### Jogo de Conjugacao",
+            "### Diario Compartilhado",
+            "### Desafio dos Modais"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e089fb84-a686-4ed5-9f79-9708eac039b7",
+      "title": "French Baby & Pregnancy Vocabulary: Essential Words for Expecting Couples",
+      "native_lang": "en",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Announcing the News",
+          "subsections": [
+            "### To Your Partner's Family",
+            "### To Friends"
+          ]
+        },
+        {
+          "header": "## Nursery and Baby Items",
+          "subsections": [
+            "### Setting Up the chambre de bébé",
+            "### Shopping Vocabulary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e09c0d48-23dd-415c-9117-1fbf6dd4dc69",
+      "title": "Γράψτε Ερωτικά Γράμματα στα Ουγγρικά",
+      "native_lang": "el",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για την Αρχή του Γράμματος",
+          "subsections": [
+            "### 1. Szerelmem (Σερέλμεμ)",
+            "### 2. Drágám (Ντράγκαμ)",
+            "### 3. Édesem (Έντεσεμ)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για το Κυρίως Μέρος",
+          "subsections": [
+            "### 4. Te vagy életem szerelme (Τε βατζ έλετεμ σερέλμε)",
+            "### 5. Minden nap jobban szeretlek (Μίντεν ναπ γιόμπμπαν σερέτλεκ)",
+            "### 6. A szívem csak érted dobog (Α σίβεμ τσακ έρτεντ ντόμπογκ)",
+            "### 7. Boldoggá teszel (Μπόλντογκα τέσελ)",
+            "### 8. Megőrülök érted (Μεγκιορούλοκ έρτεντ)",
+            "### 9. Te vagy a mindenem (Τε βατζ α μίντενεμ)",
+            "### 10. Nélküled semmi vagyok (Νέλκουλεντ σέμμι βάτζοκ)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για το Κλείσιμο",
+          "subsections": [
+            "### 11. Örökre a tiéd (Ορόκρε α τιέντ)",
+            "### 12. Minden szeretetemmel (Μίντεν σερετέτεμμελ)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e0a3ca6a-e8b2-4617-8352-fd55b84d856c",
+      "title": "Fransızca Kıskançlık ve Güven İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kıskançlığı İfade Etme",
+          "subsections": [
+            "### 1. \"Je me sens un peu jaloux/se quand...\"",
+            "### 2. \"Peux-tu me rassurer?\"",
+            "### 3. \"J'ai confiance en toi, mais pas en eux\"",
+            "### 4. \"Ça me met mal à l'aise quand...\"",
+            "### 5. \"J'ai besoin de savoir que je suis ta priorité\""
+          ]
+        },
+        {
+          "header": "## Güven İnşa Etme",
+          "subsections": [
+            "### 6. \"Je te fais entièrement confiance\"",
+            "### 7. \"Tu es la seule personne pour moi\"",
+            "### 8. \"Je ne ferais jamais rien pour te blesser\"",
+            "### 9. \"Tu n'as pas à t'inquiéter\"",
+            "### 10. \"Je suis engagé(e) uniquement envers toi\"",
+            "### 11. \"Parlons de tes inquiétudes\"",
+            "### 12. \"Que puis-je faire pour que tu te sentes plus en sécurité?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e0a54675-c0a7-43e6-af16-99c20c570f7f",
+      "title": "Російська фрази для медового місяця та романтичних подорожей",
+      "native_lang": "uk",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна туристична лексика",
+          "subsections": []
+        },
+        {
+          "header": "## У готелі",
+          "subsections": [
+            "### Реєстрація",
+            "### Корисні фрази для готелю"
+          ]
+        },
+        {
+          "header": "## У ресторані",
+          "subsections": [
+            "### Романтична вечеря",
+            "### Тости для двох"
+          ]
+        },
+        {
+          "header": "## Пляжний відпочинок",
+          "subsections": [
+            "### Лексика для пляжу",
+            "### Романтичні пляжні активності"
+          ]
+        },
+        {
+          "header": "## Екскурсії для пар",
+          "subsections": [
+            "### Романтичні активності",
+            "### Корисні фрази"
+          ]
+        },
+        {
+          "header": "## Фотографії на пам'ять",
+          "subsections": [
+            "### Як попросити зробити фото"
+          ]
+        },
+        {
+          "header": "## Покупки сувенірів",
+          "subsections": [
+            "### Подарунки для рідних"
+          ]
+        },
+        {
+          "header": "## Проблеми в подорожі",
+          "subsections": [
+            "### Якщо щось пішло не так"
+          ]
+        },
+        {
+          "header": "## Повернення додому",
+          "subsections": [
+            "### Прощання з відпусткою"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e0bff257-a47c-46e0-9138-1d9b7d59e2ab",
+      "title": "Grekiska Fraser för Bråk och Meningsskiljaktigheter",
+      "native_lang": "sv",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande Fraser för Konfliktsituationer",
+          "subsections": [
+            "### 1. \"Νιώθω πληγωμένος/η όταν...\"",
+            "### 2. \"Μπορούμε να το συζητήσουμε ήρεμα;\"",
+            "### 3. \"Χρειάζομαι μια στιγμή\"",
+            "### 4. \"Δεν θέλω να τσακωνόμαστε\"",
+            "### 5. \"Καταλαβαίνω την άποψή σου\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Lösa Konflikter",
+          "subsections": [
+            "### 6. \"Πώς μπορούμε να το λύσουμε αυτό;\"",
+            "### 7. \"Δεν ήθελα να σε πληγώσω\"",
+            "### 8. \"Ας βρούμε έναν συμβιβασμό\"",
+            "### 9. \"Σε ακούω\"",
+            "### 10. \"Ας το συζητήσουμε αργότερα\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e0c00cee-8ef5-4a44-9611-b56832a5ae5b",
+      "title": "Norwegian Honeymoon Travel Phrases: Romantic Vocabulary for Your Trip",
+      "native_lang": "en",
+      "target_lang": "no",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Planning Your Trip",
+          "subsections": [
+            "### Choosing a Destination",
+            "### Booking Vocabulary"
+          ]
+        },
+        {
+          "header": "## At the Airport",
+          "subsections": [
+            "### Essential Phrases",
+            "### Airport Vocabulary"
+          ]
+        },
+        {
+          "header": "## At Your Hotel",
+          "subsections": [
+            "### Checking In",
+            "### Room Types"
+          ]
+        },
+        {
+          "header": "## Romantic Moments",
+          "subsections": [
+            "### On the Beach",
+            "### At Dinner"
+          ]
+        },
+        {
+          "header": "## Adventure Activities",
+          "subsections": [
+            "### Exploring Together",
+            "### Activity Vocabulary"
+          ]
+        },
+        {
+          "header": "## Creating Memories",
+          "subsections": [
+            "### Photo Moment Phrases"
+          ]
+        },
+        {
+          "header": "## Returning Home",
+          "subsections": [
+            "### End of Trip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e0d0550f-6299-4dcf-a65c-68de78d84ab0",
+      "title": "Russische Grammatik Grundlagen für Anfänger",
+      "native_lang": "de",
+      "target_lang": "ru",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Häufige Grammatikfehler Vermeiden",
+          "subsections": [
+            "### 1. Adjektivübereinstimmung Vergessen",
+            "### 2. Den Falschen Fall Verwenden",
+            "### 3. Formal vs. Informell \"Du\"",
+            "### 4. Aspektverwirrung"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e1185cce-5065-4236-9ed2-72ae350b100f",
+      "title": "Dán lánykérési és eljegyzési kifejezések",
+      "native_lang": "hu",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### A nagy kérdés",
+            "### Az eljegyzés bejelentése"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e11a4f2f-6175-40d4-809c-2201d2abd569",
+      "title": "Engels voor Stellen: 45+ Essentiële Reiszinnen",
+      "native_lang": "nl",
+      "target_lang": "en",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## In Het Hotel",
+          "subsections": [
+            "### Inchecken",
+            "### Verzoeken"
+          ]
+        },
+        {
+          "header": "## In Een Restaurant",
+          "subsections": [
+            "### Een Tafel Krijgen",
+            "### Bestellen"
+          ]
+        },
+        {
+          "header": "## Vervoer",
+          "subsections": [
+            "### Taxi Nemen",
+            "### Openbaar Vervoer"
+          ]
+        },
+        {
+          "header": "## Bezienswaardigheden",
+          "subsections": [
+            "### Kaartjes Kopen",
+            "### De Weg Vragen"
+          ]
+        },
+        {
+          "header": "## Handige Woordenlijst",
+          "subsections": [
+            "### Vliegveld",
+            "### Hotel",
+            "### Vervoer"
+          ]
+        }
+      ]
+    }
+  ]
+}

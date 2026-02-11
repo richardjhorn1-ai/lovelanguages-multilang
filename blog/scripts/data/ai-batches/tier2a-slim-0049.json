@@ -1,0 +1,422 @@
+{
+  "batchId": "tier2a-slim-0049",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "4a37fb6d-545a-48b7-be8b-a56de9a88a75",
+      "title": "Фразы для медового месяца на польский: Романтическое путешествие",
+      "native_lang": "ru",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## В аэропорту",
+          "subsections": [
+            "### Регистрация",
+            "### На борту"
+          ]
+        },
+        {
+          "header": "## В отеле",
+          "subsections": [
+            "### Регистрация",
+            "### Романтические просьбы"
+          ]
+        },
+        {
+          "header": "## На пляже",
+          "subsections": [
+            "### Пляжная лексика",
+            "### Романтические фразы на plaża"
+          ]
+        },
+        {
+          "header": "## Ужин вдвоём",
+          "subsections": [
+            "### В ресторане",
+            "### Романтические тосты"
+          ]
+        },
+        {
+          "header": "## Экскурсии и приключения",
+          "subsections": [
+            "### Планирование przygoda",
+            "### Создание wspomnienia"
+          ]
+        },
+        {
+          "header": "## Романтические моменты",
+          "subsections": [
+            "### Фразы для особых моментов",
+            "### Закат"
+          ]
+        },
+        {
+          "header": "## Покупка сувениров",
+          "subsections": [
+            "### В магазине",
+            "### Идеи подарков"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4a4057f7-5c25-4214-bec7-38a01934f607",
+      "title": "Turkish First Date Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Making a Great First Impression",
+          "subsections": [
+            "### Çok güzel görünüyorsun",
+            "### Tanıştığımıza memnunum"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4a423e71-a2be-41b9-b4d4-6ce9f6b406cd",
+      "title": "Rosyjskie zwroty do kłótni i nieporozumień dla par",
+      "native_lang": "pl",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Wyrażanie niezgody",
+          "subsections": [
+            "### \"Я с тобой не согласен/не согласна\"",
+            "### \"Я вижу это по-другому\"",
+            "### \"Можем поговорить об этом спокойно?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie uczuć",
+          "subsections": [
+            "### \"Я чувствую разочарование, когда...\"",
+            "### \"Это меня очень беспокоит\"",
+            "### \"Мне нужно немного времени\""
+          ]
+        },
+        {
+          "header": "## Zrozumienie partnera",
+          "subsections": [
+            "### \"Помоги мне понять твою точку зрения\"",
+            "### \"Если я правильно понял/поняла...\"",
+            "### \"Ты имеешь в виду, что...?\""
+          ]
+        },
+        {
+          "header": "## Szukanie rozwiązań",
+          "subsections": [
+            "### \"Как мы можем решить это вместе?\"",
+            "### \"Давай найдём компромисс\"",
+            "### \"Думаю, нам обоим нужно...\""
+          ]
+        },
+        {
+          "header": "## Łagodzenie napięcia",
+          "subsections": [
+            "### \"Я тебя люблю, даже когда мы ссоримся\"",
+            "### \"Мы справимся с этим вместе\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4a5560bf-a759-47ec-ab41-4d8dd96bb9b6",
+      "title": "Oekraïense Zinnen voor Ruzie en Meningsverschillen",
+      "native_lang": "nl",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen voor meningsverschillen",
+          "subsections": [
+            "### 1. \"Мені боляче, коли ти...\" (Meni bolyache, koly ty...)",
+            "### 2. \"Чи можемо поговорити про це спокійно?\" (Chy mozhemo pohovoryty pro tse spokiyno?)",
+            "### 3. \"Я розумію твою точку зору, але...\" (Ya rozumiyu tvoyu tochku zoru, ale...)",
+            "### 4. \"Мені потрібен момент, щоб заспокоїтися\" (Meni potriben moment, shchob zaspokoyitysya)",
+            "### 5. \"Я не це мав/мала на увазі\" (Ya ne tse mav/mala na uvazi)",
+            "### 6. \"Будь ласка, послухай мене\" (Bud' laska, poslukhay mene)",
+            "### 7. \"Чи можеш пояснити, що ти відчуваєш?\" (Chy mozhesh poyasnyty, shcho ty vidchuvayesh?)",
+            "### 8. \"Я не хочу сваритися через це\" (Ya ne khochu svarytysya cherez tse)",
+            "### 9. \"Давай знайдемо компроміс\" (Davay znaydemo kompromis)",
+            "### 10. \"Вибач, що підвищив/ла голос\" (Vybach, shcho pidvyshchyv/la holos)",
+            "### 11. \"Це дуже важливо для мене\" (Tse duzhe vazhlyvo dlya mene)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4a5a5391-3b36-4e8f-bee1-9b8cef259d7f",
+      "title": "Die Familie deines Partners auf Griechisch treffen: Wichtige Phrasen für Paare",
+      "native_lang": "de",
+      "target_lang": "el",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Das erste Gespräch: Wesentliche Ausdrücke",
+          "subsections": [
+            "### Komplimente machen (das kommt immer gut an!)",
+            "### Über deine Beziehung sprechen"
+          ]
+        },
+        {
+          "header": "## Spezielle Situationen beim Familienessen",
+          "subsections": [
+            "### Tischmanieren und Höflichkeit"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4a5e5a3f-6165-4d0a-8c11-8c9158b97ed2",
+      "title": "Как сказать «Я тебя люблю» на румынском",
+      "native_lang": "ru",
+      "target_lang": "ro",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Варианты признания",
+          "subsections": [
+            "### По степени чувств"
+          ]
+        },
+        {
+          "header": "## В особых моментах",
+          "subsections": [
+            "### Предложение руки и сердца",
+            "### На свадьбе"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4a6b1ece-59d0-497b-829b-bd476643da19",
+      "title": "Danca: Seni Seviyorum Demenin 12 Romantik Yolu",
+      "native_lang": "tr",
+      "target_lang": "da",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## \"Seni Seviyorum\" Demenin Alternatif Yolları",
+          "subsections": [
+            "### Daha Derin Bağlantılar İçin",
+            "### Günlük ve Tatlı İfadeler"
+          ]
+        },
+        {
+          "header": "## Çiftler için Pratik Aktiviteleri",
+          "subsections": [
+            "### Sabah Onaylamaları",
+            "### Aşk Notları",
+            "### Yatma Zamanı İfadeleri"
+          ]
+        },
+        {
+          "header": "## Danca Aşk Kelime Dağarcığınızı Oluşturma",
+          "subsections": [
+            "### Temel Aşkla İlgili Kelimeler",
+            "### Romantizm için Eylem Kelimeleri"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4a6d9095-54ab-4664-a27e-d9261ed4b5b2",
+      "title": "Phrases espagnoles pour un premier rendez-vous",
+      "native_lang": "fr",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions pour briser la glace",
+          "subsections": [
+            "### Se présenter",
+            "### Engager la conversation"
+          ]
+        },
+        {
+          "header": "## Expressions pour montrer son intérêt",
+          "subsections": [
+            "### Écouter activement",
+            "### Complimenter"
+          ]
+        },
+        {
+          "header": "## Expressions pour conclure le rendez-vous",
+          "subsections": [
+            "### Si ça se passe bien",
+            "### Rester poli"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4a87e612-0125-4f95-8a73-2de9fdfa1d50",
+      "title": "Apprendre le turc avec des chansons d'amour",
+      "native_lang": "fr",
+      "target_lang": "tr",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Vocabulaire des chansons romantiques",
+          "subsections": [
+            "### Mots essentiels",
+            "### Expressions poétiques"
+          ]
+        },
+        {
+          "header": "## Artistes à découvrir",
+          "subsections": [
+            "### Tarkan",
+            "### Sezen Aksu",
+            "### Sertab Erener",
+            "### Ajda Pekkan"
+          ]
+        },
+        {
+          "header": "## Musique traditionnelle",
+          "subsections": [
+            "### Türkü (chansons folkloriques)"
+          ]
+        },
+        {
+          "header": "## Créer une playlist d'apprentissage",
+          "subsections": [
+            "### Chansons recommandées",
+            "### Comment apprendre avec la musique"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4a8e3fc5-773d-45af-bca7-e30c33fc9ad0",
+      "title": "Czech 'I Miss You' Phrases: Express Your Longing Tenderly",
+      "native_lang": "en",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essential 'I Miss You' Phrases",
+          "subsections": [
+            "### Tender Expressions",
+            "### Deep Longing",
+            "### Romantic Yearning",
+            "### Heartfelt Messages"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4a9f08b2-8bc1-4e82-90b2-d1dfafee94b5",
+      "title": "Udtryk Følelser på Engelsk: Komplet Guide for Par",
+      "native_lang": "da",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Reagere på Partnerens Følelser",
+          "subsections": [
+            "### Støttende Svar",
+            "### Trøstende Ord"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4ac66e70-7977-4096-b632-7254ef80160f",
+      "title": "Expresii despre Gelozie și Încredere în Cuplu în Turcă",
+      "native_lang": "ro",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii pentru a Discuta despre Gelozie",
+          "subsections": [
+            "### Recunoașterea Sentimentelor",
+            "### Construirea Încrederii",
+            "### Răspunsuri la Gelozie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4ad1e8c2-f5c8-4177-8548-93861b72dc72",
+      "title": "Fraze Romantice Poloneze pentru Cupluri: Expresii pentru Orice Ocazie",
+      "native_lang": "ro",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Pentru Momente Speciale",
+          "subsections": [
+            "### Aniversari",
+            "### Cerere in Casatorie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4ae96b2c-294e-4e49-8066-0001e4799f57",
+      "title": "Saudacoes e Despedidas em Alemao para Casais",
+      "native_lang": "pt",
+      "target_lang": "de",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Pratica Diaria",
+          "subsections": [
+            "### Manha",
+            "### Reencontro",
+            "### Noite"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4b01be26-664c-42f6-a30f-b74b937d4aa6",
+      "title": "Rumence Öğrenmek Zor mu? Türk Öğrenciler İçin Dürüst Bir Değerlendirme",
+      "native_lang": "tr",
+      "target_lang": "ro",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Avantajlarınız",
+          "subsections": [
+            "### 1. Ortak Alfabe",
+            "### 2. Fonetik Yazım",
+            "### 3. Ortak Kelimeler",
+            "### 4. Ekleme Mantığı"
+          ]
+        },
+        {
+          "header": "## Zorlu Yönler",
+          "subsections": [
+            "### 1. Cinsiyet Sistemi",
+            "### 2. Hal Sistemi",
+            "### 3. Fiil Çekimleri",
+            "### 4. Artikel Sistemi"
+          ]
+        },
+        {
+          "header": "## Başarı Stratejileri",
+          "subsections": [
+            "### 1. Çiftler Avantajı",
+            "### 2. Benzerliklerden Yararlanın",
+            "### 3. Roman Dilleri Bağlantısı",
+            "### 4. Düzenli Pratik"
+          ]
+        },
+        {
+          "header": "## Motivasyon Kaynakları",
+          "subsections": [
+            "### Neden Rumence Öğrenmeli?"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,395 @@
+{
+  "batchId": "tier2a-slim-0239",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "ee614078-58b8-4a9b-bdc9-a08deb0302ba",
+      "title": "Oekraïense SMS-Taal voor Stellen: Lieve Berichtjes Sturen",
+      "native_lang": "nl",
+      "target_lang": "uk",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Emoji's en Reacties",
+          "subsections": [
+            "### Populaire Combinaties"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ee6cf4d6-3cef-43db-9607-deb0052372f2",
+      "title": "Rumunské fráze pro emocionální podporu a útěchu",
+      "native_lang": "cs",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní fráze soucitu",
+          "subsections": [
+            "### 1. Sunt alături de tine",
+            "### 2. Îmi pare foarte rău",
+            "### 3. Te înțeleg"
+          ]
+        },
+        {
+          "header": "## Povzbuzující fráze",
+          "subsections": [
+            "### 4. O să reușești",
+            "### 5. Totul va fi bine",
+            "### 6. Fii puternic/puternică"
+          ]
+        },
+        {
+          "header": "## Nabídka pomoci",
+          "subsections": [
+            "### 7. Cu ce te pot ajuta?",
+            "### 8. Poți conta pe mine"
+          ]
+        },
+        {
+          "header": "## Útěcha v těžkých chvílích",
+          "subsections": [
+            "### 9. Nu ești singur/singură",
+            "### 10. Plângi dacă simți nevoia",
+            "### 11. Timpul vindecă toate rănile",
+            "### 12. Voi fi mereu aici pentru tine"
+          ]
+        },
+        {
+          "header": "## Tradiční rumunské fráze",
+          "subsections": [
+            "### 13. Dumnezeu să-l/să-o odihnească",
+            "### 14. Condoleanțele mele"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ee81499a-1f2f-4db7-b58c-4e959d2fb8ee",
+      "title": "Slang Norvegian pentru Mesaje: Cum să Trimiți SMS-uri Romantice",
+      "native_lang": "ro",
+      "target_lang": "no",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Emoji-uri și Reacții",
+          "subsections": [
+            "### Combinații Populare"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ee821a0e-eb2f-41d0-ada3-5177ac03c145",
+      "title": "Polnische Grammatik Grundlagen für Anfänger",
+      "native_lang": "de",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Häufige Grammatikfehler Vermeiden",
+          "subsections": [
+            "### 1. Adjektivübereinstimmung Vergessen",
+            "### 2. Den Falschen Fall Verwenden",
+            "### 3. Pronomen Falsch Weglassen",
+            "### 4. Formal und Informell Mischen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ee89d6e9-c61a-4fa3-80ce-7bce97d92ea6",
+      "title": "Expresii 'Mi-e Dor de Tine' în Portugheză pentru Români",
+      "native_lang": "ro",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale de Dor",
+          "subsections": [
+            "### Expresii cu Saudade",
+            "### Expresii Poetice",
+            "### Mesaje Romantice",
+            "### Promisiuni"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eefb71a5-8509-4a1a-99fc-335482140ccf",
+      "title": "Urări de Ziua de Naștere pentru Partener în Turcă: Mesaje Romantice",
+      "native_lang": "ro",
+      "target_lang": "tr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Mesaje Romantice",
+          "subsections": [
+            "### Scurte și Dulci",
+            "### Mesaje Mai Lungi"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Diferite Personalități",
+          "subsections": [
+            "### Pentru Partenerul Romantic",
+            "### Pentru Partenerul cu Umor"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Card",
+          "subsections": [
+            "### Format Scurt",
+            "### Format Lung"
+          ]
+        },
+        {
+          "header": "## Idei de Surprize",
+          "subsections": [
+            "### Gesturi Romantice"
+          ]
+        },
+        {
+          "header": "## Mesaje de Dimineață",
+          "subsections": [
+            "### Pentru Început de Zi"
+          ]
+        },
+        {
+          "header": "## Tradiții de Cuplu",
+          "subsections": [
+            "### Idei pentru Noi Tradiții"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ef07d817-a36b-40e7-9b88-66834ba8381d",
+      "title": "Ukrán kifejezések első randira",
+      "native_lang": "hu",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bemutatkozás",
+          "subsections": [
+            "### 1. \"Приємно нарешті познайомитися\" (Pryyemno nareshti poznayomytysya)",
+            "### 2. \"Ти чудово виглядаєш\" (Ty chudovo vyhlyadayesh)",
+            "### 3. \"Розкажи про себе\" (Rozkazhy pro sebe)",
+            "### 4. \"Чим ти займаєшся?\" (Chym ty zaymayeshsya?)",
+            "### 5. \"Які твої хобі?\" (Yaki tvoyi khobi?)"
+          ]
+        },
+        {
+          "header": "## Beszélgetés",
+          "subsections": [
+            "### 6. \"Це справді цікаво\" (Tse spravdi tsikavo)",
+            "### 7. \"Я відчуваю те саме\" (Ya vidchuvayu te same)",
+            "### 8. \"Яку музику ти любиш?\" (Yaku muzyku ty lyubysh?)",
+            "### 9. \"Ти багато подорожував/ла?\" (Ty bahato podorozhuvav/la?)",
+            "### 10. \"Мені дуже подобається\" (Meni duzhe podobayetsya)"
+          ]
+        },
+        {
+          "header": "## Randi vége",
+          "subsections": [
+            "### 11. \"Я чудово провів/ла час\" (Ya chudovo proviv/la chas)",
+            "### 12. \"Ми можемо зустрітися знову?\" (My mozhemo zustritysya znovu?)",
+            "### 13. \"Я б з задоволенням повторив/ла\" (Ya b z zadovolennyam povtoryv/la)",
+            "### 14. \"Можна тебе провести додому?\" (Mozhna tebe provesty dodomu?)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ef0c41f7-781d-45e3-8b4b-951f1052f6be",
+      "title": "Ungerska Fraser för Förlåtelse",
+      "native_lang": "sv",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Be om Förlåtelse",
+          "subsections": [
+            "### 1. \"Nagyon sajnálom\"",
+            "### 2. \"Kérlek, bocsáss meg\"",
+            "### 3. \"Teljes felelősséget vállalok\"",
+            "### 4. \"Tévedtem és tudom\"",
+            "### 5. \"Hogyan tehetem jóvá?\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Ge Förlåtelse",
+          "subsections": [
+            "### 6. \"Megbocsátok neked\"",
+            "### 7. \"Hagyjuk ezt magunk mögött\"",
+            "### 8. \"Megértem és értékelem a bocsánatkérésedet\"",
+            "### 9. \"Mindannyian hibázunk\"",
+            "### 10. \"Bátorság kell a bocsánatkéréshez\"",
+            "### 11. \"Értékelem az őszinteségedet\"",
+            "### 12. \"A lényeg az, hogy együtt haladjunk tovább\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ef22f180-030e-461b-881b-9e103908e88a",
+      "title": "Выражение эмоций на испанском языке",
+      "native_lang": "ru",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Положительные эмоции",
+          "subsections": [
+            "### Радость и счастье",
+            "### Любовь и привязанность"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ef3e3ca6-1230-4ec5-87b4-8c086420ef22",
+      "title": "Spagnolo di Spagna vs Spagnolo Latinoamericano",
+      "native_lang": "it",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Differenze di Vocabolario",
+          "subsections": [
+            "### Trasporti e Veicoli",
+            "### Telefono e Tecnologia",
+            "### Abbigliamento",
+            "### Parole \"Pericolose\"",
+            "### Cibo e Bevande"
+          ]
+        },
+        {
+          "header": "## Differenze di Pronuncia",
+          "subsections": [
+            "### La \"C\" è la \"Z\"",
+            "### La \"LL\" è la \"Y\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ef442fc3-fe60-4b27-b98e-c88ef5ffc33b",
+      "title": "Svéd lánykérési és eljegyzési kifejezések",
+      "native_lang": "hu",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### A nagy kérdés",
+            "### Az eljegyzés bejelentése"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ef6a9b40-995e-4f97-9bb0-d13759c056a0",
+      "title": "Urări de Aniversare în Spaniolă: Mesaje Romantice pentru Partener",
+      "native_lang": "ro",
+      "target_lang": "es",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Mesaje Romantice",
+          "subsections": [
+            "### Pentru Prima Aniversare",
+            "### Pentru Aniversări Mai Lungi"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Diferite Aniversări",
+          "subsections": [
+            "### 1-5 Ani",
+            "### 5-10 Ani",
+            "### 10+ Ani"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Carduri",
+          "subsections": [
+            "### Scurte și Dulci",
+            "### Mesaje Lungi"
+          ]
+        },
+        {
+          "header": "## Amintiri de Împărtășit",
+          "subsections": [
+            "### Întrebări pentru Reflecție"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ef722b28-c307-4ece-ae9d-87c8d43a614e",
+      "title": "Як зробити пропозицію турецькою: фрази для заручин",
+      "native_lang": "uk",
+      "target_lang": "tr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Підготовка до пропозиції",
+          "subsections": [
+            "### Чек-лист:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ef9debd5-3828-4208-89d5-27b77063963e",
+      "title": "Spanyol kifejezések megbocsátáshoz",
+      "native_lang": "hu",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bocsánatkérés kifejezések",
+          "subsections": [
+            "### 1. \"Lo siento de verdad\"",
+            "### 2. \"Por favor, perdóname\"",
+            "### 3. \"Asumo toda la responsabilidad\"",
+            "### 4. \"Estaba equivocado/a y lo admito\"",
+            "### 5. \"Prometo que no volverá a pasar\""
+          ]
+        },
+        {
+          "header": "## Megbocsátás kifejezések",
+          "subsections": [
+            "### 6. \"Te perdono\"",
+            "### 7. \"Está bien, lo entiendo\"",
+            "### 8. \"Estoy lista/o para seguir adelante\"",
+            "### 9. \"Dejemos esto atrás\"",
+            "### 10. \"No te guardo rencor\"",
+            "### 11. \"Todos cometemos errores\"",
+            "### 12. \"Aprecio tu disculpa\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "efa14d5a-dbda-4bc4-b249-4e06b0bf09f0",
+      "title": "Sådan Undskylder Du på Italiensk: Vejledning for Par",
+      "native_lang": "da",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Specifikke Situationer",
+          "subsections": [
+            "### Når Du Har Glemt Noget",
+            "### Når Du Har Sagt Noget Sårende",
+            "### Når Du Er Kommet For Sent"
+          ]
+        }
+      ]
+    }
+  ]
+}

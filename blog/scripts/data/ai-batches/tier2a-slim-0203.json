@@ -1,0 +1,483 @@
+{
+  "batchId": "tier2a-slim-0203",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "d1372d2c-9486-4e49-a663-1c15f82fbfee",
+      "title": "Frases para Conhecer os Sogros em Turco: Guia Completo",
+      "native_lang": "pt",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para o Primeiro Encontro",
+          "subsections": [
+            "### Apresentação",
+            "### Elogiando",
+            "### Mostrando Interesse",
+            "### Expressando Gratidão"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d14f4cc0-fc54-4e6a-8f35-b6bfcf392fcb",
+      "title": "Zwroty na pierwszą randkę po czesku",
+      "native_lang": "pl",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Rozpoczęcie rozmowy",
+          "subsections": [
+            "### Cześć! Miło Cię wreszcie poznać!",
+            "### Świetnie wyglądasz!",
+            "### Nie mogłem/mogłam się doczekać"
+          ]
+        },
+        {
+          "header": "## Poznawanie się",
+          "subsections": [
+            "### Opowiedz mi o sobie",
+            "### Co lubisz robić w wolnym czasie?",
+            "### Jaki jest Twój ulubiony...?"
+          ]
+        },
+        {
+          "header": "## Wyrażanie zainteresowania",
+          "subsections": [
+            "### To naprawdę interesujące",
+            "### Opowiedz mi więcej",
+            "### Chciałbym/Chciałabym wiedzieć więcej"
+          ]
+        },
+        {
+          "header": "## Dzielenie się o sobie",
+          "subsections": [
+            "### Pasjonuję się...",
+            "### Zawsze chciałem/chciałam..."
+          ]
+        },
+        {
+          "header": "## Komplementy",
+          "subsections": [
+            "### Uwielbiam Twój uśmiech",
+            "### Masz świetne poczucie humoru",
+            "### Świetnie się z Tobą bawię"
+          ]
+        },
+        {
+          "header": "## Planowanie następnego spotkania",
+          "subsections": [
+            "### Bardzo chciałbym/chciałabym Cię znowu zobaczyć",
+            "### Kiedy możemy to powtórzyć?",
+            "### Miałem/Miałam cudowny wieczór"
+          ]
+        },
+        {
+          "header": "## Pożegnanie",
+          "subsections": [
+            "### To było naprawdę cudowne",
+            "### Nie mogę się doczekać kolejnego spotkania"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d173590c-a490-496d-8124-d424bd924766",
+      "title": "Polish Grammar Basics for Beginners",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Common Grammar Mistakes to Avoid",
+          "subsections": [
+            "### 1. Forgetting Adjective Agreement",
+            "### 2. Using the Wrong Case",
+            "### 3. Dropping Pronouns Incorrectly",
+            "### 4. Mixing Formal and Informal"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d179a3c6-6adb-4f3d-bd92-5d3fe44db160",
+      "title": "Spanish Moving In Together: Essential Household Vocabulary for Couples",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Finding Your Home",
+          "subsections": [
+            "### Apartment/House Hunting",
+            "### Key Phrases for Viewing"
+          ]
+        },
+        {
+          "header": "## Moving Day Vocabulary",
+          "subsections": [
+            "### Coordinating the Move",
+            "### Essential Moving Terms"
+          ]
+        },
+        {
+          "header": "## Setting Up Your Home",
+          "subsections": [
+            "### Room by Room",
+            "### Organizing Together"
+          ]
+        },
+        {
+          "header": "## Shopping for Your Home",
+          "subsections": [
+            "### At the Furniture Store",
+            "### Household Items"
+          ]
+        },
+        {
+          "header": "## Living Together",
+          "subsections": [
+            "### Daily Life Vocabulary",
+            "### Meeting the Neighbors"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d17d8b67-e83a-420e-84e9-966260e1207e",
+      "title": "Turkish Anniversary Wishes: Romantic Messages for Your Love",
+      "native_lang": "en",
+      "target_lang": "tr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Simple Anniversary Wishes",
+          "subsections": [
+            "### Short and Sweet",
+            "### For Your Partner"
+          ]
+        },
+        {
+          "header": "## Romantic Anniversary Messages",
+          "subsections": [
+            "### Heartfelt Declarations",
+            "### Reflective Messages"
+          ]
+        },
+        {
+          "header": "## Anniversary Messages by Year",
+          "subsections": [
+            "### First Anniversary",
+            "### Fifth Anniversary",
+            "### Tenth Anniversary",
+            "### Twenty-Fifth Anniversary (Silver)",
+            "### Fiftieth Anniversary (Golden)"
+          ]
+        },
+        {
+          "header": "## Planning Your Anniversary Celebration",
+          "subsections": [
+            "### Romantic Ideas",
+            "### What to Say at Dinner"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d17ee05c-3024-46bd-8b01-aac7876af121",
+      "title": "100 Συχνές Λέξεις (nl): Οδηγός για Ελληνόφωνα Ζευγάρια",
+      "native_lang": "el",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Κατηγορίες Λέξεων",
+          "subsections": [
+            "### Αγάπη & Τρυφερότητα",
+            "### Καθημερινές Λέξεις",
+            "### Συναισθήματα",
+            "### Χρόνος",
+            "### Τοποθεσία",
+            "### Ερωτήσεις",
+            "### Ρήματα"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d184ec76-6df8-44fb-9272-bbe290b0c313",
+      "title": "Ukraynaca Kıskançlık ve Güven İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kıskançlığı İfade Etme",
+          "subsections": [
+            "### 1. \"Я почуваюся трохи ревнивим/ою, коли...\"",
+            "### 2. \"Чи можеш мене заспокоїти?\"",
+            "### 3. \"Я довіряю тобі, але не їм\"",
+            "### 4. \"Мені некомфортно, коли...\"",
+            "### 5. \"Мені потрібно знати, що я твій пріоритет\""
+          ]
+        },
+        {
+          "header": "## Güven İnşa Etme",
+          "subsections": [
+            "### 6. \"Я повністю тобі довіряю\"",
+            "### 7. \"Ти єдина людина для мене\"",
+            "### 8. \"Я ніколи не зроблю нічого, щоб заподіяти тобі біль\"",
+            "### 9. \"Тобі немає про що хвилюватися\"",
+            "### 10. \"Я відданий/а тільки тобі\"",
+            "### 11. \"Давай поговоримо про твої переживання\"",
+            "### 12. \"Що я можу зробити, щоб ти почувався/лася впевненіше?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d188ca34-1310-4021-91d4-7e6fe1aedb82",
+      "title": "35 Cumplidos en Alemán para Tu Pareja",
+      "native_lang": "es",
+      "target_lang": "de",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Actividades de Práctica para Parejas",
+          "subsections": [
+            "### Desafío de Cumplido Diario",
+            "### Práctica Frente al Espejo",
+            "### Tarjetas de Cumplidos"
+          ]
+        },
+        {
+          "header": "## Errores Comunes a Evitar",
+          "subsections": [
+            "### Género y Artículos",
+            "### Falsos Amigos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d18ca81c-87ff-49e4-a9a2-361e3723d6c1",
+      "title": "Phrases de réconfort en tchèque : Soutenir son partenaire",
+      "native_lang": "fr",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Soutenir son partenaire en tchèque",
+          "subsections": []
+        },
+        {
+          "header": "## Phrases de réconfort",
+          "subsections": [
+            "### \"Jsem tu pro tebe\"",
+            "### \"Všechno bude v pořádku\"",
+            "### \"V tom nejsi sám/sama\""
+          ]
+        },
+        {
+          "header": "## Écouter et valider",
+          "subsections": [
+            "### \"Chápu, jak se cítíš\"",
+            "### \"Je normální se tak cítit\""
+          ]
+        },
+        {
+          "header": "## Soutien actif",
+          "subsections": [
+            "### \"Co mohu udělat, abych ti pomohl/pomohla?\""
+          ]
+        },
+        {
+          "header": "## Encouragement",
+          "subsections": [
+            "### \"Jsi silnější, než si myslíš\"",
+            "### \"Věřím v tebe\"",
+            "### \"Zvládneš to\""
+          ]
+        },
+        {
+          "header": "## Moments difficiles",
+          "subsections": [
+            "### \"Je mi moc líto, že tím procházíš\"",
+            "### \"Pojď, obejmu tě\"",
+            "### \"Projdeme tím společně\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d1985592-3b93-426c-b878-22f43bdb93ac",
+      "title": "Ryska Fraser för Försoning och Att Göra Upp",
+      "native_lang": "sv",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Inleda Försoning",
+          "subsections": [
+            "### 1. \"Прости меня\"",
+            "### 2. \"Можем начать сначала?\"",
+            "### 3. \"Ненавижу ссориться с тобой\"",
+            "### 4. \"Ты для меня всё\"",
+            "### 5. \"Я был/а неправ/а и признаю это\""
+          ]
+        },
+        {
+          "header": "## Fraser för Djupare Försoning",
+          "subsections": [
+            "### 6. \"Давай не ляжем спать в ссоре\"",
+            "### 7. \"Я люблю тебя больше любой ссоры\"",
+            "### 8. \"Можно тебя обнять?\"",
+            "### 9. \"Хочу лучше тебя понимать\"",
+            "### 10. \"Мы сильнее этого\"",
+            "### 11. \"Обещаю быть лучше\"",
+            "### 12. \"Спасибо за терпение со мной\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d19ff97c-ddb0-4a4b-b7de-f205ceaa5220",
+      "title": "Φράσεις για το Πρώτο Ραντεβού (ru): Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις",
+          "subsections": [
+            "### Γνωριμία",
+            "### Συζήτηση",
+            "### Φλερτ",
+            "### Κλείσιμο"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d1c991fb-d1c0-4347-8836-0f4e2dd2e61b",
+      "title": "Norwegian Anniversary Wishes: Romantic Messages for Your Love",
+      "native_lang": "en",
+      "target_lang": "no",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Simple Anniversary Wishes",
+          "subsections": [
+            "### Short and Sweet",
+            "### For Your Partner"
+          ]
+        },
+        {
+          "header": "## Romantic Anniversary Messages",
+          "subsections": [
+            "### Heartfelt Declarations",
+            "### Reflective Messages"
+          ]
+        },
+        {
+          "header": "## Anniversary Messages by Year",
+          "subsections": [
+            "### First Anniversary",
+            "### Fifth Anniversary",
+            "### Tenth Anniversary",
+            "### Twenty-Fifth Anniversary (Silver)",
+            "### Fiftieth Anniversary (Golden)"
+          ]
+        },
+        {
+          "header": "## Planning Your Anniversary Celebration",
+          "subsections": [
+            "### Romantic Ideas",
+            "### What to Say at Dinner"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d1c9feef-4933-4bb9-afee-282d0a8b6e1f",
+      "title": "Phrases norvégiennes sur la jalousie et la confiance en couple",
+      "native_lang": "fr",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions pour aborder la jalousie",
+          "subsections": [
+            "### Exprimer ses sentiments",
+            "### Demander des réassurances",
+            "### Construire la confiance",
+            "### Réaffirmer son engagement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d1cd5a87-d94e-41d6-8360-901ff1a7222d",
+      "title": "40 Dänisch Komplimente für Deinen Partner",
+      "native_lang": "de",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Situationsbezogene Komplimente",
+          "subsections": [
+            "### Nach dem Aufwachen",
+            "### Beim Ausgehen",
+            "### Im Alltag"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d1dc6d56-40c3-4c95-bf45-ddf3085ef310",
+      "title": "Norwegian Moving In Together: Essential Household Vocabulary for Couples",
+      "native_lang": "en",
+      "target_lang": "no",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Finding Your Home",
+          "subsections": [
+            "### Apartment/House Hunting",
+            "### Key Phrases for Viewing"
+          ]
+        },
+        {
+          "header": "## Moving Day Vocabulary",
+          "subsections": [
+            "### Coordinating the Move",
+            "### Essential Moving Terms"
+          ]
+        },
+        {
+          "header": "## Setting Up Your Home",
+          "subsections": [
+            "### Room by Room",
+            "### Organizing Together"
+          ]
+        },
+        {
+          "header": "## Shopping for Your Home",
+          "subsections": [
+            "### At the Furniture Store",
+            "### Household Items"
+          ]
+        },
+        {
+          "header": "## Living Together",
+          "subsections": [
+            "### Daily Life Vocabulary",
+            "### Meeting the Neighbors"
+          ]
+        }
+      ]
+    }
+  ]
+}

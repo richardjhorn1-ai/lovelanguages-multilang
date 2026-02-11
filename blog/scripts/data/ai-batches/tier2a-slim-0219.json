@@ -1,0 +1,401 @@
+{
+  "batchId": "tier2a-slim-0219",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "de05e762-ac79-45c9-9fce-098d7f52948d",
+      "title": "Hiányzol Kifejezések Dánul – Jeg Savner Dig és Más",
+      "native_lang": "hu",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Hiányzol Kifejezések",
+          "subsections": [
+            "### 1. Jeg savner dig",
+            "### 2. Jeg savner dig så meget",
+            "### 3. Jeg savner dig virkelig meget",
+            "### 4. Jeg kan ikke lade være med at tænke på dig",
+            "### 5. Jeg ville ønske du var her",
+            "### 6. Det føles tomt uden dig",
+            "### 7. Jeg tæller dagene til jeg ser dig igen",
+            "### 8. Du er altid i mine tanker",
+            "### 9. Jeg længes efter dig",
+            "### 10. Uden dig er jeg ikke hel"
+          ]
+        },
+        {
+          "header": "## Kulturális Tippek",
+          "subsections": [
+            "### Hygge és Hiányzás",
+            "### Dán Őszinteség",
+            "### Társas Melegség"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "de0d7a82-4264-4ad4-ae31-26102ecfbbb0",
+      "title": "Török baba és terhességi szókincs",
+      "native_lang": "hu",
+      "target_lang": "tr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Terhességi kifejezések",
+            "### Baba szókincs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "de148e68-0257-4cf2-b808-ef8114ec27f5",
+      "title": "Incontrare la Famiglia del Tuo Partner Polacco",
+      "native_lang": "it",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Cose da Evitare",
+          "subsections": [
+            "### Non fare:",
+            "### Fai:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "de19d01f-9705-41a1-8cd5-767c2553ac0a",
+      "title": "Ukraińska wymowa dla początkujących: Jak pięknie mówić do swojego partnera",
+      "native_lang": "pl",
+      "target_lang": "uk",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Podstawowe zasady wymowy",
+          "subsections": [
+            "### 1. **Ukraińskie samogłoski są czyste**",
+            "### 2. **Spółgłoski są miękkie lub twarde**",
+            "### 3. **Akcent zawsze pada na przedostatnią sylabę**"
+          ]
+        },
+        {
+          "header": "## Ukraińskie dźwięki specjalne",
+          "subsections": [
+            "### Dźwięki, których nie ma po polsku"
+          ]
+        },
+        {
+          "header": "## Częste błędy wymowy",
+          "subsections": [
+            "### 1. **Mieszanie \"и\" i \"і\"**",
+            "### 2. **Niewłaściwe \"г\"**",
+            "### 3. **Ignorowanie miękkości**"
+          ]
+        },
+        {
+          "header": "## Praktyka z partnerem",
+          "subsections": [
+            "### Ćwiczenie 1: Codzienne komplementy",
+            "### Ćwiczenie 2: Emocjonalne słowa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "de247af8-4969-4ce5-b911-74fbecf2bfe4",
+      "title": "Tschechische Grammatik für Anfänger: Verliebt in die Basics",
+      "native_lang": "de",
+      "target_lang": "cs",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Die 5 wichtigsten Grammatik-Regeln für Anfänger",
+          "subsections": [
+            "### 1. Die Verbstellung ist flexibel",
+            "### 2. Keine Artikel!",
+            "### 3. Die Fälle (konečky) - Schritt für Schritt"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "de379ca5-14dc-4272-a409-43ecaab5da71",
+      "title": "Γράψτε Ερωτικά Γράμματα στα Ουκρανικά",
+      "native_lang": "el",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για την Αρχή του Γράμματος",
+          "subsections": [
+            "### 1. Кохана моя / Коханий мій (Κοχάνα μογιά / Κοχάνι μιϊ)",
+            "### 2. Серденько моє (Σερντένκο μογιέ)",
+            "### 3. Сонечко моє (Σονέτσκο μογιέ)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για το Κυρίως Μέρος",
+          "subsections": [
+            "### 4. Ти кохання всього мого життя (Τι κοχάννια φσιόγκο μόγκο ζιττιά)",
+            "### 5. З кожним днем люблю тебе більше (Ζ κόζνιμ ντνεμ λιουμπλιού τεμπέ μπίλσε)",
+            "### 6. Моє серце б'ється лише для тебе (Μογιέ σέρτσε μπιέτσια λίσε ντλια τεμπέ)",
+            "### 7. Ти робиш мене щасливим/ою (Τι ρόμπις μενέ στσασλίβιμ/ογιου)",
+            "### 8. Я божеволію від тебе (Για μποζεβολίγιου βιντ τεμπέ)",
+            "### 9. Ти для мене все (Τι ντλια μενέ φσε)",
+            "### 10. Без тебе я ніщо (Μπεζ τεμπέ για νίστσο)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για το Κλείσιμο",
+          "subsections": [
+            "### 11. Твоя/Твій назавжди (Τβογιά/Τβιϊ ναζάβζντι)",
+            "### 12. З усією моєю любов'ю (Ζ ουσίγιεγιου μογιέγιου λιουμπόβιου)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "de5b9925-51e2-4094-9c9e-3f7f9cf4f4a0",
+      "title": "Spanish Love Letter Writing: Romantic Phrases for Your Partner",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Opening Your Letter",
+          "subsections": [
+            "### Salutations"
+          ]
+        },
+        {
+          "header": "## Expressing Your Feelings",
+          "subsections": [
+            "### Opening Lines",
+            "### Declarations of Love"
+          ]
+        },
+        {
+          "header": "## Closing Your Letter",
+          "subsections": [
+            "### Sign-Offs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "de5d6150-1640-4be7-a972-f0e904efabd5",
+      "title": "Small Talk på Polsk: Samtalestartere for Par",
+      "native_lang": "da",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassiske Emner",
+          "subsections": [
+            "### Vejret",
+            "### Weekendplaner",
+            "### Ferier og Rejser"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "de5e2ba1-90c3-47f9-aeed-844b325c26e0",
+      "title": "Frases en Ruso para Pedir y Ofrecer Perdón a tu Pareja",
+      "native_lang": "es",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Pedir Perdón",
+          "subsections": [
+            "### \"Мне очень жаль\" (Mne ochen' zhal')",
+            "### \"Пожалуйста, прости меня\" (Pozhaluysta, prosti menya)",
+            "### \"Я знаю, что причинил(а) тебе боль, и глубоко сожалею\" (Ya znayu, chto prichinil(a) tebe bol', i gluboko sozhaleyu)",
+            "### \"Я был(а) неправ(а)\" (Ya byl(a) neprav(a))",
+            "### \"Как я могу это исправить?\" (Kak ya mogu eto ispravit'?)",
+            "### \"Обещаю, что это не повторится\" (Obeschhayu, chto eto ne povtoritsya)"
+          ]
+        },
+        {
+          "header": "## Frases para Ofrecer Perdón",
+          "subsections": [
+            "### \"Я тебя прощаю\" (Ya tebya proschayu)",
+            "### \"Давай оставим это позади\" (Davay ostavim eto pozadi)",
+            "### \"Я готов(а) двигаться дальше\" (Ya gotov(a) dvigat'sya dal'she)",
+            "### \"Все совершают ошибки\" (Vse sovershayut oshibki)",
+            "### \"Я ценю твои извинения\" (Ya tsenyu tvoi izvineniya)",
+            "### \"Я всё ещё тебя люблю\" (Ya vsyo yeshchyo tebya lyublyu)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "de62bca6-a312-40c8-b78b-a663099ddc4f",
+      "title": "Conversazioni Quotidiane in Olandese per Coppie",
+      "native_lang": "it",
+      "target_lang": "nl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Prima di Uscire",
+          "subsections": [
+            "### Dialogo"
+          ]
+        },
+        {
+          "header": "## Conversazione Serale",
+          "subsections": [
+            "### Dialogo: Bentornato/a"
+          ]
+        },
+        {
+          "header": "## Prima di Dormire",
+          "subsections": [
+            "### Dialogo: Buonanotte"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "de715bc6-b37f-4458-9d07-0b4d7829af6b",
+      "title": "Yunanca Flört İfadeleri: Akdeniz Romantizmi",
+      "native_lang": "tr",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Flört İfadeleri",
+          "subsections": [
+            "### 1. \"Είσαι πολύ όμορφη\" (Eisai poli omorfi)",
+            "### 2. \"Μου αρέσει το χαμόγελό σου\" (Mou aresi to hamogelo sou)",
+            "### 3. \"Θέλεις να πιούμε έναν καφέ;\" (Thelis na pioume enan kafe?)",
+            "### 4. \"Έχεις πανέμορφα μάτια\" (Ehis panemorfa matia)",
+            "### 5. \"Δεν μπορώ να σε βγάλω από το μυαλό μου\" (Den boro na se vgalo apo to mialo mou)",
+            "### 6. \"Με κάνεις ευτυχισμένο\" (Me kanis eftihismeno)",
+            "### 7. \"Να σε κεράσω ένα ποτό;\" (Na se keraso ena poto?)",
+            "### 8. \"Περνάω υπέροχα μαζί σου\" (Pernao iperoha mazi sou)",
+            "### 9. \"Είσαι μοναδική\" (Ise monadiki)",
+            "### 10. \"Θα ήθελα να σε ξαναδώ\" (Tha ithela na se xanado)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "de9e2d15-b237-43cd-b2a8-19adb7a5db35",
+      "title": "Frases en Noruego para Pedir y Ofrecer Perdón a tu Pareja",
+      "native_lang": "es",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Pedir Perdón",
+          "subsections": [
+            "### \"Jeg er virkelig lei meg\"",
+            "### \"Vær så snill, tilgi meg\"",
+            "### \"Jeg vet at jeg såret deg, og jeg angrer dypt\"",
+            "### \"Det var galt av meg\"",
+            "### \"Hvordan kan jeg gjøre det godt igjen?\"",
+            "### \"Jeg lover at det ikke skjer igjen\""
+          ]
+        },
+        {
+          "header": "## Frases para Ofrecer Perdón",
+          "subsections": [
+            "### \"Jeg tilgir deg\"",
+            "### \"La oss legge dette bak oss\"",
+            "### \"Jeg er klar til å gå videre\"",
+            "### \"Alle gjør feil\"",
+            "### \"Jeg elsker deg fortsatt\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "deafcbde-b779-455c-ae90-9c83e9d400f5",
+      "title": "Holandské flirtovací fráze pro Čechy",
+      "native_lang": "cs",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní lichotky",
+          "subsections": [
+            "### \"Je bent prachtig.\"",
+            "### \"Je hebt een mooie glimlach.\"",
+            "### \"Ik vind je heel leuk.\"",
+            "### \"Je bent ongelooflijk aantrekkelijk.\""
+          ]
+        },
+        {
+          "header": "## Romantické fráze",
+          "subsections": [
+            "### \"Ik kan niet stoppen met aan je denken.\"",
+            "### \"Je maakt me gelukkig.\"",
+            "### \"Mijn hart klopt sneller als ik je zie.\"",
+            "### \"Ik ben gek op je.\""
+          ]
+        },
+        {
+          "header": "## Hravé fráze",
+          "subsections": [
+            "### \"Geloof je in liefde op het eerste gezicht, of moet ik nog een keer langslopen?\"",
+            "### \"Ben je moe? Je loopt de hele dag door mijn hoofd.\"",
+            "### \"Er is iets bijzonders aan je.\""
+          ]
+        },
+        {
+          "header": "## Fráze pro zprávy",
+          "subsections": [
+            "### \"Goedemorgen, schatje.\"",
+            "### \"Ik mis je.\"",
+            "### \"Ik kijk ernaar uit om je weer te zien.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "decd3ac5-0977-41bd-b972-8d772a714ccf",
+      "title": "Russian Phrases for Meeting the In-Laws: Make a Great Impression",
+      "native_lang": "en",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## First Impressions",
+          "subsections": [
+            "### Greetings"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ded6dbce-066a-4114-879f-ade8c37341a6",
+      "title": "Dán kifejezések vitákhoz és nézeteltérésekhez",
+      "native_lang": "hu",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető kifejezések nézeteltérésekhez",
+          "subsections": [
+            "### 1. \"Jeg føler mig såret, når du...\"",
+            "### 2. \"Kan vi tale om det her i ro og mag?\"",
+            "### 3. \"Jeg forstår dit synspunkt, men...\"",
+            "### 4. \"Lad os ikke råbe\"",
+            "### 5. \"Jeg har brug for tid til at tænke\"",
+            "### 6. \"Det var ikke det, jeg mente\"",
+            "### 7. \"Kan du sætte dig i mit sted?\"",
+            "### 8. \"Jeg ville ikke såre dig\"",
+            "### 9. \"Lad os finde et kompromis\"",
+            "### 10. \"Jeg føler, at du ikke lytter til mig\"",
+            "### 11. \"Det gør mig ked af det\""
+          ]
+        }
+      ]
+    }
+  ]
+}

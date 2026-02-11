@@ -1,0 +1,365 @@
+{
+  "batchId": "tier2a-slim-0184",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "c0cdd914-75c1-4c62-81d8-1e205c500294",
+      "title": "Vocabular pentru Seri Romantice în Olandeză: Ghid Complet",
+      "native_lang": "ro",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## La Restaurant",
+          "subsections": [
+            "### Sosirea și Rezervarea",
+            "### Comanda",
+            "### Vocabular de Restaurant"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c0d841d0-8f87-49a2-89a4-82a0a2ddcfb0",
+      "title": "50+ rosyjskich zdrobnień, które roztopią serce",
+      "native_lang": "pl",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Poranki",
+            "### Ćwiczenie 2: Znajdź swoje zdrobnienie",
+            "### Ćwiczenie 3: Wiadomości"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c126f887-2b98-4961-b346-7740eb3b3e65",
+      "title": "Oekraïense Zinnen voor een Eerste Date",
+      "native_lang": "nl",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Приємно нарешті познайомитися\" - *prie-jem-no na-resj-tie poz-naj-o-mie-tie-sja*",
+            "### 2. \"Ти виглядаєш чудово\" - *tie vieg-lja-da-jesj tsjoe-do-vo*",
+            "### 3. \"Розкажи мені про себе\" - *roz-ka-zjie me-nie pro se-be*",
+            "### 4. \"Чим ти займаєшся?\" - *tsjiem tie zaj-ma-jesj-sja*",
+            "### 5. \"Мені дуже добре\" - *me-nie doe-zje dob-re*",
+            "### 6. \"Хочеш ще щось випити?\" - *cho-tsjesj sjtje sjtjos vie-pie-tie*",
+            "### 7. \"Яку музику ти слухаєш?\" - *ja-koe moe-zie-koe tie sloe-cha-jesj*",
+            "### 8. \"Я хотів/ла б побачити тебе знову\" - *ja cho-tjiev/la b po-ba-tsjie-tie te-be zno-voe*",
+            "### 9. \"Можна провести тебе додому?\" - *mozj-na pro-ves-tie te-be do-do-moe*",
+            "### 10. \"Мені дуже сподобався вечір\" - *me-nie doe-zje spo-do-bav-sja ve-tsjier*",
+            "### 11. \"Які у тебе хобі?\" - *ja-kie oe te-be cho-bie*",
+            "### 12. \"У тебе гарна посмішка\" - *oe te-be har-na pos-miesj-ka*"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c12f3178-3d76-4e2c-a0cc-3abd00e76761",
+      "title": "Frases de Apoio Emocional em Sueco: Confortando Seu Parceiro",
+      "native_lang": "pt",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases de Apoio Básico",
+          "subsections": [
+            "### Demonstrando Presença",
+            "### Validando Sentimentos",
+            "### Oferecendo Conforto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c16ca543-9223-4c04-b22b-6532e456b694",
+      "title": "Frases de 'Te Extraño' en Inglés: Expresando la Distancia con el Corazón",
+      "native_lang": "es",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresiones Clásicas",
+          "subsections": [
+            "### \"I miss you so much\"",
+            "### \"I can't stop thinking about you\"",
+            "### \"I wish you were here\""
+          ]
+        },
+        {
+          "header": "## Frases Emotivas",
+          "subsections": [
+            "### \"Every moment without you feels like forever\"",
+            "### \"You're always on my mind\"",
+            "### \"Distance means nothing when someone means everything\""
+          ]
+        },
+        {
+          "header": "## Para Mensajes Diarios",
+          "subsections": [
+            "### \"Woke up missing you\"",
+            "### \"Going to bed thinking of you\"",
+            "### \"Counting down the days until I see you\""
+          ]
+        },
+        {
+          "header": "## Expresiones Poéticas",
+          "subsections": [
+            "### \"My heart aches for you\"",
+            "### \"You're the missing piece of my day\"",
+            "### \"Not a day goes by that I don't think of you\""
+          ]
+        },
+        {
+          "header": "## Frases para Videollamadas",
+          "subsections": [
+            "### \"Seeing your face makes everything better\"",
+            "### \"I wish I could reach through the screen and hold you\""
+          ]
+        },
+        {
+          "header": "## Mensajes de Voz Sugeridos",
+          "subsections": [
+            "### \"I just wanted to hear your voice\"",
+            "### \"Call me when you can, I miss talking to you\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c17caa68-8274-435d-8839-b029b5742c03",
+      "title": "Görög nászutas utazási kifejezések",
+      "native_lang": "hu",
+      "target_lang": "el",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Utazási alapkifejezések",
+            "### Romantikus helyzetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c182606e-ee50-4800-9ebd-14c3948db8ff",
+      "title": "Ουκρανικές Φράσεις Συγχώρεσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις Συγχώρεσης",
+          "subsections": [
+            "### Αίτηση Συγχώρεσης",
+            "### Έκφραση Μετάνοιας",
+            "### Προσφορά Συγχώρεσης",
+            "### Χρόνος για Θεραπεία"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c18a2ab7-4741-42dc-a2f2-efb44a37574d",
+      "title": "Βασικά Αγγλικά για Ζευγάρια: Μάθετε Μαζί την Αγγλική Γραμματική",
+      "native_lang": "el",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Γρήγορος Οδηγός Αναφοράς",
+          "subsections": [
+            "### Βασική Δομή Πρότασης",
+            "### Χρήσιμες Συντομογραφίες",
+            "### Ερωτήσεις Ναι/Όχι"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c1aae480-954f-4901-b7eb-b752fbd89004",
+      "title": "Norwegische Ich-vermisse-dich-Sprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlegende Ausdrücke",
+          "subsections": [
+            "### \"Jeg savner deg\"",
+            "### \"Jeg savner deg så mye\"",
+            "### \"Jeg kan ikke slutte å tenke på deg\""
+          ]
+        },
+        {
+          "header": "## Emotionale Ausdrücke",
+          "subsections": [
+            "### \"Jeg skulle ønske du var her\"",
+            "### \"Hvert øyeblikk uten deg føles som en evighet\"",
+            "### \"Hjertet mitt lengter etter deg\"",
+            "### \"Det føles tomt uten deg\""
+          ]
+        },
+        {
+          "header": "## Liebevolle Nachrichten",
+          "subsections": [
+            "### \"Jeg teller dagene til jeg ser deg igjen\"",
+            "### \"Du er min første tanke om morgenen og min siste om kvelden\"",
+            "### \"Avstanden betyr ingenting når noen betyr alt\""
+          ]
+        },
+        {
+          "header": "## Tröstende Worte",
+          "subsections": [
+            "### \"Snart er vi sammen igjen\"",
+            "### \"Kjærligheten vår er sterkere enn enhver avstand\"",
+            "### \"Selv langt borte er du alltid i hjertet mitt\""
+          ]
+        },
+        {
+          "header": "## Für besondere Momente",
+          "subsections": [
+            "### \"Jeg savner smilet ditt, latteren din, alt med deg\"",
+            "### \"Ingen kan sammenlignes med deg\"",
+            "### \"Du er uerstattelig\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c1c0685f-846b-4266-8f42-bd7cd3df02b9",
+      "title": "Udtryk Følelser på Polsk: Komplet Guide for Par",
+      "native_lang": "da",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Reagere på Partnerens Følelser",
+          "subsections": [
+            "### Støttende Svar",
+            "### Trøstende Ord"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c1d266e8-d074-4f5a-ae1f-18396245a0c5",
+      "title": "Német születésnapi kívánságok párodnak",
+      "native_lang": "hu",
+      "target_lang": "de",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Születésnapi köszöntések",
+            "### Romantikus üzenetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c1ed43fc-9ff8-4c1d-bf90-f7d89b1d86fc",
+      "title": "Πολωνικές Φράσεις Φλερτ για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις Φλερτ",
+          "subsections": [
+            "### 1. Wyglądasz pięknie",
+            "### 2. Doprowadzasz mnie do szaleństwa",
+            "### 3. Masz piękny uśmiech"
+          ]
+        },
+        {
+          "header": "## Ρομαντικές Εκφράσεις",
+          "subsections": [
+            "### 4. Nie mogę przestać o tobie myśleć",
+            "### 5. Jesteś miłością mojego życia",
+            "### 6. Dzięki tobie jestem taki szczęśliwy/szczęśliwa"
+          ]
+        },
+        {
+          "header": "## Παιχνιδιάρικες Φράσεις",
+          "subsections": [
+            "### 7. Chodź tutaj, kochanie",
+            "### 8. Jesteś nieodparty/nieodparta",
+            "### 9. Mam szczęście, że cię mam"
+          ]
+        },
+        {
+          "header": "## Τρυφερές Στιγμές",
+          "subsections": [
+            "### 10. Masz piękne oczy",
+            "### 11. Szaleję za tobą",
+            "### 12. Kocham cię każdego dnia bardziej"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c1f15788-be63-47e3-982d-3471a2960fb4",
+      "title": "Svensk Uttale for Nybegynnere: Slik Lærer Du Deg Å Snakke Kjærlighetens Språk",
+      "native_lang": "no",
+      "target_lang": "sv",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De 5 Grunnleggende Reglene",
+          "subsections": [
+            "### 1. **Aldri Stress på Siste Stavelse**",
+            "### 2. **TJ-Lyden er Din Venn**",
+            "### 3. **Melodi er Alt**",
+            "### 4. **R-Lyden: Den Franske R-en**",
+            "### 5. **Vokalene Ä og Ö**"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c1fb9013-91f2-41a0-bcf8-73db20b73dad",
+      "title": "Alinturile în Engleză pentru Partenerul Tău: Ghid Complet",
+      "native_lang": "ro",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Alinturi Regionale",
+          "subsections": [
+            "### America",
+            "### Marea Britanie",
+            "### Australia"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "c1ff6c71-39a7-4405-ab82-1f05b4a4089e",
+      "title": "Expressing Emotions in Italian: Feelings Vocabulary for Couples",
+      "native_lang": "en",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Practice Scenarios",
+          "subsections": [
+            "### Scenario 1: After a Long Day",
+            "### Scenario 2: Sharing Good News",
+            "### Scenario 3: Working Through a Disagreement"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,435 @@
+{
+  "batchId": "tier2a-slim-0002",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "07ff7ba4-4f59-4686-b087-08de6890e7ae",
+      "title": "French Emotional Support Phrases: Comfort Your Partner in Difficult Times",
+      "native_lang": "en",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## During Specific Situations",
+          "subsections": [
+            "### Grief and Loss",
+            "### Stress and Anxiety",
+            "### Disappointment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0813dfb2-4f94-4365-813a-375b0314fae9",
+      "title": "Polnische Liebesbrief-Phrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Anreden",
+          "subsections": [
+            "### \"Kochanie moje...\"",
+            "### \"Moja miłości...\"",
+            "### \"Skarbie...\"",
+            "### \"Najdroższa\" / \"Najdroższy\""
+          ]
+        },
+        {
+          "header": "## Einleitungen",
+          "subsections": [
+            "### \"Piszę do Ciebie, żeby powiedzieć, jak bardzo Cię kocham\"",
+            "### \"Nie ma słów, które wyrażą to, co do Ciebie czuję\""
+          ]
+        },
+        {
+          "header": "## Ausdrücke der Liebe",
+          "subsections": [
+            "### \"Jesteś najlepszą rzeczą, która mi się przydarzyła\"",
+            "### \"Moje życie zmieniło się na zawsze w dniu, kiedy Cię poznałem\"",
+            "### \"Zakochuję się w Tobie każdego dnia coraz bardziej\"",
+            "### \"Oświetlasz moje życie swoją obecnością\"",
+            "### \"Z Tobą odkryłem, czym jest prawdziwa miłość\"",
+            "### \"Jesteś moim słońcem, księżycem i wszystkimi gwiazdami\""
+          ]
+        },
+        {
+          "header": "## Zukunftsversprechen",
+          "subsections": [
+            "### \"Obiecuję kochać Cię bezwarunkowo\"",
+            "### \"Chcę spędzić z Tobą resztę życia\"",
+            "### \"Moja miłość do Ciebie będzie tylko rosła\""
+          ]
+        },
+        {
+          "header": "## Abschlüsse",
+          "subsections": [
+            "### \"Twój/Twoja na zawsze...\"",
+            "### \"Z całą moją miłością...\"",
+            "### \"Kocham Cię, dziś i na zawsze\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "081f74ab-a79a-404f-a6a9-3d2195f1f96d",
+      "title": "Phrases néerlandaises pour se réconcilier en couple",
+      "native_lang": "fr",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions essentielles pour se réconcilier",
+          "subsections": [
+            "### S'excuser sincèrement",
+            "### Exprimer ses sentiments",
+            "### Proposer une résolution",
+            "### Réaffirmer son amour"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "083c18c4-56fc-4b9b-97b0-fefdf17e54b9",
+      "title": "Выражение эмоций на польском языке",
+      "native_lang": "ru",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Положительные эмоции",
+          "subsections": [
+            "### Радость и счастье",
+            "### Любовь и привязанность"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "085af1f7-1e89-49ea-a7dd-3e65374b4f19",
+      "title": "Cumprimentos e Despedidas em Italiano: Guia Completo",
+      "native_lang": "pt",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Cumprimentos Básicos",
+          "subsections": [
+            "### O Famoso \"Ciao\"",
+            "### Cumprimentos Formais",
+            "### A Magia de \"Salve\""
+          ]
+        },
+        {
+          "header": "## Despedidas",
+          "subsections": [
+            "### Despedidas Informais",
+            "### Despedidas Formais"
+          ]
+        },
+        {
+          "header": "## Perguntando \"Como Vai?\"",
+          "subsections": [
+            "### Formas Informais (Tu)",
+            "### Formas Formais (Lei)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0866f302-b9d7-402a-85c1-dcb274081b1c",
+      "title": "Spanische Verbkonjugation - Grundlagen",
+      "native_lang": "de",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Presente - Gegenwart",
+          "subsections": [
+            "### -AR Verben: amar (lieben)",
+            "### -ER Verben: querer (wollen/lieben)",
+            "### -IR Verben: vivir (leben)"
+          ]
+        },
+        {
+          "header": "## Die wichtigsten unregelmäßigen Verben",
+          "subsections": [
+            "### Ser (sein - dauerhaft)",
+            "### Estar (sein - temporär/Ort)",
+            "### Tener (haben)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "087691ae-6160-4956-a390-e6f38b8be099",
+      "title": "Engelsk kælenavne og kærlige udtryk for par",
+      "native_lang": "da",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Kælenavne til forskellige lejligheder",
+          "subsections": [
+            "### I hverdagen",
+            "### Til romantiske øjeblikke",
+            "### Til at drille"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0880ff6b-2fa1-401f-a2b8-3fa719cd66bd",
+      "title": "Frases de Apoio Emocional em Alemão: Confortando Seu Parceiro",
+      "native_lang": "pt",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases de Apoio Básico",
+          "subsections": [
+            "### Demonstrando Presença",
+            "### Validando Sentimentos",
+            "### Oferecendo Conforto"
+          ]
+        },
+        {
+          "header": "## Para Situações Específicas",
+          "subsections": [
+            "### Perda e Luto",
+            "### Estresse"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "088ae5a0-6e95-4664-ad1e-50d74d682b6f",
+      "title": "Italienske sms- og chatbeskeder til par",
+      "native_lang": "da",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende kærlige beskeder",
+          "subsections": [
+            "### \"Mi manchi\"",
+            "### \"Penso a te\"",
+            "### \"Non vedo l'ora di vederti\""
+          ]
+        },
+        {
+          "header": "## Populære italienske kælenavne",
+          "subsections": [
+            "### \"Amore mio\"",
+            "### \"Tesoro\"",
+            "### \"Cucciolo\" / \"Cucciola\""
+          ]
+        },
+        {
+          "header": "## Italienske sms-forkortelser",
+          "subsections": [
+            "### \"TVB\" (Ti voglio bene)",
+            "### \"TAT\" (Ti amo tanto)",
+            "### \"Baci\""
+          ]
+        },
+        {
+          "header": "## Romantiske beskeder",
+          "subsections": [
+            "### \"Sei tutto per me\"",
+            "### \"Buongiorno, amore\"",
+            "### \"Sogni d'oro, tesoro mio\""
+          ]
+        },
+        {
+          "header": "## Hverdagsbeskeder",
+          "subsections": [
+            "### \"Come stai?\"",
+            "### \"Arrivo\"",
+            "### \"A dopo\""
+          ]
+        },
+        {
+          "header": "## Lidt ekstra romantik",
+          "subsections": [
+            "### \"Sei la mia vita\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "0890bf47-1fa3-4a46-80b8-0f75ef1f68fe",
+      "title": "100 Συχνές Λέξεις (ru): Οδηγός για Ελληνόφωνα Ζευγάρια",
+      "native_lang": "el",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Κατηγορίες Λέξεων",
+          "subsections": [
+            "### Αγάπη & Τρυφερότητα",
+            "### Καθημερινές Λέξεις",
+            "### Συναισθήματα",
+            "### Χρόνος",
+            "### Τοποθεσία",
+            "### Ερωτήσεις",
+            "### Ρήματα"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "08a14b4e-6572-49a8-a7b6-4ef974cc2210",
+      "title": "Ungarische Ich-vermisse-dich-Sprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlegende Ausdrücke",
+          "subsections": [
+            "### \"Hiányzol\"",
+            "### \"Nagyon hiányzol\"",
+            "### \"Nem tudok nem rád gondolni\""
+          ]
+        },
+        {
+          "header": "## Emotionale Ausdrücke",
+          "subsections": [
+            "### \"Bárcsak itt lennél\"",
+            "### \"Minden pillanat nélküled örökkévalóságnak tűnik\"",
+            "### \"A szívem téged keres\"",
+            "### \"Ürességet érzek nélküled\""
+          ]
+        },
+        {
+          "header": "## Liebevolle Nachrichten",
+          "subsections": [
+            "### \"Számolom a napokat, amíg újra látlak\"",
+            "### \"Te vagy az első gondolatom reggel és az utolsó este\"",
+            "### \"A távolság nem jelent semmit, ha valaki mindent jelent\""
+          ]
+        },
+        {
+          "header": "## Tröstende Worte",
+          "subsections": [
+            "### \"Hamarosan újra együtt leszünk\"",
+            "### \"A szerelmünk erősebb minden távolságnál\"",
+            "### \"Még ha távol is vagyunk, mindig a szívemben vagy\""
+          ]
+        },
+        {
+          "header": "## Für besondere Momente",
+          "subsections": [
+            "### \"Hiányzik a mosolyod, a nevetésed, minden\"",
+            "### \"Senki nem fogható hozzád\"",
+            "### \"Pótolhatatlan vagy\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "08b0aa0c-8d89-48dc-a4c8-c1bd9f78ef9f",
+      "title": "Как извиняться на нидерландском языке: полное руководство",
+      "native_lang": "ru",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Извинения за конкретные ситуации",
+          "subsections": [
+            "### За опоздание",
+            "### За ошибку",
+            "### За причинённую боль"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "08b3a576-fb59-4cc9-9a94-860692dae6ca",
+      "title": "Como Escrever Cartas de Amor em Dinamarquês: Romance com Hygge",
+      "native_lang": "pt",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Estrutura de uma Carta de Amor",
+          "subsections": [
+            "### Abertura Carinhosa",
+            "### Expressando Seus Sentimentos",
+            "### Declarações de Amor",
+            "### Promessas",
+            "### Encerramentos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "08d27850-4e42-4821-8e56-3162a2ddc796",
+      "title": "Phrases de réconfort en norvégien : Soutenir son partenaire",
+      "native_lang": "fr",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Soutenir son partenaire en norvégien",
+          "subsections": []
+        },
+        {
+          "header": "## Phrases de réconfort",
+          "subsections": [
+            "### \"Jeg er her for deg\"",
+            "### \"Alt kommer til å gå bra\"",
+            "### \"Du er ikke alene i dette\""
+          ]
+        },
+        {
+          "header": "## Écouter et valider",
+          "subsections": [
+            "### \"Jeg forstår hvordan du føler deg\"",
+            "### \"Det er greit å føle det slik\""
+          ]
+        },
+        {
+          "header": "## Soutien actif",
+          "subsections": [
+            "### \"Hva kan jeg gjøre for å hjelpe?\""
+          ]
+        },
+        {
+          "header": "## Encouragement",
+          "subsections": [
+            "### \"Du er sterkere enn du tror\"",
+            "### \"Jeg tror på deg\"",
+            "### \"Du klarer dette\""
+          ]
+        },
+        {
+          "header": "## Moments difficiles",
+          "subsections": [
+            "### \"Jeg er så lei meg for at du går gjennom dette\"",
+            "### \"Kom her, jeg gir deg en klem\"",
+            "### \"Vi kommer gjennom dette sammen\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "08df0874-d2ff-45e7-bb52-e2f0a89ce286",
+      "title": "Tsjechische Uitspraak voor Stellen: Spreek Zoals een Local met Je Partner",
+      "native_lang": "nl",
+      "target_lang": "cs",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Veelvoorkomende Fouten (en Hoe Ze te Vermijden)",
+          "subsections": [
+            "### Fout 1: Nederlandse 'g' gebruiken",
+            "### Fout 2: Verkeerde klemtoon",
+            "### Fout 3: Korte/lange klinkers door elkaar"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,118 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0753",
+  "articles": [
+    {
+      "id": "d9c11b5a-cfba-44a3-8e25-e25779307bc6",
+      "title": "Сложно ли выучить шведский язык?",
+      "native_lang": "ru",
+      "target_lang": "sv",
+      "category": "culture",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nЕсли ваш партнёр — швед или вы планируете жизнь в Швеции, вопрос о сложности языка становится актуальным. Хорошая новость: шведский — один из наиболее доступных скандинавских языков для изучения!\n\n## Общая оценка сложности\n\n<PhraseOfDay\n  word=\"Svenska är lättare än du tror\"\n  translation=\"Шведский легче, чем ты думаешь\"\n  pronunciation=\"СВЕН-ска эр ЛЭТ-та-ре эн дю трур\"\n  context=\"Ободряющая фраза для начинающих\"\n/>\n\nПо оценкам лингвистов, шведский язык относится к **категории I** по сложности для европейцев — самой лёгкой группе. Для русскоговорящих он сложнее, чем для носителей германских языков, но значительно проще восточных языков.\n\n## Что делает шведский относительно лёгким\n\n### 1. Простая грамматика\n\n<VocabCard\n  word=\"Jag älskar, du älskar, han älskar\"\n  translation=\"Я люблю, ты любишь, он любит\"\n  pronunciation=\"яг ЭЛЬ-скар, дю ЭЛЬ-скар, хан ЭЛЬ-скар\"\n  example=\"Глаголы не спрягаются по лицам!\"\n/>\n\n**Преимущества шведской грамматики:**\n\n| Особенность | В русском | В шведском |\n|-------------|-----------|------------|\n| Падежи существительных | 6 падежей | Нет падежей |\n| Спряжение по лицам | Да | Нет |\n| Времена глаголов | Сложная система | 4 основных времени |\n| Порядок слов | Свободный | Фиксированный (легче!) |\n\n### 2. Латинский алфавит\n\nВ отличие от языков с другими системами письма, шведский использует латиницу с тремя дополнительными буквами: **Å, Ä, Ö**. Вы уже знакомы с большинством букв!\n\n### 3. Много интернациональных слов\n\n<VocabCard\n  word=\"telefon, musik, problem, information\"\n  translation=\"телефон, музыка, проблема, информация\"\n  pronunciation=\"те-ле-ФУН, му-СИК, про-БЛЕМ, ин-фор-ма-ШУН\"\n  example=\"Многие слова похожи на русские или английские\"\n/>\n\n### 4. Логичное словообразование\n\nШведский любит составные слова:\n- **sjukhus** = sjuk (больной) + hus (дом) = больница\n- **flygplats** = flyg (полёт) + plats (место) = аэропорт\n- **bokhandel** = bok (книга) + handel (торговля) = книжный магазин\n\n<CultureTip title=\"Длинные слова — не проблема\" flag=\"🇸🇪\">\nШведские составные слова могут выглядеть пугающе, но они логичны. Разбейте слово на части, и значение станет понятным!\n</CultureTip>\n\n## Что может быть сложным\n\n### 1. Произношение\n\n<VocabCard\n  word=\"sju sjösjuka sjömän\"\n  translation=\"семь морских больных моряков\"\n  pronunciation=\"шу шё-ШУ-ка ШЁ-мэн\"\n  example=\"Скороговорка со звуком 'sj'\"\n/>\n\n**Сложные звуки для русскоговорящих:**\n\n| Звук | Описание | Пример |\n|------|----------|--------|\n| **sj** | Глубокий «ш» | sjö, sjunga |\n| **ö** | Между «о» и «ё» | öl, röd |\n| **u** | Округлённое «у» | hus, du |\n| **y** | Между «ю» и «и» | ny, syster |\n\n### 2. Тональный акцент\n\nШведский — тональный язык с двумя типами ударения. Это влияет на значение слов:\n- **anden** (акцент 1) = утка\n- **anden** (акцент 2) = дух\n\n### 3. Артикли\n\n<VocabCard\n  word=\"en bok → boken\"\n  translation=\"(какая-то) книга → (эта) книга\"\n  pronunciation=\"эн бук → БУ-кен\"\n  example=\"Определённый артикль присоединяется к концу слова\"\n/>\n\nДля русскоговорящих артикли — новая концепция, но в шведском они проще, чем в немецком или французском.\n\n### 4. V2-правило\n\nГлагол всегда на втором месте в предложении:\n- **Jag älskar dig** — Я люблю тебя\n- **Idag älskar jag dig** — Сегодня люблю я тебя (дословно)\n\n## Сравнение с другими языками\n\n| Язык | Падежи | Спряжения | Сложность для русских |\n|------|--------|-----------|----------------------|\n| Шведский | Нет | Простое | Средняя |\n| Немецкий | 4 | Сложное | Высокая |\n| Финский | 15+ | Сложное | Очень высокая |\n| Норвежский | Нет | Простое | Средняя |\n\n## Сроки изучения\n\n### Реалистичные ожидания\n\n| Уровень | Часы обучения | Что сможете |\n|---------|---------------|-------------|\n| A1 | 100-150 | Базовое общение |\n| A2 | 200-300 | Повседневные ситуации |\n| B1 | 350-500 | Свободное общение |\n| B2 | 600-800 | Профессиональный уровень |\n\n<CultureTip title=\"Ускорьте изучение\" flag=\"🇸🇪\">\nИзучение с партнёром-носителем может сократить эти сроки на 30-40%! Ежедневная практика и погружение — ключ к успеху.\n</CultureTip>\n\n## Преимущества для пар\n\n### Почему учить вместе — легче\n\n1. **Ежедневная практика** — Общение с партнёром каждый день\n2. **Исправление ошибок** — Мягкая корректировка от любимого человека\n3. **Мотивация** — Общая цель сближает\n4. **Погружение** — Доступ к шведской культуре через семью партнёра\n\n<VocabCard\n  word=\"Vi lär oss svenska tillsammans\"\n  translation=\"Мы учим шведский вместе\"\n  pronunciation=\"ви лэр осс СВЕН-ска тиль-САМ-манс\"\n  example=\"Прекрасная мотивирующая фраза!\"\n/>\n\n## Советы для русскоговорящих\n\n### 1. Начните с произношения\nУделите время звукам в начале обучения. Хороший акцент открывает двери.\n\n### 2. Используйте сходства\nМногие слова похожи на английские или немецкие. Если знаете эти языки, используйте их как мост.\n\n### 3. Не бойтесь длинных слов\nРазбивайте составные слова на части — они станут понятными.\n\n### 4. Практикуйте мелодику\nСлушайте шведскую музыку и подкасты, чтобы привыкнуть к интонации.\n\n### 5. Говорите с первого дня\nНе ждите идеального уровня — начинайте говорить сразу!\n\n## Полезные ресурсы\n\n### Для начинающих\n- Шведское радио (Sveriges Radio P1)\n- Шведские сериалы с субтитрами\n- Приложения для изучения языка\n\n### Для практики с партнёром\n- Совместный просмотр фильмов\n- Кулинария по шведским рецептам\n- Игры на шведском языке\n\n## Мотивирующие факты\n\n<VocabCard\n  word=\"Du klarar det!\"\n  translation=\"Ты справишься!\"\n  pronunciation=\"дю КЛА-рар де\"\n  example=\"Верьте в себя!\"\n/>\n\n1. **10 миллионов** человек говорят на шведском\n2. Шведский похож на норвежский и датский — выучите один, понимайте три!\n3. Швеция — одна из самых счастливых стран мира\n4. Шведская культура открыта к изучающим язык\n\n## Типичные ошибки и как их избежать\n\n| Ошибка | Правильно | Совет |\n|--------|-----------|-------|\n| Забывать V2-правило | Idag **går** jag | Глагол всегда второй |\n| Путать en/ett | **en** bok, **ett** hus | Учите род с каждым словом |\n| Русский акцент в «r» | Практикуйте раскатистое r | Слушайте носителей |\n\n## Заключение\n\nШведский язык — это:\n- **НЕ** самый лёгкий язык в мире\n- **НО** вполне доступный для русскоговорящих\n- **ОСОБЕННО** при изучении с любящим партнёром\n\nГлавное — регулярность, терпение и правильная мотивация. С любимым человеком рядом всё возможно!\n\n## Продолжайте изучение\n\n- **[Шведское произношение](/learn/ru/sv/swedish-pronunciation-guide/)** — Освойте звуки\n- **[Основы грамматики](/learn/ru/sv/swedish-grammar-basics/)** — Понятные правила\n- **[Основные фразы](/learn/ru/sv/swedish-essential-phrases-for-couples/)** — Начните говорить\n\n<CTA text=\"Готовы доказать, что шведский — не так сложен?\" buttonText=\"Начать обучение\" />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Что делает шведский относительно лёгким",
+              "## Что может быть сложным",
+              "## Сроки изучения",
+              "## Преимущества для пар",
+              "## Советы для русскоговорящих",
+              "## Полезные ресурсы"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "d9c206e7-f068-4ec9-a144-811a1bcbb33e",
+      "title": "Νορβηγικές Φράσεις για Διαφωνίες: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "no",
+      "category": "communication",
+      "content": "Κάθε σχέση αντιμετωπίζει διαφωνίες. Όταν ο σύντροφός σας μιλάει νορβηγικά, η γνώση των κατάλληλων φράσεων σας βοηθά να επικοινωνήσετε αποτελεσματικά.\n\n## Βασικές Φράσεις για Διαφωνίες\n\n### Έκφραση Διαφωνίας\n\n<Phrase term=\"Jeg er ikke enig\" pronunciation=\"Yay är ίke ένig\">\n  <Trans>Δεν συμφωνώ</Trans>\n  <Note>Βασική έκφραση διαφωνίας</Note>\n</Phrase>\n\n<Phrase term=\"Jeg tenker annerledes\" pronunciation=\"Yay ténker anerlέdes\">\n  <Trans>Σκέφτομαι διαφορετικά</Trans>\n  <Note>Ήπια διαφωνία</Note>\n</Phrase>\n\n<Phrase term=\"Det er ikke rettferdig\" pronunciation=\"De är ίke retfέrdig\">\n  <Trans>Δεν είναι δίκαιο</Trans>\n  <Note>Όταν κάτι σας φαίνεται άδικο</Note>\n</Phrase>\n\n### Αίτηση για Κατανόηση\n\n<Phrase term=\"Hører du på meg?\" pronunciation=\"Hörər du po may?\">\n  <Trans>Με ακούς;</Trans>\n  <Note>Όταν θέλετε προσοχή</Note>\n</Phrase>\n\n<Phrase term=\"Vær så snill, prøv å forstå meg\" pronunciation=\"Vär so snil, pröv o forstό may\">\n  <Trans>Σε παρακαλώ, προσπάθησε να με καταλάβεις</Trans>\n  <Note>Αίτημα για κατανόηση</Note>\n</Phrase>\n\n<Phrase term=\"La meg forklare\" pronunciation=\"La may forklάre\">\n  <Trans>Άσε με να εξηγήσω</Trans>\n  <Note>Ζητήστε χρόνο να εξηγήσετε</Note>\n</Phrase>\n\n### Έκφραση Συναισθημάτων\n\n<Phrase term=\"Du såret meg\" pronunciation=\"Du sόret may\">\n  <Trans>Με πλήγωσες</Trans>\n  <Note>Εκφράστε ότι πονέσατε</Note>\n</Phrase>\n\n<Phrase term=\"Jeg er trist\" pronunciation=\"Yay är trist\">\n  <Trans>Είμαι λυπημένος/η</Trans>\n  <Note>Έκφραση θλίψης</Note>\n</Phrase>\n\n<Phrase term=\"Jeg er opprørt\" pronunciation=\"Yay är oprört\">\n  <Trans>Είμαι αναστατωμένος/η</Trans>\n  <Note>Έκφραση αναστάτωσης</Note>\n</Phrase>\n\n### Αναζήτηση Λύσης\n\n<Phrase term=\"La oss snakke rolig\" pronunciation=\"La os snάke rύlig\">\n  <Trans>Ας μιλήσουμε ήρεμα</Trans>\n  <Note>Πρόταση για ήρεμη συζήτηση</Note>\n</Phrase>\n\n<Phrase term=\"Hvordan kan vi løse dette?\" pronunciation=\"Vurdan kan vi löse déte?\">\n  <Trans>Πώς μπορούμε να το λύσουμε;</Trans>\n  <Note>Εστίαση στη λύση</Note>\n</Phrase>\n\n<Phrase term=\"Jeg trenger tid til å tenke\" pronunciation=\"Yay trénger tid til o ténke\">\n  <Trans>Χρειάζομαι χρόνο να σκεφτώ</Trans>\n  <Note>Αίτημα για χώρο</Note>\n</Phrase>\n\n## Πολιτιστικές Συμβουλές\n\nΗ νορβηγική κουλτούρα εκτιμά την ισότητα και τον σεβασμό. Σε μια διαφωνία, περιμένεται να ακούσετε την άλλη πλευρά εξίσου. Οι Νορβηγοί προτιμούν τον ήρεμο διάλογο από τις έντονες συζητήσεις.\n\nΔείξτε σεβασμό στην άποψη του συντρόφου σας, ακόμα και αν διαφωνείτε.\n\n## Συμπέρασμα\n\nΜε αυτές τις φράσεις, μπορείτε να επικοινωνήσετε αποτελεσματικά με τον νορβηγόφωνο σύντροφό σας ακόμα και σε δύσκολες στιγμές.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 297,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Βασικές Φράσεις για Διαφωνίες"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "d9cb6d7b-5d5a-4242-848a-df8b37efa474",
+      "title": "Engelske udtryk til følelsesmæssig støtte og trøst",
+      "native_lang": "da",
+      "target_lang": "en",
+      "category": "communication",
+      "content": "# Engelske udtryk til følelsesmæssig støtte og trøst\n\nAt kunne udtrykke støtte og trøst på et fremmedsprog er en af de vigtigste sproglige færdigheder i et forhold. Når din partner har det svært, er de rigtige ord guld værd. Denne guide giver dig de engelske udtryk, du har brug for.\n\n## Kulturel kontekst\n\nI engelsktalende kulturer værdsættes det at give plads til følelser uden at forsøge at \"fikse\" alt med det samme. Lytning og empati er centralt. Direkte spørgsmål som \"How are you feeling?\" er normalt, og det er acceptabelt at tale åbent om følelser.\n\n## Vigtige sætninger\n\n### 1. I'm here for you\n**Dansk:** Jeg er her for dig\n**Udtale:** aɪm hɪər fɔːr juː\n**Tip:** Simpelt men kraftfuldt - viser tilstedeværelse og støtte\n\n### 2. I'm so sorry you're going through this\n**Dansk:** Jeg er så ked af, at du går igennem dette\n**Udtale:** aɪm soʊ ˈsɒri jɔːr ˈɡoʊɪŋ θruː ðɪs\n**Tip:** Anerkender smerten uden at forsøge at løse den\n\n### 3. It's okay to feel this way\n**Dansk:** Det er okay at føle sådan\n**Udtale:** ɪts oʊˈkeɪ tuː fiːl ðɪs weɪ\n**Tip:** Validerer følelserne - meget vigtigt\n\n### 4. Take all the time you need\n**Dansk:** Tag al den tid du har brug for\n**Udtale:** teɪk ɔːl ðə taɪm juː niːd\n**Tip:** Giver plads uden pres\n\n### 5. I'm listening\n**Dansk:** Jeg lytter\n**Udtale:** aɪm ˈlɪsənɪŋ\n**Tip:** Signalerer at du er fuldt til stede\n\n### 6. You don't have to go through this alone\n**Dansk:** Du behøver ikke gå igennem dette alene\n**Udtale:** juː doʊnt hæv tuː ɡoʊ θruː ðɪs əˈloʊn\n**Tip:** Tilbyder partnerskab i svære tider\n\n### 7. That sounds really difficult\n**Dansk:** Det lyder virkelig svært\n**Udtale:** ðæt saʊndz ˈrɪəli ˈdɪfɪkəlt\n**Tip:** Viser at du forstår tyngden af situationen\n\n### 8. I love you, no matter what\n**Dansk:** Jeg elsker dig, uanset hvad\n**Udtale:** aɪ lʌv juː noʊ ˈmætər wʌt\n**Tip:** Giver ubetinget kærlighed og sikkerhed\n\n### 9. Would you like to talk about it?\n**Dansk:** Vil du tale om det?\n**Udtale:** wʊd juː laɪk tuː tɔːk əˈbaʊt ɪt\n**Tip:** Giver mulighed uden at presse\n\n### 10. Is there anything I can do to help?\n**Dansk:** Er der noget jeg kan gøre for at hjælpe?\n**Udtale:** ɪz ðɛr ˈɛniˌθɪŋ aɪ kæn duː tuː hɛlp\n**Tip:** Tilbyder praktisk hjælp\n\n### 11. I believe in you\n**Dansk:** Jeg tror på dig\n**Udtale:** aɪ bɪˈliːv ɪn juː\n**Tip:** Giver tillid og styrke\n\n### 12. This too shall pass\n**Dansk:** Dette vil også gå over\n**Udtale:** ðɪs tuː ʃæl pæs\n**Tip:** Giver perspektiv uden at minimere smerten\n\n## Yderligere nyttige udtryk\n\n### Ved sorg\n- \"I'm so sorry for your loss\" (Jeg er så ked af dit tab)\n- \"They were so lucky to have you\" (De var så heldige at have dig)\n- \"It's okay to grieve\" (Det er okay at sørge)\n\n### Ved stress og udbrændthed\n- \"You're doing the best you can\" (Du gør det bedste du kan)\n- \"It's okay to take a break\" (Det er okay at holde en pause)\n- \"Your feelings are valid\" (Dine følelser er gyldige)\n\n### Ved skuffelse\n- \"I know how much this meant to you\" (Jeg ved hvor meget det betød for dig)\n- \"You gave it your all\" (Du gav alt hvad du havde)\n- \"There will be other opportunities\" (Der vil komme andre muligheder)\n\n## Kulturelle tips\n\n**Fysisk berøring:** I engelsktalende kulturer er en kram eller at holde i hånd ofte passende måder at vise støtte på.\n\n**Give plads:** Respektér hvis din partner har brug for tid alene. \"I'll give you some space\" er en acceptabel og kærlig ting at sige.\n\n**Undgå at \"fikse\":** Modstå fristelsen til at give løsninger med det samme. Lyt først, spørg \"Would you like advice or just support?\" hvis du er i tvivl.\n\n**Handlinger tæller:** \"Actions speak louder than words\" - at bringe te, lave mad, eller bare sidde i stilhed sammen kan være lige så vigtigt som ord.\n\n**Check ind:** \"How are you doing today?\" i dagene efter en svær oplevelse viser vedvarende omsorg.\n\nMed disse udtryk er du godt rustet til at støtte din engelsktalende partner i svære tider. Husk at din tilstedeværelse og oprigtighed betyder mest.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Vigtige sætninger",
+              "## Yderligere nyttige udtryk"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "d9cbdaa5-ea13-4a43-8963-1e7d58c8d5ab",
+      "title": "Як зробити пропозицію данською: фрази для заручин",
+      "native_lang": "uk",
+      "target_lang": "da",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport CTA from '@components/CTA.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\n\n# Як зробити пропозицію данською: фрази для заручин\n\nВи готові зробити найважливіше питання у житті? Якщо ваш партнер розмовляє данською, цей посібник допоможе вам підготувати ідеальну пропозицію!\n\nВід класичних слів до сучасних варіантів — тут ви знайдете все необхідне для цього особливого моменту.\n\n<PhraseOfDay\n  phrase=\"Will you marry me?\"\n  translation=\"Вийдеш за мене заміж? / Одружишся зі мною?\"\n  context=\"Найважливіше питання\"\n/>\n\n## Як зробити пропозицію данською\n\nКласичне питання про одруження данською звучить по-різному залежно від статі партнера та культурних традицій. Ось основні варіанти:\n\n### Основна лексика заручин\n\n\n\n## Романтичні фрази для пропозиції\n\nПеред тим як поставити питання, ви можете сказати щось особливе:\n\n### Вступні слова\n\n1. **Скажіть про свої почуття** — \"Я кохаю тебе більше за все на світі\"\n2. **Поділіться мріями** — \"Я хочу провести з тобою все життя\"\n3. **Зробіть комплімент** — \"Ти робиш мене найщасливішою людиною\"\n\n<CultureTip>\nТрадиції пропозиції відрізняються в різних країнах. Дізнайтеся, що прийнято в культурі вашого партнера — чи потрібно просити дозволу у батьків, чи є особливі ритуали.\n</CultureTip>\n\n## Оголошення про заручини\n\nПісля того як ваш партнер скаже \"так\", час поділитися радісною новиною з рідними та друзями!\n\n### Як оголосити про заручини данською\n\n- \"Ми заручені!\" \n- \"Він/вона сказав(ла) так!\"\n- \"Ми одружуємося!\"\n\n## Лексика про каблучку\n\nОбручка — важлива частина заручин. Ось корисні слова:\n\n| Данська | Українська |\n|----------------|------------|\n| Ring | Каблучка |\n| Diamond | Діамант |\n| Engagement ring | Обручка для заручин |\n| Wedding band | Весільна обручка |\n\n## Культурні особливості\n\n<CultureTip>\nУ деяких культурах заручини включають офіційну церемонію з участю обох родин. Це може бути окрема подія до весілля, де родини зустрічаються та обмінюються подарунками.\n</CultureTip>\n\n## Підготовка до пропозиції\n\n### Чек-лист:\n- ✓ Вивчіть правильну вимову фраз\n- ✓ Дізнайтеся культурні традиції\n- ✓ Оберіть особливе місце\n- ✓ Підготуйте каблучку\n- ✓ Заплануйте як оголосити новину\n\n## Після заручин\n\nКоли ви вже заручені, з'являється нова лексика:\n\n- Наречений / Наречена\n- Весільні плани\n- Дата весілля\n- Список гостей\n\n## Продовжуйте вивчення\n\nТепер ви готові до пропозиції данською! Вивчайте більше романтичних фраз:\n\n- [Данська весільна лексика](/uk/blog/danish-wedding-phrases)\n- [Романтичні фрази данською](/uk/blog/romantic-danish-phrases-for-couples)\n\n<CTA \n  text=\"Готові вивчати мову кохання данською? Наш додаток допоможе!\"\n  buttonText=\"Спробувати безкоштовно\"\n  href=\"/uk/learn/da\"\n/>",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 278,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "### Основна лексика заручин",
+              "## Підготовка до пропозиції"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "d9e29462-5d4b-4f80-807d-2ee1d368fe07",
+      "title": "Frases en Ucraniano para Discutir y Resolver Desacuerdos con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "uk",
+      "category": "communication",
+      "content": "Si tu pareja habla ucraniano, aprender a expresar tus sentimientos en su idioma durante los momentos difíciles fortalecerá enormemente su conexión. El ucraniano tiene formas hermosas y directas de comunicar emociones.\n\n## La Comunicación en Parejas Ucranianas\n\nLos ucranianos valoran la sinceridad y la expresión emocional abierta. Durante los conflictos, ser honesto sobre tus sentimientos es fundamental.\n\n## Frases para Expresar Desacuerdo\n\n### \"Я бачу це інакше\" (Ya bachu tse inakshe)\n**Pronunciación:** Ya BA-chu tse i-NAK-she\n\n**Significado:** Lo veo de manera diferente\n\nExpresa desacuerdo de forma respetuosa.\n\n### \"Чи можемо поговорити спокійно?\" (Chy mozhemo pohovoryty spokiyno?)\n**Pronunciación:** Chi mo-SHE-mo po-ho-vo-RI-ti spo-KIY-no\n\n**Significado:** ¿Podemos hablar con calma?\n\nInvita a una conversación tranquila.\n\n### \"Мені боляче, коли ти...\" (Meni bolyache, koly ty...)\n**Pronunciación:** Me-NI bo-LYA-che KO-li ti\n\n**Significado:** Me duele cuando tú...\n\nExpresar cómo te afectan las acciones de tu pareja.\n\n### \"Я мав/мала на увазі не це\" (Ya mav/mala na uvazi ne tse)\n**Pronunciación:** Ya mav/MA-la na u-VA-zi ne tse\n\n**Significado:** No quise decir eso\n\nAclarar malentendidos.\n\n### \"Мені потрібен час подумати\" (Meni potriben chas podumaty)\n**Pronunciación:** Me-NI po-TRI-ben chas po-DU-ma-ti\n\n**Significado:** Necesito tiempo para pensar\n\nPedir una pausa.\n\n### \"Спробуй зрозуміти мою точку зору\" (Sprobuy zrozumity moyu tochku zoru)\n**Pronunciación:** spro-BUI zro-zu-MI-ti mo-YU TOCH-ku ZO-ru\n\n**Significado:** Intenta entender mi punto de vista\n\nPedir empatía.\n\n### \"Я не хочу сваритися\" (Ya ne khochu svarytysya)\n**Pronunciación:** Ya ne JO-chu sva-RI-ti-sya\n\n**Significado:** No quiero pelear\n\nDejar claro tu intención pacífica.\n\n### \"Ти мене не слухаєш\" (Ty mene ne slukhayesh)\n**Pronunciación:** Ti me-NE ne slu-JA-yesh\n\n**Significado:** No me estás escuchando\n\nCuando sientes que no te prestan atención.\n\n### \"Давай знайдемо компроміс\" (Davay znaydemo kompromis)\n**Pronunciación:** da-VAI znai-DE-mo kom-pro-MIS\n\n**Significado:** Encontremos un compromiso\n\nProponer una solución intermedia.\n\n### \"Це важливо для мене\" (Tse vazhlyvo dlya mene)\n**Pronunciación:** Tse vazh-LI-vo dlya ME-ne\n\n**Significado:** Esto es importante para mí\n\nComunicar el peso emocional.\n\n### \"Нам обом треба заспокоїтися\" (Nam obom treba zaspokoyitysya)\n**Pronunciación:** Nam o-BOM TRE-ba zas-po-KO-yi-ti-sya\n\n**Significado:** Ambos necesitamos calmarnos\n\nReconocer la tensión mutua.\n\n### \"Мені прикро\" (Meni prykro)\n**Pronunciación:** Me-NI PRIK-ro\n\n**Significado:** Estoy dolido/a\n\nExpresar dolor emocional de forma directa.\n\n## Contexto Cultural Ucraniano\n\nLos ucranianos aprecian la calidez emocional y la honestidad en las relaciones. Durante los conflictos, mostrar que te importa la relación es tan importante como resolver el problema específico.\n\n## Conclusión\n\nEstas frases te ayudarán a navegar los desacuerdos con tu pareja ucraniana. La clave es combinar honestidad con cariño.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frases para Expresar Desacuerdo"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,440 @@
+{
+  "batchId": "tier2a-slim-0302",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "65910aed-f411-4cc1-8e79-17a9ad6f4b5e",
+      "title": "Основы итальянской грамматики для начинающих",
+      "native_lang": "ru",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Артикли",
+          "subsections": [
+            "### Определённые артикли (il, la, lo, i, le, gli)",
+            "### Неопределённые артикли (un, una, uno)"
+          ]
+        },
+        {
+          "header": "## Спряжение глаголов",
+          "subsections": [
+            "### Три группы глаголов",
+            "### AMARE (любить) — глаголы на -ARE",
+            "### VEDERE (видеть) — глаголы на -ERE",
+            "### SENTIRE (чувствовать) — глаголы на -IRE"
+          ]
+        },
+        {
+          "header": "## Важные неправильные глаголы",
+          "subsections": [
+            "### ESSERE (быть)",
+            "### AVERE (иметь)"
+          ]
+        },
+        {
+          "header": "## Местоимения",
+          "subsections": [
+            "### Личные местоимения"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "65f293cf-f83c-48a3-9136-bd2e53fca6bf",
+      "title": "50 Romantické Dánské Fráze pro Každou Příležitost - Od První Schůzky po Navždy",
+      "native_lang": "cs",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Jak Používat Tyto Fráze ve Vašem Vztahu",
+          "subsections": [
+            "### Tipy pro Páry Učící se Společně",
+            "### Časté Chyby k Vyhnutí"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "687dd965-4b3b-439f-9252-314106183932",
+      "title": "50+ Ρομαντικά Παρατσούκλια στα Αγγλικά για το Ταίρι σου",
+      "native_lang": "el",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Πώς να Χρησιμοποιείτε τα Παρατσούκλια Μαζί",
+          "subsections": [
+            "### Βρείτε το Δικό σας Ρυθμό",
+            "### Κάντε το Παιχνίδι",
+            "### Προσοχή στο Κοντέξτο",
+            "### Ακούστε ο Ένας τον Άλλον"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "68824fbd-a693-46cc-9941-8994296c5ce1",
+      "title": "50+ Węgierskie Określenia Tkliwości i Słodkie Przydomki dla Twojego Partnera",
+      "native_lang": "pl",
+      "target_lang": "hu",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Jak Używać Tych Przydomków",
+          "subsections": [
+            "### Wskazówki dla Par:",
+            "### Częste Błędy:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "689f23ee-d8e3-4011-8759-9cf02983ce92",
+      "title": "Spanish Questions: How to Ask Anything",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## The Essential Question Words",
+          "subsections": [
+            "### Las Palabras Interrogativas"
+          ]
+        },
+        {
+          "header": "## Yes/No Questions",
+          "subsections": [
+            "### Formation Methods"
+          ]
+        },
+        {
+          "header": "## Deep Dive: Each Question Word",
+          "subsections": [
+            "### ¿Qué? (What?)",
+            "### ¿Quién? / ¿Quiénes? (Who?)",
+            "### ¿Cuándo? (When?)",
+            "### ¿Dónde? (Where?)",
+            "### ¿Por qué? vs ¿Para qué? (Why?)",
+            "### ¿Cómo? (How?)",
+            "### ¿Cuál? / ¿Cuáles? (Which?)",
+            "### ¿Cuánto/a? ¿Cuántos/as? (How much/many?)"
+          ]
+        },
+        {
+          "header": "## Romantic Questions to Practice",
+          "subsections": [
+            "### Getting to Know Each Other Deeper",
+            "### Daily Check-In Questions"
+          ]
+        },
+        {
+          "header": "## Practical Questions for Couples",
+          "subsections": [
+            "### Travel Questions",
+            "### Restaurant Questions",
+            "### Shopping Questions"
+          ]
+        },
+        {
+          "header": "## Question Formation Practice",
+          "subsections": [
+            "### Exercise 1: Transform Statements to Questions",
+            "### Exercise 2: Ask the Right Question",
+            "### Exercise 3: Couple Interview Game"
+          ]
+        },
+        {
+          "header": "## Common Question Mistakes",
+          "subsections": [
+            "### Mistake 1: Forgetting Accent Marks",
+            "### Mistake 2: Using \"Qué\" Instead of \"Cuál\"",
+            "### Mistake 3: Confusing \"Por qué\" and \"Porque\""
+          ]
+        },
+        {
+          "header": "## Building Question Confidence Together",
+          "subsections": [
+            "### Daily Practice Ideas",
+            "### The 20 Questions Game in Spanish"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "68b132b5-4c58-492e-bbae-543f2620eda5",
+      "title": "Conocer a la Familia de tu Pareja en Noruego: Frases Esenciales para crear Conexiones",
+      "native_lang": "es",
+      "target_lang": "no",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Escenarios Comunes Durante la Visita",
+          "subsections": [
+            "### 1. La Llegada y Primeros Saludos",
+            "### 2. Durante la Cena",
+            "### 3. Compartiendo Historias"
+          ]
+        },
+        {
+          "header": "## Vocabulario para Conocer a la Familia",
+          "subsections": [
+            "### Miembros de la Familia",
+            "### Adjetivos Positivos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "68b1d507-e4a2-4b13-a4d3-609491175bb8",
+      "title": "La négation en espagnol",
+      "native_lang": "fr",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Expressions négatives utiles pour couples",
+          "subsections": [
+            "### Pour rassurer",
+            "### Pour exprimer vos sentiments",
+            "### Pour les discussions"
+          ]
+        },
+        {
+          "header": "## Exercices de pratique pour couples",
+          "subsections": [
+            "### Exercice 1 : Transformez en négatif",
+            "### Exercice 2 : Complétez avec le bon mot négatif",
+            "### Exercice 3 : Dialogue négatif"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "69122961-6680-4482-b57a-229bb6ad9e2f",
+      "title": "50 Ukraina Date Night-fraser för Kärlekspar",
+      "native_lang": "sv",
+      "target_lang": "uk",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Praktiska Tips för Att Använda Dessa Fraser",
+          "subsections": [
+            "### Börja Enkelt",
+            "### Skapa Er Egna Ritual",
+            "### Ha Kul med Misstag",
+            "### Kombinera med Kroppsspråk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "69d8b628-648b-4c79-a435-9b0d5e81d130",
+      "title": "100 Most Common Italian Words: Essential Vocabulary for Couples",
+      "native_lang": "en",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Exercise 1: Daily Word Count",
+            "### Exercise 2: Sentence Building",
+            "### Exercise 3: Flashcard Game",
+            "### Exercise 4: Story Time"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6a550b41-5568-40fc-ad83-935356b09f61",
+      "title": "Møde Din Partners Græske Familie: Vigtige Sætninger og Kulturelle Tips til Par",
+      "native_lang": "da",
+      "target_lang": "el",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Typiske Scenarier I Vil Møde",
+          "subsections": [
+            "### Ankomsten til Huset",
+            "### Middagssamtaler",
+            "### Komplimenter til Maden"
+          ]
+        },
+        {
+          "header": "## Ordfordråd: Hjem og Familie",
+          "subsections": [
+            "### Grundlæggende Husholdningsord",
+            "### Familiebeskrivelser"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6a63cce8-b081-4fd7-a2c0-76db59e096d5",
+      "title": "Vocabulaire de shopping en allemand : faire des courses ensemble",
+      "native_lang": "fr",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Exercices pratiques pour couples",
+          "subsections": [
+            "### Exercice 1 : Liste de courses bilingue",
+            "### Exercice 2 : Jeu de rôle vendeur/client",
+            "### Exercice 3 : Shopping réel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6b15c81c-5c31-4259-9bc6-26aa330729e7",
+      "title": "Italian Questions: How to Ask Your Partner Anything",
+      "native_lang": "en",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Two Ways to Ask Questions",
+          "subsections": [
+            "### Method 1: Rising Intonation (Most Common)",
+            "### Method 2: Question Words"
+          ]
+        },
+        {
+          "header": "## Essential Question Words",
+          "subsections": [
+            "### Chi - Who",
+            "### Che / Che cosa / Cosa - What",
+            "### Dove - Where",
+            "### Quando - When",
+            "### Perché - Why / Because",
+            "### Come - How",
+            "### Quanto/a/i/e - How much / How many",
+            "### Quale/i - Which"
+          ]
+        },
+        {
+          "header": "## Romantic Questions to Ask Your Partner",
+          "subsections": [
+            "### Getting to Know Each Other Better",
+            "### About Your Relationship",
+            "### Everyday Questions",
+            "### Questions for Planning Together"
+          ]
+        },
+        {
+          "header": "## Would You Like...? / Do You Want...?",
+          "subsections": [
+            "### Vuoi...? (Do you want...?)",
+            "### Ti va di...? (Do you feel like...?)",
+            "### Ti piacerebbe...? (Would you like...?)"
+          ]
+        },
+        {
+          "header": "## Practice Conversations",
+          "subsections": [
+            "### Planning the Evening",
+            "### Getting to Know Each Other",
+            "### Checking In"
+          ]
+        },
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Exercise 1: 20 Questions",
+            "### Exercise 2: Interview Each Other",
+            "### Exercise 3: Plan Something Together"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6baf63a5-47d3-4c0f-8bc4-379539098610",
+      "title": "50 Ukrajinských Frází pro Páry: Od Prvního Pozdravu po Milostné Vyznání",
+      "native_lang": "cs",
+      "target_lang": "uk",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Jak Tyto Fráze Používat ve Vztahu",
+          "subsections": [
+            "### Praktické Tipy pro Páry:",
+            "### Časté Chyby:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6bfd3e61-d522-4f0e-91c6-9af0d88c3186",
+      "title": "Rusca Mesajlasma Argosu: Ciftler Icin Dijital Iletisim Rehberi",
+      "native_lang": "tr",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Günlük Ifade Kisaltmalari",
+          "subsections": [
+            "### Selamlama",
+            "### Onay ve Cevaplar"
+          ]
+        },
+        {
+          "header": "## Emoji ve Semboller",
+          "subsections": [
+            "### Romantik Emojiler",
+            "### Yaygin Kullanilan Emojiler"
+          ]
+        },
+        {
+          "header": "## Pratik Mesaj Örnekleri",
+          "subsections": [
+            "### Sabah Mesajlari",
+            "### Gün Icinde",
+            "### Gece Mesajlari"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6c0abcee-d3b7-4697-992d-84279915f541",
+      "title": "Grieks vs. Nederlands: De Belangrijkste Verschillen",
+      "native_lang": "nl",
+      "target_lang": "el",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Grammatica: De Grote Verschillen",
+          "subsections": [
+            "### 1. Werkwoordvervoegingen (Complex!)",
+            "### 2. Drie Geslachten",
+            "### 3. Naamvallen",
+            "### 4. Onderwerp Weglaten"
+          ]
+        },
+        {
+          "header": "## Uitspraak Verschillen",
+          "subsections": [
+            "### Klanken die Verschillen",
+            "### Meerdere Letters, Eén Klank"
+          ]
+        },
+        {
+          "header": "## Woordvolgorde",
+          "subsections": [
+            "### Flexibele Woordvolgorde"
+          ]
+        },
+        {
+          "header": "## Meest Gemaakte Fouten",
+          "subsections": [
+            "### 1. Het Alfabet Verwarren",
+            "### 2. Naamvallen Vergeten",
+            "### 3. Altijd het Onderwerp Noemen"
+          ]
+        }
+      ]
+    }
+  ]
+}

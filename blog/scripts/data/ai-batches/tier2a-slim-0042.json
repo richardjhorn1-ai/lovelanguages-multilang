@@ -1,0 +1,539 @@
+{
+  "batchId": "tier2a-slim-0042",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "44259688-af41-46cb-bd08-5496ac680d8b",
+      "title": "Frases en Portugués para tu Primera Cita",
+      "native_lang": "es",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Romper el Hielo",
+          "subsections": [
+            "### \"É um prazer finalmente te conhecer\"",
+            "### \"Você está lindo/a\"",
+            "### \"Estava ansioso/a por esse momento\""
+          ]
+        },
+        {
+          "header": "## Frases para Conocerse",
+          "subsections": [
+            "### \"Me conta sobre você\"",
+            "### \"O que você gosta de fazer pra se divertir?\"",
+            "### \"Qual é o seu... favorito?\"",
+            "### \"Quero saber mais sobre isso\""
+          ]
+        },
+        {
+          "header": "## Frases Románticas",
+          "subsections": [
+            "### \"Estou me divertindo muito\"",
+            "### \"Você tem um sorriso lindo\"",
+            "### \"Me sinto muito bem com você\""
+          ]
+        },
+        {
+          "header": "## Frases para Terminar",
+          "subsections": [
+            "### \"Foi uma noite maravilhosa\"",
+            "### \"Podemos nos ver de novo?\"",
+            "### \"Me avisa quando chegar bem\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "44368041-1ad7-4f9d-bdb3-98b03dc7a994",
+      "title": "Portugál összeköltözési szókincs",
+      "native_lang": "hu",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Költözési kifejezések",
+            "### Háztartási szókincs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "44550e76-42a6-4dbb-9f5d-5c2cb198f3bc",
+      "title": "Ungarische Trost- und Unterstützungsphrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlegende Unterstützung",
+          "subsections": [
+            "### \"Itt vagyok neked\"",
+            "### \"Mindig melletted leszek\"",
+            "### \"Nem vagy egyedül ebben\"",
+            "### \"Bármire is van szükséged, itt vagyok\""
+          ]
+        },
+        {
+          "header": "## Bei Trauer",
+          "subsections": [
+            "### \"Őszinte részvétem\"",
+            "### \"Vedd ki az időt, amire szükséged van\"",
+            "### \"Rendben van sírni\""
+          ]
+        },
+        {
+          "header": "## Bei Stress und Sorgen",
+          "subsections": [
+            "### \"Együtt megoldjuk\"",
+            "### \"Lépésről lépésre\"",
+            "### \"Rendben van, ha nem vagy rendben\"",
+            "### \"Ez is el fog múlni\"",
+            "### \"Ne légy olyan kemény magaddal\""
+          ]
+        },
+        {
+          "header": "## Ermutigung",
+          "subsections": [
+            "### \"Hiszek benned\"",
+            "### \"Erősebb vagy, mint gondolod\"",
+            "### \"Nagyon büszke vagyok rád\"",
+            "### \"Meg fogod csinálni\""
+          ]
+        },
+        {
+          "header": "## Aktive Hilfe anbieten",
+          "subsections": [
+            "### \"Mit tehetek, hogy segítsek?\"",
+            "### \"Szeretnél beszélni róla?\"",
+            "### \"Hallgatlak\""
+          ]
+        },
+        {
+          "header": "## Langfristige Unterstützung",
+          "subsections": [
+            "### \"Mindig itt leszek, bármi is történjen\"",
+            "### \"Együtt vagyunk ebben\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4460ed11-a2c1-4fc2-9d1e-292e29fa7299",
+      "title": "Udtryk Følelser på Norsk: Komplet Guide for Par",
+      "native_lang": "da",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Reagere på Partnerens Følelser",
+          "subsections": [
+            "### Støttende Svar",
+            "### Trøstende Ord"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4464deaf-d2e4-4b26-822a-4f5fc4ae2e27",
+      "title": "Prononciation italienne : maitriser les sons",
+      "native_lang": "fr",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Maîtriser les consonnes italiennes",
+          "subsections": [
+            "### Consonnes simples vs doubles",
+            "### Combinaisons de consonnes spéciales en italien"
+          ]
+        },
+        {
+          "header": "## Activités amusantes de pratique de la prononciation pour couples",
+          "subsections": [
+            "### 1. Exercice du miroir",
+            "### 2. Virelangues ensemble",
+            "### 3. Lecture de poésie italienne"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "446f77fd-afa9-4e5f-8473-8c07d5a69c94",
+      "title": "Ukrajinská výslovnost pro páry: Jak mluvit svému partnerovi do srdce",
+      "native_lang": "cs",
+      "target_lang": "uk",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## 5 klíčových zvuků, které se musíte naučit",
+          "subsections": [
+            "### 1. Г (g) – vždy tvrdé",
+            "### 2. Х (ch) – zadní výslovnost",
+            "### 3. И (y) – speciální zvuk",
+            "### 4. Ї (ji) – měkké \"ji\"",
+            "### 5. Щ (šč) – měkké \"šč\""
+          ]
+        },
+        {
+          "header": "## Nejčastější chyby Čechů a jak se jim vyhnout",
+          "subsections": [
+            "### 1. Výslovnost Ы jako И",
+            "### 2. Míchání měkkých a tvrdých souhlásek",
+            "### 3. Nesprávný přízvuk"
+          ]
+        },
+        {
+          "header": "## Rychlá nápověda do kapsy",
+          "subsections": [
+            "### Základní pravidla ukrajinské výslovnosti:",
+            "### Nejdůležitější romantická slovíčka:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "447b8f8f-e444-447a-bb25-7f8570ab9f84",
+      "title": "Expresii 'Mi-e Dor de Tine' în Engleză pentru Români",
+      "native_lang": "ro",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale de Dor",
+          "subsections": [
+            "### Expresii Simple și Directe",
+            "### Expresii Emoționale Profunde",
+            "### Mesaje pentru Dimineață și Seară",
+            "### Numărarea Zilelor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "447cd532-bf08-4930-a365-a74fec24607e",
+      "title": "Roemeense Zinnen over Vergeving",
+      "native_lang": "nl",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Îmi pare foarte rău\" - *umie pa-re foar-te ruh*",
+            "### 2. \"Te rog, iartă-mă\" - *te rog, jar-tuh-muh*",
+            "### 3. \"Te iert\" - *te jert*",
+            "### 4. \"Poți găsi în inima ta să mă ierți?\" - *pots guh-sie uhn ie-nie-ma ta suh muh jerts*",
+            "### 5. \"Am greșit și îmi pare rău\" - *am gre-sjiet sji umie pa-re ruh*",
+            "### 6. \"Nu voi mai face asta niciodată\" - *noe voj maj fa-tsje as-ta nitsj-o-da-tuh*",
+            "### 7. \"Ce pot face să repar asta?\" - *tsje pot fa-tsje suh re-par as-ta*",
+            "### 8. \"Accept scuzele tale\" - *ak-sept skoe-ze-le ta-le*",
+            "### 9. \"Să mergem mai departe\" - *suh mer-djem maj de-par-te*",
+            "### 10. \"Știu că te-am rănit\" - *sjtjoe kuh te-am ruh-njiet*",
+            "### 11. \"Promit să fiu mai bun/ă\" - *pro-miet suh fjoe maj boen/uh*",
+            "### 12. \"Necesită timp, dar voi încerca să iert\" - *ne-tsje-sie-tuh tiemp, dar voj uhn-tsjer-ka suh jert*"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "449b8508-d2c0-4631-8939-3e4a434b7583",
+      "title": "Frases de 'Te Extraño' en Checo: Stesk desde el Corazón de Europa",
+      "native_lang": "es",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresiones Esenciales",
+          "subsections": [
+            "### \"Chybíš mi\"",
+            "### \"Moc mi chybíš\"",
+            "### \"Kéž bys tu byl/byla\""
+          ]
+        },
+        {
+          "header": "## Frases Emotivas",
+          "subsections": [
+            "### \"Každá chvíle bez tebe je jako věčnost\"",
+            "### \"Jsi pořád v mých myšlenkách\"",
+            "### \"Vzdálenost nemění mé city\""
+          ]
+        },
+        {
+          "header": "## Para Mensajes Diarios",
+          "subsections": [
+            "### \"Probudil/a jsem se a myslel/a na tebe\"",
+            "### \"Dobrou noc, chybíš mi\"",
+            "### \"Počítám dny do našeho setkání\""
+          ]
+        },
+        {
+          "header": "## Expresiones Profundas",
+          "subsections": [
+            "### \"Moje srdce touží po tobě\"",
+            "### \"Jsi chybějící dílek mého života\"",
+            "### \"Bez tebe je všechno šedivé\""
+          ]
+        },
+        {
+          "header": "## Frases para Videollamadas",
+          "subsections": [
+            "### \"Vidět tvou tvář mě dělá šťastným/šťastnou\"",
+            "### \"Chtěl/a bych tě obejmout přes obrazovku\""
+          ]
+        },
+        {
+          "header": "## Mensajes Románticos",
+          "subsections": [
+            "### \"Dobré ráno, lásko, chybíš mi\"",
+            "### \"Nemůžu se dočkat, až tě uvidím\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "44a7a3a3-67e3-4f5f-a228-5d7a26da031c",
+      "title": "Cum Să Scrii o Scrisoare de Dragoste în Germană",
+      "native_lang": "ro",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Începutul Scrisorii",
+          "subsections": [
+            "### Formule de Adresare",
+            "### Primele Rânduri"
+          ]
+        },
+        {
+          "header": "## Corpul Scrisorii",
+          "subsections": [
+            "### Exprimarea Sentimentelor"
+          ]
+        },
+        {
+          "header": "## Finalul Scrisorii",
+          "subsections": [
+            "### Promisiuni",
+            "### Formule de Încheiere"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "44a7b2fe-a29f-491d-bf4d-85ead0dfd04f",
+      "title": "Румунський сленг для листування: як пишуть закохані",
+      "native_lang": "uk",
+      "target_lang": "ro",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Привітання та прощання",
+          "subsections": [
+            "### Привітання",
+            "### Прощання"
+          ]
+        },
+        {
+          "header": "## Повсякденні фрази для переписки",
+          "subsections": [
+            "### Вранці",
+            "### Протягом дня",
+            "### Увечері"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "44c9d0ae-69c1-4182-9af9-772879ee55f7",
+      "title": "Ungarske Kærlighedsbreve for Danskere",
+      "native_lang": "da",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Indledninger",
+          "subsections": [
+            "### \"Szerelmem\" / \"Életem\" / \"Szívem\"",
+            "### \"Drágám\" / \"Édesem\""
+          ]
+        },
+        {
+          "header": "## Udtryk for Kærlighed",
+          "subsections": [
+            "### \"A szavak nem tudják kifejezni, mit érzek irántad\"",
+            "### \"Te vagy a legjobb dolog, ami valaha történt velem\"",
+            "### \"Minden veled töltött nap ajándék\"",
+            "### \"Jobb emberré teszel engem\""
+          ]
+        },
+        {
+          "header": "## Romantiske Erklæringer",
+          "subsections": [
+            "### \"Amikor a szemedbe nézek, a jövőmet látom\"",
+            "### \"A mosolyod beragyogja a világomat\"",
+            "### \"Napról napra jobban szeretlek\"",
+            "### \"Te vagy a sziklám, a horgonyom, a menedékem\""
+          ]
+        },
+        {
+          "header": "## Løfter",
+          "subsections": [
+            "### \"Megígérem, hogy szeretlek jóban és rosszban\"",
+            "### \"Veled akarok megöregedni\"",
+            "### \"A szerelmem irántad soha nem fog kialudni\"",
+            "### \"Téged választalak, ma és mindörökké\""
+          ]
+        },
+        {
+          "header": "## Afslutninger",
+          "subsections": [
+            "### \"Örökké a tiéd\"",
+            "### \"Minden szeretetemmel\"",
+            "### \"Örökké a tiéd vagyok\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "44de00e3-c21f-4980-a98b-0e83e927801d",
+      "title": "Frases para Conocer a los Suegros en Noruego: Guía para los Svigerforeldre",
+      "native_lang": "es",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Saludos y Presentaciones",
+          "subsections": [
+            "### \"Hyggelig å endelig møte dere\"",
+            "### \"Jeg har hørt så mye om dere\"",
+            "### \"Tusen takk for invitasjonen\""
+          ]
+        },
+        {
+          "header": "## Cumplidos",
+          "subsections": [
+            "### \"Dere har et fint hjem\"",
+            "### \"Maten er kjempegod\"",
+            "### \"Deres sønn/datter gjør meg veldig lykkelig\""
+          ]
+        },
+        {
+          "header": "## Ofreciendo Ayuda",
+          "subsections": [
+            "### \"Kan jeg hjelpe til med noe?\""
+          ]
+        },
+        {
+          "header": "## Despedidas",
+          "subsections": [
+            "### \"Takk for en hyggelig kveld\"",
+            "### \"Det var hyggelig å møte dere\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "44dffd59-a3e9-4326-940a-90ed5a908b26",
+      "title": "Чеські фрази для суперечок і розбіжностей",
+      "native_lang": "uk",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Початок серйозної розмови",
+          "subsections": [
+            "### \"Musíme si promluvit\"",
+            "### \"Cítím se zraněný/zraněná, když ty...\"",
+            "### \"Můžeme o tom mluvit v klidu?\""
+          ]
+        },
+        {
+          "header": "## Вираження незгоди",
+          "subsections": [
+            "### \"Nesouhlasím\"",
+            "### \"Vidím to jinak\"",
+            "### \"To jsem neměl/neměla na mysli\""
+          ]
+        },
+        {
+          "header": "## Емоційні вирази",
+          "subsections": [
+            "### \"To mě bolí\"",
+            "### \"Jsem frustrovaný/frustrovaná\"",
+            "### \"Potřebuji, abys mě vyslechl/vyslechla\""
+          ]
+        },
+        {
+          "header": "## Прохання про простір",
+          "subsections": [
+            "### \"Potřebuji čas na přemýšlení\"",
+            "### \"Udělejme si pauzu\""
+          ]
+        },
+        {
+          "header": "## Пошук рішення",
+          "subsections": [
+            "### \"Jak to můžeme vyřešit?\"",
+            "### \"Najděme kompromis\"",
+            "### \"Jsem ochotný/ochotná ustoupit\""
+          ]
+        },
+        {
+          "header": "## Визнання помилки",
+          "subsections": [
+            "### \"Máš pravdu, mýlil/mýlila jsem se\"",
+            "### \"To jsem neměl/neměla říkat\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "44e4e067-260e-4fcd-8942-55765955a223",
+      "title": "Frases para Conocer a los Suegros en Ucraniano: Conquistando a los Свекри/Теща",
+      "native_lang": "es",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Saludos y Presentaciones",
+          "subsections": [
+            "### \"Дуже радий/рада з вами познайомитися\" (Duzhe radyy/rada z vamy poznayomytysya)",
+            "### \"Я багато чув/чула про вас\" (Ya bahato chuv/chula pro vas)",
+            "### \"Дякую за запрошення\" (Dyakuyu za zaproshennya)"
+          ]
+        },
+        {
+          "header": "## Cumplidos",
+          "subsections": [
+            "### \"У вас чудовий дім\" (U vas chudovyy dim)",
+            "### \"Їжа дуже смачна\" (Yizha duzhe smachna)",
+            "### \"Ваш син/Ваша донька робить мене дуже щасливим/щасливою\" (Vash syn/Vasha don'ka robyt' mene duzhe shchaslyvym/shchaslyvoyu)"
+          ]
+        },
+        {
+          "header": "## Ofreciendo Ayuda",
+          "subsections": [
+            "### \"Чи можу я чимось допомогти?\" (Chy mozhu ya chymos' dopomohty?)"
+          ]
+        },
+        {
+          "header": "## Mostrando Interés",
+          "subsections": [
+            "### \"Розкажіть про ваші сімейні традиції\" (Rozkazhit' pro vashi simeyni tradytsiyi)",
+            "### \"Як ви познайомилися?\" (Yak vy poznayomylysya?)"
+          ]
+        },
+        {
+          "header": "## Despedidas",
+          "subsections": [
+            "### \"Дякую за чудовий вечір\" (Dyakuyu za chudovyy vechir)",
+            "### \"Було дуже приємно познайомитися\" (Bulo duzhe pryyemno poznayomytysya)"
+          ]
+        }
+      ]
+    }
+  ]
+}

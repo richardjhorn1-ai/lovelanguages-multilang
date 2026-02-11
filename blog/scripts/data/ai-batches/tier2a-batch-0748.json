@@ -1,0 +1,178 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0748",
+  "articles": [
+    {
+      "id": "d823956f-bd9a-4173-a398-61f5064cb1dd",
+      "title": "Лексика о беременности на греческий: Словарь для будущих родителей",
+      "native_lang": "ru",
+      "target_lang": "el",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nОжидание το μωρό — это захватывающее время, наполненное новой лексикой для изучения. Если ваш партнёр говорит на греческий языке, знание этих терминов поможет вам общаться с их семьёй, понимать медицинские визиты и участвовать в каждом моменте этого путешествия вместе.\n\nДля более романтических выражений смотрите [романтические фразы на греческий](/blog/ru/greek-romantic-phrases-for-every-occasion).\n\n<PhraseOfDay\n  word=\"το μωρό\"\n  translation=\"ребёнок\"\n  pronunciation=\"το μωρό\"\n  context=\"Самое важное слово для будущих родителей.\"\n/>\n\n## Основная лексика о беременности\n\n<VocabCard\n  word=\"έγκυος\"\n  translation=\"беременна\"\n  pronunciation=\"έγκυος\"\n  example=\"Она έγκυος!\"\n/>\n\n| Greek | Русский | Контекст |\n|---|---|---|\n| το μωρό | ребёнок/малыш | Ваш будущий член семьи |\n| έγκυος | беременна | Состояние |\n| περιμένω παιδί | ждём ребёнка | Более мягкое выражение |\n| η ημερομηνία τοκετού | дата родов | Когда ждать малыша |\n| το υπερηχογράφημα | УЗИ | Медицинское обследование |\n| το παιδικό δωμάτιο | детская | Комната для малыша |\n| η κούνια | кроватка | Где спит малыш |\n| το καροτσάκι | коляска | Для прогулок |\n\n<CultureTip flag=\"🇬🇷\" title=\"Традиции объявления беременности\">\nВ культурах, где говорят на греческий языке, объявление о беременности часто следует определённым традициям. Некоторые семьи ждут до определённого срока, прежде чем сообщить новости, в то время как другие отмечают сразу.\n</CultureTip>\n\n## Объявление о беременности\n\n### Для близких родственников\n- **Мы περιμένω παιδί!** - Мы ждём ребёнка!\n- **У нас будет το μωρό!** - У нас будет малыш!\n- **Вы станете бабушкой и дедушкой!** - Для родителей\n\n### Для друзей\n- **У нас большие новости!** - Создание интриги\n- **Наша семья растёт!** - Милый способ сообщить\n- **το μωρό в пути!** - Прямое объявление\n\n<VocabCard\n  word=\"η ημερομηνία τοκετού\"\n  translation=\"дата родов\"\n  pronunciation=\"η ημερομηνία τοκετού\"\n  example=\"Наша η ημερομηνία τοκετού в июне.\"\n/>\n\n## Лексика для визитов к врачу\n\n### На приёме\n| Greek | Русский | Когда используется |\n|---|---|---|\n| το υπερηχογράφημα | УЗИ | Обследование |\n| врач | доктор | Медицинский работник |\n| медсестра | медсестра | Помощник врача |\n| осмотр | обследование | Проверка здоровья |\n\n### Вопросы для врача\n- **Когда η ημερομηνία τοκετού?** - Уточнение даты\n- **Малыш здоров?** - О здоровье\n- **Это мальчик или девочка?** - О поле ребёнка\n\n<CultureTip flag=\"🇬🇷\" title=\"Медицинская терминология\">\nЗнание медицинских терминов на греческий языке может быть особенно полезно, если вы посещаете врачей в стране, где говорят на этом языке, или общаетесь с семьёй партнёра о беременности.\n</CultureTip>\n\n## Покупки для малыша\n\n### Необходимые вещи\n| Greek | Русский | Для чего |\n|---|---|---|\n| η κούνια | кроватка | Сон |\n| το καροτσάκι | коляска | Прогулки |\n| η πάνα | подгузник | Гигиена |\n| το μπιμπερό | бутылочка | Кормление |\n| το παιδικό δωμάτιο | детская комната | Пространство малыша |\n\n### В магазине\n- **Где отдел для το μωρό?** - Поиск товаров\n- **Это для новорождённых?** - О размере\n- **У вас есть το καροτσάκι?** - Поиск конкретного товара\n\n<VocabCard\n  word=\"το παιδικό δωμάτιο\"\n  translation=\"детская комната\"\n  pronunciation=\"το παιδικό δωμάτιο\"\n  example=\"Мы украшаем το παιδικό δωμάτιο.\"\n/>\n\n## Разговор с семьёй партнёра\n\n### Делимся новостями\n- **У нас радостные новости!** - Начало разговора\n- **το μωρό будет в [месяц]** - Сообщение срока\n- **Мы так рады!** - Выражение эмоций\n\n### Обсуждение планов\n- **Мы думаем о именах** - О выборе имени\n- **Хотите помочь с το παιδικό δωμάτιο?** - Приглашение участвовать\n- **Будете ли вы на родах?** - О присутствии\n\n## Имена для малыша\n\n### Обсуждение имён\n| Фраза | Перевод | Использование |\n|---|---|---|\n| Как назовём το μωρό? | Выбор имени | Начало обсуждения |\n| Мне нравится это имя | Предложение | Высказывание мнения |\n| Это семейное имя? | Традиции | О значении имени |\n\n<CultureTip flag=\"🇬🇷\" title=\"Традиции наименования\">\nВ культурах, где говорят на греческий языке, выбор имени часто имеет особое значение. Может быть традиция называть детей в честь бабушек и дедушек или выбирать имена с определённым значением.\n</CultureTip>\n\n## После рождения\n\n### Объявление о рождении\n- **το μωρό родился/родилась!** - Главная новость\n- **Мальчик/Девочка!** - О поле\n- **Все здоровы!** - Хорошие новости\n\n### Первые дни\n| Момент | Что сказать |\n|---|---|\n| Первая встреча | Добро пожаловать в мир, малыш |\n| Кормление | Пора кушать |\n| Смена η πάνα | Нужен новый η πάνα |\n| Сон | Время спать |\n\n## Полезные фразы\n\n### Ежедневные выражения\n- **το μωρό проснулся!** - Утром\n- **Нужно поменять η πάνα** - О гигиене\n- **Где το μπιμπερό?** - Кормление\n- **Пора гулять с το καροτσάκι** - На прогулку\n\n## Краткий справочник\n\n| Ситуация | Фраза |\n|---|---|\n| Объявление | Мы ждём το μωρό! |\n| Срок | η ημερομηνία τοκετού в [месяц] |\n| Рождение | το μωρό здесь! |\n| Пол | Мальчик/Девочка! |\n\nПодготовка к появлению το μωρό становится ещё более особенной, когда вы можете разделить этот опыт на греческий языке с семьёй вашего партнёра.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Объявление о беременности",
+              "## Лексика для визитов к врачу",
+              "## Покупки для малыша",
+              "## Разговор с семьёй партнёра",
+              "## Имена для малыша",
+              "## После рождения",
+              "## Полезные фразы"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "d830ec90-bb7a-4184-91e8-15acef2aaa8d",
+      "title": "Hungarian Jealousy & Trust Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "Jealousy and trust are important topics in any relationship. When you're with a Hungarian speaker, knowing how to discuss these feelings in their language shows deep commitment. Here are essential Hungarian phrases.\n\n## Expressing Jealousy\n\n### Féltékeny vagyok\n**Pronunciation:** FAYL-tay-kehn VAH-dyohk\n\n**Meaning:** \"I'm jealous\"\n\n**When to use it:** To honestly admit your feelings.\n\n### Féltékeny leszek, amikor...\n**Pronunciation:** FAYL-tay-kehn LEH-sek, AH-mee-kohr\n\n**Meaning:** \"I get jealous when...\"\n\n**When to use it:** To explain your triggers.\n\n### Nem szeretem ezt a féltékenységet, amit érzek\n**Pronunciation:** nehm SEH-reh-tehm ehzt ah FAYL-tay-kehn-shay-geht, AH-meet EHR-zek\n\n**Meaning:** \"I don't like this jealousy I feel\"\n\n**When to use it:** To show self-awareness.\n\n## Seeking Reassurance\n\n### Csak engem szeretsz?\n**Pronunciation:** chahk EHN-gehm SEH-rehts\n\n**Meaning:** \"Do you love only me?\"\n\n**When to use it:** When seeking reassurance.\n\n### Szükségem van rá, hogy megnyugtass\n**Pronunciation:** SOOK-shay-gehm vahn rah, hohdy MEHG-nyoog-tahsh\n\n**Meaning:** \"I need you to reassure me\"\n\n**When to use it:** When asking for comfort.\n\n## Building Trust\n\n### Bízom benned\n**Pronunciation:** BEE-zohm BEHN-nehd\n\n**Meaning:** \"I trust you\"\n\n**When to use it:** To express trust directly.\n\n### Teljesen meg akarok bízni benned\n**Pronunciation:** TEHL-yeh-shehn mehg AH-kah-rohk BEEZ-nee BEHN-nehd\n\n**Meaning:** \"I want to trust you completely\"\n\n**When to use it:** When building deeper trust.\n\n### Hogyan építhetünk több bizalmat?\n**Pronunciation:** HOH-dyahn EH-peet-heh-toonk terb BEE-zahl-maht\n\n**Meaning:** \"How can we build more trust?\"\n\n**When to use it:** To strengthen trust together.\n\n## Giving Reassurance\n\n### Csak téged látlak\n**Pronunciation:** chahk TEH-gehd LAHT-lahk\n\n**Meaning:** \"I only see you\"\n\n**When to use it:** A romantic reassurance.\n\n### Te vagy az egyetlen nekem\n**Pronunciation:** teh vahdy ahz EH-dyeht-lehn NEH-kehm\n\n**Meaning:** \"You're the only one for me\"\n\n**When to use it:** To affirm commitment.\n\n### Nincs miért aggódnod\n**Pronunciation:** neench mee-EHRT AHG-gohd-nohd\n\n**Meaning:** \"You have nothing to worry about\"\n\n**When to use it:** To calm concerns.\n\n### A szívem a tiéd\n**Pronunciation:** ah SEE-vehm ah tee-EHD\n\n**Meaning:** \"My heart is yours\"\n\n**When to use it:** A romantic declaration.\n\n## Setting Boundaries\n\n### A féltékenység hatással van a kapcsolatunkra\n**Pronunciation:** ah FAYL-tay-kehn-shayg HAH-tahsh-shahl vahn ah KAHP-choh-lah-toonk-rah\n\n**Meaning:** \"Jealousy is affecting our relationship\"\n\n**When to use it:** When jealousy becomes problematic.\n\n### Szükségem van a saját teremre\n**Pronunciation:** SOOK-shay-gehm vahn ah SHAH-yaht TEH-rem-reh\n\n**Meaning:** \"I need my own space\"\n\n**When to use it:** To establish boundaries.\n\n## Cultural Considerations\n\nHungarian culture values emotional depth in relationships. Discussing feelings like jealousy openly shows trust and investment.\n\n\"Bizalom\" (trust) is earned through loyalty, consistency, and standing by your partner.\n\nHungarians may appreciate thorough discussion of emotional topics rather than avoiding them.\n\n## Building Strong Bizalom\n\n\"A bizalom idővel épül\" (Trust is built over time). These honest conversations strengthen your relationship foundation.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Expressing Jealousy",
+              "## Seeking Reassurance",
+              "## Building Trust",
+              "## Giving Reassurance",
+              "## Setting Boundaries"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "d83fc7be-75c4-4897-a710-15bc95832f3d",
+      "title": "Французька vs Англійська: Ключові відмінності для українців",
+      "native_lang": "uk",
+      "target_lang": "fr",
+      "category": "grammar",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport ConjugationTable from '@components/ConjugationTable.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nЯкщо ви вже знаєте англійську, французька буде легшою — обидві мови мають багато спільних слів! А для українців французька навіть ближча, бо має граматичний рід та відмінювання дієслів. Давайте порівняємо ці три мови.\n\n## Що спільного між французькою та англійською\n\n<PhraseOfDay\n  word=\"Cognates — Споріднені слова\"\n  translation=\"Слова, схожі в обох мовах\"\n  pronunciation=\"\"\n  context=\"Близько 45% англійських слів мають французьке походження!\"\n/>\n\n### Приклади споріднених слів\n\n| Англійська | Французька | Українська |\n|------------|------------|------------|\n| Restaurant | Restaurant | Ресторан |\n| Hotel | Hôtel | Готель |\n| Information | Information | Інформація |\n| Restaurant | Restaurant | Ресторан |\n| Apartment | Appartement | Квартира |\n| Adventure | Aventure | Пригода |\n\n<CultureTip title=\"Обережно з false friends!\" flag=\"🇫🇷\">\nДеякі слова виглядають схоже, але мають різне значення:\n- **Attendre** (фр.) = чекати (не \"відвідувати\"!)\n- **Librairie** (фр.) = книгарня (не \"бібліотека\")\n- **Blessé** (фр.) = поранений (не \"благословенний\")\n</CultureTip>\n\n## Ключові відмінності\n\n### 1. Граматичний рід\n\n**Англійська**: Немає граматичного роду\n**Французька**: Два роди (чоловічий і жіночий)\n\n<VocabCard\n  word=\"The book / Le livre (чол.)\"\n  translation=\"Книга\"\n  pronunciation=\"ле лівр\"\n  example=\"В англійській 'the book', у французькій 'LE livre' (чоловічий рід)\"\n/>\n\n<VocabCard\n  word=\"The table / La table (жін.)\"\n  translation=\"Стіл\"\n  pronunciation=\"ла табль\"\n  example=\"В англійській 'the table', у французькій 'LA table' (жіночий рід)\"\n/>\n\n### 2. Дієвідмінювання\n\n**Англійська**: Мінімальні зміни\n**Французька**: Повне відмінювання\n\n<ConjugationTable\n  verb=\"To speak / Parler\"\n  meaning=\"говорити\"\n  conjugations={[\n    { person: \"I/Je\", polish: \"speak / parle\", english: \"\" },\n    { person: \"You/Tu\", polish: \"speak / parles\", english: \"\" },\n    { person: \"He/Il\", polish: \"speaks / parle\", english: \"\" },\n    { person: \"We/Nous\", polish: \"speak / parlons\", english: \"\" },\n    { person: \"They/Ils\", polish: \"speak / parlent\", english: \"\" }\n  ]}\n/>\n\n<CultureTip title=\"Чому це добре для українців\" flag=\"🇺🇦\">\nУкраїнська теж має повне дієвідмінювання та граматичний рід! Тому французька система буде вам знайомою. Англійська \"I speak, you speak, he speaks\" — навпаки, може здаватись дивною.\n</CultureTip>\n\n### 3. Прикметники\n\n**Англійська**: ПЕРЕД іменником, не змінюються\n**Французька**: ПІСЛЯ іменника, узгоджуються\n\n<VocabCard\n  word=\"A beautiful woman\"\n  translation=\"Une belle femme\"\n  pronunciation=\"юн бель фам\"\n  example=\"Англ: beautiful + woman. Фр: femme + belle (після!)\"\n/>\n\n<VocabCard\n  word=\"A big house\"\n  translation=\"Une grande maison\"\n  pronunciation=\"юн гранд мезон\"\n  example=\"grand → grande (змінюється для жіночого роду!)\"\n/>\n\n### 4. Заперечення\n\n**Англійська**: don't/doesn't + дієслово\n**Французька**: ne...pas обгортає дієслово\n\n<VocabCard\n  word=\"I don't speak\"\n  translation=\"Je ne parle pas\"\n  pronunciation=\"же не парль па\"\n  example=\"Англ: don't + speak. Фр: ne + parle + pas\"\n/>\n\n### 5. Питання\n\n**Англійська**: Допоміжні дієслова (Do you...?)\n**Французька**: Кілька способів\n\n<VocabCard\n  word=\"Do you speak French?\"\n  translation=\"Tu parles français? / Est-ce que tu parles français?\"\n  pronunciation=\"тю парль франсе / еске тю парль франсе\"\n  example=\"Французька: можна просто інтонацією або 'est-ce que'\"\n/>\n\n## Вимова: Що складніше\n\n### Французька складніша в цьому:\n\n<VocabCard\n  word=\"Носові звуки\"\n  translation=\"on, an, in, un\"\n  pronunciation=\"\"\n  example=\"'bon' (бон) — звук через ніс, якого немає в англійській\"\n/>\n\n<VocabCard\n  word=\"Французька R\"\n  translation=\"Горлове R\"\n  pronunciation=\"\"\n  example=\"'rouge' — R вимовляється в горлі, не як англійська чи українська\"\n/>\n\n<VocabCard\n  word=\"Liaison\"\n  translation=\"Зв'язування слів\"\n  pronunciation=\"\"\n  example=\"'les amis' = [лезамі] — букви з'єднуються\"\n/>\n\n### Англійська складніша в цьому:\n\n<VocabCard\n  word=\"Непередбачуване письмо\"\n  translation=\"Слова читаються не так, як пишуться\"\n  pronunciation=\"\"\n  example=\"'through', 'though', 'thought' — всі по-різному!\"\n/>\n\n<CultureTip title=\"Хороша новина!\" flag=\"🇫🇷\">\nФранцузька більш фонетична за англійську! Правила вимови логічніші. Якщо ви знаєте правила, ви можете прочитати будь-яке французьке слово. В англійській це неможливо!\n</CultureTip>\n\n## Порядок слів\n\n| Елемент | Англійська | Французька |\n|---------|------------|------------|\n| Базовий | SVO | SVO |\n| Прикметник | Перед іменником | Після іменника |\n| Прислівник | Різне місце | Після дієслова |\n| Заперечення | don't + verb | ne + verb + pas |\n\n## Часи: Порівняння\n\n| Час | Англійська | Французька |\n|-----|------------|------------|\n| Теперішній | I speak | Je parle |\n| Минулий простий | I spoke | J'ai parlé |\n| Майбутній | I will speak | Je parlerai |\n| Імперфект | (I was speaking) | Je parlais |\n\n<VocabCard\n  word=\"Passé Composé vs Imparfait\"\n  translation=\"Два минулі часи у французькій\"\n  pronunciation=\"\"\n  example=\"J'ai mangé (я з'їв) vs Je mangeais (я їв/їдав)\"\n/>\n\n\n## Що легше для українців?\n\n| Аспект | Легше в англійській | Легше у французькій |\n|--------|--------------------|--------------------|\n| Рід | Немає | Є (як в українській) |\n| Дієвідміни | Прості | Складні (як в укр.) |\n| Вимова | Складна | Більш логічна |\n| Правопис | Непередбачуваний | За правилами |\n| Артиклі | Прості | Складніші |\n\n## Поради для вивчення\n\n1. **Використовуйте cognates** — тисячі схожих слів!\n2. **Як носій української** — рід та дієслова будуть знайомі\n3. **Вимова** — вчіть правила, вони логічні\n4. **Liaison** — слухайте багато французької, щоб звикнути\n\n<CultureTip title=\"Головне\" flag=\"🇫🇷\">\nДля українців французька може бути легшою за англійську в деяких аспектах! Рід, дієвідміни — все знайоме. А якщо ви вже знаєте англійську, тисячі споріднених слів допоможуть швидко розширити словник!\n</CultureTip>\n\n<CTA\n  text=\"Готові вивчити французьку?\"\n  buttonText=\"Почати вчитися разом\"\n/>\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Ключові відмінності",
+              "## Вимова: Що складніше"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "d84296a6-8ea6-419c-bdc0-e947dc68a0f9",
+      "title": "Italiaanse Zinnen voor Verzoening en Goedmaken",
+      "native_lang": "nl",
+      "target_lang": "it",
+      "category": "communication",
+      "content": "Italianen zijn meesters in passie – zowel in conflict als in verzoening. Na een ruzie is het goedmaken net zo intens en liefdevol als de relatie zelf.\n\n## Italiaanse verzoening\n\nIn Italië is verzoening een kunst. Het combineert woorden, gebaren, en vaak lekker eten. Je Italiaanse partner verwacht warmte en emotie – geen koele nuchterheid.\n\n## Essentiële zinnen voor verzoening\n\n### 1. \"Mi dispiace tanto per quello che ho detto\"\n**Betekenis:** Het spijt me zo wat ik heb gezegd\n\n**Uitspraak:** *mie dies-pja-tsje tan-to per kwel-lo kee o det-to*\n\nOprechte verontschuldiging.\n\n### 2. \"Possiamo ricominciare da zero?\"\n**Betekenis:** Kunnen we opnieuw beginnen?\n\n**Uitspraak:** *pos-sia-mo rie-ko-mien-tsja-re da dzee-ro*\n\nEen frisse start.\n\n### 3. \"Non volevo ferirti\"\n**Betekenis:** Ik wilde je niet kwetsen\n\n**Uitspraak:** *non vo-lee-vo fe-rier-tie*\n\nJe intenties verduidelijken.\n\n### 4. \"Sei tutto per me\"\n**Betekenis:** Je bent alles voor mij\n\n**Uitspraak:** *see toe-to per me*\n\nHerbevestig je liefde.\n\n### 5. \"Ho sbagliato e lo ammetto\"\n**Betekenis:** Ik had ongelijk en ik geef het toe\n\n**Uitspraak:** *o zba-lja-to ee lo am-met-to*\n\nVerantwoordelijkheid nemen.\n\n### 6. \"Ti amo più di qualsiasi litigio\"\n**Betekenis:** Ik hou meer van je dan van elke ruzie\n\n**Uitspraak:** *tie a-mo pjoe die kwal-sie-a-sie lie-tie-dzjo*\n\nLiefde boven conflict.\n\n### 7. \"Cosa posso fare per farmi perdonare?\"\n**Betekenis:** Wat kan ik doen om vergeven te worden?\n\n**Uitspraak:** *ko-za pos-so fa-re per far-mie per-do-na-re*\n\nBereidheid tot actie.\n\n### 8. \"Ti perdono\"\n**Betekenis:** Ik vergeef je\n\n**Uitspraak:** *tie per-do-no*\n\nVergeving uitspreken.\n\n### 9. \"Mettiamoci questo alle spalle\"\n**Betekenis:** Laten we dit achter ons laten\n\n**Uitspraak:** *met-tja-mo-tsje kwes-to al-le spal-le*\n\nVooruit kijken.\n\n### 10. \"Vieni qui, abbracciami\"\n**Betekenis:** Kom hier, omhels me\n\n**Uitspraak:** *vje-nie kwie, ab-bra-tsja-mie*\n\nFysieke verzoening.\n\n### 11. \"Il nostro amore è più forte di questo\"\n**Betekenis:** Onze liefde is sterker dan dit\n\n**Uitspraak:** *iel nos-tro a-mo-re ee pjoe for-te die kwes-to*\n\nJullie band benadrukken.\n\n### 12. \"Non voglio mai perderti\"\n**Betekenis:** Ik wil je nooit verliezen\n\n**Uitspraak:** *non vol-jo mai per-der-tie*\n\nGehechtheid uitdrukken.\n\n## Italiaanse stijl van goedmaken\n\n**Eten:** Een zelfgemaakt gerecht is een klassiek Italiaans gebaar van liefde en verzoening.\n\n**Fysiek contact:** Veel knuffels en kussen – Italianen zijn fysiek in hun affectie.\n\n**Woorden:** Italiaans leent zich perfect voor romantische verklaringen. Gebruik dit!\n\n**Tijd samen:** Een wandeling of koffie samen kan wonderen doen.\n\n## Conclusie\n\nVerzoening met je Italiaanse partner is warm, emotioneel en liefdevol. Omarm deze intensiteit en je relatie wordt er sterker van.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Essentiële zinnen voor verzoening"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "d868ca79-5fcf-4018-bf8a-2f629d0ef627",
+      "title": "En Yaygın 100 Fransızca Kelime",
+      "native_lang": "tr",
+      "target_lang": "fr",
+      "category": "communication",
+      "content": "Fransızca öğrenmeye başlarken en yaygın kelimeleri bilmek önemlidir.\n\n## Temel Zamirler\n\n### 1. Je /jö/ - Ben\n### 2. Tu /tü/ - Sen\n### 3. Il /il/ - O (erkek)\n### 4. Elle /el/ - O (kadın)\n### 5. Nous /nu/ - Biz\n### 6. Vous /vu/ - Siz\n### 7. Ils/Elles /il/el/ - Onlar\n\n### 8. Et /e/ - Ve\n### 9. Mais /me/ - Ama\n### 10. Ou /u/ - Veya\n\n## Temel Fiiller\n\n### 11. Être /etr/ - Olmak\n### 12. Avoir /avuar/ - Sahip olmak\n### 13. Faire /fer/ - Yapmak\n### 14. Dire /dir/ - Söylemek\n### 15. Aller /ale/ - Gitmek\n### 16. Venir /vönir/ - Gelmek\n### 17. Pouvoir /puvuar/ - Yapabilmek\n### 18. Savoir /savuar/ - Bilmek\n### 19. Vouloir /vuluar/ - İstemek\n### 20. Voir /vuar/ - Görmek\n### 21. Donner /done/ - Vermek\n### 22. Parler /parle/ - Konuşmak\n### 23. Prendre /prandr/ - Almak\n### 24. Aimer /eme/ - Sevmek\n### 25. Manger /manje/ - Yemek\n\n## Sıfatlar\n\n### 26. Bon /bon/ - İyi\n### 27. Mauvais /move/ - Kötü\n### 28. Grand /gran/ - Büyük\n### 29. Petit /pöti/ - Küçük\n### 30. Nouveau /nuvo/ - Yeni\n### 31. Vieux /vyö/ - Eski/yaşlı\n### 32. Long /lon/ - Uzun\n### 33. Court /kur/ - Kısa\n### 34. Chaud /şo/ - Sıcak\n### 35. Froid /frua/ - Soğuk\n\n## Zaman İfadeleri\n\n### 36. Maintenant /mentnã/ - Şimdi\n### 37. Aujourd'hui /ojurdüi/ - Bugün\n### 38. Demain /dömẽ/ - Yarın\n### 39. Hier /iyer/ - Dün\n### 40. Toujours /tujur/ - Her zaman\n### 41. Jamais /jame/ - Asla\n### 42. Parfois /parfua/ - Bazen\n\n## Soru Kelimeleri\n\n### 43. Quoi/Que /kua/kö/ - Ne\n### 44. Où /u/ - Nerede\n### 45. Quand /kan/ - Ne zaman\n### 46. Pourquoi /purkua/ - Neden\n### 47. Comment /koman/ - Nasıl\n### 48. Qui /ki/ - Kim\n\n## Sayılar\n\n### 49. Un /ön/ - Bir\n### 50. Deux /dö/ - İki\n### 51. Trois /trua/ - Üç\n### 52. Quatre /katr/ - Dört\n### 53. Cinq /senk/ - Beş\n### 54. Dix /dis/ - On\n### 55. Cent /san/ - Yüz\n\n## Günlük Kelimeler\n\n### 56. Oui /ui/ - Evet\n### 57. Non /non/ - Hayır\n### 58. S'il vous plaît /silvuple/ - Lütfen\n### 59. Merci /mersi/ - Teşekkürler\n### 60. Pardon /pardon/ - Özür dilerim\n### 61. Bonjour /bonjur/ - Merhaba\n### 62. Au revoir /orvuar/ - Hoşça kal\n### 63. Amour /amur/ - Aşk\n### 64. Ami /ami/ - Arkadaş\n### 65. Famille /famiy/ - Aile\n\nBu kelimeleri öğrenmek, Fransızca iletişiminizi güçlendirecektir.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Temel Zamirler",
+              "### 1. Je /jö/ - Ben",
+              "### 2. Tu /tü/ - Sen",
+              "### 3. Il /il/ - O (erkek)",
+              "### 4. Elle /el/ - O (kadın)",
+              "### 5. Nous /nu/ - Biz",
+              "### 6. Vous /vu/ - Siz",
+              "### 7. Ils/Elles /il/el/ - Onlar",
+              "### 8. Et /e/ - Ve",
+              "### 9. Mais /me/ - Ama",
+              "### 10. Ou /u/ - Veya",
+              "## Temel Fiiller",
+              "### 11. Être /etr/ - Olmak",
+              "### 12. Avoir /avuar/ - Sahip olmak",
+              "### 13. Faire /fer/ - Yapmak",
+              "### 14. Dire /dir/ - Söylemek",
+              "### 15. Aller /ale/ - Gitmek",
+              "### 16. Venir /vönir/ - Gelmek",
+              "### 17. Pouvoir /puvuar/ - Yapabilmek",
+              "### 18. Savoir /savuar/ - Bilmek",
+              "### 19. Vouloir /vuluar/ - İstemek",
+              "### 20. Voir /vuar/ - Görmek",
+              "### 21. Donner /done/ - Vermek",
+              "### 22. Parler /parle/ - Konuşmak",
+              "### 23. Prendre /prandr/ - Almak",
+              "### 24. Aimer /eme/ - Sevmek",
+              "### 25. Manger /manje/ - Yemek",
+              "## Sıfatlar",
+              "### 26. Bon /bon/ - İyi",
+              "### 27. Mauvais /move/ - Kötü",
+              "### 28. Grand /gran/ - Büyük",
+              "### 29. Petit /pöti/ - Küçük",
+              "### 30. Nouveau /nuvo/ - Yeni",
+              "### 31. Vieux /vyö/ - Eski/yaşlı",
+              "### 32. Long /lon/ - Uzun",
+              "### 33. Court /kur/ - Kısa",
+              "### 34. Chaud /şo/ - Sıcak",
+              "### 35. Froid /frua/ - Soğuk",
+              "## Zaman İfadeleri",
+              "### 36. Maintenant /mentnã/ - Şimdi",
+              "### 37. Aujourd'hui /ojurdüi/ - Bugün",
+              "### 38. Demain /dömẽ/ - Yarın",
+              "### 39. Hier /iyer/ - Dün",
+              "### 40. Toujours /tujur/ - Her zaman",
+              "### 41. Jamais /jame/ - Asla",
+              "### 42. Parfois /parfua/ - Bazen",
+              "## Soru Kelimeleri",
+              "### 43. Quoi/Que /kua/kö/ - Ne",
+              "### 44. Où /u/ - Nerede",
+              "### 45. Quand /kan/ - Ne zaman",
+              "### 46. Pourquoi /purkua/ - Neden",
+              "### 47. Comment /koman/ - Nasıl",
+              "### 48. Qui /ki/ - Kim",
+              "## Sayılar",
+              "### 49. Un /ön/ - Bir",
+              "### 50. Deux /dö/ - İki",
+              "### 51. Trois /trua/ - Üç",
+              "### 52. Quatre /katr/ - Dört",
+              "### 53. Cinq /senk/ - Beş",
+              "### 54. Dix /dis/ - On",
+              "### 55. Cent /san/ - Yüz",
+              "## Günlük Kelimeler",
+              "### 56. Oui /ui/ - Evet",
+              "### 57. Non /non/ - Hayır",
+              "### 58. S'il vous plaît /silvuple/ - Lütfen",
+              "### 59. Merci /mersi/ - Teşekkürler",
+              "### 60. Pardon /pardon/ - Özür dilerim",
+              "### 61. Bonjour /bonjur/ - Merhaba",
+              "### 62. Au revoir /orvuar/ - Hoşça kal",
+              "### 63. Amour /amur/ - Aşk",
+              "### 64. Ami /ami/ - Arkadaş"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

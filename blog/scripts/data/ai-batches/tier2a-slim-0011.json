@@ -1,0 +1,441 @@
+{
+  "batchId": "tier2a-slim-0011",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "21655452-9d5c-4fa8-889a-a48900709c48",
+      "title": "Φράσεις για το Πρώτο Ραντεβού (cs): Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις",
+          "subsections": [
+            "### Γνωριμία",
+            "### Συζήτηση",
+            "### Φλερτ",
+            "### Κλείσιμο"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2168966f-e7c5-46f4-be64-8b8143a0edb5",
+      "title": "Фразы для медового месяца на турецкий: Романтическое путешествие",
+      "native_lang": "ru",
+      "target_lang": "tr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## В аэропорту",
+          "subsections": [
+            "### Регистрация",
+            "### На борту"
+          ]
+        },
+        {
+          "header": "## В отеле",
+          "subsections": [
+            "### Регистрация",
+            "### Романтические просьбы"
+          ]
+        },
+        {
+          "header": "## На пляже",
+          "subsections": [
+            "### Пляжная лексика",
+            "### Романтические фразы на plaj"
+          ]
+        },
+        {
+          "header": "## Ужин вдвоём",
+          "subsections": [
+            "### В ресторане",
+            "### Романтические тосты"
+          ]
+        },
+        {
+          "header": "## Экскурсии и приключения",
+          "subsections": [
+            "### Планирование macera",
+            "### Создание anılar"
+          ]
+        },
+        {
+          "header": "## Романтические моменты",
+          "subsections": [
+            "### Фразы для особых моментов",
+            "### Закат"
+          ]
+        },
+        {
+          "header": "## Покупка сувениров",
+          "subsections": [
+            "### В магазине",
+            "### Идеи подарков"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "216f0552-9431-490a-a395-4b183b6453f4",
+      "title": "Spanische Aussprache für deutsche Muttersprachler",
+      "native_lang": "de",
+      "target_lang": "es",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Konsonanten, die anders sind",
+          "subsections": [
+            "### Das spanische \"R\"",
+            "### Das \"J\" und \"G\"",
+            "### Das \"C\" und \"Z\"",
+            "### Das \"Ñ\"",
+            "### Das \"LL\" und \"Y\"",
+            "### Das \"H\"",
+            "### Das \"V\"",
+            "### Das \"QU\"",
+            "### Das \"GU\""
+          ]
+        },
+        {
+          "header": "## Die spanische Betonung",
+          "subsections": [
+            "### Regeln für die Betonung",
+            "### Der Akzent macht den Unterschied"
+          ]
+        },
+        {
+          "header": "## Typische Fehler deutscher Sprecher",
+          "subsections": [
+            "### Fehler 1: Vokale zu lang",
+            "### Fehler 2: Das deutsche CH verwenden",
+            "### Fehler 3: V wie deutsches W aussprechen",
+            "### Fehler 4: Das H aussprechen",
+            "### Fehler 5: Das R deutsch aussprechen"
+          ]
+        },
+        {
+          "header": "## Übungen zur Aussprache",
+          "subsections": [
+            "### Zungenbrecher (Trabalenguas)",
+            "### Minimalpaare üben"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2174dcd6-34ef-46e0-995e-b421d95b3319",
+      "title": "Prononciation roumaine : guide complet pour francophones",
+      "native_lang": "fr",
+      "target_lang": "ro",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Mots de pratique",
+          "subsections": [
+            "### Salutations",
+            "### Mots romantiques"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "267e5d61-1948-4caf-90cf-a1d86b72cf37",
+      "title": "Expresii de Călătorie pentru Luna de Miere în Germană: Ghid pentru",
+      "native_lang": "ro",
+      "target_lang": "de",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## La Restaurant",
+          "subsections": [
+            "### Expresii de Bază",
+            "### Cină Romantică"
+          ]
+        },
+        {
+          "header": "## Transport și Explorare",
+          "subsections": [
+            "### Mijloace de Transport",
+            "### Expresii Utile"
+          ]
+        },
+        {
+          "header": "## Activități pentru Cupluri",
+          "subsections": [
+            "### Romantice",
+            "### Aventuroase"
+          ]
+        },
+        {
+          "header": "## Fotografii și Amintiri",
+          "subsections": [
+            "### Expresii pentru Fotografii",
+            "### Documentarea Călătoriei"
+          ]
+        },
+        {
+          "header": "## În Caz de Urgență",
+          "subsections": [
+            "### Numere și Expresii Utile",
+            "### Expresii de Urgență"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2686d5f5-3f52-4772-8911-fec223138a0e",
+      "title": "Is Russian Hard? Honest Assessment",
+      "native_lang": "en",
+      "target_lang": "ru",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## The Challenges: Let's Be Honest",
+          "subsections": [
+            "### 1. The Cyrillic Alphabet",
+            "### 2. The Case System",
+            "### 3. Verb Aspects",
+            "### 4. Gender of Nouns"
+          ]
+        },
+        {
+          "header": "## What's Easier Than Expected",
+          "subsections": [
+            "### 1. No Articles",
+            "### 2. Flexible Word Order",
+            "### 3. Phonetic Spelling",
+            "### 4. Only Three Tenses"
+          ]
+        },
+        {
+          "header": "## Learning Strategies That Work",
+          "subsections": [
+            "### 1. Embrace the Cyrillic First",
+            "### 2. Learn Phrases, Not Just Words",
+            "### 3. Use the \"Couples Advantage\"",
+            "### 4. Don't Fear Mistakes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "26a3a249-913d-4836-99bb-9502ea547c48",
+      "title": "Как сделать предложение на итальянский: Фразы для помолвки",
+      "native_lang": "ru",
+      "target_lang": "it",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Способы сделать предложение",
+          "subsections": [
+            "### Классическое предложение",
+            "### Более романтические варианты"
+          ]
+        },
+        {
+          "header": "## Подготовка к предложению",
+          "subsections": [
+            "### Советы по практике",
+            "### Создание атмосферы"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "26abaeed-98ce-4f5c-ab4f-246aa639859f",
+      "title": "Nederländska SMS- och chattfraser för kärleksrelationer",
+      "native_lang": "sv",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Morgonhälsningar",
+          "subsections": [
+            "### \"Goedemorgen, schatje\"",
+            "### \"Hoi, lieverd\"",
+            "### \"Hoe gaat het met mijn liefje?\""
+          ]
+        },
+        {
+          "header": "## Att uttrycka saknad",
+          "subsections": [
+            "### \"Ik mis je\"",
+            "### \"Ik denk aan je\"",
+            "### \"Ik kan niet wachten om je te zien\""
+          ]
+        },
+        {
+          "header": "## Kärleksförklaringar",
+          "subsections": [
+            "### \"Ik hou van je\"",
+            "### \"Ik hou zoveel van je\"",
+            "### \"Je bent de liefde van mijn leven\"",
+            "### \"Je betekent alles voor me\""
+          ]
+        },
+        {
+          "header": "## Flirtiga meddelanden",
+          "subsections": [
+            "### \"Je maakt me gelukkig\"",
+            "### \"Je bent prachtig\"",
+            "### \"Ik ben gek op je\"",
+            "### \"Je hebt mijn hart gestolen\""
+          ]
+        },
+        {
+          "header": "## Godnattmeddelanden",
+          "subsections": [
+            "### \"Welterusten, schat\"",
+            "### \"Slaap lekker, liefje\"",
+            "### \"Droom van mij\"",
+            "### \"Kusje voor het slapen\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "26af8d87-c5cd-4e1b-900b-bff243f0e0c5",
+      "title": "50+ Ukraińskich Zwrotów na Romantyczną Randkę",
+      "native_lang": "pl",
+      "target_lang": "uk",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Ukraińska kuchnia na randkę",
+          "subsections": [
+            "### Typowe dania",
+            "### Napoje"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Rezerwacja",
+            "### Ćwiczenie 2: Zamawianie",
+            "### Ćwiczenie 3: Planowanie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "27273094-64b7-491a-8539-97509e3f4206",
+      "title": "Ceha: 15 Moduri Romantice de a Spune Te Iubesc",
+      "native_lang": "ro",
+      "target_lang": "cs",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Fraze pentru Momente Speciale",
+          "subsections": [
+            "### Dimineața",
+            "### Seara",
+            "### Când Îți Este Dor"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2735b04a-23f7-4e76-8291-474a2c7502bf",
+      "title": "Orosz lánykérési és eljegyzési kifejezések",
+      "native_lang": "hu",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### A nagy kérdés",
+            "### Az eljegyzés bejelentése"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2741abf6-2e8d-4fa2-ac2f-deda4fe5fb49",
+      "title": "Frases de Apoio Emocional em Polonês: Confortando Seu Parceiro",
+      "native_lang": "pt",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases de Apoio Básico",
+          "subsections": [
+            "### Demonstrando Presença",
+            "### Validando Sentimentos",
+            "### Oferecendo Conforto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2749cc18-e4d8-4ba6-a898-7c4a296c3e34",
+      "title": "Frases de Paquera em Ucraniano: Romance com Charme Eslavo",
+      "native_lang": "pt",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases Essenciais de Paquera",
+          "subsections": [
+            "### Elogios Sinceros",
+            "### Expressando Interesse",
+            "### Cantadas Ucranianas",
+            "### Para Relacionamentos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2763b9fb-f2a1-4a66-a8b3-875d5faa3c8f",
+      "title": "Holland 'Hiányzol' Kifejezések Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Kifejezések",
+          "subsections": [
+            "### 1. Ik mis je",
+            "### 2. Ik mis je zo erg",
+            "### 3. Ik kan niet stoppen met aan je te denken",
+            "### 4. Ik wou dat je hier was",
+            "### 5. Je bent altijd in mijn gedachten",
+            "### 6. Ik tel de dagen tot ik je weer zie",
+            "### 7. Mijn hart verlangt naar je",
+            "### 8. Je betekent alles voor mij",
+            "### 9. Ik kan niet wachten om je te zien",
+            "### 10. Zonder jou is alles leeg"
+          ]
+        },
+        {
+          "header": "## Romantikus Kifejezések",
+          "subsections": [
+            "### 11. Je bent de liefde van mijn leven",
+            "### 12. Ik heb je nodig"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2763c014-30c5-4fa1-842f-d53de9cd2c67",
+      "title": "Frases de Saudade em Grego: Μου Λείπεις - Você Me Faz Falta",
+      "native_lang": "pt",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases Essenciais de Saudade",
+          "subsections": [
+            "### Expressões Básicas",
+            "### Saudade Profunda",
+            "### Para Relacionamentos à Distância",
+            "### Saudade Doce"
+          ]
+        }
+      ]
+    }
+  ]
+}

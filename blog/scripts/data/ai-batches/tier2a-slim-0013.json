@@ -1,0 +1,469 @@
+{
+  "batchId": "tier2a-slim-0013",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "28b970be-9be6-417a-acbb-d68e20f97801",
+      "title": "Portekizce Dilbilgisi Temelleri: Sevgilinizle Birlikte Öğrenin",
+      "native_lang": "tr",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Hızlı Bakış Tablosu",
+          "subsections": [
+            "### Artikel ve Sıfat Uyumu",
+            "### En Önemli 5 Fiil"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "28e17e01-1e01-4ba9-85c9-c2ec541197ed",
+      "title": "Pronuncia Ungherese per Principianti: Guida Romantica per Coppie",
+      "native_lang": "it",
+      "target_lang": "hu",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Consonanti: I Suoni Caratteristici",
+          "subsections": [
+            "### Il Suono \"Gy\" - Il Preferito degli Italiani",
+            "### Il Suono \"Ty\" - Come \"T\" Morbido",
+            "### La Serie \"S\" - Attenzione alle Trappole!"
+          ]
+        },
+        {
+          "header": "## Suoni Difficili per Italiani: La Nostra Guida",
+          "subsections": [
+            "### Il Temibile \"R\" Rottenuto",
+            "### I Gruppi Consonantici"
+          ]
+        },
+        {
+          "header": "## Esercizi di Coppia per la Pronuncia",
+          "subsections": [
+            "### Esercizio 1: La Sussurrata",
+            "### Esercizio 2: Il Gioco delle Emozioni",
+            "### Esercizio 3: Canzone D'Amore"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "28fa4485-467a-44ba-b5ad-04b5822f57d1",
+      "title": "Portuguese Subjunctive Mood Explained",
+      "native_lang": "en",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## When to Use the Subjunctive",
+          "subsections": [
+            "### After Expressions of Emotion",
+            "### After Expressions of Desire or Wish",
+            "### After Expressions of Doubt or Uncertainty",
+            "### After Certain Conjunctions"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "291c8131-7eed-4739-9a8f-0f1751201fcd",
+      "title": "Ukrainische Phrasen für die Schwiegereltern",
+      "native_lang": "de",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Erste Begegnung",
+          "subsections": [
+            "### \"Дуже радий/рада нарешті з вами познайомитися\"",
+            "### \"Я багато про вас чув/чула\"",
+            "### \"Дякую, що прийняли мене\"",
+            "### \"У вас чудовий дім\""
+          ]
+        },
+        {
+          "header": "## Bei Mahlzeiten",
+          "subsections": [
+            "### \"Це дуже смачно! Можна дізнатися рецепт?\"",
+            "### \"Дякую за цю чудову вечерю\"",
+            "### \"Чи можу я чимось допомогти?\""
+          ]
+        },
+        {
+          "header": "## Über Ihre Beziehung",
+          "subsections": [
+            "### \"Ваш син/Ваша донька значить для мене все\"",
+            "### \"Я дуже вдячний/вдячна, що [Name] є в моєму житті\"",
+            "### \"Обіцяю завжди піклуватися про [Name]\""
+          ]
+        },
+        {
+          "header": "## Dankbarkeit zeigen",
+          "subsections": [
+            "### \"Дякую за те, що виростили таку чудову людину\"",
+            "### \"Я дуже ціную ваш теплий прийом\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2928e5c8-9e60-41e5-be52-4fc1c6558deb",
+      "title": "50+ rumuńskich zdrobnień, które roztopią serce",
+      "native_lang": "pl",
+      "target_lang": "ro",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Jak uzywac zdrobnien naturalnie",
+          "subsections": [
+            "### Na poczatek dnia",
+            "### Podczas rozmowy",
+            "### Na pożegnańie",
+            "### W wiadomosciach tekstowych"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Gra w zdrobnienia",
+            "### Tworzcie własne",
+            "### Praktyka dzieńna"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "29291912-1fc1-41ee-8952-8479534a0344",
+      "title": "Ουκρανικές Φράσεις για Ζήλια & Εμπιστοσύνη: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για Ζήλια & Εμπιστοσύνη",
+          "subsections": [
+            "### Έκφραση Ανησυχίας",
+            "### Χτίσιμο Εμπιστοσύνης",
+            "### Αντιμετώπιση Ζήλιας",
+            "### Συζήτηση για Όρια"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2932aa39-4092-4535-8bb0-cad6e598f1e5",
+      "title": "Vocabular pentru Bebeluși și Sarcină în Rusă: Expresii Esențiale",
+      "native_lang": "ro",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Anunțarea Sarcinii",
+          "subsections": [
+            "### Expresii pentru Anunț",
+            "### Anunțuri Creative"
+          ]
+        },
+        {
+          "header": "## Vocabular Medical",
+          "subsections": [
+            "### Termeni pentru Consultații"
+          ]
+        },
+        {
+          "header": "## Evoluția Sarcinii",
+          "subsections": [
+            "### Primul Trimestru (Săptămânile 1-12)",
+            "### Al Doilea Trimestru (Săptămânile 13-26)",
+            "### Al Treilea Trimestru (Săptămânile 27-40)"
+          ]
+        },
+        {
+          "header": "## Pregătirea pentru Bebeluș",
+          "subsections": [
+            "### Obiecte Esențiale",
+            "### Camera Bebelușului"
+          ]
+        },
+        {
+          "header": "## Expresii de Felicitare",
+          "subsections": [
+            "### Pentru Anunț",
+            "### Pentru Naștere"
+          ]
+        },
+        {
+          "header": "## Tradiții și Superstiții",
+          "subsections": [
+            "### Superstiții Comune"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2936709a-49aa-4047-8695-9a2ff53721cc",
+      "title": "Mød Svigerforældrene på Svensk: Essentielle Udtryk",
+      "native_lang": "da",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## De Vigtigste Udtryk",
+          "subsections": [
+            "### 1. Trevligt att träffas",
+            "### 2. Tack så mycket för inbjudan",
+            "### 3. Ni har ett så fint hem",
+            "### 4. Jag har hört så mycket gott om er",
+            "### 5. Det här var jättegott! Kan jag få receptet?",
+            "### 6. Jag är så glad att vara här",
+            "### 7. Kan jag hjälpa till att duka av?",
+            "### 8. Er son/dotter betyder väldigt mycket för mig",
+            "### 9. Jag hoppas vi ses igen snart",
+            "### 10. Tack för en underbar kväll",
+            "### 11. Skål!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "294a327f-ccad-412a-a9b0-ff4122746381",
+      "title": "Rumänska Fraser för Försoning och Att Göra Upp",
+      "native_lang": "sv",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Inleda Försoning",
+          "subsections": [
+            "### 1. \"Îmi pare rău\"",
+            "### 2. \"Putem să o luăm de la capăt?\"",
+            "### 3. \"Urăsc să mă cert cu tine\"",
+            "### 4. \"Ești totul pentru mine\"",
+            "### 5. \"Am greșit și recunosc\""
+          ]
+        },
+        {
+          "header": "## Fraser för Djupare Försoning",
+          "subsections": [
+            "### 6. \"Să nu ne culcăm supărați\"",
+            "### 7. \"Te iubesc mai mult decât orice ceartă\"",
+            "### 8. \"Pot să te îmbrățișez?\"",
+            "### 9. \"Vreau să te înțeleg mai bine\"",
+            "### 10. \"Suntem mai puternici decât asta\"",
+            "### 11. \"Promit să fiu mai bun/ă\"",
+            "### 12. \"Mulțumesc pentru răbdarea ta cu mine\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "294f49b9-69fe-494d-a34f-9cb2a26ceab7",
+      "title": "50+ Surnoms Espagnols et Mots Tendres pour Faire Fondre le Cœur de Votre Partenaire",
+      "native_lang": "fr",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Comment Utiliser Ces Surnoms Naturellement",
+          "subsections": [
+            "### Le Contexte est Roi",
+            "### Les Erreurs à Éviter",
+            "### Pratiquez Ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2962ee37-c8b6-4501-97e3-470acaa4a1c1",
+      "title": "Hiszpańskie zwroty do kłótni i nieporozumień dla par",
+      "native_lang": "pl",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Podstawowe zwroty wyrażające niezgodę",
+          "subsections": [
+            "### \"No estoy de acuerdo contigo\"",
+            "### \"Yo lo veo de otra manera\"",
+            "### \"¿Podemos hablar de esto con calma?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie uczuć",
+          "subsections": [
+            "### \"Me siento frustrado/frustrada cuando...\"",
+            "### \"Esto me está molestando mucho\"",
+            "### \"Necesito un momento para pensar\""
+          ]
+        },
+        {
+          "header": "## Próby zrozumienia partnera",
+          "subsections": [
+            "### \"Ayúdame a entender tu punto de vista\"",
+            "### \"Lo que entiendo es que...\"",
+            "### \"¿Quieres decir que...?\""
+          ]
+        },
+        {
+          "header": "## Szukanie rozwiązań",
+          "subsections": [
+            "### \"¿Cómo podemos solucionar esto juntos?\"",
+            "### \"Busquemos un compromiso\"",
+            "### \"Creo que los dos necesitamos...\""
+          ]
+        },
+        {
+          "header": "## Zwroty łagodzące napięcie",
+          "subsections": [
+            "### \"Te quiero, aunque ahora estemos discutiendo\"",
+            "### \"Esto pasará, somos un equipo\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2990798e-ab5d-45c5-acec-eeff4efc2762",
+      "title": "Zwroty na pierwszą randkę po węgiersku",
+      "native_lang": "pl",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Rozpoczęcie rozmowy",
+          "subsections": [
+            "### Cześć! Miło Cię wreszcie poznać!",
+            "### Świetnie wyglądasz!",
+            "### Nie mogłem/mogłam się doczekać"
+          ]
+        },
+        {
+          "header": "## Poznawanie się",
+          "subsections": [
+            "### Opowiedz mi o sobie",
+            "### Co lubisz robić w wolnym czasie?",
+            "### Jaki jest Twój ulubiony...?"
+          ]
+        },
+        {
+          "header": "## Wyrażanie zainteresowania",
+          "subsections": [
+            "### To naprawdę interesujące",
+            "### Opowiedz mi więcej",
+            "### Chciałbym/Chciałabym wiedzieć więcej"
+          ]
+        },
+        {
+          "header": "## Dzielenie się o sobie",
+          "subsections": [
+            "### Pasjonuję się...",
+            "### Zawsze chciałem/chciałam..."
+          ]
+        },
+        {
+          "header": "## Komplementy",
+          "subsections": [
+            "### Uwielbiam Twój uśmiech",
+            "### Masz świetne poczucie humoru",
+            "### Świetnie się z Tobą bawię"
+          ]
+        },
+        {
+          "header": "## Planowanie następnego spotkania",
+          "subsections": [
+            "### Bardzo chciałbym/chciałabym Cię znowu zobaczyć",
+            "### Kiedy możemy to powtórzyć?",
+            "### Miałem/Miałam cudowny wieczór"
+          ]
+        },
+        {
+          "header": "## Pożegnanie",
+          "subsections": [
+            "### To było naprawdę cudowne",
+            "### Nie mogę się doczekać kolejnego spotkania"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "299877e0-4d6c-449f-9690-98ecc19d8e2a",
+      "title": "Ουγγρικές Φράσεις Συμφιλίωσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις Συμφιλίωσης",
+          "subsections": [
+            "### Έναρξη Συμφιλίωσης",
+            "### Έκφραση Μετάνοιας",
+            "### Έκφραση Αγάπης",
+            "### Πρόταση Λύσης"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "29989a7d-0e84-4d93-9191-0f6c1bf7a0ae",
+      "title": "Frases para Conocer a los Suegros en Griego: Conquistando a los Πεθερικά",
+      "native_lang": "es",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Saludos y Presentaciones",
+          "subsections": [
+            "### \"Χαίρομαι πολύ που σας γνωρίζω\" (Chaíromai polý pou sas gnorízo)",
+            "### \"Έχω ακούσει τόσα πολλά για εσάς\" (Écho akoúsei tósa pollá gia esás)",
+            "### \"Σας ευχαριστώ πολύ για την πρόσκληση\" (Sas efcharistó polý gia tin próskli̱si̱)"
+          ]
+        },
+        {
+          "header": "## Cumplidos",
+          "subsections": [
+            "### \"Έχετε ένα πολύ όμορφο σπίτι\" (Échete éna polý ómorfo spíti)",
+            "### \"Το φαγητό είναι απίστευτα νόστιμο\" (To fagitó eínai apísteuta nóstimo)",
+            "### \"Ο γιος/Η κόρη σας με κάνει πολύ ευτυχισμένο/η\" (O gios/I kóri sas me kánei polý eftychisméno/i)"
+          ]
+        },
+        {
+          "header": "## Ofreciendo Ayuda",
+          "subsections": [
+            "### \"Μπορώ να βοηθήσω σε κάτι;\" (Boró na voithíso se káti?)"
+          ]
+        },
+        {
+          "header": "## Despedidas",
+          "subsections": [
+            "### \"Σας ευχαριστώ για την υπέροχη βραδιά\" (Sas efcharistó gia tin ypérochi vradiá)",
+            "### \"Χάρηκα πολύ που σας γνώρισα\" (Chárika polý pou sas gnórisa)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "29a94161-aae4-4f45-92c5-9ff90e04ac16",
+      "title": "Как сказать «Я тебя люблю» на венгерском",
+      "native_lang": "ru",
+      "target_lang": "hu",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Варианты признания",
+          "subsections": [
+            "### По степени чувств"
+          ]
+        },
+        {
+          "header": "## В особых моментах",
+          "subsections": [
+            "### Предложение руки и сердца",
+            "### На свадьбе"
+          ]
+        }
+      ]
+    }
+  ]
+}

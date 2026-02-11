@@ -1,0 +1,467 @@
+{
+  "batchId": "tier2a-slim-0260",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "269d547a-33ec-4472-be8f-1ff75bb06c6d",
+      "title": "Gramática Portuguesa Básica para Principiantes",
+      "native_lang": "es",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Errores Gramaticales Comunes a Evitar",
+          "subsections": [
+            "### 1. Olvidar la Concordancia de Adjetivos",
+            "### 2. Confundir Ser y Estar",
+            "### 3. Confusión Tu vs. Você",
+            "### 4. Las Contracciones Son Esenciales"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2a0922f5-76a9-43d0-9e31-c23732ca86a5",
+      "title": "Italiano vs Espanol: Diferencias Clave para Hispanohablantes",
+      "native_lang": "es",
+      "target_lang": "it",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Pronunciacion: Las Diferencias",
+          "subsections": [
+            "### Sonidos Similares",
+            "### Consonantes Dobles",
+            "### Sonidos Nuevos para Hispanohablantes"
+          ]
+        },
+        {
+          "header": "## Comparacion Gramatical",
+          "subsections": [
+            "### Genero: Casi Identico",
+            "### Conjugacion: Muy Similar",
+            "### Articulos: Mas Complejos",
+            "### Un Solo Verbo \"Ser/Estar\""
+          ]
+        },
+        {
+          "header": "## Diferencias Culturales",
+          "subsections": [
+            "### Formalidad: Tu y Lei",
+            "### Gestos",
+            "### Diminutivos"
+          ]
+        },
+        {
+          "header": "## Consejos para Hispanohablantes",
+          "subsections": [
+            "### Tus Ventajas",
+            "### Desafios a Trabajar",
+            "### Estrategia para Parejas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2b34db57-a7aa-4f3a-8819-2aac6d157793",
+      "title": "Gramática Francesa Básica para Iniciantes",
+      "native_lang": "pt",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Erros Gramaticais Comuns a Evitar",
+          "subsections": [
+            "### 1. Esquecer a Concordância dos Adjetivos",
+            "### 2. Usar o Artigo Errado",
+            "### 3. Confundir Tu e Vous",
+            "### 4. Esquecer a Liaison"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2b99e9c2-3fa4-48eb-93c3-4fe342d6f0b4",
+      "title": "Gramática Inglesa Básica para Principiantes",
+      "native_lang": "es",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Errores Gramaticales Comunes a Evitar",
+          "subsections": [
+            "### 1. Olvidar el Sujeto",
+            "### 2. Olvidar la -s en Tercera Persona",
+            "### 3. Confundir Do/Does en Preguntas",
+            "### 4. Traducir Literalmente Ser/Estar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2f6cc1d9-8b99-40ca-9d2a-45b98c5f55e0",
+      "title": "Grammatica Inglese di Base per Principianti",
+      "native_lang": "it",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Errori Grammaticali Comuni da Evitare",
+          "subsections": [
+            "### 1. Dimenticare il Soggetto",
+            "### 2. Dimenticare la -s alla Terza Persona",
+            "### 3. Confondere Do/Does nelle Domande",
+            "### 4. La Posizione degli Aggettivi"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3330ca04-c350-42d8-a981-152cff30c3c9",
+      "title": "Les Bases de la Grammaire Anglaise pour Débutants",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Erreurs Grammaticales Courantes à Éviter",
+          "subsections": [
+            "### 1. Oublier le Sujet",
+            "### 2. Oublier le -s à la Troisième Personne",
+            "### 3. Confondre Do/Does dans les Questions",
+            "### 4. L'Ordre des Adjectifs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "33f4d492-cc0b-400c-bb1e-5bad3d55d3c4",
+      "title": "Italian vs English: Key Differences Every Learner Should Know",
+      "native_lang": "en",
+      "target_lang": "it",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Pronunciation Challenges for English Speakers",
+          "subsections": [
+            "### The Good News",
+            "### Double Consonants",
+            "### The Italian R"
+          ]
+        },
+        {
+          "header": "## Grammar Structure Comparison",
+          "subsections": [
+            "### Gendered Nouns",
+            "### Verb Conjugation",
+            "### Subject Pronouns Are Optional",
+            "### The Formal \"Lei\""
+          ]
+        },
+        {
+          "header": "## Cultural Language Differences",
+          "subsections": [
+            "### Hand Gestures",
+            "### Diminutives Show Affection",
+            "### Regional Pride"
+          ]
+        },
+        {
+          "header": "## Tips for Learning Based on Your Native English",
+          "subsections": [
+            "### Leverage Your Strengths",
+            "### Work on These Challenges",
+            "### Couples Learning Strategy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "34dbe608-c51d-4200-a777-6129813142cf",
+      "title": "Ruso vs Espanol: Diferencias Clave para Hispanohablantes",
+      "native_lang": "es",
+      "target_lang": "ru",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Pronunciacion: Los Desafios",
+          "subsections": [
+            "### Sonidos Nuevos",
+            "### Consonantes Suaves y Duras",
+            "### El Acento Importa"
+          ]
+        },
+        {
+          "header": "## Comparacion Gramatical",
+          "subsections": [
+            "### Seis Casos Gramaticales",
+            "### Sin Articulos",
+            "### Aspectos Verbales",
+            "### Tres Generos",
+            "### Orden de Palabras Flexible"
+          ]
+        },
+        {
+          "header": "## Diferencias Culturales",
+          "subsections": [
+            "### Formalidad: Ty y Vy",
+            "### Patronimicos",
+            "### Diminutivos Muestran Carino"
+          ]
+        },
+        {
+          "header": "## Consejos para Hispanohablantes",
+          "subsections": [
+            "### Tus Ventajas",
+            "### Desafios a Trabajar",
+            "### Estrategia para Parejas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "34e0fa93-4b00-497c-a2e1-52af0737df3c",
+      "title": "Polacco vs Italiano: Differenze Chiave per Italofoni",
+      "native_lang": "it",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Sfide di Pronuncia per Italofoni",
+          "subsections": [
+            "### Gruppi Consonantici",
+            "### Consonanti Dolci vs Dure",
+            "### Suoni Familiari per Italofoni"
+          ]
+        },
+        {
+          "header": "## Confronto della Struttura Grammaticale",
+          "subsections": [
+            "### I Casi: La Sfida Piu Grande",
+            "### Niente Articoli",
+            "### Genere: Simile ma Diverso",
+            "### Aspetti Verbali"
+          ]
+        },
+        {
+          "header": "## Differenze Culturali nella Lingua",
+          "subsections": [
+            "### Formalita: Tu vs Lei",
+            "### Onomastico",
+            "### I Diminutivi Mostrano Affetto"
+          ]
+        },
+        {
+          "header": "## Consigli di Apprendimento per Italofoni",
+          "subsections": [
+            "### Sfrutta i Tuoi Vantaggi",
+            "### Lavora su Queste Sfide",
+            "### Strategia per le Coppie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3d09a5ef-adec-4734-be55-057c7979d3da",
+      "title": "Anglais vs Francais : Differences Cles pour les Francophones",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Prononciation : Les Defis",
+          "subsections": [
+            "### Sons qui N'Existent Pas en Francais",
+            "### Voyelles Complexes",
+            "### Mots avec Lettres Muettes"
+          ]
+        },
+        {
+          "header": "## Comparaison Grammaticale",
+          "subsections": [
+            "### Pas de Genre Grammatical",
+            "### Conjugaison Simplifiee",
+            "### Position des Adjectifs",
+            "### Questions et Negations"
+          ]
+        },
+        {
+          "header": "## Differences Culturelles",
+          "subsections": [
+            "### Formalite : Seulement \"You\"",
+            "### Communication Indirecte",
+            "### Formules de Politesse"
+          ]
+        },
+        {
+          "header": "## Conseils pour les Francophones",
+          "subsections": [
+            "### Vos Avantages",
+            "### Defis a Travailler",
+            "### Strategie pour Couples"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3dd32677-8a78-49f8-8c97-25fcb97bd955",
+      "title": "Portugiesisch vs Deutsch: Die Wichtigsten Unterschiede fur Deutsche",
+      "native_lang": "de",
+      "target_lang": "pt",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Aussprache: Die Unterschiede",
+          "subsections": [
+            "### Nasale Vokale",
+            "### Das Portugiesische R",
+            "### Brasilianisch vs Europaisch"
+          ]
+        },
+        {
+          "header": "## Grammatik-Vergleich",
+          "subsections": [
+            "### Keine Falle!",
+            "### Nur Zwei Geschlechter",
+            "### Zwei Verben fur \"Sein\"",
+            "### Personlicher Infinitiv"
+          ]
+        },
+        {
+          "header": "## Kulturelle Unterschiede",
+          "subsections": [
+            "### Formlichkeit: Du und Sie",
+            "### Diminutive"
+          ]
+        },
+        {
+          "header": "## Tipps fur Deutsche Lerner",
+          "subsections": [
+            "### Deine Vorteile",
+            "### Herausforderungen",
+            "### Strategie fur Paare"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3eef75c2-108b-4170-a79a-db643895ff36",
+      "title": "German vs English: Key Differences Every Learner Should Know",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Pronunciation Challenges for English Speakers",
+          "subsections": [
+            "### The Infamous German Sounds",
+            "### Sounds English Speakers Know"
+          ]
+        },
+        {
+          "header": "## Grammar Structure Comparison",
+          "subsections": [
+            "### Cases: The Main Challenge",
+            "### Three Genders (Not Two, Not None)",
+            "### Word Order: Verb Position Rules",
+            "### Compound Words: The Famous Long Words"
+          ]
+        },
+        {
+          "header": "## Cultural Language Differences",
+          "subsections": [
+            "### Formal vs Informal: Du and Sie",
+            "### Directness in Communication",
+            "### Titles Matter"
+          ]
+        },
+        {
+          "header": "## Tips for Learning Based on Your Native English",
+          "subsections": [
+            "### Leverage Your Strengths",
+            "### Work on These Challenges",
+            "### Couples Learning Strategy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "422cccec-49c8-443a-b409-0f2179ec9811",
+      "title": "Russisch vs Deutsch: Die Wichtigsten Unterschiede fur Deutsche",
+      "native_lang": "de",
+      "target_lang": "ru",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Aussprache: Die Unterschiede",
+          "subsections": [
+            "### Neue Laute",
+            "### Weiche und Harte Konsonanten",
+            "### Betonung ist Wichtig"
+          ]
+        },
+        {
+          "header": "## Grammatik-Vergleich",
+          "subsections": [
+            "### Sechs Grammatische Falle",
+            "### Keine Artikel",
+            "### Verbaspekte",
+            "### Drei Geschlechter"
+          ]
+        },
+        {
+          "header": "## Kulturelle Unterschiede",
+          "subsections": [
+            "### Formlichkeit: Ty und Vy",
+            "### Patronyme",
+            "### Diminutive"
+          ]
+        },
+        {
+          "header": "## Tipps fur Deutsche Lerner",
+          "subsections": [
+            "### Deine Vorteile",
+            "### Herausforderungen",
+            "### Strategie fur Paare"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "45d0e310-d32e-4421-a31d-f35908864782",
+      "title": "Französische Grammatik Grundlagen für Anfänger",
+      "native_lang": "de",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Häufige Grammatikfehler Vermeiden",
+          "subsections": [
+            "### 1. Adjektivübereinstimmung Vergessen",
+            "### 2. Den Falschen Artikel Verwenden",
+            "### 3. Tu vs. Vous Verwechseln",
+            "### 4. Liaison Vergessen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "46307fc5-d3ff-4e23-aaa7-7c6f48ae679f",
+      "title": "Grammatica Russa di Base per Principianti",
+      "native_lang": "it",
+      "target_lang": "ru",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Errori Grammaticali Comuni da Evitare",
+          "subsections": [
+            "### 1. Dimenticare l'Accordo degli Aggettivi",
+            "### 2. Usare il Caso Sbagliato",
+            "### 3. Formale vs. Informale \"Tu\"",
+            "### 4. Confusione di Aspetto"
+          ]
+        }
+      ]
+    }
+  ]
+}

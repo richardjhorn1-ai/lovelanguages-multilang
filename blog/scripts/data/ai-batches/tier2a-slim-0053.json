@@ -1,0 +1,468 @@
+{
+  "batchId": "tier2a-slim-0053",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "4d3dd5b4-b57e-4339-b177-6106fd5f05bc",
+      "title": "Dán Szerelmes Levél Írása Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kezdő Kifejezések",
+          "subsections": [
+            "### 1. Min elskede / Skat",
+            "### 2. Mit hjerte"
+          ]
+        },
+        {
+          "header": "## Érzelmek Kifejezése",
+          "subsections": [
+            "### 3. Jeg elsker dig mere end alt andet i verden",
+            "### 4. Du er lyset i mit liv",
+            "### 5. Mit hjerte tilhører kun dig",
+            "### 6. For hver dag elsker jeg dig mere",
+            "### 7. Du er min drøm, der blev til virkelighed",
+            "### 8. Jeg kan ikke forestille mig livet uden dig"
+          ]
+        },
+        {
+          "header": "## Záró Kifejezések",
+          "subsections": [
+            "### 9. Din for evigt",
+            "### 10. Med al min kærlighed"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4d4a85f0-6fb2-4a95-8bad-a4a39b8925ab",
+      "title": "Rumänska Fraser för Förlåtelse",
+      "native_lang": "sv",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Be om Förlåtelse",
+          "subsections": [
+            "### 1. \"Îmi pare foarte rău\"",
+            "### 2. \"Te rog, iartă-mă\"",
+            "### 3. \"Îmi asum întreaga responsabilitate\"",
+            "### 4. \"Am greșit și știu asta\"",
+            "### 5. \"Cum pot să repar asta?\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Ge Förlåtelse",
+          "subsections": [
+            "### 6. \"Te iert\"",
+            "### 7. \"Să lăsăm asta în urmă\"",
+            "### 8. \"Înțeleg și apreciez scuzele tale\"",
+            "### 9. \"Cu toții facem greșeli\"",
+            "### 10. \"E nevoie de curaj să ceri scuze\"",
+            "### 11. \"Apreciez sinceritatea ta\"",
+            "### 12. \"Important e să mergem înainte împreună\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4d509479-8df2-4fcc-abcd-0c75e6fa2092",
+      "title": "Dutch Proposal & Engagement Phrases: How to Pop the Question",
+      "native_lang": "en",
+      "target_lang": "nl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Ways to Propose",
+          "subsections": [
+            "### The Classic Proposal",
+            "### More Romantic Variations"
+          ]
+        },
+        {
+          "header": "## Preparing Your Proposal",
+          "subsections": [
+            "### Practice Tips",
+            "### Setting the Scene"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4d5ee47e-d56d-4698-bd8d-1186ef7be8db",
+      "title": "Шведська лексика про вагітність та материнство",
+      "native_lang": "uk",
+      "target_lang": "sv",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Основна лексика про вагітність",
+          "subsections": []
+        },
+        {
+          "header": "## Оголошення про вагітність шведською",
+          "subsections": [
+            "### Як поділитися новиною"
+          ]
+        },
+        {
+          "header": "## Покупки для малюка",
+          "subsections": [
+            "### Що потрібно купити"
+          ]
+        },
+        {
+          "header": "## Пологи та лікарня",
+          "subsections": [
+            "### У пологовому будинку",
+            "### Після народження"
+          ]
+        },
+        {
+          "header": "## Перші місяці з малюком",
+          "subsections": [
+            "### Корисна лексика"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4d6502f6-67ae-401e-8996-f8c3b908b47f",
+      "title": "Oekraïense Zinnen over Jaloezie en Vertrouwen",
+      "native_lang": "nl",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Я почуваюся невпевнено, коли...\" (Ya pochuvayusya nevpevneno, koly...)",
+            "### 2. \"Я повністю тобі довіряю\" (Ya povnistyu tobi doviryayu)",
+            "### 3. \"Чи можеш мене заспокоїти?\" (Chy mozhesh mene zaspokoyity?)",
+            "### 4. \"Я не ревную, просто турбуюся\" (Ya ne revnuyu, prosto turbuyusya)",
+            "### 5. \"Хто була та людина, з якою ти розмовляв/ла?\" (Khto bula ta lyudyna, z yakoyu ty rozmovlyav/la?)",
+            "### 6. \"Мені потрібно знати, що я можу тобі довіряти\" (Meni potribno znaty, shcho ya mozhu tobi doviryaty)",
+            "### 7. \"Тобі нема про що хвилюватися\" (Tobi nema pro shcho khvylyuvatysya)",
+            "### 8. \"Я бачу тільки тебе\" (Ya bachu til'ky tebe)",
+            "### 9. \"Давай поговоримо про те, що тебе турбує\" (Davay pohovorymo pro te, shcho tebe turbuye)",
+            "### 10. \"Я ніколи не зробив/ла б нічого, щоб тебе образити\" (Ya nikoly ne zrobyv/la b nichoho, shchob tebe obrazyty)",
+            "### 11. \"Твоє минуле не визначає нас\" (Tvoye mynule ne vyznachaye nas)",
+            "### 12. \"Я працюю над своїми невпевненостями\" (Ya pratsyuyu nad svoyimy nevpevnenostyamy)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4d6cffc0-e360-492f-9d75-798bae7fee53",
+      "title": "Ukrajinské flirtovací fráze pro Čechy",
+      "native_lang": "cs",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní lichotky",
+          "subsections": [
+            "### \"Ти дуже гарна/гарний.\"",
+            "### \"У тебе чудова посмішка.\"",
+            "### \"Ти мені дуже подобаєшся.\"",
+            "### \"Ти неймовірна/неймовірний.\""
+          ]
+        },
+        {
+          "header": "## Romantické fráze",
+          "subsections": [
+            "### \"Я не можу перестати думати про тебе.\"",
+            "### \"Ти робиш мене щасливою/щасливим.\"",
+            "### \"Моє серце б'ється швидше, коли я тебе бачу.\"",
+            "### \"Я божеволію від тебе.\""
+          ]
+        },
+        {
+          "header": "## Hravé fráze",
+          "subsections": [
+            "### \"Ти віриш у кохання з першого погляду, чи мені пройти ще раз?\"",
+            "### \"Ти певно втомилася? Ти цілий день бігала в моїй голові.\"",
+            "### \"У тобі є щось особливе.\""
+          ]
+        },
+        {
+          "header": "## Fráze pro zprávy",
+          "subsections": [
+            "### \"Доброго ранку, кохана/коханий.\"",
+            "### \"Я сумую за тобою.\"",
+            "### \"Не можу дочекатися, коли тебе побачу.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4d79adad-1dd6-4fd0-8f60-0b05fbbbdf15",
+      "title": "Сложно ли выучить румынский язык?",
+      "native_lang": "ru",
+      "target_lang": "ro",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Что будет ЛЕГКО",
+          "subsections": [
+            "### 1. Славянская лексика (15-20%)",
+            "### 2. Фонетическое письмо",
+            "### 3. Латинская основа",
+            "### 4. Нет сложных артиклей"
+          ]
+        },
+        {
+          "header": "## Что будет СЛОЖНО",
+          "subsections": [
+            "### 1. Романская грамматика",
+            "### 2. Особые звуки",
+            "### 3. Ложные друзья",
+            "### 4. Нефиксированное ударение"
+          ]
+        },
+        {
+          "header": "## Сроки изучения",
+          "subsections": [
+            "### Для русскоговорящих:"
+          ]
+        },
+        {
+          "header": "## Почему учить вместе проще",
+          "subsections": [
+            "### Преимущества:",
+            "### Идеи для практики:"
+          ]
+        },
+        {
+          "header": "## Главные советы",
+          "subsections": [
+            "### 1. Используйте романские связи",
+            "### 2. Учите славянские слова первыми",
+            "### 3. Слушайте румынскую музыку",
+            "### 4. Не бойтесь говорить"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4d807162-dba3-41cd-8aea-6b98fe6a8f12",
+      "title": "Macarca Flört İfadeleri: Budapeşte'nin Romantik Dili",
+      "native_lang": "tr",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Flört İfadeleri",
+          "subsections": [
+            "### 1. \"Nagyon szép vagy\"",
+            "### 2. \"Szeretem a mosolyodat\"",
+            "### 3. \"Iszol velem egy kávét?\"",
+            "### 4. \"Gyönyörű szemeid vannak\"",
+            "### 5. \"Folyton rád gondolok\"",
+            "### 6. \"Boldoggá teszel\"",
+            "### 7. \"Meghívhatlak egy italra?\"",
+            "### 8. \"Jól érzem magam veled\"",
+            "### 9. \"Különleges vagy\"",
+            "### 10. \"Szeretnélek újra látni\"",
+            "### 11. \"Tetszik a stílusod\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4d9a2278-cd29-4d1d-99c6-2f66d377156f",
+      "title": "Guía de Pronunciación del Turco para Principiantes",
+      "native_lang": "es",
+      "target_lang": "tr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Errores Comunes de Pronunciación",
+          "subsections": [
+            "### Error 1: Pronunciar C como K o S",
+            "### Error 2: Ignorar la I Sin Punto",
+            "### Error 3: Pronunciar G Como G",
+            "### Error 4: Tragarse la H"
+          ]
+        },
+        {
+          "header": "## Palabras de Práctica por Sonido",
+          "subsections": [
+            "### Practica la I Sin Punto (ı)",
+            "### Practica la O Suave (ö)",
+            "### Practica la U Suave (ü)",
+            "### Practica la G Suave (ğ)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4d9b883d-6f8b-4a7d-a3af-0eda922832fb",
+      "title": "Frases en Portugués sobre Celos y Confianza para Parejas",
+      "native_lang": "es",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Expresar Celos",
+          "subsections": [
+            "### \"Eu me sinto um pouco ciumento/a quando...\"",
+            "### \"Podemos conversar sobre algo que me incomoda?\"",
+            "### \"Eu confio em você, mas estou me sentindo inseguro/a\"",
+            "### \"Quem era aquela pessoa?\""
+          ]
+        },
+        {
+          "header": "## Frases para Pedir Seguridad",
+          "subsections": [
+            "### \"Preciso que você me tranquilize\"",
+            "### \"Pode me ajudar a me sentir mais seguro/a?\"",
+            "### \"Eu sei que é irracional, mas...\""
+          ]
+        },
+        {
+          "header": "## Frases para Construir Confianza",
+          "subsections": [
+            "### \"Eu confio totalmente em você\"",
+            "### \"Você é a única pessoa pra mim\"",
+            "### \"Só tenho olhos pra você\"",
+            "### \"Não tem nada com que se preocupar\"",
+            "### \"Pode confiar em mim\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4daa51e4-7545-404d-80d0-63149708a8fa",
+      "title": "Пожелания на годовщину на чешский: Романтические фразы",
+      "native_lang": "ru",
+      "target_lang": "cs",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Простые пожелания на годовщину",
+          "subsections": [
+            "### Короткие и сладкие",
+            "### Для вашего партнёра"
+          ]
+        },
+        {
+          "header": "## Романтические послания на годовщину",
+          "subsections": [
+            "### Сердечные признания",
+            "### Задумчивые послания"
+          ]
+        },
+        {
+          "header": "## Послания по годам",
+          "subsections": [
+            "### Первая годовщина",
+            "### Пятая годовщина",
+            "### Десятая годовщина",
+            "### Двадцать пятая годовщина (серебряная)",
+            "### Пятидесятая годовщина (золотая)"
+          ]
+        },
+        {
+          "header": "## Планирование празднования годовщины",
+          "subsections": [
+            "### Романтические идеи",
+            "### Выражение благодарности"
+          ]
+        },
+        {
+          "header": "## Сообщения для социальных сетей",
+          "subsections": [
+            "### Подписи для публикаций"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4dabb90f-a4c3-4a8b-97f4-cf8fa93687cc",
+      "title": "Angol nászutas utazási kifejezések",
+      "native_lang": "hu",
+      "target_lang": "en",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Utazási alapkifejezések",
+            "### Romantikus helyzetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4dad2817-b1e6-4a61-867d-c7bed1f87d5c",
+      "title": "Porecle și Nume de Alint în Spaniolă: Ghid Complet pentru Cupluri",
+      "native_lang": "ro",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Porecle Regionale",
+          "subsections": [
+            "### Spania",
+            "### Mexic",
+            "### Argentina"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4dd60a10-ee11-4167-8841-4599f17a1780",
+      "title": "Польские фразы для споров и разногласий",
+      "native_lang": "ru",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Основные фразы для выражения несогласия",
+          "subsections": [
+            "### 1. Nie zgadzam się z tobą",
+            "### 2. Czy możemy porozmawiać o tym spokojnie?",
+            "### 3. Boli mnie, kiedy tak mówisz",
+            "### 4. Nie podnośmy głosu",
+            "### 5. Potrzebuję, żebyś zrozumiał/zrozumiała mój punkt widzenia",
+            "### 6. Nie to miałem/miałam na myśli",
+            "### 7. Czy możemy znaleźć kompromis?",
+            "### 8. Myślę, że oboje potrzebujemy trochę przestrzeni",
+            "### 9. Proszę, uszanuj moją opinię",
+            "### 10. Słucham cię, ale się nie zgadzam"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4ddbbf76-659f-4d23-9bcc-5865e79de96c",
+      "title": "Conversazioni Quotidiane in Greco per Coppie",
+      "native_lang": "it",
+      "target_lang": "el",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Prima di Uscire",
+          "subsections": [
+            "### Dialogo"
+          ]
+        },
+        {
+          "header": "## Conversazione Serale",
+          "subsections": [
+            "### Dialogo: Bentornato/a"
+          ]
+        },
+        {
+          "header": "## Prima di Dormire",
+          "subsections": [
+            "### Dialogo: Buonanotte"
+          ]
+        }
+      ]
+    }
+  ]
+}

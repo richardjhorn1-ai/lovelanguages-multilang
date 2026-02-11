@@ -1,0 +1,490 @@
+{
+  "batchId": "tier2a-slim-0007",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "16a67a15-f689-4c34-b07d-e3077b0c9a3b",
+      "title": "Гид по турецкому произношению для начинающих",
+      "native_lang": "ru",
+      "target_lang": "tr",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Особые турецкие буквы",
+          "subsections": [
+            "### Буква Ç (ч)",
+            "### Буква Ş (ш)",
+            "### Буква Ğ (мягкий г)",
+            "### Буквы İ и I",
+            "### Буквы Ö и Ü"
+          ]
+        },
+        {
+          "header": "## Согласные",
+          "subsections": [
+            "### C — читается как 'дж'",
+            "### J — мягкое 'ж'",
+            "### H — всегда произносится",
+            "### Y — как русское 'й'"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "16c1be7e-3ee1-40e3-92ef-a9b12778ec81",
+      "title": "Basi della Coniugazione Verbale Tedesca",
+      "native_lang": "it",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Verbi Irregolari (Forti)",
+          "subsections": [
+            "### Sein (Essere)",
+            "### Haben (Avere)",
+            "### Werden (Diventare / Ausiliare futuro)"
+          ]
+        },
+        {
+          "header": "## Verbi Modali",
+          "subsections": [
+            "### Können (Potere)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "16db4a51-a60c-4d7d-888d-754cf609e5c3",
+      "title": "Grammatica Polacca di Base per Principianti",
+      "native_lang": "it",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Errori Grammaticali Comuni da Evitare",
+          "subsections": [
+            "### 1. Dimenticare l'Accordo degli Aggettivi",
+            "### 2. Usare il Caso Sbagliato",
+            "### 3. Omettere i Pronomi Scorrettamente",
+            "### 4. Mescolare Formale e Informale"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "16e41eeb-e92d-4ec0-ba57-94bcea61c0d2",
+      "title": "German Making Up & Reconciliation Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Apologizing Sincerely",
+          "subsections": [
+            "### Es tut mir wirklich leid",
+            "### Verzeih mir",
+            "### Ich hatte unrecht",
+            "### Das hätte ich nicht sagen sollen"
+          ]
+        },
+        {
+          "header": "## Expressing Your Feelings",
+          "subsections": [
+            "### Ich hasse es, wenn wir streiten",
+            "### Du fehlst mir, wenn wir so sind",
+            "### Es tut mir weh, wenn wir böse aufeinander sind"
+          ]
+        },
+        {
+          "header": "## Reaching Out",
+          "subsections": [
+            "### Können wir reden?",
+            "### Ich möchte das wieder in Ordnung bringen",
+            "### Können wir von vorne anfangen?"
+          ]
+        },
+        {
+          "header": "## Expressing Love and Commitment",
+          "subsections": [
+            "### Ich liebe dich, daran ändert sich nichts",
+            "### Du bist mir wichtiger als dieser Streit",
+            "### Ich will dich nicht verlieren",
+            "### Wir sind ein Team"
+          ]
+        },
+        {
+          "header": "## Moving Forward",
+          "subsections": [
+            "### Wie können wir das in Zukunft vermeiden?",
+            "### Ich verspreche, es besser zu machen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "16e4c2ee-788b-4b34-bc8c-07a99500a8c2",
+      "title": "Frases de Apoyo Emocional en Turco: Cómo Consolar a Tu Pareja",
+      "native_lang": "es",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases de Consuelo Básicas",
+          "subsections": [
+            "### \"Yanındayım\"",
+            "### \"Her şey düzelecek\"",
+            "### \"Bunları yaşadığın için çok üzgünüm\""
+          ]
+        },
+        {
+          "header": "## Ofreciendo Apoyo",
+          "subsections": [
+            "### \"Şu an neye ihtiyacın var?\"",
+            "### \"Sana yardım etmek için elimden geleni yapacağım\"",
+            "### \"Bu konuda konuşmak ister misin?\"",
+            "### \"Seni dinliyorum\""
+          ]
+        },
+        {
+          "header": "## Validando Emociones",
+          "subsections": [
+            "### \"Böyle hissetmen normal\"",
+            "### \"Hislerin tamamen anlaşılabilir\""
+          ]
+        },
+        {
+          "header": "## Frases de Ánimo",
+          "subsections": [
+            "### \"Düşündüğünden daha güçlüsün\"",
+            "### \"Sana inanıyorum\"",
+            "### \"Bunu birlikte atlatacağız\""
+          ]
+        },
+        {
+          "header": "## Expresando Amor",
+          "subsections": [
+            "### \"Ne olursa olsun seni seviyorum\"",
+            "### \"Yalnız değilsin\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "179705ab-5f35-4f5c-8fda-099ae6520824",
+      "title": "Як сказати «Я тебе кохаю» російською: Повний гід до Я люблю тебя",
+      "native_lang": "uk",
+      "target_lang": "ru",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Поетичні вирази кохання",
+          "subsections": [
+            "### «Ти для мене все»",
+            "### «Я не можу жити без тебе»",
+            "### «Ти кохання мого життя»",
+            "### «Ти вкрав/вкрала моє серце»",
+            "### «Я постійно думаю про тебе»"
+          ]
+        },
+        {
+          "header": "## Фрази для щоденних моментів",
+          "subsections": [
+            "### Вранці",
+            "### Перед виходом",
+            "### Увечері",
+            "### Перед сном"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1797e98c-856f-4c0d-93d4-929781382cb8",
+      "title": "Sådan Undskylder Du på Fransk: Vejledning for Par",
+      "native_lang": "da",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Specifikke Situationer",
+          "subsections": [
+            "### Når Du Har Glemt Noget",
+            "### Når Du Har Sagt Noget Sårende",
+            "### Når Du Er Kommet For Sent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "17a712a0-b006-4388-9935-1dced7883b2f",
+      "title": "Französische Trost- und Unterstützungsphrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlegende Unterstützung",
+          "subsections": [
+            "### \"Je suis là pour toi\"",
+            "### \"Je serai toujours à tes côtés\"",
+            "### \"Tu n'es pas seul(e) dans cette épreuve\"",
+            "### \"Quoi que tu aies besoin, je suis là\""
+          ]
+        },
+        {
+          "header": "## Bei Trauer",
+          "subsections": [
+            "### \"Je suis vraiment désolé(e) pour ta perte\"",
+            "### \"Prends tout le temps qu'il te faut\"",
+            "### \"C'est normal de pleurer\"",
+            "### \"Je suis de tout cœur avec toi\""
+          ]
+        },
+        {
+          "header": "## Bei Stress und Sorgen",
+          "subsections": [
+            "### \"On va trouver une solution ensemble\"",
+            "### \"Un pas à la fois\"",
+            "### \"C'est normal de ne pas aller bien\"",
+            "### \"Ça va passer\"",
+            "### \"Ne sois pas si dur(e) avec toi-même\""
+          ]
+        },
+        {
+          "header": "## Ermutigung",
+          "subsections": [
+            "### \"Je crois en toi\"",
+            "### \"Tu es plus fort(e) que tu ne le penses\"",
+            "### \"Je suis tellement fier/fière de toi\"",
+            "### \"Tu vas y arriver\"",
+            "### \"J'admire ta force\""
+          ]
+        },
+        {
+          "header": "## Aktive Hilfe anbieten",
+          "subsections": [
+            "### \"Qu'est-ce que je peux faire pour t'aider?\"",
+            "### \"Tu veux en parler?\"",
+            "### \"Je t'écoute\""
+          ]
+        },
+        {
+          "header": "## Langfristige Unterstützung",
+          "subsections": [
+            "### \"Je serai toujours là, quoi qu'il arrive\"",
+            "### \"On traverse ça ensemble\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "17a8c84e-caee-4ce4-9e0f-fc2e43417d0d",
+      "title": "Spanyol Szerelmes Levél Írása Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kezdő Kifejezések",
+          "subsections": [
+            "### 1. Mi amor / Mi vida",
+            "### 2. Mi querido/querida",
+            "### 3. Mi corazón"
+          ]
+        },
+        {
+          "header": "## Érzelmek Kifejezése",
+          "subsections": [
+            "### 4. Te amo con todo mi ser",
+            "### 5. Eres la razón de mi existir",
+            "### 6. Mi corazón te pertenece",
+            "### 7. Cada día te quiero más",
+            "### 8. Eres mi sueño hecho realidad",
+            "### 9. Contigo aprendí lo que es amar",
+            "### 10. No puedo imaginar mi vida sin ti"
+          ]
+        },
+        {
+          "header": "## Közös Emlékek",
+          "subsections": [
+            "### 11. Recuerdo el día que nos conocimos",
+            "### 12. Cada momento contigo es un tesoro"
+          ]
+        },
+        {
+          "header": "## Záró Kifejezések",
+          "subsections": [
+            "### 13. Tuyo/Tuya por siempre",
+            "### 14. Con todo mi amor",
+            "### 15. Hasta que volvamos a vernos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "17ab09a4-b48b-4ecc-a1c2-329d1c7f1ae1",
+      "title": "100 Συχνές Λέξεις (ro): Οδηγός για Ελληνόφωνα Ζευγάρια",
+      "native_lang": "el",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Κατηγορίες Λέξεων",
+          "subsections": [
+            "### Αγάπη & Τρυφερότητα",
+            "### Καθημερινές Λέξεις",
+            "### Συναισθήματα",
+            "### Χρόνος",
+            "### Τοποθεσία",
+            "### Ερωτήσεις",
+            "### Ρήματα"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "181b2653-8a69-44cc-b2e2-5eb34542a7f4",
+      "title": "Frases en Neerlandés para tu Primera Cita",
+      "native_lang": "es",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Romper el Hielo",
+          "subsections": [
+            "### \"Leuk je eindelijk te ontmoeten\"",
+            "### \"Je ziet er geweldig uit\"",
+            "### \"Ik heb hier naar uitgekeken\""
+          ]
+        },
+        {
+          "header": "## Frases para Conocerse",
+          "subsections": [
+            "### \"Vertel me over jezelf\"",
+            "### \"Wat doe je graag voor de lol?\"",
+            "### \"Wat is je favoriete...?\""
+          ]
+        },
+        {
+          "header": "## Frases Románticas",
+          "subsections": [
+            "### \"Ik geniet hier echt van\"",
+            "### \"Je hebt een prachtige glimlach\"",
+            "### \"Ik voel me heel prettig bij jou\""
+          ]
+        },
+        {
+          "header": "## Frases para Terminar",
+          "subsections": [
+            "### \"Ik heb een geweldige avond gehad\"",
+            "### \"Kunnen we elkaar weer zien?\"",
+            "### \"Laat me weten als je goed thuis bent\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1828ea67-37b8-42de-9523-244caa5e3fa6",
+      "title": "Conhecendo a Familia do seu Parceiro Frances",
+      "native_lang": "pt",
+      "target_lang": "fr",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Dicas Culturais Essenciais",
+          "subsections": [
+            "### Antes da Visita",
+            "### Durante a Visita",
+            "### Apos a Visita"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1831a345-d04f-43d1-bb91-6352b90becd2",
+      "title": "Як зробити пропозицію румунською: фрази для заручин",
+      "native_lang": "uk",
+      "target_lang": "ro",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Підготовка до пропозиції",
+          "subsections": [
+            "### Чек-лист:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "18431ae6-1da4-472f-bb34-a403e5ac57af",
+      "title": "Urări de Ziua de Naștere pentru Partener în Olandeză: Mesaje Romantice",
+      "native_lang": "ro",
+      "target_lang": "nl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Mesaje Romantice",
+          "subsections": [
+            "### Scurte și Dulci",
+            "### Mesaje Mai Lungi"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Diferite Personalități",
+          "subsections": [
+            "### Pentru Partenerul Romantic",
+            "### Pentru Partenerul cu Umor"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Card",
+          "subsections": [
+            "### Format Scurt",
+            "### Format Lung"
+          ]
+        },
+        {
+          "header": "## Idei de Surprize",
+          "subsections": [
+            "### Gesturi Romantice"
+          ]
+        },
+        {
+          "header": "## Mesaje de Dimineață",
+          "subsections": [
+            "### Pentru Început de Zi"
+          ]
+        },
+        {
+          "header": "## Tradiții de Cuplu",
+          "subsections": [
+            "### Idei pentru Noi Tradiții"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "1846f471-8e8f-4ff1-b392-a3fcc5f6b94c",
+      "title": "Französische Aussprache für Anfänger: So klingst du wie ein echter Pariser für deinen Schatz",
+      "native_lang": "de",
+      "target_lang": "fr",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Die trickreichsten Laute für Deutsche",
+          "subsections": [
+            "### Die Nasallaute: Der französische Charme",
+            "### Das französische R: Sanft und sexy"
+          ]
+        },
+        {
+          "header": "## Die häufigsten Aussprache-Fehler von Deutschen",
+          "subsections": [
+            "### 1. Das stumme -e wird doch gesprochen",
+            "### 2. Zu hartes R",
+            "### 3. Keine Verbindungen zwischen Wörtern"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "pair": {
+    "native": "es",
+    "target": "en"
+  },
+  "nativeName": "Spanish",
+  "targetName": "English",
+  "preparedAt": "2026-02-10T04:45:34.977Z",
+  "totalArticles": 59,
+  "articlesWithIssues": 57,
+  "totalDetectedIssues": 192,
+  "issueSummary": {
+    "critical": 0,
+    "high": 87,
+    "medium": 51,
+    "low": 54
+  },
+  "batchConfig": {
+    "maxAgents": 8,
+    "batchCount": 8,
+    "batchSize": 8
+  },
+  "batches": [
+    {
+      "batchId": "batch-001",
+      "articleCount": 8,
+      "issueCount": 55,
+      "file": "batch-001.json"
+    },
+    {
+      "batchId": "batch-002",
+      "articleCount": 8,
+      "issueCount": 40,
+      "file": "batch-002.json"
+    },
+    {
+      "batchId": "batch-003",
+      "articleCount": 8,
+      "issueCount": 29,
+      "file": "batch-003.json"
+    },
+    {
+      "batchId": "batch-004",
+      "articleCount": 8,
+      "issueCount": 24,
+      "file": "batch-004.json"
+    },
+    {
+      "batchId": "batch-005",
+      "articleCount": 8,
+      "issueCount": 23,
+      "file": "batch-005.json"
+    },
+    {
+      "batchId": "batch-006",
+      "articleCount": 8,
+      "issueCount": 12,
+      "file": "batch-006.json"
+    },
+    {
+      "batchId": "batch-007",
+      "articleCount": 8,
+      "issueCount": 8,
+      "file": "batch-007.json"
+    },
+    {
+      "batchId": "batch-008",
+      "articleCount": 3,
+      "issueCount": 1,
+      "file": "batch-008.json"
+    }
+  ]
+}

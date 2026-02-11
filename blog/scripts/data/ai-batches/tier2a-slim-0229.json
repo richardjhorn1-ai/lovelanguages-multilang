@@ -1,0 +1,531 @@
+{
+  "batchId": "tier2a-slim-0229",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "e746f9cb-e154-433f-a688-6e5b2f0f86c3",
+      "title": "Udtryk Følelser på Svensk: Komplet Guide for Par",
+      "native_lang": "da",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Reagere på Partnerens Følelser",
+          "subsections": [
+            "### Støttende Svar",
+            "### Trøstende Ord"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e7471652-ded7-4b55-bd5f-bb225a96268a",
+      "title": "100 самых важных португальских слов для пар",
+      "native_lang": "ru",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Обращения",
+          "subsections": [
+            "### 1. Eu / Você / Nós",
+            "### 2. Meu amor / Querido/a / Meu bem"
+          ]
+        },
+        {
+          "header": "## Чувства",
+          "subsections": [
+            "### 3. Amor / Feliz / Triste"
+          ]
+        },
+        {
+          "header": "## Действия",
+          "subsections": [
+            "### 4. Comer / Beber / Dormir",
+            "### 5. Ir / Vir / Ficar"
+          ]
+        },
+        {
+          "header": "## Время",
+          "subsections": [
+            "### 6. Hoje / Amanhã / Ontem",
+            "### 7. Manhã / Tarde / Noite"
+          ]
+        },
+        {
+          "header": "## Важные фразы",
+          "subsections": [
+            "### 8. Eu te amo",
+            "### 9. Sinto sua falta",
+            "### 10. Obrigado/a / Desculpa / Por favor",
+            "### 11. Sim / Não",
+            "### 12. Beijo / Abraço",
+            "### 13. Boa noite"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e74e7d24-69e4-4da4-9808-65659efd21e4",
+      "title": "En Yaygın 100 İspanyolca Kelime",
+      "native_lang": "tr",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Zamirler",
+          "subsections": [
+            "### 1. Yo /yo/ - Ben",
+            "### 2. Tú /tu/ - Sen",
+            "### 3. Él /el/ - O (erkek)",
+            "### 4. Ella /eya/ - O (kadın)",
+            "### 5. Nosotros /nosotros/ - Biz",
+            "### 6. Ellos/Ellas /eyos/eyas/ - Onlar",
+            "### 7. Y /i/ - Ve",
+            "### 8. Pero /pero/ - Ama",
+            "### 9. O /o/ - Veya",
+            "### 10. Que /ke/ - Ki/Ne"
+          ]
+        },
+        {
+          "header": "## Temel Fiiller",
+          "subsections": [
+            "### 11. Ser /ser/ - Olmak",
+            "### 12. Estar /estar/ - Olmak (durum)",
+            "### 13. Tener /tener/ - Sahip olmak",
+            "### 14. Hacer /aser/ - Yapmak",
+            "### 15. Decir /desir/ - Söylemek",
+            "### 16. Ir /ir/ - Gitmek",
+            "### 17. Venir /venir/ - Gelmek",
+            "### 18. Poder /poder/ - Yapabilmek",
+            "### 19. Saber /saber/ - Bilmek",
+            "### 20. Querer /kerer/ - İstemek",
+            "### 21. Ver /ver/ - Görmek",
+            "### 22. Dar /dar/ - Vermek",
+            "### 23. Hablar /ablar/ - Konuşmak",
+            "### 24. Comer /komer/ - Yemek",
+            "### 25. Vivir /vivir/ - Yaşamak"
+          ]
+        },
+        {
+          "header": "## Sıfatlar",
+          "subsections": [
+            "### 26. Bueno /bueno/ - İyi",
+            "### 27. Malo /malo/ - Kötü",
+            "### 28. Grande /grande/ - Büyük",
+            "### 29. Pequeño /pekenyo/ - Küçük",
+            "### 30. Nuevo /nuevo/ - Yeni",
+            "### 31. Viejo /vieho/ - Eski/yaşlı",
+            "### 32. Largo /largo/ - Uzun",
+            "### 33. Corto /korto/ - Kısa",
+            "### 34. Caliente /kaliente/ - Sıcak",
+            "### 35. Frío /frio/ - Soğuk"
+          ]
+        },
+        {
+          "header": "## Zaman İfadeleri",
+          "subsections": [
+            "### 36. Ahora /aora/ - Şimdi",
+            "### 37. Hoy /oy/ - Bugün",
+            "### 38. Mañana /manyana/ - Yarın",
+            "### 39. Ayer /ayer/ - Dün",
+            "### 40. Siempre /siyempre/ - Her zaman",
+            "### 41. Nunca /nunka/ - Asla",
+            "### 42. A veces /a veses/ - Bazen"
+          ]
+        },
+        {
+          "header": "## Soru Kelimeleri",
+          "subsections": [
+            "### 43. Qué /ke/ - Ne",
+            "### 44. Dónde /donde/ - Nerede",
+            "### 45. Cuándo /kuando/ - Ne zaman",
+            "### 46. Por qué /por ke/ - Neden",
+            "### 47. Cómo /komo/ - Nasıl",
+            "### 48. Quién /kiyen/ - Kim"
+          ]
+        },
+        {
+          "header": "## Sayılar",
+          "subsections": [
+            "### 49. Uno /uno/ - Bir",
+            "### 50. Dos /dos/ - İki",
+            "### 51. Tres /tres/ - Üç",
+            "### 52. Cuatro /kuatro/ - Dört",
+            "### 53. Cinco /sinko/ - Beş",
+            "### 54. Diez /diyes/ - On",
+            "### 55. Cien /siyen/ - Yüz"
+          ]
+        },
+        {
+          "header": "## Günlük Kelimeler",
+          "subsections": [
+            "### 56. Sí /si/ - Evet",
+            "### 57. No /no/ - Hayır",
+            "### 58. Por favor /por favor/ - Lütfen",
+            "### 59. Gracias /grasias/ - Teşekkürler",
+            "### 60. Perdón /perdon/ - Özür dilerim",
+            "### 61. Hola /ola/ - Merhaba",
+            "### 62. Adiós /adios/ - Hoşça kal",
+            "### 63. Amor /amor/ - Aşk",
+            "### 64. Amigo /amigo/ - Arkadaş",
+            "### 65. Familia /familiya/ - Aile"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e759814c-9646-4b8d-a2f4-c1db99700914",
+      "title": "Slang Turcesc pentru Mesaje: Cum să Trimiți SMS-uri Romantice",
+      "native_lang": "ro",
+      "target_lang": "tr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Emoji-uri și Reacții",
+          "subsections": [
+            "### Combinații Populare"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e7722614-6019-42d0-8e70-01f37854c848",
+      "title": "Griekse SMS-Taal voor Stellen: Lieve Berichtjes Sturen",
+      "native_lang": "nl",
+      "target_lang": "el",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Emoji's en Reacties",
+          "subsections": [
+            "### Populaire Combinaties"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e775617f-53b8-452d-abf1-9ca57ee7375b",
+      "title": "Yunanca Barışma ve Uzlaşma İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Barışma İfadeleri",
+          "subsections": [
+            "### 1. \"Συγγνώμη για αυτά που είπα\" (Signomi ya afta pu ipa)",
+            "### 2. \"Μπορούμε να ξεκινήσουμε από την αρχή;\"",
+            "### 3. \"Μισώ να τσακώνομαι μαζί σου\"",
+            "### 4. \"Ας μην πάμε για ύπνο θυμωμένοι\"",
+            "### 5. \"Σε συγχωρώ\"",
+            "### 6. \"Είχα άδικο\"",
+            "### 7. \"Πώς μπορώ να το επανορθώσω;\"",
+            "### 8. \"Σ'αγαπώ περισσότερο από αυτόν τον καβγά\"",
+            "### 9. \"Ας το λύσουμε μαζί\"",
+            "### 10. \"Μου λείπει πως ήμασταν πριν τον καβγά\"",
+            "### 11. \"Είσαι τα πάντα για μένα\"",
+            "### 12. \"Υπόσχομαι να γίνω καλύτερος/η\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e779a2a6-2d89-4147-b0c4-9832b53dd6f2",
+      "title": "Niederländisch Kosenamen und Liebkosungen für Paare",
+      "native_lang": "de",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Kosenamen für verschiedene Anlässe",
+          "subsections": [
+            "### Im Alltag",
+            "### Für romantische Momente",
+            "### Zum Necken"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e7924972-cea8-41df-a0d4-09d0f47e0af6",
+      "title": "Γνωρίζοντας την Οικογένεια του Συντρόφου σας στα Δανέζικα: Φράσεις για να Κερδίσετε τις Εντυπώσεις",
+      "native_lang": "el",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Συγκεκριμένες Καταστάσεις",
+          "subsections": [
+            "### Όταν Φτάνετε στο Σπίτι",
+            "### Κατά τη Διάρκεια του Δείπνου",
+            "### Συζητώντας για τη Σχέση σας"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e79d484e-7898-4636-95a5-c1da9de05be2",
+      "title": "Italské fráze pro setkání s rodiči partnera",
+      "native_lang": "cs",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## První setkání",
+          "subsections": [
+            "### \"Piacere di conoscervi.\"",
+            "### \"[Partner] mi ha parlato tanto di voi.\"",
+            "### \"Grazie mille per l'invito.\"",
+            "### \"Avete una casa bellissima.\""
+          ]
+        },
+        {
+          "header": "## U jídla",
+          "subsections": [
+            "### \"È delizioso! Potrei avere la ricetta?\"",
+            "### \"Tutto sembra meraviglioso.\"",
+            "### \"Mi piacerebbe imparare a preparare questo piatto.\""
+          ]
+        },
+        {
+          "header": "## Projevení zájmu",
+          "subsections": [
+            "### \"Mi piacerebbe vedere delle foto di [partner] da piccolo/a.\"",
+            "### \"Come vi siete conosciuti?\""
+          ]
+        },
+        {
+          "header": "## Nabídka pomoci",
+          "subsections": [
+            "### \"Posso aiutare in qualcosa?\"",
+            "### \"Mi lasci aiutare con i piatti.\""
+          ]
+        },
+        {
+          "header": "## Rozloučení",
+          "subsections": [
+            "### \"Grazie per una serata meravigliosa.\"",
+            "### \"Spero di rivedervi presto.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e7a648e5-4eb9-455e-96f5-607ff2d1beec",
+      "title": "Турецький сленг для повідомлень: Як надсилати романтичні SMS",
+      "native_lang": "uk",
+      "target_lang": "tr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Емоджі та реакції",
+          "subsections": [
+            "### Популярні комбінації"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e7a888af-a6d9-4fde-9193-e793fb49162a",
+      "title": "Franska fraser för att säga 'Jag saknar dig' – Uttryck längtan på kärlekens språk",
+      "native_lang": "sv",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundläggande fraser",
+          "subsections": [
+            "### \"Tu me manques\"",
+            "### \"Tu me manques tellement\"",
+            "### \"Je pense à toi tout le temps\""
+          ]
+        },
+        {
+          "header": "## Djupare uttryck",
+          "subsections": [
+            "### \"Mon cœur te réclame\"",
+            "### \"Chaque seconde sans toi est une éternité\"",
+            "### \"Ta présence me manque cruellement\""
+          ]
+        },
+        {
+          "header": "## Romantiska kvällsfraser",
+          "subsections": [
+            "### \"Je rêve de m'endormir dans tes bras\"",
+            "### \"Le lit est si vide sans toi\"",
+            "### \"Ta chaleur me manque la nuit\""
+          ]
+        },
+        {
+          "header": "## Vardagliga uttryck",
+          "subsections": [
+            "### \"J'ai vu quelque chose qui m'a fait penser à toi\"",
+            "### \"Nos petits moments ensemble me manquent\"",
+            "### \"Tout me rappelle toi\""
+          ]
+        },
+        {
+          "header": "## Hoppfulla fraser",
+          "subsections": [
+            "### \"J'ai hâte de te revoir\"",
+            "### \"Je compte les jours jusqu'à nos retrouvailles\"",
+            "### \"Bientôt nous serons réunis\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e7ad50a0-bc85-4976-bfab-f335ded935e5",
+      "title": "Expressions de Mariage en Ukrainien : Guide Complet",
+      "native_lang": "fr",
+      "target_lang": "uk",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## La Réception",
+          "subsections": [
+            "### Vocabulaire de la Fête"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e7b6ee61-8210-4187-a7a4-bc2cb5abd0c4",
+      "title": "Holenderskie zwroty do godzenia się i pojednania dla par",
+      "native_lang": "pl",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Przepraszanie z serca",
+          "subsections": [
+            "### \"Het spijt me echt\"",
+            "### \"Vergeef me alsjeblieft\"",
+            "### \"Ik had ongelijk\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie żalu",
+          "subsections": [
+            "### \"Ik voel me rot over wat er gebeurd is\"",
+            "### \"Ik wilde je niet kwetsen\"",
+            "### \"Ik wou dat ik het ongedaan kon maken\""
+          ]
+        },
+        {
+          "header": "## Otwieranie dialogu",
+          "subsections": [
+            "### \"Kunnen we erover praten?\"",
+            "### \"Ik wil begrijpen hoe je je voelt\"",
+            "### \"Vertel me wat je denkt\""
+          ]
+        },
+        {
+          "header": "## Obietnice zmiany",
+          "subsections": [
+            "### \"Ik zal mijn best doen\"",
+            "### \"Het zal niet meer gebeuren\"",
+            "### \"Ik werk aan mezelf\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie miłości",
+          "subsections": [
+            "### \"Ik hou zoveel van je\"",
+            "### \"Je betekent alles voor mij\"",
+            "### \"Ik wil je niet kwijt\""
+          ]
+        },
+        {
+          "header": "## Praktyczne pojednanie",
+          "subsections": [
+            "### \"Kom hier, laat me je vasthouden\"",
+            "### \"Laten we opnieuw beginnen\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e7c0cfd8-070c-46bd-9133-81605c14877e",
+      "title": "Φράσεις για Γνωριμία με τους Πεθερικούς στα Γερμανικά",
+      "native_lang": "el",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Φράσεις για την Πρώτη Γνωριμία",
+          "subsections": [
+            "### 1. Freut mich sehr, Sie kennenzulernen (Φρόιτ μιχ ζέρ, ζι κένεντσουλέρνεν)",
+            "### 2. Ich habe schon viel von Ihnen gehört (Ιχ χάμπε σον φιλ φον Ίνεν γκεχέρτ)",
+            "### 3. Vielen Dank, dass Sie mich bei sich willkommen heißen (Φίλεν νταν, ντας ζι μιχ μπάι ζιχ βίλκομεν χάισεν)"
+          ]
+        },
+        {
+          "header": "## Φράσεις Εκτίμησης",
+          "subsections": [
+            "### 4. Ihr Sohn/Ihre Tochter ist wunderbar (Ιρ ζον/Ίρε τόχτερ ιστ βούντερμπαρ)",
+            "### 5. Sie haben einen tollen Menschen großgezogen (Ζι χάμπεν άινεν τόλεν μένσεν γκροσγκετσόγκεν)",
+            "### 6. Das Essen ist köstlich (Ντας Έσεν ιστ κέστλιχ)",
+            "### 7. Sie haben ein wunderschönes Zuhause (Ζι χάμπεν άιν βούντερσένες τσουχάουζε)"
+          ]
+        },
+        {
+          "header": "## Φράσεις για Συζήτηση",
+          "subsections": [
+            "### 8. Ich würde gerne mehr über Ihre Familie erfahren (Ιχ βίρντε γκέρνε μερ ίμπερ Ίρε φαμίλιε ερφάρεν)",
+            "### 9. Wie war er/sie als Kind? (Βι βαρ ερ/ζι αλς κιντ)",
+            "### 10. Ich hoffe, wir können mehr Zeit miteinander verbringen (Ιχ χόφε, βιρ κένεν μερ τσάιτ μιταϊνάντερ φερμπρίνγκεν)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e7c203ba-f39f-4664-8b0c-d1e00f226874",
+      "title": "Szwedzkie zwroty o zazdrości i zaufaniu dla par",
+      "native_lang": "pl",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Wyrażanie uczuć zazdrości",
+          "subsections": [
+            "### \"Jag känner mig lite svartsjuk när...\"",
+            "### \"Jag känner mig osäker på...\"",
+            "### \"Det stör mig när du...\""
+          ]
+        },
+        {
+          "header": "## Pytania budujące zaufanie",
+          "subsections": [
+            "### \"Kan du lugna mig angående...?\"",
+            "### \"Vem var den personen du pratade med?\"",
+            "### \"Överdriver jag?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie potrzeby zaufania",
+          "subsections": [
+            "### \"Jag behöver att du är ärlig mot mig\"",
+            "### \"Jag litar på dig, men jag kämpar med...\""
+          ]
+        },
+        {
+          "header": "## Uspokajanie partnera",
+          "subsections": [
+            "### \"Du har inget att oroa dig för\"",
+            "### \"Du är den enda för mig\"",
+            "### \"Jag skulle aldrig göra något som skadar dig\""
+          ]
+        },
+        {
+          "header": "## Budowanie zaufania",
+          "subsections": [
+            "### \"Låt oss vara mer öppna med varandra\"",
+            "### \"Jag vill att vi litar helt på varandra\""
+          ]
+        }
+      ]
+    }
+  ]
+}

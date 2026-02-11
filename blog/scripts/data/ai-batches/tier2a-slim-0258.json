@@ -1,0 +1,516 @@
+{
+  "batchId": "tier2a-slim-0258",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "ff386da7-a349-4377-98ac-23e85054fb9c",
+      "title": "Macarca Flört İfadeleri: Budapeşte Romantizmi",
+      "native_lang": "tr",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Flört İfadeleri",
+          "subsections": [
+            "### 1. \"Nagyon szép vagy\"",
+            "### 2. \"Szeretem a mosolyodat\"",
+            "### 3. \"Iszol velem egy kávét?\"",
+            "### 4. \"Gyönyörű szemeid vannak\"",
+            "### 5. \"Folyton rád gondolok\"",
+            "### 6. \"Boldoggá teszel\"",
+            "### 7. \"Meghívhatlak egy italra?\"",
+            "### 8. \"Jól érzem magam veled\"",
+            "### 9. \"Különleges vagy\"",
+            "### 10. \"Szeretnélek újra látni\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ff696539-54a3-47aa-9dae-1f356b7ae96e",
+      "title": "Erros Comuns que Falantes de Portugues Cometem em Alemao",
+      "native_lang": "pt",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Pratica para Casais",
+          "subsections": [
+            "### Correcao Carinhosa",
+            "### Diario de Erros"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ff8dc64b-9648-4fd0-9c99-f0dbe3efc196",
+      "title": "Phrases allemandes sur la jalousie et la confiance en couple",
+      "native_lang": "fr",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions pour aborder la jalousie",
+          "subsections": [
+            "### Exprimer ses sentiments",
+            "### Demander des réassurances",
+            "### Construire la confiance",
+            "### Réaffirmer son engagement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ff9077a3-1c5f-4db6-b593-6ba4b8cf5c97",
+      "title": "Norveççe Kıskançlık ve Güven İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kıskançlığı İfade Etme",
+          "subsections": [
+            "### 1. \"Jeg føler meg litt sjalu når...\"",
+            "### 2. \"Kan du berolige meg?\"",
+            "### 3. \"Jeg stoler på deg, men ikke på dem\"",
+            "### 4. \"Det gjør meg ukomfortabel når...\"",
+            "### 5. \"Jeg trenger å vite at jeg er din prioritet\""
+          ]
+        },
+        {
+          "header": "## Güven İnşa Etme",
+          "subsections": [
+            "### 6. \"Jeg stoler fullstendig på deg\"",
+            "### 7. \"Du er den eneste for meg\"",
+            "### 8. \"Jeg ville aldri gjøre noe for å såre deg\"",
+            "### 9. \"Du har ingenting å bekymre deg for\"",
+            "### 10. \"Jeg er bare forpliktet til deg\"",
+            "### 11. \"La oss snakke om dine bekymringer\"",
+            "### 12. \"Hva kan jeg gjøre for at du skal føle deg tryggere?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ff9d2779-94ac-40cf-934a-f41944d8a8f5",
+      "title": "Griechische Liebesbrief-Phrasen für Deutsche",
+      "native_lang": "de",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Anreden",
+          "subsections": [
+            "### \"Αγάπη μου...\" (Agápi mou)",
+            "### \"Καρδιά μου...\" (Kardiá mou)",
+            "### \"Ψυχή μου...\" (Psychí mou)",
+            "### \"Ζωή μου...\" (Zoí mou)"
+          ]
+        },
+        {
+          "header": "## Einleitungen",
+          "subsections": [
+            "### \"Σου γράφω για να σου πω πόσο πολύ σε αγαπώ\"",
+            "### \"Δεν υπάρχουν αρκετές λέξεις για να εκφράσω αυτά που νιώθω για σένα\""
+          ]
+        },
+        {
+          "header": "## Ausdrücke der Liebe",
+          "subsections": [
+            "### \"Είσαι το καλύτερο πράγμα που μου έχει συμβεί ποτέ\"",
+            "### \"Η ζωή μου άλλαξε για πάντα τη μέρα που σε γνώρισα\"",
+            "### \"Ερωτεύομαι περισσότερο κάθε μέρα\"",
+            "### \"Φωτίζεις τη ζωή μου με την παρουσία σου\"",
+            "### \"Μαζί σου ανακάλυψα τι σημαίνει αληθινή αγάπη\""
+          ]
+        },
+        {
+          "header": "## Zukunftsversprechen",
+          "subsections": [
+            "### \"Σου υπόσχομαι να σε αγαπώ χωρίς όρους\"",
+            "### \"Θέλω να περάσω την υπόλοιπη ζωή μου μαζί σου\"",
+            "### \"Η αγάπη μου για σένα θα μεγαλώνει μόνο\""
+          ]
+        },
+        {
+          "header": "## Abschlüsse",
+          "subsections": [
+            "### \"Για πάντα δικός/δική σου...\"",
+            "### \"Με όλη μου την αγάπη...\"",
+            "### \"Σ' αγαπώ, σήμερα και για πάντα\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ff9e3675-462b-4e95-ac91-cdc166caa27e",
+      "title": "Frases de 'Te Extraño' en Italiano: La Mancanza con Pasión Italiana",
+      "native_lang": "es",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresiones Esenciales",
+          "subsections": [
+            "### \"Mi manchi\"",
+            "### \"Mi manchi tantissimo\"",
+            "### \"Vorrei che tu fossi qui\""
+          ]
+        },
+        {
+          "header": "## Frases Emotivas",
+          "subsections": [
+            "### \"Ogni momento senza di te sembra un'eternità\"",
+            "### \"Sei sempre nei miei pensieri\"",
+            "### \"La distanza non cambia nulla dei miei sentimenti\""
+          ]
+        },
+        {
+          "header": "## Para Mensajes Diarios",
+          "subsections": [
+            "### \"Mi sono svegliato/a pensando a te\"",
+            "### \"Buonanotte, mi manchi\"",
+            "### \"Conto i giorni fino a quando ti rivedrò\""
+          ]
+        },
+        {
+          "header": "## Expresiones Apasionadas",
+          "subsections": [
+            "### \"Il mio cuore soffre senza di te\"",
+            "### \"Sei il pezzo mancante della mia vita\"",
+            "### \"Senza di te tutto perde colore\""
+          ]
+        },
+        {
+          "header": "## Frases para Videollamadas",
+          "subsections": [
+            "### \"Vederti mi riempie il cuore di gioia\"",
+            "### \"Vorrei poterti abbracciare attraverso lo schermo\""
+          ]
+        },
+        {
+          "header": "## Mensajes Románticos",
+          "subsections": [
+            "### \"Buongiorno, amore mio, mi manchi\"",
+            "### \"Non vedo l'ora di stringerti tra le mie braccia\""
+          ]
+        },
+        {
+          "header": "## Mensajes de Voz",
+          "subsections": [
+            "### \"Volevo solo sentire la tua voce\"",
+            "### \"Chiamami quando puoi, mi manchi\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ffa93bc6-3462-4e16-a7d7-211359c76095",
+      "title": "Cómo Escribir Cartas de Amor en Checo: El Milostný dopis",
+      "native_lang": "es",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Saludos Románticos",
+          "subsections": [
+            "### \"Má lásko...\"",
+            "### \"Miláčku...\"",
+            "### \"Drahá/Drahý...\"",
+            "### \"Zlatíčko...\""
+          ]
+        },
+        {
+          "header": "## Expresiones de Apertura",
+          "subsections": [
+            "### \"Píšu ti z hloubi srdce\"",
+            "### \"Každý den bez tebe je jako věčnost\""
+          ]
+        },
+        {
+          "header": "## Frases del Cuerpo de la Carta",
+          "subsections": [
+            "### \"Jsi to nejlepší, co se mi stalo\"",
+            "### \"Mé srdce patří jen tobě\"",
+            "### \"S tebou se cítím úplný/úplná\"",
+            "### \"Jsi světlo mého života\""
+          ]
+        },
+        {
+          "header": "## Promesas de Amor",
+          "subsections": [
+            "### \"Budu tě milovat navždy\"",
+            "### \"Vždy budu po tvém boku\""
+          ]
+        },
+        {
+          "header": "## Despedidas Románticas",
+          "subsections": [
+            "### \"Navždy tvá/tvůj...\"",
+            "### \"S veškerou láskou...\"",
+            "### \"Tvá/Tvůj [nombre], která/který tě miluje\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ffafe19f-e12c-426f-8236-6876805d8398",
+      "title": "Expresii în Portugheză pentru Reconciliere și Împăcare în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii pentru Cererea Scuzelor",
+          "subsections": [
+            "### Scuze Sincere",
+            "### Exprimarea Regretului Profund"
+          ]
+        },
+        {
+          "header": "## Expresii pentru Împăcare",
+          "subsections": [
+            "### Inițierea Dialogului",
+            "### Declarații de Dragoste",
+            "### Reconstruirea Conexiunii"
+          ]
+        },
+        {
+          "header": "## Diferențe: Portugheză Europeană vs Braziliană",
+          "subsections": [
+            "### În Portugalia:",
+            "### În Brazilia:"
+          ]
+        },
+        {
+          "header": "## Gesturi de Reconciliere",
+          "subsections": [
+            "### Contactul Fizic",
+            "### Mâncarea",
+            "### Muzica",
+            "### Timp Împreună"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ffbddf40-7b2b-4d16-b224-6579658b9472",
+      "title": "Duńskie zwroty do kłótni i nieporozumień dla par",
+      "native_lang": "pl",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Wyrażanie niezgody",
+          "subsections": [
+            "### \"Jeg er ikke enig med dig\"",
+            "### \"Jeg ser det anderledes\"",
+            "### \"Kan vi tale om det her i ro?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie uczuć",
+          "subsections": [
+            "### \"Jeg føler mig frustreret, når...\"",
+            "### \"Det her generer mig virkelig\"",
+            "### \"Jeg har brug for lidt tid for mig selv\""
+          ]
+        },
+        {
+          "header": "## Zrozumienie partnera",
+          "subsections": [
+            "### \"Hjælp mig med at forstå dit synspunkt\"",
+            "### \"Hvis jeg forstår dig rigtigt...\"",
+            "### \"Mener du, at...?\""
+          ]
+        },
+        {
+          "header": "## Szukanie rozwiązań",
+          "subsections": [
+            "### \"Hvordan kan vi løse det her sammen?\"",
+            "### \"Lad os finde et kompromis\"",
+            "### \"Jeg tror, vi begge skal...\""
+          ]
+        },
+        {
+          "header": "## Łagodzenie napięcia",
+          "subsections": [
+            "### \"Jeg elsker dig, selv når vi skændes\"",
+            "### \"Vi klarer det her sammen\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ffc54c85-5c4f-46ee-9a13-6c02d7a4f5cc",
+      "title": "Норвежские фразы о прощении",
+      "native_lang": "ru",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Фразы для просьбы о прощении",
+          "subsections": [
+            "### 1. Jeg er virkelig lei meg for det jeg gjorde",
+            "### 2. Vær så snill, tilgi meg",
+            "### 3. Jeg vet at jeg såret deg, og jeg angrer dypt",
+            "### 4. Det vil ikke skje igjen, jeg lover",
+            "### 5. Jeg tar fullt ansvar for mine handlinger"
+          ]
+        },
+        {
+          "header": "## Фразы для выражения прощения",
+          "subsections": [
+            "### 6. Jeg tilgir deg",
+            "### 7. La oss legge dette bak oss",
+            "### 8. Jeg er klar til å gå videre",
+            "### 9. Jeg setter pris på unnskyldningen din",
+            "### 10. Det krever mot å be om unnskyldning, takk"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ffcd1239-60ad-4f07-8aa4-5bcf6d6efa13",
+      "title": "Rusca Telaffuz Rehberi: Türkler Icin Kapsamli Kilavuz",
+      "native_lang": "tr",
+      "target_lang": "ru",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Ünsüz Kurallari",
+          "subsections": [
+            "### Sert ve Yumusak Ünsüzler",
+            "### Kelime Sonu Ünsüz Sertlesmesi"
+          ]
+        },
+        {
+          "header": "## Ciftler Icin Pratik",
+          "subsections": [
+            "### Pratik Cümleler"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ffd0d30c-0d6e-439d-a213-84ba6b871af1",
+      "title": "Трудно ли выучить нидерландский? Честный ответ для русскоговорящих",
+      "native_lang": "ru",
+      "target_lang": "nl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Что СЛОЖНО в нидерландском",
+          "subsections": [
+            "### 1. Гортанный звук G",
+            "### 2. Артикли De и Het",
+            "### 3. Порядок слов",
+            "### 4. Произношение дифтонгов"
+          ]
+        },
+        {
+          "header": "## Что ПРОСТО в нидерландском",
+          "subsections": [
+            "### 1. Нет падежей!",
+            "### 2. Простое спряжение глаголов",
+            "### 3. Много интернациональных слов",
+            "### 4. Латинский алфавит",
+            "### 5. Логичная структура"
+          ]
+        },
+        {
+          "header": "## Советы для успешного изучения",
+          "subsections": [
+            "### 1. Учите слова с артиклями",
+            "### 2. Практикуйте звук G",
+            "### 3. Смотрите нидерландские сериалы",
+            "### 4. Используйте связь с английским",
+            "### 5. Практикуйте с партнёром!"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ffd1a708-0be4-44e9-a802-db8fdd2c038c",
+      "title": "Russische Sms-Taal voor Stellen: Van Люблю tot Целую",
+      "native_lang": "nl",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Complete Berichtvoorbeelden",
+          "subsections": [
+            "### Goedemorgen Bericht",
+            "### Tijdens het Werk",
+            "### Welterusten Bericht"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ffee130d-bbd1-4b43-8d71-07a9269de49f",
+      "title": "Португальские приветствия и прощания для пар",
+      "native_lang": "ru",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Ответы на \"Tudo bem?\"",
+          "subsections": [
+            "### Стандартные:",
+            "### Романтические ответы:"
+          ]
+        },
+        {
+          "header": "## Практические упражнения",
+          "subsections": [
+            "### Утренний ритуал:",
+            "### Прощание на день:",
+            "### Вечернее прощание:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fff6b2c3-30a4-487b-9eed-4cbd1209ffb0",
+      "title": "Переїзд разом: німецькою слова для спільного життя",
+      "native_lang": "uk",
+      "target_lang": "de",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика",
+          "subsections": []
+        },
+        {
+          "header": "## Обговорення переїзду",
+          "subsections": [
+            "### Як запропонувати спільне життя німецькою"
+          ]
+        },
+        {
+          "header": "## Пошук житла",
+          "subsections": [
+            "### Лексика для оренди/покупки",
+            "### Кімнати в домі"
+          ]
+        },
+        {
+          "header": "## Меблі та предмети побуту",
+          "subsections": [
+            "### У спальні",
+            "### На кухні",
+            "### У вітальні"
+          ]
+        },
+        {
+          "header": "## Розподіл обов'язків",
+          "subsections": [
+            "### Домашні справи німецькою",
+            "### Як обговорити обов'язки"
+          ]
+        }
+      ]
+    }
+  ]
+}

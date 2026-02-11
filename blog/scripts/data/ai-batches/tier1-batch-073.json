@@ -1,0 +1,56 @@
+{
+  "tier": 1,
+  "batchId": "tier1-batch-073",
+  "articles": [
+    {
+      "id": "cc79f8c0-619d-4b53-9552-bf8639e2a260",
+      "title": "Cum să îți ceri scuze în spaniolă – Expresii esențiale pentru cupluri",
+      "native_lang": "ro",
+      "target_lang": "es",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nA ști să îți ceri scuze cu sinceritate în limba partenerului tău este esențial pentru o relație sănătoasă. În spaniolă, există multe modalități de a exprima regretul, de la scuze simple la cereri elaborate de iertare.\n\n<PhraseOfDay\n  word=\"Lo siento\"\n  translation=\"Îmi pare rău\"\n  pronunciation=\"\"\n  context=\"Expresia principală pentru scuze în spaniolă\"\n/>\n\n## Scuze de bază în Spaniolă\n\nAceste expresii sunt fundamentale pentru orice conversație în care trebuie să îți ceri scuze:\n\n<VocabCard\n  word=\"Lo siento\"\n  translation=\"Îmi pare rău\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Perdóname, por favor\"\n  translation=\"Te rog să mă ierți\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Es mi culpa\"\n  translation=\"E vina mea\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇪🇸\" title=\"Cultura scuzelor\">\nSpaniolii și latino-americanii sunt foarte expresivi. Scuzele sincere sunt adesea însoțite de gesturi afectuoase și explicații detaliate.\n</CultureTip>\n\n## Expresii pentru a cere iertare\n\nCând ai greșit mai serios, ai nevoie de expresii mai puternice:\n\n| Spaniolă | Română |\n|---------|---------|\n| Lo siento | Îmi pare rău |\n| Perdóname, por favor | Te rog să mă ierți |\n| Es mi culpa | E vina mea |\n| Estaba equivocado/a | Am greșit |\n| Hagamos las paces | Hai să ne împăcăm |\n\n## Expresii de reconciliere\n\nDupă ce ți-ai cerut scuze, aceste fraze te ajută să reconstruiești legătura:\n\n<VocabCard\n  word=\"Hagamos las paces\"\n  translation=\"Hai să ne împăcăm\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Cum să accepți scuzele cuiva\n\nCând partenerul tău își cere scuze, poți răspunde cu aceste expresii:\n\n| Spaniolă | Română |\n|---------|---------|\n| Está bien | E în regulă |\n\n## Sfaturi pentru scuze sincere în Spaniolă\n\n1. **Fii specific** – Menționează exact ce ai făcut greșit\n2. **Arată empatie** – Recunoaște cum s-a simțit partenerul tău\n3. **Evită scuzele** – Nu da vina pe circumstanțe\n4. **Oferă soluții** – Spune ce vei face diferit pe viitor\n5. **Dă-i timp** – Nu forța iertarea imediată\n\n<CTA />\n\n## Articole conexe\n\n- [Exprimarea emoțiilor în spaniolă](/ro/es/spanish-expressing-emotions)\n- [Fraze romantice în spaniolă](/ro/es/spanish-romantic-phrases-for-every-occasion)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "cd69eca3-c95d-4e90-95fc-2a17dfd09ccd",
+      "title": "Cum să îți ceri scuze în franceză – Expresii esențiale pentru cupluri",
+      "native_lang": "ro",
+      "target_lang": "fr",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nA ști să îți ceri scuze cu sinceritate în limba partenerului tău este esențial pentru o relație sănătoasă. În franceză, există multe modalități de a exprima regretul, de la scuze simple la cereri elaborate de iertare.\n\n<PhraseOfDay\n  word=\"Je suis désolé(e)\"\n  translation=\"Îmi pare rău\"\n  pronunciation=\"\"\n  context=\"Expresia principală pentru scuze în franceză\"\n/>\n\n## Scuze de bază în Franceză\n\nAceste expresii sunt fundamentale pentru orice conversație în care trebuie să îți ceri scuze:\n\n<VocabCard\n  word=\"Je suis désolé(e)\"\n  translation=\"Îmi pare rău\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Pardonne-moi, s'il te plaît\"\n  translation=\"Te rog să mă ierți\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"C'est ma faute\"\n  translation=\"E vina mea\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇫🇷\" title=\"Cultura scuzelor\">\nFrancezii apreciază eleganța în comunicare. Scuzele trebuie să fie sincere dar nu excesiv de dramatice - echilibrul este cheia.\n</CultureTip>\n\n## Expresii pentru a cere iertare\n\nCând ai greșit mai serios, ai nevoie de expresii mai puternice:\n\n| Franceză | Română |\n|---------|---------|\n| Je suis désolé(e) | Îmi pare rău |\n| Pardonne-moi, s'il te plaît | Te rog să mă ierți |\n| C'est ma faute | E vina mea |\n| J'avais tort | Am greșit |\n| Faisons la paix | Hai să ne împăcăm |\n\n## Expresii de reconciliere\n\nDupă ce ți-ai cerut scuze, aceste fraze te ajută să reconstruiești legătura:\n\n<VocabCard\n  word=\"Faisons la paix\"\n  translation=\"Hai să ne împăcăm\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Cum să accepți scuzele cuiva\n\nCând partenerul tău își cere scuze, poți răspunde cu aceste expresii:\n\n| Franceză | Română |\n|---------|---------|\n| C'est pas grave | E în regulă |\n\n## Sfaturi pentru scuze sincere în Franceză\n\n1. **Fii specific** – Menționează exact ce ai făcut greșit\n2. **Arată empatie** – Recunoaște cum s-a simțit partenerul tău\n3. **Evită scuzele** – Nu da vina pe circumstanțe\n4. **Oferă soluții** – Spune ce vei face diferit pe viitor\n5. **Dă-i timp** – Nu forța iertarea imediată\n\n<CTA />\n\n## Articole conexe\n\n- [Exprimarea emoțiilor în franceză](/ro/fr/french-expressing-emotions)\n- [Fraze romantice în franceză](/ro/fr/french-romantic-phrases-for-every-occasion)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "ce0f9de3-8148-4e0b-9386-0021735bc636",
+      "title": "Smalltalk auf Norwegisch – Gesprächseinstiege für Paare",
+      "native_lang": "de",
+      "target_lang": "no",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\n# Smalltalk auf Norwegisch – Gesprächseinstiege für Paare\n\nSmalltalk ist eine Kunst, die in jeder Sprache wichtig ist. Wenn du die Familie und Freunde deines Partners kennenlernst, helfen dir diese Norwegischen Phrasen dabei, das Eis zu brechen und interessante Gespräche zu führen.\n\n<PhraseOfDay\n  word=\"How are you?\"\n  translation=\"Wie geht es dir/Ihnen?\"\n  pronunciation=\"hau ar juu?\"\n  context=\"Ein klassischer Gesprächseinstieg\"\n/>\n\n## Gespräche beginnen\n\n<VocabCard\n  word=\"How are you?\"\n  translation=\"Wie geht es dir/Ihnen?\"\n  pronunciation=\"hau ar juu?\"\n  example=\"How are you today?\"\n/>\n\n<VocabCard\n  word=\"Nice weather today, isn't it?\"\n  translation=\"Schönes Wetter heute, nicht wahr?\"\n  pronunciation=\"nais WEH-dhör tu-DEI\"\n  example=\"Nice weather we're having!\"\n/>\n\n| Norwegisch | Deutsch |\n|-------------|---------|\n| Where are you from? | Woher kommen Sie? |\n| What do you do for work? | Was machen Sie beruflich? |\n| Have we met before? | Kennen wir uns? |\n\n<CultureTip flag=\"🇳🇴\" title=\"Kultureller Kontext\">\nSmall talk helps build rapport. Show genuine interest and ask follow-up questions.\n</CultureTip>\n\n## Über Hobbys und Interessen\n\n| Norwegisch | Deutsch |\n|-------------|---------|\n| What are your hobbies? | Was sind Ihre Hobbys? |\n| Do you like sports? | Mögen Sie Sport? |\n| What music do you like? | Welche Musik hören Sie gern? |\n| Do you like to travel? | Reisen Sie gern? |\n\n## Über Arbeit und Beruf\n\n<VocabCard\n  word=\"What do you do?\"\n  translation=\"Was arbeiten Sie?\"\n  pronunciation=\"wot du juu duu?\"\n  example=\"What do you do for a living?\"\n/>\n\n| Norwegisch | Deutsch |\n|-------------|---------|\n| Do you enjoy your work? | Gefällt Ihnen Ihre Arbeit? |\n| How long have you worked there? | Seit wann arbeiten Sie dort? |\n| That sounds interesting | Das klingt interessant |\n\n## Über das Wetter\n\nEin Klassiker, der immer funktioniert:\n\n| Norwegisch | Deutsch |\n|-------------|---------|\n| Nice weather today | Schönes Wetter heute |\n| It's warm/cold today | Es ist heute warm/kalt |\n| Hopefully it won't rain | Hoffentlich regnet es nicht |\n| The summer was nice | Der Sommer war schön |\n\n## Gespräche am Laufen halten\n\n| Norwegisch | Deutsch |\n|-------------|---------|\n| That's interesting! | Das ist interessant! |\n| Tell me more | Erzählen Sie mehr |\n| Really? | Wirklich? |\n| I understand | Ich verstehe |\n\n## Höflich nachfragen\n\n<VocabCard\n  word=\"Could you repeat that?\"\n  translation=\"Können Sie das wiederholen?\"\n  pronunciation=\"kud juu ri-PIET dhät?\"\n  example=\"I'm sorry, could you repeat that?\"\n/>\n\n| Norwegisch | Deutsch |\n|-------------|---------|\n| Could you speak slower? | Können Sie langsamer sprechen? |\n| What does that mean? | Was bedeutet das? |\n| I'm still learning | Ich lerne noch Norwegisch |\n\n<CultureTip flag=\"🇳🇴\" title=\"Tipp für Smalltalk\">\nStelle offene Fragen und zeige echtes Interesse an den Antworten. Die Familie deines Partners wird es schätzen, dass du dich bemühst, sie kennenzulernen.\n</CultureTip>\n\n## Verwandte Artikel\n\n- [Norwegische Begrüßungen](/de/blog/norwegian-greetings-and-farewells)\n- [Die Familie deines Partners treffen](/de/blog/norwegian-meeting-your-partner-s-family)\n\n<CTA />",
+      "issues": [
+        {
+          "type": "language_fingerprint_mismatch",
+          "details": {
+            "nativeLang": "de",
+            "nativeStopWordRatio": 6,
+            "englishStopWordRatio": 10
+          }
+        }
+      ]
+    }
+  ]
+}

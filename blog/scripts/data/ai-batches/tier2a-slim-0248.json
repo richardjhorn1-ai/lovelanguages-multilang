@@ -1,0 +1,434 @@
+{
+  "batchId": "tier2a-slim-0248",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "f64d6739-2a7c-4773-b549-8eb8edaa24d5",
+      "title": "Романтические украинские фразы на все случаи",
+      "native_lang": "ru",
+      "target_lang": "uk",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Утром и вечером",
+          "subsections": [
+            "### Утром:",
+            "### Вечером:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f6595953-ac64-4820-bba8-4b4001c86c32",
+      "title": "Französische Aussprache für deutsche Muttersprachler",
+      "native_lang": "de",
+      "target_lang": "fr",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Die französischen Vokale",
+          "subsections": [
+            "### Grundvokale",
+            "### Das berühmte französische U"
+          ]
+        },
+        {
+          "header": "## Die wichtigsten Buchstabenkombinationen",
+          "subsections": [
+            "### Vokalkombinationen",
+            "### Konsonantenkombinationen"
+          ]
+        },
+        {
+          "header": "## Stumme Buchstaben",
+          "subsections": [
+            "### Das stumme E am Wortende",
+            "### Stumme Konsonanten am Wortende"
+          ]
+        },
+        {
+          "header": "## Typische Fehler deutscher Sprecher",
+          "subsections": [
+            "### Fehler 1: Das U wie deutsches U aussprechen",
+            "### Fehler 2: Stumme Buchstaben aussprechen",
+            "### Fehler 3: Die Nasalvokale vergessen",
+            "### Fehler 4: Das R zu hart aussprechen",
+            "### Fehler 5: Die Liaison vergessen"
+          ]
+        },
+        {
+          "header": "## Übungssätze",
+          "subsections": [
+            "### Nasalvokale",
+            "### Vokalkombinationen",
+            "### Liaison"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f65b17b0-7036-47f5-bf56-4c2d17dd4ee6",
+      "title": "Swedish Anniversary Wishes: Romantic Messages for Your Love",
+      "native_lang": "en",
+      "target_lang": "sv",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Simple Anniversary Wishes",
+          "subsections": [
+            "### Short and Sweet",
+            "### For Your Partner"
+          ]
+        },
+        {
+          "header": "## Romantic Anniversary Messages",
+          "subsections": [
+            "### Heartfelt Declarations",
+            "### Reflective Messages"
+          ]
+        },
+        {
+          "header": "## Anniversary Messages by Year",
+          "subsections": [
+            "### First Anniversary",
+            "### Fifth Anniversary",
+            "### Tenth Anniversary",
+            "### Twenty-Fifth Anniversary (Silver)",
+            "### Fiftieth Anniversary (Golden)"
+          ]
+        },
+        {
+          "header": "## Planning Your Anniversary Celebration",
+          "subsections": [
+            "### Romantic Ideas",
+            "### What to Say at Dinner"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f65bf1ca-9906-44fa-9266-ac3ff695ca4a",
+      "title": "Italienische Phrasen für die Schwiegereltern",
+      "native_lang": "de",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Erste Begegnung",
+          "subsections": [
+            "### \"È un piacere conoscervi finalmente\"",
+            "### \"Ho sentito parlare molto di voi\"",
+            "### \"Grazie per avermi accolto a casa vostra\"",
+            "### \"La vostra casa è bellissima\""
+          ]
+        },
+        {
+          "header": "## Höfliche Konversation",
+          "subsections": [
+            "### \"Come sta?\"",
+            "### \"Mi piacerebbe saperne di più su...\"",
+            "### \"Che interessante!\""
+          ]
+        },
+        {
+          "header": "## Bei Mahlzeiten",
+          "subsections": [
+            "### \"È delizioso! Posso avere la ricetta?\"",
+            "### \"Tutto sembra meraviglioso\"",
+            "### \"Grazie per questo pranzo/cena squisito\"",
+            "### \"Posso aiutare in qualcosa?\""
+          ]
+        },
+        {
+          "header": "## Über Ihre Beziehung",
+          "subsections": [
+            "### \"Vostro figlio/Vostra figlia significa tutto per me\"",
+            "### \"Sono molto grato/a di avere [Name] nella mia vita\"",
+            "### \"Prometto di prendermi sempre cura di [Name]\"",
+            "### \"Ci rendiamo molto felici a vicenda\""
+          ]
+        },
+        {
+          "header": "## Dankbarkeit zeigen",
+          "subsections": [
+            "### \"Grazie per aver cresciuto una persona così meravigliosa\"",
+            "### \"Apprezzo molto la vostra calorosa accoglienza\"",
+            "### \"Mi avete fatto sentire così benvenuto/a\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f661d948-90ef-458b-b89b-0002ccc79705",
+      "title": "Frases en Ucraniano para Pedir y Ofrecer Perdón a tu Pareja",
+      "native_lang": "es",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Pedir Perdón",
+          "subsections": [
+            "### \"Мені дуже шкода\" (Meni duzhe shkoda)",
+            "### \"Будь ласка, пробач мені\" (Bud' laska, probach meni)",
+            "### \"Я знаю, що завдав/завдала тобі болю\" (Ya znayu, shcho zavdav/zavdala tobi bolyu)",
+            "### \"Я був/була неправий/неправа\" (Ya buv/bula nepravyy/neprava)",
+            "### \"Як я можу це виправити?\" (Yak ya mozhu tse vypravyty?)",
+            "### \"Обіцяю, що це не повториться\" (Obitsyayu, shcho tse ne povtoryt'sya)"
+          ]
+        },
+        {
+          "header": "## Frases para Ofrecer Perdón",
+          "subsections": [
+            "### \"Я тебе прощаю\" (Ya tebe proshchayu)",
+            "### \"Давай залишимо це позаду\" (Davay zalyshymo tse pozadu)",
+            "### \"Я готовий/готова рухатися далі\" (Ya hotovyy/hotova rukhatysya dali)",
+            "### \"Всі роблять помилки\" (Vsi roblyat' pomylky)",
+            "### \"Я все ще тебе кохаю\" (Ya vse shche tebe kokhayu)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f6735a79-edf5-4396-9a67-2b6dd55d8a03",
+      "title": "Italiaanse Zinnen over Vergeving",
+      "native_lang": "nl",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Mi dispiace davvero\"",
+            "### 2. \"Ti prego, perdonami\"",
+            "### 3. \"Ti perdono\"",
+            "### 4. \"Puoi trovare nel tuo cuore di perdonarmi?\"",
+            "### 5. \"Avevo torto e mi dispiace\"",
+            "### 6. \"Non lo farò mai più\"",
+            "### 7. \"Cosa posso fare per rimediare?\"",
+            "### 8. \"Accetto le tue scuse\"",
+            "### 9. \"Andiamo avanti\"",
+            "### 10. \"So che ti ho fatto male\"",
+            "### 11. \"Prometto di fare meglio\"",
+            "### 12. \"Ci vuole tempo, ma cercherò di perdonare\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f67450bd-7e98-442b-89bf-70b81249fbeb",
+      "title": "Russischer SMS-Slang für Paare",
+      "native_lang": "de",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Beispiel-Konversationen",
+          "subsections": [
+            "### Morgens",
+            "### Abends"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f692baf2-a3f0-4f18-a4a8-2caa2f933178",
+      "title": "Urări de Ziua de Naștere pentru Partener în Italiană: Mesaje Romantice",
+      "native_lang": "ro",
+      "target_lang": "it",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Mesaje Romantice",
+          "subsections": [
+            "### Scurte și Dulci",
+            "### Mesaje Mai Lungi"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Diferite Personalități",
+          "subsections": [
+            "### Pentru Partenerul Romantic",
+            "### Pentru Partenerul cu Umor"
+          ]
+        },
+        {
+          "header": "## Mesaje pentru Card",
+          "subsections": [
+            "### Format Scurt",
+            "### Format Lung"
+          ]
+        },
+        {
+          "header": "## Idei de Surprize",
+          "subsections": [
+            "### Gesturi Romantice"
+          ]
+        },
+        {
+          "header": "## Mesaje de Dimineață",
+          "subsections": [
+            "### Pentru Început de Zi"
+          ]
+        },
+        {
+          "header": "## Tradiții de Cuplu",
+          "subsections": [
+            "### Idei pentru Noi Tradiții"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f6a5eb32-f46b-4525-9d58-69cf634e3b47",
+      "title": "Frases en Rumano para Discutir y Resolver Desacuerdos con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Expresar Desacuerdo",
+          "subsections": [
+            "### \"Eu văd lucrurile diferit\"",
+            "### \"Putem vorbi despre asta calm?\"",
+            "### \"Mă doare când tu...\"",
+            "### \"Nu asta am vrut să spun\"",
+            "### \"Am nevoie de timp să mă gândesc\"",
+            "### \"Încearcă să înțelegi punctul meu de vedere\"",
+            "### \"Nu vreau să ne certăm\"",
+            "### \"Nu mă asculți\"",
+            "### \"Hai să găsim un compromis\"",
+            "### \"Asta e important pentru mine\"",
+            "### \"Amândoi trebuie să ne liniștim\"",
+            "### \"Sunt rănit/rănită\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f6b9c782-86e3-4b82-a147-80b1dc5bca64",
+      "title": "Francia kifejezések féltékenységhez és bizalomhoz",
+      "native_lang": "hu",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kifejezések a féltékenység kifejezéséhez",
+          "subsections": [
+            "### 1. \"Je me sens jaloux/jalouse quand...\"",
+            "### 2. \"J'ai besoin d'être rassuré(e)\"",
+            "### 3. \"Je te fais confiance, mais j'ai du mal avec mes sentiments\"",
+            "### 4. \"On peut parler de ce qui s'est passé?\"",
+            "### 5. \"Je ne veux pas être jaloux/jalouse, mais...\"",
+            "### 6. \"Je te fais entièrement confiance\"",
+            "### 7. \"Tu es le/la seul(e) pour moi\"",
+            "### 8. \"Je ne ferais jamais rien pour te blesser\"",
+            "### 9. \"Il n'y a rien entre nous\"",
+            "### 10. \"Je suis engagé(e) envers toi\"",
+            "### 11. \"Soyons honnêtes l'un avec l'autre\"",
+            "### 12. \"Je ne veux pas que la jalousie nous sépare\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f6c86f96-a57c-4e02-b29e-5206875abe40",
+      "title": "Portugisiske fraser til uenigheder og diskussioner for par",
+      "native_lang": "da",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Vigtige fraser",
+          "subsections": [
+            "### At udtrykke følelser",
+            "### At lytte og forstå",
+            "### At finde løsninger",
+            "### At sætte grænser"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f6cbc7a2-aa51-43b5-807c-a7578699daac",
+      "title": "Godmorgen og Godnat på Tysk: Søde Fraser til Din Partner",
+      "native_lang": "da",
+      "target_lang": "de",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Tekstbeskeder",
+          "subsections": [
+            "### Morgenbeskeder",
+            "### Aftenbeskeder"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f6e89496-ec51-4930-835b-58b20dd55bd1",
+      "title": "Greek 'I Miss You' Phrases: Express Your Longing Passionately",
+      "native_lang": "en",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essential 'I Miss You' Phrases",
+          "subsections": [
+            "### Passionate Expressions",
+            "### Deep Longing",
+            "### Romantic Yearning",
+            "### Tender Messages"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f6eb168e-a0c4-4095-be43-b8d7fb66f1ca",
+      "title": "50 Holland Köszönés és Búcsú, Ami Megolvasztja a Párod Szívét",
+      "native_lang": "hu",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hogyan Használjátok Ezeket a Gyakorlatban?",
+          "subsections": [
+            "### Napi Rituálék Kialakítása",
+            "### Gyakori Hibák, Amit El Kerüljél"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f703c884-0867-47b3-93f0-35ef39dcc744",
+      "title": "Hiányzol Kifejezések Hollandul – Ik Mis Je és Más",
+      "native_lang": "hu",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető Hiányzol Kifejezések",
+          "subsections": [
+            "### 1. Ik mis je",
+            "### 2. Ik mis je zo erg",
+            "### 3. Ik mis je heel erg",
+            "### 4. Ik kan niet stoppen aan je te denken",
+            "### 5. Was je maar hier",
+            "### 6. Mijn hart is leeg zonder jou",
+            "### 7. Ik tel de dagen tot ik je weer zie",
+            "### 8. Je bent altijd in mijn gedachten",
+            "### 9. Ik verlang naar je",
+            "### 10. Zonder jou ben ik niet compleet"
+          ]
+        },
+        {
+          "header": "## Kulturális Tippek",
+          "subsections": [
+            "### Holland Direktség",
+            "### Gezelligheid",
+            "### Je vs. Jou"
+          ]
+        }
+      ]
+    }
+  ]
+}

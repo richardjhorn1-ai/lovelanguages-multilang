@@ -1,0 +1,486 @@
+{
+  "batchId": "tier2a-slim-0061",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "55121330-e5e9-4158-877a-1c4ae52b7669",
+      "title": "Lengyel kifejezések megbocsátáshoz",
+      "native_lang": "hu",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bocsánatkérés",
+          "subsections": [
+            "### 1. \"Naprawdę przepraszam\"",
+            "### 2. \"Proszę, wybacz mi\"",
+            "### 3. \"Biorę pełną odpowiedzialność\"",
+            "### 4. \"Myliłem/am się i przyznaję to\"",
+            "### 5. \"Obiecuję, że to się nie powtórzy\""
+          ]
+        },
+        {
+          "header": "## Megbocsátás",
+          "subsections": [
+            "### 6. \"Wybaczam ci\"",
+            "### 7. \"W porządku, rozumiem\"",
+            "### 8. \"Jestem gotowy/a iść dalej\"",
+            "### 9. \"Zostawmy to za sobą\"",
+            "### 10. \"Nie chowam urazy\"",
+            "### 11. \"Każdy popełnia błędy\"",
+            "### 12. \"Doceniam twoje przeprosiny\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5516f8ed-a3c2-40d7-b74b-7a8b945b9720",
+      "title": "Portekizce Telaffuz Rehberi: Partnerinizle Birlikte Hemen Konuşmaya Başlayın",
+      "native_lang": "tr",
+      "target_lang": "pt",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Konsonantların Sihri",
+          "subsections": [
+            "### Özel Portekizce Konsonantlar",
+            "### Nasıl ve Ne Zaman Sesi Değiştirmeli"
+          ]
+        },
+        {
+          "header": "## En Yaygın Hatalar ve Çözümleri",
+          "subsections": [
+            "### 1. R Sesini Güçlendirmek",
+            "### 2. NH Sesini İhmal Etmek",
+            "### 3. Vurguyu Son Hecede Bırakmak"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "55220e0d-2fb2-4638-b0a5-91237d0ee703",
+      "title": "Norweskie zwroty o przebaczeniu dla par",
+      "native_lang": "pl",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Proszenie o przebaczenie",
+          "subsections": [
+            "### \"Vær så snill, tilgi meg\"",
+            "### \"Jeg håper du kan tilgi meg\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie przebaczenia",
+          "subsections": [
+            "### \"Jeg tilgir deg\"",
+            "### \"Det er greit, jeg forstår\"",
+            "### \"La oss legge dette bak oss\""
+          ]
+        },
+        {
+          "header": "## Proces przebaczenia",
+          "subsections": [
+            "### \"Jeg jobber med å tilgi deg\"",
+            "### \"Jeg trenger tid, men jeg vil tilgi deg\""
+          ]
+        },
+        {
+          "header": "## Głębokie przebaczenie",
+          "subsections": [
+            "### \"Jeg tilgir deg fullstendig\"",
+            "### \"Jeg slipper smerten\""
+          ]
+        },
+        {
+          "header": "## Wspólne wyjście naprzód",
+          "subsections": [
+            "### \"La oss starte på nytt\"",
+            "### \"Vår kjærlighet er sterkere enn denne feilen\""
+          ]
+        },
+        {
+          "header": "## Granice przebaczenia",
+          "subsections": [
+            "### \"Jeg tilgir deg, men dette må ikke skje igjen\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5522369b-1dfe-4fad-9861-d546cf13b52a",
+      "title": "Hiányzol kifejezések hollandul",
+      "native_lang": "hu",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető \"hiányzol\" kifejezések",
+          "subsections": [
+            "### 1. Ik mis je (Ik misz je)",
+            "### 2. Ik mis je zo erg (Ik misz je zó erh)",
+            "### 3. Ik mis je heel veel (Ik misz je hél vél)",
+            "### 4. Ik moet steeds aan je denken (Ik mút sztédsz án je denken)",
+            "### 5. Ik wou dat je hier was (Ik vau dat je hír vasz)",
+            "### 6. Elk moment zonder jou voelt leeg (Elk moment zonder jau fúlt léh)",
+            "### 7. Je bent altijd in mijn gedachten (Je bent áltájd in májn hedahten)",
+            "### 8. Ik tel de dagen tot ik je weer zie (Ik tel de dáhen tot ik je vér zí)",
+            "### 9. Mijn hart doet pijn zonder jou (Májn hart dút pájn zonder jau)",
+            "### 10. Afstand verandert niets aan mijn gevoelens (Afsztand ferandert nítsz án májn hefúlensz)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5537c700-b287-429b-8450-29b35ee77095",
+      "title": "Испанские фразы о прощении",
+      "native_lang": "ru",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Фразы для просьбы о прощении",
+          "subsections": [
+            "### 1. Lo siento mucho por lo que hice",
+            "### 2. Por favor, perdóname",
+            "### 3. Sé que te hice daño y lo lamento profundamente",
+            "### 4. No volverá a pasar, te lo prometo",
+            "### 5. Asumo toda la responsabilidad de mis acciones"
+          ]
+        },
+        {
+          "header": "## Фразы для выражения прощения",
+          "subsections": [
+            "### 6. Te perdono",
+            "### 7. Dejemos esto atrás",
+            "### 8. Estoy listo/lista para seguir adelante",
+            "### 9. Agradezco tu disculpa",
+            "### 10. Se necesita valor para disculparse, gracias"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "553d14f7-9d65-4af7-aa49-54fd2a747bbc",
+      "title": "Meeting Your Polish Partner's Family",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Things to Avoid",
+          "subsections": [
+            "### Don't:",
+            "### Do:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5540062a-a420-48f3-9f1c-386ffc98d645",
+      "title": "Espanhol é Difícil de Aprender? Guia Honesto para Casais",
+      "native_lang": "pt",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## O Que Torna o Espanhol **Mais Fácil**",
+          "subsections": [
+            "### ✅ Vantagens Que Você Já Tem:"
+          ]
+        },
+        {
+          "header": "## O Que Pode Ser **Desafiador**",
+          "subsections": [
+            "### ⚠️ Cuidado Com Essas Armadilhas:"
+          ]
+        },
+        {
+          "header": "## Dicas de Sucesso para Casais",
+          "subsections": [
+            "### 💡 Estratégias Comprovadas:"
+          ]
+        },
+        {
+          "header": "## Por Onde Começar Agora",
+          "subsections": [
+            "### 📚 Roteiro de Aprendizado Para Casais:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5561e76b-486b-4d36-820d-f890bc7aec8c",
+      "title": "Small Talk på Russisk: Samtalestartere for Par",
+      "native_lang": "da",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassiske Emner",
+          "subsections": [
+            "### Vejret",
+            "### Weekendplaner",
+            "### Ferier og Rejser"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "558e01e5-ccea-40f5-8073-e0a09a34746b",
+      "title": "Španělské fráze pro setkání s rodiči partnera",
+      "native_lang": "cs",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## První setkání",
+          "subsections": [
+            "### \"Mucho gusto en conocerles.\"",
+            "### \"[Partner] me ha hablado mucho de ustedes.\"",
+            "### \"Muchas gracias por invitarme.\"",
+            "### \"Tienen una casa muy bonita.\""
+          ]
+        },
+        {
+          "header": "## U jídla",
+          "subsections": [
+            "### \"Está delicioso! Me podría dar la receta?\"",
+            "### \"Todo se ve maravilloso.\"",
+            "### \"Me encantaría aprender a preparar esto.\""
+          ]
+        },
+        {
+          "header": "## Projevení zájmu",
+          "subsections": [
+            "### \"Me encantaría ver fotos de [partner] de pequeño/a.\"",
+            "### \"Cómo se conocieron ustedes?\"",
+            "### \"Qué les gusta hacer en su tiempo libre?\""
+          ]
+        },
+        {
+          "header": "## Nabídka pomoci",
+          "subsections": [
+            "### \"Puedo ayudar en algo?\"",
+            "### \"Por favor, déjeme ayudar con los platos.\""
+          ]
+        },
+        {
+          "header": "## Rozloučení",
+          "subsections": [
+            "### \"Gracias por una velada maravillosa.\"",
+            "### \"Espero verles pronto otra vez.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "559088bc-70be-48d5-92d2-38fdd661da1a",
+      "title": "Phrases roumaines pour se réconcilier en couple",
+      "native_lang": "fr",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions essentielles pour se réconcilier",
+          "subsections": [
+            "### S'excuser sincèrement",
+            "### Exprimer ses sentiments",
+            "### Proposer une résolution",
+            "### Réaffirmer son amour"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5590c44d-d7b6-4bf4-bdc9-0c6a5f964146",
+      "title": "Hiányzol kifejezések lengyelül",
+      "native_lang": "hu",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető \"hiányzol\" kifejezések",
+          "subsections": [
+            "### 1. Tęsknię za tobą (Tensknyé za tobom)",
+            "### 2. Bardzo za tobą tęsknię (Bardzo za tobom tensknyé)",
+            "### 3. Strasznie za tobą tęsknię (Sztrasnyé za tobom tensknyé)",
+            "### 4. Ciągle o tobie myślę (Csonggle o tobyé müslé)",
+            "### 5. Chciałbym, żebyś tu był/była (Hcsáubüm zsebüs tu büu/büua)",
+            "### 6. Każda chwila bez ciebie jest pusta (Kazsda hvíla bez csebyé jeszt puszta)",
+            "### 7. Jesteś zawsze w moich myślach (Jesztesz zavse v moih müslah)",
+            "### 8. Liczę dni do naszego spotkania (Lícsé dnyi do naségo szpotkanya)",
+            "### 9. Moje serce tęskni za tobą (Moye szertse tenskni za tobom)",
+            "### 10. Odległość nie zmienia moich uczuć (Odleglosty nyé zmyenya moih ucsuts)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "55a29d15-40ed-4c3e-a312-d439b0f0ae68",
+      "title": "Frases para Coquetear en Ucraniano: Romance con Alma Ucraniana",
+      "native_lang": "es",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Cumplidos Hermosos",
+          "subsections": [
+            "### \"Ти дуже гарна/гарний\" (Ty duzhe harna/harnyy)",
+            "### \"У тебе чарівні очі\" (U tebe charivni ochi)",
+            "### \"Твоя усмішка неймовірна\" (Tvoya usmishka neymovirna)"
+          ]
+        },
+        {
+          "header": "## Expresiones de Interés",
+          "subsections": [
+            "### \"Хочеш випити кави?\" (Khochesh vypyty kavy?)",
+            "### \"Мені подобається бути з тобою\" (Meni podobayetsya buty z toboyu)",
+            "### \"Ти особлива/особливий\" (Ty osoblyva/osoblyvyy)"
+          ]
+        },
+        {
+          "header": "## Declaraciones Románticas",
+          "subsections": [
+            "### \"Я постійно думаю про тебе\" (Ya postiyno dumayu pro tebe)",
+            "### \"Ти вкрала/вкрав моє серце\" (Ty vkrala/vkrav moye sertse)",
+            "### \"Я закоханий/закохана в тебе\" (Ya zakohanyy/zakokhana v tebe)"
+          ]
+        },
+        {
+          "header": "## Frases Tiernas",
+          "subsections": [
+            "### \"Ти робиш мене щасливим/щасливою\" (Ty robysh mene shchaslyvym/shchaslyvoyu)",
+            "### \"Моє серце б'ється швидше, коли ти поруч\" (Moye sertse b'yetsya shvydshe, koly ty poruch)"
+          ]
+        },
+        {
+          "header": "## Mensajes Románticos",
+          "subsections": [
+            "### \"Доброго ранку, сонечко\" (Dobroho ranku, sonechko)",
+            "### \"Сумую за тобою\" (Sumuyu za toboyu)",
+            "### \"На добраніч, кохана/коханий\" (Na dobranich, kokhana/kokhanyy)",
+            "### \"Чекаю на тебе\" (Chekayu na tebe)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "55b56fc7-34ac-4ea0-85a9-fa71da2c537d",
+      "title": "Романтические немецкие фразы на все случаи",
+      "native_lang": "ru",
+      "target_lang": "de",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Утренние и вечерние фразы",
+          "subsections": [
+            "### Утром:",
+            "### Вечером:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "55d38705-639e-43a7-900b-9c64a29595d5",
+      "title": "Mutatul Împreună în Rusă: Vocabular și Expresii pentru Noua Voastră",
+      "native_lang": "ro",
+      "target_lang": "ru",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Mobila și Obiectele Casnice",
+          "subsections": [
+            "### Living",
+            "### Dormitor",
+            "### Bucătărie"
+          ]
+        },
+        {
+          "header": "## Procesul Mutării",
+          "subsections": [
+            "### Înainte de Mutare",
+            "### În Ziua Mutării"
+          ]
+        },
+        {
+          "header": "## Decorarea Împreună",
+          "subsections": [
+            "### Stiluri de Design",
+            "### Compromis în Decor"
+          ]
+        },
+        {
+          "header": "## Comunicare în Cuplu",
+          "subsections": [
+            "### Expresii pentru Armonie",
+            "### Rezolvarea Conflictelor"
+          ]
+        },
+        {
+          "header": "## Lista de Verificare",
+          "subsections": [
+            "### Documente Necesare",
+            "### Prima Săptămână"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "55dde944-f143-48ad-ad11-b1302e2936de",
+      "title": "Italienske 'Jeg Savner Dig' Sætninger for Danskere",
+      "native_lang": "da",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Udtryk",
+          "subsections": [
+            "### \"Mi manchi\"",
+            "### \"Mi manchi tantissimo\"",
+            "### \"Penso sempre a te\""
+          ]
+        },
+        {
+          "header": "## Dybere Udtryk",
+          "subsections": [
+            "### \"Ogni momento senza di te è un'eternità\"",
+            "### \"Sei la prima cosa a cui penso quando mi sveglio\"",
+            "### \"Vorrei tanto che tu fossi qui con me\""
+          ]
+        },
+        {
+          "header": "## Hverdagens Savn",
+          "subsections": [
+            "### \"Mi manca il tuo sorriso\"",
+            "### \"Mi manca addormentarmi accanto a te\"",
+            "### \"Mi mancano le nostre conversazioni\""
+          ]
+        },
+        {
+          "header": "## Passionerede Udtryk",
+          "subsections": [
+            "### \"Mi manchi più di quanto le parole possano esprimere\"",
+            "### \"Stare lontano da te è la cosa più difficile\"",
+            "### \"Conto i giorni fino a quando ti rivedrò\""
+          ]
+        },
+        {
+          "header": "## Trøstende Sætninger",
+          "subsections": [
+            "### \"La distanza non significa nulla quando qualcuno significa tutto\"",
+            "### \"Ovunque tu sia, sei sempre nel mio cuore\""
+          ]
+        },
+        {
+          "header": "## Typisk Italienske Udtryk",
+          "subsections": [
+            "### \"Il mio cuore ti cerca\"",
+            "### \"Senza di te mi sento vuoto/vuota\""
+          ]
+        }
+      ]
+    }
+  ]
+}

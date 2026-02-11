@@ -1,0 +1,109 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0090",
+  "articles": [
+    {
+      "id": "1a8beb85-1cc1-4c62-be7b-0bb23589eeab",
+      "title": "Phrases anglaises pour se réconcilier en couple",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "communication",
+      "content": "Après une dispute, savoir comment se réconcilier est essentiel pour maintenir une relation saine. Si votre partenaire parle anglais, ces expressions vous aideront à réparer les dommages et à renforcer votre lien.\n\n## L'importance de la réconciliation\n\nLes conflits peuvent rapprocher les couples s'ils sont bien gérés. La réconciliation n'est pas seulement dire \"je suis désolé\" - c'est reconstruire la confiance et montrer que vous tenez à la relation.\n\n## Expressions essentielles pour se réconcilier\n\n### S'excuser sincèrement\n\n**\"I'm really sorry for what I said.\"**\n*Je suis vraiment désolé(e) pour ce que j'ai dit.*\nUne excuse directe et sincère est le premier pas.\n\n**\"I didn't mean to hurt you.\"**\n*Je ne voulais pas te blesser.*\nMontre que vos intentions n'étaient pas malveillantes.\n\n**\"I was wrong, and I take full responsibility.\"**\n*J'avais tort, et j'en assume l'entière responsabilité.*\nReconnaître ses erreurs sans excuses.\n\n### Exprimer ses sentiments\n\n**\"I hate it when we fight.\"**\n*Je déteste quand on se dispute.*\nMontre que le conflit vous affecte aussi.\n\n**\"I've been thinking about what happened.\"**\n*J'ai réfléchi à ce qui s'est passé.*\nIndique que vous prenez la situation au sérieux.\n\n**\"I miss the way things were between us.\"**\n*Notre complicité me manque.*\nExprime votre désir de retrouver l'harmonie.\n\n### Proposer une résolution\n\n**\"Can we start over?\"**\n*Pouvons-nous recommencer ?*\nOffre une chance de repartir sur de bonnes bases.\n\n**\"Let's talk about how we can avoid this in the future.\"**\n*Parlons de comment éviter cela à l'avenir.*\nOrientation vers les solutions.\n\n**\"What can I do to make things right?\"**\n*Que puis-je faire pour arranger les choses ?*\nMontre votre volonté d'agir.\n\n### Réaffirmer son amour\n\n**\"No matter what, I love you.\"**\n*Quoi qu'il arrive, je t'aime.*\nRassure sur la solidité de vos sentiments.\n\n**\"You mean everything to me.\"**\n*Tu comptes énormément pour moi.*\nRappelle l'importance de la relation.\n\n**\"Let's not go to bed angry.\"**\n*Ne nous couchons pas fâchés.*\nUne expression populaire pour résoudre les conflits rapidement.\n\n## Gestes de réconciliation en culture anglophone\n\nLes anglophones apprécient les gestes concrets accompagnant les excuses : un câlin, préparer le repas préféré de l'autre, ou simplement passer du temps de qualité ensemble. Les mots sont importants, mais les actions le sont encore plus.\n\n## Conclusion\n\nLa réconciliation est un art qui se perfectionne avec le temps. Ces expressions vous donneront les outils pour réparer les liens et sortir plus forts de chaque conflit avec votre partenaire anglophone.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Expressions essentielles pour se réconcilier"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "1a9be750-375a-4888-aee2-a98a4a51c29c",
+      "title": "Guten Morgen und Gute Nacht auf Polnisch – Süße Phrasen für jeden Tag",
+      "native_lang": "de",
+      "target_lang": "pl",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\n# Guten Morgen und Gute Nacht auf Polnisch\n\nEs gibt kaum etwas Schöneres, als den Tag mit liebevollen Worten zu beginnen und zu beenden. Diese Polnischen Phrasen helfen dir, deinem Partner jeden Tag zu zeigen, wie viel er dir bedeutet – vom ersten Moment am Morgen bis zum letzten Kuss in der Nacht.\n\n<PhraseOfDay\n  word=\"Good morning\"\n  translation=\"Guten Morgen\"\n  pronunciation=\"gud MOR-ning\"\n  context=\"Der klassische Morgengruß für deinen Partner\"\n/>\n\n## Guten Morgen sagen\n\n### Klassische Morgengrüße\n\n<VocabCard\n  word=\"Good morning, my darling\"\n  translation=\"Guten Morgen, mein Schatz\"\n  pronunciation=\"gud MOR-ning mai DAR-ling\"\n  example=\"Good morning, my darling! Rise and shine.\"\n/>\n\n<VocabCard\n  word=\"Wake up, my love\"\n  translation=\"Aufwachen, mein Liebling\"\n  pronunciation=\"weik ap mai lav\"\n  example=\"Wake up, my love! It's a beautiful day.\"\n/>\n\n| Polnisch | Deutsch |\n|-------------|---------|\n| Did you sleep well? | Hast du gut geschlafen? |\n| Time to get up | Zeit aufzustehen |\n| I made breakfast | Ich habe Frühstück gemacht |\n\n### Romantische Morgengrüße\n\n| Polnisch | Deutsch |\n|-------------|---------|\n| You're the first thing on my mind | Du bist das Erste, woran ich denke |\n| Have a wonderful day, angel | Einen wunderschönen Tag, mein Engel |\n| I love waking up next to you | Ich liebe es, neben dir aufzuwachen |\n| You're my sunshine | Du bist mein Sonnenschein |\n\n<CultureTip flag=\"🇵🇱\" title=\"Kultureller Kontext\">\nDaily greetings in your partner's language show you care. Make it a sweet habit!\n</CultureTip>\n\n## Gute Nacht sagen\n\n### Klassische Nachtgrüße\n\n<VocabCard\n  word=\"Good night\"\n  translation=\"Gute Nacht\"\n  pronunciation=\"gud nait\"\n  example=\"Good night, sweet dreams.\"\n/>\n\n<VocabCard\n  word=\"Sleep well\"\n  translation=\"Schlaf gut\"\n  pronunciation=\"sliep wel\"\n  example=\"Sleep well, my love.\"\n/>\n\n| Polnisch | Deutsch |\n|-------------|---------|\n| Sweet dreams | Süße Träume |\n| See you tomorrow | Bis morgen |\n| Sleep tight | Schlaf schön |\n\n### Romantische Nachtgrüße\n\n| Polnisch | Deutsch |\n|-------------|---------|\n| I'll dream of you | Ich träume von dir |\n| You're my last thought before sleep | Du bist der letzte Gedanke vor dem Einschlafen |\n| Sleep well, my heart | Schlaf gut, mein Herz |\n| I can't wait to see you tomorrow | Ich kann es kaum erwarten, dich morgen zu sehen |\n\n## Für Textnachrichten\n\nPerfekt für süße SMS und WhatsApp-Nachrichten:\n\n| Polnisch | Deutsch |\n|-------------|---------|\n| Good morning, thinking of you | Guten Morgen, ich denke an dich |\n| Have a great day | Hab einen tollen Tag |\n| Good night, I miss you | Gute Nacht, ich vermisse dich |\n| Sweet dreams | Träum süß |\n| Until tomorrow, love you | Bis morgen, ich liebe dich |\n\n<CultureTip flag=\"🇵🇱\" title=\"Tipp für Paare\">\nBeginne und beende jeden Tag mit einer liebevollen Nachricht auf Polnisch. Diese kleinen Gesten stärken eure Beziehung und helfen dir beim Sprachenlernen!\n</CultureTip>\n\n## Verwandte Artikel\n\n- [Romantische Phrasen auf Polnisch](/de/blog/polish-romantic-phrases-for-every-occasion)\n- [Polnische Kosenamen](/de/blog/polish-pet-names-terms-of-endearment)\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Guten Morgen sagen",
+              "## Gute Nacht sagen"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "1ad95eae-814a-41e7-900d-cee839f31c7c",
+      "title": "Polnische Flirtsprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "pl",
+      "category": "communication",
+      "content": "Polnisch mag auf den ersten Blick kompliziert erscheinen, aber die Sprache hat eine wunderschöne Melodie und ist voller romantischer Ausdrücke. Als Nachbarland hat Polen eine reiche Kultur der Romantik und Poesie. Hier lernst du die schönsten polnischen Flirtsprüche.\n\n## Die Schönheit des Polnischen\n\nPolnisch ist eine slawische Sprache mit vielen Zischlauten und einer charakteristischen Melodie. Die vielen Konsonanten mögen Deutsche zunächst einschüchtern, aber mit etwas Übung offenbart sich die Eleganz dieser Sprache.\n\n## Klassische Komplimente\n\n### \"Jesteś piękna\" / \"Jesteś przystojny\"\n**Aussprache:** JES-tesch PIENK-na / JES-tesch pschi-STOI-ni\n\n**Bedeutung:** Du bist wunderschön / Du bist gutaussehend\n\n\"Piękna\" für Frauen, \"przystojny\" für Männer. Ein klassisches, direktes Kompliment.\n\n### \"Masz piękne oczy\"\n**Aussprache:** masch PIENK-ne O-tschi\n\n**Bedeutung:** Du hast schöne Augen\n\nAugenkomplimente sind in Polen sehr beliebt.\n\n### \"Twój uśmiech jest cudowny\"\n**Aussprache:** twui u-SCHMIECH jest tsu-DOW-ni\n\n**Bedeutung:** Dein Lächeln ist wunderbar\n\nEin herzliches Kompliment, das immer gut ankommt.\n\n## Romantische Ausdrücke\n\n### \"Jesteś miłością mojego życia\"\n**Aussprache:** JES-tesch mi-WOSCH-tschom mo-JE-go SCHI-tscha\n\n**Bedeutung:** Du bist die Liebe meines Lebens\n\nEin kraftvoller Ausdruck für tiefe Gefühle.\n\n### \"Nie mogę przestać o tobie myśleć\"\n**Aussprache:** nie MO-ge PSCHE-statsch o TO-bje MI-schletsch\n\n**Bedeutung:** Ich kann nicht aufhören, an dich zu denken\n\nPerfekt für romantische Nachrichten.\n\n### \"Przy tobie jestem szczęśliwy\" / \"Przy tobie jestem szczęśliwa\"\n**Aussprache:** pschi TO-bje JES-tem schtschensch-LI-wi / schtschensch-LI-wa\n\n**Bedeutung:** Bei dir bin ich glücklich\n\nEin schöner Ausdruck der Zufriedenheit.\n\n## Süße Kosenamen\n\n### \"Kochanie\"\n**Aussprache:** ko-CHA-nie\n\n**Bedeutung:** Liebling / Schatz\n\nDer beliebteste polnische Kosename.\n\n### \"Skarbie\"\n**Aussprache:** SKAR-bje\n\n**Bedeutung:** Schatz (wörtlich: Schatz/Kostbarkeit)\n\nZeigt, wie wertvoll der Partner ist.\n\n### \"Słoneczko\"\n**Aussprache:** swo-NETSCH-ko\n\n**Bedeutung:** Sonnenschein\n\nSüß und warmherzig.\n\n### \"Misiaczku\"\n**Aussprache:** mi-SJATSCH-ku\n\n**Bedeutung:** Bärchen\n\nEin niedlicher, verspielter Kosename.\n\n### \"Kotku\"\n**Aussprache:** KOT-ku\n\n**Bedeutung:** Kätzchen\n\nZärtlich und liebevoll.\n\n## Herzliche Ausdrücke\n\n### \"Kocham cię\"\n**Aussprache:** KO-cham tschje\n\n**Bedeutung:** Ich liebe dich\n\nDie wichtigsten Worte – einfach und kraftvoll.\n\n### \"Jesteś dla mnie wszystkim\"\n**Aussprache:** JES-tesch dla mnje WSCHIST-kim\n\n**Bedeutung:** Du bist alles für mich\n\nEin totaler Ausdruck der Hingabe.\n\n### \"Chcę być z tobą na zawsze\"\n**Aussprache:** chtse bitsch s TO-bom na SAW-sche\n\n**Bedeutung:** Ich will für immer mit dir zusammen sein\n\nEin Bekenntnis für die Zukunft.\n\n### \"Ukradłaś mi serce\" / \"Ukradłeś mi serce\"\n**Aussprache:** u-KRAD-wasch mi SER-tse / u-KRAD-wesch mi SER-tse\n\n**Bedeutung:** Du hast mir das Herz gestohlen\n\nPoetisch und romantisch.\n\n## Spielerische Sprüche\n\n### \"Wierzysz w miłość od pierwszego wejrzenia, czy mam przejść jeszcze raz?\"\n**Aussprache:** WJE-schisch w MI-woschtschi od PJERWSCHE-go wei-SCHE-nja, tschi mam pscheischtsch JESCH-tsche ras\n\n**Bedeutung:** Glaubst du an Liebe auf den ersten Blick, oder soll ich nochmal vorbeigehen?\n\nDer klassische Anmachspruch auf Polnisch!\n\n### \"Czy twój tata jest złodziejem? Bo ukradł gwiazdy z nieba i włożył je w twoje oczy\"\n**Aussprache:** tschi twui TA-ta jest SWO-dsjei-em? bo U-kradw GWJAS-di s NJE-ba i WWO-schiw je w TWO-je O-tschi\n\n**Bedeutung:** Ist dein Vater ein Dieb? Denn er hat die Sterne vom Himmel gestohlen und in deine Augen gesetzt\n\nRomantisch und charmant!\n\n## Aussprache-Tipps für Deutsche\n\n- \"Sz\" = deutsches \"sch\"\n- \"Cz\" = deutsches \"tsch\"\n- \"Ż\" und \"Rz\" = stimmhaftes \"sch\" (wie in \"Garage\")\n- \"Ł\" = englisches \"w\"\n- \"Ą\" und \"Ę\" sind Nasalvokale\n- Betonung liegt fast immer auf der vorletzten Silbe\n\n## Kulturelle Besonderheiten\n\nPolen hat eine reiche Tradition der Ritterlichkeit und Romantik. Männer begrüßen Frauen traditionell mit einem Handkuss, und Blumen spielen eine wichtige Rolle beim Dating – aber immer eine ungerade Anzahl!\n\nPolnische Komplimente sind oft poetisch und tiefgründig. Die Sprache erlaubt viele Verkleinerungsformen (Diminutive), die Zärtlichkeit ausdrücken.\n\nMit diesen Sprüchen bringst du polnische Romantik in deine Beziehung. Powodzenia! (Viel Glück!)",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Klassische Komplimente",
+              "## Romantische Ausdrücke",
+              "## Süße Kosenamen",
+              "## Herzliche Ausdrücke",
+              "## Spielerische Sprüche"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "1aeb0025-bb77-4cb0-a76f-0d79d6f62581",
+      "title": "Olasz születésnapi kívánságok párodnak",
+      "native_lang": "hu",
+      "target_lang": "it",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nA párod születésnapja tökéletes alkalom, hogy megmutasd, mennyire szereted. Ha olaszul szeretnél szívből jövő kívánságokat mondani, ezek a kifejezések segítenek.\n\nAz alapvető szerelmi kifejezésekért nézd meg a [Hogyan mondd: Szeretlek olaszul](/learn/hu/it/italian-how-to-say-i-love-you) cikkünket.\n\n<PhraseOfDay\n  word=\"Congratulazioni!\"\n  translation=\"Gratulálok!\"\n  pronunciation=\"konɡratulaˈtsjoːni\"\n  context=\"Az esküvői köszöntés alapja.\"\n/>\n\n## Alapvető szókincs\n\nA születésnapi jókívánságok olasz szókincse:\n\n<VocabCard\n  word=\"matrimonio\"\n  translation=\"esküvő\"\n  pronunciation=\"matriˈmɔːnjo\"\n  example=\"Il matrimonio era bellissimo.\"\n/>\n\n| Olasz | Magyar | Használat |\n|---|---|---|\n| sposa | menyasszony | A nő |\n| sposo | vőlegény | A férfi |\n| voti | fogadalmak | Esküvői ígéretek |\n| cerimonia | szertartás | A hivatalos rész |\n| ricevimento | fogadás | Az ünneplés |\n| brindisi | köszöntő | Pohárköszöntő |\n\n<CultureTip flag=\"🌍\" title=\"Olasz kulturális tippek\">\nA olasz kultúrában a születésnapokat különböző módon ünneplik. Egyesek nagy családi összejöveteleket tartanak, mások inkább intimebb ünnepléseket részesítenek előnyben.\n</CultureTip>\n\n## Hasznos kifejezések\n\n### Születésnapi köszöntések\n\nA nagy napon mondd:\n\n- **Congratulazioni!** - Gratulálok!\n- **Kívánj valamit!** - A gyertyák elfújásánál\n- **Ez a te napod!** - Ünneplés\n\n### Romantikus üzenetek\nHa különlegessé akarod tenni:\n\n- **Minden évben jobban szeretlek** - Időtlen vallomás\n- **Te vagy a legjobb ajándék az életemben** - Szívből jövő\n\n<VocabCard\n  word=\"luna di miele\"\n  translation=\"nászút\"\n  pronunciation=\"ˈluːna di ˈmjɛːle\"\n  example=\"Sono andati in luna di miele.\"\n/>\n\n## Gyakorlati helyzetek\n\n| Helyzet | Mit mondj |\n|---|---|\n| Reggeli ébresztés | Boldog születésnapot, szerelmem! |\n| Torta átadás | Kívánj valamit! |\n| Ajándék átadás | Remélem tetszik! |\n| Este | Ma minden rólad szól |\n\n<CultureTip flag=\"💡\" title=\"Hasznos tipp\">\nHa kártyát írsz, kérj segítséget a nyelvtanhoz. Egy-egy kis hiba kedves lehet, de ügyelj a legfontosabb szavak helyesírására.\n</CultureTip>\n\n## Összefoglaló táblázat\n\n| Helyzet | Olasz kifejezés |\n|---|---|\n| Gratuláció | Congratulazioni! |\n| Az esemény | matrimonio |\n| A nő | sposa |\n| A férfi | sposo |\n| Esküvői ígéretek | voti |\n\n## További tanulás\n\nHa tovább szeretnéd fejleszteni a olasz nyelvtudásod, nézd meg ezeket a cikkeinket:\n\n- [Olasz romantikus kifejezések minden alkalomra](/learn/hu/it/italian-romantic-phrases-for-every-occasion)\n- [Hogyan mondd: Szeretlek olaszul](/learn/hu/it/italian-how-to-say-i-love-you)\n- [Olasz alapvető kifejezések pároknak](/learn/hu/it/italian-essential-phrases-for-couples)\n\nEzek a források segítenek elmélyíteni a tudásod és magabiztosabbá válni a olasz nyelvben.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 273,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Hasznos kifejezések"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "1af0b726-28cb-4792-81ce-05b1bde6b0d3",
+      "title": "Основи італійської граматики для початківців",
+      "native_lang": "uk",
+      "target_lang": "it",
+      "category": "grammar",
+      "content": "\n# Основи італійської граматики для початківців\n\nІталійська граматика має багато спільного з українською, що полегшує вивчення. Розглянемо основні правила.\n\n## Роди іменників\n\nВ італійській є два роди: чоловічий та жіночий (середнього немає, на відміну від української).\n\n### Чоловічий рід\nЗазвичай закінчується на **-o**:\n- il ragazzo (хлопець)\n- il libro (книга)\n- il tavolo (стіл)\n\n### Жіночий рід\nЗазвичай закінчується на **-a**:\n- la ragazza (дівчина)\n- la casa (будинок)\n- la tavola (обідній стіл)\n\n### Винятки\nСлова на **-e** можуть бути обох родів:\n- il fiore (квітка) — ч.р.\n- la notte (ніч) — ж.р.\n\n## Артиклі\n\nВ італійській є означені та неозначені артиклі (в українській їх немає).\n\n### Означені артиклі (певний предмет)\n\n| | Чоловічий | Жіночий |\n|--|-----------|---------|\n| Однина | il / lo / l' | la / l' |\n| Множина | i / gli | le |\n\n**Приклади:**\n- **il** libro (книга) → **i** libri\n- **lo** studente (студент) → **gli** studenti\n- **la** casa (дім) → **le** case\n\n### Неозначені артиклі (будь-який предмет)\n\n| Чоловічий | Жіночий |\n|-----------|---------|\n| un / uno | una / un' |\n\n**Приклади:**\n- **un** ragazzo — якийсь хлопець\n- **una** ragazza — якась дівчина\n\n## Дієвідміни\n\nІталійські дієслова поділяються на три групи за закінченням інфінітива.\n\n### -ARE дієслова (parlare — говорити)\n\n| Особа | Закінчення | Приклад |\n|-------|------------|---------|\n| io | -o | parlo |\n| tu | -i | parli |\n| lui/lei | -a | parla |\n| noi | -iamo | parliamo |\n| voi | -ate | parlate |\n| loro | -ano | parlano |\n\n### -ERE дієслова (vedere — бачити)\n\n| Особа | Закінчення | Приклад |\n|-------|------------|---------|\n| io | -o | vedo |\n| tu | -i | vedi |\n| lui/lei | -e | vede |\n| noi | -iamo | vediamo |\n| voi | -ete | vedete |\n| loro | -ono | vedono |\n\n### -IRE дієслова (dormire — спати)\n\n| Особа | Закінчення | Приклад |\n|-------|------------|---------|\n| io | -o | dormo |\n| tu | -i | dormi |\n| lui/lei | -e | dorme |\n| noi | -iamo | dormiamo |\n| voi | -ite | dormite |\n| loro | -ono | dormono |\n\n## Важливі неправильні дієслова\n\n### Essere (бути)\n- io sono — я є\n- tu sei — ти є\n- lui/lei è — він/вона є\n- noi siamo — ми є\n- voi siete — ви є\n- loro sono — вони є\n\n### Avere (мати)\n- io ho — я маю\n- tu hai — ти маєш\n- lui/lei ha — він/вона має\n- noi abbiamo — ми маємо\n- voi avete — ви маєте\n- loro hanno — вони мають\n\n## Порядок слів\n\nІталійський порядок слів схожий на український:\n- Підмет + Дієслово + Додаток\n- **Maria mangia la pizza** — Марія їсть піцу\n\nПрикметники зазвичай йдуть ПІСЛЯ іменника:\n- una casa **grande** — великий дім\n- un libro **interessante** — цікава книга\n\n## Заперечення\n\nПросто додайте **non** перед дієсловом:\n- Parlo italiano → **Non** parlo italiano\n- Ho tempo → **Non** ho tempo\n\n## Корисні конструкції для пар\n\n- **Mi piace + іменник** — Мені подобається...\n- **Mi piaci** — Ти мені подобаєшся\n- **Vorrei + інфінітив** — Я б хотів/хотіла...\n- **Posso + інфінітив** — Чи можу я...?\n\nПрактикуйте ці основи щодня, і незабаром італійська стане для вас природною!\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Важливі неправильні дієслова"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

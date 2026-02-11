@@ -1,0 +1,177 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0744",
+  "articles": [
+    {
+      "id": "d75d9e75-fa7d-4208-ab3c-0f097ab89759",
+      "title": "Phrases ukrainiennes pour se réconcilier en couple",
+      "native_lang": "fr",
+      "target_lang": "uk",
+      "category": "communication",
+      "content": "La réconciliation est essentielle pour maintenir une relation saine. Si votre partenaire est ukrainien, ces expressions vous aideront à réparer les liens et à retrouver votre complicité.\n\n## La réconciliation dans la culture ukrainienne\n\nLes Ukrainiens valorisent les relations familiales et romantiques profondes. La réconciliation implique sincérité, chaleur et souvent des gestes d'affection concrets.\n\n## Expressions essentielles pour se réconcilier\n\n### S'excuser sincèrement\n\n**\"Вибач мені за те, що я сказав/сказала.\"** (Vybach meni za te, shcho ya skazav/skazala)\n*Pardonne-moi pour ce que j'ai dit.*\nUne excuse sincère.\n\n**\"Я не хотів/хотіла тебе образити.\"** (Ya ne khotiv/khotila tebe obrazyty)\n*Je ne voulais pas te blesser.*\nMontre vos intentions positives.\n\n**\"Я помилявся/помилялася і визнаю це.\"** (Ya pomylyavsya/pomylyalasya i vyznayou tse)\n*J'avais tort et je le reconnais.*\nAssumer ses erreurs.\n\n### Exprimer ses sentiments\n\n**\"Я ненавиджу, коли ми сваримося.\"** (Ya nenavydzhu, koly my svarymosya)\n*Je déteste quand on se dispute.*\nMontre que le conflit vous affecte.\n\n**\"Я багато думав/думала про те, що сталося.\"** (Ya bahato dumav/dumala pro te, shcho stalosya)\n*J'ai beaucoup réfléchi à ce qui s'est passé.*\nIndique une réflexion sincère.\n\n**\"Мені бракує того, як було між нами.\"** (Meni brakuye toho, yak bulo mizh namy)\n*Notre complicité me manque.*\nExprime le désir de retrouver l'harmonie.\n\n### Proposer une résolution\n\n**\"Чи можемо почати все спочатку?\"** (Chy mozhemo pochaty vse spochatku?)\n*Pouvons-nous recommencer ?*\nOffre une nouvelle chance.\n\n**\"Давай поговоримо про те, як уникнути цього в майбутньому.\"** (Davay pohovorymo pro te, yak unyknuty tsoho v maybutnyomu)\n*Parlons de comment éviter cela à l'avenir.*\nOrientation vers les solutions.\n\n**\"Що я можу зробити, щоб все виправити?\"** (Shcho ya mozhu zrobyty, shchob vse vypravyty?)\n*Que puis-je faire pour tout arranger ?*\nMontre votre volonté d'agir.\n\n### Réaffirmer son amour\n\n**\"Що б не сталося, я тебе кохаю.\"** (Shcho b ne stalosya, ya tebe kokhayu)\n*Quoi qu'il arrive, je t'aime.*\nRassure sur vos sentiments.\n\n**\"Ти для мене все.\"** (Ty dlya mene vse)\n*Tu es tout pour moi.*\nRappelle l'importance de la relation.\n\n## La chaleur ukrainienne\n\nLes Ukrainiens sont réputés pour leur hospitalité et leur chaleur. Pendant la réconciliation, les gestes concrets comptent autant que les mots - préparer un repas ensemble, offrir des fleurs, ou simplement passer du temps de qualité.\n\n## Conclusion\n\nUtilisez ces expressions avec authenticité pour réparer les liens avec votre partenaire ukrainien. La sincérité et la chaleur sont les clés d'une réconciliation réussie.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Expressions essentielles pour se réconcilier"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "d76a800e-425a-4084-9c5a-29389a52a492",
+      "title": "50+ Macarca Sevgi Sözcükleri ve Sevgi İsimleri: Partnerinize Hitap Etmek İçin En Tatlı İfadeler",
+      "native_lang": "tr",
+      "target_lang": "hu",
+      "category": "vocabulary",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport ConjugationTable from '@components/ConjugationTable.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nPartnerinize Macarca olarak nasıl hitap edersiniz? Bu tatlı sevgi sözcükleri ve sevgi isimleri, ilişkinize daha da yakınlaşmanızı sağlayacak. Birlikte öğrenin, birlikte pratik yapın ve Macar partnerinizin yüzünde o özel tebessümü oluşturun. [Temel Macarca ifadeler](/learn/tr/hu/hungarian-essential-phrases-for-couples/) öğrendikten sonra, bu romantik hitaplarla bağınızı daha da derinleştireceksiniz.\n\n<PhraseOfDay\n  word=\"Édesem\"\n  translation=\"Tatlım\"\n  pronunciation=\"EH-deh-shehm\"\n  context=\"En yaygın sevgi ismi - her durumda kullanılır\"\n/>\n\n## Klasik Sevgi İsimleri: Her Gün Kullanabileceğiniz 10 Temel Hitap\n\nBu klasik Macarca sevgi isimleri, günlük konuşmalarda en çok kullanılanlardır. Partnerinize hitap ederken doğal ve samimi olmanızı sağlar.\n\n<VocabCard\n  word=\"Szerelmem\"\n  translation=\"Aşkım\"\n  pronunciation=\"SEH-rehl-mehm\"\n  example=\"Szerelmem, mit csinálsz? (Aşkım, ne yapıyorsun?)\"\n/>\n\n| Macarca | Türkçe | Telaffuz | Kullanım Durumu |\n|---------|---------|----------|-----------------|\n| **Édesem** | Tatlım | EH-deh-shehm | Günlük hitap |\n| **Szerelmem** | Aşkım | SEH-rehl-mehm | Romantik anlar |\n| **Kicsim** | Küçüğüm | KEE-cheem | Koruyucu sevgi |\n| **Drágám** | Sevgilim | DRAH-gahm | Resmi-yarı resmi |\n| **Életem** | Hayatım | EH-leh-tehm | Derin duygular |\n| **Szívem** | Kalbim | SEE-vehm | Duygusal bağ |\n| **Aranyom** | Altınım | AH-rah-nyohm | Değer verme |\n| **Babám** | Bebeğim | BAH-bahm | Şefkatli hitap |\n| **Kincsem** | Hazinesim | KEENCH-shehm | Çok değerli |\n| **Puszim** | Öpücüğüm | POO-sheem | Oyunlu sevgi |\n\n## Hayvan Temalı Tatlılıklar: Sevimli Canlılardan İlham Alan Hitaplar\n\nMacarca sevgi isimleri arasında hayvanlardan ilham alan tatlı hitaplar çok yaygındır. Bu ifadeler, partnerinizin sevimli yanını vurgular.\n\n<CultureTip flag=\"🇭🇺\" title=\"Hayvan Sevgisi\">\nMacarlarda hayvanlara olan sevgi, dildeki sevgi ifadelerine de yansımıştır. Bu hitaplar küçültme eki \"-ka\" veya \"-us\" ile daha da sevimli hale gelir.\n</CultureTip>\n\n| Macarca | Türkçe | Telaffuz | Anlamı |\n|---------|---------|----------|---------|\n| **Kismacska** | Kedicik | KEES-mahch-kah | Küçük, sevimli kedi |\n| **Macskám** | Kedim | MAHCH-kahm | Sevgili kedi |\n| **Kutyusom** | Köpeciğim | KOO-tyoo-sohm | Küçük köpek |\n| **Nyuszim** | Tavuşanım | NYOO-sheem | Sevimli tavşan |\n| **Mackóm** | Ayıcığım | MAHT-chohm | Sevimli ayı |\n| **Cica** | Kedicik | TSEE-tsah | Minik kedi |\n| **Kismadár** | Kuşcuğum | KEES-mah-dahr | Küçük kuş |\n| **Rókusom** | Tilkişim | ROH-koo-sohm | Akıllı tilki |\n\n<VocabCard\n  word=\"Kismacska\"\n  translation=\"Kedicik\"\n  pronunciation=\"KEES-mahch-kah\"\n  example=\"Kismacska, gyere ide! (Kedicik, buraya gel!)\"\n/>\n\n## Yiyecek ve Tatlı Temalı Sevgi Sözcükleri\n\nMacar partnerinize hitap ederken yiyeceklerden ilham alan sevgi isimleri kullanmak, ilişkinize lezzetli bir tat katar. Bu ifadeler özellikle romantik anlarda çok etkilidir.\n\n- **Mézem** (Balım) - MEH-zhehm\n- **Cukorkám** (Şekerim) - TSOO-kor-kahm\n- **Tortám** (Pastam) - TOR-tahm\n- **Csokim** (Çikolatam) - CHOH-keem\n- **Fagylaltom** (Dondurmam) - FAH-gyahl-tohm\n- **Pogácsám** (Poğaçam) - POH-gah-chahm\n- **Mézeskalácsom** (Bal kurabiyem) - MEH-zhehsh-kah-lahch-tohm\n- **Túrógombócom** (Lor topuğum) - TOO-roh-gohm-boh-tsom\n\n## Doğa ve Güzellik Temalı Hitaplar\n\nPartnerinizin güzelliğini doğayla kıyaslayarak ifade etmek, Macar kültüründe çok romantik kabul edilir. [Romantik Macarca ifadeler](/learn/tr/hu/hungarian-romantic-phrases-every-occasion/) öğrenmek istiyorsanız, bu doğa temalı hitaplar mükemmel bir başlangıçtır.\n\n| Macarca | Türkçe | Telaffuz |\n|---------|---------|----------|\n| **Virágom** | Çiçeğim | VEE-rah-gohm |\n| **Csillagom** | Yıldızım | CHEE-lah-gohm |\n| **Holdacskám** | Ayıcığım | HOHL-dahch-kahm |\n| **Napocskám** | Güneşim | NAH-pohch-kahm |\n| **Hópehelyem** | Kar tanesim | HOH-peh-heh-yehm |\n| **Harmatom** | Çiğim | HAH-rah-tohm |\n| **Felhőm** | Bulutum | FEHL-huhm |\n| **Tavacskám** | Gölücüğüm | TAH-vahch-kahm |\n\n## Küçültme ve Şefkat Eki Kullanımı\n\nMacarca'da sevgi ifadeleri genellikle küçültme ekleri alır. Bu ekler, hitapları daha sevimli ve şefkatli hale getirir.\n\n<VocabCard\n  word=\"Kicsike\"\n  translation=\"Küçücüğüm\"\n  pronunciation=\"KEE-chee-keh\"\n  example=\"Kicsike, fáradt vagy? (Küçücüğüm, yorgun musun?)\"\n/>\n\n### En Yaygın Küçültme Ekleri:\n\n- **-ka/-ke**: Cica → Cicuka (Kedicik → Minik kedicik)\n- **-cska/-cske**: Kicsi → Kicsike (Küçük → Küçücüğüm)\n- **-us/-uska**: Drága → Dráguska (Değerli → Tatlı değerlim)\n- **-i**: Anyu → Anyuci (Anne → Anne ciğim)\n\n<CultureTip flag=\"🇭🇺\" title=\"Kültürel Önem\">\nMacar ailelerinde bu küçültme ekleri sadece partnerler arasında değil, çocuklar ve hayvanlar için de kullanılır. Partnerinize \"kicsim\" dediğinizde, onu korunması gereken değerli biri olarak gösterirsiniz.\n</CultureTip>\n\n## Romantik Durumlar İçin Özel Hitaplar\n\n### Yeni Aşk Dönemi:\n- **Új szerelmem** (Yeni aşkım) - OO-ee SEH-rehl-mehm\n- **Titkom** (Sırrım) - TEET-kohm\n- **Vágyam** (Tutkum) - VAH-gyahm\n\n### Uzun İlişkiler:\n- **Öregem** (Yaşlım) (Şefkatli) - EH-reh-gehm\n- **Társam** (Eşim) - TAH-rahsham\n- **Párom** (Partnerim) - PAH-rohm\n\n### Özür ve Barışma:\n- **Békém** (Barışım) - BEH-kem\n- **Megbocsátóm** (Affedenişim) - MEHG-boh-chah-tohm\n\n## Günlük Kullanım İçin Pratik İpuçları\n\nBu sevgi isimlerini doğal şekilde kullanmak için bazı öneriler:\n\n1. **Başlangıç için**: Édesem, Kicsim, Drágám ile başlayın - bunlar her duruma uyar\n2. **Sabah selamı**: \"Jó reggelt, édesem!\" (Günaydın, tatlım!)\n3. **Akşam kapanışı**: \"Jó éjszátát, szerelmem!\" (İyi geceler, aşkım!)\n4. **Teşekkür ederken**: \"Köszönöm, aranyom!\" (Teşekkürler, altınım!)\n\nPartnerinizin bu hitaplara nasıl tepki verdiğini gözlemleyin. [Macarca telaffuz rehberi](/learn/tr/hu/hungarian-pronunciation-guide/) okuyarak, bu sözcükleri daha doğal telaffuz edebilirsiniz.\n\n## Yaygın Hatalardan Kaçının\n\n- Tüm hitaplar \"én\" (ben) sahiplik eki alır: \"szerelmem\" değil \"szerelmem\"\n- Resmi ortamlarda bu özel hitapları kullanmayın\n- Partnerinizin hoşlanmadığı bir hitap varsa, ısrar etmeyin\n- Aşırı kullanım, ifadelerin anlamını azaltabilir\n\n<CultureTip flag=\"🇭🇺\" title=\"Aile İçi Kullanım\">\nMacar ailelerinde bu sevgi isimleri geniş çerçevede kullanılır. Partnerinizin annesine \"Anyuka\" (Anne ciğim) demeniz, sizi aileye daha yakın gösterecektir.\n</CultureTip>\n\nBu sevgi dolu Macarca hitaplarla partnerinize olan bağınızı daha da derinleştireceksiniz. Birlikte öğrenin, birlikte pratik yapın ve bu tatlı sözcükleri günlük konuşmalarınıza dahil edin. Macar partnerinizin yüzündeki tebessüm, emeğinizin en güzel ödülü olacak!\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Romantik Durumlar İçin Özel Hitaplar"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "d771f335-2585-4e1d-9b2e-7af0442be0fe",
+      "title": "Danish Birthday Wishes for Your Partner: Sweet Messages That Touch the Heart",
+      "native_lang": "en",
+      "target_lang": "da",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nYour partner's fødselsdag is the perfect opportunity to show your love in Danish. Whether you're writing a heartfelt card, planning a overraskelse fest, or simply want to make them feel særlig, these phrases will help you express your feelings beautifully.\n\nFor more ways to express affection, check out our guide on [Danish compliments for your partner](/blog/en/danish-compliments-for-your-partner).\n\n<PhraseOfDay\n  word=\"tillykke med fødselsdagen\"\n  translation=\"Happy Birthday\"\n  pronunciation=\"tillykke med fødselsdagen\"\n  context=\"The essential greeting for your partner's special day.\"\n/>\n\n## Essential Birthday Vocabulary\n\n<VocabCard\n  word=\"fødselsdag\"\n  translation=\"birthday\"\n  pronunciation=\"fødselsdag\"\n  example=\"Today is your fødselsdag!\"\n/>\n\n| Danish | English | Usage |\n|---|---|---|\n| fødselsdag | birthday | The special day |\n| tillykke med fødselsdagen | happy birthday | The greeting |\n| ønske | wish | Birthday desires |\n| fejre | celebrate | To honor the day |\n| gave | gift | Birthday present |\n| kage | cake | Birthday tradition |\n| lys | candles | On the cake |\n| fest | party | Celebration |\n| overraskelse | surprise | Unexpected joy |\n| særlig | special | Extraordinary |\n\n<CultureTip flag=\"🇩🇰\" title=\"Danish Birthday Traditions\">\nIn Danish-speaking cultures, birthdays often include singing traditional songs, making wishes while blowing out lys, and sharing kage with loved ones. The person celebrating may also be expected to bring treats for others.\n</CultureTip>\n\n## Sweet Birthday Messages\n\n### Simple Wishes\n- **tillykke med fødselsdagen, my love!** - Classic and heartfelt\n- **Wishing you all the best!** - Traditional well-wishes\n- **May all your ønskees come true!** - Magical sentiment\n\n### Romantic Messages\n- **You make my life særlig** - Expressing gratitude\n- **Every day with you is a gave** - Love declaration\n- **You are the best overraskelse in my life** - Romantic twist\n\n<VocabCard\n  word=\"særlig\"\n  translation=\"special\"\n  pronunciation=\"særlig\"\n  example=\"You are so særlig to me.\"\n/>\n\n## Birthday Card Messages\n\n### Heartfelt Short Messages\n**\"tillykke med fødselsdagen to the most særlig person in my world!\"**\n\n**\"On your fødselsdag, I want you to know how much you mean to me.\"**\n\n### Longer Romantic Messages\n**\"Every fødselsdag I get to fejre with you is a blessing. You make my life complete. tillykke med fødselsdagen, my love!\"**\n\n**\"Another year of loving you is my greatest gave. May this fødselsdag bring you all the joy you deserve.\"**\n\n<CultureTip flag=\"🇩🇰\" title=\"Birthday Gift Etiquette\">\nIn Danish-speaking cultures, gaves are usually opened immediately when received. It's customary to express genuine enthusiasm and gratitude. Practical and thoughtful gaves are often valued over extravagant ones.\n</CultureTip>\n\n## Planning the Perfect Birthday\n\n### Party Vocabulary\n| Danish | English | Context |\n|---|---|---|\n| fest | party | The celebration |\n| overraskelse | surprise | Unexpected party |\n| kage | cake | Birthday tradition |\n| lys | candles | For wishes |\n| gave | gift | Birthday present |\n| fejre | celebrate | To party |\n\n### Surprise Party Phrases\n- **overraskelse!** - When they walk in\n- **We're here to fejre!** - Explaining the party\n- **Make a ønske!** - Before blowing candles\n\n## Birthday Morning Messages\n\nStart their day with love:\n\n| Time | Message | Translation |\n|---|---|---|\n| Morning | tillykke med fødselsdagen! Wake up, love! | Birthday greeting |\n| Midday | Thinking of you on your særlig day | Sweet check-in |\n| Evening | Ready to fejre? | Party time |\n\n## Singing Happy Birthday\n\nLearn to sing the fødselsdag song in Danish! This is one of the most touching ways to honor your partner's culture on their særlig day.\n\n<VocabCard\n  word=\"ønske\"\n  translation=\"wish\"\n  pronunciation=\"ønske\"\n  example=\"Make a ønske!\"\n/>\n\n## Birthday Milestone Messages\n\n### 30th Birthday\n**\"Welcome to your thirties! The best fødselsdag for the best partner!\"**\n\n### 40th Birthday\n**\"Forty years of amazing you! Here's to fejreing many more!\"**\n\n### 50th Birthday\n**\"Half a century of wonderful you! You only get more særlig with time.\"**\n\nFor more romantic vocabulary, explore our [Danish romantic phrases](/blog/en/danish-romantic-phrases-for-every-occasion) guide.\n\n## Quick Reference Card\n\n| Purpose | Say This |\n|---|---|\n| Greeting | tillykke med fødselsdagen! |\n| Toast | To your særlig day! |\n| Before cake | Make a ønske! |\n| All day | You are so særlig! |\n\nMaking your partner feel loved on their fødselsdag in their native Danish creates memories that last a lifetime. Every word spoken with love becomes a gave in itself.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Sweet Birthday Messages",
+              "## Birthday Card Messages",
+              "## Planning the Perfect Birthday",
+              "## Birthday Milestone Messages"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "d774c8a3-9997-4d71-a2c2-ae08f5f33a9b",
+      "title": "En Yaygın 100 İtalyanca Kelime",
+      "native_lang": "tr",
+      "target_lang": "it",
+      "category": "communication",
+      "content": "İtalyanca öğrenmeye başlarken en yaygın kelimeleri bilmek önemlidir.\n\n## Temel Zamirler\n\n### 1. Io /iyo/ - Ben\n### 2. Tu /tu/ - Sen\n### 3. Lui /lui/ - O (erkek)\n### 4. Lei /ley/ - O (kadın)\n### 5. Noi /noy/ - Biz\n### 6. Voi /voy/ - Siz\n### 7. Loro /loro/ - Onlar\n\n### 8. E /e/ - Ve\n### 9. Ma /ma/ - Ama\n### 10. O /o/ - Veya\n\n## Temel Fiiller\n\n### 11. Essere /essere/ - Olmak\n### 12. Avere /avere/ - Sahip olmak\n### 13. Fare /fare/ - Yapmak\n### 14. Dire /dire/ - Söylemek\n### 15. Andare /andare/ - Gitmek\n### 16. Venire /venire/ - Gelmek\n### 17. Potere /potere/ - Yapabilmek\n### 18. Sapere /sapere/ - Bilmek\n### 19. Volere /volere/ - İstemek\n### 20. Vedere /vedere/ - Görmek\n### 21. Dare /dare/ - Vermek\n### 22. Parlare /parlare/ - Konuşmak\n### 23. Prendere /prendere/ - Almak\n### 24. Amare /amare/ - Sevmek\n### 25. Mangiare /manjare/ - Yemek\n\n## Sıfatlar\n\n### 26. Buono /buono/ - İyi\n### 27. Cattivo /kattivo/ - Kötü\n### 28. Grande /grande/ - Büyük\n### 29. Piccolo /pikkolo/ - Küçük\n### 30. Nuovo /nuovo/ - Yeni\n### 31. Vecchio /vekkiyo/ - Eski/yaşlı\n### 32. Lungo /lungo/ - Uzun\n### 33. Corto /korto/ - Kısa\n### 34. Caldo /kaldo/ - Sıcak\n### 35. Freddo /freddo/ - Soğuk\n\n## Zaman İfadeleri\n\n### 36. Adesso /adesso/ - Şimdi\n### 37. Oggi /odji/ - Bugün\n### 38. Domani /domani/ - Yarın\n### 39. Ieri /iyeri/ - Dün\n### 40. Sempre /sempre/ - Her zaman\n### 41. Mai /may/ - Asla\n### 42. A volte /a volte/ - Bazen\n\n## Soru Kelimeleri\n\n### 43. Cosa /koza/ - Ne\n### 44. Dove /dove/ - Nerede\n### 45. Quando /kuando/ - Ne zaman\n### 46. Perché /perke/ - Neden\n### 47. Come /kome/ - Nasıl\n### 48. Chi /ki/ - Kim\n\n## Sayılar\n\n### 49. Uno /uno/ - Bir\n### 50. Due /due/ - İki\n### 51. Tre /tre/ - Üç\n### 52. Quattro /kuattro/ - Dört\n### 53. Cinque /çinkue/ - Beş\n### 54. Dieci /diyeçi/ - On\n### 55. Cento /çento/ - Yüz\n\n## Günlük Kelimeler\n\n### 56. Sì /si/ - Evet\n### 57. No /no/ - Hayır\n### 58. Per favore /per favore/ - Lütfen\n### 59. Grazie /gratsiye/ - Teşekkürler\n### 60. Scusa /skuza/ - Özür dilerim\n### 61. Ciao /çao/ - Merhaba/Hoşça kal\n### 62. Arrivederci /arrivedertçi/ - Hoşça kal\n### 63. Amore /amore/ - Aşk\n### 64. Amico /amiko/ - Arkadaş\n### 65. Famiglia /familya/ - Aile\n\nBu kelimeleri öğrenmek, İtalyanca iletişiminizi güçlendirecektir.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Temel Zamirler",
+              "### 1. Io /iyo/ - Ben",
+              "### 2. Tu /tu/ - Sen",
+              "### 3. Lui /lui/ - O (erkek)",
+              "### 4. Lei /ley/ - O (kadın)",
+              "### 5. Noi /noy/ - Biz",
+              "### 6. Voi /voy/ - Siz",
+              "### 7. Loro /loro/ - Onlar",
+              "### 8. E /e/ - Ve",
+              "### 9. Ma /ma/ - Ama",
+              "### 10. O /o/ - Veya",
+              "## Temel Fiiller",
+              "### 11. Essere /essere/ - Olmak",
+              "### 12. Avere /avere/ - Sahip olmak",
+              "### 13. Fare /fare/ - Yapmak",
+              "### 14. Dire /dire/ - Söylemek",
+              "### 15. Andare /andare/ - Gitmek",
+              "### 16. Venire /venire/ - Gelmek",
+              "### 17. Potere /potere/ - Yapabilmek",
+              "### 18. Sapere /sapere/ - Bilmek",
+              "### 19. Volere /volere/ - İstemek",
+              "### 20. Vedere /vedere/ - Görmek",
+              "### 21. Dare /dare/ - Vermek",
+              "### 22. Parlare /parlare/ - Konuşmak",
+              "### 23. Prendere /prendere/ - Almak",
+              "### 24. Amare /amare/ - Sevmek",
+              "### 25. Mangiare /manjare/ - Yemek",
+              "## Sıfatlar",
+              "### 26. Buono /buono/ - İyi",
+              "### 27. Cattivo /kattivo/ - Kötü",
+              "### 28. Grande /grande/ - Büyük",
+              "### 29. Piccolo /pikkolo/ - Küçük",
+              "### 30. Nuovo /nuovo/ - Yeni",
+              "### 31. Vecchio /vekkiyo/ - Eski/yaşlı",
+              "### 32. Lungo /lungo/ - Uzun",
+              "### 33. Corto /korto/ - Kısa",
+              "### 34. Caldo /kaldo/ - Sıcak",
+              "### 35. Freddo /freddo/ - Soğuk",
+              "## Zaman İfadeleri",
+              "### 36. Adesso /adesso/ - Şimdi",
+              "### 37. Oggi /odji/ - Bugün",
+              "### 38. Domani /domani/ - Yarın",
+              "### 39. Ieri /iyeri/ - Dün",
+              "### 40. Sempre /sempre/ - Her zaman",
+              "### 41. Mai /may/ - Asla",
+              "### 42. A volte /a volte/ - Bazen",
+              "## Soru Kelimeleri",
+              "### 43. Cosa /koza/ - Ne",
+              "### 44. Dove /dove/ - Nerede",
+              "### 45. Quando /kuando/ - Ne zaman",
+              "### 46. Perché /perke/ - Neden",
+              "### 47. Come /kome/ - Nasıl",
+              "### 48. Chi /ki/ - Kim",
+              "## Sayılar",
+              "### 49. Uno /uno/ - Bir",
+              "### 50. Due /due/ - İki",
+              "### 51. Tre /tre/ - Üç",
+              "### 52. Quattro /kuattro/ - Dört",
+              "### 53. Cinque /çinkue/ - Beş",
+              "### 54. Dieci /diyeçi/ - On",
+              "### 55. Cento /çento/ - Yüz",
+              "## Günlük Kelimeler",
+              "### 56. Sì /si/ - Evet",
+              "### 57. No /no/ - Hayır",
+              "### 58. Per favore /per favore/ - Lütfen",
+              "### 59. Grazie /gratsiye/ - Teşekkürler",
+              "### 60. Scusa /skuza/ - Özür dilerim",
+              "### 61. Ciao /çao/ - Merhaba/Hoşça kal",
+              "### 62. Arrivederci /arrivedertçi/ - Hoşça kal",
+              "### 63. Amore /amore/ - Aşk",
+              "### 64. Amico /amiko/ - Arkadaş"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "d779946e-5794-4bfc-8591-ca63c7316f14",
+      "title": "50+ англійських фраз для романтичного вечора",
+      "native_lang": "uk",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nРомантичне побачення — це чудова нагода практикувати англійську разом з вашою половинкою. У цьому посібнику ви знайдете всі необхідні слова та фрази для ідеального вечора вдвох.\n\n## Планування побачення\n\n<PhraseOfDay\n  word=\"Would you like to go on a date?\"\n  translation=\"Хочеш сходити на побачення?\"\n  pronunciation=\"вуд ю лайк ту гоу он е дейт\"\n  context=\"Класичне запрошення на побачення.\"\n/>\n\n### Запрошення\n\n<VocabCard\n  word=\"Are you free tonight?\"\n  translation=\"Ти вільна/вільний сьогодні ввечері?\"\n  pronunciation=\"ар ю фрі тунайт\"\n  example=\"Hey, are you free tonight? I'd love to take you out.\"\n/>\n\n<VocabCard\n  word=\"I'd love to take you out for dinner\"\n  translation=\"Я хотів би запросити тебе на вечерю\"\n  pronunciation=\"айд лав ту тейк ю аут фор дінер\"\n  example=\"I'd love to take you out for dinner this Saturday.\"\n/>\n\n<VocabCard\n  word=\"Let's have a date night\"\n  translation=\"Давай влаштуємо романтичний вечір\"\n  pronunciation=\"летс хев е дейт найт\"\n  example=\"We haven't had quality time lately. Let's have a date night!\"\n/>\n\n<VocabCard\n  word=\"I made a reservation\"\n  translation=\"Я зарезервував столик\"\n  pronunciation=\"ай мейд е резервейшен\"\n  example=\"I made a reservation at that Italian place you like.\"\n/>\n\n<CultureTip title=\"Культура побачень\" flag=\"🇺🇸\">\nВ англомовних країнах \"date night\" — це важлива традиція для пар. Навіть одружені пари регулярно влаштовують \"date nights\", щоб підтримувати романтику у стосунках.\n</CultureTip>\n\n## У ресторані\n\n### Прибуття\n\n<VocabCard\n  word=\"We have a reservation under [name]\"\n  translation=\"У нас резервація на ім'я [ім'я]\"\n  pronunciation=\"ві хев е резервейшен андер\"\n  example=\"Good evening. We have a reservation under Johnson.\"\n/>\n\n<VocabCard\n  word=\"A table for two, please\"\n  translation=\"Столик на двох, будь ласка\"\n  pronunciation=\"е тейбл фор ту, пліз\"\n  example=\"A table for two, please. Somewhere quiet if possible.\"\n/>\n\n<VocabCard\n  word=\"Could we have a table by the window?\"\n  translation=\"Чи можемо ми сісти біля вікна?\"\n  pronunciation=\"куд ві хев е тейбл бай зе віндоу\"\n  example=\"Could we have a table by the window? The view is lovely.\"\n/>\n\n### Замовлення\n\n<VocabCard\n  word=\"Could we see the menu, please?\"\n  translation=\"Чи можна подивитися меню?\"\n  pronunciation=\"куд ві сі зе меню, пліз\"\n  example=\"We're ready to order. But first, could we see the dessert menu?\"\n/>\n\n<VocabCard\n  word=\"What would you recommend?\"\n  translation=\"Що б ви порекомендували?\"\n  pronunciation=\"вот вуд ю рекоменд\"\n  example=\"Everything looks good. What would you recommend?\"\n/>\n\n<VocabCard\n  word=\"I'll have the...\"\n  translation=\"Я візьму...\"\n  pronunciation=\"айл хев зе\"\n  example=\"I'll have the steak, medium rare, please.\"\n/>\n\n<VocabCard\n  word=\"What are you having?\"\n  translation=\"Що ти будеш замовляти?\"\n  pronunciation=\"вот ар ю хевінг\"\n  example=\"What are you having, darling? The pasta looks good.\"\n/>\n\n<VocabCard\n  word=\"Would you like to share?\"\n  translation=\"Хочеш поділитися?\"\n  pronunciation=\"вуд ю лайк ту шер\"\n  example=\"This portion is huge. Would you like to share?\"\n/>\n\n### Напої\n\n<VocabCard\n  word=\"A bottle of wine, please\"\n  translation=\"Пляшку вина, будь ласка\"\n  pronunciation=\"е ботл ов вайн, пліз\"\n  example=\"A bottle of red wine, please. Something Italian.\"\n/>\n\n<VocabCard\n  word=\"Could we have the wine list?\"\n  translation=\"Чи можна винну карту?\"\n  pronunciation=\"куд ві хев зе вайн ліст\"\n  example=\"Could we have the wine list? We'd like to choose something special.\"\n/>\n\n<VocabCard\n  word=\"Cheers! / To us!\"\n  translation=\"Будьмо! / За нас!\"\n  pronunciation=\"чірс / ту ас\"\n  example=\"Cheers, my love. To us and our future together!\"\n/>\n\n<CultureTip title=\"Чайові\" flag=\"🇺🇸\">\nВ США чайові (tip) обов'язкові — зазвичай 15-20% від рахунку. У Великій Британії чайові менш обов'язкові, але все ж 10-15% вітаються. Це важливо знати, плануючи побачення!\n</CultureTip>\n\n## Романтичні фрази під час побачення\n\n<VocabCard\n  word=\"You look amazing tonight\"\n  translation=\"Ти сьогодні виглядаєш чудово\"\n  pronunciation=\"ю лук емейзінг тунайт\"\n  example=\"Wow, you look amazing tonight. That dress is beautiful.\"\n/>\n\n<VocabCard\n  word=\"I'm so happy to be here with you\"\n  translation=\"Я так щаслива/щасливий бути тут з тобою\"\n  pronunciation=\"айм соу хеппі ту бі хір віз ю\"\n  example=\"I'm so happy to be here with you. This is perfect.\"\n/>\n\n<VocabCard\n  word=\"This is so romantic\"\n  translation=\"Це так романтично\"\n  pronunciation=\"зіс із соу романтік\"\n  example=\"The candles, the music... This is so romantic.\"\n/>\n\n<VocabCard\n  word=\"I love spending time with you\"\n  translation=\"Мені подобається проводити час з тобою\"\n  pronunciation=\"ай лав спендінг тайм віз ю\"\n  example=\"I love spending time with you. Every moment is special.\"\n/>\n\n<VocabCard\n  word=\"You make me so happy\"\n  translation=\"Ти робиш мене такою щасливою\"\n  pronunciation=\"ю мейк мі соу хеппі\"\n  example=\"You know what? You make me so happy.\"\n/>\n\n## Рахунок та завершення\n\n<VocabCard\n  word=\"Could we have the bill/check, please?\"\n  translation=\"Чи можна рахунок, будь ласка?\"\n  pronunciation=\"куд ві хев зе біл/чек, пліз\"\n  example=\"This was lovely. Could we have the check, please?\"\n/>\n\n<VocabCard\n  word=\"I'll get this\"\n  translation=\"Я заплачу\"\n  pronunciation=\"айл гет зіс\"\n  example=\"Please, I'll get this. It's my treat.\"\n/>\n\n<VocabCard\n  word=\"Let's split it\"\n  translation=\"Давай поділимо\"\n  pronunciation=\"летс спліт іт\"\n  example=\"Let's split it this time. Next time you can pay!\"\n/>\n\n<VocabCard\n  word=\"This is my treat\"\n  translation=\"Я пригощаю\"\n  pronunciation=\"зіс із май тріт\"\n  example=\"No arguing! This is my treat. You can get the next one.\"\n/>\n\n## Після вечері\n\n<VocabCard\n  word=\"Shall we go for a walk?\"\n  translation=\"Може, підемо прогуляємось?\"\n  pronunciation=\"шел ві гоу фор е вок\"\n  example=\"The weather is so nice. Shall we go for a walk?\"\n/>\n\n<VocabCard\n  word=\"Would you like to come in for coffee?\"\n  translation=\"Зайдеш на каву?\"\n  pronunciation=\"вуд ю лайк ту кам ін фор кофі\"\n  example=\"Would you like to come in for coffee? Or tea?\"\n/>\n\n<VocabCard\n  word=\"I had a wonderful time\"\n  translation=\"Я чудово провела/провів час\"\n  pronunciation=\"ай хед е вандерфул тайм\"\n  example=\"Thank you for tonight. I had a wonderful time.\"\n/>\n\n<VocabCard\n  word=\"I can't wait to see you again\"\n  translation=\"Не можу дочекатися, щоб побачити тебе знову\"\n  pronunciation=\"ай кент вейт ту сі ю еген\"\n  example=\"Goodnight, my love. I can't wait to see you again.\"\n/>\n\n\n## Корисний словник\n\n| Англійська | Українська | Вимова |\n|------------|------------|--------|\n| Date | Побачення | дейт |\n| Reservation | Резервація | резервейшен |\n| Menu | Меню | меню |\n| Appetizer | Закуска | апетайзер |\n| Main course | Основна страва | мейн корс |\n| Dessert | Десерт | дезерт |\n| Bill/Check | Рахунок | біл/чек |\n| Tip | Чайові | тіп |\n| Wine | Вино | вайн |\n| Candle | Свічка | кендл |\n\n## Типи побачень\n\n| Англійська | Українська |\n|------------|------------|\n| Dinner date | Побачення у ресторані |\n| Movie date | Побачення в кіно |\n| Coffee date | Побачення в кав'ярні |\n| Picnic date | Пікнік |\n| Stay-at-home date | Романтичний вечір вдома |\n\n<CTA text=\"Практикуйте англійську для побачень з AI-співрозмовником: голосові діалоги в реальному часі, особистий словник Love Log і можливість дарувати коханим слова Word Gifts. 306 мовних пар для багатомовних стосунків.\" buttonText=\"Почати практику безкоштовно\" />\n",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 184,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## У ресторані"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

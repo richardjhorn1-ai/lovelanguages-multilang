@@ -1,0 +1,113 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0442",
+  "articles": [
+    {
+      "id": "7edffb88-abe3-443c-bb12-9fc72f5dc5f6",
+      "title": "Данська лексика про вагітність та материнство",
+      "native_lang": "uk",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport CTA from '@components/CTA.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\n\n# Данська лексика про вагітність та материнство\n\nОчікування малюка — це чудовий час! Якщо ваш партнер розмовляє данською або ви плануєте народжувати за кордоном, ця лексика стане вам у пригоді.\n\n<PhraseOfDay\n  phrase=\"We're expecting a baby!\"\n  translation=\"Ми чекаємо на малюка!\"\n  context=\"Оголошення радісної новини\"\n/>\n\n## Основна лексика про вагітність\n\n\n\n## Оголошення про вагітність данською\n\n### Як поділитися новиною\n\n1. \"Ми чекаємо на малюка!\" — класичний спосіб\n2. \"Я вагітна!\" — прямо та радісно\n3. \"Ми станемо батьками!\" — для обох партнерів\n4. \"Наша сім'я збільшується!\" — якщо це не перша дитина\n\n<CultureTip>\nУ різних культурах є свої традиції щодо оголошення вагітності. Деякі чекають до 12 тижнів, інші — до дізнаються стать. Дізнайтеся, що прийнято в сім'ї вашого партнера.\n</CultureTip>\n\n## Лексика для візиту до лікаря\n\nВажливо знати медичну термінологію данською:\n\n### У кабінеті лікаря\n- УЗД / Ультразвук\n- Аналіз крові\n- Термін вагітності\n- Дата народження\n\n### Важливі слова\n- Тиждень вагітності\n- Триместр\n- Ранній токсикоз\n- Рух дитини\n\n## Покупки для малюка\n\n### Що потрібно купити\n\n| Данська | Українська |\n|----------------|------------|\n| Crib | Ліжечко |\n| Stroller | Коляска |\n| Diapers | Підгузки |\n| Baby clothes | Дитячий одяг |\n| Bottle | Пляшечка |\n| Pacifier | Соска |\n\n<CultureTip>\nТрадиції baby shower (свята перед народженням) відрізняються в різних країнах. Дізнайтеся, чи прийнято це в культурі вашого партнера.\n</CultureTip>\n\n## Пологи та лікарня\n\n### У пологовому будинку\n\nКорисні фрази:\n- \"Де пологове відділення?\"\n- \"У мене почалися перейми\"\n- \"Мені потрібен лікар\"\n- \"Як часто перейми?\"\n\n### Після народження\n\n- \"Дитина народилася!\"\n- \"Хлопчик/Дівчинка!\"\n- \"Мама і дитина здорові\"\n- \"Скільки важить малюк?\"\n\n## Імена для дитини\n\nВибір імені — важлива справа! Популярні данські імена:\n\n### Для хлопчиків\n- [Популярні імена країни]\n- Класичні імена\n- Сучасні імена\n\n### Для дівчаток\n- [Популярні імена країни]\n- Класичні імена\n- Сучасні імена\n\n## Перші місяці з малюком\n\n### Корисна лексика\n\n- Годування (грудне/штучне)\n- Зміна підгузка\n- Купання\n- Колискова\n- Сон малюка\n\n## Привітання з народженням\n\nЯк привітати батьків данською:\n\n1. \"Вітаю з народженням малюка!\"\n2. \"Нехай дитина росте здоровою та щасливою!\"\n3. \"Радості батьківства!\"\n\n## Продовжуйте вивчення\n\nТепер ви знаєте основну данськау лексику про вагітність! Вивчайте більше:\n\n- [Данська слова для спільного життя](/uk/blog/danish-moving-in-together)\n- [Данська фрази для родинних зустрічей](/uk/blog/meeting-the-family-danish-phrases)\n\n<CTA \n  text=\"Підготуйтеся до батьківства данською з нашим додатком!\"\n  buttonText=\"Почати навчання\"\n  href=\"/uk/learn/da\"\n/>",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Основна лексика про вагітність",
+              "## Оголошення про вагітність данською",
+              "## Покупки для малюка",
+              "## Пологи та лікарня",
+              "## Перші місяці з малюком"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "7f07143b-d761-4b34-bdb2-48bf6ea9d8ac",
+      "title": "Турецкие фразы о ревности и доверии",
+      "native_lang": "ru",
+      "target_lang": "tr",
+      "category": "communication",
+      "content": "В турецкой культуре честь и верность имеют особое значение. Ревность — распространённая тема, и важно уметь обсуждать её с уважением к чувствам партнёра.\n\n## Фразы для выражения ревности\n\n### 1. Kıskanıyorum, çünkü...\n**Произношение:** Кыскане́ёрум, чюнкю́...\n\n**Перевод:** Я ревную, потому что...\n\nЧестное признание чувств.\n\n### 2. ...ile bu kadar zaman geçirmen beni rahatsız ediyor\n**Произношение:** ...и́лэ бу ка́дар за́ман гэчи́рмэн бэни́ раха́тсыз эди́ёр\n\n**Перевод:** Меня беспокоит, что ты проводишь столько времени с...\n\nВыражение дискомфорта.\n\n### 3. Bazen beni rahatlatmana ihtiyacım var\n**Произношение:** Ба́зэн бэни́ раха́тлатмана ихтия́джым вар\n\n**Перевод:** Иногда мне нужно, чтобы ты меня успокоил/успокоила\n\nЧестная просьба о поддержке.\n\n## Фразы для укрепления доверия\n\n### 4. Sana tamamen güveniyorum\n**Произношение:** Са́на тама́мэн гювэние́рум\n\n**Перевод:** Я полностью тебе доверяю\n\nВажное подтверждение.\n\n### 5. Sen benim için tek kişisin\n**Произношение:** Сэн бэни́м ичи́н тэк киши́син\n\n**Перевод:** Ты единственный/единственная для меня\n\nВыражение преданности.\n\n### 6. İlişkimize zarar verecek hiçbir şey yapmam\n**Произношение:** Или́шкимизэ зара́р вэрэджэ́к хичби́р шэй япма́м\n\n**Перевод:** Я не сделаю ничего, что навредит нашим отношениям\n\nОбещание верности.\n\n### 7. Endişelenecek bir şey yok\n**Произношение:** Эндишэлэнэ́джэк бир шэй ёк\n\n**Перевод:** Не о чем беспокоиться\n\nУспокоение партнёра.\n\n### 8. Ne olduğunu açıklamama izin ver\n**Произношение:** Нэ олду́уну ачыклама́ма изи́н вэр\n\n**Перевод:** Позволь мне объяснить, что произошло\n\nОткрытость к диалогу.\n\n### 9. Senin hislerin benim için önemli\n**Произношение:** Сэни́н хислэри́н бэни́м ичи́н онэ́мли\n\n**Перевод:** Твои чувства важны для меня\n\nПризнание значимости эмоций.\n\n### 10. Birlikte sınırlar koyabilir miyiz?\n**Произношение:** Бирли́ктэ сыны́рлар коя́билир ми́йиз?\n\n**Перевод:** Можем ли мы вместе установить границы?\n\nКонструктивный подход.\n\n## Культурные особенности\n\nВ турецкой культуре ревность может восприниматься как знак заботы, но важно не переходить границы. Фраза «Sadece seni seviyorum» (Я люблю только тебя) — мощный способ выразить преданность. Уважение к чести партнёра — ключевой момент.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 284,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Фразы для выражения ревности",
+              "## Фразы для укрепления доверия"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "7f1a49ae-d01a-4d34-a57b-362b5df10f41",
+      "title": "Řecké fráze pro hádky a neshody ve vztahu",
+      "native_lang": "cs",
+      "target_lang": "el",
+      "category": "communication",
+      "content": "Řekové jsou vášniví a expresivní lidé. Hádky v řeckých vztazích mohou být intenzivní, ale umět je konstruktivně řešit je klíčové pro zdravý vztah.\n\n## Základní fráze pro vyjádření nesouhlasu\n\n### 1. Δεν συμφωνώ μαζί σου\n**Výslovnost:** den simfonó mazí su\n\n**Význam:** Nesouhlasím s tebou\n\nPřímý způsob vyjádření nesouhlasu.\n\n**Příklad použití:**\n- \"Δεν συμφωνώ μαζί σου, αλλά θέλω να σε καταλάβω.\" (Nesouhlasím s tebou, ale chci ti rozumět.)\n\n### 2. Εγώ το βλέπω διαφορετικά\n**Výslovnost:** egó to vlépo diaforetiká\n\n**Význam:** Já to vidím jinak\n\nMěkčí způsob vyjádření odlišného pohledu.\n\n**Příklad použití:**\n- \"Εγώ το βλέπω διαφορετικά. Μπορούμε να μιλήσουμε ήρεμα;\" (Já to vidím jinak. Můžeme o tom mluvit v klidu?)\n\n### 3. Νιώθω πληγωμένος/η όταν εσύ...\n**Výslovnost:** njótho pligomenos/i ótan esí\n\n**Význam:** Cítím se zraněný/á, když ty...\n\nPro vyjádření emocí bez obviňování.\n\n**Příklad použití:**\n- \"Νιώθω πληγωμένη όταν δεν με ακούς.\" (Cítím se zraněná, když mě neposloucháš.)\n\n### 4. Σε παρακαλώ, μη μου φωνάζεις\n**Výslovnost:** se parakaló mi mu fonázis\n\n**Význam:** Prosím, nekřič na mě\n\nPro uklidnění situace.\n\n**Příklad použití:**\n- \"Σε παρακαλώ, μη μου φωνάζεις. Θέλω να το λύσουμε ήρεμα.\" (Prosím, nekřič na mě. Chci to vyřešit v klidu.)\n\n### 5. Χρειάζομαι χρόνο να σκεφτώ\n**Výslovnost:** hriázome hróno na skeftó\n\n**Význam:** Potřebuji čas na přemýšlení\n\nPro získání prostoru.\n\n**Příklad použití:**\n- \"Χρειάζομαι χρόνο να σκεφτώ. Μπορούμε να μιλήσουμε αργότερα;\" (Potřebuji čas na přemýšlení. Můžeme si promluvit později?)\n\n## Fráze pro pochopení partnera\n\n### 6. Βοήθησέ με να καταλάβω την άποψή σου\n**Výslovnost:** voíthisé me na katalávo tin ápopsí su\n\n**Význam:** Pomoz mi pochopit tvůj úhel pohledu\n\nUkazuje ochotu naslouchat.\n\n**Příklad použití:**\n- \"Βοήθησέ με να καταλάβω την άποψή σου. Θέλω πραγματικά να το διορθώσουμε.\" (Pomoz mi pochopit tvůj úhel pohledu. Opravdu to chci napravit.)\n\n### 7. Αυτό που προσπαθώ να πω είναι...\n**Výslovnost:** aftó pu prospathó na po íne\n\n**Význam:** Co se snažím říct je...\n\nPro upřesnění myšlenky.\n\n**Příklad použití:**\n- \"Αυτό που προσπαθώ να πω είναι ότι μου λείπεις.\" (Co se snažím říct je, že mi chybíš.)\n\n### 8. Εννοείς ότι...;\n**Výslovnost:** enoís óti\n\n**Význam:** Myslíš tím, že...?\n\nPro ověření porozumění.\n\n**Příklad použití:**\n- \"Εννοείς ότι νιώθεις μόνος/η;\" (Myslíš tím, že se cítíš osamělý/á?)\n\n## Fráze pro hledání řešení\n\n### 9. Ας βρούμε μια συμβιβαστική λύση\n**Výslovnost:** as vrúme mja simvivastikí lísi\n\n**Význam:** Najděme kompromis\n\nKonstruktivní přístup.\n\n**Příklad použití:**\n- \"Ας βρούμε μια συμβιβαστική λύση που να δουλεύει και για τους δύο.\" (Najděme kompromis, který bude fungovat pro nás oba.)\n\n### 10. Δεν θέλω να τσακωνόμαστε γι' αυτό\n**Výslovnost:** den thélo na cakonómaste jaftó\n\n**Význam:** Nechci se kvůli tomu hádat\n\nVyjádření touhy po míru.\n\n**Příklad použití:**\n- \"Δεν θέλω να τσακωνόμαστε γι' αυτό. Σ' αγαπώ πάρα πολύ.\" (Nechci se kvůli tomu hádat. Moc tě miluji.)\n\n### 11. Είμαστε στην ίδια ομάδα\n**Výslovnost:** ímaste stin ídia omáda\n\n**Význam:** Jsme ve stejném týmu\n\nPřipomíná partnerství.\n\n**Příklad použití:**\n- \"Μην ξεχνάς ότι είμαστε στην ίδια ομάδα, αγάπη μου.\" (Nezapomeň, že jsme ve stejném týmu, lásko.)\n\n### 12. Μπορούμε να ξεκινήσουμε από την αρχή;\n**Výslovnost:** borúme na xekinísume apó tin arhí\n\n**Význam:** Můžeme začít znovu?\n\nPro nový začátek.\n\n**Příklad použití:**\n- \"Αυτή η συζήτηση πήγε στραβά. Μπορούμε να ξεκινήσουμε από την αρχή;\" (Tento rozhovor se pokazil. Můžeme začít znovu?)\n\n## Kulturní tipy\n\nŘekové jsou velmi expresivní a emocionální. Hlasitá diskuze je běžná a neznamená nutně vážný konflikt. Oslovení jako \"αγάπη μου\" (lásko moje), \"μωρό μου\" (miláčku), \"καρδιά μου\" (srdce moje) jsou v řeckých vztazích běžná.\n\n## Závěr\n\nTyto fráze vám pomohou navigovat vášnivé řecké diskuze. Řecká kultura oceňuje otevřené vyjadřování emocí - důležité je zachovat lásku a respekt i během nesouhlasu.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Základní fráze pro vyjádření nesouhlasu",
+              "## Fráze pro pochopení partnera",
+              "## Fráze pro hledání řešení"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "7f24dd08-f07e-483b-acc4-ff66085497ba",
+      "title": "Orosz Szerelmes Levél Írása Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "ru",
+      "category": "communication",
+      "content": "# Orosz Szerelmes Levél Írása Magyarul Beszélőknek\n\nAz orosz nyelv mély és érzelmes. Az orosz irodalom (Puskin, Tolsztoj) tele van romantikus kifejezésekkel, és a szerelmes levél hagyománya gazdag.\n\n## Kezdő Kifejezések\n\n### 1. Любимая моя / Любимый мой\n**Jelentés:** Szerelmem (nőnek / férfinak)\n**Kiejtés:** lju-BÍ-ma-ja mo-JA / lju-BÍ-mij moj\n**Használat:** Klasszikus kezdés.\n\n### 2. Дорогая / Дорогой\n**Jelentés:** Drágám (nőnek / férfinak)\n**Kiejtés:** do-ro-GÁ-ja / do-ro-GOJ\n**Használat:** Kedves megszólítás.\n\n### 3. Моё сердце\n**Jelentés:** Szívem\n**Kiejtés:** mo-JÓ SZERD-ce\n**Használat:** Intim megszólítás.\n\n## Érzelmek Kifejezése\n\n### 4. Я люблю тебя больше всего на свете\n**Jelentés:** Jobban szeretlek mindennél a világon\n**Kiejtés:** ja ljub-LJÚ tye-BJA BOL-se vsze-VO na SZVJE-tye\n**Használat:** Az érzelmek mélységének kifejezése.\n\n### 5. Ты свет моей жизни\n**Jelentés:** Te vagy az életem fénye\n**Kiejtés:** ti szvet mo-JEJ ZSIZ-nyi\n**Használat:** Költői kifejezés.\n\n### 6. Моё сердце принадлежит только тебе\n**Jelentés:** A szívem csak a tiéd\n**Kiejtés:** mo-JÓ SZERD-ce pri-nad-le-ZSIT TOL-ko tye-BJE\n**Használat:** Teljes odaadás kifejezése.\n\n### 7. С каждым днём я люблю тебя всё больше\n**Jelentés:** Minden nap jobban szeretlek\n**Kiejtés:** sz KAZS-dim dnyom ja ljub-LJÚ tye-BJA vszó BOL-se\n**Használat:** A növekvő szerelem kifejezése.\n\n### 8. Ты моя мечта, ставшая реальностью\n**Jelentés:** Te vagy a valóra vált álmom\n**Kiejtés:** ti mo-JA mecsta SZTAV-sa-ja re-AL-nosz-tyju\n**Használat:** Romantikus kifejezés.\n\n### 9. С тобой я узнал настоящую любовь\n**Jelentés:** Veled ismertem meg az igazi szerelmet\n**Kiejtés:** sz to-BOJ ja uz-NAL nasz-to-JA-scsuju lju-BOV\n**Használat:** A kapcsolat jelentőségének kifejezése.\n\n### 10. Я не могу представить свою жизнь без тебя\n**Jelentés:** Nem tudom elképzelni az életemet nélküled\n**Kiejtés:** ja nye mo-GU pred-SZTA-vity szvo-JU zsizny byez tye-BJA\n**Használat:** A másik fontosságának kifejezése.\n\n## Záró Kifejezések\n\n### 11. Навсегда твой/твоя\n**Jelentés:** Örökké a tiéd\n**Kiejtés:** nav-szeg-DÁ tvoj/tvo-JA\n**Használat:** Klasszikus lezárás.\n\n### 12. Со всей моей любовью\n**Jelentés:** Minden szeretetemmel\n**Kiejtés:** szo vszej mo-JEJ lju-BOV-ju\n**Használat:** Meleg lezárás.\n\n## Levél Minta\n\n```\nЛюбимая моя,\n\nСлов не хватает, чтобы выразить то, что я чувствую к тебе. С того дня, как мы встретились, моя жизнь изменилась навсегда.\n\nЯ люблю тебя больше всего на свете. Ты свет моей жизни, моя мечта, ставшая реальностью.\n\nМоё сердце принадлежит только тебе, сегодня и навсегда.\n\nНавсегда твой/твоя,\n[Имя]\n```\n\n## Kulturális Tippek\n\n**Orosz lélek:** Az orosz kultúra mély és intenzív. A drámai kifejezések természetesek.\n**Irodalom:** Puskin és Lermontov költészete inspirálhat.\n**Cirill ábécé:** Érdemes megtanulni az alapokat.\n\n## Gyakori Hibák\n\n- Figyelj a nemekre: твой (férfi írja), твоя (nő írja)\n- A cirill ábécé megtanulása fontos\n- Az orosz nagyon ragozó nyelv\n\nAz orosz szerelmes levél a mélység és intenzitás művészete!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Kezdő Kifejezések",
+              "## Érzelmek Kifejezése",
+              "## Záró Kifejezések"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "7f3b6f2e-aeea-4141-83ce-3183ff33ab54",
+      "title": "Mød Svigerforældrene på Fransk: Essentielle Udtryk",
+      "native_lang": "da",
+      "target_lang": "fr",
+      "category": "communication",
+      "content": "# Mød Svigerforældrene på Fransk: Essentielle Udtryk\n\nAt møde sin partners forældre for første gang er altid en nervepirrende oplevelse. Når de taler fransk, bliver det endnu mere udfordrende. Men bare rolig – med de rigtige udtryk og lidt kulturel forståelse kan du gøre et fantastisk indtryk.\n\n## Kulturelle Tips inden Mødet\n\nI Frankrig er første indtryk utroligt vigtigt. Franskmænd værdsætter høflighed og formalitet, især ved første møde. Brug altid \"vous\" (den formelle form for \"De\") indtil du bliver inviteret til at bruge \"tu\". Medbring altid en gave – blomster eller chokolade er klassiske valg, men undgå krysantemumer, da de forbindes med begravelser.\n\n## De Vigtigste Udtryk\n\n### 1. Enchanté(e) de faire votre connaissance\n**Udtale:** ɑ̃ʃɑ̃te də fɛʁ vɔtʁ kɔnɛsɑ̃s (on-shon-TAY duh fair votr ko-neh-SONSS)\n\n**Betydning:** Det glæder mig at møde Dem.\n\n**Kulturtip:** Dette er mere formelt end bare \"Enchanté\" og viser respekt. Brug det ved første møde med svigerforældrene.\n\n### 2. Merci de m'accueillir chez vous\n**Udtale:** mɛʁsi də makœjiʁ ʃe vu (mair-SEE duh ma-kuh-YEER shay VOO)\n\n**Betydning:** Tak fordi I tager imod mig i jeres hjem.\n\n**Kulturtip:** Franskmænd sætter stor pris på at blive takket for deres gæstfrihed. Sig dette, når du ankommer.\n\n### 3. Votre maison est magnifique\n**Udtale:** vɔtʁ mɛzɔ̃ ɛ maɲifik (votr may-ZON ay man-yee-FEEK)\n\n**Betydning:** Jeres hjem er smukt.\n\n**Kulturtip:** At komplimentere hjemmet er en elegant måde at vise interesse og værdsættelse på.\n\n### 4. J'ai beaucoup entendu parler de vous\n**Udtale:** ʒe boku ɑ̃tɑ̃dy paʁle də vu (zhay bo-KOO on-ton-DUE par-LAY duh VOO)\n\n**Betydning:** Jeg har hørt så meget om jer.\n\n**Kulturtip:** Dette viser, at din partner taler positivt om sin familie, hvilket glæder forældrene.\n\n### 5. C'est délicieux, quelle est la recette?\n**Udtale:** se delisjo, kɛl ɛ la ʁəsɛt (say day-lee-SYUH, kell ay la ruh-SET)\n\n**Betydning:** Det smager dejligt, hvad er opskriften?\n\n**Kulturtip:** Mad er helligt i Frankrig. At spørge om opskriften er den højeste kompliment til kokken.\n\n### 6. Je suis tellement heureux/heureuse d'être ici\n**Udtale:** ʒə sɥi tɛlmɑ̃ øʁø/øʁøz dɛtʁ isi (zhuh SWEE tell-MON uh-RUH/uh-RUHZ deh-truh ee-SEE)\n\n**Betydning:** Jeg er så glad for at være her.\n\n**Kulturtip:** Brug \"heureux\" hvis du er mand, \"heureuse\" hvis du er kvinde.\n\n### 7. Puis-je vous aider à débarrasser?\n**Udtale:** pɥiʒ vu ede a debaʁase (pwee-zhuh voo ay-DAY ah day-ba-ra-SAY)\n\n**Betydning:** Må jeg hjælpe med at rydde af bordet?\n\n**Kulturtip:** At tilbyde hjælp viser gode manerer, selvom tilbuddet ofte vil blive afslået.\n\n### 8. Votre fils/fille compte énormément pour moi\n**Udtale:** vɔtʁ fis/fij kɔ̃t enɔʁmemɑ̃ puʁ mwa (votr FEESS/FEE-yuh kont ay-nor-may-MON poor MWA)\n\n**Betydning:** Jeres søn/datter betyder utrolig meget for mig.\n\n**Kulturtip:** Dette er en oprigtig erklæring, der viser dine seriøse intentioner.\n\n### 9. J'espère que nous aurons l'occasion de nous revoir bientôt\n**Udtale:** ʒɛspɛʁ kə nu oʁɔ̃ lɔkazjɔ̃ də nu ʁəvwaʁ bjɛ̃to (zhes-PAIR kuh noo o-RON lo-ka-ZYON duh noo ruh-VWAR byan-TOH)\n\n**Betydning:** Jeg håber, vi snart får lejlighed til at ses igen.\n\n**Kulturtip:** En elegant måde at afslutte besøget på og signalere interesse i fremtidige møder.\n\n### 10. Merci pour cette merveilleuse soirée\n**Udtale:** mɛʁsi puʁ sɛt mɛʁvɛjøz swaʁe (mair-SEE poor set mair-vay-YUHZ swa-RAY)\n\n**Betydning:** Tak for en vidunderlig aften.\n\n**Kulturtip:** Altid tak for besøget, når du tager afsted. Det efterlader et varigt positivt indtryk.\n\n## Samtaleeksempel\n\n**Svigermor:** Bienvenue! Entrez, entrez!\n**Dig:** Merci de m'accueillir chez vous. Votre maison est magnifique!\n**Svigerfar:** Asseyez-vous, je vous en prie.\n**Dig:** Merci beaucoup. J'ai beaucoup entendu parler de vous.\n\n## Afsluttende Råd\n\nHusk, at det vigtigste er at være dig selv og vise ægte interesse. Franskmænd kan mærke, om du er oprigtig. Øv udtrykkene hjemmefra, så de kommer naturligt. Og vigtigst af alt – slap af og nyd oplevelsen af at blive en del af en fransk familie.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## De Vigtigste Udtryk"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

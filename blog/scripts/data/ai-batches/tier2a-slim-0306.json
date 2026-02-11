@@ -1,0 +1,411 @@
+{
+  "batchId": "tier2a-slim-0306",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "7ce0f616-8b78-4159-bd6d-2041736ad646",
+      "title": "Norwegische Grammatik Grundlagen",
+      "native_lang": "de",
+      "target_lang": "no",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Artikel - Das Wichtigste zuerst",
+          "subsections": [
+            "### Bestimmter Artikel (der/die/das)"
+          ]
+        },
+        {
+          "header": "## Substantive",
+          "subsections": [
+            "### Plural bilden",
+            "### Plural mit bestimmtem Artikel"
+          ]
+        },
+        {
+          "header": "## Verben",
+          "subsections": [
+            "### Präsens - Nur EINE Form!",
+            "### Wichtige Verbformen",
+            "### Vergangenheit bilden"
+          ]
+        },
+        {
+          "header": "## Adjektive",
+          "subsections": [
+            "### Grundregel",
+            "### Mit bestimmtem Artikel"
+          ]
+        },
+        {
+          "header": "## Satzstellung",
+          "subsections": [
+            "### Hauptsatz",
+            "### V2-Regel"
+          ]
+        },
+        {
+          "header": "## Fragen",
+          "subsections": [
+            "### Ja/Nein-Fragen",
+            "### W-Fragen"
+          ]
+        },
+        {
+          "header": "## Verneinung",
+          "subsections": [
+            "### \"Ikke\" nach dem Verb"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7cf00108-e479-46bf-b8c0-8d7ff4f77d19",
+      "title": "Rumence Telaffuz Rehberi: Türk Öğrenciler İçin Sesler ve Kurallar",
+      "native_lang": "tr",
+      "target_lang": "ro",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Çiftler İçin Pratik Telaffuz",
+          "subsections": [
+            "### Romantik Kelimeler",
+            "### Sık Yapılan Telaffuz Hataları"
+          ]
+        },
+        {
+          "header": "## Telaffuz Egzersizleri",
+          "subsections": [
+            "### Temel Sesler",
+            "### Cümle Pratiği",
+            "### Partnerinizle Pratik"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7d74cde1-bc78-4a7a-a81d-80cc200d1580",
+      "title": "Çiftler İçin Çekçe: 25 Temel İfade",
+      "native_lang": "tr",
+      "target_lang": "cs",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Günlük Konusma Ifadeleri",
+          "subsections": [
+            "### Hal Hatir Sormak",
+            "### Yanitlar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7d9ee9ca-8c3d-4139-b4e3-f7a717088449",
+      "title": "Russisch vs. Nederlands: De Belangrijkste Verschillen",
+      "native_lang": "nl",
+      "target_lang": "ru",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De Grootste Verschillen",
+          "subsections": [
+            "### 1. Het Alfabet",
+            "### 2. Naamvallen",
+            "### 3. Geen Lidwoorden",
+            "### 4. Geen \"Zijn\" in Tegenwoordige Tijd",
+            "### 5. Werkwoordaspect",
+            "### 6. Woordgeslacht"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7da1d0c4-ca64-4991-8fb8-393c1da43e46",
+      "title": "Polish Social Media Slang Explained",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Platform-Specific Language",
+          "subsections": [
+            "### Instagram",
+            "### Facebook",
+            "### TikTok"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7dbd1e95-df9e-4b32-b58c-81e523d58134",
+      "title": "Guide de prononciation néerlandaise pour débutants : Parlez comme votre partenaire natif",
+      "native_lang": "fr",
+      "target_lang": "nl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Les erreurs françaises à éviter",
+          "subsections": [
+            "### 1. Le \"h\" muet ne l'est pas en néerlandais !",
+            "### 2. Le \"e\" final n'est pas muet",
+            "### 3. Le \"j\" = \"y\" anglais, pas \"j\" français"
+          ]
+        },
+        {
+          "header": "## Exercices de prononciation pour couples",
+          "subsections": [
+            "### 1. Le miroir magique",
+            "### 2. Le dictée tendre",
+            "### 3. Le karaoké néerlandais"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7e2ad97e-7a9d-4cd4-974d-3aa950e79d2a",
+      "title": "Spotkanie z francuska rodzina partnera - niezbędne zwroty",
+      "native_lang": "pl",
+      "target_lang": "fr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Trudne sytuacje",
+          "subsections": [
+            "### Gdy nie rozumiesz"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia przed spotkaniem",
+          "subsections": [
+            "### Cwiczenie 1: Formy grzecznosciowe",
+            "### Cwiczenie 2: La bise",
+            "### Cwiczenie 3: Komplementy"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7e907b4b-8632-4394-ab6c-32eb97d1a2a7",
+      "title": "50+ Duńskich Zwrotów na Romantyczną Randkę",
+      "native_lang": "pl",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Slownictwo gastronomiczne",
+          "subsections": [
+            "### Rodzaje restauracji",
+            "### Na talerzu"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Odgrywanie scenek",
+            "### Cwiczenie 2: Planowanie randki",
+            "### Cwiczenie 3: Komplimenty"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7f549a84-30d2-4bfa-9b0c-0e597140aa75",
+      "title": "50 Salutations et Au Revoir en Allemand : Le Guide Complet des Couples",
+      "native_lang": "fr",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Comment utiliser ces salutations avec votre partenaire",
+          "subsections": [
+            "### Créez des rituels",
+            "### Pratiquez ensemble",
+            "### Écoutez la prononciation",
+            "### Contexte culturel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7f6be042-b4d6-45b2-9bc6-861b621572f8",
+      "title": "Prononciation espagnole : maitriser les sons",
+      "native_lang": "fr",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Sons consonantiques essentiels pour débutants",
+          "subsections": [
+            "### Le R roulé : **rr** [rr]",
+            "### Le J doux : **j** [r guttural]",
+            "### Le son LL : **ll** [y/j]"
+          ]
+        },
+        {
+          "header": "## Erreurs de prononciation courantes pour les francophones",
+          "subsections": [
+            "### Le H muet",
+            "### B vs V",
+            "### Consonnes simples vs doubles"
+          ]
+        },
+        {
+          "header": "## Exercices de pratique pour couples",
+          "subsections": [
+            "### Exercice 1 : Échauffement vocalique",
+            "### Exercice 2 : Pratique de dialogue romantique",
+            "### Exercice 3 : Virelangues pour s'amuser"
+          ]
+        },
+        {
+          "header": "## Construire votre routine de pratique de prononciation espagnole",
+          "subsections": [
+            "### Sessions quotidiennes de 10 minutes",
+            "### Défis hebdomadaires",
+            "### Utilisez la technologie ensemble"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7fdd2a53-fd37-4189-8fe9-a348648b7825",
+      "title": "Meeting Your Partner's Family in German: Essential Phrases to Make a Great First Impression",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Essential First Meeting Phrases",
+          "subsections": [
+            "### Greetings and Introductions",
+            "### Making Conversation"
+          ]
+        },
+        {
+          "header": "## Meeting Different Family Members",
+          "subsections": [
+            "### Addressing Parents",
+            "### Extended Family Members"
+          ]
+        },
+        {
+          "header": "## Building Deeper Connections",
+          "subsections": [
+            "### Asking About Family History",
+            "### Sharing About Yourself"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "806d085c-8b57-4b85-92ac-b290f9cea632",
+      "title": "El Subjuntivo Francés para Expresar Deseos",
+      "native_lang": "es",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Cuándo Usar el Subjuntivo",
+          "subsections": [
+            "### 1. Expresando Deseos",
+            "### Verbos de Deseo que Requieren Subjuntivo",
+            "### 2. Expresando Emociones",
+            "### Expresiones de Emoción con Subjuntivo",
+            "### 3. Expresando Necesidad",
+            "### 4. Expresando Duda",
+            "### 5. Después de Ciertas Conjunciones"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8078e65c-a3d8-43cb-8d52-0ea3fcb48032",
+      "title": "Danca Selamlaşma ve Vedalaşma: Temel İfadeler Rehberi",
+      "native_lang": "tr",
+      "target_lang": "da",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Vedalaşma İfadeleri",
+          "subsections": [
+            "### Temel Vedalaşmalar",
+            "### Samimi Vedalaşmalar",
+            "### Zaman Belirten Vedalaşmalar"
+          ]
+        },
+        {
+          "header": "## Çiftler İçin Özel İfadeler",
+          "subsections": [
+            "### Sabah Selamlaşması",
+            "### Akşam/Gece Vedalaşması"
+          ]
+        },
+        {
+          "header": "## Mesaj/Yazışma İfadeleri",
+          "subsections": [
+            "### Mesaj Başlatma",
+            "### Mesaj Bitirme"
+          ]
+        },
+        {
+          "header": "## Özel Durumlar",
+          "subsections": [
+            "### Mağazada/Restoranda",
+            "### İş Ortamında"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "809050a1-a4d7-4b5e-b248-fda6df8ee825",
+      "title": "Italian Anniversary Wishes: Beautiful Messages for Couples",
+      "native_lang": "en",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Romantic Anniversary Messages",
+          "subsections": [
+            "### Short and Sweet",
+            "### Longer Messages",
+            "### For Your Wife",
+            "### For Your Husband"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "80bf8691-7feb-4b17-805a-93a88fbde7eb",
+      "title": "Italyanca Telaffuz Rehberi: Türkler Icin Kapsamli Kilavuz",
+      "native_lang": "tr",
+      "target_lang": "it",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Ünsüzler (Consonanti)",
+          "subsections": [
+            "### Türkce ile Ayni Sesler",
+            "### Özel Dikkat Gerektiren Sesler",
+            "### Cifte Harfler (Doppie)",
+            "### GL ve GN Sesleri",
+            "### SC Kombinasyonu"
+          ]
+        },
+        {
+          "header": "## Vurgu Kurallari",
+          "subsections": [
+            "### Genel Kural",
+            "### Aksanli Kelimeler"
+          ]
+        },
+        {
+          "header": "## Ciftler Icin Telaffuz Pratigi",
+          "subsections": [
+            "### Birlikte Calisma",
+            "### Pratik Cümleler"
+          ]
+        }
+      ]
+    }
+  ]
+}

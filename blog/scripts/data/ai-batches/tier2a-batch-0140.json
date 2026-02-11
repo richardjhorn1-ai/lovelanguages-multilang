@@ -1,0 +1,134 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0140",
+  "articles": [
+    {
+      "id": "2817c473-3724-467c-9a20-a7d0e8b3fd7b",
+      "title": "Řecké fráze Chybíš mi pro Čechy",
+      "native_lang": "cs",
+      "target_lang": "el",
+      "category": "communication",
+      "content": "Řečtina vyjadřuje stesk s typickou středomořskou vášní a intenzitou. Tyto fráze vám pomohou sdělit, jak moc vám váš řecky mluvící partner chybí.\n\n## Základní fráze\n\n### \"Μου λείπεις.\"\n**Výslovnost:** Mu lípis.\n\n**Překlad:** Chybíš mi.\n\n**Kdy použít:** Základní fráze.\n\n---\n\n### \"Μου λείπεις πολύ.\"\n**Výslovnost:** Mu lípis polí.\n\n**Překlad:** Moc mi chybíš.\n\n**Kdy použít:** Zesílená verze.\n\n---\n\n### \"Μακάρι να ήσουν εδώ.\"\n**Výslovnost:** Makári na ísun edó.\n\n**Překlad:** Kéž bys tu byl/a.\n\n**Kdy použít:** Vyjádření přání.\n\n---\n\n### \"Δεν μπορώ να σταματήσω να σκέφτομαι εσένα.\"\n**Výslovnost:** Den boró na stamatíso na skéftome eséna.\n\n**Překlad:** Nemůžu přestat myslet na tebe.\n\n**Kdy použít:** Konstantní myšlenky.\n\n---\n\n## Romantické fráze\n\n### \"Κάθε στιγμή χωρίς εσένα είναι αιωνιότητα.\"\n**Výslovnost:** Káthe stigmí chorís eséna íne eonióita.\n\n**Překlad:** Každý okamžik bez tebe je věčnost.\n\n**Kdy použít:** Poetické vyjádření.\n\n---\n\n### \"Η καρδιά μου είναι μαζί σου.\"\n**Výslovnost:** I kardiá mu íne mazí su.\n\n**Překlad:** Moje srdce je s tebou.\n\n**Kdy použít:** Romantické ujištění.\n\n---\n\n### \"Μετράω τις μέρες μέχρι να σε ξαναδώ.\"\n**Výslovnost:** Metráo tis méres méchri na se xanadó.\n\n**Překlad:** Počítám dny, než tě zase uvidím.\n\n**Kdy použít:** Těšení na setkání.\n\n---\n\n## Fráze pro zprávy\n\n### \"Σκέφτομαι εσένα.\"\n**Výslovnost:** Skéftome eséna.\n\n**Překlad:** Myslím na tebe.\n\n**Kdy použít:** Krátká zpráva.\n\n---\n\n### \"Ανυπομονώ να σε αγκαλιάσω.\"\n**Výslovnost:** Anipmonó na se angaliáso.\n\n**Překlad:** Nemůžu se dočkat, až tě obejmu.\n\n**Kdy použít:** Touha po blízkosti.\n\n---\n\n### \"Η απόσταση δεν αλλάζει τα συναισθήματά μου.\"\n**Výslovnost:** I apóstasi den alázi ta sinesthímatá mu.\n\n**Překlad:** Vzdálenost nemění mé city.\n\n**Kdy použít:** Ujištění.\n\n---\n\n## Povzbudivé fráze\n\n### \"Σύντομα θα είμαστε μαζί.\"\n**Výslovnost:** Síntoma tha ímaste mazí.\n\n**Překlad:** Brzy budeme spolu.\n\n**Kdy použít:** Optimismus.\n\n---\n\n## Kulturní tipy\n\n**Vášeň:** Řekové jsou expresivní - nebojte se být emotivní.\n\n**Oslovení:** \"Αγάπη μου\" (lásko), \"μωρό μου\" (miláčku), \"ψυχή μου\" (duše moje).\n\n**Rodina:** Řecká kultura je rodinně orientovaná.\n\nS těmito frázemi vyjádříte stesk s řeckou vášní.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 293,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Základní fráze",
+              "## Romantické fráze",
+              "## Fráze pro zprávy",
+              "## Povzbudivé fráze"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "2819f2cc-279d-434c-bfd2-45d8796ed5c6",
+      "title": "Німецька фрази для медового місяця та романтичних подорожей",
+      "native_lang": "uk",
+      "target_lang": "de",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport CTA from '@components/CTA.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\n\n# Німецька фрази для медового місяця та романтичних подорожей\n\nМедовий місяць — це незабутня подорож для молодят! Якщо ви плануєте романтичну поїздку в країну, де розмовляють німецькою, ця стаття допоможе вам.\n\n<PhraseOfDay\n  phrase=\"This is our honeymoon!\"\n  translation=\"Це наш медовий місяць!\"\n  context=\"Для особливого ставлення в готелі\"\n/>\n\n## Основна туристична лексика\n\n\n\n## У готелі\n\n### Реєстрація\n\n1. \"Ми забронювали номер\" — перша фраза на ресепшені\n2. \"Це наш медовий місяць\" — можливо, отримаєте апгрейд!\n3. \"Чи є у вас номери з видом?\" — для романтичної атмосфери\n\n<CultureTip>\nБагато готелів пропонують особливі послуги для молодят — шампанське, пелюстки троянд, романтичну вечерю. Не соромтеся попросити!\n</CultureTip>\n\n### Корисні фрази для готелю\n\n| Німецька | Українська |\n|----------------|------------|\n| Double room | Двомісний номер |\n| King-size bed | Велике ліжко |\n| Room service | Обслуговування номерів |\n| Late checkout | Пізній виїзд |\n| Honeymoon suite | Номер для молодят |\n\n## У ресторані\n\n### Романтична вечеря\n\n1. \"Столик для двох, будь ласка\"\n2. \"Чи є у вас романтичний куточок?\"\n3. \"Що ви рекомендуєте?\"\n4. \"Рахунок, будь ласка\"\n\n### Тости для двох\n\n- \"За нас!\"\n- \"За наше кохання!\"\n- \"За щасливе майбутнє!\"\n\n## Пляжний відпочинок\n\n### Лексика для пляжу\n\n- Пляж\n- Море\n- Сонце\n- Купальник\n- Рушник\n- Шезлонг\n- Парасолька\n\n### Романтичні пляжні активності\n\n1. **Прогулянка на заході сонця** — класика!\n2. **Плавання вночі** — незабутнє враження\n3. **Пікнік на пляжі** — романтична вечеря\n\n<CultureTip>\nПравила пляжного етикету відрізняються в різних країнах. Дізнайтеся заздалегідь про дрес-код та місцеві традиції.\n</CultureTip>\n\n## Екскурсії для пар\n\n### Романтичні активності\n\n- Круїз на заході сонця\n- Дегустація вина\n- Масаж для двох\n- Урок кулінарії\n- Повітряна куля\n\n### Корисні фрази\n\n1. \"Чи є екскурсії для пар?\"\n2. \"Ми хотіли б щось романтичне\"\n3. \"Скільки це коштує на двох?\"\n\n## Фотографії на пам'ять\n\n### Як попросити зробити фото\n\n1. \"Ви можете нас сфотографувати?\"\n2. \"Ще раз, будь ласка\"\n3. \"Дякую!\"\n\n## Покупки сувенірів\n\n### Подарунки для рідних\n\n- \"Це подарунок\" — для гарного пакування\n- \"Чи є знижка?\" — спробуйте поторгуватися\n- \"Приймаєте картку?\" — для оплати\n\n## Проблеми в подорожі\n\n### Якщо щось пішло не так\n\n- \"Нам потрібна допомога\"\n- \"Де найближча аптека?\"\n- \"Ми загубилися\"\n- \"Викликайте поліцію/швидку\"\n\n## Повернення додому\n\n### Прощання з відпусткою\n\n- \"Це була найкраща подорож!\"\n- \"Ми обов'язково повернемося\"\n- \"Дякуємо за чудовий сервіс\"\n\n## Продовжуйте вивчення\n\nТепер ви готові до романтичної подорожі! Вивчайте більше:\n\n- [Німецька туристичні фрази](/uk/blog/essential-german-travel-phrases-for-couples)\n- [Німецька романтичні фрази](/uk/blog/romantic-german-phrases-for-couples)\n\n<CTA \n  text=\"Підготуйтеся до медового місяця з нашим додатком!\"\n  buttonText=\"Почати вивчення\"\n  href=\"/uk/learn/de\"\n/>",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Основна туристична лексика",
+              "## У готелі",
+              "## У ресторані",
+              "## Пляжний відпочинок",
+              "## Екскурсії для пар",
+              "## Фотографії на пам'ять",
+              "## Покупки сувенірів",
+              "## Проблеми в подорожі",
+              "## Повернення додому"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "281bdc8b-9feb-47e2-b471-38ff2f9f8e0d",
+      "title": "Czech Emotional Support Phrases: Comfort Your Partner in Difficult Times",
+      "native_lang": "en",
+      "target_lang": "cs",
+      "category": "communication",
+      "content": "When your Czech-speaking partner faces difficult times, offering comfort in their native language creates deep emotional connection. Czech sincerity makes support meaningful.\n\n## Phrases of Presence\n\n**Jsem tu pro tebe**\n*(Ysem tu pro te-be)*\n*I'm here for you*\n\n**V tom nejsi sám/sama**\n*You're not alone in this*\n\n**Vždycky na mě můžeš počítat**\n*You can always count on me*\n\n## Expressing Empathy\n\n**Chápu, čím procházíš**\n*I understand what you're going through*\n\n**Je úplně normální se tak cítit**\n*It's completely normal to feel this way*\n\n**Tvé pocity jsou naprosto oprávněné**\n*Your feelings are completely valid*\n\n## Offering Comfort\n\n**Všechno bude dobré**\n*Everything will be okay*\n\n**Společně to zvládneme**\n*Together we'll manage*\n\n**Jsem na tebe moc pyšný/pyšná**\n*I'm very proud of you*\n\n## Active Support\n\n**Co pro tebe můžu udělat?**\n*What can I do for you?*\n\n**Chceš o tom mluvit nebo chceš, abychom jen byli spolu?**\n*Do you want to talk about it or want us to just be together?*\n\n**Řekni mi, co potřebuješ**\n*Tell me what you need*\n\n## Specific Situations\n\n### Grief\n**Je mi moc líto tvé ztráty**\n*I'm so sorry for your loss*\n\n### Stress\n**Dýchej se mnou**\n*Breathe with me*\n\n**Vezmeme to krok za krokem**\n*We'll take it step by step*\n\n### Disappointment\n**Vím, jak moc to pro tebe znamenalo**\n*I know how much this meant to you*\n\n**Nemusíš být pořád silný/silná**\n*You don't always have to be strong*\n\n## Physical Comfort\n\n**Pojď sem, nech mě tě obejmout**\n*Come here, let me hug you*\n\n## Encouragement\n\n**Jsi silnější, než si myslíš**\n*You're stronger than you think*\n\n**Věřím v tebe**\n*I believe in you*\n\n## Being Present\n\n**Nemusíš nic říkat**\n*You don't have to say anything*\n\n**Chci tu s tebou prostě být**\n*I just want to be here with you*\n\nSincere Czech support creates deep comfort.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 296,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Specific Situations"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "281dc8ea-4491-492e-8c10-b80434577537",
+      "title": "Испанские фразы о ревности и доверии",
+      "native_lang": "ru",
+      "target_lang": "es",
+      "category": "communication",
+      "content": "В испаноязычных культурах эмоции выражаются открыто, включая ревность. Важно научиться говорить о ней конструктивно, не разрушая отношения.\n\n## Фразы для выражения ревности\n\n### 1. Siento celos cuando...\n**Произношение:** Сье́нто сэ́лос куа́ндо...\n\n**Перевод:** Я ревную, когда...\n\nЧестное признание чувств без обвинений.\n\n### 2. Me molesta cuando pasas tanto tiempo con...\n**Произношение:** Мэ молэ́ста куа́ндо па́сас та́нто тье́мпо кон...\n\n**Перевод:** Меня беспокоит, когда ты проводишь столько времени с...\n\nВыражение дискомфорта.\n\n### 3. A veces necesito que me tranquilices\n**Произношение:** А вэ́сэс нэсэси́то кэ мэ транкили́сэс\n\n**Перевод:** Иногда мне нужно, чтобы ты меня успокоил/успокоила\n\nЧестная просьба о поддержке.\n\n## Фразы для укрепления доверия\n\n### 4. Confío en ti completamente\n**Произношение:** Конфи́о эн ти комплэтамэ́нтэ\n\n**Перевод:** Я полностью тебе доверяю\n\nВажное подтверждение для партнёра.\n\n### 5. Eres el único/la única para mí\n**Произношение:** Э́рэс эль у́нико/ла у́ника па́ра ми\n\n**Перевод:** Ты единственный/единственная для меня\n\nВыражение преданности.\n\n### 6. Nunca haría nada que dañe nuestra relación\n**Произношение:** Ну́нка ари́а на́да кэ да́ньэ нуэ́стра рэласье́он\n\n**Перевод:** Я никогда не сделаю ничего, что навредит нашим отношениям\n\nОбещание верности.\n\n### 7. No tienes de qué preocuparte\n**Произношение:** Но тье́нэс дэ кэ прэокупа́ртэ\n\n**Перевод:** Тебе не о чем беспокоиться\n\nУспокоение партнёра.\n\n### 8. Déjame explicarte lo que pasó\n**Произношение:** Дэ́хамэ эксплика́ртэ ло кэ пасо́\n\n**Перевод:** Позволь мне объяснить, что произошло\n\nОткрытость к диалогу.\n\n### 9. Tus sentimientos me importan\n**Произношение:** Тус сэнтимье́нтос мэ импо́ртан\n\n**Перевод:** Твои чувства важны для меня\n\nПризнание значимости эмоций.\n\n### 10. ¿Podemos establecer algunos límites juntos?\n**Произношение:** Подэ́мос эстаблэсэ́р алгу́нос ли́митэс ху́нтос?\n\n**Перевод:** Можем ли мы вместе установить какие-то границы?\n\nКонструктивный подход.\n\n## Культурные особенности\n\nВ испанской культуре определённая степень ревности может восприниматься как знак любви. Однако важно различать здоровую заботу и контролирующее поведение. Фраза «Te quiero solo para mí» (Я хочу тебя только для себя) — романтична, но границы важны.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 296,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Фразы для выражения ревности",
+              "## Фразы для укрепления доверия"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "281feb4f-8c20-4941-9991-54b9da38e25f",
+      "title": "Phrases de réconfort en grec : Soutenir son partenaire",
+      "native_lang": "fr",
+      "target_lang": "el",
+      "category": "communication",
+      "content": "## Soutenir son partenaire en grec\n\nLes Grecs sont chaleureux et expressifs. Voici comment réconforter.\n\n## Phrases de réconfort\n\n### \"Είμαι εδώ για σένα\"\n**Transcription :** Eimai edo gia sena\n**Prononciation :** I-mé é-DO ya SÉ-na\n\n**Signification :** Je suis là pour toi\n\n### \"Όλα θα πάνε καλά\"\n**Transcription :** Ola tha pane kala\n**Prononciation :** O-la tha PA-né ka-LA\n\n**Signification :** Tout ira bien\n\n### \"Δεν είσαι μόνος/μόνη σε αυτό\"\n**Transcription :** Den eisai monos/moni se afto\n**Prononciation :** dén I-sé MO-nos/MO-ni sé af-TO\n\n**Signification :** Tu n'es pas seul(e)\n\n## Écouter et valider\n\n### \"Καταλαβαίνω πώς νιώθεις\"\n**Transcription :** Katalavaino pos niotheis\n**Prononciation :** ka-ta-la-VÉ-no POSS NIO-this\n\n**Signification :** Je comprends ce que tu ressens\n\n### \"Είναι φυσιολογικό να νιώθεις έτσι\"\n**Transcription :** Einai fysiologiko na niotheis etsi\n**Prononciation :** I-né fi-si-o-lo-yi-KO na NIO-this É-tsi\n\n**Signification :** C'est normal de ressentir ça\n\n## Soutien actif\n\n### \"Τι μπορώ να κάνω για να βοηθήσω;\"\n**Transcription :** Ti boro na kano gia na voithiso?\n**Prononciation :** TI bo-RO na KA-no ya na vo-i-THI-so\n\n**Signification :** Que puis-je faire pour t'aider ?\n\n## Encouragement\n\n### \"Είσαι πιο δυνατός/δυνατή απ' ότι νομίζεις\"\n**Transcription :** Eisai pio dynatos/dynati ap' oti nomizeis\n**Prononciation :** I-sé PIO di-na-TOS/di-na-TI ap O-ti no-MI-zis\n\n**Signification :** Tu es plus fort(e) que tu ne le penses\n\n### \"Πιστεύω σε σένα\"\n**Transcription :** Pisteuo se sena\n**Prononciation :** pis-TÉ-vo sé SÉ-na\n\n**Signification :** Je crois en toi\n\n### \"Θα τα καταφέρεις\"\n**Transcription :** Tha ta katafereis\n**Prononciation :** tha ta ka-ta-FÉ-ris\n\n**Signification :** Tu vas y arriver\n\n## Moments difficiles\n\n### \"Λυπάμαι πολύ που περνάς αυτό\"\n**Transcription :** Lypamai poli pou pernas afto\n**Prononciation :** li-PA-mé po-LI pou pér-NASS af-TO\n\n**Signification :** Je suis désolé(e) que tu traverses ça\n\n### \"Έλα, να σε αγκαλιάσω\"\n**Transcription :** Ela, na se agaliaso\n**Prononciation :** É-la na sé an-ga-LIA-so\n\n**Signification :** Viens, laisse-moi te serrer dans mes bras\n\n### \"Θα το περάσουμε μαζί\"\n**Transcription :** Tha to perasoume mazi\n**Prononciation :** tha to pé-RA-sou-mé ma-ZI\n\n**Signification :** On va surmonter ça ensemble\n\n## Conclusion\n\nLe soutien en grec est chaleureux et expressif.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Phrases de réconfort",
+              "## Écouter et valider",
+              "## Soutien actif",
+              "## Encouragement",
+              "## Moments difficiles"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

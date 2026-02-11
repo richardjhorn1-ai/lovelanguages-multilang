@@ -1,0 +1,120 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0348",
+  "articles": [
+    {
+      "id": "634b3f0f-7d63-4b25-b459-c1ce6a3b62e0",
+      "title": "Angol lánykérési és eljegyzési kifejezések",
+      "native_lang": "hu",
+      "target_lang": "en",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nA lánykérés az élet egyik legizgalmasabb pillanata. Ha angolul szeretnéd feltenni a nagy kérdést vagy megérteni ezt a különleges eseményt, ezek a kifejezések nélkülözhetetlenek.\n\nAz alapvető szerelmi kifejezésekért nézd meg a [Hogyan mondd: Szeretlek angolul](/learn/hu/en/english-how-to-say-i-love-you) cikkünket.\n\n<PhraseOfDay\n  word=\"Congratulations!\"\n  translation=\"Gratulálok!\"\n  pronunciation=\"kənˌɡrætʃʊˈleɪʃənz\"\n  context=\"Az esküvői köszöntés alapja.\"\n/>\n\n## Alapvető szókincs\n\nIsmerd meg a legfontosabb angol lánykérési és eljegyzési szavakat:\n\n<VocabCard\n  word=\"wedding\"\n  translation=\"esküvő\"\n  pronunciation=\"ˈwedɪŋ\"\n  example=\"The wedding was beautiful.\"\n/>\n\n| Angol | Magyar | Használat |\n|---|---|---|\n| bride | menyasszony | A nő |\n| groom | vőlegény | A férfi |\n| vows | fogadalmak | Esküvői ígéretek |\n| ceremony | szertartás | A hivatalos rész |\n| reception | fogadás | Az ünneplés |\n| toast | köszöntő | Pohárköszöntő |\n\n<CultureTip flag=\"🌍\" title=\"Angol kulturális tippek\">\nA angol nyelvű kultúrákban a lánykérésnek különleges hagyományai vannak. Egyes helyeken a szülők beleegyezését kérik, máshol romantikus helyszíneket választanak.\n</CultureTip>\n\n## Hasznos kifejezések\n\n### A nagy kérdés\n\nA lánykérés pillanatában ezeket mondd:\n\n- **Congratulations!** - Gratulálok!\n- **Veled akarom tölteni az életemet** - Romantikus vallomás\n- **Te vagy az egyetlen** - Szerelmi vallomás\n\n### Az eljegyzés bejelentése\nAmikor megosztod a hírt:\n\n- **Eljegyeztük magunkat!** - A nagy bejelentés\n- **Igent mondott!** - Az öröm kifejezése\n\n<VocabCard\n  word=\"honeymoon\"\n  translation=\"nászút\"\n  pronunciation=\"ˈhʌnimuːn\"\n  example=\"They went on their honeymoon.\"\n/>\n\n## Gyakorlati helyzetek\n\n| Helyzet | Mit mondj |\n|---|---|\n| A nagy kérdés | Térdre ereszkedve tedd fel a kérdést |\n| Ha igent mond | Fejezd ki a boldogságod |\n| Bejelentés | Oszd meg a hírt a szeretteiddel |\n| Gratulációk fogadása | Köszönd meg a jókívánságokat |\n\n<CultureTip flag=\"💡\" title=\"Hasznos tipp\">\nA lánykérés előtt gyakorold az alapvető kifejezéseket. A pillanatnyi izgalomban nehéz lehet idegen nyelven beszélni, ezért készülj fel előre.\n</CultureTip>\n\n## Összefoglaló táblázat\n\n| Helyzet | Angol kifejezés |\n|---|---|\n| Gratuláció | Congratulations! |\n| Az esemény | wedding |\n| A nő | bride |\n| A férfi | groom |\n| Esküvői ígéretek | vows |\n\n## További tanulás\n\nHa tovább szeretnéd fejleszteni a angol nyelvtudásod, nézd meg ezeket a cikkeinket:\n\n- [Angol romantikus kifejezések minden alkalomra](/learn/hu/en/english-romantic-phrases-for-every-occasion)\n- [Hogyan mondd: Szeretlek angolul](/learn/hu/en/english-how-to-say-i-love-you)\n- [Angol alapvető kifejezések pároknak](/learn/hu/en/english-essential-phrases-for-couples)\n\nEzek a források segítenek elmélyíteni a tudásod és magabiztosabbá válni a angol nyelvben.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 293,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Hasznos kifejezések"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "63545d47-0cbb-49a0-aeaa-5d70ca2215d8",
+      "title": "Frases para Conocer a los Suegros en Sueco: Guía para los Svärföräldrar",
+      "native_lang": "es",
+      "target_lang": "sv",
+      "category": "communication",
+      "content": "Los svärföräldrar (suegros) suecos valoran la autenticidad y el equilibrio. El concepto de \"lagom\" (ni mucho ni poco) aplica también a las relaciones.\n\n## Saludos y Presentaciones\n\n### \"Trevligt att äntligen träffas\"\n**Pronunciación:** trévlit at éntligen tréfas\n\n**Significado:** Qué bien conocernos por fin\n\n### \"Jag har hört så mycket om er\"\n**Pronunciación:** yag har hért so míket om er\n\n**Significado:** He escuchado tanto de ustedes\n\n### \"Tack så mycket för inbjudan\"\n**Pronunciación:** tak so míket fér inbiúdan\n\n**Significado:** Muchas gracias por la invitación\n\n## Cumplidos Sinceros\n\n### \"Ni har ett fint hem\"\n**Pronunciación:** ni har et fint hem\n\n**Significado:** Tienen un hogar bonito\n\n### \"Maten är jättegod\"\n**Pronunciación:** máten er yétegud\n\n**Significado:** La comida está muy buena\n\n### \"Er son/dotter gör mig väldigt lycklig\"\n**Pronunciación:** er son/dóter yér mey véldigt lýklig\n\n**Significado:** Su hijo/a me hace muy feliz\n\n## Ofreciendo Ayuda\n\n### \"Kan jag hjälpa till med något?\"\n**Pronunciación:** kan yag yélpa til med nógot\n\n**Significado:** ¿Puedo ayudar con algo?\n\n### \"Låt mig hjälpa till med disken\"\n**Pronunciación:** lot mey yélpa til med dísken\n\n**Significado:** Déjenme ayudar con los platos\n\n## Mostrando Interés\n\n### \"Jag skulle vilja veta mer om era familjetraditioner\"\n**Pronunciación:** yag skúle vília véta mer om éra famílyetraditsióner\n\n**Significado:** Me gustaría saber más sobre sus tradiciones familiares\n\n### \"Hur träffades ni?\"\n**Pronunciación:** hur tréfades ni\n\n**Significado:** ¿Cómo se conocieron?\n\n## Despedidas\n\n### \"Tack för en trevlig kväll\"\n**Pronunciación:** tak fér en trévlig kvel\n\n**Significado:** Gracias por una agradable velada\n\n### \"Det var trevligt att träffas\"\n**Pronunciación:** det var trévligt at tréfas\n\n**Significado:** Fue agradable conocernos\n\n## El Concepto de Lagom\n\n\"Lagom\" significa la justa medida:\n- Cumplidos sinceros pero no exagerados\n- Interés genuino sin ser intrusivo\n- Ayuda ofrecida pero no insistente\n\n## Cultura Sueca\n\n- **Igualdad** - Relaciones muy equilibradas\n- **Puntualidad** - Muy importante\n- **Fika** - Tradición de café y pastel\n- **Naturalidad** - Valoran la autenticidad\n\nLos svärföräldrar suecos aprecian la sinceridad equilibrada. ¡Lycka till!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Saludos y Presentaciones",
+              "## Cumplidos Sinceros",
+              "## Ofreciendo Ayuda",
+              "## Mostrando Interés",
+              "## Despedidas"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "6356edf9-cccb-4341-a5a0-a584f4a65105",
+      "title": "Danske SMS- og chattefraser for par",
+      "native_lang": "no",
+      "target_lang": "da",
+      "category": "communication",
+      "content": "Dansk er kanskje det skandinaviske språket som ligner mest på norsk skriftlig, men med en helt egen sjarm og uttale. Danske chattefraser har en avslappet og koselig tone som passer perfekt for hverdagskommunikasjon mellom par.\n\n## Hvorfor danske chattefraser?\n\nSom nordmann leser du dansk nesten som norsk, men de små forskjellene og typisk danske uttrykkene gir språket sin egen karakter. Dansk er kjent for sin «hygge» – og dette gjenspeiles i hvordan dansker kommuniserer med sine kjære.\n\n## Kjærlige kallenavn\n\n**Skat**\n*Skatt*\nDet vanligste danske kallenavnet – kort, søtt og universelt.\n\n**Elske** / **Elskling**\n*Elskede/Elskling*\nKlassisk og tidløst.\n\n**Min skat**\n*Min skatt*\nMed possessiv for ekstra varme.\n\n**Kære**\n*Kjære*\nEnkelt og fint.\n\n## Morgen- og kveldsmeldinger\n\n**Godmorgen, skat**\n*God morgen, skatt*\nEn varm dansk morgenhilsen.\n\n**Godnat, sov godt**\n*God natt, sov godt*\nPerfekt kveldshilsen.\n\n**Har du sovet godt?**\n*Har du sovet godt?*\nOmtenksom morgenmelding.\n\n**Søde drømme**\n*Søte drømmer*\nVakker god natt-hilsen.\n\n## Hverdagslige kjærlighetsuttrykk\n\n**Jeg savner dig**\n*Jeg savner deg*\nStandard savnuttrykk på dansk.\n\n**Jeg elsker dig**\n*Jeg elsker deg*\nDen klassiske danske kjærlighetserklæringen.\n\n**Jeg kan godt lide dig**\n*Jeg liker deg*\nMildere enn «elsker», brukes i mange sammenhenger.\n\n**Jeg tænker på dig**\n*Jeg tenker på deg*\nEnkel og fin måte å vise omsorg.\n\n## Lekne og flørtefraser\n\n**Du er så sød**\n*Du er så søt*\nEt universelt kompliment.\n\n**Du er smuk/flot**\n*Du er vakker/kjekk*\n«Smuk» brukes mest til kvinner, «flot» er mer universelt.\n\n**Du gør mig så glad**\n*Du gjør meg så glad*\nViser hvordan partneren påvirker deg.\n\n**Jeg er så heldig med dig**\n*Jeg er så heldig med deg*\nViser takknemlighet for forholdet.\n\n## Praktiske hverdagsfraser\n\n**Jeg er på vej!**\n*Jeg er på vei!*\nKort beskjed om at du er underveis.\n\n**Jeg bliver lidt forsinket, undskyld**\n*Jeg blir litt forsinket, unnskyld*\nNyttig når du er sent ute.\n\n**Hvad vil du have til aftensmad?**\n*Hva vil du ha til middag?*\nKlassisk hverdagsmelding.\n\n**Vi ses snart!**\n*Vi ses snart!*\nBrukes når dere skal møtes.\n\n## Danske forkortelser og SMS-språk\n\n- **Kys** = Kyss\n- **Knus** = Klem\n- **Kh** = Kærlig hilsen (Kjærlig hilsen)\n- **Evt** = Eventuelt\n- **Mht** = Med hensyn til\n- **Osv** = Og så videre\n- **Dvs** = Det vil sige\n\n## Romantiske uttrykk\n\n**Du er mit livs kærlighed**\n*Du er mitt livs kjærlighet*\nEn dyp kjærlighetserklæring.\n\n**Jeg kan ikke leve uden dig**\n*Jeg kan ikke leve uten deg*\nIntens og romantisk.\n\n**For altid**\n*For alltid*\nKlassisk romantisk avslutning.\n\n**Du betyder alt for mig**\n*Du betyr alt for meg*\nEnkel men kraftfull.\n\n## Kulturelle tips\n\n### Hygge\n«Hygge» er det danske nasjonalbegrepet – en følelse av koselig varme og velvære. I tekstmeldinger kan du si:\n- «Det var hyggeligt» (Det var hyggelig)\n- «Vi skal hygge os» (Vi skal kose oss)\n- «Glæder mig til at hygge med dig» (Gleder meg til å kose meg med deg)\n\n### Norsk vs. dansk – små forskjeller\nNoen ord som er forskjellige:\n- Norsk «ikke» → Dansk «ikke» (men uttales annerledes)\n- Norsk «meg» → Dansk «mig»\n- Norsk «deg» → Dansk «dig»\n- Norsk «spiser» → Dansk «spiser» (identisk!)\n\n### Danske kosenavn\nDansker har sine favoritter:\n- **Skat** (Skatt) – absolutt vanligst\n- **Gull** (Gull)\n- **Søde** (Søte)\n- **Perle** (Perle)\n- **Musse** (Mus)\n\n## Emojier og avslutninger\n\nDansker bruker gjerne:\n- ❤️ – Hjerte\n- 😘 – Kys (kyss)\n- «Kys og knus» – Kyss og klem\n- «Mange kys» – Mange kyss\n- «Krammer» – Klemmer\n- «Kærlig hilsen» – Kjærlig hilsen\n\n## Vanlige feil å unngå\n\n1. **Bløte konsonanter** – Dansk uttale er mykere enn norsk.\n2. **«Hvad» uttales som «va»** – Dansk svelger mange lyder.\n3. **«Af» vs. «av»** – Dansk bruker «af» der norsk bruker «av».\n\n## Morsomme forskjeller\n\nNoen ord som kan forvirre:\n- Dansk «grine» = le (ikke gråte som på norsk)\n- Dansk «frokost» = lunsj\n- Dansk «morgen» = formiddag (av og til)\n- Dansk «nuttet» = søt\n\n## Typiske setninger for ulike situasjoner\n\n**Når du savner partneren:**\n«Savner dig meget» (Savner deg mye)\n\n**Før en date:**\n«Glæder mig til at se dig» (Gleder meg til å se deg)\n\n**Etter en fin opplevelse:**\n«Tak for en dejlig aften» (Takk for en deilig kveld)\n\n**God morgen-melding:**\n«Godmorgen, skat! Hav en god dag!» (God morgen, skatt! Ha en god dag!)\n\n## Unike danske uttrykk\n\n**Du er dejlig**\n*Du er deilig/fantastisk*\n«Dejlig» brukes om alt som er fint.\n\n**Jeg er vild med dig**\n*Jeg er vill etter deg*\nViser sterk tiltrekning.\n\n**Tusind kys**\n*Tusen kyss*\nSøt avslutning på meldinger.\n\nDanske chattefraser er perfekte for norske par som setter pris på hygge og varme. Med sin avslappede tone og koselige uttrykk tilbyr dansk en nær og hjertelig måte å kommunisere kjærlighet på – full av skandinavisk sjarm.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Kulturelle tips"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "637752f1-281b-43ca-82fb-44a1cc393113",
+      "title": "Ρουμανικές Φράσεις Συμφιλίωσης: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "ro",
+      "category": "communication",
+      "content": "Η συμφιλίωση είναι βασική για κάθε σχέση. Όταν ο σύντροφός σας μιλάει ρουμανικά, αυτές οι φράσεις θα σας βοηθήσουν.\n\n## Φράσεις Συμφιλίωσης\n\n### Έναρξη Συμφιλίωσης\n\n<Phrase term=\"Îmi pare rău\" pronunciation=\"Ιμι πάρε ράου\">\n  <Trans>Λυπάμαι</Trans>\n  <Note>Βασική συγγνώμη</Note>\n</Phrase>\n\n<Phrase term=\"Putem vorbi?\" pronunciation=\"Πουτέμ βορμπί;\">\n  <Trans>Μπορούμε να μιλήσουμε;</Trans>\n  <Note>Έναρξη διαλόγου</Note>\n</Phrase>\n\n<Phrase term=\"Nu mai vreau să ne certăm\" pronunciation=\"Νου μάι βρέαου σα νε τσερτάμ\">\n  <Trans>Δεν θέλω να τσακωνόμαστε άλλο</Trans>\n  <Note>Επιθυμία ειρήνης</Note>\n</Phrase>\n\n### Έκφραση Μετάνοιας\n\n<Phrase term=\"Am greșit\" pronunciation=\"Αμ γκρεσίτ\">\n  <Trans>Έκανα λάθος</Trans>\n  <Note>Παραδοχή λάθους</Note>\n</Phrase>\n\n<Phrase term=\"N-ar fi trebuit să spun asta\" pronunciation=\"Ναρ φι τρεμπουίτ σα σπουν άστα\">\n  <Trans>Δεν έπρεπε να το πω</Trans>\n  <Note>Μετάνοια για λόγια</Note>\n</Phrase>\n\n<Phrase term=\"Nu am vrut să te rănesc\" pronunciation=\"Νου αμ βρουτ σα τε ρανέσκ\">\n  <Trans>Δεν ήθελα να σε πληγώσω</Trans>\n  <Note>Διευκρίνιση προθέσεων</Note>\n</Phrase>\n\n### Έκφραση Αγάπης\n\n<Phrase term=\"Te iubesc și îmi pare rău\" pronunciation=\"Τε γιουμπέσκ σι ίμι πάρε ράου\">\n  <Trans>Σ' αγαπώ και λυπάμαι</Trans>\n  <Note>Αγάπη και συγγνώμη</Note>\n</Phrase>\n\n<Phrase term=\"Ești totul pentru mine\" pronunciation=\"Γέστι τότουλ πέντρου μίνε\">\n  <Trans>Είσαι τα πάντα για μένα</Trans>\n  <Note>Επιβεβαίωση αγάπης</Note>\n</Phrase>\n\n<Phrase term=\"Urăsc să mă cert cu tine\" pronunciation=\"Ουράσκ σα μα τσερτ κου τίνε\">\n  <Trans>Μισώ να τσακώνομαι μαζί σου</Trans>\n  <Note>Η σύγκρουση πονάει</Note>\n</Phrase>\n\n### Πρόταση Λύσης\n\n<Phrase term=\"Hai să o luăm de la capăt\" pronunciation=\"Χάι σα ο λουάμ ντε λα καπάτ\">\n  <Trans>Ας ξεκινήσουμε από την αρχή</Trans>\n  <Note>Νέα αρχή</Note>\n</Phrase>\n\n<Phrase term=\"Vino în brațele mele\" pronunciation=\"Βίνο ιν μπράτσελε μέλε\">\n  <Trans>Έλα στην αγκαλιά μου</Trans>\n  <Note>Σωματική επανασύνδεση</Note>\n</Phrase>\n\n<Phrase term=\"Promit să fiu mai bun/bună\" pronunciation=\"Προμίτ σα φίου μάι μπουν/μπούνα\">\n  <Trans>Υπόσχομαι να γίνω καλύτερος/η</Trans>\n  <Note>Δέσμευση βελτίωσης</Note>\n</Phrase>\n\n## Πολιτιστικές Συμβουλές\n\nΟι Ρουμάνοι είναι συναισθηματικοί και εκτιμούν την ειλικρίνεια. Η οικογένεια είναι πολύ σημαντική, οπότε δείξτε ότι θέλετε να διατηρήσετε την αρμονία.\n\n## Συμπέρασμα\n\nΜε αυτές τις φράσεις, μπορείτε να επανασυνδεθείτε με τον ρουμανόφωνο σύντροφό σας.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 285,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Φράσεις Συμφιλίωσης"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "637be9ff-de58-4f1c-a6f4-8c678dfbcc4a",
+      "title": "Écrire une lettre d'amour en allemand : La profondeur romantique",
+      "native_lang": "fr",
+      "target_lang": "de",
+      "category": "communication",
+      "content": "## L'art du Liebesbrief allemand\n\nContrairement aux clichés, l'allemand offre des expressions d'une profondeur romantique remarquable. Les grands poètes allemands (Goethe, Rilke) ont prouvé la beauté de cette langue pour l'amour.\n\n## Formules d'ouverture\n\n### \"Mein Schatz\" / \"Mein Liebling\"\n**Prononciation :** maïn CHATS / maïn LI-bling\n\n**Signification :** Mon trésor / Mon chéri\n\n### \"Meine große Liebe\"\n**Prononciation :** MAÏ-né GRO-ssé LI-bé\n\n**Signification :** Mon grand amour\n\n### \"Mein Ein und Alles\"\n**Prononciation :** maïn AÏN ount A-léss\n\n**Signification :** Mon tout (littéralement : mon un et tout)\n\n## Exprimer l'amour profond\n\n### \"Du bist das Beste, was mir je passiert ist\"\n**Prononciation :** dou bist dass BÉSS-té vass mir yé pa-SIRT ist\n\n**Signification :** Tu es la meilleure chose qui me soit jamais arrivée\n\n### \"Mein Herz gehört dir für immer\"\n**Prononciation :** maïn HÉRTS gué-HEURT dir fur I-mer\n\n**Signification :** Mon cœur t'appartient pour toujours\n\n### \"Mit jedem Tag liebe ich dich mehr\"\n**Prononciation :** mit YÉ-dem tak LI-bé ich dich MÉAR\n\n**Signification :** Chaque jour je t'aime davantage\n\n## Expressions poétiques\n\n### \"Du bist die Melodie meiner Seele\"\n**Prononciation :** dou bist di mé-lo-DI MAÏ-ner ZÉ-lé\n\n**Signification :** Tu es la mélodie de mon âme\n\n### \"In deinen Augen habe ich mein Zuhause gefunden\"\n**Prononciation :** in DAÏ-nen AOU-guen HA-bé ich maïn tsou-HAO-zé gué-FOUN-den\n\n**Signification :** Dans tes yeux j'ai trouvé ma maison\n\n### \"Du bist mein Heute und alle meine Morgen\"\n**Prononciation :** dou bist maïn HOY-té ount A-lé MAÏ-né MOR-guen\n\n**Signification :** Tu es mon aujourd'hui et tous mes lendemains\n\n## Décrire ce que l'autre apporte\n\n### \"Du machst mich zu einem besseren Menschen\"\n**Prononciation :** dou makhst mich tsou AÏ-nem BÉ-ssé-ren MÉN-chen\n\n**Signification :** Tu fais de moi une meilleure personne\n\n### \"Bei dir bin ich endlich ich selbst\"\n**Prononciation :** baï dir bin ich ÉND-lich ich ZÉLBST\n\n**Signification :** Avec toi je suis enfin moi-même\n\n### \"Du bringst Licht in mein Leben\"\n**Prononciation :** dou bringst LICHT in maïn LÉ-ben\n\n**Signification :** Tu apportes la lumière dans ma vie\n\n## Engagements et promesses\n\n### \"Ich verspreche, dich in guten und schlechten Zeiten zu lieben\"\n**Prononciation :** ich fer-CHPRÉ-ché dich in GOU-ten ount CHLÉCH-ten TSAÏ-ten tsou LI-ben\n\n**Signification :** Je promets de t'aimer dans les bons et les mauvais moments\n\n### \"Ich werde immer an deiner Seite sein\"\n**Prononciation :** ich VÉR-dé I-mer an DAÏ-ner ZAÏ-té zaïn\n\n**Signification :** Je serai toujours à tes côtés\n\n### \"Meine Liebe zu dir ist bedingungslos und ewig\"\n**Prononciation :** MAÏ-né LI-bé tsou dir ist bé-DING-oungs-los ount É-vich\n\n**Signification :** Mon amour pour toi est inconditionnel et éternel\n\n## Formules de conclusion\n\n### \"Für immer dein/deine\"\n**Prononciation :** fur I-mer daïn/DAÏ-né\n\n**Signification :** À toi pour toujours\n\n### \"Mit all meiner Liebe\"\n**Prononciation :** mit al MAÏ-ner LI-bé\n\n**Signification :** Avec tout mon amour\n\n### \"In ewiger Liebe\"\n**Prononciation :** in É-vi-guer LI-bé\n\n**Signification :** En amour éternel\n\n## Citer les poètes allemands\n\nImpressionnez avec des citations :\n- **Goethe :** \"Was ich besitze, seh ich wie im Weiten, und was verschwand, wird mir zu Wirklichkeiten.\"\n- **Rilke :** \"Ich lebe mein Leben in wachsenden Ringen.\"\n\n## Conseils culturels\n\n**Sincérité valorisée :** Les Allemands préfèrent l'authenticité aux exagérations.\n\n**Structure soignée :** Une lettre bien structurée est appréciée.\n\n**Manuscrite :** L'écriture à la main montre l'effort et l'attention.\n\n**Qualité sur quantité :** Mieux vaut une lettre courte et sincère qu'une longue et vide.\n\n## Conclusion\n\nL'allemand offre une profondeur unique pour les lettres d'amour. Ces expressions vous permettront de toucher le cœur de votre partenaire germanophone avec sincérité et poésie. Wahre Liebe spricht aus dem Herzen. (Le vrai amour parle du cœur.)",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Formules d'ouverture",
+              "## Exprimer l'amour profond",
+              "## Expressions poétiques",
+              "## Décrire ce que l'autre apporte",
+              "## Engagements et promesses",
+              "## Formules de conclusion"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

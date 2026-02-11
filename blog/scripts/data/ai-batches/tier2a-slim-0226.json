@@ -1,0 +1,455 @@
+{
+  "batchId": "tier2a-slim-0226",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "e4be2794-17b4-4f38-b79f-d3f7a13c8666",
+      "title": "30+ Piropos en sueco: Cumplidos para Enamorar a tu Pareja",
+      "native_lang": "es",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Cumplidos Sobre la Apariencia",
+          "subsections": [
+            "### Belleza General",
+            "### Características Específicas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e4c0991a-4ccc-4857-8ec9-fa3d8d39ffeb",
+      "title": "Ukrán lánykérési és eljegyzési kifejezések",
+      "native_lang": "hu",
+      "target_lang": "uk",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### A nagy kérdés",
+            "### Az eljegyzés bejelentése"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e4c1e6bd-d596-48b8-a5c8-b1750c869a43",
+      "title": "Ρουμανικές Φράσεις για Διαφωνίες: Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις για Διαφωνίες",
+          "subsections": [
+            "### Έκφραση Διαφωνίας",
+            "### Αίτηση για Κατανόηση",
+            "### Έκφραση Συναισθημάτων",
+            "### Αναζήτηση Λύσης"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e4cae5d4-f247-43ed-b20b-99c9476f0ebc",
+      "title": "Hollandaca Dilbilgisi Temelleri: Partnerinizle Birlikte Öğrenin",
+      "native_lang": "tr",
+      "target_lang": "nl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Temel Kurallar: 5 Altın Kural",
+          "subsections": [
+            "### 1. Artikeller: De ve Het",
+            "### 2. Zamirler (Pronouns)",
+            "### 3. Fiil Çekimi: \"Zijn\" (olmak)",
+            "### 4. Sahiplik: Mijn, Jouw, Zijn",
+            "### 5. Soru Sorma"
+          ]
+        },
+        {
+          "header": "## En Yaygın Kalıplar",
+          "subsections": [
+            "### Günlük Konuşma",
+            "### Romantik Kalıplar"
+          ]
+        },
+        {
+          "header": "## Yaygın Hatalar",
+          "subsections": [
+            "### 1. De/Het Karışıklığı",
+            "### 2. Fiil Yerleri",
+            "### 3. Zamir Karışıklığı"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e4def814-20b5-4c17-95ac-2adeb2be63e3",
+      "title": "Jerga Portuguesa de Mensajes para Parejas",
+      "native_lang": "es",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Conversaciones de Ejemplo",
+          "subsections": [
+            "### Por la Mañana",
+            "### Por la Noche"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e4fdf321-d318-469c-afd2-157d57b01d36",
+      "title": "Niemieckie zwroty do kłótni i nieporozumień dla par",
+      "native_lang": "pl",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Wyrażanie niezgody",
+          "subsections": [
+            "### \"Ich bin anderer Meinung\"",
+            "### \"Das sehe ich anders\"",
+            "### \"Können wir darüber ruhig sprechen?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie uczuć",
+          "subsections": [
+            "### \"Ich fühle mich frustriert, wenn...\"",
+            "### \"Das stört mich wirklich\"",
+            "### \"Ich brauche einen Moment für mich\""
+          ]
+        },
+        {
+          "header": "## Zrozumienie perspektywy partnera",
+          "subsections": [
+            "### \"Hilf mir, deinen Standpunkt zu verstehen\"",
+            "### \"Wenn ich dich richtig verstehe...\"",
+            "### \"Meinst du damit, dass...?\""
+          ]
+        },
+        {
+          "header": "## Szukanie rozwiązań",
+          "subsections": [
+            "### \"Wie können wir das gemeinsam lösen?\"",
+            "### \"Lass uns einen Kompromiss finden\"",
+            "### \"Ich denke, wir beide müssen...\""
+          ]
+        },
+        {
+          "header": "## Łagodzenie atmosfery",
+          "subsections": [
+            "### \"Ich liebe dich, auch wenn wir uns streiten\"",
+            "### \"Das werden wir zusammen schaffen\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e50a87c0-5737-4dca-b125-a9f553bb25c7",
+      "title": "El Condicional en Portugues Explicado",
+      "native_lang": "es",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Usos del Condicional",
+          "subsections": [
+            "### 1. Expresar Deseos",
+            "### 2. Peticiones Educadas",
+            "### 3. Situaciones Hipoteticas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e512348e-4d7c-4674-be6c-625a5852245a",
+      "title": "Шведські фрази про прощення",
+      "native_lang": "uk",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Прохання про прощення",
+          "subsections": [
+            "### \"Snälla, förlåt mig\"",
+            "### \"Jag hoppas du kan förlåta mig\""
+          ]
+        },
+        {
+          "header": "## Надання прощення",
+          "subsections": [
+            "### \"Jag förlåter dig\"",
+            "### \"Det är okej, jag förstår\"",
+            "### \"Alla gör misstag\""
+          ]
+        },
+        {
+          "header": "## Обіцянки",
+          "subsections": [
+            "### \"Jag lovar att det inte händer igen\"",
+            "### \"Hur kan jag göra det bra igen?\"",
+            "### \"Ge mig en chans till\""
+          ]
+        },
+        {
+          "header": "## Труднощі",
+          "subsections": [
+            "### \"Jag är inte redo att förlåta ännu\"",
+            "### \"Jag behöver mer tid\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e51e06f4-4013-4b60-95a8-7966761d0e33",
+      "title": "İsveççe Aşk Mektubu Yazma Rehberi: Romantik İfadeler",
+      "native_lang": "tr",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Mektuba Başlangıç",
+          "subsections": [
+            "### 1. \"Kära\" + isim",
+            "### 2. \"Min älskade\"",
+            "### 3. \"Mitt hjärta\""
+          ]
+        },
+        {
+          "header": "## Duygu İfadeleri",
+          "subsections": [
+            "### 4. \"Jag älskar dig mer än ord kan beskriva\"",
+            "### 5. \"Du är mitt allt\"",
+            "### 6. \"Mitt liv förändrades den dagen jag träffade dig\"",
+            "### 7. \"Du gör varje dag speciell\"",
+            "### 8. \"Jag är tacksam för varje ögonblick med dig\"",
+            "### 9. \"Du är den vackraste människan jag känner\"",
+            "### 10. \"Jag vill spendera resten av mitt liv med dig\""
+          ]
+        },
+        {
+          "header": "## Mektubu Bitirme",
+          "subsections": [
+            "### 11. \"Med all min kärlek\"",
+            "### 12. \"För evigt din\"",
+            "### 13. \"Jag älskar dig\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e52ed1f4-5690-478e-b1ea-d0ebfda64596",
+      "title": "Ist Schwedisch Schwer zu Lernen? Eine Ehrliche Bewertung",
+      "native_lang": "de",
+      "target_lang": "sv",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Die Guten Nachrichten: Warum Schwedisch Einfacher Ist Als Sie Denken",
+          "subsections": [
+            "### 1. Verwandt mit Deutsch",
+            "### 2. Einfachere Grammatik als Deutsch",
+            "### 3. Schweden Sprechen Ausgezeichnet Englisch (und oft Deutsch)"
+          ]
+        },
+        {
+          "header": "## Die Herausforderungen: Was Schwedisch Schwierig Macht",
+          "subsections": [
+            "### 1. Die Aussprache Erfordert Uebung",
+            "### 2. Der Tonhoehenakzent",
+            "### 3. En vs. Ett",
+            "### 4. Wortstellungsregeln"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e530b4cd-f977-468e-b69f-a3cec8ed6c2d",
+      "title": "Сложно ли выучить польский язык?",
+      "native_lang": "ru",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Что будет ЛЕГКО для русскоговорящих",
+          "subsections": [
+            "### 1. Общая лексика",
+            "### 2. Падежная система",
+            "### 3. Три рода",
+            "### 4. Спряжение глаголов",
+            "### 5. Свободный порядок слов"
+          ]
+        },
+        {
+          "header": "## Что будет СЛОЖНО для русскоговорящих",
+          "subsections": [
+            "### 1. Произношение",
+            "### 2. Носовые гласные",
+            "### 3. «Ложные друзья»",
+            "### 4. Отдельные грамматические отличия"
+          ]
+        },
+        {
+          "header": "## Сроки изучения",
+          "subsections": [
+            "### Реалистичные ожидания для русскоговорящих:"
+          ]
+        },
+        {
+          "header": "## Почему учить вместе проще",
+          "subsections": [
+            "### Преимущества обучения парой:",
+            "### Идеи для практики:"
+          ]
+        },
+        {
+          "header": "## Главные советы",
+          "subsections": [
+            "### 1. Используйте славянское сходство",
+            "### 2. Практикуйте произношение",
+            "### 3. Учите слова в контексте",
+            "### 4. Не бойтесь ошибок",
+            "### 5. Наслаждайтесь процессом"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e5564ce8-d120-45d5-b5c9-9ffe03ebe839",
+      "title": "Романтичні польські фрази для пар",
+      "native_lang": "uk",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Романтичні фрази на різні випадки",
+          "subsections": [
+            "### Ранок разом",
+            "### Вечір удвох"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e56b2465-b735-4161-a517-35e756c7c3b9",
+      "title": "Görög Szerelmes Levél Írása Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kezdő Kifejezések",
+          "subsections": [
+            "### 1. Αγάπη μου (Agápi mu)",
+            "### 2. Καρδιά μου (Kardiá mu)",
+            "### 3. Ψυχή μου (Pszihí mu)"
+          ]
+        },
+        {
+          "header": "## Érzelmek Kifejezése",
+          "subsections": [
+            "### 4. Σ'αγαπώ περισσότερο από οτιδήποτε στον κόσμο (Sz'agapó periszótero apó otidípote szton kózmo)",
+            "### 5. Είσαι το φως της ζωής μου (Ísze to fosz tisz zoís mu)",
+            "### 6. Η καρδιά μου ανήκει μόνο σε σένα (I kardiá mu aníki móno sze széna)",
+            "### 7. Κάθε μέρα σε αγαπώ περισσότερο (Káthe méra sze agapó periszótero)",
+            "### 8. Είσαι το όνειρό μου που έγινε πραγματικότητα (Ísze to óniró mu pu éjine pragmatikótita)",
+            "### 9. Δεν μπορώ να φανταστώ τη ζωή μου χωρίς εσένα (Den boró na fantasztó ti zoí mu horísz eszéna)"
+          ]
+        },
+        {
+          "header": "## Záró Kifejezések",
+          "subsections": [
+            "### 10. Για πάντα δικός σου / δική σου (Ja pánda dikósz szu / dikí szu)",
+            "### 11. Με όλη μου την αγάπη (Me óli mu tin agápi)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e5747f83-11ef-4393-8f73-7def9e61aaff",
+      "title": "Schwedische Phrasen für die Schwiegereltern",
+      "native_lang": "de",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Erste Begegnung",
+          "subsections": [
+            "### \"Så trevligt att äntligen träffa er\"",
+            "### \"Jag har hört så mycket om er\"",
+            "### \"Tack för att ni bjudit in mig\""
+          ]
+        },
+        {
+          "header": "## Bei Mahlzeiten",
+          "subsections": [
+            "### \"Det här är jättegott! Kan jag få receptet?\"",
+            "### \"Tack för den underbara måltiden\"",
+            "### \"Kan jag hjälpa till med något?\""
+          ]
+        },
+        {
+          "header": "## Über Ihre Beziehung",
+          "subsections": [
+            "### \"Er son/dotter betyder allt för mig\"",
+            "### \"Jag är så tacksam för att ha [Name] i mitt liv\"",
+            "### \"Jag lovar att alltid ta hand om [Name]\""
+          ]
+        },
+        {
+          "header": "## Dankbarkeit zeigen",
+          "subsections": [
+            "### \"Tack för att ni har uppfostrat en så underbar person\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e5894101-0f9b-43f9-bee5-63c3bf9d188a",
+      "title": "Norveççe İlk Buluşma İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Karşılama",
+          "subsections": [
+            "### 1. \"Så hyggelig å endelig møte deg\"",
+            "### 2. \"Du ser enda bedre ut enn på bildene\"",
+            "### 3. \"Jeg har gledet meg til dette\""
+          ]
+        },
+        {
+          "header": "## Sohbet",
+          "subsections": [
+            "### 4. \"Fortell meg om deg selv\"",
+            "### 5. \"Hva liker du å gjøre på fritiden?\"",
+            "### 6. \"Har du vært her før?\""
+          ]
+        },
+        {
+          "header": "## İltifatlar",
+          "subsections": [
+            "### 7. \"Du har et vakkert smil\"",
+            "### 8. \"Jeg liker stilen din\"",
+            "### 9. \"Det er lett å snakke med deg\""
+          ]
+        },
+        {
+          "header": "## Sonlandırma",
+          "subsections": [
+            "### 10. \"Jeg hadde en veldig fin kveld\"",
+            "### 11. \"Kan vi gjøre dette igjen?\"",
+            "### 12. \"Jeg vil gjerne møte deg igjen\""
+          ]
+        }
+      ]
+    }
+  ]
+}

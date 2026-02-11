@@ -1,0 +1,56 @@
+{
+  "tier": 1,
+  "batchId": "tier1-batch-071",
+  "articles": [
+    {
+      "id": "c75b1587-9f52-4ff6-8e2c-cef4c9ec7b00",
+      "title": "Szerelmes Levél Írása Olaszul – Romantikus Kifejezések és Tippek",
+      "native_lang": "hu",
+      "target_lang": "it",
+      "category": "communication",
+      "content": "# Szerelmes Levél Írása Olaszul – Romantikus Kifejezések és Tippek\n\nAz olasz nyelv szenvedélye és dallamossága tökéletes szerelmes levelekhez. Ha olaszul szeretnéd kifejezni érzelmeidet, ez az útmutató segít megtalálni a legromantikusabb szavakat.\n\n## Megszólítások\n\n### 1. Amore mio\n**Jelentés:** Szerelmem\n\n**Kiejtés:** a-MÓ-re-MÍ-o\n\nA legklasszikusabb olasz megszólítás.\n\n### 2. Tesoro mio\n**Jelentés:** Kincsem\n\n**Kiejtés:** te-ZÓ-ro-MÍ-o\n\nKedves és gyengéd.\n\n### 3. Cuore mio\n**Jelentés:** Szívem\n\n**Kiejtés:** KUÓ-re-MÍ-o\n\nMély érzelmeket fejez ki.\n\n### 4. Vita mia\n**Jelentés:** Életem\n\n**Kiejtés:** VÍ-ta-MÍ-a\n\nSzenvedélyes és erős.\n\n### 5. Anima mia\n**Jelentés:** Lelkem\n\n**Kiejtés:** Á-ni-ma-MÍ-a\n\nMély lelki kapcsolatot jelez.\n\n## Kezdő Mondatok\n\n### 6. Ti scrivo per dirti quanto ti amo.\n**Jelentés:** Azért írok, hogy elmondjam, mennyire szeretlek.\n\n### 7. Non trovo le parole per esprimere ciò che provo per te.\n**Jelentés:** Nem találok szavakat, hogy kifejezzem, mit érzek irántad.\n\n### 8. Da quando ti ho conosciuto, la mia vita ha un nuovo significato.\n**Jelentés:** Mióta megismertelek, az életemnek új értelme van.\n\n### 9. Ogni momento con te è un tesoro.\n**Jelentés:** Minden veled töltött pillanat kincs.\n\n### 10. Sei la cosa più bella che mi sia mai capitata.\n**Jelentés:** Te vagy a legszebb dolog, ami valaha velem történt.\n\n## Érzelmek Kifejezése\n\n### 11. Il mio cuore ti appartiene.\n**Jelentés:** A szívem a tiéd.\n\n### 12. Mi rendi completo/a.\n**Jelentés:** Teljessé teszel.\n\n### 13. Il tuo amore mi dà forza.\n**Jelentés:** A szerelmed erőt ad.\n\n### 14. Mi innamoro di te ogni giorno di più.\n**Jelentés:** Minden nap jobban beleszeretek.\n\n### 15. Sei la mia anima gemella.\n**Jelentés:** Te vagy a lelki társam.\n\n## Lezárások\n\n### 16. Per sempre tuo/a\n**Jelentés:** Örökké a tiéd\n\n### 17. Con tutto il mio amore\n**Jelentés:** Minden szeretetemmel\n\n### 18. Tuo/a per sempre\n**Jelentés:** A tiéd örökre\n\n### 19. Fino a quando ci rivedremo\n**Jelentés:** Amíg újra találkozunk\n\n### 20. Ti amo con tutto il cuore\n**Jelentés:** Teljes szívemből szeretlek\n\n## Kulturális Tippek\n\n### Olasz Szenvedély\nAz olasz kultúrában az érzelmek nyílt, szenvedélyes kifejezése természetes. A túlzás elfogadott!\n\n### Operai Hagyomány\nAz olasz opera gazdag szerelmi áriákban. Ezek inspirációt adhatnak a levélíráshoz.\n\n### Gesztusok\nBár ez levél, a szavak mögött képzeld el az olasz gesztikulációt – ez segít a hangulat megteremtésében.\n\n## Minta Levél\n\n*Amore mio,*\n\n*Ti scrivo questa lettera perché ci sono cose nel mio cuore che devo condividere con te. Dal momento in cui ti ho incontrato, la mia vita è cambiata per sempre.*\n\n*Ogni giorno al tuo fianco è un regalo. Il tuo sorriso illumina i miei giorni più bui, e il tuo amore mi dà una forza che non sapevo di avere. Mi innamoro più profondamente di te con ogni momento che passa.*\n\n*Sei il mio migliore amico/la mia migliore amica, il mio confidente/la mia confidente, e l'amore della mia vita. Non riesco a immaginare il mio mondo senza di te.*\n\n*Per sempre tuo/a,*\n*[A neved]*\n\n## Tippek\n\n1. **Légy szenvedélyes** – Az olasz kultúra értékeli az intenzitást\n2. **Használj túlzásokat** – Az olasz nyelv szereti a \"da morire\" (halálosan) típusú kifejezéseket\n3. **Figyelj a nemekre** – A végződések nemhez igazodnak\n4. **Olvasd fel hangosan** – Az olasz nyelv dallamossága fontos",
+      "issues": [
+        {
+          "type": "truncated_content",
+          "details": {
+            "endingChars": "lasz nyelv dallamossága fontos"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c7999ac0-527d-4052-b85b-5cfe6cfa0fdd",
+      "title": "Frases em Holandês para Videochamadas com a Família",
+      "native_lang": "pt",
+      "target_lang": "nl",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nVideochamadas com a família do seu parceiro podem ser intimidantes, especialmente em outro idioma! Se a família do seu amor fala Holandês, estas frases vão ajudá-lo a causar uma ótima impressão!\n\n<PhraseOfDay word=\"Hello everyone!\" translation=\"Olá a todos!\" pronunciation=\"re-LÔU ÉV-ri-uan\" context=\"Uma forma educada de cumprimentar a família\" />\n\n## Cumprimentos Iniciais\n\n| Holandês | Pronúncia | Português |\n|-----------|-----------|-----------|\n| Hello everyone | re-LÔU ÉV-ri-uan | Olá a todos |\n| Nice to see you | náis tu sí iu | Prazer em ver vocês |\n| How are you doing? | ráu ar iu DÚ-ing | Como vocês estão? |\n| It's so good to see you all | its sôu gud tu sí iu ól | É tão bom ver todos vocês |\n\n<VocabCard word=\"Hello everyone\" translation=\"Olá a todos\" pronunciation=\"re-LÔU ÉV-ri-uan\" example=\"Perfeito para iniciar a videochamada.\" />\n\n<CultureTip flag=\"🇳🇱\" title=\"Formalidade com a Família\">\nVista-se adequadamente para causar boa impressão na família.\n</CultureTip>\n\n## Perguntas Educadas\n\n| Holandês | Pronúncia | Português |\n|-----------|-----------|-----------|\n| How have you been? | ráu hév iu bín | Como tem passado? |\n| How's work going? | ráuz uérk GÔU-ing | Como está o trabalho? |\n| What's new with you? | uóts niú uith iu | O que há de novo? |\n\n<VocabCard word=\"How have you been?\" translation=\"Como tem passado?\" pronunciation=\"ráu hév iu bín\" example=\"Demonstre interesse genuíno.\" />\n\n## Problemas Técnicos\n\n| Holandês | Pronúncia | Português |\n|-----------|-----------|-----------|\n| Can you hear me? | ken iu hír mi | Consegue me ouvir? |\n| Sorry, the connection is bad | SÓ-ri dê ko-NÉK-shon iz béd | Desculpe, a conexão está ruim |\n| You're breaking up | iur BRÉI-king âp | Está cortando |\n\n<CultureTip flag=\"🇳🇱\" title=\"Dicas para a Chamada\">\nMantenha contato visual olhando para a câmera.\n</CultureTip>\n\n## Despedidas Calorosas\n\n| Holandês | Pronúncia | Português |\n|-----------|-----------|-----------|\n| It was lovely talking to you | it uóz LÂV-li TÓ-king tu iu | Foi ótimo conversar com vocês |\n| Talk to you soon | tók tu iu sun | Falamos em breve |\n| Take care | teik kér | Cuide-se |\n\n<VocabCard word=\"It was lovely talking to you\" translation=\"Foi ótimo conversar com vocês\" pronunciation=\"it uóz LÂV-li TÓ-king tu iu\" example=\"Termine a chamada deixando uma boa impressão.\" />\n\n## Dicas para Videochamadas\n\n1. **Vista-se adequadamente** — Mesmo em casa, cause boa impressão\n2. **Ambiente calmo** — Sem distrações ou barulhos\n3. **Tenha paciência** — Se não entender algo, peça para repetirem\n4. **Sorria** — A linguagem corporal comunica muito\n5. **Prepare frases** — Tenha este guia por perto!\n\n<CultureTip flag=\"🇳🇱\" title=\"Mantendo o Contato\">\nPrepare algumas perguntas sobre a família para mostrar interesse.\n</CultureTip>\n\nPara saber mais sobre conhecer a família, confira nosso [guia para conhecer a família do parceiro holandês](/learn/pt/nl/meeting-your-dutch-partners-family/). E para conversas informais, veja [como iniciar conversas em Holandês](/learn/pt/nl/dutch-small-talk-conversation-starters/).\n\nCom prática e dedicação, você vai conquistar a família do seu amor!\n\n<CTA />",
+      "issues": [
+        {
+          "type": "language_fingerprint_mismatch",
+          "details": {
+            "nativeLang": "pt",
+            "nativeStopWordRatio": 5,
+            "englishStopWordRatio": 10
+          }
+        }
+      ]
+    },
+    {
+      "id": "c8c29565-a3f8-4fe7-99bf-68e4851e92fc",
+      "title": "Conversații și subiecte de discuție în franceză",
+      "native_lang": "ro",
+      "target_lang": "fr",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nArta conversației ușoare este esențială pentru a te conecta cu familia și prietenii partenerului tău.\n\n<PhraseOfDay\n  word=\"Comment vas-tu?\"\n  translation=\"Ce mai faci? / Cum ești?\"\n  pronunciation=\"\"\n  context=\"Cel mai comun mod de a începe o conversație\"\n/>\n\n## Începe o conversație\n\n<VocabCard\n  word=\"Comment vas-tu?\"\n  translation=\"Ce mai faci? / Cum ești?\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Il fait beau aujourd'hui\"\n  translation=\"Vremea e frumoasă azi\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇫🇷\" title=\"Cultura conversațiilor\">\nFrancezii apreciază eleganța în comunicare. Scuzele trebuie să fie sincere dar nu excesiv de dramatice - echilibrul este cheia.\n</CultureTip>\n\n## Întrebări pentru a cunoaște pe cineva\n\n| Franceză | Română |\n|---------|---------|\n| Comment vas-tu? | Ce mai faci? |\n| Il fait beau aujourd'hui | Vremea e frumoasă azi |\n| Tu as des projets ce week-end? | Ai planuri pentru weekend? |\n| Quels sont tes loisirs? | Care sunt hobby-urile tale? |\n\n<VocabCard\n  word=\"Quels sont tes loisirs?\"\n  translation=\"Care sunt hobby-urile tale?\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Subiecte sigure de conversație\n\n1. **Vremea** – Întotdeauna un început sigur\n2. **Mâncarea** – Laudă bucătăria locală\n3. **Hobby-urile** – Arată interes pentru pasiunile lor\n4. **Călătoriile** – Împărtășește experiențe comune\n5. **Familia** – Întreabă despre cei dragi\n\n<CTA />\n\n## Articole conexe\n\n- [Salutări și despărțiri în franceză](/ro/fr/french-greetings-and-farewells)\n- [Întâlnirea cu familia partenerului în franceză](/ro/fr/french-meeting-your-partner-s-family)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    }
+  ]
+}

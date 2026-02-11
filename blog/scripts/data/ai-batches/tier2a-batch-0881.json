@@ -1,0 +1,116 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0881",
+  "articles": [
+    {
+      "id": "fddc5cd6-03a4-432e-a324-9caa453b9238",
+      "title": "Ungarische Aussprache: Ein Guide für Deutsche",
+      "native_lang": "de",
+      "target_lang": "hu",
+      "category": "pronunciation",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\n# Ungarische Aussprache: Ein Guide für Deutsche\n\nDie gute Nachricht: Ungarisch wird fast genau so ausgesprochen, wie es geschrieben wird! Anders als Englisch oder Französisch gibt es keine stummen Buchstaben. Mit diesem Guide meisterst du die wichtigsten Ausspracheregeln.\n\n## Der wichtigste Satz\n\n<PhraseOfDay\n  word=\"Szeretlek\"\n  translation=\"Ich liebe dich\"\n  pronunciation=\"SE-ret-lek\"\n  context=\"Mit korrekter Aussprache wird dieser Satz noch bedeutungsvoller für deinen Partner.\"\n/>\n\n## Die gute Nachricht für Deutsche\n\nAls deutscher Muttersprachler hast du einen Vorteil: Ungarisch hat keine Laute, die im Deutschen nicht existieren. Die Betonung liegt IMMER auf der ersten Silbe - das macht es einfacher!\n\n## Vokale\n\n### Kurze Vokale\n\n| Buchstabe | Laut | Wie im Deutschen | Beispiel |\n|-----------|------|------------------|----------|\n| **a** | o (dunkel) | wie \"o\" in \"Gott\" | alma (Apfel) |\n| **e** | e (offen) | wie \"e\" in \"Ecke\" | nem (nein) |\n| **i** | i | wie \"i\" in \"Igel\" | igen (ja) |\n| **o** | o | wie \"o\" in \"offen\" | ott (dort) |\n| **ö** | ö | wie \"ö\" in \"Öl\" | öt (fünf) |\n| **u** | u | wie \"u\" in \"Uhr\" | út (Weg) |\n| **ü** | ü | wie \"ü\" in \"über\" | üt (er schlägt) |\n\n<CultureTip title=\"Das besondere 'a'\" flag=\"🇭🇺\">\nDas ungarische **a** klingt wie ein dunkles, kurzes \"o\" - ähnlich dem \"o\" in \"Gott\". Das ist einer der häufigsten Fehler bei Deutschsprachigen. \"Alma\" (Apfel) klingt wie \"OL-ma\", nicht wie \"AL-ma\".\n</CultureTip>\n\n### Lange Vokale (mit Akzent)\n\nLange Vokale werden einfach länger gehalten:\n\n| Kurz | Lang | Beispiel |\n|------|------|----------|\n| a | **á** | láb (Bein) - wie \"a\" in \"Vater\" |\n| e | **é** | szép (schön) - wie \"e\" in \"See\" |\n| i | **í** | víz (Wasser) |\n| o | **ó** | jó (gut) |\n| ö | **ő** | nő (Frau) |\n| u | **ú** | út (Weg) |\n| ü | **ű** | fű (Gras) |\n\n<VocabCard\n  word=\"á vs. a\"\n  translation=\"Der Unterschied ist wichtig!\"\n  pronunciation=\"aa vs. o\"\n  example=\"láb (laab) = Bein, lab (lob) = gibt es nicht - a klingt wie kurzes o!\"\n/>\n\n## Konsonanten\n\n### Einfache Konsonanten (wie im Deutschen)\n\n| Buchstabe | Laut | Beispiel |\n|-----------|------|----------|\n| **b** | b | bolt (Geschäft) |\n| **d** | d | dél (Süden) |\n| **f** | f | fiú (Junge) |\n| **g** | g (immer hart) | gép (Maschine) |\n| **h** | h | ház (Haus) |\n| **k** | k | kéz (Hand) |\n| **l** | l | lány (Mädchen) |\n| **m** | m | magyar (ungarisch) |\n| **n** | n | nap (Tag/Sonne) |\n| **p** | p | piros (rot) |\n| **r** | r (gerollt) | reggel (Morgen) |\n| **t** | t | tél (Winter) |\n| **v** | w | van (ist/gibt es) |\n| **z** | s (stimmhaft) | zene (Musik) |\n\n### Besondere Konsonanten\n\n<VocabCard\n  word=\"S s\"\n  translation=\"sch wie in 'Schule'\"\n  pronunciation=\"sch\"\n  example=\"szép (seep) = schön, só (schoo) = Salz\"\n/>\n\n<VocabCard\n  word=\"Sz sz\"\n  translation=\"s wie in 'Sonne'\"\n  pronunciation=\"ss\"\n  example=\"szó (soo) = Wort, szeretlek (SE-ret-lek) = ich liebe dich\"\n/>\n\n| Buchstabe | Laut | Beispiel |\n|-----------|------|----------|\n| **s** | sch | sok (viel) |\n| **sz** | s (stimmlos) | szép (schön) |\n| **z** | s (stimmhaft) | zene (Musik) |\n| **zs** | sch (stimmhaft) | zseb (Tasche) |\n| **c** | ts | cica (Kätzchen) |\n| **cs** | tsch | csak (nur) |\n| **j / ly** | j | jó (gut), lyuk (Loch) |\n\n<CultureTip title=\"S vs. Sz\" flag=\"🇭🇺\">\nDas ist der häufigste Fehler! **S** = \"sch\" und **Sz** = \"s\". \"Szeretlek\" (ich liebe dich) beginnt mit einem \"s\"-Laut, nicht \"sch\"!\n</CultureTip>\n\n### Doppelkonsonanten\n\n<VocabCard\n  word=\"Gy gy\"\n  translation=\"dj wie in 'Madjar'\"\n  pronunciation=\"dj\"\n  example=\"magyar (MA-djar) = ungarisch, nagy (nadj) = groß\"\n/>\n\n<VocabCard\n  word=\"Ny ny\"\n  translation=\"nj wie in 'Cognac'\"\n  pronunciation=\"nj\"\n  example=\"anya (A-nja) = Mutter, lány (laanj) = Mädchen\"\n/>\n\n<VocabCard\n  word=\"Ty ty\"\n  translation=\"tj wie in 'Matjes'\"\n  pronunciation=\"tj\"\n  example=\"atya (A-tja) = Vater (formell), kutya (KU-tja) = Hund\"\n/>\n\n| Buchstabe | Laut | Beispiel |\n|-----------|------|----------|\n| **gy** | dj | magyar (MA-djar) |\n| **ny** | nj | anya (A-nja) |\n| **ty** | tj | kutya (KU-tja) |\n\n## Die Betonung\n\nIm Ungarischen liegt die Betonung IMMER auf der ersten Silbe:\n\n| Wort | Aussprache | Bedeutung |\n|------|------------|-----------|\n| **Budapest** | BU-da-pescht | Budapest |\n| **Szeretlek** | SE-ret-lek | Ich liebe dich |\n| **Köszönöm** | KÖ-sö-nöm | Danke |\n| **Magyarország** | MA-djar-or-saag | Ungarn |\n\n## Häufige Fehler vermeiden\n\n### S vs. Sz\n\n| Richtig | Falsch | Bedeutung |\n|---------|--------|-----------|\n| **sz**eretet (s-) | szeretet (sch-) | Liebe |\n| **s**ok (sch-) | sok (s-) | viel |\n\n### A vs. Á\n\n| Buchstabe | Laut | Beispiel |\n|-----------|------|----------|\n| **a** | kurzes o | alma (OL-ma) |\n| **á** | langes a | ház (haaz) |\n\n## Romantische Phrasen üben\n\n<VocabCard\n  word=\"Szeretlek\"\n  translation=\"Ich liebe dich\"\n  pronunciation=\"SE-ret-lek\"\n  example=\"Sz = s, nicht sch!\"\n/>\n\n<VocabCard\n  word=\"Gyönyörű vagy\"\n  translation=\"Du bist wunderschön\"\n  pronunciation=\"DJÖ-njö-rü vadj\"\n  example=\"Gy = dj, ny = nj\"\n/>\n\n<VocabCard\n  word=\"Hiányzol\"\n  translation=\"Du fehlst mir\"\n  pronunciation=\"HI-aanj-zol\"\n  example=\"Ny = nj\"\n/>\n\n## Schnelle Ausspracheregeln\n\n1. **Betonung immer auf der ersten Silbe**\n2. **S = sch, Sz = s** (der häufigste Fehler!)\n3. **A = kurzes o, Á = langes a**\n4. **Gy, Ny, Ty** = dj, nj, tj\n5. **Akzent = langer Vokal** (á, é, í, ó, ö, ú, ű)\n\n## Übungssätze\n\n| Ungarisch | Aussprache | Deutsch |\n|-----------|------------|---------|\n| Jó reggelt! | jo REG-gelt | Guten Morgen! |\n| Hogy vagy? | hodj vadj | Wie geht's dir? |\n| Nagyon szeretlek | NA-djon SE-ret-lek | Ich liebe dich sehr |\n| Szép napot! | seep NA-pot | Schönen Tag! |\n\nDein ungarischer Partner wird deine Bemühungen schätzen, auch wenn die Aussprache nicht perfekt ist. Übung macht den Meister!\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Vokale",
+              "## Konsonanten",
+              "## Häufige Fehler vermeiden"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fdebf019-ea2e-477c-9ef2-81b895b9eb74",
+      "title": "Russian Birthday Wishes for Your Partner: Sweet Messages That Touch the Heart",
+      "native_lang": "en",
+      "target_lang": "ru",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nYour partner's день рождения is the perfect opportunity to show your love in Russian. Whether you're writing a heartfelt card, planning a сюрприз вечеринка, or simply want to make them feel особенный, these phrases will help you express your feelings beautifully.\n\nFor more ways to express affection, check out our guide on [Russian compliments for your partner](/blog/en/russian-compliments-for-your-partner).\n\n<PhraseOfDay\n  word=\"с днём рождения\"\n  translation=\"Happy Birthday\"\n  pronunciation=\"с днём рождения\"\n  context=\"The essential greeting for your partner's special day.\"\n/>\n\n## Essential Birthday Vocabulary\n\n<VocabCard\n  word=\"день рождения\"\n  translation=\"birthday\"\n  pronunciation=\"день рождения\"\n  example=\"Today is your день рождения!\"\n/>\n\n| Russian | English | Usage |\n|---|---|---|\n| день рождения | birthday | The special day |\n| с днём рождения | happy birthday | The greeting |\n| пожелание | wish | Birthday desires |\n| праздновать | celebrate | To honor the day |\n| подарок | gift | Birthday present |\n| торт | cake | Birthday tradition |\n| свечи | candles | On the cake |\n| вечеринка | party | Celebration |\n| сюрприз | surprise | Unexpected joy |\n| особенный | special | Extraordinary |\n\n<CultureTip flag=\"🇷🇺\" title=\"Russian Birthday Traditions\">\nIn Russian-speaking cultures, birthdays often include singing traditional songs, making wishes while blowing out свечи, and sharing торт with loved ones. The person celebrating may also be expected to bring treats for others.\n</CultureTip>\n\n## Sweet Birthday Messages\n\n### Simple Wishes\n- **с днём рождения, my love!** - Classic and heartfelt\n- **Wishing you all the best!** - Traditional well-wishes\n- **May all your пожеланиеes come true!** - Magical sentiment\n\n### Romantic Messages\n- **You make my life особенный** - Expressing gratitude\n- **Every day with you is a подарок** - Love declaration\n- **You are the best сюрприз in my life** - Romantic twist\n\n<VocabCard\n  word=\"особенный\"\n  translation=\"special\"\n  pronunciation=\"особенный\"\n  example=\"You are so особенный to me.\"\n/>\n\n## Birthday Card Messages\n\n### Heartfelt Short Messages\n**\"с днём рождения to the most особенный person in my world!\"**\n\n**\"On your день рождения, I want you to know how much you mean to me.\"**\n\n### Longer Romantic Messages\n**\"Every день рождения I get to праздновать with you is a blessing. You make my life complete. с днём рождения, my love!\"**\n\n**\"Another year of loving you is my greatest подарок. May this день рождения bring you all the joy you deserve.\"**\n\n<CultureTip flag=\"🇷🇺\" title=\"Birthday Gift Etiquette\">\nIn Russian-speaking cultures, подарокs are usually opened immediately when received. It's customary to express genuine enthusiasm and gratitude. Practical and thoughtful подарокs are often valued over extravagant ones.\n</CultureTip>\n\n## Planning the Perfect Birthday\n\n### Party Vocabulary\n| Russian | English | Context |\n|---|---|---|\n| вечеринка | party | The celebration |\n| сюрприз | surprise | Unexpected party |\n| торт | cake | Birthday tradition |\n| свечи | candles | For wishes |\n| подарок | gift | Birthday present |\n| праздновать | celebrate | To party |\n\n### Surprise Party Phrases\n- **сюрприз!** - When they walk in\n- **We're here to праздновать!** - Explaining the party\n- **Make a пожелание!** - Before blowing candles\n\n## Birthday Morning Messages\n\nStart their day with love:\n\n| Time | Message | Translation |\n|---|---|---|\n| Morning | с днём рождения! Wake up, love! | Birthday greeting |\n| Midday | Thinking of you on your особенный day | Sweet check-in |\n| Evening | Ready to праздновать? | Party time |\n\n## Singing Happy Birthday\n\nLearn to sing the день рождения song in Russian! This is one of the most touching ways to honor your partner's culture on their особенный day.\n\n<VocabCard\n  word=\"пожелание\"\n  translation=\"wish\"\n  pronunciation=\"пожелание\"\n  example=\"Make a пожелание!\"\n/>\n\n## Birthday Milestone Messages\n\n### 30th Birthday\n**\"Welcome to your thirties! The best день рождения for the best partner!\"**\n\n### 40th Birthday\n**\"Forty years of amazing you! Here's to праздноватьing many more!\"**\n\n### 50th Birthday\n**\"Half a century of wonderful you! You only get more особенный with time.\"**\n\nFor more romantic vocabulary, explore our [Russian romantic phrases](/blog/en/russian-romantic-phrases-for-every-occasion) guide.\n\n## Quick Reference Card\n\n| Purpose | Say This |\n|---|---|\n| Greeting | с днём рождения! |\n| Toast | To your особенный day! |\n| Before cake | Make a пожелание! |\n| All day | You are so особенный! |\n\nMaking your partner feel loved on their день рождения in their native Russian creates memories that last a lifetime. Every word spoken with love becomes a подарок in itself.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Sweet Birthday Messages",
+              "## Birthday Card Messages",
+              "## Planning the Perfect Birthday",
+              "## Birthday Milestone Messages"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fe058ec8-54ba-41fb-85ca-aaf930ee9e60",
+      "title": "Φράσεις για το Πρώτο Ραντεβού (uk): Οδηγός για Ελληνόφωνους",
+      "native_lang": "el",
+      "target_lang": "uk",
+      "category": "communication",
+      "content": "Το πρώτο ραντεβού είναι συναρπαστικό! Αυτές οι φράσεις θα σας βοηθήσουν να εντυπωσιάσετε.\n\n## Βασικές Φράσεις\n\n### Γνωριμία\n\nΧαίρομαι που σε γνωρίζω, Είσαι υπέροχος/η, Περίμενα αυτή τη στιγμή.\n\n### Συζήτηση\n\nΠες μου για σένα, Τι σου αρέσει να κάνεις, Αυτό είναι ενδιαφέρον!\n\n### Φλερτ\n\nΈχεις υπέροχο χαμόγελο, Νιώθω κάτι ξεχωριστό, Περνάω υπέροχα.\n\n### Κλείσιμο\n\nΘα ήθελα να σε ξαναδώ, Μπορώ να σε πάρω, Ήταν υπέροχη βραδιά.\n\n## Συμπέρασμα\n\nΜε σεβασμό και αυθεντικότητα, θα κάνετε το πρώτο σας ραντεβού αξέχαστο!",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 79,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Βασικές Φράσεις"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fe117a32-f8f7-463e-b8ee-5e1e027f5375",
+      "title": "Italiensk Uttal för Par: Lär Dig Låta Romantisk på Italienska",
+      "native_lang": "sv",
+      "target_lang": "it",
+      "category": "pronunciation",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport ConjugationTable from '@components/ConjugationTable.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nHar du någonsin velat viska söta ord på italienska i din partners öra, men känt att ditt uttal låter mer som en IKEA-instruktion än romantisk poesi? Du är inte ensam! Italienskt uttal kan verka knepigt för svenskar, men när du väl lär dig grunderna kommer du och din partner att låta som ni vandrar genom gatorna i Rom. I den här guiden visar vi dig exakt hur du uttalar de viktigaste italienska ljuden - och [romantiska fraser](/learn/sv/it/romantic-italian-phrases-for-every-occasion/) som får era hjärtan att smälta.\n\n<PhraseOfDay\n  word=\"Ti amo\"\n  translation=\"Jag älskar dig\"\n  pronunciation=\"tee AH-moh\"\n  context=\"Det absolut mest romantiska du kan säga - perfekt uttalad med kärlek.\"\n/>\n\n## Italienska Vokaler: Din Nyckel till Perfekt Uttal\n\nItalienska vokaler är faktiskt enklare än svenska! De uttalas alltid på samma sätt, oavsett var de finns i ordet. Tänk på dem som musikens fem grundtoner:\n\n### De Rena Vokalerna\n\n| Bokstav | Uttal | Svenskt exempel | Italienskt exempel |\n|---------|--------|------------------|---------------------|\n| **A** | ah | som i \"mamma\" | casa (KAH-sah) |\n| **E** | eh | som i \"hel\" | bene (BEH-neh) |\n| **I** | ee | som i \"vi\" | vino (VEE-noh) |\n| **O** | oh | som i \"ok\" | amore (ah-MOH-reh) |\n| **U** | oo | som i \"sju\" | luna (LOO-nah) |\n\n<VocabCard\n  word=\"Amore\"\n  translation=\"Kärlek\"\n  pronunciation=\"ah-MOH-reh\"\n  example=\"Il mio amore per te è infinito.\"\n/>\n\n<CultureTip flag=\"🇮🇹\" title=\"Vokalens Kraft\">\nI italienska är vokaler extremt viktiga - en liten förändring kan helt ändra ordets betydelse! \"Papa\" (PAH-pah) betyder \"pappa\", men \"papà\" (pah-PAH) betyder \"påve\". Stressa alltid rästavokalen för din partner!\n</CultureTip>\n\n## Konsonanter som Svenskar Strular Med\n\nVissa italienska konsonanter låter annorlunda än på svenska. Här är de viktigaste:\n\n### Rullande R\nDet italienska R är det svåraste för svenskar, men öva tillsammans! Det ska rulla lätt mot gommen:\n- **Roma** (ROH-mah) - Rom\n- **Cuore** (KWOH-reh) - hjärta\n- **Ti amo** (tee AH-moh) - jag älskar dig\n\n### Dubbla Konsonanter\nNär du ser dubbla bokstäver, uttala dem längre:\n- **Nonna** (NOHN-nah) - mormor/farmor\n- **Bello** (BEHL-loh) - vacker\n- **Baci** (BAH-chee) - kyssar\n\n### C och G Ljuden\n- **C** före E eller I låter som CH: **ciao** (CHAH-oh)\n- **C** före A, O, U låter som K: **casa** (KAH-sah)\n- **G** före E eller I låter som J: **gelato** (jeh-LAH-toh)\n\n<VocabCard\n  word=\"Bella\"\n  translation=\"Vacker (till kvinnor)\"\n  pronunciation=\"BEHL-lah\"\n  example=\"Sei la mia bella ragazza.\"\n/>\n\n## Romantiska Uttalsövningar för Par\n\nÖva dessa fraser tillsammans - det är både roligt och romantiskt!\n\n### Kärleksfulla Komplimanger\n1. **Sei bellissimo/a** (seh bell-LEES-see-moh/mah) - Du är jättevacker\n2. **Mi piaci** (mee pee-AH-chee) - Jag gillar dig\n3. **Sei speciale** (seh speh-chah-LEH) - Du är speciell\n\n### Söta Smeknamn\nTesta [italienska smeknamn för din partner](/learn/sv/it/italian-pet-names-for-your-partner/) med perfekt uttal:\n- **Amore mio** (ah-MOH-reh MEE-oh) - min kärlek\n- **Tesoro** (teh-ZOH-roh) - skatt\n- **Cara/Caro** (KAH-rah/KAH-roh) - kära\n\n<CultureTip flag=\"🇮🇹\" title=\"Känslor i Uttal\">\nItalienska är ett väldigt melodiskt språk - spela upp varje fras med känsla! När du säger \"Ti amo\", låt det komma från hjärtat. Ditt ansiktsuttryck och kroppsspråk är lika viktigt som perfekt uttal.\n</CultureTip>\n\n## Vanliga Uttalsmisstag (och Hur Ni Undviker Dem)\n\n### Misstag 1: Svenskt R\n**Fel:** ROH-mah (med svenskt R)\n**Rätt:** ROH-mah (med rullande R)\n**Tips:** Träna genom att säga \"tr\" snabbt - det hjälper tungan hitta rätt position!\n\n### Misstag 2: Stress på Fel Ställe\n**Fel:** a-MO-re (stress på andra stavelsen)\n**Rätt:** ah-MOH-reh (stress på näst sista stavelsen)\n**Tips:** I italienska ord stressas oftast näst sista stavelsen!\n\n### Misstag 3: För Korta Vokaler\n**Fel:** \"Ti am\" (snabb svensk uttalsvariant)\n**Rätt:** \"Tee AH-moh\" (långa, rena vokaler)\n\n## Praktiska Övningar för Kärlekspar\n\nÖva dessa meningar tillsammans varje dag:\n\n| Italienska | Uttal | Svenska | Övningstips |\n|------------|---------|-----------|---------------|\n| **Buongiorno amore** | bwohn-JOHR-noh ah-MOH-reh | God morgon kärlek | Säg det vid frukost |\n| **Come stai bello/a?** | KOH-meh stah-ee BEHL-loh/lah | Hur mår du vacker? | Fråga varje kväll |\n| **Ti penso sempre** | tee PEHN-soh SEHM-preh | Jag tänker på dig alltid | Skicka som sms |\n| **Sei il mio tutto** | seh eel mee-oh TOOT-toh | Du är mitt allt | Viska i örat |\n| **Voglio stare con te** | VOHL-yoh STAH-reh kohn teh | Jag vill vara med dig | På promenaden |\n\nVill ni ha fler romantiska fraser att öva på? Kolla in vår guide till [viktiga fraser för par](/learn/sv/it/essential-phrases-for-couples/)!\n\n## Snabbreferens: Uttalsregler på En Minut\n\n**Spara denna tabell som skärmdump:**\n\n| Regel | Exempel | Uttal |\n|-------|---------|---------|\n| A alltid \"ah\" | casa | KAH-sah |\n| E alltid \"eh\" | bene | BEH-neh |\n| Stress näst sista | amore | ah-MOH-reh |\n| Dubbla konsonanter | bella | BEHL-lah |\n| C+i/e = CH | ciao | CHAH-oh |\n| G+i/e = J | gelato | jeh-LAH-toh |\n\n## Vad Kommer Härnäst?\n\nGrattis! Ni har lärt er grunderna i italiensk uttal. Nu kan ni:\n- Imponera på varandra med perfekt uttalade komplimanger\n- Beställa vin på er nästa [dejtkväll med italiensk tematik](/learn/sv/it/date-night-vocabulary/)\n- Förbereda er för att träffa er partners italienska familj\n\nNästa steg? Öva varje dag tillsammans, spela in er när ni säger romantiska fraser, och ha tålamod - perfekt uttal kommer med tid och kärlek!\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Vanliga Uttalsmisstag (och Hur Ni Undviker Dem)"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fe162135-7796-41af-aa90-bc551ec8bce4",
+      "title": "Expresii despre Gelozie și Încredere în Cuplu în Daneză",
+      "native_lang": "ro",
+      "target_lang": "da",
+      "category": "communication",
+      "content": "Gelozia este o emoție universală care poate apărea în orice relație. A ști cum să discuți despre aceste sentimente poate transforma tensiunea în oportunitate de conectare.\n\n## Expresii pentru a Discuta despre Gelozie\n\n### Recunoașterea Sentimentelor\n\nÎnvață să-ți exprimi sentimentele într-un mod sănătos, fără acuzații.\n\n### Construirea Încrederii\n\nFrazele de reasigurare sunt esențiale pentru o relație sănătoasă.\n\n### Răspunsuri la Gelozie\n\nCând partenerul exprimă gelozie, validează sentimentele și oferă reasigurare.\n\n## Sfaturi Practice\n\n1. **Comunicare deschisă** - Vorbește despre sentimente\n2. **Ascultare activă** - Înțelege perspectiva partenerului\n3. **Evită acuzațiile** - Folosește eu în loc de tu\n4. **Transparență** - Fiți deschiși\n5. **Respect reciproc** - Gelozia nu justifică controlul\n\n## Concluzie\n\nGelozia poate fi gestionată sănătos prin comunicare și încredere reciprocă.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 122,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Expresii pentru a Discuta despre Gelozie"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,357 @@
+{
+  "batchId": "tier2a-slim-0033",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "3c2a7c09-f9e0-4844-ba70-1833616bb751",
+      "title": "Ruské fráze Chybíš mi pro Čechy",
+      "native_lang": "cs",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní fráze",
+          "subsections": [
+            "### \"Я скучаю по тебе.\"",
+            "### \"Я очень скучаю по тебе.\"",
+            "### \"Мне тебя не хватает.\"",
+            "### \"Хотел/а бы, чтобы ты был/а здесь.\""
+          ]
+        },
+        {
+          "header": "## Romantické fráze",
+          "subsections": [
+            "### \"Каждый момент без тебя - вечность.\"",
+            "### \"Моё сердце с тобой.\"",
+            "### \"Считаю дни до нашей встречи.\"",
+            "### \"Ты моя первая мысль утром и последняя вечером.\""
+          ]
+        },
+        {
+          "header": "## Fráze pro zprávy",
+          "subsections": [
+            "### \"Думаю о тебе.\"",
+            "### \"Жду не дождусь обнять тебя.\"",
+            "### \"Расстояние не меняет моих чувств.\""
+          ]
+        },
+        {
+          "header": "## Povzbudivé fráze",
+          "subsections": [
+            "### \"Скоро будем вместе.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3c4476ac-ea64-4273-8c18-5e219c44dcd4",
+      "title": "İngilizce Affetme İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Af Dileme",
+          "subsections": [
+            "### 1. \"I'm truly sorry for what I did\"",
+            "### 2. \"Please forgive me\"",
+            "### 3. \"I take full responsibility\"",
+            "### 4. \"I know I hurt you and I'm so sorry\"",
+            "### 5. \"Can you find it in your heart to forgive me?\""
+          ]
+        },
+        {
+          "header": "## Affetme",
+          "subsections": [
+            "### 6. \"I forgive you\"",
+            "### 7. \"I'm ready to move past this\"",
+            "### 8. \"Let's put this behind us\"",
+            "### 9. \"I don't hold any grudges\"",
+            "### 10. \"Everyone makes mistakes\"",
+            "### 11. \"I love you more than my anger\"",
+            "### 12. \"I accept your apology\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3c456728-cf6c-44df-a49a-da6c0aedbbf0",
+      "title": "Almanca Telaffuz Rehberi: Partnerinizle Birlikte Doğru Konuşmanın Yolu",
+      "native_lang": "tr",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## En Yaygın Desenler: Günlük Konuşma",
+          "subsections": [
+            "### Soru Cümleleri",
+            "### Sevgi İfadeleri"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3c4f0225-b159-4123-8edc-05c679983519",
+      "title": "Cum Să Ceri în Căsătorie: Expresii pentru Logodnă în Germană",
+      "native_lang": "ro",
+      "target_lang": "de",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Răspunsuri la Cerere",
+          "subsections": [
+            "### Răspunsuri Pozitive"
+          ]
+        },
+        {
+          "header": "## Vocabular pentru Inele",
+          "subsections": [
+            "### Pietre Prețioase",
+            "### Metale"
+          ]
+        },
+        {
+          "header": "## După Logodnă",
+          "subsections": [
+            "### Pașii Următori"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3c57c5e1-c8a5-4884-9722-f2b929287ebc",
+      "title": "Frases de Apoio Emocional em Dinamarquês: Confortando Seu Parceiro",
+      "native_lang": "pt",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases de Apoio Básico",
+          "subsections": [
+            "### Demonstrando Presença",
+            "### Validando Sentimentos",
+            "### Oferecendo Conforto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3c5f67ec-390e-41b6-94d7-057ed31f0a67",
+      "title": "Portuguese Flirting Phrases: Romantic Expressions of Saudade and Love",
+      "native_lang": "en",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essential Flirting Phrases",
+          "subsections": [
+            "### Heartfelt Compliments",
+            "### Expressing Attraction",
+            "### Romantic Declarations",
+            "### Sweet and Playful"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3c696489-6495-46b5-9f23-bb9c0f7c9d8c",
+      "title": "Errori Comuni degli Italiani in Francese",
+      "native_lang": "it",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Errori di Grammatica",
+          "subsections": [
+            "### 1. Essere vs Avere per l'Età",
+            "### 2. La Doppia Negazione",
+            "### 3. Articoli Partitivi",
+            "### 4. Posizione degli Aggettivi"
+          ]
+        },
+        {
+          "header": "## Errori di Pronuncia",
+          "subsections": [
+            "### 5. Le Vocali Nasali",
+            "### 6. La \"R\" Francese",
+            "### 7. Le Lettere Mute"
+          ]
+        },
+        {
+          "header": "## Errori con i Verbi",
+          "subsections": [
+            "### 8. Essere/Stare",
+            "### 9. Uso di \"On\""
+          ]
+        },
+        {
+          "header": "## Errori di Falsi Amici",
+          "subsections": [
+            "### 10. Parole Ingannevoli"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3c87b692-a0c6-4294-bf03-784146550487",
+      "title": "Греческие фразы о ревности и доверии",
+      "native_lang": "ru",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Фразы для выражения ревности",
+          "subsections": [
+            "### 1. Ζηλεύω όταν...",
+            "### 2. Με ενοχλεί όταν περνάς τόσο χρόνο με...",
+            "### 3. Μερικές φορές χρειάζομαι να με καθησυχάσεις"
+          ]
+        },
+        {
+          "header": "## Фразы для укрепления доверия",
+          "subsections": [
+            "### 4. Σε εμπιστεύομαι απόλυτα",
+            "### 5. Είσαι ο μόνος/η μόνη για μένα",
+            "### 6. Δεν θα έκανα ποτέ κάτι που θα έβλαπτε τη σχέση μας",
+            "### 7. Δεν έχεις να ανησυχείς για τίποτα",
+            "### 8. Άσε με να σου εξηγήσω τι έγινε",
+            "### 9. Τα συναισθήματά σου είναι σημαντικά για μένα",
+            "### 10. Μπορούμε να θέσουμε όρια μαζί;"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3c885f82-ffa8-422d-bf3c-7a29c932e2a1",
+      "title": "De Familie Ontmoeten: Essentiële Poolse Zinnen",
+      "native_lang": "nl",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Do's en Don'ts",
+          "subsections": [
+            "### Do's",
+            "### Don'ts"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3c8b44cf-030b-48aa-9d8c-262abd0ae628",
+      "title": "Привітання з днем народження угорською для коханої людини",
+      "native_lang": "uk",
+      "target_lang": "hu",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика",
+          "subsections": []
+        },
+        {
+          "header": "## Романтичні привітання з днем народження",
+          "subsections": [
+            "### Класичні побажання"
+          ]
+        },
+        {
+          "header": "## Як написати ідеальне привітання",
+          "subsections": [
+            "### Структура:",
+            "### Приклад угорською:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3c976eed-6371-4d39-b789-6bbf7254c5af",
+      "title": "Griekse Zinnen voor Ruzie en Meningsverschillen",
+      "native_lang": "nl",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen voor meningsverschillen",
+          "subsections": [
+            "### 1. \"Νιώθω πληγωμένος/η όταν εσύ...\" (Niotho pligomenos/i otan esy...)",
+            "### 2. \"Μπορούμε να μιλήσουμε ήρεμα γι' αυτό;\" (Boroume na milissome irema gi' afto?)",
+            "### 3. \"Καταλαβαίνω την άποψή σου, αλλά...\" (Katalavaino tin apopsi sou, alla...)",
+            "### 4. \"Χρειάζομαι μια στιγμή για να ηρεμήσω\" (Chriazomai mia stigmi gia na iremiso)",
+            "### 5. \"Δεν εννοούσα αυτό\" (Den ennousa afto)",
+            "### 6. \"Σε παρακαλώ, άκουσέ με\" (Se parakalo, akouse me)",
+            "### 7. \"Μπορείς να μου εξηγήσεις πώς νιώθεις;\" (Boreis na mou exigisis pos niotheis?)",
+            "### 8. \"Δεν θέλω να τσακωθούμε γι' αυτό\" (Den thelo na tsakothoume gi' afto)",
+            "### 9. \"Ας βρούμε έναν συμβιβασμό μαζί\" (As vroume enan symvivasmo mazi)",
+            "### 10. \"Συγγνώμη που ύψωσα τη φωνή μου\" (Signomi pou ipsosa ti foni mou)",
+            "### 11. \"Αυτό είναι πολύ σημαντικό για μένα\" (Afto einai poly simantiko gia mena)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3ca66aa1-9833-45a3-b5cb-f0c91aaf27c5",
+      "title": "Román évfordulós kívánságok és üzenetek",
+      "native_lang": "hu",
+      "target_lang": "ro",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Évfordulós köszöntések",
+            "### Hosszabb üzenetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3ca8ba49-0d63-477e-9511-f8ab6c1397e2",
+      "title": "German for Couples: 25 Essential Phrases",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Morning Routine Practice",
+            "### Evening Reflection",
+            "### Restaurant Role-Play"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3cb73389-d0e7-4c9d-bf8a-544d03be59f7",
+      "title": "Cseh baba és terhességi szókincs",
+      "native_lang": "hu",
+      "target_lang": "cs",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Terhességi kifejezések",
+            "### Baba szókincs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3cba4cd8-dab2-4c63-97df-b300fe767972",
+      "title": "De Familie Ontmoeten: Essentiële Deense Zinnen",
+      "native_lang": "nl",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Do's en Don'ts",
+          "subsections": [
+            "### Do's",
+            "### Don'ts"
+          ]
+        }
+      ]
+    }
+  ]
+}

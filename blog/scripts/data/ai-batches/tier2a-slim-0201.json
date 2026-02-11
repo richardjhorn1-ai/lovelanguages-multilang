@@ -1,0 +1,428 @@
+{
+  "batchId": "tier2a-slim-0201",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "cf70cc8c-bea4-4271-aa6e-a8d9717e2459",
+      "title": "Выражение эмоций на турецком языке",
+      "native_lang": "ru",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Положительные эмоции",
+          "subsections": [
+            "### Радость и счастье",
+            "### Любовь и привязанность"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cf741850-b759-47bb-8264-1471fd1d8ebf",
+      "title": "Французькі фрази про ревнощі та довіру",
+      "native_lang": "uk",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Вираження ревнощів",
+          "subsections": [
+            "### \"Je suis jaloux/jalouse\"",
+            "### \"Ça me rend jaloux/jalouse quand...\"",
+            "### \"Parfois je me sens en insécurité\""
+          ]
+        },
+        {
+          "header": "## Запитання",
+          "subsections": [
+            "### \"C'était qui?\"",
+            "### \"Comment tu le/la connais?\"",
+            "### \"Je dois m'inquiéter?\""
+          ]
+        },
+        {
+          "header": "## Довіра та заспокоєння",
+          "subsections": [
+            "### \"J'ai entièrement confiance en toi\"",
+            "### \"Il n'y a pas de quoi s'inquiéter\"",
+            "### \"C'est juste un ami/une amie\"",
+            "### \"Tu n'as aucune raison d'être jaloux/jalouse\"",
+            "### \"Tu es l'unique pour moi\""
+          ]
+        },
+        {
+          "header": "## Обговорення",
+          "subsections": [
+            "### \"On peut en parler?\"",
+            "### \"J'ai besoin que tu sois honnête avec moi\"",
+            "### \"Je travaille sur ma jalousie\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cf8e76d7-add1-45b1-82f2-97d3bb02d9a0",
+      "title": "Пожелания на годовщину на нидерландский: Романтические фразы",
+      "native_lang": "ru",
+      "target_lang": "nl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Простые пожелания на годовщину",
+          "subsections": [
+            "### Короткие и сладкие",
+            "### Для вашего партнёра"
+          ]
+        },
+        {
+          "header": "## Романтические послания на годовщину",
+          "subsections": [
+            "### Сердечные признания",
+            "### Задумчивые послания"
+          ]
+        },
+        {
+          "header": "## Послания по годам",
+          "subsections": [
+            "### Первая годовщина",
+            "### Пятая годовщина",
+            "### Десятая годовщина",
+            "### Двадцать пятая годовщина (серебряная)",
+            "### Пятидесятая годовщина (золотая)"
+          ]
+        },
+        {
+          "header": "## Планирование празднования годовщины",
+          "subsections": [
+            "### Романтические идеи",
+            "### Выражение благодарности"
+          ]
+        },
+        {
+          "header": "## Сообщения для социальных сетей",
+          "subsections": [
+            "### Подписи для публикаций"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cf90d47d-57d9-41cb-a94a-895b15d6bdaa",
+      "title": "I Love You in Italian + Romantic Phrases",
+      "native_lang": "en",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Exercise 1: Daily Affirmations",
+            "### Exercise 2: Romantic Scenarios"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cfa58a69-fc6e-4d08-a7e6-ae09e0bd8ab6",
+      "title": "Slang e Abbreviazioni Spagnole per Messaggiare",
+      "native_lang": "it",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Slang Regionale",
+          "subsections": [
+            "### Spagna",
+            "### Messico",
+            "### Argentina"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cfa5933a-2698-4e78-9b15-949a9df83978",
+      "title": "Italiano del Norte vs Sur: Diferencias Regionales",
+      "native_lang": "es",
+      "target_lang": "it",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Expresiones Regionales",
+          "subsections": [
+            "### Expresiones del Norte (Milán)",
+            "### Expresiones del Sur (Nápoles)"
+          ]
+        },
+        {
+          "header": "## Diferencias Culturales",
+          "subsections": [
+            "### El Norte: Milán, Turín, Venecia",
+            "### El Sur: Nápoles, Sicilia, Puglia"
+          ]
+        },
+        {
+          "header": "## La Comida: Norte vs Sur",
+          "subsections": [
+            "### Platos del Norte",
+            "### Platos del Sur"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cfb9f008-be59-46c1-be9f-f7677f79fe24",
+      "title": "Tyske fraser til uenigheder og diskussioner for par",
+      "native_lang": "da",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Vigtige fraser",
+          "subsections": [
+            "### At udtrykke følelser",
+            "### At lytte og forstå",
+            "### At finde løsninger",
+            "### At sætte grænser"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cfbeaeda-7d8c-4bcc-9003-f01b1d0de09d",
+      "title": "Spanske 'Jeg Savner Dig' Sætninger for Danskere",
+      "native_lang": "da",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Udtryk",
+          "subsections": [
+            "### \"Te extraño\" / \"Te echo de menos\"",
+            "### \"Te extraño mucho\"",
+            "### \"No puedo dejar de pensar en ti\""
+          ]
+        },
+        {
+          "header": "## Dybere Udtryk",
+          "subsections": [
+            "### \"Cada momento sin ti es una eternidad\"",
+            "### \"Eres lo primero que pienso al despertar\"",
+            "### \"Ojalá estuvieras aquí conmigo\""
+          ]
+        },
+        {
+          "header": "## Hverdagens Savn",
+          "subsections": [
+            "### \"Extraño tu sonrisa\"",
+            "### \"Extraño dormir a tu lado\"",
+            "### \"Extraño nuestras conversaciones\""
+          ]
+        },
+        {
+          "header": "## Passionerede Udtryk",
+          "subsections": [
+            "### \"Te extraño más de lo que las palabras pueden expresar\"",
+            "### \"Estar lejos de ti es lo más difícil\"",
+            "### \"Cuento los días para verte de nuevo\""
+          ]
+        },
+        {
+          "header": "## Trøstende Sætninger",
+          "subsections": [
+            "### \"La distancia no significa nada cuando alguien significa todo\"",
+            "### \"Estés donde estés, siempre estás en mi corazón\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cfc100bd-6318-4df6-b55b-bc4c185b8038",
+      "title": "Turkse Zinnen over Vergeving",
+      "native_lang": "nl",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Gerçekten özür dilerim\"",
+            "### 2. \"Lütfen beni affet\"",
+            "### 3. \"Seni affediyorum\"",
+            "### 4. \"Kalbinde beni affetmeyi bulabilir misin?\"",
+            "### 5. \"Hatalıydım ve özür dilerim\"",
+            "### 6. \"Bir daha asla yapmayacağım\"",
+            "### 7. \"Bunu telafi etmek için ne yapabilirim?\"",
+            "### 8. \"Özrünü kabul ediyorum\"",
+            "### 9. \"Hadi bunu geride bırakalım\"",
+            "### 10. \"Seni incittiğimi biliyorum\"",
+            "### 11. \"Daha iyi olmaya söz veriyorum\"",
+            "### 12. \"Zaman alır ama affetmeye çalışacağım\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cfe3c640-b9d7-4a8c-977f-e641d71e86b4",
+      "title": "Guia de Pronúncia Italiana para Falantes de Português",
+      "native_lang": "pt",
+      "target_lang": "it",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Sons que Não Existem em Português",
+          "subsections": [
+            "### O Som \"GL\" (como em \"figlio\")",
+            "### O Som \"GN\" (como em \"gnocchi\")"
+          ]
+        },
+        {
+          "header": "## Consoantes com Pronúncias Diferentes",
+          "subsections": [
+            "### C e G antes de E/I",
+            "### CH e GH (mantêm o som duro)"
+          ]
+        },
+        {
+          "header": "## Exercícios de Pronúncia",
+          "subsections": [
+            "### Exercício 1: Minimal Pairs",
+            "### Exercício 2: Trava-línguas",
+            "### Exercício 3: Frases Românticas"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cff73abf-5cea-4132-b915-bb6f57c8120f",
+      "title": "Le futur italien expliqué simplement",
+      "native_lang": "fr",
+      "target_lang": "it",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Usages du futur",
+          "subsections": [
+            "### 1. Actions futures",
+            "### 2. Promesses et engagements",
+            "### 3. Hypothèses et suppositions",
+            "### 4. Ordres atténués"
+          ]
+        },
+        {
+          "header": "## Exercices pour couples",
+          "subsections": [
+            "### Projets futurs",
+            "### Promesses mutuelles",
+            "### Hypothèses"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d0018819-3ea9-4ccb-a967-025741eab844",
+      "title": "Norwegian Emotional Support Phrases: Comfort Your Partner in Difficult Times",
+      "native_lang": "en",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Specific Situations",
+          "subsections": [
+            "### Grief",
+            "### Stress",
+            "### Disappointment"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d01ebcdb-93c5-4e28-a284-89aebf13cbe3",
+      "title": "O Sueco e Dificil de Aprender? Uma Avaliacao Honesta",
+      "native_lang": "pt",
+      "target_lang": "sv",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## As Boas Noticias: Por Que o Sueco e Mais Facil do Que Voce Pensa",
+          "subsections": [
+            "### 1. Gramatica Simplificada",
+            "### 2. Vocabulario Internacional",
+            "### 3. Os Suecos Falam Excelente Ingles"
+          ]
+        },
+        {
+          "header": "## Os Desafios: O Que Torna o Sueco Complicado",
+          "subsections": [
+            "### 1. A Pronuncia Requer Pratica",
+            "### 2. O Acento Tonal",
+            "### 3. En vs. Ett",
+            "### 4. Regras de Ordem das Palavras"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d021c009-081c-42c0-a2ec-e9bfab0378e3",
+      "title": "Conhecer a Família do Seu Parceiro Russo",
+      "native_lang": "pt",
+      "target_lang": "ru",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## À Mesa",
+          "subsections": [
+            "### Brindes e Bebidas",
+            "### Elogiando a Comida"
+          ]
+        },
+        {
+          "header": "## Coisas para Evitar",
+          "subsections": [
+            "### Não faça:",
+            "### Faça:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d040eda7-225b-46c9-b8e4-156a942e14f1",
+      "title": "Frases en Ucraniano para tu Primera Cita",
+      "native_lang": "es",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Romper el Hielo",
+          "subsections": [
+            "### \"Радий/рада нарешті познайомитися\" (Radyy/rada nareshti poznayomytysya)",
+            "### \"Ти чудово виглядаєш\" (Ty chudovo vyglyadayesh)",
+            "### \"Я чекав/чекала на цей момент\" (Ya chekav/chekala na tsey moment)"
+          ]
+        },
+        {
+          "header": "## Frases para Conocerse",
+          "subsections": [
+            "### \"Розкажи про себе\" (Rozkashi pro sebe)",
+            "### \"Що тобі подобається робити?\" (Shcho tobi podobayetsya robyty?)"
+          ]
+        },
+        {
+          "header": "## Frases Románticas",
+          "subsections": [
+            "### \"Мені дуже добре з тобою\" (Meni duzhe dobre z toboyu)",
+            "### \"У тебе чудова посмішка\" (U tebe chudova posmishka)"
+          ]
+        },
+        {
+          "header": "## Frases para Terminar",
+          "subsections": [
+            "### \"Було чудово\" (Bulo chudovo)",
+            "### \"Можемо зустрітися знову?\" (Mozhemo zustrytysya znovu?)",
+            "### \"Напиши, коли дістанешся додому\" (Napyshy, koly distaneshsya dodomu)"
+          ]
+        }
+      ]
+    }
+  ]
+}

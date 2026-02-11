@@ -1,0 +1,532 @@
+{
+  "batchId": "tier2a-slim-0016",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "2dc5f8ef-b370-48ee-98b2-1ce2a2dbcf91",
+      "title": "Phrasal Verbs Anglais: Parlez l'Amour Couramment",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Phrasal verbs de la vie de couple",
+          "subsections": [
+            "### Les débuts de la relation",
+            "### La relation au quotidien",
+            "### Les disputes et réconciliations",
+            "### Les ruptures (espérons que non !)"
+          ]
+        },
+        {
+          "header": "## Phrasal verbs de la vie quotidienne",
+          "subsections": [
+            "### Le matin",
+            "### Le soir"
+          ]
+        },
+        {
+          "header": "## Exercices pour couples",
+          "subsections": [
+            "### Le défi quotidien",
+            "### Jeu de rôle",
+            "### Quiz rapide"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2dd28ca1-23a7-420f-93e1-46aded501679",
+      "title": "Frases para Coquetear en Turco: Romance con Pasión Mediterránea",
+      "native_lang": "es",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Cumplidos Encantadores",
+          "subsections": [
+            "### \"Çok güzelsin\"",
+            "### \"Gözlerin çok güzel\"",
+            "### \"Gülüşün muhteşem\""
+          ]
+        },
+        {
+          "header": "## Expresiones de Interés",
+          "subsections": [
+            "### \"Benimle kahve içer misin?\"",
+            "### \"Seninle vakit geçirmek çok güzel\"",
+            "### \"Sende özel bir şey var\""
+          ]
+        },
+        {
+          "header": "## Declaraciones Románticas",
+          "subsections": [
+            "### \"Seni düşünmeden duramıyorum\"",
+            "### \"Kalbimi çaldın\"",
+            "### \"Sana aşık oldum\""
+          ]
+        },
+        {
+          "header": "## Frases Tiernas",
+          "subsections": [
+            "### \"Yanındayken çok mutluyum\"",
+            "### \"Kalbim senin için atıyor\"",
+            "### \"Sen benim için her şeysin\""
+          ]
+        },
+        {
+          "header": "## Mensajes Románticos",
+          "subsections": [
+            "### \"Günaydın, tatlım\"",
+            "### \"Seni çok özledim\"",
+            "### \"İyi geceler, canım\"",
+            "### \"Görüşmek için sabırsızlanıyorum\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2dd63efa-3e0a-4e69-985d-4df766d86900",
+      "title": "Ruské flirtovací fráze pro Čechy",
+      "native_lang": "cs",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní lichotky",
+          "subsections": [
+            "### \"Ты очень красивая/красивый.\"",
+            "### \"У тебя прекрасная улыбка.\"",
+            "### \"Ты мне очень нравишься.\"",
+            "### \"Ты невероятная/невероятный.\""
+          ]
+        },
+        {
+          "header": "## Romantické fráze",
+          "subsections": [
+            "### \"Я не могу перестать думать о тебе.\"",
+            "### \"Ты делаешь меня счастливой/счастливым.\"",
+            "### \"Моё сердце бьётся быстрее, когда я тебя вижу.\"",
+            "### \"Я схожу с ума по тебе.\""
+          ]
+        },
+        {
+          "header": "## Hravé fráze",
+          "subsections": [
+            "### \"Ты веришь в любовь с первого взгляда или мне пройти ещё раз?\"",
+            "### \"Ты наверное устала? Ты весь день бегала у меня в голове.\"",
+            "### \"В тебе есть что-то особенное.\""
+          ]
+        },
+        {
+          "header": "## Fráze pro zprávy",
+          "subsections": [
+            "### \"Доброе утро, любимая/любимый.\"",
+            "### \"Я скучаю по тебе.\"",
+            "### \"Жду не дождусь, когда тебя увижу.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2ddc98d7-389d-41ba-b733-c32b8cc0d978",
+      "title": "50 Elogios em Italiano para Seu Parceiro",
+      "native_lang": "pt",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Elogios sobre Aparência",
+          "subsections": [
+            "### O Clássico \"Você É Lindo/a\"",
+            "### Elogiando Partes Específicas"
+          ]
+        },
+        {
+          "header": "## Elogios para Momentos Especiais",
+          "subsections": [
+            "### Quando Seu Parceiro se Arruma",
+            "### Elogios Cotidianos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2df5b008-ac51-4053-8b02-329e6ff40357",
+      "title": "Phrases de drague en hongrois : Séduction magyare",
+      "native_lang": "fr",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Phrases de base pour charmer",
+          "subsections": [
+            "### \"Nagyon szép vagy\"",
+            "### \"Gyönyörű a mosolyod\"",
+            "### \"Csodálatos szemeid vannak\""
+          ]
+        },
+        {
+          "header": "## Exprimer l'attirance",
+          "subsections": [
+            "### \"Nem tudok nem rád gondolni\"",
+            "### \"Boldoggá teszel\"",
+            "### \"Van benned valami különleges\""
+          ]
+        },
+        {
+          "header": "## Déclarations d'amour",
+          "subsections": [
+            "### \"Te vagy nekem a minden\"",
+            "### \"Szeretlek\"",
+            "### \"Te vagy életem szerelme\""
+          ]
+        },
+        {
+          "header": "## Phrases quotidiennes",
+          "subsections": [
+            "### \"Hiányzol\"",
+            "### \"Ölelj meg\"",
+            "### \"Puszi\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2df605c7-e0de-49b4-b920-6041ee30afd0",
+      "title": "Phrases de réconfort en suédois : Soutenir son partenaire",
+      "native_lang": "fr",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Phrases de réconfort",
+          "subsections": [
+            "### \"Jag är här för dig\"",
+            "### \"Allt kommer att bli bra\"",
+            "### \"Du är inte ensam i det här\""
+          ]
+        },
+        {
+          "header": "## Écouter et valider",
+          "subsections": [
+            "### \"Jag förstår hur du känner dig\"",
+            "### \"Det är okej att känna så\""
+          ]
+        },
+        {
+          "header": "## Soutien actif",
+          "subsections": [
+            "### \"Vad kan jag göra för att hjälpa?\""
+          ]
+        },
+        {
+          "header": "## Encouragement",
+          "subsections": [
+            "### \"Du är starkare än du tror\"",
+            "### \"Jag tror på dig\"",
+            "### \"Du klarar det här\""
+          ]
+        },
+        {
+          "header": "## Moments difficiles",
+          "subsections": [
+            "### \"Jag är så ledsen att du går igenom det här\"",
+            "### \"Kom, jag kramar dig\"",
+            "### \"Vi kommer igenom det här tillsammans\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2df7dcdf-6e6a-4e6f-b1b9-f519bab6ea02",
+      "title": "Ryska flörtfraser för par – Charma din partner på ryska",
+      "native_lang": "sv",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassiska komplimanger",
+          "subsections": [
+            "### \"Ты выглядишь потрясающе\" (Ty vyglyadish' potryasayushche)",
+            "### \"У тебя самые красивые глаза\" (U tebya samye krasivye glaza)",
+            "### \"Твоя улыбка освещает мою жизнь\" (Tvoya ulybka osveshchayet moyu zhizn')"
+          ]
+        },
+        {
+          "header": "## Passionerade uttryck",
+          "subsections": [
+            "### \"Я схожу по тебе с ума\" (Ya skhozhu po tebe s uma)",
+            "### \"Я не могу перестать думать о тебе\" (Ya ne mogu perestat' dumat' o tebe)",
+            "### \"Ты - моё всё\" (Ty - moyo vsyo)"
+          ]
+        },
+        {
+          "header": "## Lekfulla fraser",
+          "subsections": [
+            "### \"Ты веришь в любовь с первого взгляда, или мне пройти ещё раз?\"",
+            "### \"У тебя есть карта? Я потерялся в твоих глазах\"",
+            "### \"Если бы ты была цветком, я бы выбрал тебя первой\""
+          ]
+        },
+        {
+          "header": "## Djupt romantiska uttryck",
+          "subsections": [
+            "### \"Ты - любовь всей моей жизни\" (Ty - lyubov' vsey moyey zhizni)",
+            "### \"Каждый момент с тобой драгоценен\" (Kazhdyy moment s toboy dragotsenen)",
+            "### \"Рядом с тобой я чувствую себя дома\" (Ryadom s toboy ya chuvstvuyu sebya doma)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2dfc6265-1c2e-4aba-a0fb-d7b6efc2f5aa",
+      "title": "Olasz baba és terhességi szókincs",
+      "native_lang": "hu",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Terhességi kifejezések",
+            "### Baba szókincs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2e0cdecf-282b-4308-acdb-eec623d50c4b",
+      "title": "Сложно ли выучить венгерский язык?",
+      "native_lang": "ru",
+      "target_lang": "hu",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Что будет ЛЕГКО",
+          "subsections": [
+            "### 1. Как пишется, так и читается",
+            "### 2. Фиксированное ударение",
+            "### 3. Нет грамматического рода",
+            "### 4. Регулярная грамматика"
+          ]
+        },
+        {
+          "header": "## Что будет СЛОЖНО",
+          "subsections": [
+            "### 1. Никакого родства с русским",
+            "### 2. Множество падежей",
+            "### 3. Гармония гласных",
+            "### 4. Два типа спряжения"
+          ]
+        },
+        {
+          "header": "## Сроки изучения",
+          "subsections": [
+            "### Для русскоговорящих:"
+          ]
+        },
+        {
+          "header": "## Почему учить вместе проще",
+          "subsections": [
+            "### Преимущества:",
+            "### Идеи для практики:"
+          ]
+        },
+        {
+          "header": "## Главные советы",
+          "subsections": [
+            "### 1. Начните с системы",
+            "### 2. Не бойтесь суффиксов",
+            "### 3. Используйте карточки",
+            "### 4. Говорите с первого дня"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2e506808-372a-4034-994c-dcebb4f034be",
+      "title": "Franse Zinnen over Vergeving",
+      "native_lang": "nl",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen",
+          "subsections": [
+            "### 1. \"Je suis vraiment désolé(e)\"",
+            "### 2. \"Pardonne-moi, s'il te plaît\"",
+            "### 3. \"Je te pardonne\"",
+            "### 4. \"Peux-tu trouver dans ton cœur de me pardonner?\"",
+            "### 5. \"J'avais tort et je suis désolé(e)\"",
+            "### 6. \"Je ne le ferai plus jamais\"",
+            "### 7. \"Que puis-je faire pour me rattraper?\"",
+            "### 8. \"J'accepte tes excuses\"",
+            "### 9. \"Tournons la page\"",
+            "### 10. \"Je sais que je t'ai fait mal\"",
+            "### 11. \"Je promets de faire mieux\"",
+            "### 12. \"Ça prend du temps, mais j'essaierai de pardonner\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2e54bc89-a4c1-4348-a55c-5074a6817e2d",
+      "title": "Итальянские приветствия и прощания для пар",
+      "native_lang": "ru",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Ответы на \"Come stai?\"",
+          "subsections": [
+            "### Стандартные:",
+            "### Романтические ответы:"
+          ]
+        },
+        {
+          "header": "## Практические упражнения",
+          "subsections": [
+            "### Утренний ритуал:",
+            "### Прощание на день:",
+            "### Вечернее прощание:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2e5d4158-34ef-4577-a9a5-adb2973f9994",
+      "title": "Привітання з днем народження португальською для коханої людини",
+      "native_lang": "uk",
+      "target_lang": "pt",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика",
+          "subsections": []
+        },
+        {
+          "header": "## Романтичні привітання з днем народження",
+          "subsections": [
+            "### Класичні побажання"
+          ]
+        },
+        {
+          "header": "## Як написати ідеальне привітання",
+          "subsections": [
+            "### Структура:",
+            "### Приклад португальською:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2e6010f8-1b09-4c01-8991-46fd72fdb854",
+      "title": "Frases para Coquetear en Portugués: Seducción con Sabor Lusófono",
+      "native_lang": "es",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Cumplidos Encantadores",
+          "subsections": [
+            "### \"Você é muito bonita/bonito\"",
+            "### \"Seus olhos são lindos\"",
+            "### \"Você tem um sorriso maravilhoso\""
+          ]
+        },
+        {
+          "header": "## Expresiones de Interés",
+          "subsections": [
+            "### \"Quer tomar um café comigo?\"",
+            "### \"Adoro passar tempo com você\"",
+            "### \"Você é muito especial para mim\""
+          ]
+        },
+        {
+          "header": "## Declaraciones Románticas",
+          "subsections": [
+            "### \"Estou apaixonado/a por você\"",
+            "### \"Você roubou meu coração\"",
+            "### \"Não consigo parar de pensar em você\""
+          ]
+        },
+        {
+          "header": "## Coqueteo Brasileño vs Portugués",
+          "subsections": [
+            "### Estilo Brasileño",
+            "### Estilo Portugués"
+          ]
+        },
+        {
+          "header": "## Frases Juguetones",
+          "subsections": [
+            "### \"Você me deixa sem palavras\"",
+            "### \"Meu coração bate mais forte quando você está perto\""
+          ]
+        },
+        {
+          "header": "## Mensajes Románticos",
+          "subsections": [
+            "### \"Bom dia, meu amor\"",
+            "### \"Estou com saudades de você\"",
+            "### \"Sonha comigo\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2e66bba6-3d32-43a8-ba8e-c11451f3cf5a",
+      "title": "Portugisiske Udtryk til Følelsesmæssig Støtte og Trøst",
+      "native_lang": "da",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Støtteudtryk",
+          "subsections": [
+            "### 1. Estou aqui para você / Estou aqui para ti",
+            "### 2. Vai ficar tudo bem",
+            "### 3. Eu acredito em você / Eu acredito em ti",
+            "### 4. Leva o tempo que precisares",
+            "### 5. Sinto muito pelo que estás a passar"
+          ]
+        },
+        {
+          "header": "## Dybere Trøst",
+          "subsections": [
+            "### 6. Está tudo bem em chorar",
+            "### 7. Não tens de passar por isto sozinho/sozinha",
+            "### 8. Tenho muito orgulho da tua força",
+            "### 9. Os teus sentimentos são válidos",
+            "### 10. Aconteça o que acontecer, vamos enfrentar isso juntos"
+          ]
+        },
+        {
+          "header": "## Kærlige Trøsteord",
+          "subsections": [
+            "### 11. Meu amor, estarei sempre ao teu lado",
+            "### 12. Amo-te mais do que tudo, e isso nunca vai mudar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "2e6a6d1a-cd0b-4b7a-96c4-10c1290322f7",
+      "title": "50+ Phrases Hongroises pour Faire Fondre Son Coeur",
+      "native_lang": "fr",
+      "target_lang": "hu",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Moments Spéciaux",
+          "subsections": [
+            "### Premier \"Je T'aime\"",
+            "### Après Longtemps Ensemble",
+            "### Dire Au Revoir (Temporairement)"
+          ]
+        }
+      ]
+    }
+  ]
+}

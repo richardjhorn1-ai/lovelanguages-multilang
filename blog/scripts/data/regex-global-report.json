@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-02-10T05:41:47.480Z",
+  "mode": "dry-run",
+  "pairFilter": "all",
+  "stats": {
+    "scanned": 7991,
+    "changed": 0,
+    "unchanged": 7991,
+    "failed": 0
+  },
+  "fixBreakdown": {},
+  "topPairs": []
+}

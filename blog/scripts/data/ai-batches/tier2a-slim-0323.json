@@ -1,0 +1,421 @@
+{
+  "batchId": "tier2a-slim-0323",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "d42a52d1-7a49-400d-994a-2d084f75f5ee",
+      "title": "Holenderskie powitania i pożegnania",
+      "native_lang": "pl",
+      "target_lang": "nl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia",
+          "subsections": [
+            "### Cwiczenie 1: Powitania",
+            "### Cwiczenie 2: Pozegnania",
+            "### Cwiczenie 3: Wiadomosci"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d48ecca1-6af9-4c60-af39-aa264a0498fe",
+      "title": "Conjugaison Polonaise : Verbes au Présent",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Conseils de pratique pour couples",
+          "subsections": [
+            "### Défis de conjugaison quotidiens",
+            "### Créez vos propres phrases",
+            "### Focus sur le « nous »"
+          ]
+        },
+        {
+          "header": "## Erreurs courantes à éviter",
+          "subsections": [
+            "### Mélanger les groupes de conjugaison",
+            "### Oublier les consonnes douces",
+            "### Placement de l'accent"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d50a6734-8991-40dc-8151-23e774f73a56",
+      "title": "Norwegian Pronunciation for Couples: Sound Romantic from Day One",
+      "native_lang": "en",
+      "target_lang": "no",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## The Trickiest Sounds (Made Simple)",
+          "subsections": [
+            "### The Rolled R",
+            "### The Norwegian L"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d51e5c6d-282a-45c4-bfd7-aa9ed35adf88",
+      "title": "¿Por Qué Tantas Consonantes Polacas?",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Descifrando el Misterio",
+          "subsections": [
+            "### Sonidos Únicos, Múltiples Letras",
+            "### El Famoso Sonido \"Szcz\""
+          ]
+        },
+        {
+          "header": "## Cambios de Sonido Históricos",
+          "subsections": [
+            "### El Gran Cambio Consonántico",
+            "### Influencias Regionales"
+          ]
+        },
+        {
+          "header": "## Por Qué Parece Más Complicado de Lo Que Es",
+          "subsections": [
+            "### Tradición Ortográfica",
+            "### Efecto Psicológico"
+          ]
+        },
+        {
+          "header": "## Grupos Consonánticos Comunes Explicados",
+          "subsections": [
+            "### La Familia \"Sz/Cz/Rz/Dż\"",
+            "### Las Consonantes Suaves"
+          ]
+        },
+        {
+          "header": "## Consejos para Parejas Aprendiendo Juntos",
+          "subsections": [
+            "### Estrategia de Práctica",
+            "### Atajos de Pronunciación"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d5526bfd-badd-4760-879f-93fba0428499",
+      "title": "Συνάντηση με την Οικογένεια του Συντρόφου σου στα Ολλανδικά: Φράσεις για να Κερδίσεις τις Καρδιές τους",
+      "native_lang": "el",
+      "target_lang": "nl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Συγκεκριμένα Σενάρια",
+          "subsections": [
+            "### Όταν Φτάνεις στο Σπίτι",
+            "### Στο Τραπέζι",
+            "### Συζήτηση για τη Ζωή σας"
+          ]
+        },
+        {
+          "header": "## Ευγενικές Φράσεις και Επιπέδου Επικοινωνίας",
+          "subsections": [
+            "### Επίσημο vs. Άτυπο"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d59390f9-b38b-4772-ac5b-ee1d7b63dc18",
+      "title": "50 Hongaarse Romantische Uitdrukkingen voor Elk Moment Samen",
+      "native_lang": "nl",
+      "target_lang": "hu",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hoe je deze Romantische Fraser Effectief Gebruikt",
+          "subsections": [
+            "### Timing is Alles",
+            "### Cultuur Tips",
+            "### Veelvoorkomende Fouten om te Vermijden"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d5a01d12-5248-41a9-ac4f-ac2e1bfb9946",
+      "title": "Macar Partnerinizin Ailesiyle Tanisin: Kültür ve Ifadeler Rehberi",
+      "native_lang": "tr",
+      "target_lang": "hu",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Macar Ev Ziyareti Görgü Kurallari",
+          "subsections": [
+            "### Hediye Götürme",
+            "### Hediye Ifadeleri",
+            "### Ayakkabi Cikarma"
+          ]
+        },
+        {
+          "header": "## Sohbet Konulari",
+          "subsections": [
+            "### Güvenli Konular",
+            "### Kacinilmasi Gereken Konular"
+          ]
+        },
+        {
+          "header": "## Iltifat Etme",
+          "subsections": [
+            "### Yemege Iltifat",
+            "### Eve Iltifat"
+          ]
+        },
+        {
+          "header": "## Resmi ve Samimi Dil",
+          "subsections": [
+            "### \"Ön\" Formu (Resmi)",
+            "### \"Te\" Formuna Gecis"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d5fd070d-e563-4f17-ac0e-f5aeb84136d1",
+      "title": "Vocabulaire de restaurant en allemand : sorties romantiques",
+      "native_lang": "fr",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Vocabulaire culinaire essentiel",
+          "subsections": [
+            "### Viandes (Fleisch)",
+            "### Légumes (Gemüse)",
+            "### Préparation"
+          ]
+        },
+        {
+          "header": "## Exercices pratiques pour couples",
+          "subsections": [
+            "### Exercice 1 : Jeu de rôle au restaurant",
+            "### Exercice 2 : Quiz menu",
+            "### Exercice 3 : Vraie sortie !"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d6be37c4-866e-43eb-b3a8-8c6e12834796",
+      "title": "Gíria Italiana de Mensagens para Casais",
+      "native_lang": "pt",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Exemplos de Conversas",
+          "subsections": [
+            "### De Manhã",
+            "### À Noite"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d6e2d017-e25a-48f7-bd2c-6c2d5a0b422b",
+      "title": "L'ordre des mots en espagnol",
+      "native_lang": "fr",
+      "target_lang": "es",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Exercices de pratique pour couples",
+          "subsections": [
+            "### Exercice 1 : Réorganisez les mots",
+            "### Exercice 2 : Placez l'adjectif",
+            "### Exercice 3 : Questions à votre partenaire"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d700b1f4-c374-4911-8468-0423ed0e843e",
+      "title": "Die Familie deines Partners auf Polnisch treffen: Wichtige Phrasen für einen tollen ersten Eindruck",
+      "native_lang": "de",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Konkrete Szenarien und Gespräche",
+          "subsections": [
+            "### Beim Betreten des Hauses",
+            "### Am Esstisch",
+            "### Über deine Beziehung sprechen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d73d4e26-b42c-4a30-8ada-77e913de0979",
+      "title": "Is Turkish Hard? Honest Assessment",
+      "native_lang": "en",
+      "target_lang": "tr",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## What Makes Turkish Different",
+          "subsections": [
+            "### 1. Agglutinative Structure",
+            "### 2. Vowel Harmony",
+            "### 3. No Grammatical Gender",
+            "### 4. Word Order: SOV"
+          ]
+        },
+        {
+          "header": "## The Easy Parts of Turkish",
+          "subsections": [
+            "### 1. Phonetic Spelling",
+            "### 2. Latin Alphabet",
+            "### 3. Consistent Grammar",
+            "### 4. No Articles",
+            "### 5. Logical Vocabulary Building"
+          ]
+        },
+        {
+          "header": "## Tips for Success",
+          "subsections": [
+            "### 1. Embrace the Suffixes",
+            "### 2. Listen Actively",
+            "### 3. Practice with Your Partner",
+            "### 4. Focus on Patterns",
+            "### 5. Don't Fear Mistakes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d7ce624e-9098-40bb-9f58-c1a08cd83d24",
+      "title": "¿Es Difícil Aprender Ruso?",
+      "native_lang": "es",
+      "target_lang": "ru",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Los Desafíos: Seamos Honestos",
+          "subsections": [
+            "### 1. El Alfabeto Cirílico",
+            "### 2. El Sistema de Casos",
+            "### 3. Aspectos Verbales",
+            "### 4. Género de los Sustantivos"
+          ]
+        },
+        {
+          "header": "## Lo Que Es Más Fácil de lo Esperado",
+          "subsections": [
+            "### 1. Sin Artículos",
+            "### 2. Orden de Palabras Flexible",
+            "### 3. Escritura Fonética",
+            "### 4. Solo Tres Tiempos"
+          ]
+        },
+        {
+          "header": "## Estrategias de Aprendizaje que Funcionan",
+          "subsections": [
+            "### 1. Abraza el Cirílico Primero",
+            "### 2. Aprende Frases, No Solo Palabras",
+            "### 3. Usa la \"Ventaja de Parejas\"",
+            "### 4. No Temas a los Errores"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d81ae8b9-d6f5-4d71-af40-dc7c04b10c19",
+      "title": "Il Turco È Difficile Da Imparare? Guida Onesta Per Italofoni",
+      "native_lang": "it",
+      "target_lang": "tr",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Cosa Rende Il Turco Diverso",
+          "subsections": [
+            "### Le Parti Impegnative"
+          ]
+        },
+        {
+          "header": "## Cosa Rende Il Turco Più Facile Di Quanto Pensi",
+          "subsections": [
+            "### 1. Ortografia Fonetica",
+            "### 2. Nessun Articolo",
+            "### 3. Nessun Genere Grammaticale",
+            "### 4. Coniugazione Regolare",
+            "### 5. Struttura Logica"
+          ]
+        },
+        {
+          "header": "## Cronologia Realistica Per Coppie",
+          "subsections": [
+            "### Mesi 1-3: Turco di Sopravvivenza",
+            "### Mesi 4-6: Basi Conversazionali",
+            "### Mesi 7-12: Comunicazione Confortevole",
+            "### Anno 2+: Verso la Fluenza"
+          ]
+        },
+        {
+          "header": "## Consigli Per Il Successo",
+          "subsections": [
+            "### 1. Abbraccia i Suffissi",
+            "### 2. Pratica la Pronuncia Presto",
+            "### 3. Impara le Radici",
+            "### 4. Usa Media Turchi",
+            "### 5. Non Temere Gli Errori"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d8601136-77b7-4953-bf2a-2d24e6682a20",
+      "title": "Is German Hard? Honest Assessment",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## What Makes German Easier Than You Think",
+          "subsections": [
+            "### Shared Vocabulary",
+            "### Predictable Pronunciation",
+            "### Logical Grammar Patterns"
+          ]
+        },
+        {
+          "header": "## Fun Ways Couples Can Learn German Together",
+          "subsections": [
+            "### 1. Morning Coffee Conversations",
+            "### 2. Cooking German Recipes Together",
+            "### 3. German Movie Nights",
+            "### 4. Travel Planning in German"
+          ]
+        },
+        {
+          "header": "## Overcoming Common Challenges Together",
+          "subsections": [
+            "### The Dreaded \"Der, Die, Das\"",
+            "### Word Order Confusion",
+            "### Motivation Dips"
+          ]
+        },
+        {
+          "header": "## Creating Your German Learning Routine",
+          "subsections": [
+            "### Daily (15-20 minutes)",
+            "### Weekly (1-2 hours)",
+            "### Monthly"
+          ]
+        }
+      ]
+    }
+  ]
+}

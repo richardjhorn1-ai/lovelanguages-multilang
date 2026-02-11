@@ -1,0 +1,597 @@
+{
+  "batchId": "tier2a-slim-0060",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "53938eec-e6f4-4980-af0e-53010faf442f",
+      "title": "Apprendre le norvegien avec des chansons d'amour",
+      "native_lang": "fr",
+      "target_lang": "no",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Vocabulaire des chansons romantiques",
+          "subsections": [
+            "### Mots essentiels",
+            "### Expressions poetiques"
+          ]
+        },
+        {
+          "header": "## Artistes à decouvrir",
+          "subsections": [
+            "### A-ha",
+            "### Aurora",
+            "### Sigrid",
+            "### Bjørn Eidsvåg"
+          ]
+        },
+        {
+          "header": "## Creer une playlist d'apprentissage",
+          "subsections": [
+            "### Chansons recommandees",
+            "### Comment apprendre avec la musique"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "53a0972f-c892-4cb9-a6fd-1e34a940fcde",
+      "title": "Frases de Apoio Emocional em Ucraniano: Confortando Seu Parceiro",
+      "native_lang": "pt",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases de Apoio Básico",
+          "subsections": [
+            "### Demonstrando Presença",
+            "### Validando Sentimentos",
+            "### Oferecendo Conforto"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "53bb0cf9-1329-4f5d-af46-823674c9f387",
+      "title": "Les conditionnels anglais : maîtriser les if clauses",
+      "native_lang": "fr",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Exercices pour couples",
+          "subsections": [
+            "### Jeu des rêves",
+            "### Souvenirs et regrets",
+            "### Projets futurs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "53ef6ab0-571e-4c24-a4ff-783252870745",
+      "title": "¿Es Difícil Aprender Portugués?",
+      "native_lang": "es",
+      "target_lang": "pt",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Los Desafios: Que Hace al Portugues Dificil",
+          "subsections": [
+            "### 1. Algunas Conjugaciones Verbales Diferentes",
+            "### 2. Generos de los Sustantivos (Familiar pero con Diferencias)",
+            "### 3. Peculiaridades de Pronunciacion"
+          ]
+        },
+        {
+          "header": "## Consejos para Hacer el Portugues Mas Facil",
+          "subsections": [
+            "### 1. Comienza con Palabras de Alta Frecuencia",
+            "### 2. Sumergete en Medios Portugueses",
+            "### 3. Practica Hablando desde el Dia Uno",
+            "### 4. Abraza los Errores"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "541dd7fd-501b-4022-bd04-23e914b69b97",
+      "title": "Angielskie zwroty na pierwszą randkę",
+      "native_lang": "pl",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Rozpoczęcie rozmowy",
+          "subsections": [
+            "### \"Hi, it's so nice to finally meet you!\"",
+            "### \"You look great!\"",
+            "### \"I've been looking forward to this\""
+          ]
+        },
+        {
+          "header": "## Poznawanie się",
+          "subsections": [
+            "### \"So, tell me about yourself\"",
+            "### \"What do you do for fun?\"",
+            "### \"What's your favorite...?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie zainteresowania",
+          "subsections": [
+            "### \"That's really interesting\"",
+            "### \"Tell me more about that\"",
+            "### \"I'd love to hear more\""
+          ]
+        },
+        {
+          "header": "## Dzielenie się o sobie",
+          "subsections": [
+            "### \"I'm really passionate about...\"",
+            "### \"Something you might not know about me is...\"",
+            "### \"I've always wanted to...\""
+          ]
+        },
+        {
+          "header": "## Komplementy",
+          "subsections": [
+            "### \"I really like your smile\"",
+            "### \"You have a great sense of humor\"",
+            "### \"I'm having such a great time with you\""
+          ]
+        },
+        {
+          "header": "## Planowanie następnego spotkania",
+          "subsections": [
+            "### \"I'd really like to see you again\"",
+            "### \"When can we do this again?\"",
+            "### \"I had a wonderful time tonight\""
+          ]
+        },
+        {
+          "header": "## Pożegnanie",
+          "subsections": [
+            "### \"This was really lovely\"",
+            "### \"I can't wait to see you again\"",
+            "### \"Get home safe\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "54363ada-c224-46f2-a4bf-03fc07d0969f",
+      "title": "Greek Honeymoon Travel Phrases: Romantic Vocabulary for Your Trip",
+      "native_lang": "en",
+      "target_lang": "el",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Planning Your Trip",
+          "subsections": [
+            "### Choosing a Destination",
+            "### Booking Vocabulary"
+          ]
+        },
+        {
+          "header": "## At the Airport",
+          "subsections": [
+            "### Essential Phrases",
+            "### Airport Vocabulary"
+          ]
+        },
+        {
+          "header": "## At Your Hotel",
+          "subsections": [
+            "### Checking In",
+            "### Room Types"
+          ]
+        },
+        {
+          "header": "## Romantic Moments",
+          "subsections": [
+            "### On the Beach",
+            "### At Dinner"
+          ]
+        },
+        {
+          "header": "## Adventure Activities",
+          "subsections": [
+            "### Exploring Together",
+            "### Activity Vocabulary"
+          ]
+        },
+        {
+          "header": "## Creating Memories",
+          "subsections": [
+            "### Photo Moment Phrases"
+          ]
+        },
+        {
+          "header": "## Returning Home",
+          "subsections": [
+            "### End of Trip"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "54487866-113e-4f17-846e-d760b46ad5b2",
+      "title": "En Yaygın 100 İngilizce Kelime",
+      "native_lang": "tr",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Zamirler ve Bağlaçlar",
+          "subsections": [
+            "### 1. I /ay/ - Ben",
+            "### 2. You /yu/ - Sen/Siz",
+            "### 3. He /hi/ - O (erkek)",
+            "### 4. She /şi/ - O (kadın)",
+            "### 5. It /it/ - O (nesne/hayvan)",
+            "### 6. We /vi/ - Biz",
+            "### 7. They /dey/ - Onlar",
+            "### 8. And /end/ - Ve",
+            "### 9. But /bat/ - Ama",
+            "### 10. Or /or/ - Veya"
+          ]
+        },
+        {
+          "header": "## Temel Fiiller",
+          "subsections": [
+            "### 11. Be /bi/ - Olmak",
+            "### 12. Have /hev/ - Sahip olmak",
+            "### 13. Do /du/ - Yapmak",
+            "### 14. Say /sey/ - Söylemek",
+            "### 15. Go /go/ - Gitmek",
+            "### 16. Come /kam/ - Gelmek",
+            "### 17. Get /get/ - Almak/elde etmek",
+            "### 18. Make /meyk/ - Yapmak",
+            "### 19. Know /no/ - Bilmek",
+            "### 20. Think /tink/ - Düşünmek",
+            "### 21. Take /teyk/ - Almak",
+            "### 22. See /sii/ - Görmek",
+            "### 23. Want /vont/ - İstemek",
+            "### 24. Give /giv/ - Vermek",
+            "### 25. Use /yuz/ - Kullanmak"
+          ]
+        },
+        {
+          "header": "## Sıfatlar",
+          "subsections": [
+            "### 26. Good /gud/ - İyi",
+            "### 27. Bad /bed/ - Kötü",
+            "### 28. Big /big/ - Büyük",
+            "### 29. Small /smol/ - Küçük",
+            "### 30. New /nyu/ - Yeni",
+            "### 31. Old /old/ - Eski/yaşlı",
+            "### 32. Long /long/ - Uzun",
+            "### 33. Short /şort/ - Kısa",
+            "### 34. Hot /hat/ - Sıcak",
+            "### 35. Cold /kold/ - Soğuk"
+          ]
+        },
+        {
+          "header": "## Zaman İfadeleri",
+          "subsections": [
+            "### 36. Now /nau/ - Şimdi",
+            "### 37. Today /tudey/ - Bugün",
+            "### 38. Tomorrow /tumoro/ - Yarın",
+            "### 39. Yesterday /yestırdey/ - Dün",
+            "### 40. Always /olveys/ - Her zaman",
+            "### 41. Never /nevır/ - Asla",
+            "### 42. Sometimes /samtaymz/ - Bazen"
+          ]
+        },
+        {
+          "header": "## Soru Kelimeleri",
+          "subsections": [
+            "### 43. What /vat/ - Ne",
+            "### 44. Where /ver/ - Nerede",
+            "### 45. When /ven/ - Ne zaman",
+            "### 46. Why /vay/ - Neden",
+            "### 47. How /hav/ - Nasıl",
+            "### 48. Who /hu/ - Kim"
+          ]
+        },
+        {
+          "header": "## Sayılar",
+          "subsections": [
+            "### 49. One /van/ - Bir",
+            "### 50. Two /tu/ - İki",
+            "### 51. Three /tri/ - Üç",
+            "### 52. Four /for/ - Dört",
+            "### 53. Five /fayv/ - Beş",
+            "### 54. Ten /ten/ - On",
+            "### 55. Hundred /handrıd/ - Yüz"
+          ]
+        },
+        {
+          "header": "## Günlük Kelimeler",
+          "subsections": [
+            "### 56. Yes /yes/ - Evet",
+            "### 57. No /no/ - Hayır",
+            "### 58. Please /pliiz/ - Lütfen",
+            "### 59. Thank you /tenk yu/ - Teşekkürler",
+            "### 60. Sorry /sori/ - Özür dilerim",
+            "### 61. Hello /helo/ - Merhaba",
+            "### 62. Goodbye /gudbay/ - Hoşça kal",
+            "### 63. Love /lav/ - Aşk/sevgi",
+            "### 64. Friend /frend/ - Arkadaş",
+            "### 65. Family /femıli/ - Aile"
+          ]
+        },
+        {
+          "header": "## Temel İsimler",
+          "subsections": [
+            "### 66. Man /men/ - Adam",
+            "### 67. Woman /vumın/ - Kadın",
+            "### 68. Child /çayld/ - Çocuk",
+            "### 69. Time /taym/ - Zaman",
+            "### 70. Day /dey/ - Gün",
+            "### 71. Night /nayt/ - Gece",
+            "### 72. Year /yiır/ - Yıl",
+            "### 73. Life /layf/ - Hayat",
+            "### 74. World /vörld/ - Dünya",
+            "### 75. Home /hom/ - Ev"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5458ec3f-8084-4958-aaff-25a69ec772c4",
+      "title": "Godmorgen og Godnat på Engelsk: Søde Fraser til Din Partner",
+      "native_lang": "da",
+      "target_lang": "en",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Tekstbeskeder",
+          "subsections": [
+            "### Morgenbeskeder",
+            "### Aftenbeskeder"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "54925375-4d94-47c3-8bb9-c033c77c8df8",
+      "title": "Expresii în Daneză pentru Reconciliere și Împăcare în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Gesturi de Reconciliere - Hygge",
+          "subsections": [
+            "### Creați Hygge",
+            "### Umorul",
+            "### Timpul Împreună"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "54b47fa9-3176-4184-9a45-55bcefbd1e3d",
+      "title": "Ungerska fraser för att träffa svärföräldrarna – Gör ett gott intryck",
+      "native_lang": "sv",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Första mötet",
+          "subsections": [
+            "### \"Nagyon örülök, hogy végre megismerhetem önöket\"",
+            "### \"Sokat hallottam önökről\"",
+            "### \"Köszönöm szépen, hogy fogadnak\""
+          ]
+        },
+        {
+          "header": "## Artiga fraser",
+          "subsections": [
+            "### \"Kérem, szólítsanak [namn]-nak/nek\"",
+            "### \"Gyönyörű otthonuk van\"",
+            "### \"Segíthetek valamiben?\"",
+            "### \"Az étel nagyon finom\""
+          ]
+        },
+        {
+          "header": "## Om din relation",
+          "subsections": [
+            "### \"A fiuk/lányuk mindent jelent számomra\"",
+            "### \"Nagyon szerencsésnek érzem magam, hogy megismertem [namn]-t\"",
+            "### \"Nagyon boldoggá tesszük egymást\""
+          ]
+        },
+        {
+          "header": "## Visa intresse",
+          "subsections": [
+            "### \"Szívesen hallanék többet [ämne]-ról/ről\"",
+            "### \"Hogyan ismerkedtek meg?\""
+          ]
+        },
+        {
+          "header": "## Avskedsfraser",
+          "subsections": [
+            "### \"Köszönöm a csodálatos estét\"",
+            "### \"Igazán öröm volt megismerni önöket\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "54c7a275-e902-473e-a525-245d0a84d4ce",
+      "title": "Maďarština pro páry: Základní gramatika, která vám pomůže milovat se v maďarštině",
+      "native_lang": "cs",
+      "target_lang": "hu",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Základní pravidla: 5 klíčů k maďarštině",
+          "subsections": [
+            "### 1. Slovosled je volný",
+            "### 2. Předpony určují vztahy",
+            "### 3. Přípony místo pomocných slov"
+          ]
+        },
+        {
+          "header": "## Nejčastější chyby a jak se jim vyhnout",
+          "subsections": [
+            "### 1. Zapomínání na přípony",
+            "### 2. Nesprávné zdůraznění",
+            "### 3. Záměna ty/já"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "54d10f5b-8d18-4421-88ad-4dcbec814879",
+      "title": "Zweeds voor Stellen: 45+ Essentiële Reiszinnen",
+      "native_lang": "nl",
+      "target_lang": "sv",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## In Het Hotel",
+          "subsections": [
+            "### Inchecken",
+            "### Verzoeken"
+          ]
+        },
+        {
+          "header": "## In Een Restaurant",
+          "subsections": [
+            "### Een Tafel Krijgen",
+            "### Bestellen"
+          ]
+        },
+        {
+          "header": "## Vervoer",
+          "subsections": [
+            "### Openbaar Vervoer",
+            "### Taxi"
+          ]
+        },
+        {
+          "header": "## Bezienswaardigheden",
+          "subsections": [
+            "### Kaartjes Kopen",
+            "### De Weg Vragen"
+          ]
+        },
+        {
+          "header": "## Handige Woordenlijst",
+          "subsections": [
+            "### Vliegveld",
+            "### Hotel",
+            "### Vervoer"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "54dc94f3-030b-486f-af9d-d9e19772ca87",
+      "title": "Duńskie zwroty o zazdrości i zaufaniu dla par",
+      "native_lang": "pl",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Wyrażanie uczuć zazdrości",
+          "subsections": [
+            "### \"Jeg føler mig lidt jaloux, når...\"",
+            "### \"Jeg føler mig usikker på...\"",
+            "### \"Det generer mig, når du...\""
+          ]
+        },
+        {
+          "header": "## Pytania budujące zaufanie",
+          "subsections": [
+            "### \"Kan du berolige mig angående...?\"",
+            "### \"Hvem var den person, du talte med?\"",
+            "### \"Overdriver jeg?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie potrzeby zaufania",
+          "subsections": [
+            "### \"Jeg har brug for, at du er ærlig over for mig\"",
+            "### \"Jeg stoler på dig, men jeg kæmper med...\""
+          ]
+        },
+        {
+          "header": "## Uspokajanie partnera",
+          "subsections": [
+            "### \"Du har ikke noget at bekymre dig om\"",
+            "### \"Du er den eneste for mig\"",
+            "### \"Jeg ville aldrig gøre noget, der sårer dig\""
+          ]
+        },
+        {
+          "header": "## Budowanie zaufania",
+          "subsections": [
+            "### \"Lad os være mere åbne over for hinanden\"",
+            "### \"Jeg vil, at vi stoler helt på hinanden\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "54e4181a-0448-48c2-8e96-60c8bf7f59e3",
+      "title": "Russian Pronunciation: Master Key Sounds",
+      "native_lang": "en",
+      "target_lang": "ru",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Common Pronunciation Challenges",
+          "subsections": [
+            "### The Ы Sound",
+            "### The Rolled Р",
+            "### Ш vs Щ"
+          ]
+        },
+        {
+          "header": "## Pronunciation Rules Summary",
+          "subsections": [
+            "### Always True",
+            "### Practice Words"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "55017705-8d06-46ff-89bf-16a3efb3b669",
+      "title": "50+ Spaanse Liefkozingen om Harten te Veroveren",
+      "native_lang": "nl",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Speelse en Unieke Koosnaampjes",
+          "subsections": [
+            "### Dier-Gerelateerde",
+            "### Voedsel-Gerelateerde"
+          ]
+        },
+        {
+          "header": "## Regionale Verschillen",
+          "subsections": [
+            "### Spanje",
+            "### Mexico",
+            "### Argentinie"
+          ]
+        },
+        {
+          "header": "## Koosnaampjes voor Specifieke Momenten",
+          "subsections": [
+            "### 's Ochtends",
+            "### Romantisch",
+            "### Troostend"
+          ]
+        }
+      ]
+    }
+  ]
+}

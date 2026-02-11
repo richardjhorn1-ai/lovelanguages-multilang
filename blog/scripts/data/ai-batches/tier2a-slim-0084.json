@@ -1,0 +1,477 @@
+{
+  "batchId": "tier2a-slim-0084",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "67e43b70-9214-4a3f-8725-d07a5d411ca5",
+      "title": "Udtryk Følelser på Ungarsk: Komplet Guide for Par",
+      "native_lang": "da",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Reagere på Partnerens Følelser",
+          "subsections": [
+            "### Støttende Svar",
+            "### Trøstende Ord"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "67ec58d0-5fc0-4648-be1e-d8050ebaca7c",
+      "title": "Ungarische Kosenamen und Liebkosungen für Paare",
+      "native_lang": "de",
+      "target_lang": "hu",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Kosenamen für verschiedene Anlässe",
+          "subsections": [
+            "### Im Alltag",
+            "### Für romantische Momente",
+            "### Zum Necken"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "68004fb8-999b-4c5c-bcc2-c28cf8c86283",
+      "title": "Olasz évfordulós kívánságok és üzenetek",
+      "native_lang": "hu",
+      "target_lang": "it",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Évfordulós köszöntések",
+            "### Hosszabb üzenetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6804c3d4-c19c-42d2-9a3b-e8dd0bb1d00d",
+      "title": "Frases para Conhecer os Sogros em Holandês: Guia Completo",
+      "native_lang": "pt",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para o Primeiro Encontro",
+          "subsections": [
+            "### Apresentação",
+            "### Elogiando",
+            "### Mostrando Interesse",
+            "### Expressando Gratidão"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "680d19b5-3dee-4c99-bfcb-0ab27b526cb0",
+      "title": "Danca Flört İfadeleri: Hygge ile Romantizm",
+      "native_lang": "tr",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Flört İfadeleri",
+          "subsections": [
+            "### 1. \"Du er virkelig smuk\"",
+            "### 2. \"Jeg kan godt lide dit smil\"",
+            "### 3. \"Vil du have en øl med mig?\"",
+            "### 4. \"Du har smukke øjne\"",
+            "### 5. \"Jeg tænker på dig hele tiden\"",
+            "### 6. \"Du gør mig glad\"",
+            "### 7. \"Må jeg give dig en drink?\"",
+            "### 8. \"Jeg nyder virkelig at være sammen med dig\"",
+            "### 9. \"Du er speciel\"",
+            "### 10. \"Skal vi ses igen?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "68157865-dda7-4874-bc35-8878ec7f0cbb",
+      "title": "Spanska Fraser för Svartsjuka och Förtroende",
+      "native_lang": "sv",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Uttrycka Svartsjuka",
+          "subsections": [
+            "### 1. \"Me siento inseguro/a cuando...\"",
+            "### 2. \"¿Puedes ayudarme a entender tu relación con...?\"",
+            "### 3. \"Confío en ti, pero estoy luchando con mis sentimientos\"",
+            "### 4. \"Necesito que me tranquilices\"",
+            "### 5. \"Me molesta cuando...\""
+          ]
+        },
+        {
+          "header": "## Fraser för att Bygga Förtroende",
+          "subsections": [
+            "### 6. \"Solo tengo ojos para ti\"",
+            "### 7. \"Eres la única persona para mí\"",
+            "### 8. \"Nunca haría nada para hacerte daño\"",
+            "### 9. \"Seamos sinceros el uno con el otro\"",
+            "### 10. \"Quiero que conozcas a mis amigos\"",
+            "### 11. \"No tienes de qué preocuparte\"",
+            "### 12. \"Te elijo a ti cada día\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "683f0abb-8265-4f6a-8322-58da8d3b5334",
+      "title": "50+ датских прозвищ, которые растопят сердце",
+      "native_lang": "ru",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Прозвища о внешности и характере",
+          "subsections": [
+            "### Сладкие обращения",
+            "### Сердечные обращения"
+          ]
+        },
+        {
+          "header": "## Как использовать ласковые имена",
+          "subsections": [
+            "### В повседневном общении",
+            "### В особые моменты"
+          ]
+        },
+        {
+          "header": "## Практические упражнения",
+          "subsections": [
+            "### Утренние приветствия",
+            "### Текстовые сообщения"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "68456788-80d3-4ec4-9198-8160fafd8b41",
+      "title": "Frases de Apoyo Emocional en Danés: Cómo Consolar a Tu Pareja con Hygge",
+      "native_lang": "es",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases de Consuelo Básicas",
+          "subsections": [
+            "### \"Jeg er her for dig\"",
+            "### \"Det hele skal nok gå\"",
+            "### \"Jeg er så ked af, at du går igennem dette\""
+          ]
+        },
+        {
+          "header": "## Ofreciendo Apoyo",
+          "subsections": [
+            "### \"Hvad har du brug for lige nu?\"",
+            "### \"Jeg vil gøre alt, hvad jeg kan for at hjælpe\"",
+            "### \"Vil du tale om det?\"",
+            "### \"Jeg lytter\""
+          ]
+        },
+        {
+          "header": "## Validando Emociones",
+          "subsections": [
+            "### \"Det er okay at føle sådan\"",
+            "### \"Dine følelser er helt forståelige\""
+          ]
+        },
+        {
+          "header": "## Frases de Ánimo",
+          "subsections": [
+            "### \"Du er stærkere, end du tror\"",
+            "### \"Jeg tror på dig\"",
+            "### \"Vi klarer det her sammen\""
+          ]
+        },
+        {
+          "header": "## Expresando Amor",
+          "subsections": [
+            "### \"Jeg elsker dig uanset hvad der sker\"",
+            "### \"Du er ikke alene\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "684923a5-dd52-4810-a6d6-cb3cb3592194",
+      "title": "Polské fráze pro setkání s rodiči partnera",
+      "native_lang": "cs",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## První setkání",
+          "subsections": [
+            "### \"Bardzo mi miło państwa poznać.\"",
+            "### \"[Partner] dużo mi o państwu opowiadał/a.\"",
+            "### \"Dziękuję bardzo za zaproszenie.\"",
+            "### \"Macie piękny dom.\""
+          ]
+        },
+        {
+          "header": "## U jídla",
+          "subsections": [
+            "### \"To jest pyszne! Mogę prosić o przepis?\"",
+            "### \"Wszystko wygląda wspaniale.\""
+          ]
+        },
+        {
+          "header": "## Projevení zájmu",
+          "subsections": [
+            "### \"Chciałbym/chciałabym zobaczyć zdjęcia [partnera] z dzieciństwa.\"",
+            "### \"Jak się państwo poznali?\""
+          ]
+        },
+        {
+          "header": "## Nabídka pomoci",
+          "subsections": [
+            "### \"Czy mogę w czymś pomóc?\"",
+            "### \"Proszę, pozwólcie mi pomóc przy zmywaniu.\""
+          ]
+        },
+        {
+          "header": "## Rozloučení",
+          "subsections": [
+            "### \"Dziękuję za cudowny wieczór.\"",
+            "### \"Mam nadzieję, że wkrótce się zobaczymy.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "68596eb7-6571-4f28-b9ba-f3babaf5f22c",
+      "title": "Danca Aşk Mektubu Yazma Rehberi: Romantik İfadeler",
+      "native_lang": "tr",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Mektuba Başlangıç",
+          "subsections": [
+            "### 1. \"Kære\" + isim",
+            "### 2. \"Min elskede\"",
+            "### 3. \"Mit hjerte\""
+          ]
+        },
+        {
+          "header": "## Duygu İfadeleri",
+          "subsections": [
+            "### 4. \"Jeg elsker dig mere end ord kan beskrive\"",
+            "### 5. \"Du er alt for mig\"",
+            "### 6. \"Mit liv ændrede sig den dag, jeg mødte dig\"",
+            "### 7. \"Du gør hver dag speciel\"",
+            "### 8. \"Jeg er taknemmelig for hvert øjeblik med dig\"",
+            "### 9. \"Du er det smukkeste menneske, jeg kender\"",
+            "### 10. \"Jeg vil tilbringe resten af mit liv med dig\""
+          ]
+        },
+        {
+          "header": "## Mektubu Bitirme",
+          "subsections": [
+            "### 11. \"Med al min kærlighed\"",
+            "### 12. \"For evigt din\"",
+            "### 13. \"Jeg elsker dig\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "685eb82c-3a97-4033-9ec4-162d001ec174",
+      "title": "Основи французької граматики для початківців: Посібник для українців",
+      "native_lang": "uk",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Артиклі",
+          "subsections": [
+            "### Означені артиклі (The)",
+            "### Неозначені артиклі (A/An)"
+          ]
+        },
+        {
+          "header": "## Важливі неправильні дієслова",
+          "subsections": [
+            "### Être — Бути",
+            "### Avoir — Мати"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6862c3df-b8d2-4bf7-9572-99e44cbbe4ae",
+      "title": "Švédské fráze Chybíš mi pro Čechy",
+      "native_lang": "cs",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní fráze",
+          "subsections": [
+            "### \"Jag saknar dig.\"",
+            "### \"Jag saknar dig så mycket.\"",
+            "### \"Jag önskar att du var här.\"",
+            "### \"Jag kan inte sluta tänka på dig.\""
+          ]
+        },
+        {
+          "header": "## Romantické fráze",
+          "subsections": [
+            "### \"Varje ögonblick utan dig känns som en evighet.\"",
+            "### \"Mitt hjärta är hos dig.\"",
+            "### \"Jag räknar dagarna tills jag ser dig igen.\""
+          ]
+        },
+        {
+          "header": "## Fráze pro zprávy",
+          "subsections": [
+            "### \"Jag tänker på dig.\"",
+            "### \"Jag längtar efter att hålla dig i mina armar.\"",
+            "### \"Avståndet förändrar inte mina känslor.\""
+          ]
+        },
+        {
+          "header": "## Povzbudivé fráze",
+          "subsections": [
+            "### \"Snart är vi tillsammans igen.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "68752861-d828-4764-9967-702224dcff10",
+      "title": "Руководство по произношению испанского языка",
+      "native_lang": "ru",
+      "target_lang": "es",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Специфические испанские звуки",
+          "subsections": [
+            "### Буква Ñ — «энье»",
+            "### Буква J — хота",
+            "### Буква G",
+            "### Буква C",
+            "### Буква Z",
+            "### Буква H — немая!"
+          ]
+        },
+        {
+          "header": "## Двойные буквы",
+          "subsections": [
+            "### LL — «элье»",
+            "### RR — раскатистое «р»",
+            "### Одиночная R"
+          ]
+        },
+        {
+          "header": "## Ударение в испанском",
+          "subsections": [
+            "### Правила ударения:"
+          ]
+        },
+        {
+          "header": "## Интонация",
+          "subsections": [
+            "### Утверждения — интонация падает:",
+            "### Вопросы да/нет — интонация растёт:",
+            "### Вопросы с вопросительными словами — падает:"
+          ]
+        },
+        {
+          "header": "## Практические упражнения для пар",
+          "subsections": [
+            "### Скороговорки (trabalenguas):",
+            "### Упражнение «Зеркало»:",
+            "### Упражнение «Минимальные пары»:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "68a8a91f-7e5b-4cd8-9621-59fe8e9f2ceb",
+      "title": "Сложно ли выучить испанский язык?",
+      "native_lang": "ru",
+      "target_lang": "es",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Что будет ЛЕГКО для русскоговорящих",
+          "subsections": [
+            "### 1. Фонетика — читаем как пишем",
+            "### 2. Похожие грамматические концепции",
+            "### 3. Похожие звуки",
+            "### 4. Международная лексика",
+            "### 5. Логичная система глаголов"
+          ]
+        },
+        {
+          "header": "## Что будет СЛОЖНО для русскоговорящих",
+          "subsections": [
+            "### 1. Два глагола «быть»: SER и ESTAR",
+            "### 2. Сослагательное наклонение (Subjuntivo)",
+            "### 3. Множество прошедших времён",
+            "### 4. Артикли",
+            "### 5. Согласование прилагательных"
+          ]
+        },
+        {
+          "header": "## Сроки изучения",
+          "subsections": [
+            "### Реалистичные ожидания:"
+          ]
+        },
+        {
+          "header": "## Почему учить вместе проще",
+          "subsections": [
+            "### Преимущества обучения парой:",
+            "### Идеи для практики:"
+          ]
+        },
+        {
+          "header": "## Главные советы",
+          "subsections": [
+            "### 1. Не бойтесь ошибаться",
+            "### 2. Погрузитесь в язык",
+            "### 3. Учите фразами, не словами",
+            "### 4. Практикуйте каждый день",
+            "### 5. Наслаждайтесь процессом"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "68a9c546-dce0-443b-95dd-ddffbb0d3d73",
+      "title": "Canciones de Amor Checas: Aprende con Música",
+      "native_lang": "es",
+      "target_lang": "cs",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Canciones Populares Modernas",
+          "subsections": [
+            "### Lucie Bílá - \"Láska je láska\"",
+            "### Ewa Farna"
+          ]
+        },
+        {
+          "header": "## Artistas para Escuchar",
+          "subsections": [
+            "### Baladas y Pop",
+            "### Rock Checo"
+          ]
+        }
+      ]
+    }
+  ]
+}

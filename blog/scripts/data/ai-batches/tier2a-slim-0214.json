@@ -1,0 +1,566 @@
+{
+  "batchId": "tier2a-slim-0214",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "da519ee8-3b04-40fa-aa0b-09ab423dfbfe",
+      "title": "Cseh Nyelvtan Kezdőknek: A Legfontosabb Szabályok Pároknak",
+      "native_lang": "hu",
+      "target_lang": "cs",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Az 5 Alapvető Szabály Pároknak",
+          "subsections": [
+            "### 1. A Névelők Elhagyhatók",
+            "### 2. A Szórend Rugalmas",
+            "### 3. A Névszók Neme",
+            "### 4. Az Igeidők Egyszerűsége",
+            "### 5. A Kérdőszavak Használata"
+          ]
+        },
+        {
+          "header": "## Gyakori Tévesztések és Hogyan Kerüld El Őket",
+          "subsections": [
+            "### 1. A \"ty\" és \"vy\" Keverése",
+            "### 2. A Névszói Nemi Egyeztetés",
+            "### 3. Az Igeragozás Összekeverése"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "da58a5da-d3d1-4b54-a703-f9521883969f",
+      "title": "Frases para Conocer a los Suegros en Alemán: Guía para la Schwiegereltern",
+      "native_lang": "es",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Saludos y Presentaciones",
+          "subsections": [
+            "### \"Es freut mich sehr, Sie kennenzulernen\"",
+            "### \"Ich habe schon so viel Gutes über Sie gehört\"",
+            "### \"Vielen Dank für die Einladung\""
+          ]
+        },
+        {
+          "header": "## Cumplidos a la Familia",
+          "subsections": [
+            "### \"Sie haben ein wunderschönes Zuhause\"",
+            "### \"Das Essen schmeckt ausgezeichnet\"",
+            "### \"Jetzt verstehe ich, woher [nombre] seine/ihre tollen Eigenschaften hat\""
+          ]
+        },
+        {
+          "header": "## Hablando de Tu Pareja",
+          "subsections": [
+            "### \"Ihr Sohn/Ihre Tochter macht mich sehr glücklich\"",
+            "### \"Ich fühle mich sehr glücklich, ihn/sie in meinem Leben zu haben\""
+          ]
+        },
+        {
+          "header": "## Ofreciendo Ayuda",
+          "subsections": [
+            "### \"Kann ich Ihnen irgendwie helfen?\"",
+            "### \"Darf ich beim Abräumen helfen?\"",
+            "### \"Ich würde gerne den Tisch decken\""
+          ]
+        },
+        {
+          "header": "## Mostrando Interés",
+          "subsections": [
+            "### \"Ich würde gerne mehr über Ihre Familientraditionen erfahren\"",
+            "### \"Wie haben Sie sich kennengelernt?\"",
+            "### \"Wie war [nombre] als Kind?\""
+          ]
+        },
+        {
+          "header": "## Despedidas Respetuosas",
+          "subsections": [
+            "### \"Vielen Dank für den wunderbaren Abend\"",
+            "### \"Es war mir eine Freude, Sie kennenzulernen\"",
+            "### \"Ich hoffe, wir sehen uns bald wieder\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "da6e2620-0c24-402b-bfc4-86d21fa3afa8",
+      "title": "Gefühle auf Dänisch ausdrücken – Emotionen in deiner Beziehung teilen",
+      "native_lang": "de",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Positive Gefühle ausdrücken",
+          "subsections": [
+            "### Liebe und Zuneigung",
+            "### Glück und Freude"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "da7534b6-2def-4454-ab29-3bc73b272f27",
+      "title": "Německé fráze Chybíš mi pro Čechy",
+      "native_lang": "cs",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní fráze",
+          "subsections": [
+            "### \"Ich vermisse dich.\"",
+            "### \"Ich vermisse dich so sehr.\"",
+            "### \"Ich wünschte, du wärst hier.\"",
+            "### \"Ich kann nicht aufhören, an dich zu denken.\""
+          ]
+        },
+        {
+          "header": "## Romantické fráze",
+          "subsections": [
+            "### \"Jeder Moment ohne dich fühlt sich wie eine Ewigkeit an.\"",
+            "### \"Mein Herz ist bei dir.\"",
+            "### \"Ich zähle die Tage bis zu unserem Wiedersehen.\"",
+            "### \"Du bist mein erster Gedanke am Morgen und mein letzter am Abend.\""
+          ]
+        },
+        {
+          "header": "## Fráze pro zprávy",
+          "subsections": [
+            "### \"Ich denke an dich.\"",
+            "### \"Ich kann es kaum erwarten, dich wiederzusehen.\"",
+            "### \"Du fehlst mir jeden Tag.\"",
+            "### \"Die Entfernung ändert nichts an meinen Gefühlen.\""
+          ]
+        },
+        {
+          "header": "## Povzbudivé fráze",
+          "subsections": [
+            "### \"Bald sind wir wieder zusammen.\"",
+            "### \"Das Warten lohnt sich.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "da767685-8b5b-42ce-9788-da7d756fdaa1",
+      "title": "Phrases de drague en norvégien : L'amour au pays des fjords",
+      "native_lang": "fr",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Phrases de base pour charmer",
+          "subsections": [
+            "### \"Du er veldig vakker/kjekk\"",
+            "### \"Du har et nydelig smil\"",
+            "### \"Øynene dine er vakre\""
+          ]
+        },
+        {
+          "header": "## Exprimer l'attirance",
+          "subsections": [
+            "### \"Jeg klarer ikke å slutte å tenke på deg\"",
+            "### \"Du gjør meg så lykkelig\"",
+            "### \"Det er noe spesielt med deg\""
+          ]
+        },
+        {
+          "header": "## Déclarations profondes",
+          "subsections": [
+            "### \"Du betyr alt for meg\"",
+            "### \"Jeg elsker deg\"",
+            "### \"Du er kjærligheten i livet mitt\""
+          ]
+        },
+        {
+          "header": "## Phrases quotidiennes",
+          "subsections": [
+            "### \"Jeg savner deg\"",
+            "### \"Klem meg\"",
+            "### \"Kos og klem\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "da7a4558-863a-4807-bf2e-c31f3e334c37",
+      "title": "Грецька фрази для медового місяця та романтичних подорожей",
+      "native_lang": "uk",
+      "target_lang": "el",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна туристична лексика",
+          "subsections": []
+        },
+        {
+          "header": "## У готелі",
+          "subsections": [
+            "### Реєстрація",
+            "### Корисні фрази для готелю"
+          ]
+        },
+        {
+          "header": "## У ресторані",
+          "subsections": [
+            "### Романтична вечеря",
+            "### Тости для двох"
+          ]
+        },
+        {
+          "header": "## Пляжний відпочинок",
+          "subsections": [
+            "### Лексика для пляжу",
+            "### Романтичні пляжні активності"
+          ]
+        },
+        {
+          "header": "## Екскурсії для пар",
+          "subsections": [
+            "### Романтичні активності",
+            "### Корисні фрази"
+          ]
+        },
+        {
+          "header": "## Фотографії на пам'ять",
+          "subsections": [
+            "### Як попросити зробити фото"
+          ]
+        },
+        {
+          "header": "## Покупки сувенірів",
+          "subsections": [
+            "### Подарунки для рідних"
+          ]
+        },
+        {
+          "header": "## Проблеми в подорожі",
+          "subsections": [
+            "### Якщо щось пішло не так"
+          ]
+        },
+        {
+          "header": "## Повернення додому",
+          "subsections": [
+            "### Прощання з відпусткою"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "da8552de-32a6-4dcb-a523-7db27dffdb54",
+      "title": "Frans vs Nederlands: De Belangrijkste Verschillen",
+      "native_lang": "nl",
+      "target_lang": "fr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Uitspraak: De Grootste Uitdaging",
+          "subsections": [
+            "### Klanken die niet bestaan in Nederlands",
+            "### Stomme Letters"
+          ]
+        },
+        {
+          "header": "## Werkwoordvervoegingen: Complex!",
+          "subsections": [
+            "### Nederlands: Relatief Simpel",
+            "### Frans: Veel Vormen"
+          ]
+        },
+        {
+          "header": "## Geslacht: Twee Systemen",
+          "subsections": [
+            "### Nederlands: de/het (soms verwarrend)",
+            "### Frans: le/la (altijd duidelijk, maar moet je leren)"
+          ]
+        },
+        {
+          "header": "## Woordvolgorde",
+          "subsections": [
+            "### Bijvoeglijke Naamwoorden"
+          ]
+        },
+        {
+          "header": "## Ontkenning",
+          "subsections": [
+            "### Nederlands: niet / geen",
+            "### Frans: ne...pas (om het werkwoord)"
+          ]
+        },
+        {
+          "header": "## Leeftijd en Lichamelijke Staten",
+          "subsections": [
+            "### \"Hebben\" in het Frans"
+          ]
+        },
+        {
+          "header": "## Vraagzinnen",
+          "subsections": [
+            "### Drie Manieren in het Frans"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "da9036e3-258b-4907-851b-456d5a8f8f20",
+      "title": "Olasz Kifejezések a Leendő Apósékhoz Magyarul Beszélőknek",
+      "native_lang": "hu",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bemutatkozás",
+          "subsections": [
+            "### 1. È un piacere conoscervi",
+            "### 2. Ho sentito molto parlare di voi",
+            "### 3. Grazie per avermi accolto nella vostra casa"
+          ]
+        },
+        {
+          "header": "## A Kapcsolatról",
+          "subsections": [
+            "### 4. Vostro figlio/Vostra figlia è tutto per me",
+            "### 5. Sono onorato di far parte della vostra famiglia"
+          ]
+        },
+        {
+          "header": "## Bókok",
+          "subsections": [
+            "### 6. Avete una casa bellissima",
+            "### 7. Questo pranzo è squisito",
+            "### 8. Capisco da dove viene il suo fascino"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "da984576-b24e-4f3c-ad3f-37cf67b0d222",
+      "title": "Holenderskie zwroty o przebaczeniu dla par",
+      "native_lang": "pl",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Proszenie o przebaczenie",
+          "subsections": [
+            "### \"Vergeef me alsjeblieft\"",
+            "### \"Ik hoop dat je me kunt vergeven\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie przebaczenia",
+          "subsections": [
+            "### \"Ik vergeef je\"",
+            "### \"Het is oké, ik begrijp het\"",
+            "### \"Laten we dit achter ons laten\""
+          ]
+        },
+        {
+          "header": "## Proces przebaczenia",
+          "subsections": [
+            "### \"Ik werk eraan om je te vergeven\"",
+            "### \"Ik heb tijd nodig, maar ik zal je vergeven\""
+          ]
+        },
+        {
+          "header": "## Głębokie przebaczenie",
+          "subsections": [
+            "### \"Ik vergeef je volledig\"",
+            "### \"Ik laat de pijn los\""
+          ]
+        },
+        {
+          "header": "## Wspólne wyjście naprzód",
+          "subsections": [
+            "### \"Laten we opnieuw beginnen\"",
+            "### \"Onze liefde is sterker dan deze fout\""
+          ]
+        },
+        {
+          "header": "## Granice przebaczenia",
+          "subsections": [
+            "### \"Ik vergeef je, maar dit mag niet weer gebeuren\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daa40d26-6312-4096-8305-8a9a9bbd443b",
+      "title": "Anglické flirtovací fráze pro Čechy",
+      "native_lang": "cs",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní flirtovací fráze",
+          "subsections": [
+            "### \"You have the most beautiful smile.\"",
+            "### \"I can't stop thinking about you.\"",
+            "### \"You're incredibly attractive.\"",
+            "### \"There's something special about you.\""
+          ]
+        },
+        {
+          "header": "## Hravé a vtipné fráze",
+          "subsections": [
+            "### \"Are you a magician? Because whenever I look at you, everyone else disappears.\"",
+            "### \"Do you believe in love at first sight, or should I walk by again?\"",
+            "### \"You must be tired because you've been running through my mind all day.\""
+          ]
+        },
+        {
+          "header": "## Romantické a vážnější fráze",
+          "subsections": [
+            "### \"I feel so lucky to have you in my life.\"",
+            "### \"You make my heart skip a beat.\"",
+            "### \"I've never felt this way about anyone before.\""
+          ]
+        },
+        {
+          "header": "## Fráze pro textové zprávy",
+          "subsections": [
+            "### \"Thinking of you makes me smile.\"",
+            "### \"Can't wait to see you again.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daa95e52-0a99-4b1a-80fc-7116806d3aa9",
+      "title": "Πολωνικές Φράσεις για Διαφωνίες: Οδηγός για Ελληνόφωνα Ζευγάρια",
+      "native_lang": "el",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Βασικές Φράσεις για Έκφραση Διαφωνίας",
+          "subsections": [
+            "### 1. Nie zgadzam się",
+            "### 2. To nie jest to, co miałem/miałam na myśli",
+            "### 3. Możemy porozmawiać spokojnie?",
+            "### 4. To mnie rani, kiedy tak mówisz",
+            "### 5. Potrzebuję czasu do namysłu",
+            "### 6. Nie krzycz na mnie",
+            "### 7. Rozumiem twój punkt widzenia, ale...",
+            "### 8. Pozwól mi dokończyć",
+            "### 9. To nie jest sprawiedliwe",
+            "### 10. Uspokójmy się oboje",
+            "### 11. Widzę to inaczej",
+            "### 12. Możemy porozmawiać o tym później?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dad2d1d9-7e44-404c-ae63-b32ce2fd354e",
+      "title": "Трудно ли выучить турецкий? Честный ответ для русскоговорящих",
+      "native_lang": "ru",
+      "target_lang": "tr",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Что СЛОЖНО в турецком",
+          "subsections": [
+            "### 1. Агглютинативная структура",
+            "### 2. Гармония гласных",
+            "### 3. Порядок слов SOV",
+            "### 4. Отсутствие общих корней"
+          ]
+        },
+        {
+          "header": "## Что ПРОСТО в турецком",
+          "subsections": [
+            "### 1. Фонетическое письмо",
+            "### 2. Нет грамматического рода",
+            "### 3. Почти нет исключений",
+            "### 4. Логичная структура",
+            "### 5. Нет артиклей"
+          ]
+        },
+        {
+          "header": "## Советы для успешного изучения",
+          "subsections": [
+            "### 1. Начните с произношения",
+            "### 2. Изучайте суффиксы как конструктор",
+            "### 3. Смотрите турецкие сериалы",
+            "### 4. Практикуйте с партнёром",
+            "### 5. Не бойтесь ошибок"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daebff65-7734-490e-9562-16d7e0e5d487",
+      "title": "Польський сленг для переписки пар",
+      "native_lang": "uk",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Типові повідомлення",
+          "subsections": [
+            "### Ранок",
+            "### Протягом дня",
+            "### Вечір",
+            "### Перед сном"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daf102b6-d56f-4ed6-b421-1219cb793c02",
+      "title": "Expresii în Daneză pentru Discuții și Dezacorduri în Cuplu",
+      "native_lang": "ro",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale pentru Discuții",
+          "subsections": [
+            "### Exprimarea Frustrării",
+            "### Cererea de Clarificări",
+            "### Stabilirea Limitelor",
+            "### Recunoașterea și Concesiile",
+            "### Căutarea Soluțiilor"
+          ]
+        },
+        {
+          "header": "## Nuanțe Culturale Importante",
+          "subsections": [
+            "### Hygge",
+            "### Janteloven",
+            "### Umorul",
+            "### Egalitatea"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "daf2892e-ae1e-4865-94b3-f0418de7fb2d",
+      "title": "50+ Polnische Kosenamen die Herzen schmelzen lassen",
+      "native_lang": "de",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Kosenamen für Männer vs. Frauen",
+          "subsections": [
+            "### Für Männer",
+            "### Für Frauen"
+          ]
+        },
+        {
+          "header": "## Tipps für Deutsche",
+          "subsections": [
+            "### Vorteile als Deutschsprachiger",
+            "### Häufige Fehler vermeiden"
+          ]
+        }
+      ]
+    }
+  ]
+}

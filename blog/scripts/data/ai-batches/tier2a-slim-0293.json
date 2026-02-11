@@ -1,0 +1,364 @@
+{
+  "batchId": "tier2a-slim-0293",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "37732ff5-ab7b-4d75-aae4-1450d0f44aaa",
+      "title": "¿Hablan Inglés en Polonia? Consejos",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Inglés en Polonia: La Situación Real",
+          "subsections": [
+            "### Dónde el Inglés es Común",
+            "### Dónde Necesitarán Polaco"
+          ]
+        },
+        {
+          "header": "## Frases Esenciales en Polaco para Parejas",
+          "subsections": [
+            "### Básicos de Cortesía",
+            "### Moviéndose Juntos",
+            "### Cenas Románticas",
+            "### Compras y Mercados"
+          ]
+        },
+        {
+          "header": "## Lenguaje Corporal y Consejos Culturales",
+          "subsections": [
+            "### Lo que los Polacos Aprecian",
+            "### Qué Evitar"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3773c90b-5424-4b68-97bb-1472c2e1d96f",
+      "title": "Vocabulario de Restaurante en Francés",
+      "native_lang": "es",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Entendiendo el Menú",
+          "subsections": [
+            "### Las Secciones del Menú",
+            "### Tipos de Cocción (para carnes)"
+          ]
+        },
+        {
+          "header": "## Ordenando",
+          "subsections": [
+            "### Frases Esenciales",
+            "### Pidiendo Recomendaciones"
+          ]
+        },
+        {
+          "header": "## Las Bebidas",
+          "subsections": [
+            "### Aperitivos Típicos",
+            "### Durante la Comida"
+          ]
+        },
+        {
+          "header": "## Durante la Comida",
+          "subsections": [
+            "### Expresiones Útiles",
+            "### Pidiendo Más"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "37d1cadc-cae3-41e4-9ff0-8b5bdbe94700",
+      "title": "¿Es Difícil Aprender Francés?",
+      "native_lang": "es",
+      "target_lang": "fr",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Estrategias de Aprendizaje en Pareja que Funcionan",
+          "subsections": [
+            "### 1. Conversaciones Diarias en Francés",
+            "### 2. Noches de Cita en Francés",
+            "### 3. Ejercicios de Juego de Roles"
+          ]
+        },
+        {
+          "header": "## Haciendo el Francés Más Fácil: Consejos Prácticos",
+          "subsections": [
+            "### 1. Usen los Cognados",
+            "### 2. Practiquen la Pronunciación Juntos",
+            "### 3. Creen Hábitos Franceses"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "37f1dc41-91e6-4a7f-98b1-e7e137945fc9",
+      "title": "Türkische Aussprache: Ein Leitfaden für Deutsche",
+      "native_lang": "de",
+      "target_lang": "tr",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Besondere Buchstaben für Deutsche",
+          "subsections": [
+            "### Ğ - Das \"weiche G\"",
+            "### C vs. Ç",
+            "### S vs. Ş vs. Z"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "37f82d1d-77d8-4b9d-808e-b3aa263a1114",
+      "title": "Rumunskie romantyczne zwroty na każda okazje",
+      "native_lang": "pl",
+      "target_lang": "ro",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Kalendarz romantyczny",
+            "### Liściki milosne",
+            "### Codzieńne \"kocham cie\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "380019ae-6ddf-4045-90d6-580d8cf3c4c2",
+      "title": "50 Dán Köszönés és Búcsú, Ami Megolvasztja a Párod Szívét",
+      "native_lang": "hu",
+      "target_lang": "da",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hogyan Használjátok Ezeket Együtt?",
+          "subsections": [
+            "### Gyakorlási Tippek Párok Számára:",
+            "### Gyakori Hibák, Amit Elkerülhettek:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "381aa23b-37a8-41dd-978a-420dfc8a899f",
+      "title": "50 Πορτογαλικοί Χαιρετισμοί και Αποχαιρετισμοί για να Λιώσει η Καρδιά του Συντρόφου σου",
+      "native_lang": "el",
+      "target_lang": "pt",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Πώς να Χρησιμοποιήσετε Αυτούς τους Χαιρετισμούς με το Ταίρι Σας",
+          "subsections": [
+            "### Συμβουλές για Πρακτική",
+            "### Κοινά Λάθη που Πρέπει να Αποφύγετε"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "383128f7-78a5-496b-a636-218757525d4d",
+      "title": "Датские приветствия и прощания",
+      "native_lang": "ru",
+      "target_lang": "da",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Романтические приветствия и прощания",
+          "subsections": [
+            "### Для пар"
+          ]
+        },
+        {
+          "header": "## При встрече и расставании",
+          "subsections": [
+            "### Когда партнёр уходит",
+            "### Когда партнёр возвращается"
+          ]
+        },
+        {
+          "header": "## Практические упражнения",
+          "subsections": [
+            "### Утренняя рутина",
+            "### Вечерняя рутина",
+            "### Ролевая игра: Телефонный звонок"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "384e7894-1902-4cd3-8ec5-2605fa837910",
+      "title": "Bonjour et Bonne Nuit en Polonais",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Conseils d'utilisation pratique",
+          "subsections": [
+            "### Formel vs. Informel",
+            "### Adjectifs genrés",
+            "### Langage corporel"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "38a0ee19-5385-4f22-9842-9aa1e773c409",
+      "title": "Je Partner's Familie Ontmoeten in het Noors: Essentiële Zinnen voor Koppels",
+      "native_lang": "nl",
+      "target_lang": "no",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Essentiële Begroetingen en Introducties",
+          "subsections": [
+            "### Eerste Ontmoeting Zinnen",
+            "### Over Jullie Relatie Praten"
+          ]
+        },
+        {
+          "header": "## Specifieke Familieleden Aanspreken",
+          "subsections": [
+            "### Ouders en Grootouders",
+            "### Broers en Zussen"
+          ]
+        },
+        {
+          "header": "## Gespreksonderwerpen voor Koppels",
+          "subsections": [
+            "### Over Jullie Toekomst",
+            "### Over Jullie Relatie"
+          ]
+        },
+        {
+          "header": "## Als Dingen Misgaan",
+          "subsections": [
+            "### Als Je Iets Niet Begrijpt",
+            "### Noodzakelijke Beleefdheidszinnen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3914bda2-e2b6-465f-844f-0599013a4e16",
+      "title": "Polish Love Letters: How to Write Them",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Essential Romantic Phrases",
+          "subsections": [
+            "### Expressing Love and Longing",
+            "### Describing Your Beloved"
+          ]
+        },
+        {
+          "header": "## Structure of a Polish Love Letter",
+          "subsections": [
+            "### Opening (Rozpoczęcie)",
+            "### Body (Główna część)",
+            "### Closing (Zakończenie)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "39445970-7552-4df5-96e2-42e36aa55dbd",
+      "title": "Norweskie powitania i pożegnania",
+      "native_lang": "pl",
+      "target_lang": "no",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia",
+          "subsections": [
+            "### Cwiczenie 1: Powitania",
+            "### Cwiczenie 2: Pozegnania",
+            "### Cwiczenie 3: Wiadomosci"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3944dcb8-857c-4793-a30f-13b4b325df7e",
+      "title": "Hiszpanskie powitania i pożegnania dla par",
+      "native_lang": "pl",
+      "target_lang": "es",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Specjalne okazje",
+          "subsections": [
+            "### Przed podroza",
+            "### Przed ważnym wydarzeniem"
+          ]
+        },
+        {
+          "header": "## Roznice regionalne",
+          "subsections": [
+            "### Hiszpania vs. Ameryka Łacińska",
+            "### Argentyna",
+            "### Meksyk"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Poranna rutyna",
+            "### Cwiczenie 2: SMS-y",
+            "### Cwiczenie 3: Odgrywanie scenek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "39b2bdc6-fe3f-4ebf-b172-5b7460ff4071",
+      "title": "50+ Tschechische Liebesphrasen zum Dahinschmelzen",
+      "native_lang": "de",
+      "target_lang": "cs",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Besondere Anlässe und Feiern",
+          "subsections": [
+            "### Jahrestags-Phrasen",
+            "### Heiratsantrag- und Hochzeits-Phrasen"
+          ]
+        },
+        {
+          "header": "## Romantische Phrasen nach Situation",
+          "subsections": [
+            "### Fernbeziehungen",
+            "### Nach einem Streit",
+            "### Einfach So"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3a4de7a9-3e7a-4489-8b46-b95bccbc442b",
+      "title": "Romantyczne rosyjskie zwroty na każda okazje",
+      "native_lang": "pl",
+      "target_lang": "ru",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Kartka na okazję",
+            "### Ćwiczenie 2: Codzieńne wyznanie",
+            "### Ćwiczenie 3: Toast rocznicowy"
+          ]
+        }
+      ]
+    }
+  ]
+}

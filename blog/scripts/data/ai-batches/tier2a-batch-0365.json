@@ -1,0 +1,125 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0365",
+  "articles": [
+    {
+      "id": "67c9345c-9601-4f68-98e2-6695ab9724bf",
+      "title": "Yunanca Seni Özledim İfadeleri: Hasret Sözleri",
+      "native_lang": "tr",
+      "target_lang": "el",
+      "category": "communication",
+      "content": "# Yunanca Seni Özledim İfadeleri\n\nYunanlar duygularını açıkça ifade etmekten çekinmez. Bu rehberde Yunanca özlem ifadelerini öğreneceksiniz.\n\n## Temel Özlem İfadeleri\n\n### 1. \"Μου λείπεις\" (Mou lipis)\n**Telaffuz:** \"Mu lipis\"\n**Anlam:** Seni özledim\n\n### 2. \"Μου λείπεις πολύ\" (Mou lipis poli)\n**Telaffuz:** \"Mu lipis poli\"\n**Anlam:** Seni çok özledim\n\n### 3. \"Λαχταράω να σε δω\" (Lahtarao na se do)\n**Telaffuz:** \"Lahtaro na se do\"\n**Anlam:** Seni görmeyi hasretle bekliyorum\n\n### 4. \"Μακάρι να ήσουν εδώ\" (Makari na isoun edo)\n**Telaffuz:** \"Makari na isun edo\"\n**Anlam:** Keşke burada olsaydın\n\n### 5. \"Σκέφτομαι συνέχεια εσένα\" (Skeftome sinehia esena)\n**Telaffuz:** \"Skeftome sinehia esena\"\n**Anlam:** Sürekli seni düşünüyorum\n\n### 6. \"Νιώθω άδεια χωρίς εσένα\" (Niotho adia horis esena)\n**Telaffuz:** \"Niyoto adya horis esena\"\n**Anlam:** Sensiz boş hissediyorum\n\n### 7. \"Μετράω τις μέρες μέχρι να σε δω\" (Metrao tis meres mehri na se do)\n**Telaffuz:** \"Metrao tis meres mehri na se do\"\n**Anlam:** Seni görene kadar günleri sayıyorum\n\n### 8. \"Είσαι τα πάντα για μένα\" (Ise ta panda gia mena)\n**Telaffuz:** \"İse ta panda ya mena\"\n**Anlam:** Benim için her şeysin\n\n### 9. \"Η καρδιά μου σε λαχταράει\" (I kardia mou se lahtarai)\n**Telaffuz:** \"İ kardiya mu se lahtarai\"\n**Anlam:** Kalbim seni özlüyor\n\n### 10. \"Ελπίζω να σε δω σύντομα\" (Elpizo na se do sindoma)\n**Telaffuz:** \"Elpizo na se do sindoma\"\n**Anlam:** Umarım seni yakında görürüm\n\n## Sonuç\n\nYunanca özlem ifadelerini öğrenmek, Yunan sevdiklerinizle bağınızı güçlendirir.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 231,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Temel Özlem İfadeleri"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "67e43b70-9214-4a3f-8725-d07a5d411ca5",
+      "title": "Udtryk Følelser på Ungarsk: Komplet Guide for Par",
+      "native_lang": "da",
+      "target_lang": "hu",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nAt kunne udtrykke dine følelser på din partners sprog skaber en unik forbindelse. Når du fortæller din partner hvordan du har det på ungarsk, viser du en sårbarhed der styrker jeres forhold. Denne guide giver dig ordforrådet til at dele glæde, sorg, kærlighed og alt derimellem. Kombiner dette med vores [ungarske romantiske fraser](/learn/da/hu/hungarian-romantic-phrases-for-every-occasion/).\n\n<PhraseOfDay\n  word=\"I feel happy\"\n  translation=\"Jeg føler mig glad\"\n  pronunciation=\"ai fiil ha-pi\"\n  context=\"En vigtig følelsesudtryk på ungarsk\"\n/>\n\n## Positive Følelser\n\nLad os starte med de gode følelser:\n\n<VocabCard\n  word=\"I'm happy\"\n  translation=\"Jeg er lykkelig\"\n  pronunciation=\"aim ha-pi\"\n  example=\"I'm so happy with you.\"\n/>\n\n### Glæde og Lykke\n\n| Ungarsk | Dansk | Udtale |\n|---------|-------|--------|\n| **I'm happy** | Jeg er lykkelig | aim ha-pi |\n| **I'm filled with joy** | Jeg er fyldt med glæde | aim fild wid joi |\n| **I'm excited** | Jeg er begejstret | aim ek-sai-ted |\n| **I'm grateful** | Jeg er taknemmelig | aim grei-ful |\n| **I'm content** | Jeg er tilfreds | aim kon-tent |\n\n### Kærlighed og Hengivenhed\n\n- **I'm in love** (Jeg er forelsket) - \"aim in lav\"\n- **I adore you** (Jeg tilbeder dig) - \"ai uh-dor juu\"\n- **I'm crazy about you** (Jeg er vild med dig) - \"aim krei-zi uh-baut juu\"\n- **You mean everything to me** (Du betyder alt for mig) - \"juu miin ev-ri-thing\"\n\n<CultureTip flag=\"🇭🇺\" title=\"Følelseskultur\">\nEnglændere udtrykker ofte følelser mere subtilt. 'I'm quite happy' kan betyde 'jeg er meget glad'.\n</CultureTip>\n\n## Negative Følelser\n\nDet er vigtigt at kunne dele de svære følelser:\n\n<VocabCard\n  word=\"I'm sad\"\n  translation=\"Jeg er trist\"\n  pronunciation=\"aim sad\"\n  example=\"I'm feeling sad today.\"\n/>\n\n### Tristhed og Sorg\n\n| Ungarsk | Dansk | Udtale |\n|---------|-------|--------|\n| **I'm sad** | Jeg er trist | aim sad |\n| **I'm upset** | Jeg er ked af det | aim up-set |\n| **I'm disappointed** | Jeg er skuffet | aim dis-uh-poin-ted |\n| **I'm hurt** | Jeg er såret | aim hart |\n| **I feel lonely** | Jeg føler mig ensom | ai fiil loun-li |\n\n### Frustrationer\n\n- **I'm frustrated** (Jeg er frustreret) - \"aim frus-trei-ted\"\n- **I'm stressed** (Jeg er stresset) - \"aim strest\"\n- **I'm worried** (Jeg er bekymret) - \"aim wu-riid\"\n- **I'm overwhelmed** (Jeg er overvældet) - \"aim ou-vur-welmd\"\n\n## Fysiske Fornemmelser\n\n| Ungarsk | Dansk | Udtale |\n|---------|-------|--------|\n| **I'm tired** | Jeg er træt | aim tai-urd |\n| **I'm full of energy** | Jeg er fuld af energi | aim ful ov e-nur-ji |\n| **I'm relaxed** | Jeg er afslappet | aim ri-lakst |\n| **I feel sick** | Jeg har det dårligt | ai fiil sik |\n\n## Spørge til Partnerens Følelser\n\n<VocabCard\n  word=\"How are you feeling?\"\n  translation=\"Hvordan har du det?\"\n  pronunciation=\"hau ar juu fii-ling?\"\n  example=\"How are you feeling today?\"\n/>\n\n- **What's wrong?** (Hvad er der galt?) - \"wots rong?\"\n- **Tell me how you feel** (Fortæl mig hvad du føler) - \"tel mi hau juu fiil\"\n- **Can I help?** (Kan jeg hjælpe?) - \"kan ai help?\"\n- **I'm here for you** (Jeg er her for dig) - \"aim hiir for juu\"\n\n<CultureTip flag=\"🇭🇺\" title=\"At dele følelser\">\nEnglændere kan være tilbageholdende med følelser. Giv din partner tid og rum.\n</CultureTip>\n\n## Reagere på Partnerens Følelser\n\n### Støttende Svar\n- **I understand** (Jeg forstår)\n- **I'm sorry to hear that** (Det er jeg ked af at høre)\n- **You're not alone** (Du er ikke alene)\n- **We'll get through this together** (Vi klarer det sammen)\n\n### Trøstende Ord\n- **It will be alright** (Det bliver okay)\n- **I love you** (Jeg elsker dig)\n- **Come, let me hold you** (Kom, lad mig holde dig)\n- **You're strong** (Du er stærk)\n\n## \"Du Gør Mig...\" Fraser\n\n| Ungarsk | Dansk |\n|---------|-------|\n| **You make me happy** | Du gør mig lykkelig |\n| **You make me smile** | Du får mig til at smile |\n| **You make me laugh** | Du får mig til at grine |\n| **You make me feel special** | Du får mig til at føle mig speciel |\n\n## Tips til Emotionel Kommunikation\n\n1. **Brug \"jeg\"-sætninger** - \"Jeg føler...\" i stedet for \"Du gør mig...\"\n2. **Vær specifik** - Fortæl præcis hvad du føler\n3. **Accepter alle følelser** - Der er ingen forkerte følelser\n4. **Lyt aktivt** - Vis forståelse med nikke og øjenkontakt\n\nFor flere måder at udtrykke kærlighed, se [hvordan man siger jeg elsker dig på ungarsk](/learn/da/hu/hungarian-how-to-say-i-love-you/).\n\nAt mestre det emotionelle ordforråd på ungarsk åbner for dybere samtaler med din partner.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Reagere på Partnerens Følelser"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "67ec58d0-5fc0-4648-be1e-d8050ebaca7c",
+      "title": "Ungarische Kosenamen und Liebkosungen für Paare",
+      "native_lang": "de",
+      "target_lang": "hu",
+      "category": "vocabulary",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport CTA from '@components/CTA.astro';\n\n# Ungarische Kosenamen und Liebkosungen für Paare\n\nKosenamen sind eine wunderbare Art, deinem Partner zu zeigen, wie viel er oder sie dir bedeutet. Wenn dein Partner Ungarisch spricht, wird es ihn/sie sicher freuen, wenn du diese liebevollen Ausdrücke verwendest!\n\n## Klassische Kosenamen\n\nDiese Kosenamen sind zeitlos und werden in fast jeder Ungarischsprachigen Region verstanden:\n\n**Schatz / Liebling** - Die klassischsten Kosenamen, die nie aus der Mode kommen.\n\n**Mein Herz** - Ein gefühlvoller Ausdruck, der zeigt, wie wichtig dir dein Partner ist.\n\n## Süße Tiernamen\n\nWie in vielen Kulturen werden auch im Ungarischen gerne Tiernamen als Kosenamen verwendet:\n\n- Bärchen (little bear)\n- Mäuschen (little mouse)\n- Häschen (bunny)\n- Spätzchen (little sparrow)\n\n<CultureTip>\nKosenamen variieren oft regional. Was in einer Region üblich ist, kann in einer anderen ungewöhnlich klingen. Frage deinen Partner, welche Namen in seiner/ihrer Heimat gebräuchlich sind!\n</CultureTip>\n\n## Romantische Ausdrücke\n\nNeben Kosenamen gibt es viele romantische Ausdrücke:\n\n- Meine Liebe (my love)\n- Mein Ein und Alles (my everything)\n- Seelenverwandter (soulmate)\n\n## Kosenamen für verschiedene Anlässe\n\n### Im Alltag\nVerwende lockere, kurze Kosenamen für den täglichen Gebrauch.\n\n### Für romantische Momente\nLängere, gefühlvollere Ausdrücke passen zu besonderen Momenten.\n\n### Zum Necken\nHumorvolle Kosenamen können eure Beziehung auflockern.\n\n## Tipps zur Verwendung\n\n1. **Frage deinen Partner**: Nicht jeder mag jeden Kosenamen\n2. **Achte auf die Aussprache**: Übe die richtige Aussprache\n3. **Sei authentisch**: Verwende Namen, die zu euch als Paar passen\n4. **Kreiere eigene Namen**: Die persönlichsten Kosenamen sind oft selbst erfunden\n\n<CTA />",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 217,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Kosenamen für verschiedene Anlässe"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "68004fb8-999b-4c5c-bcc2-c28cf8c86283",
+      "title": "Olasz évfordulós kívánságok és üzenetek",
+      "native_lang": "hu",
+      "target_lang": "it",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nAz évforduló a kapcsolatotok ünneplésének különleges alkalma. Ha olaszul szeretnéd kifejezni az érzéseidet ezen a napon, ezek a kifejezések segítenek.\n\nTovábbi romantikus kifejezésekért nézd meg az [Olasz romantikus kifejezések](/learn/hu/it/italian-romantic-phrases-for-every-occasion) útmutatónkat.\n\n<PhraseOfDay\n  word=\"Congratulazioni!\"\n  translation=\"Gratulálok!\"\n  pronunciation=\"konɡratulaˈtsjoːni\"\n  context=\"Az esküvői köszöntés alapja.\"\n/>\n\n## Alapvető szókincs\n\nAz évfordulós köszöntések alapvető olasz szókincse:\n\n<VocabCard\n  word=\"matrimonio\"\n  translation=\"esküvő\"\n  pronunciation=\"matriˈmɔːnjo\"\n  example=\"Il matrimonio era bellissimo.\"\n/>\n\n| Olasz | Magyar | Használat |\n|---|---|---|\n| sposa | menyasszony | A nő |\n| sposo | vőlegény | A férfi |\n| voti | fogadalmak | Esküvői ígéretek |\n| cerimonia | szertartás | A hivatalos rész |\n| ricevimento | fogadás | Az ünneplés |\n| brindisi | köszöntő | Pohárköszöntő |\n\n<CultureTip flag=\"🌍\" title=\"Olasz kulturális tippek\">\nA olasz kultúrában az évfordulóknak különleges jelentőségük van. Egyes helyeken hagyományos ajándékokat adnak az évek számától függően.\n</CultureTip>\n\n## Hasznos kifejezések\n\n### Évfordulós köszöntések\n\nAz évforduló napján mondd:\n\n- **Congratulazioni!** - Gratulálok!\n- **Minden nap jobban szeretlek** - Romantikus vallomás\n- **Köszönöm, hogy velem vagy** - Hálás szavak\n\n### Hosszabb üzenetek\nHa többet szeretnél mondani:\n\n- **Veled minden nap különleges** - Romantikus\n- **A legjobb döntés volt, hogy igentet mondtam** - Visszatekintő\n\n<VocabCard\n  word=\"luna di miele\"\n  translation=\"nászút\"\n  pronunciation=\"ˈluːna di ˈmjɛːle\"\n  example=\"Sono andati in luna di miele.\"\n/>\n\n## Gyakorlati helyzetek\n\n| Helyzet | Mit mondj |\n|---|---|\n| Reggeli köszöntés | Boldog évfordulót kívánok! |\n| Kártyára | Írj személyes üzenetet |\n| Vacsoránál | Mondj köszöntőt |\n| Lefekvés előtt | Fejezd ki a háládat |\n\n<CultureTip flag=\"💡\" title=\"Hasznos tipp\">\nÍrd le előre, amit mondani szeretnél. Az évforduló érzelmes pillanat, és a leírt szavak segítenek, hogy ne felejtsd el, amit mondani akarsz.\n</CultureTip>\n\n## Összefoglaló táblázat\n\n| Helyzet | Olasz kifejezés |\n|---|---|\n| Gratuláció | Congratulazioni! |\n| Az esemény | matrimonio |\n| A nő | sposa |\n| A férfi | sposo |\n| Esküvői ígéretek | voti |\n\n## További tanulás\n\nHa tovább szeretnéd fejleszteni a olasz nyelvtudásod, nézd meg ezeket a cikkeinket:\n\n- [Olasz romantikus kifejezések minden alkalomra](/learn/hu/it/italian-romantic-phrases-for-every-occasion)\n- [Hogyan mondd: Szeretlek olaszul](/learn/hu/it/italian-how-to-say-i-love-you)\n- [Olasz alapvető kifejezések pároknak](/learn/hu/it/italian-essential-phrases-for-couples)\n\nEzek a források segítenek elmélyíteni a tudásod és magabiztosabbá válni a olasz nyelvben.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 272,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Hasznos kifejezések"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "6804c3d4-c19c-42d2-9a3b-e8dd0bb1d00d",
+      "title": "Frases para Conhecer os Sogros em Holandês: Guia Completo",
+      "native_lang": "pt",
+      "target_lang": "nl",
+      "category": "communication",
+      "content": "Conhecer os sogros holandeses requer naturalidade e sinceridade. Os holandeses são diretos e valorizam honestidade.\n\n## Frases para o Primeiro Encontro\n\n### Apresentação\n\n**Het is zo fijn om u eindelijk te ontmoeten.**\n*É tão bom finalmente conhecê-los.*\n\n**[Nome] heeft me zoveel over u verteld.**\n*[Nome] me contou tanto sobre vocês.*\n\n**Hartelijk dank voor de uitnodiging.**\n*Muito obrigado(a) pelo convite.*\n\n**Ik keek erg uit naar deze ontmoeting.**\n*Estava ansioso(a) por este encontro.*\n\n### Elogiando\n\n**U heeft een prachtig huis.**\n*Vocês têm uma casa linda.*\n\n**Het eten is heerlijk.**\n*A comida está deliciosa.*\n\n**Nu weet ik waar [nome] zijn/haar [qualidade] vandaan heeft.**\n*Agora sei de onde [nome] herdou [qualidade].*\n\n### Mostrando Interesse\n\n**Ik zou graag meer willen weten over uw familietradities.**\n*Gostaria de saber mais sobre as tradições da família.*\n\n**Hoe hebben jullie elkaar ontmoet?**\n*Como vocês se conheceram?*\n\n**Hoe was [nome] als kind?**\n*Como era [nome] quando criança?*\n\n### Expressando Gratidão\n\n**Bedankt dat u me zo welkom laat voelen.**\n*Obrigado(a) por me fazerem sentir tão bem-vindo(a).*\n\n**Ik waardeer uw gastvrijheid enorm.**\n*Agradeço muito a hospitalidade de vocês.*\n\n## Oferecendo Ajuda\n\n**Kan ik ergens mee helpen?**\n*Posso ajudar com algo?*\n\n**Laat mij helpen met de afwas.**\n*Deixe-me ajudar com a louça.*\n\n## Despedindo-se\n\n**Bedankt voor de gezellige tijd.**\n*Obrigado(a) pelo momento agradável.*\n\n**Ik hoop u snel weer te zien.**\n*Espero revê-los em breve.*\n\n## Dicas Culturais\n\n- **\"U\" vs \"je\"** - Use \"u\" inicialmente\n- **Gezelligheid** - Aprecie o momento aconchegante\n- **Presente** - Flores ou vinho\n- **Café** - Aceite sempre\n- **Franqueza** - Seja honesto e direto\n\nEerlijkheid wordt gewaardeerd - honestidade é valorizada!",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 264,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frases para o Primeiro Encontro"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

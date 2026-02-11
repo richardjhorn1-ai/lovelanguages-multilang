@@ -1,0 +1,56 @@
+{
+  "tier": 1,
+  "batchId": "tier1-batch-075",
+  "articles": [
+    {
+      "id": "d1a2053b-8848-4d3a-96a7-5f9628714e2c",
+      "title": "Conversații și subiecte de discuție în cehă",
+      "native_lang": "ro",
+      "target_lang": "cs",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nArta conversației ușoare este esențială pentru a te conecta cu familia și prietenii partenerului tău.\n\n<PhraseOfDay\n  word=\"Jak se máš?\"\n  translation=\"Ce mai faci? / Cum ești?\"\n  pronunciation=\"\"\n  context=\"Cel mai comun mod de a începe o conversație\"\n/>\n\n## Începe o conversație\n\n<VocabCard\n  word=\"Jak se máš?\"\n  translation=\"Ce mai faci? / Cum ești?\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Dnes je hezky\"\n  translation=\"Vremea e frumoasă azi\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇨🇿\" title=\"Cultura conversațiilor\">\nCehii apreciază scuzele sincere și directe. Un 'promiň' din inimă este mai valoros decât scuze elaborate - arată că îți pasă.\n</CultureTip>\n\n## Întrebări pentru a cunoaște pe cineva\n\n| Cehă | Română |\n|---------|---------|\n| Jak se máš? | Ce mai faci? |\n| Dnes je hezky | Vremea e frumoasă azi |\n| Máš plány na víkend? | Ai planuri pentru weekend? |\n| Jaké máš koníčky? | Care sunt hobby-urile tale? |\n\n<VocabCard\n  word=\"Jaké máš koníčky?\"\n  translation=\"Care sunt hobby-urile tale?\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Subiecte sigure de conversație\n\n1. **Vremea** – Întotdeauna un început sigur\n2. **Mâncarea** – Laudă bucătăria locală\n3. **Hobby-urile** – Arată interes pentru pasiunile lor\n4. **Călătoriile** – Împărtășește experiențe comune\n5. **Familia** – Întreabă despre cei dragi\n\n<CTA />\n\n## Articole conexe\n\n- [Salutări și despărțiri în cehă](/ro/cs/czech-greetings-and-farewells)\n- [Întâlnirea cu familia partenerului în cehă](/ro/cs/czech-meeting-your-partner-s-family)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "d2d2c124-71ed-4897-99e0-6e5306459b58",
+      "title": "Smalltalk auf Rumänisch – Gesprächseinstiege für Paare",
+      "native_lang": "de",
+      "target_lang": "ro",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\n# Smalltalk auf Rumänisch – Gesprächseinstiege für Paare\n\nSmalltalk ist eine Kunst, die in jeder Sprache wichtig ist. Wenn du die Familie und Freunde deines Partners kennenlernst, helfen dir diese Rumänischen Phrasen dabei, das Eis zu brechen und interessante Gespräche zu führen.\n\n<PhraseOfDay\n  word=\"How are you?\"\n  translation=\"Wie geht es dir/Ihnen?\"\n  pronunciation=\"hau ar juu?\"\n  context=\"Ein klassischer Gesprächseinstieg\"\n/>\n\n## Gespräche beginnen\n\n<VocabCard\n  word=\"How are you?\"\n  translation=\"Wie geht es dir/Ihnen?\"\n  pronunciation=\"hau ar juu?\"\n  example=\"How are you today?\"\n/>\n\n<VocabCard\n  word=\"Nice weather today, isn't it?\"\n  translation=\"Schönes Wetter heute, nicht wahr?\"\n  pronunciation=\"nais WEH-dhör tu-DEI\"\n  example=\"Nice weather we're having!\"\n/>\n\n| Rumänisch | Deutsch |\n|-------------|---------|\n| Where are you from? | Woher kommen Sie? |\n| What do you do for work? | Was machen Sie beruflich? |\n| Have we met before? | Kennen wir uns? |\n\n<CultureTip flag=\"🇷🇴\" title=\"Kultureller Kontext\">\nSmall talk helps build rapport. Show genuine interest and ask follow-up questions.\n</CultureTip>\n\n## Über Hobbys und Interessen\n\n| Rumänisch | Deutsch |\n|-------------|---------|\n| What are your hobbies? | Was sind Ihre Hobbys? |\n| Do you like sports? | Mögen Sie Sport? |\n| What music do you like? | Welche Musik hören Sie gern? |\n| Do you like to travel? | Reisen Sie gern? |\n\n## Über Arbeit und Beruf\n\n<VocabCard\n  word=\"What do you do?\"\n  translation=\"Was arbeiten Sie?\"\n  pronunciation=\"wot du juu duu?\"\n  example=\"What do you do for a living?\"\n/>\n\n| Rumänisch | Deutsch |\n|-------------|---------|\n| Do you enjoy your work? | Gefällt Ihnen Ihre Arbeit? |\n| How long have you worked there? | Seit wann arbeiten Sie dort? |\n| That sounds interesting | Das klingt interessant |\n\n## Über das Wetter\n\nEin Klassiker, der immer funktioniert:\n\n| Rumänisch | Deutsch |\n|-------------|---------|\n| Nice weather today | Schönes Wetter heute |\n| It's warm/cold today | Es ist heute warm/kalt |\n| Hopefully it won't rain | Hoffentlich regnet es nicht |\n| The summer was nice | Der Sommer war schön |\n\n## Gespräche am Laufen halten\n\n| Rumänisch | Deutsch |\n|-------------|---------|\n| That's interesting! | Das ist interessant! |\n| Tell me more | Erzählen Sie mehr |\n| Really? | Wirklich? |\n| I understand | Ich verstehe |\n\n## Höflich nachfragen\n\n<VocabCard\n  word=\"Could you repeat that?\"\n  translation=\"Können Sie das wiederholen?\"\n  pronunciation=\"kud juu ri-PIET dhät?\"\n  example=\"I'm sorry, could you repeat that?\"\n/>\n\n| Rumänisch | Deutsch |\n|-------------|---------|\n| Could you speak slower? | Können Sie langsamer sprechen? |\n| What does that mean? | Was bedeutet das? |\n| I'm still learning | Ich lerne noch Rumänisch |\n\n<CultureTip flag=\"🇷🇴\" title=\"Tipp für Smalltalk\">\nStelle offene Fragen und zeige echtes Interesse an den Antworten. Die Familie deines Partners wird es schätzen, dass du dich bemühst, sie kennenzulernen.\n</CultureTip>\n\n## Verwandte Artikel\n\n- [Rumänische Begrüßungen](/de/blog/romanian-greetings-and-farewells)\n- [Die Familie deines Partners treffen](/de/blog/romanian-meeting-your-partner-s-family)\n\n<CTA />",
+      "issues": [
+        {
+          "type": "language_fingerprint_mismatch",
+          "details": {
+            "nativeLang": "de",
+            "nativeStopWordRatio": 6,
+            "englishStopWordRatio": 10
+          }
+        }
+      ]
+    },
+    {
+      "id": "d3e44c71-406c-42b8-a884-a0e888950c94",
+      "title": "Fraze pentru relații la distanță în greacă",
+      "native_lang": "ro",
+      "target_lang": "el",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nRelațiile la distanță sunt dificile, dar limba poate fi puntea care vă conectează inimile. Când îi spui partenerului că îți lipsește în limba lui, cuvintele capătă o putere specială.\n\n<PhraseOfDay\n  word=\"Μου λείπεις πολύ\"\n  translation=\"Îmi lipsești foarte mult\"\n  pronunciation=\"\"\n  context=\"Expresia perfectă pentru când ești departe de cel drag\"\n/>\n\n## Expresii pentru dor și lipsă\n\n<VocabCard\n  word=\"Μου λείπεις πολύ\"\n  translation=\"Îmi lipsești foarte mult\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Σε σκέφτομαι\"\n  translation=\"Mă gândesc la tine\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇬🇷\" title=\"Exprimarea dorului\">\nGrecii sunt foarte expresivi emoțional. Scuzele sincere și călduroase sunt apreciate - arată emoție și sinceritate în exprimare.\n</CultureTip>\n\n## Menținerea conexiunii\n\n| Greacă | Română |\n|---------|---------|\n| Μου λείπεις πολύ | Îmi lipsești foarte mult |\n| Ανυπομονώ να σε δω | Abia aștept să te văd |\n| Σε σκέφτομαι | Mă gândesc la tine |\n| Μετράω τις μέρες | Număr zilele |\n\n<VocabCard\n  word=\"Ανυπομονώ να σε δω\"\n  translation=\"Abia aștept să te văd\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru relații la distanță\n\n1. **Comunicați zilnic** – Chiar și un mesaj scurt contează\n2. **Programați apeluri video** – Fețele vă apropie\n3. **Trimiteți surprize** – Scrisori, colete, flori\n4. **Aveți un calendar comun** – Numărătoare inversă până la revedere\n5. **Creați ritualuri** – \"Noapte bună\" la aceeași oră\n\n<CTA />\n\n## Articole conexe\n\n- [Fraze pentru apeluri video cu familia](/ro/el/greek-video-call-phrases-family)\n- [Mesaje de bună dimineața și noapte bună în greacă](/ro/el/greek-good-morning-goodnight-phrases)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    }
+  ]
+}

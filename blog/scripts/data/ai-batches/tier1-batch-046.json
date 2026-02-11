@@ -1,0 +1,54 @@
+{
+  "tier": 1,
+  "batchId": "tier1-batch-046",
+  "articles": [
+    {
+      "id": "7b10e514-22c5-4f0e-a6f2-8a950855b8e6",
+      "title": "Exprimarea emoțiilor în cehă – Vocabular pentru sentimente",
+      "native_lang": "ro",
+      "target_lang": "cs",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nExprimarea emoțiilor este fundamentală pentru o relație sănătoasă. Când poți comunica cum te simți în limba partenerului tău, conexiunea devine mai profundă și mai autentică.\n\n<PhraseOfDay\n  word=\"Miluji tě\"\n  translation=\"Te iubesc\"\n  pronunciation=\"\"\n  context=\"Cea mai importantă expresie pentru cupluri\"\n/>\n\n## Emoții pozitive în Cehă\n\n<VocabCard\n  word=\"Jsem šťastný/á\"\n  translation=\"Sunt fericit/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Miluji tě\"\n  translation=\"Te iubesc\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Jsem nadšený/á\"\n  translation=\"Sunt entuziasmat/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇨🇿\" title=\"Expresivitatea emoțională\">\nCehii apreciază scuzele sincere și directe. Un 'promiň' din inimă este mai valoros decât scuze elaborate - arată că îți pasă.\n</CultureTip>\n\n## Emoții negative în Cehă\n\nEste la fel de important să poți exprima emoțiile dificile:\n\n| Cehă | Română |\n|---------|---------|\n| Jsem smutný/á | Sunt trist/ă |\n| Jsem naštvaný/á | Sunt supărat/ă |\n| Chybíš mi | Mi-e dor de tine |\n\n## Expresii pentru starea de spirit\n\n<VocabCard\n  word=\"Chybíš mi\"\n  translation=\"Mi-e dor de tine\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru exprimarea emoțiilor\n\n1. **Folosește \"eu\" în loc de \"tu\"** – \"Mă simt trist\" vs \"Tu mă faci trist\"\n2. **Fii specific** – Descrie exact ce simți\n3. **Validează emoțiile partenerului** – Repetă ce ai auzit pentru confirmare\n4. **Alege momentul potrivit** – Nu discuta emoții grele când ești obosit\n5. **Exersează regulat** – Vorbiți zilnic despre cum vă simțiți\n\n<CTA />\n\n## Articole conexe\n\n- [Cum să îți ceri scuze în cehă](/ro/cs/czech-how-to-apologize)\n- [Complimente în cehă](/ro/cs/czech-giving-compliments)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "7b315f5e-cf72-4d03-a0d1-fa2d0f46b451",
+      "title": "Bună dimineața și noapte bună în suedeză – Mesaje drăguțe",
+      "native_lang": "ro",
+      "target_lang": "sv",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nZiua începe și se termină mai frumos când îi urezi partenerului în limba lui. Aceste mesaje vor aduce zâmbete în fiecare zi.\n\n<PhraseOfDay\n  word=\"God morgon\"\n  translation=\"Bună dimineața\"\n  pronunciation=\"\"\n  context=\"Începe fiecare zi cu o urare caldă\"\n/>\n\n## Mesaje de bună dimineața\n\n<VocabCard\n  word=\"God morgon\"\n  translation=\"Bună dimineața\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇸🇪\" title=\"Saluturile zilnice\">\nSuedezii sunt mai rezervați dar sinceri. Scuzele calme și directe sunt apreciate - acțiunile care urmează sunt la fel de importante ca și cuvintele.\n</CultureTip>\n\n## Mesaje de noapte bună\n\n| Suedeză | Română |\n|---------|---------|\n| God natt | Noapte bună |\n| Sov gott | Vise frumoase |\n| Sov gott | Somn ușor |\n\n<VocabCard\n  word=\"God natt\"\n  translation=\"Noapte bună\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Sov gott\"\n  translation=\"Vise frumoase\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru mesajele zilnice\n\n1. **Fii consistent** – Un mesaj zilnic creează un ritual frumos\n2. **Personalizează** – Adaugă o amintire sau o glumă internă\n3. **Variază** – Nu folosi aceeași frază în fiecare zi\n4. **Adaugă emoji** – 💕 și 😘 sunt universale\n5. **Fii spontan** – Uneori, un mesaj în mijlocul nopții e cel mai romantic\n\n<CTA />\n\n## Articole conexe\n\n- [Fraze pentru relații la distanță în suedeză](/ro/sv/swedish-long-distance-relationship)\n- [Alinturile în suedeză](/ro/sv/swedish-pet-names-and-terms-of-endearment-50)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    },
+    {
+      "id": "7b5ab8f7-c57c-4d60-b2b1-f75dc5e7c034",
+      "title": "Exprimarea emoțiilor în greacă – Vocabular pentru sentimente",
+      "native_lang": "ro",
+      "target_lang": "el",
+      "category": "communication",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nExprimarea emoțiilor este fundamentală pentru o relație sănătoasă. Când poți comunica cum te simți în limba partenerului tău, conexiunea devine mai profundă și mai autentică.\n\n<PhraseOfDay\n  word=\"Σ' αγαπώ\"\n  translation=\"Te iubesc\"\n  pronunciation=\"\"\n  context=\"Cea mai importantă expresie pentru cupluri\"\n/>\n\n## Emoții pozitive în Greacă\n\n<VocabCard\n  word=\"Είμαι χαρούμενος/η\"\n  translation=\"Sunt fericit/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Σ' αγαπώ\"\n  translation=\"Te iubesc\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<VocabCard\n  word=\"Είμαι ενθουσιασμένος/η\"\n  translation=\"Sunt entuziasmat/ă\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n<CultureTip flag=\"🇬🇷\" title=\"Expresivitatea emoțională\">\nGrecii sunt foarte expresivi emoțional. Scuzele sincere și călduroase sunt apreciate - arată emoție și sinceritate în exprimare.\n</CultureTip>\n\n## Emoții negative în Greacă\n\nEste la fel de important să poți exprima emoțiile dificile:\n\n| Greacă | Română |\n|---------|---------|\n| Είμαι λυπημένος/η | Sunt trist/ă |\n| Είμαι θυμωμένος/η | Sunt supărat/ă |\n| Μου λείπεις | Mi-e dor de tine |\n\n## Expresii pentru starea de spirit\n\n<VocabCard\n  word=\"Μου λείπεις\"\n  translation=\"Mi-e dor de tine\"\n  pronunciation=\"\"\n  example=\"\"\n  exampleTranslation=\"\"\n/>\n\n## Sfaturi pentru exprimarea emoțiilor\n\n1. **Folosește \"eu\" în loc de \"tu\"** – \"Mă simt trist\" vs \"Tu mă faci trist\"\n2. **Fii specific** – Descrie exact ce simți\n3. **Validează emoțiile partenerului** – Repetă ce ai auzit pentru confirmare\n4. **Alege momentul potrivit** – Nu discuta emoții grele când ești obosit\n5. **Exersează regulat** – Vorbiți zilnic despre cum vă simțiți\n\n<CTA />\n\n## Articole conexe\n\n- [Cum să îți ceri scuze în greacă](/ro/el/greek-how-to-apologize)\n- [Complimente în greacă](/ro/el/greek-giving-compliments)",
+      "issues": [
+        {
+          "type": "empty_component_props",
+          "details": {
+            "found": "word or translation prop is empty"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,478 @@
+{
+  "batchId": "tier2a-slim-0326",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "df397d73-259c-4f60-9395-f4dd61088c3c",
+      "title": "Apprendre le Polonais avec Séries TV",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Meilleures séries polonaises pour les apprenants de langues",
+          "subsections": [
+            "### Pour débutants",
+            "### Pour apprenants intermédiaires"
+          ]
+        },
+        {
+          "header": "## Films polonais essentiels pour les couples",
+          "subsections": [
+            "### Cinéma classique",
+            "### Films contemporains"
+          ]
+        },
+        {
+          "header": "## Stratégies efficaces pour apprendre ensemble",
+          "subsections": [
+            "### La méthode des trois passages",
+            "### Techniques de visionnage actif"
+          ]
+        },
+        {
+          "header": "## Surmonter les défis courants",
+          "subsections": [
+            "### Dialogues rapides",
+            "### Accents régionaux",
+            "### Références culturelles"
+          ]
+        },
+        {
+          "header": "## Construire votre médiathèque polonaise",
+          "subsections": [
+            "### Plateformes de streaming",
+            "### Recommandations de documentaires"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e007c58e-087c-4556-9ba9-25891c8831aa",
+      "title": "Expressing Emotions in German: Feelings Vocabulary for Couples",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Practice Scenarios",
+          "subsections": [
+            "### Scenario 1: After a Tough Day",
+            "### Scenario 2: Sharing Good News",
+            "### Scenario 3: Working Through a Disagreement"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e0d80e1c-ee10-4625-a96d-7a41f83323a8",
+      "title": "L'ordre des mots en allemand : construire des phrases ensemble",
+      "native_lang": "fr",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Les questions : deux types",
+          "subsections": [
+            "### Questions avec mot interrogatif (W-Fragen)",
+            "### Questions oui/non (Ja/Nein-Fragen)"
+          ]
+        },
+        {
+          "header": "## Exercices pratiques pour couples",
+          "subsections": [
+            "### Exercice 1 : Reconstruisez les phrases",
+            "### Exercice 2 : Complétez les subordonnées",
+            "### Exercice 3 : Variation d'emphase"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e10652f7-0f2f-48ee-9976-aa5f0e431ca9",
+      "title": "Mød din partners hollandske familie: Væsentlige fraser og kulturelle tips til par",
+      "native_lang": "da",
+      "target_lang": "nl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Praktiske samtaleemner",
+          "subsections": [
+            "### Om at lære hollandsk",
+            "### Om Danmark og kulturforskelle"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e12e6e2c-9b71-4acc-a734-ecfab15d6c47",
+      "title": "Italyanca Selamlasmalar ve Vedalasmakar: Kapsamli Rehber",
+      "native_lang": "tr",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Zamana Göre Selamlasmalar",
+          "subsections": [
+            "### Sabah (Mattino)",
+            "### Öğleden Sonra (Pomeriggio)",
+            "### Aksam (Sera)",
+            "### Gece (Notte)"
+          ]
+        },
+        {
+          "header": "## Vedalasma Ifadeleri",
+          "subsections": [
+            "### Samimi Vedalasma",
+            "### Resmi Vedalasma",
+            "### Zaman Belirten Vedalasma"
+          ]
+        },
+        {
+          "header": "## Telefonda ve Mesajda",
+          "subsections": [
+            "### Telefon Acma",
+            "### Telefon Kapatma"
+          ]
+        },
+        {
+          "header": "## Ciftler Icin Özel Selamlasmalar",
+          "subsections": [
+            "### Sabah",
+            "### Aksam",
+            "### Gece"
+          ]
+        },
+        {
+          "header": "## Özel Durumlar",
+          "subsections": [
+            "### Birine Rastladiginda",
+            "### Tanitma"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e13a1cfd-8b45-4689-9574-67bd6c812741",
+      "title": "Párod családjának megismerése törökül: Bemutatkozó kifejezések és kulturális tippek szerelmeseknek",
+      "native_lang": "hu",
+      "target_lang": "tr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Konkrét találkozási szcenáriók",
+          "subsections": [
+            "### 1. Ajkon puszi vs. kézfogás",
+            "### 2. Ajándék átadása",
+            "### 3. Asztali beszélgetés"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e1d07632-b256-4a1f-befa-5364de748a91",
+      "title": "German Cases Explained Simply",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Practice with Your Partner",
+          "subsections": [
+            "### Exercise 1: Article Quiz",
+            "### Exercise 2: Fill in the Blank",
+            "### Exercise 3: Preposition Practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e231c75a-8e4c-44fa-a5e4-fb5385b5bfa0",
+      "title": "Norveççe Gramer Temelleri: Başlangıç Rehberi",
+      "native_lang": "tr",
+      "target_lang": "no",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## İsimler ve Artikeller",
+          "subsections": [
+            "### Cinsiyet Sistemi",
+            "### Belirli Artikel (Tanımlık)",
+            "### Çoğul Yapımı"
+          ]
+        },
+        {
+          "header": "## Fiil Çekimi",
+          "subsections": [
+            "### Harika Haber: Şahıslara Göre Çekim Yok!",
+            "### Fiil Grupları",
+            "### Temel Zamanlar"
+          ]
+        },
+        {
+          "header": "## Sıfatlar",
+          "subsections": [
+            "### Sıfat Uyumu",
+            "### Belirli Form"
+          ]
+        },
+        {
+          "header": "## Cümle Yapısı",
+          "subsections": [
+            "### V2 Kuralı (Fiil İkinci Pozisyonda)",
+            "### Soru Cümleleri"
+          ]
+        },
+        {
+          "header": "## Zamirler",
+          "subsections": [
+            "### Şahıs Zamirleri",
+            "### İyelik Zamirleri"
+          ]
+        },
+        {
+          "header": "## Pratik Cümleler",
+          "subsections": [
+            "### Romantik İfadeler",
+            "### Günlük İfadeler"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e27b1ac3-24f3-4b5e-9c64-73a90f91ba40",
+      "title": "Rencontrer la famille de votre partenaire ukrainien : phrases essentielles pour faire bonne impression",
+      "native_lang": "fr",
+      "target_lang": "uk",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Scènes typiques de la rencontre",
+          "subsections": [
+            "### 1. Arrivée chez les parents",
+            "### 2. À table avec la famille",
+            "### 3. Conversation avec la grand-mère"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e29838b8-e24d-4fab-8a95-5471911bfe1f",
+      "title": "55+ Norveççe Randevu İfadesi | Fjord Kenarında Aşk",
+      "native_lang": "tr",
+      "target_lang": "no",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Restoranda",
+          "subsections": [
+            "### Giriş ve Rezervasyon",
+            "### Menüyü Okuma",
+            "### Sipariş Verme",
+            "### Yemek Sırasında Konuşmalar",
+            "### Ödeme"
+          ]
+        },
+        {
+          "header": "## Romantik Konuşmalar",
+          "subsections": [
+            "### Akşam Boyunca",
+            "### Akşamın Sonunda"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e2a5e5a5-b64e-44d0-b943-a7e8465fd38d",
+      "title": "Pierwsze spotkanie z rodziną Twojego partnera po niderlandzku",
+      "native_lang": "pl",
+      "target_lang": "nl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Przedstawianie się i rozmowa wstępna",
+          "subsections": [
+            "### Przykładowa pierwsza rozmowa:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e39f8940-350f-4c98-961e-e8985a734935",
+      "title": "50 Essentiella Nederländska Fraser för Par: Från Första Hej till Djup Koppling",
+      "native_lang": "sv",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Speciella Ögonblick: Fraser för Minnesvärda Stunder",
+          "subsections": [
+            "### Födelsedagar och Jubileum",
+            "### Godnatt och Sov Gott"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e3fef735-ab91-4138-9ddf-71fde7f46d60",
+      "title": "75+ Italian Love Phrases to Sweep Your Partner Away",
+      "native_lang": "en",
+      "target_lang": "it",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Saying \"I Love You\" - Different Ways",
+          "subsections": [
+            "### The Classic Ways",
+            "### Expressing Deeper Love"
+          ]
+        },
+        {
+          "header": "## First Date Phrases",
+          "subsections": [
+            "### Complimenting Your Date",
+            "### Expressing Interest"
+          ]
+        },
+        {
+          "header": "## New Relationship Phrases",
+          "subsections": [
+            "### Falling in Love",
+            "### Making It Official"
+          ]
+        },
+        {
+          "header": "## Everyday Romance",
+          "subsections": [
+            "### Morning Phrases",
+            "### During the Day",
+            "### Evening Phrases"
+          ]
+        },
+        {
+          "header": "## During Difficult Times",
+          "subsections": [
+            "### Comfort and Support",
+            "### After a Disagreement"
+          ]
+        },
+        {
+          "header": "## Special Occasions",
+          "subsections": [
+            "### Valentine's Day",
+            "### Anniversaries",
+            "### Proposals"
+          ]
+        },
+        {
+          "header": "## Compliments for Any Day",
+          "subsections": [
+            "### About Appearance",
+            "### About Character"
+          ]
+        },
+        {
+          "header": "## Practice Exercises for Couples",
+          "subsections": [
+            "### Daily Phrase Challenge",
+            "### Romantic Message Exchange",
+            "### Role Play Scenarios"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e4d9ab6e-621c-46f9-b774-8b09f3116d38",
+      "title": "Английские приветствия и прощания для пар",
+      "native_lang": "ru",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## В текстовых сообщениях",
+          "subsections": [
+            "### Приветствия:",
+            "### Прощания:"
+          ]
+        },
+        {
+          "header": "## Практические упражнения",
+          "subsections": [
+            "### Утренний ритуал:",
+            "### Прощание на день:",
+            "### Вечернее прощание:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "e5788c69-2219-4203-ae9e-6e818b377714",
+      "title": "Vocabulaire de Restaurant en Espagnol",
+      "native_lang": "fr",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Arriver au restaurant",
+          "subsections": [
+            "### Réserver et se présenter",
+            "### Demander des préférences"
+          ]
+        },
+        {
+          "header": "## Lire le menu",
+          "subsections": [
+            "### Les sections du menu",
+            "### Types de plats"
+          ]
+        },
+        {
+          "header": "## Commander",
+          "subsections": [
+            "### Phrases pour commander",
+            "### Demander des détails",
+            "### Préférences alimentaires"
+          ]
+        },
+        {
+          "header": "## Pendant le repas",
+          "subsections": [
+            "### Appeler le serveur",
+            "### Ce dont vous pourriez avoir besoin",
+            "### Commentaires sur la nourriture"
+          ]
+        },
+        {
+          "header": "## Les boissons",
+          "subsections": [
+            "### Commander des boissons",
+            "### Trinquer en couple"
+          ]
+        },
+        {
+          "header": "## L'addition",
+          "subsections": [
+            "### Demander et payer",
+            "### Qui paie ?"
+          ]
+        },
+        {
+          "header": "## Dialogues au restaurant",
+          "subsections": [
+            "### Arrivée et installation",
+            "### Commander",
+            "### Pendant le repas"
+          ]
+        },
+        {
+          "header": "## Exercices de pratique pour couples",
+          "subsections": [
+            "### Exercice 1 : Jeu de rôle",
+            "### Exercice 2 : Créez votre commande",
+            "### Exercice 3 : Que diriez-vous si..."
+          ]
+        }
+      ]
+    }
+  ]
+}

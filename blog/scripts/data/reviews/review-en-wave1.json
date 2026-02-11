@@ -1,0 +1,135 @@
+{
+  "native_lang": "en",
+  "wave": 1,
+  "target_langs_reviewed": ["es", "fr", "de", "it", "pt", "pl"],
+  "articles_reviewed": 12,
+  "clean_articles": 6,
+  "issues": [
+    {
+      "article_id": "0cc39a50-a119-4a3d-9982-cf9f4df81126",
+      "slug": "spanish-small-talk-conversation-starters",
+      "target_lang": "es",
+      "issue_type": "incoherent_content",
+      "severity": "high",
+      "description": "Title promises 'Small Talk: Conversation Starters' but the first three sections (Essential Phrases, More Useful Expressions, Additional Phrases) teach apology/reconciliation phrases ('Lo siento', 'Perdóname', 'Es mi culpa', etc). PhraseOfDay is 'Lo siento' (I'm sorry) which is not a conversation starter. Approximately 26% of the article is off-topic apology content.",
+      "evidence": "PhraseOfDay word='Lo siento' translation='I'm sorry' ... Table: Lo siento | I'm sorry | Perdóname | Forgive me | Es mi culpa | It's my fault"
+    },
+    {
+      "article_id": "0cc39a50-a119-4a3d-9982-cf9f4df81126",
+      "slug": "spanish-small-talk-conversation-starters",
+      "target_lang": "es",
+      "issue_type": "generic_filler",
+      "severity": "medium",
+      "description": "VocabCard 'example' props contain usage instructions in English rather than actual example sentences in Spanish. The example field should show a real Spanish sentence demonstrating usage.",
+      "evidence": "example=\"Use when taking responsibility for a mistake\" / example=\"Use this as a casual way to check in with friends or colleagues\""
+    },
+    {
+      "article_id": "0cc39a50-a119-4a3d-9982-cf9f4df81126",
+      "slug": "spanish-small-talk-conversation-starters",
+      "target_lang": "es",
+      "issue_type": "template_artifacts",
+      "severity": "low",
+      "description": "Grammar error in template-like text: 'essential for make conversation' should be 'essential for making conversation'.",
+      "evidence": "These phrases are essential for make conversation with your Spanish-speaking partner"
+    },
+    {
+      "article_id": "c86cb026-fbfe-4c9f-a90f-530f253dfae6",
+      "slug": "french-word-order-guide-for-couples-sentence-structure-basics",
+      "target_lang": "fr",
+      "issue_type": "bad_pronunciation",
+      "severity": "high",
+      "description": "VocabCard for 'Je t'ai toujours aimé(e)' (I have always loved you) has pronunciation '[zhuh TEHM]' which is actually the pronunciation for 'Je t'aime' (I love you). The correct pronunciation should be approximately 'zhuh tay too-ZHOOR ay-MAY'. This would seriously mislead a learner.",
+      "evidence": "VocabCard word=\"Je t'ai toujours aime(e)\" pronunciation=\"[zhuh TEHM]\""
+    },
+    {
+      "article_id": "c86cb026-fbfe-4c9f-a90f-530f253dfae6",
+      "slug": "french-word-order-guide-for-couples-sentence-structure-basics",
+      "target_lang": "fr",
+      "issue_type": "wrong_language",
+      "severity": "medium",
+      "description": "Multiple French words in teaching tables are missing essential diacritical marks: 'francais' (should be 'français'), 'interessant' (should be 'intéressant'), 'deuxieme' (should be 'deuxième'), 'aime' as past participle (should be 'aimé'), 'm'epouser' (should be 'm'épouser'), 'mange' in passé composé (should be 'mangé'), 'cuisine' in passé composé (should be 'cuisiné'). These accents change meaning and are critical for learners.",
+      "evidence": "un livre francais | interessant | deuxieme | Je t'ai toujours aime | m'epouser | J'ai pas mange | J'ai cuisine hier"
+    },
+    {
+      "article_id": "c86cb026-fbfe-4c9f-a90f-530f253dfae6",
+      "slug": "french-word-order-guide-for-couples-sentence-structure-basics",
+      "target_lang": "fr",
+      "issue_type": "rendering_bug",
+      "severity": "medium",
+      "description": "PhraseOfDay pronunciation contains brackets in the source (pronunciation='[zhuh TEHM]') which causes double-bracket rendering in HTML: '[ [zhuh TEHM] ]'. The template wraps pronunciation in brackets, so the source should not include them.",
+      "evidence": "<p class=\"text-sm text-accent\">[ [zhuh TEHM] ]</p>"
+    },
+    {
+      "article_id": "715154f3-4e0d-4f59-a4ea-2ffa5d954d80",
+      "slug": "german-how-to-apologize-phrases-for-couples",
+      "target_lang": "de",
+      "issue_type": "generic_filler",
+      "severity": "high",
+      "description": "Article is very thin at 340 words. The 'Essential Phrases' table has only 1 row (Es tut mir leid). The structure is a template copy of article 0 (same section names: Essential Phrases, More Useful Expressions, Additional Phrases, Tips, Practice Makes Perfect, Related Articles) with minimal German-specific content. Boilerplate text like 'is the most important phrase to know. Use it whenever you need to apologize.' is copied verbatim with only the topic word swapped.",
+      "evidence": "Essential table: 1 row only. Template text: 'is the most important phrase to know. Use it whenever you need to apologize.' Sections identical to article 0."
+    },
+    {
+      "article_id": "715154f3-4e0d-4f59-a4ea-2ffa5d954d80",
+      "slug": "german-how-to-apologize-phrases-for-couples",
+      "target_lang": "de",
+      "issue_type": "template_artifacts",
+      "severity": "low",
+      "description": "Grammar error in template text: 'essential for apologize' should be 'essential for apologizing'. Same error pattern as article 0.",
+      "evidence": "These phrases are essential for apologize with your German-speaking partner"
+    },
+    {
+      "article_id": "715154f3-4e0d-4f59-a4ea-2ffa5d954d80",
+      "slug": "german-how-to-apologize-phrases-for-couples",
+      "target_lang": "de",
+      "issue_type": "generic_filler",
+      "severity": "medium",
+      "description": "VocabCard example field contains English usage instruction instead of a German example sentence.",
+      "evidence": "example=\"Use when taking responsibility for a mistake\""
+    },
+    {
+      "article_id": "d496ce79-d215-4fd7-8399-e80a258c3824",
+      "slug": "portuguese-travel-phrases-for-couples",
+      "target_lang": "pt",
+      "issue_type": "rendering_bug",
+      "severity": "high",
+      "description": "PhraseOfDay component rendered as empty VocabCard in HTML. The word field is empty in the rendered span element, so the Portuguese phrase 'Onde fica o nosso portao de embarque?' does not appear visually. The PhraseOfDay was incorrectly rendered as a speakable-vocab div instead of a speakable-phrase div.",
+      "evidence": "<span class=\"text-2xl font-bold text-accent font-header\"></span> <span class=\"text-lg text-gray-900\">Where is our boarding gate?</span>"
+    },
+    {
+      "article_id": "d496ce79-d215-4fd7-8399-e80a258c3824",
+      "slug": "portuguese-travel-phrases-for-couples",
+      "target_lang": "pt",
+      "issue_type": "generic_filler",
+      "severity": "medium",
+      "description": "The _wordCount field reports 67 words but the actual content is ~1019 words. This metadata discrepancy suggests the word count was calculated incorrectly or from a different version of the content.",
+      "evidence": "_wordCount: 67, actual word count: ~1019"
+    },
+    {
+      "article_id": "46f0bc5a-a218-4b30-9252-f123a02fe5dc",
+      "slug": "meeting-your-german-partners-family-essential-german-phrases-for-couples",
+      "target_lang": "de",
+      "issue_type": "bad_pronunciation",
+      "severity": "medium",
+      "description": "Several German pronunciations use bracket notation (e.g., '[dee beh-GREW-zoong]') while most other articles use plain notation without brackets. When the template also adds brackets during rendering, this creates inconsistency. Minor issue but creates visual inconsistency across articles.",
+      "evidence": "pronunciation=\"[dee beh-GREW-zoong]\" / pronunciation=\"[es FROYT mikh zayr zee KEN-nen-tsoo-lair-nen]\""
+    },
+    {
+      "article_id": "9f53483a-6096-4801-a1f0-cfb379b0568f",
+      "slug": "essential-polish-phrases-for-video-calls-with-your-partners-family",
+      "target_lang": "pl",
+      "issue_type": "template_artifacts",
+      "severity": "low",
+      "description": "ConjugationTable uses non-standard field names ('polish' and 'english' instead of 'word' and 'translation') compared to other articles. Despite this, it renders correctly in the HTML, so this is a minor schema inconsistency rather than a functional bug.",
+      "evidence": "{ person: \"I\", polish: \"slyszę\", english: \"I hear\" } vs expected { person: \"I\", word: \"slyszę\", translation: \"I hear\" }"
+    }
+  ],
+  "systemic_patterns": [
+    "Template-based generation: Articles 0 (Spanish small talk) and 5 (German apologize) share identical section structures (Essential Phrases, More Useful Expressions, Additional Phrases, Tips, Practice Makes Perfect, Related Articles) with boilerplate connecting text swapped only for topic/language keywords. Article 5 is especially thin at 340 words.",
+    "VocabCard 'example' misuse: In template-generated articles (0, 5), the example prop contains English usage instructions ('Use when taking responsibility...') rather than actual target-language example sentences. AI-expanded articles (1, 2, 4, 6, 7, 8, 9, 10, 11) correctly use target-language example sentences.",
+    "Grammar error in template text: 'essential for [verb base form]' appears in articles 0 and 5, producing ungrammatical English ('essential for make conversation', 'essential for apologize'). Should be 'essential for making/apologizing'.",
+    "Bracket inconsistency in pronunciation fields: Some articles include brackets in pronunciation values (e.g., '[zhuh TEHM]') while others don't. The rendering template adds its own brackets, causing double brackets ('[ [zhuh TEHM] ]') in the HTML for articles that include them in source.",
+    "Missing French diacritical marks: Article 3 (French word order) systematically omits accents on past participles and common words in teaching tables (francais, interessant, deuxieme, aime, mange, cuisine, epouser). This is a significant pedagogical issue as accents change pronunciation and sometimes meaning in French.",
+    "Import statements in content field: 6 of 12 articles contain Astro import statements in the content field. These are correctly stripped from content_html rendering, so this is a data cleanliness issue rather than a user-facing bug.",
+    "The AI-expanded articles (1, 2, 4, 6, 7, 8, 9, 10, 11) are substantially higher quality than the template-only articles (0, 5), with real example sentences, detailed cultural context, proper linguistic explanations, and coherent structure matching their titles."
+  ]
+}

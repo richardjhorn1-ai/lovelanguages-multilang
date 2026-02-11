@@ -1,0 +1,464 @@
+{
+  "batchId": "tier2a-slim-0034",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "3cd8cc83-8fa6-416b-871a-34ad4ab13c30",
+      "title": "Cómo Escribir Cartas de Amor en Rumano: La Scrisoare de Dragoste",
+      "native_lang": "es",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Saludos Románticos",
+          "subsections": [
+            "### \"Iubirea mea...\"",
+            "### \"Dragă...\"",
+            "### \"Sufletul meu...\"",
+            "### \"Viața mea...\""
+          ]
+        },
+        {
+          "header": "## Expresiones de Apertura",
+          "subsections": [
+            "### \"Îți scriu din adâncul inimii\"",
+            "### \"Fiecare zi fără tine e o veșnicie\"",
+            "### \"Cuvintele nu pot exprima ce simt pentru tine\""
+          ]
+        },
+        {
+          "header": "## Frases del Cuerpo de la Carta",
+          "subsections": [
+            "### \"Ești cel mai frumos lucru care mi s-a întâmplat\"",
+            "### \"Inima mea îți aparține doar ție\"",
+            "### \"Cu tine mă simt complet/completă\"",
+            "### \"Ești lumina vieții mele\""
+          ]
+        },
+        {
+          "header": "## Promesas de Amor",
+          "subsections": [
+            "### \"Te voi iubi pentru totdeauna\"",
+            "### \"Voi fi mereu alături de tine\"",
+            "### \"Dragostea noastră e veșnică\""
+          ]
+        },
+        {
+          "header": "## Despedidas Románticas",
+          "subsections": [
+            "### \"Pentru totdeauna al tău/a ta...\"",
+            "### \"Cu toată dragostea mea...\"",
+            "### \"Te sărut cu drag...\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3ce29bce-256d-4804-8666-92d23ac046f2",
+      "title": "Portugalskie zwroty do godzenia się i pojednania dla par",
+      "native_lang": "pl",
+      "target_lang": "pt",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Przepraszanie z serca",
+          "subsections": [
+            "### \"Me desculpa, por favor\"",
+            "### \"Eu sinto muito pelo que aconteceu\"",
+            "### \"Eu estava errado/errada e admito\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie żalu",
+          "subsections": [
+            "### \"Eu me sinto péssimo pelo que fiz\"",
+            "### \"Eu não queria te machucar\"",
+            "### \"Queria poder voltar atrás\""
+          ]
+        },
+        {
+          "header": "## Otwieranie dialogu",
+          "subsections": [
+            "### \"Podemos conversar sobre o que aconteceu?\"",
+            "### \"Quero entender como você se sente\"",
+            "### \"Me conta o que está pensando\""
+          ]
+        },
+        {
+          "header": "## Obietnice zmiany",
+          "subsections": [
+            "### \"Vou me esforçar mais\"",
+            "### \"Isso não vai acontecer de novo\"",
+            "### \"Estou trabalhando em mim mesmo/mesma\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie miłości",
+          "subsections": [
+            "### \"Eu te amo mais do que tudo\"",
+            "### \"Você é tudo para mim\"",
+            "### \"Não quero te perder\""
+          ]
+        },
+        {
+          "header": "## Ciepłe pojednanie",
+          "subsections": [
+            "### \"Vem cá, me dá um abraço\"",
+            "### \"Vamos fazer as pazes\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3ce6cc33-725c-43a2-a016-138246637110",
+      "title": "Νορβηγική Γραμματική για Αρχάριους: Μάθετε να Μιλάτε με τον Σύντροφό σας",
+      "native_lang": "el",
+      "target_lang": "no",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Οι 4 Βασικοί Κανόνες",
+          "subsections": [
+            "### 1. Το Άρθρο Είναι Μέρος της Λέξης",
+            "### 2. Οι Χρόνοι Είναι Απλοί",
+            "### 3. Η Σειρά των Λέξεων Είναι Χαλαρή",
+            "### 4. Τα Ρήματα Δεν Αλλάζουν Πολύ"
+          ]
+        },
+        {
+          "header": "## Κοινά Πρότυπα για Καθημερινή Χρήση",
+          "subsections": [
+            "### Ερωτήσεις με \"Hvor\" (Πού)",
+            "### Εκφράσεις Χρόνου"
+          ]
+        },
+        {
+          "header": "## Συνηθισμένα Λάθη και Πώς να τα Αποφύγετε",
+          "subsections": [
+            "### Λάθος #1: Λανθασμένο Άρθρο",
+            "### Λάθος #2: Λάθος Σειρά Λέξεων",
+            "### Λάθος #3: Ξεχνάτε την Κατάληξη"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3ceaf830-68a3-45a2-b7e3-ce919ae089a4",
+      "title": "Expresii 'Mi-e Dor de Tine' în Poloneză pentru Români",
+      "native_lang": "ro",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale de Dor",
+          "subsections": [
+            "### Expresii Clasice",
+            "### Expresii Profunde",
+            "### Mesaje Zilnice",
+            "### Promisiuni"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3cebbcae-23c2-4b19-96dc-72af368b183a",
+      "title": "Συνάντηση με την Οικογένεια του Συντρόφου σου στα Ρουμάνικα: Βασικές Φράσεις για να Κερδίσεις τις Εντυπώσεις",
+      "native_lang": "el",
+      "target_lang": "ro",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Συγκεκριμένες Καταστάσεις",
+          "subsections": [
+            "### Όταν Φτάνεις στο Σπίτι",
+            "### Στο Τραπέζι",
+            "### Συζήτηση για τη Σχέση σας"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3cff8a4c-e35c-4eca-9c66-1c70ea6f9fa6",
+      "title": "Holandské fráze pro emoční podporu partnera",
+      "native_lang": "cs",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Základní podpora",
+          "subsections": [
+            "### \"Ik ben er voor je.\"",
+            "### \"Je staat hier niet alleen in.\"",
+            "### \"Ik geloof in je.\"",
+            "### \"Wat er ook gebeurt, we staan er samen voor.\""
+          ]
+        },
+        {
+          "header": "## Útěcha",
+          "subsections": [
+            "### \"Het spijt me zo dat je dit doormaakt.\"",
+            "### \"Het is oké om je zo te voelen.\"",
+            "### \"Neem alle tijd die je nodig hebt.\"",
+            "### \"Je hoeft niet altijd sterk te zijn.\""
+          ]
+        },
+        {
+          "header": "## Povzbuzení",
+          "subsections": [
+            "### \"Ik ben zo trots op je.\"",
+            "### \"Je hebt dit geweldig aangepakt.\"",
+            "### \"Dit duurt niet eeuwig.\"",
+            "### \"Je bent sterker dan je denkt.\""
+          ]
+        },
+        {
+          "header": "## Praktická podpora",
+          "subsections": [
+            "### \"Wat heb je nu nodig?\"",
+            "### \"Laat mij dit voor je regelen.\"",
+            "### \"Wil je erover praten?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3d4deb6a-f62e-4697-b389-210f93ef6f1c",
+      "title": "Schwedische Grüße und Verabschiedungen",
+      "native_lang": "de",
+      "target_lang": "sv",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Verabschiedungen",
+          "subsections": [
+            "### Informelle Verabschiedungen",
+            "### Formelle Verabschiedungen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3d71e8ab-d9be-4664-abd0-5cdbdea44a00",
+      "title": "Guia de Pronúncia do Inglês para Brasileiros: Sons Difíceis Descomplicados",
+      "native_lang": "pt",
+      "target_lang": "en",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Sons de Vogais Diferentes",
+          "subsections": [
+            "### O \"Schwa\" (som mais comum do inglês!)",
+            "### O Som do \"i\" Curto vs Longo"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3d833672-1a57-4aa0-8770-ecdcc4a8ad26",
+      "title": "румунська для пар: 45+ фраз для подорожей",
+      "native_lang": "uk",
+      "target_lang": "ro",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## В готелі",
+          "subsections": [
+            "### Реєстрація",
+            "### Прохання до персоналу",
+            "### Виселення"
+          ]
+        },
+        {
+          "header": "## В ресторані",
+          "subsections": [
+            "### Пошук столика",
+            "### Замовлення"
+          ]
+        },
+        {
+          "header": "## Орієнтування в місті",
+          "subsections": [
+            "### Запитання дороги",
+            "### Корисні напрямки"
+          ]
+        },
+        {
+          "header": "## Романтичні місця Румунії",
+          "subsections": [
+            "### Трансільванія",
+            "### Чорне море",
+            "### Карпати"
+          ]
+        },
+        {
+          "header": "## Транспорт",
+          "subsections": [
+            "### Таксі",
+            "### Громадський транспорт"
+          ]
+        },
+        {
+          "header": "## Екстрені ситуації",
+          "subsections": [
+            "### Важливі фрази",
+            "### Важливі номери"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3d89ad88-20ff-4db5-906f-ca92e9227ec9",
+      "title": "Frases en Griego para Discutir y Resolver Desacuerdos con tu Pareja",
+      "native_lang": "es",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Expresar Desacuerdo",
+          "subsections": [
+            "### \"Το βλέπω διαφορετικά\" (To vlepo diaforetika)",
+            "### \"Μπορούμε να μιλήσουμε ήρεμα;\" (Boroume na milissoume irema?)",
+            "### \"Με πονάει όταν εσύ...\" (Me ponaei otan esy...)",
+            "### \"Δεν εννοούσα αυτό\" (Den ennousa afto)",
+            "### \"Χρειάζομαι χρόνο για να σκεφτώ\" (Chriazome chrono gia na skefto)",
+            "### \"Προσπάθησε να καταλάβεις την πλευρά μου\" (Prospathise na katalavais tin plevra mou)",
+            "### \"Δεν θέλω να τσακωθούμε\" (Den thelo na tsakothoume)",
+            "### \"Δεν με ακούς\" (Den me akous)",
+            "### \"Ας βρούμε μια μέση λύση\" (As vroume mia messi lysi)",
+            "### \"Αυτό είναι σημαντικό για μένα\" (Afto einai simantiko gia mena)",
+            "### \"Πρέπει να ηρεμήσουμε και οι δύο\" (Prepei na iremissoume ke i dio)",
+            "### \"Νιώθω πληγωμένος/η\" (Niotho pligomenos/i)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3d99d822-36b3-4210-9099-23506442edc3",
+      "title": "Olasz összeköltözési szókincs",
+      "native_lang": "hu",
+      "target_lang": "it",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Költözési kifejezések",
+            "### Háztartási szókincs"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3db60934-b54e-49fa-9d3e-0b30b1437894",
+      "title": "Spanske Flirtesætninger for Danskere",
+      "native_lang": "da",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Komplimenter",
+          "subsections": [
+            "### \"Tienes una sonrisa preciosa\"",
+            "### \"Me encantas\"",
+            "### \"Eres muy guapo/guapa\""
+          ]
+        },
+        {
+          "header": "## Romantiske Udtryk",
+          "subsections": [
+            "### \"No puedo dejar de pensar en ti\"",
+            "### \"Me pierdo en tus ojos\"",
+            "### \"Contigo me siento completo/completa\""
+          ]
+        },
+        {
+          "header": "## Legende Flirt",
+          "subsections": [
+            "### \"¿Vienes aquí a menudo?\"",
+            "### \"Si fueras una fruta, serías una fresa... porque estás muy buena\""
+          ]
+        },
+        {
+          "header": "## Invitationer",
+          "subsections": [
+            "### \"¿Te gustaría tomar algo conmigo?\"",
+            "### \"¿Puedo invitarte a cenar?\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3db677a7-8d8b-4a70-98a8-3c6478b561b5",
+      "title": "Engelse Sms-Taal voor Stellen: Van ILY tot XOXO",
+      "native_lang": "nl",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Dagelijkse Communicatie",
+          "subsections": [
+            "### Begroetingen",
+            "### Gemis Uitdrukken"
+          ]
+        },
+        {
+          "header": "## Complete Berichtvoorbeelden",
+          "subsections": [
+            "### Goedemorgen Bericht",
+            "### Tijdens het Werk",
+            "### Goedenacht Bericht"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3dc903a3-7787-4df3-8a8f-2ea3489c67b1",
+      "title": "Le Danois Est-il Difficile a Apprendre ? Une Evaluation Honnete",
+      "native_lang": "fr",
+      "target_lang": "da",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Ce Qui Rend le Danois Difficile",
+          "subsections": [
+            "### 1. Prononciation",
+            "### 2. Le Stød (Coup de Glotte)",
+            "### 3. Systeme de Nombres"
+          ]
+        },
+        {
+          "header": "## Ce Qui Rend le Danois Plus Facile",
+          "subsections": [
+            "### 1. La Grammaire Est Relativement Simple",
+            "### 2. Similarites de Vocabulaire",
+            "### 3. Ressources et Soutien"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3dcbf51f-0bf3-4de6-9930-49a540cc305a",
+      "title": "Yunanca Flört İfadeleri: Romantik Konuşmalar için Rehber",
+      "native_lang": "tr",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Flört İfadeleri",
+          "subsections": [
+            "### 1. Είσαι πολύ γλυκιά / γλυκός",
+            "### 2. Μου αρέσεις",
+            "### 3. Θέλεις να πάμε για έναν καφέ;",
+            "### 4. Έχεις όμορφα μάτια",
+            "### 5. Δεν μπορώ να σταματήσω να σκέφτομαι εσένα",
+            "### 6. Μπορώ να έχω τον αριθμό σου;",
+            "### 7. Με κάνεις να χαμογελώ",
+            "### 8. Θέλω να σε γνωρίσω καλύτερα",
+            "### 9. Είσαι καταπληκτική / καταπληκτικός",
+            "### 10. Θα ξανασυναντηθούμε;"
+          ]
+        }
+      ]
+    }
+  ]
+}

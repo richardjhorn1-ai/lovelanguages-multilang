@@ -1,0 +1,131 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0566",
+  "articles": [
+    {
+      "id": "a41d5cc6-d241-4562-ae1d-91dd051bfd72",
+      "title": "Cum Să Ceri în Căsătorie: Expresii pentru Logodnă în Rusă",
+      "native_lang": "ro",
+      "target_lang": "ru",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nCererea în căsătorie este unul dintre momentele cele mai importante din viața unui cuplu. Acest ghid te va ajuta să exprimi sentimentele tale în limba partenerului tău.\n\nPentru expresii romantice de bază, consultă ghidul nostru de [expresii romantice pentru fiecare ocazie](/learn/ro/ru/ru-romantic-phrases-for-every-occasion).\n\n<PhraseOfDay\n  word=\"Vrei să te căsătorești cu mine?\"\n  translation=\"Întrebarea magică\"\n  pronunciation=\"vezi ghidul complet\"\n  context=\"Cea mai importantă întrebare pe care o vei pune vreodată.\"\n/>\n\n## Vocabular Esențial pentru Cererea în Căsătorie\n\nÎnainte de a pune marea întrebare, este important să cunoști vocabularul de bază:\n\n<VocabCard\n  word=\"cerere în căsătorie\"\n  translation=\"proposal\"\n  pronunciation=\"propunere romantică\"\n  example=\"Am planificat cererea perfectă.\"\n/>\n\n<VocabCard\n  word=\"logodnă\"\n  translation=\"engagement\"\n  pronunciation=\"angajament romantic\"\n  example=\"Logodna noastră a fost perfectă.\"\n/>\n\n<VocabCard\n  word=\"inel de logodnă\"\n  translation=\"engagement ring\"\n  pronunciation=\"simbol al iubirii\"\n  example=\"Inelul strălucește frumos.\"\n/>\n\n### Termeni Fundamentali\n\n| Termen | Traducere | Utilizare |\n|--------|-----------|----------|\n| a cere în căsătorie | to propose | Actul de a pune întrebarea |\n| logodnic/logodnică | fiancé/fiancée | Partenerul după logodnă |\n| a se logodi | to get engaged | Momentul acceptării |\n| inelul de logodnă | engagement ring | Simbolul promisiunii |\n| diamant | diamond | Piatra tradițională |\n| aur | gold | Metalul clasic |\n\n<CultureTip flag=\"🌍\" title=\"Tradiții Culturale\">\nFiecare cultură are propriile tradiții pentru cererea în căsătorie. Unele implică cererea permisiunii părinților, altele includ gesturi romantice elaborate. Înțelegerea tradițiilor partenerului tău poate face momentul și mai special.\n</CultureTip>\n\n## Fraze pentru Cererea în Căsătorie\n\nIată expresiile cele mai romantice pentru acest moment special:\n\n### Întrebările Clasice\n- **Vrei să te căsătorești cu mine?** - Întrebarea tradițională\n- **Îmi faci onoarea de a-mi fi soție/soț?** - Formală și elegantă\n- **Vreau să-mi petrec restul vieții cu tine** - Declarație de intenție\n- **Te iubesc mai mult decât orice. Vei fi a mea/al meu pentru totdeauna?** - Romantică\n\n### Introduceri Emoționante\n- **Din momentul în care te-am întâlnit, am știut că ești special/ă...**\n- **Ai schimbat viața mea în moduri pe care nu le-am crezut posibile...**\n- **Cu tine, am descoperit ce înseamnă adevărata fericire...**\n- **Fiecare zi alături de tine este un dar...**\n\n<VocabCard\n  word=\"A spus DA!\"\n  translation=\"She/He said YES!\"\n  pronunciation=\"Momentul fericirii supreme\"\n  example=\"Nu-mi vine să cred, a spus da!\"\n/>\n\n## Răspunsuri la Cerere\n\n### Răspunsuri Pozitive\n| Răspuns | Emoție | Context |\n|---------|--------|--------|\n| Da! | Bucurie pură | Simplu și direct |\n| Bineînțeles! | Certitudine | Fără ezitare |\n| De o mie de ori da! | Extaz | Foarte entuziast |\n| Am așteptat acest moment! | Anticipare | Romantic |\n\n<CultureTip flag=\"💍\" title=\"Alegerea Inelului\">\nTradiția inelului de logodnă cu diamant a devenit populară în secolul XX. Astăzi, multe cupluri aleg pietre alternative sau inele de familie cu valoare sentimentală. Cel mai important este semnificația, nu prețul.\n</CultureTip>\n\n## Vocabular pentru Inele\n\n### Pietre Prețioase\n| Piatră | Semnificație |\n|--------|-------------|\n| Diamant | Veșnicie, puritate |\n| Safir | Fidelitate, sinceritate |\n| Rubin | Pasiune, dragoste |\n| Smarald | Speranță, reînnoire |\n\n### Metale\n| Metal | Caracteristici |\n|-------|---------------|\n| Aur galben | Clasic, tradițional |\n| Aur alb | Modern, elegant |\n| Platină | Durabil, rar |\n| Aur roz | Romantic, contemporan |\n\n## Anunțul Logodnei\n\n<VocabCard\n  word=\"Suntem logodiți!\"\n  translation=\"We're engaged!\"\n  pronunciation=\"Vestea cea mare\"\n  example=\"Avem vești minunate - suntem logodiți!\"\n/>\n\n### Cum Să Anunți\n- **Familiei în persoană** - Cele mai apropiate persoane merită să afle primele\n- **Prietenilor apropiați** - După familie\n- **Pe rețelele sociale** - Pentru cercul mai larg\n- **Formal, prin anunț** - În unele culturi, tradiție\n\n### Expresii pentru Anunț\n- **Avem vești minunate de împărtășit!**\n- **Ne pregătim pentru o nouă aventură împreună!**\n- **A început numărătoarea inversă spre ziua cea mare!**\n- **Din logodnici devenim parteneri de viață!**\n\n## După Logodnă\n\n### Pașii Următori\n| Pas | Descriere |\n|-----|----------|\n| Petrecerea de logodnă | Celebrarea cu cei dragi |\n| Alegerea datei | Stabilirea zilei nunții |\n| Planificarea nunții | Începutul organizării |\n| Anunțurile oficiale | Invitațiile și comunicarea |\n\n## Felicitări pentru Logodiți\n\nCând cineva îți spune că s-a logodit:\n\n- **Felicitări! Sunt atât de fericit/ă pentru voi!**\n- **Ce veste minunată! Formați un cuplu perfect!**\n- **Vă doresc toată fericirea din lume!**\n- **Când e ziua cea mare?**\n- **Vreau să văd inelul!**\n\n## Sfaturi Practice\n\n1. **Planifică momentul** - Alege un loc și timp special\n2. **Practică ce vrei să spui** - Emoțiile pot fi copleșitoare\n3. **Fii sincer** - Cuvintele din inimă sunt cele mai puternice\n4. **Nu te grăbi** - Savurează momentul\n5. **Fotografiază/filmează** - Dacă e posibil, pentru amintire\n\n<CTA />\n\n## Concluzie\n\nCererea în căsătorie este un moment unic și special. Indiferent de limbă sau cultură, cel mai important este sentimentul autentic care stă în spatele cuvintelor. Cu pregătire și sinceritate, vei crea o amintire de neuitat.\n\nMult succes și fie ca răspunsul să fie DA!",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Răspunsuri la Cerere",
+              "## Vocabular pentru Inele",
+              "## După Logodnă"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "a4208370-9bca-4d84-8cc7-7c0e287b3455",
+      "title": "Ukrán születésnapi kívánságok párodnak",
+      "native_lang": "hu",
+      "target_lang": "uk",
+      "category": "situations",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nA párod születésnapja tökéletes alkalom, hogy megmutasd, mennyire szereted. Ha ukránul szeretnél szívből jövő kívánságokat mondani, ezek a kifejezések segítenek.\n\nAz alapvető szerelmi kifejezésekért nézd meg a [Hogyan mondd: Szeretlek ukránul](/learn/hu/uk/ukrainian-how-to-say-i-love-you) cikkünket.\n\n<PhraseOfDay\n  word=\"Вітаю!\"\n  translation=\"Gratulálok!\"\n  pronunciation=\"ʋiˈtɐju\"\n  context=\"Az esküvői köszöntés alapja.\"\n/>\n\n## Alapvető szókincs\n\nA születésnapi jókívánságok ukrán szókincse:\n\n<VocabCard\n  word=\"весілля\"\n  translation=\"esküvő\"\n  pronunciation=\"ˈʋɛsʲilʲːɐ\"\n  example=\"Весілля було чудовим.\"\n/>\n\n| Ukrán | Magyar | Használat |\n|---|---|---|\n| наречена | menyasszony | A nő |\n| наречений | vőlegény | A férfi |\n| обітниці | fogadalmak | Esküvői ígéretek |\n| церемонія | szertartás | A hivatalos rész |\n| прийом | fogadás | Az ünneplés |\n| тост | köszöntő | Pohárköszöntő |\n\n<CultureTip flag=\"🌍\" title=\"Ukrán kulturális tippek\">\nA ukrán kultúrában a születésnapokat különböző módon ünneplik. Egyesek nagy családi összejöveteleket tartanak, mások inkább intimebb ünnepléseket részesítenek előnyben.\n</CultureTip>\n\n## Hasznos kifejezések\n\n### Születésnapi köszöntések\n\nA nagy napon mondd:\n\n- **Вітаю!** - Gratulálok!\n- **Kívánj valamit!** - A gyertyák elfújásánál\n- **Ez a te napod!** - Ünneplés\n\n### Romantikus üzenetek\nHa különlegessé akarod tenni:\n\n- **Minden évben jobban szeretlek** - Időtlen vallomás\n- **Te vagy a legjobb ajándék az életemben** - Szívből jövő\n\n<VocabCard\n  word=\"медовий місяць\"\n  translation=\"nászút\"\n  pronunciation=\"mɛˈdɔʋɪj ˈmʲisʲɐtsʲ\"\n  example=\"Вони на медовому місяці.\"\n/>\n\n## Gyakorlati helyzetek\n\n| Helyzet | Mit mondj |\n|---|---|\n| Reggeli ébresztés | Boldog születésnapot, szerelmem! |\n| Torta átadás | Kívánj valamit! |\n| Ajándék átadás | Remélem tetszik! |\n| Este | Ma minden rólad szól |\n\n<CultureTip flag=\"💡\" title=\"Hasznos tipp\">\nHa kártyát írsz, kérj segítséget a nyelvtanhoz. Egy-egy kis hiba kedves lehet, de ügyelj a legfontosabb szavak helyesírására.\n</CultureTip>\n\n## Összefoglaló táblázat\n\n| Helyzet | Ukrán kifejezés |\n|---|---|\n| Gratuláció | Вітаю! |\n| Az esemény | весілля |\n| A nő | наречена |\n| A férfi | наречений |\n| Esküvői ígéretek | обітниці |\n\n## További tanulás\n\nHa tovább szeretnéd fejleszteni a ukrán nyelvtudásod, nézd meg ezeket a cikkeinket:\n\n- [Ukrán romantikus kifejezések minden alkalomra](/learn/hu/uk/ukrainian-romantic-phrases-for-every-occasion)\n- [Hogyan mondd: Szeretlek ukránul](/learn/hu/uk/ukrainian-how-to-say-i-love-you)\n- [Ukrán alapvető kifejezések pároknak](/learn/hu/uk/ukrainian-essential-phrases-for-couples)\n\nEzek a források segítenek elmélyíteni a tudásod és magabiztosabbá válni a ukrán nyelvben.\n\n<CTA />",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 273,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Hasznos kifejezések"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "a421682b-d233-4183-8d27-2595f84033b3",
+      "title": "Yunanca İlk Buluşma İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "el",
+      "category": "communication",
+      "content": "Yunanca konuşan biriyle ilk buluşmada kullanabileceğiniz temel ifadeler.\n\n## Karşılama\n\n### 1. \"Χαίρομαι τόσο πολύ που σε γνωρίζω επιτέλους\"\n**Telaffuz:** *Herome toso poli pu se gnorizo epitelos*\n\n**Anlam:** \"Sonunda seninle tanışmak çok güzel\"\n\n### 2. \"Δείχνεις ακόμα καλύτερα από τις φωτογραφίες\"\n**Telaffuz:** *Dihnis akoma kalitera apo tis fotografies*\n\n**Anlam:** \"Fotoğraflarından bile daha iyi görünüyorsun\"\n\n### 3. \"Ανυπομονούσα για αυτή τη συνάντηση\"\n**Telaffuz:** *Anipomusa ya afti ti sinandisi*\n\n**Anlam:** \"Bu buluşmayı bekliyordum\"\n\n## Sohbet\n\n### 4. \"Πες μου για σένα\"\n**Telaffuz:** *Pes mu ya sena*\n\n**Anlam:** \"Bana kendinden bahset\"\n\n### 5. \"Τι σου αρέσει να κάνεις στον ελεύθερο χρόνο σου;\"\n**Telaffuz:** *Ti su aresi na kanis ston elefthero hrono su?*\n\n**Anlam:** \"Boş zamanlarında ne yapmayı seversin?\"\n\n### 6. \"Έχεις ξανάρθει εδώ;\"\n**Telaffuz:** *Ehis ksanarthi edo?*\n\n**Anlam:** \"Daha önce buraya geldin mi?\"\n\n## İltifatlar\n\n### 7. \"Έχεις υπέροχο χαμόγελο\"\n**Telaffuz:** *Ehis iperoho hamogelo*\n\n**Anlam:** \"Çok güzel bir gülüşün var\"\n\n### 8. \"Μου αρέσει το στυλ σου\"\n**Telaffuz:** *Mu aresi to stil su*\n\n**Anlam:** \"Tarzını beğeniyorum\"\n\n### 9. \"Είναι εύκολο να μιλάω μαζί σου\"\n**Telaffuz:** *İne efkolo na milao mazi su*\n\n**Anlam:** \"Seninle konuşmak kolay\"\n\n## Sonlandırma\n\n### 10. \"Πέρασα πολύ ωραία\"\n**Telaffuz:** *Perasa poli orea*\n\n**Anlam:** \"Çok güzel vakit geçirdim\"\n\n### 11. \"Μπορούμε να το επαναλάβουμε;\"\n**Telaffuz:** *Borume na to epanalavume?*\n\n**Anlam:** \"Bunu tekrarlayabilir miyiz?\"\n\n### 12. \"Θα ήθελα να σε ξαναδώ\"\n**Telaffuz:** *Tha ithela na se ksanado*\n\n**Anlam:** \"Seni tekrar görmek isterim\"\n\nBu ifadelerle Yunanca konuşan biriyle harika bir buluşma yapabilirsiniz.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 240,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Karşılama",
+              "## Sohbet",
+              "## İltifatlar",
+              "## Sonlandırma"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "a428b70d-af11-4355-ab09-1e5ab03dd5c0",
+      "title": "Holandské fráze pro setkání s rodiči partnera",
+      "native_lang": "cs",
+      "target_lang": "nl",
+      "category": "communication",
+      "content": "Holanďané jsou přímí a neformální. Tyto fráze vám pomohou udělat dobrý dojem.\n\n## První setkání\n\n### \"Leuk om u te ontmoeten.\"\n**Překlad:** Těší mě, že vás poznávám.\n\n---\n\n### \"[Partner] heeft me veel over u verteld.\"\n**Překlad:** [Partner] mi o vás hodně vyprávěl/a.\n\n---\n\n### \"Hartelijk dank voor de uitnodiging.\"\n**Překlad:** Srdečně děkuji za pozvání.\n\n---\n\n### \"U heeft een prachtig huis.\"\n**Překlad:** Máte krásný dům.\n\n---\n\n## U jídla\n\n### \"Dit is heerlijk! Mag ik het recept?\"\n**Překlad:** Je to vynikající! Mohla bych dostat recept?\n\n---\n\n### \"Alles ziet er geweldig uit.\"\n**Překlad:** Všechno vypadá skvěle.\n\n---\n\n## Projevení zájmu\n\n### \"Ik zou graag foto's van [partner] als kind zien.\"\n**Překlad:** Rád/a bych viděl/a fotky [partnera] z dětství.\n\n---\n\n### \"Hoe hebben jullie elkaar ontmoet?\"\n**Překlad:** Jak jste se poznali?\n\n---\n\n## Nabídka pomoci\n\n### \"Kan ik ergens mee helpen?\"\n**Překlad:** Mohu s něčím pomoci?\n\n---\n\n### \"Laat mij alstublieft helpen met de afwas.\"\n**Překlad:** Dovolte mi prosím pomoci s nádobím.\n\n---\n\n## Rozloučení\n\n### \"Bedankt voor een heerlijke avond.\"\n**Překlad:** Děkuji za nádherný večer.\n\n---\n\n### \"Ik hoop u snel weer te zien.\"\n**Překlad:** Doufám, že se brzy zase uvidíme.\n\n---\n\n## Kulturní tipy\n\n**Přímosit:** Holanďané jsou přímí - neberte to jako hrubost.\n\n**Platba:** \"Going Dutch\" - každý platí za sebe, i v rodině.\n\n**Dárek:** Přineste květiny, víno nebo čokoládu.\n\n**Punktualita:** Přijďte včas.\n\nS těmito frázemi si získáte holandskou rodinu.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 215,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## První setkání",
+              "## U jídla",
+              "## Projevení zájmu",
+              "## Nabídka pomoci",
+              "## Rozloučení"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "a43c6df1-39e0-47c3-a988-331c3a44fb29",
+      "title": "Griechische Flirtsprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "el",
+      "category": "communication",
+      "content": "Griechisch ist die Sprache der Philosophie, der Poesie und der antiken Liebesgötter. Von Aphrodite bis zu den leidenschaftlichen Liebesliedern der modernen Bouzouki-Musik – Griechenland hat eine reiche romantische Tradition. Hier lernst du die schönsten griechischen Flirtsprüche.\n\n## Die Leidenschaft des Griechischen\n\nGriechisch wird mit dem griechischen Alphabet geschrieben, das zunächst fremd erscheint. Aber die Sprache selbst ist voller Wärme und Expressivität – perfekt für romantische Ausdrücke.\n\n## Klassische Komplimente\n\n### \"Είσαι όμορφη\" / \"Είσαι όμορφος\" (Eísai ómorfi/Eísai ómorfos)\n**Aussprache:** I-se O-mor-fi / I-se O-mor-fos\n\n**Bedeutung:** Du bist schön\n\nEin direktes, herzliches Kompliment. Feminin/maskulin.\n\n### \"Έχεις πανέμορφα μάτια\" (Écheis panémorfa mátia)\n**Aussprache:** E-chis pa-NE-mor-fa MA-tja\n\n**Bedeutung:** Du hast wunderschöne Augen\n\nAugenkomplimente sind in Griechenland sehr geschätzt.\n\n### \"Έχεις υπέροχο χαμόγελο\" (Écheis ypérocho chamógelo)\n**Aussprache:** E-chis i-PE-ro-cho cha-MO-je-lo\n\n**Bedeutung:** Du hast ein wunderbares Lächeln\n\nHerzlich und aufrichtig.\n\n## Romantische Ausdrücke\n\n### \"Είσαι ο έρωτας της ζωής μου\" (Eísai o érotas tis zoís mou)\n**Aussprache:** I-se o E-ro-tas tis so-IS mu\n\n**Bedeutung:** Du bist die Liebe meines Lebens\n\nEin kraftvoller Ausdruck tiefer Gefühle.\n\n### \"Δεν μπορώ να σταματήσω να σκέφτομαι εσένα\" (Den boró na stamatíso na skéftomai eséna)\n**Aussprache:** den bo-RO na sta-ma-TI-so na SKEF-to-me e-SE-na\n\n**Bedeutung:** Ich kann nicht aufhören, an dich zu denken\n\nPerfekt für romantische Nachrichten.\n\n### \"Με κάνεις τόσο ευτυχισμένο\" / \"ευτυχισμένη\"\n**Aussprache:** me KA-nis TO-so ef-ti-chis-ME-no / ef-ti-chis-ME-ni\n\n**Bedeutung:** Du machst mich so glücklich\n\nEinfach und herzlich.\n\n## Süße Kosenamen\n\n### \"Αγάπη μου\" (Agápi mou)\n**Aussprache:** a-GA-pi mu\n\n**Bedeutung:** Meine Liebe\n\nDer klassische griechische Kosename.\n\n### \"Μωρό μου\" (Moró mou)\n**Aussprache:** mo-RO mu\n\n**Bedeutung:** Mein Baby\n\nSehr gebräuchlich unter Paaren.\n\n### \"Καρδιά μου\" (Kardiá mou)\n**Aussprache:** kar-DJA mu\n\n**Bedeutung:** Mein Herz\n\nIntim und zärtlich.\n\n### \"Ψυχή μου\" (Psychí mou)\n**Aussprache:** psi-CHI mu\n\n**Bedeutung:** Meine Seele\n\nTiefgründig und bedeutungsvoll.\n\n### \"Γλυκιά μου\" / \"Γλυκέ μου\" (Glykiá mou / Glyké mou)\n**Aussprache:** gli-KJA mu / gli-KE mu\n\n**Bedeutung:** Meine Süße / Mein Süßer\n\nLiebevoll und alltäglich.\n\n## Leidenschaftliche Ausdrücke\n\n### \"Σ' αγαπώ\" (S' agapó)\n**Aussprache:** sa-ga-PO\n\n**Bedeutung:** Ich liebe dich\n\nDie wichtigsten Worte.\n\n### \"Είσαι τα πάντα για μένα\" (Eísai ta pánta gia ména)\n**Aussprache:** I-se ta PAN-da ja ME-na\n\n**Bedeutung:** Du bist alles für mich\n\nTotale Hingabe.\n\n### \"Είμαι τρελός για σένα\" / \"τρελή για σένα\" (Eímai trelós gia séna)\n**Aussprache:** I-me tre-LOS ja SE-na / tre-LI ja SE-na\n\n**Bedeutung:** Ich bin verrückt nach dir\n\nLeidenschaftlich und intensiv.\n\n### \"Μου έκλεψες την καρδιά\" (Mou éklepses tin kardiá)\n**Aussprache:** mu E-klep-ses tin kar-DJA\n\n**Bedeutung:** Du hast mir das Herz gestohlen\n\nPoetisch und romantisch.\n\n## Spielerische Sprüche\n\n### \"Πιστεύεις στον έρωτα με την πρώτη ματιά, ή να περάσω ξανά?\"\n**Aussprache:** pis-TE-wis ston E-ro-ta me tin PRO-ti ma-TJA, i na pe-RA-so KSA-na\n\n**Bedeutung:** Glaubst du an Liebe auf den ersten Blick, oder soll ich nochmal vorbeigehen?\n\nDer klassische Anmachspruch auf Griechisch!\n\n### \"Είναι ο πατέρας σου κλέφτης? Γιατί έκλεψε τα αστέρια από τον ουρανό και τα έβαλε στα μάτια σου\"\n**Aussprache:** I-ne o pa-TE-ras su KLEF-tis? ja-TI E-klep-se ta as-TE-rja a-PO ton u-ra-NO ke ta E-wa-le sta MA-tja su\n\n**Bedeutung:** Ist dein Vater ein Dieb? Denn er hat die Sterne vom Himmel gestohlen und in deine Augen gesetzt\n\nRomantisch und charmant!\n\n## Aussprache-Tipps für Deutsche\n\n- \"Γ\" (Gamma) vor a, o, u = weiches \"g\" (ähnlich \"ch\" in \"Dach\")\n- \"Γ\" vor e, i = \"j\"\n- \"Χ\" = \"ch\" (wie in \"Bach\")\n- \"Θ\" = englisches \"th\" (stimmlos)\n- \"Δ\" = englisches \"th\" (stimmhaft)\n- Betonung ist wichtig – sie verändert die Bedeutung!\n\n## Kulturelle Besonderheiten\n\nGriechen sind bekannt für ihre Expressivität und Leidenschaft. Körpersprache und Gestik sind wichtige Teile der Kommunikation.\n\nDie Familie spielt eine zentrale Rolle. Bei ernsthaften Beziehungen ist das Kennenlernen der Familie ein wichtiger Schritt.\n\nGemeinsames Essen ist ein zentraler Teil der griechischen Kultur. Ein romantisches Abendessen in einer Taverna mit Meeresfrüchten und Wein ist perfekt für ein Date.\n\nMit diesen Sprüchen bringst du griechische Leidenschaft in deine Beziehung. Καλή τύχη! (Viel Glück!)",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Klassische Komplimente",
+              "## Romantische Ausdrücke",
+              "## Süße Kosenamen",
+              "## Leidenschaftliche Ausdrücke",
+              "## Spielerische Sprüche"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

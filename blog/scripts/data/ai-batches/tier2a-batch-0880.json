@@ -1,0 +1,117 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0880",
+  "articles": [
+    {
+      "id": "fd70f868-8642-4d1e-8a56-10f366c6b7b4",
+      "title": "Italienska Fraser för Försoning och Att Göra Upp",
+      "native_lang": "sv",
+      "target_lang": "it",
+      "category": "communication",
+      "content": "Italienska är ett passionerat språk där försoningen kan vara lika vacker som kärleken själv. Dessa fraser hjälper dig att återförenas med din italiensktalande partner.\n\n## Fraser för att Inleda Försoning\n\n### 1. \"Mi dispiace tanto\"\n**Uttal:** mee dees-pya-cheh tan-toh\n\n**Betydelse:** Jag är så ledsen\n\nEn hjärtlig ursäkt.\n\n### 2. \"Possiamo ricominciare da capo?\"\n**Uttal:** pos-see-ah-moh ree-ko-meen-cha-reh da ka-poh\n\n**Betydelse:** Kan vi börja om från början?\n\nVisar vilja att gå vidare.\n\n### 3. \"Odio litigare con te\"\n**Uttal:** oh-dyoh lee-tee-ga-reh kon teh\n\n**Betydelse:** Jag hatar att bråka med dig\n\nUttrycker ovilja mot konflikter.\n\n### 4. \"Sei tutto per me\"\n**Uttal:** say toot-toh per meh\n\n**Betydelse:** Du är allt för mig\n\nEn innerlig kärleksförklaring.\n\n### 5. \"Avevo torto e lo ammetto\"\n**Uttal:** a-veh-voh tor-toh eh loh am-met-toh\n\n**Betydelse:** Jag hade fel och jag erkänner det\n\nTar ansvar.\n\n## Fraser för Djupare Försoning\n\n### 6. \"Non andiamo a letto arrabbiati\"\n**Uttal:** non an-dyah-moh a let-toh ar-rab-byah-tee\n\n**Betydelse:** Låt oss inte gå och lägga oss arga\n\nEn visdom för par.\n\n### 7. \"Ti amo più di qualsiasi litigio\"\n**Uttal:** tee ah-moh pyoo dee kwal-see-ah-see lee-tee-joh\n\n**Betydelse:** Jag älskar dig mer än något bråk\n\nSätter kärleken först.\n\n### 8. \"Mi fai un abbraccio?\"\n**Uttal:** mee fai oon ab-bra-choh\n\n**Betydelse:** Ger du mig en kram?\n\nBjuder in till fysisk försoning.\n\n### 9. \"Voglio capirti meglio\"\n**Uttal:** vo-lyoh ka-peer-tee meh-lyoh\n\n**Betydelse:** Jag vill förstå dig bättre\n\nVisar engagemang.\n\n### 10. \"Siamo più forti di così\"\n**Uttal:** syah-moh pyoo for-tee dee ko-zee\n\n**Betydelse:** Vi är starkare än det här\n\nBekräftar relationen.\n\n### 11. \"Prometto di fare meglio\"\n**Uttal:** proh-met-toh dee fa-reh meh-lyoh\n\n**Betydelse:** Jag lovar att göra bättre\n\nEtt löfte om förbättring.\n\n### 12. \"Grazie per la tua pazienza con me\"\n**Uttal:** gra-tsyeh per la too-ah pa-tsyen-tsah kon meh\n\n**Betydelse:** Tack för ditt tålamod med mig\n\nVisar tacksamhet.\n\n## Kulturella Tips\n\nI italiensk kultur:\n\n- Är fysisk beröring central vid försoning\n- Uppskattas passionerade kärleksförklaringar\n- Kan tårar och starka känslor vara del av försoningen\n- Värderas familjeharmoni högt\n\n## Avslutande Tankar\n\nMed dessa fraser kan du uttrycka din kärlek och ånger på italienska. Låt passionen i språket hjälpa er att återförenas starkare än förut.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Fraser för att Inleda Försoning",
+              "## Fraser för Djupare Försoning"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fd72725c-26a6-4a0f-8fa4-a7be6780b3b7",
+      "title": "Guten Morgen und Gute Nacht auf Spanisch – Süße Phrasen für jeden Tag",
+      "native_lang": "de",
+      "target_lang": "es",
+      "category": "phrases",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\n# Guten Morgen und Gute Nacht auf Spanisch\n\nEs gibt kaum etwas Schöneres, als den Tag mit liebevollen Worten zu beginnen und zu beenden. Diese Spanischen Phrasen helfen dir, deinem Partner jeden Tag zu zeigen, wie viel er dir bedeutet – vom ersten Moment am Morgen bis zum letzten Kuss in der Nacht.\n\n<PhraseOfDay\n  word=\"Good morning\"\n  translation=\"Guten Morgen\"\n  pronunciation=\"gud MOR-ning\"\n  context=\"Der klassische Morgengruß für deinen Partner\"\n/>\n\n## Guten Morgen sagen\n\n### Klassische Morgengrüße\n\n<VocabCard\n  word=\"Good morning, my darling\"\n  translation=\"Guten Morgen, mein Schatz\"\n  pronunciation=\"gud MOR-ning mai DAR-ling\"\n  example=\"Good morning, my darling! Rise and shine.\"\n/>\n\n<VocabCard\n  word=\"Wake up, my love\"\n  translation=\"Aufwachen, mein Liebling\"\n  pronunciation=\"weik ap mai lav\"\n  example=\"Wake up, my love! It's a beautiful day.\"\n/>\n\n| Spanisch | Deutsch |\n|-------------|---------|\n| Did you sleep well? | Hast du gut geschlafen? |\n| Time to get up | Zeit aufzustehen |\n| I made breakfast | Ich habe Frühstück gemacht |\n\n### Romantische Morgengrüße\n\n| Spanisch | Deutsch |\n|-------------|---------|\n| You're the first thing on my mind | Du bist das Erste, woran ich denke |\n| Have a wonderful day, angel | Einen wunderschönen Tag, mein Engel |\n| I love waking up next to you | Ich liebe es, neben dir aufzuwachen |\n| You're my sunshine | Du bist mein Sonnenschein |\n\n<CultureTip flag=\"🇪🇸\" title=\"Kultureller Kontext\">\nDaily greetings in your partner's language show you care. Make it a sweet habit!\n</CultureTip>\n\n## Gute Nacht sagen\n\n### Klassische Nachtgrüße\n\n<VocabCard\n  word=\"Good night\"\n  translation=\"Gute Nacht\"\n  pronunciation=\"gud nait\"\n  example=\"Good night, sweet dreams.\"\n/>\n\n<VocabCard\n  word=\"Sleep well\"\n  translation=\"Schlaf gut\"\n  pronunciation=\"sliep wel\"\n  example=\"Sleep well, my love.\"\n/>\n\n| Spanisch | Deutsch |\n|-------------|---------|\n| Sweet dreams | Süße Träume |\n| See you tomorrow | Bis morgen |\n| Sleep tight | Schlaf schön |\n\n### Romantische Nachtgrüße\n\n| Spanisch | Deutsch |\n|-------------|---------|\n| I'll dream of you | Ich träume von dir |\n| You're my last thought before sleep | Du bist der letzte Gedanke vor dem Einschlafen |\n| Sleep well, my heart | Schlaf gut, mein Herz |\n| I can't wait to see you tomorrow | Ich kann es kaum erwarten, dich morgen zu sehen |\n\n## Für Textnachrichten\n\nPerfekt für süße SMS und WhatsApp-Nachrichten:\n\n| Spanisch | Deutsch |\n|-------------|---------|\n| Good morning, thinking of you | Guten Morgen, ich denke an dich |\n| Have a great day | Hab einen tollen Tag |\n| Good night, I miss you | Gute Nacht, ich vermisse dich |\n| Sweet dreams | Träum süß |\n| Until tomorrow, love you | Bis morgen, ich liebe dich |\n\n<CultureTip flag=\"🇪🇸\" title=\"Tipp für Paare\">\nBeginne und beende jeden Tag mit einer liebevollen Nachricht auf Spanisch. Diese kleinen Gesten stärken eure Beziehung und helfen dir beim Sprachenlernen!\n</CultureTip>\n\n## Verwandte Artikel\n\n- [Romantische Phrasen auf Spanisch](/de/blog/spanish-romantic-phrases-for-every-occasion)\n- [Spanische Kosenamen](/de/blog/spanish-pet-names-terms-of-endearment)\n\n<CTA />",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Guten Morgen sagen",
+              "## Gute Nacht sagen"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fd96e7ad-c021-4278-9767-d2140ffe4e4e",
+      "title": "Frases en Italiano para Pedir y Ofrecer Perdón a tu Pareja",
+      "native_lang": "es",
+      "target_lang": "it",
+      "category": "communication",
+      "content": "El italiano expresa emociones con pasión, incluyendo el arrepentimiento y el perdón. Si tu pareja es italiana, estas frases te ayudarán.\n\n## Frases para Pedir Perdón\n\n### \"Mi dispiace davvero\"\n**Pronunciación:** Mi dis-PIA-che da-VE-ro\n\n**Significado:** Lo siento de verdad\n\n### \"Per favore, perdonami\"\n**Pronunciación:** Per fa-VO-re per-DO-na-mi\n\n**Significado:** Por favor, perdóname\n\n### \"So di averti ferito/a, e me ne pento profondamente\"\n**Pronunciación:** So di a-VER-ti fe-RI-to/a e me ne PEN-to pro-fon-da-MEN-te\n\n**Significado:** Sé que te herí, y me arrepiento profundamente\n\n### \"Ho sbagliato a farlo\"\n**Pronunciación:** O sba-LIA-to a FAR-lo\n\n**Significado:** Estuvo mal que lo hiciera\n\n### \"Come posso farmi perdonare?\"\n**Pronunciación:** CO-me PO-so FAR-mi per-do-NA-re\n\n**Significado:** ¿Cómo puedo compensarte?\n\n### \"Ti prometto che non succederà più\"\n**Pronunciación:** Ti pro-ME-to que non su-che-de-RA piú\n\n**Significado:** Te prometo que no volverá a pasar\n\n## Frases para Ofrecer Perdón\n\n### \"Ti perdono\"\n**Pronunciación:** Ti per-DO-no\n\n**Significado:** Te perdono\n\n### \"Lasciamoci tutto alle spalle\"\n**Pronunciación:** La-SHIA-mo-chi TU-to A-le SPA-le\n\n**Significado:** Dejemos todo atrás\n\n### \"Sono pronto/a ad andare avanti\"\n**Pronunciación:** SO-no PRON-to/a ad an-DA-re a-VAN-ti\n\n**Significado:** Estoy listo/a para seguir adelante\n\n### \"Tutti sbagliano\"\n**Pronunciación:** TU-ti sba-LLIA-no\n\n**Significado:** Todos se equivocan\n\n### \"Apprezzo le tue scuse\"\n**Pronunciación:** a-PRE-tso le TU-e SCU-se\n\n**Significado:** Aprecio tus disculpas\n\n### \"Ti amo ancora\"\n**Pronunciación:** Ti A-mo an-CO-ra\n\n**Significado:** Todavía te amo\n\n## Conclusión\n\nEl perdón italiano es apasionado y sincero. Usa estas frases para sanar tu relación.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 230,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Frases para Pedir Perdón",
+              "## Frases para Ofrecer Perdón"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fdb357bc-d673-4481-93b6-56bde5203df4",
+      "title": "Expresii despre Gelozie și Încredere în Cuplu în Suedeză",
+      "native_lang": "ro",
+      "target_lang": "sv",
+      "category": "communication",
+      "content": "Gelozia este o emoție universală care poate apărea în orice relație. A ști cum să discuți despre aceste sentimente poate transforma tensiunea în oportunitate de conectare.\n\n## Expresii pentru a Discuta despre Gelozie\n\n### Recunoașterea Sentimentelor\n\nÎnvață să-ți exprimi sentimentele într-un mod sănătos, fără acuzații.\n\n### Construirea Încrederii\n\nFrazele de reasigurare sunt esențiale pentru o relație sănătoasă.\n\n### Răspunsuri la Gelozie\n\nCând partenerul exprimă gelozie, validează sentimentele și oferă reasigurare.\n\n## Sfaturi Practice\n\n1. **Comunicare deschisă** - Vorbește despre sentimente\n2. **Ascultare activă** - Înțelege perspectiva partenerului\n3. **Evită acuzațiile** - Folosește eu în loc de tu\n4. **Transparență** - Fiți deschiși\n5. **Respect reciproc** - Gelozia nu justifică controlul\n\n## Concluzie\n\nGelozia poate fi gestionată sănătos prin comunicare și încredere reciprocă.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 122,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Expresii pentru a Discuta despre Gelozie"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "fdbf40cd-7839-491e-b456-ed3fe74dc427",
+      "title": "Przewodnik po wymowie tureckiej dla polskich par",
+      "native_lang": "pl",
+      "target_lang": "tr",
+      "category": "pronunciation",
+      "content": "import VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nTurecka wymowa jest bardzo przyjazna dla Polaków! Turecki jest językiem fonetycznym - każda litera ma jeden dzwiek. Ten przewodnik pomoze wam jako parze opanowac turecka wymowe razem!\n\n## Podstawowe zasady wymowy\n\n<CultureTip title=\"Swietna wiadomosc dla Polaków\" flag=\"🇹🇷\">\nTurecki jest jednym z najbardziej fonetycznych językow swiata - wymawia się go dokladnie tak, jak się pisze. Zadnych niespodzianek jak w angielskim!\n</CultureTip>\n\n### Akcent w tureckim\n\nW tureckim akcent zazwyczaj pada na ostatnia sylabe słowa:\n\n| Slowo | Wymowa | Znaczenie |\n|-------|--------|-----------|\n| **se-vi-yo-RUM** | se-wi-jo-RUM | kocham |\n| **gü-ZEL** | gu-ZEL | piękny |\n| **ar-ka-DAŞ** | ar-ka-DASZ | przyjaciel |\n\n## Samogloski tureckie\n\nTurecki ma 8 samoglosek - 4 przednie i 4 tylne:\n\n### Samogloski tylne (twarde)\n\n| Litera | Wymowa | Przyklad | Znaczenie |\n|--------|--------|----------|-----------|\n| **a** | jak polskie \"a\" | anne | mama |\n| **ı** | jak \"y\" w \"byk\" | ışık | swiatlo |\n| **o** | jak polskie \"o\" | okul | szkola |\n| **u** | jak polskie \"u\" | uzun | długi |\n\n### Samogloski przednie (miekkie)\n\n| Litera | Wymowa | Przyklad | Znaczenie |\n|--------|--------|----------|-----------|\n| **e** | jak polskie \"e\" | ev | dom |\n| **i** | jak polskie \"i\" | iyi | dobry |\n| **ö** | jak niemieckie \"ö\" | göz | oko |\n| **ü** | jak niemieckie \"ü\" | gün | dzień |\n\n<VocabCard\n  word=\"Seni seviyorum\"\n  translation=\"Kocham cie\"\n  pronunciation=\"SE-ni se-wi-jo-RUM\"\n  example=\"Seni seviyorum canım.\"\n/>\n\n<CultureTip title=\"Harmonia samogloskowa\" flag=\"🇹🇷\">\nTo najwazniejsza zasada tureckiego! Przyrostki musza \"pasowac\" do samoglosek w rdzeniu słowa. Samogloski przednie lącza się z przednimi, a tylne z tylnymi.\n</CultureTip>\n\n## Spolgloski tureckie\n\n### Spolgloski podobne do polskich\n\n| Litera | Wymowa | Przyklad |\n|--------|--------|----------|\n| **b, d, f, g, h, k, l, m, n, p, t, v, z** | jak w polskim | baba (tata) |\n| **j** | jak polskie \"z\" miekkie | jilet (zyletka) |\n| **r** | jak polskie \"r\" | resim (obraz) |\n\n### Spolgloski specjalne\n\n<PhraseOfDay\n  word=\"günaydın\"\n  translation=\"dzień dobry\"\n  pronunciation=\"gu-naj-din\"\n  context=\"'ğ' wydluza poprzednia samogloske\"\n/>\n\n| Litera | Wymowa | Przyklad | Znaczenie |\n|--------|--------|----------|-----------|\n| **ç** | jak polskie \"cz\" | çiçek | kwiat |\n| **ş** | jak polskie \"sz\" | şeker | cukier |\n| **ğ** | wydluza samogloske | dağ | gora |\n| **c** | jak \"dz\" | cam | szyba |\n\n<VocabCard\n  word=\"teşekkür ederim\"\n  translation=\"dziekuje\"\n  pronunciation=\"te-szek-kur e-de-rim\"\n  example=\"Çok teşekkür ederim!\"\n/>\n\n### 'Ğ' - Miękkie G\n\nTa litera jest unikalna dla tureckiego:\n- Nie ma własnego dzwieku\n- Wydluza poprzednia samogloske\n- Przykład: \"dağ\" (gora) wymawia się \"daa\"\n\n## Ćwiczenia wymowy dla par\n\n### Cwiczenie 1: Samogloski\n\nPowtarzajcie na zmiane:\n1. **a-ı-o-u**: Anne, sıcak, okul, uzun\n2. **e-i-ö-ü**: Ev, iyi, göz, gün\n\n### Cwiczenie 2: Trudne spolgloski\n\n<VocabCard\n  word=\"çok güzel\"\n  translation=\"bardzo piękny\"\n  pronunciation=\"czok gu-zel\"\n  example=\"Çok güzelsin aşkım!\"\n/>\n\nCwiczcie te pary:\n- **ç**: çay (herbata), çiçek (kwiat)\n- **ş**: şeker (cukier), aşk (milosc)\n- **ğ**: dağ (gora), soğuk (zimny)\n- **c**: cam (szyba), cami (meczet)\n\n### Cwiczenie 3: Romantyczne frazy\n\nPowtarzajcie razem:\n\n| Fraza | Wymowa |\n|-------|--------|\n| Seni seviyorum | se-ni se-wi-jo-rum |\n| Canım | dza-nim |\n| Günaydın | gu-naj-din |\n| İyi geceler | i-ji ge-dze-ler |\n| Teşekkür ederim | te-szek-kur e-de-rim |\n\n## Typowe bledy Polaków\n\n### Bled 1: Mylenie \"ı\" i \"i\"\n\n- **Zle**: \"ışık\" wymawiane z \"i\"\n- **Dobrze**: \"ışık\" z dzwiekiem podobnym do \"y\" w \"byk\"\n\n### Bled 2: Ignorowanie 'ğ'\n\n- **Zle**: \"dağ\" wymawiane jako \"dag\"\n- **Dobrze**: \"dağ\" jako \"daa\" z przedluzeniem\n\n### Bled 3: Mylenie \"c\" i \"ç\"\n\n- **Zle**: \"cam\" wymawiane jak \"czam\"\n- **Dobrze**: \"cam\" jako \"dzam\", \"çam\" jako \"czam\"\n\n<CultureTip title=\"Cierpliwosc popłaca\" flag=\"🇹🇷\">\nTurecka wymowa jest bardzo regularna - gdy nauczysz się zasad raz, bedziesz mogl wymawiać każde slowo poprawnie. Turcy bardzo doceniaja wysilek!\n</CultureTip>\n\n## Intonacja w zdaniach\n\n### Zdania oznajmujace\nIntonacja lekko opadajaca na koncu:\n**\"Seni seviyorum.\"** ↘\n\n### Pytania tak/nie\nIntonacja wzrastajaca:\n**\"Beni seviyor musun?\"** ↗\n\n### Pytania że slowem pytajnym\nIntonacja opadajaca po slowie pytajnym:\n**\"Ne yapıyorsun?\"** ↘\n\n## Harmonia samogloskowa w praktyce\n\nTo kluczowa zasada tureckiego! Przyrostki zmieniaja się w zaleznosci od samoglosek w rdzeniu:\n\n### Przyklad z \"-ım/-im/-um/-üm\" (moj/moja)\n\n| Slowo | + przyrostek | Wynik |\n|-------|--------------|-------|\n| **ev** (dom) | + im | **evim** (moj dom) |\n| **anne** (mama) | + m | **annem** (moja mama) |\n| **göz** (oko) | + üm | **gözüm** (moje oko) |\n| **kol** (ramie) | + um | **kolum** (moje ramie) |\n\n## Lamiace język po turecku\n\nSprobujcie tych zdan dla zabawy:\n\n1. **\"Şu köşe yaz köşesi\"** - Ten rog to letni rog\n2. **\"Bir berber bir berbere gel beraber berber dükkanı açalım demiş\"** - Jeden fryzjer powiedzial drugiemu: chodz otworzymy razem zaklad fryzjerski\n\n## Podsumowanie\n\nTurecka wymowa jest bardzo regularna i przewidywalna:\n1. Kazda litera ma jeden dzwiek\n2. 'ş' = \"sz\", 'ç' = \"cz\", 'c' = \"dz\"\n3. 'ğ' wydluza poprzednia samogloske\n4. Harmonia samogloskowa rzadzi przyrostkami\n\nCwiczcie razem każdego dnia!\n\n## Kontynuuj nauke\n\n- **[Jak powiedziec \"kocham cie\"](/learn/pl/tr/how-to-say-i-love-you-in-turkish/)** - Praktykuj romantyczne zwroty\n- **[Tureckie powitania](/learn/pl/tr/turkish-greetings-farewells/)** - Codzieńne zwroty\n- **[Podstawy gramatyki](/learn/pl/tr/turkish-grammar-basics/)** - Zrozum strukture języka\n- **[Czy turecki jest trudny?](/learn/pl/tr/is-turkish-hard-to-learn/)** - Realistyczne podejscie\n\n<CTA text=\"Gotowi na nauke tureckiej wymowy razem?\" buttonText=\"Zacznij teraz\" />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Spolgloski tureckie",
+              "## Ćwiczenia wymowy dla par",
+              "## Typowe bledy Polaków",
+              "## Intonacja w zdaniach"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "tier": 2,
+  "subTier": "a",
+  "batchId": "tier2a-batch-0407",
+  "articles": [
+    {
+      "id": "74b593e7-9412-4e85-bbaf-65dbf27f5db7",
+      "title": "Német kifejezések féltékenységhez és bizalomhoz",
+      "native_lang": "hu",
+      "target_lang": "de",
+      "category": "communication",
+      "content": "A német kultúrában az őszinte kommunikáció kulcsfontosságú – a féltékenység témájában is. Ha német anyanyelvű partnered van, ezek a kifejezések segítenek nyíltan beszélni az érzéseidről.\n\n## Kifejezések a féltékenység kifejezéséhez\n\n### 1. \"Ich bin eifersüchtig, wenn du...\"\n**Kiejtés:** Ih bin áferzühtih, ven du\n\n**Jelentés:** Féltékeny vagyok, amikor te...\n\n**Példa:** \"Ich bin eifersüchtig, wenn du so viel Zeit mit deiner Kollegin verbringst.\"\n\n### 2. \"Ich brauche Bestätigung\"\n**Kiejtés:** Ih brauhö beztétigunk\n\n**Jelentés:** Megerősítésre van szükségem\n\n**Példa:** \"Manchmal brauche ich Bestätigung, dass ich dir wichtig bin.\"\n\n### 3. \"Ich vertraue dir, aber ich kämpfe mit meinen Gefühlen\"\n**Kiejtés:** Ih fertraue dír, áber ih kempfe mit májnen geführlen\n\n**Jelentés:** Megbízom benned, de küzdök az érzéseimmel\n\n**Példa:** \"Ich vertraue dir vollkommen, aber ich kämpfe gerade mit meinen Gefühlen.\"\n\n### 4. \"Können wir über das reden, was passiert ist?\"\n**Kiejtés:** Könen vír über dász réden, vász passzírt iszt\n\n**Jelentés:** Beszélhetünk arról, ami történt?\n\n**Példa:** \"Ich habe dich mit deiner Ex gesehen. Können wir darüber reden?\"\n\n### 5. \"Ich will nicht eifersüchtig sein, aber...\"\n**Kiejtés:** Ih vil niht áferzühtih zájn, áber\n\n**Jelentés:** Nem akarok féltékeny lenni, de...\n\n**Példa:** \"Ich will nicht eifersüchtig sein, aber ich habe mich unwohl gefühlt.\"\n\n### 6. \"Ich vertraue dir vollkommen\"\n**Kiejtés:** Ih fertraue dír folkomen\n\n**Jelentés:** Teljesen megbízom benned\n\n**Példa:** \"Ich möchte, dass du weißt, dass ich dir vollkommen vertraue.\"\n\n### 7. \"Du bist der/die Einzige für mich\"\n**Kiejtés:** Du biszt der/di ájncige für mih\n\n**Jelentés:** Te vagy az egyetlen nekem\n\n**Példa:** \"Egal mit wem ich rede, du bist die Einzige für mich.\"\n\n### 8. \"Ich würde niemals etwas tun, um dich zu verletzen\"\n**Kiejtés:** Ih vürde nímálsz etvász tun, um dih cu ferlecen\n\n**Jelentés:** Soha nem tennék semmit, ami fájna neked\n\n**Példa:** \"Glaub mir, ich würde niemals etwas tun, um dich zu verletzen.\"\n\n### 9. \"Zwischen uns läuft nichts\"\n**Kiejtés:** Cvisen unsz lojft nihts\n\n**Jelentés:** Köztünk nincs semmi\n\n**Példa:** \"Sie ist nur eine Freundin. Zwischen uns läuft nichts.\"\n\n### 10. \"Ich bin dir treu\"\n**Kiejtés:** Ih bin dír tráu\n\n**Jelentés:** Hű vagyok hozzád\n\n**Példa:** \"Ich bin dir vollkommen treu und werde es immer sein.\"\n\n### 11. \"Lass uns ehrlich zueinander sein\"\n**Kiejtés:** Lasz unsz érlih cuájnander zájn\n\n**Jelentés:** Legyünk őszinték egymással\n\n**Példa:** \"Um Missverständnisse zu vermeiden, lass uns ehrlich zueinander sein.\"\n\n### 12. \"Ich will nicht, dass Eifersucht zwischen uns steht\"\n**Kiejtés:** Ih vil niht, dász ájferzuht cvisen unsz stét\n\n**Jelentés:** Nem akarom, hogy a féltékenység közénk álljon\n\n**Példa:** \"Ich liebe dich zu sehr. Ich will nicht, dass Eifersucht zwischen uns steht.\"\n\n## Összefoglalás\n\nA német direktség előny a féltékenység témájában – beszélj nyíltan és őszintén, és partnered értékelni fogja.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Kifejezések a féltékenység kifejezéséhez"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "74b7aa97-f5d3-4cd1-a505-0b0cd13beba4",
+      "title": "Nehezen tanulható a román nyelv? Őszinte válasz pároknak",
+      "native_lang": "hu",
+      "target_lang": "ro",
+      "category": "vocabulary",
+      "content": "\nimport VocabCard from '@components/VocabCard.astro';\nimport CultureTip from '@components/CultureTip.astro';\nimport PhraseOfDay from '@components/PhraseOfDay.astro';\nimport CTA from '@components/CTA.astro';\n\nA román nyelv nehéz? A rövid válasz: **nem annyira, mint gondolnád** - különösen, ha van egy román partnered, aki támogat a tanulásban. A román valójában az egyik könnyebb új nyelv lehet magyar anyanyelvűek számára, és még könnyebb, ha szereteted motiválja a tanulást. A közös nyelvtanulás nemcsak a kommunikációt javítja, hanem mélyíti is a kapcsolatotokat.\n\n<PhraseOfDay\n  word=\"Te iubesc\"\n  translation=\"Szeretlek\"\n  pronunciation=\"teh yoo-BESK\"\n  context=\"A legfontosabb mondat, amit minden párnak meg kell tanulnia - és milyen egyszerű!\"\n/>\n\n## Az őszinte értékelés\n\nA román nyelv az **FSI (Foreign Service Institute)** szerint az 1. kategóriába tartozik, ami azt jelenti, hogy átlagosan **24 hét (600 óra)** szükséges alapfokú társalgási szinthez. Ez ugyanabba a kategóriába esik, mint a spanyol vagy olasz - sokkal könnyebb, mint például a német vagy orosz.\n\n**Magyar anyanyelvűként extra előnyöd van:**\n- A magyar és román nyelvben hasonló fonetikai elemek vannak\n- Mindkét nyelv használja az ékezeteket\n- A hangzóképzés hasonló\n\n**Összehasonlításképpen:**\n- Román: 24 hét az alapfokig\n- Német: 30 hét\n- Orosz: 44 hét\n- Arab: 88 hét\n\n<CultureTip flag=\"🇷🇴\" title=\"Román nyelv érdekesség\">\nA román az egyetlen román nyelv Kelet-Európában, és bár sok szláv hatás érte, alapjaiban latin eredetű. Ezért hangzik olyan \"olaszosan\" sok szó!\n</CultureTip>\n\n## Mi teszi könnyűvé vagy nehézzé?\n\n### Kihívások:\n1. **Főnévragozás** - három nem (hímnem, nőnem, semleges) és többes szám\n2. **Igeragozás** - sokféle alak a személyek szerint\n3. **Kiejtés** - egyes mássalhangzók (ț, ș, ă, â) újak lehetnek\n4. **Szórend** - rugalmasabb, mint a magyar, ami eleinte zavaró\n\n<VocabCard\n  word=\"a iubi\"\n  translation=\"szeretni\"\n  pronunciation=\"ah yoo-BEE\"\n  example=\"Eu te iubesc foarte mult.\"\n/>\n\n### Előnyök:\n1. **Latin ábécé** - már ismered a betűket\n2. **Fonétikus írás** - ahogy írják, úgy kell kiejteni\n3. **Sok hasonló szó** - angol, francia, olasz kölcsönszavak\n4. **Partnered segít** - mindennapi gyakorlási lehetőség\n5. **Motiváció** - szereteted hajtja a tanulást\n\n## Reális időkeret pároknak\n\n| Szint | Időtartam | Leírás |\n|-------|-----------|---------|\n| **Alapfogalmak** | 2-3 hét | Köszönések, [szeretlek mondása](/learn/hu/ro/how-to-say-i-love-you-in-romanian/), számok |\n| **Egyszerű beszélgetések** | 2-3 hónap | Családról, időjárásról, ételről |\n| **Családi események** | 4-6 hónap | Részvétel román családi összejöveteleken |\n| **Folyékonyság** | 1-2 év | Mélyebb témák, álmodás románul |\n\n**Fontos:** Ha van egy román partnered, ez az idő **30-50%-kal lerövidülhet**!\n\n## A párok előnye\n\nA nyelvtanulás párokban mindig hatékonyabb - de amikor az egyik fél anyanyelvi, az igazi áttörés:\n\n- **Azonnali visszajelzés** - partnered azonnal kijavítja a hibáidat\n- **Valódi kontextus** - minden kifejezésnek van személyes jelentése\n- **Kulturális beavatás** - megérted a román mentalitást is\n- **Gyakorlási lehetőség minden nap** - reggeli közben, filmnézéskor\n\n<CultureTip flag=\"🇷🇴\" title=\"Családi integráció\">\nA román családok nagyra értékelik, ha a partnerük megpróbálja megtanulni a nyelvüket. Már egy egyszerű \"Bună ziua, cum sunteți?\" (Jó napot, hogy van?) is hatalmas mosolyt csal az arcukra!\n</CultureTip>\n\n## Tippek sikerhez pároknak\n\n1. **Kezdd az alapokkal** - [köszönések és búcsúzások](/learn/hu/ro/romanian-greetings-and-farewells/)\n2. **Tanuljatok együtt** - legyen közös \"román időtök\"\n3. **Használjátok a mindennapokban** - kérj meg partnered, hogy csak románulmondja el, mit szeretne vacsorára\n4. **Nézzetek román filmeket** - felirattal együtt\n5. **Tanulj [romantikus kifejezéseket](/learn/hu/ro/romantic-phrases-for-every-occasion/)** - motiválóbb, mint a nyelvtan\n6. **Légy türelmes magadhoz** - a hibák részei a folyamatnak\n7. **Ünnepelj minden apró sikert** - még a helyes kiejtés is ok az örömre\n\n## Mit tanulj meg először?\n\n1. **Szeretlek kifejezések** - [a legfontosabb mondatok](/learn/hu/ro/how-to-say-i-love-you-in-romanian/)\n2. **Családi szavak** - anya, apa, testvér\n3. **Étkezési kifejezések** - szeretek, nem szeretek\n4. **Idő és időjárás** - ma, holnap, tegnap\n5. **Kérdőszavak** - mi, hol, mikor\n6. **[Édes becenevek](/learn/hu/ro/romanian-pet-names-for-your-partner/)** - hogy szólítsd szerelmesen\n\n## Az igazság\n\n**A román nyelv nem nehéz - különösen nem szeretet motivációjával.** Valójában az egyik legkedvezőbb nyelv magyar anyanyelvűek számára. A latin gyökerek, a fonetikus írás és a román partnered támogatása mind a te oldaladon áll.\n\nA kulcs: **ne azt nézd, mennyi időt vesz igénybe, hanem élvezd az utat együtt.** Minden új szó, amit megtanulsz, egy új kapocs közöttetek. Minden helyes mondat egy közös siker. És minden nevetés a kiejtési bakikon... nos, az is a szerelmetek része.\n\n<CTA />\n",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Mi teszi könnyűvé vagy nehézzé?"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "74c2672b-1f4a-457d-8412-d83925ec68d3",
+      "title": "Norveççe Seni Özledim İfadeleri: Hasret Sözleri",
+      "native_lang": "tr",
+      "target_lang": "no",
+      "category": "communication",
+      "content": "# Norveççe Seni Özledim İfadeleri\n\nNorveç'in geniş coğrafyası uzun mesafeli ilişkileri yaygın kılar. Bu rehberde Norveççe özlem ifadelerini öğreneceksiniz.\n\n## Temel Özlem İfadeleri\n\n### 1. \"Jeg savner deg\"\n**Telaffuz:** \"Yay savner day\"\n**Anlam:** Seni özledim\n\n### 2. \"Jeg savner deg så mye\"\n**Telaffuz:** \"Yay savner day so müye\"\n**Anlam:** Seni çok özledim\n\n### 3. \"Jeg lengter etter deg\"\n**Telaffuz:** \"Yay lengter etter day\"\n**Anlam:** Seni hasretle bekliyorum\n\n### 4. \"Jeg skulle ønske du var her\"\n**Telaffuz:** \"Yay skulle önske du var her\"\n**Anlam:** Keşke burada olsaydın\n\n### 5. \"Jeg tenker på deg hele tiden\"\n**Telaffuz:** \"Yay tenker po day hele tiden\"\n**Anlam:** Her zaman seni düşünüyorum\n\n### 6. \"Det føles tomt uten deg\"\n**Telaffuz:** \"De föles tomt uten day\"\n**Anlam:** Sensiz boş hissediyorum\n\n### 7. \"Jeg teller dagene til vi ses\"\n**Telaffuz:** \"Yay teller dagene til vi ses\"\n**Anlam:** Görüşeceğimiz güne kadar günleri sayıyorum\n\n### 8. \"Du betyr alt for meg\"\n**Telaffuz:** \"Du betür alt for may\"\n**Anlam:** Benim için her şey demeksin\n\n### 9. \"Hjertet mitt lengter etter deg\"\n**Telaffuz:** \"Yertet mit lengter etter day\"\n**Anlam:** Kalbim seni özlüyor\n\n### 10. \"Vi sees snart, håper jeg\"\n**Telaffuz:** \"Vi sees snart, hoper yay\"\n**Anlam:** Umarım yakında görüşürüz\n\n## Sonuç\n\nNorveççe özlem ifadelerini öğrenmek, sevdiklerinizle bağınızı güçlendirir.",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 206,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Temel Özlem İfadeleri"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "74c92748-90f8-4e4c-9b01-c1e97d3f9093",
+      "title": "Tjeckiska fraser för att träffa svärföräldrarna – Gör ett gott intryck",
+      "native_lang": "sv",
+      "target_lang": "cs",
+      "category": "communication",
+      "content": "Tjecker värdesätter ärlighet och genuina relationer. Visa respekt och intresse.\n\n## Första mötet\n\n### \"Jsem moc rád/ráda, že vás konečně poznávám\"\n**Betydelse:** Jag är väldigt glad att äntligen träffa er\n\n### \"Slyšel/Slyšela jsem o vás mnoho hezkého\"\n**Betydelse:** Jag har hört mycket fint om er\n\n### \"Děkuji mockrát za pozvání\"\n**Betydelse:** Tack så mycket för inbjudan\n\n## Artiga fraser\n\n### \"Prosím, říkejte mi [namn]\"\n**Betydelse:** Kalla mig gärna [namn]\n\n### \"Máte krásný domov\"\n**Betydelse:** Ni har ett vackert hem\n\n### \"Mohu vám s něčím pomoci?\"\n**Betydelse:** Kan jag hjälpa till med något?\n\n### \"Jídlo je vynikající\"\n**Betydelse:** Maten är utmärkt\n\n## Om din relation\n\n### \"Váš syn/Vaše dcera pro mě znamená všechno\"\n**Betydelse:** Er son/dotter betyder allt för mig\n\n### \"Cítím se moc šťastný/šťastná, že jsem poznal/poznala [namn]\"\n**Betydelse:** Jag känner mig lycklig att ha träffat [namn]\n\n### \"Děláme se navzájem velmi šťastnými\"\n**Betydelse:** Vi gör varandra väldigt lyckliga\n\n## Visa intresse\n\n### \"Rád/Ráda bych se dozvěděl/dozvěděla více o [ämne]\"\n**Betydelse:** Jag vill gärna veta mer om [ämne]\n\n### \"Jak jste se poznali?\"\n**Betydelse:** Hur träffades ni?\n\n## Avskedsfraser\n\n### \"Děkuji za krásný večer\"\n**Betydelse:** Tack för den vackra kvällen\n\n### \"Bylo mi velkým potěšením vás poznat\"\n**Betydelse:** Det var ett stort nöje att träffa er\n\n## Kulturella tips\n\n**Öl:** Tjeckien är känt för sin öl – att dela en öl kan vara socialt.\n\n**Skor:** Ta ofta av skorna inomhus.\n\n**Blommor:** Udda antal (jämna för begravningar).\n\n## Avslutande tankar\n\nTjeckiska svärföräldrar uppskattar ärlighet och genuin värme.\n\nHodně štěstí!",
+      "issues": [
+        {
+          "type": "thin_content",
+          "details": {
+            "wordCount": 248,
+            "tier": "<300"
+          }
+        },
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Första mötet",
+              "## Artiga fraser",
+              "## Om din relation",
+              "## Visa intresse",
+              "## Avskedsfraser"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": "74dccf7a-2046-4f08-b1b2-fcf9bf8750d1",
+      "title": "Szerelmes Levél Írása Ukránul – Romantikus Kifejezések és Tippek",
+      "native_lang": "hu",
+      "target_lang": "uk",
+      "category": "communication",
+      "content": "# Szerelmes Levél Írása Ukránul – Romantikus Kifejezések és Tippek\n\nAz ukrán nyelv dallamossága és költői gazdagsága kiválóan alkalmas szerelmes levelek írására. Ha ukránul szeretnéd kifejezni érzelmeidet, ez az útmutató segít.\n\n## Megszólítások\n\n### 1. Кохана / Коханий (Kohana / Kohanij)\n**Jelentés:** Szerelmem (nő/férfi)\n\n**Kiejtés:** ko-HA-na / ko-HA-nij\n\nA legromantikusabb ukrán megszólítás.\n\n### 2. Люба / Любий (Ljuba / Ljubij)\n**Jelentés:** Drágám (nő/férfi)\n\n**Kiejtés:** LJU-ba / LJU-bij\n\nGyengéd és szívből jövő.\n\n### 3. Сонечко (Szonecsko)\n**Jelentés:** Napocskám\n\n**Kiejtés:** SZO-necs-ko\n\nKedves és meleg.\n\n### 4. Серденько (Szerdenykó)\n**Jelentés:** Szívecském\n\n**Kiejtés:** SZER-den-kó\n\nBecéző forma, mély érzelmekkel.\n\n### 5. Моя душа (Moja dusa)\n**Jelentés:** Lelkem\n\n**Kiejtés:** mo-JA-du-SA\n\nPoétikus és mély.\n\n## Kezdő Mondatok\n\n### 6. Я пишу тобі, щоб сказати, як сильно я тебе кохаю.\n**Jelentés:** Azért írok, hogy elmondjam, mennyire szeretlek.\n\n### 7. Слова не можуть виразити те, що я відчуваю до тебе.\n**Jelentés:** Szavak nem tudják kifejezni, mit érzek irántad.\n\n### 8. Відколи я тебе зустрів/ла, моє життя знайшло новий сенс.\n**Jelentés:** Mióta megismertelek, az életemnek új értelme van.\n\n### 9. Кожна мить з тобою – це скарб.\n**Jelentés:** Minden veled töltött pillanat kincs.\n\n### 10. Ти найкраще, що сталося в моєму житті.\n**Jelentés:** Te vagy a legjobb, ami az életemben történt.\n\n## Érzelmek Kifejezése\n\n### 11. Моє серце належить тобі.\n**Jelentés:** A szívem a tiéd.\n\n### 12. Ти робиш мене повним/повною.\n**Jelentés:** Teljessé teszel.\n\n### 13. Твоє кохання дає мені силу.\n**Jelentés:** A szerelmed erőt ad.\n\n### 14. Я закохуюся в тебе щодня все більше.\n**Jelentés:** Minden nap jobban beleszeretek.\n\n### 15. Ти моя споріднена душа.\n**Jelentés:** Te vagy a lelki társam.\n\n## Lezárások\n\n### 16. Назавжди твоя/твій\n**Jelentés:** Örökké a tiéd\n\n### 17. З усією моєю любов'ю\n**Jelentés:** Minden szeretetemmel\n\n### 18. Твоя/Твій навіки\n**Jelentés:** A tiéd örökké\n\n### 19. До зустрічі\n**Jelentés:** Viszontlátásig\n\n### 20. Кохаю тебе всім серцем\n**Jelentés:** Teljes szívemből szeretlek\n\n## Kulturális Tippek\n\n### Ukrán Költészet\nAz ukrán irodalom gazdag szerelmi költészetben. Tarasz Sevcsenko inspiráció lehet.\n\n### Народні пісні (Népdalok)\nAz ukrán népdalok tele vannak szerelmi témákkal – hallgasd őket inspirációért!\n\n### Вишиванка (Himzett Ing)\nA hagyományos ukrán kultúra szimbólumai különleges érzelmi töltetet adhatnak.\n\n## Minta Levél\n\n*Моя кохана/Мій коханий,*\n\n*Я пишу тобі цього листа, бо є речі в моєму серці, якими я мушу поділитися з тобою. З моменту, коли я тебе зустрів/ла, моє життя змінилося назавжди.*\n\n*Кожен день поруч з тобою – це подарунок. Твоя усмішка освітлює мої найтемніші дні, а твоє кохання дає мені силу, про яку я не знав/ла. З кожною миттю я закохуюся в тебе все глибше.*\n\n*Ти мій найкращий друг/моя найкраща подруга, моя довірена особа і кохання всього мого життя. Я не можу уявити свій світ без тебе.*\n\n*Назавжди твоя/твій,*\n*[A neved]*\n\n## Tippek\n\n1. **Használj gyengéd becenéveket** – Az ukrán nyelv gazdag ezekben\n2. **Légy költői** – Az ukrán kultúra értékeli a szép szavakat\n3. **Figyelj a nemekre** – A végződések nemhez igazodnak\n4. **Említs közös emlékeket** – Ez személyessé teszi a levelet\n5. **Írd kézzel, ha lehetséges** – A kézzel írott levelek különleges értéket képviselnek az ukrán kultúrában\n\n## Záró Gondolatok\n\nEgy ukrán nyelvű szerelmes levél írása csodálatos módja annak, hogy mélyebb kapcsolatot építs ki partnereddel. Ne félj attól, hogy nem tökéletes a nyelvtudásod – a szándék és az őszinteség sokkal fontosabb, mint a hibátlan nyelvtan. A partneред bizonyára értékelni fogja a fáradságodat és a szívedet, amit beleadtál. Minden szó, amit ukránul írsz, azt mutatja, mennyire fontos számodra az ő kultúrája és nyelve.",
+      "issues": [
+        {
+          "type": "empty_sections",
+          "details": {
+            "sections": [
+              "## Megszólítások",
+              "## Kezdő Mondatok",
+              "## Érzelmek Kifejezése",
+              "## Lezárások",
+              "## Kulturális Tippek"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

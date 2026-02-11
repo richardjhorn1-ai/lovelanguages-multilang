@@ -1,0 +1,483 @@
+{
+  "batchId": "tier2a-slim-0151",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "a4208370-9bca-4d84-8cc7-7c0e287b3455",
+      "title": "Ukrán születésnapi kívánságok párodnak",
+      "native_lang": "hu",
+      "target_lang": "uk",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Születésnapi köszöntések",
+            "### Romantikus üzenetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a421682b-d233-4183-8d27-2595f84033b3",
+      "title": "Yunanca İlk Buluşma İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Karşılama",
+          "subsections": [
+            "### 1. \"Χαίρομαι τόσο πολύ που σε γνωρίζω επιτέλους\"",
+            "### 2. \"Δείχνεις ακόμα καλύτερα από τις φωτογραφίες\"",
+            "### 3. \"Ανυπομονούσα για αυτή τη συνάντηση\""
+          ]
+        },
+        {
+          "header": "## Sohbet",
+          "subsections": [
+            "### 4. \"Πες μου για σένα\"",
+            "### 5. \"Τι σου αρέσει να κάνεις στον ελεύθερο χρόνο σου;\"",
+            "### 6. \"Έχεις ξανάρθει εδώ;\""
+          ]
+        },
+        {
+          "header": "## İltifatlar",
+          "subsections": [
+            "### 7. \"Έχεις υπέροχο χαμόγελο\"",
+            "### 8. \"Μου αρέσει το στυλ σου\"",
+            "### 9. \"Είναι εύκολο να μιλάω μαζί σου\""
+          ]
+        },
+        {
+          "header": "## Sonlandırma",
+          "subsections": [
+            "### 10. \"Πέρασα πολύ ωραία\"",
+            "### 11. \"Μπορούμε να το επαναλάβουμε;\"",
+            "### 12. \"Θα ήθελα να σε ξαναδώ\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a428b70d-af11-4355-ab09-1e5ab03dd5c0",
+      "title": "Holandské fráze pro setkání s rodiči partnera",
+      "native_lang": "cs",
+      "target_lang": "nl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## První setkání",
+          "subsections": [
+            "### \"Leuk om u te ontmoeten.\"",
+            "### \"[Partner] heeft me veel over u verteld.\"",
+            "### \"Hartelijk dank voor de uitnodiging.\"",
+            "### \"U heeft een prachtig huis.\""
+          ]
+        },
+        {
+          "header": "## U jídla",
+          "subsections": [
+            "### \"Dit is heerlijk! Mag ik het recept?\"",
+            "### \"Alles ziet er geweldig uit.\""
+          ]
+        },
+        {
+          "header": "## Projevení zájmu",
+          "subsections": [
+            "### \"Ik zou graag foto's van [partner] als kind zien.\"",
+            "### \"Hoe hebben jullie elkaar ontmoet?\""
+          ]
+        },
+        {
+          "header": "## Nabídka pomoci",
+          "subsections": [
+            "### \"Kan ik ergens mee helpen?\"",
+            "### \"Laat mij alstublieft helpen met de afwas.\""
+          ]
+        },
+        {
+          "header": "## Rozloučení",
+          "subsections": [
+            "### \"Bedankt voor een heerlijke avond.\"",
+            "### \"Ik hoop u snel weer te zien.\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a43c6df1-39e0-47c3-a988-331c3a44fb29",
+      "title": "Griechische Flirtsprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassische Komplimente",
+          "subsections": [
+            "### \"Είσαι όμορφη\" / \"Είσαι όμορφος\" (Eísai ómorfi/Eísai ómorfos)",
+            "### \"Έχεις πανέμορφα μάτια\" (Écheis panémorfa mátia)",
+            "### \"Έχεις υπέροχο χαμόγελο\" (Écheis ypérocho chamógelo)"
+          ]
+        },
+        {
+          "header": "## Romantische Ausdrücke",
+          "subsections": [
+            "### \"Είσαι ο έρωτας της ζωής μου\" (Eísai o érotas tis zoís mou)",
+            "### \"Δεν μπορώ να σταματήσω να σκέφτομαι εσένα\" (Den boró na stamatíso na skéftomai eséna)",
+            "### \"Με κάνεις τόσο ευτυχισμένο\" / \"ευτυχισμένη\""
+          ]
+        },
+        {
+          "header": "## Süße Kosenamen",
+          "subsections": [
+            "### \"Αγάπη μου\" (Agápi mou)",
+            "### \"Μωρό μου\" (Moró mou)",
+            "### \"Καρδιά μου\" (Kardiá mou)",
+            "### \"Ψυχή μου\" (Psychí mou)",
+            "### \"Γλυκιά μου\" / \"Γλυκέ μου\" (Glykiá mou / Glyké mou)"
+          ]
+        },
+        {
+          "header": "## Leidenschaftliche Ausdrücke",
+          "subsections": [
+            "### \"Σ' αγαπώ\" (S' agapó)",
+            "### \"Είσαι τα πάντα για μένα\" (Eísai ta pánta gia ména)",
+            "### \"Είμαι τρελός για σένα\" / \"τρελή για σένα\" (Eímai trelós gia séna)",
+            "### \"Μου έκλεψες την καρδιά\" (Mou éklepses tin kardiá)"
+          ]
+        },
+        {
+          "header": "## Spielerische Sprüche",
+          "subsections": [
+            "### \"Πιστεύεις στον έρωτα με την πρώτη ματιά, ή να περάσω ξανά?\"",
+            "### \"Είναι ο πατέρας σου κλέφτης? Γιατί έκλεψε τα αστέρια από τον ουρανό και τα έβαλε στα μάτια σου\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a453b7d0-8dae-45a9-92cc-d65a8c8a053a",
+      "title": "Norveççe Aşk Mektubu Yazma: Romantik İfadeler Rehberi",
+      "native_lang": "tr",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Mektuba Başlangıç İfadeleri",
+          "subsections": [
+            "### 1. Min kjæreste",
+            "### 2. Mitt hjertes kjærlighet",
+            "### 3. Kjære deg"
+          ]
+        },
+        {
+          "header": "## Duygularınızı İfade Eden Cümleler",
+          "subsections": [
+            "### 4. Jeg elsker deg mer enn ord kan beskrive",
+            "### 5. Du er alt for meg",
+            "### 6. Med deg føler jeg meg hel",
+            "### 7. Du har forandret livet mitt",
+            "### 8. Hver dag med deg er en gave",
+            "### 9. Jeg drømmer om vår fremtid sammen"
+          ]
+        },
+        {
+          "header": "## Mektubu Bitiriş İfadeleri",
+          "subsections": [
+            "### 10. Med all min kjærlighet",
+            "### 11. For alltid din",
+            "### 12. Klemmer og kyss"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a45c524d-1391-4516-b70e-b13f3e2040d4",
+      "title": "Grekiska Fraser för Försoning och Att Göra Upp",
+      "native_lang": "sv",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Fraser för att Inleda Försoning",
+          "subsections": [
+            "### 1. \"Συγγνώμη\"",
+            "### 2. \"Μπορούμε να ξεκινήσουμε από την αρχή;\"",
+            "### 3. \"Μισώ να τσακώνομαι μαζί σου\"",
+            "### 4. \"Είσαι τα πάντα για μένα\"",
+            "### 5. \"Είχα άδικο και το παραδέχομαι\""
+          ]
+        },
+        {
+          "header": "## Fraser för Djupare Försoning",
+          "subsections": [
+            "### 6. \"Ας μην κοιμηθούμε θυμωμένοι\"",
+            "### 7. \"Σ'αγαπώ περισσότερο από κάθε καβγά\"",
+            "### 8. \"Μπορώ να σε αγκαλιάσω;\"",
+            "### 9. \"Θέλω να σε καταλάβω καλύτερα\"",
+            "### 10. \"Είμαστε πιο δυνατοί από αυτό\"",
+            "### 11. \"Υπόσχομαι να γίνω καλύτερος/η\"",
+            "### 12. \"Ευχαριστώ για την υπομονή σου μαζί μου\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a466b605-9169-44d4-8e30-f248263e8045",
+      "title": "Német nászutas utazási kifejezések",
+      "native_lang": "hu",
+      "target_lang": "de",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Utazási alapkifejezések",
+            "### Romantikus helyzetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a47c22dd-14ec-4a9f-9436-d20cfbce7a5d",
+      "title": "Ukraińskie zwroty o zazdrości i zaufaniu dla par",
+      "native_lang": "pl",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Wyrażanie uczuć zazdrości",
+          "subsections": [
+            "### \"Я відчуваю ревнощі, коли...\"",
+            "### \"Я почуваюся невпевнено щодо...\"",
+            "### \"Мене турбує, коли ти...\""
+          ]
+        },
+        {
+          "header": "## Pytania budujące zaufanie",
+          "subsections": [
+            "### \"Можеш мене заспокоїти щодо...?\"",
+            "### \"Хто була та людина, з якою ти розмовляв/розмовляла?\"",
+            "### \"Я перебільшую?\""
+          ]
+        },
+        {
+          "header": "## Wyrażanie potrzeby zaufania",
+          "subsections": [
+            "### \"Мені потрібно, щоб ти був/була чесним/чесною зі мною\"",
+            "### \"Я довіряю тобі, але мені важко з...\""
+          ]
+        },
+        {
+          "header": "## Uspokajanie partnera",
+          "subsections": [
+            "### \"Тобі нема про що турбуватися\"",
+            "### \"Ти єдиний/єдина для мене\"",
+            "### \"Я ніколи не зроблю нічого, що тебе зранить\""
+          ]
+        },
+        {
+          "header": "## Budowanie zaufania",
+          "subsections": [
+            "### \"Давай будемо більш відкритими одне з одним\"",
+            "### \"Я хочу, щоб ми повністю довіряли одне одному\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a48b02aa-986d-4148-a09a-42cbbf699df2",
+      "title": "Small Talk på Ungarsk: Samtalestartere for Par",
+      "native_lang": "da",
+      "target_lang": "hu",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassiske Emner",
+          "subsections": [
+            "### Vejret",
+            "### Weekendplaner",
+            "### Ferier og Rejser"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a48b9e84-d9d8-44df-97ba-c9358ca88e81",
+      "title": "Spanish Arguing & Disagreement Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressing Disagreement",
+          "subsections": [
+            "### No estoy de acuerdo",
+            "### Eso no es justo",
+            "### Me estás malinterpretando",
+            "### No me escuchas"
+          ]
+        },
+        {
+          "header": "## Expressing Frustration",
+          "subsections": [
+            "### Estoy frustrado/a",
+            "### Me molesta cuando...",
+            "### Necesito un momento"
+          ]
+        },
+        {
+          "header": "## Setting Boundaries",
+          "subsections": [
+            "### No me hables así",
+            "### Eso me hace daño",
+            "### Necesitamos hablar de esto con calma"
+          ]
+        },
+        {
+          "header": "## Seeking Resolution",
+          "subsections": [
+            "### ¿Podemos encontrar una solución juntos?",
+            "### Quiero entenderte"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a4990eed-c2cc-4a32-ba53-e745f3eb93c4",
+      "title": "Expresii 'Mi-e Dor de Tine' în Spaniolă pentru Români",
+      "native_lang": "ro",
+      "target_lang": "es",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale de Dor",
+          "subsections": [
+            "### Expresii Clasice",
+            "### Expresii Poetice",
+            "### Mesaje de Dimineață și Seară",
+            "### Promisiuni și Speranțe"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a4a7dff7-553b-49ee-87d8-0b1171fbfda4",
+      "title": "Czech Baby & Pregnancy Vocabulary: Essential Words for Expecting Couples",
+      "native_lang": "en",
+      "target_lang": "cs",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Announcing the News",
+          "subsections": [
+            "### To Your Partner's Family",
+            "### To Friends"
+          ]
+        },
+        {
+          "header": "## Nursery and Baby Items",
+          "subsections": [
+            "### Setting Up the dětský pokoj",
+            "### Shopping Vocabulary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a4bac05f-05dd-4824-8a68-9f36e39a8b01",
+      "title": "Данські фрази для примирення після сварки",
+      "native_lang": "uk",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Щирі вибачення",
+          "subsections": [
+            "### \"Undskyld\"",
+            "### \"Tilgiv mig, vær så venlig\"",
+            "### \"Jeg tog fejl, jeg er virkelig ked af det\""
+          ]
+        },
+        {
+          "header": "## Визнання провини",
+          "subsections": [
+            "### \"Det burde jeg ikke have sagt\"",
+            "### \"Jeg var uretfærdig over for dig\"",
+            "### \"Jeg tager det fulde ansvar\""
+          ]
+        },
+        {
+          "header": "## Вираження любові",
+          "subsections": [
+            "### \"Jeg elsker dig og vil ikke skændes\"",
+            "### \"Du betyder alt for mig\"",
+            "### \"Jeg hader, når vi skændes\""
+          ]
+        },
+        {
+          "header": "## Прохання та обіцянки",
+          "subsections": [
+            "### \"Kan du tilgive mig?\"",
+            "### \"Jeg lover at blive bedre\"",
+            "### \"Det sker ikke igen\""
+          ]
+        },
+        {
+          "header": "## Відновлення зв'язку",
+          "subsections": [
+            "### \"Kan vi starte forfra?\"",
+            "### \"Lad os lægge det bag os\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a4bb5ac2-9b07-43f7-ae5b-aae7ca2ee0b5",
+      "title": "Guia de Preposiciones en Portugues",
+      "native_lang": "es",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Las Preposiciones Principales",
+          "subsections": [
+            "### A - Direccion y Destino",
+            "### De - Origen, Posesion y Materia",
+            "### Em - Ubicacion y Tiempo",
+            "### Para - Destino, Proposito y Destinatario"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a4d00ceb-4d76-4624-8a23-c6f0b5fb5268",
+      "title": "Cum Să Ceri în Căsătorie: Expresii pentru Logodnă în Daneză",
+      "native_lang": "ro",
+      "target_lang": "da",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Răspunsuri la Cerere",
+          "subsections": [
+            "### Răspunsuri Pozitive"
+          ]
+        },
+        {
+          "header": "## Vocabular pentru Inele",
+          "subsections": [
+            "### Pietre Prețioase",
+            "### Metale"
+          ]
+        },
+        {
+          "header": "## După Logodnă",
+          "subsections": [
+            "### Pașii Următori"
+          ]
+        }
+      ]
+    }
+  ]
+}

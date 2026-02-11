@@ -1,0 +1,468 @@
+{
+  "batchId": "tier2a-slim-0099",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "755df665-0b91-4a50-b2b0-f6821a16bcda",
+      "title": "Frases en Ruso para tu Primera Cita",
+      "native_lang": "es",
+      "target_lang": "ru",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Frases para Romper el Hielo",
+          "subsections": [
+            "### \"Рад(а) наконец познакомиться\" (Rad(a) nakonets poznakomit'sya)",
+            "### \"Ты прекрасно выглядишь\" (Ty prekrasno vyglyadish')",
+            "### \"Я ждал(а) этого момента\" (Ya zhdal(a) etogo momenta)"
+          ]
+        },
+        {
+          "header": "## Frases para Conocerse",
+          "subsections": [
+            "### \"Расскажи о себе\" (Rasskazhi o sebe)",
+            "### \"Чем ты любишь заниматься?\" (Chem ty lyubish' zanimat'sya?)",
+            "### \"Какой твой любимый...?\" (Kakoy tvoy lyubimyy...?)"
+          ]
+        },
+        {
+          "header": "## Frases Románticas",
+          "subsections": [
+            "### \"Мне очень хорошо с тобой\" (Mne ochen' khorosho s toboy)",
+            "### \"У тебя прекрасная улыбка\" (U tebya prekrasnaya ulybka)",
+            "### \"Я наслаждаюсь этим вечером\" (Ya naslazdayus' etim vecherom)"
+          ]
+        },
+        {
+          "header": "## Frases para Terminar",
+          "subsections": [
+            "### \"Мне было чудесно\" (Mne bylo chudesno)",
+            "### \"Можем встретиться снова?\" (Mozhem vstretit'sya snova?)",
+            "### \"Напиши, когда доберёшься домой\" (Napishi, kogda doberyosh'sya domoy)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "755ecc17-adf8-4d2b-a718-82cc98f795ce",
+      "title": "50+ Apelidos Franceses para Derreter Seu Amor",
+      "native_lang": "pt",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Atividades para Praticar Juntos",
+          "subsections": [
+            "### Rotina Diaria",
+            "### Jogos de Memoria"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "757e5aa5-f165-4b3c-b21a-06593d0aae64",
+      "title": "Godmorgen og Godnat på Fransk: Søde Fraser til Din Partner",
+      "native_lang": "da",
+      "target_lang": "fr",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Tekstbeskeder",
+          "subsections": [
+            "### Morgenbeskeder",
+            "### Aftenbeskeder"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "758a31d4-48fa-48df-825d-011b667087ed",
+      "title": "Frases para Conocer a los Suegros en Italiano: Conquistando a los Suoceri",
+      "native_lang": "es",
+      "target_lang": "it",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Saludos y Presentaciones",
+          "subsections": [
+            "### \"Sono molto felice di conoscervi finalmente\"",
+            "### \"Ho sentito parlare così tanto di voi\"",
+            "### \"Grazie mille per avermi invitato\""
+          ]
+        },
+        {
+          "header": "## Cumplidos a la Familia",
+          "subsections": [
+            "### \"Avete una casa bellissima\"",
+            "### \"Questo pranzo è squisito\"",
+            "### \"Ora capisco da dove viene il fascino di [nombre]\""
+          ]
+        },
+        {
+          "header": "## Hablando de Tu Pareja",
+          "subsections": [
+            "### \"Vostro figlio/Vostra figlia mi rende molto felice\"",
+            "### \"Mi sento molto fortunato/a di averlo/averla nella mia vita\""
+          ]
+        },
+        {
+          "header": "## Ofreciendo Ayuda",
+          "subsections": [
+            "### \"Posso aiutare in qualcosa?\"",
+            "### \"Mi faccia aiutare con i piatti\""
+          ]
+        },
+        {
+          "header": "## Mostrando Interés",
+          "subsections": [
+            "### \"Mi piacerebbe sapere di più sulle vostre tradizioni familiari\"",
+            "### \"Come vi siete conosciuti?\"",
+            "### \"Com'era [nombre] da bambino/a?\""
+          ]
+        },
+        {
+          "header": "## Despedidas Cálidas",
+          "subsections": [
+            "### \"Grazie per questa splendida serata\"",
+            "### \"È stato un vero piacere conoscervi\"",
+            "### \"Spero di rivedervi presto\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "75933bc0-319e-4946-9f87-240b20f0d6b4",
+      "title": "Tyske SMS- og chattefraser for par",
+      "native_lang": "no",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Kulturelle tips",
+          "subsections": [
+            "### Ich liebe dich vs. Ich hab dich lieb",
+            "### Tyske kosenavn",
+            "### Formelt vs. uformelt"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "75ab2846-2bf5-4559-921a-27fc94e03612",
+      "title": "Çekçe Tartışma ve Anlaşmazlık İfadeleri",
+      "native_lang": "tr",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Temel Tartışma İfadeleri",
+          "subsections": [
+            "### 1. \"Cítím se zraněný/á, když...\"",
+            "### 2. \"Můžeme o tom mluvit v klidu?\"",
+            "### 3. \"Chápu tvůj názor, ale...\"",
+            "### 4. \"Nekřičme\"",
+            "### 5. \"To jsem neměl/a na mysli\"",
+            "### 6. \"Potřebuji chvíli pro sebe\"",
+            "### 7. \"Najděme kompromis\"",
+            "### 8. \"Nechtěl/a jsem ti ublížit\"",
+            "### 9. \"Můžeš mi vysvětlit, jak se cítíš?\"",
+            "### 10. \"Myslím, že se oba potřebujeme uklidnit\"",
+            "### 11. \"Miluji tě, ale jsem naštvaný/á\"",
+            "### 12. \"Promluvme si o tom později\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "75ba0959-a35b-4535-8396-9d9acae5e071",
+      "title": "Mutatul Împreună în Franceză: Vocabular și Expresii pentru Noua",
+      "native_lang": "ro",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Mobila și Obiectele Casnice",
+          "subsections": [
+            "### Living",
+            "### Dormitor",
+            "### Bucătărie"
+          ]
+        },
+        {
+          "header": "## Procesul Mutării",
+          "subsections": [
+            "### Înainte de Mutare",
+            "### În Ziua Mutării"
+          ]
+        },
+        {
+          "header": "## Decorarea Împreună",
+          "subsections": [
+            "### Stiluri de Design",
+            "### Compromis în Decor"
+          ]
+        },
+        {
+          "header": "## Comunicare în Cuplu",
+          "subsections": [
+            "### Expresii pentru Armonie",
+            "### Rezolvarea Conflictelor"
+          ]
+        },
+        {
+          "header": "## Lista de Verificare",
+          "subsections": [
+            "### Documente Necesare",
+            "### Prima Săptămână"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "75c04248-df0c-4725-9c5c-39dfba2f5811",
+      "title": "Tyrkiske Udtryk til Følelsesmæssig Støtte og Trøst",
+      "native_lang": "da",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Grundlæggende Støtteudtryk",
+          "subsections": [
+            "### 1. Senin için buradayım",
+            "### 2. Her şey iyi olacak",
+            "### 3. Sana inanıyorum",
+            "### 4. İhtiyacın olan tüm zamanı al",
+            "### 5. Yaşadıkların için çok üzgünüm"
+          ]
+        },
+        {
+          "header": "## Dybere Trøst",
+          "subsections": [
+            "### 6. Ağlamak normal",
+            "### 7. Bunu tek başına yaşamak zorunda değilsin",
+            "### 8. Gücünle çok gurur duyuyorum",
+            "### 9. Hislerin geçerli",
+            "### 10. Ne olursa olsun, bununla birlikte yüzleşeceğiz"
+          ]
+        },
+        {
+          "header": "## Kærlige Trøsteord",
+          "subsections": [
+            "### 11. Aşkım, her zaman yanında olacağım",
+            "### 12. Seni seviyorum, ve bu asla değişmeyecek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "75c8c948-1eb3-4385-bb81-59d48ed70981",
+      "title": "Holland nászutas utazási kifejezések",
+      "native_lang": "hu",
+      "target_lang": "nl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Utazási alapkifejezések",
+            "### Romantikus helyzetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "75da25cf-9e65-4b3f-b76f-8991d7cf1565",
+      "title": "Phrases suédoises sur le pardon en couple",
+      "native_lang": "fr",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expressions pour demander pardon",
+          "subsections": [
+            "### S'excuser sincèrement",
+            "### Exprimer ses regrets",
+            "### S'engager à changer"
+          ]
+        },
+        {
+          "header": "## Expressions pour pardonner",
+          "subsections": [
+            "### Accorder le pardon",
+            "### Exprimer la réconciliation"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "75e4fe2c-b9e7-4592-b5d6-2ce76e3a58e2",
+      "title": "Сложно ли выучить португальский язык?",
+      "native_lang": "ru",
+      "target_lang": "pt",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Что будет ЛЕГКО для русскоговорящих",
+          "subsections": [
+            "### 1. Знакомый алфавит",
+            "### 2. Род существительных",
+            "### 3. Много интернационализмов",
+            "### 4. Спряжение глаголов",
+            "### 5. Бразильский вариант легче"
+          ]
+        },
+        {
+          "header": "## Что будет СЛОЖНО для русскоговорящих",
+          "subsections": [
+            "### 1. Артикли",
+            "### 2. Носовые гласные",
+            "### 3. Ser vs Estar",
+            "### 4. Сложное произношение (европейский)",
+            "### 5. Субъюнтиво (сослагательное наклонение)"
+          ]
+        },
+        {
+          "header": "## Сроки изучения",
+          "subsections": [
+            "### Реалистичные ожидания:"
+          ]
+        },
+        {
+          "header": "## Почему учить вместе проще",
+          "subsections": [
+            "### Преимущества обучения парой:",
+            "### Идеи для практики:"
+          ]
+        },
+        {
+          "header": "## Главные советы",
+          "subsections": [
+            "### 1. Начните с бразильского",
+            "### 2. Практикуйте носовые звуки",
+            "### 3. Погружайтесь в культуру",
+            "### 4. Используйте сходство с испанским",
+            "### 5. Наслаждайтесь красотой языка"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "75e6bb55-ce4c-4a1a-b751-ea7feefcc590",
+      "title": "Знакомство с семьёй испаноговорящего партнёра",
+      "native_lang": "ru",
+      "target_lang": "es",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Разговоры с семьёй",
+          "subsections": [
+            "### Рассказ о себе:",
+            "### Частые вопросы:",
+            "### Темы для разговора:",
+            "### Темы, которых лучше избегать:"
+          ]
+        },
+        {
+          "header": "## Полезные фразы",
+          "subsections": [
+            "### Если не поняли:",
+            "### Комплименты семье:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "75f342e2-5583-4083-97d8-be1622395d28",
+      "title": "100 самых важных украинских слов для пар",
+      "native_lang": "ru",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Обращения",
+          "subsections": [
+            "### 1. Я / Ти / Ми",
+            "### 2. Коханий/Кохана / Любий/Люба / Сонечко"
+          ]
+        },
+        {
+          "header": "## Чувства",
+          "subsections": [
+            "### 3. Кохання / Щасливий / Сумний"
+          ]
+        },
+        {
+          "header": "## Действия",
+          "subsections": [
+            "### 4. Їсти / Пити / Спати",
+            "### 5. Йти / Приходити / Залишатися"
+          ]
+        },
+        {
+          "header": "## Время",
+          "subsections": [
+            "### 6. Сьогодні / Завтра / Вчора"
+          ]
+        },
+        {
+          "header": "## Важные фразы",
+          "subsections": [
+            "### 7. Я тебе кохаю",
+            "### 8. Я сумую за тобою",
+            "### 9. Дякую / Вибач / Будь ласка",
+            "### 10. Так / Ні",
+            "### 11. Поцілунок / Обійми",
+            "### 12. На добраніч"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "75f881a8-6337-42d4-9861-e8d9f2b9a275",
+      "title": "Danish Pronunciation for Couples: Sound Romantic from Day One",
+      "native_lang": "en",
+      "target_lang": "da",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## The Basics: 5 Essential Sound Rules",
+          "subsections": [
+            "### 1. The Soft 'D' (D after vowels)",
+            "### 2. The Stød (That Special Danish Glottal Stop)",
+            "### 3. 'G' Before 'I' or 'Y'",
+            "### 4. Silent 'G' After 'N'",
+            "### 5. 'R' at Word End"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "76067b51-4363-42b3-98ef-d3f6c3fe7b72",
+      "title": "Tyrkiske Grammatikk-Basics: Lær Deg Enkle Regler for Kjærlighetssamtaler",
+      "native_lang": "no",
+      "target_lang": "tr",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## De 5 Viktigste Reglene",
+          "subsections": [
+            "### 1. Vokalharmoni - Musikken i Tyrkisk",
+            "### 2. Suffikssystemet - Bygg Dine Egne Ord",
+            "### 3. Ingen Artikler - \"En\" og \"Den\" Er Innebygd",
+            "### 4. Enkel Verbplassering",
+            "### 5. Ingen Kjønn - Hurra!"
+          ]
+        },
+        {
+          "header": "## Vanlige Feil Å Unngå",
+          "subsections": [
+            "### 1. Feil Vokalharmoni",
+            "### 2. Manglende Suffiks",
+            "### 3. Feil Ordstilling",
+            "### 4. Blande \"Sen\" og \"Siz\""
+          ]
+        }
+      ]
+    }
+  ]
+}

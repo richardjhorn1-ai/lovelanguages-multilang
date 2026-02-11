@@ -1,0 +1,296 @@
+{
+  "batchId": "tier2a-slim-0331",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "f7aac871-b81e-40ed-826b-ce9d76eec055",
+      "title": "Romanian Pronunciation Guide for English Speakers",
+      "native_lang": "en",
+      "target_lang": "ro",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Common Sound Combinations",
+          "subsections": [
+            "### Diphthongs (Two Vowels Together)"
+          ]
+        },
+        {
+          "header": "## Common Pronunciation Mistakes",
+          "subsections": [
+            "### Mistakes to Avoid"
+          ]
+        },
+        {
+          "header": "## Quick Reference Card",
+          "subsections": [
+            "### Vowels",
+            "### Tricky Consonants",
+            "### Key Phrases to Practice"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f8a9bfc7-4ebc-4154-a492-f1b757deda74",
+      "title": "Szwedzkie powitania i pożegnania",
+      "native_lang": "pl",
+      "target_lang": "sv",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia",
+          "subsections": [
+            "### Cwiczenie 1: Powitania",
+            "### Cwiczenie 2: Pozegnania",
+            "### Cwiczenie 3: Wiadomosci"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f94886f2-0bd7-4e01-a725-1720c9b74600",
+      "title": "50 Anglických Pozdravů a Sbohem, Které se Vám Budou Hodit pro Váš Milostný Příběh",
+      "native_lang": "cs",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Jak Na To: Praktické Tipy Pro Páry",
+          "subsections": [
+            "### Procvičujte Spolu",
+            "### Časté Chyby, Kterým Se Vyhněte"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f975169a-f30f-4782-b308-2a0bee7fd172",
+      "title": "50+ Polish Love Phrases to Charm Your Partner",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Special Occasions and Celebrations",
+          "subsections": [
+            "### Anniversary Phrases",
+            "### Proposal and Wedding Phrases"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f97ef491-bf3c-4c47-92c6-3476f70c702e",
+      "title": "Réseaux Sociaux : Polonais en Ligne",
+      "native_lang": "fr",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Langage spécifique aux plateformes",
+          "subsections": [
+            "### Instagram",
+            "### Facebook",
+            "### TikTok"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "f9ca1bc4-11a5-45ea-a59c-097ae2abdb4c",
+      "title": "50+ английских фраз для романтического вечера",
+      "native_lang": "ru",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Полезный словарь",
+          "subsections": [
+            "### Виды свиданий:",
+            "### Романтическая атмосфера:"
+          ]
+        },
+        {
+          "header": "## Практические упражнения",
+          "subsections": [
+            "### Ролевая игра «В ресторане»:",
+            "### «Комплименты на время»:",
+            "### «Планируем свидание»:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fa86edfa-b58a-44d0-b496-8477106ae5ea",
+      "title": "Frases Románticas en Alemán para Cada Momento Especial",
+      "native_lang": "es",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Frases para Momentos Especiales",
+          "subsections": [
+            "### Aniversarios y Logros",
+            "### Buenos Días y Buenas Noches"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fb0e14ed-fbe1-469c-92cf-199846d284cb",
+      "title": "Találkozás a partnered családjával románul: Bemutatkozó kifejezések pároknak",
+      "native_lang": "hu",
+      "target_lang": "ro",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Tipikus találkozási szcenáriók",
+          "subsections": [
+            "### 1. Az első találkozás otthon",
+            "### 2. Vacsora közben",
+            "### 3. Ajándék átadása"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fb5c0fb3-64df-4c67-a855-215f0831da17",
+      "title": "50 Frasi Romantiche Greche per Ogni Occasione: Dalle Dolci Parole ai Momenti Speciali",
+      "native_lang": "it",
+      "target_lang": "el",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Come Usarle al Meglio",
+          "subsections": [
+            "### Timing è Tutto",
+            "### La Pronuncia che Conquista",
+            "### Contesto e Cultura"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fc299e4f-c7be-4760-80c8-f8c4170966e3",
+      "title": "¿Es Difícil Aprender Italiano?",
+      "native_lang": "es",
+      "target_lang": "it",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Actividades Divertidas para Parejas que Aprenden Italiano",
+          "subsections": [
+            "### 1. Noches de Cita Románticas en Italiano",
+            "### 2. Conversaciones con el Café de la Mañana",
+            "### 3. Cocinar Italiano Juntos"
+          ]
+        },
+        {
+          "header": "## Haciendo el Italiano Más Fácil: Estrategias Comprobadas para Parejas",
+          "subsections": [
+            "### 1. Creen Horas de Solo Italiano",
+            "### 2. Vean Contenido Italiano Juntos",
+            "### 3. Usen la Tecnología"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fc42122e-b29a-4721-ae3f-18813709e9da",
+      "title": "Polish Small Talk: Conversation Starters",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Finding Common Ground",
+          "subsections": [
+            "### Hobbies and Interests",
+            "### Travel and Places"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fc9cff55-8027-4e68-8c4b-97fcb83ad453",
+      "title": "Шведские приветствия и прощания",
+      "native_lang": "ru",
+      "target_lang": "sv",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Романтические приветствия и прощания",
+          "subsections": [
+            "### Для пар"
+          ]
+        },
+        {
+          "header": "## При встрече и расставании",
+          "subsections": [
+            "### Когда партнёр уходит",
+            "### Когда партнёр возвращается"
+          ]
+        },
+        {
+          "header": "## Практические упражнения",
+          "subsections": [
+            "### Утренняя рутина",
+            "### Вечерняя рутина",
+            "### Ролевая игра: Телефонный звонок"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fcd56556-3274-4aed-a150-0fa603f2a3fb",
+      "title": "Jerga Inglesa de Mensajes para Parejas",
+      "native_lang": "es",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Conversaciones de Ejemplo",
+          "subsections": [
+            "### Por la Mañana",
+            "### Por la Noche"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fd639612-aa2c-46aa-a2ec-f1935a160263",
+      "title": "75 Essentielle Spanske Fraser til Par for Dybere Forbindelse",
+      "native_lang": "da",
+      "target_lang": "es",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Sådan Bruger I Disse Fraser Sammen",
+          "subsections": [
+            "### Daglig Praksis",
+            "### Tips til Succes",
+            "### Almindelige Fejl at Undgå"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fe46b0e4-f535-422b-bbc3-5be2bc9a2ac1",
+      "title": "Expressing Emotions in French: Feelings Vocabulary for Couples",
+      "native_lang": "en",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Practical Conversation Scenarios",
+          "subsections": [
+            "### Scenario 1: Coming Home After a Hard Day",
+            "### Scenario 2: Sharing Exciting News",
+            "### Scenario 3: Working Through a Disagreement"
+          ]
+        }
+      ]
+    }
+  ]
+}

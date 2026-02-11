@@ -1,0 +1,488 @@
+{
+  "batchId": "tier2a-slim-0200",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "ced9dba5-6f5e-41a3-b63b-f772e2438c76",
+      "title": "Polish Forgiveness Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "pl",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Asking for Forgiveness",
+          "subsections": [
+            "### Przebacz mi"
+          ]
+        },
+        {
+          "header": "## Granting Forgiveness",
+          "subsections": [
+            "### Przebaczam ci"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cee0712a-06f1-415b-ba27-885fd8324361",
+      "title": "Görög kifejezések megbocsátáshoz",
+      "native_lang": "hu",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Bocsánatkérés",
+          "subsections": [
+            "### 1. \"Λυπάμαι πραγματικά\" (Lypámai pragmatiká)",
+            "### 2. \"Σε παρακαλώ, συγχώρεσέ με\" (Se parakaló, synchorese me)",
+            "### 3. \"Αναλαμβάνω πλήρη ευθύνη\" (Analamváno plíri efthýni)",
+            "### 4. \"Έκανα λάθος και το παραδέχομαι\" (Ékana láthos kai to paradéchomai)",
+            "### 5. \"Υπόσχομαι ότι δεν θα ξανασυμβεί\" (Ypóschomai óti den tha xanasymveí)"
+          ]
+        },
+        {
+          "header": "## Megbocsátás",
+          "subsections": [
+            "### 6. \"Σε συγχωρώ\" (Se synchoró)",
+            "### 7. \"Εντάξει, καταλαβαίνω\" (Entáxei, katalavaíno)",
+            "### 8. \"Είμαι έτοιμος/η να προχωρήσω\" (Eímai étoimos/i na prochóriso)",
+            "### 9. \"Ας το αφήσουμε πίσω μας\" (As to afísoume píso mas)",
+            "### 10. \"Δεν κρατώ κακία\" (Den krató kakía)",
+            "### 11. \"Όλοι κάνουν λάθη\" (Óloi kánoun láthi)",
+            "### 12. \"Εκτιμώ τη συγγνώμη σου\" (Ektimó ti syngnómi sou)"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cee691c7-b2a2-462b-8e56-01b334ef11a0",
+      "title": "Tsjechische Zinnen voor Ruzie en Meningsverschillen",
+      "native_lang": "nl",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Essentiële zinnen voor meningsverschillen",
+          "subsections": [
+            "### 1. \"Cítím se zraněný/á, když ty...\"",
+            "### 2. \"Můžeme o tom mluvit v klidu?\"",
+            "### 3. \"Rozumím tvému pohledu, ale...\"",
+            "### 4. \"Potřebuji chvilku, abych se uklidnil/a\"",
+            "### 5. \"To jsem neměl/a na mysli\"",
+            "### 6. \"Prosím, poslouchej mě\"",
+            "### 7. \"Můžeš mi vysvětlit, jak se cítíš?\"",
+            "### 8. \"Nechci se kvůli tomu hádat\"",
+            "### 9. \"Najděme spolu kompromis\"",
+            "### 10. \"Omlouvám se, že jsem zvýšil/a hlas\"",
+            "### 11. \"Tohle je pro mě velmi důležité\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cef07a02-7e9b-4ad8-86f9-6f0da5c9fec1",
+      "title": "Cseh esküvői kifejezések: Szókincs a nagy napra",
+      "native_lang": "hu",
+      "target_lang": "cs",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Gratulációk és jókívánságok",
+            "### Köszöntők"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cefc8776-4882-4a2e-9fd4-c73342c3c61c",
+      "title": "Guía de pronunciación portuguesa para principiantes: Habla con tu pareja desde el primer día",
+      "native_lang": "es",
+      "target_lang": "pt",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Los sonidos portugueses que confunden a los hispanohablantes",
+          "subsections": [
+            "### 1. Las vocales: Más simples de lo que parecen",
+            "### 2. El misterioso NH y LH",
+            "### 3. Las vocales nasales: Tu nueva superpoder"
+          ]
+        },
+        {
+          "header": "## Sonidos que ya dominas (sorpresa para hispanohablantes)",
+          "subsections": [
+            "### Las buenas noticias:"
+          ]
+        },
+        {
+          "header": "## Los errores más comunes que debes evitar",
+          "subsections": [
+            "### 1. Confundir \"de\" y \"da\"",
+            "### 2. El sonido RR",
+            "### 3. La terminación -ção"
+          ]
+        },
+        {
+          "header": "## Práctica diaria para parejas",
+          "subsections": [
+            "### Ejercicio 1: Los saludos",
+            "### Ejercicio 2: Pet names"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ceff2c4b-cfeb-47be-adcc-2b2cc87ded3a",
+      "title": "Russische Alltagsgespräche für Paare",
+      "native_lang": "de",
+      "target_lang": "ru",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Dialog beim Verlassen des Hauses",
+          "subsections": [
+            "### Abschied am Morgen"
+          ]
+        },
+        {
+          "header": "## Dialog am Telefon",
+          "subsections": [
+            "### Kurzer Anruf zwischendurch"
+          ]
+        },
+        {
+          "header": "## Dialog nach der Arbeit",
+          "subsections": [
+            "### Wiedersehen am Abend"
+          ]
+        },
+        {
+          "header": "## Dialog beim Abendessen",
+          "subsections": [
+            "### Gemeinsames Kochen"
+          ]
+        },
+        {
+          "header": "## Dialog vor dem Schlafengehen",
+          "subsections": [
+            "### Gute-Nacht-Gespräch"
+          ]
+        },
+        {
+          "header": "## Dialog am Wochenende",
+          "subsections": [
+            "### Pläne schmieden"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cf03cea4-a7da-4b9d-8dc7-1ffd99ad1fb6",
+      "title": "Ceca per Principianti: La Guida Completà alla Pronuncia per Le Coppie",
+      "native_lang": "it",
+      "target_lang": "cs",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Gli Errori Più Comuni (e Come Evitarli)",
+          "subsections": [
+            "### 1. La **Ř** maledetta",
+            "### 2. Le vocali lunghe",
+            "### 3. La **CH** ceca"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cf046a17-f646-4e9d-87f1-a23ab2d10e57",
+      "title": "Holland születésnapi kívánságok párodnak",
+      "native_lang": "hu",
+      "target_lang": "nl",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Hasznos kifejezések",
+          "subsections": [
+            "### Születésnapi köszöntések",
+            "### Romantikus üzenetek"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cf087be6-3851-4a3e-8788-bab014e8fda4",
+      "title": "Romantische Zweedse Zinnen voor Stellen: Verover Je Partner",
+      "native_lang": "nl",
+      "target_lang": "sv",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Complimenten voor Je Partner",
+          "subsections": [
+            "### Over Hun Uiterlijk",
+            "### Over Hun Persoonlijkheid"
+          ]
+        },
+        {
+          "header": "## Romantische Verklaringen",
+          "subsections": [
+            "### Grote Liefdesverklaringen"
+          ]
+        },
+        {
+          "header": "## Zinnen voor Speciale Momenten",
+          "subsections": [
+            "### Bij Een Speciale Gelegenheid",
+            "### Bij Een Romantisch Diner"
+          ]
+        },
+        {
+          "header": "## Liefdevolle Berichten",
+          "subsections": [
+            "### Voor Tekstberichten",
+            "### Voor Kaartjes en Brieven"
+          ]
+        },
+        {
+          "header": "## Zinnen voor Moeilijke Momenten",
+          "subsections": [
+            "### Na een Ruzie",
+            "### Om Te Troosten"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cf4e0d5f-42c8-4673-ad86-48fe27634340",
+      "title": "Török kifejezések érzelmi támogatáshoz és vigasztaláshoz",
+      "native_lang": "hu",
+      "target_lang": "tr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető vigasztaló kifejezések",
+          "subsections": [
+            "### Yanındayım",
+            "### Her şey güzel olacak",
+            "### Merak etme, düzelecek",
+            "### Yaşadıkların için çok üzgünüm"
+          ]
+        },
+        {
+          "header": "## Empátia kifejezése",
+          "subsections": [
+            "### Nasıl hissettiğini anlıyorum",
+            "### Çok zor olmalı",
+            "### Hislerin tamamen anlaşılabilir",
+            "### Böyle hissetmek normal"
+          ]
+        },
+        {
+          "header": "## Támogatás felajánlása",
+          "subsections": [
+            "### Şu an neye ihtiyacın var?",
+            "### Nasıl yardımcı olabilirim?",
+            "### Seni dinlemek için buradayım",
+            "### İhtiyacın olan kadar zaman al"
+          ]
+        },
+        {
+          "header": "## Gyász és veszteség",
+          "subsections": [
+            "### Kaybın için çok üzgünüm",
+            "### O hep kalbinde yaşayacak",
+            "### Başınız sağ olsun",
+            "### Allah rahmet eylesin"
+          ]
+        },
+        {
+          "header": "## Nehéz időkben",
+          "subsections": [
+            "### Bu işte yalnız değilsin",
+            "### Bunu birlikte atlatacağız",
+            "### Düşündüğünden daha güçlüsün",
+            "### Bu da geçer"
+          ]
+        },
+        {
+          "header": "## Bátorítás",
+          "subsections": [
+            "### Sana inanıyorum",
+            "### Başaracaksın",
+            "### Seninle gurur duyuyorum"
+          ]
+        },
+        {
+          "header": "## Szeretetteljes kifejezések",
+          "subsections": [
+            "### Seni seviyorum, aşkım",
+            "### Her zaman yanında olacağım",
+            "### Canım"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cf5443ff-d810-454a-be7e-a16a6c23a835",
+      "title": "Английские фразы для первого свидания",
+      "native_lang": "ru",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Начало разговора",
+          "subsections": [
+            "### 1. You look amazing tonight",
+            "### 2. I've been looking forward to this",
+            "### 3. Tell me more about yourself"
+          ]
+        },
+        {
+          "header": "## Поддержание беседы",
+          "subsections": [
+            "### 4. What do you do for fun?",
+            "### 5. That's really interesting",
+            "### 6. I love your sense of humor",
+            "### 7. Have you traveled anywhere interesting?"
+          ]
+        },
+        {
+          "header": "## Выражение интереса",
+          "subsections": [
+            "### 8. I'd love to see you again",
+            "### 9. I really enjoyed tonight",
+            "### 10. Can I call you tomorrow?"
+          ]
+        },
+        {
+          "header": "## Практические фразы",
+          "subsections": [
+            "### 11. Let me get this",
+            "### 12. Shall we go somewhere quieter?"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cf589553-f8f9-42f6-9c0c-a4689d25f52a",
+      "title": "Vocabulario Frances para Restaurantes e Comida",
+      "native_lang": "pt",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Atividade para Casais",
+          "subsections": [
+            "### Noite de Restaurante Frances em Casa"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cf60012f-5ee3-4e7f-9132-ec00c42e8754",
+      "title": "Skriva kärleksbrev på engelska – Romantiska fraser för din partner",
+      "native_lang": "sv",
+      "target_lang": "en",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Inledande hälsningar",
+          "subsections": [
+            "### \"My dearest [name]\"",
+            "### \"To the love of my life\"",
+            "### \"My darling\""
+          ]
+        },
+        {
+          "header": "## Uttrycka känslor",
+          "subsections": [
+            "### \"Words cannot express how much you mean to me\"",
+            "### \"Every day I fall more deeply in love with you\"",
+            "### \"You are my everything – my sun, my moon, my stars\"",
+            "### \"My heart belongs to you, now and forever\""
+          ]
+        },
+        {
+          "header": "## Beskriva din partner",
+          "subsections": [
+            "### \"Your smile lights up my world\"",
+            "### \"Your kindness and warmth inspire me every day\"",
+            "### \"The way you look at me makes me feel like the luckiest person alive\"",
+            "### \"Your strength and gentleness amaze me\""
+          ]
+        },
+        {
+          "header": "## Minnen och framtid",
+          "subsections": [
+            "### \"I treasure every moment we've shared\"",
+            "### \"From the moment I met you, I knew you were special\"",
+            "### \"I can't wait to see what our future holds\"",
+            "### \"Growing old with you is my greatest dream\""
+          ]
+        },
+        {
+          "header": "## Löften och åtaganden",
+          "subsections": [
+            "### \"I promise to love you through all of life's ups and downs\"",
+            "### \"I will always be here for you, no matter what\"",
+            "### \"My love for you grows stronger with each passing day\""
+          ]
+        },
+        {
+          "header": "## Avslutningar",
+          "subsections": [
+            "### \"Forever yours\"",
+            "### \"With all my love\"",
+            "### \"Yours always and forever\"",
+            "### \"Eternally devoted to you\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cf6d14b4-2b98-4f90-9a96-fe378269fb54",
+      "title": "German First Date Phrases for English Speakers",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Making a Great First Impression",
+          "subsections": [
+            "### Du siehst toll aus",
+            "### Schön dich kennenzulernen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cf6f5ee3-7113-4e09-86d1-08b34bdd12de",
+      "title": "Gramatica Greacă pentru Începători: Învață Împreună cu Partenerul Tău",
+      "native_lang": "ro",
+      "target_lang": "el",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Bazele Esențiale: 5 Reguli de Aur",
+          "subsections": [
+            "### 1. Articolul Definit vine DUPĂ Substantiv",
+            "### 2. Verbul \"a fi\" - Fundamentul Totului",
+            "### 3. Genurile Gramaticale: Masculin, Feminin, Neutru",
+            "### 4. Forma Negativă este Super Ușoară!",
+            "### 5. Ordinea Cuvintelor este Flexibilă"
+          ]
+        },
+        {
+          "header": "## Pattern-uri Comune în Viața de Cuplu",
+          "subsections": [
+            "### 1. Verbele de Dorință și Nevoie",
+            "### 2. Întrebări Romantice",
+            "### 3. Exprimarea Sentimentelor"
+          ]
+        }
+      ]
+    }
+  ]
+}

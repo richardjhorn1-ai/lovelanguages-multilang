@@ -1,0 +1,416 @@
+{
+  "batchId": "tier2a-slim-0321",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "cbaac912-fac8-42c7-acfd-df79d866ceca",
+      "title": "Pronunția Englezei pentru Începători: Ghidul Culorilor și Romantismului pentru Cupluri",
+      "native_lang": "ro",
+      "target_lang": "en",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Sunetele de Bază: Fundația Iubirii",
+          "subsections": [
+            "### Vocalele Engleze: Inima Cuvintelor",
+            "### Consoanele Problemă: Evităm Greșelile Comune"
+          ]
+        },
+        {
+          "header": "## Pronunția în Situații Romantice",
+          "subsections": [
+            "### Exprimări Afectuoase Zilnice",
+            "### Sunete Speciale pentru Iubire"
+          ]
+        },
+        {
+          "header": "## Greșeli Comune și Cum să le Evitați",
+          "subsections": [
+            "### 1. Silabisirea Greșită",
+            "### 2. Accentul pe Silaba Greșită",
+            "### 3. Vocala Finală \"E\""
+          ]
+        },
+        {
+          "header": "## Exerciții pentru Cupluri: Practica Împreună",
+          "subsections": [
+            "### Exercițiul 1: Oglinda Iubirii",
+            "### Exercițiul 2: Povești de Dragoste",
+            "### Exercițiul 3: Cântecul nostru"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cbcd8230-9816-4ebb-a796-62c98113fe26",
+      "title": "German Christmas Traditions for Couples",
+      "native_lang": "en",
+      "target_lang": "de",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Practice Activities for Couples",
+          "subsections": [
+            "### Activity 1: Advent Calendar Exchange",
+            "### Activity 2: Cook a German Christmas Meal",
+            "### Activity 3: Learn a German Carol"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cc27a46e-1c7c-4529-85da-6d41c6bd8b3d",
+      "title": "Основы португальской грамматики для начинающих",
+      "native_lang": "ru",
+      "target_lang": "pt",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Артикли",
+          "subsections": [
+            "### Определённые артикли (o, a, os, as)",
+            "### Неопределённые артикли (um, uma)"
+          ]
+        },
+        {
+          "header": "## Спряжение глаголов",
+          "subsections": [
+            "### Три группы глаголов",
+            "### AMAR (любить) — глаголы на -AR",
+            "### COMER (есть) — глаголы на -ER",
+            "### PARTIR (уезжать) — глаголы на -IR"
+          ]
+        },
+        {
+          "header": "## Важные неправильные глаголы",
+          "subsections": [
+            "### SER (быть — постоянное)",
+            "### ESTAR (быть — временное)",
+            "### TER (иметь)"
+          ]
+        },
+        {
+          "header": "## Местоимения",
+          "subsections": [
+            "### Личные местоимения",
+            "### Объектные местоимения"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cc27c6b4-40fc-411f-a2ca-257abaacad84",
+      "title": "Wegierskie romantyczne zwroty na każda okazje",
+      "native_lang": "pl",
+      "target_lang": "hu",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Kalendarz romantyczy",
+            "### Liściki milosne",
+            "### Codzieńne \"kocham cie\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cc32fe3a-17cc-4dc0-b1e9-abfb18e584c7",
+      "title": "50 Salutations Suédoises pour Faire Fondre Votre Partenaire",
+      "native_lang": "fr",
+      "target_lang": "sv",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Comment Utiliser Ces Salutations",
+          "subsections": [
+            "### Commencez Votre Journée Ensemble",
+            "### Créez Vos Rituels",
+            "### Variez les Plaisirs",
+            "### Erreurs à Éviter"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cc9100b4-d4ea-441d-8019-9e9ef5fcda09",
+      "title": "Ucraniano vs Português: Principais Diferenças para Casais",
+      "native_lang": "pt",
+      "target_lang": "uk",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Conjugação Verbal",
+          "subsections": [
+            "### Boa Notícia para Lusófonos!",
+            "### Passado por Gênero (Familiar!)"
+          ]
+        },
+        {
+          "header": "## Pronúncia",
+          "subsections": [
+            "### Vantagens do Português",
+            "### Desafios Novos"
+          ]
+        },
+        {
+          "header": "## Ordem das Palavras",
+          "subsections": [
+            "### Português: Relativamente Fixa",
+            "### Ucraniano: Muito Flexível"
+          ]
+        },
+        {
+          "header": "## O Que Isso Significa para Você",
+          "subsections": [
+            "### Facilidades",
+            "### Desafios"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cc969f2c-1c03-49cd-9918-6207facbb16a",
+      "title": "50+ Niemieckich Zwrotów na Romantyczną Randkę",
+      "native_lang": "pl",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Słownictwo gastronomiczne",
+          "subsections": [
+            "### Rodzaje restauracji",
+            "### Na talerzu"
+          ]
+        },
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Ćwiczenie 1: Odgrywanie scenek",
+            "### Ćwiczenie 2: Planowanie randki",
+            "### Ćwiczenie 3: Komplimenty"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ccfcd4d6-2d6d-4f61-82ca-8b3ed69a320e",
+      "title": "Vocabulario de Compras en Francés",
+      "native_lang": "es",
+      "target_lang": "fr",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Preguntando por Productos",
+          "subsections": [
+            "### Buscando Algo Específico",
+            "### Tallas y Medidas"
+          ]
+        },
+        {
+          "header": "## Precios y Pagos",
+          "subsections": [
+            "### Preguntando el Precio",
+            "### Pagando"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cd8b4501-039f-4509-a439-1fad15805c34",
+      "title": "Portugese Huwelijksuitdrukkingen: Romantische Zinnen voor o Casamento",
+      "native_lang": "nl",
+      "target_lang": "pt",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## De Huwelijksceremonie",
+          "subsections": [
+            "### Traditionele Geloften"
+          ]
+        },
+        {
+          "header": "## Felicitaties voor het Bruidspaar",
+          "subsections": [
+            "### Korte Felicitaties",
+            "### Langere Felicitaties voor Kaarten"
+          ]
+        },
+        {
+          "header": "## Romantische Zinnen",
+          "subsections": [
+            "### Voor je Partner"
+          ]
+        },
+        {
+          "header": "## Praktische Zinnen",
+          "subsections": [
+            "### Op de Receptie",
+            "### Op de Dansvloer"
+          ]
+        },
+        {
+          "header": "## Je Eigen Geloften Schrijven",
+          "subsections": [
+            "### Portugese Gelofte-inspiratie"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cde32d43-ad45-42b5-a76c-0d38cb8caee5",
+      "title": "Portekizce Aşk Sözleri: Kalbini Fethet",
+      "native_lang": "tr",
+      "target_lang": "pt",
+      "category": "phrases",
+      "sections": [
+        {
+          "header": "## Yilbasi (Ano Novo)",
+          "subsections": [
+            "### Yeni Yil Dilekleri"
+          ]
+        },
+        {
+          "header": "## Yildonümü (Aniversário de Namoro/Casamento)",
+          "subsections": [
+            "### Iliskı Yildonümü",
+            "### Evlilik Yildonümü"
+          ]
+        },
+        {
+          "header": "## Evlilik Teklifi (Pedido de Casamento)",
+          "subsections": [
+            "### O Büyük Soru"
+          ]
+        },
+        {
+          "header": "## Zor Zamanlar Icin",
+          "subsections": [
+            "### Destek ve Teselli"
+          ]
+        },
+        {
+          "header": "## Barismak Icin",
+          "subsections": [
+            "### Özür ve Baris"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ce05c02d-5da5-4f0a-9ac7-bd3a50a2a6e4",
+      "title": "Frases Esenciales en Polaco para Parejas: Conecta con tu Amor en su Idioma",
+      "native_lang": "es",
+      "target_lang": "pl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Frases para Momentos Especiales",
+          "subsections": [
+            "### En Citas Románticas",
+            "### Celebraciones y Aniversarios"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ce905b21-2fe0-467b-aa65-c4cc35c3712a",
+      "title": "50 Hollandske Date Night Ord til at Imponere Din Partner",
+      "native_lang": "da",
+      "target_lang": "nl",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Praktiske Tips Til Jeres Hollandsk Date",
+          "subsections": [
+            "### Hvordan Bruger I Disse Ord Sammen?",
+            "### Kulturelle Faldgruber At Undgå"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ceaab822-8197-4c23-b659-4f494c95ca54",
+      "title": "50 Essensielle Tsjekkiske Setninger for Kjærester",
+      "native_lang": "no",
+      "target_lang": "cs",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Slik Bruker Dere Disse Setningene Sammen",
+          "subsections": [
+            "### Daglige Ritualer",
+            "### Kjærlige Kallenavn",
+            "### Kulturell Forståelse",
+            "### Øv Sammen"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ceaae498-7768-439c-9004-fd43868f71a4",
+      "title": "Mød din partners familie på engelsk: Bliv fortrolig og imponer med de rigtige ord",
+      "native_lang": "da",
+      "target_lang": "en",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## De vigtigste introduktionsfraser",
+          "subsections": [
+            "### Første møde og hilsner",
+            "### Snakker om jeres forhold"
+          ]
+        },
+        {
+          "header": "## Specifikke situationer og samtaler",
+          "subsections": [
+            "### Ved middagsbordet",
+            "### Om jeres fremtid",
+            "### Når de viser barndomsbilleder frem"
+          ]
+        },
+        {
+          "header": "## Ordforråd: Familie og relationer",
+          "subsections": [
+            "### Familiemedlemmer",
+            "### Beskrivende ord om familie"
+          ]
+        },
+        {
+          "header": "## Høflige fraser og formalitet",
+          "subsections": [
+            "### Udtryk taknemmelighed",
+            "### Hvis du ikke forstår"
+          ]
+        },
+        {
+          "header": "## Hvad hvis noget går galt?",
+          "subsections": [
+            "### Hvis du siger noget forkert",
+            "### Hvis samtalen bliver akavet",
+            "### Hvis du er uenig om noget"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ceceedf9-d5fd-4fe0-bd99-3532558edaad",
+      "title": "Podstawy gramatyki angielskiej dla polskich par",
+      "native_lang": "pl",
+      "target_lang": "en",
+      "category": "grammar",
+      "sections": [
+        {
+          "header": "## Ćwiczenia dla par",
+          "subsections": [
+            "### Cwiczenie 1: Opowiadanie dnia",
+            "### Cwiczenie 2: Plany na weekend",
+            "### Cwiczenie 3: Teraz vs. Zawsze",
+            "### Cwiczenie 4: 20 pytan"
+          ]
+        }
+      ]
+    }
+  ]
+}

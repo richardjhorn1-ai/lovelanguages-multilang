@@ -1,0 +1,475 @@
+{
+  "batchId": "tier2a-slim-0110",
+  "batchType": "slim",
+  "articles": [
+    {
+      "id": "7f5ff8ac-cdd6-4c79-ba46-c5746864ea1a",
+      "title": "Фразы для медового месяца на португальский: Романтическое путешествие",
+      "native_lang": "ru",
+      "target_lang": "pt",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## В аэропорту",
+          "subsections": [
+            "### Регистрация",
+            "### На борту"
+          ]
+        },
+        {
+          "header": "## В отеле",
+          "subsections": [
+            "### Регистрация",
+            "### Романтические просьбы"
+          ]
+        },
+        {
+          "header": "## На пляже",
+          "subsections": [
+            "### Пляжная лексика",
+            "### Романтические фразы на a praia"
+          ]
+        },
+        {
+          "header": "## Ужин вдвоём",
+          "subsections": [
+            "### В ресторане",
+            "### Романтические тосты"
+          ]
+        },
+        {
+          "header": "## Экскурсии и приключения",
+          "subsections": [
+            "### Планирование a aventura",
+            "### Создание as memórias"
+          ]
+        },
+        {
+          "header": "## Романтические моменты",
+          "subsections": [
+            "### Фразы для особых моментов",
+            "### Закат"
+          ]
+        },
+        {
+          "header": "## Покупка сувениров",
+          "subsections": [
+            "### В магазине",
+            "### Идеи подарков"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7f83fc9e-f9d0-44bc-8ea1-9f4d77d11bf5",
+      "title": "Rencontrer la belle-famille en grec : Impressionner les πεθερικά",
+      "native_lang": "fr",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Premières salutations",
+          "subsections": [
+            "### \"Χαίρομαι που σας γνωρίζω επιτέλους\"",
+            "### \"Έχω ακούσει πολλά καλά για εσάς\"",
+            "### \"Ευχαριστώ πολύ για την πρόσκληση\""
+          ]
+        },
+        {
+          "header": "## Montrer du respect",
+          "subsections": [
+            "### \"Έχετε ένα πολύ όμορφο σπίτι\"",
+            "### \"Το φαγητό είναι υπέροχο, ευχαριστώ\""
+          ]
+        },
+        {
+          "header": "## Parler de votre partenaire",
+          "subsections": [
+            "### \"[Όνομα] σημαίνει τα πάντα για μένα\"",
+            "### \"Μεγαλώσατε έναν υπέροχο άνθρωπο\""
+          ]
+        },
+        {
+          "header": "## Au départ",
+          "subsections": [
+            "### \"Ευχαριστώ για μια υπέροχη μέρα\"",
+            "### \"Ελπίζω να σας ξαναδώ σύντομα\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7f85cbcf-5049-45fb-b694-d41ab82dd382",
+      "title": "Expresii 'Mi-e Dor de Tine' în Norvegiană pentru Români",
+      "native_lang": "ro",
+      "target_lang": "no",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Expresii Esențiale de Dor",
+          "subsections": [
+            "### Expresii Directe",
+            "### Expresii Profunde",
+            "### Mesaje Zilnice",
+            "### Promisiuni"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7f89a732-c076-4d9b-9572-a7028c86b833",
+      "title": "Román kifejezések kibéküléshez és megbékéléshez",
+      "native_lang": "hu",
+      "target_lang": "ro",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető kifejezések a kibéküléshez",
+          "subsections": [
+            "### 1. \"Îmi pare foarte rău\"",
+            "### 2. \"Putem lua totul de la capăt?\"",
+            "### 3. \"Am greșit\"",
+            "### 4. \"Să facem pace\"",
+            "### 5. \"Te iert\"",
+            "### 6. \"Te iubesc, chiar și când ne certăm\"",
+            "### 7. \"Nu am vrut să te rănesc\"",
+            "### 8. \"Mă poți ierta?\"",
+            "### 9. \"Urăsc când ne certăm\"",
+            "### 10. \"Să nu ne culcăm supărați\"",
+            "### 11. \"Promit că voi fi mai bun/ă\"",
+            "### 12. \"Ești foarte important/ă pentru mine\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7f8b8064-be50-4fb5-8988-fbc121363816",
+      "title": "Spanisches Spanisch vs. Lateinamerikanisches Spanisch",
+      "native_lang": "de",
+      "target_lang": "es",
+      "category": "culture",
+      "sections": [
+        {
+          "header": "## Grammatik-Unterschiede",
+          "subsections": [
+            "### Vosotros vs. Ustedes",
+            "### Voseo (Argentinien, Uruguay, Teile Zentralamerikas)"
+          ]
+        },
+        {
+          "header": "## Vokabular-Unterschiede",
+          "subsections": [
+            "### Alltägliche Wörter",
+            "### Romantische Unterschiede"
+          ]
+        },
+        {
+          "header": "## Kulturelle Unterschiede",
+          "subsections": [
+            "### Spanien",
+            "### Lateinamerika"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7fd013a5-4b8c-4a63-8d4e-9b0516b4bbfa",
+      "title": "50+ английских прозвищ, которые растопят сердце",
+      "native_lang": "ru",
+      "target_lang": "en",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## Британские vs Американские обращения",
+          "subsections": [
+            "### Типично британские:",
+            "### Типично американские:"
+          ]
+        },
+        {
+          "header": "## Как выбрать правильное обращение",
+          "subsections": [
+            "### Учитывайте контекст:",
+            "### Создайте своё уникальное прозвище:"
+          ]
+        },
+        {
+          "header": "## Практика для пар",
+          "subsections": [
+            "### Упражнение «Утро-вечер»:",
+            "### Упражнение «Разнообразие»:",
+            "### Записки с обращениями:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7fe833cc-5093-4e0d-913f-7905466a884d",
+      "title": "Francia kifejezések kibéküléshez és megbékéléshez",
+      "native_lang": "hu",
+      "target_lang": "fr",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető kifejezések a kibéküléshez",
+          "subsections": [
+            "### 1. \"Je suis vraiment désolé(e)\"",
+            "### 2. \"On peut recommencer à zéro?\"",
+            "### 3. \"J'avais tort\"",
+            "### 4. \"Faisons la paix\"",
+            "### 5. \"Je te pardonne\"",
+            "### 6. \"Je t'aime, même quand on se dispute\"",
+            "### 7. \"Je ne voulais pas te blesser\"",
+            "### 8. \"Tu peux me pardonner?\"",
+            "### 9. \"Je déteste quand on se dispute\"",
+            "### 10. \"Ne nous couchons pas fâchés\"",
+            "### 11. \"Je promets de faire mieux\"",
+            "### 12. \"Tu comptes beaucoup pour moi\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7ff8d3d0-f470-4626-bcc7-7ec6c86cbade",
+      "title": "Греческие фразы для споров и разногласий",
+      "native_lang": "ru",
+      "target_lang": "el",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Основные фразы для выражения несогласия",
+          "subsections": [
+            "### 1. Δεν συμφωνώ μαζί σου",
+            "### 2. Μπορούμε να μιλήσουμε ήρεμα;",
+            "### 3. Με πληγώνει όταν λες αυτό",
+            "### 4. Ας μην υψώνουμε τη φωνή μας",
+            "### 5. Χρειάζομαι να καταλάβεις την άποψή μου",
+            "### 6. Δεν εννοούσα αυτό",
+            "### 7. Μπορούμε να βρούμε έναν συμβιβασμό;",
+            "### 8. Νομίζω χρειαζόμαστε λίγο χώρο",
+            "### 9. Σεβάσου τη γνώμη μου, σε παρακαλώ",
+            "### 10. Σε ακούω, αλλά δεν συμφωνώ"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "80019b85-f663-4e1b-bb1a-93842c04a26b",
+      "title": "Шведские фразы для споров и разногласий",
+      "native_lang": "ru",
+      "target_lang": "sv",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Основные фразы для выражения несогласия",
+          "subsections": [
+            "### 1. Jag håller inte med dig",
+            "### 2. Kan vi prata om det här lugnt?",
+            "### 3. Det gör ont när du säger så",
+            "### 4. Låt oss inte höja rösten",
+            "### 5. Jag behöver att du förstår min synpunkt",
+            "### 6. Det var inte det jag menade",
+            "### 7. Kan vi hitta en kompromiss?",
+            "### 8. Jag tror att vi båda behöver lite utrymme",
+            "### 9. Snälla, respektera min åsikt",
+            "### 10. Jag lyssnar på dig, men jag håller inte med"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8013651c-fd30-430c-9448-46e787a77b61",
+      "title": "Ukrán kifejezések vitákhoz és nézeteltérésekhez",
+      "native_lang": "hu",
+      "target_lang": "uk",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Alapvető kifejezések nézeteltérésekhez",
+          "subsections": [
+            "### 1. \"Мені боляче, коли ти...\"",
+            "### 2. \"Чи можемо поговорити про це спокійно?\"",
+            "### 3. \"Я розумію твою точку зору, але...\"",
+            "### 4. \"Давай не кричати\"",
+            "### 5. \"Мені потрібен час подумати\"",
+            "### 6. \"Я не це мав/мала на увазі\"",
+            "### 7. \"Ти можеш поставити себе на моє місце?\"",
+            "### 8. \"Я не хотів/хотіла тебе образити\"",
+            "### 9. \"Давай знайдемо компроміс\"",
+            "### 10. \"Мені здається, ти мене не слухаєш\"",
+            "### 11. \"Це мене ранить\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "802816d2-3b54-4a51-9b8f-aab6248b7888",
+      "title": "Phrases de réconfort en danois : Soutenir son partenaire",
+      "native_lang": "fr",
+      "target_lang": "da",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Soutenir son partenaire en danois",
+          "subsections": []
+        },
+        {
+          "header": "## Phrases de réconfort",
+          "subsections": [
+            "### \"Jeg er her for dig\"",
+            "### \"Det hele kommer til at gå godt\"",
+            "### \"Du er ikke alene i det her\""
+          ]
+        },
+        {
+          "header": "## Écouter et valider",
+          "subsections": [
+            "### \"Jeg forstår, hvordan du har det\"",
+            "### \"Det er okay at føle sådan\""
+          ]
+        },
+        {
+          "header": "## Soutien actif",
+          "subsections": [
+            "### \"Hvad kan jeg gøre for at hjælpe?\""
+          ]
+        },
+        {
+          "header": "## Encouragement",
+          "subsections": [
+            "### \"Du er stærkere, end du tror\"",
+            "### \"Jeg tror på dig\"",
+            "### \"Du klarer det her\""
+          ]
+        },
+        {
+          "header": "## Moments difficiles",
+          "subsections": [
+            "### \"Jeg er så ked af, at du går igennem det her\"",
+            "### \"Kom, jeg giver dig et kram\"",
+            "### \"Vi kommer igennem det her sammen\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "802ce5e8-d5e4-4547-a80b-3c83ce1be7ae",
+      "title": "Французька привітання з річницею: романтичні побажання",
+      "native_lang": "uk",
+      "target_lang": "fr",
+      "category": "situations",
+      "sections": [
+        {
+          "header": "## Основна лексика про річницю",
+          "subsections": []
+        },
+        {
+          "header": "## Романтичні побажання з річницею",
+          "subsections": [
+            "### Класичні привітання"
+          ]
+        },
+        {
+          "header": "## Побажання для різних річниць",
+          "subsections": [
+            "### Перша річниця",
+            "### П'ята річниця",
+            "### Десята річниця та далі"
+          ]
+        },
+        {
+          "header": "## Як написати привітання з річницею",
+          "subsections": [
+            "### Структура ідеального привітання:",
+            "### Приклад привітання:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "80332ea2-4298-40d2-a6f1-3e0425e461c3",
+      "title": "50+ німецьких фраз для романтичного вечора",
+      "native_lang": "uk",
+      "target_lang": "de",
+      "category": "vocabulary",
+      "sections": [
+        {
+          "header": "## У ресторані",
+          "subsections": [
+            "### Прибуття",
+            "### Замовлення",
+            "### Напої"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8059e024-2d9e-4c80-b01f-ab5f7dfd2244",
+      "title": "Tschechische Flirtsprüche für Deutsche",
+      "native_lang": "de",
+      "target_lang": "cs",
+      "category": "communication",
+      "sections": [
+        {
+          "header": "## Klassische Komplimente",
+          "subsections": [
+            "### \"Jsi krásná\" / \"Jsi krásný\"",
+            "### \"Máš krásné oči\"",
+            "### \"Máš nádherný úsměv\""
+          ]
+        },
+        {
+          "header": "## Romantische Ausdrücke",
+          "subsections": [
+            "### \"Jsi láska mého života\"",
+            "### \"Nemůžu přestat myslet na tebe\"",
+            "### \"Děláš mě šťastným\" / \"Děláš mě šťastnou\""
+          ]
+        },
+        {
+          "header": "## Süße Kosenamen",
+          "subsections": [
+            "### \"Lásko\"",
+            "### \"Miláčku\"",
+            "### \"Zlatíčko\"",
+            "### \"Srdíčko\"",
+            "### \"Broučku\""
+          ]
+        },
+        {
+          "header": "## Herzliche Ausdrücke",
+          "subsections": [
+            "### \"Miluji tě\"",
+            "### \"Jsi pro mě všechno\"",
+            "### \"Jsem do tebe blázen\" / \"Jsem do tebe bláznivá\"",
+            "### \"Ukradla jsi mi srdce\" / \"Ukradl jsi mi srdce\"",
+            "### \"Chci být s tebou navždy\""
+          ]
+        },
+        {
+          "header": "## Spielerische Sprüche",
+          "subsections": [
+            "### \"Věříš na lásku na první pohled, nebo mám projít ještě jednou?\"",
+            "### \"Je tvůj táta zloděj? Protože ukradl hvězdy z nebe a dal je do tvých očí\""
+          ]
+        }
+      ]
+    },
+    {
+      "id": "8061c830-9ffb-4b68-b99d-c11b51424670",
+      "title": "Ukraynaca Telaffuz Rehberi: Türkler Icin Kapsamli Kilavuz",
+      "native_lang": "tr",
+      "target_lang": "uk",
+      "category": "pronunciation",
+      "sections": [
+        {
+          "header": "## Özel Sesler",
+          "subsections": [
+            "### \"И\" vs. \"І\"",
+            "### Yumusak Isaret (Ь)"
+          ]
+        }
+      ]
+    }
+  ]
+}
