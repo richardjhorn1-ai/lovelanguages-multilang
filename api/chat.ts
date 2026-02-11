@@ -833,7 +833,7 @@ Return as JSON array matching the order above.`;
 
           try {
             const conjResponse = await ai.models.generateContent({
-              model: "gemini-2.0-flash",
+              model: "gemini-2.5-flash",
               contents: conjugationPrompt,
               config: {
                 responseMimeType: "application/json",

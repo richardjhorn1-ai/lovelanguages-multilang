@@ -231,7 +231,7 @@ export default async function handler(req: any, res: any) {
     console.log('[chat-stream] Starting Gemini stream for user:', auth.userId);
     const ai = new GoogleGenAI({ apiKey });
     const response = await ai.models.generateContentStream({
-      model: 'gemini-2.0-flash',
+      model: 'gemini-2.5-flash',
       contents: historyContents,
       config: {
         systemInstruction: systemPrompt
