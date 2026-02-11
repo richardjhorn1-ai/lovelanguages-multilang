@@ -1,5 +1,0 @@
-Topic: 50 Pet Names and Terms of Endearment
-Target: ru
-Native: cs
-Errors:
-- Not enough internal links (1 found, need 2+)

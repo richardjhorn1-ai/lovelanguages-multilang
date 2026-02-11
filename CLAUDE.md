@@ -137,7 +137,7 @@ AI outputs special blocks rendered by `ChatArea.tsx`:
 | `Progress.tsx` | XP, levels, test history |
 | `types.ts` | All TypeScript interfaces |
 | `docs/archived/ML_MASTER_PLAN.md` | Source of truth for project status |
-| `TROUBLESHOOTING.md` | 61 solved issues |
+| `docs/TROUBLESHOOTING.md` | 61 solved issues |
 | `docs/SYSTEM_PROMPTS.md` | AI prompt documentation |
 
 ## Testing
@@ -158,7 +158,7 @@ Gemini API is the main cost driver:
 2. **Local-first validation** — Try exact match before calling AI
 3. **Limit fetching** — Use `.limit()` and `.select()` specific columns
 
-See `TROUBLESHOOTING.md` Issues #42-43.
+See `docs/TROUBLESHOOTING.md` Issues #42-43.
 
 ## Component & State Reference
 

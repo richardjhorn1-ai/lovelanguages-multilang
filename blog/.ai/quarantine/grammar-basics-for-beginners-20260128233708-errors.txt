@@ -1,5 +1,0 @@
-Topic: Grammar Basics for Beginners
-Target: hu
-Native: el
-Errors:
-- Not enough internal links (1 found, need 2+)
