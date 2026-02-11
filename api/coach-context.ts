@@ -19,7 +19,7 @@ import type { EnhancedCoachContext } from '../types.js';
 
 // In-memory cache (per serverless instance)
 const contextCache = new Map<string, { data: EnhancedCoachContext; expiresAt: number }>();
-const CACHE_TTL_MS = 30 * 60 * 1000; // 30 minutes
+const CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
 
 export default async function handler(req: any, res: any) {
   const requestId = generateRequestId();

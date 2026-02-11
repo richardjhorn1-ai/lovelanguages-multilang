@@ -1,5 +1,6 @@
 import { setCorsHeaders, verifyAuth, createServiceClient } from '../utils/api-middleware.js';
 import { getProfileLanguages } from '../utils/language-helpers.js';
+import { fetchVocabularyContext } from '../utils/vocabulary-context.js';
 
 // Level name lookup
 const LEVEL_NAMES = [
@@ -14,72 +15,6 @@ const LEVEL_NAMES = [
 function getLevelName(level: number): string {
   const levelIndex = Math.min((level || 1) - 1, 17);
   return LEVEL_NAMES[levelIndex] || 'Beginner 1';
-}
-
-// Fetch user's learning context (vocabulary, weak spots, stats)
-async function fetchLearnerContext(supabase: any, userId: string, targetLanguage: string) {
-  // Parallel fetch: vocabulary and scores (filtered by language)
-  const [vocabResult, scoresResult] = await Promise.all([
-    supabase
-      .from('dictionary')
-      .select('word, translation, word_type')
-      .eq('user_id', userId)
-      .eq('language_code', targetLanguage)
-      .order('unlocked_at', { ascending: false })
-      .limit(100),
-    supabase
-      .from('word_scores')
-      .select('word_id, correct_attempts, total_attempts, learned_at, updated_at, dictionary:word_id(word, translation)')
-      .eq('user_id', userId)
-      .eq('language_code', targetLanguage)
-  ]);
-
-  const vocabulary = vocabResult.data || [];
-  const scores = scoresResult.data || [];
-
-  // Calculate weak spots (words with failures, sorted by fail count)
-  const weakSpots = scores
-    .filter((s: any) => (s.total_attempts - s.correct_attempts) > 0)
-    .sort((a: any, b: any) => (b.total_attempts - b.correct_attempts) - (a.total_attempts - a.correct_attempts))
-    .slice(0, 10)
-    .map((s: any) => ({
-      word: s.dictionary?.word || 'unknown',
-      translation: s.dictionary?.translation || '',
-      failCount: s.total_attempts - s.correct_attempts
-    }));
-
-  // Calculate mastered count
-  const masteredCount = scores.filter((s: any) => s.learned_at != null).length;
-
-  // Recent words (last 10)
-  const recentWords = vocabulary.slice(0, 10).map((v: any) => ({
-    word: v.word,
-    translation: v.translation
-  }));
-
-  // Find last active time from scores
-  const lastActive = scores.length > 0
-    ? scores.reduce((latest: string | null, s: any) => {
-        if (!s.updated_at) return latest;
-        if (!latest) return s.updated_at;
-        return s.updated_at > latest ? s.updated_at : latest;
-      }, null)
-    : null;
-
-  return {
-    vocabulary: vocabulary.map((v: any) => ({
-      word: v.word,
-      translation: v.translation,
-      wordType: v.word_type
-    })),
-    weakSpots,
-    recentWords,
-    stats: {
-      totalWords: vocabulary.length,
-      masteredCount
-    },
-    lastActive
-  };
 }
 
 export default async function handler(req: any, res: any) {
@@ -146,8 +81,8 @@ export default async function handler(req: any, res: any) {
       .update({ updated_at: bootedAt })
       .eq('id', auth.userId);
 
-    // Fetch user's learning context with language filter
-    const userContext = await fetchLearnerContext(supabase, auth.userId, targetLanguage);
+    // Fetch user's learning context with language filter (includes mastery tiers)
+    const userContext = await fetchVocabularyContext(supabase, auth.userId, targetLanguage);
 
     // Word count comes from the vocabulary query already in userContext
     const milestones = {
@@ -170,6 +105,7 @@ export default async function handler(req: any, res: any) {
       targetLanguage,
       nativeLanguage,
       vocabulary: userContext.vocabulary,
+      masteredWords: userContext.masteredWords,
       weakSpots: userContext.weakSpots,
       recentWords: userContext.recentWords,
       stats: userContext.stats
@@ -212,8 +148,8 @@ export default async function handler(req: any, res: any) {
     const { data: partnerProfile } = partnerProfileResult;
     const { targetLanguage: partnerTargetLanguage, nativeLanguage: partnerNativeLanguage } = partnerLanguageParams;
 
-    // Fetch partner's learning context with their language
-    const partnerContext = await fetchLearnerContext(supabase, profile.linked_user_id, partnerTargetLanguage);
+    // Fetch partner's learning context with their language (includes mastery tiers)
+    const partnerContext = await fetchVocabularyContext(supabase, profile.linked_user_id, partnerTargetLanguage);
 
     return res.status(200).json({
       success: true,
@@ -221,6 +157,7 @@ export default async function handler(req: any, res: any) {
         ...baseContext,
         // For tutors, their own vocab/weakSpots aren't needed - clear them
         vocabulary: [],
+        masteredWords: [],
         weakSpots: [],
         recentWords: [],
         stats: { totalWords: 0, masteredCount: 0 },
@@ -233,6 +170,7 @@ export default async function handler(req: any, res: any) {
           targetLanguage: partnerTargetLanguage,
           nativeLanguage: partnerNativeLanguage,
           vocabulary: partnerContext.vocabulary,
+          masteredWords: partnerContext.masteredWords,
           weakSpots: partnerContext.weakSpots,
           recentWords: partnerContext.recentWords,
           stats: partnerContext.stats,

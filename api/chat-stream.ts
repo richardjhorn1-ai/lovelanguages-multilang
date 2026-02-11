@@ -4,11 +4,13 @@
  * Uses Server-Sent Events (SSE) to stream responses word-by-word.
  * Shares prompts with chat.ts via buildChatPrompt() - no duplication.
  *
+ * Uses sessionContext (from boot-session) when available to avoid DB queries.
+ * Falls back to fetchVocabularyContext() when sessionContext is absent.
+ *
  * NOTE: Does NOT extract vocabulary (use analyzeHistory separately).
  */
 
 import { GoogleGenAI } from "@google/genai";
-import { createClient } from '@supabase/supabase-js';
 import {
   setCorsHeaders,
   verifyAuth,
@@ -20,12 +22,8 @@ import {
   SubscriptionPlan,
 } from '../utils/api-middleware.js';
 import { extractLanguages } from '../utils/language-helpers.js';
-import {
-  buildChatPrompt,
-  type ChatMode,
-  type LearningJourneyContext,
-  type PartnerContext
-} from '../utils/prompt-templates.js';
+import { buildChatPrompt, type ChatMode } from '../utils/prompt-templates.js';
+import { fetchVocabularyContext, formatVocabularyPromptSection } from '../utils/vocabulary-context.js';
 
 // =============================================================================
 // HELPER FUNCTIONS (minimal - just what streaming needs)
@@ -46,111 +44,6 @@ async function getUserRole(supabase: any, userId: string): Promise<{
     role: data?.role || 'student',
     partnerName: data?.partner_name || null,
     linkedUserId: data?.linked_user_id || null
-  };
-}
-
-async function getJourneyContext(
-  supabase: any,
-  userId: string,
-  targetLanguage: string
-): Promise<LearningJourneyContext | null> {
-  const { data: summary } = await supabase
-    .from('progress_summaries')
-    .select('level_at_time, words_learned, topics_explored, can_now_say, suggestions')
-    .eq('user_id', userId)
-    .eq('language_code', targetLanguage)
-    .order('created_at', { ascending: false })
-    .limit(1)
-    .maybeSingle();
-
-  const { data: scores } = await supabase
-    .from('word_scores')
-    .select('total_attempts, correct_attempts, dictionary:word_id(word, translation, language_code)')
-    .eq('user_id', userId)
-    .gt('total_attempts', 0)
-    .limit(50);
-
-  const struggledWords = (scores || [])
-    .filter((s: any) => s.dictionary?.language_code === targetLanguage && (s.total_attempts || 0) > (s.correct_attempts || 0))
-    .sort((a: any, b: any) => ((b.total_attempts || 0) - (b.correct_attempts || 0)) - ((a.total_attempts || 0) - (a.correct_attempts || 0)))
-    .slice(0, 5)
-    .map((s: any) => ({ word: s.dictionary?.word || '', translation: s.dictionary?.translation || '' }));
-
-  if (!summary && struggledWords.length === 0) return null;
-
-  return {
-    level: summary?.level_at_time || 'Beginner 1',
-    totalWords: summary?.words_learned || 0,
-    topicsExplored: summary?.topics_explored || [],
-    canNowSay: summary?.can_now_say || [],
-    suggestions: summary?.suggestions || [],
-    struggledWords
-  };
-}
-
-async function getPartnerContext(
-  supabase: any,
-  tutorId: string,
-  linkedUserId: string,
-  targetLanguage: string
-): Promise<PartnerContext | null> {
-  const { data: partner } = await supabase
-    .from('profiles')
-    .select('full_name, xp, level')
-    .eq('id', linkedUserId)
-    .single();
-
-  if (!partner) return null;
-
-  const { data: vocab } = await supabase
-    .from('dictionary')
-    .select('word, translation')
-    .eq('user_id', linkedUserId)
-    .eq('language_code', targetLanguage)
-    .order('created_at', { ascending: false })
-    .limit(20);
-
-  const { data: scores } = await supabase
-    .from('word_scores')
-    .select('total_attempts, correct_attempts, dictionary:word_id(word, translation)')
-    .eq('user_id', linkedUserId)
-    .gt('total_attempts', 0)
-    .limit(50);
-
-  const { count: totalWords } = await supabase
-    .from('dictionary')
-    .select('*', { count: 'exact', head: true })
-    .eq('user_id', linkedUserId)
-    .eq('language_code', targetLanguage);
-
-  const { count: masteredCount } = await supabase
-    .from('word_scores')
-    .select('*', { count: 'exact', head: true })
-    .eq('user_id', linkedUserId)
-    .not('learned_at', 'is', null);
-
-  const journey = await getJourneyContext(supabase, linkedUserId, targetLanguage);
-
-  return {
-    learnerName: partner.full_name || 'Your partner',
-    vocabulary: (vocab || []).map((v: any) => `${v.word} (${v.translation})`),
-    weakSpots: (scores || [])
-      .filter((s: any) => (s.total_attempts || 0) > (s.correct_attempts || 0))
-      .sort((a: any, b: any) => ((b.total_attempts || 0) - (b.correct_attempts || 0)) - ((a.total_attempts || 0) - (a.correct_attempts || 0)))
-      .slice(0, 5)
-      .map((s: any) => ({
-        word: s.dictionary?.word || '',
-        translation: s.dictionary?.translation || '',
-        failCount: (s.total_attempts || 0) - (s.correct_attempts || 0)
-      })),
-    recentWords: (vocab || []).slice(0, 5).map((v: any) => ({ word: v.word, translation: v.translation })),
-    stats: {
-      totalWords: totalWords || 0,
-      masteredCount: masteredCount || 0,
-      xp: partner.xp || 0,
-      level: partner.level || 'Beginner 1'
-    },
-    journey
   };
 }
 
@@ -185,20 +78,59 @@ export default async function handler(req: any, res: any) {
     try { body = JSON.parse(body); } catch { return res.status(400).json({ error: 'Invalid JSON' }); }
   }
 
-  const { prompt = '', mode = 'ask', userLog = [], messages = [] } = body || {};
+  const { prompt = '', mode = 'ask', messages = [], sessionContext } = body || {};
   const { targetLanguage, nativeLanguage } = extractLanguages(body);
 
   if (!prompt.trim()) return res.status(400).json({ error: 'Prompt required' });
 
   try {
-    // Get user context
-    const { role: userRole, partnerName, linkedUserId } = await getUserRole(supabase, auth.userId);
-    const journeyContext = userRole === 'student'
-      ? await getJourneyContext(supabase, auth.userId, targetLanguage)
-      : null;
-    const partnerContext = userRole === 'tutor' && linkedUserId
-      ? await getPartnerContext(supabase, auth.userId, linkedUserId, targetLanguage)
-      : null;
+    // Build vocabulary section from sessionContext (cached) or fresh fetch (fallback)
+    let vocabularySection = '';
+    let userRole: 'student' | 'tutor' = 'student';
+    let partnerName: string | null = null;
+    let partnerContext: { learnerName: string; stats: { totalWords: number; masteredCount: number; xp: number; level: string } } | null = null;
+
+    if (sessionContext && sessionContext.bootedAt) {
+      // Use cached session context (efficient: 0 DB queries for vocabulary)
+      userRole = sessionContext.role === 'tutor' ? 'tutor' : 'student';
+      partnerName = sessionContext.partnerName;
+
+      if (userRole === 'tutor' && sessionContext.partner) {
+        // Tutor: show partner's vocabulary
+        const p = sessionContext.partner;
+        vocabularySection = formatVocabularyPromptSection({
+          vocabulary: p.vocabulary || [],
+          masteredWords: p.masteredWords || [],
+          weakSpots: p.weakSpots || [],
+          recentWords: p.recentWords || [],
+          stats: p.stats || { totalWords: 0, masteredCount: 0 },
+          lastActive: null
+        }, `${p.name}'s Progress`);
+        partnerContext = {
+          learnerName: p.name,
+          stats: { totalWords: p.stats.totalWords, masteredCount: p.stats.masteredCount, xp: p.xp, level: p.level }
+        };
+      } else {
+        // Student: show their own vocabulary
+        vocabularySection = formatVocabularyPromptSection({
+          vocabulary: sessionContext.vocabulary || [],
+          masteredWords: sessionContext.masteredWords || [],
+          weakSpots: sessionContext.weakSpots || [],
+          recentWords: sessionContext.recentWords || [],
+          stats: sessionContext.stats || { totalWords: 0, masteredCount: 0 },
+          lastActive: null
+        });
+      }
+    } else {
+      // Fallback: fetch fresh (backwards compatible)
+      const [roleData, vocabTier] = await Promise.all([
+        getUserRole(supabase, auth.userId),
+        fetchVocabularyContext(supabase, auth.userId, targetLanguage)
+      ]);
+      userRole = roleData.role;
+      partnerName = roleData.partnerName;
+      vocabularySection = formatVocabularyPromptSection(vocabTier);
+    }
 
     // Build prompt using shared function
     const systemPrompt = buildChatPrompt({
@@ -206,10 +138,9 @@ export default async function handler(req: any, res: any) {
       nativeLanguage,
       mode: mode as ChatMode,
       userRole,
-      userLog,
       partnerName,
       partnerContext,
-      journeyContext
+      vocabularySection
     });
 
     // Build conversation history

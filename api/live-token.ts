@@ -1,5 +1,4 @@
 import { GoogleGenAI } from "@google/genai";
-import { createClient } from '@supabase/supabase-js';
 import {
   setCorsHeaders,
   verifyAuth,
@@ -12,64 +11,7 @@ import {
 } from '../utils/api-middleware.js';
 import { extractLanguages } from '../utils/language-helpers.js';
 import { getLanguageConfig, getLanguageName } from '../constants/language-config.js';
-
-// Learning journey context for personalized voice
-interface LearningJourneyContext {
-  level: string;
-  totalWords: number;
-  topicsExplored: string[];
-  suggestions: string[];
-  struggledWords: Array<{ word: string; translation: string }>;
-}
-
-async function getLearningJourneyContext(
-  userId: string,
-  targetLanguage: string
-): Promise<LearningJourneyContext | null> {
-  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
-  const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
-
-  if (!supabaseUrl || !supabaseServiceKey) return null;
-
-  const supabase = createClient(supabaseUrl, supabaseServiceKey);
-
-  // Fetch latest progress summary for this language pair
-  const { data: summary } = await supabase
-    .from('progress_summaries')
-    .select('level_at_time, words_learned, topics_explored, suggestions')
-    .eq('user_id', userId)
-    .eq('language_code', targetLanguage)
-    .order('created_at', { ascending: false })
-    .limit(1)
-    .maybeSingle();
-
-  // Fetch struggled words (words with incorrect attempts)
-  const { data: scores } = await supabase
-    .from('word_scores')
-    .select('total_attempts, correct_attempts, dictionary:word_id(word, translation, language_code)')
-    .eq('user_id', userId)
-    .gt('total_attempts', 0)
-    .limit(50);
-
-  const struggledWords = (scores || [])
-    .filter((s: any) => s.dictionary?.language_code === targetLanguage && (s.total_attempts || 0) > (s.correct_attempts || 0))
-    .sort((a: any, b: any) => ((b.total_attempts || 0) - (b.correct_attempts || 0)) - ((a.total_attempts || 0) - (a.correct_attempts || 0)))
-    .slice(0, 5)
-    .map((s: any) => ({
-      word: s.dictionary?.word || '',
-      translation: s.dictionary?.translation || ''
-    }));
-
-  if (!summary && struggledWords.length === 0) return null;
-
-  return {
-    level: summary?.level_at_time || 'Beginner 1',
-    totalWords: summary?.words_learned || 0,
-    topicsExplored: summary?.topics_explored || [],
-    suggestions: summary?.suggestions || [],
-    struggledWords
-  };
-}
+import { fetchVocabularyContext, formatVocabularyPromptSection } from '../utils/vocabulary-context.js';
 
 // Conversation scenario interface
 interface ConversationScenario {
@@ -112,7 +54,7 @@ function buildVoiceSystemInstruction(
   mode: string,
   targetLanguage: string,
   nativeLanguage: string,
-  journeyContext: LearningJourneyContext | null
+  vocabularySection: string
 ): string {
   const targetName = getLanguageName(targetLanguage);
   const nativeName = getLanguageName(nativeLanguage);
@@ -129,17 +71,12 @@ VOICE RULES:
 - Be encouraging and warm
 `;
 
-  const journeySection = journeyContext ? `
-THEIR JOURNEY:
-- Level: ${journeyContext.level} | Words learned: ${journeyContext.totalWords}
-${journeyContext.struggledWords.length > 0 ? `- Needs practice: ${journeyContext.struggledWords.map(w => w.word).join(', ')}` : ''}
-${journeyContext.suggestions.length > 0 ? `- Suggested focus: ${journeyContext.suggestions.slice(0, 2).join(', ')}` : ''}
-` : '';
+  const vocabBlock = vocabularySection ? `\n${vocabularySection}\n` : '';
 
   const MODES: Record<string, string> = {
     ask: `
 ${COMMON}
-${journeySection}
+${vocabBlock}
 ASK MODE - Casual Chat
 
 You're catching up with them. Ask about their relationship, how things are going, what moments are coming up. Be curious.
@@ -151,7 +88,7 @@ When they ask something, help them quickly and keep the conversation going.
 `,
     learn: `
 ${COMMON}
-${journeySection}
+${vocabBlock}
 LEARN MODE - Voice Lesson
 
 You're teaching them. Go slow, be clear.
@@ -271,8 +208,9 @@ export default async function handler(req: any, res: any) {
       };
     }
 
-    // Fetch learning journey context for personalized voice
-    const journeyContext = await getLearningJourneyContext(auth.userId, targetLanguage);
+    // Fetch vocabulary context for personalized voice
+    const vocabTier = await fetchVocabularyContext(supabase, auth.userId, targetLanguage);
+    const vocabularySection = formatVocabularyPromptSection(vocabTier);
 
     // Build mode-specific system instruction
     let systemInstruction: string;
@@ -287,12 +225,12 @@ export default async function handler(req: any, res: any) {
         nativeLanguage
       );
     } else {
-      // Regular voice mode with journey context
+      // Regular voice mode with vocabulary context
       systemInstruction = buildVoiceSystemInstruction(
         mode,
         targetLanguage,
         nativeLanguage,
-        journeyContext
+        vocabularySection
       );
     }
     // Use the only model that supports Live API (BidiGenerateContent)

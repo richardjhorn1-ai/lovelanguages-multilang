@@ -772,8 +772,17 @@ export interface SessionContext {
   level: string;
   xp: number;
 
-  // Vocabulary context (for AI prompts)
+  // Vocabulary context (for AI prompts) — with mastery tiers
   vocabulary: Array<{
+    word: string;
+    translation: string;
+    wordType?: string;
+    mastery?: 'mastered' | 'learning' | 'struggling';
+    streak?: number;
+  }>;
+
+  // Mastered words (subset for quick reference)
+  masteredWords: Array<{
     word: string;
     translation: string;
     wordType?: string;
@@ -806,7 +815,8 @@ export interface SessionContext {
     xp: number;
     targetLanguage?: string;
     nativeLanguage?: string;
-    vocabulary: Array<{ word: string; translation: string }>;
+    vocabulary: Array<{ word: string; translation: string; wordType?: string; mastery?: string; streak?: number }>;
+    masteredWords: Array<{ word: string; translation: string; wordType?: string }>;
     weakSpots: Array<{ word: string; translation: string; failCount: number }>;
     recentWords: Array<{ word: string; translation: string }>;
     stats: { totalWords: number; masteredCount: number };

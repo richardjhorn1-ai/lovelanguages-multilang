@@ -546,6 +546,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           mode,
           userWords,
           messageHistory,
+          sessionContextRef.current,
           languageParams,
           (chunk) => setStreamingText(prev => prev + chunk)
         );
