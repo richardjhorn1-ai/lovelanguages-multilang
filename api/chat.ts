@@ -15,6 +15,7 @@ import { getGrammarExtractionNotes, type ChatMode } from '../utils/prompt-templa
 import { getExtractionInstructions } from '../utils/schema-builders.js';
 import { getLanguageConfig, getLanguageName, getConjugationPersons } from '../constants/language-config.js';
 import { buildVocabularySchema, buildConjugationSchema } from '../utils/schema-builders.js';
+import { fetchVocabularyContext, formatVocabularyPromptSection } from '../utils/vocabulary-context.js';
 
 // Sanitize output to remove any CSS/HTML artifacts the AI might generate
 function sanitizeOutput(text: string): string {
@@ -43,18 +44,13 @@ function sanitizeOutput(text: string): string {
     .trim();
 }
 
-// Simplified PartnerContext for prompt generation (see types.ts for full version)
+// Simplified PartnerContext for coach mode prompt generation
 interface PartnerContext {
   learnerName: string;
   vocabulary: string[];
   weakSpots: Array<{ word: string; translation: string; failCount: number }>;
   recentWords: Array<{ word: string; translation: string }>;
   stats: { totalWords: number; masteredCount: number; xp: number; level: string };
-  journey: {
-    topicsExplored: string[];
-    canNowSay: string[];
-    suggestions: string[];
-  } | null;
 }
 
 // Get user's profile data for personalization
@@ -160,16 +156,6 @@ async function getPartnerContext(userId: string, targetLanguage: string): Promis
   const levelIndex = Math.min((learnerProfile?.level || 1) - 1, 17);
   const levelName = levelNames[levelIndex] || 'Beginner 1';
 
-  // Get partner's learning journey summary
-  const { data: journeySummary } = await supabase
-    .from('progress_summaries')
-    .select('topics_explored, can_now_say, suggestions')
-    .eq('user_id', learnerId)
-    .eq('language_code', targetLanguage)
-    .order('created_at', { ascending: false })
-    .limit(1)
-    .maybeSingle();
-
   return {
     learnerName: learnerProfile?.full_name || 'your partner',
     vocabulary: (vocabulary || []).map((v: any) => `${v.word} (${v.translation})`),
@@ -180,73 +166,7 @@ async function getPartnerContext(userId: string, targetLanguage: string): Promis
       masteredCount,
       xp: learnerProfile?.xp || 0,
       level: levelName
-    },
-    journey: journeySummary ? {
-      topicsExplored: journeySummary.topics_explored || [],
-      canNowSay: journeySummary.can_now_say || [],
-      suggestions: journeySummary.suggestions || []
-    } : null
-  };
-}
-
-// Learning journey context for personalized chat
-interface LearningJourneyContext {
-  level: string;
-  totalWords: number;
-  topicsExplored: string[];
-  canNowSay: string[];
-  suggestions: string[];
-  struggledWords: Array<{ word: string; translation: string; failCount: number }>;
-}
-
-async function getLearningJourneyContext(
-  userId: string,
-  targetLanguage: string
-): Promise<LearningJourneyContext | null> {
-  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
-  const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
-
-  if (!supabaseUrl || !supabaseServiceKey) return null;
-
-  const supabase = createClient(supabaseUrl, supabaseServiceKey);
-
-  // Fetch latest progress summary for this language pair
-  const { data: summary } = await supabase
-    .from('progress_summaries')
-    .select('level_at_time, words_learned, topics_explored, can_now_say, suggestions')
-    .eq('user_id', userId)
-    .eq('language_code', targetLanguage)
-    .order('created_at', { ascending: false })
-    .limit(1)
-    .maybeSingle();
-
-  // Fetch struggled words (words with incorrect attempts)
-  const { data: scores } = await supabase
-    .from('word_scores')
-    .select('total_attempts, correct_attempts, dictionary:word_id(word, translation, language_code)')
-    .eq('user_id', userId)
-    .gt('total_attempts', 0)
-    .limit(50);
-
-  const struggledWords = (scores || [])
-    .filter((s: any) => s.dictionary?.language_code === targetLanguage && (s.total_attempts || 0) > (s.correct_attempts || 0))
-    .sort((a: any, b: any) => ((b.total_attempts || 0) - (b.correct_attempts || 0)) - ((a.total_attempts || 0) - (a.correct_attempts || 0)))
-    .slice(0, 5)
-    .map((s: any) => ({
-      word: s.dictionary?.word || '',
-      translation: s.dictionary?.translation || '',
-      failCount: (s.total_attempts || 0) - (s.correct_attempts || 0)
-    }));
-
-  if (!summary && struggledWords.length === 0) return null;
-
-  return {
-    level: summary?.level_at_time || 'Beginner 1',
-    totalWords: summary?.words_learned || 0,
-    topicsExplored: summary?.topics_explored || [],
-    canNowSay: summary?.can_now_say || [],
-    suggestions: summary?.suggestions || [],
-    struggledWords
+    }
   };
 }
 
@@ -425,23 +345,45 @@ export default async function handler(req: any, res: any) {
     const conjugationPersons = getConjugationPersons(targetLanguage);
     const hasConjugation = targetConfig?.grammar.hasConjugation || false;
 
-    // Fetch learning journey context for personalization
-    const journeyContext = await getLearningJourneyContext(auth.userId, targetLanguage);
+    // Build vocabulary context section from sessionContext or fresh fetch
+    let vocabularySection = '';
+    if (sessionContext && sessionContext.bootedAt) {
+      // Use cached session context
+      if (sessionContext.role === 'tutor' && sessionContext.partner) {
+        const p = sessionContext.partner;
+        vocabularySection = formatVocabularyPromptSection({
+          vocabulary: p.vocabulary || [],
+          masteredWords: p.masteredWords || [],
+          weakSpots: p.weakSpots || [],
+          recentWords: p.recentWords || [],
+          stats: p.stats || { totalWords: 0, masteredCount: 0 },
+          lastActive: null
+        }, `${p.name}'s Progress`);
+      } else {
+        vocabularySection = formatVocabularyPromptSection({
+          vocabulary: sessionContext.vocabulary || [],
+          masteredWords: sessionContext.masteredWords || [],
+          weakSpots: sessionContext.weakSpots || [],
+          recentWords: sessionContext.recentWords || [],
+          stats: sessionContext.stats || { totalWords: 0, masteredCount: 0 },
+          lastActive: null
+        });
+      }
+    } else {
+      // Fallback: fetch fresh vocabulary context
+      const supabaseFallback = createServiceClient();
+      if (supabaseFallback) {
+        const vocabTier = await fetchVocabularyContext(supabaseFallback, auth.userId, targetLanguage);
+        vocabularySection = formatVocabularyPromptSection(vocabTier);
+      }
+    }
 
-    // Build learning journey section
-    const learningJourneySection = journeyContext ? `
-LEARNER'S JOURNEY:
-- Level: ${journeyContext.level} | Words learned: ${journeyContext.totalWords}
-- Recent topics: ${journeyContext.topicsExplored.slice(0, 3).join(', ') || 'Just starting'}
-- Can now say: ${journeyContext.canNowSay.slice(0, 3).join(', ') || 'Building vocabulary'}
-${journeyContext.struggledWords.length > 0 ? `- Needs practice: ${journeyContext.struggledWords.map(w => w.word).join(', ')}` : ''}
-- Suggested focus: ${journeyContext.suggestions.slice(0, 2).join(', ') || 'Keep exploring'}
-` : '';
+    const vocabBlock = vocabularySection ? `\n${vocabularySection}\n` : '';
 
     const COMMON_INSTRUCTIONS = `You are Cupid - a calm, engaging language companion who loves love. You help people learn their partner's language because every word learned is a small act of devotion.
 
 You're a knowing friend - you get that they're learning this to whisper sweet things, flirt, and connect intimately. Encourage that. Be playful about romance without being weird about it.
-${learningJourneySection}
+${vocabBlock}
 CONTEXT: Use conversation history naturally - build on what they've learned, don't repeat yourself.
 
 CORE PRINCIPLES:
@@ -473,8 +415,6 @@ Be conversational and concise. 2-3 sentences max.
 `,
         learn: `
 ### MODE: LEARN - Structured Teaching
-
-Known vocabulary: [${sanitizedUserLog.slice(0, 30).join(', ')}]
 
 RESPONSE STYLE:
 - Keep explanations concise - teach one concept well, don't overwhelm
@@ -522,12 +462,6 @@ You're here to assist a ${targetName}-speaking tutor who is teaching their ${nat
 === QUICK SNAPSHOT ===
 - Level: ${context.stats.level} | XP: ${context.stats.xp}
 - Words: ${context.stats.totalWords} learned, ${context.stats.masteredCount} mastered
-${context.journey ? `- Topics: ${context.journey.topicsExplored.slice(0, 3).join(', ') || 'Just starting'}
-- Can now say: ${context.journey.canNowSay.slice(0, 3).join(', ') || 'Building vocabulary'}` : ''}
-
-=== NEEDS ATTENTION ===
-- Struggling with: ${weakWords}
-- Recently learned: ${recentWords}
 
 === ACTIONS (Optional Superpower) ===
 
@@ -578,12 +512,11 @@ GUIDANCE:
       partnerName = sessionContext.partnerName;
 
       // For tutors, build partner context from session
-      // Note: journey data not available in cached session, will be null
       if (userRole === 'tutor' && sessionContext.partner) {
         const p = sessionContext.partner;
         partnerContext = {
           learnerName: p.name,
-          vocabulary: p.vocabulary.map(v => `${v.word} (${v.translation})`),
+          vocabulary: (p.vocabulary || []).map((v: any) => `${v.word} (${v.translation})`),
           weakSpots: p.weakSpots,
           recentWords: p.recentWords,
           stats: {
@@ -591,8 +524,7 @@ GUIDANCE:
             masteredCount: p.stats.masteredCount,
             xp: p.xp,
             level: p.level
-          },
-          journey: null // Journey fetched fresh when needed via getPartnerContext
+          }
         };
       }
     } else {

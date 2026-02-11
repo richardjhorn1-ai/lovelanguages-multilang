@@ -145,14 +145,22 @@ export default async function handler(req: any, res: any) {
       .maybeSingle();
 
     if (existingToken) {
-      incrementUsage(supabase, auth.userId, RATE_LIMITS.generateInvite.type);
+      if (req.body?.regenerate) {
+        // Expire the old token so a fresh one is generated below
+        await supabase
+          .from('invite_tokens')
+          .update({ used_at: new Date().toISOString() })
+          .eq('id', existingToken.id);
+      } else {
+        incrementUsage(supabase, auth.userId, RATE_LIMITS.generateInvite.type);
 
-      return res.status(200).json({
-        token: existingToken.token,
-        inviteLink: `${baseUrl}/#/join/${existingToken.token}`,
-        expiresAt: existingToken.expires_at,
-        isExisting: true
-      });
+        return res.status(200).json({
+          token: existingToken.token,
+          inviteLink: `${baseUrl}/#/join/${existingToken.token}`,
+          expiresAt: existingToken.expires_at,
+          isExisting: true
+        });
+      }
     }
 
     // Generate new token

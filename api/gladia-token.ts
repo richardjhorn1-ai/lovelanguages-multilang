@@ -119,7 +119,8 @@ export default async function handler(req: any, res: any) {
         },
 
         // Endpointing - how long to wait for silence before finalizing
-        endpointing: 0.5,  // 500ms silence = end of utterance
+        // 1.0s reduces sentence fragmentation from code_switching mode
+        endpointing: 1.0,
 
         // Note: Speaker diarization is NOT supported for live streaming API
         // All transcripts will be attributed to "speaker_0"
@@ -154,6 +155,8 @@ export default async function handler(req: any, res: any) {
       sessionId: gladiaSession.id,
       websocketUrl: gladiaSession.url,
       userId: auth.userId,
+      targetLanguage,
+      nativeLanguage,
     });
 
   } catch (error: any) {

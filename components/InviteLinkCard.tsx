@@ -108,10 +108,38 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
   };
 
   const regenerateLink = async () => {
-    // Clear existing state and generate new
-    setInviteLink(null);
-    setExpiresAt(null);
-    await generateInviteLink();
+    setLoading(true);
+    setError(null);
+
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session?.access_token) {
+        throw new Error('Not authenticated');
+      }
+
+      const response = await fetch('/api/generate-invite', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`
+        },
+        body: JSON.stringify({ regenerate: true })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || `Failed to regenerate invite (${response.status})`);
+      }
+
+      setInviteLink(data.inviteLink);
+      setExpiresAt(data.expiresAt);
+    } catch (e: any) {
+      console.error('[InviteLinkCard] Regenerate error:', e);
+      setError(e.message || 'Failed to regenerate invite link');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

@@ -15,21 +15,12 @@ import { getLanguageName } from '../constants/language-config.js';
 // Transcript entry from Listen Mode
 interface RawTranscriptEntry {
   id: string;
+  entryId: string;    // Stable frontend entry ID for correlation
   speaker: string;
   text: string;
   language?: string;
   timestamp: number;
-}
-
-// Processed entry with corrections
-interface ProcessedEntry {
-  id: string;
-  speaker: string;
-  text: string;
-  correctedText?: string;
-  language: 'target' | 'native' | 'mixed';  // Language-agnostic
-  translation?: string;
-  timestamp: number;
+  isBookmarked?: boolean;
 }
 
 export default async function handler(req: any, res: any) {
@@ -98,18 +89,21 @@ export default async function handler(req: any, res: any) {
   try {
     const ai = new GoogleGenAI({ apiKey });
 
-    // Format transcript for Gemini
+    // Format transcript for Gemini with entry IDs and bookmark flags
     const transcriptText = transcript
-      .map((entry: RawTranscriptEntry, idx: number) =>
-        `[${idx}] ${entry.speaker} (detected: ${entry.language || 'unknown'}): "${entry.text}"`)
+      .map((entry: RawTranscriptEntry, idx: number) => {
+        const bookmark = entry.isBookmarked ? '★BOOKMARKED ' : '';
+        const entryId = entry.entryId || entry.id || `entry_${idx}`;
+        return `[${idx}|${entryId}] ${bookmark}${entry.speaker} (detected: ${entry.language || 'unknown'}): "${entry.text}"`;
+      })
       .join('\n');
 
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
-      contents: `TASK: ${targetName}/${nativeName} Transcript Cleanup & Translation
+      contents: `TASK: Bilingual Transcript Cleanup for ${targetName}/${nativeName} Language Learning
 
-You are processing a real-time transcription from a ${targetName} language learning conversation.
-The transcription has some errors in language detection and may have minor transcription mistakes.
+You are processing a real-time transcription from a bilingual conversation.
+The speech-to-text system uses code_switching mode which introduces specific artifacts:
 
 CONTEXT: ${contextLabel || `${targetName} language practice conversation`}
 
@@ -117,20 +111,39 @@ LANGUAGE PAIR:
 - Target language (being learned): ${targetName} (${targetLanguage})
 - Native language (explanations): ${nativeName} (${nativeLanguage})
 
-YOUR TASKS:
-1. CORRECT LANGUAGE DETECTION: Determine if each entry is in the target language ('target'), native language ('native'), or mixed ('mixed')
-2. CORRECT TRANSCRIPTION: Fix obvious spelling/transcription errors in ${targetName} text
-3. TRANSLATE: Add ${nativeName} translations for ${targetName} text (and ${targetName} translations for ${nativeName} if helpful)
-4. PRESERVE MEANING: Don't change the meaning, just clean up errors
+KNOWN ARTIFACTS:
+1. GARBLED CROSS-LANGUAGE: The same spoken audio may be transcribed twice — once
+   correctly in the actual language, once as garbled phonetic text in the wrong language.
+   Example: Polish "Bardzo lubię ostrość" might also appear as English "But so Lu Bay ostrich"
+2. SENTENCE FRAGMENTS: Short utterances may be split across multiple entries
+3. LANGUAGE MISDETECTION: An entry's detected language may be wrong
+
+YOUR TASKS (in order):
+1. IDENTIFY GARBLED ENTRIES: If an entry is garbled phonetic nonsense from misdetected
+   language, mark it for removal. Do NOT try to reconstruct what was said — mark
+   confidence as "low" and set isGarbled: true
+2. DEDUPLICATE: When the same audio produced two entries (one correct, one garbled),
+   remove the garbled one. But if someone genuinely repeated themselves, keep both.
+3. CORRECT LANGUAGE: Set the actual language ('target' or 'native') based on the text content
+4. FIX MINOR ERRORS: Fix obvious transcription typos (NOT wholesale rewrites)
+5. TRANSLATE: Add ${nativeName} translation for ${targetName} entries, AND ${targetName}
+   translation for ${nativeName} entries (both directions for learning value)
+6. MERGE FRAGMENTS: Consecutive short entries from same speaker in same language
+   within 3 seconds can be merged into one entry
 
 TRANSCRIPT TO PROCESS:
 ${transcriptText}
 
 RULES:
+- ★BOOKMARKED entries must NEVER be removed or merged away. They can be corrected/translated.
+- Return entryId for every processed entry (from the [index|entryId] format in input)
+- For removed entries, list their indices in removedIndices
+- For merged entries, list all original indices in mergedIndices
+- Set confidence: "high" for clean entries, "medium" for corrected, "low" for uncertain
+- isGarbled: true only for entries that were phonetic nonsense in wrong language
 - If text is clearly ${targetName}, mark language as 'target' and provide ${nativeName} translation
-- If text is clearly ${nativeName}, mark language as 'native' (no translation needed, or optionally add ${targetName})
-- If text mixes both languages, mark as 'mixed' and translate the ${targetName} parts
-- For correctedText: only include if you fixed a transcription error, otherwise omit
+- If text is clearly ${nativeName}, mark language as 'native' and provide ${targetName} translation
+- If text mixes both languages, mark as 'mixed' and translate both parts
 - Keep translations natural and conversational
 - Preserve the speaker attribution exactly as given`,
       config: {
@@ -143,23 +156,36 @@ RULES:
               items: {
                 type: Type.OBJECT,
                 properties: {
-                  id: { type: Type.STRING, description: "Original entry ID" },
-                  index: { type: Type.INTEGER, description: "Index from input (0-based)" },
+                  index: { type: Type.INTEGER, description: "Original array index" },
+                  entryId: { type: Type.STRING, description: "Original entry ID for correlation" },
                   speaker: { type: Type.STRING },
-                  text: { type: Type.STRING, description: "Original text" },
-                  correctedText: { type: Type.STRING, description: "Corrected text if there were errors, omit if no correction needed" },
+                  text: { type: Type.STRING, description: "Cleaned text (minor fixes only)" },
+                  originalText: { type: Type.STRING, description: "Only if text was changed from original" },
                   language: { type: Type.STRING, enum: ["target", "native", "mixed"] },
-                  translation: { type: Type.STRING, description: `${nativeName} translation for ${targetName}, or ${targetName} for ${nativeName} (optional)` },
+                  translation: { type: Type.STRING, description: "Translation in opposite language" },
+                  confidence: { type: Type.STRING, enum: ["high", "medium", "low"] },
+                  isGarbled: { type: Type.BOOLEAN, description: "Was original garbled phonetic text" },
+                  isBookmarked: { type: Type.BOOLEAN, description: "Preserve bookmark status" },
+                  mergedIndices: {
+                    type: Type.ARRAY,
+                    items: { type: Type.INTEGER },
+                    description: "Original indices merged into this entry"
+                  },
                 },
-                required: ["index", "speaker", "text", "language"]
+                required: ["index", "entryId", "speaker", "text", "language", "confidence"]
               }
+            },
+            removedIndices: {
+              type: Type.ARRAY,
+              items: { type: Type.INTEGER },
+              description: "Indices removed as unsalvageable garbled duplicates"
             },
             summary: {
               type: Type.STRING,
               description: "Brief 1-2 sentence summary of what was discussed"
             }
           },
-          required: ["processedTranscript", "summary"]
+          required: ["processedTranscript", "removedIndices", "summary"]
         }
       }
     });
@@ -186,32 +212,42 @@ RULES:
       });
     }
 
-    // Merge processed data back with original timestamps
+    // Merge processed data back with original timestamps and compute languageCode
     const processedEntries = (parsed.processedTranscript || []).map((entry: any) => {
       const originalEntry = transcript[entry.index] || {};
       return {
         index: entry.index,
-        id: entry.id || originalEntry.id || `entry_${entry.index}`,
+        entryId: entry.entryId || originalEntry.entryId || originalEntry.id || `entry_${entry.index}`,
+        id: entry.entryId || originalEntry.id || `entry_${entry.index}`,
         speaker: entry.speaker,
-        text: entry.correctedText || entry.text,
-        originalText: entry.correctedText ? entry.text : undefined,
+        text: entry.text,
+        originalText: entry.originalText,
         language: entry.language,
         languageCode: entry.language === 'target' ? targetLanguage : entry.language === 'native' ? nativeLanguage : 'mixed',
         translation: entry.translation,
+        confidence: entry.confidence,
+        isGarbled: entry.isGarbled || false,
+        isBookmarked: entry.isBookmarked || originalEntry.isBookmarked || false,
+        mergedIndices: entry.mergedIndices,
         timestamp: originalEntry.timestamp || Date.now(),
       };
     });
 
-    console.log(`[process-transcript] Processed ${transcript.length} entries for user ${auth.userId.substring(0, 8)}... (${targetLanguage}→${nativeLanguage})`);
+    const removedIndices = parsed.removedIndices || [];
+    const keptCount = processedEntries.length;
+    const removedCount = removedIndices.length;
+
+    console.log(`[process-transcript] Processed ${transcript.length} entries → ${keptCount} kept, ${removedCount} removed for user ${auth.userId.substring(0, 8)}... (${targetLanguage}→${nativeLanguage})`);
 
     // Track usage after successful AI call
     incrementUsage(supabase, auth.userId, RATE_LIMITS.processTranscript.type);
 
     return res.status(200).json({
       processedTranscript: processedEntries,
+      removedIndices,
       summary: parsed.summary || '',
       originalCount: transcript.length,
-      processedCount: processedEntries.length,
+      processedCount: keptCount,
       targetLanguage,
       nativeLanguage,
     });

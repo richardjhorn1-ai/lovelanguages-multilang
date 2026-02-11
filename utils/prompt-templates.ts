@@ -124,24 +124,6 @@ OUTPUT JSON:
 // CHAT PROMPT BUILDER
 // =============================================================================
 
-export interface LearningJourneyContext {
-  level: string;
-  totalWords: number;
-  topicsExplored: string[];
-  canNowSay: string[];
-  suggestions: string[];
-  struggledWords: Array<{ word: string; translation: string }>;
-}
-
-export interface PartnerContext {
-  learnerName: string;
-  vocabulary: string[];
-  weakSpots: Array<{ word: string; translation: string; failCount: number }>;
-  recentWords: Array<{ word: string; translation: string }>;
-  stats: { totalWords: number; masteredCount: number; xp: number; level: string };
-  journey: LearningJourneyContext | null;
-}
-
 export interface ChatPromptOptions {
   targetLanguage: string;
   nativeLanguage: string;
@@ -149,8 +131,11 @@ export interface ChatPromptOptions {
   userRole: 'student' | 'tutor';
   userLog?: string[];
   partnerName?: string | null;
-  partnerContext?: PartnerContext | null;
-  journeyContext?: LearningJourneyContext | null;
+  partnerContext?: {
+    learnerName: string;
+    stats: { totalWords: number; masteredCount: number; xp: number; level: string };
+  } | null;
+  vocabularySection?: string;
 }
 
 /**
@@ -163,30 +148,22 @@ export function buildChatPrompt(options: ChatPromptOptions): string {
     nativeLanguage,
     mode,
     userRole,
-    userLog = [],
     partnerName,
     partnerContext,
-    journeyContext
+    vocabularySection
   } = options;
 
   const { target, native } = validateLanguagePair(targetLanguage, nativeLanguage);
   const hasConjugation = target.grammar.hasConjugation || false;
   const conjugationPersons = target.grammar.conjugationPersons || [];
 
-  // Build learning journey section
-  const learningJourneySection = journeyContext ? `
-LEARNER'S JOURNEY:
-- Level: ${journeyContext.level} | Words learned: ${journeyContext.totalWords}
-- Recent topics: ${journeyContext.topicsExplored.slice(0, 3).join(', ') || 'Just starting'}
-- Can now say: ${journeyContext.canNowSay.slice(0, 3).join(', ') || 'Building vocabulary'}
-${journeyContext.struggledWords.length > 0 ? `- Needs practice: ${journeyContext.struggledWords.map(w => w.word).join(', ')}` : ''}
-- Suggested focus: ${journeyContext.suggestions.slice(0, 2).join(', ') || 'Keep exploring'}
-` : '';
+  // Vocabulary context section (replaces old journey section)
+  const vocabBlock = vocabularySection ? `\n${vocabularySection}\n` : '';
 
   const COMMON = `You are Cupid - a calm, engaging language companion who loves love. You help people learn their partner's language because every word learned is a small act of devotion.
 
 You're a knowing friend - you get that they're learning this to whisper sweet things, flirt, and connect intimately. Encourage that. Be playful about romance without being weird about it.
-${learningJourneySection}
+${vocabBlock}
 CONTEXT: Use conversation history naturally. Don't repeat yourself. Don't recap what the user knows — just teach the next thing.
 
 CORE PRINCIPLES:
@@ -215,8 +192,6 @@ Be conversational and concise. 2-3 sentences max.
 
   const learnPrompt = `
 ### MODE: LEARN - Structured Teaching
-
-Known vocabulary: [${userLog.slice(0, 30).join(', ')}]
 
 RESPONSE STYLE:
 - Keep explanations concise - teach one concept well, don't overwhelm
@@ -249,21 +224,10 @@ Your partner hasn't connected their account yet. Encourage the tutor to:
 `;
     }
 
-    const weakWords = partnerContext.weakSpots.slice(0, 5).map(w => w.word).join(', ') || 'None identified';
-    const recentWords = partnerContext.recentWords.slice(0, 5).map(w => w.word).join(', ') || 'Just starting';
-
     return `
 ### COACH MODE
 
 You're here to assist a ${target.name}-speaking tutor who is teaching their ${native.name}-speaking partner (${partnerContext.learnerName}).
-
-${partnerContext.learnerName.toUpperCase()}'S LEARNING JOURNEY:
-- Level: ${partnerContext.stats.level} | Words learned: ${partnerContext.stats.totalWords}
-${partnerContext.journey ? `- Topics explored: ${partnerContext.journey.topicsExplored.slice(0, 3).join(', ') || 'Just starting'}
-- Can now say: ${partnerContext.journey.canNowSay.slice(0, 3).join(', ') || 'Building vocabulary'}
-- Suggested focus: ${partnerContext.journey.suggestions.slice(0, 2).join(', ') || 'Keep exploring'}` : ''}
-- Needs practice: ${weakWords}
-- Recently learned: ${recentWords}
 
 GUIDANCE:
 - Be practical - give suggestions they can use tonight

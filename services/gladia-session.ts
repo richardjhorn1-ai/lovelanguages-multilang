@@ -31,6 +31,7 @@ export interface TranscriptChunk {
 // Configuration for GladiaSession
 export interface GladiaConfig {
   onTranscript: (chunk: TranscriptChunk) => void;
+  onTranslationUpdate?: (translation: string, originalLanguage: string) => void;
   onStateChange: (state: GladiaState) => void;
   onError: (error: Error) => void;
   onClose?: () => void;
@@ -112,8 +113,11 @@ export class GladiaSession {
         throw new Error(error.error || 'Failed to initialize Listen Mode');
       }
 
-      const { sessionId, websocketUrl } = await tokenResponse.json();
+      const { sessionId, websocketUrl, targetLanguage, nativeLanguage } = await tokenResponse.json();
       this.sessionId = sessionId;
+      // Freeze session language pair from server response
+      if (targetLanguage) this.config.targetLanguage = targetLanguage;
+      if (nativeLanguage) this.config.nativeLanguage = nativeLanguage;
       log('Got WebSocket URL for session:', sessionId);
 
       // Connect to Gladia WebSocket (URL contains embedded auth token)
@@ -315,16 +319,18 @@ export class GladiaSession {
     log(`Detected language: ${detectedLanguage}`);
 
     // Get translation if available (from realtime_processing)
+    // Use dynamic language keys instead of hardcoded 'en'
+    const nativeLang = this.config.nativeLanguage || 'en';
+    const targetLang = this.config.targetLanguage || 'pl';
+
+    const utteranceTranslations = transcriptData.utterance?.translations || {};
+    const topLevelTranslations = transcriptData.translations || {};
+    const resultTranslations = transcriptData.results?.[0]?.translations || {};
+
     let translation = '';
-    if (transcriptData.utterance?.translations?.en) {
-      translation = transcriptData.utterance.translations.en;
-    } else if (transcriptData.translations?.en) {
-      translation = transcriptData.translations.en;
-    } else if (transcriptData.translation) {
-      translation = transcriptData.translation;
-    } else if (transcriptData.results?.[0]?.translations?.en) {
-      translation = transcriptData.results[0].translations.en;
-    }
+    translation = utteranceTranslations[nativeLang] || topLevelTranslations[nativeLang] || resultTranslations[nativeLang]
+      || utteranceTranslations[targetLang] || topLevelTranslations[targetLang] || resultTranslations[targetLang]
+      || transcriptData.translation || '';
 
     // Get speaker info if available
     const speaker = transcriptData.utterance?.speaker !== undefined
@@ -362,8 +368,7 @@ export class GladiaSession {
 
   /**
    * Handle translation messages from Gladia
-   * Note: Real-time translation display removed - translations are handled in post-processing
-   * We still log them for debugging purposes
+   * Emits to ChatArea for matching to most recent unmatched entry
    */
   private handleTranslation(message: any): void {
     const translationData = message.data || message;
@@ -371,10 +376,12 @@ export class GladiaSession {
     const originalLang = translationData.original_language;
     const targetLang = translationData.target_language;
 
-    // Just log for debugging - translations handled in post-session processing
-    if (translation && originalLang !== targetLang) {
-      log('Translation available (for post-processing):', `${originalLang}→${targetLang}`, `${translation.length} chars`);
-    }
+    if (!translation || originalLang === targetLang) return;
+
+    log('Translation received:', `${originalLang}→${targetLang}`, `"${translation.slice(0, 50)}..."`);
+
+    // Emit to ChatArea — it will match to the most recent unmatched entry
+    this.config.onTranslationUpdate?.(translation, originalLang);
   }
 
   /**

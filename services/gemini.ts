@@ -136,6 +136,7 @@ export const geminiService = {
     mode: string,
     userWords: string[] = [],
     messageHistory: { role: string; content: string }[] = [],
+    sessionContext?: SessionContext | null,
     languageParams?: { targetLanguage: string; nativeLanguage: string },
     onChunk?: (text: string) => void
   ): Promise<string> {
@@ -149,6 +150,7 @@ export const geminiService = {
           mode,
           userLog: userWords,
           messages: messageHistory.slice(-20),
+          sessionContext: sessionContext || undefined,
           ...languageParams
         })
       });
