@@ -13,6 +13,7 @@ import { sounds } from '../services/sounds';
 import { speak } from '../services/audio';
 import { ChatEmptySuggestions } from './ChatEmptySuggestions';
 import { sanitizeHtml, escapeHtml } from '../utils/sanitize';
+import { getLanguageFlag as getLanguageFlagByCode } from '../constants/language-config';
 import { ThinkingIndicator } from './ThinkingIndicator';
 import { CoachActionConfirmModal } from './CoachActionConfirmModal';
 import { useOffline } from '../hooks/useOffline';
@@ -28,7 +29,9 @@ interface TranscriptEntry {
   timestamp: number;
   isBookmarked: boolean;
   isFinal: boolean;
-  language?: string;  // 'target' | 'native' | 'mixed' or legacy language code
+  language?: string;      // 'target' | 'native' | 'mixed' or ISO code from Gladia
+  languageCode?: string;  // Always ISO code ('pl', 'en', etc.)
+  originalText?: string;  // Pre-correction text if Gemini fixed it
 }
 
 // Normalize old session data (polish/english) to new format (word/translation)
@@ -44,29 +47,20 @@ function normalizeTranscriptEntries(entries: any[]): TranscriptEntry[] {
     isBookmarked: e.isBookmarked || false,
     isFinal: e.isFinal !== false,
     language: e.language,
+    languageCode: e.languageCode,
+    originalText: e.originalText,
   }));
 }
 
-// Get flag emoji for detected language
-function getLanguageFlag(lang?: string): string {
-  switch (lang) {
-    case 'pl': return '🇵🇱';
-    case 'en': return '🇬🇧';
-    case 'de': return '🇩🇪';
-    case 'fr': return '🇫🇷';
-    case 'es': return '🇪🇸';
-    case 'it': return '🇮🇹';
-    case 'ru': return '🇷🇺';
-    case 'uk': return '🇺🇦';
-    case 'zh': return '🇨🇳';
-    case 'ja': return '🇯🇵';
-    case 'ko': return '🇰🇷';
-    case 'pt': return '🇵🇹';
-    case 'nl': return '🇳🇱';
-    case 'cs': return '🇨🇿';
-    case 'sv': return '🇸🇪';
-    default: return '🗣️';  // Generic speech for unknown
-  }
+// Get flag emoji for a transcript entry — handles both ISO codes and semantic labels from Gemini
+function getEntryFlag(lang?: string, langCode?: string, targetLang?: string, nativeLang?: string): string {
+  if (langCode) return getLanguageFlagByCode(langCode) || '🗣️';
+  if (!lang) return '🗣️';
+  if (lang === 'target') return getLanguageFlagByCode(targetLang!) || '🗣️';
+  if (lang === 'native') return getLanguageFlagByCode(nativeLang!) || '🗣️';
+  if (lang === 'mixed') return '🗣️';
+  // ISO code directly from Gladia real-time
+  return getLanguageFlagByCode(lang) || '🗣️';
 }
 
 interface ListenSession {
@@ -276,12 +270,14 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   const [showListenPrompt, setShowListenPrompt] = useState(false);
   const [listenError, setListenError] = useState<string | null>(null);
   const [isProcessingTranscript, setIsProcessingTranscript] = useState(false);
+  const [isTranscriptProcessed, setIsTranscriptProcessed] = useState(false);
   const [showWordExtractor, setShowWordExtractor] = useState(false);
   const [extractedWords, setExtractedWords] = useState<any[]>([]);
   const [selectedWords, setSelectedWords] = useState<Set<string>>(new Set());
   const [extractedSessionIds, setExtractedSessionIds] = useState<Set<string>>(new Set());
   const gladiaRef = useRef<GladiaSession | null>(null);
   const listenTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const sessionLanguagesRef = useRef<{ target: string; native: string } | null>(null);
 
   // Session context - loaded once, reused for all chat messages
   const sessionContextRef = useRef<SessionContext | null>(null);
@@ -797,6 +793,30 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
+  // Handle real-time translation from Gladia — match to most recent unmatched entry
+  const handleTranslationUpdate = useCallback((translation: string, originalLanguage: string) => {
+    setListenEntries(prev => {
+      const now = Date.now();
+      const cutoff = now - 10000;
+
+      for (let i = prev.length - 1; i >= 0; i--) {
+        const entry = prev[i];
+        if (!entry.isFinal || entry.translation || entry.timestamp < cutoff) continue;
+
+        const langMatch = !entry.language
+          || entry.language === originalLanguage
+          || (entry.languageCode && entry.languageCode === originalLanguage);
+
+        if (langMatch) {
+          const updated = [...prev];
+          updated[i] = { ...entry, translation };
+          return updated;
+        }
+      }
+      return prev;  // No match — drop silently, Gemini handles it in post-processing
+    });
+  }, []);
+
   // Handle transcript from Gladia
   const handleListenTranscript = useCallback((chunk: TranscriptChunk) => {
     // Filter out background sounds like [MUZYKA], [music], [silence], etc.
@@ -814,33 +834,55 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       isBookmarked: false,
       isFinal: chunk.isFinal,
       language: chunk.language,
+      languageCode: chunk.language,  // Gladia provides ISO codes during real-time
     };
 
     if (chunk.isFinal) {
       setListenEntries(prev => {
-        // Find last entry from same speaker (ES5-compatible)
-        let lastSameSpeakerIdx = -1;
-        for (let i = prev.length - 1; i >= 0; i--) {
-          if (prev[i].speaker === chunk.speaker) {
-            lastSameSpeakerIdx = i;
-            break;
+        const sessionTarget = sessionLanguagesRef.current?.target;
+        const sessionNative = sessionLanguagesRef.current?.native;
+
+        // Cross-language dedup: Gladia code_switching sends the same audio transcribed
+        // in two languages — one correct, one garbled phonetic text in the wrong language
+        const recentFinals = prev.filter(e =>
+          e.isFinal &&
+          (entry.timestamp - e.timestamp) < 3000 &&
+          !e.isBookmarked
+        );
+
+        for (let i = recentFinals.length - 1; i >= 0; i--) {
+          const recent = recentFinals[i];
+          // Different detected languages = likely same audio transcribed twice
+          if (recent.language && entry.language && recent.language !== entry.language) {
+            const recentIsConfigured = recent.language === sessionTarget || recent.language === sessionNative;
+            const newIsConfigured = entry.language === sessionTarget || entry.language === sessionNative;
+
+            if (recentIsConfigured && !newIsConfigured) return prev;  // Keep existing, drop new
+            if (!recentIsConfigured && newIsConfigured) {
+              // Replace existing with new (preserving bookmark)
+              return prev.map(e => e.id === recent.id ? { ...entry, isBookmarked: recent.isBookmarked } : e);
+            }
+            // Both recognized or neither — keep longer text
+            if (entry.word.length > recent.word.length * 1.5) {
+              return prev.map(e => e.id === recent.id ? { ...entry, isBookmarked: recent.isBookmarked } : e);
+            }
+            return prev;  // Keep existing
           }
         }
 
-        if (lastSameSpeakerIdx >= 0) {
-          const lastEntry = prev[lastSameSpeakerIdx];
-          const isExtension = entry.word.startsWith(lastEntry.word.slice(0, 10)) ||
-                             lastEntry.word.startsWith(entry.word.slice(0, 10)) ||
-                             entry.word.length > lastEntry.word.length;
-          const isRecent = entry.timestamp - lastEntry.timestamp < 10000;
-
-          if (isExtension && isRecent && !lastEntry.isBookmarked) {
-            const updated = [...prev];
-            updated[lastSameSpeakerIdx] = { ...entry, isBookmarked: lastEntry.isBookmarked };
-            return updated;
+        // Extension merge: same speaker continues a sentence (Gladia sends partial then final)
+        const lastFinal = [...prev].reverse().find(e => e.isFinal && (entry.timestamp - e.timestamp) < 5000);
+        if (lastFinal && !lastFinal.isBookmarked) {
+          const overlap = entry.word.startsWith(lastFinal.word.slice(0, 15));
+          if (overlap && entry.word.length > lastFinal.word.length) {
+            return prev.map(e => e.id === lastFinal.id
+              ? { ...entry, id: lastFinal.id, isBookmarked: lastFinal.isBookmarked }
+              : e
+            );
           }
         }
 
+        // No dedup match — add as new entry (filter out non-final partials from same speaker)
         const filtered = prev.filter(e => e.isFinal || e.speaker !== chunk.speaker);
         return [...filtered, entry];
       });
@@ -867,10 +909,15 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     setActiveChat(null);
     setActiveListenSession(null);
     setIsListening(true);
+    setIsTranscriptProcessed(false);
+
+    // Freeze language pair for this session
+    sessionLanguagesRef.current = { target: targetLanguage, native: nativeLanguage };
 
     try {
       gladiaRef.current = new GladiaSession({
         onTranscript: handleListenTranscript,
+        onTranslationUpdate: handleTranslationUpdate,
         onStateChange: (state) => {
           setListenState(state);
         },
@@ -954,10 +1001,12 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         body: JSON.stringify({
           transcript: entries.map(e => ({
             id: e.id,
+            entryId: e.id,
             speaker: e.speaker,
             text: e.word,
             language: e.language,
-            timestamp: e.timestamp
+            timestamp: e.timestamp,
+            isBookmarked: e.isBookmarked,
           })),
           contextLabel: contextLabel,
           ...languageParams
@@ -967,35 +1016,58 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       if (response.ok) {
         const result = await response.json();
 
-        // Update entries with processed data, using the index from API response
-        const processedEntries = entries.map((entry, idx) => {
-          const processed = result.processedTranscript.find((p: any) => p.index === idx);
-          if (processed) {
-            return {
-              ...entry,
-              word: processed.text,
-              translation: processed.translation || entry.translation || '',
-              language: processed.language,
-              originalText: processed.originalText,
-            };
-          }
-          return entry;
+        // Build lookup by both index and entryId for resilient matching
+        const processedByIndex = new Map<number, any>();
+        const processedById = new Map<string, any>();
+        (result.processedTranscript || []).forEach((p: any) => {
+          if (p.index !== undefined) processedByIndex.set(p.index, p);
+          if (p.entryId) processedById.set(p.entryId, p);
         });
+
+        // Track indices Gemini says to remove (unsalvageable garbled duplicates)
+        const removedIndices = new Set(result.removedIndices || []);
+
+        const processedEntries = entries
+          .map((entry, idx) => {
+            // Skip entries Gemini flagged for removal
+            if (removedIndices.has(idx)) return null;
+
+            // Match by entryId first, then by index
+            const processed = processedById.get(entry.id) || processedByIndex.get(idx);
+            if (processed) {
+              return {
+                ...entry,  // Keep original fields as fallback
+                word: processed.text || entry.word,
+                translation: processed.translation || entry.translation || '',
+                language: processed.language || entry.language,
+                languageCode: processed.languageCode || entry.languageCode,
+                originalText: processed.originalText,
+                isBookmarked: entry.isBookmarked || processed.isBookmarked,
+              };
+            }
+            return entry;  // Gemini didn't process this entry — keep as-is
+          })
+          .filter(Boolean) as TranscriptEntry[];
 
         // Update local state
         setListenEntries(processedEntries);
+        setIsTranscriptProcessed(true);
 
-        // Update the session in database (note: summary not stored - table has no summary column)
+        // Update bookmarked phrases after processing
+        const bookmarked = processedEntries.filter(e => e.isBookmarked);
+
+        // Update the session in database
         await supabase.from('listen_sessions').update({
           transcript: processedEntries,
+          bookmarked_phrases: bookmarked,
         }).eq('id', sessionId);
 
         // Update sessions list
         setListenSessions(prev => prev.map(s =>
-          s.id === sessionId ? { ...s, transcript: processedEntries } : s
+          s.id === sessionId ? { ...s, transcript: processedEntries, bookmarked_phrases: bookmarked } : s
         ));
         setActiveListenSession(prev =>
-          prev?.id === sessionId ? { ...prev, transcript: processedEntries } : prev
+          prev?.id === sessionId ? { ...prev, transcript: processedEntries, bookmarked_phrases: bookmarked } : prev
         );
       } else {
         const errorText = await response.text();
@@ -1014,6 +1086,11 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       return;
     }
 
+    // Guard: wait for post-processing to finish before extracting
+    if (isProcessingTranscript) {
+      return;
+    }
+
     setShowWordExtractor(true);
     setExtractedWords([]);
 
@@ -1026,19 +1103,27 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
       // Format transcript as messages for the analyze-history API
       const messages = listenEntries
-        .filter(e => e.language === 'target' || e.translation) // Focus on target language content
+        .filter(e => {
+          const isTarget = e.language === 'target'
+            || e.languageCode === targetLanguage
+            || e.language === targetLanguage;
+          const isMixed = e.language === 'mixed';
+          const hasTranslation = !!e.translation;
+          return isTarget || isMixed || hasTranslation;
+        })
         .map(e => ({
-          role: 'assistant',
+          role: 'assistant' as const,
           content: e.translation
             ? `${e.word} (${e.translation})`
             : e.word
         }));
 
-      // Get user's current words to avoid duplicates
+      // Get user's current words to avoid duplicates (filtered by language)
       const { data: existingWords } = await supabase
         .from('dictionary')
         .select('word')
-        .eq('user_id', profile.id);
+        .eq('user_id', profile.id)
+        .eq('language_code', targetLanguage);
 
       const currentWords = (existingWords || []).map((w: any) => w.word);
 
@@ -1120,6 +1205,49 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       alert(t('chat.errors.addWordsError'));
     } finally {
       setIsAddingWords(false);
+    }
+  };
+
+  // Send selected words to partner's dictionary via word-request consent flow (tutor only)
+  const [isSendingToPartner, setIsSendingToPartner] = useState(false);
+  const sendWordsToPartner = async () => {
+    const wordsToSend = extractedWords.filter(w => selectedWords.has(w.word));
+    if (wordsToSend.length === 0 || !profile.linked_user_id) return;
+
+    setIsSendingToPartner(true);
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session?.access_token) return;
+
+      let successCount = 0;
+      for (const word of wordsToSend) {
+        const resp = await fetch('/api/create-word-request', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${session.access_token}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            word: word.word,
+            translation: word.translation,
+            type: word.type || 'phrase',
+            targetLanguage,
+            nativeLanguage,
+            source: 'listen',
+          })
+        });
+        if (resp.ok) successCount++;
+      }
+
+      if (successCount > 0) {
+        setShowWordExtractor(false);
+        setExtractedWords([]);
+        setSelectedWords(new Set());
+      }
+    } catch (err) {
+      console.error('Failed to send words to partner:', err);
+    } finally {
+      setIsSendingToPartner(false);
     }
   };
 
@@ -1386,7 +1514,28 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               )}
 
               {/* Transcript entries - using accent color */}
-              {listenEntries.map((entry) => (
+              {listenEntries.map((entry) => {
+                const sessionTarget = sessionLanguagesRef.current?.target || targetLanguage;
+                const sessionNative = sessionLanguagesRef.current?.native || nativeLanguage;
+
+                // Determine entry flag using ISO code or semantic label
+                const entryFlag = getEntryFlag(entry.language, entry.languageCode, sessionTarget, sessionNative);
+
+                // Is this a native-language entry?
+                const isNativeEntry = entry.language === 'native'
+                  || entry.languageCode === sessionNative
+                  || entry.language === sessionNative;
+
+                // During real-time: hide translation for native entries (user understands them)
+                // After processing: show all translations for learning value
+                const showTranslation = entry.translation && (isTranscriptProcessed || !isNativeEntry);
+
+                // Translation flag is the OPPOSITE language from the entry
+                const translationFlag = isNativeEntry
+                  ? getEntryFlag(undefined, sessionTarget)
+                  : getEntryFlag(undefined, sessionNative);
+
+                return (
                 <div key={entry.id} className="flex justify-start animate-in fade-in slide-in-from-bottom-2 duration-300">
                   <div
                     className="max-w-[90%] md:max-w-[85%] rounded-2xl px-4 py-3 shadow-sm rounded-tl-none border bg-[var(--accent-light)] border-[var(--accent-border)]"
@@ -1394,12 +1543,12 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                     <div className="flex items-start justify-between gap-3">
                       <div className="flex-1 min-w-0">
                         <p className="text-[var(--text-primary)] font-medium">
-                          {getLanguageFlag(entry.language)} {entry.word}
+                          {entryFlag} {entry.word}
                         </p>
-                        {entry.translation && (
+                        {showTranslation && (
                           <div className="mt-1.5 ml-4 pl-3 border-l-2 border-[var(--accent-color)]/30">
                             <p className="text-[var(--text-secondary)] text-scale-label">
-                              {nativeFlag} {entry.translation}
+                              {translationFlag} {entry.translation}
                             </p>
                           </div>
                         )}
@@ -1423,14 +1572,15 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                     </div>
                   </div>
                 </div>
-              ))}
+                );
+              })}
 
               {/* Current Partial (interim result) */}
               {listenPartial && (
                 <div className="flex justify-start animate-in fade-in duration-200">
                   <div className="max-w-[90%] md:max-w-[85%] rounded-2xl px-4 py-3 rounded-tl-none border border-dashed border-[var(--accent-color)]/50 bg-[var(--accent-light)]/50">
                     <p className="text-[var(--text-secondary)] italic flex items-center gap-2">
-                      {getLanguageFlag(listenPartial.language)} {listenPartial.word}
+                      {getEntryFlag(listenPartial.language, listenPartial.languageCode, sessionLanguagesRef.current?.target || targetLanguage, sessionLanguagesRef.current?.native || nativeLanguage)} {listenPartial.word}
                       <span className="inline-flex gap-0.5">
                         <span className="w-1 h-1 rounded-full bg-[var(--accent-color)] animate-bounce" style={{ animationDelay: '0ms' }} />
                         <span className="w-1 h-1 rounded-full bg-[var(--accent-color)] animate-bounce" style={{ animationDelay: '150ms' }} />
@@ -1937,31 +2087,53 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             </div>
 
             {/* Footer */}
-            <div className="p-4 border-t border-[var(--border-color)] flex gap-3">
-              <button
-                onClick={() => setShowWordExtractor(false)}
-                className="flex-1 py-3 px-4 rounded-xl border-2 border-[var(--border-color)] text-[var(--text-secondary)] font-bold hover:bg-[var(--bg-primary)] transition-colors"
-              >
-                {t('chat.wordExtractor.cancel')}
-              </button>
-              <button
-                onClick={addSelectedWordsToDictionary}
-                disabled={selectedWords.size === 0 || isAddingWords}
-                className="flex-1 py-3 px-4 rounded-xl text-white font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-50"
-                style={{ backgroundColor: accentHex }}
-              >
-                {isAddingWords ? (
-                  <>
-                    <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                    {t('chat.wordExtractor.adding')}
-                  </>
-                ) : (
-                  <>
-                    <ICONS.Plus className="w-4 h-4" />
-                    {t('chat.wordExtractor.addWords', { count: selectedWords.size })}
-                  </>
-                )}
-              </button>
+            <div className="p-4 border-t border-[var(--border-color)] flex flex-col gap-3">
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setShowWordExtractor(false)}
+                  className="flex-1 py-3 px-4 rounded-xl border-2 border-[var(--border-color)] text-[var(--text-secondary)] font-bold hover:bg-[var(--bg-primary)] transition-colors"
+                >
+                  {t('chat.wordExtractor.cancel')}
+                </button>
+                <button
+                  onClick={addSelectedWordsToDictionary}
+                  disabled={selectedWords.size === 0 || isAddingWords}
+                  className="flex-1 py-3 px-4 rounded-xl text-white font-bold flex items-center justify-center gap-2 hover:opacity-90 transition-opacity disabled:opacity-50"
+                  style={{ backgroundColor: accentHex }}
+                >
+                  {isAddingWords ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                      {t('chat.wordExtractor.adding')}
+                    </>
+                  ) : (
+                    <>
+                      <ICONS.Plus className="w-4 h-4" />
+                      {t('chat.wordExtractor.addWords', { count: selectedWords.size })}
+                    </>
+                  )}
+                </button>
+              </div>
+              {profile?.role === 'tutor' && profile?.linked_user_id && (
+                <button
+                  onClick={sendWordsToPartner}
+                  disabled={selectedWords.size === 0 || isSendingToPartner}
+                  className="w-full py-3 px-4 rounded-xl font-bold flex items-center justify-center gap-2 border-2 hover:opacity-80 transition-opacity disabled:opacity-50"
+                  style={{ borderColor: accentHex, color: accentHex }}
+                >
+                  {isSendingToPartner ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <ICONS.Send className="w-4 h-4" />
+                      Send {selectedWords.size} to partner's dictionary
+                    </>
+                  )}
+                </button>
+              )}
             </div>
           </div>
         </div>
