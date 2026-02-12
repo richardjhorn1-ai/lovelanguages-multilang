@@ -328,15 +328,28 @@ test.describe('Blog SEO & Sitemap Integrity', () => {
 
   test.describe('Issue 7: Astro trailingSlash enforcement', () => {
 
-    test('Astro-generated redirects go directly to slash URL (no double redirect)', async ({ request }) => {
-      // If trailingSlash: 'always' is working, Astro's own redirects should include slashes
-      // Test the compare redirect pages which use Astro.redirect()
+    test('Astro-generated redirects point to slash URL (no double redirect)', async ({ request }) => {
+      // Prerendered Astro redirects emit a meta-refresh HTML page (200) with:
+      //   <meta http-equiv="refresh" content="0;url=/compare/en/love-languages-vs-duolingo/">
+      //   <meta name="robots" content="noindex">
+      //   <link rel="canonical" href="...destination...">
+      // Google treats immediate meta-refresh (0s) like a 301.
       const res = await request.get('/compare/love-languages-vs-duolingo/', { maxRedirects: 0 });
-      expect(res.status()).toBe(301);
-      const location = res.headers()['location'];
-      // Should go directly to /compare/en/love-languages-vs-duolingo/ (with slash)
-      // NOT to /compare/en/love-languages-vs-duolingo (without slash, causing double redirect)
-      expect(location, 'Redirect destination missing trailing slash').toMatch(/\/$/);
+
+      if (res.status() === 200) {
+        // Prerendered redirect — check the meta refresh destination has trailing slash
+        const body = await res.text();
+        const refreshMatch = body.match(/content="0;url=([^"]+)"/);
+        expect(refreshMatch, 'Expected meta refresh tag').toBeTruthy();
+        expect(refreshMatch![1], 'Meta refresh destination missing trailing slash').toMatch(/\/$/);
+        // Also verify noindex is present
+        expect(body).toContain('name="robots" content="noindex"');
+      } else {
+        // SSR redirect — check location header
+        expect([301, 308]).toContain(res.status());
+        const location = res.headers()['location'];
+        expect(location, 'Redirect destination missing trailing slash').toMatch(/\/$/);
+      }
     });
   });
 
@@ -430,7 +443,8 @@ test.describe('Blog SEO & Sitemap Integrity', () => {
 
     test('Spanish Turkish pronunciation article has no chain (single redirect)', async ({ request }) => {
       const res = await request.get('/learn/es/tr/guia-de-pronunciacion-turca-para-principiantes/', { maxRedirects: 0 });
-      expect(res.status()).toBe(301);
+      // Vercel uses 308 for permanent redirects (equivalent to 301 for SEO)
+      expect([301, 308]).toContain(res.status());
       const location = res.headers()['location'];
       // Should go directly to final destination, not through intermediate
       expect(location).toContain('turkish-pronunciation-guide-for-beginners');
