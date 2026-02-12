@@ -6,6 +6,7 @@ import path from 'path';
 
 export default defineConfig({
   site: 'https://www.lovelanguages.io',
+  trailingSlash: 'always',
   output: 'server',
   adapter: vercel(),
   vite: {

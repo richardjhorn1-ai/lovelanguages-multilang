@@ -196,7 +196,7 @@ const jsonLd = {
   "author": {
     "@type": "Organization",
     "name": "Love Languages",
-    "url": "https://www.lovelanguages.io"
+    "url": "https://www.lovelanguages.io/"
   },
   "publisher": {
     "@type": "Organization",
@@ -237,7 +237,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       "position": 1,
       "name": "Home",
-      "item": "https://www.lovelanguages.io"
+      "item": "https://www.lovelanguages.io/"
     },
     {
       "@type": "ListItem",
@@ -341,6 +341,7 @@ const faqJsonLd = {
     section: category,
     tags: tags,
   }}
+  canonical={canonicalUrl}
   nativeLang={nativeLanguageCode}
   targetLang={languageCode}
 >
@@ -356,9 +357,6 @@ const faqJsonLd = {
 
     {/* AEO: FAQ Schema for enhanced search visibility */}
     <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
-
-    {/* Canonical URL */}
-    <link rel="canonical" href={canonicalUrl} />
 
     {/* Hreflang tags for multi-language SEO
         - nativeLanguageCode = language the article is written in (e.g., "en" for English speakers)

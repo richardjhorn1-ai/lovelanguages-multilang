@@ -4,8 +4,6 @@ import { getLanguagePairs, getNativeLanguages } from '../lib/blog-api';
 const VALID_LANGS = ['en','es','fr','de','it','pt','pl','nl','sv','no','da','cs','ru','uk','el','hu','tr','ro'];
 
 export const GET: APIRoute = async () => {
-  const today = new Date().toISOString().split('T')[0];
-
   // Static known pages
   const staticPages = [
     { loc: '/', priority: '1.0', changefreq: 'daily' },
@@ -19,8 +17,6 @@ export const GET: APIRoute = async () => {
     { loc: '/tools/name-day-finder/', priority: '0.7', changefreq: 'monthly' },
     { loc: '/dictionary/', priority: '0.6', changefreq: 'monthly' },
     { loc: '/compare/', priority: '0.75', changefreq: 'monthly' },
-    { loc: '/terms/', priority: '0.3', changefreq: 'yearly' },
-    { loc: '/privacy/', priority: '0.3', changefreq: 'yearly' },
   ];
 
   // Dynamic hub pages from Supabase data
@@ -44,16 +40,9 @@ export const GET: APIRoute = async () => {
     staticPages.push({ loc: `/learn/${pair.native_lang}/${pair.target_lang}/`, priority: '0.85', changefreq: 'weekly' });
   }
 
-  // Language info pages
-  for (const lang of VALID_LANGS) {
-    staticPages.push({ loc: `/learn/language/${lang}/`, priority: '0.7', changefreq: 'monthly' });
-    staticPages.push({ loc: `/learn/language/${lang}/for-couples/`, priority: '0.7', changefreq: 'monthly' });
-  }
-
   const urls = staticPages.map(p =>
     `  <url>
     <loc>https://www.lovelanguages.io${p.loc}</loc>
-    <lastmod>${today}</lastmod>
     <changefreq>${p.changefreq}</changefreq>
     <priority>${p.priority}</priority>
   </url>`

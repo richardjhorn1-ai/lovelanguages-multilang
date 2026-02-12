@@ -30,12 +30,12 @@ const jsonLd = {
   "@type": "DefinedTermSet",
   "name": "Polish Dictionary for Couples",
   "description": "Learn Polish vocabulary with pronunciation, examples, and cultural notes. Perfect for couples learning Polish together.",
-  "url": "https://www.lovelanguages.io/dictionary",
+  "url": "https://www.lovelanguages.io/dictionary/",
   "hasDefinedTerm": polishDictionary.slice(0, 50).map(word => ({
     "@type": "DefinedTerm",
     "name": word.polish,
     "description": word.english,
-    "url": `https://www.lovelanguages.io/dictionary/${word.slug}`
+    "url": `https://www.lovelanguages.io/dictionary/${word.slug}/`
   }))
 };
 ---
@@ -151,7 +151,7 @@ const jsonLd = {
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {wordsByLetter[letter].map(word => (
               <a
-                href={`/dictionary/${word.slug}`}
+                href={`/dictionary/${word.slug}/`}
                 class="word-card bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-all border border-gray-100 hover:border-accent/30"
                 data-polish={word.polish.toLowerCase()}
                 data-english={word.english.toLowerCase()}
@@ -201,9 +201,9 @@ const jsonLd = {
       <p class="text-gray-600 mb-6">Learn Polish together with your partner</p>
       <nav class="flex justify-center gap-6 text-sm text-gray-500">
         <a href="/learn/" class="hover:text-accent">Blog</a>
-        <a href="/dictionary" class="hover:text-accent">Dictionary</a>
+        <a href="/dictionary/" class="hover:text-accent">Dictionary</a>
         <a href="/tools/" class="hover:text-accent">Tools</a>
-        <a href="/compare" class="hover:text-accent">Compare</a>
+        <a href="/compare/" class="hover:text-accent">Compare</a>
       </nav>
     </div>
   </footer>

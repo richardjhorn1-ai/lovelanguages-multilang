@@ -85,7 +85,7 @@ const jsonLd = {
   "publisher": {
     "@type": "Organization",
     "name": "Love Languages",
-    "url": "https://www.lovelanguages.io"
+    "url": "https://www.lovelanguages.io/"
   },
   "author": {
     "@type": "Organization",
@@ -121,10 +121,10 @@ const labels = breadcrumbLabels[nativeLang || 'en'] || breadcrumbLabels.en;
 <BaseLayout
   title={`${article.title} | Love Languages`}
   description={article.description || article.title}
+  canonical={canonicalUrl}
   nativeLang={nativeLang}
 >
   <Fragment slot="head">
-    <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hreflang={nativeLang} href={canonicalUrl} />
     <link rel="alternate" hreflang="x-default" href={`https://www.lovelanguages.io/learn/en/couples-language-learning/methodology/${slug}/`} />
     {hreflangAlternates.map(alt => (

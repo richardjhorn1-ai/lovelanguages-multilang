@@ -46,7 +46,7 @@ const jsonLd = {
   "publisher": {
     "@type": "Organization",
     "name": "Love Languages",
-    "url": "https://www.lovelanguages.io"
+    "url": "https://www.lovelanguages.io/"
   }
 };
 ---
@@ -54,10 +54,10 @@ const jsonLd = {
 <BaseLayout
   title={`${s.hero.title} | Love Languages`}
   description={s.hero.subtitle}
+  canonical={canonicalUrl}
   nativeLang={nativeLanguageCode}
 >
   <Fragment slot="head">
-    <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" hreflang={nativeLanguageCode} href={canonicalUrl} />
     <link rel="alternate" hreflang="x-default" href="https://www.lovelanguages.io/learn/en/couples-language-learning/" />
     {hreflangAlternates.map(alt => (

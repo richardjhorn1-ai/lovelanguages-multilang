@@ -26,6 +26,12 @@ const LANGUAGE_NAMES: Record<string, string> = {
 
 import { canonicalUrl, normalizePathname } from '../lib/urls';
 
+const OG_LOCALES: Record<string, string> = {
+  en: 'en_US', es: 'es_ES', fr: 'fr_FR', de: 'de_DE', it: 'it_IT', pt: 'pt_PT',
+  pl: 'pl_PL', nl: 'nl_NL', sv: 'sv_SE', no: 'nb_NO', da: 'da_DK', cs: 'cs_CZ',
+  ru: 'ru_RU', uk: 'uk_UA', el: 'el_GR', hu: 'hu_HU', tr: 'tr_TR', ro: 'ro_RO'
+};
+
 const {
   title,
   description,
@@ -38,6 +44,7 @@ const {
 
 const siteUrl = 'https://www.lovelanguages.io';
 const fullUrl = canonical || canonicalUrl(Astro.url.pathname);
+const ogLocale = OG_LOCALES[nativeLang] || 'en_US';
 const safeImage = image || '/og-image.png';
 const fullImage = safeImage.startsWith('http') ? safeImage : `${siteUrl}${safeImage}`;
 const fullTitle = `${title} | Love Languages`;
@@ -57,7 +64,7 @@ const defaultKeywords = targetLang
 <link rel="canonical" href={fullUrl} />
 
 <!-- Language tags -->
-<meta property="og:locale" content={nativeLang} />
+<meta property="og:locale" content={ogLocale} />
 {targetLang && <meta name="language" content={nativeLang} />}
 
 <!-- Open Graph / Facebook -->
@@ -98,7 +105,7 @@ const defaultKeywords = targetLang
     "author": {
       "@type": "Organization",
       "name": "Love Languages",
-      "url": siteUrl
+      "url": `${siteUrl}/`
     },
     "publisher": {
       "@type": "Organization",

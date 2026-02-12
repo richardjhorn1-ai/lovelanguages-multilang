@@ -17,9 +17,10 @@ interface Props {
   hideNavigation?: boolean;  // Some pages have custom headers
   nativeLang?: string;
   targetLang?: string;
+  canonical?: string;
 }
 
-const { title, description, image, article, hideNavigation = false, nativeLang = 'en', targetLang } = Astro.props;
+const { title, description, image, article, hideNavigation = false, nativeLang = 'en', targetLang, canonical } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -39,6 +40,7 @@ const { title, description, image, article, hideNavigation = false, nativeLang =
     description={description}
     image={image}
     article={article}
+    canonical={canonical}
     nativeLang={nativeLang}
     targetLang={targetLang}
   />

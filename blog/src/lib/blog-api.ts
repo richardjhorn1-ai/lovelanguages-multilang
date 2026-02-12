@@ -286,15 +286,15 @@ export async function searchArticles(
 export async function getAllSlugs(
   nativeLang?: string,
   targetLang?: string
-): Promise<{ native_lang: string; target_lang: string; slug: string }[]> {
-  const allData: { native_lang: string; target_lang: string; slug: string }[] = [];
+): Promise<{ native_lang: string; target_lang: string; slug: string; updated_at: string | null }[]> {
+  const allData: { native_lang: string; target_lang: string; slug: string; updated_at: string | null }[] = [];
   const PAGE_SIZE = 1000;
   let offset = 0;
 
   while (true) {
     let query = supabase
       .from('blog_articles')
-      .select('native_lang, target_lang, slug')
+      .select('native_lang, target_lang, slug, updated_at')
       .eq('published', true)
       .range(offset, offset + PAGE_SIZE - 1);
 

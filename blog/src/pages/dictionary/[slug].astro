@@ -7,7 +7,7 @@ const { slug } = Astro.params;
 const word = getWordBySlug(slug || '');
 
 if (!word) {
-  return Astro.redirect('/dictionary');
+  return Astro.redirect('/dictionary/');
 }
 const relatedWords = getRelatedWords(word.relatedWords);
 
@@ -51,7 +51,7 @@ const jsonLd = {
   "inDefinedTermSet": {
     "@type": "DefinedTermSet",
     "name": "Polish Dictionary for Couples",
-    "url": "https://www.lovelanguages.io/dictionary"
+    "url": "https://www.lovelanguages.io/dictionary/"
   }
 };
 
@@ -60,9 +60,9 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.lovelanguages.io" },
-    { "@type": "ListItem", "position": 2, "name": "Dictionary", "item": "https://www.lovelanguages.io/dictionary" },
-    { "@type": "ListItem", "position": 3, "name": word.polish, "item": `https://www.lovelanguages.io/dictionary/${word.slug}` }
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.lovelanguages.io/" },
+    { "@type": "ListItem", "position": 2, "name": "Dictionary", "item": "https://www.lovelanguages.io/dictionary/" },
+    { "@type": "ListItem", "position": 3, "name": word.polish, "item": `https://www.lovelanguages.io/dictionary/${word.slug}/` }
   ]
 };
 ---
@@ -79,7 +79,7 @@ const breadcrumbJsonLd = {
     <ol class="flex items-center gap-2 text-sm text-gray-500">
       <li><a href="/" class="hover:text-accent">Home</a></li>
       <li>/</li>
-      <li><a href="/dictionary" class="hover:text-accent">Dictionary</a></li>
+      <li><a href="/dictionary/" class="hover:text-accent">Dictionary</a></li>
       <li>/</li>
       <li class="text-gray-900">{word.polish}</li>
     </ol>
@@ -253,7 +253,7 @@ const breadcrumbJsonLd = {
       <div class="flex flex-wrap gap-2">
         {word.tags.map(tag => (
           <a
-            href={`/dictionary?tag=${tag}`}
+            href={`/dictionary/?tag=${tag}`}
             class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm hover:bg-accent/10 hover:text-accent transition-colors"
           >
             #{tag}
@@ -269,7 +269,7 @@ const breadcrumbJsonLd = {
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
           {relatedWords.map(related => (
             <a
-              href={`/dictionary/${related.slug}`}
+              href={`/dictionary/${related.slug}/`}
               class="bg-white rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow border border-gray-100 hover:border-accent/30"
             >
               <p class="font-bold text-gray-900 mb-1">{related.polish}</p>
@@ -307,9 +307,9 @@ const breadcrumbJsonLd = {
       <p class="text-gray-600 mb-6">Learn Polish together with your partner</p>
       <nav class="flex justify-center gap-6 text-sm text-gray-500">
         <a href="/learn/" class="hover:text-accent">Blog</a>
-        <a href="/dictionary" class="hover:text-accent">Dictionary</a>
+        <a href="/dictionary/" class="hover:text-accent">Dictionary</a>
         <a href="/tools/" class="hover:text-accent">Tools</a>
-        <a href="/compare" class="hover:text-accent">Compare</a>
+        <a href="/compare/" class="hover:text-accent">Compare</a>
       </nav>
     </div>
   </footer>
