@@ -90,6 +90,9 @@ export interface OnboardingData {
   // Subscription selection (from onboarding)
   selectedPlan?: string;         // 'standard' or 'unlimited'
   selectedPriceId?: string;      // Stripe price ID for checkout
+
+  // Trial
+  trialExpiresAt?: string;       // ISO timestamp from free trial activation
 }
 
 export type WordType = 'noun' | 'verb' | 'adjective' | 'adverb' | 'phrase' | 'other';
