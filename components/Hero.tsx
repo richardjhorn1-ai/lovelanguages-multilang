@@ -794,7 +794,7 @@ const Hero: React.FC = () => {
                 {/* Section 4: GameShowcase */}
                 <div
                   data-section={4}
-                  className="flex-shrink-0 w-full h-full snap-start flex flex-col justify-center items-center px-4 py-4 overflow-y-auto"
+                  className="flex-shrink-0 w-full h-full snap-start flex flex-col justify-center items-center px-4 py-4"
                 >
                   <GameShowcase isStudent={isStudent} accentColor={accentColor} sectionIndex={4} isMobile={true} targetLanguage={selectedTargetLanguage} nativeLanguage={nativeLanguage} />
                 </div>
