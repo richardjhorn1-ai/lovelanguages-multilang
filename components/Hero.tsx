@@ -295,6 +295,7 @@ const Hero: React.FC = () => {
   const [sheetDragOffset, setSheetDragOffset] = useState(0);
   const sheetDragStart = useRef<{ y: number; expanded: boolean } | null>(null);
   const bottomSheetRef = useRef<HTMLDivElement>(null);
+  const nativeAutoDetected = useRef(false);
 
   // Bottom sheet touch handlers
   const handleSheetTouchStart = (e: React.TouchEvent) => {
@@ -367,6 +368,7 @@ const Hero: React.FC = () => {
       effectiveNative = savedNative;
     } else {
       effectiveNative = validBrowserLang;
+      nativeAutoDetected.current = true;
     }
     setNativeLanguage(effectiveNative);
     i18n.changeLanguage(effectiveNative);
@@ -441,6 +443,7 @@ const Hero: React.FC = () => {
 
   // Handler to go back to language selection
   const handleChangeLanguages = () => {
+    nativeAutoDetected.current = false;
     setCurrentStep('language');
     // Reset scroll position
     if (scrollRef.current) {
@@ -669,14 +672,16 @@ const Hero: React.FC = () => {
                 stepTransition === 'entering' ? 'opacity-0 translate-x-[20px]' : 'opacity-100'
               }`}
             >
-              {/* Native language pill */}
-              <div className="mb-4">
-                <NativeLanguagePill
-                  nativeLanguage={nativeLanguage}
-                  isStudent={isStudent}
-                  onSelect={handleNativeSelect}
-                />
-              </div>
+              {/* Native language pill — hidden for first-time visitors with auto-detected language */}
+              {!nativeAutoDetected.current && (
+                <div className="mb-4">
+                  <NativeLanguagePill
+                    nativeLanguage={nativeLanguage}
+                    isStudent={isStudent}
+                    onSelect={handleNativeSelect}
+                  />
+                </div>
+              )}
 
               {/* Target language prompt */}
               <p className="text-scale-body font-bold mb-4" style={{ color: '#4b5563' }}>
@@ -1178,14 +1183,16 @@ const Hero: React.FC = () => {
                   </h1>
                 </div>
               </div>
-              {/* Native language pill */}
-              <div className="mb-6">
-                <NativeLanguagePill
-                  nativeLanguage={nativeLanguage}
-                  isStudent={isStudent}
-                  onSelect={handleNativeSelect}
-                />
-              </div>
+              {/* Native language pill — hidden for first-time visitors with auto-detected language */}
+              {!nativeAutoDetected.current && (
+                <div className="mb-6">
+                  <NativeLanguagePill
+                    nativeLanguage={nativeLanguage}
+                    isStudent={isStudent}
+                    onSelect={handleNativeSelect}
+                  />
+                </div>
+              )}
               <LanguageGrid
                 onSelect={handleTargetSelect}
                 selectedCode={selectedTargetLanguage}
