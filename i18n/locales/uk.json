@@ -509,6 +509,74 @@
     "links": {
       "blog": "Learn {{language}} Blog",
       "blogDescription": "Free articles, phrases & culture guides"
+    },
+    "extras": {
+      "title": "Додатково",
+      "subtitle": "Ресурси та інше",
+      "installApp": "Встановити додаток",
+      "installAppDesc": "Додайте на головний екран для швидшого доступу",
+      "install": "Встановити",
+      "appInstalled": "Додаток встановлено",
+      "appInstalledDesc": "Відкривайте з головного екрану будь-коли",
+      "termsOfService": "Умови використання",
+      "privacyPolicy": "Політика конфіденційності"
+    },
+    "vibeOptions": {
+      "Passionate": "Пристрасний",
+      "Playful": "Грайливий",
+      "Growing": "Зростаючий",
+      "Forever": "Назавжди",
+      "Long-distance": "На відстані",
+      "New love": "Нове кохання"
+    },
+    "timeOptions": {
+      "5 min": "5 хв",
+      "10 min": "10 хв",
+      "20+ min": "20+ хв"
+    },
+    "whenOptions": {
+      "Morning": "Ранок",
+      "Afternoon": "День",
+      "Evening": "Вечір",
+      "Whenever": "Будь-коли"
+    },
+    "fearOptions": {
+      "Pronunciation": "Вимова",
+      "Grammar": "Граматика",
+      "Sounding silly": "Звучати безглуздо",
+      "Forgetting words": "Забувати слова"
+    },
+    "relationOptions": {
+      "partner": "Партнер",
+      "spouse": "Чоловік/Дружина",
+      "friend": "Друг",
+      "family": "Родина"
+    },
+    "connectionOptions": {
+      "native": "Рідна",
+      "heritage": "Спадкова",
+      "fluent": "Вільне володіння",
+      "bilingual": "Двомовна"
+    }
+  },
+  "errorBoundary": {
+    "title": "Ой! Щось пішло не так",
+    "message": "Не хвилюйтесь, кохання все виправить! Спробуймо ще раз.",
+    "technicalDetails": "Технічні деталі",
+    "tryAgain": "Спробувати знову",
+    "refreshPage": "Оновити сторінку",
+    "persistentError": "Якщо це продовжується, спробуйте очистити кеш браузера або зверніться до підтримки."
+  },
+  "thinkingIndicator": {
+    "thinking": "Думаю...",
+    "checkingProgress": "Перевіряю прогрес...",
+    "planningLesson": "Планую ваш урок...",
+    "craftingResponse": "Створюю відповідь..."
+  },
+  "notifications": {
+    "partnerDeletedAccount": {
+      "title": "Акаунт партнера видалено",
+      "message": "Ваш партнер по навчанню видалив свій акаунт. Ваші акаунти більше не пов'язані."
     }
   },
   "loveLog": {
@@ -899,6 +967,7 @@
     "next": "Далі"
   },
   "tutorGames": {
+    "loading": "Завантаження ігор...",
     "playTogether": "Грати разом",
     "sendChallenge": "Надіслати виклик",
     "playNow": "Грати зараз",
@@ -1836,8 +1905,7 @@
     },
     "shared": {
       "section0": {
-        "headline": "Вивчення мов починається з кохання.",
-        "highlight1": "кохання",
+        "subhead": "Один вчиться, інший навчає, обоє зближуються.",
         "copy": "Заснований на Вивченні Мов з Орієнтацією на Стосунки (RALL), Love Languages допомагає парам подолати мовний бар'єр—одне значуще слово за раз.",
         "copyHighlight1": "RALL",
         "copyHighlight2": "парам",
@@ -1851,6 +1919,10 @@
       }
     },
     "student": {
+      "section0": {
+        "headline": "Вивчіть мову вашого партнера.",
+        "highlight1": "мову вашого партнера"
+      },
       "section1": {
         "headline": "Вивчай ніжні слівця, гострі словечка і все, що між ними.",
         "highlight1": "ніжні слівця",
@@ -1896,6 +1968,10 @@
       }
     },
     "tutor": {
+      "section0": {
+        "headline": "Навчіть партнера вашої мови.",
+        "highlight1": "вашої мови"
+      },
       "section1": {
         "headline": "Є цілий ти, якого вони ніколи не знали.",
         "highlight1": "цілий ти",

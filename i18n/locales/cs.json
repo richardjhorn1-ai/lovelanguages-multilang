@@ -509,6 +509,74 @@
     "links": {
       "blog": "Learn {{language}} Blog",
       "blogDescription": "Free articles, phrases & culture guides"
+    },
+    "extras": {
+      "title": "Doplňky",
+      "subtitle": "Zdroje a další",
+      "installApp": "Nainstalovat aplikaci",
+      "installAppDesc": "Přidejte na domovskou obrazovku pro rychlejší přístup",
+      "install": "Nainstalovat",
+      "appInstalled": "Aplikace nainstalována",
+      "appInstalledDesc": "Otevřete z domovské obrazovky kdykoliv",
+      "termsOfService": "Podmínky služby",
+      "privacyPolicy": "Zásady ochrany osobních údajů"
+    },
+    "vibeOptions": {
+      "Passionate": "Vášnivý",
+      "Playful": "Hravý",
+      "Growing": "Rostoucí",
+      "Forever": "Navždy",
+      "Long-distance": "Na dálku",
+      "New love": "Nová láska"
+    },
+    "timeOptions": {
+      "5 min": "5 min",
+      "10 min": "10 min",
+      "20+ min": "20+ min"
+    },
+    "whenOptions": {
+      "Morning": "Ráno",
+      "Afternoon": "Odpoledne",
+      "Evening": "Večer",
+      "Whenever": "Kdykoliv"
+    },
+    "fearOptions": {
+      "Pronunciation": "Výslovnost",
+      "Grammar": "Gramatika",
+      "Sounding silly": "Znít směšně",
+      "Forgetting words": "Zapomínání slov"
+    },
+    "relationOptions": {
+      "partner": "Partner",
+      "spouse": "Manžel/ka",
+      "friend": "Přítel",
+      "family": "Rodina"
+    },
+    "connectionOptions": {
+      "native": "Rodilý mluvčí",
+      "heritage": "Dědičný",
+      "fluent": "Plynulý",
+      "bilingual": "Dvojjazyčný"
+    }
+  },
+  "errorBoundary": {
+    "title": "Jejda! Něco se pokazilo",
+    "message": "Nebojte, láska vše spraví! Zkusme to znovu.",
+    "technicalDetails": "Technické detaily",
+    "tryAgain": "Zkusit znovu",
+    "refreshPage": "Obnovit stránku",
+    "persistentError": "Pokud se to opakuje, zkuste vymazat mezipaměť prohlížeče nebo kontaktujte podporu."
+  },
+  "thinkingIndicator": {
+    "thinking": "Přemýšlím...",
+    "checkingProgress": "Kontroluji pokrok...",
+    "planningLesson": "Plánuji vaši lekci...",
+    "craftingResponse": "Tvořím odpověď..."
+  },
+  "notifications": {
+    "partnerDeletedAccount": {
+      "title": "Účet partnera smazán",
+      "message": "Váš studijní partner smazal svůj účet. Vaše účty již nejsou propojeny."
     }
   },
   "loveLog": {
@@ -899,6 +967,7 @@
     "next": "Další"
   },
   "tutorGames": {
+    "loading": "Načítání her...",
     "playTogether": "Hrát spolu",
     "sendChallenge": "Poslat výzvu",
     "playNow": "Hrát teď",
@@ -1836,8 +1905,7 @@
     },
     "shared": {
       "section0": {
-        "headline": "Uceni jazyku zacina laskou.",
-        "highlight1": "laskou",
+        "subhead": "Jeden se učí, druhý učí, oba se spojují.",
         "copy": "Zalozeno na Uceni Jazyku Orientovanem na Vztahy (RALL), Love Languages pomaha parum prekonat jazykovou barieru—jedno vyznamne slovo po druhem.",
         "copyHighlight1": "RALL",
         "copyHighlight2": "parum",
@@ -1851,6 +1919,10 @@
       }
     },
     "student": {
+      "section0": {
+        "headline": "Naučte se jazyk svého partnera.",
+        "highlight1": "jazyk svého partnera"
+      },
       "section1": {
         "headline": "Nauč se sladké řečičky, pikantní slovíčka a všechno mezi tím.",
         "highlight1": "sladké řečičky",
@@ -1896,6 +1968,10 @@
       }
     },
     "tutor": {
+      "section0": {
+        "headline": "Naučte svého partnera svůj jazyk.",
+        "highlight1": "svůj jazyk"
+      },
       "section1": {
         "headline": "Je celé ty, které nikdy nepoznali.",
         "highlight1": "celé ty",

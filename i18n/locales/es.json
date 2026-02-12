@@ -509,6 +509,74 @@
     "links": {
       "blog": "Learn {{language}} Blog",
       "blogDescription": "Free articles, phrases & culture guides"
+    },
+    "extras": {
+      "title": "Extras",
+      "subtitle": "Recursos y más",
+      "installApp": "Instalar App",
+      "installAppDesc": "Añadir a la pantalla de inicio para acceder más rápido",
+      "install": "Instalar",
+      "appInstalled": "App Instalada",
+      "appInstalledDesc": "Ábrela desde tu pantalla de inicio cuando quieras",
+      "termsOfService": "Términos de Servicio",
+      "privacyPolicy": "Política de Privacidad"
+    },
+    "vibeOptions": {
+      "Passionate": "Apasionados",
+      "Playful": "Juguetones",
+      "Growing": "En crecimiento",
+      "Forever": "Para siempre",
+      "Long-distance": "A distancia",
+      "New love": "Amor nuevo"
+    },
+    "timeOptions": {
+      "5 min": "5 min",
+      "10 min": "10 min",
+      "20+ min": "20+ min"
+    },
+    "whenOptions": {
+      "Morning": "Mañana",
+      "Afternoon": "Tarde",
+      "Evening": "Noche",
+      "Whenever": "Cuando sea"
+    },
+    "fearOptions": {
+      "Pronunciation": "Pronunciación",
+      "Grammar": "Gramática",
+      "Sounding silly": "Sonar ridículo",
+      "Forgetting words": "Olvidar palabras"
+    },
+    "relationOptions": {
+      "partner": "Pareja",
+      "spouse": "Cónyuge",
+      "friend": "Amigo/a",
+      "family": "Familia"
+    },
+    "connectionOptions": {
+      "native": "Nativo/a",
+      "heritage": "Herencia",
+      "fluent": "Fluido/a",
+      "bilingual": "Bilingüe"
+    }
+  },
+  "errorBoundary": {
+    "title": "¡Ups! Algo salió mal",
+    "message": "No te preocupes, ¡el amor lo arregla todo! Intentémoslo de nuevo.",
+    "technicalDetails": "Detalles técnicos",
+    "tryAgain": "Intentar de Nuevo",
+    "refreshPage": "Recargar Página",
+    "persistentError": "Si esto sigue pasando, intenta borrar la caché del navegador o contacta con soporte."
+  },
+  "thinkingIndicator": {
+    "thinking": "Pensando...",
+    "checkingProgress": "Revisando progreso...",
+    "planningLesson": "Planificando tu lección...",
+    "craftingResponse": "Preparando una respuesta..."
+  },
+  "notifications": {
+    "partnerDeletedAccount": {
+      "title": "Cuenta del compañero eliminada",
+      "message": "Tu compañero de aprendizaje ha eliminado su cuenta. Sus cuentas ya no están vinculadas."
     }
   },
   "loveLog": {
@@ -899,6 +967,7 @@
     "next": "Siguiente"
   },
   "tutorGames": {
+    "loading": "Cargando juegos...",
     "playTogether": "Jugar Juntos",
     "sendChallenge": "Enviar Desafío",
     "playNow": "Jugar Ahora",
@@ -1836,8 +1905,7 @@
     },
     "shared": {
       "section0": {
-        "headline": "Aprender idiomas empieza con amor.",
-        "highlight1": "amor",
+        "subhead": "Uno aprende, el otro enseña, ambos conectan.",
         "copy": "Basado en el Aprendizaje de Idiomas Centrado en la Relacion (RALL), Love Languages ayuda a las parejas a superar la barrera del idioma—una palabra significativa a la vez.",
         "copyHighlight1": "RALL",
         "copyHighlight2": "parejas",
@@ -1851,6 +1919,10 @@
       }
     },
     "student": {
+      "section0": {
+        "headline": "Aprende el idioma de tu pareja.",
+        "highlight1": "idioma de tu pareja"
+      },
       "section1": {
         "headline": "Aprende las palabras dulces, las picantes, y todo lo que hay en medio.",
         "highlight1": "palabras dulces",
@@ -1896,6 +1968,10 @@
       }
     },
     "tutor": {
+      "section0": {
+        "headline": "Enséñale tu idioma a tu pareja.",
+        "highlight1": "tu idioma"
+      },
       "section1": {
         "headline": "Hay todo un tú que nunca han conocido.",
         "highlight1": "todo un tú",

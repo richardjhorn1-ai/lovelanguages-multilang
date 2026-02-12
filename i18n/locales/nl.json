@@ -509,6 +509,74 @@
     "links": {
       "blog": "Learn {{language}} Blog",
       "blogDescription": "Free articles, phrases & culture guides"
+    },
+    "extras": {
+      "title": "Extra's",
+      "subtitle": "Hulpmiddelen & meer",
+      "installApp": "App installeren",
+      "installAppDesc": "Voeg toe aan je startscherm voor snellere toegang",
+      "install": "Installeren",
+      "appInstalled": "App geïnstalleerd",
+      "appInstalledDesc": "Open het wanneer je wilt vanaf je startscherm",
+      "termsOfService": "Gebruiksvoorwaarden",
+      "privacyPolicy": "Privacybeleid"
+    },
+    "vibeOptions": {
+      "Passionate": "Gepassioneerd",
+      "Playful": "Speels",
+      "Growing": "Groeiend",
+      "Forever": "Voor altijd",
+      "Long-distance": "Langeafstand",
+      "New love": "Nieuwe liefde"
+    },
+    "timeOptions": {
+      "5 min": "5 min",
+      "10 min": "10 min",
+      "20+ min": "20+ min"
+    },
+    "whenOptions": {
+      "Morning": "Ochtend",
+      "Afternoon": "Middag",
+      "Evening": "Avond",
+      "Whenever": "Wanneer dan ook"
+    },
+    "fearOptions": {
+      "Pronunciation": "Uitspraak",
+      "Grammar": "Grammatica",
+      "Sounding silly": "Belachelijk klinken",
+      "Forgetting words": "Woorden vergeten"
+    },
+    "relationOptions": {
+      "partner": "Partner",
+      "spouse": "Echtgenoot/echtgenote",
+      "friend": "Vriend(in)",
+      "family": "Familie"
+    },
+    "connectionOptions": {
+      "native": "Moedertaal",
+      "heritage": "Erfgoedtaal",
+      "fluent": "Vloeiend",
+      "bilingual": "Tweetalig"
+    }
+  },
+  "errorBoundary": {
+    "title": "Oeps! Er is iets misgegaan",
+    "message": "Geen zorgen, liefde lost alles op! Laten we het opnieuw proberen.",
+    "technicalDetails": "Technische details",
+    "tryAgain": "Opnieuw proberen",
+    "refreshPage": "Pagina vernieuwen",
+    "persistentError": "Als dit blijft gebeuren, probeer dan je browsercache te wissen of neem contact op met de ondersteuning."
+  },
+  "thinkingIndicator": {
+    "thinking": "Even denken...",
+    "checkingProgress": "Voortgang controleren...",
+    "planningLesson": "Je les voorbereiden...",
+    "craftingResponse": "Antwoord opstellen..."
+  },
+  "notifications": {
+    "partnerDeletedAccount": {
+      "title": "Account van partner verwijderd",
+      "message": "Je leerpartner heeft zijn account verwijderd. Jullie accounts zijn niet meer gekoppeld."
     }
   },
   "loveLog": {
@@ -899,6 +967,7 @@
     "next": "Volgende"
   },
   "tutorGames": {
+    "loading": "Spelletjes laden...",
     "playTogether": "Samen Spelen",
     "sendChallenge": "Uitdaging Sturen",
     "playNow": "Nu Spelen",
@@ -1836,8 +1905,7 @@
     },
     "shared": {
       "section0": {
-        "headline": "Talen leren begint met liefde.",
-        "highlight1": "liefde",
+        "subhead": "De een leert, de ander onderwijst, beiden verbinden.",
         "copy": "Gebaseerd op Relatiegerichte Taalverwerving (RALL), helpt Love Languages koppels de taalbarriere te overbruggen—een betekenisvol woord per keer.",
         "copyHighlight1": "RALL",
         "copyHighlight2": "koppels",
@@ -1851,6 +1919,10 @@
       }
     },
     "student": {
+      "section0": {
+        "headline": "Leer de taal van je partner.",
+        "highlight1": "taal van je partner"
+      },
       "section1": {
         "headline": "Leer de lieve woordjes, de pikante dingen, en alles daartussenin.",
         "highlight1": "lieve woordjes",
@@ -1896,6 +1968,10 @@
       }
     },
     "tutor": {
+      "section0": {
+        "headline": "Leer je partner jouw taal.",
+        "highlight1": "jouw taal"
+      },
       "section1": {
         "headline": "Er is een hele jij die ze nooit hebben ontmoet.",
         "highlight1": "hele jij",

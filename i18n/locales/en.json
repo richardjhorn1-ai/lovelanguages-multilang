@@ -509,6 +509,77 @@
     "links": {
       "blog": "Learn {{language}} Blog",
       "blogDescription": "Free articles, phrases & culture guides"
+    },
+    "extras": {
+      "title": "Extras",
+      "subtitle": "Resources & more",
+      "installApp": "Install App",
+      "installAppDesc": "Add to home screen for faster access",
+      "install": "Install",
+      "appInstalled": "App Installed",
+      "appInstalledDesc": "Open from your home screen anytime",
+      "termsOfService": "Terms of Service",
+      "privacyPolicy": "Privacy Policy"
+    },
+    "vibeOptions": {
+      "Passionate": "Passionate",
+      "Playful": "Playful",
+      "Growing": "Growing",
+      "Forever": "Forever",
+      "Long-distance": "Long-distance",
+      "New love": "New love"
+    },
+    "timeOptions": {
+      "5 min": "5 min",
+      "10 min": "10 min",
+      "20+ min": "20+ min"
+    },
+    "whenOptions": {
+      "Morning": "Morning",
+      "Afternoon": "Afternoon",
+      "Evening": "Evening",
+      "Whenever": "Whenever"
+    },
+    "fearOptions": {
+      "Pronunciation": "Pronunciation",
+      "Grammar": "Grammar",
+      "Sounding silly": "Sounding silly",
+      "Forgetting words": "Forgetting words"
+    },
+    "relationOptions": {
+      "partner": "Partner",
+      "spouse": "Spouse",
+      "friend": "Friend",
+      "family": "Family"
+    },
+    "connectionOptions": {
+      "native": "Native",
+      "heritage": "Heritage",
+      "fluent": "Fluent",
+      "bilingual": "Bilingual"
+    }
+  },
+  "errorBoundary": {
+    "title": "Oops! Something went wrong",
+    "message": "Don't worry, love can fix anything! Let's try that again.",
+    "technicalDetails": "Technical details",
+    "tryAgain": "Try Again",
+    "refreshPage": "Refresh Page",
+    "persistentError": "If this keeps happening, try clearing your browser cache or contact support."
+  },
+  "thinkingIndicator": {
+    "thinking": "Thinking...",
+    "checkingProgress": "Checking progress...",
+    "planningLesson": "Planning your lesson...",
+    "craftingResponse": "Crafting a response..."
+  },
+  "tutorGames": {
+    "loading": "Loading games..."
+  },
+  "notifications": {
+    "partnerDeletedAccount": {
+      "title": "Partner Account Deleted",
+      "message": "Your learning partner has deleted their account. Your accounts are no longer linked."
     }
   },
   "loveLog": {
@@ -1846,8 +1917,7 @@
     },
     "shared": {
       "section0": {
-        "headline": "Language learning that starts with love.",
-        "highlight1": "love",
+        "subhead": "One partner learns, one partner teaches, both connect.",
         "copy": "Built on Relationship-Aware Language Learning (RALL), Love Languages helps couples bridge the language gap—one meaningful word at a time.",
         "copyHighlight1": "RALL",
         "copyHighlight2": "couples",
@@ -1861,6 +1931,10 @@
       }
     },
     "student": {
+      "section0": {
+        "headline": "Learn your partner's language.",
+        "highlight1": "partner's language"
+      },
       "section1": {
         "headline": "Learn the sweet nothings, the spicy somethings, and everything in between.",
         "highlight1": "sweet nothings",
@@ -1906,6 +1980,10 @@
       }
     },
     "tutor": {
+      "section0": {
+        "headline": "Teach your partner your language.",
+        "highlight1": "your language"
+      },
       "section1": {
         "headline": "There's a whole you they've never met.",
         "highlight1": "whole you",

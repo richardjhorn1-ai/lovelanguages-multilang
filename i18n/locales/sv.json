@@ -509,6 +509,74 @@
     "links": {
       "blog": "Learn {{language}} Blog",
       "blogDescription": "Free articles, phrases & culture guides"
+    },
+    "extras": {
+      "title": "Extra",
+      "subtitle": "Resurser & mer",
+      "installApp": "Installera appen",
+      "installAppDesc": "Lägg till på hemskärmen för snabbare åtkomst",
+      "install": "Installera",
+      "appInstalled": "Appen installerad",
+      "appInstalledDesc": "Öppna från hemskärmen när som helst",
+      "termsOfService": "Användarvillkor",
+      "privacyPolicy": "Integritetspolicy"
+    },
+    "vibeOptions": {
+      "Passionate": "Passionerade",
+      "Playful": "Lekfulla",
+      "Growing": "Växande",
+      "Forever": "För alltid",
+      "Long-distance": "På distans",
+      "New love": "Ny kärlek"
+    },
+    "timeOptions": {
+      "5 min": "5 min",
+      "10 min": "10 min",
+      "20+ min": "20+ min"
+    },
+    "whenOptions": {
+      "Morning": "Morgon",
+      "Afternoon": "Eftermiddag",
+      "Evening": "Kväll",
+      "Whenever": "När som helst"
+    },
+    "fearOptions": {
+      "Pronunciation": "Uttal",
+      "Grammar": "Grammatik",
+      "Sounding silly": "Låta löjlig",
+      "Forgetting words": "Glömma ord"
+    },
+    "relationOptions": {
+      "partner": "Partner",
+      "spouse": "Make/maka",
+      "friend": "Vän",
+      "family": "Familj"
+    },
+    "connectionOptions": {
+      "native": "Modersmål",
+      "heritage": "Arvsspråk",
+      "fluent": "Flytande",
+      "bilingual": "Tvåspråkig"
+    }
+  },
+  "errorBoundary": {
+    "title": "Hoppsan! Något gick fel",
+    "message": "Oroa dig inte, kärleken fixar allt! Låt oss försöka igen.",
+    "technicalDetails": "Tekniska detaljer",
+    "tryAgain": "Försök igen",
+    "refreshPage": "Ladda om sidan",
+    "persistentError": "Om detta fortsätter att hända, försök rensa webbläsarens cache eller kontakta support."
+  },
+  "thinkingIndicator": {
+    "thinking": "Tänker...",
+    "checkingProgress": "Kontrollerar framsteg...",
+    "planningLesson": "Planerar din lektion...",
+    "craftingResponse": "Formulerar ett svar..."
+  },
+  "notifications": {
+    "partnerDeletedAccount": {
+      "title": "Partnerns konto borttaget",
+      "message": "Din studiekompis har tagit bort sitt konto. Era konton är inte längre kopplade."
     }
   },
   "loveLog": {
@@ -899,6 +967,7 @@
     "next": "Nästa"
   },
   "tutorGames": {
+    "loading": "Laddar spel...",
     "playTogether": "Spela tillsammans",
     "sendChallenge": "Skicka utmaning",
     "playNow": "Spela nu",
@@ -1836,8 +1905,7 @@
     },
     "shared": {
       "section0": {
-        "headline": "Sprakinlarning borjar med karlek.",
-        "highlight1": "karlek",
+        "subhead": "En lär sig, den andra lär ut, båda kopplas samman.",
         "copy": "Baserat pa Relationsorienterad Sprakinlarning (RALL), hjalper Love Languages par att overbrygga sprakbarriaren—ett meningsfullt ord i taget.",
         "copyHighlight1": "RALL",
         "copyHighlight2": "par",
@@ -1851,6 +1919,10 @@
       }
     },
     "student": {
+      "section0": {
+        "headline": "Lär dig din partners språk.",
+        "highlight1": "din partners språk"
+      },
       "section1": {
         "headline": "Lär dig de söta viskningarna, de kryddiga kommentarerna, och allt däremellan.",
         "highlight1": "söta viskningarna",
@@ -1896,6 +1968,10 @@
       }
     },
     "tutor": {
+      "section0": {
+        "headline": "Lär din partner ditt språk.",
+        "highlight1": "ditt språk"
+      },
       "section1": {
         "headline": "Det finns ett helt du som de aldrig har mött.",
         "highlight1": "helt du",

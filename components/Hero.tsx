@@ -123,14 +123,14 @@ interface SectionContent {
 
 // Section content for both arcs - functions that use t() for translations
 const getStudentSections = (t: TFunction): SectionContent[] => [
-  // Section 0: What is Love Languages (same for both roles)
+  // Section 0: What is Love Languages (role-specific headline, shared subhead + copy)
   {
-    headline: t('hero.shared.section0.headline'),
-    headlineHighlights: [t('hero.shared.section0.highlight1')],
+    headline: t('hero.student.section0.headline'),
+    headlineHighlights: [t('hero.student.section0.highlight1')],
+    subhead: t('hero.shared.section0.subhead'),
     copy: t('hero.shared.section0.copy'),
     copyHighlights: [t('hero.shared.section0.copyHighlight1'), t('hero.shared.section0.copyHighlight2'), t('hero.shared.section0.copyHighlight3')],
     underlinedPhrase: t('hero.shared.section0.underline'),
-    // copyLinks removed - RALL now in bottom sections
   },
   {
     headline: t('hero.student.section1.headline'),
@@ -155,14 +155,14 @@ const getStudentSections = (t: TFunction): SectionContent[] => [
 ];
 
 const getTutorSections = (t: TFunction): SectionContent[] => [
-  // Section 0: What is Love Languages (same for both roles)
+  // Section 0: What is Love Languages (role-specific headline, shared subhead + copy)
   {
-    headline: t('hero.shared.section0.headline'),
-    headlineHighlights: [t('hero.shared.section0.highlight1')],
+    headline: t('hero.tutor.section0.headline'),
+    headlineHighlights: [t('hero.tutor.section0.highlight1')],
+    subhead: t('hero.shared.section0.subhead'),
     copy: t('hero.shared.section0.copy'),
     copyHighlights: [t('hero.shared.section0.copyHighlight1'), t('hero.shared.section0.copyHighlight2'), t('hero.shared.section0.copyHighlight3')],
     underlinedPhrase: t('hero.shared.section0.underline'),
-    // copyLinks removed - RALL now in bottom sections
   },
   {
     headline: t('hero.tutor.section1.headline'),

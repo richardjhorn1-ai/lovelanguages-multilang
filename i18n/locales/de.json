@@ -509,6 +509,74 @@
     "links": {
       "blog": "Learn {{language}} Blog",
       "blogDescription": "Free articles, phrases & culture guides"
+    },
+    "extras": {
+      "title": "Extras",
+      "subtitle": "Ressourcen & mehr",
+      "installApp": "App installieren",
+      "installAppDesc": "Zum Startbildschirm hinzufügen für schnelleren Zugriff",
+      "install": "Installieren",
+      "appInstalled": "App installiert",
+      "appInstalledDesc": "Jederzeit vom Startbildschirm aus öffnen",
+      "termsOfService": "Nutzungsbedingungen",
+      "privacyPolicy": "Datenschutzrichtlinie"
+    },
+    "vibeOptions": {
+      "Passionate": "Leidenschaftlich",
+      "Playful": "Verspielt",
+      "Growing": "Wachsend",
+      "Forever": "Für immer",
+      "Long-distance": "Fernbeziehung",
+      "New love": "Neue Liebe"
+    },
+    "timeOptions": {
+      "5 min": "5 min",
+      "10 min": "10 min",
+      "20+ min": "20+ min"
+    },
+    "whenOptions": {
+      "Morning": "Morgens",
+      "Afternoon": "Nachmittags",
+      "Evening": "Abends",
+      "Whenever": "Egal wann"
+    },
+    "fearOptions": {
+      "Pronunciation": "Aussprache",
+      "Grammar": "Grammatik",
+      "Sounding silly": "Albern klingen",
+      "Forgetting words": "Wörter vergessen"
+    },
+    "relationOptions": {
+      "partner": "Partner/in",
+      "spouse": "Ehepartner/in",
+      "friend": "Freund/in",
+      "family": "Familie"
+    },
+    "connectionOptions": {
+      "native": "Muttersprachler/in",
+      "heritage": "Herkunftssprache",
+      "fluent": "Fließend",
+      "bilingual": "Zweisprachig"
+    }
+  },
+  "errorBoundary": {
+    "title": "Hoppla! Etwas ist schiefgelaufen",
+    "message": "Keine Sorge, Liebe kann alles reparieren! Versuchen wir es nochmal.",
+    "technicalDetails": "Technische Details",
+    "tryAgain": "Nochmal versuchen",
+    "refreshPage": "Seite neu laden",
+    "persistentError": "Wenn das Problem weiterhin besteht, versuche den Browser-Cache zu leeren oder kontaktiere den Support."
+  },
+  "thinkingIndicator": {
+    "thinking": "Denke nach...",
+    "checkingProgress": "Fortschritt wird geprüft...",
+    "planningLesson": "Lektion wird geplant...",
+    "craftingResponse": "Antwort wird verfasst..."
+  },
+  "notifications": {
+    "partnerDeletedAccount": {
+      "title": "Partnerkonto gelöscht",
+      "message": "Dein Lernpartner hat sein Konto gelöscht. Eure Konten sind nicht mehr verknüpft."
     }
   },
   "loveLog": {
@@ -899,6 +967,7 @@
     "next": "Weiter"
   },
   "tutorGames": {
+    "loading": "Spiele werden geladen...",
     "playTogether": "Zusammen spielen",
     "sendChallenge": "Challenge senden",
     "playNow": "Jetzt spielen",
@@ -1836,8 +1905,7 @@
     },
     "shared": {
       "section0": {
-        "headline": "Sprachenlernen beginnt mit Liebe.",
-        "highlight1": "Liebe",
+        "subhead": "Einer lernt, der andere lehrt, beide verbinden sich.",
         "copy": "Basierend auf Beziehungsorientiertem Sprachlernen (RALL) hilft Love Languages Paaren, die Sprachbarriere zu uberwinden—ein bedeutungsvolles Wort nach dem anderen.",
         "copyHighlight1": "RALL",
         "copyHighlight2": "Paaren",
@@ -1851,6 +1919,10 @@
       }
     },
     "student": {
+      "section0": {
+        "headline": "Lerne die Sprache deines Partners.",
+        "highlight1": "Sprache deines Partners"
+      },
       "section1": {
         "headline": "Lern die zärtlichen Worte, die heißen Sprüche, und alles dazwischen.",
         "highlight1": "zärtlichen Worte",
@@ -1896,6 +1968,10 @@
       }
     },
     "tutor": {
+      "section0": {
+        "headline": "Bringe deinem Partner deine Sprache bei.",
+        "highlight1": "deine Sprache"
+      },
       "section1": {
         "headline": "Es gibt ein ganzes Du, das sie nie kennengelernt haben.",
         "highlight1": "ganzes Du",

@@ -509,6 +509,74 @@
     "links": {
       "blog": "Learn {{language}} Blog",
       "blogDescription": "Free articles, phrases & culture guides"
+    },
+    "extras": {
+      "title": "Ekstra",
+      "subtitle": "Ressourcer og mere",
+      "installApp": "Installer app",
+      "installAppDesc": "Tilføj til startskærmen for hurtigere adgang",
+      "install": "Installer",
+      "appInstalled": "App installeret",
+      "appInstalledDesc": "Åbn fra din startskærm når som helst",
+      "termsOfService": "Servicevilkår",
+      "privacyPolicy": "Privatlivspolitik"
+    },
+    "vibeOptions": {
+      "Passionate": "Lidenskabelig",
+      "Playful": "Legesyg",
+      "Growing": "Voksende",
+      "Forever": "For evigt",
+      "Long-distance": "Langdistance",
+      "New love": "Ny kærlighed"
+    },
+    "timeOptions": {
+      "5 min": "5 min",
+      "10 min": "10 min",
+      "20+ min": "20+ min"
+    },
+    "whenOptions": {
+      "Morning": "Morgen",
+      "Afternoon": "Eftermiddag",
+      "Evening": "Aften",
+      "Whenever": "Når som helst"
+    },
+    "fearOptions": {
+      "Pronunciation": "Udtale",
+      "Grammar": "Grammatik",
+      "Sounding silly": "Lyde fjollet",
+      "Forgetting words": "Glemme ord"
+    },
+    "relationOptions": {
+      "partner": "Partner",
+      "spouse": "Ægtefælle",
+      "friend": "Ven",
+      "family": "Familie"
+    },
+    "connectionOptions": {
+      "native": "Modersmål",
+      "heritage": "Arvesprog",
+      "fluent": "Flydende",
+      "bilingual": "Tosproget"
+    }
+  },
+  "errorBoundary": {
+    "title": "Ups! Noget gik galt",
+    "message": "Bare rolig, kærligheden kan klare alt! Lad os prøve igen.",
+    "technicalDetails": "Tekniske detaljer",
+    "tryAgain": "Prøv igen",
+    "refreshPage": "Opdater siden",
+    "persistentError": "Hvis dette fortsætter, prøv at rydde browserens cache eller kontakt support."
+  },
+  "thinkingIndicator": {
+    "thinking": "Tænker...",
+    "checkingProgress": "Tjekker fremskridt...",
+    "planningLesson": "Planlægger din lektion...",
+    "craftingResponse": "Udformer et svar..."
+  },
+  "notifications": {
+    "partnerDeletedAccount": {
+      "title": "Partnerkonto slettet",
+      "message": "Din læringspartner har slettet sin konto. Jeres konti er ikke længere forbundet."
     }
   },
   "loveLog": {
@@ -899,6 +967,7 @@
     "next": "Næste"
   },
   "tutorGames": {
+    "loading": "Indlæser spil...",
     "playTogether": "Spil sammen",
     "sendChallenge": "Send udfordring",
     "playNow": "Spil nu",
@@ -1836,8 +1905,7 @@
     },
     "shared": {
       "section0": {
-        "headline": "Sprogtilegnelse begynder med karlighed.",
-        "highlight1": "karlighed",
+        "subhead": "Den ene lærer, den anden underviser, begge forbindes.",
         "copy": "Baseret pa Relationsorienteret Sprogtilegnelse (RALL), hjalper Love Languages par med at overvinde sprogbarrieren—et meningsfuldt ord ad gangen.",
         "copyHighlight1": "RALL",
         "copyHighlight2": "par",
@@ -1851,6 +1919,10 @@
       }
     },
     "student": {
+      "section0": {
+        "headline": "Lær din partners sprog.",
+        "highlight1": "din partners sprog"
+      },
       "section1": {
         "headline": "Lær de søde ord, de frække ting, og alt derimellem.",
         "highlight1": "søde ord",
@@ -1896,6 +1968,10 @@
       }
     },
     "tutor": {
+      "section0": {
+        "headline": "Lær din partner dit sprog.",
+        "highlight1": "dit sprog"
+      },
       "section1": {
         "headline": "Der er et helt dig, de aldrig har mødt.",
         "highlight1": "helt dig",

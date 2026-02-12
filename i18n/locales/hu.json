@@ -509,6 +509,74 @@
     "links": {
       "blog": "Learn {{language}} Blog",
       "blogDescription": "Free articles, phrases & culture guides"
+    },
+    "extras": {
+      "title": "Extrák",
+      "subtitle": "Források és egyebek",
+      "installApp": "Alkalmazás telepítése",
+      "installAppDesc": "Hozzáadás a kezdőképernyőhöz a gyorsabb eléréshez",
+      "install": "Telepítés",
+      "appInstalled": "Alkalmazás telepítve",
+      "appInstalledDesc": "Nyissa meg a kezdőképernyőről bármikor",
+      "termsOfService": "Felhasználási feltételek",
+      "privacyPolicy": "Adatvédelmi irányelvek"
+    },
+    "vibeOptions": {
+      "Passionate": "Szenvedélyes",
+      "Playful": "Játékos",
+      "Growing": "Fejlődő",
+      "Forever": "Örökké",
+      "Long-distance": "Távkapcsolat",
+      "New love": "Új szerelem"
+    },
+    "timeOptions": {
+      "5 min": "5 perc",
+      "10 min": "10 perc",
+      "20+ min": "20+ perc"
+    },
+    "whenOptions": {
+      "Morning": "Reggel",
+      "Afternoon": "Délután",
+      "Evening": "Este",
+      "Whenever": "Bármikor"
+    },
+    "fearOptions": {
+      "Pronunciation": "Kiejtés",
+      "Grammar": "Nyelvtan",
+      "Sounding silly": "Bután hangzani",
+      "Forgetting words": "Szavak elfelejtése"
+    },
+    "relationOptions": {
+      "partner": "Partner",
+      "spouse": "Házastárs",
+      "friend": "Barát",
+      "family": "Család"
+    },
+    "connectionOptions": {
+      "native": "Anyanyelvi",
+      "heritage": "Örökölt",
+      "fluent": "Folyékony",
+      "bilingual": "Kétnyelvű"
+    }
+  },
+  "errorBoundary": {
+    "title": "Hoppá! Valami hiba történt",
+    "message": "Ne aggódj, a szerelem mindent megold! Próbáljuk újra.",
+    "technicalDetails": "Technikai részletek",
+    "tryAgain": "Próbáld újra",
+    "refreshPage": "Oldal frissítése",
+    "persistentError": "Ha ez továbbra is előfordul, próbálja meg törölni a böngésző gyorsítótárát, vagy lépjen kapcsolatba az ügyfélszolgálattal."
+  },
+  "thinkingIndicator": {
+    "thinking": "Gondolkodom...",
+    "checkingProgress": "Haladás ellenőrzése...",
+    "planningLesson": "Lecke tervezése...",
+    "craftingResponse": "Válasz készítése..."
+  },
+  "notifications": {
+    "partnerDeletedAccount": {
+      "title": "Partner fiókja törölve",
+      "message": "A tanulópartnered törölte a fiókját. A fiókjaitok már nincsenek összekapcsolva."
     }
   },
   "loveLog": {
@@ -899,6 +967,7 @@
     "next": "Következő"
   },
   "tutorGames": {
+    "loading": "Játékok betöltése...",
     "playTogether": "Játsszatok együtt",
     "sendChallenge": "Kihívás küldése",
     "playNow": "Játék most",
@@ -1836,8 +1905,7 @@
     },
     "shared": {
       "section0": {
-        "headline": "A nyelvtanulas szerelemmel kezdodik.",
-        "highlight1": "szerelemmel",
+        "subhead": "Az egyik tanul, a másik tanít, mindketten kapcsolódnak.",
         "copy": "A Kapcsolatorientalt Nyelvtanulasra (RALL) epulve, a Love Languages segit a paroknak athidalni a nyelvi akalyokat—egy jelentos szo egyszerre.",
         "copyHighlight1": "RALL",
         "copyHighlight2": "paroknak",
@@ -1851,6 +1919,10 @@
       }
     },
     "student": {
+      "section0": {
+        "headline": "Tanuld meg a partnered nyelvét.",
+        "highlight1": "partnered nyelvét"
+      },
       "section1": {
         "headline": "Tanuld meg az édes suttogásokat, a csábító mondatokat, és mindent, ami köztük van.",
         "highlight1": "édes suttogásokat",
@@ -1896,6 +1968,10 @@
       }
     },
     "tutor": {
+      "section0": {
+        "headline": "Tanítsd meg a partnerednek a nyelvedet.",
+        "highlight1": "a nyelvedet"
+      },
       "section1": {
         "headline": "Van egy egész te, akit soha nem ismertek meg.",
         "highlight1": "egész te",

@@ -509,6 +509,74 @@
     "links": {
       "blog": "Learn {{language}} Blog",
       "blogDescription": "Free articles, phrases & culture guides"
+    },
+    "extras": {
+      "title": "Επιπλέον",
+      "subtitle": "Πόροι και άλλα",
+      "installApp": "Εγκατάσταση εφαρμογής",
+      "installAppDesc": "Προσθήκη στην αρχική οθόνη για ταχύτερη πρόσβαση",
+      "install": "Εγκατάσταση",
+      "appInstalled": "Η εφαρμογή εγκαταστάθηκε",
+      "appInstalledDesc": "Ανοίξτε από την αρχική σας οθόνη ανά πάσα στιγμή",
+      "termsOfService": "Όροι χρήσης",
+      "privacyPolicy": "Πολιτική απορρήτου"
+    },
+    "vibeOptions": {
+      "Passionate": "Παθιασμένο",
+      "Playful": "Παιχνιδιάρικο",
+      "Growing": "Αναπτυσσόμενο",
+      "Forever": "Για πάντα",
+      "Long-distance": "Εξ αποστάσεως",
+      "New love": "Νέος έρωτας"
+    },
+    "timeOptions": {
+      "5 min": "5 min",
+      "10 min": "10 min",
+      "20+ min": "20+ min"
+    },
+    "whenOptions": {
+      "Morning": "Πρωί",
+      "Afternoon": "Απόγευμα",
+      "Evening": "Βράδυ",
+      "Whenever": "Οποτεδήποτε"
+    },
+    "fearOptions": {
+      "Pronunciation": "Προφορά",
+      "Grammar": "Γραμματική",
+      "Sounding silly": "Να ακούγομαι αστείος/α",
+      "Forgetting words": "Να ξεχνάω λέξεις"
+    },
+    "relationOptions": {
+      "partner": "Σύντροφος",
+      "spouse": "Σύζυγος",
+      "friend": "Φίλος/η",
+      "family": "Οικογένεια"
+    },
+    "connectionOptions": {
+      "native": "Μητρική",
+      "heritage": "Κληρονομική",
+      "fluent": "Άπταιστη",
+      "bilingual": "Δίγλωσση"
+    }
+  },
+  "errorBoundary": {
+    "title": "Ωχ! Κάτι πήγε στραβά",
+    "message": "Μην ανησυχείτε, η αγάπη τα διορθώνει όλα! Ας δοκιμάσουμε ξανά.",
+    "technicalDetails": "Τεχνικές λεπτομέρειες",
+    "tryAgain": "Δοκιμάστε ξανά",
+    "refreshPage": "Ανανέωση σελίδας",
+    "persistentError": "Αν αυτό συνεχίζεται, δοκιμάστε να καθαρίσετε την προσωρινή μνήμη του προγράμματος περιήγησης ή επικοινωνήστε με την υποστήριξη."
+  },
+  "thinkingIndicator": {
+    "thinking": "Σκέφτομαι...",
+    "checkingProgress": "Έλεγχος προόδου...",
+    "planningLesson": "Σχεδιάζω το μάθημά σας...",
+    "craftingResponse": "Δημιουργώ απάντηση..."
+  },
+  "notifications": {
+    "partnerDeletedAccount": {
+      "title": "Ο λογαριασμός του συντρόφου διαγράφηκε",
+      "message": "Ο σύντροφος εκμάθησής σας διέγραψε τον λογαριασμό του. Οι λογαριασμοί σας δεν είναι πλέον συνδεδεμένοι."
     }
   },
   "loveLog": {
@@ -899,6 +967,7 @@
     "next": "Επόμενο"
   },
   "tutorGames": {
+    "loading": "Φόρτωση παιχνιδιών...",
     "playTogether": "Παίξτε μαζί",
     "sendChallenge": "Στείλε πρόκληση",
     "playNow": "Παίξε τώρα",
@@ -1836,8 +1905,7 @@
     },
     "shared": {
       "section0": {
-        "headline": "Η εκμάθηση γλωσσών ξεκινά με αγάπη.",
-        "highlight1": "αγάπη",
+        "subhead": "Ο ένας μαθαίνει, ο άλλος διδάσκει, και οι δύο συνδέονται.",
         "copy": "Βασισμένο στην Εκμάθηση Γλωσσών με Επίκεντρο τη Σχέση (RALL), το Love Languages βοηθά τα ζευγάρια να γεφυρώσουν το γλωσσικό χάσμα—μια ουσιαστική λέξη τη φορά.",
         "copyHighlight1": "RALL",
         "copyHighlight2": "ζευγάρια",
@@ -1851,6 +1919,10 @@
       }
     },
     "student": {
+      "section0": {
+        "headline": "Μάθε τη γλώσσα του συντρόφου σου.",
+        "highlight1": "γλώσσα του συντρόφου σου"
+      },
       "section1": {
         "headline": "Μάθε τα γλυκόλογα, τα πικάντικα, και όλα τα ενδιάμεσα.",
         "highlight1": "γλυκόλογα",
@@ -1896,6 +1968,10 @@
       }
     },
     "tutor": {
+      "section0": {
+        "headline": "Δίδαξε τη γλώσσα σου στον σύντροφό σου.",
+        "highlight1": "γλώσσα σου"
+      },
       "section1": {
         "headline": "Υπάρχει ένας ολόκληρος εσύ που δεν έχουν γνωρίσει ποτέ.",
         "highlight1": "ολόκληρος εσύ",

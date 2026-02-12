@@ -509,6 +509,74 @@
     "links": {
       "blog": "Learn {{language}} Blog",
       "blogDescription": "Free articles, phrases & culture guides"
+    },
+    "extras": {
+      "title": "Ekstra",
+      "subtitle": "Ressurser og mer",
+      "installApp": "Installer app",
+      "installAppDesc": "Legg til på hjemskjermen for raskere tilgang",
+      "install": "Installer",
+      "appInstalled": "App installert",
+      "appInstalledDesc": "Åpne fra hjemskjermen når som helst",
+      "termsOfService": "Vilkår for bruk",
+      "privacyPolicy": "Personvernerklæring"
+    },
+    "vibeOptions": {
+      "Passionate": "Lidenskapelig",
+      "Playful": "Leken",
+      "Growing": "Voksende",
+      "Forever": "For alltid",
+      "Long-distance": "Langdistanse",
+      "New love": "Ny kjærlighet"
+    },
+    "timeOptions": {
+      "5 min": "5 min",
+      "10 min": "10 min",
+      "20+ min": "20+ min"
+    },
+    "whenOptions": {
+      "Morning": "Morgen",
+      "Afternoon": "Ettermiddag",
+      "Evening": "Kveld",
+      "Whenever": "Når som helst"
+    },
+    "fearOptions": {
+      "Pronunciation": "Uttale",
+      "Grammar": "Grammatikk",
+      "Sounding silly": "Høres dum ut",
+      "Forgetting words": "Glemme ord"
+    },
+    "relationOptions": {
+      "partner": "Partner",
+      "spouse": "Ektefelle",
+      "friend": "Venn",
+      "family": "Familie"
+    },
+    "connectionOptions": {
+      "native": "Morsmål",
+      "heritage": "Arvespråk",
+      "fluent": "Flytende",
+      "bilingual": "Tospråklig"
+    }
+  },
+  "errorBoundary": {
+    "title": "Oops! Noe gikk galt",
+    "message": "Ikke bekymre deg, kjærligheten fikser alt! La oss prøve igjen.",
+    "technicalDetails": "Tekniske detaljer",
+    "tryAgain": "Prøv igjen",
+    "refreshPage": "Oppdater siden",
+    "persistentError": "Hvis dette fortsetter, prøv å tømme nettleserens hurtigbuffer eller kontakt support."
+  },
+  "thinkingIndicator": {
+    "thinking": "Tenker...",
+    "checkingProgress": "Sjekker fremgang...",
+    "planningLesson": "Planlegger leksjonen din...",
+    "craftingResponse": "Utformer et svar..."
+  },
+  "notifications": {
+    "partnerDeletedAccount": {
+      "title": "Partnerkonto slettet",
+      "message": "Læringspartneren din har slettet kontoen sin. Kontoene deres er ikke lenger koblet sammen."
     }
   },
   "loveLog": {
@@ -899,6 +967,7 @@
     "next": "Neste"
   },
   "tutorGames": {
+    "loading": "Laster spill...",
     "playTogether": "Spill sammen",
     "sendChallenge": "Send utfordring",
     "playNow": "Spill nå",
@@ -1836,8 +1905,7 @@
     },
     "shared": {
       "section0": {
-        "headline": "Spraklaring begynner med kjarlighet.",
-        "highlight1": "kjarlighet",
+        "subhead": "En lærer, den andre underviser, begge kobles sammen.",
         "copy": "Basert pa Relasjonsorientert Spraklaring (RALL), hjelper Love Languages par med a overvinne sprakbarrieren—ett meningsfullt ord om gangen.",
         "copyHighlight1": "RALL",
         "copyHighlight2": "par",
@@ -1851,6 +1919,10 @@
       }
     },
     "student": {
+      "section0": {
+        "headline": "Lær deg partnerens språk.",
+        "highlight1": "partnerens språk"
+      },
       "section1": {
         "headline": "Lær de søte ordene, de frekke ordene, og alt imellom.",
         "highlight1": "søte ordene",
@@ -1896,6 +1968,10 @@
       }
     },
     "tutor": {
+      "section0": {
+        "headline": "Lær partneren ditt språk.",
+        "highlight1": "ditt språk"
+      },
       "section1": {
         "headline": "Det finnes en hel deg de aldri har møtt.",
         "highlight1": "hel deg",

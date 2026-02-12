@@ -509,6 +509,74 @@
     "links": {
       "blog": "Learn {{language}} Blog",
       "blogDescription": "Free articles, phrases & culture guides"
+    },
+    "extras": {
+      "title": "Дополнительно",
+      "subtitle": "Ресурсы и прочее",
+      "installApp": "Установить приложение",
+      "installAppDesc": "Добавьте на главный экран для быстрого доступа",
+      "install": "Установить",
+      "appInstalled": "Приложение установлено",
+      "appInstalledDesc": "Открывайте с главного экрана в любое время",
+      "termsOfService": "Условия использования",
+      "privacyPolicy": "Политика конфиденциальности"
+    },
+    "vibeOptions": {
+      "Passionate": "Страстные",
+      "Playful": "Игривые",
+      "Growing": "Развивающиеся",
+      "Forever": "Навсегда",
+      "Long-distance": "На расстоянии",
+      "New love": "Новая любовь"
+    },
+    "timeOptions": {
+      "5 min": "5 мин",
+      "10 min": "10 мин",
+      "20+ min": "20+ мин"
+    },
+    "whenOptions": {
+      "Morning": "Утро",
+      "Afternoon": "День",
+      "Evening": "Вечер",
+      "Whenever": "Когда угодно"
+    },
+    "fearOptions": {
+      "Pronunciation": "Произношение",
+      "Grammar": "Грамматика",
+      "Sounding silly": "Звучать глупо",
+      "Forgetting words": "Забывать слова"
+    },
+    "relationOptions": {
+      "partner": "Партнёр",
+      "spouse": "Супруг(а)",
+      "friend": "Друг/подруга",
+      "family": "Семья"
+    },
+    "connectionOptions": {
+      "native": "Родной",
+      "heritage": "Наследственный",
+      "fluent": "Свободное владение",
+      "bilingual": "Двуязычный"
+    }
+  },
+  "errorBoundary": {
+    "title": "Ой! Что-то пошло не так",
+    "message": "Не переживайте, любовь всё исправит! Давайте попробуем снова.",
+    "technicalDetails": "Технические подробности",
+    "tryAgain": "Попробовать снова",
+    "refreshPage": "Обновить страницу",
+    "persistentError": "Если это продолжает происходить, попробуйте очистить кеш браузера или обратитесь в поддержку."
+  },
+  "thinkingIndicator": {
+    "thinking": "Думаю...",
+    "checkingProgress": "Проверяю прогресс...",
+    "planningLesson": "Планирую ваш урок...",
+    "craftingResponse": "Готовлю ответ..."
+  },
+  "notifications": {
+    "partnerDeletedAccount": {
+      "title": "Аккаунт партнёра удалён",
+      "message": "Ваш партнёр по обучению удалил свой аккаунт. Ваши аккаунты больше не связаны."
     }
   },
   "loveLog": {
@@ -899,6 +967,7 @@
     "next": "Далее"
   },
   "tutorGames": {
+    "loading": "Загрузка игр...",
     "playTogether": "Играть вместе",
     "sendChallenge": "Отправить челлендж",
     "playNow": "Играть сейчас",
@@ -1836,8 +1905,7 @@
     },
     "shared": {
       "section0": {
-        "headline": "Изучение языков начинается с любви.",
-        "highlight1": "любви",
+        "subhead": "Один учится, другой учит, оба сближаются.",
         "copy": "Основанный на Изучении Языков с Учетом Отношений (RALL), Love Languages помогает парам преодолеть языковой барьер—одно значимое слово за раз.",
         "copyHighlight1": "RALL",
         "copyHighlight2": "парам",
@@ -1851,6 +1919,10 @@
       }
     },
     "student": {
+      "section0": {
+        "headline": "Выучите язык вашего партнёра.",
+        "highlight1": "язык вашего партнёра"
+      },
       "section1": {
         "headline": "Выучи нежные словечки, пикантные фразочки и всё, что между ними.",
         "highlight1": "нежные словечки",
@@ -1896,6 +1968,10 @@
       }
     },
     "tutor": {
+      "section0": {
+        "headline": "Научите партнёра вашему языку.",
+        "highlight1": "вашему языку"
+      },
       "section1": {
         "headline": "Есть целый ты, которого они никогда не знали.",
         "highlight1": "целый ты",

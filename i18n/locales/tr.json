@@ -509,6 +509,74 @@
     "links": {
       "blog": "Learn {{language}} Blog",
       "blogDescription": "Free articles, phrases & culture guides"
+    },
+    "extras": {
+      "title": "Ekstralar",
+      "subtitle": "Kaynaklar ve daha fazlası",
+      "installApp": "Uygulamayı Yükle",
+      "installAppDesc": "Daha hızlı erişim için ana ekrana ekleyin",
+      "install": "Yükle",
+      "appInstalled": "Uygulama Yüklendi",
+      "appInstalledDesc": "Ana ekranınızdan istediğiniz zaman açın",
+      "termsOfService": "Hizmet Şartları",
+      "privacyPolicy": "Gizlilik Politikası"
+    },
+    "vibeOptions": {
+      "Passionate": "Tutkulu",
+      "Playful": "Eğlenceli",
+      "Growing": "Gelişen",
+      "Forever": "Sonsuza dek",
+      "Long-distance": "Uzak mesafe",
+      "New love": "Yeni aşk"
+    },
+    "timeOptions": {
+      "5 min": "5 dk",
+      "10 min": "10 dk",
+      "20+ min": "20+ dk"
+    },
+    "whenOptions": {
+      "Morning": "Sabah",
+      "Afternoon": "Öğleden sonra",
+      "Evening": "Akşam",
+      "Whenever": "Her zaman"
+    },
+    "fearOptions": {
+      "Pronunciation": "Telaffuz",
+      "Grammar": "Dilbilgisi",
+      "Sounding silly": "Komik görünmek",
+      "Forgetting words": "Kelimeleri unutmak"
+    },
+    "relationOptions": {
+      "partner": "Partner",
+      "spouse": "Eş",
+      "friend": "Arkadaş",
+      "family": "Aile"
+    },
+    "connectionOptions": {
+      "native": "Ana dil",
+      "heritage": "Miras dili",
+      "fluent": "Akıcı",
+      "bilingual": "İki dilli"
+    }
+  },
+  "errorBoundary": {
+    "title": "Hay aksi! Bir şeyler ters gitti",
+    "message": "Endişelenmeyin, aşk her şeyi düzeltir! Tekrar deneyelim.",
+    "technicalDetails": "Teknik detaylar",
+    "tryAgain": "Tekrar Dene",
+    "refreshPage": "Sayfayı Yenile",
+    "persistentError": "Bu devam ederse, tarayıcı önbelleğinizi temizlemeyi deneyin veya destek ile iletişime geçin."
+  },
+  "thinkingIndicator": {
+    "thinking": "Düşünüyor...",
+    "checkingProgress": "İlerleme kontrol ediliyor...",
+    "planningLesson": "Dersiniz planlanıyor...",
+    "craftingResponse": "Yanıt hazırlanıyor..."
+  },
+  "notifications": {
+    "partnerDeletedAccount": {
+      "title": "Partner Hesabı Silindi",
+      "message": "Öğrenme partneriniz hesabını sildi. Hesaplarınız artık bağlantılı değil."
     }
   },
   "loveLog": {
@@ -899,6 +967,7 @@
     "next": "Sonraki"
   },
   "tutorGames": {
+    "loading": "Oyunlar yükleniyor...",
     "playTogether": "Birlikte Oyna",
     "sendChallenge": "Meydan Okuma Gönder",
     "playNow": "Şimdi Oyna",
@@ -1836,8 +1905,7 @@
     },
     "shared": {
       "section0": {
-        "headline": "Dil ogrenimi askla baslar.",
-        "highlight1": "askla",
+        "subhead": "Biri öğrenir, diğeri öğretir, ikisi de bağlanır.",
         "copy": "Iliski Odakli Dil Ogrenimine (RALL) dayanan Love Languages, ciftlerin dil engelini asmasina yardimci olur—her seferinde anlamli bir kelime.",
         "copyHighlight1": "RALL",
         "copyHighlight2": "ciftlerin",
@@ -1851,6 +1919,10 @@
       }
     },
     "student": {
+      "section0": {
+        "headline": "Partnerinin dilini öğren.",
+        "highlight1": "partnerinin dilini"
+      },
       "section1": {
         "headline": "Tatlı fısıltıları, ateşli sözleri ve aradaki her şeyi öğren.",
         "highlight1": "Tatlı fısıltıları",
@@ -1896,6 +1968,10 @@
       }
     },
     "tutor": {
+      "section0": {
+        "headline": "Partnerine kendi dilini öğret.",
+        "highlight1": "kendi dilini"
+      },
       "section1": {
         "headline": "Hiç tanımadıkları bütün bir sen var.",
         "highlight1": "bütün bir sen",

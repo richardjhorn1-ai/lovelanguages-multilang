@@ -509,6 +509,74 @@
     "links": {
       "blog": "Learn {{language}} Blog",
       "blogDescription": "Free articles, phrases & culture guides"
+    },
+    "extras": {
+      "title": "Extra",
+      "subtitle": "Resurse și altele",
+      "installApp": "Instalează aplicația",
+      "installAppDesc": "Adăugați pe ecranul principal pentru acces mai rapid",
+      "install": "Instalează",
+      "appInstalled": "Aplicație instalată",
+      "appInstalledDesc": "Deschideți de pe ecranul principal oricând",
+      "termsOfService": "Termeni și condiții",
+      "privacyPolicy": "Politica de confidențialitate"
+    },
+    "vibeOptions": {
+      "Passionate": "Pasional",
+      "Playful": "Jucăuș",
+      "Growing": "În creștere",
+      "Forever": "Pentru totdeauna",
+      "Long-distance": "La distanță",
+      "New love": "Dragoste nouă"
+    },
+    "timeOptions": {
+      "5 min": "5 min",
+      "10 min": "10 min",
+      "20+ min": "20+ min"
+    },
+    "whenOptions": {
+      "Morning": "Dimineața",
+      "Afternoon": "După-amiaza",
+      "Evening": "Seara",
+      "Whenever": "Oricând"
+    },
+    "fearOptions": {
+      "Pronunciation": "Pronunție",
+      "Grammar": "Gramatică",
+      "Sounding silly": "Să sun prostește",
+      "Forgetting words": "Să uit cuvintele"
+    },
+    "relationOptions": {
+      "partner": "Partener",
+      "spouse": "Soț/Soție",
+      "friend": "Prieten",
+      "family": "Familie"
+    },
+    "connectionOptions": {
+      "native": "Nativă",
+      "heritage": "Moștenire",
+      "fluent": "Fluent",
+      "bilingual": "Bilingv"
+    }
+  },
+  "errorBoundary": {
+    "title": "Ups! Ceva nu a mers bine",
+    "message": "Nu vă faceți griji, dragostea rezolvă totul! Să încercăm din nou.",
+    "technicalDetails": "Detalii tehnice",
+    "tryAgain": "Încearcă din nou",
+    "refreshPage": "Reîmprospătează pagina",
+    "persistentError": "Dacă problema persistă, încercați să ștergeți memoria cache a browserului sau contactați asistența."
+  },
+  "thinkingIndicator": {
+    "thinking": "Se gândește...",
+    "checkingProgress": "Verificare progres...",
+    "planningLesson": "Planificarea lecției...",
+    "craftingResponse": "Crearea unui răspuns..."
+  },
+  "notifications": {
+    "partnerDeletedAccount": {
+      "title": "Contul partenerului a fost șters",
+      "message": "Partenerul tău de învățare și-a șters contul. Conturile voastre nu mai sunt conectate."
     }
   },
   "loveLog": {
@@ -899,6 +967,7 @@
     "next": "Urmatorul"
   },
   "tutorGames": {
+    "loading": "Se încarcă jocurile...",
     "playTogether": "Jucati Impreuna",
     "sendChallenge": "Trimite Provocare",
     "playNow": "Joaca Acum",
@@ -1836,8 +1905,7 @@
     },
     "shared": {
       "section0": {
-        "headline": "Invatarea limbilor incepe cu dragoste.",
-        "highlight1": "dragoste",
+        "subhead": "Unul învață, celălalt predă, amândoi se conectează.",
         "copy": "Bazat pe Invatarea Limbilor Orientata spre Relatie (RALL), Love Languages ajuta cuplurile sa depaseasca bariera lingvistica—un cuvant semnificativ pe rand.",
         "copyHighlight1": "RALL",
         "copyHighlight2": "cuplurile",
@@ -1851,6 +1919,10 @@
       }
     },
     "student": {
+      "section0": {
+        "headline": "Învață limba partenerului tău.",
+        "highlight1": "limba partenerului tău"
+      },
       "section1": {
         "headline": "Învață vorbe dulci, replici picante și tot ce e între ele.",
         "highlight1": "vorbe dulci",
@@ -1896,6 +1968,10 @@
       }
     },
     "tutor": {
+      "section0": {
+        "headline": "Învață-ți partenerul limba ta.",
+        "highlight1": "limba ta"
+      },
       "section1": {
         "headline": "Există un tu întreg pe care nu l-au cunoscut niciodată.",
         "highlight1": "tu întreg",
