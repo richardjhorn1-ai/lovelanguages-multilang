@@ -57,3 +57,4 @@ android/
 # Promo video build outputs and assets
 promo-video/out/
 promo-video/public/audio/
+blog/scripts/data/articles-local.json
