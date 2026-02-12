@@ -1,24 +1,26 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface ThinkingIndicatorProps {
   partnerName?: string;
 }
 
-const MESSAGES = [
-  'Thinking...',
-  'Checking progress...',
-  'Planning your lesson...',
-  'Crafting a response...',
+const MESSAGE_KEYS = [
+  'thinkingIndicator.thinking',
+  'thinkingIndicator.checkingProgress',
+  'thinkingIndicator.planningLesson',
+  'thinkingIndicator.craftingResponse',
 ];
 
 export function ThinkingIndicator({ partnerName }: ThinkingIndicatorProps) {
+  const { t } = useTranslation();
   const [messageIndex, setMessageIndex] = useState(0);
   const [dotCount, setDotCount] = useState(1);
 
   // Rotate through messages every 2 seconds
   useEffect(() => {
     const interval = setInterval(() => {
-      setMessageIndex(i => (i + 1) % MESSAGES.length);
+      setMessageIndex(i => (i + 1) % MESSAGE_KEYS.length);
     }, 2000);
     return () => clearInterval(interval);
   }, []);
@@ -41,7 +43,7 @@ export function ThinkingIndicator({ partnerName }: ThinkingIndicatorProps) {
         ))}
       </div>
       <span className="text-[var(--text-secondary)] text-sm">
-        {MESSAGES[messageIndex]}
+        {t(MESSAGE_KEYS[messageIndex])}
       </span>
     </div>
   );

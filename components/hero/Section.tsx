@@ -110,6 +110,11 @@ const Section: React.FC<SectionProps> = ({
                 >
                   {renderWithHighlights(headline, headlineHighlights, isStudent)}
                 </h2>
+                {subhead && (
+                  <p className="text-scale-heading mb-6 font-semibold italic" style={{ color: accentColor }}>
+                    {subhead}
+                  </p>
+                )}
                 <p className="text-sm md:text-lg leading-relaxed font-medium" style={{ color: '#4b5563' }}>
                   {renderWithHighlights(copy, copyHighlights || [], isStudent, underlinedPhrase, copyLinks)}
                 </p>

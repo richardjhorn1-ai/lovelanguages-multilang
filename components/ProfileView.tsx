@@ -688,7 +688,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--accent-border)] focus:outline-none bg-white"
                     >
                       <option value="">{t('profile.advanced.select')}</option>
-                      {VIBE_OPTIONS.map(v => <option key={v} value={v}>{v}</option>)}
+                      {VIBE_OPTIONS.map(v => <option key={v} value={v}>{t(`profile.vibeOptions.${v}`, v)}</option>)}
                     </select>
                   </div>
 
@@ -712,7 +712,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                         className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--accent-border)] focus:outline-none bg-white"
                       >
                         <option value="">{t('profile.advanced.select')}</option>
-                        {TIME_OPTIONS.map(opt => <option key={opt} value={opt}>{opt}</option>)}
+                        {TIME_OPTIONS.map(opt => <option key={opt} value={opt}>{t(`profile.timeOptions.${opt}`, opt)}</option>)}
                       </select>
                     </div>
                     <div>
@@ -723,7 +723,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                         className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--accent-border)] focus:outline-none bg-white"
                       >
                         <option value="">{t('profile.advanced.select')}</option>
-                        {WHEN_OPTIONS.map(w => <option key={w} value={w}>{w}</option>)}
+                        {WHEN_OPTIONS.map(w => <option key={w} value={w}>{t(`profile.whenOptions.${w}`, w)}</option>)}
                       </select>
                     </div>
                   </div>
@@ -736,7 +736,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--accent-border)] focus:outline-none bg-white"
                     >
                       <option value="">{t('profile.advanced.select')}</option>
-                      {FEAR_OPTIONS.map(f => <option key={f} value={f}>{f}</option>)}
+                      {FEAR_OPTIONS.map(f => <option key={f} value={f}>{t(`profile.fearOptions.${f}`, f)}</option>)}
                     </select>
                   </div>
 
@@ -772,7 +772,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-300 focus:outline-none bg-white"
                     >
                       <option value="">{t('profile.advanced.select')}</option>
-                      {RELATION_OPTIONS.map(r => <option key={r} value={r} className="capitalize">{r.charAt(0).toUpperCase() + r.slice(1)}</option>)}
+                      {RELATION_OPTIONS.map(r => <option key={r} value={r} className="capitalize">{t(`profile.relationOptions.${r}`, r.charAt(0).toUpperCase() + r.slice(1))}</option>)}
                     </select>
                   </div>
 
@@ -784,7 +784,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-300 focus:outline-none bg-white"
                     >
                       <option value="">{t('profile.advanced.select')}</option>
-                      {CONNECTION_OPTIONS.map(c => <option key={c} value={c} className="capitalize">{c.charAt(0).toUpperCase() + c.slice(1)}</option>)}
+                      {CONNECTION_OPTIONS.map(c => <option key={c} value={c} className="capitalize">{t(`profile.connectionOptions.${c}`, c.charAt(0).toUpperCase() + c.slice(1))}</option>)}
                     </select>
                   </div>
 
@@ -857,8 +857,8 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                 <span className="text-xl">📚</span>
               </div>
               <div>
-                <h3 className="font-bold text-[var(--text-primary)]">Extras</h3>
-                <p className="text-scale-caption text-[var(--text-secondary)]">Resources & more</p>
+                <h3 className="font-bold text-[var(--text-primary)]">{t('profile.extras.title')}</h3>
+                <p className="text-scale-caption text-[var(--text-secondary)]">{t('profile.extras.subtitle')}</p>
               </div>
             </div>
 
@@ -875,14 +875,14 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                 >
                   <span className="text-xl">📲</span>
                   <div className="flex-1 text-left">
-                    <p className="font-bold text-[var(--text-primary)]">Install App</p>
-                    <p className="text-scale-caption text-[var(--text-secondary)]">Add to home screen for faster access</p>
+                    <p className="font-bold text-[var(--text-primary)]">{t('profile.extras.installApp')}</p>
+                    <p className="text-scale-caption text-[var(--text-secondary)]">{t('profile.extras.installAppDesc')}</p>
                   </div>
                   <div
                     className="px-3 py-1 rounded-full text-scale-caption font-bold text-white"
                     style={{ backgroundColor: accentHex }}
                   >
-                    Install
+                    {t('profile.extras.install')}
                   </div>
                 </button>
               )}
@@ -892,8 +892,8 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                 <div className="flex items-center gap-3 p-4 rounded-xl border border-green-200 bg-green-50">
                   <span className="text-xl">✅</span>
                   <div className="flex-1">
-                    <p className="font-bold text-green-700">App Installed</p>
-                    <p className="text-scale-caption text-green-600">Open from your home screen anytime</p>
+                    <p className="font-bold text-green-700">{t('profile.extras.appInstalled')}</p>
+                    <p className="text-scale-caption text-green-600">{t('profile.extras.appInstalledDesc')}</p>
                   </div>
                 </div>
               )}
@@ -905,7 +905,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                 <span className="text-xl">📖</span>
                 <div className="flex-1">
                   <p className="font-bold text-[var(--text-primary)] group-hover:text-[var(--accent-color)] transition-colors">{t('profile.links.blog', { language: targetName })}</p>
-                  <p className="text-scale-caption text-[var(--text-secondary)]">Free articles, phrases & culture guides</p>
+                  <p className="text-scale-caption text-[var(--text-secondary)]">{t('profile.links.blogDescription')}</p>
                 </div>
                 <ICONS.ChevronDown className="w-4 h-4 text-[var(--text-secondary)] -rotate-90" />
               </a>
@@ -915,13 +915,13 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                   href="/#/terms"
                   className="flex-1 text-center py-2 text-scale-caption text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
                 >
-                  Terms of Service
+                  {t('profile.extras.termsOfService')}
                 </a>
                 <a
                   href="/#/privacy"
                   className="flex-1 text-center py-2 text-scale-caption text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
                 >
-                  Privacy Policy
+                  {t('profile.extras.privacyPolicy')}
                 </a>
               </div>
             </div>

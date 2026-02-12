@@ -497,7 +497,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       (window as any).__milestones.needsFirstChat = false;
     }
 
-    const userWords = messages.map(m => m.content);
+    const userWords = sessionContextRef.current?.knownWordsList || [];
     const messageHistory = messages.map(m => ({ role: m.role, content: m.content }));
 
     let replyText: string;
@@ -573,16 +573,25 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       if (currentAttachments.length === 0) {
         // Streaming path - extract vocabulary from conversation
         startExtracting();
+        const recentHistory = [...messageHistory.slice(-4), { role: 'user', content: userMessage }, { role: 'assistant', content: replyText }];
         geminiService.analyzeHistory(
-          [...messageHistory, { role: 'user', content: userMessage }, { role: 'assistant', content: replyText }],
+          recentHistory,
           userWords,
           languageParams
         ).then(async (extracted) => {
           if (extracted.length > 0) {
             try {
               await saveExtractedWords(extracted);
-              analytics.trackWordAdded({ target_lang: targetLanguage, word_count_total: extracted.length, source: 'chat' });
-              notifyNewWords(extracted);
+              // Only notify actually-new words (saveExtractedWords deduplicates)
+              const newWords = extracted.filter(w => !userWords.includes(w.word.toLowerCase().trim()));
+              if (newWords.length > 0) {
+                analytics.trackWordAdded({ target_lang: targetLanguage, word_count_total: newWords.length, source: 'chat' });
+                notifyNewWords(newWords);
+                // Update cached known words list
+                if (sessionContextRef.current?.knownWordsList) {
+                  sessionContextRef.current.knownWordsList.push(...newWords.map(w => w.word.toLowerCase().trim()));
+                }
+              }
             } catch (err) { console.error('Failed to save extracted words:', err); }
           }
         }).catch(console.error).finally(() => stopExtracting());
@@ -590,8 +599,14 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         // Image path - words already extracted in generateReply
         startExtracting();
         saveExtractedWords(newWords).then(() => {
-          analytics.trackWordAdded({ target_lang: targetLanguage, word_count_total: newWords.length, source: 'image' });
-          notifyNewWords(newWords);
+          const actuallyNew = newWords.filter(w => !userWords.includes(w.word.toLowerCase().trim()));
+          if (actuallyNew.length > 0) {
+            analytics.trackWordAdded({ target_lang: targetLanguage, word_count_total: actuallyNew.length, source: 'image' });
+            notifyNewWords(actuallyNew);
+            if (sessionContextRef.current?.knownWordsList) {
+              sessionContextRef.current.knownWordsList.push(...actuallyNew.map(w => w.word.toLowerCase().trim()));
+            }
+          }
         }).catch(console.error).finally(() => stopExtracting());
       }
     }
@@ -693,17 +708,13 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       if (voiceMessages.length > 0) {
         startExtracting();
         try {
-          // Get known words to avoid duplicates
-          const { data: existingWords } = await supabase
-            .from('dictionary')
-            .select('word')
-            .eq('user_id', profile.id);
+          // Use cached known words list (falls back to DB query)
+          const knownWords = sessionContextRef.current?.knownWordsList || [];
 
-          const knownWords = existingWords?.map(w => w.word.toLowerCase()) || [];
-
-          // Analyze the voice transcripts
+          // Analyze the voice transcripts (limit to last 6 messages)
+          const recentVoice = voiceMessages.slice(-6);
           const harvested = await geminiService.analyzeHistory(
-            voiceMessages.map(m => ({ role: m.role, content: m.content })),
+            recentVoice.map(m => ({ role: m.role, content: m.content })),
             knownWords,
             languageParams
           );
@@ -712,8 +723,15 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             // Save extracted words
             await saveExtractedWords(harvested);
 
-            // Show notification via App-level event
-            notifyNewWords(harvested);
+            // Only notify actually-new words
+            const newWords = harvested.filter(w => !knownWords.includes(w.word.toLowerCase().trim()));
+            if (newWords.length > 0) {
+              notifyNewWords(newWords);
+              // Update cached known words list
+              if (sessionContextRef.current?.knownWordsList) {
+                sessionContextRef.current.knownWordsList.push(...newWords.map(w => w.word.toLowerCase().trim()));
+              }
+            }
           }
         } finally {
           stopExtracting();

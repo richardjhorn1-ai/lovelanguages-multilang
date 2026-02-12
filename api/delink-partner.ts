@@ -1,5 +1,4 @@
-import { createClient } from '@supabase/supabase-js';
-import { setCorsHeaders, verifyAuth } from '../utils/api-middleware.js';
+import { setCorsHeaders, verifyAuth, createServiceClient } from '../utils/api-middleware.js';
 
 export default async function handler(req: any, res: any) {
   // Handle CORS preflight
@@ -17,14 +16,10 @@ export default async function handler(req: any, res: any) {
     return res.status(401).json({ error: 'Unauthorized' });
   }
 
-  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
-  const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
-
-  if (!supabaseUrl || !supabaseServiceKey) {
+  const supabase = createServiceClient();
+  if (!supabase) {
     return res.status(500).json({ error: 'Server configuration error' });
   }
-
-  const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
   try {
     // Get current user's profile with partner info
@@ -110,7 +105,23 @@ export default async function handler(req: any, res: any) {
       .in('inviter_id', [profile.id, partnerId])
       .is('used_at', null);
 
-    // 4. Return appropriate message based on role
+    // 4. Expire pending tutor challenges between these two users
+    const { error: challengeError } = await supabase
+      .from('tutor_challenges')
+      .update({ status: 'expired' })
+      .in('status', ['pending', 'active'])
+      .or(`and(tutor_id.eq.${profile.id},student_id.eq.${partnerId}),and(tutor_id.eq.${partnerId},student_id.eq.${profile.id})`);
+    if (challengeError) console.error('[delink-partner] Failed to expire challenges:', challengeError);
+
+    // 5. Expire pending word requests between these two users
+    const { error: requestError } = await supabase
+      .from('word_requests')
+      .update({ status: 'expired' })
+      .eq('status', 'pending')
+      .or(`and(tutor_id.eq.${profile.id},student_id.eq.${partnerId}),and(tutor_id.eq.${partnerId},student_id.eq.${profile.id})`);
+    if (requestError) console.error('[delink-partner] Failed to expire word requests:', requestError);
+
+    // 6. Return appropriate message based on role
     return res.status(200).json({
       success: true,
       wasPayingUser: isPayer,

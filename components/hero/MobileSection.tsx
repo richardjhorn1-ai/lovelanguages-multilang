@@ -89,6 +89,11 @@ const MobileSection: React.FC<MobileSectionProps> = ({
                 >
                   {renderWithHighlights(headline, headlineHighlights, isStudent)}
                 </h2>
+                {subhead && (
+                  <p className="text-scale-body mb-3 font-semibold italic" style={{ color: accentColor }}>
+                    {subhead}
+                  </p>
+                )}
                 <p className="text-scale-label leading-relaxed font-medium" style={{ color: '#4b5563' }}>
                   {renderWithHighlights(copy, copyHighlights || [], isStudent, underlinedPhrase, copyLinks)}
                 </p>

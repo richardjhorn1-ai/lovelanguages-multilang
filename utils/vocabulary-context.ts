@@ -97,11 +97,17 @@ export async function fetchVocabularyContext(
     .slice(0, 50)
     .map(v => ({ word: v.word, translation: v.translation, wordType: v.wordType }));
 
+  // Index vocabulary by word for O(1) lookup (avoids O(n²) in weakSpots)
+  const wordIdMap = new Map<string, string>();
+  for (const v of vocabulary) {
+    wordIdMap.set(v.word, v.id);
+  }
+
   // Build weak spots with fail counts (up to 20)
   const weakSpots = classified
     .filter(v => v.mastery === 'struggling')
     .map(v => {
-      const score = scoreMap.get(vocabulary.find((vv: any) => vv.word === v.word)?.id);
+      const score = scoreMap.get(wordIdMap.get(v.word));
       const failCount = score ? (score.total_attempts - score.correct_attempts) : 0;
       return { word: v.word, translation: v.translation, failCount };
     })

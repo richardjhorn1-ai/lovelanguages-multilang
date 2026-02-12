@@ -237,7 +237,7 @@ ${historyText}`;
       );
 
       // If any verbs are missing conjugations, make a follow-up request to fill them
-      if (verbsWithoutConjugations.length > 0) {
+      if (verbsWithoutConjugations.length > 2) {
         console.log(`[analyze-history] ${verbsWithoutConjugations.length} verbs missing conjugations, fetching...`);
 
         const conjugationPrompt = `Generate ${targetName} verb conjugations for these verbs. Return ONLY the conjugations object for each.

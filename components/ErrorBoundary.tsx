@@ -1,4 +1,5 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
+import i18n from 'i18next';
 
 interface Props {
   children: ReactNode;
@@ -19,6 +20,8 @@ class ErrorBoundary extends Component<Props, State> {
     hasError: false,
     error: null,
   };
+
+  private t = (key: string) => i18n.t(key);
 
   public static getDerivedStateFromError(error: Error): State {
     return { hasError: true, error };
@@ -52,18 +55,18 @@ class ErrorBoundary extends Component<Props, State> {
             </div>
             
             <h2 className="text-2xl font-black text-[var(--text-primary)] mb-2">
-              Oops! Something went wrong
+              {this.t('errorBoundary.title')}
             </h2>
-            
+
             <p className="text-[var(--text-secondary)] mb-6">
-              Don't worry, love can fix anything! Let's try that again.
+              {this.t('errorBoundary.message')}
             </p>
             
             {/* Error details (only in development) */}
             {process.env.NODE_ENV === 'development' && this.state.error && (
               <details className="mb-6 text-left">
                 <summary className="text-scale-label text-[var(--text-secondary)] cursor-pointer hover:text-[var(--text-primary)] transition-colors">
-                  Technical details
+                  {this.t('errorBoundary.technicalDetails')}
                 </summary>
                 <pre className="mt-2 p-3 bg-[var(--bg-primary)] rounded-xl text-[10px] text-red-500 overflow-auto max-h-32">
                   {this.state.error.message}
@@ -77,18 +80,18 @@ class ErrorBoundary extends Component<Props, State> {
                 onClick={this.handleTryAgain}
                 className="flex-1 py-3 px-4 rounded-xl font-bold text-[var(--text-primary)] bg-[var(--bg-primary)] border border-[var(--border-color)] hover:bg-[var(--bg-card)] transition-colors"
               >
-                Try Again
+                {this.t('errorBoundary.tryAgain')}
               </button>
               <button
                 onClick={this.handleRefresh}
                 className="flex-1 py-3 px-4 rounded-xl font-bold text-white bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 transition-colors shadow-lg"
               >
-                Refresh Page
+                {this.t('errorBoundary.refreshPage')}
               </button>
             </div>
             
             <p className="mt-6 text-scale-caption text-[var(--text-secondary)]">
-              If this keeps happening, try clearing your browser cache or contact support.
+              {this.t('errorBoundary.persistentError')}
             </p>
           </div>
         </div>

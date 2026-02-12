@@ -81,8 +81,16 @@ export default async function handler(req: any, res: any) {
       .update({ updated_at: bootedAt })
       .eq('id', auth.userId);
 
-    // Fetch user's learning context with language filter (includes mastery tiers)
-    const userContext = await fetchVocabularyContext(supabase, auth.userId, targetLanguage);
+    // Fetch user's learning context + full word list in parallel
+    const [userContext, knownWordsResult] = await Promise.all([
+      fetchVocabularyContext(supabase, auth.userId, targetLanguage),
+      supabase
+        .from('dictionary')
+        .select('word')
+        .eq('user_id', auth.userId)
+        .eq('language_code', targetLanguage)
+    ]);
+    const knownWordsList = (knownWordsResult.data || []).map((w: any) => w.word.toLowerCase().trim());
 
     // Word count comes from the vocabulary query already in userContext
     const milestones = {
@@ -111,11 +119,11 @@ export default async function handler(req: any, res: any) {
       stats: userContext.stats
     };
 
-    // For students, return their own context
+    // For students, return their own context with knownWordsList for extraction dedup
     if (isStudent) {
       return res.status(200).json({
         success: true,
-        context: baseContext,
+        context: { ...baseContext, knownWordsList },
         milestones,
         daysSinceLastActive
       });

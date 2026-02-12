@@ -12,6 +12,8 @@
  * - Smart AI validation fallback (handles synonyms, alternative forms)
  */
 
+import { enhancedLocalMatch } from './local-matcher';
+
 /**
  * Normalize a string for comparison by removing diacritics and normalizing case.
  * Handles Polish, French, Spanish, and other languages with diacritical marks.
@@ -90,6 +92,16 @@ export async function validateAnswerSmart(
   // Fast local match first (free, no API call)
   if (isCorrectAnswer(userAnswer, correctAnswer)) {
     return { accepted: true, explanation: 'Exact match' };
+  }
+
+  // Enhanced local match (articles, typos, verb prefixes — still no API call)
+  const localResult = enhancedLocalMatch(userAnswer, correctAnswer, {
+    direction: options?.direction,
+    targetLanguage: options?.languageParams?.targetLanguage,
+    nativeLanguage: options?.languageParams?.nativeLanguage
+  });
+  if (localResult === true) {
+    return { accepted: true, explanation: 'Close match' };
   }
 
   // API validation for synonyms, alternative forms, etc.

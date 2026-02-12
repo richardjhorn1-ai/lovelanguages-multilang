@@ -807,6 +807,9 @@ export interface SessionContext {
     masteredCount: number;
   };
 
+  // Full word list for extraction dedup (cached once per session, students only)
+  knownWordsList?: string[];
+
   // Tutor-specific: partner's learning data
   partner?: {
     userId: string;

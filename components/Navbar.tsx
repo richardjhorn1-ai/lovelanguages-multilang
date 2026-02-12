@@ -31,6 +31,13 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
   const { accentHex, isDark } = useTheme();
   const { t } = useTranslation();
 
+  // i18n helpers for notification types that come from the server in English
+  const NOTIFICATION_I18N: Record<string, { title: string; message: string }> = {
+    partner_deleted_account: { title: 'notifications.partnerDeletedAccount.title', message: 'notifications.partnerDeletedAccount.message' }
+  };
+  const getNotificationTitle = (n: any) => NOTIFICATION_I18N[n.type] ? t(NOTIFICATION_I18N[n.type].title) : n.title;
+  const getNotificationMessage = (n: any) => NOTIFICATION_I18N[n.type] ? t(NOTIFICATION_I18N[n.type].message) : n.message;
+
   // Calculate level info from XP
   const levelInfo = useMemo(() => getLevelFromXP(profile.xp || 0), [profile.xp]);
   // Removed: XP progress bar and tier-colored text now use accent color
@@ -296,9 +303,9 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                         <div className="flex items-start gap-3">
                           <span className="text-lg shrink-0">{getNotificationIcon(notification.type)}</span>
                           <div className="flex-1 min-w-0">
-                            <p className="text-scale-label font-medium text-[var(--text-primary)] truncate">{notification.title}</p>
-                            {notification.message && (
-                              <p className="text-scale-caption text-[var(--text-secondary)] line-clamp-2">{notification.message}</p>
+                            <p className="text-scale-label font-medium text-[var(--text-primary)] truncate">{getNotificationTitle(notification)}</p>
+                            {(notification.message || NOTIFICATION_I18N[notification.type]) && (
+                              <p className="text-scale-caption text-[var(--text-secondary)] line-clamp-2">{getNotificationMessage(notification)}</p>
                             )}
                             <p className="text-scale-micro text-[var(--text-secondary)] mt-1">
                               {new Date(notification.created_at).toLocaleDateString()}
@@ -560,9 +567,9 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                   <div className="flex items-start gap-3">
                     <span className="text-xl shrink-0">{getNotificationIcon(notification.type)}</span>
                     <div className="flex-1 min-w-0">
-                      <p className="text-scale-label font-medium text-[var(--text-primary)]">{notification.title}</p>
-                      {notification.message && (
-                        <p className="text-scale-caption text-[var(--text-secondary)] mt-1 line-clamp-2">{notification.message}</p>
+                      <p className="text-scale-label font-medium text-[var(--text-primary)]">{getNotificationTitle(notification)}</p>
+                      {(notification.message || NOTIFICATION_I18N[notification.type]) && (
+                        <p className="text-scale-caption text-[var(--text-secondary)] mt-1 line-clamp-2">{getNotificationMessage(notification)}</p>
                       )}
                       <p className="text-scale-micro text-[var(--text-secondary)] mt-2">
                         {new Date(notification.created_at).toLocaleDateString()}

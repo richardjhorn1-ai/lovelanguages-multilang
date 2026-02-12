@@ -12,6 +12,7 @@ import {
 import { extractLanguages } from '../utils/language-helpers.js';
 import { buildAnswerValidationPrompt } from '../utils/prompt-templates.js';
 import { getLanguageName } from '../constants/language-config.js';
+import { enhancedLocalMatch } from '../utils/local-matcher.js';
 
 interface ValidateAnswerRequest {
   userAnswer: string;
@@ -96,6 +97,19 @@ export default async function handler(req: any, res: any) {
       return res.status(200).json({
         accepted: true,
         explanation: 'Exact match'
+      } as ValidateAnswerResponse);
+    }
+
+    // Enhanced local match (articles, typos, verb prefixes — still no API call)
+    const localResult = enhancedLocalMatch(userAnswer, correctAnswer, {
+      direction,
+      targetLanguage,
+      nativeLanguage
+    });
+    if (localResult === true) {
+      return res.status(200).json({
+        accepted: true,
+        explanation: 'Close match'
       } as ValidateAnswerResponse);
     }
 

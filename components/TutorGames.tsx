@@ -430,12 +430,13 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
 
   if (loading) {
     return (
-      <div className="h-full flex items-center justify-center bg-[var(--bg-primary)]">
+      <div className="h-full flex flex-col items-center justify-center bg-[var(--bg-primary)] gap-3">
         <div className="flex gap-2">
           <div className="w-2 h-2 bg-[var(--accent-color)] rounded-full animate-bounce"></div>
           <div className="w-2 h-2 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
           <div className="w-2 h-2 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
         </div>
+        <p className="text-sm text-[var(--text-secondary)]">{t('tutorGames.loading')}</p>
       </div>
     );
   }
