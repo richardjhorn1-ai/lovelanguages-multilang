@@ -12,7 +12,7 @@ export { default as Section, LOGO_PATH, LOGO_DETAIL_PATHS } from './Section';
 export { default as MobileSection } from './MobileSection';
 export { default as LanguageGrid } from './LanguageGrid';
 export { default as LoginForm } from './LoginForm';
-export { default as LanguageIndicator } from './LanguageIndicator';
+export { default as NativeLanguagePill } from './NativeLanguagePill';
 
 // Re-export existing hero components
 export { GameShowcase } from './GameShowcase';

@@ -15,7 +15,7 @@ export const BRAND = {
 
 // Types
 export type HeroRole = 'student' | 'tutor';
-export type SelectionStep = 'native' | 'target' | 'marketing';
+export type SelectionStep = 'language' | 'marketing';
 
 // Popular languages shown first (rest hidden behind "Show all")
 export const POPULAR_LANGUAGES = ['en', 'es', 'fr', 'de', 'pl', 'it', 'pt', 'nl'];
