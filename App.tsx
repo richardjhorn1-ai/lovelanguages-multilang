@@ -480,6 +480,10 @@ const App: React.FC = () => {
                     userId={profile.id}
                     onComplete={() => fetchProfile(profile.id)}
                     onQuit={() => supabase.auth.signOut()}
+                    onBackToLanguages={async () => {
+                      await supabase.from('profiles').update({ role_confirmed_at: null }).eq('id', profile.id);
+                      fetchProfile(profile.id);
+                    }}
                     hasInheritedSubscription={!!profile.subscription_granted_by || profile.subscription_status === 'active'}
                   />
                 ) : // Step 3: Check subscription/access status

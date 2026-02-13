@@ -607,6 +607,7 @@ interface OnboardingProps {
   userId: string;
   onComplete: () => void;
   onQuit?: () => void;
+  onBackToLanguages?: () => void;  // Go back to RoleSelection/language confirmation
   hasInheritedSubscription?: boolean;  // Skip plan selection if user already has access via partner
 }
 
@@ -620,6 +621,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
   userId,
   onComplete,
   onQuit,
+  onBackToLanguages,
   hasInheritedSubscription = false
 }) => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -960,6 +962,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               totalSteps={totalSteps}
               initialValue={data.userName}
               onNext={(name) => { updateData('userName', name); goNext(); }}
+              onBack={onBackToLanguages}
               accentColor={accentColor}
             />
           );
@@ -1177,6 +1180,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             totalSteps={totalSteps}
             initialValue={data.userName}
             onNext={(name) => { updateData('userName', name); goNext(); }}
+            onBack={onBackToLanguages}
             accentColor={accentColor}
           />
         );

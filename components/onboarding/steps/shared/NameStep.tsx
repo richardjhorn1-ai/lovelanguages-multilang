@@ -34,7 +34,7 @@ export const NameStep: React.FC<NameStepProps> = ({
       currentStep={currentStep}
       totalSteps={totalSteps}
       onBack={onBack}
-      canGoBack={currentStep > 1}
+      canGoBack={true}
       accentColor={accentColor}
     >
       <div className="text-center mb-10">

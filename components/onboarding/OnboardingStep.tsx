@@ -27,12 +27,12 @@ export const OnboardingStep: React.FC<OnboardingStepProps> = ({
   const { onQuit } = useContext(OnboardingContext);
   const progress = (currentStep / totalSteps) * 100;
 
-  // On step 1, back button quits; on other steps, it goes back
+  // On step 1, back button goes back (to language confirmation) or quits; on other steps, it goes back
   const handleBack = () => {
-    if (currentStep === 1 && onQuit) {
-      onQuit();
-    } else if (onBack) {
+    if (onBack) {
       onBack();
+    } else if (currentStep === 1 && onQuit) {
+      onQuit();
     }
   };
 
