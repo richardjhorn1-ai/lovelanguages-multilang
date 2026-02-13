@@ -86,7 +86,7 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
     sounds.play('countdown');
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
-      await fetch('/api/start-challenge', {
+      await fetch('/api/start-challenge/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -160,7 +160,7 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
 
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
-      const response = await fetch('/api/submit-challenge', {
+      const response = await fetch('/api/submit-challenge/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

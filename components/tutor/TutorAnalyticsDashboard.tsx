@@ -97,7 +97,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
     }
 
     try {
-      const response = await fetch(`/api/tutor-analytics?period=${period}`, {
+      const response = await fetch(`/api/tutor-analytics/?period=${period}`, {
         headers: {
           Authorization: `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`,
         },
@@ -129,7 +129,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
     // Also fetch tutor stats (only on initial load, not cached per period)
     if (!stats) {
       try {
-        const response = await fetch('/api/tutor-stats', {
+        const response = await fetch('/api/tutor-stats/', {
           headers: {
             Authorization: `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`,
           },

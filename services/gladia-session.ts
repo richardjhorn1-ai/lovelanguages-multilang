@@ -96,7 +96,7 @@ export class GladiaSession {
 
       // Request WebSocket URL from backend
       // Backend calls Gladia API with our API key and returns the WebSocket URL
-      const tokenResponse = await fetch('/api/gladia-token', {
+      const tokenResponse = await fetch('/api/gladia-token/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

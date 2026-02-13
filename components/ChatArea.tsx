@@ -328,7 +328,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       if (!token) return;
 
       if (isListeningRef.current && listenDurationRef.current > 0) {
-        fetch('/api/report-session-usage', {
+        fetch('/api/report-session-usage/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
           body: JSON.stringify({ sessionType: 'listen', durationSeconds: listenDurationRef.current }),
@@ -339,7 +339,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       if (isLiveRef.current && voiceStartTimeRef.current > 0) {
         const voiceSec = Math.round((Date.now() - voiceStartTimeRef.current) / 1000);
         if (voiceSec > 0) {
-          fetch('/api/report-session-usage', {
+          fetch('/api/report-session-usage/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
             body: JSON.stringify({ sessionType: 'voice', durationSeconds: voiceSec }),
@@ -517,8 +517,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     window.dispatchEvent(new CustomEvent('new-words-extracted', { detail: { words } }));
   };
 
-  const startExtracting = () => { extractingCountRef.current++; setExtractingWords(true); };
-  const stopExtracting = () => { extractingCountRef.current = Math.max(0, extractingCountRef.current - 1); if (extractingCountRef.current === 0) setExtractingWords(false); };
+  const startExtracting = () => { extractingCountRef.current++; setExtractingWords(true); window.dispatchEvent(new CustomEvent('words-extracting', { detail: { active: true } })); };
+  const stopExtracting = () => { extractingCountRef.current = Math.max(0, extractingCountRef.current - 1); if (extractingCountRef.current === 0) { setExtractingWords(false); window.dispatchEvent(new CustomEvent('words-extracting', { detail: { active: false } })); } };
 
   const handleSend = async (directMessage?: string) => {
     const messageToSend = directMessage || input;
@@ -740,7 +740,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     if (voiceDurationSec > 0) {
       supabase.auth.getSession().then(({ data: { session } }) => {
         if (session?.access_token) {
-          fetch('/api/report-session-usage', {
+          fetch('/api/report-session-usage/', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -831,7 +831,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       throw new Error('Please log in to continue');
     }
 
-    const response = await fetch('/api/execute-coach-action', {
+    const response = await fetch('/api/execute-coach-action/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -1084,7 +1084,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     if (duration > 0) {
       supabase.auth.getSession().then(({ data: { session } }) => {
         if (session?.access_token) {
-          fetch('/api/report-session-usage', {
+          fetch('/api/report-session-usage/', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -1132,7 +1132,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       const { data: { session } } = await supabase.auth.getSession();
       if (!session?.access_token) return;
 
-      const response = await fetch('/api/process-transcript', {
+      const response = await fetch('/api/process-transcript/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -1268,7 +1268,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
       const currentWords = (existingWords || []).map((w: any) => w.word);
 
-      const response = await fetch('/api/analyze-history', {
+      const response = await fetch('/api/analyze-history/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -1362,7 +1362,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
       let successCount = 0;
       for (const word of wordsToSend) {
-        const resp = await fetch('/api/create-word-request', {
+        const resp = await fetch('/api/create-word-request/', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${session.access_token}`,
@@ -1882,17 +1882,9 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           </div>
         )}
 
-        {/* Extraction progress indicator — hidden in Listen Mode */}
-        {extractingWords && !isListening && !activeListenSession && (
-          <div className="flex items-center gap-2 px-4 py-1.5 text-scale-micro text-[var(--text-secondary)] bg-[var(--bg-card)] border-t border-[var(--border-color)]">
-            <ICONS.Sparkles className="w-3 h-3 animate-pulse text-[var(--accent-color)]" />
-            {t('chat.extractingWords', 'Finding new words...')}
-          </div>
-        )}
-
         {/* Input - Hidden in listen mode */}
         {!isListening && !activeListenSession && (
-          <div className={`p-2 md:p-4 bg-[var(--bg-card)] ${extractingWords ? '' : 'border-t border-[var(--border-color)]'} relative safe-area-bottom shrink-0`}>
+          <div className="p-2 md:p-4 bg-[var(--bg-card)] border-t border-[var(--border-color)] relative safe-area-bottom shrink-0">
             <div className="max-w-4xl mx-auto flex items-center gap-1.5 md:gap-3">
               {/* Attach button with popup */}
               <div className="relative shrink-0">

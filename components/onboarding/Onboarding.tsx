@@ -802,7 +802,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
         // Award 1 XP per word (2 words = 2 XP)
         supabase.auth.getSession().then(({ data: sessionData }) => {
           if (sessionData.session?.access_token) {
-            fetch('/api/increment-xp', {
+            fetch('/api/increment-xp/', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${sessionData.session.access_token}` },
               body: JSON.stringify({ amount: onboardingWords.length })
@@ -853,7 +853,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               await new Promise(resolve => setTimeout(resolve, delays[attempt - 1]));
             }
 
-            const response = await fetch('/api/choose-free-tier', {
+            const response = await fetch('/api/choose-free-tier/', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -906,7 +906,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
           const token = session.data.session?.access_token;
 
           if (token) {
-            const response = await fetch('/api/create-checkout-session', {
+            const response = await fetch('/api/create-checkout-session/', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',

@@ -357,7 +357,7 @@ class AnalyticsService {
       };
 
       // Fire and forget - don't block on response
-      fetch('/api/analytics-event', {
+      fetch('/api/analytics-event/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),

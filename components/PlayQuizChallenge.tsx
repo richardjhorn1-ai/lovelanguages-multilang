@@ -90,7 +90,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
   const handleStart = async () => {
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
-      await fetch('/api/start-challenge', {
+      await fetch('/api/start-challenge/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -162,7 +162,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
     setSubmitError(null);
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
-      const response = await fetch('/api/submit-challenge', {
+      const response = await fetch('/api/submit-challenge/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

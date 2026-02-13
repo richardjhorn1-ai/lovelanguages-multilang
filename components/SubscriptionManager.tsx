@@ -79,7 +79,7 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
 
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
-      const response = await fetch('/api/create-customer-portal', {
+      const response = await fetch('/api/create-customer-portal/', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

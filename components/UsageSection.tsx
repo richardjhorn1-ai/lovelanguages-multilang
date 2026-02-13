@@ -44,7 +44,7 @@ const UsageSection: React.FC<UsageSectionProps> = ({ userId }) => {
         return;
       }
 
-      const response = await fetch('/api/subscription-status', {
+      const response = await fetch('/api/subscription-status/', {
         headers: { Authorization: `Bearer ${session.access_token}` }
       });
 

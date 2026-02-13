@@ -96,7 +96,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
     setGenerating(true);
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
-      const response = await fetch('/api/validate-word', {
+      const response = await fetch('/api/validate-word/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -162,7 +162,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
       const autoIds = getAutoFillWordIds();
       const allWordIds = [...manualIds, ...autoIds];
 
-      const response = await fetch('/api/create-challenge', {
+      const response = await fetch('/api/create-challenge/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

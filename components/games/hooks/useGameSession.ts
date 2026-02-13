@@ -151,7 +151,7 @@ export function useGameSession(options?: UseGameSessionOptions): UseGameSessionR
           return;
         }
 
-        const response = await fetch('/api/submit-game-session', {
+        const response = await fetch('/api/submit-game-session/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

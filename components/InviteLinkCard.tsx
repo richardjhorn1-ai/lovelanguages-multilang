@@ -53,7 +53,7 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
         throw new Error('Not authenticated');
       }
 
-      const response = await fetch('/api/generate-invite', {
+      const response = await fetch('/api/generate-invite/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -117,7 +117,7 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
         throw new Error('Not authenticated');
       }
 
-      const response = await fetch('/api/generate-invite', {
+      const response = await fetch('/api/generate-invite/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

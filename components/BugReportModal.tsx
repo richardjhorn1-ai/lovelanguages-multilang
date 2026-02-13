@@ -52,7 +52,7 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
 
       const levelInfo = getLevelFromXP(profile.xp || 0);
 
-      const response = await fetch('/api/submit-bug-report', {
+      const response = await fetch('/api/submit-bug-report/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

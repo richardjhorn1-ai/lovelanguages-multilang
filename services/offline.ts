@@ -175,7 +175,7 @@ class OfflineService {
 
         for (const gs of pendingSessions) {
           try {
-            const response = await fetch('/api/submit-game-session', {
+            const response = await fetch('/api/submit-game-session/', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',

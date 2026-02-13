@@ -41,7 +41,7 @@ const InvitePartnerSection: React.FC<InvitePartnerSectionProps> = ({
 
       try {
         // Try to generate - API will return existing if one exists
-        const response = await fetch('/api/generate-invite', {
+        const response = await fetch('/api/generate-invite/', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -72,7 +72,7 @@ const InvitePartnerSection: React.FC<InvitePartnerSectionProps> = ({
       const token = (await supabase.auth.getSession()).data.session?.access_token;
       if (!token) throw new Error('Not authenticated');
 
-      const response = await fetch('/api/generate-invite', {
+      const response = await fetch('/api/generate-invite/', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

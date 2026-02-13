@@ -139,7 +139,7 @@ async function generatePhrases(
     throw new Error('Not authenticated');
   }
 
-  const response = await fetch('/api/generate-romantic-phrases', {
+  const response = await fetch('/api/generate-romantic-phrases/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

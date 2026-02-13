@@ -57,7 +57,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
         return;
       }
 
-      const response = await fetch('/api/subscription-status', {
+      const response = await fetch('/api/subscription-status/', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 

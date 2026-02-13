@@ -35,7 +35,7 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
     setError(null);
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
-      const response = await fetch('/api/complete-word-request', {
+      const response = await fetch('/api/complete-word-request/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

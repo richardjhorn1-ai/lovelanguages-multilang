@@ -121,7 +121,7 @@ export const speak = async (text: string, languageCode: string, rate: number = 0
       return { success: true, source: 'browser' };
     }
 
-    const response = await fetch('/api/tts', {
+    const response = await fetch('/api/tts/', {
       method: 'POST',
       headers,
       body: JSON.stringify({ text: text.trim(), targetLanguage: languageCode })

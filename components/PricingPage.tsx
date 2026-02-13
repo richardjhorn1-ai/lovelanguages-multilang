@@ -62,7 +62,7 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
         return;
       }
 
-      const response = await fetch('/api/subscription-status', {
+      const response = await fetch('/api/subscription-status/', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 
@@ -90,7 +90,7 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
         return;
       }
 
-      const response = await fetch('/api/create-checkout-session', {
+      const response = await fetch('/api/create-checkout-session/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -123,7 +123,7 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
 
       if (!token) return;
 
-      const response = await fetch('/api/create-customer-portal', {
+      const response = await fetch('/api/create-customer-portal/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

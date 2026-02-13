@@ -70,7 +70,7 @@ const LanguagesSection: React.FC<LanguagesSectionProps> = ({ profile, onRefresh 
       const token = (await supabase.auth.getSession()).data.session?.access_token;
       if (!token) throw new Error('Not authenticated');
 
-      const response = await fetch('/api/switch-language', {
+      const response = await fetch('/api/switch-language/', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

@@ -82,7 +82,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
     setGenerating(true);
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
-      const response = await fetch('/api/validate-word', {
+      const response = await fetch('/api/validate-word/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -130,7 +130,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
 
-      const response = await fetch('/api/create-challenge', {
+      const response = await fetch('/api/create-challenge/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

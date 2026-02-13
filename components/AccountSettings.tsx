@@ -55,7 +55,7 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
       const { data: { session } } = await supabase.auth.getSession();
       if (!session) return;
 
-      const response = await fetch('/api/promo-status', {
+      const response = await fetch('/api/promo-status/', {
         headers: { Authorization: `Bearer ${session.access_token}` }
       });
 
@@ -88,7 +88,7 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
         return;
       }
 
-      const response = await fetch('/api/promo-redeem', {
+      const response = await fetch('/api/promo-redeem/', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${session.access_token}`,

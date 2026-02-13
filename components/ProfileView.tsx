@@ -184,7 +184,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
     const token = (await supabase.auth.getSession()).data.session?.access_token;
     if (!token) throw new Error('Not authenticated');
 
-    const response = await fetch('/api/delink-partner', {
+    const response = await fetch('/api/delink-partner/', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`,

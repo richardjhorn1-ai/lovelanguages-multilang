@@ -76,7 +76,7 @@ export class LiveSession {
       log('Requesting ephemeral token...');
 
       // Request ephemeral token from backend
-      const tokenResponse = await fetch('/api/live-token', {
+      const tokenResponse = await fetch('/api/live-token/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

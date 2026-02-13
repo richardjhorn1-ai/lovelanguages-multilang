@@ -29,7 +29,7 @@ export const geminiService = {
   async bootSession(): Promise<BootSessionResult | null> {
     try {
       const headers = await getAuthHeaders();
-      const response = await fetch('/api/boot-session', {
+      const response = await fetch('/api/boot-session/', {
         method: 'POST',
         headers
       });
@@ -61,7 +61,7 @@ export const geminiService = {
   ): Promise<ExtractedWord[]> {
     try {
       const headers = await getAuthHeaders();
-      const response = await fetch('/api/analyze-history', {
+      const response = await fetch('/api/analyze-history/', {
         method: 'POST',
         headers,
         body: JSON.stringify({ messages, currentWords, ...languageParams })
@@ -94,7 +94,7 @@ export const geminiService = {
   ): Promise<{ replyText: string; newWords: ExtractedWord[]; proposedAction?: ProposedAction }> {
     try {
       const headers = await getAuthHeaders();
-      const response = await fetch('/api/chat', {
+      const response = await fetch('/api/chat/', {
         method: 'POST',
         headers,
         body: JSON.stringify({
@@ -139,7 +139,7 @@ export const geminiService = {
   ): Promise<string> {
     try {
       const headers = await getAuthHeaders();
-      const response = await fetch('/api/chat-stream', {
+      const response = await fetch('/api/chat-stream/', {
         method: 'POST',
         headers,
         body: JSON.stringify({
@@ -209,7 +209,7 @@ export const geminiService = {
   async generateTitle(firstMessage: string, languageParams?: { targetLanguage: string; nativeLanguage: string }): Promise<string> {
     try {
       const headers = await getAuthHeaders();
-      const response = await fetch('/api/chat', {
+      const response = await fetch('/api/chat/', {
         method: 'POST',
         headers,
         body: JSON.stringify({ prompt: firstMessage, action: 'generateTitle', ...languageParams })
@@ -229,7 +229,7 @@ export const geminiService = {
   async unlockTense(wordId: string, word: string, tense: VerbTense): Promise<{ success: boolean; data?: any; error?: string }> {
     try {
       const headers = await getAuthHeaders();
-      const response = await fetch('/api/unlock-tense', {
+      const response = await fetch('/api/unlock-tense/', {
         method: 'POST',
         headers,
         body: JSON.stringify({ wordId, word, tense })
@@ -255,7 +255,7 @@ export const geminiService = {
   async incrementXP(amount: number): Promise<{ success: boolean; newXp?: number; error?: string }> {
     try {
       const headers = await getAuthHeaders();
-      const response = await fetch('/api/increment-xp', {
+      const response = await fetch('/api/increment-xp/', {
         method: 'POST',
         headers,
         body: JSON.stringify({ amount })
@@ -287,7 +287,7 @@ export const geminiService = {
       const controller = new AbortController();
       fetchTimeout = setTimeout(() => controller.abort(), 65_000);
 
-      const response = await fetch('/api/generate-level-test', {
+      const response = await fetch('/api/generate-level-test/', {
         method: 'POST',
         headers,
         body: JSON.stringify({ fromLevel, toLevel, ...languageParams }),
@@ -320,7 +320,7 @@ export const geminiService = {
   async submitLevelTest(testId: string, answers: { questionId: string; userAnswer: string }[], languageParams?: { targetLanguage: string; nativeLanguage: string }): Promise<{ success: boolean; data?: any; error?: string }> {
     try {
       const headers = await getAuthHeaders();
-      const response = await fetch('/api/submit-level-test', {
+      const response = await fetch('/api/submit-level-test/', {
         method: 'POST',
         headers,
         body: JSON.stringify({ testId, answers, ...languageParams })
@@ -352,7 +352,7 @@ export const geminiService = {
       const controller = new AbortController();
       fetchTimeout = setTimeout(() => controller.abort(), 45_000);
 
-      const response = await fetch('/api/progress-summary', {
+      const response = await fetch('/api/progress-summary/', {
         method: 'POST',
         headers,
         body: JSON.stringify({ action: 'generate', ...languageParams }),
@@ -385,7 +385,7 @@ export const geminiService = {
   async listProgressSummaries(languageParams?: { targetLanguage: string; nativeLanguage: string }): Promise<{ success: boolean; data?: any[]; error?: string }> {
     try {
       const headers = await getAuthHeaders();
-      const response = await fetch('/api/progress-summary', {
+      const response = await fetch('/api/progress-summary/', {
         method: 'POST',
         headers,
         body: JSON.stringify({ action: 'list', ...languageParams })
@@ -411,7 +411,7 @@ export const geminiService = {
   async getProgressSummaryById(summaryId: string, languageParams?: { targetLanguage: string; nativeLanguage: string }): Promise<{ success: boolean; data?: any; error?: string }> {
     try {
       const headers = await getAuthHeaders();
-      const response = await fetch('/api/progress-summary', {
+      const response = await fetch('/api/progress-summary/', {
         method: 'POST',
         headers,
         body: JSON.stringify({ action: 'get', summaryId, ...languageParams })

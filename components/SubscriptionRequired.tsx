@@ -141,7 +141,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
         return;
       }
 
-      const response = await fetch('/api/choose-free-tier', {
+      const response = await fetch('/api/choose-free-tier/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -203,7 +203,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       }
 
       // Get price IDs
-      const statusResponse = await fetch('/api/subscription-status', {
+      const statusResponse = await fetch('/api/subscription-status/', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 
@@ -239,7 +239,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       }
 
       // Create checkout session
-      const response = await fetch('/api/create-checkout-session', {
+      const response = await fetch('/api/create-checkout-session/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
