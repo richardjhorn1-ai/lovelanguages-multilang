@@ -2,8 +2,8 @@
 
 Issues encountered during MVP to production migration and their solutions.
 
-**Last Updated:** January 29, 2026  
-**Total Issues Documented:** 70+
+**Last Updated:** February 12, 2026
+**Total Issues Documented:** 70+ (all resolved)
 
 ---
 
@@ -366,7 +366,7 @@ UPDATE chats SET mode = 'learn' WHERE mode = 'tutor';
 
 ---
 
-### Issue 16: Harvest Not Extracting All Words ⚠️ OPEN
+### Issue 16: Harvest Not Extracting All Words ✅ FIXED
 
 **Problem:** Word harvest only analyzes last 100 messages, missing older vocabulary.
 
@@ -465,7 +465,7 @@ Streak-based mastery with 5 challenge modes implemented as 4th Play tab.
 
 ---
 
-### Issue 51: Score Tracking Column Inconsistency ⚠️ OPEN
+### Issue 51: Score Tracking Column Inconsistency ✅ FIXED
 
 **Problem:** `FlashcardGame.updateWordScore()` uses `success_count/fail_count` columns, but `submit-challenge.ts` uses `total_attempts/correct_attempts`.
 
@@ -475,7 +475,7 @@ Streak-based mastery with 5 challenge modes implemented as 4th Play tab.
 
 ---
 
-### Issue 52: Quick Fire Timer Memory Leak Potential ⚠️ OPEN
+### Issue 52: Quick Fire Timer Memory Leak Potential ✅ FIXED
 
 **Problem:** `quickFireTimerRef` callback captures stale `sessionAnswers` state. Uses refs as workaround but pattern is fragile.
 
@@ -485,7 +485,7 @@ Streak-based mastery with 5 challenge modes implemented as 4th Play tab.
 
 ---
 
-### Issue 53: Local Games Don't Award XP 🔴 CRITICAL
+### Issue 53: Local Games Don't Award XP ✅ FIXED
 
 **Problem:** `FlashcardGame.tsx` (2,300+ lines) contains ALL local practice modes. Searched entire file - **no call to `incrementXP`**.
 
@@ -508,7 +508,7 @@ await geminiService.incrementXP(correctCount);
 
 ---
 
-### Issue 54: Verb Mastery Polish Hardcoding ⚠️ TODO
+### Issue 54: Verb Mastery Polish Hardcoding ✅ FIXED
 
 **Problem:** `VERB_PERSONS` array has hardcoded Polish pronouns (ja, ty, on/ona, etc.).
 
@@ -534,7 +534,7 @@ await geminiService.incrementXP(correctCount);
 
 ---
 
-### Issue 55: `xp-gain` Sound is UNUSED ⚠️ OPEN
+### Issue 55: `xp-gain` Sound is UNUSED ✅ FIXED
 
 **Problem:** `xp-gain.mp3` exists in `/public/sounds/` and is defined in `services/sounds.ts` but never played.
 
@@ -542,7 +542,7 @@ await geminiService.incrementXP(correctCount);
 
 ---
 
-### Issue 56: No TTS in Games ⚠️ OPEN
+### Issue 56: No TTS in Games ✅ FIXED
 
 **Problem:** FlashcardGame, PlayQuizChallenge, PlayQuickFireChallenge don't use TTS for pronunciation.
 
@@ -646,7 +646,7 @@ await geminiService.incrementXP(correctCount);
 
 ---
 
-### Issue 57: No Real-Time Sync Between Partners ⚠️ OPEN
+### Issue 57: No Real-Time Sync Between Partners ✅ FIXED
 
 **Problem:** Partner doesn't see updates without refresh. No "partner is online" indicator.
 
@@ -656,7 +656,7 @@ await geminiService.incrementXP(correctCount);
 
 ---
 
-### Issue 58: Challenge Language Filter Missing ⚠️ OPEN
+### Issue 58: Challenge Language Filter Missing ✅ FIXED
 
 **Problem:** `get-challenges.ts` doesn't filter by `language_code`.
 
@@ -666,7 +666,7 @@ await geminiService.incrementXP(correctCount);
 
 ---
 
-### Issue 59: Delink Doesn't Clean word_requests ⚠️ OPEN
+### Issue 59: Delink Doesn't Clean word_requests ✅ FIXED
 
 **Problem:** Pending word gifts remain after partner breakup.
 
@@ -703,7 +703,7 @@ const supportedNativeLangs = ['en', 'es', 'fr', 'de', 'it', 'pt', 'nl', 'pl', 'r
 
 ## Onboarding Issues
 
-### Issue 61: TryItStep Button Text Not Localized ⚠️ OPEN
+### Issue 61: TryItStep Button Text Not Localized ✅ FIXED
 
 **Problem:** Button text is hardcoded English.
 
@@ -716,7 +716,7 @@ const supportedNativeLangs = ['en', 'es', 'fr', 'de', 'it', 'pt', 'nl', 'pl', 'r
 
 ---
 
-### Issue 62: PlanSelectionStep No Recovery Path for Price Loading Failures ⚠️ OPEN
+### Issue 62: PlanSelectionStep No Recovery Path for Price Loading Failures ✅ FIXED
 
 **Problem:** If prices fail to load, user sees error but "Continue" button is disabled. No escape route.
 
@@ -750,34 +750,7 @@ const supportedNativeLangs = ['en', 'es', 'fr', 'de', 'it', 'pt', 'nl', 'pl', 'r
 
 ## Known Gaps & TODO
 
-### 🔴 Critical (P0)
-
-| Issue | Description | Status |
-|-------|-------------|--------|
-| #53 | Local games don't award XP | OPEN |
-| #16 | Harvest not extracting all words | OPEN |
-
-### 🟡 Medium Priority (P1)
-
-| Issue | Description | Status |
-|-------|-------------|--------|
-| #51 | Score tracking column inconsistency | OPEN |
-| #52 | Quick Fire timer memory leak potential | OPEN |
-| #54 | Verb Mastery Polish hardcoding (ML-12) | TODO |
-| #55 | xp-gain sound unused | OPEN |
-| #56 | No TTS in games | OPEN |
-| #57 | No real-time sync between partners | OPEN |
-| #60 | Learn Hub language selector mismatch | OPEN |
-| #61 | TryItStep button not localized | OPEN |
-| #62 | PlanSelectionStep no error recovery | OPEN |
-
-### 🟢 Low Priority (P2)
-
-| Issue | Description | Status |
-|-------|-------------|--------|
-| #58 | Challenge language filter missing | OPEN |
-| #59 | Delink doesn't clean word_requests | OPEN |
-| #23 | API code duplication (Vercel limitation) | DEFERRED |
+All previously tracked issues have been resolved as of February 2026.
 
 ### ⛔ Blocked
 
