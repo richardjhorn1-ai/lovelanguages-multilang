@@ -72,23 +72,21 @@ export default async function handler(req: any, res: any) {
       });
     }
 
-    // Get language code - from token if available, otherwise look up from inviter's profile
-    let languageCode = tokenData.language_code;
+    // Always look up inviter profile for role and language fallback
+    const { data: inviterProfile } = await supabase
+      .from('profiles')
+      .select('active_language, role')
+      .eq('id', tokenData.inviter_id)
+      .single();
 
+    // Get language code - from token if available, otherwise from profile
+    let languageCode = tokenData.language_code || inviterProfile?.active_language;
     if (!languageCode) {
-      // Fallback for old tokens without language_code - look up from inviter's profile
-      const { data: inviterProfile } = await supabase
-        .from('profiles')
-        .select('active_language')
-        .eq('id', tokenData.inviter_id)
-        .single();
-
-      languageCode = inviterProfile?.active_language;
-      if (!languageCode) {
-        const inviterLangs = await getProfileLanguages(supabase, tokenData.inviter_id);
-        languageCode = inviterLangs.targetLanguage;
-      }
+      const inviterLangs = await getProfileLanguages(supabase, tokenData.inviter_id);
+      languageCode = inviterLangs.targetLanguage;
     }
+
+    const inviterRole = inviterProfile?.role || 'student';
 
     // Token is valid - return inviter info with language context
     return res.status(200).json({
@@ -101,6 +99,7 @@ export default async function handler(req: any, res: any) {
         code: languageCode,
         name: getLanguageName(languageCode)
       },
+      inviterRole,
       expiresAt: tokenData.expires_at
     });
 

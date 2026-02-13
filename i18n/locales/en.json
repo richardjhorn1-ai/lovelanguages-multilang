@@ -1727,7 +1727,17 @@
     "alreadyHaveAccount": "Already have an account? Sign in",
     "noAccount": "Don't have an account? Sign up",
     "checkEmail": "Check your email for confirmation, then sign in!",
-    "yourPartner": "Your partner"
+    "yourPartner": "Your partner",
+    "joinJourneyStudent": "{{name}} wants to help you learn {{language}}!",
+    "learningToConnectStudent": "They'll be your language coach, helping you learn {{language}} together. As a student, you'll:",
+    "trackProgressStudent": "Track Your Progress",
+    "trackProgressDescStudent": "See the words you've learned and celebrate your growth",
+    "conversationStartersStudent": "Learn Together",
+    "conversationStartersDescStudent": "Practice {{language}} together with AI-powered conversation starters",
+    "encourageCelebrateStudent": "Get Support & Motivation",
+    "encourageCelebrateDescStudent": "Your partner will cheer you on as you learn",
+    "createAccountStudent": "Create your account to start learning {{language}}",
+    "joinAsCoachStudent": "Join as Student"
   },
   "gameHistory": {
     "loading": "Loading...",

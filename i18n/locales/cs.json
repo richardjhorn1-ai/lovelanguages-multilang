@@ -1721,7 +1721,17 @@
     "alreadyHaveAccount": "Už máš účet? Přihlas se",
     "noAccount": "Nemáš účet? Zaregistruj se",
     "checkEmail": "Zkontroluj si e-mail pro potvrzení a pak se přihlas!",
-    "yourPartner": "Tvůj partner"
+    "yourPartner": "Tvůj partner",
+    "joinJourneyStudent": "{{name}} ti chce pomoct naučit se {{language}}!",
+    "learningToConnectStudent": "Bude tvůj jazykový kouč a pomůže ti s {{language}}. Jako student budeš:",
+    "trackProgressStudent": "Sledovat svůj pokrok",
+    "trackProgressDescStudent": "Uvidíš, jaká slova ses naučil/a, a budeš slavit svůj růst",
+    "conversationStartersStudent": "Učit se společně",
+    "conversationStartersDescStudent": "Procvičujte {{language}} společně s konverzačními tématy od AI",
+    "encourageCelebrateStudent": "Získat podporu a motivaci",
+    "encourageCelebrateDescStudent": "Tvůj partner tě bude povzbuzovat při učení",
+    "createAccountStudent": "Vytvoř si účet a začni se učit {{language}}",
+    "joinAsCoachStudent": "Připojit se jako student"
   },
   "gameHistory": {
     "loading": "Nahrávání...",

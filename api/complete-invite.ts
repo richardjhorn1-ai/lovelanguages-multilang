@@ -75,7 +75,7 @@ export default async function handler(req: any, res: any) {
     // Get the inviter's profile to ensure they're still valid (including subscription and language info)
     const { data: inviterProfile, error: inviterError } = await supabase
       .from('profiles')
-      .select('id, linked_user_id, subscription_plan, subscription_status, subscription_ends_at, subscription_period, active_language')
+      .select('id, linked_user_id, subscription_plan, subscription_status, subscription_ends_at, subscription_period, active_language, role')
       .eq('id', tokenData.inviter_id)
       .single();
 
@@ -109,30 +109,40 @@ export default async function handler(req: any, res: any) {
     }
 
     // All checks passed - link the accounts!
-    console.log('[complete-invite] Linking accounts:', { newPartnerId: auth.userId, inviterId: tokenData.inviter_id });
+    const inviterRole = inviterProfile.role || 'student';
+    const joinerRole = inviterRole === 'tutor' ? 'student' : 'tutor';
+    console.log('[complete-invite] Linking accounts:', { newPartnerId: auth.userId, inviterId: tokenData.inviter_id, inviterRole, joinerRole });
 
     // Build update data for new partner
     const partnerUpdateData: Record<string, any> = {
-      role: 'tutor',
+      role: joinerRole,
       linked_user_id: tokenData.inviter_id
     };
 
-    // Set language settings for new tutors with default settings (pl/en)
-    // Only update if user hasn't configured their own languages yet
+    // Set language settings - only update if user hasn't configured their own languages yet
     const hasDefaultLanguages =
       (!newUserProfile?.native_language || newUserProfile.native_language === 'en') &&
       (!newUserProfile?.active_language || newUserProfile.active_language === 'pl');
 
     if (hasDefaultLanguages) {
-      // Tutor speaks the language being learned (their native = inviter's target)
-      // and we set their active_language the same (no separate learning, just coaching)
-      partnerUpdateData.native_language = inviterLearningLanguage;
-      partnerUpdateData.active_language = inviterLearningLanguage;
-      partnerUpdateData.languages = [inviterLearningLanguage];
-      console.log('[complete-invite] Setting tutor language settings:', {
-        native_language: inviterLearningLanguage,
-        active_language: inviterLearningLanguage
-      });
+      if (joinerRole === 'tutor') {
+        // Tutor speaks the language being learned (their native = inviter's target)
+        partnerUpdateData.native_language = inviterLearningLanguage;
+        partnerUpdateData.active_language = inviterLearningLanguage;
+        partnerUpdateData.languages = [inviterLearningLanguage];
+        console.log('[complete-invite] Setting tutor language settings:', {
+          native_language: inviterLearningLanguage,
+          active_language: inviterLearningLanguage
+        });
+      } else {
+        // Student joining via tutor invite: set active_language to the tutor's coaching language
+        // Don't override native_language — we don't know it
+        partnerUpdateData.active_language = inviterLearningLanguage;
+        partnerUpdateData.languages = [inviterLearningLanguage];
+        console.log('[complete-invite] Setting student language settings:', {
+          active_language: inviterLearningLanguage
+        });
+      }
     }
 
     // Grant inherited subscription if inviter has active subscription

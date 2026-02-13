@@ -1721,7 +1721,17 @@
     "alreadyHaveAccount": "Heb je al een account? Log in",
     "noAccount": "Geen account? Meld je aan",
     "checkEmail": "Controleer je e-mail voor bevestiging, log dan in!",
-    "yourPartner": "Je partner"
+    "yourPartner": "Je partner",
+    "joinJourneyStudent": "{{name}} wil je helpen {{language}} te leren!",
+    "learningToConnectStudent": "Ze worden je taalcoach en helpen je samen {{language}} te leren. Als leerling zul je:",
+    "trackProgressStudent": "Je voortgang bijhouden",
+    "trackProgressDescStudent": "Bekijk de woorden die je hebt geleerd en vier je groei",
+    "conversationStartersStudent": "Samen leren",
+    "conversationStartersDescStudent": "Oefen {{language}} samen met AI-gestuurde gespreksopeners",
+    "encourageCelebrateStudent": "Steun en motivatie krijgen",
+    "encourageCelebrateDescStudent": "Je partner zal je aanmoedigen terwijl je leert",
+    "createAccountStudent": "Maak je account aan om {{language}} te leren",
+    "joinAsCoachStudent": "Meedoen als leerling"
   },
   "gameHistory": {
     "loading": "Laden...",

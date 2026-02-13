@@ -1721,7 +1721,17 @@
     "alreadyHaveAccount": "Zaten hesabın var mı? Giriş yap",
     "noAccount": "Hesabın yok mu? Kaydol",
     "checkEmail": "Onay için e-postanı kontrol et, sonra giriş yap!",
-    "yourPartner": "Partnerin"
+    "yourPartner": "Partnerin",
+    "joinJourneyStudent": "{{name}} sana {{language}} öğrenmende yardım etmek istiyor!",
+    "learningToConnectStudent": "Dil koçun olacak ve birlikte {{language}} öğrenmene yardım edecek. Öğrenci olarak:",
+    "trackProgressStudent": "İlerlemenizi takip edin",
+    "trackProgressDescStudent": "Öğrendiğiniz kelimeleri görün ve gelişiminizi kutlayın",
+    "conversationStartersStudent": "Birlikte öğrenin",
+    "conversationStartersDescStudent": "Yapay zeka destekli konuşma başlatıcılarla birlikte {{language}} pratik yapın",
+    "encourageCelebrateStudent": "Destek ve motivasyon alın",
+    "encourageCelebrateDescStudent": "Partneriniz öğrenirken sizi destekleyecek",
+    "createAccountStudent": "{{language}} öğrenmeye başlamak için hesabını oluştur",
+    "joinAsCoachStudent": "Öğrenci olarak katıl"
   },
   "gameHistory": {
     "loading": "Yükleniyor...",

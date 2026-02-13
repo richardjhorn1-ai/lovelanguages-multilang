@@ -1721,7 +1721,17 @@
     "alreadyHaveAccount": "Вже маєш акаунт? Увійди",
     "noAccount": "Немає акаунту? Зареєструйся",
     "checkEmail": "Перевір електронну пошту для підтвердження, потім увійди!",
-    "yourPartner": "Твій партнер"
+    "yourPartner": "Твій партнер",
+    "joinJourneyStudent": "{{name}} хоче допомогти тобі вивчити {{language}}!",
+    "learningToConnectStudent": "Він/вона буде твоїм мовним коучем, допомагаючи тобі вчити {{language}} разом. Як учень, ти будеш:",
+    "trackProgressStudent": "Відстежувати свій прогрес",
+    "trackProgressDescStudent": "Бачити слова, які ти вивчив(ла), та святкувати свій розвиток",
+    "conversationStartersStudent": "Вчитися разом",
+    "conversationStartersDescStudent": "Практикуй {{language}} разом із розмовними темами від ШІ",
+    "encourageCelebrateStudent": "Отримувати підтримку та мотивацію",
+    "encourageCelebrateDescStudent": "Твій партнер підтримуватиме тебе під час навчання",
+    "createAccountStudent": "Створи акаунт, щоб почати вчити {{language}}",
+    "joinAsCoachStudent": "Приєднатися як учень"
   },
   "gameHistory": {
     "loading": "Завантаження...",

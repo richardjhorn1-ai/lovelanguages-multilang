@@ -1721,7 +1721,17 @@
     "alreadyHaveAccount": "Έχεις ήδη λογαριασμό; Συνδέσου",
     "noAccount": "Δεν έχεις λογαριασμό; Εγγράψου",
     "checkEmail": "Έλεγξε το email σου για επιβεβαίωση, μετά συνδέσου!",
-    "yourPartner": "Ο/Η σύντροφός σου"
+    "yourPartner": "Ο/Η σύντροφός σου",
+    "joinJourneyStudent": "Ο/Η {{name}} θέλει να σε βοηθήσει να μάθεις {{language}}!",
+    "learningToConnectStudent": "Θα είναι ο γλωσσικός σου προπονητής, βοηθώντας σε να μάθεις {{language}} μαζί. Ως μαθητής, θα:",
+    "trackProgressStudent": "Παρακολουθείς την πρόοδό σου",
+    "trackProgressDescStudent": "Δες τις λέξεις που έμαθες και γιόρτασε την ανάπτυξή σου",
+    "conversationStartersStudent": "Μαθαίνεις μαζί",
+    "conversationStartersDescStudent": "Εξάσκησε τα {{language}} μαζί με θέματα συζήτησης από AI",
+    "encourageCelebrateStudent": "Λαμβάνεις υποστήριξη & κίνητρα",
+    "encourageCelebrateDescStudent": "Ο/Η σύντροφός σου θα σε ενθαρρύνει καθώς μαθαίνεις",
+    "createAccountStudent": "Δημιούργησε λογαριασμό για να αρχίσεις να μαθαίνεις {{language}}",
+    "joinAsCoachStudent": "Εγγραφή ως μαθητής"
   },
   "gameHistory": {
     "loading": "Φόρτωση...",

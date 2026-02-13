@@ -123,14 +123,6 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'You already have a linked partner' });
     }
 
-    // Only subscription owners can invite (not those with inherited access)
-    if (profile.subscription_granted_by) {
-      return res.status(403).json({
-        error: 'Only subscription owners can invite partners. Ask your partner to send the invite.',
-        code: 'NOT_SUBSCRIPTION_OWNER'
-      });
-    }
-
     const baseUrl = getServerBaseUrl();
 
     // Check for existing valid (unused, unexpired) token

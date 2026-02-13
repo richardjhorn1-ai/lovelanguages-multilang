@@ -1721,7 +1721,17 @@
     "alreadyHaveAccount": "Har du redan ett konto? Logga in",
     "noAccount": "Inget konto? Registrera dig",
     "checkEmail": "Kolla din e-post för bekräftelse, logga sedan in!",
-    "yourPartner": "Din partner"
+    "yourPartner": "Din partner",
+    "joinJourneyStudent": "{{name}} vill hjälpa dig att lära dig {{language}}!",
+    "learningToConnectStudent": "De blir din språkcoach och hjälper dig lära dig {{language}} tillsammans. Som elev kommer du att:",
+    "trackProgressStudent": "Följa dina framsteg",
+    "trackProgressDescStudent": "Se orden du har lärt dig och fira din utveckling",
+    "conversationStartersStudent": "Lära tillsammans",
+    "conversationStartersDescStudent": "Öva {{language}} tillsammans med AI-drivna samtalsöppnare",
+    "encourageCelebrateStudent": "Få stöd och motivation",
+    "encourageCelebrateDescStudent": "Din partner kommer att heja på dig medan du lär dig",
+    "createAccountStudent": "Skapa ditt konto för att börja lära dig {{language}}",
+    "joinAsCoachStudent": "Gå med som elev"
   },
   "gameHistory": {
     "loading": "Laddar...",

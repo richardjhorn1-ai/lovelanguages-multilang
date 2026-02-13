@@ -1721,7 +1721,17 @@
     "alreadyHaveAccount": "Ai deja un cont? Logheaza-te",
     "noAccount": "Nu ai cont? Inregistreaza-te",
     "checkEmail": "Verifica emailul pentru confirmare, apoi logheaza-te!",
-    "yourPartner": "Partenerul tau"
+    "yourPartner": "Partenerul tau",
+    "joinJourneyStudent": "{{name}} vrea sa te ajute sa inveti {{language}}!",
+    "learningToConnectStudent": "Va fi antrenorul tau de limbi, ajutandu-te sa inveti {{language}} impreuna. Ca student, vei:",
+    "trackProgressStudent": "Urmari-ti progresul",
+    "trackProgressDescStudent": "Vezi cuvintele pe care le-ai invatat si sarbatoreste-ti cresterea",
+    "conversationStartersStudent": "Invata impreuna",
+    "conversationStartersDescStudent": "Exerseaza {{language}} impreuna cu subiecte de conversatie generate de AI",
+    "encourageCelebrateStudent": "Primi sprijin si motivatie",
+    "encourageCelebrateDescStudent": "Partenerul tau te va incuraja pe parcursul invatarii",
+    "createAccountStudent": "Creeaza-ti contul pentru a incepe sa inveti {{language}}",
+    "joinAsCoachStudent": "Alatura-te ca student"
   },
   "gameHistory": {
     "loading": "Se incarca...",

@@ -1721,7 +1721,17 @@
     "alreadyHaveAccount": "Már van fiókod? Jelentkezz be",
     "noAccount": "Nincs fiókod? Regisztrálj",
     "checkEmail": "Nézd meg az e-mailed a megerősítéshez, majd jelentkezz be!",
-    "yourPartner": "A partnered"
+    "yourPartner": "A partnered",
+    "joinJourneyStudent": "{{name}} szeretne segíteni neked a {{language}} tanulásában!",
+    "learningToConnectStudent": "Nyelvi edződ lesz, és segít a {{language}} közös tanulásában. Diákként:",
+    "trackProgressStudent": "Kövesd a fejlődésed",
+    "trackProgressDescStudent": "Láthatod, milyen szavakat tanultál meg, és ünnepelheted a haladásod",
+    "conversationStartersStudent": "Tanuljatok együtt",
+    "conversationStartersDescStudent": "Gyakoroljátok a {{language}} nyelvet együtt AI-alapú társalgási témákkal",
+    "encourageCelebrateStudent": "Kapj támogatást és motivációt",
+    "encourageCelebrateDescStudent": "Partnered szurkolni fog neked a tanulás során",
+    "createAccountStudent": "Hozd létre fiókodat a {{language}} tanulásához",
+    "joinAsCoachStudent": "Csatlakozás diákként"
   },
   "gameHistory": {
     "loading": "Betöltés...",

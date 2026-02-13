@@ -1721,7 +1721,17 @@
     "alreadyHaveAccount": "Уже есть аккаунт? Войди",
     "noAccount": "Нет аккаунта? Зарегистрируйся",
     "checkEmail": "Проверь почту для подтверждения, затем войди!",
-    "yourPartner": "Твой партнёр"
+    "yourPartner": "Твой партнёр",
+    "joinJourneyStudent": "{{name}} хочет помочь тебе выучить {{language}}!",
+    "learningToConnectStudent": "Он(а) будет твоим языковым коучем, помогая тебе учить {{language}} вместе. Как ученик, ты будешь:",
+    "trackProgressStudent": "Следить за своим прогрессом",
+    "trackProgressDescStudent": "Смотри, какие слова ты выучил(а), и отмечай свой рост",
+    "conversationStartersStudent": "Учиться вместе",
+    "conversationStartersDescStudent": "Практикуй {{language}} вместе с помощью разговорных тем от ИИ",
+    "encourageCelebrateStudent": "Получать поддержку и мотивацию",
+    "encourageCelebrateDescStudent": "Твой партнёр будет поддерживать тебя в процессе обучения",
+    "createAccountStudent": "Создай аккаунт, чтобы начать учить {{language}}",
+    "joinAsCoachStudent": "Присоединиться как ученик"
   },
   "gameHistory": {
     "loading": "Загрузка...",

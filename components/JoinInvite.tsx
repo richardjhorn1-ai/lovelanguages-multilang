@@ -25,6 +25,7 @@ const JoinInvite: React.FC = () => {
   const [inviter, setInviter] = useState<InviterInfo | null>(null);
   const [language, setLanguage] = useState<LanguageInfo | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [inviterRole, setInviterRole] = useState<'student' | 'tutor'>('student');
 
   // Auth form state
   const [email, setEmail] = useState('');
@@ -75,6 +76,7 @@ const JoinInvite: React.FC = () => {
 
       setInviter(data.inviter);
       setLanguage(data.language || { code: 'pl', name: 'Polish' });  // Fallback for old API responses
+      setInviterRole(data.inviterRole || 'student');
     } catch (e: any) {
       console.error('[JoinInvite] Error:', e);
       setError(e.message || 'Failed to validate invite');
@@ -180,6 +182,14 @@ const JoinInvite: React.FC = () => {
     }
   };
 
+  const joinerRole = inviterRole === 'tutor' ? 'student' : 'tutor';
+
+  // Role-aware translation helper: picks Student variant when joiner is student
+  const tRole = (key: string, params?: Record<string, string>) => {
+    const suffix = joinerRole === 'student' ? 'Student' : '';
+    return t(`joinInvite.${key}${suffix}`, params);
+  };
+
   // Loading state
   if (loading) {
     return (
@@ -227,7 +237,7 @@ const JoinInvite: React.FC = () => {
 
   // Main invite UI
   return (
-    <div className="min-h-screen flex flex-col md:flex-row bg-[#FFF0F3]">
+    <div className="min-h-screen h-screen-safe overflow-y-auto flex flex-col md:flex-row bg-[#FFF0F3]">
       {/* Left: Invitation Context */}
       <div
         className="flex-1 flex flex-col justify-center px-8 pb-12 md:px-24 md:py-12"
@@ -242,11 +252,11 @@ const JoinInvite: React.FC = () => {
           </div>
 
           <h2 className="text-4xl md:text-5xl font-black leading-tight mb-6 text-[#292F36]">
-            {t('joinInvite.joinJourney', { name: inviter?.name || t('joinInvite.yourPartner'), language: language?.name || 'their language' })}
+            {tRole('joinJourney', { name: inviter?.name || t('joinInvite.yourPartner'), language: language?.name || 'their language' })}
           </h2>
 
           <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-            {t('joinInvite.learningToConnect', { language: language?.name || 'their language' })}
+            {tRole('learningToConnect', { language: language?.name || 'their language' })}
           </p>
 
           <div className="space-y-4 mb-8">
@@ -255,8 +265,8 @@ const JoinInvite: React.FC = () => {
                 <ICONS.TrendingUp className="w-5 h-5 text-[var(--accent-color)]" />
               </div>
               <div>
-                <p className="font-bold text-gray-800">{t('joinInvite.trackProgress')}</p>
-                <p className="text-sm text-gray-500">{t('joinInvite.trackProgressDesc')}</p>
+                <p className="font-bold text-gray-800">{tRole('trackProgress')}</p>
+                <p className="text-sm text-gray-500">{tRole('trackProgressDesc')}</p>
               </div>
             </div>
 
@@ -265,8 +275,8 @@ const JoinInvite: React.FC = () => {
                 <ICONS.MessageCircle className="w-5 h-5 text-teal-500" />
               </div>
               <div>
-                <p className="font-bold text-gray-800">{t('joinInvite.conversationStarters')}</p>
-                <p className="text-sm text-gray-500">{t('joinInvite.conversationStartersDesc', { language: language?.name || 'their language' })}</p>
+                <p className="font-bold text-gray-800">{tRole('conversationStarters')}</p>
+                <p className="text-sm text-gray-500">{tRole('conversationStartersDesc', { language: language?.name || 'their language' })}</p>
               </div>
             </div>
 
@@ -275,8 +285,8 @@ const JoinInvite: React.FC = () => {
                 <ICONS.Heart className="w-5 h-5 text-amber-500" />
               </div>
               <div>
-                <p className="font-bold text-gray-800">{t('joinInvite.encourageCelebrate')}</p>
-                <p className="text-sm text-gray-500">{t('joinInvite.encourageCelebrateDesc')}</p>
+                <p className="font-bold text-gray-800">{tRole('encourageCelebrate')}</p>
+                <p className="text-sm text-gray-500">{tRole('encourageCelebrateDesc')}</p>
               </div>
             </div>
           </div>
@@ -296,7 +306,7 @@ const JoinInvite: React.FC = () => {
               {t('joinInvite.join', { name: inviter?.name })}
             </h3>
             <p className="text-gray-400 text-sm font-medium">
-              {isSignUp ? t('joinInvite.createAccount') : t('joinInvite.signInToConnect')}
+              {isSignUp ? tRole('createAccount', { language: language?.name || 'their language' }) : t('joinInvite.signInToConnect')}
             </p>
           </div>
 
@@ -338,7 +348,7 @@ const JoinInvite: React.FC = () => {
               disabled={authLoading}
               className="w-full bg-[var(--accent-color)] hover:bg-[var(--accent-hover)] text-white font-black py-5 rounded-[2rem] shadow-xl shadow-[var(--accent-shadow)] transition-all active:scale-[0.98] disabled:opacity-50 text-sm uppercase tracking-[0.2em] mt-4"
             >
-              {authLoading ? t('joinInvite.connecting') : (isSignUp ? t('joinInvite.joinAsCoach') : t('joinInvite.signInConnect'))}
+              {authLoading ? t('joinInvite.connecting') : (isSignUp ? tRole('joinAsCoach') : t('joinInvite.signInConnect'))}
             </button>
           </form>
 
