@@ -36,9 +36,15 @@ const LanguageGrid: React.FC<LanguageGridProps> = ({
     lang => lang.code !== excludeCode
   );
 
-  // Split into popular and other
-  const popularLanguages = availableLanguages.filter(lang => POPULAR_LANGUAGES.includes(lang.code));
-  const otherLanguages = availableLanguages.filter(lang => !POPULAR_LANGUAGES.includes(lang.code));
+  // Split into popular and other, always showing exactly 8 in the top grid
+  const VISIBLE_COUNT = 8;
+  const popular = availableLanguages.filter(lang => POPULAR_LANGUAGES.includes(lang.code));
+  const other = availableLanguages.filter(lang => !POPULAR_LANGUAGES.includes(lang.code));
+  // If excluding a popular language leaves fewer than 8, pull from other to fill
+  const popularLanguages = popular.length >= VISIBLE_COUNT
+    ? popular.slice(0, VISIBLE_COUNT)
+    : [...popular, ...other.slice(0, VISIBLE_COUNT - popular.length)];
+  const otherLanguages = availableLanguages.filter(lang => !popularLanguages.includes(lang));
 
   return (
     <div className="w-full max-w-xl mx-auto">
