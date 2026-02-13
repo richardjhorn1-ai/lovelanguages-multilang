@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
 import { useLanguage } from '../../../../context/LanguageContext';
-import { LANGUAGE_CONFIGS } from '../../../../constants/language-config';
 
 interface OriginStepProps {
   currentStep: number;
@@ -23,8 +22,7 @@ export const OriginStep: React.FC<OriginStepProps> = ({
   accentColor = '#FF4761'
 }) => {
   const { t } = useTranslation();
-  const { targetLanguage } = useLanguage();
-  const targetName = LANGUAGE_CONFIGS[targetLanguage]?.name || 'the language';
+  const { targetName } = useLanguage();
 
   // Origin options inside component to access t()
   const originOptions = [

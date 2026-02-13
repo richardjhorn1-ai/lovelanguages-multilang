@@ -72,8 +72,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
 
   const { theme, setAccentColor, setDarkMode, setFontSize, setFontPreset, setFontWeight, accentHex, isDark } = useTheme();
   const { t } = useTranslation();
-  const { targetLanguage } = useLanguage();
-  const targetName = LANGUAGE_CONFIGS[targetLanguage]?.name || 'your language';
+  const { targetLanguage, targetName } = useLanguage();
   const iLoveYou = LANGUAGE_CONFIGS[targetLanguage]?.examples?.iLoveYou || 'I love you';
 
   // Am I the payer (not receiving inherited subscription)?

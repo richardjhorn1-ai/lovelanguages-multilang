@@ -109,8 +109,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const { accentHex } = useTheme();
 
   // Language
-  const { targetLanguage, targetName, nativeLanguage, languageParams } = useLanguage();
-  const nativeName = LANGUAGE_CONFIGS[nativeLanguage]?.name || 'English';
+  const { targetLanguage, targetName, nativeLanguage, nativeName, languageParams } = useLanguage();
 
   // i18n
   const { t } = useTranslation();

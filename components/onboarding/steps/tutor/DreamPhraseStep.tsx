@@ -25,8 +25,7 @@ export const DreamPhraseStep: React.FC<DreamPhraseStepProps> = ({
   accentColor = '#FF4761'
 }) => {
   const { t } = useTranslation();
-  const { targetLanguage } = useLanguage();
-  const targetName = LANGUAGE_CONFIGS[targetLanguage]?.name || 'the language';
+  const { targetLanguage, targetName } = useLanguage();
   const defaultPhrase = LANGUAGE_CONFIGS[targetLanguage]?.examples.iLoveYou || 'I love you';
 
   const [phrase, setPhrase] = useState(initialValue);

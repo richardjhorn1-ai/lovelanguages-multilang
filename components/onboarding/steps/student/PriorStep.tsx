@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton } from '../../OnboardingStep';
 import { useLanguage } from '../../../../context/LanguageContext';
-import { LANGUAGE_CONFIGS } from '../../../../constants/language-config';
 
 interface PriorStepProps {
   currentStep: number;
@@ -22,8 +21,7 @@ export const PriorStep: React.FC<PriorStepProps> = ({
   accentColor = '#FF4761'
 }) => {
   const { t } = useTranslation();
-  const { targetLanguage } = useLanguage();
-  const targetName = LANGUAGE_CONFIGS[targetLanguage]?.name || 'the language';
+  const { targetName } = useLanguage();
   const [hasTried, setHasTried] = useState<boolean | null>(
     initialValue === 'yes' ? true : initialValue === 'no' ? false : null
   );

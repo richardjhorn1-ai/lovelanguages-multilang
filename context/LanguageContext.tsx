@@ -1,6 +1,7 @@
 // context/LanguageContext.tsx
 
 import React, { createContext, useContext, useMemo, useState, useCallback, ReactNode } from 'react';
+import { useTranslation } from 'react-i18next';
 import { LANGUAGE_CONFIGS, LanguageConfig } from '../constants/language-config';
 import { Profile } from '../types';
 
@@ -36,6 +37,7 @@ interface LanguageProviderProps {
 }
 
 export function LanguageProvider({ children, profile }: LanguageProviderProps) {
+  const { t } = useTranslation();
   // Override state for onboarding - takes precedence over profile when set
   const [override, setOverride] = useState<LanguageOverride | null>(null);
 
@@ -58,14 +60,14 @@ export function LanguageProvider({ children, profile }: LanguageProviderProps) {
       targetConfig,
       nativeConfig,
       targetFlag: targetConfig.flag,
-      targetName: targetConfig.name,
+      targetName: t(`languageNames.${targetLanguage}`, { defaultValue: targetConfig.name }),
       nativeFlag: nativeConfig.flag,
-      nativeName: nativeConfig.name,
+      nativeName: t(`languageNames.${nativeLanguage}`, { defaultValue: nativeConfig.name }),
       languageParams: { targetLanguage, nativeLanguage },
       isLoading: !profile && !override,
       setLanguageOverride,
     };
-  }, [profile?.active_language, profile?.native_language, profile, override, setLanguageOverride]);
+  }, [profile?.active_language, profile?.native_language, profile, override, setLanguageOverride, t]);
 
   return (
     <LanguageContext.Provider value={value}>

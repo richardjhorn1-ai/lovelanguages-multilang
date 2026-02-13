@@ -28,7 +28,7 @@ const LanguagesSection: React.FC<LanguagesSectionProps> = ({ profile, onRefresh 
   const languages = profile.languages || ['pl'];
 
   const nativeConfig = LANGUAGE_CONFIGS[nativeLanguage];
-  const nativeName = nativeConfig?.name || 'English';
+  const nativeName = t(`languageNames.${nativeLanguage}`, { defaultValue: nativeConfig?.name || 'English' });
   const nativeFlag = nativeConfig?.flag || '🇬🇧';
 
   useEffect(() => {
@@ -102,7 +102,7 @@ const LanguagesSection: React.FC<LanguagesSectionProps> = ({ profile, onRefresh 
   const getLanguageInfo = (code: string) => {
     const config = LANGUAGE_CONFIGS[code];
     return {
-      name: config?.name || code.toUpperCase(),
+      name: t(`languageNames.${code}`, { defaultValue: config?.name || code.toUpperCase() }),
       flag: config?.flag || '🌐',
     };
   };

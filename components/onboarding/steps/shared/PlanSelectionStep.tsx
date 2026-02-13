@@ -4,7 +4,6 @@ import { OnboardingStep, NextButton } from '../../OnboardingStep';
 import { supabase } from '../../../../services/supabase';
 import { ICONS } from '../../../../constants';
 import { useLanguage } from '../../../../context/LanguageContext';
-import { LANGUAGE_CONFIGS } from '../../../../constants/language-config';
 
 interface PlanSelectionStepProps {
   currentStep: number;
@@ -33,8 +32,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
   accentColor = '#FF4761'
 }) => {
   const { t } = useTranslation();
-  const { targetLanguage } = useLanguage();
-  const targetName = LANGUAGE_CONFIGS[targetLanguage]?.name || 'your language';
+  const { targetName } = useLanguage();
   const [selectedPlan, setSelectedPlan] = useState<'free' | 'standard' | 'unlimited' | null>(null);
   const [billingPeriod, setBillingPeriod] = useState<'weekly' | 'monthly' | 'yearly'>('monthly');
   const [prices, setPrices] = useState<Prices | null>(null);
