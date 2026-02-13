@@ -245,12 +245,31 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
   };
 
   return (
-    <div className="min-h-screen h-screen flex flex-col bg-gradient-to-br from-pink-50 to-rose-100 overflow-hidden">
+    <div className="min-h-screen h-screen flex flex-col bg-gradient-to-br from-pink-50 to-rose-100 overflow-hidden" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
+      {/* Header bar — consistent with OnboardingStep */}
+      <div className="flex items-center justify-between px-6 py-4 flex-shrink-0">
+        <button
+          onClick={() => supabase.auth.signOut()}
+          className="flex items-center gap-2 text-gray-400 hover:text-gray-600 transition-colors"
+        >
+          <ICONS.ChevronLeft className="w-5 h-5" />
+          <span className="text-scale-label font-medium">{t('onboarding.step.back')}</span>
+        </button>
+        <div />
+        <button
+          onClick={() => supabase.auth.signOut()}
+          className="text-gray-400 hover:text-gray-600 transition-colors p-1"
+          title={t('onboarding.step.quitTitle')}
+        >
+          <ICONS.X className="w-5 h-5" />
+        </button>
+      </div>
+
       <div
-        className="flex-1 flex flex-col items-center px-4 md:px-6 pb-6 md:pb-8 overflow-y-auto"
+        className="flex-1 flex flex-col items-center px-4 md:px-6 pb-6 md:pb-8 overflow-y-auto min-h-0"
         style={{
           WebkitOverflowScrolling: 'touch',
-          paddingTop: 'calc(env(safe-area-inset-top, 0px) + 1.5rem)'
+          touchAction: 'pan-y',
         }}
       >
         <div className="w-full max-w-md md:max-w-3xl">
@@ -402,14 +421,6 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
               {t('roleSelection.chooseRole')}
             </p>
           )}
-
-          {/* Logout link */}
-          <button
-            onClick={() => supabase.auth.signOut()}
-            className="mt-6 w-full text-center text-gray-400 hover:text-gray-600 text-sm font-medium transition-colors"
-          >
-            {t('roleSelection.logout', 'Log out')}
-          </button>
 
           {/* Bottom padding for iOS safe area */}
           <div className="h-6 md:h-0" />

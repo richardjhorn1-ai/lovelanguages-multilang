@@ -146,6 +146,7 @@ const App: React.FC = () => {
   const [dbError, setDbError] = useState<string | null>(null);
   const [successToast, setSuccessToast] = useState<string | null>(null);
   const [newWordsNotification, setNewWordsNotification] = useState<ExtractedWord[]>([]);
+  const [isExtractingWords, setIsExtractingWords] = useState(false);
   const notificationTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // Capture UTM params from blog referrals on first load
@@ -204,20 +205,27 @@ const App: React.FC = () => {
     }
   }, []);
 
-  // Listen for new-words-extracted events from ChatArea (visible on all tabs)
+  // Listen for word extraction events from ChatArea (visible on all tabs)
   useEffect(() => {
-    const handler = (e: Event) => {
+    const handleExtracted = (e: Event) => {
       const { words } = (e as CustomEvent).detail;
       if (words?.length > 0) {
+        setIsExtractingWords(false);
         if (notificationTimerRef.current) clearTimeout(notificationTimerRef.current);
         setNewWordsNotification(words);
         sounds.play('new-words');
         notificationTimerRef.current = setTimeout(() => setNewWordsNotification([]), 6000);
       }
     };
-    window.addEventListener('new-words-extracted', handler);
+    const handleExtracting = (e: Event) => {
+      const { active } = (e as CustomEvent).detail;
+      setIsExtractingWords(active);
+    };
+    window.addEventListener('new-words-extracted', handleExtracted);
+    window.addEventListener('words-extracting', handleExtracting);
     return () => {
-      window.removeEventListener('new-words-extracted', handler);
+      window.removeEventListener('new-words-extracted', handleExtracted);
+      window.removeEventListener('words-extracting', handleExtracting);
       if (notificationTimerRef.current) clearTimeout(notificationTimerRef.current);
     };
   }, []);
@@ -417,11 +425,13 @@ const App: React.FC = () => {
             <SuccessToast message={successToast} onClose={() => setSuccessToast(null)} />
           )}
           {/* New words notification - visible on all tabs */}
-          {newWordsNotification.length > 0 && (
+          {(isExtractingWords || newWordsNotification.length > 0) && (
             <NewWordsNotification
               words={newWordsNotification}
+              isExtracting={isExtractingWords}
               onClose={() => {
                 setNewWordsNotification([]);
+                setIsExtractingWords(false);
                 if (notificationTimerRef.current) clearTimeout(notificationTimerRef.current);
               }}
             />

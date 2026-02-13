@@ -6,20 +6,38 @@ import { ICONS } from '../constants';
 
 interface NewWordsNotificationProps {
   words: ExtractedWord[];
+  isExtracting?: boolean;
   onClose: () => void;
 }
 
-const NewWordsNotification: React.FC<NewWordsNotificationProps> = ({ words, onClose }) => {
+const NewWordsNotification: React.FC<NewWordsNotificationProps> = ({ words, isExtracting = false, onClose }) => {
   const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(false);
   const navigate = useNavigate();
 
-  if (words.length === 0) return null;
+  // Show extracting state OR words — never both hidden
+  if (!isExtracting && words.length === 0) return null;
 
   const handleWordClick = (word: string) => {
     navigate(`/log?search=${encodeURIComponent(word)}`);
     onClose();
   };
+
+  // Extracting state — compact spinner notification
+  if (isExtracting && words.length === 0) {
+    return (
+      <div className="fixed top-20 right-4 z-50 animate-in slide-in-from-right fade-in duration-300">
+        <div className="bg-[var(--bg-card)] rounded-2xl shadow-xl border border-[var(--accent-border)] overflow-hidden">
+          <div className="px-4 py-3 bg-[var(--accent-light)] flex items-center gap-2">
+            <div className="w-4 h-4 border-2 border-[var(--accent-color)] border-t-transparent rounded-full animate-spin" />
+            <span className="text-scale-label font-bold text-[var(--text-primary)]">
+              {t('chat.extractingWords', 'Finding new words...')}
+            </span>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div
