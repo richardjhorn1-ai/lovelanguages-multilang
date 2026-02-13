@@ -75,7 +75,7 @@ export default async function handler(req: any, res: any) {
     }
   }
 
-  const { transcript = [], contextLabel = '' } = body || {};
+  const { transcript = [], contextLabel = '', gladiaSummary = '' } = body || {};
 
   // Extract language parameters (defaults to Polish/English for backward compatibility)
   const { targetLanguage, nativeLanguage } = extractLanguages(body);
@@ -106,6 +106,7 @@ You are processing a real-time transcription from a bilingual conversation.
 The speech-to-text system uses code_switching mode which introduces specific artifacts:
 
 CONTEXT: ${contextLabel || `${targetName} language practice conversation`}
+${gladiaSummary ? `\nAUDIO SUMMARY FROM SPEECH ENGINE: ${gladiaSummary}\nUse this summary to understand what was actually said — it helps distinguish garbled transcription artifacts from genuine speech.\n` : ''}
 
 LANGUAGE PAIR:
 - Target language (being learned): ${targetName} (${targetLanguage})

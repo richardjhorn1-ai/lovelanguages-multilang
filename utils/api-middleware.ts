@@ -430,7 +430,7 @@ export const RATE_LIMITS = {
   validateWord: { type: 'word_validations', monthly: { free: 50, standard: 2000, unlimited: null } },
   validateAnswer: { type: 'answer_validations', monthly: { free: 75, standard: 3000, unlimited: null } },
   analyzeHistory: { type: 'history_analysis', monthly: { free: 1, standard: 500, unlimited: null } },
-  processTranscript: { type: 'transcript_process', monthly: { free: 0, standard: 200, unlimited: null } },
+  processTranscript: { type: 'transcript_process', monthly: { free: 5, standard: 200, unlimited: null } },
   generateLevelTest: { type: 'level_tests', monthly: { free: 2, standard: 50, unlimited: null } },
   submitLevelTest: { type: 'level_test_submissions', monthly: { free: 4, standard: 100, unlimited: null } },
   createChallenge: { type: 'challenge_creations', monthly: { free: 5, standard: 200, unlimited: null } },
@@ -439,9 +439,9 @@ export const RATE_LIMITS = {
   // TTS - available to free users
   tts: { type: 'tts_requests', monthly: { free: 100, standard: 1000, unlimited: null } },
 
-  // Voice endpoints - free tier gets 1 session (2 min max enforced client-side)
-  liveToken: { type: 'voice_sessions', monthly: { free: 1, standard: 20, unlimited: null } },
-  gladiaToken: { type: 'listen_sessions', monthly: { free: 1, standard: 40, unlimited: null } },
+  // Voice/Listen endpoints - tracked in minutes, reported by frontend after session ends
+  liveToken: { type: 'voice_minutes', monthly: { free: 15, standard: 480, unlimited: null } },
+  gladiaToken: { type: 'listen_minutes', monthly: { free: 15, standard: 480, unlimited: null } },
 
   // Tutor actions
   sendWordGift: { type: 'send_word_gift', monthly: { free: 10, standard: 100, unlimited: null } },
@@ -745,19 +745,22 @@ export async function checkRateLimit(
  *
  * @param supabase - Supabase client with service key
  * @param userId - User ID
- * @param usageType - Usage type string (e.g., 'text_messages', 'voice_sessions')
+ * @param usageType - Usage type string (e.g., 'text_messages', 'voice_minutes')
+ * @param amount - Amount to increment by (default 1). Use for minute-based tracking.
  *
  * @example
  * ```typescript
  * // After successful operation
  * incrementUsage(supabase, auth.userId, 'text_messages');
- * return res.status(200).json({ success: true });
+ * // Or with amount for minute-based tracking
+ * incrementUsage(supabase, auth.userId, 'voice_minutes', 5);
  * ```
  */
 export function incrementUsage(
   supabase: SupabaseClient,
   userId: string,
-  usageType: string
+  usageType: string,
+  amount: number = 1
 ): void {
   // Non-blocking - fire and forget
   (async () => {
@@ -782,7 +785,7 @@ export function incrementUsage(
           user_id: userId,
           usage_type: usageType,
           usage_date: today,
-          count: currentCount + 1
+          count: currentCount + amount
         }, {
           onConflict: 'user_id,usage_type,usage_date'
         });

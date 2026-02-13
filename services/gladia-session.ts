@@ -32,6 +32,7 @@ export interface TranscriptChunk {
 export interface GladiaConfig {
   onTranscript: (chunk: TranscriptChunk) => void;
   onTranslationUpdate?: (translation: string, originalLanguage: string) => void;
+  onSummary?: (summary: string) => void;
   onStateChange: (state: GladiaState) => void;
   onError: (error: Error) => void;
   onClose?: () => void;
@@ -279,6 +280,10 @@ export class GladiaSession {
           log('Speech ended');
           break;
 
+        case 'post_processing':
+          this.handlePostProcessing(message);
+          break;
+
         case 'error':
           log('Gladia error:', message.data || message.message);
           this.config.onError(new Error(message.data?.message || message.message || 'Transcription error'));
@@ -382,6 +387,19 @@ export class GladiaSession {
 
     // Emit to ChatArea — it will match to the most recent unmatched entry
     this.config.onTranslationUpdate?.(translation, originalLang);
+  }
+
+  /**
+   * Handle post_processing messages (summarization)
+   */
+  private handlePostProcessing(message: any): void {
+    const data = message.data || message;
+    // Gladia summarization result
+    const summary = data.summarization?.results || data.summary || '';
+    if (summary) {
+      log('Gladia summary received:', summary.slice(0, 100));
+      this.config.onSummary?.(typeof summary === 'string' ? summary : JSON.stringify(summary));
+    }
   }
 
   /**

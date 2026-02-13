@@ -4,8 +4,6 @@ import {
   createServiceClient,
   requireSubscription,
   checkRateLimit,
-  incrementUsage,
-  RATE_LIMITS,
   SubscriptionPlan,
 } from '../utils/api-middleware.js';
 import { extractLanguages, getProfileLanguages } from '../utils/language-helpers.js';
@@ -92,10 +90,19 @@ export default async function handler(req: any, res: any) {
         bit_depth: 16,
         channels: 1,
 
+        // Use Gladia's latest, most accurate model
+        model: 'solaria-1',
+
         // Language configuration - detect both target and native language with code switching
         language_config: {
           languages: [targetLanguage, nativeLanguage],  // Dynamic language pair
           code_switching: true,  // Allow switching between languages mid-conversation
+        },
+
+        // Pre-processing — clean up audio before transcription
+        pre_processing: {
+          audio_enhancer: true,
+          speech_threshold: 0.7,  // Stricter background noise filtering (default 0.6)
         },
 
         // Real-time processing options
@@ -104,7 +111,15 @@ export default async function handler(req: any, res: any) {
           translation: true,
           translation_config: {
             target_languages: [nativeLanguage],  // Translate to native language
+            model: 'enhanced',
+            match_original_utterances: true,
           },
+        },
+
+        // Post-processing — Gladia generates summary from actual audio
+        post_processing: {
+          summarization: true,
+          summarization_config: { type: 'concise' },
         },
 
         // Configure which messages we want to receive
@@ -114,13 +129,16 @@ export default async function handler(req: any, res: any) {
           receive_speech_events: true,
           receive_pre_processing_events: false,
           receive_realtime_processing_events: true,
-          receive_post_processing_events: false,
+          receive_post_processing_events: true,  // Need this for summarization
           receive_acknowledgments: false,
         },
 
         // Endpointing - how long to wait for silence before finalizing
         // 1.0s reduces sentence fragmentation from code_switching mode
         endpointing: 1.0,
+
+        // Allow longer utterances before forced endpointing (default 5s)
+        maximum_duration_without_endpointing: 10,
 
         // Note: Speaker diarization is NOT supported for live streaming API
         // All transcripts will be attributed to "speaker_0"
@@ -139,8 +157,7 @@ export default async function handler(req: any, res: any) {
 
     console.log(`[gladia-token] Created Gladia session ${gladiaSession.id} for user ${auth.userId.substring(0, 8)}... (${targetLanguage}→${nativeLanguage})`);
 
-    // Increment usage after success
-    incrementUsage(supabase, auth.userId, RATE_LIMITS.gladiaToken.type);
+    // Usage is tracked in minutes by report-session-usage endpoint (not at session start)
 
     // Return the WebSocket URL to the frontend
     // SECURITY NOTE: The URL contains an embedded bearer token from Gladia.

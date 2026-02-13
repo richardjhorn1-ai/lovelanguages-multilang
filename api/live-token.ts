@@ -5,8 +5,6 @@ import {
   createServiceClient,
   requireSubscription,
   checkRateLimit,
-  incrementUsage,
-  RATE_LIMITS,
   SubscriptionPlan,
 } from '../utils/api-middleware.js';
 import { extractLanguages } from '../utils/language-helpers.js';
@@ -292,8 +290,7 @@ export default async function handler(req: any, res: any) {
 
     console.log('[live-token] Token created successfully for model:', model);
 
-    // Increment usage after success
-    incrementUsage(supabase, auth.userId, RATE_LIMITS.liveToken.type);
+    // Usage is tracked in minutes by report-session-usage endpoint (not at session start)
 
     return res.status(200).json({
       token: tokenName,

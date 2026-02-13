@@ -93,8 +93,8 @@ const UsageSection: React.FC<UsageSectionProps> = ({ userId }) => {
     return null;
   }
 
-  // Don't show for non-subscribers
-  if (usageData.subscription.plan === 'none' || usageData.subscription.status !== 'active') {
+  // Don't show for users with no access at all
+  if (usageData.subscription.plan === 'none' && usageData.subscription.status !== 'active') {
     return null;
   }
 

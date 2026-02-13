@@ -278,6 +278,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   const gladiaRef = useRef<GladiaSession | null>(null);
   const listenTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const sessionLanguagesRef = useRef<{ target: string; native: string } | null>(null);
+  const gladiaSummaryRef = useRef<string>('');
 
   // Session context - loaded once, reused for all chat messages
   const sessionContextRef = useRef<SessionContext | null>(null);
@@ -682,7 +683,25 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     setIsLive(false);
     setLiveUserText("");
     setLiveModelText("");
-    analytics.track('voice_session_ended', { mode: 'voice', duration_ms: Date.now() - voiceStartTimeRef.current });
+    const voiceDurationMs = Date.now() - voiceStartTimeRef.current;
+    analytics.track('voice_session_ended', { mode: 'voice', duration_ms: voiceDurationMs });
+
+    // Report voice usage in seconds (fire-and-forget)
+    const voiceDurationSec = Math.round(voiceDurationMs / 1000);
+    if (voiceDurationSec > 0) {
+      supabase.auth.getSession().then(({ data: { session } }) => {
+        if (session?.access_token) {
+          fetch('/api/report-session-usage', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${session.access_token}`,
+            },
+            body: JSON.stringify({ sessionType: 'voice', durationSeconds: voiceDurationSec }),
+          }).catch(() => {}); // Non-blocking
+        }
+      });
+    }
 
     if (!chatId) return;
 
@@ -888,6 +907,24 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           }
         }
 
+        // Same-language dedup: when two entries from same speaker arrive within 3s
+        // with the same detected language, and one is significantly shorter, prefer the longer one
+        for (let i = recentFinals.length - 1; i >= 0; i--) {
+          const recent = recentFinals[i];
+          if (recent.speaker === entry.speaker &&
+              recent.language && entry.language && recent.language === entry.language) {
+            // Same speaker, same language, within 3s — likely duplicate
+            if (entry.word.length > recent.word.length * 1.3) {
+              // New entry is significantly longer — replace existing
+              return prev.map(e => e.id === recent.id ? { ...entry, isBookmarked: recent.isBookmarked } : e);
+            }
+            if (recent.word.length > entry.word.length * 1.3) {
+              // Existing is significantly longer — drop new
+              return prev;
+            }
+          }
+        }
+
         // Extension merge: same speaker continues a sentence (Gladia sends partial then final)
         const lastFinal = [...prev].reverse().find(e => e.isFinal && (entry.timestamp - e.timestamp) < 5000);
         if (lastFinal && !lastFinal.isBookmarked) {
@@ -931,11 +968,15 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
     // Freeze language pair for this session
     sessionLanguagesRef.current = { target: targetLanguage, native: nativeLanguage };
+    gladiaSummaryRef.current = '';
 
     try {
       gladiaRef.current = new GladiaSession({
         onTranscript: handleListenTranscript,
         onTranslationUpdate: handleTranslationUpdate,
+        onSummary: (summary) => {
+          gladiaSummaryRef.current = summary;
+        },
         onStateChange: (state) => {
           setListenState(state);
         },
@@ -975,6 +1016,22 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       listenTimerRef.current = null;
     }
 
+    // Report listen usage in seconds (fire-and-forget)
+    if (listenDuration > 0) {
+      supabase.auth.getSession().then(({ data: { session } }) => {
+        if (session?.access_token) {
+          fetch('/api/report-session-usage', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${session.access_token}`,
+            },
+            body: JSON.stringify({ sessionType: 'listen', durationSeconds: listenDuration }),
+          }).catch(() => {}); // Non-blocking
+        }
+      });
+    }
+
     // Save session if we have entries
     if (listenEntries.length > 0) {
       const bookmarkedPhrases = listenEntries.filter(e => e.isBookmarked);
@@ -996,7 +1053,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
         // Start post-processing in background
         setIsProcessingTranscript(true);
-        processTranscript(data.id, listenEntries, listenContextLabel);
+        processTranscript(data.id, listenEntries, listenContextLabel, gladiaSummaryRef.current);
       }
     }
 
@@ -1005,7 +1062,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   };
 
   // Post-process transcript with Gemini
-  const processTranscript = async (sessionId: string, entries: TranscriptEntry[], contextLabel: string) => {
+  const processTranscript = async (sessionId: string, entries: TranscriptEntry[], contextLabel: string, gladiaSummary?: string) => {
     try {
       const { data: { session } } = await supabase.auth.getSession();
       if (!session?.access_token) return;
@@ -1027,6 +1084,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             isBookmarked: e.isBookmarked,
           })),
           contextLabel: contextLabel,
+          gladiaSummary: gladiaSummary || undefined,
           ...languageParams
         })
       });

@@ -9,10 +9,16 @@ const PLAN_LIMITS = {
     listenMinutesPerMonth: 0,
     canInvitePartner: false,
   },
+  free: {
+    wordLimit: 200,
+    voiceMinutesPerMonth: 15,
+    listenMinutesPerMonth: 15,
+    canInvitePartner: false,
+  },
   standard: {
     wordLimit: 2000,
-    voiceMinutesPerMonth: 60,
-    listenMinutesPerMonth: 30,
+    voiceMinutesPerMonth: 480,
+    listenMinutesPerMonth: 480,
     canInvitePartner: true,
   },
   unlimited: {
@@ -59,7 +65,13 @@ export default async function handler(req: any, res: any) {
       .eq('id', auth.userId)
       .single();
 
-    const plan = (profile?.subscription_plan || 'none') as keyof typeof PLAN_LIMITS;
+    // Determine effective plan: paid subscription > free tier > none
+    let plan: keyof typeof PLAN_LIMITS = 'none';
+    if (profile?.subscription_status === 'active' && profile?.subscription_plan) {
+      plan = (profile.subscription_plan as keyof typeof PLAN_LIMITS) || 'standard';
+    } else if (profile?.free_tier_chosen_at) {
+      plan = 'free';
+    }
     const limits = PLAN_LIMITS[plan] || PLAN_LIMITS.none;
 
     // Get current month's usage
