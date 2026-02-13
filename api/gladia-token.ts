@@ -102,7 +102,7 @@ export default async function handler(req: any, res: any) {
         // Pre-processing — clean up audio before transcription
         pre_processing: {
           audio_enhancer: true,
-          speech_threshold: 0.7,  // Stricter background noise filtering (default 0.6)
+          speech_threshold: 0.75,  // Stricter background noise filtering (default 0.6)
         },
 
         // Real-time processing options

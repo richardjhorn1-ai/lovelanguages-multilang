@@ -122,6 +122,8 @@ KNOWN ARTIFACTS:
    Example: Polish "Bardzo lubię ostrość" might also appear as English "But so Lu Bay ostrich"
 2. SENTENCE FRAGMENTS: Short utterances may be split across multiple entries
 3. LANGUAGE MISDETECTION: An entry's detected language may be wrong
+4. PROGRESSIVE REFINEMENT: Same utterance appears multiple times with increasing
+   accuracy. Keep ONLY the most complete/accurate version.
 
 YOUR TASKS (in order):
 1. IDENTIFY GARBLED ENTRIES: If an entry is garbled phonetic nonsense from misdetected

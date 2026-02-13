@@ -23,6 +23,7 @@ import { analytics } from '../services/analytics';
 // Listen session types
 interface TranscriptEntry {
   id: string;
+  gladiaId?: string;     // Gladia's utterance ID — stable across partial/final
   speaker: string;
   word: string;          // Target language text (was 'polish')
   translation: string;   // Native language translation (was 'english')
@@ -913,6 +914,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
     const entry: TranscriptEntry = {
       id: chunk.id,
+      gladiaId: chunk.gladiaId,
       speaker: chunk.speaker,
       word: chunk.text,
       translation: chunk.translation || '',
@@ -925,72 +927,22 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
     if (chunk.isFinal) {
       setListenEntries(prev => {
-        const sessionTarget = sessionLanguagesRef.current?.target;
-        const sessionNative = sessionLanguagesRef.current?.native;
-
-        // Cross-language dedup: Gladia code_switching sends the same audio transcribed
-        // in two languages — one correct, one garbled phonetic text in the wrong language
-        const recentFinals = prev.filter(e =>
-          e.isFinal &&
-          (entry.timestamp - e.timestamp) < 3000 &&
-          !e.isBookmarked
-        );
-
-        for (let i = recentFinals.length - 1; i >= 0; i--) {
-          const recent = recentFinals[i];
-          // Different detected languages = likely same audio transcribed twice
-          if (recent.language && entry.language && recent.language !== entry.language) {
-            const recentIsConfigured = recent.language === sessionTarget || recent.language === sessionNative;
-            const newIsConfigured = entry.language === sessionTarget || entry.language === sessionNative;
-
-            if (recentIsConfigured && !newIsConfigured) return prev;  // Keep existing, drop new
-            if (!recentIsConfigured && newIsConfigured) {
-              // Replace existing with new (preserving bookmark)
-              return prev.map(e => e.id === recent.id ? { ...entry, isBookmarked: recent.isBookmarked } : e);
-            }
-            // Both recognized or neither — keep longer text
-            if (entry.word.length > recent.word.length * 1.5) {
-              return prev.map(e => e.id === recent.id ? { ...entry, isBookmarked: recent.isBookmarked } : e);
-            }
-            return prev;  // Keep existing
+        // Dedup using Gladia's utterance ID — same ID means same utterance (partial→final or refinement)
+        if (entry.gladiaId) {
+          const existingIdx = prev.findIndex(e => e.gladiaId === entry.gladiaId);
+          if (existingIdx !== -1) {
+            const existing = prev[existingIdx];
+            const updated = [...prev];
+            updated[existingIdx] = { ...entry, isBookmarked: existing.isBookmarked, translation: entry.translation || existing.translation };
+            return updated;
           }
         }
 
-        // Same-language dedup: when two entries from same speaker arrive within 3s
-        // with the same detected language, and one is significantly shorter, prefer the longer one
-        for (let i = recentFinals.length - 1; i >= 0; i--) {
-          const recent = recentFinals[i];
-          if (recent.speaker === entry.speaker &&
-              recent.language && entry.language && recent.language === entry.language) {
-            // Exact duplicate text (case-insensitive) — drop new entry
-            if (entry.word.toLowerCase() === recent.word.toLowerCase()) {
-              return prev;
-            }
-            // Same speaker, same language, within 3s — likely duplicate
-            if (entry.word.length > recent.word.length * 1.3) {
-              // New entry is significantly longer — replace existing
-              return prev.map(e => e.id === recent.id ? { ...entry, isBookmarked: recent.isBookmarked } : e);
-            }
-            if (recent.word.length > entry.word.length * 1.3) {
-              // Existing is significantly longer — drop new
-              return prev;
-            }
-          }
-        }
+        // Exact text match fallback — catch edge cases where Gladia assigns different IDs to identical text
+        const exactMatch = prev.find(e => e.isFinal && e.word.toLowerCase().trim() === entry.word.toLowerCase().trim());
+        if (exactMatch) return prev;
 
-        // Extension merge: same speaker continues a sentence (Gladia sends partial then final)
-        const lastFinal = [...prev].reverse().find(e => e.isFinal && (entry.timestamp - e.timestamp) < 5000);
-        if (lastFinal && !lastFinal.isBookmarked) {
-          const overlap = entry.word.startsWith(lastFinal.word.slice(0, 15));
-          if (overlap && entry.word.length > lastFinal.word.length) {
-            return prev.map(e => e.id === lastFinal.id
-              ? { ...entry, id: lastFinal.id, isBookmarked: lastFinal.isBookmarked }
-              : e
-            );
-          }
-        }
-
-        // No dedup match — add as new entry (filter out non-final partials from same speaker)
+        // New entry — filter out non-final partials from same speaker
         const filtered = prev.filter(e => e.isFinal || e.speaker !== chunk.speaker);
         return [...filtered, entry];
       });

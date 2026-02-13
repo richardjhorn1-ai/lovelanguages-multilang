@@ -19,6 +19,7 @@ export type GladiaState = 'disconnected' | 'connecting' | 'listening' | 'paused'
 // Transcript chunk from Gladia
 export interface TranscriptChunk {
   id: string;
+  gladiaId?: string;  // Gladia's utterance ID — stable across partial/final for same utterance
   text: string;
   translation?: string;
   speaker: string;
@@ -398,6 +399,7 @@ export class GladiaSession {
     this.transcriptCounter++;
     const chunk: TranscriptChunk = {
       id: isFinal ? `transcript_${this.transcriptCounter}` : `partial_${Date.now()}`,
+      gladiaId: transcriptData.id || undefined,
       text: text.trim(),
       translation: translation.trim() || undefined,
       speaker,
@@ -410,6 +412,7 @@ export class GladiaSession {
     log(isFinal ? 'Final transcript:' : 'Partial:',
         `${chunk.text.length} chars`,
         chunk.language ? `[${chunk.language}]` : '',
+        chunk.gladiaId ? `gid:${chunk.gladiaId}` : '',
         translation ? '(translated)' : '');
 
     // Emit ALL transcripts immediately - no waiting for translations
