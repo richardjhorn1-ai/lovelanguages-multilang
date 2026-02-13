@@ -2000,7 +2000,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           }`}
         >
           {/* Header */}
-          <div className="flex items-center justify-between p-3 border-b border-[var(--border-color)]">
+          <div className="flex items-center justify-between p-3 border-b border-[var(--border-color)] safe-area-top">
             <div className="flex items-center gap-2">
               <ICONS.MessageCircle className="w-5 h-5" style={{ color: accentHex }} />
               <span className="text-scale-label font-bold text-[var(--text-primary)]">{t('chat.sidebar.conversations')}</span>
