@@ -253,7 +253,7 @@ export function buildVocabularySchema(languageCode: string): GeminiSchema {
   const wordProperties: Record<string, object> = {
     word: {
       type: Type.STRING,
-      description: `The word in ${langName} (dictionary/base form)`
+      description: `The word in ${langName} — INFINITIVE for verbs, nominative singular for nouns (never a conjugated or declined form)`
     },
     translation: {
       type: Type.STRING,
@@ -737,6 +737,9 @@ export function getExtractionInstructions(languageCode: string): string {
       instructions.push('FOR NOUNS: Indicate de-word or het-word');
     }
   }
+
+  // Phrase decomposition — always extract component words
+  instructions.push('FOR PHRASES: When extracting a phrase, ALSO extract each key word (verb, noun, adjective) separately. E.g. if teaching "kocham cię", extract BOTH the phrase AND "kochać" as a separate verb entry with conjugations.');
 
   // Script instructions
   if (['ru', 'uk'].includes(languageCode)) {
