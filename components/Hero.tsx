@@ -22,6 +22,8 @@ import {
   InteractiveHearts,
   WordParticleEffect,
   Section,
+  LOGO_PATH,
+  LOGO_DETAIL_PATHS,
   MobileSection,
   LanguageGrid,
   LoginForm,
@@ -597,20 +599,24 @@ const Hero: React.FC = () => {
       <div className="md:hidden flex flex-col h-screen-safe overflow-hidden">
         {/* Top: Logo on left, Learn/Teach Toggle on right */}
         <div className="flex-shrink-0 px-4 pb-3 flex items-center justify-between" style={{ paddingTop: 'calc(env(safe-area-inset-top, 0px) + 0.75rem)' }}>
-          {/* Language indicator (replaces logo — navbar already shows branding) */}
-          {nativeLanguage && selectedTargetLanguage ? (
-            <button
-              onClick={handleChangeLanguages}
-              className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-sm shadow-md text-scale-caption font-bold transition-all active:scale-95"
+          {/* Logo */}
+          <div className="flex items-center gap-1.5">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 600.000000 600.000000"
+              preserveAspectRatio="xMidYMid meet"
+              fill={accentColor}
+              className="w-10 h-10 shrink-0"
             >
-              <span>{LANGUAGE_CONFIGS[nativeLanguage as LanguageCode]?.flag}</span>
-              <span className="text-gray-400">&rarr;</span>
-              <span>{LANGUAGE_CONFIGS[selectedTargetLanguage as LanguageCode]?.flag}</span>
-              <span className="text-gray-400 text-scale-micro">{t('hero.languageSelector.change', 'Change')}</span>
-            </button>
-          ) : (
-            <div />
-          )}
+              <g transform="translate(0.000000,600.000000) scale(0.100000,-0.100000)" stroke="none">
+                <path d={LOGO_PATH} />
+                {LOGO_DETAIL_PATHS.map((d: string, i: number) => <path key={i} d={d} />)}
+              </g>
+            </svg>
+            <span className="text-scale-body font-black font-header tracking-tight" style={{ color: accentColor }}>
+              Love Languages
+            </span>
+          </div>
           {/* Learn/Teach Toggle */}
           <div className="flex gap-1.5">
             <button
@@ -764,6 +770,9 @@ const Hero: React.FC = () => {
                     {...section}
                     index={i}
                     isStudent={isStudent}
+                    nativeLanguage={nativeLanguage}
+                    selectedTargetLanguage={selectedTargetLanguage}
+                    onChangeLanguages={handleChangeLanguages}
                   />
                 ))}
 

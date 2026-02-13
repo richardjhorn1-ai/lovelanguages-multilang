@@ -5,6 +5,7 @@ import { renderWithHighlights } from './heroHighlighting';
 import { LOGO_PATH, LOGO_DETAIL_PATHS } from './Section';
 import { StoryContent, OfferContent } from './HeroBottomSections';
 import { ICONS } from '../../constants';
+import { LANGUAGE_CONFIGS, LanguageCode } from '../../constants/language-config';
 
 interface MobileSectionProps {
   headline: string;
@@ -17,6 +18,9 @@ interface MobileSectionProps {
   index: number;
   isStudent: boolean;
   showLogo?: boolean;
+  nativeLanguage?: string | null;
+  selectedTargetLanguage?: string | null;
+  onChangeLanguages?: () => void;
 }
 
 const MobileSection: React.FC<MobileSectionProps> = ({
@@ -29,7 +33,10 @@ const MobileSection: React.FC<MobileSectionProps> = ({
   copyLinks,
   index,
   isStudent,
-  showLogo
+  showLogo,
+  nativeLanguage,
+  selectedTargetLanguage,
+  onChangeLanguages
 }) => {
   const { t } = useTranslation();
   const accentColor = isStudent ? BRAND.primary : BRAND.teal;
@@ -60,23 +67,21 @@ const MobileSection: React.FC<MobileSectionProps> = ({
         style={{ scrollSnapAlign: 'start' }}
       >
         <div className="section-content visible overflow-hidden flex-1 flex flex-col">
-          {/* Logo */}
-          <div className="flex items-center gap-3 mb-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 600.000000 600.000000"
-              preserveAspectRatio="xMidYMid meet"
-              fill={accentColor}
-              className="w-12 h-12 shrink-0"
-            >
-              <g transform="translate(0.000000,600.000000) scale(0.100000,-0.100000)" stroke="none">
-                <path d={LOGO_PATH} />
-                {LOGO_DETAIL_PATHS.map((d, i) => <path key={i} d={d} />)}
-              </g>
-            </svg>
-            <h1 className="text-xl font-black font-header tracking-tight" style={{ color: accentColor }}>
-              Love Languages
-            </h1>
+          {/* Language pill (replaces logo — header already shows branding) */}
+          <div className="mb-4">
+            {nativeLanguage && selectedTargetLanguage ? (
+              <button
+                onClick={onChangeLanguages}
+                className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-sm shadow-md text-scale-caption font-bold transition-all active:scale-95"
+              >
+                <span>{LANGUAGE_CONFIGS[nativeLanguage as LanguageCode]?.flag}</span>
+                <span className="text-gray-400">&rarr;</span>
+                <span>{LANGUAGE_CONFIGS[selectedTargetLanguage as LanguageCode]?.flag}</span>
+                <span className="text-gray-400 text-scale-micro">{t('hero.languageSelector.change', 'Change')}</span>
+              </button>
+            ) : (
+              <div className="h-8" />
+            )}
           </div>
 
           {/* Content Area - Changes based on tab */}
