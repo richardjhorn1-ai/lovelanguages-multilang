@@ -237,10 +237,11 @@ const JoinInvite: React.FC = () => {
 
   // Main invite UI
   return (
-    <div className="min-h-screen h-screen-safe overflow-y-auto flex flex-col md:flex-row bg-[#FFF0F3]">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-[#FFF0F3]">
+      <div className="min-h-full flex flex-col md:flex-row">
       {/* Left: Invitation Context */}
       <div
-        className="flex-1 flex flex-col justify-center px-8 pb-12 md:px-24 md:py-12"
+        className="md:flex-1 flex flex-col md:justify-center px-8 pb-8 md:pb-12 md:px-24 md:py-12"
         style={{ paddingTop: 'calc(env(safe-area-inset-top, 0px) + 3rem)' }}
       >
         <div className="max-w-xl">
@@ -294,7 +295,7 @@ const JoinInvite: React.FC = () => {
       </div>
 
       {/* Right: Auth Form */}
-      <div className="flex-1 flex flex-col items-center justify-center p-8 bg-white md:rounded-l-[5rem] shadow-2xl relative overflow-hidden">
+      <div className="md:flex-1 flex flex-col items-center justify-center p-8 bg-white md:rounded-l-[5rem] shadow-2xl relative overflow-hidden">
         <ICONS.Heart className="absolute -bottom-20 -right-20 w-80 h-80 text-[var(--accent-light)] opacity-[0.03] pointer-events-none" />
 
         <div className="w-full max-w-sm relative z-10">
@@ -371,6 +372,7 @@ const JoinInvite: React.FC = () => {
             </button>
           </div>
         </div>
+      </div>
       </div>
     </div>
   );
