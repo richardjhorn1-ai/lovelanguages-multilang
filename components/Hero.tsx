@@ -127,8 +127,9 @@ interface SectionContent {
 const getStudentSections = (t: TFunction): SectionContent[] => [
   // Section 0: What is Love Languages
   {
-    headline: t('hero.shared.section0.headline'),
-    headlineHighlights: [t('hero.shared.section0.highlight1')],
+    headline: t('hero.student.section0.headline'),
+    headlineHighlights: [t('hero.student.section0.highlight1')],
+    subhead: t('hero.shared.section0.subhead'),
     copy: t('hero.shared.section0.copy'),
     copyHighlights: [t('hero.shared.section0.copyHighlight1'), t('hero.shared.section0.copyHighlight2'), t('hero.shared.section0.copyHighlight3')],
     underlinedPhrase: t('hero.shared.section0.underline'),
@@ -158,8 +159,9 @@ const getStudentSections = (t: TFunction): SectionContent[] => [
 const getTutorSections = (t: TFunction): SectionContent[] => [
   // Section 0: What is Love Languages
   {
-    headline: t('hero.shared.section0.headline'),
-    headlineHighlights: [t('hero.shared.section0.highlight1')],
+    headline: t('hero.tutor.section0.headline'),
+    headlineHighlights: [t('hero.tutor.section0.highlight1')],
+    subhead: t('hero.shared.section0.subhead'),
     copy: t('hero.shared.section0.copy'),
     copyHighlights: [t('hero.shared.section0.copyHighlight1'), t('hero.shared.section0.copyHighlight2'), t('hero.shared.section0.copyHighlight3')],
     underlinedPhrase: t('hero.shared.section0.underline'),
@@ -866,6 +868,36 @@ const Hero: React.FC = () => {
           <div className="pb-4">
           <ICONS.Heart className="absolute -bottom-16 -right-16 w-48 h-48 opacity-[0.03] pointer-events-none" style={{ color: accentColor }} />
 
+          {/* Progress dots: 1 language + divider + 9 marketing */}
+          <div className="flex justify-center gap-1.5 mb-4 flex-wrap max-w-xs mx-auto">
+            {/* Language step */}
+            <button
+              onClick={() => setCurrentStep('language')}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                currentStep === 'language' ? 'scale-150' : 'opacity-40'
+              }`}
+              style={{ backgroundColor: accentColor }}
+              aria-label="Language selection"
+            />
+            {/* Divider */}
+            <div className="w-px h-2 bg-gray-300 mx-1" />
+            {/* Marketing sections (9 dots on mobile: 0-8) */}
+            {Array.from({ length: 9 }).map((_, i) => (
+              <button
+                key={`section-${i}`}
+                onClick={() => {
+                  setCurrentStep('marketing');
+                  setTimeout(() => scrollToMobileSection(i), 100);
+                }}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  currentStep === 'marketing' && activeSection === i ? 'scale-150' : 'opacity-40'
+                }`}
+                style={{ backgroundColor: accentColor }}
+                aria-label={`Section ${i + 1}`}
+              />
+            ))}
+          </div>
+
           {/* Compact Login Form */}
           <div className="w-full max-w-sm mx-auto relative z-10">
             <div className="text-center mb-5">
@@ -1174,6 +1206,43 @@ const Hero: React.FC = () => {
             className="absolute -bottom-20 -right-20 w-80 h-80 opacity-[0.03] pointer-events-none transition-colors duration-500"
             style={{ color: accentColor }}
           />
+
+          {/* Section indicator dots: 1 language + divider + 10 marketing */}
+          <div className="absolute left-8 top-1/2 -translate-y-1/2 flex flex-col gap-2">
+            {/* Language step */}
+            <button
+              onClick={() => setCurrentStep('language')}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                currentStep === 'language' ? 'scale-150' : 'opacity-30 hover:opacity-60'
+              }`}
+              style={{ backgroundColor: accentColor }}
+              aria-label="Language selection"
+            />
+            {/* Divider */}
+            <div className="w-2 h-px bg-gray-300 my-1" />
+            {/* Marketing sections + bottom sections (10 dots: 0-5 marketing, 6-9 bottom) */}
+            {Array.from({ length: 10 }).map((_, i) => (
+              <button
+                key={`section-${i}`}
+                onClick={() => {
+                  if (nativeLanguage && selectedTargetLanguage) {
+                    setCurrentStep('marketing');
+                    setTimeout(() => {
+                      const section = scrollRef.current?.querySelector(`[data-section="${i}"]`);
+                      section?.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                  }
+                }}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  currentStep === 'marketing' && activeSection === i
+                    ? 'scale-150'
+                    : 'opacity-30 hover:opacity-60'
+                }`}
+                style={{ backgroundColor: accentColor }}
+                aria-label={`Section ${i + 1}`}
+              />
+            ))}
+          </div>
 
           {/* Toggle above login form */}
           <div className="flex gap-3 mb-5">
