@@ -88,7 +88,6 @@ export const geminiService = {
     prompt: string,
     mode: string,
     images: Attachment[] = [],
-    userWords: string[] = [],
     messageHistory: { role: string; content: string }[] = [],
     sessionContext?: SessionContext | null,
     languageParams?: { targetLanguage: string; nativeLanguage: string }
@@ -102,7 +101,6 @@ export const geminiService = {
           prompt,
           mode,
           images,
-          userLog: userWords,
           messages: messageHistory.slice(-50),
           sessionContext: sessionContext || undefined,
           ...languageParams
@@ -134,7 +132,6 @@ export const geminiService = {
   async generateReplyStream(
     prompt: string,
     mode: string,
-    userWords: string[] = [],
     messageHistory: { role: string; content: string }[] = [],
     sessionContext?: SessionContext | null,
     languageParams?: { targetLanguage: string; nativeLanguage: string },
@@ -148,7 +145,6 @@ export const geminiService = {
         body: JSON.stringify({
           prompt,
           mode,
-          userLog: userWords,
           messages: messageHistory.slice(-20),
           sessionContext: sessionContext || undefined,
           ...languageParams

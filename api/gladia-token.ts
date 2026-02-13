@@ -31,7 +31,7 @@ export default async function handler(req: any, res: any) {
       return res.status(500).json({ error: 'Server configuration error' });
     }
 
-    // Block free users
+    // Check subscription access
     const sub = await requireSubscription(supabase, auth.userId);
     if (!sub.allowed) {
       return res.status(403).json({ error: sub.error });
@@ -112,7 +112,6 @@ export default async function handler(req: any, res: any) {
           translation_config: {
             target_languages: [nativeLanguage],  // Translate to native language
             model: 'enhanced',
-            match_original_utterances: true,
           },
         },
 

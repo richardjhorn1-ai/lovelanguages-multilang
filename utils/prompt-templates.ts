@@ -129,7 +129,6 @@ export interface ChatPromptOptions {
   nativeLanguage: string;
   mode: ChatMode;
   userRole: 'student' | 'tutor';
-  userLog?: string[];
   partnerName?: string | null;
   partnerContext?: {
     learnerName: string;

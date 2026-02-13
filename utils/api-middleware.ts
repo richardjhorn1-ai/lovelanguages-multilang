@@ -765,30 +765,14 @@ export function incrementUsage(
   // Non-blocking - fire and forget
   (async () => {
     try {
-      const today = new Date().toISOString().split('T')[0];
-
-      // Get current count for today
-      const { data: existing } = await supabase
-        .from('usage_tracking')
-        .select('count')
-        .eq('user_id', userId)
-        .eq('usage_type', usageType)
-        .eq('usage_date', today)
-        .maybeSingle();
-
-      const currentCount = existing?.count || 0;
-
-      // Upsert with incremented count
-      await supabase
-        .from('usage_tracking')
-        .upsert({
-          user_id: userId,
-          usage_type: usageType,
-          usage_date: today,
-          count: currentCount + amount
-        }, {
-          onConflict: 'user_id,usage_type,usage_date'
-        });
+      const { error } = await supabase.rpc('increment_usage_counter', {
+        p_user_id: userId,
+        p_usage_type: usageType,
+        p_amount: amount,
+      });
+      if (error) {
+        console.error('[api-middleware] Usage tracking failed:', error.message);
+      }
     } catch (err: any) {
       console.error('[api-middleware] Usage tracking failed:', err.message);
       // Don't throw - this is non-blocking

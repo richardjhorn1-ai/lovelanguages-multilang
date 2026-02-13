@@ -53,6 +53,7 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
     switch (plan) {
       case 'standard': return t('subscription.plans.standard');
       case 'unlimited': return t('subscription.plans.unlimited');
+      case 'free': return t('subscription.plans.free');
       default: return t('subscription.plans.none');
     }
   };
@@ -201,7 +202,7 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
   }
 
   // No subscription at all (shouldn't happen normally if paywall works)
-  if (!profile.subscription_plan || profile.subscription_plan === 'none') {
+  if (!profile.subscription_plan || profile.subscription_plan === 'none' || profile.subscription_plan === 'free') {
     return (
       <div className="bg-[var(--bg-card)] rounded-2xl p-6 border border-[var(--border-color)]">
         <div className="flex items-center gap-3 mb-4">

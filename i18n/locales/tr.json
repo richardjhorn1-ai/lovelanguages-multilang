@@ -1346,6 +1346,7 @@
     "plans": {
       "standard": "Standart",
       "unlimited": "Sınırsız",
+      "free": "Ücretsiz",
       "none": "Yok"
     },
     "features": {

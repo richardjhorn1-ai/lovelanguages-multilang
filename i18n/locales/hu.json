@@ -1346,6 +1346,7 @@
     "plans": {
       "standard": "Standard",
       "unlimited": "Korlátlan",
+      "free": "Ingyenes",
       "none": "Nincs"
     },
     "features": {

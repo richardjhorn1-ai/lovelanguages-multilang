@@ -75,7 +75,11 @@ export default async function handler(req: any, res: any) {
     }
   }
 
-  const { transcript = [], contextLabel = '', gladiaSummary = '' } = body || {};
+  const { transcript = [], contextLabel: rawContextLabel = '', gladiaSummary: rawGladiaSummary = '' } = body || {};
+  const contextLabel = typeof rawContextLabel === 'string'
+    ? rawContextLabel.trim().replace(/\0/g, '').slice(0, 500) : '';
+  const gladiaSummary = typeof rawGladiaSummary === 'string'
+    ? rawGladiaSummary.trim().replace(/\0/g, '').slice(0, 500) : '';
 
   // Extract language parameters (defaults to Polish/English for backward compatibility)
   const { targetLanguage, nativeLanguage } = extractLanguages(body);

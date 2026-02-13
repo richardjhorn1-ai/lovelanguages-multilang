@@ -40,12 +40,12 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'sessionType must be "voice" or "listen"' });
     }
 
-    if (typeof durationSeconds !== 'number' || durationSeconds < 0 || durationSeconds > 86400) {
-      return res.status(400).json({ error: 'durationSeconds must be a number between 0 and 86400' });
+    if (!Number.isFinite(durationSeconds) || durationSeconds < 0) {
+      return res.status(400).json({ error: 'durationSeconds must be a non-negative number' });
     }
-
-    // Convert to minutes (ceil, minimum 1 minute for any non-zero session)
-    const minutes = durationSeconds > 0 ? Math.max(1, Math.ceil(durationSeconds / 60)) : 0;
+    // Clamp to 1 hour max (tokens expire in ~30 min; generous cap)
+    const clampedSeconds = Math.min(durationSeconds, 3600);
+    const minutes = clampedSeconds > 0 ? Math.max(1, Math.ceil(clampedSeconds / 60)) : 0;
 
     if (minutes === 0) {
       return res.status(200).json({ recorded: 0 });

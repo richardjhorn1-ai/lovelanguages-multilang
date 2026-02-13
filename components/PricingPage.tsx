@@ -141,8 +141,8 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
     }
   };
 
-  const isSubscribed = status?.subscription?.plan && status.subscription.plan !== 'none';
-  const currentPlan = status?.subscription?.plan || 'none';
+  const isSubscribed = status?.subscription?.plan && status.subscription.plan !== 'free' && status.subscription.plan !== 'none';
+  const currentPlan = status?.subscription?.plan || 'free';
 
   const plans = [
     {

@@ -279,6 +279,10 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   const listenTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const sessionLanguagesRef = useRef<{ target: string; native: string } | null>(null);
   const gladiaSummaryRef = useRef<string>('');
+  const sessionTokenRef = useRef<string | null>(null);
+  const isListeningRef = useRef(false);
+  const isLiveRef = useRef(false);
+  const listenDurationRef = useRef(0);
 
   // Session context - loaded once, reused for all chat messages
   const sessionContextRef = useRef<SessionContext | null>(null);
@@ -314,6 +318,46 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       }
     };
     bootSession();
+  }, []);
+
+  // Visibilitychange fallback — report usage if tab is hidden mid-session
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState !== 'hidden') return;
+      const token = sessionTokenRef.current;
+      if (!token) return;
+
+      if (isListeningRef.current && listenDurationRef.current > 0) {
+        fetch('/api/report-session-usage', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+          body: JSON.stringify({ sessionType: 'listen', durationSeconds: listenDurationRef.current }),
+          keepalive: true,
+        }).catch(() => {});
+      }
+
+      if (isLiveRef.current && voiceStartTimeRef.current > 0) {
+        const voiceSec = Math.round((Date.now() - voiceStartTimeRef.current) / 1000);
+        if (voiceSec > 0) {
+          fetch('/api/report-session-usage', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+            body: JSON.stringify({ sessionType: 'voice', durationSeconds: voiceSec }),
+            keepalive: true,
+          }).catch(() => {});
+        }
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
+  }, []);
+
+  // Cleanup listen timer on unmount (defensive — PersistentTabs rarely unmounts)
+  useEffect(() => {
+    return () => {
+      if (listenTimerRef.current) clearInterval(listenTimerRef.current);
+    };
   }, []);
 
   // Invalidate context when vocabulary changes
@@ -517,7 +561,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           userMessage,
           mode,
           currentAttachments,
-          userWords,
           messageHistory,
           sessionContextRef.current,
           languageParams
@@ -541,7 +584,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         replyText = await geminiService.generateReplyStream(
           userMessage,
           mode,
-          userWords,
           messageHistory,
           sessionContextRef.current,
           languageParams,
@@ -625,7 +667,12 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
   const startLive = async () => {
     if (isLive || !activeChat) return;
+    const { data: { session: authSession } } = await supabase.auth.getSession();
+    if (authSession?.access_token) {
+      sessionTokenRef.current = authSession.access_token;
+    }
     setIsLive(true);
+    isLiveRef.current = true;
     setIsMenuOpen(false);
     setLiveError(null);
     voiceStartTimeRef.current = Date.now();
@@ -636,7 +683,6 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
     liveSessionRef.current = new LiveSession({
         mode: mode,
-        userLog: messages.map(m => m.content),
         targetLanguage: targetLanguage,
         nativeLanguage: nativeLanguage,
         onTranscript: async (role, text, isFinal) => {
@@ -660,6 +706,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             setLiveError(error.message);
         },
         onClose: () => {
+            isLiveRef.current = false;
             setIsLive(false);
             setLiveState('disconnected');
         }
@@ -670,6 +717,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     } catch (err: any) {
         console.error('Voice mode failed:', err);
         setLiveError(err.message || 'Failed to start voice mode');
+        isLiveRef.current = false;
         setIsLive(false);
         setLiveState('disconnected');
     }
@@ -680,6 +728,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     const startIdx = voiceSessionStartIdx.current;
 
     liveSessionRef.current?.disconnect();
+    isLiveRef.current = false;
     setIsLive(false);
     setLiveUserText("");
     setLiveModelText("");
@@ -913,6 +962,10 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           const recent = recentFinals[i];
           if (recent.speaker === entry.speaker &&
               recent.language && entry.language && recent.language === entry.language) {
+            // Exact duplicate text (case-insensitive) — drop new entry
+            if (entry.word.toLowerCase() === recent.word.toLowerCase()) {
+              return prev;
+            }
             // Same speaker, same language, within 3s — likely duplicate
             if (entry.word.length > recent.word.length * 1.3) {
               // New entry is significantly longer — replace existing
@@ -961,10 +1014,18 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     setListenEntries([]);
     setListenPartial(null);
     setListenDuration(0);
+    listenDurationRef.current = 0;
     setActiveChat(null);
     setActiveListenSession(null);
     setIsListening(true);
+    isListeningRef.current = true;
     setIsTranscriptProcessed(false);
+
+    // Cache auth token for visibilitychange fallback
+    const { data: { session } } = await supabase.auth.getSession();
+    if (session?.access_token) {
+      sessionTokenRef.current = session.access_token;
+    }
 
     // Freeze language pair for this session
     sessionLanguagesRef.current = { target: targetLanguage, native: nativeLanguage };
@@ -985,7 +1046,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           setListenError(err.message);
         },
         onClose: () => {
-          // Session closed - handled by stopListening
+          isListeningRef.current = false;
         },
         targetLanguage,
         nativeLanguage,
@@ -994,11 +1055,13 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       await gladiaRef.current.connect();
 
       listenTimerRef.current = setInterval(() => {
-        setListenDuration(prev => prev + 1);
+        listenDurationRef.current += 1;
+        setListenDuration(listenDurationRef.current);
       }, 1000);
 
     } catch (err: any) {
       setListenError(err.message || 'Failed to start listening');
+      isListeningRef.current = false;
       setIsListening(false);
     }
   };
@@ -1008,7 +1071,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     // Play recording stop sound
     sounds.play('record-stop');
 
-    gladiaRef.current?.disconnect();
+    await gladiaRef.current?.disconnect();
     gladiaRef.current = null;
 
     if (listenTimerRef.current) {
@@ -1017,7 +1080,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     }
 
     // Report listen usage in seconds (fire-and-forget)
-    if (listenDuration > 0) {
+    const duration = listenDurationRef.current;
+    if (duration > 0) {
       supabase.auth.getSession().then(({ data: { session } }) => {
         if (session?.access_token) {
           fetch('/api/report-session-usage', {
@@ -1026,7 +1090,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               'Content-Type': 'application/json',
               'Authorization': `Bearer ${session.access_token}`,
             },
-            body: JSON.stringify({ sessionType: 'listen', durationSeconds: listenDuration }),
+            body: JSON.stringify({ sessionType: 'listen', durationSeconds: duration }),
           }).catch(() => {}); // Non-blocking
         }
       });
@@ -1041,7 +1105,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         user_id: profile.id,
         language_code: targetLanguage,
         context_label: listenContextLabel.trim() || null,
-        duration_seconds: listenDuration,
+        duration_seconds: listenDurationRef.current,
         transcript: listenEntries,
         bookmarked_phrases: bookmarkedPhrases,
         detected_words: [],
@@ -1057,6 +1121,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       }
     }
 
+    isListeningRef.current = false;
     setIsListening(false);
     setListenContextLabel('');
   };

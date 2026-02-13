@@ -136,7 +136,7 @@ export default async function handler(req: any, res: any) {
       return res.status(500).json({ error: 'Server configuration error' });
     }
 
-    // Block free users
+    // Check subscription access
     const sub = await requireSubscription(supabase, auth.userId);
     if (!sub.allowed) {
       return res.status(403).json({ error: sub.error });
@@ -168,29 +168,19 @@ export default async function handler(req: any, res: any) {
       }
     }
 
-    const { mode = 'ask', userLog = [], conversationScenario, userName = 'Friend' } = body || {};
+    const { mode = 'ask', conversationScenario, userName = 'Friend' } = body || {};
 
     // Extract language parameters (defaults to Polish/English for backward compatibility)
     const { targetLanguage, nativeLanguage } = extractLanguages(body);
 
     // Input validation to prevent prompt injection and cost/latency abuse
     const MAX_USERNAME_LENGTH = 50;
-    const MAX_USERLOG_ITEMS = 30;
-    const MAX_USERLOG_ITEM_LENGTH = 200;
     const MAX_SCENARIO_FIELD_LENGTH = 500;
 
     // Validate and sanitize userName
     const sanitizedUserName = typeof userName === 'string'
       ? userName.trim().substring(0, MAX_USERNAME_LENGTH)
       : 'Friend';
-
-    // Validate and sanitize userLog (limit array size and item lengths)
-    const sanitizedUserLog = Array.isArray(userLog)
-      ? userLog
-          .slice(0, MAX_USERLOG_ITEMS)
-          .map(item => typeof item === 'string' ? item.substring(0, MAX_USERLOG_ITEM_LENGTH) : '')
-          .filter(item => item.length > 0)
-      : [];
 
     // Validate conversationScenario if provided
     let sanitizedScenario = conversationScenario;

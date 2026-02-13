@@ -105,7 +105,7 @@ export default async function handler(req: any, res: any) {
           recentWords: p.recentWords || [],
           stats: p.stats || { totalWords: 0, masteredCount: 0 },
           lastActive: null
-        }, `${p.name}'s Progress`);
+        }, `${p.name}'s Progress`, { level: p.level });
         partnerContext = {
           learnerName: p.name,
           stats: { totalWords: p.stats.totalWords, masteredCount: p.stats.masteredCount, xp: p.xp, level: p.level }
@@ -119,6 +119,9 @@ export default async function handler(req: any, res: any) {
           recentWords: sessionContext.recentWords || [],
           stats: sessionContext.stats || { totalWords: 0, masteredCount: 0 },
           lastActive: null
+        }, undefined, {
+          level: sessionContext.level,
+          knownWords: sessionContext.knownWordsList
         });
       }
     } else {

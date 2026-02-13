@@ -236,7 +236,7 @@ export default async function handler(req: any, res: any) {
        });
     }
 
-    const { prompt, mode = 'ask', userLog = [], action, images, messages = [], sessionContext } = body;
+    const { prompt, mode = 'ask', action, images, messages = [], sessionContext } = body;
 
     // Extract language parameters (defaults to Polish/English for backward compatibility)
     const { targetLanguage, nativeLanguage } = extractLanguages(body);
@@ -249,9 +249,6 @@ export default async function handler(req: any, res: any) {
     const MAX_PROMPT_LENGTH = 10000;
     const MAX_MESSAGES = 50;
     const MAX_MESSAGE_LENGTH = 5000;
-    const MAX_USERLOG_ITEMS = 50;
-    const MAX_USERLOG_ITEM_LENGTH = 200;
-
     // Image validation limits
     const MAX_IMAGES = 5;
     const MAX_IMAGE_SIZE_BYTES = 4 * 1024 * 1024;      // 4MB per image
@@ -273,14 +270,6 @@ export default async function handler(req: any, res: any) {
             ? msg.content.substring(0, MAX_MESSAGE_LENGTH)
             : msg.content
         }))
-      : [];
-
-    // Sanitize userLog array
-    const sanitizedUserLog = Array.isArray(userLog)
-      ? userLog
-          .slice(0, MAX_USERLOG_ITEMS)
-          .map(item => typeof item === 'string' ? item.substring(0, MAX_USERLOG_ITEM_LENGTH) : '')
-          .filter(item => item.length > 0)
       : [];
 
     // Validate images array
@@ -358,7 +347,7 @@ export default async function handler(req: any, res: any) {
           recentWords: p.recentWords || [],
           stats: p.stats || { totalWords: 0, masteredCount: 0 },
           lastActive: null
-        }, `${p.name}'s Progress`);
+        }, `${p.name}'s Progress`, { level: p.level });
       } else {
         vocabularySection = formatVocabularyPromptSection({
           vocabulary: sessionContext.vocabulary || [],
@@ -367,6 +356,9 @@ export default async function handler(req: any, res: any) {
           recentWords: sessionContext.recentWords || [],
           stats: sessionContext.stats || { totalWords: 0, masteredCount: 0 },
           lastActive: null
+        }, undefined, {
+          level: sessionContext.level,
+          knownWords: sessionContext.knownWordsList
         });
       }
     } else {

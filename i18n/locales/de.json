@@ -1346,6 +1346,7 @@
     "plans": {
       "standard": "Standard",
       "unlimited": "Unbegrenzt",
+      "free": "Kostenlos",
       "none": "Keiner"
     },
     "features": {

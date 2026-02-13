@@ -205,23 +205,69 @@ export class GladiaSession {
   }
 
   /**
-   * Stop listening and disconnect
+   * Stop listening and disconnect gracefully.
+   * Waits up to 5s for Gladia's post_processing summary before closing.
    */
-  disconnect(): void {
-    if (this.hasCalledOnClose) return;  // Already disconnecting
+  async disconnect(): Promise<void> {
+    if (this.hasCalledOnClose) return;
     this.hasCalledOnClose = true;
     log('Disconnecting...');
 
-    // Send stop_recording signal to trigger any final processing
+    // 1. Stop audio capture immediately (no more audio sent)
+    this.audioRecorder?.stop();
+    this.audioRecorder = null;
+
+    // 2. Send stop_recording and wait for summary
     if (this.ws && this.ws.readyState === WebSocket.OPEN) {
-      try {
-        this.ws.send(JSON.stringify({ type: 'stop_recording' }));
-      } catch (e) {
-        // Ignore
+      // Install handlers BEFORE sending stop_recording to avoid race
+      await new Promise<void>((resolve) => {
+        const timeout = setTimeout(() => {
+          log('Summary wait timeout — closing without summary');
+          resolve();
+        }, 5000);
+
+        // Override onmessage to intercept post_processing
+        this.ws!.onmessage = (event) => {
+          this.handleMessage(event.data);
+          try {
+            const msg = JSON.parse(event.data);
+            if (msg.type === 'post_processing') {
+              clearTimeout(timeout);
+              log('Summary received — closing');
+              resolve();
+            }
+          } catch (e) { /* ignore parse errors */ }
+        };
+
+        // If Gladia closes the socket from its side, also resolve
+        this.ws!.onclose = () => {
+          clearTimeout(timeout);
+          log('WebSocket closed by server during summary wait');
+          this.ws = null;  // Already closed, prevent double close in step 3
+          resolve();
+        };
+
+        // Now send stop_recording (handlers already installed)
+        try {
+          this.ws!.send(JSON.stringify({ type: 'stop_recording' }));
+        } catch (e) { /* ignore send errors */ }
+      });
+
+      // Null out handlers after promise resolves (prevents stale callbacks)
+      if (this.ws) {
+        this.ws.onmessage = null;
+        this.ws.onclose = null;
       }
     }
 
-    this.cleanup();
+    // 3. Close WebSocket if still open (may already be null if server closed it)
+    if (this.ws) {
+      try { this.ws.close(); } catch (e) { /* ignore */ }
+      this.ws = null;
+    }
+
+    this.audioChunkCount = 0;
+    this.sessionId = null;
     this.setState('disconnected');
     this.config.onClose?.();
   }

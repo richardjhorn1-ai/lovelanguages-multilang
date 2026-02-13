@@ -1,5 +1,9 @@
-import { createClient } from '@supabase/supabase-js';
-import { setCorsHeaders, verifyAuth } from '../utils/api-middleware.js';
+import {
+  setCorsHeaders,
+  verifyAuth,
+  createServiceClient,
+  getSubscriptionPlan,
+} from '../utils/api-middleware.js';
 
 // Plan limits
 const PLAN_LIMITS = {
@@ -46,44 +50,41 @@ export default async function handler(req: any, res: any) {
       return res.status(401).json({ error: 'Unauthorized. Please log in.' });
     }
 
-    // Get user's subscription status
-    const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
-    const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
-    const supabase = createClient(supabaseUrl!, supabaseServiceKey!);
+    const supabase = createServiceClient();
+    if (!supabase) {
+      return res.status(500).json({ error: 'Server configuration error' });
+    }
+
+    // Determine effective plan using centralized logic
+    const plan = await getSubscriptionPlan(supabase, auth.userId);
+    const limits = PLAN_LIMITS[plan as keyof typeof PLAN_LIMITS] || PLAN_LIMITS.none;
 
     const { data: profile } = await supabase
       .from('profiles')
-      .select(`
-        subscription_plan,
-        subscription_status,
-        subscription_period,
-        subscription_ends_at,
-        subscription_started_at,
-        free_tier_chosen_at,
-        trial_expires_at
-      `)
+      .select('subscription_plan, subscription_status, subscription_period, subscription_ends_at, subscription_started_at, free_tier_chosen_at, trial_expires_at, created_at')
       .eq('id', auth.userId)
       .single();
 
-    // Determine effective plan: paid subscription > free tier > none
-    let plan: keyof typeof PLAN_LIMITS = 'none';
-    if (profile?.subscription_status === 'active' && profile?.subscription_plan) {
-      plan = (profile.subscription_plan as keyof typeof PLAN_LIMITS) || 'standard';
-    } else if (profile?.free_tier_chosen_at) {
-      plan = 'free';
-    }
-    const limits = PLAN_LIMITS[plan] || PLAN_LIMITS.none;
+    // Calculate rolling 30-day usage window (matches checkRateLimit logic)
+    const now = new Date();
+    const signupDate = new Date(profile.created_at);
+    const daysSinceSignup = Math.floor((now.getTime() - signupDate.getTime()) / (1000 * 60 * 60 * 24));
+    const currentPeriod = Math.floor(daysSinceSignup / 30);
 
-    // Get current month's usage
-    const startOfMonth = new Date();
-    startOfMonth.setDate(1);
-    startOfMonth.setHours(0, 0, 0, 0);
+    const periodStartDate = new Date(signupDate);
+    periodStartDate.setDate(periodStartDate.getDate() + (currentPeriod * 30));
+    const periodStart = periodStartDate.toISOString().split('T')[0];
+
+    const periodEndDate = new Date(periodStartDate);
+    periodEndDate.setDate(periodEndDate.getDate() + 30);
+    const periodEnd = periodEndDate.toISOString().split('T')[0];
 
     const { data: usage } = await supabase
       .from('usage_tracking')
       .select('usage_type, count')
       .eq('user_id', auth.userId)
-      .gte('usage_date', startOfMonth.toISOString().split('T')[0]);
+      .gte('usage_date', periodStart)
+      .lt('usage_date', periodEnd);
 
     const usageMap: Record<string, number> = {};
     (usage || []).forEach((u: any) => {
@@ -105,7 +106,6 @@ export default async function handler(req: any, res: any) {
       .gt('expires_at', new Date().toISOString());
 
     // Calculate trial status
-    const now = new Date();
     const trialExpiresAt = profile?.trial_expires_at ? new Date(profile.trial_expires_at) : null;
     const trialActive = !!profile?.free_tier_chosen_at && (!trialExpiresAt || trialExpiresAt > now);
     const trialExpired = trialExpiresAt && trialExpiresAt <= now;
@@ -116,7 +116,7 @@ export default async function handler(req: any, res: any) {
 
     return res.status(200).json({
       subscription: {
-        plan: profile?.subscription_plan || 'none',
+        plan: plan,
         status: profile?.subscription_status || 'inactive',
         period: profile?.subscription_period || null,
         endsAt: profile?.subscription_ends_at || null,

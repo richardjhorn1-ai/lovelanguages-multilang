@@ -17,7 +17,6 @@ export interface ConversationScenario {
 
 export interface LiveSessionConfig {
   mode: ChatMode | 'conversation';
-  userLog?: string[];
   conversationScenario?: ConversationScenario;
   userName?: string;
   targetLanguage?: string;
@@ -85,7 +84,6 @@ export class LiveSession {
         },
         body: JSON.stringify({
           mode: this.config.mode,
-          userLog: this.config.userLog || [],
           conversationScenario: this.config.conversationScenario,
           userName: this.config.userName,
           targetLanguage: this.config.targetLanguage,

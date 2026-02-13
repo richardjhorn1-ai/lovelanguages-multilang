@@ -1346,6 +1346,7 @@
     "plans": {
       "standard": "Standard",
       "unlimited": "Neomezený",
+      "free": "Zdarma",
       "none": "Žádný"
     },
     "features": {

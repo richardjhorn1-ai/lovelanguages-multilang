@@ -1346,6 +1346,7 @@
     "plans": {
       "standard": "Standaard",
       "unlimited": "Onbeperkt",
+      "free": "Gratis",
       "none": "Geen"
     },
     "features": {

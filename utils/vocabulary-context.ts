@@ -146,15 +146,21 @@ export async function fetchVocabularyContext(
  * Format vocabulary tier data into a prompt section for Gemini.
  * @param tier - Vocabulary tier data from fetchVocabularyContext
  * @param label - Optional label (e.g., partner name for tutors: "Anna's Progress")
+ * @param options - Optional level and knownWords for stronger dedup and difficulty calibration
  */
-export function formatVocabularyPromptSection(tier: VocabularyTier, label?: string): string {
+export function formatVocabularyPromptSection(
+  tier: VocabularyTier,
+  label?: string,
+  options?: { level?: string; knownWords?: string[] }
+): string {
   if (tier.stats.totalWords === 0) {
     return 'VOCABULARY: New learner — no words yet. Start with basics.';
   }
 
+  const levelPart = options?.level ? `Level: ${options.level}, ` : '';
   const header = label
-    ? `VOCABULARY CONTEXT — ${label} (knows ${tier.stats.totalWords} words total, ${tier.stats.masteredCount} mastered):`
-    : `VOCABULARY CONTEXT (knows ${tier.stats.totalWords} words total, ${tier.stats.masteredCount} mastered):`;
+    ? `VOCABULARY CONTEXT — ${label} (${levelPart}${tier.stats.totalWords} words, ${tier.stats.masteredCount} mastered):`
+    : `VOCABULARY CONTEXT (${levelPart}${tier.stats.totalWords} words, ${tier.stats.masteredCount} mastered):`;
 
   const sections: string[] = [header];
 
@@ -182,12 +188,19 @@ export function formatVocabularyPromptSection(tier: VocabularyTier, label?: stri
     sections.push(`Struggling (${tier.weakSpots.length}): ${weakList}`);
   }
 
+  // Compact blocklist of all known words (just names, no translations — minimal tokens)
+  if (options?.knownWords && options.knownWords.length > 0) {
+    const capped = options.knownWords.slice(0, 500);
+    sections.push(`\nALL KNOWN WORDS (${options.knownWords.length}): ${capped.join(', ')}`);
+  }
+
   sections.push('');
   sections.push('RULES:');
-  sections.push('- SILENT CONTEXT: This vocabulary data is for YOUR awareness only — never narrate it back. Don\'t say things like "You already know X" or "Building on your knowledge of Y" or "Since you\'ve mastered Z"');
-  sections.push('- Skip mastered words unless the user specifically asks about them. Just teach new things at the right level');
+  sections.push('- SILENT CONTEXT: Don\'t narrate vocabulary data back. Avoid phrases like "You already know X" or "Building on your knowledge of Y" — use the data to inform your teaching, not to comment on it');
+  sections.push('- DO NOT teach or introduce ANY word from ALL KNOWN WORDS as new vocabulary. Instead, use known words naturally in examples and teach NEW words they haven\'t seen — synonyms, related expressions, more advanced alternatives, or different ways to say similar things');
+  sections.push('- If the user explicitly asks about a known word (e.g., "how do I use kochanie in a sentence?"), answer their question naturally');
   sections.push('- Weave struggling words into responses naturally to give extra practice, without pointing out they\'re struggling');
-  sections.push('- If celebrating a milestone, keep it to one brief line — don\'t list what they know');
+  sections.push('- TARGET LEVEL: Pitch new vocabulary and grammar at their current level. Don\'t over-simplify for advanced users or overwhelm beginners');
 
   return sections.join('\n');
 }
