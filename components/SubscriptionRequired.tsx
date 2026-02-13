@@ -286,7 +286,15 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 flex flex-col items-center justify-center p-4 sm:p-6" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
+    <div
+      className="h-full overflow-y-auto overscroll-contain bg-gradient-to-br from-pink-50 to-rose-100"
+      style={{
+        WebkitOverflowScrolling: 'touch',
+        touchAction: 'pan-y',
+        paddingTop: 'env(safe-area-inset-top, 0px)',
+      }}
+    >
+      <div className="min-h-full flex flex-col items-center justify-center p-4 sm:p-6">
       <div className="max-w-4xl w-full">
         {/* Header */}
         <div className="text-center mb-6">
@@ -469,6 +477,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
             {t('subscription.required.signOutOption')}
           </button>
         </div>
+      </div>
       </div>
     </div>
   );
