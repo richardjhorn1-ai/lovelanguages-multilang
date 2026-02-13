@@ -1556,7 +1556,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             >
               <span>👂</span>
               <span className="text-scale-caption font-bold hidden sm:inline">{t('chat.listen.title')}</span>
-              <span className="text-scale-micro px-1 py-0.5 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 rounded font-bold">{t('chat.listen.beta')}</span>
+              <span className="text-scale-micro text-amber-500 dark:text-amber-400 font-bold">{t('chat.listen.beta')}</span>
             </button>
           )}
         </div>
