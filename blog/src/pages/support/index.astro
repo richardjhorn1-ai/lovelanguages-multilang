@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { canonicalUrl } from '../../lib/urls';
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Support — Love Languages",
+  "description": "Get help with the Love Languages app. Contact support, report bugs, and find answers to common questions.",
+  "url": canonicalUrl('/support'),
+  "publisher": {
+    "@type": "Organization",
+    "name": "Love Languages",
+    "url": "https://www.lovelanguages.io/"
+  }
+};
+---
+
+<BaseLayout
+  title="Support — Love Languages"
+  description="Get help with the Love Languages app. Contact support, report bugs, and find answers to common questions."
+  canonical={canonicalUrl('/support')}
+>
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <!-- Header -->
+  <header class="bg-gradient-to-b from-accent/10 to-white">
+    <div class="max-w-3xl mx-auto px-4 py-10 md:py-14">
+      <div class="text-center">
+        <h1 class="text-4xl md:text-5xl font-black font-header text-gray-900 mb-4">
+          Support
+        </h1>
+        <p class="text-xl text-gray-600">
+          We're here to help you and your partner on your language learning journey.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-4 py-12 space-y-10">
+
+    <!-- Contact -->
+    <section class="bg-white rounded-2xl shadow-md border border-gray-100 p-6 md:p-8">
+      <h2 class="text-2xl font-bold font-header text-gray-900 mb-4">Contact Us</h2>
+      <p class="text-gray-600 text-lg mb-4">
+        Have a question, suggestion, or need help with your account? Reach out and we'll get back to you as soon as possible.
+      </p>
+      <a
+        href="mailto:support@lovelanguages.xyz"
+        class="inline-flex items-center gap-2 bg-accent text-white font-bold px-6 py-3 rounded-full hover:shadow-lg hover:scale-105 transition-all"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+          <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+        </svg>
+        support@lovelanguages.xyz
+      </a>
+    </section>
+
+    <!-- Bug Reports -->
+    <section class="bg-white rounded-2xl shadow-md border border-gray-100 p-6 md:p-8">
+      <h2 class="text-2xl font-bold font-header text-gray-900 mb-4">Report a Bug</h2>
+      <p class="text-gray-600 text-lg mb-4">
+        Found something that isn't working right? You can report bugs directly from within the app using the bug report button in the navigation bar. This automatically captures helpful details like your browser and app state so we can fix things faster.
+      </p>
+      <p class="text-gray-600 text-lg">
+        If you can't access the app, email us at
+        <a href="mailto:support@lovelanguages.xyz" class="text-accent font-medium hover:underline">support@lovelanguages.xyz</a>
+        with a description of the issue.
+      </p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="bg-white rounded-2xl shadow-md border border-gray-100 p-6 md:p-8">
+      <h2 class="text-2xl font-bold font-header text-gray-900 mb-6">Common Questions</h2>
+      <div class="space-y-6">
+        <div>
+          <h3 class="text-lg font-bold font-header text-gray-900 mb-1">How do I reset my password?</h3>
+          <p class="text-gray-600">Tap "Forgot password" on the login screen and enter your email. You'll receive a link to set a new password.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold font-header text-gray-900 mb-1">How do I invite my partner?</h3>
+          <p class="text-gray-600">Go to your Profile tab and tap "Invite Partner." You'll get a link to share with them. One of you learns as the Student, the other guides as the Tutor.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold font-header text-gray-900 mb-1">Can I switch my target language?</h3>
+          <p class="text-gray-600">Yes — go to your Profile and tap on your language settings. You can change your target or native language at any time. Your vocabulary is saved per language pair.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold font-header text-gray-900 mb-1">How do I cancel my subscription?</h3>
+          <p class="text-gray-600">You can manage or cancel your subscription from your Profile tab under "Manage Subscription." You'll keep access until the end of your current billing period.</p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold font-header text-gray-900 mb-1">What languages are supported?</h3>
+          <p class="text-gray-600">We support 18 languages: English, Spanish, French, German, Italian, Portuguese, Polish, Dutch, Swedish, Norwegian, Danish, Czech, Russian, Ukrainian, Romanian, Greek, Hungarian, and Turkish. Any language can be your native or target language.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 border-t border-gray-200 py-12">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <a href="/" class="inline-flex items-center gap-2 text-2xl font-bold font-header text-accent mb-4">
+        <img src="/favicon.svg" alt="" class="w-8 h-8" />
+        Love Languages
+      </a>
+      <p class="text-gray-600 mb-6">Learn your partner's language together</p>
+      <nav class="flex justify-center gap-6 text-sm text-gray-500">
+        <a href="/learn/" class="hover:text-accent">Blog</a>
+        <a href="/tools/" class="hover:text-accent">Tools</a>
+        <a href="/support/" class="hover:text-accent">Support</a>
+        <a href="/terms/" class="hover:text-accent">Terms</a>
+        <a href="/privacy/" class="hover:text-accent">Privacy</a>
+      </nav>
+    </div>
+  </footer>
+</BaseLayout>

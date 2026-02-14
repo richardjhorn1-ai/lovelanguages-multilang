@@ -17,6 +17,7 @@ export const GET: APIRoute = async () => {
     { loc: '/tools/name-day-finder/', priority: '0.7', changefreq: 'monthly' },
     { loc: '/dictionary/', priority: '0.6', changefreq: 'monthly' },
     { loc: '/compare/', priority: '0.75', changefreq: 'monthly' },
+    { loc: '/support/', priority: '0.5', changefreq: 'monthly' },
   ];
 
   // Dynamic hub pages from Supabase data
