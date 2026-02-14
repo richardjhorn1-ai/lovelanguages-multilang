@@ -8,7 +8,7 @@
 
 | # | Thread | Best Audience | Suggested Date |
 |---|--------|---------------|----------------|
-| 1 | Launch / Valentine's Day | Everyone | Feb 14 |
+| 1 | Launch / Valentine's Day | General audience, AI-curious | Feb 14 |
 | 2 | SEO, GEO & AEO | Marketers, SEO folks | Feb 19 |
 | 3 | Love Log (vocabulary extraction) | Product builders | Feb 24 |
 | 4 | Mobile & Desktop Design | Frontend devs | Feb 26 |
@@ -27,79 +27,61 @@
 
 ## THREAD 1: THE LAUNCH (Valentine's Day)
 
-**1/9**
+**Audience:** General audience, people curious about AI coding, couples
+**Tone:** Personal, heartfelt, accessible — no jargon
+**Media:** Attach promo video to tweet 1 or 2
 
-This Valentine's Day, I'm launching the app I built to talk to my girlfriend's family.
+**1/7**
 
-Love Languages -- a language learning app for couples. 18 languages. 306 possible pairs. Built in 2 months. 667 commits. Still waiting on Apple.
+Before January 2nd, I'd never really coded anything.
 
-Here's the story.
+Six weeks later, I have a full app in the App Store. AI chat, voice conversations, games, 18 languages, 5,000+ blog articles.
 
-**2/9**
+I built it because I couldn't talk to my girlfriend's family. Here's the story.
 
-It started because I couldn't keep up at dinner.
+**2/7**
 
-My girlfriend is Polish. Her family speaks Polish. I'd sit there smiling and nodding, understanding nothing.
+My girlfriend is Polish. Her family speaks Polish. I'd sit at dinner smiling and nodding, understanding nothing.
 
-So I hacked together a terrible chatbot in Google AI Studio. Just me, English to Polish, asking "how do I say pass the salt."
+So I made a terrible chatbot — just me asking AI "how do I say pass the salt." It was ugly. But it worked. I was actually learning.
 
-**3/9**
+The first time I told her mom I loved her cooking — in Polish — she cried.
 
-But it worked. I was actually learning. The AI could explain grammar in context, correct my mistakes, teach me phrases I'd actually use -- like how to tell her parents I loved their cooking.
+**3/7**
 
-That's when I thought: what if this wasn't just for me?
+That moment changed everything.
 
-**4/9**
+I thought: what if other couples had this? What if the person you love could actually *teach* you their language — and the app helped you both?
 
-So I forked the whole thing and rebuilt it from scratch.
+So I rebuilt it. Not just for Polish. For any couple, any language pair. 18 languages, 306 combinations.
 
-The old app was hardcoded Polish everywhere. Variable names literally called `polish` and `english`. One language pair. One user.
+**4/7**
 
-The new version? 18 languages. Any can be native, any can be target. A Spanish speaker learning Turkish. A French speaker learning Greek. 306 possible pairs.
+The whole thing was built with Claude — Anthropic's AI. I'm not a developer. I'd describe what I wanted, Claude would write the code, I'd test it, we'd fix it together.
 
-**5/9**
+667 commits. 70+ bugs squashed. A full React app with a database, APIs, voice features, games — all of it.
 
-The multi-language transformation touched everything.
+[attach promo video here]
 
-13 database tables got a new language_code column. 18 API endpoints rewritten. 800+ UI strings internationalized across 50+ components. The type system overhauled -- `polish` became `word`, `english` became `translation`.
+**5/7**
 
-All in about 3 days.
-
-**6/9**
-
-What we built:
-
-- AI chat (ask, learn, coach modes)
-- Real-time voice conversations with Gemini Live
-- A "Listen Mode" that transcribes conversations around you
-- 7 game modes (flashcards, quick fire, verb dojo)
-- A couples system -- one teaches, one learns
-- Offline mode with background sync
-- 5,000+ SEO blog articles
-
-**7/9**
-
-The bugs were legendary.
-
-React stale closures breaking every game timer. MDX syntax errors multiplied by 18 languages. A 10-hour debug session branch accidentally merged to production. 4,036 broken internal links across 1,813 blog articles.
-
-70+ issues documented and resolved.
-
-**8/9**
-
-The best feature is the tutor role.
-
-Your partner -- the native speaker -- becomes your teacher. They get XP for helping you. They can see which words you're stuck on. They send you challenges and love notes.
+Your partner — the native speaker — becomes your teacher. They get XP for helping you. They can see which words you're stuck on. They send you challenges and little love notes in their language.
 
 You're not just learning a language. You're learning *their* language. Together.
 
-**9/9**
+**6/7**
 
-Today it's Valentine's Day 2026. The app is submitted to the App Store and we're still in review. (Come on, Apple. Read the room.)
+Today is Valentine's Day 2026. The app is submitted to the App Store and we're still waiting on review. (Come on, Apple. Read the room.)
 
-This is tweet one from a brand new account with zero followers. If you're in a multilingual relationship and this resonates -- we built this for you.
+If you're in a multilingual relationship — or just curious what one person can build with AI in six weeks — we made this for you.
 
 lovelanguages.io
+
+**7/7**
+
+This is tweet one from a zero-follower account. I'll be posting more over the next few weeks — how the blog system works, the voice features, the design, all of it.
+
+If this resonates, a follow or retweet means the world. Happy Valentine's Day.
 
 ---
 
