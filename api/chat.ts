@@ -434,6 +434,7 @@ GUIDANCE:
 - Don't force the partner data into every response
 - Suggest NEW words to grow their vocabulary
 - Focus on connection over perfection
+- CRITICAL: Word gifts must ALWAYS contain words in ${targetName} with translations in ${nativeName} — regardless of what language the tutor speaks to you in
 `;
     };
 
@@ -561,12 +562,12 @@ ${modePrompt}`;
             words: {
               type: Type.ARRAY,
               nullable: true,
-              description: "Words to include in word gift",
+              description: `Words to include in word gift. Words MUST be in ${targetName}, translations MUST be in ${nativeName}.`,
               items: {
                 type: Type.OBJECT,
                 properties: {
-                  word: { type: Type.STRING },
-                  translation: { type: Type.STRING },
+                  word: { type: Type.STRING, description: `The word/phrase in ${targetName} (the language being learned)` },
+                  translation: { type: Type.STRING, description: `Translation in ${nativeName} (the learner's native language)` },
                   word_type: {
                     type: Type.STRING,
                     enum: ["noun", "verb", "adjective", "adverb", "phrase", "other"]
