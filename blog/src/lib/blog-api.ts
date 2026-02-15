@@ -31,6 +31,8 @@ export interface BlogArticle {
   created_at: string;
   updated_at: string;
   published: boolean;
+  topic_id: string | null;
+  is_canonical: boolean;
 }
 
 export type BlogArticleSummary = Pick<BlogArticle,
@@ -457,4 +459,53 @@ export async function getArticleCountsByTargetLang(
   }
 
   return counts;
+}
+
+/**
+ * Get alternate native-language versions of an article by topic_id.
+ * Used for hreflang tags — returns other native_lang versions of the same topic+target.
+ */
+export async function getAlternatesByTopicId(
+  topicId: string | null,
+  targetLang: string,
+  excludeNativeLang: string
+): Promise<{ native_lang: string; slug: string }[]> {
+  if (!topicId) return [];
+
+  const { data, error } = await supabase
+    .from('blog_articles')
+    .select('native_lang, slug')
+    .eq('topic_id', topicId)
+    .eq('target_lang', targetLang)
+    .eq('published', true)
+    .eq('is_canonical', true)
+    .neq('native_lang', excludeNativeLang);
+
+  if (error) return [];
+  return data || [];
+}
+
+/**
+ * Get the canonical article for a given topic in a specific language pair.
+ * Used for redirecting non-canonical articles to their canonical version.
+ */
+export async function getCanonicalForTopic(
+  topicId: string | null,
+  nativeLang: string,
+  targetLang: string
+): Promise<{ slug: string } | null> {
+  if (!topicId) return null;
+
+  const { data } = await supabase
+    .from('blog_articles')
+    .select('slug')
+    .eq('topic_id', topicId)
+    .eq('native_lang', nativeLang)
+    .eq('target_lang', targetLang)
+    .eq('published', true)
+    .eq('is_canonical', true)
+    .limit(1)
+    .maybeSingle();
+
+  return data;
 }

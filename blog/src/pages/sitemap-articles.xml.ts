@@ -2,7 +2,8 @@ import type { APIRoute } from 'astro';
 import { getAllSlugs } from '../lib/blog-api';
 
 export const GET: APIRoute = async () => {
-  const slugs = await getAllSlugs();
+  const allSlugs = await getAllSlugs();
+  const slugs = allSlugs.filter(s => s.target_lang !== 'all');
 
   const urls = slugs.map(({ native_lang, target_lang, slug, updated_at }) => {
     const lastmod = updated_at ? `\n    <lastmod>${new Date(updated_at).toISOString().split('T')[0]}</lastmod>` : '';

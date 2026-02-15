@@ -1,7 +1,7 @@
 ---
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import LoveNote from '../../components/LoveNote.astro';
-import { getArticle, getArticlesByLangPair, getAllSlugs } from '../../lib/blog-api';
+import { getArticle, getArticlesByLangPair, getAlternatesByTopicId } from '../../lib/blog-api';
 import { sanitizeArticleContent } from '../../lib/sanitize-content';
 import { splitContentAtMidpoint } from '../../lib/split-content';
 
@@ -56,6 +56,9 @@ if (!article) {
   return new Response(null, { status: 404, statusText: 'Not Found' });
 }
 
+// Non-canonical articles will be deleted rather than redirected.
+// If is_canonical is ever set to false without deletion, serve as-is (no redirect).
+
 const nativeLanguageInfo = LANGUAGE_INFO[nativeLanguageCode] || LANGUAGE_INFO.en;
 const languageInfo = LANGUAGE_INFO[targetLanguageCode] || LANGUAGE_INFO.pl;
 const languageCode = targetLanguageCode;
@@ -91,14 +94,16 @@ const relatedForLayout = relatedArticles.map(a => ({
   }
 }));
 
-// Find alternate versions (same article in different native languages)
-const allSlugs = await getAllSlugs(undefined, targetLanguageCode);
-const alternateVersions = allSlugs
-  .filter(s => s.slug === articleSlug && s.native_lang !== nativeLanguageCode)
-  .map(s => ({
-    nativeLang: s.native_lang,
-    href: `https://www.lovelanguages.io/learn/${s.native_lang}/${s.target_lang}/${s.slug}/`
-  }));
+// Find alternate versions (same topic in different native languages) via topic_id
+const alternates = await getAlternatesByTopicId(
+  article.topic_id,
+  targetLanguageCode,
+  nativeLanguageCode
+);
+const alternateVersions = alternates.map(a => ({
+  nativeLang: a.native_lang,
+  href: `https://www.lovelanguages.io/learn/${a.native_lang}/${targetLanguageCode}/${a.slug}/`
+}));
 
 // Cross-pair articles (simplified)
 const crossPairArticles: any[] = [];

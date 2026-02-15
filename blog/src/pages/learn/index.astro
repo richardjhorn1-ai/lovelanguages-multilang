@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getArticlesByNativeLang, getArticleCountsByTargetLang } from '../../lib/blog-api';
 import { LANGUAGE_HUB_DATA } from '../../data/language-hub-data';
+import { SUPPORTED_NATIVE_LANGS } from '../../data/language-info';
 
 // Get all counts in a single query instead of 12+ sequential queries
 const [languageCounts, latestArticles] = await Promise.all([
@@ -42,6 +43,14 @@ const jsonLd = {
   description={`Free language lessons, vocabulary guides, and cultural tips for couples learning together. ${totalArticles}+ articles across 17 languages.`}
   nativeLang="en"
 >
+  <Fragment slot="head">
+    <link rel="alternate" hreflang="en" href="https://www.lovelanguages.io/learn/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.lovelanguages.io/learn/" />
+    {SUPPORTED_NATIVE_LANGS.filter(lang => lang !== 'en').map(lang => (
+      <link rel="alternate" hreflang={lang} href={`https://www.lovelanguages.io/learn/${lang}/`} />
+    ))}
+  </Fragment>
+
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   <!-- Hero -->

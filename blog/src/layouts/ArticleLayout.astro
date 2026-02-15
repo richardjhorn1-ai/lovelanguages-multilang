@@ -316,9 +316,11 @@ const howToJsonLd = isHowTo ? {
   ]
 } : null;
 
-// AEO: FAQ Schema for enhanced search visibility
-const faqItems = generateFAQItems(title, languageInfo.name, category);
-const faqJsonLd = {
+// AEO: FAQ Schema for enhanced search visibility (English pages only)
+const faqItems = nativeLanguageCode === 'en'
+  ? generateFAQItems(title, languageInfo.name, category)
+  : [];
+const faqJsonLd = faqItems.length > 0 ? {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": faqItems.map(faq => ({
@@ -329,7 +331,7 @@ const faqJsonLd = {
       "text": faq.answer
     }
   }))
-};
+} : null;
 ---
 
 <BaseLayout
@@ -355,8 +357,10 @@ const faqJsonLd = {
       <script type="application/ld+json" set:html={JSON.stringify(howToJsonLd)} />
     )}
 
-    {/* AEO: FAQ Schema for enhanced search visibility */}
-    <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+    {/* AEO: FAQ Schema for enhanced search visibility (English pages only) */}
+    {faqJsonLd && (
+      <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+    )}
 
     {/* Hreflang tags for multi-language SEO
         - nativeLanguageCode = language the article is written in (e.g., "en" for English speakers)

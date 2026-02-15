@@ -22,6 +22,7 @@
  */
 
 import Anthropic from '@anthropic-ai/sdk';
+import { createClient } from '@supabase/supabase-js';
 import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
@@ -58,6 +59,8 @@ interface ArticleConfig {
   difficulty: 'beginner' | 'intermediate' | 'advanced';
   dryRun: boolean;
   noImage: boolean;
+  force: boolean;
+  nativeLang: string;
 }
 
 interface GeneratedArticle {
@@ -79,6 +82,8 @@ function parseArgs(): ArticleConfig {
     difficulty: 'beginner',
     dryRun: false,
     noImage: false,
+    force: false,
+    nativeLang: 'en',
   };
 
   for (let i = 0; i < args.length; i++) {
@@ -104,6 +109,12 @@ function parseArgs(): ArticleConfig {
         break;
       case '--no-image':
         config.noImage = true;
+        break;
+      case '--force':
+        config.force = true;
+        break;
+      case '--native-lang':
+        config.nativeLang = args[++i];
         break;
       case '-h':
       case '--help':
@@ -343,6 +354,104 @@ import CTA from '@components/CTA.astro';
   return frontmatter + article.content;
 }
 
+/**
+ * Check if a similar article already exists for this (native_lang, target_lang) pair.
+ * Uses Gemini to compare the new article's title against existing titles.
+ */
+async function checkForDuplicateTopic(
+  title: string,
+  nativeLang: string,
+  targetLang: string
+): Promise<{ isDuplicate: boolean; matchingSlug?: string; matchingTitle?: string; topicId?: string }> {
+  // Load env for Supabase + Gemini
+  const envPath = path.join(__dirname, '..', '..', '.env.local');
+  if (!fs.existsSync(envPath)) {
+    console.log('   Skipping duplicate check (no .env.local)');
+    return { isDuplicate: false };
+  }
+
+  const envContent = fs.readFileSync(envPath, 'utf-8');
+  const env: Record<string, string> = {};
+  envContent.split('\n').forEach(line => {
+    const [key, ...vals] = line.split('=');
+    if (key && vals.length) {
+      env[key.trim()] = vals.join('=').trim().replace(/^["']|["']$/g, '');
+    }
+  });
+
+  const supabaseUrl = env.SUPABASE_URL || env.VITE_SUPABASE_URL;
+  const supabaseKey = env.SUPABASE_SERVICE_KEY;
+  const geminiKey = env.GEMINI_API_KEY;
+
+  if (!supabaseUrl || !supabaseKey || !geminiKey) {
+    console.log('   Skipping duplicate check (missing credentials)');
+    return { isDuplicate: false };
+  }
+
+  const supabase = createClient(supabaseUrl, supabaseKey);
+
+  // Fetch existing articles for this pair
+  const { data: existing, error } = await supabase
+    .from('blog_articles')
+    .select('slug, title, topic_id')
+    .eq('native_lang', nativeLang)
+    .eq('target_lang', targetLang)
+    .eq('published', true);
+
+  if (error || !existing || existing.length === 0) {
+    return { isDuplicate: false };
+  }
+
+  // Use Gemini to check for topic match
+  const existingList = existing.map((a, i) => `${i + 1}. "${a.title}"`).join('\n');
+  const prompt = `Is this new article about the SAME topic as any of the existing articles listed below?
+
+New article title: "${title}"
+
+Existing articles:
+${existingList}
+
+Rules:
+- "Same topic" means they cover the same core subject for the same audience
+- Different angles on the same subject ARE the same topic
+- Similar but distinct topics are NOT the same (e.g., "pet names" vs "romantic phrases")
+
+Return ONLY JSON: {"match": true/false, "matchIndex": <1-based index or null>}`;
+
+  const GEMINI_API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${geminiKey}`;
+  const response = await fetch(GEMINI_API_URL, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      contents: [{ parts: [{ text: prompt }] }],
+      generationConfig: { temperature: 0.1, responseMimeType: 'application/json' },
+    }),
+  });
+
+  if (!response.ok) return { isDuplicate: false };
+
+  const result = await response.json();
+  const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+  if (!text) return { isDuplicate: false };
+
+  try {
+    const parsed = JSON.parse(text.trim());
+    if (parsed.match && parsed.matchIndex) {
+      const match = existing[parsed.matchIndex - 1];
+      return {
+        isDuplicate: true,
+        matchingSlug: match?.slug,
+        matchingTitle: match?.title,
+        topicId: match?.topic_id,
+      };
+    }
+  } catch {
+    // JSON parse failed, assume no duplicate
+  }
+
+  return { isDuplicate: false };
+}
+
 async function main() {
   const config = parseArgs();
   const langInfo = LANGUAGE_INFO[config.language];
@@ -360,6 +469,26 @@ async function main() {
     console.log(`   Slug: ${article.slug}`);
     console.log(`   Read time: ${article.readTime} min`);
     console.log(`   Tags: ${article.tags.join(', ')}\n`);
+
+    // Duplicate topic check
+    if (!config.force) {
+      console.log('🔍 Checking for duplicate topics...');
+      const dupCheck = await checkForDuplicateTopic(
+        article.title, config.nativeLang, config.language
+      );
+      if (dupCheck.isDuplicate) {
+        console.error(`\n⚠️  DUPLICATE TOPIC DETECTED!`);
+        console.error(`   New:      "${article.title}"`);
+        console.error(`   Existing: "${dupCheck.matchingTitle}"`);
+        console.error(`   Slug:     ${dupCheck.matchingSlug}`);
+        if (dupCheck.topicId) {
+          console.error(`   Topic ID: ${dupCheck.topicId}`);
+        }
+        console.error(`\n   Use --force to generate anyway.\n`);
+        process.exit(1);
+      }
+      console.log('   No duplicates found.\n');
+    }
 
     // Generate hero image (unless --no-image or dry run)
     let imagePath: string | null = null;
