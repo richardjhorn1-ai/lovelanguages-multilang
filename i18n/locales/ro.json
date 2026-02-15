@@ -616,7 +616,11 @@
       "example": "Exemplu",
       "noExample": "Niciun exemplu disponibil.",
       "conjugations": "Conjugari",
-      "forms": "Forme"
+      "forms": "Forme",
+      "enriching": "Îmbogățire...",
+      "enrichingDetail": "AI pregătește exemple și gramatică...",
+      "enrichingTip": "Se generează sfatul de utilizare...",
+      "enrichingForms": "Se generează formele gramaticale..."
     },
     "modal": {
       "present": "Prezent",

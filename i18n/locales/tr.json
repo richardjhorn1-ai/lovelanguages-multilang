@@ -616,7 +616,11 @@
       "example": "Örnek",
       "noExample": "Örnek mevcut değil.",
       "conjugations": "Çekimler",
-      "forms": "Formlar"
+      "forms": "Formlar",
+      "enriching": "Zenginleştiriliyor...",
+      "enrichingDetail": "Yapay zekâ örnekler ve dilbilgisi hazırlıyor...",
+      "enrichingTip": "Kullanım ipucu oluşturuluyor...",
+      "enrichingForms": "Dilbilgisi formları oluşturuluyor..."
     },
     "modal": {
       "present": "Şimdiki",

@@ -616,7 +616,11 @@
       "example": "Ejemplo",
       "noExample": "Sin ejemplo disponible.",
       "conjugations": "Conjugaciones",
-      "forms": "Formas"
+      "forms": "Formas",
+      "enriching": "Enriqueciendo...",
+      "enrichingDetail": "La IA está preparando ejemplos y gramática...",
+      "enrichingTip": "Generando consejo de uso...",
+      "enrichingForms": "Generando formas gramaticales..."
     },
     "modal": {
       "present": "Presente",

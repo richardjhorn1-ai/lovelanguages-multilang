@@ -61,7 +61,7 @@ For EACH word, provide:
 - original: A sample sentence using the word in ${targetName}
 - root: Root/base form
 - proTip: Brief usage tip (max 60 chars)
-- examples: 5 example sentences in ${targetName} with ${nativeName} translations in parentheses
+- examples: 2 example sentences in ${targetName} with ${nativeName} translations in parentheses
 ${grammarInstructions}
 Return a JSON array with ${words.length} objects in the same order as the input.`,
       config: {
@@ -181,37 +181,26 @@ export default async function handler(req: any, res: any) {
     const profile = profileResult.data;
     const tutorProfile = tutorProfileResult.data;
 
-    // Step 1: BATCH enrich ALL words in ONE Gemini call (not N+1)
-    const wordsToEnrich = selectedWords.map((w: any) => ({
-      word: w.word,
-      translation: w.translation,
-      wordType: w.word_type || 'phrase'
+    // Step 1: Save BASIC word data immediately (no Gemini — that's the bottleneck)
+    const now = new Date().toISOString();
+    const dictionaryEntries = selectedWords.map((word: any) => ({
+      user_id: auth.userId,
+      language_code: targetLanguage,
+      word: word.word.toLowerCase().trim(),
+      translation: word.translation,
+      word_type: word.word_type || 'phrase',
+      example_sentence: null,
+      pro_tip: null,
+      gender: null,
+      plural: null,
+      conjugations: null,
+      adjective_forms: null,
+      enriched_at: null,
+      source: 'gift',
+      unlocked_at: now
     }));
 
-    const enrichedContexts = await batchEnrichWordContexts(wordsToEnrich, targetLanguage, nativeLanguage);
-
-    // Step 2: Prepare all dictionary entries for batch upsert
-    // Map enriched context to dictionary columns
-    const now = new Date().toISOString();
-    const dictionaryEntries = selectedWords.map((word: any, index: number) => {
-      const enriched = enrichedContexts[index] || {};
-      return {
-        user_id: auth.userId,
-        language_code: targetLanguage,
-        word: word.word.toLowerCase().trim(),
-        translation: word.translation,
-        word_type: word.word_type || 'phrase',
-        example_sentence: enriched.original || null,
-        pro_tip: enriched.proTip || 'A gift from your partner!',
-        gender: enriched.gender || null,
-        plural: enriched.plural || null,
-        conjugations: enriched.conjugations || null,
-        adjective_forms: enriched.adjectiveForms || null,
-        unlocked_at: now
-      };
-    });
-
-    // Step 3: Batch upsert ALL dictionary entries
+    // Step 2: Batch upsert ALL dictionary entries
     const { data: insertedWords, error: dictError } = await supabase
       .from('dictionary')
       .upsert(dictionaryEntries, {
@@ -225,7 +214,7 @@ export default async function handler(req: any, res: any) {
       return res.status(500).json({ error: 'Failed to add words to dictionary' });
     }
 
-    // Step 4: Calculate XP and prepare gift_words records
+    // Step 3: Calculate XP and prepare gift_words records
     const addedWords: any[] = [];
     let totalXpEarned = 0;
     const giftWordRecords: any[] = [];
@@ -254,7 +243,7 @@ export default async function handler(req: any, res: any) {
     totalXpEarned += completionBonus;
     const newXp = (profile?.xp || 0) + totalXpEarned;
 
-    // Step 5: Run all post-insert operations in parallel — these are all independent
+    // Step 4: Run all post-insert operations in parallel — these are all independent
     const postInsertOps = [
       // Insert gift_words records
       giftWordRecords.length > 0
@@ -327,7 +316,8 @@ export default async function handler(req: any, res: any) {
       }
     }
 
-    return res.status(200).json({
+    // Respond immediately (~2-3s) — words are saved, user sees success
+    res.status(200).json({
       success: true,
       wordsAdded: addedWords.length,
       words: addedWords,
@@ -341,6 +331,36 @@ export default async function handler(req: any, res: any) {
       giftedBy: tutorProfile?.full_name || 'Your partner',
       activatedChallengeId,
     });
+
+    // === BACKGROUND ENRICHMENT (after response sent) ===
+    // Vercel keeps the function alive until it returns or hits maxDuration.
+    // Words already exist with basic data — enrichment adds examples, pro tips, grammar forms.
+    try {
+      const wordsToEnrich = selectedWords.map((w: any) => ({
+        word: w.word,
+        translation: w.translation,
+        wordType: w.word_type || 'phrase'
+      }));
+
+      const enrichedContexts = await batchEnrichWordContexts(wordsToEnrich, targetLanguage, nativeLanguage);
+
+      // Update each dictionary entry with enriched data
+      for (const [i, dictEntry] of (insertedWords || []).entries()) {
+        const enriched = enrichedContexts[i] || {};
+        await supabase.from('dictionary').update({
+          example_sentence: enriched.original || null,
+          pro_tip: enriched.proTip || null,
+          gender: enriched.gender || null,
+          plural: enriched.plural || null,
+          conjugations: enriched.conjugations || null,
+          adjective_forms: enriched.adjectiveForms || null,
+          enriched_at: new Date().toISOString()
+        }).eq('id', dictEntry.id);
+      }
+    } catch (e) {
+      // Non-fatal: words exist with basic data, still usable in flashcards
+      console.error('[complete-word-request] Background enrichment failed:', e);
+    }
 
   } catch (error: any) {
     console.error('[complete-word-request] Error:', error);

@@ -616,7 +616,11 @@
       "example": "Eksempel",
       "noExample": "Intet eksempel tilgængeligt.",
       "conjugations": "Bøjninger",
-      "forms": "Former"
+      "forms": "Former",
+      "enriching": "Beriger...",
+      "enrichingDetail": "AI forbereder eksempler og grammatik...",
+      "enrichingTip": "Genererer brugstip...",
+      "enrichingForms": "Genererer grammatiske former..."
     },
     "modal": {
       "present": "Nutid",

@@ -619,7 +619,11 @@
       "example": "Example",
       "noExample": "No example available.",
       "conjugations": "Conjugations",
-      "forms": "Forms"
+      "forms": "Forms",
+      "enriching": "Enriching...",
+      "enrichingDetail": "AI is preparing examples and grammar...",
+      "enrichingTip": "Generating usage tip...",
+      "enrichingForms": "Generating grammar forms..."
     },
     "modal": {
       "present": "Present",

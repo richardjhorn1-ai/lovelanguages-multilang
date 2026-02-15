@@ -279,7 +279,7 @@ export function buildVocabularySchema(languageCode: string): GeminiSchema {
     examples: {
       type: Type.ARRAY,
       items: { type: Type.STRING },
-      description: `5 example sentences. Format: "${langName} sentence. (Native translation.)"`
+      description: `2 example sentences. Format: "${langName} sentence. (Native translation.)"`
     },
     rootWord: {
       type: Type.STRING,

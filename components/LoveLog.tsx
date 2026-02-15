@@ -92,7 +92,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
     const [{ data }, { data: scoreData }, { data: giftData }] = await Promise.all([
       supabase
         .from('dictionary')
-        .select('id, user_id, word, translation, word_type, pronunciation, gender, plural, conjugations, adjective_forms, example_sentence, pro_tip, notes, source, language_code, created_at')
+        .select('id, user_id, word, translation, word_type, pronunciation, gender, plural, conjugations, adjective_forms, example_sentence, pro_tip, notes, source, language_code, created_at, enriched_at')
         .eq('user_id', targetUserId)
         .eq('language_code', targetLanguage)
         .order('created_at', { ascending: false }),
@@ -155,6 +155,17 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
       if (timer) clearTimeout(timer);
     };
   }, [fetchEntries]);
+
+  // Auto-poll when gift words are still being enriched (enriched_at is null)
+  useEffect(() => {
+    const hasEnrichingWords = entries.some(e =>
+      giftedWordsMap.has(e.id) && !e.enriched_at
+    );
+    if (!hasEnrichingWords) return;
+
+    const interval = setInterval(() => fetchEntries(), 12_000);
+    return () => clearInterval(interval);
+  }, [entries, giftedWordsMap, fetchEntries]);
 
   // Note: language-switched listener removed — fetchEntries reference changes when
   // targetLanguage changes (via useCallback deps), so useEffect([fetchEntries]) above
@@ -526,6 +537,15 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                     </div>
                   )}
 
+                  {/* Enriching Badge - bottom left (gift words being enriched) */}
+                  {isGifted && !e.enriched_at && (
+                    <div className="absolute bottom-2 md:bottom-3 left-2 md:left-3 flex items-center gap-1 bg-amber-50 dark:bg-amber-900/20 px-1.5 md:px-2 py-0.5 rounded-full animate-pulse">
+                      <span className="text-[7px] md:text-[9px] font-bold text-amber-600 dark:text-amber-400">
+                        {t('loveLog.card.enriching')}
+                      </span>
+                    </div>
+                  )}
+
                   {/* Mastery Badge - top right corner */}
                   {isLearned && (
                     <div className="absolute top-2 md:top-3 right-2 md:right-3 w-6 h-6 md:w-8 md:h-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center" title={t('loveLog.card.mastered')}>
@@ -573,6 +593,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
         const entry = entries.find(e => e.id === detailModalId);
         if (!entry) return null;
         const ctx = getEntryContext(entry);
+        const isGifted = giftedWordsMap.has(entry.id);
         const examples = ctx.examples?.length ? ctx.examples : (ctx.original ? [ctx.original] : []);
         const currentIdx = carouselIdx[entry.id] || 0;
         const hasFormsData = entry.word_type === 'verb' ? ctx.conjugations :
@@ -618,7 +639,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                 </div>
 
                 {/* Example Sentence */}
-                {examples.length > 0 && (
+                {examples.length > 0 ? (
                   <div className="space-y-2">
                     <div className="flex items-center justify-between">
                       <span className="text-scale-caption font-bold uppercase tracking-wider text-[var(--text-secondary)]">
@@ -650,19 +671,40 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                       </p>
                     </div>
                   </div>
-                )}
+                ) : isGifted && !entry.enriched_at ? (
+                  <div className="space-y-2">
+                    <span className="text-scale-caption font-bold uppercase tracking-wider text-[var(--text-secondary)]">
+                      {t('loveLog.card.example')}
+                    </span>
+                    <div className="bg-[var(--bg-primary)] rounded-xl p-4 border border-[var(--border-color)]">
+                      <div className="flex items-center gap-2">
+                        <div className="w-3 h-3 bg-amber-400 rounded-full animate-pulse" />
+                        <p className="text-scale-label text-[var(--text-secondary)] italic">
+                          {t('loveLog.card.enrichingDetail')}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ) : null}
 
                 {/* Pro-tip */}
-                {ctx.proTip && (
+                {ctx.proTip ? (
                   <div className="bg-[var(--accent-light)] rounded-xl p-4 border border-[var(--accent-border)]">
                     <p className="text-scale-label text-[var(--text-primary)]">
                       💡 {ctx.proTip}
                     </p>
                   </div>
-                )}
+                ) : isGifted && !entry.enriched_at ? (
+                  <div className="bg-amber-50 dark:bg-amber-900/10 rounded-xl p-4 border border-amber-200 dark:border-amber-800">
+                    <p className="text-scale-label text-amber-600 dark:text-amber-400 italic flex items-center gap-2">
+                      <span className="animate-pulse">✨</span>
+                      {t('loveLog.card.enrichingTip')}
+                    </p>
+                  </div>
+                ) : null}
 
                 {/* Show Forms button */}
-                {hasFormsData && (
+                {hasFormsData ? (
                   <button
                     onClick={() => { setDetailModalId(null); setFormsModalId(entry.id); }}
                     className="w-full py-3 bg-[var(--accent-color)] hover:bg-[var(--accent-hover)] text-white rounded-xl text-scale-label font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2"
@@ -670,7 +712,11 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                     <ICONS.Book className="w-4 h-4" />
                     {entry.word_type === 'verb' ? t('loveLog.card.conjugations') : t('loveLog.card.forms')}
                   </button>
-                )}
+                ) : isGifted && !entry.enriched_at && ['verb', 'noun', 'adjective'].includes(entry.word_type) ? (
+                  <div className="w-full py-3 bg-amber-50 dark:bg-amber-900/10 text-amber-600 dark:text-amber-400 rounded-xl text-scale-label font-bold text-center animate-pulse">
+                    {t('loveLog.card.enrichingForms')}
+                  </div>
+                ) : null}
               </div>
             </div>
           </div>
