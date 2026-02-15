@@ -44,6 +44,9 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
   const { t } = useTranslation();
   const { accentHex } = useTheme();
   const { targetLanguage, nativeLanguage, languageParams, targetName, nativeName } = useLanguage();
+
+  // Normalize smart_validation (undefined defaults to true)
+  const smartValidation = profile.smart_validation ?? true;
   const { isOnline, cachedWordCount, lastSyncTime, pendingCount, isSyncing: offlineSyncing } = useOffline(profile.id, targetLanguage);
   const [challenges, setChallenges] = useState<TutorChallenge[]>([]);
   const [wordRequests, setWordRequests] = useState<WordRequest[]>([]);
@@ -496,7 +499,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           onAnswer={(result) => handleTutorGameAnswer(result, result.isCorrect)}
           onComplete={handleQuickFireComplete}
           onExit={handleExitGame}
-          validateAnswer={profile.smart_validation && !useBasicValidation ? async (userAnswer, correctAnswer, word) => {
+          validateAnswer={smartValidation && !useBasicValidation ? async (userAnswer, correctAnswer, word) => {
             const result = await validateAnswerSmart(userAnswer, correctAnswer, {
               targetWord: word.word,
               languageParams: { targetLanguage, nativeLanguage }
@@ -535,7 +538,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           onAnswer={handleTutorGameAnswer}
           onNext={handleTypeItNext}
           onExit={handleExitGame}
-          validateAnswer={profile.smart_validation && !useBasicValidation ? async (userAnswer, correctAnswer, word) => {
+          validateAnswer={smartValidation && !useBasicValidation ? async (userAnswer, correctAnswer, word) => {
             const result = await validateAnswerSmart(userAnswer, correctAnswer, {
               targetWord: word.word,
               languageParams: { targetLanguage, nativeLanguage }

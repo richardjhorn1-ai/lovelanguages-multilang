@@ -102,10 +102,10 @@ export function extractLanguages(body: any): LanguageParams {
     return { targetLanguage, nativeLanguage: DEFAULT_LANGUAGES.nativeLanguage };
   }
 
-  // Prevent same language for both (can't learn English from English)
+  // Same language - valid for tutors who teach their native language
+  // Just log for monitoring, don't override
   if (targetLanguage === nativeLanguage) {
-    console.warn(`[language-helpers] Same language for target and native: "${targetLanguage}", using defaults`);
-    return DEFAULT_LANGUAGES;
+    console.warn(`[language-helpers] extractLanguages: same language for both: "${targetLanguage}"`);
   }
 
   return { targetLanguage, nativeLanguage };
@@ -243,10 +243,10 @@ export async function getProfileLanguages(
       return { targetLanguage, nativeLanguage: DEFAULT_LANGUAGES.nativeLanguage };
     }
 
-    // Prevent same language
+    // Same language - valid for tutors who teach their native language
+    // Just log for monitoring, don't override
     if (targetLanguage === nativeLanguage) {
-      console.warn(`[language-helpers] Profile has same language for both: "${targetLanguage}"`);
-      return DEFAULT_LANGUAGES;
+      console.warn(`[language-helpers] Profile ${userId.substring(0, 8)} has same target and native language: "${targetLanguage}"`);
     }
 
     return { targetLanguage, nativeLanguage };

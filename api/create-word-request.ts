@@ -20,8 +20,8 @@ async function getTopicSuggestions(
   topic: string,
   count: number = 10,
   excludeWords: string[] = [],
-  targetLanguage: string = 'pl',
-  nativeLanguage: string = 'en'
+  targetLanguage: string,
+  nativeLanguage: string
 ): Promise<any[]> {
   const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
   if (!apiKey) return [];

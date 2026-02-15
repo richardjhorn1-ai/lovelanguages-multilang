@@ -126,12 +126,11 @@ export default async function handler(req: any, res: any) {
 
     if (hasDefaultLanguages) {
       if (joinerRole === 'tutor') {
-        // Tutor speaks the language being learned (their native = inviter's target)
-        partnerUpdateData.native_language = inviterLearningLanguage;
+        // active_language = language being taught (student's target)
+        // Don't set native_language — tutor picks their own in RoleSelection/Onboarding
         partnerUpdateData.active_language = inviterLearningLanguage;
         partnerUpdateData.languages = [inviterLearningLanguage];
         console.log('[complete-invite] Setting tutor language settings:', {
-          native_language: inviterLearningLanguage,
           active_language: inviterLearningLanguage
         });
       } else {

@@ -150,9 +150,9 @@ export default async function handler(req: any, res: any) {
       return res.status(403).json({ error: 'Not authorized' });
     }
 
-    // Get language from word request (set during creation) and student's native language
-    const targetLanguage = wordRequest.language_code || 'pl';
+    // Get student's language pair from profile, use word request's language_code as primary source
     const studentLangs = await getProfileLanguages(supabase, auth.userId);
+    const targetLanguage = wordRequest.language_code || studentLangs.targetLanguage;
     const nativeLanguage = studentLangs.nativeLanguage;
 
     const selectedWords = wordRequest.selected_words || [];
