@@ -1,5 +1,4 @@
 import { GoogleGenAI, Type } from "@google/genai";
-import { createClient } from '@supabase/supabase-js';
 import {
   setCorsHeaders,
   verifyAuth,
@@ -53,98 +52,40 @@ interface PartnerContext {
   stats: { totalWords: number; masteredCount: number; xp: number; level: string };
 }
 
-// Get user's profile data for personalization
-interface UserProfile {
-  role: 'student' | 'tutor';
+// Consolidated tutor context fetcher — replaces getUserProfile + getPartnerContext + tutor language override
+// Uses shared fetchVocabularyContext (parallel queries, language-filtered, mastery tiers)
+interface TutorSetup {
   partnerName: string | null;
+  partnerContext: PartnerContext;
+  studentLanguages: { targetLanguage: string; nativeLanguage: string };
 }
 
-async function getUserProfile(userId: string): Promise<UserProfile> {
-  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
-  const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
-
-  if (!supabaseUrl || !supabaseServiceKey) {
-    return { role: 'student', partnerName: null };
-  }
-
-  const supabase = createClient(supabaseUrl, supabaseServiceKey);
-  const { data: profile } = await supabase
+async function getTutorContext(supabase: any, tutorUserId: string): Promise<TutorSetup | null> {
+  // ONE query for tutor profile (replaces 3 separate profile fetches)
+  const { data: tutorProfile } = await supabase
     .from('profiles')
-    .select('role, partner_name')
-    .eq('id', userId)
+    .select('partner_name, linked_user_id')
+    .eq('id', tutorUserId)
     .single();
 
-  return {
-    role: profile?.role === 'tutor' ? 'tutor' : 'student',
-    partnerName: profile?.partner_name || null
-  };
-}
+  if (!tutorProfile?.linked_user_id) return null;
 
-// Fetch partner's learning context for coach mode
-async function getPartnerContext(userId: string, targetLanguage: string): Promise<PartnerContext | null> {
-  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
-  const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
+  // Fetch student languages + profile in parallel
+  const [studentLangs, learnerProfileResult] = await Promise.all([
+    getProfileLanguages(supabase, tutorProfile.linked_user_id),
+    supabase
+      .from('profiles')
+      .select('full_name, xp, level')
+      .eq('id', tutorProfile.linked_user_id)
+      .single()
+  ]);
 
-  if (!supabaseUrl || !supabaseServiceKey) return null;
+  const learnerProfile = learnerProfileResult.data;
 
-  const supabase = createClient(supabaseUrl, supabaseServiceKey);
+  // Use the SHARED utility (parallel queries, language-filtered, mastery tiers)
+  const vocabContext = await fetchVocabularyContext(supabase, tutorProfile.linked_user_id, studentLangs.targetLanguage);
 
-  // Get the tutor's profile to find linked learner
-  const { data: profile } = await supabase
-    .from('profiles')
-    .select('role, linked_user_id')
-    .eq('id', userId)
-    .single();
-
-  if (!profile || profile.role !== 'tutor' || !profile.linked_user_id) {
-    return null;
-  }
-
-  const learnerId = profile.linked_user_id;
-
-  // Get learner's profile
-  const { data: learnerProfile } = await supabase
-    .from('profiles')
-    .select('full_name, xp, level')
-    .eq('id', learnerId)
-    .single();
-
-  // Get learner's vocabulary for the specific language (limit to recent 50 - we only use ~30 in prompts)
-  const { data: vocabulary } = await supabase
-    .from('dictionary')
-    .select('word, translation')  // Only need these fields for prompt context
-    .eq('user_id', learnerId)
-    .eq('language_code', targetLanguage)  // Filter by target language
-    .order('unlocked_at', { ascending: false })
-    .limit(50);
-
-  // Get learner's scores for weak spots (filter by language via dictionary join)
-  const { data: scores } = await supabase
-    .from('word_scores')
-    .select('word_id, total_attempts, correct_attempts, learned_at, dictionary:word_id(word, translation, language_code)')
-    .eq('user_id', learnerId);
-
-  // Calculate weak spots (words with incorrect attempts, filtered by language)
-  const weakSpots = (scores || [])
-    .filter((s: any) => (s.total_attempts || 0) > (s.correct_attempts || 0) && s.dictionary?.language_code === targetLanguage)
-    .sort((a: any, b: any) => ((b.total_attempts || 0) - (b.correct_attempts || 0)) - ((a.total_attempts || 0) - (a.correct_attempts || 0)))
-    .slice(0, 10)
-    .map((s: any) => ({
-      word: s.dictionary?.word || 'unknown',
-      translation: s.dictionary?.translation || '',
-      failCount: (s.total_attempts || 0) - (s.correct_attempts || 0)
-    }));
-
-  // Calculate mastered count
-  const masteredCount = (scores || []).filter((s: any) => s.learned_at != null).length;
-
-  // Get recent words (last 10)
-  const recentWords = (vocabulary || []).slice(0, 10).map((v: any) => ({
-    word: v.word,
-    translation: v.translation
-  }));
-
-  // Level name lookup
+  // Map to PartnerContext shape for generateCoachPrompt
   const levelNames = [
     'Beginner 1', 'Beginner 2', 'Beginner 3',
     'Elementary 1', 'Elementary 2', 'Elementary 3',
@@ -154,19 +95,22 @@ async function getPartnerContext(userId: string, targetLanguage: string): Promis
     'Master 1', 'Master 2', 'Master 3'
   ];
   const levelIndex = Math.min((learnerProfile?.level || 1) - 1, 17);
-  const levelName = levelNames[levelIndex] || 'Beginner 1';
 
   return {
-    learnerName: learnerProfile?.full_name || 'your partner',
-    vocabulary: (vocabulary || []).map((v: any) => `${v.word} (${v.translation})`),
-    weakSpots,
-    recentWords,
-    stats: {
-      totalWords: vocabulary?.length || 0,
-      masteredCount,
-      xp: learnerProfile?.xp || 0,
-      level: levelName
-    }
+    partnerName: tutorProfile.partner_name || null,
+    partnerContext: {
+      learnerName: learnerProfile?.full_name || 'your partner',
+      vocabulary: vocabContext.vocabulary.map(v => `${v.word} (${v.translation})`),
+      weakSpots: vocabContext.weakSpots.slice(0, 10),
+      recentWords: vocabContext.recentWords.slice(0, 10),
+      stats: {
+        totalWords: vocabContext.stats.totalWords,
+        masteredCount: vocabContext.stats.masteredCount,
+        xp: learnerProfile?.xp || 0,
+        level: levelNames[levelIndex] || 'Beginner 1'
+      }
+    },
+    studentLanguages: studentLangs
   };
 }
 
@@ -500,11 +444,10 @@ GUIDANCE:
     let partnerContext: PartnerContext | null = null;
 
     if (sessionContext && sessionContext.bootedAt) {
-      // Use cached session context (efficient path)
+      // CACHED PATH — use session data, zero DB queries
       userRole = sessionContext.role === 'tutor' ? 'tutor' : 'student';
       partnerName = sessionContext.partnerName;
 
-      // For tutors, build partner context from session
       if (userRole === 'tutor' && sessionContext.partner) {
         const p = sessionContext.partner;
         partnerContext = {
@@ -519,36 +462,41 @@ GUIDANCE:
             level: p.level
           }
         };
+
+        // Override language params from cached student data
+        if (p.targetLanguage && p.nativeLanguage) {
+          targetLanguage = p.targetLanguage;
+          nativeLanguage = p.nativeLanguage;
+          targetConfig = getLanguageConfig(targetLanguage);
+          nativeConfig = getLanguageConfig(nativeLanguage);
+          targetName = getLanguageName(targetLanguage);
+          nativeName = getLanguageName(nativeLanguage);
+        }
       }
     } else {
-      // Fallback: Fetch fresh (backwards compatible, but slower)
-      const userProfile = await getUserProfile(auth.userId);
-      userRole = userProfile.role;
-      partnerName = userProfile.partnerName;
-
-      if (userRole === 'tutor') {
-        partnerContext = await getPartnerContext(auth.userId, targetLanguage);
-      }
-    }
-
-    // For tutors, override language params with the student's actual language pair.
-    // The frontend sends the tutor's own language context, but Coach mode needs
-    // the student's learning language to generate correct content.
-    if (userRole === 'tutor') {
-      const { data: tutorProfileData } = await supabase
+      // FALLBACK PATH — fetch fresh data (4 queries instead of 11)
+      const { data: profile } = await supabase
         .from('profiles')
-        .select('linked_user_id')
+        .select('role, partner_name')
         .eq('id', auth.userId)
         .single();
 
-      if (tutorProfileData?.linked_user_id) {
-        const studentLangs = await getProfileLanguages(supabase, tutorProfileData.linked_user_id);
-        targetLanguage = studentLangs.targetLanguage;
-        nativeLanguage = studentLangs.nativeLanguage;
-        targetConfig = getLanguageConfig(targetLanguage);
-        nativeConfig = getLanguageConfig(nativeLanguage);
-        targetName = getLanguageName(targetLanguage);
-        nativeName = getLanguageName(nativeLanguage);
+      userRole = profile?.role === 'tutor' ? 'tutor' : 'student';
+      partnerName = profile?.partner_name || null;
+
+      if (userRole === 'tutor') {
+        const tutorSetup = await getTutorContext(supabase, auth.userId);
+        if (tutorSetup) {
+          partnerName = tutorSetup.partnerName;
+          partnerContext = tutorSetup.partnerContext;
+          // Override language params with student's actual languages
+          targetLanguage = tutorSetup.studentLanguages.targetLanguage;
+          nativeLanguage = tutorSetup.studentLanguages.nativeLanguage;
+          targetConfig = getLanguageConfig(targetLanguage);
+          nativeConfig = getLanguageConfig(nativeLanguage);
+          targetName = getLanguageName(targetLanguage);
+          nativeName = getLanguageName(nativeLanguage);
+        }
       }
     }
 

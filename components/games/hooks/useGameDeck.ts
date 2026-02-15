@@ -98,6 +98,20 @@ export function useGameDeck({ profile }: UseGameDeckOptions): UseGameDeckReturn 
     return () => window.removeEventListener('language-switched', handleLanguageSwitch);
   }, [fetchDeck]);
 
+  // Listen for dictionary updates (words added via Chat, Word Gifts, etc.)
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout> | null = null;
+    const handler = () => {
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(() => fetchDeck(), 500);
+    };
+    window.addEventListener('dictionary-updated', handler as EventListener);
+    return () => {
+      window.removeEventListener('dictionary-updated', handler as EventListener);
+      if (timer) clearTimeout(timer);
+    };
+  }, [fetchDeck]);
+
   const shuffleDeck = useCallback(() => {
     setDeck((prev) => shuffleArray([...prev]));
     setCurrentIndex(0);
