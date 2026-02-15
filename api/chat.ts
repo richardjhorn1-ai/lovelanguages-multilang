@@ -10,7 +10,7 @@ import {
   RATE_LIMITS,
   SubscriptionPlan,
 } from '../utils/api-middleware.js';
-import { extractLanguages, type LanguageParams } from '../utils/language-helpers.js';
+import { extractLanguages, getProfileLanguages, type LanguageParams } from '../utils/language-helpers.js';
 import { getGrammarExtractionNotes, type ChatMode } from '../utils/prompt-templates.js';
 import { getExtractionInstructions } from '../utils/schema-builders.js';
 import { getLanguageConfig, getLanguageName, getConjugationPersons } from '../constants/language-config.js';
@@ -239,11 +239,12 @@ export default async function handler(req: any, res: any) {
     const { prompt, mode = 'ask', action, images, messages = [], sessionContext } = body;
 
     // Extract language parameters (defaults to Polish/English for backward compatibility)
-    const { targetLanguage, nativeLanguage } = extractLanguages(body);
-    const targetConfig = getLanguageConfig(targetLanguage);
-    const nativeConfig = getLanguageConfig(nativeLanguage);
-    const targetName = getLanguageName(targetLanguage);
-    const nativeName = getLanguageName(nativeLanguage);
+    // Using let — tutors get overridden with student's language pair below
+    let { targetLanguage, nativeLanguage } = extractLanguages(body);
+    let targetConfig = getLanguageConfig(targetLanguage);
+    let nativeConfig = getLanguageConfig(nativeLanguage);
+    let targetName = getLanguageName(targetLanguage);
+    let nativeName = getLanguageName(nativeLanguage);
 
     // Input validation to prevent API cost abuse and potential DoS
     const MAX_PROMPT_LENGTH = 10000;
@@ -527,6 +528,27 @@ GUIDANCE:
 
       if (userRole === 'tutor') {
         partnerContext = await getPartnerContext(auth.userId, targetLanguage);
+      }
+    }
+
+    // For tutors, override language params with the student's actual language pair.
+    // The frontend sends the tutor's own language context, but Coach mode needs
+    // the student's learning language to generate correct content.
+    if (userRole === 'tutor') {
+      const { data: tutorProfileData } = await supabase
+        .from('profiles')
+        .select('linked_user_id')
+        .eq('id', auth.userId)
+        .single();
+
+      if (tutorProfileData?.linked_user_id) {
+        const studentLangs = await getProfileLanguages(supabase, tutorProfileData.linked_user_id);
+        targetLanguage = studentLangs.targetLanguage;
+        nativeLanguage = studentLangs.nativeLanguage;
+        targetConfig = getLanguageConfig(targetLanguage);
+        nativeConfig = getLanguageConfig(nativeLanguage);
+        targetName = getLanguageName(targetLanguage);
+        nativeName = getLanguageName(nativeLanguage);
       }
     }
 

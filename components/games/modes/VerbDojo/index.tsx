@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../../constants';
 import { DictionaryEntry } from '../../../../types';
@@ -85,8 +85,27 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
   const [totalWrong, setTotalWrong] = useState(0);
   const [xpEarned, setXpEarned] = useState(0);
 
+  // Track total answered via ref to avoid stale closure issues
+  const totalAnsweredRef = useRef(0);
+
   // Available tenses for this language
   const availableTenses = useMemo(() => getAvailableTenses(targetLanguage), [targetLanguage]);
+
+  // Only show tenses that have at least one unlocked verb
+  const unlockedTenses = useMemo(() => {
+    const tenseSet = new Set<VerbTense>();
+    for (const verb of verbs) {
+      const conjugations = verb.conjugations as Record<string, any> | null;
+      if (!conjugations) continue;
+      for (const tense of availableTenses) {
+        const tenseData = conjugations[tense];
+        const isPresent = tense === 'present';
+        const isUnlocked = isPresent ? !!tenseData : tenseData?.unlockedAt;
+        if (isUnlocked && tenseData) tenseSet.add(tense);
+      }
+    }
+    return Array.from(tenseSet);
+  }, [verbs, availableTenses]);
 
   // Conjugation persons for this language
   const personLabels = useMemo(() => getConjugationPersons(targetLanguage), [targetLanguage]);
@@ -216,6 +235,7 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
     setTotalCorrect(0);
     setTotalWrong(0);
     setXpEarned(0);
+    totalAnsweredRef.current = 0;
     setPhase('playing');
     onStart?.();
   }, [isEmpty, generateQuestion, selectedMode, t, onStart]);
@@ -223,6 +243,8 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
   // Handle answer result
   const handleAnswer = useCallback(
     (correct: boolean) => {
+      totalAnsweredRef.current += 1;
+
       if (correct) {
         markCorrect();
         const newStreak = streak + 1;
@@ -249,6 +271,19 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
 
   // Move to next question
   const nextQuestion = useCallback(() => {
+    // End session after 20 questions
+    if (totalAnsweredRef.current >= 20) {
+      setPhase('finished');
+      onComplete({
+        totalQuestions: totalAnsweredRef.current,
+        correct: totalCorrect,
+        wrong: totalWrong,
+        longestStreak,
+        xpEarned,
+      });
+      return;
+    }
+
     const question = generateQuestion(selectedMode);
     if (!question) {
       // No more questions (shouldn't happen with cycling)
@@ -343,25 +378,27 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
           </div>
         </div>
 
-        {/* Focus tense filter */}
-        <div className="mb-6">
-          <p className="text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">
-            {t('play.verbDojo.focusOn', 'Focus on (optional)')}
-          </p>
-          <select
-            value={focusTense || ''}
-            onChange={(e) => setFocusTense(e.target.value ? (e.target.value as VerbTense) : null)}
-            className="w-full p-3 rounded-xl border-2 border-[var(--border-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent-color)]"
-            style={{ '--accent-color': accentColor } as React.CSSProperties}
-          >
-            <option value="">{t('play.verbDojo.allTenses', 'All Tenses')}</option>
-            {availableTenses.map((tense) => (
-              <option key={tense} value={tense}>
-                {t(`loveLog.modal.${tense}`, tense)}
-              </option>
-            ))}
-          </select>
-        </div>
+        {/* Focus tense filter — only show if 2+ unlocked tenses */}
+        {unlockedTenses.length >= 2 && (
+          <div className="mb-6">
+            <p className="text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">
+              {t('play.verbDojo.focusOn', 'Focus on (optional)')}
+            </p>
+            <select
+              value={focusTense || ''}
+              onChange={(e) => setFocusTense(e.target.value ? (e.target.value as VerbTense) : null)}
+              className="w-full p-3 rounded-xl border-2 border-[var(--border-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent-color)]"
+              style={{ '--accent-color': accentColor } as React.CSSProperties}
+            >
+              <option value="">{t('play.verbDojo.allTenses', 'All Tenses')}</option>
+              {unlockedTenses.map((tense) => (
+                <option key={tense} value={tense}>
+                  {t(`loveLog.modal.${tense}`, tense)}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
 
         {/* Start button */}
         <button

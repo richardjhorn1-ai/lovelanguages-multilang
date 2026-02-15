@@ -51,6 +51,10 @@ export function LanguageProvider({ children, profile }: LanguageProviderProps) {
     const targetLanguage = override?.targetLanguage || profile?.active_language || DEFAULT_TARGET;
     const nativeLanguage = override?.nativeLanguage || profile?.native_language || DEFAULT_NATIVE;
 
+    if (targetLanguage === nativeLanguage) {
+      console.warn(`[LanguageContext] Same language for both: "${targetLanguage}"`);
+    }
+
     const targetConfig = LANGUAGE_CONFIGS[targetLanguage] || LANGUAGE_CONFIGS[DEFAULT_TARGET];
     const nativeConfig = LANGUAGE_CONFIGS[nativeLanguage] || LANGUAGE_CONFIGS[DEFAULT_NATIVE];
 

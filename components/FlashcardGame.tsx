@@ -111,6 +111,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   // Language
   const { targetLanguage, targetName, nativeLanguage, nativeName, languageParams } = useLanguage();
 
+  // Normalize smart_validation (undefined defaults to true)
+  const smartValidation = profile.smart_validation ?? true;
+
   // i18n
   const { t } = useTranslation();
 
@@ -635,7 +638,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     correctAnswer: string,
     context: { word: DictionaryEntry; direction: 'target_to_native' | 'native_to_target' }
   ): Promise<{ accepted: boolean; explanation: string }> => {
-    if (profile.smart_validation && !useBasicValidation) {
+    if (smartValidation && !useBasicValidation) {
       const result = await validateAnswerSmart(userAnswer, correctAnswer, {
         targetWord: context.word.word,
         wordType: context.word.word_type,
@@ -649,7 +652,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     }
     const accepted = isCorrectAnswer(userAnswer, correctAnswer);
     return { accepted, explanation: accepted ? 'Exact match' : 'No match' };
-  }, [profile.smart_validation, useBasicValidation, languageParams]);
+  }, [smartValidation, useBasicValidation, languageParams]);
 
   // QuickFire handlers (memoized)
   const handleQuickFireStart = useCallback(() => {
@@ -680,7 +683,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     correctAnswer: string,
     word: DictionaryEntry
   ): Promise<{ accepted: boolean; explanation: string }> => {
-    if (profile.smart_validation && !useBasicValidation) {
+    if (smartValidation && !useBasicValidation) {
       const result = await validateAnswerSmart(userAnswer, correctAnswer, {
         targetWord: word.word,
         wordType: word.word_type,
@@ -694,7 +697,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     }
     const accepted = isCorrectAnswer(userAnswer, correctAnswer);
     return { accepted, explanation: accepted ? 'Exact match' : 'No match' };
-  }, [profile.smart_validation, useBasicValidation, languageParams]);
+  }, [smartValidation, useBasicValidation, languageParams]);
 
   // VerbMastery handlers (memoized)
   const handleVerbMasteryComplete = useCallback((result: DojoSessionResult) => {
@@ -714,7 +717,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     correctAnswer: string,
     context: { verb: DictionaryEntry; tense: 'present' | 'past' | 'future'; person: string }
   ): Promise<{ accepted: boolean; explanation: string }> => {
-    if (profile.smart_validation && !useBasicValidation) {
+    if (smartValidation && !useBasicValidation) {
       const result = await validateAnswerSmart(userAnswer, correctAnswer, {
         targetWord: context.verb.word,
         wordType: 'verb',
@@ -728,7 +731,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     }
     const accepted = isCorrectAnswer(userAnswer, correctAnswer);
     return { accepted, explanation: accepted ? 'Exact match' : 'No match' };
-  }, [profile.smart_validation, useBasicValidation, languageParams]);
+  }, [smartValidation, useBasicValidation, languageParams]);
 
   // AIChallenge handlers (memoized)
   const handleAIChallengeComplete = useCallback((results: {
@@ -751,7 +754,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     correctAnswer: string,
     context: { word: string; translation: string }
   ): Promise<{ accepted: boolean; explanation: string }> => {
-    if (profile.smart_validation && !useBasicValidation) {
+    if (smartValidation && !useBasicValidation) {
       const result = await validateAnswerSmart(userAnswer, correctAnswer, {
         targetWord: context.word,
         wordType: 'phrase',
@@ -765,7 +768,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     }
     const accepted = isCorrectAnswer(userAnswer, correctAnswer);
     return { accepted, explanation: accepted ? 'Exact match' : 'No match' };
-  }, [profile.smart_validation, useBasicValidation, languageParams]);
+  }, [smartValidation, useBasicValidation, languageParams]);
 
   const restartSession = () => {
     setDeck(shuffleArray([...deck]));
@@ -1332,7 +1335,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
             partnerName={partnerName}
             onComplete={handleChallengeComplete}
             onClose={() => setActiveChallenge(null)}
-            smartValidation={profile.smart_validation}
+            smartValidation={smartValidation}
           />
         ) : (
           <PlayQuickFireChallenge
@@ -1340,7 +1343,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
             partnerName={partnerName}
             onComplete={handleChallengeComplete}
             onClose={() => setActiveChallenge(null)}
-            smartValidation={profile.smart_validation}
+            smartValidation={smartValidation}
           />
         )
       )}

@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
 import { DictionaryEntry } from '../../../../types';
 import { VerbTense, getAvailableTenses } from '../../../../constants/language-config';
 import { shuffleArray } from '../../../../utils/array';
@@ -43,6 +43,11 @@ export function useVerbQueue({ verbs, targetLanguage, focusTense }: UseVerbQueue
   }, [verbs, targetLanguage, focusTense]);
 
   const [queue, setQueue] = useState<VerbTenseCombo[]>(initialQueue);
+
+  // Sync queue when focusTense or verbs change (initialQueue recalculates via useMemo)
+  useEffect(() => {
+    setQueue(initialQueue);
+  }, [initialQueue]);
 
   // Get the next combo from the front of the queue
   const getNext = useCallback((): VerbTenseCombo | null => {
