@@ -4,6 +4,8 @@ import { getProfileLanguages } from '../utils/language-helpers.js';
 import { getLanguageName, getLanguageConfig } from '../constants/language-config.js';
 import { buildVocabularySchema } from '../utils/schema-builders.js';
 
+export const maxDuration = 30;
+
 // BATCH enrich multiple words in ONE Gemini call (not N+1)
 async function batchEnrichWordContexts(
   words: Array<{ word: string; translation: string; wordType: string }>,
@@ -116,7 +118,8 @@ export default async function handler(req: any, res: any) {
     }
 
     // Get the word request and atomically mark as in-progress to prevent race conditions
-    const { data: wordRequest, error: requestError } = await supabase
+    let wordRequest: any;
+    const { data: claimedRequest, error: requestError } = await supabase
       .from('word_requests')
       .update({ status: 'in_progress' })
       .eq('id', requestId)
@@ -124,11 +127,11 @@ export default async function handler(req: any, res: any) {
       .select('*')
       .single();
 
-    if (requestError || !wordRequest) {
-      // Could be not found OR already completed/in-progress
+    if (requestError || !claimedRequest) {
+      // Could be not found, already completed, or stuck in_progress from a timed-out attempt
       const { data: existingRequest } = await supabase
         .from('word_requests')
-        .select('status, student_id')
+        .select('*, updated_at')
         .eq('id', requestId)
         .single();
 
@@ -138,10 +141,23 @@ export default async function handler(req: any, res: any) {
       if (existingRequest.student_id !== auth.userId) {
         return res.status(403).json({ error: 'Not authorized' });
       }
-      if (existingRequest.status === 'completed' || existingRequest.status === 'in_progress') {
-        return res.status(400).json({ error: 'Already completed or in progress' });
+      if (existingRequest.status === 'completed') {
+        return res.status(400).json({ error: 'Already completed' });
       }
-      return res.status(500).json({ error: 'Failed to start word request completion' });
+      if (existingRequest.status === 'in_progress') {
+        // Recovery: if stuck in_progress for >60s, a previous attempt timed out — reclaim it
+        const stuckSince = new Date(existingRequest.updated_at).getTime();
+        const now = Date.now();
+        if (now - stuckSince > 60_000) {
+          wordRequest = existingRequest;
+        } else {
+          return res.status(400).json({ error: 'Already in progress' });
+        }
+      } else {
+        return res.status(500).json({ error: 'Failed to start word request completion' });
+      }
+    } else {
+      wordRequest = claimedRequest;
     }
 
     if (wordRequest.student_id !== auth.userId) {
@@ -150,27 +166,20 @@ export default async function handler(req: any, res: any) {
       return res.status(403).json({ error: 'Not authorized' });
     }
 
-    // Get student's language pair from profile, use word request's language_code as primary source
-    const studentLangs = await getProfileLanguages(supabase, auth.userId);
-    const targetLanguage = wordRequest.language_code || studentLangs.targetLanguage;
-    const nativeLanguage = studentLangs.nativeLanguage;
-
     const selectedWords = wordRequest.selected_words || [];
     const xpMultiplier = wordRequest.xp_multiplier || 2.0;
 
-    // Get student's current profile
-    const { data: profile } = await supabase
-      .from('profiles')
-      .select('xp, full_name')
-      .eq('id', auth.userId)
-      .single();
+    // Fetch language pair, student profile, and tutor profile in parallel
+    const [studentLangs, profileResult, tutorProfileResult] = await Promise.all([
+      getProfileLanguages(supabase, auth.userId),
+      supabase.from('profiles').select('xp, full_name').eq('id', auth.userId).single(),
+      supabase.from('profiles').select('full_name').eq('id', wordRequest.tutor_id).single(),
+    ]);
 
-    // Get tutor's name for gift badge
-    const { data: tutorProfile } = await supabase
-      .from('profiles')
-      .select('full_name')
-      .eq('id', wordRequest.tutor_id)
-      .single();
+    const targetLanguage = wordRequest.language_code || studentLangs.targetLanguage;
+    const nativeLanguage = studentLangs.nativeLanguage;
+    const profile = profileResult.data;
+    const tutorProfile = tutorProfileResult.data;
 
     // Step 1: BATCH enrich ALL words in ONE Gemini call (not N+1)
     const wordsToEnrich = selectedWords.map((w: any) => ({
@@ -240,72 +249,56 @@ export default async function handler(req: any, res: any) {
       });
     });
 
-    // Step 5: Batch insert ALL gift_words records
-    if (giftWordRecords.length > 0) {
-      await supabase.from('gift_words').insert(giftWordRecords);
-    }
-
     // Add completion bonus (+5 XP)
     const completionBonus = 5;
     totalXpEarned += completionBonus;
-
-    // Update student's XP
     const newXp = (profile?.xp || 0) + totalXpEarned;
-    await supabase
-      .from('profiles')
-      .update({ xp: newXp })
-      .eq('id', auth.userId);
 
-    // Update word request status to completed (was set to 'in_progress' at start to prevent race condition)
-    await supabase
-      .from('word_requests')
-      .update({
+    // Step 5: Run all post-insert operations in parallel — these are all independent
+    const postInsertOps = [
+      // Insert gift_words records
+      giftWordRecords.length > 0
+        ? supabase.from('gift_words').insert(giftWordRecords)
+        : Promise.resolve(),
+      // Update student's XP
+      supabase.from('profiles').update({ xp: newXp }).eq('id', auth.userId),
+      // Mark word request as completed
+      supabase.from('word_requests').update({
         status: 'completed',
         completed_at: new Date().toISOString()
-      })
-      .eq('id', requestId)
-      .eq('status', 'in_progress');  // Only complete if we're the one processing it
+      }).eq('id', requestId),
+      // Mark notification as read
+      supabase.from('notifications').update({ read_at: new Date().toISOString() })
+        .eq('user_id', auth.userId)
+        .eq('type', 'word_request')
+        .filter('data->>request_id', 'eq', requestId),
+      // Notify tutor that student completed the gift
+      supabase.from('notifications').insert({
+        user_id: wordRequest.tutor_id,
+        type: 'gift_complete',
+        title: `${profile?.full_name || 'Your partner'} learned your words!`,
+        message: `They learned ${addedWords.length} word${addedWords.length > 1 ? 's' : ''} and earned ${totalXpEarned} XP`,
+        data: {
+          request_id: requestId,
+          words_learned: addedWords.length,
+          xp_earned: totalXpEarned
+        }
+      }),
+      // Add to activity feed
+      supabase.from('activity_feed').insert({
+        user_id: auth.userId,
+        partner_id: wordRequest.tutor_id,
+        event_type: 'gift_received',
+        title: 'Learned gifted words',
+        subtitle: `${addedWords.length} words from ${tutorProfile?.full_name || 'partner'}`,
+        data: { request_id: requestId, words_count: addedWords.length, xp_earned: totalXpEarned },
+        language_code: targetLanguage,
+      }),
+    ];
 
-    // Mark notification as read
-    await supabase
-      .from('notifications')
-      .update({ read_at: new Date().toISOString() })
-      .eq('user_id', auth.userId)
-      .eq('type', 'word_request')
-      .filter('data->>request_id', 'eq', requestId);
+    await Promise.all(postInsertOps);
 
-    // Notify tutor that student completed the gift
-    const { error: notificationError } = await supabase.from('notifications').insert({
-      user_id: wordRequest.tutor_id,
-      type: 'gift_complete',
-      title: `${profile?.full_name || 'Your partner'} learned your words!`,
-      message: `They learned ${addedWords.length} word${addedWords.length > 1 ? 's' : ''} and earned ${totalXpEarned} XP`,
-      data: {
-        request_id: requestId,
-        words_learned: addedWords.length,
-        xp_earned: totalXpEarned
-      }
-    });
-
-    if (notificationError) {
-      console.error('Error creating notification:', notificationError);
-      // Don't fail the request, notification is non-critical
-    }
-
-    // Award Tutor XP for sending word gift (already done when creating gift)
-    // Here we add to activity feed
-    await supabase.from('activity_feed').insert({
-      user_id: auth.userId,
-      partner_id: wordRequest.tutor_id,
-      event_type: 'gift_received',
-      title: 'Learned gifted words',
-      subtitle: `${addedWords.length} words from ${tutorProfile?.full_name || 'partner'}`,
-      data: { request_id: requestId, words_count: addedWords.length, xp_earned: totalXpEarned },
-      language_code: targetLanguage,
-    });
-
-    // Check for and activate any linked challenges
-    // Linked challenges are created with status 'scheduled' and activate when word gift completes
+    // Check for and activate any linked challenges (depends on completion above)
     let activatedChallengeId: string | null = null;
     if (wordRequest.linked_challenge_id) {
       const { data: linkedChallenge, error: activateError } = await supabase
@@ -346,7 +339,7 @@ export default async function handler(req: any, res: any) {
       },
       newTotalXp: newXp,
       giftedBy: tutorProfile?.full_name || 'Your partner',
-      activatedChallengeId,  // If a linked challenge was activated, include its ID
+      activatedChallengeId,
     });
 
   } catch (error: any) {
