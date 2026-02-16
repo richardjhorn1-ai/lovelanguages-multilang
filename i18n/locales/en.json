@@ -2127,15 +2127,14 @@
           "names": "Richard & Misia",
           "title": "Founders",
           "paragraph1": "It started because I kept forgetting.",
-          "paragraph2": "Misia would teach me something in Polish, a phrase, a word, how to say something properly, and by the next day it was gone. She'd try to help me through the things I couldn't grasp, but we had no way to track what I'd learned or what was slipping away.",
-          "paragraph3": "We tried other apps, but nothing helped us connect. It was all siloed learning, just me and a screen. Misia couldn't see my progress or help me where I was stuck.",
-          "paragraph4": "So I built something to capture it. Then to practice it. Then to help me practice any situation I wanted, with a conversation partner who actually understood where I was in my journey.",
-          "paragraph5": "When we saw how well it worked, we formalised what we'd been doing into a method: Relationship-Aware Language Learning. The app stopped being just a tool and became something more, a companion that helps us bond and captures the real journey we're on.",
-          "paragraph6": "We fixed the issues we found in other apps and made it for you and your partner, designing it with love and care. We hope you enjoy it."
+          "paragraph2": "Misia would teach me a word in Polish. How to say something properly, how to tell her family I loved the food. By morning it was gone.",
+          "paragraph3": "We tried the apps everyone recommends. But it was always just me and a screen. Misia couldn't see where I was stuck. She couldn't help where it mattered.",
+          "paragraph4": "So I built something to catch the words she taught me. Then to practice them. Then to feel a little more ready for the moments that mattered most.",
+          "paragraph6": "We built this for every couple who already has something beautiful. Now imagine understanding every word, every joke, every part of their world. Their language isn't just how they speak — it's who they are."
         },
         "offer": {
-          "studentHeadline": "Built for the moments that matter",
-          "tutorHeadline": "Everything you need to guide them",
+          "studentHeadline": "Everything between 'hello' and belonging",
+          "tutorHeadline": "Give them the words you've been holding back",
           "student": {
             "feature1": {
               "pain": "Finally get the joke at dinner",
@@ -2143,36 +2142,36 @@
               "desc": "Record real conversations. Capture words you missed. Review them later."
             },
             "feature2": {
-              "pain": "Learn words that actually matter",
+              "pain": "Learn the words you'll actually use",
               "feature": "Love Log",
-              "desc": "AI extracts vocabulary from your conversations—not a textbook."
+              "desc": "Every word from your real conversations, saved automatically. Your relationship is the curriculum."
             },
             "feature3": {
-              "pain": "Practice without the pressure",
+              "pain": "Practice with someone who wants you to win",
               "feature": "Smart Games",
               "desc": "6 game modes. Accepts synonyms and typos. No red X for minor mistakes."
             },
             "feature4": {
-              "pain": "Practice any situation you want",
+              "pain": "Create and rehearse the scenarios you want",
               "feature": "Conversation Practice",
               "desc": "Roleplay real scenarios: cafes, family dinners, first introductions."
             },
             "feature5": {
               "pain": "Stop forgetting everything",
               "feature": "Weakest Words",
-              "desc": "AI tracks what you struggle with and brings it back until it sticks."
+              "desc": "The words you struggle with keep coming back until they stick."
             },
             "feature6": {
               "pain": "Talk to their family, not through them",
               "feature": "Voice Chat",
-              "desc": "Real conversations with AI. Practice pronunciation before the real thing."
+              "desc": "Practice the real conversations before they happen. So when it matters, you're ready."
             }
           },
           "tutor": {
             "feature1": {
-              "pain": "Keep their learning fresh and fun",
+              "pain": "Always know how to help them next",
               "feature": "Agentic Coach",
-              "desc": "AI suggests what to teach next based on their progress and struggles."
+              "desc": "See what to teach next based on their progress and where they're struggling."
             },
             "feature2": {
               "pain": "Share your world, one word at a time",
@@ -2182,22 +2181,22 @@
             "feature3": {
               "pain": "See what's actually sticking",
               "feature": "Progress Tracking",
-              "desc": "View their weak spots, mastered words, and learning velocity."
+              "desc": "See what's clicking and what's slipping away. No guessing."
             },
             "feature4": {
-              "pain": "Quiz them on their weak spots",
+              "pain": "Challenge them where it counts",
               "feature": "Partner Challenges",
-              "desc": "Create quizzes and timed challenges. AI suggests their weakest words."
+              "desc": "Set challenges that target exactly where they're struggling. We help you find the gaps."
             },
             "feature5": {
-              "pain": "Explain the 'why' you never learned",
+              "pain": "Help them understand the rules you just know",
               "feature": "AI-Assisted Teaching",
-              "desc": "AI helps articulate grammar rules, nuances, and exceptions."
+              "desc": "You know the rule instinctively. We help you explain it so they understand."
             },
             "feature6": {
-              "pain": "Achieve your goals together",
+              "pain": "Watch them become part of your world",
               "feature": "Shared Activity Feed",
-              "desc": "Celebrate milestones, track progress, stay connected on the journey."
+              "desc": "Every milestone is shared. Every win is yours too."
             }
           }
         }

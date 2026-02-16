@@ -2103,86 +2103,85 @@
         "anxietyDesc": "Strach z hodnocení partnerem je skutečný. Naše AI zprostředkovává opravy a zpětnou vazbu, vytváří bezpečný prostor pro chyby bez poškození vztahu.",
         "anxietyCitation": "Horwitz, Horwitz & Cope, 1986; MacIntyre & Gardner, 1991",
         "tabs": {
-          "method": "How It Works",
-          "story": "Who We Are",
-          "offer": "What You Get"
+          "method": "Jak to funguje",
+          "story": "Kdo jsme",
+          "offer": "Co získáte"
         },
         "scrollHint": "scroll",
         "story": {
           "names": "Richard & Misia",
-          "title": "Founders",
-          "paragraph1": "It started because I kept forgetting.",
-          "paragraph2": "Misia would teach me something in Polish, a phrase, a word, how to say something properly, and by the next day it was gone. She'd try to help me through the things I couldn't grasp, but we had no way to track what I'd learned or what was slipping away.",
-          "paragraph3": "We tried other apps, but nothing helped us connect. It was all siloed learning, just me and a screen. Misia couldn't see my progress or help me where I was stuck.",
-          "paragraph4": "So I built something to capture it. Then to practice it. Then to help me practice any situation I wanted, with a conversation partner who actually understood where I was in my journey.",
-          "paragraph5": "When we saw how well it worked, we formalised what we'd been doing into a method: Relationship-Aware Language Learning. The app stopped being just a tool and became something more, a companion that helps us bond and captures the real journey we're on.",
-          "paragraph6": "We fixed the issues we found in other apps and made it for you and your partner, designing it with love and care. We hope you enjoy it."
+          "title": "Zakladatelé",
+          "paragraph1": "Začalo to tím, že jsem pořád zapomínal.",
+          "paragraph2": "Misia mě učila slovíčka v polštině. Jak něco správně říct, jak říct její rodině, že mi jídlo chutnalo. Ráno bylo všechno pryč.",
+          "paragraph3": "Zkoušeli jsme aplikace, které všichni doporučují. Ale vždycky jsem byl jen já a obrazovka. Misia neviděla, kde se zasekávám. Nemohla pomoct tam, kde to bylo důležité.",
+          "paragraph4": "Tak jsem vytvořil něco, co zachytí slova, která mě učila. Pak abych je procvičoval. Pak abych se cítil trochu připravenější na chvíle, na kterých opravdu záleželo.",
+          "paragraph6": "Vytvořili jsme to pro každý pár, který už má něco krásného. Teď si představ, že rozumíš každému slovu, každému vtipu, každé části jejich světa. Jejich jazyk není jen to, jak mluví — je to, kým jsou."
         },
         "offer": {
-          "studentHeadline": "Built for the moments that matter",
-          "tutorHeadline": "Everything you need to guide them",
+          "studentHeadline": "Vše mezi 'ahoj' a pocitem, že patříš",
+          "tutorHeadline": "Dej jim slova, která jsi v sobě držel",
           "student": {
             "feature1": {
-              "pain": "Finally get the joke at dinner",
+              "pain": "Konečně pochopit vtip u večeře",
               "feature": "Listen Mode",
-              "desc": "Record real conversations. Capture words you missed. Review them later."
+              "desc": "Nahrávej skutečné rozhovory. Zachyť slova, která ti unikla. Projdi si je později."
             },
             "feature2": {
-              "pain": "Learn words that actually matter",
+              "pain": "Uč se slova, která opravdu použiješ",
               "feature": "Love Log",
-              "desc": "AI extracts vocabulary from your conversations—not a textbook."
+              "desc": "Každé slovo z vašich skutečných rozhovorů, uložené automaticky. Váš vztah je osnova."
             },
             "feature3": {
-              "pain": "Practice without the pressure",
+              "pain": "Cvič s někým, kdo fandí tvému úspěchu",
               "feature": "Smart Games",
-              "desc": "6 game modes. Accepts synonyms and typos. No red X for minor mistakes."
+              "desc": "6 herních režimů. Přijímá synonyma a překlepy. Žádné červené X za drobné chyby."
             },
             "feature4": {
-              "pain": "Practice any situation you want",
+              "pain": "Vytvoř a nacvič scénáře, jaké chceš",
               "feature": "Conversation Practice",
-              "desc": "Roleplay real scenarios: cafes, family dinners, first introductions."
+              "desc": "Simuluj reálné situace: kavárny, rodinné večeře, první setkání."
             },
             "feature5": {
-              "pain": "Stop forgetting everything",
+              "pain": "Přestaň zapomínat všechno",
               "feature": "Weakest Words",
-              "desc": "AI tracks what you struggle with and brings it back until it sticks."
+              "desc": "Slova, se kterými bojuješ, se vracejí, dokud nezůstanou."
             },
             "feature6": {
-              "pain": "Talk to their family, not through them",
+              "pain": "Mluv s jejich rodinou, ne přes ně",
               "feature": "Voice Chat",
-              "desc": "Real conversations with AI. Practice pronunciation before the real thing."
+              "desc": "Nacvič si skutečné rozhovory, než nastanou. Abys byl připravený, když na tom záleží."
             }
           },
           "tutor": {
             "feature1": {
-              "pain": "Keep their learning fresh and fun",
+              "pain": "Vždy vědět, jak jim dál pomoct",
               "feature": "Agentic Coach",
-              "desc": "AI suggests what to teach next based on their progress and struggles."
+              "desc": "Podívej se, co učit dál na základě jejich pokroku a obtíží."
             },
             "feature2": {
-              "pain": "Share your world, one word at a time",
+              "pain": "Sdílej svůj svět, slovo po slovu",
               "feature": "Word Gifts",
-              "desc": "Send curated vocabulary: \"words for meeting my grandmother.\""
+              "desc": "Posílej vybranou slovní zásobu: \u00abslovíčka na setkání s mou babičkou\u00bb."
             },
             "feature3": {
-              "pain": "See what's actually sticking",
+              "pain": "Podívej se, co opravdu zůstává",
               "feature": "Progress Tracking",
-              "desc": "View their weak spots, mastered words, and learning velocity."
+              "desc": "Vidíš, co funguje a co mizí. Bez hádání."
             },
             "feature4": {
-              "pain": "Quiz them on their weak spots",
+              "pain": "Vyzvi je tam, kde to má smysl",
               "feature": "Partner Challenges",
-              "desc": "Create quizzes and timed challenges. AI suggests their weakest words."
+              "desc": "Vytvoř výzvy cílené přesně na jejich slabiny. Pomůžeme ti najít mezery."
             },
             "feature5": {
-              "pain": "Explain the 'why' you never learned",
+              "pain": "Pomoz jim pochopit pravidla, která prostě znáš",
               "feature": "AI-Assisted Teaching",
-              "desc": "AI helps articulate grammar rules, nuances, and exceptions."
+              "desc": "Pravidlo znáš instinktivně. Pomůžeme ti ho vysvětlit tak, aby pochopili."
             },
             "feature6": {
-              "pain": "Achieve your goals together",
+              "pain": "Sleduj, jak se stávají součástí tvého světa",
               "feature": "Shared Activity Feed",
-              "desc": "Celebrate milestones, track progress, stay connected on the journey."
+              "desc": "Každý milník je sdílený. Každé vítězství je i tvoje."
             }
           }
         }

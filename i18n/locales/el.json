@@ -2103,86 +2103,85 @@
         "anxietyDesc": "Ο φόβος της κριτικής από τον σύντροφό σου είναι πραγματικός. Η AI μας μεσολαβεί στις διορθώσεις και την ανατροφοδότηση, δημιουργώντας έναν ασφαλή χώρο για λάθη χωρίς να βλάπτεται η σχέση σου.",
         "anxietyCitation": "Horwitz, Horwitz & Cope, 1986; MacIntyre & Gardner, 1991",
         "tabs": {
-          "method": "How It Works",
-          "story": "Who We Are",
-          "offer": "What You Get"
+          "method": "Πώς λειτουργεί",
+          "story": "Ποιοι είμαστε",
+          "offer": "Τι αποκτάς"
         },
         "scrollHint": "scroll",
         "story": {
           "names": "Richard & Misia",
-          "title": "Founders",
-          "paragraph1": "It started because I kept forgetting.",
-          "paragraph2": "Misia would teach me something in Polish, a phrase, a word, how to say something properly, and by the next day it was gone. She'd try to help me through the things I couldn't grasp, but we had no way to track what I'd learned or what was slipping away.",
-          "paragraph3": "We tried other apps, but nothing helped us connect. It was all siloed learning, just me and a screen. Misia couldn't see my progress or help me where I was stuck.",
-          "paragraph4": "So I built something to capture it. Then to practice it. Then to help me practice any situation I wanted, with a conversation partner who actually understood where I was in my journey.",
-          "paragraph5": "When we saw how well it worked, we formalised what we'd been doing into a method: Relationship-Aware Language Learning. The app stopped being just a tool and became something more, a companion that helps us bond and captures the real journey we're on.",
-          "paragraph6": "We fixed the issues we found in other apps and made it for you and your partner, designing it with love and care. We hope you enjoy it."
+          "title": "Ιδρυτές",
+          "paragraph1": "Ξεκίνησε επειδή συνέχιζα να ξεχνάω.",
+          "paragraph2": "Η Misia μου μάθαινε μια λέξη στα πολωνικά. Πώς να πω κάτι σωστά, πώς να πω στην οικογένειά της ότι μου άρεσε το φαγητό. Το πρωί, τα είχα ξεχάσει όλα.",
+          "paragraph3": "Δοκιμάσαμε τις εφαρμογές που προτείνουν όλοι. Αλλά ήμουν πάντα μόνο εγώ κι μια οθόνη. Η Misia δεν μπορούσε να δει πού κολλούσα. Δεν μπορούσε να βοηθήσει εκεί που μετρούσε.",
+          "paragraph4": "Έτσι έφτιαξα κάτι για να πιάνω τις λέξεις που μου μάθαινε. Μετά για να τις εξασκώ. Μετά για να νιώθω λίγο πιο έτοιμος για τις στιγμές που πραγματικά μετρούσαν.",
+          "paragraph6": "Το φτιάξαμε για κάθε ζευγάρι που ήδη έχει κάτι όμορφο. Τώρα φαντάσου να καταλαβαίνεις κάθε λέξη, κάθε αστείο, κάθε κομμάτι του κόσμου τους. Η γλώσσα τους δεν είναι απλά πώς μιλούν — είναι ποιοι είναι."
         },
         "offer": {
-          "studentHeadline": "Built for the moments that matter",
-          "tutorHeadline": "Everything you need to guide them",
+          "studentHeadline": "Ό,τι ανάμεσα στο 'γεια' και στο να ανήκεις",
+          "tutorHeadline": "Δώσε τους τις λέξεις που κρατούσες μέσα σου",
           "student": {
             "feature1": {
-              "pain": "Finally get the joke at dinner",
+              "pain": "Επιτέλους να καταλάβεις το αστείο στο δείπνο",
               "feature": "Listen Mode",
-              "desc": "Record real conversations. Capture words you missed. Review them later."
+              "desc": "Ηχογράφησε αληθινές συζητήσεις. Πίασε λέξεις που σου ξέφυγαν. Επανέλαβέ τες αργότερα."
             },
             "feature2": {
-              "pain": "Learn words that actually matter",
+              "pain": "Μάθε τις λέξεις που πραγματικά θα χρησιμοποιήσεις",
               "feature": "Love Log",
-              "desc": "AI extracts vocabulary from your conversations—not a textbook."
+              "desc": "Κάθε λέξη από τις πραγματικές σας συζητήσεις, αποθηκευμένη αυτόματα. Η σχέση σας είναι το πρόγραμμα σπουδών."
             },
             "feature3": {
-              "pain": "Practice without the pressure",
+              "pain": "Εξασκήσου με κάποιον που θέλει να πετύχεις",
               "feature": "Smart Games",
-              "desc": "6 game modes. Accepts synonyms and typos. No red X for minor mistakes."
+              "desc": "6 τρόποι παιχνιδιού. Δέχεται συνώνυμα και τυπογραφικά. Κανένα κόκκινο Χ για μικρά λάθη."
             },
             "feature4": {
-              "pain": "Practice any situation you want",
+              "pain": "Δημιούργησε και κάνε πρόβα στα σενάρια που θέλεις",
               "feature": "Conversation Practice",
-              "desc": "Roleplay real scenarios: cafes, family dinners, first introductions."
+              "desc": "Παίξε αληθινές καταστάσεις: καφετέριες, οικογενειακά δείπνα, πρώτες γνωριμίες."
             },
             "feature5": {
-              "pain": "Stop forgetting everything",
+              "pain": "Σταμάτα να ξεχνάς τα πάντα",
               "feature": "Weakest Words",
-              "desc": "AI tracks what you struggle with and brings it back until it sticks."
+              "desc": "Οι λέξεις που σε δυσκολεύουν επιστρέφουν ξανά και ξανά μέχρι να μείνουν."
             },
             "feature6": {
-              "pain": "Talk to their family, not through them",
+              "pain": "Μίλησε με την οικογένειά τους, όχι μέσω αυτών",
               "feature": "Voice Chat",
-              "desc": "Real conversations with AI. Practice pronunciation before the real thing."
+              "desc": "Εξασκήσου στις πραγματικές συζητήσεις πριν γίνουν. Για να είσαι έτοιμος όταν μετρά."
             }
           },
           "tutor": {
             "feature1": {
-              "pain": "Keep their learning fresh and fun",
+              "pain": "Να ξέρεις πάντα πώς να τους βοηθήσεις στη συνέχεια",
               "feature": "Agentic Coach",
-              "desc": "AI suggests what to teach next based on their progress and struggles."
+              "desc": "Δες τι να διδάξεις μετά με βάση την πρόοδό τους και τα σημεία που δυσκολεύονται."
             },
             "feature2": {
-              "pain": "Share your world, one word at a time",
+              "pain": "Μοιράσου τον κόσμο σου, μια λέξη τη φορά",
               "feature": "Word Gifts",
-              "desc": "Send curated vocabulary: \"words for meeting my grandmother.\""
+              "desc": "Στείλε επιλεγμένο λεξιλόγιο: «λέξεις για τη γνωριμία με τη γιαγιά μου»."
             },
             "feature3": {
-              "pain": "See what's actually sticking",
+              "pain": "Δες τι πραγματικά μένει",
               "feature": "Progress Tracking",
-              "desc": "View their weak spots, mastered words, and learning velocity."
+              "desc": "Δες τι κάνει κλικ και τι ξεφεύγει. Χωρίς εικασίες."
             },
             "feature4": {
-              "pain": "Quiz them on their weak spots",
+              "pain": "Πρόκληνέ τους εκεί που μετρά",
               "feature": "Partner Challenges",
-              "desc": "Create quizzes and timed challenges. AI suggests their weakest words."
+              "desc": "Δημιούργησε προκλήσεις που στοχεύουν ακριβώς εκεί που δυσκολεύονται. Σε βοηθάμε να βρεις τα κενά."
             },
             "feature5": {
-              "pain": "Explain the 'why' you never learned",
+              "pain": "Βοήθησέ τους να καταλάβουν τους κανόνες που απλά ξέρεις",
               "feature": "AI-Assisted Teaching",
-              "desc": "AI helps articulate grammar rules, nuances, and exceptions."
+              "desc": "Ξέρεις τον κανόνα ενστικτωδώς. Σε βοηθάμε να τον εξηγήσεις ώστε να καταλάβουν."
             },
             "feature6": {
-              "pain": "Achieve your goals together",
+              "pain": "Δες τους να γίνονται μέρος του κόσμου σου",
               "feature": "Shared Activity Feed",
-              "desc": "Celebrate milestones, track progress, stay connected on the journey."
+              "desc": "Κάθε ορόσημο μοιράζεται. Κάθε νίκη είναι και δική σου."
             }
           }
         }

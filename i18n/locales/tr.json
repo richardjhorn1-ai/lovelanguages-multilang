@@ -2103,86 +2103,85 @@
         "anxietyDesc": "Partneriniz tarafından yargılanma korkusu gerçektir. Yapay zekamız düzeltmeleri ve geri bildirimleri aracılık ederek, ilişkinize zarar vermeden hata yapabileceğiniz güvenli bir alan yaratır.",
         "anxietyCitation": "Horwitz, Horwitz & Cope, 1986; MacIntyre & Gardner, 1991",
         "tabs": {
-          "method": "How It Works",
-          "story": "Who We Are",
-          "offer": "What You Get"
+          "method": "Nasıl çalışır",
+          "story": "Biz kimiz",
+          "offer": "Ne elde edersin"
         },
         "scrollHint": "scroll",
         "story": {
           "names": "Richard & Misia",
-          "title": "Founders",
-          "paragraph1": "It started because I kept forgetting.",
-          "paragraph2": "Misia would teach me something in Polish, a phrase, a word, how to say something properly, and by the next day it was gone. She'd try to help me through the things I couldn't grasp, but we had no way to track what I'd learned or what was slipping away.",
-          "paragraph3": "We tried other apps, but nothing helped us connect. It was all siloed learning, just me and a screen. Misia couldn't see my progress or help me where I was stuck.",
-          "paragraph4": "So I built something to capture it. Then to practice it. Then to help me practice any situation I wanted, with a conversation partner who actually understood where I was in my journey.",
-          "paragraph5": "When we saw how well it worked, we formalised what we'd been doing into a method: Relationship-Aware Language Learning. The app stopped being just a tool and became something more, a companion that helps us bond and captures the real journey we're on.",
-          "paragraph6": "We fixed the issues we found in other apps and made it for you and your partner, designing it with love and care. We hope you enjoy it."
+          "title": "Kurucular",
+          "paragraph1": "Her şey unutmaya devam ettiğim için başladı.",
+          "paragraph2": "Misia bana Lehçe bir kelime öğretirdi. Bir şeyi nasıl doğru söyleyeceğimi, ailesine yemeği ne kadar sevdiğimi nasıl söyleyeceğimi. Sabaha kadar hepsi uçup gitmişti.",
+          "paragraph3": "Herkesin önerdiği uygulamaları denedik. Ama hep ben ve bir ekrandı. Misia nerede takıldığımı göremiyordu. Önemli olan yerde yardım edemiyordu.",
+          "paragraph4": "Ben de onun bana öğrettiği kelimeleri yakalamak için bir şey yaptım. Sonra onları pratik etmek için. Sonra gerçekten önemli olan anlara biraz daha hazır hissetmek için.",
+          "paragraph6": "Bunu zaten güzel bir şeyleri olan her çift için yaptık. Şimdi her kelimeyi, her şakayı, dünyalarının her parçasını anladığını hayal et. Dilleri sadece nasıl konuştukları değil — kim olduklarıdır."
         },
         "offer": {
-          "studentHeadline": "Built for the moments that matter",
-          "tutorHeadline": "Everything you need to guide them",
+          "studentHeadline": "'Merhaba' ile ait hissetmek arasındaki her şey",
+          "tutorHeadline": "İçinde tuttuğun kelimeleri onlara ver",
           "student": {
             "feature1": {
-              "pain": "Finally get the joke at dinner",
+              "pain": "Sonunda yemekte espriyi anla",
               "feature": "Listen Mode",
-              "desc": "Record real conversations. Capture words you missed. Review them later."
+              "desc": "Gerçek konuşmaları kaydet. Kaçırdığın kelimeleri yakala. Daha sonra tekrar et."
             },
             "feature2": {
-              "pain": "Learn words that actually matter",
+              "pain": "Gerçekten kullanacağın kelimeleri öğren",
               "feature": "Love Log",
-              "desc": "AI extracts vocabulary from your conversations—not a textbook."
+              "desc": "Gerçek konuşmalarınızdaki her kelime, otomatik kaydedilir. İlişkiniz müfredat."
             },
             "feature3": {
-              "pain": "Practice without the pressure",
+              "pain": "Kazanmanı isteyen biriyle pratik yap",
               "feature": "Smart Games",
-              "desc": "6 game modes. Accepts synonyms and typos. No red X for minor mistakes."
+              "desc": "6 oyun modu. Eş anlamlıları ve yazım hatalarını kabul eder. Küçük hatalar için kırmızı X yok."
             },
             "feature4": {
-              "pain": "Practice any situation you want",
+              "pain": "İstediğin senaryoları oluştur ve prova et",
               "feature": "Conversation Practice",
-              "desc": "Roleplay real scenarios: cafes, family dinners, first introductions."
+              "desc": "Gerçek durumları canlandır: kafeler, aile yemekleri, ilk tanışmalar."
             },
             "feature5": {
-              "pain": "Stop forgetting everything",
+              "pain": "Her şeyi unutmayı bırak",
               "feature": "Weakest Words",
-              "desc": "AI tracks what you struggle with and brings it back until it sticks."
+              "desc": "Zorlandığın kelimeler kalıcı olana kadar geri gelir."
             },
             "feature6": {
-              "pain": "Talk to their family, not through them",
+              "pain": "Aileleriyle konuş, onlar aracılığıyla değil",
               "feature": "Voice Chat",
-              "desc": "Real conversations with AI. Practice pronunciation before the real thing."
+              "desc": "Gerçek konuşmaları olmadan önce prova et. Önemli olduğunda hazır ol."
             }
           },
           "tutor": {
             "feature1": {
-              "pain": "Keep their learning fresh and fun",
+              "pain": "Onlara sonra nasıl yardım edeceğini her zaman bil",
               "feature": "Agentic Coach",
-              "desc": "AI suggests what to teach next based on their progress and struggles."
+              "desc": "İlerlemelerine ve zorlandıkları yerlere göre sırada ne öğretmen gerektiğini gör."
             },
             "feature2": {
-              "pain": "Share your world, one word at a time",
+              "pain": "Dünyani paylaş, kelime kelime",
               "feature": "Word Gifts",
-              "desc": "Send curated vocabulary: \"words for meeting my grandmother.\""
+              "desc": "Seçilmiş kelime hazinesi gönder: «büyükannemle tanışmak için kelimeler»."
             },
             "feature3": {
-              "pain": "See what's actually sticking",
+              "pain": "Gerçekten neyin kaldığını gör",
               "feature": "Progress Tracking",
-              "desc": "View their weak spots, mastered words, and learning velocity."
+              "desc": "Neyin işe yaradığını ve neyin kayıp gittiğini gör. Tahmin yok."
             },
             "feature4": {
-              "pain": "Quiz them on their weak spots",
+              "pain": "Önemli olan yerde meydan oku",
               "feature": "Partner Challenges",
-              "desc": "Create quizzes and timed challenges. AI suggests their weakest words."
+              "desc": "Tam olarak zorlandıkları yerleri hedefleyen meydan okumalar oluştur. Boşlukları bulmana yardım ederiz."
             },
             "feature5": {
-              "pain": "Explain the 'why' you never learned",
+              "pain": "İçgüdüsel olarak bildiğin kuralları anlamalarına yardım et",
               "feature": "AI-Assisted Teaching",
-              "desc": "AI helps articulate grammar rules, nuances, and exceptions."
+              "desc": "Kuralı içgüdüsel olarak biliyorsun. Anlamaları için açıklamana yardım ederiz."
             },
             "feature6": {
-              "pain": "Achieve your goals together",
+              "pain": "Dünyalarının bir parçası olmalarını izle",
               "feature": "Shared Activity Feed",
-              "desc": "Celebrate milestones, track progress, stay connected on the journey."
+              "desc": "Her başarı paylaşılır. Her zafer senindir de."
             }
           }
         }

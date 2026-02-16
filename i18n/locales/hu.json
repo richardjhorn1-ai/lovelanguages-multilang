@@ -2103,86 +2103,85 @@
         "anxietyDesc": "A partneredtől való ítélkezéstől való félelem valós. Az AI közvetíti a javításokat és visszajelzéseket, biztonságos teret teremtve a hibázáshoz anélkül, hogy károsítaná a kapcsolatodat.",
         "anxietyCitation": "Horwitz, Horwitz & Cope, 1986; MacIntyre & Gardner, 1991",
         "tabs": {
-          "method": "How It Works",
-          "story": "Who We Are",
-          "offer": "What You Get"
+          "method": "Hogyan működik",
+          "story": "Kik vagyunk",
+          "offer": "Mit kapsz"
         },
         "scrollHint": "scroll",
         "story": {
           "names": "Richard & Misia",
-          "title": "Founders",
-          "paragraph1": "It started because I kept forgetting.",
-          "paragraph2": "Misia would teach me something in Polish, a phrase, a word, how to say something properly, and by the next day it was gone. She'd try to help me through the things I couldn't grasp, but we had no way to track what I'd learned or what was slipping away.",
-          "paragraph3": "We tried other apps, but nothing helped us connect. It was all siloed learning, just me and a screen. Misia couldn't see my progress or help me where I was stuck.",
-          "paragraph4": "So I built something to capture it. Then to practice it. Then to help me practice any situation I wanted, with a conversation partner who actually understood where I was in my journey.",
-          "paragraph5": "When we saw how well it worked, we formalised what we'd been doing into a method: Relationship-Aware Language Learning. The app stopped being just a tool and became something more, a companion that helps us bond and captures the real journey we're on.",
-          "paragraph6": "We fixed the issues we found in other apps and made it for you and your partner, designing it with love and care. We hope you enjoy it."
+          "title": "Alapítók",
+          "paragraph1": "Azzal kezdődött, hogy folyton elfelejtettem mindent.",
+          "paragraph2": "Misia megtanított egy szót lengyelül. Hogyan kell valamit helyesen mondani, hogyan mondjam el a családjának, hogy nagyon finom volt az étel. Reggelre minden eltűnt.",
+          "paragraph3": "Kipróbáltuk az appokat, amiket mindenki ajánl. De mindig csak én voltam és egy képernyő. Misia nem látta, hol akadok el. Nem tudott segíteni ott, ahol igazán számított.",
+          "paragraph4": "Ezért építettem valamit, ami elkapja a szavakat, amiket tanított. Aztán hogy gyakoroljam őket. Aztán hogy kicsit felkészültebbnek érezzem magam azokra a pillanatokra, amik igazán számítottak.",
+          "paragraph6": "Ezt minden párnak építettük, akiknek már van valami gyönyörű. Most képzeld el, hogy értesz minden szót, minden viccet, az ő világuk minden részét. A nyelvük nem csak az, ahogyan beszélnek — az, akik ők."
         },
         "offer": {
-          "studentHeadline": "Built for the moments that matter",
-          "tutorHeadline": "Everything you need to guide them",
+          "studentHeadline": "Minden ami a 'szia' és az odatartozás között van",
+          "tutorHeadline": "Add nekik a szavakat, amiket magadban tartottál",
           "student": {
             "feature1": {
-              "pain": "Finally get the joke at dinner",
+              "pain": "Végre értsd meg a viccet a vacsoránál",
               "feature": "Listen Mode",
-              "desc": "Record real conversations. Capture words you missed. Review them later."
+              "desc": "Rögzíts valódi beszélgetéseket. Kapd el a szavakat, amik elszöktek. Nézd át őket később."
             },
             "feature2": {
-              "pain": "Learn words that actually matter",
+              "pain": "Tanuld meg a szavakat, amiket tényleg használni fogsz",
               "feature": "Love Log",
-              "desc": "AI extracts vocabulary from your conversations—not a textbook."
+              "desc": "Minden szó a valódi beszélgetéseitekből, automatikusan mentve. A kapcsolatotok a tanterv."
             },
             "feature3": {
-              "pain": "Practice without the pressure",
+              "pain": "Gyakorolj valakivel, aki drukker a sikereidnek",
               "feature": "Smart Games",
-              "desc": "6 game modes. Accepts synonyms and typos. No red X for minor mistakes."
+              "desc": "6 játékmód. Elfogadja a szinonimákat és az elgépeléseket. Nincs piros X apró hibákért."
             },
             "feature4": {
-              "pain": "Practice any situation you want",
+              "pain": "Hozd létre és gyakorold a kívánt forgatókönyveket",
               "feature": "Conversation Practice",
-              "desc": "Roleplay real scenarios: cafes, family dinners, first introductions."
+              "desc": "Játssz el valódi helyzeteket: kávézók, családi vacsorák, első találkozások."
             },
             "feature5": {
-              "pain": "Stop forgetting everything",
+              "pain": "Ne felejtsd el többé az összeset",
               "feature": "Weakest Words",
-              "desc": "AI tracks what you struggle with and brings it back until it sticks."
+              "desc": "A szavak, amikkel küzdesz, újra és újra visszajönnek, amíg meg nem maradnak."
             },
             "feature6": {
-              "pain": "Talk to their family, not through them",
+              "pain": "Beszélj a családjukkal, ne rajtuk keresztül",
               "feature": "Voice Chat",
-              "desc": "Real conversations with AI. Practice pronunciation before the real thing."
+              "desc": "Gyakorold a valódi beszélgetéseket, mielőtt megtörténnek. Hogy készen állj, amikor számít."
             }
           },
           "tutor": {
             "feature1": {
-              "pain": "Keep their learning fresh and fun",
+              "pain": "Mindig tudd, hogyan segíthetsz nekik legközelebb",
               "feature": "Agentic Coach",
-              "desc": "AI suggests what to teach next based on their progress and struggles."
+              "desc": "Lásd, mit taníts legközelebb a fejlődésük és nehézségeik alapján."
             },
             "feature2": {
-              "pain": "Share your world, one word at a time",
+              "pain": "Oszd meg a világodat, szóról szóra",
               "feature": "Word Gifts",
-              "desc": "Send curated vocabulary: \"words for meeting my grandmother.\""
+              "desc": "Küldj válogatott szókincset: «szavak a nagymamámmal való találkozáshoz»."
             },
             "feature3": {
-              "pain": "See what's actually sticking",
+              "pain": "Lásd, mi marad meg igazán",
               "feature": "Progress Tracking",
-              "desc": "View their weak spots, mastered words, and learning velocity."
+              "desc": "Lásd, mi működik és mi csúszik el. Találgatás nélkül."
             },
             "feature4": {
-              "pain": "Quiz them on their weak spots",
+              "pain": "Állíts kihívást ott, ahol számít",
               "feature": "Partner Challenges",
-              "desc": "Create quizzes and timed challenges. AI suggests their weakest words."
+              "desc": "Hozz létre kihívásokat, amik pontosan a nehézségeikre céloznak. Segítünk megtalálni a hiányosságokat."
             },
             "feature5": {
-              "pain": "Explain the 'why' you never learned",
+              "pain": "Segíts nekik megérteni a szabályokat, amiket te csak tudsz",
               "feature": "AI-Assisted Teaching",
-              "desc": "AI helps articulate grammar rules, nuances, and exceptions."
+              "desc": "Ösztönösen ismered a szabályt. Segítünk elmagyarázni, hogy megértsék."
             },
             "feature6": {
-              "pain": "Achieve your goals together",
+              "pain": "Nézd, ahogy a világod részévé válnak",
               "feature": "Shared Activity Feed",
-              "desc": "Celebrate milestones, track progress, stay connected on the journey."
+              "desc": "Minden mérföldkő közös. Minden győzelem a tiéd is."
             }
           }
         }

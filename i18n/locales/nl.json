@@ -2103,86 +2103,85 @@
         "anxietyDesc": "Angst voor het oordeel van je partner is echt. Onze AI bemiddelt correcties en feedback, en creëert een veilige ruimte om fouten te maken zonder je relatie te beschadigen.",
         "anxietyCitation": "Horwitz, Horwitz & Cope, 1986; MacIntyre & Gardner, 1991",
         "tabs": {
-          "method": "How It Works",
-          "story": "Who We Are",
-          "offer": "What You Get"
+          "method": "Hoe het werkt",
+          "story": "Wie we zijn",
+          "offer": "Wat je krijgt"
         },
         "scrollHint": "scroll",
         "story": {
           "names": "Richard & Misia",
-          "title": "Founders",
-          "paragraph1": "It started because I kept forgetting.",
-          "paragraph2": "Misia would teach me something in Polish, a phrase, a word, how to say something properly, and by the next day it was gone. She'd try to help me through the things I couldn't grasp, but we had no way to track what I'd learned or what was slipping away.",
-          "paragraph3": "We tried other apps, but nothing helped us connect. It was all siloed learning, just me and a screen. Misia couldn't see my progress or help me where I was stuck.",
-          "paragraph4": "So I built something to capture it. Then to practice it. Then to help me practice any situation I wanted, with a conversation partner who actually understood where I was in my journey.",
-          "paragraph5": "When we saw how well it worked, we formalised what we'd been doing into a method: Relationship-Aware Language Learning. The app stopped being just a tool and became something more, a companion that helps us bond and captures the real journey we're on.",
-          "paragraph6": "We fixed the issues we found in other apps and made it for you and your partner, designing it with love and care. We hope you enjoy it."
+          "title": "Oprichters",
+          "paragraph1": "Het begon omdat ik alles bleef vergeten.",
+          "paragraph2": "Misia leerde me een woord in het Pools. Hoe je iets goed uitspreekt, hoe je haar familie vertelt dat het eten heerlijk was. De volgende ochtend was alles weg.",
+          "paragraph3": "We probeerden de apps die iedereen aanraadt. Maar het was altijd alleen ik en een scherm. Misia kon niet zien waar ik vastliep. Ze kon niet helpen waar het ertoe deed.",
+          "paragraph4": "Dus bouwde ik iets om de woorden vast te houden die ze me leerde. Toen om ze te oefenen. Toen om me een beetje beter voorbereid te voelen op de momenten die er echt toe deden.",
+          "paragraph6": "We hebben dit gebouwd voor elk stel dat al iets moois heeft. Stel je voor dat je elk woord begrijpt, elke grap, elk deel van hun wereld. Hun taal is niet alleen hoe ze spreken — het is wie ze zijn."
         },
         "offer": {
-          "studentHeadline": "Built for the moments that matter",
-          "tutorHeadline": "Everything you need to guide them",
+          "studentHeadline": "Alles tussen 'hallo' en erbij horen",
+          "tutorHeadline": "Geef ze de woorden die je hebt achtergehouden",
           "student": {
             "feature1": {
-              "pain": "Finally get the joke at dinner",
+              "pain": "Eindelijk de grap snappen bij het eten",
               "feature": "Listen Mode",
-              "desc": "Record real conversations. Capture words you missed. Review them later."
+              "desc": "Neem echte gesprekken op. Vang woorden die je miste. Bekijk ze later."
             },
             "feature2": {
-              "pain": "Learn words that actually matter",
+              "pain": "Leer de woorden die je echt gaat gebruiken",
               "feature": "Love Log",
-              "desc": "AI extracts vocabulary from your conversations—not a textbook."
+              "desc": "Elk woord uit jullie echte gesprekken, automatisch opgeslagen. Jullie relatie is het lesprogramma."
             },
             "feature3": {
-              "pain": "Practice without the pressure",
+              "pain": "Oefen met iemand die wil dat je wint",
               "feature": "Smart Games",
-              "desc": "6 game modes. Accepts synonyms and typos. No red X for minor mistakes."
+              "desc": "6 spelmodi. Accepteert synoniemen en typefouten. Geen rode X voor kleine foutjes."
             },
             "feature4": {
-              "pain": "Practice any situation you want",
+              "pain": "Maak en oefen de scenario's die je wilt",
               "feature": "Conversation Practice",
-              "desc": "Roleplay real scenarios: cafes, family dinners, first introductions."
+              "desc": "Speel echte situaties na: cafés, familiedineetjes, eerste kennismakingen."
             },
             "feature5": {
-              "pain": "Stop forgetting everything",
+              "pain": "Stop met alles vergeten",
               "feature": "Weakest Words",
-              "desc": "AI tracks what you struggle with and brings it back until it sticks."
+              "desc": "De woorden waar je moeite mee hebt komen terug tot ze blijven hangen."
             },
             "feature6": {
-              "pain": "Talk to their family, not through them",
+              "pain": "Praat met hun familie, niet via hen",
               "feature": "Voice Chat",
-              "desc": "Real conversations with AI. Practice pronunciation before the real thing."
+              "desc": "Oefen de echte gesprekken voordat ze plaatsvinden. Zodat je klaar bent als het ertoe doet."
             }
           },
           "tutor": {
             "feature1": {
-              "pain": "Keep their learning fresh and fun",
+              "pain": "Weet altijd hoe je ze daarna kunt helpen",
               "feature": "Agentic Coach",
-              "desc": "AI suggests what to teach next based on their progress and struggles."
+              "desc": "Zie wat je vervolgens kunt leren op basis van hun voortgang en moeilijkheden."
             },
             "feature2": {
-              "pain": "Share your world, one word at a time",
+              "pain": "Deel je wereld, één woord per keer",
               "feature": "Word Gifts",
-              "desc": "Send curated vocabulary: \"words for meeting my grandmother.\""
+              "desc": "Stuur geselecteerde woordenschat: 'woorden voor de ontmoeting met mijn oma.'"
             },
             "feature3": {
-              "pain": "See what's actually sticking",
+              "pain": "Zie wat er echt blijft hangen",
               "feature": "Progress Tracking",
-              "desc": "View their weak spots, mastered words, and learning velocity."
+              "desc": "Zie wat werkt en wat wegglijdt. Geen giswerk."
             },
             "feature4": {
-              "pain": "Quiz them on their weak spots",
+              "pain": "Daag ze uit waar het telt",
               "feature": "Partner Challenges",
-              "desc": "Create quizzes and timed challenges. AI suggests their weakest words."
+              "desc": "Maak uitdagingen die precies hun moeilijkheden raken. We helpen je de hiaten te vinden."
             },
             "feature5": {
-              "pain": "Explain the 'why' you never learned",
+              "pain": "Help ze de regels begrijpen die jij gewoon weet",
               "feature": "AI-Assisted Teaching",
-              "desc": "AI helps articulate grammar rules, nuances, and exceptions."
+              "desc": "Je kent de regel instinctief. We helpen je die uit te leggen zodat ze het begrijpen."
             },
             "feature6": {
-              "pain": "Achieve your goals together",
+              "pain": "Kijk hoe ze deel worden van jouw wereld",
               "feature": "Shared Activity Feed",
-              "desc": "Celebrate milestones, track progress, stay connected on the journey."
+              "desc": "Elke mijlpaal wordt gedeeld. Elke overwinning is ook van jou."
             }
           }
         }

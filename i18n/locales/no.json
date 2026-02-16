@@ -2103,86 +2103,85 @@
         "anxietyDesc": "Frykt for å bli dømt av partneren din er reell. Vår AI formidler rettelser og tilbakemelding, og skaper et trygt rom for å gjøre feil uten å skade forholdet.",
         "anxietyCitation": "Horwitz, Horwitz & Cope, 1986; MacIntyre & Gardner, 1991",
         "tabs": {
-          "method": "How It Works",
-          "story": "Who We Are",
-          "offer": "What You Get"
+          "method": "Slik fungerer det",
+          "story": "Hvem vi er",
+          "offer": "Hva du får"
         },
         "scrollHint": "scroll",
         "story": {
           "names": "Richard & Misia",
-          "title": "Founders",
-          "paragraph1": "It started because I kept forgetting.",
-          "paragraph2": "Misia would teach me something in Polish, a phrase, a word, how to say something properly, and by the next day it was gone. She'd try to help me through the things I couldn't grasp, but we had no way to track what I'd learned or what was slipping away.",
-          "paragraph3": "We tried other apps, but nothing helped us connect. It was all siloed learning, just me and a screen. Misia couldn't see my progress or help me where I was stuck.",
-          "paragraph4": "So I built something to capture it. Then to practice it. Then to help me practice any situation I wanted, with a conversation partner who actually understood where I was in my journey.",
-          "paragraph5": "When we saw how well it worked, we formalised what we'd been doing into a method: Relationship-Aware Language Learning. The app stopped being just a tool and became something more, a companion that helps us bond and captures the real journey we're on.",
-          "paragraph6": "We fixed the issues we found in other apps and made it for you and your partner, designing it with love and care. We hope you enjoy it."
+          "title": "Grunnleggere",
+          "paragraph1": "Det startet fordi jeg glemte hele tiden.",
+          "paragraph2": "Misia lærte meg et ord på polsk. Hvordan si noe riktig, hvordan fortelle familien hennes at maten var fantastisk. Neste morgen var alt borte.",
+          "paragraph3": "Vi prøvde appene alle anbefaler. Men det var alltid bare meg og en skjerm. Misia kunne ikke se hvor jeg satt fast. Hun kunne ikke hjelpe der det betydde noe.",
+          "paragraph4": "Så jeg bygde noe for å fange ordene hun lærte meg. Så for å øve dem. Så for å føle meg litt mer klar for øyeblikkene som virkelig betydde noe.",
+          "paragraph6": "Vi bygde dette for hvert par som allerede har noe vakkert. Se for deg å forstå hvert ord, hver vits, hver del av deres verden. Språket deres er ikke bare hvordan de snakker — det er hvem de er."
         },
         "offer": {
-          "studentHeadline": "Built for the moments that matter",
-          "tutorHeadline": "Everything you need to guide them",
+          "studentHeadline": "Alt mellom 'hei' og å høre til",
+          "tutorHeadline": "Gi dem ordene du har holdt tilbake",
           "student": {
             "feature1": {
-              "pain": "Finally get the joke at dinner",
+              "pain": "Endelig skjønne vitsen ved middagen",
               "feature": "Listen Mode",
-              "desc": "Record real conversations. Capture words you missed. Review them later."
+              "desc": "Ta opp ekte samtaler. Fang ord du gikk glipp av. Gå gjennom dem senere."
             },
             "feature2": {
-              "pain": "Learn words that actually matter",
+              "pain": "Lær ordene du faktisk kommer til å bruke",
               "feature": "Love Log",
-              "desc": "AI extracts vocabulary from your conversations—not a textbook."
+              "desc": "Hvert ord fra de ekte samtalene deres, lagret automatisk. Forholdet deres er pensum."
             },
             "feature3": {
-              "pain": "Practice without the pressure",
+              "pain": "Øv med noen som vil at du skal vinne",
               "feature": "Smart Games",
-              "desc": "6 game modes. Accepts synonyms and typos. No red X for minor mistakes."
+              "desc": "6 spillmoduser. Godtar synonymer og skrivefeil. Ingen rød X for småfeil."
             },
             "feature4": {
-              "pain": "Practice any situation you want",
+              "pain": "Lag og øv på scenariene du vil",
               "feature": "Conversation Practice",
-              "desc": "Roleplay real scenarios: cafes, family dinners, first introductions."
+              "desc": "Spill gjennom virkelige situasjoner: kafeer, familiemiddager, første møter."
             },
             "feature5": {
-              "pain": "Stop forgetting everything",
+              "pain": "Slutt å glemme alt",
               "feature": "Weakest Words",
-              "desc": "AI tracks what you struggle with and brings it back until it sticks."
+              "desc": "Ordene du sliter med kommer tilbake til de sitter."
             },
             "feature6": {
-              "pain": "Talk to their family, not through them",
+              "pain": "Snakk med familien deres, ikke gjennom dem",
               "feature": "Voice Chat",
-              "desc": "Real conversations with AI. Practice pronunciation before the real thing."
+              "desc": "Øv på de ekte samtalene før de skjer. Så du er klar når det gjelder."
             }
           },
           "tutor": {
             "feature1": {
-              "pain": "Keep their learning fresh and fun",
+              "pain": "Vet alltid hvordan du hjelper dem videre",
               "feature": "Agentic Coach",
-              "desc": "AI suggests what to teach next based on their progress and struggles."
+              "desc": "Se hva du bør lære bort neste gang basert på fremgangen og utfordringene deres."
             },
             "feature2": {
-              "pain": "Share your world, one word at a time",
+              "pain": "Del verdenen din, ett ord om gangen",
               "feature": "Word Gifts",
-              "desc": "Send curated vocabulary: \"words for meeting my grandmother.\""
+              "desc": "Send utvalgt ordforråd: \u00abord for å møte bestemoren min\u00bb."
             },
             "feature3": {
-              "pain": "See what's actually sticking",
+              "pain": "Se hva som faktisk sitter",
               "feature": "Progress Tracking",
-              "desc": "View their weak spots, mastered words, and learning velocity."
+              "desc": "Se hva som fungerer og hva som glir unna. Ingen gjetting."
             },
             "feature4": {
-              "pain": "Quiz them on their weak spots",
+              "pain": "Utfordr dem der det teller",
               "feature": "Partner Challenges",
-              "desc": "Create quizzes and timed challenges. AI suggests their weakest words."
+              "desc": "Lag utfordringer som treffer akkurat der de sliter. Vi hjelper deg finne hullene."
             },
             "feature5": {
-              "pain": "Explain the 'why' you never learned",
+              "pain": "Hjelp dem forstå reglene du bare kan",
               "feature": "AI-Assisted Teaching",
-              "desc": "AI helps articulate grammar rules, nuances, and exceptions."
+              "desc": "Du kan regelen instinktivt. Vi hjelper deg forklare den slik at de forstår."
             },
             "feature6": {
-              "pain": "Achieve your goals together",
+              "pain": "Se dem bli en del av verdenen din",
               "feature": "Shared Activity Feed",
-              "desc": "Celebrate milestones, track progress, stay connected on the journey."
+              "desc": "Hver milepæl deles. Hver seier er også din."
             }
           }
         }

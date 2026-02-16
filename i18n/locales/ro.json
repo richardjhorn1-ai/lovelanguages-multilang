@@ -2103,86 +2103,85 @@
         "anxietyDesc": "Frica de a fi judecat de partenerul tau este reala. AI-ul nostru mediaza corecturile si feedback-ul, creand un spatiu sigur pentru a face greseli fara a-ti afecta relatia.",
         "anxietyCitation": "Horwitz, Horwitz & Cope, 1986; MacIntyre & Gardner, 1991",
         "tabs": {
-          "method": "How It Works",
-          "story": "Who We Are",
-          "offer": "What You Get"
+          "method": "Cum funcționează",
+          "story": "Cine suntem",
+          "offer": "Ce primești"
         },
         "scrollHint": "scroll",
         "story": {
           "names": "Richard & Misia",
-          "title": "Founders",
-          "paragraph1": "It started because I kept forgetting.",
-          "paragraph2": "Misia would teach me something in Polish, a phrase, a word, how to say something properly, and by the next day it was gone. She'd try to help me through the things I couldn't grasp, but we had no way to track what I'd learned or what was slipping away.",
-          "paragraph3": "We tried other apps, but nothing helped us connect. It was all siloed learning, just me and a screen. Misia couldn't see my progress or help me where I was stuck.",
-          "paragraph4": "So I built something to capture it. Then to practice it. Then to help me practice any situation I wanted, with a conversation partner who actually understood where I was in my journey.",
-          "paragraph5": "When we saw how well it worked, we formalised what we'd been doing into a method: Relationship-Aware Language Learning. The app stopped being just a tool and became something more, a companion that helps us bond and captures the real journey we're on.",
-          "paragraph6": "We fixed the issues we found in other apps and made it for you and your partner, designing it with love and care. We hope you enjoy it."
+          "title": "Fondatori",
+          "paragraph1": "A început pentru că uitam mereu.",
+          "paragraph2": "Misia mă învăța un cuvânt în poloneză. Cum să spun ceva corect, cum să-i spun familiei ei că mi-a plăcut mâncarea. Dimineața, totul dispăruse.",
+          "paragraph3": "Am încercat aplicațiile pe care le recomandă toată lumea. Dar era mereu doar eu și un ecran. Misia nu putea vedea unde mă blocam. Nu putea ajuta acolo unde conta.",
+          "paragraph4": "Așa că am construit ceva pentru a prinde cuvintele pe care mi le preda. Apoi pentru a le exersa. Apoi pentru a mă simți puțin mai pregătit pentru momentele care contau cu adevărat.",
+          "paragraph6": "Am creat asta pentru fiecare cuplu care are deja ceva frumos. Acum imaginează-ți să înțelegi fiecare cuvânt, fiecare glumă, fiecare parte din lumea lor. Limba lor nu e doar cum vorbesc — e cine sunt."
         },
         "offer": {
-          "studentHeadline": "Built for the moments that matter",
-          "tutorHeadline": "Everything you need to guide them",
+          "studentHeadline": "Tot ce e între 'salut' și a aparține",
+          "tutorHeadline": "Dă-le cuvintele pe care le-ai ținut în tine",
           "student": {
             "feature1": {
-              "pain": "Finally get the joke at dinner",
+              "pain": "În sfârșit să înțelegi gluma la cină",
               "feature": "Listen Mode",
-              "desc": "Record real conversations. Capture words you missed. Review them later."
+              "desc": "Înregistrează conversații reale. Prinde cuvintele care ți-au scăpat. Revizuiește-le mai târziu."
             },
             "feature2": {
-              "pain": "Learn words that actually matter",
+              "pain": "Învață cuvintele pe care chiar le vei folosi",
               "feature": "Love Log",
-              "desc": "AI extracts vocabulary from your conversations—not a textbook."
+              "desc": "Fiecare cuvânt din conversațiile voastre reale, salvat automat. Relația voastră e programa."
             },
             "feature3": {
-              "pain": "Practice without the pressure",
+              "pain": "Exersează cu cineva care vrea să reușești",
               "feature": "Smart Games",
-              "desc": "6 game modes. Accepts synonyms and typos. No red X for minor mistakes."
+              "desc": "6 moduri de joc. Acceptă sinonime și greșeli de tastare. Fără X roșu pentru erori mici."
             },
             "feature4": {
-              "pain": "Practice any situation you want",
+              "pain": "Creează și repetă scenariile pe care le vrei",
               "feature": "Conversation Practice",
-              "desc": "Roleplay real scenarios: cafes, family dinners, first introductions."
+              "desc": "Simulează situații reale: cafenele, cine în familie, primele prezentări."
             },
             "feature5": {
-              "pain": "Stop forgetting everything",
+              "pain": "Nu mai uita totul",
               "feature": "Weakest Words",
-              "desc": "AI tracks what you struggle with and brings it back until it sticks."
+              "desc": "Cuvintele cu care te lupți revin până rămân."
             },
             "feature6": {
-              "pain": "Talk to their family, not through them",
+              "pain": "Vorbește cu familia lor, nu prin ei",
               "feature": "Voice Chat",
-              "desc": "Real conversations with AI. Practice pronunciation before the real thing."
+              "desc": "Exersează conversațiile reale înainte să aibă loc. Ca să fii pregătit când contează."
             }
           },
           "tutor": {
             "feature1": {
-              "pain": "Keep their learning fresh and fun",
+              "pain": "Știi mereu cum să-i ajuți mai departe",
               "feature": "Agentic Coach",
-              "desc": "AI suggests what to teach next based on their progress and struggles."
+              "desc": "Vezi ce să predai în continuare pe baza progresului și dificultăților lor."
             },
             "feature2": {
-              "pain": "Share your world, one word at a time",
+              "pain": "Împărtășește lumea ta, un cuvânt pe rând",
               "feature": "Word Gifts",
-              "desc": "Send curated vocabulary: \"words for meeting my grandmother.\""
+              "desc": "Trimite vocabular ales: «cuvinte pentru întâlnirea cu bunica mea»."
             },
             "feature3": {
-              "pain": "See what's actually sticking",
+              "pain": "Vezi ce rămâne cu adevărat",
               "feature": "Progress Tracking",
-              "desc": "View their weak spots, mastered words, and learning velocity."
+              "desc": "Vezi ce funcționează și ce scapă. Fără ghicit."
             },
             "feature4": {
-              "pain": "Quiz them on their weak spots",
+              "pain": "Provoacă-i acolo unde contează",
               "feature": "Partner Challenges",
-              "desc": "Create quizzes and timed challenges. AI suggests their weakest words."
+              "desc": "Creează provocări care țintesc exact dificultățile lor. Te ajutăm să găsești lacunele."
             },
             "feature5": {
-              "pain": "Explain the 'why' you never learned",
+              "pain": "Ajută-i să înțeleagă regulile pe care tu pur și simplu le știi",
               "feature": "AI-Assisted Teaching",
-              "desc": "AI helps articulate grammar rules, nuances, and exceptions."
+              "desc": "Cunoști regula instinctiv. Te ajutăm să o explici astfel încât să înțeleagă."
             },
             "feature6": {
-              "pain": "Achieve your goals together",
+              "pain": "Privește-i cum devin parte din lumea ta",
               "feature": "Shared Activity Feed",
-              "desc": "Celebrate milestones, track progress, stay connected on the journey."
+              "desc": "Fiecare realizare e împărțită. Fiecare victorie e și a ta."
             }
           }
         }

@@ -2103,86 +2103,85 @@
         "anxietyDesc": "La peur du jugement de votre partenaire est réelle. Notre IA modère les corrections et les retours, créant un espace sûr pour faire des erreurs sans nuire à votre relation.",
         "anxietyCitation": "Horwitz, Horwitz & Cope, 1986 ; MacIntyre & Gardner, 1991",
         "tabs": {
-          "method": "How It Works",
-          "story": "Who We Are",
-          "offer": "What You Get"
+          "method": "Comment ça marche",
+          "story": "Qui sommes-nous",
+          "offer": "Ce que vous obtenez"
         },
         "scrollHint": "scroll",
         "story": {
           "names": "Richard & Misia",
-          "title": "Founders",
-          "paragraph1": "It started because I kept forgetting.",
-          "paragraph2": "Misia would teach me something in Polish, a phrase, a word, how to say something properly, and by the next day it was gone. She'd try to help me through the things I couldn't grasp, but we had no way to track what I'd learned or what was slipping away.",
-          "paragraph3": "We tried other apps, but nothing helped us connect. It was all siloed learning, just me and a screen. Misia couldn't see my progress or help me where I was stuck.",
-          "paragraph4": "So I built something to capture it. Then to practice it. Then to help me practice any situation I wanted, with a conversation partner who actually understood where I was in my journey.",
-          "paragraph5": "When we saw how well it worked, we formalised what we'd been doing into a method: Relationship-Aware Language Learning. The app stopped being just a tool and became something more, a companion that helps us bond and captures the real journey we're on.",
-          "paragraph6": "We fixed the issues we found in other apps and made it for you and your partner, designing it with love and care. We hope you enjoy it."
+          "title": "Fondateurs",
+          "paragraph1": "Tout a commencé parce que j'oubliais sans arrêt.",
+          "paragraph2": "Misia m'apprenait un mot en polonais. Comment bien prononcer quelque chose, comment dire à sa famille que j'avais adoré le repas. Le lendemain matin, tout avait disparu.",
+          "paragraph3": "On a essayé les applis que tout le monde recommande. Mais c'était toujours juste moi et un écran. Misia ne pouvait pas voir où je bloquais. Elle ne pouvait pas aider là où ça comptait.",
+          "paragraph4": "Alors j'ai construit quelque chose pour capturer les mots qu'elle m'enseignait. Puis pour les pratiquer. Puis pour me sentir un peu plus prêt pour les moments qui comptaient vraiment.",
+          "paragraph6": "On a créé ça pour chaque couple qui a déjà quelque chose de beau. Maintenant, imaginez comprendre chaque mot, chaque blague, chaque partie de leur monde. Leur langue, ce n'est pas seulement comment ils parlent — c'est qui ils sont."
         },
         "offer": {
-          "studentHeadline": "Built for the moments that matter",
-          "tutorHeadline": "Everything you need to guide them",
+          "studentHeadline": "Tout ce qui sépare 'bonjour' du sentiment d'appartenir",
+          "tutorHeadline": "Donnez-leur les mots que vous retenez depuis longtemps",
           "student": {
             "feature1": {
-              "pain": "Finally get the joke at dinner",
+              "pain": "Enfin comprendre la blague au dîner",
               "feature": "Listen Mode",
-              "desc": "Record real conversations. Capture words you missed. Review them later."
+              "desc": "Enregistrez de vraies conversations. Captez les mots qui vous ont échappé. Révisez-les plus tard."
             },
             "feature2": {
-              "pain": "Learn words that actually matter",
+              "pain": "Apprenez les mots que vous utiliserez vraiment",
               "feature": "Love Log",
-              "desc": "AI extracts vocabulary from your conversations—not a textbook."
+              "desc": "Chaque mot de vos vraies conversations, sauvegardé automatiquement. Votre relation est le programme."
             },
             "feature3": {
-              "pain": "Practice without the pressure",
+              "pain": "Entraînez-vous avec quelqu'un qui veut votre réussite",
               "feature": "Smart Games",
-              "desc": "6 game modes. Accepts synonyms and typos. No red X for minor mistakes."
+              "desc": "6 modes de jeu. Accepte les synonymes et les fautes de frappe. Pas de X rouge pour les petites erreurs."
             },
             "feature4": {
-              "pain": "Practice any situation you want",
+              "pain": "Créez et répétez les scénarios que vous voulez",
               "feature": "Conversation Practice",
-              "desc": "Roleplay real scenarios: cafes, family dinners, first introductions."
+              "desc": "Jouez des situations réelles : cafés, dîners en famille, premières présentations."
             },
             "feature5": {
-              "pain": "Stop forgetting everything",
+              "pain": "Arrêtez de tout oublier",
               "feature": "Weakest Words",
-              "desc": "AI tracks what you struggle with and brings it back until it sticks."
+              "desc": "Les mots qui vous posent problème reviennent jusqu'à ce qu'ils restent."
             },
             "feature6": {
-              "pain": "Talk to their family, not through them",
+              "pain": "Parlez à leur famille, pas à travers eux",
               "feature": "Voice Chat",
-              "desc": "Real conversations with AI. Practice pronunciation before the real thing."
+              "desc": "Entraînez-vous aux vraies conversations avant qu'elles n'arrivent. Pour être prêt quand ça compte."
             }
           },
           "tutor": {
             "feature1": {
-              "pain": "Keep their learning fresh and fun",
+              "pain": "Sachez toujours comment les aider ensuite",
               "feature": "Agentic Coach",
-              "desc": "AI suggests what to teach next based on their progress and struggles."
+              "desc": "Voyez quoi enseigner ensuite selon leurs progrès et leurs difficultés."
             },
             "feature2": {
-              "pain": "Share your world, one word at a time",
+              "pain": "Partagez votre monde, un mot à la fois",
               "feature": "Word Gifts",
-              "desc": "Send curated vocabulary: \"words for meeting my grandmother.\""
+              "desc": "Envoyez du vocabulaire choisi : \u00ab les mots pour rencontrer ma grand-mère \u00bb."
             },
             "feature3": {
-              "pain": "See what's actually sticking",
+              "pain": "Voyez ce qui reste vraiment",
               "feature": "Progress Tracking",
-              "desc": "View their weak spots, mastered words, and learning velocity."
+              "desc": "Voyez ce qui s'ancre et ce qui s'efface. Sans deviner."
             },
             "feature4": {
-              "pain": "Quiz them on their weak spots",
+              "pain": "Défiez-les là où ça compte",
               "feature": "Partner Challenges",
-              "desc": "Create quizzes and timed challenges. AI suggests their weakest words."
+              "desc": "Créez des défis ciblant exactement leurs difficultés. On vous aide à trouver les lacunes."
             },
             "feature5": {
-              "pain": "Explain the 'why' you never learned",
+              "pain": "Aidez-les à comprendre les règles que vous connaissez d'instinct",
               "feature": "AI-Assisted Teaching",
-              "desc": "AI helps articulate grammar rules, nuances, and exceptions."
+              "desc": "Vous connaissez la règle instinctivement. On vous aide à l'expliquer pour qu'ils comprennent."
             },
             "feature6": {
-              "pain": "Achieve your goals together",
+              "pain": "Regardez-les devenir partie de votre monde",
               "feature": "Shared Activity Feed",
-              "desc": "Celebrate milestones, track progress, stay connected on the journey."
+              "desc": "Chaque étape est partagée. Chaque victoire est aussi la vôtre."
             }
           }
         }
