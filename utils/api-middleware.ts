@@ -449,7 +449,7 @@ export const RATE_LIMITS = {
   // Abuse prevention (same limits for all tiers)
   deleteAccount: { type: 'account_deletions', monthly: { free: 1, standard: 1, unlimited: 1 } },
   exportUserData: { type: 'data_exports', monthly: { free: 2, standard: 5, unlimited: 10 } },
-  generateInvite: { type: 'invite_generations', monthly: { free: 0, standard: 10, unlimited: 20 } },
+  generateInvite: { type: 'invite_generations', monthly: { free: 3, standard: 10, unlimited: 20 } },
 } as const;
 
 export type RateLimitKey = keyof typeof RATE_LIMITS;

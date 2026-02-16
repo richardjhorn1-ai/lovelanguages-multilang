@@ -27,7 +27,6 @@ const InvitePartnerSection: React.FC<InvitePartnerSectionProps> = ({
 
   // Check eligibility
   const isEligible =
-    subscriptionStatus === 'active' &&
     !subscriptionGrantedBy &&  // Not inherited subscription
     !linkedUserId;              // Not already linked
 

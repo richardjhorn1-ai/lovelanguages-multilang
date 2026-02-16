@@ -58,7 +58,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({ word: newWord.trim(), ...languageParams })
+        body: JSON.stringify({ word: newWord.trim(), lightweight: true, ...languageParams })
       });
 
       const data = await response.json();
