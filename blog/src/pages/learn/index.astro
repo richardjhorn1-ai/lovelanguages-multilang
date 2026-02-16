@@ -44,8 +44,8 @@ const jsonLd = {
   nativeLang="en"
 >
   <Fragment slot="head">
-    <link rel="alternate" hreflang="en" href="https://www.lovelanguages.io/learn/" />
-    <link rel="alternate" hreflang="x-default" href="https://www.lovelanguages.io/learn/" />
+    <link rel="alternate" hreflang="en" href="https://www.lovelanguages.io/learn/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.lovelanguages.io/learn/en/" />
     {SUPPORTED_NATIVE_LANGS.filter(lang => lang !== 'en').map(lang => (
       <link rel="alternate" hreflang={lang} href={`https://www.lovelanguages.io/learn/${lang}/`} />
     ))}

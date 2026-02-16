@@ -341,7 +341,7 @@ readTime: ${article.readTime}
 date: '${today}'
 tags: [${article.tags.map(t => `'${t}'`).join(', ')}]
 language: ${config.language}
-nativeLanguage: en${imagePath ? `\nimage: '${imagePath}'` : ''}
+nativeLanguage: ${config.nativeLang}${imagePath ? `\nimage: '${imagePath}'` : ''}
 ---
 import VocabCard from '@components/VocabCard.astro';
 import ConjugationTable from '@components/ConjugationTable.astro';

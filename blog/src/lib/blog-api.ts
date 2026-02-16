@@ -288,15 +288,15 @@ export async function searchArticles(
 export async function getAllSlugs(
   nativeLang?: string,
   targetLang?: string
-): Promise<{ native_lang: string; target_lang: string; slug: string; updated_at: string | null }[]> {
-  const allData: { native_lang: string; target_lang: string; slug: string; updated_at: string | null }[] = [];
+): Promise<{ native_lang: string; target_lang: string; slug: string; updated_at: string | null; is_canonical: boolean }[]> {
+  const allData: { native_lang: string; target_lang: string; slug: string; updated_at: string | null; is_canonical: boolean }[] = [];
   const PAGE_SIZE = 1000;
   let offset = 0;
 
   while (true) {
     let query = supabase
       .from('blog_articles')
-      .select('native_lang, target_lang, slug, updated_at')
+      .select('native_lang, target_lang, slug, updated_at, is_canonical')
       .eq('published', true)
       .range(offset, offset + PAGE_SIZE - 1);
 
@@ -482,7 +482,15 @@ export async function getAlternatesByTopicId(
     .neq('native_lang', excludeNativeLang);
 
   if (error) return [];
-  return data || [];
+
+  // Deduplicate: keep only the first article per native_lang.
+  // Prevents duplicate hreflang tags if topic_id data has collisions.
+  const seen = new Set<string>();
+  return (data || []).filter(row => {
+    if (seen.has(row.native_lang)) return false;
+    seen.add(row.native_lang);
+    return true;
+  });
 }
 
 /**
