@@ -290,9 +290,6 @@ export const StoryContent: React.FC<{ accentColor: string; t: any }> = ({ accent
             <p className="text-xs md:text-sm leading-relaxed" style={{ color: '#4b5563' }}>
               {t('hero.bottomSections.rall.story.paragraph4')}
             </p>
-            <p className="text-xs md:text-sm leading-relaxed" style={{ color: '#4b5563' }}>
-              {t('hero.bottomSections.rall.story.paragraph5')}
-            </p>
             <p className="text-xs md:text-sm leading-relaxed font-medium" style={{ color: accentColor }}>
               {t('hero.bottomSections.rall.story.paragraph6')}
             </p>

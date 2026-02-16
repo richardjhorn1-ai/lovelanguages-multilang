@@ -2103,86 +2103,85 @@
         "anxietyDesc": "Страх осуду з боку партнера - реальний. Наш ШІ виступає посередником у виправленнях та зворотному зв'язку, створюючи безпечний простір для помилок без шкоди для ваших стосунків.",
         "anxietyCitation": "Horwitz, Horwitz & Cope, 1986; MacIntyre & Gardner, 1991",
         "tabs": {
-          "method": "How It Works",
-          "story": "Who We Are",
-          "offer": "What You Get"
+          "method": "Як це працює",
+          "story": "Хто ми",
+          "offer": "Що ви отримаєте"
         },
         "scrollHint": "scroll",
         "story": {
           "names": "Richard & Misia",
-          "title": "Founders",
-          "paragraph1": "It started because I kept forgetting.",
-          "paragraph2": "Misia would teach me something in Polish, a phrase, a word, how to say something properly, and by the next day it was gone. She'd try to help me through the things I couldn't grasp, but we had no way to track what I'd learned or what was slipping away.",
-          "paragraph3": "We tried other apps, but nothing helped us connect. It was all siloed learning, just me and a screen. Misia couldn't see my progress or help me where I was stuck.",
-          "paragraph4": "So I built something to capture it. Then to practice it. Then to help me practice any situation I wanted, with a conversation partner who actually understood where I was in my journey.",
-          "paragraph5": "When we saw how well it worked, we formalised what we'd been doing into a method: Relationship-Aware Language Learning. The app stopped being just a tool and became something more, a companion that helps us bond and captures the real journey we're on.",
-          "paragraph6": "We fixed the issues we found in other apps and made it for you and your partner, designing it with love and care. We hope you enjoy it."
+          "title": "Засновники",
+          "paragraph1": "Все почалося з того, що я постійно забував.",
+          "paragraph2": "Міся вчила мене слова польською. Як щось правильно сказати, як сказати її родині, що їжа була чудовою. Вранці все зникало.",
+          "paragraph3": "Ми спробували застосунки, які всі рекомендують. Але це завжди був тільки я та екран. Міся не бачила, де я застрягав. Не могла допомогти там, де це було важливо.",
+          "paragraph4": "Тож я створив щось, щоб ловити слова, яких вона мене вчила. Потім — щоб їх тренувати. Потім — щоб відчувати себе трохи більш готовим до моментів, які справді мали значення.",
+          "paragraph6": "Ми створили це для кожної пари, яка вже має щось прекрасне. Тепер уявіть: ви розумієте кожне слово, кожен жарт, кожну частинку їхнього світу. Їхня мова — це не просто те, як вони говорять. Це те, ким вони є."
         },
         "offer": {
-          "studentHeadline": "Built for the moments that matter",
-          "tutorHeadline": "Everything you need to guide them",
+          "studentHeadline": "Усе між «привіт» і відчуттям приналежності",
+          "tutorHeadline": "Дайте їм слова, які ви тримали в собі",
           "student": {
             "feature1": {
-              "pain": "Finally get the joke at dinner",
+              "pain": "Нарешті зрозуміти жарт за вечерею",
               "feature": "Listen Mode",
-              "desc": "Record real conversations. Capture words you missed. Review them later."
+              "desc": "Записуйте справжні розмови. Ловіть слова, які пропустили. Повторюйте їх пізніше."
             },
             "feature2": {
-              "pain": "Learn words that actually matter",
+              "pain": "Вчіть слова, які вам справді знадобляться",
               "feature": "Love Log",
-              "desc": "AI extracts vocabulary from your conversations—not a textbook."
+              "desc": "Кожне слово з ваших справжніх розмов, збережене автоматично. Ваші стосунки — це навчальна програма."
             },
             "feature3": {
-              "pain": "Practice without the pressure",
+              "pain": "Тренуйтесь з тим, хто вболіває за ваш успіх",
               "feature": "Smart Games",
-              "desc": "6 game modes. Accepts synonyms and typos. No red X for minor mistakes."
+              "desc": "6 ігрових режимів. Приймає синоніми та друкарські помилки. Жодного червоного Х за дрібні помилки."
             },
             "feature4": {
-              "pain": "Practice any situation you want",
+              "pain": "Створюйте та репетируйте потрібні вам сценарії",
               "feature": "Conversation Practice",
-              "desc": "Roleplay real scenarios: cafes, family dinners, first introductions."
+              "desc": "Програвайте реальні ситуації: кав'ярні, сімейні вечері, перші знайомства."
             },
             "feature5": {
-              "pain": "Stop forgetting everything",
+              "pain": "Припиніть забувати все підряд",
               "feature": "Weakest Words",
-              "desc": "AI tracks what you struggle with and brings it back until it sticks."
+              "desc": "Слова, з якими ви боретесь, повертаються знову і знову, доки не запам'ятаються."
             },
             "feature6": {
-              "pain": "Talk to their family, not through them",
+              "pain": "Говоріть з їхньою родиною, а не через них",
               "feature": "Voice Chat",
-              "desc": "Real conversations with AI. Practice pronunciation before the real thing."
+              "desc": "Тренуйте справжні розмови до того, як вони відбудуться. Щоб бути готовим, коли це важливо."
             }
           },
           "tutor": {
             "feature1": {
-              "pain": "Keep their learning fresh and fun",
+              "pain": "Завжди знати, як допомогти їм далі",
               "feature": "Agentic Coach",
-              "desc": "AI suggests what to teach next based on their progress and struggles."
+              "desc": "Дивіться, чому вчити далі, виходячи з їхнього прогресу та труднощів."
             },
             "feature2": {
-              "pain": "Share your world, one word at a time",
+              "pain": "Діліться своїм світом, одне слово за раз",
               "feature": "Word Gifts",
-              "desc": "Send curated vocabulary: \"words for meeting my grandmother.\""
+              "desc": "Надсилайте підібрану лексику: «слова для зустрічі з моєю бабусею»."
             },
             "feature3": {
-              "pain": "See what's actually sticking",
+              "pain": "Бачте, що справді запам'ятовується",
               "feature": "Progress Tracking",
-              "desc": "View their weak spots, mastered words, and learning velocity."
+              "desc": "Бачте, що працює, а що вислизає. Без здогадок."
             },
             "feature4": {
-              "pain": "Quiz them on their weak spots",
+              "pain": "Ставте виклики там, де це важливо",
               "feature": "Partner Challenges",
-              "desc": "Create quizzes and timed challenges. AI suggests their weakest words."
+              "desc": "Створюйте завдання, спрямовані саме на їхні слабкі місця. Ми допоможемо знайти прогалини."
             },
             "feature5": {
-              "pain": "Explain the 'why' you never learned",
+              "pain": "Допоможіть їм зрозуміти правила, які ви просто знаєте",
               "feature": "AI-Assisted Teaching",
-              "desc": "AI helps articulate grammar rules, nuances, and exceptions."
+              "desc": "Ви знаєте правило інтуїтивно. Ми допоможемо вам пояснити його так, щоб вони зрозуміли."
             },
             "feature6": {
-              "pain": "Achieve your goals together",
+              "pain": "Дивіться, як вони стають частиною вашого світу",
               "feature": "Shared Activity Feed",
-              "desc": "Celebrate milestones, track progress, stay connected on the journey."
+              "desc": "Кожне досягнення — спільне. Кожна перемога — і ваша теж."
             }
           }
         }
