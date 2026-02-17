@@ -34,6 +34,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   const [activeTenseTab, setActiveTenseTab] = useState<VerbTense>('present');
   const [unlockDialogTense, setUnlockDialogTense] = useState<VerbTense | null>(null);
   const [unlocking, setUnlocking] = useState(false);
+  const [completingEntryId, setCompletingEntryId] = useState<string | null>(null);
   const [isSyncing, setIsSyncing] = useState(false);
   const [syncMessage, setSyncMessage] = useState<string | null>(null);
   const [partnerName, setPartnerName] = useState<string>('');
@@ -377,6 +378,24 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
     }
   };
 
+  const handleCompleteEntry = async (entryId: string) => {
+    setCompletingEntryId(entryId);
+    try {
+      const result = await geminiService.completeEntry(entryId);
+      if (result?.success) {
+        // Refresh entries to get updated data
+        await fetchEntries();
+      } else if (!result?.complete) {
+        // complete: true means nothing was missing, otherwise it failed
+        console.error('Complete entry failed:', result);
+      }
+    } catch (e) {
+      console.error('Complete entry error:', e);
+    } finally {
+      setCompletingEntryId(null);
+    }
+  };
+
   return (
     <div className="h-full flex flex-col bg-[var(--bg-primary)]">
       <div className="px-3 md:px-6 py-3 md:py-4 bg-[var(--bg-card)] border-b border-[var(--border-color)] sticky top-0 z-30 shadow-sm">
@@ -703,7 +722,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                   </div>
                 ) : null}
 
-                {/* Show Forms button */}
+                {/* Show Forms / Fill in forms button */}
                 {hasFormsData ? (
                   <button
                     onClick={() => { setDetailModalId(null); setFormsModalId(entry.id); }}
@@ -716,6 +735,24 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                   <div className="w-full py-3 bg-amber-50 dark:bg-amber-900/10 text-amber-600 dark:text-amber-400 rounded-xl text-scale-label font-bold text-center animate-pulse">
                     {t('loveLog.card.enrichingForms')}
                   </div>
+                ) : ['verb', 'noun', 'adjective'].includes(entry.word_type) ? (
+                  <button
+                    onClick={() => handleCompleteEntry(entry.id)}
+                    disabled={completingEntryId === entry.id}
+                    className="w-full py-3 bg-[var(--accent-light)] hover:bg-[var(--accent-light-hover)] text-[var(--accent-color)] rounded-xl text-scale-label font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 disabled:opacity-60"
+                  >
+                    {completingEntryId === entry.id ? (
+                      <>
+                        <span className="animate-spin">⏳</span>
+                        {t('loveLog.card.fillingForms', 'Generating...')}
+                      </>
+                    ) : (
+                      <>
+                        <span>✨</span>
+                        {t('loveLog.card.fillForms', 'Fill in forms')}
+                      </>
+                    )}
+                  </button>
                 ) : null}
               </div>
             </div>

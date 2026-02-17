@@ -13,6 +13,17 @@ import { extractLanguages } from '../utils/language-helpers.js';
 import { getLanguageConfig, getLanguageName, getConjugationPersons } from '../constants/language-config.js';
 import { buildVocabularySchema, buildConjugationSchema } from '../utils/schema-builders.js';
 
+export const maxDuration = 60;
+
+function withTimeout<T>(promise: Promise<T>, ms: number, label: string): Promise<T> {
+  return Promise.race([
+    promise,
+    new Promise<never>((_, reject) =>
+      setTimeout(() => reject(new Error(`${label} timed out after ${ms}ms`)), ms)
+    )
+  ]);
+}
+
 export default async function handler(req: any, res: any) {
   // CORS Headers
   if (setCorsHeaders(req, res)) {
@@ -178,14 +189,30 @@ ${historyText}`;
     // Use dynamic schema based on target language grammar
     const vocabSchema = buildVocabularySchema(targetLanguage);
 
-    const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
-      contents: prompt,
-      config: {
-        responseMimeType: "application/json",
-        responseSchema: vocabSchema
+    let response;
+    try {
+      response = await withTimeout(
+        ai.models.generateContent({
+          model: "gemini-3-flash-preview",
+          contents: prompt,
+          config: {
+            responseMimeType: "application/json",
+            responseSchema: vocabSchema
+          }
+        }),
+        45_000,
+        'Main vocabulary extraction'
+      );
+    } catch (timeoutErr: any) {
+      if (timeoutErr.message?.includes('timed out')) {
+        console.error('[analyze-history] Main Gemini call timed out after 45s');
+        return res.status(502).json({
+          error: 'Word extraction took too long. Please try again.',
+          retryable: true
+        });
       }
-    });
+      throw timeoutErr;
+    }
 
     // Validate response before parsing
     // Note: retryable: true signals frontend to offer retry option for transient AI errors
@@ -251,23 +278,27 @@ For EACH verb, provide present tense with ALL ${conjugationPersons.length} perso
 Return as JSON array matching the order above.`;
 
         try {
-          const conjResponse = await ai.models.generateContent({
-            model: "gemini-2.5-flash",
-            contents: conjugationPrompt,
-            config: {
-              responseMimeType: "application/json",
-              responseSchema: {
-                type: Type.OBJECT,
-                properties: {
-                  conjugations: {
-                    type: Type.ARRAY,
-                    items: buildConjugationSchema(targetLanguage) || { type: Type.OBJECT }
-                  }
-                },
-                required: ['conjugations']
+          const conjResponse = await withTimeout(
+            ai.models.generateContent({
+              model: "gemini-2.5-flash",
+              contents: conjugationPrompt,
+              config: {
+                responseMimeType: "application/json",
+                responseSchema: {
+                  type: Type.OBJECT,
+                  properties: {
+                    conjugations: {
+                      type: Type.ARRAY,
+                      items: buildConjugationSchema(targetLanguage) || { type: Type.OBJECT }
+                    }
+                  },
+                  required: ['conjugations']
+                }
               }
-            }
-          });
+            }),
+            10_000,
+            'Conjugation backfill'
+          );
 
           const conjText = conjResponse.text || '';
           if (conjText.trim().startsWith('{')) {
@@ -285,8 +316,9 @@ Return as JSON array matching the order above.`;
             });
             console.log(`[analyze-history] Successfully backfilled ${conjugationsArray.length} verb conjugations`);
           }
-        } catch (conjError) {
-          console.error('[analyze-history] Failed to backfill conjugations:', conjError);
+        } catch (conjError: any) {
+          const isTimeout = conjError.message?.includes('timed out');
+          console[isTimeout ? 'warn' : 'error'](`[analyze-history] ${isTimeout ? 'Conjugation backfill timed out — returning words without conjugations' : 'Failed to backfill conjugations:'}`, isTimeout ? '' : conjError);
           // Continue without conjugations rather than failing entirely
         }
       }

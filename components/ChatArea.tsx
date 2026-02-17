@@ -241,6 +241,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
   // Extraction progress indicator (counter handles overlapping extractions)
   const extractingCountRef = useRef(0);
+  const extractionTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [extractingWords, setExtractingWords] = useState(false);
 
   // Theme
@@ -518,8 +519,29 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     window.dispatchEvent(new CustomEvent('new-words-extracted', { detail: { words } }));
   };
 
-  const startExtracting = () => { extractingCountRef.current++; setExtractingWords(true); window.dispatchEvent(new CustomEvent('words-extracting', { detail: { active: true } })); };
-  const stopExtracting = () => { extractingCountRef.current = Math.max(0, extractingCountRef.current - 1); if (extractingCountRef.current === 0) { setExtractingWords(false); window.dispatchEvent(new CustomEvent('words-extracting', { detail: { active: false } })); } };
+  const startExtracting = () => {
+    extractingCountRef.current++;
+    setExtractingWords(true);
+    window.dispatchEvent(new CustomEvent('words-extracting', { detail: { active: true } }));
+    // Safety timer: force-reset spinner after 60s so it never gets stuck
+    if (extractionTimeoutRef.current) clearTimeout(extractionTimeoutRef.current);
+    extractionTimeoutRef.current = setTimeout(() => {
+      if (extractingCountRef.current > 0) {
+        console.warn('[ChatArea] Extraction safety timeout — force-resetting spinner after 60s');
+        extractingCountRef.current = 0;
+        setExtractingWords(false);
+        window.dispatchEvent(new CustomEvent('words-extracting', { detail: { active: false } }));
+      }
+    }, 60_000);
+  };
+  const stopExtracting = () => {
+    extractingCountRef.current = Math.max(0, extractingCountRef.current - 1);
+    if (extractingCountRef.current === 0) {
+      setExtractingWords(false);
+      window.dispatchEvent(new CustomEvent('words-extracting', { detail: { active: false } }));
+      if (extractionTimeoutRef.current) { clearTimeout(extractionTimeoutRef.current); extractionTimeoutRef.current = null; }
+    }
+  };
 
   const handleSend = async (directMessage?: string) => {
     const messageToSend = directMessage || input;

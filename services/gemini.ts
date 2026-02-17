@@ -59,16 +59,32 @@ export const geminiService = {
     currentWords: string[],
     languageParams?: { targetLanguage: string; nativeLanguage: string }
   ): Promise<ExtractedWord[]> {
+    let fetchTimeout: ReturnType<typeof setTimeout> | undefined;
+
     try {
       const headers = await getAuthHeaders();
+
+      const controller = new AbortController();
+      fetchTimeout = setTimeout(() => controller.abort(), 55_000);
+
       const response = await fetch('/api/analyze-history/', {
         method: 'POST',
         headers,
-        body: JSON.stringify({ messages, currentWords, ...languageParams })
+        body: JSON.stringify({ messages, currentWords, ...languageParams }),
+        signal: controller.signal
       });
+
+      clearTimeout(fetchTimeout);
 
       if (response.status === 401) {
         console.error("Authentication required for API access");
+        return [];
+      }
+
+      // Guard against non-JSON responses (e.g. 504 HTML from gateway)
+      const contentType = response.headers.get('content-type') || '';
+      if (!contentType.includes('application/json')) {
+        console.warn("analyzeHistory: non-JSON response (status %d, type %s)", response.status, contentType);
         return [];
       }
 
@@ -78,7 +94,12 @@ export const geminiService = {
         word: (w.word || '').toLowerCase().trim(),
         rootWord: ((w.rootWord || w.word || '') as string).toLowerCase().trim()
       }));
-    } catch (e) {
+    } catch (e: any) {
+      clearTimeout(fetchTimeout);
+      if (e.name === 'AbortError') {
+        console.warn("analyzeHistory: request aborted (55s timeout)");
+        return [];
+      }
       console.error("Batch Extraction Error:", e);
       return [];
     }
@@ -249,6 +270,23 @@ export const geminiService = {
     } catch (e) {
       console.error("Unlock Tense Error:", e);
       return { success: false, error: "Failed to connect to server" };
+    }
+  },
+
+  async completeEntry(wordId: string): Promise<any> {
+    try {
+      const headers = await getAuthHeaders();
+      const response = await fetch('/api/complete-entry/', {
+        method: 'POST',
+        headers,
+        body: JSON.stringify({ wordId })
+      });
+
+      if (!response.ok) return null;
+      return response.json();
+    } catch (e) {
+      console.error("Complete Entry Error:", e);
+      return null;
     }
   },
 
