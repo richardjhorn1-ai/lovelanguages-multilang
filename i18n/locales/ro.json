@@ -1800,8 +1800,9 @@
     },
     "confirm": {
       "title": "Esti sigur?",
-      "typeGoodbye": "Scrie \"goodbye\" pentru a confirma",
-      "placeholder": "Scrie goodbye...",
+      "goodbyeWord": "adio",
+      "typeGoodbye": "Scrie \"adio\" pentru a confirma",
+      "placeholder": "Scrie adio...",
       "goBack": "Inapoi",
       "itsOver": "S-a Terminat"
     },

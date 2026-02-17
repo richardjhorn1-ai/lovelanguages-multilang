@@ -1800,6 +1800,7 @@
     },
     "confirm": {
       "title": "Es-tu sûr(e) ?",
+      "goodbyeWord": "adieu",
       "typeGoodbye": "Tape « adieu » pour confirmer",
       "placeholder": "Tape adieu...",
       "goBack": "Retour",

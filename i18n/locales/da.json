@@ -1800,6 +1800,7 @@
     },
     "confirm": {
       "title": "Er du sikker?",
+      "goodbyeWord": "farvel",
       "typeGoodbye": "Skriv 'farvel' for at bekræfte",
       "placeholder": "Skriv farvel...",
       "goBack": "Gå tilbage",

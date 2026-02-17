@@ -1800,6 +1800,7 @@
     },
     "confirm": {
       "title": "Sei sicuro/a?",
+      "goodbyeWord": "addio",
       "typeGoodbye": "Scrivi 'addio' per confermare",
       "placeholder": "Scrivi addio...",
       "goBack": "Torna Indietro",

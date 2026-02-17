@@ -1800,6 +1800,7 @@
     },
     "confirm": {
       "title": "Jsi si jistý/á?",
+      "goodbyeWord": "sbohem",
       "typeGoodbye": "Pro potvrzení napiš 'sbohem'",
       "placeholder": "Napiš sbohem...",
       "goBack": "Vrátit se",

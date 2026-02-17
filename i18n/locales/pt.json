@@ -1800,6 +1800,7 @@
     },
     "confirm": {
       "title": "Tem certeza?",
+      "goodbyeWord": "adeus",
       "typeGoodbye": "Digite 'adeus' para confirmar",
       "placeholder": "Digite adeus...",
       "goBack": "Voltar",

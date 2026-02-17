@@ -1806,6 +1806,7 @@
     },
     "confirm": {
       "title": "Are you sure?",
+      "goodbyeWord": "goodbye",
       "typeGoodbye": "Type \"goodbye\" to confirm",
       "placeholder": "Type goodbye...",
       "goBack": "Go Back",

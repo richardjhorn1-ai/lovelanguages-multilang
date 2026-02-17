@@ -1800,6 +1800,7 @@
     },
     "confirm": {
       "title": "Weet je het zeker?",
+      "goodbyeWord": "vaarwel",
       "typeGoodbye": "Typ 'vaarwel' om te bevestigen",
       "placeholder": "Typ vaarwel...",
       "goBack": "Ga Terug",

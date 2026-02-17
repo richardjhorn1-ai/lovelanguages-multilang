@@ -1800,6 +1800,7 @@
     },
     "confirm": {
       "title": "Är du säker?",
+      "goodbyeWord": "adjö",
       "typeGoodbye": "Skriv 'adjö' för att bekräfta",
       "placeholder": "Skriv adjö...",
       "goBack": "Gå tillbaka",

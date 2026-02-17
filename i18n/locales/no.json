@@ -1800,6 +1800,7 @@
     },
     "confirm": {
       "title": "Er du sikker?",
+      "goodbyeWord": "ha det",
       "typeGoodbye": "Skriv 'ha det' for å bekrefte",
       "placeholder": "Skriv ha det...",
       "goBack": "Gå tilbake",

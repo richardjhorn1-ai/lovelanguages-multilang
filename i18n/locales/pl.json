@@ -1800,6 +1800,7 @@
     },
     "confirm": {
       "title": "Czy jesteś pewien?",
+      "goodbyeWord": "żegnaj",
       "typeGoodbye": "Wpisz 'żegnaj', żeby potwierdzić",
       "placeholder": "Wpisz żegnaj...",
       "goBack": "Wróć",

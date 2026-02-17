@@ -1800,8 +1800,9 @@
     },
     "confirm": {
       "title": "Είσαι σίγουρος/η;",
-      "typeGoodbye": "Πληκτρολόγησε \"goodbye\" για επιβεβαίωση",
-      "placeholder": "Πληκτρολόγησε goodbye...",
+      "goodbyeWord": "αντίο",
+      "typeGoodbye": "Πληκτρολόγησε \"αντίο\" για επιβεβαίωση",
+      "placeholder": "Πληκτρολόγησε αντίο...",
       "goBack": "Πίσω",
       "itsOver": "Τέλος"
     },

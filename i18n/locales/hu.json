@@ -1800,8 +1800,9 @@
     },
     "confirm": {
       "title": "Biztos vagy benne?",
-      "typeGoodbye": "Írd be: \"goodbye\" a megerősítéshez",
-      "placeholder": "Írd be: goodbye...",
+      "goodbyeWord": "viszlát",
+      "typeGoodbye": "Írd be: \"viszlát\" a megerősítéshez",
+      "placeholder": "Írd be: viszlát...",
       "goBack": "Vissza",
       "itsOver": "Vége"
     },
