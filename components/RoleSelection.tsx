@@ -26,6 +26,14 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
 
   const { t, i18n } = useTranslation();
 
+  // Sync i18n when user changes native language in dropdown
+  // Must be in useEffect (not inline in handler) to run after React 18 batched re-render
+  useEffect(() => {
+    if (nativeLanguage && i18n.language !== nativeLanguage) {
+      i18n.changeLanguage(nativeLanguage);
+    }
+  }, [nativeLanguage, i18n]);
+
   // Close dropdowns when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -86,8 +94,6 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
   const handleNativeSelect = (code: string) => {
     setNativeLanguage(code);
     setShowNativeDropdown(false);
-    // Update i18n to show UI in selected language
-    i18n.changeLanguage(code);
   };
 
   const handleTargetSelect = (code: string) => {
