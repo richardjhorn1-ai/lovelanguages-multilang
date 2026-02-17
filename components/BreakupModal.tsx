@@ -52,32 +52,38 @@ const BreakupModal: React.FC<BreakupModalProps> = ({
               </h2>
             </div>
 
-            <div className="bg-amber-50/80 dark:bg-amber-900/20 rounded-2xl p-5 mb-6">
-              <p className="text-[10px] font-black uppercase tracking-[0.2em] text-amber-700 dark:text-amber-300 mb-3">
-                {t('breakup.warning.whatHappens')}
-              </p>
-              <ul className="text-amber-700 dark:text-amber-300 text-sm space-y-2">
-                <li className="flex items-start gap-2">
-                  <ICONS.X className="w-4 h-4 mt-0.5 flex-shrink-0 opacity-60" />
-                  <span>{t('breakup.warning.consequence1')}</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <ICONS.X className="w-4 h-4 mt-0.5 flex-shrink-0 opacity-60" />
-                  <span>{t('breakup.warning.consequence2')}</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <ICONS.X className="w-4 h-4 mt-0.5 flex-shrink-0 opacity-60" />
-                  <span className="font-bold">
-                    {isGranter
-                      ? t('breakup.warning.consequence3Granter', { name: partnerName })
-                      : t('breakup.warning.consequence3Grantee')}
-                  </span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <ICONS.Check className="w-4 h-4 mt-0.5 flex-shrink-0 text-green-600 dark:text-green-400" />
-                  <span>{t('breakup.warning.consequence4')}</span>
-                </li>
-              </ul>
+            <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[var(--text-secondary)] mb-3 ml-1">
+              {t('breakup.warning.whatHappens')}
+            </p>
+            <div className="space-y-2 mb-6">
+              <div className="flex items-start gap-3 bg-[var(--bg-primary)] rounded-xl px-4 py-3">
+                <div className="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <ICONS.X className="w-3 h-3 text-red-400" />
+                </div>
+                <span className="text-sm text-[var(--text-primary)]">{t('breakup.warning.consequence1')}</span>
+              </div>
+              <div className="flex items-start gap-3 bg-[var(--bg-primary)] rounded-xl px-4 py-3">
+                <div className="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <ICONS.X className="w-3 h-3 text-red-400" />
+                </div>
+                <span className="text-sm text-[var(--text-primary)]">{t('breakup.warning.consequence2')}</span>
+              </div>
+              <div className="flex items-start gap-3 bg-red-50 dark:bg-red-900/20 rounded-xl px-4 py-3">
+                <div className="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <ICONS.X className="w-3 h-3 text-red-400" />
+                </div>
+                <span className="text-sm text-red-600 dark:text-red-400 font-bold">
+                  {isGranter
+                    ? t('breakup.warning.consequence3Granter', { name: partnerName })
+                    : t('breakup.warning.consequence3Grantee')}
+                </span>
+              </div>
+              <div className="flex items-start gap-3 bg-[var(--bg-primary)] rounded-xl px-4 py-3">
+                <div className="w-6 h-6 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <ICONS.Check className="w-3 h-3 text-green-500" />
+                </div>
+                <span className="text-sm text-[var(--text-primary)]">{t('breakup.warning.consequence4')}</span>
+              </div>
             </div>
 
             <div className="flex gap-3">
