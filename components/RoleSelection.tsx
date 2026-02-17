@@ -4,6 +4,7 @@ import { supabase } from '../services/supabase';
 import { UserRole, Profile } from '../types';
 import { ICONS } from '../constants';
 import { LANGUAGE_CONFIGS, SUPPORTED_LANGUAGE_CODES } from '../constants/language-config';
+import { useLanguage } from '../context/LanguageContext';
 
 interface RoleSelectionProps {
   userId: string;
@@ -24,15 +25,8 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
   const nativeDropdownRef = useRef<HTMLDivElement>(null);
   const targetDropdownRef = useRef<HTMLDivElement>(null);
 
-  const { t, i18n } = useTranslation();
-
-  // Sync i18n when user changes native language in dropdown
-  // Must be in useEffect (not inline in handler) to run after React 18 batched re-render
-  useEffect(() => {
-    if (nativeLanguage && i18n.language !== nativeLanguage) {
-      i18n.changeLanguage(nativeLanguage);
-    }
-  }, [nativeLanguage, i18n]);
+  const { t } = useTranslation();
+  const { setLanguageOverride } = useLanguage();
 
   // Close dropdowns when clicking outside
   useEffect(() => {
@@ -52,11 +46,6 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
   useEffect(() => {
     const checkIntendedRole = async () => {
       try {
-        // Sync i18n with native language from profile
-        if (profile.native_language && i18n.language !== profile.native_language) {
-          i18n.changeLanguage(profile.native_language);
-        }
-
         // Priority 1: Use role already set in profile (from signup trigger)
         if (profile.role === 'student' || profile.role === 'tutor') {
           setSelectedRole(profile.role);
@@ -89,16 +78,19 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
     };
 
     checkIntendedRole();
-  }, [userId, i18n, profile.native_language, profile.role]);
+  }, [userId, profile.native_language, profile.role]);
 
   const handleNativeSelect = (code: string) => {
     setNativeLanguage(code);
     setShowNativeDropdown(false);
+    // Update LanguageContext override → useI18nSync picks it up → i18n updates
+    setLanguageOverride({ nativeLanguage: code, targetLanguage });
   };
 
   const handleTargetSelect = (code: string) => {
     setTargetLanguage(code);
     setShowTargetDropdown(false);
+    setLanguageOverride({ nativeLanguage, targetLanguage: code });
   };
 
   const handleConfirm = async () => {
