@@ -300,7 +300,7 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
                   setIsOpen={setShowNativeDropdown}
                   onSelect={handleNativeSelect}
                   dropdownRef={nativeDropdownRef as React.RefObject<HTMLDivElement>}
-                  excludeCode={targetLanguage}
+                  excludeCode={selectedRole === 'student' || !selectedRole ? targetLanguage : undefined}
                 />
 
                 {/* Target Language (Learning/Teaching) */}
@@ -311,7 +311,7 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
                   setIsOpen={setShowTargetDropdown}
                   onSelect={handleTargetSelect}
                   dropdownRef={targetDropdownRef as React.RefObject<HTMLDivElement>}
-                  excludeCode={nativeLanguage}
+                  excludeCode={selectedRole === 'student' || !selectedRole ? nativeLanguage : undefined}
                 />
               </div>
             </div>

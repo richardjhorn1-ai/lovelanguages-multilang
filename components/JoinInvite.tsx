@@ -16,7 +16,7 @@ interface LanguageInfo {
 }
 
 const JoinInvite: React.FC = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { token } = useParams<{ token: string }>();
   const navigate = useNavigate();
 
@@ -77,6 +77,11 @@ const JoinInvite: React.FC = () => {
       setInviter(data.inviter);
       setLanguage(data.language || { code: 'pl', name: 'Polish' });  // Fallback for old API responses
       setInviterRole(data.inviterRole || 'student');
+
+      // Student invited a tutor → display page in the student's target language (tutor speaks it)
+      if (data.inviterRole === 'student' && data.language?.code) {
+        i18n.changeLanguage(data.language.code);
+      }
     } catch (e: any) {
       console.error('[JoinInvite] Error:', e);
       setError(e.message || 'Failed to validate invite');
