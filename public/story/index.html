@@ -7,37 +7,39 @@
   <meta name="robots" content="noindex, nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --bg: #0a0a0f;
-      --bg-card: #111119;
-      --bg-card-hover: #16161f;
-      --text: #e8e6e3;
-      --text-dim: #8a8a9a;
-      --text-muted: #5a5a6a;
-      --accent: #6366f1;
-      --accent-glow: rgba(99, 102, 241, 0.12);
-      --rose: #f43f5e;
-      --rose-dim: rgba(244, 63, 94, 0.08);
-      --border: rgba(255,255,255,0.06);
+      --bg: #fdfcfd;
+      --bg-card: #ffffff;
+      --bg-accent-light: #FFF0F3;
+      --accent: #FF4761;
+      --accent-pink: #EC4899;
+      --accent-border: #FFB3C1;
+      --text: #292F36;
+      --text-secondary: #6b7280;
+      --text-muted: #9ca3af;
+      --border: #e5e7eb;
       --google-blue: #4285F4;
       --google-red: #EA4335;
       --google-yellow: #FBBC05;
       --google-green: #34A853;
+      --scroll-y: 0%;
     }
 
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; scroll-snap-type: y mandatory; }
 
     body {
-      font-family: 'Inter', -apple-system, sans-serif;
-      background: var(--bg);
+      font-family: 'Outfit', -apple-system, sans-serif;
+      background: radial-gradient(ellipse at 50% var(--scroll-y), #FFF0F3, #fdfcfd 40%, #E7F5FF 80%, #fdfcfd);
+      background-attachment: fixed;
       color: var(--text);
       line-height: 1.75;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
     }
 
     /* ═══ PASSWORD GATE ═══ */
@@ -46,60 +48,96 @@
       background: var(--bg);
       display: flex; align-items: center; justify-content: center;
       flex-direction: column; gap: 20px;
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
-    #gate.hidden { display: none; }
+    #gate.leaving {
+      opacity: 0; transform: scale(1.08);
+      pointer-events: none;
+    }
     #gate .logo-mark {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem; color: var(--text); margin-bottom: 4px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1.8rem; font-weight: 700; color: var(--text); margin-bottom: 4px;
     }
     #gate .subtitle {
-      font-size: 0.85rem; color: var(--text-dim);
+      font-size: 0.85rem; color: var(--text-secondary);
       letter-spacing: 0.04em; margin-bottom: 12px;
     }
     #gate input {
-      background: var(--bg-card); border: 1px solid var(--border);
-      color: var(--text); padding: 14px 24px; border-radius: 10px;
+      background: #ffffff; border: 1px solid var(--border);
+      color: var(--text); padding: 14px 24px; border-radius: 12px;
       font-size: 1rem; width: 260px; text-align: center;
       outline: none; transition: border-color 0.2s;
-      font-family: 'Inter', sans-serif;
+      font-family: 'Outfit', sans-serif;
     }
     #gate input:focus { border-color: var(--accent); }
     #gate input::placeholder { color: var(--text-muted); }
     #gate button {
-      background: var(--accent); color: #fff; border: none;
-      padding: 11px 36px; border-radius: 10px; font-size: 0.9rem;
-      cursor: pointer; font-weight: 500; transition: opacity 0.2s;
-      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--accent), var(--accent-pink));
+      color: #fff; border: none;
+      padding: 11px 36px; border-radius: 50px; font-size: 0.9rem;
+      cursor: pointer; font-weight: 600; transition: opacity 0.2s;
+      font-family: 'Outfit', sans-serif;
     }
     #gate button:hover { opacity: 0.9; }
-    #gate .error { color: var(--rose); font-size: 0.85rem; height: 18px; }
+    #gate .error { color: var(--accent); font-size: 0.85rem; height: 18px; }
 
-    /* ═══ MAIN CONTENT ═══ */
-    #content { display: none; }
-    #content.visible { display: block; }
+    /* ═══ CONTENT ═══ */
+    #content {
+      opacity: 0; transform: scale(0.97);
+      transition: opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s;
+      pointer-events: none;
+    }
+    #content.visible {
+      opacity: 1; transform: scale(1);
+      pointer-events: auto;
+    }
 
     /* ═══ PROGRESS BAR ═══ */
     #progress {
       position: fixed; top: 0; left: 0; z-index: 200;
-      height: 2px; background: var(--accent);
+      height: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-pink));
       width: 0%; transition: width 0.1s linear;
     }
 
     /* ═══ NAV ═══ */
     nav {
       position: fixed; top: 2px; left: 0; right: 0; z-index: 100;
-      background: rgba(10, 10, 15, 0.8); backdrop-filter: blur(16px);
+      background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
       padding: 14px 32px;
       display: flex; align-items: center; justify-content: space-between;
     }
     nav .brand {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem; font-weight: 400;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1.05rem; font-weight: 700; color: var(--text);
     }
-    nav .nav-label {
+    .nav-section {
       font-size: 0.75rem; color: var(--text-muted);
       letter-spacing: 0.06em; text-transform: uppercase;
+      transition: opacity 0.3s ease;
+      min-width: 100px; text-align: right;
+    }
+    .nav-section.switching { opacity: 0; }
+
+    /* ═══ PROGRESS DOTS ═══ */
+    .progress-dots {
+      position: fixed; right: 24px; top: 50%;
+      transform: translateY(-50%);
+      z-index: 150;
+      display: flex; flex-direction: column; gap: 10px;
+      opacity: 0; transition: opacity 0.6s ease;
+    }
+    .progress-dots.visible { opacity: 1; }
+    .pdot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--border);
+      transition: background 0.3s ease, transform 0.3s ease;
+      cursor: pointer; border: none; padding: 0;
+    }
+    .pdot:hover { background: var(--accent-border); }
+    .pdot.active {
+      background: var(--accent);
+      transform: scale(1.5);
     }
 
     /* ═══ SECTIONS ═══ */
@@ -108,12 +146,11 @@
       display: flex; align-items: center; justify-content: center;
       padding: 120px 32px;
       position: relative;
+      scroll-snap-align: start;
     }
     section.short { min-height: auto; padding: 80px 32px; }
 
-    .inner {
-      max-width: 720px; width: 100%;
-    }
+    .inner { max-width: 720px; width: 100%; }
 
     .label {
       font-size: 0.7rem; font-weight: 600;
@@ -123,26 +160,26 @@
     }
 
     h1 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Quicksand', sans-serif;
       font-size: clamp(2.4rem, 5vw, 3.8rem);
-      font-weight: 400; line-height: 1.18;
-      margin-bottom: 28px;
+      font-weight: 700; line-height: 1.18;
+      margin-bottom: 28px; color: var(--text);
+      min-height: 2.5em;
     }
 
     h2 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Quicksand', sans-serif;
       font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-      font-weight: 400; line-height: 1.25;
-      margin-bottom: 24px;
+      font-weight: 700; line-height: 1.25;
+      margin-bottom: 24px; color: var(--text);
     }
 
-    p { color: var(--text-dim); font-size: 1.05rem; margin-bottom: 18px; }
+    p { color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 18px; }
     p.lead { font-size: 1.15rem; color: var(--text); line-height: 1.8; }
     p.big { font-size: 1.25rem; color: var(--text); line-height: 1.7; }
 
-    .hl { color: var(--accent); }
-    .rose { color: var(--rose); }
-    em { font-family: 'Playfair Display', serif; font-style: italic; color: var(--text); }
+    strong { color: var(--accent); }
+    em { font-style: italic; color: var(--text); }
 
     .spacer { height: 40px; }
     .spacer-sm { height: 24px; }
@@ -152,23 +189,101 @@
       background: var(--border); margin: 44px 0;
     }
 
+    /* ═══ TYPEWRITER ═══ */
+    .tw-line.typing::after {
+      content: '';
+      display: inline-block;
+      width: 2px; height: 0.85em;
+      background: var(--accent);
+      margin-left: 2px;
+      vertical-align: text-bottom;
+      animation: blink 0.8s step-end infinite;
+    }
+
+    /* ═══ OPENING REVEAL ═══ */
+    .opening-reveal {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .opening-reveal.show { opacity: 1; transform: translateY(0); }
+
+    /* ═══ SCROLL HINT ═══ */
+    .scroll-hint {
+      position: absolute; bottom: 40px; left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    .scroll-hint.visible { opacity: 1; }
+    .scroll-hint span {
+      display: block; font-size: 0.65rem;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--text-muted); margin-bottom: 8px;
+    }
+    .scroll-hint svg {
+      display: block; margin: 0 auto;
+      animation: chevronBounce 2s ease-in-out infinite;
+    }
+
+    /* ═══ CLIP-MASK HEADINGS ═══ */
+    .clip-reveal { overflow: hidden; }
+    .clip-reveal .text-reveal {
+      display: block;
+      transform: translateY(110%);
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .clip-reveal .text-reveal.revealed {
+      transform: translateY(0);
+    }
+
     /* ═══ BLOCKQUOTE ═══ */
     blockquote {
-      border-left: 2px solid var(--rose);
-      padding: 2px 0 2px 24px;
-      margin: 32px 0;
+      border-left: 3px solid transparent;
+      background: transparent;
+      padding: 20px 24px; margin: 32px 0;
+      border-radius: 0 12px 12px 0;
+      position: relative;
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.5s ease, transform 0.5s ease,
+                  border-left-color 0.4s ease 0.3s,
+                  background-color 0.4s ease 0.3s;
+    }
+    blockquote.bq-enter {
+      opacity: 1; transform: translateY(0);
+      border-left-color: var(--accent);
+      background: rgba(255, 71, 97, 0.05);
+    }
+    blockquote::before {
+      content: '\201C';
+      position: absolute; top: 6px; left: 12px;
+      font-family: 'Quicksand', sans-serif;
+      font-size: 3.5rem; line-height: 1;
+      color: var(--accent);
+      opacity: 0; transform: translateY(8px) scale(0.7);
+      transition: opacity 0.4s ease 0.5s, transform 0.4s ease 0.5s;
+    }
+    blockquote.bq-enter::before {
+      opacity: 0.12; transform: translateY(0) scale(1);
     }
     blockquote p {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Quicksand', sans-serif;
       font-style: italic; font-size: 1.2rem;
       color: var(--text); line-height: 1.6; margin-bottom: 0;
+      font-weight: 500; padding-left: 20px;
+      opacity: 0; transform: translateY(8px);
+      transition: opacity 0.4s ease 0.55s, transform 0.4s ease 0.55s;
     }
+    blockquote.bq-enter p { opacity: 1; transform: translateY(0); }
     blockquote cite {
-      display: block; margin-top: 10px;
-      font-family: 'Inter', sans-serif;
+      display: block; margin-top: 10px; padding-left: 20px;
+      font-family: 'Outfit', sans-serif;
       font-style: normal; font-size: 0.8rem;
       color: var(--text-muted);
+      opacity: 0;
+      transition: opacity 0.3s ease 0.75s;
     }
+    blockquote.bq-enter cite { opacity: 1; }
 
     /* ═══ STAT ROW ═══ */
     .stats {
@@ -177,15 +292,17 @@
     }
     .stat {
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 14px; padding: 24px 20px; text-align: center;
+      border-radius: 16px; padding: 24px 20px; text-align: center;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .stat .n {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Quicksand', sans-serif;
       font-size: 2.2rem; font-weight: 700; color: var(--text);
       line-height: 1;
     }
     .stat .l {
-      font-size: 0.78rem; color: var(--text-dim);
+      font-size: 0.78rem; color: var(--text-secondary);
       margin-top: 6px; line-height: 1.3;
     }
 
@@ -196,8 +313,22 @@
     }
     .g-card {
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 12px; padding: 22px 20px;
+      border-radius: 16px; padding: 22px 20px;
+      position: relative; overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
+    .g-card::before {
+      content: ''; position: absolute;
+      left: 0; top: 0; bottom: 0; width: 3px;
+      transform: scaleY(0); transform-origin: top;
+      transition: transform 0.4s ease-out;
+    }
+    .g-card.border-drawn::before { transform: scaleY(1); }
+    .g-card.gc-blue::before { background: var(--google-blue); }
+    .g-card.gc-red::before { background: var(--google-red); }
+    .g-card.gc-green::before { background: var(--google-green); }
+    .g-card.gc-yellow::before { background: var(--google-yellow); }
     .g-card.wide { grid-column: 1 / -1; }
     .g-card .g-name {
       font-size: 0.72rem; font-weight: 700;
@@ -211,48 +342,107 @@
     .g-card p { font-size: 0.92rem; margin-bottom: 0; }
 
     /* ═══ TIMELINE ═══ */
-    .tl { margin: 32px 0; }
+    .tl { margin: 32px 0; position: relative; }
+    .tl::before {
+      content: ''; position: absolute;
+      left: 0; top: 0; bottom: 0; width: 1px;
+      background: var(--accent-border);
+      transform: scaleY(0); transform-origin: top;
+      transition: transform 1.2s ease-out;
+    }
+    .tl.tl-drawn::before { transform: scaleY(1); }
     .tl-item {
       padding: 16px 0 16px 24px;
-      border-left: 1px solid var(--border);
       position: relative;
     }
     .tl-item::before {
       content: ""; position: absolute;
       left: -3.5px; top: 22px;
-      width: 6px; height: 6px;
+      width: 8px; height: 8px;
       border-radius: 50%; background: var(--accent);
+      transform: scale(0);
+      transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     }
-    .tl-item.rose::before { background: var(--rose); }
+    .tl-item.dot-pop::before { transform: scale(1); }
+    .tl-item.setback::before { background: var(--text-muted); }
+    .tl-item.setback .tl-date { color: var(--text-muted); }
     .tl-date {
       font-size: 0.72rem; color: var(--accent);
       font-weight: 600; text-transform: uppercase;
       letter-spacing: 0.04em;
     }
-    .tl-item.rose .tl-date { color: var(--rose); }
     .tl-text { font-size: 0.95rem; color: var(--text); margin-top: 2px; }
-    .tl-sub { font-size: 0.85rem; color: var(--text-dim); margin-top: 2px; }
+    .tl-sub { font-size: 0.85rem; color: var(--text-secondary); margin-top: 2px; }
 
     /* ═══ FEATURE ROWS ═══ */
     .feat { margin: 28px 0; }
     .feat-row {
-      padding: 16px 0;
+      padding: 16px 0 16px 28px;
       border-bottom: 1px solid var(--border);
+      position: relative;
     }
     .feat-row:last-child { border-bottom: none; }
-    .feat-title { font-weight: 500; color: var(--text); font-size: 1rem; }
-    .feat-desc { color: var(--text-dim); font-size: 0.92rem; margin-top: 3px; }
+    .feat-row::before {
+      content: '\2665'; position: absolute;
+      left: 0; top: 18px;
+      color: var(--accent); font-size: 0.85rem;
+      transform: scale(0);
+      transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+    .feat-row.heart-pop::before { transform: scale(1); }
+    .feat-title { font-weight: 600; color: var(--text); font-size: 1rem; }
+    .feat-desc { color: var(--text-secondary); font-size: 0.92rem; margin-top: 3px; }
+
+    /* ═══ DRAW UNDERLINE ═══ */
+    .draw-underline { position: relative; display: inline; }
+    .draw-underline::after {
+      content: ''; position: absolute;
+      left: 0; right: 0; bottom: 2px;
+      height: 8px; background: rgba(255, 71, 97, 0.25);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.6s ease-out;
+      z-index: -1;
+    }
+    .draw-underline.drawn::after { transform: scaleX(1); }
 
     /* ═══ CTA ═══ */
     .cta { text-align: center; }
     .cta-link {
       display: inline-block; margin-top: 20px;
-      color: var(--accent); text-decoration: none;
-      font-size: 1.05rem; font-weight: 500;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s;
+      background: linear-gradient(135deg, var(--accent), var(--accent-pink));
+      color: #fff; text-decoration: none;
+      font-size: 1rem; font-weight: 600;
+      padding: 14px 36px; border-radius: 50px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
     }
-    .cta-link:hover { border-bottom-color: var(--accent); }
+    .cta-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 71, 97, 0.3);
+    }
+    .cta-link::before {
+      content: ''; position: absolute; inset: -4px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-pink));
+      z-index: -1; filter: blur(14px);
+      opacity: 0;
+      animation: ctaPulse 2.5s ease-in-out infinite;
+    }
+
+    /* ═══ FLOATING HEARTS ═══ */
+    .floating-hearts {
+      position: fixed; inset: 0;
+      pointer-events: none; z-index: 0;
+      overflow: hidden;
+    }
+    .floating-hearts .fh {
+      position: absolute; bottom: -30px;
+      color: var(--accent);
+      opacity: 0;
+      animation:
+        floatHeartY var(--fh-dur, 20s) linear var(--fh-delay, 0s) infinite,
+        floatHeartX var(--fh-wobble-dur, 7s) ease-in-out var(--fh-delay, 0s) infinite;
+    }
 
     /* ═══ FOOTER ═══ */
     footer {
@@ -261,12 +451,61 @@
       border-top: 1px solid var(--border);
     }
 
-    /* ═══ FADE IN ═══ */
-    .fade {
-      opacity: 0; transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+    /* ═══ REVEAL (staggered children) ═══ */
+    .reveal {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
     }
-    .fade.show { opacity: 1; transform: translateY(0); }
+    .reveal.show { opacity: 1; transform: translateY(0); }
+
+    /* Label entrance: adds slight X movement */
+    .label.reveal {
+      transform: translateY(32px) translateX(-16px);
+    }
+    .label.reveal.show {
+      transform: translateY(0) translateX(0);
+    }
+
+    /* ═══ KEYFRAMES ═══ */
+    @keyframes blink { 50% { opacity: 0; } }
+
+    @keyframes chevronBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+
+    @keyframes ctaPulse {
+      0%, 100% { opacity: 0; transform: scale(0.95); }
+      50% { opacity: 0.35; transform: scale(1.02); }
+    }
+
+    @keyframes statPop {
+      0% { transform: scale(1); }
+      40% { transform: scale(1.25); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes floatHeartY {
+      0% { transform: translateY(0); opacity: 0; }
+      4% { opacity: var(--fh-opacity, 0.10); }
+      50% { opacity: var(--fh-opacity, 0.10); }
+      90% { opacity: calc(var(--fh-opacity, 0.10) * 0.5); }
+      100% { transform: translateY(calc(-100vh - 50px)); opacity: 0; }
+    }
+    @keyframes floatHeartX {
+      0% { margin-left: 0; }
+      25% { margin-left: var(--fh-drift1, 15px); }
+      50% { margin-left: var(--fh-drift2, -10px); }
+      75% { margin-left: var(--fh-drift3, 12px); }
+      100% { margin-left: 0; }
+    }
+
+    /* ═══ HOVER (desktop only) ═══ */
+    @media (hover: hover) {
+      .stat:hover, .g-card:hover {
+        box-shadow: 0 10px 30px rgba(255, 71, 97, 0.1);
+      }
+    }
 
     /* ═══ RESPONSIVE ═══ */
     @media (max-width: 600px) {
@@ -274,6 +513,9 @@
       nav { padding: 12px 18px; }
       .g-grid { grid-template-columns: 1fr; }
       .stats { grid-template-columns: 1fr 1fr; }
+      h1 { min-height: auto; }
+      .progress-dots { display: none; }
+      .scroll-hint { bottom: 24px; }
     }
   </style>
 </head>
@@ -294,38 +536,50 @@
 
   <nav>
     <div class="brand">Love Languages</div>
-    <div class="nav-label">Our Story</div>
+    <div class="nav-section" id="navSection">Our Story</div>
   </nav>
 
+  <div class="progress-dots" id="progressDots"></div>
+
   <!-- ═══ 1. OPENING ═══ -->
-  <section>
-    <div class="inner fade">
+  <section id="opening" data-nav="Our Story">
+    <div class="inner">
       <span class="label">Confidential &middot; February 2026</span>
-      <h1>I fell in love with a Polish girl.<br>I couldn't talk to her mum.</h1>
-      <p class="big">So I built an app. In 47 days, it became the world's first language learning platform designed around the people you love most.</p>
-      <p class="big">This is how it happened.</p>
+      <h1>
+        <span class="tw-line" id="tw-line1"></span>
+        <br>
+        <span class="tw-line" id="tw-line2"></span>
+      </h1>
+      <p class="big opening-reveal">So I built an app. In <span class="draw-underline">47 days</span>, it became the world's first language learning platform designed around the people you love most.</p>
+      <p class="big opening-reveal">This is how it happened.</p>
+    </div>
+    <div class="scroll-hint" id="scrollHint">
+      <span>Scroll</span>
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path d="M10 4 L10 14 M5 10 L10 15 L15 10" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
     </div>
   </section>
 
   <!-- ═══ 2. THE SPARK ═══ -->
-  <section>
-    <div class="inner fade">
+  <section data-nav="The Spark">
+    <div class="inner">
       <span class="label">December 2025</span>
       <h2>It started with forgetting.</h2>
-      <p class="lead">I'd ask Misha a question about Polish. She'd explain it perfectly. By morning, it was gone. Every time.</p>
-      <p>I had Duolingo on my phone. I got the daily notifications &mdash; <em>"Did you practice Polish today?"</em> &mdash; and every single day I'd swipe them away. Because Duolingo wasn't teaching me the right things. It was teaching me that the cat eats bread. I needed to know how to tell Misha's mum that the food was delicious.</p>
-      <p>So in December, I tried building something in Google AI Studio. A simple app that could listen to what Misha taught me and save it. Capture a real conversation and store it somewhere I could actually go back to.</p>
+      <p class="lead">I'd ask Misia a question about Polish. She'd explain it perfectly. By morning, it was gone. Every time.</p>
+      <p>I had Duolingo on my phone. I got the daily notifications &mdash; <em>"Did you practice Polish today?"</em> &mdash; and every single day I'd swipe them away. Because Duolingo wasn't teaching me the right things. It was teaching me that the cat eats bread. I needed to know how to tell Misia's mum that the food was delicious.</p>
+      <p>So in December, I tried building something in Google AI Studio. A simple app that could listen to what Misia taught me and save it. Capture a real conversation and store it somewhere I could actually go back to.</p>
       <p>I couldn't finish it in time.</p>
     </div>
   </section>
 
   <!-- ═══ 3. CHRISTMAS ═══ -->
-  <section>
-    <div class="inner fade">
+  <section data-nav="Christmas">
+    <div class="inner">
       <span class="label">Christmas Eve, Poland</span>
       <h2>Then Christmas happened.</h2>
-      <p class="lead">We flew to Poland for Christmas. Misha's whole family around the table. Rich conversation happening everywhere &mdash; jokes, stories, traditions. All in Polish. All around me.</p>
-      <p>Then Misha got sick and had to leave the table.</p>
+      <p class="lead">We flew to Poland for Christmas. Misia's whole family around the table. Rich conversation happening everywhere &mdash; jokes, stories, traditions. All in Polish. All around me.</p>
+      <p>Then Misia got sick and had to leave the table.</p>
       <p>And suddenly I was alone. Surrounded by her family, people I care about, and I had no mechanism to engage. I couldn't follow the conversation. I couldn't learn from it. I couldn't even respond. I was just&hellip; there.</p>
 
       <blockquote>
@@ -338,8 +592,8 @@
   </section>
 
   <!-- ═══ 4. BUILDING ═══ -->
-  <section>
-    <div class="inner fade">
+  <section data-nav="Building">
+    <div class="inner">
       <span class="label">January 2nd, 2026</span>
       <h2>I sat down and started building.</h2>
       <p class="lead">This is my third startup. The previous two went to shit. But I knew exactly what I wanted to make, I had the skills to do it, and I had the most important thing any founder needs: I had the problem myself.</p>
@@ -351,10 +605,10 @@
   </section>
 
   <!-- ═══ 5. THE PROBLEM ═══ -->
-  <section>
-    <div class="inner fade">
+  <section data-nav="The Problem">
+    <div class="inner">
       <span class="label">The problem nobody solved</span>
-      <h2>One in five relationships is international.</h2>
+      <h2><span class="draw-underline">One in five relationships</span> is international.</h2>
       <p class="lead">That's hundreds of millions of people. They're in love with someone who speaks a different language. And they have real problems that no app touches.</p>
 
       <div class="spacer-sm"></div>
@@ -367,8 +621,8 @@
   </section>
 
   <!-- ═══ 6. WHAT'S ON THE OTHER SIDE ═══ -->
-  <section>
-    <div class="inner fade">
+  <section data-nav="The Vision">
+    <div class="inner">
       <span class="label">The vision</span>
       <h2>On the other side of the language barrier is a better relationship.</h2>
       <p class="lead">People who are in love want to become better for their partner. That's not a marketing claim. That's just what love does.</p>
@@ -376,19 +630,19 @@
       <div class="spacer-sm"></div>
 
       <p>Our app helps couples get closer to each other's families. Understand each other's cultures. Participate in traditions &mdash; Christmas dinners, weddings, bedtime stories with their kids. Not as an outsider, but as family.</p>
-      <p>It helps couples have more fun together. Flirt in two languages. Understand the insults <em>and</em> the compliments. Learn the pet names &mdash; Polish has the most beautiful diminutives. <em>Myszka</em> (little mouse). <em>&#379;abka</em> (little frog). Misha calls me <em>Rysiu</em>.</p>
+      <p>It helps couples have more fun together. Flirt in two languages. Understand the insults <em>and</em> the compliments. Learn the pet names &mdash; Polish has the most beautiful diminutives. <em>Myszka</em> (little mouse). <em>&#379;abka</em> (little frog). Misia calls me <em>Rysiu</em>.</p>
       <p>And honestly? If learning your partner's language leads to feeling more connected, having better conversations, understanding each other more deeply &mdash; the downstream effects take care of themselves. Better relationships. Closer families. Less loneliness.</p>
 
       <blockquote>
         <p>This app is doing that for us. We want it to do that for everyone else too.</p>
-        <cite>Richard &amp; Misha</cite>
+        <cite>Richard &amp; Misia</cite>
       </blockquote>
     </div>
   </section>
 
   <!-- ═══ 7. HOW IT WORKS ═══ -->
-  <section>
-    <div class="inner fade">
+  <section data-nav="The Product">
+    <div class="inner">
       <span class="label">The product</span>
       <h2>Your partner becomes your teacher.<br>AI becomes your bridge.</h2>
       <p class="lead">Two roles. <em>Student</em> and <em>Tutor</em>. Linked accounts. One learns, one teaches, both connect through language.</p>
@@ -421,30 +675,30 @@
   </section>
 
   <!-- ═══ 8. BUILT ON GOOGLE ═══ -->
-  <section>
-    <div class="inner fade">
+  <section data-nav="The Stack">
+    <div class="inner">
       <span class="label">The stack</span>
-      <h2>Built entirely on Google.</h2>
+      <h2>Built <span class="draw-underline">entirely on Google</span>.</h2>
       <p>Google isn't a vendor for us. It's the foundation. Every core experience in Love Languages runs through Google technology.</p>
 
       <div class="g-grid">
-        <div class="g-card">
+        <div class="g-card gc-blue">
           <div class="g-name blue">Gemini API</div>
           <p>The brain. Every chat session, every vocabulary extraction, every grammar explanation, every answer validation. Structured JSON output across 13 language-specific schemas. Gemini <em>is</em> the product.</p>
         </div>
-        <div class="g-card">
+        <div class="g-card gc-red">
           <div class="g-name red">Gemini Live</div>
           <p>Real-time voice conversation. Bidirectional audio over WebSocket. Students talk, Gemini responds &mdash; context-aware, patient, and natural.</p>
         </div>
-        <div class="g-card">
+        <div class="g-card gc-green">
           <div class="g-name green">Cloud Text-to-Speech</div>
           <p>18 language-specific Wavenet voices. Every word, flashcard, and chat message can be heard in a natural native voice.</p>
         </div>
-        <div class="g-card">
+        <div class="g-card gc-yellow">
           <div class="g-name yellow">Google OAuth</div>
           <p>Primary sign-up path. "Continue with Google" for both students and tutors.</p>
         </div>
-        <div class="g-card wide">
+        <div class="g-card gc-blue wide">
           <div class="g-name blue">Google Analytics 4 &middot; Speakable Schema &middot; Structured Data</div>
           <p>Full-funnel tracking with 50+ events across app and blog. Every blog article is optimized with speakable schema for Google Assistant and voice search. We're building for where search is going, not where it was.</p>
         </div>
@@ -455,26 +709,26 @@
   </section>
 
   <!-- ═══ 9. TRACTION ═══ -->
-  <section>
-    <div class="inner fade">
+  <section data-nav="Traction">
+    <div class="inner">
       <span class="label">47 days</span>
-      <h2>Two people. Self-funded. No sleep.</h2>
+      <h2>Two people. <span class="draw-underline">Self-funded</span>. No sleep.</h2>
 
-      <div class="stats">
+      <div class="stats" id="stats">
         <div class="stat">
-          <div class="n">47</div>
+          <div class="n" data-target="47" data-display="47">47</div>
           <div class="l">Days since<br>first line of code</div>
         </div>
         <div class="stat">
-          <div class="n">18</div>
+          <div class="n" data-target="18" data-display="18">18</div>
           <div class="l">Languages<br>supported</div>
         </div>
         <div class="stat">
-          <div class="n">306</div>
+          <div class="n" data-target="306" data-display="306">306</div>
           <div class="l">Possible<br>language pairs</div>
         </div>
         <div class="stat">
-          <div class="n">12K</div>
+          <div class="n" data-target="12000" data-display="12K">12K</div>
           <div class="l">Blog articles<br>free educational content</div>
         </div>
       </div>
@@ -496,7 +750,7 @@
           <div class="tl-date">Jan 24+</div>
           <div class="tl-text">Marketing begins. TikTok content. Blog SEO rollout.</div>
         </div>
-        <div class="tl-item rose">
+        <div class="tl-item setback">
           <div class="tl-date">Feb 14</div>
           <div class="tl-text">Missed App Store deadline. Still iterating on mobile build.</div>
         </div>
@@ -509,8 +763,8 @@
   </section>
 
   <!-- ═══ 10. EARLY SIGNALS ═══ -->
-  <section>
-    <div class="inner fade">
+  <section data-nav="Signals">
+    <div class="inner">
       <span class="label">Early signals</span>
       <h2>People are hungry for this.</h2>
       <p class="lead">We're 47 days old with zero ad spend. Here's what's happening organically.</p>
@@ -523,12 +777,16 @@
           <div class="feat-desc">Our @lovelanguagesio account. One video &mdash; "What it's like dating a Polish woman" &mdash; hit 106K views. People in international relationships are desperate for content from people in the same situation.</div>
         </div>
         <div class="feat-row">
-          <div class="feat-title">~200 daily visitors</div>
-          <div class="feat-desc">Landing on the homepage. Mostly direct traffic &mdash; people typing lovelanguages.io straight into the browser. From ~1,000 TikTok followers.</div>
+          <div class="feat-title">~200 daily TikTok profile views</div>
+          <div class="feat-desc">From ~1,000 followers. People discovering our international couples content and visiting our profile to learn more.</div>
+        </div>
+        <div class="feat-row">
+          <div class="feat-title">~40 daily page visits</div>
+          <div class="feat-desc">Direct traffic to lovelanguages.io. No paid acquisition. People finding us through TikTok content and typing the URL directly.</div>
         </div>
         <div class="feat-row">
           <div class="feat-title">~15 daily conversions</div>
-          <div class="feat-desc">From TikTok viewer to page landing. No paid acquisition. No link in bio optimization. Just couples content.</div>
+          <div class="feat-desc">From visitor to sign-up. No paid acquisition. No link in bio optimization. Just couples content.</div>
         </div>
         <div class="feat-row">
           <div class="feat-title">UGC creator campaign active</div>
@@ -541,8 +799,8 @@
   </section>
 
   <!-- ═══ 11. BUSINESS MODEL ═══ -->
-  <section>
-    <div class="inner fade">
+  <section data-nav="Business">
+    <div class="inner">
       <span class="label">Business</span>
       <h2>One subscription. Two people.</h2>
       <p class="lead">When one partner subscribes, the other gets full access automatically. Because that's how relationships work.</p>
@@ -560,8 +818,8 @@
   </section>
 
   <!-- ═══ 12. WHAT'S NEXT ═══ -->
-  <section>
-    <div class="inner fade">
+  <section data-nav="Roadmap">
+    <div class="inner">
       <span class="label">Roadmap</span>
       <h2>Where we're going.</h2>
 
@@ -591,25 +849,27 @@
   </section>
 
   <!-- ═══ 13. CLOSE ═══ -->
-  <section>
-    <div class="inner fade cta">
+  <section data-nav="Love Languages">
+    <div class="inner cta">
       <span class="label">Love Languages</span>
       <h2>We're two people who built something<br>for ourselves and discovered<br>the world needs it too.</h2>
       <div class="divider" style="margin:36px auto;"></div>
-      <p class="lead">47 days. Self-funded. Built on Google, end to end.</p>
+      <p class="lead"><span class="draw-underline">47 days</span>. <span class="draw-underline">Self-funded</span>. Built on Google, end to end.</p>
       <p>We're just getting started.</p>
       <a href="https://www.lovelanguages.io/" class="cta-link">www.lovelanguages.io</a>
     </div>
   </section>
 
   <footer>
-    Confidential &middot; Love Languages &copy; 2026 &middot; Richard &amp; Misha
+    Confidential &middot; Love Languages &copy; 2026 &middot; Richard &amp; Misia
   </footer>
 
 </div>
 
 <script>
-  // ── Password ──
+  // ═══════════════════════════════════════
+  // PASSWORD GATE + CINEMATIC TRANSITION
+  // ═══════════════════════════════════════
   const PASS = 'MRstory';
   const gate = document.getElementById('gate');
   const content = document.getElementById('content');
@@ -617,19 +877,25 @@
   const errorEl = document.getElementById('error');
 
   if (sessionStorage.getItem('story_auth') === '1') {
-    gate.classList.add('hidden');
+    prep();
+    gate.style.display = 'none';
     content.classList.add('visible');
-    init();
+    requestAnimationFrame(() => init());
   }
 
   pwInput.addEventListener('keydown', e => { if (e.key === 'Enter') unlock(); });
 
   function unlock() {
     if (pwInput.value === PASS) {
-      gate.classList.add('hidden');
-      content.classList.add('visible');
+      prep();
       sessionStorage.setItem('story_auth', '1');
-      init();
+      // Cinematic transition: gate scales away, content fades in
+      gate.classList.add('leaving');
+      content.classList.add('visible');
+      setTimeout(() => {
+        gate.style.display = 'none';
+        init();
+      }, 800);
     } else {
       errorEl.textContent = 'Incorrect password';
       pwInput.value = '';
@@ -637,23 +903,349 @@
     }
   }
 
-  // ── Progress bar ──
-  function updateProgress() {
+  // ═══════════════════════════════════════
+  // SCROLL-DRIVEN: progress bar + gradient
+  // ═══════════════════════════════════════
+  function updateScroll() {
     const h = document.documentElement.scrollHeight - window.innerHeight;
     const pct = h > 0 ? (window.scrollY / h) * 100 : 0;
     document.getElementById('progress').style.width = pct + '%';
+    document.body.style.setProperty('--scroll-y', pct + '%');
+  }
+  window.addEventListener('scroll', updateScroll, { passive: true });
+
+  // ═══════════════════════════════════════
+  // PREP: states set BEFORE content visible
+  // ═══════════════════════════════════════
+  function prep() {
+    // Add reveal to section children (skip opening, h2s get clip-mask, blockquotes get theatre)
+    document.querySelectorAll('section:not(#opening) .inner').forEach(inner => {
+      Array.from(inner.children).forEach(child => {
+        if (child.tagName === 'H2') {
+          // Clip-mask reveal: wrap each line in a text-reveal span
+          const html = child.innerHTML;
+          const lines = html.split(/<br\s*\/?>/);
+          child.innerHTML = lines.map(l => '<span class="text-reveal">' + l.trim() + '</span>').join('<br>');
+          child.classList.add('clip-reveal');
+        } else if (child.tagName === 'BLOCKQUOTE') {
+          // Blockquote theatrical — handled by bq-enter class, no .reveal needed
+        } else {
+          child.classList.add('reveal');
+        }
+      });
+    });
+
+    // Zero the stat numbers
+    document.querySelectorAll('#stats .n').forEach(n => { n.textContent = '0'; });
   }
 
-  // ── Fade in ──
+  // ═══════════════════════════════════════
+  // INIT: runs AFTER content is visible
+  // ═══════════════════════════════════════
   function init() {
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.fade').forEach(el => obs.observe(el));
-    updateProgress();
+    initTypewriter();
+    initSectionReveals();
+    initProgressDots();
+    initNavTracker();
+    initCardTilt();
+    initFloatingHearts();
+    updateScroll();
   }
 
-  window.addEventListener('scroll', updateProgress, { passive: true });
+  // ═══════════════════════════════════════
+  // TYPEWRITER
+  // ═══════════════════════════════════════
+  function initTypewriter() {
+    const line1Text = "I fell in love with a Polish girl.";
+    const line2Text = "I couldn\u2019t talk to her mum.";
+    const el1 = document.getElementById('tw-line1');
+    const el2 = document.getElementById('tw-line2');
+    if (!el1 || !el2) return;
+
+    const speed1 = 2500 / line1Text.length;
+    const speed2 = 2000 / line2Text.length;
+
+    el1.classList.add('typing');
+
+    setTimeout(() => {
+      let i = 0;
+      function typeLine1() {
+        if (i < line1Text.length) {
+          el1.textContent += line1Text[i]; i++;
+          setTimeout(typeLine1, speed1);
+        } else {
+          el1.classList.remove('typing');
+          setTimeout(() => {
+            el2.classList.add('typing');
+            let j = 0;
+            function typeLine2() {
+              if (j < line2Text.length) {
+                el2.textContent += line2Text[j]; j++;
+                setTimeout(typeLine2, speed2);
+              } else {
+                onTypewriterDone();
+              }
+            }
+            typeLine2();
+          }, 500);
+        }
+      }
+      typeLine1();
+    }, 400);
+  }
+
+  function onTypewriterDone() {
+    // Reveal paragraphs + their underlines
+    const ps = document.querySelectorAll('.opening-reveal');
+    ps.forEach((p, idx) => {
+      setTimeout(() => {
+        p.classList.add('show');
+        setTimeout(() => {
+          p.querySelectorAll('.draw-underline').forEach(u => u.classList.add('drawn'));
+        }, 400);
+      }, idx * 250);
+    });
+    // Show scroll hint
+    setTimeout(() => {
+      const hint = document.getElementById('scrollHint');
+      if (hint) hint.classList.add('visible');
+    }, 600);
+    // Fade cursor
+    setTimeout(() => {
+      document.getElementById('tw-line2').classList.remove('typing');
+    }, 3000);
+  }
+
+  // ═══════════════════════════════════════
+  // SECTION REVEALS (consolidated)
+  // ═══════════════════════════════════════
+  function initSectionReveals() {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        revealSection(e.target);
+        obs.unobserve(e.target);
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('section:not(#opening)').forEach(s => obs.observe(s));
+  }
+
+  function revealSection(section) {
+    const inner = section.querySelector('.inner');
+    if (!inner) return;
+    const children = Array.from(inner.children);
+
+    let delay = 0;
+    children.forEach(child => {
+      const d = delay;
+      delay += 120;
+
+      setTimeout(() => {
+        // ── Standard reveal ──
+        if (child.classList.contains('reveal')) {
+          child.classList.add('show');
+        }
+
+        // ── Clip-mask heading ──
+        if (child.classList.contains('clip-reveal')) {
+          const lines = child.querySelectorAll('.text-reveal');
+          lines.forEach((line, t) => {
+            setTimeout(() => line.classList.add('revealed'), t * 120);
+          });
+        }
+
+        // ── Blockquote theatre ──
+        if (child.tagName === 'BLOCKQUOTE') {
+          child.classList.add('bq-enter');
+        }
+
+        // ── Draw underlines (after element is visible) ──
+        const animDelay = 400;
+        setTimeout(() => {
+          child.querySelectorAll('.draw-underline').forEach(u => u.classList.add('drawn'));
+        }, animDelay);
+
+        // ── Hearts ──
+        if (child.classList.contains('feat')) {
+          child.querySelectorAll('.feat-row').forEach((row, r) => {
+            setTimeout(() => row.classList.add('heart-pop'), animDelay + r * 100);
+          });
+        }
+
+        // ── Stats count up ──
+        if (child.id === 'stats' || child.classList.contains('stats')) {
+          setTimeout(() => {
+            child.querySelectorAll('.n').forEach(n => {
+              countUp(n, parseInt(n.dataset.target, 10), n.dataset.display);
+            });
+          }, animDelay);
+        }
+
+        // ── Timeline draw ──
+        if (child.classList.contains('tl')) {
+          setTimeout(() => {
+            child.classList.add('tl-drawn');
+            child.querySelectorAll('.tl-item').forEach((item, t) => {
+              setTimeout(() => item.classList.add('dot-pop'), 300 + t * 150);
+            });
+          }, animDelay);
+        }
+
+        // ── Google card borders ──
+        if (child.classList.contains('g-grid')) {
+          child.querySelectorAll('.g-card').forEach((card, c) => {
+            setTimeout(() => card.classList.add('border-drawn'), animDelay + c * 120);
+          });
+        }
+      }, d);
+    });
+  }
+
+  // ═══════════════════════════════════════
+  // COUNT-UP WITH COMPLETION POP
+  // ═══════════════════════════════════════
+  function countUp(el, target, display, duration) {
+    duration = duration || 1500;
+    const start = performance.now();
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(target * eased);
+      el.textContent = target >= 1000 ? current.toLocaleString() : current;
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        el.textContent = display;
+        // Completion pop!
+        el.style.animation = 'statPop 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55)';
+        el.addEventListener('animationend', () => { el.style.animation = ''; }, { once: true });
+      }
+    }
+    requestAnimationFrame(update);
+  }
+
+  // ═══════════════════════════════════════
+  // PROGRESS DOTS
+  // ═══════════════════════════════════════
+  function initProgressDots() {
+    const sections = document.querySelectorAll('section');
+    const container = document.getElementById('progressDots');
+    if (!container) return;
+
+    sections.forEach(s => {
+      const dot = document.createElement('button');
+      dot.className = 'pdot';
+      dot.setAttribute('aria-label', s.dataset.nav || 'Section');
+      dot.addEventListener('click', () => s.scrollIntoView({ behavior: 'smooth' }));
+      container.appendChild(dot);
+    });
+
+    const dots = container.querySelectorAll('.pdot');
+    dots[0].classList.add('active');
+
+    // Show dots after a beat
+    setTimeout(() => container.classList.add('visible'), 1500);
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const idx = Array.from(sections).indexOf(e.target);
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+      });
+    }, { threshold: 0.5 });
+
+    sections.forEach(s => obs.observe(s));
+  }
+
+  // ═══════════════════════════════════════
+  // NAV SECTION TRACKER
+  // ═══════════════════════════════════════
+  function initNavTracker() {
+    const navEl = document.getElementById('navSection');
+    const sections = document.querySelectorAll('section');
+    if (!navEl) return;
+
+    let current = '';
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const name = e.target.dataset.nav || '';
+        if (name === current) return;
+        current = name;
+        navEl.classList.add('switching');
+        setTimeout(() => {
+          navEl.textContent = name;
+          navEl.classList.remove('switching');
+        }, 300);
+      });
+    }, { threshold: 0.5 });
+
+    sections.forEach(s => obs.observe(s));
+  }
+
+  // ═══════════════════════════════════════
+  // CARD TILT (desktop only)
+  // ═══════════════════════════════════════
+  function initCardTilt() {
+    if ('ontouchstart' in window) return;
+    document.querySelectorAll('.stat, .g-card').forEach(card => {
+      card.addEventListener('mousemove', e => {
+        const r = card.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - 0.5;
+        const y = (e.clientY - r.top) / r.height - 0.5;
+        card.style.transform = 'perspective(600px) rotateX(' + (y * -8) + 'deg) rotateY(' + (x * 8) + 'deg) translateZ(8px)';
+        card.style.boxShadow = '0 10px 30px rgba(255,71,97,0.1)';
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = '';
+        card.style.boxShadow = '';
+      });
+    });
+  }
+
+  // ═══════════════════════════════════════
+  // FLOATING HEARTS
+  // ═══════════════════════════════════════
+  function initFloatingHearts() {
+    const container = document.createElement('div');
+    container.className = 'floating-hearts';
+    container.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(container);
+
+    var isMobile = window.innerWidth < 600;
+    var count = isMobile ? 8 : 18;
+    for (var i = 0; i < count; i++) {
+      var h = document.createElement('span');
+      h.className = 'fh';
+      h.textContent = '\u2665';
+      h.style.left = (Math.random() * 92 + 4) + '%';
+
+      // Match Hero: 15% chance of large faint heart, rest are smaller
+      var isLarge = !isMobile && Math.random() < 0.15;
+      var size = isLarge ? (26 + Math.random() * 14) : (10 + Math.random() * 14);
+      var opacity = isLarge ? (0.04 + Math.random() * 0.06) : (0.08 + Math.random() * 0.12);
+
+      h.style.fontSize = size + 'px';
+      h.style.setProperty('--fh-opacity', opacity.toFixed(3));
+
+      // Vertical: larger hearts float slower (like Hero baseSpeed)
+      var dur = isLarge ? (22 + Math.random() * 14) : (16 + Math.random() * 10);
+      h.style.setProperty('--fh-dur', dur + 's');
+      h.style.setProperty('--fh-delay', (Math.random() * 12) + 's');
+
+      // Horizontal wobble: random drift distances (like Hero's sin wobble)
+      var drift = function() { return ((Math.random() - 0.5) * 50).toFixed(0) + 'px'; };
+      h.style.setProperty('--fh-drift1', drift());
+      h.style.setProperty('--fh-drift2', drift());
+      h.style.setProperty('--fh-drift3', drift());
+      // Wobble cycle: slower than vertical, creates organic feel
+      h.style.setProperty('--fh-wobble-dur', (5 + Math.random() * 6) + 's');
+
+      container.appendChild(h);
+    }
+  }
 </script>
 
 </body>
