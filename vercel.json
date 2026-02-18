@@ -2143,6 +2143,11 @@
   ],
   "rewrites": [
     {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "story.lovelanguages.io" }],
+      "destination": "/story/index.html"
+    },
+    {
       "source": "/compare/",
       "destination": "/compare/index.html"
     },

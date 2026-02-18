@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Love Languages — Our Story</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg-card: #111119;
+      --bg-card-hover: #16161f;
+      --text: #e8e6e3;
+      --text-dim: #8a8a9a;
+      --text-muted: #5a5a6a;
+      --accent: #6366f1;
+      --accent-glow: rgba(99, 102, 241, 0.12);
+      --rose: #f43f5e;
+      --rose-dim: rgba(244, 63, 94, 0.08);
+      --border: rgba(255,255,255,0.06);
+      --google-blue: #4285F4;
+      --google-red: #EA4335;
+      --google-yellow: #FBBC05;
+      --google-green: #34A853;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ═══ PASSWORD GATE ═══ */
+    #gate {
+      position: fixed; inset: 0; z-index: 9999;
+      background: var(--bg);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 20px;
+    }
+    #gate.hidden { display: none; }
+    #gate .logo-mark {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem; color: var(--text); margin-bottom: 4px;
+    }
+    #gate .subtitle {
+      font-size: 0.85rem; color: var(--text-dim);
+      letter-spacing: 0.04em; margin-bottom: 12px;
+    }
+    #gate input {
+      background: var(--bg-card); border: 1px solid var(--border);
+      color: var(--text); padding: 14px 24px; border-radius: 10px;
+      font-size: 1rem; width: 260px; text-align: center;
+      outline: none; transition: border-color 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    #gate input:focus { border-color: var(--accent); }
+    #gate input::placeholder { color: var(--text-muted); }
+    #gate button {
+      background: var(--accent); color: #fff; border: none;
+      padding: 11px 36px; border-radius: 10px; font-size: 0.9rem;
+      cursor: pointer; font-weight: 500; transition: opacity 0.2s;
+      font-family: 'Inter', sans-serif;
+    }
+    #gate button:hover { opacity: 0.9; }
+    #gate .error { color: var(--rose); font-size: 0.85rem; height: 18px; }
+
+    /* ═══ MAIN CONTENT ═══ */
+    #content { display: none; }
+    #content.visible { display: block; }
+
+    /* ═══ PROGRESS BAR ═══ */
+    #progress {
+      position: fixed; top: 0; left: 0; z-index: 200;
+      height: 2px; background: var(--accent);
+      width: 0%; transition: width 0.1s linear;
+    }
+
+    /* ═══ NAV ═══ */
+    nav {
+      position: fixed; top: 2px; left: 0; right: 0; z-index: 100;
+      background: rgba(10, 10, 15, 0.8); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 32px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    nav .brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem; font-weight: 400;
+    }
+    nav .nav-label {
+      font-size: 0.75rem; color: var(--text-muted);
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+
+    /* ═══ SECTIONS ═══ */
+    section {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 120px 32px;
+      position: relative;
+    }
+    section.short { min-height: auto; padding: 80px 32px; }
+
+    .inner {
+      max-width: 720px; width: 100%;
+    }
+
+    .label {
+      font-size: 0.7rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.14em;
+      color: var(--accent); margin-bottom: 20px;
+      display: block;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 400; line-height: 1.18;
+      margin-bottom: 28px;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 400; line-height: 1.25;
+      margin-bottom: 24px;
+    }
+
+    p { color: var(--text-dim); font-size: 1.05rem; margin-bottom: 18px; }
+    p.lead { font-size: 1.15rem; color: var(--text); line-height: 1.8; }
+    p.big { font-size: 1.25rem; color: var(--text); line-height: 1.7; }
+
+    .hl { color: var(--accent); }
+    .rose { color: var(--rose); }
+    em { font-family: 'Playfair Display', serif; font-style: italic; color: var(--text); }
+
+    .spacer { height: 40px; }
+    .spacer-sm { height: 24px; }
+
+    .divider {
+      width: 48px; height: 1px;
+      background: var(--border); margin: 44px 0;
+    }
+
+    /* ═══ BLOCKQUOTE ═══ */
+    blockquote {
+      border-left: 2px solid var(--rose);
+      padding: 2px 0 2px 24px;
+      margin: 32px 0;
+    }
+    blockquote p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic; font-size: 1.2rem;
+      color: var(--text); line-height: 1.6; margin-bottom: 0;
+    }
+    blockquote cite {
+      display: block; margin-top: 10px;
+      font-family: 'Inter', sans-serif;
+      font-style: normal; font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ═══ STAT ROW ═══ */
+    .stats {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 16px; margin: 36px 0;
+    }
+    .stat {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 14px; padding: 24px 20px; text-align: center;
+    }
+    .stat .n {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem; font-weight: 700; color: var(--text);
+      line-height: 1;
+    }
+    .stat .l {
+      font-size: 0.78rem; color: var(--text-dim);
+      margin-top: 6px; line-height: 1.3;
+    }
+
+    /* ═══ GOOGLE GRID ═══ */
+    .g-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 14px; margin: 32px 0;
+    }
+    .g-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 22px 20px;
+    }
+    .g-card.wide { grid-column: 1 / -1; }
+    .g-card .g-name {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+    .g-card .g-name.blue { color: var(--google-blue); }
+    .g-card .g-name.red { color: var(--google-red); }
+    .g-card .g-name.green { color: var(--google-green); }
+    .g-card .g-name.yellow { color: var(--google-yellow); }
+    .g-card p { font-size: 0.92rem; margin-bottom: 0; }
+
+    /* ═══ TIMELINE ═══ */
+    .tl { margin: 32px 0; }
+    .tl-item {
+      padding: 16px 0 16px 24px;
+      border-left: 1px solid var(--border);
+      position: relative;
+    }
+    .tl-item::before {
+      content: ""; position: absolute;
+      left: -3.5px; top: 22px;
+      width: 6px; height: 6px;
+      border-radius: 50%; background: var(--accent);
+    }
+    .tl-item.rose::before { background: var(--rose); }
+    .tl-date {
+      font-size: 0.72rem; color: var(--accent);
+      font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .tl-item.rose .tl-date { color: var(--rose); }
+    .tl-text { font-size: 0.95rem; color: var(--text); margin-top: 2px; }
+    .tl-sub { font-size: 0.85rem; color: var(--text-dim); margin-top: 2px; }
+
+    /* ═══ FEATURE ROWS ═══ */
+    .feat { margin: 28px 0; }
+    .feat-row {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .feat-row:last-child { border-bottom: none; }
+    .feat-title { font-weight: 500; color: var(--text); font-size: 1rem; }
+    .feat-desc { color: var(--text-dim); font-size: 0.92rem; margin-top: 3px; }
+
+    /* ═══ CTA ═══ */
+    .cta { text-align: center; }
+    .cta-link {
+      display: inline-block; margin-top: 20px;
+      color: var(--accent); text-decoration: none;
+      font-size: 1.05rem; font-weight: 500;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .cta-link:hover { border-bottom-color: var(--accent); }
+
+    /* ═══ FOOTER ═══ */
+    footer {
+      text-align: center; padding: 40px 32px;
+      font-size: 0.75rem; color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+
+    /* ═══ FADE IN ═══ */
+    .fade {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade.show { opacity: 1; transform: translateY(0); }
+
+    /* ═══ RESPONSIVE ═══ */
+    @media (max-width: 600px) {
+      section { padding: 100px 20px; }
+      nav { padding: 12px 18px; }
+      .g-grid { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ PASSWORD GATE ═══ -->
+<div id="gate">
+  <div class="logo-mark">Love Languages</div>
+  <div class="subtitle">Private</div>
+  <input type="password" id="pw" placeholder="Password" autofocus>
+  <button onclick="unlock()">Enter</button>
+  <div class="error" id="error"></div>
+</div>
+
+<!-- ═══ CONTENT ═══ -->
+<div id="content">
+  <div id="progress"></div>
+
+  <nav>
+    <div class="brand">Love Languages</div>
+    <div class="nav-label">Our Story</div>
+  </nav>
+
+  <!-- ═══ 1. OPENING ═══ -->
+  <section>
+    <div class="inner fade">
+      <span class="label">Confidential &middot; February 2026</span>
+      <h1>I fell in love with a Polish girl.<br>I couldn't talk to her mum.</h1>
+      <p class="big">So I built an app. In 47 days, it became the world's first language learning platform designed around the people you love most.</p>
+      <p class="big">This is how it happened.</p>
+    </div>
+  </section>
+
+  <!-- ═══ 2. THE SPARK ═══ -->
+  <section>
+    <div class="inner fade">
+      <span class="label">December 2025</span>
+      <h2>It started with forgetting.</h2>
+      <p class="lead">I'd ask Misha a question about Polish. She'd explain it perfectly. By morning, it was gone. Every time.</p>
+      <p>I had Duolingo on my phone. I got the daily notifications &mdash; <em>"Did you practice Polish today?"</em> &mdash; and every single day I'd swipe them away. Because Duolingo wasn't teaching me the right things. It was teaching me that the cat eats bread. I needed to know how to tell Misha's mum that the food was delicious.</p>
+      <p>So in December, I tried building something in Google AI Studio. A simple app that could listen to what Misha taught me and save it. Capture a real conversation and store it somewhere I could actually go back to.</p>
+      <p>I couldn't finish it in time.</p>
+    </div>
+  </section>
+
+  <!-- ═══ 3. CHRISTMAS ═══ -->
+  <section>
+    <div class="inner fade">
+      <span class="label">Christmas Eve, Poland</span>
+      <h2>Then Christmas happened.</h2>
+      <p class="lead">We flew to Poland for Christmas. Misha's whole family around the table. Rich conversation happening everywhere &mdash; jokes, stories, traditions. All in Polish. All around me.</p>
+      <p>Then Misha got sick and had to leave the table.</p>
+      <p>And suddenly I was alone. Surrounded by her family, people I care about, and I had no mechanism to engage. I couldn't follow the conversation. I couldn't learn from it. I couldn't even respond. I was just&hellip; there.</p>
+
+      <blockquote>
+        <p>That was the moment it clicked. Not just "I should learn Polish." It was: there is no app that solves this. For anyone. In any language. It doesn't exist.</p>
+        <cite>Richard</cite>
+      </blockquote>
+
+      <p>That night I knew I was going to build it. Not because it was a business opportunity. Because I never wanted to feel that lost again.</p>
+    </div>
+  </section>
+
+  <!-- ═══ 4. BUILDING ═══ -->
+  <section>
+    <div class="inner fade">
+      <span class="label">January 2nd, 2026</span>
+      <h2>I sat down and started building.</h2>
+      <p class="lead">This is my third startup. The previous two went to shit. But I knew exactly what I wanted to make, I had the skills to do it, and I had the most important thing any founder needs: I had the problem myself.</p>
+      <p>I started with English to Polish. By January 14th, it worked &mdash; badly, but it worked.</p>
+      <p>And then I thought: someone more tech-savvy is going to see this idea and build it for every language. Because the concept isn't Polish-specific. It's universal.</p>
+      <p>So I gave myself 9 days. Two of those nights I didn't sleep. Two full days of attempts I threw away and deleted entirely. But by January 24th, Love Languages supported 18 native languages and 17 target languages. 306 possible language pairs.</p>
+      <p>It took me 22 days from zero to multilingual.</p>
+    </div>
+  </section>
+
+  <!-- ═══ 5. THE PROBLEM ═══ -->
+  <section>
+    <div class="inner fade">
+      <span class="label">The problem nobody solved</span>
+      <h2>One in five relationships is international.</h2>
+      <p class="lead">That's hundreds of millions of people. They're in love with someone who speaks a different language. And they have real problems that no app touches.</p>
+
+      <div class="spacer-sm"></div>
+
+      <p>What language will their kids speak? What happens when you move to their country and can't read a street sign? What do you do at their family's wedding, or their grandmother's funeral, when you can't understand anything and everyone's emotions are too raw for Google Translate?</p>
+      <p>How do you connect with your partner's parents? How do you stop being the person at the table who smiles and nods? How do you stop feeling alone in a room full of people who love you?</p>
+      <p>These couples want to take their relationship to the next level. They want to become better for each other. That's the most powerful motivation to learn a language that exists &mdash; and nobody built for it.</p>
+      <p>Duolingo teaches you to order coffee. We teach you to make your partner's mother laugh.</p>
+    </div>
+  </section>
+
+  <!-- ═══ 6. WHAT'S ON THE OTHER SIDE ═══ -->
+  <section>
+    <div class="inner fade">
+      <span class="label">The vision</span>
+      <h2>On the other side of the language barrier is a better relationship.</h2>
+      <p class="lead">People who are in love want to become better for their partner. That's not a marketing claim. That's just what love does.</p>
+
+      <div class="spacer-sm"></div>
+
+      <p>Our app helps couples get closer to each other's families. Understand each other's cultures. Participate in traditions &mdash; Christmas dinners, weddings, bedtime stories with their kids. Not as an outsider, but as family.</p>
+      <p>It helps couples have more fun together. Flirt in two languages. Understand the insults <em>and</em> the compliments. Learn the pet names &mdash; Polish has the most beautiful diminutives. <em>Myszka</em> (little mouse). <em>&#379;abka</em> (little frog). Misha calls me <em>Rysiu</em>.</p>
+      <p>And honestly? If learning your partner's language leads to feeling more connected, having better conversations, understanding each other more deeply &mdash; the downstream effects take care of themselves. Better relationships. Closer families. Less loneliness.</p>
+
+      <blockquote>
+        <p>This app is doing that for us. We want it to do that for everyone else too.</p>
+        <cite>Richard &amp; Misha</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ═══ 7. HOW IT WORKS ═══ -->
+  <section>
+    <div class="inner fade">
+      <span class="label">The product</span>
+      <h2>Your partner becomes your teacher.<br>AI becomes your bridge.</h2>
+      <p class="lead">Two roles. <em>Student</em> and <em>Tutor</em>. Linked accounts. One learns, one teaches, both connect through language.</p>
+
+      <div class="divider"></div>
+
+      <div class="feat">
+        <div class="feat-row">
+          <div class="feat-title">The relationship is the curriculum</div>
+          <div class="feat-desc">You don't learn textbook phrases. You learn <em>your</em> words &mdash; what your partner's family says, terms of endearment, inside jokes. The Love Log stores everything, with conjugations, examples, and audio.</div>
+        </div>
+        <div class="feat-row">
+          <div class="feat-title">Word gifts from your partner</div>
+          <div class="feat-desc">Your tutor sends you words and challenges directly. It's not just learning &mdash; it's something you do together. Every word gift is a small act of love.</div>
+        </div>
+        <div class="feat-row">
+          <div class="feat-title">Practice anything you want</div>
+          <div class="feat-desc">Voice conversations powered by Gemini Live. You pick the scenario, the pace, the difficulty. Practice ordering in a restaurant, arguing with a mechanic, or telling someone you love them. If you don't want grammar, skip the grammar.</div>
+        </div>
+        <div class="feat-row">
+          <div class="feat-title">Optimally challenging</div>
+          <div class="feat-desc">The AI knows your progress, your weak spots, and what you've mastered. It keeps you at the edge of what's possible &mdash; the hardest thing you can do within the bounds of what you know.</div>
+        </div>
+        <div class="feat-row">
+          <div class="feat-title">Cheeky, warm, and human</div>
+          <div class="feat-desc">The AI agent is written to be friendly and encouraging in a way that makes couples want to keep going. If they want it flirty, it's flirty. If they want it serious, it's serious. The user decides how spicy.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 8. BUILT ON GOOGLE ═══ -->
+  <section>
+    <div class="inner fade">
+      <span class="label">The stack</span>
+      <h2>Built entirely on Google.</h2>
+      <p>Google isn't a vendor for us. It's the foundation. Every core experience in Love Languages runs through Google technology.</p>
+
+      <div class="g-grid">
+        <div class="g-card">
+          <div class="g-name blue">Gemini API</div>
+          <p>The brain. Every chat session, every vocabulary extraction, every grammar explanation, every answer validation. Structured JSON output across 13 language-specific schemas. Gemini <em>is</em> the product.</p>
+        </div>
+        <div class="g-card">
+          <div class="g-name red">Gemini Live</div>
+          <p>Real-time voice conversation. Bidirectional audio over WebSocket. Students talk, Gemini responds &mdash; context-aware, patient, and natural.</p>
+        </div>
+        <div class="g-card">
+          <div class="g-name green">Cloud Text-to-Speech</div>
+          <p>18 language-specific Wavenet voices. Every word, flashcard, and chat message can be heard in a natural native voice.</p>
+        </div>
+        <div class="g-card">
+          <div class="g-name yellow">Google OAuth</div>
+          <p>Primary sign-up path. "Continue with Google" for both students and tutors.</p>
+        </div>
+        <div class="g-card wide">
+          <div class="g-name blue">Google Analytics 4 &middot; Speakable Schema &middot; Structured Data</div>
+          <p>Full-funnel tracking with 50+ events across app and blog. Every blog article is optimized with speakable schema for Google Assistant and voice search. We're building for where search is going, not where it was.</p>
+        </div>
+      </div>
+
+      <p>The tutor's Coach mode is an <strong>agentic AI</strong> &mdash; Gemini has full context of the student's weak words, learning velocity, and progress trends. It tells the tutor what to do next: send a word gift, trigger a quiz, write a love note. This isn't a chatbot. It's a teaching assistant.</p>
+    </div>
+  </section>
+
+  <!-- ═══ 9. TRACTION ═══ -->
+  <section>
+    <div class="inner fade">
+      <span class="label">47 days</span>
+      <h2>Two people. Self-funded. No sleep.</h2>
+
+      <div class="stats">
+        <div class="stat">
+          <div class="n">47</div>
+          <div class="l">Days since<br>first line of code</div>
+        </div>
+        <div class="stat">
+          <div class="n">18</div>
+          <div class="l">Languages<br>supported</div>
+        </div>
+        <div class="stat">
+          <div class="n">306</div>
+          <div class="l">Possible<br>language pairs</div>
+        </div>
+        <div class="stat">
+          <div class="n">12K</div>
+          <div class="l">Blog articles<br>free educational content</div>
+        </div>
+      </div>
+
+      <div class="tl">
+        <div class="tl-item">
+          <div class="tl-date">Jan 2</div>
+          <div class="tl-text">Started building. English &rarr; Polish.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Jan 14</div>
+          <div class="tl-text">First working version (badly, but working).</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Jan 24</div>
+          <div class="tl-text">Multilingual. 18 native &times; 17 target languages. 9 days, 2 sleepless nights.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Jan 24+</div>
+          <div class="tl-text">Marketing begins. TikTok content. Blog SEO rollout.</div>
+        </div>
+        <div class="tl-item rose">
+          <div class="tl-date">Feb 14</div>
+          <div class="tl-text">Missed App Store deadline. Still iterating on mobile build.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Today</div>
+          <div class="tl-text">12,000 articles. 7 game modes. Linked accounts. Tutor progression. Voice chat. Offline mode. GDPR compliant.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 10. EARLY SIGNALS ═══ -->
+  <section>
+    <div class="inner fade">
+      <span class="label">Early signals</span>
+      <h2>People are hungry for this.</h2>
+      <p class="lead">We're 47 days old with zero ad spend. Here's what's happening organically.</p>
+
+      <div class="spacer-sm"></div>
+
+      <div class="feat">
+        <div class="feat-row">
+          <div class="feat-title">150,000+ TikTok views</div>
+          <div class="feat-desc">Our @lovelanguagesio account. One video &mdash; "What it's like dating a Polish woman" &mdash; hit 106K views. People in international relationships are desperate for content from people in the same situation.</div>
+        </div>
+        <div class="feat-row">
+          <div class="feat-title">~200 daily visitors</div>
+          <div class="feat-desc">Landing on the homepage. Mostly direct traffic &mdash; people typing lovelanguages.io straight into the browser. From ~1,000 TikTok followers.</div>
+        </div>
+        <div class="feat-row">
+          <div class="feat-title">~15 daily conversions</div>
+          <div class="feat-desc">From TikTok viewer to page landing. No paid acquisition. No link in bio optimization. Just couples content.</div>
+        </div>
+        <div class="feat-row">
+          <div class="feat-title">UGC creator campaign active</div>
+          <div class="feat-desc">International couple content creators making authentic content about the problem we solve.</div>
+        </div>
+      </div>
+
+      <p>We're not designers. We're not marketers. We're a British guy and a Polish girl who built something for ourselves and discovered that millions of people need it too.</p>
+    </div>
+  </section>
+
+  <!-- ═══ 11. BUSINESS MODEL ═══ -->
+  <section>
+    <div class="inner fade">
+      <span class="label">Business</span>
+      <h2>One subscription. Two people.</h2>
+      <p class="lead">When one partner subscribes, the other gets full access automatically. Because that's how relationships work.</p>
+
+      <div class="spacer-sm"></div>
+
+      <p>7-day free trial. Standard at $69/year. Unlimited at $139/year.</p>
+      <p>The retention logic is built into the product. This isn't a solo habit you might quit. It's a shared journey between two people. If you start learning your partner's language together, giving up feels like giving up on something that's bringing you closer.</p>
+      <p>And the partners who use this &mdash; they <em>want</em> their relationship to get better. They want to connect with family. They want to understand the culture. If they didn't want that, why are they together?</p>
+
+      <div class="divider"></div>
+
+      <p>Coming soon: <strong>Add a Language</strong> ($5.99/month per language) for learning beyond your partner's language. Creator/affiliate referral program. Push notifications via native mobile app.</p>
+    </div>
+  </section>
+
+  <!-- ═══ 12. WHAT'S NEXT ═══ -->
+  <section>
+    <div class="inner fade">
+      <span class="label">Roadmap</span>
+      <h2>Where we're going.</h2>
+
+      <div class="feat">
+        <div class="feat-row">
+          <div class="feat-title">App Store &amp; Google Play</div>
+          <div class="feat-desc">iOS submission in review. Android next. Native mobile is the path to push notifications and daily engagement.</div>
+        </div>
+        <div class="feat-row">
+          <div class="feat-title">Scale marketing</div>
+          <div class="feat-desc">Double down on couples content. International relationship creators. The audience finds us because they're already looking for people like them.</div>
+        </div>
+        <div class="feat-row">
+          <div class="feat-title">More languages</div>
+          <div class="feat-desc">The architecture supports any language Gemini speaks. Adding more is configuration, not engineering.</div>
+        </div>
+        <div class="feat-row">
+          <div class="feat-title">Nail the onboarding</div>
+          <div class="feat-desc">Get the first 5 minutes perfect. The product is strong once people are in &mdash; we need to remove every barrier to getting started.</div>
+        </div>
+        <div class="feat-row">
+          <div class="feat-title">Make it more fun</div>
+          <div class="feat-desc">More games, more ways to play together, more reasons to come back. Spaced repetition for long-term retention. The relationship as a curriculum that grows over time.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ 13. CLOSE ═══ -->
+  <section>
+    <div class="inner fade cta">
+      <span class="label">Love Languages</span>
+      <h2>We're two people who built something<br>for ourselves and discovered<br>the world needs it too.</h2>
+      <div class="divider" style="margin:36px auto;"></div>
+      <p class="lead">47 days. Self-funded. Built on Google, end to end.</p>
+      <p>We're just getting started.</p>
+      <a href="https://www.lovelanguages.io/" class="cta-link">www.lovelanguages.io</a>
+    </div>
+  </section>
+
+  <footer>
+    Confidential &middot; Love Languages &copy; 2026 &middot; Richard &amp; Misha
+  </footer>
+
+</div>
+
+<script>
+  // ── Password ──
+  const PASS = 'MRstory';
+  const gate = document.getElementById('gate');
+  const content = document.getElementById('content');
+  const pwInput = document.getElementById('pw');
+  const errorEl = document.getElementById('error');
+
+  if (sessionStorage.getItem('story_auth') === '1') {
+    gate.classList.add('hidden');
+    content.classList.add('visible');
+    init();
+  }
+
+  pwInput.addEventListener('keydown', e => { if (e.key === 'Enter') unlock(); });
+
+  function unlock() {
+    if (pwInput.value === PASS) {
+      gate.classList.add('hidden');
+      content.classList.add('visible');
+      sessionStorage.setItem('story_auth', '1');
+      init();
+    } else {
+      errorEl.textContent = 'Incorrect password';
+      pwInput.value = '';
+      pwInput.focus();
+    }
+  }
+
+  // ── Progress bar ──
+  function updateProgress() {
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = h > 0 ? (window.scrollY / h) * 100 : 0;
+    document.getElementById('progress').style.width = pct + '%';
+  }
+
+  // ── Fade in ──
+  function init() {
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('show'); });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade').forEach(el => obs.observe(el));
+    updateProgress();
+  }
+
+  window.addEventListener('scroll', updateProgress, { passive: true });
+</script>
+
+</body>
+</html>
