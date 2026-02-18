@@ -7,6 +7,7 @@
   "cleanUrls": false,
   "trailingSlash": true,
   "redirects": [
+    { "source": "/:path((?!story/).*)", "has": [{ "type": "host", "value": "story.lovelanguages.io" }], "destination": "/story/", "permanent": false },
     { "source": "/learn/couples-language-learning/", "destination": "/learn/en/couples-language-learning/", "permanent": true },
     { "source": "/learn/language/polish/:path*", "destination": "/learn/en/pl/", "permanent": true },
     { "source": "/learn/language/spanish/:path*", "destination": "/learn/en/es/", "permanent": true },
@@ -2142,11 +2143,6 @@
     }
   ],
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "has": [{ "type": "host", "value": "story.lovelanguages.io" }],
-      "destination": "/story/index.html"
-    },
     {
       "source": "/compare/",
       "destination": "/compare/index.html"
