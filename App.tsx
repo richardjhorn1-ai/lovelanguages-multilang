@@ -37,6 +37,13 @@ import CookieConsent from './components/CookieConsent';
 import ErrorBoundary from './components/ErrorBoundary';
 import PromoExpiredBanner from './components/PromoExpiredBanner';
 
+// Concepts
+import { ConceptSwitcher, DesignConcept } from './components/concepts/ConceptSwitcher';
+import HeroEditorial from './components/concepts/editorial/HeroEditorial';
+import HeroCinematic from './components/concepts/cinematic/HeroCinematic';
+import HeroPlayful from './components/concepts/playful/HeroPlayful';
+import HeroUpgraded from './components/concepts/upgraded/HeroUpgraded';
+
 // Beta testers who get free access (add emails here)
 const BETA_TESTERS = [
   // Add beta tester emails here:
@@ -140,6 +147,9 @@ const SuccessToast: React.FC<{ message: string; onClose: () => void }> = ({ mess
 };
 
 const App: React.FC = () => {
+  const [designConcept, setDesignConcept] = useState<DesignConcept>(
+    (localStorage.getItem('design_concept') as DesignConcept) || 'original'
+  );
   const [session, setSession] = useState<any>(null);
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
@@ -417,145 +427,159 @@ const App: React.FC = () => {
     <ThemeProvider userId={profile?.id} profileTheme={profile ? { accent_color: profile.accent_color, dark_mode: profile.dark_mode, font_size: profile.font_size, font_preset: profile.font_preset, font_weight: profile.font_weight } : null}>
       <LanguageProvider profile={profile}>
         <I18nSyncWrapper>
-        <HashRouter>
-          <AnalyticsWrapper>
-          <div className="h-screen-safe bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300 overflow-hidden">
-          {/* Success toast */}
-          {successToast && (
-            <SuccessToast message={successToast} onClose={() => setSuccessToast(null)} />
-          )}
-          {/* New words notification - visible on all tabs */}
-          {(isExtractingWords || newWordsNotification.length > 0) && (
-            <NewWordsNotification
-              words={newWordsNotification}
-              isExtracting={isExtractingWords}
-              onClose={() => {
-                setNewWordsNotification([]);
-                setIsExtractingWords(false);
-                if (notificationTimerRef.current) clearTimeout(notificationTimerRef.current);
-              }}
-            />
-          )}
-          {/* Promo expired banner */}
-          {profile && (
-            <PromoExpiredBanner promoExpiresAt={(profile as any).promo_expires_at} />
-          )}
-          <Routes>
-            {/* Public routes - accessible without auth */}
-            <Route path="/join/:token" element={<JoinInvite />} />
-            <Route path="/terms" element={<TermsOfService />} />
-            <Route path="/privacy" element={<PrivacyPolicy />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/method" element={<Method />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
-
-            {/* Target language routes - /pl, /es, /fr, etc. */}
-            {/* Only match actual language codes, not app routes like /log, /play */}
-            {SUPPORTED_LANGUAGE_CODES.map(lang => (
-              <Route key={lang} path={`/${lang}`} element={
-                session && profile ? (
-                  // Authenticated users go to main app
-                  <Navigate to="/" />
-                ) : (
-                  <Hero />
-                )
-              } />
-            ))}
-
-            {/* All other routes */}
-            <Route path="*" element={
-              session && profile ? (
-                // Step 1: Check if user has confirmed their role (skip for existing users who completed onboarding)
-                !profile.role_confirmed_at && !profile.onboarding_completed_at ? (
-                  <RoleSelection
-                    userId={profile.id}
-                    profile={profile}
-                    onRoleSelected={() => fetchProfile(profile.id)}
-                  />
-                ) : // Step 2: Check if onboarding is completed
-                !profile.onboarding_completed_at ? (
-                  <Onboarding
-                    role={profile.role}
-                    userId={profile.id}
-                    onComplete={() => fetchProfile(profile.id)}
-                    onQuit={() => supabase.auth.signOut()}
-                    onBackToLanguages={async () => {
-                      await supabase.from('profiles').update({ role_confirmed_at: null }).eq('id', profile.id);
-                      fetchProfile(profile.id);
+          <HashRouter>
+            <AnalyticsWrapper>
+              <div className="h-screen-safe bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300 overflow-hidden">
+                {/* Success toast */}
+                {successToast && (
+                  <SuccessToast message={successToast} onClose={() => setSuccessToast(null)} />
+                )}
+                {/* New words notification - visible on all tabs */}
+                {(isExtractingWords || newWordsNotification.length > 0) && (
+                  <NewWordsNotification
+                    words={newWordsNotification}
+                    isExtracting={isExtractingWords}
+                    onClose={() => {
+                      setNewWordsNotification([]);
+                      setIsExtractingWords(false);
+                      if (notificationTimerRef.current) clearTimeout(notificationTimerRef.current);
                     }}
-                    hasInheritedSubscription={!!profile.subscription_granted_by || profile.subscription_status === 'active'}
                   />
-                ) : // Step 3: Check subscription/access status
-                // Allow if: subscription active, inherited access, active promo, active trial, or beta tester
-                (() => {
-                  const hasActiveSubscription = profile.subscription_status === 'active';
-                  const hasInheritedAccess = !!profile.subscription_granted_by;
-                  const hasActivePromo = profile.promo_expires_at && new Date(profile.promo_expires_at) > new Date();
-                  const hasChosenFreeTier = !!profile.free_tier_chosen_at;
-                  const betaTester = isBetaTester(profile.email || '');
+                )}
+                {/* Promo expired banner */}
+                {profile && (
+                  <PromoExpiredBanner promoExpiresAt={(profile as any).promo_expires_at} />
+                )}
 
-                  // Trial expiry check
-                  const trialExpiresAt = profile.trial_expires_at;
-                  const trialExpired = trialExpiresAt && new Date(trialExpiresAt) <= new Date();
-                  // Grandfathered: has free tier but no trial_expires_at (old users)
-                  const isGrandfathered = hasChosenFreeTier && !trialExpiresAt;
-                  // Active trial: has chosen free tier, has expiry, and not expired
-                  const hasActiveTrial = hasChosenFreeTier && trialExpiresAt && !trialExpired;
+                {/* Design Concept Switcher */}
+                {(!session || !profile) && (
+                  <ConceptSwitcher concept={designConcept} onSelect={setDesignConcept} />
+                )}
 
-                  // Calculate days remaining for trial reminder (floor so day 0 = last day)
-                  const daysRemaining = trialExpiresAt
-                    ? Math.max(0, Math.floor((new Date(trialExpiresAt).getTime() - Date.now()) / (1000 * 60 * 60 * 24)))
-                    : null;
-                  const hoursRemaining = daysRemaining === 0 && trialExpiresAt
-                    ? Math.max(0, Math.ceil((new Date(trialExpiresAt).getTime() - Date.now()) / (1000 * 60 * 60)))
-                    : null;
-                  const showTrialReminder = daysRemaining !== null && [5, 3, 1, 0].includes(daysRemaining) && !trialExpired;
+                <Routes>
+                  {/* Public routes - accessible without auth */}
+                  <Route path="/join/:token" element={<JoinInvite />} />
+                  <Route path="/terms" element={<TermsOfService />} />
+                  <Route path="/privacy" element={<PrivacyPolicy />} />
+                  <Route path="/faq" element={<FAQ />} />
+                  <Route path="/method" element={<Method />} />
+                  <Route path="/pricing" element={<Pricing />} />
+                  <Route path="/reset-password" element={<ResetPassword />} />
 
-                  const hasAccess = hasActiveSubscription || hasInheritedAccess || hasActivePromo || isGrandfathered || hasActiveTrial || betaTester;
+                  {/* Target language routes - /pl, /es, /fr, etc. */}
+                  {/* Only match actual language codes, not app routes like /log, /play */}
+                  {SUPPORTED_LANGUAGE_CODES.map(lang => (
+                    <Route key={lang} path={`/${lang}`} element={
+                      session && profile ? (
+                        // Authenticated users go to main app
+                        <Navigate to="/" />
+                      ) : (
+                        designConcept === 'upgraded' ? <HeroUpgraded /> :
+                          designConcept === 'editorial' ? <HeroEditorial /> :
+                            designConcept === 'cinematic' ? <HeroCinematic /> :
+                              designConcept === 'playful' ? <HeroPlayful /> :
+                                <Hero />
+                      )
+                    } />
+                  ))}
 
-                  // If trial expired and no other access, show paywall with trial expired message
-                  if (trialExpired && !hasActiveSubscription && !hasInheritedAccess && !hasActivePromo && !betaTester) {
-                    return (
-                      <SubscriptionRequired
-                        profile={profile}
-                        onSubscribed={() => fetchProfile(profile.id)}
-                        trialExpired={true}
-                      />
-                    );
-                  }
-
-                  return !hasAccess ? (
-                    <SubscriptionRequired
-                      profile={profile}
-                      onSubscribed={() => fetchProfile(profile.id)}
-                    />
-                  ) : (
-                    <div className="flex flex-col h-full">
-                      <Navbar profile={profile} />
-                      {/* Trial reminder notification */}
-                      {showTrialReminder && daysRemaining !== null && (
-                        <TrialReminderNotification
-                          daysRemaining={daysRemaining}
-                          hoursRemaining={hoursRemaining}
+                  {/* All other routes */}
+                  <Route path="*" element={
+                    session && profile ? (
+                      // Step 1: Check if user has confirmed their role (skip for existing users who completed onboarding)
+                      !profile.role_confirmed_at && !profile.onboarding_completed_at ? (
+                        <RoleSelection
+                          userId={profile.id}
+                          profile={profile}
+                          onRoleSelected={() => fetchProfile(profile.id)}
                         />
-                      )}
-                      <main className="flex-1 h-0 overflow-hidden">
-                        <PersistentTabs profile={profile} onRefresh={() => fetchProfile(profile.id)} />
-                      </main>
-                    </div>
-                  );
-                })()
-              ) : (
-                <Hero />
-              )
-            } />
-          </Routes>
-          {/* Cookie consent banner */}
-          <CookieConsent />
-        </div>
-          </AnalyticsWrapper>
-        </HashRouter>
+                      ) : // Step 2: Check if onboarding is completed
+                        !profile.onboarding_completed_at ? (
+                          <Onboarding
+                            role={profile.role}
+                            userId={profile.id}
+                            onComplete={() => fetchProfile(profile.id)}
+                            onQuit={() => supabase.auth.signOut()}
+                            onBackToLanguages={async () => {
+                              await supabase.from('profiles').update({ role_confirmed_at: null }).eq('id', profile.id);
+                              fetchProfile(profile.id);
+                            }}
+                            hasInheritedSubscription={!!profile.subscription_granted_by || profile.subscription_status === 'active'}
+                          />
+                        ) : // Step 3: Check subscription/access status
+                          // Allow if: subscription active, inherited access, active promo, active trial, or beta tester
+                          (() => {
+                            const hasActiveSubscription = profile.subscription_status === 'active';
+                            const hasInheritedAccess = !!profile.subscription_granted_by;
+                            const hasActivePromo = profile.promo_expires_at && new Date(profile.promo_expires_at) > new Date();
+                            const hasChosenFreeTier = !!profile.free_tier_chosen_at;
+                            const betaTester = isBetaTester(profile.email || '');
+
+                            // Trial expiry check
+                            const trialExpiresAt = profile.trial_expires_at;
+                            const trialExpired = trialExpiresAt && new Date(trialExpiresAt) <= new Date();
+                            // Grandfathered: has free tier but no trial_expires_at (old users)
+                            const isGrandfathered = hasChosenFreeTier && !trialExpiresAt;
+                            // Active trial: has chosen free tier, has expiry, and not expired
+                            const hasActiveTrial = hasChosenFreeTier && trialExpiresAt && !trialExpired;
+
+                            // Calculate days remaining for trial reminder (floor so day 0 = last day)
+                            const daysRemaining = trialExpiresAt
+                              ? Math.max(0, Math.floor((new Date(trialExpiresAt).getTime() - Date.now()) / (1000 * 60 * 60 * 24)))
+                              : null;
+                            const hoursRemaining = daysRemaining === 0 && trialExpiresAt
+                              ? Math.max(0, Math.ceil((new Date(trialExpiresAt).getTime() - Date.now()) / (1000 * 60 * 60)))
+                              : null;
+                            const showTrialReminder = daysRemaining !== null && [5, 3, 1, 0].includes(daysRemaining) && !trialExpired;
+
+                            const hasAccess = hasActiveSubscription || hasInheritedAccess || hasActivePromo || isGrandfathered || hasActiveTrial || betaTester;
+
+                            // If trial expired and no other access, show paywall with trial expired message
+                            if (trialExpired && !hasActiveSubscription && !hasInheritedAccess && !hasActivePromo && !betaTester) {
+                              return (
+                                <SubscriptionRequired
+                                  profile={profile}
+                                  onSubscribed={() => fetchProfile(profile.id)}
+                                  trialExpired={true}
+                                />
+                              );
+                            }
+
+                            return !hasAccess ? (
+                              <SubscriptionRequired
+                                profile={profile}
+                                onSubscribed={() => fetchProfile(profile.id)}
+                              />
+                            ) : (
+                              <div className="flex flex-col h-full">
+                                <Navbar profile={profile} />
+                                {/* Trial reminder notification */}
+                                {showTrialReminder && daysRemaining !== null && (
+                                  <TrialReminderNotification
+                                    daysRemaining={daysRemaining}
+                                    hoursRemaining={hoursRemaining}
+                                  />
+                                )}
+                                <main className="flex-1 h-0 overflow-hidden">
+                                  <PersistentTabs profile={profile} onRefresh={() => fetchProfile(profile.id)} />
+                                </main>
+                              </div>
+                            );
+                          })()
+                    ) : (
+                      designConcept === 'upgraded' ? <HeroUpgraded /> :
+                        designConcept === 'editorial' ? <HeroEditorial /> :
+                          designConcept === 'cinematic' ? <HeroCinematic /> :
+                            designConcept === 'playful' ? <HeroPlayful /> :
+                              <Hero />
+                    )
+                  } />
+                </Routes>
+                {/* Cookie consent banner */}
+                <CookieConsent />
+              </div>
+            </AnalyticsWrapper>
+          </HashRouter>
         </I18nSyncWrapper>
       </LanguageProvider>
     </ThemeProvider>

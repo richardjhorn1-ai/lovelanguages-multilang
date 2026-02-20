@@ -62,7 +62,7 @@ export const DemoFlashcard: React.FC<DemoFlashcardProps> = ({
             className="text-[9px] uppercase tracking-widest font-black mb-6"
             style={{ color: accentColor }}
           >
-            {targetName.toUpperCase()}
+            {targetName?.toUpperCase() || ''}
           </span>
           <h3 className="text-3xl font-black text-[#1a1a2e]">{word.word}</h3>
           <p className="mt-8 text-gray-400 text-[9px] uppercase font-black tracking-widest animate-pulse">
@@ -80,7 +80,7 @@ export const DemoFlashcard: React.FC<DemoFlashcardProps> = ({
           }}
         >
           <span className="text-[9px] uppercase tracking-widest text-white/60 font-black mb-6">
-            {nativeName.toUpperCase()}
+            {nativeName?.toUpperCase() || ''}
           </span>
           <h3 className="text-2xl font-black">{word.translation}</h3>
           <div className="mt-8 grid grid-cols-2 gap-2 w-full">
