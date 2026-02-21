@@ -1,6 +1,6 @@
 # Love Languages - Development Roadmap
 
-**Last Updated:** February 6, 2026
+**Last Updated:** February 21, 2026
 **Project:** Love Languages Multilang
 
 ---
@@ -41,6 +41,43 @@ Infrastructure improvements for better indexing and tracking consistency.
 - ✅ **Sitemap www URLs** — All sitemap URLs now use www prefix consistently
 - ✅ **Canonical URLs** — Proper canonical tags across all pages
 - ✅ **GA4 Unified** — Same tracking between blog and app (G-LWVWLRMW3R)
+
+---
+
+## 🎯 Current Sprint: iOS Launch + SEO (Feb 21, 2026)
+
+### iOS Launch (Blocked)
+| Task | Status | Notes |
+|------|--------|-------|
+| Apple Sign In | ☐ Not started | Required for App Store |
+| In-App Purchases | ☐ Not started | Required for App Store |
+| iOS Testing | ☐ Blocked | See `IOS_TESTING_PLAN.md` |
+| TestFlight | ☐ Blocked | Needs above |
+| App Store Submit | ☐ Blocked | Needs above |
+
+### SEO Quick Wins (from Feb 21 audit)
+| Task | Effort | Status |
+|------|--------|--------|
+| Fix € currency for EU languages | 30 min | ☐ |
+| Fix 4 broken URLs (404s) | 1 hr | ☐ |
+| Add internal linking | 2-4 hrs | ☐ |
+| Add cross-pair links | 2-3 hrs | ☐ |
+| Add reverse direction links | 2 hrs | ☐ |
+| Fix generic meta descriptions | 1 hr | ☐ |
+| "Couples language learning" landing page | 3-4 hrs | ☐ |
+
+**SEO Audit Details:** See `docs/SEO.md`
+
+---
+
+## ✅ Recently Completed (Feb 21, 2026)
+
+### SEO Audit & Analysis
+- ✅ Full audit using 6 sub-agents (60+ article checks)
+- ✅ Identified € currency bug in CTA for EU languages
+- ✅ Identified weak internal linking across articles
+- ✅ Competitive analysis (Coupling vs Love Languages)
+- ✅ GSC data: 702 indexed, 12,088 impressions, 247 clicks
 
 ---
 
