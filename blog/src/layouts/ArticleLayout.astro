@@ -155,8 +155,15 @@ const jsonLd = {
   "dateModified": date,
   "author": {
     "@type": "Organization",
-    "name": "Love Languages",
-    "url": "https://www.lovelanguages.io/"
+    "name": "Love Languages Editorial Team",
+    "url": "https://www.lovelanguages.io/about/",
+    "description": "Language education specialists creating couples-focused content across 18 languages. Founded by a bilingual couple with real-world experience learning each other's native languages.",
+    "knowsAbout": [
+      "language learning",
+      "couples communication",
+      "bilingual relationships",
+      "language pedagogy"
+    ]
   },
   "publisher": {
     "@type": "Organization",
@@ -391,6 +398,12 @@ const faqJsonLd = faqItems.length > 0 ? {
         </span>
         <span class="text-gray-500">{formattedDate}</span>
         <span class="text-gray-500">{readTime} min read</span>
+      </div>
+
+      <!-- Author byline (E-E-A-T signal) -->
+      <div class="flex items-center gap-2 text-sm text-gray-600 mb-4">
+        <div class="w-6 h-6 rounded-full bg-gradient-to-br from-accent to-pink-400 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">LL</div>
+        <span>By <strong class="text-gray-800">Love Languages Editorial Team</strong></span>
       </div>
 
       <!-- Title - marked as speakable for voice assistants -->

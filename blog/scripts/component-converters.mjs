@@ -19,24 +19,24 @@ import { marked } from 'marked';
 
 /** Translated component labels per native language */
 export const COMPONENT_LABELS = {
-  en: { pronunciation: 'Pronunciation:', phraseToLearn: 'Phrase to Learn', culturalTip: 'Cultural Tip' },
-  es: { pronunciation: 'Pronunciación:', phraseToLearn: 'Frase para Aprender', culturalTip: 'Consejo Cultural' },
-  fr: { pronunciation: 'Prononciation :', phraseToLearn: 'Expression à Apprendre', culturalTip: 'Astuce Culturelle' },
-  de: { pronunciation: 'Aussprache:', phraseToLearn: 'Ausdruck zum Lernen', culturalTip: 'Kulturtipp' },
-  it: { pronunciation: 'Pronuncia:', phraseToLearn: 'Frase da Imparare', culturalTip: 'Curiosità Culturale' },
-  pt: { pronunciation: 'Pronúncia:', phraseToLearn: 'Frase para Aprender', culturalTip: 'Dica Cultural' },
-  pl: { pronunciation: 'Wymowa:', phraseToLearn: 'Zwrot do Nauki', culturalTip: 'Ciekawostka Kulturowa' },
-  nl: { pronunciation: 'Uitspraak:', phraseToLearn: 'Zin om te Leren', culturalTip: 'Cultuurtip' },
-  ro: { pronunciation: 'Pronunție:', phraseToLearn: 'Expresie de Învățat', culturalTip: 'Sfat Cultural' },
-  ru: { pronunciation: 'Произношение:', phraseToLearn: 'Фраза для Изучения', culturalTip: 'Культурный Совет' },
-  uk: { pronunciation: 'Вимова:', phraseToLearn: 'Фраза для Вивчення', culturalTip: 'Культурна Порада' },
-  tr: { pronunciation: 'Telaffuz:', phraseToLearn: 'Öğrenilecek İfade', culturalTip: 'Kültürel İpucu' },
-  sv: { pronunciation: 'Uttal:', phraseToLearn: 'Fras att Lära Sig', culturalTip: 'Kulturtips' },
-  no: { pronunciation: 'Uttale:', phraseToLearn: 'Uttrykk å Lære', culturalTip: 'Kulturtips' },
-  da: { pronunciation: 'Udtale:', phraseToLearn: 'Udtryk at Lære', culturalTip: 'Kulturtip' },
-  cs: { pronunciation: 'Výslovnost:', phraseToLearn: 'Fráze k Naučení', culturalTip: 'Kulturní Tip' },
-  el: { pronunciation: 'Προφορά:', phraseToLearn: 'Φράση για Εκμάθηση', culturalTip: 'Πολιτιστική Συμβουλή' },
-  hu: { pronunciation: 'Kiejtés:', phraseToLearn: 'Megtanulandó Kifejezés', culturalTip: 'Kulturális Tipp' },
+  en: { pronunciation: 'Pronunciation:', phraseToLearn: 'Phrase to Learn', culturalTip: 'Cultural Tip', definition: 'Definition' },
+  es: { pronunciation: 'Pronunciación:', phraseToLearn: 'Frase para Aprender', culturalTip: 'Consejo Cultural', definition: 'Definición' },
+  fr: { pronunciation: 'Prononciation :', phraseToLearn: 'Expression à Apprendre', culturalTip: 'Astuce Culturelle', definition: 'Définition' },
+  de: { pronunciation: 'Aussprache:', phraseToLearn: 'Ausdruck zum Lernen', culturalTip: 'Kulturtipp', definition: 'Definition' },
+  it: { pronunciation: 'Pronuncia:', phraseToLearn: 'Frase da Imparare', culturalTip: 'Curiosità Culturale', definition: 'Definizione' },
+  pt: { pronunciation: 'Pronúncia:', phraseToLearn: 'Frase para Aprender', culturalTip: 'Dica Cultural', definition: 'Definição' },
+  pl: { pronunciation: 'Wymowa:', phraseToLearn: 'Zwrot do Nauki', culturalTip: 'Ciekawostka Kulturowa', definition: 'Definicja' },
+  nl: { pronunciation: 'Uitspraak:', phraseToLearn: 'Zin om te Leren', culturalTip: 'Cultuurtip', definition: 'Definitie' },
+  ro: { pronunciation: 'Pronunție:', phraseToLearn: 'Expresie de Învățat', culturalTip: 'Sfat Cultural', definition: 'Definiție' },
+  ru: { pronunciation: 'Произношение:', phraseToLearn: 'Фраза для Изучения', culturalTip: 'Культурный Совет', definition: 'Определение' },
+  uk: { pronunciation: 'Вимова:', phraseToLearn: 'Фраза для Вивчення', culturalTip: 'Культурна Порада', definition: 'Визначення' },
+  tr: { pronunciation: 'Telaffuz:', phraseToLearn: 'Öğrenilecek İfade', culturalTip: 'Kültürel İpucu', definition: 'Tanım' },
+  sv: { pronunciation: 'Uttal:', phraseToLearn: 'Fras att Lära Sig', culturalTip: 'Kulturtips', definition: 'Definition' },
+  no: { pronunciation: 'Uttale:', phraseToLearn: 'Uttrykk å Lære', culturalTip: 'Kulturtips', definition: 'Definisjon' },
+  da: { pronunciation: 'Udtale:', phraseToLearn: 'Udtryk at Lære', culturalTip: 'Kulturtip', definition: 'Definition' },
+  cs: { pronunciation: 'Výslovnost:', phraseToLearn: 'Fráze k Naučení', culturalTip: 'Kulturní Tip', definition: 'Definice' },
+  el: { pronunciation: 'Προφορά:', phraseToLearn: 'Φράση για Εκμάθηση', culturalTip: 'Πολιτιστική Συμβουλή', definition: 'Ορισμός' },
+  hu: { pronunciation: 'Kiejtés:', phraseToLearn: 'Megtanulandó Kifejezés', culturalTip: 'Kulturális Tipp', definition: 'Meghatározás' },
 };
 
 /** Flag emoji per target language */
@@ -389,6 +389,52 @@ ${rows.join('\n')}
 }
 
 /**
+ * Convert <DefinitionBlock term="X" definition="Y" ... /> to styled HTML
+ * Uses semantic <dl>/<dt>/<dd> with schema.org/DefinedTerm microdata
+ */
+function convertDefinitionBlock(tag, nativeLang = 'en') {
+  const term = extractProp(tag, 'term') || '';
+  const definition = extractProp(tag, 'definition') || '';
+  const pronunciation = extractProp(tag, 'pronunciation');
+  const partOfSpeech = extractProp(tag, 'partOfSpeech');
+  const language = extractProp(tag, 'language');
+
+  let html = `<div class="speakable-vocab my-6 bg-gradient-to-br from-purple-50 to-violet-50 rounded-2xl p-6 border border-purple-200" itemscope itemtype="https://schema.org/DefinedTerm">
+  <dl>
+    <dt class="flex items-center gap-3 mb-2">
+      <span class="text-2xl font-bold text-purple-800 font-header" itemprop="name">${escapeHtml(term)}</span>`;
+
+  if (partOfSpeech) {
+    html += `
+      <span class="text-xs font-medium text-purple-500 bg-purple-100 px-2 py-0.5 rounded-full">${escapeHtml(partOfSpeech)}</span>`;
+  }
+
+  html += `
+    </dt>`;
+
+  if (pronunciation) {
+    html += `
+    <p class="text-sm text-purple-600 mb-2">
+      <code class="bg-white/50 px-2 py-0.5 rounded">${escapeHtml(pronunciation)}</code>
+    </p>`;
+  }
+
+  html += `
+    <dd class="text-gray-700 leading-relaxed" itemprop="description">
+      ${escapeHtml(definition)}
+    </dd>
+  </dl>`;
+
+  if (language) {
+    html += `
+  <meta itemprop="inDefinedTermSet" content="${escapeHtml(language)}" />`;
+  }
+
+  html += `\n</div>`;
+  return html;
+}
+
+/**
  * Main conversion function: raw MDX content → clean HTML with rendered components
  *
  * @param {string} rawContent - Raw MDX content (may include frontmatter, imports, components)
@@ -565,6 +611,15 @@ export function convertMdxToHtml(rawContent, nativeLang = 'en', targetLang = nul
     (match, attrs) => {
       stats.vocabCards++;
       return convertVocabCard(`<VocabCard${attrs}/>`, nativeLang);
+    }
+  );
+
+  // 7b. Convert DefinitionBlock (self-closing)
+  content = content.replace(
+    /<DefinitionBlock([\s\S]*?)\/>/gi,
+    (match, attrs) => {
+      stats.definitionBlocks = (stats.definitionBlocks || 0) + 1;
+      return convertDefinitionBlock(`<DefinitionBlock${attrs}/>`, nativeLang);
     }
   );
 

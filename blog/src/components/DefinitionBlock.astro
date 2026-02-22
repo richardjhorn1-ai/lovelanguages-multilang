@@ -1,0 +1,32 @@
+---
+interface Props {
+  term: string;
+  definition: string;
+  pronunciation?: string;
+  partOfSpeech?: string;
+  language?: string;
+}
+
+const { term, definition, pronunciation, partOfSpeech, language } = Astro.props;
+---
+
+<!-- DefinitionBlock: Semantic definition list with schema.org/DefinedTerm for rich results -->
+<div class="speakable-vocab my-6 bg-gradient-to-br from-purple-50 to-violet-50 rounded-2xl p-6 border border-purple-200" itemscope itemtype="https://schema.org/DefinedTerm">
+  <dl>
+    <dt class="flex items-center gap-3 mb-2">
+      <span class="text-2xl font-bold text-purple-800 font-header" itemprop="name">{term}</span>
+      {partOfSpeech && (
+        <span class="text-xs font-medium text-purple-500 bg-purple-100 px-2 py-0.5 rounded-full">{partOfSpeech}</span>
+      )}
+    </dt>
+    {pronunciation && (
+      <p class="text-sm text-purple-600 mb-2">
+        <code class="bg-white/50 px-2 py-0.5 rounded">{pronunciation}</code>
+      </p>
+    )}
+    <dd class="text-gray-700 leading-relaxed" itemprop="description">
+      {definition}
+    </dd>
+  </dl>
+  {language && <meta itemprop="inDefinedTermSet" content={language} />}
+</div>
