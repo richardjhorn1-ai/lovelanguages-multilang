@@ -2,15 +2,22 @@
 
 > Strategic plan for Answer Engine Optimization and Generative Engine Optimization
 > Created: January 16, 2026
-> **Updated: January 21, 2026**
+> **Updated: February 22, 2026**
 
 ---
 
 ## Executive Summary
 
-**Current State:** 1,003 articles, 6 native languages, strong Polish coverage, basic schema markup
+**Current State:** 11,933 articles, 18 native languages × 18 target languages, comprehensive schema markup
 **Goal:** Become THE authoritative source for couples learning languages together
 **Strategy:** Systematic content expansion + structured data optimization for AI citation
+
+### Recent Completions (Feb 2026)
+- ✅ FAQ schema on 11,703 articles (bespoke FAQs via Gemini, visible accordion + JSON-LD)
+- ✅ E-E-A-T author signals (Organization author with `knowsAbout`, visible byline)
+- ✅ DefinitionBlock component (schema.org/DefinedTerm for vocabulary rich results)
+- ✅ Tag backfill (4,458 articles fixed — all articles now have `article:tag` meta)
+- ✅ AI referral tracking (ChatGPT, Perplexity, Claude, Gemini, etc.)
 
 ---
 
@@ -125,78 +132,41 @@ Pronunciation is underrepresented but highly searchable.
 
 ## Part 3: AEO Implementation Plan
 
-### 3.1 Schema Markup Additions
+### 3.1 Schema Markup — Implementation Status
 
-**HowTo Schema (HIGH PRIORITY)**
+**HowTo Schema** ✅ DONE
+- Automatically added to all articles with "how-to" in the slug
+- Rendered in `ArticleLayout.astro` as JSON-LD
+- ~1,000+ articles have HowTo schema
 
-Currently missing. Add to all "How to..." articles.
+**Speakable Schema** ✅ DONE
+- Added to all articles via CSS selectors: `.speakable-phrase`, `.speakable-vocab`
+- VocabCard and PhraseOfDay components use these classes
+- Enables voice search citation for key phrases
 
-```json
-{
-  "@type": "HowTo",
-  "name": "How to Say I Love You in Polish",
-  "description": "Learn to express love in Polish with proper pronunciation",
-  "step": [
-    {
-      "@type": "HowToStep",
-      "name": "Learn the phrase",
-      "text": "The phrase is 'Kocham Cię' (ko-HAM chyeh)"
-    },
-    {
-      "@type": "HowToStep",
-      "name": "Practice pronunciation",
-      "text": "Focus on the 'ch' sound which is like clearing your throat"
-    }
-  ]
-}
-```
+**FAQ Schema** ✅ DONE (11,703 articles)
+- Bespoke FAQs stored in `faq_items` JSONB column in Supabase
+- Generated via `blog/scripts/generate-faqs-gemini.mjs` (Gemini 2.0 Flash)
+- Visible accordion on page + FAQPage JSON-LD in head
+- 98% coverage across all language pairs
 
-**Affected Articles:** ~50+ "How to..." articles across all pairs
-
-**Speakable Schema (Voice Search)**
-
-Add to key phrase articles for voice assistant citation:
-
-```json
-{
-  "@type": "WebPage",
-  "speakable": {
-    "@type": "SpeakableSpecification",
-    "cssSelector": [".pronunciation-guide", ".key-phrase", ".answer-box"]
-  }
-}
-```
-
-**FAQ Schema Expansion**
-
-Currently only on hub pages. Add to individual articles:
-- Grammar articles: "What is Polish case system?"
-- Phrase articles: "How do you pronounce X?"
-- Culture articles: "When do Polish people celebrate name days?"
+**E-E-A-T Author Signals** ✅ DONE
+- Rich Organization author JSON-LD with `knowsAbout` array
+- Visible "By Love Languages Editorial Team" byline on every article
+- Organization schema includes founder info, contact, social profiles
 
 ### 3.2 Content Structure Optimization
 
-**Answer Box Pattern**
+**Answer Box Pattern** — Deferred
+- Considered but not implemented — would require bulk AI generation for 12K+ articles
+- Can be revisited if a lightweight approach is found
 
-Add highlighted answer boxes at top of articles:
-
-```html
-<div class="answer-box" itemscope itemtype="https://schema.org/Answer">
-  <strong>Quick Answer:</strong> "I love you" in Polish is
-  <span class="key-phrase">Kocham Cię</span> (ko-HAM chyeh)
-</div>
-```
-
-**Definition Blocks**
-
-For vocabulary articles, add explicit definitions:
-
-```html
-<dl itemscope itemtype="https://schema.org/DefinedTerm">
-  <dt itemprop="name">Kochanie</dt>
-  <dd itemprop="description">Polish term of endearment meaning "darling" or "sweetheart"</dd>
-</dl>
-```
+**DefinitionBlock Component** ✅ DONE
+- `blog/src/components/DefinitionBlock.astro` created
+- Uses `schema.org/DefinedTerm` microdata for Google "Definition" rich results
+- Purple gradient styling (distinct from VocabCard and PhraseOfDay)
+- Converter added to `component-converters.mjs` with translations for all 18 languages
+- Usage: `<DefinitionBlock term="Kochanie" definition="..." pronunciation="..." partOfSpeech="noun" language="Polish" />`
 
 **Numbered Lists for "Top X" Articles**
 
@@ -291,15 +261,42 @@ Ensure all list articles use proper `<ol>` with schema:
 
 ---
 
+## Part 4b: AI Referral Tracking ✅ DONE
+
+AI referral tracking is already implemented in both:
+- `blog/src/layouts/BaseLayout.astro` (blog)
+- `index.html` (main app)
+
+**Tracked AI Sources:**
+- ChatGPT (`chatgpt.com`)
+- Perplexity (`perplexity.ai`)
+- Claude (`claude.ai`)
+- Google Gemini/Bard (`gemini.google.com`, `bard.google.com`)
+- Microsoft Copilot (`copilot.microsoft.com`)
+- Bing (`bing.com`)
+- You.com (`you.com`)
+- Phind (`phind.com`)
+
+**How it works:**
+- Checks `document.referrer` and `utm_source` for AI sources
+- Fires GA4 `ai_referral_landing` event with source, referrer, and landing page
+- Sets `traffic_channel: 'ai_referral'` user property for segmentation
+- Viewable in GA4 under Events → `ai_referral_landing`
+
+---
+
 ## Part 5: Content Creation Priority Matrix
 
-### Tier 1: Immediate (Week 1-2)
+### Tier 1: ~~Immediate~~ ✅ COMPLETED
 
-| Action | Articles | AEO/GEO Impact |
-|--------|----------|----------------|
-| Fill FR→PL gaps | 5 | Hreflang completion |
-| Add HowTo schema to existing | 0 (code change) | Featured snippets |
-| Add FAQ schema to articles | 0 (code change) | FAQ rich results |
+| Action | Status | AEO/GEO Impact |
+|--------|--------|----------------|
+| ~~Fill FR→PL gaps~~ | ✅ Done | Hreflang completion |
+| ~~Add HowTo schema~~ | ✅ Done (auto for how-to slugs) | Featured snippets |
+| ~~Add FAQ schema~~ | ✅ Done (11,703 articles) | FAQ rich results |
+| ~~Add E-E-A-T signals~~ | ✅ Done | Author trust |
+| ~~Add DefinitionBlock~~ | ✅ Done | Definition rich results |
+| ~~Backfill article tags~~ | ✅ Done (4,458 articles) | Meta tag coverage |
 
 ### Tier 2: High Priority (Week 3-4)
 
@@ -423,8 +420,8 @@ done
 
 ### AEO Metrics
 - [ ] Featured snippets captured (track via Search Console)
-- [ ] FAQ rich results showing
-- [ ] HowTo rich results showing
+- [x] FAQ rich results — FAQPage schema on 11,703 articles
+- [x] HowTo rich results — HowTo schema on how-to articles
 - [ ] Position 0 rankings
 
 ### GEO Metrics
@@ -438,9 +435,9 @@ done
 - [ ] Google AI Overview citations
 
 ### Content Metrics
-- [ ] Total articles: 474 → Target: 900+
-- [ ] Language pairs with 10+ articles: 17 → Target: 48
-- [ ] Native languages covered: 3 → Target: 6
+- [x] Total articles: 11,933 (was 474 at strategy creation)
+- [x] Language pairs covered: 306 (18×17)
+- [x] Native languages covered: 18 (was 3 at strategy creation)
 - [ ] Advanced articles: 0 → Target: 50
 
 ---
@@ -490,12 +487,19 @@ done
 
 ## Appendix B: Schema Implementation Files
 
-Files to modify for AEO schema improvements:
+Files containing AEO schema:
 
-1. `blog/src/layouts/ArticleLayout.astro` - Add HowTo, Speakable schema
-2. `blog/src/components/SEO.astro` - Add FAQ schema for articles
-3. `blog/src/components/AnswerBox.astro` - New component for answer boxes
-4. `blog/src/components/HowToSteps.astro` - New component for step-by-step
+1. `blog/src/layouts/ArticleLayout.astro` — BlogPosting, BreadcrumbList, HowTo, FAQPage, Speakable, Organization author (all JSON-LD)
+2. `blog/src/components/DefinitionBlock.astro` — schema.org/DefinedTerm (microdata)
+3. `blog/src/components/VocabCard.astro` — `.speakable-vocab` CSS class for Speakable
+4. `blog/src/components/PhraseOfDay.astro` — `.speakable-phrase` CSS class for Speakable
+5. `blog/src/layouts/BaseLayout.astro` — AI referral tracking (GA4)
+
+### FAQ Pipeline Scripts
+- `blog/scripts/generate-faqs-gemini.mjs` — Generate bespoke FAQs using Gemini 2.0 Flash
+- `blog/scripts/export-for-faqs.mjs` — Export article data for FAQ generation
+- `blog/scripts/upload-faqs.mjs` — Merge + deduplicate + upload FAQs to Supabase
+- `blog/scripts/backfill-tags.mjs` — Backfill missing article:tag meta tags
 
 ---
 
@@ -511,4 +515,4 @@ Files to modify for AEO schema improvements:
 ---
 
 *Document maintained by: Claude Code*
-*Last updated: January 16, 2026*
+*Last updated: February 22, 2026*
