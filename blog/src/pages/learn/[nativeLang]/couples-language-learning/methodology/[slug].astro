@@ -90,8 +90,25 @@ const jsonLd = {
   "author": {
     "@type": "Organization",
     "name": "Love Languages"
-  }
+  },
+  "keywords": (article.tags || []).join(', '),
+  "articleSection": article.category
 };
+
+// FAQ from stored Supabase data
+const faqItems = article.faq_items || [];
+const faqJsonLd = faqItems.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map((faq: {question: string, answer: string}) => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+} : null;
 
 // Breadcrumb labels per language
 const breadcrumbLabels: Record<string, { home: string; couples: string; methodology: string }> = {
@@ -133,6 +150,9 @@ const labels = breadcrumbLabels[nativeLang || 'en'] || breadcrumbLabels.en;
   </Fragment>
 
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  {faqJsonLd && (
+    <script type="application/ld+json" set:html={JSON.stringify(faqJsonLd)} />
+  )}
 
   <div class="bg-white min-h-screen">
     <div class="max-w-4xl mx-auto px-4 py-8">
@@ -182,6 +202,28 @@ const labels = breadcrumbLabels[nativeLang || 'en'] || breadcrumbLabels.en;
       <article class="prose prose-lg prose-pink max-w-none mb-12">
         <Fragment set:html={article.content_html || article.content} />
       </article>
+
+      {/* FAQ Section — visible accordion */}
+      {faqItems.length > 0 && (
+        <section class="mt-10 pt-8 border-t border-gray-200">
+          <h2 class="text-xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+          <div class="space-y-3">
+            {faqItems.map((faq: {question: string, answer: string}) => (
+              <details class="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
+                <summary class="flex items-center justify-between p-4 cursor-pointer font-semibold text-gray-900 hover:bg-gray-100 transition-colors">
+                  <span class="pr-2">{faq.question}</span>
+                  <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <div class="p-4 pt-0 text-gray-700 border-t border-gray-200">
+                  <p>{faq.answer}</p>
+                </div>
+              </details>
+            ))}
+          </div>
+        </section>
+      )}
 
       <!-- Related Articles -->
       {relatedArticles && relatedArticles.length > 0 && (

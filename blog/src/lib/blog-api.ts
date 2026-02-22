@@ -33,6 +33,7 @@ export interface BlogArticle {
   published: boolean;
   topic_id: string | null;
   is_canonical: boolean;
+  faq_items: Array<{question: string, answer: string}> | null;
 }
 
 export type BlogArticleSummary = Pick<BlogArticle,

@@ -52,6 +52,7 @@ const BATCH_DELAY = 100; // ms between updates
 const ALLOWED_FIELDS = new Set([
   'title', 'description', 'content', 'content_html',
   'date', 'read_time', 'category', 'tags', 'difficulty',
+  'faq_items',
 ]);
 
 // Validation: reject content with frontmatter, imports, or broken components
