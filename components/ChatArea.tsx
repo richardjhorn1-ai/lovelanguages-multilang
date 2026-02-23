@@ -107,7 +107,7 @@ const parseMarkdown = (text: string) => {
 
   // Step 3: Apply safe markdown transformations (on escaped text)
   // Pronunciation: subtle italic gray
-  clean = clean.replace(/\[(.*?)\]/g, '<span class="text-gray-400 italic text-scale-label">($1)</span>');
+  clean = clean.replace(/\[(.*?)\]/g, '<span class="text-[var(--text-secondary)] italic text-scale-label">($1)</span>');
   // Target language words: accent color semi-bold highlight + clickable for TTS
   clean = clean.replace(/\*\*(.*?)\*\*/g, '<strong class="tts-word" data-word="$1" style="color: var(--accent-color); font-weight: 600; cursor: pointer;">$1</strong>');
   // Line breaks
@@ -121,7 +121,7 @@ const CultureCard: React.FC<{ title: string; content: string; t: (key: string) =
   <div className="my-4 overflow-hidden rounded-2xl bg-gradient-to-br from-[var(--accent-light)] to-[var(--bg-card)] border border-[var(--accent-border)] shadow-sm w-full">
     <div className="bg-[var(--accent-light)] px-4 py-2 border-b border-[var(--accent-border)] flex items-center gap-2">
       <ICONS.Sparkles className="w-4 h-4 text-[var(--accent-color)]" />
-      <h3 className="text-scale-caption font-black uppercase tracking-widest text-[var(--accent-color)]">{title || t('chat.blocks.cultureNote')}</h3>
+      <h3 className="text-scale-caption font-black font-header uppercase tracking-widest text-[var(--accent-color)]">{title || t('chat.blocks.cultureNote')}</h3>
     </div>
     <div className="p-4 text-scale-label text-[var(--text-secondary)] leading-relaxed">
       <div dangerouslySetInnerHTML={{ __html: parseMarkdown(content) }} />
@@ -146,7 +146,7 @@ const GrammarTable: React.FC<{ content: string }> = ({ content }) => {
   const header = rows[0].split('|').map(c => c.trim()).filter(c => c);
   const body = rows.slice(1).map(r => r.split('|').map(c => c.trim()).filter(c => c));
   return (
-    <div className="my-4 overflow-hidden rounded-xl border border-[var(--border-color)] shadow-sm bg-[var(--bg-card)] w-full overflow-x-auto">
+    <div className="my-4 overflow-hidden rounded-xl glass-card w-full overflow-x-auto">
       <table className="w-full text-scale-label text-left">
         <thead className="bg-[var(--bg-primary)] text-[var(--text-secondary)] text-scale-micro uppercase font-bold tracking-wider">
           <tr>{header.map((h, i) => <th key={i} className="px-4 py-3 font-black">{h}</th>)}</tr>
@@ -1414,11 +1414,11 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   const listenBookmarkedCount = listenEntries.filter(e => e.isBookmarked).length;
 
   return (
-    <div className="flex h-full bg-[var(--bg-primary)] relative overflow-hidden font-header">
+    <div className="flex h-full relative overflow-hidden font-header">
       {/* Sidebar with Actions - Collapsible */}
-      <div className={`border-r border-[var(--border-color)] hidden lg:flex flex-col bg-[var(--bg-card)] transition-all duration-300 ${isSidebarCollapsed ? 'w-14' : 'w-64'}`}>
+      <div className={`hidden lg:flex flex-col glass-card transition-all duration-300 ${isSidebarCollapsed ? 'w-14' : 'w-64'}`}>
         {/* Header */}
-        <div className={`p-2 md:p-3 border-b border-[var(--border-color)] flex items-center ${isSidebarCollapsed ? 'justify-center' : 'gap-2'}`}>
+        <div className={`p-2 md:p-3 flex items-center ${isSidebarCollapsed ? 'justify-center' : 'gap-2'}`}>
           {/* Collapsed: Just the new chat button at top */}
           {isSidebarCollapsed ? (
             <button
@@ -1519,7 +1519,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
       <div className="flex-1 flex flex-col min-w-0 min-h-0 relative">
         {/* Mode Navigation */}
-        <div className="p-2 md:p-3 border-b border-[var(--border-color)] flex justify-between items-center bg-[var(--bg-card)]/80 backdrop-blur-md z-10 shrink-0">
+        <div className="p-2 md:p-3 flex justify-between items-center glass-card z-10 shrink-0">
           <div className="flex items-center gap-1.5 md:gap-2">
             {/* Mobile: Hamburger menu button for conversation sidebar */}
             <button
@@ -1539,16 +1539,16 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                 <ICONS.ChevronRight className="w-5 h-5" />
               </button>
             )}
-            <div className="flex items-center bg-[var(--bg-primary)] h-10 px-1 rounded-xl">
+            <div className="flex items-center h-10 px-1 rounded-xl bg-black/[0.03] dark:bg-white/[0.05]">
               {profile.role === 'tutor' ? (
                 // Tutors see single Coach mode (always context-aware)
-                <div className="px-4 py-1.5 rounded-lg text-scale-micro font-black uppercase tracking-widest bg-[var(--bg-card)] text-teal-500 shadow-sm">
+                <div className="px-4 py-1.5 rounded-lg text-scale-micro font-black uppercase tracking-widest bg-white/75 dark:bg-white/15 shadow-sm text-teal-500">
                   {t('chat.modes.coach')}
                 </div>
               ) : (
                 // Students see Ask/Learn modes
                 (['ask', 'learn'] as ChatMode[]).map(m => (
-                  <button key={m} onClick={() => handleModeSwitch(m)} className={`px-4 py-1.5 rounded-lg text-scale-micro font-black uppercase tracking-widest transition-all ${mode === m ? 'bg-[var(--bg-card)] shadow-sm' : 'text-[var(--text-secondary)]'}`} style={mode === m ? { color: accentHex } : {}}>{t(`chat.modes.${m}`)}</button>
+                  <button key={m} onClick={() => handleModeSwitch(m)} className={`px-4 py-1.5 rounded-lg text-scale-micro font-black uppercase tracking-widest transition-all ${mode === m ? 'bg-white/75 dark:bg-white/15 shadow-sm' : 'text-[var(--text-secondary)]'}`} style={mode === m ? { color: accentHex } : {}}>{t(`chat.modes.${m}`)}</button>
                 ))
               )}
             </div>
@@ -1573,7 +1573,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           ) : (
             <button
               onClick={() => setShowListenPrompt(true)}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[var(--bg-primary)] hover:bg-[var(--accent-light)] transition-all text-[var(--text-secondary)] hover:text-[var(--accent-color)]"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-black/[0.03] dark:bg-white/[0.05] hover:bg-[var(--accent-light)] transition-all text-[var(--text-secondary)] hover:text-[var(--accent-color)]"
               title={t('chat.listen.modeTooltip', { language: targetName })}
             >
               <span>👂</span>
@@ -1596,7 +1596,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
         )}
 
         {/* Messages / Listen Transcripts */}
-        <div ref={scrollRef} className="flex-1 min-h-0 overflow-y-auto p-2 md:p-4 space-y-3 md:space-y-6 bg-[var(--bg-primary)] no-scrollbar">
+        <div ref={scrollRef} className="flex-1 min-h-0 overflow-y-auto p-2 md:p-4 space-y-3 md:space-y-6 no-scrollbar">
           {/* ========== LISTEN MODE VIEW ========== */}
           {(isListening || activeListenSession) ? (
             <>
@@ -1674,7 +1674,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                           className={`p-1.5 rounded-lg transition-colors flex-shrink-0 ${
                             entry.isBookmarked
                               ? 'bg-amber-200 dark:bg-amber-800/50 text-amber-600 dark:text-amber-400'
-                              : 'hover:bg-white/50 dark:hover:bg-black/20 text-[var(--text-secondary)]'
+                              : 'hover:bg-white/50 dark:hover:bg-white/20 text-[var(--text-secondary)]'
                           }`}
                           title={entry.isBookmarked ? t('chat.listen.bookmarkRemove') : t('chat.listen.bookmarkAdd')}
                         >
@@ -1730,7 +1730,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
               {messages.map((m, i) => (
                 <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-2 duration-300`}>
-                  <div className={`max-w-[90%] md:max-w-[85%] rounded-2xl md:rounded-[1.5rem] px-3 py-2 md:px-5 md:py-3.5 shadow-sm ${m.role === 'user' ? 'text-white rounded-tr-sm md:rounded-tr-none font-medium' : 'bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-primary)] rounded-tl-sm md:rounded-tl-none'}`} style={m.role === 'user' ? { backgroundColor: accentHex } : {}}>
+                  <div className={`max-w-[90%] md:max-w-[85%] rounded-2xl md:rounded-[1.5rem] px-3 py-2 md:px-5 md:py-3.5 ${m.role === 'user' ? 'shadow-sm text-white rounded-tr-sm md:rounded-tr-none font-medium' : 'glass-card text-[var(--text-primary)] rounded-tl-sm md:rounded-tl-none'}`} style={m.role === 'user' ? { backgroundColor: accentHex } : {}}>
                     {m.role === 'user' ? <p className="text-scale-label leading-relaxed">{m.content}</p> : <RichMessageRenderer content={m.content} t={t} targetLanguage={targetLanguage} />}
                   </div>
                 </div>
@@ -1758,7 +1758,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               {/* Streaming response */}
               {streamingText && (
                 <div className="flex justify-start animate-in fade-in slide-in-from-bottom-2 duration-300">
-                  <div className="max-w-[90%] md:max-w-[85%] rounded-2xl md:rounded-[1.5rem] px-3 py-2 md:px-5 md:py-3.5 shadow-sm bg-[var(--bg-card)] border border-[var(--border-color)] text-[var(--text-primary)] rounded-tl-sm md:rounded-tl-none">
+                  <div className="max-w-[90%] md:max-w-[85%] rounded-2xl md:rounded-[1.5rem] px-3 py-2 md:px-5 md:py-3.5 glass-card text-[var(--text-primary)] rounded-tl-sm md:rounded-tl-none">
                     <RichMessageRenderer content={streamingText} t={t} targetLanguage={targetLanguage} />
                     <span className="inline-block w-2 h-4 ml-1 animate-pulse rounded-sm" style={{ backgroundColor: accentHex }}></span>
                   </div>
@@ -1794,7 +1794,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               {/* Live Voice - Model transcript bubble */}
               {liveModelText && (
                 <div className="flex justify-start animate-in fade-in slide-in-from-bottom-2 duration-300">
-                  <div className="max-w-[85%] rounded-[1.5rem] px-5 py-3.5 shadow-sm bg-[var(--bg-card)] border-2 border-dashed border-teal-200 dark:border-teal-700 text-[var(--text-primary)] rounded-tl-none">
+                  <div className="max-w-[85%] rounded-[1.5rem] px-5 py-3.5 glass-card border-2 border-dashed border-teal-200 dark:border-teal-700 text-[var(--text-primary)] rounded-tl-none">
                     <p className="text-scale-label leading-relaxed">{liveModelText}</p>
                     <span className="inline-block w-2 h-4 ml-1 bg-teal-400 animate-pulse rounded-sm"></span>
                   </div>
@@ -1806,7 +1806,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
         {/* Voice Status & Error */}
         {isLive && (
-          <div className="px-4 pb-2 bg-[var(--bg-card)]">
+          <div className="px-4 pb-2 glass-card">
             <div className="max-w-4xl mx-auto flex items-center justify-center gap-3">
               {/* Compact Status Badge */}
               <div className={`flex items-center gap-2 px-3 py-1.5 rounded-full shadow-sm border ${
@@ -1858,22 +1858,22 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
         {/* Input - Hidden in listen mode */}
         {!isListening && !activeListenSession && (
-          <div className="p-2 md:p-4 bg-[var(--bg-card)] border-t border-[var(--border-color)] relative safe-area-bottom shrink-0">
+          <div className="p-2 md:p-4 glass-card relative shrink-0" style={{ paddingBottom: `calc(env(safe-area-inset-bottom, 0px) + 0.5rem)` }}>
             <div className="max-w-4xl mx-auto flex items-center gap-1.5 md:gap-3">
               {/* Attach button with popup */}
               <div className="relative shrink-0">
                 <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 flex flex-col items-center gap-3 md:gap-4 transition-all duration-300 z-20 ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}>
-                  <button onClick={() => imgInputRef.current?.click()} className="w-10 h-10 md:w-14 md:h-14 bg-[var(--bg-card)] rounded-full flex items-center justify-center border-2 border-[var(--accent-border)] shadow-xl hover:scale-110 active:scale-95 transition-all" style={{ color: accentHex }}>
+                  <button onClick={() => imgInputRef.current?.click()} className="w-10 h-10 md:w-14 md:h-14 glass-card rounded-full flex items-center justify-center border-2 border-[var(--accent-border)] hover:scale-110 active:scale-95 transition-all" style={{ color: accentHex }}>
                     <ICONS.Image className="w-5 h-5 md:w-6 md:h-6" />
                   </button>
-                  <button onClick={() => fileInputRef.current?.click()} className="w-10 h-10 md:w-14 md:h-14 bg-[var(--bg-card)] rounded-full flex items-center justify-center border-2 border-[var(--accent-border)] shadow-xl hover:scale-110 active:scale-95 transition-all" style={{ color: accentHex }}>
+                  <button onClick={() => fileInputRef.current?.click()} className="w-10 h-10 md:w-14 md:h-14 glass-card rounded-full flex items-center justify-center border-2 border-[var(--accent-border)] hover:scale-110 active:scale-95 transition-all" style={{ color: accentHex }}>
                     <ICONS.FileText className="w-5 h-5 md:w-6 md:h-6" />
                   </button>
                 </div>
                 <button
                   onClick={() => setIsMenuOpen(!isMenuOpen)}
                   disabled={isLive}
-                  className={`w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center shadow-lg transition-all border-2 ${isMenuOpen ? 'bg-[var(--bg-primary)] border-[var(--border-color)] text-[var(--text-secondary)] rotate-45' : 'bg-[var(--bg-card)] border-[var(--accent-border)] hover:bg-[var(--accent-light)]'} disabled:opacity-50`}
+                  className={`w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center shadow-lg transition-all border-2 ${isMenuOpen ? 'glass-card border-[var(--border-color)] text-[var(--text-secondary)] rotate-45' : 'glass-card border-[var(--accent-border)] hover:bg-[var(--accent-light)]'} disabled:opacity-50`}
                   style={!isMenuOpen ? { color: accentHex } : {}}
                 >
                   <ICONS.Plus className="w-5 h-5 md:w-6 md:h-6" />
@@ -1886,7 +1886,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                 className={`w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center shadow-lg transition-all border-2 shrink-0 ${
                   isLive
                     ? 'text-white'
-                    : 'bg-[var(--bg-card)] border-[var(--accent-border)] hover:bg-[var(--accent-light)]'
+                    : 'glass-card border-[var(--accent-border)] hover:bg-[var(--accent-light)]'
                 } ${liveState === 'listening' ? 'animate-pulse' : ''}`}
                 style={isLive ? { backgroundColor: accentHex, borderColor: accentHex } : { color: accentHex }}
               >
@@ -1895,13 +1895,13 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
               <div className="flex-1 flex flex-col gap-2">
                   {attachments.length > 0 && (
-                      <div className="flex gap-2 p-2 bg-[var(--bg-primary)] rounded-xl overflow-x-auto no-scrollbar">
+                      <div className="flex gap-2 p-2 glass-card rounded-xl overflow-x-auto no-scrollbar">
                           {attachments.map((a, idx) => (
                               <div key={idx} className="relative group shrink-0">
                                   {a.mimeType.startsWith('image/') ? (
                                       <img src={`data:${a.mimeType};base64,${a.data}`} className="w-10 h-10 md:w-12 md:h-12 rounded-xl object-cover" />
                                   ) : (
-                                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl bg-[var(--bg-card)] border border-[var(--border-color)] flex items-center justify-center text-[var(--accent-color)]">
+                                      <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl glass-card flex items-center justify-center text-[var(--accent-color)]">
                                           <ICONS.FileText className="w-4 h-4 md:w-5 md:h-5" />
                                       </div>
                                   )}
@@ -1910,7 +1910,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                           ))}
                       </div>
                   )}
-                  <div className={`w-full flex items-center bg-[var(--bg-card)] rounded-full md:rounded-[2rem] px-4 py-2.5 md:px-6 md:py-4 transition-all duration-300 ${isLive ? 'border-2 border-[var(--accent-border)]' : 'border border-[var(--border-color)]'}`} style={isLive ? { boxShadow: `inset 0 0 20px var(--accent-shadow)` } : {}}>
+                  <div className={`w-full flex items-center glass-card rounded-full md:rounded-[2rem] px-4 py-2.5 md:px-6 md:py-4 transition-all duration-300 ${isLive ? 'border-2 border-[var(--accent-border)]' : ''}`} style={isLive ? { boxShadow: `inset 0 0 20px var(--accent-shadow)` } : {}}>
                       <input
                         type="text"
                         value={input}
@@ -1935,7 +1935,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                 className="w-10 h-10 md:w-14 md:h-14 text-white rounded-full flex items-center justify-center shadow-xl active:scale-95 disabled:opacity-50 transition-all shrink-0"
                 style={{ backgroundColor: accentHex }}
               >
-                  <ICONS.Play className="w-5 h-5 md:w-6 md:h-6 fill-white translate-x-0.5" />
+                  <ICONS.Play className="w-5 h-5 md:w-6 md:h-6 fill-white translate-x-[1px]" />
               </button>
             </div>
           </div>
@@ -1943,7 +1943,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
         {/* Listen Mode Footer - shown when listening or viewing session */}
         {(isListening || activeListenSession) && (
-          <div className="p-4 bg-[var(--bg-card)] border-t border-[var(--border-color)]">
+          <div className="p-4 glass-card">
             <div className="max-w-4xl mx-auto">
               {isListening ? (
                 <div className="flex items-center justify-center gap-4">
@@ -2020,13 +2020,13 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       >
         {/* Backdrop */}
         <div
-          className="absolute inset-0 bg-black/30"
+          className="absolute inset-0 modal-backdrop"
           onClick={() => setIsMobileSidebarOpen(false)}
         />
 
         {/* Sidebar Panel */}
         <div
-          className={`absolute left-0 top-0 bottom-0 w-72 max-w-[85vw] bg-[var(--bg-card)] shadow-2xl transform transition-transform duration-300 flex flex-col ${
+          className={`absolute left-0 top-0 bottom-0 w-72 max-w-[85vw] glass-card-solid transform transition-transform duration-300 flex flex-col ${
             isMobileSidebarOpen ? 'translate-x-0' : '-translate-x-full'
           }`}
         >
@@ -2114,8 +2114,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
       {/* Word Extractor Modal */}
       {showWordExtractor && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-          <div className="bg-[var(--bg-card)] rounded-3xl shadow-2xl w-full max-w-lg max-h-[80vh] flex flex-col">
+        <div className="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-4">
+          <div className="glass-card-solid rounded-3xl w-full max-w-lg max-h-[80vh] flex flex-col">
             {/* Header */}
             <div className="p-6 border-b border-[var(--border-color)]">
               <div className="flex items-center justify-between">
@@ -2124,7 +2124,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                     <ICONS.BookOpen className="w-6 h-6" style={{ color: accentHex }} />
                   </div>
                   <div>
-                    <h2 className="text-scale-heading font-bold text-[var(--text-primary)]">{t('chat.wordExtractor.title')}</h2>
+                    <h2 className="text-scale-heading font-bold font-header text-[var(--text-primary)]">{t('chat.wordExtractor.title')}</h2>
                     <p className="text-scale-caption text-[var(--text-secondary)]">
                       {extractedWords.length > 0
                         ? `${t('chat.wordExtractor.found', { count: extractedWords.length })} • ${t('chat.wordExtractor.selected', { count: selectedWords.size })}`
@@ -2178,7 +2178,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                       <div className="flex-1 min-w-0">
                         <div className="flex items-baseline gap-2">
                           <span className="font-bold text-[var(--text-primary)]">{word.word}</span>
-                          <span className="text-scale-caption px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-[var(--text-secondary)]">
+                          <span className="text-scale-caption px-1.5 py-0.5 rounded bg-white/40 dark:bg-white/15 text-[var(--text-secondary)]">
                             {word.type}
                           </span>
                         </div>
@@ -2262,13 +2262,13 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
       {/* Listen Mode Start Prompt */}
       {showListenPrompt && (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-          <div className="bg-[var(--bg-card)] rounded-3xl shadow-2xl w-full max-w-md p-8 text-center">
+        <div className="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-4">
+          <div className="glass-card-solid rounded-3xl w-full max-w-md p-8 text-center">
             <div className="w-20 h-20 mx-auto rounded-full bg-[var(--accent-light)] flex items-center justify-center mb-6">
               <span className="text-4xl">👂</span>
             </div>
 
-            <h2 className="text-scale-heading font-bold text-[var(--text-primary)] mb-2">{t('chat.listenPrompt.title')}</h2>
+            <h2 className="text-scale-heading font-bold font-header text-[var(--text-primary)] mb-2">{t('chat.listenPrompt.title')}</h2>
             <p className="text-scale-label text-[var(--text-secondary)] mb-6">
               {t('chat.listenPrompt.description', { language: targetName })}
             </p>

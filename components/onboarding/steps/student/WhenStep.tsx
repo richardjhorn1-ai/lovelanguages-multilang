@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { OnboardingStep, NextButton } from '../../OnboardingStep';
+import { OnboardingStep, NextButton, ONBOARDING_OPTION } from '../../OnboardingStep';
 
 interface WhenStepProps {
   currentStep: number;
@@ -38,10 +38,10 @@ export const WhenStep: React.FC<WhenStepProps> = ({
       accentColor={accentColor}
     >
       <div className="text-center mb-10">
-        <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
+        <h1 className="text-3xl font-black text-[var(--text-primary)] mb-3 font-header">
           {t('onboarding.student.when.title')}
         </h1>
-        <p className="text-gray-500">
+        <p className="text-[var(--text-secondary)]">
           {t('onboarding.student.when.subtitle')}
         </p>
       </div>
@@ -51,20 +51,13 @@ export const WhenStep: React.FC<WhenStepProps> = ({
           <button
             key={option.id}
             onClick={() => setSelected(option.id)}
-            className={`p-5 rounded-2xl border-2 transition-all ${
-              selected === option.id
-                ? 'border-gray-200'
-                : 'border-gray-100 bg-white hover:border-gray-200'
-            }`}
-            style={selected === option.id ? {
-              borderColor: `${accentColor}60`,
-              backgroundColor: `${accentColor}10`
-            } : undefined}
+            className="p-5 transition-all"
+            style={ONBOARDING_OPTION(selected === option.id, accentColor)}
           >
             <span className="text-3xl block mb-2">{option.emoji}</span>
             <span
               className="font-bold"
-              style={{ color: selected === option.id ? accentColor : '#374151' }}
+              style={{ color: selected === option.id ? accentColor : 'var(--text-primary)' }}
             >
               {option.label}
             </span>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
+import { ICONS } from '../constants';
 
 const ResetPassword: React.FC = () => {
   const { t } = useTranslation();
@@ -67,13 +68,13 @@ const ResetPassword: React.FC = () => {
 
   return (
     <div className="min-h-screen overflow-y-auto bg-gradient-to-br from-pink-50 to-rose-100 flex items-center justify-center p-6">
-      <div className="max-w-md w-full bg-white rounded-3xl shadow-xl p-8">
+      <div className="max-w-md w-full glass-card rounded-3xl p-8">
         <div className="text-center mb-8">
           <div className="text-5xl mb-4">🔐</div>
-          <h1 className="text-2xl font-black text-gray-800 mb-2 font-header">
+          <h1 className="text-2xl font-black text-[var(--text-primary)] mb-2 font-header">
             {t('resetPassword.title')}
           </h1>
-          <p className="text-gray-600">
+          <p className="text-[var(--text-secondary)]">
             {t('resetPassword.subtitle')}
           </p>
         </div>
@@ -81,7 +82,7 @@ const ResetPassword: React.FC = () => {
         {checking && (
           <div className="text-center py-8">
             <div className="w-8 h-8 border-4 border-rose-200 border-t-rose-500 rounded-full animate-spin mx-auto mb-4" />
-            <p className="text-gray-500">{t('resetPassword.verifying')}</p>
+            <p className="text-[var(--text-secondary)]">{t('resetPassword.verifying')}</p>
           </div>
         )}
 
@@ -100,7 +101,7 @@ const ResetPassword: React.FC = () => {
         {!checking && !error && !success && (
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-xs font-black uppercase tracking-widest text-gray-500 mb-2">
+              <label className="block text-xs font-black uppercase tracking-widest text-[var(--text-secondary)] mb-2">
                 {t('resetPassword.newPassword')}
               </label>
               <input
@@ -109,13 +110,13 @@ const ResetPassword: React.FC = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 minLength={6}
-                className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-rose-400 focus:outline-none transition-all font-medium"
+                className="w-full px-4 py-3 rounded-xl border-2 border-[var(--border-color)] focus:border-rose-400 focus:outline-none transition-all font-medium"
                 placeholder="••••••••"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-black uppercase tracking-widest text-gray-500 mb-2">
+              <label className="block text-xs font-black uppercase tracking-widest text-[var(--text-secondary)] mb-2">
                 {t('resetPassword.confirmPassword')}
               </label>
               <input
@@ -124,7 +125,7 @@ const ResetPassword: React.FC = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
                 minLength={6}
-                className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-rose-400 focus:outline-none transition-all font-medium"
+                className="w-full px-4 py-3 rounded-xl border-2 border-[var(--border-color)] focus:border-rose-400 focus:outline-none transition-all font-medium"
                 placeholder="••••••••"
               />
             </div>
@@ -141,8 +142,10 @@ const ResetPassword: React.FC = () => {
 
         {success && (
           <div className="text-center">
-            <div className="text-5xl mb-4">✅</div>
-            <p className="text-gray-600">{t('resetPassword.redirecting')}</p>
+            <div className="w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mx-auto mb-4">
+              <ICONS.Check className="w-8 h-8 text-green-500" />
+            </div>
+            <p className="text-[var(--text-secondary)]">{t('resetPassword.redirecting')}</p>
           </div>
         )}
       </div>

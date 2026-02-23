@@ -129,8 +129,10 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
     return (
       <div className="min-h-screen bg-gradient-to-br from-pink-50 to-rose-100 flex flex-col items-center justify-center p-6" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
         <div className="text-center">
-          <div className="text-6xl mb-4">💕</div>
-          <div className="inline-flex items-center gap-2 text-gray-500">
+          <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: 'var(--accent-light)' }}>
+            <ICONS.Heart className="w-8 h-8" style={{ color: 'var(--accent-color)' }} />
+          </div>
+          <div className="inline-flex items-center gap-2 text-[var(--text-secondary)]">
             <div className="w-5 h-5 border-2 border-rose-400 border-t-transparent rounded-full animate-spin" />
             {t('roleSelection.loading')}
           </div>
@@ -147,7 +149,7 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
   // Role-specific content
   const roleContent = {
     student: {
-      emoji: '📚',
+      icon: <ICONS.Book className="w-7 h-7" />,
       title: t('roleSelection.student.title', { language: t(`languageNames.${targetLanguage}`) }),
       subtitle: t('roleSelection.student.subtitle', { language: t(`languageNames.${targetLanguage}`) }),
       confirmMessage: t('roleSelection.student.confirmMessage', { language: t(`languageNames.${targetLanguage}`) }),
@@ -160,7 +162,7 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
       hoverBg: 'hover:bg-rose-50',
     },
     tutor: {
-      emoji: '🎓',
+      icon: <ICONS.Sparkles className="w-7 h-7" />,
       title: t('roleSelection.tutor.title', { language: t(`languageNames.${targetLanguage}`) }),
       subtitle: t('roleSelection.tutor.subtitle'),
       confirmMessage: t('roleSelection.tutor.confirmMessage', { language: t(`languageNames.${targetLanguage}`) }),
@@ -197,24 +199,24 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
 
     return (
       <div ref={dropdownRef} className="relative">
-        <label className="block text-sm font-medium text-gray-600 mb-1.5">{label}</label>
+        <label className="block text-sm font-medium text-[var(--text-secondary)] mb-1.5">{label}</label>
         <button
           onClick={() => setIsOpen(!isOpen)}
           disabled={saving}
-          className="w-full flex items-center justify-between gap-2 px-4 py-3 bg-white border-2 border-gray-200 rounded-xl hover:border-rose-300 transition-all disabled:opacity-50"
+          className="w-full flex items-center justify-between gap-2 px-4 py-3 glass-card rounded-xl hover:border-rose-300 transition-all disabled:opacity-50"
         >
           <div className="flex items-center gap-3">
             <span className="text-2xl">{config.flag}</span>
             <div className="text-left">
-              <div className="font-semibold text-gray-800">{t(`languageNames.${value}`)}</div>
-              <div className="text-sm text-gray-500">{config.nativeName}</div>
+              <div className="font-semibold text-[var(--text-primary)]">{t(`languageNames.${value}`)}</div>
+              <div className="text-sm text-[var(--text-secondary)]">{config.nativeName}</div>
             </div>
           </div>
-          <ICONS.ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+          <ICONS.ChevronDown className={`w-5 h-5 text-[var(--text-secondary)] transition-transform ${isOpen ? 'rotate-180' : ''}`} />
         </button>
 
         {isOpen && (
-          <div className="absolute z-50 mt-2 w-full max-h-64 overflow-y-auto bg-white border border-gray-200 rounded-xl shadow-lg">
+          <div className="absolute z-50 mt-2 w-full max-h-64 overflow-y-auto glass-card-solid rounded-xl">
             {availableLanguages.map(code => {
               const langConfig = LANGUAGE_CONFIGS[code];
               return (
@@ -227,8 +229,8 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
                 >
                   <span className="text-xl">{langConfig.flag}</span>
                   <div>
-                    <div className="font-medium text-gray-800">{t(`languageNames.${code}`)}</div>
-                    <div className="text-sm text-gray-500">{langConfig.nativeName}</div>
+                    <div className="font-medium text-[var(--text-primary)]">{t(`languageNames.${code}`)}</div>
+                    <div className="text-sm text-[var(--text-secondary)]">{langConfig.nativeName}</div>
                   </div>
                   {code === value && (
                     <ICONS.Check className="w-5 h-5 text-rose-500 ml-auto" />
@@ -248,7 +250,7 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
       <div className="flex items-center justify-between px-6 py-4 flex-shrink-0">
         <button
           onClick={() => supabase.auth.signOut()}
-          className="flex items-center gap-2 text-gray-400 hover:text-gray-600 transition-colors"
+          className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-secondary)] transition-colors"
         >
           <ICONS.ChevronLeft className="w-5 h-5" />
           <span className="text-scale-label font-medium">{t('onboarding.step.back')}</span>
@@ -256,7 +258,7 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
         <div />
         <button
           onClick={() => supabase.auth.signOut()}
-          className="text-gray-400 hover:text-gray-600 transition-colors p-1"
+          className="text-[var(--text-secondary)] hover:text-[var(--text-secondary)] transition-colors p-1"
           title={t('onboarding.step.quitTitle')}
         >
           <ICONS.X className="w-5 h-5" />
@@ -273,11 +275,13 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
         <div className="w-full max-w-md md:max-w-3xl">
           {/* Header */}
           <div className="text-center mb-6">
-            <div className="text-5xl mb-4">💕</div>
-            <h1 className="text-2xl font-black text-gray-800 mb-2 font-header">
+            <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: 'var(--accent-light)' }}>
+              <ICONS.Heart className="w-7 h-7" style={{ color: 'var(--accent-color)' }} />
+            </div>
+            <h1 className="text-2xl font-black text-[var(--text-primary)] mb-2 font-header">
               {t('roleSelection.confirmSettings')}
             </h1>
-            <p className="text-gray-500">
+            <p className="text-[var(--text-secondary)]">
               {t('roleSelection.confirmSettingsSubtitle')}
             </p>
           </div>
@@ -285,9 +289,9 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
           {/* Two-column layout on desktop, stacked on mobile */}
           <div className="flex flex-col md:flex-row md:gap-6 md:items-start">
             {/* Language Confirmation Section */}
-            <div className="flex-1 bg-white/60 backdrop-blur-sm rounded-2xl p-5 mb-4 md:mb-0 border border-white/80">
-              <h2 className="text-sm font-bold text-gray-700 uppercase tracking-wide mb-4 flex items-center gap-2">
-                <span className="text-lg">🌍</span>
+            <div className="flex-1 bg-white/70 backdrop-blur-sm rounded-2xl p-5 mb-4 md:mb-0 border border-white/80">
+              <h2 className="text-sm font-bold font-header text-[var(--text-primary)] uppercase tracking-wide mb-4 flex items-center gap-2">
+                <ICONS.Globe className="w-5 h-5 text-rose-400" />
                 {t('roleSelection.languageSettings')}
               </h2>
 
@@ -318,8 +322,8 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
 
             {/* Role Selection Section */}
             <div className="flex-1 mb-4 md:mb-0">
-              <h2 className="text-sm font-bold text-gray-700 uppercase tracking-wide mb-4 flex items-center gap-2">
-                <span className="text-lg">👤</span>
+              <h2 className="text-sm font-bold font-header text-[var(--text-primary)] uppercase tracking-wide mb-4 flex items-center gap-2">
+                <ICONS.User className="w-5 h-5 text-[var(--accent-color)]" />
                 {t('roleSelection.chooseYourRole')}
               </h2>
 
@@ -331,16 +335,16 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
                   className={`w-full p-5 rounded-2xl border-2 transition-all text-left disabled:opacity-50 ${
                     isStudent
                       ? `${roleContent.student.borderAccent} ${roleContent.student.bgLight} shadow-md`
-                      : `border-gray-200 bg-white ${roleContent.student.hoverBorder} ${roleContent.student.hoverBg}`
+                      : `border-[var(--border-color)] bg-[var(--bg-card)] ${roleContent.student.hoverBorder} ${roleContent.student.hoverBg}`
                   }`}
                 >
                   <div className="flex items-center gap-4">
                     <div className={`w-12 h-12 rounded-full ${roleContent.student.bgAccent} flex items-center justify-center`}>
-                      <span className="text-xl">{roleContent.student.emoji}</span>
+                      <span className="text-rose-500">{roleContent.student.icon}</span>
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-bold text-gray-800">{roleContent.student.title}</h3>
-                      <p className="text-gray-500 text-sm">{roleContent.student.subtitle}</p>
+                      <h3 className="text-lg font-bold font-header text-[var(--text-primary)]">{roleContent.student.title}</h3>
+                      <p className="text-[var(--text-secondary)] text-sm">{roleContent.student.subtitle}</p>
                     </div>
                     {isStudent && (
                       <div
@@ -360,16 +364,16 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
                   className={`w-full p-5 rounded-2xl border-2 transition-all text-left disabled:opacity-50 ${
                     isTutor
                       ? `${roleContent.tutor.borderAccent} ${roleContent.tutor.bgLight} shadow-md`
-                      : `border-gray-200 bg-white ${roleContent.tutor.hoverBorder} ${roleContent.tutor.hoverBg}`
+                      : `border-[var(--border-color)] bg-[var(--bg-card)] ${roleContent.tutor.hoverBorder} ${roleContent.tutor.hoverBg}`
                   }`}
                 >
                   <div className="flex items-center gap-4">
                     <div className={`w-12 h-12 rounded-full ${roleContent.tutor.bgAccent} flex items-center justify-center`}>
-                      <span className="text-xl">{roleContent.tutor.emoji}</span>
+                      <span className="text-rose-500">{roleContent.tutor.icon}</span>
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-lg font-bold text-gray-800">{roleContent.tutor.title}</h3>
-                      <p className="text-gray-500 text-sm">{roleContent.tutor.subtitle}</p>
+                      <h3 className="text-lg font-bold font-header text-[var(--text-primary)]">{roleContent.tutor.title}</h3>
+                      <p className="text-[var(--text-secondary)] text-sm">{roleContent.tutor.subtitle}</p>
                     </div>
                     {isTutor && (
                       <div
@@ -388,10 +392,10 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
           {/* Confirmation Button - full width below the two columns */}
           {selectedRole && (
             <div className="text-center animate-fadeIn mt-6">
-              <p className="text-lg font-bold text-gray-700 mb-1">
+              <p className="text-lg font-bold text-[var(--text-primary)] mb-1">
                 {roleContent[selectedRole].confirmMessage}
               </p>
-              <p className="text-gray-500 text-sm mb-6">
+              <p className="text-[var(--text-secondary)] text-sm mb-6">
                 {roleContent[selectedRole].confirmSubtext}
               </p>
 
@@ -415,7 +419,7 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
 
           {/* Fallback if nothing selected */}
           {!selectedRole && (
-            <p className="text-center text-gray-400 text-sm mt-6">
+            <p className="text-center text-[var(--text-secondary)] text-sm mt-6">
               {t('roleSelection.chooseRole')}
             </p>
           )}

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { OnboardingStep, NextButton, SkipButton } from '../../OnboardingStep';
+import { OnboardingStep, NextButton, SkipButton, ONBOARDING_GLASS } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
 import { useLanguage } from '../../../../context/LanguageContext';
 import { LANGUAGE_CONFIGS } from '../../../../constants/language-config';
@@ -62,10 +62,10 @@ export const TryItStep: React.FC<TryItStepProps> = ({
     >
       <div className="text-center mb-8">
         <div className="text-6xl mb-4">🎤</div>
-        <h1 className="text-2xl font-black text-gray-800 mb-2 font-header">
+        <h1 className="text-2xl font-black text-[var(--text-primary)] mb-2 font-header">
           {t('onboarding.student.tryIt.title')}
         </h1>
-        <p className="text-gray-500">
+        <p className="text-[var(--text-secondary)]">
           {t('onboarding.student.tryIt.subtitle')}
         </p>
       </div>
@@ -86,17 +86,24 @@ export const TryItStep: React.FC<TryItStepProps> = ({
               ? 'bg-green-500'
               : 'bg-gray-200 hover:bg-gray-300'
           }`}
+          style={{
+            boxShadow: isRecording
+              ? '0 0 30px rgba(239, 68, 68, 0.4)'
+              : hasTried
+              ? '0 0 20px rgba(34, 197, 94, 0.3)'
+              : '0 4px 20px -4px rgba(0,0,0,0.1)'
+          }}
         >
           {hasTried ? (
             <ICONS.Check className="w-10 h-10 text-white" />
           ) : (
-            <ICONS.Mic className={`w-10 h-10 ${isRecording ? 'text-white' : 'text-gray-500'}`} />
+            <ICONS.Mic className={`w-10 h-10 ${isRecording ? 'text-white' : 'text-[var(--text-secondary)]'}`} />
           )}
         </button>
       </div>
 
       {isRecording && (
-        <div className="text-center text-gray-500 mb-6 animate-pulse">
+        <div className="text-center text-[var(--text-secondary)] mb-6 animate-pulse">
           {t('onboarding.student.tryIt.listening')}
         </div>
       )}

@@ -189,21 +189,21 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
   }, [entries]);
 
   const encouragementPrompts = useMemo(() => {
-    const prompts: Array<{ icon: string; message: string; color: string }> = [];
+    const prompts: Array<{ icon: React.ReactNode; message: string; color: string }> = [];
     const masteredCount = masteredWords.length;
     const weakCount = scores.filter(s => (s.total_attempts || 0) > (s.correct_attempts || 0)).length;
 
     if (masteredCount >= 10) {
-      prompts.push({ icon: '🏆', message: t('progress.encouragement.wordsMastered', { count: masteredCount }), color: 'text-amber-600' });
+      prompts.push({ icon: <ICONS.Trophy className="w-5 h-5" />, message: t('progress.encouragement.wordsMastered', { count: masteredCount }), color: 'text-amber-600' });
     }
     if (weakCount > 0 && weakCount <= 3) {
-      prompts.push({ icon: '💪', message: t('progress.encouragement.wordsNeedWork', { count: weakCount }), color: 'text-teal-600' });
+      prompts.push({ icon: <ICONS.TrendingUp className="w-5 h-5" />, message: t('progress.encouragement.wordsNeedWork', { count: weakCount }), color: 'text-teal-600' });
     }
     if (entries.length >= 5 && entries.length % 5 === 0) {
-      prompts.push({ icon: '🎉', message: t('progress.encouragement.milestone', { count: entries.length }), color: 'text-[var(--accent-color)]' });
+      prompts.push({ icon: <ICONS.Award className="w-5 h-5" />, message: t('progress.encouragement.milestone', { count: entries.length }), color: 'text-[var(--accent-color)]' });
     }
     if (recentWords.length > 0) {
-      prompts.push({ icon: '✨', message: t('progress.encouragement.justLearned', { word: recentWords[0].word }), color: 'text-purple-600' });
+      prompts.push({ icon: <ICONS.Sparkles className="w-5 h-5" />, message: t('progress.encouragement.justLearned', { word: recentWords[0].word }), color: 'text-purple-600' });
     }
     return prompts.slice(0, 2);
   }, [masteredWords, scores, entries, recentWords, t]);
@@ -461,7 +461,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
   }
 
   return (
-    <div className="h-full overflow-y-auto p-3 md:p-8 bg-[var(--bg-primary)]">
+    <div className="h-full overflow-y-auto p-3 md:p-8">
       <div className="max-w-4xl mx-auto space-y-4 md:space-y-6">
 
         {!isOnline && (
@@ -487,17 +487,17 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
 
           <div className="flex items-center justify-between mb-4 md:mb-6 relative z-10">
             <div>
-              <p className="text-white/60 text-scale-micro font-black uppercase tracking-widest mb-0.5 md:mb-1">{t('progress.level.current')}</p>
-              <h2 className="text-scale-heading font-black">{translateLevel(levelInfo.displayName, t)}</h2>
+              <p className="text-white/65 text-scale-micro font-black uppercase tracking-widest mb-0.5 md:mb-1">{t('progress.level.current')}</p>
+              <h2 className="text-scale-heading font-black font-header">{translateLevel(levelInfo.displayName, t)}</h2>
             </div>
             <div className="text-right">
-              <p className="text-white/60 text-scale-micro font-black uppercase tracking-widest mb-0.5 md:mb-1">{t('progress.level.totalXp')}</p>
+              <p className="text-white/65 text-scale-micro font-black uppercase tracking-widest mb-0.5 md:mb-1">{t('progress.level.totalXp')}</p>
               <p className="text-scale-heading font-black">{profile.xp || 0}</p>
             </div>
           </div>
 
           <div className="relative z-10 mb-4 md:mb-6">
-            <div className="flex justify-between text-scale-micro font-bold text-white/60 mb-1.5 md:mb-2">
+            <div className="flex justify-between text-scale-micro font-bold text-white/65 mb-1.5 md:mb-2">
               <span>{t('progress.level.progressTo', { level: translateLevel(levelInfo.nextLevel, t) || t('progress.level.maxLevel') })}</span>
               <span>{levelProgress}%</span>
             </div>
@@ -508,7 +508,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
               />
             </div>
             {levelInfo.nextLevel && (
-              <p className="text-scale-micro text-white/60 mt-1.5 md:mt-2 text-center">
+              <p className="text-scale-micro text-white/65 mt-1.5 md:mt-2 text-center">
                 {t('progress.level.xpToNext', { xp: levelInfo.xpToNextLevel, level: translateLevel(levelInfo.nextLevel, t) })}
               </p>
             )}
@@ -518,7 +518,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
           {canTakeTest && (
             <button
               onClick={() => navigate(`/test?from=${encodeURIComponent(levelInfo.displayName)}&to=${encodeURIComponent(levelInfo.nextLevel!)}`)}
-              className="w-full bg-white text-gray-800 py-3 md:py-4 rounded-xl md:rounded-2xl text-scale-label font-black uppercase tracking-widest shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2 md:gap-3"
+              className="w-full bg-white text-[var(--text-primary)] py-3 md:py-4 rounded-xl md:rounded-2xl text-scale-label font-black uppercase tracking-widest shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2 md:gap-3"
             >
               <ICONS.Star className="w-4 h-4 md:w-5 md:h-5" style={{ color: tierColor }} />
               {levelInfo.canTakeTest ? t('progress.level.takeTest') : t('progress.level.practiceTest')}
@@ -536,7 +536,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
             <div className="mt-4 relative z-10">
               <button
                 onClick={() => setShowPreviousTests(!showPreviousTests)}
-                className="w-full text-white/80 text-scale-caption font-bold flex items-center justify-center gap-2 py-2 hover:text-white transition-colors"
+                className="w-full text-white/85 text-scale-caption font-bold flex items-center justify-center gap-2 py-2 hover:text-white transition-colors"
               >
                 <ICONS.RefreshCw className="w-3.5 h-3.5" />
                 {t('progress.previousTests.title')}
@@ -560,14 +560,14 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                             >
                               <div>
                                 <p className="text-white text-scale-caption font-bold">{t(`progress.levelThemes.${test.themeKey}`)}</p>
-                                <p className="text-white/60 text-[10px]">{test.from} → {test.to}</p>
+                                <p className="text-white/65 text-[10px]">{test.from} → {test.to}</p>
                               </div>
-                              <ICONS.Play className="w-4 h-4 text-white/40 group-hover:text-white transition-colors" />
+                              <ICONS.Play className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
                             </button>
                             {attempts.length > 0 && (
                               <button
                                 onClick={() => setExpandedLevel(isExpanded ? null : levelKey)}
-                                className="px-3 py-3 text-white/60 hover:text-white transition-colors border-l border-white/10"
+                                className="px-3 py-3 text-white/65 hover:text-white transition-colors border-l border-white/10"
                                 title={t('progress.previousTests.viewAttempts')}
                               >
                                 <ICONS.List className="w-4 h-4" />
@@ -578,7 +578,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                           {/* Previous Attempts for this level */}
                           {isExpanded && attempts.length > 0 && (
                             <div className="px-3 pb-3 border-t border-white/10 pt-2">
-                              <p className="text-[9px] text-white/40 uppercase tracking-wider font-bold mb-2">{t('progress.previousTests.previousAttempts')}</p>
+                              <p className="text-[9px] text-white/50 uppercase tracking-wider font-bold mb-2">{t('progress.previousTests.previousAttempts')}</p>
                               <div className="space-y-1">
                                 {attempts.slice(0, 5).map((attempt) => (
                                   <button
@@ -594,7 +594,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                                           <ICONS.X className="w-3 h-3 text-amber-400" />
                                         )}
                                       </div>
-                                      <span className="text-[10px] text-white/70">
+                                      <span className="text-[10px] text-white/65">
                                         {new Date(attempt.completed_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
                                       </span>
                                     </div>
@@ -602,7 +602,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                                       <span className={`text-scale-caption font-bold ${attempt.passed ? 'text-green-400' : 'text-amber-400'}`}>
                                         {attempt.score}%
                                       </span>
-                                      <ICONS.ChevronRight className="w-3 h-3 text-white/40" />
+                                      <ICONS.ChevronRight className="w-3 h-3 text-white/50" />
                                     </div>
                                   </button>
                                 ))}
@@ -645,7 +645,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                 <div className="flex items-center gap-2 pt-2 border-t border-[var(--border-color)]">
                   <span className="text-scale-label text-[var(--text-secondary)]">{t('progress.motivation.learningFor')}</span>
                   <span className="text-scale-label font-bold" style={{ color: accentHex }}>{profile.partner_name}</span>
-                  <span className="text-scale-label">💕</span>
+                  <ICONS.Heart className="w-4 h-4 text-[var(--accent-color)]" />
                 </div>
               )}
             </div>
@@ -653,9 +653,9 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
         )}
 
         {/* Love Log Stats Card - Moved above Learning Journey */}
-        <div className="bg-[var(--bg-card)] p-4 md:p-8 rounded-xl md:rounded-[2.5rem] border border-[var(--border-color)] shadow-sm">
+        <div className="glass-card p-4 md:p-8 rounded-xl md:rounded-[2.5rem]">
           <div className="flex items-center justify-between mb-3 md:mb-6">
-            <h3 className="text-scale-caption font-black flex items-center gap-1.5 md:gap-2 text-[var(--text-secondary)] uppercase tracking-[0.15em] md:tracking-[0.2em]">
+            <h3 className="text-scale-caption font-black font-header flex items-center gap-1.5 md:gap-2 text-[var(--text-secondary)] uppercase tracking-[0.15em] md:tracking-[0.2em]">
               <ICONS.Book className="w-3.5 h-3.5 md:w-4 md:h-4" style={{ color: tierColor }} />
               {t('progress.stats.title')}
             </h3>
@@ -669,7 +669,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
               { label: t('progress.stats.adjectives'), count: stats.adjectives },
               { label: t('progress.stats.phrases'), count: stats.phrases }
             ].map(stat => (
-              <div key={stat.label} className="p-2 md:p-4 rounded-lg md:rounded-2xl border text-center" style={{ backgroundColor: `${accentHex}10`, borderColor: `${accentHex}30`, color: accentHex }}>
+              <div key={stat.label} className="p-2 md:p-4 rounded-lg md:rounded-2xl border border-[var(--accent-border)] bg-[var(--accent-light)] text-[var(--accent-color)] text-center">
                 <p className="text-scale-heading font-black">{stat.count}</p>
                 <p className="text-scale-micro font-bold uppercase tracking-wider opacity-70">{stat.label}</p>
               </div>
@@ -678,9 +678,9 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
         </div>
 
         {/* Game History Section */}
-        <div className="bg-[var(--bg-card)] rounded-xl md:rounded-[2.5rem] border border-[var(--border-color)] shadow-sm overflow-hidden">
+        <div className="glass-card rounded-xl md:rounded-[2.5rem] overflow-hidden">
           <div className="p-3 md:p-6 border-b border-[var(--border-color)]">
-            <h3 className="text-scale-caption font-black flex items-center gap-1.5 md:gap-2 text-[var(--text-secondary)] uppercase tracking-[0.15em] md:tracking-[0.2em]">
+            <h3 className="text-scale-caption font-black font-header flex items-center gap-1.5 md:gap-2 text-[var(--text-secondary)] uppercase tracking-[0.15em] md:tracking-[0.2em]">
               <ICONS.Clock className="w-3.5 h-3.5 md:w-4 md:h-4" style={{ color: tierColor }} />
               {t('progress.gameHistory.title')}
             </h3>
@@ -691,7 +691,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
         </div>
 
         {/* Learning Journey Book/Diary */}
-        <div className="bg-[var(--bg-card)] rounded-xl md:rounded-[2.5rem] border border-[var(--border-color)] shadow-sm overflow-hidden relative">
+        <div className="glass-card rounded-xl md:rounded-[2.5rem] overflow-hidden relative">
           <div className="p-3 md:p-6 border-b border-[var(--border-color)] flex items-center justify-between">
             <div className="flex items-center gap-2">
               {/* Mobile hamburger menu button with entry count */}
@@ -702,7 +702,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
               >
                 <ICONS.Menu className="w-4 h-4 text-[var(--text-secondary)]" />
               </button>
-              <h3 className="text-scale-caption font-black flex items-center gap-1.5 md:gap-2 text-[var(--text-secondary)] uppercase tracking-[0.15em] md:tracking-[0.2em]">
+              <h3 className="text-scale-caption font-black font-header flex items-center gap-1.5 md:gap-2 text-[var(--text-secondary)] uppercase tracking-[0.15em] md:tracking-[0.2em]">
                 <ICONS.Book className="w-3.5 h-3.5 md:w-4 md:h-4" style={{ color: tierColor }} />
                 {t('progress.journey.title')}
               </h3>
@@ -710,7 +710,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
             <button
               onClick={generateNewSummary}
               disabled={generating || !isOnline}
-              className="px-2.5 md:px-4 py-1.5 md:py-2 rounded-lg md:rounded-xl text-scale-caption font-bold text-white flex items-center gap-1.5 md:gap-2 transition-all active:scale-95 disabled:opacity-50"
+              className="px-2.5 md:px-4 py-1.5 md:py-2 rounded-lg md:rounded-xl text-scale-caption font-bold text-white flex items-center gap-1.5 md:gap-2 shadow-md hover:shadow-lg transition-all active:scale-95 disabled:opacity-50"
               style={{ backgroundColor: tierColor }}
               title={!isOnline ? t('offline.featureUnavailable', 'Unavailable offline') : ''}
             >
@@ -746,7 +746,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
 
           <div className="flex flex-col md:flex-row min-h-[250px] md:min-h-[400px]">
             {/* Left Page: Index - hidden on mobile (use hamburger menu), sidebar on desktop */}
-            <div className="hidden md:block md:w-1/3 border-r border-[var(--border-color)] bg-[var(--bg-primary)] p-4">
+            <div className="hidden md:block md:w-1/3 border-r border-[var(--border-color)] p-4">
               <p className="text-[9px] font-black text-[var(--text-secondary)] uppercase tracking-widest mb-3">
                 {t('progress.journey.journalEntries')}
               </p>
@@ -967,15 +967,15 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
             <div className="md:hidden absolute inset-0 z-10 rounded-xl overflow-hidden">
               {/* Backdrop */}
               <div
-                className="absolute inset-0 bg-black/40"
+                className="absolute inset-0 modal-backdrop"
                 onClick={() => setShowJourneyMenu(false)}
               />
 
               {/* Slide-out panel */}
-              <div className="absolute left-0 top-0 bottom-0 w-[85%] max-w-[260px] bg-[var(--bg-card)] shadow-xl animate-in slide-in-from-left duration-200 flex flex-col">
+              <div className="absolute left-0 top-0 bottom-0 w-[85%] max-w-[260px] glass-card-solid animate-in slide-in-from-left duration-200 flex flex-col">
                 {/* Header */}
                 <div className="p-3 border-b border-[var(--border-color)] flex items-center justify-between flex-shrink-0">
-                  <h3 className="text-[10px] font-black text-[var(--text-secondary)] uppercase tracking-widest flex items-center gap-2">
+                  <h3 className="text-[10px] font-black font-header text-[var(--text-secondary)] uppercase tracking-widest flex items-center gap-2">
                     <ICONS.Book className="w-3.5 h-3.5" style={{ color: tierColor }} />
                     {t('progress.journey.journalEntries')}
                   </h3>
@@ -1047,7 +1047,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
         <div className="grid grid-cols-2 gap-2 md:gap-4">
           <button
             onClick={() => navigate('/play')}
-            className="bg-[var(--bg-card)] p-3 md:p-6 rounded-xl md:rounded-[2rem] border border-[var(--border-color)] shadow-sm text-center hover:shadow-md transition-all"
+            className="glass-card p-3 md:p-6 rounded-xl md:rounded-[2rem] text-center hover:bg-white/70 dark:hover:bg-white/20 hover:shadow-md active:scale-[0.98] transition-all"
           >
             <ICONS.Play className="w-6 h-6 md:w-8 md:h-8 mx-auto mb-1 md:mb-2 text-[var(--accent-color)]" />
             <p className="text-scale-label font-bold text-[var(--text-primary)]">{t('progress.quickActions.practice')}</p>
@@ -1056,7 +1056,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
 
           <button
             onClick={() => navigate('/log')}
-            className="bg-[var(--bg-card)] p-3 md:p-6 rounded-xl md:rounded-[2rem] border border-[var(--border-color)] shadow-sm text-center hover:shadow-md transition-all"
+            className="glass-card p-3 md:p-6 rounded-xl md:rounded-[2rem] text-center hover:bg-white/70 dark:hover:bg-white/20 hover:shadow-md active:scale-[0.98] transition-all"
           >
             <ICONS.Book className="w-6 h-6 md:w-8 md:h-8 mx-auto mb-1 md:mb-2 text-[var(--accent-color)]" />
             <p className="text-scale-label font-bold text-[var(--text-primary)]">{t('progress.quickActions.loveLog')}</p>
@@ -1069,17 +1069,17 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
       {/* Test Results Modal */}
       {selectedTestResult && (
         <div
-          className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4"
           onClick={() => setSelectedTestResult(null)}
         >
           <div
-            className="bg-[var(--bg-card)] rounded-[2rem] max-w-md w-full max-h-[80vh] overflow-hidden shadow-2xl"
+            className="glass-card-solid rounded-[2rem] max-w-md w-full max-h-[80vh] overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
             <div className="p-6 border-b border-[var(--border-color)]">
               <div className="flex items-center justify-between mb-3">
-                <h3 className="text-[10px] font-black text-[var(--text-secondary)] uppercase tracking-widest">
+                <h3 className="text-[10px] font-black font-header text-[var(--text-secondary)] uppercase tracking-widest">
                   {t('progress.testResults.title')}
                 </h3>
                 <button
@@ -1179,7 +1179,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                   setSelectedTestResult(null);
                   navigate(`/test?from=${encodeURIComponent(selectedTestResult.from_level)}&to=${encodeURIComponent(selectedTestResult.to_level)}`);
                 }}
-                className="w-full py-3 rounded-xl font-bold text-white text-scale-label"
+                className="w-full py-3 rounded-xl font-bold text-white text-scale-label shadow-md hover:shadow-lg active:scale-[0.98] transition-all"
                 style={{ backgroundColor: tierColor }}
               >
                 {t('progress.testResults.tryAgain')}

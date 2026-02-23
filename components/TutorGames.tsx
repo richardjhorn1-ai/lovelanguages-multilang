@@ -433,7 +433,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
 
   if (loading) {
     return (
-      <div className="h-full flex flex-col items-center justify-center bg-[var(--bg-primary)] gap-3">
+      <div className="h-full flex flex-col items-center justify-center gap-3">
         <div className="flex gap-2">
           <div className="w-2 h-2 bg-[var(--accent-color)] rounded-full animate-bounce"></div>
           <div className="w-2 h-2 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
@@ -552,7 +552,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
   }
 
   return (
-    <div className="h-full overflow-y-auto p-4 sm:p-6 bg-[var(--bg-primary)]">
+    <div className="h-full overflow-y-auto p-4 sm:p-6">
       <div className="max-w-4xl mx-auto space-y-6">
 
         {!isOnline && (
@@ -570,14 +570,14 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           {/* Teaching Streak Badge */}
           {tutorStats && tutorStats.teachingStreak > 0 && (
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4" style={{ backgroundColor: `${accentHex}15` }}>
-              <span className="text-xl">🔥</span>
+              <ICONS.Zap className="w-5 h-5" />
               <span className="font-bold" style={{ color: accentHex }}>
                 {t('tutorGames.teachingStreak', { count: tutorStats.teachingStreak, defaultValue: `${tutorStats.teachingStreak} day teaching streak!` })}
               </span>
             </div>
           )}
 
-          <h1 className="text-2xl font-black text-[var(--text-primary)] mb-3">{t('tutorGames.playTogether')}</h1>
+          <h1 className="text-2xl font-black font-header text-[var(--text-primary)] mb-3">{t('tutorGames.playTogether')}</h1>
 
           {/* Mode Tabs */}
           <div className="inline-flex bg-[var(--bg-primary)] p-1 rounded-xl">
@@ -616,14 +616,14 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
             <button
               onClick={startLocalQuiz}
               disabled={partnerVocab.length < 4}
-              className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
+              className="group p-6 glass-card rounded-[2rem] hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <div className="flex items-start gap-4">
-                <div className="w-14 h-14 bg-[var(--accent-light)] rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
-                  🎯
+                <div className="w-14 h-14 bg-[var(--accent-light)] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-[var(--accent-color)]">
+                  <ICONS.Target className="w-7 h-7" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-black text-[var(--text-primary)] mb-1">{t('tutorGames.local.quiz', { name: partnerName })}</h3>
+                  <h3 className="font-black font-header text-[var(--text-primary)] mb-1">{t('tutorGames.local.quiz', { name: partnerName })}</h3>
                   <p className="text-scale-label text-[var(--text-secondary)]">{t('tutorGames.local.quizDesc')}</p>
                 </div>
               </div>
@@ -636,14 +636,14 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
             <button
               onClick={startLocalQuickFire}
               disabled={partnerVocab.length < 4}
-              className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-amber-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
+              className="group p-6 glass-card rounded-[2rem] hover:shadow-md hover:border-amber-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <div className="flex items-start gap-4">
-                <div className="w-14 h-14 bg-amber-500/20 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
-                  ⚡
+                <div className="w-14 h-14 bg-amber-500/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-amber-500">
+                  <ICONS.Zap className="w-7 h-7" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-black text-[var(--text-primary)] mb-1">{t('tutorGames.local.quickFire')}</h3>
+                  <h3 className="font-black font-header text-[var(--text-primary)] mb-1">{t('tutorGames.local.quickFire')}</h3>
                   <p className="text-scale-label text-[var(--text-secondary)]">{t('tutorGames.local.quickFireDesc')}</p>
                 </div>
               </div>
@@ -656,14 +656,14 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
             <button
               onClick={startLocalMultipleChoice}
               disabled={partnerVocab.length < 4}
-              className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-purple-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
+              className="group p-6 glass-card rounded-[2rem] hover:shadow-md hover:border-purple-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <div className="flex items-start gap-4">
-                <div className="w-14 h-14 bg-purple-500/20 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
-                  🔘
+                <div className="w-14 h-14 bg-purple-500/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-purple-500">
+                  <ICONS.CheckCircle className="w-7 h-7" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-black text-[var(--text-primary)] mb-1">{t('tutorGames.local.multipleChoice')}</h3>
+                  <h3 className="font-black font-header text-[var(--text-primary)] mb-1">{t('tutorGames.local.multipleChoice')}</h3>
                   <p className="text-scale-label text-[var(--text-secondary)]">{t('tutorGames.local.multipleChoiceDesc')}</p>
                 </div>
               </div>
@@ -676,14 +676,14 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
             <button
               onClick={startLocalTypeIt}
               disabled={partnerVocab.length < 4}
-              className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-blue-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
+              className="group p-6 glass-card rounded-[2rem] hover:shadow-md hover:border-blue-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <div className="flex items-start gap-4">
-                <div className="w-14 h-14 bg-blue-500/20 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
-                  ⌨️
+                <div className="w-14 h-14 bg-blue-500/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-blue-500">
+                  <ICONS.Type className="w-7 h-7" />
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-black text-[var(--text-primary)] mb-1">{t('tutorGames.local.typeIt')}</h3>
+                  <h3 className="font-black font-header text-[var(--text-primary)] mb-1">{t('tutorGames.local.typeIt')}</h3>
                   <p className="text-scale-label text-[var(--text-secondary)]">{t('tutorGames.local.typeItDesc')}</p>
                 </div>
               </div>
@@ -709,14 +709,14 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           <button
             onClick={() => setShowQuizModal(true)}
             disabled={!isOnline}
-            className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
+            className="group p-6 glass-card rounded-[2rem] hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <div className="flex items-start gap-4">
-              <div className="w-14 h-14 bg-[var(--accent-light)] rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
-                🎯
+              <div className="w-14 h-14 bg-[var(--accent-light)] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-[var(--accent-color)]">
+                <ICONS.Target className="w-7 h-7" />
               </div>
               <div className="flex-1">
-                <h3 className="font-black text-[var(--text-primary)] mb-1">{t('tutorGames.send.doYouRemember')}</h3>
+                <h3 className="font-black font-header text-[var(--text-primary)] mb-1">{t('tutorGames.send.doYouRemember')}</h3>
                 <p className="text-scale-label text-[var(--text-secondary)]">{t('tutorGames.send.quizPartner', { name: partnerName })}</p>
               </div>
             </div>
@@ -730,14 +730,14 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           <button
             onClick={() => setShowQuickFireModal(true)}
             disabled={!isOnline}
-            className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-amber-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
+            className="group p-6 glass-card rounded-[2rem] hover:shadow-md hover:border-amber-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <div className="flex items-start gap-4">
-              <div className="w-14 h-14 bg-amber-500/20 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
-                ⚡
+              <div className="w-14 h-14 bg-amber-500/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-amber-500">
+                <ICONS.Zap className="w-7 h-7" />
               </div>
               <div className="flex-1">
-                <h3 className="font-black text-[var(--text-primary)] mb-1">{t('tutorGames.send.quickFire')}</h3>
+                <h3 className="font-black font-header text-[var(--text-primary)] mb-1">{t('tutorGames.send.quickFire')}</h3>
                 <p className="text-scale-label text-[var(--text-secondary)]">{t('tutorGames.send.timedChallenge')}</p>
               </div>
             </div>
@@ -751,14 +751,14 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           <button
             onClick={() => setShowWordRequestModal(true)}
             disabled={!isOnline}
-            className="group p-6 bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-teal-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
+            className="group p-6 glass-card rounded-[2rem] hover:shadow-md hover:border-teal-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <div className="flex items-start gap-4">
-              <div className="w-14 h-14 bg-teal-500/20 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
-                🎁
+              <div className="w-14 h-14 bg-teal-500/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-teal-500">
+                <ICONS.Gift className="w-7 h-7" />
               </div>
               <div className="flex-1">
-                <h3 className="font-black text-[var(--text-primary)] mb-1">{t('tutorGames.send.giftWords')}</h3>
+                <h3 className="font-black font-header text-[var(--text-primary)] mb-1">{t('tutorGames.send.giftWords')}</h3>
                 <p className="text-scale-label text-[var(--text-secondary)]">{t('tutorGames.send.sendWords', { name: partnerName })}</p>
               </div>
             </div>
@@ -772,16 +772,16 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
 
         {/* Pending Challenges Section - Only in send mode */}
         {playMode === 'send' && pendingChallenges.length > 0 && (
-          <div className="bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm p-6">
-            <h3 className="text-scale-label font-black text-[var(--text-secondary)] uppercase tracking-widest mb-4 flex items-center gap-2">
+          <div className="glass-card rounded-[2rem] p-6">
+            <h3 className="text-scale-label font-black font-header text-[var(--text-secondary)] uppercase tracking-widest mb-4 flex items-center gap-2">
               <ICONS.Clock className="w-4 h-4" />
               {t('tutorGames.pending.waitingFor', { name: partnerName })}
             </h3>
             <div className="space-y-3">
               {pendingChallenges.slice(0, 3).map(challenge => (
                 <div key={challenge.id} className="flex items-center gap-3 p-3 bg-amber-500/10 rounded-xl border border-amber-500/20">
-                  <div className="w-10 h-10 bg-amber-500/20 rounded-xl flex items-center justify-center">
-                    {challenge.challenge_type === 'quiz' ? '🎯' : '⚡'}
+                  <div className="w-10 h-10 bg-amber-500/20 rounded-xl flex items-center justify-center text-amber-500">
+                    {challenge.challenge_type === 'quiz' ? <ICONS.Target className="w-5 h-5" /> : <ICONS.Zap className="w-5 h-5" />}
                   </div>
                   <div className="flex-1">
                     <p className="font-bold text-[var(--text-primary)] text-scale-label">{challenge.title}</p>
@@ -800,16 +800,16 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
 
         {/* Pending Word Gifts - Only in send mode */}
         {playMode === 'send' && pendingRequests.length > 0 && (
-          <div className="bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm p-6">
-            <h3 className="text-scale-label font-black text-[var(--text-secondary)] uppercase tracking-widest mb-4 flex items-center gap-2">
+          <div className="glass-card rounded-[2rem] p-6">
+            <h3 className="text-scale-label font-black font-header text-[var(--text-secondary)] uppercase tracking-widest mb-4 flex items-center gap-2">
               <ICONS.Heart className="w-4 h-4 text-[var(--accent-color)]" />
               {t('tutorGames.gifts.title')}
             </h3>
             <div className="space-y-3">
               {pendingRequests.slice(0, 3).map(request => (
                 <div key={request.id} className="flex items-center gap-3 p-3 bg-teal-500/10 rounded-xl border border-teal-500/20">
-                  <div className="w-10 h-10 bg-teal-500/20 rounded-xl flex items-center justify-center">
-                    🎁
+                  <div className="w-10 h-10 bg-teal-500/20 rounded-xl flex items-center justify-center text-teal-500">
+                    <ICONS.Gift className="w-5 h-5" />
                   </div>
                   <div className="flex-1">
                     <p className="font-bold text-[var(--text-primary)] text-scale-label">
@@ -830,16 +830,16 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
 
         {/* Recent Results - Only in send mode */}
         {playMode === 'send' && completedChallenges.length > 0 && (
-          <div className="bg-[var(--bg-card)] rounded-[2rem] border border-[var(--border-color)] shadow-sm p-6">
-            <h3 className="text-scale-label font-black text-[var(--text-secondary)] uppercase tracking-widest mb-4 flex items-center gap-2">
+          <div className="glass-card rounded-[2rem] p-6">
+            <h3 className="text-scale-label font-black font-header text-[var(--text-secondary)] uppercase tracking-widest mb-4 flex items-center gap-2">
               <ICONS.Check className="w-4 h-4 text-green-500" />
               {t('tutorGames.results.title')}
             </h3>
             <div className="space-y-3">
               {completedChallenges.slice(0, 5).map(challenge => (
                 <div key={challenge.id} className="flex items-center gap-3 p-3 bg-green-500/10 rounded-xl border border-green-500/20">
-                  <div className="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center">
-                    {challenge.challenge_type === 'quiz' ? '🎯' : '⚡'}
+                  <div className="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center text-green-500">
+                    {challenge.challenge_type === 'quiz' ? <ICONS.Target className="w-5 h-5" /> : <ICONS.Zap className="w-5 h-5" />}
                   </div>
                   <div className="flex-1">
                     <p className="font-bold text-[var(--text-primary)] text-scale-label">{challenge.title}</p>
@@ -861,7 +861,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
         {/* Empty State - Only in send mode */}
         {playMode === 'send' && challenges.length === 0 && wordRequests.length === 0 && (
           <div className="text-center py-12 text-[var(--text-secondary)]">
-            <div className="text-6xl mb-4">🎮</div>
+            <div className="mb-4 text-[var(--text-secondary)]"><ICONS.Gamepad2 className="w-16 h-16 mx-auto" /></div>
             <p className="font-bold">{t('tutorGames.empty.noChallenges')}</p>
             <p className="text-scale-label">{t('tutorGames.empty.createFirst', { name: partnerName })}</p>
           </div>
@@ -910,9 +910,9 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
 
       {/* Exit Confirmation Modal */}
       {showExitConfirm && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-          <div className="bg-[var(--bg-card)] rounded-2xl p-6 max-w-sm w-full shadow-xl">
-            <h3 className="text-xl font-black text-[var(--text-primary)] mb-2">
+        <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
+          <div className="glass-card-solid rounded-2xl p-6 max-w-sm w-full">
+            <h3 className="text-xl font-black font-header text-[var(--text-primary)] mb-2">
               {t('play.exitConfirm.title', 'Exit Game?')}
             </h3>
             <p className="text-[var(--text-secondary)] mb-6">
@@ -921,7 +921,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
             <div className="flex gap-3">
               <button
                 onClick={() => setShowExitConfirm(false)}
-                className="flex-1 py-3 rounded-xl font-bold bg-[var(--bg-secondary)] text-[var(--text-primary)]"
+                className="flex-1 py-3 rounded-xl font-bold glass-card hover:bg-white/55 text-[var(--text-primary)]"
               >
                 {t('play.exitConfirm.cancel', 'Keep Playing')}
               </button>

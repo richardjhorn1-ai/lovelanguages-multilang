@@ -92,8 +92,8 @@ const TrendCharts: React.FC<TrendChartsProps> = ({
     : 0;
 
   return (
-    <div className="bg-[var(--bg-card)] p-4 md:p-6 rounded-xl md:rounded-[2rem] border border-[var(--border-color)]">
-      <h3 className="text-scale-micro font-black uppercase text-[var(--text-secondary)] tracking-widest mb-4 flex items-center gap-2">
+    <div className="glass-card p-4 md:p-6 rounded-xl md:rounded-[2rem]">
+      <h3 className="text-scale-micro font-black font-header uppercase text-[var(--text-secondary)] tracking-widest mb-4 flex items-center gap-2">
         <ICONS.TrendingUp className="w-4 h-4" style={{ color: tierColor }} />
         {t('tutor.trends.title', 'Progress Trends')}
       </h3>

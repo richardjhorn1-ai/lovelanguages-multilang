@@ -29,12 +29,12 @@ interface GameHistoryProps {
   onPracticeWords?: (words: { word: string; translation: string }[]) => void;
 }
 
-const GAME_MODE_INFO: Record<string, { name: string; icon: string; color: string }> = {
-  flashcards: { name: 'Flashcards', icon: '🎴', color: 'text-[var(--accent-color)]' },
-  multiple_choice: { name: 'Multiple Choice', icon: '🔘', color: 'text-purple-500' },
-  type_it: { name: 'Type It', icon: '⌨️', color: 'text-blue-500' },
-  quick_fire: { name: 'Quick Fire', icon: '⚡', color: 'text-amber-500' },
-  ai_challenge: { name: 'AI Challenge', icon: '🤖', color: 'text-green-500' }
+const GAME_MODE_INFO: Record<string, { name: string; icon: React.ReactNode; color: string }> = {
+  flashcards: { name: 'Flashcards', icon: <ICONS.Layers className="w-5 h-5" />, color: 'text-[var(--accent-color)]' },
+  multiple_choice: { name: 'Multiple Choice', icon: <ICONS.CheckCircle className="w-5 h-5" />, color: 'text-purple-500' },
+  type_it: { name: 'Type It', icon: <ICONS.Type className="w-5 h-5" />, color: 'text-blue-500' },
+  quick_fire: { name: 'Quick Fire', icon: <ICONS.Zap className="w-5 h-5" />, color: 'text-amber-500' },
+  ai_challenge: { name: 'AI Challenge', icon: <ICONS.Bot className="w-5 h-5" />, color: 'text-green-500' }
 };
 
 const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
@@ -183,7 +183,9 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
   if (sessions.length === 0) {
     return (
       <div className="text-center py-8">
-        <div className="text-4xl mb-3">📊</div>
+        <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3" style={{ backgroundColor: 'var(--accent-light)' }}>
+          <ICONS.BarChart className="w-6 h-6 text-[var(--accent-color)]" />
+        </div>
         <p className="text-[var(--text-secondary)] font-medium">{t('gameHistory.noHistory')}</p>
         <p className="text-scale-label text-[var(--text-secondary)] mt-1">{t('gameHistory.noHistoryDesc')}</p>
       </div>
@@ -196,7 +198,7 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
     <div className="space-y-6">
       {Object.entries(groupedSessions).map(([dateKey, dateSessions]) => (
         <div key={dateKey}>
-          <h3 className="text-scale-caption font-black uppercase tracking-widest text-[var(--text-secondary)] mb-3">
+          <h3 className="text-scale-caption font-black font-header uppercase tracking-widest text-[var(--text-secondary)] mb-3">
             {formatDate(dateSessions[0].completed_at)}
           </h3>
 
@@ -204,7 +206,7 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
             {dateSessions.map(session => {
               const modeInfo = GAME_MODE_INFO[session.game_mode] || {
                 name: getGameModeName(session.game_mode),
-                icon: '🎮',
+                icon: <ICONS.Gamepad2 className="w-5 h-5" />,
                 color: 'text-[var(--text-primary)]'
               };
               const modeName = getGameModeName(session.game_mode);
@@ -217,14 +219,14 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
               return (
                 <div
                   key={session.id}
-                  className="bg-[var(--bg-card)] rounded-2xl border border-[var(--border-color)] overflow-hidden"
+                  className="glass-card rounded-2xl overflow-hidden"
                 >
                   <button
                     onClick={() => fetchSessionAnswers(session.id)}
                     className="w-full p-4 text-left hover:bg-[var(--bg-primary)]/50 transition-colors"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 bg-[var(--bg-primary)] rounded-xl flex items-center justify-center text-xl">
+                      <div className={`w-10 h-10 bg-[var(--bg-primary)] rounded-xl flex items-center justify-center ${modeInfo.color}`}>
                         {modeInfo.icon}
                       </div>
                       <div className="flex-1 min-w-0">
@@ -357,7 +359,9 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
                       {/* Perfect score message - only if no wrong answers and no smart accepted */}
                       {wrongAnswers.length === 0 && !answers.some(a => a.is_correct && a.explanation && a.explanation !== 'Exact match') && (
                         <div className="pt-3 text-center py-4">
-                          <div className="text-3xl mb-2">🎉</div>
+                          <div className="w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-2 bg-green-100 dark:bg-green-900/30">
+                            <ICONS.Trophy className="w-5 h-5 text-green-600 dark:text-green-400" />
+                          </div>
                           <p className="text-scale-label text-green-600 dark:text-green-400 font-medium">
                             {t('gameHistory.perfectScore')}
                           </p>

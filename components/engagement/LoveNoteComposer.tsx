@@ -45,10 +45,10 @@ const LoveNoteComposer: React.FC<LoveNoteComposerProps> = ({
     };
   }, [onClose, sending]);
 
-  const categories: { key: LoveNoteCategory; label: string; icon: string }[] = [
-    { key: 'encouragement', label: t('loveNote.categories.encouragement', 'Encourage'), icon: '💪' },
-    { key: 'check_in', label: t('loveNote.categories.checkIn', 'Check In'), icon: '👋' },
-    { key: 'celebration', label: t('loveNote.categories.celebration', 'Celebrate'), icon: '🎉' },
+  const categories: { key: LoveNoteCategory; label: string; icon: React.ReactNode }[] = [
+    { key: 'encouragement', label: t('loveNote.categories.encouragement', 'Encourage'), icon: <ICONS.TrendingUp className="w-4 h-4" /> },
+    { key: 'check_in', label: t('loveNote.categories.checkIn', 'Check In'), icon: <ICONS.Heart className="w-4 h-4" /> },
+    { key: 'celebration', label: t('loveNote.categories.celebration', 'Celebrate'), icon: <ICONS.Trophy className="w-4 h-4" /> },
   ];
 
   const handleSend = async () => {
@@ -97,22 +97,22 @@ const LoveNoteComposer: React.FC<LoveNoteComposerProps> = ({
 
   return (
     <div
-      className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+      className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4"
       onClick={onClose}
     >
       <div
         role="dialog"
         aria-modal="true"
         aria-labelledby="love-note-title"
-        className="bg-[var(--bg-card)] rounded-[2rem] max-w-md w-full max-h-[80vh] overflow-hidden shadow-2xl"
+        className="glass-card-solid rounded-[2rem] max-w-md w-full max-h-[80vh] overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div className="bg-gradient-to-r from-pink-500 to-rose-500 p-4 text-white">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="text-2xl">💕</span>
-              <h2 id="love-note-title" className="text-scale-label font-black">
+              <ICONS.Heart className="w-6 h-6" />
+              <h2 id="love-note-title" className="text-scale-label font-black font-header">
                 {t('loveNote.title', 'Send a Love Note')}
               </h2>
             </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { OnboardingStep, NextButton } from '../../OnboardingStep';
+import { OnboardingStep, NextButton, ONBOARDING_OPTION } from '../../OnboardingStep';
 
 interface VibeStepProps {
   currentStep: number;
@@ -42,10 +42,10 @@ export const VibeStep: React.FC<VibeStepProps> = ({
       accentColor={accentColor}
     >
       <div className="text-center mb-10">
-        <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
+        <h1 className="text-3xl font-black text-[var(--text-primary)] mb-3 font-header">
           {t('onboarding.student.vibe.title', { name: partnerName })}
         </h1>
-        <p className="text-gray-500">
+        <p className="text-[var(--text-secondary)]">
           {t('onboarding.student.vibe.subtitle')}
         </p>
       </div>
@@ -55,14 +55,14 @@ export const VibeStep: React.FC<VibeStepProps> = ({
           <button
             key={vibe.id}
             onClick={() => setSelected(vibe.id)}
-            className={`p-4 rounded-2xl border-2 transition-all text-left ${
-              selected === vibe.id
-                ? 'border-[var(--accent-border)] bg-[var(--accent-light)]'
-                : 'border-gray-100 bg-white hover:border-gray-200'
-            }`}
+            className="p-4 transition-all text-left"
+            style={ONBOARDING_OPTION(selected === vibe.id, accentColor)}
           >
             <span className="text-2xl mb-2 block">{vibe.emoji}</span>
-            <span className={`font-bold ${selected === vibe.id ? 'text-[var(--accent-color)]' : 'text-gray-700'}`}>
+            <span
+              className="font-bold"
+              style={{ color: selected === vibe.id ? accentColor : 'var(--text-primary)' }}
+            >
               {vibe.label}
             </span>
           </button>

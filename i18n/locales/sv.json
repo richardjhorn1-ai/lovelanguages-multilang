@@ -667,6 +667,10 @@
     }
   },
   "onboarding": {
+    "nativeLanguage": {
+      "title": "Vilket språk talar du?",
+      "subtitle": "Vi visar allt på ditt språk"
+    },
     "step": {
       "back": "Tillbaka",
       "counter": "{{current}} av {{total}}",
@@ -758,6 +762,50 @@
         "retry": "Retry"
       }
     },
+    "role": {
+      "title": "Jag vill...",
+      "subtitle": "Välj hur du vill använda Love Languages",
+      "learn": "Lära mig ett språk",
+      "learnDesc": "Lär dig språket som någon du älskar talar",
+      "teach": "Lära ut ett språk",
+      "teachDesc": "Hjälp någon du älskar att lära sig ditt språk"
+    },
+    "names": {
+      "title": "Nu gör vi det personligt",
+      "studentSubtitle": "Vi anpassar din inlärningsupplevelse",
+      "tutorSubtitle": "Vi anpassar undervisningsupplevelsen",
+      "yourName": "Ditt namn",
+      "partnerLabel": "Vem lär du dig för?",
+      "learnerLabel": "Vem ska du undervisa?",
+      "partnerPlaceholder": "Deras namn",
+      "learnerPlaceholder": "Elevens namn"
+    },
+    "language": {
+      "studentTitle": "Vilket språk talar någon du älskar?",
+      "tutorTitle": "Vilket språk vill du lära ut?",
+      "studentSubtitle": "Vi hjälper dig lära dig deras språk",
+      "tutorSubtitle": "Välj språket du ska undervisa i",
+      "showAll": "Visa alla språk",
+      "showLess": "Visa populära"
+    },
+    "personalization": {
+      "title": "Gör det till ditt",
+      "subtitle": "Hjälp oss anpassa din upplevelse",
+      "vibeLabel": "Stämningen i er relation",
+      "timeLabel": "Daglig övningstid",
+      "priorLabel": "Provat {{language}} förut?"
+    },
+    "tutorPersonalization": {
+      "title": "Berätta om dig själv",
+      "subtitle": "Hjälp oss anpassa undervisningsupplevelsen",
+      "relationLabel": "{{name}} är din...",
+      "connectionLabel": "Din {{language}}-koppling",
+      "originLabel": "Var kommer du ifrån? (valfritt)",
+      "originPlaceholder": "Stad, land..."
+    },
+    "errors": {
+      "title": "Något gick fel"
+    },
     "student": {
       "start": {
         "title": "Redo att börja, {{name}}?",
@@ -767,6 +815,7 @@
         "feature2": "Din Love Log-ordförrådsföljare",
         "feature3": "Spel för att öva och bemästra ord",
         "feature4": "Framstegsföljning och nivåtester",
+        "activating": "Startar din provperiod...",
         "button": "Kör så! 🚀"
       },
       "vibe": {
@@ -877,6 +926,7 @@
         "feature2": "Följ {{learnerName}}s framsteg",
         "feature3": "Skicka ordgåvor för att överraska dem",
         "feature4": "Länka konton för att se deras resa",
+        "activating": "Startar din provperiod...",
         "button": "Börja hjälpa {{learnerName}}! 🎯"
       },
       "relation": {
@@ -1863,6 +1913,21 @@
     "timesUp": "Tiden är ute!"
   },
   "hero": {
+    "headline": "Lär dig språket hos någon du älskar.",
+    "subtitle": "Den enda språkappen designad för par",
+    "swipeForMore": "Svep för att upptäcka mer",
+    "landing": {
+      "student": {
+        "headline": "Lär dig språket hos den du älskar",
+        "highlight1": "språket",
+        "highlight2": "älskar"
+      },
+      "tutor": {
+        "headline": "Dela ditt språk med den du älskar",
+        "highlight1": "språk",
+        "highlight2": "älskar"
+      }
+    },
     "languageSelector": {
       "nativeTitle": "What language do you speak?",
       "nativeSubtitle": "18 languages available - we'll show everything in yours",
@@ -1911,7 +1976,10 @@
       "alreadyHaveAccount": "Har du redan ett konto? Logga in",
       "newHere": "Ny här? Skapa ett konto",
       "checkEmail": "Kolla din e-post för bekräftelse!",
-      "continueWithGoogle": "Fortsätt med Google"
+      "continueWithGoogle": "Fortsätt med Google",
+      "continueWithApple": "Fortsätt med Apple",
+      "orContinueWithEmail": "eller fortsätt med e-post",
+      "orSignInWith": "eller logga in med"
     },
     "legal": {
       "terms": "Villkor",
@@ -2162,7 +2230,7 @@
             "feature2": {
               "pain": "Dela din värld, ett ord i taget",
               "feature": "Word Gifts",
-              "desc": "Skicka utvalt ordförråd: \u00abord inför mötet med min mormor\u00bb."
+              "desc": "Skicka utvalt ordförråd: «ord inför mötet med min mormor»."
             },
             "feature3": {
               "pain": "Se vad som faktiskt fastnar",
@@ -2214,6 +2282,18 @@
         "blog": "Blogg",
         "contact": "Kontakt",
         "copyright": "Love Languages · Gjort med ♥ för älskare överallt"
+      }
+    },
+    "testimonials": {
+      "1": {
+        "quote": "This is SO COOL",
+        "name": "Alessia",
+        "context": "Lär sig för sin partner Tomas"
+      },
+      "2": {
+        "quote": "Dude this app is amazing",
+        "name": "Allessandra",
+        "context": "Lär sig för sin pojkvän Miki"
       }
     }
   },

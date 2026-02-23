@@ -52,7 +52,7 @@ const AchievementUnlockModal: React.FC<AchievementUnlockModalProps> = ({
   if (!current) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
       {/* Confetti effect */}
       {showConfetti && (
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -71,7 +71,7 @@ const AchievementUnlockModal: React.FC<AchievementUnlockModalProps> = ({
         </div>
       )}
 
-      <div className="bg-[var(--bg-card)] rounded-[2rem] max-w-sm w-full shadow-2xl overflow-hidden animate-in zoom-in duration-300">
+      <div className="glass-card-solid rounded-[2rem] max-w-sm w-full overflow-hidden animate-in zoom-in duration-300">
         {/* Header */}
         <div className="bg-gradient-to-r from-amber-500 to-orange-500 p-6 text-white text-center relative">
           <div className="absolute top-4 right-4">
@@ -86,7 +86,7 @@ const AchievementUnlockModal: React.FC<AchievementUnlockModalProps> = ({
             {t('achievements.unlocked', 'Achievement Unlocked!')}
           </p>
           <div className="text-6xl mb-2 animate-bounce">{current.icon}</div>
-          <h2 className="text-scale-heading font-black">{current.name}</h2>
+          <h2 className="text-scale-heading font-black font-header">{current.name}</h2>
         </div>
 
         {/* Content */}

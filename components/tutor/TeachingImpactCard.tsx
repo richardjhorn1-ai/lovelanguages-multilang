@@ -33,7 +33,7 @@ const TeachingImpactCard: React.FC<TeachingImpactCardProps> = ({
 
       <div className="relative z-10">
         <h3
-          className="text-scale-micro font-black uppercase tracking-widest mb-3 flex items-center gap-2"
+          className="text-scale-micro font-black font-header uppercase tracking-widest mb-3 flex items-center gap-2"
           style={{ color: tierColor }}
         >
           <ICONS.TrendingUp className="w-4 h-4" />
@@ -46,7 +46,7 @@ const TeachingImpactCard: React.FC<TeachingImpactCardProps> = ({
 
         <div className="grid grid-cols-3 gap-3">
           <div
-            className="text-center p-3 bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)]"
+            className="text-center p-3 glass-card rounded-xl"
             aria-label={`XP Given: ${xpContributed}`}
           >
             <div className="text-scale-heading font-black" style={{ color: tierColor }}>
@@ -57,7 +57,7 @@ const TeachingImpactCard: React.FC<TeachingImpactCardProps> = ({
             </div>
           </div>
           <div
-            className="text-center p-3 bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)]"
+            className="text-center p-3 glass-card rounded-xl"
             aria-label={`Words Mastered: ${wordsMastered}`}
           >
             <div className="text-scale-heading font-black" style={{ color: tierColor }}>
@@ -68,7 +68,7 @@ const TeachingImpactCard: React.FC<TeachingImpactCardProps> = ({
             </div>
           </div>
           <div
-            className="text-center p-3 bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)]"
+            className="text-center p-3 glass-card rounded-xl"
             aria-label={`Success Rate: ${challengeSuccessRate}%`}
           >
             <div className="text-scale-heading font-black" style={{ color: tierColor }}>

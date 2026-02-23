@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { OnboardingStep, NextButton } from '../../OnboardingStep';
+import { OnboardingStep, NextButton, ONBOARDING_OPTION, ONBOARDING_INPUT } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
 import { useLanguage } from '../../../../context/LanguageContext';
 
@@ -63,10 +63,10 @@ export const GoalStep: React.FC<GoalStepProps> = ({
         >
           <ICONS.Target className="w-8 h-8" style={{ color: accentColor }} />
         </div>
-        <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
+        <h1 className="text-3xl font-black text-[var(--text-primary)] mb-3 font-header">
           {t('onboarding.student.goal.title')}
         </h1>
-        <p className="text-gray-500">
+        <p className="text-[var(--text-secondary)]">
           {t('onboarding.student.goal.subtitle', { name: partnerName })}
         </p>
       </div>
@@ -76,20 +76,13 @@ export const GoalStep: React.FC<GoalStepProps> = ({
           <button
             key={option.id}
             onClick={() => setSelected(option.id)}
-            className={`w-full p-4 rounded-2xl border-2 transition-all flex items-center gap-4 ${
-              selected === option.id
-                ? 'border-gray-200'
-                : 'border-gray-100 bg-white hover:border-gray-200'
-            }`}
-            style={selected === option.id ? {
-              borderColor: `${accentColor}60`,
-              backgroundColor: `${accentColor}10`
-            } : undefined}
+            className="w-full p-4 transition-all flex items-center gap-4"
+            style={ONBOARDING_OPTION(selected === option.id, accentColor)}
           >
             <span className="text-2xl">{option.emoji}</span>
             <span
               className="font-bold text-left"
-              style={{ color: selected === option.id ? accentColor : '#374151' }}
+              style={{ color: selected === option.id ? accentColor : 'var(--text-primary)' }}
             >
               {option.label}
             </span>
@@ -105,10 +98,10 @@ export const GoalStep: React.FC<GoalStepProps> = ({
             onChange={(e) => setCustomGoal(e.target.value)}
             placeholder={t('onboarding.student.goal.customPlaceholder', { language: targetName })}
             autoFocus
-            className="w-full px-5 py-4 rounded-xl bg-white border-2 border-gray-100 focus:outline-none text-gray-800 placeholder:text-gray-300 transition-all"
-            style={{ '--tw-ring-color': accentColor } as React.CSSProperties}
+            className="w-full px-5 py-4 focus:outline-none text-[var(--text-primary)] placeholder:text-gray-300 transition-all"
+            style={ONBOARDING_INPUT(!!customGoal.trim(), accentColor)}
             onFocus={(e) => e.target.style.borderColor = `${accentColor}60`}
-            onBlur={(e) => e.target.style.borderColor = '#f3f4f6'}
+            onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,0.4)'}
           />
         </div>
       )}

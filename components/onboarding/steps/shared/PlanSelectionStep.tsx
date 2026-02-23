@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { OnboardingStep, NextButton } from '../../OnboardingStep';
+import { OnboardingStep, NextButton, ONBOARDING_GLASS } from '../../OnboardingStep';
 import { supabase } from '../../../../services/supabase';
 import { ICONS } from '../../../../constants';
 import { useLanguage } from '../../../../context/LanguageContext';
@@ -181,10 +181,10 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
       wide
     >
       <div className="text-center mb-6">
-        <h1 className="text-2xl font-black text-gray-800 mb-2 font-header">
+        <h1 className="text-2xl font-black text-[var(--text-primary)] mb-2 font-header">
           {t('onboarding.plan.title', { name: userName })}
         </h1>
-        <p className="text-gray-600">
+        <p className="text-[var(--text-secondary)]">
           {t('onboarding.plan.subtitle', { language: targetName })}
         </p>
       </div>
@@ -207,10 +207,10 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
         {/* Weekly */}
         <button
           onClick={() => setBillingPeriod('weekly')}
-          className={`flex flex-col items-center px-4 py-2 rounded-xl text-sm font-medium transition-all border-2 ${
+          className={`flex-1 min-w-0 flex flex-col items-center px-3 py-2 rounded-xl text-sm font-medium transition-all border-2 ${
             billingPeriod === 'weekly'
               ? 'bg-[var(--accent-light)] border-[var(--accent-color)] shadow-sm'
-              : 'bg-white/80 border-gray-200 text-gray-500 hover:border-gray-300'
+              : 'bg-white/20 border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--border-color)]'
           }`}
           style={{
             '--accent-color': accentColor,
@@ -225,10 +225,10 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
         {/* Monthly - Featured with glow */}
         <button
           onClick={() => setBillingPeriod('monthly')}
-          className={`flex flex-col items-center px-4 py-2 rounded-xl text-sm font-medium transition-all border-2 ${
+          className={`flex-1 min-w-0 flex flex-col items-center px-3 py-2 rounded-xl text-sm font-medium transition-all border-2 ${
             billingPeriod === 'monthly'
               ? 'text-white shadow-lg'
-              : 'bg-white/80 text-gray-700'
+              : 'bg-white/20 text-[var(--text-primary)]'
           }`}
           style={{
             background: billingPeriod === 'monthly' ? accentColor : undefined,
@@ -245,10 +245,10 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
         {/* Yearly */}
         <button
           onClick={() => setBillingPeriod('yearly')}
-          className={`flex flex-col items-center px-4 py-2 rounded-xl text-sm font-medium transition-all border-2 ${
+          className={`flex-1 min-w-0 flex flex-col items-center px-3 py-2 rounded-xl text-sm font-medium transition-all border-2 ${
             billingPeriod === 'yearly'
               ? 'bg-[var(--accent-light)] border-[var(--accent-color)] shadow-sm'
-              : 'bg-white/80 border-gray-200 text-gray-500 hover:border-gray-300'
+              : 'bg-white/20 border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--border-color)]'
           }`}
           style={{
             '--accent-color': accentColor,
@@ -257,7 +257,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
           } as React.CSSProperties}
         >
           <span className="text-xs opacity-70 mb-0.5">{t('subscription.common.yearlyLabel')}</span>
-          <span className="flex items-center gap-1">
+          <span className="flex flex-wrap items-center justify-center gap-1">
             {t('subscription.common.yearly')}
             <span className="text-xs px-1.5 py-0.5 rounded-full bg-green-500 text-white">
               {t('subscription.common.discount')}
@@ -285,14 +285,15 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
             <button
               key={plan.id}
               onClick={() => setSelectedPlan(plan.id)}
-              className={`relative text-left p-4 rounded-2xl border-2 transition-all ${
-                isSelected
-                  ? 'border-[var(--accent-color)] bg-[var(--accent-light)]'
-                  : 'border-gray-200 bg-white hover:border-gray-300'
-              }`}
+              className="relative text-left p-4 transition-all animate-reveal"
               style={{
-                '--accent-color': accentColor,
-                '--accent-light': `${accentColor}10`,
+                ...ONBOARDING_GLASS,
+                border: isSelected ? `2px solid ${accentColor}60` : '1px solid rgba(255, 255, 255, 0.3)',
+                backgroundColor: isSelected ? `${accentColor}0D` : 'rgba(255, 255, 255, 0.18)',
+                boxShadow: isSelected
+                  ? `0 4px 20px -4px ${accentColor}25`
+                  : '0 8px 32px -8px rgba(0, 0, 0, 0.06)',
+                animationDelay: `${0.1 * plans.indexOf(plan)}s`,
               } as React.CSSProperties}
             >
               {/* Popular Badge */}
@@ -312,7 +313,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
                   {(plan as any).isTrial ? (
                     <>
                       <div className="text-2xl md:text-3xl font-bold text-gray-900">7</div>
-                      <div className="text-xs text-gray-500">
+                      <div className="text-xs text-[var(--text-secondary)]">
                         {t('subscription.common.days', { defaultValue: 'days' })}
                       </div>
                       <div className="text-xs text-green-600 mt-1">
@@ -322,7 +323,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
                   ) : (
                     <>
                       <div className="text-2xl md:text-3xl font-bold text-gray-900">${price}</div>
-                      <div className="text-xs text-gray-500">
+                      <div className="text-xs text-[var(--text-secondary)]">
                         /{periodLabel}
                       </div>
                       {billingPeriod === 'yearly' && (
@@ -347,14 +348,14 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
                       </div>
                     )}
                   </div>
-                  <p className="text-sm text-gray-500 mb-3">{plan.tagline}</p>
+                  <p className="text-sm text-[var(--text-secondary)] mb-3">{plan.tagline}</p>
 
                   <ul className="space-y-1 md:text-left">
                     {plan.features.slice(0, 4).map((feature, i) => {
                       const featureText = typeof feature === 'string' ? feature : feature.text;
                       const included = typeof feature === 'string' ? true : feature.included !== false;
                       return (
-                        <li key={i} className={`flex items-center gap-2 text-sm ${included ? 'text-gray-600' : 'text-gray-400'}`}>
+                        <li key={i} className={`flex items-center gap-2 text-sm ${included ? 'text-[var(--text-secondary)]' : 'text-gray-400'}`}>
                           {included ? (
                             <ICONS.Check className="w-4 h-4 flex-shrink-0" style={{ color: accentColor }} />
                           ) : (

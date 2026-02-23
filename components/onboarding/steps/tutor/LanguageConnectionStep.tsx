@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { OnboardingStep, NextButton } from '../../OnboardingStep';
+import { OnboardingStep, NextButton, ONBOARDING_OPTION } from '../../OnboardingStep';
 import { useLanguage } from '../../../../context/LanguageContext';
 
 interface LanguageConnectionStepProps {
@@ -42,10 +42,10 @@ export const LanguageConnectionStep: React.FC<LanguageConnectionStepProps> = ({
         <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style={{ backgroundColor: `${accentColor}15` }}>
           <span className="text-3xl">{targetFlag}</span>
         </div>
-        <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
+        <h1 className="text-3xl font-black text-[var(--text-primary)] mb-3 font-header">
           {t('onboarding.tutor.connection.title', { language: targetName })}
         </h1>
-        <p className="text-gray-500">
+        <p className="text-[var(--text-secondary)]">
           {t('onboarding.tutor.connection.subtitle')}
         </p>
       </div>
@@ -55,19 +55,15 @@ export const LanguageConnectionStep: React.FC<LanguageConnectionStepProps> = ({
           <button
             key={option.id}
             onClick={() => setSelected(option.id)}
-            className={`w-full p-4 rounded-2xl border-2 transition-all flex items-center gap-4 ${
-              selected !== option.id
-                ? 'border-gray-100 bg-white hover:border-gray-200'
-                : ''
-            }`}
-            style={selected === option.id ? { borderColor: `${accentColor}60`, backgroundColor: `${accentColor}10` } : undefined}
+            className="w-full p-4 transition-all flex items-center gap-4"
+            style={ONBOARDING_OPTION(selected === option.id, accentColor)}
           >
             <span className="text-2xl">{option.emoji}</span>
             <div className="text-left">
-              <span className="font-bold block" style={{ color: selected === option.id ? accentColor : '#374151' }}>
+              <span className="font-bold block" style={{ color: selected === option.id ? accentColor : 'var(--text-primary)' }}>
                 {option.label}
               </span>
-              <span className="text-scale-label text-gray-500">{option.description}</span>
+              <span className="text-scale-label text-[var(--text-secondary)]">{option.description}</span>
             </div>
           </button>
         ))}

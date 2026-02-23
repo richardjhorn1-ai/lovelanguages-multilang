@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
+import { ICONS } from '../constants';
 
 interface LowBalanceWarningProps {
   remaining: number;
@@ -50,14 +51,14 @@ const LowBalanceWarning: React.FC<LowBalanceWarningProps> = ({
       className={`fixed bottom-4 right-4 max-w-sm p-4 rounded-2xl shadow-lg z-40 transition-all duration-300 ${
         isUrgent
           ? 'bg-amber-50 dark:bg-amber-900/30 border-2 border-amber-300 dark:border-amber-600'
-          : 'bg-[var(--bg-card)] border border-[var(--border-color)]'
+          : 'glass-card'
       }`}
       role="alert"
       aria-live="polite"
     >
       <div className="flex items-start gap-3">
-        <span className="text-2xl flex-shrink-0">
-          {isUrgent ? '⚠️' : '💡'}
+        <span className="flex-shrink-0">
+          {isUrgent ? <ICONS.AlertTriangle className="w-6 h-6 text-amber-500" /> : <ICONS.Lightbulb className="w-6 h-6 text-[var(--accent-color)]" />}
         </span>
 
         <div className="flex-1 min-w-0">
@@ -90,9 +91,7 @@ const LowBalanceWarning: React.FC<LowBalanceWarningProps> = ({
           className="flex-shrink-0 p-1 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
           aria-label={t('common.close')}
         >
-          <svg className="w-4 h-4 text-[var(--text-secondary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-          </svg>
+          <ICONS.X className="w-4 h-4 text-[var(--text-secondary)]" />
         </button>
       </div>
     </div>

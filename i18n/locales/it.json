@@ -667,6 +667,10 @@
     }
   },
   "onboarding": {
+    "nativeLanguage": {
+      "title": "Che lingua parli?",
+      "subtitle": "Ti mostreremo tutto nella tua lingua"
+    },
     "step": {
       "back": "Indietro",
       "counter": "{{current}} di {{total}}",
@@ -758,6 +762,50 @@
         "retry": "Retry"
       }
     },
+    "role": {
+      "title": "Voglio...",
+      "subtitle": "Scegli come vuoi usare Love Languages",
+      "learn": "Imparare una lingua",
+      "learnDesc": "Impara la lingua di qualcuno che ami",
+      "teach": "Insegnare una lingua",
+      "teachDesc": "Aiuta qualcuno che ami a imparare la tua lingua"
+    },
+    "names": {
+      "title": "Rendiamolo personale",
+      "studentSubtitle": "Personalizzeremo la tua esperienza di apprendimento",
+      "tutorSubtitle": "Personalizzeremo l'esperienza di insegnamento",
+      "yourName": "Il tuo nome",
+      "partnerLabel": "Per chi stai imparando?",
+      "learnerLabel": "A chi insegnerai?",
+      "partnerPlaceholder": "Il suo nome",
+      "learnerPlaceholder": "Nome dello studente"
+    },
+    "language": {
+      "studentTitle": "Che lingua parla qualcuno che ami?",
+      "tutorTitle": "Che lingua vuoi insegnare?",
+      "studentSubtitle": "Ti aiuteremo a imparare la sua lingua",
+      "tutorSubtitle": "Scegli la lingua che insegnerai",
+      "showAll": "Mostra tutte le lingue",
+      "showLess": "Mostra le popolari"
+    },
+    "personalization": {
+      "title": "Fallo tuo",
+      "subtitle": "Aiutaci a personalizzare la tua esperienza",
+      "vibeLabel": "L'atmosfera della tua relazione",
+      "timeLabel": "Tempo di pratica giornaliero",
+      "priorLabel": "Hai già provato {{language}}?"
+    },
+    "tutorPersonalization": {
+      "title": "Parlaci di te",
+      "subtitle": "Aiutaci a personalizzare l'esperienza di insegnamento",
+      "relationLabel": "{{name}} è il tuo/la tua...",
+      "connectionLabel": "Il tuo legame con {{language}}",
+      "originLabel": "Da dove vieni? (opzionale)",
+      "originPlaceholder": "Città, paese..."
+    },
+    "errors": {
+      "title": "Qualcosa è andato storto"
+    },
     "student": {
       "start": {
         "title": "Pronto/a a iniziare, {{name}}?",
@@ -767,6 +815,7 @@
         "feature2": "Il tuo Diario d'Amore per il vocabolario",
         "feature3": "Giochi per praticare e padroneggiare le parole",
         "feature4": "Monitoraggio progressi e test di livello",
+        "activating": "Avvio della tua prova...",
         "button": "Andiamo! 🚀"
       },
       "vibe": {
@@ -877,6 +926,7 @@
         "feature2": "Segui i progressi di {{learnerName}}",
         "feature3": "Invia parole regalo per sorprenderlo/a",
         "feature4": "Collega gli account per vedere il suo percorso",
+        "activating": "Avvio della tua prova...",
         "button": "Inizia ad aiutare {{learnerName}}! 🎯"
       },
       "relation": {
@@ -1863,6 +1913,21 @@
     "timesUp": "Tempo scaduto!"
   },
   "hero": {
+    "headline": "Impara la lingua di qualcuno che ami.",
+    "subtitle": "L'unica app di lingue pensata per le coppie",
+    "swipeForMore": "Scorri per scoprire di più",
+    "landing": {
+      "student": {
+        "headline": "Impara la lingua della persona che ami",
+        "highlight1": "lingua",
+        "highlight2": "ami"
+      },
+      "tutor": {
+        "headline": "Condividi la tua lingua con la persona che ami",
+        "highlight1": "lingua",
+        "highlight2": "ami"
+      }
+    },
     "languageSelector": {
       "nativeTitle": "What language do you speak?",
       "nativeSubtitle": "18 languages available - we'll show everything in yours",
@@ -1911,7 +1976,10 @@
       "alreadyHaveAccount": "Hai già un account? Accedi",
       "newHere": "Nuovo/a qui? Crea un account",
       "checkEmail": "Controlla la tua email per la conferma!",
-      "continueWithGoogle": "Continua con Google"
+      "continueWithGoogle": "Continua con Google",
+      "continueWithApple": "Continua con Apple",
+      "orContinueWithEmail": "o continua con email",
+      "orSignInWith": "o accedi con"
     },
     "legal": {
       "terms": "Termini",
@@ -2214,6 +2282,18 @@
         "blog": "Blog",
         "contact": "Contatti",
         "copyright": "Love Languages · Fatto con ♥ per gli innamorati di tutto il mondo"
+      }
+    },
+    "testimonials": {
+      "1": {
+        "quote": "This is SO COOL",
+        "name": "Alessia",
+        "context": "Impara per il suo partner Tomas"
+      },
+      "2": {
+        "quote": "Dude this app is amazing",
+        "name": "Allessandra",
+        "context": "Impara per il suo ragazzo Miki"
       }
     }
   },

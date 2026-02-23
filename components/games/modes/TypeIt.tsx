@@ -170,7 +170,7 @@ export const TypeIt: React.FC<TypeItProps> = ({
 
   return (
     <div
-      className={`bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)] ${
+      className={`glass-card rounded-[2.5rem] p-8 ${
         localShake || showIncorrectShake ? 'animate-shake' : ''
       }`}
     >
@@ -193,11 +193,11 @@ export const TypeIt: React.FC<TypeItProps> = ({
       {/* Prompt */}
       <div className="text-center mb-2">
         <div className="flex items-center justify-center gap-2">
-          <h3 className="text-3xl font-black text-[var(--text-primary)]">{prompt}</h3>
+          <h3 className="text-3xl font-black font-header text-[var(--text-primary)]">{prompt}</h3>
           {isTargetToNative && (
             <button
               onClick={() => speak(prompt, targetLanguage)}
-              className="p-2 rounded-full hover:bg-[var(--bg-secondary)] transition-colors"
+              className="p-2 rounded-full hover:bg-white/55 dark:hover:bg-white/12 transition-colors"
               title={t('play.flashcard.listen')}
             >
               <ICONS.Volume2 className="w-5 h-5 text-[var(--text-secondary)]" />

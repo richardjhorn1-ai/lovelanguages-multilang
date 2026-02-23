@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { OnboardingStep, NextButton, SkipButton } from '../../OnboardingStep';
+import { OnboardingStep, NextButton, SkipButton, ONBOARDING_INPUT } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
 import { useLanguage } from '../../../../context/LanguageContext';
 import { LANGUAGE_CONFIGS } from '../../../../constants/language-config';
@@ -38,13 +38,13 @@ export const DreamPhraseStep: React.FC<DreamPhraseStepProps> = ({
       accentColor={accentColor}
     >
       <div className="text-center mb-8">
-        <div className="w-16 h-16 rounded-full bg-rose-100 flex items-center justify-center mx-auto mb-6">
-          <ICONS.Heart className="w-8 h-8 text-rose-500" />
+        <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style={{ backgroundColor: `${accentColor}15` }}>
+          <ICONS.Heart className="w-8 h-8" style={{ color: accentColor }} />
         </div>
-        <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
+        <h1 className="text-3xl font-black text-[var(--text-primary)] mb-3 font-header">
           {t('onboarding.tutor.dreamPhrase.title')}
         </h1>
-        <p className="text-gray-500">
+        <p className="text-[var(--text-secondary)]">
           {t('onboarding.tutor.dreamPhrase.subtitle', { name: learnerName, language: targetName })}
         </p>
       </div>
@@ -56,7 +56,10 @@ export const DreamPhraseStep: React.FC<DreamPhraseStepProps> = ({
           onChange={(e) => setPhrase(e.target.value)}
           placeholder={t('onboarding.tutor.dreamPhrase.placeholder')}
           autoFocus
-          className="w-full px-5 py-4 rounded-xl bg-white border-2 border-gray-100 focus:border-rose-200 focus:outline-none text-gray-800 placeholder:text-gray-300 transition-all text-center"
+          className="w-full px-5 py-4 focus:outline-none text-[var(--text-primary)] placeholder:text-gray-300 transition-all text-center"
+          style={ONBOARDING_INPUT(!!phrase.trim(), accentColor)}
+          onFocus={(e) => e.target.style.borderColor = `${accentColor}60`}
+          onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,0.4)'}
         />
         <p className="text-scale-label text-gray-400 mt-2 text-center">
           {t('onboarding.tutor.dreamPhrase.note')}

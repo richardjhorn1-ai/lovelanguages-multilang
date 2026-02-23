@@ -43,7 +43,7 @@ export const TrialReminderNotification: React.FC<Props> = ({ daysRemaining, hour
   const getMessage = () => {
     if (daysRemaining === 0) {
       return {
-        emoji: '🚨',
+        emoji: <ICONS.AlertTriangle className="w-6 h-6 text-red-500" />,
         title: t('trial.reminder.lastDay.title', { defaultValue: 'Last day of your trial!' }),
         subtitle: hoursRemaining && hoursRemaining > 0
           ? t('trial.reminder.lastDay.hours', { hours: hoursRemaining, defaultValue: `Only ${hoursRemaining} hours left` })
@@ -52,21 +52,21 @@ export const TrialReminderNotification: React.FC<Props> = ({ daysRemaining, hour
     }
     if (daysRemaining === 1) {
       return {
-        emoji: '⚠️',
+        emoji: <ICONS.AlertTriangle className="w-6 h-6 text-amber-500" />,
         title: t('trial.reminder.oneDay.title', { defaultValue: '1 day left in your trial' }),
         subtitle: t('trial.reminder.oneDay.subtitle', { defaultValue: "Don't lose your progress!" })
       };
     }
     if (daysRemaining === 3) {
       return {
-        emoji: '💕',
+        emoji: <ICONS.Heart className="w-6 h-6 text-[var(--accent-color)]" />,
         title: t('trial.reminder.threeDays.title', { defaultValue: '3 days left in your trial' }),
         subtitle: t('trial.reminder.threeDays.subtitle', { defaultValue: 'Subscribe to continue learning together' })
       };
     }
     // 5 days
     return {
-      emoji: '⏰',
+      emoji: <ICONS.Clock className="w-6 h-6 text-[var(--accent-color)]" />,
       title: t('trial.reminder.fiveDays.title', { defaultValue: '5 days left in your trial' }),
       subtitle: t('trial.reminder.fiveDays.subtitle', { defaultValue: 'Enjoying learning together? Keep it going!' })
     };
@@ -85,14 +85,14 @@ export const TrialReminderNotification: React.FC<Props> = ({ daysRemaining, hour
       >
         <button
           onClick={handleDismiss}
-          className="absolute top-2 right-2 text-gray-400 hover:text-gray-600"
+          className="absolute top-2 right-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
           aria-label={t('common.dismiss', { defaultValue: 'Dismiss' })}
         >
           <ICONS.X className="w-4 h-4" />
         </button>
 
         <div className="flex items-start gap-3 pr-6">
-          <span className="text-2xl">{msg.emoji}</span>
+          <span className="flex-shrink-0">{msg.emoji}</span>
           <div>
             <p className="font-bold" style={{ color: 'var(--text-primary)' }}>
               {msg.title}

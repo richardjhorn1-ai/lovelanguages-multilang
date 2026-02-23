@@ -136,10 +136,10 @@ export const TutorQuickFire: React.FC<TutorQuickFireProps> = ({
   // Start screen
   if (!started) {
     return (
-      <div className="h-full flex items-center justify-center p-4 bg-[var(--bg-primary)]">
-        <div className="bg-[var(--bg-card)] p-8 rounded-[2rem] shadow-xl text-center max-w-sm w-full">
-          <div className="text-6xl mb-4">⚡</div>
-          <h2 className="text-2xl font-black text-[var(--text-primary)] mb-2">
+      <div className="h-full flex items-center justify-center p-4">
+        <div className="glass-card p-8 rounded-[2rem] text-center max-w-sm w-full">
+          <div className="mb-4"><ICONS.Zap className="w-16 h-16 text-amber-500 mx-auto" /></div>
+          <h2 className="text-2xl font-black font-header text-[var(--text-primary)] mb-2">
             {t('tutorGames.quickFireGame.title')}
           </h2>
           <p className="text-[var(--text-secondary)] text-scale-body mb-6">
@@ -171,7 +171,7 @@ export const TutorQuickFire: React.FC<TutorQuickFireProps> = ({
 
   // Active game
   return (
-    <div className="h-full flex flex-col p-4 bg-[var(--bg-primary)]">
+    <div className="h-full flex flex-col p-4">
       <div className="max-w-md mx-auto w-full">
         {/* Timer Bar */}
         <div className="h-3 bg-[var(--bg-primary)] rounded-full mb-4 overflow-hidden">

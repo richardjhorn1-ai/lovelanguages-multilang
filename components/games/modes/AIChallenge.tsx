@@ -399,7 +399,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
   if (phase === 'select') {
     return (
       <div className="w-full">
-        <h2 className="text-scale-caption font-black uppercase tracking-widest text-[var(--text-secondary)] text-center mb-4">
+        <h2 className="text-scale-caption font-black font-header uppercase tracking-widest text-[var(--text-secondary)] text-center mb-4">
           {t('play.aiChallenge.chooseMode')}
         </h2>
 
@@ -456,7 +456,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
           {/* Session Length */}
           {selectedMode && (
             <div className="w-32 shrink-0 flex flex-col">
-              <h3 className="text-[9px] font-black uppercase tracking-widest text-[var(--text-secondary)] text-center mb-2">
+              <h3 className="text-[9px] font-black font-header uppercase tracking-widest text-[var(--text-secondary)] text-center mb-2">
                 {t('play.aiChallenge.length')}
               </h3>
               <div className="flex-1 flex flex-col gap-2">
@@ -521,15 +521,15 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
             className="relative w-full aspect-[4/5] cursor-pointer perspective-1000"
           >
             <div className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${flipped ? 'rotate-y-180' : ''}`}>
-              <div className="absolute inset-0 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center shadow-lg backface-hidden">
+              <div className="absolute inset-0 glass-card rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center backface-hidden">
                 <span className="text-[10px] uppercase tracking-widest text-[var(--text-secondary)] font-black mb-8">
                   {targetLanguageName.toUpperCase()}
                 </span>
                 <div className="flex items-center gap-3">
-                  <h3 className="text-4xl font-black text-[var(--text-primary)]">{currentQuestion.word}</h3>
+                  <h3 className="text-4xl font-black font-header text-[var(--text-primary)]">{currentQuestion.word}</h3>
                   <button
                     onClick={(e) => { e.stopPropagation(); speak(currentQuestion.word, targetLanguage); }}
-                    className="p-2 rounded-full hover:bg-[var(--bg-secondary)] transition-colors"
+                    className="p-2 rounded-full hover:bg-white/55 dark:hover:bg-white/12 transition-colors"
                     title={t('play.flashcard.listen')}
                   >
                     <ICONS.Volume2 className="w-6 h-6 text-[var(--text-secondary)]" />
@@ -546,7 +546,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
                 <span className="text-[10px] uppercase tracking-widest text-white/50 font-black mb-8">
                   {nativeLanguageName.toUpperCase()}
                 </span>
-                <h3 className="text-4xl font-black">{currentQuestion.translation}</h3>
+                <h3 className="text-4xl font-black font-header">{currentQuestion.translation}</h3>
                 <div className="mt-12 grid grid-cols-2 gap-3 w-full">
                   <button
                     onClick={(e) => { e.stopPropagation(); handleFlashcardResponse(false); }}
@@ -569,7 +569,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
 
         {/* Multiple Choice question */}
         {currentQuestion.type === 'multiple_choice' && currentQuestion.options && (
-          <div className={`bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)] ${showShake ? 'animate-shake' : ''}`}>
+          <div className={`glass-card rounded-[2.5rem] p-8 ${showShake ? 'animate-shake' : ''}`}>
             <span
               className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6"
               style={{ backgroundColor: `${accentColor}15`, color: accentColor }}
@@ -577,12 +577,12 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
               {targetLanguageName} → {nativeLanguageName}
             </span>
             <div className="flex items-center justify-center gap-2 mb-8">
-              <h3 className="text-3xl font-black text-[var(--text-primary)] text-center">
+              <h3 className="text-3xl font-black font-header text-[var(--text-primary)] text-center">
                 {currentQuestion.word}
               </h3>
               <button
                 onClick={() => speak(currentQuestion.word, targetLanguage)}
-                className="p-2 rounded-full hover:bg-[var(--bg-secondary)] transition-colors"
+                className="p-2 rounded-full hover:bg-white/55 dark:hover:bg-white/12 transition-colors"
                 title={t('play.flashcard.listen')}
               >
                 <ICONS.Volume2 className="w-5 h-5 text-[var(--text-secondary)]" />
@@ -626,7 +626,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
 
         {/* Type It question */}
         {currentQuestion.type === 'type_it' && (
-          <div className={`bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)] ${showShake ? 'animate-shake' : ''}`}>
+          <div className={`glass-card rounded-[2.5rem] p-8 ${showShake ? 'animate-shake' : ''}`}>
             <span
               className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6"
               style={{ backgroundColor: `${accentColor}15`, color: accentColor }}
@@ -634,12 +634,12 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
               {targetLanguageName} → {nativeLanguageName}
             </span>
             <div className="flex items-center justify-center gap-2 mb-2">
-              <h3 className="text-3xl font-black text-[var(--text-primary)] text-center">
+              <h3 className="text-3xl font-black font-header text-[var(--text-primary)] text-center">
                 {currentQuestion.word}
               </h3>
               <button
                 onClick={() => speak(currentQuestion.word, targetLanguage)}
-                className="p-2 rounded-full hover:bg-[var(--bg-secondary)] transition-colors"
+                className="p-2 rounded-full hover:bg-white/55 dark:hover:bg-white/12 transition-colors"
                 title={t('play.flashcard.listen')}
               >
                 <ICONS.Volume2 className="w-5 h-5 text-[var(--text-secondary)]" />

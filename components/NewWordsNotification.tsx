@@ -27,7 +27,7 @@ const NewWordsNotification: React.FC<NewWordsNotificationProps> = ({ words, isEx
   if (isExtracting && words.length === 0) {
     return (
       <div className="fixed top-20 right-4 z-50 animate-in slide-in-from-right fade-in duration-300">
-        <div className="bg-[var(--bg-card)] rounded-2xl shadow-xl border border-[var(--accent-border)] overflow-hidden">
+        <div className="glass-card rounded-2xl overflow-hidden">
           <div className="px-4 py-3 bg-[var(--accent-light)] flex items-center gap-2">
             <div className="w-4 h-4 border-2 border-[var(--accent-color)] border-t-transparent rounded-full animate-spin" />
             <span className="text-scale-label font-bold text-[var(--text-primary)]">
@@ -45,7 +45,7 @@ const NewWordsNotification: React.FC<NewWordsNotificationProps> = ({ words, isEx
       onMouseEnter={() => setIsExpanded(true)}
       onMouseLeave={() => setIsExpanded(false)}
     >
-      <div className={`bg-[var(--bg-card)] rounded-2xl shadow-xl border border-[var(--accent-border)] overflow-hidden transition-all duration-300 ${isExpanded ? 'w-64' : 'w-auto'}`}>
+      <div className={`glass-card rounded-2xl overflow-hidden transition-all duration-300 ${isExpanded ? 'w-64' : 'w-auto'}`}>
         {/* Header - always visible */}
         <div className="px-4 py-3 bg-[var(--accent-light)] flex items-center gap-2 cursor-pointer" onClick={() => setIsExpanded(!isExpanded)}>
           <div className="relative">

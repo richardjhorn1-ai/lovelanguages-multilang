@@ -144,12 +144,12 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
   // Loading state
   if (state === 'loading') {
     return (
-      <div className="h-full flex flex-col items-center justify-center p-8 bg-[var(--bg-primary)]">
-        <div className="bg-[var(--bg-card)] p-12 rounded-[3rem] shadow-lg text-center max-w-md w-full border border-[var(--border-color)]">
+      <div className="h-full flex flex-col items-center justify-center p-8">
+        <div className="glass-card p-12 rounded-[3rem] text-center max-w-md w-full">
           <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[var(--accent-light)] flex items-center justify-center">
             <ICONS.Sparkles className="w-8 h-8 text-[var(--accent-color)] animate-pulse" />
           </div>
-          <h2 className="text-xl font-black text-[var(--text-primary)] mb-2">{t('levelTest.preparing')}</h2>
+          <h2 className="text-xl font-black font-header text-[var(--text-primary)] mb-2">{t('levelTest.preparing')}</h2>
           <p className="text-[var(--text-secondary)] text-scale-label">{t('levelTest.generatingQuestions')}</p>
         </div>
       </div>
@@ -160,12 +160,12 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
   if (state === 'ready') {
     if (error) {
       return (
-        <div className="h-full flex flex-col items-center justify-center p-8 bg-[var(--bg-primary)]">
-          <div className="bg-[var(--bg-card)] p-12 rounded-[3rem] shadow-lg text-center max-w-md w-full border border-[var(--border-color)]">
+        <div className="h-full flex flex-col items-center justify-center p-8">
+          <div className="glass-card p-12 rounded-[3rem] text-center max-w-md w-full">
             <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-red-50 dark:bg-red-900/20 flex items-center justify-center">
               <ICONS.X className="w-8 h-8 text-red-400" />
             </div>
-            <h2 className="text-xl font-black text-[var(--text-primary)] mb-2">{t('levelTest.oops')}</h2>
+            <h2 className="text-xl font-black font-header text-[var(--text-primary)] mb-2">{t('levelTest.oops')}</h2>
             <p className="text-[var(--text-secondary)] text-scale-label mb-6">{error}</p>
             <button
               onClick={() => navigate('/progress')}
@@ -179,8 +179,8 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
     }
 
     return (
-      <div className="h-full flex flex-col items-center justify-center p-8 bg-[var(--bg-primary)]">
-        <div className="bg-[var(--bg-card)] p-12 rounded-[3rem] shadow-xl text-center max-w-md w-full border border-[var(--border-color)]">
+      <div className="h-full flex flex-col items-center justify-center p-8">
+        <div className="glass-card p-12 rounded-[3rem] text-center max-w-md w-full">
           <div
             className="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center"
             style={{ backgroundColor: `${tierColor}15` }}
@@ -189,7 +189,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
           </div>
 
           <p className="text-[10px] uppercase tracking-widest text-[var(--text-secondary)] font-black mb-2">{t('levelTest.levelUpTest')}</p>
-          <h2 className="text-2xl font-black text-[var(--text-primary)] mb-1">{themeName}</h2>
+          <h2 className="text-2xl font-black font-header text-[var(--text-primary)] mb-1">{themeName}</h2>
           <p className="text-scale-label text-[var(--text-secondary)] mb-6">{translateLevel(fromLevel, t)} → {translateLevel(toLevel, t)}</p>
 
           <div className="bg-[var(--bg-primary)] rounded-2xl p-4 mb-6 text-left">
@@ -224,8 +224,8 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
     const passed = results.passed;
 
     return (
-      <div className="h-full flex flex-col items-center p-8 bg-[var(--bg-primary)] overflow-y-auto">
-        <div className="bg-[var(--bg-card)] p-12 rounded-[3rem] shadow-xl text-center max-w-md w-full border border-[var(--border-color)]">
+      <div className="h-full flex flex-col items-center p-8 overflow-y-auto">
+        <div className="glass-card p-12 rounded-[3rem] text-center max-w-md w-full">
           <div
             className={`w-24 h-24 mx-auto mb-6 rounded-full flex items-center justify-center ${
               passed ? 'bg-green-50 dark:bg-green-900/20' : 'bg-amber-50 dark:bg-amber-900/20'
@@ -238,7 +238,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
             )}
           </div>
 
-          <h2 className="text-3xl font-black text-[var(--text-primary)] mb-2">
+          <h2 className="text-3xl font-black font-header text-[var(--text-primary)] mb-2">
             {passed ? t('levelTest.congratulations') : t('levelTest.keepPracticing')}
           </h2>
 
@@ -303,7 +303,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
   // In progress state
   if (state === 'in_progress' || state === 'submitting') {
     return (
-      <div className="h-full flex flex-col p-6 bg-[var(--bg-primary)]">
+      <div className="h-full flex flex-col p-6">
         {/* Header */}
         <div className="max-w-xl mx-auto w-full mb-6">
           <div className="flex items-center justify-between mb-4">
@@ -330,7 +330,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
 
         {/* Question Card */}
         <div className="flex-1 flex items-center justify-center">
-          <div className="bg-[var(--bg-card)] p-8 rounded-[2.5rem] shadow-lg max-w-xl w-full border border-[var(--border-color)]">
+          <div className="glass-card p-8 rounded-[2.5rem] max-w-xl w-full">
             {/* Question type badge */}
             <div className="flex justify-between items-center mb-6">
               <span
@@ -349,7 +349,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
             </div>
 
             {/* Question text */}
-            <h3 className="text-xl font-bold text-[var(--text-primary)] mb-8 leading-relaxed">
+            <h3 className="text-xl font-bold font-header text-[var(--text-primary)] mb-8 leading-relaxed">
               {currentQuestion?.question}
             </h3>
 
@@ -400,7 +400,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
               {currentIndex > 0 && (
                 <button
                   onClick={prevQuestion}
-                  className="px-6 py-3 rounded-xl font-bold text-[var(--text-primary)] bg-[var(--bg-primary)] text-scale-label"
+                  className="px-6 py-3 rounded-xl font-bold text-[var(--text-primary)] glass-card text-scale-label"
                 >
                   {t('levelTest.back')}
                 </button>

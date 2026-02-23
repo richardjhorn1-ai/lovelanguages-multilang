@@ -208,9 +208,9 @@ export const QuickFire: React.FC<QuickFireProps> = ({
   if (phase === 'ready') {
     return (
       <div className="w-full text-center">
-        <div className="bg-[var(--bg-card)] rounded-[2rem] p-8 shadow-lg border border-[var(--border-color)] max-w-md mx-auto">
-          <div className="text-6xl mb-4">⚡</div>
-          <h2 className="text-2xl font-black text-[var(--text-primary)] mb-2">
+        <div className="glass-card rounded-[2rem] p-8 max-w-md mx-auto">
+          <div className="mb-4"><ICONS.Zap className="w-16 h-16 text-amber-500 mx-auto" /></div>
+          <h2 className="text-2xl font-black font-header text-[var(--text-primary)] mb-2">
             {t('play.quickFire.title')}
           </h2>
           <p className="text-[var(--text-secondary)] mb-6">
@@ -218,7 +218,7 @@ export const QuickFire: React.FC<QuickFireProps> = ({
           </p>
           <div className="bg-amber-50 dark:bg-amber-900/30 p-4 rounded-2xl mb-6">
             <p className="text-scale-heading font-bold text-amber-600 dark:text-amber-400">
-              🔥 {t('play.quickFire.wordsAvailable', { count: words.length })}
+              <ICONS.Zap className="w-5 h-5 inline-block text-amber-600 dark:text-amber-400" /> {t('play.quickFire.wordsAvailable', { count: words.length })}
             </p>
             <p className="text-scale-label text-[var(--text-secondary)] mt-1">
               {t('play.quickFire.upTo20')}

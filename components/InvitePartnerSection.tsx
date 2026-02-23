@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { useTheme } from '../context/ThemeContext';
+import { ICONS } from '../constants';
 
 interface InvitePartnerSectionProps {
   userId: string;
@@ -138,9 +139,9 @@ const InvitePartnerSection: React.FC<InvitePartnerSectionProps> = ({
       }}
     >
       <div className="flex items-center gap-3 mb-4">
-        <span className="text-3xl">💕</span>
+        <ICONS.Heart className="w-8 h-8 text-[var(--accent-color)]" />
         <div>
-          <h3 className="font-bold text-[var(--text-primary)]">{t('invite.title')}</h3>
+          <h3 className="font-bold font-header text-[var(--text-primary)]">{t('invite.title')}</h3>
           <p className="text-scale-label text-[var(--text-secondary)]">
             {t('invite.subtitle')}
           </p>
@@ -155,7 +156,7 @@ const InvitePartnerSection: React.FC<InvitePartnerSectionProps> = ({
 
       {inviteLink ? (
         <div className="space-y-4">
-          <div className="bg-white dark:bg-[var(--bg-primary)] rounded-xl p-4">
+          <div className="glass-card rounded-xl p-4">
             <p className="text-scale-caption text-[var(--text-secondary)] mb-2">{t('invite.shareLinkLabel')}</p>
             <div className="flex gap-2">
               <input

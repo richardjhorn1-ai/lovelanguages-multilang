@@ -54,8 +54,8 @@ export const DemoFlashcard: React.FC<DemoFlashcardProps> = ({
           className="absolute inset-0 rounded-[2rem] p-8 flex flex-col items-center justify-center text-center shadow-lg border"
           style={{
             backfaceVisibility: 'hidden',
-            backgroundColor: '#ffffff',
-            borderColor: '#e5e7eb',
+            backgroundColor: 'var(--bg-card)',
+            borderColor: 'var(--border-color)',
           }}
         >
           <span
@@ -64,7 +64,7 @@ export const DemoFlashcard: React.FC<DemoFlashcardProps> = ({
           >
             {targetName.toUpperCase()}
           </span>
-          <h3 className="text-3xl font-black text-[#1a1a2e]">{word.word}</h3>
+          <h3 className="text-3xl font-black font-header text-[var(--text-primary)]">{word.word}</h3>
           <p className="mt-8 text-gray-400 text-[9px] uppercase font-black tracking-widest animate-pulse">
             {t('demoFlashcard.tapToReveal')}
           </p>
@@ -82,7 +82,7 @@ export const DemoFlashcard: React.FC<DemoFlashcardProps> = ({
           <span className="text-[9px] uppercase tracking-widest text-white/60 font-black mb-6">
             {nativeName.toUpperCase()}
           </span>
-          <h3 className="text-2xl font-black">{word.translation}</h3>
+          <h3 className="text-2xl font-black font-header">{word.translation}</h3>
           <div className="mt-8 grid grid-cols-2 gap-2 w-full">
             <button
               onClick={(e) => { e.stopPropagation(); handleResponse(false); }}

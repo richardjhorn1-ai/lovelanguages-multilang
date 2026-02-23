@@ -51,10 +51,10 @@ export const PhotoStep: React.FC<PhotoStepProps> = ({
           />
         </div>
 
-        <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
+        <h1 className="text-3xl font-black text-[var(--text-primary)] mb-3 font-header">
           {t('onboarding.student.photo.title')}
         </h1>
-        <p className="text-gray-500 mb-2">
+        <p className="text-[var(--text-secondary)] mb-2">
           {uploadedUrl
             ? t('onboarding.student.photo.subtitleWithPhoto')
             : t('onboarding.student.photo.subtitleNoPhoto')

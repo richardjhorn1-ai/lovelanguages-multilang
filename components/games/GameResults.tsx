@@ -38,11 +38,11 @@ const GameResults: React.FC<GameResultsProps> = ({
   ) || [];
 
   return (
-    <div className="h-full flex flex-col items-center justify-center p-8 bg-[var(--bg-primary)]">
-      <div className="bg-[var(--bg-card)] p-8 md:p-12 rounded-[3rem] shadow-2xl text-center max-w-sm w-full border border-[var(--border-color)]">
-        <h2 className="text-3xl font-black text-[var(--text-primary)] mb-2">{t('gameResults.greatJob')}</h2>
-        <div className="text-6xl my-8">
-          {correct >= incorrect ? '🏆' : '💪'}
+    <div className="h-full flex flex-col items-center justify-center p-8">
+      <div className="glass-card p-8 md:p-12 rounded-[3rem] text-center max-w-sm w-full">
+        <h2 className="text-3xl font-black font-header text-[var(--text-primary)] mb-2">{t('gameResults.greatJob')}</h2>
+        <div className="my-8">
+          {correct >= incorrect ? <ICONS.Trophy className="w-16 h-16 mx-auto text-amber-500" /> : <ICONS.TrendingUp className="w-16 h-16 mx-auto text-teal-500" />}
         </div>
         <p className="text-[var(--text-secondary)] font-medium mb-1">{t('gameResults.sessionResults')}</p>
         <div className="flex justify-center gap-8 mb-8">

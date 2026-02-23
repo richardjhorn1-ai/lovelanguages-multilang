@@ -133,7 +133,7 @@ export const MatchPairs: React.FC<MatchPairsProps> = ({
           {t(`loveLog.modal.${tense}`, tense)} tense
         </p>
         <div className="flex items-center justify-center gap-2">
-          <h3 className="text-2xl font-black text-[var(--text-primary)]">{verb.word}</h3>
+          <h3 className="text-2xl font-black font-header text-[var(--text-primary)]">{verb.word}</h3>
           <button
             onClick={() => speak(verb.word, targetLanguage)}
             className="p-2 rounded-full hover:bg-[var(--border-color)] transition-colors"

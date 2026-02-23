@@ -42,7 +42,7 @@ export const GameHeader: React.FC<GameHeaderProps> = ({
         <button
           onClick={onExit}
           aria-label={t('play.back', 'Go back')}
-          className="p-2 hover:bg-[var(--bg-card)] rounded-xl transition-colors"
+          className="p-2 hover:bg-white/40 rounded-xl transition-colors"
         >
           <ICONS.ChevronLeft className="w-5 h-5 text-[var(--text-secondary)]" />
         </button>

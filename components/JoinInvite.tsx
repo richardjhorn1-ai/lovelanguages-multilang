@@ -198,9 +198,9 @@ const JoinInvite: React.FC = () => {
   // Loading state
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#FFF0F3]" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
+      <div className="min-h-screen flex items-center justify-center bg-[var(--accent-light)]" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
         <div className="text-center">
-          <div className="animate-bounce text-6xl mb-4">💕</div>
+          <div className="animate-bounce mb-4"><ICONS.Heart className="w-16 h-16 text-[var(--accent-color)] mx-auto" /></div>
           <p className="text-[var(--accent-color)] font-bold animate-pulse">{t('joinInvite.validating')}</p>
         </div>
       </div>
@@ -210,13 +210,13 @@ const JoinInvite: React.FC = () => {
   // Error state
   if (error) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#FFF0F3] p-6" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
-        <div className="bg-white p-10 rounded-[2.5rem] shadow-xl max-w-md w-full text-center">
+      <div className="min-h-screen flex items-center justify-center bg-[var(--accent-light)] p-6" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
+        <div className="glass-card p-10 rounded-[2.5rem] max-w-md w-full text-center">
           <div className="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6">
             <ICONS.X className="w-8 h-8 text-red-500" />
           </div>
-          <h2 className="text-2xl font-black text-gray-800 mb-3">{t('joinInvite.invalidInvite')}</h2>
-          <p className="text-gray-500 mb-8">{error}</p>
+          <h2 className="text-2xl font-black text-[var(--text-primary)] mb-3">{t('joinInvite.invalidInvite')}</h2>
+          <p className="text-[var(--text-secondary)] mb-8">{error}</p>
           <button
             onClick={() => navigate('/')}
             className="bg-[var(--accent-color)] text-white px-8 py-4 rounded-2xl font-bold shadow-lg"
@@ -231,7 +231,7 @@ const JoinInvite: React.FC = () => {
   // Completing invite state
   if (validating) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[#FFF0F3]" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
+      <div className="min-h-screen flex items-center justify-center bg-[var(--accent-light)]" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
         <div className="text-center">
           <div className="animate-pulse text-6xl mb-4">🔗</div>
           <p className="text-[var(--accent-color)] font-bold animate-pulse">{t('joinInvite.linking')}</p>
@@ -242,7 +242,7 @@ const JoinInvite: React.FC = () => {
 
   // Main invite UI
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-[#FFF0F3]">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-[var(--accent-light)]">
       <div className="min-h-full flex flex-col md:flex-row">
       {/* Left: Invitation Context */}
       <div
@@ -257,11 +257,11 @@ const JoinInvite: React.FC = () => {
             <h1 className="text-2xl font-bold font-header text-[var(--accent-color)]">Love Languages</h1>
           </div>
 
-          <h2 className="text-4xl md:text-5xl font-black leading-tight mb-6 text-[#292F36]">
+          <h2 className="text-4xl md:text-5xl font-black leading-tight mb-6 text-[var(--text-primary)]">
             {tRole('joinJourney', { name: inviter?.name || t('joinInvite.yourPartner'), language: language?.name || 'their language' })}
           </h2>
 
-          <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+          <p className="text-lg text-[var(--text-secondary)] mb-8 leading-relaxed">
             {tRole('learningToConnect', { language: language?.name || 'their language' })}
           </p>
 
@@ -271,8 +271,8 @@ const JoinInvite: React.FC = () => {
                 <ICONS.TrendingUp className="w-5 h-5 text-[var(--accent-color)]" />
               </div>
               <div>
-                <p className="font-bold text-gray-800">{tRole('trackProgress')}</p>
-                <p className="text-sm text-gray-500">{tRole('trackProgressDesc')}</p>
+                <p className="font-bold text-[var(--text-primary)]">{tRole('trackProgress')}</p>
+                <p className="text-sm text-[var(--text-secondary)]">{tRole('trackProgressDesc')}</p>
               </div>
             </div>
 
@@ -281,8 +281,8 @@ const JoinInvite: React.FC = () => {
                 <ICONS.MessageCircle className="w-5 h-5 text-teal-500" />
               </div>
               <div>
-                <p className="font-bold text-gray-800">{tRole('conversationStarters')}</p>
-                <p className="text-sm text-gray-500">{tRole('conversationStartersDesc', { language: language?.name || 'their language' })}</p>
+                <p className="font-bold text-[var(--text-primary)]">{tRole('conversationStarters')}</p>
+                <p className="text-sm text-[var(--text-secondary)]">{tRole('conversationStartersDesc', { language: language?.name || 'their language' })}</p>
               </div>
             </div>
 
@@ -291,8 +291,8 @@ const JoinInvite: React.FC = () => {
                 <ICONS.Heart className="w-5 h-5 text-amber-500" />
               </div>
               <div>
-                <p className="font-bold text-gray-800">{tRole('encourageCelebrate')}</p>
-                <p className="text-sm text-gray-500">{tRole('encourageCelebrateDesc')}</p>
+                <p className="font-bold text-[var(--text-primary)]">{tRole('encourageCelebrate')}</p>
+                <p className="text-sm text-[var(--text-secondary)]">{tRole('encourageCelebrateDesc')}</p>
               </div>
             </div>
           </div>
@@ -300,7 +300,7 @@ const JoinInvite: React.FC = () => {
       </div>
 
       {/* Right: Auth Form */}
-      <div className="md:flex-1 flex flex-col items-center justify-center p-8 bg-white md:rounded-l-[5rem] shadow-2xl relative overflow-hidden">
+      <div className="md:flex-1 flex flex-col items-center justify-center p-8 glass-card md:rounded-l-[5rem] relative overflow-hidden">
         <ICONS.Heart className="absolute -bottom-20 -right-20 w-80 h-80 text-[var(--accent-light)] opacity-[0.03] pointer-events-none" />
 
         <div className="w-full max-w-sm relative z-10">
@@ -308,10 +308,10 @@ const JoinInvite: React.FC = () => {
             <div className="w-20 h-20 bg-[var(--accent-light)] rounded-full flex items-center justify-center mx-auto mb-4 text-3xl font-black text-[var(--accent-color)]">
               {inviter?.name?.[0]?.toUpperCase() || '?'}
             </div>
-            <h3 className="text-2xl font-black text-[#292F36] mb-2">
+            <h3 className="text-2xl font-black text-[var(--text-primary)] mb-2">
               {t('joinInvite.join', { name: inviter?.name })}
             </h3>
-            <p className="text-gray-400 text-sm font-medium">
+            <p className="text-[var(--text-secondary)] text-sm font-medium">
               {isSignUp ? tRole('createAccount', { language: language?.name || 'their language' }) : t('joinInvite.signInToConnect')}
             </p>
           </div>
@@ -321,7 +321,7 @@ const JoinInvite: React.FC = () => {
             {/* Honeypot field - hidden from users, bots fill it */}
             <input {...honeypotProps} />
             <div>
-              <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mb-2 ml-1">
+              <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-[var(--text-secondary)] mb-2 ml-1">
                 {t('joinInvite.emailLabel')}
               </label>
               <input
@@ -329,13 +329,13 @@ const JoinInvite: React.FC = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full px-6 py-4 rounded-2xl bg-gray-50 text-gray-800 border-2 border-transparent focus:bg-white focus:border-[var(--accent-border)] focus:outline-none transition-all font-bold text-sm"
+                className="w-full px-6 py-4 rounded-2xl bg-[var(--bg-primary)] text-[var(--text-primary)] border-2 border-transparent focus:bg-[var(--bg-card)] focus:border-[var(--accent-border)] focus:outline-none transition-all font-bold text-sm"
                 placeholder="you@love.com"
               />
             </div>
 
             <div>
-              <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-gray-400 mb-2 ml-1">
+              <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-[var(--text-secondary)] mb-2 ml-1">
                 {t('joinInvite.passwordLabel')}
               </label>
               <input
@@ -344,7 +344,7 @@ const JoinInvite: React.FC = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full px-6 py-4 rounded-2xl bg-gray-50 text-gray-800 border-2 border-transparent focus:bg-white focus:border-[var(--accent-border)] focus:outline-none transition-all font-bold text-sm"
+                className="w-full px-6 py-4 rounded-2xl bg-[var(--bg-primary)] text-[var(--text-primary)] border-2 border-transparent focus:bg-[var(--bg-card)] focus:border-[var(--accent-border)] focus:outline-none transition-all font-bold text-sm"
                 placeholder="••••••••"
               />
             </div>

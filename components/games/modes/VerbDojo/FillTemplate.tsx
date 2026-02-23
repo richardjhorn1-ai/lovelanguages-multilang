@@ -118,7 +118,7 @@ export const FillTemplate: React.FC<FillTemplateProps> = ({
           {question.tense} tense
         </p>
         <div className="flex items-center justify-center gap-2 mb-2">
-          <h3 className="text-2xl font-black text-[var(--text-primary)]">{question.verb.word}</h3>
+          <h3 className="text-2xl font-black font-header text-[var(--text-primary)]">{question.verb.word}</h3>
           <button
             onClick={() => speak(question.verb.word, targetLanguage)}
             className="p-2 rounded-full hover:bg-[var(--border-color)] transition-colors"
@@ -129,7 +129,7 @@ export const FillTemplate: React.FC<FillTemplateProps> = ({
         <p className="text-[var(--text-secondary)] italic text-center mb-4">"{question.verb.translation}"</p>
 
         {/* Fill template */}
-        <div className="bg-[var(--bg-card)] p-4 rounded-xl text-center">
+        <div className="glass-card p-4 rounded-xl text-center">
           <span className="text-xl font-bold" style={{ color: accentColor }}>
             {question.personLabel}
           </span>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { OnboardingStep, NextButton } from '../../OnboardingStep';
+import { OnboardingStep, NextButton, ONBOARDING_OPTION } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
 
 interface TeachingStyleStepProps {
@@ -40,34 +40,34 @@ export const TeachingStyleStep: React.FC<TeachingStyleStepProps> = ({
       accentColor={accentColor}
     >
       <div className="text-center mb-8">
-        <div className="w-16 h-16 rounded-full bg-rose-100 flex items-center justify-center mx-auto mb-6">
-          <ICONS.Sparkles className="w-8 h-8 text-rose-500" />
+        <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style={{ backgroundColor: `${accentColor}15` }}>
+          <ICONS.Sparkles className="w-8 h-8" style={{ color: accentColor }} />
         </div>
-        <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
+        <h1 className="text-3xl font-black text-[var(--text-primary)] mb-3 font-header">
           {t('onboarding.tutor.style.title')}
         </h1>
-        <p className="text-gray-500">
+        <p className="text-[var(--text-secondary)]">
           {t('onboarding.tutor.style.subtitle')}
         </p>
       </div>
 
       <div className="space-y-3 mb-6">
-        {styleOptions.map((option) => (
+        {styleOptions.map((option, index) => (
           <button
             key={option.id}
             onClick={() => setSelected(option.id)}
-            className={`w-full p-4 rounded-2xl border-2 transition-all flex items-center gap-4 ${
-              selected === option.id
-                ? 'border-rose-300 bg-rose-50'
-                : 'border-gray-100 bg-white hover:border-gray-200'
-            }`}
+            className="w-full p-4 transition-all flex items-center gap-4 animate-reveal"
+            style={{ ...ONBOARDING_OPTION(selected === option.id, accentColor), animationDelay: `${0.1 * index}s` }}
           >
             <span className="text-2xl">{option.emoji}</span>
             <div className="text-left">
-              <span className={`font-bold block ${selected === option.id ? 'text-rose-700' : 'text-gray-700'}`}>
+              <span
+                className="font-bold block"
+                style={{ color: selected === option.id ? accentColor : 'var(--text-primary)' }}
+              >
                 {option.label}
               </span>
-              <span className="text-scale-label text-gray-500">{option.description}</span>
+              <span className="text-scale-label text-[var(--text-secondary)]">{option.description}</span>
             </div>
           </button>
         ))}

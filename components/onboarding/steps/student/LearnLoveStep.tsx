@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { OnboardingStep, NextButton } from '../../OnboardingStep';
+import { OnboardingStep, NextButton, ONBOARDING_GLASS } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
 import { speak } from '../../../../services/audio';
 import { sounds } from '../../../../services/sounds';
@@ -47,11 +47,13 @@ export const LearnLoveStep: React.FC<LearnLoveStepProps> = ({
       accentColor={accentColor}
     >
       <div className="text-center mb-6">
-        <div className="text-6xl mb-4">💕</div>
-        <h1 className="text-2xl font-black text-gray-800 mb-2 font-header">
+        <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4" style={{ backgroundColor: `${accentColor}15` }}>
+          <ICONS.Heart className="w-8 h-8" style={{ color: accentColor }} />
+        </div>
+        <h1 className="text-2xl font-black text-[var(--text-primary)] mb-2 font-header">
           {t('onboarding.student.learnLove.title')}
         </h1>
-        <p className="text-gray-500">
+        <p className="text-[var(--text-secondary)]">
           {t('onboarding.student.learnLove.subtitle', { name: partnerName })}
         </p>
       </div>
@@ -61,17 +63,18 @@ export const LearnLoveStep: React.FC<LearnLoveStepProps> = ({
           <div className="text-4xl font-black mb-4" style={{ color: accentColor }}>
             {lovePhrase}
           </div>
-          <div className="text-gray-600 font-medium text-scale-heading mb-6">
+          <div className="text-[var(--text-secondary)] font-medium text-scale-heading mb-6">
             "{loveTranslation}"
           </div>
 
           <button
             onClick={playAudio}
-            className={`inline-flex items-center gap-3 px-8 py-4 rounded-2xl transition-all ${
+            className={`inline-flex items-center gap-3 px-8 py-4 transition-all ${
               hasListened
-                ? 'bg-[var(--accent-light)] hover:bg-[var(--accent-light)]'
+                ? ''
                 : 'bg-[var(--accent-color)] hover:bg-[var(--accent-hover)] text-white'
             }`}
+            style={hasListened ? { backgroundColor: 'rgba(255, 255, 255, 0.5)', border: '1px solid rgba(255,255,255,0.6)', borderRadius: '16px' } : { borderRadius: '16px' }}
           >
             <ICONS.Volume2 className={`w-6 h-6 ${hasListened ? 'text-[var(--accent-color)]' : 'text-white'}`} />
             <span className={`font-bold ${hasListened ? 'text-[var(--accent-text)]' : 'text-white'}`}>
@@ -81,9 +84,9 @@ export const LearnLoveStep: React.FC<LearnLoveStepProps> = ({
         </div>
       </div>
 
-      <div className="bg-amber-50 rounded-2xl p-4 mb-6">
+      <div className="p-4 mb-6" style={{ ...ONBOARDING_GLASS, backgroundColor: 'rgba(255, 191, 0, 0.08)' }}>
         <div className="flex gap-3">
-          <span className="text-xl">💡</span>
+          <ICONS.Lightbulb className="w-5 h-5 text-amber-600 flex-shrink-0" />
           <div
             className="text-scale-label text-amber-800"
             dangerouslySetInnerHTML={{

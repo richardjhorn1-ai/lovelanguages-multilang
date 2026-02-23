@@ -56,7 +56,7 @@ export const TutorFlashcards: React.FC<TutorFlashcardsProps> = ({
   if (!currentWord) return null;
 
   return (
-    <div className="h-full flex flex-col p-4 bg-[var(--bg-primary)]">
+    <div className="h-full flex flex-col p-4">
       <div className="max-w-md mx-auto w-full">
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
@@ -88,11 +88,11 @@ export const TutorFlashcards: React.FC<TutorFlashcardsProps> = ({
         >
           <div className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${flipped ? 'rotate-y-180' : ''}`}>
             {/* Front */}
-            <div className="absolute inset-0 bg-[var(--bg-card)] rounded-[2rem] p-8 flex flex-col items-center justify-center shadow-lg backface-hidden border border-[var(--border-color)]">
+            <div className="absolute inset-0 glass-card rounded-[2rem] p-8 flex flex-col items-center justify-center backface-hidden">
               <span className="text-scale-micro uppercase tracking-widest text-[var(--text-secondary)] font-bold mb-4">
                 {targetLanguageName}
               </span>
-              <h2 className="text-4xl font-black text-[var(--accent-color)] text-center">
+              <h2 className="text-4xl font-black font-header text-[var(--accent-color)] text-center">
                 {currentWord.word}
               </h2>
               <p className="text-[var(--text-secondary)] text-scale-label mt-8">
@@ -100,23 +100,23 @@ export const TutorFlashcards: React.FC<TutorFlashcardsProps> = ({
               </p>
             </div>
             {/* Back */}
-            <div className="absolute inset-0 bg-[var(--accent-color)] text-white rounded-[2rem] p-8 flex flex-col items-center justify-center shadow-lg backface-hidden rotate-y-180">
+            <div className="absolute inset-0 bg-[var(--accent-color)] text-white rounded-[2rem] p-8 flex flex-col items-center justify-center backface-hidden rotate-y-180">
               <span className="text-scale-micro uppercase tracking-widest text-white/60 font-bold mb-4">
                 {nativeLanguageName}
               </span>
-              <h2 className="text-4xl font-black text-center">
+              <h2 className="text-4xl font-black font-header text-center">
                 {currentWord.translation}
               </h2>
               <div className="mt-8 grid grid-cols-2 gap-3 w-full">
                 <button
                   onClick={(e) => { e.stopPropagation(); handleResponse(false); }}
-                  className="py-3 bg-[var(--bg-card)]/20 rounded-xl font-bold text-scale-label hover:bg-[var(--bg-card)]/30"
+                  className="py-3 bg-white/20 rounded-xl font-bold text-scale-label hover:bg-white/30"
                 >
                   ❌ {t('tutorGames.flashcard.hard')}
                 </button>
                 <button
                   onClick={(e) => { e.stopPropagation(); handleResponse(true); }}
-                  className="py-3 bg-[var(--bg-card)] rounded-xl font-bold text-scale-label text-[var(--accent-color)]"
+                  className="py-3 glass-card rounded-xl font-bold text-scale-label text-[var(--accent-color)]"
                 >
                   ✓ {t('tutorGames.flashcard.gotIt')}
                 </button>

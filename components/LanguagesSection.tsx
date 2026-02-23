@@ -112,8 +112,8 @@ const LanguagesSection: React.FC<LanguagesSectionProps> = ({ profile, onRefresh 
   };
 
   return (
-    <div className="bg-[var(--bg-card)] p-6 rounded-[2.5rem] border border-[var(--border-color)] shadow-sm">
-      <h3 className="text-scale-micro font-black mb-6 flex items-center gap-2 text-[var(--text-secondary)] uppercase tracking-[0.2em]">
+    <div className="glass-card p-6 rounded-[2.5rem]">
+      <h3 className="text-scale-micro font-black font-header mb-6 flex items-center gap-2 text-[var(--text-secondary)] uppercase tracking-[0.2em]">
         <ICONS.Globe style={{ color: accentHex }} className="w-4 h-4" />
         {t('profile.languages.title')}
       </h3>
@@ -179,7 +179,7 @@ const LanguagesSection: React.FC<LanguagesSectionProps> = ({ profile, onRefresh 
                   <button
                     onClick={() => handleSwitchLanguage(langCode)}
                     disabled={isSwitching}
-                    className="px-4 py-2 rounded-xl text-scale-caption font-bold transition-all disabled:opacity-50"
+                    className="px-4 py-2 rounded-xl text-scale-caption font-bold transition-all active:scale-[0.98] disabled:opacity-50"
                     style={{
                       backgroundColor: `${accentHex}15`,
                       color: accentHex,

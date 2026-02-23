@@ -667,6 +667,10 @@
     }
   },
   "onboarding": {
+    "nativeLanguage": {
+      "title": "Hvilket sprog taler du?",
+      "subtitle": "Vi viser alt på dit sprog"
+    },
     "step": {
       "back": "Tilbage",
       "counter": "{{current}} af {{total}}",
@@ -758,6 +762,50 @@
         "retry": "Retry"
       }
     },
+    "role": {
+      "title": "Jeg vil...",
+      "subtitle": "Vælg hvordan du vil bruge Love Languages",
+      "learn": "Lære et sprog",
+      "learnDesc": "Lær sproget hos en, du elsker",
+      "teach": "Undervise i et sprog",
+      "teachDesc": "Hjælp en, du elsker, med at lære dit sprog"
+    },
+    "names": {
+      "title": "Lad os gøre det personligt",
+      "studentSubtitle": "Vi tilpasser din læringsoplevelse",
+      "tutorSubtitle": "Vi tilpasser undervisningsoplevelsen",
+      "yourName": "Dit navn",
+      "partnerLabel": "Hvem lærer du for?",
+      "learnerLabel": "Hvem skal du undervise?",
+      "partnerPlaceholder": "Deres navn",
+      "learnerPlaceholder": "Elevens navn"
+    },
+    "language": {
+      "studentTitle": "Hvilket sprog taler en, du elsker?",
+      "tutorTitle": "Hvilket sprog vil du undervise i?",
+      "studentSubtitle": "Vi hjælper dig med at lære deres sprog",
+      "tutorSubtitle": "Vælg det sprog, du vil undervise i",
+      "showAll": "Vis alle sprog",
+      "showLess": "Vis populære"
+    },
+    "personalization": {
+      "title": "Gør det til dit",
+      "subtitle": "Hjælp os med at tilpasse din oplevelse",
+      "vibeLabel": "Stemningen i jeres forhold",
+      "timeLabel": "Daglig øvetid",
+      "priorLabel": "Prøvet {{language}} før?"
+    },
+    "tutorPersonalization": {
+      "title": "Fortæl os om dig selv",
+      "subtitle": "Hjælp os med at tilpasse undervisningsoplevelsen",
+      "relationLabel": "{{name}} er din...",
+      "connectionLabel": "Din {{language}}-tilknytning",
+      "originLabel": "Hvor er du fra? (valgfrit)",
+      "originPlaceholder": "By, land..."
+    },
+    "errors": {
+      "title": "Noget gik galt"
+    },
     "student": {
       "start": {
         "title": "Klar til at begynde, {{name}}?",
@@ -767,6 +815,7 @@
         "feature2": "Din Love Log-ordforrådstracker",
         "feature3": "Spil til at øve og mestre ord",
         "feature4": "Fremskridtssporing og niveautests",
+        "activating": "Starter din prøveperiode...",
         "button": "Lad os køre! 🚀"
       },
       "vibe": {
@@ -877,6 +926,7 @@
         "feature2": "Følg {{learnerName}}s fremskridt",
         "feature3": "Send ordgaver for at overraske dem",
         "feature4": "Link konti for at se deres rejse",
+        "activating": "Starter din prøveperiode...",
         "button": "Begynd at hjælpe {{learnerName}}! 🎯"
       },
       "relation": {
@@ -1863,6 +1913,21 @@
     "timesUp": "Tiden er udløbet!"
   },
   "hero": {
+    "headline": "Lær sproget hos nogen, du elsker.",
+    "subtitle": "Den eneste sprogapp designet til par",
+    "swipeForMore": "Swipe for at opdage mere",
+    "landing": {
+      "student": {
+        "headline": "Lær sproget hos den, du elsker",
+        "highlight1": "sproget",
+        "highlight2": "elsker"
+      },
+      "tutor": {
+        "headline": "Del dit sprog med den, du elsker",
+        "highlight1": "sprog",
+        "highlight2": "elsker"
+      }
+    },
     "languageSelector": {
       "nativeTitle": "What language do you speak?",
       "nativeSubtitle": "18 languages available - we'll show everything in yours",
@@ -1911,7 +1976,10 @@
       "alreadyHaveAccount": "Har du allerede en konto? Log ind",
       "newHere": "Ny her? Opret en konto",
       "checkEmail": "Tjek din email for bekræftelse!",
-      "continueWithGoogle": "Fortsæt med Google"
+      "continueWithGoogle": "Fortsæt med Google",
+      "continueWithApple": "Fortsæt med Apple",
+      "orContinueWithEmail": "eller fortsæt med e-mail",
+      "orSignInWith": "eller log ind med"
     },
     "legal": {
       "terms": "Vilkår",
@@ -2162,7 +2230,7 @@
             "feature2": {
               "pain": "Del din verden, ét ord ad gangen",
               "feature": "Word Gifts",
-              "desc": "Send udvalgt ordforråd: \u00abord til at møde min bedstemor\u00bb."
+              "desc": "Send udvalgt ordforråd: «ord til at møde min bedstemor»."
             },
             "feature3": {
               "pain": "Se, hvad der faktisk bliver hængende",
@@ -2214,6 +2282,18 @@
         "blog": "Blog",
         "contact": "Kontakt",
         "copyright": "Love Languages · Lavet med ♥ til elskere overalt"
+      }
+    },
+    "testimonials": {
+      "1": {
+        "quote": "This is SO COOL",
+        "name": "Alessia",
+        "context": "Lærer for sin partner Tomas"
+      },
+      "2": {
+        "quote": "Dude this app is amazing",
+        "name": "Allessandra",
+        "context": "Lærer for sin kæreste Miki"
       }
     }
   },

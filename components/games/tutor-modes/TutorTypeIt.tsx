@@ -107,7 +107,7 @@ export const TutorTypeIt: React.FC<TutorTypeItProps> = ({
   if (!currentWord) return null;
 
   return (
-    <div className="h-full flex flex-col p-4 bg-[var(--bg-primary)]">
+    <div className="h-full flex flex-col p-4">
       <div className="max-w-md mx-auto w-full">
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
@@ -133,12 +133,12 @@ export const TutorTypeIt: React.FC<TutorTypeItProps> = ({
         </div>
 
         {/* Question Card */}
-        <div className="bg-[var(--bg-card)] rounded-[2rem] p-8 shadow-lg border border-[var(--border-color)]">
+        <div className="glass-card rounded-[2rem] p-8">
           <span className="text-scale-micro font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6 bg-[var(--accent-light)] text-[var(--accent-color)]">
             {targetLanguageName} → {nativeLanguageName}
           </span>
 
-          <h3 className="text-3xl font-black text-[var(--text-primary)] mb-2 text-center">
+          <h3 className="text-3xl font-black font-header text-[var(--text-primary)] mb-2 text-center">
             {currentWord.word}
           </h3>
 

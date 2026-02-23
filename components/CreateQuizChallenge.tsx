@@ -163,12 +163,12 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-[var(--bg-card)] rounded-[2rem] w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col">
+    <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
+      <div className="glass-card rounded-[2rem] w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col">
         {/* Header */}
         <div className="p-6 border-b border-[var(--border-color)] flex items-center justify-between">
           <div>
-            <h2 className="text-xl font-black text-[var(--text-primary)]">{t('challengeCreator.quiz.title')}</h2>
+            <h2 className="text-xl font-black font-header text-[var(--text-primary)]">{t('challengeCreator.quiz.title')}</h2>
             <p className="text-scale-label text-[var(--text-secondary)]">{t('challengeCreator.quiz.subtitle', { name: partnerName })}</p>
           </div>
           <button onClick={onClose} className="p-2 hover:bg-[var(--bg-primary)] rounded-xl transition-colors">
@@ -233,7 +233,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
                     </>
                   ) : (
                     <>
-                      <span>✨</span>
+                      <ICONS.Sparkles className="w-4 h-4" />
                       {t('challengeCreator.common.generate')}
                     </>
                   )}
@@ -244,7 +244,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
                     setGeneratedWord(null);
                     setNewTranslation('');
                   }}
-                  className="px-3 py-2 text-[var(--text-secondary)] hover:bg-[var(--bg-card)] rounded-lg font-bold text-scale-label transition-colors"
+                  className="px-3 py-2 text-[var(--text-secondary)] hover:bg-white/40 rounded-lg font-bold text-scale-label transition-colors"
                 >
                   {t('challengeCreator.common.clear')}
                 </button>
@@ -253,7 +253,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
 
             {/* Step 2: Show generated result with edit option */}
             {generatedWord && (
-              <div className="mb-3 p-3 bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)]">
+              <div className="mb-3 p-3 glass-card rounded-xl">
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
@@ -290,7 +290,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
                 {newWords.map((word, index) => (
                   <div
                     key={index}
-                    className="flex items-center justify-between p-2 bg-[var(--bg-card)] rounded-lg border border-[var(--border-color)]"
+                    className="flex items-center justify-between p-2 glass-card rounded-lg"
                   >
                     <div className="flex items-center gap-2">
                       <span className="font-bold text-[var(--text-primary)] text-scale-label">{word.word}</span>
@@ -316,9 +316,9 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
             </label>
             <div className="flex flex-wrap gap-2">
               {[
-                { id: 'multiple_choice', label: t('challengeCreator.quiz.multipleChoice'), icon: '🔘' },
-                { id: 'type_it', label: t('challengeCreator.quiz.typeAnswer'), icon: '⌨️' },
-                { id: 'flashcard', label: t('challengeCreator.quiz.flashcards'), icon: '🃏' }
+                { id: 'multiple_choice', label: t('challengeCreator.quiz.multipleChoice'), icon: <ICONS.CheckCircle className="w-4 h-4" /> },
+                { id: 'type_it', label: t('challengeCreator.quiz.typeAnswer'), icon: <ICONS.Type className="w-4 h-4" /> },
+                { id: 'flashcard', label: t('challengeCreator.quiz.flashcards'), icon: <ICONS.Cards className="w-4 h-4" /> }
               ].map(type => (
                 <button
                   key={type.id}
@@ -329,7 +329,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
                       : 'bg-[var(--bg-primary)] text-[var(--text-secondary)] border-2 border-[var(--border-color)] hover:border-[var(--text-secondary)]'
                   }`}
                 >
-                  <span>{type.icon}</span>
+                  {type.icon}
                   {type.label}
                 </button>
               ))}
@@ -401,7 +401,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
         <div className="p-6 border-t border-[var(--border-color)] flex items-center justify-between bg-[var(--bg-primary)]">
           <button
             onClick={onClose}
-            className="px-6 py-3 text-[var(--text-secondary)] font-bold text-scale-label hover:bg-[var(--bg-card)] rounded-xl transition-colors"
+            className="px-6 py-3 text-[var(--text-secondary)] font-bold text-scale-label hover:bg-white/40 rounded-xl transition-colors"
           >
             {t('challengeCreator.common.cancel')}
           </button>

@@ -52,7 +52,7 @@ export const GameModeCard: React.FC<GameModeCardProps> = ({
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`group p-3 md:p-6 bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md transition-all text-left relative disabled:opacity-50 disabled:cursor-not-allowed ${
+      className={`group p-3 md:p-6 glass-card rounded-xl md:rounded-[2rem] hover:shadow-md transition-all text-left relative disabled:opacity-50 disabled:cursor-not-allowed ${
         !disabled ? borderHoverClass : ''
       }`}
     >
@@ -68,7 +68,7 @@ export const GameModeCard: React.FC<GameModeCardProps> = ({
           {icon}
         </div>
         <div className="flex-1 text-center md:text-left">
-          <h3 className="text-scale-label md:text-scale-body font-black text-[var(--text-primary)] mb-0.5 md:mb-1">
+          <h3 className="text-scale-label md:text-scale-body font-black font-header text-[var(--text-primary)] mb-0.5 md:mb-1">
             {title}
           </h3>
           {description && (

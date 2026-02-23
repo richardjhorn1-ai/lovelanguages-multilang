@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { OnboardingStep, NextButton } from '../../OnboardingStep';
+import { OnboardingStep, NextButton, ONBOARDING_OPTION } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
 
 interface TimeStepProps {
@@ -44,10 +44,10 @@ export const TimeStep: React.FC<TimeStepProps> = ({
         >
           <ICONS.Clock className="w-8 h-8" style={{ color: accentColor }} />
         </div>
-        <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
+        <h1 className="text-3xl font-black text-[var(--text-primary)] mb-3 font-header">
           {t('onboarding.student.time.title')}
         </h1>
-        <p className="text-gray-500">
+        <p className="text-[var(--text-secondary)]">
           {t('onboarding.student.time.subtitle')}
         </p>
       </div>
@@ -57,21 +57,14 @@ export const TimeStep: React.FC<TimeStepProps> = ({
           <button
             key={option.id}
             onClick={() => setSelected(option.id)}
-            className={`w-full p-5 rounded-2xl border-2 transition-all flex items-center gap-4 ${
-              selected === option.id
-                ? 'border-gray-200'
-                : 'border-gray-100 bg-white hover:border-gray-200'
-            }`}
-            style={selected === option.id ? {
-              borderColor: `${accentColor}60`,
-              backgroundColor: `${accentColor}10`
-            } : undefined}
+            className="w-full p-5 transition-all flex items-center gap-4"
+            style={ONBOARDING_OPTION(selected === option.id, accentColor)}
           >
             <span className="text-3xl">{option.emoji}</span>
             <div className="text-left">
               <div
                 className="font-bold"
-                style={{ color: selected === option.id ? accentColor : '#374151' }}
+                style={{ color: selected === option.id ? accentColor : 'var(--text-primary)' }}
               >
                 {option.label}
               </div>

@@ -13,7 +13,7 @@ import { migrateFromLocalStorage } from './services/offline-db';
 import { sounds } from './services/sounds';
 import NewWordsNotification from './components/NewWordsNotification';
 import { ExtractedWord } from './types';
-import Hero from './components/Hero';
+import Landing from './components/Landing';
 import { SUPPORTED_LANGUAGE_CODES } from './constants/language-config';
 import Navbar from './components/Navbar';
 import ChatArea from './components/ChatArea';
@@ -26,7 +26,8 @@ import JoinInvite from './components/JoinInvite';
 import { Onboarding } from './components/onboarding/Onboarding';
 import SubscriptionRequired from './components/SubscriptionRequired';
 import TrialReminderNotification from './components/TrialReminderNotification';
-import RoleSelection from './components/RoleSelection';
+// RoleSelection removed — role selection is now step 1 of onboarding
+// import RoleSelection from './components/RoleSelection';
 import TermsOfService from './components/TermsOfService';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import FAQ from './components/FAQ';
@@ -246,7 +247,7 @@ const App: React.FC = () => {
           const { data: userData } = await supabase.auth.getUser();
           if (userData.user) {
             // Read language selection from user metadata (set during signup)
-            // Fall back to localStorage (set during Hero page interaction)
+            // Fall back to localStorage (set during Landing page interaction)
             // Final fallback to defaults for edge cases
             const userMeta = userData.user.user_metadata || {};
             const storedTarget = userMeta.target_language
@@ -257,7 +258,7 @@ const App: React.FC = () => {
               || localStorage.getItem('preferredLanguage')  // Legacy key fallback
               || 'en';
 
-            // Read intended role from user metadata (set during signup in Hero)
+            // Read intended role from user metadata (set during onboarding)
             // Fall back to localStorage for OAuth signups
             const intendedRole = userMeta.intended_role
               || localStorage.getItem('intended_role')
@@ -419,7 +420,7 @@ const App: React.FC = () => {
         <I18nSyncWrapper>
         <HashRouter>
           <AnalyticsWrapper>
-          <div className="h-screen-safe bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300 overflow-hidden">
+          <div className="h-screen-safe text-[var(--text-primary)] transition-colors duration-300 overflow-hidden app-bg-decor">
           {/* Success toast */}
           {successToast && (
             <SuccessToast message={successToast} onClose={() => setSuccessToast(null)} />
@@ -458,7 +459,7 @@ const App: React.FC = () => {
                   // Authenticated users go to main app
                   <Navigate to="/" />
                 ) : (
-                  <Hero />
+                  <Landing />
                 )
               } />
             ))}
@@ -466,24 +467,13 @@ const App: React.FC = () => {
             {/* All other routes */}
             <Route path="*" element={
               session && profile ? (
-                // Step 1: Check if user has confirmed their role (skip for existing users who completed onboarding)
-                !profile.role_confirmed_at && !profile.onboarding_completed_at ? (
-                  <RoleSelection
-                    userId={profile.id}
-                    profile={profile}
-                    onRoleSelected={() => fetchProfile(profile.id)}
-                  />
-                ) : // Step 2: Check if onboarding is completed
+                // Step 1: Check if onboarding is completed (role + language selection now part of onboarding)
                 !profile.onboarding_completed_at ? (
                   <Onboarding
                     role={profile.role}
                     userId={profile.id}
                     onComplete={() => fetchProfile(profile.id)}
                     onQuit={() => supabase.auth.signOut()}
-                    onBackToLanguages={async () => {
-                      await supabase.from('profiles').update({ role_confirmed_at: null }).eq('id', profile.id);
-                      fetchProfile(profile.id);
-                    }}
                     hasInheritedSubscription={!!profile.subscription_granted_by || profile.subscription_status === 'active'}
                   />
                 ) : // Step 3: Check subscription/access status
@@ -540,14 +530,14 @@ const App: React.FC = () => {
                           hoursRemaining={hoursRemaining}
                         />
                       )}
-                      <main className="flex-1 h-0 overflow-hidden">
+                      <main className="flex-1 h-0 overflow-hidden relative z-0">
                         <PersistentTabs profile={profile} onRefresh={() => fetchProfile(profile.id)} />
                       </main>
                     </div>
                   );
                 })()
               ) : (
-                <Hero />
+                <Landing />
               )
             } />
           </Routes>

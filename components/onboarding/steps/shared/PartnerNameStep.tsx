@@ -52,12 +52,12 @@ export const PartnerNameStep: React.FC<PartnerNameStepProps> = ({
         >
           <ICONS.Users className="w-8 h-8" style={{ color: accentColor }} />
         </div>
-        <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
+        <h1 className="text-3xl font-black text-[var(--text-primary)] mb-3 font-header">
           {isStudent
             ? t('onboarding.partnerName.studentTitle', { language: targetName, name: userName })
             : t('onboarding.partnerName.tutorTitle', { language: targetName, name: userName })}
         </h1>
-        <p className="text-gray-500">
+        <p className="text-[var(--text-secondary)]">
           {isStudent
             ? t('onboarding.partnerName.studentSubtitle')
             : t('onboarding.partnerName.tutorSubtitle', { language: targetName })}
@@ -71,7 +71,7 @@ export const PartnerNameStep: React.FC<PartnerNameStepProps> = ({
           onChange={(e) => setPartnerName(e.target.value)}
           placeholder={t('onboarding.partnerName.placeholder')}
           autoFocus
-          className="w-full px-6 py-4 rounded-2xl bg-white border-2 focus:outline-none text-scale-heading font-medium text-gray-800 placeholder:text-gray-300 transition-all"
+          className="w-full px-6 py-4 rounded-2xl bg-white border-2 focus:outline-none text-scale-heading font-medium text-[var(--text-primary)] placeholder:text-gray-300 transition-all"
           style={{
             borderColor: isFocused ? `${accentColor}60` : '#f3f4f6'
           }}

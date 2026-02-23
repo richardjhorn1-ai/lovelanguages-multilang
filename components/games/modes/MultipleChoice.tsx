@@ -123,7 +123,7 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
 
   return (
     <div
-      className={`bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)] ${
+      className={`glass-card rounded-[2.5rem] p-8 ${
         localShake || showIncorrectShake ? 'animate-shake' : ''
       }`}
     >
@@ -141,12 +141,12 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
       {/* Word to translate */}
       <div className="text-center mb-8">
         <div className="flex items-center justify-center gap-2">
-          <h3 className="text-3xl font-black text-[var(--text-primary)]">
+          <h3 className="text-3xl font-black font-header text-[var(--text-primary)]">
             {currentWord.word}
           </h3>
           <button
             onClick={() => speak(currentWord.word, targetLanguage)}
-            className="p-2 rounded-full hover:bg-[var(--bg-secondary)] transition-colors"
+            className="p-2 rounded-full hover:bg-white/55 dark:hover:bg-white/12 transition-colors"
             title={t('play.flashcard.listen')}
           >
             <ICONS.Volume2 className="w-5 h-5 text-[var(--text-secondary)]" />

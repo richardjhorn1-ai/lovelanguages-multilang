@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { OnboardingStep, NextButton } from '../../OnboardingStep';
+import { OnboardingStep, NextButton, ONBOARDING_OPTION } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
 
 interface RelationStepProps {
@@ -45,10 +45,10 @@ export const RelationStep: React.FC<RelationStepProps> = ({
         <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style={{ backgroundColor: `${accentColor}15` }}>
           <ICONS.Users className="w-8 h-8" style={{ color: accentColor }} />
         </div>
-        <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
+        <h1 className="text-3xl font-black text-[var(--text-primary)] mb-3 font-header">
           {t('onboarding.tutor.relation.title', { name: learnerName })}
         </h1>
-        <p className="text-gray-500">
+        <p className="text-[var(--text-secondary)]">
           {t('onboarding.tutor.relation.subtitle')}
         </p>
       </div>
@@ -58,15 +58,11 @@ export const RelationStep: React.FC<RelationStepProps> = ({
           <button
             key={option.id}
             onClick={() => setSelected(option.id)}
-            className={`p-4 rounded-2xl border-2 transition-all flex flex-col items-center gap-2 ${
-              selected !== option.id
-                ? 'border-gray-100 bg-white hover:border-gray-200'
-                : ''
-            }`}
-            style={selected === option.id ? { borderColor: `${accentColor}60`, backgroundColor: `${accentColor}10` } : undefined}
+            className="p-4 transition-all flex flex-col items-center gap-2"
+            style={ONBOARDING_OPTION(selected === option.id, accentColor)}
           >
             <span className="text-3xl">{option.emoji}</span>
-            <span className="font-bold" style={{ color: selected === option.id ? accentColor : '#374151' }}>
+            <span className="font-bold" style={{ color: selected === option.id ? accentColor : 'var(--text-primary)' }}>
               {option.label}
             </span>
           </button>

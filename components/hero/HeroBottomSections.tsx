@@ -80,7 +80,7 @@ export const HeroFAQ: React.FC<{ isStudent: boolean; isVisible?: boolean; sectio
             {t('hero.bottomSections.faq.q5.intro')}
           </p>
           <div className="grid grid-cols-2 gap-4 mb-3">
-            <div className="p-3 rounded-xl bg-white/60">
+            <div className="p-3 rounded-xl bg-white/70">
               <p className="font-bold">{t('hero.bottomSections.faq.q5.standard')}</p>
               <p className="text-sm">{t('hero.bottomSections.faq.q5.standardPrice')}</p>
               <p className="text-xs mt-1 opacity-70">{t('hero.bottomSections.faq.q5.standardDesc')}</p>
@@ -112,7 +112,7 @@ export const HeroFAQ: React.FC<{ isStudent: boolean; isVisible?: boolean; sectio
       style={{ background: bgColor }}
     >
       <div className={`max-w-3xl w-full section-content ${isVisible ? 'visible' : ''}`}>
-        <h2 className="text-xl md:text-3xl lg:text-4xl font-black font-header mb-4 md:mb-8 text-center" style={{ color: '#1a1a2e' }}>
+        <h2 className="text-xl md:text-3xl lg:text-4xl font-black font-header mb-4 md:mb-8 text-center" style={{ color: 'var(--text-primary)' }}>
           {t('hero.bottomSections.faq.title')}
         </h2>
 
@@ -130,7 +130,7 @@ export const HeroFAQ: React.FC<{ isStudent: boolean; isVisible?: boolean; sectio
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full flex items-center justify-between p-3 md:p-5 text-left transition-colors"
               >
-                <span className="font-bold text-sm md:text-base pr-2 md:pr-4" style={{ color: '#1a1a2e' }}>
+                <span className="font-bold text-sm md:text-base pr-2 md:pr-4" style={{ color: 'var(--text-primary)' }}>
                   {item.question}
                 </span>
                 <ICONS.ChevronDown
@@ -146,7 +146,7 @@ export const HeroFAQ: React.FC<{ isStudent: boolean; isVisible?: boolean; sectio
                   openIndex === index ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >
-                <div className="px-3 pb-3 md:px-5 md:pb-5 text-sm md:text-base leading-relaxed" style={{ color: '#4b5563' }}>
+                <div className="px-3 pb-3 md:px-5 md:pb-5 text-sm md:text-base leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
                   {item.answer}
                 </div>
               </div>
@@ -202,11 +202,11 @@ export const MethodContent: React.FC<{ accentColor: string; t: any }> = ({ accen
           >
             <div className="flex items-center gap-2 mb-1 md:mb-3">
               <pillar.icon className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" style={{ color: accentColor }} />
-              <h3 className="font-bold text-xs md:text-base leading-tight" style={{ color: '#1a1a2e' }}>
+              <h3 className="font-bold font-header text-xs md:text-base leading-tight" style={{ color: 'var(--text-primary)' }}>
                 {pillar.title}
               </h3>
             </div>
-            <p className="text-xs md:text-sm mb-1 md:mb-3 line-clamp-3 md:line-clamp-none" style={{ color: '#4b5563' }}>
+            <p className="text-xs md:text-sm mb-1 md:mb-3 line-clamp-3 md:line-clamp-none" style={{ color: 'var(--text-secondary)' }}>
               {pillar.description}
             </p>
             <p className="text-[10px] md:text-xs font-medium hidden md:block" style={{ color: accentColor }}>
@@ -224,14 +224,14 @@ export const MethodContent: React.FC<{ accentColor: string; t: any }> = ({ accen
         <p className="text-white text-sm md:text-xl font-medium leading-relaxed">
           {t('hero.bottomSections.rall.quote')}
         </p>
-        <p className="text-white/70 text-xs md:text-sm mt-2 md:mt-4">
+        <p className="text-white/65 text-xs md:text-sm mt-2 md:mt-4">
           {t('hero.bottomSections.rall.quoteAttribution')}
         </p>
       </div>
 
       {/* Anxiety Note - hidden on mobile */}
       <div className="mt-4 md:mt-6 text-center hidden md:block">
-        <p className="text-sm" style={{ color: '#4b5563' }}>
+        <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
           <strong>{t('hero.bottomSections.rall.anxietyTitle')}</strong> {t('hero.bottomSections.rall.anxietyDesc')}
         </p>
         <p className="text-xs mt-2" style={{ color: accentColor }}>
@@ -270,7 +270,7 @@ export const StoryContent: React.FC<{ accentColor: string; t: any }> = ({ accent
               onError={() => setImgSrc('/founders.svg')}
             />
           </div>
-          <p className="text-xs font-bold mt-1 text-center" style={{ color: '#1a1a2e' }}>
+          <p className="text-xs font-bold mt-1 text-center" style={{ color: 'var(--text-primary)' }}>
             {t('hero.bottomSections.rall.story.names')}
           </p>
         </div>
@@ -278,16 +278,16 @@ export const StoryContent: React.FC<{ accentColor: string; t: any }> = ({ accent
         {/* Story */}
         <div className="flex-1 max-h-[50vh] overflow-y-auto text-left">
           <div className="space-y-2">
-            <p className="text-sm leading-relaxed font-medium" style={{ color: '#1a1a2e' }}>
+            <p className="text-sm leading-relaxed font-medium" style={{ color: 'var(--text-primary)' }}>
               {t('hero.bottomSections.rall.story.paragraph1')}
             </p>
-            <p className="text-xs md:text-sm leading-relaxed" style={{ color: '#4b5563' }}>
+            <p className="text-xs md:text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               {t('hero.bottomSections.rall.story.paragraph2')}
             </p>
-            <p className="text-xs md:text-sm leading-relaxed" style={{ color: '#4b5563' }}>
+            <p className="text-xs md:text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               {t('hero.bottomSections.rall.story.paragraph3')}
             </p>
-            <p className="text-xs md:text-sm leading-relaxed" style={{ color: '#4b5563' }}>
+            <p className="text-xs md:text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               {t('hero.bottomSections.rall.story.paragraph4')}
             </p>
             <p className="text-xs md:text-sm leading-relaxed font-medium" style={{ color: accentColor }}>
@@ -312,7 +312,7 @@ export const OfferContent: React.FC<{ accentColor: string; t: any; isStudent: bo
   return (
     <div className="w-full max-w-2xl mx-auto">
       {/* Headline */}
-      <h3 className="text-base md:text-xl font-black text-center mb-3" style={{ color: '#1a1a2e' }}>
+      <h3 className="text-base md:text-xl font-black font-header text-center mb-3" style={{ color: 'var(--text-primary)' }}>
         {t(`hero.bottomSections.rall.offer.${headlineKey}`)}
       </h3>
 
@@ -336,7 +336,7 @@ export const OfferContent: React.FC<{ accentColor: string; t: any; isStudent: bo
                   {t(`hero.bottomSections.rall.offer.${role}.feature${num}.feature`)}
                 </p>
               </div>
-              <p className="text-xs font-semibold leading-tight" style={{ color: '#1a1a2e' }}>
+              <p className="text-xs font-semibold leading-tight" style={{ color: 'var(--text-primary)' }}>
                 {t(`hero.bottomSections.rall.offer.${role}.feature${num}.pain`)}
               </p>
             </div>
@@ -386,10 +386,10 @@ export const HeroRALL: React.FC<{ isStudent: boolean; isVisible?: boolean; secti
           <p className="text-xs md:text-sm font-bold uppercase tracking-wider mb-1 md:mb-2" style={{ color: accentColor }}>
             {t('hero.bottomSections.rall.label')}
           </p>
-          <h2 className="text-xl md:text-3xl lg:text-4xl font-black font-header mb-2 md:mb-4" style={{ color: '#1a1a2e' }}>
+          <h2 className="text-xl md:text-3xl lg:text-4xl font-black font-header mb-2 md:mb-4" style={{ color: 'var(--text-primary)' }}>
             {t('hero.bottomSections.rall.title')}
           </h2>
-          <p className="text-sm md:text-lg max-w-2xl mx-auto" style={{ color: '#4b5563' }}>
+          <p className="text-sm md:text-lg max-w-2xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
             {t('hero.bottomSections.rall.description')}
           </p>
         </div>
@@ -403,11 +403,11 @@ export const HeroRALL: React.FC<{ isStudent: boolean; isVisible?: boolean; secti
             >
               <div className="flex items-center gap-2 mb-1 md:mb-3">
                 <pillar.icon className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" style={{ color: accentColor }} />
-                <h3 className="font-bold text-xs md:text-base leading-tight" style={{ color: '#1a1a2e' }}>
+                <h3 className="font-bold font-header text-xs md:text-base leading-tight" style={{ color: 'var(--text-primary)' }}>
                   {pillar.title}
                 </h3>
               </div>
-              <p className="text-xs md:text-sm mb-1 md:mb-3 line-clamp-3 md:line-clamp-none" style={{ color: '#4b5563' }}>
+              <p className="text-xs md:text-sm mb-1 md:mb-3 line-clamp-3 md:line-clamp-none" style={{ color: 'var(--text-secondary)' }}>
                 {pillar.description}
               </p>
               <p className="text-[10px] md:text-xs font-medium hidden md:block" style={{ color: accentColor }}>
@@ -425,14 +425,14 @@ export const HeroRALL: React.FC<{ isStudent: boolean; isVisible?: boolean; secti
           <p className="text-white text-sm md:text-xl font-medium leading-relaxed">
             {t('hero.bottomSections.rall.quote')}
           </p>
-          <p className="text-white/70 text-xs md:text-sm mt-2 md:mt-4">
+          <p className="text-white/65 text-xs md:text-sm mt-2 md:mt-4">
             {t('hero.bottomSections.rall.quoteAttribution')}
           </p>
         </div>
 
         {/* Anxiety Note - hidden on mobile */}
         <div className="mt-4 md:mt-8 text-center hidden md:block">
-          <p className="text-sm" style={{ color: '#4b5563' }}>
+          <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
             <strong>{t('hero.bottomSections.rall.anxietyTitle')}</strong> {t('hero.bottomSections.rall.anxietyDesc')}
           </p>
           <p className="text-xs mt-2" style={{ color: accentColor }}>
@@ -464,10 +464,10 @@ export const HeroBlog: React.FC<{ isStudent: boolean; isVisible?: boolean; secti
         <p className="text-xs md:text-sm font-bold uppercase tracking-wider mb-1 md:mb-2" style={{ color: accentColor }}>
           {t('hero.bottomSections.blog.label')}
         </p>
-        <h2 className="text-xl md:text-3xl lg:text-4xl font-black font-header mb-2 md:mb-4" style={{ color: '#1a1a2e' }}>
+        <h2 className="text-xl md:text-3xl lg:text-4xl font-black font-header mb-2 md:mb-4" style={{ color: 'var(--text-primary)' }}>
           {t('hero.bottomSections.blog.title')}
         </h2>
-        <p className="text-sm md:text-lg mb-4 md:mb-10 max-w-2xl mx-auto" style={{ color: '#4b5563' }}>
+        <p className="text-sm md:text-lg mb-4 md:mb-10 max-w-2xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
           {t('hero.bottomSections.blog.description')}
         </p>
 
@@ -487,8 +487,8 @@ export const HeroBlog: React.FC<{ isStudent: boolean; isVisible?: boolean; secti
               >
                 <topic.icon className="w-4 h-4 md:w-6 md:h-6" style={{ color: accentColor }} />
               </div>
-              <h3 className="font-bold text-xs md:text-base mb-1" style={{ color: '#1a1a2e' }}>{topic.title}</h3>
-              <p className="text-[10px] md:text-sm hidden md:block" style={{ color: '#4b5563' }}>{topic.description}</p>
+              <h3 className="font-bold font-header text-xs md:text-base mb-1" style={{ color: 'var(--text-primary)' }}>{topic.title}</h3>
+              <p className="text-[10px] md:text-sm hidden md:block" style={{ color: 'var(--text-secondary)' }}>{topic.description}</p>
             </a>
           ))}
         </div>
@@ -545,8 +545,8 @@ export const HeroFooter: React.FC<{ isStudent: boolean; isVisible?: boolean; sec
       <div className={`max-w-4xl mx-auto section-content ${isVisible ? 'visible' : ''}`}>
         {/* Fun tagline - hidden on mobile */}
         <div className="hidden md:block text-center mb-8">
-          <p className="text-2xl lg:text-3xl font-black font-header" style={{ color: '#1a1a2e' }}>
-            {t('hero.bottomSections.footer.tagline')} 💕
+          <p className="text-2xl lg:text-3xl font-black font-header" style={{ color: 'var(--text-primary)' }}>
+            {t('hero.bottomSections.footer.tagline')} <ICONS.Heart className="w-6 h-6 inline-block text-[var(--accent-color)]" />
           </p>
         </div>
 
@@ -576,17 +576,17 @@ export const HeroFooter: React.FC<{ isStudent: boolean; isVisible?: boolean; sec
 
         {/* Links Row */}
         <div className="flex flex-wrap items-center justify-center gap-2 md:gap-6 text-xs md:text-sm mb-2 md:mb-6">
-          <a href="#/terms" className="font-medium hover:underline transition-colors" style={{ color: '#6b7280' }}>{t('hero.bottomSections.footer.terms')}</a>
+          <a href="#/terms" className="font-medium hover:underline transition-colors" style={{ color: 'var(--text-secondary)' }}>{t('hero.bottomSections.footer.terms')}</a>
           <span style={{ color: '#d1d5db' }}>·</span>
-          <a href="#/privacy" className="font-medium hover:underline transition-colors" style={{ color: '#6b7280' }}>{t('hero.bottomSections.footer.privacy')}</a>
+          <a href="#/privacy" className="font-medium hover:underline transition-colors" style={{ color: 'var(--text-secondary)' }}>{t('hero.bottomSections.footer.privacy')}</a>
           <span style={{ color: '#d1d5db' }}>·</span>
-          <a href="https://www.lovelanguages.io/learn/" target="_blank" rel="noopener noreferrer" className="font-medium hover:underline transition-colors" style={{ color: '#6b7280' }}>{t('hero.bottomSections.footer.blog')}</a>
+          <a href="https://www.lovelanguages.io/learn/" target="_blank" rel="noopener noreferrer" className="font-medium hover:underline transition-colors" style={{ color: 'var(--text-secondary)' }}>{t('hero.bottomSections.footer.blog')}</a>
           <span style={{ color: '#d1d5db' }}>·</span>
-          <a href="mailto:hello@lovelanguages.xyz" className="font-medium hover:underline transition-colors" style={{ color: '#6b7280' }}>{t('hero.bottomSections.footer.contact')}</a>
+          <a href="mailto:hello@lovelanguages.xyz" className="font-medium hover:underline transition-colors" style={{ color: 'var(--text-secondary)' }}>{t('hero.bottomSections.footer.contact')}</a>
         </div>
 
         {/* Copyright with heart */}
-        <div className="text-center text-xs" style={{ color: '#9ca3af' }}>
+        <div className="text-center text-xs" style={{ color: 'var(--text-secondary)' }}>
           © {new Date().getFullYear()} {t('hero.bottomSections.footer.copyright')}
         </div>
       </div>

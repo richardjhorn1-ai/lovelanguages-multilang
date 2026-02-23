@@ -1,4 +1,5 @@
 import React from 'react';
+import { ICONS } from '../../../constants';
 
 /** Default number of consecutive correct answers to mark as learned */
 export const DEFAULT_STREAK_TO_LEARN = 5;
@@ -34,7 +35,7 @@ export const StreakIndicator: React.FC<StreakIndicatorProps> = ({
       <span>
         {streak}/{maxStreak}
       </span>
-      <span>{isComplete ? '✅' : '🔥'}</span>
+      {isComplete ? <ICONS.Check className="w-3 h-3" /> : <ICONS.Zap className="w-3 h-3" />}
     </div>
   );
 };

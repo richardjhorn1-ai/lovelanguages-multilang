@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { ICONS } from '../../../constants';
 
 interface ExitConfirmModalProps {
   /** Whether the modal is visible */
@@ -24,13 +25,13 @@ export const ExitConfirmModal: React.FC<ExitConfirmModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-      <div className="bg-[var(--bg-card)] rounded-2xl shadow-xl max-w-sm w-full p-6 animate-in fade-in zoom-in duration-200">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop">
+      <div className="glass-card-solid rounded-2xl max-w-sm w-full p-6 animate-in fade-in zoom-in duration-200">
         <div className="flex flex-col items-center text-center">
-          <div className="w-16 h-16 bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center mb-4 text-4xl">
-            ⚠️
+          <div className="w-16 h-16 bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center mb-4">
+            <ICONS.AlertTriangle className="w-8 h-8 text-amber-500" />
           </div>
-          <h3 className="text-xl font-black text-[var(--text-primary)] mb-2">
+          <h3 className="text-xl font-black font-header text-[var(--text-primary)] mb-2">
             {t('play.exitConfirm.title', 'Exit Game?')}
           </h3>
           <p className="text-[var(--text-secondary)] mb-6">
@@ -42,7 +43,7 @@ export const ExitConfirmModal: React.FC<ExitConfirmModalProps> = ({
           <div className="flex gap-3 w-full">
             <button
               onClick={onCancel}
-              className="flex-1 px-4 py-3 rounded-xl font-bold text-[var(--text-primary)] bg-[var(--bg-primary)] border border-[var(--border-color)] hover:bg-[var(--bg-card)] transition-colors"
+              className="flex-1 px-4 py-3 rounded-xl font-bold text-[var(--text-primary)] glass-card hover:bg-white/40 transition-colors"
             >
               {t('play.exitConfirm.cancel', 'Keep Playing')}
             </button>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { OnboardingStep, NextButton } from '../../OnboardingStep';
+import { OnboardingStep, NextButton, ONBOARDING_OPTION } from '../../OnboardingStep';
 
 interface ValidationModeStepProps {
   currentStep: number;
@@ -62,10 +62,10 @@ export const ValidationModeStep: React.FC<ValidationModeStepProps> = ({
       accentColor={accentColor}
     >
       <div className="text-center mb-6">
-        <h1 className="text-2xl md:text-3xl font-black text-gray-800 mb-3 font-header">
+        <h1 className="text-2xl md:text-3xl font-black text-[var(--text-primary)] mb-3 font-header">
           {t('onboarding.validation.title')}
         </h1>
-        <p className="text-gray-500 text-scale-label">
+        <p className="text-[var(--text-secondary)] text-scale-label">
           {t('onboarding.validation.subtitle')}
         </p>
       </div>
@@ -75,25 +75,16 @@ export const ValidationModeStep: React.FC<ValidationModeStepProps> = ({
           <button
             key={option.id}
             onClick={() => setSelected(option.value)}
-            className={`w-full p-4 md:p-5 rounded-2xl border-2 transition-all text-left ${
-              selected === option.value
-                ? 'border-2 shadow-md'
-                : 'border-gray-100 bg-white hover:border-gray-200'
-            }`}
-            style={selected === option.value ? {
-              borderColor: accentColor,
-              backgroundColor: `${accentColor}08`
-            } : {}}
+            className="w-full p-4 md:p-5 transition-all text-left"
+            style={ONBOARDING_OPTION(selected === option.value, accentColor)}
           >
             <div className="flex items-start gap-3 md:gap-4">
               <span className="text-2xl md:text-3xl">{option.emoji}</span>
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-1">
                   <span
-                    className={`font-bold text-scale-body ${
-                      selected === option.value ? '' : 'text-gray-700'
-                    }`}
-                    style={selected === option.value ? { color: accentColor } : {}}
+                    className="font-bold text-scale-body"
+                    style={{ color: selected === option.value ? accentColor : 'var(--text-primary)' }}
                   >
                     {option.label}
                   </span>
@@ -107,7 +98,7 @@ export const ValidationModeStep: React.FC<ValidationModeStepProps> = ({
                     {option.tag}
                   </span>
                 </div>
-                <p className="text-gray-500 text-sm mb-2">{option.description}</p>
+                <p className="text-[var(--text-secondary)] text-sm mb-2">{option.description}</p>
                 <ul className="space-y-1">
                   {option.details.map((detail, idx) => (
                     <li key={idx} className="text-xs text-gray-400 flex items-center gap-2">

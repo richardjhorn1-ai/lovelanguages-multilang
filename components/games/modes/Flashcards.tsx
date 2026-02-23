@@ -67,12 +67,12 @@ export const Flashcards: React.FC<FlashcardsProps> = ({
         }`}
       >
         {/* Front - Word */}
-        <div className="absolute inset-0 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center shadow-lg backface-hidden">
+        <div className="absolute inset-0 glass-card rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center backface-hidden">
           <span className="text-[10px] uppercase tracking-widest text-[var(--text-secondary)] font-black mb-8">
             {t('play.flashcard.word', { language: targetLanguageName.toUpperCase() })}
           </span>
           <div className="flex items-center gap-3">
-            <h3 className="text-4xl font-black text-[var(--text-primary)]">
+            <h3 className="text-4xl font-black font-header text-[var(--text-primary)]">
               {currentWord.word}
             </h3>
             <button
@@ -80,7 +80,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({
                 e.stopPropagation();
                 speak(currentWord.word, targetLanguage);
               }}
-              className="p-2 rounded-full hover:bg-[var(--bg-secondary)] transition-colors"
+              className="p-2 rounded-full hover:bg-white/55 dark:hover:bg-white/12 transition-colors"
               title={t('play.flashcard.listen')}
             >
               <ICONS.Volume2 className="w-6 h-6 text-[var(--text-secondary)]" />
@@ -104,7 +104,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({
           <span className="text-[10px] uppercase tracking-widest text-white/50 font-black mb-8">
             {t('play.flashcard.translation')}
           </span>
-          <h3 className="text-4xl font-black">{currentWord.translation}</h3>
+          <h3 className="text-4xl font-black font-header">{currentWord.translation}</h3>
           <div className="mt-12 grid grid-cols-2 gap-3 w-full">
             <button
               onClick={(e) => {

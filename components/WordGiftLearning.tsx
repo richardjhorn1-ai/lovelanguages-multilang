@@ -78,12 +78,12 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
   // Intro Screen
   if (showIntro) {
     return (
-      <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-        <div className="bg-[var(--bg-card)] rounded-[2rem] w-full max-w-md overflow-hidden text-center p-6 md:p-8">
-          <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-[var(--accent-light)] to-amber-100/50 rounded-full flex items-center justify-center text-3xl md:text-4xl mx-auto mb-3 md:mb-4 animate-bounce">
-            🎁
+      <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
+        <div className="glass-card-solid rounded-[2rem] w-full max-w-md overflow-hidden text-center p-6 md:p-8">
+          <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-[var(--accent-light)] to-amber-100/50 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4 animate-bounce">
+            <ICONS.Gift className="w-8 h-8 md:w-10 md:h-10 text-[var(--accent-color)]" />
           </div>
-          <h2 className="text-scale-heading font-black text-[var(--text-primary)] mb-2">{t('wordGift.intro.title', { name: partnerName })}</h2>
+          <h2 className="text-scale-heading font-black font-header text-[var(--text-primary)] mb-2">{t('wordGift.intro.title', { name: partnerName })}</h2>
           <p className="text-[var(--text-secondary)] text-scale-body mb-4 md:mb-6">
             {t('wordGift.intro.subtitle', { count: words.length })}
           </p>
@@ -98,11 +98,11 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
 
           <div className="bg-[var(--accent-light)] p-3 md:p-4 rounded-xl md:rounded-2xl mb-4 md:mb-6 border border-[var(--accent-border)]">
             <div className="flex items-center justify-center gap-2">
-              <span className="text-xl md:text-2xl">✨</span>
+              <ICONS.Sparkles className="w-5 h-5 md:w-6 md:h-6 text-[var(--accent-color)]" />
               <p className="text-scale-caption font-bold text-[var(--text-primary)]">
                 {t('wordGift.intro.xpBonus', { multiplier: wordRequest.xp_multiplier })}
               </p>
-              <span className="text-xl md:text-2xl">✨</span>
+              <ICONS.Sparkles className="w-5 h-5 md:w-6 md:h-6 text-[var(--accent-color)]" />
             </div>
           </div>
 
@@ -128,18 +128,18 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
   // Results Screen
   if (result) {
     return (
-      <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-        <div className="bg-[var(--bg-card)] rounded-[2rem] w-full max-w-md overflow-hidden text-center p-6 md:p-8">
+      <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
+        <div className="glass-card-solid rounded-[2rem] w-full max-w-md overflow-hidden text-center p-6 md:p-8">
           <div className="relative">
-            <div className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-[var(--accent-light)] to-amber-100/50 rounded-full flex items-center justify-center text-4xl md:text-5xl mx-auto mb-3 md:mb-4">
-              🎉
+            <div className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-[var(--accent-light)] to-amber-100/50 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
+              <ICONS.Trophy className="w-10 h-10 md:w-12 md:h-12 text-[var(--accent-color)]" />
             </div>
             <div className="absolute -top-2 -right-2 w-8 h-8 md:w-10 md:h-10 bg-[var(--accent-color)] rounded-full flex items-center justify-center text-white animate-pulse">
               <ICONS.Heart className="w-4 h-4 md:w-6 md:h-6 fill-white" />
             </div>
           </div>
 
-          <h2 className="text-scale-heading font-black text-[var(--text-primary)] mb-2">{t('wordGift.result.title')}</h2>
+          <h2 className="text-scale-heading font-black font-header text-[var(--text-primary)] mb-2">{t('wordGift.result.title')}</h2>
           <p className="text-[var(--text-secondary)] text-scale-body mb-4 md:mb-6">
             {t('wordGift.result.wordsAdded', { count: result.wordsAdded })}
           </p>
@@ -173,8 +173,8 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
   // Loading
   if (completing) {
     return (
-      <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-        <div className="bg-[var(--bg-card)] rounded-[2rem] w-full max-w-md p-8 text-center">
+      <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
+        <div className="glass-card-solid rounded-[2rem] w-full max-w-md p-8 text-center">
           <div className="flex justify-center gap-2 mb-4">
             <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce"></div>
             <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
@@ -189,12 +189,12 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
   // Error Screen
   if (error) {
     return (
-      <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-        <div className="bg-[var(--bg-card)] rounded-[2rem] w-full max-w-md overflow-hidden text-center p-6 md:p-8">
-          <div className="w-16 h-16 md:w-20 md:h-20 bg-red-50 dark:bg-red-900/20 rounded-full flex items-center justify-center text-3xl md:text-4xl mx-auto mb-3 md:mb-4">
-            😔
+      <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
+        <div className="glass-card-solid rounded-[2rem] w-full max-w-md overflow-hidden text-center p-6 md:p-8">
+          <div className="w-16 h-16 md:w-20 md:h-20 bg-red-50 dark:bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
+            <ICONS.AlertCircle className="w-8 h-8 md:w-10 md:h-10 text-red-400" />
           </div>
-          <h2 className="text-scale-heading font-black text-[var(--text-primary)] mb-2">{t('wordGift.error.title')}</h2>
+          <h2 className="text-scale-heading font-black font-header text-[var(--text-primary)] mb-2">{t('wordGift.error.title')}</h2>
           <p className="text-[var(--text-secondary)] text-scale-body mb-4 md:mb-6">
             {error}
           </p>
@@ -222,13 +222,13 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
 
   // Learning Card
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] w-full max-w-md overflow-hidden">
+    <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
+      <div className="glass-card-solid rounded-xl md:rounded-[2rem] w-full max-w-md overflow-hidden">
         {/* Header */}
         <div className="p-3 md:p-4 border-b border-[var(--border-color)]">
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
-              <span className="text-scale-body">🎁</span>
+              <ICONS.Gift className="w-4 h-4 text-[var(--accent-color)]" />
               <span className="text-scale-caption font-bold text-[var(--text-secondary)]">
                 {t('wordGift.card.wordOf', { current: currentIndex + 1, total: words.length })}
               </span>

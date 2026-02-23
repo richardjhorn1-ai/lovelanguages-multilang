@@ -149,21 +149,21 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   }, [deck]);
 
   const encouragementPrompts = useMemo(() => {
-    const prompts: Array<{ icon: string; message: string; color: string }> = [];
+    const prompts: Array<{ icon: React.ReactNode; message: string; color: string }> = [];
     const masteredCount = masteredWords.length;
     const weakCount = scores.filter(s => (s.total_attempts || 0) > (s.correct_attempts || 0)).length;
 
     if (masteredCount >= 10) {
-      prompts.push({ icon: '🏆', message: `${masteredCount} words mastered! Time for a celebration date!`, color: 'text-amber-600' });
+      prompts.push({ icon: <ICONS.Trophy className="w-5 h-5" />, message: `${masteredCount} words mastered! Time for a celebration date!`, color: 'text-amber-600' });
     }
     if (weakCount > 0 && weakCount <= 3) {
-      prompts.push({ icon: '💪', message: `Just ${weakCount} words need work - you can quiz them tonight!`, color: 'text-teal-600' });
+      prompts.push({ icon: <ICONS.TrendingUp className="w-5 h-5" />, message: `Just ${weakCount} words need work - you can quiz them tonight!`, color: 'text-teal-600' });
     }
     if (deck.length >= 5 && deck.length % 5 === 0) {
-      prompts.push({ icon: '🎉', message: `${deck.length} words in their vocabulary - celebrate this milestone!`, color: 'text-[var(--accent-color)]' });
+      prompts.push({ icon: <ICONS.Trophy className="w-5 h-5" />, message: `${deck.length} words in their vocabulary - celebrate this milestone!`, color: 'text-[var(--accent-color)]' });
     }
     if (recentWords.length > 0) {
-      prompts.push({ icon: '✨', message: `They just learned "${recentWords[0].word}" - use it in conversation today!`, color: 'text-purple-600' });
+      prompts.push({ icon: <ICONS.Sparkles className="w-5 h-5" />, message: `They just learned "${recentWords[0].word}" - use it in conversation today!`, color: 'text-purple-600' });
     }
     return prompts.slice(0, 2);
   }, [masteredWords, scores, deck, recentWords]);
@@ -822,11 +822,11 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
   // Empty state
   if (deck.length === 0) return (
-    <div className="h-full flex flex-col items-center justify-center p-8 text-center max-w-md mx-auto bg-[var(--bg-primary)]">
+    <div className="h-full flex flex-col items-center justify-center p-8 text-center max-w-md mx-auto">
       <div className="w-20 h-20 bg-[var(--accent-light)] dark:bg-[var(--accent-light)] rounded-full flex items-center justify-center text-[var(--accent-color)] opacity-60 mb-6">
         <ICONS.Book className="w-10 h-10" />
       </div>
-      <h2 className="text-2xl font-black text-[var(--text-primary)] mb-4">{t('play.empty.noWords')}</h2>
+      <h2 className="text-2xl font-black font-header text-[var(--text-primary)] mb-4">{t('play.empty.noWords')}</h2>
       <p className="text-[var(--text-secondary)] font-medium">{t('play.empty.noWordsDesc')}</p>
     </div>
   );
@@ -834,15 +834,15 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   // Not enough words for multiple choice
   if (mode === 'multiple_choice' && deck.length < 4) {
     return (
-      <div className="h-full flex flex-col items-center justify-center p-8 text-center max-w-md mx-auto bg-[var(--bg-primary)]">
+      <div className="h-full flex flex-col items-center justify-center p-8 text-center max-w-md mx-auto">
         <div className="w-20 h-20 bg-amber-50 dark:bg-amber-900/30 rounded-full flex items-center justify-center text-amber-400 mb-6">
           <ICONS.Star className="w-10 h-10" />
         </div>
-        <h2 className="text-2xl font-black text-[var(--text-primary)] mb-4">{t('play.empty.needMore')}</h2>
+        <h2 className="text-2xl font-black font-header text-[var(--text-primary)] mb-4">{t('play.empty.needMore')}</h2>
         <p className="text-[var(--text-secondary)] font-medium mb-6">{t('play.empty.needMoreDesc', { count: deck.length })}</p>
         <button
           onClick={() => handleModeChange('flashcards')}
-          className="px-6 py-3 rounded-xl font-bold text-white text-scale-label"
+          className="px-6 py-3 rounded-xl font-bold text-white text-scale-label shadow-md hover:shadow-lg active:scale-[0.98] transition-all"
           style={{ backgroundColor: tierColor }}
         >
           {t('play.empty.tryFlashcards')}
@@ -889,7 +889,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const pendingCount = pendingChallenges.length + pendingWordRequests.length;
 
   return (
-    <div className="h-full flex flex-col overflow-hidden bg-[var(--bg-primary)]">
+    <div className="h-full flex flex-col overflow-hidden">
       {/* Streak Celebration Modal */}
       <StreakCelebrationModal
         show={showStreakCelebration}
@@ -915,13 +915,13 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
           {/* Two-Tab Layout: Local Games | Love Notes */}
           {!localGameType && (
             <>
-              <h1 className="text-scale-heading md:text-2xl font-black text-[var(--text-primary)] mb-2 md:mb-3 text-center">{t('play.title')}</h1>
-              <div className="inline-flex w-full bg-[var(--bg-card)] border border-[var(--border-color)] p-0.5 md:p-1 rounded-lg md:rounded-xl mb-2 md:mb-3">
+              <h1 className="text-scale-heading md:text-2xl font-black font-header text-[var(--text-primary)] mb-2 md:mb-3 text-center">{t('play.title')}</h1>
+              <div className="inline-flex w-full glass-card p-0.5 md:p-1 rounded-lg md:rounded-xl mb-2 md:mb-3">
                 <button
                   onClick={() => setMainTab('local_games')}
                   className={`flex-1 px-2 md:px-4 py-1.5 md:py-2 rounded-md md:rounded-lg text-scale-label font-bold transition-all flex items-center justify-center gap-1.5 md:gap-2 ${
                     mainTab === 'local_games'
-                      ? 'bg-[var(--bg-primary)] text-[var(--accent-color)] shadow-sm'
+                      ? 'bg-white/75 dark:bg-white/15 text-[var(--accent-color)] shadow-sm'
                       : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                   }`}
                 >
@@ -932,13 +932,13 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                   onClick={() => setMainTab('love_notes')}
                   className={`relative flex-1 px-2 md:px-4 py-1.5 md:py-2 rounded-md md:rounded-lg text-scale-label font-bold transition-all flex items-center justify-center gap-1.5 md:gap-2 ${
                     mainTab === 'love_notes'
-                      ? 'bg-[var(--accent-color)] text-white shadow-sm'
+                      ? 'bg-white/75 dark:bg-white/15 text-[var(--accent-color)] shadow-sm'
                       : pendingCount > 0
                         ? 'text-[var(--accent-color)]'
                         : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                   }`}
                 >
-                  <ICONS.Heart className={`w-3.5 h-3.5 md:w-4 md:h-4 ${mainTab === 'love_notes' ? 'fill-white' : pendingCount > 0 ? 'fill-[var(--accent-color)]' : ''}`} />
+                  <ICONS.Heart className={`w-3.5 h-3.5 md:w-4 md:h-4 ${mainTab === 'love_notes' ? 'fill-[var(--accent-color)]' : pendingCount > 0 ? 'fill-[var(--accent-color)]' : ''}`} />
                   {t('play.tabs.loveNotes')}
                   {pendingCount > 0 && mainTab !== 'love_notes' && (
                     <span className="absolute -top-1 -right-1 w-4 h-4 md:w-5 md:h-5 bg-[var(--accent-color)] text-white text-[8px] md:text-[10px] flex items-center justify-center rounded-full font-bold animate-bounce">
@@ -961,7 +961,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
               <div className="flex items-center justify-between mb-2">
                 <button
                   onClick={handleExitRequest}
-                  className="p-2 hover:bg-[var(--bg-card)] rounded-xl transition-colors"
+                  className="p-2 hover:bg-white/40 rounded-xl transition-colors"
                 >
                   <ICONS.ChevronLeft className="w-5 h-5 text-[var(--text-secondary)]" />
                 </button>
@@ -1003,14 +1003,14 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
               {/* Flashcards */}
               <button
                 onClick={() => startLocalGame('flashcards')}
-                className="group p-3 md:p-6 bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left"
+                className="group p-3 md:p-6 glass-card rounded-xl md:rounded-[2rem] hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left"
               >
                 <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4">
-                  <div className="w-10 h-10 md:w-14 md:h-14 bg-[var(--accent-light)] rounded-xl md:rounded-2xl flex items-center justify-center text-xl md:text-3xl group-hover:scale-110 transition-transform">
-                    🎴
+                  <div className="w-10 h-10 md:w-14 md:h-14 bg-[var(--accent-light)] rounded-xl md:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-[var(--accent-color)]">
+                    <ICONS.Layers className="w-5 h-5 md:w-7 md:h-7" />
                   </div>
                   <div className="flex-1 text-center md:text-left">
-                    <h3 className="text-scale-label md:text-scale-body font-black text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.flashcards')}</h3>
+                    <h3 className="text-scale-label md:text-scale-body font-black font-header text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.flashcards')}</h3>
                     <p className="text-[10px] md:text-scale-label text-[var(--text-secondary)] hidden md:block">{t('play.games.flashcardsDesc')}</p>
                   </div>
                 </div>
@@ -1020,14 +1020,14 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
               <button
                 onClick={() => startLocalGame('multiple_choice')}
                 disabled={deck.length < 4}
-                className="group p-3 md:p-6 bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-purple-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
+                className="group p-3 md:p-6 glass-card rounded-xl md:rounded-[2rem] hover:shadow-md hover:border-purple-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4">
-                  <div className="w-10 h-10 md:w-14 md:h-14 bg-purple-500/20 rounded-xl md:rounded-2xl flex items-center justify-center text-xl md:text-3xl group-hover:scale-110 transition-transform">
-                    🔘
+                  <div className="w-10 h-10 md:w-14 md:h-14 bg-purple-500/20 rounded-xl md:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-purple-500">
+                    <ICONS.CheckCircle className="w-5 h-5 md:w-7 md:h-7" />
                   </div>
                   <div className="flex-1 text-center md:text-left">
-                    <h3 className="text-scale-label md:text-scale-body font-black text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.multiChoice')}</h3>
+                    <h3 className="text-scale-label md:text-scale-body font-black font-header text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.multiChoice')}</h3>
                     <p className="text-[10px] md:text-scale-label text-[var(--text-secondary)] hidden md:block">{t('play.games.multiChoiceDesc')}</p>
                   </div>
                 </div>
@@ -1036,14 +1036,14 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
               {/* Type It */}
               <button
                 onClick={() => startLocalGame('type_it')}
-                className="group p-3 md:p-6 bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-blue-500/30 transition-all text-left"
+                className="group p-3 md:p-6 glass-card rounded-xl md:rounded-[2rem] hover:shadow-md hover:border-blue-500/30 transition-all text-left"
               >
                 <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4">
-                  <div className="w-10 h-10 md:w-14 md:h-14 bg-blue-500/20 rounded-xl md:rounded-2xl flex items-center justify-center text-xl md:text-3xl group-hover:scale-110 transition-transform">
-                    ⌨️
+                  <div className="w-10 h-10 md:w-14 md:h-14 bg-blue-500/20 rounded-xl md:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-blue-500">
+                    <ICONS.Type className="w-5 h-5 md:w-7 md:h-7" />
                   </div>
                   <div className="flex-1 text-center md:text-left">
-                    <h3 className="text-scale-label md:text-scale-body font-black text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.typeIt')}</h3>
+                    <h3 className="text-scale-label md:text-scale-body font-black font-header text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.typeIt')}</h3>
                     <p className="text-[10px] md:text-scale-label text-[var(--text-secondary)] hidden md:block">{t('play.games.typeItDesc')}</p>
                   </div>
                 </div>
@@ -1053,14 +1053,14 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
               <button
                 onClick={() => startLocalGame('quick_fire')}
                 disabled={deck.length < 5}
-                className="group p-3 md:p-6 bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-amber-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
+                className="group p-3 md:p-6 glass-card rounded-xl md:rounded-[2rem] hover:shadow-md hover:border-amber-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4">
-                  <div className="w-10 h-10 md:w-14 md:h-14 bg-amber-500/20 rounded-xl md:rounded-2xl flex items-center justify-center text-xl md:text-3xl group-hover:scale-110 transition-transform">
-                    ⚡
+                  <div className="w-10 h-10 md:w-14 md:h-14 bg-amber-500/20 rounded-xl md:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-amber-500">
+                    <ICONS.Zap className="w-5 h-5 md:w-7 md:h-7" />
                   </div>
                   <div className="flex-1 text-center md:text-left">
-                    <h3 className="text-scale-label md:text-scale-body font-black text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.quickFire')}</h3>
+                    <h3 className="text-scale-label md:text-scale-body font-black font-header text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.quickFire')}</h3>
                     <p className="text-[10px] md:text-scale-label text-[var(--text-secondary)] hidden md:block">{t('play.games.quickFireDesc')}</p>
                   </div>
                 </div>
@@ -1069,14 +1069,14 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
               {/* AI Challenge */}
               <button
                 onClick={() => startLocalGame('ai_challenge')}
-                className="group p-3 md:p-6 bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-green-500/30 transition-all text-left"
+                className="group p-3 md:p-6 glass-card rounded-xl md:rounded-[2rem] hover:shadow-md hover:border-green-500/30 transition-all text-left"
               >
                 <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4">
-                  <div className="w-10 h-10 md:w-14 md:h-14 bg-green-500/20 rounded-xl md:rounded-2xl flex items-center justify-center text-xl md:text-3xl group-hover:scale-110 transition-transform">
-                    🤖
+                  <div className="w-10 h-10 md:w-14 md:h-14 bg-green-500/20 rounded-xl md:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-green-500">
+                    <ICONS.Bot className="w-5 h-5 md:w-7 md:h-7" />
                   </div>
                   <div className="flex-1 text-center md:text-left">
-                    <h3 className="text-scale-label md:text-scale-body font-black text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.aiChallenge')}</h3>
+                    <h3 className="text-scale-label md:text-scale-body font-black font-header text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.aiChallenge')}</h3>
                     <p className="text-[10px] md:text-scale-label text-[var(--text-secondary)] hidden md:block">{t('play.games.aiChallengeDesc')}</p>
                   </div>
                 </div>
@@ -1085,17 +1085,17 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
               {/* Conversation Practice */}
               <button
                 onClick={() => setShowConversationPractice(true)}
-                className="group p-3 md:p-6 bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-purple-500/30 transition-all text-left relative"
+                className="group p-3 md:p-6 glass-card rounded-xl md:rounded-[2rem] hover:shadow-md hover:border-purple-500/30 transition-all text-left relative"
               >
                 <div className="absolute top-1.5 right-1.5 md:top-3 md:right-3 px-1.5 md:px-2 py-0.5 bg-purple-500/20 text-purple-600 dark:text-purple-400 text-[7px] md:text-[9px] font-black uppercase tracking-wider rounded-full">
                   {t('play.beta')}
                 </div>
                 <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4">
-                  <div className="w-10 h-10 md:w-14 md:h-14 bg-purple-500/20 rounded-xl md:rounded-2xl flex items-center justify-center text-xl md:text-3xl group-hover:scale-110 transition-transform">
-                    🎙️
+                  <div className="w-10 h-10 md:w-14 md:h-14 bg-purple-500/20 rounded-xl md:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-purple-500">
+                    <ICONS.Mic className="w-5 h-5 md:w-7 md:h-7" />
                   </div>
                   <div className="flex-1 text-center md:text-left">
-                    <h3 className="text-scale-label md:text-scale-body font-black text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.conversation')}</h3>
+                    <h3 className="text-scale-label md:text-scale-body font-black font-header text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.conversation')}</h3>
                     <p className="text-[10px] md:text-scale-label text-[var(--text-secondary)] hidden md:block">{t('play.games.conversationDesc', { language: targetName })}</p>
                   </div>
                 </div>
@@ -1105,14 +1105,14 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
               <button
                 onClick={() => startLocalGame('verb_mastery')}
                 disabled={verbsWithConjugations.length === 0}
-                className="group p-3 md:p-6 bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] border border-[var(--border-color)] shadow-sm hover:shadow-md hover:border-orange-500/30 transition-all text-left relative disabled:opacity-50 disabled:cursor-not-allowed"
+                className="group p-3 md:p-6 glass-card rounded-xl md:rounded-[2rem] hover:shadow-md hover:border-orange-500/30 transition-all text-left relative disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4">
-                  <div className="w-10 h-10 md:w-14 md:h-14 bg-orange-500/20 rounded-xl md:rounded-2xl flex items-center justify-center text-xl md:text-3xl group-hover:scale-110 transition-transform">
-                    🔄
+                  <div className="w-10 h-10 md:w-14 md:h-14 bg-orange-500/20 rounded-xl md:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-orange-500">
+                    <ICONS.RefreshCw className="w-5 h-5 md:w-7 md:h-7" />
                   </div>
                   <div className="flex-1 text-center md:text-left">
-                    <h3 className="text-scale-label md:text-scale-body font-black text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.verbMastery')}</h3>
+                    <h3 className="text-scale-label md:text-scale-body font-black font-header text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.verbMastery')}</h3>
                     <p className="text-[10px] md:text-scale-label text-[var(--text-secondary)] hidden md:block">
                       {verbsWithConjugations.length > 0
                         ? t('play.games.verbMasteryVerbs', { count: verbsWithConjugations.length })
@@ -1242,18 +1242,18 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
             <div className="w-full space-y-4">
               {/* Header */}
               <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-[var(--accent-light)] rounded-full flex items-center justify-center text-3xl mx-auto mb-3 animate-pulse">
-                  💌
+                <div className="w-16 h-16 bg-[var(--accent-light)] rounded-full flex items-center justify-center mx-auto mb-3 animate-pulse text-[var(--accent-color)]">
+                  <ICONS.Mail className="w-8 h-8" />
                 </div>
-                <h2 className="text-scale-heading font-black text-[var(--text-primary)]">{t('play.loveNotes.title', { partner: partnerName })}</h2>
+                <h2 className="text-scale-heading font-black font-header text-[var(--text-primary)]">{t('play.loveNotes.title', { partner: partnerName })}</h2>
                 <p className="text-scale-label text-[var(--text-secondary)]">{t('play.loveNotes.subtitle')}</p>
               </div>
 
               {/* Empty State */}
               {pendingChallenges.length === 0 && pendingWordRequests.length === 0 && (
-                <div className="bg-[var(--bg-card)] rounded-[2rem] p-8 shadow-sm border border-[var(--border-color)] text-center">
-                  <div className="text-4xl mb-4">✨</div>
-                  <h3 className="text-scale-heading font-bold text-[var(--text-primary)] mb-2">{t('play.loveNotes.empty')}</h3>
+                <div className="glass-card rounded-[2rem] p-8 text-center">
+                  <div className="mb-4 text-[var(--accent-color)]"><ICONS.Sparkles className="w-10 h-10 mx-auto" /></div>
+                  <h3 className="text-scale-heading font-bold font-header text-[var(--text-primary)] mb-2">{t('play.loveNotes.empty')}</h3>
                   <p className="text-scale-label text-[var(--text-secondary)]">{t('play.loveNotes.emptyDesc', { partner: partnerName })}</p>
                 </div>
               )}
@@ -1261,18 +1261,18 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
               {/* Pending Challenges */}
               {pendingChallenges.length > 0 && (
                 <div className="space-y-3">
-                  <h3 className="text-scale-caption font-black uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
+                  <h3 className="text-scale-caption font-black font-header uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
                     <ICONS.Zap className="w-3.5 h-3.5" /> {t('play.loveNotes.challenges')}
                   </h3>
                   {pendingChallenges.map(challenge => (
                     <button
                       key={challenge.id}
                       onClick={() => setActiveChallenge(challenge)}
-                      className="w-full bg-[var(--bg-card)] rounded-2xl p-4 shadow-sm border border-[var(--border-color)] hover:border-[var(--accent-border)] dark:hover:border-[var(--accent-border)] hover:shadow-md transition-all text-left group"
+                      className="w-full glass-card rounded-2xl p-4 hover:border-[var(--accent-border)] dark:hover:border-[var(--accent-border)] hover:shadow-md transition-all text-left group"
                     >
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-[var(--accent-light)] rounded-xl flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
-                          {challenge.challenge_type === 'quiz' ? '🎯' : '⚡'}
+                        <div className="w-12 h-12 bg-[var(--accent-light)] rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform text-[var(--accent-color)]">
+                          {challenge.challenge_type === 'quiz' ? <ICONS.Target className="w-6 h-6" /> : <ICONS.Zap className="w-6 h-6" />}
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
@@ -1297,18 +1297,18 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
               {/* Pending Word Gifts */}
               {pendingWordRequests.length > 0 && (
                 <div className="space-y-3">
-                  <h3 className="text-scale-caption font-black uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
+                  <h3 className="text-scale-caption font-black font-header uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
                     <ICONS.Heart className="w-3.5 h-3.5 fill-[var(--text-secondary)]" /> {t('play.loveNotes.wordGifts')}
                   </h3>
                   {pendingWordRequests.map(request => (
                     <button
                       key={request.id}
                       onClick={() => setActiveWordRequest(request)}
-                      className="w-full bg-[var(--bg-card)] rounded-2xl p-4 shadow-sm border border-[var(--border-color)] hover:border-amber-200 dark:hover:border-amber-700 hover:shadow-md transition-all text-left group"
+                      className="w-full glass-card rounded-2xl p-4 hover:border-amber-200 dark:hover:border-amber-700 hover:shadow-md transition-all text-left group"
                     >
                       <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-[var(--accent-light)] rounded-xl flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
-                          🎁
+                        <div className="w-12 h-12 bg-[var(--accent-light)] rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform text-[var(--accent-color)]">
+                          <ICONS.Gift className="w-6 h-6" />
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2">
@@ -1338,7 +1338,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
                 <div className="flex gap-2 mt-6">
                   <button
                     onClick={() => { setMainTab('local_games'); }}
-                    className="flex-1 py-3 rounded-xl font-bold text-scale-label text-white transition-colors"
+                    className="flex-1 py-3 rounded-xl font-bold text-scale-label text-white shadow-md hover:shadow-lg active:scale-[0.98] transition-all"
                     style={{ backgroundColor: tierColor }}
                   >
                     {t('play.loveNotes.goToGames')}
@@ -1393,13 +1393,13 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
       {/* Exit Confirmation Modal */}
       {showExitConfirm && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-          <div className="bg-[var(--bg-card)] rounded-2xl shadow-xl max-w-sm w-full p-6 animate-in fade-in zoom-in duration-200">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop">
+          <div className="glass-card-solid rounded-2xl max-w-sm w-full p-6 animate-in fade-in zoom-in duration-200">
             <div className="flex flex-col items-center text-center">
-              <div className="w-16 h-16 bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center mb-4 text-4xl">
-                ⚠️
+              <div className="w-16 h-16 bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center mb-4 text-amber-500">
+                <ICONS.AlertTriangle className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-black text-[var(--text-primary)] mb-2">
+              <h3 className="text-xl font-black font-header text-[var(--text-primary)] mb-2">
                 {t('play.exitConfirm.title', 'Exit Game?')}
               </h3>
               <p className="text-[var(--text-secondary)] mb-6">
@@ -1408,7 +1408,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
               <div className="flex gap-3 w-full">
                 <button
                   onClick={() => setShowExitConfirm(false)}
-                  className="flex-1 px-4 py-3 rounded-xl font-bold text-[var(--text-primary)] bg-[var(--bg-primary)] border border-[var(--border-color)] hover:bg-[var(--bg-card)] transition-colors"
+                  className="flex-1 px-4 py-3 rounded-xl font-bold text-[var(--text-primary)] glass-card hover:bg-white/55 transition-colors"
                 >
                   {t('play.exitConfirm.cancel', 'Keep Playing')}
                 </button>

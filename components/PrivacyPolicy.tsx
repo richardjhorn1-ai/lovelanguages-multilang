@@ -23,7 +23,7 @@ const PrivacyPolicy: React.FC = () => {
         </button>
 
         {/* Header */}
-        <h1 className="text-3xl sm:text-4xl font-black mb-2" style={{ color: 'var(--text-primary)' }}>
+        <h1 className="text-3xl sm:text-4xl font-black font-header mb-2" style={{ color: 'var(--text-primary)' }}>
           Privacy Policy
         </h1>
         <p className="text-sm mb-8" style={{ color: 'var(--text-secondary)' }}>
@@ -48,11 +48,11 @@ const PrivacyPolicy: React.FC = () => {
 
           {/* 1. Information We Collect */}
           <section>
-            <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
               1. Information We Collect
             </h2>
 
-            <h3 className="font-semibold mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>
+            <h3 className="font-semibold font-header mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>
               1.1 Information You Provide
             </h3>
             <ul className="list-disc ml-6 space-y-2">
@@ -78,7 +78,7 @@ const PrivacyPolicy: React.FC = () => {
               </li>
             </ul>
 
-            <h3 className="font-semibold mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>
+            <h3 className="font-semibold font-header mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>
               1.2 Information Collected Automatically
             </h3>
             <ul className="list-disc ml-6 space-y-2">
@@ -97,7 +97,7 @@ const PrivacyPolicy: React.FC = () => {
 
           {/* 2. How We Use Your Information */}
           <section>
-            <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
               2. How We Use Your Information
             </h2>
             <p>We use your information to:</p>
@@ -115,12 +115,12 @@ const PrivacyPolicy: React.FC = () => {
 
           {/* 3. How We Share Your Information */}
           <section>
-            <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
               3. How We Share Your Information
             </h2>
             <p>We may share your information with:</p>
 
-            <h3 className="font-semibold mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>
+            <h3 className="font-semibold font-header mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>
               3.1 Service Providers
             </h3>
             <ul className="list-disc ml-6 space-y-2">
@@ -142,7 +142,7 @@ const PrivacyPolicy: React.FC = () => {
               </li>
             </ul>
 
-            <h3 className="font-semibold mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>
+            <h3 className="font-semibold font-header mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>
               3.2 Your Partner
             </h3>
             <p>
@@ -155,7 +155,7 @@ const PrivacyPolicy: React.FC = () => {
               <li>Challenges and word gifts you exchange</li>
             </ul>
 
-            <h3 className="font-semibold mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>
+            <h3 className="font-semibold font-header mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>
               3.3 Legal Requirements
             </h3>
             <p>
@@ -166,7 +166,7 @@ const PrivacyPolicy: React.FC = () => {
 
           {/* 4. Data Retention */}
           <section>
-            <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
               4. Data Retention
             </h2>
             <p>We retain your data as follows:</p>
@@ -193,14 +193,14 @@ const PrivacyPolicy: React.FC = () => {
 
           {/* 5. Your Rights (GDPR & CCPA) */}
           <section>
-            <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
               5. Your Rights
             </h2>
             <p>
               Depending on your location, you may have the following rights regarding your personal data:
             </p>
 
-            <h3 className="font-semibold mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>
+            <h3 className="font-semibold font-header mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>
               5.1 For All Users
             </h3>
             <ul className="list-disc ml-6 space-y-2">
@@ -218,7 +218,7 @@ const PrivacyPolicy: React.FC = () => {
               </li>
             </ul>
 
-            <h3 className="font-semibold mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>
+            <h3 className="font-semibold font-header mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>
               5.2 For EEA/UK Residents (GDPR)
             </h3>
             <ul className="list-disc ml-6 space-y-2">
@@ -237,7 +237,7 @@ const PrivacyPolicy: React.FC = () => {
               </li>
             </ul>
 
-            <h3 className="font-semibold mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>
+            <h3 className="font-semibold font-header mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>
               5.3 For California Residents (CCPA)
             </h3>
             <ul className="list-disc ml-6 space-y-2">
@@ -275,7 +275,7 @@ const PrivacyPolicy: React.FC = () => {
 
           {/* 6. Data Security */}
           <section>
-            <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
               6. Data Security
             </h2>
             <p>We implement appropriate technical and organizational measures to protect your data:</p>
@@ -306,7 +306,7 @@ const PrivacyPolicy: React.FC = () => {
 
           {/* 7. Children's Privacy */}
           <section>
-            <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
               7. Children's Privacy
             </h2>
             <p>
@@ -318,7 +318,7 @@ const PrivacyPolicy: React.FC = () => {
 
           {/* 8. International Transfers */}
           <section>
-            <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
               8. International Data Transfers
             </h2>
             <p>
@@ -334,7 +334,7 @@ const PrivacyPolicy: React.FC = () => {
 
           {/* 9. Cookies and Tracking */}
           <section>
-            <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
               9. Cookies and Tracking
             </h2>
             <p>We use the following types of cookies and similar technologies:</p>
@@ -362,7 +362,7 @@ const PrivacyPolicy: React.FC = () => {
 
           {/* 10. Third-Party Links */}
           <section>
-            <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
               10. Third-Party Links
             </h2>
             <p>
@@ -374,7 +374,7 @@ const PrivacyPolicy: React.FC = () => {
 
           {/* 11. Changes to This Policy */}
           <section>
-            <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
               11. Changes to This Policy
             </h2>
             <p>
@@ -386,7 +386,7 @@ const PrivacyPolicy: React.FC = () => {
 
           {/* 12. Contact Us */}
           <section>
-            <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
               12. Contact Us
             </h2>
             <p>

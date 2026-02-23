@@ -23,7 +23,7 @@ const TermsOfService: React.FC = () => {
         </button>
 
         {/* Header */}
-        <h1 className="text-3xl sm:text-4xl font-black mb-2" style={{ color: 'var(--text-primary)' }}>
+        <h1 className="text-3xl sm:text-4xl font-black font-header mb-2" style={{ color: 'var(--text-primary)' }}>
           Terms of Service
         </h1>
         <p className="text-sm mb-8" style={{ color: 'var(--text-secondary)' }}>
@@ -48,7 +48,7 @@ const TermsOfService: React.FC = () => {
 
           {/* 1. Eligibility */}
           <section>
-            <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
               1. Eligibility
             </h2>
             <p>
@@ -64,7 +64,7 @@ const TermsOfService: React.FC = () => {
 
           {/* 2. Account Registration */}
           <section>
-            <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
               2. Account Registration
             </h2>
             <p>
@@ -85,38 +85,38 @@ const TermsOfService: React.FC = () => {
 
           {/* 3. Subscription and Billing */}
           <section>
-            <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
               3. Subscription and Billing
             </h2>
 
-            <h3 className="font-semibold mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>3.1 Subscription Plans</h3>
+            <h3 className="font-semibold font-header mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>3.1 Subscription Plans</h3>
             <p>
               Love Languages offers subscription plans ("Standard" and "Unlimited") that provide access to
               premium features. Subscription fees are billed in advance on a monthly or yearly basis, depending
               on the plan you select.
             </p>
 
-            <h3 className="font-semibold mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>3.2 Payment Processing</h3>
+            <h3 className="font-semibold font-header mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>3.2 Payment Processing</h3>
             <p>
               All payments are processed securely through Stripe. By subscribing, you authorize us to charge
               your payment method for the applicable subscription fees. You are responsible for keeping your
               payment information current.
             </p>
 
-            <h3 className="font-semibold mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>3.3 Automatic Renewal</h3>
+            <h3 className="font-semibold font-header mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>3.3 Automatic Renewal</h3>
             <p>
               Subscriptions automatically renew at the end of each billing period unless you cancel before the
               renewal date. You will be charged the then-current subscription fee unless you cancel.
             </p>
 
-            <h3 className="font-semibold mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>3.4 Cancellation</h3>
+            <h3 className="font-semibold font-header mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>3.4 Cancellation</h3>
             <p>
               You may cancel your subscription at any time through your account settings or by contacting us.
               Cancellation will take effect at the end of your current billing period. You will retain access
               to premium features until your subscription expires.
             </p>
 
-            <h3 className="font-semibold mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>3.5 Refunds</h3>
+            <h3 className="font-semibold font-header mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>3.5 Refunds</h3>
             <p>
               Subscription fees are generally non-refundable. However, we may provide refunds at our sole
               discretion in certain circumstances. If you believe you are entitled to a refund, please contact
@@ -126,7 +126,7 @@ const TermsOfService: React.FC = () => {
 
           {/* 4. Partner Features */}
           <section>
-            <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
               4. Partner Features
             </h2>
             <p>
@@ -146,7 +146,7 @@ const TermsOfService: React.FC = () => {
 
           {/* 5. Acceptable Use */}
           <section>
-            <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
               5. Acceptable Use
             </h2>
             <p>You agree not to:</p>
@@ -166,25 +166,25 @@ const TermsOfService: React.FC = () => {
 
           {/* 6. Intellectual Property */}
           <section>
-            <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
               6. Intellectual Property
             </h2>
 
-            <h3 className="font-semibold mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>6.1 Our Content</h3>
+            <h3 className="font-semibold font-header mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>6.1 Our Content</h3>
             <p>
               The Service, including its design, features, content, and all intellectual property rights therein,
               is owned by Love Languages or its licensors. You may not copy, modify, distribute, sell, or lease
               any part of the Service without our prior written consent.
             </p>
 
-            <h3 className="font-semibold mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>6.2 Your Content</h3>
+            <h3 className="font-semibold font-header mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>6.2 Your Content</h3>
             <p>
               You retain ownership of any content you create within the Service, including vocabulary lists,
               chat messages, and learning progress data. By using the Service, you grant us a limited license
               to store and process your content as necessary to provide the Service.
             </p>
 
-            <h3 className="font-semibold mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>6.3 AI-Generated Content</h3>
+            <h3 className="font-semibold font-header mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>6.3 AI-Generated Content</h3>
             <p>
               The Service uses artificial intelligence to generate educational content, translations, and
               feedback. While we strive for accuracy, AI-generated content may contain errors. You acknowledge
@@ -195,7 +195,7 @@ const TermsOfService: React.FC = () => {
 
           {/* 7. Third-Party Services */}
           <section>
-            <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
               7. Third-Party Services
             </h2>
             <p>
@@ -215,7 +215,7 @@ const TermsOfService: React.FC = () => {
 
           {/* 8. Disclaimers */}
           <section>
-            <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
               8. Disclaimers
             </h2>
             <p>
@@ -236,7 +236,7 @@ const TermsOfService: React.FC = () => {
 
           {/* 9. Limitation of Liability */}
           <section>
-            <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
               9. Limitation of Liability
             </h2>
             <p>
@@ -258,7 +258,7 @@ const TermsOfService: React.FC = () => {
 
           {/* 10. Indemnification */}
           <section>
-            <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
               10. Indemnification
             </h2>
             <p>
@@ -270,7 +270,7 @@ const TermsOfService: React.FC = () => {
 
           {/* 11. Termination */}
           <section>
-            <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
               11. Termination
             </h2>
             <p>
@@ -289,7 +289,7 @@ const TermsOfService: React.FC = () => {
 
           {/* 12. Changes to Terms */}
           <section>
-            <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
               12. Changes to Terms
             </h2>
             <p>
@@ -301,7 +301,7 @@ const TermsOfService: React.FC = () => {
 
           {/* 13. Governing Law */}
           <section>
-            <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
               13. Governing Law
             </h2>
             <p>
@@ -313,7 +313,7 @@ const TermsOfService: React.FC = () => {
 
           {/* 14. Contact Us */}
           <section>
-            <h2 className="text-xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
               14. Contact Us
             </h2>
             <p>

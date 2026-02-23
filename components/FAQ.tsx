@@ -15,7 +15,7 @@ const FAQ: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen overflow-y-auto" style={{ background: 'var(--bg-primary)', paddingTop: 'env(safe-area-inset-top, 0px)' }}>
+    <div className="min-h-screen overflow-y-auto app-bg-decor" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
       <div className="max-w-3xl mx-auto px-4 py-8 sm:py-12">
         {/* Back Button */}
         <button
@@ -28,7 +28,7 @@ const FAQ: React.FC = () => {
         </button>
 
         {/* Header */}
-        <h1 className="text-3xl sm:text-4xl font-black mb-2" style={{ color: 'var(--text-primary)' }}>
+        <h1 className="text-3xl sm:text-4xl font-black font-header mb-2" style={{ color: 'var(--text-primary)' }}>
           {t('hero.bottomSections.faq.title')}
         </h1>
         <p className="text-sm mb-8" style={{ color: 'var(--text-secondary)' }}>
@@ -39,8 +39,7 @@ const FAQ: React.FC = () => {
         <div className="space-y-4">
           {/* Q1 - What is RALL */}
           <div
-            className="rounded-2xl border overflow-hidden"
-            style={{ borderColor: 'var(--border-primary)', background: 'var(--bg-secondary)' }}
+            className="rounded-2xl overflow-hidden glass-card"
           >
             <button
               onClick={() => toggleItem(0)}
@@ -66,8 +65,7 @@ const FAQ: React.FC = () => {
 
           {/* Q2 - How is LL different */}
           <div
-            className="rounded-2xl border overflow-hidden"
-            style={{ borderColor: 'var(--border-primary)', background: 'var(--bg-secondary)' }}
+            className="rounded-2xl overflow-hidden glass-card"
           >
             <button
               onClick={() => toggleItem(1)}
@@ -96,8 +94,7 @@ const FAQ: React.FC = () => {
 
           {/* Q3 - Student/Tutor roles */}
           <div
-            className="rounded-2xl border overflow-hidden"
-            style={{ borderColor: 'var(--border-primary)', background: 'var(--bg-secondary)' }}
+            className="rounded-2xl overflow-hidden glass-card"
           >
             <button
               onClick={() => toggleItem(2)}
@@ -125,8 +122,7 @@ const FAQ: React.FC = () => {
 
           {/* Q4 - Languages */}
           <div
-            className="rounded-2xl border overflow-hidden"
-            style={{ borderColor: 'var(--border-primary)', background: 'var(--bg-secondary)' }}
+            className="rounded-2xl overflow-hidden glass-card"
           >
             <button
               onClick={() => toggleItem(3)}
@@ -149,8 +145,7 @@ const FAQ: React.FC = () => {
 
           {/* Q5 - Pricing */}
           <div
-            className="rounded-2xl border overflow-hidden"
-            style={{ borderColor: 'var(--border-primary)', background: 'var(--bg-secondary)' }}
+            className="rounded-2xl overflow-hidden glass-card"
           >
             <button
               onClick={() => toggleItem(4)}
@@ -186,8 +181,7 @@ const FAQ: React.FC = () => {
 
           {/* Q6 - Invite partner */}
           <div
-            className="rounded-2xl border overflow-hidden"
-            style={{ borderColor: 'var(--border-primary)', background: 'var(--bg-secondary)' }}
+            className="rounded-2xl overflow-hidden glass-card"
           >
             <button
               onClick={() => toggleItem(5)}
@@ -211,8 +205,7 @@ const FAQ: React.FC = () => {
 
         {/* Contact CTA */}
         <div
-          className="mt-12 p-6 rounded-2xl text-center"
-          style={{ background: 'var(--bg-secondary)', borderColor: 'var(--border-primary)' }}
+          className="mt-12 p-6 rounded-2xl text-center glass-card"
         >
           <p className="font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
             {t('faq.stillHaveQuestions', 'Still have questions?')}

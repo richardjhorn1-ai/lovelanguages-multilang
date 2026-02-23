@@ -33,9 +33,9 @@ const WeakSpotIntelligence: React.FC<WeakSpotIntelligenceProps> = ({
   const { t } = useTranslation();
 
   return (
-    <div className="bg-[var(--bg-card)] p-4 md:p-6 rounded-xl md:rounded-[2rem] border border-[var(--border-color)]">
+    <div className="glass-card p-4 md:p-6 rounded-xl md:rounded-[2rem]">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-scale-micro font-black uppercase text-[var(--text-secondary)] tracking-widest flex items-center gap-2">
+        <h3 className="text-scale-micro font-black font-header uppercase text-[var(--text-secondary)] tracking-widest flex items-center gap-2">
           <ICONS.Target className="w-4 h-4" style={{ color: tierColor }} />
           {t('tutor.weakSpots.title', 'Focus Areas')}
         </h3>
@@ -100,7 +100,7 @@ const WeakSpotIntelligence: React.FC<WeakSpotIntelligenceProps> = ({
                   {word.word}
                 </span>
                 <span className="text-scale-micro" style={{ color: tierColor, opacity: 0.8 }}>
-                  {word.streak}/5 🔥
+                  {word.streak}/5 <ICONS.Zap className="w-3 h-3 inline-block" />
                 </span>
               </div>
             ))}

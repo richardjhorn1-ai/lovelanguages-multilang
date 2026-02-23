@@ -127,6 +127,49 @@ html.capacitor .overflow-auto {
     }
 }
 
+/* Range input (slider) thumb — consistent across browsers */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    box-shadow:
+        0 1px 4px rgba(0, 0, 0, 0.15),
+        0 0 0 3px var(--accent-color);
+    cursor: pointer;
+    transition: box-shadow 0.15s ease;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.2),
+        0 0 0 4px var(--accent-color);
+}
+input[type="range"]::-webkit-slider-thumb:active {
+    transform: scale(1.1);
+}
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: none;
+    background: white;
+    box-shadow:
+        0 1px 4px rgba(0, 0, 0, 0.15),
+        0 0 0 3px var(--accent-color);
+    cursor: pointer;
+}
+input[type="range"]::-moz-range-track {
+    height: 8px;
+    border-radius: 9999px;
+    background: transparent;
+}
+
 /* Desktop text scale offset - added to mobile values by theme.ts
    The actual text scale values are set via JavaScript in applyTheme()
    to support theme-aware scaling (Small/Medium/Large preferences) */
@@ -274,4 +317,79 @@ strong {
 
 .tts-word:active {
   opacity: 0.7;
+}
+
+/* Glass Morphism Card Utility
+   Use on any card/panel container for the frosted glass effect.
+   Automatically adapts to light/dark mode and accent color. */
+.glass-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.55),
+    rgba(255, 255, 255, 0.30)
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    0 8px 32px -8px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.dark .glass-card {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--bg-card) 65%, transparent),
+    color-mix(in srgb, var(--bg-card) 45%, transparent)
+  );
+  box-shadow:
+    0 8px 32px -8px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Near-opaque glass for overlays, dropdowns, menus.
+   Content behind should NOT bleed through. */
+.glass-card-solid {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 255, 255, 0.90)
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 12px 40px -8px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+.dark .glass-card-solid {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--bg-card) 95%, transparent),
+    color-mix(in srgb, var(--bg-card) 88%, transparent)
+  );
+  box-shadow:
+    0 12px 40px -8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Modal Backdrop — blurs content behind instead of darkening it.
+   Lighter, more elegant than bg-black/50. */
+.modal-backdrop {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.dark .modal-backdrop {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* App Background — matches landing page tint.
+   Uses --accent-light so it adapts to the user's accent-color preference. */
+.app-bg-decor {
+  background: var(--accent-light);
+}
+
+.dark .app-bg-decor {
+  background: color-mix(in srgb, var(--accent-color) 6%, var(--bg-primary));
 }

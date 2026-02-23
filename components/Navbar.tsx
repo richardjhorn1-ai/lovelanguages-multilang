@@ -147,15 +147,15 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
     }
   };
 
-  const getNotificationIcon = (type: string) => {
+  const getNotificationIcon = (type: string): React.ReactNode => {
     switch (type) {
-      case 'challenge': return '🎮';           // Tutor sent a challenge
-      case 'challenge_complete': return '🏆';  // Student completed challenge
-      case 'challenge_request': return '🙋';   // Challenge request
-      case 'word_request': return '🎁';        // Tutor sent word gift
-      case 'gift_complete': return '🎊';       // Student accepted gift
-      case 'love_note': return '💕';           // Love note received
-      default: return '💌';
+      case 'challenge': return <ICONS.Gamepad2 className="w-4 h-4" />;
+      case 'challenge_complete': return <ICONS.Trophy className="w-4 h-4" />;
+      case 'challenge_request': return <ICONS.Target className="w-4 h-4" />;
+      case 'word_request': return <ICONS.Gift className="w-4 h-4" />;
+      case 'gift_complete': return <ICONS.Sparkles className="w-4 h-4" />;
+      case 'love_note': return <ICONS.Heart className="w-4 h-4" />;
+      default: return <ICONS.Mail className="w-4 h-4" />;
     }
   };
 
@@ -168,8 +168,8 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
 
   return (
     <>
-    <div className="safe-area-top bg-[var(--bg-card)]">
-      <nav className="bg-[var(--bg-card)] border-b border-[var(--border-color)] px-4 md:px-6 py-2 md:py-3 flex items-center justify-between z-50 sticky top-1">
+    <div className="safe-area-top glass-card relative z-30">
+      <nav className="px-4 md:px-6 py-2 md:py-3 flex items-center justify-between">
         {/* Left: Logo - fixed width on mobile for centering */}
         <div className="flex items-center gap-1.5 w-10 md:w-auto">
           <svg
@@ -257,7 +257,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
 
             {/* Notifications Dropdown */}
             {isNotificationsOpen && (
-              <div className="absolute right-0 mt-2 w-80 bg-[var(--bg-card)] rounded-2xl shadow-xl border border-[var(--border-color)] overflow-hidden z-[100] animate-in fade-in slide-in-from-top-2 duration-200">
+              <div className="absolute right-0 mt-2 w-80 glass-card-solid rounded-2xl overflow-hidden z-[100] animate-in fade-in slide-in-from-top-2 duration-200">
                 <div className="px-4 py-3 border-b border-[var(--border-color)] flex items-center justify-between">
                   <span className="text-scale-label font-bold text-[var(--text-primary)]">{t('nav.notifications')}</span>
                   {unreadCount > 0 && (
@@ -299,7 +299,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                         }}
                       >
                         <div className="flex items-start gap-3">
-                          <span className="text-lg shrink-0">{getNotificationIcon(notification.type)}</span>
+                          <span className="shrink-0 text-[var(--accent-color)]">{getNotificationIcon(notification.type)}</span>
                           <div className="flex-1 min-w-0">
                             <p className="text-scale-label font-medium text-[var(--text-primary)] truncate">{getNotificationTitle(notification)}</p>
                             {(notification.message || NOTIFICATION_I18N[notification.type]) && (
@@ -376,7 +376,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
 
           {/* Dropdown Menu */}
           {isProfileDropdownOpen && (
-            <div className="absolute right-0 mt-1.5 md:mt-2 w-48 md:w-56 bg-[var(--bg-card)] rounded-xl md:rounded-2xl shadow-xl border border-[var(--border-color)] py-1.5 md:py-2 z-[100] animate-in fade-in slide-in-from-top-2 duration-200">
+            <div className="absolute right-0 mt-1.5 md:mt-2 w-48 md:w-56 glass-card-solid rounded-xl md:rounded-2xl py-1.5 md:py-2 z-[100] animate-in fade-in slide-in-from-top-2 duration-200">
               <div className="px-3 md:px-4 py-2 md:py-3 border-b border-[var(--border-color)]">
                 <p className="text-scale-label font-bold text-[var(--text-primary)] truncate">{profile.full_name}</p>
                 <p className="text-scale-micro text-[var(--text-secondary)] truncate">{profile.email}</p>
@@ -502,13 +502,13 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
       >
         {/* Backdrop */}
         <div
-          className="absolute inset-0 bg-black/30"
+          className="absolute inset-0 modal-backdrop"
           onClick={() => setIsNotificationsOpen(false)}
         />
 
         {/* Panel */}
         <div
-          className={`absolute right-0 top-0 bottom-0 w-80 max-w-[85vw] bg-[var(--bg-card)] shadow-2xl transform transition-transform duration-300 ${
+          className={`absolute right-0 top-0 bottom-0 w-80 max-w-[85vw] glass-card transform transition-transform duration-300 ${
             isNotificationsOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
@@ -563,7 +563,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                   }}
                 >
                   <div className="flex items-start gap-3">
-                    <span className="text-xl shrink-0">{getNotificationIcon(notification.type)}</span>
+                    <span className="shrink-0 text-[var(--accent-color)]">{getNotificationIcon(notification.type)}</span>
                     <div className="flex-1 min-w-0">
                       <p className="text-scale-label font-medium text-[var(--text-primary)]">{getNotificationTitle(notification)}</p>
                       {(notification.message || NOTIFICATION_I18N[notification.type]) && (

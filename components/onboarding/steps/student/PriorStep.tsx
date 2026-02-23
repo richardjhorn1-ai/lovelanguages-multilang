@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { OnboardingStep, NextButton } from '../../OnboardingStep';
+import { OnboardingStep, NextButton, ONBOARDING_OPTION } from '../../OnboardingStep';
 import { useLanguage } from '../../../../context/LanguageContext';
 
 interface PriorStepProps {
@@ -39,10 +39,10 @@ export const PriorStep: React.FC<PriorStepProps> = ({
       accentColor={accentColor}
     >
       <div className="text-center mb-10">
-        <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
+        <h1 className="text-3xl font-black text-[var(--text-primary)] mb-3 font-header">
           {t('onboarding.student.prior.title', { language: targetName })}
         </h1>
-        <p className="text-gray-500">
+        <p className="text-[var(--text-secondary)]">
           {t('onboarding.student.prior.subtitle')}
         </p>
       </div>
@@ -50,34 +50,23 @@ export const PriorStep: React.FC<PriorStepProps> = ({
       <div className="grid grid-cols-2 gap-4 mb-6">
         <button
           onClick={() => setHasTried(true)}
-          className={`p-6 rounded-2xl border-2 transition-all ${
-            hasTried !== true
-              ? 'border-gray-100 bg-white hover:border-gray-200'
-              : ''
-          }`}
-          style={hasTried === true ? { borderColor: `${accentColor}60`, backgroundColor: `${accentColor}10` } : undefined}
+          className="p-6 transition-all"
+          style={ONBOARDING_OPTION(hasTried === true, accentColor)}
         >
           <span className="text-3xl block mb-2">👍</span>
-          <span className="font-bold" style={{ color: hasTried === true ? accentColor : '#374151' }}>
+          <span className="font-bold" style={{ color: hasTried === true ? accentColor : 'var(--text-primary)' }}>
             {t('onboarding.student.prior.yes')}
           </span>
         </button>
         <button
           onClick={() => setHasTried(false)}
-          className={`p-6 rounded-2xl border-2 transition-all ${
-            hasTried === false
-              ? 'border-gray-200'
-              : 'border-gray-100 bg-white hover:border-gray-200'
-          }`}
-          style={hasTried === false ? {
-            borderColor: `${accentColor}60`,
-            backgroundColor: `${accentColor}10`
-          } : undefined}
+          className="p-6 transition-all"
+          style={ONBOARDING_OPTION(hasTried === false, accentColor)}
         >
           <span className="text-3xl block mb-2">🆕</span>
           <span
             className="font-bold"
-            style={{ color: hasTried === false ? accentColor : '#374151' }}
+            style={{ color: hasTried === false ? accentColor : 'var(--text-primary)' }}
           >
             {t('onboarding.student.prior.beginner')}
           </span>

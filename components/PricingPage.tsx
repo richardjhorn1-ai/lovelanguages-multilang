@@ -209,7 +209,7 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
             </button>
           )}
 
-          <h1 className="text-3xl font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
+          <h1 className="text-3xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
             {t('subscription.pricing.title', { language: targetName })}
           </h1>
           <p className="text-lg" style={{ color: 'var(--text-secondary)' }}>
@@ -351,7 +351,7 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
 
                 {/* Plan Header */}
                 <div className="text-center mb-6">
-                  <h2 className="text-2xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
+                  <h2 className="text-2xl font-bold font-header mb-2" style={{ color: 'var(--text-primary)' }}>
                     {plan.name}
                   </h2>
                   <div className="flex items-baseline justify-center gap-1">
@@ -423,7 +423,7 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
         {/* Gift Passes Section */}
         {status?.giftPasses && status.giftPasses.length > 0 && (
           <div className="mt-12 p-6 rounded-2xl" style={{ background: 'var(--bg-card)' }}>
-            <h3 className="text-xl font-bold mb-4 flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
+            <h3 className="text-xl font-bold font-header mb-4 flex items-center gap-2" style={{ color: 'var(--text-primary)' }}>
               <ICONS.Gift className="w-5 h-5" style={{ color: accentHex }} />
               {t('subscription.pricing.yourGiftPasses')}
             </h3>

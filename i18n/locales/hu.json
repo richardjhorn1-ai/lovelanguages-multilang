@@ -667,6 +667,10 @@
     }
   },
   "onboarding": {
+    "nativeLanguage": {
+      "title": "Milyen nyelven beszélsz?",
+      "subtitle": "Mindent a te nyelveden mutatunk"
+    },
     "step": {
       "back": "Vissza",
       "counter": "{{current}} / {{total}}",
@@ -758,6 +762,50 @@
         "retry": "Retry"
       }
     },
+    "role": {
+      "title": "Szeretnék...",
+      "subtitle": "Válaszd ki, hogyan szeretnéd használni a Love Languages-t",
+      "learn": "Nyelvet tanulni",
+      "learnDesc": "Tanuld meg annak a nyelvét, akit szeretsz",
+      "teach": "Nyelvet tanítani",
+      "teachDesc": "Segíts valakinek, akit szeretsz, megtanulni a nyelvedet"
+    },
+    "names": {
+      "title": "Ismerkedjünk meg",
+      "studentSubtitle": "Személyre szabjuk a tanulási élményed",
+      "tutorSubtitle": "Személyre szabjuk a tanítási élményed",
+      "yourName": "A neved",
+      "partnerLabel": "Kiért tanulsz?",
+      "learnerLabel": "Kit fogsz tanítani?",
+      "partnerPlaceholder": "Az ő neve",
+      "learnerPlaceholder": "A tanuló neve"
+    },
+    "language": {
+      "studentTitle": "Milyen nyelven beszél valaki, akit szeretsz?",
+      "tutorTitle": "Milyen nyelvet szeretnél tanítani?",
+      "studentSubtitle": "Segítünk megtanulni az ő nyelvét",
+      "tutorSubtitle": "Válaszd ki a nyelvet, amelyet tanítani fogsz",
+      "showAll": "Összes nyelv megjelenítése",
+      "showLess": "Népszerűek megjelenítése"
+    },
+    "personalization": {
+      "title": "Tedd a sajátoddá",
+      "subtitle": "Segíts nekünk személyre szabni az élményed",
+      "vibeLabel": "A kapcsolatotok hangulata",
+      "timeLabel": "Napi gyakorlási idő",
+      "priorLabel": "Próbáltad már a {{language}} nyelvet?"
+    },
+    "tutorPersonalization": {
+      "title": "Mesélj magadról",
+      "subtitle": "Segíts nekünk személyre szabni a tanítási élményt",
+      "relationLabel": "{{name}} a te...",
+      "connectionLabel": "A {{language}} kapcsolatod",
+      "originLabel": "Honnan származol? (opcionális)",
+      "originPlaceholder": "Város, ország..."
+    },
+    "errors": {
+      "title": "Valami hiba történt"
+    },
     "student": {
       "start": {
         "title": "Készen állsz, {{name}}?",
@@ -767,6 +815,7 @@
         "feature2": "A Love Log szókincs nyomkövetőd",
         "feature3": "Játékok a szavak gyakorlásához és elsajátításához",
         "feature4": "Haladás követés és szintvizsgák",
+        "activating": "Próbaverziód indítása...",
         "button": "Gyerünk!"
       },
       "vibe": {
@@ -877,6 +926,7 @@
         "feature2": "Kövesd {{learnerName}} haladását",
         "feature3": "Küldj szóajándékokat meglepetésként",
         "feature4": "Kapcsold össze a fiókjaitokat, hogy lásd az útjukat",
+        "activating": "Próbaverziód indítása...",
         "button": "Kezdjük el segíteni {{learnerName}}-t!"
       },
       "relation": {
@@ -1863,6 +1913,21 @@
     "timesUp": "Lejárt az idő!"
   },
   "hero": {
+    "headline": "Tanuld meg annak a nyelvét, akit szeretsz.",
+    "subtitle": "Az egyetlen nyelvi alkalmazás pároknak",
+    "swipeForMore": "Húzd felfelé a többiért",
+    "landing": {
+      "student": {
+        "headline": "Tanuld meg annak a nyelvét, akit szeretsz",
+        "highlight1": "nyelvét",
+        "highlight2": "szeretsz"
+      },
+      "tutor": {
+        "headline": "Oszd meg a nyelvedet azzal, akit szeretsz",
+        "highlight1": "nyelvedet",
+        "highlight2": "szeretsz"
+      }
+    },
     "languageSelector": {
       "nativeTitle": "What language do you speak?",
       "nativeSubtitle": "18 languages available - we'll show everything in yours",
@@ -1911,7 +1976,10 @@
       "alreadyHaveAccount": "Már van fiókod? Jelentkezz be",
       "newHere": "Új vagy itt? Hozz létre fiókot",
       "checkEmail": "Nézd meg az e-mailed a megerősítéshez!",
-      "continueWithGoogle": "Folytatás a Google-lal"
+      "continueWithGoogle": "Folytatás a Google-lal",
+      "continueWithApple": "Folytatás az Apple-lel",
+      "orContinueWithEmail": "vagy folytatás e-maillel",
+      "orSignInWith": "vagy bejelentkezés ezzel"
     },
     "legal": {
       "terms": "Feltételek",
@@ -2214,6 +2282,18 @@
         "blog": "Blog",
         "contact": "Kapcsolat",
         "copyright": "Love Languages · Szeretettel készítve szerelmeseknek mindenhol"
+      }
+    },
+    "testimonials": {
+      "1": {
+        "quote": "This is SO COOL",
+        "name": "Alessia",
+        "context": "A párja, Tomas kedvéért tanul"
+      },
+      "2": {
+        "quote": "Dude this app is amazing",
+        "name": "Allessandra",
+        "context": "A barátja, Miki kedvéért tanul"
       }
     }
   },

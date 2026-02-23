@@ -48,10 +48,10 @@ export const WhyStep: React.FC<WhyStepProps> = ({
         >
           <ICONS.Sparkles className="w-8 h-8" style={{ color: accentColor }} />
         </div>
-        <h1 className="text-3xl font-black text-gray-800 mb-3 font-header">
+        <h1 className="text-3xl font-black text-[var(--text-primary)] mb-3 font-header">
           {t('onboarding.student.why.title', { language: targetName, name: partnerName })}
         </h1>
-        <p className="text-gray-500">
+        <p className="text-[var(--text-secondary)]">
           {t('onboarding.student.why.subtitle')}
         </p>
       </div>
@@ -63,7 +63,7 @@ export const WhyStep: React.FC<WhyStepProps> = ({
           placeholder={t('onboarding.student.why.placeholder')}
           autoFocus
           rows={4}
-          className="w-full px-6 py-4 rounded-2xl bg-white border-2 focus:outline-none text-scale-heading font-medium text-gray-800 placeholder:text-gray-300 transition-all resize-none"
+          className="w-full px-6 py-4 rounded-2xl bg-white border-2 focus:outline-none text-scale-heading font-medium text-[var(--text-primary)] placeholder:text-gray-300 transition-all resize-none"
           style={{
             borderColor: isFocused ? `${accentColor}60` : '#f3f4f6'
           }}

@@ -116,16 +116,16 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
 
   // Active conversation UI
   return (
-    <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
-      <div className="bg-[var(--bg-card)] rounded-[2rem] w-full max-w-md h-[80vh] max-h-[600px] overflow-hidden flex flex-col">
+    <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50">
+      <div className="glass-card-solid rounded-[2rem] w-full max-w-md h-[80vh] max-h-[600px] overflow-hidden flex flex-col">
         {/* Header */}
         <div className="p-4 border-b border-[var(--border-color)] flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-purple-500/20 rounded-xl flex items-center justify-center text-xl">
-              {scenario?.icon || '🎙️'}
+              {scenario?.icon || <ICONS.Mic className="w-5 h-5 text-purple-500" />}
             </div>
             <div>
-              <h2 className="font-bold text-[var(--text-primary)] text-scale-label">
+              <h2 className="font-bold font-header text-[var(--text-primary)] text-scale-label">
                 {scenario?.id === 'custom' ? t('scenarioSelector.customScenarioName') : t(`scenarioSelector.scenarios.${scenario?.id}.name`)}
               </h2>
               <div className="flex items-center gap-2">
@@ -133,7 +133,7 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
                   state === 'listening' ? 'bg-green-500 animate-pulse' :
                   state === 'speaking' ? 'bg-purple-500 animate-pulse' :
                   state === 'connecting' ? 'bg-amber-500 animate-pulse' :
-                  'bg-gray-400'
+                  'bg-[var(--text-secondary)]'
                 }`}></span>
                 <span className="text-scale-caption text-[var(--text-secondary)]">
                   {state === 'listening' ? t('conversationPractice.states.listening') :

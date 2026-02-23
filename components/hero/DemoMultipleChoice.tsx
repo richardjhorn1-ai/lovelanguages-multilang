@@ -48,7 +48,7 @@ export const DemoMultipleChoice: React.FC<DemoMultipleChoiceProps> = ({
   return (
     <div
       className="rounded-[2rem] p-6 shadow-lg border flex flex-col"
-      style={{ backgroundColor: '#ffffff', borderColor: '#e5e7eb', width: '300px', height: '380px' }}
+      style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-color)', width: '300px', height: '380px' }}
     >
       <span
         className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-4"
@@ -57,7 +57,7 @@ export const DemoMultipleChoice: React.FC<DemoMultipleChoiceProps> = ({
         {targetName} → {nativeName}
       </span>
 
-      <h3 className="text-2xl font-black text-[#1a1a2e] mb-6 text-center">
+      <h3 className="text-2xl font-black font-header text-[var(--text-primary)] mb-6 text-center">
         {word.word}
       </h3>
 
@@ -67,9 +67,9 @@ export const DemoMultipleChoice: React.FC<DemoMultipleChoiceProps> = ({
           const isSelected = selected === option;
 
           let buttonStyle: React.CSSProperties = {
-            borderColor: '#e5e7eb',
-            backgroundColor: '#ffffff',
-            color: '#1a1a2e',
+            borderColor: 'var(--border-color)',
+            backgroundColor: 'var(--bg-card)',
+            color: 'var(--text-primary)',
           };
 
           if (showFeedback) {
@@ -87,16 +87,16 @@ export const DemoMultipleChoice: React.FC<DemoMultipleChoiceProps> = ({
               };
             } else {
               buttonStyle = {
-                borderColor: '#e5e7eb',
-                backgroundColor: '#f9fafb',
-                color: '#9ca3af',
+                borderColor: 'var(--border-color)',
+                backgroundColor: 'var(--bg-primary)',
+                color: 'var(--text-secondary)',
               };
             }
           } else if (isSelected) {
             buttonStyle = {
               borderColor: accentColor,
               backgroundColor: `${accentColor}10`,
-              color: '#1a1a2e',
+              color: 'var(--text-primary)',
             };
           }
 
@@ -108,7 +108,7 @@ export const DemoMultipleChoice: React.FC<DemoMultipleChoiceProps> = ({
               className="w-full p-3 rounded-xl text-left font-medium transition-all border-2 text-scale-label"
               style={buttonStyle}
             >
-              <span className="text-scale-caption font-bold mr-2" style={{ color: '#9ca3af' }}>
+              <span className="text-scale-caption font-bold mr-2" style={{ color: 'var(--text-secondary)' }}>
                 {String.fromCharCode(65 + idx)}
               </span>
               {option}

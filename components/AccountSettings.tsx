@@ -185,7 +185,7 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
   };
 
   return (
-    <div className="bg-[var(--bg-card)] rounded-[2.5rem] border border-[var(--border-color)] shadow-sm overflow-hidden">
+    <div className="glass-card rounded-[2.5rem] overflow-hidden">
       <button
         onClick={() => setIsExpanded(!isExpanded)}
         className="w-full p-6 flex items-center justify-between hover:opacity-80 transition-opacity"
@@ -195,7 +195,7 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
             <span className="text-xl">⚙️</span>
           </div>
           <div className="text-left">
-            <h3 className="font-bold text-[var(--text-primary)]">{t('accountSettings.title')}</h3>
+            <h3 className="font-bold font-header text-[var(--text-primary)]">{t('accountSettings.title')}</h3>
             <p className="text-scale-caption text-[var(--text-secondary)]">{t('accountSettings.subtitle')}</p>
           </div>
         </div>
@@ -219,7 +219,7 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
           )}
 
           {/* Current Email */}
-          <div className="p-4 bg-[var(--bg-secondary)] rounded-2xl">
+          <div className="p-4 bg-white/40 dark:bg-white/12 rounded-2xl">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)] mb-1">
@@ -248,7 +248,7 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
                   value={newEmail}
                   onChange={(e) => setNewEmail(e.target.value)}
                   placeholder={t('accountSettings.newEmailPlaceholder')}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-rose-400 focus:outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-xl border-2 border-[var(--border-color)] focus:border-rose-400 focus:outline-none transition-all"
                 />
                 <button
                   type="submit"
@@ -266,7 +266,7 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
           </div>
 
           {/* Password */}
-          <div className="p-4 bg-[var(--bg-secondary)] rounded-2xl">
+          <div className="p-4 bg-white/40 dark:bg-white/12 rounded-2xl">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)] mb-1">
@@ -286,7 +286,7 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
           </div>
 
           {/* Creator Access - Show for all users */}
-          <div className="p-4 bg-[var(--bg-secondary)] rounded-2xl">
+          <div className="p-4 bg-white/40 dark:bg-white/12 rounded-2xl">
               <p className="text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)] mb-3">
                 {t('promo.title')}
               </p>
@@ -329,7 +329,7 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
                       value={promoCode}
                       onChange={(e) => setPromoCode(e.target.value.toUpperCase())}
                       placeholder={t('promo.placeholder')}
-                      className="flex-1 px-4 py-3 rounded-xl border-2 border-gray-200 focus:border-rose-400 focus:outline-none transition-all uppercase"
+                      className="flex-1 px-4 py-3 rounded-xl border-2 border-[var(--border-color)] focus:border-rose-400 focus:outline-none transition-all uppercase"
                       disabled={promoLoading}
                     />
                     <button

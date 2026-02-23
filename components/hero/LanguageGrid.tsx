@@ -59,10 +59,10 @@ const LanguageGrid: React.FC<LanguageGridProps> = ({
         </button>
       )}
 
-      <h2 className="text-2xl md:text-3xl font-black font-header mb-2" style={{ color: '#1a1a2e' }}>
+      <h2 className="text-2xl md:text-3xl font-black font-header mb-2" style={{ color: 'var(--text-primary)' }}>
         {title}
       </h2>
-      <p className="text-scale-body mb-6 font-medium" style={{ color: '#6b7280' }}>
+      <p className="text-scale-body mb-6 font-medium" style={{ color: 'var(--text-secondary)' }}>
         {subtitle}
       </p>
 
@@ -74,13 +74,13 @@ const LanguageGrid: React.FC<LanguageGridProps> = ({
             onClick={() => onSelect(lang.code)}
             className="flex flex-col items-center gap-1.5 p-3 rounded-xl border-2 transition-all duration-200 hover:scale-105"
             style={{
-              borderColor: selectedCode === lang.code ? accentColor : '#e5e7eb',
-              backgroundColor: selectedCode === lang.code ? accentLight : '#ffffff',
+              borderColor: selectedCode === lang.code ? accentColor : 'var(--border-color)',
+              backgroundColor: selectedCode === lang.code ? accentLight : 'var(--bg-card)',
               boxShadow: selectedCode === lang.code ? `0 4px 12px ${accentShadow}, 0 0 0 2px ${accentColor}` : 'none',
             }}
           >
             <span className="text-2xl">{lang.flag}</span>
-            <span className="text-scale-micro font-bold text-gray-700">{t(`languageNames.${lang.code}`)}</span>
+            <span className="text-scale-micro font-bold text-[var(--text-primary)]">{t(`languageNames.${lang.code}`)}</span>
           </button>
         ))}
       </div>
@@ -101,15 +101,7 @@ const LanguageGrid: React.FC<LanguageGridProps> = ({
           <span className="text-scale-caption font-bold px-1.5 py-0.5 rounded-full" style={{ backgroundColor: accentLight, color: accentColor }}>
             +{otherLanguages.length}
           </span>
-          <svg
-            className="w-4 h-4 transition-transform group-hover:translate-y-0.5"
-            style={{ color: accentColor }}
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-          </svg>
+          <ICONS.ChevronDown className="w-4 h-4 transition-transform group-hover:translate-y-0.5" style={{ color: accentColor }} />
         </button>
       )}
 
@@ -134,13 +126,13 @@ const LanguageGrid: React.FC<LanguageGridProps> = ({
               onClick={() => onSelect(lang.code)}
               className="flex flex-col items-center gap-1 p-2 rounded-lg border-2 transition-all duration-200 hover:scale-105"
               style={{
-                borderColor: selectedCode === lang.code ? accentColor : '#e5e7eb',
-                backgroundColor: selectedCode === lang.code ? accentLight : '#ffffff',
+                borderColor: selectedCode === lang.code ? accentColor : 'var(--border-color)',
+                backgroundColor: selectedCode === lang.code ? accentLight : 'var(--bg-card)',
                 boxShadow: selectedCode === lang.code ? `0 2px 8px ${accentShadow}, 0 0 0 2px ${accentColor}` : 'none',
               }}
             >
               <span className="text-xl">{lang.flag}</span>
-              <span className="text-scale-micro font-bold text-gray-600 truncate w-full text-center">{t(`languageNames.${lang.code}`)}</span>
+              <span className="text-scale-micro font-bold text-[var(--text-secondary)] truncate w-full text-center">{t(`languageNames.${lang.code}`)}</span>
             </button>
           ))}
         </div>
@@ -152,9 +144,7 @@ const LanguageGrid: React.FC<LanguageGridProps> = ({
           style={{ backgroundColor: accentLight, color: accentColor }}
         >
           <span className="text-scale-caption font-bold">{t('hero.languageSelector.showLess')}</span>
-          <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
-          </svg>
+          <ICONS.ChevronUp className="w-3 h-3" />
         </button>
       </div>
     </div>

@@ -667,6 +667,10 @@
     }
   },
   "onboarding": {
+    "nativeLanguage": {
+      "title": "Ce limbă vorbești?",
+      "subtitle": "Îți vom arăta totul în limba ta"
+    },
     "step": {
       "back": "Inapoi",
       "counter": "{{current}} din {{total}}",
@@ -758,6 +762,50 @@
         "retry": "Retry"
       }
     },
+    "role": {
+      "title": "Vreau sa...",
+      "subtitle": "Alege cum vrei sa folosesti Love Languages",
+      "learn": "Invat o limba",
+      "learnDesc": "Invata limba cuiva pe care il iubesti",
+      "teach": "Predau o limba",
+      "teachDesc": "Ajuta pe cineva drag sa invete limba ta"
+    },
+    "names": {
+      "title": "Hai sa ne cunoastem",
+      "studentSubtitle": "Vom personaliza experienta ta de invatare",
+      "tutorSubtitle": "Vom personaliza experienta de predare",
+      "yourName": "Numele tau",
+      "partnerLabel": "Pentru cine inveti?",
+      "learnerLabel": "Pe cine vei invata?",
+      "partnerPlaceholder": "Numele lor",
+      "learnerPlaceholder": "Numele cursantului"
+    },
+    "language": {
+      "studentTitle": "Ce limba vorbeste cineva pe care il iubesti?",
+      "tutorTitle": "Ce limba vrei sa predai?",
+      "studentSubtitle": "Te vom ajuta sa inveti limba lor",
+      "tutorSubtitle": "Alege limba pe care o vei preda",
+      "showAll": "Arata toate limbile",
+      "showLess": "Arata populare"
+    },
+    "personalization": {
+      "title": "Fa-l al tau",
+      "subtitle": "Ajuta-ne sa personalizam experienta ta",
+      "vibeLabel": "Atmosfera relatiei voastre",
+      "timeLabel": "Timp zilnic de exersare",
+      "priorLabel": "Ai mai incercat {{language}}?"
+    },
+    "tutorPersonalization": {
+      "title": "Spune-ne despre tine",
+      "subtitle": "Ajuta-ne sa personalizam experienta de predare",
+      "relationLabel": "{{name}} este...",
+      "connectionLabel": "Conexiunea ta cu {{language}}",
+      "originLabel": "De unde esti? (optional)",
+      "originPlaceholder": "Oras, tara..."
+    },
+    "errors": {
+      "title": "Ceva nu a mers bine"
+    },
     "student": {
       "start": {
         "title": "Pregatit sa incepi, {{name}}?",
@@ -767,6 +815,7 @@
         "feature2": "Urmaritorul tau de vocabular Love Log",
         "feature3": "Jocuri pentru a exersa si stapani cuvinte",
         "feature4": "Urmarirea progresului si teste de nivel",
+        "activating": "Se porneste versiunea de proba...",
         "button": "Hai sa mergem!"
       },
       "vibe": {
@@ -877,6 +926,7 @@
         "feature2": "Urmareste progresul lui {{learnerName}}",
         "feature3": "Trimite cadouri de cuvinte sa-i surprinzi",
         "feature4": "Conecteaza conturile pentru a vedea calatoria lor",
+        "activating": "Se porneste versiunea de proba...",
         "button": "Incepe sa-l ajuti pe {{learnerName}}!"
       },
       "relation": {
@@ -1863,6 +1913,21 @@
     "timesUp": "Timpul a expirat!"
   },
   "hero": {
+    "headline": "Învață limba cuiva pe care îl iubești.",
+    "subtitle": "Singura aplicație de limbi străine pentru cupluri",
+    "swipeForMore": "Gliseaza pentru a descoperi mai mult",
+    "landing": {
+      "student": {
+        "headline": "Învață limba persoanei pe care o iubești",
+        "highlight1": "limba",
+        "highlight2": "iubești"
+      },
+      "tutor": {
+        "headline": "Împărtășește limba ta cu persoana pe care o iubești",
+        "highlight1": "limba",
+        "highlight2": "iubești"
+      }
+    },
     "languageSelector": {
       "nativeTitle": "What language do you speak?",
       "nativeSubtitle": "18 languages available - we'll show everything in yours",
@@ -1911,7 +1976,10 @@
       "alreadyHaveAccount": "Ai deja un cont? Logheaza-te",
       "newHere": "Esti nou? Creeaza un cont",
       "checkEmail": "Verifica emailul pentru confirmare!",
-      "continueWithGoogle": "Continuă cu Google"
+      "continueWithGoogle": "Continuă cu Google",
+      "continueWithApple": "Continuă cu Apple",
+      "orContinueWithEmail": "sau continuă cu email",
+      "orSignInWith": "sau conectează-te cu"
     },
     "legal": {
       "terms": "Termeni",
@@ -2214,6 +2282,18 @@
         "blog": "Blog",
         "contact": "Contact",
         "copyright": "Love Languages · Facut cu ♥ pentru indragostiti de pretutindeni"
+      }
+    },
+    "testimonials": {
+      "1": {
+        "quote": "This is SO COOL",
+        "name": "Alessia",
+        "context": "Învață pentru partenerul ei Tomas"
+      },
+      "2": {
+        "quote": "Dude this app is amazing",
+        "name": "Allessandra",
+        "context": "Învață pentru iubitul ei Miki"
       }
     }
   },

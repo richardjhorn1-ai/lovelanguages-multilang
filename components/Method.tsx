@@ -10,14 +10,14 @@ const Method: React.FC = () => {
   const { accentHex } = useTheme();
 
   const pillars = [
-    { key: 'pillar1', icon: '💬' },
-    { key: 'pillar2', icon: '🎯' },
-    { key: 'pillar3', icon: '🎨' },
-    { key: 'pillar4', icon: '🤝' },
+    { key: 'pillar1', icon: <ICONS.MessageCircle className="w-6 h-6" /> },
+    { key: 'pillar2', icon: <ICONS.Target className="w-6 h-6" /> },
+    { key: 'pillar3', icon: <ICONS.Palette className="w-6 h-6" /> },
+    { key: 'pillar4', icon: <ICONS.Users className="w-6 h-6" /> },
   ];
 
   return (
-    <div className="min-h-screen overflow-y-auto" style={{ background: 'var(--bg-primary)', paddingTop: 'env(safe-area-inset-top, 0px)' }}>
+    <div className="min-h-screen overflow-y-auto app-bg-decor" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
       <div className="max-w-3xl mx-auto px-4 py-8 sm:py-12">
         {/* Back Button */}
         <button
@@ -34,7 +34,7 @@ const Method: React.FC = () => {
           <p className="text-sm font-medium mb-2" style={{ color: accentHex }}>
             {t('hero.bottomSections.rall.label')}
           </p>
-          <h1 className="text-3xl sm:text-4xl font-black mb-4" style={{ color: 'var(--text-primary)' }}>
+          <h1 className="text-3xl sm:text-4xl font-black font-header mb-4" style={{ color: 'var(--text-primary)' }}>
             {t('hero.bottomSections.rall.title')}
           </h1>
           <p className="text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
@@ -47,13 +47,14 @@ const Method: React.FC = () => {
           {pillars.map(({ key, icon }) => (
             <div
               key={key}
-              className="p-5 rounded-2xl border"
-              style={{ borderColor: 'var(--border-primary)', background: 'var(--bg-secondary)' }}
+              className="p-5 rounded-2xl glass-card"
             >
               <div className="flex items-start gap-4">
-                <span className="text-2xl">{icon}</span>
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${accentHex}15` }}>
+                  <span style={{ color: accentHex }}>{icon}</span>
+                </div>
                 <div className="flex-1">
-                  <h3 className="font-bold text-lg mb-2" style={{ color: 'var(--text-primary)' }}>
+                  <h3 className="font-bold font-header text-lg mb-2" style={{ color: 'var(--text-primary)' }}>
                     {t(`hero.bottomSections.rall.${key}.title`)}
                   </h3>
                   <p className="text-base mb-2" style={{ color: 'var(--text-secondary)' }}>
@@ -83,10 +84,9 @@ const Method: React.FC = () => {
 
         {/* Anxiety Reduction */}
         <div
-          className="p-5 rounded-2xl border"
-          style={{ borderColor: 'var(--border-primary)', background: 'var(--bg-secondary)' }}
+          className="p-5 rounded-2xl glass-card"
         >
-          <h3 className="font-bold text-lg mb-2" style={{ color: 'var(--text-primary)' }}>
+          <h3 className="font-bold font-header text-lg mb-2" style={{ color: 'var(--text-primary)' }}>
             {t('hero.bottomSections.rall.anxietyTitle')}
           </h3>
           <p className="text-base mb-2" style={{ color: 'var(--text-secondary)' }}>

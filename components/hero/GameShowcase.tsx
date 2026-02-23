@@ -147,7 +147,7 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
                 className={`px-2 py-1 rounded-full text-[9px] font-bold transition-all whitespace-nowrap ${
                   i === currentMode
                     ? 'text-white shadow-lg'
-                    : 'text-gray-500'
+                    : 'text-[var(--text-secondary)]'
                 }`}
                 style={i === currentMode ? { backgroundColor: accentColor } : {}}
               >
@@ -172,7 +172,7 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
                   key={i}
                   className="w-1.5 h-1.5 rounded-full transition-all"
                   style={{
-                    backgroundColor: i <= questionIndex ? accentColor : '#e5e7eb',
+                    backgroundColor: i <= questionIndex ? accentColor : 'var(--border-color)',
                   }}
                 />
               ))}
@@ -236,8 +236,8 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
       {/* Left side - Text */}
       <div className="w-full md:w-1/3 mb-8 md:mb-0 md:pr-8">
         <h3
-          className="text-2xl md:text-3xl font-black leading-tight mb-4"
-          style={{ color: '#1a1a2e' }}
+          className="text-2xl md:text-3xl font-black font-header leading-tight mb-4"
+          style={{ color: 'var(--text-primary)' }}
         >
           {isStudent ? studentHeadline : tutorHeadline}
         </h3>
@@ -275,7 +275,7 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
                 className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${
                   i === currentMode
                     ? 'text-white shadow-lg'
-                    : 'text-gray-500 hover:text-gray-700'
+                    : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                 }`}
                 style={i === currentMode ? { backgroundColor: accentColor } : {}}
               >
@@ -301,7 +301,7 @@ export const GameShowcase: React.FC<GameShowcaseProps> = ({
                 key={i}
                 className="w-2 h-2 rounded-full transition-all"
                 style={{
-                  backgroundColor: i <= questionIndex ? accentColor : '#e5e7eb',
+                  backgroundColor: i <= questionIndex ? accentColor : 'var(--border-color)',
                 }}
               />
             ))}
