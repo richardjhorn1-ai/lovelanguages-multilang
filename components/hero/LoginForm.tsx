@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Capacitor } from '@capacitor/core';
 import { BRAND, HeroRole, SelectionStep } from './heroConstants';
 import { supabase } from '../../services/supabase';
 import { ICONS } from '../../constants';
@@ -71,6 +72,49 @@ const LoginForm: React.FC<LoginFormProps> = ({
     // Store the selected role in localStorage so we can retrieve it after OAuth redirect
     localStorage.setItem('intended_role', selectedRole);
 
+    // Native Apple Sign In on iOS — required for App Store approval
+    if (provider === 'apple' && Capacitor.getPlatform() === 'ios') {
+      try {
+        const { SignInWithApple } = await import('@capacitor-community/apple-sign-in');
+        const result = await SignInWithApple.authorize({
+          clientId: 'com.lovelanguages.app',
+          redirectURI: '', // Not needed for native
+          scopes: 'email name',
+        });
+
+        // Apple only sends name on FIRST sign-in — capture it immediately
+        if (result.response.givenName || result.response.familyName) {
+          const appleName = [result.response.givenName, result.response.familyName]
+            .filter(Boolean).join(' ');
+          localStorage.setItem('apple_display_name', appleName);
+        }
+
+        // Exchange Apple identity token with Supabase
+        const { error: tokenError } = await supabase.auth.signInWithIdToken({
+          provider: 'apple',
+          token: result.response.identityToken,
+        });
+
+        if (tokenError) {
+          setMessage(tokenError.message);
+          setOauthLoading(null);
+        }
+        // On success, Supabase onAuthStateChange will handle the rest
+      } catch (err: any) {
+        // User cancelled or error occurred
+        if (err?.message?.includes('cancelled') || err?.code === '1001') {
+          // User cancelled — silently reset
+          setOauthLoading(null);
+        } else {
+          console.error('[LoginForm] Native Apple Sign In error:', err);
+          setMessage(err?.message || 'Apple Sign In failed. Please try again.');
+          setOauthLoading(null);
+        }
+      }
+      return;
+    }
+
+    // Web OAuth redirect (Google, or Apple on non-iOS)
     const { error } = await supabase.auth.signInWithOAuth({
       provider,
       options: {

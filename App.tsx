@@ -11,6 +11,7 @@ import { trackPageView, analytics, captureReferralSource, getReferralData, initW
 import { offline } from './services/offline';
 import { migrateFromLocalStorage } from './services/offline-db';
 import { sounds } from './services/sounds';
+import { configurePurchases, identifyUser, getCustomerInfo, hasActiveEntitlement, isIAPAvailable, logOutPurchases } from './services/purchases';
 import NewWordsNotification from './components/NewWordsNotification';
 import { ExtractedWord } from './types';
 import Landing from './components/Landing';
@@ -176,6 +177,8 @@ const App: React.FC = () => {
       else {
         setProfile(null);
         setLoading(false);
+        // Log out of RevenueCat when user signs out
+        if (isIAPAvailable()) logOutPurchases();
       }
     });
 
@@ -268,12 +271,21 @@ const App: React.FC = () => {
               localStorage.removeItem('intended_role');
             }
 
+            // For Apple Sign In: name is only sent on FIRST authorization
+            // Native iOS captures it in localStorage; web gets it from user_metadata
+            const appleDisplayName = localStorage.getItem('apple_display_name');
+            const displayName = userData.user.user_metadata.full_name
+              || appleDisplayName
+              || 'Lover';
+            // Clear the one-time Apple name after reading
+            if (appleDisplayName) localStorage.removeItem('apple_display_name');
+
             const { data: newProfile, error: createError } = await supabase
               .from('profiles')
               .insert({
                 id: userData.user.id,
                 email: userData.user.email,
-                full_name: userData.user.user_metadata.full_name || 'Lover',
+                full_name: displayName,
                 // Set languages from signup metadata or localStorage selection
                 active_language: storedTarget,
                 native_language: storedNative,
@@ -376,6 +388,29 @@ const App: React.FC = () => {
         }
         if (data?.native_language) {
           localStorage.setItem('preferredNativeLanguage', data.native_language);
+        }
+        // Initialize RevenueCat for iOS in-app purchases (non-blocking)
+        if (isIAPAvailable()) {
+          configurePurchases(userId).then(() => {
+            identifyUser(userId);
+            // Reconcile: check if iOS subscription status differs from DB
+            getCustomerInfo().then(info => {
+              if (!info) return;
+              const entitlement = hasActiveEntitlement(info);
+              if (entitlement.isActive && data.subscription_status !== 'active') {
+                // User has active App Store subscription but DB doesn't reflect it
+                // This can happen if webhook was delayed — update DB
+                supabase.from('profiles').update({
+                  subscription_plan: entitlement.plan,
+                  subscription_status: 'active',
+                  subscription_source: 'app_store',
+                }).eq('id', userId).then(() => {
+                  // Refetch profile to get updated state
+                  fetchProfile(userId);
+                });
+              }
+            });
+          });
         }
       }
     } catch (err: any) {

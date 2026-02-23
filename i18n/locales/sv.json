@@ -2130,10 +2130,10 @@
           "question": "Vad kostar det?",
           "intro": "Två planer, flexibel fakturering:",
           "standard": "Standard",
-          "standardPrice": "$7/vecka · $19/månad · $69/år",
+          "standardPrice": "$7/vecka · $17.99/månad · $69.99/år",
           "standardDesc": "2 000 ord, 60 min röstchatt, partnerinbjudan",
           "unlimited": "Obegränsad",
-          "unlimitedPrice": "$12/vecka · $39/månad · $139/år",
+          "unlimitedPrice": "$12.99/vecka · $39.99/månad · $139/år",
           "unlimitedDesc": "Allt obegränsat + presentpass",
           "cancelNote": "Avsluta när som helst. Inga bindningstider."
         },

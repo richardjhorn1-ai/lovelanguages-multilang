@@ -2130,10 +2130,10 @@
           "question": "Kolik to stojí?",
           "intro": "Dva plány, flexibilní fakturace:",
           "standard": "Standard",
-          "standardPrice": "$7/týden · $19/měsíc · $69/rok",
+          "standardPrice": "$7/týden · $17.99/měsíc · $69.99/rok",
           "standardDesc": "2 000 slov, 60 min hlasu, pozvánka pro partnera",
           "unlimited": "Neomezený",
-          "unlimitedPrice": "$12/týden · $39/měsíc · $139/rok",
+          "unlimitedPrice": "$12.99/týden · $39.99/měsíc · $139/rok",
           "unlimitedDesc": "Vše neomezené + dárkové pasy",
           "cancelNote": "Zrušit můžeš kdykoliv. Žádné smlouvy."
         },

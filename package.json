@@ -21,6 +21,7 @@
     "cap:build:ios": "npm run build:app && npx cap sync ios && npx cap open ios"
   },
   "dependencies": {
+    "@capacitor-community/apple-sign-in": "^7.1.0",
     "@capacitor/cli": "^8.0.1",
     "@capacitor/core": "^8.0.1",
     "@capacitor/haptics": "^8.0.0",
@@ -32,6 +33,7 @@
     "@mdx-js/react": "^3.1.1",
     "@mdx-js/rollup": "^3.1.1",
     "@phosphor-icons/react": "^2.1.10",
+    "@revenuecat/purchases-capacitor": "^12.2.0",
     "@stripe/stripe-js": "^8.6.1",
     "@supabase/supabase-js": "^2.39.8",
     "@types/dompurify": "^3.0.5",

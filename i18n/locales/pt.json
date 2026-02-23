@@ -2130,10 +2130,10 @@
           "question": "Quanto custa?",
           "intro": "Dois planos, cobrança flexível:",
           "standard": "Standard",
-          "standardPrice": "$7/semana · $19/mês · $69/ano",
+          "standardPrice": "$7/semana · $17.99/mês · $69.99/ano",
           "standardDesc": "2.000 palavras, 60 min de voz, convite para parceiro",
           "unlimited": "Unlimited",
-          "unlimitedPrice": "$12/semana · $39/mês · $139/ano",
+          "unlimitedPrice": "$12.99/semana · $39.99/mês · $139/ano",
           "unlimitedDesc": "Tudo ilimitado + passes de presente",
           "cancelNote": "Cancele quando quiser. Sem contratos."
         },

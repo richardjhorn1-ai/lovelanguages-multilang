@@ -2142,10 +2142,10 @@
           "freePrice": "$0",
           "freeDesc": "25 chats, 50 flashcards, 1 voice session — no card required",
           "standard": "Standard",
-          "standardPrice": "$7/week · $19/month · $69/year",
+          "standardPrice": "$7/week · $17.99/month · $69.99/year",
           "standardDesc": "2,000 words, 60 min voice, partner invite",
           "unlimited": "Unlimited",
-          "unlimitedPrice": "$12/week · $39/month · $139/year",
+          "unlimitedPrice": "$12.99/week · $39.99/month · $139/year",
           "unlimitedDesc": "Everything unlimited + gift passes",
           "cancelNote": "Cancel anytime. No contracts."
         },

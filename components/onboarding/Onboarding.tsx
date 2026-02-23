@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, createContext, useMemo } from 'react';
+import React, { useState, useEffect, useRef, useCallback, createContext, useMemo } from 'react';
 import { Capacitor } from '@capacitor/core';
 import { supabase } from '../../services/supabase';
 import type { OnboardingData } from '../../types';
@@ -620,35 +620,65 @@ export const Onboarding: React.FC<OnboardingProps> = ({
   // Accent color changes based on selected role
   const accentColor = activeRole === 'tutor' ? '#14b8a6' : '#FF4761';
 
-  // Load saved progress from localStorage
+  // Restore progress helper — used by both localStorage and Supabase loaders
+  const restoreProgress = useCallback((parsed: { userId?: string; role?: string; step?: number; data?: any }) => {
+    if (parsed.step) setCurrentStep(parsed.step);
+    if (parsed.data) setData(parsed.data);
+    // Restore role selection from saved progress
+    if (parsed.data?.role) {
+      setSelectedRole(parsed.data.role);
+    } else if (parsed.role) {
+      setSelectedRole(parsed.role as 'student' | 'tutor');
+    }
+    // Restore language override from saved onboarding data
+    if (parsed.data?.targetLanguage || parsed.data?.nativeLanguage) {
+      setLanguageOverride({
+        targetLanguage: parsed.data.targetLanguage,
+        nativeLanguage: parsed.data.nativeLanguage,
+      });
+    }
+  }, [setLanguageOverride]);
+
+  // Load saved progress — check Supabase first (cross-device), fall back to localStorage
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) {
+    let cancelled = false;
+
+    const loadProgress = async () => {
+      // 1. Try Supabase first (enables cross-device resume)
       try {
-        const parsed = JSON.parse(saved);
-        // Match by userId only — role may be null for new users resuming onboarding
-        if (parsed.userId === userId) {
-          setCurrentStep(parsed.step || 1);
-          setData(parsed.data || {});
-          // Restore role selection from saved progress
-          if (parsed.data?.role) {
-            setSelectedRole(parsed.data.role);
-          } else if (parsed.role) {
-            setSelectedRole(parsed.role);
-          }
-          // Restore language override from saved onboarding data
-          if (parsed.data?.targetLanguage || parsed.data?.nativeLanguage) {
-            setLanguageOverride({
-              targetLanguage: parsed.data.targetLanguage,
-              nativeLanguage: parsed.data.nativeLanguage,
-            });
-          }
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('onboarding_progress')
+          .eq('id', userId)
+          .single();
+
+        if (!cancelled && profile?.onboarding_progress) {
+          const progress = profile.onboarding_progress as { step?: number; data?: any; role?: string };
+          restoreProgress({ userId, ...progress });
+          return; // Supabase had progress, use it
         }
       } catch {
-        // Ignore parse errors
+        // Supabase fetch failed (offline?) — fall back to localStorage
       }
-    }
-  }, [userId, setLanguageOverride]);
+
+      // 2. Fall back to localStorage
+      if (cancelled) return;
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved) {
+        try {
+          const parsed = JSON.parse(saved);
+          if (parsed.userId === userId) {
+            restoreProgress(parsed);
+          }
+        } catch {
+          // Ignore parse errors
+        }
+      }
+    };
+
+    loadProgress();
+    return () => { cancelled = true; };
+  }, [userId, restoreProgress]);
 
   // Ensure language data is populated from context (RoleSelection sets these in DB)
   // Without this, handleComplete writes undefined over the correct values
@@ -663,14 +693,41 @@ export const Onboarding: React.FC<OnboardingProps> = ({
     });
   }, [contextTargetLang, contextNativeLang]);
 
-  // Save progress to localStorage
+  // Save progress to localStorage (immediate) + Supabase (debounced)
+  const supabaseSaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+    const progressPayload = {
       userId,
       role: activeRole,
       step: currentStep,
       data
-    }));
+    };
+
+    // 1. Save to localStorage immediately (fast, works offline)
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(progressPayload));
+
+    // 2. Save to Supabase with debounce (non-blocking, enables cross-device resume)
+    if (supabaseSaveTimer.current) clearTimeout(supabaseSaveTimer.current);
+    supabaseSaveTimer.current = setTimeout(() => {
+      supabase
+        .from('profiles')
+        .update({
+          onboarding_progress: {
+            step: currentStep,
+            role: activeRole,
+            data
+          }
+        })
+        .eq('id', userId)
+        .then(({ error }) => {
+          if (error) console.warn('[Onboarding] Failed to save progress to Supabase:', error.message);
+        });
+    }, 1000); // 1s debounce — saves after user settles on a step
+
+    return () => {
+      if (supabaseSaveTimer.current) clearTimeout(supabaseSaveTimer.current);
+    };
   }, [userId, activeRole, currentStep, data]);
 
   const goNext = () => setCurrentStep(s => Math.min(s + 1, totalSteps));
@@ -735,6 +792,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
           partner_name: partnerNameValue || null,
           onboarding_data: data,
           onboarding_completed_at: new Date().toISOString(),
+          onboarding_progress: null, // Clear progress — onboarding is done
           role: activeRole,
           role_confirmed_at: new Date().toISOString(),
           smart_validation: data.smartValidation ?? true,

@@ -2130,10 +2130,10 @@
           "question": "Mennyibe kerül?",
           "intro": "Két csomag, rugalmas számlázással:",
           "standard": "Standard",
-          "standardPrice": "$7/hét · $19/hó · $69/év",
+          "standardPrice": "$7/hét · $17.99/hó · $69.99/év",
           "standardDesc": "2000 szó, 60 perc hang, partner meghívó",
           "unlimited": "Korlátlan",
-          "unlimitedPrice": "$12/hét · $39/hó · $139/év",
+          "unlimitedPrice": "$12.99/hét · $39.99/hó · $139/év",
           "unlimitedDesc": "Minden korlátlan + ajándékbérletek",
           "cancelNote": "Bármikor lemondható. Nincs szerződés."
         },

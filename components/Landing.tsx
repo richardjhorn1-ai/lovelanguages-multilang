@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Capacitor } from '@capacitor/core';
 import { supabase } from '../services/supabase';
 import { analytics } from '../services/analytics';
 import { useHoneypot } from '../hooks/useHoneypot';
@@ -700,11 +701,52 @@ const Landing: React.FC = () => {
     }
   }, [i18n]);
 
-  // OAuth sign-in
+  // OAuth sign-in — native Apple on iOS, web redirect for everything else
   const handleOAuthSignIn = async (provider: 'google' | 'apple') => {
     setOauthLoading(provider);
     setMessage('');
     analytics.trackSignupStarted(provider);
+
+    // Native Apple Sign In on iOS — required for App Store approval
+    if (provider === 'apple' && Capacitor.getPlatform() === 'ios') {
+      try {
+        const { SignInWithApple } = await import('@capacitor-community/apple-sign-in');
+        const result = await SignInWithApple.authorize({
+          clientId: 'com.lovelanguages.app',
+          redirectURI: '',
+          scopes: 'email name',
+        });
+
+        // Apple only sends name on FIRST sign-in — capture immediately
+        if (result.response.givenName || result.response.familyName) {
+          const appleName = [result.response.givenName, result.response.familyName]
+            .filter(Boolean).join(' ');
+          localStorage.setItem('apple_display_name', appleName);
+        }
+
+        // Exchange Apple identity token with Supabase
+        const { error: tokenError } = await supabase.auth.signInWithIdToken({
+          provider: 'apple',
+          token: result.response.identityToken,
+        });
+
+        if (tokenError) {
+          setMessage(tokenError.message);
+          setOauthLoading(null);
+        }
+      } catch (err: any) {
+        if (err?.message?.includes('cancelled') || err?.code === '1001') {
+          setOauthLoading(null);
+        } else {
+          console.error('[Landing] Native Apple Sign In error:', err);
+          setMessage(err?.message || 'Apple Sign In failed. Please try again.');
+          setOauthLoading(null);
+        }
+      }
+      return;
+    }
+
+    // Web OAuth redirect (Google, or Apple on non-iOS)
     const { error } = await supabase.auth.signInWithOAuth({
       provider,
       options: { redirectTo: `${window.location.origin}/` },

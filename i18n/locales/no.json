@@ -2130,10 +2130,10 @@
           "question": "Hva koster det?",
           "intro": "To planer, fleksibel fakturering:",
           "standard": "Standard",
-          "standardPrice": "$7/uke · $19/mnd · $69/år",
+          "standardPrice": "$7/uke · $17.99/mnd · $69.99/år",
           "standardDesc": "2 000 ord, 60 min tale, partnerinvitasjon",
           "unlimited": "Ubegrenset",
-          "unlimitedPrice": "$12/uke · $39/mnd · $139/år",
+          "unlimitedPrice": "$12.99/uke · $39.99/mnd · $139/år",
           "unlimitedDesc": "Alt ubegrenset + gavepass",
           "cancelNote": "Avslutt når som helst. Ingen bindingstid."
         },

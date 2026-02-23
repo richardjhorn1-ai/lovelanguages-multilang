@@ -5,6 +5,7 @@ import { analytics } from '../services/analytics';
 import { Profile } from '../types';
 import { ICONS } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
+import { isIAPAvailable, getOfferings, purchasePackage, restorePurchases, hasActiveEntitlement } from '../services/purchases';
 
 interface SubscriptionRequiredProps {
   profile: Profile;
@@ -22,6 +23,69 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
 
   const { t } = useTranslation();
   const { targetName } = useLanguage();
+  const [iapPackages, setIapPackages] = useState<any[]>([]);
+  const [restoring, setRestoring] = useState(false);
+  const useIAP = isIAPAvailable();
+
+  // Fetch IAP offerings on iOS
+  useEffect(() => {
+    if (useIAP) {
+      getOfferings().then(offerings => {
+        if (offerings?.current?.availablePackages) {
+          setIapPackages(offerings.current.availablePackages);
+        }
+      });
+    }
+  }, [useIAP]);
+
+  // Restore Purchases handler (required by Apple)
+  const handleRestorePurchases = async () => {
+    setRestoring(true);
+    setError(null);
+    try {
+      const customerInfo = await restorePurchases();
+      if (customerInfo) {
+        const entitlement = hasActiveEntitlement(customerInfo);
+        if (entitlement.isActive) {
+          // User has an active subscription — refresh profile
+          onSubscribed();
+          return;
+        }
+      }
+      setError(t('subscription.errors.noActivePurchases', { defaultValue: 'No active purchases found' }));
+    } catch (err: any) {
+      setError(err?.message || t('subscription.errors.restoreFailed', { defaultValue: 'Failed to restore purchases' }));
+    } finally {
+      setRestoring(false);
+    }
+  };
+
+  // iOS IAP purchase handler
+  const handleIAPSubscribe = async () => {
+    const productId = `${selectedPlan}_${billingPeriod}`;
+    const pkg = iapPackages.find((p: any) => p.product?.identifier === productId);
+
+    if (!pkg) {
+      setError(`Product ${productId} not available`);
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+    try {
+      const customerInfo = await purchasePackage(pkg);
+      if (customerInfo) {
+        // Purchase succeeded — webhook updates DB, refresh profile
+        onSubscribed();
+      } else {
+        // User cancelled
+        setLoading(false);
+      }
+    } catch (err: any) {
+      setError(err?.message || 'Purchase failed. Please try again.');
+      setLoading(false);
+    }
+  };
 
   // Handle plan selection with analytics
   const handlePlanSelect = (planId: 'free' | 'standard' | 'unlimited') => {
@@ -83,8 +147,8 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       id: 'standard' as const,
       name: t('subscription.plans.standard'),
       weeklyPrice: 7,
-      monthlyPrice: 19,
-      yearlyPrice: 69,
+      monthlyPrice: 17.99,
+      yearlyPrice: 69.99,
       tagline: t('subscription.required.taglineStandard'),
       features: [
         { text: t('subscription.features.wordsLimit', { limit: '2,000' }), included: true },
@@ -97,8 +161,8 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
     {
       id: 'unlimited' as const,
       name: t('subscription.plans.unlimited'),
-      weeklyPrice: 12,
-      monthlyPrice: 39,
+      weeklyPrice: 12.99,
+      monthlyPrice: 39.99,
       yearlyPrice: 139,
       tagline: t('subscription.required.taglineUnlimited'),
       popular: true,
@@ -173,6 +237,12 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       return handleChooseFreeTier();
     }
 
+    // iOS: use RevenueCat IAP
+    if (useIAP) {
+      return handleIAPSubscribe();
+    }
+
+    // Web: use Stripe checkout
     setLoading(true);
     setError(null);
 
@@ -469,6 +539,22 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
             : t('subscription.common.securePayment')
           }
         </p>
+
+        {/* Restore Purchases — required by Apple for App Store */}
+        {useIAP && (
+          <div className="text-center mt-4">
+            <button
+              onClick={handleRestorePurchases}
+              disabled={restoring}
+              className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] underline disabled:opacity-50"
+            >
+              {restoring
+                ? t('subscription.restore.restoring', { defaultValue: 'Restoring...' })
+                : t('subscription.restore.button', { defaultValue: 'Restore Purchases' })
+              }
+            </button>
+          </div>
+        )}
 
         {/* Logout option */}
         <div className="text-center mt-6">

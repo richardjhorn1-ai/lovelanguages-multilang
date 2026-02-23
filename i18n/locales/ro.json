@@ -2130,10 +2130,10 @@
           "question": "Cat costa?",
           "intro": "Doua planuri, facturare flexibila:",
           "standard": "Standard",
-          "standardPrice": "$7/saptamana · $19/luna · $69/an",
+          "standardPrice": "$7/saptamana · $17.99/luna · $69.99/an",
           "standardDesc": "2.000 cuvinte, 60 min voce, invitatie partener",
           "unlimited": "Nelimitat",
-          "unlimitedPrice": "$12/saptamana · $39/luna · $139/an",
+          "unlimitedPrice": "$12.99/saptamana · $39.99/luna · $139/an",
           "unlimitedDesc": "Totul nelimitat + permise cadou",
           "cancelNote": "Anuleaza oricand. Fara contracte."
         },
