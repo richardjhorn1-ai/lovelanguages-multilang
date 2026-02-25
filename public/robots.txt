@@ -3,8 +3,3 @@ Allow: /
 
 # Sitemap (Astro-generated, includes all blog articles)
 Sitemap: https://www.lovelanguages.io/sitemap-index.xml
-
-# LLM Context Files (for AI assistants)
-# See: https://llmstxt.org
-Llms-txt: https://www.lovelanguages.io/llms.txt
-Llms-full-txt: https://www.lovelanguages.io/llms-full.txt
