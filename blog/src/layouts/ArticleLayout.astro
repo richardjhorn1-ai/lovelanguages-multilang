@@ -58,7 +58,6 @@ interface Props {
   readTime?: number | null;
   image?: string | null;
   date?: string | null;
-  updatedAt?: string | null;  // Supabase updated_at for dateModified
   tags?: string[] | null;
   relatedArticles?: RelatedArticle[];
   languageCode?: string;
@@ -96,7 +95,6 @@ const {
   readTime: rawReadTime,
   image: rawImage,
   date: rawDate,
-  updatedAt: rawUpdatedAt,
   tags: rawTags,
   relatedArticles = [],
   languageCode = 'pl',
@@ -115,7 +113,6 @@ const difficulty = rawDifficulty || 'beginner';
 const readTime = rawReadTime || 8;
 const image = rawImage || null;
 const date = rawDate || new Date().toISOString().split('T')[0];
-const updatedAt = rawUpdatedAt ? new Date(rawUpdatedAt).toISOString().split('T')[0] : date;
 const tags = rawTags || [];
 
 // Language info lookup for cross-pair display
@@ -155,7 +152,7 @@ const jsonLd = {
   "description": description,
   "image": image ? `https://www.lovelanguages.io${image}` : "https://www.lovelanguages.io/og-image.png",
   "datePublished": date,
-  "dateModified": updatedAt,
+  "dateModified": date,
   "author": {
     "@type": "Organization",
     "name": "Love Languages Editorial Team",
@@ -308,7 +305,6 @@ const faqJsonLd = faqItems.length > 0 ? {
   image={image}
   article={{
     publishedTime: date,
-    modifiedTime: updatedAt !== date ? updatedAt : undefined,
     section: category,
     tags: tags,
   }}
