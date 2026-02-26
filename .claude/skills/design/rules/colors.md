@@ -78,7 +78,7 @@ For text/elements on vibrant colored backgrounds (Progress card, game overlays, 
 ## Role-Aware Backgrounds (Onboarding/Landing)
 
 - **Student**: `linear-gradient(145deg, #FFF0F3 0%, #fce4ec 35%, #FFF0F3 65%, #fff5f7 100%)`
-- **Tutor**: `linear-gradient(145deg, #f0fdfa 0%, #e0f2f1 35%, #f0fdfa 65%, #f5fffe 100%)`
+- **Tutor**: `linear-gradient(145deg, #edf0f8 0%, #dde2f0 35%, #edf0f8 65%, #f2f4fa 100%)`
 - **Neutral**: `#fdfcfd`
 
 ## Target Word Highlight
