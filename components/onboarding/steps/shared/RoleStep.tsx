@@ -18,7 +18,7 @@ export const RoleStep: React.FC<RoleStepProps> = ({
   initialValue = '',
   onNext,
   onBack,
-  accentColor = '#F9B0C9'
+  accentColor = '#FF4761'
 }) => {
   const { t } = useTranslation();
   const [selected, setSelected] = useState<'student' | 'tutor' | ''>(
@@ -50,19 +50,19 @@ export const RoleStep: React.FC<RoleStepProps> = ({
         <button
           onClick={() => setSelected('student')}
           className="w-full p-6 transition-all text-left animate-reveal stagger-1"
-          style={ONBOARDING_OPTION(selected === 'student', '#F9B0C9')}
+          style={ONBOARDING_OPTION(selected === 'student', '#FF4761')}
         >
           <div className="flex items-center gap-4">
             <div
               className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
-              style={{ backgroundColor: selected === 'student' ? '#F9B0C920' : 'rgba(255,255,255,0.4)' }}
+              style={{ backgroundColor: selected === 'student' ? '#FF476120' : 'rgba(255,255,255,0.4)' }}
             >
-              <ICONS.Heart className="w-7 h-7" style={{ color: selected === 'student' ? '#F9B0C9' : '#9ca3af' }} />
+              <ICONS.Heart className="w-7 h-7" style={{ color: selected === 'student' ? '#FF4761' : '#9ca3af' }} />
             </div>
             <div>
               <div
                 className="text-xl font-black font-header"
-                style={{ color: selected === 'student' ? '#F9B0C9' : 'var(--text-primary)' }}
+                style={{ color: selected === 'student' ? '#FF4761' : 'var(--text-primary)' }}
               >
                 {t('onboarding.role.learn', 'Learn a language')}
               </div>
@@ -77,19 +77,19 @@ export const RoleStep: React.FC<RoleStepProps> = ({
         <button
           onClick={() => setSelected('tutor')}
           className="w-full p-6 transition-all text-left animate-reveal stagger-2"
-          style={ONBOARDING_OPTION(selected === 'tutor', '#B1C870')}
+          style={ONBOARDING_OPTION(selected === 'tutor', '#14b8a6')}
         >
           <div className="flex items-center gap-4">
             <div
               className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
-              style={{ backgroundColor: selected === 'tutor' ? '#B1C87020' : 'rgba(255,255,255,0.4)' }}
+              style={{ backgroundColor: selected === 'tutor' ? '#14b8a620' : 'rgba(255,255,255,0.4)' }}
             >
-              <ICONS.Sparkles className="w-7 h-7" style={{ color: selected === 'tutor' ? '#B1C870' : '#9ca3af' }} />
+              <ICONS.Sparkles className="w-7 h-7" style={{ color: selected === 'tutor' ? '#14b8a6' : '#9ca3af' }} />
             </div>
             <div>
               <div
                 className="text-xl font-black font-header"
-                style={{ color: selected === 'tutor' ? '#B1C870' : 'var(--text-primary)' }}
+                style={{ color: selected === 'tutor' ? '#14b8a6' : 'var(--text-primary)' }}
               >
                 {t('onboarding.role.teach', 'Teach a language')}
               </div>
@@ -104,7 +104,7 @@ export const RoleStep: React.FC<RoleStepProps> = ({
       <NextButton
         onClick={() => selected && onNext(selected as 'student' | 'tutor')}
         disabled={!selected}
-        accentColor={selected === 'tutor' ? '#B1C870' : accentColor}
+        accentColor={selected === 'tutor' ? '#14b8a6' : accentColor}
       />
     </OnboardingStep>
   );

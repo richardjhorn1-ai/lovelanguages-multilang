@@ -85,9 +85,6 @@ const parseMarkdown = (text: string) => {
     .split('(#FF4761) font-semibold">').join('')
     .split('(#FF4761)font-semibold">').join('')
     .split('#FF4761) font-semibold">').join('')
-    .split('(#F9B0C9) font-semibold">').join('')
-    .split('(#F9B0C9)font-semibold">').join('')
-    .split('#F9B0C9) font-semibold">').join('')
     .split('font-semibold">').join('')
     .split('font-semibold>').join('');
 

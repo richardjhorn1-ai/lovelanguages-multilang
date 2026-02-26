@@ -25,7 +25,7 @@ export const PersonalizationStep: React.FC<PersonalizationStepProps> = ({
   initialPrior = '',
   onNext,
   onBack,
-  accentColor = '#F9B0C9'
+  accentColor = '#FF4761'
 }) => {
   const { t } = useTranslation();
   const { targetName } = useLanguage();

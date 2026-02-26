@@ -18,7 +18,7 @@ export const FearStep: React.FC<FearStepProps> = ({
   initialValue = '',
   onNext,
   onBack,
-  accentColor = '#F9B0C9'
+  accentColor = '#FF4761'
 }) => {
   const { t } = useTranslation();
   const { targetName } = useLanguage();

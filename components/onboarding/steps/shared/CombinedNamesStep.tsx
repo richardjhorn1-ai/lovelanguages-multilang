@@ -23,7 +23,7 @@ export const CombinedNamesStep: React.FC<CombinedNamesStepProps> = ({
   initialPartnerName = '',
   onNext,
   onBack,
-  accentColor = '#F9B0C9'
+  accentColor = '#FF4761'
 }) => {
   const { t } = useTranslation();
   const { targetName } = useLanguage();

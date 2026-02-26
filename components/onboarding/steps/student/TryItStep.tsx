@@ -19,7 +19,7 @@ export const TryItStep: React.FC<TryItStepProps> = ({
   totalSteps,
   onNext,
   onBack,
-  accentColor = '#F9B0C9'
+  accentColor = '#FF4761'
 }) => {
   const { t } = useTranslation();
   const { targetLanguage } = useLanguage();

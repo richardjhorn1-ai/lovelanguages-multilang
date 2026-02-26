@@ -4,8 +4,8 @@ import { ICONS } from '../../constants';
 
 // Brand colors
 const BRAND = {
-  primary: '#F9B0C9',
-  teal: '#B1C870',
+  primary: '#FF4761',
+  teal: '#14b8a6',
   light: '#FFF0F3',
   tealLight: '#ccfbf1',
   coral: '#FF6B6B',

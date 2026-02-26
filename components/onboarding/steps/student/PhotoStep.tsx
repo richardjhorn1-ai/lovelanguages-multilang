@@ -22,7 +22,7 @@ export const PhotoStep: React.FC<PhotoStepProps> = ({
   initialValue,
   onNext,
   onBack,
-  accentColor = '#F9B0C9'
+  accentColor = '#FF4761'
 }) => {
   const { t } = useTranslation();
   const [uploadedUrl, setUploadedUrl] = useState<string | null>(initialValue ?? null);

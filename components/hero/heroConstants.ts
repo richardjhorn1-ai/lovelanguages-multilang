@@ -2,15 +2,15 @@
 
 // Fixed brand colors for landing page
 export const BRAND = {
-  primary: '#F9B0C9',
-  primaryHover: '#E89BB5',
-  light: '#FBDCE8',
-  border: '#FCDCE7',
-  shadow: 'rgba(249, 176, 201, 0.25)',
-  teal: '#B1C870',
-  tealHover: '#99B058',
-  tealLight: '#E4EDC8',
-  tealShadow: 'rgba(177, 200, 112, 0.25)',
+  primary: '#FF4761',
+  primaryHover: '#E63E56',
+  light: '#FFF0F3',
+  border: '#FECDD3',
+  shadow: 'rgba(255, 71, 97, 0.25)',
+  teal: '#14b8a6',
+  tealHover: '#0d9488',
+  tealLight: '#f0fdfa',
+  tealShadow: 'rgba(20, 184, 166, 0.25)',
 };
 
 // Types

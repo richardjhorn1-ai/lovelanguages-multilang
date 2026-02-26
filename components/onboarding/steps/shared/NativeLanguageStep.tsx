@@ -21,7 +21,7 @@ export const NativeLanguageStep: React.FC<NativeLanguageStepProps> = ({
   initialNative,
   onNext,
   onBack,
-  accentColor = '#F9B0C9'
+  accentColor = '#FF4761'
 }) => {
   const { t, i18n } = useTranslation();
 

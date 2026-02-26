@@ -20,7 +20,7 @@ export const TutorStartStep: React.FC<TutorStartStepProps> = ({
   userName,
   learnerName,
   onComplete,
-  accentColor = '#F9B0C9',
+  accentColor = '#FF4761',
   loading = false,
   error = null
 }) => {

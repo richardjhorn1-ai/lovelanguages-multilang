@@ -6,12 +6,12 @@
 
 /* Theme CSS Variables */
 :root {
-    --accent-color: #F9B0C9;
-    --accent-light: #FBDCE8;
-    --accent-border: #FCDCE7;
-    --accent-hover: #E89BB5;
-    --accent-text: #A8607A;
-    --accent-shadow: rgba(249, 176, 201, 0.25);
+    --accent-color: #FF4761;
+    --accent-light: #fff1f3;
+    --accent-border: #fecdd3;
+    --accent-hover: #E63E56;
+    --accent-text: #BE123C;
+    --accent-shadow: rgba(255, 71, 97, 0.25);
     --bg-primary: #fdfcfd;
     --bg-card: #ffffff;
     --text-primary: #292F36;
@@ -325,8 +325,8 @@ strong {
 .glass-card {
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.40),
-    rgba(255, 255, 255, 0.20)
+    rgba(255, 255, 255, 0.55),
+    rgba(255, 255, 255, 0.30)
   );
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
