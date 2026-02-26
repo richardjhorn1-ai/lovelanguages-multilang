@@ -148,21 +148,50 @@ Love Languages does NOT appear in top 50 results.
 ### ✅ Completed
 - [x] Astro SSR blog (server-side rendering)
 - [x] Clean URLs: `/learn/[native]/[target]/[slug]/`
-- [x] Meta tags per page (title, description)
+- [x] Meta tags per page (title, description, `article:tag`)
 - [x] Open Graph + Twitter Cards
-- [x] JSON-LD (BlogPosting, BreadcrumbList, FAQPage, HowTo)
+- [x] JSON-LD structured data (see full list below)
 - [x] Sitemap at `/sitemap-index.xml`
 - [x] robots.txt configured
 - [x] Canonical URLs with www
 - [x] Edge cache headers (s-maxage=1d)
 - [x] Reduced DB queries (12+ → 2 per page)
 - [x] GA4 unified across blog + app
+- [x] FAQ schema — 11,703 bespoke FAQs in `faq_items` JSONB column (98% coverage)
+- [x] E-E-A-T author signals — Organization author with `knowsAbout`, visible byline
+- [x] Tag backfill — 4,458 articles fixed, all articles now have `article:tag` meta tags
+- [x] DefinitionBlock component — `schema.org/DefinedTerm` for vocabulary rich results
+- [x] AI referral tracking — GA4 events for ChatGPT, Perplexity, Claude, Gemini, etc.
+- [x] Speakable schema — voice search optimization via CSS selectors
+
+### Structured Data on Articles
+Every article page includes:
+| Schema | Type | Notes |
+|--------|------|-------|
+| `BlogPosting` | JSON-LD | Title, description, dates, author, image |
+| `BreadcrumbList` | JSON-LD | Home → Language → Category → Article |
+| `FAQPage` | JSON-LD | Bespoke Q&A pairs from `faq_items` (11,703 articles) |
+| `HowTo` | JSON-LD | Conditional — only on articles with "how-to" in slug |
+| `Speakable` | JSON-LD | CSS selectors for `.speakable-phrase`, `.speakable-vocab` |
+| `DefinedTerm` | Microdata | Via DefinitionBlock component (vocabulary articles) |
+| `Organization` | JSON-LD | Author with `knowsAbout` for E-E-A-T |
+
+### Blog SEO Scripts
+| Script | Purpose |
+|--------|---------|
+| `blog/scripts/generate-faqs-gemini.mjs` | Generate bespoke FAQs using Gemini 2.0 Flash |
+| `blog/scripts/export-for-faqs.mjs` | Export article data for FAQ generation |
+| `blog/scripts/upload-faqs.mjs` | Merge, deduplicate, upload FAQs to Supabase |
+| `blog/scripts/backfill-tags.mjs` | Backfill missing `article:tag` meta tags |
+| `blog/scripts/update-batch.mjs` | Generic batch Supabase updater (100ms delay) |
+| `blog/scripts/component-converters.mjs` | MDX → HTML converter (VocabCard, PhraseOfDay, DefinitionBlock, CTA) |
 
 ### 🔲 Pending
 - [ ] Internal linking automation
 - [ ] Cross-pair/reverse link generation
 - [ ] RSS feed
 - [ ] Article search functionality
+- [ ] Homepage SEO fixes (deferred — awaiting redesign)
 
 ---
 
@@ -197,6 +226,14 @@ Love Languages does NOT appear in top 50 results.
 ---
 
 ## 📅 Progress Log
+
+### February 22, 2026
+- FAQ schema deployed: 11,703 bespoke FAQs generated via Gemini 2.0 Flash, uploaded to Supabase
+- Tag backfill: 4,458 articles with null/empty tags fixed
+- E-E-A-T: Rich Organization author JSON-LD + visible byline on all articles
+- DefinitionBlock component created with schema.org/DefinedTerm microdata
+- AI referral tracking confirmed live (ChatGPT, Perplexity, Claude, Gemini, etc.)
+- Documentation audit: ARTICLE_SOP.md, AEO_GEO_STRATEGY.md, SEO.md updated
 
 ### February 21, 2026
 - Full SEO audit (60+ articles via sub-agents)

@@ -59,13 +59,11 @@ const defaultKeywords = targetLang
 
 <!-- Primary Meta Tags -->
 <title>{fullTitle}</title>
-<meta name="title" content={fullTitle} />
 <meta name="description" content={description} />
 <link rel="canonical" href={fullUrl} />
 
 <!-- Language tags -->
 <meta property="og:locale" content={ogLocale} />
-{targetLang && <meta name="language" content={nativeLang} />}
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={article ? 'article' : 'website'} />
@@ -86,41 +84,11 @@ const defaultKeywords = targetLang
 )}
 
 <!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={fullUrl} />
-<meta property="twitter:title" content={fullTitle} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={fullImage} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@lovelanguagesio" />
+<meta name="twitter:url" content={fullUrl} />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={fullImage} />
 
-<!-- Article JSON-LD Structured Data -->
-{article && (
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": title,
-    "description": description,
-    "image": fullImage,
-    "datePublished": article.publishedTime,
-    "dateModified": article.modifiedTime || article.publishedTime,
-    "author": {
-      "@type": "Organization",
-      "name": "Love Languages",
-      "url": `${siteUrl}/`
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "Love Languages",
-      "logo": {
-        "@type": "ImageObject",
-        "url": `${siteUrl}/favicon.svg`
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": fullUrl
-    },
-    "inLanguage": nativeLang,
-    "articleSection": article.section || defaultSection,
-    "keywords": article.tags?.join(", ") || defaultKeywords
-  })} />
-)}
+<!-- Article JSON-LD is handled by ArticleLayout.astro (BlogPosting schema) -->

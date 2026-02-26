@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "dev:blog": "cd blog && npm run dev",
-    "build": "vite build && cd blog && npm install && npm run build && cp -f dist/sitemap-*.xml .vercel/output/static/ && cp -r ../dist/* .vercel/output/static/ && mkdir -p ../.vercel/output && cp -r .vercel/output/* ../.vercel/output/",
+    "build": "vite build && cd blog && npm install && npm run build && cp -r ../dist/* .vercel/output/static/ && mkdir -p ../.vercel/output && cp -r .vercel/output/* ../.vercel/output/",
     "build:app": "vite build",
     "build:blog": "cd blog && npm run build",
     "preview": "vite preview",

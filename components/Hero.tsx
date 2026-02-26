@@ -258,8 +258,10 @@ const Hero: React.FC = () => {
     setOauthLoading(provider);
     setMessage('');
 
-    // Track signup started
-    analytics.trackSignupStarted(provider);
+    // Only track signup_started for new signups, not returning user logins
+    if (isSignUp) {
+      analytics.trackSignupStarted(provider);
+    }
 
     // Store the selected role in localStorage so we can retrieve it after OAuth redirect
     localStorage.setItem('intended_role', selectedRole);

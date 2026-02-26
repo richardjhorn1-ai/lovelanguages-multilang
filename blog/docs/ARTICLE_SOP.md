@@ -250,12 +250,31 @@ In Western Ukraine, you might hear different expressions...
 />
 ```
 
-#### 4. CTA - Call-to-action (no props, place at end)
+#### 4. DefinitionBlock - Vocabulary definition with rich schema
+```mdx
+<DefinitionBlock
+  term="Kochanie"
+  definition="Polish term of endearment meaning 'darling' or 'sweetheart', used between romantic partners."
+  pronunciation="ko-HA-nyeh"
+  partOfSpeech="noun"
+  language="Polish"
+/>
+```
+Use for key vocabulary definitions in vocabulary/phrases articles. Renders with purple gradient styling and `schema.org/DefinedTerm` microdata for Google "Definition" rich results.
+
+**Props:**
+- `term` (required) — The word being defined
+- `definition` (required) — The definition text
+- `pronunciation` (optional) — Phonetic pronunciation guide
+- `partOfSpeech` (optional) — noun, verb, adjective, etc.
+- `language` (optional) — Language name (e.g. "Polish", "Spanish")
+
+#### 5. CTA - Call-to-action (no props, place at end)
 ```mdx
 <CTA />
 ```
 
-#### 5. Markdown Tables - For vocabulary lists
+#### 6. Markdown Tables - For vocabulary lists
 ```mdx
 | Ukrainian | English | Pronunciation |
 |-----------|---------|---------------|
@@ -566,8 +585,35 @@ Requirements:
 
 ---
 
+## Automatic SEO Features (No Action Needed)
+
+The following are handled automatically by `ArticleLayout.astro` — no manual setup required:
+
+### FAQs
+- **Bespoke FAQ data** is stored in the `faq_items` JSONB column in Supabase (`blog_articles` table)
+- If an article has `faq_items`, the layout automatically renders:
+  - A visible FAQ accordion section at the bottom of the article
+  - `FAQPage` JSON-LD structured data in the `<head>`
+- **11,703 articles** currently have FAQs (98% coverage)
+- FAQs are generated via `blog/scripts/generate-faqs-gemini.mjs` and uploaded via `blog/scripts/upload-faqs.mjs`
+- Writers do NOT need to add FAQ content manually
+
+### Author Byline (E-E-A-T)
+- Every article automatically displays a "By **Love Languages Editorial Team**" byline
+- The author JSON-LD uses a rich `Organization` schema with `knowsAbout` fields
+- No frontmatter or component needed — it's part of the layout
+
+### Other Automatic Schema
+- `BlogPosting` — every article
+- `BreadcrumbList` — every article
+- `HowTo` — articles with "how-to" in slug
+- `Speakable` — voice search optimization via CSS selectors (`.speakable-phrase`, `.speakable-vocab`)
+
+---
+
 ## Related Documentation
 
 - `SEO_STATUS.md` - Content strategy and GSC insights
+- `AEO_GEO_STRATEGY.md` - Answer Engine / Generative Engine Optimization strategy
 - `ML_MASTER_PLAN.md` - Project overview and architecture
 - `TROUBLESHOOTING.md` - Common issues and solutions
