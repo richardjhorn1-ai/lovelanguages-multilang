@@ -915,16 +915,14 @@ const Landing: React.FC = () => {
           DESKTOP LAYOUT (≥ lg)
           Split: marketing left, sticky auth right
           ══════════════════════════════════════════ */}
-      <div className="hidden lg:grid lg:grid-cols-[1fr_420px] xl:grid-cols-[1fr_480px] min-h-screen max-w-[1400px] mx-auto relative z-10">
+      <div className="hidden lg:grid lg:grid-cols-[2fr_1fr] min-h-screen max-w-[1400px] mx-auto relative z-10">
         {/* Left: Marketing narrative — flows naturally, page scrolls */}
-        <div className="px-10 xl:px-16 2xl:px-20 py-8">
-          <div className="max-w-[640px]">
-            <MarketingContent isDesktop={true} role={selectedRole} onToggleRole={setSelectedRole} />
-          </div>
+        <div className="px-8 xl:px-12 py-8">
+          <MarketingContent isDesktop={true} role={selectedRole} onToggleRole={setSelectedRole} />
         </div>
 
         {/* Right: Sticky auth card */}
-        <div className="sticky top-0 h-screen flex items-center justify-center px-6">
+        <div className="sticky top-0 h-screen flex items-center justify-center px-6 max-w-[420px] ml-auto">
           <div className="w-full max-w-sm">
             <AuthCard showBranding={false} {...authCardProps} />
             <FooterLinks />
