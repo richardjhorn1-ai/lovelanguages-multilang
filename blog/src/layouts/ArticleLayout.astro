@@ -579,13 +579,33 @@ const faqJsonLd = faqItems.length > 0 ? {
   <!-- Sticky Mobile CTA -->
   <div class="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-accent to-pink-500 p-3 md:hidden z-50 shadow-lg">
     <a
-      href="/"
-      class="flex items-center justify-center gap-2 text-white font-bold"
+      href={`/?utm_source=blog&utm_medium=sticky-cta&utm_campaign=${nativeLanguageCode}-${languageCode}&utm_content=${articleSlug}&ref_native=${nativeLanguageCode}&ref_target=${languageCode}`}
+      class="flex items-center justify-center gap-2 text-white font-bold sticky-cta-button"
+      data-native={nativeLanguageCode}
+      data-target={languageCode}
+      data-article={articleSlug}
     >
       <span>Learn {languageInfo.name} Together</span>
       <span class="bg-white text-accent px-3 py-1 rounded-full text-sm">Start Now →</span>
     </a>
   </div>
+  <script>
+    document.querySelectorAll('.sticky-cta-button').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        const target = e.currentTarget as HTMLElement;
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'blog_sticky_cta_click', {
+            native_lang: target.dataset.native,
+            target_lang: target.dataset.target,
+            article_slug: target.dataset.article,
+            page_path: window.location.pathname,
+            event_category: 'conversion',
+            event_label: `${target.dataset.native}-${target.dataset.target}`,
+          });
+        }
+      });
+    });
+  </script>
 
   <!-- Spacer for sticky CTA on mobile -->
   <div class="h-16 md:hidden"></div>
