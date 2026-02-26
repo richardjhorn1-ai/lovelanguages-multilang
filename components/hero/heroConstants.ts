@@ -4,12 +4,12 @@
 export const BRAND = {
   primary: '#F9B0C9',
   primaryHover: '#E89BB5',
-  light: '#FEF4F8',
+  light: '#FBDCE8',
   border: '#FCDCE7',
   shadow: 'rgba(249, 176, 201, 0.25)',
   teal: '#B1C870',
   tealHover: '#99B058',
-  tealLight: '#F7FAF0',
+  tealLight: '#E4EDC8',
   tealShadow: 'rgba(177, 200, 112, 0.25)',
 };
 

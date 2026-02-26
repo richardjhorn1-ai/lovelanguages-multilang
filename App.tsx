@@ -445,7 +445,7 @@ const App: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="h-screen w-full flex flex-col items-center justify-center bg-[#FFF0F3]">
+      <div className="h-screen w-full flex flex-col items-center justify-center bg-[var(--accent-light)]">
         <div className="animate-bounce text-6xl">❤️</div>
         <div className="mt-4 flex flex-col items-center gap-2">
           <p className="text-[var(--accent-color)] font-bold font-header text-xl">Love Languages</p>
