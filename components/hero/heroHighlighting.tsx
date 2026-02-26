@@ -13,7 +13,7 @@ export const Highlight: React.FC<{
     style={{
       color: isStudent ? BRAND.primary : BRAND.teal,
       textShadow: glow
-        ? `0 0 20px ${isStudent ? 'rgba(255, 71, 97, 0.25)' : 'rgba(85, 104, 175, 0.25)'}`
+        ? `0 0 20px ${isStudent ? 'rgba(255, 71, 97, 0.25)' : 'rgba(20, 184, 166, 0.25)'}`
         : 'none',
       fontWeight: 'inherit',
     }}
@@ -23,7 +23,7 @@ export const Highlight: React.FC<{
       <span
         className="absolute bottom-0 left-0 right-0 h-[2px] rounded-full"
         style={{
-          background: `linear-gradient(90deg, ${isStudent ? BRAND.primary : BRAND.teal}, ${isStudent ? '#FF6B81' : '#7888c4'})`,
+          background: `linear-gradient(90deg, ${isStudent ? BRAND.primary : BRAND.teal}, ${isStudent ? '#FF6B81' : '#2dd4bf'})`,
           animation: 'underline-draw 0.8s ease-out 0.3s forwards',
           transformOrigin: 'left',
           transform: 'scaleX(0)',

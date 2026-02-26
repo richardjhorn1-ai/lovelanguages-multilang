@@ -618,7 +618,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
     ? (hasInheritedSubscription ? STUDENT_TOTAL_STEPS - 1 : STUDENT_TOTAL_STEPS)
     : (hasInheritedSubscription ? TUTOR_TOTAL_STEPS - 1 : TUTOR_TOTAL_STEPS);
   // Accent color changes based on selected role
-  const accentColor = activeRole === 'tutor' ? '#5568af' : '#FF4761';
+  const accentColor = activeRole === 'tutor' ? '#14b8a6' : '#FF4761';
 
   // Restore progress helper — used by both localStorage and Supabase loaders
   const restoreProgress = useCallback((parsed: { userId?: string; role?: string; step?: number; data?: any }) => {
@@ -1276,7 +1276,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
         className="fixed inset-0 overflow-hidden"
         style={{
           background: activeRole === 'tutor'
-            ? 'linear-gradient(145deg, #edf0f8 0%, #dde2f0 35%, #edf0f8 65%, #f2f4fa 100%)'
+            ? 'linear-gradient(145deg, #f0fdfa 0%, #e0f2f1 35%, #f0fdfa 65%, #f5fffe 100%)'
             : activeRole === 'student'
               ? 'linear-gradient(145deg, #FFF0F3 0%, #fce4ec 35%, #FFF0F3 65%, #fff5f7 100%)'
               : 'linear-gradient(145deg, #fdfcfd 0%, #f5f0f2 35%, #fdfcfd 65%, #fefcfd 100%)',

@@ -35,7 +35,7 @@ function renderHighlightedText(
   accentColor: string,
 ): (string | React.ReactElement)[] {
   const glowColor = accentColor === BRAND.teal
-    ? 'rgba(85, 104, 175, 0.25)'
+    ? 'rgba(20, 184, 166, 0.25)'
     : 'rgba(255, 71, 97, 0.25)';
   let parts: (string | React.ReactElement)[] = [text];
   highlights.forEach((highlight) => {
@@ -666,7 +666,7 @@ const Landing: React.FC = () => {
   const accentColor = selectedRole === 'student' ? BRAND.primary : BRAND.teal;
   const accentHover = selectedRole === 'student' ? BRAND.primaryHover : BRAND.tealHover;
   const accentShadow = selectedRole === 'student' ? BRAND.shadow : BRAND.tealShadow;
-  const accentBorder = selectedRole === 'student' ? BRAND.border : '#bcc4e2'; // pink-200 / sky-200
+  const accentBorder = selectedRole === 'student' ? BRAND.border : '#99f6e4'; // pink-200 / teal-200
   const bgColor = selectedRole === 'student' ? BRAND.light : BRAND.tealLight;
 
   // Native language (UI language) — auto-detect from browser

@@ -5,9 +5,9 @@ import { ICONS } from '../../constants';
 // Brand colors
 const BRAND = {
   primary: '#FF4761',
-  teal: '#5568af',
+  teal: '#14b8a6',
   light: '#FFF0F3',
-  tealLight: '#d5dcee',
+  tealLight: '#ccfbf1',
   coral: '#FF6B6B',
   golden: '#FFE66D',
 };
@@ -538,7 +538,7 @@ export const HeroBlog: React.FC<{ isStudent: boolean; isVisible?: boolean; secti
 export const HeroFooter: React.FC<{ isStudent: boolean; isVisible?: boolean; sectionIndex?: number }> = ({ isStudent, isVisible = true, sectionIndex }) => {
   const { t } = useTranslation();
   const accentColor = isStudent ? BRAND.primary : BRAND.teal;
-  const bgColor = isStudent ? '#fdf2f4' : '#edf0f8'; // Slightly darker than light for contrast
+  const bgColor = isStudent ? '#fdf2f4' : '#f0fdfa'; // Slightly darker than light for contrast
 
   return (
     <footer data-section={sectionIndex} className="snap-start py-4 md:py-12 px-4 md:px-16 lg:px-24" style={{ background: bgColor }}>
