@@ -21,7 +21,7 @@ export const GoalStep: React.FC<GoalStepProps> = ({
   initialValue = '',
   onNext,
   onBack,
-  accentColor = '#FF4761'
+  accentColor = '#F9B0C9'
 }) => {
   const { t } = useTranslation();
   const { targetName } = useLanguage();

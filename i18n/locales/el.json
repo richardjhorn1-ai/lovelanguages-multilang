@@ -346,7 +346,7 @@
       "chooseMode": "Επίλεξε τρόπο πρόκλησης",
       "length": "Διάρκεια",
       "all": "Όλες",
-      "qs": "ερωτ.",
+      "qs": "Ερωτήσεις",
       "generatingPhrases": "Δημιουργία ρομαντικών φράσεων...",
       "startChallenge": "Έναρξη πρόκλησης",
       "modes": {
@@ -2292,7 +2292,7 @@
       },
       "2": {
         "quote": "Dude this app is amazing",
-        "name": "Allessandra",
+        "name": "Alessandra",
         "context": "Μαθαίνει για τον φίλο της Miki"
       }
     }

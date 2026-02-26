@@ -346,7 +346,7 @@
       "chooseMode": "Challenge-Modus wählen",
       "length": "Länge",
       "all": "Alle",
-      "qs": "Fr.",
+      "qs": "Fragen",
       "generatingPhrases": "Romantische Ausdrücke werden generiert...",
       "startChallenge": "Challenge starten",
       "modes": {
@@ -2292,7 +2292,7 @@
       },
       "2": {
         "quote": "Dude this app is amazing",
-        "name": "Allessandra",
+        "name": "Alessandra",
         "context": "Lernt für ihren Freund Miki"
       }
     }

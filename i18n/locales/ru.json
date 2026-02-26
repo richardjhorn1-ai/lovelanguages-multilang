@@ -346,7 +346,7 @@
       "chooseMode": "Выбери режим челленджа",
       "length": "Длина",
       "all": "Все",
-      "qs": "вопр.",
+      "qs": "Вопросы",
       "generatingPhrases": "Генерирую романтические фразы...",
       "startChallenge": "Начать челлендж",
       "modes": {
@@ -2292,7 +2292,7 @@
       },
       "2": {
         "quote": "Dude this app is amazing",
-        "name": "Allessandra",
+        "name": "Alessandra",
         "context": "Учит для своего парня Мики"
       }
     }

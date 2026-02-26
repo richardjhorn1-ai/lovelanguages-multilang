@@ -346,7 +346,7 @@
       "chooseMode": "Kies Uitdagingsmodus",
       "length": "Lengte",
       "all": "Alle",
-      "qs": "Vr.",
+      "qs": "Vragen",
       "generatingPhrases": "Romantische zinnen genereren...",
       "startChallenge": "Start Uitdaging",
       "modes": {
@@ -2292,7 +2292,7 @@
       },
       "2": {
         "quote": "Dude this app is amazing",
-        "name": "Allessandra",
+        "name": "Alessandra",
         "context": "Leert voor haar vriend Miki"
       }
     }

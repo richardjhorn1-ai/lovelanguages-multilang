@@ -85,6 +85,9 @@ const parseMarkdown = (text: string) => {
     .split('(#FF4761) font-semibold">').join('')
     .split('(#FF4761)font-semibold">').join('')
     .split('#FF4761) font-semibold">').join('')
+    .split('(#F9B0C9) font-semibold">').join('')
+    .split('(#F9B0C9)font-semibold">').join('')
+    .split('#F9B0C9) font-semibold">').join('')
     .split('font-semibold">').join('')
     .split('font-semibold>').join('');
 
@@ -1485,7 +1488,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                         {isListenItem && <span>👂</span>}
                         {item.title}
                       </span>
-                      <span className={`text-scale-micro uppercase tracking-widest opacity-60 font-black ${isListenItem ? 'text-blue-500' : ''}`}>
+                      <span className={`text-scale-micro uppercase tracking-widest opacity-60 font-black ${isListenItem ? 'text-[var(--accent-color)]' : ''}`}>
                         {isListenItem ? `listen • ${formatListenDuration((item as ListenSession).duration_seconds)}` : (item as Chat).mode}
                       </span>
                       <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -1603,12 +1606,12 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               {/* Listen mode header info */}
               {activeListenSession && !isListening && (
                 <div className="text-center py-4">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--accent-light)] border border-[var(--accent-border)]">
                     <span>👂</span>
-                    <span className="text-scale-label font-medium text-blue-700 dark:text-blue-300">
+                    <span className="text-scale-label font-medium text-[var(--accent-color)]">
                       {activeListenSession.context_label || t('chat.listen.sessionLabel')}
                     </span>
-                    <span className="text-scale-caption text-blue-500">
+                    <span className="text-scale-caption text-[var(--accent-color)]">
                       {formatListenDuration(activeListenSession.duration_seconds)}
                     </span>
                   </div>
@@ -2094,7 +2097,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                       {isListenItem && <span>👂</span>}
                       {item.title}
                     </span>
-                    <span className={`text-scale-micro uppercase tracking-widest opacity-60 font-black ${isListenItem ? 'text-blue-500' : ''}`}>
+                    <span className={`text-scale-micro uppercase tracking-widest opacity-60 font-black ${isListenItem ? 'text-[var(--accent-color)]' : ''}`}>
                       {isListenItem ? `listen • ${formatListenDuration((item as ListenSession).duration_seconds)}` : (item as Chat).mode}
                     </span>
                   </button>

@@ -7,6 +7,7 @@ import { useHoneypot } from '../hooks/useHoneypot';
 import { BRAND } from './hero/heroConstants';
 import { LOGO_PATH, LOGO_DETAIL_PATHS } from './hero/Section';
 import InteractiveHearts from './hero/InteractiveHearts';
+import WordParticleEffect from './hero/WordParticleEffect';
 import { SUPPORTED_LANGUAGE_CODES, LANGUAGE_CONFIGS } from '../constants/language-config';
 import { ICONS } from '../constants';
 
@@ -197,7 +198,7 @@ const MarketingContent = React.memo<{
           "{t('hero.testimonials.2.quote', 'Dude this app is amazing')}"
         </p>
         <p className={`${isDesktop ? 'text-[11px]' : 'text-[10px]'} font-bold text-[var(--text-secondary)] mt-1.5`}>
-          {t('hero.testimonials.2.name', 'Allessandra')}
+          {t('hero.testimonials.2.name', 'Alessandra')}
         </p>
         <p className={`${isDesktop ? 'text-[10px]' : 'text-[9px]'} uppercase tracking-wider text-[var(--text-secondary)]`}>
           {t('hero.testimonials.2.context', 'Learning for her boyfriend Miki')}
@@ -871,6 +872,14 @@ const Landing: React.FC = () => {
         containerRef={containerRef as React.RefObject<HTMLDivElement>}
         isMobile={window.innerWidth < 768}
       />
+
+      {/* Pixel word particle effect — desktop only for performance */}
+      {window.innerWidth >= 1024 && (
+        <WordParticleEffect
+          accentColor={BRAND.primary}
+          containerRef={containerRef as React.RefObject<HTMLDivElement>}
+        />
+      )}
 
       {/* (Background orbs removed per user request) */}
 

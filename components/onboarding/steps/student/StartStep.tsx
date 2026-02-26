@@ -20,7 +20,7 @@ export const StartStep: React.FC<StartStepProps> = ({
   userName,
   partnerName,
   onComplete,
-  accentColor = '#FF4761',
+  accentColor = '#F9B0C9',
   loading = false,
   error = null
 }) => {

@@ -346,7 +346,7 @@
       "chooseMode": "Vyber režim výzvy",
       "length": "Délka",
       "all": "Vše",
-      "qs": "ot.",
+      "qs": "Otázky",
       "generatingPhrases": "Generuji romantické fráze...",
       "startChallenge": "Spustit výzvu",
       "modes": {
@@ -2292,7 +2292,7 @@
       },
       "2": {
         "quote": "Dude this app is amazing",
-        "name": "Allessandra",
+        "name": "Alessandra",
         "context": "Učí se pro svého přítele Mikiho"
       }
     }

@@ -209,16 +209,16 @@ export const QuickFire: React.FC<QuickFireProps> = ({
     return (
       <div className="w-full text-center">
         <div className="glass-card rounded-[2rem] p-8 max-w-md mx-auto">
-          <div className="mb-4"><ICONS.Zap className="w-16 h-16 text-amber-500 mx-auto" /></div>
+          <div className="mb-4"><ICONS.Zap className="w-16 h-16 text-[var(--accent-color)] mx-auto" /></div>
           <h2 className="text-2xl font-black font-header text-[var(--text-primary)] mb-2">
             {t('play.quickFire.title')}
           </h2>
           <p className="text-[var(--text-secondary)] mb-6">
             {t('play.quickFire.description')}
           </p>
-          <div className="bg-amber-50 dark:bg-amber-900/30 p-4 rounded-2xl mb-6">
-            <p className="text-scale-heading font-bold text-amber-600 dark:text-amber-400">
-              <ICONS.Zap className="w-5 h-5 inline-block text-amber-600 dark:text-amber-400" /> {t('play.quickFire.wordsAvailable', { count: words.length })}
+          <div className="bg-[var(--accent-light)] p-4 rounded-2xl mb-6">
+            <p className="text-scale-heading font-bold text-[var(--accent-color)]">
+              <ICONS.Zap className="w-5 h-5 inline-block text-[var(--accent-color)]" /> {t('play.quickFire.wordsAvailable', { count: words.length })}
             </p>
             <p className="text-scale-label text-[var(--text-secondary)] mt-1">
               {t('play.quickFire.upTo20')}
@@ -227,7 +227,7 @@ export const QuickFire: React.FC<QuickFireProps> = ({
           <button
             onClick={startGame}
             disabled={words.length < 5}
-            className="w-full py-4 rounded-2xl font-black text-white uppercase tracking-widest text-scale-label bg-amber-500 hover:bg-amber-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="w-full py-4 rounded-2xl font-black text-white uppercase tracking-widest text-scale-label bg-[var(--accent-color)] hover:bg-[var(--accent-hover)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             {t('play.quickFire.start')}
           </button>
@@ -258,7 +258,7 @@ export const QuickFire: React.FC<QuickFireProps> = ({
           <div
             className={`h-full transition-all duration-1000 ${
               timeLeft > 30
-                ? 'bg-amber-500'
+                ? 'bg-[var(--accent-color)]'
                 : timeLeft > 15
                 ? 'bg-orange-500'
                 : 'bg-red-500'
@@ -274,7 +274,7 @@ export const QuickFire: React.FC<QuickFireProps> = ({
           </span>
           <span
             className={`text-3xl font-black ${
-              timeLeft > 10 ? 'text-amber-500' : 'text-red-500 animate-pulse'
+              timeLeft > 10 ? 'text-[var(--accent-color)]' : 'text-red-500 animate-pulse'
             }`}
           >
             {timeLeft}s
@@ -282,17 +282,17 @@ export const QuickFire: React.FC<QuickFireProps> = ({
         </div>
 
         {/* Word */}
-        <div className="bg-amber-50 dark:bg-amber-900/30 p-8 rounded-2xl mb-6 text-center">
+        <div className="bg-[var(--accent-light)] p-8 rounded-2xl mb-6 text-center">
           <div className="flex items-center justify-center gap-2">
-            <p className="text-4xl font-black text-amber-600 dark:text-amber-400">
+            <p className="text-4xl font-black text-[var(--accent-color)]">
               {currentWord.word}
             </p>
             <button
               onClick={() => speak(currentWord.word, targetLanguage)}
-              className="p-2 rounded-full hover:bg-amber-100 dark:hover:bg-amber-800/50 transition-colors"
+              className="p-2 rounded-full hover:bg-[var(--accent-light)] transition-colors"
               title={t('play.flashcard.listen')}
             >
-              <ICONS.Volume2 className="w-6 h-6 text-amber-600 dark:text-amber-400" />
+              <ICONS.Volume2 className="w-6 h-6 text-[var(--accent-color)]" />
             </button>
           </div>
         </div>
@@ -306,13 +306,13 @@ export const QuickFire: React.FC<QuickFireProps> = ({
           placeholder={t('play.quickFire.typeTranslation')}
           autoFocus
           disabled={isValidating}
-          className="w-full p-4 border-2 border-[var(--border-color)] rounded-xl text-center text-scale-heading font-bold focus:outline-none focus:border-amber-500 bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+          className="w-full p-4 border-2 border-[var(--border-color)] rounded-xl text-center text-scale-heading font-bold focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
         />
 
         {/* Progress */}
         <div className="mt-4 h-2 bg-[var(--border-color)] rounded-full overflow-hidden">
           <div
-            className="h-full bg-amber-500 transition-all duration-300"
+            className="h-full bg-[var(--accent-color)] transition-all duration-300"
             style={{ width: `${((currentIndex + 1) / gameWords.length) * 100}%` }}
           />
         </div>

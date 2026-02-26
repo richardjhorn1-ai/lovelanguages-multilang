@@ -23,7 +23,7 @@ export const PartnerNameStep: React.FC<PartnerNameStepProps> = ({
   initialValue = '',
   onNext,
   onBack,
-  accentColor = '#FF4761'
+  accentColor = '#F9B0C9'
 }) => {
   const { t } = useTranslation();
   const { targetName } = useLanguage();

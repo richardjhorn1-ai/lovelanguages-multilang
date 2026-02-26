@@ -346,7 +346,7 @@
       "chooseMode": "Meydan Okuma Modu Seç",
       "length": "Uzunluk",
       "all": "Tümü",
-      "qs": "Soru",
+      "qs": "Sorular",
       "generatingPhrases": "Romantik ifadeler oluşturuluyor...",
       "startChallenge": "Meydan Okumayı Başlat",
       "modes": {
@@ -2292,7 +2292,7 @@
       },
       "2": {
         "quote": "Dude this app is amazing",
-        "name": "Allessandra",
+        "name": "Alessandra",
         "context": "Erkek arkadaşı Miki için öğreniyor"
       }
     }

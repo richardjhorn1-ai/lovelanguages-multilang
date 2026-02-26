@@ -346,7 +346,7 @@
       "chooseMode": "Vælg udfordringstilstand",
       "length": "Længde",
       "all": "Alle",
-      "qs": "spm",
+      "qs": "Spørgsmål",
       "generatingPhrases": "Genererer romantiske sætninger...",
       "startChallenge": "Start udfordring",
       "modes": {
@@ -2292,7 +2292,7 @@
       },
       "2": {
         "quote": "Dude this app is amazing",
-        "name": "Allessandra",
+        "name": "Alessandra",
         "context": "Lærer for sin kæreste Miki"
       }
     }

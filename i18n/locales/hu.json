@@ -346,7 +346,7 @@
       "chooseMode": "Válassz kihívás módot",
       "length": "Hossz",
       "all": "Mind",
-      "qs": "kérdés",
+      "qs": "Kérdések",
       "generatingPhrases": "Romantikus kifejezések generálása...",
       "startChallenge": "Kihívás indítása",
       "modes": {
@@ -2292,7 +2292,7 @@
       },
       "2": {
         "quote": "Dude this app is amazing",
-        "name": "Allessandra",
+        "name": "Alessandra",
         "context": "A barátja, Miki kedvéért tanul"
       }
     }

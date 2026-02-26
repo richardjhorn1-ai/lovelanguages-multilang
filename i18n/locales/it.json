@@ -346,7 +346,7 @@
       "chooseMode": "Scegli la Modalità Sfida",
       "length": "Lunghezza",
       "all": "Tutte",
-      "qs": "Dom.",
+      "qs": "Domande",
       "generatingPhrases": "Generazione frasi romantiche...",
       "startChallenge": "Inizia Sfida",
       "modes": {
@@ -2292,7 +2292,7 @@
       },
       "2": {
         "quote": "Dude this app is amazing",
-        "name": "Allessandra",
+        "name": "Alessandra",
         "context": "Impara per il suo ragazzo Miki"
       }
     }

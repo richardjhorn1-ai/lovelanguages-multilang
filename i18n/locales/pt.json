@@ -346,7 +346,7 @@
       "chooseMode": "Escolha o Modo de Desafio",
       "length": "Duração",
       "all": "Todas",
-      "qs": "Perg.",
+      "qs": "Perguntas",
       "generatingPhrases": "Gerando frases românticas...",
       "startChallenge": "Iniciar Desafio",
       "modes": {
@@ -2292,7 +2292,7 @@
       },
       "2": {
         "quote": "Dude this app is amazing",
-        "name": "Allessandra",
+        "name": "Alessandra",
         "context": "Aprendendo para o seu namorado Miki"
       }
     }

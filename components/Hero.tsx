@@ -591,7 +591,7 @@ const Hero: React.FC = () => {
     <div
       className="min-h-screen flex flex-col"
       style={{
-        backgroundColor: isStudent ? '#FFF0F3' : '#ccfbf1',
+        backgroundColor: isStudent ? '#FEF4F8' : '#F7FAF0',
         color: 'var(--text-primary)',
         // Prevent inherited CSS variables from affecting this component
         isolation: 'isolate',
@@ -1144,7 +1144,7 @@ const Hero: React.FC = () => {
               }`}
             >
               {/* Logo - sticky at top */}
-              <div className="sticky top-0 pb-6 pt-2 -mt-2 z-10" style={{ backgroundColor: isStudent ? '#FFF0F3' : '#ccfbf1' }}>
+              <div className="sticky top-0 pb-6 pt-2 -mt-2 z-10" style={{ backgroundColor: isStudent ? '#FEF4F8' : '#F7FAF0' }}>
                 <div className="flex items-center gap-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

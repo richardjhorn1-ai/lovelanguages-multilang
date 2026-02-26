@@ -370,8 +370,8 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
       level_at_time: data.levelAtTime,
       created_at: data.createdAt
     };
-    // Only add to index if not cached (avoid duplicates)
-    if (!data.cached) {
+    // Only add to index if not cached and has a valid DB id (avoid duplicates and phantom entries)
+    if (!data.cached && data.id) {
       setSummaryIndex(prev => [newEntry, ...prev]);
     }
     setSelectedSummary({

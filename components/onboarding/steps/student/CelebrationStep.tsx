@@ -21,7 +21,7 @@ export const CelebrationStep: React.FC<CelebrationStepProps> = ({
   partnerName,
   onNext,
   onBack,
-  accentColor = '#FF4761'
+  accentColor = '#F9B0C9'
 }) => {
   const { t } = useTranslation();
   const { targetLanguage, nativeLanguage } = useLanguage();
@@ -69,7 +69,7 @@ export const CelebrationStep: React.FC<CelebrationStepProps> = ({
               style={{
                 left: `${Math.random() * 100}%`,
                 animationDelay: `${Math.random() * 2}s`,
-                backgroundColor: ['#FF4761', '#FFD700', '#4ECDC4', '#FF6B6B', '#9B59B6'][Math.floor(Math.random() * 5)]
+                backgroundColor: ['#F9B0C9', '#FFD700', '#4ECDC4', '#FF6B6B', '#9B59B6'][Math.floor(Math.random() * 5)]
               }}
             />
           ))}

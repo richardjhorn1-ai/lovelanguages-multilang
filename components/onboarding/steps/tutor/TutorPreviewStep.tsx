@@ -18,7 +18,7 @@ export const TutorPreviewStep: React.FC<TutorPreviewStepProps> = ({
   learnerName,
   onNext,
   onBack,
-  accentColor = '#FF4761'
+  accentColor = '#F9B0C9'
 }) => {
   const { t } = useTranslation();
 

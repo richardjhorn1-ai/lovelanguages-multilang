@@ -23,7 +23,7 @@ export const LearnLoveStep: React.FC<LearnLoveStepProps> = ({
   partnerName,
   onNext,
   onBack,
-  accentColor = '#FF4761'
+  accentColor = '#F9B0C9'
 }) => {
   const { t } = useTranslation();
   const [hasListened, setHasListened] = useState(false);

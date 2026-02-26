@@ -24,7 +24,7 @@ export const LanguageStep: React.FC<LanguageStepProps> = ({
   initialTarget,
   onNext,
   onBack,
-  accentColor = '#FF4761'
+  accentColor = '#F9B0C9'
 }) => {
   const { t } = useTranslation();
   const { setLanguageOverride } = useLanguage();

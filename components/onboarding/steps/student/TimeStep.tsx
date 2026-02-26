@@ -18,7 +18,7 @@ export const TimeStep: React.FC<TimeStepProps> = ({
   initialValue = '',
   onNext,
   onBack,
-  accentColor = '#FF4761'
+  accentColor = '#F9B0C9'
 }) => {
   const { t } = useTranslation();
   const [selected, setSelected] = useState(initialValue);

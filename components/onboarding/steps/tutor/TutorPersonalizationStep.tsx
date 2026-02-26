@@ -25,7 +25,7 @@ export const TutorPersonalizationStep: React.FC<TutorPersonalizationStepProps> =
   initialOrigin = '',
   onNext,
   onBack,
-  accentColor = '#14b8a6'
+  accentColor = '#B1C870'
 }) => {
   const { t } = useTranslation();
   const { targetName, targetFlag } = useLanguage();

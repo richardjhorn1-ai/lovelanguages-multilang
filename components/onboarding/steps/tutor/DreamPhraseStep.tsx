@@ -22,7 +22,7 @@ export const DreamPhraseStep: React.FC<DreamPhraseStepProps> = ({
   initialValue = '',
   onNext,
   onBack,
-  accentColor = '#FF4761'
+  accentColor = '#F9B0C9'
 }) => {
   const { t } = useTranslation();
   const { targetLanguage, targetName } = useLanguage();

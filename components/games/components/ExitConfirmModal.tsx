@@ -28,8 +28,8 @@ export const ExitConfirmModal: React.FC<ExitConfirmModalProps> = ({
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop">
       <div className="glass-card-solid rounded-2xl max-w-sm w-full p-6 animate-in fade-in zoom-in duration-200">
         <div className="flex flex-col items-center text-center">
-          <div className="w-16 h-16 bg-amber-100 dark:bg-amber-900/30 rounded-full flex items-center justify-center mb-4">
-            <ICONS.AlertTriangle className="w-8 h-8 text-amber-500" />
+          <div className="w-16 h-16 bg-red-100 dark:bg-red-900/30 rounded-full flex items-center justify-center mb-4">
+            <ICONS.AlertTriangle className="w-8 h-8 text-red-400" />
           </div>
           <h3 className="text-xl font-black font-header text-[var(--text-primary)] mb-2">
             {t('play.exitConfirm.title', 'Exit Game?')}

@@ -346,7 +346,7 @@
       "chooseMode": "Вибери режим виклику",
       "length": "Довжина",
       "all": "Все",
-      "qs": "пит.",
+      "qs": "Питання",
       "generatingPhrases": "Генерую романтичні фрази...",
       "startChallenge": "Почати виклик",
       "modes": {
@@ -2292,7 +2292,7 @@
       },
       "2": {
         "quote": "Dude this app is amazing",
-        "name": "Allessandra",
+        "name": "Alessandra",
         "context": "Вивчає для свого хлопця Мікі"
       }
     }

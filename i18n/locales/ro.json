@@ -346,7 +346,7 @@
       "chooseMode": "Alege Modul de Provocare",
       "length": "Durata",
       "all": "Toate",
-      "qs": "Intr.",
+      "qs": "Întrebări",
       "generatingPhrases": "Generez expresii romantice...",
       "startChallenge": "Incepe Provocarea",
       "modes": {
@@ -2292,7 +2292,7 @@
       },
       "2": {
         "quote": "Dude this app is amazing",
-        "name": "Allessandra",
+        "name": "Alessandra",
         "context": "Învață pentru iubitul ei Miki"
       }
     }

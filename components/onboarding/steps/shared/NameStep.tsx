@@ -18,7 +18,7 @@ export const NameStep: React.FC<NameStepProps> = ({
   initialValue = '',
   onNext,
   onBack,
-  accentColor = '#FF4761'
+  accentColor = '#F9B0C9'
 }) => {
   const { t } = useTranslation();
   const [name, setName] = useState(initialValue);

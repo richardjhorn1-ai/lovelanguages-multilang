@@ -53,7 +53,7 @@ export const OnboardingStep: React.FC<OnboardingStepProps> = ({
   totalSteps,
   onBack,
   canGoBack = true,
-  accentColor = '#FF4761',
+  accentColor = '#F9B0C9',
   wide = false
 }) => {
   const { t } = useTranslation();
@@ -175,7 +175,7 @@ export const NextButton: React.FC<NextButtonProps> = ({
   onClick,
   disabled = false,
   children,
-  accentColor = '#FF4761'
+  accentColor = '#F9B0C9'
 }) => {
   const { t } = useTranslation();
   const buttonText = children || t('onboarding.step.continue');

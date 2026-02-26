@@ -346,7 +346,7 @@
       "chooseMode": "Wybierz tryb wyzwania",
       "length": "Długość",
       "all": "Wszystko",
-      "qs": "Pyt.",
+      "qs": "Pytania",
       "generatingPhrases": "Generuję romantyczne wyrażenia...",
       "startChallenge": "Rozpocznij wyzwanie",
       "modes": {
@@ -2292,7 +2292,7 @@
       },
       "2": {
         "quote": "Dude this app is amazing",
-        "name": "Allessandra",
+        "name": "Alessandra",
         "context": "Uczy się dla swojego chłopaka Miki"
       }
     }
