@@ -309,6 +309,28 @@ const App: React.FC = () => {
             if (createError) {
               // Duplicate key error (23505) means profile was created by auth trigger - fetch and update it
               if (createError.code === '23505') {
+                // Track signup completed — this IS a new user (we got here via PGRST116),
+                // the auth trigger just created the profile before our insert could.
+                const provider = userData.user.app_metadata?.provider || 'email';
+                analytics.identify(userData.user.id, {
+                  signup_date: new Date().toISOString(),
+                  native_language: storedNative,
+                  target_language: storedTarget,
+                  subscription_plan: 'free',
+                });
+                const referralData = getReferralData();
+                analytics.trackSignupCompleted({
+                  method: provider as 'google' | 'apple' | 'email',
+                  referral_source: referralData?.source || document.referrer || 'direct',
+                  ...(referralData && {
+                    utm_medium: referralData.medium,
+                    utm_campaign: referralData.campaign,
+                    article_slug: referralData.content,
+                    ref_native_lang: referralData.refNative,
+                    ref_target_lang: referralData.refTarget,
+                  }),
+                });
+
                 // If we have an intended role from signup, update the profile with it
                 const validRole = intendedRole === 'tutor' || intendedRole === 'student' ? intendedRole : null;
                 if (validRole) {
