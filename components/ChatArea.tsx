@@ -19,6 +19,7 @@ import { CoachActionConfirmModal } from './CoachActionConfirmModal';
 import { useOffline } from '../hooks/useOffline';
 import OfflineIndicator from './OfflineIndicator';
 import { analytics } from '../services/analytics';
+import GeminiAIConsent, { hasAIConsent } from './GeminiAIConsent';
 
 // Listen session types
 interface TranscriptEntry {
@@ -294,6 +295,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   const [isThinking, setIsThinking] = useState(false);
   const [pendingAction, setPendingAction] = useState<ProposedAction | null>(null);
   const [showActionConfirm, setShowActionConfirm] = useState(false);
+  const [showAIConsent, setShowAIConsent] = useState(false);
 
   // Boot session on mount - fetch context once
   useEffect(() => {
@@ -544,6 +546,9 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   };
 
   const handleSend = async (directMessage?: string) => {
+    // Apple guideline 5.1.2(i): disclose AI data sharing before first chat
+    if (!hasAIConsent()) { setShowAIConsent(true); return; }
+
     const messageToSend = directMessage || input;
     if ((!messageToSend.trim() && attachments.length === 0) || !activeChat || loading) return;
     const userMessage = messageToSend;
@@ -690,6 +695,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
   const startLive = async () => {
     if (isLive || !activeChat) return;
+    // Apple guideline 5.1.2(i): disclose AI data sharing before first voice session
+    if (!hasAIConsent()) { setShowAIConsent(true); return; }
     const { data: { session: authSession } } = await supabase.auth.getSession();
     if (authSession?.access_token) {
       sessionTokenRef.current = authSession.access_token;
@@ -2259,6 +2266,9 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           }}
         />
       )}
+
+      {/* AI Consent Disclosure — Apple 5.1.2(i) */}
+      <GeminiAIConsent isOpen={showAIConsent} onAccept={() => setShowAIConsent(false)} />
 
       {/* Listen Mode Start Prompt */}
       {showListenPrompt && (

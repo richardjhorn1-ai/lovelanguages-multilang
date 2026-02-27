@@ -7,7 +7,7 @@ const PrivacyPolicy: React.FC = () => {
   const navigate = useNavigate();
   const { accentHex } = useTheme();
 
-  const lastUpdated = 'January 8, 2026';
+  const lastUpdated = 'February 27, 2026';
 
   return (
     <div className="min-h-screen overflow-y-auto" style={{ background: 'var(--bg-primary)', paddingTop: 'env(safe-area-inset-top, 0px)' }}>
@@ -61,6 +61,11 @@ const PrivacyPolicy: React.FC = () => {
                 profile picture
               </li>
               <li>
+                <strong>Authentication:</strong> If you sign in with Apple, we receive your Apple ID,
+                email address (or Apple's private relay address if you choose "Hide My Email"), and
+                display name on first sign-in. We never receive your Apple password.
+              </li>
+              <li>
                 <strong>Onboarding Data:</strong> Your role (student/tutor), learning motivation, partner's
                 name (if provided), and personalization preferences
               </li>
@@ -73,8 +78,10 @@ const PrivacyPolicy: React.FC = () => {
                 sessions (we do not store raw audio recordings)
               </li>
               <li>
-                <strong>Payment Information:</strong> Billing details processed through Stripe (we do not
-                store full credit card numbers)
+                <strong>Payment Information:</strong> Billing details processed through Stripe (web
+                payments) and RevenueCat/Apple (iOS in-app purchases). We do not store full credit card
+                numbers. For iOS purchases, Apple processes payment directly; we receive purchase
+                receipts and subscription status through RevenueCat.
               </li>
             </ul>
 
@@ -129,7 +136,9 @@ const PrivacyPolicy: React.FC = () => {
               </li>
               <li>
                 <strong>Google (Gemini API, Analytics):</strong> AI-powered language coaching, translations,
-                content generation, and anonymized usage analytics
+                content generation, and anonymized usage analytics. When you use chat or voice features,
+                your messages, conversation history, and learning context are sent to Google's Gemini AI
+                for processing. See Section 10 below for details.
               </li>
               <li>
                 <strong>Gladia:</strong> Speech-to-text transcription for voice features
@@ -139,6 +148,14 @@ const PrivacyPolicy: React.FC = () => {
               </li>
               <li>
                 <strong>Vercel:</strong> Website hosting and serverless functions
+              </li>
+              <li>
+                <strong>RevenueCat:</strong> iOS in-app purchase management, subscription validation,
+                and receipt processing
+              </li>
+              <li>
+                <strong>Apple:</strong> Sign In with Apple authentication and in-app purchase processing
+                via the App Store
               </li>
             </ul>
 
@@ -161,6 +178,31 @@ const PrivacyPolicy: React.FC = () => {
             <p>
               We may disclose your information if required by law, legal process, or government request, or
               to protect the rights, property, or safety of Love Languages, our users, or others.
+            </p>
+
+            <h3 className="font-semibold font-header mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>
+              3.4 In-App Purchases
+            </h3>
+            <p>
+              When you make an in-app purchase on iOS, the transaction is processed by Apple through
+              the App Store. We use RevenueCat to validate purchase receipts and manage subscription
+              status. The following information is shared:
+            </p>
+            <ul className="list-disc ml-6 mt-2 space-y-2">
+              <li>Purchase receipts and transaction identifiers</li>
+              <li>Subscription plan, status, and expiration dates</li>
+              <li>An anonymous app user ID linked to your account</li>
+            </ul>
+            <p className="mt-2">
+              We do not have access to your Apple ID password, payment method details, or full credit
+              card information. For details, see{' '}
+              <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer" style={{ color: accentHex }}>
+                RevenueCat's Privacy Policy
+              </a>{' '}
+              and{' '}
+              <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener noreferrer" style={{ color: accentHex }}>
+                Apple's Privacy Policy
+              </a>.
             </p>
           </section>
 
@@ -360,10 +402,40 @@ const PrivacyPolicy: React.FC = () => {
             </p>
           </section>
 
-          {/* 10. Third-Party Links */}
+          {/* 10. AI-Powered Features */}
           <section>
             <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
-              10. Third-Party Links
+              10. AI-Powered Features
+            </h2>
+            <p>
+              Love Languages uses Google's Gemini AI to power chat coaching, voice conversations,
+              translations, and content generation. When you use these features, the following data
+              may be sent to Google for processing:
+            </p>
+            <ul className="list-disc ml-6 mt-3 space-y-2">
+              <li>Your chat messages and any images you share</li>
+              <li>Conversation history (up to the last 50 messages per session)</li>
+              <li>Your vocabulary database and learning progress</li>
+              <li>Your language pair, proficiency level, and areas for improvement</li>
+              <li>For tutors: your partner's learning profile and progress data</li>
+            </ul>
+            <p className="mt-3">
+              Google processes this data solely to generate AI responses. Under Google's API terms,
+              your data is not used to train their models. For details, see{' '}
+              <a href="https://ai.google.dev/gemini-api/terms" target="_blank" rel="noopener noreferrer" style={{ color: accentHex }}>
+                Google's Gemini API Terms of Service
+              </a>.
+            </p>
+            <p className="mt-3">
+              You will be asked to acknowledge this data sharing before using AI chat features for
+              the first time. You can review your data practices at any time in our Privacy Policy.
+            </p>
+          </section>
+
+          {/* 11. Third-Party Links */}
+          <section>
+            <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
+              11. Third-Party Links
             </h2>
             <p>
               The Service may contain links to third-party websites or services. We are not responsible for
@@ -372,10 +444,10 @@ const PrivacyPolicy: React.FC = () => {
             </p>
           </section>
 
-          {/* 11. Changes to This Policy */}
+          {/* 12. Changes to This Policy */}
           <section>
             <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
-              11. Changes to This Policy
+              12. Changes to This Policy
             </h2>
             <p>
               We may update this Privacy Policy from time to time. If we make material changes, we will
@@ -384,10 +456,10 @@ const PrivacyPolicy: React.FC = () => {
             </p>
           </section>
 
-          {/* 12. Contact Us */}
+          {/* 13. Contact Us */}
           <section>
             <h2 className="text-xl font-bold font-header mb-3" style={{ color: 'var(--text-primary)' }}>
-              12. Contact Us
+              13. Contact Us
             </h2>
             <p>
               If you have any questions about this Privacy Policy or our data practices, please contact us:
