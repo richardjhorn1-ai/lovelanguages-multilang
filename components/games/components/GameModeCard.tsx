@@ -1,4 +1,5 @@
 import React from 'react';
+import { haptics } from '../../../services/haptics';
 
 // Static color map - Tailwind needs complete class names at build time
 const colorClasses: Record<string, { bg: string; borderHover: string }> = {
@@ -50,7 +51,7 @@ export const GameModeCard: React.FC<GameModeCardProps> = ({
 
   return (
     <button
-      onClick={onClick}
+      onClick={() => { haptics.trigger('selection'); onClick(); }}
       disabled={disabled}
       className={`group p-3 md:p-6 glass-card rounded-xl md:rounded-[2rem] hover:shadow-md transition-all text-left relative disabled:opacity-50 disabled:cursor-not-allowed ${
         !disabled ? borderHoverClass : ''

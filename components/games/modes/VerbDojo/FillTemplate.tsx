@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../../constants';
 import { speak } from '../../../../services/audio';
+import { haptics } from '../../../../services/haptics';
 import { DictionaryEntry } from '../../../../types';
 import { VerbTense } from '../../../../constants/language-config';
 import { FillTemplateQuestion } from './types';
@@ -71,6 +72,7 @@ export const FillTemplate: React.FC<FillTemplateProps> = ({
         explanationText = accepted ? '' : `Correct answer: ${validAnswers.join(' / ')}`;
       }
 
+      haptics.trigger(accepted ? 'correct' : 'incorrect');
       setIsCorrect(accepted);
       setExplanation(explanationText);
       setSubmitted(true);
@@ -80,6 +82,7 @@ export const FillTemplate: React.FC<FillTemplateProps> = ({
       // Fallback to simple validation
       const userInput = input.trim().toLowerCase();
       const accepted = validAnswers.some((ans) => ans.toLowerCase() === userInput);
+      haptics.trigger(accepted ? 'correct' : 'incorrect');
       setIsCorrect(accepted);
       setExplanation(accepted ? '' : `Correct answer: ${validAnswers.join(' / ')}`);
       setSubmitted(true);

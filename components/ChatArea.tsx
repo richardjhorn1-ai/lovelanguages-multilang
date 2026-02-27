@@ -1729,7 +1729,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               )}
 
               {messages.map((m, i) => (
-                <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'} animate-in fade-in slide-in-from-bottom-2 duration-300`}>
+                <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'} animate-slide-up`} style={{ animationDelay: `${Math.min(i * 0.03, 0.3)}s` }}>
                   <div className={`max-w-[90%] md:max-w-[85%] rounded-2xl md:rounded-[1.5rem] px-3 py-2 md:px-5 md:py-3.5 ${m.role === 'user' ? 'shadow-sm text-white rounded-tr-sm md:rounded-tr-none font-medium' : 'glass-card text-[var(--text-primary)] rounded-tl-sm md:rounded-tl-none'}`} style={m.role === 'user' ? { backgroundColor: accentHex } : {}}>
                     {m.role === 'user' ? <p className="text-scale-label leading-relaxed">{m.content}</p> : <RichMessageRenderer content={m.content} t={t} targetLanguage={targetLanguage} />}
                   </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Capacitor } from '@capacitor/core';
 import { supabase } from '../services/supabase';
 import { ICONS } from '../constants';
 
@@ -36,6 +37,17 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
   const [promoMessage, setPromoMessage] = useState('');
   const [promoError, setPromoError] = useState('');
   const [promoStatus, setPromoStatus] = useState<PromoStatus | null>(null);
+
+  // Data export state
+  const [exportLoading, setExportLoading] = useState(false);
+  const [exportMessage, setExportMessage] = useState('');
+  const [exportError, setExportError] = useState('');
+
+  // Account deletion state
+  const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const [deleteConfirmation, setDeleteConfirmation] = useState('');
+  const [deleteLoading, setDeleteLoading] = useState(false);
+  const [deleteError, setDeleteError] = useState('');
 
   // Check if user has active subscription
   const hasSubscription = subscriptionPlan && subscriptionPlan !== 'none' && subscriptionPlan !== 'free';
@@ -181,6 +193,107 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
       setError(resetError.message);
     } else {
       setMessage(t('accountSettings.passwordResetSent'));
+    }
+  };
+
+  // Export user data handler
+  const handleExportData = async () => {
+    setExportLoading(true);
+    setExportMessage('');
+    setExportError('');
+
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        setExportError(t('accountSettings.sessionExpired', { defaultValue: 'Session expired. Please log in again.' }));
+        setExportLoading(false);
+        return;
+      }
+
+      const response = await fetch('/api/export-user-data/', {
+        headers: { 'Authorization': `Bearer ${session.access_token}` }
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || 'Failed to export data');
+      }
+
+      const data = await response.json();
+      const jsonString = JSON.stringify(data.data, null, 2);
+      const filename = `love-languages-data-${new Date().toISOString().split('T')[0]}.json`;
+
+      if (Capacitor.getPlatform() === 'ios') {
+        // iOS: <a download> doesn't work in WKWebView — use Filesystem + Share
+        const { Filesystem, Directory, Encoding } = await import('@capacitor/filesystem');
+        const { Share } = await import('@capacitor/share');
+
+        const result = await Filesystem.writeFile({
+          path: filename,
+          data: jsonString,
+          directory: Directory.Cache,
+          encoding: Encoding.UTF8,
+        });
+
+        await Share.share({
+          title: 'Love Languages Data Export',
+          url: result.uri,
+        });
+      } else {
+        // Web: standard blob download
+        const blob = new Blob([jsonString], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+      }
+
+      setExportMessage(t('accountSettings.exportSuccess', { defaultValue: 'Your data has been downloaded.' }));
+    } catch (err: any) {
+      setExportError(err.message || t('accountSettings.exportFailed', { defaultValue: 'Failed to export data. Please try again.' }));
+    } finally {
+      setExportLoading(false);
+    }
+  };
+
+  // Delete account handler
+  const handleDeleteAccount = async () => {
+    if (deleteConfirmation !== 'DELETE MY ACCOUNT') return;
+    setDeleteLoading(true);
+    setDeleteError('');
+
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) {
+        setDeleteError(t('accountSettings.sessionExpired', { defaultValue: 'Session expired. Please log in again.' }));
+        setDeleteLoading(false);
+        return;
+      }
+
+      const response = await fetch('/api/delete-account/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`
+        },
+        body: JSON.stringify({ confirmation: 'DELETE MY ACCOUNT' })
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || 'Failed to delete account');
+      }
+
+      // Sign out and redirect to landing page
+      await supabase.auth.signOut();
+      window.location.href = '/';
+    } catch (err: any) {
+      setDeleteError(err.message || t('accountSettings.deleteFailed', { defaultValue: 'Failed to delete account. Please try again.' }));
+      setDeleteLoading(false);
     }
   };
 
@@ -344,6 +457,120 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
                 </form>
               )}
             </div>
+
+          {/* Export My Data */}
+          <div className="p-4 bg-white/40 dark:bg-white/12 rounded-2xl">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest text-[var(--text-secondary)] mb-1">
+                  {t('accountSettings.exportData', { defaultValue: 'Your Data' })}
+                </p>
+                <p className="text-sm text-[var(--text-secondary)]">
+                  {t('accountSettings.exportDataDesc', { defaultValue: 'Download all your data as JSON' })}
+                </p>
+              </div>
+              <button
+                onClick={handleExportData}
+                disabled={exportLoading}
+                className="px-4 py-2 rounded-xl text-sm font-bold transition-all disabled:opacity-50"
+                style={{ backgroundColor: `${accentHex}20`, color: accentHex }}
+              >
+                {exportLoading
+                  ? t('accountSettings.exporting', { defaultValue: 'Exporting...' })
+                  : t('accountSettings.exportButton', { defaultValue: 'Export' })
+                }
+              </button>
+            </div>
+            {exportMessage && (
+              <div className="mt-3 p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl">
+                <p className="text-green-700 dark:text-green-300 text-sm font-semibold">{exportMessage}</p>
+              </div>
+            )}
+            {exportError && (
+              <div className="mt-3 p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl">
+                <p className="text-red-700 dark:text-red-300 text-sm font-semibold">{exportError}</p>
+              </div>
+            )}
+          </div>
+
+          {/* Delete Account */}
+          <div className="p-4 bg-white/40 dark:bg-white/12 rounded-2xl border border-red-200/50 dark:border-red-800/30">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest text-red-500 dark:text-red-400 mb-1">
+                  {t('accountSettings.dangerZone', { defaultValue: 'Danger Zone' })}
+                </p>
+                <p className="text-sm text-[var(--text-secondary)]">
+                  {t('accountSettings.deleteDesc', { defaultValue: 'Permanently delete your account and all data' })}
+                </p>
+              </div>
+              {!showDeleteConfirm && (
+                <button
+                  onClick={() => setShowDeleteConfirm(true)}
+                  className="px-4 py-2 rounded-xl text-sm font-bold transition-all bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900/30"
+                >
+                  {t('accountSettings.deleteButton', { defaultValue: 'Delete' })}
+                </button>
+              )}
+            </div>
+
+            {showDeleteConfirm && (
+              <div className="mt-4 space-y-3">
+                <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl">
+                  <p className="text-red-700 dark:text-red-300 text-sm font-semibold mb-2">
+                    {t('accountSettings.deleteWarning', { defaultValue: 'This will permanently delete:' })}
+                  </p>
+                  <ul className="text-red-600 dark:text-red-400 text-sm space-y-1 ml-4 list-disc">
+                    <li>{t('accountSettings.deleteItem1', { defaultValue: 'All conversations and messages' })}</li>
+                    <li>{t('accountSettings.deleteItem2', { defaultValue: 'Your vocabulary and progress' })}</li>
+                    <li>{t('accountSettings.deleteItem3', { defaultValue: 'Subscription (will be cancelled)' })}</li>
+                    <li>{t('accountSettings.deleteItem4', { defaultValue: 'Partner connection' })}</li>
+                  </ul>
+                </div>
+
+                <p className="text-sm text-[var(--text-secondary)]">
+                  {t('accountSettings.deleteConfirmPrompt', { defaultValue: 'Type DELETE MY ACCOUNT to confirm:' })}
+                </p>
+
+                <input
+                  type="text"
+                  value={deleteConfirmation}
+                  onChange={(e) => setDeleteConfirmation(e.target.value)}
+                  placeholder="DELETE MY ACCOUNT"
+                  className="w-full px-4 py-3 rounded-xl border-2 border-red-300 dark:border-red-700 focus:border-red-500 focus:outline-none transition-all text-sm font-mono"
+                />
+
+                {deleteError && (
+                  <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl">
+                    <p className="text-red-700 dark:text-red-300 text-sm font-semibold">{deleteError}</p>
+                  </div>
+                )}
+
+                <div className="flex gap-3">
+                  <button
+                    onClick={() => {
+                      setShowDeleteConfirm(false);
+                      setDeleteConfirmation('');
+                      setDeleteError('');
+                    }}
+                    className="flex-1 py-3 rounded-xl text-sm font-bold transition-all bg-[var(--bg-secondary)] text-[var(--text-primary)] hover:opacity-80"
+                  >
+                    {t('accountSettings.cancel', { defaultValue: 'Cancel' })}
+                  </button>
+                  <button
+                    onClick={handleDeleteAccount}
+                    disabled={deleteLoading || deleteConfirmation !== 'DELETE MY ACCOUNT'}
+                    className="flex-1 py-3 rounded-xl text-sm font-bold transition-all text-white disabled:opacity-30 bg-red-600 hover:bg-red-700"
+                  >
+                    {deleteLoading
+                      ? t('accountSettings.deleting', { defaultValue: 'Deleting...' })
+                      : t('accountSettings.confirmDelete', { defaultValue: 'Delete Forever' })
+                    }
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       )}
     </div>

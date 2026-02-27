@@ -4,6 +4,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../constants';
 import { DictionaryEntry } from '../../../types';
+import { haptics } from '../../../services/haptics';
 import type { TutorAnswerResult } from './types';
 
 interface TutorTypeItProps {
@@ -92,6 +93,7 @@ export const TutorTypeIt: React.FC<TutorTypeItProps> = ({
     setSubmitted(true);
     setIsCorrect(correct);
     setExplanation(exp);
+    haptics.trigger(correct ? 'correct' : 'incorrect');
 
     onAnswer({
       wordId: currentWord.id,

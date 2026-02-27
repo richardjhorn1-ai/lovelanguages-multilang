@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../../constants';
 import { speak } from '../../../../services/audio';
+import { haptics } from '../../../../services/haptics';
 import { DictionaryEntry } from '../../../../types';
 import { VerbTense } from '../../../../constants/language-config';
 import { shuffleArray } from '../../../../utils/array';
@@ -65,6 +66,7 @@ export const MatchPairs: React.FC<MatchPairsProps> = ({
       const conjItem = shuffledConjugations[selected.index];
       if (conjItem.originalIndex === index) {
         // Correct match!
+        haptics.trigger('correct');
         const newMatched = new Set(matchedIndices);
         newMatched.add(index);
         setMatchedIndices(newMatched);
@@ -72,10 +74,12 @@ export const MatchPairs: React.FC<MatchPairsProps> = ({
 
         // Check if all matched
         if (newMatched.size === pairs.length) {
+          haptics.trigger('perfect');
           setTimeout(() => onComplete(true), 300);
         }
       } else {
         // Wrong match - shake and reset
+        haptics.trigger('incorrect');
         setWrongPair({ pronoun: index, conj: selected.index });
         setTimeout(() => {
           setWrongPair(null);
@@ -97,6 +101,7 @@ export const MatchPairs: React.FC<MatchPairsProps> = ({
       // Check if this conjugation matches the selected pronoun
       if (conjItem.originalIndex === selected.index) {
         // Correct match!
+        haptics.trigger('correct');
         const newMatched = new Set(matchedIndices);
         newMatched.add(conjItem.originalIndex);
         setMatchedIndices(newMatched);
@@ -104,10 +109,12 @@ export const MatchPairs: React.FC<MatchPairsProps> = ({
 
         // Check if all matched
         if (newMatched.size === pairs.length) {
+          haptics.trigger('perfect');
           setTimeout(() => onComplete(true), 300);
         }
       } else {
         // Wrong match - shake and reset
+        haptics.trigger('incorrect');
         setWrongPair({ pronoun: selected.index, conj: shuffledIndex });
         setTimeout(() => {
           setWrongPair(null);
@@ -219,17 +226,6 @@ export const MatchPairs: React.FC<MatchPairsProps> = ({
         </div>
       )}
 
-      {/* CSS for shake animation */}
-      <style>{`
-        @keyframes shake {
-          0%, 100% { transform: translateX(0); }
-          25% { transform: translateX(-5px); }
-          75% { transform: translateX(5px); }
-        }
-        .animate-shake {
-          animation: shake 0.3s ease-in-out;
-        }
-      `}</style>
     </div>
   );
 };

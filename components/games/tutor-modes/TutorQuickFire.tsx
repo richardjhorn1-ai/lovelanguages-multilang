@@ -4,6 +4,7 @@ import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../constants';
 import { DictionaryEntry } from '../../../types';
+import { haptics } from '../../../services/haptics';
 import type { TutorAnswerResult } from './types';
 
 interface TutorQuickFireProps {
@@ -108,6 +109,7 @@ export const TutorQuickFire: React.FC<TutorQuickFireProps> = ({
     }
 
     setIsValidating(false);
+    haptics.trigger(isCorrect ? 'correct' : 'incorrect');
 
     const result: TutorAnswerResult = {
       wordId: currentWord.id,

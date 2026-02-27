@@ -5,6 +5,8 @@ import type { OnboardingData } from '../../types';
 import { useLanguage } from '../../context/LanguageContext';
 import { LANGUAGE_CONFIGS } from '../../constants/language-config';
 import { analytics } from '../../services/analytics';
+import { haptics } from '../../services/haptics';
+import { BRAND } from '../hero/heroConstants';
 
 // Context for sharing onQuit across all step components
 export const OnboardingContext = createContext<{
@@ -618,7 +620,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
     ? (hasInheritedSubscription ? STUDENT_TOTAL_STEPS - 1 : STUDENT_TOTAL_STEPS)
     : (hasInheritedSubscription ? TUTOR_TOTAL_STEPS - 1 : TUTOR_TOTAL_STEPS);
   // Accent color changes based on selected role
-  const accentColor = activeRole === 'tutor' ? '#14b8a6' : '#FF4761';
+  const accentColor = activeRole === 'tutor' ? BRAND.teal : BRAND.primary;
 
   // Restore progress helper — used by both localStorage and Supabase loaders
   const restoreProgress = useCallback((parsed: { userId?: string; role?: string; step?: number; data?: any }) => {
@@ -730,8 +732,8 @@ export const Onboarding: React.FC<OnboardingProps> = ({
     };
   }, [userId, activeRole, currentStep, data]);
 
-  const goNext = () => setCurrentStep(s => Math.min(s + 1, totalSteps));
-  const goBack = () => setCurrentStep(s => Math.max(s - 1, 1));
+  const goNext = () => { haptics.trigger('selection'); setCurrentStep(s => Math.min(s + 1, totalSteps)); };
+  const goBack = () => { haptics.trigger('selection'); setCurrentStep(s => Math.max(s - 1, 1)); };
 
   // Track onboarding step changes for analytics
   const stepStartTime = useRef(Date.now());

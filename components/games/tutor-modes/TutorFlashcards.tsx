@@ -4,6 +4,7 @@ import React, { useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../constants';
 import { DictionaryEntry } from '../../../types';
+import { haptics } from '../../../services/haptics';
 import type { TutorAnswerResult } from './types';
 
 interface TutorFlashcardsProps {
@@ -42,6 +43,8 @@ export const TutorFlashcards: React.FC<TutorFlashcardsProps> = ({
   const currentWord = words[currentIndex];
 
   const handleResponse = useCallback((isCorrect: boolean) => {
+    haptics.trigger(isCorrect ? 'correct' : 'incorrect');
+
     onAnswer({
       wordId: currentWord.id,
       wordText: currentWord.word,

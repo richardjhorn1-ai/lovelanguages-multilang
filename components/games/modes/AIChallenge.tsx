@@ -1,11 +1,13 @@
 'use client';
 
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../constants';
 import { DictionaryEntry, WordScore, AIChallengeMode, RomanticPhrase } from '../../../types';
 import { getRomanticPhrases } from '../../../services/romantic-phrases';
 import { speak } from '../../../services/audio';
+import { haptics } from '../../../services/haptics';
+import { shuffleArray } from '../../../utils/array';
 import type { AnswerResult } from './types';
 
 type SessionLength = 10 | 20 | 'all';
@@ -67,16 +69,6 @@ interface AIChallengeProps {
 
 type GamePhase = 'select' | 'playing' | 'finished';
 
-// Shuffle helper
-function shuffleArray<T>(array: T[]): T[] {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-}
-
 /**
  * AI Challenge game mode - mixed question types with various challenge modes.
  * Self-contained: handles word sorting, phrase fetching, and question generation.
@@ -117,9 +109,11 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
   const [isValidating, setIsValidating] = useState(false);
   const [showShake, setShowShake] = useState(false);
 
-  // Session tracking
+  // Session tracking — use refs alongside state to avoid stale closures in advanceOrFinish
   const [sessionAnswers, setSessionAnswers] = useState<AnswerResult[]>([]);
   const [sessionScore, setSessionScore] = useState({ correct: 0, incorrect: 0 });
+  const sessionAnswersRef = useRef<AnswerResult[]>([]);
+  const sessionScoreRef = useRef({ correct: 0, incorrect: 0 });
 
   // Compute word pools and counts
   const { modeCounts, wordPools } = useMemo(() => {
@@ -268,17 +262,24 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
     setCurrentIndex(0);
     setSessionAnswers([]);
     setSessionScore({ correct: 0, incorrect: 0 });
+    sessionAnswersRef.current = [];
+    sessionScoreRef.current = { correct: 0, incorrect: 0 };
     resetQuestionState();
     setPhase('playing');
     onStart?.();
   }, [selectedMode, sessionLength, generateQuestions, resetQuestionState, onStart, t]);
 
   const recordAnswer = useCallback((result: AnswerResult) => {
-    setSessionAnswers(prev => [...prev, result]);
-    setSessionScore(prev => ({
-      correct: prev.correct + (result.isCorrect ? 1 : 0),
-      incorrect: prev.incorrect + (result.isCorrect ? 0 : 1),
-    }));
+    // Update both state (for UI) and refs (for stale-closure-safe access in advanceOrFinish)
+    const newAnswers = [...sessionAnswersRef.current, result];
+    const newScore = {
+      correct: sessionScoreRef.current.correct + (result.isCorrect ? 1 : 0),
+      incorrect: sessionScoreRef.current.incorrect + (result.isCorrect ? 0 : 1),
+    };
+    sessionAnswersRef.current = newAnswers;
+    sessionScoreRef.current = newScore;
+    setSessionAnswers(newAnswers);
+    setSessionScore(newScore);
     onAnswer(result);
 
     // Update word score if available
@@ -290,22 +291,22 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
   const advanceOrFinish = useCallback(() => {
     if (isLastQuestion) {
       setPhase('finished');
-      // Use timeout to ensure state updates are captured
-      setTimeout(() => {
-        onComplete({
-          answers: sessionAnswers,
-          score: sessionScore,
-        });
-      }, 100);
+      // Read from refs — state may be stale due to React batching
+      onComplete({
+        answers: sessionAnswersRef.current,
+        score: sessionScoreRef.current,
+      });
     } else {
       setCurrentIndex(i => i + 1);
       resetQuestionState();
     }
-  }, [isLastQuestion, onComplete, sessionAnswers, sessionScore, resetQuestionState]);
+  }, [isLastQuestion, onComplete, resetQuestionState]);
 
   // Flashcard handlers
   const handleFlashcardResponse = useCallback((isCorrect: boolean) => {
     if (!currentQuestion) return;
+
+    haptics.trigger(isCorrect ? 'correct' : 'incorrect');
 
     recordAnswer({
       wordId: currentQuestion.wordId || currentQuestion.id,
@@ -327,6 +328,8 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
     setMcFeedback(true);
 
     const isCorrect = option === currentQuestion.translation;
+
+    haptics.trigger(isCorrect ? 'correct' : 'incorrect');
 
     if (!isCorrect) {
       triggerShake();
@@ -375,6 +378,8 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
     }
 
     setIsValidating(false);
+
+    haptics.trigger(isCorrect ? 'correct' : 'incorrect');
 
     if (!isCorrect) {
       triggerShake();

@@ -234,6 +234,33 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
 
   const handleSubscribe = async () => {
     if (selectedPlan === 'free') {
+      if (useIAP) {
+        // iOS: Free trial = App Store intro offer on standard_monthly
+        const pkg = iapPackages.find((p: any) => p.product?.identifier === 'standard_monthly');
+        if (!pkg) {
+          setError('Free trial not available. Please select a plan.');
+          return;
+        }
+        setLoading(true);
+        setError(null);
+        try {
+          const customerInfo = await purchasePackage(pkg);
+          if (customerInfo) {
+            analytics.track('trial_started', {
+              plan: 'standard',
+              trigger_reason: 'subscription_required',
+              source: 'app_store',
+            });
+            onSubscribed();
+          } else {
+            setLoading(false); // User cancelled
+          }
+        } catch (err: any) {
+          setError(err?.message || 'Failed to start trial. Please try again.');
+          setLoading(false);
+        }
+        return;
+      }
       return handleChooseFreeTier();
     }
 
@@ -535,7 +562,9 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
         {/* Trust signals */}
         <p className="text-center text-xs text-[var(--text-secondary)] mt-4">
           {selectedPlan === 'free'
-            ? t('subscription.choice.free.noCardRequired', { defaultValue: 'No credit card required' })
+            ? (useIAP
+                ? t('subscription.choice.free.iosTrialNote', { defaultValue: 'Cancel anytime during your free trial' })
+                : t('subscription.choice.free.noCardRequired', { defaultValue: 'No credit card required' }))
             : t('subscription.common.securePayment')
           }
         </p>

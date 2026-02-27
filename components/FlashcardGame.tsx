@@ -74,8 +74,10 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
   const [finished, setFinished] = useState(false);
   const [sessionScore, setSessionScore] = useState({ correct: 0, incorrect: 0 });
 
-  // Game session tracking
+  // Game session tracking — refs alongside state to avoid stale closures in completion handlers
   const [sessionAnswers, setSessionAnswers] = useState<GameSessionAnswer[]>([]);
+  const sessionAnswersRef = useRef<GameSessionAnswer[]>([]);
+  const sessionScoreRef = useRef({ correct: 0, incorrect: 0 });
   const [sessionStartTime] = useState<number>(Date.now());
 
   // Streak tracking for current word
@@ -610,7 +612,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       triggerIncorrectFeedback();
     }
 
-    // Record answer
+    // Record answer — update both state (for UI) and refs (for stale-closure-safe access)
     const answer: GameSessionAnswer = {
       wordId: result.wordId,
       wordText: result.wordText,
@@ -619,11 +621,15 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       questionType: result.questionType,
       isCorrect: result.isCorrect
     };
-    setSessionAnswers(prev => [...prev, answer]);
-    setSessionScore(prev => ({
-      correct: prev.correct + (result.isCorrect ? 1 : 0),
-      incorrect: prev.incorrect + (result.isCorrect ? 0 : 1)
-    }));
+    const newAnswers = [...sessionAnswersRef.current, answer];
+    const newScore = {
+      correct: sessionScoreRef.current.correct + (result.isCorrect ? 1 : 0),
+      incorrect: sessionScoreRef.current.incorrect + (result.isCorrect ? 0 : 1)
+    };
+    sessionAnswersRef.current = newAnswers;
+    sessionScoreRef.current = newScore;
+    setSessionAnswers(newAnswers);
+    setSessionScore(newScore);
 
     // Update word score with streak tracking
     if (result.wordId) {
@@ -635,27 +641,33 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
     setCurrentIndex(c => c + 1);
   }, []);
 
-  // Pre-computed game complete handlers (memoized to avoid new refs each render)
+  // Pre-computed game complete handlers — read from refs to avoid stale closures
   const gameCompleteHandlers = useMemo(() => ({
     flashcards: () => {
-      if (sessionScore.incorrect === 0) { sounds.play('perfect'); haptics.trigger('perfect'); }
+      const score = sessionScoreRef.current;
+      const answers = sessionAnswersRef.current;
+      if (score.incorrect === 0) { sounds.play('perfect'); haptics.trigger('perfect'); }
       setFinished(true);
-      saveGameSession('flashcards', sessionAnswers, sessionScore.correct, sessionScore.incorrect);
-      analytics.trackGameCompleted({ game_type: 'flashcards', word_count: deck.length, score: sessionScore.correct, correct: sessionScore.incorrect === 0, accuracy: Math.round((sessionScore.correct / Math.max(sessionScore.correct + sessionScore.incorrect, 1)) * 100) });
+      saveGameSession('flashcards', answers, score.correct, score.incorrect);
+      analytics.trackGameCompleted({ game_type: 'flashcards', word_count: deck.length, score: score.correct, correct: score.incorrect === 0, accuracy: Math.round((score.correct / Math.max(score.correct + score.incorrect, 1)) * 100) });
     },
     multiple_choice: () => {
-      if (sessionScore.incorrect === 0) { sounds.play('perfect'); haptics.trigger('perfect'); }
+      const score = sessionScoreRef.current;
+      const answers = sessionAnswersRef.current;
+      if (score.incorrect === 0) { sounds.play('perfect'); haptics.trigger('perfect'); }
       setFinished(true);
-      saveGameSession('multiple_choice', sessionAnswers, sessionScore.correct, sessionScore.incorrect);
-      analytics.trackGameCompleted({ game_type: 'multiple_choice', word_count: deck.length, score: sessionScore.correct, correct: sessionScore.incorrect === 0, accuracy: Math.round((sessionScore.correct / Math.max(sessionScore.correct + sessionScore.incorrect, 1)) * 100) });
+      saveGameSession('multiple_choice', answers, score.correct, score.incorrect);
+      analytics.trackGameCompleted({ game_type: 'multiple_choice', word_count: deck.length, score: score.correct, correct: score.incorrect === 0, accuracy: Math.round((score.correct / Math.max(score.correct + score.incorrect, 1)) * 100) });
     },
     type_it: () => {
-      if (sessionScore.incorrect === 0) { sounds.play('perfect'); haptics.trigger('perfect'); }
+      const score = sessionScoreRef.current;
+      const answers = sessionAnswersRef.current;
+      if (score.incorrect === 0) { sounds.play('perfect'); haptics.trigger('perfect'); }
       setFinished(true);
-      saveGameSession('type_it', sessionAnswers, sessionScore.correct, sessionScore.incorrect);
-      analytics.trackGameCompleted({ game_type: 'type_it', word_count: deck.length, score: sessionScore.correct, correct: sessionScore.incorrect === 0, accuracy: Math.round((sessionScore.correct / Math.max(sessionScore.correct + sessionScore.incorrect, 1)) * 100) });
+      saveGameSession('type_it', answers, score.correct, score.incorrect);
+      analytics.trackGameCompleted({ game_type: 'type_it', word_count: deck.length, score: score.correct, correct: score.incorrect === 0, accuracy: Math.round((score.correct / Math.max(score.correct + score.incorrect, 1)) * 100) });
     },
-  }), [sessionScore, sessionAnswers, saveGameSession, deck.length]);
+  }), [saveGameSession, deck.length]);
 
   // TypeIt validation wrapper (memoized)
   const handleTypeItValidation = useCallback(async (
@@ -1438,8 +1450,8 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
         .backface-hidden { backface-visibility: hidden; }
         .rotate-y-180 { transform: rotateY(180deg); }
         @keyframes pulse-border {
-          0%, 100% { box-shadow: 0 0 0 0 rgba(255, 71, 97, 0.4); }
-          50% { box-shadow: 0 0 0 3px rgba(255, 71, 97, 0.2); }
+          0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent-color) 40%, transparent); }
+          50% { box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color) 20%, transparent); }
         }
         .animate-pulse-border { animation: pulse-border 2s ease-in-out infinite; }
       `}</style>

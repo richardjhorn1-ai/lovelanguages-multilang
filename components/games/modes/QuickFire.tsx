@@ -4,6 +4,7 @@ import { ICONS } from '../../../constants';
 import { DictionaryEntry } from '../../../types';
 import { shuffleArray } from '../../../utils/array';
 import { speak } from '../../../services/audio';
+import { haptics } from '../../../services/haptics';
 import type { AnswerResult } from './types';
 
 interface QuickFireProps {
@@ -71,6 +72,7 @@ export const QuickFire: React.FC<QuickFireProps> = ({
   const scoreRef = useRef({ correct: 0, incorrect: 0 });
   const timerRef = useRef<ReturnType<typeof setInterval>>();
   const feedbackTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
+  const lastHapticRef = useRef<number>(0);
 
   // Refs for callbacks to avoid stale closures in timer/handlers
   const onCompleteRef = useRef(onComplete);
@@ -175,9 +177,14 @@ export const QuickFire: React.FC<QuickFireProps> = ({
     setScore(newScore);
     scoreRef.current = newScore;
 
-    // Show feedback briefly
+    // Haptic + visual feedback — throttled to 300ms to prevent continuous buzz on rapid taps
+    const now = Date.now();
+    if (now - lastHapticRef.current >= 300) {
+      haptics.trigger(accepted ? 'correct' : 'incorrect');
+      lastHapticRef.current = now;
+    }
     setFeedback(accepted ? 'correct' : 'wrong');
-    feedbackTimeoutRef.current = setTimeout(() => setFeedback(null), 200);
+    feedbackTimeoutRef.current = setTimeout(() => setFeedback(null), 500);
 
     // Clear input and advance
     setInput('');
@@ -245,11 +252,11 @@ export const QuickFire: React.FC<QuickFireProps> = ({
   if (phase === 'playing' && currentWord) {
     return (
       <div
-        className={`w-full max-w-md mx-auto transition-colors duration-200 ${
+        className={`w-full max-w-md mx-auto transition-colors duration-200 rounded-3xl ${
           feedback === 'correct'
-            ? 'bg-green-500/20 rounded-3xl'
+            ? 'bg-green-500/20 animate-correct-glow'
             : feedback === 'wrong'
-            ? 'bg-red-500/20 rounded-3xl'
+            ? 'bg-red-500/20 animate-incorrect-flash'
             : ''
         }`}
       >

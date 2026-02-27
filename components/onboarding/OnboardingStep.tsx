@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../constants';
+import { haptics } from '../../services/haptics';
 import { OnboardingContext } from './Onboarding';
 
 // ============================================
@@ -134,31 +135,6 @@ export const OnboardingStep: React.FC<OnboardingStepProps> = ({
         </div>
       </div>
 
-      {/* Custom animations */}
-      <style>{`
-        @keyframes reveal-up {
-          from {
-            opacity: 0;
-            transform: translateY(24px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-reveal {
-          animation: reveal-up 0.5s ease-out both;
-        }
-        .animate-fadeIn {
-          animation: reveal-up 0.5s ease-out both;
-        }
-        .stagger-1 { animation-delay: 0.05s; }
-        .stagger-2 { animation-delay: 0.1s; }
-        .stagger-3 { animation-delay: 0.15s; }
-        .stagger-4 { animation-delay: 0.2s; }
-        .stagger-5 { animation-delay: 0.25s; }
-        .stagger-6 { animation-delay: 0.3s; }
-      `}</style>
     </div>
   );
 };
@@ -182,7 +158,7 @@ export const NextButton: React.FC<NextButtonProps> = ({
 
   return (
     <button
-      onClick={onClick}
+      onClick={() => { haptics.trigger('button'); onClick(); }}
       disabled={disabled}
       className="w-full py-4 rounded-2xl text-white font-bold text-scale-heading transition-all duration-200 active:scale-[0.98] disabled:opacity-40 disabled:cursor-not-allowed hover:brightness-105"
       style={{

@@ -4,6 +4,8 @@ import React, { useState, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../constants';
 import { DictionaryEntry } from '../../../types';
+import { haptics } from '../../../services/haptics';
+import { shuffleArray } from '../../../utils/array';
 import type { TutorAnswerResult } from './types';
 
 interface TutorMultipleChoiceProps {
@@ -21,16 +23,6 @@ interface TutorMultipleChoiceProps {
   onAnswer: (result: TutorAnswerResult, isCorrect: boolean) => void;
   /** Called to exit game */
   onExit: () => void;
-}
-
-// Shuffle helper
-function shuffleArray<T>(array: T[]): T[] {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
 }
 
 /**
@@ -77,6 +69,7 @@ export const TutorMultipleChoice: React.FC<TutorMultipleChoiceProps> = ({
     setShowFeedback(true);
 
     const isCorrect = option === currentWord.translation;
+    haptics.trigger(isCorrect ? 'correct' : 'incorrect');
 
     onAnswer({
       wordId: currentWord.id,

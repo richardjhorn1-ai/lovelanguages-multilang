@@ -4,6 +4,7 @@ import { ICONS } from '../../../constants';
 import { StreakIndicator } from '../components';
 import { shuffleArray } from '../../../utils/array';
 import { speak } from '../../../services/audio';
+import { haptics } from '../../../services/haptics';
 import { DictionaryEntry } from '../../../types';
 import type { GameModeProps, AnswerResult } from './types';
 
@@ -136,6 +137,9 @@ export const TypeIt: React.FC<TypeItProps> = ({
     setSubmitted(true);
     setIsCorrect(accepted);
     setExplanation(explanationText);
+
+    // Haptic + visual feedback
+    haptics.trigger(accepted ? 'correct' : 'incorrect');
 
     // Shake on incorrect
     if (!accepted) {
@@ -298,17 +302,6 @@ export const TypeIt: React.FC<TypeItProps> = ({
         </button>
       </div>
 
-      {/* Shake animation */}
-      <style>{`
-        @keyframes shake {
-          0%, 100% { transform: translateX(0); }
-          10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
-          20%, 40%, 60%, 80% { transform: translateX(4px); }
-        }
-        .animate-shake {
-          animation: shake 0.5s ease-in-out;
-        }
-      `}</style>
     </div>
   );
 };

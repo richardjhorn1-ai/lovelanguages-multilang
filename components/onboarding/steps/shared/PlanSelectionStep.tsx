@@ -4,7 +4,7 @@ import { OnboardingStep, NextButton, ONBOARDING_GLASS } from '../../OnboardingSt
 import { supabase } from '../../../../services/supabase';
 import { ICONS } from '../../../../constants';
 import { useLanguage } from '../../../../context/LanguageContext';
-import { isIAPAvailable, getOfferings, purchasePackage } from '../../../../services/purchases';
+import { isIAPAvailable, getOfferings, purchasePackage, restorePurchases, hasActiveEntitlement } from '../../../../services/purchases';
 
 interface PlanSelectionStepProps {
   currentStep: number;
@@ -41,6 +41,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
   const [purchasing, setPurchasing] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [iapPackages, setIapPackages] = useState<any[]>([]); // RevenueCat packages for iOS
+  const [restoring, setRestoring] = useState(false);
   const useIAP = isIAPAvailable();
 
   useEffect(() => {
@@ -128,6 +129,28 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
       setError(err?.message || 'Purchase failed. Please try again.');
     } finally {
       setPurchasing(false);
+    }
+  };
+
+  // Restore Purchases handler — required by Apple on every subscription screen
+  const handleRestorePurchases = async () => {
+    setRestoring(true);
+    setError(null);
+    try {
+      const customerInfo = await restorePurchases();
+      if (customerInfo) {
+        const entitlement = hasActiveEntitlement(customerInfo);
+        if (entitlement.isActive) {
+          // User has an active subscription — advance onboarding
+          onNext(entitlement.plan || 'standard', null);
+          return;
+        }
+      }
+      setError(t('subscription.errors.noActivePurchases', { defaultValue: 'No active purchases found' }));
+    } catch (err: any) {
+      setError(err?.message || t('subscription.errors.restoreFailed', { defaultValue: 'Failed to restore purchases' }));
+    } finally {
+      setRestoring(false);
     }
   };
 
@@ -425,9 +448,34 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
 
       {/* Continue Button */}
       <NextButton
-        onClick={() => {
+        onClick={async () => {
           if (selectedPlan === 'free') {
-            onNext('free', null);
+            if (useIAP) {
+              // iOS: Free trial = App Store intro offer on standard_monthly
+              const pkg = iapPackages.find((p: any) => p.product?.identifier === 'standard_monthly');
+              if (!pkg) {
+                setError(t('subscription.errors.trialUnavailable', { defaultValue: 'Free trial not available. Please select a plan.' }));
+                return;
+              }
+              setPurchasing(true);
+              setError(null);
+              try {
+                const customerInfo = await purchasePackage(pkg);
+                if (customerInfo) {
+                  // Trial started via App Store — RevenueCat webhook updates DB
+                  // Pass 'standard' so Onboarding.tsx skips server-side trial
+                  onNext('standard', null);
+                }
+                // null = user cancelled, stay on step
+              } catch (err: any) {
+                setError(err?.message || t('subscription.errors.trialFailed', { defaultValue: 'Failed to start trial. Please try again.' }));
+              } finally {
+                setPurchasing(false);
+              }
+            } else {
+              // Web: server-side free trial (no card required)
+              onNext('free', null);
+            }
           } else if (useIAP && selectedPlan) {
             // iOS: trigger in-app purchase via RevenueCat
             handleIAPPurchase(selectedPlan as 'standard' | 'unlimited');
@@ -450,10 +498,28 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
       {/* Trust signals */}
       <p className="text-center text-xs text-gray-400 mt-4">
         {selectedPlan === 'free'
-          ? t('subscription.choice.free.noCardRequired', { defaultValue: 'No credit card required' })
+          ? (useIAP
+              ? t('subscription.choice.free.iosTrialNote', { defaultValue: 'Cancel anytime during your free trial' })
+              : t('subscription.choice.free.noCardRequired', { defaultValue: 'No credit card required' }))
           : t('onboarding.plan.trustSignal')
         }
       </p>
+
+      {/* Restore Purchases — required by Apple for App Store */}
+      {useIAP && (
+        <div className="text-center mt-4">
+          <button
+            onClick={handleRestorePurchases}
+            disabled={restoring}
+            className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] underline disabled:opacity-50"
+          >
+            {restoring
+              ? t('subscription.restore.restoring', { defaultValue: 'Restoring...' })
+              : t('subscription.restore.button', { defaultValue: 'Restore Purchases' })
+            }
+          </button>
+        </div>
+      )}
     </OnboardingStep>
   );
 };

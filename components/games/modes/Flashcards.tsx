@@ -1,8 +1,9 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../constants';
 import { StreakIndicator } from '../components';
 import { speak } from '../../../services/audio';
+import { haptics } from '../../../services/haptics';
 import type { InteractiveGameModeProps } from './types';
 
 interface FlashcardsProps extends InteractiveGameModeProps {}
@@ -24,16 +25,27 @@ export const Flashcards: React.FC<FlashcardsProps> = ({
 }) => {
   const { t } = useTranslation();
   const [isFlipped, setIsFlipped] = useState(false);
+  const advanceTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
 
   // Reset flip state when word changes
   useEffect(() => {
     setIsFlipped(false);
   }, [currentIndex]);
 
+  // Cleanup timeout on unmount to prevent updating unmounted component
+  useEffect(() => {
+    return () => {
+      if (advanceTimeoutRef.current) clearTimeout(advanceTimeoutRef.current);
+    };
+  }, []);
+
   const currentWord = words[currentIndex];
   const isLastWord = currentIndex >= words.length - 1;
 
   const handleResponse = useCallback((isCorrect: boolean) => {
+    // Haptic feedback — satisfying tap for correct, error buzz for hard
+    haptics.trigger(isCorrect ? 'correct' : 'incorrect');
+
     // Report answer to parent
     onAnswer({
       wordId: currentWord.id,
@@ -47,10 +59,10 @@ export const Flashcards: React.FC<FlashcardsProps> = ({
     setIsFlipped(false);
 
     if (isLastWord) {
-      // Small delay to let flip animation complete
-      setTimeout(() => onComplete(), 300);
+      // Small delay to let flip animation complete (cleaned up on unmount)
+      advanceTimeoutRef.current = setTimeout(() => onComplete(), 300);
     } else {
-      setTimeout(() => onNext(), 300);
+      advanceTimeoutRef.current = setTimeout(() => onNext(), 300);
     }
   }, [currentWord, isLastWord, onAnswer, onNext, onComplete]);
 
@@ -58,7 +70,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({
 
   return (
     <div
-      onClick={() => setIsFlipped(!isFlipped)}
+      onClick={() => { setIsFlipped(!isFlipped); haptics.trigger('selection'); }}
       className="relative w-full aspect-[4/5] cursor-pointer perspective-1000 group"
     >
       <div
@@ -129,13 +141,6 @@ export const Flashcards: React.FC<FlashcardsProps> = ({
         </div>
       </div>
 
-      {/* CSS for 3D flip effect */}
-      <style>{`
-        .perspective-1000 { perspective: 1000px; }
-        .transform-style-3d { transform-style: preserve-3d; }
-        .backface-hidden { backface-visibility: hidden; }
-        .rotate-y-180 { transform: rotateY(180deg); }
-      `}</style>
     </div>
   );
 };

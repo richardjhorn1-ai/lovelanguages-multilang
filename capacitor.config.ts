@@ -7,6 +7,9 @@ const config: CapacitorConfig = {
   server: {
     // Load from production server so APIs work
     // Use www. to avoid redirect which triggers Safari
+    // TODO: This means no network = blank WebView (no offline support).
+    // Future: bundle app locally (remove server.url), use absolute API URLs,
+    // and add a service worker for offline caching.
     url: 'https://www.lovelanguages.io',
     cleartext: false
   },

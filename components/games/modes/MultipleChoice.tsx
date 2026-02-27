@@ -4,6 +4,7 @@ import { ICONS } from '../../../constants';
 import { StreakIndicator } from '../components';
 import { shuffleArray } from '../../../utils/array';
 import { speak } from '../../../services/audio';
+import { haptics } from '../../../services/haptics';
 import type { InteractiveGameModeProps } from './types';
 
 interface MultipleChoiceProps extends InteractiveGameModeProps {
@@ -80,6 +81,9 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
       setShowFeedback(true);
 
       const isCorrect = option === currentWord.translation;
+
+      // Haptic + visual feedback
+      haptics.trigger(isCorrect ? 'correct' : 'incorrect');
 
       // Trigger shake animation for incorrect answers
       if (!isCorrect) {
@@ -205,17 +209,6 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
         })}
       </div>
 
-      {/* Shake animation */}
-      <style>{`
-        @keyframes shake {
-          0%, 100% { transform: translateX(0); }
-          10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
-          20%, 40%, 60%, 80% { transform: translateX(4px); }
-        }
-        .animate-shake {
-          animation: shake 0.5s ease-in-out;
-        }
-      `}</style>
     </div>
   );
 };

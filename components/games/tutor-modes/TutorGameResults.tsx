@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../constants';
+import { haptics } from '../../../services/haptics';
 
 interface SaveProgressDialogProps {
   partnerName: string;
@@ -133,6 +134,11 @@ export const TutorGameResults: React.FC<TutorGameResultsProps> = ({
 
   const total = score.correct + score.incorrect;
   const percentage = total > 0 ? Math.round((score.correct / total) * 100) : 0;
+
+  // Celebration haptic on mount
+  useEffect(() => {
+    haptics.trigger(percentage >= 80 ? 'perfect' : percentage >= 50 ? 'tier-up' : 'xp-gain');
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="h-full flex items-center justify-center p-4">

@@ -42,9 +42,12 @@ const LoginForm: React.FC<LoginFormProps> = ({
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [resetLoading, setResetLoading] = useState(false);
   const [showEmailForm, setShowEmailForm] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [confirmPasswordError, setConfirmPasswordError] = useState('');
 
-  const handleForgotPassword = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleForgotPassword = async () => {
     if (!email) {
       setMessage(t('hero.login.enterEmailFirst'));
       return;
@@ -76,10 +79,16 @@ const LoginForm: React.FC<LoginFormProps> = ({
     if (provider === 'apple' && Capacitor.getPlatform() === 'ios') {
       try {
         const { SignInWithApple } = await import('@capacitor-community/apple-sign-in');
+        const { generateNonce } = await import('../../utils/apple-auth');
+
+        // Generate nonce for Apple Sign In security
+        const { rawNonce, hashedNonce } = await generateNonce();
+
         const result = await SignInWithApple.authorize({
           clientId: 'com.lovelanguages.app',
           redirectURI: '', // Not needed for native
           scopes: 'email name',
+          nonce: hashedNonce,
         });
 
         // Apple only sends name on FIRST sign-in — capture it immediately
@@ -89,15 +98,27 @@ const LoginForm: React.FC<LoginFormProps> = ({
           localStorage.setItem('apple_display_name', appleName);
         }
 
-        // Exchange Apple identity token with Supabase
-        const { error: tokenError } = await supabase.auth.signInWithIdToken({
+        // Exchange Apple identity token with Supabase (raw nonce for validation)
+        const { data: signInData, error: tokenError } = await supabase.auth.signInWithIdToken({
           provider: 'apple',
           token: result.response.identityToken,
+          nonce: rawNonce,
         });
 
         if (tokenError) {
           setMessage(tokenError.message);
           setOauthLoading(null);
+        } else if (signInData?.session && result.response.authorizationCode) {
+          // Store Apple refresh token for future account deletion (App Store requirement)
+          // Fire-and-forget — don't block sign-in on this
+          fetch('/api/apple-token-exchange/', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': `Bearer ${signInData.session.access_token}`,
+            },
+            body: JSON.stringify({ authorizationCode: result.response.authorizationCode }),
+          }).catch(err => console.warn('[LoginForm] Apple token exchange failed (non-blocking):', err));
         }
         // On success, Supabase onAuthStateChange will handle the rest
       } catch (err: any) {
@@ -128,6 +149,17 @@ const LoginForm: React.FC<LoginFormProps> = ({
     }
   };
   const { t } = useTranslation();
+
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setConfirmPasswordError('');
+    if (isSignUp && password !== confirmPassword) {
+      setConfirmPasswordError(t('hero.login.passwordsMismatch', { defaultValue: 'Passwords don\'t match' }));
+      return;
+    }
+    onSubmit(e);
+  };
+
   const accentColor = isStudent ? BRAND.primary : BRAND.teal;
   const accentHover = isStudent ? BRAND.primaryHover : BRAND.tealHover;
   const accentShadow = isStudent ? BRAND.shadow : BRAND.tealShadow;
@@ -165,12 +197,12 @@ const LoginForm: React.FC<LoginFormProps> = ({
               type="button"
               onClick={() => handleOAuthSignIn('google')}
               disabled={loading || oauthLoading !== null}
-              className="w-full flex items-center justify-center gap-3 py-4 rounded-2xl border-2 border-[var(--border-color)] bg-white font-bold text-[var(--text-primary)] transition-all hover:border-gray-300 hover:bg-[var(--bg-primary)] disabled:opacity-50"
+              className="w-full flex items-center justify-center gap-3 py-4 rounded-2xl border-2 border-[var(--border-color)] bg-white font-semibold text-[var(--text-primary)] transition-all hover:border-gray-300 hover:bg-[var(--bg-primary)] disabled:opacity-50"
             >
               {oauthLoading === 'google' ? (
                 <div className="w-5 h-5 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin" />
               ) : (
-                <svg className="w-5 h-5" viewBox="0 0 24 24">
+                <svg className="w-6 h-6" viewBox="0 0 24 24">
                   <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                   <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
                   <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
@@ -185,12 +217,12 @@ const LoginForm: React.FC<LoginFormProps> = ({
               type="button"
               onClick={() => handleOAuthSignIn('apple')}
               disabled={loading || oauthLoading !== null}
-              className="w-full flex items-center justify-center gap-3 py-4 rounded-2xl bg-black text-white font-bold transition-all hover:bg-gray-900 disabled:opacity-50"
+              className="w-full flex items-center justify-center gap-3 py-4 rounded-2xl bg-black text-white font-semibold transition-all hover:bg-gray-900 disabled:opacity-50"
             >
               {oauthLoading === 'apple' ? (
                 <div className="w-5 h-5 border-2 border-gray-500 border-t-white rounded-full animate-spin" />
               ) : (
-                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
                 </svg>
               )}
@@ -221,7 +253,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
       {/* View B — Email/Password form */}
       {showEmailForm && (
         <>
-          <form onSubmit={onSubmit} className="space-y-5">
+          <form onSubmit={handleFormSubmit} className="space-y-5">
             {/* Inline error message */}
             {hasError && (
               <div className="flex items-center gap-2 text-red-500 text-scale-label font-semibold animate-shake">
@@ -250,18 +282,37 @@ const LoginForm: React.FC<LoginFormProps> = ({
               <label className="block text-scale-micro font-black uppercase tracking-[0.2em] mb-3 ml-1" style={{ color: hasError ? '#ef4444' : 'var(--text-secondary)' }}>
                 {t('hero.login.passwordLabel')}
               </label>
-              <input
-                type="password"
-                autoComplete="current-password"
-                value={password}
-                onChange={(e) => { setPassword(e.target.value); if (message) setMessage(''); }}
-                required={!showForgotPassword}
-                className="w-full px-6 py-5 rounded-2xl border-2 focus:outline-none transition-all placeholder:text-gray-400 font-bold text-scale-body"
-                style={{ backgroundColor: 'var(--bg-card)', color: 'var(--text-primary)', borderColor: hasError ? errorBorderColor : 'var(--border-color)' }}
-                onFocus={(e) => e.target.style.borderColor = hasError ? errorBorderColor : accentColor}
-                onBlur={(e) => e.target.style.borderColor = hasError ? errorBorderColor : 'var(--border-color)'}
-                placeholder={t('hero.login.passwordPlaceholder')}
-              />
+              <div className="relative">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  autoComplete={isSignUp ? 'new-password' : 'current-password'}
+                  value={password}
+                  onChange={(e) => { setPassword(e.target.value); if (message) setMessage(''); setConfirmPasswordError(''); }}
+                  required={!showForgotPassword}
+                  className="w-full px-6 py-5 pr-14 rounded-2xl border-2 focus:outline-none transition-all placeholder:text-gray-400 font-bold text-scale-body"
+                  style={{ backgroundColor: 'var(--bg-card)', color: 'var(--text-primary)', borderColor: hasError ? errorBorderColor : 'var(--border-color)' }}
+                  onFocus={(e) => e.target.style.borderColor = hasError ? errorBorderColor : accentColor}
+                  onBlur={(e) => e.target.style.borderColor = hasError ? errorBorderColor : 'var(--border-color)'}
+                  placeholder={t('hero.login.passwordPlaceholder')}
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-gray-400 hover:text-gray-600 transition-colors"
+                  tabIndex={-1}
+                >
+                  {showPassword ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-5 0-9.27-3.11-11-7.5a11.72 11.72 0 013.168-4.477M6.343 6.343A9.97 9.97 0 0112 5c5 0 9.27 3.11 11 7.5a11.72 11.72 0 01-4.168 4.477M6.343 6.343L3 3m3.343 3.343l2.829 2.829m4.484 4.484l2.829 2.829M6.343 6.343l11.314 11.314M14.121 14.121A3 3 0 009.879 9.879" />
+                    </svg>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                  )}
+                </button>
+              </div>
               {/* Forgot Password Link */}
               {!isSignUp && (
                 <button
@@ -274,6 +325,49 @@ const LoginForm: React.FC<LoginFormProps> = ({
                 </button>
               )}
             </div>
+
+            {/* Confirm Password (sign-up only) */}
+            {isSignUp && (
+              <div>
+                <label className="block text-scale-micro font-black uppercase tracking-[0.2em] mb-3 ml-1" style={{ color: confirmPasswordError ? '#ef4444' : 'var(--text-secondary)' }}>
+                  {t('hero.login.confirmPasswordLabel', { defaultValue: 'Confirm Password' })}
+                </label>
+                <div className="relative">
+                  <input
+                    type={showConfirmPassword ? 'text' : 'password'}
+                    autoComplete="new-password"
+                    value={confirmPassword}
+                    onChange={(e) => { setConfirmPassword(e.target.value); setConfirmPasswordError(''); }}
+                    required
+                    className="w-full px-6 py-5 pr-14 rounded-2xl border-2 focus:outline-none transition-all placeholder:text-gray-400 font-bold text-scale-body"
+                    style={{ backgroundColor: 'var(--bg-card)', color: 'var(--text-primary)', borderColor: confirmPasswordError ? '#ef4444' : 'var(--border-color)' }}
+                    onFocus={(e) => e.target.style.borderColor = confirmPasswordError ? '#ef4444' : accentColor}
+                    onBlur={(e) => e.target.style.borderColor = confirmPasswordError ? '#ef4444' : 'var(--border-color)'}
+                    placeholder={t('hero.login.confirmPasswordPlaceholder', { defaultValue: 'Confirm your password' })}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-gray-400 hover:text-gray-600 transition-colors"
+                    tabIndex={-1}
+                  >
+                    {showConfirmPassword ? (
+                      <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-5 0-9.27-3.11-11-7.5a11.72 11.72 0 013.168-4.477M6.343 6.343A9.97 9.97 0 0112 5c5 0 9.27 3.11 11 7.5a11.72 11.72 0 01-4.168 4.477M6.343 6.343L3 3m3.343 3.343l2.829 2.829m4.484 4.484l2.829 2.829M6.343 6.343l11.314 11.314M14.121 14.121A3 3 0 009.879 9.879" />
+                      </svg>
+                    ) : (
+                      <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                      </svg>
+                    )}
+                  </button>
+                </div>
+                {confirmPasswordError && (
+                  <p className="mt-2 text-sm font-semibold text-red-500">{confirmPasswordError}</p>
+                )}
+              </div>
+            )}
 
             {/* Reset Password Button (when forgot password mode) */}
             {showForgotPassword ? (
@@ -329,7 +423,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
           {/* Sign-up / Sign-in toggle */}
           <div className="mt-6 text-center">
             <button
-              onClick={() => { setIsSignUp(!isSignUp); setMessage(''); }}
+              onClick={() => { setIsSignUp(!isSignUp); setMessage(''); setConfirmPassword(''); setConfirmPasswordError(''); }}
               className={`text-scale-label font-black uppercase tracking-widest transition-all hover:opacity-70 ${
                 isCredentialsError && !isSignUp ? 'animate-pulse-glow' : ''
               }`}

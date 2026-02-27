@@ -211,6 +211,39 @@ export function hasActiveEntitlement(customerInfo: RCCustomerInfo): {
 }
 
 /**
+ * Check if the user is eligible for a free trial intro offer on standard_monthly.
+ * Apple only allows one free trial per Apple ID per subscription group.
+ */
+export async function checkIntroEligibility(): Promise<boolean> {
+  if (!isConfigured || !purchasesModule) return false;
+  try {
+    const { Purchases } = purchasesModule;
+
+    // Check per-user eligibility (Apple only allows one free trial per Apple ID per subscription group)
+    const eligibility = await Purchases.checkTrialOrIntroductoryPriceEligibility({
+      productIdentifiers: ['standard_monthly'],
+    });
+
+    const result = (eligibility as any)?.['standard_monthly'];
+    // RevenueCat eligibility status: 0 = unknown, 1 = ineligible, 2 = eligible
+    return result?.status === 2;
+  } catch (err) {
+    console.error('[Purchases] Intro eligibility check failed:', err);
+    // Fallback: check if product has intro offer (less accurate but better than nothing)
+    try {
+      const { Purchases } = purchasesModule;
+      const { offerings } = await Purchases.getOfferings();
+      const pkg = offerings?.current?.availablePackages?.find(
+        (p: any) => p.product?.identifier === 'standard_monthly'
+      );
+      return !!pkg?.product?.introPrice;
+    } catch {
+      return false;
+    }
+  }
+}
+
+/**
  * Map a product identifier to our plan/period
  */
 export function getProductPlanInfo(productId: string): { plan: 'standard' | 'unlimited'; period: 'weekly' | 'monthly' | 'yearly' } | null {
@@ -226,7 +259,11 @@ export async function logOutPurchases(): Promise<void> {
     const { Purchases } = purchasesModule;
     await Purchases.logOut();
     isConfigured = false;
+    purchasesModule = null;
   } catch (err) {
     console.error('[Purchases] Failed to log out:', err);
+    // Still reset state even if logOut fails to ensure clean re-init on next login
+    isConfigured = false;
+    purchasesModule = null;
   }
 }
