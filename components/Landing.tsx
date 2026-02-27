@@ -456,13 +456,13 @@ const AuthCard: React.FC<{
     {/* ─── View A: OAuth buttons (default) ─── */}
     {!showEmailForm && (
       <>
-        <div className="space-y-3">
+        <div className="space-y-4">
           {/* Google button */}
           <button
             type="button"
             onClick={() => handleOAuthSignIn('google')}
             disabled={loading || oauthLoading !== null}
-            className="w-full flex items-center justify-center gap-3 py-4 rounded-2xl border-2 glass-card font-semibold transition-all hover:bg-[var(--bg-primary)] disabled:opacity-50"
+            className="w-full flex items-center justify-center gap-3 py-5 rounded-2xl border-2 glass-card font-semibold transition-all hover:bg-[var(--bg-primary)] disabled:opacity-50"
             style={{ borderColor: accentBorder, color: 'var(--text-primary)' }}
           >
             {oauthLoading === 'google' ? (
@@ -483,7 +483,7 @@ const AuthCard: React.FC<{
             type="button"
             onClick={() => handleOAuthSignIn('apple')}
             disabled={loading || oauthLoading !== null}
-            className="w-full flex items-center justify-center gap-3 py-4 rounded-2xl bg-black text-white font-semibold transition-all hover:bg-gray-900 disabled:opacity-50"
+            className="w-full flex items-center justify-center gap-3 py-5 rounded-2xl bg-black text-white font-semibold transition-all hover:bg-gray-900 disabled:opacity-50"
           >
             {oauthLoading === 'apple' ? (
               <div className="w-5 h-5 border-2 border-gray-500 border-t-white rounded-full animate-spin" />
@@ -1015,8 +1015,8 @@ const Landing: React.FC = () => {
         </div>
 
         {/* Right: Sticky auth card */}
-        <div className="sticky top-0 h-screen flex items-center justify-center px-6 max-w-[420px] ml-auto">
-          <div className="w-full max-w-sm">
+        <div className="sticky top-0 h-screen flex items-center justify-center px-6 max-w-[480px] ml-auto">
+          <div className="w-full max-w-md">
             <AuthCard showBranding={false} {...authCardProps} />
             <FooterLinks />
           </div>

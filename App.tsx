@@ -234,6 +234,10 @@ const App: React.FC = () => {
     };
   }, []);
 
+  // Guard against concurrent fetchProfile calls (getSession + onAuthStateChange)
+  // both firing trackSignupCompleted for the same new signup
+  const signupTrackingRef = useRef(false);
+
   const fetchProfile = async (userId: string) => {
     try {
       setDbError(null);
@@ -297,7 +301,9 @@ const App: React.FC = () => {
               .single();
 
             // Track signup completed for new users
-            if (newProfile) {
+            if (newProfile && !signupTrackingRef.current) {
+              signupTrackingRef.current = true;
+              localStorage.setItem(`signup_tracked_${userId}`, 'true');
               const provider = userData.user.app_metadata?.provider || 'email';
               analytics.identify(userData.user.id, {
                 signup_date: new Date().toISOString(),
@@ -324,25 +330,29 @@ const App: React.FC = () => {
               if (createError.code === '23505') {
                 // Track signup completed — this IS a new user (we got here via PGRST116),
                 // the auth trigger just created the profile before our insert could.
-                const provider = userData.user.app_metadata?.provider || 'email';
-                analytics.identify(userData.user.id, {
-                  signup_date: new Date().toISOString(),
-                  native_language: storedNative,
-                  target_language: storedTarget,
-                  subscription_plan: 'free',
-                });
-                const referralData = getReferralData();
-                analytics.trackSignupCompleted({
-                  method: provider as 'google' | 'apple' | 'email',
-                  referral_source: referralData?.source || document.referrer || 'direct',
-                  ...(referralData && {
-                    utm_medium: referralData.medium,
-                    utm_campaign: referralData.campaign,
-                    article_slug: referralData.content,
-                    ref_native_lang: referralData.refNative,
-                    ref_target_lang: referralData.refTarget,
-                  }),
-                });
+                if (!signupTrackingRef.current) {
+                  signupTrackingRef.current = true;
+                  localStorage.setItem(`signup_tracked_${userId}`, 'true');
+                  const provider = userData.user.app_metadata?.provider || 'email';
+                  analytics.identify(userData.user.id, {
+                    signup_date: new Date().toISOString(),
+                    native_language: storedNative,
+                    target_language: storedTarget,
+                    subscription_plan: 'free',
+                  });
+                  const referralData = getReferralData();
+                  analytics.trackSignupCompleted({
+                    method: provider as 'google' | 'apple' | 'email',
+                    referral_source: referralData?.source || document.referrer || 'direct',
+                    ...(referralData && {
+                      utm_medium: referralData.medium,
+                      utm_campaign: referralData.campaign,
+                      article_slug: referralData.content,
+                      ref_native_lang: referralData.refNative,
+                      ref_target_lang: referralData.refTarget,
+                    }),
+                  });
+                }
 
                 // If we have an intended role from signup, update the profile with it
                 const validRole = intendedRole === 'tutor' || intendedRole === 'student' ? intendedRole : null;
@@ -393,13 +403,46 @@ const App: React.FC = () => {
         }
       } else {
         setProfile(data);
-        // Initialize analytics for returning users (enables event tracking)
-        analytics.identify(userId, {
-          signup_date: data.created_at,
-          native_language: data.native_language,
-          target_language: data.active_language,
-          subscription_plan: data.subscription_plan || 'free',
-        });
+
+        // Detect new signup that landed here because the Supabase auth trigger
+        // created the profile before our client-side INSERT could run.
+        // Check: profile created within last 5 minutes AND not already tracked.
+        const profileAge = Date.now() - new Date(data.created_at).getTime();
+        const FIVE_MINUTES = 5 * 60 * 1000;
+        const trackingKey = `signup_tracked_${userId}`;
+
+        if (profileAge < FIVE_MINUTES && !signupTrackingRef.current && !localStorage.getItem(trackingKey)) {
+          signupTrackingRef.current = true;
+          localStorage.setItem(trackingKey, 'true');
+          const { data: userData } = await supabase.auth.getUser();
+          const provider = userData?.user?.app_metadata?.provider || 'email';
+          analytics.identify(userId, {
+            signup_date: data.created_at,
+            native_language: data.native_language,
+            target_language: data.active_language,
+            subscription_plan: data.subscription_plan || 'free',
+          });
+          const referralData = getReferralData();
+          analytics.trackSignupCompleted({
+            method: provider as 'google' | 'apple' | 'email',
+            referral_source: referralData?.source || document.referrer || 'direct',
+            ...(referralData && {
+              utm_medium: referralData.medium,
+              utm_campaign: referralData.campaign,
+              article_slug: referralData.content,
+              ref_native_lang: referralData.refNative,
+              ref_target_lang: referralData.refTarget,
+            }),
+          });
+        } else {
+          // Returning user — just identify for event tracking
+          analytics.identify(userId, {
+            signup_date: data.created_at,
+            native_language: data.native_language,
+            target_language: data.active_language,
+            subscription_plan: data.subscription_plan || 'free',
+          });
+        }
         // Pre-cache vocabulary for offline mode
         if (data?.active_language) {
           offline.preCacheOnLogin(userId, data.active_language);

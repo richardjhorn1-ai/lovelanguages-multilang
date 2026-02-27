@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { geminiService } from '../services/gemini';
 import { Profile, DictionaryEntry, WordType, ProgressSummary, SavedProgressSummary, WordScore } from '../types';
-import { getLevelFromXP, getLevelProgress, getTierColor, translateLevel } from '../services/level-utils';
+import { getLevelFromXP, getLevelProgress, getTierIndex, translateLevel } from '../services/level-utils';
 import { ICONS } from '../constants';
 import { LANGUAGE_CONFIGS } from '../constants/language-config';
 import { useTheme } from '../context/ThemeContext';
@@ -135,10 +135,11 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
   const targetXp = (profile.role === 'tutor' && partnerProfile) ? (partnerProfile.xp || 0) : (profile.xp || 0);
   const levelInfo = getLevelFromXP(targetXp);
   const levelProgress = getLevelProgress(targetXp);
-  const tierColor = getTierColor(levelInfo.tier);
-
-  // Theme
+  // Theme — use accent color instead of hardcoded brand rose
   const { accentHex } = useTheme();
+  // Progressive darkening: Beginner(0)=bright → Master(5)=dark
+  const tierIndex = getTierIndex(levelInfo.tier);
+  const tierDarken = tierIndex * 0.07; // 0% → 35% overlay
   const { targetLanguage, targetName, languageParams } = useLanguage();
   const { isOnline, cachedWordCount, lastSyncTime, pendingCount, isSyncing: offlineSyncing, cacheVocabulary, getCachedVocabulary, cacheWordScores, getCachedWordScores } = useOffline(profile.id, targetLanguage);
   const previousTests = getPreviousLevelTests(levelInfo.displayName);
@@ -478,9 +479,16 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
         <div
           className="p-4 md:p-8 rounded-2xl md:rounded-[2.5rem] shadow-xl text-white relative overflow-hidden"
           style={{
-            background: `linear-gradient(135deg, ${tierColor} 0%, ${tierColor}dd 100%)`
+            background: `linear-gradient(135deg, ${accentHex} 0%, ${accentHex}dd 100%)`
           }}
         >
+          {/* Progressive darkening overlay — gets darker at higher tiers */}
+          {tierDarken > 0 && (
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{ backgroundColor: `rgba(0,0,0,${tierDarken})` }}
+            />
+          )}
           <div className="absolute top-0 right-0 opacity-10">
             <ICONS.Sparkles className="w-20 h-20 md:w-32 md:h-32" />
           </div>
@@ -520,7 +528,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
               onClick={() => navigate(`/test?from=${encodeURIComponent(levelInfo.displayName)}&to=${encodeURIComponent(levelInfo.nextLevel!)}`)}
               className="w-full bg-white text-[var(--text-primary)] py-3 md:py-4 rounded-xl md:rounded-2xl text-scale-label font-black uppercase tracking-widest shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2 md:gap-3"
             >
-              <ICONS.Star className="w-4 h-4 md:w-5 md:h-5" style={{ color: tierColor }} />
+              <ICONS.Star className="w-4 h-4 md:w-5 md:h-5" style={{ color: accentHex }} />
               {levelInfo.canTakeTest ? t('progress.level.takeTest') : t('progress.level.practiceTest')}
             </button>
           )}
@@ -656,10 +664,10 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
         <div className="glass-card p-4 md:p-8 rounded-xl md:rounded-[2.5rem]">
           <div className="flex items-center justify-between mb-3 md:mb-6">
             <h3 className="text-scale-caption font-black font-header flex items-center gap-1.5 md:gap-2 text-[var(--text-secondary)] uppercase tracking-[0.15em] md:tracking-[0.2em]">
-              <ICONS.Book className="w-3.5 h-3.5 md:w-4 md:h-4" style={{ color: tierColor }} />
+              <ICONS.Book className="w-3.5 h-3.5 md:w-4 md:h-4" style={{ color: accentHex }} />
               {t('progress.stats.title')}
             </h3>
-            <span className="text-scale-heading font-black" style={{ color: tierColor }}>{stats.totalWords}</span>
+            <span className="text-scale-heading font-black" style={{ color: accentHex }}>{stats.totalWords}</span>
           </div>
 
           <div className="grid grid-cols-4 gap-2 md:gap-3">
@@ -681,7 +689,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
         <div className="glass-card rounded-xl md:rounded-[2.5rem] overflow-hidden">
           <div className="p-3 md:p-6 border-b border-[var(--border-color)]">
             <h3 className="text-scale-caption font-black font-header flex items-center gap-1.5 md:gap-2 text-[var(--text-secondary)] uppercase tracking-[0.15em] md:tracking-[0.2em]">
-              <ICONS.Clock className="w-3.5 h-3.5 md:w-4 md:h-4" style={{ color: tierColor }} />
+              <ICONS.Clock className="w-3.5 h-3.5 md:w-4 md:h-4" style={{ color: accentHex }} />
               {t('progress.gameHistory.title')}
             </h3>
           </div>
@@ -703,7 +711,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                 <ICONS.Menu className="w-4 h-4 text-[var(--text-secondary)]" />
               </button>
               <h3 className="text-scale-caption font-black font-header flex items-center gap-1.5 md:gap-2 text-[var(--text-secondary)] uppercase tracking-[0.15em] md:tracking-[0.2em]">
-                <ICONS.Book className="w-3.5 h-3.5 md:w-4 md:h-4" style={{ color: tierColor }} />
+                <ICONS.Book className="w-3.5 h-3.5 md:w-4 md:h-4" style={{ color: accentHex }} />
                 {t('progress.journey.title')}
               </h3>
             </div>
@@ -711,7 +719,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
               onClick={generateNewSummary}
               disabled={generating || !isOnline}
               className="px-2.5 md:px-4 py-1.5 md:py-2 rounded-lg md:rounded-xl text-scale-caption font-bold text-white flex items-center gap-1.5 md:gap-2 shadow-md hover:shadow-lg transition-all active:scale-95 disabled:opacity-50"
-              style={{ backgroundColor: tierColor }}
+              style={{ backgroundColor: accentHex }}
               title={!isOnline ? t('offline.featureUnavailable', 'Unavailable offline') : ''}
             >
               {generating ? (
@@ -770,7 +778,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                           ? 'bg-[var(--bg-card)] shadow-sm border-l-4'
                           : 'hover:bg-[var(--bg-card)]/70'
                       }`}
-                      style={selectedSummary?.id === entry.id ? { borderLeftColor: tierColor } : {}}
+                      style={selectedSummary?.id === entry.id ? { borderLeftColor: accentHex } : {}}
                     >
                       <div className="flex items-center justify-between mb-1">
                         <span className="text-[10px] font-bold text-[var(--text-secondary)]">
@@ -778,7 +786,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                         </span>
                         <span
                           className="text-[9px] font-bold px-2 py-0.5 rounded-full"
-                          style={{ backgroundColor: `${tierColor}15`, color: tierColor }}
+                          style={{ backgroundColor: `${accentHex}15`, color: accentHex }}
                         >
                           {translateLevel(entry.level_at_time, t)}
                         </span>
@@ -820,13 +828,13 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                       </p>
                       <p
                         className="text-scale-label font-bold"
-                        style={{ color: tierColor }}
+                        style={{ color: accentHex }}
                       >
                         {selectedSummary.levelAtTime} • {selectedSummary.xpAtTime} XP
                       </p>
                     </div>
                     <div className="text-right">
-                      <p className="text-scale-heading font-black" style={{ color: tierColor }}>
+                      <p className="text-scale-heading font-black" style={{ color: accentHex }}>
                         {selectedSummary.wordsLearned}
                       </p>
                       <p className="text-scale-micro text-[var(--text-secondary)] font-bold uppercase">{t('progress.summary.words')}</p>
@@ -849,7 +857,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                           <span
                             key={idx}
                             className="px-2 md:px-3 py-1 md:py-1.5 rounded-full text-scale-caption font-medium"
-                            style={{ backgroundColor: `${tierColor}15`, color: tierColor }}
+                            style={{ backgroundColor: `${accentHex}15`, color: accentHex }}
                           >
                             "{phrase}"
                           </span>
@@ -868,7 +876,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                         <ul className="text-scale-micro md:text-scale-caption text-[var(--text-secondary)] space-y-0.5 md:space-y-1">
                           {selectedSummary.topicsExplored.slice(0, 4).map((topic, idx) => (
                             <li key={idx} className="flex items-center gap-1.5 md:gap-2">
-                              <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: tierColor }} />
+                              <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: accentHex }} />
                               <span className="truncate">{topic}</span>
                             </li>
                           ))}
@@ -884,7 +892,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                         <ul className="text-scale-micro md:text-scale-caption text-[var(--text-secondary)] space-y-0.5 md:space-y-1">
                           {selectedSummary.grammarHighlights.slice(0, 4).map((grammar, idx) => (
                             <li key={idx} className="flex items-center gap-1.5 md:gap-2">
-                              <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: tierColor }} />
+                              <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: accentHex }} />
                               <span className="truncate">{grammar}</span>
                             </li>
                           ))}
@@ -976,7 +984,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                 {/* Header */}
                 <div className="p-3 border-b border-[var(--border-color)] flex items-center justify-between flex-shrink-0">
                   <h3 className="text-[10px] font-black font-header text-[var(--text-secondary)] uppercase tracking-widest flex items-center gap-2">
-                    <ICONS.Book className="w-3.5 h-3.5" style={{ color: tierColor }} />
+                    <ICONS.Book className="w-3.5 h-3.5" style={{ color: accentHex }} />
                     {t('progress.journey.journalEntries')}
                   </h3>
                   <button
@@ -1014,7 +1022,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                               ? 'bg-[var(--bg-primary)] shadow-sm border-l-3'
                               : 'hover:bg-[var(--bg-primary)]/70'
                           }`}
-                          style={selectedSummary?.id === entry.id ? { borderLeftWidth: '3px', borderLeftColor: tierColor } : {}}
+                          style={selectedSummary?.id === entry.id ? { borderLeftWidth: '3px', borderLeftColor: accentHex } : {}}
                         >
                           <div className="flex items-center justify-between mb-0.5">
                             <span className="text-[9px] font-bold text-[var(--text-secondary)]">
@@ -1022,7 +1030,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                             </span>
                             <span
                               className="text-[8px] font-bold px-1.5 py-0.5 rounded-full"
-                              style={{ backgroundColor: `${tierColor}15`, color: tierColor }}
+                              style={{ backgroundColor: `${accentHex}15`, color: accentHex }}
                             >
                               {translateLevel(entry.level_at_time, t)}
                             </span>
@@ -1180,7 +1188,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                   navigate(`/test?from=${encodeURIComponent(selectedTestResult.from_level)}&to=${encodeURIComponent(selectedTestResult.to_level)}`);
                 }}
                 className="w-full py-3 rounded-xl font-bold text-white text-scale-label shadow-md hover:shadow-lg active:scale-[0.98] transition-all"
-                style={{ backgroundColor: tierColor }}
+                style={{ backgroundColor: accentHex }}
               >
                 {t('progress.testResults.tryAgain')}
               </button>
