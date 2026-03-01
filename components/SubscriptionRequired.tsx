@@ -137,10 +137,11 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       features: [
         { text: t('subscription.choice.free.features.conversations'), included: true },
         { text: t('subscription.choice.free.features.validations'), included: true },
+        { text: t('subscription.choice.free.features.words'), included: true },
         { text: t('subscription.choice.free.features.games'), included: true },
-        { text: t('subscription.choice.free.features.voiceLimited'), included: false },
-        { text: t('subscription.choice.free.features.listenLimited'), included: false },
-        { text: t('subscription.choice.free.features.challengesLimited'), included: false },
+        { text: t('subscription.choice.free.features.voice'), included: true },
+        { text: t('subscription.choice.free.features.listen'), included: true },
+        { text: t('subscription.choice.free.features.challenges'), included: true },
       ],
     },
     {
@@ -152,8 +153,8 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       tagline: t('subscription.required.taglineStandard'),
       features: [
         { text: t('subscription.features.wordsLimit', { limit: '2,000' }), included: true },
-        { text: t('subscription.features.voiceMinutes', { minutes: 60 }), included: true },
-        { text: t('subscription.features.listenMinutes', { minutes: 30 }), included: true },
+        { text: t('subscription.features.voiceMinutes', { minutes: 480 }), included: true },
+        { text: t('subscription.features.listenMinutes', { minutes: 480 }), included: true },
         { text: t('subscription.features.allScenarios'), included: true },
         { text: t('subscription.features.partnerInvite'), included: true },
       ],
@@ -563,7 +564,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
         <p className="text-center text-xs text-[var(--text-secondary)] mt-4">
           {selectedPlan === 'free'
             ? (useIAP
-                ? t('subscription.choice.free.iosTrialNote', { defaultValue: 'Cancel anytime during your free trial' })
+                ? t('subscription.choice.free.iosTrialNote', { defaultValue: '7 days free, then $17.99/mo. Cancel anytime.' })
                 : t('subscription.choice.free.noCardRequired', { defaultValue: 'No credit card required' }))
             : t('subscription.common.securePayment')
           }
