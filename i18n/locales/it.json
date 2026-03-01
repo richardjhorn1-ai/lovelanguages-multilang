@@ -741,8 +741,8 @@
         "name": "Standard",
         "tagline": "Perfetto per iniziare",
         "feature1": "2.000 parole nel Diario d'Amore",
-        "feature2": "60 min chat vocale/mese",
-        "feature3": "30 min Modalità Ascolto/mese",
+        "feature2": "8 hrs chat vocale/mese",
+        "feature3": "8 hrs Modalità Ascolto/mese",
         "feature4": "Tutti gli scenari di conversazione",
         "feature5": "Invito per il partner"
       },
@@ -787,6 +787,14 @@
       "tutorSubtitle": "Scegli la lingua che insegnerai",
       "showAll": "Mostra tutte le lingue",
       "showLess": "Mostra le popolari"
+    },
+    "themeCustomization": {
+      "title": "Make it yours",
+      "subtitle": "Choose your colors, mode & font",
+      "accentLabel": "Your color",
+      "darkModeLabel": "Display mode",
+      "fontLabel": "Font style",
+      "continue": "Looks great!"
     },
     "personalization": {
       "title": "Fallo tuo",
@@ -1498,10 +1506,11 @@
         "features": {
           "conversations": "25 conversazioni IA/mese",
           "validations": "50 validazioni parole/mese",
+          "words": "200 words in your vocabulary",
           "games": "Giochi di vocabolario base",
-          "voiceLimited": "Chat vocale (1 prova)",
-          "listenLimited": "Modalità ascolto (1 prova)",
-          "challengesLimited": "5 sfide partner"
+          "voice": "15 min voice chat/month",
+          "listen": "15 min listen mode/month",
+          "challenges": "5 partner challenges"
         },
         "cta": "Inizia Gratis",
         "subtext": "Perfetto per provare Love Languages",
@@ -1926,6 +1935,28 @@
         "headline": "Condividi la tua lingua con la persona che ami",
         "highlight1": "lingua",
         "highlight2": "ami"
+      },
+      "tagline": {
+        "pre": "L'",
+        "only": "unica",
+        "post": "app di lingue pensata per le coppie"
+      },
+      "startFree": "Inizia oggi a",
+      "learn": {
+        "title": "Materiale didattico gratuito",
+        "count": "11.500+",
+        "topics": "Nomignoli · Frasi per appuntamenti · Grammatica · Cultura"
+      },
+      "installApp": "Installa app",
+      "installed": "Installata",
+      "addToHome": "Aggiungi alla schermata home",
+      "appStore": "App Store",
+      "comingSoon": "In arrivo",
+      "followSocials": "Seguici sui social",
+      "waitlist": {
+        "description": "Ricevi una notifica quando saremo sull'App Store.",
+        "submitting": "Invio in corso...",
+        "notify": "Avvisami"
       }
     },
     "languageSelector": {

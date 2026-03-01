@@ -788,6 +788,14 @@
       "showAll": "Alle Sprachen anzeigen",
       "showLess": "Beliebte anzeigen"
     },
+    "themeCustomization": {
+      "title": "Make it yours",
+      "subtitle": "Choose your colors, mode & font",
+      "accentLabel": "Your color",
+      "darkModeLabel": "Display mode",
+      "fontLabel": "Font style",
+      "continue": "Looks great!"
+    },
     "personalization": {
       "title": "Mach es zu deinem",
       "subtitle": "Hilf uns, dein Erlebnis zu personalisieren",
@@ -1498,10 +1506,11 @@
         "features": {
           "conversations": "25 KI-Gespräche/Monat",
           "validations": "50 Wortvalidierungen/Monat",
+          "words": "200 words in your vocabulary",
           "games": "Basis-Vokabelspiele",
-          "voiceLimited": "Sprachchat (1x testen)",
-          "listenLimited": "Hörmodus (1x testen)",
-          "challengesLimited": "5 Partner-Challenges"
+          "voice": "15 min voice chat/month",
+          "listen": "15 min listen mode/month",
+          "challenges": "5 partner challenges"
         },
         "cta": "Kostenlos starten",
         "subtext": "Perfekt zum Ausprobieren",
@@ -1926,6 +1935,28 @@
         "headline": "Teile deine Sprache mit dem Menschen, den du liebst",
         "highlight1": "Sprache",
         "highlight2": "liebst"
+      },
+      "tagline": {
+        "pre": "Die",
+        "only": "einzige",
+        "post": "Sprach-App für Paare"
+      },
+      "startFree": "Starte heute für",
+      "learn": {
+        "title": "Kostenloses Lernmaterial",
+        "count": "11.500+",
+        "topics": "Kosenamen · Date-Phrasen · Grammatik · Kultur"
+      },
+      "installApp": "App installieren",
+      "installed": "Installiert",
+      "addToHome": "Zum Startbildschirm hinzufügen",
+      "appStore": "App Store",
+      "comingSoon": "Demnächst",
+      "followSocials": "Folge uns",
+      "waitlist": {
+        "description": "Werde benachrichtigt, wenn wir im App Store starten.",
+        "submitting": "Wird gesendet...",
+        "notify": "Benachrichtigen"
       }
     },
     "languageSelector": {

@@ -741,8 +741,8 @@
         "name": "Estándar",
         "tagline": "Perfecto para empezar",
         "feature1": "2,000 palabras en Love Log",
-        "feature2": "60 min chat de voz/mes",
-        "feature3": "30 min Modo Escucha/mes",
+        "feature2": "8 hrs chat de voz/mes",
+        "feature3": "8 hrs Modo Escucha/mes",
         "feature4": "Todos los escenarios de conversación",
         "feature5": "Invitación para pareja"
       },
@@ -787,6 +787,14 @@
       "tutorSubtitle": "Elige el idioma que enseñarás",
       "showAll": "Mostrar todos los idiomas",
       "showLess": "Mostrar populares"
+    },
+    "themeCustomization": {
+      "title": "Make it yours",
+      "subtitle": "Choose your colors, mode & font",
+      "accentLabel": "Your color",
+      "darkModeLabel": "Display mode",
+      "fontLabel": "Font style",
+      "continue": "Looks great!"
     },
     "personalization": {
       "title": "Hazlo tuyo",
@@ -1498,10 +1506,11 @@
         "features": {
           "conversations": "25 conversaciones IA/mes",
           "validations": "50 validaciones/mes",
+          "words": "200 words in your vocabulary",
           "games": "Juegos de vocabulario básicos",
-          "voiceLimited": "Chat de voz (1 prueba)",
-          "listenLimited": "Modo escucha (1 prueba)",
-          "challengesLimited": "5 desafíos de pareja"
+          "voice": "15 min voice chat/month",
+          "listen": "15 min listen mode/month",
+          "challenges": "5 partner challenges"
         },
         "cta": "Comenzar Gratis",
         "subtext": "Perfecto para probar Love Languages",
@@ -1926,6 +1935,28 @@
         "headline": "Comparte tu idioma con quien amas",
         "highlight1": "idioma",
         "highlight2": "amas"
+      },
+      "tagline": {
+        "pre": "La",
+        "only": "única",
+        "post": "app de idiomas diseñada para parejas"
+      },
+      "startFree": "Empieza hoy por",
+      "learn": {
+        "title": "Material de aprendizaje gratuito",
+        "count": "11.500+",
+        "topics": "Apodos · Frases para citas · Gramática · Cultura"
+      },
+      "installApp": "Instalar app",
+      "installed": "Instalada",
+      "addToHome": "Añadir a pantalla de inicio",
+      "appStore": "App Store",
+      "comingSoon": "Próximamente",
+      "followSocials": "Síguenos en redes",
+      "waitlist": {
+        "description": "Recibe una notificación cuando lancemos en la App Store.",
+        "submitting": "Enviando...",
+        "notify": "Notificarme"
       }
     },
     "languageSelector": {

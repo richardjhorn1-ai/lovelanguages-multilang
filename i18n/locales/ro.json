@@ -741,8 +741,8 @@
         "name": "Standard",
         "tagline": "Perfect pentru a incepe",
         "feature1": "2.000 de cuvinte in Love Log",
-        "feature2": "60 min chat vocal/luna",
-        "feature3": "30 min Mod Ascultare/luna",
+        "feature2": "8 hrs chat vocal/luna",
+        "feature3": "8 hrs Mod Ascultare/luna",
         "feature4": "Toate scenariile de conversatie",
         "feature5": "Invitatie pentru partener"
       },
@@ -787,6 +787,14 @@
       "tutorSubtitle": "Alege limba pe care o vei preda",
       "showAll": "Arata toate limbile",
       "showLess": "Arata populare"
+    },
+    "themeCustomization": {
+      "title": "Make it yours",
+      "subtitle": "Choose your colors, mode & font",
+      "accentLabel": "Your color",
+      "darkModeLabel": "Display mode",
+      "fontLabel": "Font style",
+      "continue": "Looks great!"
     },
     "personalization": {
       "title": "Fa-l al tau",
@@ -1498,10 +1506,11 @@
         "features": {
           "conversations": "25 conversații AI/lună",
           "validations": "50 validări de cuvinte/lună",
+          "words": "200 words in your vocabulary",
           "games": "Jocuri de vocabular de bază",
-          "voiceLimited": "Chat vocal (1 încercare)",
-          "listenLimited": "Mod ascultare (1 încercare)",
-          "challengesLimited": "5 provocări pentru partener"
+          "voice": "15 min voice chat/month",
+          "listen": "15 min listen mode/month",
+          "challenges": "5 partner challenges"
         },
         "cta": "Începeți Gratuit",
         "subtext": "Perfect pentru a încerca Love Languages",
@@ -1926,6 +1935,28 @@
         "headline": "Împărtășește limba ta cu persoana pe care o iubești",
         "highlight1": "limba",
         "highlight2": "iubești"
+      },
+      "tagline": {
+        "pre": "Singura",
+        "only": "",
+        "post": "aplicație de limbi străine creată pentru cupluri"
+      },
+      "startFree": "Începe azi gratuit",
+      "learn": {
+        "title": "Materiale educaționale gratuite",
+        "count": "11.500+",
+        "topics": "Alintări · Fraze de întâlnire · Gramatică · Cultură"
+      },
+      "installApp": "Instalează",
+      "installed": "Instalată",
+      "addToHome": "Adaugă pe ecranul principal",
+      "appStore": "App Store",
+      "comingSoon": "În curând",
+      "followSocials": "Urmărește-ne",
+      "waitlist": {
+        "description": "Primește o notificare când lansăm pe App Store.",
+        "submitting": "Se trimite...",
+        "notify": "Anunță-mă"
       }
     },
     "languageSelector": {

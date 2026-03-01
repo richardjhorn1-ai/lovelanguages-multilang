@@ -741,8 +741,8 @@
         "name": "Padrão",
         "tagline": "Perfeito para começar",
         "feature1": "2.000 palavras no Diário do Amor",
-        "feature2": "60 min chat de voz/mês",
-        "feature3": "30 min Modo Escuta/mês",
+        "feature2": "8 hrs chat de voz/mês",
+        "feature3": "8 hrs Modo Escuta/mês",
         "feature4": "Todos os cenários de conversação",
         "feature5": "Convite para parceiro"
       },
@@ -787,6 +787,14 @@
       "tutorSubtitle": "Escolha o idioma que você vai ensinar",
       "showAll": "Mostrar todos os idiomas",
       "showLess": "Mostrar populares"
+    },
+    "themeCustomization": {
+      "title": "Make it yours",
+      "subtitle": "Choose your colors, mode & font",
+      "accentLabel": "Your color",
+      "darkModeLabel": "Display mode",
+      "fontLabel": "Font style",
+      "continue": "Looks great!"
     },
     "personalization": {
       "title": "Deixe com a sua cara",
@@ -1498,10 +1506,11 @@
         "features": {
           "conversations": "25 conversas IA/mês",
           "validations": "50 validações de palavras/mês",
+          "words": "200 words in your vocabulary",
           "games": "Jogos de vocabulário básicos",
-          "voiceLimited": "Chat de voz (1 teste)",
-          "listenLimited": "Modo escuta (1 teste)",
-          "challengesLimited": "5 desafios de parceiro"
+          "voice": "15 min voice chat/month",
+          "listen": "15 min listen mode/month",
+          "challenges": "5 partner challenges"
         },
         "cta": "Começar Grátis",
         "subtext": "Perfeito para experimentar Love Languages",
@@ -1926,6 +1935,28 @@
         "headline": "Compartilhe seu idioma com quem você ama",
         "highlight1": "idioma",
         "highlight2": "ama"
+      },
+      "tagline": {
+        "pre": "O",
+        "only": "único",
+        "post": "app de idiomas feito para casais"
+      },
+      "startFree": "Comece hoje por",
+      "learn": {
+        "title": "Material de aprendizado gratuito",
+        "count": "11.500+",
+        "topics": "Apelidos · Frases para encontros · Gramática · Cultura"
+      },
+      "installApp": "Instalar app",
+      "installed": "Instalado",
+      "addToHome": "Adicionar à tela inicial",
+      "appStore": "App Store",
+      "comingSoon": "Em breve",
+      "followSocials": "Siga-nos nas redes",
+      "waitlist": {
+        "description": "Seja notificado quando lançarmos na App Store.",
+        "submitting": "Enviando...",
+        "notify": "Notifique-me"
       }
     },
     "languageSelector": {

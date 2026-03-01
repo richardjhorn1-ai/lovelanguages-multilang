@@ -1926,6 +1926,28 @@
         "headline": "Dela ditt språk med den du älskar",
         "highlight1": "språk",
         "highlight2": "älskar"
+      },
+      "tagline": {
+        "pre": "Den",
+        "only": "enda",
+        "post": "språkappen designad för par"
+      },
+      "startFree": "Börja idag för",
+      "learn": {
+        "title": "Gratis läromaterial",
+        "count": "2 900+",
+        "topics": "Smeknamn · Dejt-fraser · Grammatik · Kultur"
+      },
+      "installApp": "Installera app",
+      "installed": "Installerad",
+      "addToHome": "Lägg till på hemskärmen",
+      "appStore": "App Store",
+      "comingSoon": "Kommer snart",
+      "followSocials": "Följ oss",
+      "waitlist": {
+        "description": "Bli meddelad när vi lanserar på App Store.",
+        "submitting": "Skickar...",
+        "notify": "Meddela mig"
       }
     },
     "languageSelector": {

@@ -842,8 +842,8 @@
         "name": "Standard",
         "tagline": "Perfect for getting started",
         "feature1": "2,000 words in Love Log",
-        "feature2": "60 min voice chat/month",
-        "feature3": "30 min Listen Mode/month",
+        "feature2": "8 hrs voice chat/month",
+        "feature3": "8 hrs Listen Mode/month",
         "feature4": "All conversation scenarios",
         "feature5": "Partner invite"
       },
@@ -889,9 +889,17 @@
       "showAll": "Show all languages",
       "showLess": "Show popular"
     },
-    "personalization": {
+    "themeCustomization": {
       "title": "Make it yours",
-      "subtitle": "Help us personalize your experience",
+      "subtitle": "Choose your colors, mode & font",
+      "accentLabel": "Your color",
+      "darkModeLabel": "Display mode",
+      "fontLabel": "Font style",
+      "continue": "Looks great!"
+    },
+    "personalization": {
+      "title": "About your journey",
+      "subtitle": "Tell us about your relationship",
       "vibeLabel": "Your relationship vibe",
       "timeLabel": "Daily practice time",
       "priorLabel": "Tried {{language}} before?"
@@ -1017,6 +1025,20 @@
         "wordsLearned": "Words you just learned:",
         "keepGoing": "Keep going!"
       }
+    },
+    "invite": {
+      "title": "Invite {{name}} to join you!",
+      "subtitle": "Your subscription includes free access for your partner",
+      "linkOption": "Copy invite link",
+      "linkDesc": "We'll generate a link you can share after signup",
+      "emailOption": "Send email invite",
+      "emailDesc": "We'll send them a personal invite from you",
+      "emailPlaceholder": "{{name}}'s email address",
+      "benefit1": "Free access through your subscription",
+      "benefit2": "Linked progress & shared streaks",
+      "benefit3": "Challenges & love notes together",
+      "continue": "Invite {{name}}",
+      "skip": "I'll invite them later"
     },
     "tutor": {
       "start": {
@@ -1501,10 +1523,11 @@
         "features": {
           "conversations": "25 AI conversations/month",
           "validations": "50 word validations/month",
-          "games": "Basic vocabulary games",
-          "voiceLimited": "Voice chat (1 try)",
-          "listenLimited": "Listen mode (1 try)",
-          "challengesLimited": "5 partner challenges"
+          "words": "200 words in your vocabulary",
+          "games": "All vocabulary games",
+          "voice": "15 min voice chat/month",
+          "listen": "15 min listen mode/month",
+          "challenges": "5 partner challenges"
         },
         "cta": "Start Free",
         "subtext": "Perfect for trying Love Languages",
@@ -1929,6 +1952,28 @@
         "headline": "Share your language with the one you love",
         "highlight1": "language",
         "highlight2": "love"
+      },
+      "tagline": {
+        "pre": "The",
+        "only": "only",
+        "post": "language app designed for couples"
+      },
+      "startFree": "Start today for",
+      "learn": {
+        "title": "Free Learning Material",
+        "count": "11,500+",
+        "topics": "Pet names · Date phrases · Grammar · Culture"
+      },
+      "installApp": "Install App",
+      "installed": "Installed",
+      "addToHome": "Add to home screen",
+      "appStore": "App Store",
+      "comingSoon": "Coming Soon",
+      "followSocials": "Follow our socials",
+      "waitlist": {
+        "description": "Get notified when we launch on the App Store.",
+        "submitting": "Submitting...",
+        "notify": "Notify Me"
       }
     },
     "languageSelector": {

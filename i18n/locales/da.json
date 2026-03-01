@@ -741,8 +741,8 @@
         "name": "Standard",
         "tagline": "Perfekt til at komme i gang",
         "feature1": "2.000 ord i Love Log",
-        "feature2": "60 min talechat/måned",
-        "feature3": "30 min lyttetilstand/måned",
+        "feature2": "8 hrs talechat/måned",
+        "feature3": "8 hrs lyttetilstand/måned",
         "feature4": "Alle samtalescenarier",
         "feature5": "Partnerinvitation"
       },
@@ -787,6 +787,14 @@
       "tutorSubtitle": "Vælg det sprog, du vil undervise i",
       "showAll": "Vis alle sprog",
       "showLess": "Vis populære"
+    },
+    "themeCustomization": {
+      "title": "Make it yours",
+      "subtitle": "Choose your colors, mode & font",
+      "accentLabel": "Your color",
+      "darkModeLabel": "Display mode",
+      "fontLabel": "Font style",
+      "continue": "Looks great!"
     },
     "personalization": {
       "title": "Gør det til dit",
@@ -1498,10 +1506,11 @@
         "features": {
           "conversations": "25 AI-samtaler/måned",
           "validations": "50 ordvalideringer/måned",
+          "words": "200 words in your vocabulary",
           "games": "Grundlæggende ordforråd spil",
-          "voiceLimited": "Talechat (1 forsøg)",
-          "listenLimited": "Lyttetilstand (1 forsøg)",
-          "challengesLimited": "5 partner-udfordringer"
+          "voice": "15 min voice chat/month",
+          "listen": "15 min listen mode/month",
+          "challenges": "5 partner challenges"
         },
         "cta": "Start Gratis",
         "subtext": "Perfekt til at prøve Love Languages",
@@ -1926,6 +1935,28 @@
         "headline": "Del dit sprog med den, du elsker",
         "highlight1": "sprog",
         "highlight2": "elsker"
+      },
+      "tagline": {
+        "pre": "Den",
+        "only": "eneste",
+        "post": "sprogapp designet til par"
+      },
+      "startFree": "Begynd i dag for",
+      "learn": {
+        "title": "Gratis læringsmateriale",
+        "count": "11.500+",
+        "topics": "Kælenavne · Date-fraser · Grammatik · Kultur"
+      },
+      "installApp": "Installer app",
+      "installed": "Installeret",
+      "addToHome": "Føj til startskærm",
+      "appStore": "App Store",
+      "comingSoon": "Kommer snart",
+      "followSocials": "Følg os",
+      "waitlist": {
+        "description": "Få besked, når vi lancerer på App Store.",
+        "submitting": "Sender...",
+        "notify": "Giv mig besked"
       }
     },
     "languageSelector": {

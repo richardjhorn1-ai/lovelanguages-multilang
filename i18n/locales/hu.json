@@ -1926,6 +1926,28 @@
         "headline": "Oszd meg a nyelvedet azzal, akit szeretsz",
         "highlight1": "nyelvedet",
         "highlight2": "szeretsz"
+      },
+      "tagline": {
+        "pre": "Az",
+        "only": "egyetlen",
+        "post": "nyelvi alkalmazás pároknak"
+      },
+      "startFree": "Kezdd el ma, ingyen",
+      "learn": {
+        "title": "Ingyenes tananyagok",
+        "count": "2 900+",
+        "topics": "Becézések · Randis kifejezések · Nyelvtan · Kultúra"
+      },
+      "installApp": "Telepítés",
+      "installed": "Telepítve",
+      "addToHome": "Hozzáadás a kezdőképernyőhöz",
+      "appStore": "App Store",
+      "comingSoon": "Hamarosan",
+      "followSocials": "Kövess minket",
+      "waitlist": {
+        "description": "Értesítést kapsz, amikor megjelenik az App Store-ban.",
+        "submitting": "Küldés...",
+        "notify": "Értesíts"
       }
     },
     "languageSelector": {

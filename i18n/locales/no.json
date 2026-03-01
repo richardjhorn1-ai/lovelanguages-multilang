@@ -1926,6 +1926,28 @@
         "headline": "Del språket ditt med den du elsker",
         "highlight1": "språket",
         "highlight2": "elsker"
+      },
+      "tagline": {
+        "pre": "Den",
+        "only": "eneste",
+        "post": "språkappen laget for par"
+      },
+      "startFree": "Start i dag for",
+      "learn": {
+        "title": "Gratis læringsmateriell",
+        "count": "2 900+",
+        "topics": "Kallenavn · Date-fraser · Grammatikk · Kultur"
+      },
+      "installApp": "Installer app",
+      "installed": "Installert",
+      "addToHome": "Legg til på hjemskjermen",
+      "appStore": "App Store",
+      "comingSoon": "Kommer snart",
+      "followSocials": "Følg oss",
+      "waitlist": {
+        "description": "Bli varslet når vi lanserer på App Store.",
+        "submitting": "Sender...",
+        "notify": "Varsle meg"
       }
     },
     "languageSelector": {

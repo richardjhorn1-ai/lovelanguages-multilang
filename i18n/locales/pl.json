@@ -1926,6 +1926,28 @@
         "headline": "Podziel się swoim językiem z osobą, którą kochasz",
         "highlight1": "językiem",
         "highlight2": "kochasz"
+      },
+      "tagline": {
+        "pre": "",
+        "only": "Jedyna",
+        "post": "aplikacja językowa stworzona dla par"
+      },
+      "startFree": "Zacznij dziś za",
+      "learn": {
+        "title": "Darmowe materiały edukacyjne",
+        "count": "2 900+",
+        "topics": "Czułe słówka · Zwroty na randkę · Gramatyka · Kultura"
+      },
+      "installApp": "Zainstaluj",
+      "installed": "Zainstalowano",
+      "addToHome": "Dodaj do ekranu głównego",
+      "appStore": "App Store",
+      "comingSoon": "Wkrótce",
+      "followSocials": "Obserwuj nas",
+      "waitlist": {
+        "description": "Otrzymaj powiadomienie o premierze w App Store.",
+        "submitting": "Wysyłanie...",
+        "notify": "Powiadom mnie"
       }
     },
     "languageSelector": {

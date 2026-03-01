@@ -788,6 +788,14 @@
       "showAll": "Tüm dilleri göster",
       "showLess": "Popüler olanları göster"
     },
+    "themeCustomization": {
+      "title": "Make it yours",
+      "subtitle": "Choose your colors, mode & font",
+      "accentLabel": "Your color",
+      "darkModeLabel": "Display mode",
+      "fontLabel": "Font style",
+      "continue": "Looks great!"
+    },
     "personalization": {
       "title": "Kendine göre yap",
       "subtitle": "Deneyimini kişiselleştirmemize yardım et",
@@ -1498,10 +1506,11 @@
         "features": {
           "conversations": "25 AI sohbeti/ay",
           "validations": "50 kelime doğrulama/ay",
+          "words": "200 words in your vocabulary",
           "games": "Temel kelime oyunları",
-          "voiceLimited": "Sesli sohbet (1 deneme)",
-          "listenLimited": "Dinleme modu (1 deneme)",
-          "challengesLimited": "5 partner meydan okuması"
+          "voice": "15 min voice chat/month",
+          "listen": "15 min listen mode/month",
+          "challenges": "5 partner challenges"
         },
         "cta": "Ücretsiz Başla",
         "subtext": "Love Languages'i denemek için mükemmel",
@@ -1926,6 +1935,28 @@
         "headline": "Dilini sevdiğin kişiyle paylaş",
         "highlight1": "Dilini",
         "highlight2": "sevdiğin"
+      },
+      "tagline": {
+        "pre": "Çiftler için",
+        "only": "tek",
+        "post": "dil uygulaması"
+      },
+      "startFree": "Bugün başla, ücretsiz",
+      "learn": {
+        "title": "Ücretsiz öğrenme materyali",
+        "count": "11.500+",
+        "topics": "Sevgi isimleri · Buluşma cümleleri · Dilbilgisi · Kültür"
+      },
+      "installApp": "Uygulamayı kur",
+      "installed": "Kuruldu",
+      "addToHome": "Ana ekrana ekle",
+      "appStore": "App Store",
+      "comingSoon": "Yakında",
+      "followSocials": "Bizi takip edin",
+      "waitlist": {
+        "description": "App Store'da yayınlandığımızda haberdar olun.",
+        "submitting": "Gönderiliyor...",
+        "notify": "Beni bilgilendir"
       }
     },
     "languageSelector": {

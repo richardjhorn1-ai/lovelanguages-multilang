@@ -741,8 +741,8 @@
         "name": "Standaard",
         "tagline": "Perfect om te beginnen",
         "feature1": "2.000 woorden in Liefdesdagboek",
-        "feature2": "60 min spraakchat/maand",
-        "feature3": "30 min Luistermodus/maand",
+        "feature2": "8 hrs spraakchat/maand",
+        "feature3": "8 hrs Luistermodus/maand",
         "feature4": "Alle gesprekscenario's",
         "feature5": "Partner uitnodiging"
       },
@@ -787,6 +787,14 @@
       "tutorSubtitle": "Kies de taal die je gaat onderwijzen",
       "showAll": "Alle talen tonen",
       "showLess": "Populaire tonen"
+    },
+    "themeCustomization": {
+      "title": "Make it yours",
+      "subtitle": "Choose your colors, mode & font",
+      "accentLabel": "Your color",
+      "darkModeLabel": "Display mode",
+      "fontLabel": "Font style",
+      "continue": "Looks great!"
     },
     "personalization": {
       "title": "Maak het persoonlijk",
@@ -1498,10 +1506,11 @@
         "features": {
           "conversations": "25 AI-gesprekken/maand",
           "validations": "50 woordvalidaties/maand",
+          "words": "200 words in your vocabulary",
           "games": "Basis woordenschat spelletjes",
-          "voiceLimited": "Spraakchat (1 poging)",
-          "listenLimited": "Luistermodus (1 poging)",
-          "challengesLimited": "5 partner uitdagingen"
+          "voice": "15 min voice chat/month",
+          "listen": "15 min listen mode/month",
+          "challenges": "5 partner challenges"
         },
         "cta": "Gratis Starten",
         "subtext": "Perfect om Love Languages uit te proberen",
@@ -1926,6 +1935,28 @@
         "headline": "Deel je taal met degene van wie je houdt",
         "highlight1": "taal",
         "highlight2": "houdt"
+      },
+      "tagline": {
+        "pre": "De",
+        "only": "enige",
+        "post": "taal-app ontworpen voor koppels"
+      },
+      "startFree": "Begin vandaag voor",
+      "learn": {
+        "title": "Gratis leermateriaal",
+        "count": "11.500+",
+        "topics": "Koosnaampjes · Date-zinnen · Grammatica · Cultuur"
+      },
+      "installApp": "App installeren",
+      "installed": "Geïnstalleerd",
+      "addToHome": "Toevoegen aan startscherm",
+      "appStore": "App Store",
+      "comingSoon": "Binnenkort",
+      "followSocials": "Volg ons",
+      "waitlist": {
+        "description": "Ontvang een melding wanneer we lanceren in de App Store.",
+        "submitting": "Verzenden...",
+        "notify": "Meld me aan"
       }
     },
     "languageSelector": {

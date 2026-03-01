@@ -1926,6 +1926,28 @@
         "headline": "Sdílejte svůj jazyk s tím, koho milujete",
         "highlight1": "jazyk",
         "highlight2": "milujete"
+      },
+      "tagline": {
+        "pre": "",
+        "only": "Jediná",
+        "post": "jazyková aplikace navržená pro páry"
+      },
+      "startFree": "Začněte dnes za",
+      "learn": {
+        "title": "Bezplatné studijní materiály",
+        "count": "2 900+",
+        "topics": "Mazlivá jména · Fráze na rande · Gramatika · Kultura"
+      },
+      "installApp": "Nainstalovat",
+      "installed": "Nainstalováno",
+      "addToHome": "Přidat na plochu",
+      "appStore": "App Store",
+      "comingSoon": "Již brzy",
+      "followSocials": "Sledujte nás",
+      "waitlist": {
+        "description": "Dostanete oznámení o spuštění v App Store.",
+        "submitting": "Odesílání...",
+        "notify": "Upozornit mě"
       }
     },
     "languageSelector": {

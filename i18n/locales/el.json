@@ -741,8 +741,8 @@
         "name": "Standard",
         "tagline": "Τέλειο για να ξεκινήσεις",
         "feature1": "2000 λέξεις στο Love Log",
-        "feature2": "60 λεπτά φωνητικής συνομιλίας/μήνα",
-        "feature3": "30 λεπτά λειτουργίας ακρόασης/μήνα",
+        "feature2": "8 ώρες φωνητικής συνομιλίας/μήνα",
+        "feature3": "8 ώρες λειτουργίας ακρόασης/μήνα",
         "feature4": "Όλα τα σενάρια συνομιλίας",
         "feature5": "Πρόσκληση συντρόφου"
       },
@@ -787,6 +787,14 @@
       "tutorSubtitle": "Επίλεξε τη γλώσσα που θα διδάξεις",
       "showAll": "Εμφάνιση όλων των γλωσσών",
       "showLess": "Δημοφιλείς γλώσσες"
+    },
+    "themeCustomization": {
+      "title": "Make it yours",
+      "subtitle": "Choose your colors, mode & font",
+      "accentLabel": "Your color",
+      "darkModeLabel": "Display mode",
+      "fontLabel": "Font style",
+      "continue": "Looks great!"
     },
     "personalization": {
       "title": "Κάντο δικό σου",
@@ -1498,10 +1506,11 @@
         "features": {
           "conversations": "25 συνομιλίες AI/μήνα",
           "validations": "50 επαληθεύσεις λέξεων/μήνα",
+          "words": "200 words in your vocabulary",
           "games": "Βασικά παιχνίδια λεξιλογίου",
-          "voiceLimited": "Φωνητική συνομιλία (1 δοκιμή)",
-          "listenLimited": "Λειτουργία ακρόασης (1 δοκιμή)",
-          "challengesLimited": "5 προκλήσεις συντρόφου"
+          "voice": "15 min voice chat/month",
+          "listen": "15 min listen mode/month",
+          "challenges": "5 partner challenges"
         },
         "cta": "Ξεκινήστε Δωρεάν",
         "subtext": "Ιδανικό για δοκιμή του Love Languages",
@@ -1926,6 +1935,28 @@
         "headline": "Μοιράσου τη γλώσσα σου με αυτόν που αγαπάς",
         "highlight1": "γλώσσα",
         "highlight2": "αγαπάς"
+      },
+      "tagline": {
+        "pre": "Η",
+        "only": "μόνη",
+        "post": "γλωσσική εφαρμογή σχεδιασμένη για ζευγάρια"
+      },
+      "startFree": "Ξεκινήστε σήμερα για",
+      "learn": {
+        "title": "Δωρεάν εκπαιδευτικό υλικό",
+        "count": "11.500+",
+        "topics": "Χαϊδευτικά · Φράσεις ραντεβού · Γραμματική · Πολιτισμός"
+      },
+      "installApp": "Εγκατάσταση",
+      "installed": "Εγκαταστάθηκε",
+      "addToHome": "Προσθήκη στην αρχική οθόνη",
+      "appStore": "App Store",
+      "comingSoon": "Σύντομα",
+      "followSocials": "Ακολουθήστε μας",
+      "waitlist": {
+        "description": "Ενημερωθείτε όταν κυκλοφορήσουμε στο App Store.",
+        "submitting": "Υποβολή...",
+        "notify": "Ειδοποιήστε με"
       }
     },
     "languageSelector": {

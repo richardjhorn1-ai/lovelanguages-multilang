@@ -1926,6 +1926,28 @@
         "headline": "Partagez votre langue avec celui que vous aimez",
         "highlight1": "langue",
         "highlight2": "aimez"
+      },
+      "tagline": {
+        "pre": "La",
+        "only": "seule",
+        "post": "app de langues conçue pour les couples"
+      },
+      "startFree": "Commencez aujourd'hui pour",
+      "learn": {
+        "title": "Matériel d'apprentissage gratuit",
+        "count": "2 900+",
+        "topics": "Surnoms · Phrases de rendez-vous · Grammaire · Culture"
+      },
+      "installApp": "Installer l'app",
+      "installed": "Installée",
+      "addToHome": "Ajouter à l'écran d'accueil",
+      "appStore": "App Store",
+      "comingSoon": "Bientôt disponible",
+      "followSocials": "Suivez-nous",
+      "waitlist": {
+        "description": "Soyez informé du lancement sur l'App Store.",
+        "submitting": "Envoi en cours...",
+        "notify": "Me notifier"
       }
     },
     "languageSelector": {
