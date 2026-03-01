@@ -159,9 +159,9 @@ export function useScoreTracking({
 
       // Track streak milestones (every 5 correct in a row) to avoid high-frequency spam
       if (isCorrect && newStreak >= STREAK_TO_LEARN && newStreak % STREAK_TO_LEARN === 0) {
-        analytics.track('streak_maintained', { streak_days: newStreak, activity_type: 'word_practice' });
+        analytics.track('streak_maintained', { streak_count: newStreak, activity_type: 'word_practice' });
       } else if (!isCorrect && currentStreak >= STREAK_TO_LEARN) {
-        analytics.track('streak_broken', { streak_days: currentStreak, previous_streak_days: currentStreak });
+        analytics.track('streak_broken', { streak_count: currentStreak, previous_streak_count: currentStreak });
       }
 
       // Check if word just became learned (hit streak threshold)

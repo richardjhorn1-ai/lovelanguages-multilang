@@ -121,9 +121,9 @@ interface VoiceSessionParams extends BaseEventParams {
 
 // Retention events
 interface StreakParams extends BaseEventParams {
-  streak_days: number;
+  streak_count: number;
   activity_type?: string;
-  previous_streak_days?: number;
+  previous_streak_count?: number;
 }
 
 interface PartnerParams extends BaseEventParams {
