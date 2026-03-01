@@ -8,6 +8,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { sounds } from '../services/sounds';
 import { normalizeAnswer, validateAnswerSmart } from '../utils/answer-helpers';
 import LimitReachedModal from './LimitReachedModal';
+import { apiFetch } from '../services/api-config';
 
 interface PlayQuizChallengeProps {
   challenge: TutorChallenge;
@@ -90,7 +91,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
   const handleStart = async () => {
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
-      await fetch('/api/start-challenge/', {
+      await apiFetch('/api/start-challenge/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -162,7 +163,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
     setSubmitError(null);
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
-      const response = await fetch('/api/submit-challenge/', {
+      const response = await apiFetch('/api/submit-challenge/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -199,10 +200,10 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
   // Start Screen
   if (!started) {
     return (
-      <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-        <div className="bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] w-full max-w-md overflow-hidden text-center p-6 md:p-8">
-          <div className="text-5xl md:text-6xl mb-3 md:mb-4">🎯</div>
-          <h2 className="text-xl md:text-2xl font-black text-[var(--text-primary)] mb-2">{challenge.title}</h2>
+      <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
+        <div className="glass-card-solid rounded-xl md:rounded-2xl w-full max-w-md overflow-hidden text-center p-6 md:p-8">
+          <div className="mb-3 md:mb-4 text-[var(--accent-color)]"><ICONS.Target className="w-12 h-12 md:w-16 md:h-16 mx-auto" /></div>
+          <h2 className="text-xl md:text-2xl font-black font-header text-[var(--text-primary)] mb-2">{challenge.title}</h2>
           <p className="text-[var(--text-secondary)] text-scale-label mb-4 md:mb-6">
             {t('challengePlayer.quiz.startDescription', { name: partnerName, count: challenge.words_data?.length || 0 })}
           </p>
@@ -243,10 +244,10 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
     );
 
     return (
-      <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-        <div className="bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] w-full max-w-md overflow-hidden text-center p-6 md:p-8">
-          <div className="text-5xl md:text-6xl mb-3 md:mb-4">{isPerfect ? '🏆' : result.score >= 70 ? '🎉' : '💪'}</div>
-          <h2 className="text-xl md:text-2xl font-black text-[var(--text-primary)] mb-2">
+      <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
+        <div className="glass-card-solid rounded-xl md:rounded-2xl w-full max-w-md overflow-hidden text-center p-6 md:p-8">
+          <div className="mb-3 md:mb-4">{isPerfect ? <ICONS.Trophy className="w-12 h-12 md:w-16 md:h-16 mx-auto text-[var(--color-warning)]" /> : result.score >= 70 ? <ICONS.Trophy className="w-12 h-12 md:w-16 md:h-16 mx-auto text-[var(--color-correct)]" /> : <ICONS.TrendingUp className="w-12 h-12 md:w-16 md:h-16 mx-auto text-[var(--secondary-color)]" />}</div>
+          <h2 className="text-xl md:text-2xl font-black font-header text-[var(--text-primary)] mb-2">
             {isPerfect
               ? t('challengePlayer.results.perfect')
               : result.score >= 70
@@ -311,8 +312,8 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
   // Loading
   if (submitting) {
     return (
-      <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-        <div className="bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] w-full max-w-md p-6 md:p-8 text-center">
+      <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
+        <div className="glass-card-solid rounded-xl md:rounded-2xl w-full max-w-md p-6 md:p-8 text-center">
           <div className="flex justify-center gap-2 mb-4">
             <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce"></div>
             <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
@@ -327,10 +328,10 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
   // Error state
   if (submitError) {
     return (
-      <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-        <div className="bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] w-full max-w-md p-6 md:p-8 text-center">
-          <div className="text-5xl md:text-6xl mb-3 md:mb-4">😔</div>
-          <h2 className="text-xl md:text-2xl font-black text-[var(--text-primary)] mb-2">
+      <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
+        <div className="glass-card-solid rounded-xl md:rounded-2xl w-full max-w-md p-6 md:p-8 text-center">
+          <div className="mb-3 md:mb-4 text-[var(--text-secondary)]"><ICONS.AlertTriangle className="w-12 h-12 md:w-16 md:h-16 mx-auto" /></div>
+          <h2 className="text-xl md:text-2xl font-black font-header text-[var(--text-primary)] mb-2">
             {t('challengePlayer.common.submitErrorTitle')}
           </h2>
           <p className="text-[var(--text-secondary)] text-scale-label mb-4 md:mb-6">
@@ -360,8 +361,8 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
 
   // Game Screen
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] w-full max-w-md overflow-hidden">
+    <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
+      <div className="glass-card-solid rounded-xl md:rounded-2xl w-full max-w-md overflow-hidden">
         {/* Header */}
         <div className="p-3 md:p-4 border-b border-[var(--border-color)]">
           <div className="flex items-center justify-between mb-2">

@@ -1,5 +1,6 @@
 import { GoogleGenAI, Session } from '@google/genai';
 import { supabase } from './supabase';
+import { apiFetch } from './api-config';
 import { AudioRecorder, AudioPlayer, checkAudioSupport } from './audio-utils';
 import { ChatMode } from '../types';
 import { LANGUAGE_CONFIGS } from '../constants/language-config';
@@ -76,7 +77,7 @@ export class LiveSession {
       log('Requesting ephemeral token...');
 
       // Request ephemeral token from backend
-      const tokenResponse = await fetch('/api/live-token/', {
+      const tokenResponse = await apiFetch('/api/live-token/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -46,12 +46,12 @@ interface VerbDojoProps {
 
 type GamePhase = 'select_mode' | 'playing' | 'finished';
 
-const MODE_ICONS: Record<DojoMode, string> = {
-  mixed: '🔀',
-  match_pairs: '🎯',
-  fill_template: '✏️',
-  multiple_choice: '📋',
-  audio_type: '🔊',
+const MODE_ICONS: Record<DojoMode, React.ReactNode> = {
+  mixed: <ICONS.Shuffle className="w-8 h-8 md:w-10 md:h-10" />,
+  match_pairs: <ICONS.Target className="w-8 h-8 md:w-10 md:h-10" />,
+  fill_template: <ICONS.Pencil className="w-8 h-8 md:w-10 md:h-10" />,
+  multiple_choice: <ICONS.CheckCircle className="w-8 h-8 md:w-10 md:h-10" />,
+  audio_type: <ICONS.Volume2 className="w-8 h-8 md:w-10 md:h-10" />,
 };
 
 const MODE_KEYS: Record<DojoMode, { label: string; desc: string }> = {
@@ -321,12 +321,12 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
         {/* Header */}
         <div className="text-center mb-8">
           <div
-            className="w-16 h-16 md:w-20 md:h-20 mx-auto rounded-2xl flex items-center justify-center text-3xl md:text-4xl mb-4"
-            style={{ backgroundColor: `${accentColor}20` }}
+            className="w-16 h-16 md:w-20 md:h-20 mx-auto rounded-2xl flex items-center justify-center mb-4"
+            style={{ backgroundColor: `${accentColor}15`, color: accentColor }}
           >
-            🥋
+            <ICONS.Fist className="w-8 h-8 md:w-10 md:h-10" />
           </div>
-          <h2 className="text-xl md:text-2xl font-black text-[var(--text-primary)] mb-1">
+          <h2 className="text-xl md:text-2xl font-black font-header text-[var(--text-primary)] mb-1">
             {t('play.verbDojo.title', 'Verb Dojo')}
           </h2>
           <p className="text-scale-label text-[var(--text-secondary)]">
@@ -359,9 +359,9 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
                   }`}
                   style={{ '--accent-color': accentColor } as React.CSSProperties}
                 >
-                  <span className="text-3xl md:text-4xl">{icon}</span>
+                  <span>{icon}</span>
                   <div>
-                    <h3 className="font-bold text-[var(--text-primary)] text-sm md:text-base">{t(keys.label)}</h3>
+                    <h3 className="font-bold font-header text-[var(--text-primary)] text-sm md:text-base">{t(keys.label)}</h3>
                     <p className="text-[10px] md:text-scale-caption text-[var(--text-secondary)] line-clamp-2">{t(keys.desc)}</p>
                   </div>
                   {isSelected && (
@@ -431,11 +431,11 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
           </button>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-1">
-              <span className="text-lg">🔥</span>
+              <ICONS.Fire className="w-5 h-5 text-[var(--color-warning)]" />
               <span className="font-bold text-[var(--text-primary)]">{streak}</span>
             </div>
             <div className="flex items-center gap-1">
-              <span className="text-lg">⭐</span>
+              <ICONS.Star className="w-5 h-5 text-[var(--color-warning)]" />
               <span className="font-bold text-[var(--text-primary)]">{xpEarned}</span>
             </div>
           </div>
@@ -530,14 +530,14 @@ const MultipleChoiceInline: React.FC<{
       {/* Question card */}
       <div
         className="p-6 rounded-2xl border mb-6"
-        style={{ backgroundColor: `${accentColor}10`, borderColor: `${accentColor}30` }}
+        style={{ backgroundColor: `${accentColor}15`, borderColor: `${accentColor}25` }}
       >
         <p className="text-scale-caption font-bold uppercase tracking-wider mb-2" style={{ color: accentColor }}>
           {question.tense} tense
         </p>
-        <h3 className="text-2xl font-black text-[var(--text-primary)] mb-2">{question.verb.word}</h3>
+        <h3 className="text-2xl font-black font-header text-[var(--text-primary)] mb-2">{question.verb.word}</h3>
         <p className="text-[var(--text-secondary)] italic mb-4">"{question.verb.translation}"</p>
-        <div className="bg-[var(--bg-card)] p-3 rounded-xl">
+        <div className="glass-card p-3 rounded-xl">
           <p className="text-lg font-bold" style={{ color: accentColor }}>
             {question.personLabel} ({question.nativeLabel})
           </p>
@@ -559,9 +559,9 @@ const MultipleChoiceInline: React.FC<{
               className={`w-full p-4 rounded-xl border-2 text-left font-bold transition-all ${
                 showResult
                   ? isCorrect
-                    ? 'border-green-500 bg-green-500/10 text-green-700 dark:text-green-400'
+                    ? 'border-[var(--color-correct)] bg-[var(--color-correct-bg)] text-[var(--color-correct)]'
                     : isSelected
-                    ? 'border-red-500 bg-red-500/10 text-red-700 dark:text-red-400'
+                    ? 'border-[var(--color-incorrect)] bg-[var(--color-incorrect-bg)] text-[var(--color-incorrect)]'
                     : 'border-[var(--border-color)] opacity-50'
                   : isSelected
                   ? 'border-[var(--accent-color)] bg-[var(--accent-color)]/10'

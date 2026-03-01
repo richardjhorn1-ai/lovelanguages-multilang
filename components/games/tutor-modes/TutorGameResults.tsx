@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../constants';
+import { haptics } from '../../../services/haptics';
 
 interface SaveProgressDialogProps {
   partnerName: string;
@@ -23,9 +24,9 @@ const SaveProgressDialog: React.FC<SaveProgressDialogProps> = ({
   const [rememberChoice, setRememberChoice] = useState(false);
 
   return (
-    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={onCancel}>
+    <div className="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-4" onClick={onCancel}>
       <div
-        className="bg-[var(--bg-card)] rounded-2xl p-6 max-w-sm w-full shadow-2xl"
+        className="glass-card-solid rounded-2xl p-6 max-w-sm w-full"
         onClick={e => e.stopPropagation()}
       >
         <div className="text-center">
@@ -33,7 +34,7 @@ const SaveProgressDialog: React.FC<SaveProgressDialogProps> = ({
             <ICONS.Heart className="w-8 h-8 text-[var(--accent-color)]" />
           </div>
 
-          <h3 className="text-scale-heading font-bold text-[var(--text-primary)] mb-2">
+          <h3 className="text-scale-heading font-bold font-header text-[var(--text-primary)] mb-2">
             {t('tutorGames.saveDialog.title', { name: partnerName })}
           </h3>
 
@@ -134,11 +135,16 @@ export const TutorGameResults: React.FC<TutorGameResultsProps> = ({
   const total = score.correct + score.incorrect;
   const percentage = total > 0 ? Math.round((score.correct / total) * 100) : 0;
 
+  // Celebration haptic on mount
+  useEffect(() => {
+    haptics.trigger(percentage >= 80 ? 'perfect' : percentage >= 50 ? 'tier-up' : 'xp-gain');
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
-    <div className="h-full flex items-center justify-center p-4 bg-[var(--bg-primary)]">
-      <div className="bg-[var(--bg-card)] p-8 rounded-[2rem] shadow-xl text-center max-w-sm w-full">
-        <div className="text-6xl mb-4">{percentage >= 70 ? '🎉' : '💪'}</div>
-        <h2 className="text-2xl font-black text-[var(--text-primary)] mb-2">
+    <div className="h-full flex items-center justify-center p-4">
+      <div className="glass-card p-8 rounded-2xl text-center max-w-sm w-full">
+        <div className="mb-4">{percentage >= 70 ? <ICONS.Trophy className="w-16 h-16 mx-auto text-[var(--color-correct)]" /> : <ICONS.TrendingUp className="w-16 h-16 mx-auto text-[var(--accent-color)]" />}</div>
+        <h2 className="text-2xl font-black font-header text-[var(--text-primary)] mb-2">
           {percentage >= 70 ? t('tutorGames.gameOver.greatJob') : t('tutorGames.gameOver.keepPracticing')}
         </h2>
         <div className="text-5xl font-black text-[var(--accent-color)] mb-4">{percentage}%</div>
@@ -181,8 +187,8 @@ export const TutorGameResults: React.FC<TutorGameResultsProps> = ({
 
         {/* Success message */}
         {savedSuccess && (
-          <div className="mb-4 p-3 bg-green-500/10 rounded-xl border border-green-500/30">
-            <p className="text-scale-label text-green-500 font-bold flex items-center justify-center gap-2">
+          <div className="mb-4 p-3 bg-[var(--color-correct-bg)] rounded-xl border border-[var(--color-correct)]">
+            <p className="text-scale-label text-[var(--color-correct)] font-bold flex items-center justify-center gap-2">
               <ICONS.Check className="w-4 h-4" />
               {t('tutorGames.gameOver.savedSuccess', { name: partnerName })}
             </p>

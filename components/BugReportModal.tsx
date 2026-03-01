@@ -6,6 +6,7 @@ import { supabase } from '../services/supabase';
 import { Profile, BugReportSeverity } from '../types';
 import { getLevelFromXP } from '../services/level-utils';
 import { useLocation } from 'react-router-dom';
+import { apiFetch } from '../services/api-config';
 
 interface Props {
   isOpen: boolean;
@@ -18,16 +19,18 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
   const { accentHex } = useTheme();
   const location = useLocation();
 
-  const SEVERITY_OPTIONS: { value: BugReportSeverity; label: string; description: string; color: string }[] = [
-    { value: 'low', label: t('bugReport.severity.low'), description: t('bugReport.severity.lowDescription'), color: 'text-slate-500' },
-    { value: 'medium', label: t('bugReport.severity.medium'), description: t('bugReport.severity.mediumDescription'), color: 'text-amber-500' },
-    { value: 'high', label: t('bugReport.severity.high'), description: t('bugReport.severity.highDescription'), color: 'text-orange-500' },
-    { value: 'critical', label: t('bugReport.severity.critical'), description: t('bugReport.severity.criticalDescription'), color: 'text-red-500' },
-  ];
-
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [severity, setSeverity] = useState<BugReportSeverity>('medium');
+
+  const SEVERITY_STEPS: { value: BugReportSeverity; label: string; description: string; color: string }[] = [
+    { value: 'low', label: t('bugReport.severity.low'), description: t('bugReport.severity.lowDescription'), color: '#64748b' },
+    { value: 'medium', label: t('bugReport.severity.medium'), description: t('bugReport.severity.mediumDescription'), color: '#f59e0b' },
+    { value: 'high', label: t('bugReport.severity.high'), description: t('bugReport.severity.highDescription'), color: '#f97316' },
+    { value: 'critical', label: t('bugReport.severity.critical'), description: t('bugReport.severity.criticalDescription'), color: '#ef4444' },
+  ];
+  const severityIndex = SEVERITY_STEPS.findIndex(s => s.value === severity);
+  const currentSeverity = SEVERITY_STEPS[severityIndex];
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -52,7 +55,7 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
 
       const levelInfo = getLevelFromXP(profile.xp || 0);
 
-      const response = await fetch('/api/submit-bug-report/', {
+      const response = await apiFetch('/api/submit-bug-report/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -107,18 +110,16 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
   if (!isOpen) return null;
 
   return (
-    <>
-      {/* Backdrop */}
-      <div
-        className="fixed inset-0 bg-black/30 z-40 animate-in fade-in duration-200"
-        onClick={handleClose}
-      />
-
-      {/* Modal */}
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-        <div className="bg-[var(--bg-card)] rounded-2xl shadow-2xl w-full max-w-md animate-in zoom-in-95 fade-in duration-200 overflow-hidden">
+    <div
+      className="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-4 animate-in fade-in duration-200"
+      onClick={handleClose}
+    >
+        <div
+          className="glass-card-solid rounded-2xl w-full max-w-md max-h-[80vh] flex flex-col animate-in zoom-in-95 fade-in duration-200 overflow-hidden"
+          onClick={(e) => e.stopPropagation()}
+        >
           {/* Header */}
-          <div className="flex items-center justify-between p-5 border-b border-[var(--border-color)]">
+          <div className="flex items-center justify-between p-5 border-b border-[var(--border-color)] flex-shrink-0">
             <div className="flex items-center gap-3">
               <div
                 className="w-10 h-10 rounded-xl flex items-center justify-center"
@@ -140,7 +141,7 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
           </div>
 
           {/* Content */}
-          <div className="p-5">
+          <div className="p-5 overflow-y-auto flex-1">
             {submitted ? (
               <div className="text-center py-8">
                 <div
@@ -149,7 +150,7 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
                 >
                   <ICONS.Check className="w-8 h-8" style={{ color: accentHex }} />
                 </div>
-                <h3 className="font-bold text-lg text-[var(--text-primary)] mb-2">{t('bugReport.success.title')}</h3>
+                <h3 className="font-bold font-header text-lg text-[var(--text-primary)] mb-2">{t('bugReport.success.title')}</h3>
                 <p className="text-scale-label text-[var(--text-secondary)] mb-6">
                   {t('bugReport.success.message')}
                 </p>
@@ -194,29 +195,52 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
                   />
                 </div>
 
-                {/* Severity */}
+                {/* Severity Slider */}
                 <div>
-                  <label className="block text-scale-label font-medium text-[var(--text-primary)] mb-2">
+                  <label className="block text-scale-label font-medium text-[var(--text-primary)] mb-3">
                     {t('bugReport.severity.label')}
                   </label>
-                  <div className="grid grid-cols-2 gap-2">
-                    {SEVERITY_OPTIONS.map((option) => (
-                      <button
-                        key={option.value}
-                        type="button"
-                        onClick={() => setSeverity(option.value)}
-                        disabled={isSubmitting}
-                        className={`p-3 rounded-xl border text-left transition-all ${
-                          severity === option.value
-                            ? 'border-[var(--accent-color)] bg-[var(--accent-light)]'
-                            : 'border-[var(--border-color)] bg-[var(--bg-primary)] hover:border-[var(--accent-color)]'
-                        }`}
-                      >
-                        <span className={`text-scale-label font-medium ${option.color}`}>{option.label}</span>
-                        <p className="text-scale-caption text-[var(--text-secondary)] mt-0.5">{option.description}</p>
-                      </button>
-                    ))}
+                  <div className="px-1">
+                    <input
+                      type="range"
+                      min={0}
+                      max={3}
+                      step={1}
+                      value={severityIndex}
+                      onChange={(e) => setSeverity(SEVERITY_STEPS[parseInt(e.target.value)].value)}
+                      disabled={isSubmitting}
+                      className="w-full h-2 rounded-full appearance-none cursor-pointer"
+                      style={{
+                        background: `linear-gradient(to right, ${currentSeverity.color} 0%, ${currentSeverity.color} ${(severityIndex / 3) * 100}%, var(--border-color) ${(severityIndex / 3) * 100}%, var(--border-color) 100%)`
+                      }}
+                    />
+                    {/* Step labels */}
+                    <div className="flex justify-between mt-1.5">
+                      {SEVERITY_STEPS.map((step, i) => (
+                        <button
+                          key={step.value}
+                          type="button"
+                          onClick={() => setSeverity(step.value)}
+                          disabled={isSubmitting}
+                          className="text-center group"
+                          style={{ width: i === 0 || i === 3 ? 'auto' : undefined }}
+                        >
+                          <span
+                            className={`text-[11px] font-bold uppercase tracking-wider transition-colors ${
+                              i === severityIndex ? 'opacity-100' : 'opacity-40'
+                            }`}
+                            style={{ color: i === severityIndex ? currentSeverity.color : 'var(--text-secondary)' }}
+                          >
+                            {step.label}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
                   </div>
+                  {/* Active description */}
+                  <p className="text-scale-caption text-[var(--text-secondary)] mt-2 text-center transition-all">
+                    {currentSeverity.description}
+                  </p>
                 </div>
 
                 {/* Auto-captured info note */}
@@ -240,7 +264,7 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
                     type="button"
                     onClick={handleClose}
                     disabled={isSubmitting}
-                    className="flex-1 px-4 py-2.5 rounded-xl font-medium text-[var(--text-secondary)] bg-[var(--bg-primary)] hover:bg-[var(--border-color)] transition-colors"
+                    className="flex-1 px-4 py-2.5 rounded-xl font-medium text-[var(--text-secondary)] glass-card hover:bg-white/40 transition-colors"
                   >
                     {t('bugReport.cancel')}
                   </button>
@@ -264,7 +288,6 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
             )}
           </div>
         </div>
-      </div>
-    </>
+    </div>
   );
 };

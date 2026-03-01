@@ -346,7 +346,7 @@
       "chooseMode": "Επίλεξε τρόπο πρόκλησης",
       "length": "Διάρκεια",
       "all": "Όλες",
-      "qs": "ερωτ.",
+      "qs": "Ερωτήσεις",
       "generatingPhrases": "Δημιουργία ρομαντικών φράσεων...",
       "startChallenge": "Έναρξη πρόκλησης",
       "modes": {
@@ -667,6 +667,10 @@
     }
   },
   "onboarding": {
+    "nativeLanguage": {
+      "title": "Ποια γλώσσα μιλάτε;",
+      "subtitle": "Θα σας δείξουμε τα πάντα στη γλώσσά σας"
+    },
     "step": {
       "back": "Πίσω",
       "counter": "{{current}} / {{total}}",
@@ -737,8 +741,8 @@
         "name": "Standard",
         "tagline": "Τέλειο για να ξεκινήσεις",
         "feature1": "2000 λέξεις στο Love Log",
-        "feature2": "60 λεπτά φωνητικής συνομιλίας/μήνα",
-        "feature3": "30 λεπτά λειτουργίας ακρόασης/μήνα",
+        "feature2": "8 ώρες φωνητικής συνομιλίας/μήνα",
+        "feature3": "8 ώρες λειτουργίας ακρόασης/μήνα",
         "feature4": "Όλα τα σενάρια συνομιλίας",
         "feature5": "Πρόσκληση συντρόφου"
       },
@@ -758,6 +762,58 @@
         "retry": "Retry"
       }
     },
+    "role": {
+      "title": "Θέλω να...",
+      "subtitle": "Επίλεξε πώς θέλεις να χρησιμοποιήσεις το Love Languages",
+      "learn": "Μάθω μια γλώσσα",
+      "learnDesc": "Μάθε τη γλώσσα κάποιου που αγαπάς",
+      "teach": "Διδάξω μια γλώσσα",
+      "teachDesc": "Βοήθησε κάποιον που αγαπάς να μάθει τη γλώσσα σου"
+    },
+    "names": {
+      "title": "Ας το κάνουμε προσωπικό",
+      "studentSubtitle": "Θα εξατομικεύσουμε τη μαθησιακή σου εμπειρία",
+      "tutorSubtitle": "Θα εξατομικεύσουμε τη διδακτική εμπειρία",
+      "yourName": "Το όνομά σου",
+      "partnerLabel": "Για ποιον μαθαίνεις;",
+      "learnerLabel": "Ποιον θα διδάξεις;",
+      "partnerPlaceholder": "Το όνομά του/της",
+      "learnerPlaceholder": "Όνομα μαθητή"
+    },
+    "language": {
+      "studentTitle": "Ποια γλώσσα μιλάει κάποιος που αγαπάς;",
+      "tutorTitle": "Ποια γλώσσα θέλεις να διδάξεις;",
+      "studentSubtitle": "Θα σε βοηθήσουμε να μάθεις τη γλώσσα τους",
+      "tutorSubtitle": "Επίλεξε τη γλώσσα που θα διδάξεις",
+      "showAll": "Εμφάνιση όλων των γλωσσών",
+      "showLess": "Δημοφιλείς γλώσσες"
+    },
+    "themeCustomization": {
+      "title": "Make it yours",
+      "subtitle": "Choose your colors, mode & font",
+      "accentLabel": "Your color",
+      "darkModeLabel": "Display mode",
+      "fontLabel": "Font style",
+      "continue": "Looks great!"
+    },
+    "personalization": {
+      "title": "Κάντο δικό σου",
+      "subtitle": "Βοήθησέ μας να εξατομικεύσουμε την εμπειρία σου",
+      "vibeLabel": "Η ατμόσφαιρα της σχέσης σας",
+      "timeLabel": "Καθημερινός χρόνος εξάσκησης",
+      "priorLabel": "Δοκίμασες {{language}} στο παρελθόν;"
+    },
+    "tutorPersonalization": {
+      "title": "Πες μας για σένα",
+      "subtitle": "Βοήθησέ μας να εξατομικεύσουμε τη διδακτική εμπειρία",
+      "relationLabel": "Ο/Η {{name}} είναι...",
+      "connectionLabel": "Η σύνδεσή σου με τα {{language}}",
+      "originLabel": "Από πού είσαι; (προαιρετικό)",
+      "originPlaceholder": "Πόλη, χώρα..."
+    },
+    "errors": {
+      "title": "Κάτι πήγε στραβά"
+    },
     "student": {
       "start": {
         "title": "Είσαι έτοιμος/η, {{name}};",
@@ -767,6 +823,7 @@
         "feature2": "Το Love Log παρακολούθησης λεξιλογίου",
         "feature3": "Παιχνίδια για εξάσκηση και κατάκτηση λέξεων",
         "feature4": "Παρακολούθηση προόδου και τεστ επιπέδου",
+        "activating": "Ξεκινάει η δοκιμαστική σου περίοδος...",
         "button": "Πάμε!"
       },
       "vibe": {
@@ -877,6 +934,7 @@
         "feature2": "Παρακολούθησε την πρόοδο του/της {{learnerName}}",
         "feature3": "Στείλε λέξεις-δώρα ως έκπληξη",
         "feature4": "Σύνδεσε τους λογαριασμούς σας για να βλέπεις το ταξίδι τους",
+        "activating": "Ξεκινάει η δοκιμαστική σου περίοδος...",
         "button": "Ας αρχίσουμε να βοηθάμε αυτό το άτομο {{learnerName}}!"
       },
       "relation": {
@@ -1448,10 +1506,11 @@
         "features": {
           "conversations": "25 συνομιλίες AI/μήνα",
           "validations": "50 επαληθεύσεις λέξεων/μήνα",
+          "words": "200 words in your vocabulary",
           "games": "Βασικά παιχνίδια λεξιλογίου",
-          "voiceLimited": "Φωνητική συνομιλία (1 δοκιμή)",
-          "listenLimited": "Λειτουργία ακρόασης (1 δοκιμή)",
-          "challengesLimited": "5 προκλήσεις συντρόφου"
+          "voice": "15 min voice chat/month",
+          "listen": "15 min listen mode/month",
+          "challenges": "5 partner challenges"
         },
         "cta": "Ξεκινήστε Δωρεάν",
         "subtext": "Ιδανικό για δοκιμή του Love Languages",
@@ -1863,6 +1922,43 @@
     "timesUp": "Τέλος χρόνου!"
   },
   "hero": {
+    "headline": "Μάθε τη γλώσσα κάποιου που αγαπάς.",
+    "subtitle": "Η μόνη γλωσσική εφαρμογή σχεδιασμένη για ζευγάρια",
+    "swipeForMore": "Σύρετε για να ανακαλύψετε περισσότερα",
+    "landing": {
+      "student": {
+        "headline": "Μάθε τη γλώσσα αυτού που αγαπάς",
+        "highlight1": "γλώσσα",
+        "highlight2": "αγαπάς"
+      },
+      "tutor": {
+        "headline": "Μοιράσου τη γλώσσα σου με αυτόν που αγαπάς",
+        "highlight1": "γλώσσα",
+        "highlight2": "αγαπάς"
+      },
+      "tagline": {
+        "pre": "Η",
+        "only": "μόνη",
+        "post": "γλωσσική εφαρμογή σχεδιασμένη για ζευγάρια"
+      },
+      "startFree": "Ξεκινήστε σήμερα για",
+      "learn": {
+        "title": "Δωρεάν εκπαιδευτικό υλικό",
+        "count": "11.500+",
+        "topics": "Χαϊδευτικά · Φράσεις ραντεβού · Γραμματική · Πολιτισμός"
+      },
+      "installApp": "Εγκατάσταση",
+      "installed": "Εγκαταστάθηκε",
+      "addToHome": "Προσθήκη στην αρχική οθόνη",
+      "appStore": "App Store",
+      "comingSoon": "Σύντομα",
+      "followSocials": "Ακολουθήστε μας",
+      "waitlist": {
+        "description": "Ενημερωθείτε όταν κυκλοφορήσουμε στο App Store.",
+        "submitting": "Υποβολή...",
+        "notify": "Ειδοποιήστε με"
+      }
+    },
     "languageSelector": {
       "nativeTitle": "What language do you speak?",
       "nativeSubtitle": "18 languages available - we'll show everything in yours",
@@ -1911,7 +2007,10 @@
       "alreadyHaveAccount": "Έχεις ήδη λογαριασμό; Συνδέσου",
       "newHere": "Νέος/α εδώ; Δημιούργησε λογαριασμό",
       "checkEmail": "Έλεγξε το email σου για επιβεβαίωση!",
-      "continueWithGoogle": "Συνέχεια με Google"
+      "continueWithGoogle": "Συνέχεια με Google",
+      "continueWithApple": "Συνέχεια με Apple",
+      "orContinueWithEmail": "ή συνέχεια με email",
+      "orSignInWith": "ή σύνδεση με"
     },
     "legal": {
       "terms": "Όροι",
@@ -2214,6 +2313,18 @@
         "blog": "Blog",
         "contact": "Επικοινωνία",
         "copyright": "Love Languages · Φτιαγμένο με ♥ για τους ερωτευμένους παντού"
+      }
+    },
+    "testimonials": {
+      "1": {
+        "quote": "This is SO COOL",
+        "name": "Alessia",
+        "context": "Μαθαίνει για τον σύντροφό της Tomas"
+      },
+      "2": {
+        "quote": "Dude this app is amazing",
+        "name": "Alessandra",
+        "context": "Μαθαίνει για τον φίλο της Miki"
       }
     }
   },

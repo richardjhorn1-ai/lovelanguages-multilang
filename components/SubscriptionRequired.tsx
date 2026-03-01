@@ -5,6 +5,8 @@ import { analytics } from '../services/analytics';
 import { Profile } from '../types';
 import { ICONS } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
+import { isIAPAvailable, getOfferings, purchasePackage, restorePurchases, hasActiveEntitlement } from '../services/purchases';
+import { apiFetch, APP_URL } from '../services/api-config';
 
 interface SubscriptionRequiredProps {
   profile: Profile;
@@ -22,6 +24,90 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
 
   const { t } = useTranslation();
   const { targetName } = useLanguage();
+  const [iapPackages, setIapPackages] = useState<any[]>([]);
+  const [restoring, setRestoring] = useState(false);
+  const useIAP = isIAPAvailable();
+
+  // Fetch IAP offerings on iOS
+  useEffect(() => {
+    if (useIAP) {
+      getOfferings().then(offerings => {
+        if (offerings?.current?.availablePackages) {
+          setIapPackages(offerings.current.availablePackages);
+        }
+      });
+    }
+  }, [useIAP]);
+
+  // Restore Purchases handler (required by Apple)
+  const handleRestorePurchases = async () => {
+    setRestoring(true);
+    setError(null);
+    try {
+      const customerInfo = await restorePurchases();
+      if (customerInfo) {
+        const entitlement = hasActiveEntitlement(customerInfo);
+        if (entitlement.isActive) {
+          // User has an active subscription — refresh profile
+          onSubscribed();
+          return;
+        }
+      }
+      setError(t('subscription.errors.noActivePurchases', { defaultValue: 'No active purchases found' }));
+    } catch (err: any) {
+      setError(err?.message || t('subscription.errors.restoreFailed', { defaultValue: 'Failed to restore purchases' }));
+    } finally {
+      setRestoring(false);
+    }
+  };
+
+  // iOS IAP purchase handler
+  const handleIAPSubscribe = async () => {
+    const productId = `${selectedPlan}_${billingPeriod}`;
+    const pkg = iapPackages.find((p: any) => p.product?.identifier === productId);
+
+    if (!pkg) {
+      setError(`Product ${productId} not available`);
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+
+    // Track checkout started for iOS
+    analytics.trackCheckoutStarted({
+      plan: selectedPlan as 'standard' | 'unlimited',
+      billing_period: billingPeriod === 'weekly' ? 'monthly' : billingPeriod as 'monthly' | 'yearly',
+      price: pkg.product?.price ?? 0,
+      currency: pkg.product?.currencyCode || 'USD',
+    });
+
+    try {
+      const customerInfo = await purchasePackage(pkg);
+      if (customerInfo) {
+        // Purchase succeeded — webhook updates DB, refresh profile
+        analytics.trackSubscriptionCompleted({
+          plan: selectedPlan as 'standard' | 'unlimited',
+          billing_period: billingPeriod === 'weekly' ? 'monthly' : billingPeriod as 'monthly' | 'yearly',
+          price: pkg.product?.price ?? 0,
+          currency: pkg.product?.currencyCode || 'USD',
+        });
+        onSubscribed();
+      } else {
+        // User cancelled
+        setLoading(false);
+      }
+    } catch (err: any) {
+      analytics.track('subscription_failed', {
+        plan: selectedPlan,
+        billing_period: billingPeriod,
+        error_message: err?.message || 'Unknown error',
+        platform: 'ios',
+      });
+      setError(err?.message || 'Purchase failed. Please try again.');
+      setLoading(false);
+    }
+  };
 
   // Handle plan selection with analytics
   const handlePlanSelect = (planId: 'free' | 'standard' | 'unlimited') => {
@@ -42,9 +128,16 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       paywallViewedRef.current = true;
       paywallViewedAt.current = Date.now();
       analytics.trackPaywallView({
-        trigger_reason: 'subscription_required',
-        page_context: 'onboarding',
+        trigger_reason: trialExpired ? 'trial_expired' : 'subscription_required',
+        page_context: trialExpired ? 'trial_expired' : 'onboarding',
       });
+      // Fire trial_expired event once per session (not on every remount)
+      if (trialExpired && !sessionStorage.getItem('trial_expired_tracked')) {
+        sessionStorage.setItem('trial_expired_tracked', 'true');
+        analytics.track('trial_expired', {
+          user_id: profile.id,
+        });
+      }
     }
   }, []);
 
@@ -73,23 +166,24 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       features: [
         { text: t('subscription.choice.free.features.conversations'), included: true },
         { text: t('subscription.choice.free.features.validations'), included: true },
+        { text: t('subscription.choice.free.features.words'), included: true },
         { text: t('subscription.choice.free.features.games'), included: true },
-        { text: t('subscription.choice.free.features.voiceLimited'), included: false },
-        { text: t('subscription.choice.free.features.listenLimited'), included: false },
-        { text: t('subscription.choice.free.features.challengesLimited'), included: false },
+        { text: t('subscription.choice.free.features.voice'), included: true },
+        { text: t('subscription.choice.free.features.listen'), included: true },
+        { text: t('subscription.choice.free.features.challenges'), included: true },
       ],
     },
     {
       id: 'standard' as const,
       name: t('subscription.plans.standard'),
       weeklyPrice: 7,
-      monthlyPrice: 19,
-      yearlyPrice: 69,
+      monthlyPrice: 17.99,
+      yearlyPrice: 69.99,
       tagline: t('subscription.required.taglineStandard'),
       features: [
         { text: t('subscription.features.wordsLimit', { limit: '2,000' }), included: true },
-        { text: t('subscription.features.voiceMinutes', { minutes: 60 }), included: true },
-        { text: t('subscription.features.listenMinutes', { minutes: 30 }), included: true },
+        { text: t('subscription.features.voiceMinutes', { minutes: 480 }), included: true },
+        { text: t('subscription.features.listenMinutes', { minutes: 480 }), included: true },
         { text: t('subscription.features.allScenarios'), included: true },
         { text: t('subscription.features.partnerInvite'), included: true },
       ],
@@ -97,8 +191,8 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
     {
       id: 'unlimited' as const,
       name: t('subscription.plans.unlimited'),
-      weeklyPrice: 12,
-      monthlyPrice: 39,
+      weeklyPrice: 12.99,
+      monthlyPrice: 39.99,
       yearlyPrice: 139,
       tagline: t('subscription.required.taglineUnlimited'),
       popular: true,
@@ -141,7 +235,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
         return;
       }
 
-      const response = await fetch('/api/choose-free-tier/', {
+      const response = await apiFetch('/api/choose-free-tier/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -170,9 +264,42 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
 
   const handleSubscribe = async () => {
     if (selectedPlan === 'free') {
+      if (useIAP) {
+        // iOS: Free trial = App Store intro offer on standard_monthly
+        const pkg = iapPackages.find((p: any) => p.product?.identifier === 'standard_monthly');
+        if (!pkg) {
+          setError('Free trial not available. Please select a plan.');
+          return;
+        }
+        setLoading(true);
+        setError(null);
+        try {
+          const customerInfo = await purchasePackage(pkg);
+          if (customerInfo) {
+            analytics.track('trial_started', {
+              plan: 'standard',
+              trigger_reason: 'subscription_required',
+              source: 'app_store',
+            });
+            onSubscribed();
+          } else {
+            setLoading(false); // User cancelled
+          }
+        } catch (err: any) {
+          setError(err?.message || 'Failed to start trial. Please try again.');
+          setLoading(false);
+        }
+        return;
+      }
       return handleChooseFreeTier();
     }
 
+    // iOS: use RevenueCat IAP
+    if (useIAP) {
+      return handleIAPSubscribe();
+    }
+
+    // Web: use Stripe checkout
     setLoading(true);
     setError(null);
 
@@ -203,7 +330,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       }
 
       // Get price IDs
-      const statusResponse = await fetch('/api/subscription-status/', {
+      const statusResponse = await apiFetch('/api/subscription-status/', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 
@@ -239,7 +366,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       }
 
       // Create checkout session
-      const response = await fetch('/api/create-checkout-session/', {
+      const response = await apiFetch('/api/create-checkout-session/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -247,8 +374,8 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
         },
         body: JSON.stringify({
           priceId,
-          successUrl: `${window.location.origin}/#/?subscription=success`,
-          cancelUrl: `${window.location.origin}/#/?subscription=canceled`
+          successUrl: `${APP_URL}/#/?subscription=success`,
+          cancelUrl: `${APP_URL}/#/?subscription=canceled`
         })
       });
 
@@ -298,14 +425,16 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       <div className="max-w-4xl w-full">
         {/* Header */}
         <div className="text-center mb-6">
-          <div className="text-5xl mb-3">{trialExpired ? '💔' : '💕'}</div>
-          <h1 className="text-2xl sm:text-3xl font-black text-gray-800 mb-2 font-header">
+          <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3" style={{ backgroundColor: trialExpired ? '#EF444415' : 'var(--accent-light)' }}>
+            {trialExpired ? <ICONS.HeartCrack className="w-7 h-7 text-red-500" /> : <ICONS.Heart className="w-7 h-7" style={{ color: 'var(--accent-color)' }} />}
+          </div>
+          <h1 className="text-2xl sm:text-3xl font-black text-[var(--text-primary)] mb-2 font-header">
             {trialExpired
               ? t('trial.expired.title', { defaultValue: 'Your free trial has ended' })
               : t('subscription.choice.title')
             }
           </h1>
-          <p className="text-gray-600 text-sm sm:text-base">
+          <p className="text-[var(--text-secondary)] text-sm sm:text-base">
             {trialExpired
               ? t('trial.expired.subtitle', { defaultValue: 'We hope you enjoyed learning together! Subscribe to continue your language journey with your partner.' })
               : t('subscription.choice.subtitle')
@@ -317,9 +446,9 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
         {showCanceledMessage && (
           <div className="mb-6 p-4 bg-amber-50 border border-amber-200 rounded-2xl">
             <div className="flex items-start gap-3">
-              <span className="text-2xl flex-shrink-0">👋</span>
+              <ICONS.AlertCircle className="w-6 h-6 text-amber-600 flex-shrink-0" />
               <div>
-                <h3 className="font-bold text-amber-800 mb-1">
+                <h3 className="font-bold font-header text-amber-800 mb-1">
                   {t('subscription.canceled.title')}
                 </h3>
                 <p className="text-amber-700 text-sm">
@@ -332,7 +461,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
 
         {/* Billing Period Toggle - Pill Style */}
         <div className="flex justify-center mb-6">
-          <div className="inline-flex bg-white/80 rounded-full p-1 shadow-sm border border-gray-200">
+          <div className="inline-flex bg-white/80 dark:bg-white/20 rounded-full p-1 shadow-sm border border-[var(--border-color)]">
             {(['weekly', 'monthly', 'yearly'] as const).map((period) => (
               <button
                 key={period}
@@ -340,7 +469,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
                 className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
                   billingPeriod === period
                     ? 'bg-rose-500 text-white shadow-md'
-                    : 'text-gray-600 hover:text-gray-800'
+                    : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                 }`}
               >
                 {period === 'weekly' && t('subscription.common.weekly')}
@@ -373,7 +502,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
                 className={`relative text-left p-5 rounded-2xl border-2 transition-all ${
                   isSelected
                     ? 'border-rose-400 bg-rose-50 shadow-lg'
-                    : 'border-gray-200 bg-white hover:border-gray-300'
+                    : 'bg-white/70 dark:bg-[var(--bg-card)]/80 backdrop-blur-sm border-white/80 dark:border-[var(--border-color)]/50 shadow-[0_8px_32px_-8px_rgba(0,0,0,0.08)] hover:border-white/80 dark:hover:border-[var(--border-color)]/50'
                 } ${plan.popular ? 'md:-mt-2 md:mb-2' : ''}`}
               >
                 {plan.popular && (
@@ -384,8 +513,8 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
 
                 <div className="flex items-start justify-between mb-3">
                   <div>
-                    <h3 className="text-lg font-bold text-gray-900">{plan.name}</h3>
-                    <p className="text-xs text-gray-500">{plan.tagline}</p>
+                    <h3 className="text-lg font-bold font-header text-[var(--text-primary)]">{plan.name}</h3>
+                    <p className="text-xs text-[var(--text-secondary)]">{plan.tagline}</p>
                   </div>
                   {isSelected && (
                     <div className="w-6 h-6 rounded-full bg-rose-500 flex items-center justify-center flex-shrink-0">
@@ -397,13 +526,13 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
                 {/* Price Display - Monthly Equiv Big, Total Small */}
                 <div className="mb-4">
                   <div className="flex items-baseline gap-1">
-                    <span className="text-3xl font-bold text-gray-900">
+                    <span className="text-3xl font-bold text-[var(--text-primary)]">
                       ${plan.id === 'free' ? '0' : monthlyEquiv.toFixed(monthlyEquiv % 1 === 0 ? 0 : 2)}
                     </span>
-                    <span className="text-gray-500 text-sm">/{t('subscription.common.mo')}</span>
+                    <span className="text-[var(--text-secondary)] text-sm">/{t('subscription.common.mo')}</span>
                   </div>
                   {billingLabel && (
-                    <p className="text-xs text-gray-400 mt-1">{billingLabel}</p>
+                    <p className="text-xs text-[var(--text-secondary)] mt-1">{billingLabel}</p>
                   )}
                 </div>
 
@@ -414,9 +543,9 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
                       {feature.included !== false ? (
                         <ICONS.Check className="w-4 h-4 text-rose-500 flex-shrink-0 mt-0.5" />
                       ) : (
-                        <span className="w-4 h-4 text-gray-300 flex-shrink-0 mt-0.5">✗</span>
+                        <span className="w-4 h-4 text-[var(--border-color)] flex-shrink-0 mt-0.5">✗</span>
                       )}
-                      <span className={feature.included !== false ? 'text-gray-600' : 'text-gray-400'}>
+                      <span className={feature.included !== false ? 'text-[var(--text-secondary)]' : 'text-[var(--text-secondary)] opacity-60'}>
                         {feature.text}
                       </span>
                     </li>
@@ -440,7 +569,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
           disabled={loading}
           className={`w-full py-4 rounded-2xl font-bold text-lg shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all ${
             selectedPlan === 'free'
-              ? 'bg-gray-800 hover:bg-gray-900 text-white'
+              ? 'bg-gray-800 dark:bg-gray-600 hover:bg-gray-900 dark:hover:bg-gray-500 text-white'
               : 'bg-rose-500 hover:bg-rose-600 text-white'
           }`}
         >
@@ -461,18 +590,36 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
         </button>
 
         {/* Trust signals */}
-        <p className="text-center text-xs text-gray-400 mt-4">
+        <p className="text-center text-xs text-[var(--text-secondary)] mt-4">
           {selectedPlan === 'free'
-            ? t('subscription.choice.free.noCardRequired', { defaultValue: 'No credit card required' })
+            ? (useIAP
+                ? t('subscription.choice.free.iosTrialNote', { defaultValue: '7 days free, then $17.99/mo. Cancel anytime.' })
+                : t('subscription.choice.free.noCardRequired', { defaultValue: 'No credit card required' }))
             : t('subscription.common.securePayment')
           }
         </p>
+
+        {/* Restore Purchases — required by Apple for App Store */}
+        {useIAP && (
+          <div className="text-center mt-4">
+            <button
+              onClick={handleRestorePurchases}
+              disabled={restoring}
+              className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] underline disabled:opacity-50"
+            >
+              {restoring
+                ? t('subscription.restore.restoring', { defaultValue: 'Restoring...' })
+                : t('subscription.restore.button', { defaultValue: 'Restore Purchases' })
+              }
+            </button>
+          </div>
+        )}
 
         {/* Logout option */}
         <div className="text-center mt-6">
           <button
             onClick={handleLogout}
-            className="text-sm text-gray-400 hover:text-gray-600 underline"
+            className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] underline"
           >
             {t('subscription.required.signOutOption')}
           </button>

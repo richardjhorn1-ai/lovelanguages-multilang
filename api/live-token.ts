@@ -120,16 +120,12 @@ export default async function handler(req: any, res: any) {
     return res.status(200).end();
   }
 
-  console.log('[live-token] Request received');
-
   try {
     // Verify authentication
     const auth = await verifyAuth(req);
     if (!auth) {
-      console.log('[live-token] Auth failed');
       return res.status(401).json({ error: 'Unauthorized. Please log in.' });
     }
-    console.log('[live-token] Auth successful for user:', auth.userId.substring(0, 8) + '...');
 
     const supabase = createServiceClient();
     if (!supabase) {

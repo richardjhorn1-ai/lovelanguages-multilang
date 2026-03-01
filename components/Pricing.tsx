@@ -10,7 +10,7 @@ const Pricing: React.FC = () => {
   const { accentHex } = useTheme();
 
   return (
-    <div className="min-h-screen overflow-y-auto" style={{ background: 'var(--bg-primary)', paddingTop: 'env(safe-area-inset-top, 0px)' }}>
+    <div className="min-h-screen overflow-y-auto app-bg-decor" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
       <div className="max-w-3xl mx-auto px-4 py-8 sm:py-12">
         {/* Back Button */}
         <button
@@ -31,7 +31,7 @@ const Pricing: React.FC = () => {
         </button>
 
         {/* Header */}
-        <h1 className="text-3xl sm:text-4xl font-black mb-2" style={{ color: 'var(--text-primary)' }}>
+        <h1 className="text-3xl sm:text-4xl font-black font-header mb-2" style={{ color: 'var(--text-primary)' }}>
           {t('hero.bottomSections.faq.q5.question')}
         </h1>
         <p className="text-lg mb-8" style={{ color: 'var(--text-secondary)' }}>
@@ -42,10 +42,9 @@ const Pricing: React.FC = () => {
         <div className="grid gap-6 md:grid-cols-2">
           {/* Standard */}
           <div
-            className="p-6 rounded-2xl border"
-            style={{ borderColor: 'var(--border-primary)', background: 'var(--bg-secondary)' }}
+            className="p-6 rounded-2xl glass-card"
           >
-            <h2 className="text-2xl font-black mb-2" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-2xl font-black font-header mb-2" style={{ color: 'var(--text-primary)' }}>
               {t('hero.bottomSections.faq.q5.standard')}
             </h2>
             <p className="text-lg font-bold mb-4" style={{ color: accentHex }}>
@@ -83,8 +82,8 @@ const Pricing: React.FC = () => {
 
           {/* Unlimited */}
           <div
-            className="p-6 rounded-2xl border-2 relative"
-            style={{ borderColor: accentHex, background: 'var(--bg-secondary)' }}
+            className="p-6 rounded-2xl border-2 relative glass-card"
+            style={{ borderColor: accentHex }}
           >
             <div
               className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-bold text-white"
@@ -92,7 +91,7 @@ const Pricing: React.FC = () => {
             >
               {t('pricing.mostPopular', 'Most Popular')}
             </div>
-            <h2 className="text-2xl font-black mb-2" style={{ color: 'var(--text-primary)' }}>
+            <h2 className="text-2xl font-black font-header mb-2" style={{ color: 'var(--text-primary)' }}>
               {t('hero.bottomSections.faq.q5.unlimited')}
             </h2>
             <p className="text-lg font-bold mb-4" style={{ color: accentHex }}>

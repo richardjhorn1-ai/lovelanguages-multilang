@@ -13,6 +13,7 @@
  */
 
 import { enhancedLocalMatch } from './local-matcher';
+import { apiFetch } from '../services/api-config';
 
 /**
  * Normalize a string for comparison by removing diacritics and normalizing case.
@@ -106,7 +107,7 @@ export async function validateAnswerSmart(
 
   // API validation for synonyms, alternative forms, etc.
   try {
-    const response = await fetch('/api/validate-answer/', {
+    const response = await apiFetch('/api/validate-answer/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -142,20 +143,3 @@ export async function validateAnswerSmart(
   }
 }
 
-/**
- * Legacy wrapper for TutorGames signature.
- * Prefer using validateAnswerSmart with options object for new code.
- */
-export async function validateAnswerSmartLegacy(
-  userAnswer: string,
-  correctAnswer: string,
-  targetWord: string,
-  targetLanguage: string,
-  nativeLanguage: string
-): Promise<ValidationResult> {
-  return validateAnswerSmart(userAnswer, correctAnswer, {
-    targetWord,
-    direction: 'target_to_native',
-    languageParams: { targetLanguage, nativeLanguage }
-  });
-}

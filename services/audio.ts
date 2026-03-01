@@ -4,18 +4,19 @@
  */
 
 import { supabase } from './supabase';
+import { apiFetch } from './api-config';
 import { LANGUAGE_CONFIGS } from '../constants/language-config';
 
 // Current audio element for playback control
 let currentAudio: HTMLAudioElement | null = null;
 
 // Check if speech synthesis is available (for fallback)
-export const isSpeechSupported = (): boolean => {
+const isSpeechSupported = (): boolean => {
   return 'speechSynthesis' in window;
 };
 
 // Get available voices for a language (for fallback)
-export const getVoicesForLanguage = (languageCode: string): SpeechSynthesisVoice[] => {
+const getVoicesForLanguage = (languageCode: string): SpeechSynthesisVoice[] => {
   if (!isSpeechSupported()) return [];
   const config = LANGUAGE_CONFIGS[languageCode];
   const ttsCode = config?.ttsCode || languageCode;
@@ -95,7 +96,7 @@ function playAudio(url?: string, base64Data?: string): Promise<void> {
   });
 }
 
-export interface SpeakResult {
+interface SpeakResult {
   success: boolean;
   source: 'cloud' | 'browser' | 'none';
   error?: string;
@@ -121,7 +122,7 @@ export const speak = async (text: string, languageCode: string, rate: number = 0
       return { success: true, source: 'browser' };
     }
 
-    const response = await fetch('/api/tts/', {
+    const response = await apiFetch('/api/tts/', {
       method: 'POST',
       headers,
       body: JSON.stringify({ text: text.trim(), targetLanguage: languageCode })
@@ -161,31 +162,3 @@ export const speak = async (text: string, languageCode: string, rate: number = 0
   }
 };
 
-// Stop any ongoing speech
-export const stopSpeaking = (): void => {
-  // Stop Cloud TTS audio
-  if (currentAudio) {
-    currentAudio.pause();
-    currentAudio = null;
-  }
-
-  // Stop browser TTS
-  if (isSpeechSupported()) {
-    speechSynthesis.cancel();
-  }
-};
-
-// Check if currently speaking
-export const isSpeaking = (): boolean => {
-  // Check Cloud TTS audio
-  if (currentAudio && !currentAudio.paused) {
-    return true;
-  }
-
-  // Check browser TTS
-  if (isSpeechSupported() && speechSynthesis.speaking) {
-    return true;
-  }
-
-  return false;
-};

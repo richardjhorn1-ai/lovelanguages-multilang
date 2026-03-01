@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
+import { ICONS } from '../constants';
+import { apiFetch } from '../services/api-config';
 
 interface SubscriptionManagerProps {
   profile: {
@@ -63,7 +65,7 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
       case 'active': return 'text-green-500';
       case 'past_due': return 'text-amber-500';
       case 'canceled': return 'text-red-500';
-      default: return 'text-gray-500';
+      default: return 'text-[var(--text-secondary)]';
     }
   };
 
@@ -79,7 +81,7 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
 
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
-      const response = await fetch('/api/create-customer-portal/', {
+      const response = await apiFetch('/api/create-customer-portal/', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -116,11 +118,11 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
   // Free tier user (chose free, no subscription)
   if (isFreeTier) {
     return (
-      <div className="bg-[var(--bg-card)] rounded-2xl p-6 border border-[var(--border-color)]">
+      <div className="glass-card rounded-2xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <span className="text-3xl">📊</span>
+          <ICONS.BarChart className="w-8 h-8 text-[var(--accent-color)]" />
           <div>
-            <h3 className="font-bold text-[var(--text-primary)]">{t('subscription.manager.freePlan')}</h3>
+            <h3 className="font-bold font-header text-[var(--text-primary)]">{t('subscription.manager.freePlan')}</h3>
             <p className="text-sm text-[var(--text-secondary)]">
               {t('subscription.manager.freeDescription')}
             </p>
@@ -129,7 +131,7 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
 
         <button
           onClick={handleUpgrade}
-          className="w-full py-3 px-6 rounded-xl bg-rose-500 hover:bg-rose-600 text-white font-bold transition-colors"
+          className="w-full py-3 px-6 rounded-xl bg-rose-500 hover:bg-rose-600 text-white font-bold transition-all active:scale-[0.98]"
         >
           {t('subscription.manager.upgradeButton')}
         </button>
@@ -141,11 +143,11 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
   if (hasActivePromo) {
     const daysRemaining = getPromoDaysRemaining();
     return (
-      <div className="bg-[var(--bg-card)] rounded-2xl p-6 border border-[var(--border-color)]">
+      <div className="glass-card rounded-2xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <span className="text-3xl">✨</span>
+          <ICONS.Sparkles className="w-8 h-8 text-[var(--accent-color)]" />
           <div>
-            <h3 className="font-bold text-[var(--text-primary)]">{t('promo.title')}</h3>
+            <h3 className="font-bold font-header text-[var(--text-primary)]">{t('promo.title')}</h3>
             <p className="text-sm text-[var(--text-secondary)]">
               {t('subscription.manager.promoExpires', { days: daysRemaining })}
             </p>
@@ -154,7 +156,7 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
 
         <button
           onClick={handleUpgrade}
-          className="w-full py-3 px-6 rounded-xl bg-rose-500 hover:bg-rose-600 text-white font-bold transition-colors"
+          className="w-full py-3 px-6 rounded-xl bg-rose-500 hover:bg-rose-600 text-white font-bold transition-all active:scale-[0.98]"
         >
           {t('subscription.manager.subscribeToKeep')}
         </button>
@@ -165,11 +167,11 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
   // Partner with inherited subscription - can't manage
   if (isInherited) {
     return (
-      <div className="bg-[var(--bg-card)] rounded-2xl p-6 border border-[var(--border-color)]">
+      <div className="glass-card rounded-2xl p-6">
         <div className="flex items-center gap-3 mb-4">
-          <span className="text-3xl">💕</span>
+          <ICONS.Heart className="w-8 h-8 text-[var(--accent-color)]" />
           <div>
-            <h3 className="font-bold text-[var(--text-primary)]">{t('subscription.manager.couplePass')}</h3>
+            <h3 className="font-bold font-header text-[var(--text-primary)]">{t('subscription.manager.couplePass')}</h3>
             <p className="text-sm text-[var(--text-secondary)]">
               {t('subscription.manager.freeAccess', { name: partnerName || t('subscription.manager.yourPartner') })}
             </p>
@@ -204,11 +206,11 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
   // No subscription at all (shouldn't happen normally if paywall works)
   if (!profile.subscription_plan || profile.subscription_plan === 'none' || profile.subscription_plan === 'free') {
     return (
-      <div className="bg-[var(--bg-card)] rounded-2xl p-6 border border-[var(--border-color)]">
+      <div className="glass-card rounded-2xl p-6">
         <div className="flex items-center gap-3 mb-4">
           <span className="text-3xl">💳</span>
           <div>
-            <h3 className="font-bold text-[var(--text-primary)]">{t('subscription.manager.noSubscription')}</h3>
+            <h3 className="font-bold font-header text-[var(--text-primary)]">{t('subscription.manager.noSubscription')}</h3>
             <p className="text-sm text-[var(--text-secondary)]">
               {t('subscription.manager.subscribeToUnlock')}
             </p>
@@ -217,7 +219,7 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
 
         <button
           onClick={handleUpgrade}
-          className="w-full py-3 px-6 rounded-xl bg-rose-500 hover:bg-rose-600 text-white font-bold transition-colors"
+          className="w-full py-3 px-6 rounded-xl bg-rose-500 hover:bg-rose-600 text-white font-bold transition-all active:scale-[0.98]"
         >
           {t('subscription.manager.upgradeButton')}
         </button>
@@ -227,11 +229,11 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
 
   // Payer - can manage
   return (
-    <div className="bg-[var(--bg-card)] rounded-2xl p-6 border border-[var(--border-color)]">
+    <div className="glass-card rounded-2xl p-6">
       <div className="flex items-center gap-3 mb-4">
         <span className="text-3xl">💳</span>
         <div>
-          <h3 className="font-bold text-[var(--text-primary)]">{t('subscription.manager.yourSubscription')}</h3>
+          <h3 className="font-bold font-header text-[var(--text-primary)]">{t('subscription.manager.yourSubscription')}</h3>
           <p className="text-sm text-[var(--text-secondary)]">
             {t('subscription.manager.planLabel', { plan: getPlanDisplay(profile.subscription_plan) })}
           </p>
@@ -254,13 +256,13 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
         )}
         {hasPartner && (
           <p className="mt-2 pt-2 border-t border-[var(--border-color)]">
-            <span className="text-pink-500">💕</span> {t('subscription.manager.partnerFreeAccess', { name: partnerName || t('subscription.manager.yourPartner') })}
+            <ICONS.Heart className="w-4 h-4 text-[var(--secondary-color)] inline-block" /> {t('subscription.manager.partnerFreeAccess', { name: partnerName || t('subscription.manager.yourPartner') })}
           </p>
         )}
       </div>
 
       {error && (
-        <div className="bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded-xl p-3 mb-4 text-scale-label">
+        <div className="bg-[var(--color-incorrect-bg)] text-[var(--color-incorrect)] rounded-xl p-3 mb-4 text-scale-label">
           {error}
         </div>
       )}

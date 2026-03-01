@@ -1,11 +1,13 @@
 'use client';
 
-import React, { useState, useCallback, useMemo } from 'react';
+import React, { useState, useCallback, useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../constants';
 import { DictionaryEntry, WordScore, AIChallengeMode, RomanticPhrase } from '../../../types';
 import { getRomanticPhrases } from '../../../services/romantic-phrases';
 import { speak } from '../../../services/audio';
+import { haptics } from '../../../services/haptics';
+import { shuffleArray } from '../../../utils/array';
 import type { AnswerResult } from './types';
 
 type SessionLength = 10 | 20 | 'all';
@@ -67,16 +69,6 @@ interface AIChallengeProps {
 
 type GamePhase = 'select' | 'playing' | 'finished';
 
-// Shuffle helper
-function shuffleArray<T>(array: T[]): T[] {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-}
-
 /**
  * AI Challenge game mode - mixed question types with various challenge modes.
  * Self-contained: handles word sorting, phrase fetching, and question generation.
@@ -117,9 +109,11 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
   const [isValidating, setIsValidating] = useState(false);
   const [showShake, setShowShake] = useState(false);
 
-  // Session tracking
+  // Session tracking — use refs alongside state to avoid stale closures in advanceOrFinish
   const [sessionAnswers, setSessionAnswers] = useState<AnswerResult[]>([]);
   const [sessionScore, setSessionScore] = useState({ correct: 0, incorrect: 0 });
+  const sessionAnswersRef = useRef<AnswerResult[]>([]);
+  const sessionScoreRef = useRef({ correct: 0, incorrect: 0 });
 
   // Compute word pools and counts
   const { modeCounts, wordPools } = useMemo(() => {
@@ -268,17 +262,24 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
     setCurrentIndex(0);
     setSessionAnswers([]);
     setSessionScore({ correct: 0, incorrect: 0 });
+    sessionAnswersRef.current = [];
+    sessionScoreRef.current = { correct: 0, incorrect: 0 };
     resetQuestionState();
     setPhase('playing');
     onStart?.();
   }, [selectedMode, sessionLength, generateQuestions, resetQuestionState, onStart, t]);
 
   const recordAnswer = useCallback((result: AnswerResult) => {
-    setSessionAnswers(prev => [...prev, result]);
-    setSessionScore(prev => ({
-      correct: prev.correct + (result.isCorrect ? 1 : 0),
-      incorrect: prev.incorrect + (result.isCorrect ? 0 : 1),
-    }));
+    // Update both state (for UI) and refs (for stale-closure-safe access in advanceOrFinish)
+    const newAnswers = [...sessionAnswersRef.current, result];
+    const newScore = {
+      correct: sessionScoreRef.current.correct + (result.isCorrect ? 1 : 0),
+      incorrect: sessionScoreRef.current.incorrect + (result.isCorrect ? 0 : 1),
+    };
+    sessionAnswersRef.current = newAnswers;
+    sessionScoreRef.current = newScore;
+    setSessionAnswers(newAnswers);
+    setSessionScore(newScore);
     onAnswer(result);
 
     // Update word score if available
@@ -290,22 +291,22 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
   const advanceOrFinish = useCallback(() => {
     if (isLastQuestion) {
       setPhase('finished');
-      // Use timeout to ensure state updates are captured
-      setTimeout(() => {
-        onComplete({
-          answers: sessionAnswers,
-          score: sessionScore,
-        });
-      }, 100);
+      // Read from refs — state may be stale due to React batching
+      onComplete({
+        answers: sessionAnswersRef.current,
+        score: sessionScoreRef.current,
+      });
     } else {
       setCurrentIndex(i => i + 1);
       resetQuestionState();
     }
-  }, [isLastQuestion, onComplete, sessionAnswers, sessionScore, resetQuestionState]);
+  }, [isLastQuestion, onComplete, resetQuestionState]);
 
   // Flashcard handlers
   const handleFlashcardResponse = useCallback((isCorrect: boolean) => {
     if (!currentQuestion) return;
+
+    haptics.trigger(isCorrect ? 'correct' : 'incorrect');
 
     recordAnswer({
       wordId: currentQuestion.wordId || currentQuestion.id,
@@ -327,6 +328,8 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
     setMcFeedback(true);
 
     const isCorrect = option === currentQuestion.translation;
+
+    haptics.trigger(isCorrect ? 'correct' : 'incorrect');
 
     if (!isCorrect) {
       triggerShake();
@@ -376,6 +379,8 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
 
     setIsValidating(false);
 
+    haptics.trigger(isCorrect ? 'correct' : 'incorrect');
+
     if (!isCorrect) {
       triggerShake();
     }
@@ -399,7 +404,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
   if (phase === 'select') {
     return (
       <div className="w-full">
-        <h2 className="text-scale-caption font-black uppercase tracking-widest text-[var(--text-secondary)] text-center mb-4">
+        <h2 className="text-scale-caption font-black font-header uppercase tracking-widest text-[var(--text-secondary)] text-center mb-4">
           {t('play.aiChallenge.chooseMode')}
         </h2>
 
@@ -456,7 +461,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
           {/* Session Length */}
           {selectedMode && (
             <div className="w-32 shrink-0 flex flex-col">
-              <h3 className="text-[9px] font-black uppercase tracking-widest text-[var(--text-secondary)] text-center mb-2">
+              <h3 className="text-[9px] font-black font-header uppercase tracking-widest text-[var(--text-secondary)] text-center mb-2">
                 {t('play.aiChallenge.length')}
               </h3>
               <div className="flex-1 flex flex-col gap-2">
@@ -493,7 +498,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
         {selectedMode && sessionLength && (
           loadingPhrases ? (
             <div className="text-center py-4 mt-4">
-              <div className="animate-spin w-6 h-6 border-2 border-pink-500 border-t-transparent rounded-full mx-auto mb-2" />
+              <div className="animate-spin w-6 h-6 border-2 border-[var(--accent-color)] border-t-transparent rounded-full mx-auto mb-2" />
               <p className="text-scale-label text-[var(--text-secondary)]">{t('play.aiChallenge.generatingPhrases')}</p>
             </div>
           ) : (
@@ -521,15 +526,15 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
             className="relative w-full aspect-[4/5] cursor-pointer perspective-1000"
           >
             <div className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${flipped ? 'rotate-y-180' : ''}`}>
-              <div className="absolute inset-0 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center shadow-lg backface-hidden">
+              <div className="absolute inset-0 glass-card rounded-2xl p-10 flex flex-col items-center justify-center text-center backface-hidden">
                 <span className="text-[10px] uppercase tracking-widest text-[var(--text-secondary)] font-black mb-8">
                   {targetLanguageName.toUpperCase()}
                 </span>
                 <div className="flex items-center gap-3">
-                  <h3 className="text-4xl font-black text-[var(--text-primary)]">{currentQuestion.word}</h3>
+                  <h3 className="text-4xl font-black font-header text-[var(--text-primary)]">{currentQuestion.word}</h3>
                   <button
                     onClick={(e) => { e.stopPropagation(); speak(currentQuestion.word, targetLanguage); }}
-                    className="p-2 rounded-full hover:bg-[var(--bg-secondary)] transition-colors"
+                    className="p-2 rounded-full hover:bg-white/55 dark:hover:bg-white/12 transition-colors"
                     title={t('play.flashcard.listen')}
                   >
                     <ICONS.Volume2 className="w-6 h-6 text-[var(--text-secondary)]" />
@@ -540,13 +545,13 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
                 </p>
               </div>
               <div
-                className="absolute inset-0 text-white rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center shadow-lg backface-hidden rotate-y-180"
+                className="absolute inset-0 text-white rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-lg backface-hidden rotate-y-180"
                 style={{ backgroundColor: accentColor }}
               >
                 <span className="text-[10px] uppercase tracking-widest text-white/50 font-black mb-8">
                   {nativeLanguageName.toUpperCase()}
                 </span>
-                <h3 className="text-4xl font-black">{currentQuestion.translation}</h3>
+                <h3 className="text-4xl font-black font-header">{currentQuestion.translation}</h3>
                 <div className="mt-12 grid grid-cols-2 gap-3 w-full">
                   <button
                     onClick={(e) => { e.stopPropagation(); handleFlashcardResponse(false); }}
@@ -556,7 +561,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
                   </button>
                   <button
                     onClick={(e) => { e.stopPropagation(); handleFlashcardResponse(true); }}
-                    className="bg-white p-4 rounded-2xl flex items-center justify-center gap-2 font-black uppercase tracking-widest text-scale-caption"
+                    className="bg-[var(--bg-card)] p-4 rounded-2xl flex items-center justify-center gap-2 font-black uppercase tracking-widest text-scale-caption"
                     style={{ color: accentColor }}
                   >
                     <ICONS.Check className="w-4 h-4" /> {t('play.flashcards.gotIt', 'Got it!')}
@@ -569,7 +574,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
 
         {/* Multiple Choice question */}
         {currentQuestion.type === 'multiple_choice' && currentQuestion.options && (
-          <div className={`bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)] ${showShake ? 'animate-shake' : ''}`}>
+          <div className={`glass-card rounded-2xl p-8 ${showShake ? 'animate-shake' : ''}`}>
             <span
               className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6"
               style={{ backgroundColor: `${accentColor}15`, color: accentColor }}
@@ -577,12 +582,12 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
               {targetLanguageName} → {nativeLanguageName}
             </span>
             <div className="flex items-center justify-center gap-2 mb-8">
-              <h3 className="text-3xl font-black text-[var(--text-primary)] text-center">
+              <h3 className="text-3xl font-black font-header text-[var(--text-primary)] text-center">
                 {currentQuestion.word}
               </h3>
               <button
                 onClick={() => speak(currentQuestion.word, targetLanguage)}
-                className="p-2 rounded-full hover:bg-[var(--bg-secondary)] transition-colors"
+                className="p-2 rounded-full hover:bg-white/55 dark:hover:bg-white/12 transition-colors"
                 title={t('play.flashcard.listen')}
               >
                 <ICONS.Volume2 className="w-5 h-5 text-[var(--text-secondary)]" />
@@ -596,9 +601,9 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
                 let style = 'border-[var(--border-color)] hover:border-[var(--text-secondary)] text-[var(--text-primary)]';
                 if (mcFeedback) {
                   if (isCorrect) {
-                    style = 'border-green-400 bg-green-500/10 border-green-500/30 text-green-500';
+                    style = 'border-[var(--color-correct)] bg-[var(--color-correct-bg)] border-[var(--color-correct)]/30 text-[var(--color-correct)]';
                   } else if (isSelected) {
-                    style = 'border-red-400 bg-red-500/10 border-red-500/30 text-red-500';
+                    style = 'border-[var(--color-incorrect)] bg-[var(--color-incorrect-bg)] border-[var(--color-incorrect)]/30 text-[var(--color-incorrect)]';
                   } else {
                     style = 'border-[var(--border-color)] text-[var(--text-secondary)]';
                   }
@@ -615,8 +620,8 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
                       {String.fromCharCode(65 + idx)}
                     </span>
                     {opt}
-                    {mcFeedback && isCorrect && <ICONS.Check className="w-5 h-5 float-right text-green-500" />}
-                    {mcFeedback && isSelected && !isCorrect && <ICONS.X className="w-5 h-5 float-right text-red-500" />}
+                    {mcFeedback && isCorrect && <ICONS.Check className="w-5 h-5 float-right text-[var(--color-correct)]" />}
+                    {mcFeedback && isSelected && !isCorrect && <ICONS.X className="w-5 h-5 float-right text-[var(--color-incorrect)]" />}
                   </button>
                 );
               })}
@@ -626,7 +631,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
 
         {/* Type It question */}
         {currentQuestion.type === 'type_it' && (
-          <div className={`bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)] ${showShake ? 'animate-shake' : ''}`}>
+          <div className={`glass-card rounded-2xl p-8 ${showShake ? 'animate-shake' : ''}`}>
             <span
               className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6"
               style={{ backgroundColor: `${accentColor}15`, color: accentColor }}
@@ -634,12 +639,12 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
               {targetLanguageName} → {nativeLanguageName}
             </span>
             <div className="flex items-center justify-center gap-2 mb-2">
-              <h3 className="text-3xl font-black text-[var(--text-primary)] text-center">
+              <h3 className="text-3xl font-black font-header text-[var(--text-primary)] text-center">
                 {currentQuestion.word}
               </h3>
               <button
                 onClick={() => speak(currentQuestion.word, targetLanguage)}
-                className="p-2 rounded-full hover:bg-[var(--bg-secondary)] transition-colors"
+                className="p-2 rounded-full hover:bg-white/55 dark:hover:bg-white/12 transition-colors"
                 title={t('play.flashcard.listen')}
               >
                 <ICONS.Volume2 className="w-5 h-5 text-[var(--text-secondary)]" />
@@ -649,8 +654,8 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
             {typeSubmitted && (
               <div className={`text-center mb-4 p-3 rounded-xl ${
                 typeCorrect
-                  ? 'bg-green-500/10 border-green-500/30 text-green-500'
-                  : 'bg-red-500/10 border-red-500/30 text-red-500'
+                  ? 'bg-[var(--color-correct-bg)] border-[var(--color-correct)]/30 text-[var(--color-correct)]'
+                  : 'bg-[var(--color-incorrect-bg)] border-[var(--color-incorrect)]/30 text-[var(--color-incorrect)]'
               }`}>
                 {typeCorrect ? (
                   <div>

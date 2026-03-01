@@ -20,6 +20,7 @@ import {
   FontSize,
   FontPreset,
   FontWeight,
+  BackgroundStyle,
   ACCENT_COLORS,
   DARK_MODE_STYLES,
   FONT_SIZES,
@@ -28,6 +29,7 @@ import {
 } from '../services/theme';
 import { sounds } from '../services/sounds';
 import { haptics } from '../services/haptics';
+import { apiFetch } from '../services/api-config';
 
 // Extend Window interface for PWA install prompt
 interface BeforeInstallPromptEvent extends Event {
@@ -70,7 +72,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
   // Check if running in Capacitor (native app)
   const isNativeApp = !!(window as any).Capacitor?.isNativePlatform?.();
 
-  const { theme, setAccentColor, setDarkMode, setFontSize, setFontPreset, setFontWeight, accentHex, isDark } = useTheme();
+  const { theme, setAccentColor, setDarkMode, setFontSize, setFontPreset, setFontWeight, setBackgroundStyle, accentHex, secondaryHex, isDark } = useTheme();
   const { t } = useTranslation();
   const { targetLanguage, targetName } = useLanguage();
   const iLoveYou = LANGUAGE_CONFIGS[targetLanguage]?.examples?.iLoveYou || 'I love you';
@@ -184,7 +186,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
     const token = (await supabase.auth.getSession()).data.session?.access_token;
     if (!token) throw new Error('Not authenticated');
 
-    const response = await fetch('/api/delink-partner/', {
+    const response = await apiFetch('/api/delink-partner/', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -204,11 +206,11 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
   };
 
   return (
-    <div className="h-full overflow-y-auto p-4 sm:p-8 bg-[var(--bg-primary)]">
+    <div className="h-full overflow-y-auto p-4 sm:p-8">
       <div className="max-w-xl mx-auto space-y-6">
 
         {/* User Card */}
-        <div className="bg-[var(--bg-card)] p-8 rounded-[2.5rem] border border-[var(--border-color)] shadow-sm text-center">
+        <div className="glass-card p-8 rounded-2xl text-center">
           <div className="mb-4">
             <AvatarUpload
               userId={profile.id}
@@ -220,7 +222,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
               editable={true}
             />
           </div>
-          <h2 className="text-2xl font-black text-[var(--text-primary)]">{profile.full_name}</h2>
+          <h2 className="text-2xl font-black font-header text-[var(--text-primary)]">{profile.full_name}</h2>
           <p className="text-[var(--text-secondary)] text-scale-label mb-4">{profile.email}</p>
 
           {/* Role Badge (display only, not toggleable) */}
@@ -273,8 +275,8 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
 
         {/* Connected Partner Card - Only show if linked */}
         {partner && (
-          <div className="bg-[var(--bg-card)] p-8 rounded-[2.5rem] border border-[var(--border-color)] shadow-sm">
-            <h3 className="text-scale-micro font-black mb-6 flex items-center justify-between text-[var(--text-secondary)] uppercase tracking-[0.2em]">
+          <div className="glass-card p-8 rounded-2xl">
+            <h3 className="text-scale-micro font-black font-header mb-6 flex items-center justify-between text-[var(--text-secondary)] uppercase tracking-[0.2em]">
               <span className="flex items-center gap-2">
                 <ICONS.Heart style={{ color: accentHex }} className="w-4 h-4" />
                 {t('profile.partner.title')}
@@ -287,14 +289,14 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
               </button>
             </h3>
             <div
-              className="flex items-center gap-4 p-5 rounded-[2rem] border relative overflow-hidden group"
+              className="flex items-center gap-4 p-5 rounded-2xl border relative overflow-hidden group"
               style={{ backgroundColor: `${accentHex}15`, borderColor: `${accentHex}30` }}
             >
               <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
                 <ICONS.Heart className="w-16 h-16" style={{ fill: accentHex }} />
               </div>
               <div
-                className="w-12 h-12 bg-[var(--bg-card)] rounded-full flex items-center justify-center font-black shadow-sm z-10 border-2"
+                className="w-12 h-12 glass-card rounded-full flex items-center justify-center font-black z-10 border-2"
                 style={{ color: accentHex, borderColor: `${accentHex}30` }}
               >
                 {(partner.full_name?.[0] || '?').toUpperCase()}
@@ -311,17 +313,17 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
         )}
 
         {/* Customisation Section */}
-        <div className="bg-[var(--bg-card)] rounded-[2.5rem] border border-[var(--border-color)] shadow-sm overflow-hidden">
+        <div className="glass-card rounded-2xl overflow-hidden">
           <button
             onClick={() => setShowCustomisation(!showCustomisation)}
             className="w-full p-6 flex items-center justify-between hover:opacity-80 transition-opacity"
           >
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: `${accentHex}20` }}>
-                <span className="text-xl">🎨</span>
+                <ICONS.Palette className="w-5 h-5 text-[var(--accent-color)]" />
               </div>
               <div className="text-left">
-                <h3 className="font-bold text-[var(--text-primary)]">{t('profile.customisation.title')}</h3>
+                <h3 className="font-bold font-header text-[var(--text-primary)]">{t('profile.customisation.title')}</h3>
                 <p className="text-scale-caption text-[var(--text-secondary)]">{t('profile.customisation.subtitle')}</p>
               </div>
             </div>
@@ -333,24 +335,49 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
               {/* Accent Color */}
               <div>
                 <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">{t('profile.customisation.accentColor')}</label>
+                <div className="flex flex-wrap gap-3">
+                  {(Object.keys(ACCENT_COLORS) as AccentColor[]).map((color) => {
+                    const pair = ACCENT_COLORS[color];
+                    const isSelected = theme.accentColor === color;
+                    return (
+                      <button
+                        key={color}
+                        onClick={() => setAccentColor(color)}
+                        className={`flex flex-col items-center gap-1 transition-all ${isSelected ? 'scale-105' : 'opacity-70 hover:opacity-100'}`}
+                      >
+                        <div className={`relative w-12 h-8 rounded-full overflow-hidden border-2 transition-colors ${isSelected ? 'border-[var(--accent-color)] shadow-md' : 'border-transparent'}`}>
+                          <div className="absolute inset-0 w-1/2" style={{ backgroundColor: pair.primary }} />
+                          <div className="absolute inset-0 left-1/2" style={{ backgroundColor: pair.secondary.primary }} />
+                        </div>
+                        {isSelected && (
+                          <span className="text-[9px] font-bold text-[var(--text-primary)]">{pair.name}</span>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Background Style */}
+              <div>
+                <label className="text-scale-micro font-bold uppercase tracking-wider text-[var(--text-secondary)] mb-2 block">
+                  BACKGROUND STYLE
+                </label>
                 <div className="flex gap-3">
-                  {(Object.keys(ACCENT_COLORS) as AccentColor[]).map((color) => (
+                  {(['tinted', 'clean'] as BackgroundStyle[]).map((style) => (
                     <button
-                      key={color}
-                      onClick={() => setAccentColor(color)}
-                      className={`relative w-12 h-12 rounded-full transition-transform hover:scale-110 ${
-                        theme.accentColor === color ? 'ring-2 ring-offset-2 ring-[var(--text-primary)] scale-110' : ''
+                      key={style}
+                      onClick={() => setBackgroundStyle(style)}
+                      className={`flex-1 py-3 px-4 rounded-xl text-scale-label font-bold transition-all ${
+                        theme.backgroundStyle === style
+                          ? 'bg-[var(--accent-color)] text-white shadow-md'
+                          : 'glass-card text-[var(--text-secondary)]'
                       }`}
-                      style={{ backgroundColor: ACCENT_COLORS[color].primary }}
-                      title={ACCENT_COLORS[color].name}
                     >
-                      {theme.accentColor === color && (
-                        <ICONS.Check className="w-5 h-5 text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-                      )}
+                      {style === 'tinted' ? 'Tinted' : 'Clean'}
                     </button>
                   ))}
                 </div>
-                <p className="text-scale-caption text-[var(--text-secondary)] mt-2">{ACCENT_COLORS[theme.accentColor].name}</p>
               </div>
 
               {/* Dark Mode */}
@@ -368,7 +395,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                       }`}
                     >
                       <div
-                        className="w-8 h-8 rounded-lg border border-gray-300"
+                        className="w-8 h-8 rounded-lg border border-[var(--border-color)]"
                         style={{ backgroundColor: DARK_MODE_STYLES[style].bgPrimary }}
                       />
                       <span className="text-scale-label font-medium text-[var(--text-primary)]">
@@ -483,7 +510,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                   }}
                 >
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl">{isSoundMuted ? '🔇' : '🔊'}</span>
+                    {isSoundMuted ? <ICONS.VolumeX className="w-6 h-6 text-[var(--text-secondary)]" /> : <ICONS.Volume2 className="w-6 h-6 text-[var(--accent-color)]" />}
                     <div className="text-left">
                       <p className="font-bold text-[var(--text-primary)]">
                         {isSoundMuted ? t('profile.customisation.soundsOff') : t('profile.customisation.soundsOn')}
@@ -500,7 +527,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                     style={{ backgroundColor: !isSoundMuted ? accentHex : 'var(--border-color)' }}
                   >
                     <div
-                      className={`w-5 h-5 rounded-full bg-white shadow-sm transition-transform ${
+                      className={`w-5 h-5 rounded-full bg-[var(--bg-card)] shadow-sm transition-transform ${
                         !isSoundMuted ? 'translate-x-5' : 'translate-x-0'
                       }`}
                     />
@@ -509,9 +536,9 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
 
                 {/* Volume Slider - only show when sounds are enabled */}
                 {!isSoundMuted && (
-                  <div className="mt-3 p-4 bg-[var(--bg-secondary)] rounded-xl">
+                  <div className="mt-3 p-4 bg-white/40 dark:bg-white/12 rounded-xl">
                     <div className="flex items-center gap-3">
-                      <span className="text-lg">🔈</span>
+                      <ICONS.Volume1 className="w-5 h-5 text-[var(--text-secondary)]" />
                       <input
                         type="range"
                         min="0"
@@ -529,7 +556,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                           background: `linear-gradient(to right, ${accentHex} 0%, ${accentHex} ${soundVolume}%, var(--border-color) ${soundVolume}%, var(--border-color) 100%)`
                         }}
                       />
-                      <span className="text-lg">🔊</span>
+                      <ICONS.Volume2 className="w-5 h-5 text-[var(--accent-color)]" />
                     </div>
                     <p className="text-center text-scale-caption text-[var(--text-secondary)] mt-2">
                       {t('profile.customisation.volumeLevel', 'Volume')}: {Math.round(soundVolume)}%
@@ -555,7 +582,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                     }}
                   >
                     <div className="flex items-center gap-3">
-                      <span className="text-2xl">{isHapticsEnabled ? '📳' : '📴'}</span>
+                      {isHapticsEnabled ? <ICONS.Smartphone className="w-6 h-6 text-[var(--accent-color)]" /> : <ICONS.Smartphone className="w-6 h-6 text-[var(--text-secondary)]" />}
                       <div className="text-left">
                         <p className="font-bold text-[var(--text-primary)]">
                           {isHapticsEnabled ? t('profile.customisation.hapticsOn', 'Vibration On') : t('profile.customisation.hapticsOff', 'Vibration Off')}
@@ -572,7 +599,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                       style={{ backgroundColor: isHapticsEnabled ? accentHex : 'var(--border-color)' }}
                     >
                       <div
-                        className={`w-5 h-5 rounded-full bg-white shadow-sm transition-transform ${
+                        className={`w-5 h-5 rounded-full bg-[var(--bg-card)] shadow-sm transition-transform ${
                           isHapticsEnabled ? 'translate-x-5' : 'translate-x-0'
                         }`}
                       />
@@ -594,7 +621,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                   }}
                 >
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl">{smartValidation ? '🧠' : '🎯'}</span>
+                    {smartValidation ? <ICONS.Lightbulb className="w-6 h-6 text-[var(--accent-color)]" /> : <ICONS.Target className="w-6 h-6 text-[var(--text-secondary)]" />}
                     <div className="text-left">
                       <p className="font-bold text-[var(--text-primary)]">
                         {smartValidation ? t('profile.customisation.smartMode') : t('profile.customisation.strictMode')}
@@ -613,7 +640,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                     style={{ backgroundColor: smartValidation ? accentHex : 'var(--border-color)' }}
                   >
                     <div
-                      className={`w-5 h-5 rounded-full bg-white shadow-sm transition-transform ${
+                      className={`w-5 h-5 rounded-full bg-[var(--bg-card)] shadow-sm transition-transform ${
                         smartValidation ? 'translate-x-5' : 'translate-x-0'
                       }`}
                     />
@@ -636,7 +663,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
         </div>
 
         {/* Advanced Settings */}
-        <div className="bg-[var(--bg-card)] rounded-[2.5rem] border border-[var(--border-color)] shadow-sm overflow-hidden">
+        <div className="glass-card rounded-2xl overflow-hidden">
           <button
             onClick={() => setShowAdvanced(!showAdvanced)}
             className="w-full p-6 flex items-center justify-between hover:opacity-80 transition-opacity"
@@ -646,7 +673,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                 <ICONS.Settings className="w-5 h-5 text-[var(--text-secondary)]" />
               </div>
               <div className="text-left">
-                <h3 className="font-bold text-[var(--text-primary)]">{t('profile.advanced.title')}</h3>
+                <h3 className="font-bold font-header text-[var(--text-primary)]">{t('profile.advanced.title')}</h3>
                 <p className="text-scale-caption text-[var(--text-secondary)]">{t('profile.advanced.subtitle')}</p>
               </div>
             </div>
@@ -657,12 +684,12 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
             <div className="px-6 pb-6 space-y-4 border-t border-[var(--border-color)] pt-4">
               {/* Common fields */}
               <div>
-                <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.yourName')}</label>
+                <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">{t('profile.advanced.yourName')}</label>
                 <input
                   type="text"
                   value={editData.userName || ''}
                   onChange={(e) => updateField('userName', e.target.value)}
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--accent-border)] focus:outline-none"
+                  className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] focus:border-[var(--accent-border)] focus:outline-none"
                 />
               </div>
 
@@ -670,21 +697,21 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                 <>
                   {/* Student-specific fields */}
                   <div>
-                    <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.partnerName')}</label>
+                    <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">{t('profile.advanced.partnerName')}</label>
                     <input
                       type="text"
                       value={editData.partnerName || ''}
                       onChange={(e) => updateField('partnerName', e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--accent-border)] focus:outline-none"
+                      className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] focus:border-[var(--accent-border)] focus:outline-none"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.relationshipVibe')}</label>
+                    <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">{t('profile.advanced.relationshipVibe')}</label>
                     <select
                       value={editData.relationshipVibe || ''}
                       onChange={(e) => updateField('relationshipVibe', e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--accent-border)] focus:outline-none bg-white"
+                      className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] focus:border-[var(--accent-border)] focus:outline-none bg-[var(--bg-card)]"
                     >
                       <option value="">{t('profile.advanced.select')}</option>
                       {VIBE_OPTIONS.map(v => <option key={v} value={v}>{t(`profile.vibeOptions.${v}`, v)}</option>)}
@@ -692,34 +719,34 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                   </div>
 
                   <div>
-                    <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.learningReason', { language: targetName })}</label>
+                    <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">{t('profile.advanced.learningReason', { language: targetName })}</label>
                     <textarea
                       value={editData.learningReason || ''}
                       onChange={(e) => updateField('learningReason', e.target.value)}
                       rows={3}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--accent-border)] focus:outline-none resize-none"
+                      className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] focus:border-[var(--accent-border)] focus:outline-none resize-none"
                       placeholder={t('profile.advanced.motivationPlaceholder')}
                     />
                   </div>
 
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.dailyTime')}</label>
+                      <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">{t('profile.advanced.dailyTime')}</label>
                       <select
                         value={editData.dailyTime || ''}
                         onChange={(e) => updateField('dailyTime', e.target.value)}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--accent-border)] focus:outline-none bg-white"
+                        className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] focus:border-[var(--accent-border)] focus:outline-none bg-[var(--bg-card)]"
                       >
                         <option value="">{t('profile.advanced.select')}</option>
                         {TIME_OPTIONS.map(opt => <option key={opt} value={opt}>{t(`profile.timeOptions.${opt}`, opt)}</option>)}
                       </select>
                     </div>
                     <div>
-                      <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.preferredTime')}</label>
+                      <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">{t('profile.advanced.preferredTime')}</label>
                       <select
                         value={editData.preferredTime || ''}
                         onChange={(e) => updateField('preferredTime', e.target.value)}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--accent-border)] focus:outline-none bg-white"
+                        className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] focus:border-[var(--accent-border)] focus:outline-none bg-[var(--bg-card)]"
                       >
                         <option value="">{t('profile.advanced.select')}</option>
                         {WHEN_OPTIONS.map(w => <option key={w} value={w}>{t(`profile.whenOptions.${w}`, w)}</option>)}
@@ -728,11 +755,11 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                   </div>
 
                   <div>
-                    <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.biggestChallenge')}</label>
+                    <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">{t('profile.advanced.biggestChallenge')}</label>
                     <select
                       value={editData.biggestFear || ''}
                       onChange={(e) => updateField('biggestFear', e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--accent-border)] focus:outline-none bg-white"
+                      className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] focus:border-[var(--accent-border)] focus:outline-none bg-[var(--bg-card)]"
                     >
                       <option value="">{t('profile.advanced.select')}</option>
                       {FEAR_OPTIONS.map(f => <option key={f} value={f}>{t(`profile.fearOptions.${f}`, f)}</option>)}
@@ -740,12 +767,12 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                   </div>
 
                   <div>
-                    <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.firstGoal')}</label>
+                    <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">{t('profile.advanced.firstGoal')}</label>
                     <input
                       type="text"
                       value={editData.firstGoal || ''}
                       onChange={(e) => updateField('firstGoal', e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-[var(--accent-border)] focus:outline-none"
+                      className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] focus:border-[var(--accent-border)] focus:outline-none"
                       placeholder={t('profile.advanced.goalPlaceholder')}
                     />
                   </div>
@@ -754,21 +781,21 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                 <>
                   {/* Tutor-specific fields */}
                   <div>
-                    <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.learnerName')}</label>
+                    <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">{t('profile.advanced.learnerName')}</label>
                     <input
                       type="text"
                       value={editData.learnerName || ''}
                       onChange={(e) => updateField('learnerName', e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-300 focus:outline-none"
+                      className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] focus:border-[var(--accent-border)] focus:outline-none"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.relationshipType')}</label>
+                    <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">{t('profile.advanced.relationshipType')}</label>
                     <select
                       value={editData.relationshipType || ''}
                       onChange={(e) => updateField('relationshipType', e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-300 focus:outline-none bg-white"
+                      className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] focus:border-[var(--accent-border)] focus:outline-none bg-[var(--bg-card)]"
                     >
                       <option value="">{t('profile.advanced.select')}</option>
                       {RELATION_OPTIONS.map(r => <option key={r} value={r} className="capitalize">{t(`profile.relationOptions.${r}`, r.charAt(0).toUpperCase() + r.slice(1))}</option>)}
@@ -776,11 +803,11 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                   </div>
 
                   <div>
-                    <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.languageConnection', { language: targetName })}</label>
+                    <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">{t('profile.advanced.languageConnection', { language: targetName })}</label>
                     <select
                       value={editData.languageConnection || editData.polishConnection || ''}
                       onChange={(e) => updateField('languageConnection', e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-300 focus:outline-none bg-white"
+                      className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] focus:border-[var(--accent-border)] focus:outline-none bg-[var(--bg-card)]"
                     >
                       <option value="">{t('profile.advanced.select')}</option>
                       {CONNECTION_OPTIONS.map(c => <option key={c} value={c} className="capitalize">{t(`profile.connectionOptions.${c}`, c.charAt(0).toUpperCase() + c.slice(1))}</option>)}
@@ -788,11 +815,11 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                   </div>
 
                   <div>
-                    <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.howYouLearned', { language: targetName })}</label>
+                    <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">{t('profile.advanced.howYouLearned', { language: targetName })}</label>
                     <select
                       value={editData.languageOrigin || editData.polishOrigin || ''}
                       onChange={(e) => updateField('languageOrigin', e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-300 focus:outline-none bg-white"
+                      className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] focus:border-[var(--accent-border)] focus:outline-none bg-[var(--bg-card)]"
                     >
                       <option value="">{t('profile.advanced.select')}</option>
                       <option value="poland">{t('profile.originOptions.grewUp')}</option>
@@ -803,22 +830,22 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                   </div>
 
                   <div>
-                    <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.dreamPhrase')}</label>
+                    <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">{t('profile.advanced.dreamPhrase')}</label>
                     <input
                       type="text"
                       value={editData.dreamPhrase || ''}
                       onChange={(e) => updateField('dreamPhrase', e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-300 focus:outline-none"
+                      className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] focus:border-[var(--accent-border)] focus:outline-none"
                       placeholder={t('profile.advanced.dreamPhrasePlaceholder')}
                     />
                   </div>
 
                   <div>
-                    <label className="block text-scale-caption font-bold text-gray-500 uppercase tracking-wider mb-2">{t('profile.advanced.teachingStyle')}</label>
+                    <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">{t('profile.advanced.teachingStyle')}</label>
                     <select
                       value={editData.teachingStyle || ''}
                       onChange={(e) => updateField('teachingStyle', e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-teal-300 focus:outline-none bg-white"
+                      className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] focus:border-[var(--accent-border)] focus:outline-none bg-[var(--bg-card)]"
                     >
                       <option value="">{t('profile.advanced.select')}</option>
                       <option value="patient">{t('profile.styleOptions.patient')}</option>
@@ -839,7 +866,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                     ? 'bg-green-500'
                     : profile.role === 'student'
                       ? 'bg-[var(--accent-color)] hover:bg-[var(--accent-hover)]'
-                      : 'bg-teal-500 hover:bg-teal-600'
+                      : 'bg-[var(--accent-color)] hover:bg-[var(--accent-hover)]'
                 } disabled:opacity-50`}
               >
                 {saving ? t('profile.buttons.saving') : saved ? t('profile.buttons.saved') : t('profile.buttons.saveChanges')}
@@ -849,14 +876,14 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
         </div>
 
         {/* Extras Section */}
-        <div className="bg-[var(--bg-card)] rounded-[2.5rem] border border-[var(--border-color)] shadow-sm overflow-hidden">
+        <div className="glass-card rounded-2xl overflow-hidden">
           <div className="p-6">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: `${accentHex}20` }}>
-                <span className="text-xl">📚</span>
+                <ICONS.Book className="w-5 h-5 text-[var(--accent-color)]" />
               </div>
               <div>
-                <h3 className="font-bold text-[var(--text-primary)]">{t('profile.extras.title')}</h3>
+                <h3 className="font-bold font-header text-[var(--text-primary)]">{t('profile.extras.title')}</h3>
                 <p className="text-scale-caption text-[var(--text-secondary)]">{t('profile.extras.subtitle')}</p>
               </div>
             </div>
@@ -872,7 +899,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                     backgroundColor: `${accentHex}10`
                   }}
                 >
-                  <span className="text-xl">📲</span>
+                  <ICONS.Download className="w-5 h-5 text-[var(--accent-color)]" />
                   <div className="flex-1 text-left">
                     <p className="font-bold text-[var(--text-primary)]">{t('profile.extras.installApp')}</p>
                     <p className="text-scale-caption text-[var(--text-secondary)]">{t('profile.extras.installAppDesc')}</p>
@@ -889,7 +916,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
               {/* Installed confirmation */}
               {!isNativeApp && isInstalled && !installPrompt && (
                 <div className="flex items-center gap-3 p-4 rounded-xl border border-green-200 bg-green-50">
-                  <span className="text-xl">✅</span>
+                  <ICONS.Check className="w-5 h-5 text-green-600" />
                   <div className="flex-1">
                     <p className="font-bold text-green-700">{t('profile.extras.appInstalled')}</p>
                     <p className="text-scale-caption text-green-600">{t('profile.extras.appInstalledDesc')}</p>
@@ -901,7 +928,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                 href="/learn"
                 className="flex items-center gap-3 p-4 rounded-xl border border-[var(--border-color)] hover:border-[var(--accent-color)] transition-all group"
               >
-                <span className="text-xl">📖</span>
+                <ICONS.FileText className="w-5 h-5 text-[var(--text-secondary)]" />
                 <div className="flex-1">
                   <p className="font-bold text-[var(--text-primary)] group-hover:text-[var(--accent-color)] transition-colors">{t('profile.links.blog', { language: targetName })}</p>
                   <p className="text-scale-caption text-[var(--text-secondary)]">{t('profile.links.blogDescription')}</p>

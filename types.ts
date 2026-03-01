@@ -1,3 +1,16 @@
+// ChatMode is defined in utils/prompt-templates.ts — import for local use and re-export
+import type { ChatMode } from './utils/prompt-templates.js';
+export type { ChatMode };
+
+export interface GameSessionAnswer {
+  wordId?: string;
+  wordText: string;
+  correctAnswer: string;
+  userAnswer?: string;
+  questionType: 'flashcard' | 'multiple_choice' | 'type_it';
+  isCorrect: boolean;
+  explanation?: string;
+}
 
 export type UserRole = 'student' | 'tutor';
 
@@ -15,11 +28,12 @@ export interface Profile {
   onboarding_completed_at?: string;
   onboarding_data?: OnboardingData;
   // Theme settings
-  accent_color?: 'rose' | 'blush' | 'lavender' | 'wine' | 'teal' | 'honey';
+  accent_color?: 'rose' | 'coral' | 'honey' | 'mint' | 'ocean' | 'wine' | 'blush' | 'lavender' | 'teal';
   dark_mode?: 'off' | 'midnight' | 'charcoal' | 'black';
   font_size?: 'small' | 'medium' | 'large';
   font_preset?: 'classic' | 'modern' | 'playful';
   font_weight?: 'light' | 'regular' | 'bold';
+  background_style?: 'tinted' | 'clean';
   // Answer validation mode
   smart_validation?: boolean; // true = AI-powered (accepts synonyms, typos), false = strict matching
   // Native app settings
@@ -86,6 +100,9 @@ export interface OnboardingData {
   smartValidation?: boolean;     // true = AI-powered validation, false = strict matching
   nativeLanguage?: string;       // User's native language code (e.g., 'en', 'es')
   targetLanguage?: string;       // Language user is learning (e.g., 'pl', 'fr')
+
+  // Invite partner intent (captured during onboarding, executed after plan selection)
+  invitePartnerIntent?: { method: 'link' } | { method: 'email'; email: string } | null;
 
   // Subscription selection (from onboarding)
   selectedPlan?: string;         // 'standard' or 'unlimited'
@@ -187,13 +204,6 @@ export interface DictionaryEntry {
   created_at: string;
   updated_at?: string;
 }
-
-export type ChatMode = 'ask' | 'learn' | 'coach';
-
-// Translation direction for games (language-agnostic)
-export type TranslationDirection = 'target_to_native' | 'native_to_target';
-
-export type LiveSessionState = 'disconnected' | 'connecting' | 'listening' | 'speaking' | 'error';
 
 export interface Chat {
   id: string;
@@ -325,13 +335,6 @@ export interface WordScore {
 
 // AI Challenge mode types
 export type AIChallengeMode = 'weakest' | 'gauntlet' | 'romantic' | 'least_practiced' | 'review_mastered';
-
-export interface AIChallengeModeInfo {
-  id: AIChallengeMode;
-  name: string;
-  description: string;
-  icon: string;
-}
 
 export interface RomanticPhrase {
   id: string;
@@ -628,15 +631,6 @@ export interface AchievementDefinition {
   xp_reward: number;
 }
 
-// User achievement
-export interface UserAchievement {
-  id: string;
-  user_id: string;
-  achievement_code: string;
-  unlocked_at: string;
-  achievement?: AchievementDefinition; // Joined data
-}
-
 // Challenge request types
 export type ChallengeRequestType = 'general' | 'topic' | 'specific_words';
 export type ChallengeRequestStatus = 'pending' | 'accepted' | 'fulfilled' | 'declined';
@@ -681,16 +675,9 @@ export interface ActivityFeedEvent {
   created_at: string;
 }
 
-// Love note templates
+// Love note types
 export type LoveNoteCategory = 'encouragement' | 'check_in' | 'celebration';
 
-export interface LoveNoteTemplate {
-  id: string;
-  category: LoveNoteCategory;
-  text: string;
-}
-
-// Love note
 export interface LoveNote {
   id: string;
   sender_id: string;
@@ -700,15 +687,6 @@ export interface LoveNote {
   custom_message?: string;
   read_at?: string | null;
   created_at: string;
-}
-
-// Nudge configuration
-export interface NudgeConfig {
-  scenario: 'student_inactive_2d' | 'student_inactive_5d' | 'tutor_inactive_3d';
-  target_role: 'tutor' | 'student';
-  message: string;
-  action_label: string;
-  action_type: 'love_note' | 'challenge';
 }
 
 // Tutor analytics data

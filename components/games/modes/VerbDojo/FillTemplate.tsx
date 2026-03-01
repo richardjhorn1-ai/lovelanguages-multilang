@@ -2,6 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../../constants';
 import { speak } from '../../../../services/audio';
+import { haptics } from '../../../../services/haptics';
 import { DictionaryEntry } from '../../../../types';
 import { VerbTense } from '../../../../constants/language-config';
 import { FillTemplateQuestion } from './types';
@@ -71,6 +72,7 @@ export const FillTemplate: React.FC<FillTemplateProps> = ({
         explanationText = accepted ? '' : `Correct answer: ${validAnswers.join(' / ')}`;
       }
 
+      haptics.trigger(accepted ? 'correct' : 'incorrect');
       setIsCorrect(accepted);
       setExplanation(explanationText);
       setSubmitted(true);
@@ -80,6 +82,7 @@ export const FillTemplate: React.FC<FillTemplateProps> = ({
       // Fallback to simple validation
       const userInput = input.trim().toLowerCase();
       const accepted = validAnswers.some((ans) => ans.toLowerCase() === userInput);
+      haptics.trigger(accepted ? 'correct' : 'incorrect');
       setIsCorrect(accepted);
       setExplanation(accepted ? '' : `Correct answer: ${validAnswers.join(' / ')}`);
       setSubmitted(true);
@@ -112,13 +115,13 @@ export const FillTemplate: React.FC<FillTemplateProps> = ({
       {/* Question card */}
       <div
         className="p-6 rounded-2xl border mb-6"
-        style={{ backgroundColor: `${accentColor}10`, borderColor: `${accentColor}30` }}
+        style={{ backgroundColor: `${accentColor}15`, borderColor: `${accentColor}25` }}
       >
         <p className="text-scale-caption font-bold uppercase tracking-wider mb-2" style={{ color: accentColor }}>
           {question.tense} tense
         </p>
         <div className="flex items-center justify-center gap-2 mb-2">
-          <h3 className="text-2xl font-black text-[var(--text-primary)]">{question.verb.word}</h3>
+          <h3 className="text-2xl font-black font-header text-[var(--text-primary)]">{question.verb.word}</h3>
           <button
             onClick={() => speak(question.verb.word, targetLanguage)}
             className="p-2 rounded-full hover:bg-[var(--border-color)] transition-colors"
@@ -129,7 +132,7 @@ export const FillTemplate: React.FC<FillTemplateProps> = ({
         <p className="text-[var(--text-secondary)] italic text-center mb-4">"{question.verb.translation}"</p>
 
         {/* Fill template */}
-        <div className="bg-[var(--bg-card)] p-4 rounded-xl text-center">
+        <div className="glass-card p-4 rounded-xl text-center">
           <span className="text-xl font-bold" style={{ color: accentColor }}>
             {question.personLabel}
           </span>
@@ -148,25 +151,25 @@ export const FillTemplate: React.FC<FillTemplateProps> = ({
         autoFocus
         disabled={submitted || isValidating}
         className="w-full p-4 mb-4 border-2 border-[var(--border-color)] rounded-xl text-center text-xl font-bold focus:outline-none bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)] disabled:opacity-50"
-        style={{ borderColor: submitted ? (isCorrect ? '#22c55e' : '#ef4444') : undefined }}
+        style={{ borderColor: submitted ? (isCorrect ? 'var(--color-correct)' : 'var(--color-incorrect)') : undefined }}
       />
 
       {/* Feedback */}
       {submitted && (
-        <div className={`p-4 rounded-xl mb-4 ${isCorrect ? 'bg-green-500/10' : 'bg-red-500/10'}`}>
+        <div className={`p-4 rounded-xl mb-4 ${isCorrect ? 'bg-[var(--color-correct-bg)]' : 'bg-[var(--color-incorrect-bg)]'}`}>
           <div className="flex items-center gap-2 mb-2">
             {isCorrect ? (
               <>
-                <span className="text-green-600 dark:text-green-400 font-bold">✓ Correct!</span>
+                <span className="text-[var(--color-correct)] font-bold">✓ Correct!</span>
                 <button
                   onClick={() => speak(correctAnswer, targetLanguage)}
-                  className="p-1 rounded-full hover:bg-green-500/20 transition-colors"
+                  className="p-1 rounded-full hover:bg-[var(--color-correct-bg)] transition-colors"
                 >
-                  <ICONS.Volume2 className="w-4 h-4 text-green-600 dark:text-green-400" />
+                  <ICONS.Volume2 className="w-4 h-4 text-[var(--color-correct)]" />
                 </button>
               </>
             ) : (
-              <span className="text-red-600 dark:text-red-400 font-bold">✗ Incorrect</span>
+              <span className="text-[var(--color-incorrect)] font-bold">✗ Incorrect</span>
             )}
           </div>
           {!isCorrect && (
@@ -176,9 +179,9 @@ export const FillTemplate: React.FC<FillTemplateProps> = ({
               </span>
               <button
                 onClick={() => speak(correctAnswer, targetLanguage)}
-                className="p-1 rounded-full hover:bg-red-500/20 transition-colors"
+                className="p-1 rounded-full hover:bg-[var(--color-incorrect-bg)] transition-colors"
               >
-                <ICONS.Volume2 className="w-4 h-4 text-red-600 dark:text-red-400" />
+                <ICONS.Volume2 className="w-4 h-4 text-[var(--color-incorrect)]" />
               </button>
             </div>
           )}

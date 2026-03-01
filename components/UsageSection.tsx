@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { useTheme } from '../context/ThemeContext';
 import { ICONS } from '../constants';
+import { apiFetch } from '../services/api-config';
 
 interface UsageData {
   subscription: {
@@ -44,7 +45,7 @@ const UsageSection: React.FC<UsageSectionProps> = ({ userId }) => {
         return;
       }
 
-      const response = await fetch('/api/subscription-status/', {
+      const response = await apiFetch('/api/subscription-status/', {
         headers: { Authorization: `Bearer ${session.access_token}` }
       });
 
@@ -79,7 +80,7 @@ const UsageSection: React.FC<UsageSectionProps> = ({ userId }) => {
   // Don't show for users without a subscription
   if (loading) {
     return (
-      <div className="bg-[var(--bg-card)] p-6 rounded-[2.5rem] border border-[var(--border-color)] shadow-sm">
+      <div className="glass-card p-6 rounded-2xl">
         <div className="animate-pulse space-y-4">
           <div className="h-4 bg-[var(--bg-primary)] rounded w-1/3" />
           <div className="h-2 bg-[var(--bg-primary)] rounded" />
@@ -103,8 +104,8 @@ const UsageSection: React.FC<UsageSectionProps> = ({ userId }) => {
   // For unlimited plan, show a simple "unlimited" badge
   if (isUnlimited) {
     return (
-      <div className="bg-[var(--bg-card)] p-6 rounded-[2.5rem] border border-[var(--border-color)] shadow-sm">
-        <h3 className="text-[11px] font-black mb-4 flex items-center gap-2 text-[var(--text-secondary)] uppercase tracking-[0.2em]">
+      <div className="glass-card p-6 rounded-2xl">
+        <h3 className="text-[11px] font-black font-header mb-4 flex items-center gap-2 text-[var(--text-secondary)] uppercase tracking-[0.2em]">
           <ICONS.TrendingUp className="w-4 h-4" style={{ color: accentHex }} />
           <span>{t('usage.title')}</span>
         </h3>
@@ -153,8 +154,8 @@ const UsageSection: React.FC<UsageSectionProps> = ({ userId }) => {
   const { limits, usage } = usageData;
 
   return (
-    <div className="bg-[var(--bg-card)] p-6 rounded-[2.5rem] border border-[var(--border-color)] shadow-sm">
-      <h3 className="text-[11px] font-black mb-5 flex items-center gap-2 text-[var(--text-secondary)] uppercase tracking-[0.2em]">
+    <div className="glass-card p-6 rounded-2xl">
+      <h3 className="text-[11px] font-black font-header mb-5 flex items-center gap-2 text-[var(--text-secondary)] uppercase tracking-[0.2em]">
         <ICONS.TrendingUp className="w-4 h-4" style={{ color: accentHex }} />
         <span>{t('usage.title')}</span>
       </h3>

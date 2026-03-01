@@ -7,6 +7,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { sounds } from '../services/sounds';
 import { normalizeAnswer, validateAnswerSmart } from '../utils/answer-helpers';
 import LimitReachedModal from './LimitReachedModal';
+import { apiFetch } from '../services/api-config';
 
 interface PlayQuickFireChallengeProps {
   challenge: TutorChallenge;
@@ -86,7 +87,7 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
     sounds.play('countdown');
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
-      await fetch('/api/start-challenge/', {
+      await apiFetch('/api/start-challenge/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -160,7 +161,7 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
 
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
-      const response = await fetch('/api/submit-challenge/', {
+      const response = await apiFetch('/api/submit-challenge/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -194,10 +195,10 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
   // Start Screen
   if (!started) {
     return (
-      <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-        <div className="bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] w-full max-w-md overflow-hidden text-center p-6 md:p-8">
-          <div className="text-5xl md:text-6xl mb-3 md:mb-4">⚡</div>
-          <h2 className="text-xl md:text-2xl font-black text-[var(--text-primary)] mb-2">{t('challengePlayer.quickFire.title')}</h2>
+      <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
+        <div className="glass-card-solid rounded-xl md:rounded-2xl w-full max-w-md overflow-hidden text-center p-6 md:p-8">
+          <div className="mb-3 md:mb-4 text-amber-500"><ICONS.Zap className="w-12 h-12 md:w-16 md:h-16 mx-auto" /></div>
+          <h2 className="text-xl md:text-2xl font-black font-header text-[var(--text-primary)] mb-2">{t('challengePlayer.quickFire.title')}</h2>
           <p className="text-[var(--text-secondary)] text-scale-label mb-4 md:mb-6">
             {t('challengePlayer.quickFire.startDescription', { name: partnerName, count: words.length, time: config.timeLimitSeconds })}
           </p>
@@ -210,11 +211,13 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
               config.difficulty === 'easy' ? 'text-green-600 dark:text-green-400' :
               config.difficulty === 'hard' ? 'text-red-600 dark:text-red-400' : 'text-amber-600 dark:text-amber-400'
             }`}>
-              {config.difficulty === 'easy'
-                ? `🌿 ${t('challengePlayer.quickFire.difficulty.easy')}`
-                : config.difficulty === 'hard'
-                  ? `💥 ${t('challengePlayer.quickFire.difficulty.hard')}`
-                  : `🔥 ${t('challengePlayer.quickFire.difficulty.medium')}`}
+              <span className="inline-flex items-center gap-1">
+                {config.difficulty === 'easy'
+                  ? <><ICONS.Leaf className="w-5 h-5 inline" /> {t('challengePlayer.quickFire.difficulty.easy')}</>
+                  : config.difficulty === 'hard'
+                    ? <><ICONS.Zap className="w-5 h-5 inline" /> {t('challengePlayer.quickFire.difficulty.hard')}</>
+                    : <><ICONS.Fire className="w-5 h-5 inline" /> {t('challengePlayer.quickFire.difficulty.medium')}</>}
+              </span>
             </p>
             <p className="text-scale-caption text-[var(--text-secondary)] mt-1">
               {t('challengePlayer.quickFire.timePerWord', { time: (config.timeLimitSeconds / words.length).toFixed(1) })}
@@ -243,8 +246,8 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
   // Countdown Screen
   if (countdown > 0) {
     return (
-      <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-        <div className="bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] w-full max-w-md p-6 md:p-8 text-center">
+      <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
+        <div className="glass-card-solid rounded-xl md:rounded-2xl w-full max-w-md p-6 md:p-8 text-center">
           <p className="text-[var(--text-secondary)] mb-3 md:mb-4">{t('challengePlayer.quickFire.getReady')}</p>
           <div className="text-7xl md:text-8xl font-black text-amber-500 animate-pulse">{countdown}</div>
         </div>
@@ -263,12 +266,12 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
     );
 
     return (
-      <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-        <div className="bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] w-full max-w-md overflow-hidden text-center p-6 md:p-8">
-          <div className="text-5xl md:text-6xl mb-3 md:mb-4">
-            {isPerfect && wasQuick ? '🏆' : isPerfect ? '🎉' : result.score >= 70 ? '⚡' : '💪'}
+      <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
+        <div className="glass-card-solid rounded-xl md:rounded-2xl w-full max-w-md overflow-hidden text-center p-6 md:p-8">
+          <div className="mb-3 md:mb-4">
+            {isPerfect && wasQuick ? <ICONS.Trophy className="w-12 h-12 md:w-16 md:h-16 mx-auto text-[var(--color-warning)]" /> : isPerfect ? <ICONS.Trophy className="w-12 h-12 md:w-16 md:h-16 mx-auto text-[var(--color-correct)]" /> : result.score >= 70 ? <ICONS.Zap className="w-12 h-12 md:w-16 md:h-16 mx-auto text-[var(--color-warning)]" /> : <ICONS.TrendingUp className="w-12 h-12 md:w-16 md:h-16 mx-auto text-[var(--secondary-color)]" />}
           </div>
-          <h2 className="text-xl md:text-2xl font-black text-[var(--text-primary)] mb-2">
+          <h2 className="text-xl md:text-2xl font-black font-header text-[var(--text-primary)] mb-2">
             {isPerfect && wasQuick
               ? t('challengePlayer.results.lightningFast')
               : isPerfect
@@ -337,8 +340,8 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
   // Loading
   if (submitting) {
     return (
-      <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-        <div className="bg-[var(--bg-card)] rounded-[2rem] w-full max-w-md p-8 text-center">
+      <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
+        <div className="glass-card-solid rounded-2xl w-full max-w-md p-8 text-center">
           <div className="flex justify-center gap-2 mb-4">
             <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce"></div>
             <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
@@ -358,13 +361,13 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
       showFeedback === 'correct' ? 'bg-green-500/50' :
       showFeedback === 'wrong' ? 'bg-red-500/50' : 'bg-black/50'
     }`}>
-      <div className="bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] w-full max-w-md overflow-hidden">
+      <div className="glass-card-solid rounded-xl md:rounded-2xl w-full max-w-md overflow-hidden">
         {/* Timer Bar */}
         <div className="h-2 md:h-3 bg-[var(--bg-primary)]">
           <div
             className={`h-full transition-all duration-1000 ${
-              timeProgress > 50 ? 'bg-amber-500' :
-              timeProgress > 25 ? 'bg-orange-500' : 'bg-red-500'
+              timeProgress > 50 ? 'bg-[var(--color-warning)]' :
+              timeProgress > 25 ? 'bg-[var(--color-warning)]' : 'bg-[var(--color-incorrect)]'
             }`}
             style={{ width: `${timeProgress}%` }}
           />

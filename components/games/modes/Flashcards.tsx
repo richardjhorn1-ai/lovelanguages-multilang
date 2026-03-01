@@ -1,8 +1,9 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../constants';
 import { StreakIndicator } from '../components';
 import { speak } from '../../../services/audio';
+import { haptics } from '../../../services/haptics';
 import type { InteractiveGameModeProps } from './types';
 
 interface FlashcardsProps extends InteractiveGameModeProps {}
@@ -24,16 +25,27 @@ export const Flashcards: React.FC<FlashcardsProps> = ({
 }) => {
   const { t } = useTranslation();
   const [isFlipped, setIsFlipped] = useState(false);
+  const advanceTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
 
   // Reset flip state when word changes
   useEffect(() => {
     setIsFlipped(false);
   }, [currentIndex]);
 
+  // Cleanup timeout on unmount to prevent updating unmounted component
+  useEffect(() => {
+    return () => {
+      if (advanceTimeoutRef.current) clearTimeout(advanceTimeoutRef.current);
+    };
+  }, []);
+
   const currentWord = words[currentIndex];
   const isLastWord = currentIndex >= words.length - 1;
 
   const handleResponse = useCallback((isCorrect: boolean) => {
+    // Haptic feedback — satisfying tap for correct, error buzz for hard
+    haptics.trigger(isCorrect ? 'correct' : 'incorrect');
+
     // Report answer to parent
     onAnswer({
       wordId: currentWord.id,
@@ -47,10 +59,10 @@ export const Flashcards: React.FC<FlashcardsProps> = ({
     setIsFlipped(false);
 
     if (isLastWord) {
-      // Small delay to let flip animation complete
-      setTimeout(() => onComplete(), 300);
+      // Small delay to let flip animation complete (cleaned up on unmount)
+      advanceTimeoutRef.current = setTimeout(() => onComplete(), 300);
     } else {
-      setTimeout(() => onNext(), 300);
+      advanceTimeoutRef.current = setTimeout(() => onNext(), 300);
     }
   }, [currentWord, isLastWord, onAnswer, onNext, onComplete]);
 
@@ -58,7 +70,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({
 
   return (
     <div
-      onClick={() => setIsFlipped(!isFlipped)}
+      onClick={() => { setIsFlipped(!isFlipped); haptics.trigger('selection'); }}
       className="relative w-full aspect-[4/5] cursor-pointer perspective-1000 group"
     >
       <div
@@ -67,12 +79,12 @@ export const Flashcards: React.FC<FlashcardsProps> = ({
         }`}
       >
         {/* Front - Word */}
-        <div className="absolute inset-0 bg-[var(--bg-card)] border border-[var(--border-color)] rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center shadow-lg backface-hidden">
+        <div className="absolute inset-0 glass-card rounded-2xl p-10 flex flex-col items-center justify-center text-center backface-hidden">
           <span className="text-[10px] uppercase tracking-widest text-[var(--text-secondary)] font-black mb-8">
             {t('play.flashcard.word', { language: targetLanguageName.toUpperCase() })}
           </span>
           <div className="flex items-center gap-3">
-            <h3 className="text-4xl font-black text-[var(--text-primary)]">
+            <h3 className="text-4xl font-black font-header text-[var(--text-primary)]">
               {currentWord.word}
             </h3>
             <button
@@ -80,7 +92,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({
                 e.stopPropagation();
                 speak(currentWord.word, targetLanguage);
               }}
-              className="p-2 rounded-full hover:bg-[var(--bg-secondary)] transition-colors"
+              className="p-2 rounded-full hover:bg-white/55 dark:hover:bg-white/12 transition-colors"
               title={t('play.flashcard.listen')}
             >
               <ICONS.Volume2 className="w-6 h-6 text-[var(--text-secondary)]" />
@@ -98,13 +110,13 @@ export const Flashcards: React.FC<FlashcardsProps> = ({
 
         {/* Back - Translation */}
         <div
-          className="absolute inset-0 text-white rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center shadow-lg backface-hidden rotate-y-180"
+          className="absolute inset-0 text-white rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-lg backface-hidden rotate-y-180"
           style={{ backgroundColor: accentColor }}
         >
           <span className="text-[10px] uppercase tracking-widest text-white/50 font-black mb-8">
             {t('play.flashcard.translation')}
           </span>
-          <h3 className="text-4xl font-black">{currentWord.translation}</h3>
+          <h3 className="text-4xl font-black font-header">{currentWord.translation}</h3>
           <div className="mt-12 grid grid-cols-2 gap-3 w-full">
             <button
               onClick={(e) => {
@@ -120,7 +132,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({
                 e.stopPropagation();
                 handleResponse(true);
               }}
-              className="bg-white p-4 rounded-2xl flex items-center justify-center gap-2 font-black uppercase tracking-widest text-scale-caption shadow-lg transition-all active:scale-95"
+              className="bg-[var(--bg-card)] p-4 rounded-2xl flex items-center justify-center gap-2 font-black uppercase tracking-widest text-scale-caption shadow-lg transition-all active:scale-95"
               style={{ color: accentColor }}
             >
               <ICONS.Check className="w-4 h-4" /> {t('play.flashcard.gotIt')}
@@ -129,13 +141,6 @@ export const Flashcards: React.FC<FlashcardsProps> = ({
         </div>
       </div>
 
-      {/* CSS for 3D flip effect */}
-      <style>{`
-        .perspective-1000 { perspective: 1000px; }
-        .transform-style-3d { transform-style: preserve-3d; }
-        .backface-hidden { backface-visibility: hidden; }
-        .rotate-y-180 { transform: rotateY(180deg); }
-      `}</style>
     </div>
   );
 };

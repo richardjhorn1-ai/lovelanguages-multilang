@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { supabase } from '../../services/supabase';
 import { ICONS } from '../../constants';
 import { ActivityFeedEvent, ActivityEventType } from '../../types';
+import { apiFetch } from '../../services/api-config';
 
 interface ActivityFeedProps {
   partnerId?: string;
@@ -22,17 +23,17 @@ interface FormattedEvent {
   isOwnEvent: boolean;
 }
 
-const EVENT_ICONS: Record<ActivityEventType, string> = {
-  word_mastered: '⭐',
-  level_up: '🎉',
-  challenge_completed: '🏆',
-  challenge_sent: '🎯',
-  challenge_request: '📩',
-  gift_sent: '🎁',
-  gift_received: '💝',
-  streak_milestone: '🔥',
-  achievement_unlocked: '🏅',
-  love_note: '💕',
+const EVENT_ICONS: Record<ActivityEventType, React.ReactNode> = {
+  word_mastered: <ICONS.Star className="w-4 h-4" />,
+  level_up: <ICONS.Sparkles className="w-4 h-4" />,
+  challenge_completed: <ICONS.Trophy className="w-4 h-4" />,
+  challenge_sent: <ICONS.Target className="w-4 h-4" />,
+  challenge_request: <ICONS.Mail className="w-4 h-4" />,
+  gift_sent: <ICONS.Gift className="w-4 h-4" />,
+  gift_received: <ICONS.Gift className="w-4 h-4" />,
+  streak_milestone: <ICONS.Zap className="w-4 h-4" />,
+  achievement_unlocked: <ICONS.Award className="w-4 h-4" />,
+  love_note: <ICONS.Heart className="w-4 h-4" />,
 };
 
 const ActivityFeed: React.FC<ActivityFeedProps> = ({ partnerId, limit = 20 }) => {
@@ -57,7 +58,7 @@ const ActivityFeed: React.FC<ActivityFeedProps> = ({ partnerId, limit = 20 }) =>
       const session = await supabase.auth.getSession();
       const newOffset = loadMore ? offset : 0;
 
-      const response = await fetch(
+      const response = await apiFetch(
         `/api/activity-feed?limit=${limit}&offset=${newOffset}&filter=${filter}`,
         {
           headers: {
@@ -116,24 +117,24 @@ const ActivityFeed: React.FC<ActivityFeedProps> = ({ partnerId, limit = 20 }) =>
   };
 
   return (
-    <div className="bg-[var(--bg-card)] rounded-xl md:rounded-[2rem] border border-[var(--border-color)]">
+    <div className="glass-card rounded-xl md:rounded-2xl">
       {/* Header */}
       <div className="p-4 border-b border-[var(--border-color)]">
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-scale-micro font-black uppercase text-[var(--text-secondary)] tracking-widest flex items-center gap-2">
+          <h3 className="text-scale-micro font-black font-header uppercase text-[var(--text-secondary)] tracking-widest flex items-center gap-2">
             <ICONS.Clock className="w-4 h-4 text-[var(--accent-color)]" />
             {t('activityFeed.title', 'Together')}
           </h3>
         </div>
 
         {/* Filter Tabs */}
-        <div className="flex gap-1 bg-[var(--bg-primary)] p-1 rounded-lg" role="group" aria-label="Activity filter">
+        <div className="flex gap-1 glass-card p-1 rounded-lg" role="group" aria-label="Activity filter">
           {(['all', 'mine', 'partner'] as const).map((f) => (
             <button
               key={f}
               onClick={() => setFilter(f)}
               aria-pressed={filter === f}
-              className={`flex-1 py-1.5 px-3 rounded-md text-scale-micro font-bold transition-all focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)] ${
+              className={`flex-1 py-1.5 px-3 rounded-md text-scale-micro font-bold transition-all active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)] ${
                 filter === f
                   ? 'bg-[var(--bg-card)] text-[var(--text-primary)] shadow-sm'
                   : 'text-[var(--text-secondary)]'
@@ -166,7 +167,7 @@ const ActivityFeed: React.FC<ActivityFeedProps> = ({ partnerId, limit = 20 }) =>
           <>
             {events.map((event) => {
               const eventColor = getEventColor(event.eventType, event.isOwnEvent);
-              const icon = EVENT_ICONS[event.eventType] || '📝';
+              const icon = EVENT_ICONS[event.eventType] || <ICONS.FileText className="w-4 h-4" />;
 
               return (
                 <div
@@ -178,7 +179,7 @@ const ActivityFeed: React.FC<ActivityFeedProps> = ({ partnerId, limit = 20 }) =>
                     className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0"
                     style={{ backgroundColor: `${eventColor}15` }}
                   >
-                    <span className="text-lg">{icon}</span>
+                    <span style={{ color: eventColor }}>{icon}</span>
                   </div>
 
                   {/* Content */}

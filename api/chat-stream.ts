@@ -62,11 +62,9 @@ export default async function handler(req: any, res: any) {
   if (!supabase) return res.status(500).json({ error: 'Server configuration error' });
 
   const sub = await requireSubscription(supabase, auth.userId);
-  console.log('[chat-stream] Subscription check:', { allowed: sub.allowed, plan: sub.plan, userId: auth.userId });
   if (!sub.allowed) return res.status(403).json({ error: sub.error });
 
   const limit = await checkRateLimit(supabase, auth.userId, 'chat', sub.plan as SubscriptionPlan);
-  console.log('[chat-stream] Rate limit check:', { allowed: limit.allowed, remaining: limit.remaining, plan: sub.plan });
   if (!limit.allowed) return res.status(429).json({ error: limit.error, remaining: limit.remaining });
 
   const apiKey = process.env.GEMINI_API_KEY;
@@ -162,7 +160,6 @@ export default async function handler(req: any, res: any) {
     res.setHeader('X-Accel-Buffering', 'no');
 
     // Stream from Gemini
-    console.log('[chat-stream] Starting Gemini stream for user:', auth.userId);
     const ai = new GoogleGenAI({ apiKey });
     const response = await ai.models.generateContentStream({
       model: 'gemini-2.5-flash',

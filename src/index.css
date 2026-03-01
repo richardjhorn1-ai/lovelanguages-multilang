@@ -12,6 +12,21 @@
     --accent-hover: #E63E56;
     --accent-text: #BE123C;
     --accent-shadow: rgba(255, 71, 97, 0.25);
+    /* Secondary accent defaults (Rose & Gold pair) */
+    --secondary-color: #FFD93B;
+    --secondary-light: #FFFBEB;
+    --secondary-border: #FDE68A;
+    --secondary-text: #A16207;
+    --secondary-hover: #E8C535;
+    /* Semantic feedback colours */
+    --color-correct: #10B981;
+    --color-correct-bg: rgba(16, 185, 129, 0.1);
+    --color-incorrect: #EF4444;
+    --color-incorrect-bg: rgba(239, 68, 68, 0.1);
+    --color-warning: #F59E0B;
+    --color-warning-bg: rgba(245, 158, 11, 0.1);
+    /* App background (set dynamically by applyTheme) */
+    --bg-app: #FFF0F3;
     --bg-primary: #fdfcfd;
     --bg-card: #ffffff;
     --text-primary: #292F36;
@@ -49,8 +64,28 @@
     box-sizing: border-box;
 }
 
+/* Global keyboard focus states for accessibility */
+:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Unified form focus style — accent border + soft glow */
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color) 15%, transparent);
+    outline: none;
+}
+
 html {
     font-size: var(--font-size-base);
+    scroll-behavior: smooth;
 }
 
 body {
@@ -127,6 +162,49 @@ html.capacitor .overflow-auto {
     }
 }
 
+/* Range input (slider) thumb — consistent across browsers */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    box-shadow:
+        0 1px 4px rgba(0, 0, 0, 0.15),
+        0 0 0 3px var(--accent-color);
+    cursor: pointer;
+    transition: box-shadow 0.15s ease;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.2),
+        0 0 0 4px var(--accent-color);
+}
+input[type="range"]::-webkit-slider-thumb:active {
+    transform: scale(1.1);
+}
+input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: none;
+    background: white;
+    box-shadow:
+        0 1px 4px rgba(0, 0, 0, 0.15),
+        0 0 0 3px var(--accent-color);
+    cursor: pointer;
+}
+input[type="range"]::-moz-range-track {
+    height: 8px;
+    border-radius: 9999px;
+    background: transparent;
+}
+
 /* Desktop text scale offset - added to mobile values by theme.ts
    The actual text scale values are set via JavaScript in applyTheme()
    to support theme-aware scaling (Small/Medium/Large preferences) */
@@ -172,35 +250,6 @@ strong {
     padding-top: var(--safe-area-top);
 }
 
-.safe-area-bottom {
-    padding-bottom: var(--safe-area-bottom);
-}
-
-.safe-area-left {
-    padding-left: var(--safe-area-left);
-}
-
-.safe-area-right {
-    padding-right: var(--safe-area-right);
-}
-
-.safe-area-x {
-    padding-left: var(--safe-area-left);
-    padding-right: var(--safe-area-right);
-}
-
-.safe-area-y {
-    padding-top: var(--safe-area-top);
-    padding-bottom: var(--safe-area-bottom);
-}
-
-.safe-area-all {
-    padding-top: var(--safe-area-top);
-    padding-bottom: var(--safe-area-bottom);
-    padding-left: var(--safe-area-left);
-    padding-right: var(--safe-area-right);
-}
-
 /* Mobile viewport height fix - uses dvh with vh fallback */
 /* dvh adjusts to actual visible viewport (handles mobile address bar) */
 .h-screen-safe {
@@ -234,11 +283,6 @@ strong {
     line-height: var(--line-height-normal);
 }
 
-.text-scale-button {
-    font-size: var(--text-button);
-    line-height: var(--line-height-tight);
-}
-
 .text-scale-body {
     font-size: var(--text-body);
     line-height: var(--line-height-relaxed);
@@ -263,7 +307,7 @@ strong {
 
 /* TTS Word Click - Chat foreign words are clickable for pronunciation */
 .tts-word {
-  transition: all 0.15s ease;
+  transition: text-decoration 0.15s ease, opacity 0.15s ease;
 }
 
 .tts-word:hover {
@@ -275,3 +319,287 @@ strong {
 .tts-word:active {
   opacity: 0.7;
 }
+
+/* Glass Morphism Card Utility
+   Use on any card/panel container for the frosted glass effect.
+   Automatically adapts to light/dark mode and accent color. */
+.glass-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.55),
+    rgba(255, 255, 255, 0.30)
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    0 8px 32px -8px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+
+.dark .glass-card {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--bg-card) 65%, transparent),
+    color-mix(in srgb, var(--bg-card) 45%, transparent)
+  );
+  box-shadow:
+    0 8px 32px -8px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Near-opaque glass for overlays, dropdowns, menus.
+   Content behind should NOT bleed through. */
+.glass-card-solid {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.95),
+    rgba(255, 255, 255, 0.90)
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow:
+    0 12px 40px -8px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+.dark .glass-card-solid {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--bg-card) 95%, transparent),
+    color-mix(in srgb, var(--bg-card) 88%, transparent)
+  );
+  box-shadow:
+    0 12px 40px -8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+/* Modal Backdrop — blurs content behind instead of darkening it.
+   Lighter, more elegant than bg-black/50. */
+.modal-backdrop {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.dark .modal-backdrop {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* App Background — uses --bg-app which is set by applyTheme().
+   In "tinted" mode: accent-light pastel wash (light) or subtle accent mix (dark).
+   In "clean" mode: pure white (light) or dark bg (dark). */
+.app-bg-decor {
+  background: var(--bg-app, var(--accent-light));
+}
+
+/* Clean mode overrides — solid cards, no glassmorphism tint bleed */
+[data-bg-style="clean"] .glass-card {
+  background: var(--bg-card);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 0 1px var(--border-color);
+}
+
+[data-bg-style="clean"].dark .glass-card {
+  background: var(--bg-card);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 1px var(--border-color);
+}
+
+/* ================================================
+   Global Micro-Interactions — Skeuomorphic Polish
+   ================================================ */
+
+/* Tactile button press — every button in the app feels like a real physical press.
+   Uses `scale` (individual transform property) so it composes with `transform` instead of overriding it. */
+button:active:not(:disabled) {
+  scale: 0.97;
+}
+
+/* Smooth transitions on interactive elements — specific properties only (not `all` which causes layout thrashing) */
+button, a, input, select, textarea {
+  transition: transform 0.2s ease, opacity 0.2s ease, box-shadow 0.2s ease,
+              border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Glass card hover lift — cards gain depth on hover, like picking up a card from a table */
+.glass-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+@media (hover: hover) {
+  .glass-card:hover {
+    transform: translateY(-1px);
+    box-shadow:
+      0 12px 40px -8px rgba(0, 0, 0, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+  .dark .glass-card:hover {
+    box-shadow:
+      0 12px 40px -8px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* ================================================
+   Reusable Animation Keyframes
+   ================================================ */
+
+/* Reveal up — content slides in from below with fade */
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-reveal {
+  animation: reveal-up 0.5s ease-out both;
+}
+.animate-fadeIn {
+  animation: reveal-up 0.5s ease-out both;
+}
+
+/* Stagger delays — cascade through list items */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+.stagger-6 { animation-delay: 0.3s; }
+
+/* Shake — error/incorrect feedback */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+  20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* 3D flip utilities — used by flashcard games */
+.perspective-1000 { perspective: 1000px; }
+.transform-style-3d { transform-style: preserve-3d; }
+.backface-hidden { backface-visibility: hidden; }
+.rotate-y-180 { transform: rotateY(180deg); }
+
+/* Pop in — celebratory entrance (streak, mastery, results) */
+@keyframes pop-in {
+  0%   { opacity: 0; transform: scale(0.6); }
+  60%  { opacity: 1; transform: scale(1.08); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.animate-pop-in {
+  animation: pop-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* Fade in scale — softer entrance for modals and overlays */
+@keyframes fade-in-scale {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+.animate-fade-in-scale {
+  animation: fade-in-scale 0.3s ease-out both;
+}
+
+/* Slide in from bottom — chat messages, notifications */
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out both;
+}
+
+/* Correct answer glow — brief green pulse */
+@keyframes correct-glow {
+  0%   { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); }
+  50%  { box-shadow: 0 0 20px 4px rgba(34, 197, 94, 0.2); }
+  100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+}
+.animate-correct-glow {
+  animation: correct-glow 0.6s ease-out;
+}
+
+/* Incorrect answer flash — brief red pulse */
+@keyframes incorrect-flash {
+  0%   { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+  50%  { box-shadow: 0 0 20px 4px rgba(239, 68, 68, 0.2); }
+  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+}
+.animate-incorrect-flash {
+  animation: incorrect-flash 0.6s ease-out;
+}
+
+/* Celebration sparkle — used by mastery/streak celebrations */
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+  50%      { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+.animate-sparkle {
+  animation: sparkle 0.8s ease-in-out both;
+}
+
+/* ================================================
+   tailwindcss-animate compatible utilities
+   These replace the missing tailwindcss-animate plugin
+   so all existing `animate-in` classes actually work.
+   ================================================ */
+
+/* Base keyframes */
+@keyframes enter-from-right {
+  from { opacity: 0; transform: translateX(100%); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes enter-from-left {
+  from { opacity: 0; transform: translateX(-100%); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes enter-from-top {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes enter-from-bottom {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes zoom-enter {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes fade-enter {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Composed animation classes (matching tailwindcss-animate conventions) */
+.animate-in {
+  animation-fill-mode: both;
+}
+.animate-in.fade-in {
+  animation: fade-enter 0.2s ease-out both;
+}
+.animate-in.fade-in.slide-in-from-bottom-2 {
+  animation: enter-from-bottom 0.3s ease-out both;
+}
+.animate-in.fade-in.slide-in-from-top-2 {
+  animation: enter-from-top 0.2s ease-out both;
+}
+.animate-in.fade-in.slide-in-from-right {
+  animation: enter-from-right 0.3s ease-out both;
+}
+.animate-in.slide-in-from-right {
+  animation: enter-from-right 0.3s ease-out both;
+}
+.animate-in.slide-in-from-left {
+  animation: enter-from-left 0.2s ease-out both;
+}
+.animate-in.fade-in.zoom-in,
+.animate-in.zoom-in-95.fade-in {
+  animation: zoom-enter 0.2s ease-out both;
+}
+.animate-in.zoom-in {
+  animation: zoom-enter 0.3s ease-out both;
+}
+
+/* Duration overrides */
+.animate-in.duration-200 { animation-duration: 0.2s; }
+.animate-in.duration-300 { animation-duration: 0.3s; }

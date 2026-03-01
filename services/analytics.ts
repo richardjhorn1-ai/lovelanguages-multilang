@@ -9,6 +9,8 @@
  *   analytics.track('signup_completed', { method: 'google' });
  */
 
+import { apiFetch } from './api-config';
+
 // Event parameter types
 interface BaseEventParams {
   [key: string]: string | number | boolean | undefined;
@@ -121,9 +123,9 @@ interface VoiceSessionParams extends BaseEventParams {
 
 // Retention events
 interface StreakParams extends BaseEventParams {
-  streak_days: number;
+  streak_count: number;
   activity_type?: string;
-  previous_streak_days?: number;
+  previous_streak_count?: number;
 }
 
 interface PartnerParams extends BaseEventParams {
@@ -207,7 +209,10 @@ type EventName =
   | 'error_encountered'
   | 'rage_click'
   | 'feature_abandoned'
-  | 'account_deleted';
+  | 'account_deleted'
+  // Auth lifecycle
+  | 'user_logged_in'
+  | 'user_logged_out';
 
 // Check if we're in browser
 const isBrowser = typeof window !== 'undefined';
@@ -215,6 +220,11 @@ const isBrowser = typeof window !== 'undefined';
 // Check if gtag is available
 const hasGtag = (): boolean => {
   return isBrowser && typeof window.gtag === 'function';
+};
+
+// Check if PostHog is available
+const hasPostHog = (): boolean => {
+  return isBrowser && typeof window.posthog !== 'undefined' && typeof window.posthog.capture === 'function';
 };
 
 // Debug mode (enable in dev)
@@ -296,6 +306,11 @@ class AnalyticsService {
       }
     }
 
+    // Identify in PostHog
+    if (hasPostHog()) {
+      window.posthog.identify(this.userId, properties ? cleanParams(properties as BaseEventParams) : {});
+    }
+
     if (isDebugMode()) {
       console.log('[Analytics] Identified user:', this.userId, properties);
     }
@@ -324,6 +339,11 @@ class AnalyticsService {
     // Send to GA4
     if (hasGtag()) {
       window.gtag('event', eventName, cleanParams(enrichedParams));
+    }
+
+    // Send to PostHog
+    if (hasPostHog()) {
+      window.posthog.capture(eventName, cleanParams(enrichedParams));
     }
 
     // Send to Supabase for per-user tracking
@@ -357,7 +377,7 @@ class AnalyticsService {
       };
 
       // Fire and forget - don't block on response
-      fetch('/api/analytics-event/', {
+      apiFetch('/api/analytics-event/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
@@ -483,6 +503,19 @@ class AnalyticsService {
     this.track('game_completed', params);
   }
 
+  // Auth lifecycle
+  trackLogin(method: 'email' | 'google' | 'apple'): void {
+    this.track('user_logged_in', { method });
+  }
+
+  trackLogout(): void {
+    this.track('user_logged_out', {});
+    // Reset PostHog identity on logout
+    if (hasPostHog()) {
+      window.posthog.reset();
+    }
+  }
+
   // Churn signals
   trackError(params: ErrorParams): void {
     this.track('error_encountered', params);
@@ -496,7 +529,7 @@ class AnalyticsService {
 // Singleton instance
 export const analytics = new AnalyticsService();
 
-// Type declaration for window.gtag
+// Type declarations for analytics libraries
 declare global {
   interface Window {
     gtag: (
@@ -505,6 +538,13 @@ declare global {
       params?: Record<string, unknown>
     ) => void;
     dataLayer: unknown[];
+    posthog: {
+      init: (apiKey: string, options?: Record<string, unknown>) => void;
+      capture: (eventName: string, properties?: Record<string, unknown>) => void;
+      identify: (distinctId: string, properties?: Record<string, unknown>) => void;
+      reset: () => void;
+      [key: string]: unknown;
+    };
   }
 }
 
@@ -628,7 +668,7 @@ const AI_REFERRAL_SOURCES = [
 /**
  * Detect if traffic came from an AI engine (GEO tracking)
  */
-export const detectAiReferral = (): string | null => {
+const detectAiReferral = (): string | null => {
   if (!isBrowser) return null;
   const referrer = document.referrer || '';
   const utmSource = new URLSearchParams(window.location.search).get('utm_source') || '';

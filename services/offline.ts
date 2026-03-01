@@ -6,6 +6,7 @@
 import { Network, ConnectionStatus } from '@capacitor/network';
 import { Capacitor } from '@capacitor/core';
 import { supabase } from './supabase';
+import { apiFetch } from './api-config';
 import * as offlineDb from './offline-db';
 import { logger } from '../utils/logger';
 
@@ -175,7 +176,7 @@ class OfflineService {
 
         for (const gs of pendingSessions) {
           try {
-            const response = await fetch('/api/submit-game-session/', {
+            const response = await apiFetch('/api/submit-game-session/', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -189,6 +190,7 @@ class OfflineService {
                 answers: gs.answers,
                 targetLanguage: gs.targetLanguage,
                 nativeLanguage: gs.nativeLanguage,
+                clientSessionId: gs.clientSessionId,
               }),
             });
             if (!response.ok) failedSessions.push(gs);

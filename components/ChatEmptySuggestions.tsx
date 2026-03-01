@@ -74,7 +74,7 @@ export const ChatEmptySuggestions: React.FC<Props> = ({ mode, role, onSuggestion
             <button
               key={index}
               onClick={() => onSuggestionClick(suggestion.text)}
-              className="w-full flex items-center gap-2.5 md:gap-4 p-2.5 md:p-4 rounded-xl md:rounded-2xl bg-[var(--bg-card)] border border-[var(--border-color)] hover:border-[var(--accent-color)] hover:shadow-md transition-all group text-left"
+              className="w-full flex items-center gap-2.5 md:gap-4 p-2.5 md:p-4 rounded-xl md:rounded-2xl glass-card hover:border-[var(--accent-color)] hover:shadow-md transition-all group text-left"
             >
               <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-[var(--accent-light)] flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
                 <Icon className="w-4 h-4 md:w-5 md:h-5 text-[var(--accent-color)]" />

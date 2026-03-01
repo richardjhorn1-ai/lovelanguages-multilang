@@ -496,7 +496,7 @@ The summary should make them feel seen, not just measured.`;
 
     if (saveError) {
       console.error('Error saving summary:', saveError);
-      // Continue anyway - return the summary even if save fails
+      return res.status(500).json({ error: 'Failed to save journey entry. Please try again.', retryable: true });
     }
 
     return res.status(200).json({

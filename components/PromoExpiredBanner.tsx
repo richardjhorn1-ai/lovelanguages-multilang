@@ -59,7 +59,7 @@ const PromoExpiredBanner: React.FC<PromoExpiredBannerProps> = ({
       style={{ backgroundColor: '#fef3c7' }}
     >
       <div className="max-w-xl mx-auto flex items-start gap-3">
-        <span className="text-2xl flex-shrink-0">💔</span>
+        <ICONS.HeartCrack className="w-6 h-6 text-amber-700 flex-shrink-0" />
         <div className="flex-1">
           <p className="text-amber-800 font-semibold text-sm">
             {t('promo.expired')}

@@ -346,7 +346,7 @@
       "chooseMode": "Elige el Modo de Desafío",
       "length": "Duración",
       "all": "Todas",
-      "qs": "Preg",
+      "qs": "Preguntas",
       "generatingPhrases": "Generando frases románticas...",
       "startChallenge": "Iniciar Desafío",
       "modes": {
@@ -667,6 +667,10 @@
     }
   },
   "onboarding": {
+    "nativeLanguage": {
+      "title": "¿Qué idioma hablas?",
+      "subtitle": "Te mostraremos todo en tu idioma"
+    },
     "step": {
       "back": "Atrás",
       "counter": "{{current}} de {{total}}",
@@ -737,8 +741,8 @@
         "name": "Estándar",
         "tagline": "Perfecto para empezar",
         "feature1": "2,000 palabras en Love Log",
-        "feature2": "60 min chat de voz/mes",
-        "feature3": "30 min Modo Escucha/mes",
+        "feature2": "8 hrs chat de voz/mes",
+        "feature3": "8 hrs Modo Escucha/mes",
         "feature4": "Todos los escenarios de conversación",
         "feature5": "Invitación para pareja"
       },
@@ -758,6 +762,58 @@
         "retry": "Retry"
       }
     },
+    "role": {
+      "title": "Quiero...",
+      "subtitle": "Elige cómo te gustaría usar Love Languages",
+      "learn": "Aprender un idioma",
+      "learnDesc": "Aprende el idioma de alguien que amas",
+      "teach": "Enseñar un idioma",
+      "teachDesc": "Ayuda a alguien que amas a aprender tu idioma"
+    },
+    "names": {
+      "title": "Hagámoslo personal",
+      "studentSubtitle": "Personalizaremos tu experiencia de aprendizaje",
+      "tutorSubtitle": "Personalizaremos la experiencia de enseñanza",
+      "yourName": "Tu nombre",
+      "partnerLabel": "¿Para quién estás aprendiendo?",
+      "learnerLabel": "¿A quién enseñarás?",
+      "partnerPlaceholder": "Su nombre",
+      "learnerPlaceholder": "Nombre del estudiante"
+    },
+    "language": {
+      "studentTitle": "¿Qué idioma habla alguien que amas?",
+      "tutorTitle": "¿Qué idioma quieres enseñar?",
+      "studentSubtitle": "Te ayudaremos a aprender su idioma",
+      "tutorSubtitle": "Elige el idioma que enseñarás",
+      "showAll": "Mostrar todos los idiomas",
+      "showLess": "Mostrar populares"
+    },
+    "themeCustomization": {
+      "title": "Make it yours",
+      "subtitle": "Choose your colors, mode & font",
+      "accentLabel": "Your color",
+      "darkModeLabel": "Display mode",
+      "fontLabel": "Font style",
+      "continue": "Looks great!"
+    },
+    "personalization": {
+      "title": "Hazlo tuyo",
+      "subtitle": "Ayúdanos a personalizar tu experiencia",
+      "vibeLabel": "La vibra de tu relación",
+      "timeLabel": "Tiempo de práctica diaria",
+      "priorLabel": "¿Has probado {{language}} antes?"
+    },
+    "tutorPersonalization": {
+      "title": "Cuéntanos sobre ti",
+      "subtitle": "Ayúdanos a personalizar la experiencia de enseñanza",
+      "relationLabel": "{{name}} es tu...",
+      "connectionLabel": "Tu conexión con {{language}}",
+      "originLabel": "¿De dónde eres? (opcional)",
+      "originPlaceholder": "Ciudad, país..."
+    },
+    "errors": {
+      "title": "Algo salió mal"
+    },
     "student": {
       "start": {
         "title": "¿Listo para empezar, {{name}}?",
@@ -767,6 +823,7 @@
         "feature2": "Tu Love Log para seguimiento de vocabulario",
         "feature3": "Juegos para practicar y dominar palabras",
         "feature4": "Seguimiento de progreso y tests de nivel",
+        "activating": "Iniciando tu prueba...",
         "button": "¡Vamos! 🚀"
       },
       "vibe": {
@@ -877,6 +934,7 @@
         "feature2": "Sigue el progreso de {{learnerName}}",
         "feature3": "Envía regalos de palabras para sorprenderle",
         "feature4": "Vincula cuentas para ver su viaje",
+        "activating": "Iniciando tu prueba...",
         "button": "¡Empezar a ayudar a {{learnerName}}! 🎯"
       },
       "relation": {
@@ -1448,10 +1506,11 @@
         "features": {
           "conversations": "25 conversaciones IA/mes",
           "validations": "50 validaciones/mes",
+          "words": "200 words in your vocabulary",
           "games": "Juegos de vocabulario básicos",
-          "voiceLimited": "Chat de voz (1 prueba)",
-          "listenLimited": "Modo escucha (1 prueba)",
-          "challengesLimited": "5 desafíos de pareja"
+          "voice": "15 min voice chat/month",
+          "listen": "15 min listen mode/month",
+          "challenges": "5 partner challenges"
         },
         "cta": "Comenzar Gratis",
         "subtext": "Perfecto para probar Love Languages",
@@ -1863,6 +1922,43 @@
     "timesUp": "¡Se acabó el tiempo!"
   },
   "hero": {
+    "headline": "Aprende el idioma de alguien a quien amas.",
+    "subtitle": "La única app de idiomas diseñada para parejas",
+    "swipeForMore": "Desliza para descubrir más",
+    "landing": {
+      "student": {
+        "headline": "Aprende el idioma de quien amas",
+        "highlight1": "idioma",
+        "highlight2": "amas"
+      },
+      "tutor": {
+        "headline": "Comparte tu idioma con quien amas",
+        "highlight1": "idioma",
+        "highlight2": "amas"
+      },
+      "tagline": {
+        "pre": "La",
+        "only": "única",
+        "post": "app de idiomas diseñada para parejas"
+      },
+      "startFree": "Empieza hoy por",
+      "learn": {
+        "title": "Material de aprendizaje gratuito",
+        "count": "11.500+",
+        "topics": "Apodos · Frases para citas · Gramática · Cultura"
+      },
+      "installApp": "Instalar app",
+      "installed": "Instalada",
+      "addToHome": "Añadir a pantalla de inicio",
+      "appStore": "App Store",
+      "comingSoon": "Próximamente",
+      "followSocials": "Síguenos en redes",
+      "waitlist": {
+        "description": "Recibe una notificación cuando lancemos en la App Store.",
+        "submitting": "Enviando...",
+        "notify": "Notificarme"
+      }
+    },
     "languageSelector": {
       "nativeTitle": "What language do you speak?",
       "nativeSubtitle": "18 languages available - we'll show everything in yours",
@@ -1911,7 +2007,10 @@
       "alreadyHaveAccount": "¿Ya tienes cuenta? Inicia sesión",
       "newHere": "¿Nuevo aquí? Crea una cuenta",
       "checkEmail": "¡Revisa tu correo para confirmación!",
-      "continueWithGoogle": "Continuar con Google"
+      "continueWithGoogle": "Continuar con Google",
+      "continueWithApple": "Continuar con Apple",
+      "orContinueWithEmail": "o continuar con email",
+      "orSignInWith": "o iniciar sesión con"
     },
     "legal": {
       "terms": "Términos",
@@ -2062,10 +2161,10 @@
           "question": "¿Cuánto cuesta?",
           "intro": "Dos planes, facturación flexible:",
           "standard": "Estándar",
-          "standardPrice": "$7/semana · $19/mes · $69/año",
+          "standardPrice": "$7/semana · $17.99/mes · $69.99/año",
           "standardDesc": "2,000 palabras, 60 min de voz, invitación para pareja",
           "unlimited": "Ilimitado",
-          "unlimitedPrice": "$12/semana · $39/mes · $139/año",
+          "unlimitedPrice": "$12.99/semana · $39.99/mes · $139/año",
           "unlimitedDesc": "Todo ilimitado + pases de regalo",
           "cancelNote": "Cancela cuando quieras. Sin contratos."
         },
@@ -2162,7 +2261,7 @@
             "feature2": {
               "pain": "Comparte tu mundo, una palabra a la vez",
               "feature": "Word Gifts",
-              "desc": "Envía vocabulario seleccionado: \u00abpalabras para conocer a mi abuela\u00bb."
+              "desc": "Envía vocabulario seleccionado: «palabras para conocer a mi abuela»."
             },
             "feature3": {
               "pain": "Ve qué se queda realmente",
@@ -2214,6 +2313,18 @@
         "blog": "Blog",
         "contact": "Contacto",
         "copyright": "Love Languages · Hecho con ♥ para amantes de todo el mundo"
+      }
+    },
+    "testimonials": {
+      "1": {
+        "quote": "This is SO COOL",
+        "name": "Alessia",
+        "context": "Aprendiendo para su pareja Tomas"
+      },
+      "2": {
+        "quote": "Dude this app is amazing",
+        "name": "Alessandra",
+        "context": "Aprendiendo para su novio Miki"
       }
     }
   },

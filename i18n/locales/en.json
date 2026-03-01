@@ -346,7 +346,7 @@
       "chooseMode": "Choose Challenge Mode",
       "length": "Length",
       "all": "All",
-      "qs": "Qs",
+      "qs": "Questions",
       "generatingPhrases": "Generating romantic phrases...",
       "startChallenge": "Start Challenge",
       "modes": {
@@ -574,7 +574,105 @@
     "craftingResponse": "Crafting a response..."
   },
   "tutorGames": {
-    "loading": "Loading games..."
+    "playTogether": "Play Together",
+    "sendChallenge": "Send Challenge",
+    "playNow": "Play Now",
+    "sendDescription": "Send challenges for {{name}} to complete later",
+    "playDescription": "Practice together right now",
+    "startNow": "Start Now",
+    "local": {
+      "quiz": "Quiz {{name}}",
+      "quizDesc": "Flashcard quiz together",
+      "quickFire": "Quick Fire",
+      "quickFireDesc": "60 second challenge",
+      "multipleChoice": "Multiple Choice",
+      "multipleChoiceDesc": "Pick the right answer",
+      "typeIt": "Type It",
+      "typeItDesc": "Type the translation",
+      "needWords": "{{name}} needs at least 4 words in their vocabulary to play"
+    },
+    "send": {
+      "doYouRemember": "Do You Remember?",
+      "quizPartner": "Quiz {{name}} on their vocabulary",
+      "createQuiz": "Create Quiz",
+      "quickFire": "Quick Fire",
+      "timedChallenge": "Timed vocabulary challenge",
+      "createChallenge": "Create Challenge",
+      "giftWords": "Gift Words",
+      "sendWords": "Send words for {{name}} to learn",
+      "sendGift": "Send Gift"
+    },
+    "pending": {
+      "waitingFor": "Waiting for {{name}}",
+      "words": "{{count}} words",
+      "sent": "Sent {{date}}",
+      "pending": "Pending"
+    },
+    "gifts": {
+      "title": "Word Gifts Sent",
+      "word": "{{count}} word",
+      "word_other": "{{count}} words",
+      "topic": "Topic: {{topic}}",
+      "custom": "Custom words",
+      "xpMultiplier": "{{multiplier}}x XP"
+    },
+    "results": {
+      "title": "Recent Results",
+      "completed": "Completed {{date}}"
+    },
+    "empty": {
+      "noChallenges": "No challenges yet",
+      "createFirst": "Create your first challenge for {{name}}!"
+    },
+    "flashcard": {
+      "targetWord": "{{language}}",
+      "nativeWord": "{{language}}",
+      "tapToReveal": "Tap to reveal",
+      "hard": "Hard",
+      "gotIt": "Got it!"
+    },
+    "direction": {
+      "label": "{{target}} → {{native}}"
+    },
+    "quickFireGame": {
+      "title": "Quick Fire!",
+      "description": "Translate as many words as you can in 60 seconds!",
+      "cancel": "Cancel",
+      "start": "Start!",
+      "typeTranslation": "Type the translation..."
+    },
+    "typeItGame": {
+      "correct": "Correct!",
+      "notQuite": "Not quite",
+      "correctAnswer": "Correct answer: {{answer}}",
+      "typeIn": "Type in {{language}}...",
+      "next": "Next",
+      "check": "Check"
+    },
+    "gameOver": {
+      "greatJob": "Great Job!",
+      "keepPracticing": "Keep Practicing!",
+      "correct": "{{correct}} of {{total}} correct",
+      "practicedTogether": "Did you practice together?",
+      "saveDescription": "Save this session to {{name}}'s learning history to track their progress.",
+      "saveToProgress": "Save to {{name}}'s Progress",
+      "saving": "Saving...",
+      "savedSuccess": "Saved to {{name}}'s history!",
+      "autoSaving": "Auto-saving to {{name}}'s progress...",
+      "done": "Done",
+      "playAgain": "Play Again"
+    },
+    "saveDialog": {
+      "title": "Save to {{name}}'s Progress?",
+      "howItWorks": "How this works:",
+      "detail1": "Game results are saved to {{name}}'s learning history",
+      "detail2": "Their word scores will update (streaks, mastery)",
+      "detail3": "Perfect for when you practice together!",
+      "willUpdate": "This will update {{name}}'s word scores and learning history.",
+      "remember": "Always save to {{name}}'s progress",
+      "notNow": "Not Now",
+      "save": "Save"
+    }
   },
   "notifications": {
     "partnerDeletedAccount": {
@@ -670,6 +768,10 @@
     }
   },
   "onboarding": {
+    "nativeLanguage": {
+      "title": "What language do you speak?",
+      "subtitle": "We'll show everything in your language"
+    },
     "step": {
       "back": "Back",
       "counter": "{{current}} of {{total}}",
@@ -740,8 +842,8 @@
         "name": "Standard",
         "tagline": "Perfect for getting started",
         "feature1": "2,000 words in Love Log",
-        "feature2": "60 min voice chat/month",
-        "feature3": "30 min Listen Mode/month",
+        "feature2": "8 hrs voice chat/month",
+        "feature3": "8 hrs Listen Mode/month",
         "feature4": "All conversation scenarios",
         "feature5": "Partner invite"
       },
@@ -761,6 +863,58 @@
         "retry": "Retry"
       }
     },
+    "role": {
+      "title": "I want to...",
+      "subtitle": "Choose how you'd like to use Love Languages",
+      "learn": "Learn a language",
+      "learnDesc": "Learn the language of someone you love",
+      "teach": "Teach a language",
+      "teachDesc": "Help someone you love learn your language"
+    },
+    "names": {
+      "title": "Let's get personal",
+      "studentSubtitle": "We'll personalize your learning experience",
+      "tutorSubtitle": "We'll personalize the teaching experience",
+      "yourName": "Your name",
+      "partnerLabel": "Who are you learning for?",
+      "learnerLabel": "Who will you teach?",
+      "partnerPlaceholder": "Their name",
+      "learnerPlaceholder": "Learner's name"
+    },
+    "language": {
+      "studentTitle": "What language does someone you love speak?",
+      "tutorTitle": "What language do you want to teach?",
+      "studentSubtitle": "We'll help you learn their language",
+      "tutorSubtitle": "Choose the language you'll teach",
+      "showAll": "Show all languages",
+      "showLess": "Show popular"
+    },
+    "themeCustomization": {
+      "title": "Make it yours",
+      "subtitle": "Choose your colors, mode & font",
+      "accentLabel": "Your color",
+      "darkModeLabel": "Display mode",
+      "fontLabel": "Font style",
+      "continue": "Looks great!"
+    },
+    "personalization": {
+      "title": "About your journey",
+      "subtitle": "Tell us about your relationship",
+      "vibeLabel": "Your relationship vibe",
+      "timeLabel": "Daily practice time",
+      "priorLabel": "Tried {{language}} before?"
+    },
+    "tutorPersonalization": {
+      "title": "Tell us about you",
+      "subtitle": "Help us personalize the teaching experience",
+      "relationLabel": "{{name}} is your...",
+      "connectionLabel": "Your {{language}} connection",
+      "originLabel": "Where are you from? (optional)",
+      "originPlaceholder": "City, country..."
+    },
+    "errors": {
+      "title": "Something went wrong"
+    },
     "student": {
       "start": {
         "title": "Ready to begin, {{name}}?",
@@ -770,6 +924,7 @@
         "feature2": "Your Love Log vocabulary tracker",
         "feature3": "Games to practice and master words",
         "feature4": "Progress tracking and level tests",
+        "activating": "Starting your trial...",
         "button": "Let's go! 🚀"
       },
       "vibe": {
@@ -871,6 +1026,20 @@
         "keepGoing": "Keep going!"
       }
     },
+    "invite": {
+      "title": "Invite {{name}} to join you!",
+      "subtitle": "Your subscription includes free access for your partner",
+      "linkOption": "Copy invite link",
+      "linkDesc": "We'll generate a link you can share after signup",
+      "emailOption": "Send email invite",
+      "emailDesc": "We'll send them a personal invite from you",
+      "emailPlaceholder": "{{name}}'s email address",
+      "benefit1": "Free access through your subscription",
+      "benefit2": "Linked progress & shared streaks",
+      "benefit3": "Challenges & love notes together",
+      "continue": "Invite {{name}}",
+      "skip": "I'll invite them later"
+    },
     "tutor": {
       "start": {
         "title": "Ready to be {{learnerName}}'s guide, {{userName}}?",
@@ -880,6 +1049,7 @@
         "feature2": "Track {{learnerName}}'s progress",
         "feature3": "Send word gifts to surprise them",
         "feature4": "Link accounts to see their journey",
+        "activating": "Starting your trial...",
         "button": "Start helping {{learnerName}}! 🎯"
       },
       "relation": {
@@ -972,107 +1142,6 @@
     "submitting": "Submitting...",
     "submitTest": "Submit Test",
     "next": "Next"
-  },
-  "tutorGames": {
-    "playTogether": "Play Together",
-    "sendChallenge": "Send Challenge",
-    "playNow": "Play Now",
-    "sendDescription": "Send challenges for {{name}} to complete later",
-    "playDescription": "Practice together right now",
-    "startNow": "Start Now",
-    "local": {
-      "quiz": "Quiz {{name}}",
-      "quizDesc": "Flashcard quiz together",
-      "quickFire": "Quick Fire",
-      "quickFireDesc": "60 second challenge",
-      "multipleChoice": "Multiple Choice",
-      "multipleChoiceDesc": "Pick the right answer",
-      "typeIt": "Type It",
-      "typeItDesc": "Type the translation",
-      "needWords": "{{name}} needs at least 4 words in their vocabulary to play"
-    },
-    "send": {
-      "doYouRemember": "Do You Remember?",
-      "quizPartner": "Quiz {{name}} on their vocabulary",
-      "createQuiz": "Create Quiz",
-      "quickFire": "Quick Fire",
-      "timedChallenge": "Timed vocabulary challenge",
-      "createChallenge": "Create Challenge",
-      "giftWords": "Gift Words",
-      "sendWords": "Send words for {{name}} to learn",
-      "sendGift": "Send Gift"
-    },
-    "pending": {
-      "waitingFor": "Waiting for {{name}}",
-      "words": "{{count}} words",
-      "sent": "Sent {{date}}",
-      "pending": "Pending"
-    },
-    "gifts": {
-      "title": "Word Gifts Sent",
-      "word": "{{count}} word",
-      "word_other": "{{count}} words",
-      "topic": "Topic: {{topic}}",
-      "custom": "Custom words",
-      "xpMultiplier": "{{multiplier}}x XP"
-    },
-    "results": {
-      "title": "Recent Results",
-      "completed": "Completed {{date}}"
-    },
-    "empty": {
-      "noChallenges": "No challenges yet",
-      "createFirst": "Create your first challenge for {{name}}!"
-    },
-    "flashcard": {
-      "targetWord": "{{language}}",
-      "nativeWord": "{{language}}",
-      "tapToReveal": "Tap to reveal",
-      "hard": "Hard",
-      "gotIt": "Got it!"
-    },
-    "direction": {
-      "label": "{{target}} → {{native}}"
-    },
-    "quickFireGame": {
-      "title": "Quick Fire!",
-      "description": "Translate as many words as you can in 60 seconds!",
-      "cancel": "Cancel",
-      "start": "Start!",
-      "typeTranslation": "Type the translation..."
-    },
-    "typeItGame": {
-      "correct": "Correct!",
-      "notQuite": "Not quite",
-      "correctAnswer": "Correct answer: {{answer}}",
-      "typeIn": "Type in {{language}}...",
-      "next": "Next",
-      "check": "Check"
-    },
-    "gameOver": {
-      "greatJob": "Great Job!",
-      "keepPracticing": "Keep Practicing!",
-      "correct": "{{correct}} of {{total}} correct",
-      "practicedTogether": "Did you practice together?",
-      "saveDescription": "Save this session to {{name}}'s learning history to track their progress.",
-      "saveToProgress": "Save to {{name}}'s Progress",
-      "saving": "Saving...",
-      "savedSuccess": "Saved to {{name}}'s history!",
-      "autoSaving": "Auto-saving to {{name}}'s progress...",
-      "done": "Done",
-      "playAgain": "Play Again"
-    },
-    "saveDialog": {
-      "title": "Save to {{name}}'s Progress?",
-      "howItWorks": "How this works:",
-      "detail1": "Game results are saved to {{name}}'s learning history",
-      "detail2": "Their word scores will update (streaks, mastery)",
-      "detail3": "Perfect for when you practice together!",
-      "willUpdate": "This will update {{name}}'s word scores and learning history.",
-      "remember": "Always save to {{name}}'s progress",
-      "notNow": "Not Now",
-      "save": "Save"
-    }
   },
   "gameResults": {
     "greatJob": "Great Job!",
@@ -1454,10 +1523,11 @@
         "features": {
           "conversations": "25 AI conversations/month",
           "validations": "50 word validations/month",
-          "games": "Basic vocabulary games",
-          "voiceLimited": "Voice chat (1 try)",
-          "listenLimited": "Listen mode (1 try)",
-          "challengesLimited": "5 partner challenges"
+          "words": "200 words in your vocabulary",
+          "games": "All vocabulary games",
+          "voice": "15 min voice chat/month",
+          "listen": "15 min listen mode/month",
+          "challenges": "5 partner challenges"
         },
         "cta": "Start Free",
         "subtext": "Perfect for trying Love Languages",
@@ -1869,6 +1939,43 @@
     "timesUp": "Time's up!"
   },
   "hero": {
+    "headline": "Learn the language of someone you love.",
+    "subtitle": "The only language app designed for couples",
+    "swipeForMore": "Swipe to discover more",
+    "landing": {
+      "student": {
+        "headline": "Learn the language of the one you love",
+        "highlight1": "language",
+        "highlight2": "love"
+      },
+      "tutor": {
+        "headline": "Share your language with the one you love",
+        "highlight1": "language",
+        "highlight2": "love"
+      },
+      "tagline": {
+        "pre": "The",
+        "only": "only",
+        "post": "language app designed for couples"
+      },
+      "startFree": "Start today for",
+      "learn": {
+        "title": "Free Learning Material",
+        "count": "11,500+",
+        "topics": "Pet names · Date phrases · Grammar · Culture"
+      },
+      "installApp": "Install App",
+      "installed": "Installed",
+      "addToHome": "Add to home screen",
+      "appStore": "App Store",
+      "comingSoon": "Coming Soon",
+      "followSocials": "Follow our socials",
+      "waitlist": {
+        "description": "Get notified when we launch on the App Store.",
+        "submitting": "Submitting...",
+        "notify": "Notify Me"
+      }
+    },
     "languageSelector": {
       "nativeTitle": "What language do you speak?",
       "nativeSubtitle": "18 languages available - we'll show everything in yours",
@@ -1918,6 +2025,9 @@
       "newHere": "New here? Create an account",
       "checkEmail": "Check your email for confirmation!",
       "continueWithGoogle": "Continue with Google",
+      "continueWithApple": "Continue with Apple",
+      "orContinueWithEmail": "or continue with email",
+      "orSignInWith": "or sign in with",
       "forgotPassword": "Forgot password?",
       "backToLogin": "Back to login",
       "sendResetLink": "Send reset link",
@@ -2077,10 +2187,10 @@
           "freePrice": "$0",
           "freeDesc": "25 chats, 50 flashcards, 1 voice session — no card required",
           "standard": "Standard",
-          "standardPrice": "$7/week · $19/month · $69/year",
+          "standardPrice": "$7/week · $17.99/month · $69.99/year",
           "standardDesc": "2,000 words, 60 min voice, partner invite",
           "unlimited": "Unlimited",
-          "unlimitedPrice": "$12/week · $39/month · $139/year",
+          "unlimitedPrice": "$12.99/week · $39.99/month · $139/year",
           "unlimitedDesc": "Everything unlimited + gift passes",
           "cancelNote": "Cancel anytime. No contracts."
         },
@@ -2229,6 +2339,18 @@
         "blog": "Blog",
         "contact": "Contact",
         "copyright": "Love Languages · Made with ♥ for lovers everywhere"
+      }
+    },
+    "testimonials": {
+      "1": {
+        "quote": "This is SO COOL",
+        "name": "Alessia",
+        "context": "Learning for her partner Tomas"
+      },
+      "2": {
+        "quote": "Dude this app is amazing",
+        "name": "Alessandra",
+        "context": "Learning for her boyfriend Miki"
       }
     }
   },

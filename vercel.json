@@ -2144,6 +2144,14 @@
   ],
   "rewrites": [
     {
+      "source": "/privacy/",
+      "destination": "/privacy/index.html"
+    },
+    {
+      "source": "/terms/",
+      "destination": "/terms/index.html"
+    },
+    {
       "source": "/compare/",
       "destination": "/compare/index.html"
     },

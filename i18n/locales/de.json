@@ -346,7 +346,7 @@
       "chooseMode": "Challenge-Modus wählen",
       "length": "Länge",
       "all": "Alle",
-      "qs": "Fr.",
+      "qs": "Fragen",
       "generatingPhrases": "Romantische Ausdrücke werden generiert...",
       "startChallenge": "Challenge starten",
       "modes": {
@@ -667,6 +667,10 @@
     }
   },
   "onboarding": {
+    "nativeLanguage": {
+      "title": "Welche Sprache sprichst du?",
+      "subtitle": "Wir zeigen dir alles in deiner Sprache"
+    },
     "step": {
       "back": "Zurück",
       "counter": "{{current}} von {{total}}",
@@ -758,6 +762,58 @@
         "retry": "Retry"
       }
     },
+    "role": {
+      "title": "Ich möchte...",
+      "subtitle": "Wähle, wie du Love Languages nutzen möchtest",
+      "learn": "Eine Sprache lernen",
+      "learnDesc": "Lerne die Sprache von jemandem, den du liebst",
+      "teach": "Eine Sprache unterrichten",
+      "teachDesc": "Hilf jemandem, den du liebst, deine Sprache zu lernen"
+    },
+    "names": {
+      "title": "Machen wir es persönlich",
+      "studentSubtitle": "Wir passen dein Lernerlebnis an",
+      "tutorSubtitle": "Wir passen das Lehrerlebnis an",
+      "yourName": "Dein Name",
+      "partnerLabel": "Für wen lernst du?",
+      "learnerLabel": "Wen wirst du unterrichten?",
+      "partnerPlaceholder": "Sein/Ihr Name",
+      "learnerPlaceholder": "Name des Schülers"
+    },
+    "language": {
+      "studentTitle": "Welche Sprache spricht jemand, den du liebst?",
+      "tutorTitle": "Welche Sprache möchtest du unterrichten?",
+      "studentSubtitle": "Wir helfen dir, seine/ihre Sprache zu lernen",
+      "tutorSubtitle": "Wähle die Sprache, die du unterrichten wirst",
+      "showAll": "Alle Sprachen anzeigen",
+      "showLess": "Beliebte anzeigen"
+    },
+    "themeCustomization": {
+      "title": "Make it yours",
+      "subtitle": "Choose your colors, mode & font",
+      "accentLabel": "Your color",
+      "darkModeLabel": "Display mode",
+      "fontLabel": "Font style",
+      "continue": "Looks great!"
+    },
+    "personalization": {
+      "title": "Mach es zu deinem",
+      "subtitle": "Hilf uns, dein Erlebnis zu personalisieren",
+      "vibeLabel": "Die Stimmung deiner Beziehung",
+      "timeLabel": "Tägliche Übungszeit",
+      "priorLabel": "Schon mal {{language}} probiert?"
+    },
+    "tutorPersonalization": {
+      "title": "Erzähl uns von dir",
+      "subtitle": "Hilf uns, das Lehrerlebnis zu personalisieren",
+      "relationLabel": "{{name}} ist dein/e...",
+      "connectionLabel": "Deine Verbindung zu {{language}}",
+      "originLabel": "Woher kommst du? (optional)",
+      "originPlaceholder": "Stadt, Land..."
+    },
+    "errors": {
+      "title": "Etwas ist schiefgelaufen"
+    },
     "student": {
       "start": {
         "title": "Bereit anzufangen, {{name}}?",
@@ -767,6 +823,7 @@
         "feature2": "Dein Liebestagebuch-Vokabeltracker",
         "feature3": "Spiele zum Üben und Meistern von Wörtern",
         "feature4": "Fortschrittsverfolgung und Leveltests",
+        "activating": "Dein Probeabo wird gestartet...",
         "button": "Los geht's! 🚀"
       },
       "vibe": {
@@ -877,6 +934,7 @@
         "feature2": "Verfolge {{learnerName}}s Fortschritt",
         "feature3": "Sende Wortgeschenke zur Überraschung",
         "feature4": "Verknüpfe Konten, um ihre Reise zu sehen",
+        "activating": "Dein Probeabo wird gestartet...",
         "button": "Los geht's mit {{learnerName}}! 🎯"
       },
       "relation": {
@@ -1448,10 +1506,11 @@
         "features": {
           "conversations": "25 KI-Gespräche/Monat",
           "validations": "50 Wortvalidierungen/Monat",
+          "words": "200 words in your vocabulary",
           "games": "Basis-Vokabelspiele",
-          "voiceLimited": "Sprachchat (1x testen)",
-          "listenLimited": "Hörmodus (1x testen)",
-          "challengesLimited": "5 Partner-Challenges"
+          "voice": "15 min voice chat/month",
+          "listen": "15 min listen mode/month",
+          "challenges": "5 partner challenges"
         },
         "cta": "Kostenlos starten",
         "subtext": "Perfekt zum Ausprobieren",
@@ -1863,6 +1922,43 @@
     "timesUp": "Zeit vorbei!"
   },
   "hero": {
+    "headline": "Lerne die Sprache von jemandem, den du liebst.",
+    "subtitle": "Die einzige Sprach-App für Paare",
+    "swipeForMore": "Wische, um mehr zu entdecken",
+    "landing": {
+      "student": {
+        "headline": "Lerne die Sprache des Menschen, den du liebst",
+        "highlight1": "Sprache",
+        "highlight2": "liebst"
+      },
+      "tutor": {
+        "headline": "Teile deine Sprache mit dem Menschen, den du liebst",
+        "highlight1": "Sprache",
+        "highlight2": "liebst"
+      },
+      "tagline": {
+        "pre": "Die",
+        "only": "einzige",
+        "post": "Sprach-App für Paare"
+      },
+      "startFree": "Starte heute für",
+      "learn": {
+        "title": "Kostenloses Lernmaterial",
+        "count": "11.500+",
+        "topics": "Kosenamen · Date-Phrasen · Grammatik · Kultur"
+      },
+      "installApp": "App installieren",
+      "installed": "Installiert",
+      "addToHome": "Zum Startbildschirm hinzufügen",
+      "appStore": "App Store",
+      "comingSoon": "Demnächst",
+      "followSocials": "Folge uns",
+      "waitlist": {
+        "description": "Werde benachrichtigt, wenn wir im App Store starten.",
+        "submitting": "Wird gesendet...",
+        "notify": "Benachrichtigen"
+      }
+    },
     "languageSelector": {
       "nativeTitle": "What language do you speak?",
       "nativeSubtitle": "18 languages available - we'll show everything in yours",
@@ -1911,7 +2007,10 @@
       "alreadyHaveAccount": "Schon ein Konto? Anmelden",
       "newHere": "Neu hier? Konto erstellen",
       "checkEmail": "Prüfe deine E-Mail zur Bestätigung!",
-      "continueWithGoogle": "Weiter mit Google"
+      "continueWithGoogle": "Weiter mit Google",
+      "continueWithApple": "Weiter mit Apple",
+      "orContinueWithEmail": "oder weiter mit E-Mail",
+      "orSignInWith": "oder anmelden mit"
     },
     "legal": {
       "terms": "AGB",
@@ -2162,7 +2261,7 @@
             "feature2": {
               "pain": "Teile deine Welt, ein Wort nach dem anderen",
               "feature": "Word Gifts",
-              "desc": "Sende ausgewähltes Vokabular: \u201eWörter für das Treffen mit meiner Großmutter.\u201c"
+              "desc": "Sende ausgewähltes Vokabular: „Wörter für das Treffen mit meiner Großmutter.“"
             },
             "feature3": {
               "pain": "Sieh, was wirklich hängen bleibt",
@@ -2214,6 +2313,18 @@
         "blog": "Blog",
         "contact": "Kontakt",
         "copyright": "Love Languages · Mit ♥ gemacht für Liebende überall"
+      }
+    },
+    "testimonials": {
+      "1": {
+        "quote": "This is SO COOL",
+        "name": "Alessia",
+        "context": "Lernt für ihren Partner Tomas"
+      },
+      "2": {
+        "quote": "Dude this app is amazing",
+        "name": "Alessandra",
+        "context": "Lernt für ihren Freund Miki"
       }
     }
   },

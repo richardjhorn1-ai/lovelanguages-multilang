@@ -4,6 +4,7 @@ import { ICONS } from '../../../constants';
 import { StreakIndicator } from '../components';
 import { shuffleArray } from '../../../utils/array';
 import { speak } from '../../../services/audio';
+import { haptics } from '../../../services/haptics';
 import type { InteractiveGameModeProps } from './types';
 
 interface MultipleChoiceProps extends InteractiveGameModeProps {
@@ -81,6 +82,9 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
 
       const isCorrect = option === currentWord.translation;
 
+      // Haptic + visual feedback
+      haptics.trigger(isCorrect ? 'correct' : 'incorrect');
+
       // Trigger shake animation for incorrect answers
       if (!isCorrect) {
         setLocalShake(true);
@@ -123,7 +127,7 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
 
   return (
     <div
-      className={`bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)] ${
+      className={`glass-card rounded-2xl p-8 ${
         localShake || showIncorrectShake ? 'animate-shake' : ''
       }`}
     >
@@ -141,12 +145,12 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
       {/* Word to translate */}
       <div className="text-center mb-8">
         <div className="flex items-center justify-center gap-2">
-          <h3 className="text-3xl font-black text-[var(--text-primary)]">
+          <h3 className="text-3xl font-black font-header text-[var(--text-primary)]">
             {currentWord.word}
           </h3>
           <button
             onClick={() => speak(currentWord.word, targetLanguage)}
-            className="p-2 rounded-full hover:bg-[var(--bg-secondary)] transition-colors"
+            className="p-2 rounded-full hover:bg-white/55 dark:hover:bg-white/12 transition-colors"
             title={t('play.flashcard.listen')}
           >
             <ICONS.Volume2 className="w-5 h-5 text-[var(--text-secondary)]" />
@@ -171,10 +175,10 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
           if (showFeedback) {
             if (isCorrect) {
               buttonStyle =
-                'border-green-400 bg-green-500/10 border-green-500/30 text-green-500';
+                'border-[var(--color-correct)] bg-[var(--color-correct-bg)] border-[var(--color-correct)]/30 text-[var(--color-correct)]';
             } else if (isSelected && !isCorrect) {
               buttonStyle =
-                'border-red-400 bg-red-500/10 border-red-500/30 text-red-500';
+                'border-[var(--color-incorrect)] bg-[var(--color-incorrect-bg)] border-[var(--color-incorrect)]/30 text-[var(--color-incorrect)]';
             } else {
               buttonStyle = 'border-[var(--border-color)] text-[var(--text-secondary)]';
             }
@@ -195,27 +199,16 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
               </span>
               {option}
               {showFeedback && isCorrect && (
-                <ICONS.Check className="w-5 h-5 float-right text-green-500" />
+                <ICONS.Check className="w-5 h-5 float-right text-[var(--color-correct)]" />
               )}
               {showFeedback && isSelected && !isCorrect && (
-                <ICONS.X className="w-5 h-5 float-right text-red-500" />
+                <ICONS.X className="w-5 h-5 float-right text-[var(--color-incorrect)]" />
               )}
             </button>
           );
         })}
       </div>
 
-      {/* Shake animation */}
-      <style>{`
-        @keyframes shake {
-          0%, 100% { transform: translateX(0); }
-          10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
-          20%, 40%, 60%, 80% { transform: translateX(4px); }
-        }
-        .animate-shake {
-          animation: shake 0.5s ease-in-out;
-        }
-      `}</style>
     </div>
   );
 };

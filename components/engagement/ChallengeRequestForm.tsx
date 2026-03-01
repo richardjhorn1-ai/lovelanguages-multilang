@@ -5,6 +5,7 @@ import { sounds } from '../../services/sounds';
 import { haptics } from '../../services/haptics';
 import { ICONS } from '../../constants';
 import { DictionaryEntry, ChallengeRequestType } from '../../types';
+import { apiFetch } from '../../services/api-config';
 
 interface ChallengeRequestFormProps {
   tutorName: string;
@@ -88,7 +89,7 @@ const ChallengeRequestForm: React.FC<ChallengeRequestFormProps> = ({
 
     try {
       const session = await supabase.auth.getSession();
-      const response = await fetch('/api/create-challenge-request/', {
+      const response = await apiFetch('/api/create-challenge-request/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -130,17 +131,17 @@ const ChallengeRequestForm: React.FC<ChallengeRequestFormProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+    <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
       <div
-        className="bg-[var(--bg-card)] rounded-[2rem] max-w-md w-full max-h-[80vh] overflow-hidden shadow-2xl"
+        className="glass-card-solid rounded-2xl max-w-md w-full max-h-[80vh] overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div className="bg-gradient-to-r from-blue-500 to-cyan-500 p-4 text-white">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="text-2xl">🎯</span>
-              <h2 className="text-scale-label font-black">
+              <ICONS.Target className="w-6 h-6 text-white" />
+              <h2 className="text-scale-label font-black font-header">
                 {t('challengeRequest.title', 'Ask for Help')}
               </h2>
             </div>
@@ -151,7 +152,7 @@ const ChallengeRequestForm: React.FC<ChallengeRequestFormProps> = ({
               <ICONS.X className="w-4 h-4" />
             </button>
           </div>
-          <p className="text-blue-100 text-scale-caption mt-1">
+          <p className="text-white/70 text-scale-caption mt-1">
             {t('challengeRequest.subtitle', 'Ask {{name}} to create a challenge for you', { name: tutorName })}
           </p>
         </div>
@@ -167,7 +168,7 @@ const ChallengeRequestForm: React.FC<ChallengeRequestFormProps> = ({
                 onClick={() => setRequestType('general')}
                 className={`w-full text-left p-3 rounded-xl transition-all flex items-center gap-3 ${
                   requestType === 'general'
-                    ? 'bg-blue-100 dark:bg-blue-900/30 border-2 border-blue-500'
+                    ? 'bg-[var(--accent-light)] border-2 border-[var(--accent-color)]'
                     : 'bg-[var(--bg-primary)] border-2 border-transparent'
                 }`}
               >
@@ -186,11 +187,11 @@ const ChallengeRequestForm: React.FC<ChallengeRequestFormProps> = ({
                 onClick={() => setRequestType('topic')}
                 className={`w-full text-left p-3 rounded-xl transition-all flex items-center gap-3 ${
                   requestType === 'topic'
-                    ? 'bg-blue-100 dark:bg-blue-900/30 border-2 border-blue-500'
+                    ? 'bg-[var(--accent-light)] border-2 border-[var(--accent-color)]'
                     : 'bg-[var(--bg-primary)] border-2 border-transparent'
                 }`}
               >
-                <span className="text-xl">📚</span>
+                <ICONS.Book className="w-5 h-5 text-[var(--accent-color)]" />
                 <div>
                   <p className="font-bold text-scale-label text-[var(--text-primary)]">
                     {t('challengeRequest.types.topic', 'Specific Topic')}
@@ -205,11 +206,11 @@ const ChallengeRequestForm: React.FC<ChallengeRequestFormProps> = ({
                 onClick={() => setRequestType('specific_words')}
                 className={`w-full text-left p-3 rounded-xl transition-all flex items-center gap-3 ${
                   requestType === 'specific_words'
-                    ? 'bg-blue-100 dark:bg-blue-900/30 border-2 border-blue-500'
+                    ? 'bg-[var(--accent-light)] border-2 border-[var(--accent-color)]'
                     : 'bg-[var(--bg-primary)] border-2 border-transparent'
                 }`}
               >
-                <span className="text-xl">🎯</span>
+                <ICONS.Target className="w-5 h-5 text-[var(--accent-color)]" />
                 <div>
                   <p className="font-bold text-scale-label text-[var(--text-primary)]">
                     {t('challengeRequest.types.words', 'Specific Words')}
@@ -233,7 +234,7 @@ const ChallengeRequestForm: React.FC<ChallengeRequestFormProps> = ({
                 value={topic}
                 onChange={(e) => setTopic(e.target.value)}
                 placeholder={t('challengeRequest.topicPlaceholder', 'e.g., food, travel, family...')}
-                className="w-full p-3 rounded-xl bg-[var(--bg-primary)] border border-[var(--border-color)] text-[var(--text-primary)] text-scale-label focus:outline-none focus:border-blue-500"
+                className="w-full p-3 rounded-xl bg-[var(--bg-primary)] border border-[var(--border-color)] text-[var(--text-primary)] text-scale-label focus:outline-none focus:border-[var(--accent-color)]"
                 maxLength={100}
               />
             </div>
@@ -261,7 +262,7 @@ const ChallengeRequestForm: React.FC<ChallengeRequestFormProps> = ({
                       onClick={() => toggleWord(word.id)}
                       className={`px-3 py-1.5 rounded-full text-scale-caption font-bold transition-all ${
                         selectedWordIds.includes(word.id)
-                          ? 'bg-blue-500 text-white'
+                          ? 'bg-[var(--accent-color)] text-white'
                           : 'bg-[var(--bg-primary)] text-[var(--text-secondary)] border border-[var(--border-color)]'
                       }`}
                     >
@@ -271,7 +272,7 @@ const ChallengeRequestForm: React.FC<ChallengeRequestFormProps> = ({
                 </div>
               )}
               {selectedWordIds.length > 0 && (
-                <p className="text-scale-micro text-blue-500 mt-2">
+                <p className="text-scale-micro text-[var(--accent-color)] mt-2">
                   {selectedWordIds.length} {t('challengeRequest.wordsSelected', 'words selected')}
                 </p>
               )}
@@ -290,7 +291,7 @@ const ChallengeRequestForm: React.FC<ChallengeRequestFormProps> = ({
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder={t('challengeRequest.messagePlaceholder', 'Any specific requests?')}
-              className="w-full p-3 rounded-xl bg-[var(--bg-primary)] border border-[var(--border-color)] text-[var(--text-primary)] text-scale-label resize-none focus:outline-none focus:border-blue-500"
+              className="w-full p-3 rounded-xl bg-[var(--bg-primary)] border border-[var(--border-color)] text-[var(--text-primary)] text-scale-label resize-none focus:outline-none focus:border-[var(--accent-color)]"
               rows={2}
               maxLength={200}
             />

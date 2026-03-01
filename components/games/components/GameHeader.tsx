@@ -42,7 +42,7 @@ export const GameHeader: React.FC<GameHeaderProps> = ({
         <button
           onClick={onExit}
           aria-label={t('play.back', 'Go back')}
-          className="p-2 hover:bg-[var(--bg-card)] rounded-xl transition-colors"
+          className="p-2 hover:bg-white/40 rounded-xl transition-colors"
         >
           <ICONS.ChevronLeft className="w-5 h-5 text-[var(--text-secondary)]" />
         </button>
@@ -50,13 +50,13 @@ export const GameHeader: React.FC<GameHeaderProps> = ({
         {/* Score Counters */}
         <div className="flex gap-4">
           <div className="flex items-center gap-1.5">
-            <div className="w-2 h-2 rounded-full bg-green-500" />
+            <div className="w-2 h-2 rounded-full bg-[var(--color-correct)]" />
             <span className="text-scale-caption font-bold text-[var(--text-secondary)]">
               {score.correct}
             </span>
           </div>
           <div className="flex items-center gap-1.5">
-            <div className="w-2 h-2 rounded-full bg-red-400" />
+            <div className="w-2 h-2 rounded-full bg-[var(--color-incorrect)]" />
             <span className="text-scale-caption font-bold text-[var(--text-secondary)]">
               {score.incorrect}
             </span>

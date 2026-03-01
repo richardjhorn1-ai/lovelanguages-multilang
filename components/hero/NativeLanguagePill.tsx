@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { LANGUAGE_CONFIGS, SUPPORTED_LANGUAGE_CODES } from '../../constants/language-config';
 import { BRAND } from './heroConstants';
+import { ICONS } from '../../constants';
 
 interface NativeLanguagePillProps {
   nativeLanguage: string | null;
@@ -59,20 +60,12 @@ const NativeLanguagePill: React.FC<NativeLanguagePillProps> = ({
         <span>{t('onboarding.languageConfirm.iSpeak')}</span>
         <span className="text-lg">{currentLang?.flag}</span>
         <span className="font-bold">{currentLang?.nativeName}</span>
-        <svg
-          className={`w-4 h-4 transition-transform ${open ? 'rotate-180' : ''}`}
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          strokeWidth={2}
-        >
-          <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-        </svg>
+        <ICONS.ChevronDown className={`w-4 h-4 transition-transform ${open ? 'rotate-180' : ''}`} />
       </button>
 
       {open && (
         <div
-          className="absolute left-0 mt-2 w-64 max-h-72 overflow-y-auto rounded-2xl border shadow-xl bg-white py-2"
+          className="absolute left-0 mt-2 w-64 max-h-72 overflow-y-auto rounded-2xl border shadow-xl bg-[var(--bg-card)] py-2"
           style={{ borderColor: '#e5e7eb', zIndex: 31 }}
         >
           {(SUPPORTED_LANGUAGE_CODES as readonly string[]).map(code => {
@@ -83,18 +76,16 @@ const NativeLanguagePill: React.FC<NativeLanguagePillProps> = ({
               <button
                 key={code}
                 onClick={() => handleSelect(code)}
-                className="w-full flex items-center gap-3 px-4 py-2.5 text-left transition-all hover:bg-gray-50"
+                className="w-full flex items-center gap-3 px-4 py-2.5 text-left transition-all hover:bg-[var(--bg-primary)]"
                 style={{
                   backgroundColor: isSelected ? (isStudent ? BRAND.light : BRAND.tealLight) : undefined,
                   fontWeight: isSelected ? 700 : 500,
                 }}
               >
                 <span className="text-lg">{lang.flag}</span>
-                <span className="text-scale-label text-gray-700">{lang.nativeName}</span>
+                <span className="text-scale-label text-[var(--text-primary)]">{lang.nativeName}</span>
                 {isSelected && (
-                  <svg className="w-4 h-4 ml-auto" fill={accentColor} viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
+                  <ICONS.Check className="w-4 h-4 ml-auto" style={{ color: accentColor }} />
                 )}
               </button>
             );

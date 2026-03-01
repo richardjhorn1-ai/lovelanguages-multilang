@@ -2,8 +2,10 @@ import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../constants';
 import { StreakIndicator } from '../components';
-import { shuffleArray } from '../../../utils/array';
+
+import { isCorrectAnswer } from '../../../utils/answer-helpers';
 import { speak } from '../../../services/audio';
+import { haptics } from '../../../services/haptics';
 import { DictionaryEntry } from '../../../types';
 import type { GameModeProps, AnswerResult } from './types';
 
@@ -127,8 +129,8 @@ export const TypeIt: React.FC<TypeItProps> = ({
       accepted = simpleValidate(answer, correctAnswer);
       explanationText = accepted ? 'Exact match' : 'No match';
     } else {
-      // Default: case-insensitive trim comparison
-      accepted = answer.trim().toLowerCase() === correctAnswer.toLowerCase();
+      // Default: diacritic-normalized comparison
+      accepted = isCorrectAnswer(answer, correctAnswer);
       explanationText = accepted ? 'Exact match' : 'No match';
     }
 
@@ -136,6 +138,9 @@ export const TypeIt: React.FC<TypeItProps> = ({
     setSubmitted(true);
     setIsCorrect(accepted);
     setExplanation(explanationText);
+
+    // Haptic + visual feedback
+    haptics.trigger(accepted ? 'correct' : 'incorrect');
 
     // Shake on incorrect
     if (!accepted) {
@@ -170,7 +175,7 @@ export const TypeIt: React.FC<TypeItProps> = ({
 
   return (
     <div
-      className={`bg-[var(--bg-card)] rounded-[2.5rem] p-8 shadow-lg border border-[var(--border-color)] ${
+      className={`glass-card rounded-2xl p-8 ${
         localShake || showIncorrectShake ? 'animate-shake' : ''
       }`}
     >
@@ -193,11 +198,11 @@ export const TypeIt: React.FC<TypeItProps> = ({
       {/* Prompt */}
       <div className="text-center mb-2">
         <div className="flex items-center justify-center gap-2">
-          <h3 className="text-3xl font-black text-[var(--text-primary)]">{prompt}</h3>
+          <h3 className="text-3xl font-black font-header text-[var(--text-primary)]">{prompt}</h3>
           {isTargetToNative && (
             <button
               onClick={() => speak(prompt, targetLanguage)}
-              className="p-2 rounded-full hover:bg-[var(--bg-secondary)] transition-colors"
+              className="p-2 rounded-full hover:bg-white/55 dark:hover:bg-white/12 transition-colors"
               title={t('play.flashcard.listen')}
             >
               <ICONS.Volume2 className="w-5 h-5 text-[var(--text-secondary)]" />
@@ -223,8 +228,8 @@ export const TypeIt: React.FC<TypeItProps> = ({
         <div
           className={`text-center mb-4 p-3 rounded-xl border ${
             isCorrect
-              ? 'bg-green-500/10 border-green-500/30 text-green-500'
-              : 'bg-red-500/10 border-red-500/30 text-red-500'
+              ? 'bg-[var(--color-correct-bg)] border-[var(--color-correct)]/30 text-[var(--color-correct)]'
+              : 'bg-[var(--color-incorrect-bg)] border-[var(--color-incorrect)]/30 text-[var(--color-incorrect)]'
           }`}
         >
           {isCorrect ? (
@@ -298,17 +303,6 @@ export const TypeIt: React.FC<TypeItProps> = ({
         </button>
       </div>
 
-      {/* Shake animation */}
-      <style>{`
-        @keyframes shake {
-          0%, 100% { transform: translateX(0); }
-          10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
-          20%, 40%, 60%, 80% { transform: translateX(4px); }
-        }
-        .animate-shake {
-          animation: shake 0.5s ease-in-out;
-        }
-      `}</style>
     </div>
   );
 };

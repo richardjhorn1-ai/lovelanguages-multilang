@@ -106,7 +106,7 @@ const Section: React.FC<SectionProps> = ({
               <div className="max-w-xl">
                 <h2
                   className="text-2xl md:text-4xl lg:text-5xl font-black font-header leading-[1.1] mb-4 tracking-tight"
-                  style={{ color: '#1a1a2e' }}
+                  style={{ color: 'var(--text-primary)' }}
                 >
                   {renderWithHighlights(headline, headlineHighlights, isStudent)}
                 </h2>
@@ -115,7 +115,7 @@ const Section: React.FC<SectionProps> = ({
                     {subhead}
                   </p>
                 )}
-                <p className="text-sm md:text-lg leading-relaxed font-medium" style={{ color: '#4b5563' }}>
+                <p className="text-sm md:text-lg leading-relaxed font-medium" style={{ color: 'var(--text-secondary)' }}>
                   {renderWithHighlights(copy, copyHighlights || [], isStudent, underlinedPhrase, copyLinks)}
                 </p>
                 <div
@@ -131,7 +131,7 @@ const Section: React.FC<SectionProps> = ({
           {/* Segmented Control + Scroll Hint - BOTTOM */}
           <div className="pt-4 md:pt-6 pb-2 flex flex-col items-center">
             {/* Segmented Control */}
-            <div className="inline-flex rounded-full p-1" style={{ backgroundColor: '#f3f4f6' }}>
+            <div className="inline-flex rounded-full p-1" style={{ backgroundColor: 'var(--bg-primary)' }}>
               {tabs.map((tab) => (
                 <button
                   key={tab.key}
@@ -139,7 +139,7 @@ const Section: React.FC<SectionProps> = ({
                   className="px-3 md:px-5 py-2 rounded-full text-xs md:text-sm font-bold transition-all"
                   style={activeTab === tab.key
                     ? { backgroundColor: accentColor, color: '#fff', boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }
-                    : { color: '#6b7280' }
+                    : { color: 'var(--text-secondary)' }
                   }
                 >
                   {tab.label}
@@ -150,10 +150,10 @@ const Section: React.FC<SectionProps> = ({
             {/* Scroll Hint */}
             {showScrollHint && (
               <div className="flex flex-col items-center mt-4 animate-bounce">
-                <span className="text-xs font-medium mb-1" style={{ color: '#9ca3af' }}>
+                <span className="text-xs font-medium mb-1" style={{ color: 'var(--text-secondary)' }}>
                   {t('hero.bottomSections.rall.scrollHint')}
                 </span>
-                <ICONS.ChevronDown className="w-4 h-4" style={{ color: '#9ca3af' }} />
+                <ICONS.ChevronDown className="w-4 h-4" style={{ color: 'var(--text-secondary)' }} />
               </div>
             )}
           </div>
@@ -172,7 +172,7 @@ const Section: React.FC<SectionProps> = ({
       <div className={`max-w-xl section-content ${isVisible ? 'visible' : ''}`}>
         <h2
           className="text-3xl md:text-4xl lg:text-5xl font-black font-header leading-[1.1] mb-5 tracking-tight"
-          style={{ color: '#1a1a2e' }}
+          style={{ color: 'var(--text-primary)' }}
         >
           {renderWithHighlights(headline, headlineHighlights, isStudent)}
         </h2>
@@ -183,7 +183,7 @@ const Section: React.FC<SectionProps> = ({
           </p>
         )}
 
-        <p className="text-scale-body leading-relaxed font-medium" style={{ color: '#4b5563' }}>
+        <p className="text-scale-body leading-relaxed font-medium" style={{ color: 'var(--text-secondary)' }}>
           {renderWithHighlights(copy, copyHighlights || [], isStudent, underlinedPhrase, copyLinks)}
         </p>
 
