@@ -59,16 +59,16 @@ export const PersonalizationStep: React.FC<PersonalizationStepProps> = ({
     >
       <div className="text-center mb-8">
         <h1 className="text-3xl font-black text-[var(--text-primary)] mb-3 font-header">
-          {t('onboarding.personalization.title', 'Make it yours')}
+          {t('onboarding.personalization.title', 'About your journey')}
         </h1>
         <p className="text-[var(--text-secondary)]">
-          {t('onboarding.personalization.subtitle', 'Help us personalize your experience')}
+          {t('onboarding.personalization.subtitle', 'Tell us about your relationship')}
         </p>
       </div>
 
       {/* Section 1: Relationship vibe */}
       <div className="mb-6">
-        <p className="text-scale-label font-black uppercase tracking-widest text-gray-400 mb-3">
+        <p className="text-scale-label font-black uppercase tracking-widest text-[var(--text-secondary)] mb-3">
           {t('onboarding.personalization.vibeLabel', 'Your relationship vibe')}
         </p>
         <div className="grid grid-cols-3 gap-2">
@@ -91,11 +91,11 @@ export const PersonalizationStep: React.FC<PersonalizationStepProps> = ({
         </div>
       </div>
 
-      <div className="flex justify-center mb-6"><div className="h-[2px] w-8 rounded-full" style={{ backgroundColor: `${accentColor}20` }} /></div>
+      <div className="flex justify-center mb-6"><div className="h-[2px] w-8 rounded-full" style={{ backgroundColor: `${accentColor}15` }} /></div>
 
       {/* Section 2: Daily time */}
       <div className="mb-6">
-        <p className="text-scale-label font-black uppercase tracking-widest text-gray-400 mb-3">
+        <p className="text-scale-label font-black uppercase tracking-widest text-[var(--text-secondary)] mb-3">
           {t('onboarding.personalization.timeLabel', 'Daily practice time')}
         </p>
         <div className="grid grid-cols-3 gap-2">
@@ -118,11 +118,11 @@ export const PersonalizationStep: React.FC<PersonalizationStepProps> = ({
         </div>
       </div>
 
-      <div className="flex justify-center mb-6"><div className="h-[2px] w-8 rounded-full" style={{ backgroundColor: `${accentColor}20` }} /></div>
+      <div className="flex justify-center mb-6"><div className="h-[2px] w-8 rounded-full" style={{ backgroundColor: `${accentColor}15` }} /></div>
 
       {/* Section 3: Prior experience */}
       <div className="mb-8">
-        <p className="text-scale-label font-black uppercase tracking-widest text-gray-400 mb-3">
+        <p className="text-scale-label font-black uppercase tracking-widest text-[var(--text-secondary)] mb-3">
           {t('onboarding.personalization.priorLabel', { language: targetName, defaultValue: `Tried ${targetName} before?` })}
         </p>
         <div className="grid grid-cols-2 gap-3">

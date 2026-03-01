@@ -19,12 +19,14 @@ import { NativeLanguageStep } from './steps/shared/NativeLanguageStep';
 import { LanguageStep } from './steps/shared/LanguageStep';
 import { CombinedNamesStep } from './steps/shared/CombinedNamesStep';
 import { PlanSelectionStep } from './steps/shared/PlanSelectionStep';
+import { InvitePartnerStep } from './steps/shared/InvitePartnerStep';
 
 // Student steps
 import { LearnHelloStep } from './steps/student/LearnHelloStep';
 import { LearnLoveStep } from './steps/student/LearnLoveStep';
 import { CelebrationStep } from './steps/student/CelebrationStep';
 import { PersonalizationStep } from './steps/student/PersonalizationStep';
+import { ThemeCustomizationStep } from './steps/student/ThemeCustomizationStep';
 import { StartStep } from './steps/student/StartStep';
 
 // Tutor steps
@@ -478,7 +480,7 @@ const FloatingHeartsBackground: React.FC<{
     speed: 0.3 + Math.random() * 0.5,
     wobble: Math.random() * Math.PI * 2,
     wobbleSpeed: 0.01 + Math.random() * 0.02,
-    opacity: 0.10 + Math.random() * 0.15,
+    opacity: 0.08 + Math.random() * 0.10,
   });
 
   // Add hearts when step increases (separate effect from animation)
@@ -573,7 +575,7 @@ const FloatingHeartsBackground: React.FC<{
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 pointer-events-none z-0"
+      className="absolute inset-0 pointer-events-none z-[20]"
       style={{ width: '100%', height: '100%' }}
     />
   );
@@ -588,10 +590,16 @@ interface OnboardingProps {
   onComplete: () => void;
   onQuit?: () => void;
   hasInheritedSubscription?: boolean;  // Skip plan selection if user already has access via partner
+  isInvitedUser?: boolean;             // Shortened flow for users who joined via invite
+  inviterName?: string;                // Name of the person who invited them
 }
 
-const STUDENT_TOTAL_STEPS = 10;  // Role→NativeLang→TargetLang→Names→Hello→Love→Celebrate→Personalize→Plan→Start
-const TUTOR_TOTAL_STEPS = 9;    // Role→NativeLang→TargetLang→Names→Style→Preview→Personalize→Plan→Start
+const STUDENT_TOTAL_STEPS = 12;  // Role→NativeLang→TargetLang→Names→Hello→Love→Celebrate→Invite→Theme→Personalize→Plan→Start
+const TUTOR_TOTAL_STEPS = 10;   // Role→NativeLang→TargetLang→Names→Style→Preview→Invite→Personalize→Plan→Start
+
+// Shortened flows for invited users (external motivation — get them in fast)
+const INVITED_STUDENT_TOTAL_STEPS = 6;  // Names→Hello→Love→Celebrate→Plan→Start
+const INVITED_TUTOR_TOTAL_STEPS = 5;    // Names→Style→Preview→Plan→Start
 
 const STORAGE_KEY = 'onboarding_progress';
 
@@ -600,7 +608,9 @@ export const Onboarding: React.FC<OnboardingProps> = ({
   userId,
   onComplete,
   onQuit,
-  hasInheritedSubscription = false
+  hasInheritedSubscription = false,
+  isInvitedUser = false,
+  inviterName
 }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [data, setData] = useState<Partial<OnboardingData>>({});
@@ -615,10 +625,15 @@ export const Onboarding: React.FC<OnboardingProps> = ({
   // Get setLanguageOverride to update language context during onboarding
   const { targetLanguage: contextTargetLang, nativeLanguage: contextNativeLang, setLanguageOverride } = useLanguage();
 
-  // When user has inherited subscription, skip the PlanSelectionStep
-  const totalSteps = activeRole === 'student'
-    ? (hasInheritedSubscription ? STUDENT_TOTAL_STEPS - 1 : STUDENT_TOTAL_STEPS)
-    : (hasInheritedSubscription ? TUTOR_TOTAL_STEPS - 1 : TUTOR_TOTAL_STEPS);
+  // Calculate total steps — invited users get a shortened flow
+  const totalSteps = (() => {
+    if (isInvitedUser) {
+      const base = activeRole === 'student' ? INVITED_STUDENT_TOTAL_STEPS : INVITED_TUTOR_TOTAL_STEPS;
+      return hasInheritedSubscription ? base - 1 : base;
+    }
+    const base = activeRole === 'student' ? STUDENT_TOTAL_STEPS : TUTOR_TOTAL_STEPS;
+    return hasInheritedSubscription ? base - 1 : base;
+  })();
   // Accent color changes based on selected role
   const accentColor = activeRole === 'tutor' ? BRAND.teal : BRAND.primary;
 
@@ -740,11 +755,20 @@ export const Onboarding: React.FC<OnboardingProps> = ({
   useEffect(() => {
     // Get step name based on role and step number
     const getStepName = (step: number): string => {
+      if (isInvitedUser) {
+        if (activeRole === 'student') {
+          const steps = ['names', 'learn_hello', 'learn_love', 'celebration', 'plan', 'start'];
+          return steps[step - 1] || `step_${step}`;
+        } else {
+          const steps = ['names', 'teaching_style', 'preview', 'plan', 'start'];
+          return steps[step - 1] || `step_${step}`;
+        }
+      }
       if (activeRole === 'student') {
-        const studentSteps = ['role', 'native_language', 'language', 'names', 'learn_hello', 'learn_love', 'celebration', 'personalization', 'plan', 'start'];
+        const studentSteps = ['role', 'native_language', 'language', 'names', 'learn_hello', 'learn_love', 'celebration', 'invite_partner', 'theme_customization', 'personalization', 'plan', 'start'];
         return studentSteps[step - 1] || `step_${step}`;
       } else {
-        const tutorSteps = ['role', 'native_language', 'language', 'names', 'teaching_style', 'preview', 'personalization', 'plan', 'start'];
+        const tutorSteps = ['role', 'native_language', 'language', 'names', 'teaching_style', 'preview', 'invite_partner', 'personalization', 'plan', 'start'];
         return tutorSteps[step - 1] || `step_${step}`;
       }
     };
@@ -784,6 +808,20 @@ export const Onboarding: React.FC<OnboardingProps> = ({
 
   const handleComplete = async () => {
     setSaving(true);
+
+    // Invited users skip personalization — set sensible defaults
+    if (isInvitedUser) {
+      if (activeRole === 'student') {
+        if (!data.relationshipVibe) updateData('relationshipVibe', 'balanced');
+        if (!data.dailyTime) updateData('dailyTime', 'coffee');
+        if (!data.priorExperience) updateData('priorExperience', 'no');
+      } else {
+        if (!data.relationshipType) updateData('relationshipType', 'partner');
+        if (!data.languageConnection) updateData('languageConnection', 'native');
+        if (!data.teachingStyle && !data.teachingStyle) updateData('teachingStyle', 'balanced');
+      }
+    }
+
     try {
       const partnerNameValue = activeRole === 'tutor' ? data.learnerName : data.partnerName;
 
@@ -862,6 +900,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
       }
 
       localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem('inviter_name'); // Clean up invite flow data
 
       // Track onboarding completion
       analytics.track('onboarding_completed', {
@@ -871,7 +910,32 @@ export const Onboarding: React.FC<OnboardingProps> = ({
         native_language: data.nativeLanguage,
         selected_plan: data.selectedPlan || 'none',
         has_inherited_subscription: hasInheritedSubscription,
+        is_invited_user: isInvitedUser,
       });
+
+      // Fire deferred invite if user expressed intent during onboarding
+      // TODO: Future enhancements:
+      // - Re-invite: if token expired, generate new link from dashboard
+      // - Partner activity feed: show inviter's activity after partner joins
+      // - Deferred personalization: prompt skipped questions after first session
+      // - Defer personalization for ALL users (37% completion rate → shorter = better conversion)
+      if (data.invitePartnerIntent) {
+        supabase.auth.getSession().then(({ data: sessionData }) => {
+          const token = sessionData.session?.access_token;
+          if (!token) return;
+          fetch('/api/generate-invite/', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }
+          }).then(async (res) => {
+            if (res.ok) {
+              const inviteData = await res.json();
+              console.log('[Onboarding] Deferred invite generated:', inviteData.inviteLink);
+              // TODO: If method was 'email', send email invite via send-invite-email API
+              // TODO: If method was 'link', show copy-link toast post-onboarding
+            }
+          }).catch(err => console.warn('[Onboarding] Deferred invite failed (non-blocking):', err));
+        });
+      }
 
       // Handle plan selection
       console.log('[Onboarding] Selected plan:', data.selectedPlan, 'Price ID:', data.selectedPriceId);
@@ -1001,6 +1065,195 @@ export const Onboarding: React.FC<OnboardingProps> = ({
   // This allows us to have a single return with hearts + content
   // ============================================
   const getStepContent = (): React.ReactNode => {
+    // ============================================
+    // Shortened flow for invited users
+    // Skips: Role, NativeLang, TargetLang, Personalization, InvitePartner
+    // ============================================
+    if (isInvitedUser) {
+      if (activeRole === 'student') {
+        // Invited student: Names→Hello→Love→Celebrate→Plan→Start
+        switch (currentStep) {
+          case 1:
+            return (
+              <CombinedNamesStep
+                currentStep={1}
+                totalSteps={totalSteps}
+                role="student"
+                initialUserName={data.userName}
+                initialPartnerName={data.partnerName || inviterName}
+                onNext={(userName, partnerName) => {
+                  updateData('userName', userName);
+                  updateData('partnerName', partnerName);
+                  goNext();
+                }}
+                accentColor={accentColor}
+              />
+            );
+          case 2:
+            return (
+              <LearnHelloStep
+                currentStep={2}
+                totalSteps={totalSteps}
+                partnerName={data.partnerName || inviterName || 'them'}
+                onNext={goNext}
+                onBack={goBack}
+                accentColor={accentColor}
+              />
+            );
+          case 3:
+            return (
+              <LearnLoveStep
+                currentStep={3}
+                totalSteps={totalSteps}
+                partnerName={data.partnerName || inviterName || 'them'}
+                onNext={goNext}
+                onBack={goBack}
+                accentColor={accentColor}
+              />
+            );
+          case 4:
+            return (
+              <CelebrationStep
+                currentStep={4}
+                totalSteps={totalSteps}
+                partnerName={data.partnerName || inviterName || 'them'}
+                onNext={goNext}
+                accentColor={accentColor}
+              />
+            );
+          case 5:
+            if (hasInheritedSubscription) {
+              return (
+                <StartStep
+                  currentStep={5}
+                  totalSteps={totalSteps}
+                  userName={data.userName || 'Friend'}
+                  partnerName={data.partnerName || inviterName || 'them'}
+                  onComplete={handleComplete}
+                  accentColor={accentColor}
+                />
+              );
+            }
+            return (
+              <PlanSelectionStep
+                currentStep={5}
+                totalSteps={totalSteps}
+                userName={data.userName || 'Friend'}
+                onNext={(plan, priceId) => {
+                  updateData('selectedPlan', plan);
+                  updateData('selectedPriceId', priceId);
+                  goNext();
+                }}
+                onBack={goBack}
+                accentColor={accentColor}
+              />
+            );
+          case 6:
+            return (
+              <StartStep
+                currentStep={6}
+                totalSteps={totalSteps}
+                userName={data.userName || 'Friend'}
+                partnerName={data.partnerName || inviterName || 'them'}
+                onComplete={handleComplete}
+                accentColor={accentColor}
+                loading={trialActivating}
+                error={trialError}
+              />
+            );
+          default:
+            return null;
+        }
+      }
+
+      // Invited tutor: Names→Style→Preview→Plan→Start
+      switch (currentStep) {
+        case 1:
+          return (
+            <CombinedNamesStep
+              currentStep={1}
+              totalSteps={totalSteps}
+              role="tutor"
+              initialUserName={data.userName}
+              initialPartnerName={data.learnerName || inviterName}
+              onNext={(userName, learnerName) => {
+                updateData('userName', userName);
+                updateData('learnerName', learnerName);
+                goNext();
+              }}
+              accentColor={accentColor}
+            />
+          );
+        case 2:
+          return (
+            <TeachingStyleStep
+              currentStep={2}
+              totalSteps={totalSteps}
+              initialValue={data.teachingStyle}
+              onNext={(style) => { updateData('teachingStyle', style); goNext(); }}
+              onBack={goBack}
+              accentColor={accentColor}
+            />
+          );
+        case 3:
+          return (
+            <TutorPreviewStep
+              currentStep={3}
+              totalSteps={totalSteps}
+              learnerName={data.learnerName || inviterName || 'them'}
+              onNext={goNext}
+              onBack={goBack}
+              accentColor={accentColor}
+            />
+          );
+        case 4:
+          if (hasInheritedSubscription) {
+            return (
+              <TutorStartStep
+                currentStep={4}
+                totalSteps={totalSteps}
+                userName={data.userName || 'Friend'}
+                learnerName={data.learnerName || inviterName || 'them'}
+                onComplete={handleComplete}
+                accentColor={accentColor}
+              />
+            );
+          }
+          return (
+            <PlanSelectionStep
+              currentStep={4}
+              totalSteps={totalSteps}
+              userName={data.userName || 'Friend'}
+              onNext={(plan, priceId) => {
+                updateData('selectedPlan', plan);
+                updateData('selectedPriceId', priceId);
+                goNext();
+              }}
+              onBack={goBack}
+              accentColor={accentColor}
+            />
+          );
+        case 5:
+          return (
+            <TutorStartStep
+              currentStep={5}
+              totalSteps={totalSteps}
+              userName={data.userName || 'Friend'}
+              learnerName={data.learnerName || inviterName || 'them'}
+              onComplete={handleComplete}
+              accentColor={accentColor}
+              loading={trialActivating}
+              error={trialError}
+            />
+          );
+        default:
+          return null;
+      }
+    }
+
+    // ============================================
+    // Normal flow (non-invited users)
+    // ============================================
     // Step 1: Role selection (shared for both flows)
     if (currentStep === 1) {
       return (
@@ -1116,8 +1369,32 @@ export const Onboarding: React.FC<OnboardingProps> = ({
           );
         case 8:
           return (
-            <PersonalizationStep
+            <InvitePartnerStep
               currentStep={8}
+              totalSteps={totalSteps}
+              partnerName={data.partnerName || 'them'}
+              onNext={(intent) => {
+                updateData('invitePartnerIntent', intent);
+                goNext();
+              }}
+              onBack={goBack}
+              accentColor={accentColor}
+            />
+          );
+        case 9:
+          return (
+            <ThemeCustomizationStep
+              currentStep={9}
+              totalSteps={totalSteps}
+              onNext={goNext}
+              onBack={goBack}
+              accentColor={accentColor}
+            />
+          );
+        case 10:
+          return (
+            <PersonalizationStep
+              currentStep={10}
               totalSteps={totalSteps}
               partnerName={data.partnerName || 'them'}
               initialVibe={data.relationshipVibe}
@@ -1133,12 +1410,12 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               accentColor={accentColor}
             />
           );
-        case 9:
+        case 11:
           // Skip PlanSelectionStep if user has inherited subscription
           if (hasInheritedSubscription) {
             return (
               <StartStep
-                currentStep={9}
+                currentStep={11}
                 totalSteps={totalSteps}
                 userName={data.userName || 'Friend'}
                 partnerName={data.partnerName || 'them'}
@@ -1149,7 +1426,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
           }
           return (
             <PlanSelectionStep
-              currentStep={9}
+              currentStep={11}
               totalSteps={totalSteps}
               userName={data.userName || 'Friend'}
               onNext={(plan, priceId) => {
@@ -1161,10 +1438,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               accentColor={accentColor}
             />
           );
-        case 10:
+        case 12:
           return (
             <StartStep
-              currentStep={10}
+              currentStep={12}
               totalSteps={totalSteps}
               userName={data.userName || 'Friend'}
               partnerName={data.partnerName || 'them'}
@@ -1205,8 +1482,22 @@ export const Onboarding: React.FC<OnboardingProps> = ({
         );
       case 7:
         return (
-          <TutorPersonalizationStep
+          <InvitePartnerStep
             currentStep={7}
+            totalSteps={totalSteps}
+            partnerName={data.learnerName || 'them'}
+            onNext={(intent) => {
+              updateData('invitePartnerIntent', intent);
+              goNext();
+            }}
+            onBack={goBack}
+            accentColor={accentColor}
+          />
+        );
+      case 8:
+        return (
+          <TutorPersonalizationStep
+            currentStep={8}
             totalSteps={totalSteps}
             learnerName={data.learnerName || 'them'}
             initialRelation={data.relationshipType}
@@ -1222,12 +1513,12 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             accentColor={accentColor}
           />
         );
-      case 8:
+      case 9:
         // Skip PlanSelectionStep if user has inherited subscription
         if (hasInheritedSubscription) {
           return (
             <TutorStartStep
-              currentStep={8}
+              currentStep={9}
               totalSteps={totalSteps}
               userName={data.userName || 'Friend'}
               learnerName={data.learnerName || 'them'}
@@ -1238,7 +1529,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
         }
         return (
           <PlanSelectionStep
-            currentStep={8}
+            currentStep={9}
             totalSteps={totalSteps}
             userName={data.userName || 'Friend'}
             onNext={(plan, priceId) => {
@@ -1250,10 +1541,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             accentColor={accentColor}
           />
         );
-      case 9:
+      case 10:
         return (
           <TutorStartStep
-            currentStep={9}
+            currentStep={10}
             totalSteps={totalSteps}
             userName={data.userName || 'Friend'}
             learnerName={data.learnerName || 'them'}
@@ -1292,7 +1583,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             style={{
               width: '60vw', height: '60vw',
               top: '-15vw', right: '-15vw',
-              background: `radial-gradient(circle, ${accentColor}35 0%, transparent 70%)`,
+              background: `radial-gradient(circle, ${accentColor}40 0%, transparent 70%)`,
               filter: 'blur(40px)',
             }}
           />
@@ -1301,7 +1592,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             style={{
               width: '50vw', height: '50vw',
               bottom: '-10vw', left: '-15vw',
-              background: `radial-gradient(circle, ${accentColor}28 0%, transparent 70%)`,
+              background: `radial-gradient(circle, ${accentColor}25 0%, transparent 70%)`,
               filter: 'blur(40px)',
             }}
           />
@@ -1310,7 +1601,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             style={{
               width: '40vw', height: '40vw',
               bottom: '20vh', right: '10vw',
-              background: `radial-gradient(circle, ${accentColor}20 0%, transparent 70%)`,
+              background: `radial-gradient(circle, ${accentColor}15 0%, transparent 70%)`,
               filter: 'blur(60px)',
             }}
           />
