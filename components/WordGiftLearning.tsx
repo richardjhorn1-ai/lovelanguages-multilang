@@ -5,6 +5,7 @@ import { WordRequest, WordSuggestion } from '../types';
 import { ICONS } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
 import { sounds } from '../services/sounds';
+import { apiFetch } from '../services/api-config';
 
 interface WordGiftLearningProps {
   wordRequest: WordRequest;
@@ -35,7 +36,7 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
     setError(null);
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
-      const response = await fetch('/api/complete-word-request/', {
+      const response = await apiFetch('/api/complete-word-request/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -5,6 +5,7 @@ import { sounds } from '../../services/sounds';
 import { haptics } from '../../services/haptics';
 import { ICONS } from '../../constants';
 import { DictionaryEntry, ChallengeRequestType } from '../../types';
+import { apiFetch } from '../../services/api-config';
 
 interface ChallengeRequestFormProps {
   tutorName: string;
@@ -88,7 +89,7 @@ const ChallengeRequestForm: React.FC<ChallengeRequestFormProps> = ({
 
     try {
       const session = await supabase.auth.getSession();
-      const response = await fetch('/api/create-challenge-request/', {
+      const response = await apiFetch('/api/create-challenge-request/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -6,6 +6,7 @@ import { Profile } from '../types';
 import { ICONS } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
 import { isIAPAvailable, getOfferings, purchasePackage, restorePurchases, hasActiveEntitlement } from '../services/purchases';
+import { apiFetch, APP_URL } from '../services/api-config';
 
 interface SubscriptionRequiredProps {
   profile: Profile;
@@ -234,7 +235,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
         return;
       }
 
-      const response = await fetch('/api/choose-free-tier/', {
+      const response = await apiFetch('/api/choose-free-tier/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -329,7 +330,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       }
 
       // Get price IDs
-      const statusResponse = await fetch('/api/subscription-status/', {
+      const statusResponse = await apiFetch('/api/subscription-status/', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 
@@ -365,7 +366,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       }
 
       // Create checkout session
-      const response = await fetch('/api/create-checkout-session/', {
+      const response = await apiFetch('/api/create-checkout-session/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -373,8 +374,8 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
         },
         body: JSON.stringify({
           priceId,
-          successUrl: `${window.location.origin}/#/?subscription=success`,
-          cancelUrl: `${window.location.origin}/#/?subscription=canceled`
+          successUrl: `${APP_URL}/#/?subscription=success`,
+          cancelUrl: `${APP_URL}/#/?subscription=canceled`
         })
       });
 

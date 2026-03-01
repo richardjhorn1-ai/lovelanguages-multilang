@@ -4,6 +4,7 @@ import { supabase } from '../services/supabase';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { ICONS } from '../constants';
+import { apiFetch } from '../services/api-config';
 
 interface SubscriptionStatus {
   subscription: {
@@ -62,7 +63,7 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
         return;
       }
 
-      const response = await fetch('/api/subscription-status/', {
+      const response = await apiFetch('/api/subscription-status/', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 
@@ -90,7 +91,7 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
         return;
       }
 
-      const response = await fetch('/api/create-checkout-session/', {
+      const response = await apiFetch('/api/create-checkout-session/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -123,7 +124,7 @@ const PricingPage: React.FC<PricingPageProps> = ({ onBack }) => {
 
       if (!token) return;
 
-      const response = await fetch('/api/create-customer-portal/', {
+      const response = await apiFetch('/api/create-customer-portal/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

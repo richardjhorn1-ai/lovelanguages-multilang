@@ -4,6 +4,7 @@ import { Capacitor } from '@capacitor/core';
 import { BRAND, HeroRole, SelectionStep } from './heroConstants';
 import { supabase } from '../../services/supabase';
 import { ICONS } from '../../constants';
+import { apiFetch, APP_URL } from '../../services/api-config';
 
 interface LoginFormProps {
   context: { header: string; cta: string; subtext: string };
@@ -56,7 +57,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
     setMessage('');
 
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${window.location.origin}/#/reset-password`,
+      redirectTo: `${APP_URL}/#/reset-password`,
     });
 
     setResetLoading(false);
@@ -111,7 +112,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
         } else if (signInData?.session && result.response.authorizationCode) {
           // Store Apple refresh token for future account deletion (App Store requirement)
           // Fire-and-forget — don't block sign-in on this
-          fetch('/api/apple-token-exchange/', {
+          apiFetch('/api/apple-token-exchange/', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -139,7 +140,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
     const { error } = await supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: `${window.location.origin}/`
+        redirectTo: `${APP_URL}/`
       }
     });
 

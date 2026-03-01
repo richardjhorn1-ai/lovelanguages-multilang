@@ -2,6 +2,7 @@ import { useState, useCallback, useRef, useEffect } from 'react';
 import { supabase } from '../../../services/supabase';
 import { useLanguage } from '../../../context/LanguageContext';
 import { useOffline } from '../../../hooks/useOffline';
+import { apiFetch } from '../../../services/api-config';
 
 export interface GameSessionAnswer {
   wordId?: string;
@@ -151,7 +152,7 @@ export function useGameSession(options?: UseGameSessionOptions): UseGameSessionR
           return;
         }
 
-        const response = await fetch('/api/submit-game-session/', {
+        const response = await apiFetch('/api/submit-game-session/', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

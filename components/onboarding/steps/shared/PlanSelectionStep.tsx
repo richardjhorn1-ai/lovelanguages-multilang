@@ -5,6 +5,7 @@ import { supabase } from '../../../../services/supabase';
 import { ICONS } from '../../../../constants';
 import { useLanguage } from '../../../../context/LanguageContext';
 import { isIAPAvailable, getOfferings, purchasePackage, restorePurchases, hasActiveEntitlement } from '../../../../services/purchases';
+import { apiFetch } from '../../../../services/api-config';
 
 interface PlanSelectionStepProps {
   currentStep: number;
@@ -72,7 +73,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
         return;
       }
 
-      const response = await fetch('/api/subscription-status/', {
+      const response = await apiFetch('/api/subscription-status/', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 

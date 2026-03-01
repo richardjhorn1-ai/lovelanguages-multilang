@@ -10,6 +10,7 @@ import { ICONS } from '../constants';
 import { DEFAULT_THEME, applyTheme } from '../services/theme';
 import { LANGUAGE_CONFIGS, SUPPORTED_LANGUAGE_CODES, LanguageCode } from '../constants/language-config';
 import { useHoneypot } from '../hooks/useHoneypot';
+import { apiFetch, APP_URL } from '../services/api-config';
 
 // Hero sub-components (extracted for readability)
 import {
@@ -307,7 +308,7 @@ const Hero: React.FC = () => {
         } else if (signInData?.session && result.response.authorizationCode) {
           // Store Apple refresh token for future account deletion (App Store requirement)
           // Fire-and-forget — don't block sign-in on this
-          fetch('/api/apple-token-exchange/', {
+          apiFetch('/api/apple-token-exchange/', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -334,7 +335,7 @@ const Hero: React.FC = () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: `${window.location.origin}/`
+        redirectTo: `${APP_URL}/`
       }
     });
 
@@ -1160,7 +1161,7 @@ const Hero: React.FC = () => {
                         }
                         setLoading(true);
                         const { error } = await supabase.auth.resetPasswordForEmail(email, {
-                          redirectTo: `${window.location.origin}/#/reset-password`,
+                          redirectTo: `${APP_URL}/#/reset-password`,
                         });
                         setLoading(false);
                         if (error) {

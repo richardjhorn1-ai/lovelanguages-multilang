@@ -7,6 +7,7 @@ import { getTutorTierFromXP, getTutorTierProgress, getXPToNextTutorTier, TUTOR_T
 import { useTheme } from '../../context/ThemeContext';
 import { useLanguage } from '../../context/LanguageContext';
 import { ICONS } from '../../constants';
+import { apiFetch } from '../../services/api-config';
 
 // Sub-components
 import TeachingImpactCard from './TeachingImpactCard';
@@ -97,7 +98,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
     }
 
     try {
-      const response = await fetch(`/api/tutor-analytics/?period=${period}`, {
+      const response = await apiFetch(`/api/tutor-analytics/?period=${period}`, {
         headers: {
           Authorization: `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`,
         },
@@ -129,7 +130,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
     // Also fetch tutor stats (only on initial load, not cached per period)
     if (!stats) {
       try {
-        const response = await fetch('/api/tutor-stats/', {
+        const response = await apiFetch('/api/tutor-stats/', {
           headers: {
             Authorization: `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`,
           },

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { ICONS } from '../constants';
+import { apiFetch } from '../services/api-config';
 
 interface SubscriptionManagerProps {
   profile: {
@@ -80,7 +81,7 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
 
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
-      const response = await fetch('/api/create-customer-portal/', {
+      const response = await apiFetch('/api/create-customer-portal/', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

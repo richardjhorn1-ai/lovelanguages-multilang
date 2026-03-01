@@ -4,6 +4,7 @@ import { supabase } from '../services/supabase';
 import { Profile, DictionaryEntry } from '../types';
 import { ICONS } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
+import { apiFetch } from '../services/api-config';
 
 interface NewWord {
   word: string;        // Target language word
@@ -82,7 +83,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
     setGenerating(true);
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
-      const response = await fetch('/api/validate-word/', {
+      const response = await apiFetch('/api/validate-word/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -130,7 +131,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
 
-      const response = await fetch('/api/create-challenge/', {
+      const response = await apiFetch('/api/create-challenge/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

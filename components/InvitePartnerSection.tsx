@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { useTheme } from '../context/ThemeContext';
 import { ICONS } from '../constants';
+import { apiFetch } from '../services/api-config';
 
 interface InvitePartnerSectionProps {
   userId: string;
@@ -41,7 +42,7 @@ const InvitePartnerSection: React.FC<InvitePartnerSectionProps> = ({
 
       try {
         // Try to generate - API will return existing if one exists
-        const response = await fetch('/api/generate-invite/', {
+        const response = await apiFetch('/api/generate-invite/', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -72,7 +73,7 @@ const InvitePartnerSection: React.FC<InvitePartnerSectionProps> = ({
       const token = (await supabase.auth.getSession()).data.session?.access_token;
       if (!token) throw new Error('Not authenticated');
 
-      const response = await fetch('/api/generate-invite/', {
+      const response = await apiFetch('/api/generate-invite/', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

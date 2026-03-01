@@ -6,6 +6,7 @@ import { ICONS } from '../constants';
 import PlayQuizChallenge from './PlayQuizChallenge';
 import PlayQuickFireChallenge from './PlayQuickFireChallenge';
 import WordGiftLearning from './WordGiftLearning';
+import { apiFetch } from '../services/api-config';
 
 interface PendingChallengesProps {
   profile: Profile;
@@ -43,7 +44,7 @@ const PendingChallenges: React.FC<PendingChallengesProps> = ({ profile, onRefres
       }
 
       // Fetch pending challenges
-      const challengeRes = await fetch('/api/get-challenges/', {
+      const challengeRes = await apiFetch('/api/get-challenges/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -55,7 +56,7 @@ const PendingChallenges: React.FC<PendingChallengesProps> = ({ profile, onRefres
       if (challengeData.challenges) setChallenges(challengeData.challenges);
 
       // Fetch pending word requests
-      const requestRes = await fetch('/api/get-word-requests/', {
+      const requestRes = await apiFetch('/api/get-word-requests/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

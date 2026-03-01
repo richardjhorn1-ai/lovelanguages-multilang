@@ -4,6 +4,7 @@ import { supabase } from '../services/supabase';
 import { Profile, DictionaryEntry, WordScore } from '../types';
 import { ICONS } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
+import { apiFetch } from '../services/api-config';
 
 interface NewWord {
   word: string;        // Target language word
@@ -96,7 +97,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
     setGenerating(true);
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
-      const response = await fetch('/api/validate-word/', {
+      const response = await apiFetch('/api/validate-word/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -162,7 +163,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
       const autoIds = getAutoFillWordIds();
       const allWordIds = [...manualIds, ...autoIds];
 
-      const response = await fetch('/api/create-challenge/', {
+      const response = await apiFetch('/api/create-challenge/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

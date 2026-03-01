@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { supabase } from '../../services/supabase';
 import { ICONS } from '../../constants';
 import { ActivityFeedEvent, ActivityEventType } from '../../types';
+import { apiFetch } from '../../services/api-config';
 
 interface ActivityFeedProps {
   partnerId?: string;
@@ -57,7 +58,7 @@ const ActivityFeed: React.FC<ActivityFeedProps> = ({ partnerId, limit = 20 }) =>
       const session = await supabase.auth.getSession();
       const newOffset = loadMore ? offset : 0;
 
-      const response = await fetch(
+      const response = await apiFetch(
         `/api/activity-feed?limit=${limit}&offset=${newOffset}&filter=${filter}`,
         {
           headers: {

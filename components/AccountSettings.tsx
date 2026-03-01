@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Capacitor } from '@capacitor/core';
 import { supabase } from '../services/supabase';
 import { ICONS } from '../constants';
+import { apiFetch, APP_URL } from '../services/api-config';
 
 interface PromoStatus {
   hasPromo: boolean;
@@ -67,7 +68,7 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
       const { data: { session } } = await supabase.auth.getSession();
       if (!session) return;
 
-      const response = await fetch('/api/promo-status/', {
+      const response = await apiFetch('/api/promo-status/', {
         headers: { Authorization: `Bearer ${session.access_token}` }
       });
 
@@ -100,7 +101,7 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
         return;
       }
 
-      const response = await fetch('/api/promo-redeem/', {
+      const response = await apiFetch('/api/promo-redeem/', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${session.access_token}`,
@@ -184,7 +185,7 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
     setLoading(true);
 
     const { error: resetError } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${window.location.origin}/#/reset-password`,
+      redirectTo: `${APP_URL}/#/reset-password`,
     });
 
     setLoading(false);
@@ -210,7 +211,7 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
         return;
       }
 
-      const response = await fetch('/api/export-user-data/', {
+      const response = await apiFetch('/api/export-user-data/', {
         headers: { 'Authorization': `Bearer ${session.access_token}` }
       });
 
@@ -274,7 +275,7 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
         return;
       }
 
-      const response = await fetch('/api/delete-account/', {
+      const response = await apiFetch('/api/delete-account/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

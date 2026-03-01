@@ -16,9 +16,9 @@
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:headed": "playwright test --headed",
     "test:e2e:debug": "playwright test --debug",
-    "cap:sync": "npm run build:app && npx cap sync",
+    "cap:sync": "VITE_API_BASE_URL=https://www.lovelanguages.io npm run build:app && npx cap sync",
     "cap:ios": "npx cap open ios",
-    "cap:build:ios": "npm run build:app && npx cap sync ios && npx cap open ios"
+    "cap:build:ios": "VITE_API_BASE_URL=https://www.lovelanguages.io npm run build:app && npx cap sync ios && npx cap open ios"
   },
   "dependencies": {
     "@capacitor-community/apple-sign-in": "^7.1.0",

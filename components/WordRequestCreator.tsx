@@ -4,6 +4,7 @@ import { supabase } from '../services/supabase';
 import { Profile, WordSuggestion, DictionaryEntry } from '../types';
 import { ICONS } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
+import { apiFetch } from '../services/api-config';
 
 interface WordRequestCreatorProps {
   profile: Profile;
@@ -52,7 +53,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
     setGenerating(true);
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
-      const response = await fetch('/api/validate-word/', {
+      const response = await apiFetch('/api/validate-word/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -111,7 +112,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
 
-      const response = await fetch('/api/validate-word/', {
+      const response = await apiFetch('/api/validate-word/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -182,7 +183,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
 
-      const response = await fetch('/api/create-word-request/', {
+      const response = await apiFetch('/api/create-word-request/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

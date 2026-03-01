@@ -7,6 +7,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { sounds } from '../services/sounds';
 import { normalizeAnswer, validateAnswerSmart } from '../utils/answer-helpers';
 import LimitReachedModal from './LimitReachedModal';
+import { apiFetch } from '../services/api-config';
 
 interface PlayQuickFireChallengeProps {
   challenge: TutorChallenge;
@@ -86,7 +87,7 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
     sounds.play('countdown');
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
-      await fetch('/api/start-challenge/', {
+      await apiFetch('/api/start-challenge/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -160,7 +161,7 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
 
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
-      const response = await fetch('/api/submit-challenge/', {
+      const response = await apiFetch('/api/submit-challenge/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

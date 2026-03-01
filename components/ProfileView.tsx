@@ -29,6 +29,7 @@ import {
 } from '../services/theme';
 import { sounds } from '../services/sounds';
 import { haptics } from '../services/haptics';
+import { apiFetch } from '../services/api-config';
 
 // Extend Window interface for PWA install prompt
 interface BeforeInstallPromptEvent extends Event {
@@ -185,7 +186,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
     const token = (await supabase.auth.getSession()).data.session?.access_token;
     if (!token) throw new Error('Not authenticated');
 
-    const response = await fetch('/api/delink-partner/', {
+    const response = await apiFetch('/api/delink-partner/', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`,

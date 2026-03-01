@@ -6,6 +6,7 @@ import { useLanguage } from '../../context/LanguageContext';
 import { LANGUAGE_CONFIGS } from '../../constants/language-config';
 import { analytics } from '../../services/analytics';
 import { haptics } from '../../services/haptics';
+import { apiFetch, APP_URL } from '../../services/api-config';
 import { BRAND } from '../hero/heroConstants';
 
 // Context for sharing onQuit across all step components
@@ -891,7 +892,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
         // Award 1 XP per word (2 words = 2 XP)
         supabase.auth.getSession().then(({ data: sessionData }) => {
           if (sessionData.session?.access_token) {
-            fetch('/api/increment-xp/', {
+            apiFetch('/api/increment-xp/', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${sessionData.session.access_token}` },
               body: JSON.stringify({ amount: onboardingWords.length })
@@ -926,7 +927,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
         supabase.auth.getSession().then(({ data: sessionData }) => {
           const token = sessionData.session?.access_token;
           if (!token) return;
-          fetch('/api/generate-invite/', {
+          apiFetch('/api/generate-invite/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }
           }).then(async (res) => {
@@ -970,7 +971,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               await new Promise(resolve => setTimeout(resolve, delays[attempt - 1]));
             }
 
-            const response = await fetch('/api/choose-free-tier/', {
+            const response = await apiFetch('/api/choose-free-tier/', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -1023,7 +1024,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
           const token = session.data.session?.access_token;
 
           if (token) {
-            const response = await fetch('/api/create-checkout-session/', {
+            const response = await apiFetch('/api/create-checkout-session/', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -1031,8 +1032,8 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               },
               body: JSON.stringify({
                 priceId: data.selectedPriceId,
-                successUrl: `${window.location.origin}/#/?onboarding=complete&subscription=success`,
-                cancelUrl: `${window.location.origin}/#/?onboarding=complete&subscription=canceled`
+                successUrl: `${APP_URL}/#/?onboarding=complete&subscription=success`,
+                cancelUrl: `${APP_URL}/#/?onboarding=complete&subscription=canceled`
               })
             });
 

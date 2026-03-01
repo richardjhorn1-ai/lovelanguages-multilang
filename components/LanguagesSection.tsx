@@ -5,6 +5,7 @@ import { Profile } from '../types';
 import { ICONS } from '../constants';
 import { LANGUAGE_CONFIGS } from '../constants/language-config';
 import { useTheme } from '../context/ThemeContext';
+import { apiFetch } from '../services/api-config';
 
 interface LanguagesSectionProps {
   profile: Profile;
@@ -70,7 +71,7 @@ const LanguagesSection: React.FC<LanguagesSectionProps> = ({ profile, onRefresh 
       const token = (await supabase.auth.getSession()).data.session?.access_token;
       if (!token) throw new Error('Not authenticated');
 
-      const response = await fetch('/api/switch-language/', {
+      const response = await apiFetch('/api/switch-language/', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

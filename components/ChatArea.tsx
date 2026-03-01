@@ -20,6 +20,7 @@ import { useOffline } from '../hooks/useOffline';
 import OfflineIndicator from './OfflineIndicator';
 import { analytics } from '../services/analytics';
 import GeminiAIConsent, { hasAIConsent } from './GeminiAIConsent';
+import { apiFetch } from '../services/api-config';
 
 // Listen session types
 interface TranscriptEntry {
@@ -332,7 +333,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       if (!token) return;
 
       if (isListeningRef.current && listenDurationRef.current > 0) {
-        fetch('/api/report-session-usage/', {
+        apiFetch('/api/report-session-usage/', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
           body: JSON.stringify({ sessionType: 'listen', durationSeconds: listenDurationRef.current }),
@@ -343,7 +344,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       if (isLiveRef.current && voiceStartTimeRef.current > 0) {
         const voiceSec = Math.round((Date.now() - voiceStartTimeRef.current) / 1000);
         if (voiceSec > 0) {
-          fetch('/api/report-session-usage/', {
+          apiFetch('/api/report-session-usage/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
             body: JSON.stringify({ sessionType: 'voice', durationSeconds: voiceSec }),
@@ -770,7 +771,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     if (voiceDurationSec > 0) {
       supabase.auth.getSession().then(({ data: { session } }) => {
         if (session?.access_token) {
-          fetch('/api/report-session-usage/', {
+          apiFetch('/api/report-session-usage/', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -861,7 +862,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       throw new Error('Please log in to continue');
     }
 
-    const response = await fetch('/api/execute-coach-action/', {
+    const response = await apiFetch('/api/execute-coach-action/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -1065,7 +1066,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     if (duration > 0) {
       supabase.auth.getSession().then(({ data: { session } }) => {
         if (session?.access_token) {
-          fetch('/api/report-session-usage/', {
+          apiFetch('/api/report-session-usage/', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -1113,7 +1114,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       const { data: { session } } = await supabase.auth.getSession();
       if (!session?.access_token) return;
 
-      const response = await fetch('/api/process-transcript/', {
+      const response = await apiFetch('/api/process-transcript/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -1249,7 +1250,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
       const currentWords = (existingWords || []).map((w: any) => w.word);
 
-      const response = await fetch('/api/analyze-history/', {
+      const response = await apiFetch('/api/analyze-history/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -1343,7 +1344,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
       let successCount = 0;
       for (const word of wordsToSend) {
-        const resp = await fetch('/api/create-word-request/', {
+        const resp = await apiFetch('/api/create-word-request/', {
           method: 'POST',
           headers: {
             'Authorization': `Bearer ${session.access_token}`,

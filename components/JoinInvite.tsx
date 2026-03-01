@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { ICONS } from '../constants';
 import { useHoneypot } from '../hooks/useHoneypot';
+import { apiFetch } from '../services/api-config';
 
 interface InviterInfo {
   name: string;
@@ -51,7 +52,7 @@ const JoinInvite: React.FC = () => {
     setError(null);
 
     try {
-      const response = await fetch('/api/validate-invite/', {
+      const response = await apiFetch('/api/validate-invite/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ token })
@@ -156,7 +157,7 @@ const JoinInvite: React.FC = () => {
     setValidating(true);
 
     try {
-      const response = await fetch('/api/complete-invite/', {
+      const response = await apiFetch('/api/complete-invite/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

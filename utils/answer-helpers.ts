@@ -13,6 +13,7 @@
  */
 
 import { enhancedLocalMatch } from './local-matcher';
+import { apiFetch } from '../services/api-config';
 
 /**
  * Normalize a string for comparison by removing diacritics and normalizing case.
@@ -106,7 +107,7 @@ export async function validateAnswerSmart(
 
   // API validation for synonyms, alternative forms, etc.
   try {
-    const response = await fetch('/api/validate-answer/', {
+    const response = await apiFetch('/api/validate-answer/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({

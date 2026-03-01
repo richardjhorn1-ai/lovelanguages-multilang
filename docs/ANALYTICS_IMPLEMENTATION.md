@@ -407,6 +407,7 @@ analytics.track('settings_changed', {
 
 | File | Purpose |
 |------|---------|
+| `services/api-config.ts` | `apiFetch()` wrapper, `API_BASE_URL`, `APP_URL` — all API calls go through this for cross-platform (web + iOS) support |
 | `services/analytics.ts` | Core AnalyticsService — all tracking logic |
 | `api/analytics-event.ts` | Supabase Edge Function — event allowlist + storage |
 | `index.html` | GA4 + PostHog script tags (app) |

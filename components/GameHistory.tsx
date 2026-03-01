@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { ICONS } from '../constants';
 import { getLevelFromXP, getTierColor } from '../services/level-utils';
+import { apiFetch } from '../services/api-config';
 
 interface GameSession {
   id: string;
@@ -67,7 +68,7 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
       if (!token) return;
 
-      const response = await fetch('/api/get-game-history/?limit=20', {
+      const response = await apiFetch('/api/get-game-history/?limit=20', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 
@@ -92,7 +93,7 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
       if (!token) return;
 
-      const response = await fetch(`/api/get-game-history/?sessionId=${sessionId}`, {
+      const response = await apiFetch(`/api/get-game-history/?sessionId=${sessionId}`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 

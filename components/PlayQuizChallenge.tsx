@@ -8,6 +8,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { sounds } from '../services/sounds';
 import { normalizeAnswer, validateAnswerSmart } from '../utils/answer-helpers';
 import LimitReachedModal from './LimitReachedModal';
+import { apiFetch } from '../services/api-config';
 
 interface PlayQuizChallengeProps {
   challenge: TutorChallenge;
@@ -90,7 +91,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
   const handleStart = async () => {
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
-      await fetch('/api/start-challenge/', {
+      await apiFetch('/api/start-challenge/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -162,7 +163,7 @@ const PlayQuizChallenge: React.FC<PlayQuizChallengeProps> = ({
     setSubmitError(null);
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
-      const response = await fetch('/api/submit-challenge/', {
+      const response = await apiFetch('/api/submit-challenge/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -28,6 +28,7 @@ import { analytics } from '../services/analytics';
 import WordGiftLearning from './WordGiftLearning';
 import ConversationPractice from './ConversationPractice';
 import LimitReachedModal from './LimitReachedModal';
+import { apiFetch } from '../services/api-config';
 
 interface FlashcardGameProps { profile: Profile; }
 
@@ -278,7 +279,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       }
 
       // Fetch pending challenges
-      const challengeRes = await fetch('/api/get-challenges/', {
+      const challengeRes = await apiFetch('/api/get-challenges/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -296,7 +297,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       }
 
       // Fetch pending word requests
-      const requestRes = await fetch('/api/get-word-requests/', {
+      const requestRes = await apiFetch('/api/get-word-requests/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -443,7 +444,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
       if (!token) return;
 
-      const response = await fetch('/api/submit-game-session/', {
+      const response = await apiFetch('/api/submit-game-session/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

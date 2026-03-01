@@ -4,6 +4,7 @@
  */
 
 import { supabase } from './supabase';
+import { apiFetch } from './api-config';
 import { LANGUAGE_CONFIGS } from '../constants/language-config';
 
 // Current audio element for playback control
@@ -121,7 +122,7 @@ export const speak = async (text: string, languageCode: string, rate: number = 0
       return { success: true, source: 'browser' };
     }
 
-    const response = await fetch('/api/tts/', {
+    const response = await apiFetch('/api/tts/', {
       method: 'POST',
       headers,
       body: JSON.stringify({ text: text.trim(), targetLanguage: languageCode })

@@ -6,6 +6,7 @@ import { haptics } from '../../services/haptics';
 import { ICONS } from '../../constants';
 import { LOVE_NOTE_TEMPLATES } from '../../constants/levels';
 import { LoveNoteCategory } from '../../types';
+import { apiFetch } from '../../services/api-config';
 
 interface LoveNoteComposerProps {
   partnerName: string;
@@ -62,7 +63,7 @@ const LoveNoteComposer: React.FC<LoveNoteComposerProps> = ({
 
     try {
       const session = await supabase.auth.getSession();
-      const response = await fetch('/api/send-love-note/', {
+      const response = await apiFetch('/api/send-love-note/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

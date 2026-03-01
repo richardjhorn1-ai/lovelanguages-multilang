@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { useTheme } from '../context/ThemeContext';
 import { ICONS } from '../constants';
+import { apiFetch } from '../services/api-config';
 
 interface UsageData {
   subscription: {
@@ -44,7 +45,7 @@ const UsageSection: React.FC<UsageSectionProps> = ({ userId }) => {
         return;
       }
 
-      const response = await fetch('/api/subscription-status/', {
+      const response = await apiFetch('/api/subscription-status/', {
         headers: { Authorization: `Bearer ${session.access_token}` }
       });
 

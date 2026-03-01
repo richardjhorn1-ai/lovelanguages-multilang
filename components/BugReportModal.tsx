@@ -6,6 +6,7 @@ import { supabase } from '../services/supabase';
 import { Profile, BugReportSeverity } from '../types';
 import { getLevelFromXP } from '../services/level-utils';
 import { useLocation } from 'react-router-dom';
+import { apiFetch } from '../services/api-config';
 
 interface Props {
   isOpen: boolean;
@@ -54,7 +55,7 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
 
       const levelInfo = getLevelFromXP(profile.xp || 0);
 
-      const response = await fetch('/api/submit-bug-report/', {
+      const response = await apiFetch('/api/submit-bug-report/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

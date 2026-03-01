@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { Profile, InviteToken } from '../types';
 import { ICONS } from '../constants';
+import { apiFetch, APP_URL } from '../services/api-config';
 
 interface InviteLinkCardProps {
   profile: Profile;
@@ -34,7 +35,7 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
         .maybeSingle();
 
       if (data && !error) {
-        const baseUrl = window.location.origin;
+        const baseUrl = APP_URL;
         setInviteLink(`${baseUrl}/#/join/${data.token}`);
         setExpiresAt(data.expires_at);
       }
@@ -53,7 +54,7 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
         throw new Error('Not authenticated');
       }
 
-      const response = await fetch('/api/generate-invite/', {
+      const response = await apiFetch('/api/generate-invite/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -117,7 +118,7 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
         throw new Error('Not authenticated');
       }
 
-      const response = await fetch('/api/generate-invite/', {
+      const response = await apiFetch('/api/generate-invite/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

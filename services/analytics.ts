@@ -9,6 +9,8 @@
  *   analytics.track('signup_completed', { method: 'google' });
  */
 
+import { apiFetch } from './api-config';
+
 // Event parameter types
 interface BaseEventParams {
   [key: string]: string | number | boolean | undefined;
@@ -375,7 +377,7 @@ class AnalyticsService {
       };
 
       // Fire and forget - don't block on response
-      fetch('/api/analytics-event/', {
+      apiFetch('/api/analytics-event/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),

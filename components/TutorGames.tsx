@@ -21,6 +21,7 @@ import {
 } from './games/tutor-modes';
 import { useOffline } from '../hooks/useOffline';
 import OfflineIndicator from './OfflineIndicator';
+import { apiFetch } from '../services/api-config';
 
 interface TutorGamesProps {
   profile: Profile;
@@ -146,7 +147,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
 
       // Fetch challenges
       const token = (await supabase.auth.getSession()).data.session?.access_token;
-      const challengeRes = await fetch('/api/get-challenges/', {
+      const challengeRes = await apiFetch('/api/get-challenges/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -158,7 +159,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
       if (challengeData.challenges) setChallenges(challengeData.challenges);
 
       // Fetch word requests
-      const requestRes = await fetch('/api/get-word-requests/', {
+      const requestRes = await apiFetch('/api/get-word-requests/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -170,7 +171,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
       if (requestData.wordRequests) setWordRequests(requestData.wordRequests);
 
       // Fetch tutor stats (for streak display)
-      const statsRes = await fetch('/api/tutor-stats/', {
+      const statsRes = await apiFetch('/api/tutor-stats/', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -221,7 +222,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
 
       const totalTimeSeconds = Math.floor((Date.now() - sessionStartTime) / 1000);
 
-      await fetch('/api/submit-game-session/', {
+      await apiFetch('/api/submit-game-session/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
