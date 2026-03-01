@@ -8,21 +8,21 @@ import { OnboardingContext } from './Onboarding';
 // Shared Glass Design Constants
 // ============================================
 
-/** Glass card for main content areas (word cards, feature lists, summaries)
- *  No backdrop-filter — canvas elements sit on separate compositing layers
- *  that backdrop-filter can't capture, so it blocks hearts instead of blurring them.
- *  Semi-transparent background lets hearts show through naturally. */
+/** Glass card for main content areas (word cards, feature lists, summaries).
+ *  Hearts canvas renders at z-20 (above glass), so backdrop-filter works safely.
+ *  Matches .glass-card CSS class: gradient bg + blur + inset highlight. */
 export const ONBOARDING_GLASS: React.CSSProperties = {
-  backgroundColor: 'rgba(255, 255, 255, 0.55)',
-  border: '1px solid rgba(255, 255, 255, 0.6)',
-  boxShadow: '0 8px 32px -8px rgba(0, 0, 0, 0.08)',
+  background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.30))',
+  backdropFilter: 'blur(12px)',
+  WebkitBackdropFilter: 'blur(12px)',
+  boxShadow: '0 8px 32px -8px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6)',
   borderRadius: '20px',
 };
 
 /** Selection button style (language, vibe, role cards) */
 export const ONBOARDING_OPTION = (isSelected: boolean, accentColor: string): React.CSSProperties => ({
   backgroundColor: isSelected ? `${accentColor}15` : 'rgba(255, 255, 255, 0.4)',
-  border: isSelected ? `2px solid ${accentColor}50` : '2px solid rgba(255, 255, 255, 0.6)',
+  border: isSelected ? `2px solid ${accentColor}40` : '2px solid transparent',
   borderRadius: '16px',
   boxShadow: isSelected
     ? `0 4px 20px -4px ${accentColor}25`
@@ -33,7 +33,7 @@ export const ONBOARDING_OPTION = (isSelected: boolean, accentColor: string): Rea
 /** Glass input field style */
 export const ONBOARDING_INPUT = (isFilled: boolean, accentColor: string): React.CSSProperties => ({
   backgroundColor: 'rgba(255, 255, 255, 0.4)',
-  border: isFilled ? `2px solid ${accentColor}40` : '2px solid rgba(255, 255, 255, 0.4)',
+  border: isFilled ? `2px solid ${accentColor}40` : '2px solid transparent',
   borderRadius: '16px',
   boxShadow: isFilled ? `0 0 0 3px ${accentColor}15` : '0 2px 8px -2px rgba(0, 0, 0, 0.04)',
 });
@@ -91,7 +91,7 @@ export const OnboardingStep: React.FC<OnboardingStepProps> = ({
         {canGoBack && (onBack || onQuit) ? (
           <button
             onClick={handleBack}
-            className="flex items-center gap-2 text-gray-400 hover:text-[var(--text-secondary)] transition-colors"
+            className="flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
           >
             <ICONS.ChevronLeft className="w-5 h-5" />
             <span className="text-scale-label font-medium">{t('onboarding.step.back')}</span>
@@ -101,7 +101,7 @@ export const OnboardingStep: React.FC<OnboardingStepProps> = ({
         )}
 
         {/* Step counter */}
-        <span className="text-scale-caption font-bold text-gray-300 uppercase tracking-widest">
+        <span className="text-scale-caption font-bold text-[var(--text-secondary)] opacity-60 uppercase tracking-widest">
           {t('onboarding.step.counter', { current: currentStep, total: totalSteps })}
         </span>
 
@@ -109,7 +109,7 @@ export const OnboardingStep: React.FC<OnboardingStepProps> = ({
         {onQuit ? (
           <button
             onClick={onQuit}
-            className="text-gray-400 hover:text-[var(--text-secondary)] transition-colors p-1"
+            className="text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors p-1"
             title={t('onboarding.step.quitTitle')}
           >
             <ICONS.X className="w-5 h-5" />
@@ -187,7 +187,7 @@ export const SkipButton: React.FC<SkipButtonProps> = ({
   return (
     <button
       onClick={onClick}
-      className="mt-4 text-gray-400 text-scale-label font-medium hover:text-[var(--text-secondary)] transition-colors"
+      className="mt-4 text-[var(--text-secondary)] text-scale-label font-medium hover:text-[var(--text-primary)] transition-colors"
     >
       {buttonText}
     </button>

@@ -69,7 +69,7 @@ export const LearnHelloStep: React.FC<LearnHelloStepProps> = ({
           <button
             onClick={playAudio}
             className="inline-flex items-center gap-3 px-8 py-4 transition-all"
-            style={{ backgroundColor: 'rgba(255, 255, 255, 0.4)', border: '1px solid rgba(255,255,255,0.6)', borderRadius: '16px' }}
+            style={{ backgroundColor: 'rgba(255, 255, 255, 0.4)', borderRadius: '16px' }}
           >
             <ICONS.Volume2 className="w-6 h-6 text-[var(--text-secondary)]" />
             <span className="font-bold text-[var(--text-primary)]">{t('onboarding.student.learnHello.listen')}</span>
@@ -77,7 +77,7 @@ export const LearnHelloStep: React.FC<LearnHelloStepProps> = ({
         </div>
       </div>
 
-      <div className="text-center text-scale-label text-gray-400 mb-6">
+      <div className="text-center text-scale-label text-[var(--text-secondary)] mb-6">
         {t('onboarding.student.learnHello.tip', { language: targetName })}
       </div>
 

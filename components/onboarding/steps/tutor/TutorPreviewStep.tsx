@@ -63,8 +63,8 @@ export const TutorPreviewStep: React.FC<TutorPreviewStepProps> = ({
         </div>
 
         <div className="p-4 flex items-center gap-4 animate-reveal" style={{ ...ONBOARDING_GLASS, animationDelay: '0.3s' }}>
-          <div className="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0">
-            <ICONS.Gift className="w-5 h-5 text-purple-500" />
+          <div className="w-8 h-8 rounded-full bg-[var(--secondary-light)] flex items-center justify-center flex-shrink-0">
+            <ICONS.Gift className="w-5 h-5 text-[var(--secondary-color)]" />
           </div>
           <div>
             <h3 className="font-bold text-[var(--text-primary)]">{t('onboarding.tutor.preview.wordGifts')}</h3>

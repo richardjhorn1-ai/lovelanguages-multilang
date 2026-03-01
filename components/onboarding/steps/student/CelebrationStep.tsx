@@ -98,7 +98,7 @@ export const CelebrationStep: React.FC<CelebrationStepProps> = ({
           <span className="font-black text-amber-700 text-scale-heading">{t('onboarding.student.celebration.xpEarned')}</span>
         </div>
 
-        <div className="mt-4 mb-8 text-gray-400 text-scale-label">
+        <div className="mt-4 mb-8 text-[var(--text-secondary)] text-scale-label">
           {t('onboarding.student.celebration.firstXp')}
         </div>
 
@@ -106,13 +106,13 @@ export const CelebrationStep: React.FC<CelebrationStepProps> = ({
         <div className="p-6 mb-8" style={ONBOARDING_GLASS}>
           <div className="text-scale-label text-[var(--text-secondary)] mb-3">{t('onboarding.student.celebration.wordsLearned')}</div>
           <div className="flex justify-center gap-4">
-            <div className="px-4 py-2" style={{ backgroundColor: 'rgba(255,255,255,0.4)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.6)' }}>
+            <div className="px-4 py-2" style={{ backgroundColor: 'rgba(255,255,255,0.4)', borderRadius: '12px' }}>
               <span style={{ color: accentColor }} className="font-bold">{helloWord}</span>
-              <span className="text-gray-400 text-scale-label ml-2">{helloTranslation}</span>
+              <span className="text-[var(--text-secondary)] text-scale-label ml-2">{helloTranslation}</span>
             </div>
-            <div className="px-4 py-2" style={{ backgroundColor: 'rgba(255,255,255,0.4)', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.6)' }}>
+            <div className="px-4 py-2" style={{ backgroundColor: 'rgba(255,255,255,0.4)', borderRadius: '12px' }}>
               <span style={{ color: accentColor }} className="font-bold">{lovePhrase}</span>
-              <span className="text-gray-400 text-scale-label ml-2">{loveTranslation}</span>
+              <span className="text-[var(--text-secondary)] text-scale-label ml-2">{loveTranslation}</span>
             </div>
           </div>
         </div>

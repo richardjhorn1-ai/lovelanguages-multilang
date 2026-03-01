@@ -301,7 +301,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
           style={{
             background: billingPeriod === 'monthly' ? accentColor : undefined,
             borderColor: accentColor,
-            boxShadow: `0 0 20px ${accentColor}66, 0 0 40px ${accentColor}33`,
+            boxShadow: `0 0 20px ${accentColor}60, 0 0 40px ${accentColor}25`,
           }}
         >
           <span className={`text-xs mb-0.5 ${billingPeriod === 'monthly' ? 'opacity-90' : 'opacity-70'}`}>
@@ -356,8 +356,8 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
               className="relative text-left p-4 transition-all animate-reveal"
               style={{
                 ...ONBOARDING_GLASS,
-                border: isSelected ? `2px solid ${accentColor}60` : '1px solid rgba(255, 255, 255, 0.3)',
-                backgroundColor: isSelected ? `${accentColor}0D` : 'rgba(255, 255, 255, 0.18)',
+                border: isSelected ? `2px solid ${accentColor}60` : '1px solid transparent',
+                backgroundColor: isSelected ? `${accentColor}08` : 'rgba(255, 255, 255, 0.18)',
                 boxShadow: isSelected
                   ? `0 4px 20px -4px ${accentColor}25`
                   : '0 8px 32px -8px rgba(0, 0, 0, 0.06)',
@@ -380,7 +380,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
                 <div className="order-2 md:order-first text-right md:text-center flex-shrink-0 md:mb-2">
                   {(plan as any).isTrial ? (
                     <>
-                      <div className="text-2xl md:text-3xl font-bold text-gray-900">7</div>
+                      <div className="text-2xl md:text-3xl font-bold text-[var(--text-primary)]">7</div>
                       <div className="text-xs text-[var(--text-secondary)]">
                         {t('subscription.common.days', { defaultValue: 'days' })}
                       </div>
@@ -390,7 +390,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
                     </>
                   ) : (
                     <>
-                      <div className="text-2xl md:text-3xl font-bold text-gray-900">${price}</div>
+                      <div className="text-2xl md:text-3xl font-bold text-[var(--text-primary)]">${price}</div>
                       <div className="text-xs text-[var(--text-secondary)]">
                         /{periodLabel}
                       </div>
@@ -406,7 +406,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
                 {/* Plan name and features */}
                 <div className="flex-1 md:w-full order-1 md:order-last">
                   <div className="flex items-center gap-3 mb-1 md:justify-center">
-                    <h3 className="text-lg font-bold text-gray-900">{plan.name}</h3>
+                    <h3 className="text-lg font-bold text-[var(--text-primary)]">{plan.name}</h3>
                     {isSelected && (
                       <div
                         className="w-5 h-5 rounded-full flex items-center justify-center"
@@ -423,18 +423,18 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
                       const featureText = typeof feature === 'string' ? feature : feature.text;
                       const included = typeof feature === 'string' ? true : feature.included !== false;
                       return (
-                        <li key={i} className={`flex items-center gap-2 text-sm ${included ? 'text-[var(--text-secondary)]' : 'text-gray-400'}`}>
+                        <li key={i} className={`flex items-center gap-2 text-sm ${included ? 'text-[var(--text-secondary)]' : 'text-[var(--text-secondary)] opacity-60'}`}>
                           {included ? (
                             <ICONS.Check className="w-4 h-4 flex-shrink-0" style={{ color: accentColor }} />
                           ) : (
-                            <span className="w-4 h-4 text-gray-300 text-center flex-shrink-0">✗</span>
+                            <span className="w-4 h-4 text-[var(--text-secondary)] opacity-60 text-center flex-shrink-0">✗</span>
                           )}
                           {featureText}
                         </li>
                       );
                     })}
                     {plan.features.length > 4 && (
-                      <li className="text-xs text-gray-400 pl-6">
+                      <li className="text-xs text-[var(--text-secondary)] pl-6">
                         {t('onboarding.plan.moreFeatures', { count: plan.features.length - 4 })}
                       </li>
                     )}
@@ -496,10 +496,10 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
       </NextButton>
 
       {/* Trust signals */}
-      <p className="text-center text-xs text-gray-400 mt-4">
+      <p className="text-center text-xs text-[var(--text-secondary)] mt-4">
         {selectedPlan === 'free'
           ? (useIAP
-              ? t('subscription.choice.free.iosTrialNote', { defaultValue: 'Cancel anytime during your free trial' })
+              ? t('subscription.choice.free.iosTrialNote', { defaultValue: '7 days free, then $17.99/mo. Cancel anytime.' })
               : t('subscription.choice.free.noCardRequired', { defaultValue: 'No credit card required' }))
           : t('onboarding.plan.trustSignal')
         }

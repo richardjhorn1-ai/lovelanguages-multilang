@@ -73,7 +73,7 @@ export const TutorPersonalizationStep: React.FC<TutorPersonalizationStepProps> =
 
       {/* Section 1: Relationship to learner */}
       <div className="mb-6">
-        <p className="text-scale-label font-black uppercase tracking-widest text-gray-400 mb-3">
+        <p className="text-scale-label font-black uppercase tracking-widest text-[var(--text-secondary)] mb-3">
           {t('onboarding.tutorPersonalization.relationLabel', { name: learnerName, defaultValue: `${learnerName} is your...` })}
         </p>
         <div className="grid grid-cols-2 gap-2">
@@ -98,7 +98,7 @@ export const TutorPersonalizationStep: React.FC<TutorPersonalizationStepProps> =
 
       {/* Section 2: Language connection */}
       <div className="mb-6">
-        <p className="text-scale-label font-black uppercase tracking-widest text-gray-400 mb-3">
+        <p className="text-scale-label font-black uppercase tracking-widest text-[var(--text-secondary)] mb-3">
           {t('onboarding.tutorPersonalization.connectionLabel', { language: targetName, defaultValue: `Your ${targetName} connection` })}
         </p>
         <div className="grid grid-cols-2 gap-2">
@@ -123,7 +123,7 @@ export const TutorPersonalizationStep: React.FC<TutorPersonalizationStepProps> =
 
       {/* Section 3: Origin (optional) */}
       <div className="mb-8">
-        <p className="text-scale-label font-black uppercase tracking-widest text-gray-400 mb-3">
+        <p className="text-scale-label font-black uppercase tracking-widest text-[var(--text-secondary)] mb-3">
           {t('onboarding.tutorPersonalization.originLabel', 'Where are you from? (optional)')}
         </p>
         <input
@@ -131,7 +131,7 @@ export const TutorPersonalizationStep: React.FC<TutorPersonalizationStepProps> =
           value={origin}
           onChange={(e) => setOrigin(e.target.value)}
           placeholder={t('onboarding.tutorPersonalization.originPlaceholder', 'City, country...')}
-          className="w-full px-5 py-3 focus:outline-none font-medium text-[var(--text-primary)] placeholder:text-gray-300 transition-all"
+          className="w-full px-5 py-3 focus:outline-none font-medium text-[var(--text-primary)] placeholder:text-[var(--text-secondary)] placeholder:opacity-60 transition-all"
           style={ONBOARDING_INPUT(!!origin.trim(), accentColor)}
           onKeyDown={(e) => e.key === 'Enter' && canContinue && onNext(relation, connection, origin.trim())}
         />

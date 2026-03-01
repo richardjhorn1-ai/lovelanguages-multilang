@@ -79,7 +79,7 @@ export const CombinedNamesStep: React.FC<CombinedNamesStepProps> = ({
             onChange={(e) => setUserName(e.target.value)}
             placeholder={t('onboarding.name.placeholder')}
             autoFocus
-            className="w-full px-6 py-4 focus:outline-none text-scale-heading font-medium text-[var(--text-primary)] placeholder:text-gray-300 transition-all"
+            className="w-full px-6 py-4 focus:outline-none text-scale-heading font-medium text-[var(--text-primary)] placeholder:text-[var(--text-secondary)] placeholder:opacity-60 transition-all"
             style={ONBOARDING_INPUT(!!userName.trim(), accentColor)}
             onKeyDown={(e) => {
               if (e.key === 'Enter' && userName.trim()) {
@@ -110,7 +110,7 @@ export const CombinedNamesStep: React.FC<CombinedNamesStepProps> = ({
               ? t('onboarding.names.partnerPlaceholder', 'Their name')
               : t('onboarding.names.learnerPlaceholder', 'Learner\'s name')
             }
-            className="w-full px-6 py-4 focus:outline-none text-scale-heading font-medium text-[var(--text-primary)] placeholder:text-gray-300 transition-all"
+            className="w-full px-6 py-4 focus:outline-none text-scale-heading font-medium text-[var(--text-primary)] placeholder:text-[var(--text-secondary)] placeholder:opacity-60 transition-all"
             style={ONBOARDING_INPUT(!!partnerName.trim(), accentColor)}
             onKeyDown={(e) => e.key === 'Enter' && canContinue && handleSubmit()}
           />

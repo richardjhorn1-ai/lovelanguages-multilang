@@ -75,14 +75,14 @@ export const StartStep: React.FC<StartStepProps> = ({
               <span className="font-medium text-[var(--text-primary)]">{t('onboarding.student.start.feature2')}</span>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-teal-100 flex items-center justify-center">
-                <ICONS.Play className="w-4 h-4 text-teal-500" />
+              <div className="w-8 h-8 rounded-full bg-[var(--secondary-light)] flex items-center justify-center">
+                <ICONS.Play className="w-4 h-4 text-[var(--secondary-color)]" />
               </div>
               <span className="font-medium text-[var(--text-primary)]">{t('onboarding.student.start.feature3')}</span>
             </div>
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full bg-purple-100 flex items-center justify-center">
-                <ICONS.TrendingUp className="w-4 h-4 text-purple-500" />
+              <div className="w-8 h-8 rounded-full bg-[var(--accent-light)] flex items-center justify-center">
+                <ICONS.TrendingUp className="w-4 h-4 text-[var(--accent-color)]" />
               </div>
               <span className="font-medium text-[var(--text-primary)]">{t('onboarding.student.start.feature4')}</span>
             </div>

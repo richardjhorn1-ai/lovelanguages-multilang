@@ -74,7 +74,7 @@ export const LearnLoveStep: React.FC<LearnLoveStepProps> = ({
                 ? ''
                 : 'bg-[var(--accent-color)] hover:bg-[var(--accent-hover)] text-white'
             }`}
-            style={hasListened ? { backgroundColor: 'rgba(255, 255, 255, 0.5)', border: '1px solid rgba(255,255,255,0.6)', borderRadius: '16px' } : { borderRadius: '16px' }}
+            style={hasListened ? { backgroundColor: 'rgba(255, 255, 255, 0.5)', borderRadius: '16px' } : { borderRadius: '16px' }}
           >
             <ICONS.Volume2 className={`w-6 h-6 ${hasListened ? 'text-[var(--accent-color)]' : 'text-white'}`} />
             <span className={`font-bold ${hasListened ? 'text-[var(--accent-text)]' : 'text-white'}`}>

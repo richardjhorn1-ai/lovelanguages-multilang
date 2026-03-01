@@ -56,12 +56,12 @@ export const DreamPhraseStep: React.FC<DreamPhraseStepProps> = ({
           onChange={(e) => setPhrase(e.target.value)}
           placeholder={t('onboarding.tutor.dreamPhrase.placeholder')}
           autoFocus
-          className="w-full px-5 py-4 focus:outline-none text-[var(--text-primary)] placeholder:text-gray-300 transition-all text-center"
+          className="w-full px-5 py-4 focus:outline-none text-[var(--text-primary)] placeholder:text-[var(--text-secondary)] placeholder:opacity-60 transition-all text-center"
           style={ONBOARDING_INPUT(!!phrase.trim(), accentColor)}
           onFocus={(e) => e.target.style.borderColor = `${accentColor}60`}
-          onBlur={(e) => e.target.style.borderColor = 'rgba(255,255,255,0.4)'}
+          onBlur={(e) => e.target.style.borderColor = 'transparent'}
         />
-        <p className="text-scale-label text-gray-400 mt-2 text-center">
+        <p className="text-scale-label text-[var(--text-secondary)] mt-2 text-center">
           {t('onboarding.tutor.dreamPhrase.note')}
         </p>
       </div>
