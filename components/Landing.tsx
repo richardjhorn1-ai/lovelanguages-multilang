@@ -888,6 +888,14 @@ const Landing: React.FC = () => {
         WebkitOverflowScrolling: 'touch',
       }}
     >
+      {/* Hidden SVG defs for heart-shaped clip path */}
+      <svg width="0" height="0" className="absolute">
+        <defs>
+          <clipPath id="heart-clip" clipPathUnits="objectBoundingBox">
+            <path d="M0.5,1 C0.5,1 0,0.7 0,0.35 C0,0.15 0.15,0 0.3,0 C0.4,0 0.48,0.05 0.5,0.14 C0.52,0.05 0.6,0 0.7,0 C0.85,0 1,0.15 1,0.35 C1,0.7 0.5,1 0.5,1 Z" />
+          </clipPath>
+        </defs>
+      </svg>
       {/* Background layer */}
       <div
         className="fixed inset-0 pointer-events-none"
@@ -1174,8 +1182,8 @@ const Landing: React.FC = () => {
                 <img
                   src="/founders.jpg"
                   alt="Richard & Misia"
-                  className="w-16 h-16 rounded-full object-cover flex-shrink-0"
-                  style={{ border: `2px solid ${accentColor}`, boxShadow: `0 4px 12px -2px ${accentColor}40` }}
+                  className="w-16 h-16 object-cover flex-shrink-0"
+                  style={{ clipPath: 'url(#heart-clip)', filter: `drop-shadow(0 4px 12px ${accentColor}40)` }}
                 />
                 <div>
                   <p className="font-bold text-base text-[var(--text-primary)] font-header">
@@ -1517,8 +1525,8 @@ const Landing: React.FC = () => {
                 <img
                   src="/founders.jpg"
                   alt="Richard & Misia"
-                  className="w-12 h-12 rounded-full object-cover flex-shrink-0"
-                  style={{ border: `2px solid ${accentColor}`, boxShadow: `0 2px 8px -2px ${accentColor}40` }}
+                  className="w-12 h-12 object-cover flex-shrink-0"
+                  style={{ clipPath: 'url(#heart-clip)', filter: `drop-shadow(0 2px 8px ${accentColor}40)` }}
                 />
                 <div>
                   <p className="font-bold text-sm text-[var(--text-primary)] font-header">

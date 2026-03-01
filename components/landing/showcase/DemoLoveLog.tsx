@@ -6,14 +6,13 @@ const CYCLE_MS = 11000;
 interface Props { accentColor: string; content: LoveLogContent; meta: DemoMeta }
 
 const DemoLoveLog: React.FC<Props> = ({ accentColor, content, meta }) => {
-  const [phase, setPhase] = useState<'grid' | 'filter' | 'detail'>('grid');
+  const [phase, setPhase] = useState<'grid' | 'detail'>('grid');
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
 
   useEffect(() => {
     const timers: ReturnType<typeof setTimeout>[] = [];
-    timers.push(setTimeout(() => setPhase('filter'), 3000));
-    timers.push(setTimeout(() => setActiveFilter('Verbs'), 4500));
-    timers.push(setTimeout(() => setPhase('detail'), 6200));
+    timers.push(setTimeout(() => setActiveFilter('Verbs'), 3000));
+    timers.push(setTimeout(() => setPhase('detail'), 5500));
     timers.push(setTimeout(() => { setPhase('grid'); setActiveFilter(null); }, CYCLE_MS));
     return () => timers.forEach(clearTimeout);
   }, [phase === 'grid' && !activeFilter ? Date.now() : 0]);
@@ -34,23 +33,21 @@ const DemoLoveLog: React.FC<Props> = ({ accentColor, content, meta }) => {
         <span className="text-[9px] font-bold text-[var(--text-secondary)] px-1.5 py-0.5 rounded-full" style={{ backgroundColor: 'rgba(0,0,0,0.04)' }}>47</span>
       </div>
 
-      {/* Filter pills */}
-      {(phase === 'filter') && (
-        <div className="flex gap-1 overflow-hidden" style={{ animation: 'reveal-up 0.2s ease-out both' }}>
-          {['Nouns', 'Verbs', 'Adj', '❤️ Gifts'].map((f) => (
-            <span
-              key={f}
-              className="text-[7px] font-black uppercase tracking-[0.08em] px-2 py-0.5 rounded-full whitespace-nowrap"
-              style={f === activeFilter
-                ? { backgroundColor: accentColor, color: 'white' }
-                : { backgroundColor: 'rgba(0,0,0,0.04)', color: 'var(--text-secondary)' }
-              }
-            >
-              {f}
-            </span>
-          ))}
-        </div>
-      )}
+      {/* Filter pills — always visible to avoid layout shift */}
+      <div className="flex gap-1 overflow-hidden">
+        {['Nouns', 'Verbs', 'Adj', '❤️ Gifts'].map((f) => (
+          <span
+            key={f}
+            className="text-[7px] font-black uppercase tracking-[0.08em] px-2 py-0.5 rounded-full whitespace-nowrap transition-all duration-300"
+            style={f === activeFilter
+              ? { backgroundColor: accentColor, color: 'white' }
+              : { backgroundColor: 'rgba(0,0,0,0.04)', color: 'var(--text-secondary)' }
+            }
+          >
+            {f}
+          </span>
+        ))}
+      </div>
 
       {/* Card grid */}
       {phase !== 'detail' && (

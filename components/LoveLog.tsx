@@ -648,11 +648,11 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
               </div>
 
               {/* Modal Content */}
-              <div className="p-5 overflow-y-auto max-h-[60vh] space-y-4">
+              <div className="p-4 overflow-y-auto max-h-[60vh] space-y-3">
                 {/* Translation + Type */}
                 <div className="text-center">
                   <p className="text-scale-heading text-[var(--text-primary)] font-medium">{entry.translation}</p>
-                  <span className="inline-block mt-2 text-[9px] font-bold uppercase tracking-wider text-[var(--secondary-text)] bg-[var(--secondary-light)] px-3 py-1 rounded-full">
+                  <span className="inline-block mt-1 text-[9px] font-bold uppercase tracking-wider text-[var(--secondary-text)] bg-[var(--secondary-light)] px-3 py-1 rounded-full">
                     {t(`loveLog.filters.${entry.word_type}`)}
                   </span>
                 </div>
@@ -684,7 +684,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                         </div>
                       )}
                     </div>
-                    <div className="bg-[var(--bg-primary)] rounded-xl p-4 border border-[var(--border-color)]">
+                    <div className="bg-[var(--bg-primary)] rounded-xl p-3 border border-[var(--border-color)]">
                       <p className="text-scale-label leading-relaxed italic text-[var(--text-primary)]">
                         "{examples[currentIdx] || t('loveLog.card.noExample')}"
                       </p>
@@ -695,7 +695,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                     <span className="text-scale-caption font-bold uppercase tracking-wider text-[var(--text-secondary)]">
                       {t('loveLog.card.example')}
                     </span>
-                    <div className="bg-[var(--bg-primary)] rounded-xl p-4 border border-[var(--border-color)]">
+                    <div className="bg-[var(--bg-primary)] rounded-xl p-3 border border-[var(--border-color)]">
                       <div className="flex items-center gap-2">
                         <div className="w-3 h-3 bg-amber-400 rounded-full animate-pulse" />
                         <p className="text-scale-label text-[var(--text-secondary)] italic">
@@ -708,13 +708,13 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
 
                 {/* Pro-tip */}
                 {ctx.proTip ? (
-                  <div className="bg-[var(--accent-light)] rounded-xl p-4 border border-[var(--accent-border)]">
+                  <div className="bg-[var(--accent-light)] rounded-xl p-3 border border-[var(--accent-border)]">
                     <p className="text-scale-label text-[var(--text-primary)] flex items-start gap-2">
                       <ICONS.Lightbulb className="w-4 h-4 text-[var(--accent-color)] flex-shrink-0 mt-0.5" /> {ctx.proTip}
                     </p>
                   </div>
                 ) : isGifted && !entry.enriched_at ? (
-                  <div className="bg-amber-50 dark:bg-amber-900/10 rounded-xl p-4 border border-amber-200 dark:border-amber-800">
+                  <div className="bg-amber-50 dark:bg-amber-900/10 rounded-xl p-3 border border-amber-200 dark:border-amber-800">
                     <p className="text-scale-label text-amber-600 dark:text-amber-400 italic flex items-center gap-2">
                       <ICONS.Sparkles className="w-4 h-4 animate-pulse flex-shrink-0" />
                       {t('loveLog.card.enrichingTip')}
@@ -726,20 +726,20 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                 {hasFormsData ? (
                   <button
                     onClick={() => { setDetailModalId(null); setFormsModalId(entry.id); }}
-                    className="w-full py-3 bg-[var(--accent-color)] hover:bg-[var(--accent-hover)] text-white rounded-xl text-scale-label font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2"
+                    className="w-full py-2.5 bg-[var(--accent-color)] hover:bg-[var(--accent-hover)] text-white rounded-xl text-scale-label font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2"
                   >
                     <ICONS.Book className="w-4 h-4" />
                     {entry.word_type === 'verb' ? t('loveLog.card.conjugations') : t('loveLog.card.forms')}
                   </button>
                 ) : isGifted && !entry.enriched_at && ['verb', 'noun', 'adjective'].includes(entry.word_type) ? (
-                  <div className="w-full py-3 bg-amber-50 dark:bg-amber-900/10 text-amber-600 dark:text-amber-400 rounded-xl text-scale-label font-bold text-center animate-pulse">
+                  <div className="w-full py-2.5 bg-amber-50 dark:bg-amber-900/10 text-amber-600 dark:text-amber-400 rounded-xl text-scale-label font-bold text-center animate-pulse">
                     {t('loveLog.card.enrichingForms')}
                   </div>
                 ) : ['verb', 'noun', 'adjective'].includes(entry.word_type) ? (
                   <button
                     onClick={() => handleCompleteEntry(entry.id)}
                     disabled={completingEntryId === entry.id}
-                    className="w-full py-3 bg-[var(--accent-light)] hover:bg-[var(--accent-light-hover)] text-[var(--accent-color)] rounded-xl text-scale-label font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 disabled:opacity-60"
+                    className="w-full py-2.5 bg-[var(--accent-light)] hover:bg-[var(--accent-light-hover)] text-[var(--accent-color)] rounded-xl text-scale-label font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 disabled:opacity-60"
                   >
                     {completingEntryId === entry.id ? (
                       <>
