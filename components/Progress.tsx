@@ -281,14 +281,18 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
   };
 
   // Sync XP with word count if out of sync (handles legacy words added before XP system)
+  const xpSyncedRef = useRef(false);
   useEffect(() => {
+    if (xpSyncedRef.current) return;
     const syncXpWithWordCount = async () => {
       if (stats.totalWords > 0 && (profile.xp || 0) < stats.totalWords) {
-        const xpDifference = stats.totalWords - (profile.xp || 0);
-        if (xpDifference > 0) {
-          await geminiService.incrementXP(xpDifference);
-          window.location.reload();
+        xpSyncedRef.current = true; // Guard: only attempt once per mount
+        const xpDifference = Math.min(stats.totalWords - (profile.xp || 0), 100); // API max is 100
+        const result = await geminiService.incrementXP(xpDifference);
+        if (!result.success) {
+          console.warn('[Progress] XP sync failed:', result.error);
         }
+        // No reload — profile will refresh naturally on next navigation or auth event
       }
     };
     syncXpWithWordCount();

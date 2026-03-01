@@ -484,26 +484,28 @@ const App: React.FC = () => {
         }
         // Initialize RevenueCat for iOS in-app purchases (non-blocking)
         if (isIAPAvailable()) {
-          configurePurchases(userId).then(() => {
-            identifyUser(userId);
-            // Reconcile: check if iOS subscription status differs from DB
-            getCustomerInfo().then(info => {
+          configurePurchases(userId)
+            .then(() => {
+              identifyUser(userId);
+              // Reconcile: check if iOS subscription status differs from DB
+              return getCustomerInfo();
+            })
+            .then(info => {
               if (!info) return;
               const entitlement = hasActiveEntitlement(info);
               if (entitlement.isActive && data.subscription_status !== 'active') {
                 // User has active App Store subscription but DB doesn't reflect it
                 // This can happen if webhook was delayed — update DB
-                supabase.from('profiles').update({
+                return supabase.from('profiles').update({
                   subscription_plan: entitlement.plan,
                   subscription_status: 'active',
                   subscription_source: 'app_store',
                 }).eq('id', userId).then(() => {
-                  // Refetch profile to get updated state
                   fetchProfile(userId);
                 });
               }
-            });
-          });
+            })
+            .catch(err => console.error('[RevenueCat] Init/reconcile failed:', err));
         }
       }
     } catch (err: any) {

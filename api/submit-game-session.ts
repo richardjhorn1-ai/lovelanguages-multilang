@@ -20,6 +20,7 @@ interface SubmitSessionRequest {
   answers: GameAnswer[];
   targetUserId?: string; // For tutors saving to their partner's progress
   targetLanguage?: string;
+  clientSessionId?: string; // Idempotency key — prevents duplicate submissions on sync retry
 }
 
 export default async function handler(req: any, res: any) {
@@ -46,7 +47,7 @@ export default async function handler(req: any, res: any) {
 
     const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
-    const { gameMode, correctCount, incorrectCount, totalTimeSeconds, answers, targetUserId, targetLanguage } = req.body as SubmitSessionRequest;
+    const { gameMode, correctCount, incorrectCount, totalTimeSeconds, answers, targetUserId, targetLanguage, clientSessionId } = req.body as SubmitSessionRequest;
 
     if (!gameMode || answers === undefined) {
       return res.status(400).json({ error: 'Missing required fields: gameMode and answers' });
@@ -82,6 +83,28 @@ export default async function handler(req: any, res: any) {
       resolvedLanguage = profileLangs.targetLanguage;
     }
 
+    // Idempotency check — if clientSessionId was provided, check for existing session
+    // This prevents duplicate submissions when offline sync retries after a network drop
+    if (clientSessionId) {
+      const { data: existingSession } = await supabase
+        .from('game_sessions')
+        .select('*')
+        .eq('user_id', sessionUserId)
+        .eq('client_session_id', clientSessionId)
+        .maybeSingle();
+
+      if (existingSession) {
+        // Already processed — return success (idempotent)
+        return res.status(200).json({
+          success: true,
+          sessionId: existingSession.id,
+          session: existingSession,
+          xpAwarded: 0, // XP was already awarded on first submission
+          deduplicated: true,
+        });
+      }
+    }
+
     // Create the game session
     const { data: session, error: sessionError } = await supabase
       .from('game_sessions')
@@ -92,6 +115,7 @@ export default async function handler(req: any, res: any) {
         incorrect_count: incorrectCount || 0,
         total_time_seconds: totalTimeSeconds || null,
         language_code: resolvedLanguage,
+        client_session_id: clientSessionId || null,
         completed_at: new Date().toISOString()
       })
       .select()

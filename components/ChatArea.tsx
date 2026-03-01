@@ -397,7 +397,11 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   useEffect(() => { if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight; }, [messages, loading, streamingText, listenEntries]);
 
   const fetchChats = async () => {
-    const { data } = await supabase.from('chats').select('*').eq('user_id', profile.id).eq('language_code', targetLanguage).order('created_at', { ascending: false });
+    const { data, error } = await supabase.from('chats').select('*').eq('user_id', profile.id).eq('language_code', targetLanguage).order('created_at', { ascending: false });
+    if (error) {
+      console.error('[ChatArea] fetchChats failed:', error.message);
+      return;
+    }
     if (data) {
         setChats(data);
         if (data.length > 0 && !activeChat && !activeListenSession) setActiveChat(data[0]);
@@ -407,14 +411,22 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   };
 
   const fetchListenSessions = async () => {
-    const { data } = await supabase.from('listen_sessions').select('*').eq('user_id', profile.id).eq('language_code', targetLanguage).order('created_at', { ascending: false });
+    const { data, error } = await supabase.from('listen_sessions').select('*').eq('user_id', profile.id).eq('language_code', targetLanguage).order('created_at', { ascending: false });
+    if (error) {
+      console.error('[ChatArea] fetchListenSessions failed:', error.message);
+      return;
+    }
     if (data) {
       setListenSessions(data);
     }
   };
 
   const fetchMessages = async (chatId: string) => {
-    const { data } = await supabase.from('messages').select('*').eq('chat_id', chatId).order('created_at', { ascending: true });
+    const { data, error } = await supabase.from('messages').select('*').eq('chat_id', chatId).order('created_at', { ascending: true });
+    if (error) {
+      console.error('[ChatArea] fetchMessages failed:', error.message);
+      return;
+    }
     if (data) setMessages(data);
   };
 

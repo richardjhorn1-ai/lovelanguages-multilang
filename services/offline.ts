@@ -190,6 +190,7 @@ class OfflineService {
                 answers: gs.answers,
                 targetLanguage: gs.targetLanguage,
                 nativeLanguage: gs.nativeLanguage,
+                clientSessionId: gs.clientSessionId,
               }),
             });
             if (!response.ok) failedSessions.push(gs);

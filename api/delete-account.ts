@@ -158,15 +158,25 @@ export default async function handler(req: any, res: any) {
     //    (Profile delete triggers CASCADE on chats, messages, dictionary, word_scores,
     //     level_tests, game_sessions, progress_summaries, listen_sessions, notifications,
     //     usage_tracking, subscription_events — but these tables are NOT in that cascade)
-    await supabase.from('tutor_challenges').delete().eq('tutor_id', userId);
-    await supabase.from('tutor_challenges').delete().eq('student_id', userId);
-    await supabase.from('challenge_results').delete().eq('student_id', userId);
-    await supabase.from('word_requests').delete().eq('tutor_id', userId);
-    await supabase.from('word_requests').delete().eq('student_id', userId);
-    await supabase.from('invite_tokens').delete().eq('inviter_id', userId);
-    await supabase.from('gift_passes').delete().eq('created_by', userId);
+    const cleanupErrors: string[] = [];
+    const cleanupTables = [
+      { table: 'tutor_challenges', column: 'tutor_id' },
+      { table: 'tutor_challenges', column: 'student_id' },
+      { table: 'challenge_results', column: 'student_id' },
+      { table: 'word_requests', column: 'tutor_id' },
+      { table: 'word_requests', column: 'student_id' },
+      { table: 'invite_tokens', column: 'inviter_id' },
+      { table: 'gift_passes', column: 'created_by' },
+    ];
+    for (const { table, column } of cleanupTables) {
+      const { error } = await supabase.from(table).delete().eq(column, userId);
+      if (error) cleanupErrors.push(`${table}.${column}: ${error.message}`);
+    }
 
-    console.log(`[delete-account] Cleaned up dependent tables`);
+    if (cleanupErrors.length > 0) {
+      console.warn(`[delete-account] Some dependent table cleanups failed (continuing):`, cleanupErrors);
+    }
+    console.log(`[delete-account] Cleaned up dependent tables (${cleanupTables.length - cleanupErrors.length}/${cleanupTables.length} succeeded)`);
 
     // 6. Delete the user's profile (CASCADE handles chats, messages, dictionary, etc.)
     const { error: deleteProfileError } = await supabase
