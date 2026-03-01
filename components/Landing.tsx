@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Capacitor } from '@capacitor/core';
 import { supabase } from '../services/supabase';
@@ -11,17 +11,50 @@ import InteractiveHearts from './hero/InteractiveHearts';
 import WordParticleEffect from './hero/WordParticleEffect';
 import { SUPPORTED_LANGUAGE_CODES, LANGUAGE_CONFIGS } from '../constants/language-config';
 import { ICONS } from '../constants';
+import { FeatureCard, STUDENT_FEATURES, TUTOR_FEATURES } from './landing/FeatureTile';
+import FeatureShowcase from './landing/FeatureShowcase';
+import MobileGameShowcase from './landing/MobileGameShowcase';
+import type { LanguageCode } from '../constants/language-config';
+import InPlaceFlipCard from './landing/FlipExpandCard';
+
+// ============================================
+// Brand SVG Icons (not available in Phosphor)
+// ============================================
+const AppleIcon: React.FC<{ size?: number; className?: string }> = ({ size = 18, className }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+  </svg>
+);
+
+const TikTokIcon: React.FC<{ size?: number; className?: string }> = ({ size = 18, className }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V9.19a8.16 8.16 0 004.76 1.52v-3.4a4.85 4.85 0 01-1-.62z"/>
+  </svg>
+);
+
+const XTwitterIcon: React.FC<{ size?: number; className?: string }> = ({ size = 18, className }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+  </svg>
+);
+
+// BeforeInstallPrompt type for PWA
+interface BeforeInstallPromptEvent extends Event {
+  prompt: () => Promise<void>;
+  userChoice: Promise<{ outcome: 'accepted' | 'dismissed' }>;
+}
 
 /**
- * Landing — Auth + marketing page
+ * Landing — Full-page bento grid homepage
  *
- * Mobile: Auth card above the fold → scroll down for marketing narrative
- * Desktop (≥1024px): Split layout — marketing left, sticky auth card right
- * All marketing content uses existing i18n keys from Hero.tsx
+ * Desktop (≥1024px): Viewport-filling 3-column bento. Auth = featured hero card.
+ * Mobile (<1024px): Auth above fold, visual feature grid + content below.
+ *
+ * Design: Duolingo personality + Apple polish
  */
 
 // ============================================
-// Shared highlight renderer + role headlines
+// Shared constants
 // ============================================
 type HeroRole = 'student' | 'tutor';
 
@@ -29,6 +62,7 @@ const ROLE_HEADLINES: Record<HeroRole, { headline: string; highlights: string[] 
   student: { headline: 'hero.landing.student.headline', highlights: ['hero.landing.student.highlight1', 'hero.landing.student.highlight2'] },
   tutor: { headline: 'hero.landing.tutor.headline', highlights: ['hero.landing.tutor.highlight1', 'hero.landing.tutor.highlight2'] },
 };
+
 
 function renderHighlightedText(
   text: string,
@@ -63,30 +97,7 @@ function renderHighlightedText(
 }
 
 // ============================================
-// Marketing Content Component (shared mobile + desktop)
-// ============================================
-const GLASS_CARD: React.CSSProperties = {
-  backgroundColor: 'rgba(255, 255, 255, 0.55)',
-  border: '1px solid rgba(255, 255, 255, 0.6)',
-  boxShadow: '0 8px 32px -8px rgba(0, 0, 0, 0.08)',
-  borderRadius: '20px',
-  willChange: 'transform, opacity',
-};
-
-const FEATURES_LEFT = [
-  { key: 'feature1' }, // Listen Mode
-  { key: 'feature2' }, // Love Log
-  { key: 'feature3' }, // Smart Games
-];
-const FEATURES_RIGHT = [
-  { key: 'feature4' }, // Conversation Practice
-  { key: 'feature5' }, // Weakest Words
-  { key: 'feature6' }, // Voice Chat
-];
-
-
-// ============================================
-// Role Toggle Component
+// Role Toggle
 // ============================================
 const RoleToggle: React.FC<{
   role: HeroRole;
@@ -125,247 +136,116 @@ const RoleToggle: React.FC<{
 };
 
 // ============================================
-// Marketing Content Component (shared mobile + desktop)
+// Testimonials Card (expand on hover/tap)
 // ============================================
-const MarketingContent = React.memo<{
+const TESTIMONIALS = [
+  { quoteKey: 'hero.testimonials.1.quote', quoteFallback: 'This is SO COOL', nameKey: 'hero.testimonials.1.name', nameFallback: 'Alessia', contextKey: 'hero.testimonials.1.context', contextFallback: 'Learning for her partner Tomas' },
+  { quoteKey: 'hero.testimonials.2.quote', quoteFallback: 'Dude this app is amazing', nameKey: 'hero.testimonials.2.name', nameFallback: 'Alessandra', contextKey: 'hero.testimonials.2.context', contextFallback: 'Learning for her boyfriend Miki' },
+  { quoteKey: 'hero.testimonials.3.quote', quoteFallback: 'This feels like something couples will actually use', nameKey: 'hero.testimonials.3.name', nameFallback: 'Charlotte', contextKey: 'hero.testimonials.3.context', contextFallback: 'capwave.ai' },
+];
+
+const TestimonialsCard: React.FC<{
   isDesktop: boolean;
-  role: HeroRole;
-  onToggleRole: (r: HeroRole) => void;
-}>(({ isDesktop, role, onToggleRole }) => {
+  accentColor: string;
+  className?: string;
+  delay?: number;
+}> = ({ isDesktop, accentColor, className = '', delay }) => {
   const { t } = useTranslation();
-  const accentColor = role === 'student' ? BRAND.primary : BRAND.teal;
-  const accentShadow = role === 'student' ? BRAND.shadow : BRAND.tealShadow;
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
-  // Footer: first sentence of paragraph6
-  const footerText = t('hero.bottomSections.rall.story.paragraph6', "We built this for every couple who already has something beautiful.").split('. ')[0] + '.';
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsTransitioning(true);
+      setTimeout(() => {
+        setCurrentIndex(prev => (prev + 1) % TESTIMONIALS.length);
+        setIsTransitioning(false);
+      }, 400);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, [currentIndex]);
 
-  // Static headline per role
-  const headlineData = ROLE_HEADLINES[role];
-  const headlineText = t(headlineData.headline);
-  const headlineHighlights = headlineData.highlights.map(k => t(k));
-  const headlineParts = renderHighlightedText(headlineText, headlineHighlights, accentColor);
+  const item = TESTIMONIALS[currentIndex];
 
-  // Compact feature group: 3 features per card with thin dividers
-  const FeatureGroup = ({ features, className, delay }: { features: { key: string }[]; className?: string; delay?: number }) => (
-    <div
-      className={`${className || ''}`}
-      style={{
-        ...GLASS_CARD,
-        ...(isDesktop && delay !== undefined ? { animation: `reveal-up 0.5s ease-out ${delay}s both` } : {}),
-      }}
-    >
-      {features.map(({ key }, i) => (
-        <React.Fragment key={key}>
-          {i > 0 && <div className={`h-px ${isDesktop ? 'my-2.5' : 'my-1.5'}`} style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }} />}
-          <div>
-            <div className={`flex items-center ${isDesktop ? 'gap-2' : 'gap-1.5'}`}>
-              <div className={`h-[2px] ${isDesktop ? 'w-6' : 'w-4'} rounded-full`} style={{ backgroundColor: accentColor, opacity: 0.3 }} />
-              <span className={`${isDesktop ? 'text-[10px]' : 'text-[9px]'} font-bold uppercase tracking-[0.2em] text-[var(--text-secondary)]`}>
-                {t(`hero.bottomSections.rall.offer.${role}.${key}.feature`)}
-              </span>
-            </div>
-            <p className={`${isDesktop ? 'text-[13px]' : 'text-[11px]'} font-semibold text-[var(--text-primary)] leading-snug ${isDesktop ? 'mt-1.5' : 'mt-1'}`}>
-              {t(`hero.bottomSections.rall.offer.${role}.${key}.pain`)}
-            </p>
-          </div>
-        </React.Fragment>
-      ))}
-    </div>
-  );
-
-  // Testimonials card
-  const TestimonialsCard = ({ className, delay }: { className?: string; delay?: number }) => (
-    <div
-      className={`${className || ''}`}
-      style={{
-        ...GLASS_CARD,
-        ...(isDesktop && delay !== undefined ? { animation: `reveal-up 0.5s ease-out ${delay}s both` } : {}),
-      }}
-    >
-      <div>
-        <p className={`${isDesktop ? 'text-sm' : 'text-xs'} font-semibold italic text-[var(--text-primary)] leading-snug`}>
-          "{t('hero.testimonials.1.quote', 'This is SO COOL')}"
-        </p>
-        <p className={`${isDesktop ? 'text-[11px]' : 'text-[10px]'} font-bold text-[var(--text-secondary)] mt-1.5`}>
-          {t('hero.testimonials.1.name', 'Alessia')}
-        </p>
-        <p className={`${isDesktop ? 'text-[10px]' : 'text-[9px]'} uppercase tracking-wider text-[var(--text-secondary)]`}>
-          {t('hero.testimonials.1.context', 'Learning for her partner Tomas')}
-        </p>
-      </div>
-      <div className={`h-px ${isDesktop ? 'my-3' : 'my-2'}`} style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }} />
-      <div>
-        <p className={`${isDesktop ? 'text-sm' : 'text-xs'} font-semibold italic text-[var(--text-primary)] leading-snug`}>
-          "{t('hero.testimonials.2.quote', 'Dude this app is amazing')}"
-        </p>
-        <p className={`${isDesktop ? 'text-[11px]' : 'text-[10px]'} font-bold text-[var(--text-secondary)] mt-1.5`}>
-          {t('hero.testimonials.2.name', 'Alessandra')}
-        </p>
-        <p className={`${isDesktop ? 'text-[10px]' : 'text-[9px]'} uppercase tracking-wider text-[var(--text-secondary)]`}>
-          {t('hero.testimonials.2.context', 'Learning for her boyfriend Miki')}
-        </p>
-      </div>
-    </div>
-  );
-
-  // Founder card (shared desktop + mobile)
-  const FounderCard = ({ className, delay }: { className?: string; delay?: number }) => (
-    <div
-      className={`${className || ''}`}
-      style={{
-        ...GLASS_CARD,
-        ...(isDesktop && delay !== undefined ? { animation: `reveal-up 0.5s ease-out ${delay}s both` } : {}),
-      }}
-    >
-      <div className={`flex items-center ${isDesktop ? 'gap-3' : 'gap-2'}`}>
-        <img
-          src="/founders.jpg"
-          alt="Richard & Misia"
-          className={`${isDesktop ? 'w-10 h-10' : 'w-8 h-8'} rounded-full object-cover flex-shrink-0`}
-          style={{ border: `2px solid ${accentColor}` }}
-        />
-        <div>
-          <p className={`font-bold ${isDesktop ? 'text-sm' : 'text-xs'} text-[var(--text-primary)]`}>
-            {t('hero.bottomSections.rall.story.names', 'Richard & Misia')}
-          </p>
-          <p className={`${isDesktop ? 'text-[11px]' : 'text-[10px]'} font-bold uppercase tracking-[0.2em] text-[var(--text-secondary)]`}>
-            {t('hero.bottomSections.rall.story.title', 'Founders')}
-          </p>
-        </div>
-      </div>
-      <div className={`border-l-[2px] ${isDesktop ? 'pl-3 mt-3' : 'pl-2 mt-2'}`} style={{ borderColor: accentColor }}>
-        <p className={`${isDesktop ? 'text-[11px]' : 'text-[10px]'} italic text-[var(--text-secondary)] leading-relaxed`}>
-          "{t('hero.bottomSections.rall.story.paragraph3', 'We tried the apps everyone recommends. But it was always just me and a screen. Misia couldn\'t see where I was stuck. She couldn\'t help where it mattered.')}"
-        </p>
-        <p className={`${isDesktop ? 'text-[11px]' : 'text-[10px]'} italic text-[var(--text-secondary)] leading-relaxed ${isDesktop ? 'mt-1.5' : 'mt-1'}`}>
-          "{t('hero.bottomSections.rall.story.paragraph4', 'So I built something to catch the words she taught me. Then to practice them. Then to feel a little more ready for the moments that mattered most.')}"
-        </p>
-      </div>
-    </div>
-  );
-
-  if (isDesktop) {
-    return (
-      <>
-        {/* Brand mark + toggle — above the grid */}
-        <div className="flex items-center justify-between mb-4" style={{ animation: 'reveal-up 0.5s ease-out both' }}>
-          <div className="flex items-center gap-3">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 600.000000 600.000000"
-              preserveAspectRatio="xMidYMid meet"
-              fill={accentColor}
-              className="w-12 h-12"
-              style={{ transition: 'fill 0.3s ease' }}
-            >
-              <g transform="translate(0.000000,600.000000) scale(0.100000,-0.100000)" stroke="none">
-                <path d={LOGO_PATH} />
-                {LOGO_DETAIL_PATHS.map((d: string, i: number) => <path key={i} d={d} />)}
-              </g>
-            </svg>
-            <span className="text-2xl font-black font-header" style={{ color: '#1a1a2e' }}>
-              Love Languages
-            </span>
-          </div>
-          <RoleToggle role={role} onToggle={onToggleRole} />
-        </div>
-
-        {/* ── Bento Grid — keyed by role for remount animation ── */}
-        <div key={role} className="grid grid-cols-2 gap-3">
-
-          {/* Hero card — col-span-2, static headline */}
-          <div
-            className="col-span-2 p-6"
-            style={{ ...GLASS_CARD, animation: 'reveal-up 0.5s ease-out 0.05s both' }}
-          >
-            <h2 className="text-3xl md:text-4xl font-black text-[var(--text-primary)] tracking-tight leading-[1.1] font-header">
-              {headlineParts}
-            </h2>
-            <p className="text-sm text-[var(--text-secondary)] font-medium mt-3">
-              {t('hero.subtitle', 'The only language app designed for couples')}
-            </p>
-            <div className="h-[2px] w-12 rounded-full mt-3" style={{ backgroundColor: accentColor, opacity: 0.3 }} />
-          </div>
-
-          {/* Feature Group Left */}
-          <FeatureGroup features={FEATURES_LEFT} className="p-5" delay={0.13} />
-
-          {/* Feature Group Right */}
-          <FeatureGroup features={FEATURES_RIGHT} className="p-5" delay={0.21} />
-
-          {/* Testimonials card */}
-          <TestimonialsCard className="p-5" delay={0.29} />
-
-          {/* Founder card */}
-          <FounderCard className="p-5" delay={0.37} />
-
-          {/* Flags card — col-span-2 */}
-          <div
-            className="col-span-2 px-5 py-4"
-            style={{ ...GLASS_CARD, animation: 'reveal-up 0.5s ease-out 0.45s both' }}
-          >
-            <div className="flex flex-wrap gap-2 mb-2">
-              {(SUPPORTED_LANGUAGE_CODES as readonly string[]).map(code => {
-                const lang = LANGUAGE_CONFIGS[code];
-                return lang ? (
-                  <span key={code} className="text-lg" title={lang.nativeName}>
-                    {lang.flag}
-                  </span>
-                ) : null;
-              })}
-            </div>
-            <p className="text-xs text-[var(--text-secondary)] italic">{footerText}</p>
-          </div>
-
-        </div>
-      </>
-    );
-  }
-
-  // ── MOBILE: Full-width stacked glass cards ──
   return (
-    <>
-      {/* Toggle — centered above headline */}
-      <div className="flex justify-center mb-3">
-        <RoleToggle role={role} onToggle={onToggleRole} />
-      </div>
-
-      {/* Headline — outside cards, centered */}
-      <div key={role} className="mb-4 text-center">
-        <h2 className="text-lg sm:text-xl font-black text-[var(--text-primary)] tracking-tight leading-[1.1] font-header mb-1.5">
-          {headlineParts}
-        </h2>
-        <p className="text-xs text-[var(--text-secondary)] font-medium">
-          {t('hero.subtitle', 'The only language app designed for couples')}
-        </p>
-      </div>
-
-      {/* Feature + testimonial cards — 2-col bento grid */}
-      <div key={`cards-${role}`} className="grid grid-cols-2 gap-2">
-        <FeatureGroup features={FEATURES_LEFT} className="p-2.5" />
-        <FeatureGroup features={FEATURES_RIGHT} className="p-2.5" />
-        <TestimonialsCard className="p-2.5" />
-        <FounderCard className="p-2.5" />
-      </div>
-
-      {/* Flags strip — plain, centered */}
-      <div className="text-center mt-4">
-        <div className="flex flex-wrap justify-center gap-1 mb-2">
-          {(SUPPORTED_LANGUAGE_CODES as readonly string[]).map(code => {
-            const lang = LANGUAGE_CONFIGS[code];
-            return lang ? (
-              <span key={code} className="text-sm" title={lang.nativeName}>{lang.flag}</span>
-            ) : null;
-          })}
+    <div
+      className={`glass-card rounded-[20px] ${className}`}
+      style={{
+        borderLeft: `3px solid ${accentColor}`,
+        ...(isDesktop && delay !== undefined ? { animation: `reveal-up 0.5s ease-out ${delay}s both` } : {}),
+      }}
+    >
+      <div
+        style={{
+          opacity: isTransitioning ? 0 : 1,
+          transform: isTransitioning ? 'translateY(4px)' : 'translateY(0)',
+          transition: 'opacity 0.4s ease, transform 0.4s ease',
+        }}
+      >
+        {/* Large decorative open-quote */}
+        <div
+          className={`${isDesktop ? 'text-4xl' : 'text-3xl'} font-black leading-none -mb-2`}
+          style={{ color: accentColor, opacity: 0.2 }}
+        >
+          &ldquo;
         </div>
-        <p className="text-[10px] text-[var(--text-secondary)] italic">{footerText}</p>
+
+        {/* Quote text — larger */}
+        <p className={`${isDesktop ? 'text-base' : 'text-sm'} font-semibold italic text-[var(--text-primary)] leading-snug`}>
+          {t(item.quoteKey, item.quoteFallback)}
+        </p>
+
+        {/* Author line with initials avatar + stars */}
+        <div className="flex items-center gap-2 mt-3">
+          <div
+            className={`${isDesktop ? 'w-7 h-7 text-[10px]' : 'w-6 h-6 text-[9px]'} rounded-full flex items-center justify-center font-black text-white flex-shrink-0`}
+            style={{ backgroundColor: accentColor }}
+          >
+            {t(item.nameKey, item.nameFallback).charAt(0)}
+          </div>
+          <div className="min-w-0">
+            <p className={`${isDesktop ? 'text-xs' : 'text-[11px]'} font-bold text-[var(--text-primary)]`}>
+              {t(item.nameKey, item.nameFallback)}
+            </p>
+            <p className={`${isDesktop ? 'text-[10px]' : 'text-[9px]'} text-[var(--text-secondary)]`}>
+              {t(item.contextKey, item.contextFallback)}
+            </p>
+          </div>
+          <div className="flex gap-0.5 ml-auto flex-shrink-0">
+            {Array.from({ length: 5 }, (_, i) => (
+              <ICONS.Star
+                key={i}
+                weight="fill"
+                className={`${isDesktop ? 'w-3.5 h-3.5' : 'w-3 h-3'}`}
+                style={{ color: '#FBBF24' }}
+              />
+            ))}
+          </div>
+        </div>
       </div>
-    </>
+
+      {/* Dot indicators */}
+      <div className="flex gap-1.5 justify-center mt-3">
+        {TESTIMONIALS.map((_, i) => (
+          <div
+            key={i}
+            className="w-1.5 h-1.5 rounded-full transition-all duration-300"
+            style={{
+              backgroundColor: i === currentIndex ? accentColor : 'rgba(0,0,0,0.12)',
+              transform: i === currentIndex ? 'scale(1.3)' : 'scale(1)',
+            }}
+          />
+        ))}
+      </div>
+    </div>
   );
-});
+};
 
 // ============================================
-// Auth Card Component
+// Founder Card (expand on hover/tap)
+// ============================================
+// ============================================
+// Auth Card Component (unchanged from before)
 // ============================================
 const AuthCard: React.FC<{
   showBranding: boolean;
@@ -420,55 +300,47 @@ const AuthCard: React.FC<{
   };
 
   return (
-  <div
-    className="rounded-3xl p-8 md:p-10"
-    style={{
-      backgroundColor: 'rgba(255, 255, 255, 0.7)',
-      border: '1px solid rgba(255, 255, 255, 0.6)',
-      boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.6)',
-    }}
-  >
-    {/* Logo + Headline (mobile only — desktop has these on the left) */}
+  <div className="rounded-3xl p-6 lg:px-0 lg:py-0">
+    {/* Logo + Headline (mobile only) */}
     {showBranding && (
-      <div className="text-center mb-8">
+      <div className="text-center mb-6">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 600.000000 600.000000"
           preserveAspectRatio="xMidYMid meet"
           fill={accentColor}
-          className="w-20 h-20 mx-auto mb-3"
+          className="w-16 h-16 mx-auto mb-2"
         >
           <g transform="translate(0.000000,600.000000) scale(0.100000,-0.100000)" stroke="none">
             <path d={LOGO_PATH} />
             {LOGO_DETAIL_PATHS.map((d: string, i: number) => <path key={i} d={d} />)}
           </g>
         </svg>
-        <h1 className="text-3xl font-black font-header mb-2" style={{ color: '#1a1a2e' }}>
+        <h1 className="text-2xl font-black font-header mb-1" style={{ color: '#1a1a2e' }}>
           Love Languages
         </h1>
-        <p className="text-sm font-bold" style={{ color: accentColor }}>
+        <p className="text-xs font-bold" style={{ color: accentColor }}>
           {t('hero.subtitle', 'The only language app designed for couples')}
         </p>
-        <div className="h-[2px] w-10 rounded-full mt-3 mx-auto" style={{ backgroundColor: accentColor, opacity: 0.3 }} />
       </div>
     )}
 
     {/* ─── View A: OAuth buttons (default) ─── */}
     {!showEmailForm && (
       <>
-        <div className="space-y-4">
+        <div className="space-y-3">
           {/* Google button */}
           <button
             type="button"
             onClick={() => handleOAuthSignIn('google')}
             disabled={loading || oauthLoading !== null}
-            className="w-full flex items-center justify-center gap-3 py-5 rounded-2xl border-2 glass-card font-semibold transition-all hover:bg-[var(--bg-primary)] disabled:opacity-50"
+            className="w-full flex items-center justify-center gap-2.5 py-3 rounded-2xl border glass-card font-semibold transition-all active:scale-[0.98] hover:brightness-105 disabled:opacity-50"
             style={{ borderColor: accentBorder, color: 'var(--text-primary)' }}
           >
             {oauthLoading === 'google' ? (
               <div className="w-5 h-5 border-2 rounded-full animate-spin" style={{ borderColor: accentBorder, borderTopColor: accentColor }} />
             ) : (
-              <svg className="w-6 h-6" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" viewBox="0 0 24 24">
                 <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
                 <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
                 <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/>
@@ -483,12 +355,12 @@ const AuthCard: React.FC<{
             type="button"
             onClick={() => handleOAuthSignIn('apple')}
             disabled={loading || oauthLoading !== null}
-            className="w-full flex items-center justify-center gap-3 py-5 rounded-2xl bg-black text-white font-semibold transition-all hover:bg-gray-900 disabled:opacity-50"
+            className="w-full flex items-center justify-center gap-2.5 py-3 rounded-2xl bg-black text-white font-semibold transition-all active:scale-[0.98] hover:bg-gray-900 disabled:opacity-50"
           >
             {oauthLoading === 'apple' ? (
               <div className="w-5 h-5 border-2 border-gray-500 border-t-white rounded-full animate-spin" />
             ) : (
-              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
               </svg>
             )}
@@ -497,12 +369,12 @@ const AuthCard: React.FC<{
         </div>
 
         {/* Free tier reassurance */}
-        <p className="text-center text-scale-caption mt-4 font-bold" style={{ color: accentColor, opacity: 0.7 }}>
+        <p className="text-center text-scale-caption mt-3 font-bold" style={{ color: accentColor, opacity: 0.7 }}>
           {t('signup.freeStartLearning', 'Start learning for $0.00')}
         </p>
 
         {/* Divider — switch to email */}
-        <div className="flex items-center gap-4 mt-5">
+        <div className="flex items-center gap-4 mt-4">
           <div className="flex-1 h-px" style={{ backgroundColor: accentBorder }} />
           <button
             type="button"
@@ -520,7 +392,7 @@ const AuthCard: React.FC<{
     {/* ─── View B: Email/Password form ─── */}
     {showEmailForm && (
       <>
-        <form onSubmit={handleFormSubmit} className="space-y-4">
+        <form onSubmit={handleFormSubmit} className="space-y-2.5">
           <style>{honeypotStyles}</style>
           <input {...honeypotProps} />
 
@@ -534,7 +406,7 @@ const AuthCard: React.FC<{
 
           <div>
             <label
-              className="block text-scale-micro font-black uppercase tracking-[0.2em] mb-2 ml-1"
+              className="block text-scale-micro font-black uppercase tracking-[0.2em] mb-1.5 ml-1"
               style={{ color: hasError ? '#ef4444' : '#9ca3af' }}
             >
               {t('hero.login.emailLabel')}
@@ -544,7 +416,7 @@ const AuthCard: React.FC<{
               value={email}
               onChange={(e) => { setEmail(e.target.value); if (message) setMessage(''); }}
               required
-              className="w-full px-5 py-4 rounded-2xl border-2 focus:outline-none transition-all placeholder:text-[var(--text-secondary)] font-bold text-scale-body"
+              className="w-full px-4 py-3 rounded-2xl border-2 focus:outline-none transition-all placeholder:text-[var(--text-secondary)] font-bold text-scale-body"
               style={{
                 backgroundColor: '#ffffff',
                 color: '#1a1a2e',
@@ -558,7 +430,7 @@ const AuthCard: React.FC<{
 
           <div>
             <label
-              className="block text-scale-micro font-black uppercase tracking-[0.2em] mb-2 ml-1"
+              className="block text-scale-micro font-black uppercase tracking-[0.2em] mb-1.5 ml-1"
               style={{ color: hasError ? '#ef4444' : '#9ca3af' }}
             >
               {t('hero.login.passwordLabel')}
@@ -570,7 +442,7 @@ const AuthCard: React.FC<{
                 value={password}
                 onChange={(e) => { setPassword(e.target.value); if (message) setMessage(''); setConfirmPasswordError(''); }}
                 required={!showForgotPassword}
-                className="w-full px-5 py-4 pr-12 rounded-2xl border-2 focus:outline-none transition-all placeholder:text-[var(--text-secondary)] font-bold text-scale-body"
+                className="w-full px-4 py-3 pr-12 rounded-2xl border-2 focus:outline-none transition-all placeholder:text-[var(--text-secondary)] font-bold text-scale-body"
                 style={{
                   backgroundColor: '#ffffff',
                   color: '#1a1a2e',
@@ -583,7 +455,7 @@ const AuthCard: React.FC<{
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-gray-400 hover:text-gray-600 transition-colors"
+                className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:opacity-80 transition-colors"
                 tabIndex={-1}
               >
                 {showPassword ? (
@@ -602,7 +474,7 @@ const AuthCard: React.FC<{
               <button
                 type="button"
                 onClick={() => setShowForgotPassword(!showForgotPassword)}
-                className="mt-2 text-scale-caption font-semibold transition-all hover:opacity-70"
+                className="mt-1.5 text-scale-caption font-semibold transition-all hover:opacity-70"
                 style={{ color: accentColor }}
               >
                 {showForgotPassword ? t('hero.login.backToLogin') : t('hero.login.forgotPassword')}
@@ -614,7 +486,7 @@ const AuthCard: React.FC<{
           {isSignUp && (
             <div>
               <label
-                className="block text-scale-micro font-black uppercase tracking-[0.2em] mb-2 ml-1"
+                className="block text-scale-micro font-black uppercase tracking-[0.2em] mb-1.5 ml-1"
                 style={{ color: confirmPasswordError ? '#ef4444' : '#9ca3af' }}
               >
                 {t('hero.login.confirmPasswordLabel', { defaultValue: 'Confirm Password' })}
@@ -626,7 +498,7 @@ const AuthCard: React.FC<{
                   value={confirmPassword}
                   onChange={(e) => { setConfirmPassword(e.target.value); setConfirmPasswordError(''); }}
                   required
-                  className="w-full px-5 py-4 pr-12 rounded-2xl border-2 focus:outline-none transition-all placeholder:text-[var(--text-secondary)] font-bold text-scale-body"
+                  className="w-full px-4 py-3 pr-12 rounded-2xl border-2 focus:outline-none transition-all placeholder:text-[var(--text-secondary)] font-bold text-scale-body"
                   style={{
                     backgroundColor: '#ffffff',
                     color: '#1a1a2e',
@@ -639,7 +511,7 @@ const AuthCard: React.FC<{
                 <button
                   type="button"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-gray-400 hover:text-gray-600 transition-colors"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:opacity-80 transition-colors"
                   tabIndex={-1}
                 >
                   {showConfirmPassword ? (
@@ -655,7 +527,7 @@ const AuthCard: React.FC<{
                 </button>
               </div>
               {confirmPasswordError && (
-                <p className="mt-2 text-sm font-semibold text-red-500">{confirmPasswordError}</p>
+                <p className="mt-1.5 text-sm font-semibold text-red-500">{confirmPasswordError}</p>
               )}
             </div>
           )}
@@ -666,8 +538,8 @@ const AuthCard: React.FC<{
               type="button"
               onClick={handleForgotPassword}
               disabled={resetLoading || !email}
-              className="w-full text-white font-black py-4 rounded-2xl shadow-lg transition-all active:scale-[0.98] disabled:opacity-50 text-scale-body uppercase tracking-[0.15em] hover:scale-[1.02]"
-              style={{ backgroundColor: accentColor, boxShadow: `0 10px 25px -5px ${accentShadow}` }}
+              className="w-full text-white font-black py-3.5 rounded-2xl shadow-lg transition-all active:scale-[0.98] disabled:opacity-50 text-scale-body uppercase tracking-[0.15em]"
+              style={{ backgroundColor: accentColor, boxShadow: `0 10px 25px -5px ${accentShadow}`, transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)' }}
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = accentHover}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = accentColor}
             >
@@ -677,8 +549,8 @@ const AuthCard: React.FC<{
             <button
               type="submit"
               disabled={loading || oauthLoading !== null}
-              className="w-full text-white font-black py-4 rounded-2xl shadow-lg transition-all active:scale-[0.98] disabled:opacity-50 text-scale-body uppercase tracking-[0.15em] hover:scale-[1.02]"
-              style={{ backgroundColor: accentColor, boxShadow: `0 10px 25px -5px ${accentShadow}` }}
+              className="w-full text-white font-black py-3.5 rounded-2xl shadow-lg transition-all active:scale-[0.98] disabled:opacity-50 text-scale-body uppercase tracking-[0.15em]"
+              style={{ backgroundColor: accentColor, boxShadow: `0 10px 25px -5px ${accentShadow}`, transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)' }}
               onMouseEnter={(e) => e.currentTarget.style.backgroundColor = accentHover}
               onMouseLeave={(e) => e.currentTarget.style.backgroundColor = accentColor}
             >
@@ -690,7 +562,7 @@ const AuthCard: React.FC<{
         </form>
 
         {/* Divider — switch back to OAuth */}
-        <div className="flex items-center gap-4 mt-5">
+        <div className="flex items-center gap-4 mt-4">
           <div className="flex-1 h-px" style={{ backgroundColor: accentBorder }} />
           <button
             type="button"
@@ -705,13 +577,13 @@ const AuthCard: React.FC<{
 
         {/* Success messages */}
         {message && message.toLowerCase().includes('check') && (
-          <div className="mt-4 p-4 rounded-2xl text-scale-label font-bold text-center bg-green-50 text-green-700">
+          <div className="mt-3 p-3 rounded-2xl text-scale-label font-bold text-center bg-green-50 text-green-700">
             {message}
           </div>
         )}
 
         {/* Sign-up / Sign-in toggle */}
-        <div className="mt-5 text-center">
+        <div className="mt-4 text-center">
           <button
             onClick={() => { setIsSignUp(!isSignUp); setMessage(''); setConfirmPassword(''); setConfirmPasswordError(''); }}
             className={`text-scale-label font-black uppercase tracking-widest transition-all hover:opacity-70 ${
@@ -730,6 +602,37 @@ const AuthCard: React.FC<{
 };
 
 // ============================================
+// Scroll Reveal Hook (mobile)
+// ============================================
+function useScrollReveal() {
+  const refs = useRef<Map<string, HTMLDivElement>>(new Map());
+
+  const setRef = useCallback((id: string) => (el: HTMLDivElement | null) => {
+    if (el) refs.current.set(id, el);
+    else refs.current.delete(id);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    refs.current.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
+  return { setRef };
+}
+
+// ============================================
 // Main Landing Component
 // ============================================
 const Landing: React.FC = () => {
@@ -737,6 +640,7 @@ const Landing: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const isMobile = useMediaQuery('(max-width: 767px)');
   const isDesktop = useMediaQuery('(min-width: 1024px)');
+  const { setRef } = useScrollReveal();
 
   // Student / Tutor role toggle
   const [selectedRole, setSelectedRole] = useState<HeroRole>(() => {
@@ -753,11 +657,20 @@ const Landing: React.FC = () => {
   const accentColor = selectedRole === 'student' ? BRAND.primary : BRAND.teal;
   const accentHover = selectedRole === 'student' ? BRAND.primaryHover : BRAND.tealHover;
   const accentShadow = selectedRole === 'student' ? BRAND.shadow : BRAND.tealShadow;
-  const accentBorder = selectedRole === 'student' ? BRAND.border : '#99f6e4'; // pink-200 / teal-200
+  const accentBorder = selectedRole === 'student' ? BRAND.border : '#99f6e4';
+  const secondaryColor = selectedRole === 'student' ? BRAND.gold : BRAND.ice;
   const bgColor = selectedRole === 'student' ? BRAND.light : BRAND.tealLight;
 
-  // Native language (UI language) — auto-detect from browser
+  // Native language
   const [nativeLanguage, setNativeLanguage] = useState<string>('en');
+
+  // Demo language for showcase (auto-detect from browser, fallback to 'en')
+  const [demoLanguage, setDemoLanguage] = useState<LanguageCode>(() => {
+    const browserLang = navigator.language.split('-')[0];
+    return (SUPPORTED_LANGUAGE_CODES as readonly string[]).includes(browserLang)
+      ? browserLang as LanguageCode
+      : 'en' as LanguageCode;
+  });
 
   // Auth state
   const [email, setEmail] = useState('');
@@ -770,10 +683,51 @@ const Landing: React.FC = () => {
   const [showForgotPassword, setShowForgotPassword] = useState(false);
   const [resetLoading, setResetLoading] = useState(false);
 
-  // Honeypot anti-bot protection
   const { honeypotProps, honeypotStyles, isBot } = useHoneypot();
 
-  // Auto-detect native language on mount
+  // PWA Install prompt
+  const [installPrompt, setInstallPrompt] = useState<BeforeInstallPromptEvent | null>(null);
+  const [isInstalled, setIsInstalled] = useState(false);
+  const isNativeApp = !!(window as any).Capacitor?.isNativePlatform?.();
+
+  useEffect(() => {
+    if (isNativeApp) return;
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+      setIsInstalled(true);
+      return;
+    }
+    const handleBeforeInstall = (e: Event) => { e.preventDefault(); setInstallPrompt(e as BeforeInstallPromptEvent); };
+    const handleAppInstalled = () => { setInstallPrompt(null); setIsInstalled(true); };
+    window.addEventListener('beforeinstallprompt', handleBeforeInstall);
+    window.addEventListener('appinstalled', handleAppInstalled);
+    return () => { window.removeEventListener('beforeinstallprompt', handleBeforeInstall); window.removeEventListener('appinstalled', handleAppInstalled); };
+  }, [isNativeApp]);
+
+  // App Store waitlist email capture
+  const [waitlistOpen, setWaitlistOpen] = useState(false);
+  const [waitlistClosing, setWaitlistClosing] = useState(false);
+  const [waitlistEmail, setWaitlistEmail] = useState('');
+  const [waitlistSubmitted, setWaitlistSubmitted] = useState(false);
+  const [waitlistLoading, setWaitlistLoading] = useState(false);
+
+  const closeWaitlistModal = useCallback(() => {
+    setWaitlistClosing(true);
+    setTimeout(() => { setWaitlistOpen(false); setWaitlistClosing(false); }, 200);
+  }, []);
+
+  const handleWaitlistSubmit = async () => {
+    if (!waitlistEmail || !waitlistEmail.includes('@')) return;
+    setWaitlistLoading(true);
+    try {
+      await supabase.from('app_store_waitlist').insert({ email: waitlistEmail, platform: 'ios', created_at: new Date().toISOString() });
+      setWaitlistSubmitted(true);
+      setWaitlistEmail('');
+      setTimeout(() => { closeWaitlistModal(); setWaitlistSubmitted(false); }, 2500);
+    } catch { /* silently fail */ }
+    setWaitlistLoading(false);
+  };
+
+  // Auto-detect native language
   useEffect(() => {
     const saved = localStorage.getItem('preferredNativeLanguage')
       || localStorage.getItem('preferredLanguage');
@@ -789,42 +743,33 @@ const Landing: React.FC = () => {
     }
   }, [i18n]);
 
-  // OAuth sign-in — native Apple on iOS, web redirect for everything else
+  // OAuth sign-in
   const handleOAuthSignIn = async (provider: 'google' | 'apple') => {
     setOauthLoading(provider);
     setMessage('');
     analytics.trackSignupStarted(provider);
 
-    // Native Apple Sign In on iOS — required for App Store approval
     if (provider === 'apple' && Capacitor.getPlatform() === 'ios') {
       try {
         const { SignInWithApple } = await import('@capacitor-community/apple-sign-in');
         const { generateNonce } = await import('../utils/apple-auth');
-
-        // Generate nonce for Apple Sign In security
         const { rawNonce, hashedNonce } = await generateNonce();
-
         const result = await SignInWithApple.authorize({
           clientId: 'com.lovelanguages.app',
           redirectURI: '',
           scopes: 'email name',
           nonce: hashedNonce,
         });
-
-        // Apple only sends name on FIRST sign-in — capture immediately
         if (result.response.givenName || result.response.familyName) {
           const appleName = [result.response.givenName, result.response.familyName]
             .filter(Boolean).join(' ');
           localStorage.setItem('apple_display_name', appleName);
         }
-
-        // Exchange Apple identity token with Supabase (raw nonce for validation)
         const { error: tokenError } = await supabase.auth.signInWithIdToken({
           provider: 'apple',
           token: result.response.identityToken,
           nonce: rawNonce,
         });
-
         if (tokenError) {
           setMessage(tokenError.message);
           setOauthLoading(null);
@@ -841,7 +786,6 @@ const Landing: React.FC = () => {
       return;
     }
 
-    // Web OAuth redirect (Google, or Apple on non-iOS)
     const { error } = await supabase.auth.signInWithOAuth({
       provider,
       options: { redirectTo: `${window.location.origin}/` },
@@ -903,7 +847,6 @@ const Landing: React.FC = () => {
   );
   const hasError = message && !message.toLowerCase().includes('check');
 
-  // Shared auth card props
   const authCardProps = {
     accentColor, accentHover, accentShadow, accentBorder,
     email, setEmail, password, setPassword, loading, oauthLoading,
@@ -913,9 +856,15 @@ const Landing: React.FC = () => {
     honeypotProps, honeypotStyles, hasError, isCredentialsError,
   };
 
-  // Footer links
+  // Headline
+  const headlineData = ROLE_HEADLINES[selectedRole];
+  const headlineText = t(headlineData.headline);
+  const headlineHighlights = headlineData.highlights.map(k => t(k));
+  const headlineParts = renderHighlightedText(headlineText, headlineHighlights, accentColor);
+  const footerText = t('hero.bottomSections.rall.story.paragraph6', "We built this for every couple who already has something beautiful.").split('. ')[0] + '.';
+
   const FooterLinks = () => (
-    <div className="text-center mt-6 space-x-4 pb-4">
+    <div className="text-center space-x-4">
       <a href="/#/terms" className="text-scale-caption font-semibold transition-colors" style={{ color: '#b4899a' }}>
         {t('footer.terms', 'Terms of Service')}
       </a>
@@ -926,6 +875,9 @@ const Landing: React.FC = () => {
     </div>
   );
 
+  // ============================================
+  // Render
+  // ============================================
   return (
     <div
       ref={containerRef}
@@ -936,15 +888,45 @@ const Landing: React.FC = () => {
         WebkitOverflowScrolling: 'touch',
       }}
     >
-      {/* Background layer — transitions independently from content */}
+      {/* Background layer */}
       <div
         className="fixed inset-0 pointer-events-none"
-        style={{
-          backgroundColor: bgColor,
-          transition: 'background-color 0.4s ease',
-          zIndex: 0,
-        }}
+        style={{ backgroundColor: bgColor, transition: 'background-color 0.4s ease', zIndex: 0 }}
       />
+
+      {/* Abstract romantic gradient blobs */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 0 }}>
+        <div
+          className="absolute rounded-full"
+          style={{
+            width: '500px', height: '500px',
+            top: '-10%', right: '-5%',
+            background: `radial-gradient(circle, ${accentColor}08 0%, transparent 70%)`,
+            filter: 'blur(60px)',
+            transition: 'background 0.4s ease',
+          }}
+        />
+        <div
+          className="absolute rounded-full"
+          style={{
+            width: '400px', height: '400px',
+            bottom: '10%', left: '-8%',
+            background: `radial-gradient(circle, ${accentColor}08 0%, transparent 70%)`,
+            filter: 'blur(50px)',
+            transition: 'background 0.4s ease',
+          }}
+        />
+        <div
+          className="absolute rounded-full"
+          style={{
+            width: '300px', height: '300px',
+            top: '40%', right: '20%',
+            background: `radial-gradient(circle, ${accentColor}08 0%, transparent 70%)`,
+            filter: 'blur(40px)',
+            transition: 'background 0.4s ease',
+          }}
+        />
+      </div>
 
       {/* CSS animations */}
       <style>{`
@@ -952,13 +934,63 @@ const Landing: React.FC = () => {
           from { opacity: 0; transform: translateY(24px); }
           to { opacity: 1; transform: translateY(0); }
         }
-        @keyframes gentle-bounce {
-          0%, 100% { transform: translateY(0); opacity: 0.5; }
-          50% { transform: translateY(4px); opacity: 1; }
+        @keyframes auth-glow {
+          0%, 100% { box-shadow: 0 8px 32px -8px rgba(0,0,0,0.08), 0 0 0 1px ${accentBorder}, 0 0 20px -8px ${accentShadow}; }
+          50% { box-shadow: 0 8px 32px -8px rgba(0,0,0,0.08), 0 0 0 1px ${accentBorder}, 0 0 40px -4px ${accentShadow}; }
+        }
+        /* Waitlist modal animations */
+        @keyframes modal-fade-in {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes modal-fade-out {
+          from { opacity: 1; }
+          to { opacity: 0; }
+        }
+        @keyframes modal-scale-in {
+          from { opacity: 0; transform: scale(0.95) translateY(8px); }
+          to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        @keyframes modal-scale-out {
+          from { opacity: 1; transform: scale(1) translateY(0); }
+          to { opacity: 0; transform: scale(0.95) translateY(8px); }
+        }
+
+        /* Mobile scroll reveal */
+        .scroll-reveal {
+          opacity: 0;
+          transform: translateY(24px);
+          transition: opacity 0.5s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        .scroll-reveal.revealed {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .scroll-reveal-d1 { transition-delay: 0.08s; }
+        .scroll-reveal-d2 { transition-delay: 0.16s; }
+        .scroll-reveal-d3 { transition-delay: 0.24s; }
+
+        /* Flags marquee */
+        .flags-marquee-track { overflow: hidden; }
+        .flags-marquee-content {
+          display: flex;
+          animation: flags-marquee 20s linear infinite;
+          width: fit-content;
+          will-change: transform;
+        }
+        .flags-marquee-track:hover .flags-marquee-content {
+          animation-play-state: paused;
+        }
+        @keyframes flags-marquee {
+          0% { transform: translate3d(0, 0, 0); }
+          100% { transform: translate3d(-50%, 0, 0); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+          .flags-marquee-content { animation: none; }
         }
       `}</style>
 
-      {/* Floating hearts background — full width */}
+      {/* Floating hearts background */}
       <InteractiveHearts
         accentColor={accentColor}
         activeSection={0}
@@ -966,7 +998,7 @@ const Landing: React.FC = () => {
         isMobile={isMobile}
       />
 
-      {/* Pixel word particle effect — desktop only for performance */}
+      {/* Word particle effect — desktop only */}
       {isDesktop && (
         <WordParticleEffect
           accentColor={BRAND.primary}
@@ -974,54 +1006,632 @@ const Landing: React.FC = () => {
         />
       )}
 
-      {/* (Background orbs removed per user request) */}
-
       {/* ══════════════════════════════════════════
-          MOBILE LAYOUT (< lg)
-          Auth card → scroll down for marketing
+          DESKTOP LAYOUT (≥ lg) — Full-Viewport Bento
           ══════════════════════════════════════════ */}
-      <div className="lg:hidden relative z-10">
-        {/* Auth card — above the fold, with scroll hint pinned to bottom */}
-        <div className="flex flex-col" style={{ minHeight: '100vh' }}>
-          <div className="flex-1 flex items-center justify-center">
-            <div className="w-full max-w-sm mx-auto px-6 py-6">
-              <AuthCard showBranding={true} {...authCardProps} />
-              <FooterLinks />
+      <div className="hidden lg:flex flex-col h-screen max-w-[1400px] mx-auto px-8 xl:px-12 py-5 relative z-10">
+
+        {/* Nav row: Logo + RoleToggle */}
+        <div className="flex items-center justify-between mb-3 flex-shrink-0" style={{ animation: 'reveal-up 0.5s ease-out both' }}>
+          <div className="flex items-center gap-3">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 600.000000 600.000000"
+              preserveAspectRatio="xMidYMid meet"
+              fill={accentColor}
+              className="w-10 h-10"
+              style={{ transition: 'fill 0.3s ease' }}
+            >
+              <g transform="translate(0.000000,600.000000) scale(0.100000,-0.100000)" stroke="none">
+                <path d={LOGO_PATH} />
+                {LOGO_DETAIL_PATHS.map((d: string, i: number) => <path key={i} d={d} />)}
+              </g>
+            </svg>
+            <span className="text-xl font-black font-header" style={{ color: '#1a1a2e' }}>
+              Love Languages
+            </span>
+          </div>
+          <RoleToggle role={selectedRole} onToggle={setSelectedRole} />
+        </div>
+
+        {/* Bento Grid — 3-column asymmetric with grid-template-areas */}
+        <div key={selectedRole} className="flex-1 grid gap-2.5 min-h-0" style={{
+          gridTemplateColumns: '5fr 3fr 4fr',
+          gridTemplateRows: 'repeat(9, 1fr) auto auto',
+          gridTemplateAreas: showEmailForm ? `
+            "headline   tagline    auth"
+            "headline   founders   auth"
+            "showcase   founders   auth"
+            "showcase   founders   auth"
+            "showcase   founders   auth"
+            "showcase   founders   auth"
+            "showcase   founders   auth"
+            "showcase   founders   testimonials"
+            "bottomleft blog       testimonials"
+            "flags      flags      flags"
+            "footer     footer     footer"
+          ` : `
+            "headline   tagline    auth"
+            "headline   founders   auth"
+            "showcase   founders   auth"
+            "showcase   founders   auth"
+            "showcase   founders   auth"
+            "showcase   founders   startfree"
+            "showcase   founders   testimonials"
+            "showcase   founders   testimonials"
+            "bottomleft blog       testimonials"
+            "flags      flags      flags"
+            "footer     footer     footer"
+          `,
+        }}>
+
+          {/* Headline — top-left hero */}
+          <div
+            className="p-3 flex flex-col justify-center glass-card rounded-[20px]"
+            style={{ gridArea: 'headline', animation: 'reveal-up 0.5s ease-out 0.05s both' }}
+          >
+            <h2 className="text-xl xl:text-2xl font-black text-[var(--text-primary)] tracking-tight leading-[1.1] font-header">
+              {headlineParts}
+            </h2>
+            <p className="text-xs xl:text-sm text-[var(--text-secondary)] font-medium mt-2 leading-relaxed">
+              {t('hero.shared.section0.copy', 'Built on Relationship-Aware Language Learning (RALL), Love Languages helps couples bridge the language gap—one meaningful word at a time.')}
+            </p>
+          </div>
+
+          {/* Tagline — medium accent card */}
+          <div
+            className="py-2 px-3 flex flex-col justify-center items-center text-center"
+            style={{
+              gridArea: 'tagline',
+              backgroundColor: accentColor,
+              borderRadius: '20px',
+              animation: 'reveal-up 0.5s ease-out 0.06s both',
+            }}
+          >
+            <p className="text-xs italic tracking-wide font-bold text-white leading-snug">
+              {t('hero.landing.tagline.pre', 'The')} <span className="uppercase text-sm font-black not-italic">{t('hero.landing.tagline.only', 'only')}</span> {t('hero.landing.tagline.post', 'language app designed for couples')}
+            </p>
+          </div>
+
+          {/* Auth Card — right column hero */}
+          <div
+            className="flex flex-col overflow-y-auto"
+            style={{
+              gridArea: 'auth',
+              backgroundColor: 'rgba(255, 255, 255, 0.72)',
+              border: `1px solid ${accentBorder}`,
+              borderRadius: '20px',
+              animation: `reveal-up 0.5s ease-out 0.11s both, auth-glow 4s ease-in-out 1s infinite`,
+              willChange: 'transform, opacity',
+            }}
+          >
+            <div className="flex-1 flex flex-col justify-center px-5 py-2">
+              {/* Auth header — slides up and fades out when email form is active */}
+              <div
+                className={`text-center overflow-hidden transition-all duration-300 ease-out ${
+                  showEmailForm
+                    ? 'max-h-0 opacity-0 mb-0'
+                    : 'max-h-24 opacity-100 mb-2'
+                }`}
+              >
+                <div
+                  className="w-10 h-10 rounded-2xl mx-auto mb-2 flex items-center justify-center"
+                  style={{ backgroundColor: `${accentColor}15` }}
+                >
+                  {selectedRole === 'student'
+                    ? <ICONS.Heart className="w-5 h-5" style={{ color: accentColor }} />
+                    : <ICONS.Lightbulb className="w-5 h-5" style={{ color: accentColor }} />
+                  }
+                </div>
+                <h3 className="text-base font-black tracking-tight font-header" style={{ color: '#1a1a2e' }}>
+                  {selectedRole === 'student' ? t('hero.login.startLearning', 'Start Learning') : t('hero.login.startTeaching', 'Start Teaching')}
+                </h3>
+                <p className="text-[11px] text-[var(--text-secondary)] mt-0.5">
+                  {t('hero.login.joinCouples', 'Join couples learning together')}
+                </p>
+              </div>
+              <AuthCard showBranding={false} {...authCardProps} />
             </div>
           </div>
-          {/* Scroll hint — pinned to bottom of auth screen */}
-          <div className="flex flex-col items-center gap-1.5 pb-5">
-            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--text-secondary)]">
-              {t('hero.swipeForMore', 'Swipe to discover more')}
-            </p>
-            <ICONS.ChevronDown className="w-4 h-4 text-[var(--border-color)]" style={{ animation: 'gentle-bounce 2s ease-in-out infinite' }} />
+
+          {/* Start Today — hidden when email form is active, auth absorbs its row */}
+          {!showEmailForm && (
+            <div
+              className="p-3 flex flex-col justify-center items-center text-center"
+              style={{
+                gridArea: 'startfree',
+                backgroundColor: selectedRole === 'student' ? accentColor : BRAND.ice,
+                borderRadius: '20px',
+                animation: 'reveal-up 0.5s ease-out 0.13s both',
+              }}
+            >
+              <p className="text-sm font-black tracking-wide" style={{ color: selectedRole === 'student' ? '#ffffff' : '#1a1a2e' }}>
+                {t('hero.landing.startFree', 'Start today for')} <span className="text-base">$0.00</span>
+              </p>
+            </div>
+          )}
+
+          {/* Feature Showcase — spans rows 2-3, interactive demos */}
+          <div
+            className="glass-card rounded-[20px]"
+            style={{ gridArea: 'showcase', animation: 'reveal-up 0.5s ease-out 0.14s both' }}
+          >
+            <FeatureShowcase
+              role={selectedRole}
+              accentColor={accentColor}
+              demoLanguage={demoLanguage}
+              onDemoLanguageChange={setDemoLanguage}
+            />
           </div>
-        </div>
 
-        {/* Marketing narrative — scroll to reveal */}
-        <div className="px-6 pb-8 max-w-sm mx-auto">
-          <MarketingContent isDesktop={false} role={selectedRole} onToggleRole={setSelectedRole} />
-        </div>
-      </div>
+          {/* Founders — spans rows 2-3, tall narrative */}
+          <div
+            className="flex flex-col overflow-hidden min-h-0 glass-card rounded-[20px]"
+            style={{ gridArea: 'founders', animation: 'reveal-up 0.5s ease-out 0.08s both' }}
+          >
+            <div className="p-5 flex flex-col justify-center h-full overflow-y-auto">
+              <div className="flex items-center gap-3 mb-4">
+                <img
+                  src="/founders.jpg"
+                  alt="Richard & Misia"
+                  className="w-16 h-16 rounded-full object-cover flex-shrink-0"
+                  style={{ border: `2px solid ${accentColor}`, boxShadow: `0 4px 12px -2px ${accentColor}40` }}
+                />
+                <div>
+                  <p className="font-bold text-base text-[var(--text-primary)] font-header">
+                    {t('hero.bottomSections.rall.story.names', 'Richard & Misia')}
+                  </p>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-[var(--text-secondary)]">
+                    {t('hero.bottomSections.rall.story.title', 'Founders')}
+                  </p>
+                </div>
+              </div>
+              <div className="border-l-[2px] pl-3 space-y-2" style={{ borderColor: accentColor }}>
+                <p className="text-xs italic text-[var(--text-secondary)] leading-relaxed">
+                  {t('hero.bottomSections.rall.story.paragraph3', 'We tried the apps everyone recommends. But it was always just me and a screen. Misia couldn\'t see where I was stuck. She couldn\'t help where it mattered.')}
+                </p>
+                <p className="text-xs italic text-[var(--text-secondary)] leading-relaxed">
+                  {t('hero.bottomSections.rall.story.paragraph4', 'So I built something to catch the words she taught me. Then to practice them. Then to feel a little more ready for the moments that mattered most.')}
+                </p>
+                <p className="text-xs italic text-[var(--text-secondary)] leading-relaxed">
+                  {t('hero.bottomSections.rall.story.paragraph6', 'We built this for every couple who already has something beautiful. Now imagine understanding every word, every joke, every part of their world. Their language isn\'t just how they speak — it\'s who they are.')}
+                </p>
+              </div>
+            </div>
+          </div>
 
-      {/* ══════════════════════════════════════════
-          DESKTOP LAYOUT (≥ lg)
-          Split: marketing left, sticky auth right
-          ══════════════════════════════════════════ */}
-      <div className="hidden lg:grid lg:grid-cols-[2fr_1fr] min-h-screen max-w-[1400px] mx-auto relative z-10">
-        {/* Left: Marketing narrative — flows naturally, page scrolls */}
-        <div className="px-8 xl:px-12 py-8">
-          <MarketingContent isDesktop={true} role={selectedRole} onToggleRole={setSelectedRole} />
-        </div>
+          {/* Free Learning Material — column 2, row 9 */}
+          <a
+            href={`/learn/${nativeLanguage}/`}
+            className="flex items-center gap-3 px-4 py-2.5 overflow-hidden no-underline hover:scale-[1.01] transition-transform glass-card rounded-[20px]"
+            style={{ gridArea: 'blog', animation: 'reveal-up 0.5s ease-out 0.18s both' }}
+          >
+            <div className="flex-shrink-0">
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center" style={{ backgroundColor: `${accentColor}15` }}>
+                <span className="text-sm">📚</span>
+              </div>
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-1.5">
+                <span className="text-xs font-black font-header text-[var(--text-primary)]">{t('hero.landing.learn.title', 'Free Learning Material')}</span>
+                <span className="text-[8px] font-bold px-1.5 py-0.5 rounded-full" style={{ backgroundColor: `${accentColor}15`, color: accentColor }}>{t('hero.landing.learn.count', '11,500+')}</span>
+              </div>
+              <p className="text-[9px] text-[var(--text-secondary)] truncate mt-0.5">{t('hero.landing.learn.topics', 'Pet names · Date phrases · Grammar · Culture')}</p>
+            </div>
+            <span className="text-[10px] font-bold flex-shrink-0" style={{ color: accentColor }}>→</span>
+          </a>
 
-        {/* Right: Sticky auth card */}
-        <div className="sticky top-0 h-screen flex items-center justify-center px-6 max-w-[480px] ml-auto">
-          <div className="w-full max-w-md">
-            <AuthCard showBranding={false} {...authCardProps} />
+          {/* Testimonials — row 3 right */}
+          <div style={{ gridArea: 'testimonials', overflow: 'hidden' }}>
+            <TestimonialsCard isDesktop={true} accentColor={accentColor} className="p-4 flex flex-col justify-center h-full" delay={0.2} />
+          </div>
+
+          {/* Bottom-left: Install + App Store + Socials — all side-by-side in column 1 */}
+          <div
+            className="flex flex-row gap-2"
+            style={{ gridArea: 'bottomleft', animation: 'reveal-up 0.5s ease-out 0.16s both' }}
+          >
+            {/* Install App */}
+            <button
+              onClick={() => installPrompt?.prompt()}
+              disabled={!installPrompt && !isInstalled}
+              className="flex-1 flex items-center justify-center gap-2 py-2 px-2.5 cursor-pointer transition-all hover:scale-[1.02] glass-card rounded-[20px]"
+              style={{
+                opacity: (!installPrompt && !isInstalled) ? 0.5 : 1,
+              }}
+            >
+              <div className="w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${accentColor}15` }}>
+                <ICONS.Download size={14} color={accentColor} weight="bold" />
+              </div>
+              <div className="text-left">
+                <p className="text-[10px] font-bold text-[var(--text-primary)]">
+                  {isInstalled ? t('hero.landing.installed', 'Installed') : t('hero.landing.installApp', 'Install App')}
+                </p>
+                <p className="text-[9px] text-[var(--text-secondary)]">{t('hero.landing.addToHome', 'Add to home screen')}</p>
+              </div>
+            </button>
+
+            {/* App Store */}
+            <button
+              className="flex-1 flex items-center justify-center gap-2 py-2 px-2.5 cursor-pointer transition-all hover:scale-[1.02] text-left glass-card rounded-[20px]"
+              onClick={() => setWaitlistOpen(true)}
+            >
+              <div className="w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${accentColor}15` }}>
+                <AppleIcon size={14} className="text-[var(--text-primary)]" />
+              </div>
+              <div>
+                <p className="text-[10px] font-bold text-[var(--text-primary)]">{t('hero.landing.appStore', 'App Store')}</p>
+                <p className="text-[9px] text-[var(--text-secondary)]">{t('hero.landing.comingSoon', 'Coming Soon')}</p>
+              </div>
+            </button>
+
+            {/* Socials */}
+            <div
+              className="flex-1 flex items-center justify-center py-2 px-2.5 gap-2 glass-card rounded-[20px]"
+            >
+              <p className="text-[9px] font-bold uppercase tracking-[0.08em] text-[var(--text-secondary)] leading-tight">
+                {t('hero.landing.followSocials', 'Follow\nSocials').split('\n').map((line: string, i: number) => <React.Fragment key={i}>{i > 0 && <br />}{line}</React.Fragment>)}
+              </p>
+              <div className="flex flex-row gap-1 items-center">
+                {[
+                  { icon: <ICONS.Instagram size={14} weight="regular" />, href: 'https://instagram.com/lovelanguages.xyz', label: 'Instagram', color: '#E4405F' },
+                  { icon: <TikTokIcon size={13} />, href: 'https://tiktok.com/@lovelanguages.xyz', label: 'TikTok', color: 'var(--text-primary)' },
+                  { icon: <XTwitterIcon size={13} />, href: 'https://x.com/lovelanguagesio', label: 'X', color: 'var(--text-primary)' },
+                ].map(s => (
+                  <a
+                    key={s.label}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={s.label}
+                    className="w-6 h-6 rounded-md flex items-center justify-center transition-transform hover:scale-110"
+                    style={{ color: s.color, backgroundColor: 'rgba(0,0,0,0.04)' }}
+                  >
+                    {s.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Flags marquee (full width) */}
+          <div
+            className="py-2 overflow-hidden glass-card rounded-[20px]"
+            style={{ gridArea: 'flags', animation: 'reveal-up 0.5s ease-out 0.3s both' }}
+          >
+            <div className="flags-marquee-track">
+              <div className="flags-marquee-content">
+                {[...Array(4)].map((_, dup) => (
+                  <React.Fragment key={dup}>
+                    {(SUPPORTED_LANGUAGE_CODES as readonly string[]).map(code => {
+                      const lang = LANGUAGE_CONFIGS[code];
+                      const isSelected = code === demoLanguage;
+                      return lang ? (
+                        <button
+                          key={`${dup}-${code}`}
+                          className="text-2xl mx-2 inline-block transition-transform duration-200"
+                          style={{
+                            transform: isSelected ? 'scale(1.3)' : 'scale(1)',
+                            filter: isSelected ? `drop-shadow(0 0 6px ${accentColor})` : 'none',
+                          }}
+                          title={lang.nativeName}
+                          onClick={() => setDemoLanguage(code as LanguageCode)}
+                        >
+                          {lang.flag}
+                        </button>
+                      ) : null;
+                    })}
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Footer links */}
+          <div
+            className="py-1 text-center"
+            style={{ gridArea: 'footer', animation: 'reveal-up 0.5s ease-out 0.35s both' }}
+          >
             <FooterLinks />
           </div>
         </div>
       </div>
+
+      {/* ══════════════════════════════════════════
+          MOBILE LAYOUT (< lg) — Auth Above Fold
+          ══════════════════════════════════════════ */}
+      <div className="lg:hidden relative z-10">
+
+        {/* ─── ABOVE THE FOLD: Auth Section ─── */}
+        <div className="min-h-[100dvh] flex flex-col px-4 py-4 max-w-md mx-auto">
+
+          {/* Role toggle — top right */}
+          <div className="flex justify-end mb-2 flex-shrink-0">
+            <RoleToggle role={selectedRole} onToggle={setSelectedRole} />
+          </div>
+
+          {/* Top spacer — pushes content toward vertical center */}
+          <div className="flex-1 min-h-4" />
+
+          {/* Centered branding + headline */}
+          <div key={selectedRole} className="text-center mb-5" style={{ animation: 'reveal-up 0.5s ease-out both' }}>
+            <div className="flex flex-col items-center mb-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 600.000000 600.000000"
+                preserveAspectRatio="xMidYMid meet"
+                fill={accentColor}
+                className="w-[120px] h-[120px] mb-2"
+                style={{ transition: 'fill 0.3s ease' }}
+              >
+                <g transform="translate(0.000000,600.000000) scale(0.100000,-0.100000)" stroke="none">
+                  <path d={LOGO_PATH} />
+                  {LOGO_DETAIL_PATHS.map((d: string, i: number) => <path key={i} d={d} />)}
+                </g>
+              </svg>
+              <span className="text-[2.5rem] font-black font-header leading-tight" style={{ color: '#1a1a2e' }}>
+                Love Languages
+              </span>
+            </div>
+            <h2 className="text-2xl sm:text-3xl font-black text-[var(--text-primary)] tracking-tight leading-[1.1] font-header">
+              {headlineParts}
+            </h2>
+          </div>
+
+          {/* Auth Card — featured with glow */}
+          <div
+            style={{
+              backgroundColor: 'rgba(255, 255, 255, 0.7)',
+              border: `1px solid ${accentBorder}`,
+              borderRadius: '20px',
+              animation: 'reveal-up 0.5s ease-out 0.15s both, auth-glow 4s ease-in-out 1.5s infinite',
+            }}
+          >
+            <AuthCard showBranding={false} {...authCardProps} />
+          </div>
+
+          {/* Bottom spacer — balances with top spacer */}
+          <div className="flex-1 min-h-4" />
+          <div className="flex justify-center py-2 flex-shrink-0">
+            <ICONS.ChevronDown className="w-5 h-5 animate-bounce" style={{ color: accentColor, opacity: 0.4 }} />
+          </div>
+        </div>
+
+        {/* ─── BELOW THE FOLD: Features + Content ─── */}
+        <div className="px-4 pb-6 max-w-md mx-auto space-y-3">
+
+          {/* Feature card — static open (no flip on mobile) */}
+          <div
+            ref={setRef('features')}
+            className="scroll-reveal glass-card rounded-[20px]"
+          >
+            <MobileGameShowcase
+              role={selectedRole}
+              accentColor={accentColor}
+              demoLanguage={demoLanguage}
+              onDemoLanguageChange={setDemoLanguage}
+            />
+          </div>
+
+          {/* Tagline Card — bright accent */}
+          <div
+            className="py-1.5 px-3 text-center"
+            style={{ backgroundColor: accentColor, borderRadius: '20px' }}
+          >
+            <p className="text-[11px] italic tracking-wide font-bold text-white leading-snug">
+              {t('hero.landing.tagline.pre', 'The')} <span className="uppercase text-xs font-black not-italic">{t('hero.landing.tagline.only', 'only')}</span> {t('hero.landing.tagline.post', 'language app designed for couples')}
+            </p>
+          </div>
+
+          {/* Download Row */}
+          <div className="flex gap-2">
+            {/* PWA Install */}
+            <button
+              onClick={() => installPrompt?.prompt()}
+              disabled={!installPrompt && !isInstalled}
+              className="flex-1 flex items-center gap-2.5 p-3 glass-card rounded-[20px]"
+              style={{ opacity: (!installPrompt && !isInstalled) ? 0.5 : 1 }}
+            >
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${accentColor}15` }}>
+                <ICONS.Download size={16} color={accentColor} weight="bold" />
+              </div>
+              <div className="text-left">
+                <p className="text-xs font-bold text-[var(--text-primary)]">{isInstalled ? t('hero.landing.installed', 'Installed') : t('hero.landing.installApp', 'Install App')}</p>
+                <p className="text-[10px] text-[var(--text-secondary)]">{t('hero.landing.addToHome', 'Add to home screen')}</p>
+              </div>
+            </button>
+            {/* App Store → opens modal */}
+            <button
+              className="flex-1 flex items-center gap-2.5 p-3 cursor-pointer text-left glass-card rounded-[20px]"
+              onClick={() => setWaitlistOpen(true)}
+            >
+              <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${accentColor}15` }}>
+                <AppleIcon size={16} className="text-[var(--text-primary)]" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="text-xs font-bold text-[var(--text-primary)]">{t('hero.landing.appStore', 'App Store')}</p>
+                <p className="text-[10px] text-[var(--text-secondary)]">{t('hero.landing.comingSoon', 'Coming Soon')}</p>
+              </div>
+            </button>
+          </div>
+
+          {/* Social Icons — Combined Card */}
+          <div className="p-3 flex flex-col items-center gap-2 glass-card rounded-[20px]">
+            <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[var(--text-secondary)]">{t('hero.landing.followSocials', 'Follow our socials')}</p>
+            <div className="flex gap-4">
+              {[
+                { icon: <ICONS.Instagram size={20} weight="regular" />, href: 'https://instagram.com/lovelanguages.xyz', label: 'Instagram', color: '#E4405F' },
+                { icon: <TikTokIcon size={18} />, href: 'https://tiktok.com/@lovelanguages.xyz', label: 'TikTok', color: 'var(--text-primary)' },
+                { icon: <XTwitterIcon size={17} />, href: 'https://x.com/lovelanguagesio', label: 'X', color: 'var(--text-primary)' },
+              ].map(s => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  title={s.label}
+                  className="transition-transform hover:scale-110"
+                  style={{ color: s.color }}
+                >
+                  {s.icon}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Testimonials — auto-cycling */}
+          <div ref={setRef('testim')} className="scroll-reveal scroll-reveal-d1">
+            <TestimonialsCard isDesktop={false} accentColor={accentColor} className="p-3" />
+          </div>
+
+          {/* Flags marquee */}
+          <div
+            ref={setRef('flags')}
+            className="scroll-reveal scroll-reveal-d2 py-2 overflow-hidden glass-card rounded-[20px]"
+          >
+            <div className="flags-marquee-track">
+              <div className="flags-marquee-content">
+                {[...Array(4)].map((_, dup) => (
+                  <React.Fragment key={dup}>
+                    {(SUPPORTED_LANGUAGE_CODES as readonly string[]).map(code => {
+                      const lang = LANGUAGE_CONFIGS[code];
+                      return lang ? (
+                        <span key={`${dup}-${code}`} className="text-xl mx-1.5 inline-block" title={lang.nativeName}>
+                          {lang.flag}
+                        </span>
+                      ) : null;
+                    })}
+                  </React.Fragment>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Founder Card — full content, no flip on mobile */}
+          <div
+            ref={setRef('founder')}
+            className="scroll-reveal scroll-reveal-d3 glass-card rounded-[20px]"
+          >
+            <div className="p-4">
+              <div className="flex items-center gap-3 mb-3">
+                <img
+                  src="/founders.jpg"
+                  alt="Richard & Misia"
+                  className="w-12 h-12 rounded-full object-cover flex-shrink-0"
+                  style={{ border: `2px solid ${accentColor}`, boxShadow: `0 2px 8px -2px ${accentColor}40` }}
+                />
+                <div>
+                  <p className="font-bold text-sm text-[var(--text-primary)] font-header">
+                    {t('hero.bottomSections.rall.story.names', 'Richard & Misia')}
+                  </p>
+                  <p className="text-[9px] font-bold uppercase tracking-[0.15em] text-[var(--text-secondary)]">
+                    {t('hero.bottomSections.rall.story.title', 'Founders')}
+                  </p>
+                </div>
+              </div>
+              <div className="border-l-[2px] pl-3 space-y-1.5" style={{ borderColor: accentColor }}>
+                <p className="text-xs italic text-[var(--text-secondary)] leading-relaxed">
+                  {t('hero.bottomSections.rall.story.paragraph1', 'It started because I kept forgetting.')}
+                </p>
+                <p className="text-xs italic text-[var(--text-secondary)] leading-relaxed">
+                  {t('hero.bottomSections.rall.story.paragraph2', 'Misia would teach me a word in Polish. How to say something properly, how to tell her family I loved the food. By morning it was gone.')}
+                </p>
+                <p className="text-xs italic text-[var(--text-secondary)] leading-relaxed">
+                  {t('hero.bottomSections.rall.story.paragraph3', 'We tried the apps everyone recommends. But it was always just me and a screen. Misia couldn\'t see where I was stuck. She couldn\'t help where it mattered.')}
+                </p>
+                <p className="text-xs italic text-[var(--text-secondary)] leading-relaxed">
+                  {t('hero.bottomSections.rall.story.paragraph4', 'So I built something to catch the words she taught me. Then to practice them. Then to feel a little more ready for the moments that mattered most.')}
+                </p>
+                <p className="text-xs italic text-[var(--text-secondary)] leading-relaxed">
+                  {t('hero.bottomSections.rall.story.paragraph6', 'We built this for every couple who already has something beautiful. Now imagine understanding every word, every joke, every part of their world. Their language isn\'t just how they speak — it\'s who they are.')}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Footer */}
+          <div className="text-center py-1">
+            <FooterLinks />
+          </div>
+        </div>
+      </div>
+
+      {/* ══════════════════════════════════════════
+          APP STORE WAITLIST MODAL
+          ══════════════════════════════════════════ */}
+      {waitlistOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center px-4"
+          style={{
+            backgroundColor: 'rgba(0,0,0,0.3)',
+            backdropFilter: 'blur(4px)',
+            animation: waitlistClosing ? 'modal-fade-out 0.2s ease-out forwards' : 'modal-fade-in 0.2s ease-out forwards',
+          }}
+          onClick={closeWaitlistModal}
+        >
+          <div
+            className="w-full max-w-sm p-6 relative glass-card-solid rounded-[20px]"
+            style={{
+              backgroundColor: 'rgba(255,255,255,0.92)',
+              animation: waitlistClosing ? 'modal-scale-out 0.2s ease-out forwards' : 'modal-scale-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
+            }}
+            onClick={e => e.stopPropagation()}
+          >
+            {/* Close button */}
+            <button
+              onClick={closeWaitlistModal}
+              className="absolute top-3 right-3 w-7 h-7 flex items-center justify-center rounded-full hover:bg-black/5 transition-colors"
+            >
+              <ICONS.X size={14} className="text-[var(--text-secondary)]" />
+            </button>
+
+            {waitlistSubmitted ? (
+              <div className="text-center py-4">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3" style={{ backgroundColor: '#10b98120' }}>
+                  <ICONS.CheckCircle size={24} color="#10b981" weight="fill" />
+                </div>
+                <p className="text-base font-bold text-[var(--text-primary)] mb-1">We'll let you know!</p>
+                <p className="text-xs text-[var(--text-secondary)]">You'll be the first to hear when we launch.</p>
+              </div>
+            ) : (
+              <>
+                <div className="text-center mb-4">
+                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center mx-auto mb-3" style={{ backgroundColor: `${accentColor}15` }}>
+                    <AppleIcon size={24} className="text-[var(--text-primary)]" />
+                  </div>
+                  <h3 className="text-lg font-bold text-[var(--text-primary)] font-header">{t('hero.landing.appStore', 'App Store')}</h3>
+                  <span
+                    className="inline-block text-[10px] font-bold uppercase px-2 py-0.5 rounded-full mt-1"
+                    style={{ backgroundColor: `${accentColor}15`, color: accentColor }}
+                  >
+                    {t('hero.landing.comingSoon', 'Coming Soon')}
+                  </span>
+                  <p className="text-xs text-[var(--text-secondary)] mt-2">{t('hero.landing.waitlist.description', 'Get notified when we launch on the App Store.')}</p>
+                </div>
+                <div className="space-y-2">
+                  <input
+                    type="email"
+                    value={waitlistEmail}
+                    onChange={e => setWaitlistEmail(e.target.value)}
+                    placeholder="your@email.com"
+                    className="w-full text-sm px-4 py-2.5 rounded-xl border border-[var(--border-color)] outline-none focus:border-[var(--border-color)] transition-colors"
+                    onKeyDown={e => e.key === 'Enter' && handleWaitlistSubmit()}
+                    autoFocus
+                  />
+                  <button
+                    onClick={handleWaitlistSubmit}
+                    disabled={waitlistLoading}
+                    className="w-full py-2.5 rounded-xl text-white text-sm font-bold transition-transform hover:scale-[1.02] active:scale-[0.98]"
+                    style={{ backgroundColor: accentColor }}
+                  >
+                    {waitlistLoading ? t('hero.landing.waitlist.submitting', 'Submitting...') : t('hero.landing.waitlist.notify', 'Notify Me')}
+                  </button>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
