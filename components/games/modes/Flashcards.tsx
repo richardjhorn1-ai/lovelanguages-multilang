@@ -79,7 +79,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({
         }`}
       >
         {/* Front - Word */}
-        <div className="absolute inset-0 glass-card rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center backface-hidden">
+        <div className="absolute inset-0 glass-card rounded-2xl p-10 flex flex-col items-center justify-center text-center backface-hidden">
           <span className="text-[10px] uppercase tracking-widest text-[var(--text-secondary)] font-black mb-8">
             {t('play.flashcard.word', { language: targetLanguageName.toUpperCase() })}
           </span>
@@ -110,7 +110,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({
 
         {/* Back - Translation */}
         <div
-          className="absolute inset-0 text-white rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center shadow-lg backface-hidden rotate-y-180"
+          className="absolute inset-0 text-white rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-lg backface-hidden rotate-y-180"
           style={{ backgroundColor: accentColor }}
         >
           <span className="text-[10px] uppercase tracking-widest text-white/50 font-black mb-8">
@@ -132,7 +132,7 @@ export const Flashcards: React.FC<FlashcardsProps> = ({
                 e.stopPropagation();
                 handleResponse(true);
               }}
-              className="bg-white p-4 rounded-2xl flex items-center justify-center gap-2 font-black uppercase tracking-widest text-scale-caption shadow-lg transition-all active:scale-95"
+              className="bg-[var(--bg-card)] p-4 rounded-2xl flex items-center justify-center gap-2 font-black uppercase tracking-widest text-scale-caption shadow-lg transition-all active:scale-95"
               style={{ color: accentColor }}
             >
               <ICONS.Check className="w-4 h-4" /> {t('play.flashcard.gotIt')}

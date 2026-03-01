@@ -2,15 +2,10 @@ import React from 'react';
 import { haptics } from '../../../services/haptics';
 
 // Static color map - Tailwind needs complete class names at build time
+// 'accent' and 'secondary' use CSS custom properties so they adapt to the user's theme
 const colorClasses: Record<string, { bg: string; borderHover: string }> = {
   'accent': { bg: 'bg-[var(--accent-light)]', borderHover: 'hover:border-[var(--accent-border)]' },
-  'purple-500': { bg: 'bg-purple-500/20', borderHover: 'hover:border-purple-500/30' },
-  'blue-500': { bg: 'bg-blue-500/20', borderHover: 'hover:border-blue-500/30' },
-  'green-500': { bg: 'bg-green-500/20', borderHover: 'hover:border-green-500/30' },
-  'amber-500': { bg: 'bg-amber-500/20', borderHover: 'hover:border-amber-500/30' },
-  'orange-500': { bg: 'bg-orange-500/20', borderHover: 'hover:border-orange-500/30' },
-  'red-500': { bg: 'bg-red-500/20', borderHover: 'hover:border-red-500/30' },
-  'pink-500': { bg: 'bg-pink-500/20', borderHover: 'hover:border-pink-500/30' },
+  'secondary': { bg: 'bg-[var(--secondary-light)]', borderHover: 'hover:border-[var(--secondary-border)]' },
   'gray-500': { bg: 'bg-gray-500/20', borderHover: 'hover:border-gray-500/30' },
 };
 
@@ -53,12 +48,12 @@ export const GameModeCard: React.FC<GameModeCardProps> = ({
     <button
       onClick={() => { haptics.trigger('selection'); onClick(); }}
       disabled={disabled}
-      className={`group p-3 md:p-6 glass-card rounded-xl md:rounded-[2rem] hover:shadow-md transition-all text-left relative disabled:opacity-50 disabled:cursor-not-allowed ${
+      className={`group p-3 md:p-6 glass-card rounded-xl md:rounded-2xl hover:shadow-md transition-all text-left relative disabled:opacity-50 disabled:cursor-not-allowed ${
         !disabled ? borderHoverClass : ''
       }`}
     >
       {badge && (
-        <div className="absolute top-1.5 right-1.5 md:top-3 md:right-3 px-1.5 md:px-2 py-0.5 bg-purple-500/20 text-purple-600 dark:text-purple-400 text-[7px] md:text-[9px] font-black uppercase tracking-wider rounded-full">
+        <div className="absolute top-1.5 right-1.5 md:top-3 md:right-3 px-1.5 md:px-2 py-0.5 bg-[var(--secondary-light)] text-[var(--secondary-color)] text-[7px] md:text-[9px] font-black uppercase tracking-wider rounded-full">
           {badge}
         </div>
       )}

@@ -51,7 +51,7 @@ export const DemoFlashcard: React.FC<DemoFlashcardProps> = ({
       >
         {/* Front */}
         <div
-          className="absolute inset-0 rounded-[2rem] p-8 flex flex-col items-center justify-center text-center shadow-lg border"
+          className="absolute inset-0 rounded-2xl p-8 flex flex-col items-center justify-center text-center shadow-lg border"
           style={{
             backfaceVisibility: 'hidden',
             backgroundColor: 'var(--bg-card)',
@@ -65,14 +65,14 @@ export const DemoFlashcard: React.FC<DemoFlashcardProps> = ({
             {targetName.toUpperCase()}
           </span>
           <h3 className="text-3xl font-black font-header text-[var(--text-primary)]">{word.word}</h3>
-          <p className="mt-8 text-gray-400 text-[9px] uppercase font-black tracking-widest animate-pulse">
+          <p className="mt-8 text-[var(--text-secondary)] text-[9px] uppercase font-black tracking-widest animate-pulse">
             {t('demoFlashcard.tapToReveal')}
           </p>
         </div>
 
         {/* Back */}
         <div
-          className="absolute inset-0 rounded-[2rem] p-8 flex flex-col items-center justify-center text-center shadow-lg text-white"
+          className="absolute inset-0 rounded-2xl p-8 flex flex-col items-center justify-center text-center shadow-lg text-white"
           style={{
             backfaceVisibility: 'hidden',
             transform: 'rotateY(180deg)',
@@ -92,7 +92,7 @@ export const DemoFlashcard: React.FC<DemoFlashcardProps> = ({
             </button>
             <button
               onClick={(e) => { e.stopPropagation(); handleResponse(true); }}
-              className="bg-white p-3 rounded-xl flex items-center justify-center gap-1 font-black uppercase tracking-widest text-[10px] shadow-lg transition-all active:scale-95"
+              className="bg-[var(--bg-card)] p-3 rounded-xl flex items-center justify-center gap-1 font-black uppercase tracking-widest text-[10px] shadow-lg transition-all active:scale-95"
               style={{ color: accentColor }}
             >
               <span>✓</span> {t('demoFlashcard.gotIt')}

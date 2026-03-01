@@ -515,7 +515,7 @@ const App: React.FC = () => {
   }
 
   return (
-    <ThemeProvider userId={profile?.id} profileTheme={profile ? { accent_color: profile.accent_color, dark_mode: profile.dark_mode, font_size: profile.font_size, font_preset: profile.font_preset, font_weight: profile.font_weight } : null}>
+    <ThemeProvider userId={profile?.id} profileTheme={profile ? { accent_color: profile.accent_color, dark_mode: profile.dark_mode, font_size: profile.font_size, font_preset: profile.font_preset, font_weight: profile.font_weight, background_style: profile.background_style } : null}>
       <LanguageProvider profile={profile}>
         <I18nSyncWrapper>
         <HashRouter>
@@ -575,6 +575,8 @@ const App: React.FC = () => {
                     onComplete={() => fetchProfile(profile.id)}
                     onQuit={() => supabase.auth.signOut()}
                     hasInheritedSubscription={!!profile.subscription_granted_by || profile.subscription_status === 'active'}
+                    isInvitedUser={!!profile.linked_user_id && !profile.onboarding_completed_at}
+                    inviterName={localStorage.getItem('inviter_name') || undefined}
                   />
                 ) : // Step 3: Check subscription/access status
                 // Allow if: subscription active, inherited access, active promo, active trial, or beta tester

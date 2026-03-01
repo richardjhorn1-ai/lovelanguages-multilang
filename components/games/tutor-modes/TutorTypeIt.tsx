@@ -120,9 +120,9 @@ export const TutorTypeIt: React.FC<TutorTypeItProps> = ({
             {currentIndex + 1} / {words.length}
           </span>
           <div className="flex gap-2">
-            <span className="text-green-500 font-bold">{score.correct}</span>
+            <span className="text-[var(--color-correct)] font-bold">{score.correct}</span>
             <span className="text-[var(--text-secondary)]">/</span>
-            <span className="text-red-400 font-bold">{score.incorrect}</span>
+            <span className="text-[var(--color-incorrect)] font-bold">{score.incorrect}</span>
           </div>
         </div>
 
@@ -135,7 +135,7 @@ export const TutorTypeIt: React.FC<TutorTypeItProps> = ({
         </div>
 
         {/* Question Card */}
-        <div className="glass-card rounded-[2rem] p-8">
+        <div className="glass-card rounded-2xl p-8">
           <span className="text-scale-micro font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6 bg-[var(--accent-light)] text-[var(--accent-color)]">
             {targetLanguageName} → {nativeLanguageName}
           </span>
@@ -147,8 +147,8 @@ export const TutorTypeIt: React.FC<TutorTypeItProps> = ({
           {submitted && (
             <div className={`text-center mb-4 p-3 rounded-xl ${
               isCorrect
-                ? 'bg-green-500/10 border border-green-500/30 text-green-500'
-                : 'bg-red-500/10 border border-red-500/30 text-red-500'
+                ? 'bg-[var(--color-correct-bg)] border border-[var(--color-correct)] text-[var(--color-correct)]'
+                : 'bg-[var(--color-incorrect-bg)] border border-[var(--color-incorrect)] text-[var(--color-incorrect)]'
             }`}>
               {isCorrect ? (
                 <div>

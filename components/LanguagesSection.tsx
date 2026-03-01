@@ -112,7 +112,7 @@ const LanguagesSection: React.FC<LanguagesSectionProps> = ({ profile, onRefresh 
   };
 
   return (
-    <div className="glass-card p-6 rounded-[2.5rem]">
+    <div className="glass-card p-6 rounded-2xl">
       <h3 className="text-scale-micro font-black font-header mb-6 flex items-center gap-2 text-[var(--text-secondary)] uppercase tracking-[0.2em]">
         <ICONS.Globe style={{ color: accentHex }} className="w-4 h-4" />
         {t('profile.languages.title')}

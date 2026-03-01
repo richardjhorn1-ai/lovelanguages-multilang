@@ -164,7 +164,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
 
   return (
     <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
-      <div className="glass-card rounded-[2rem] w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col">
+      <div className="glass-card rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col">
         {/* Header */}
         <div className="p-6 border-b border-[var(--border-color)] flex items-center justify-between">
           <div>

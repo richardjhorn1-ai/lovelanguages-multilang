@@ -81,19 +81,19 @@ const GameResults: React.FC<GameResultsProps> = ({
 
   return (
     <div className="h-full flex flex-col items-center justify-center p-8">
-      <div className="glass-card p-8 md:p-12 rounded-[3rem] text-center max-w-sm w-full animate-fade-in-scale">
+      <div className="glass-card p-8 md:p-12 rounded-2xl text-center max-w-sm w-full animate-fade-in-scale">
         <h2 className="text-3xl font-black font-header text-[var(--text-primary)] mb-2 animate-reveal">{t('gameResults.greatJob')}</h2>
         <div className="my-8 animate-pop-in" style={{ animationDelay: '0.2s' }}>
-          {correct >= incorrect ? <ICONS.Trophy className="w-16 h-16 mx-auto text-amber-500" /> : <ICONS.TrendingUp className="w-16 h-16 mx-auto text-teal-500" />}
+          {correct >= incorrect ? <ICONS.Trophy className="w-16 h-16 mx-auto text-[var(--color-warning)]" /> : <ICONS.TrendingUp className="w-16 h-16 mx-auto text-[var(--secondary-color)]" />}
         </div>
         <p className="text-[var(--text-secondary)] font-medium mb-1">{t('gameResults.sessionResults')}</p>
         <div className="flex justify-center gap-8 mb-8">
           <div className="text-center animate-reveal stagger-2">
-            <div className="text-4xl font-black text-green-500">{animatedCorrect}</div>
+            <div className="text-4xl font-black text-[var(--color-correct)]">{animatedCorrect}</div>
             <div className="text-scale-micro uppercase font-bold text-[var(--text-secondary)] tracking-widest">{t('gameResults.correct')}</div>
           </div>
           <div className="text-center animate-reveal stagger-3">
-            <div className="text-4xl font-black text-red-400">{animatedIncorrect}</div>
+            <div className="text-4xl font-black text-[var(--color-incorrect)]">{animatedIncorrect}</div>
             <div className="text-scale-micro uppercase font-bold text-[var(--text-secondary)] tracking-widest">{t('gameResults.missed')}</div>
           </div>
         </div>
@@ -118,8 +118,8 @@ const GameResults: React.FC<GameResultsProps> = ({
                     key={idx}
                     className={`p-2 rounded-lg text-scale-caption animate-slide-up ${
                       answer.isCorrect
-                        ? 'bg-green-500/10 text-green-500'
-                        : 'bg-red-500/10 text-red-500'
+                        ? 'bg-[var(--color-correct-bg)] text-[var(--color-correct)]'
+                        : 'bg-[var(--color-incorrect-bg)] text-[var(--color-incorrect)]'
                     }`}
                     style={{ animationDelay: `${idx * 0.05}s` }}
                   >

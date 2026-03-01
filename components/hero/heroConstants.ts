@@ -11,6 +11,8 @@ export const BRAND = {
   tealHover: '#0d9488',
   tealLight: '#f0fdfa',
   tealShadow: 'rgba(20, 184, 166, 0.25)',
+  gold: '#FFD93B',
+  ice: '#96DEEA',
 };
 
 // Types

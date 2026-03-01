@@ -65,7 +65,7 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
             </ul>
           </div>
           <div className="glass-card rounded-xl p-4">
-            <h4 className="font-bold text-teal-500 mb-2">{t('helpGuide.sections.chatModes.learnTitle')} <span className="text-scale-caption text-[var(--text-secondary)] font-normal">{t('helpGuide.sections.chatModes.learnSubtitle')}</span></h4>
+            <h4 className="font-bold text-[var(--secondary-color)] mb-2">{t('helpGuide.sections.chatModes.learnTitle')} <span className="text-scale-caption text-[var(--text-secondary)] font-normal">{t('helpGuide.sections.chatModes.learnSubtitle')}</span></h4>
             <p className="text-scale-label text-[var(--text-secondary)] mb-2">{t('helpGuide.sections.chatModes.learnDescription')}</p>
             <ul className="text-scale-label text-[var(--text-secondary)] ml-4 space-y-1">
               <li>{t('helpGuide.sections.chatModes.learnExample1')}</li>
@@ -74,7 +74,7 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
             </ul>
           </div>
           <div className="glass-card rounded-xl p-4">
-            <h4 className="font-bold text-teal-500 mb-2">{t('helpGuide.sections.chatModes.coachTitle')} <span className="text-scale-caption text-[var(--text-secondary)] font-normal">{t('helpGuide.sections.chatModes.coachSubtitle')}</span></h4>
+            <h4 className="font-bold text-[var(--secondary-color)] mb-2">{t('helpGuide.sections.chatModes.coachTitle')} <span className="text-scale-caption text-[var(--text-secondary)] font-normal">{t('helpGuide.sections.chatModes.coachSubtitle')}</span></h4>
             <p className="text-scale-label text-[var(--text-secondary)] mb-2">{t('helpGuide.sections.chatModes.coachDescription')}</p>
             <ul className="text-scale-label text-[var(--text-secondary)] ml-4 space-y-1">
               <li>{t('helpGuide.sections.chatModes.coachExample1')}</li>

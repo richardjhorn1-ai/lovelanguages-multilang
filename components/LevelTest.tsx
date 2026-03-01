@@ -145,7 +145,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
   if (state === 'loading') {
     return (
       <div className="h-full flex flex-col items-center justify-center p-8">
-        <div className="glass-card p-12 rounded-[3rem] text-center max-w-md w-full">
+        <div className="glass-card p-12 rounded-2xl text-center max-w-md w-full">
           <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[var(--accent-light)] flex items-center justify-center">
             <ICONS.Sparkles className="w-8 h-8 text-[var(--accent-color)] animate-pulse" />
           </div>
@@ -161,7 +161,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
     if (error) {
       return (
         <div className="h-full flex flex-col items-center justify-center p-8">
-          <div className="glass-card p-12 rounded-[3rem] text-center max-w-md w-full">
+          <div className="glass-card p-12 rounded-2xl text-center max-w-md w-full">
             <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-red-50 dark:bg-red-900/20 flex items-center justify-center">
               <ICONS.X className="w-8 h-8 text-red-400" />
             </div>
@@ -180,7 +180,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
 
     return (
       <div className="h-full flex flex-col items-center justify-center p-8">
-        <div className="glass-card p-12 rounded-[3rem] text-center max-w-md w-full">
+        <div className="glass-card p-12 rounded-2xl text-center max-w-md w-full">
           <div
             className="w-20 h-20 mx-auto mb-6 rounded-full flex items-center justify-center"
             style={{ backgroundColor: `${tierColor}15` }}
@@ -225,7 +225,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
 
     return (
       <div className="h-full flex flex-col items-center p-8 overflow-y-auto">
-        <div className="glass-card p-12 rounded-[3rem] text-center max-w-md w-full">
+        <div className="glass-card p-12 rounded-2xl text-center max-w-md w-full">
           <div
             className={`w-24 h-24 mx-auto mb-6 rounded-full flex items-center justify-center ${
               passed ? 'bg-green-50 dark:bg-green-900/20' : 'bg-amber-50 dark:bg-amber-900/20'
@@ -330,7 +330,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
 
         {/* Question Card */}
         <div className="flex-1 flex items-center justify-center">
-          <div className="glass-card p-8 rounded-[2.5rem] max-w-xl w-full">
+          <div className="glass-card p-8 rounded-2xl max-w-xl w-full">
             {/* Question type badge */}
             <div className="flex justify-between items-center mb-6">
               <span

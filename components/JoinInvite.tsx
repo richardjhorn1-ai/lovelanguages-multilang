@@ -178,6 +178,11 @@ const JoinInvite: React.FC = () => {
         throw new Error(data.error || 'Failed to complete invite');
       }
 
+      // Store inviter name for shortened onboarding flow
+      if (inviter?.name) {
+        localStorage.setItem('inviter_name', inviter.name);
+      }
+
       // Success! Force a full page reload to get fresh profile data
       window.location.href = '/#/';
     } catch (e: any) {
@@ -211,8 +216,8 @@ const JoinInvite: React.FC = () => {
   if (error) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[var(--accent-light)] p-6" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
-        <div className="glass-card p-10 rounded-[2.5rem] max-w-md w-full text-center">
-          <div className="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6">
+        <div className="glass-card p-10 rounded-2xl max-w-md w-full text-center">
+          <div className="w-16 h-16 bg-red-50 dark:bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-6">
             <ICONS.X className="w-8 h-8 text-red-500" />
           </div>
           <h2 className="text-2xl font-black text-[var(--text-primary)] mb-3">{t('joinInvite.invalidInvite')}</h2>
@@ -277,8 +282,8 @@ const JoinInvite: React.FC = () => {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center flex-shrink-0">
-                <ICONS.MessageCircle className="w-5 h-5 text-teal-500" />
+              <div className="w-10 h-10 rounded-full bg-[var(--accent-light)] flex items-center justify-center flex-shrink-0">
+                <ICONS.MessageCircle className="w-5 h-5 text-[var(--accent-color)]" />
               </div>
               <div>
                 <p className="font-bold text-[var(--text-primary)]">{tRole('conversationStarters')}</p>
@@ -287,7 +292,7 @@ const JoinInvite: React.FC = () => {
             </div>
 
             <div className="flex items-start gap-4">
-              <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 rounded-full bg-amber-100 dark:bg-amber-900/30 flex items-center justify-center flex-shrink-0">
                 <ICONS.Heart className="w-5 h-5 text-amber-500" />
               </div>
               <div>
@@ -352,7 +357,7 @@ const JoinInvite: React.FC = () => {
             <button
               type="submit"
               disabled={authLoading}
-              className="w-full bg-[var(--accent-color)] hover:bg-[var(--accent-hover)] text-white font-black py-5 rounded-[2rem] shadow-xl shadow-[var(--accent-shadow)] transition-all active:scale-[0.98] disabled:opacity-50 text-sm uppercase tracking-[0.2em] mt-4"
+              className="w-full bg-[var(--accent-color)] hover:bg-[var(--accent-hover)] text-white font-black py-5 rounded-2xl shadow-xl shadow-[var(--accent-shadow)] transition-all active:scale-[0.98] disabled:opacity-50 text-sm uppercase tracking-[0.2em] mt-4"
             >
               {authLoading ? t('joinInvite.connecting') : (isSignUp ? tRole('joinAsCoach') : t('joinInvite.signInConnect'))}
             </button>
@@ -361,8 +366,8 @@ const JoinInvite: React.FC = () => {
           {authMessage && (
             <div className={`mt-6 p-4 rounded-2xl text-xs font-bold text-center ${
               authMessage.includes('Check') || authMessage.includes('success')
-                ? 'bg-green-50 text-green-700'
-                : 'bg-red-50 text-red-700'
+                ? 'bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-300'
+                : 'bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-300'
             }`}>
               {authMessage}
             </div>

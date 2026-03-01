@@ -79,7 +79,7 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
   if (showIntro) {
     return (
       <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
-        <div className="glass-card-solid rounded-[2rem] w-full max-w-md overflow-hidden text-center p-6 md:p-8">
+        <div className="glass-card-solid rounded-2xl w-full max-w-md overflow-hidden text-center p-6 md:p-8">
           <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-[var(--accent-light)] to-amber-100/50 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4 animate-bounce">
             <ICONS.Gift className="w-8 h-8 md:w-10 md:h-10 text-[var(--accent-color)]" />
           </div>
@@ -129,7 +129,7 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
   if (result) {
     return (
       <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
-        <div className="glass-card-solid rounded-[2rem] w-full max-w-md overflow-hidden text-center p-6 md:p-8">
+        <div className="glass-card-solid rounded-2xl w-full max-w-md overflow-hidden text-center p-6 md:p-8">
           <div className="relative">
             <div className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-[var(--accent-light)] to-amber-100/50 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
               <ICONS.Trophy className="w-10 h-10 md:w-12 md:h-12 text-[var(--accent-color)]" />
@@ -174,7 +174,7 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
   if (completing) {
     return (
       <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
-        <div className="glass-card-solid rounded-[2rem] w-full max-w-md p-8 text-center">
+        <div className="glass-card-solid rounded-2xl w-full max-w-md p-8 text-center">
           <div className="flex justify-center gap-2 mb-4">
             <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce"></div>
             <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
@@ -190,7 +190,7 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
   if (error) {
     return (
       <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
-        <div className="glass-card-solid rounded-[2rem] w-full max-w-md overflow-hidden text-center p-6 md:p-8">
+        <div className="glass-card-solid rounded-2xl w-full max-w-md overflow-hidden text-center p-6 md:p-8">
           <div className="w-16 h-16 md:w-20 md:h-20 bg-red-50 dark:bg-red-900/20 rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
             <ICONS.AlertCircle className="w-8 h-8 md:w-10 md:h-10 text-red-400" />
           </div>
@@ -223,7 +223,7 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
   // Learning Card
   return (
     <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
-      <div className="glass-card-solid rounded-xl md:rounded-[2rem] w-full max-w-md overflow-hidden">
+      <div className="glass-card-solid rounded-xl md:rounded-2xl w-full max-w-md overflow-hidden">
         {/* Header */}
         <div className="p-3 md:p-4 border-b border-[var(--border-color)]">
           <div className="flex items-center justify-between mb-2">

@@ -77,7 +77,7 @@ const NudgeBanner: React.FC<NudgeBannerProps> = ({
         {/* Action Button */}
         <button
           onClick={onAction}
-          className="px-4 py-2 bg-white text-[var(--text-primary)] rounded-xl font-bold text-scale-caption active:scale-95 transition-transform flex-shrink-0"
+          className="px-4 py-2 bg-[var(--bg-card)] text-[var(--text-primary)] rounded-xl font-bold text-scale-caption active:scale-95 transition-transform flex-shrink-0"
         >
           {config.action}
         </button>

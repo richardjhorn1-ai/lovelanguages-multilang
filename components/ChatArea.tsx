@@ -131,8 +131,8 @@ const CultureCard: React.FC<{ title: string; content: string; t: (key: string) =
 );
 
 const DrillCard: React.FC<{ content: string; t: (key: string) => string }> = ({ content, t }) => (
-  <div className="my-4 rounded-2xl border-2 border-dashed border-teal-200 dark:border-teal-700 bg-teal-50/50 dark:bg-teal-900/20 p-1 relative w-full">
-    <div className="absolute -top-3 left-4 bg-teal-100 dark:bg-teal-800 text-teal-600 dark:text-teal-300 text-scale-micro font-black uppercase tracking-widest px-2 py-0.5 rounded-full border border-teal-200 dark:border-teal-700">
+  <div className="my-4 rounded-2xl border-2 border-dashed border-[var(--secondary-border)] bg-[var(--secondary-light)] p-1 relative w-full">
+    <div className="absolute -top-3 left-4 bg-[var(--secondary-light)] text-[var(--secondary-color)] text-scale-micro font-black uppercase tracking-widest px-2 py-0.5 rounded-full border border-[var(--secondary-border)]">
       {t('chat.blocks.loveGoal')}
     </div>
     <div className="p-4 text-scale-label text-[var(--text-primary)] font-medium">
@@ -1549,7 +1549,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             <div className="flex items-center h-10 px-1 rounded-xl bg-black/[0.03] dark:bg-white/[0.05]">
               {profile.role === 'tutor' ? (
                 // Tutors see single Coach mode (always context-aware)
-                <div className="px-4 py-1.5 rounded-lg text-scale-micro font-black uppercase tracking-widest bg-white/75 dark:bg-white/15 shadow-sm text-teal-500">
+                <div className="px-4 py-1.5 rounded-lg text-scale-micro font-black uppercase tracking-widest bg-white/75 dark:bg-white/15 shadow-sm text-[var(--secondary-color)]">
                   {t('chat.modes.coach')}
                 </div>
               ) : (
@@ -1801,9 +1801,9 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               {/* Live Voice - Model transcript bubble */}
               {liveModelText && (
                 <div className="flex justify-start animate-in fade-in slide-in-from-bottom-2 duration-300">
-                  <div className="max-w-[85%] rounded-[1.5rem] px-5 py-3.5 glass-card border-2 border-dashed border-teal-200 dark:border-teal-700 text-[var(--text-primary)] rounded-tl-none">
+                  <div className="max-w-[85%] rounded-[1.5rem] px-5 py-3.5 glass-card border-2 border-dashed border-[var(--secondary-border)] text-[var(--text-primary)] rounded-tl-none">
                     <p className="text-scale-label leading-relaxed">{liveModelText}</p>
-                    <span className="inline-block w-2 h-4 ml-1 bg-teal-400 animate-pulse rounded-sm"></span>
+                    <span className="inline-block w-2 h-4 ml-1 bg-[var(--secondary-color)] animate-pulse rounded-sm"></span>
                   </div>
                 </div>
               )}
@@ -1820,7 +1820,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                 liveState === 'listening'
                   ? 'bg-[var(--accent-light)] border-[var(--accent-border)]'
                   : liveState === 'speaking'
-                  ? 'bg-teal-50 dark:bg-teal-900/30 border-teal-200 dark:border-teal-700'
+                  ? 'bg-[var(--secondary-light)] border-[var(--secondary-border)]'
                   : liveState === 'connecting'
                   ? 'bg-amber-50 dark:bg-amber-900/30 border-amber-200 dark:border-amber-700'
                   : 'bg-[var(--bg-primary)] border-[var(--border-color)]'
@@ -1837,8 +1837,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                 )}
                 {liveState === 'speaking' && (
                   <>
-                    <ICONS.Sparkles className="w-3 h-3 text-teal-500 animate-pulse" />
-                    <span className="text-scale-micro font-bold text-teal-600">{t('chat.status.speaking')}</span>
+                    <ICONS.Sparkles className="w-3 h-3 text-[var(--secondary-color)] animate-pulse" />
+                    <span className="text-scale-micro font-bold text-[var(--secondary-color)]">{t('chat.status.speaking')}</span>
                   </>
                 )}
                 {liveState === 'connecting' && (
@@ -1917,7 +1917,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                           ))}
                       </div>
                   )}
-                  <div className={`w-full flex items-center glass-card rounded-full md:rounded-[2rem] px-4 py-2.5 md:px-6 md:py-4 transition-all duration-300 ${isLive ? 'border-2 border-[var(--accent-border)]' : ''}`} style={isLive ? { boxShadow: `inset 0 0 20px var(--accent-shadow)` } : {}}>
+                  <div className={`w-full flex items-center glass-card rounded-full md:rounded-2xl px-4 py-2.5 md:px-6 md:py-4 transition-all duration-300 ${isLive ? 'border-2 border-[var(--accent-border)]' : ''}`} style={isLive ? { boxShadow: `inset 0 0 20px var(--accent-shadow)` } : {}}>
                       <input
                         type="text"
                         value={input}
@@ -2021,7 +2021,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
       {/* Mobile Conversation Sidebar - Slide-in from left */}
       <div
-        className={`lg:hidden fixed inset-0 z-[200] transition-all duration-300 ${
+        className={`lg:hidden fixed inset-0 z-[50] transition-all duration-300 ${
           isMobileSidebarOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
@@ -2292,7 +2292,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
                 value={listenContextLabel}
                 onChange={(e) => setListenContextLabel(e.target.value)}
                 placeholder={t('chat.listenPrompt.contextPlaceholder')}
-                className="w-full p-3 rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder-[var(--text-secondary)]/50 focus:outline-none focus:ring-2 focus:ring-[var(--accent-color)]"
+                className="w-full p-3 rounded-xl border border-[var(--border-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder-[var(--text-secondary)]/50 focus:outline-none"
               />
               <p className="text-scale-caption text-[var(--text-secondary)] mt-1 text-left opacity-60">
                 {t('chat.listenPrompt.contextHint')}

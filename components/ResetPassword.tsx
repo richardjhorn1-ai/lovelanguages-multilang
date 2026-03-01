@@ -81,7 +81,7 @@ const ResetPassword: React.FC = () => {
 
         {checking && (
           <div className="text-center py-8">
-            <div className="w-8 h-8 border-4 border-rose-200 border-t-rose-500 rounded-full animate-spin mx-auto mb-4" />
+            <div className="w-8 h-8 border-4 border-[var(--accent-border)] border-t-[var(--accent-color)] rounded-full animate-spin mx-auto mb-4" />
             <p className="text-[var(--text-secondary)]">{t('resetPassword.verifying')}</p>
           </div>
         )}
@@ -110,7 +110,7 @@ const ResetPassword: React.FC = () => {
                 onChange={(e) => setPassword(e.target.value)}
                 required
                 minLength={6}
-                className="w-full px-4 py-3 rounded-xl border-2 border-[var(--border-color)] focus:border-rose-400 focus:outline-none transition-all font-medium"
+                className="w-full px-4 py-3 rounded-xl border-2 border-[var(--border-color)] focus:border-[var(--accent-color)] focus:outline-none transition-all font-medium"
                 placeholder="••••••••"
               />
             </div>
@@ -125,7 +125,7 @@ const ResetPassword: React.FC = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
                 minLength={6}
-                className="w-full px-4 py-3 rounded-xl border-2 border-[var(--border-color)] focus:border-rose-400 focus:outline-none transition-all font-medium"
+                className="w-full px-4 py-3 rounded-xl border-2 border-[var(--border-color)] focus:border-[var(--accent-color)] focus:outline-none transition-all font-medium"
                 placeholder="••••••••"
               />
             </div>
@@ -133,7 +133,7 @@ const ResetPassword: React.FC = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-rose-500 text-white font-black py-4 rounded-2xl shadow-lg hover:bg-rose-600 transition-all disabled:opacity-50 uppercase tracking-widest"
+              className="w-full bg-[var(--accent-color)] text-white font-black py-4 rounded-2xl shadow-lg hover:bg-[var(--accent-hover)] transition-all disabled:opacity-50 uppercase tracking-widest"
             >
               {loading ? t('resetPassword.updating') : t('resetPassword.updatePassword')}
             </button>

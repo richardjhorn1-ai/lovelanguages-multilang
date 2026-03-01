@@ -116,7 +116,7 @@ const ActivityFeed: React.FC<ActivityFeedProps> = ({ partnerId, limit = 20 }) =>
   };
 
   return (
-    <div className="glass-card rounded-xl md:rounded-[2rem]">
+    <div className="glass-card rounded-xl md:rounded-2xl">
       {/* Header */}
       <div className="p-4 border-b border-[var(--border-color)]">
         <div className="flex items-center justify-between mb-3">

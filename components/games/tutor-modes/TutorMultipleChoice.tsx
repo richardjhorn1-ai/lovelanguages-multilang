@@ -95,9 +95,9 @@ export const TutorMultipleChoice: React.FC<TutorMultipleChoiceProps> = ({
             {currentIndex + 1} / {words.length}
           </span>
           <div className="flex gap-2">
-            <span className="text-green-500 font-bold">{score.correct}</span>
+            <span className="text-[var(--color-correct)] font-bold">{score.correct}</span>
             <span className="text-[var(--text-secondary)]">/</span>
-            <span className="text-red-400 font-bold">{score.incorrect}</span>
+            <span className="text-[var(--color-incorrect)] font-bold">{score.incorrect}</span>
           </div>
         </div>
 
@@ -110,7 +110,7 @@ export const TutorMultipleChoice: React.FC<TutorMultipleChoiceProps> = ({
         </div>
 
         {/* Question Card */}
-        <div className="glass-card rounded-[2rem] p-8">
+        <div className="glass-card rounded-2xl p-8">
           <span className="text-scale-micro font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6 bg-[var(--accent-light)] text-[var(--accent-color)]">
             {targetLanguageName} → {nativeLanguageName}
           </span>
@@ -127,9 +127,9 @@ export const TutorMultipleChoice: React.FC<TutorMultipleChoiceProps> = ({
               let buttonStyle = 'border-[var(--border-color)] hover:border-[var(--text-secondary)] text-[var(--text-primary)]';
               if (showFeedback) {
                 if (isCorrect) {
-                  buttonStyle = 'border-green-400 bg-green-500/10 border-green-500/30 text-green-500';
+                  buttonStyle = 'border-[var(--color-correct)] bg-[var(--color-correct-bg)] text-[var(--color-correct)]';
                 } else if (isSelected && !isCorrect) {
-                  buttonStyle = 'border-red-400 bg-red-500/10 border-red-500/30 text-red-500';
+                  buttonStyle = 'border-[var(--color-incorrect)] bg-[var(--color-incorrect-bg)] text-[var(--color-incorrect)]';
                 } else {
                   buttonStyle = 'border-[var(--border-color)] text-[var(--text-secondary)]';
                 }
@@ -147,10 +147,10 @@ export const TutorMultipleChoice: React.FC<TutorMultipleChoiceProps> = ({
                   </span>
                   {option}
                   {showFeedback && isCorrect && (
-                    <ICONS.Check className="w-5 h-5 float-right text-green-500" />
+                    <ICONS.Check className="w-5 h-5 float-right text-[var(--color-correct)]" />
                   )}
                   {showFeedback && isSelected && !isCorrect && (
-                    <ICONS.X className="w-5 h-5 float-right text-red-500" />
+                    <ICONS.X className="w-5 h-5 float-right text-[var(--color-incorrect)]" />
                   )}
                 </button>
               );

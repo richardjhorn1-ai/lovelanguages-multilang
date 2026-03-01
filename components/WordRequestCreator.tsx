@@ -212,7 +212,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
 
   return (
     <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
-      <div className="glass-card-solid rounded-[2rem] w-full max-w-md overflow-hidden max-h-[90vh] flex flex-col">
+      <div className="glass-card-solid rounded-2xl w-full max-w-md overflow-hidden max-h-[90vh] flex flex-col">
         {/* Header */}
         <div className="p-5 border-b border-[var(--border-color)] flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -364,7 +364,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
                         <div className="flex items-center gap-2">
                           <p className="font-bold text-[var(--text-primary)] truncate">{word.word}</p>
                           {word.word_type && word.word_type !== 'phrase' && (
-                            <span className="text-[10px] px-1.5 py-0.5 bg-[var(--accent-light)] text-[var(--accent-color)] rounded font-medium shrink-0">
+                            <span className="text-[10px] px-1.5 py-0.5 bg-[var(--secondary-light)] text-[var(--secondary-text)] rounded font-medium shrink-0">
                               {word.word_type}
                             </span>
                           )}

@@ -65,7 +65,7 @@ const NativeLanguagePill: React.FC<NativeLanguagePillProps> = ({
 
       {open && (
         <div
-          className="absolute left-0 mt-2 w-64 max-h-72 overflow-y-auto rounded-2xl border shadow-xl bg-white py-2"
+          className="absolute left-0 mt-2 w-64 max-h-72 overflow-y-auto rounded-2xl border shadow-xl bg-[var(--bg-card)] py-2"
           style={{ borderColor: '#e5e7eb', zIndex: 31 }}
         >
           {(SUPPORTED_LANGUAGE_CODES as readonly string[]).map(code => {
@@ -76,14 +76,14 @@ const NativeLanguagePill: React.FC<NativeLanguagePillProps> = ({
               <button
                 key={code}
                 onClick={() => handleSelect(code)}
-                className="w-full flex items-center gap-3 px-4 py-2.5 text-left transition-all hover:bg-gray-50"
+                className="w-full flex items-center gap-3 px-4 py-2.5 text-left transition-all hover:bg-[var(--bg-primary)]"
                 style={{
                   backgroundColor: isSelected ? (isStudent ? BRAND.light : BRAND.tealLight) : undefined,
                   fontWeight: isSelected ? 700 : 500,
                 }}
               >
                 <span className="text-lg">{lang.flag}</span>
-                <span className="text-scale-label text-gray-700">{lang.nativeName}</span>
+                <span className="text-scale-label text-[var(--text-primary)]">{lang.nativeName}</span>
                 {isSelected && (
                   <ICONS.Check className="w-4 h-4 ml-auto" style={{ color: accentColor }} />
                 )}

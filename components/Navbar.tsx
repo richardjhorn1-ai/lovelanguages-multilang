@@ -257,7 +257,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
 
             {/* Notifications Dropdown */}
             {isNotificationsOpen && (
-              <div className="absolute right-0 mt-2 w-80 glass-card-solid rounded-2xl overflow-hidden z-[100] animate-in fade-in slide-in-from-top-2 duration-200">
+              <div className="absolute right-0 mt-2 w-80 glass-card-solid rounded-2xl overflow-hidden z-[50] animate-in fade-in slide-in-from-top-2 duration-200">
                 <div className="px-4 py-3 border-b border-[var(--border-color)] flex items-center justify-between">
                   <span className="text-scale-label font-bold text-[var(--text-primary)]">{t('nav.notifications')}</span>
                   {unreadCount > 0 && (
@@ -273,7 +273,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                 <div className="max-h-80 overflow-y-auto">
                   {notifications.length === 0 ? (
                     <div className="py-8 text-center">
-                      <span className="text-2xl mb-2 block">🔔</span>
+                      <ICONS.Bell className="w-7 h-7 text-[var(--text-secondary)] mb-2 mx-auto block" />
                       <p className="text-scale-label text-[var(--text-secondary)]">{t('nav.noNotifications')}</p>
                     </div>
                   ) : (
@@ -376,7 +376,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
 
           {/* Dropdown Menu */}
           {isProfileDropdownOpen && (
-            <div className="absolute right-0 mt-1.5 md:mt-2 w-48 md:w-56 glass-card-solid rounded-xl md:rounded-2xl py-1.5 md:py-2 z-[100] animate-in fade-in slide-in-from-top-2 duration-200">
+            <div className="absolute right-0 mt-1.5 md:mt-2 w-48 md:w-56 glass-card-solid rounded-xl md:rounded-2xl py-1.5 md:py-2 z-[50] animate-in fade-in slide-in-from-top-2 duration-200">
               <div className="px-3 md:px-4 py-2 md:py-3 border-b border-[var(--border-color)]">
                 <p className="text-scale-label font-bold text-[var(--text-primary)] truncate">{profile.full_name}</p>
                 <p className="text-scale-micro text-[var(--text-secondary)] truncate">{profile.email}</p>
@@ -496,7 +496,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
 
       {/* Mobile Notifications Panel - slide-in from right */}
       <div
-        className={`md:hidden fixed inset-0 z-[200] transition-all duration-300 ${
+        className={`md:hidden fixed inset-0 z-[50] transition-all duration-300 ${
           isNotificationsOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
       >
@@ -536,7 +536,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
           <div className="overflow-y-auto h-[calc(100%-60px)]">
             {notifications.length === 0 ? (
               <div className="py-12 text-center">
-                <span className="text-3xl mb-3 block">🔔</span>
+                <ICONS.Bell className="w-8 h-8 text-[var(--text-secondary)] mb-3 mx-auto block" />
                 <p className="text-scale-label text-[var(--text-secondary)]">{t('nav.noNotifications')}</p>
                 <p className="text-scale-caption text-[var(--text-secondary)] mt-1">{t('nav.allCaughtUp')}</p>
               </div>

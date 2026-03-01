@@ -31,10 +31,10 @@ interface GameHistoryProps {
 
 const GAME_MODE_INFO: Record<string, { name: string; icon: React.ReactNode; color: string }> = {
   flashcards: { name: 'Flashcards', icon: <ICONS.Layers className="w-5 h-5" />, color: 'text-[var(--accent-color)]' },
-  multiple_choice: { name: 'Multiple Choice', icon: <ICONS.CheckCircle className="w-5 h-5" />, color: 'text-purple-500' },
-  type_it: { name: 'Type It', icon: <ICONS.Type className="w-5 h-5" />, color: 'text-blue-500' },
-  quick_fire: { name: 'Quick Fire', icon: <ICONS.Zap className="w-5 h-5" />, color: 'text-amber-500' },
-  ai_challenge: { name: 'AI Challenge', icon: <ICONS.Bot className="w-5 h-5" />, color: 'text-green-500' }
+  multiple_choice: { name: 'Multiple Choice', icon: <ICONS.CheckCircle className="w-5 h-5" />, color: 'text-[var(--secondary-color)]' },
+  type_it: { name: 'Type It', icon: <ICONS.Type className="w-5 h-5" />, color: 'text-[var(--accent-color)]' },
+  quick_fire: { name: 'Quick Fire', icon: <ICONS.Zap className="w-5 h-5" />, color: 'text-[var(--accent-color)]' },
+  ai_challenge: { name: 'AI Challenge', icon: <ICONS.Bot className="w-5 h-5" />, color: 'text-[var(--secondary-color)]' }
 };
 
 const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
@@ -245,7 +245,7 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
                         </p>
                       </div>
                       {session.wrong_answer_count > 0 && (
-                        <span className="text-scale-caption font-bold px-2 py-1 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 rounded-full">
+                        <span className="text-scale-caption font-bold px-2 py-1 bg-[var(--color-incorrect-bg)] text-[var(--color-incorrect)] rounded-full">
                           {t('gameHistory.missed', { count: session.wrong_answer_count })}
                         </span>
                       )}
@@ -284,10 +284,10 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
                             {smartAccepted.map((answer, idx) => (
                               <div
                                 key={idx}
-                                className="flex items-center gap-3 p-3 bg-green-50 dark:bg-green-900/20 rounded-xl"
+                                className="flex items-center gap-3 p-3 bg-[var(--color-correct-bg)] rounded-xl"
                               >
-                                <div className="w-6 h-6 bg-green-100 dark:bg-green-900/40 rounded-full flex items-center justify-center">
-                                  <ICONS.Check className="w-3 h-3 text-green-500" />
+                                <div className="w-6 h-6 bg-[var(--color-correct-bg)] rounded-full flex items-center justify-center">
+                                  <ICONS.Check className="w-3 h-3 text-[var(--color-correct)]" />
                                 </div>
                                 <div className="flex-1 min-w-0">
                                   <p className="font-bold text-[var(--text-primary)]">
@@ -296,7 +296,7 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
                                   <p className="text-scale-caption text-[var(--text-secondary)]">
                                     {answer.user_answer} → {answer.correct_answer}
                                   </p>
-                                  <p className="text-[10px] text-green-600/70 dark:text-green-400/70 italic mt-0.5">
+                                  <p className="text-[10px] text-[var(--color-correct)] opacity-70 italic mt-0.5">
                                     {answer.explanation}
                                   </p>
                                 </div>
@@ -317,10 +317,10 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
                           return (
                             <div
                               key={idx}
-                              className="flex items-center gap-3 p-3 bg-red-50 dark:bg-red-900/20 rounded-xl"
+                              className="flex items-center gap-3 p-3 bg-[var(--color-incorrect-bg)] rounded-xl"
                             >
-                              <div className="w-6 h-6 bg-red-100 dark:bg-red-900/40 rounded-full flex items-center justify-center">
-                                <ICONS.X className="w-3 h-3 text-red-500" />
+                              <div className="w-6 h-6 bg-[var(--color-incorrect-bg)] rounded-full flex items-center justify-center">
+                                <ICONS.X className="w-3 h-3 text-[var(--color-incorrect)]" />
                               </div>
                               <div className="flex-1 min-w-0">
                                 <p className="font-bold text-[var(--text-primary)]">
@@ -329,14 +329,14 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
                                 <p className="text-scale-caption text-[var(--text-secondary)]">
                                   {answer.user_answer ? (
                                     <>
-                                      {t('gameHistory.youSaid')} <span className="text-red-500">{answer.user_answer}</span>
+                                      {t('gameHistory.youSaid')} <span className="text-[var(--color-incorrect)]">{answer.user_answer}</span>
                                       {' · '}
                                     </>
                                   ) : null}
-                                  {t('gameHistory.correct')} <span className="text-green-600 dark:text-green-400 font-medium">{answer.correct_answer}</span>
+                                  {t('gameHistory.correct')} <span className="text-[var(--color-correct)] font-medium">{answer.correct_answer}</span>
                                 </p>
                                 {showExplanation && (
-                                  <p className="text-[10px] text-red-500/70 italic mt-0.5">
+                                  <p className="text-[10px] text-[var(--color-incorrect)] opacity-70 italic mt-0.5">
                                     {answer.explanation}
                                   </p>
                                 )}
@@ -359,10 +359,10 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
                       {/* Perfect score message - only if no wrong answers and no smart accepted */}
                       {wrongAnswers.length === 0 && !answers.some(a => a.is_correct && a.explanation && a.explanation !== 'Exact match') && (
                         <div className="pt-3 text-center py-4">
-                          <div className="w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-2 bg-green-100 dark:bg-green-900/30">
-                            <ICONS.Trophy className="w-5 h-5 text-green-600 dark:text-green-400" />
+                          <div className="w-10 h-10 rounded-full flex items-center justify-center mx-auto mb-2 bg-[var(--color-correct-bg)]">
+                            <ICONS.Trophy className="w-5 h-5 text-[var(--color-correct)]" />
                           </div>
-                          <p className="text-scale-label text-green-600 dark:text-green-400 font-medium">
+                          <p className="text-scale-label text-[var(--color-correct)] font-medium">
                             {t('gameHistory.perfectScore')}
                           </p>
                         </div>

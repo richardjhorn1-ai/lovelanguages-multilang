@@ -92,7 +92,7 @@ const PendingChallenges: React.FC<PendingChallengesProps> = ({ profile, onRefres
   return (
     <>
       {/* Banner */}
-      <div className="bg-gradient-to-r from-[var(--accent-color)] to-amber-500 rounded-[2rem] p-6 text-white shadow-lg">
+      <div className="bg-gradient-to-r from-[var(--accent-color)] to-amber-500 rounded-2xl p-6 text-white shadow-lg">
         <div className="flex items-center gap-4 mb-4">
           <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-3xl animate-bounce">
             {wordRequests.length > 0 ? <ICONS.Gift className="w-7 h-7 text-white" /> : <ICONS.Gamepad2 className="w-7 h-7 text-white" />}

@@ -85,7 +85,7 @@ export const HeroFAQ: React.FC<{ isStudent: boolean; isVisible?: boolean; sectio
               <p className="text-sm">{t('hero.bottomSections.faq.q5.standardPrice')}</p>
               <p className="text-xs mt-1 opacity-70">{t('hero.bottomSections.faq.q5.standardDesc')}</p>
             </div>
-            <div className="p-3 rounded-xl bg-white border-2" style={{ borderColor: accentColor }}>
+            <div className="p-3 rounded-xl bg-[var(--bg-card)] border-2" style={{ borderColor: accentColor }}>
               <p className="font-bold">{t('hero.bottomSections.faq.q5.unlimited')}</p>
               <p className="text-sm">{t('hero.bottomSections.faq.q5.unlimitedPrice')}</p>
               <p className="text-xs mt-1 opacity-70">{t('hero.bottomSections.faq.q5.unlimitedDesc')}</p>
@@ -120,9 +120,9 @@ export const HeroFAQ: React.FC<{ isStudent: boolean; isVisible?: boolean; sectio
           {faqItems.map((item, index) => (
             <div
               key={index}
-              className="rounded-xl md:rounded-2xl overflow-hidden transition-all bg-white shadow-sm"
+              className="rounded-xl md:rounded-2xl overflow-hidden transition-all bg-[var(--bg-card)] shadow-sm"
               style={{
-                boxShadow: openIndex === index ? `0 4px 20px ${accentColor}20` : undefined,
+                boxShadow: openIndex === index ? `0 4px 20px ${accentColor}25` : undefined,
                 border: `2px solid ${openIndex === index ? accentColor : 'transparent'}`
               }}
             >
@@ -198,7 +198,7 @@ export const MethodContent: React.FC<{ accentColor: string; t: any }> = ({ accen
         {pillars.map((pillar, index) => (
           <div
             key={index}
-            className="rounded-xl md:rounded-2xl p-3 md:p-6 shadow-sm bg-white"
+            className="rounded-xl md:rounded-2xl p-3 md:p-6 shadow-sm bg-[var(--bg-card)]"
           >
             <div className="flex items-center gap-2 mb-1 md:mb-3">
               <pillar.icon className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" style={{ color: accentColor }} />
@@ -323,7 +323,7 @@ export const OfferContent: React.FC<{ accentColor: string; t: any; isStudent: bo
           return (
             <div
               key={num}
-              className="rounded-lg p-2 md:p-3 bg-white shadow-sm"
+              className="rounded-lg p-2 md:p-3 bg-[var(--bg-card)] shadow-sm"
             >
               <div className="flex items-center gap-2 mb-1">
                 <div
@@ -399,7 +399,7 @@ export const HeroRALL: React.FC<{ isStudent: boolean; isVisible?: boolean; secti
           {pillars.map((pillar, index) => (
             <div
               key={index}
-              className="rounded-xl md:rounded-2xl p-3 md:p-6 shadow-sm bg-white"
+              className="rounded-xl md:rounded-2xl p-3 md:p-6 shadow-sm bg-[var(--bg-card)]"
             >
               <div className="flex items-center gap-2 mb-1 md:mb-3">
                 <pillar.icon className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0" style={{ color: accentColor }} />
@@ -479,7 +479,7 @@ export const HeroBlog: React.FC<{ isStudent: boolean; isVisible?: boolean; secti
               href="https://www.lovelanguages.io/learn/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-3 md:p-6 rounded-xl md:rounded-2xl bg-white shadow-sm hover:shadow-lg transition-all text-left hover:-translate-y-1"
+              className="group p-3 md:p-6 rounded-xl md:rounded-2xl bg-[var(--bg-card)] shadow-sm hover:shadow-lg transition-all text-left hover:-translate-y-1"
             >
               <div
                 className="w-8 h-8 md:w-12 md:h-12 rounded-lg md:rounded-xl flex items-center justify-center mb-2 md:mb-4"
@@ -510,7 +510,7 @@ export const HeroBlog: React.FC<{ isStudent: boolean; isVisible?: boolean; secti
             href="https://instagram.com/lovelanguages.xyz"
             target="_blank"
             rel="noopener noreferrer"
-            className="md:hidden flex items-center gap-1 px-3 py-2 rounded-full font-bold text-xs transition-all hover:scale-105 bg-white shadow-sm"
+            className="md:hidden flex items-center gap-1 px-3 py-2 rounded-full font-bold text-xs transition-all hover:scale-105 bg-[var(--bg-card)] shadow-sm"
             style={{ color: accentColor }}
           >
             <ICONS.Instagram className="w-3.5 h-3.5" />
@@ -520,7 +520,7 @@ export const HeroBlog: React.FC<{ isStudent: boolean; isVisible?: boolean; secti
             href="https://tiktok.com/@lovelanguages.xyz"
             target="_blank"
             rel="noopener noreferrer"
-            className="md:hidden flex items-center gap-1 px-3 py-2 rounded-full font-bold text-xs transition-all hover:scale-105 bg-white shadow-sm"
+            className="md:hidden flex items-center gap-1 px-3 py-2 rounded-full font-bold text-xs transition-all hover:scale-105 bg-[var(--bg-card)] shadow-sm"
             style={{ color: accentColor }}
           >
             <ICONS.Video className="w-3.5 h-3.5" />
@@ -556,7 +556,7 @@ export const HeroFooter: React.FC<{ isStudent: boolean; isVisible?: boolean; sec
             href="https://instagram.com/lovelanguages.xyz"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-3 rounded-full font-bold text-base transition-all hover:scale-105 bg-white shadow-sm"
+            className="flex items-center gap-2 px-5 py-3 rounded-full font-bold text-base transition-all hover:scale-105 bg-[var(--bg-card)] shadow-sm"
             style={{ color: accentColor }}
           >
             <ICONS.Instagram className="w-5 h-5" />
@@ -566,7 +566,7 @@ export const HeroFooter: React.FC<{ isStudent: boolean; isVisible?: boolean; sec
             href="https://tiktok.com/@lovelanguages.xyz"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-3 rounded-full font-bold text-base transition-all hover:scale-105 bg-white shadow-sm"
+            className="flex items-center gap-2 px-5 py-3 rounded-full font-bold text-base transition-all hover:scale-105 bg-[var(--bg-card)] shadow-sm"
             style={{ color: accentColor }}
           >
             <ICONS.Video className="w-5 h-5" />

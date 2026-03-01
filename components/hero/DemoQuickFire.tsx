@@ -103,7 +103,7 @@ export const DemoQuickFire: React.FC<DemoQuickFireProps> = ({
 
   return (
     <div
-      className="rounded-[2rem] p-6 shadow-lg border flex flex-col items-center justify-center relative overflow-hidden"
+      className="rounded-2xl p-6 shadow-lg border flex flex-col items-center justify-center relative overflow-hidden"
       style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-color)', width: '300px', height: '380px' }}
     >
       {/* Timer bar at top */}
@@ -162,7 +162,7 @@ export const DemoQuickFire: React.FC<DemoQuickFireProps> = ({
             <span className="font-bold" style={{ color: accentColor }}>
               {score}/{totalAnswered}
             </span>
-            <span className={`font-bold ${timeLeft <= 5 ? 'text-red-500 animate-pulse' : 'text-gray-400'}`}>
+            <span className={`font-bold ${timeLeft <= 5 ? 'text-red-500 animate-pulse' : 'text-[var(--text-secondary)]'}`}>
               {timeLeft}s
             </span>
           </div>
@@ -173,7 +173,7 @@ export const DemoQuickFire: React.FC<DemoQuickFireProps> = ({
               lastCorrect === true ? 'bg-green-100' : lastCorrect === false ? 'bg-red-100' : 'bg-[var(--bg-primary)]'
             }`}
           >
-            <span className="text-[9px] font-black uppercase tracking-widest text-gray-400 block mb-1">
+            <span className="text-[9px] font-black uppercase tracking-widest text-[var(--text-secondary)] block mb-1">
               {targetName}
             </span>
             <h3 className="text-2xl font-black font-header text-[var(--text-primary)]">{currentWord.word}</h3>
@@ -220,7 +220,7 @@ export const DemoQuickFire: React.FC<DemoQuickFireProps> = ({
           <p className="text-lg font-bold text-[var(--text-primary)]">
             {score === totalAnswered ? t('demoQuickFire.perfect') : score > totalAnswered / 2 ? t('demoQuickFire.greatJob') : t('demoQuickFire.keepPracticing')}
           </p>
-          <p className="text-sm text-gray-400 mt-2">{t('demoQuickFire.timesUp')}</p>
+          <p className="text-sm text-[var(--text-secondary)] mt-2">{t('demoQuickFire.timesUp')}</p>
         </div>
       )}
     </div>

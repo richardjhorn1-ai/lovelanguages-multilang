@@ -195,7 +195,7 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
   if (!started) {
     return (
       <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
-        <div className="glass-card-solid rounded-xl md:rounded-[2rem] w-full max-w-md overflow-hidden text-center p-6 md:p-8">
+        <div className="glass-card-solid rounded-xl md:rounded-2xl w-full max-w-md overflow-hidden text-center p-6 md:p-8">
           <div className="mb-3 md:mb-4 text-amber-500"><ICONS.Zap className="w-12 h-12 md:w-16 md:h-16 mx-auto" /></div>
           <h2 className="text-xl md:text-2xl font-black font-header text-[var(--text-primary)] mb-2">{t('challengePlayer.quickFire.title')}</h2>
           <p className="text-[var(--text-secondary)] text-scale-label mb-4 md:mb-6">
@@ -246,7 +246,7 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
   if (countdown > 0) {
     return (
       <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
-        <div className="glass-card-solid rounded-xl md:rounded-[2rem] w-full max-w-md p-6 md:p-8 text-center">
+        <div className="glass-card-solid rounded-xl md:rounded-2xl w-full max-w-md p-6 md:p-8 text-center">
           <p className="text-[var(--text-secondary)] mb-3 md:mb-4">{t('challengePlayer.quickFire.getReady')}</p>
           <div className="text-7xl md:text-8xl font-black text-amber-500 animate-pulse">{countdown}</div>
         </div>
@@ -266,9 +266,9 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
 
     return (
       <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
-        <div className="glass-card-solid rounded-xl md:rounded-[2rem] w-full max-w-md overflow-hidden text-center p-6 md:p-8">
+        <div className="glass-card-solid rounded-xl md:rounded-2xl w-full max-w-md overflow-hidden text-center p-6 md:p-8">
           <div className="mb-3 md:mb-4">
-            {isPerfect && wasQuick ? <ICONS.Trophy className="w-12 h-12 md:w-16 md:h-16 mx-auto text-amber-500" /> : isPerfect ? <ICONS.Trophy className="w-12 h-12 md:w-16 md:h-16 mx-auto text-green-500" /> : result.score >= 70 ? <ICONS.Zap className="w-12 h-12 md:w-16 md:h-16 mx-auto text-amber-500" /> : <ICONS.TrendingUp className="w-12 h-12 md:w-16 md:h-16 mx-auto text-teal-500" />}
+            {isPerfect && wasQuick ? <ICONS.Trophy className="w-12 h-12 md:w-16 md:h-16 mx-auto text-[var(--color-warning)]" /> : isPerfect ? <ICONS.Trophy className="w-12 h-12 md:w-16 md:h-16 mx-auto text-[var(--color-correct)]" /> : result.score >= 70 ? <ICONS.Zap className="w-12 h-12 md:w-16 md:h-16 mx-auto text-[var(--color-warning)]" /> : <ICONS.TrendingUp className="w-12 h-12 md:w-16 md:h-16 mx-auto text-[var(--secondary-color)]" />}
           </div>
           <h2 className="text-xl md:text-2xl font-black font-header text-[var(--text-primary)] mb-2">
             {isPerfect && wasQuick
@@ -340,7 +340,7 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
   if (submitting) {
     return (
       <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
-        <div className="glass-card-solid rounded-[2rem] w-full max-w-md p-8 text-center">
+        <div className="glass-card-solid rounded-2xl w-full max-w-md p-8 text-center">
           <div className="flex justify-center gap-2 mb-4">
             <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce"></div>
             <div className="w-3 h-3 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
@@ -360,13 +360,13 @@ const PlayQuickFireChallenge: React.FC<PlayQuickFireChallengeProps> = ({
       showFeedback === 'correct' ? 'bg-green-500/50' :
       showFeedback === 'wrong' ? 'bg-red-500/50' : 'bg-black/50'
     }`}>
-      <div className="glass-card-solid rounded-xl md:rounded-[2rem] w-full max-w-md overflow-hidden">
+      <div className="glass-card-solid rounded-xl md:rounded-2xl w-full max-w-md overflow-hidden">
         {/* Timer Bar */}
         <div className="h-2 md:h-3 bg-[var(--bg-primary)]">
           <div
             className={`h-full transition-all duration-1000 ${
-              timeProgress > 50 ? 'bg-amber-500' :
-              timeProgress > 25 ? 'bg-orange-500' : 'bg-red-500'
+              timeProgress > 50 ? 'bg-[var(--color-warning)]' :
+              timeProgress > 25 ? 'bg-[var(--color-warning)]' : 'bg-[var(--color-incorrect)]'
             }`}
             style={{ width: `${timeProgress}%` }}
           />

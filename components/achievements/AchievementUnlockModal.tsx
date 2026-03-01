@@ -71,7 +71,7 @@ const AchievementUnlockModal: React.FC<AchievementUnlockModalProps> = ({
         </div>
       )}
 
-      <div className="glass-card-solid rounded-[2rem] max-w-sm w-full overflow-hidden animate-in zoom-in duration-300">
+      <div className="glass-card-solid rounded-2xl max-w-sm w-full overflow-hidden animate-in zoom-in duration-300">
         {/* Header */}
         <div className="bg-gradient-to-r from-amber-500 to-orange-500 p-6 text-white text-center relative">
           <div className="absolute top-4 right-4">

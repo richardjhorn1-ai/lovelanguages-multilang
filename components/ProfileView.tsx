@@ -20,6 +20,7 @@ import {
   FontSize,
   FontPreset,
   FontWeight,
+  BackgroundStyle,
   ACCENT_COLORS,
   DARK_MODE_STYLES,
   FONT_SIZES,
@@ -70,7 +71,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
   // Check if running in Capacitor (native app)
   const isNativeApp = !!(window as any).Capacitor?.isNativePlatform?.();
 
-  const { theme, setAccentColor, setDarkMode, setFontSize, setFontPreset, setFontWeight, accentHex, isDark } = useTheme();
+  const { theme, setAccentColor, setDarkMode, setFontSize, setFontPreset, setFontWeight, setBackgroundStyle, accentHex, secondaryHex, isDark } = useTheme();
   const { t } = useTranslation();
   const { targetLanguage, targetName } = useLanguage();
   const iLoveYou = LANGUAGE_CONFIGS[targetLanguage]?.examples?.iLoveYou || 'I love you';
@@ -208,7 +209,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
       <div className="max-w-xl mx-auto space-y-6">
 
         {/* User Card */}
-        <div className="glass-card p-8 rounded-[2.5rem] text-center">
+        <div className="glass-card p-8 rounded-2xl text-center">
           <div className="mb-4">
             <AvatarUpload
               userId={profile.id}
@@ -273,7 +274,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
 
         {/* Connected Partner Card - Only show if linked */}
         {partner && (
-          <div className="glass-card p-8 rounded-[2.5rem]">
+          <div className="glass-card p-8 rounded-2xl">
             <h3 className="text-scale-micro font-black font-header mb-6 flex items-center justify-between text-[var(--text-secondary)] uppercase tracking-[0.2em]">
               <span className="flex items-center gap-2">
                 <ICONS.Heart style={{ color: accentHex }} className="w-4 h-4" />
@@ -287,7 +288,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
               </button>
             </h3>
             <div
-              className="flex items-center gap-4 p-5 rounded-[2rem] border relative overflow-hidden group"
+              className="flex items-center gap-4 p-5 rounded-2xl border relative overflow-hidden group"
               style={{ backgroundColor: `${accentHex}15`, borderColor: `${accentHex}30` }}
             >
               <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
@@ -311,7 +312,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
         )}
 
         {/* Customisation Section */}
-        <div className="glass-card rounded-[2.5rem] overflow-hidden">
+        <div className="glass-card rounded-2xl overflow-hidden">
           <button
             onClick={() => setShowCustomisation(!showCustomisation)}
             className="w-full p-6 flex items-center justify-between hover:opacity-80 transition-opacity"
@@ -333,24 +334,49 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
               {/* Accent Color */}
               <div>
                 <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">{t('profile.customisation.accentColor')}</label>
+                <div className="flex flex-wrap gap-3">
+                  {(Object.keys(ACCENT_COLORS) as AccentColor[]).map((color) => {
+                    const pair = ACCENT_COLORS[color];
+                    const isSelected = theme.accentColor === color;
+                    return (
+                      <button
+                        key={color}
+                        onClick={() => setAccentColor(color)}
+                        className={`flex flex-col items-center gap-1 transition-all ${isSelected ? 'scale-105' : 'opacity-70 hover:opacity-100'}`}
+                      >
+                        <div className={`relative w-12 h-8 rounded-full overflow-hidden border-2 transition-colors ${isSelected ? 'border-[var(--accent-color)] shadow-md' : 'border-transparent'}`}>
+                          <div className="absolute inset-0 w-1/2" style={{ backgroundColor: pair.primary }} />
+                          <div className="absolute inset-0 left-1/2" style={{ backgroundColor: pair.secondary.primary }} />
+                        </div>
+                        {isSelected && (
+                          <span className="text-[9px] font-bold text-[var(--text-primary)]">{pair.name}</span>
+                        )}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Background Style */}
+              <div>
+                <label className="text-scale-micro font-bold uppercase tracking-wider text-[var(--text-secondary)] mb-2 block">
+                  BACKGROUND STYLE
+                </label>
                 <div className="flex gap-3">
-                  {(Object.keys(ACCENT_COLORS) as AccentColor[]).map((color) => (
+                  {(['tinted', 'clean'] as BackgroundStyle[]).map((style) => (
                     <button
-                      key={color}
-                      onClick={() => setAccentColor(color)}
-                      className={`relative w-12 h-12 rounded-full transition-transform hover:scale-110 ${
-                        theme.accentColor === color ? 'ring-2 ring-offset-2 ring-[var(--text-primary)] scale-110' : ''
+                      key={style}
+                      onClick={() => setBackgroundStyle(style)}
+                      className={`flex-1 py-3 px-4 rounded-xl text-scale-label font-bold transition-all ${
+                        theme.backgroundStyle === style
+                          ? 'bg-[var(--accent-color)] text-white shadow-md'
+                          : 'glass-card text-[var(--text-secondary)]'
                       }`}
-                      style={{ backgroundColor: ACCENT_COLORS[color].primary }}
-                      title={ACCENT_COLORS[color].name}
                     >
-                      {theme.accentColor === color && (
-                        <ICONS.Check className="w-5 h-5 text-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-                      )}
+                      {style === 'tinted' ? 'Tinted' : 'Clean'}
                     </button>
                   ))}
                 </div>
-                <p className="text-scale-caption text-[var(--text-secondary)] mt-2">{ACCENT_COLORS[theme.accentColor].name}</p>
               </div>
 
               {/* Dark Mode */}
@@ -636,7 +662,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
         </div>
 
         {/* Advanced Settings */}
-        <div className="glass-card rounded-[2.5rem] overflow-hidden">
+        <div className="glass-card rounded-2xl overflow-hidden">
           <button
             onClick={() => setShowAdvanced(!showAdvanced)}
             className="w-full p-6 flex items-center justify-between hover:opacity-80 transition-opacity"
@@ -759,7 +785,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                       type="text"
                       value={editData.learnerName || ''}
                       onChange={(e) => updateField('learnerName', e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] focus:border-teal-300 focus:outline-none"
+                      className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] focus:border-[var(--accent-border)] focus:outline-none"
                     />
                   </div>
 
@@ -768,7 +794,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                     <select
                       value={editData.relationshipType || ''}
                       onChange={(e) => updateField('relationshipType', e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] focus:border-teal-300 focus:outline-none bg-[var(--bg-card)]"
+                      className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] focus:border-[var(--accent-border)] focus:outline-none bg-[var(--bg-card)]"
                     >
                       <option value="">{t('profile.advanced.select')}</option>
                       {RELATION_OPTIONS.map(r => <option key={r} value={r} className="capitalize">{t(`profile.relationOptions.${r}`, r.charAt(0).toUpperCase() + r.slice(1))}</option>)}
@@ -780,7 +806,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                     <select
                       value={editData.languageConnection || editData.polishConnection || ''}
                       onChange={(e) => updateField('languageConnection', e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] focus:border-teal-300 focus:outline-none bg-[var(--bg-card)]"
+                      className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] focus:border-[var(--accent-border)] focus:outline-none bg-[var(--bg-card)]"
                     >
                       <option value="">{t('profile.advanced.select')}</option>
                       {CONNECTION_OPTIONS.map(c => <option key={c} value={c} className="capitalize">{t(`profile.connectionOptions.${c}`, c.charAt(0).toUpperCase() + c.slice(1))}</option>)}
@@ -792,7 +818,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                     <select
                       value={editData.languageOrigin || editData.polishOrigin || ''}
                       onChange={(e) => updateField('languageOrigin', e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] focus:border-teal-300 focus:outline-none bg-[var(--bg-card)]"
+                      className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] focus:border-[var(--accent-border)] focus:outline-none bg-[var(--bg-card)]"
                     >
                       <option value="">{t('profile.advanced.select')}</option>
                       <option value="poland">{t('profile.originOptions.grewUp')}</option>
@@ -808,7 +834,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                       type="text"
                       value={editData.dreamPhrase || ''}
                       onChange={(e) => updateField('dreamPhrase', e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] focus:border-teal-300 focus:outline-none"
+                      className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] focus:border-[var(--accent-border)] focus:outline-none"
                       placeholder={t('profile.advanced.dreamPhrasePlaceholder')}
                     />
                   </div>
@@ -818,7 +844,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                     <select
                       value={editData.teachingStyle || ''}
                       onChange={(e) => updateField('teachingStyle', e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] focus:border-teal-300 focus:outline-none bg-[var(--bg-card)]"
+                      className="w-full px-4 py-3 rounded-xl border border-[var(--border-color)] focus:border-[var(--accent-border)] focus:outline-none bg-[var(--bg-card)]"
                     >
                       <option value="">{t('profile.advanced.select')}</option>
                       <option value="patient">{t('profile.styleOptions.patient')}</option>
@@ -839,7 +865,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
                     ? 'bg-green-500'
                     : profile.role === 'student'
                       ? 'bg-[var(--accent-color)] hover:bg-[var(--accent-hover)]'
-                      : 'bg-teal-500 hover:bg-teal-600'
+                      : 'bg-[var(--accent-color)] hover:bg-[var(--accent-hover)]'
                 } disabled:opacity-50`}
               >
                 {saving ? t('profile.buttons.saving') : saved ? t('profile.buttons.saved') : t('profile.buttons.saveChanges')}
@@ -849,7 +875,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
         </div>
 
         {/* Extras Section */}
-        <div className="glass-card rounded-[2.5rem] overflow-hidden">
+        <div className="glass-card rounded-2xl overflow-hidden">
           <div className="p-6">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: `${accentHex}20` }}>

@@ -75,9 +75,9 @@ const MobileSection: React.FC<MobileSectionProps> = ({
                 className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-sm shadow-md text-scale-caption font-bold transition-all active:scale-95"
               >
                 <span>{LANGUAGE_CONFIGS[nativeLanguage as LanguageCode]?.flag}</span>
-                <span className="text-gray-400">&rarr;</span>
+                <span className="text-[var(--text-secondary)]">&rarr;</span>
                 <span>{LANGUAGE_CONFIGS[selectedTargetLanguage as LanguageCode]?.flag}</span>
-                <span className="text-gray-400 text-scale-micro">{t('hero.languageSelector.change', 'Change')}</span>
+                <span className="text-[var(--text-secondary)] text-scale-micro">{t('hero.languageSelector.change', 'Change')}</span>
               </button>
             ) : (
               <div className="h-8" />

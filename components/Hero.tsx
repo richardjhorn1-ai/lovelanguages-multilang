@@ -668,7 +668,7 @@ const Hero: React.FC = () => {
     <div
       className="min-h-screen flex flex-col"
       style={{
-        backgroundColor: isStudent ? '#FFF0F3' : '#ccfbf1',
+        backgroundColor: isStudent ? BRAND.light : '#ccfbf1',
         color: 'var(--text-primary)',
         // Prevent inherited CSS variables from affecting this component
         isolation: 'isolate',
@@ -958,7 +958,7 @@ const Hero: React.FC = () => {
               aria-label="Language selection"
             />
             {/* Divider */}
-            <div className="w-px h-2 bg-gray-300 mx-1" />
+            <div className="w-px h-2 bg-[var(--border-color)] mx-1" />
             {/* Marketing sections (9 dots on mobile: 0-8) */}
             {Array.from({ length: 9 }).map((_, i) => (
               <button
@@ -999,7 +999,7 @@ const Hero: React.FC = () => {
                     type="button"
                     onClick={() => handleMobileOAuthSignIn('google')}
                     disabled={loading || oauthLoading !== null}
-                    className="w-full flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-[var(--border-color)] bg-white font-semibold text-[var(--text-primary)] text-scale-label transition-all hover:border-gray-300 disabled:opacity-50"
+                    className="w-full flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-[var(--border-color)] bg-[var(--bg-card)] font-semibold text-[var(--text-primary)] text-scale-label transition-all hover:border-[var(--border-color)] disabled:opacity-50"
                   >
                     {oauthLoading === 'google' ? (
                       <div className="w-4 h-4 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin" />
@@ -1039,15 +1039,15 @@ const Hero: React.FC = () => {
 
                 {/* Divider — switch to email */}
                 <div className="flex items-center gap-3 mt-4">
-                  <div className="flex-1 h-px bg-gray-200" />
+                  <div className="flex-1 h-px bg-[var(--border-color)]" />
                   <button
                     type="button"
                     onClick={() => { setShowMobileEmailForm(true); setMessage(''); }}
-                    className="text-scale-micro font-bold uppercase tracking-widest text-gray-400 hover:text-gray-600 transition-colors"
+                    className="text-scale-micro font-bold uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:opacity-80 transition-colors"
                   >
                     {t('hero.login.orContinueWithEmail', 'or continue with email')}
                   </button>
-                  <div className="flex-1 h-px bg-gray-200" />
+                  <div className="flex-1 h-px bg-[var(--border-color)]" />
                 </div>
               </>
             )}
@@ -1071,7 +1071,7 @@ const Hero: React.FC = () => {
                     value={email}
                     onChange={(e) => { setEmail(e.target.value); if (message) setMessage(''); }}
                     required
-                    className="w-full px-4 py-3 rounded-xl border-2 focus:outline-none transition-all placeholder:text-gray-400 font-bold text-scale-label"
+                    className="w-full px-4 py-3 rounded-xl border-2 focus:outline-none transition-all placeholder:text-[var(--text-secondary)] font-bold text-scale-label"
                     style={{ backgroundColor: 'var(--bg-card)', color: 'var(--text-primary)', borderColor: mobileHasError ? '#ef4444' : 'var(--border-color)' }}
                     onFocus={(e) => e.target.style.borderColor = mobileHasError ? '#ef4444' : accentColor}
                     onBlur={(e) => e.target.style.borderColor = mobileHasError ? '#ef4444' : 'var(--border-color)'}
@@ -1084,7 +1084,7 @@ const Hero: React.FC = () => {
                       value={password}
                       onChange={(e) => { setPassword(e.target.value); if (message) setMessage(''); setMobileConfirmPasswordError(''); }}
                       required
-                      className="w-full px-4 py-3 pr-11 rounded-xl border-2 focus:outline-none transition-all placeholder:text-gray-400 font-bold text-scale-label"
+                      className="w-full px-4 py-3 pr-11 rounded-xl border-2 focus:outline-none transition-all placeholder:text-[var(--text-secondary)] font-bold text-scale-label"
                       style={{ backgroundColor: 'var(--bg-card)', color: 'var(--text-primary)', borderColor: mobileHasError ? '#ef4444' : 'var(--border-color)' }}
                       onFocus={(e) => e.target.style.borderColor = mobileHasError ? '#ef4444' : accentColor}
                       onBlur={(e) => e.target.style.borderColor = mobileHasError ? '#ef4444' : 'var(--border-color)'}
@@ -1093,7 +1093,7 @@ const Hero: React.FC = () => {
                     <button
                       type="button"
                       onClick={() => setMobileShowPassword(!mobileShowPassword)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-gray-600 transition-colors"
+                      className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:opacity-80 transition-colors"
                       tabIndex={-1}
                     >
                       {mobileShowPassword ? (
@@ -1119,7 +1119,7 @@ const Hero: React.FC = () => {
                           value={mobileConfirmPassword}
                           onChange={(e) => { setMobileConfirmPassword(e.target.value); setMobileConfirmPasswordError(''); }}
                           required
-                          className="w-full px-4 py-3 pr-11 rounded-xl border-2 focus:outline-none transition-all placeholder:text-gray-400 font-bold text-scale-label"
+                          className="w-full px-4 py-3 pr-11 rounded-xl border-2 focus:outline-none transition-all placeholder:text-[var(--text-secondary)] font-bold text-scale-label"
                           style={{ backgroundColor: 'var(--bg-card)', color: 'var(--text-primary)', borderColor: mobileConfirmPasswordError ? '#ef4444' : 'var(--border-color)' }}
                           onFocus={(e) => e.target.style.borderColor = mobileConfirmPasswordError ? '#ef4444' : accentColor}
                           onBlur={(e) => e.target.style.borderColor = mobileConfirmPasswordError ? '#ef4444' : 'var(--border-color)'}
@@ -1128,7 +1128,7 @@ const Hero: React.FC = () => {
                         <button
                           type="button"
                           onClick={() => setMobileShowConfirmPassword(!mobileShowConfirmPassword)}
-                          className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-gray-400 hover:text-gray-600 transition-colors"
+                          className="absolute right-3 top-1/2 -translate-y-1/2 p-1 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:opacity-80 transition-colors"
                           tabIndex={-1}
                         >
                           {mobileShowConfirmPassword ? (
@@ -1192,15 +1192,15 @@ const Hero: React.FC = () => {
 
                 {/* Divider — switch back to OAuth */}
                 <div className="flex items-center gap-3 mt-4">
-                  <div className="flex-1 h-px bg-gray-200" />
+                  <div className="flex-1 h-px bg-[var(--border-color)]" />
                   <button
                     type="button"
                     onClick={() => { setShowMobileEmailForm(false); setMessage(''); }}
-                    className="text-scale-micro font-bold uppercase tracking-widest text-gray-400 hover:text-gray-600 transition-colors"
+                    className="text-scale-micro font-bold uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:opacity-80 transition-colors"
                   >
                     {t('hero.login.orSignInWith', 'or sign in with')}
                   </button>
-                  <div className="flex-1 h-px bg-gray-200" />
+                  <div className="flex-1 h-px bg-[var(--border-color)]" />
                 </div>
 
                 {/* Success messages */}
@@ -1280,7 +1280,7 @@ const Hero: React.FC = () => {
               }`}
             >
               {/* Logo - sticky at top */}
-              <div className="sticky top-0 pb-6 pt-2 -mt-2 z-10" style={{ backgroundColor: isStudent ? '#FFF0F3' : '#ccfbf1' }}>
+              <div className="sticky top-0 pb-6 pt-2 -mt-2 z-10" style={{ backgroundColor: isStudent ? BRAND.light : '#ccfbf1' }}>
                 <div className="flex items-center gap-3">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -1333,7 +1333,7 @@ const Hero: React.FC = () => {
                     >
                       <span className="text-lg">{LANGUAGE_CONFIGS[nativeLanguage]?.flag}</span>
                       <span className="text-scale-label font-bold text-[var(--text-secondary)]">{LANGUAGE_CONFIGS[nativeLanguage]?.nativeName}</span>
-                      <span className="text-gray-400">→</span>
+                      <span className="text-[var(--text-secondary)]">→</span>
                       <span className="text-lg">{LANGUAGE_CONFIGS[selectedTargetLanguage]?.flag}</span>
                       <span className="text-scale-label font-bold text-[var(--text-secondary)]">{LANGUAGE_CONFIGS[selectedTargetLanguage]?.nativeName}</span>
                     </button>
@@ -1398,7 +1398,7 @@ const Hero: React.FC = () => {
               aria-label="Language selection"
             />
             {/* Divider */}
-            <div className="w-2 h-px bg-gray-300 my-1" />
+            <div className="w-2 h-px bg-[var(--border-color)] my-1" />
             {/* Marketing sections + bottom sections (10 dots: 0-5 marketing, 6-9 bottom) */}
             {Array.from({ length: 10 }).map((_, i) => (
               <button

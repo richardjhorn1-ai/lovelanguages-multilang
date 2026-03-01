@@ -174,7 +174,7 @@ export const TypeIt: React.FC<TypeItProps> = ({
 
   return (
     <div
-      className={`glass-card rounded-[2.5rem] p-8 ${
+      className={`glass-card rounded-2xl p-8 ${
         localShake || showIncorrectShake ? 'animate-shake' : ''
       }`}
     >
@@ -227,8 +227,8 @@ export const TypeIt: React.FC<TypeItProps> = ({
         <div
           className={`text-center mb-4 p-3 rounded-xl border ${
             isCorrect
-              ? 'bg-green-500/10 border-green-500/30 text-green-500'
-              : 'bg-red-500/10 border-red-500/30 text-red-500'
+              ? 'bg-[var(--color-correct-bg)] border-[var(--color-correct)]/30 text-[var(--color-correct)]'
+              : 'bg-[var(--color-incorrect-bg)] border-[var(--color-incorrect)]/30 text-[var(--color-incorrect)]'
           }`}
         >
           {isCorrect ? (

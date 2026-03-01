@@ -39,7 +39,7 @@ const BreakupModal: React.FC<BreakupModalProps> = ({
 
   return (
     <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
-      <div className="glass-card-solid rounded-[2rem] max-w-md w-full max-h-[80vh] flex flex-col overflow-hidden">
+      <div className="glass-card-solid rounded-2xl max-w-md w-full max-h-[80vh] flex flex-col overflow-hidden">
 
         {step === 'warning' && (
           <div className="flex flex-col flex-1 min-h-0">
@@ -110,7 +110,7 @@ const BreakupModal: React.FC<BreakupModalProps> = ({
             <div className="overflow-y-auto flex-1 p-8 pb-0">
               <div className="text-center mb-6">
                 <div className="w-16 h-16 rounded-full bg-red-50 dark:bg-red-900/20 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-3xl">🥀</span>
+                  <ICONS.HeartCrack className="w-8 h-8 text-red-400" />
                 </div>
                 <h2 className="text-xl font-black font-header text-[var(--text-primary)] mb-2">
                   {t('breakup.confirm.title')}
@@ -131,7 +131,7 @@ const BreakupModal: React.FC<BreakupModalProps> = ({
                 value={confirmText}
                 onChange={(e) => setConfirmText(e.target.value.toLowerCase())}
                 placeholder={t('breakup.confirm.placeholder')}
-                className="w-full px-6 py-4 rounded-2xl bg-[var(--bg-primary)] dark:bg-[var(--bg-card)] text-[var(--text-primary)] border-2 border-transparent focus:bg-white dark:focus:bg-[var(--bg-primary)] focus:border-red-300 dark:focus:border-red-700 focus:outline-none transition-all text-center text-lg font-bold placeholder:text-[var(--text-secondary)] placeholder:font-normal mb-4"
+                className="w-full px-6 py-4 rounded-2xl bg-[var(--bg-primary)] dark:bg-[var(--bg-card)] text-[var(--text-primary)] border-2 border-transparent focus:bg-[var(--bg-card)] dark:focus:bg-[var(--bg-primary)] focus:border-red-300 dark:focus:border-red-700 focus:outline-none transition-all text-center text-lg font-bold placeholder:text-[var(--text-secondary)] placeholder:font-normal mb-4"
                 autoFocus
               />
             </div>
@@ -172,7 +172,7 @@ const BreakupModal: React.FC<BreakupModalProps> = ({
         {step === 'complete' && (
           <div className="p-12 text-center">
             <div className="w-16 h-16 rounded-full bg-[var(--bg-primary)] dark:bg-[var(--bg-card)] flex items-center justify-center mx-auto mb-4">
-              <span className="text-3xl">🕊️</span>
+              <ICONS.Bird className="w-8 h-8 text-[var(--text-secondary)]" />
             </div>
             <h2 className="text-xl font-black font-header text-[var(--text-primary)] mb-2">
               {t('breakup.complete.title')}

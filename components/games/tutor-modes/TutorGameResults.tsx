@@ -142,8 +142,8 @@ export const TutorGameResults: React.FC<TutorGameResultsProps> = ({
 
   return (
     <div className="h-full flex items-center justify-center p-4">
-      <div className="glass-card p-8 rounded-[2rem] text-center max-w-sm w-full">
-        <div className="mb-4">{percentage >= 70 ? <ICONS.Trophy className="w-16 h-16 mx-auto text-green-500" /> : <ICONS.TrendingUp className="w-16 h-16 mx-auto text-teal-500" />}</div>
+      <div className="glass-card p-8 rounded-2xl text-center max-w-sm w-full">
+        <div className="mb-4">{percentage >= 70 ? <ICONS.Trophy className="w-16 h-16 mx-auto text-[var(--color-correct)]" /> : <ICONS.TrendingUp className="w-16 h-16 mx-auto text-[var(--accent-color)]" />}</div>
         <h2 className="text-2xl font-black font-header text-[var(--text-primary)] mb-2">
           {percentage >= 70 ? t('tutorGames.gameOver.greatJob') : t('tutorGames.gameOver.keepPracticing')}
         </h2>
@@ -187,8 +187,8 @@ export const TutorGameResults: React.FC<TutorGameResultsProps> = ({
 
         {/* Success message */}
         {savedSuccess && (
-          <div className="mb-4 p-3 bg-green-500/10 rounded-xl border border-green-500/30">
-            <p className="text-scale-label text-green-500 font-bold flex items-center justify-center gap-2">
+          <div className="mb-4 p-3 bg-[var(--color-correct-bg)] rounded-xl border border-[var(--color-correct)]">
+            <p className="text-scale-label text-[var(--color-correct)] font-bold flex items-center justify-center gap-2">
               <ICONS.Check className="w-4 h-4" />
               {t('tutorGames.gameOver.savedSuccess', { name: partnerName })}
             </p>

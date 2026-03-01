@@ -298,7 +298,7 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
   };
 
   return (
-    <div className="glass-card rounded-[2.5rem] overflow-hidden">
+    <div className="glass-card rounded-2xl overflow-hidden">
       <button
         onClick={() => setIsExpanded(!isExpanded)}
         className="w-full p-6 flex items-center justify-between hover:opacity-80 transition-opacity"
@@ -321,13 +321,13 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
         <div className="px-6 pb-6 space-y-4">
           {/* Messages */}
           {error && (
-            <div className="p-3 bg-red-50 border border-red-200 rounded-xl">
-              <p className="text-red-700 text-sm font-semibold">{error}</p>
+            <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl">
+              <p className="text-red-700 dark:text-red-300 text-sm font-semibold">{error}</p>
             </div>
           )}
           {message && (
-            <div className="p-3 bg-green-50 border border-green-200 rounded-xl">
-              <p className="text-green-700 text-sm font-semibold">{message}</p>
+            <div className="p-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl">
+              <p className="text-green-700 dark:text-green-300 text-sm font-semibold">{message}</p>
             </div>
           )}
 
@@ -361,7 +361,7 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
                   value={newEmail}
                   onChange={(e) => setNewEmail(e.target.value)}
                   placeholder={t('accountSettings.newEmailPlaceholder')}
-                  className="w-full px-4 py-3 rounded-xl border-2 border-[var(--border-color)] focus:border-rose-400 focus:outline-none transition-all"
+                  className="w-full px-4 py-3 rounded-xl border-2 border-[var(--border-color)] focus:border-[var(--accent-color)] focus:outline-none transition-all"
                 />
                 <button
                   type="submit"
@@ -406,13 +406,13 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
 
               {/* Promo messages */}
               {promoError && (
-                <div className="p-3 mb-3 bg-red-50 border border-red-200 rounded-xl">
-                  <p className="text-red-700 text-sm font-semibold">{promoError}</p>
+                <div className="p-3 mb-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl">
+                  <p className="text-red-700 dark:text-red-300 text-sm font-semibold">{promoError}</p>
                 </div>
               )}
               {promoMessage && (
-                <div className="p-3 mb-3 bg-green-50 border border-green-200 rounded-xl">
-                  <p className="text-green-700 text-sm font-semibold">{promoMessage}</p>
+                <div className="p-3 mb-3 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-xl">
+                  <p className="text-green-700 dark:text-green-300 text-sm font-semibold">{promoMessage}</p>
                 </div>
               )}
 
@@ -442,7 +442,7 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
                       value={promoCode}
                       onChange={(e) => setPromoCode(e.target.value.toUpperCase())}
                       placeholder={t('promo.placeholder')}
-                      className="flex-1 px-4 py-3 rounded-xl border-2 border-[var(--border-color)] focus:border-rose-400 focus:outline-none transition-all uppercase"
+                      className="flex-1 px-4 py-3 rounded-xl border-2 border-[var(--border-color)] focus:border-[var(--accent-color)] focus:outline-none transition-all uppercase"
                       disabled={promoLoading}
                     />
                     <button

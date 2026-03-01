@@ -28,7 +28,7 @@ export const StreakIndicator: React.FC<StreakIndicatorProps> = ({
     <div
       className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-xs font-bold ${
         isComplete
-          ? 'bg-green-500/10 text-green-500'
+          ? 'bg-[var(--color-correct-bg)] text-[var(--color-correct)]'
           : 'bg-[var(--accent-light)] text-[var(--accent-color)]'
       }`}
     >

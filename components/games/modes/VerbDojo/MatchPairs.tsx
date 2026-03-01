@@ -134,7 +134,7 @@ export const MatchPairs: React.FC<MatchPairsProps> = ({
       {/* Header */}
       <div
         className="p-4 rounded-2xl border mb-6 text-center"
-        style={{ backgroundColor: `${accentColor}10`, borderColor: `${accentColor}30` }}
+        style={{ backgroundColor: `${accentColor}15`, borderColor: `${accentColor}25` }}
       >
         <p className="text-scale-caption font-bold uppercase tracking-wider mb-1" style={{ color: accentColor }}>
           {t(`loveLog.modal.${tense}`, tense)} tense
@@ -172,11 +172,11 @@ export const MatchPairs: React.FC<MatchPairsProps> = ({
                 disabled={isMatched}
                 className={`w-full p-3 rounded-xl font-bold text-lg transition-all ${
                   isMatched
-                    ? 'bg-green-500/20 text-green-700 dark:text-green-400 border-2 border-green-500/50'
+                    ? 'bg-[var(--color-correct-bg)] text-[var(--color-correct)] border-2 border-[var(--color-correct)]'
                     : isSelected
                     ? 'bg-[var(--accent-color)]/20 border-2 border-[var(--accent-color)] scale-105'
                     : isWrong
-                    ? 'bg-red-500/20 border-2 border-red-500 animate-shake'
+                    ? 'bg-[var(--color-incorrect-bg)] border-2 border-[var(--color-incorrect)] animate-shake'
                     : 'bg-[var(--bg-card)] border-2 border-[var(--border-color)] hover:border-[var(--accent-color)]/50'
                 }`}
                 style={{ '--accent-color': accentColor } as React.CSSProperties}
@@ -201,11 +201,11 @@ export const MatchPairs: React.FC<MatchPairsProps> = ({
                 disabled={isMatched}
                 className={`w-full p-3 rounded-xl font-bold text-lg transition-all ${
                   isMatched
-                    ? 'bg-green-500/20 text-green-700 dark:text-green-400 border-2 border-green-500/50'
+                    ? 'bg-[var(--color-correct-bg)] text-[var(--color-correct)] border-2 border-[var(--color-correct)]'
                     : isSelected
                     ? 'bg-[var(--accent-color)]/20 border-2 border-[var(--accent-color)] scale-105'
                     : isWrong
-                    ? 'bg-red-500/20 border-2 border-red-500 animate-shake'
+                    ? 'bg-[var(--color-incorrect-bg)] border-2 border-[var(--color-incorrect)] animate-shake'
                     : 'bg-[var(--bg-card)] border-2 border-[var(--border-color)] hover:border-[var(--accent-color)]/50'
                 }`}
                 style={{ '--accent-color': accentColor } as React.CSSProperties}
@@ -219,8 +219,8 @@ export const MatchPairs: React.FC<MatchPairsProps> = ({
 
       {/* Completion state */}
       {allMatched && (
-        <div className="text-center p-4 bg-green-500/10 rounded-xl">
-          <p className="text-green-600 dark:text-green-400 font-bold text-lg">
+        <div className="text-center p-4 bg-[var(--color-correct-bg)] rounded-xl">
+          <p className="text-[var(--color-correct)] font-bold text-lg">
             ✓ {t('play.verbDojo.matchPairs.complete', 'All matched!')}
           </p>
         </div>

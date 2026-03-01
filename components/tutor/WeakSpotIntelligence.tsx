@@ -33,7 +33,7 @@ const WeakSpotIntelligence: React.FC<WeakSpotIntelligenceProps> = ({
   const { t } = useTranslation();
 
   return (
-    <div className="glass-card p-4 md:p-6 rounded-xl md:rounded-[2rem]">
+    <div className="glass-card p-4 md:p-6 rounded-xl md:rounded-2xl">
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-scale-micro font-black font-header uppercase text-[var(--text-secondary)] tracking-widest flex items-center gap-2">
           <ICONS.Target className="w-4 h-4" style={{ color: tierColor }} />

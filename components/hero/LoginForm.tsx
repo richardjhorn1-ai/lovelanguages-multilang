@@ -197,7 +197,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
               type="button"
               onClick={() => handleOAuthSignIn('google')}
               disabled={loading || oauthLoading !== null}
-              className="w-full flex items-center justify-center gap-3 py-4 rounded-2xl border-2 border-[var(--border-color)] bg-white font-semibold text-[var(--text-primary)] transition-all hover:border-gray-300 hover:bg-[var(--bg-primary)] disabled:opacity-50"
+              className="w-full flex items-center justify-center gap-3 py-4 rounded-2xl border-2 border-[var(--border-color)] bg-[var(--bg-card)] font-semibold text-[var(--text-primary)] transition-all hover:border-[var(--border-color)] hover:bg-[var(--bg-primary)] disabled:opacity-50"
             >
               {oauthLoading === 'google' ? (
                 <div className="w-5 h-5 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin" />
@@ -237,15 +237,15 @@ const LoginForm: React.FC<LoginFormProps> = ({
 
           {/* Divider — switch to email */}
           <div className="flex items-center gap-4 mt-5">
-            <div className="flex-1 h-px bg-gray-200" />
+            <div className="flex-1 h-px bg-[var(--border-color)]" />
             <button
               type="button"
               onClick={() => { setShowEmailForm(true); setMessage(''); }}
-              className="text-scale-caption font-bold uppercase tracking-widest text-gray-400 hover:text-gray-600 transition-colors"
+              className="text-scale-caption font-bold uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:opacity-80 transition-colors"
             >
               {t('hero.login.orContinueWithEmail', 'or continue with email')}
             </button>
-            <div className="flex-1 h-px bg-gray-200" />
+            <div className="flex-1 h-px bg-[var(--border-color)]" />
           </div>
         </>
       )}
@@ -271,7 +271,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
                 value={email}
                 onChange={(e) => { setEmail(e.target.value); if (message) setMessage(''); }}
                 required
-                className="w-full px-6 py-5 rounded-2xl border-2 focus:outline-none transition-all placeholder:text-gray-400 font-bold text-scale-body"
+                className="w-full px-6 py-5 rounded-2xl border-2 focus:outline-none transition-all placeholder:text-[var(--text-secondary)] font-bold text-scale-body"
                 style={{ backgroundColor: 'var(--bg-card)', color: 'var(--text-primary)', borderColor: hasError ? errorBorderColor : 'var(--border-color)' }}
                 onFocus={(e) => e.target.style.borderColor = hasError ? errorBorderColor : accentColor}
                 onBlur={(e) => e.target.style.borderColor = hasError ? errorBorderColor : 'var(--border-color)'}
@@ -289,7 +289,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
                   value={password}
                   onChange={(e) => { setPassword(e.target.value); if (message) setMessage(''); setConfirmPasswordError(''); }}
                   required={!showForgotPassword}
-                  className="w-full px-6 py-5 pr-14 rounded-2xl border-2 focus:outline-none transition-all placeholder:text-gray-400 font-bold text-scale-body"
+                  className="w-full px-6 py-5 pr-14 rounded-2xl border-2 focus:outline-none transition-all placeholder:text-[var(--text-secondary)] font-bold text-scale-body"
                   style={{ backgroundColor: 'var(--bg-card)', color: 'var(--text-primary)', borderColor: hasError ? errorBorderColor : 'var(--border-color)' }}
                   onFocus={(e) => e.target.style.borderColor = hasError ? errorBorderColor : accentColor}
                   onBlur={(e) => e.target.style.borderColor = hasError ? errorBorderColor : 'var(--border-color)'}
@@ -298,7 +298,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-gray-400 hover:text-gray-600 transition-colors"
+                  className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:opacity-80 transition-colors"
                   tabIndex={-1}
                 >
                   {showPassword ? (
@@ -339,7 +339,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
                     value={confirmPassword}
                     onChange={(e) => { setConfirmPassword(e.target.value); setConfirmPasswordError(''); }}
                     required
-                    className="w-full px-6 py-5 pr-14 rounded-2xl border-2 focus:outline-none transition-all placeholder:text-gray-400 font-bold text-scale-body"
+                    className="w-full px-6 py-5 pr-14 rounded-2xl border-2 focus:outline-none transition-all placeholder:text-[var(--text-secondary)] font-bold text-scale-body"
                     style={{ backgroundColor: 'var(--bg-card)', color: 'var(--text-primary)', borderColor: confirmPasswordError ? '#ef4444' : 'var(--border-color)' }}
                     onFocus={(e) => e.target.style.borderColor = confirmPasswordError ? '#ef4444' : accentColor}
                     onBlur={(e) => e.target.style.borderColor = confirmPasswordError ? '#ef4444' : 'var(--border-color)'}
@@ -348,7 +348,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
                   <button
                     type="button"
                     onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                    className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-gray-400 hover:text-gray-600 transition-colors"
+                    className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:opacity-80 transition-colors"
                     tabIndex={-1}
                   >
                     {showConfirmPassword ? (
@@ -375,7 +375,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
                 type="button"
                 onClick={handleForgotPassword}
                 disabled={resetLoading || !email}
-                className="w-full text-white font-black py-5 rounded-[2rem] shadow-2xl transition-all duration-300 active:scale-[0.98] disabled:opacity-50 text-scale-body uppercase tracking-[0.15em] mt-4 hover:scale-[1.02]"
+                className="w-full text-white font-black py-5 rounded-2xl shadow-2xl transition-all duration-300 active:scale-[0.98] disabled:opacity-50 text-scale-body uppercase tracking-[0.15em] mt-4 hover:scale-[1.02]"
                 style={{ backgroundColor: accentColor, boxShadow: `0 20px 40px -10px ${accentShadow}` }}
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = accentHover}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = accentColor}
@@ -386,7 +386,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
               <button
                 type="submit"
                 disabled={loading || oauthLoading !== null}
-                className="w-full text-white font-black py-5 rounded-[2rem] shadow-2xl transition-all duration-300 active:scale-[0.98] disabled:opacity-50 text-scale-body uppercase tracking-[0.15em] mt-4 hover:scale-[1.02]"
+                className="w-full text-white font-black py-5 rounded-2xl shadow-2xl transition-all duration-300 active:scale-[0.98] disabled:opacity-50 text-scale-body uppercase tracking-[0.15em] mt-4 hover:scale-[1.02]"
                 style={{ backgroundColor: accentColor, boxShadow: `0 20px 40px -10px ${accentShadow}` }}
                 onMouseEnter={(e) => e.currentTarget.style.backgroundColor = accentHover}
                 onMouseLeave={(e) => e.currentTarget.style.backgroundColor = accentColor}
@@ -402,15 +402,15 @@ const LoginForm: React.FC<LoginFormProps> = ({
 
           {/* Divider — switch back to OAuth */}
           <div className="flex items-center gap-4 mt-6">
-            <div className="flex-1 h-px bg-gray-200" />
+            <div className="flex-1 h-px bg-[var(--border-color)]" />
             <button
               type="button"
               onClick={() => { setShowEmailForm(false); setMessage(''); }}
-              className="text-scale-caption font-bold uppercase tracking-widest text-gray-400 hover:text-gray-600 transition-colors"
+              className="text-scale-caption font-bold uppercase tracking-widest text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:opacity-80 transition-colors"
             >
               {t('hero.login.orSignInWith', 'or sign in with')}
             </button>
-            <div className="flex-1 h-px bg-gray-200" />
+            <div className="flex-1 h-px bg-[var(--border-color)]" />
           </div>
 
           {/* Success messages (like email confirmation) */}

@@ -322,7 +322,7 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
         <div className="text-center mb-8">
           <div
             className="w-16 h-16 md:w-20 md:h-20 mx-auto rounded-2xl flex items-center justify-center mb-4"
-            style={{ backgroundColor: `${accentColor}20`, color: accentColor }}
+            style={{ backgroundColor: `${accentColor}15`, color: accentColor }}
           >
             <ICONS.Fist className="w-8 h-8 md:w-10 md:h-10" />
           </div>
@@ -431,11 +431,11 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
           </button>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-1">
-              <ICONS.Fire className="w-5 h-5 text-orange-500" />
+              <ICONS.Fire className="w-5 h-5 text-[var(--color-warning)]" />
               <span className="font-bold text-[var(--text-primary)]">{streak}</span>
             </div>
             <div className="flex items-center gap-1">
-              <ICONS.Star className="w-5 h-5 text-amber-500" />
+              <ICONS.Star className="w-5 h-5 text-[var(--color-warning)]" />
               <span className="font-bold text-[var(--text-primary)]">{xpEarned}</span>
             </div>
           </div>
@@ -530,7 +530,7 @@ const MultipleChoiceInline: React.FC<{
       {/* Question card */}
       <div
         className="p-6 rounded-2xl border mb-6"
-        style={{ backgroundColor: `${accentColor}10`, borderColor: `${accentColor}30` }}
+        style={{ backgroundColor: `${accentColor}15`, borderColor: `${accentColor}25` }}
       >
         <p className="text-scale-caption font-bold uppercase tracking-wider mb-2" style={{ color: accentColor }}>
           {question.tense} tense
@@ -559,9 +559,9 @@ const MultipleChoiceInline: React.FC<{
               className={`w-full p-4 rounded-xl border-2 text-left font-bold transition-all ${
                 showResult
                   ? isCorrect
-                    ? 'border-green-500 bg-green-500/10 text-green-700 dark:text-green-400'
+                    ? 'border-[var(--color-correct)] bg-[var(--color-correct-bg)] text-[var(--color-correct)]'
                     : isSelected
-                    ? 'border-red-500 bg-red-500/10 text-red-700 dark:text-red-400'
+                    ? 'border-[var(--color-incorrect)] bg-[var(--color-incorrect-bg)] text-[var(--color-incorrect)]'
                     : 'border-[var(--border-color)] opacity-50'
                   : isSelected
                   ? 'border-[var(--accent-color)] bg-[var(--accent-color)]/10'

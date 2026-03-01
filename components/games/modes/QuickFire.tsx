@@ -215,7 +215,7 @@ export const QuickFire: React.FC<QuickFireProps> = ({
   if (phase === 'ready') {
     return (
       <div className="w-full text-center">
-        <div className="glass-card rounded-[2rem] p-8 max-w-md mx-auto">
+        <div className="glass-card rounded-2xl p-8 max-w-md mx-auto">
           <div className="mb-4"><ICONS.Zap className="w-16 h-16 text-[var(--accent-color)] mx-auto" /></div>
           <h2 className="text-2xl font-black font-header text-[var(--text-primary)] mb-2">
             {t('play.quickFire.title')}
@@ -239,7 +239,7 @@ export const QuickFire: React.FC<QuickFireProps> = ({
             {t('play.quickFire.start')}
           </button>
           {words.length < 5 && (
-            <p className="text-scale-label text-red-500 mt-3">
+            <p className="text-scale-label text-[var(--color-incorrect)] mt-3">
               {t('play.quickFire.needAtLeast5')}
             </p>
           )}
@@ -254,9 +254,9 @@ export const QuickFire: React.FC<QuickFireProps> = ({
       <div
         className={`w-full max-w-md mx-auto transition-colors duration-200 rounded-3xl ${
           feedback === 'correct'
-            ? 'bg-green-500/20 animate-correct-glow'
+            ? 'bg-[var(--color-correct-bg)] animate-correct-glow'
             : feedback === 'wrong'
-            ? 'bg-red-500/20 animate-incorrect-flash'
+            ? 'bg-[var(--color-incorrect-bg)] animate-incorrect-flash'
             : ''
         }`}
       >
@@ -267,8 +267,8 @@ export const QuickFire: React.FC<QuickFireProps> = ({
               timeLeft > 30
                 ? 'bg-[var(--accent-color)]'
                 : timeLeft > 15
-                ? 'bg-orange-500'
-                : 'bg-red-500'
+                ? 'bg-[var(--color-warning)]'
+                : 'bg-[var(--color-incorrect)]'
             }`}
             style={{ width: `${(timeLeft / timeLimit) * 100}%` }}
           />

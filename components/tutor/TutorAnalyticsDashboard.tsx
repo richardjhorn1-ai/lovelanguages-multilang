@@ -185,7 +185,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
 
         {/* Tutor Tier Card */}
         <div
-          className="p-4 md:p-6 rounded-xl md:rounded-[2rem] shadow-lg text-white relative overflow-hidden"
+          className="p-4 md:p-6 rounded-xl md:rounded-2xl shadow-lg text-white relative overflow-hidden"
           style={{
             background: `linear-gradient(135deg, ${tierColor} 0%, ${tierColor}dd 100%)`,
           }}
@@ -223,7 +223,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
               </div>
               <div className="h-2 bg-white/20 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-white rounded-full transition-all duration-1000"
+                  className="h-full bg-[var(--bg-card)] rounded-full transition-all duration-1000"
                   style={{ width: `${tierProgress}%` }}
                 />
               </div>
@@ -340,7 +340,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
 
             {/* Recommendations */}
             {analytics && analytics.recommendations?.length > 0 && (
-              <div className="glass-card p-4 md:p-6 rounded-xl md:rounded-[2rem]">
+              <div className="glass-card p-4 md:p-6 rounded-xl md:rounded-2xl">
                 <h3 className="text-scale-micro font-black font-header uppercase text-[var(--text-secondary)] tracking-widest mb-3 flex items-center gap-2">
                   <ICONS.Lightbulb className="w-4 h-4" style={{ color: tierColor }} />
                   {t('tutor.recommendations.title', 'Suggestions')}
@@ -417,7 +417,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
             {/* Partner XP & Level Card */}
             {partnerProfile && (
               <div
-                className="p-4 md:p-6 rounded-xl md:rounded-[2rem] shadow-lg text-white relative overflow-hidden"
+                className="p-4 md:p-6 rounded-xl md:rounded-2xl shadow-lg text-white relative overflow-hidden"
                 style={{
                   background: `linear-gradient(135deg, ${tierColor} 0%, ${tierColor}dd 100%)`,
                 }}
@@ -542,7 +542,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
             )}
 
             {/* Recent Activity */}
-            <div className="glass-card p-4 md:p-6 rounded-xl md:rounded-[2rem]">
+            <div className="glass-card p-4 md:p-6 rounded-xl md:rounded-2xl">
               <h3 className="text-scale-micro font-black font-header uppercase text-[var(--text-secondary)] tracking-widest mb-3 flex items-center gap-2">
                 <ICONS.Clock className="w-4 h-4" style={{ color: tierColor }} />
                 {t('tutor.partner.recentActivity', 'Recent Activity')}

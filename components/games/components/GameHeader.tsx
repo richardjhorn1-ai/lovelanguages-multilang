@@ -50,13 +50,13 @@ export const GameHeader: React.FC<GameHeaderProps> = ({
         {/* Score Counters */}
         <div className="flex gap-4">
           <div className="flex items-center gap-1.5">
-            <div className="w-2 h-2 rounded-full bg-green-500" />
+            <div className="w-2 h-2 rounded-full bg-[var(--color-correct)]" />
             <span className="text-scale-caption font-bold text-[var(--text-secondary)]">
               {score.correct}
             </span>
           </div>
           <div className="flex items-center gap-1.5">
-            <div className="w-2 h-2 rounded-full bg-red-400" />
+            <div className="w-2 h-2 rounded-full bg-[var(--color-incorrect)]" />
             <span className="text-scale-caption font-bold text-[var(--text-secondary)]">
               {score.incorrect}
             </span>

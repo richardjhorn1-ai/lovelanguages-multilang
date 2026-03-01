@@ -498,7 +498,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
         {selectedMode && sessionLength && (
           loadingPhrases ? (
             <div className="text-center py-4 mt-4">
-              <div className="animate-spin w-6 h-6 border-2 border-pink-500 border-t-transparent rounded-full mx-auto mb-2" />
+              <div className="animate-spin w-6 h-6 border-2 border-[var(--accent-color)] border-t-transparent rounded-full mx-auto mb-2" />
               <p className="text-scale-label text-[var(--text-secondary)]">{t('play.aiChallenge.generatingPhrases')}</p>
             </div>
           ) : (
@@ -526,7 +526,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
             className="relative w-full aspect-[4/5] cursor-pointer perspective-1000"
           >
             <div className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${flipped ? 'rotate-y-180' : ''}`}>
-              <div className="absolute inset-0 glass-card rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center backface-hidden">
+              <div className="absolute inset-0 glass-card rounded-2xl p-10 flex flex-col items-center justify-center text-center backface-hidden">
                 <span className="text-[10px] uppercase tracking-widest text-[var(--text-secondary)] font-black mb-8">
                   {targetLanguageName.toUpperCase()}
                 </span>
@@ -545,7 +545,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
                 </p>
               </div>
               <div
-                className="absolute inset-0 text-white rounded-[2.5rem] p-10 flex flex-col items-center justify-center text-center shadow-lg backface-hidden rotate-y-180"
+                className="absolute inset-0 text-white rounded-2xl p-10 flex flex-col items-center justify-center text-center shadow-lg backface-hidden rotate-y-180"
                 style={{ backgroundColor: accentColor }}
               >
                 <span className="text-[10px] uppercase tracking-widest text-white/50 font-black mb-8">
@@ -561,7 +561,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
                   </button>
                   <button
                     onClick={(e) => { e.stopPropagation(); handleFlashcardResponse(true); }}
-                    className="bg-white p-4 rounded-2xl flex items-center justify-center gap-2 font-black uppercase tracking-widest text-scale-caption"
+                    className="bg-[var(--bg-card)] p-4 rounded-2xl flex items-center justify-center gap-2 font-black uppercase tracking-widest text-scale-caption"
                     style={{ color: accentColor }}
                   >
                     <ICONS.Check className="w-4 h-4" /> {t('play.flashcards.gotIt', 'Got it!')}
@@ -574,7 +574,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
 
         {/* Multiple Choice question */}
         {currentQuestion.type === 'multiple_choice' && currentQuestion.options && (
-          <div className={`glass-card rounded-[2.5rem] p-8 ${showShake ? 'animate-shake' : ''}`}>
+          <div className={`glass-card rounded-2xl p-8 ${showShake ? 'animate-shake' : ''}`}>
             <span
               className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6"
               style={{ backgroundColor: `${accentColor}15`, color: accentColor }}
@@ -601,9 +601,9 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
                 let style = 'border-[var(--border-color)] hover:border-[var(--text-secondary)] text-[var(--text-primary)]';
                 if (mcFeedback) {
                   if (isCorrect) {
-                    style = 'border-green-400 bg-green-500/10 border-green-500/30 text-green-500';
+                    style = 'border-[var(--color-correct)] bg-[var(--color-correct-bg)] border-[var(--color-correct)]/30 text-[var(--color-correct)]';
                   } else if (isSelected) {
-                    style = 'border-red-400 bg-red-500/10 border-red-500/30 text-red-500';
+                    style = 'border-[var(--color-incorrect)] bg-[var(--color-incorrect-bg)] border-[var(--color-incorrect)]/30 text-[var(--color-incorrect)]';
                   } else {
                     style = 'border-[var(--border-color)] text-[var(--text-secondary)]';
                   }
@@ -620,8 +620,8 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
                       {String.fromCharCode(65 + idx)}
                     </span>
                     {opt}
-                    {mcFeedback && isCorrect && <ICONS.Check className="w-5 h-5 float-right text-green-500" />}
-                    {mcFeedback && isSelected && !isCorrect && <ICONS.X className="w-5 h-5 float-right text-red-500" />}
+                    {mcFeedback && isCorrect && <ICONS.Check className="w-5 h-5 float-right text-[var(--color-correct)]" />}
+                    {mcFeedback && isSelected && !isCorrect && <ICONS.X className="w-5 h-5 float-right text-[var(--color-incorrect)]" />}
                   </button>
                 );
               })}
@@ -631,7 +631,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
 
         {/* Type It question */}
         {currentQuestion.type === 'type_it' && (
-          <div className={`glass-card rounded-[2.5rem] p-8 ${showShake ? 'animate-shake' : ''}`}>
+          <div className={`glass-card rounded-2xl p-8 ${showShake ? 'animate-shake' : ''}`}>
             <span
               className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6"
               style={{ backgroundColor: `${accentColor}15`, color: accentColor }}
@@ -654,8 +654,8 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
             {typeSubmitted && (
               <div className={`text-center mb-4 p-3 rounded-xl ${
                 typeCorrect
-                  ? 'bg-green-500/10 border-green-500/30 text-green-500'
-                  : 'bg-red-500/10 border-red-500/30 text-red-500'
+                  ? 'bg-[var(--color-correct-bg)] border-[var(--color-correct)]/30 text-[var(--color-correct)]'
+                  : 'bg-[var(--color-incorrect-bg)] border-[var(--color-incorrect)]/30 text-[var(--color-incorrect)]'
               }`}>
                 {typeCorrect ? (
                   <div>

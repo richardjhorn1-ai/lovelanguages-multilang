@@ -139,8 +139,8 @@ export const TutorQuickFire: React.FC<TutorQuickFireProps> = ({
   if (!started) {
     return (
       <div className="h-full flex items-center justify-center p-4">
-        <div className="glass-card p-8 rounded-[2rem] text-center max-w-sm w-full">
-          <div className="mb-4"><ICONS.Zap className="w-16 h-16 text-amber-500 mx-auto" /></div>
+        <div className="glass-card p-8 rounded-2xl text-center max-w-sm w-full">
+          <div className="mb-4"><ICONS.Zap className="w-16 h-16 text-[var(--accent-color)] mx-auto" /></div>
           <h2 className="text-2xl font-black font-header text-[var(--text-primary)] mb-2">
             {t('tutorGames.quickFireGame.title')}
           </h2>
@@ -156,7 +156,7 @@ export const TutorQuickFire: React.FC<TutorQuickFireProps> = ({
             </button>
             <button
               onClick={() => setStarted(true)}
-              className="flex-1 py-3 px-4 bg-amber-500 text-white rounded-xl font-bold hover:bg-amber-600"
+              className="flex-1 py-3 px-4 bg-[var(--accent-color)] text-white rounded-xl font-bold hover:bg-[var(--accent-hover)]"
             >
               {t('tutorGames.quickFireGame.start')}
             </button>
@@ -179,8 +179,8 @@ export const TutorQuickFire: React.FC<TutorQuickFireProps> = ({
         <div className="h-3 bg-[var(--bg-primary)] rounded-full mb-4 overflow-hidden">
           <div
             className={`h-full transition-all duration-1000 ${
-              timeLeft > 20 ? 'bg-amber-500' :
-              timeLeft > 10 ? 'bg-orange-500' : 'bg-red-500'
+              timeLeft > 20 ? 'bg-[var(--color-warning)]' :
+              timeLeft > 10 ? 'bg-[var(--color-warning)]' : 'bg-[var(--color-incorrect)]'
             }`}
             style={{ width: `${(timeLeft / timeLimit) * 100}%` }}
           />
@@ -194,14 +194,14 @@ export const TutorQuickFire: React.FC<TutorQuickFireProps> = ({
           <span className="text-scale-label font-bold text-[var(--text-secondary)]">
             {currentIndex + 1} / {words.length}
           </span>
-          <span className={`text-3xl font-black ${timeLeft <= 10 ? 'text-red-500 animate-pulse' : 'text-amber-500'}`}>
+          <span className={`text-3xl font-black ${timeLeft <= 10 ? 'text-[var(--color-incorrect)] animate-pulse' : 'text-[var(--color-warning)]'}`}>
             {timeLeft}s
           </span>
         </div>
 
         {/* Word */}
-        <div className="bg-amber-50 dark:bg-amber-900/20 p-8 rounded-2xl mb-6 text-center">
-          <p className="text-4xl font-black text-amber-600 dark:text-amber-400">
+        <div className="bg-[var(--accent-light)] p-8 rounded-2xl mb-6 text-center">
+          <p className="text-4xl font-black text-[var(--accent-color)]">
             {currentWord?.word}
           </p>
         </div>
@@ -215,13 +215,13 @@ export const TutorQuickFire: React.FC<TutorQuickFireProps> = ({
           placeholder={t('tutorGames.quickFireGame.typeTranslation')}
           disabled={isValidating}
           autoFocus
-          className="w-full p-4 border-2 border-[var(--border-color)] rounded-xl text-center text-scale-heading font-bold focus:outline-none focus:border-amber-500 bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+          className="w-full p-4 border-2 border-[var(--border-color)] rounded-xl text-center text-scale-heading font-bold focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
         />
 
         {/* Score */}
         <div className="mt-4 flex justify-center gap-6">
-          <span className="text-green-500 font-bold">✓ {score.correct}</span>
-          <span className="text-red-400 font-bold">✗ {score.incorrect}</span>
+          <span className="text-[var(--color-correct)] font-bold">✓ {score.correct}</span>
+          <span className="text-[var(--color-incorrect)] font-bold">✗ {score.incorrect}</span>
         </div>
       </div>
     </div>

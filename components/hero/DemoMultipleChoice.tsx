@@ -47,7 +47,7 @@ export const DemoMultipleChoice: React.FC<DemoMultipleChoiceProps> = ({
 
   return (
     <div
-      className="rounded-[2rem] p-6 shadow-lg border flex flex-col"
+      className="rounded-2xl p-6 shadow-lg border flex flex-col"
       style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-color)', width: '300px', height: '380px' }}
     >
       <span
@@ -95,7 +95,7 @@ export const DemoMultipleChoice: React.FC<DemoMultipleChoiceProps> = ({
           } else if (isSelected) {
             buttonStyle = {
               borderColor: accentColor,
-              backgroundColor: `${accentColor}10`,
+              backgroundColor: `${accentColor}15`,
               color: 'var(--text-primary)',
             };
           }

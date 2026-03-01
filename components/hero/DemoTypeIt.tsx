@@ -52,7 +52,7 @@ export const DemoTypeIt: React.FC<DemoTypeItProps> = ({
 
   return (
     <div
-      className="rounded-[2rem] p-6 shadow-lg border flex flex-col justify-between"
+      className="rounded-2xl p-6 shadow-lg border flex flex-col justify-between"
       style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-color)', width: '300px', height: '380px' }}
     >
       <span

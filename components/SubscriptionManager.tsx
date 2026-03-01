@@ -255,13 +255,13 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
         )}
         {hasPartner && (
           <p className="mt-2 pt-2 border-t border-[var(--border-color)]">
-            <ICONS.Heart className="w-4 h-4 text-pink-500 inline-block" /> {t('subscription.manager.partnerFreeAccess', { name: partnerName || t('subscription.manager.yourPartner') })}
+            <ICONS.Heart className="w-4 h-4 text-[var(--secondary-color)] inline-block" /> {t('subscription.manager.partnerFreeAccess', { name: partnerName || t('subscription.manager.yourPartner') })}
           </p>
         )}
       </div>
 
       {error && (
-        <div className="bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 rounded-xl p-3 mb-4 text-scale-label">
+        <div className="bg-[var(--color-incorrect-bg)] text-[var(--color-incorrect)] rounded-xl p-3 mb-4 text-scale-label">
           {error}
         </div>
       )}

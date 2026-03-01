@@ -595,7 +595,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
               onClick={() => setPlayMode('local')}
               className={`px-4 py-2 rounded-lg text-scale-caption font-bold transition-all ${
                 playMode === 'local'
-                  ? 'bg-[var(--bg-card)] text-teal-600 shadow-sm'
+                  ? 'bg-[var(--bg-card)] text-[var(--secondary-color)] shadow-sm'
                   : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
               }`}
             >
@@ -616,7 +616,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
             <button
               onClick={startLocalQuiz}
               disabled={partnerVocab.length < 4}
-              className="group p-6 glass-card rounded-[2rem] hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
+              className="group p-6 glass-card rounded-2xl hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <div className="flex items-start gap-4">
                 <div className="w-14 h-14 bg-[var(--accent-light)] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-[var(--accent-color)]">
@@ -636,10 +636,10 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
             <button
               onClick={startLocalQuickFire}
               disabled={partnerVocab.length < 4}
-              className="group p-6 glass-card rounded-[2rem] hover:shadow-md hover:border-amber-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
+              className="group p-6 glass-card rounded-2xl hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <div className="flex items-start gap-4">
-                <div className="w-14 h-14 bg-amber-500/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-amber-500">
+                <div className="w-14 h-14 bg-[var(--accent-light)] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-[var(--accent-color)]">
                   <ICONS.Zap className="w-7 h-7" />
                 </div>
                 <div className="flex-1">
@@ -647,7 +647,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
                   <p className="text-scale-label text-[var(--text-secondary)]">{t('tutorGames.local.quickFireDesc')}</p>
                 </div>
               </div>
-              <div className="mt-4 flex items-center gap-2 text-amber-500 text-scale-caption font-bold">
+              <div className="mt-4 flex items-center gap-2 text-[var(--accent-color)] text-scale-caption font-bold">
                 <ICONS.Play className="w-3 h-3" />
                 <span>{t('tutorGames.startNow')}</span>
               </div>
@@ -656,10 +656,10 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
             <button
               onClick={startLocalMultipleChoice}
               disabled={partnerVocab.length < 4}
-              className="group p-6 glass-card rounded-[2rem] hover:shadow-md hover:border-purple-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
+              className="group p-6 glass-card rounded-2xl hover:shadow-md hover:border-[var(--secondary-border)] transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <div className="flex items-start gap-4">
-                <div className="w-14 h-14 bg-purple-500/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-purple-500">
+                <div className="w-14 h-14 bg-[var(--secondary-light)] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-[var(--secondary-color)]">
                   <ICONS.CheckCircle className="w-7 h-7" />
                 </div>
                 <div className="flex-1">
@@ -667,7 +667,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
                   <p className="text-scale-label text-[var(--text-secondary)]">{t('tutorGames.local.multipleChoiceDesc')}</p>
                 </div>
               </div>
-              <div className="mt-4 flex items-center gap-2 text-purple-500 text-scale-caption font-bold">
+              <div className="mt-4 flex items-center gap-2 text-[var(--secondary-color)] text-scale-caption font-bold">
                 <ICONS.Play className="w-3 h-3" />
                 <span>{t('tutorGames.startNow')}</span>
               </div>
@@ -676,10 +676,10 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
             <button
               onClick={startLocalTypeIt}
               disabled={partnerVocab.length < 4}
-              className="group p-6 glass-card rounded-[2rem] hover:shadow-md hover:border-blue-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
+              className="group p-6 glass-card rounded-2xl hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <div className="flex items-start gap-4">
-                <div className="w-14 h-14 bg-blue-500/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-blue-500">
+                <div className="w-14 h-14 bg-[var(--accent-light)] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-[var(--accent-color)]">
                   <ICONS.Type className="w-7 h-7" />
                 </div>
                 <div className="flex-1">
@@ -687,7 +687,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
                   <p className="text-scale-label text-[var(--text-secondary)]">{t('tutorGames.local.typeItDesc')}</p>
                 </div>
               </div>
-              <div className="mt-4 flex items-center gap-2 text-blue-500 text-scale-caption font-bold">
+              <div className="mt-4 flex items-center gap-2 text-[var(--accent-color)] text-scale-caption font-bold">
                 <ICONS.Play className="w-3 h-3" />
                 <span>{t('tutorGames.startNow')}</span>
               </div>
@@ -709,7 +709,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           <button
             onClick={() => setShowQuizModal(true)}
             disabled={!isOnline}
-            className="group p-6 glass-card rounded-[2rem] hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
+            className="group p-6 glass-card rounded-2xl hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <div className="flex items-start gap-4">
               <div className="w-14 h-14 bg-[var(--accent-light)] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-[var(--accent-color)]">
@@ -730,10 +730,10 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           <button
             onClick={() => setShowQuickFireModal(true)}
             disabled={!isOnline}
-            className="group p-6 glass-card rounded-[2rem] hover:shadow-md hover:border-amber-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
+            className="group p-6 glass-card rounded-2xl hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <div className="flex items-start gap-4">
-              <div className="w-14 h-14 bg-amber-500/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-amber-500">
+              <div className="w-14 h-14 bg-[var(--accent-light)] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-[var(--accent-color)]">
                 <ICONS.Zap className="w-7 h-7" />
               </div>
               <div className="flex-1">
@@ -741,7 +741,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
                 <p className="text-scale-label text-[var(--text-secondary)]">{t('tutorGames.send.timedChallenge')}</p>
               </div>
             </div>
-            <div className="mt-4 flex items-center gap-2 text-amber-500 text-scale-caption font-bold">
+            <div className="mt-4 flex items-center gap-2 text-[var(--accent-color)] text-scale-caption font-bold">
               <span>{t('tutorGames.send.createChallenge')}</span>
               <ICONS.ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
@@ -751,10 +751,10 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           <button
             onClick={() => setShowWordRequestModal(true)}
             disabled={!isOnline}
-            className="group p-6 glass-card rounded-[2rem] hover:shadow-md hover:border-teal-500/30 transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
+            className="group p-6 glass-card rounded-2xl hover:shadow-md hover:border-[var(--secondary-border)] transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
           >
             <div className="flex items-start gap-4">
-              <div className="w-14 h-14 bg-teal-500/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-teal-500">
+              <div className="w-14 h-14 bg-[var(--secondary-light)] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-[var(--secondary-color)]">
                 <ICONS.Gift className="w-7 h-7" />
               </div>
               <div className="flex-1">
@@ -762,7 +762,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
                 <p className="text-scale-label text-[var(--text-secondary)]">{t('tutorGames.send.sendWords', { name: partnerName })}</p>
               </div>
             </div>
-            <div className="mt-4 flex items-center gap-2 text-teal-500 text-scale-caption font-bold">
+            <div className="mt-4 flex items-center gap-2 text-[var(--secondary-color)] text-scale-caption font-bold">
               <span>{t('tutorGames.send.sendGift')}</span>
               <ICONS.ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </div>
@@ -772,15 +772,15 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
 
         {/* Pending Challenges Section - Only in send mode */}
         {playMode === 'send' && pendingChallenges.length > 0 && (
-          <div className="glass-card rounded-[2rem] p-6">
+          <div className="glass-card rounded-2xl p-6">
             <h3 className="text-scale-label font-black font-header text-[var(--text-secondary)] uppercase tracking-widest mb-4 flex items-center gap-2">
               <ICONS.Clock className="w-4 h-4" />
               {t('tutorGames.pending.waitingFor', { name: partnerName })}
             </h3>
             <div className="space-y-3">
               {pendingChallenges.slice(0, 3).map(challenge => (
-                <div key={challenge.id} className="flex items-center gap-3 p-3 bg-amber-500/10 rounded-xl border border-amber-500/20">
-                  <div className="w-10 h-10 bg-amber-500/20 rounded-xl flex items-center justify-center text-amber-500">
+                <div key={challenge.id} className="flex items-center gap-3 p-3 bg-[var(--accent-light)] rounded-xl border border-[var(--accent-border)]">
+                  <div className="w-10 h-10 bg-[var(--accent-light)] rounded-xl flex items-center justify-center text-[var(--accent-color)]">
                     {challenge.challenge_type === 'quiz' ? <ICONS.Target className="w-5 h-5" /> : <ICONS.Zap className="w-5 h-5" />}
                   </div>
                   <div className="flex-1">
@@ -789,7 +789,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
                       {t('tutorGames.pending.words', { count: challenge.words_data?.length || 0 })} • {t('tutorGames.pending.sent', { date: new Date(challenge.created_at).toLocaleDateString() })}
                     </p>
                   </div>
-                  <span className="text-scale-caption font-bold text-amber-500 bg-amber-500/20 px-2 py-1 rounded-full">
+                  <span className="text-scale-caption font-bold text-[var(--accent-color)] bg-[var(--accent-light)] px-2 py-1 rounded-full">
                     {t('tutorGames.pending.pending')}
                   </span>
                 </div>
@@ -800,15 +800,15 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
 
         {/* Pending Word Gifts - Only in send mode */}
         {playMode === 'send' && pendingRequests.length > 0 && (
-          <div className="glass-card rounded-[2rem] p-6">
+          <div className="glass-card rounded-2xl p-6">
             <h3 className="text-scale-label font-black font-header text-[var(--text-secondary)] uppercase tracking-widest mb-4 flex items-center gap-2">
               <ICONS.Heart className="w-4 h-4 text-[var(--accent-color)]" />
               {t('tutorGames.gifts.title')}
             </h3>
             <div className="space-y-3">
               {pendingRequests.slice(0, 3).map(request => (
-                <div key={request.id} className="flex items-center gap-3 p-3 bg-teal-500/10 rounded-xl border border-teal-500/20">
-                  <div className="w-10 h-10 bg-teal-500/20 rounded-xl flex items-center justify-center text-teal-500">
+                <div key={request.id} className="flex items-center gap-3 p-3 bg-[var(--secondary-light)] rounded-xl border border-[var(--secondary-border)]">
+                  <div className="w-10 h-10 bg-[var(--secondary-light)] rounded-xl flex items-center justify-center text-[var(--secondary-color)]">
                     <ICONS.Gift className="w-5 h-5" />
                   </div>
                   <div className="flex-1">
@@ -819,7 +819,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
                       {request.request_type === 'ai_topic' ? t('tutorGames.gifts.topic', { topic: request.input_text }) : t('tutorGames.gifts.custom')}
                     </p>
                   </div>
-                  <span className="text-scale-caption font-bold text-teal-500 bg-teal-500/20 px-2 py-1 rounded-full">
+                  <span className="text-scale-caption font-bold text-[var(--secondary-color)] bg-[var(--secondary-light)] px-2 py-1 rounded-full">
                     {t('tutorGames.gifts.xpMultiplier', { multiplier: request.xp_multiplier })}
                   </span>
                 </div>
@@ -830,15 +830,15 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
 
         {/* Recent Results - Only in send mode */}
         {playMode === 'send' && completedChallenges.length > 0 && (
-          <div className="glass-card rounded-[2rem] p-6">
+          <div className="glass-card rounded-2xl p-6">
             <h3 className="text-scale-label font-black font-header text-[var(--text-secondary)] uppercase tracking-widest mb-4 flex items-center gap-2">
-              <ICONS.Check className="w-4 h-4 text-green-500" />
+              <ICONS.Check className="w-4 h-4 text-[var(--color-correct)]" />
               {t('tutorGames.results.title')}
             </h3>
             <div className="space-y-3">
               {completedChallenges.slice(0, 5).map(challenge => (
-                <div key={challenge.id} className="flex items-center gap-3 p-3 bg-green-500/10 rounded-xl border border-green-500/20">
-                  <div className="w-10 h-10 bg-green-500/20 rounded-xl flex items-center justify-center text-green-500">
+                <div key={challenge.id} className="flex items-center gap-3 p-3 bg-[var(--color-correct-bg)] rounded-xl border border-[var(--color-correct)]">
+                  <div className="w-10 h-10 bg-[var(--color-correct-bg)] rounded-xl flex items-center justify-center text-[var(--color-correct)]">
                     {challenge.challenge_type === 'quiz' ? <ICONS.Target className="w-5 h-5" /> : <ICONS.Zap className="w-5 h-5" />}
                   </div>
                   <div className="flex-1">
@@ -848,7 +848,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
                     </p>
                   </div>
                   {(challenge as any).result && (
-                    <span className="text-scale-caption font-bold text-green-500 bg-green-500/20 px-2 py-1 rounded-full">
+                    <span className="text-scale-caption font-bold text-[var(--color-correct)] bg-[var(--color-correct-bg)] px-2 py-1 rounded-full">
                       {(challenge as any).result.score}%
                     </span>
                   )}

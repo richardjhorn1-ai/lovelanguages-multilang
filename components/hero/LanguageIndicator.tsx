@@ -25,12 +25,12 @@ const LanguageIndicator: React.FC<LanguageIndicatorProps> = ({
     <div className="flex items-center justify-center gap-4 mt-8 p-4 rounded-2xl bg-white/50">
       <div className="flex items-center gap-2">
         <span className="text-xl">{nativeConfig?.flag}</span>
-        <span className="text-scale-label font-bold text-gray-700">{nativeConfig?.nativeName}</span>
+        <span className="text-scale-label font-bold text-[var(--text-primary)]">{nativeConfig?.nativeName}</span>
       </div>
-      <span className="text-gray-400">→</span>
+      <span className="text-[var(--text-secondary)]">→</span>
       <div className="flex items-center gap-2">
         <span className="text-xl">{targetConfig?.flag}</span>
-        <span className="text-scale-label font-bold text-gray-700">{targetConfig?.nativeName}</span>
+        <span className="text-scale-label font-bold text-[var(--text-primary)]">{targetConfig?.nativeName}</span>
       </div>
       <button
         onClick={onChangeClick}

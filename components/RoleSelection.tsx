@@ -133,7 +133,7 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
             <ICONS.Heart className="w-8 h-8" style={{ color: 'var(--accent-color)' }} />
           </div>
           <div className="inline-flex items-center gap-2 text-[var(--text-secondary)]">
-            <div className="w-5 h-5 border-2 border-rose-400 border-t-transparent rounded-full animate-spin" />
+            <div className="w-5 h-5 border-2 border-[var(--accent-color)] border-t-transparent rounded-full animate-spin" />
             {t('roleSelection.loading')}
           </div>
         </div>
@@ -154,12 +154,12 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
       subtitle: t('roleSelection.student.subtitle', { language: t(`languageNames.${targetLanguage}`) }),
       confirmMessage: t('roleSelection.student.confirmMessage', { language: t(`languageNames.${targetLanguage}`) }),
       confirmSubtext: t('roleSelection.student.confirmSubtext'),
-      accentColor: '#FF4761',
-      bgLight: 'bg-rose-50',
-      bgAccent: 'bg-rose-100',
-      borderAccent: 'border-rose-400',
-      hoverBorder: 'hover:border-rose-300',
-      hoverBg: 'hover:bg-rose-50',
+      accentColor: 'var(--accent-color)',
+      bgLight: 'bg-[var(--accent-light)]',
+      bgAccent: 'bg-[var(--accent-light)]',
+      borderAccent: 'border-[var(--accent-color)]',
+      hoverBorder: 'hover:border-[var(--accent-border)]',
+      hoverBg: 'hover:bg-[var(--accent-light)]',
     },
     tutor: {
       icon: <ICONS.Sparkles className="w-7 h-7" />,
@@ -167,11 +167,11 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
       subtitle: t('roleSelection.tutor.subtitle'),
       confirmMessage: t('roleSelection.tutor.confirmMessage', { language: t(`languageNames.${targetLanguage}`) }),
       confirmSubtext: t('roleSelection.tutor.confirmSubtext'),
-      accentColor: '#FF4761',
-      bgLight: 'bg-rose-50',
-      bgAccent: 'bg-rose-100',
-      borderAccent: 'border-rose-400',
-      hoverBorder: 'hover:border-rose-300',
+      accentColor: 'var(--accent-color)',
+      bgLight: 'bg-[var(--accent-light)]',
+      bgAccent: 'bg-[var(--accent-light)]',
+      borderAccent: 'border-[var(--accent-color)]',
+      hoverBorder: 'hover:border-[var(--accent-border)]',
       hoverBg: 'hover:bg-rose-50',
     },
   };
@@ -223,8 +223,8 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
                 <button
                   key={code}
                   onClick={() => onSelect(code)}
-                  className={`w-full flex items-center gap-3 px-4 py-3 hover:bg-rose-50 transition-colors text-left ${
-                    code === value ? 'bg-rose-50' : ''
+                  className={`w-full flex items-center gap-3 px-4 py-3 hover:bg-[var(--accent-light)] transition-colors text-left ${
+                    code === value ? 'bg-[var(--accent-light)]' : ''
                   }`}
                 >
                   <span className="text-xl">{langConfig.flag}</span>
@@ -233,7 +233,7 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
                     <div className="text-sm text-[var(--text-secondary)]">{langConfig.nativeName}</div>
                   </div>
                   {code === value && (
-                    <ICONS.Check className="w-5 h-5 text-rose-500 ml-auto" />
+                    <ICONS.Check className="w-5 h-5 text-[var(--accent-color)] ml-auto" />
                   )}
                 </button>
               );
@@ -291,7 +291,7 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
             {/* Language Confirmation Section */}
             <div className="flex-1 bg-white/70 backdrop-blur-sm rounded-2xl p-5 mb-4 md:mb-0 border border-white/80">
               <h2 className="text-sm font-bold font-header text-[var(--text-primary)] uppercase tracking-wide mb-4 flex items-center gap-2">
-                <ICONS.Globe className="w-5 h-5 text-rose-400" />
+                <ICONS.Globe className="w-5 h-5 text-[var(--accent-color)]" />
                 {t('roleSelection.languageSettings')}
               </h2>
 
@@ -340,7 +340,7 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
                 >
                   <div className="flex items-center gap-4">
                     <div className={`w-12 h-12 rounded-full ${roleContent.student.bgAccent} flex items-center justify-center`}>
-                      <span className="text-rose-500">{roleContent.student.icon}</span>
+                      <span className="text-[var(--accent-color)]">{roleContent.student.icon}</span>
                     </div>
                     <div className="flex-1">
                       <h3 className="text-lg font-bold font-header text-[var(--text-primary)]">{roleContent.student.title}</h3>
@@ -369,7 +369,7 @@ const RoleSelection: React.FC<RoleSelectionProps> = ({ userId, profile, onRoleSe
                 >
                   <div className="flex items-center gap-4">
                     <div className={`w-12 h-12 rounded-full ${roleContent.tutor.bgAccent} flex items-center justify-center`}>
-                      <span className="text-rose-500">{roleContent.tutor.icon}</span>
+                      <span className="text-[var(--accent-color)]">{roleContent.tutor.icon}</span>
                     </div>
                     <div className="flex-1">
                       <h3 className="text-lg font-bold font-header text-[var(--text-primary)]">{roleContent.tutor.title}</h3>

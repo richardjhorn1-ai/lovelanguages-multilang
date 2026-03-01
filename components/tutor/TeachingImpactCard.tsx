@@ -21,7 +21,7 @@ const TeachingImpactCard: React.FC<TeachingImpactCardProps> = ({
 
   return (
     <div
-      className="p-4 md:p-6 rounded-xl md:rounded-[2rem] text-white relative overflow-hidden"
+      className="p-4 md:p-6 rounded-xl md:rounded-2xl text-white relative overflow-hidden"
       style={{
         background: `linear-gradient(135deg, ${tierColor}20 0%, ${tierColor}40 100%)`,
         border: `1px solid ${tierColor}30`,

@@ -70,9 +70,9 @@ export const TutorFlashcards: React.FC<TutorFlashcardsProps> = ({
             {currentIndex + 1} / {words.length}
           </span>
           <div className="flex gap-2">
-            <span className="text-green-500 font-bold">{score.correct}</span>
+            <span className="text-[var(--color-correct)] font-bold">{score.correct}</span>
             <span className="text-[var(--text-secondary)]">/</span>
-            <span className="text-red-400 font-bold">{score.incorrect}</span>
+            <span className="text-[var(--color-incorrect)] font-bold">{score.incorrect}</span>
           </div>
         </div>
 
@@ -91,7 +91,7 @@ export const TutorFlashcards: React.FC<TutorFlashcardsProps> = ({
         >
           <div className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${flipped ? 'rotate-y-180' : ''}`}>
             {/* Front */}
-            <div className="absolute inset-0 glass-card rounded-[2rem] p-8 flex flex-col items-center justify-center backface-hidden">
+            <div className="absolute inset-0 glass-card rounded-2xl p-8 flex flex-col items-center justify-center backface-hidden">
               <span className="text-scale-micro uppercase tracking-widest text-[var(--text-secondary)] font-bold mb-4">
                 {targetLanguageName}
               </span>
@@ -103,7 +103,7 @@ export const TutorFlashcards: React.FC<TutorFlashcardsProps> = ({
               </p>
             </div>
             {/* Back */}
-            <div className="absolute inset-0 bg-[var(--accent-color)] text-white rounded-[2rem] p-8 flex flex-col items-center justify-center backface-hidden rotate-y-180">
+            <div className="absolute inset-0 bg-[var(--accent-color)] text-white rounded-2xl p-8 flex flex-col items-center justify-center backface-hidden rotate-y-180">
               <span className="text-scale-micro uppercase tracking-widest text-white/60 font-bold mb-4">
                 {nativeLanguageName}
               </span>
