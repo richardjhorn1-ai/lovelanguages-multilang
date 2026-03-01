@@ -12,8 +12,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'header': ['Quicksand', 'sans-serif'],
-        'body': ['Outfit', 'sans-serif'],
+        'header': ['Nunito', 'sans-serif'],
+        'body': ['Manrope', 'sans-serif'],
       },
       fontSize: {
         // Theme-aware text scale - respects user's size preference (small/medium/large)
@@ -26,14 +26,47 @@ export default {
         'scale-heading': ['var(--text-heading)', { lineHeight: 'var(--line-height-tight)' }],
       },
       colors: {
+        // Primary accent
         accent: 'var(--accent-color)',
         'accent-light': 'var(--accent-light)',
         'accent-border': 'var(--accent-border)',
+        // Secondary accent
+        secondary: 'var(--secondary-color)',
+        'secondary-light': 'var(--secondary-light)',
+        'secondary-border': 'var(--secondary-border)',
+        // Semantic feedback
+        'color-correct': 'var(--color-correct)',
+        'color-correct-bg': 'var(--color-correct-bg)',
+        'color-incorrect': 'var(--color-incorrect)',
+        'color-incorrect-bg': 'var(--color-incorrect-bg)',
+        'color-warning': 'var(--color-warning)',
+        'color-warning-bg': 'var(--color-warning-bg)',
+        // Layout
         'bg-primary': 'var(--bg-primary)',
         'bg-card': 'var(--bg-card)',
         'text-primary': 'var(--text-primary)',
         'text-secondary': 'var(--text-secondary)',
         'border-color': 'var(--border-color)',
+      },
+      boxShadow: {
+        'subtle': 'var(--shadow-subtle)',
+        'card': 'var(--shadow-card)',
+        'elevated': 'var(--shadow-elevated)',
+        'dropdown': 'var(--shadow-dropdown)',
+      },
+      zIndex: {
+        'background': '0',
+        'content': '10',
+        'float': '20',
+        'sticky': '30',
+        'overlay': '40',
+        'modal': '50',
+      },
+      transitionDuration: {
+        'fast': 'var(--duration-fast)',
+        'normal': 'var(--duration-normal)',
+        'emphasis': 'var(--duration-emphasis)',
+        'entrance': 'var(--duration-entrance)',
       },
       animation: {
         'shake': 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both',

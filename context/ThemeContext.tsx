@@ -6,11 +6,13 @@ import {
   FontSize,
   FontPreset,
   FontWeight,
+  BackgroundStyle,
   DEFAULT_THEME,
   ACCENT_COLORS,
   FONT_WEIGHTS,
   applyTheme,
-  setupResponsiveTextScale
+  setupResponsiveTextScale,
+  migrateAccentColor,
 } from '../services/theme';
 import { supabase } from '../services/supabase';
 
@@ -21,7 +23,9 @@ interface ThemeContextType {
   setFontSize: (size: FontSize) => void;
   setFontPreset: (preset: FontPreset) => void;
   setFontWeight: (weight: FontWeight) => void;
+  setBackgroundStyle: (style: BackgroundStyle) => void;
   accentHex: string;
+  secondaryHex: string;
   isDark: boolean;
   iconWeight: string;
 }
@@ -32,11 +36,12 @@ interface ThemeProviderProps {
   children: ReactNode;
   userId?: string;
   profileTheme?: {
-    accent_color?: AccentColor;
+    accent_color?: string;  // Accepts old keys too — migration handled by migrateAccentColor()
     dark_mode?: DarkModeStyle;
     font_size?: FontSize;
     font_preset?: FontPreset;
     font_weight?: FontWeight;
+    background_style?: BackgroundStyle;
   } | null;
 }
 
@@ -48,12 +53,14 @@ export function ThemeProvider({ children, userId, profileTheme }: ThemeProviderP
   useEffect(() => {
     if (userId && profileTheme) {
       // Logged in: Use profile values (source of truth)
+      // Migrate old accent colour keys (blush→coral, lavender→ocean, teal→mint)
       const userTheme: ThemeSettings = {
-        accentColor: profileTheme.accent_color || DEFAULT_THEME.accentColor,
+        accentColor: migrateAccentColor(profileTheme.accent_color),
         darkMode: profileTheme.dark_mode || DEFAULT_THEME.darkMode,
         fontSize: profileTheme.font_size || DEFAULT_THEME.fontSize,
         fontPreset: profileTheme.font_preset || DEFAULT_THEME.fontPreset,
         fontWeight: profileTheme.font_weight || DEFAULT_THEME.fontWeight,
+        backgroundStyle: profileTheme.background_style || DEFAULT_THEME.backgroundStyle,
       };
       setTheme(userTheme);
       applyTheme(userTheme);
@@ -65,7 +72,7 @@ export function ThemeProvider({ children, userId, profileTheme }: ThemeProviderP
       setupResponsiveTextScale(DEFAULT_THEME.fontSize);
     }
     setIsLoaded(true);
-  }, [userId, profileTheme?.accent_color, profileTheme?.dark_mode, profileTheme?.font_size, profileTheme?.font_preset, profileTheme?.font_weight]);
+  }, [userId, profileTheme?.accent_color, profileTheme?.dark_mode, profileTheme?.font_size, profileTheme?.font_preset, profileTheme?.font_weight, profileTheme?.background_style]);
 
   // Sync theme changes to Supabase when user modifies theme
   useEffect(() => {
@@ -84,6 +91,7 @@ export function ThemeProvider({ children, userId, profileTheme }: ThemeProviderP
         font_size: theme.fontSize,
         font_preset: theme.fontPreset,
         font_weight: theme.fontWeight,
+        background_style: theme.backgroundStyle,
       })
       .eq('id', userId)
       .then(() => {
@@ -111,7 +119,12 @@ export function ThemeProvider({ children, userId, profileTheme }: ThemeProviderP
     setTheme(prev => ({ ...prev, fontWeight: weight }));
   };
 
+  const setBackgroundStyle = (style: BackgroundStyle) => {
+    setTheme(prev => ({ ...prev, backgroundStyle: style }));
+  };
+
   const accentHex = ACCENT_COLORS[theme.accentColor].primary;
+  const secondaryHex = ACCENT_COLORS[theme.accentColor].secondary.primary;
   const isDark = theme.darkMode !== 'off';
   const iconWeight = FONT_WEIGHTS[theme.fontWeight].iconWeight;
 
@@ -124,7 +137,9 @@ export function ThemeProvider({ children, userId, profileTheme }: ThemeProviderP
         setFontSize,
         setFontPreset,
         setFontWeight,
+        setBackgroundStyle,
         accentHex,
+        secondaryHex,
         isDark,
         iconWeight,
       }}

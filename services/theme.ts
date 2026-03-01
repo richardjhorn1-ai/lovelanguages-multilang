@@ -1,10 +1,11 @@
 // Theme types and constants
 
-export type AccentColor = 'rose' | 'blush' | 'lavender' | 'wine' | 'teal' | 'honey';
+export type AccentColor = 'rose' | 'coral' | 'honey' | 'mint' | 'ocean' | 'wine';
 export type DarkModeStyle = 'off' | 'midnight' | 'charcoal' | 'black';
 export type FontSize = 'small' | 'medium' | 'large';
 export type FontPreset = 'classic' | 'modern' | 'playful';
 export type FontWeight = 'light' | 'regular' | 'bold';
+export type BackgroundStyle = 'tinted' | 'clean';
 
 export interface ThemeSettings {
   accentColor: AccentColor;
@@ -12,24 +13,32 @@ export interface ThemeSettings {
   fontSize: FontSize;
   fontPreset: FontPreset;
   fontWeight: FontWeight;
+  backgroundStyle: BackgroundStyle;
 }
 
-// Accent color palette with variants for full theming
+// Colour variant shape — shared by primary and secondary
+interface ColorVariants {
+  primary: string;
+  primaryHover: string;
+  light: string;
+  lightHover: string;
+  dark: string;
+  darkHover: string;
+  text: string;
+  border: string;
+  borderDark: string;
+  shadow: string;
+}
+
+// Accent color palette with primary + secondary colour pairs
 export const ACCENT_COLORS: Record<AccentColor, {
   name: string;
-  primary: string;      // Main accent (buttons, active states)
-  primaryHover: string; // Hover state
-  light: string;        // Light backgrounds (light mode)
-  lightHover: string;   // Light background hover
-  dark: string;         // Dark mode accent backgrounds
-  darkHover: string;    // Dark mode hover
-  text: string;         // Text on light backgrounds
-  border: string;       // Border color (light mode)
-  borderDark: string;   // Border color (dark mode)
-  shadow: string;       // Shadow color
+} & ColorVariants & {
+  secondary: ColorVariants;
 }> = {
   rose: {
-    name: 'Rose',
+    name: 'Rose & Gold',
+    // Primary: warm pink
     primary: '#FF4761',
     primaryHover: '#E63E56',
     light: '#FFF0F3',
@@ -40,35 +49,131 @@ export const ACCENT_COLORS: Record<AccentColor, {
     border: '#FECDD3',
     borderDark: '#9F1239',
     shadow: 'rgba(255, 71, 97, 0.25)',
+    // Secondary: gold
+    secondary: {
+      primary: '#FFD93B',
+      primaryHover: '#E8C535',
+      light: '#FFFBEB',
+      lightHover: '#FEF3C7',
+      dark: 'rgba(255, 217, 59, 0.15)',
+      darkHover: 'rgba(255, 217, 59, 0.25)',
+      text: '#A16207',
+      border: '#FDE68A',
+      borderDark: '#854D0E',
+      shadow: 'rgba(255, 217, 59, 0.25)',
+    },
   },
-  blush: {
-    name: 'Blush',
-    primary: '#EC4899',
-    primaryHover: '#DB2777',
-    light: '#FDF2F8',
-    lightHover: '#FCE7F3',
-    dark: 'rgba(236, 72, 153, 0.15)',
-    darkHover: 'rgba(236, 72, 153, 0.25)',
-    text: '#BE185D',
-    border: '#FBCFE8',
-    borderDark: '#9D174D',
-    shadow: 'rgba(236, 72, 153, 0.25)',
+  coral: {
+    name: 'Coral & Pink',
+    // Primary: coral/orange-red
+    primary: '#FF5831',
+    primaryHover: '#E84F2C',
+    light: '#FFF4F1',
+    lightHover: '#FFE6E0',
+    dark: 'rgba(255, 88, 49, 0.15)',
+    darkHover: 'rgba(255, 88, 49, 0.25)',
+    text: '#C2410C',
+    border: '#FDBA9A',
+    borderDark: '#9A3412',
+    shadow: 'rgba(255, 88, 49, 0.25)',
+    // Secondary: bubblegum pink
+    secondary: {
+      primary: '#FF7BDD',
+      primaryHover: '#E86FC8',
+      light: '#FFF0FB',
+      lightHover: '#FFE4F7',
+      dark: 'rgba(255, 123, 221, 0.15)',
+      darkHover: 'rgba(255, 123, 221, 0.25)',
+      text: '#A8329A',
+      border: '#F9C4ED',
+      borderDark: '#86198F',
+      shadow: 'rgba(255, 123, 221, 0.25)',
+    },
   },
-  lavender: {
-    name: 'Lavender',
-    primary: '#A855F7',
-    primaryHover: '#9333EA',
-    light: '#FAF5FF',
-    lightHover: '#F3E8FF',
-    dark: 'rgba(168, 85, 247, 0.15)',
-    darkHover: 'rgba(168, 85, 247, 0.25)',
-    text: '#7E22CE',
-    border: '#E9D5FF',
-    borderDark: '#6B21A8',
-    shadow: 'rgba(168, 85, 247, 0.25)',
+  honey: {
+    name: 'Gold & Orange',
+    // Primary: warm gold
+    primary: '#FFD93B',
+    primaryHover: '#E8C535',
+    light: '#FFFBEB',
+    lightHover: '#FEF3C7',
+    dark: 'rgba(255, 217, 59, 0.15)',
+    darkHover: 'rgba(255, 217, 59, 0.25)',
+    text: '#A16207',
+    border: '#FDE68A',
+    borderDark: '#854D0E',
+    shadow: 'rgba(255, 217, 59, 0.25)',
+    // Secondary: tangerine orange
+    secondary: {
+      primary: '#FF8B0D',
+      primaryHover: '#E87E0C',
+      light: '#FFF7ED',
+      lightHover: '#FFEDD5',
+      dark: 'rgba(255, 139, 13, 0.15)',
+      darkHover: 'rgba(255, 139, 13, 0.25)',
+      text: '#C2410C',
+      border: '#FDBA74',
+      borderDark: '#9A3412',
+      shadow: 'rgba(255, 139, 13, 0.25)',
+    },
+  },
+  mint: {
+    name: 'Mint & Ice',
+    // Primary: mint green
+    primary: '#31DB92',
+    primaryHover: '#2CC583',
+    light: '#ECFDF5',
+    lightHover: '#D1FAE5',
+    dark: 'rgba(49, 219, 146, 0.15)',
+    darkHover: 'rgba(49, 219, 146, 0.25)',
+    text: '#047857',
+    border: '#A7F3D0',
+    borderDark: '#065F46',
+    shadow: 'rgba(49, 219, 146, 0.25)',
+    // Secondary: ice blue
+    secondary: {
+      primary: '#96DEEA',
+      primaryHover: '#7BCAD6',
+      light: '#F0FAFB',
+      lightHover: '#E0F5F8',
+      dark: 'rgba(150, 222, 234, 0.15)',
+      darkHover: 'rgba(150, 222, 234, 0.25)',
+      text: '#0E7490',
+      border: '#A5F3FC',
+      borderDark: '#155E75',
+      shadow: 'rgba(150, 222, 234, 0.25)',
+    },
+  },
+  ocean: {
+    name: 'Blue & Lilac',
+    // Primary: royal blue
+    primary: '#1569FF',
+    primaryHover: '#1260E6',
+    light: '#EFF6FF',
+    lightHover: '#DBEAFE',
+    dark: 'rgba(21, 105, 255, 0.15)',
+    darkHover: 'rgba(21, 105, 255, 0.25)',
+    text: '#1D4ED8',
+    border: '#93C5FD',
+    borderDark: '#1E40AF',
+    shadow: 'rgba(21, 105, 255, 0.25)',
+    // Secondary: soft lilac
+    secondary: {
+      primary: '#9292FF',
+      primaryHover: '#7A7AE6',
+      light: '#F5F3FF',
+      lightHover: '#EDE9FE',
+      dark: 'rgba(146, 146, 255, 0.15)',
+      darkHover: 'rgba(146, 146, 255, 0.25)',
+      text: '#5B21B6',
+      border: '#C4B5FD',
+      borderDark: '#6D28D9',
+      shadow: 'rgba(146, 146, 255, 0.25)',
+    },
   },
   wine: {
-    name: 'Wine',
+    name: 'Wine & Rose',
+    // Primary: deep wine red
     primary: '#BE123C',
     primaryHover: '#9F1239',
     light: '#FFF1F2',
@@ -79,33 +184,27 @@ export const ACCENT_COLORS: Record<AccentColor, {
     border: '#FECDD3',
     borderDark: '#881337',
     shadow: 'rgba(190, 18, 60, 0.25)',
+    // Secondary: bubblegum pink
+    secondary: {
+      primary: '#FF7BDD',
+      primaryHover: '#E86FC8',
+      light: '#FFF0FB',
+      lightHover: '#FFE4F7',
+      dark: 'rgba(255, 123, 221, 0.15)',
+      darkHover: 'rgba(255, 123, 221, 0.25)',
+      text: '#A8329A',
+      border: '#F9C4ED',
+      borderDark: '#86198F',
+      shadow: 'rgba(255, 123, 221, 0.25)',
+    },
   },
-  teal: {
-    name: 'Teal',
-    primary: '#14B8A6',
-    primaryHover: '#0D9488',
-    light: '#F0FDFA',
-    lightHover: '#CCFBF1',
-    dark: 'rgba(20, 184, 166, 0.15)',
-    darkHover: 'rgba(20, 184, 166, 0.25)',
-    text: '#0F766E',
-    border: '#99F6E4',
-    borderDark: '#115E59',
-    shadow: 'rgba(20, 184, 166, 0.25)',
-  },
-  honey: {
-    name: 'Honey',
-    primary: '#F59E0B',
-    primaryHover: '#D97706',
-    light: '#FFFBEB',
-    lightHover: '#FEF3C7',
-    dark: 'rgba(245, 158, 11, 0.15)',
-    darkHover: 'rgba(245, 158, 11, 0.25)',
-    text: '#B45309',
-    border: '#FDE68A',
-    borderDark: '#92400E',
-    shadow: 'rgba(245, 158, 11, 0.25)',
-  },
+};
+
+// Migration map: old accent keys → new accent keys
+const ACCENT_MIGRATION: Record<string, AccentColor> = {
+  blush: 'coral',
+  lavender: 'ocean',
+  teal: 'mint',
 };
 
 // Dark mode background colors
@@ -273,6 +372,7 @@ export const DEFAULT_THEME: ThemeSettings = {
   fontSize: 'medium',
   fontPreset: 'classic',
   fontWeight: 'regular',
+  backgroundStyle: 'tinted',
 };
 
 // localStorage key
@@ -284,10 +384,15 @@ export function loadTheme(): ThemeSettings {
     const stored = localStorage.getItem(THEME_STORAGE_KEY);
     if (stored) {
       const parsed = JSON.parse(stored);
-      // Validate that stored values are valid keys in their respective objects
-      // This handles migration from old color schemes (coral, gold, sage, etc.)
-      const accentColor = parsed.accentColor && ACCENT_COLORS[parsed.accentColor as AccentColor]
-        ? (parsed.accentColor as AccentColor)
+
+      // Migrate old accent keys to new ones
+      let rawAccent = parsed.accentColor as string;
+      if (rawAccent && ACCENT_MIGRATION[rawAccent]) {
+        rawAccent = ACCENT_MIGRATION[rawAccent];
+      }
+
+      const accentColor = rawAccent && ACCENT_COLORS[rawAccent as AccentColor]
+        ? (rawAccent as AccentColor)
         : DEFAULT_THEME.accentColor;
       const darkMode = parsed.darkMode && DARK_MODE_STYLES[parsed.darkMode as DarkModeStyle]
         ? (parsed.darkMode as DarkModeStyle)
@@ -301,7 +406,9 @@ export function loadTheme(): ThemeSettings {
       const fontWeight = parsed.fontWeight && FONT_WEIGHTS[parsed.fontWeight as FontWeight]
         ? (parsed.fontWeight as FontWeight)
         : DEFAULT_THEME.fontWeight;
-      return { accentColor, darkMode, fontSize, fontPreset, fontWeight };
+      const backgroundStyle = parsed.backgroundStyle === 'clean' ? 'clean' as BackgroundStyle : 'tinted' as BackgroundStyle;
+
+      return { accentColor, darkMode, fontSize, fontPreset, fontWeight, backgroundStyle };
     }
   } catch {
     // Ignore parse errors
@@ -314,17 +421,26 @@ export function saveTheme(theme: ThemeSettings): void {
   localStorage.setItem(THEME_STORAGE_KEY, JSON.stringify(theme));
 }
 
+// Migrate old accent colour values from Supabase profiles
+export function migrateAccentColor(raw: string | undefined): AccentColor {
+  if (!raw) return DEFAULT_THEME.accentColor;
+  if (ACCENT_MIGRATION[raw]) return ACCENT_MIGRATION[raw];
+  if (ACCENT_COLORS[raw as AccentColor]) return raw as AccentColor;
+  return DEFAULT_THEME.accentColor;
+}
+
 // Apply theme CSS variables to document
 export function applyTheme(theme: ThemeSettings): void {
   const root = document.documentElement;
   const accent = ACCENT_COLORS[theme.accentColor];
+  const secondary = accent.secondary;
   const darkMode = DARK_MODE_STYLES[theme.darkMode];
   const fontSize = FONT_SIZES[theme.fontSize];
   const fontPreset = FONT_PRESETS[theme.fontPreset];
   const fontWeight = FONT_WEIGHTS[theme.fontWeight];
   const isDark = theme.darkMode !== 'off';
 
-  // Accent color palette
+  // Primary accent palette
   root.style.setProperty('--accent-color', accent.primary);
   root.style.setProperty('--accent-hover', accent.primaryHover);
   root.style.setProperty('--accent-light', isDark ? accent.dark : accent.light);
@@ -332,6 +448,31 @@ export function applyTheme(theme: ThemeSettings): void {
   root.style.setProperty('--accent-text', isDark ? accent.primary : accent.text);
   root.style.setProperty('--accent-border', isDark ? accent.borderDark : accent.border);
   root.style.setProperty('--accent-shadow', accent.shadow);
+
+  // Secondary accent palette
+  root.style.setProperty('--secondary-color', secondary.primary);
+  root.style.setProperty('--secondary-hover', secondary.primaryHover);
+  root.style.setProperty('--secondary-light', isDark ? secondary.dark : secondary.light);
+  root.style.setProperty('--secondary-light-hover', isDark ? secondary.darkHover : secondary.lightHover);
+  root.style.setProperty('--secondary-text', isDark ? secondary.primary : secondary.text);
+  root.style.setProperty('--secondary-border', isDark ? secondary.borderDark : secondary.border);
+  root.style.setProperty('--secondary-shadow', secondary.shadow);
+
+  // Semantic feedback colours (fixed — not theme-dependent)
+  root.style.setProperty('--color-correct', '#10B981');
+  root.style.setProperty('--color-correct-bg', isDark ? 'rgba(16, 185, 129, 0.15)' : 'rgba(16, 185, 129, 0.1)');
+  root.style.setProperty('--color-incorrect', '#EF4444');
+  root.style.setProperty('--color-incorrect-bg', isDark ? 'rgba(239, 68, 68, 0.15)' : 'rgba(239, 68, 68, 0.1)');
+  root.style.setProperty('--color-warning', '#F59E0B');
+  root.style.setProperty('--color-warning-bg', isDark ? 'rgba(245, 158, 11, 0.15)' : 'rgba(245, 158, 11, 0.1)');
+
+  // App background mode
+  root.style.setProperty('--bg-app',
+    theme.backgroundStyle === 'clean'
+      ? darkMode.bgPrimary
+      : (isDark ? `color-mix(in srgb, ${accent.primary} 6%, ${darkMode.bgPrimary})` : accent.light)
+  );
+  root.dataset.bgStyle = theme.backgroundStyle;
 
   // Background and text colors
   root.style.setProperty('--bg-primary', darkMode.bgPrimary);

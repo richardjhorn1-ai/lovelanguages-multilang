@@ -2,40 +2,67 @@
 
 ## Glass Morphism
 
-The app uses semi-transparent glass cards. **No `backdrop-filter`** — canvas background elements (hearts, word particles) sit on separate GPU compositing layers that `backdrop-filter` can't capture. Semi-transparent backgrounds let animated elements show through naturally.
+The app uses frosted glass cards with `backdrop-filter: blur(12px)`. The FloatingHeartsBackground canvas in onboarding renders at **z-20** (above glass cards, below interactive UI) with `pointer-events-none`, so `backdrop-filter` works safely on glass layers at z-10.
 
-**Shared constants** in `components/onboarding/OnboardingStep.tsx`:
+**Z-index stacking (onboarding):**
+- `z-0`: Gradient blobs (decorative)
+- `z-10`: Glass content cards (with blur)
+- `z-20`: Hearts canvas (subtle, pointer-events-none)
+- `z-30+`: Interactive UI (buttons, modals)
+
+**CSS classes** (defined in `src/index.css`):
+
+| Class | Use For | Key Properties |
+|-------|---------|----------------|
+| `.glass-card` | Standard cards, panels | Gradient bg (55%→30%), blur 12px, inset shadow, hover lift |
+| `.glass-card-solid` | Modals, dropdowns, menus | Gradient bg (95%→90%), blur 20px, stronger shadow |
+| `.modal-backdrop` | Scrim behind overlays | `rgba(0,0,0,0.3)`, blur 8px |
+
+**Inline style constants** in `components/onboarding/OnboardingStep.tsx`:
 
 | Constant | Use For | Key Properties |
 |----------|---------|----------------|
-| `ONBOARDING_GLASS` | Content cards, feature lists | `rgba(255,255,255,0.55)`, 1px white border, subtle shadow, 20px radius |
+| `ONBOARDING_GLASS` | Content cards, feature lists | Matches `.glass-card` — gradient bg + blur 12px + inset shadow, 20px radius |
 | `ONBOARDING_OPTION(isSelected, accentColor)` | Selection buttons | Accent tint when selected, 16px radius |
 | `ONBOARDING_INPUT(isFilled, accentColor)` | Form inputs | Accent border when filled, 16px radius |
 
-**Landing equivalent** in `Landing.tsx`:
+**Landing page** uses `.glass-card` CSS class directly (with `rounded-[20px]`). Auth cards use slightly more opaque `rgba(255,255,255,0.72)` with accent border glow.
 
-| Constant | Use For | Key Properties |
-|----------|---------|----------------|
-| `GLASS_CARD` | Landing page cards | Same as ONBOARDING_GLASS + `willChange: 'transform, opacity'` |
-| Auth cards | Login/signup | Slightly more opaque: `rgba(255,255,255,0.7)` |
-
-**Main app cards** — use CSS variables for dark mode compatibility:
+**Main app cards** — use `.glass-card` class for automatic dark mode support. For inline styles:
 
 ```tsx
 // Light mode glass
-backgroundColor: 'rgba(255, 255, 255, 0.55)',
-border: '1px solid rgba(255, 255, 255, 0.6)',
-boxShadow: '0 8px 32px -8px rgba(0, 0, 0, 0.08)',
+background: 'linear-gradient(135deg, rgba(255,255,255,0.55), rgba(255,255,255,0.30))',
+backdropFilter: 'blur(12px)',
+boxShadow: '0 8px 32px -8px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.6)',
 borderRadius: '20px',
 
-// Dark mode glass — use var(--bg-card) with alpha
-backgroundColor: 'color-mix(in srgb, var(--bg-card) 70%, transparent)',
+// Dark mode — prefer .glass-card class (auto dark mode).
+// For inline styles, use color-mix:
+background: 'color-mix(in srgb, var(--bg-card) 65%, transparent)',
 ```
+
+**Rule: No borders on glass elements.** Glass edges are defined by `backdrop-filter` + inset `box-shadow`, not `border`.
+
+## Z-Index Scale
+
+Global z-index tokens defined as CSS variables and Tailwind utilities:
+
+| Token | Value | Tailwind | Use |
+|-------|-------|----------|-----|
+| `--z-background` | 0 | `z-background` | Decorative gradient blobs |
+| `--z-content` | 10 | `z-content` | Glass cards, main content |
+| `--z-float` | 20 | `z-float` | Floating elements (hearts canvas) |
+| `--z-sticky` | 30 | `z-sticky` | Sticky headers, toolbars |
+| `--z-overlay` | 40 | `z-overlay` | Overlay backdrops |
+| `--z-modal` | 50 | `z-modal` | Modals, dropdowns, menus |
+
+**Rule:** Never use z-index values above 50. All dropdowns, modals, and overlays use `z-[50]`.
 
 ## Cards/Panels
 
 - Rounded corners: `rounded-xl` (standard cards), `rounded-2xl` (large panels/modals), `rounded-full` (pills/avatars only)
-- Shadows: `shadow-sm` (subtle), `0 8px 32px -8px rgba(0,0,0,0.08)` (glass), `shadow-lg` (elevated)
+- Shadows: `shadow-subtle`, `shadow-card` (glass), `shadow-elevated`, `shadow-dropdown`
 - Soft background tints based on context
 - Consistent padding: `p-4` (standard), `p-6` (prominent cards)
 
@@ -43,8 +70,23 @@ backgroundColor: 'color-mix(in srgb, var(--bg-card) 70%, transparent)',
 
 - **Primary**: Solid background with accent color, white text, `rounded-2xl`, `py-4`, glow shadow
 - **Secondary**: Transparent with border, accent colored text
-- **All buttons**: `transition-all duration-200`, `active:scale-[0.98]` for press feedback
+- **All buttons**: `transition-all duration-200`, global `button:active { scale: 0.97 }` press feedback
 - **Disabled**: `opacity-40 cursor-not-allowed`
+- **Landing buttons**: May use `py-3`/`py-3.5` for compact spacing
+
+## Form Inputs
+
+Global focus style applied via `src/index.css`:
+
+```css
+input:focus, textarea:focus, select:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color) 15%, transparent);
+  outline: none;
+}
+```
+
+**Do not** add `focus:ring-*` Tailwind classes on input/textarea/select elements — the global rule handles it. Buttons are excluded from the global rule and may still use `focus:ring-*`.
 
 ## Progress Indicators
 
@@ -82,8 +124,8 @@ import { ICONS } from './constants';
 Standard centered layout for full-page forms and onboarding-style screens:
 
 - Container: `text-center items-center` within flex column
-- Heading: `font-header font-bold text-2xl md:text-3xl text-gray-800 mb-8`
-- Sub-label: `text-gray-500 text-sm mb-3`
+- Heading: `font-header font-bold text-2xl md:text-3xl text-[var(--text-primary)] mb-8`
+- Sub-label: `text-[var(--text-secondary)] text-scale-label mb-3`
 - Feature list: `flex items-center gap-3` rows with `w-8 h-8` icons
 - Hero icon: `w-16 h-16` to `w-20 h-20` centered above heading
 

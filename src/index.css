@@ -12,6 +12,22 @@
     --accent-hover: #E63E56;
     --accent-text: #BE123C;
     --accent-shadow: rgba(255, 71, 97, 0.25);
+    /* Secondary accent defaults (Rose & Gold pair) */
+    --secondary-color: #FFD93B;
+    --secondary-light: #FFFBEB;
+    --secondary-border: #FDE68A;
+    --secondary-text: #A16207;
+    --secondary-hover: #E8C535;
+    --secondary-shadow: rgba(255, 217, 59, 0.25);
+    /* Semantic feedback colours */
+    --color-correct: #10B981;
+    --color-correct-bg: rgba(16, 185, 129, 0.1);
+    --color-incorrect: #EF4444;
+    --color-incorrect-bg: rgba(239, 68, 68, 0.1);
+    --color-warning: #F59E0B;
+    --color-warning-bg: rgba(245, 158, 11, 0.1);
+    /* App background (set dynamically by applyTheme) */
+    --bg-app: #FFF0F3;
     --bg-primary: #fdfcfd;
     --bg-card: #ffffff;
     --text-primary: #292F36;
@@ -38,6 +54,26 @@
     --line-height-normal: 1.5;
     --line-height-relaxed: 1.6;
 
+    /* Shadow Scale */
+    --shadow-subtle: 0 2px 8px -2px rgba(0, 0, 0, 0.04);
+    --shadow-card: 0 8px 32px -8px rgba(0, 0, 0, 0.08);
+    --shadow-elevated: 0 12px 40px -8px rgba(0, 0, 0, 0.12);
+    --shadow-dropdown: 0 8px 32px -8px rgba(0, 0, 0, 0.2);
+
+    /* Z-Index Scale */
+    --z-background: 0;
+    --z-content: 10;
+    --z-float: 20;
+    --z-sticky: 30;
+    --z-overlay: 40;
+    --z-modal: 50;
+
+    /* Animation Duration Scale */
+    --duration-fast: 150ms;
+    --duration-normal: 200ms;
+    --duration-emphasis: 400ms;
+    --duration-entrance: 500ms;
+
     /* iOS Safe Area Insets - automatically adapts to notch/Dynamic Island */
     --safe-area-top: env(safe-area-inset-top, 0px);
     --safe-area-bottom: env(safe-area-inset-bottom, 0px);
@@ -56,6 +92,15 @@
     border-radius: 4px;
 }
 :focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Unified form focus style — accent border + soft glow */
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color) 15%, transparent);
     outline: none;
 }
 
@@ -219,6 +264,13 @@ strong {
 .dark input::placeholder,
 .dark textarea::placeholder {
     color: var(--text-secondary);
+}
+
+.dark {
+    --shadow-subtle: 0 2px 8px -2px rgba(0, 0, 0, 0.12);
+    --shadow-card: 0 8px 32px -8px rgba(0, 0, 0, 0.15);
+    --shadow-elevated: 0 12px 40px -8px rgba(0, 0, 0, 0.25);
+    --shadow-dropdown: 0 8px 32px -8px rgba(0, 0, 0, 0.35);
 }
 
 /* iOS Safe Area Utilities */
@@ -395,14 +447,26 @@ strong {
   background: rgba(0, 0, 0, 0.25);
 }
 
-/* App Background — matches landing page tint.
-   Uses --accent-light so it adapts to the user's accent-color preference. */
+/* App Background — uses --bg-app which is set by applyTheme().
+   In "tinted" mode: accent-light pastel wash (light) or subtle accent mix (dark).
+   In "clean" mode: pure white (light) or dark bg (dark). */
 .app-bg-decor {
-  background: var(--accent-light);
+  background: var(--bg-app, var(--accent-light));
 }
 
-.dark .app-bg-decor {
-  background: color-mix(in srgb, var(--accent-color) 6%, var(--bg-primary));
+/* Clean mode overrides — solid cards, no glassmorphism tint bleed */
+[data-bg-style="clean"] .glass-card {
+  background: var(--bg-card);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 0 1px var(--border-color);
+}
+
+[data-bg-style="clean"].dark .glass-card {
+  background: var(--bg-card);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2), 0 0 0 1px var(--border-color);
 }
 
 /* ================================================

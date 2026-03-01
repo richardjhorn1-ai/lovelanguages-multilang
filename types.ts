@@ -15,11 +15,12 @@ export interface Profile {
   onboarding_completed_at?: string;
   onboarding_data?: OnboardingData;
   // Theme settings
-  accent_color?: 'rose' | 'blush' | 'lavender' | 'wine' | 'teal' | 'honey';
+  accent_color?: 'rose' | 'coral' | 'honey' | 'mint' | 'ocean' | 'wine' | 'blush' | 'lavender' | 'teal';
   dark_mode?: 'off' | 'midnight' | 'charcoal' | 'black';
   font_size?: 'small' | 'medium' | 'large';
   font_preset?: 'classic' | 'modern' | 'playful';
   font_weight?: 'light' | 'regular' | 'bold';
+  background_style?: 'tinted' | 'clean';
   // Answer validation mode
   smart_validation?: boolean; // true = AI-powered (accepts synonyms, typos), false = strict matching
   // Native app settings
@@ -86,6 +87,9 @@ export interface OnboardingData {
   smartValidation?: boolean;     // true = AI-powered validation, false = strict matching
   nativeLanguage?: string;       // User's native language code (e.g., 'en', 'es')
   targetLanguage?: string;       // Language user is learning (e.g., 'pl', 'fr')
+
+  // Invite partner intent (captured during onboarding, executed after plan selection)
+  invitePartnerIntent?: { method: 'link' } | { method: 'email'; email: string } | null;
 
   // Subscription selection (from onboarding)
   selectedPlan?: string;         // 'standard' or 'unlimited'
