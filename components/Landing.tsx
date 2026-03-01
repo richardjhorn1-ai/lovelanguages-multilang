@@ -747,7 +747,10 @@ const Landing: React.FC = () => {
   const handleOAuthSignIn = async (provider: 'google' | 'apple') => {
     setOauthLoading(provider);
     setMessage('');
-    analytics.trackSignupStarted(provider);
+    // Only track signup_started for new signups, not returning user logins
+    if (isSignUp) {
+      analytics.trackSignupStarted(provider);
+    }
 
     if (provider === 'apple' && Capacitor.getPlatform() === 'ios') {
       try {
@@ -809,7 +812,10 @@ const Landing: React.FC = () => {
     }
     setLoading(true);
     setMessage('');
-    analytics.trackSignupStarted('email');
+    // Only track signup_started for new signups, not returning user logins
+    if (isSignUp) {
+      analytics.trackSignupStarted('email');
+    }
     if (isSignUp) {
       const { error } = await supabase.auth.signUp({
         email, password,

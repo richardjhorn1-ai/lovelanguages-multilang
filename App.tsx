@@ -201,6 +201,15 @@ const App: React.FC = () => {
         currency: 'EUR',
       });
 
+      // Track trial conversion if user was on a trial
+      if (profile?.free_tier_chosen_at) {
+        analytics.track('trial_converted', {
+          trial_duration_ms: profile.trial_expires_at
+            ? new Date(profile.trial_expires_at).getTime() - new Date(profile.free_tier_chosen_at).getTime()
+            : undefined,
+        });
+      }
+
       // Clean up URL
       const url = new URL(window.location.href);
       url.searchParams.delete('subscription');
@@ -435,13 +444,16 @@ const App: React.FC = () => {
             }),
           });
         } else {
-          // Returning user — just identify for event tracking
+          // Returning user — identify and track login
+          const { data: userData } = await supabase.auth.getUser();
+          const provider = userData?.user?.app_metadata?.provider || 'email';
           analytics.identify(userId, {
             signup_date: data.created_at,
             native_language: data.native_language,
             target_language: data.active_language,
             subscription_plan: data.subscription_plan || 'free',
           });
+          analytics.trackLogin(provider as 'google' | 'apple' | 'email');
         }
         // Pre-cache vocabulary for offline mode
         if (data?.active_language) {

@@ -72,16 +72,37 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
 
     setLoading(true);
     setError(null);
+
+    // Track checkout started for iOS
+    analytics.trackCheckoutStarted({
+      plan: selectedPlan as 'standard' | 'unlimited',
+      billing_period: billingPeriod === 'weekly' ? 'monthly' : billingPeriod as 'monthly' | 'yearly',
+      price: pkg.product?.price ?? 0,
+      currency: pkg.product?.currencyCode || 'USD',
+    });
+
     try {
       const customerInfo = await purchasePackage(pkg);
       if (customerInfo) {
         // Purchase succeeded — webhook updates DB, refresh profile
+        analytics.trackSubscriptionCompleted({
+          plan: selectedPlan as 'standard' | 'unlimited',
+          billing_period: billingPeriod === 'weekly' ? 'monthly' : billingPeriod as 'monthly' | 'yearly',
+          price: pkg.product?.price ?? 0,
+          currency: pkg.product?.currencyCode || 'USD',
+        });
         onSubscribed();
       } else {
         // User cancelled
         setLoading(false);
       }
     } catch (err: any) {
+      analytics.track('subscription_failed', {
+        plan: selectedPlan,
+        billing_period: billingPeriod,
+        error_message: err?.message || 'Unknown error',
+        platform: 'ios',
+      });
       setError(err?.message || 'Purchase failed. Please try again.');
       setLoading(false);
     }
@@ -106,9 +127,15 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       paywallViewedRef.current = true;
       paywallViewedAt.current = Date.now();
       analytics.trackPaywallView({
-        trigger_reason: 'subscription_required',
-        page_context: 'onboarding',
+        trigger_reason: trialExpired ? 'trial_expired' : 'subscription_required',
+        page_context: trialExpired ? 'trial_expired' : 'onboarding',
       });
+      // Fire trial_expired event when user's trial has lapsed
+      if (trialExpired) {
+        analytics.track('trial_expired', {
+          user_id: profile.id,
+        });
+      }
     }
   }, []);
 

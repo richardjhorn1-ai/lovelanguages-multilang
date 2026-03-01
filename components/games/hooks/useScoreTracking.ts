@@ -5,6 +5,7 @@ import { Profile, DictionaryEntry, WordScore } from '../../../types';
 import { useLanguage } from '../../../context/LanguageContext';
 import { sounds } from '../../../services/sounds';
 import { haptics } from '../../../services/haptics';
+import { analytics } from '../../../services/analytics';
 import { useOffline } from '../../../hooks/useOffline';
 
 /** Number of consecutive correct answers needed to mark a word as "learned" */
@@ -155,6 +156,13 @@ export function useScoreTracking({
       // Streak logic: increment if correct, reset to 0 if incorrect
       const currentStreak = existingScore?.correct_streak || 0;
       const newStreak = isCorrect ? currentStreak + 1 : 0;
+
+      // Track streak events
+      if (isCorrect && newStreak >= 2) {
+        analytics.track('streak_maintained', { streak_days: newStreak, activity_type: 'word_practice' });
+      } else if (!isCorrect && currentStreak >= 2) {
+        analytics.track('streak_broken', { streak_days: currentStreak, previous_streak_days: currentStreak });
+      }
 
       // Check if word just became learned (hit streak threshold)
       const wasLearned = existingScore?.learned_at != null;

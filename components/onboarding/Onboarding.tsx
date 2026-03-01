@@ -617,6 +617,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
   const [saving, setSaving] = useState(false);
   const [trialActivating, setTrialActivating] = useState(false);
   const [trialError, setTrialError] = useState<string | null>(null);
+  const onboardingStartTime = useRef(Date.now());
 
   // Active role — from prop (returning user) or from RoleStep selection (new user)
   const [selectedRole, setSelectedRole] = useState<'student' | 'tutor' | null>(role);
@@ -906,6 +907,8 @@ export const Onboarding: React.FC<OnboardingProps> = ({
       analytics.track('onboarding_completed', {
         role: activeRole,
         total_steps: totalSteps,
+        steps_completed: currentStep,
+        total_time_ms: Date.now() - onboardingStartTime.current,
         target_language: data.targetLanguage,
         native_language: data.nativeLanguage,
         selected_plan: data.selectedPlan || 'none',

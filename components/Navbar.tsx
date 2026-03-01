@@ -10,6 +10,7 @@ import { useTheme } from '../context/ThemeContext';
 import { HelpGuide } from './HelpGuide';
 import { BugReportModal } from './BugReportModal';
 import { sounds } from '../services/sounds';
+import { analytics } from '../services/analytics';
 import { LOGO_PATH, LOGO_DETAIL_PATHS } from './hero/Section';
 
 interface NavbarProps {
@@ -479,6 +480,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                 <button
                   onClick={async () => {
                     setIsProfileDropdownOpen(false);
+                    analytics.trackLogout();
                     await supabase.auth.signOut({ scope: 'local' });
                   }}
                   className="w-full px-3 md:px-4 py-2 md:py-2.5 text-left flex items-center gap-2 md:gap-3 hover:bg-red-500/10 transition-colors text-red-500"
