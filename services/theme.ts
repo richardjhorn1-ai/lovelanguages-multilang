@@ -375,52 +375,6 @@ export const DEFAULT_THEME: ThemeSettings = {
   backgroundStyle: 'tinted',
 };
 
-// localStorage key
-export const THEME_STORAGE_KEY = 'love_languages_theme';
-
-// Load theme from localStorage
-export function loadTheme(): ThemeSettings {
-  try {
-    const stored = localStorage.getItem(THEME_STORAGE_KEY);
-    if (stored) {
-      const parsed = JSON.parse(stored);
-
-      // Migrate old accent keys to new ones
-      let rawAccent = parsed.accentColor as string;
-      if (rawAccent && ACCENT_MIGRATION[rawAccent]) {
-        rawAccent = ACCENT_MIGRATION[rawAccent];
-      }
-
-      const accentColor = rawAccent && ACCENT_COLORS[rawAccent as AccentColor]
-        ? (rawAccent as AccentColor)
-        : DEFAULT_THEME.accentColor;
-      const darkMode = parsed.darkMode && DARK_MODE_STYLES[parsed.darkMode as DarkModeStyle]
-        ? (parsed.darkMode as DarkModeStyle)
-        : DEFAULT_THEME.darkMode;
-      const fontSize = parsed.fontSize && FONT_SIZES[parsed.fontSize as FontSize]
-        ? (parsed.fontSize as FontSize)
-        : DEFAULT_THEME.fontSize;
-      const fontPreset = parsed.fontPreset && FONT_PRESETS[parsed.fontPreset as FontPreset]
-        ? (parsed.fontPreset as FontPreset)
-        : DEFAULT_THEME.fontPreset;
-      const fontWeight = parsed.fontWeight && FONT_WEIGHTS[parsed.fontWeight as FontWeight]
-        ? (parsed.fontWeight as FontWeight)
-        : DEFAULT_THEME.fontWeight;
-      const backgroundStyle = parsed.backgroundStyle === 'clean' ? 'clean' as BackgroundStyle : 'tinted' as BackgroundStyle;
-
-      return { accentColor, darkMode, fontSize, fontPreset, fontWeight, backgroundStyle };
-    }
-  } catch {
-    // Ignore parse errors
-  }
-  return DEFAULT_THEME;
-}
-
-// Save theme to localStorage
-export function saveTheme(theme: ThemeSettings): void {
-  localStorage.setItem(THEME_STORAGE_KEY, JSON.stringify(theme));
-}
-
 // Migrate old accent colour values from Supabase profiles
 export function migrateAccentColor(raw: string | undefined): AccentColor {
   if (!raw) return DEFAULT_THEME.accentColor;

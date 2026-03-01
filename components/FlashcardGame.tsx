@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react'
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { geminiService } from '../services/gemini';
-import { Profile, DictionaryEntry, WordScore, AIChallengeMode, TutorChallenge, WordRequest } from '../types';
+import { Profile, DictionaryEntry, WordScore, TutorChallenge, WordRequest } from '../types';
 import { getLevelFromXP, getTierColor } from '../services/level-utils';
 import { ICONS } from '../constants';
 import { LANGUAGE_CONFIGS } from '../constants/language-config';

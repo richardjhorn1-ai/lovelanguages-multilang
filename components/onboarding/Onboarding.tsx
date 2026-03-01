@@ -933,7 +933,6 @@ export const Onboarding: React.FC<OnboardingProps> = ({
           }).then(async (res) => {
             if (res.ok) {
               const inviteData = await res.json();
-              console.log('[Onboarding] Deferred invite generated:', inviteData.inviteLink);
               // TODO: If method was 'email', send email invite via send-invite-email API
               // TODO: If method was 'link', show copy-link toast post-onboarding
             }
@@ -942,11 +941,8 @@ export const Onboarding: React.FC<OnboardingProps> = ({
       }
 
       // Handle plan selection
-      console.log('[Onboarding] Selected plan:', data.selectedPlan, 'Price ID:', data.selectedPriceId);
-
       if (data.selectedPlan === 'free') {
         // User chose free tier - call API with bulletproof retry
-        console.log('[Onboarding] Activating free trial...');
         setTrialActivating(true);
         setTrialError(null);
 
@@ -967,7 +963,6 @@ export const Onboarding: React.FC<OnboardingProps> = ({
         for (let attempt = 1; attempt <= maxAttempts; attempt++) {
           try {
             if (attempt > 1) {
-              console.log(`[Onboarding] Retry attempt ${attempt}/${maxAttempts}...`);
               await new Promise(resolve => setTimeout(resolve, delays[attempt - 1]));
             }
 
@@ -980,7 +975,6 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             });
 
             const result = await response.json();
-            console.log('[Onboarding] Free trial API response:', response.status, result);
 
             if (response.ok) {
               // Success! Store the trial expiry and proceed
@@ -995,7 +989,6 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             // Handle specific error codes
             if (result.code === 'ALREADY_FREE_TIER') {
               // User already has trial - just proceed
-              console.log('[Onboarding] User already has trial, proceeding...');
               setTrialActivating(false);
               onComplete();
               return;

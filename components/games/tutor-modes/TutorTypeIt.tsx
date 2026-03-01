@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../constants';
 import { DictionaryEntry } from '../../../types';
 import { haptics } from '../../../services/haptics';
+import { isCorrectAnswer } from '../../../utils/answer-helpers';
 import type { TutorAnswerResult } from './types';
 
 interface TutorTypeItProps {
@@ -84,8 +85,8 @@ export const TutorTypeIt: React.FC<TutorTypeItProps> = ({
       correct = result.accepted;
       exp = result.explanation;
     } else {
-      // Simple comparison (diacritics-insensitive)
-      correct = answer.trim().toLowerCase() === currentWord.translation.toLowerCase();
+      // Diacritic-normalized comparison
+      correct = isCorrectAnswer(answer, currentWord.translation);
       exp = correct ? 'Exact match' : 'No match';
     }
 

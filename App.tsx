@@ -27,8 +27,6 @@ import JoinInvite from './components/JoinInvite';
 import { Onboarding } from './components/onboarding/Onboarding';
 import SubscriptionRequired from './components/SubscriptionRequired';
 import TrialReminderNotification from './components/TrialReminderNotification';
-// RoleSelection removed — role selection is now step 1 of onboarding
-// import RoleSelection from './components/RoleSelection';
 import TermsOfService from './components/TermsOfService';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import FAQ from './components/FAQ';

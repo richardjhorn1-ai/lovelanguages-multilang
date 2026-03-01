@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { geminiService } from '../services/gemini';
-import { Profile, DictionaryEntry, WordType, ProgressSummary, SavedProgressSummary, WordScore } from '../types';
+import { Profile, DictionaryEntry, ProgressSummary, SavedProgressSummary, WordScore } from '../types';
 import { getLevelFromXP, getLevelProgress, getTierIndex, translateLevel } from '../services/level-utils';
 import { ICONS } from '../constants';
 import { LANGUAGE_CONFIGS } from '../constants/language-config';

@@ -18,7 +18,6 @@
     --secondary-border: #FDE68A;
     --secondary-text: #A16207;
     --secondary-hover: #E8C535;
-    --secondary-shadow: rgba(255, 217, 59, 0.25);
     /* Semantic feedback colours */
     --color-correct: #10B981;
     --color-correct-bg: rgba(16, 185, 129, 0.1);
@@ -53,26 +52,6 @@
     --line-height-tight: 1.3;
     --line-height-normal: 1.5;
     --line-height-relaxed: 1.6;
-
-    /* Shadow Scale */
-    --shadow-subtle: 0 2px 8px -2px rgba(0, 0, 0, 0.04);
-    --shadow-card: 0 8px 32px -8px rgba(0, 0, 0, 0.08);
-    --shadow-elevated: 0 12px 40px -8px rgba(0, 0, 0, 0.12);
-    --shadow-dropdown: 0 8px 32px -8px rgba(0, 0, 0, 0.2);
-
-    /* Z-Index Scale */
-    --z-background: 0;
-    --z-content: 10;
-    --z-float: 20;
-    --z-sticky: 30;
-    --z-overlay: 40;
-    --z-modal: 50;
-
-    /* Animation Duration Scale */
-    --duration-fast: 150ms;
-    --duration-normal: 200ms;
-    --duration-emphasis: 400ms;
-    --duration-entrance: 500ms;
 
     /* iOS Safe Area Insets - automatically adapts to notch/Dynamic Island */
     --safe-area-top: env(safe-area-inset-top, 0px);
@@ -266,45 +245,9 @@ strong {
     color: var(--text-secondary);
 }
 
-.dark {
-    --shadow-subtle: 0 2px 8px -2px rgba(0, 0, 0, 0.12);
-    --shadow-card: 0 8px 32px -8px rgba(0, 0, 0, 0.15);
-    --shadow-elevated: 0 12px 40px -8px rgba(0, 0, 0, 0.25);
-    --shadow-dropdown: 0 8px 32px -8px rgba(0, 0, 0, 0.35);
-}
-
 /* iOS Safe Area Utilities */
 .safe-area-top {
     padding-top: var(--safe-area-top);
-}
-
-.safe-area-bottom {
-    padding-bottom: var(--safe-area-bottom);
-}
-
-.safe-area-left {
-    padding-left: var(--safe-area-left);
-}
-
-.safe-area-right {
-    padding-right: var(--safe-area-right);
-}
-
-.safe-area-x {
-    padding-left: var(--safe-area-left);
-    padding-right: var(--safe-area-right);
-}
-
-.safe-area-y {
-    padding-top: var(--safe-area-top);
-    padding-bottom: var(--safe-area-bottom);
-}
-
-.safe-area-all {
-    padding-top: var(--safe-area-top);
-    padding-bottom: var(--safe-area-bottom);
-    padding-left: var(--safe-area-left);
-    padding-right: var(--safe-area-right);
 }
 
 /* Mobile viewport height fix - uses dvh with vh fallback */
@@ -338,11 +281,6 @@ strong {
 .text-scale-label {
     font-size: var(--text-label);
     line-height: var(--line-height-normal);
-}
-
-.text-scale-button {
-    font-size: var(--text-button);
-    line-height: var(--line-height-tight);
 }
 
 .text-scale-body {
@@ -526,8 +464,6 @@ button, a, input, select, textarea {
 .stagger-4 { animation-delay: 0.2s; }
 .stagger-5 { animation-delay: 0.25s; }
 .stagger-6 { animation-delay: 0.3s; }
-.stagger-7 { animation-delay: 0.35s; }
-.stagger-8 { animation-delay: 0.4s; }
 
 /* Shake — error/incorrect feedback */
 @keyframes shake {
@@ -571,16 +507,6 @@ button, a, input, select, textarea {
 }
 .animate-slide-up {
   animation: slide-up 0.3s ease-out both;
-}
-
-/* Score count up — number increment animation for game results */
-@keyframes count-pulse {
-  0%   { transform: scale(1); }
-  50%  { transform: scale(1.15); }
-  100% { transform: scale(1); }
-}
-.animate-count-pulse {
-  animation: count-pulse 0.4s ease-out;
 }
 
 /* Correct answer glow — brief green pulse */

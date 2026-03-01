@@ -2,7 +2,8 @@ import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../constants';
 import { StreakIndicator } from '../components';
-import { shuffleArray } from '../../../utils/array';
+
+import { isCorrectAnswer } from '../../../utils/answer-helpers';
 import { speak } from '../../../services/audio';
 import { haptics } from '../../../services/haptics';
 import { DictionaryEntry } from '../../../types';
@@ -128,8 +129,8 @@ export const TypeIt: React.FC<TypeItProps> = ({
       accepted = simpleValidate(answer, correctAnswer);
       explanationText = accepted ? 'Exact match' : 'No match';
     } else {
-      // Default: case-insensitive trim comparison
-      accepted = answer.trim().toLowerCase() === correctAnswer.toLowerCase();
+      // Default: diacritic-normalized comparison
+      accepted = isCorrectAnswer(answer, correctAnswer);
       explanationText = accepted ? 'Exact match' : 'No match';
     }
 

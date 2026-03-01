@@ -668,7 +668,7 @@ const AI_REFERRAL_SOURCES = [
 /**
  * Detect if traffic came from an AI engine (GEO tracking)
  */
-export const detectAiReferral = (): string | null => {
+const detectAiReferral = (): string | null => {
   if (!isBrowser) return null;
   const referrer = document.referrer || '';
   const utmSource = new URLSearchParams(window.location.search).get('utm_source') || '';

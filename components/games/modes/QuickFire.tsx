@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../constants';
 import { DictionaryEntry } from '../../../types';
 import { shuffleArray } from '../../../utils/array';
+import { isCorrectAnswer } from '../../../utils/answer-helpers';
 import { speak } from '../../../services/audio';
 import { haptics } from '../../../services/haptics';
 import type { AnswerResult } from './types';
@@ -149,8 +150,8 @@ export const QuickFire: React.FC<QuickFireProps> = ({
       accepted = simpleValidate(input, currentWord.translation);
       explanation = accepted ? 'Exact match' : 'No match';
     } else {
-      // Default: case-insensitive comparison
-      accepted = input.trim().toLowerCase() === currentWord.translation.toLowerCase();
+      // Default: diacritic-normalized comparison
+      accepted = isCorrectAnswer(input, currentWord.translation);
       explanation = accepted ? 'Exact match' : 'No match';
     }
 

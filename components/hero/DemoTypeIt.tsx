@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DemoWord } from './demoData';
 import { sounds } from '../../services/sounds';
+import { isCorrectAnswer } from '../../utils/answer-helpers';
 
 interface DemoTypeItProps {
   word: DemoWord;
@@ -37,7 +38,7 @@ export const DemoTypeIt: React.FC<DemoTypeItProps> = ({
       return;
     }
 
-    const correct = answer.trim().toLowerCase() === word.translation.toLowerCase();
+    const correct = isCorrectAnswer(answer, word.translation);
     // Play feedback sound
     sounds.play('correct');
     setIsCorrect(correct);

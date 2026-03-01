@@ -143,20 +143,3 @@ export async function validateAnswerSmart(
   }
 }
 
-/**
- * Legacy wrapper for TutorGames signature.
- * Prefer using validateAnswerSmart with options object for new code.
- */
-export async function validateAnswerSmartLegacy(
-  userAnswer: string,
-  correctAnswer: string,
-  targetWord: string,
-  targetLanguage: string,
-  nativeLanguage: string
-): Promise<ValidationResult> {
-  return validateAnswerSmart(userAnswer, correctAnswer, {
-    targetWord,
-    direction: 'target_to_native',
-    languageParams: { targetLanguage, nativeLanguage }
-  });
-}

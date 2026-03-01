@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DemoWord } from './demoData';
 import { sounds } from '../../services/sounds';
+import { isCorrectAnswer } from '../../utils/answer-helpers';
 import { ICONS } from '../../constants';
 
 interface DemoQuickFireProps {
@@ -76,7 +77,7 @@ export const DemoQuickFire: React.FC<DemoQuickFireProps> = ({
   const handleSubmit = () => {
     if (!answer.trim() || gameState !== 'playing') return;
 
-    const isCorrect = answer.trim().toLowerCase() === currentWord.translation.toLowerCase();
+    const isCorrect = isCorrectAnswer(answer, currentWord.translation);
     // Play feedback sound
     sounds.play('correct');
     setLastCorrect(isCorrect);

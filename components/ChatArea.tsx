@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
-import { geminiService, BootSessionResult, Attachment, ExtractedWord, SessionContext, ProposedAction } from '../services/gemini';
+import { geminiService, Attachment, ExtractedWord, SessionContext, ProposedAction } from '../services/gemini';
 import { LiveSession, LiveSessionState } from '../services/live-session';
 import { GladiaSession, GladiaState, TranscriptChunk } from '../services/gladia-session';
 import { Profile, Chat, Message, ChatMode, WordType } from '../types';
@@ -591,11 +591,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
     // ACT 2: FETCH AI REPLY
     // Use non-streaming for: images OR coach mode (coach needs structured output)
-    console.log('[ChatArea] handleSend - mode:', mode, 'attachments:', currentAttachments.length, 'sessionContext.role:', sessionContextRef.current?.role);
-
     try {
       if (currentAttachments.length > 0 || mode === 'coach') {
-        console.log('[ChatArea] Using NON-STREAMING path (generateReply)');
         setIsThinking(true);
 
         const result = await geminiService.generateReply(
@@ -607,20 +604,16 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           languageParams
         );
 
-        console.log('[ChatArea] generateReply result:', { replyText: result.replyText?.slice(0, 100), newWords: result.newWords?.length, proposedAction: result.proposedAction });
-
         setIsThinking(false);
         replyText = result.replyText;
         newWords = result.newWords;
 
         // Handle proposed action from coach mode
         if (result.proposedAction) {
-          console.log('[ChatArea] Got proposedAction:', result.proposedAction);
           setPendingAction(result.proposedAction);
           setShowActionConfirm(true);
         }
       } else {
-        console.log('[ChatArea] Using STREAMING path (generateReplyStream)');
         // Use streaming for text-only student messages (shows typing effect)
         replyText = await geminiService.generateReplyStream(
           userMessage,

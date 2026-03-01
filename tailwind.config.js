@@ -48,12 +48,6 @@ export default {
         'text-secondary': 'var(--text-secondary)',
         'border-color': 'var(--border-color)',
       },
-      boxShadow: {
-        'subtle': 'var(--shadow-subtle)',
-        'card': 'var(--shadow-card)',
-        'elevated': 'var(--shadow-elevated)',
-        'dropdown': 'var(--shadow-dropdown)',
-      },
       zIndex: {
         'background': '0',
         'content': '10',
@@ -62,15 +56,8 @@ export default {
         'overlay': '40',
         'modal': '50',
       },
-      transitionDuration: {
-        'fast': 'var(--duration-fast)',
-        'normal': 'var(--duration-normal)',
-        'emphasis': 'var(--duration-emphasis)',
-        'entrance': 'var(--duration-entrance)',
-      },
       animation: {
         'shake': 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both',
-        'flash-red': 'flash-red 0.5s ease-out',
       },
       keyframes: {
         shake: {
@@ -78,10 +65,6 @@ export default {
           '20%, 80%': { transform: 'translate3d(2px, 0, 0)' },
           '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' },
           '40%, 60%': { transform: 'translate3d(4px, 0, 0)' },
-        },
-        'flash-red': {
-          '0%': { backgroundColor: 'rgba(239, 68, 68, 0.3)' },
-          '100%': { backgroundColor: 'transparent' },
         },
       },
     },

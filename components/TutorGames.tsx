@@ -9,7 +9,7 @@ import CreateQuickFireChallenge from './CreateQuickFireChallenge';
 import WordRequestCreator from './WordRequestCreator';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
-import { normalizeAnswer, validateAnswerSmart } from '../utils/answer-helpers';
+import { validateAnswerSmart } from '../utils/answer-helpers';
 import LimitReachedModal from './LimitReachedModal';
 import {
   TutorFlashcards,

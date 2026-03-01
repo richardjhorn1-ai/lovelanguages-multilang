@@ -16,7 +16,7 @@ import { FeatureCard, STUDENT_FEATURES, TUTOR_FEATURES } from './landing/Feature
 import FeatureShowcase from './landing/FeatureShowcase';
 import MobileGameShowcase from './landing/MobileGameShowcase';
 import type { LanguageCode } from '../constants/language-config';
-import InPlaceFlipCard from './landing/FlipExpandCard';
+
 
 // ============================================
 // Brand SVG Icons (not available in Phosphor)

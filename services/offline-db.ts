@@ -9,8 +9,7 @@
  */
 
 import { openDB, IDBPDatabase, DBSchema } from 'idb';
-import { DictionaryEntry, WordScore } from '../types';
-import type { GameSessionAnswer } from '../components/games/hooks/useGameSession';
+import { DictionaryEntry, WordScore, GameSessionAnswer } from '../types';
 
 // ─── Types ───────────────────────────────────────────────────
 

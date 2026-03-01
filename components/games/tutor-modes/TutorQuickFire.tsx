@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../constants';
 import { DictionaryEntry } from '../../../types';
 import { haptics } from '../../../services/haptics';
+import { isCorrectAnswer } from '../../../utils/answer-helpers';
 import type { TutorAnswerResult } from './types';
 
 interface TutorQuickFireProps {
@@ -104,7 +105,7 @@ export const TutorQuickFire: React.FC<TutorQuickFireProps> = ({
       isCorrect = result.accepted;
       explanation = result.explanation;
     } else {
-      isCorrect = input.trim().toLowerCase() === currentWord.translation.toLowerCase();
+      isCorrect = isCorrectAnswer(input, currentWord.translation);
       explanation = isCorrect ? 'Exact match' : 'No match';
     }
 
