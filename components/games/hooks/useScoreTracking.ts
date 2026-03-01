@@ -157,10 +157,10 @@ export function useScoreTracking({
       const currentStreak = existingScore?.correct_streak || 0;
       const newStreak = isCorrect ? currentStreak + 1 : 0;
 
-      // Track streak events
-      if (isCorrect && newStreak >= 2) {
+      // Track streak milestones (every 5 correct in a row) to avoid high-frequency spam
+      if (isCorrect && newStreak >= STREAK_TO_LEARN && newStreak % STREAK_TO_LEARN === 0) {
         analytics.track('streak_maintained', { streak_days: newStreak, activity_type: 'word_practice' });
-      } else if (!isCorrect && currentStreak >= 2) {
+      } else if (!isCorrect && currentStreak >= STREAK_TO_LEARN) {
         analytics.track('streak_broken', { streak_days: currentStreak, previous_streak_days: currentStreak });
       }
 

@@ -190,6 +190,8 @@ const App: React.FC = () => {
     const params = new URLSearchParams(window.location.search);
     if (params.get('subscription') === 'success') {
       setSuccessToast("You're all set!");
+      // Flag for trial_converted check (runs in separate useEffect after profile loads)
+      sessionStorage.setItem('subscription_just_completed', 'true');
 
       // Track subscription completed
       // Note: Actual plan/price details would come from the Stripe webhook
@@ -201,22 +203,31 @@ const App: React.FC = () => {
         currency: 'EUR',
       });
 
-      // Track trial conversion if user was on a trial
-      if (profile?.free_tier_chosen_at) {
-        analytics.track('trial_converted', {
-          trial_duration_ms: profile.trial_expires_at
-            ? new Date(profile.trial_expires_at).getTime() - new Date(profile.free_tier_chosen_at).getTime()
-            : undefined,
-        });
-      }
-
-      // Clean up URL
+      // Clean up URL (trial_converted tracked separately once profile loads)
       const url = new URL(window.location.href);
       url.searchParams.delete('subscription');
       url.searchParams.delete('onboarding');
       window.history.replaceState({}, '', url.pathname + url.hash);
     }
   }, []);
+
+  // Track trial conversion once profile is loaded (after Stripe redirect)
+  const trialConvertedRef = useRef(false);
+  useEffect(() => {
+    if (profile?.free_tier_chosen_at && !trialConvertedRef.current) {
+      // Check if we just came from a subscription success redirect
+      const wasSubscriptionSuccess = sessionStorage.getItem('subscription_just_completed');
+      if (wasSubscriptionSuccess) {
+        trialConvertedRef.current = true;
+        sessionStorage.removeItem('subscription_just_completed');
+        analytics.track('trial_converted', {
+          trial_duration_ms: profile.trial_expires_at
+            ? new Date(profile.trial_expires_at).getTime() - new Date(profile.free_tier_chosen_at).getTime()
+            : undefined,
+        });
+      }
+    }
+  }, [profile]);
 
   // Listen for word extraction events from ChatArea (visible on all tabs)
   useEffect(() => {
@@ -444,16 +455,21 @@ const App: React.FC = () => {
             }),
           });
         } else {
-          // Returning user — identify and track login
-          const { data: userData } = await supabase.auth.getUser();
-          const provider = userData?.user?.app_metadata?.provider || 'email';
+          // Returning user — identify for event tracking
           analytics.identify(userId, {
             signup_date: data.created_at,
             native_language: data.native_language,
             target_language: data.active_language,
             subscription_plan: data.subscription_plan || 'free',
           });
-          analytics.trackLogin(provider as 'google' | 'apple' | 'email');
+          // Track login only once per browser session (not on every page refresh)
+          const loginSessionKey = `login_tracked_${userId}`;
+          if (!sessionStorage.getItem(loginSessionKey)) {
+            sessionStorage.setItem(loginSessionKey, 'true');
+            const { data: userData } = await supabase.auth.getUser();
+            const provider = userData?.user?.app_metadata?.provider || 'email';
+            analytics.trackLogin(provider as 'google' | 'apple' | 'email');
+          }
         }
         // Pre-cache vocabulary for offline mode
         if (data?.active_language) {

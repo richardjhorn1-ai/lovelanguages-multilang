@@ -130,8 +130,9 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
         trigger_reason: trialExpired ? 'trial_expired' : 'subscription_required',
         page_context: trialExpired ? 'trial_expired' : 'onboarding',
       });
-      // Fire trial_expired event when user's trial has lapsed
-      if (trialExpired) {
+      // Fire trial_expired event once per session (not on every remount)
+      if (trialExpired && !sessionStorage.getItem('trial_expired_tracked')) {
+        sessionStorage.setItem('trial_expired_tracked', 'true');
         analytics.track('trial_expired', {
           user_id: profile.id,
         });
