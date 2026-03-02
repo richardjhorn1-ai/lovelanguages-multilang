@@ -1,7 +1,7 @@
 {
-  "name": "love-languages-polish",
+  "name": "lovelanguages",
   "version": "1.0.0",
-  "description": "Love Languages - Polish for Couples",
+  "description": "Love Languages - Learn your partner's language",
   "type": "module",
   "scripts": {
     "dev": "vite",
