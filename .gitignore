@@ -140,3 +140,7 @@ scripts/continue-vocab-generation.json
 scripts/continue-vocab-uk-en.ts
 scripts/generate-da-en-batch.py
 scripts/merge-vocab-601-700.ts
+
+# Unshipped features (keep on disk, not tracked)
+api/check-email.ts
+hooks/useHeroLogic.ts
