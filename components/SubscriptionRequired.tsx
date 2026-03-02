@@ -143,15 +143,19 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
 
   // Detect subscription=canceled URL param from Stripe checkout
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
+    // HashRouter stores params in the hash fragment, not in search
+    const hash = window.location.hash;
+    const hashSearch = hash.includes('?') ? hash.substring(hash.indexOf('?')) : '';
+    const params = new URLSearchParams(hashSearch || window.location.search);
     if (params.get('subscription') === 'canceled') {
       setShowCanceledMessage(true);
       analytics.trackPaywallDismissed({
         trigger_reason: trialExpired ? 'trial_expired' : 'subscription_required',
         time_viewed_ms: Date.now() - paywallViewedAt.current,
       });
-      // Clean up URL
-      window.history.replaceState({}, '', window.location.pathname);
+      // Clean up URL — preserve hash path but remove query
+      const cleanHash = hash.includes('?') ? hash.substring(0, hash.indexOf('?')) : hash;
+      window.history.replaceState({}, '', window.location.pathname + cleanHash);
     }
   }, []);
 

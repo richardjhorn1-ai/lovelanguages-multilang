@@ -616,6 +616,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
   const [currentStep, setCurrentStep] = useState(1);
   const [data, setData] = useState<Partial<OnboardingData>>({});
   const [saving, setSaving] = useState(false);
+  const [saveError, setSaveError] = useState<string | null>(null);
   const [trialActivating, setTrialActivating] = useState(false);
   const [trialError, setTrialError] = useState<string | null>(null);
   const onboardingStartTime = useRef(Date.now());
@@ -810,6 +811,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
 
   const handleComplete = async () => {
     setSaving(true);
+    setSaveError(null);
 
     // Invited users skip personalization — set sensible defaults
     if (isInvitedUser) {
@@ -820,7 +822,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
       } else {
         if (!data.relationshipType) updateData('relationshipType', 'partner');
         if (!data.languageConnection) updateData('languageConnection', 'native');
-        if (!data.teachingStyle && !data.teachingStyle) updateData('teachingStyle', 'balanced');
+        if (!data.teachingStyle) updateData('teachingStyle', 'balanced');
       }
     }
 
@@ -1049,7 +1051,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
       console.error('Error saving onboarding:', err);
       // DON'T clear localStorage or call onComplete on error!
       // Keep the user's progress so they can retry
-      alert('Failed to save your progress. Please try again.');
+      setSaveError('Failed to save your progress. Please try again.');
       setSaving(false);
       return;
     } finally {
@@ -1155,7 +1157,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
                 onComplete={handleComplete}
                 accentColor={accentColor}
                 loading={trialActivating}
-                error={trialError}
+                error={saveError || trialError}
               />
             );
           default:
@@ -1240,7 +1242,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               onComplete={handleComplete}
               accentColor={accentColor}
               loading={trialActivating}
-              error={trialError}
+              error={saveError || trialError}
             />
           );
         default:
@@ -1445,7 +1447,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               onComplete={handleComplete}
               accentColor={accentColor}
               loading={trialActivating}
-              error={trialError}
+              error={saveError || trialError}
             />
           );
         default:
@@ -1548,7 +1550,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             onComplete={handleComplete}
             accentColor={accentColor}
             loading={trialActivating}
-            error={trialError}
+            error={saveError || trialError}
           />
         );
       default:

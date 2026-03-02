@@ -429,59 +429,62 @@ const AuthCard: React.FC<{
             />
           </div>
 
-          <div>
-            <label
-              className="block text-scale-micro font-black uppercase tracking-[0.2em] mb-1.5 ml-1"
-              style={{ color: hasError ? '#ef4444' : '#9ca3af' }}
-            >
-              {t('hero.login.passwordLabel')}
-            </label>
-            <div className="relative">
-              <input
-                type={showPassword ? 'text' : 'password'}
-                autoComplete={isSignUp ? 'new-password' : 'current-password'}
-                value={password}
-                onChange={(e) => { setPassword(e.target.value); if (message) setMessage(''); setConfirmPasswordError(''); }}
-                required={!showForgotPassword}
-                className="w-full px-4 py-3 pr-12 rounded-2xl border-2 focus:outline-none transition-all placeholder:text-[var(--text-secondary)] font-bold text-scale-body"
-                style={{
-                  backgroundColor: '#ffffff',
-                  color: '#1a1a2e',
-                  borderColor: hasError ? '#ef4444' : accentBorder,
-                }}
-                onFocus={(e) => e.target.style.borderColor = hasError ? '#ef4444' : accentColor}
-                onBlur={(e) => e.target.style.borderColor = hasError ? '#ef4444' : accentBorder}
-                placeholder={t('hero.login.passwordPlaceholder')}
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:opacity-80 transition-colors"
-                tabIndex={-1}
+          {!showForgotPassword && (
+            <div>
+              <label
+                className="block text-scale-micro font-black uppercase tracking-[0.2em] mb-1.5 ml-1"
+                style={{ color: hasError ? '#ef4444' : '#9ca3af' }}
               >
-                {showPassword ? (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-5 0-9.27-3.11-11-7.5a11.72 11.72 0 013.168-4.477M6.343 6.343A9.97 9.97 0 0112 5c5 0 9.27 3.11 11 7.5a11.72 11.72 0 01-4.168 4.477M6.343 6.343L3 3m3.343 3.343l2.829 2.829m4.484 4.484l2.829 2.829M6.343 6.343l11.314 11.314M14.121 14.121A3 3 0 009.879 9.879" />
-                  </svg>
-                ) : (
-                  <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                  </svg>
-                )}
-              </button>
+                {t('hero.login.passwordLabel')}
+              </label>
+              <div className="relative">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  autoComplete={isSignUp ? 'new-password' : 'current-password'}
+                  value={password}
+                  onChange={(e) => { setPassword(e.target.value); if (message) setMessage(''); setConfirmPasswordError(''); }}
+                  required
+                  className="w-full px-4 py-3 pr-12 rounded-2xl border-2 focus:outline-none transition-all placeholder:text-[var(--text-secondary)] font-bold text-scale-body"
+                  style={{
+                    backgroundColor: '#ffffff',
+                    color: '#1a1a2e',
+                    borderColor: hasError ? '#ef4444' : accentBorder,
+                  }}
+                  onFocus={(e) => e.target.style.borderColor = hasError ? '#ef4444' : accentColor}
+                  onBlur={(e) => e.target.style.borderColor = hasError ? '#ef4444' : accentBorder}
+                  placeholder={t('hero.login.passwordPlaceholder')}
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 p-1.5 text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:opacity-80 transition-colors"
+                  tabIndex={-1}
+                >
+                  {showPassword ? (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-5 0-9.27-3.11-11-7.5a11.72 11.72 0 013.168-4.477M6.343 6.343A9.97 9.97 0 0112 5c5 0 9.27 3.11 11 7.5a11.72 11.72 0 01-4.168 4.477M6.343 6.343L3 3m3.343 3.343l2.829 2.829m4.484 4.484l2.829 2.829M6.343 6.343l11.314 11.314M14.121 14.121A3 3 0 009.879 9.879" />
+                    </svg>
+                  ) : (
+                    <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                  )}
+                </button>
+              </div>
             </div>
-            {!isSignUp && (
-              <button
-                type="button"
-                onClick={() => setShowForgotPassword(!showForgotPassword)}
-                className="mt-1.5 text-scale-caption font-semibold transition-all hover:opacity-70"
-                style={{ color: accentColor }}
-              >
-                {showForgotPassword ? t('hero.login.backToLogin') : t('hero.login.forgotPassword')}
-              </button>
-            )}
-          </div>
+          )}
+
+          {!isSignUp && (
+            <button
+              type="button"
+              onClick={() => setShowForgotPassword(!showForgotPassword)}
+              className="mt-1.5 text-scale-caption font-semibold transition-all hover:opacity-70"
+              style={{ color: accentColor }}
+            >
+              {showForgotPassword ? t('hero.login.backToLogin') : t('hero.login.forgotPassword')}
+            </button>
+          )}
 
           {/* Confirm Password (sign-up only) */}
           {isSignUp && (

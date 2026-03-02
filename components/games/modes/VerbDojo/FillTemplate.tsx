@@ -5,6 +5,7 @@ import { speak } from '../../../../services/audio';
 import { haptics } from '../../../../services/haptics';
 import { DictionaryEntry } from '../../../../types';
 import { VerbTense } from '../../../../constants/language-config';
+import { normalizeAnswer } from '../../../../utils/answer-helpers';
 import { FillTemplateQuestion } from './types';
 
 interface FillTemplateProps {
@@ -66,9 +67,9 @@ export const FillTemplate: React.FC<FillTemplateProps> = ({
         accepted = result.accepted;
         explanationText = result.explanation;
       } else {
-        // Simple validation - check against all valid answers
-        const userInput = input.trim().toLowerCase();
-        accepted = validAnswers.some((ans) => ans.toLowerCase() === userInput);
+        // Simple validation - check against all valid answers (diacritic-aware)
+        const userInput = normalizeAnswer(input);
+        accepted = validAnswers.some((ans) => normalizeAnswer(ans) === userInput);
         explanationText = accepted ? '' : `Correct answer: ${validAnswers.join(' / ')}`;
       }
 
@@ -79,9 +80,9 @@ export const FillTemplate: React.FC<FillTemplateProps> = ({
       onAnswer(accepted);
     } catch (error) {
       console.error('Validation error:', error);
-      // Fallback to simple validation
-      const userInput = input.trim().toLowerCase();
-      const accepted = validAnswers.some((ans) => ans.toLowerCase() === userInput);
+      // Fallback to simple validation (diacritic-aware)
+      const userInput = normalizeAnswer(input);
+      const accepted = validAnswers.some((ans) => normalizeAnswer(ans) === userInput);
       haptics.trigger(accepted ? 'correct' : 'incorrect');
       setIsCorrect(accepted);
       setExplanation(accepted ? '' : `Correct answer: ${validAnswers.join(' / ')}`);

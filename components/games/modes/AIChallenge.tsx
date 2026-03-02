@@ -8,6 +8,7 @@ import { getRomanticPhrases } from '../../../services/romantic-phrases';
 import { speak } from '../../../services/audio';
 import { haptics } from '../../../services/haptics';
 import { shuffleArray } from '../../../utils/array';
+import { isCorrectAnswer } from '../../../utils/answer-helpers';
 import type { AnswerResult } from './types';
 
 type SessionLength = 10 | 20 | 'all';
@@ -373,7 +374,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
       isCorrect = result.accepted;
       explanation = result.explanation;
     } else {
-      isCorrect = typeAnswer.trim().toLowerCase() === currentQuestion.translation.toLowerCase();
+      isCorrect = isCorrectAnswer(typeAnswer, currentQuestion.translation);
       explanation = isCorrect ? 'Exact match' : 'No match';
     }
 
