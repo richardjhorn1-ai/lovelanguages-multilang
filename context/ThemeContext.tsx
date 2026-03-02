@@ -85,8 +85,8 @@ export function ThemeProvider({ children, userId, profileTheme }: ThemeProviderP
 
     // Debounce Supabase sync (500ms)
     if (syncTimeoutRef.current) clearTimeout(syncTimeoutRef.current);
-    syncTimeoutRef.current = setTimeout(() => {
-      supabase
+    syncTimeoutRef.current = setTimeout(async () => {
+      const { error } = await supabase
         .from('profiles')
         .update({
           accent_color: theme.accentColor,
@@ -96,10 +96,22 @@ export function ThemeProvider({ children, userId, profileTheme }: ThemeProviderP
           font_weight: theme.fontWeight,
           background_style: theme.backgroundStyle,
         })
-        .eq('id', userId)
-        .then(() => {
-          // Silent update
-        });
+        .eq('id', userId);
+
+      if (error) {
+        // If the full update fails (e.g. background_style column missing), retry without it
+        console.warn('[ThemeContext] Full sync failed, retrying core fields:', error.message);
+        await supabase
+          .from('profiles')
+          .update({
+            accent_color: theme.accentColor,
+            dark_mode: theme.darkMode,
+            font_size: theme.fontSize,
+            font_preset: theme.fontPreset,
+            font_weight: theme.fontWeight,
+          })
+          .eq('id', userId);
+      }
     }, 500);
 
     return () => {
