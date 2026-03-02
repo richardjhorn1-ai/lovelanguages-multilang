@@ -79,7 +79,7 @@ export const PersonalizationStep: React.FC<PersonalizationStepProps> = ({
               className="p-3 transition-all text-center"
               style={ONBOARDING_OPTION(vibe === v.id, accentColor)}
             >
-              <span className="block mb-1" style={{ color: vibe === v.id ? accentColor : '#6b7280' }}>{v.icon}</span>
+              <span className="block mb-1 flex justify-center" style={{ color: vibe === v.id ? accentColor : '#6b7280' }}>{v.icon}</span>
               <span
                 className="text-scale-caption font-bold leading-tight block"
                 style={{ color: vibe === v.id ? accentColor : 'var(--text-primary)' }}
@@ -106,7 +106,7 @@ export const PersonalizationStep: React.FC<PersonalizationStepProps> = ({
               className="p-3 transition-all text-center"
               style={ONBOARDING_OPTION(time === opt.id, accentColor)}
             >
-              <span className="block mb-1" style={{ color: time === opt.id ? accentColor : '#6b7280' }}>{opt.icon}</span>
+              <span className="block mb-1 flex justify-center" style={{ color: time === opt.id ? accentColor : '#6b7280' }}>{opt.icon}</span>
               <span
                 className="text-scale-caption font-bold leading-tight block"
                 style={{ color: time === opt.id ? accentColor : 'var(--text-primary)' }}

@@ -9,7 +9,9 @@ import {
   type AccentColor,
   type DarkModeStyle,
   type FontPreset,
+  type BackgroundStyle,
 } from '../../../../services/theme';
+import { ICONS } from '../../../../constants';
 
 interface ThemeCustomizationStepProps {
   currentStep: number;
@@ -30,7 +32,7 @@ export const ThemeCustomizationStep: React.FC<ThemeCustomizationStepProps> = ({
   onBack,
 }) => {
   const { t } = useTranslation();
-  const { theme, setAccentColor, setDarkMode, setFontPreset } = useTheme();
+  const { theme, setAccentColor, setDarkMode, setFontPreset, setBackgroundStyle } = useTheme();
 
   // Use live accent hex so the step reflects changes instantly
   const liveAccent = ACCENT_COLORS[theme.accentColor].primary;
@@ -124,7 +126,7 @@ export const ThemeCustomizationStep: React.FC<ThemeCustomizationStepProps> = ({
       <div className="flex justify-center mb-6"><div className="h-[2px] w-8 rounded-full" style={{ backgroundColor: `${liveAccent}15` }} /></div>
 
       {/* Section 3: Font Style */}
-      <div className="mb-8">
+      <div className="mb-6">
         <p className="text-scale-label font-black uppercase tracking-widest text-[var(--text-secondary)] mb-3">
           {t('onboarding.themeCustomization.fontLabel', 'Font style')}
         </p>
@@ -149,6 +151,44 @@ export const ThemeCustomizationStep: React.FC<ThemeCustomizationStepProps> = ({
                   style={{ fontFamily: preset.body, color: isSelected ? liveAccent : 'var(--text-primary)' }}
                 >
                   {preset.name}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
+      <div className="flex justify-center mb-6"><div className="h-[2px] w-8 rounded-full" style={{ backgroundColor: `${liveAccent}15` }} /></div>
+
+      {/* Section 4: Background Style */}
+      <div className="mb-8">
+        <p className="text-scale-label font-black uppercase tracking-widest text-[var(--text-secondary)] mb-3">
+          {t('onboarding.themeCustomization.bgStyleLabel', 'Background')}
+        </p>
+        <div className="grid grid-cols-2 gap-2">
+          {(['tinted', 'clean'] as BackgroundStyle[]).map((style) => {
+            const isSelected = theme.backgroundStyle === style;
+            return (
+              <button
+                key={style}
+                onClick={() => setBackgroundStyle(style)}
+                className="p-3 transition-all text-center"
+                style={ONBOARDING_OPTION(isSelected, liveAccent)}
+              >
+                <span className="block mb-1 flex justify-center" style={{ color: isSelected ? liveAccent : '#6b7280' }}>
+                  {style === 'tinted'
+                    ? <ICONS.Sparkles className="w-5 h-5" />
+                    : <ICONS.Layers className="w-5 h-5" />
+                  }
+                </span>
+                <span
+                  className="text-scale-caption font-bold leading-tight block"
+                  style={{ color: isSelected ? liveAccent : 'var(--text-primary)' }}
+                >
+                  {style === 'tinted'
+                    ? t('onboarding.themeCustomization.bgTinted', 'Tinted')
+                    : t('onboarding.themeCustomization.bgClean', 'Clean')
+                  }
                 </span>
               </button>
             );

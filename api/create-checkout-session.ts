@@ -166,7 +166,7 @@ export default async function handler(req: any, res: any) {
     }
 
     const finalSuccessUrl = validateRedirectUrl(successUrl, '/profile?subscription=success');
-    const finalCancelUrl = validateRedirectUrl(cancelUrl, '/pricing?subscription=canceled');
+    const finalCancelUrl = validateRedirectUrl(cancelUrl, '/?subscription=canceled');
 
     // Create checkout session
     const session = await stripe.checkout.sessions.create({

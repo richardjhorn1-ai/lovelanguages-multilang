@@ -8,6 +8,8 @@ import { analytics } from '../../services/analytics';
 import { haptics } from '../../services/haptics';
 import { apiFetch, APP_URL } from '../../services/api-config';
 import { BRAND } from '../hero/heroConstants';
+import { useTheme } from '../../context/ThemeContext';
+import { ACCENT_COLORS, DARK_MODE_STYLES } from '../../services/theme';
 
 // Context for sharing onQuit across all step components
 export const OnboardingContext = createContext<{
@@ -637,8 +639,42 @@ export const Onboarding: React.FC<OnboardingProps> = ({
     const base = activeRole === 'student' ? STUDENT_TOTAL_STEPS : TUTOR_TOTAL_STEPS;
     return hasInheritedSubscription ? base - 1 : base;
   })();
-  // Accent color changes based on selected role
-  const accentColor = activeRole === 'tutor' ? BRAND.teal : BRAND.primary;
+  // Theme-aware accent color for onboarding backgrounds
+  const { theme } = useTheme();
+  const [hasVisitedThemeStep, setHasVisitedThemeStep] = useState(false);
+
+  // Sticky flag: once user reaches theme step (student step 9), enable theme-driven decorations.
+  // Sticky because applyTheme() already set CSS vars globally — going back shouldn't revert the gradient.
+  useEffect(() => {
+    if (!isInvitedUser && activeRole === 'student' && currentStep >= 9) {
+      setHasVisitedThemeStep(true);
+    }
+  }, [currentStep, activeRole, isInvitedUser]);
+
+  const roleAccent = activeRole === 'tutor' ? BRAND.teal : BRAND.primary;
+  const accentColor = hasVisitedThemeStep ? ACCENT_COLORS[theme.accentColor].primary : roleAccent;
+
+  // Background gradient — theme-aware after the theme customization step
+  const bgGradient = (() => {
+    if (!hasVisitedThemeStep) {
+      // Pre-theme: hardcoded role gradients (existing behavior)
+      return activeRole === 'tutor'
+        ? 'linear-gradient(145deg, #f0fdfa 0%, #e0f2f1 35%, #f0fdfa 65%, #f5fffe 100%)'
+        : activeRole === 'student'
+          ? 'linear-gradient(145deg, #FFF0F3 0%, #fce4ec 35%, #FFF0F3 65%, #fff5f7 100%)'
+          : 'linear-gradient(145deg, #fdfcfd 0%, #f5f0f2 35%, #fdfcfd 65%, #fefcfd 100%)';
+    }
+    const isDark = theme.darkMode !== 'off';
+    const darkBg = DARK_MODE_STYLES[theme.darkMode].bgPrimary;
+    const accent = ACCENT_COLORS[theme.accentColor];
+    if (isDark) {
+      return `linear-gradient(145deg, color-mix(in srgb, ${accent.primary} 8%, ${darkBg}) 0%, ${darkBg} 50%, color-mix(in srgb, ${accent.primary} 4%, ${darkBg}) 100%)`;
+    }
+    return `linear-gradient(145deg, ${accent.light} 0%, ${accent.lightHover} 35%, ${accent.light} 65%, #fff 100%)`;
+  })();
+
+  // Clean mode: hide decorative elements (hearts, orbs, word particles) after user selects it
+  const isCleanMode = hasVisitedThemeStep && theme.backgroundStyle === 'clean';
 
   // Restore progress helper — used by both localStorage and Supabase loaders
   const restoreProgress = useCallback((parsed: { userId?: string; role?: string; step?: number; data?: any }) => {
@@ -926,20 +962,24 @@ export const Onboarding: React.FC<OnboardingProps> = ({
       // - Deferred personalization: prompt skipped questions after first session
       // - Defer personalization for ALL users (37% completion rate → shorter = better conversion)
       if (data.invitePartnerIntent) {
-        supabase.auth.getSession().then(({ data: sessionData }) => {
-          const token = sessionData.session?.access_token;
-          if (!token) return;
-          apiFetch('/api/generate-invite/', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }
-          }).then(async (res) => {
-            if (res.ok) {
-              const inviteData = await res.json();
-              // TODO: If method was 'email', send email invite via send-invite-email API
-              // TODO: If method was 'link', show copy-link toast post-onboarding
-            }
-          }).catch(err => console.warn('[Onboarding] Deferred invite failed (non-blocking):', err));
-        });
+        if (data.invitePartnerIntent.method === 'link' && data.invitePartnerIntent.inviteLink) {
+          // Link already generated during invite step — nothing to do
+        } else {
+          supabase.auth.getSession().then(({ data: sessionData }) => {
+            const token = sessionData.session?.access_token;
+            if (!token) return;
+            apiFetch('/api/generate-invite/', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }
+            }).then(async (res) => {
+              if (res.ok) {
+                const inviteData = await res.json();
+                // TODO: If method was 'email', send email invite via send-invite-email API
+                // TODO: If method was 'link', show copy-link toast post-onboarding
+              }
+            }).catch(err => console.warn('[Onboarding] Deferred invite failed (non-blocking):', err));
+          });
+        }
       }
 
       // Handle plan selection
@@ -1028,7 +1068,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               body: JSON.stringify({
                 priceId: data.selectedPriceId,
                 successUrl: `${APP_URL}/#/?onboarding=complete&subscription=success`,
-                cancelUrl: `${APP_URL}/#/?onboarding=complete&subscription=canceled`
+                cancelUrl: `${APP_URL}/#/?subscription=canceled`
               })
             });
 
@@ -1577,54 +1617,54 @@ export const Onboarding: React.FC<OnboardingProps> = ({
       <div
         className="fixed inset-x-0 top-0 h-screen-safe overflow-hidden"
         style={{
-          background: activeRole === 'tutor'
-            ? 'linear-gradient(145deg, #f0fdfa 0%, #e0f2f1 35%, #f0fdfa 65%, #f5fffe 100%)'
-            : activeRole === 'student'
-              ? 'linear-gradient(145deg, #FFF0F3 0%, #fce4ec 35%, #FFF0F3 65%, #fff5f7 100%)'
-              : 'linear-gradient(145deg, #fdfcfd 0%, #f5f0f2 35%, #fdfcfd 65%, #fefcfd 100%)',
+          background: bgGradient,
           transition: 'background 0.4s ease',
         }}
       >
-        {/* Gradient blobs — give backdrop-filter: blur() something to diffuse */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-          <div
-            className="absolute rounded-full"
-            style={{
-              width: '60vw', height: '60vw',
-              top: '-15vw', right: '-15vw',
-              background: `radial-gradient(circle, ${accentColor}40 0%, transparent 70%)`,
-              filter: 'blur(40px)',
-            }}
-          />
-          <div
-            className="absolute rounded-full"
-            style={{
-              width: '50vw', height: '50vw',
-              bottom: '-10vw', left: '-15vw',
-              background: `radial-gradient(circle, ${accentColor}25 0%, transparent 70%)`,
-              filter: 'blur(40px)',
-            }}
-          />
-          <div
-            className="absolute rounded-full"
-            style={{
-              width: '40vw', height: '40vw',
-              bottom: '20vh', right: '10vw',
-              background: `radial-gradient(circle, ${accentColor}15 0%, transparent 70%)`,
-              filter: 'blur(60px)',
-            }}
-          />
-        </div>
-        <FloatingHeartsBackground
-          currentStep={currentStep}
-          totalSteps={totalSteps}
-          accentColor={accentColor}
-        />
-        <WordParticleBackground
-          currentStep={currentStep}
-          totalSteps={totalSteps}
-          accentColor={accentColor}
-        />
+        {/* Gradient blobs, hearts & word particles — hidden in clean mode */}
+        {!isCleanMode && (
+          <>
+            <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
+              <div
+                className="absolute rounded-full"
+                style={{
+                  width: '60vw', height: '60vw',
+                  top: '-15vw', right: '-15vw',
+                  background: `radial-gradient(circle, ${accentColor}40 0%, transparent 70%)`,
+                  filter: 'blur(40px)',
+                }}
+              />
+              <div
+                className="absolute rounded-full"
+                style={{
+                  width: '50vw', height: '50vw',
+                  bottom: '-10vw', left: '-15vw',
+                  background: `radial-gradient(circle, ${accentColor}25 0%, transparent 70%)`,
+                  filter: 'blur(40px)',
+                }}
+              />
+              <div
+                className="absolute rounded-full"
+                style={{
+                  width: '40vw', height: '40vw',
+                  bottom: '20vh', right: '10vw',
+                  background: `radial-gradient(circle, ${accentColor}15 0%, transparent 70%)`,
+                  filter: 'blur(60px)',
+                }}
+              />
+            </div>
+            <FloatingHeartsBackground
+              currentStep={currentStep}
+              totalSteps={totalSteps}
+              accentColor={accentColor}
+            />
+            <WordParticleBackground
+              currentStep={currentStep}
+              totalSteps={totalSteps}
+              accentColor={accentColor}
+            />
+          </>
+        )}
         {getStepContent()}
       </div>
     </OnboardingContext.Provider>

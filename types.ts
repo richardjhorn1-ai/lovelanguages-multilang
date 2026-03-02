@@ -102,7 +102,7 @@ export interface OnboardingData {
   targetLanguage?: string;       // Language user is learning (e.g., 'pl', 'fr')
 
   // Invite partner intent (captured during onboarding, executed after plan selection)
-  invitePartnerIntent?: { method: 'link' } | { method: 'email'; email: string } | null;
+  invitePartnerIntent?: { method: 'link'; inviteLink?: string } | { method: 'email'; email: string } | null;
 
   // Subscription selection (from onboarding)
   selectedPlan?: string;         // 'standard' or 'unlimited'
