@@ -888,10 +888,10 @@ const Landing: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="h-screen relative overflow-x-hidden overflow-y-auto"
+      className="h-screen-safe relative overflow-x-hidden overflow-y-auto"
       style={{
         paddingTop: 'env(safe-area-inset-top)',
-        paddingBottom: 'env(safe-area-inset-bottom)',
+        paddingBottom: 'max(2rem, env(safe-area-inset-bottom, 0px))',
         WebkitOverflowScrolling: 'touch',
       }}
     >
@@ -1565,7 +1565,7 @@ const Landing: React.FC = () => {
           </div>
 
           {/* Footer */}
-          <div className="text-center py-1">
+          <div className="text-center py-4">
             <FooterLinks />
           </div>
         </div>
