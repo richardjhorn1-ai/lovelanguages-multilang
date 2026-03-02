@@ -668,13 +668,8 @@ const Landing: React.FC = () => {
   // Native language
   const [nativeLanguage, setNativeLanguage] = useState<string>('en');
 
-  // Demo language for showcase (auto-detect from browser, fallback to 'en')
-  const [demoLanguage, setDemoLanguage] = useState<LanguageCode>(() => {
-    const browserLang = navigator.language.split('-')[0];
-    return (SUPPORTED_LANGUAGE_CODES as readonly string[]).includes(browserLang)
-      ? browserLang as LanguageCode
-      : 'en' as LanguageCode;
-  });
+  // Demo language for showcase — default to Spanish (most popular target language)
+  const [demoLanguage, setDemoLanguage] = useState<LanguageCode>('es' as LanguageCode);
 
   // Auth state
   const [email, setEmail] = useState('');
@@ -739,10 +734,12 @@ const Landing: React.FC = () => {
       setNativeLanguage(saved);
       i18n.changeLanguage(saved);
     } else {
-      const browserLang = navigator.language.split('-')[0];
-      if ((SUPPORTED_LANGUAGE_CODES as readonly string[]).includes(browserLang)) {
-        setNativeLanguage(browserLang);
-        i18n.changeLanguage(browserLang);
+      const detectedLang = (navigator.languages || [navigator.language])
+        .map(l => l.split('-')[0])
+        .find(l => (SUPPORTED_LANGUAGE_CODES as readonly string[]).includes(l));
+      if (detectedLang) {
+        setNativeLanguage(detectedLang);
+        i18n.changeLanguage(detectedLang);
       }
     }
   }, [i18n]);

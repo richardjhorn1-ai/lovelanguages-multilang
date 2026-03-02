@@ -429,9 +429,11 @@ const Hero: React.FC = () => {
     // URL param takes priority for target language
     const urlTarget = targetLang && (SUPPORTED_LANGUAGE_CODES as readonly string[]).includes(targetLang) ? targetLang : null;
 
-    // Browser language for first-time visitors
-    const browserLang = navigator.language.split('-')[0];
-    const validBrowserLang = (SUPPORTED_LANGUAGE_CODES as readonly string[]).includes(browserLang) ? browserLang : 'en';
+    // Browser language for first-time visitors — use navigator.languages for correct priority
+    const detectedLang = (navigator.languages || [navigator.language])
+      .map(l => l.split('-')[0])
+      .find(l => (SUPPORTED_LANGUAGE_CODES as readonly string[]).includes(l));
+    const validBrowserLang = detectedLang || 'en';
 
     // Set native language — auto-detect for first-time visitors
     let effectiveNative: string;

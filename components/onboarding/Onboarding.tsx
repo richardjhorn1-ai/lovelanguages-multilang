@@ -1575,7 +1575,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
   return (
     <OnboardingContext.Provider value={{ onQuit: handleQuit }}>
       <div
-        className="fixed inset-0 overflow-hidden"
+        className="fixed inset-x-0 top-0 h-screen-safe overflow-hidden"
         style={{
           background: activeRole === 'tutor'
             ? 'linear-gradient(145deg, #f0fdfa 0%, #e0f2f1 35%, #f0fdfa 65%, #f5fffe 100%)'

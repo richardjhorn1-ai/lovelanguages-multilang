@@ -60,6 +60,7 @@ const DemoLanguageSelector: React.FC<Props> = ({ value, onChange, accentColor })
           color: 'var(--text-primary)',
         }}
       >
+        <span className="text-xs text-[var(--text-secondary)] font-medium">Learning:</span>
         <span className="text-base">{current?.flag}</span>
         <span className="text-xs">{current?.nativeName}</span>
         <span className="text-[10px] text-[var(--text-secondary)]" style={{ transform: open ? 'rotate(180deg)' : 'none', transition: 'transform 0.2s' }}>▾</span>
