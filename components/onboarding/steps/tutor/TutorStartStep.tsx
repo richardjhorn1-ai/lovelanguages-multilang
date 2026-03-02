@@ -9,6 +9,7 @@ interface TutorStartStepProps {
   userName: string;
   learnerName: string;
   onComplete: () => void;
+  onBack?: () => void;
   accentColor?: string;
   loading?: boolean;
   error?: string | null;
@@ -20,6 +21,7 @@ export const TutorStartStep: React.FC<TutorStartStepProps> = ({
   userName,
   learnerName,
   onComplete,
+  onBack,
   accentColor = '#FF4761',
   loading = false,
   error = null
@@ -30,7 +32,7 @@ export const TutorStartStep: React.FC<TutorStartStepProps> = ({
     <OnboardingStep
       currentStep={currentStep}
       totalSteps={totalSteps}
-      canGoBack={false}
+      onBack={onBack}
       accentColor={accentColor}
     >
       <div className="text-center">

@@ -1117,6 +1117,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
                 totalSteps={totalSteps}
                 partnerName={data.partnerName || inviterName || 'them'}
                 onNext={goNext}
+                onBack={goBack}
                 accentColor={accentColor}
               />
             );
@@ -1129,6 +1130,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
                   userName={data.userName || 'Friend'}
                   partnerName={data.partnerName || inviterName || 'them'}
                   onComplete={handleComplete}
+                  onBack={goBack}
                   accentColor={accentColor}
                 />
               );
@@ -1155,6 +1157,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
                 userName={data.userName || 'Friend'}
                 partnerName={data.partnerName || inviterName || 'them'}
                 onComplete={handleComplete}
+                onBack={goBack}
                 accentColor={accentColor}
                 loading={trialActivating}
                 error={saveError || trialError}
@@ -1214,6 +1217,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
                 userName={data.userName || 'Friend'}
                 learnerName={data.learnerName || inviterName || 'them'}
                 onComplete={handleComplete}
+                onBack={goBack}
                 accentColor={accentColor}
               />
             );
@@ -1240,6 +1244,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               userName={data.userName || 'Friend'}
               learnerName={data.learnerName || inviterName || 'them'}
               onComplete={handleComplete}
+              onBack={goBack}
               accentColor={accentColor}
               loading={trialActivating}
               error={saveError || trialError}
@@ -1363,6 +1368,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               totalSteps={totalSteps}
               partnerName={data.partnerName || 'them'}
               onNext={goNext}
+              onBack={goBack}
               accentColor={accentColor}
             />
           );
@@ -1419,6 +1425,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
                 userName={data.userName || 'Friend'}
                 partnerName={data.partnerName || 'them'}
                 onComplete={handleComplete}
+                onBack={goBack}
                 accentColor={accentColor}
               />
             );
@@ -1445,6 +1452,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               userName={data.userName || 'Friend'}
               partnerName={data.partnerName || 'them'}
               onComplete={handleComplete}
+              onBack={goBack}
               accentColor={accentColor}
               loading={trialActivating}
               error={saveError || trialError}
@@ -1522,6 +1530,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               userName={data.userName || 'Friend'}
               learnerName={data.learnerName || 'them'}
               onComplete={handleComplete}
+              onBack={goBack}
               accentColor={accentColor}
             />
           );
@@ -1548,6 +1557,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             userName={data.userName || 'Friend'}
             learnerName={data.learnerName || 'them'}
             onComplete={handleComplete}
+            onBack={goBack}
             accentColor={accentColor}
             loading={trialActivating}
             error={saveError || trialError}

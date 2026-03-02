@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton, ONBOARDING_GLASS } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
-import { speak } from '../../../../services/audio';
+import { speak, prefetchAudio } from '../../../../services/audio';
 import { sounds } from '../../../../services/sounds';
 import { useLanguage } from '../../../../context/LanguageContext';
 import { LANGUAGE_CONFIGS } from '../../../../constants/language-config';
@@ -29,6 +29,11 @@ export const LearnHelloStep: React.FC<LearnHelloStepProps> = ({
   const { targetLanguage, nativeLanguage, targetName } = useLanguage();
   const helloWord = LANGUAGE_CONFIGS[targetLanguage]?.examples.hello || 'Hello';
   const helloTranslation = LANGUAGE_CONFIGS[nativeLanguage]?.examples.hello || 'Hello';
+
+  // Prefetch audio on mount so it's instant when user clicks
+  useEffect(() => {
+    prefetchAudio(helloWord, targetLanguage);
+  }, [helloWord, targetLanguage]);
 
   const playAudio = () => {
     speak(helloWord, targetLanguage);

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton, ONBOARDING_GLASS } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
-import { speak } from '../../../../services/audio';
+import { speak, prefetchAudio } from '../../../../services/audio';
 import { sounds } from '../../../../services/sounds';
 import { useLanguage } from '../../../../context/LanguageContext';
 import { LANGUAGE_CONFIGS } from '../../../../constants/language-config';
@@ -30,6 +30,11 @@ export const LearnLoveStep: React.FC<LearnLoveStepProps> = ({
   const { targetLanguage, nativeLanguage, targetName } = useLanguage();
   const lovePhrase = LANGUAGE_CONFIGS[targetLanguage]?.examples.iLoveYou || 'I love you';
   const loveTranslation = LANGUAGE_CONFIGS[nativeLanguage]?.examples.iLoveYou || 'I love you';
+
+  // Prefetch audio on mount so it's instant when user clicks
+  useEffect(() => {
+    prefetchAudio(lovePhrase, targetLanguage);
+  }, [lovePhrase, targetLanguage]);
 
   const playAudio = () => {
     speak(lovePhrase, targetLanguage);

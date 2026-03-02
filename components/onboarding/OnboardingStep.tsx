@@ -100,10 +100,8 @@ export const OnboardingStep: React.FC<OnboardingStepProps> = ({
           <div />
         )}
 
-        {/* Step counter */}
-        <span className="text-scale-caption font-bold text-[var(--text-secondary)] opacity-60 uppercase tracking-widest">
-          {t('onboarding.step.counter', { current: currentStep, total: totalSteps })}
-        </span>
+        {/* Spacer to maintain flex layout */}
+        <div />
 
         {/* Quit button */}
         {onQuit ? (

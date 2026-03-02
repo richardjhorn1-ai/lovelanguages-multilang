@@ -9,6 +9,7 @@ interface StartStepProps {
   userName: string;
   partnerName: string;
   onComplete: () => void;
+  onBack?: () => void;
   accentColor?: string;
   loading?: boolean;
   error?: string | null;
@@ -20,6 +21,7 @@ export const StartStep: React.FC<StartStepProps> = ({
   userName,
   partnerName,
   onComplete,
+  onBack,
   accentColor = '#FF4761',
   loading = false,
   error = null
@@ -30,7 +32,7 @@ export const StartStep: React.FC<StartStepProps> = ({
     <OnboardingStep
       currentStep={currentStep}
       totalSteps={totalSteps}
-      canGoBack={false}
+      onBack={onBack}
       accentColor={accentColor}
     >
       <div className="text-center">

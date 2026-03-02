@@ -10,6 +10,11 @@ import { LANGUAGE_CONFIGS } from '../constants/language-config';
 // Current audio element for playback control
 let currentAudio: HTMLAudioElement | null = null;
 
+// Global TTS cache: "text:lang" → audio data
+// Any speak() call caches its result; repeated plays are instant across the entire app
+const ttsCache = new Map<string, { url?: string; base64?: string }>();
+const ttsCacheKey = (text: string, lang: string) => `${text.trim().toLowerCase()}:${lang}`;
+
 // Check if speech synthesis is available (for fallback)
 const isSpeechSupported = (): boolean => {
   return 'speechSynthesis' in window;
@@ -107,6 +112,36 @@ interface SpeakResult {
  * Only falls back to browser TTS for unauthenticated users.
  * Returns result indicating success/failure and audio source.
  */
+/**
+ * Prefetch audio for a word/phrase so speak() plays instantly later.
+ * Safe to call multiple times — skips if already cached.
+ * Fire-and-forget: failures are silent (speak() will fetch on demand).
+ */
+export const prefetchAudio = async (text: string, languageCode: string): Promise<void> => {
+  if (!text?.trim()) return;
+  const key = ttsCacheKey(text, languageCode);
+  if (ttsCache.has(key)) return; // already cached
+
+  try {
+    const headers = await getAuthHeaders();
+    if (!headers.Authorization || headers.Authorization === 'Bearer ') return;
+
+    const response = await apiFetch('/api/tts/', {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({ text: text.trim(), targetLanguage: languageCode })
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      if (data.url) ttsCache.set(key, { url: data.url });
+      else if (data.audioData) ttsCache.set(key, { base64: data.audioData });
+    }
+  } catch {
+    /* silent — speak() will fetch on demand if prefetch fails */
+  }
+};
+
 export const speak = async (text: string, languageCode: string, rate: number = 0.85): Promise<SpeakResult> => {
   if (!text || !text.trim()) {
     console.warn('[audio] Empty text provided');
@@ -114,6 +149,14 @@ export const speak = async (text: string, languageCode: string, rate: number = 0
   }
 
   try {
+    // Check cache first — instant playback for repeated words
+    const cacheKey = ttsCacheKey(text, languageCode);
+    const cached = ttsCache.get(cacheKey);
+    if (cached) {
+      await playAudio(cached.url, cached.base64);
+      return { success: true, source: 'cloud' };
+    }
+
     const headers = await getAuthHeaders();
 
     // Unauthenticated users get browser TTS (only valid fallback case)
@@ -144,11 +187,13 @@ export const speak = async (text: string, languageCode: string, rate: number = 0
 
     const data = await response.json();
 
-    // Play audio from URL or base64 data
+    // Play audio from URL or base64 data, and cache the result
     if (data.url) {
+      ttsCache.set(cacheKey, { url: data.url });
       await playAudio(data.url);
       return { success: true, source: 'cloud' };
     } else if (data.audioData) {
+      ttsCache.set(cacheKey, { base64: data.audioData });
       await playAudio(undefined, data.audioData);
       return { success: true, source: 'cloud' };
     } else {
