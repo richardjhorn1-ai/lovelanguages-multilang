@@ -23,7 +23,7 @@ import {
 } from '../utils/api-middleware.js';
 import { extractLanguages } from '../utils/language-helpers.js';
 import { buildChatPrompt, type ChatMode } from '../utils/prompt-templates.js';
-import { fetchVocabularyContext, formatVocabularyPromptSection } from '../utils/vocabulary-context.js';
+import { fetchVocabularyContext, fetchKnownWordsList, formatVocabularyPromptSection } from '../utils/vocabulary-context.js';
 
 // =============================================================================
 // HELPER FUNCTIONS (minimal - just what streaming needs)
@@ -124,13 +124,17 @@ export default async function handler(req: any, res: any) {
       }
     } else {
       // Fallback: fetch fresh (backwards compatible)
-      const [roleData, vocabTier] = await Promise.all([
-        getUserRole(supabase, auth.userId),
-        fetchVocabularyContext(supabase, auth.userId, targetLanguage)
-      ]);
+      const roleData = await getUserRole(supabase, auth.userId);
       userRole = roleData.role;
       partnerName = roleData.partnerName;
-      vocabularySection = formatVocabularyPromptSection(vocabTier);
+
+      // Fetch vocab for the right person (tutor sees partner's vocab, student sees own)
+      const vocabUserId = (userRole === 'tutor' && roleData.linkedUserId) ? roleData.linkedUserId : auth.userId;
+      const [vocabTier, knownWords] = await Promise.all([
+        fetchVocabularyContext(supabase, vocabUserId, targetLanguage),
+        fetchKnownWordsList(supabase, vocabUserId, targetLanguage),
+      ]);
+      vocabularySection = formatVocabularyPromptSection(vocabTier, undefined, { knownWords });
     }
 
     // Build prompt using shared function

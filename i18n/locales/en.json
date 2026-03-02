@@ -148,7 +148,9 @@
     "previousTests": {
       "title": "Practice Previous Levels",
       "previousAttempts": "Previous Attempts",
-      "viewAttempts": "View previous attempts"
+      "viewAttempts": "View previous attempts",
+      "showMore": "Show {{count}} more",
+      "showAllLevels": "Show all {{count}} levels"
     },
     "motivation": {
       "title": "My Motivation",
@@ -1299,7 +1301,8 @@
       "corrected": "Corrected: {{note}}",
       "sendLovePackage": "Send Love Package",
       "alreadyInPackage": "This word is already in your package!",
-      "alreadyInLoveLog": "\"{{word}}\" is already in {{name}}'s Love Log!"
+      "alreadyInLoveLog": "\"{{word}}\" is already in {{name}}'s Love Log!",
+      "sendFailed": "Failed to send Love Package. Please try again."
     }
   },
   "challengePlayer": {

@@ -16,9 +16,9 @@ const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({ onSelect, onClose }
   const [showCustom, setShowCustom] = useState(false);
 
   const difficultyColors = {
-    beginner: 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400',
-    intermediate: 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400',
-    advanced: 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-400'
+    beginner: 'bg-[var(--accent-light)] text-[var(--accent-color)]',
+    intermediate: 'bg-[var(--secondary-light)] text-[var(--secondary-color)]',
+    advanced: 'bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400'
   };
 
   const handleCustomStart = () => {
@@ -38,8 +38,8 @@ const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({ onSelect, onClose }
   };
 
   return (
-    <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
-      <div className="glass-card-solid rounded-2xl w-full max-w-lg max-h-[85vh] overflow-hidden flex flex-col">
+    <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4 safe-area-y">
+      <div className="glass-card-solid rounded-2xl w-full max-w-lg max-h-[80vh] overflow-hidden flex flex-col">
         {/* Header */}
         <div className="p-5 border-b border-[var(--border-color)] flex items-center justify-between">
           <div className="flex items-center gap-3">
@@ -47,7 +47,7 @@ const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({ onSelect, onClose }
               <div className="w-10 h-10 bg-[var(--secondary-light)] rounded-xl flex items-center justify-center text-[var(--secondary-color)]">
                 <ICONS.Mic className="w-5 h-5" />
               </div>
-              <span className="absolute -top-1 -right-1 px-1.5 py-0.5 bg-amber-500 text-white text-[9px] font-black rounded-full uppercase">
+              <span className="absolute -top-1 -right-1 px-1.5 py-0.5 bg-[var(--secondary-color)] text-white text-[9px] font-black rounded-full uppercase">
                 {t('scenarioSelector.beta')}
               </span>
             </div>

@@ -135,6 +135,9 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
     setResults(result.data);
     analytics.track('level_test_completed', { target_lang: languageParams.targetLanguage, level_result: result.data.passed ? 'passed' : 'failed', score: result.data.score });
     setState('results');
+
+    // Notify Progress tab to refresh test attempts
+    window.dispatchEvent(new CustomEvent('test-completed', { detail: { passed: result.data.passed, score: result.data.score } }));
   };
 
   const currentQuestion = questions[currentIndex];

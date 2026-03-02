@@ -143,6 +143,20 @@ export async function fetchVocabularyContext(
 }
 
 /**
+ * Fetch the flat list of known words for a user+language.
+ * Matches boot-session's exact query and processing (lowercase + trim).
+ * Used by chat fallback paths to build the vocabulary blocklist.
+ */
+export async function fetchKnownWordsList(supabase: any, userId: string, languageCode: string): Promise<string[]> {
+  const { data } = await supabase
+    .from('dictionary')
+    .select('word')
+    .eq('user_id', userId)
+    .eq('language_code', languageCode);
+  return (data || []).map((d: any) => d.word.toLowerCase().trim());
+}
+
+/**
  * Format vocabulary tier data into a prompt section for Gemini.
  * @param tier - Vocabulary tier data from fetchVocabularyContext
  * @param label - Optional label (e.g., partner name for tutors: "Anna's Progress")
@@ -195,12 +209,12 @@ export function formatVocabularyPromptSection(
   }
 
   sections.push('');
-  sections.push('RULES:');
-  sections.push('- SILENT CONTEXT: Don\'t narrate vocabulary data back. Avoid phrases like "You already know X" or "Building on your knowledge of Y" — use the data to inform your teaching, not to comment on it');
-  sections.push('- DO NOT teach or introduce ANY word from ALL KNOWN WORDS as new vocabulary. Instead, use known words naturally in examples and teach NEW words they haven\'t seen — synonyms, related expressions, more advanced alternatives, or different ways to say similar things');
-  sections.push('- If the user explicitly asks about a known word (e.g., "how do I use kochanie in a sentence?"), answer their question naturally');
+  sections.push('HOW TO USE THIS DATA:');
+  sections.push('- This vocabulary context is background knowledge — treat it like a teacher\'s notes, not something to share with the student. Don\'t say "you already know X" or reference the data. Just let it quietly shape what you teach.');
+  sections.push('- Skip words from ALL KNOWN WORDS when teaching. Use them freely in examples, but focus your teaching energy on genuinely new words — synonyms, related expressions, more advanced alternatives.');
+  sections.push('- If the user explicitly asks about a known word, answer naturally — no need to pretend it doesn\'t exist');
   sections.push('- Weave struggling words into responses naturally to give extra practice, without pointing out they\'re struggling');
-  sections.push('- TARGET LEVEL: Pitch new vocabulary and grammar at their current level. Don\'t over-simplify for advanced users or overwhelm beginners');
+  sections.push('- Pitch new vocabulary at their current level. Don\'t over-simplify for advanced users or overwhelm beginners');
 
   return sections.join('\n');
 }

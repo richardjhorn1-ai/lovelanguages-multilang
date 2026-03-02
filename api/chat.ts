@@ -14,7 +14,7 @@ import { getGrammarExtractionNotes, type ChatMode } from '../utils/prompt-templa
 import { getExtractionInstructions } from '../utils/schema-builders.js';
 import { getLanguageConfig, getLanguageName, getConjugationPersons } from '../constants/language-config.js';
 import { buildVocabularySchema, buildConjugationSchema } from '../utils/schema-builders.js';
-import { fetchVocabularyContext, formatVocabularyPromptSection } from '../utils/vocabulary-context.js';
+import { fetchVocabularyContext, fetchKnownWordsList, formatVocabularyPromptSection } from '../utils/vocabulary-context.js';
 
 // Sanitize output to remove any CSS/HTML artifacts the AI might generate
 function sanitizeOutput(text: string): string {
@@ -307,11 +307,23 @@ export default async function handler(req: any, res: any) {
         });
       }
     } else {
-      // Fallback: fetch fresh vocabulary context
+      // Fallback: fetch fresh vocabulary context with tutor-aware logic
       const supabaseFallback = createServiceClient();
       if (supabaseFallback) {
-        const vocabTier = await fetchVocabularyContext(supabaseFallback, auth.userId, targetLanguage);
-        vocabularySection = formatVocabularyPromptSection(vocabTier);
+        // Check if user is a tutor — if so, fetch partner's vocab instead of own
+        const { data: profileData } = await supabaseFallback
+          .from('profiles')
+          .select('role, linked_user_id')
+          .eq('id', auth.userId)
+          .single();
+        const isTutor = profileData?.role === 'tutor';
+        const vocabUserId = (isTutor && profileData?.linked_user_id) ? profileData.linked_user_id : auth.userId;
+
+        const [vocabTier, knownWords] = await Promise.all([
+          fetchVocabularyContext(supabaseFallback, vocabUserId, targetLanguage),
+          fetchKnownWordsList(supabaseFallback, vocabUserId, targetLanguage),
+        ]);
+        vocabularySection = formatVocabularyPromptSection(vocabTier, undefined, { knownWords });
       }
     }
 

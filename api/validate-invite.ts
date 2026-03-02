@@ -75,7 +75,7 @@ export default async function handler(req: any, res: any) {
     // Always look up inviter profile for role and language fallback
     const { data: inviterProfile } = await supabase
       .from('profiles')
-      .select('active_language, role')
+      .select('active_language, role, full_name')
       .eq('id', tokenData.inviter_id)
       .single();
 
@@ -92,7 +92,7 @@ export default async function handler(req: any, res: any) {
     return res.status(200).json({
       valid: true,
       inviter: {
-        name: tokenData.inviter_name,
+        name: inviterProfile?.full_name || tokenData.inviter_name,
         email: tokenData.inviter_email
       },
       language: {
