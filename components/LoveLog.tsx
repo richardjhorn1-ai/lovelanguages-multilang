@@ -567,8 +567,12 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
 
                   {/* Mastery Badge - top right corner */}
                   {isLearned && (
-                    <div className="absolute top-2 md:top-3 right-2 md:right-3 w-6 h-6 md:w-8 md:h-8 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center" title={t('loveLog.card.mastered')}>
-                      <ICONS.Check className="w-3 h-3 md:w-4 md:h-4 text-green-600 dark:text-green-400" />
+                    <div
+                      className="absolute top-2 md:top-3 right-2 md:right-3 w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center shadow-sm"
+                      style={{ background: `linear-gradient(135deg, var(--accent-color), var(--accent-hover))` }}
+                      title={t('loveLog.card.mastered')}
+                    >
+                      <ICONS.Check className="w-3 h-3 md:w-4 md:h-4 text-white" weight="bold" />
                     </div>
                   )}
                   {!isLearned && currentStreak > 0 && (

@@ -9,7 +9,7 @@ import {
 } from '../utils/api-middleware.js';
 import { extractLanguages } from '../utils/language-helpers.js';
 import { getLanguageConfig, getLanguageName } from '../constants/language-config.js';
-import { fetchVocabularyContext, formatVocabularyPromptSection } from '../utils/vocabulary-context.js';
+import { fetchVocabularyContext, fetchKnownWordsList, formatVocabularyPromptSection } from '../utils/vocabulary-context.js';
 
 // Conversation scenario interface
 interface ConversationScenario {
@@ -192,9 +192,21 @@ export default async function handler(req: any, res: any) {
       };
     }
 
-    // Fetch vocabulary context for personalized voice
-    const vocabTier = await fetchVocabularyContext(supabase, auth.userId, targetLanguage);
-    const vocabularySection = formatVocabularyPromptSection(vocabTier);
+    // Fetch vocabulary context for personalized voice (tutor-aware: fetch partner's vocab if tutor)
+    const { data: profileData } = await supabase
+      .from('profiles')
+      .select('role, linked_user_id')
+      .eq('id', auth.userId)
+      .single();
+
+    const isTutor = profileData?.role === 'tutor';
+    const vocabUserId = (isTutor && profileData?.linked_user_id) ? profileData.linked_user_id : auth.userId;
+
+    const [vocabTier, knownWords] = await Promise.all([
+      fetchVocabularyContext(supabase, vocabUserId, targetLanguage),
+      fetchKnownWordsList(supabase, vocabUserId, targetLanguage),
+    ]);
+    const vocabularySection = formatVocabularyPromptSection(vocabTier, undefined, { knownWords });
 
     // Build mode-specific system instruction
     let systemInstruction: string;

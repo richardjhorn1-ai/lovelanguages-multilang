@@ -89,7 +89,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({ word: newWord.trim(), ...languageParams })
+        body: JSON.stringify({ word: newWord.trim(), lightweight: true, ...languageParams })
       });
 
       const data = await response.json();
@@ -317,9 +317,9 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
             </label>
             <div className="flex flex-wrap gap-2">
               {[
-                { id: 'multiple_choice', label: t('challengeCreator.quiz.multipleChoice'), icon: <ICONS.CheckCircle className="w-4 h-4" /> },
-                { id: 'type_it', label: t('challengeCreator.quiz.typeAnswer'), icon: <ICONS.Type className="w-4 h-4" /> },
-                { id: 'flashcard', label: t('challengeCreator.quiz.flashcards'), icon: <ICONS.Cards className="w-4 h-4" /> }
+                { id: 'multiple_choice', label: t('challengeCreator.quiz.types.multipleChoice'), icon: <ICONS.CheckCircle className="w-4 h-4" /> },
+                { id: 'type_it', label: t('challengeCreator.quiz.types.typeAnswer'), icon: <ICONS.Type className="w-4 h-4" /> },
+                { id: 'flashcard', label: t('challengeCreator.quiz.types.flashcards'), icon: <ICONS.Cards className="w-4 h-4" /> }
               ].map(type => (
                 <button
                   key={type.id}
@@ -341,7 +341,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
           <div>
             <div className="flex items-center justify-between mb-3">
               <label className="text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider">
-                {t('challengeCreator.quiz.selectExistingWords', { count: selectedWords.size, max: 20 })}
+                {t('challengeCreator.quiz.selectExisting', { count: selectedWords.size, max: 20 })}
               </label>
               <div className="flex gap-2">
                 <button
@@ -373,7 +373,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
 
             {/* Word Grid */}
             <div className="grid grid-cols-2 gap-2 max-h-60 overflow-y-auto">
-              {filteredVocab.map(word => (
+              {filteredVocab.slice(0, 40).map(word => (
                 <button
                   key={word.id}
                   onClick={() => toggleWord(word.id)}
@@ -392,7 +392,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
             {partnerVocab.length === 0 && (
               <div className="text-center py-8 text-[var(--text-secondary)]">
                 <p className="font-bold">{t('challengeCreator.quiz.noWordsYet', { name: partnerName })}</p>
-                <p className="text-scale-label">{t('challengeCreator.quiz.addNewWordsHint')}</p>
+                <p className="text-scale-label">{t('challengeCreator.quiz.addWordsToStart')}</p>
               </div>
             )}
           </div>

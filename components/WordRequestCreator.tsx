@@ -84,11 +84,11 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
           setTimeout(() => setLastCorrection(null), 4000);
         }
       } else {
-        alert(data.error || t('challengeCreator.lovePackage.failedGenerate'));
+        alert(data.error || t('challengeCreator.common.failedGenerateTranslation'));
       }
     } catch (error) {
       console.error('Error generating translation:', error);
-      alert(t('challengeCreator.lovePackage.failedGenerate'));
+      alert(t('challengeCreator.common.failedGenerateTranslation'));
     }
     setGenerating(false);
   };
@@ -202,11 +202,11 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
       if (data.success) {
         onCreated();
       } else {
-        alert(data.error || t('challengeCreator.lovePackage.failedSend'));
+        alert(data.error || t('challengeCreator.lovePackage.sendFailed'));
       }
     } catch (error) {
       console.error('Error sending gift:', error);
-      alert(t('challengeCreator.lovePackage.failedSend'));
+      alert(t('challengeCreator.lovePackage.sendFailed'));
     }
     setSending(false);
   };
@@ -370,8 +370,8 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
                             </span>
                           )}
                           {hasContext && (
-                            <span className="text-[10px] px-1.5 py-0.5 bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 rounded font-medium shrink-0" title={t('challengeCreator.lovePackage.hasFormsTitle')}>
-                              {t('challengeCreator.lovePackage.plusData')}
+                            <span className="text-[10px] px-1.5 py-0.5 bg-[var(--accent-light)] text-[var(--accent-color)] rounded font-medium shrink-0" title={t('challengeCreator.lovePackage.hasData')}>
+                              {t('challengeCreator.lovePackage.hasData')}
                             </span>
                           )}
                         </div>

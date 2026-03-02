@@ -1012,7 +1012,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
           {/* Game Card Grid - Show when in local_games tab and no game active */}
           {mainTab === 'local_games' && !localGameType && (
-            <div className="grid grid-cols-2 md:grid-cols-2 gap-2 md:gap-4 mt-3 md:mt-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 mt-3 md:mt-4">
               {/* Flashcards */}
               <button
                 onClick={() => startLocalGame('flashcards')}

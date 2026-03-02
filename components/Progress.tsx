@@ -116,6 +116,8 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
   const [testAttempts, setTestAttempts] = useState<TestAttempt[]>([]);
   const [selectedTestResult, setSelectedTestResult] = useState<TestAttempt | null>(null);
   const [expandedLevel, setExpandedLevel] = useState<string | null>(null);
+  const [showAllLevels, setShowAllLevels] = useState(false);
+  const [expandedAttemptCounts, setExpandedAttemptCounts] = useState<Record<string, number>>({});
   const [showJourneyMenu, setShowJourneyMenu] = useState(false);
   const [stats, setStats] = useState({
     totalWords: 0,
@@ -232,6 +234,13 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
     window.addEventListener('language-switched', handleLanguageSwitch);
     return () => window.removeEventListener('language-switched', handleLanguageSwitch);
   }, [profile.role]);
+
+  // Listen for test-completed events to refresh test attempts
+  useEffect(() => {
+    const handler = () => { fetchTestAttempts(); };
+    window.addEventListener('test-completed', handler);
+    return () => window.removeEventListener('test-completed', handler);
+  }, []);
 
   const fetchTestAttempts = async () => {
     const { data } = await supabase
@@ -558,10 +567,11 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
               {showPreviousTests && (
                 <div className="mt-3 bg-white/10 backdrop-blur-sm rounded-2xl p-3 max-h-64 overflow-y-auto">
                   <div className="space-y-2">
-                    {previousTests.map((test, idx) => {
+                    {(showAllLevels ? previousTests : previousTests.slice(0, 3)).map((test, idx) => {
                       const attempts = getAttemptsForLevel(test.from, test.to);
                       const levelKey = `${test.from}->${test.to}`;
                       const isExpanded = expandedLevel === levelKey;
+                      const visibleAttemptCount = expandedAttemptCounts[levelKey] || 3;
 
                       return (
                         <div key={idx} className="bg-white/10 rounded-xl overflow-hidden">
@@ -592,7 +602,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                             <div className="px-3 pb-3 border-t border-white/10 pt-2">
                               <p className="text-[9px] text-white/50 uppercase tracking-wider font-bold mb-2">{t('progress.previousTests.previousAttempts')}</p>
                               <div className="space-y-1">
-                                {attempts.slice(0, 5).map((attempt) => (
+                                {attempts.slice(0, visibleAttemptCount).map((attempt) => (
                                   <button
                                     key={attempt.id}
                                     onClick={() => setSelectedTestResult(attempt)}
@@ -618,12 +628,28 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                                     </div>
                                   </button>
                                 ))}
+                                {attempts.length > visibleAttemptCount && (
+                                  <button
+                                    onClick={() => setExpandedAttemptCounts(prev => ({ ...prev, [levelKey]: visibleAttemptCount + 5 }))}
+                                    className="w-full text-center py-1.5 text-[10px] text-white/50 hover:text-white/80 font-bold transition-colors"
+                                  >
+                                    {t('progress.previousTests.showMore', { count: attempts.length - visibleAttemptCount })}
+                                  </button>
+                                )}
                               </div>
                             </div>
                           )}
                         </div>
                       );
                     })}
+                    {!showAllLevels && previousTests.length > 3 && (
+                      <button
+                        onClick={() => setShowAllLevels(true)}
+                        className="w-full text-center py-2 text-[10px] text-white/60 hover:text-white/90 font-bold transition-colors"
+                      >
+                        {t('progress.previousTests.showAllLevels', { count: previousTests.length })}
+                      </button>
+                    )}
                   </div>
                 </div>
               )}

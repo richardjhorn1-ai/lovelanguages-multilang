@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { ICONS } from '../constants';
+import { LOGO_PATH, LOGO_DETAIL_PATHS } from './hero/Section';
 import { useHoneypot } from '../hooks/useHoneypot';
 import { apiFetch } from '../services/api-config';
 
@@ -257,9 +258,13 @@ const JoinInvite: React.FC = () => {
       >
         <div className="max-w-xl">
           <div className="flex items-center gap-4 mb-8">
-            <div className="bg-[var(--accent-color)] p-3 rounded-2xl shadow-lg shadow-[var(--accent-shadow)] animate-pulse">
-              <ICONS.Heart className="text-white fill-white w-8 h-8" />
-            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600.000000 600.000000"
+              preserveAspectRatio="xMidYMid meet" fill="var(--accent-color)" className="w-10 h-10">
+              <g transform="translate(0.000000,600.000000) scale(0.100000,-0.100000)" stroke="none">
+                <path d={LOGO_PATH} />
+                {LOGO_DETAIL_PATHS.map((d: string, i: number) => <path key={i} d={d} />)}
+              </g>
+            </svg>
             <h1 className="text-2xl font-bold font-header text-[var(--accent-color)]">Love Languages</h1>
           </div>
 

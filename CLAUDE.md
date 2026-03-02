@@ -178,7 +178,8 @@ High state complexity. Changes require thorough testing:
 | Event | Dispatched By | Listened By | Payload |
 |-------|---------------|-------------|---------|
 | `dictionary-updated` | `ChatArea`, `WordGiftLearning`, `Onboarding` | `LoveLog`, `ChatArea` | `{ count, source? }` |
-| `language-switched` | `LanguagesSection` | `LoveLog`, `FlashcardGame`, `Progress`, `useGameDeck`, `useScoreTracking` | `{ languageCode }` |
+| `language-switched` | `LanguagesSection` | `LoveLog`, `FlashcardGame`, `Progress`, `ChatArea`, `useGameDeck`, `useScoreTracking` | `{ languageCode }` |
+| `test-completed` | `LevelTest` | `Progress` | `{ passed, score }` |
 
 ### localStorage Keys
 

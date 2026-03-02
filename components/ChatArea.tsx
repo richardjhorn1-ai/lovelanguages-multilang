@@ -297,6 +297,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   const [pendingAction, setPendingAction] = useState<ProposedAction | null>(null);
   const [showActionConfirm, setShowActionConfirm] = useState(false);
   const [showAIConsent, setShowAIConsent] = useState(false);
+  const [contextReady, setContextReady] = useState(false);
 
   // Boot session on mount - fetch context once
   useEffect(() => {
@@ -321,6 +322,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
           analytics.track('session_start', { days_since_last: result.daysSinceLastActive });
         }
       }
+      // Always mark context as ready — even on failure, the fixed fallback path handles it
+      setContextReady(true);
     };
     bootSession();
   }, []);
@@ -365,24 +368,28 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     };
   }, []);
 
-  // Invalidate context when vocabulary changes
+  // Invalidate context when vocabulary changes or language switches
   useEffect(() => {
     const invalidateContext = () => {
       contextLoadedRef.current = false;
       sessionContextRef.current = null;
+      setContextReady(false);
       // Re-boot after invalidation
       geminiService.bootSession().then(result => {
         if (result) {
           sessionContextRef.current = result.context;
           contextLoadedRef.current = true;
         }
+        setContextReady(true);
       });
     };
 
     window.addEventListener('dictionary-updated', invalidateContext);
+    window.addEventListener('language-switched', invalidateContext);
 
     return () => {
       window.removeEventListener('dictionary-updated', invalidateContext);
+      window.removeEventListener('language-switched', invalidateContext);
     };
   }, []);
 
@@ -1591,7 +1598,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             >
               <span>👂</span>
               <span className="text-scale-caption font-bold hidden sm:inline">{t('chat.listen.title')}</span>
-              <span className="text-scale-micro text-amber-500 dark:text-amber-400 font-bold">{t('chat.listen.beta')}</span>
+              <span className="text-scale-micro text-[var(--secondary-color)] font-bold">{t('chat.listen.beta')}</span>
             </button>
           )}
         </div>
@@ -1945,7 +1952,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
               <button
                 onClick={() => handleSend()}
                 disabled={loading || !isOnline || (!input.trim() && attachments.length === 0)}
-                className="w-10 h-10 md:w-14 md:h-14 text-white rounded-full flex items-center justify-center shadow-xl active:scale-95 disabled:opacity-50 transition-all shrink-0"
+                className={`w-10 h-10 md:w-14 md:h-14 text-white rounded-full flex items-center justify-center shadow-xl active:scale-95 disabled:opacity-50 transition-all shrink-0 ${!contextReady ? 'animate-pulse opacity-70' : ''}`}
                 style={{ backgroundColor: accentHex }}
               >
                   <ICONS.Play className="w-5 h-5 md:w-6 md:h-6 fill-white translate-x-[1px]" />
@@ -2333,7 +2340,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
             </div>
 
             <p className="text-scale-micro text-[var(--text-secondary)] mt-4 flex items-center justify-center gap-1">
-              <span className="px-1.5 py-0.5 bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400 rounded font-bold">
+              <span className="px-1.5 py-0.5 bg-[var(--secondary-light)] text-[var(--secondary-color)] rounded font-bold">
                 {t('chat.listen.beta')}
               </span>
             </p>
