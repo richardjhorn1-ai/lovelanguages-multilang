@@ -91,14 +91,13 @@ export default async function handler(req: any, res: any) {
       return res.status(500).json({ error: 'Server configuration error' });
     }
 
-    // Block free users
+    // Check subscription status (for rate limit tier) — but don't block unsubscribed users.
+    // During onboarding the invite step comes before plan selection, so users won't have a
+    // subscription yet. The invite link expires in 7 days and is useless if the inviter never subscribes.
     const sub = await requireSubscription(supabase, auth.userId);
-    if (!sub.allowed) {
-      return res.status(403).json({ error: sub.error });
-    }
 
     // Check rate limit (abuse prevention)
-    const limit = await checkRateLimit(supabase, auth.userId, 'generateInvite', sub.plan as SubscriptionPlan);
+    const limit = await checkRateLimit(supabase, auth.userId, 'generateInvite', (sub.allowed ? sub.plan : 'free') as SubscriptionPlan);
     if (!limit.allowed) {
       return res.status(429).json({
         error: limit.error,

@@ -510,8 +510,9 @@ class AnalyticsService {
 
   trackLogout(): void {
     this.track('user_logged_out', {});
-    // Reset PostHog identity on logout
-    if (hasPostHog()) {
+    // Reset PostHog identity on logout — guard .reset() separately since CSP may block
+    // the full PostHog script while the inline snippet still creates window.posthog
+    if (hasPostHog() && typeof window.posthog.reset === 'function') {
       window.posthog.reset();
     }
   }

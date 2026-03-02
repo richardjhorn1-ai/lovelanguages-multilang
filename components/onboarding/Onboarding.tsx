@@ -667,6 +667,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({
     const isDark = theme.darkMode !== 'off';
     const darkBg = DARK_MODE_STYLES[theme.darkMode].bgPrimary;
     const accent = ACCENT_COLORS[theme.accentColor];
+    // Clean mode: flat solid background, no gradient or tint
+    if (theme.backgroundStyle === 'clean') {
+      return isDark ? darkBg : '#ffffff';
+    }
     if (isDark) {
       return `linear-gradient(145deg, color-mix(in srgb, ${accent.primary} 8%, ${darkBg}) 0%, ${darkBg} 50%, color-mix(in srgb, ${accent.primary} 4%, ${darkBg}) 100%)`;
     }
