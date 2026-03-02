@@ -38,21 +38,21 @@ const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({ onSelect, onClose }
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-[var(--bg-card)] rounded-[2rem] w-full max-w-lg max-h-[85vh] overflow-hidden flex flex-col">
+    <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
+      <div className="glass-card-solid rounded-2xl w-full max-w-lg max-h-[85vh] overflow-hidden flex flex-col">
         {/* Header */}
         <div className="p-5 border-b border-[var(--border-color)] flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="relative">
-              <div className="w-10 h-10 bg-purple-500/20 rounded-xl flex items-center justify-center text-xl">
-                🎙️
+              <div className="w-10 h-10 bg-[var(--secondary-light)] rounded-xl flex items-center justify-center text-[var(--secondary-color)]">
+                <ICONS.Mic className="w-5 h-5" />
               </div>
               <span className="absolute -top-1 -right-1 px-1.5 py-0.5 bg-amber-500 text-white text-[9px] font-black rounded-full uppercase">
                 {t('scenarioSelector.beta')}
               </span>
             </div>
             <div>
-              <h2 className="font-black text-[var(--text-primary)]">{t('scenarioSelector.title')}</h2>
+              <h2 className="font-black font-header text-[var(--text-primary)]">{t('scenarioSelector.title')}</h2>
               <p className="text-scale-caption text-[var(--text-secondary)]">{t('scenarioSelector.subtitle')}</p>
             </div>
           </div>
@@ -73,15 +73,15 @@ const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({ onSelect, onClose }
                 <button
                   key={scenario.id}
                   onClick={() => onSelect(scenario)}
-                  className="w-full p-4 bg-[var(--bg-primary)] hover:bg-purple-50 dark:hover:bg-purple-900/20 border border-[var(--border-color)] hover:border-purple-300 dark:hover:border-purple-700 rounded-2xl text-left transition-all group"
+                  className="w-full p-4 bg-[var(--bg-primary)] hover:bg-[var(--secondary-light)] border border-[var(--border-color)] hover:border-[var(--secondary-border)] rounded-2xl text-left transition-all group"
                 >
                   <div className="flex items-start gap-3">
-                    <div className="w-12 h-12 bg-[var(--bg-card)] rounded-xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                    <div className="w-12 h-12 glass-card rounded-xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
                       {scenario.icon}
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1">
-                        <h3 className="font-bold text-[var(--text-primary)]">{t(`scenarioSelector.scenarios.${scenario.id}.name`)}</h3>
+                        <h3 className="font-bold font-header text-[var(--text-primary)]">{t(`scenarioSelector.scenarios.${scenario.id}.name`)}</h3>
                         <span className={`text-[9px] font-bold uppercase px-2 py-0.5 rounded-full ${difficultyColors[scenario.difficulty]}`}>
                           {t(`scenarioSelector.difficulty.${scenario.difficulty}`)}
                         </span>
@@ -96,17 +96,17 @@ const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({ onSelect, onClose }
               {/* Custom Option */}
               <button
                 onClick={() => setShowCustom(true)}
-                className="w-full p-4 bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 border border-purple-200 dark:border-purple-800 hover:border-purple-400 dark:hover:border-purple-600 rounded-2xl text-left transition-all group"
+                className="w-full p-4 bg-[var(--secondary-light)] border border-[var(--secondary-border)] hover:border-[var(--secondary-color)] rounded-2xl text-left transition-all group"
               >
                 <div className="flex items-start gap-3">
-                  <div className="w-12 h-12 bg-white dark:bg-[var(--bg-card)] rounded-xl flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
-                    ✨
+                  <div className="w-12 h-12 glass-card rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform text-[var(--secondary-color)]">
+                    <ICONS.Sparkles className="w-6 h-6" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-bold text-purple-700 dark:text-purple-300">{t('scenarioSelector.createOwn')}</h3>
-                    <p className="text-scale-label text-purple-600/70 dark:text-purple-400/70">{t('scenarioSelector.createOwnDesc')}</p>
+                    <h3 className="font-bold font-header text-[var(--secondary-color)]">{t('scenarioSelector.createOwn')}</h3>
+                    <p className="text-scale-label text-[var(--secondary-color)]/70">{t('scenarioSelector.createOwnDesc')}</p>
                   </div>
-                  <ICONS.ChevronRight className="w-5 h-5 text-purple-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <ICONS.ChevronRight className="w-5 h-5 text-[var(--secondary-color)] opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
               </button>
             </>
@@ -123,8 +123,8 @@ const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({ onSelect, onClose }
                 </button>
 
                 <div className="text-center mb-6">
-                  <div className="text-4xl mb-2">✨</div>
-                  <h3 className="font-black text-[var(--text-primary)]">{t('scenarioSelector.customScenario')}</h3>
+                  <div className="mb-2 text-[var(--secondary-color)]"><ICONS.Sparkles className="w-10 h-10 mx-auto" /></div>
+                  <h3 className="font-black font-header text-[var(--text-primary)]">{t('scenarioSelector.customScenario')}</h3>
                   <p className="text-scale-label text-[var(--text-secondary)]">{t('scenarioSelector.describeScenario')}</p>
                 </div>
 
@@ -133,14 +133,14 @@ const ScenarioSelector: React.FC<ScenarioSelectorProps> = ({ onSelect, onClose }
                   onChange={e => setCustomTopic(e.target.value)}
                   placeholder={t('scenarioSelector.customPlaceholder')}
                   rows={4}
-                  className="w-full p-4 border-2 border-[var(--border-color)] rounded-2xl text-scale-label focus:outline-none focus:border-purple-500 bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)] resize-none"
+                  className="w-full p-4 border-2 border-[var(--border-color)] rounded-2xl text-scale-label focus:outline-none focus:border-[var(--secondary-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)] resize-none"
                   autoFocus
                 />
 
                 <button
                   onClick={handleCustomStart}
                   disabled={!customTopic.trim()}
-                  className="w-full mt-4 py-4 bg-purple-500 text-white font-bold rounded-2xl hover:bg-purple-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+                  className="w-full mt-4 py-4 bg-[var(--secondary-color)] text-white font-bold rounded-2xl hover:bg-[var(--secondary-hover)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
                 >
                   <ICONS.Play className="w-4 h-4" />
                   {t('scenarioSelector.startPractice')}

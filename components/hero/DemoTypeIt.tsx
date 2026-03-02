@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DemoWord } from './demoData';
 import { sounds } from '../../services/sounds';
+import { isCorrectAnswer } from '../../utils/answer-helpers';
 
 interface DemoTypeItProps {
   word: DemoWord;
@@ -37,7 +38,7 @@ export const DemoTypeIt: React.FC<DemoTypeItProps> = ({
       return;
     }
 
-    const correct = answer.trim().toLowerCase() === word.translation.toLowerCase();
+    const correct = isCorrectAnswer(answer, word.translation);
     // Play feedback sound
     sounds.play('correct');
     setIsCorrect(correct);
@@ -52,8 +53,8 @@ export const DemoTypeIt: React.FC<DemoTypeItProps> = ({
 
   return (
     <div
-      className="rounded-[2rem] p-6 shadow-lg border flex flex-col justify-between"
-      style={{ backgroundColor: '#ffffff', borderColor: '#e5e7eb', width: '300px', height: '380px' }}
+      className="rounded-2xl p-6 shadow-lg border flex flex-col justify-between"
+      style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-color)', width: '300px', height: '380px' }}
     >
       <span
         className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-4"
@@ -62,7 +63,7 @@ export const DemoTypeIt: React.FC<DemoTypeItProps> = ({
         {targetName} → {nativeName}
       </span>
 
-      <h3 className="text-2xl font-black text-[#1a1a2e] mb-2 text-center">
+      <h3 className="text-2xl font-black font-header text-[var(--text-primary)] mb-2 text-center">
         {word.word}
       </h3>
 
@@ -107,9 +108,9 @@ export const DemoTypeIt: React.FC<DemoTypeItProps> = ({
               ? isCorrect
                 ? '#4ade80'
                 : '#f87171'
-              : '#e5e7eb',
-            backgroundColor: '#f9fafb',
-            color: '#1a1a2e',
+              : 'var(--border-color)',
+            backgroundColor: 'var(--bg-primary)',
+            color: 'var(--text-primary)',
           }}
           autoFocus
         />

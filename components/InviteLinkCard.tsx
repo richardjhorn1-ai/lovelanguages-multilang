@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { Profile, InviteToken } from '../types';
 import { ICONS } from '../constants';
+import { apiFetch, APP_URL } from '../services/api-config';
 
 interface InviteLinkCardProps {
   profile: Profile;
@@ -34,7 +35,7 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
         .maybeSingle();
 
       if (data && !error) {
-        const baseUrl = window.location.origin;
+        const baseUrl = APP_URL;
         setInviteLink(`${baseUrl}/#/join/${data.token}`);
         setExpiresAt(data.expires_at);
       }
@@ -53,7 +54,7 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
         throw new Error('Not authenticated');
       }
 
-      const response = await fetch('/api/generate-invite/', {
+      const response = await apiFetch('/api/generate-invite/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -117,7 +118,7 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
         throw new Error('Not authenticated');
       }
 
-      const response = await fetch('/api/generate-invite/', {
+      const response = await apiFetch('/api/generate-invite/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -143,14 +144,14 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-[var(--accent-light)] to-white p-6 rounded-[2rem] border border-[var(--accent-border)] shadow-sm">
+    <div className="glass-card p-6 rounded-2xl">
       <div className="flex items-center gap-2 mb-4">
         <div className="w-10 h-10 rounded-full bg-[var(--accent-light)] flex items-center justify-center">
           <ICONS.Link className="w-5 h-5 text-[var(--accent-color)]" />
         </div>
         <div>
-          <h3 className="text-scale-label font-black text-gray-800">{t('inviteLink.title')}</h3>
-          <p className="text-[10px] text-gray-400 font-medium">{t('inviteLink.subtitle')}</p>
+          <h3 className="text-scale-label font-black font-header text-[var(--text-primary)]">{t('inviteLink.title')}</h3>
+          <p className="text-[10px] text-[var(--text-secondary)] font-medium">{t('inviteLink.subtitle')}</p>
         </div>
       </div>
 
@@ -181,10 +182,10 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
       ) : (
         <div className="space-y-3">
           {/* Link display */}
-          <div className="bg-white p-4 rounded-xl border border-gray-100 flex items-center gap-3">
+          <div className="glass-card p-4 rounded-xl flex items-center gap-3">
             <div className="flex-1 truncate">
-              <p className="text-scale-caption text-gray-400 font-medium mb-1">{t('inviteLink.yourLink')}</p>
-              <p className="text-scale-label font-mono text-gray-600 truncate">{inviteLink}</p>
+              <p className="text-scale-caption text-[var(--text-secondary)] font-medium mb-1">{t('inviteLink.yourLink')}</p>
+              <p className="text-scale-label font-mono text-[var(--text-secondary)] truncate">{inviteLink}</p>
             </div>
           </div>
 
@@ -212,7 +213,7 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
 
           {/* Expiry and regenerate */}
           <div className="flex items-center justify-between text-scale-caption">
-            <span className="text-gray-400 font-medium">
+            <span className="text-[var(--text-secondary)] font-medium">
               {expiresAt && formatExpiryDate(expiresAt)}
             </span>
             <button
@@ -226,8 +227,8 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
           </div>
 
           {/* How it works */}
-          <div className="pt-4 border-t border-gray-100">
-            <p className="text-[10px] text-gray-400 font-medium text-center">
+          <div className="pt-4 border-t border-[var(--border-color)]">
+            <p className="text-[10px] text-[var(--text-secondary)] font-medium text-center">
               {t('inviteLink.description')}
             </p>
           </div>

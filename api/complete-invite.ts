@@ -130,17 +130,11 @@ export default async function handler(req: any, res: any) {
         // Don't set native_language — tutor picks their own in RoleSelection/Onboarding
         partnerUpdateData.active_language = inviterLearningLanguage;
         partnerUpdateData.languages = [inviterLearningLanguage];
-        console.log('[complete-invite] Setting tutor language settings:', {
-          active_language: inviterLearningLanguage
-        });
       } else {
         // Student joining via tutor invite: set active_language to the tutor's coaching language
         // Don't override native_language — we don't know it
         partnerUpdateData.active_language = inviterLearningLanguage;
         partnerUpdateData.languages = [inviterLearningLanguage];
-        console.log('[complete-invite] Setting student language settings:', {
-          active_language: inviterLearningLanguage
-        });
       }
     }
 

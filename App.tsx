@@ -11,9 +11,10 @@ import { trackPageView, analytics, captureReferralSource, getReferralData, initW
 import { offline } from './services/offline';
 import { migrateFromLocalStorage } from './services/offline-db';
 import { sounds } from './services/sounds';
+import { configurePurchases, identifyUser, getCustomerInfo, hasActiveEntitlement, isIAPAvailable, logOutPurchases } from './services/purchases';
 import NewWordsNotification from './components/NewWordsNotification';
 import { ExtractedWord } from './types';
-import Hero from './components/Hero';
+import Landing from './components/Landing';
 import { SUPPORTED_LANGUAGE_CODES } from './constants/language-config';
 import Navbar from './components/Navbar';
 import ChatArea from './components/ChatArea';
@@ -26,7 +27,6 @@ import JoinInvite from './components/JoinInvite';
 import { Onboarding } from './components/onboarding/Onboarding';
 import SubscriptionRequired from './components/SubscriptionRequired';
 import TrialReminderNotification from './components/TrialReminderNotification';
-import RoleSelection from './components/RoleSelection';
 import TermsOfService from './components/TermsOfService';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import FAQ from './components/FAQ';
@@ -175,6 +175,8 @@ const App: React.FC = () => {
       else {
         setProfile(null);
         setLoading(false);
+        // Log out of RevenueCat when user signs out
+        if (isIAPAvailable()) logOutPurchases();
       }
     });
 
@@ -186,6 +188,8 @@ const App: React.FC = () => {
     const params = new URLSearchParams(window.location.search);
     if (params.get('subscription') === 'success') {
       setSuccessToast("You're all set!");
+      // Flag for trial_converted check (runs in separate useEffect after profile loads)
+      sessionStorage.setItem('subscription_just_completed', 'true');
 
       // Track subscription completed
       // Note: Actual plan/price details would come from the Stripe webhook
@@ -197,13 +201,31 @@ const App: React.FC = () => {
         currency: 'EUR',
       });
 
-      // Clean up URL
+      // Clean up URL (trial_converted tracked separately once profile loads)
       const url = new URL(window.location.href);
       url.searchParams.delete('subscription');
       url.searchParams.delete('onboarding');
       window.history.replaceState({}, '', url.pathname + url.hash);
     }
   }, []);
+
+  // Track trial conversion once profile is loaded (after Stripe redirect)
+  const trialConvertedRef = useRef(false);
+  useEffect(() => {
+    if (profile?.free_tier_chosen_at && !trialConvertedRef.current) {
+      // Check if we just came from a subscription success redirect
+      const wasSubscriptionSuccess = sessionStorage.getItem('subscription_just_completed');
+      if (wasSubscriptionSuccess) {
+        trialConvertedRef.current = true;
+        sessionStorage.removeItem('subscription_just_completed');
+        analytics.track('trial_converted', {
+          trial_duration_ms: profile.trial_expires_at
+            ? new Date(profile.trial_expires_at).getTime() - new Date(profile.free_tier_chosen_at).getTime()
+            : undefined,
+        });
+      }
+    }
+  }, [profile]);
 
   // Listen for word extraction events from ChatArea (visible on all tabs)
   useEffect(() => {
@@ -230,6 +252,10 @@ const App: React.FC = () => {
     };
   }, []);
 
+  // Guard against concurrent fetchProfile calls (getSession + onAuthStateChange)
+  // both firing trackSignupCompleted for the same new signup
+  const signupTrackingRef = useRef(false);
+
   const fetchProfile = async (userId: string) => {
     try {
       setDbError(null);
@@ -246,7 +272,7 @@ const App: React.FC = () => {
           const { data: userData } = await supabase.auth.getUser();
           if (userData.user) {
             // Read language selection from user metadata (set during signup)
-            // Fall back to localStorage (set during Hero page interaction)
+            // Fall back to localStorage (set during Landing page interaction)
             // Final fallback to defaults for edge cases
             const userMeta = userData.user.user_metadata || {};
             const storedTarget = userMeta.target_language
@@ -257,7 +283,7 @@ const App: React.FC = () => {
               || localStorage.getItem('preferredLanguage')  // Legacy key fallback
               || 'en';
 
-            // Read intended role from user metadata (set during signup in Hero)
+            // Read intended role from user metadata (set during onboarding)
             // Fall back to localStorage for OAuth signups
             const intendedRole = userMeta.intended_role
               || localStorage.getItem('intended_role')
@@ -267,12 +293,21 @@ const App: React.FC = () => {
               localStorage.removeItem('intended_role');
             }
 
+            // For Apple Sign In: name is only sent on FIRST authorization
+            // Native iOS captures it in localStorage; web gets it from user_metadata
+            const appleDisplayName = localStorage.getItem('apple_display_name');
+            const displayName = userData.user.user_metadata.full_name
+              || appleDisplayName
+              || 'Lover';
+            // Clear the one-time Apple name after reading
+            if (appleDisplayName) localStorage.removeItem('apple_display_name');
+
             const { data: newProfile, error: createError } = await supabase
               .from('profiles')
               .insert({
                 id: userData.user.id,
                 email: userData.user.email,
-                full_name: userData.user.user_metadata.full_name || 'Lover',
+                full_name: displayName,
                 // Set languages from signup metadata or localStorage selection
                 active_language: storedTarget,
                 native_language: storedNative,
@@ -284,7 +319,9 @@ const App: React.FC = () => {
               .single();
 
             // Track signup completed for new users
-            if (newProfile) {
+            if (newProfile && !signupTrackingRef.current) {
+              signupTrackingRef.current = true;
+              localStorage.setItem(`signup_tracked_${userId}`, 'true');
               const provider = userData.user.app_metadata?.provider || 'email';
               analytics.identify(userData.user.id, {
                 signup_date: new Date().toISOString(),
@@ -311,25 +348,29 @@ const App: React.FC = () => {
               if (createError.code === '23505') {
                 // Track signup completed — this IS a new user (we got here via PGRST116),
                 // the auth trigger just created the profile before our insert could.
-                const provider = userData.user.app_metadata?.provider || 'email';
-                analytics.identify(userData.user.id, {
-                  signup_date: new Date().toISOString(),
-                  native_language: storedNative,
-                  target_language: storedTarget,
-                  subscription_plan: 'free',
-                });
-                const referralData = getReferralData();
-                analytics.trackSignupCompleted({
-                  method: provider as 'google' | 'apple' | 'email',
-                  referral_source: referralData?.source || document.referrer || 'direct',
-                  ...(referralData && {
-                    utm_medium: referralData.medium,
-                    utm_campaign: referralData.campaign,
-                    article_slug: referralData.content,
-                    ref_native_lang: referralData.refNative,
-                    ref_target_lang: referralData.refTarget,
-                  }),
-                });
+                if (!signupTrackingRef.current) {
+                  signupTrackingRef.current = true;
+                  localStorage.setItem(`signup_tracked_${userId}`, 'true');
+                  const provider = userData.user.app_metadata?.provider || 'email';
+                  analytics.identify(userData.user.id, {
+                    signup_date: new Date().toISOString(),
+                    native_language: storedNative,
+                    target_language: storedTarget,
+                    subscription_plan: 'free',
+                  });
+                  const referralData = getReferralData();
+                  analytics.trackSignupCompleted({
+                    method: provider as 'google' | 'apple' | 'email',
+                    referral_source: referralData?.source || document.referrer || 'direct',
+                    ...(referralData && {
+                      utm_medium: referralData.medium,
+                      utm_campaign: referralData.campaign,
+                      article_slug: referralData.content,
+                      ref_native_lang: referralData.refNative,
+                      ref_target_lang: referralData.refTarget,
+                    }),
+                  });
+                }
 
                 // If we have an intended role from signup, update the profile with it
                 const validRole = intendedRole === 'tutor' || intendedRole === 'student' ? intendedRole : null;
@@ -380,13 +421,54 @@ const App: React.FC = () => {
         }
       } else {
         setProfile(data);
-        // Initialize analytics for returning users (enables event tracking)
-        analytics.identify(userId, {
-          signup_date: data.created_at,
-          native_language: data.native_language,
-          target_language: data.active_language,
-          subscription_plan: data.subscription_plan || 'free',
-        });
+
+        // Detect new signup that landed here because the Supabase auth trigger
+        // created the profile before our client-side INSERT could run.
+        // Check: profile created within last 5 minutes AND not already tracked.
+        const profileAge = Date.now() - new Date(data.created_at).getTime();
+        const FIVE_MINUTES = 5 * 60 * 1000;
+        const trackingKey = `signup_tracked_${userId}`;
+
+        if (profileAge < FIVE_MINUTES && !signupTrackingRef.current && !localStorage.getItem(trackingKey)) {
+          signupTrackingRef.current = true;
+          localStorage.setItem(trackingKey, 'true');
+          const { data: userData } = await supabase.auth.getUser();
+          const provider = userData?.user?.app_metadata?.provider || 'email';
+          analytics.identify(userId, {
+            signup_date: data.created_at,
+            native_language: data.native_language,
+            target_language: data.active_language,
+            subscription_plan: data.subscription_plan || 'free',
+          });
+          const referralData = getReferralData();
+          analytics.trackSignupCompleted({
+            method: provider as 'google' | 'apple' | 'email',
+            referral_source: referralData?.source || document.referrer || 'direct',
+            ...(referralData && {
+              utm_medium: referralData.medium,
+              utm_campaign: referralData.campaign,
+              article_slug: referralData.content,
+              ref_native_lang: referralData.refNative,
+              ref_target_lang: referralData.refTarget,
+            }),
+          });
+        } else {
+          // Returning user — identify for event tracking
+          analytics.identify(userId, {
+            signup_date: data.created_at,
+            native_language: data.native_language,
+            target_language: data.active_language,
+            subscription_plan: data.subscription_plan || 'free',
+          });
+          // Track login only once per browser session (not on every page refresh)
+          const loginSessionKey = `login_tracked_${userId}`;
+          if (!sessionStorage.getItem(loginSessionKey)) {
+            sessionStorage.setItem(loginSessionKey, 'true');
+            const { data: userData } = await supabase.auth.getUser();
+            const provider = userData?.user?.app_metadata?.provider || 'email';
+            analytics.trackLogin(provider as 'google' | 'apple' | 'email');
+          }
+        }
         // Pre-cache vocabulary for offline mode
         if (data?.active_language) {
           offline.preCacheOnLogin(userId, data.active_language);
@@ -397,6 +479,31 @@ const App: React.FC = () => {
         }
         if (data?.native_language) {
           localStorage.setItem('preferredNativeLanguage', data.native_language);
+        }
+        // Initialize RevenueCat for iOS in-app purchases (non-blocking)
+        if (isIAPAvailable()) {
+          configurePurchases(userId)
+            .then(() => {
+              identifyUser(userId);
+              // Reconcile: check if iOS subscription status differs from DB
+              return getCustomerInfo();
+            })
+            .then(info => {
+              if (!info) return;
+              const entitlement = hasActiveEntitlement(info);
+              if (entitlement.isActive && data.subscription_status !== 'active') {
+                // User has active App Store subscription but DB doesn't reflect it
+                // This can happen if webhook was delayed — update DB
+                return supabase.from('profiles').update({
+                  subscription_plan: entitlement.plan,
+                  subscription_status: 'active',
+                  subscription_source: 'app_store',
+                }).eq('id', userId).then(() => {
+                  fetchProfile(userId);
+                });
+              }
+            })
+            .catch(err => console.error('[RevenueCat] Init/reconcile failed:', err));
         }
       }
     } catch (err: any) {
@@ -436,12 +543,12 @@ const App: React.FC = () => {
   }
 
   return (
-    <ThemeProvider userId={profile?.id} profileTheme={profile ? { accent_color: profile.accent_color, dark_mode: profile.dark_mode, font_size: profile.font_size, font_preset: profile.font_preset, font_weight: profile.font_weight } : null}>
+    <ThemeProvider userId={profile?.id} profileTheme={profile ? { accent_color: profile.accent_color, dark_mode: profile.dark_mode, font_size: profile.font_size, font_preset: profile.font_preset, font_weight: profile.font_weight, background_style: profile.background_style } : null}>
       <LanguageProvider profile={profile}>
         <I18nSyncWrapper>
         <HashRouter>
           <AnalyticsWrapper>
-          <div className="h-screen-safe bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-300 overflow-hidden">
+          <div className="h-screen-safe text-[var(--text-primary)] transition-colors duration-300 overflow-hidden app-bg-decor">
           {/* Success toast */}
           {successToast && (
             <SuccessToast message={successToast} onClose={() => setSuccessToast(null)} />
@@ -480,7 +587,7 @@ const App: React.FC = () => {
                   // Authenticated users go to main app
                   <Navigate to="/" />
                 ) : (
-                  <Hero />
+                  <Landing />
                 )
               } />
             ))}
@@ -488,25 +595,16 @@ const App: React.FC = () => {
             {/* All other routes */}
             <Route path="*" element={
               session && profile ? (
-                // Step 1: Check if user has confirmed their role (skip for existing users who completed onboarding)
-                !profile.role_confirmed_at && !profile.onboarding_completed_at ? (
-                  <RoleSelection
-                    userId={profile.id}
-                    profile={profile}
-                    onRoleSelected={() => fetchProfile(profile.id)}
-                  />
-                ) : // Step 2: Check if onboarding is completed
+                // Step 1: Check if onboarding is completed (role + language selection now part of onboarding)
                 !profile.onboarding_completed_at ? (
                   <Onboarding
                     role={profile.role}
                     userId={profile.id}
                     onComplete={() => fetchProfile(profile.id)}
                     onQuit={() => supabase.auth.signOut()}
-                    onBackToLanguages={async () => {
-                      await supabase.from('profiles').update({ role_confirmed_at: null }).eq('id', profile.id);
-                      fetchProfile(profile.id);
-                    }}
                     hasInheritedSubscription={!!profile.subscription_granted_by || profile.subscription_status === 'active'}
+                    isInvitedUser={!!profile.linked_user_id && !profile.onboarding_completed_at}
+                    inviterName={localStorage.getItem('inviter_name') || undefined}
                   />
                 ) : // Step 3: Check subscription/access status
                 // Allow if: subscription active, inherited access, active promo, active trial, or beta tester
@@ -562,14 +660,14 @@ const App: React.FC = () => {
                           hoursRemaining={hoursRemaining}
                         />
                       )}
-                      <main className="flex-1 h-0 overflow-hidden">
+                      <main className="flex-1 h-0 overflow-hidden relative z-0">
                         <PersistentTabs profile={profile} onRefresh={() => fetchProfile(profile.id)} />
                       </main>
                     </div>
                   );
                 })()
               ) : (
-                <Hero />
+                <Landing />
               )
             } />
           </Routes>

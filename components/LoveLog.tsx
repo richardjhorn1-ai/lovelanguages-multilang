@@ -397,8 +397,8 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
   };
 
   return (
-    <div className="h-full flex flex-col bg-[var(--bg-primary)]">
-      <div className="px-3 md:px-6 py-3 md:py-4 bg-[var(--bg-card)] border-b border-[var(--border-color)] sticky top-0 z-30 shadow-sm">
+    <div className="h-full flex flex-col">
+      <div className="px-3 md:px-6 py-3 md:py-4 glass-card sticky top-0 z-30">
         <div className="max-w-7xl mx-auto">
           {/* Mobile: Compact single row with title and icons */}
           <div className="flex md:hidden items-center justify-between gap-2">
@@ -407,7 +407,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                 <ICONS.Book className="text-white w-4 h-4" />
               </div>
               <h2 className="text-scale-body font-black text-[var(--text-primary)] font-header">{t('loveLog.title')}</h2>
-              <span className="text-[9px] font-bold text-[var(--text-secondary)] bg-[var(--bg-primary)] px-1.5 py-0.5 rounded-full">{entries.length}</span>
+              <span className="text-[9px] font-bold text-[var(--text-secondary)] bg-white/40 dark:bg-white/15 px-1.5 py-0.5 rounded-full">{entries.length}</span>
             </div>
             <div className="flex items-center gap-1.5">
               {/* Mobile search toggle */}
@@ -439,7 +439,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                   value={search}
                   onChange={e => setSearch(e.target.value)}
                   placeholder={t('loveLog.searchWords')}
-                  className="w-full pl-9 pr-4 py-2 bg-[var(--bg-primary)] rounded-xl text-scale-caption font-bold border-none focus:ring-2 focus:ring-[var(--accent-border)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+                  className="w-full pl-9 pr-4 py-2 bg-[var(--bg-primary)] rounded-xl text-scale-caption font-bold border-none text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
                   autoFocus
                 />
               </div>
@@ -458,7 +458,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
             <div className="flex items-center gap-3">
               <div className="relative w-64">
                 <ICONS.Search className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--text-secondary)] w-3.5 h-3.5" />
-                <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder={t('loveLog.search')} className="w-full pl-9 pr-4 py-2 bg-[var(--bg-primary)] rounded-xl text-scale-caption font-bold border-none focus:ring-2 focus:ring-[var(--accent-border)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]" />
+                <input type="text" value={search} onChange={e => setSearch(e.target.value)} placeholder={t('loveLog.search')} className="w-full pl-9 pr-4 py-2 bg-[var(--bg-primary)] rounded-xl text-scale-caption font-bold border-none text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]" />
               </div>
               <button
                 onClick={handleSync}
@@ -481,10 +481,10 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
             <button
               key={f}
               onClick={() => toggleFilter(f)}
-              className={`px-2.5 md:px-4 py-1 md:py-1.5 rounded-full text-[7px] md:text-[8px] font-black uppercase tracking-[0.08em] md:tracking-[0.1em] border md:border-2 transition-all whitespace-nowrap ${
+              className={`px-2.5 md:px-4 py-1 md:py-1.5 rounded-full text-[7px] md:text-[8px] font-black uppercase tracking-[0.08em] md:tracking-[0.1em] transition-all whitespace-nowrap ${
                 activeFilters.has(f)
-                  ? 'bg-[var(--accent-color)] border-[var(--accent-color)] text-white shadow-md'
-                  : 'bg-[var(--bg-card)] border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--accent-border)]'
+                  ? 'bg-[var(--secondary-color)] text-white shadow-md'
+                  : 'glass-card text-[var(--text-secondary)]'
               }`}
             >
               {t(`loveLog.filters.${f}`)}s
@@ -493,10 +493,10 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
           {giftedWordsMap.size > 0 && (
             <button
               onClick={() => setShowGiftsOnly(!showGiftsOnly)}
-              className={`px-2.5 md:px-4 py-1 md:py-1.5 rounded-full text-[7px] md:text-[8px] font-black uppercase tracking-[0.08em] md:tracking-[0.1em] border md:border-2 transition-all whitespace-nowrap flex items-center gap-1 ${
+              className={`px-2.5 md:px-4 py-1 md:py-1.5 rounded-full text-[7px] md:text-[8px] font-black uppercase tracking-[0.08em] md:tracking-[0.1em] transition-all whitespace-nowrap flex items-center gap-1 ${
                 showGiftsOnly
-                  ? 'bg-[var(--accent-color)] border-[var(--accent-color)] text-white shadow-md'
-                  : 'bg-[var(--bg-card)] border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--accent-border)]'
+                  ? 'bg-[var(--secondary-color)] text-white shadow-md'
+                  : 'glass-card text-[var(--text-secondary)]'
               }`}
             >
               <ICONS.Heart className="w-2.5 h-2.5 md:w-3 md:h-3" /> {t('loveLog.filters.gifts')}
@@ -513,7 +513,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
         </div>
       </div>
 
-      <div className="flex-1 overflow-y-auto p-2 md:p-4 lg:p-6 bg-[var(--bg-primary)]">
+      <div className="flex-1 overflow-y-auto p-2 md:p-4 lg:p-6">
         {!isOnline && (
           <div className="max-w-7xl mx-auto mb-3">
             <OfflineIndicator
@@ -542,8 +542,8 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                 className="relative h-[200px] md:h-[280px] w-full cursor-pointer"
                 onClick={() => setDetailModalId(e.id)}
               >
-                <div className={`h-full bg-[var(--bg-card)] border rounded-xl md:rounded-[1.5rem] p-3 md:p-5 flex flex-col shadow-sm hover:shadow-lg hover:scale-[1.02] transition-all overflow-hidden ${
-                  isGifted ? 'border-[var(--accent-border)] ring-1 md:ring-2 ring-[var(--accent-border)]' : 'border-[var(--border-color)]'
+                <div className={`h-full glass-card rounded-xl md:rounded-[1.5rem] p-3 md:p-5 flex flex-col hover:shadow-lg hover:scale-[1.02] transition-all overflow-hidden ${
+                  isGifted ? 'border-[var(--accent-border)] ring-1 md:ring-2 ring-[var(--accent-border)]' : ''
                 }`}>
                   {/* Gift Badge - top left corner */}
                   {isGifted && (
@@ -580,7 +580,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
 
                   {/* Word type pill */}
                   <div className="flex justify-center">
-                    <span className="text-[7px] md:text-[9px] font-bold uppercase tracking-wider text-[var(--accent-color)] bg-[var(--accent-light)] px-2 md:px-3 py-0.5 md:py-1 rounded-full">{t(`loveLog.filters.${e.word_type}`)}</span>
+                    <span className="text-[7px] md:text-[9px] font-bold uppercase tracking-wider text-[var(--secondary-text)] bg-[var(--secondary-light)] px-2 md:px-3 py-0.5 md:py-1 rounded-full">{t(`loveLog.filters.${e.word_type}`)}</span>
                   </div>
 
                   {/* Main content */}
@@ -592,7 +592,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                       onClick={(ev) => { ev.stopPropagation(); speak(e.word, targetLanguage); }}
                       className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-[var(--accent-light)] hover:bg-[var(--accent-light-hover)] flex items-center justify-center transition-all group"
                     >
-                      <ICONS.Play className="w-3 h-3 md:w-4 md:h-4 text-[var(--accent-color)] translate-x-0.5" />
+                      <ICONS.Play className="w-4 h-4 md:w-5 md:h-5 text-[var(--accent-color)] translate-x-[1px]" />
                     </button>
 
                     <p className="text-scale-caption md:text-scale-label text-[var(--text-secondary)] font-medium line-clamp-2">{e.translation}</p>
@@ -621,11 +621,11 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
 
         return (
           <div
-            className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-4"
             onClick={() => setDetailModalId(null)}
           >
             <div
-              className="bg-[var(--bg-card)] rounded-2xl max-w-md w-full max-h-[80vh] overflow-hidden shadow-2xl"
+              className="glass-card-solid rounded-2xl max-w-md w-full max-h-[80vh] overflow-hidden"
               onClick={(ev) => ev.stopPropagation()}
             >
               {/* Modal Header */}
@@ -636,7 +636,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                     onClick={() => speak(entry.word, targetLanguage)}
                     className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all"
                   >
-                    <ICONS.Play className="w-4 h-4 translate-x-0.5" />
+                    <ICONS.Play className="w-4 h-4 translate-x-[1px]" />
                   </button>
                 </div>
                 <button
@@ -648,11 +648,11 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
               </div>
 
               {/* Modal Content */}
-              <div className="p-5 overflow-y-auto max-h-[60vh] space-y-4">
+              <div className="p-4 overflow-y-auto max-h-[60vh] space-y-3">
                 {/* Translation + Type */}
                 <div className="text-center">
                   <p className="text-scale-heading text-[var(--text-primary)] font-medium">{entry.translation}</p>
-                  <span className="inline-block mt-2 text-[9px] font-bold uppercase tracking-wider text-[var(--accent-color)] bg-[var(--accent-light)] px-3 py-1 rounded-full">
+                  <span className="inline-block mt-1 text-[9px] font-bold uppercase tracking-wider text-[var(--secondary-text)] bg-[var(--secondary-light)] px-3 py-1 rounded-full">
                     {t(`loveLog.filters.${entry.word_type}`)}
                   </span>
                 </div>
@@ -684,7 +684,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                         </div>
                       )}
                     </div>
-                    <div className="bg-[var(--bg-primary)] rounded-xl p-4 border border-[var(--border-color)]">
+                    <div className="bg-[var(--bg-primary)] rounded-xl p-3 border border-[var(--border-color)]">
                       <p className="text-scale-label leading-relaxed italic text-[var(--text-primary)]">
                         "{examples[currentIdx] || t('loveLog.card.noExample')}"
                       </p>
@@ -695,7 +695,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                     <span className="text-scale-caption font-bold uppercase tracking-wider text-[var(--text-secondary)]">
                       {t('loveLog.card.example')}
                     </span>
-                    <div className="bg-[var(--bg-primary)] rounded-xl p-4 border border-[var(--border-color)]">
+                    <div className="bg-[var(--bg-primary)] rounded-xl p-3 border border-[var(--border-color)]">
                       <div className="flex items-center gap-2">
                         <div className="w-3 h-3 bg-amber-400 rounded-full animate-pulse" />
                         <p className="text-scale-label text-[var(--text-secondary)] italic">
@@ -708,15 +708,15 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
 
                 {/* Pro-tip */}
                 {ctx.proTip ? (
-                  <div className="bg-[var(--accent-light)] rounded-xl p-4 border border-[var(--accent-border)]">
-                    <p className="text-scale-label text-[var(--text-primary)]">
-                      💡 {ctx.proTip}
+                  <div className="bg-[var(--accent-light)] rounded-xl p-3 border border-[var(--accent-border)]">
+                    <p className="text-scale-label text-[var(--text-primary)] flex items-start gap-2">
+                      <ICONS.Lightbulb className="w-4 h-4 text-[var(--accent-color)] flex-shrink-0 mt-0.5" /> {ctx.proTip}
                     </p>
                   </div>
                 ) : isGifted && !entry.enriched_at ? (
-                  <div className="bg-amber-50 dark:bg-amber-900/10 rounded-xl p-4 border border-amber-200 dark:border-amber-800">
+                  <div className="bg-amber-50 dark:bg-amber-900/10 rounded-xl p-3 border border-amber-200 dark:border-amber-800">
                     <p className="text-scale-label text-amber-600 dark:text-amber-400 italic flex items-center gap-2">
-                      <span className="animate-pulse">✨</span>
+                      <ICONS.Sparkles className="w-4 h-4 animate-pulse flex-shrink-0" />
                       {t('loveLog.card.enrichingTip')}
                     </p>
                   </div>
@@ -726,20 +726,20 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                 {hasFormsData ? (
                   <button
                     onClick={() => { setDetailModalId(null); setFormsModalId(entry.id); }}
-                    className="w-full py-3 bg-[var(--accent-color)] hover:bg-[var(--accent-hover)] text-white rounded-xl text-scale-label font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2"
+                    className="w-full py-2.5 bg-[var(--accent-color)] hover:bg-[var(--accent-hover)] text-white rounded-xl text-scale-label font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2"
                   >
                     <ICONS.Book className="w-4 h-4" />
                     {entry.word_type === 'verb' ? t('loveLog.card.conjugations') : t('loveLog.card.forms')}
                   </button>
                 ) : isGifted && !entry.enriched_at && ['verb', 'noun', 'adjective'].includes(entry.word_type) ? (
-                  <div className="w-full py-3 bg-amber-50 dark:bg-amber-900/10 text-amber-600 dark:text-amber-400 rounded-xl text-scale-label font-bold text-center animate-pulse">
+                  <div className="w-full py-2.5 bg-amber-50 dark:bg-amber-900/10 text-amber-600 dark:text-amber-400 rounded-xl text-scale-label font-bold text-center animate-pulse">
                     {t('loveLog.card.enrichingForms')}
                   </div>
                 ) : ['verb', 'noun', 'adjective'].includes(entry.word_type) ? (
                   <button
                     onClick={() => handleCompleteEntry(entry.id)}
                     disabled={completingEntryId === entry.id}
-                    className="w-full py-3 bg-[var(--accent-light)] hover:bg-[var(--accent-light-hover)] text-[var(--accent-color)] rounded-xl text-scale-label font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 disabled:opacity-60"
+                    className="w-full py-2.5 bg-[var(--accent-light)] hover:bg-[var(--accent-light-hover)] text-[var(--accent-color)] rounded-xl text-scale-label font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2 disabled:opacity-60"
                   >
                     {completingEntryId === entry.id ? (
                       <>
@@ -748,7 +748,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                       </>
                     ) : (
                       <>
-                        <span>✨</span>
+                        <ICONS.Sparkles className="w-4 h-4" />
                         {t('loveLog.card.fillForms', 'Fill in forms')}
                       </>
                     )}
@@ -768,11 +768,11 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
 
         return (
           <div
-            className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-4"
             onClick={() => setFormsModalId(null)}
           >
             <div
-              className="bg-[var(--bg-card)] rounded-2xl max-w-md w-full max-h-[80vh] overflow-hidden shadow-2xl"
+              className="glass-card-solid rounded-2xl max-w-md w-full max-h-[80vh] overflow-hidden"
               onClick={(ev) => ev.stopPropagation()}
             >
               {/* Modal Header */}
@@ -783,7 +783,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                     onClick={() => speak(entry.word, targetLanguage)}
                     className="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-all"
                   >
-                    <ICONS.Play className="w-4 h-4 translate-x-0.5" />
+                    <ICONS.Play className="w-4 h-4 translate-x-[1px]" />
                   </button>
                 </div>
                 <button
@@ -800,7 +800,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                 {entry.word_type === 'verb' && ctx.conjugations && (
                   <div className="space-y-4">
                     {/* Tense Tabs - Dynamic based on target language */}
-                    <div className="flex gap-1 bg-[var(--bg-primary)] rounded-xl p-1 overflow-x-auto">
+                    <div className="flex gap-1 glass-card rounded-xl p-1 overflow-x-auto">
                       {getAvailableTenses(targetLanguage).map(tense => {
                         const isPresent = tense === 'present';
                         const tenseData = ctx.conjugations?.[tense] as any;
@@ -949,13 +949,13 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
 
                     {/* Unlock Dialog */}
                     {unlockDialogTense && (
-                      <div className="fixed inset-0 bg-black/60 z-[60] flex items-center justify-center p-4" onClick={() => !unlocking && setUnlockDialogTense(null)}>
-                        <div className="bg-[var(--bg-card)] rounded-2xl p-6 max-w-sm w-full shadow-2xl" onClick={e => e.stopPropagation()}>
+                      <div className="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-4" onClick={() => !unlocking && setUnlockDialogTense(null)}>
+                        <div className="glass-card rounded-2xl p-6 max-w-sm w-full" onClick={e => e.stopPropagation()}>
                           <div className="text-center">
                             <div className="w-16 h-16 bg-[var(--accent-light)] dark:bg-[var(--accent-light)] rounded-full flex items-center justify-center mx-auto mb-4">
                               <ICONS.Lock className="w-8 h-8 text-[var(--accent-color)]" />
                             </div>
-                            <h3 className="text-scale-heading font-bold text-[var(--text-primary)] mb-2">
+                            <h3 className="text-scale-heading font-bold font-header text-[var(--text-primary)] mb-2">
                               {t('loveLog.unlock.title', { tense: t(`loveLog.modal.${unlockDialogTense}`, unlockDialogTense) })}
                             </h3>
                             <p className="text-[var(--text-secondary)] text-scale-label mb-6">
@@ -1025,7 +1025,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
                 {/* ADJECTIVE: Gender Forms */}
                 {entry.word_type === 'adjective' && ctx.adjectiveForms && (
                   <div className="space-y-4">
-                    <h4 className="text-scale-caption font-bold uppercase tracking-wider text-[var(--accent-color)] mb-2">
+                    <h4 className="text-scale-caption font-bold font-header uppercase tracking-wider text-[var(--accent-color)] mb-2">
                       {t('loveLog.adjectiveForms.title')}
                     </h4>
                     <div className="bg-[var(--bg-primary)] rounded-xl overflow-hidden">

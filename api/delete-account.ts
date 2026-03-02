@@ -3,7 +3,6 @@ import {
   setCorsHeaders,
   verifyAuth,
   createServiceClient,
-  requireSubscription,
   checkRateLimit,
   incrementUsage,
   RATE_LIMITS,
@@ -36,14 +35,8 @@ export default async function handler(req: any, res: any) {
       return res.status(500).json({ error: 'Server configuration error' });
     }
 
-    // Block free users
-    const sub = await requireSubscription(supabase, auth.userId);
-    if (!sub.allowed) {
-      return res.status(403).json({ error: sub.error });
-    }
-
-    // Check rate limit (abuse prevention)
-    const limit = await checkRateLimit(supabase, auth.userId, 'deleteAccount', sub.plan as SubscriptionPlan);
+    // Check rate limit (abuse prevention) — all users can delete, use 'free' tier limits
+    const limit = await checkRateLimit(supabase, auth.userId, 'deleteAccount', 'free' as SubscriptionPlan);
     if (!limit.allowed) {
       return res.status(429).json({
         error: limit.error,
@@ -77,7 +70,7 @@ export default async function handler(req: any, res: any) {
     // 1. Get user profile to check for Stripe subscription and partner
     const { data: profile, error: profileError } = await supabase
       .from('profiles')
-      .select('id, email, stripe_customer_id, linked_user_id, subscription_granted_by, subscription_status')
+      .select('id, email, stripe_customer_id, linked_user_id, subscription_granted_by, subscription_status, apple_refresh_token')
       .eq('id', userId)
       .single();
 
@@ -161,18 +154,31 @@ export default async function handler(req: any, res: any) {
       console.log(`[delete-account] No avatar to delete or storage error:`, storageErr.message);
     }
 
-    // 5. Delete the user's profile
-    // CASCADE on foreign keys should handle:
-    // - chats (and messages via cascade)
-    // - dictionary
-    // - word_scores
-    // - level_tests
-    // - game_sessions (and game_session_answers via cascade)
-    // - progress_summaries
-    // - listen_sessions
-    // - notifications
-    // - usage_tracking
-    // - subscription_events
+    // 5. Delete non-cascading dependent tables BEFORE profile
+    //    (Profile delete triggers CASCADE on chats, messages, dictionary, word_scores,
+    //     level_tests, game_sessions, progress_summaries, listen_sessions, notifications,
+    //     usage_tracking, subscription_events — but these tables are NOT in that cascade)
+    const cleanupErrors: string[] = [];
+    const cleanupTables = [
+      { table: 'tutor_challenges', column: 'tutor_id' },
+      { table: 'tutor_challenges', column: 'student_id' },
+      { table: 'challenge_results', column: 'student_id' },
+      { table: 'word_requests', column: 'tutor_id' },
+      { table: 'word_requests', column: 'student_id' },
+      { table: 'invite_tokens', column: 'inviter_id' },
+      { table: 'gift_passes', column: 'created_by' },
+    ];
+    for (const { table, column } of cleanupTables) {
+      const { error } = await supabase.from(table).delete().eq(column, userId);
+      if (error) cleanupErrors.push(`${table}.${column}: ${error.message}`);
+    }
+
+    if (cleanupErrors.length > 0) {
+      console.warn(`[delete-account] Some dependent table cleanups failed (continuing):`, cleanupErrors);
+    }
+    console.log(`[delete-account] Cleaned up dependent tables (${cleanupTables.length - cleanupErrors.length}/${cleanupTables.length} succeeded)`);
+
+    // 6. Delete the user's profile (CASCADE handles chats, messages, dictionary, etc.)
     const { error: deleteProfileError } = await supabase
       .from('profiles')
       .delete()
@@ -183,24 +189,33 @@ export default async function handler(req: any, res: any) {
       return res.status(500).json({ error: 'Failed to delete account. Please try again.' });
     }
 
-    // 5. Delete tutor challenges where user is tutor or student
-    await supabase.from('tutor_challenges').delete().eq('tutor_id', userId);
-    await supabase.from('tutor_challenges').delete().eq('student_id', userId);
+    // 7. Revoke Apple tokens if user signed in with Apple (required by Apple)
+    // The refresh token was stored on the profile during sign-in via /api/apple-token-exchange
+    if (profile.apple_refresh_token && process.env.APPLE_CLIENT_ID && process.env.APPLE_CLIENT_SECRET) {
+      try {
+        const revokeResponse = await fetch('https://appleid.apple.com/auth/revoke', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams({
+            client_id: process.env.APPLE_CLIENT_ID,
+            client_secret: process.env.APPLE_CLIENT_SECRET,
+            token: profile.apple_refresh_token,
+            token_type_hint: 'refresh_token',
+          }),
+        });
 
-    // 6. Delete challenge results
-    await supabase.from('challenge_results').delete().eq('student_id', userId);
+        if (!revokeResponse.ok) {
+          console.error(`[delete-account] Apple token revocation failed: ${revokeResponse.status}`);
+        } else {
+          console.log(`[delete-account] Apple token revoked successfully`);
+        }
+      } catch (revokeErr) {
+        console.error('[delete-account] Error revoking Apple token:', revokeErr);
+        // Continue with deletion even if revocation fails
+      }
+    }
 
-    // 7. Delete word requests where user is tutor or student
-    await supabase.from('word_requests').delete().eq('tutor_id', userId);
-    await supabase.from('word_requests').delete().eq('student_id', userId);
-
-    // 8. Delete invite tokens created by user
-    await supabase.from('invite_tokens').delete().eq('inviter_id', userId);
-
-    // 9. Delete gift passes created by user
-    await supabase.from('gift_passes').delete().eq('created_by', userId);
-
-    // 10. Delete the auth user (this logs them out everywhere)
+    // 8. Delete the auth user last (logs them out everywhere)
     const { error: deleteAuthError } = await supabase.auth.admin.deleteUser(userId);
 
     if (deleteAuthError) {

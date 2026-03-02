@@ -346,7 +346,7 @@
       "chooseMode": "Meydan Okuma Modu Seç",
       "length": "Uzunluk",
       "all": "Tümü",
-      "qs": "Soru",
+      "qs": "Sorular",
       "generatingPhrases": "Romantik ifadeler oluşturuluyor...",
       "startChallenge": "Meydan Okumayı Başlat",
       "modes": {
@@ -667,6 +667,10 @@
     }
   },
   "onboarding": {
+    "nativeLanguage": {
+      "title": "Hangi dili konuşuyorsun?",
+      "subtitle": "Her şeyi senin dilinde göstereceğiz"
+    },
     "step": {
       "back": "Geri",
       "counter": "{{total}} / {{current}}",
@@ -758,6 +762,58 @@
         "retry": "Retry"
       }
     },
+    "role": {
+      "title": "Ben istiyorum...",
+      "subtitle": "Love Languages'ı nasıl kullanmak istediğini seç",
+      "learn": "Bir dil öğrenmek",
+      "learnDesc": "Sevdiğin birinin dilini öğren",
+      "teach": "Bir dil öğretmek",
+      "teachDesc": "Sevdiğin birine kendi dilini öğrenmesinde yardım et"
+    },
+    "names": {
+      "title": "Hadi kişiselleştirelim",
+      "studentSubtitle": "Öğrenme deneyimini kişiselleştireceğiz",
+      "tutorSubtitle": "Öğretme deneyimini kişiselleştireceğiz",
+      "yourName": "Adın",
+      "partnerLabel": "Kimin için öğreniyorsun?",
+      "learnerLabel": "Kime öğreteceksin?",
+      "partnerPlaceholder": "Onun adı",
+      "learnerPlaceholder": "Öğrencinin adı"
+    },
+    "language": {
+      "studentTitle": "Sevdiğin biri hangi dili konuşuyor?",
+      "tutorTitle": "Hangi dili öğretmek istiyorsun?",
+      "studentSubtitle": "Onun dilini öğrenmene yardım edeceğiz",
+      "tutorSubtitle": "Öğreteceğin dili seç",
+      "showAll": "Tüm dilleri göster",
+      "showLess": "Popüler olanları göster"
+    },
+    "themeCustomization": {
+      "title": "Make it yours",
+      "subtitle": "Choose your colors, mode & font",
+      "accentLabel": "Your color",
+      "darkModeLabel": "Display mode",
+      "fontLabel": "Font style",
+      "continue": "Looks great!"
+    },
+    "personalization": {
+      "title": "Kendine göre yap",
+      "subtitle": "Deneyimini kişiselleştirmemize yardım et",
+      "vibeLabel": "İlişkinizin havası",
+      "timeLabel": "Günlük pratik süresi",
+      "priorLabel": "Daha önce {{language}} denedin mi?"
+    },
+    "tutorPersonalization": {
+      "title": "Bize kendinden bahset",
+      "subtitle": "Öğretme deneyimini kişiselleştirmemize yardım et",
+      "relationLabel": "{{name}} senin...",
+      "connectionLabel": "{{language}} bağlantın",
+      "originLabel": "Nerelisin? (isteğe bağlı)",
+      "originPlaceholder": "Şehir, ülke..."
+    },
+    "errors": {
+      "title": "Bir şeyler ters gitti"
+    },
     "student": {
       "start": {
         "title": "{{name}}, başlamaya hazır mısın?",
@@ -767,6 +823,7 @@
         "feature2": "Love Log kelime takipçin",
         "feature3": "Kelimeleri çalışmak ve ustalaşmak için oyunlar",
         "feature4": "İlerleme takibi ve seviye testleri",
+        "activating": "Deneme sürecin başlatılıyor...",
         "button": "Hadi başlayalım!"
       },
       "vibe": {
@@ -877,6 +934,7 @@
         "feature2": "{{learnerName}}'in ilerlemesini takip et",
         "feature3": "Onları şaşırtmak için kelime hediyeleri gönder",
         "feature4": "Yolculuklarını görmek için hesapları bağla",
+        "activating": "Deneme sürecin başlatılıyor...",
         "button": "{{learnerName}}'e yardım etmeye başla!"
       },
       "relation": {
@@ -1448,10 +1506,11 @@
         "features": {
           "conversations": "25 AI sohbeti/ay",
           "validations": "50 kelime doğrulama/ay",
+          "words": "200 words in your vocabulary",
           "games": "Temel kelime oyunları",
-          "voiceLimited": "Sesli sohbet (1 deneme)",
-          "listenLimited": "Dinleme modu (1 deneme)",
-          "challengesLimited": "5 partner meydan okuması"
+          "voice": "15 min voice chat/month",
+          "listen": "15 min listen mode/month",
+          "challenges": "5 partner challenges"
         },
         "cta": "Ücretsiz Başla",
         "subtext": "Love Languages'i denemek için mükemmel",
@@ -1863,6 +1922,43 @@
     "timesUp": "Süre doldu!"
   },
   "hero": {
+    "headline": "Sevdiğin birinin dilini öğren.",
+    "subtitle": "Çiftler için tasarlanmış tek dil uygulaması",
+    "swipeForMore": "Daha fazlasını keşfetmek için kaydırın",
+    "landing": {
+      "student": {
+        "headline": "Sevdiğin kişinin dilini öğren",
+        "highlight1": "dilini",
+        "highlight2": "Sevdiğin"
+      },
+      "tutor": {
+        "headline": "Dilini sevdiğin kişiyle paylaş",
+        "highlight1": "Dilini",
+        "highlight2": "sevdiğin"
+      },
+      "tagline": {
+        "pre": "Çiftler için",
+        "only": "tek",
+        "post": "dil uygulaması"
+      },
+      "startFree": "Bugün başla, ücretsiz",
+      "learn": {
+        "title": "Ücretsiz öğrenme materyali",
+        "count": "11.500+",
+        "topics": "Sevgi isimleri · Buluşma cümleleri · Dilbilgisi · Kültür"
+      },
+      "installApp": "Uygulamayı kur",
+      "installed": "Kuruldu",
+      "addToHome": "Ana ekrana ekle",
+      "appStore": "App Store",
+      "comingSoon": "Yakında",
+      "followSocials": "Bizi takip edin",
+      "waitlist": {
+        "description": "App Store'da yayınlandığımızda haberdar olun.",
+        "submitting": "Gönderiliyor...",
+        "notify": "Beni bilgilendir"
+      }
+    },
     "languageSelector": {
       "nativeTitle": "What language do you speak?",
       "nativeSubtitle": "18 languages available - we'll show everything in yours",
@@ -1911,7 +2007,10 @@
       "alreadyHaveAccount": "Zaten hesabın var mı? Giriş yap",
       "newHere": "Yeni misin? Hesap oluştur",
       "checkEmail": "Onay için e-postanı kontrol et!",
-      "continueWithGoogle": "Google ile devam et"
+      "continueWithGoogle": "Google ile devam et",
+      "continueWithApple": "Apple ile devam et",
+      "orContinueWithEmail": "veya e-posta ile devam et",
+      "orSignInWith": "veya şununla giriş yap"
     },
     "legal": {
       "terms": "Şartlar",
@@ -2062,10 +2161,10 @@
           "question": "Ne kadar tutuyor?",
           "intro": "İki plan, esnek ödeme:",
           "standard": "Standart",
-          "standardPrice": "Haftalık $7 · Aylık $19 · Yıllık $69",
+          "standardPrice": "Haftalık $7 · Aylık $17.99 · Yıllık $69.99",
           "standardDesc": "2.000 kelime, 60 dk sesli, partner daveti",
           "unlimited": "Sınırsız",
-          "unlimitedPrice": "Haftalık $12 · Aylık $39 · Yıllık $139",
+          "unlimitedPrice": "Haftalık $12.99 · Aylık $39.99 · Yıllık $139",
           "unlimitedDesc": "Her şey sınırsız + hediye kartları",
           "cancelNote": "İstediğiniz zaman iptal edin. Sözleşme yok."
         },
@@ -2214,6 +2313,18 @@
         "blog": "Blog",
         "contact": "İletişim",
         "copyright": "Love Languages · Dünyanın her yerindeki aşıklar için sevgiyle yapıldı"
+      }
+    },
+    "testimonials": {
+      "1": {
+        "quote": "This is SO COOL",
+        "name": "Alessia",
+        "context": "Partneri Tomas için öğreniyor"
+      },
+      "2": {
+        "quote": "Dude this app is amazing",
+        "name": "Alessandra",
+        "context": "Erkek arkadaşı Miki için öğreniyor"
       }
     }
   },

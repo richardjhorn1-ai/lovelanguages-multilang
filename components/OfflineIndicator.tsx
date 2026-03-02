@@ -59,7 +59,7 @@ const OfflineIndicator: React.FC<OfflineIndicatorProps> = ({
           <WifiSlash className="w-5 h-5 text-amber-600 dark:text-amber-400" />
         </div>
         <div className="flex-1">
-          <h3 className="font-bold text-amber-600 dark:text-amber-400">
+          <h3 className="font-bold font-header text-amber-600 dark:text-amber-400">
             {t('offline.title', "You're offline")}
           </h3>
           <p className="text-scale-label text-[var(--text-secondary)] mt-1">

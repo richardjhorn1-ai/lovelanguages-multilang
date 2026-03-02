@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { ProposedAction } from '../types';
+import { ICONS } from '../constants';
 
 interface Props {
   isOpen: boolean;
@@ -9,11 +10,11 @@ interface Props {
   onCancel: () => void;
 }
 
-const ICONS: Record<string, string> = {
-  word_gift: '🎁',
-  quiz: '📝',
-  quickfire: '⚡',
-  love_note: '💌',
+const ACTION_ICONS: Record<string, React.ReactNode> = {
+  word_gift: <ICONS.Gift className="w-8 h-8" />,
+  quiz: <ICONS.Book className="w-8 h-8" />,
+  quickfire: <ICONS.Zap className="w-8 h-8" />,
+  love_note: <ICONS.Mail className="w-8 h-8" />,
 };
 
 export function CoachActionConfirmModal({ isOpen, action, partnerName, onConfirm, onCancel }: Props) {
@@ -44,22 +45,24 @@ export function CoachActionConfirmModal({ isOpen, action, partnerName, onConfirm
     onCancel();
   };
 
-  const icon = ICONS[action.type] || '✨';
+  const icon = ACTION_ICONS[action.type] || <ICONS.Sparkles className="w-8 h-8" />;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50">
-      <div className="bg-[var(--bg-card)] rounded-2xl p-6 max-w-md w-full shadow-xl max-h-[90vh] overflow-hidden flex flex-col">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop">
+      <div className="glass-card-solid rounded-2xl p-6 max-w-md w-full max-h-[90vh] overflow-hidden flex flex-col">
         {step === 'preview' && (
           <>
             <div className="text-center mb-4">
-              <div className="text-5xl mb-3">{icon}</div>
-              <h3 className="text-xl font-black mb-1">{action.title}</h3>
+              <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-3" style={{ backgroundColor: 'var(--accent-light)' }}>
+                <span className="text-[var(--accent-color)]">{icon}</span>
+              </div>
+              <h3 className="text-xl font-black font-header mb-1">{action.title}</h3>
               <p className="text-[var(--text-secondary)] text-sm">{action.description}</p>
             </div>
 
             {/* Show words summary for word-based actions (read-only) */}
             {hasWords && wordCount > 0 && (
-              <div className="mb-4 p-3 rounded-xl bg-[var(--bg-secondary)]">
+              <div className="mb-4 p-3 rounded-xl bg-white/40 dark:bg-white/12">
                 <p className="text-sm font-medium">{wordCount} words</p>
                 <p className="text-xs text-[var(--text-secondary)] mt-1">
                   {action.words!.slice(0, 4).map(w => w.word).join(', ')}
@@ -70,7 +73,7 @@ export function CoachActionConfirmModal({ isOpen, action, partnerName, onConfirm
 
             {/* Linked challenge checkbox */}
             {action.type === 'word_gift' && action.linkedChallenge && (
-              <label className="flex items-center gap-3 mb-4 p-3 rounded-xl bg-[var(--bg-secondary)] cursor-pointer">
+              <label className="flex items-center gap-3 mb-4 p-3 rounded-xl bg-white/40 dark:bg-white/12 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={createLinked}
@@ -113,7 +116,9 @@ export function CoachActionConfirmModal({ isOpen, action, partnerName, onConfirm
 
         {step === 'success' && (
           <div className="text-center py-8">
-            <div className="text-5xl mb-4">✅</div>
+            <div className="w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center mx-auto mb-4">
+              <ICONS.Check className="w-8 h-8 text-green-500" />
+            </div>
             <p className="font-bold">Sent to {partnerName}!</p>
             <button
               onClick={handleClose}

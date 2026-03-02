@@ -346,7 +346,7 @@
       "chooseMode": "Vælg udfordringstilstand",
       "length": "Længde",
       "all": "Alle",
-      "qs": "spm",
+      "qs": "Spørgsmål",
       "generatingPhrases": "Genererer romantiske sætninger...",
       "startChallenge": "Start udfordring",
       "modes": {
@@ -667,6 +667,10 @@
     }
   },
   "onboarding": {
+    "nativeLanguage": {
+      "title": "Hvilket sprog taler du?",
+      "subtitle": "Vi viser alt på dit sprog"
+    },
     "step": {
       "back": "Tilbage",
       "counter": "{{current}} af {{total}}",
@@ -737,8 +741,8 @@
         "name": "Standard",
         "tagline": "Perfekt til at komme i gang",
         "feature1": "2.000 ord i Love Log",
-        "feature2": "60 min talechat/måned",
-        "feature3": "30 min lyttetilstand/måned",
+        "feature2": "8 hrs talechat/måned",
+        "feature3": "8 hrs lyttetilstand/måned",
         "feature4": "Alle samtalescenarier",
         "feature5": "Partnerinvitation"
       },
@@ -758,6 +762,58 @@
         "retry": "Retry"
       }
     },
+    "role": {
+      "title": "Jeg vil...",
+      "subtitle": "Vælg hvordan du vil bruge Love Languages",
+      "learn": "Lære et sprog",
+      "learnDesc": "Lær sproget hos en, du elsker",
+      "teach": "Undervise i et sprog",
+      "teachDesc": "Hjælp en, du elsker, med at lære dit sprog"
+    },
+    "names": {
+      "title": "Lad os gøre det personligt",
+      "studentSubtitle": "Vi tilpasser din læringsoplevelse",
+      "tutorSubtitle": "Vi tilpasser undervisningsoplevelsen",
+      "yourName": "Dit navn",
+      "partnerLabel": "Hvem lærer du for?",
+      "learnerLabel": "Hvem skal du undervise?",
+      "partnerPlaceholder": "Deres navn",
+      "learnerPlaceholder": "Elevens navn"
+    },
+    "language": {
+      "studentTitle": "Hvilket sprog taler en, du elsker?",
+      "tutorTitle": "Hvilket sprog vil du undervise i?",
+      "studentSubtitle": "Vi hjælper dig med at lære deres sprog",
+      "tutorSubtitle": "Vælg det sprog, du vil undervise i",
+      "showAll": "Vis alle sprog",
+      "showLess": "Vis populære"
+    },
+    "themeCustomization": {
+      "title": "Make it yours",
+      "subtitle": "Choose your colors, mode & font",
+      "accentLabel": "Your color",
+      "darkModeLabel": "Display mode",
+      "fontLabel": "Font style",
+      "continue": "Looks great!"
+    },
+    "personalization": {
+      "title": "Gør det til dit",
+      "subtitle": "Hjælp os med at tilpasse din oplevelse",
+      "vibeLabel": "Stemningen i jeres forhold",
+      "timeLabel": "Daglig øvetid",
+      "priorLabel": "Prøvet {{language}} før?"
+    },
+    "tutorPersonalization": {
+      "title": "Fortæl os om dig selv",
+      "subtitle": "Hjælp os med at tilpasse undervisningsoplevelsen",
+      "relationLabel": "{{name}} er din...",
+      "connectionLabel": "Din {{language}}-tilknytning",
+      "originLabel": "Hvor er du fra? (valgfrit)",
+      "originPlaceholder": "By, land..."
+    },
+    "errors": {
+      "title": "Noget gik galt"
+    },
     "student": {
       "start": {
         "title": "Klar til at begynde, {{name}}?",
@@ -767,6 +823,7 @@
         "feature2": "Din Love Log-ordforrådstracker",
         "feature3": "Spil til at øve og mestre ord",
         "feature4": "Fremskridtssporing og niveautests",
+        "activating": "Starter din prøveperiode...",
         "button": "Lad os køre! 🚀"
       },
       "vibe": {
@@ -877,6 +934,7 @@
         "feature2": "Følg {{learnerName}}s fremskridt",
         "feature3": "Send ordgaver for at overraske dem",
         "feature4": "Link konti for at se deres rejse",
+        "activating": "Starter din prøveperiode...",
         "button": "Begynd at hjælpe {{learnerName}}! 🎯"
       },
       "relation": {
@@ -1448,10 +1506,11 @@
         "features": {
           "conversations": "25 AI-samtaler/måned",
           "validations": "50 ordvalideringer/måned",
+          "words": "200 words in your vocabulary",
           "games": "Grundlæggende ordforråd spil",
-          "voiceLimited": "Talechat (1 forsøg)",
-          "listenLimited": "Lyttetilstand (1 forsøg)",
-          "challengesLimited": "5 partner-udfordringer"
+          "voice": "15 min voice chat/month",
+          "listen": "15 min listen mode/month",
+          "challenges": "5 partner challenges"
         },
         "cta": "Start Gratis",
         "subtext": "Perfekt til at prøve Love Languages",
@@ -1863,6 +1922,43 @@
     "timesUp": "Tiden er udløbet!"
   },
   "hero": {
+    "headline": "Lær sproget hos nogen, du elsker.",
+    "subtitle": "Den eneste sprogapp designet til par",
+    "swipeForMore": "Swipe for at opdage mere",
+    "landing": {
+      "student": {
+        "headline": "Lær sproget hos den, du elsker",
+        "highlight1": "sproget",
+        "highlight2": "elsker"
+      },
+      "tutor": {
+        "headline": "Del dit sprog med den, du elsker",
+        "highlight1": "sprog",
+        "highlight2": "elsker"
+      },
+      "tagline": {
+        "pre": "Den",
+        "only": "eneste",
+        "post": "sprogapp designet til par"
+      },
+      "startFree": "Begynd i dag for",
+      "learn": {
+        "title": "Gratis læringsmateriale",
+        "count": "11.500+",
+        "topics": "Kælenavne · Date-fraser · Grammatik · Kultur"
+      },
+      "installApp": "Installer app",
+      "installed": "Installeret",
+      "addToHome": "Føj til startskærm",
+      "appStore": "App Store",
+      "comingSoon": "Kommer snart",
+      "followSocials": "Følg os",
+      "waitlist": {
+        "description": "Få besked, når vi lancerer på App Store.",
+        "submitting": "Sender...",
+        "notify": "Giv mig besked"
+      }
+    },
     "languageSelector": {
       "nativeTitle": "What language do you speak?",
       "nativeSubtitle": "18 languages available - we'll show everything in yours",
@@ -1911,7 +2007,10 @@
       "alreadyHaveAccount": "Har du allerede en konto? Log ind",
       "newHere": "Ny her? Opret en konto",
       "checkEmail": "Tjek din email for bekræftelse!",
-      "continueWithGoogle": "Fortsæt med Google"
+      "continueWithGoogle": "Fortsæt med Google",
+      "continueWithApple": "Fortsæt med Apple",
+      "orContinueWithEmail": "eller fortsæt med e-mail",
+      "orSignInWith": "eller log ind med"
     },
     "legal": {
       "terms": "Vilkår",
@@ -2062,10 +2161,10 @@
           "question": "Hvad koster det?",
           "intro": "To planer, fleksibel fakturering:",
           "standard": "Standard",
-          "standardPrice": "$7/uge · $19/måned · $69/år",
+          "standardPrice": "$7/uge · $17.99/måned · $69.99/år",
           "standardDesc": "2.000 ord, 60 min tale, partnerinvitation",
           "unlimited": "Ubegrænset",
-          "unlimitedPrice": "$12/uge · $39/måned · $139/år",
+          "unlimitedPrice": "$12.99/uge · $39.99/måned · $139/år",
           "unlimitedDesc": "Alt ubegrænset + gavepas",
           "cancelNote": "Opsig når som helst. Ingen binding."
         },
@@ -2162,7 +2261,7 @@
             "feature2": {
               "pain": "Del din verden, ét ord ad gangen",
               "feature": "Word Gifts",
-              "desc": "Send udvalgt ordforråd: \u00abord til at møde min bedstemor\u00bb."
+              "desc": "Send udvalgt ordforråd: «ord til at møde min bedstemor»."
             },
             "feature3": {
               "pain": "Se, hvad der faktisk bliver hængende",
@@ -2214,6 +2313,18 @@
         "blog": "Blog",
         "contact": "Kontakt",
         "copyright": "Love Languages · Lavet med ♥ til elskere overalt"
+      }
+    },
+    "testimonials": {
+      "1": {
+        "quote": "This is SO COOL",
+        "name": "Alessia",
+        "context": "Lærer for sin partner Tomas"
+      },
+      "2": {
+        "quote": "Dude this app is amazing",
+        "name": "Alessandra",
+        "context": "Lærer for sin kæreste Miki"
       }
     }
   },

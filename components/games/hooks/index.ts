@@ -1,4 +1,3 @@
-export { useGameDeck } from './useGameDeck';
-export { useScoreTracking, STREAK_TO_LEARN } from './useScoreTracking';
-export { useGameSession } from './useGameSession';
-export type { GameSessionAnswer } from './useGameSession';
+// Game hooks barrel — hooks were removed during deslopification (dead code).
+// GameSessionAnswer type relocated to types.ts.
+export {};

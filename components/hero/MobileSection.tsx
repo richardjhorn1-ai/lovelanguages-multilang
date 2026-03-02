@@ -75,9 +75,9 @@ const MobileSection: React.FC<MobileSectionProps> = ({
                 className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-sm shadow-md text-scale-caption font-bold transition-all active:scale-95"
               >
                 <span>{LANGUAGE_CONFIGS[nativeLanguage as LanguageCode]?.flag}</span>
-                <span className="text-gray-400">&rarr;</span>
+                <span className="text-[var(--text-secondary)]">&rarr;</span>
                 <span>{LANGUAGE_CONFIGS[selectedTargetLanguage as LanguageCode]?.flag}</span>
-                <span className="text-gray-400 text-scale-micro">{t('hero.languageSelector.change', 'Change')}</span>
+                <span className="text-[var(--text-secondary)] text-scale-micro">{t('hero.languageSelector.change', 'Change')}</span>
               </button>
             ) : (
               <div className="h-8" />
@@ -90,7 +90,7 @@ const MobileSection: React.FC<MobileSectionProps> = ({
               <div>
                 <h2
                   className="text-2xl font-black font-header leading-[1.15] mb-3 tracking-tight"
-                  style={{ color: '#1a1a2e' }}
+                  style={{ color: 'var(--text-primary)' }}
                 >
                   {renderWithHighlights(headline, headlineHighlights, isStudent)}
                 </h2>
@@ -99,7 +99,7 @@ const MobileSection: React.FC<MobileSectionProps> = ({
                     {subhead}
                   </p>
                 )}
-                <p className="text-scale-label leading-relaxed font-medium" style={{ color: '#4b5563' }}>
+                <p className="text-scale-label leading-relaxed font-medium" style={{ color: 'var(--text-secondary)' }}>
                   {renderWithHighlights(copy, copyHighlights || [], isStudent, underlinedPhrase, copyLinks)}
                 </p>
                 <div
@@ -116,7 +116,7 @@ const MobileSection: React.FC<MobileSectionProps> = ({
         {/* Segmented Control + Scroll Hint - BOTTOM */}
         <div className="pt-2 pb-1 flex flex-col items-center">
           {/* Segmented Control */}
-          <div className="inline-flex rounded-full p-1" style={{ backgroundColor: '#f3f4f6' }}>
+          <div className="inline-flex rounded-full p-1" style={{ backgroundColor: 'var(--bg-primary)' }}>
             {tabs.map((tab) => (
               <button
                 key={tab.key}
@@ -124,7 +124,7 @@ const MobileSection: React.FC<MobileSectionProps> = ({
                 className="px-3 py-1.5 rounded-full text-xs font-bold transition-all"
                 style={activeTab === tab.key
                   ? { backgroundColor: accentColor, color: '#fff', boxShadow: '0 2px 8px rgba(0,0,0,0.15)' }
-                  : { color: '#6b7280' }
+                  : { color: 'var(--text-secondary)' }
                 }
               >
                 {tab.label}
@@ -135,10 +135,10 @@ const MobileSection: React.FC<MobileSectionProps> = ({
           {/* Scroll Hint */}
           {showScrollHint && (
             <div className="flex flex-col items-center mt-2 animate-bounce">
-              <span className="text-[10px] font-medium mb-0.5" style={{ color: '#9ca3af' }}>
+              <span className="text-[10px] font-medium mb-0.5" style={{ color: 'var(--text-secondary)' }}>
                 {t('hero.bottomSections.rall.scrollHint')}
               </span>
-              <ICONS.ChevronDown className="w-3 h-3" style={{ color: '#9ca3af' }} />
+              <ICONS.ChevronDown className="w-3 h-3" style={{ color: 'var(--text-secondary)' }} />
             </div>
           )}
         </div>
@@ -176,7 +176,7 @@ const MobileSection: React.FC<MobileSectionProps> = ({
 
         <h2
           className="text-2xl font-black font-header leading-[1.15] mb-3 tracking-tight"
-          style={{ color: '#1a1a2e' }}
+          style={{ color: 'var(--text-primary)' }}
         >
           {renderWithHighlights(headline, headlineHighlights, isStudent)}
         </h2>
@@ -187,7 +187,7 @@ const MobileSection: React.FC<MobileSectionProps> = ({
           </p>
         )}
 
-        <p className="text-scale-label leading-relaxed font-medium" style={{ color: '#4b5563' }}>
+        <p className="text-scale-label leading-relaxed font-medium" style={{ color: 'var(--text-secondary)' }}>
           {renderWithHighlights(copy, copyHighlights || [], isStudent, underlinedPhrase, copyLinks)}
         </p>
 

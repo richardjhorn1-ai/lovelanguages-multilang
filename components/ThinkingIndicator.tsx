@@ -34,7 +34,7 @@ export function ThinkingIndicator({ partnerName }: ThinkingIndicatorProps) {
   }, []);
 
   return (
-    <div className="flex items-center gap-3 p-4 rounded-2xl bg-[var(--bg-secondary)] animate-pulse">
+    <div className="flex items-center gap-3 p-4 rounded-2xl bg-white/40 dark:bg-white/12 animate-pulse">
       <div className="flex gap-1 text-[var(--accent-color)] font-mono text-sm">
         {[1, 2, 3].map((n) => (
           <span key={n} className={n <= dotCount ? 'opacity-100' : 'opacity-30'}>

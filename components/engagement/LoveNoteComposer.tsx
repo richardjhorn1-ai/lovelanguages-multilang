@@ -6,6 +6,7 @@ import { haptics } from '../../services/haptics';
 import { ICONS } from '../../constants';
 import { LOVE_NOTE_TEMPLATES } from '../../constants/levels';
 import { LoveNoteCategory } from '../../types';
+import { apiFetch } from '../../services/api-config';
 
 interface LoveNoteComposerProps {
   partnerName: string;
@@ -45,10 +46,10 @@ const LoveNoteComposer: React.FC<LoveNoteComposerProps> = ({
     };
   }, [onClose, sending]);
 
-  const categories: { key: LoveNoteCategory; label: string; icon: string }[] = [
-    { key: 'encouragement', label: t('loveNote.categories.encouragement', 'Encourage'), icon: '💪' },
-    { key: 'check_in', label: t('loveNote.categories.checkIn', 'Check In'), icon: '👋' },
-    { key: 'celebration', label: t('loveNote.categories.celebration', 'Celebrate'), icon: '🎉' },
+  const categories: { key: LoveNoteCategory; label: string; icon: React.ReactNode }[] = [
+    { key: 'encouragement', label: t('loveNote.categories.encouragement', 'Encourage'), icon: <ICONS.TrendingUp className="w-4 h-4" /> },
+    { key: 'check_in', label: t('loveNote.categories.checkIn', 'Check In'), icon: <ICONS.Heart className="w-4 h-4" /> },
+    { key: 'celebration', label: t('loveNote.categories.celebration', 'Celebrate'), icon: <ICONS.Trophy className="w-4 h-4" /> },
   ];
 
   const handleSend = async () => {
@@ -62,7 +63,7 @@ const LoveNoteComposer: React.FC<LoveNoteComposerProps> = ({
 
     try {
       const session = await supabase.auth.getSession();
-      const response = await fetch('/api/send-love-note/', {
+      const response = await apiFetch('/api/send-love-note/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -97,22 +98,22 @@ const LoveNoteComposer: React.FC<LoveNoteComposerProps> = ({
 
   return (
     <div
-      className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+      className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4"
       onClick={onClose}
     >
       <div
         role="dialog"
         aria-modal="true"
         aria-labelledby="love-note-title"
-        className="bg-[var(--bg-card)] rounded-[2rem] max-w-md w-full max-h-[80vh] overflow-hidden shadow-2xl"
+        className="glass-card-solid rounded-2xl max-w-md w-full max-h-[80vh] overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div className="bg-gradient-to-r from-pink-500 to-rose-500 p-4 text-white">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <span className="text-2xl">💕</span>
-              <h2 id="love-note-title" className="text-scale-label font-black">
+              <ICONS.Heart className="w-6 h-6" />
+              <h2 id="love-note-title" className="text-scale-label font-black font-header">
                 {t('loveNote.title', 'Send a Love Note')}
               </h2>
             </div>
@@ -123,7 +124,7 @@ const LoveNoteComposer: React.FC<LoveNoteComposerProps> = ({
               <ICONS.X className="w-4 h-4" />
             </button>
           </div>
-          <p className="text-pink-100 text-scale-caption mt-1">
+          <p className="text-white/70 text-scale-caption mt-1">
             {t('loveNote.subtitle', 'Send {{name}} some love', { name: partnerName })}
           </p>
         </div>
@@ -144,7 +145,7 @@ const LoveNoteComposer: React.FC<LoveNoteComposerProps> = ({
                   }}
                   className={`flex-1 py-2 px-3 rounded-xl text-scale-caption font-bold transition-all ${
                     category === cat.key
-                      ? 'bg-pink-500 text-white'
+                      ? 'bg-[var(--secondary-color)] text-white'
                       : 'bg-[var(--bg-primary)] text-[var(--text-secondary)] hover:bg-[var(--bg-primary)]/80'
                   }`}
                 >
@@ -168,7 +169,7 @@ const LoveNoteComposer: React.FC<LoveNoteComposerProps> = ({
                     onClick={() => setSelectedTemplate(template)}
                     className={`w-full text-left p-3 rounded-xl transition-all ${
                       selectedTemplate === template
-                        ? 'bg-pink-100 dark:bg-pink-900/30 border-2 border-pink-500'
+                        ? 'bg-[var(--secondary-light)] border-2 border-[var(--secondary-color)]'
                         : 'bg-[var(--bg-primary)] border-2 border-transparent hover:border-[var(--border-color)]'
                     }`}
                   >
@@ -191,7 +192,7 @@ const LoveNoteComposer: React.FC<LoveNoteComposerProps> = ({
               value={customMessage}
               onChange={(e) => setCustomMessage(e.target.value)}
               placeholder={t('loveNote.placeholder', 'Write your own message...')}
-              className="w-full p-3 rounded-xl bg-[var(--bg-primary)] border border-[var(--border-color)] text-[var(--text-primary)] text-scale-label resize-none focus:outline-none focus:border-pink-500"
+              className="w-full p-3 rounded-xl bg-[var(--bg-primary)] border border-[var(--border-color)] text-[var(--text-primary)] text-scale-label resize-none focus:outline-none focus:border-[var(--accent-color)]"
               rows={3}
               maxLength={200}
             />

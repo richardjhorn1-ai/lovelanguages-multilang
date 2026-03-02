@@ -6,6 +6,7 @@ import { ICONS } from '../constants';
 import PlayQuizChallenge from './PlayQuizChallenge';
 import PlayQuickFireChallenge from './PlayQuickFireChallenge';
 import WordGiftLearning from './WordGiftLearning';
+import { apiFetch } from '../services/api-config';
 
 interface PendingChallengesProps {
   profile: Profile;
@@ -43,7 +44,7 @@ const PendingChallenges: React.FC<PendingChallengesProps> = ({ profile, onRefres
       }
 
       // Fetch pending challenges
-      const challengeRes = await fetch('/api/get-challenges/', {
+      const challengeRes = await apiFetch('/api/get-challenges/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -55,7 +56,7 @@ const PendingChallenges: React.FC<PendingChallengesProps> = ({ profile, onRefres
       if (challengeData.challenges) setChallenges(challengeData.challenges);
 
       // Fetch pending word requests
-      const requestRes = await fetch('/api/get-word-requests/', {
+      const requestRes = await apiFetch('/api/get-word-requests/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -92,13 +93,13 @@ const PendingChallenges: React.FC<PendingChallengesProps> = ({ profile, onRefres
   return (
     <>
       {/* Banner */}
-      <div className="bg-gradient-to-r from-[var(--accent-color)] to-amber-500 rounded-[2rem] p-6 text-white shadow-lg">
+      <div className="bg-gradient-to-r from-[var(--accent-color)] to-amber-500 rounded-2xl p-6 text-white shadow-lg">
         <div className="flex items-center gap-4 mb-4">
           <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center text-3xl animate-bounce">
-            {wordRequests.length > 0 ? '🎁' : '🎮'}
+            {wordRequests.length > 0 ? <ICONS.Gift className="w-7 h-7 text-white" /> : <ICONS.Gamepad2 className="w-7 h-7 text-white" />}
           </div>
           <div>
-            <h3 className="font-black text-lg">
+            <h3 className="font-black font-header text-lg">
               {totalPending === 1
                 ? t('pendingChallenges.sentYouSomething', { name: partnerName })
                 : t('pendingChallenges.sentYouThings', { name: partnerName, count: totalPending })}
@@ -120,7 +121,7 @@ const PendingChallenges: React.FC<PendingChallengesProps> = ({ profile, onRefres
               className="w-full flex items-center gap-3 p-4 bg-white/10 rounded-2xl hover:bg-white/20 transition-colors text-left"
             >
               <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
-                {challenge.challenge_type === 'quiz' ? '🎯' : '⚡'}
+                {challenge.challenge_type === 'quiz' ? <ICONS.Target className="w-5 h-5 text-white" /> : <ICONS.Zap className="w-5 h-5 text-white" />}
               </div>
               <div className="flex-1">
                 <p className="font-bold">{challenge.title}</p>
@@ -141,7 +142,7 @@ const PendingChallenges: React.FC<PendingChallengesProps> = ({ profile, onRefres
               className="w-full flex items-center gap-3 p-4 bg-white/10 rounded-2xl hover:bg-white/20 transition-colors text-left"
             >
               <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center">
-                🎁
+                <ICONS.Gift className="w-5 h-5 text-white" />
               </div>
               <div className="flex-1">
                 <p className="font-bold">{t('pendingChallenges.wordGift')}</p>

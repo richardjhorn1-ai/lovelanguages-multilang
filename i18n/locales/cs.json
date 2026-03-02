@@ -346,7 +346,7 @@
       "chooseMode": "Vyber režim výzvy",
       "length": "Délka",
       "all": "Vše",
-      "qs": "ot.",
+      "qs": "Otázky",
       "generatingPhrases": "Generuji romantické fráze...",
       "startChallenge": "Spustit výzvu",
       "modes": {
@@ -667,6 +667,10 @@
     }
   },
   "onboarding": {
+    "nativeLanguage": {
+      "title": "Jakým jazykem mluvíte?",
+      "subtitle": "Vše vám zobrazíme ve vašem jazyce"
+    },
     "step": {
       "back": "Zpět",
       "counter": "{{current}} z {{total}}",
@@ -758,6 +762,50 @@
         "retry": "Retry"
       }
     },
+    "role": {
+      "title": "Chci...",
+      "subtitle": "Vyber, jak chceš Love Languages používat",
+      "learn": "Učit se jazyk",
+      "learnDesc": "Nauč se jazyk někoho, koho miluješ",
+      "teach": "Učit jazyk",
+      "teachDesc": "Pomoz někomu, koho miluješ, naučit se tvůj jazyk"
+    },
+    "names": {
+      "title": "Pojďme to udělat osobní",
+      "studentSubtitle": "Přizpůsobíme ti zážitek z učení",
+      "tutorSubtitle": "Přizpůsobíme ti zážitek z výuky",
+      "yourName": "Tvé jméno",
+      "partnerLabel": "Pro koho se učíš?",
+      "learnerLabel": "Koho budeš učit?",
+      "partnerPlaceholder": "Jejich jméno",
+      "learnerPlaceholder": "Jméno studenta"
+    },
+    "language": {
+      "studentTitle": "Jakým jazykem mluví někdo, koho miluješ?",
+      "tutorTitle": "Jaký jazyk chceš učit?",
+      "studentSubtitle": "Pomůžeme ti naučit se jejich jazyk",
+      "tutorSubtitle": "Vyber jazyk, který budeš učit",
+      "showAll": "Zobrazit všechny jazyky",
+      "showLess": "Zobrazit oblíbené"
+    },
+    "personalization": {
+      "title": "Přizpůsob si to",
+      "subtitle": "Pomoz nám přizpůsobit ti zážitek",
+      "vibeLabel": "Nálada vašeho vztahu",
+      "timeLabel": "Denní čas na procvičování",
+      "priorLabel": "Zkoušel/a jsi už {{language}}?"
+    },
+    "tutorPersonalization": {
+      "title": "Řekni nám o sobě",
+      "subtitle": "Pomoz nám přizpůsobit zážitek z výuky",
+      "relationLabel": "{{name}} je tvůj/tvá...",
+      "connectionLabel": "Tvé spojení s {{language}}",
+      "originLabel": "Odkud jsi? (volitelné)",
+      "originPlaceholder": "Město, země..."
+    },
+    "errors": {
+      "title": "Něco se pokazilo"
+    },
     "student": {
       "start": {
         "title": "Připraven/a začít, {{name}}?",
@@ -767,6 +815,7 @@
         "feature2": "Tvůj Love Log pro sledování slovíček",
         "feature3": "Hry pro procvičování a zvládnutí slov",
         "feature4": "Sledování pokroku a testy úrovně",
+        "activating": "Spouštím zkušební verzi...",
         "button": "Jdeme na to! 🚀"
       },
       "vibe": {
@@ -877,6 +926,7 @@
         "feature2": "Sleduj pokrok uživatele {{learnerName}}",
         "feature3": "Posílej dárková slova pro překvapení",
         "feature4": "Propoj účty pro sledování jejich cesty",
+        "activating": "Spouštím zkušební verzi...",
         "button": "Začít pomáhat {{learnerName}}! 🎯"
       },
       "relation": {
@@ -1863,6 +1913,43 @@
     "timesUp": "Čas vypršel!"
   },
   "hero": {
+    "headline": "Naučte se jazyk někoho, koho milujete.",
+    "subtitle": "Jediná jazyková aplikace navržená pro páry",
+    "swipeForMore": "Přejeďte pro více informací",
+    "landing": {
+      "student": {
+        "headline": "Naučte se jazyk toho, koho milujete",
+        "highlight1": "jazyk",
+        "highlight2": "milujete"
+      },
+      "tutor": {
+        "headline": "Sdílejte svůj jazyk s tím, koho milujete",
+        "highlight1": "jazyk",
+        "highlight2": "milujete"
+      },
+      "tagline": {
+        "pre": "",
+        "only": "Jediná",
+        "post": "jazyková aplikace navržená pro páry"
+      },
+      "startFree": "Začněte dnes za",
+      "learn": {
+        "title": "Bezplatné studijní materiály",
+        "count": "2 900+",
+        "topics": "Mazlivá jména · Fráze na rande · Gramatika · Kultura"
+      },
+      "installApp": "Nainstalovat",
+      "installed": "Nainstalováno",
+      "addToHome": "Přidat na plochu",
+      "appStore": "App Store",
+      "comingSoon": "Již brzy",
+      "followSocials": "Sledujte nás",
+      "waitlist": {
+        "description": "Dostanete oznámení o spuštění v App Store.",
+        "submitting": "Odesílání...",
+        "notify": "Upozornit mě"
+      }
+    },
     "languageSelector": {
       "nativeTitle": "What language do you speak?",
       "nativeSubtitle": "18 languages available - we'll show everything in yours",
@@ -1911,7 +1998,10 @@
       "alreadyHaveAccount": "Už máš účet? Přihlas se",
       "newHere": "Jsi tu nový/á? Vytvoř si účet",
       "checkEmail": "Zkontroluj si e-mail pro potvrzení!",
-      "continueWithGoogle": "Pokračovat s Google"
+      "continueWithGoogle": "Pokračovat s Google",
+      "continueWithApple": "Pokračovat s Apple",
+      "orContinueWithEmail": "nebo pokračovat s emailem",
+      "orSignInWith": "nebo se přihlásit přes"
     },
     "legal": {
       "terms": "Podmínky",
@@ -2062,10 +2152,10 @@
           "question": "Kolik to stojí?",
           "intro": "Dva plány, flexibilní fakturace:",
           "standard": "Standard",
-          "standardPrice": "$7/týden · $19/měsíc · $69/rok",
+          "standardPrice": "$7/týden · $17.99/měsíc · $69.99/rok",
           "standardDesc": "2 000 slov, 60 min hlasu, pozvánka pro partnera",
           "unlimited": "Neomezený",
-          "unlimitedPrice": "$12/týden · $39/měsíc · $139/rok",
+          "unlimitedPrice": "$12.99/týden · $39.99/měsíc · $139/rok",
           "unlimitedDesc": "Vše neomezené + dárkové pasy",
           "cancelNote": "Zrušit můžeš kdykoliv. Žádné smlouvy."
         },
@@ -2162,7 +2252,7 @@
             "feature2": {
               "pain": "Sdílej svůj svět, slovo po slovu",
               "feature": "Word Gifts",
-              "desc": "Posílej vybranou slovní zásobu: \u00abslovíčka na setkání s mou babičkou\u00bb."
+              "desc": "Posílej vybranou slovní zásobu: «slovíčka na setkání s mou babičkou»."
             },
             "feature3": {
               "pain": "Podívej se, co opravdu zůstává",
@@ -2214,6 +2304,18 @@
         "blog": "Blog",
         "contact": "Kontakt",
         "copyright": "Love Languages · Vytvořeno s ♥ pro milující všude na světě"
+      }
+    },
+    "testimonials": {
+      "1": {
+        "quote": "This is SO COOL",
+        "name": "Alessia",
+        "context": "Učí se pro svého partnera Tomase"
+      },
+      "2": {
+        "quote": "Dude this app is amazing",
+        "name": "Alessandra",
+        "context": "Učí se pro svého přítele Mikiho"
       }
     }
   },

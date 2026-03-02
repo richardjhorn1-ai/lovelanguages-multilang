@@ -55,7 +55,7 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
       icon: 'MessageCircle',
       content: (
         <div className="space-y-4">
-          <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl p-4">
+          <div className="glass-card rounded-xl p-4">
             <h4 className="font-bold text-[var(--accent-color)] mb-2">{t('helpGuide.sections.chatModes.askTitle')} <span className="text-scale-caption text-[var(--text-secondary)] font-normal">{t('helpGuide.sections.chatModes.askSubtitle')}</span></h4>
             <p className="text-scale-label text-[var(--text-secondary)] mb-2">{t('helpGuide.sections.chatModes.askDescription')}</p>
             <ul className="text-scale-label text-[var(--text-secondary)] ml-4 space-y-1">
@@ -64,8 +64,8 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
               <li>{t('helpGuide.sections.chatModes.askExample3')}</li>
             </ul>
           </div>
-          <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl p-4">
-            <h4 className="font-bold text-teal-500 mb-2">{t('helpGuide.sections.chatModes.learnTitle')} <span className="text-scale-caption text-[var(--text-secondary)] font-normal">{t('helpGuide.sections.chatModes.learnSubtitle')}</span></h4>
+          <div className="glass-card rounded-xl p-4">
+            <h4 className="font-bold text-[var(--secondary-color)] mb-2">{t('helpGuide.sections.chatModes.learnTitle')} <span className="text-scale-caption text-[var(--text-secondary)] font-normal">{t('helpGuide.sections.chatModes.learnSubtitle')}</span></h4>
             <p className="text-scale-label text-[var(--text-secondary)] mb-2">{t('helpGuide.sections.chatModes.learnDescription')}</p>
             <ul className="text-scale-label text-[var(--text-secondary)] ml-4 space-y-1">
               <li>{t('helpGuide.sections.chatModes.learnExample1')}</li>
@@ -73,8 +73,8 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
               <li>{t('helpGuide.sections.chatModes.learnExample3')}</li>
             </ul>
           </div>
-          <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl p-4">
-            <h4 className="font-bold text-teal-500 mb-2">{t('helpGuide.sections.chatModes.coachTitle')} <span className="text-scale-caption text-[var(--text-secondary)] font-normal">{t('helpGuide.sections.chatModes.coachSubtitle')}</span></h4>
+          <div className="glass-card rounded-xl p-4">
+            <h4 className="font-bold text-[var(--secondary-color)] mb-2">{t('helpGuide.sections.chatModes.coachTitle')} <span className="text-scale-caption text-[var(--text-secondary)] font-normal">{t('helpGuide.sections.chatModes.coachSubtitle')}</span></h4>
             <p className="text-scale-label text-[var(--text-secondary)] mb-2">{t('helpGuide.sections.chatModes.coachDescription')}</p>
             <ul className="text-scale-label text-[var(--text-secondary)] ml-4 space-y-1">
               <li>{t('helpGuide.sections.chatModes.coachExample1')}</li>
@@ -136,19 +136,19 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
             {t('helpGuide.sections.games.intro')}
           </p>
           <div className="grid gap-3">
-            <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl p-3">
+            <div className="glass-card rounded-xl p-3">
               <h4 className="font-bold text-[var(--text-primary)] text-scale-label">{t('helpGuide.sections.games.flashcards')}</h4>
               <p className="text-scale-caption text-[var(--text-secondary)]">{t('helpGuide.sections.games.flashcardsDescription', { language: targetName, native: nativeName })}</p>
             </div>
-            <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl p-3">
+            <div className="glass-card rounded-xl p-3">
               <h4 className="font-bold text-[var(--text-primary)] text-scale-label">{t('helpGuide.sections.games.multipleChoice')}</h4>
               <p className="text-scale-caption text-[var(--text-secondary)]">{t('helpGuide.sections.games.multipleChoiceDescription')}</p>
             </div>
-            <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl p-3">
+            <div className="glass-card rounded-xl p-3">
               <h4 className="font-bold text-[var(--text-primary)] text-scale-label">{t('helpGuide.sections.games.typeIt')}</h4>
               <p className="text-scale-caption text-[var(--text-secondary)]">{t('helpGuide.sections.games.typeItDescription', { language: targetName })}</p>
             </div>
-            <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-xl p-3">
+            <div className="glass-card rounded-xl p-3">
               <h4 className="font-bold text-[var(--text-primary)] text-scale-label">{t('helpGuide.sections.games.aiChallenge')}</h4>
               <p className="text-scale-caption text-[var(--text-secondary)]">{t('helpGuide.sections.games.aiChallengeDescription')}</p>
             </div>
@@ -214,12 +214,12 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
     <>
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-black/30 z-40 animate-in fade-in duration-200"
+        className="fixed inset-0 modal-backdrop z-40 animate-in fade-in duration-200"
         onClick={onClose}
       />
 
       {/* Panel */}
-      <div className="fixed right-0 top-0 h-full w-full max-w-md bg-[#FFF0F3] dark:bg-[var(--bg-card)] z-50 shadow-2xl animate-in slide-in-from-right duration-300 overflow-hidden flex flex-col">
+      <div className="fixed right-0 top-0 h-full w-full max-w-md glass-card-solid z-50 animate-in slide-in-from-right duration-300 overflow-hidden flex flex-col">
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-[var(--border-color)]">
           <div className="flex items-center gap-3">
@@ -245,7 +245,7 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
             <div className="space-y-6">
               {/* Section Index */}
               <div>
-                <h3 className="text-scale-caption font-bold uppercase tracking-wider text-[var(--text-secondary)] mb-4">
+                <h3 className="text-scale-caption font-bold font-header uppercase tracking-wider text-[var(--text-secondary)] mb-4">
                   {t('helpGuide.contents')}
                 </h3>
                 <div className="space-y-2">
@@ -255,7 +255,7 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
                       <button
                         key={section.id}
                         onClick={() => setActiveSection(section.id)}
-                        className="w-full flex items-center gap-3 p-3 rounded-xl bg-white dark:bg-[var(--bg-primary)] border border-[var(--border-color)] hover:border-[var(--accent-color)] transition-all group text-left"
+                        className="w-full flex items-center gap-3 p-3 rounded-xl glass-card hover:border-[var(--accent-color)] transition-all group text-left"
                       >
                         <div className="w-8 h-8 rounded-lg bg-[var(--accent-light)] flex items-center justify-center group-hover:scale-110 transition-transform">
                           <Icon className="w-4 h-4 text-[var(--accent-color)]" />
@@ -272,13 +272,13 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
 
               {/* Quick Tips */}
               <div>
-                <h3 className="text-scale-caption font-bold uppercase tracking-wider text-[var(--text-secondary)] mb-4">
+                <h3 className="text-scale-caption font-bold font-header uppercase tracking-wider text-[var(--text-secondary)] mb-4">
                   {t('helpGuide.quickTips')}
                 </h3>
                 <div className="space-y-3">
                   {TIPS.map((tip, i) => (
                     <details key={i} className="group">
-                      <summary className="flex items-center gap-2 p-3 rounded-xl bg-white dark:bg-[var(--bg-primary)] border border-[var(--border-color)] cursor-pointer hover:border-[var(--accent-color)] transition-all list-none">
+                      <summary className="flex items-center gap-2 p-3 rounded-xl glass-card cursor-pointer hover:border-[var(--accent-color)] transition-all list-none">
                         <ICONS.HelpCircle className="w-4 h-4 text-[var(--accent-color)] flex-shrink-0" />
                         <span className="text-scale-label font-medium text-[var(--text-primary)]">{tip.question}</span>
                         <ICONS.ChevronDown className="w-4 h-4 text-[var(--text-secondary)] ml-auto group-open:rotate-180 transition-transform" />
@@ -326,7 +326,7 @@ export const HelpGuide: React.FC<Props> = ({ isOpen, onClose, role }) => {
         </div>
 
         {/* Footer */}
-        <div className="p-4 border-t border-[var(--border-color)] bg-white dark:bg-[var(--bg-primary)]">
+        <div className="p-4 glass-card">
           <p className="text-scale-caption text-center text-[var(--text-secondary)]">
             {t('helpGuide.footer')}
           </p>

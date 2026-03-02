@@ -13,10 +13,6 @@
 import { Type } from "@google/genai";
 import {
   getLanguageConfig,
-  getLanguageName,
-  getConjugationPersons,
-  getCaseNames,
-  getGenderTypes,
   type LanguageConfig
 } from '../constants/language-config.js';
 
@@ -193,11 +189,8 @@ function buildSlavicPastTenseSchema(config: LanguageConfig): object {
 /**
  * Build adjective forms schema based on language grammar.
  * Returns schema for gender agreement forms (masculine, feminine, neuter, plural).
- *
- * @param languageCode - ISO language code
- * @returns Adjective forms schema or null if no gender agreement
  */
-export function buildAdjectiveFormsSchema(languageCode: string): object | null {
+function buildAdjectiveFormsSchema(languageCode: string): object | null {
   const config = getLanguageConfig(languageCode);
 
   if (!config?.grammar.hasGender) {
@@ -208,7 +201,6 @@ export function buildAdjectiveFormsSchema(languageCode: string): object | null {
   const properties: Record<string, object> = {};
   const required: string[] = [];
 
-  // Add each gender form
   if (genderTypes.includes('masculine')) {
     properties.masculine = { type: Type.STRING, description: 'Masculine form' };
     required.push('masculine');
@@ -226,7 +218,6 @@ export function buildAdjectiveFormsSchema(languageCode: string): object | null {
     required.push('common');
   }
 
-  // Always include plural
   properties.plural = { type: Type.STRING, description: 'Plural form' };
   required.push('plural');
 
@@ -507,70 +498,6 @@ export function buildAnswerValidationSchema(): GeminiSchema {
 }
 
 /**
- * Build schema for challenge question generation.
- *
- * @param challengeType - 'quiz' or 'quickfire'
- * @returns Challenge schema
- */
-export function buildChallengeSchema(challengeType: 'quiz' | 'quickfire'): GeminiSchema {
-  if (challengeType === 'quickfire') {
-    // Quickfire is simple word-translation pairs
-    return {
-      type: Type.OBJECT,
-      properties: {
-        items: {
-          type: Type.ARRAY,
-          items: {
-            type: Type.OBJECT,
-            properties: {
-              word: { type: Type.STRING, description: 'Word in one language' },
-              answer: { type: Type.STRING, description: 'Translation' },
-              direction: {
-                type: Type.STRING,
-                enum: ['target_to_native', 'native_to_target'],
-                description: 'Translation direction'
-              }
-            },
-            required: ['word', 'answer', 'direction']
-          }
-        }
-      },
-      required: ['items']
-    };
-  }
-
-  // Quiz has multiple question types
-  return {
-    type: Type.OBJECT,
-    properties: {
-      items: {
-        type: Type.ARRAY,
-        items: {
-          type: Type.OBJECT,
-          properties: {
-            type: {
-              type: Type.STRING,
-              enum: ['translate', 'fill_blank', 'multiple_choice'],
-              description: 'Question type'
-            },
-            question: { type: Type.STRING, description: 'The question text' },
-            answer: { type: Type.STRING, description: 'Correct answer' },
-            options: {
-              type: Type.ARRAY,
-              items: { type: Type.STRING },
-              description: 'For multiple choice - 4 options'
-            },
-            hint: { type: Type.STRING, description: 'Optional hint' }
-          },
-          required: ['type', 'question', 'answer']
-        }
-      }
-    },
-    required: ['items']
-  };
-}
-
-/**
  * Build schema for batch answer validation.
  * Used to validate multiple answers in a single API call.
  *
@@ -603,92 +530,6 @@ export function buildBatchValidationSchema(): GeminiSchema {
       }
     },
     required: ['results']
-  };
-}
-
-/**
- * Build schema for word enrichment (adding context to words).
- * Used when tutors create word gifts/challenges.
- *
- * @param languageCode - Target language code
- * @returns Word enrichment schema
- */
-export function buildWordEnrichmentSchema(languageCode: string): GeminiSchema {
-  const config = getLanguageConfig(languageCode);
-
-  const wordSchema: Record<string, object> = {
-    word: { type: Type.STRING, description: 'The word (corrected if needed)' },
-    translation: { type: Type.STRING, description: 'Translation' },
-    pronunciation: { type: Type.STRING, description: 'Pronunciation guide' },
-    word_type: {
-      type: Type.STRING,
-      enum: ['noun', 'verb', 'adjective', 'adverb', 'phrase', 'other']
-    },
-    example: { type: Type.STRING, description: 'Example sentence' },
-    example_translation: { type: Type.STRING, description: 'Example translation' },
-    pro_tip: { type: Type.STRING, description: 'Usage tip (max 60 chars)' }
-  };
-
-  // Add gender for languages with grammatical gender
-  if (config?.grammar.hasGender) {
-    wordSchema.gender = {
-      type: Type.STRING,
-      enum: config.grammar.genderTypes || ['masculine', 'feminine', 'neuter']
-    };
-  }
-
-  return {
-    type: Type.OBJECT,
-    properties: {
-      words: {
-        type: Type.ARRAY,
-        items: {
-          type: Type.OBJECT,
-          properties: wordSchema,
-          required: ['word', 'translation', 'word_type']
-        }
-      }
-    },
-    required: ['words']
-  };
-}
-
-/**
- * Build schema for transcript processing (Listen Mode).
- *
- * @returns Transcript processing schema
- */
-export function buildTranscriptSchema(): GeminiSchema {
-  return {
-    type: Type.OBJECT,
-    properties: {
-      segments: {
-        type: Type.ARRAY,
-        items: {
-          type: Type.OBJECT,
-          properties: {
-            text: { type: Type.STRING, description: 'Original or corrected text' },
-            language: { type: Type.STRING, description: 'Language code (e.g., "pl", "en")' },
-            translation: { type: Type.STRING, description: 'Translation if in target language' },
-            speaker: { type: Type.STRING, description: 'Speaker identifier if distinguishable' }
-          },
-          required: ['text', 'language']
-        }
-      },
-      vocabularyNotes: {
-        type: Type.ARRAY,
-        items: {
-          type: Type.OBJECT,
-          properties: {
-            word: { type: Type.STRING },
-            translation: { type: Type.STRING },
-            context: { type: Type.STRING, description: 'How the word was used' }
-          },
-          required: ['word', 'translation']
-        }
-      }
-    },
-    required: ['segments']
   };
 }
 
@@ -752,43 +593,3 @@ export function getExtractionInstructions(languageCode: string): string {
   return instructions.join('\n');
 }
 
-/**
- * Get the conjugation person label for a given key and language.
- * Useful for displaying forms to users.
- *
- * @param key - Normalized key (e.g., 'first_singular')
- * @param languageCode - Target language code
- * @returns The language-specific label (e.g., 'ja' for Polish, 'yo' for Spanish)
- */
-export function getConjugationLabel(key: ConjugationKey, languageCode: string): string | null {
-  const persons = getConjugationPersons(languageCode);
-  const index = CONJUGATION_KEYS.indexOf(key);
-
-  if (index === -1 || !persons[index]) {
-    return null;
-  }
-
-  return persons[index];
-}
-
-/**
- * Map from language-specific person to normalized key.
- * Useful when importing data with native language keys.
- *
- * @param person - Language-specific person label (e.g., 'ja', 'yo')
- * @param languageCode - Target language code
- * @returns Normalized key or null if not found
- */
-export function normalizeConjugationKey(person: string, languageCode: string): ConjugationKey | null {
-  const persons = getConjugationPersons(languageCode);
-  const index = persons.findIndex(p =>
-    p.toLowerCase() === person.toLowerCase() ||
-    p.toLowerCase().includes(person.toLowerCase())
-  );
-
-  if (index === -1 || index >= CONJUGATION_KEYS.length) {
-    return null;
-  }
-
-  return CONJUGATION_KEYS[index];
-}

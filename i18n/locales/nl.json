@@ -346,7 +346,7 @@
       "chooseMode": "Kies Uitdagingsmodus",
       "length": "Lengte",
       "all": "Alle",
-      "qs": "Vr.",
+      "qs": "Vragen",
       "generatingPhrases": "Romantische zinnen genereren...",
       "startChallenge": "Start Uitdaging",
       "modes": {
@@ -667,6 +667,10 @@
     }
   },
   "onboarding": {
+    "nativeLanguage": {
+      "title": "Welke taal spreek je?",
+      "subtitle": "We tonen alles in jouw taal"
+    },
     "step": {
       "back": "Terug",
       "counter": "{{current}} van {{total}}",
@@ -737,8 +741,8 @@
         "name": "Standaard",
         "tagline": "Perfect om te beginnen",
         "feature1": "2.000 woorden in Liefdesdagboek",
-        "feature2": "60 min spraakchat/maand",
-        "feature3": "30 min Luistermodus/maand",
+        "feature2": "8 hrs spraakchat/maand",
+        "feature3": "8 hrs Luistermodus/maand",
         "feature4": "Alle gesprekscenario's",
         "feature5": "Partner uitnodiging"
       },
@@ -758,6 +762,58 @@
         "retry": "Retry"
       }
     },
+    "role": {
+      "title": "Ik wil...",
+      "subtitle": "Kies hoe je Love Languages wilt gebruiken",
+      "learn": "Een taal leren",
+      "learnDesc": "Leer de taal van iemand van wie je houdt",
+      "teach": "Een taal onderwijzen",
+      "teachDesc": "Help iemand van wie je houdt jouw taal te leren"
+    },
+    "names": {
+      "title": "Laten we het persoonlijk maken",
+      "studentSubtitle": "We personaliseren je leerervaring",
+      "tutorSubtitle": "We personaliseren de lesgeefervaring",
+      "yourName": "Je naam",
+      "partnerLabel": "Voor wie leer je?",
+      "learnerLabel": "Wie ga je lesgeven?",
+      "partnerPlaceholder": "Zijn/haar naam",
+      "learnerPlaceholder": "Naam van de leerling"
+    },
+    "language": {
+      "studentTitle": "Welke taal spreekt iemand van wie je houdt?",
+      "tutorTitle": "Welke taal wil je onderwijzen?",
+      "studentSubtitle": "We helpen je hun taal te leren",
+      "tutorSubtitle": "Kies de taal die je gaat onderwijzen",
+      "showAll": "Alle talen tonen",
+      "showLess": "Populaire tonen"
+    },
+    "themeCustomization": {
+      "title": "Make it yours",
+      "subtitle": "Choose your colors, mode & font",
+      "accentLabel": "Your color",
+      "darkModeLabel": "Display mode",
+      "fontLabel": "Font style",
+      "continue": "Looks great!"
+    },
+    "personalization": {
+      "title": "Maak het persoonlijk",
+      "subtitle": "Help ons je ervaring te personaliseren",
+      "vibeLabel": "De sfeer van je relatie",
+      "timeLabel": "Dagelijkse oefentijd",
+      "priorLabel": "Al eerder {{language}} geprobeerd?"
+    },
+    "tutorPersonalization": {
+      "title": "Vertel ons over jezelf",
+      "subtitle": "Help ons de lesgeefervaring te personaliseren",
+      "relationLabel": "{{name}} is je...",
+      "connectionLabel": "Je {{language}} connectie",
+      "originLabel": "Waar kom je vandaan? (optioneel)",
+      "originPlaceholder": "Stad, land..."
+    },
+    "errors": {
+      "title": "Er is iets misgegaan"
+    },
     "student": {
       "start": {
         "title": "Klaar om te beginnen, {{name}}?",
@@ -767,6 +823,7 @@
         "feature2": "Je Liefdesdagboek woordenschattracker",
         "feature3": "Spelletjes om woorden te oefenen en te beheersen",
         "feature4": "Voortgang bijhouden en niveautests",
+        "activating": "Je proefperiode starten...",
         "button": "Laten we gaan! 🚀"
       },
       "vibe": {
@@ -877,6 +934,7 @@
         "feature2": "Volg de voortgang van {{learnerName}}",
         "feature3": "Stuur woordcadeaus om te verrassen",
         "feature4": "Koppel accounts om zijn/haar reis te zien",
+        "activating": "Je proefperiode starten...",
         "button": "Begin met helpen van {{learnerName}}! 🎯"
       },
       "relation": {
@@ -1448,10 +1506,11 @@
         "features": {
           "conversations": "25 AI-gesprekken/maand",
           "validations": "50 woordvalidaties/maand",
+          "words": "200 words in your vocabulary",
           "games": "Basis woordenschat spelletjes",
-          "voiceLimited": "Spraakchat (1 poging)",
-          "listenLimited": "Luistermodus (1 poging)",
-          "challengesLimited": "5 partner uitdagingen"
+          "voice": "15 min voice chat/month",
+          "listen": "15 min listen mode/month",
+          "challenges": "5 partner challenges"
         },
         "cta": "Gratis Starten",
         "subtext": "Perfect om Love Languages uit te proberen",
@@ -1863,6 +1922,43 @@
     "timesUp": "Tijd voorbij!"
   },
   "hero": {
+    "headline": "Leer de taal van iemand van wie je houdt.",
+    "subtitle": "De enige taal-app ontworpen voor koppels",
+    "swipeForMore": "Veeg om meer te ontdekken",
+    "landing": {
+      "student": {
+        "headline": "Leer de taal van degene van wie je houdt",
+        "highlight1": "taal",
+        "highlight2": "houdt"
+      },
+      "tutor": {
+        "headline": "Deel je taal met degene van wie je houdt",
+        "highlight1": "taal",
+        "highlight2": "houdt"
+      },
+      "tagline": {
+        "pre": "De",
+        "only": "enige",
+        "post": "taal-app ontworpen voor koppels"
+      },
+      "startFree": "Begin vandaag voor",
+      "learn": {
+        "title": "Gratis leermateriaal",
+        "count": "11.500+",
+        "topics": "Koosnaampjes · Date-zinnen · Grammatica · Cultuur"
+      },
+      "installApp": "App installeren",
+      "installed": "Geïnstalleerd",
+      "addToHome": "Toevoegen aan startscherm",
+      "appStore": "App Store",
+      "comingSoon": "Binnenkort",
+      "followSocials": "Volg ons",
+      "waitlist": {
+        "description": "Ontvang een melding wanneer we lanceren in de App Store.",
+        "submitting": "Verzenden...",
+        "notify": "Meld me aan"
+      }
+    },
     "languageSelector": {
       "nativeTitle": "What language do you speak?",
       "nativeSubtitle": "18 languages available - we'll show everything in yours",
@@ -1911,7 +2007,10 @@
       "alreadyHaveAccount": "Heb je al een account? Log in",
       "newHere": "Nieuw hier? Maak een account",
       "checkEmail": "Controleer je e-mail voor bevestiging!",
-      "continueWithGoogle": "Doorgaan met Google"
+      "continueWithGoogle": "Doorgaan met Google",
+      "continueWithApple": "Doorgaan met Apple",
+      "orContinueWithEmail": "of doorgaan met e-mail",
+      "orSignInWith": "of inloggen met"
     },
     "legal": {
       "terms": "Voorwaarden",
@@ -2214,6 +2313,18 @@
         "blog": "Blog",
         "contact": "Contact",
         "copyright": "Love Languages · Met liefde gemaakt voor geliefden overal"
+      }
+    },
+    "testimonials": {
+      "1": {
+        "quote": "This is SO COOL",
+        "name": "Alessia",
+        "context": "Leert voor haar partner Tomas"
+      },
+      "2": {
+        "quote": "Dude this app is amazing",
+        "name": "Alessandra",
+        "context": "Leert voor haar vriend Miki"
       }
     }
   },

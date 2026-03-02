@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { geminiService } from '../services/gemini';
-import { Profile, DictionaryEntry, WordType, ProgressSummary, SavedProgressSummary, WordScore } from '../types';
-import { getLevelFromXP, getLevelProgress, getTierColor, translateLevel } from '../services/level-utils';
+import { Profile, DictionaryEntry, ProgressSummary, SavedProgressSummary, WordScore } from '../types';
+import { getLevelFromXP, getLevelProgress, getTierIndex, translateLevel } from '../services/level-utils';
 import { ICONS } from '../constants';
 import { LANGUAGE_CONFIGS } from '../constants/language-config';
 import { useTheme } from '../context/ThemeContext';
@@ -135,10 +135,11 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
   const targetXp = (profile.role === 'tutor' && partnerProfile) ? (partnerProfile.xp || 0) : (profile.xp || 0);
   const levelInfo = getLevelFromXP(targetXp);
   const levelProgress = getLevelProgress(targetXp);
-  const tierColor = getTierColor(levelInfo.tier);
-
-  // Theme
+  // Theme — use accent color instead of hardcoded brand rose
   const { accentHex } = useTheme();
+  // Progressive darkening: Beginner(0)=bright → Master(5)=dark
+  const tierIndex = getTierIndex(levelInfo.tier);
+  const tierDarken = tierIndex * 0.07; // 0% → 35% overlay
   const { targetLanguage, targetName, languageParams } = useLanguage();
   const { isOnline, cachedWordCount, lastSyncTime, pendingCount, isSyncing: offlineSyncing, cacheVocabulary, getCachedVocabulary, cacheWordScores, getCachedWordScores } = useOffline(profile.id, targetLanguage);
   const previousTests = getPreviousLevelTests(levelInfo.displayName);
@@ -189,21 +190,21 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
   }, [entries]);
 
   const encouragementPrompts = useMemo(() => {
-    const prompts: Array<{ icon: string; message: string; color: string }> = [];
+    const prompts: Array<{ icon: React.ReactNode; message: string; color: string }> = [];
     const masteredCount = masteredWords.length;
     const weakCount = scores.filter(s => (s.total_attempts || 0) > (s.correct_attempts || 0)).length;
 
     if (masteredCount >= 10) {
-      prompts.push({ icon: '🏆', message: t('progress.encouragement.wordsMastered', { count: masteredCount }), color: 'text-amber-600' });
+      prompts.push({ icon: <ICONS.Trophy className="w-5 h-5" />, message: t('progress.encouragement.wordsMastered', { count: masteredCount }), color: 'text-[var(--color-warning)]' });
     }
     if (weakCount > 0 && weakCount <= 3) {
-      prompts.push({ icon: '💪', message: t('progress.encouragement.wordsNeedWork', { count: weakCount }), color: 'text-teal-600' });
+      prompts.push({ icon: <ICONS.TrendingUp className="w-5 h-5" />, message: t('progress.encouragement.wordsNeedWork', { count: weakCount }), color: 'text-[var(--accent-color)]' });
     }
     if (entries.length >= 5 && entries.length % 5 === 0) {
-      prompts.push({ icon: '🎉', message: t('progress.encouragement.milestone', { count: entries.length }), color: 'text-[var(--accent-color)]' });
+      prompts.push({ icon: <ICONS.Award className="w-5 h-5" />, message: t('progress.encouragement.milestone', { count: entries.length }), color: 'text-[var(--accent-color)]' });
     }
     if (recentWords.length > 0) {
-      prompts.push({ icon: '✨', message: t('progress.encouragement.justLearned', { word: recentWords[0].word }), color: 'text-purple-600' });
+      prompts.push({ icon: <ICONS.Sparkles className="w-5 h-5" />, message: t('progress.encouragement.justLearned', { word: recentWords[0].word }), color: 'text-[var(--secondary-color)]' });
     }
     return prompts.slice(0, 2);
   }, [masteredWords, scores, entries, recentWords, t]);
@@ -280,14 +281,18 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
   };
 
   // Sync XP with word count if out of sync (handles legacy words added before XP system)
+  const xpSyncedRef = useRef(false);
   useEffect(() => {
+    if (xpSyncedRef.current) return;
     const syncXpWithWordCount = async () => {
       if (stats.totalWords > 0 && (profile.xp || 0) < stats.totalWords) {
-        const xpDifference = stats.totalWords - (profile.xp || 0);
-        if (xpDifference > 0) {
-          await geminiService.incrementXP(xpDifference);
-          window.location.reload();
+        xpSyncedRef.current = true; // Guard: only attempt once per mount
+        const xpDifference = Math.min(stats.totalWords - (profile.xp || 0), 100); // API max is 100
+        const result = await geminiService.incrementXP(xpDifference);
+        if (!result.success) {
+          console.warn('[Progress] XP sync failed:', result.error);
         }
+        // No reload — profile will refresh naturally on next navigation or auth event
       }
     };
     syncXpWithWordCount();
@@ -370,8 +375,8 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
       level_at_time: data.levelAtTime,
       created_at: data.createdAt
     };
-    // Only add to index if not cached (avoid duplicates)
-    if (!data.cached) {
+    // Only add to index if not cached and has a valid DB id (avoid duplicates and phantom entries)
+    if (!data.cached && data.id) {
       setSummaryIndex(prev => [newEntry, ...prev]);
     }
     setSelectedSummary({
@@ -461,7 +466,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
   }
 
   return (
-    <div className="h-full overflow-y-auto p-3 md:p-8 bg-[var(--bg-primary)]">
+    <div className="h-full overflow-y-auto p-3 md:p-8">
       <div className="max-w-4xl mx-auto space-y-4 md:space-y-6">
 
         {!isOnline && (
@@ -476,39 +481,46 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
 
         {/* Level & XP Card */}
         <div
-          className="p-4 md:p-8 rounded-2xl md:rounded-[2.5rem] shadow-xl text-white relative overflow-hidden"
+          className="p-4 md:p-8 rounded-2xl md:rounded-2xl shadow-xl text-white relative overflow-hidden"
           style={{
-            background: `linear-gradient(135deg, ${tierColor} 0%, ${tierColor}dd 100%)`
+            background: `linear-gradient(135deg, ${accentHex} 0%, ${accentHex}dd 100%)`
           }}
         >
+          {/* Progressive darkening overlay — gets darker at higher tiers */}
+          {tierDarken > 0 && (
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{ backgroundColor: `rgba(0,0,0,${tierDarken})` }}
+            />
+          )}
           <div className="absolute top-0 right-0 opacity-10">
             <ICONS.Sparkles className="w-20 h-20 md:w-32 md:h-32" />
           </div>
 
           <div className="flex items-center justify-between mb-4 md:mb-6 relative z-10">
             <div>
-              <p className="text-white/60 text-scale-micro font-black uppercase tracking-widest mb-0.5 md:mb-1">{t('progress.level.current')}</p>
-              <h2 className="text-scale-heading font-black">{translateLevel(levelInfo.displayName, t)}</h2>
+              <p className="text-white/65 text-scale-micro font-black uppercase tracking-widest mb-0.5 md:mb-1">{t('progress.level.current')}</p>
+              <h2 className="text-scale-heading font-black font-header">{translateLevel(levelInfo.displayName, t)}</h2>
             </div>
             <div className="text-right">
-              <p className="text-white/60 text-scale-micro font-black uppercase tracking-widest mb-0.5 md:mb-1">{t('progress.level.totalXp')}</p>
+              <p className="text-white/65 text-scale-micro font-black uppercase tracking-widest mb-0.5 md:mb-1">{t('progress.level.totalXp')}</p>
               <p className="text-scale-heading font-black">{profile.xp || 0}</p>
             </div>
           </div>
 
           <div className="relative z-10 mb-4 md:mb-6">
-            <div className="flex justify-between text-scale-micro font-bold text-white/60 mb-1.5 md:mb-2">
+            <div className="flex justify-between text-scale-micro font-bold text-white/65 mb-1.5 md:mb-2">
               <span>{t('progress.level.progressTo', { level: translateLevel(levelInfo.nextLevel, t) || t('progress.level.maxLevel') })}</span>
               <span>{levelProgress}%</span>
             </div>
             <div className="h-2 md:h-3 bg-white/20 rounded-full overflow-hidden">
               <div
-                className="h-full bg-white rounded-full transition-all duration-1000 shadow-lg"
+                className="h-full bg-[var(--bg-card)] rounded-full transition-all duration-1000 shadow-lg"
                 style={{ width: `${levelProgress}%` }}
               />
             </div>
             {levelInfo.nextLevel && (
-              <p className="text-scale-micro text-white/60 mt-1.5 md:mt-2 text-center">
+              <p className="text-scale-micro text-white/65 mt-1.5 md:mt-2 text-center">
                 {t('progress.level.xpToNext', { xp: levelInfo.xpToNextLevel, level: translateLevel(levelInfo.nextLevel, t) })}
               </p>
             )}
@@ -518,9 +530,9 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
           {canTakeTest && (
             <button
               onClick={() => navigate(`/test?from=${encodeURIComponent(levelInfo.displayName)}&to=${encodeURIComponent(levelInfo.nextLevel!)}`)}
-              className="w-full bg-white text-gray-800 py-3 md:py-4 rounded-xl md:rounded-2xl text-scale-label font-black uppercase tracking-widest shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2 md:gap-3"
+              className="w-full bg-[var(--bg-card)] text-[var(--text-primary)] py-3 md:py-4 rounded-xl md:rounded-2xl text-scale-label font-black uppercase tracking-widest shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2 md:gap-3"
             >
-              <ICONS.Star className="w-4 h-4 md:w-5 md:h-5" style={{ color: tierColor }} />
+              <ICONS.Star className="w-4 h-4 md:w-5 md:h-5" style={{ color: accentHex }} />
               {levelInfo.canTakeTest ? t('progress.level.takeTest') : t('progress.level.practiceTest')}
             </button>
           )}
@@ -536,7 +548,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
             <div className="mt-4 relative z-10">
               <button
                 onClick={() => setShowPreviousTests(!showPreviousTests)}
-                className="w-full text-white/80 text-scale-caption font-bold flex items-center justify-center gap-2 py-2 hover:text-white transition-colors"
+                className="w-full text-white/85 text-scale-caption font-bold flex items-center justify-center gap-2 py-2 hover:text-white transition-colors"
               >
                 <ICONS.RefreshCw className="w-3.5 h-3.5" />
                 {t('progress.previousTests.title')}
@@ -560,14 +572,14 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                             >
                               <div>
                                 <p className="text-white text-scale-caption font-bold">{t(`progress.levelThemes.${test.themeKey}`)}</p>
-                                <p className="text-white/60 text-[10px]">{test.from} → {test.to}</p>
+                                <p className="text-white/65 text-[10px]">{test.from} → {test.to}</p>
                               </div>
-                              <ICONS.Play className="w-4 h-4 text-white/40 group-hover:text-white transition-colors" />
+                              <ICONS.Play className="w-4 h-4 text-white/50 group-hover:text-white transition-colors" />
                             </button>
                             {attempts.length > 0 && (
                               <button
                                 onClick={() => setExpandedLevel(isExpanded ? null : levelKey)}
-                                className="px-3 py-3 text-white/60 hover:text-white transition-colors border-l border-white/10"
+                                className="px-3 py-3 text-white/65 hover:text-white transition-colors border-l border-white/10"
                                 title={t('progress.previousTests.viewAttempts')}
                               >
                                 <ICONS.List className="w-4 h-4" />
@@ -578,7 +590,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                           {/* Previous Attempts for this level */}
                           {isExpanded && attempts.length > 0 && (
                             <div className="px-3 pb-3 border-t border-white/10 pt-2">
-                              <p className="text-[9px] text-white/40 uppercase tracking-wider font-bold mb-2">{t('progress.previousTests.previousAttempts')}</p>
+                              <p className="text-[9px] text-white/50 uppercase tracking-wider font-bold mb-2">{t('progress.previousTests.previousAttempts')}</p>
                               <div className="space-y-1">
                                 {attempts.slice(0, 5).map((attempt) => (
                                   <button
@@ -587,22 +599,22 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                                     className="w-full flex items-center justify-between px-3 py-2 bg-white/5 hover:bg-white/15 rounded-lg text-left transition-all"
                                   >
                                     <div className="flex items-center gap-2">
-                                      <div className={`w-5 h-5 rounded-full flex items-center justify-center ${attempt.passed ? 'bg-green-500/20' : 'bg-amber-500/20'}`}>
+                                      <div className={`w-5 h-5 rounded-full flex items-center justify-center ${attempt.passed ? 'bg-[var(--color-correct-bg)]' : 'bg-[var(--color-warning-bg)]'}`}>
                                         {attempt.passed ? (
-                                          <ICONS.Check className="w-3 h-3 text-green-400" />
+                                          <ICONS.Check className="w-3 h-3 text-[var(--color-correct)]" />
                                         ) : (
-                                          <ICONS.X className="w-3 h-3 text-amber-400" />
+                                          <ICONS.X className="w-3 h-3 text-[var(--color-warning)]" />
                                         )}
                                       </div>
-                                      <span className="text-[10px] text-white/70">
+                                      <span className="text-[10px] text-white/65">
                                         {new Date(attempt.completed_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
                                       </span>
                                     </div>
                                     <div className="flex items-center gap-2">
-                                      <span className={`text-scale-caption font-bold ${attempt.passed ? 'text-green-400' : 'text-amber-400'}`}>
+                                      <span className={`text-scale-caption font-bold ${attempt.passed ? 'text-[var(--color-correct)]' : 'text-[var(--color-warning)]'}`}>
                                         {attempt.score}%
                                       </span>
-                                      <ICONS.ChevronRight className="w-3 h-3 text-white/40" />
+                                      <ICONS.ChevronRight className="w-3 h-3 text-white/50" />
                                     </div>
                                   </button>
                                 ))}
@@ -621,7 +633,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
 
         {/* Motivation Card - Why they're learning */}
         {profile.onboarding_data?.learningReason && (
-          <div className="relative overflow-hidden bg-gradient-to-br from-[var(--accent-light)] via-[var(--bg-card)] to-[var(--accent-light)] p-4 md:p-6 rounded-xl md:rounded-[2rem] border border-[var(--accent-border)]">
+          <div className="relative overflow-hidden bg-gradient-to-br from-[var(--accent-light)] via-[var(--bg-card)] to-[var(--accent-light)] p-4 md:p-6 rounded-xl md:rounded-2xl border border-[var(--accent-border)]">
             {/* Decorative heart pattern */}
             <div className="absolute top-0 right-0 w-20 h-20 md:w-32 md:h-32 opacity-[0.07]" style={{ color: accentHex }}>
               <ICONS.Heart className="w-full h-full fill-current" />
@@ -645,7 +657,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                 <div className="flex items-center gap-2 pt-2 border-t border-[var(--border-color)]">
                   <span className="text-scale-label text-[var(--text-secondary)]">{t('progress.motivation.learningFor')}</span>
                   <span className="text-scale-label font-bold" style={{ color: accentHex }}>{profile.partner_name}</span>
-                  <span className="text-scale-label">💕</span>
+                  <ICONS.Heart className="w-4 h-4 text-[var(--accent-color)]" />
                 </div>
               )}
             </div>
@@ -653,13 +665,13 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
         )}
 
         {/* Love Log Stats Card - Moved above Learning Journey */}
-        <div className="bg-[var(--bg-card)] p-4 md:p-8 rounded-xl md:rounded-[2.5rem] border border-[var(--border-color)] shadow-sm">
+        <div className="glass-card p-4 md:p-8 rounded-xl md:rounded-2xl">
           <div className="flex items-center justify-between mb-3 md:mb-6">
-            <h3 className="text-scale-caption font-black flex items-center gap-1.5 md:gap-2 text-[var(--text-secondary)] uppercase tracking-[0.15em] md:tracking-[0.2em]">
-              <ICONS.Book className="w-3.5 h-3.5 md:w-4 md:h-4" style={{ color: tierColor }} />
+            <h3 className="text-scale-caption font-black font-header flex items-center gap-1.5 md:gap-2 text-[var(--text-secondary)] uppercase tracking-[0.15em] md:tracking-[0.2em]">
+              <ICONS.Book className="w-3.5 h-3.5 md:w-4 md:h-4" style={{ color: accentHex }} />
               {t('progress.stats.title')}
             </h3>
-            <span className="text-scale-heading font-black" style={{ color: tierColor }}>{stats.totalWords}</span>
+            <span className="text-scale-heading font-black" style={{ color: accentHex }}>{stats.totalWords}</span>
           </div>
 
           <div className="grid grid-cols-4 gap-2 md:gap-3">
@@ -669,7 +681,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
               { label: t('progress.stats.adjectives'), count: stats.adjectives },
               { label: t('progress.stats.phrases'), count: stats.phrases }
             ].map(stat => (
-              <div key={stat.label} className="p-2 md:p-4 rounded-lg md:rounded-2xl border text-center" style={{ backgroundColor: `${accentHex}10`, borderColor: `${accentHex}30`, color: accentHex }}>
+              <div key={stat.label} className="p-2 md:p-4 rounded-lg md:rounded-2xl border border-[var(--accent-border)] bg-[var(--accent-light)] text-[var(--accent-color)] text-center">
                 <p className="text-scale-heading font-black">{stat.count}</p>
                 <p className="text-scale-micro font-bold uppercase tracking-wider opacity-70">{stat.label}</p>
               </div>
@@ -678,10 +690,10 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
         </div>
 
         {/* Game History Section */}
-        <div className="bg-[var(--bg-card)] rounded-xl md:rounded-[2.5rem] border border-[var(--border-color)] shadow-sm overflow-hidden">
+        <div className="glass-card rounded-xl md:rounded-2xl overflow-hidden">
           <div className="p-3 md:p-6 border-b border-[var(--border-color)]">
-            <h3 className="text-scale-caption font-black flex items-center gap-1.5 md:gap-2 text-[var(--text-secondary)] uppercase tracking-[0.15em] md:tracking-[0.2em]">
-              <ICONS.Clock className="w-3.5 h-3.5 md:w-4 md:h-4" style={{ color: tierColor }} />
+            <h3 className="text-scale-caption font-black font-header flex items-center gap-1.5 md:gap-2 text-[var(--text-secondary)] uppercase tracking-[0.15em] md:tracking-[0.2em]">
+              <ICONS.Clock className="w-3.5 h-3.5 md:w-4 md:h-4" style={{ color: accentHex }} />
               {t('progress.gameHistory.title')}
             </h3>
           </div>
@@ -691,7 +703,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
         </div>
 
         {/* Learning Journey Book/Diary */}
-        <div className="bg-[var(--bg-card)] rounded-xl md:rounded-[2.5rem] border border-[var(--border-color)] shadow-sm overflow-hidden relative">
+        <div className="glass-card rounded-xl md:rounded-2xl overflow-hidden relative">
           <div className="p-3 md:p-6 border-b border-[var(--border-color)] flex items-center justify-between">
             <div className="flex items-center gap-2">
               {/* Mobile hamburger menu button with entry count */}
@@ -702,16 +714,16 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
               >
                 <ICONS.Menu className="w-4 h-4 text-[var(--text-secondary)]" />
               </button>
-              <h3 className="text-scale-caption font-black flex items-center gap-1.5 md:gap-2 text-[var(--text-secondary)] uppercase tracking-[0.15em] md:tracking-[0.2em]">
-                <ICONS.Book className="w-3.5 h-3.5 md:w-4 md:h-4" style={{ color: tierColor }} />
+              <h3 className="text-scale-caption font-black font-header flex items-center gap-1.5 md:gap-2 text-[var(--text-secondary)] uppercase tracking-[0.15em] md:tracking-[0.2em]">
+                <ICONS.Book className="w-3.5 h-3.5 md:w-4 md:h-4" style={{ color: accentHex }} />
                 {t('progress.journey.title')}
               </h3>
             </div>
             <button
               onClick={generateNewSummary}
               disabled={generating || !isOnline}
-              className="px-2.5 md:px-4 py-1.5 md:py-2 rounded-lg md:rounded-xl text-scale-caption font-bold text-white flex items-center gap-1.5 md:gap-2 transition-all active:scale-95 disabled:opacity-50"
-              style={{ backgroundColor: tierColor }}
+              className="px-2.5 md:px-4 py-1.5 md:py-2 rounded-lg md:rounded-xl text-scale-caption font-bold text-white flex items-center gap-1.5 md:gap-2 shadow-md hover:shadow-lg transition-all active:scale-95 disabled:opacity-50"
+              style={{ backgroundColor: accentHex }}
               title={!isOnline ? t('offline.featureUnavailable', 'Unavailable offline') : ''}
             >
               {generating ? (
@@ -746,7 +758,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
 
           <div className="flex flex-col md:flex-row min-h-[250px] md:min-h-[400px]">
             {/* Left Page: Index - hidden on mobile (use hamburger menu), sidebar on desktop */}
-            <div className="hidden md:block md:w-1/3 border-r border-[var(--border-color)] bg-[var(--bg-primary)] p-4">
+            <div className="hidden md:block md:w-1/3 border-r border-[var(--border-color)] p-4">
               <p className="text-[9px] font-black text-[var(--text-secondary)] uppercase tracking-widest mb-3">
                 {t('progress.journey.journalEntries')}
               </p>
@@ -770,7 +782,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                           ? 'bg-[var(--bg-card)] shadow-sm border-l-4'
                           : 'hover:bg-[var(--bg-card)]/70'
                       }`}
-                      style={selectedSummary?.id === entry.id ? { borderLeftColor: tierColor } : {}}
+                      style={selectedSummary?.id === entry.id ? { borderLeftColor: accentHex } : {}}
                     >
                       <div className="flex items-center justify-between mb-1">
                         <span className="text-[10px] font-bold text-[var(--text-secondary)]">
@@ -778,7 +790,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                         </span>
                         <span
                           className="text-[9px] font-bold px-2 py-0.5 rounded-full"
-                          style={{ backgroundColor: `${tierColor}15`, color: tierColor }}
+                          style={{ backgroundColor: `${accentHex}15`, color: accentHex }}
                         >
                           {translateLevel(entry.level_at_time, t)}
                         </span>
@@ -820,13 +832,13 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                       </p>
                       <p
                         className="text-scale-label font-bold"
-                        style={{ color: tierColor }}
+                        style={{ color: accentHex }}
                       >
                         {selectedSummary.levelAtTime} • {selectedSummary.xpAtTime} XP
                       </p>
                     </div>
                     <div className="text-right">
-                      <p className="text-scale-heading font-black" style={{ color: tierColor }}>
+                      <p className="text-scale-heading font-black" style={{ color: accentHex }}>
                         {selectedSummary.wordsLearned}
                       </p>
                       <p className="text-scale-micro text-[var(--text-secondary)] font-bold uppercase">{t('progress.summary.words')}</p>
@@ -849,7 +861,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                           <span
                             key={idx}
                             className="px-2 md:px-3 py-1 md:py-1.5 rounded-full text-scale-caption font-medium"
-                            style={{ backgroundColor: `${tierColor}15`, color: tierColor }}
+                            style={{ backgroundColor: `${accentHex}15`, color: accentHex }}
                           >
                             "{phrase}"
                           </span>
@@ -868,7 +880,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                         <ul className="text-scale-micro md:text-scale-caption text-[var(--text-secondary)] space-y-0.5 md:space-y-1">
                           {selectedSummary.topicsExplored.slice(0, 4).map((topic, idx) => (
                             <li key={idx} className="flex items-center gap-1.5 md:gap-2">
-                              <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: tierColor }} />
+                              <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: accentHex }} />
                               <span className="truncate">{topic}</span>
                             </li>
                           ))}
@@ -884,7 +896,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                         <ul className="text-scale-micro md:text-scale-caption text-[var(--text-secondary)] space-y-0.5 md:space-y-1">
                           {selectedSummary.grammarHighlights.slice(0, 4).map((grammar, idx) => (
                             <li key={idx} className="flex items-center gap-1.5 md:gap-2">
-                              <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: tierColor }} />
+                              <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: accentHex }} />
                               <span className="truncate">{grammar}</span>
                             </li>
                           ))}
@@ -915,43 +927,43 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                       </p>
                       <div className="grid grid-cols-3 gap-2 text-center">
                         {selectedSummary.validationPatterns.diacriticIssues > 0 && (
-                          <div className="p-2 bg-amber-50 dark:bg-amber-900/20 rounded-lg">
-                            <div className="text-scale-heading font-black text-amber-600 dark:text-amber-400">
+                          <div className="p-2 bg-[var(--color-warning-bg)] rounded-lg">
+                            <div className="text-scale-heading font-black text-[var(--color-warning)]">
                               {selectedSummary.validationPatterns.diacriticIssues}
                             </div>
-                            <div className="text-[8px] uppercase font-bold text-amber-600/70 dark:text-amber-400/70">
+                            <div className="text-[8px] uppercase font-bold text-[var(--color-warning)] opacity-70">
                               {t('progress.summary.diacritics')}
                             </div>
                           </div>
                         )}
                         {selectedSummary.validationPatterns.synonymsAccepted > 0 && (
-                          <div className="p-2 bg-green-50 dark:bg-green-900/20 rounded-lg">
-                            <div className="text-scale-heading font-black text-green-600 dark:text-green-400">
+                          <div className="p-2 bg-[var(--color-correct-bg)] rounded-lg">
+                            <div className="text-scale-heading font-black text-[var(--color-correct)]">
                               {selectedSummary.validationPatterns.synonymsAccepted}
                             </div>
-                            <div className="text-[8px] uppercase font-bold text-green-600/70 dark:text-green-400/70">
+                            <div className="text-[8px] uppercase font-bold text-[var(--color-correct)] opacity-70">
                               {t('progress.summary.synonyms')}
                             </div>
                           </div>
                         )}
                         {selectedSummary.validationPatterns.typosAccepted > 0 && (
-                          <div className="p-2 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
-                            <div className="text-scale-heading font-black text-blue-600 dark:text-blue-400">
+                          <div className="p-2 bg-[var(--secondary-light)] rounded-lg">
+                            <div className="text-scale-heading font-black text-[var(--secondary-color)]">
                               {selectedSummary.validationPatterns.typosAccepted}
                             </div>
-                            <div className="text-[8px] uppercase font-bold text-blue-600/70 dark:text-blue-400/70">
+                            <div className="text-[8px] uppercase font-bold text-[var(--secondary-color)] opacity-70">
                               {t('progress.summary.typosOk')}
                             </div>
                           </div>
                         )}
                       </div>
                       {selectedSummary.validationPatterns.diacriticIssues > 3 && (
-                        <p className="text-[9px] text-amber-600 dark:text-amber-400 mt-2 italic">
+                        <p className="text-[9px] text-[var(--color-warning)] mt-2 italic">
                           {t('progress.summary.diacriticTip', { language: targetName })}
                         </p>
                       )}
                       {selectedSummary.validationPatterns.synonymsAccepted > 3 && (
-                        <p className="text-[9px] text-green-600 dark:text-green-400 mt-2 italic">
+                        <p className="text-[9px] text-[var(--color-correct)] mt-2 italic">
                           {t('progress.summary.synonymTip')}
                         </p>
                       )}
@@ -967,16 +979,16 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
             <div className="md:hidden absolute inset-0 z-10 rounded-xl overflow-hidden">
               {/* Backdrop */}
               <div
-                className="absolute inset-0 bg-black/40"
+                className="absolute inset-0 modal-backdrop"
                 onClick={() => setShowJourneyMenu(false)}
               />
 
               {/* Slide-out panel */}
-              <div className="absolute left-0 top-0 bottom-0 w-[85%] max-w-[260px] bg-[var(--bg-card)] shadow-xl animate-in slide-in-from-left duration-200 flex flex-col">
+              <div className="absolute left-0 top-0 bottom-0 w-[85%] max-w-[260px] glass-card-solid animate-in slide-in-from-left duration-200 flex flex-col">
                 {/* Header */}
                 <div className="p-3 border-b border-[var(--border-color)] flex items-center justify-between flex-shrink-0">
-                  <h3 className="text-[10px] font-black text-[var(--text-secondary)] uppercase tracking-widest flex items-center gap-2">
-                    <ICONS.Book className="w-3.5 h-3.5" style={{ color: tierColor }} />
+                  <h3 className="text-[10px] font-black font-header text-[var(--text-secondary)] uppercase tracking-widest flex items-center gap-2">
+                    <ICONS.Book className="w-3.5 h-3.5" style={{ color: accentHex }} />
                     {t('progress.journey.journalEntries')}
                   </h3>
                   <button
@@ -1014,7 +1026,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                               ? 'bg-[var(--bg-primary)] shadow-sm border-l-3'
                               : 'hover:bg-[var(--bg-primary)]/70'
                           }`}
-                          style={selectedSummary?.id === entry.id ? { borderLeftWidth: '3px', borderLeftColor: tierColor } : {}}
+                          style={selectedSummary?.id === entry.id ? { borderLeftWidth: '3px', borderLeftColor: accentHex } : {}}
                         >
                           <div className="flex items-center justify-between mb-0.5">
                             <span className="text-[9px] font-bold text-[var(--text-secondary)]">
@@ -1022,7 +1034,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                             </span>
                             <span
                               className="text-[8px] font-bold px-1.5 py-0.5 rounded-full"
-                              style={{ backgroundColor: `${tierColor}15`, color: tierColor }}
+                              style={{ backgroundColor: `${accentHex}15`, color: accentHex }}
                             >
                               {translateLevel(entry.level_at_time, t)}
                             </span>
@@ -1047,7 +1059,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
         <div className="grid grid-cols-2 gap-2 md:gap-4">
           <button
             onClick={() => navigate('/play')}
-            className="bg-[var(--bg-card)] p-3 md:p-6 rounded-xl md:rounded-[2rem] border border-[var(--border-color)] shadow-sm text-center hover:shadow-md transition-all"
+            className="glass-card p-3 md:p-6 rounded-xl md:rounded-2xl text-center hover:bg-white/70 dark:hover:bg-white/20 hover:shadow-md active:scale-[0.98] transition-all"
           >
             <ICONS.Play className="w-6 h-6 md:w-8 md:h-8 mx-auto mb-1 md:mb-2 text-[var(--accent-color)]" />
             <p className="text-scale-label font-bold text-[var(--text-primary)]">{t('progress.quickActions.practice')}</p>
@@ -1056,7 +1068,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
 
           <button
             onClick={() => navigate('/log')}
-            className="bg-[var(--bg-card)] p-3 md:p-6 rounded-xl md:rounded-[2rem] border border-[var(--border-color)] shadow-sm text-center hover:shadow-md transition-all"
+            className="glass-card p-3 md:p-6 rounded-xl md:rounded-2xl text-center hover:bg-white/70 dark:hover:bg-white/20 hover:shadow-md active:scale-[0.98] transition-all"
           >
             <ICONS.Book className="w-6 h-6 md:w-8 md:h-8 mx-auto mb-1 md:mb-2 text-[var(--accent-color)]" />
             <p className="text-scale-label font-bold text-[var(--text-primary)]">{t('progress.quickActions.loveLog')}</p>
@@ -1069,17 +1081,17 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
       {/* Test Results Modal */}
       {selectedTestResult && (
         <div
-          className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+          className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4"
           onClick={() => setSelectedTestResult(null)}
         >
           <div
-            className="bg-[var(--bg-card)] rounded-[2rem] max-w-md w-full max-h-[80vh] overflow-hidden shadow-2xl"
+            className="glass-card-solid rounded-2xl max-w-md w-full max-h-[80vh] overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Modal Header */}
             <div className="p-6 border-b border-[var(--border-color)]">
               <div className="flex items-center justify-between mb-3">
-                <h3 className="text-[10px] font-black text-[var(--text-secondary)] uppercase tracking-widest">
+                <h3 className="text-[10px] font-black font-header text-[var(--text-secondary)] uppercase tracking-widest">
                   {t('progress.testResults.title')}
                 </h3>
                 <button
@@ -1090,11 +1102,11 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                 </button>
               </div>
               <div className="flex items-center gap-4">
-                <div className={`w-14 h-14 rounded-full flex items-center justify-center ${selectedTestResult.passed ? 'bg-green-100 dark:bg-green-900/30' : 'bg-amber-100 dark:bg-amber-900/30'}`}>
+                <div className={`w-14 h-14 rounded-full flex items-center justify-center ${selectedTestResult.passed ? 'bg-[var(--color-correct-bg)]' : 'bg-[var(--color-warning-bg)]'}`}>
                   {selectedTestResult.passed ? (
-                    <ICONS.Check className="w-7 h-7 text-green-500" />
+                    <ICONS.Check className="w-7 h-7 text-[var(--color-correct)]" />
                   ) : (
-                    <ICONS.RefreshCw className="w-7 h-7 text-amber-500" />
+                    <ICONS.RefreshCw className="w-7 h-7 text-[var(--color-warning)]" />
                   )}
                 </div>
                 <div>
@@ -1130,13 +1142,13 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                     <div key={q.id || idx} className="bg-[var(--bg-primary)] rounded-xl p-3">
                       <div className="flex items-start gap-2">
                         <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
-                          q.userAnswer ? (isCorrect ? 'bg-green-100 dark:bg-green-900/30' : 'bg-red-100 dark:bg-red-900/30') : 'bg-[var(--border-color)]'
+                          q.userAnswer ? (isCorrect ? 'bg-[var(--color-correct-bg)]' : 'bg-[var(--color-incorrect-bg)]') : 'bg-[var(--border-color)]'
                         }`}>
                           {q.userAnswer ? (
                             isCorrect ? (
-                              <ICONS.Check className="w-3 h-3 text-green-600 dark:text-green-400" />
+                              <ICONS.Check className="w-3 h-3 text-[var(--color-correct)]" />
                             ) : (
-                              <ICONS.X className="w-3 h-3 text-red-600 dark:text-red-400" />
+                              <ICONS.X className="w-3 h-3 text-[var(--color-incorrect)]" />
                             )
                           ) : (
                             <span className="text-[8px] text-[var(--text-secondary)]">?</span>
@@ -1150,17 +1162,17 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                             {q.question}
                           </p>
                           {q.userAnswer && (
-                            <p className={`text-scale-caption ${isCorrect ? 'text-green-600' : 'text-red-600'}`}>
+                            <p className={`text-scale-caption ${isCorrect ? 'text-[var(--color-correct)]' : 'text-[var(--color-incorrect)]'}`}>
                               {t('progress.testResults.yourAnswer', { answer: q.userAnswer })}
                             </p>
                           )}
                           {!isCorrect && q.correctAnswer && (
-                            <p className="text-scale-caption text-green-600">
+                            <p className="text-scale-caption text-[var(--color-correct)]">
                               {t('progress.testResults.correctAnswer', { answer: q.correctAnswer })}
                             </p>
                           )}
                           {showExplanation && (
-                            <p className={`text-[10px] mt-1 italic ${isCorrect ? 'text-green-600/70' : 'text-red-600/70'}`}>
+                            <p className={`text-[10px] mt-1 italic ${isCorrect ? 'text-[var(--color-correct)] opacity-70' : 'text-[var(--color-incorrect)] opacity-70'}`}>
                               {q.explanation}
                             </p>
                           )}
@@ -1179,8 +1191,8 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                   setSelectedTestResult(null);
                   navigate(`/test?from=${encodeURIComponent(selectedTestResult.from_level)}&to=${encodeURIComponent(selectedTestResult.to_level)}`);
                 }}
-                className="w-full py-3 rounded-xl font-bold text-white text-scale-label"
-                style={{ backgroundColor: tierColor }}
+                className="w-full py-3 rounded-xl font-bold text-white text-scale-label shadow-md hover:shadow-lg active:scale-[0.98] transition-all"
+                style={{ backgroundColor: accentHex }}
               >
                 {t('progress.testResults.tryAgain')}
               </button>

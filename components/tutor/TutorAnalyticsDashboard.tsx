@@ -7,6 +7,7 @@ import { getTutorTierFromXP, getTutorTierProgress, getXPToNextTutorTier, TUTOR_T
 import { useTheme } from '../../context/ThemeContext';
 import { useLanguage } from '../../context/LanguageContext';
 import { ICONS } from '../../constants';
+import { apiFetch } from '../../services/api-config';
 
 // Sub-components
 import TeachingImpactCard from './TeachingImpactCard';
@@ -97,7 +98,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
     }
 
     try {
-      const response = await fetch(`/api/tutor-analytics/?period=${period}`, {
+      const response = await apiFetch(`/api/tutor-analytics/?period=${period}`, {
         headers: {
           Authorization: `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`,
         },
@@ -129,7 +130,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
     // Also fetch tutor stats (only on initial load, not cached per period)
     if (!stats) {
       try {
-        const response = await fetch('/api/tutor-stats/', {
+        const response = await apiFetch('/api/tutor-stats/', {
           headers: {
             Authorization: `Bearer ${(await supabase.auth.getSession()).data.session?.access_token}`,
           },
@@ -180,12 +181,12 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
   }
 
   return (
-    <div className="h-full overflow-y-auto p-3 md:p-8 bg-[var(--bg-primary)]">
+    <div className="h-full overflow-y-auto p-3 md:p-8">
       <div className="max-w-4xl mx-auto space-y-4 md:space-y-6">
 
         {/* Tutor Tier Card */}
         <div
-          className="p-4 md:p-6 rounded-xl md:rounded-[2rem] shadow-lg text-white relative overflow-hidden"
+          className="p-4 md:p-6 rounded-xl md:rounded-2xl shadow-lg text-white relative overflow-hidden"
           style={{
             background: `linear-gradient(135deg, ${tierColor} 0%, ${tierColor}dd 100%)`,
           }}
@@ -199,7 +200,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
               <p className="text-white/60 text-scale-micro font-black uppercase tracking-widest mb-1">
                 {t('tutor.tier.yourLevel', 'Your Teaching Level')}
               </p>
-              <h2 className="text-scale-heading font-black">{tier.name}</h2>
+              <h2 className="text-scale-heading font-black font-header">{tier.name}</h2>
               <p className="text-white/70 text-scale-caption mt-1">
                 Tier {tier.tier} of {TUTOR_TIERS.length}
               </p>
@@ -223,7 +224,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
               </div>
               <div className="h-2 bg-white/20 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-white rounded-full transition-all duration-1000"
+                  className="h-full bg-[var(--bg-card)] rounded-full transition-all duration-1000"
                   style={{ width: `${tierProgress}%` }}
                 />
               </div>
@@ -237,7 +238,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
           {stats && stats.teachingStreak > 0 && (
             <div className="mt-4 flex items-center gap-2 relative z-10">
               <div className="flex items-center gap-1.5 bg-white/20 px-3 py-1.5 rounded-full">
-                <span className="text-lg">🔥</span>
+                <ICONS.Zap className="w-5 h-5 text-white" />
                 <span className="font-bold text-scale-label">
                   {stats.teachingStreak} day streak
                 </span>
@@ -252,7 +253,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
         </div>
 
         {/* Tab Switcher */}
-        <div className="flex gap-2 bg-[var(--bg-card)] p-1 rounded-xl border border-[var(--border-color)]" role="tablist">
+        <div className="flex gap-2 glass-card p-1 rounded-xl" role="tablist">
           <button
             role="tab"
             aria-selected={activeTab === 'teaching'}
@@ -340,8 +341,8 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
 
             {/* Recommendations */}
             {analytics && analytics.recommendations?.length > 0 && (
-              <div className="bg-[var(--bg-card)] p-4 md:p-6 rounded-xl md:rounded-[2rem] border border-[var(--border-color)]">
-                <h3 className="text-scale-micro font-black uppercase text-[var(--text-secondary)] tracking-widest mb-3 flex items-center gap-2">
+              <div className="glass-card p-4 md:p-6 rounded-xl md:rounded-2xl">
+                <h3 className="text-scale-micro font-black font-header uppercase text-[var(--text-secondary)] tracking-widest mb-3 flex items-center gap-2">
                   <ICONS.Lightbulb className="w-4 h-4" style={{ color: tierColor }} />
                   {t('tutor.recommendations.title', 'Suggestions')}
                 </h3>
@@ -376,7 +377,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
             {/* Quick Stats Grid */}
             {stats && (
               <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
-                <div className="bg-[var(--bg-card)] p-3 md:p-4 rounded-xl border border-[var(--border-color)] text-center">
+                <div className="glass-card p-3 md:p-4 rounded-xl text-center">
                   <div className="text-scale-heading font-black" style={{ color: tierColor }}>
                     {stats.challengesCreated}
                   </div>
@@ -384,7 +385,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
                     {t('tutor.stats.challenges', 'Challenges')}
                   </div>
                 </div>
-                <div className="bg-[var(--bg-card)] p-3 md:p-4 rounded-xl border border-[var(--border-color)] text-center">
+                <div className="glass-card p-3 md:p-4 rounded-xl text-center">
                   <div className="text-scale-heading font-black" style={{ color: tierColor }}>
                     {stats.giftsSent}
                   </div>
@@ -392,7 +393,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
                     {t('tutor.stats.gifts', 'Gifts Sent')}
                   </div>
                 </div>
-                <div className="bg-[var(--bg-card)] p-3 md:p-4 rounded-xl border border-[var(--border-color)] text-center">
+                <div className="glass-card p-3 md:p-4 rounded-xl text-center">
                   <div className="text-scale-heading font-black" style={{ color: tierColor }}>
                     {stats.perfectScores}
                   </div>
@@ -400,7 +401,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
                     {t('tutor.stats.perfects', 'Perfect Scores')}
                   </div>
                 </div>
-                <div className="bg-[var(--bg-card)] p-3 md:p-4 rounded-xl border border-[var(--border-color)] text-center">
+                <div className="glass-card p-3 md:p-4 rounded-xl text-center">
                   <div className="text-scale-heading font-black" style={{ color: tierColor }}>
                     {stats.wordsMastered}
                   </div>
@@ -417,7 +418,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
             {/* Partner XP & Level Card */}
             {partnerProfile && (
               <div
-                className="p-4 md:p-6 rounded-xl md:rounded-[2rem] shadow-lg text-white relative overflow-hidden"
+                className="p-4 md:p-6 rounded-xl md:rounded-2xl shadow-lg text-white relative overflow-hidden"
                 style={{
                   background: `linear-gradient(135deg, ${tierColor} 0%, ${tierColor}dd 100%)`,
                 }}
@@ -431,7 +432,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
                     <p className="text-white/60 text-scale-micro font-black uppercase tracking-widest mb-1">
                       {partnerProfile.full_name || t('common.partner', 'Partner')}
                     </p>
-                    <h2 className="text-scale-heading font-black">
+                    <h2 className="text-scale-heading font-black font-header">
                       {t('tutor.partner.learningProgress', 'Learning Progress')}
                     </h2>
                   </div>
@@ -459,7 +460,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
             {/* Partner Stats Grid */}
             {analytics && (
               <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
-                <div className="bg-[var(--bg-card)] p-3 md:p-4 rounded-xl border border-[var(--border-color)] text-center">
+                <div className="glass-card p-3 md:p-4 rounded-xl text-center">
                   <div className="text-scale-heading font-black" style={{ color: tierColor }}>
                     {analytics.words_per_week || 0}
                   </div>
@@ -467,7 +468,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
                     {t('tutor.partner.wordsThisWeek', 'Words This Week')}
                   </div>
                 </div>
-                <div className="bg-[var(--bg-card)] p-3 md:p-4 rounded-xl border border-[var(--border-color)] text-center">
+                <div className="glass-card p-3 md:p-4 rounded-xl text-center">
                   <div className="text-scale-heading font-black" style={{ color: tierColor }}>
                     {analytics.words_mastered || 0}
                   </div>
@@ -475,7 +476,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
                     {t('tutor.partner.wordsMastered', 'Words Mastered')}
                   </div>
                 </div>
-                <div className="bg-[var(--bg-card)] p-3 md:p-4 rounded-xl border border-[var(--border-color)] text-center">
+                <div className="glass-card p-3 md:p-4 rounded-xl text-center">
                   <div className="text-scale-heading font-black" style={{ color: tierColor }}>
                     {analytics.practice_consistency || 0}/7
                   </div>
@@ -483,7 +484,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
                     {t('tutor.partner.activeDays', 'Active Days')}
                   </div>
                 </div>
-                <div className="bg-[var(--bg-card)] p-3 md:p-4 rounded-xl border border-[var(--border-color)] text-center">
+                <div className="glass-card p-3 md:p-4 rounded-xl text-center">
                   <div className="text-scale-heading font-black" style={{ color: tierColor }}>
                     {analytics.challenge_success_rate || 0}%
                   </div>
@@ -530,8 +531,8 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
 
             {/* Empty State for New Partnerships - show only when no activity data */}
             {analytics && analytics.xp_trend?.every(d => d.value === 0) && analytics.words_trend?.every(d => d.value === 0) && (
-              <div className="bg-[var(--bg-card)] p-6 rounded-xl border border-[var(--border-color)] text-center">
-                <span className="text-4xl mb-3 block">📚</span>
+              <div className="glass-card p-6 rounded-xl text-center">
+                <span className="mb-3 block"><ICONS.Book className="w-10 h-10 text-[var(--text-secondary)] mx-auto" /></span>
                 <p className="text-scale-label font-bold text-[var(--text-primary)] mb-1">
                   {t('tutor.partner.noActivityYet', "Your partner hasn't started practicing yet!")}
                 </p>
@@ -542,8 +543,8 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
             )}
 
             {/* Recent Activity */}
-            <div className="bg-[var(--bg-card)] p-4 md:p-6 rounded-xl md:rounded-[2rem] border border-[var(--border-color)]">
-              <h3 className="text-scale-micro font-black uppercase text-[var(--text-secondary)] tracking-widest mb-3 flex items-center gap-2">
+            <div className="glass-card p-4 md:p-6 rounded-xl md:rounded-2xl">
+              <h3 className="text-scale-micro font-black font-header uppercase text-[var(--text-secondary)] tracking-widest mb-3 flex items-center gap-2">
                 <ICONS.Clock className="w-4 h-4" style={{ color: tierColor }} />
                 {t('tutor.partner.recentActivity', 'Recent Activity')}
               </h3>
@@ -556,7 +557,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
         <div className="grid grid-cols-3 gap-2 md:gap-3">
           <button
             onClick={() => navigate('/play')}
-            className="bg-[var(--bg-card)] p-3 md:p-5 rounded-xl md:rounded-[1.5rem] border border-[var(--border-color)] shadow-sm text-center hover:shadow-md transition-all"
+            className="glass-card p-3 md:p-5 rounded-xl md:rounded-[1.5rem] text-center hover:shadow-md transition-all"
           >
             <ICONS.Target className="w-5 h-5 md:w-6 md:h-6 mx-auto mb-1 md:mb-1.5" style={{ color: tierColor }} />
             <p className="text-scale-label font-bold text-[var(--text-primary)]">
@@ -565,7 +566,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
           </button>
           <button
             onClick={() => navigate('/play')}
-            className="bg-[var(--bg-card)] p-3 md:p-5 rounded-xl md:rounded-[1.5rem] border border-[var(--border-color)] shadow-sm text-center hover:shadow-md transition-all"
+            className="glass-card p-3 md:p-5 rounded-xl md:rounded-[1.5rem] text-center hover:shadow-md transition-all"
           >
             <ICONS.Gift className="w-5 h-5 md:w-6 md:h-6 mx-auto mb-1 md:mb-1.5" style={{ color: tierColor }} />
             <p className="text-scale-label font-bold text-[var(--text-primary)]">
@@ -574,7 +575,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
           </button>
           <button
             onClick={() => setShowLoveNote(true)}
-            className="bg-[var(--bg-card)] p-3 md:p-5 rounded-xl md:rounded-[1.5rem] border border-[var(--border-color)] shadow-sm text-center hover:shadow-md transition-all group"
+            className="glass-card p-3 md:p-5 rounded-xl md:rounded-[1.5rem] text-center hover:shadow-md transition-all group"
           >
             <ICONS.Heart className="w-5 h-5 md:w-6 md:h-6 mx-auto mb-1 md:mb-1.5 group-hover:text-red-500 transition-colors" style={{ color: tierColor }} />
             <p className="text-scale-label font-bold text-[var(--text-primary)]">

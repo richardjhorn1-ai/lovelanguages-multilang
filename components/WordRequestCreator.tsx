@@ -4,6 +4,7 @@ import { supabase } from '../services/supabase';
 import { Profile, WordSuggestion, DictionaryEntry } from '../types';
 import { ICONS } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
+import { apiFetch } from '../services/api-config';
 
 interface WordRequestCreatorProps {
   profile: Profile;
@@ -52,7 +53,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
     setGenerating(true);
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
-      const response = await fetch('/api/validate-word/', {
+      const response = await apiFetch('/api/validate-word/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -111,7 +112,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
 
-      const response = await fetch('/api/validate-word/', {
+      const response = await apiFetch('/api/validate-word/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -182,7 +183,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
 
-      const response = await fetch('/api/create-word-request/', {
+      const response = await apiFetch('/api/create-word-request/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -211,16 +212,16 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-      <div className="bg-[var(--bg-card)] rounded-[2rem] w-full max-w-md overflow-hidden max-h-[90vh] flex flex-col">
+    <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
+      <div className="glass-card-solid rounded-2xl w-full max-w-md overflow-hidden max-h-[90vh] flex flex-col">
         {/* Header */}
         <div className="p-5 border-b border-[var(--border-color)] flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-[var(--accent-light)] rounded-xl flex items-center justify-center text-xl">
-              🎁
+            <div className="w-10 h-10 bg-[var(--accent-light)] rounded-xl flex items-center justify-center">
+              <ICONS.Gift className="w-5 h-5 text-[var(--accent-color)]" />
             </div>
             <div>
-              <h2 className="font-black text-[var(--text-primary)]">{t('challengeCreator.lovePackage.title')}</h2>
+              <h2 className="font-black font-header text-[var(--text-primary)]">{t('challengeCreator.lovePackage.title')}</h2>
               <p className="text-scale-caption text-[var(--text-secondary)]">{t('challengeCreator.lovePackage.subtitle', { name: partnerName })}</p>
             </div>
           </div>
@@ -275,7 +276,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
                     </>
                   ) : (
                     <>
-                      <span>✨</span>
+                      <ICONS.Sparkles className="w-4 h-4" />
                       <span className="hidden sm:inline">{t('challengeCreator.common.generate')}</span>
                     </>
                   )}
@@ -286,7 +287,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
                     setGeneratedWord(null);
                     setNewTranslation('');
                   }}
-                  className="px-3 py-2 text-[var(--text-secondary)] hover:bg-[var(--bg-card)] rounded-xl font-bold text-scale-label transition-colors"
+                  className="px-3 py-2 text-[var(--text-secondary)] hover:bg-white/40 rounded-xl font-bold text-scale-label transition-colors"
                 >
                   {t('challengeCreator.common.clear')}
                 </button>
@@ -295,7 +296,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
 
             {/* Step 2: Show generated result with edit option */}
             {generatedWord && (
-              <div className="mb-3 p-3 bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)]">
+              <div className="mb-3 p-3 glass-card rounded-xl">
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
@@ -358,13 +359,13 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
                   return (
                     <div
                       key={index}
-                      className="flex items-center justify-between p-3 bg-[var(--bg-card)] rounded-xl border border-[var(--border-color)]"
+                      className="flex items-center justify-between p-3 glass-card rounded-xl"
                     >
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2">
                           <p className="font-bold text-[var(--text-primary)] truncate">{word.word}</p>
                           {word.word_type && word.word_type !== 'phrase' && (
-                            <span className="text-[10px] px-1.5 py-0.5 bg-[var(--accent-light)] text-[var(--accent-color)] rounded font-medium shrink-0">
+                            <span className="text-[10px] px-1.5 py-0.5 bg-[var(--secondary-light)] text-[var(--secondary-text)] rounded font-medium shrink-0">
                               {word.word_type}
                             </span>
                           )}
@@ -392,7 +393,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
           {/* XP Bonus Info */}
           {selectedWords.length > 0 && (
             <div className="flex items-center gap-2 px-4 py-3 bg-[var(--accent-light)] rounded-xl border border-[var(--accent-border)]">
-              <span className="text-lg">✨</span>
+              <ICONS.Sparkles className="w-5 h-5 text-[var(--accent-color)]" />
               <p className="text-scale-label text-[var(--accent-color)]">
                 {partnerName} earns <span className="font-bold">2x XP</span> for learning these words!
               </p>

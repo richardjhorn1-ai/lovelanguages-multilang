@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DemoWord } from './demoData';
 import { sounds } from '../../services/sounds';
+import { isCorrectAnswer } from '../../utils/answer-helpers';
+import { ICONS } from '../../constants';
 
 interface DemoQuickFireProps {
   accentColor: string;
@@ -75,7 +77,7 @@ export const DemoQuickFire: React.FC<DemoQuickFireProps> = ({
   const handleSubmit = () => {
     if (!answer.trim() || gameState !== 'playing') return;
 
-    const isCorrect = answer.trim().toLowerCase() === currentWord.translation.toLowerCase();
+    const isCorrect = isCorrectAnswer(answer, currentWord.translation);
     // Play feedback sound
     sounds.play('correct');
     setLastCorrect(isCorrect);
@@ -102,12 +104,12 @@ export const DemoQuickFire: React.FC<DemoQuickFireProps> = ({
 
   return (
     <div
-      className="rounded-[2rem] p-6 shadow-lg border flex flex-col items-center justify-center relative overflow-hidden"
-      style={{ backgroundColor: '#ffffff', borderColor: '#e5e7eb', width: '300px', height: '380px' }}
+      className="rounded-2xl p-6 shadow-lg border flex flex-col items-center justify-center relative overflow-hidden"
+      style={{ backgroundColor: 'var(--bg-card)', borderColor: 'var(--border-color)', width: '300px', height: '380px' }}
     >
       {/* Timer bar at top */}
       {gameState === 'playing' && (
-        <div className="absolute top-0 left-0 right-0 h-2 bg-gray-100">
+        <div className="absolute top-0 left-0 right-0 h-2 bg-[var(--bg-primary)]">
           <div
             className="h-full transition-all duration-1000 ease-linear"
             style={{
@@ -125,10 +127,10 @@ export const DemoQuickFire: React.FC<DemoQuickFireProps> = ({
             className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4"
             style={{ backgroundColor: `${accentColor}15` }}
           >
-            <span className="text-3xl">⚡</span>
+            <ICONS.Zap className="w-8 h-8" style={{ color: accentColor }} />
           </div>
-          <h3 className="text-xl font-black text-[#1a1a2e] mb-2">{t('demoQuickFire.title')}</h3>
-          <p className="text-sm text-gray-500 mb-6">
+          <h3 className="text-xl font-black font-header text-[var(--text-primary)] mb-2">{t('demoQuickFire.title')}</h3>
+          <p className="text-sm text-[var(--text-secondary)] mb-6">
             {t('demoQuickFire.instructions')}
           </p>
           <button
@@ -161,7 +163,7 @@ export const DemoQuickFire: React.FC<DemoQuickFireProps> = ({
             <span className="font-bold" style={{ color: accentColor }}>
               {score}/{totalAnswered}
             </span>
-            <span className={`font-bold ${timeLeft <= 5 ? 'text-red-500 animate-pulse' : 'text-gray-400'}`}>
+            <span className={`font-bold ${timeLeft <= 5 ? 'text-red-500 animate-pulse' : 'text-[var(--text-secondary)]'}`}>
               {timeLeft}s
             </span>
           </div>
@@ -169,13 +171,13 @@ export const DemoQuickFire: React.FC<DemoQuickFireProps> = ({
           {/* Word */}
           <div
             className={`w-full p-4 rounded-xl mb-4 text-center transition-all ${
-              lastCorrect === true ? 'bg-green-100' : lastCorrect === false ? 'bg-red-100' : 'bg-gray-50'
+              lastCorrect === true ? 'bg-green-100' : lastCorrect === false ? 'bg-red-100' : 'bg-[var(--bg-primary)]'
             }`}
           >
-            <span className="text-[9px] font-black uppercase tracking-widest text-gray-400 block mb-1">
+            <span className="text-[9px] font-black uppercase tracking-widest text-[var(--text-secondary)] block mb-1">
               {targetName}
             </span>
-            <h3 className="text-2xl font-black text-[#1a1a2e]">{currentWord.word}</h3>
+            <h3 className="text-2xl font-black font-header text-[var(--text-primary)]">{currentWord.word}</h3>
           </div>
 
           {/* Input */}
@@ -189,8 +191,8 @@ export const DemoQuickFire: React.FC<DemoQuickFireProps> = ({
             className="w-full p-3 rounded-xl border-2 focus:outline-none text-base font-medium text-center"
             style={{
               borderColor: lastCorrect === true ? '#4ade80' : lastCorrect === false ? '#f87171' : accentColor,
-              backgroundColor: '#f9fafb',
-              color: '#1a1a2e',
+              backgroundColor: 'var(--bg-primary)',
+              color: 'var(--text-primary)',
             }}
             autoComplete="off"
           />
@@ -216,10 +218,10 @@ export const DemoQuickFire: React.FC<DemoQuickFireProps> = ({
           >
             {score}/{totalAnswered}
           </div>
-          <p className="text-lg font-bold text-[#1a1a2e]">
+          <p className="text-lg font-bold text-[var(--text-primary)]">
             {score === totalAnswered ? t('demoQuickFire.perfect') : score > totalAnswered / 2 ? t('demoQuickFire.greatJob') : t('demoQuickFire.keepPracticing')}
           </p>
-          <p className="text-sm text-gray-400 mt-2">{t('demoQuickFire.timesUp')}</p>
+          <p className="text-sm text-[var(--text-secondary)] mt-2">{t('demoQuickFire.timesUp')}</p>
         </div>
       )}
     </div>

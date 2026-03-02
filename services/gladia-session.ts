@@ -12,6 +12,7 @@
 
 import { AudioRecorder, checkAudioSupport } from './audio-utils';
 import { supabase } from './supabase';
+import { apiFetch } from './api-config';
 
 // Session states
 export type GladiaState = 'disconnected' | 'connecting' | 'listening' | 'paused' | 'error';
@@ -97,7 +98,7 @@ export class GladiaSession {
 
       // Request WebSocket URL from backend
       // Backend calls Gladia API with our API key and returns the WebSocket URL
-      const tokenResponse = await fetch('/api/gladia-token/', {
+      const tokenResponse = await apiFetch('/api/gladia-token/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -9,8 +9,10 @@ export const BRAND = {
   shadow: 'rgba(255, 71, 97, 0.25)',
   teal: '#14b8a6',
   tealHover: '#0d9488',
-  tealLight: '#ccfbf1',
+  tealLight: '#f0fdfa',
   tealShadow: 'rgba(20, 184, 166, 0.25)',
+  gold: '#FFD93B',
+  ice: '#96DEEA',
 };
 
 // Types

@@ -23,7 +23,7 @@ const NudgeBanner: React.FC<NudgeBannerProps> = ({
     if (type === 'student_inactive') {
       if (daysSinceActivity >= 5) {
         return {
-          icon: '🎯',
+          icon: <ICONS.Target className="w-6 h-6" />,
           title: t('nudge.studentInactive5.title', 'Create a fun challenge?'),
           subtitle: t('nudge.studentInactive5.subtitle', '{{name}} could use some encouragement!', { name: partnerName }),
           action: t('nudge.studentInactive5.action', 'Create Challenge'),
@@ -31,7 +31,7 @@ const NudgeBanner: React.FC<NudgeBannerProps> = ({
         };
       }
       return {
-        icon: '💕',
+        icon: <ICONS.Heart className="w-6 h-6" />,
         title: t('nudge.studentInactive2.title', 'Send some encouragement?'),
         subtitle: t('nudge.studentInactive2.subtitle', "{{name}} hasn't practiced in a while", { name: partnerName }),
         action: t('nudge.studentInactive2.action', 'Send Love Note'),
@@ -41,7 +41,7 @@ const NudgeBanner: React.FC<NudgeBannerProps> = ({
 
     // Tutor inactive
     return {
-      icon: '👋',
+      icon: <ICONS.Mail className="w-6 h-6" />,
       title: t('nudge.tutorInactive.title', 'Miss your tutor?'),
       subtitle: t('nudge.tutorInactive.subtitle', 'Send {{name}} a love note!', { name: partnerName }),
       action: t('nudge.tutorInactive.action', 'Send Note'),
@@ -66,18 +66,18 @@ const NudgeBanner: React.FC<NudgeBannerProps> = ({
 
       <div className="flex items-center gap-4">
         {/* Icon */}
-        <div className="text-4xl flex-shrink-0">{config.icon}</div>
+        <div className="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">{config.icon}</div>
 
         {/* Content */}
         <div className="flex-1">
-          <h4 className="font-black text-scale-label">{config.title}</h4>
+          <h4 className="font-black font-header text-scale-label">{config.title}</h4>
           <p className="text-white/80 text-scale-caption">{config.subtitle}</p>
         </div>
 
         {/* Action Button */}
         <button
           onClick={onAction}
-          className="px-4 py-2 bg-white text-gray-800 rounded-xl font-bold text-scale-caption active:scale-95 transition-transform flex-shrink-0"
+          className="px-4 py-2 bg-[var(--bg-card)] text-[var(--text-primary)] rounded-xl font-bold text-scale-caption active:scale-95 transition-transform flex-shrink-0"
         >
           {config.action}
         </button>

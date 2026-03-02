@@ -116,24 +116,24 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
 
   // Active conversation UI
   return (
-    <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50">
-      <div className="bg-[var(--bg-card)] rounded-[2rem] w-full max-w-md h-[80vh] max-h-[600px] overflow-hidden flex flex-col">
+    <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50">
+      <div className="glass-card-solid rounded-2xl w-full max-w-md h-[80vh] max-h-[600px] overflow-hidden flex flex-col">
         {/* Header */}
         <div className="p-4 border-b border-[var(--border-color)] flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-purple-500/20 rounded-xl flex items-center justify-center text-xl">
-              {scenario?.icon || '🎙️'}
+            <div className="w-10 h-10 bg-[var(--secondary-light)] rounded-xl flex items-center justify-center text-xl">
+              {scenario?.icon || <ICONS.Mic className="w-5 h-5 text-[var(--secondary-color)]" />}
             </div>
             <div>
-              <h2 className="font-bold text-[var(--text-primary)] text-scale-label">
+              <h2 className="font-bold font-header text-[var(--text-primary)] text-scale-label">
                 {scenario?.id === 'custom' ? t('scenarioSelector.customScenarioName') : t(`scenarioSelector.scenarios.${scenario?.id}.name`)}
               </h2>
               <div className="flex items-center gap-2">
                 <span className={`w-2 h-2 rounded-full ${
                   state === 'listening' ? 'bg-green-500 animate-pulse' :
-                  state === 'speaking' ? 'bg-purple-500 animate-pulse' :
+                  state === 'speaking' ? 'bg-[var(--secondary-color)] animate-pulse' :
                   state === 'connecting' ? 'bg-amber-500 animate-pulse' :
-                  'bg-gray-400'
+                  'bg-[var(--text-secondary)]'
                 }`}></span>
                 <span className="text-scale-caption text-[var(--text-secondary)]">
                   {state === 'listening' ? t('conversationPractice.states.listening') :
@@ -176,7 +176,7 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
               <div
                 className={`max-w-[80%] p-3 rounded-2xl ${
                   entry.role === 'user'
-                    ? 'bg-purple-500 text-white rounded-br-md'
+                    ? 'bg-[var(--secondary-color)] text-white rounded-br-md'
                     : 'bg-[var(--bg-primary)] text-[var(--text-primary)] border border-[var(--border-color)] rounded-bl-md'
                 }`}
               >
@@ -188,7 +188,7 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
           {/* Current text being transcribed */}
           {currentText && (
             <div className="flex justify-start">
-              <div className="max-w-[80%] p-3 rounded-2xl bg-[var(--bg-primary)] border border-purple-300 dark:border-purple-700 rounded-bl-md">
+              <div className="max-w-[80%] p-3 rounded-2xl bg-[var(--bg-primary)] border border-[var(--secondary-border)] rounded-bl-md">
                 <p className="text-scale-label text-[var(--text-secondary)] italic">{currentText}...</p>
               </div>
             </div>
@@ -215,21 +215,21 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
           <div className="flex flex-col items-center justify-center">
             {state === 'listening' && (
               <>
-                <div className="w-20 h-20 bg-purple-500/20 rounded-full flex items-center justify-center mb-3 relative">
-                  <div className="absolute inset-0 bg-purple-500/10 rounded-full animate-ping"></div>
-                  <ICONS.Mic className="w-8 h-8 text-purple-500" />
+                <div className="w-20 h-20 bg-[var(--secondary-light)] rounded-full flex items-center justify-center mb-3 relative">
+                  <div className="absolute inset-0 bg-[var(--secondary-light)] rounded-full animate-ping"></div>
+                  <ICONS.Mic className="w-8 h-8 text-[var(--secondary-color)]" />
                 </div>
                 <p className="text-scale-label text-[var(--text-secondary)]">{t('conversationPractice.speakIn', { language: targetName })}</p>
               </>
             )}
             {state === 'speaking' && (
               <>
-                <div className="w-20 h-20 bg-purple-500/20 rounded-full flex items-center justify-center mb-3">
+                <div className="w-20 h-20 bg-[var(--secondary-light)] rounded-full flex items-center justify-center mb-3">
                   <div className="flex gap-1">
-                    <div className="w-1.5 h-6 bg-purple-500 rounded-full animate-pulse"></div>
-                    <div className="w-1.5 h-8 bg-purple-500 rounded-full animate-pulse" style={{ animationDelay: '0.1s' }}></div>
-                    <div className="w-1.5 h-5 bg-purple-500 rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
-                    <div className="w-1.5 h-7 bg-purple-500 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
+                    <div className="w-1.5 h-6 bg-[var(--secondary-color)] rounded-full animate-pulse"></div>
+                    <div className="w-1.5 h-8 bg-[var(--secondary-color)] rounded-full animate-pulse" style={{ animationDelay: '0.1s' }}></div>
+                    <div className="w-1.5 h-5 bg-[var(--secondary-color)] rounded-full animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+                    <div className="w-1.5 h-7 bg-[var(--secondary-color)] rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
                   </div>
                 </div>
                 <p className="text-scale-label text-[var(--text-secondary)]">{t('conversationPractice.aiSpeaking')}</p>

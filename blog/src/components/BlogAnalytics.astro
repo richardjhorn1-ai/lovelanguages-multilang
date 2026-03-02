@@ -1,5 +1,6 @@
 ---
 // Enhanced blog analytics component
+// Sends engagement events to GA4 + PostHog (dual destination)
 // Add to BaseLayout.astro or article pages
 
 interface Props {
@@ -17,8 +18,22 @@ const articleSlug = Astro.props.articleSlug || pathParts[3] || '';
 ---
 
 <script define:vars={{ nativeLang, targetLang, articleSlug }}>
-  // Set page-level dimensions for all events
-  if (typeof gtag !== 'undefined') {
+  // Helper: check if PostHog is loaded
+  const hasPostHog = () => typeof window.posthog !== 'undefined' && typeof window.posthog.capture === 'function';
+  const hasGtag = () => typeof gtag !== 'undefined';
+
+  // Dual-send helper: fires event to both GA4 and PostHog
+  function trackEvent(eventName, params) {
+    if (hasGtag()) {
+      gtag('event', eventName, params);
+    }
+    if (hasPostHog()) {
+      window.posthog.capture(eventName, params);
+    }
+  }
+
+  // Set page-level dimensions for GA4
+  if (hasGtag()) {
     gtag('set', {
       'content_group': nativeLang + '-' + targetLang,
       'custom_map': {
@@ -46,15 +61,13 @@ const articleSlug = Astro.props.articleSlug || pathParts[3] || '';
     scrollThresholds.forEach(threshold => {
       if (percent >= threshold && !scrollTracked.has(threshold)) {
         scrollTracked.add(threshold);
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'scroll_depth', {
-            percent: threshold,
-            native_lang: nativeLang,
-            target_lang: targetLang,
-            article_slug: articleSlug,
-            event_category: 'engagement'
-          });
-        }
+        trackEvent('scroll_depth', {
+          percent: threshold,
+          native_lang: nativeLang,
+          target_lang: targetLang,
+          article_slug: articleSlug,
+          event_category: 'engagement'
+        });
       }
     });
   }
@@ -79,15 +92,13 @@ const articleSlug = Astro.props.articleSlug || pathParts[3] || '';
     timeThresholds.forEach(threshold => {
       if (elapsed >= threshold && !timeTracked.has(threshold)) {
         timeTracked.add(threshold);
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'time_on_page', {
-            seconds: threshold,
-            native_lang: nativeLang,
-            target_lang: targetLang,
-            article_slug: articleSlug,
-            event_category: 'engagement'
-          });
-        }
+        trackEvent('time_on_page', {
+          seconds: threshold,
+          native_lang: nativeLang,
+          target_lang: targetLang,
+          article_slug: articleSlug,
+          event_category: 'engagement'
+        });
       }
     });
   }, 5000);
@@ -103,29 +114,27 @@ const articleSlug = Astro.props.articleSlug || pathParts[3] || '';
     const isExternal = href.startsWith('http') && !href.includes('lovelanguages.io');
     const isAppLink = href.startsWith('/') && !href.startsWith('/learn');
 
-    if (typeof gtag !== 'undefined') {
-      if (isExternal) {
-        gtag('event', 'outbound_click', {
-          url: href,
-          native_lang: nativeLang,
-          target_lang: targetLang,
-          event_category: 'engagement'
-        });
-      } else if (isAppLink) {
-        gtag('event', 'app_link_click', {
-          destination: href,
-          native_lang: nativeLang,
-          target_lang: targetLang,
-          article_slug: articleSlug,
-          event_category: 'conversion'
-        });
-      }
+    if (isExternal) {
+      trackEvent('outbound_click', {
+        url: href,
+        native_lang: nativeLang,
+        target_lang: targetLang,
+        event_category: 'engagement'
+      });
+    } else if (isAppLink) {
+      trackEvent('app_link_click', {
+        destination: href,
+        native_lang: nativeLang,
+        target_lang: targetLang,
+        article_slug: articleSlug,
+        event_category: 'conversion'
+      });
     }
   });
 
   // Track article view with full context
-  if (typeof gtag !== 'undefined' && articleSlug) {
-    gtag('event', 'article_view', {
+  if (articleSlug) {
+    trackEvent('article_view', {
       native_lang: nativeLang,
       target_lang: targetLang,
       article_slug: articleSlug,

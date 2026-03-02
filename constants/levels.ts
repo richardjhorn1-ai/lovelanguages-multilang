@@ -327,13 +327,6 @@ export const QUESTION_COUNTS: Record<string, number> = {
 // Pass threshold (percentage)
 export const PASS_THRESHOLD = 80;
 
-// Question type distribution
-export const QUESTION_TYPE_DISTRIBUTION = {
-  multipleChoice: 0.60,  // 60%
-  fillBlank: 0.25,       // 25%
-  translation: 0.15      // 15%
-};
-
 // Core vs personalized split
 export const CORE_QUESTIONS_RATIO = 0.70; // 70% standardized, 30% from Love Log
 
@@ -785,7 +778,3 @@ export function getThemeForTransition(fromLevel: string, toLevel: string): Level
   return null;
 }
 
-// Get all available transitions
-export function getAllTransitions(): string[] {
-  return Object.keys(LEVEL_THEMES);
-}

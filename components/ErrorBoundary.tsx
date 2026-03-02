@@ -1,5 +1,6 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 import i18n from 'i18next';
+import { ICONS } from '../constants';
 
 interface Props {
   children: ReactNode;
@@ -48,20 +49,22 @@ class ErrorBoundary extends Component<Props, State> {
 
       return (
         <div className="min-h-[50vh] flex items-center justify-center p-6">
-          <div className="bg-[var(--bg-card)] rounded-3xl shadow-xl border border-[var(--border-color)] p-8 max-w-md w-full text-center">
+          <div className="glass-card rounded-3xl p-8 max-w-md w-full text-center">
             {/* Heart with crack animation */}
-            <div className="relative mx-auto w-24 h-24 mb-6">
-              <div className="text-6xl animate-pulse">💔</div>
+            <div className="relative mx-auto w-24 h-24 mb-6 flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full bg-red-50 dark:bg-red-900/20 flex items-center justify-center animate-pulse">
+                <ICONS.HeartCrack className="w-10 h-10 text-red-400" />
+              </div>
             </div>
-            
-            <h2 className="text-2xl font-black text-[var(--text-primary)] mb-2">
+
+            <h2 className="text-2xl font-black font-header text-[var(--text-primary)] mb-2">
               {this.t('errorBoundary.title')}
             </h2>
 
             <p className="text-[var(--text-secondary)] mb-6">
               {this.t('errorBoundary.message')}
             </p>
-            
+
             {/* Error details (only in development) */}
             {process.env.NODE_ENV === 'development' && this.state.error && (
               <details className="mb-6 text-left">
@@ -74,11 +77,11 @@ class ErrorBoundary extends Component<Props, State> {
                 </pre>
               </details>
             )}
-            
+
             <div className="flex gap-3">
               <button
                 onClick={this.handleTryAgain}
-                className="flex-1 py-3 px-4 rounded-xl font-bold text-[var(--text-primary)] bg-[var(--bg-primary)] border border-[var(--border-color)] hover:bg-[var(--bg-card)] transition-colors"
+                className="flex-1 py-3 px-4 rounded-xl font-bold text-[var(--text-primary)] glass-card hover:bg-white/40 transition-colors"
               >
                 {this.t('errorBoundary.tryAgain')}
               </button>
@@ -89,7 +92,7 @@ class ErrorBoundary extends Component<Props, State> {
                 {this.t('errorBoundary.refreshPage')}
               </button>
             </div>
-            
+
             <p className="mt-6 text-scale-caption text-[var(--text-secondary)]">
               {this.t('errorBoundary.persistentError')}
             </p>

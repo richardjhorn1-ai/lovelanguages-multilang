@@ -293,7 +293,7 @@ const AvatarUpload: React.FC<AvatarUploadProps> = ({
         <div className="fixed inset-0 bg-black/90 z-50 flex flex-col">
           {/* Header */}
           <div className="flex items-center justify-between p-4 bg-black/50">
-            <h2 className="text-white font-bold text-scale-heading">{t('avatar.adjustPhoto')}</h2>
+            <h2 className="text-white font-bold font-header text-scale-heading">{t('avatar.adjustPhoto')}</h2>
             <button
               onClick={handleCancelCrop}
               className="text-white/70 hover:text-white p-2"
@@ -319,7 +319,7 @@ const AvatarUpload: React.FC<AvatarUploadProps> = ({
           </div>
 
           {/* Controls */}
-          <div className="p-4 sm:p-6 bg-[var(--bg-card)] space-y-4">
+          <div className="p-4 sm:p-6 glass-card space-y-4">
             {/* Zoom slider */}
             <div className="flex items-center gap-3 max-w-md mx-auto">
               <button

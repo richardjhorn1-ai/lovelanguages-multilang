@@ -8,11 +8,7 @@ export const GET: APIRoute = async () => {
   const staticPages = [
     { loc: '/', priority: '1.0', changefreq: 'daily' },
     { loc: '/learn/', priority: '1.0', changefreq: 'daily' },
-    { loc: '/learn/easiest-languages/', priority: '0.8', changefreq: 'monthly' },
-    { loc: '/learn/romance-languages/', priority: '0.8', changefreq: 'monthly' },
-    { loc: '/learn/slavic-languages/', priority: '0.8', changefreq: 'monthly' },
     { loc: '/learn/couples-language-learning/', priority: '0.8', changefreq: 'monthly' },
-    { loc: '/learn/romantic-phrases/', priority: '0.8', changefreq: 'monthly' },
     { loc: '/tools/', priority: '0.7', changefreq: 'monthly' },
     { loc: '/tools/name-day-finder/', priority: '0.7', changefreq: 'monthly' },
     { loc: '/dictionary/', priority: '0.6', changefreq: 'monthly' },

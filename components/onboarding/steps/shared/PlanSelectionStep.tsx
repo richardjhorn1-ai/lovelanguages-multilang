@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { OnboardingStep, NextButton } from '../../OnboardingStep';
+import { OnboardingStep, NextButton, ONBOARDING_GLASS } from '../../OnboardingStep';
 import { supabase } from '../../../../services/supabase';
 import { ICONS } from '../../../../constants';
 import { useLanguage } from '../../../../context/LanguageContext';
+import { isIAPAvailable, getOfferings, purchasePackage, restorePurchases, hasActiveEntitlement } from '../../../../services/purchases';
+import { apiFetch } from '../../../../services/api-config';
 
 interface PlanSelectionStepProps {
   currentStep: number;
@@ -37,7 +39,11 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
   const [billingPeriod, setBillingPeriod] = useState<'weekly' | 'monthly' | 'yearly'>('monthly');
   const [prices, setPrices] = useState<Prices | null>(null);
   const [loading, setLoading] = useState(true);
+  const [purchasing, setPurchasing] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [iapPackages, setIapPackages] = useState<any[]>([]); // RevenueCat packages for iOS
+  const [restoring, setRestoring] = useState(false);
+  const useIAP = isIAPAvailable();
 
   useEffect(() => {
     fetchPrices();
@@ -47,6 +53,16 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
     setError(null);
     setLoading(true);
     try {
+      // On iOS: fetch from RevenueCat (App Store prices)
+      if (useIAP) {
+        const offerings = await getOfferings();
+        if (offerings?.current?.availablePackages) {
+          setIapPackages(offerings.current.availablePackages);
+        }
+        // Still fetch Stripe prices as fallback for display
+      }
+
+      // Always fetch from our API (provides Stripe price IDs for web, feature info for both)
       const session = await supabase.auth.getSession();
       const token = session.data.session?.access_token;
 
@@ -57,7 +73,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
         return;
       }
 
-      const response = await fetch('/api/subscription-status/', {
+      const response = await apiFetch('/api/subscription-status/', {
         headers: { 'Authorization': `Bearer ${token}` }
       });
 
@@ -72,7 +88,10 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
 
       if (!data.prices?.standardMonthly) {
         console.error('[PlanSelectionStep] Prices missing from response:', data);
-        setError(t('onboarding.plan.errors.pricesUnavailable'));
+        // On iOS we can still proceed with IAP packages
+        if (!useIAP || iapPackages.length === 0) {
+          setError(t('onboarding.plan.errors.pricesUnavailable'));
+        }
         setLoading(false);
         return;
       }
@@ -83,6 +102,56 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
       setError(t('onboarding.plan.errors.loadFailed'));
     } finally {
       setLoading(false);
+    }
+  };
+
+  // Handle iOS IAP purchase
+  const handleIAPPurchase = async (plan: 'standard' | 'unlimited') => {
+    const productId = `${plan}_${billingPeriod}`;
+    const pkg = iapPackages.find(p => p.product?.identifier === productId);
+
+    if (!pkg) {
+      setError(`Product ${productId} not available`);
+      return;
+    }
+
+    setPurchasing(true);
+    setError(null);
+    try {
+      const customerInfo = await purchasePackage(pkg);
+      if (customerInfo) {
+        // Purchase succeeded — RevenueCat webhook will update DB
+        // Move to next step (onComplete)
+        onNext(plan, null); // No Stripe priceId for IAP
+      }
+      // If null, user cancelled — stay on this step
+    } catch (err: any) {
+      console.error('[PlanSelectionStep] IAP purchase error:', err);
+      setError(err?.message || 'Purchase failed. Please try again.');
+    } finally {
+      setPurchasing(false);
+    }
+  };
+
+  // Restore Purchases handler — required by Apple on every subscription screen
+  const handleRestorePurchases = async () => {
+    setRestoring(true);
+    setError(null);
+    try {
+      const customerInfo = await restorePurchases();
+      if (customerInfo) {
+        const entitlement = hasActiveEntitlement(customerInfo);
+        if (entitlement.isActive) {
+          // User has an active subscription — advance onboarding
+          onNext(entitlement.plan || 'standard', null);
+          return;
+        }
+      }
+      setError(t('subscription.errors.noActivePurchases', { defaultValue: 'No active purchases found' }));
+    } catch (err: any) {
+      setError(err?.message || t('subscription.errors.restoreFailed', { defaultValue: 'Failed to restore purchases' }));
+    } finally {
+      setRestoring(false);
     }
   };
 
@@ -111,7 +180,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
       weeklyPrice: 0,
       monthlyPrice: 0,
       yearlyPrice: 0,
-      tagline: t('subscription.choice.free.tagline', { defaultValue: 'Full access, then $19/mo' }),
+      tagline: t('subscription.choice.free.tagline', { defaultValue: 'Full access, then $17.99/mo' }),
       isTrial: true, // Special flag for trial display
       features: [
         { text: t('subscription.choice.free.feature1', { defaultValue: 'Full access for 7 days' }), included: true },
@@ -125,8 +194,8 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
       id: 'standard' as const,
       name: t('onboarding.plan.standard.name'),
       weeklyPrice: 7,
-      monthlyPrice: 19,
-      yearlyPrice: 69,
+      monthlyPrice: 17.99,
+      yearlyPrice: 69.99,
       tagline: t('onboarding.plan.standard.tagline'),
       features: [
         { text: t('onboarding.plan.standard.feature1'), included: true },
@@ -139,8 +208,8 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
     {
       id: 'unlimited' as const,
       name: t('onboarding.plan.unlimited.name'),
-      weeklyPrice: 12,
-      monthlyPrice: 39,
+      weeklyPrice: 12.99,
+      monthlyPrice: 39.99,
       yearlyPrice: 139,
       tagline: t('onboarding.plan.unlimited.tagline'),
       popular: true,
@@ -181,10 +250,10 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
       wide
     >
       <div className="text-center mb-6">
-        <h1 className="text-2xl font-black text-gray-800 mb-2 font-header">
+        <h1 className="text-2xl font-black text-[var(--text-primary)] mb-2 font-header">
           {t('onboarding.plan.title', { name: userName })}
         </h1>
-        <p className="text-gray-600">
+        <p className="text-[var(--text-secondary)]">
           {t('onboarding.plan.subtitle', { language: targetName })}
         </p>
       </div>
@@ -207,10 +276,10 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
         {/* Weekly */}
         <button
           onClick={() => setBillingPeriod('weekly')}
-          className={`flex flex-col items-center px-4 py-2 rounded-xl text-sm font-medium transition-all border-2 ${
+          className={`flex-1 min-w-0 flex flex-col items-center px-3 py-2 rounded-xl text-sm font-medium transition-all border-2 ${
             billingPeriod === 'weekly'
               ? 'bg-[var(--accent-light)] border-[var(--accent-color)] shadow-sm'
-              : 'bg-white/80 border-gray-200 text-gray-500 hover:border-gray-300'
+              : 'bg-white/20 border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--border-color)]'
           }`}
           style={{
             '--accent-color': accentColor,
@@ -225,15 +294,15 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
         {/* Monthly - Featured with glow */}
         <button
           onClick={() => setBillingPeriod('monthly')}
-          className={`flex flex-col items-center px-4 py-2 rounded-xl text-sm font-medium transition-all border-2 ${
+          className={`flex-1 min-w-0 flex flex-col items-center px-3 py-2 rounded-xl text-sm font-medium transition-all border-2 ${
             billingPeriod === 'monthly'
               ? 'text-white shadow-lg'
-              : 'bg-white/80 text-gray-700'
+              : 'bg-white/20 text-[var(--text-primary)]'
           }`}
           style={{
             background: billingPeriod === 'monthly' ? accentColor : undefined,
             borderColor: accentColor,
-            boxShadow: `0 0 20px ${accentColor}66, 0 0 40px ${accentColor}33`,
+            boxShadow: `0 0 20px ${accentColor}60, 0 0 40px ${accentColor}25`,
           }}
         >
           <span className={`text-xs mb-0.5 ${billingPeriod === 'monthly' ? 'opacity-90' : 'opacity-70'}`}>
@@ -245,10 +314,10 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
         {/* Yearly */}
         <button
           onClick={() => setBillingPeriod('yearly')}
-          className={`flex flex-col items-center px-4 py-2 rounded-xl text-sm font-medium transition-all border-2 ${
+          className={`flex-1 min-w-0 flex flex-col items-center px-3 py-2 rounded-xl text-sm font-medium transition-all border-2 ${
             billingPeriod === 'yearly'
               ? 'bg-[var(--accent-light)] border-[var(--accent-color)] shadow-sm'
-              : 'bg-white/80 border-gray-200 text-gray-500 hover:border-gray-300'
+              : 'bg-white/20 border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--border-color)]'
           }`}
           style={{
             '--accent-color': accentColor,
@@ -257,7 +326,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
           } as React.CSSProperties}
         >
           <span className="text-xs opacity-70 mb-0.5">{t('subscription.common.yearlyLabel')}</span>
-          <span className="flex items-center gap-1">
+          <span className="flex flex-wrap items-center justify-center gap-1">
             {t('subscription.common.yearly')}
             <span className="text-xs px-1.5 py-0.5 rounded-full bg-green-500 text-white">
               {t('subscription.common.discount')}
@@ -285,14 +354,15 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
             <button
               key={plan.id}
               onClick={() => setSelectedPlan(plan.id)}
-              className={`relative text-left p-4 rounded-2xl border-2 transition-all ${
-                isSelected
-                  ? 'border-[var(--accent-color)] bg-[var(--accent-light)]'
-                  : 'border-gray-200 bg-white hover:border-gray-300'
-              }`}
+              className="relative text-left p-4 transition-all animate-reveal"
               style={{
-                '--accent-color': accentColor,
-                '--accent-light': `${accentColor}10`,
+                ...ONBOARDING_GLASS,
+                border: isSelected ? `2px solid ${accentColor}60` : '1px solid transparent',
+                backgroundColor: isSelected ? `${accentColor}08` : 'rgba(255, 255, 255, 0.18)',
+                boxShadow: isSelected
+                  ? `0 4px 20px -4px ${accentColor}25`
+                  : '0 8px 32px -8px rgba(0, 0, 0, 0.06)',
+                animationDelay: `${0.1 * plans.indexOf(plan)}s`,
               } as React.CSSProperties}
             >
               {/* Popular Badge */}
@@ -311,8 +381,8 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
                 <div className="order-2 md:order-first text-right md:text-center flex-shrink-0 md:mb-2">
                   {(plan as any).isTrial ? (
                     <>
-                      <div className="text-2xl md:text-3xl font-bold text-gray-900">7</div>
-                      <div className="text-xs text-gray-500">
+                      <div className="text-2xl md:text-3xl font-bold text-[var(--text-primary)]">7</div>
+                      <div className="text-xs text-[var(--text-secondary)]">
                         {t('subscription.common.days', { defaultValue: 'days' })}
                       </div>
                       <div className="text-xs text-green-600 mt-1">
@@ -321,8 +391,8 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
                     </>
                   ) : (
                     <>
-                      <div className="text-2xl md:text-3xl font-bold text-gray-900">${price}</div>
-                      <div className="text-xs text-gray-500">
+                      <div className="text-2xl md:text-3xl font-bold text-[var(--text-primary)]">${price}</div>
+                      <div className="text-xs text-[var(--text-secondary)]">
                         /{periodLabel}
                       </div>
                       {billingPeriod === 'yearly' && (
@@ -337,7 +407,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
                 {/* Plan name and features */}
                 <div className="flex-1 md:w-full order-1 md:order-last">
                   <div className="flex items-center gap-3 mb-1 md:justify-center">
-                    <h3 className="text-lg font-bold text-gray-900">{plan.name}</h3>
+                    <h3 className="text-lg font-bold text-[var(--text-primary)]">{plan.name}</h3>
                     {isSelected && (
                       <div
                         className="w-5 h-5 rounded-full flex items-center justify-center"
@@ -347,25 +417,25 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
                       </div>
                     )}
                   </div>
-                  <p className="text-sm text-gray-500 mb-3">{plan.tagline}</p>
+                  <p className="text-sm text-[var(--text-secondary)] mb-3">{plan.tagline}</p>
 
                   <ul className="space-y-1 md:text-left">
                     {plan.features.slice(0, 4).map((feature, i) => {
                       const featureText = typeof feature === 'string' ? feature : feature.text;
                       const included = typeof feature === 'string' ? true : feature.included !== false;
                       return (
-                        <li key={i} className={`flex items-center gap-2 text-sm ${included ? 'text-gray-600' : 'text-gray-400'}`}>
+                        <li key={i} className={`flex items-center gap-2 text-sm ${included ? 'text-[var(--text-secondary)]' : 'text-[var(--text-secondary)] opacity-60'}`}>
                           {included ? (
                             <ICONS.Check className="w-4 h-4 flex-shrink-0" style={{ color: accentColor }} />
                           ) : (
-                            <span className="w-4 h-4 text-gray-300 text-center flex-shrink-0">✗</span>
+                            <span className="w-4 h-4 text-[var(--text-secondary)] opacity-60 text-center flex-shrink-0">✗</span>
                           )}
                           {featureText}
                         </li>
                       );
                     })}
                     {plan.features.length > 4 && (
-                      <li className="text-xs text-gray-400 pl-6">
+                      <li className="text-xs text-[var(--text-secondary)] pl-6">
                         {t('onboarding.plan.moreFeatures', { count: plan.features.length - 4 })}
                       </li>
                     )}
@@ -379,23 +449,78 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
 
       {/* Continue Button */}
       <NextButton
-        onClick={() => onNext(selectedPlan || 'standard', selectedPlan === 'free' ? null : getPriceId())}
-        disabled={!selectedPlan || (selectedPlan !== 'free' && !prices)}
+        onClick={async () => {
+          if (selectedPlan === 'free') {
+            if (useIAP) {
+              // iOS: Free trial = App Store intro offer on standard_monthly
+              const pkg = iapPackages.find((p: any) => p.product?.identifier === 'standard_monthly');
+              if (!pkg) {
+                setError(t('subscription.errors.trialUnavailable', { defaultValue: 'Free trial not available. Please select a plan.' }));
+                return;
+              }
+              setPurchasing(true);
+              setError(null);
+              try {
+                const customerInfo = await purchasePackage(pkg);
+                if (customerInfo) {
+                  // Trial started via App Store — RevenueCat webhook updates DB
+                  // Pass 'standard' so Onboarding.tsx skips server-side trial
+                  onNext('standard', null);
+                }
+                // null = user cancelled, stay on step
+              } catch (err: any) {
+                setError(err?.message || t('subscription.errors.trialFailed', { defaultValue: 'Failed to start trial. Please try again.' }));
+              } finally {
+                setPurchasing(false);
+              }
+            } else {
+              // Web: server-side free trial (no card required)
+              onNext('free', null);
+            }
+          } else if (useIAP && selectedPlan) {
+            // iOS: trigger in-app purchase via RevenueCat
+            handleIAPPurchase(selectedPlan as 'standard' | 'unlimited');
+          } else {
+            // Web: pass Stripe price ID
+            onNext(selectedPlan || 'standard', getPriceId());
+          }
+        }}
+        disabled={!selectedPlan || purchasing || (selectedPlan !== 'free' && !useIAP && !prices)}
         accentColor={selectedPlan === 'free' ? '#374151' : accentColor}
       >
-        {selectedPlan === 'free'
-          ? t('subscription.choice.free.cta', { defaultValue: 'Start 7-Day Free Trial' })
-          : t('onboarding.plan.continueWith', { plan: selectedPlan ? plans.find(p => p.id === selectedPlan)?.name : t('onboarding.plan.aPlan') })
+        {purchasing
+          ? t('onboarding.plan.processing', { defaultValue: 'Processing...' })
+          : selectedPlan === 'free'
+            ? t('subscription.choice.free.cta', { defaultValue: 'Start 7-Day Free Trial' })
+            : t('onboarding.plan.continueWith', { plan: selectedPlan ? plans.find(p => p.id === selectedPlan)?.name : t('onboarding.plan.aPlan') })
         }
       </NextButton>
 
       {/* Trust signals */}
-      <p className="text-center text-xs text-gray-400 mt-4">
+      <p className="text-center text-xs text-[var(--text-secondary)] mt-4">
         {selectedPlan === 'free'
-          ? t('subscription.choice.free.noCardRequired', { defaultValue: 'No credit card required' })
+          ? (useIAP
+              ? t('subscription.choice.free.iosTrialNote', { defaultValue: '7 days free, then $17.99/mo. Cancel anytime.' })
+              : t('subscription.choice.free.noCardRequired', { defaultValue: 'No credit card required' }))
           : t('onboarding.plan.trustSignal')
         }
       </p>
+
+      {/* Restore Purchases — required by Apple for App Store */}
+      {useIAP && (
+        <div className="text-center mt-4">
+          <button
+            onClick={handleRestorePurchases}
+            disabled={restoring}
+            className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] underline disabled:opacity-50"
+          >
+            {restoring
+              ? t('subscription.restore.restoring', { defaultValue: 'Restoring...' })
+              : t('subscription.restore.button', { defaultValue: 'Restore Purchases' })
+            }
+          </button>
+        </div>
+      )}
     </OnboardingStep>
   );
 };
