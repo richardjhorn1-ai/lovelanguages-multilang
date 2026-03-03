@@ -20,6 +20,9 @@ export function sanitizeArticleContent(content: string): string {
   sanitized = sanitized.replace(/(<p>\s*<\/p>\s*)+/gi, '');
   sanitized = sanitized.replace(/\n{3,}/g, '\n\n');
 
+  // Convert h1 tags to h2 (page should only have one h1 — the article title rendered by the layout)
+  sanitized = sanitized.replace(/<h1([^>]*)>/gi, '<h2$1>').replace(/<\/h1>/gi, '</h2>');
+
   // Trim whitespace
   sanitized = sanitized.trim();
 
