@@ -6,6 +6,23 @@ Developer guidance for Claude Code when working with this repository.
 
 **Love Languages** — Multi-language learning app for couples. Built with React, Supabase, Google Gemini. 18 supported languages where any can be native or target.
 
+### Migration Status (Next.js 15)
+
+**Branch:** `feature/nextjs-migration` — Migrating from Vite+Astro dual-build to unified Next.js 15 App Router.
+
+**Current Phase:** Phase 1 complete (Next.js foundation boots and builds). Phase 2 next (core infrastructure).
+
+**Migration Plan:** `docs/MIGRATION_PLAN.md` — Full plan with scope, phases, sanity checks. Read this first when starting work.
+
+**Key Constraints:**
+- `trailingSlash: true` — all URLs must use trailing slashes
+- `NEXT_PUBLIC_*` env vars (not `VITE_*`) for client-side
+- `@supabase/ssr` for cookie-based auth (not localStorage)
+- PersistentTabs pattern: 4 tabs stay mounted via CSS `display:none` — do not unmount on tab switch
+- ISR with 24h revalidation for 13K+ blog articles
+- Capacitor must remain functional for iOS builds
+- Build must pass after every phase
+
 **Key Document:** `docs/archived/ML_MASTER_PLAN.md` — Source of truth for project status and architecture.
 
 ## Agent Rules
@@ -83,10 +100,10 @@ Use the centralized helpers — never manual fallbacks like `|| 'pl'` or `|| 'en
 ## Quick Commands
 
 ```bash
-npm run dev              # Vite dev server (localhost:5173)
-vercel dev               # Full stack with APIs (localhost:3000)
+npm run dev              # Next.js dev server (localhost:3000)
+npm run build            # Next.js production build
+npm run start            # Serve production build
 npx tsc --noEmit         # TypeScript check
-npm run build            # Production build
 npm run test:e2e         # Playwright E2E tests
 ```
 
@@ -96,22 +113,24 @@ npm run test:e2e         # Playwright E2E tests
 
 All endpoints accept `targetLanguage` and `nativeLanguage`. Every handler: CORS → auth → logic → response. See `utils/api-middleware.ts` for the standard pattern.
 
+**Migration note:** API routes are moving from `api/` (Vercel serverless) to `app/api/` (Next.js route handlers). Pattern changes from `export default function handler(req, res)` to `export async function POST(request: Request)`.
+
 ### Key Directories
 
 | Path | Purpose |
 |------|---------|
-| `api/` | Vercel serverless functions |
+| `app/` | Next.js App Router (routes, layouts, pages) — **being built** |
+| `app/api/` | Next.js API route handlers — **migrating from `api/`** |
+| `api/` | Original Vercel serverless functions — **migrating to `app/api/`** |
 | `components/` | React components |
 | `constants/language-config.ts` | 18 language configurations |
 | `utils/` | Shared utilities (prompts, schemas, middleware, helpers) |
 | `services/` | Gemini, Supabase, WebSocket clients |
-| `blog/` | Astro static site for SEO |
+| `lib/` | Blog data layer, Supabase clients — **being built** |
+| `blog/` | Astro static site — **migrating to `app/learn/`** |
 | `e2e/` | Playwright E2E tests |
 | `migrations/` | SQL migrations (run manually in Supabase) |
-
-### Vercel Serverless Limitation
-
-API files cannot import from sibling directories. Shared code goes in `utils/` or `services/`.
+| `docs/MIGRATION_PLAN.md` | Migration plan (source of truth) |
 
 ### Custom Markdown Blocks
 
@@ -149,6 +168,8 @@ npx tsc --noEmit && npm run build                                       # Type c
 ```
 
 Test accounts: `testaccount[1-6]@gmail.com` / `tester[1-6]`
+
+**Migration note:** Playwright baseURL changing from `localhost:5173` to `localhost:3000`. Vitest config will be updated to remove Vite dependency.
 
 ## Cost Optimization
 
@@ -228,8 +249,10 @@ Tabs stay mounted via CSS (`display: none`) rather than unmounting. All tabs ini
 
 ### Environment Variables
 
-Client-side: `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`
-Server-side: `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, `GEMINI_API_KEY`, `GLADIA_API_KEY`, `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`
+Client-side (6): `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`, `NEXT_PUBLIC_GA4_MEASUREMENT_ID`, `NEXT_PUBLIC_REVENUECAT_API_KEY`, `NEXT_PUBLIC_API_BASE_URL`
+Server-side (19): `SUPABASE_SERVICE_KEY`, `GEMINI_API_KEY`, `GLADIA_API_KEY`, `GOOGLE_CLOUD_TTS_API_KEY`, `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, and more — see `.env.example`
+
+**Migration note:** All `VITE_*` vars renamed to `NEXT_PUBLIC_*`. All `import.meta.env` replaced with `process.env`.
 
 ### Blog URL Convention
 
@@ -243,13 +266,13 @@ Server-side: `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, `GEMINI_API_KEY`, `GLADIA_A
 | Canonical URLs | Always trailing slash |
 | Sitemap URLs | Always trailing slash |
 
-**Use `blog/src/lib/urls.ts`** for URL building — never hardcode URL patterns in templates:
+**Use URL helpers** for URL building — never hardcode URL patterns in templates:
 - `canonicalUrl(pathname)` — full URL with trailing slash
 - `articleUrl(native, target, slug)` — article path
 - `hubUrl(native, target?)` — hub page path
 - `normalizePathname(path)` — ensure trailing slash
 
-**Never hardcode URL patterns** like `` `https://www.lovelanguages.io${Astro.url.pathname}` ``. Use the helper instead.
+**Migration note:** URL helpers moving from `blog/src/lib/urls.ts` to `lib/blog-urls.ts`.
 
 ---
 

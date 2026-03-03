@@ -3,6 +3,9 @@
 /* Exclude non-source dirs from Tailwind v4 auto-detection */
 @source not "../.claude";
 @source not "../promo-video";
+@source not "../.next";
+/* Include app directory for Next.js routes */
+@source "../app";
 
 /* Theme CSS Variables */
 :root {
@@ -96,7 +99,7 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-#root {
+#root, #__next {
     width: 100%;
     height: 100%;
 }
@@ -114,7 +117,8 @@ html.capacitor, html.capacitor body {
     bottom: 0;
 }
 
-html.capacitor #root {
+html.capacitor #root,
+html.capacitor #__next {
     overflow: hidden;
 }
 
@@ -127,7 +131,8 @@ html.capacitor.scrollable-page body {
     min-height: 100dvh;
 }
 
-html.capacitor.scrollable-page #root {
+html.capacitor.scrollable-page #root,
+html.capacitor.scrollable-page #__next {
     overflow: visible;
     height: auto;
 }
