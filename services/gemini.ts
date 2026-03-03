@@ -1,3 +1,5 @@
+'use client';
+
 import { supabase } from './supabase';
 import { apiFetch } from './api-config';
 import { ExtractedWord, Attachment, SessionContext, ProposedAction } from '../types';

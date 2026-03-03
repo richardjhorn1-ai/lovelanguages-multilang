@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Sound effects service for UI feedback
  * Handles preloading, playback, and mute state

@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Romantic phrases service with caching and usage tracking
  * Generates phrases dynamically via AI, caches locally

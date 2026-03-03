@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * IndexedDB data-access layer for offline mode.
  * Pure storage — no network logic, no sync orchestration.

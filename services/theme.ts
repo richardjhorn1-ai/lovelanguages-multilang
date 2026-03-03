@@ -1,3 +1,5 @@
+'use client';
+
 // Theme types and constants
 
 export type AccentColor = 'rose' | 'coral' | 'honey' | 'mint' | 'ocean' | 'wine';

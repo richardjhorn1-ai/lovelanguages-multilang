@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Audio utilities for Gemini Live API
  * - AudioRecorder: Captures microphone audio at 16kHz PCM mono

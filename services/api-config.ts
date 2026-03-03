@@ -14,13 +14,13 @@
  * - apiFetch(): Drop-in replacement for fetch() that auto-prepends API_BASE_URL
  *     to paths starting with '/api/'. All other URLs pass through unchanged.
  *
- * To build for iOS, set the env var before vite build:
- *   VITE_API_BASE_URL=https://www.lovelanguages.io npm run build:app
+ * To build for iOS, set the env var before next build:
+ *   NEXT_PUBLIC_API_BASE_URL=https://www.lovelanguages.io npm run build
  *
  * The cap:sync and cap:build:ios npm scripts do this automatically.
  */
 
-export const API_BASE_URL: string = import.meta.env.VITE_API_BASE_URL || '';
+export const API_BASE_URL: string = process.env.NEXT_PUBLIC_API_BASE_URL || '';
 
 // Always the production URL — never capacitor://localhost or localhost:5173.
 // Used for URLs that leave the app and must be real, shareable web URLs.

@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * RevenueCat In-App Purchase Service
  *
@@ -48,7 +50,7 @@ type RCCustomerInfo = {
 };
 
 // RevenueCat API key — set in environment
-const RC_API_KEY = import.meta.env.VITE_REVENUECAT_API_KEY || '';
+const RC_API_KEY = process.env.NEXT_PUBLIC_REVENUECAT_API_KEY || '';
 
 // Map App Store product IDs to our plan names
 const PRODUCT_TO_PLAN: Record<string, { plan: 'standard' | 'unlimited'; period: 'weekly' | 'monthly' | 'yearly' }> = {
@@ -82,7 +84,7 @@ export function isIAPAvailable(): boolean {
 export async function configurePurchases(userId: string): Promise<void> {
   if (!isIAPAvailable() || isConfigured) return;
   if (!RC_API_KEY) {
-    console.warn('[Purchases] VITE_REVENUECAT_API_KEY not set');
+    console.warn('[Purchases] NEXT_PUBLIC_REVENUECAT_API_KEY not set');
     return;
   }
 

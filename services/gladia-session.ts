@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Gladia Session Service
  *
@@ -43,7 +45,7 @@ export interface GladiaConfig {
 }
 
 // Debug mode - set to false to reduce console noise
-const DEBUG = import.meta.env.DEV;  // Enable in development
+const DEBUG = process.env.NODE_ENV !== 'production';
 
 function log(...args: any[]) {
   if (DEBUG) {

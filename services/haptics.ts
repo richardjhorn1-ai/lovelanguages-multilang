@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Haptic feedback service for native app experience
  * Uses Capacitor Haptics plugin with fallback for web

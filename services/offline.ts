@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Offline mode service — network detection + sync orchestration.
  * Storage is handled by offline-db.ts (IndexedDB).

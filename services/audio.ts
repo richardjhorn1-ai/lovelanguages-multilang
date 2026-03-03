@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Audio utilities for multi-language text-to-speech
  * Uses Google Cloud TTS via API with browser fallback

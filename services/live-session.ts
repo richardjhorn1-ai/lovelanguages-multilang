@@ -1,3 +1,5 @@
+'use client';
+
 import { GoogleGenAI, Session } from '@google/genai';
 import { supabase } from './supabase';
 import { apiFetch } from './api-config';
@@ -29,7 +31,7 @@ export interface LiveSessionConfig {
 }
 
 // Debug mode - enabled in development, disabled in production
-const DEBUG = import.meta.env.DEV;
+const DEBUG = process.env.NODE_ENV !== 'production';
 
 function log(...args: any[]) {
   if (DEBUG) {
