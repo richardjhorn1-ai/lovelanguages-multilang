@@ -10,7 +10,7 @@ Developer guidance for Claude Code when working with this repository.
 
 **Branch:** `feature/nextjs-migration` — Migrating from Vite+Astro dual-build to unified Next.js 15 App Router.
 
-**Current Phase:** Phase 1 complete (Next.js foundation boots and builds). Phase 2 next (core infrastructure).
+**Current Phase:** Phase 2 complete (core infrastructure — auth, env vars, services, providers, API middleware, 61 API routes). Phase 3 next (app routes, PersistentTabs, react-router-dom migration).
 
 **Migration Plan:** `docs/MIGRATION_PLAN.md` — Full plan with scope, phases, sanity checks. Read this first when starting work.
 

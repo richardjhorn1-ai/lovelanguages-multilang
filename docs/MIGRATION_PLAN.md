@@ -176,7 +176,7 @@ Love Languages (lovelanguages.io) is a multi-language learning app for couples. 
 
 **Goal:** All services, contexts, hooks, API middleware, and Supabase auth work in Next.js.
 
-**Current Status:** 2.1–2.5 complete. 2.6 (API middleware rewrite) next.
+**Current Status:** All sub-phases complete (2.1–2.7). Phase 2 sanity check passed.
 
 ### 2.1 Supabase Auth Migration (HARD — 38 files) [COMPLETED]
 
@@ -241,31 +241,17 @@ Create `app/providers.tsx` — client component wrapping:
 
 **Status:** Complete. `'use client'` added to hooks, constants/icons.tsx, context files, and i18n/index.ts.
 
-### 2.6 API Middleware Rewrite (HARD — 941 lines, 19 functions)
+### 2.6 API Middleware Rewrite (HARD — 941 lines, 19 functions) [COMPLETED]
 
 **File:** `utils/api-middleware.ts`
 
-This must be rewritten BEFORE any API routes, as all 59 endpoints depend on it.
+**Status:** Complete. Rewritten for web-standard `Request`/`NextResponse`. Key new functions: `getCorsHeaders(request)` returns Headers, `handleCorsPreflightResponse(request)` returns NextResponse for OPTIONS, `getStreamingCorsHeaders(request)` for SSE, `createErrorResponse()` returns NextResponse. Backward-compat wrappers (`setCorsHeaders`, `setStreamingCorsHeaders`, `setSecurityHeaders`) added at end of file so old `api/` routes still work during migration — remove these in Phase 5 cleanup.
 
-Current custom interfaces → web standards:
-```
-VercelRequest (lines 129-135) → Request (web standard)
-VercelResponse (lines 137-144) → NextResponse
-```
+**Lessons Learned:**
+- Renaming exports breaks all consumers immediately — backward-compat wrappers are essential for incremental migration
+- `.js` extension imports in utils worked with Vite but fail with Next.js webpack — removed all `.js` extensions from `utils/` imports
 
-19 exported functions to adapt:
-- `setCorsHeaders` / `setStreamingCorsHeaders` — change to work with `NextResponse`
-- `verifyAuth` — must use `@supabase/ssr` server client from cookies (no more `req.headers.authorization`)
-- `verifyAdminAuth` — same
-- `createServiceClient` — keep (uses service key, server-only)
-- `getSubscriptionPlan`, `requireSubscription` — keep logic, change request interface
-- `checkRateLimit`, `incrementUsage` — keep logic, change interfaces
-- `checkAuthRateLimit`, `clearAuthRateLimit` — keep logic
-- `logSecurityEvent`, `getClientIp` — extract IP from headers differently
-- `setSecurityHeaders`, `sanitizeErrorMessage`, `createErrorResponse` — adapt for NextResponse
-- Rate limit config with 13 endpoint definitions across 3 tiers — keep as-is
-
-### 2.7 Convert API Routes (59 files, 13,915 lines)
+### 2.7 Convert API Routes (61 files) [COMPLETED]
 
 Pattern change for all endpoints:
 ```typescript
@@ -295,6 +281,13 @@ Pattern change for all endpoints:
 - **`maxDuration`** configs: `analyze-history` (60s), `complete-word-request` (30s), `generate-level-test` (60s) — set via `export const maxDuration = N`
 - **In-memory caching** (`coach-context.ts`): Works in serverless but cache may not persist — evaluate if acceptable
 - **Background processing** (`complete-word-request.ts`): `waitUntil`-style processing after response sent
+
+**Status:** Complete. 61 route files created in `app/api/`. All conversions follow the standard pattern: imports changed to `@/` aliases, `setCorsHeaders`→`getCorsHeaders`+`handleCorsPreflightResponse`, `handler`→named exports (POST/GET/OPTIONS), `req.body`→`await request.json()`, `res.status().json()`→`NextResponse.json()`. Special cases handled: SSE streaming (ReadableStream), webhooks (raw body via `await request.text()`), edge runtime (analytics-event), admin auth (generate-article). Build verified passing.
+
+**Lessons Learned:**
+- 5 parallel agents converting ~12 files each is the sweet spot for efficiency
+- Next.js route files only allow specific exports (GET, POST, OPTIONS, runtime, config, etc.) — helper functions must NOT be exported
+- Both `api/` and `app/api/` can coexist during migration, but `app/api/` takes precedence for Next.js
 
 ### Verify Phase 2
 - All API routes respond (test with curl/fetch)
