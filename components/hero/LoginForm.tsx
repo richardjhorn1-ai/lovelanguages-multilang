@@ -57,7 +57,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
     setMessage('');
 
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${APP_URL}/#/reset-password`,
+      redirectTo: `${APP_URL}/reset-password`,
     });
 
     setResetLoading(false);

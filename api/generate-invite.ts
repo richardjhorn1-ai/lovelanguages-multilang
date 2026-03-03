@@ -147,7 +147,7 @@ export default async function handler(req: any, res: any) {
 
         return res.status(200).json({
           token: existingToken.token,
-          inviteLink: `${baseUrl}/#/join/${existingToken.token}`,
+          inviteLink: `${baseUrl}/join/${existingToken.token}`,
           expiresAt: existingToken.expires_at,
           isExisting: true
         });
@@ -183,7 +183,7 @@ export default async function handler(req: any, res: any) {
 
     return res.status(200).json({
       token: newToken.token,
-      inviteLink: `${baseUrl}/#/join/${newToken.token}`,
+      inviteLink: `${baseUrl}/join/${newToken.token}`,
       expiresAt: newToken.expires_at,
       isExisting: false
     });

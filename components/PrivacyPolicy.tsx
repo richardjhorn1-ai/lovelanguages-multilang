@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
 import { ICONS } from '../constants';
@@ -8,6 +8,12 @@ const PrivacyPolicy: React.FC = () => {
   const { accentHex } = useTheme();
 
   const lastUpdated = 'February 27, 2026';
+
+  // Allow scrolling on iOS (Capacitor) by overriding position:fixed/overflow:hidden
+  useEffect(() => {
+    document.documentElement.classList.add('scrollable-page');
+    return () => { document.documentElement.classList.remove('scrollable-page'); };
+  }, []);
 
   return (
     <div className="min-h-screen overflow-y-auto" style={{ background: 'var(--bg-primary)', paddingTop: 'env(safe-area-inset-top, 0px)' }}>

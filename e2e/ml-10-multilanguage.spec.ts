@@ -26,7 +26,7 @@ test.describe('ML-10: Multi-Language Verification', () => {
 
     test('Chat responds in user native language', async ({ page }) => {
       // This test should be run with authenticated state
-      await page.goto('/#/');
+      await page.goto('/');
 
       // Find chat input
       const chatInput = page.getByPlaceholder(/type|message|ask/i);
@@ -46,7 +46,7 @@ test.describe('ML-10: Multi-Language Verification', () => {
     });
 
     test('Learn mode shows tables and drills', async ({ page }) => {
-      await page.goto('/#/');
+      await page.goto('/');
 
       // Switch to Learn mode if not default
       const learnModeBtn = page.getByRole('button', { name: /learn/i });
@@ -71,7 +71,7 @@ test.describe('ML-10: Multi-Language Verification', () => {
   test.describe('Love Log', () => {
 
     test('Love Log shows vocabulary filtered by language', async ({ page }) => {
-      await page.goto('/#/log');
+      await page.goto('/log');
 
       // Wait for Love Log to load
       await page.waitForLoadState('networkidle');
@@ -84,15 +84,15 @@ test.describe('ML-10: Multi-Language Verification', () => {
     });
 
     test('Vocabulary extraction adds words to Love Log', async ({ page }) => {
-      await page.goto('/#/');
+      await page.goto('/');
 
       // Get initial word count from Love Log
-      await page.goto('/#/log');
+      await page.goto('/log');
       await page.waitForLoadState('networkidle');
       const initialCount = await page.locator('[data-testid="word-card"]').count();
 
       // Go back to chat and learn a word
-      await page.goto('/#/');
+      await page.goto('/');
       const chatInput = page.getByPlaceholder(/type|message|ask/i);
       await chatInput.fill('How do I say beautiful?');
       await chatInput.press('Enter');
@@ -101,7 +101,7 @@ test.describe('ML-10: Multi-Language Verification', () => {
       await page.waitForTimeout(5000); // Allow extraction to complete
 
       // Check Love Log for new words
-      await page.goto('/#/log');
+      await page.goto('/log');
       await page.waitForLoadState('networkidle');
       const newCount = await page.locator('[data-testid="word-card"]').count();
 
@@ -113,7 +113,7 @@ test.describe('ML-10: Multi-Language Verification', () => {
   test.describe('Play Section', () => {
 
     test('Games load with correct language words', async ({ page }) => {
-      await page.goto('/#/play');
+      await page.goto('/play');
 
       // Wait for play section
       await page.waitForLoadState('networkidle');
@@ -129,7 +129,7 @@ test.describe('ML-10: Multi-Language Verification', () => {
     });
 
     test('Translation direction shows correct language names', async ({ page }) => {
-      await page.goto('/#/play');
+      await page.goto('/play');
       await page.waitForLoadState('networkidle');
 
       // Look for language direction indicator
@@ -147,7 +147,7 @@ test.describe('ML-10: Multi-Language Verification', () => {
   test.describe('Progress', () => {
 
     test('Progress page loads correctly', async ({ page }) => {
-      await page.goto('/#/progress');
+      await page.goto('/progress');
       await page.waitForLoadState('networkidle');
 
       // Should show level/XP information
@@ -158,7 +158,7 @@ test.describe('ML-10: Multi-Language Verification', () => {
     });
 
     test('Progress is tracked per language', async ({ page }) => {
-      await page.goto('/#/progress');
+      await page.goto('/progress');
       await page.waitForLoadState('networkidle');
 
       // Look for word count specific to current language
@@ -174,7 +174,7 @@ test.describe('ML-10: Multi-Language Verification', () => {
   test.describe('Language Display', () => {
 
     test('UI shows correct target language flag', async ({ page }) => {
-      await page.goto('/#/');
+      await page.goto('/');
       await page.waitForLoadState('networkidle');
 
       // Should have a flag emoji somewhere indicating target language
@@ -186,7 +186,7 @@ test.describe('ML-10: Multi-Language Verification', () => {
     });
 
     test('UI text is in native language', async ({ page }) => {
-      await page.goto('/#/');
+      await page.goto('/');
       await page.waitForLoadState('networkidle');
 
       // Check that UI elements are translated
@@ -210,7 +210,7 @@ test.describe('Regression Tests', () => {
       }
     });
 
-    await page.goto('/#/');
+    await page.goto('/');
     await page.waitForLoadState('networkidle');
 
     // Filter out expected errors (like missing optional resources)
@@ -223,13 +223,13 @@ test.describe('Regression Tests', () => {
   });
 
   test('Navigation between tabs works', async ({ page }) => {
-    await page.goto('/#/');
+    await page.goto('/');
 
     // Navigate to each main tab
     const tabs = ['log', 'play', 'progress'];
 
     for (const tab of tabs) {
-      await page.goto(`/#/${tab}`);
+      await page.goto(`/${tab}`);
       await page.waitForLoadState('networkidle');
 
       // Verify we're on the right page

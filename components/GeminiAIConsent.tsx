@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { ICONS } from '../constants';
 
 const AI_CONSENT_KEY = 'gemini-ai-consent-accepted';
@@ -55,13 +56,13 @@ const GeminiAIConsent: React.FC<GeminiAIConsentProps> = ({ isOpen, onAccept }) =
         </p>
 
         {/* Privacy link */}
-        <a
-          href="#/privacy"
+        <Link
+          to="/privacy"
           className="block text-center text-scale-caption mt-3 font-semibold hover:underline"
           style={{ color: 'var(--accent-color)' }}
         >
           Read our Privacy Policy
-        </a>
+        </Link>
 
         {/* Accept button */}
         <button

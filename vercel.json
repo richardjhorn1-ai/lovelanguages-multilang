@@ -5,7 +5,6 @@
     }
   },
   "cleanUrls": false,
-  "trailingSlash": true,
   "redirects": [
     { "source": "/:path((?!story/).*)", "has": [{ "type": "host", "value": "story.lovelanguages.io" }], "destination": "/story/", "permanent": false },
     { "source": "/learn/easiest-languages/", "destination": "/learn/", "permanent": true },
@@ -2174,6 +2173,10 @@
     {
       "source": "/tools/:slug/",
       "destination": "/tools/:slug/index.html"
+    },
+    {
+      "source": "/((?!learn|compare|tools|dictionary|api|_vercel|assets).*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [

@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { HashRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { supabase } from './services/supabase';
 import { Profile } from './types';
 import { ThemeProvider } from './context/ThemeContext';
@@ -98,13 +98,26 @@ const I18nSyncWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) 
   return <>{children}</>;
 };
 
+// Redirect legacy /#/ hash URLs to clean BrowserRouter paths
+const HashRedirect: React.FC = () => {
+  useEffect(() => {
+    const { hash } = window.location;
+    if (hash.startsWith('#/')) {
+      const cleanPath = hash.slice(1); // '#/play' → '/play'
+      window.location.replace(cleanPath);
+    }
+  }, []);
+
+  return null;
+};
+
 // Analytics wrapper - tracks page views on route changes
 const AnalyticsWrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const location = useLocation();
 
   // Track page views on route changes (GA4 initialized in index.html)
   useEffect(() => {
-    trackPageView(location.pathname + location.hash);
+    trackPageView(location.pathname);
   }, [location]);
 
   return <>{children}</>;
@@ -205,7 +218,7 @@ const App: React.FC = () => {
       const url = new URL(window.location.href);
       url.searchParams.delete('subscription');
       url.searchParams.delete('onboarding');
-      window.history.replaceState({}, '', url.pathname + url.hash);
+      window.history.replaceState({}, '', url.pathname);
     }
   }, []);
 
@@ -546,9 +559,10 @@ const App: React.FC = () => {
     <ThemeProvider userId={profile?.id} profileTheme={profile ? { accent_color: profile.accent_color, dark_mode: profile.dark_mode, font_size: profile.font_size, font_preset: profile.font_preset, font_weight: profile.font_weight, background_style: profile.background_style } : null}>
       <LanguageProvider profile={profile}>
         <I18nSyncWrapper>
-        <HashRouter>
+        <BrowserRouter>
+          <HashRedirect />
           <AnalyticsWrapper>
-          <div className="h-screen-safe text-[var(--text-primary)] transition-colors duration-300 overflow-hidden app-bg-decor">
+          <div className="h-screen-safe text-[var(--text-primary)] transition-colors duration-300 app-bg-decor">
           {/* Success toast */}
           {successToast && (
             <SuccessToast message={successToast} onClose={() => setSuccessToast(null)} />
@@ -651,7 +665,7 @@ const App: React.FC = () => {
                       onSubscribed={() => fetchProfile(profile.id)}
                     />
                   ) : (
-                    <div className="flex flex-col h-full">
+                    <div className="flex flex-col h-full overflow-hidden">
                       <Navbar profile={profile} />
                       {/* Trial reminder notification */}
                       {showTrialReminder && daysRemaining !== null && (
@@ -675,7 +689,7 @@ const App: React.FC = () => {
           <CookieConsent />
         </div>
           </AnalyticsWrapper>
-        </HashRouter>
+        </BrowserRouter>
         </I18nSyncWrapper>
       </LanguageProvider>
     </ThemeProvider>

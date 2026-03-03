@@ -36,7 +36,7 @@ const InviteLinkCard: React.FC<InviteLinkCardProps> = ({ profile }) => {
 
       if (data && !error) {
         const baseUrl = APP_URL;
-        setInviteLink(`${baseUrl}/#/join/${data.token}`);
+        setInviteLink(`${baseUrl}/join/${data.token}`);
         setExpiresAt(data.expires_at);
       }
     } catch (e) {

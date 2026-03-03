@@ -18,7 +18,7 @@ test.describe('Tutor Features', () => {
   test.describe('Coach Mode Chat', () => {
 
     test('Tutor sees Coach mode only', async ({ page }) => {
-      await page.goto('/#/');
+      await page.goto('/');
       await page.waitForLoadState('networkidle');
 
       // Should NOT see Ask/Learn mode buttons
@@ -35,7 +35,7 @@ test.describe('Tutor Features', () => {
     });
 
     test('Coach mode provides teaching tips', async ({ page }) => {
-      await page.goto('/#/');
+      await page.goto('/');
       await page.waitForLoadState('networkidle');
 
       const chatInput = page.getByPlaceholder(/type|message|ask/i);
@@ -57,7 +57,7 @@ test.describe('Tutor Features', () => {
   test.describe('Challenge Creation', () => {
 
     test('Can access challenge creation', async ({ page }) => {
-      await page.goto('/#/play');
+      await page.goto('/play');
       await page.waitForLoadState('networkidle');
 
       // Look for challenge creation buttons
@@ -77,7 +77,7 @@ test.describe('Tutor Features', () => {
     });
 
     test('Quiz challenge creation flow', async ({ page }) => {
-      await page.goto('/#/play');
+      await page.goto('/play');
       await page.waitForLoadState('networkidle');
 
       const quizBtn = page.getByRole('button', { name: /quiz|do you remember/i });
@@ -94,7 +94,7 @@ test.describe('Tutor Features', () => {
     });
 
     test('Word Gift creation flow', async ({ page }) => {
-      await page.goto('/#/play');
+      await page.goto('/play');
       await page.waitForLoadState('networkidle');
 
       const giftBtn = page.getByRole('button', { name: /gift|love package/i });
@@ -111,7 +111,7 @@ test.describe('Tutor Features', () => {
   test.describe('Partner Progress View', () => {
 
     test('Can view partner learning progress', async ({ page }) => {
-      await page.goto('/#/progress');
+      await page.goto('/progress');
       await page.waitForLoadState('networkidle');
 
       // Tutor should see partner's stats
@@ -127,7 +127,7 @@ test.describe('Tutor Features', () => {
     });
 
     test('Can see partner weak spots', async ({ page }) => {
-      await page.goto('/#/progress');
+      await page.goto('/progress');
       await page.waitForLoadState('networkidle');
 
       // Look for weak spots or struggling words section
@@ -142,7 +142,7 @@ test.describe('Tutor Features', () => {
   test.describe('Language Consistency', () => {
 
     test('Tutor UI shows correct language pair', async ({ page }) => {
-      await page.goto('/#/');
+      await page.goto('/');
       await page.waitForLoadState('networkidle');
 
       // Should show language flags or names somewhere
@@ -156,7 +156,7 @@ test.describe('Tutor Features', () => {
     });
 
     test('Challenge words use correct target language', async ({ page }) => {
-      await page.goto('/#/play');
+      await page.goto('/play');
       await page.waitForLoadState('networkidle');
 
       const quizBtn = page.getByRole('button', { name: /quiz|do you remember/i });
@@ -179,7 +179,7 @@ test.describe('Tutor Features', () => {
 test.describe('Tutor-Student Linking', () => {
 
   test('Partner connection status visible', async ({ page }) => {
-    await page.goto('/#/profile');
+    await page.goto('/profile');
     await page.waitForLoadState('networkidle');
 
     // Should show partner connection or invite option
@@ -190,7 +190,7 @@ test.describe('Tutor-Student Linking', () => {
   });
 
   test('Can access invite generation', async ({ page }) => {
-    await page.goto('/#/profile');
+    await page.goto('/profile');
     await page.waitForLoadState('networkidle');
 
     const inviteBtn = page.getByRole('button', { name: /invite|generate/i });

@@ -929,6 +929,20 @@ UI exists for present/past/future tense selection, but most verbs only have pres
 
 ## 🚀 Future Features
 
+### Word Requests (Student → Tutor)
+Students request specific words from their tutor partner; tutor fulfills the request and the word saves to the student's dictionary.
+
+**Status:** Backend and component exist but no UI trigger. `WordRequestCreator` is mounted in `TutorGames.tsx` but `setShowWordRequestModal(true)` is never called — needs a button/entry point.
+
+**Files already built:**
+- `components/WordRequestCreator.tsx` — Modal UI
+- `api/create-word-request.ts` — Create request endpoint
+- `api/complete-word-request.ts` — Tutor fulfills endpoint
+
+**Effort:** Small — just needs a trigger button and notification flow
+
+---
+
 ### 21. Spaced Repetition System (SRS)
 Current: word is "learned" after 5 consecutive correct. No review scheduling.
 

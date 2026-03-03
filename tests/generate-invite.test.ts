@@ -112,7 +112,7 @@ describe('generate-invite base URL selection', () => {
     await handler(req, res);
 
     expect(res.status).toHaveBeenCalledWith(200);
-    expect(res.payload.inviteLink).toBe(`https://app.example.com/#/join/${mockExistingToken.token}`);
+    expect(res.payload.inviteLink).toBe(`https://app.example.com/join/${mockExistingToken.token}`);
   });
 
   it('uses server-configured base URL even with invalid origin headers', async () => {
@@ -129,7 +129,7 @@ describe('generate-invite base URL selection', () => {
     await handler(req, res);
 
     expect(res.status).toHaveBeenCalledWith(200);
-    expect(res.payload.inviteLink).toBe(`https://app.example.com/#/join/${mockExistingToken.token}`);
+    expect(res.payload.inviteLink).toBe(`https://app.example.com/join/${mockExistingToken.token}`);
   });
 
   it('falls back to production URL when APP_URL and ALLOWED_ORIGINS are not set', async () => {
@@ -145,7 +145,7 @@ describe('generate-invite base URL selection', () => {
     await handler(req, res);
 
     expect(res.status).toHaveBeenCalledWith(200);
-    expect(res.payload.inviteLink).toBe(`https://www.lovelanguages.io/#/join/${mockExistingToken.token}`);
+    expect(res.payload.inviteLink).toBe(`https://www.lovelanguages.io/join/${mockExistingToken.token}`);
   });
 
   it('falls back to production URL when ALLOWED_ORIGINS is only wildcard', async () => {
@@ -161,7 +161,7 @@ describe('generate-invite base URL selection', () => {
     await handler(req, res);
 
     expect(res.status).toHaveBeenCalledWith(200);
-    expect(res.payload.inviteLink).toBe(`https://www.lovelanguages.io/#/join/${mockExistingToken.token}`);
+    expect(res.payload.inviteLink).toBe(`https://www.lovelanguages.io/join/${mockExistingToken.token}`);
   });
 
   it('uses first valid origin from ALLOWED_ORIGINS when APP_URL is not set', async () => {
@@ -177,7 +177,7 @@ describe('generate-invite base URL selection', () => {
     await handler(req, res);
 
     expect(res.status).toHaveBeenCalledWith(200);
-    expect(res.payload.inviteLink).toBe(`https://first.example.com/#/join/${mockExistingToken.token}`);
+    expect(res.payload.inviteLink).toBe(`https://first.example.com/join/${mockExistingToken.token}`);
   });
 
   it('filters out wildcard and uses valid origin from mixed ALLOWED_ORIGINS', async () => {
@@ -193,7 +193,7 @@ describe('generate-invite base URL selection', () => {
     await handler(req, res);
 
     expect(res.status).toHaveBeenCalledWith(200);
-    expect(res.payload.inviteLink).toBe(`https://valid.example.com/#/join/${mockExistingToken.token}`);
+    expect(res.payload.inviteLink).toBe(`https://valid.example.com/join/${mockExistingToken.token}`);
   });
 
   it('handles APP_URL with trailing slash correctly', async () => {
@@ -210,6 +210,6 @@ describe('generate-invite base URL selection', () => {
 
     expect(res.status).toHaveBeenCalledWith(200);
     // Should normalize to origin without trailing slash
-    expect(res.payload.inviteLink).toBe(`https://app.example.com/#/join/${mockExistingToken.token}`);
+    expect(res.payload.inviteLink).toBe(`https://app.example.com/join/${mockExistingToken.token}`);
   });
 });

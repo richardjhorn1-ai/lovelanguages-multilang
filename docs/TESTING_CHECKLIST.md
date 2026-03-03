@@ -31,7 +31,7 @@ Open GA4 Real-time while testing: https://analytics.google.com
 - [ ] "Forgot password?" link visible on login (not signup)
 - [ ] Click it → enter email → click "Send reset link"
 - [ ] Email arrives from Supabase
-- [ ] Click link → lands on `/#/reset-password`
+- [ ] Click link → lands on `/reset-password`
 - [ ] Page shows 🔐 and password form (not error)
 - [ ] Enter new password + confirm → click Update
 - [ ] Success message shows ✅

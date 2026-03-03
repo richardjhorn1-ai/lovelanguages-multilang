@@ -1071,8 +1071,8 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               },
               body: JSON.stringify({
                 priceId: data.selectedPriceId,
-                successUrl: `${APP_URL}/#/?onboarding=complete&subscription=success`,
-                cancelUrl: `${APP_URL}/#/?subscription=canceled`
+                successUrl: `${APP_URL}/?onboarding=complete&subscription=success`,
+                cancelUrl: `${APP_URL}/?subscription=canceled`
               })
             });
 

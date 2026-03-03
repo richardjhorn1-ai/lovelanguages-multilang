@@ -13,6 +13,8 @@ import { defineConfig, devices } from '@playwright/test';
  * - testaccount4@gmail.com / tester4 (es→fr)
  * - testaccount5@gmail.com / tester5 (en→ru)
  * - testaccount6@gmail.com / tester6 (en→el)
+ * - testaccount7@gmail.com / tester7 (pl tutor, teaches pl)
+ * - testaccount8@gmail.com / tester8 (en→pl student)
  */
 
 export default defineConfig({
@@ -53,13 +55,16 @@ export default defineConfig({
 
   // Configure projects for major browsers
   projects: [
+    { name: 'setup', testMatch: /auth\.setup\.ts/ },
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'] },
+      dependencies: ['setup'],
     },
     {
       name: 'Mobile Chrome',
       use: { ...devices['Pixel 5'] },
+      dependencies: ['setup'],
     },
   ],
 

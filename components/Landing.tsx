@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { Capacitor } from '@capacitor/core';
 import { supabase } from '../services/supabase';
@@ -838,7 +839,7 @@ const Landing: React.FC = () => {
     setResetLoading(true);
     setMessage('');
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${APP_URL}/#/reset-password`,
+      redirectTo: `${APP_URL}/reset-password`,
     });
     setResetLoading(false);
     if (error) setMessage(error.message);
@@ -872,13 +873,13 @@ const Landing: React.FC = () => {
 
   const FooterLinks = () => (
     <div className="text-center space-x-4">
-      <a href="/#/terms" className="text-scale-caption font-semibold transition-colors" style={{ color: '#b4899a' }}>
+      <Link to="/terms" className="text-scale-caption font-semibold transition-colors" style={{ color: '#b4899a' }}>
         {t('footer.terms', 'Terms of Service')}
-      </a>
+      </Link>
       <span style={{ color: BRAND.border }}>|</span>
-      <a href="/#/privacy" className="text-scale-caption font-semibold transition-colors" style={{ color: '#b4899a' }}>
+      <Link to="/privacy" className="text-scale-caption font-semibold transition-colors" style={{ color: '#b4899a' }}>
         {t('footer.privacy', 'Privacy Policy')}
-      </a>
+      </Link>
     </div>
   );
 

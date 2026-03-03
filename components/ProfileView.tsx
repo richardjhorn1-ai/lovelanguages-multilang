@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { Profile, OnboardingData } from '../types';
@@ -937,18 +938,18 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
               </a>
 
               <div className="flex gap-2 pt-2">
-                <a
-                  href="/#/terms"
+                <Link
+                  to="/terms"
                   className="flex-1 text-center py-2 text-scale-caption text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
                 >
                   {t('profile.extras.termsOfService')}
-                </a>
-                <a
-                  href="/#/privacy"
+                </Link>
+                <Link
+                  to="/privacy"
                   className="flex-1 text-center py-2 text-scale-caption text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
                 >
                   {t('profile.extras.privacyPolicy')}
-                </a>
+                </Link>
               </div>
             </div>
           </div>

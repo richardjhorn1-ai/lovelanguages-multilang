@@ -186,7 +186,7 @@ const JoinInvite: React.FC = () => {
       }
 
       // Success! Force a full page reload to get fresh profile data
-      window.location.href = '/#/';
+      window.location.href = '/';
     } catch (e: any) {
       console.error('[JoinInvite] Complete invite error:', e);
       setAuthMessage(e.message || 'Failed to link accounts');

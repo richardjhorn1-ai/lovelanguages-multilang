@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const CONSENT_KEY = 'cookie-consent-accepted';
@@ -43,12 +44,12 @@ const CookieConsent: React.FC = () => {
       <div className="max-w-2xl mx-auto glass-card rounded-2xl p-4 flex flex-col sm:flex-row items-center gap-4">
         <p className="text-scale-label text-[var(--text-secondary)] flex-1 text-center sm:text-left">
           {t('cookies.message', 'We use cookies to improve your experience.')}{' '}
-          <a
-            href="#/privacy"
+          <Link
+            to="/privacy"
             className="text-[var(--accent-color)] hover:underline font-semibold"
           >
             {t('cookies.learnMore', 'Learn more')}
-          </a>
+          </Link>
         </p>
         <button
           onClick={handleAccept}

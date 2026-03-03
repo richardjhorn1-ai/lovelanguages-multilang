@@ -118,6 +118,25 @@ html.capacitor #root {
     overflow: hidden;
 }
 
+/* Allow scrolling on full-page content routes (Terms, Privacy, FAQ, etc.) in Capacitor */
+html.capacitor.scrollable-page,
+html.capacitor.scrollable-page body {
+    overflow: auto;
+    position: static;
+    height: auto;
+    min-height: 100dvh;
+}
+
+html.capacitor.scrollable-page #root {
+    overflow: visible;
+    height: auto;
+}
+
+html.capacitor.scrollable-page .h-screen-safe {
+    height: auto;
+    min-height: 100dvh;
+}
+
 /* Capacitor: Prevent iOS zoom on input focus - uses body text size */
 html.capacitor input,
 html.capacitor textarea,

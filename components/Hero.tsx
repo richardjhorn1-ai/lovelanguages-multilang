@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import type { TFunction } from 'i18next';
 import { Capacitor } from '@capacitor/core';
 import { supabase } from '../services/supabase';
@@ -1163,7 +1163,7 @@ const Hero: React.FC = () => {
                         }
                         setLoading(true);
                         const { error } = await supabase.auth.resetPasswordForEmail(email, {
-                          redirectTo: `${APP_URL}/#/reset-password`,
+                          redirectTo: `${APP_URL}/reset-password`,
                         });
                         setLoading(false);
                         if (error) {
@@ -1234,9 +1234,9 @@ const Hero: React.FC = () => {
 
             {/* Legal links — always visible */}
             <div className="mt-4 flex justify-center gap-4 text-scale-caption" style={{ color: 'var(--text-secondary)' }}>
-              <a href="#/terms" className="hover:underline">{t('hero.legal.terms')}</a>
+              <Link to="/terms" className="hover:underline">{t('hero.legal.terms')}</Link>
               <span>|</span>
-              <a href="#/privacy" className="hover:underline">{t('hero.legal.privacy')}</a>
+              <Link to="/privacy" className="hover:underline">{t('hero.legal.privacy')}</Link>
             </div>
           </div>
           </div>{/* Close scrollable content area */}
@@ -1471,9 +1471,9 @@ const Hero: React.FC = () => {
 
           {/* Legal links */}
           <div className="mt-6 flex justify-center gap-6 text-scale-label" style={{ color: 'var(--text-secondary)' }}>
-            <a href="#/terms" className="hover:underline">{t('hero.legal.termsOfService')}</a>
+            <Link to="/terms" className="hover:underline">{t('hero.legal.termsOfService')}</Link>
             <span>|</span>
-            <a href="#/privacy" className="hover:underline">{t('hero.legal.privacyPolicy')}</a>
+            <Link to="/privacy" className="hover:underline">{t('hero.legal.privacyPolicy')}</Link>
           </div>
         </div>
       </div>

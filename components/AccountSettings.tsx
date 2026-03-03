@@ -185,7 +185,7 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
     setLoading(true);
 
     const { error: resetError } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${APP_URL}/#/reset-password`,
+      redirectTo: `${APP_URL}/reset-password`,
     });
 
     setLoading(false);
