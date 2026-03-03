@@ -166,7 +166,7 @@ export default async function handler(req: any, res: any) {
     // Stream from Gemini
     const ai = new GoogleGenAI({ apiKey });
     const response = await ai.models.generateContentStream({
-      model: 'gemini-2.5-flash',
+      model: 'gemini-3.1-flash-lite-preview',
       contents: historyContents,
       config: {
         systemInstruction: systemPrompt
