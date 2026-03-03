@@ -1,112 +1,94 @@
 # SEO Fix Plan — Ahrefs Audit March 2026
 
-**Branch:** `fix/ahrefs-seo-audit`
 **Goal:** Fix all real issues from Ahrefs crawl + add internal linking to all articles
 
 ---
 
-## Phase 1: Quick Wins (same session, ~1.5 hrs)
+## Phase 1: Quick Wins ✅ COMPLETE (Mar 3)
 
-### Fix 1: H1 → H2 conversion in article content
-- [ ] Edit `blog/src/lib/sanitize-content.ts`
-- [ ] If H1 in content matches article title → remove it entirely
-- [ ] If H1 in content differs from title → convert to H2
-- [ ] Test with a few articles that have H1 in content
+### Fix 1: H1 → H2 conversion in article content ✅
+- `blog/src/lib/sanitize-content.ts` — regex converts all `<h1>` to `<h2>` before trim
+- ~1,786 articles had H1 in content_html on top of layout's H1
 
-### Fix 2: Meaningful alt text on images
-- [ ] `blog/src/components/Navigation.astro` — `alt=""` → `alt="Love Languages"`
-- [ ] `blog/src/layouts/ArticleLayout.astro` footer — `alt=""` → `alt="Love Languages"`
-- [ ] `blog/src/pages/learn/index.astro` footer — same
-- [ ] `blog/src/pages/learn/[nativeLang]/index.astro` footer — same
-- [ ] `blog/src/pages/learn/[nativeLang]/[targetLang]/index.astro` footer — same
-- [ ] `blog/src/pages/learn/[nativeLang]/couples-language-learning.astro` footer — same
-- [ ] `blog/src/pages/learn/[nativeLang]/topics/[topic]/index.astro` footer — same
-- [ ] `blog/src/pages/tools/index.astro` footer — same
-- [ ] `blog/src/pages/tools/name-day-finder.astro` footer — same
-- [ ] `blog/src/pages/support/index.astro` footer — same
-- [ ] `blog/src/pages/dictionary/index.astro` footer — same
-- [ ] `blog/src/pages/dictionary/[slug].astro` footer — same
-- [ ] `blog/src/pages/compare/` all files — same
-- [ ] Add `role="img"` + `aria-label` to emoji fallback divs in ArticleLayout hero
+### Fix 2: Meaningful alt text on images ✅
+- `alt=""` → `alt="Love Languages"` on favicon/logo img across 17 files
+- Navigation.astro, ArticleLayout.astro footer, all page templates
 
-### Fix 3: Conditional title suffix
-- [ ] Edit `blog/src/layouts/ArticleLayout.astro` or `BaseLayout.astro`
-- [ ] Logic: if `title.length + " | Love Languages".length > 60` → use title only
-- [ ] Otherwise append ` | Love Languages`
-- [ ] Verify with a few long/short titles
+### Fix 3: Conditional title suffix ✅
+- `blog/src/components/SEO.astro` — only append ` | Love Languages` if total ≤60 chars
+- 2,984 pages had titles >70 chars that were getting truncated in SERPs
+
+**Merged to main:** commit `c7e28eee`
 
 ---
 
-## Phase 2: Structural Fixes (~2 hrs)
+## Phase 2: Structural Fixes (TODO)
 
 ### Fix 4: Sitemap cleanup
-- [ ] Remove 404 URLs from `blog/src/pages/sitemap-pages.xml.ts`
-- [ ] Remove redirected URLs from sitemap generation
-- [ ] Verify sitemap-index.xml renders as XML (not caught by SPA rewrite)
+- [ ] Remove 404 URLs from sitemap generation
+- [ ] Remove redirected URLs from sitemap
+- [ ] Verify sitemap-index.xml renders as XML
 
 ### Fix 5: Structured data validation
-- [ ] Test 3-5 articles with Google Rich Results Test
+- [ ] Test with Google Rich Results Test
 - [ ] Fix JSON-LD template issues in ArticleLayout.astro
-- [ ] Common issues: missing required fields, wrong types in FAQPage/SpeakableSpecification
 - [ ] Re-test after fix
 
 ### Fix 6: Reciprocal hreflang
 - [ ] Audit `getAlternatesByTopicId()` in `blog/src/lib/blog-api.ts`
-- [ ] Ensure bidirectional mappings (if A→B exists, B→A must too)
-- [ ] Check articles flagged with missing reciprocal tags
+- [ ] Ensure bidirectional mappings
+- [ ] Fix articles with missing reciprocal tags
 
 ---
 
-## Phase 3: Internal Linking (5am side project, ~2 weeks)
+## Phase 3: Internal Linking ✅ COMPLETE (Mar 3)
 
-### Strategy
-Use the EN→PL articles as the template. Those articles have 10-12 natural contextual links each, pointing to related articles in the same language pair. The ~11,000 translated articles have zero internal links. We replicate the EN→PL pattern across all language pairs.
+### What was shipped
+Three-pass approach to maximize coverage:
 
-### Process per language pair
-1. **Pull** all articles for the pair from Supabase → local JSON
-2. **Build keyword map** — for each article, extract: slug, title, category, H2 headings, key topics
-3. **Find link opportunities** — scan each article's text for natural mentions of topics covered by sibling articles
-4. **Insert links** — wrap matched text with `<a href="/learn/{native}/{target}/{slug}/">` 
-5. **Limit** — max 10-12 links per article (match EN→PL quality, not spammy)
-6. **Review** — diff output for the pair, spot-check 3-5 articles
-7. **Upload** — batch update `content_html` in Supabase
+**V1 (deprecated):** English-only topic patterns. Only 22% coverage.
 
-### Execution order
-Start with pairs that have the most articles/traffic, English first:
+**V2 — Multilingual inline links** (`scripts/add-internal-links-v2.py`):
+- 20 topic dictionaries translated to all 18 languages
+- Title/H2 phrase matching (multi-word only, native language text)
+- Heading stoplist (Conclusion/Introduction in 18 languages)
+- **Result: 7,983 articles, 29,641 inline links**
 
-| # | Pair | Articles | Priority |
-|---|------|----------|----------|
-| 1 | en→pl | ~70 | Template (already done) |
-| 2 | en→fr | ~50 | High traffic |
-| 3 | en→de | ~50 | High traffic |
-| 4 | en→es | ~50 | High traffic |
-| 5 | en→it | ~50 | High traffic |
-| 6 | en→pt | ~50 | High traffic |
-| 7 | fr→* | ~300 | Second native lang |
-| 8 | es→* | ~300 | Third native lang |
-| 9 | de→* | ~300 | Continue... |
-| 10+ | remaining pairs | ~9,000+ | Batch the rest |
+**Pass 2 — Related Articles sections** (`scripts/add-related-articles.py`):
+- Appends `<h2>Related Articles</h2>` (in native language) + `<ul>` list
+- Groups by category + slug-topic similarity (30 topic clusters)
+- Only targets articles with <3 internal links after V2
+- **Result: 8,304 articles, 40,989 related links**
 
-### Technical details
-- Script: `scripts/add-internal-links.py` (or .ts)
-- Input: Supabase articles (pulled to `data/articles/{native}-{target}.json`)
-- Output: Modified JSON with updated `content_html`
-- Upload script: `scripts/upload-linked-articles.py`
-- All diffs saved to `data/link-diffs/` for review
+### Combined results
+| Metric | Value |
+|--------|-------|
+| Articles updated | 11,495 / 11,789 (97.5%) |
+| Total links added | ~70,630 |
+| Inline links (V2) | 29,641 |
+| Related section links (Pass 2) | 40,989 |
+| Failures | 0 |
 
-### 5am Cron Job
-- One language pair per night
-- Pull → link → save locally → commit to branch
-- Richard reviews diffs before upload
+### Scripts
+| Script | Purpose |
+|--------|---------|
+| `scripts/add-internal-links-v2.py` | V2 multilingual inline links |
+| `scripts/add-related-articles.py` | Pass 2 related articles sections |
+| `scripts/upload-internal-links.py` | Merge V2+Pass2, upload to Supabase |
+| `scripts/add-internal-links.py` | V1 (deprecated, English-only) |
+
+### Local data backup
+- `data/articles-v2/` — 306 JSON files with V2 inline link output
+- `data/articles-v2-pass2/` — 306 JSON files with Pass 2 related output
+- `data/link-diffs-v2/` — V2 diff summaries
+- `data/link-diffs-v2-pass2/` — Pass 2 diff summaries
 
 ---
 
 ## Summary
 
-| Phase | Fixes | Effort | Timeline |
-|-------|-------|--------|----------|
-| 1 | H1 fix, alt text, title suffix | ~1.5 hrs | Now |
-| 2 | Sitemap, structured data, hreflang | ~2 hrs | This week |
-| 3 | Internal linking (all articles) | ~2 weeks | 5am side project |
-
-**Total SEO impact:** Fixes issues affecting 6,283+ pages, adds 100k+ internal links across the blog.
+| Phase | Status | Impact |
+|-------|--------|--------|
+| 1. Quick wins (H1, alt, titles) | ✅ Done | 6,283+ pages fixed |
+| 2. Structural (sitemap, schema, hreflang) | 🔲 TODO | TBD |
+| 3. Internal linking | ✅ Done | 70,630 links across 11,495 articles |
