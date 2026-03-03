@@ -1,19 +1,25 @@
 /**
- * Centralized API middleware utilities for Vercel serverless functions.
+ * Centralized API middleware utilities for Next.js App Router route handlers.
  *
- * IMPORTANT: This module is designed to work with Vercel's serverless bundling model.
- * Each API function imports this file and gets its own bundled copy.
- *
- * To update CORS or auth logic across all endpoints:
- * 1. Modify this file
- * 2. Redeploy (Vercel will re-bundle each function with updated code)
+ * All functions use web-standard Request/Response types (not Vercel-specific).
+ * Route handlers import this file for CORS, auth, rate limiting, and security.
  *
  * Security considerations:
- * - setCorsHeaders: Prevents wildcard + credentials vulnerability (OWASP)
+ * - getCorsHeaders: Prevents wildcard + credentials vulnerability (OWASP)
  * - verifyAuth: Validates Supabase JWT tokens server-side
+ *
+ * Next.js pattern:
+ *   export async function POST(request: Request) {
+ *     const corsHeaders = getCorsHeaders(request);
+ *     const auth = await verifyAuth(request);
+ *     if (!auth) return NextResponse.json({ error: 'Unauthorized' }, { status: 401, headers: corsHeaders });
+ *     // ... business logic ...
+ *     return NextResponse.json(data, { headers: corsHeaders });
+ *   }
  */
 
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
+import { NextResponse } from 'next/server';
 
 // =============================================================================
 // SECURITY HEADERS
@@ -33,16 +39,6 @@ export const SECURITY_HEADERS = {
   'Cache-Control': 'no-store, no-cache, must-revalidate', // Don't cache sensitive data
   'Pragma': 'no-cache',
 } as const;
-
-/**
- * Sets security headers on the response.
- * Call this at the start of every API handler.
- */
-export function setSecurityHeaders(res: VercelResponse): void {
-  Object.entries(SECURITY_HEADERS).forEach(([key, value]) => {
-    res.setHeader(key, value);
-  });
-}
 
 // =============================================================================
 // SAFE ERROR RESPONSES
@@ -103,48 +99,49 @@ export function sanitizeErrorMessage(error: unknown): string {
 }
 
 /**
- * Creates a safe error response without leaking sensitive information.
+ * Creates a safe error NextResponse without leaking sensitive information.
+ *
+ * @example
+ * ```typescript
+ * return createErrorResponse(401, 'unauthorized', someError, corsHeaders);
+ * ```
  */
 export function createErrorResponse(
-  res: VercelResponse,
   statusCode: number,
   errorType: keyof typeof SAFE_ERROR_MESSAGES,
-  logError?: unknown
-): void {
+  logError?: unknown,
+  headers?: HeadersInit
+): NextResponse {
   if (logError) {
     // Log the full error server-side for debugging
     console.error(`[api-middleware] ${errorType}:`, logError);
   }
 
-  setSecurityHeaders(res);
-  res.status(statusCode).json({
-    error: SAFE_ERROR_MESSAGES[errorType]
+  const responseHeaders = new Headers(headers);
+  Object.entries(SECURITY_HEADERS).forEach(([key, value]) => {
+    responseHeaders.set(key, value);
   });
+
+  return NextResponse.json(
+    { error: SAFE_ERROR_MESSAGES[errorType] },
+    { status: statusCode, headers: responseHeaders }
+  );
 }
 
 // =============================================================================
 // TYPES
 // =============================================================================
 
-export interface VercelRequest {
-  method?: string;
-  headers: {
-    origin?: string;
-    authorization?: string;
-    [key: string]: string | string[] | undefined;
-  };
-  body?: unknown;
-}
-
-export interface VercelResponse {
-  setHeader(name: string, value: string): void;
-  status(code: number): VercelResponse;
-  json(data: unknown): void;
-  end(): void;
-}
-
 export interface AuthResult {
   userId: string;
+}
+
+/**
+ * Extended auth result including admin status
+ */
+export interface AdminAuthResult {
+  userId: string;
+  isAdmin: boolean;
 }
 
 // =============================================================================
@@ -152,113 +149,124 @@ export interface AuthResult {
 // =============================================================================
 
 /**
- * Sets CORS headers on the response and handles OPTIONS preflight requests.
+ * Builds CORS + security headers for a given request.
+ * Returns a Headers object to spread into NextResponse.
  *
  * Security features:
  * - NEVER combines wildcard origin (*) with credentials (prevents security vulnerability)
  * - Only sets credentials header when there's an explicit origin match
- * - Returns true for OPTIONS requests so handlers can short-circuit
  *
- * Environment:
- * - ALLOWED_ORIGINS: Comma-separated list of allowed origins (e.g., "https://example.com,https://app.example.com")
- * - Use "*" for development only (credentials will be disabled)
- *
- * @param req - Vercel request object
- * @param res - Vercel response object
- * @returns true if this is an OPTIONS request (handler should return early)
+ * @param request - Web standard Request object
+ * @returns Headers object containing CORS + security headers
  *
  * @example
  * ```typescript
- * import { setCorsHeaders, verifyAuth } from '@/utils/api-middleware';
- *
- * export default async function handler(req: any, res: any) {
- *   if (setCorsHeaders(req, res)) {
- *     return res.status(200).end();
- *   }
- *   // ... rest of handler
+ * export async function POST(request: Request) {
+ *   const corsHeaders = getCorsHeaders(request);
+ *   // ... logic ...
+ *   return NextResponse.json(data, { headers: corsHeaders });
  * }
  * ```
  */
-export function setCorsHeaders(req: VercelRequest, res: VercelResponse): boolean {
-  // Always set security headers first
-  setSecurityHeaders(res);
+export function getCorsHeaders(request: Request): Headers {
+  const headers = new Headers();
 
-  const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173').split(',');
-  const origin = req.headers.origin || '';
+  // Always set security headers first
+  Object.entries(SECURITY_HEADERS).forEach(([key, value]) => {
+    headers.set(key, value);
+  });
+
+  const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:3000').split(',');
+  const origin = request.headers.get('origin') || '';
 
   // Check for explicit origin match (not wildcard)
   const isExplicitMatch = origin && allowedOrigins.includes(origin) && origin !== '*';
 
   if (isExplicitMatch) {
     // Explicit match - safe to allow credentials
-    res.setHeader('Access-Control-Allow-Origin', origin);
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    headers.set('Access-Control-Allow-Origin', origin);
+    headers.set('Access-Control-Allow-Credentials', 'true');
   } else if (allowedOrigins.includes('*')) {
     // Wildcard mode - NEVER combine with credentials (security vulnerability)
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    headers.set('Access-Control-Allow-Origin', '*');
     // Do NOT set credentials header with wildcard
   } else if (allowedOrigins.length > 0 && allowedOrigins[0] !== '*') {
     // No match but have allowed origins - use first one for debugging
     // Note: NOT setting credentials when origin doesn't match (prevents CORS bypass)
-    res.setHeader('Access-Control-Allow-Origin', allowedOrigins[0]);
+    headers.set('Access-Control-Allow-Origin', allowedOrigins[0]);
   }
 
-  res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
+  headers.set('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
+  headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
 
-  return req.method === 'OPTIONS';
+  return headers;
 }
 
 /**
- * Sets CORS headers for Server-Sent Events (SSE) streaming endpoints.
+ * Handles OPTIONS preflight requests. Call this at the top of your route handler.
+ * Returns a NextResponse for OPTIONS requests, or null if not OPTIONS.
+ *
+ * @example
+ * ```typescript
+ * export async function OPTIONS(request: Request) {
+ *   return handleCorsPreflightResponse(request);
+ * }
+ *
+ * export async function POST(request: Request) {
+ *   const corsHeaders = getCorsHeaders(request);
+ *   // ... rest of handler
+ * }
+ * ```
+ */
+export function handleCorsPreflightResponse(request: Request): NextResponse {
+  const headers = getCorsHeaders(request);
+  return new NextResponse(null, { status: 200, headers });
+}
+
+/**
+ * Builds CORS + SSE-specific headers for streaming endpoints.
  *
  * SSE endpoints have different requirements:
  * - Content-Type must be text/event-stream
  * - Connection must be keep-alive
  * - No caching allowed
  *
- * @param req - Vercel request object
- * @param res - Vercel response object
- * @returns true if this is an OPTIONS request (handler should return early)
+ * @param request - Web standard Request object
+ * @returns Headers object containing CORS + SSE headers
  */
-export function setStreamingCorsHeaders(req: VercelRequest, res: VercelResponse): boolean {
+export function getStreamingCorsHeaders(request: Request): Headers {
+  const headers = new Headers();
+
   // Set security headers (except Content-Type which SSE needs to override)
-  res.setHeader('X-Content-Type-Options', 'nosniff');
-  res.setHeader('X-Frame-Options', 'DENY');
-  res.setHeader('X-XSS-Protection', '1; mode=block');
-  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
-  res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+  headers.set('X-Content-Type-Options', 'nosniff');
+  headers.set('X-Frame-Options', 'DENY');
+  headers.set('X-XSS-Protection', '1; mode=block');
+  headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+  headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
 
   // Set SSE-specific headers
-  res.setHeader('Content-Type', 'text/event-stream');
-  res.setHeader('Cache-Control', 'no-cache');
-  res.setHeader('Connection', 'keep-alive');
+  headers.set('Content-Type', 'text/event-stream');
+  headers.set('Cache-Control', 'no-cache');
+  headers.set('Connection', 'keep-alive');
 
   // Set CORS headers
-  const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173').split(',');
-  const origin = req.headers.origin || '';
+  const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:3000').split(',');
+  const origin = request.headers.get('origin') || '';
 
   // For SSE, prefer explicit match, fall back to first allowed origin
   if (origin && allowedOrigins.includes(origin) && origin !== '*') {
-    res.setHeader('Access-Control-Allow-Origin', origin);
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    headers.set('Access-Control-Allow-Origin', origin);
+    headers.set('Access-Control-Allow-Credentials', 'true');
   } else if (allowedOrigins.includes('*')) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
+    headers.set('Access-Control-Allow-Origin', '*');
     // Do NOT set credentials header with wildcard
   } else if (allowedOrigins.length > 0 && allowedOrigins[0] !== '*') {
     // No match but have allowed origins - use first one for debugging
     // Note: NOT setting credentials when origin doesn't match (prevents CORS bypass)
-    res.setHeader('Access-Control-Allow-Origin', allowedOrigins[0]);
+    headers.set('Access-Control-Allow-Origin', allowedOrigins[0]);
   }
 
-  // Handle OPTIONS preflight
-  if (req.method === 'OPTIONS') {
-    res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
-    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-    return true;
-  }
-
-  return false;
+  return headers;
 }
 
 // =============================================================================
@@ -273,30 +281,26 @@ export function setStreamingCorsHeaders(req: VercelRequest, res: VercelResponse)
  * - Uses service key for server-side verification (not exposed to client)
  * - Returns null for any auth failure (prevents information leakage)
  *
- * Environment:
- * - VITE_SUPABASE_URL or SUPABASE_URL: Supabase project URL
- * - SUPABASE_SERVICE_KEY: Service role key for server-side auth
- *
- * @param req - Vercel request object with Authorization header
+ * @param request - Web standard Request object with Authorization header
  * @returns AuthResult with userId if valid, null otherwise
  *
  * @example
  * ```typescript
- * const auth = await verifyAuth(req);
+ * const auth = await verifyAuth(request);
  * if (!auth) {
- *   return res.status(401).json({ error: 'Unauthorized' });
+ *   return NextResponse.json({ error: 'Unauthorized' }, { status: 401, headers: corsHeaders });
  * }
  * const userId = auth.userId;
  * ```
  */
-export async function verifyAuth(req: VercelRequest): Promise<AuthResult | null> {
-  const authHeader = req.headers.authorization;
+export async function verifyAuth(request: Request): Promise<AuthResult | null> {
+  const authHeader = request.headers.get('authorization');
   if (!authHeader?.startsWith('Bearer ')) {
     return null;
   }
 
   const token = authHeader.split(' ')[1];
-  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
 
   if (!supabaseUrl || !supabaseServiceKey) {
@@ -316,34 +320,26 @@ export async function verifyAuth(req: VercelRequest): Promise<AuthResult | null>
 }
 
 /**
- * Extended auth result including admin status
- */
-export interface AdminAuthResult {
-  userId: string;
-  isAdmin: boolean;
-}
-
-/**
  * Verifies admin authentication - requires valid JWT AND is_admin flag in profiles.
  *
  * Use this for protected admin-only endpoints (e.g., content generation, analytics).
  *
- * @param req - Vercel request object with Authorization header
+ * @param request - Web standard Request object with Authorization header
  * @returns AdminAuthResult if valid auth, null otherwise. Check isAdmin for admin access.
  *
  * @example
  * ```typescript
- * const admin = await verifyAdminAuth(req);
+ * const admin = await verifyAdminAuth(request);
  * if (!admin) {
- *   return res.status(401).json({ error: 'Unauthorized' });
+ *   return NextResponse.json({ error: 'Unauthorized' }, { status: 401, headers: corsHeaders });
  * }
  * if (!admin.isAdmin) {
- *   return res.status(403).json({ error: 'Admin access required' });
+ *   return NextResponse.json({ error: 'Admin access required' }, { status: 403, headers: corsHeaders });
  * }
  * ```
  */
-export async function verifyAdminAuth(req: VercelRequest): Promise<AdminAuthResult | null> {
-  const auth = await verifyAuth(req);
+export async function verifyAdminAuth(request: Request): Promise<AdminAuthResult | null> {
+  const auth = await verifyAuth(request);
   if (!auth) {
     return null;
   }
@@ -381,7 +377,7 @@ export async function verifyAdminAuth(req: VercelRequest): Promise<AdminAuthResu
  * @returns Supabase client or null if config is missing
  */
 export function createServiceClient(): SupabaseClient | null {
-  const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
 
   if (!supabaseUrl || !supabaseServiceKey) {
@@ -399,7 +395,7 @@ export function createServiceClient(): SupabaseClient | null {
  * @returns Object with url and serviceKey, or null if missing
  */
 export function getSupabaseConfig(): { url: string; serviceKey: string } | null {
-  const url = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const serviceKey = process.env.SUPABASE_SERVICE_KEY;
 
   if (!url || !serviceKey) {
@@ -546,7 +542,7 @@ export async function getSubscriptionPlan(
  * ```typescript
  * const sub = await requireSubscription(supabase, auth.userId);
  * if (!sub.allowed) {
- *   return res.status(403).json({ error: sub.error });
+ *   return NextResponse.json({ error: sub.error }, { status: 403, headers: corsHeaders });
  * }
  * ```
  */
@@ -627,8 +623,10 @@ export async function requireSubscription(
  * ```typescript
  * const limit = await checkRateLimit(supabase, auth.userId, 'chat', sub.plan);
  * if (!limit.allowed) {
- *   res.setHeader('Retry-After', '86400'); // 24 hours
- *   return res.status(429).json({ error: limit.error, remaining: 0 });
+ *   return NextResponse.json(
+ *     { error: limit.error, remaining: 0 },
+ *     { status: 429, headers: corsHeaders }
+ *   );
  * }
  * ```
  */
@@ -806,11 +804,13 @@ export interface AuthRateLimitResult {
  *
  * @example
  * ```typescript
- * const ipAddress = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
+ * const ipAddress = getClientIp(request);
  * const rateLimit = await checkAuthRateLimit(supabase, ipAddress, 'login');
  * if (!rateLimit.allowed) {
- *   res.setHeader('Retry-After', rateLimit.waitSeconds.toString());
- *   return res.status(429).json({ error: 'Too many attempts' });
+ *   return NextResponse.json(
+ *     { error: 'Too many attempts' },
+ *     { status: 429, headers: { ...corsHeaders, 'Retry-After': rateLimit.waitSeconds.toString() } }
+ *   );
  * }
  * ```
  */
@@ -915,26 +915,73 @@ export async function logSecurityEvent(
  * Extract client IP address from request headers.
  * Handles common proxy headers (Vercel, Cloudflare, etc.)
  */
-export function getClientIp(req: VercelRequest): string {
+export function getClientIp(request: Request): string {
   // Vercel/common proxy headers
-  const forwardedFor = req.headers['x-forwarded-for'];
+  const forwardedFor = request.headers.get('x-forwarded-for');
   if (forwardedFor) {
     // x-forwarded-for can be comma-separated list, take first
-    const ips = Array.isArray(forwardedFor) ? forwardedFor[0] : forwardedFor;
-    return ips.split(',')[0].trim();
+    return forwardedFor.split(',')[0].trim();
   }
 
   // Cloudflare
-  const cfConnectingIp = req.headers['cf-connecting-ip'];
+  const cfConnectingIp = request.headers.get('cf-connecting-ip');
   if (cfConnectingIp) {
-    return Array.isArray(cfConnectingIp) ? cfConnectingIp[0] : cfConnectingIp;
+    return cfConnectingIp;
   }
 
   // Real IP (nginx)
-  const realIp = req.headers['x-real-ip'];
+  const realIp = request.headers.get('x-real-ip');
   if (realIp) {
-    return Array.isArray(realIp) ? realIp[0] : realIp;
+    return realIp;
   }
 
   return 'unknown';
+}
+
+// =============================================================================
+// BACKWARD COMPATIBILITY — Remove after Phase 2.7 API route migration
+// Old Vercel-style APIs import these names. These thin wrappers let them
+// compile until they are individually converted to the new pattern.
+// =============================================================================
+
+/**
+ * @deprecated Use getCorsHeaders() + handleCorsPreflightResponse() instead.
+ * Legacy wrapper: mutates res with CORS headers, returns true on OPTIONS preflight.
+ */
+export function setCorsHeaders(req: any, res: any): boolean {
+  const origin = req?.headers?.origin || req?.headers?.get?.('origin') || '';
+  const headers = getCorsHeaders(new Request('http://localhost', { headers: { origin } }));
+  headers.forEach((value, key) => {
+    res.setHeader?.(key, value);
+  });
+  if (req.method === 'OPTIONS' || req?.method?.toUpperCase?.() === 'OPTIONS') {
+    return true;
+  }
+  return false;
+}
+
+/**
+ * @deprecated Use getStreamingCorsHeaders() instead.
+ * Legacy wrapper: mutates res with streaming CORS headers.
+ */
+export function setStreamingCorsHeaders(req: any, res: any): boolean {
+  const origin = req?.headers?.origin || req?.headers?.get?.('origin') || '';
+  const headers = getStreamingCorsHeaders(new Request('http://localhost', { headers: { origin } }));
+  headers.forEach((value, key) => {
+    res.setHeader?.(key, value);
+  });
+  if (req.method === 'OPTIONS' || req?.method?.toUpperCase?.() === 'OPTIONS') {
+    return true;
+  }
+  return false;
+}
+
+/**
+ * @deprecated Security headers are now included in getCorsHeaders().
+ * Legacy wrapper: sets security headers on res.
+ */
+export function setSecurityHeaders(res: any): void {
+  Object.entries(SECURITY_HEADERS).forEach(([key, value]) => {
+    res.setHeader?.(key, value);
+  });
 }
