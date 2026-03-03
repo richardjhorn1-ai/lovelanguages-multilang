@@ -1,22 +1,23 @@
-import { createClient } from '@supabase/supabase-js';
+'use client';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+import { createBrowserClient } from '@supabase/ssr';
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
 if (!supabaseUrl || !supabaseAnonKey) {
   throw new Error('Missing Supabase environment variables. Check your .env.local file.');
 }
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+// Browser client — uses cookies via @supabase/ssr (singleton, shared across all client components).
+// All 36+ files that import { supabase } from './services/supabase' continue to work unchanged.
+export const supabase = createBrowserClient(supabaseUrl, supabaseAnonKey, {
   auth: {
-    persistSession: true,
-    autoRefreshToken: true,
+    flowType: 'pkce',
   },
   realtime: {
     params: {
       eventsPerSecond: 10,
     },
-    // Security: Supabase JS v2+ sends auth via headers by default (not URL params)
-    // This is the secure default - no additional config needed
   },
 });
