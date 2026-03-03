@@ -14,7 +14,7 @@ import { Type } from "@google/genai";
 import {
   getLanguageConfig,
   type LanguageConfig
-} from '../constants/language-config.js';
+} from '../constants/language-config';
 
 // =============================================================================
 // TYPES

@@ -1,0 +1,140 @@
+import { NextResponse } from 'next/server';
+import {
+  getCorsHeaders,
+  handleCorsPreflightResponse,
+  verifyAuth,
+  createServiceClient,
+} from '@/utils/api-middleware';
+
+export async function OPTIONS(request: Request) {
+  return handleCorsPreflightResponse(request);
+}
+
+export async function POST(request: Request) {
+  const corsHeaders = getCorsHeaders(request);
+
+  // Verify authentication
+  const auth = await verifyAuth(request);
+  if (!auth) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401, headers: corsHeaders });
+  }
+
+  const supabase = createServiceClient();
+  if (!supabase) {
+    return NextResponse.json({ error: 'Server configuration error' }, { status: 500, headers: corsHeaders });
+  }
+
+  try {
+    // Get current user's profile with partner info
+    const { data: profile, error: profileError } = await supabase
+      .from('profiles')
+      .select('id, linked_user_id, subscription_granted_by, subscription_status, full_name')
+      .eq('id', auth.userId)
+      .single();
+
+    if (profileError || !profile) {
+      return NextResponse.json({ error: 'Profile not found' }, { status: 404, headers: corsHeaders });
+    }
+
+    if (!profile.linked_user_id) {
+      return NextResponse.json({ error: 'No partner to unlink' }, { status: 400, headers: corsHeaders });
+    }
+
+    const partnerId = profile.linked_user_id;
+    const isPayer = !profile.subscription_granted_by;
+    const now = new Date().toISOString();
+
+    console.log(`[delink-partner] User ${auth.userId} initiating breakup with ${partnerId}. isPayer: ${isPayer}`);
+
+    // 1. Delink both profiles (bidirectional)
+    const { error: delinkError1 } = await supabase
+      .from('profiles')
+      .update({ linked_user_id: null })
+      .eq('id', profile.id);
+
+    const { error: delinkError2 } = await supabase
+      .from('profiles')
+      .update({ linked_user_id: null })
+      .eq('id', partnerId);
+
+    if (delinkError1 || delinkError2) {
+      console.error('[delink-partner] Delink error:', delinkError1 || delinkError2);
+      return NextResponse.json({ error: 'Failed to unlink accounts' }, { status: 500, headers: corsHeaders });
+    }
+
+    // 2. Handle subscription access based on who initiated
+    if (isPayer) {
+      // I'm the payer - revoke partner's inherited access
+      const { error: revokeError } = await supabase
+        .from('profiles')
+        .update({
+          subscription_plan: 'none',
+          subscription_status: 'inactive',
+          subscription_granted_by: null,
+          subscription_granted_at: null,
+          subscription_ends_at: null
+        })
+        .eq('id', partnerId);
+
+      if (revokeError) {
+        console.error('[delink-partner] Failed to revoke partner access:', revokeError);
+      } else {
+        console.log(`[delink-partner] Revoked access for partner ${partnerId}`);
+      }
+    } else {
+      // I'm the partner with inherited access - I lose it
+      const { error: revokeError } = await supabase
+        .from('profiles')
+        .update({
+          subscription_plan: 'none',
+          subscription_status: 'inactive',
+          subscription_granted_by: null,
+          subscription_granted_at: null,
+          subscription_ends_at: null
+        })
+        .eq('id', profile.id);
+
+      if (revokeError) {
+        console.error('[delink-partner] Failed to revoke own access:', revokeError);
+      } else {
+        console.log(`[delink-partner] User ${profile.id} lost inherited access`);
+      }
+    }
+
+    // 3. Expire any pending invites from either party
+    await supabase
+      .from('invite_tokens')
+      .update({ expires_at: now })
+      .in('inviter_id', [profile.id, partnerId])
+      .is('used_at', null);
+
+    // 4. Expire pending tutor challenges between these two users
+    const { error: challengeError } = await supabase
+      .from('tutor_challenges')
+      .update({ status: 'expired' })
+      .in('status', ['pending', 'active'])
+      .or(`and(tutor_id.eq.${profile.id},student_id.eq.${partnerId}),and(tutor_id.eq.${partnerId},student_id.eq.${profile.id})`);
+    if (challengeError) console.error('[delink-partner] Failed to expire challenges:', challengeError);
+
+    // 5. Expire pending word requests between these two users
+    const { error: requestError } = await supabase
+      .from('word_requests')
+      .update({ status: 'expired' })
+      .eq('status', 'pending')
+      .or(`and(tutor_id.eq.${profile.id},student_id.eq.${partnerId}),and(tutor_id.eq.${partnerId},student_id.eq.${profile.id})`);
+    if (requestError) console.error('[delink-partner] Failed to expire word requests:', requestError);
+
+    // 6. Return appropriate message based on role
+    return NextResponse.json({
+      success: true,
+      wasPayingUser: isPayer,
+      message: isPayer
+        ? 'Accounts unlinked. Your subscription continues. You can invite a new partner anytime.'
+        : 'Accounts unlinked. You\'ll need your own subscription to continue learning.'
+    }, { headers: corsHeaders });
+
+  } catch (err: any) {
+    console.error('[delink-partner] Error:', err);
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500, headers: corsHeaders });
+  }
+}

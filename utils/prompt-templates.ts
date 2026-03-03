@@ -9,9 +9,9 @@ import {
   getLanguageConfig,
   getSpecialChars,
   type LanguageConfig
-} from '../constants/language-config.js';
+} from '../constants/language-config';
 
-import type { LevelTheme } from '../constants/levels.js';
+import type { LevelTheme } from '../constants/levels';
 export type { LevelTheme };
 
 // =============================================================================

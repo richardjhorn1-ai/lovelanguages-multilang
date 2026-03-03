@@ -1,0 +1,202 @@
+import { NextResponse } from 'next/server';
+import { GoogleGenAI } from "@google/genai";
+import {
+  getCorsHeaders,
+  handleCorsPreflightResponse,
+  verifyAuth,
+  createServiceClient,
+  requireSubscription,
+  checkRateLimit,
+  incrementUsage,
+  RATE_LIMITS,
+  SubscriptionPlan,
+} from '@/utils/api-middleware';
+import { extractLanguages } from '@/utils/language-helpers';
+import { buildLevelTestPrompt } from '@/utils/prompt-templates';
+import { buildLevelTestSchema } from '@/utils/schema-builders';
+import {
+  QUESTION_COUNTS,
+  CORE_QUESTIONS_RATIO,
+  getThemeForTransition
+} from '@/constants/levels';
+
+export const maxDuration = 60;
+
+export async function OPTIONS(request: Request) {
+  return handleCorsPreflightResponse(request);
+}
+
+export async function POST(request: Request) {
+  const corsHeaders = getCorsHeaders(request);
+
+  const auth = await verifyAuth(request);
+  if (!auth) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401, headers: corsHeaders });
+  }
+
+  const supabase = createServiceClient();
+  if (!supabase) {
+    return NextResponse.json({ error: 'Server configuration error' }, { status: 500, headers: corsHeaders });
+  }
+
+  // Block free users
+  const sub = await requireSubscription(supabase, auth.userId);
+  if (!sub.allowed) {
+    return NextResponse.json({ error: sub.error }, { status: 403, headers: corsHeaders });
+  }
+
+  // Check rate limit
+  const limit = await checkRateLimit(supabase, auth.userId, 'generateLevelTest', sub.plan as SubscriptionPlan);
+  if (!limit.allowed) {
+    return NextResponse.json({
+      error: limit.error,
+      remaining: limit.remaining,
+      resetAt: limit.resetAt
+    }, { status: 429, headers: corsHeaders });
+  }
+
+  const apiKey = process.env.GEMINI_API_KEY || process.env.API_KEY;
+  if (!apiKey) {
+    return NextResponse.json({ error: 'API key not configured' }, { status: 500, headers: corsHeaders });
+  }
+
+  const body = await request.json();
+
+  const { fromLevel, toLevel } = body || {};
+
+  // Extract language parameters (defaults to Polish/English for backward compatibility)
+  const { targetLanguage, nativeLanguage } = extractLanguages(body);
+
+  if (!fromLevel || !toLevel) {
+    return NextResponse.json({ error: 'Missing fromLevel or toLevel' }, { status: 400, headers: corsHeaders });
+  }
+
+  // Get theme for this transition
+  const theme = getThemeForTransition(fromLevel, toLevel);
+  if (!theme) {
+    return NextResponse.json({ error: `No theme found for transition ${fromLevel} -> ${toLevel}` }, { status: 400, headers: corsHeaders });
+  }
+
+  // Determine question count based on tier
+  const tier = fromLevel.split(' ')[0];
+  const totalQuestions = QUESTION_COUNTS[tier] || 10;
+  const coreQuestionCount = Math.ceil(totalQuestions * CORE_QUESTIONS_RATIO);
+  const personalizedCount = totalQuestions - coreQuestionCount;
+
+  // Fetch user's vocabulary for personalized questions (filtered by target language)
+  const { data: userWords } = await supabase
+    .from('dictionary')
+    .select('id, word, translation, word_type')
+    .eq('user_id', auth.userId)
+    .eq('language_code', targetLanguage)
+    .limit(50);
+
+  const userVocab = userWords || [];
+
+  try {
+    const ai = new GoogleGenAI({ apiKey });
+
+    // Build language-aware prompt
+    const basePrompt = buildLevelTestPrompt(
+      targetLanguage,
+      nativeLanguage,
+      fromLevel,
+      toLevel,
+      theme
+    );
+
+    // Add question count requirements
+    const questionRequirements = `\n\n## QUESTION COUNTS
+- Total questions: ${totalQuestions}
+- Core concept questions: ${coreQuestionCount} (cover the concepts listed above)
+- Personalized questions: ${personalizedCount} (use user's vocabulary if available)`;
+
+    // Add user vocabulary context
+    const vocabContext = userVocab.length > 0
+      ? `\n\n## User's Vocabulary (for ${personalizedCount} personalized questions):\n${userVocab.slice(0, 20).map(w => `- ${w.word} (${w.translation})`).join('\n')}`
+      : `\n\n## User's Vocabulary:\nNo vocabulary yet - use additional core concepts instead for the ${personalizedCount} personalized questions.`;
+
+    const prompt = basePrompt + questionRequirements + vocabContext + '\n\nGenerate the test questions now.';
+
+    const controller = new AbortController();
+    const geminiTimeout = setTimeout(() => controller.abort(), 45_000);
+
+    let response;
+    try {
+      response = await ai.models.generateContent({
+        model: 'gemini-3-flash-preview',
+        contents: prompt,
+        config: {
+          responseMimeType: 'application/json',
+          responseSchema: buildLevelTestSchema(),
+          abortSignal: controller.signal
+        }
+      });
+    } catch (err: any) {
+      if (controller.signal.aborted) {
+        return NextResponse.json({ error: 'Test generation timed out. Please try again.' }, { status: 504, headers: corsHeaders });
+      }
+      throw err;
+    } finally {
+      clearTimeout(geminiTimeout);
+    }
+
+    const text = response.text || '';
+
+    // Parse and validate response
+    let parsed;
+    try {
+      parsed = JSON.parse(text);
+    } catch (e) {
+      console.error('Failed to parse Gemini response:', text);
+      return NextResponse.json({ error: 'Invalid AI response format' }, { status: 502, headers: corsHeaders });
+    }
+
+    if (!parsed.questions || !Array.isArray(parsed.questions)) {
+      return NextResponse.json({ error: 'AI response missing questions array' }, { status: 502, headers: corsHeaders });
+    }
+
+    // Ensure we have the right number of questions
+    const questions = parsed.questions.slice(0, totalQuestions);
+
+    // Create test record in database
+    const testId = crypto.randomUUID();
+    const { error: insertError } = await supabase
+      .from('level_tests')
+      .insert({
+        id: testId,
+        user_id: auth.userId,
+        language_code: targetLanguage,
+        from_level: fromLevel,
+        to_level: toLevel,
+        passed: false,
+        score: 0,
+        total_questions: questions.length,
+        correct_answers: 0,
+        started_at: new Date().toISOString(),
+        questions: questions
+      });
+
+    if (insertError) {
+      console.error('Failed to create test record:', insertError);
+      return NextResponse.json({ error: 'Failed to create test' }, { status: 500, headers: corsHeaders });
+    }
+
+    // Increment usage counter
+    incrementUsage(supabase, auth.userId, RATE_LIMITS.generateLevelTest.type);
+
+    return NextResponse.json({
+      success: true,
+      testId,
+      fromLevel,
+      toLevel,
+      theme: theme.name,
+      totalQuestions: questions.length,
+      questions
+    }, { headers: corsHeaders });
+
+  } catch (error: any) {
+    console.error('Error generating test:', error);
+    return NextResponse.json({ error: 'Failed to generate test' }, { status: 500, headers: corsHeaders });
+  }
+}

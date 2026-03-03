@@ -1,0 +1,210 @@
+import { NextResponse } from 'next/server';
+import { createClient } from '@supabase/supabase-js';
+import { getCorsHeaders, handleCorsPreflightResponse, verifyAuth } from '@/utils/api-middleware';
+import { getProfileLanguages } from '@/utils/language-helpers';
+
+interface GameAnswer {
+  wordId?: string;
+  wordText: string;
+  correctAnswer: string;
+  userAnswer?: string;
+  questionType: 'flashcard' | 'multiple_choice' | 'type_it';
+  isCorrect: boolean;
+  explanation?: string;
+}
+
+interface SubmitSessionRequest {
+  gameMode: string;
+  correctCount: number;
+  incorrectCount: number;
+  totalTimeSeconds?: number;
+  answers: GameAnswer[];
+  targetUserId?: string; // For tutors saving to their partner's progress
+  targetLanguage?: string;
+  clientSessionId?: string; // Idempotency key — prevents duplicate submissions on sync retry
+}
+
+export async function OPTIONS(request: Request) {
+  return handleCorsPreflightResponse(request);
+}
+
+export async function POST(request: Request) {
+  const corsHeaders = getCorsHeaders(request);
+
+  try {
+    const auth = await verifyAuth(request);
+    if (!auth) {
+      return NextResponse.json({ error: 'Unauthorized' }, { status: 401, headers: corsHeaders });
+    }
+
+    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL;
+    const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
+
+    if (!supabaseUrl || !supabaseServiceKey) {
+      return NextResponse.json({ error: 'Server configuration error' }, { status: 500, headers: corsHeaders });
+    }
+
+    const supabase = createClient(supabaseUrl, supabaseServiceKey);
+
+    const body = await request.json() as SubmitSessionRequest;
+    const { gameMode, correctCount, incorrectCount, totalTimeSeconds, answers, targetUserId, targetLanguage, clientSessionId } = body;
+
+    if (!gameMode || answers === undefined) {
+      return NextResponse.json({ error: 'Missing required fields: gameMode and answers' }, { status: 400, headers: corsHeaders });
+    }
+
+    // Determine which user to save the session for
+    let sessionUserId = auth.userId;
+
+    // If targetUserId is provided, verify the requesting user is linked to that user
+    if (targetUserId && targetUserId !== auth.userId) {
+      const { data: profile, error: profileError } = await supabase
+        .from('profiles')
+        .select('linked_user_id, role')
+        .eq('id', auth.userId)
+        .single();
+
+      if (profileError || !profile) {
+        return NextResponse.json({ error: 'Could not verify user profile' }, { status: 403, headers: corsHeaders });
+      }
+
+      // Only allow if the requesting user is a tutor linked to the target user
+      if (profile.role !== 'tutor' || profile.linked_user_id !== targetUserId) {
+        return NextResponse.json({ error: 'Not authorized to save to this user\'s progress' }, { status: 403, headers: corsHeaders });
+      }
+
+      sessionUserId = targetUserId;
+    }
+
+    // Resolve language: prefer request body, fall back to user profile
+    let resolvedLanguage = targetLanguage;
+    if (!resolvedLanguage) {
+      const profileLangs = await getProfileLanguages(supabase, sessionUserId);
+      resolvedLanguage = profileLangs.targetLanguage;
+    }
+
+    // Idempotency check — if clientSessionId was provided, check for existing session
+    // This prevents duplicate submissions when offline sync retries after a network drop
+    if (clientSessionId) {
+      const { data: existingSession } = await supabase
+        .from('game_sessions')
+        .select('*')
+        .eq('user_id', sessionUserId)
+        .eq('client_session_id', clientSessionId)
+        .maybeSingle();
+
+      if (existingSession) {
+        // Already processed — return success (idempotent)
+        return NextResponse.json({
+          success: true,
+          sessionId: existingSession.id,
+          session: existingSession,
+          xpAwarded: 0, // XP was already awarded on first submission
+          deduplicated: true,
+        }, { headers: corsHeaders });
+      }
+    }
+
+    // Create the game session
+    const { data: session, error: sessionError } = await supabase
+      .from('game_sessions')
+      .insert({
+        user_id: sessionUserId,
+        game_mode: gameMode,
+        correct_count: correctCount || 0,
+        incorrect_count: incorrectCount || 0,
+        total_time_seconds: totalTimeSeconds || null,
+        language_code: resolvedLanguage,
+        client_session_id: clientSessionId || null,
+        completed_at: new Date().toISOString()
+      })
+      .select()
+      .single();
+
+    if (sessionError) {
+      console.error('Error creating game session:', sessionError);
+      return NextResponse.json({ error: 'Failed to create game session' }, { status: 500, headers: corsHeaders });
+    }
+
+    // Insert answers if provided
+    if (answers && answers.length > 0) {
+      const answerRecords = answers.map((answer, index) => ({
+        session_id: session.id,
+        word_id: answer.wordId || null,
+        word_text: answer.wordText,
+        correct_answer: answer.correctAnswer,
+        user_answer: answer.userAnswer || null,
+        question_type: answer.questionType,
+        is_correct: answer.isCorrect,
+        explanation: answer.explanation || null,
+        order_index: index
+      }));
+
+      const { error: answersError } = await supabase
+        .from('game_session_answers')
+        .insert(answerRecords);
+
+      if (answersError) {
+        console.error('Error inserting answers:', answersError);
+        // Don't fail the whole request, session is already created
+        // Return warning (not error) so client knows it's non-fatal
+        return NextResponse.json({
+          success: true,
+          sessionId: session.id,
+          session,
+          warning: 'Session saved but detailed answers may be incomplete'
+        }, { headers: corsHeaders });
+      }
+    }
+
+    // Award XP: 1 XP per 5 correct answers IN A ROW
+    let xpAwarded = 0;
+    if (answers && answers.length > 0) {
+      let currentStreak = 0;
+
+      for (const answer of answers) {
+        if (answer.isCorrect) {
+          currentStreak++;
+          if (currentStreak === 5) {
+            xpAwarded++;
+            currentStreak = 0; // Reset after awarding
+          }
+        } else {
+          currentStreak = 0; // Reset on incorrect
+        }
+      }
+
+      // Update user's XP if any was earned
+      if (xpAwarded > 0) {
+        const { data: profile } = await supabase
+          .from('profiles')
+          .select('xp')
+          .eq('id', sessionUserId)
+          .single();
+
+        const currentXp = profile?.xp || 0;
+        const newXp = currentXp + xpAwarded;
+
+        const { error: xpError } = await supabase
+          .from('profiles')
+          .update({ xp: newXp })
+          .eq('id', sessionUserId);
+
+        if (xpError) {
+          console.error('Error awarding XP:', xpError);
+        }
+      }
+    }
+
+    return NextResponse.json({
+      success: true,
+      sessionId: session.id,
+      session,
+      xpAwarded
+    }, { headers: corsHeaders });
+
+  } catch (error: any) {
+    console.error('[submit-game-session] Error:', error);
+    return NextResponse.json({ error: 'Failed to save game session. Please try again.' }, { status: 500, headers: corsHeaders });
+  }
+}
