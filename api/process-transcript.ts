@@ -103,7 +103,7 @@ export default async function handler(req: any, res: any) {
       .join('\n');
 
     const response = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
+      model: "gemini-3.1-flash-lite-preview",
       contents: `TASK: Bilingual Transcript Cleanup for ${targetName}/${nativeName} Language Learning
 
 You are processing a real-time transcription from a bilingual conversation.

@@ -269,7 +269,7 @@ export default async function handler(req: any, res: any) {
     // Handle Title Generation
     if (action === 'generateTitle') {
       const response = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
+        model: "gemini-3.1-flash-lite-preview",
         contents: `Generate a short (2-3 word) romantic or cute title for a ${targetName} learning session starting with: "${prompt}"`,
       });
       return res.status(200).json({ title: response.text?.replace(/"/g, '').trim() || "New Session" });
@@ -696,7 +696,7 @@ ${modePrompt}`;
     contents.push({ role: 'user', parts: currentParts });
 
     const result = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
+      model: "gemini-3.1-flash-lite-preview",
       contents,
       config: {
         systemInstruction: activeSystemInstruction,

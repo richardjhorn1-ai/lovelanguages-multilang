@@ -36,7 +36,7 @@ async function getTopicSuggestions(
     : '';
 
   const result = await ai.models.generateContent({
-    model: "gemini-3-flash-preview",
+    model: "gemini-3.1-flash-lite-preview",
     contents: `Generate ${count} ${targetName} vocabulary words/phrases related to the topic: "${topic}"
 
 For a romantic couple where one partner is learning ${targetName}. The words should be practical and useful for everyday communication.${exclusionText}

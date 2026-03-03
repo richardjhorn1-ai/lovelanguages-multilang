@@ -51,7 +51,7 @@ async function batchEnrichWordContexts(
 
   try {
     const result = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
+      model: "gemini-3.1-flash-lite-preview",
       contents: `Generate rich learning context for these ${words.length} ${targetName} words/phrases.
 This is for a romantic language learning app. Make it useful and heartfelt.
 

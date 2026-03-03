@@ -133,7 +133,7 @@ export default async function handler(req: any, res: any) {
     let response;
     try {
       response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
+        model: 'gemini-3.1-flash-lite-preview',
         contents: prompt,
         config: {
           responseMimeType: 'application/json',
