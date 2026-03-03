@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * React hook for offline mode — exposes network state, caching, and queueing.
  */

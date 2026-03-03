@@ -1,3 +1,5 @@
+'use client';
+
 // context/LanguageContext.tsx
 
 import React, { createContext, useContext, useMemo, useState, useCallback, ReactNode } from 'react';
