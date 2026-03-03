@@ -62,7 +62,8 @@ export default defineConfig(() => ({
           /^\/compare/,
           /^\/tools/,
           /^\/dictionary/,
-          /^\/api/
+          /^\/api/,
+          /\.xml$/,
         ],
         runtimeCaching: [
           {
