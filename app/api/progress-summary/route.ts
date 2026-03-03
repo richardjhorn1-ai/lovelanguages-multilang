@@ -409,7 +409,7 @@ Write a progress summary that feels personal, not generic. You have freedom to:
 The summary should make them feel seen, not just measured.`;
 
     const response = await ai.models.generateContent({
-      model: 'gemini-3-flash-preview',
+      model: 'gemini-3.1-flash-lite-preview',
       contents: prompt,
       config: {
         responseMimeType: 'application/json',

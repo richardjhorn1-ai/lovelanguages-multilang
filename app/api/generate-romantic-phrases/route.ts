@@ -80,7 +80,7 @@ Generate unique, varied phrases. Each phrase must have a unique ID starting with
     };
 
     const result = await ai.models.generateContent({
-      model: 'gemini-2.5-flash',
+      model: 'gemini-3.1-flash-lite-preview',
       contents: prompt,
       config: {
         responseMimeType: 'application/json',

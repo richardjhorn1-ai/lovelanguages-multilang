@@ -22,6 +22,9 @@
     "paths": {
       "@/*": [
         "./*"
+      ],
+      "@blog-data/*": [
+        "./blog/src/data/*"
       ]
     },
     "allowImportingTsExtensions": true,
@@ -40,7 +43,9 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "blog/src/data/**/*.ts",
+    "blog/src/data/**/*.json"
   ],
   "exclude": [
     "node_modules",

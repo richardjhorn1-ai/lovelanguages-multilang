@@ -242,7 +242,7 @@ export async function POST(request: Request) {
     // Handle Title Generation
     if (action === 'generateTitle') {
       const response = await ai.models.generateContent({
-        model: "gemini-3-flash-preview",
+        model: "gemini-3.1-flash-lite-preview",
         contents: `Generate a short (2-3 word) romantic or cute title for a ${targetName} learning session starting with: "${prompt}"`,
       });
       return NextResponse.json({ title: response.text?.replace(/"/g, '').trim() || "New Session" }, { status: 200, headers: corsHeaders });
@@ -654,7 +654,7 @@ ${modePrompt}`;
     contents.push({ role: 'user', parts: currentParts });
 
     const result = await ai.models.generateContent({
-      model: "gemini-3-flash-preview",
+      model: "gemini-3.1-flash-lite-preview",
       contents,
       config: {
         systemInstruction: activeSystemInstruction,
