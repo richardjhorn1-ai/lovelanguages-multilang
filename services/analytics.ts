@@ -308,9 +308,13 @@ class AnalyticsService {
       }
     }
 
-    // Identify in PostHog
+    // Identify in PostHog (try/catch: stub may not be fully initialized yet)
     if (hasPostHog()) {
-      window.posthog.identify(this.userId, properties ? cleanParams(properties as BaseEventParams) : {});
+      try {
+        window.posthog.identify(this.userId, properties ? cleanParams(properties as BaseEventParams) : {});
+      } catch (e) {
+        // PostHog stub not ready — will be identified on next page interaction
+      }
     }
 
     if (isDebugMode()) {
@@ -343,9 +347,13 @@ class AnalyticsService {
       window.gtag('event', eventName, cleanParams(enrichedParams));
     }
 
-    // Send to PostHog
+    // Send to PostHog (try/catch: stub may not be fully initialized yet)
     if (hasPostHog()) {
-      window.posthog.capture(eventName, cleanParams(enrichedParams));
+      try {
+        window.posthog.capture(eventName, cleanParams(enrichedParams));
+      } catch (e) {
+        // PostHog stub not ready
+      }
     }
 
     // Send to Supabase for per-user tracking
@@ -512,10 +520,13 @@ class AnalyticsService {
 
   trackLogout(): void {
     this.track('user_logged_out', {});
-    // Reset PostHog identity on logout — guard .reset() separately since CSP may block
-    // the full PostHog script while the inline snippet still creates window.posthog
+    // Reset PostHog identity on logout (try/catch: stub may not be fully initialized)
     if (hasPostHog() && typeof window.posthog.reset === 'function') {
-      window.posthog.reset();
+      try {
+        window.posthog.reset();
+      } catch (e) {
+        // PostHog stub not ready
+      }
     }
   }
 

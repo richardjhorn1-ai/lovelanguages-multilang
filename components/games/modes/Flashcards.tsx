@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useCallback, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../constants';

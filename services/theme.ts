@@ -387,6 +387,7 @@ export function migrateAccentColor(raw: string | undefined): AccentColor {
 
 // Apply theme CSS variables to document
 export function applyTheme(theme: ThemeSettings): void {
+  if (typeof window === 'undefined') return; // SSR guard
   const root = document.documentElement;
   const accent = ACCENT_COLORS[theme.accentColor];
   const secondary = accent.secondary;
@@ -487,6 +488,7 @@ function applyTextScale(fontSize: FontSize): void {
 let resizeCleanup: (() => void) | null = null;
 
 export function setupResponsiveTextScale(fontSize: FontSize): void {
+  if (typeof window === 'undefined') return; // SSR guard
   // Clean up previous listener if exists
   if (resizeCleanup) {
     resizeCleanup();

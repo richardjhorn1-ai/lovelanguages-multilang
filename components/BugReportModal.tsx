@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../constants';
@@ -5,7 +7,7 @@ import { useTheme } from '../context/ThemeContext';
 import { supabase } from '../services/supabase';
 import { Profile, BugReportSeverity } from '../types';
 import { getLevelFromXP } from '../services/level-utils';
-import { useLocation } from 'react-router-dom';
+import { usePathname } from 'next/navigation';
 import { apiFetch } from '../services/api-config';
 
 interface Props {
@@ -17,7 +19,7 @@ interface Props {
 export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) => {
   const { t } = useTranslation();
   const { accentHex } = useTheme();
-  const location = useLocation();
+  const pathname = usePathname();
 
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
@@ -77,7 +79,7 @@ export const BugReportModal: React.FC<Props> = ({ isOpen, onClose, profile }) =>
             role: profile.role,
             level: levelInfo.displayName,
             xp: profile.xp || 0,
-            currentPath: location.pathname,
+            currentPath: pathname,
           },
         }),
       });

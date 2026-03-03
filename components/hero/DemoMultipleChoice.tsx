@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import { DemoWord, generateMCOptions } from './demoData';
 import { sounds } from '../../services/sounds';

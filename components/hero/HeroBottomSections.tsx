@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../constants';
 
@@ -577,9 +579,9 @@ export const HeroFooter: React.FC<{ isStudent: boolean; isVisible?: boolean; sec
 
         {/* Links Row */}
         <div className="flex flex-wrap items-center justify-center gap-2 md:gap-6 text-xs md:text-sm mb-2 md:mb-6">
-          <Link to="/terms" className="font-medium hover:underline transition-colors" style={{ color: 'var(--text-secondary)' }}>{t('hero.bottomSections.footer.terms')}</Link>
+          <Link href="/terms/" className="font-medium hover:underline transition-colors" style={{ color: 'var(--text-secondary)' }}>{t('hero.bottomSections.footer.terms')}</Link>
           <span style={{ color: '#d1d5db' }}>·</span>
-          <Link to="/privacy" className="font-medium hover:underline transition-colors" style={{ color: 'var(--text-secondary)' }}>{t('hero.bottomSections.footer.privacy')}</Link>
+          <Link href="/privacy/" className="font-medium hover:underline transition-colors" style={{ color: 'var(--text-secondary)' }}>{t('hero.bottomSections.footer.privacy')}</Link>
           <span style={{ color: '#d1d5db' }}>·</span>
           <a href="https://www.lovelanguages.io/learn/" target="_blank" rel="noopener noreferrer" className="font-medium hover:underline transition-colors" style={{ color: 'var(--text-secondary)' }}>{t('hero.bottomSections.footer.blog')}</a>
           <span style={{ color: '#d1d5db' }}>·</span>

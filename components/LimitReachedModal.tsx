@@ -1,6 +1,8 @@
+'use client';
+
 import React, { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { ICONS } from '../constants';
 
 interface LimitReachedModalProps {
@@ -19,7 +21,7 @@ const LimitReachedModal: React.FC<LimitReachedModalProps> = ({
   onContinueBasic
 }) => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const router = useRouter();
   const modalRef = useRef<HTMLDivElement>(null);
 
   // Get the appropriate message based on limit type
@@ -54,7 +56,7 @@ const LimitReachedModal: React.FC<LimitReachedModalProps> = ({
     if (onUpgrade) {
       onUpgrade();
     } else {
-      navigate('/pricing');
+      router.push('/pricing');
     }
     onClose();
   };

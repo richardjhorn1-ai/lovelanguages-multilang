@@ -1,11 +1,13 @@
+'use client';
+
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../context/ThemeContext';
 import { ICONS } from '../constants';
 
 const Pricing: React.FC = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const { t } = useTranslation();
   const { accentHex } = useTheme();
 
@@ -17,9 +19,9 @@ const Pricing: React.FC = () => {
           onClick={() => {
             // If coming from Stripe (has subscription query param), go home instead of back to Stripe
             if (window.location.search.includes('subscription=')) {
-              navigate('/');
+              router.push('/');
             } else {
-              navigate(-1);
+              router.back();
             }
           }}
           className="flex items-center gap-2 mb-8 transition-colors"
@@ -71,7 +73,7 @@ const Pricing: React.FC = () => {
               </li>
             </ul>
             <button
-              onClick={() => navigate('/')}
+              onClick={() => router.push('/')}
               className="w-full py-3 rounded-full font-bold border-2 transition-colors hover:opacity-80"
               style={{ borderColor: accentHex, color: accentHex }}
             >
@@ -122,7 +124,7 @@ const Pricing: React.FC = () => {
               </li>
             </ul>
             <button
-              onClick={() => navigate('/')}
+              onClick={() => router.push('/')}
               className="w-full py-3 rounded-full font-bold text-white transition-transform hover:scale-105"
               style={{ background: accentHex }}
             >

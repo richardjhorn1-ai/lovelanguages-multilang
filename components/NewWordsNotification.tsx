@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import { ExtractedWord } from '../services/gemini';
 import { ICONS } from '../constants';
@@ -13,13 +15,13 @@ interface NewWordsNotificationProps {
 const NewWordsNotification: React.FC<NewWordsNotificationProps> = ({ words, isExtracting = false, onClose }) => {
   const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(false);
-  const navigate = useNavigate();
+  const router = useRouter();
 
   // Show extracting state OR words — never both hidden
   if (!isExtracting && words.length === 0) return null;
 
   const handleWordClick = (word: string) => {
-    navigate(`/log?search=${encodeURIComponent(word)}`);
+    router.push(`/log?search=${encodeURIComponent(word)}`);
     onClose();
   };
 
@@ -85,7 +87,7 @@ const NewWordsNotification: React.FC<NewWordsNotificationProps> = ({ words, isEx
           </div>
           <div className="px-3 pb-3">
             <button
-              onClick={() => { navigate('/log'); onClose(); }}
+              onClick={() => { router.push('/log'); onClose(); }}
               className="w-full py-2 text-scale-micro font-bold uppercase tracking-wider text-[var(--accent-color)] hover:opacity-80 transition-colors"
             >
               {t('newWords.viewAll')} →

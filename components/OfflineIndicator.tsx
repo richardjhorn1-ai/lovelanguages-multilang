@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * Offline indicator component
  * Shows a banner when the user is offline with cached data info

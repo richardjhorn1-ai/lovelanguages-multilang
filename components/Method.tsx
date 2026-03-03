@@ -1,11 +1,13 @@
+'use client';
+
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../context/ThemeContext';
 import { ICONS } from '../constants';
 
 const Method: React.FC = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const { t } = useTranslation();
   const { accentHex } = useTheme();
 
@@ -21,7 +23,7 @@ const Method: React.FC = () => {
       <div className="max-w-3xl mx-auto px-4 py-8 sm:py-12">
         {/* Back Button */}
         <button
-          onClick={() => navigate(-1)}
+          onClick={() => router.back()}
           className="flex items-center gap-2 mb-8 transition-colors"
           style={{ color: 'var(--text-secondary)' }}
         >
@@ -100,7 +102,7 @@ const Method: React.FC = () => {
         {/* CTA */}
         <div className="mt-12 text-center">
           <button
-            onClick={() => navigate('/')}
+            onClick={() => router.push('/')}
             className="px-8 py-4 rounded-full font-bold text-white transition-transform hover:scale-105"
             style={{ background: accentHex }}
           >

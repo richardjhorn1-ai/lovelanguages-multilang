@@ -10,7 +10,7 @@ Developer guidance for Claude Code when working with this repository.
 
 **Branch:** `feature/nextjs-migration` — Migrating from Vite+Astro dual-build to unified Next.js 15 App Router.
 
-**Current Phase:** Phase 2 complete (core infrastructure — auth, env vars, services, providers, API middleware, 61 API routes). Phase 3 next (app routes, PersistentTabs, react-router-dom migration).
+**Current Phase:** Phase 3 complete (app routes, PersistentTabs, react-router-dom → next/navigation, public routes, cleanup). Phase 4 next (blog/content routes — Astro → Next.js).
 
 **Migration Plan:** `docs/MIGRATION_PLAN.md` — Full plan with scope, phases, sanity checks. Read this first when starting work.
 
@@ -149,7 +149,8 @@ AI outputs special blocks rendered by `ChatArea.tsx`:
 
 | File | Purpose |
 |------|---------|
-| `App.tsx` | Routes, auth, PersistentTabs |
+| `App.tsx.old` | Original routes/auth/PersistentTabs (reference only — replaced by `app/(app)/layout.tsx`) |
+| `app/(app)/layout.tsx` | Auth gates, PersistentTabs, app shell |
 | `ChatArea.tsx` | Text/voice chat, Listen Mode |
 | `LoveLog.tsx` | Vocabulary browser |
 | `FlashcardGame.tsx` | 7 game modes |

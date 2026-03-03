@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect, useRef, useCallback, createContext, useMemo } from 'react';
 import { Capacitor } from '@capacitor/core';
 import { supabase } from '../../services/supabase';

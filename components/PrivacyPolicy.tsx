@@ -1,10 +1,12 @@
+'use client';
+
 import React, { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { useTheme } from '../context/ThemeContext';
 import { ICONS } from '../constants';
 
 const PrivacyPolicy: React.FC = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const { accentHex } = useTheme();
 
   const lastUpdated = 'February 27, 2026';
@@ -20,7 +22,7 @@ const PrivacyPolicy: React.FC = () => {
       <div className="max-w-3xl mx-auto px-4 py-8 sm:py-12">
         {/* Back Button */}
         <button
-          onClick={() => navigate(-1)}
+          onClick={() => router.back()}
           className="flex items-center gap-2 mb-8 transition-colors"
           style={{ color: 'var(--text-secondary)' }}
         >

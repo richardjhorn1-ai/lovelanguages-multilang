@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';

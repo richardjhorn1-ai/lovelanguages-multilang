@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 
 const CONSENT_KEY = 'cookie-consent-accepted';
@@ -45,7 +47,7 @@ const CookieConsent: React.FC = () => {
         <p className="text-scale-label text-[var(--text-secondary)] flex-1 text-center sm:text-left">
           {t('cookies.message', 'We use cookies to improve your experience.')}{' '}
           <Link
-            to="/privacy"
+            href="/privacy/"
             className="text-[var(--accent-color)] hover:underline font-semibold"
           >
             {t('cookies.learnMore', 'Learn more')}

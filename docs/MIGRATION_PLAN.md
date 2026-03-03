@@ -308,95 +308,110 @@ Pattern change for all endpoints:
 
 **Goal:** All authenticated app features work — chat, games, log, progress, profile. PersistentTabs functional.
 
-### 3.1 PersistentTabs Implementation (VERY HARD)
+**Status:** Complete. All sub-phases done: 'use client' directives (123 files), react-router-dom → next/navigation (22 component files), app shell with PersistentTabs (9 files), public route pages (9 files including `[lang]` with SSG), cleanup (react-router-dom removed, App.tsx/index.tsx renamed to .old). Build passes, zero react-router-dom imports remain in active code.
 
-**The single hardest problem in this migration.**
+**Key decisions:**
+- PersistentTabs live in `app/(app)/layout.tsx` — all 4 tabs always mounted, CSS `hidden` class toggling via `usePathname()`
+- Path normalization for `trailingSlash: true`: strip trailing slash before matching persistent paths
+- Providers shadow pattern: root `<Providers>` for defaults, inner `<Providers userId={...} profile={...}>` for auth data
+- `ProfileContext` shares profile + refreshProfile from layout to non-persistent pages (/test, /profile)
+- `app/[lang]/page.tsx` uses `generateStaticParams` + `dynamicParams = false` to prevent conflicts with `/api/*` routes
+- `Landing` component dynamically imported with `ssr: false` in `[lang]` routes (uses `window`)
 
-Current implementation (`App.tsx` lines 51-93):
-- 4 tabs (ChatArea, LoveLog, FlashcardGame, Progress) stay mounted simultaneously
-- CSS `display: none/block` toggles visibility
-- **109 useState + 19 useRef** across these components maintain state
-- Active WebSocket connections (Gemini Live voice, Gladia transcription) must NOT disconnect on tab switch
+### 3.1 `'use client'` Directive Audit (~123 files) [COMPLETE]
 
-**Next.js approach — Client layout with keep-mounted pattern:**
+**123 component `.tsx` files** need `'use client'` prepended (of 131 total in `components/`).
+
+**Already done (6):** TutorTypeIt, TutorQuickFire, TutorGameResults, TutorMultipleChoice, TutorFlashcards, AIChallenge
+**Skip (2):** `hero/heroHighlighting.tsx` (pure data), `games/components/StreakIndicator.tsx` (pure presentational)
+**Already done from Phase 2 (skip):** context/, hooks/, services/, i18n/, constants/icons.tsx
+
+Approach: 3 parallel agents, each handling ~41 files. Mechanical prepend of `'use client';\n\n`.
+
+**Verify:** `npm run build`
+
+### 3.2 react-router-dom Migration (23 component files)
+
+Convert all non-App.tsx files from `react-router-dom` to `next/navigation` + `next/link`.
+
+| Pattern | Files | Conversion |
+|---------|-------|------------|
+| `useNavigate()` | 14 files (FAQ, Method, Pricing, Progress, Navbar, etc.) | `useRouter()` from `next/navigation`, `.push()` / `.back()` |
+| `Link` (to→href) | 6 files (Landing, ProfileView, CookieConsent, etc.) | `import Link from 'next/link'`, `to` → `href` |
+| `NavLink` + active state | 1 file (Navbar) | `Link` + `usePathname()` for `isActive` check |
+| `useParams()` | 2 files (Hero, JoinInvite) | `useParams()` from `next/navigation` |
+| `useSearchParams()` | 1 file (LevelTest) | `useSearchParams()` from `next/navigation` (no tuple) |
+| `useLocation()` | 1 file (BugReportModal) | `usePathname()` from `next/navigation` |
+
+**Verify:** `npm run build`
+
+### 3.3 App Shell & PersistentTabs (VERY HARD)
+
+**The single hardest problem in this migration.** Next.js unmounts page components on navigation, so PersistentTabs must live in `(app)/layout.tsx`.
+
+**Architecture:**
 ```
-app/(app)/layout.tsx — 'use client'
-  ├── Auth gate + subscription check
-  ├── Navbar
-  └── <div> with ALL 4 tab components always mounted
-      ├── <div style={{display: pathname === '/' ? 'block' : 'none'}}><ChatArea/></div>
-      ├── <div style={{display: pathname === '/log' ? 'block' : 'none'}}><LoveLog/></div>
-      ├── <div style={{display: pathname === '/play' ? 'block' : 'none'}}><FlashcardGame/></div>
-      └── <div style={{display: pathname === '/progress' ? 'block' : 'none'}}><Progress/></div>
+app/
+  layout.tsx                    # (existing) HTML shell, Providers
+  (app)/
+    layout.tsx                  # NEW: auth + gates + PersistentTabs + Navbar
+    page.tsx                    # / — returns null (ChatArea in layout)
+    log/page.tsx                # /log — returns null (LoveLog in layout)
+    play/page.tsx               # /play — returns null (FlashcardGame in layout)
+    progress/page.tsx           # /progress — returns null (Progress in layout)
+    test/page.tsx               # /test — renders <LevelTest /> (non-persistent)
+    profile/page.tsx            # /profile — renders <ProfileView /> (non-persistent)
 ```
 
-The `page.tsx` files for these routes can be minimal (empty or metadata-only) since the layout handles rendering.
+**Key file: `app/(app)/layout.tsx`** — direct port of `App.tsx`:
+- **Auth:** `getSession()` + `onAuthStateChange()` → `setSession` / `setProfile`
+- **Gates (nested):** loading → no session (Landing) → no onboarding (Onboarding) → no access (SubscriptionRequired) → app shell
+- **PersistentTabs:** All 4 tab components always mounted. `usePathname()` drives CSS visibility via Tailwind `hidden` class
+- **Non-persistent routes:** `{children}` renders for `/test`, `/profile`; hidden when on persistent tab path
+- **Global overlays:** NewWordsNotification, PromoExpiredBanner, CookieConsent, TrialReminder
+- **Auth gate** (from `App.tsx` lines 625-649): 7-condition access check (subscription, inherited, promo, free tier, beta, grandfathered, trial)
 
-Use `usePathname()` from `next/navigation` to determine active tab. Browser URL changes but components stay mounted.
+**New context: `context/ProfileContext.tsx`** — shares `profile` + `refreshProfile()` from layout to non-persistent pages (`/test`, `/profile`) via `useProfile()` hook.
 
-### 3.2 Auth Gate & Subscription Check
+**Delete:** `app/page.tsx` (Phase 1 placeholder — conflicts with `(app)/page.tsx`)
 
-Port from `App.tsx` lines 625-649 — 7-condition access check:
-1. Active subscription
-2. Inherited partner access
-3. Active promo
-4. Free tier
-5. Beta tester flag
-6. Grandfathered account
-7. Active trial
+**Files to create (9):**
+1. `context/ProfileContext.tsx`
+2. `app/(app)/layout.tsx` (port of App.tsx)
+3. `app/(app)/page.tsx` (null stub)
+4. `app/(app)/log/page.tsx` (null stub)
+5. `app/(app)/play/page.tsx` (null stub)
+6. `app/(app)/progress/page.tsx` (null stub)
+7. `app/(app)/test/page.tsx` (renders LevelTest)
+8. `app/(app)/profile/page.tsx` (renders ProfileView)
 
-This runs in `(app)/layout.tsx` as client-side check. Redirect to landing if not authenticated.
+**Verify:** `npm run build` + dev server → test auth flow, tab switching, state persistence
 
-### 3.3 react-router-dom Migration (24 files)
+### 3.4 Public Route Pages
 
-Replace across all 24 files:
-- `useNavigate()` (14 files) → `useRouter()` from `next/navigation`
-- `Link` component (6 files) → `Link` from `next/link` (`to` → `href`)
-- `useParams()` (5 files) → `useParams()` from `next/navigation`
-- `useLocation()` (4 files) → `usePathname()` + `useSearchParams()`
-- `useSearchParams()` (3 files) → `useSearchParams()` from `next/navigation`
-- `Navigate` component (2 files) → `redirect()` or `useRouter().push()`
-- `BrowserRouter` (1 file, App.tsx) → removed entirely (Next.js has built-in routing)
+Simple wrapper pages — each imports its component.
 
-Then remove `react-router-dom` from `package.json`.
+**Files to create (8):**
+1. `app/terms/page.tsx` → `<TermsOfService />`
+2. `app/privacy/page.tsx` → `<PrivacyPolicy />`
+3. `app/faq/page.tsx` → `<FAQ />`
+4. `app/method/page.tsx` → `<Method />`
+5. `app/pricing/page.tsx` → `<Pricing />`
+6. `app/reset-password/page.tsx` → `<ResetPassword />`
+7. `app/join/[token]/page.tsx` → `<JoinInvite />`
+8. `app/[lang]/page.tsx` → Language landing pages (`generateStaticParams` for 18 languages from `SUPPORTED_LANGUAGE_CODES`)
 
-### 3.4 `'use client'` Audit (~114 files)
+**Verify:** `npm run build`
 
-Nearly every component uses React hooks. Add `'use client'` to all files that use:
-- `useState`, `useEffect`, `useRef`, `useCallback`, `useMemo`
-- Browser APIs (`window`, `document`, `localStorage`, `navigator`)
-- Event handlers (`onClick`, `onChange`, etc.)
+### 3.5 Cleanup
 
-Files that can remain Server Components (no hooks, no browser APIs):
-- Static display components with no interactivity
-- Layout wrappers that only pass children
-- Most blog components (22 of 29)
+1. Remove `react-router-dom` from `package.json` + `npm install`
+2. Rename `App.tsx` → `App.tsx.old` (preserve for reference, delete in Phase 5)
+3. Rename `index.tsx` → `index.tsx.old` (Vite entry point, dead code)
+4. Verify zero `react-router-dom` imports remain
+5. Update CLAUDE.md + MIGRATION_PLAN.md
 
-### 3.5 App Routes
-
-**Authenticated (under `(app)` route group):**
-- `app/(app)/page.tsx` — ChatArea (default tab, minimal since layout mounts it)
-- `app/(app)/log/page.tsx` — LoveLog
-- `app/(app)/play/page.tsx` — FlashcardGame
-- `app/(app)/progress/page.tsx` — Progress
-- `app/(app)/test/page.tsx` — LevelTest (not a persistent tab)
-- `app/(app)/profile/page.tsx` — ProfileView (not a persistent tab)
-
-**Public routes:**
-- `app/(public)/join/[token]/page.tsx` — JoinInvite
-- `app/(public)/terms/page.tsx`
-- `app/(public)/privacy/page.tsx`
-- `app/(public)/faq/page.tsx`
-- `app/(public)/method/page.tsx`
-- `app/(public)/pricing/page.tsx`
-- `app/(public)/reset-password/page.tsx`
-
-**Language landing pages:**
-- `app/[lang]/page.tsx` — dynamic route for 18 languages
-- `generateStaticParams()` from `SUPPORTED_LANGUAGE_CODES`
-
-**Root page:**
-- `app/page.tsx` — Landing/Hero (unauthenticated) or redirect to `/(app)` (authenticated)
+**Verify:** `npm run build` + grep for `react-router-dom`
 
 ### 3.6 Static HTML Pages (keep as static)
 
@@ -405,9 +420,9 @@ These pages in `public/` should remain as static files:
 - `public/privacy/index.html` — standalone privacy page for Apple App Store links
 - `public/terms/index.html` — standalone terms page for external links
 - `public/de/`, `es/`, `fr/`, `it/`, `pl/`, `pt/` — SEO redirect pages with localized meta tags
-  - These could optionally become Next.js redirects in `next.config.js`, but keeping as static works fine
 
 ### Verify Phase 3
+- `npm run build` passes
 - All 4 persistent tabs render and switch without state loss
 - WebSocket connections survive tab switches
 - Auth flow works end-to-end (signup, login, logout, password reset)
@@ -417,9 +432,12 @@ These pages in `public/` should remain as static files:
 - No hydration errors in console
 
 ### Critical files
-- `App.tsx` — PersistentTabs (51-93), routes (586-687), auth (172-197), subscription check (625-649)
-- `components/Navbar.tsx` — tab navigation
-- All 24 files with `react-router-dom` imports
+- `App.tsx` — Source of truth for auth/gates/PersistentTabs logic to port
+- `components/Navbar.tsx` — Most complex router conversion (NavLink → Link + usePathname)
+- `app/layout.tsx` — Existing root layout (stable, minimal changes)
+- `app/providers.tsx` — Existing providers wrapper
+- `constants/language-config.ts` — `SUPPORTED_LANGUAGE_CODES` for [lang] routes
+- All 23 files with `react-router-dom` imports
 
 ---
 

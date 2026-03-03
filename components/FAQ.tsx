@@ -1,11 +1,13 @@
+'use client';
+
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../context/ThemeContext';
 import { ICONS } from '../constants';
 
 const FAQ: React.FC = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const { t } = useTranslation();
   const { accentHex } = useTheme();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -19,7 +21,7 @@ const FAQ: React.FC = () => {
       <div className="max-w-3xl mx-auto px-4 py-8 sm:py-12">
         {/* Back Button */}
         <button
-          onClick={() => navigate(-1)}
+          onClick={() => router.back()}
           className="flex items-center gap-2 mb-8 transition-colors"
           style={{ color: 'var(--text-secondary)' }}
         >

@@ -1,3 +1,5 @@
+'use client';
+
 /**
  * TrialReminderNotification
  * Shows in-app notification when trial is expiring (days 5, 3, 1, 0)
@@ -5,7 +7,7 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../constants';
 
@@ -17,7 +19,7 @@ interface Props {
 const STORAGE_KEY_PREFIX = 'trial_reminder_dismissed_';
 
 export const TrialReminderNotification: React.FC<Props> = ({ daysRemaining, hoursRemaining }) => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
 
@@ -101,7 +103,7 @@ export const TrialReminderNotification: React.FC<Props> = ({ daysRemaining, hour
               {msg.subtitle}
             </p>
             <button
-              onClick={() => navigate('/pricing')}
+              onClick={() => router.push('/pricing')}
               className="mt-3 text-sm font-bold hover:underline"
               style={{ color: 'var(--accent-color)' }}
             >

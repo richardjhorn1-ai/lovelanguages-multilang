@@ -1,3 +1,5 @@
+'use client';
+
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 import i18n from 'i18next';
 import { ICONS } from '../constants';

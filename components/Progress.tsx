@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState, useEffect, useMemo, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { geminiService } from '../services/gemini';
@@ -106,7 +108,7 @@ function getPreviousLevelTests(currentLevel: string): { from: string; to: string
 
 const Progress: React.FC<ProgressProps> = ({ profile }) => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const router = useRouter();
   const [entries, setEntries] = useState<DictionaryEntry[]>([]);
   const [summaryIndex, setSummaryIndex] = useState<SummaryIndex[]>([]);
   const [selectedSummary, setSelectedSummary] = useState<SavedProgressSummary | null>(null);
@@ -538,7 +540,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
           {/* Take Level Test Button - Always visible for retakes */}
           {canTakeTest && (
             <button
-              onClick={() => navigate(`/test?from=${encodeURIComponent(levelInfo.displayName)}&to=${encodeURIComponent(levelInfo.nextLevel!)}`)}
+              onClick={() => router.push(`/test?from=${encodeURIComponent(levelInfo.displayName)}&to=${encodeURIComponent(levelInfo.nextLevel!)}`)}
               className="w-full bg-[var(--bg-card)] text-[var(--text-primary)] py-3 md:py-4 rounded-xl md:rounded-2xl text-scale-label font-black uppercase tracking-widest shadow-lg transition-all active:scale-95 flex items-center justify-center gap-2 md:gap-3"
             >
               <ICONS.Star className="w-4 h-4 md:w-5 md:h-5" style={{ color: accentHex }} />
@@ -577,7 +579,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
                         <div key={idx} className="bg-white/10 rounded-xl overflow-hidden">
                           <div className="flex items-center">
                             <button
-                              onClick={() => navigate(`/test?from=${encodeURIComponent(test.from)}&to=${encodeURIComponent(test.to)}`)}
+                              onClick={() => router.push(`/test?from=${encodeURIComponent(test.from)}&to=${encodeURIComponent(test.to)}`)}
                               className="flex-1 text-left px-4 py-3 hover:bg-white/10 transition-all flex items-center justify-between group"
                             >
                               <div>
@@ -1084,7 +1086,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
         {/* Quick Actions */}
         <div className="grid grid-cols-2 gap-2 md:gap-4">
           <button
-            onClick={() => navigate('/play')}
+            onClick={() => router.push('/play')}
             className="glass-card p-3 md:p-6 rounded-xl md:rounded-2xl text-center hover:bg-white/70 dark:hover:bg-white/20 hover:shadow-md active:scale-[0.98] transition-all"
           >
             <ICONS.Play className="w-6 h-6 md:w-8 md:h-8 mx-auto mb-1 md:mb-2 text-[var(--accent-color)]" />
@@ -1093,7 +1095,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
           </button>
 
           <button
-            onClick={() => navigate('/log')}
+            onClick={() => router.push('/log')}
             className="glass-card p-3 md:p-6 rounded-xl md:rounded-2xl text-center hover:bg-white/70 dark:hover:bg-white/20 hover:shadow-md active:scale-[0.98] transition-all"
           >
             <ICONS.Book className="w-6 h-6 md:w-8 md:h-8 mx-auto mb-1 md:mb-2 text-[var(--accent-color)]" />
@@ -1215,7 +1217,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
               <button
                 onClick={() => {
                   setSelectedTestResult(null);
-                  navigate(`/test?from=${encodeURIComponent(selectedTestResult.from_level)}&to=${encodeURIComponent(selectedTestResult.to_level)}`);
+                  router.push(`/test?from=${encodeURIComponent(selectedTestResult.from_level)}&to=${encodeURIComponent(selectedTestResult.to_level)}`);
                 }}
                 className="w-full py-3 rounded-xl font-bold text-white text-scale-label shadow-md hover:shadow-lg active:scale-[0.98] transition-all"
                 style={{ backgroundColor: accentHex }}

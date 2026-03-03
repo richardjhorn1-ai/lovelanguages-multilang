@@ -1,7 +1,10 @@
+'use client';
+
 
 import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useParams, Link } from 'react-router-dom';
+import { useParams } from 'next/navigation';
+import Link from 'next/link';
 import type { TFunction } from 'i18next';
 import { Capacitor } from '@capacitor/core';
 import { supabase } from '../services/supabase';
@@ -1234,9 +1237,9 @@ const Hero: React.FC = () => {
 
             {/* Legal links — always visible */}
             <div className="mt-4 flex justify-center gap-4 text-scale-caption" style={{ color: 'var(--text-secondary)' }}>
-              <Link to="/terms" className="hover:underline">{t('hero.legal.terms')}</Link>
+              <Link href="/terms/" className="hover:underline">{t('hero.legal.terms')}</Link>
               <span>|</span>
-              <Link to="/privacy" className="hover:underline">{t('hero.legal.privacy')}</Link>
+              <Link href="/privacy/" className="hover:underline">{t('hero.legal.privacy')}</Link>
             </div>
           </div>
           </div>{/* Close scrollable content area */}
@@ -1471,9 +1474,9 @@ const Hero: React.FC = () => {
 
           {/* Legal links */}
           <div className="mt-6 flex justify-center gap-6 text-scale-label" style={{ color: 'var(--text-secondary)' }}>
-            <Link to="/terms" className="hover:underline">{t('hero.legal.termsOfService')}</Link>
+            <Link href="/terms/" className="hover:underline">{t('hero.legal.termsOfService')}</Link>
             <span>|</span>
-            <Link to="/privacy" className="hover:underline">{t('hero.legal.privacyPolicy')}</Link>
+            <Link href="/privacy/" className="hover:underline">{t('hero.legal.privacyPolicy')}</Link>
           </div>
         </div>
       </div>

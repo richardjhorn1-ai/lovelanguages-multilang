@@ -1,6 +1,8 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { ICONS } from '../constants';
 
 interface LowBalanceWarningProps {
@@ -17,7 +19,7 @@ const LowBalanceWarning: React.FC<LowBalanceWarningProps> = ({
   onDismiss
 }) => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const router = useRouter();
   const [isVisible, setIsVisible] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
 
@@ -39,7 +41,7 @@ const LowBalanceWarning: React.FC<LowBalanceWarningProps> = ({
   };
 
   const handleUpgrade = () => {
-    navigate('/pricing');
+    router.push('/pricing');
   };
 
   if (!isVisible) return null;

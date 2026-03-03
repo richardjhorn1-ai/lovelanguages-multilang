@@ -1,12 +1,14 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { ICONS } from '../constants';
 
 const ResetPassword: React.FC = () => {
   const { t } = useTranslation();
-  const navigate = useNavigate();
+  const router = useRouter();
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -61,7 +63,7 @@ const ResetPassword: React.FC = () => {
       setMessage(t('resetPassword.success'));
       // Redirect to home after 2 seconds
       setTimeout(() => {
-        navigate('/');
+        router.push('/');
       }, 2000);
     }
   };

@@ -217,5 +217,5 @@ class OfflineService {
   }
 }
 
-// Singleton
-export const offline = new OfflineService();
+// Singleton — only instantiate in browser (not during SSR)
+export const offline = typeof window !== 'undefined' ? new OfflineService() : (null as unknown as OfflineService);

@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { ICONS } from '../constants';
@@ -26,7 +28,7 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
   const [showWarning, setShowWarning] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const navigate = useNavigate();
+  const router = useRouter();
   const { t } = useTranslation();
 
   const isInherited = !!profile.subscription_granted_by;
@@ -112,7 +114,7 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
     if (onUpgrade) {
       onUpgrade();
     } else {
-      navigate('/pricing');
+      router.push('/pricing');
     }
   };
 

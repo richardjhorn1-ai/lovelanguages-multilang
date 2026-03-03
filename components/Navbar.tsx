@@ -1,6 +1,9 @@
+'use client';
+
 
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import Link from 'next/link';
+import { useRouter, usePathname } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../constants';
 import { Profile, Notification } from '../types';
@@ -28,7 +31,8 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
   const [isSoundMuted, setIsSoundMuted] = useState(sounds.isMuted());
   const dropdownRef = useRef<HTMLDivElement>(null);
   const notificationsRef = useRef<HTMLDivElement>(null);
-  const navigate = useNavigate();
+  const router = useRouter();
+  const pathname = usePathname();
 
   const { accentHex, isDark } = useTheme();
   const { t } = useTranslation();
@@ -190,23 +194,26 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
 
         {/* Center: Nav items - centered on mobile */}
         <div className="flex-1 flex justify-center md:justify-center gap-1 md:gap-6">
-          {navItems.map((item) => (
-            <NavLink
-              key={item.path}
-              to={item.path}
-              className={({ isActive }) =>
-                `${item.hideOnMobile ? 'hidden md:flex' : 'flex'} items-center gap-2 px-2 md:px-3 py-2 rounded-xl transition-all relative ${
+          {navItems.map((item) => {
+            const isActive = item.path === '/'
+              ? pathname === '/'
+              : pathname === item.path || pathname === `${item.path}/` || pathname.startsWith(`${item.path}/`);
+            return (
+              <Link
+                key={item.path}
+                href={`${item.path}${item.path.endsWith('/') ? '' : '/'}`}
+                className={`${item.hideOnMobile ? 'hidden md:flex' : 'flex'} items-center gap-2 px-2 md:px-3 py-2 rounded-xl transition-all relative ${
                   isActive
                     ? 'font-bold'
                     : 'text-[var(--text-secondary)] hover:bg-[var(--bg-primary)]'
-                }`
-              }
-              style={({ isActive }) => isActive ? { backgroundColor: `${accentHex}15`, color: accentHex } : {}}
-            >
-              <item.icon className="w-5 h-5" />
-              <span className="hidden md:inline text-scale-caption uppercase font-black tracking-widest">{item.label}</span>
-            </NavLink>
-          ))}
+                }`}
+                style={isActive ? { backgroundColor: `${accentHex}15`, color: accentHex } : {}}
+              >
+                <item.icon className="w-5 h-5" />
+                <span className="hidden md:inline text-scale-caption uppercase font-black tracking-widest">{item.label}</span>
+              </Link>
+            );
+          })}
         </div>
 
         <div className="flex items-center gap-2">
@@ -289,12 +296,12 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                           if (notification.type === 'challenge' ||
                               notification.type === 'challenge_complete' ||
                               notification.type === 'challenge_request') {
-                            navigate('/play');
+                            router.push('/play/');
                           } else if (notification.type === 'word_request' ||
                                      notification.type === 'gift_complete') {
-                            navigate('/play');
+                            router.push('/play/');
                           } else if (notification.type === 'love_note') {
-                            navigate('/progress');
+                            router.push('/progress/');
                           }
                           setIsNotificationsOpen(false);
                         }}
@@ -384,7 +391,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
               </div>
 
               <button
-                onClick={() => { navigate('/profile'); setIsProfileDropdownOpen(false); }}
+                onClick={() => { router.push('/profile/'); setIsProfileDropdownOpen(false); }}
                 className="w-full px-3 md:px-4 py-2 md:py-2.5 text-left flex items-center gap-2 md:gap-3 hover:bg-[var(--bg-primary)] transition-colors"
               >
                 <ICONS.User className="w-3.5 h-3.5 md:w-4 md:h-4 text-[var(--text-secondary)]" />
@@ -400,7 +407,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
               </button>
 
               <button
-                onClick={() => { navigate('/progress'); setIsProfileDropdownOpen(false); }}
+                onClick={() => { router.push('/progress/'); setIsProfileDropdownOpen(false); }}
                 className="w-full px-3 md:px-4 py-2 md:py-2.5 text-left flex items-center gap-2 md:gap-3 hover:bg-[var(--bg-primary)] transition-colors"
               >
                 <ICONS.TrendingUp className="w-3.5 h-3.5 md:w-4 md:h-4 text-[var(--text-secondary)]" />
@@ -408,7 +415,7 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
               </button>
 
               <button
-                onClick={() => { navigate('/log'); setIsProfileDropdownOpen(false); }}
+                onClick={() => { router.push('/log/'); setIsProfileDropdownOpen(false); }}
                 className="w-full px-3 md:px-4 py-2 md:py-2.5 text-left flex items-center gap-2 md:gap-3 hover:bg-[var(--bg-primary)] transition-colors"
               >
                 <ICONS.Book className="w-3.5 h-3.5 md:w-4 md:h-4 text-[var(--text-secondary)]" />
@@ -554,12 +561,12 @@ const Navbar: React.FC<NavbarProps> = ({ profile }) => {
                     if (notification.type === 'challenge' ||
                         notification.type === 'challenge_complete' ||
                         notification.type === 'challenge_request') {
-                      navigate('/play');
+                      router.push('/play/');
                     } else if (notification.type === 'word_request' ||
                                notification.type === 'gift_complete') {
-                      navigate('/play');
+                      router.push('/play/');
                     } else if (notification.type === 'love_note') {
-                      navigate('/progress');
+                      router.push('/progress/');
                     }
                     setIsNotificationsOpen(false);
                   }}

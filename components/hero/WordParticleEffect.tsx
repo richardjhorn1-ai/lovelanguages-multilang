@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useRef, useEffect, useMemo } from 'react';
 import { LANGUAGE_CONFIGS } from '../../constants/language-config';
 

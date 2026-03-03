@@ -1,5 +1,7 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { ICONS } from '../constants';
@@ -19,8 +21,9 @@ interface LanguageInfo {
 
 const JoinInvite: React.FC = () => {
   const { t, i18n } = useTranslation();
-  const { token } = useParams<{ token: string }>();
-  const navigate = useNavigate();
+  const params = useParams();
+  const token = params.token as string | undefined;
+  const router = useRouter();
 
   const [loading, setLoading] = useState(true);
   const [validating, setValidating] = useState(false);
@@ -225,7 +228,7 @@ const JoinInvite: React.FC = () => {
           <h2 className="text-2xl font-black text-[var(--text-primary)] mb-3">{t('joinInvite.invalidInvite')}</h2>
           <p className="text-[var(--text-secondary)] mb-8">{error}</p>
           <button
-            onClick={() => navigate('/')}
+            onClick={() => router.push('/')}
             className="bg-[var(--accent-color)] text-white px-8 py-4 rounded-2xl font-bold shadow-lg"
           >
             {t('joinInvite.goToHomepage')}

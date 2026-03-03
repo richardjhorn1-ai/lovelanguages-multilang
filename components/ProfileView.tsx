@@ -1,6 +1,8 @@
+'use client';
+
 
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { Profile, OnboardingData } from '../types';
@@ -939,13 +941,13 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
 
               <div className="flex gap-2 pt-2">
                 <Link
-                  to="/terms"
+                  href="/terms/"
                   className="flex-1 text-center py-2 text-scale-caption text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
                 >
                   {t('profile.extras.termsOfService')}
                 </Link>
                 <Link
-                  to="/privacy"
+                  href="/privacy/"
                   className="flex-1 text-center py-2 text-scale-caption text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
                 >
                   {t('profile.extras.privacyPolicy')}
