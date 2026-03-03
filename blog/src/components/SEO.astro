@@ -47,7 +47,8 @@ const fullUrl = canonical || canonicalUrl(Astro.url.pathname);
 const ogLocale = OG_LOCALES[nativeLang] || 'en_US';
 const safeImage = image || '/og-image.png';
 const fullImage = safeImage.startsWith('http') ? safeImage : `${siteUrl}${safeImage}`;
-const fullTitle = `${title} | Love Languages`;
+const suffix = ' | Love Languages';
+const fullTitle = (title.length + suffix.length > 60) ? title : `${title}${suffix}`;
 
 // Dynamic fallbacks based on language
 const targetLanguageName = targetLang ? LANGUAGE_NAMES[targetLang] : 'Language';
