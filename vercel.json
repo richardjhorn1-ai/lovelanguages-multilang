@@ -6,29 +6,127 @@
   },
   "cleanUrls": false,
   "redirects": [
-    { "source": "/:path((?!story/).*)", "has": [{ "type": "host", "value": "story.lovelanguages.io" }], "destination": "/story/", "permanent": false },
-    { "source": "/learn/easiest-languages/", "destination": "/learn/", "permanent": true },
-    { "source": "/learn/romance-languages/", "destination": "/learn/", "permanent": true },
-    { "source": "/learn/slavic-languages/", "destination": "/learn/", "permanent": true },
-    { "source": "/learn/romantic-phrases/", "destination": "/learn/", "permanent": true },
-    { "source": "/learn/couples-language-learning/", "destination": "/learn/en/couples-language-learning/", "permanent": true },
-    { "source": "/learn/language/polish/:path*", "destination": "/learn/en/pl/", "permanent": true },
-    { "source": "/learn/language/spanish/:path*", "destination": "/learn/en/es/", "permanent": true },
-    { "source": "/learn/language/french/:path*", "destination": "/learn/en/fr/", "permanent": true },
-    { "source": "/learn/language/german/:path*", "destination": "/learn/en/de/", "permanent": true },
-    { "source": "/learn/language/italian/:path*", "destination": "/learn/en/it/", "permanent": true },
-    { "source": "/learn/language/portuguese/:path*", "destination": "/learn/en/pt/", "permanent": true },
-    { "source": "/learn/language/russian/:path*", "destination": "/learn/en/ru/", "permanent": true },
-    { "source": "/learn/language/ukrainian/:path*", "destination": "/learn/en/uk/", "permanent": true },
-    { "source": "/learn/language/czech/:path*", "destination": "/learn/en/cs/", "permanent": true },
-    { "source": "/learn/language/greek/:path*", "destination": "/learn/en/el/", "permanent": true },
-    { "source": "/learn/language/dutch/:path*", "destination": "/learn/en/nl/", "permanent": true },
-    { "source": "/learn/language/swedish/:path*", "destination": "/learn/en/sv/", "permanent": true },
-    { "source": "/learn/language/norwegian/:path*", "destination": "/learn/en/no/", "permanent": true },
-    { "source": "/learn/language/danish/:path*", "destination": "/learn/en/da/", "permanent": true },
-    { "source": "/learn/language/hungarian/:path*", "destination": "/learn/en/hu/", "permanent": true },
-    { "source": "/learn/language/turkish/:path*", "destination": "/learn/en/tr/", "permanent": true },
-    { "source": "/learn/language/romanian/:path*", "destination": "/learn/en/ro/", "permanent": true },
+    {
+      "source": "/:path((?!story/).*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "story.lovelanguages.io"
+        }
+      ],
+      "destination": "/story/",
+      "permanent": false
+    },
+    {
+      "source": "/learn/easiest-languages/",
+      "destination": "/learn/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/romance-languages/",
+      "destination": "/learn/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/slavic-languages/",
+      "destination": "/learn/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/romantic-phrases/",
+      "destination": "/learn/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/couples-language-learning/",
+      "destination": "/learn/en/couples-language-learning/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/language/polish/:path*",
+      "destination": "/learn/en/pl/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/language/spanish/:path*",
+      "destination": "/learn/en/es/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/language/french/:path*",
+      "destination": "/learn/en/fr/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/language/german/:path*",
+      "destination": "/learn/en/de/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/language/italian/:path*",
+      "destination": "/learn/en/it/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/language/portuguese/:path*",
+      "destination": "/learn/en/pt/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/language/russian/:path*",
+      "destination": "/learn/en/ru/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/language/ukrainian/:path*",
+      "destination": "/learn/en/uk/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/language/czech/:path*",
+      "destination": "/learn/en/cs/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/language/greek/:path*",
+      "destination": "/learn/en/el/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/language/dutch/:path*",
+      "destination": "/learn/en/nl/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/language/swedish/:path*",
+      "destination": "/learn/en/sv/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/language/norwegian/:path*",
+      "destination": "/learn/en/no/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/language/danish/:path*",
+      "destination": "/learn/en/da/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/language/hungarian/:path*",
+      "destination": "/learn/en/hu/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/language/turkish/:path*",
+      "destination": "/learn/en/tr/",
+      "permanent": true
+    },
+    {
+      "source": "/learn/language/romanian/:path*",
+      "destination": "/learn/en/ro/",
+      "permanent": true
+    },
     {
       "source": "/learn/polish-pet-names/",
       "destination": "/learn/en/pl/50-polish-terms-of-endearment-complete-guide-to-polish-pet-names/",
@@ -2165,14 +2263,6 @@
     {
       "source": "/compare/:lang/:slug/",
       "destination": "/compare/:lang/:slug/index.html"
-    },
-    {
-      "source": "/tools/",
-      "destination": "/tools/index.html"
-    },
-    {
-      "source": "/tools/:slug/",
-      "destination": "/tools/:slug/index.html"
     },
     {
       "source": "/((?!learn|compare|tools|dictionary|api|_vercel|assets).*)",
