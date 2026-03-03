@@ -128,9 +128,11 @@ export default async function handler(req: any, res: any) {
 
     // Insert answers if provided
     if (answers && answers.length > 0) {
+      const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
       const answerRecords = answers.map((answer, index) => ({
         session_id: session.id,
-        word_id: answer.wordId || null,
+        word_id: (answer.wordId && UUID_REGEX.test(answer.wordId)) ? answer.wordId : null,
         word_text: answer.wordText,
         correct_answer: answer.correctAnswer,
         user_answer: answer.userAnswer || null,
