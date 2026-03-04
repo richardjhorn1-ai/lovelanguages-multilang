@@ -1026,7 +1026,7 @@
         revealSection(e.target);
         obs.unobserve(e.target);
       });
-    }, { threshold: 0.08 });
+    }, { threshold: 0, rootMargin: '1px' });
 
     document.querySelectorAll('section:not(#opening)').forEach(s => obs.observe(s));
   }
