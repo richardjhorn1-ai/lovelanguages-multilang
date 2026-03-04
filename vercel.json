@@ -2265,7 +2265,7 @@
       "destination": "/compare/:lang/:slug/index.html"
     },
     {
-      "source": "/((?!learn|compare|tools|dictionary|api|_vercel|assets|sitemap).*)",
+      "source": "/((?!learn|compare|tools|dictionary|api|_vercel|assets|sitemap|story).*)",
       "destination": "/index.html"
     }
   ],
