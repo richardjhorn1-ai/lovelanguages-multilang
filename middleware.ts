@@ -42,6 +42,17 @@ export async function middleware(request: NextRequest) {
     }
   }
 
+  // 3. Soft-404 mitigation: validate /learn/{nativeLang}/{targetLang}/{slug}/ URL format
+  // If the URL matches the 3-segment article pattern but has invalid language codes, return 404
+  // immediately rather than letting the page render and return a soft 404.
+  const articleMatch = pathname.match(/^\/learn\/([a-z]{2})\/([a-z]{2})\/([^/]+)\/?$/);
+  if (articleMatch) {
+    const [, nativeLang, targetLang] = articleMatch;
+    if (!ALL_LANG_CODES.has(nativeLang) || !ALL_LANG_CODES.has(targetLang)) {
+      return new NextResponse(null, { status: 404 });
+    }
+  }
+
   // Skip auth session refresh for public blog/content routes (saves 100-300ms per request)
   const publicPrefixes = ['/learn', '/compare', '/dictionary', '/sitemap', '/llms'];
   const isPublicRoute = publicPrefixes.some(p => pathname.startsWith(p));

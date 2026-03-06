@@ -55,15 +55,19 @@ export async function generateMetadata({
     );
   }
 
+  const suffix = ' | Love Languages';
+  const rawTitle = article.title;
+  const title = rawTitle.length + suffix.length <= 60 ? `${rawTitle}${suffix}` : rawTitle;
+
   return {
-    title: article.title,
+    title,
     description: article.description || `Learn ${targetInfo.name} with your partner - ${article.title}`,
     alternates: {
       canonical: url,
       languages,
     },
     openGraph: {
-      title: article.title,
+      title,
       description: article.description || undefined,
       url,
       type: 'article',
@@ -73,7 +77,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title: article.title,
+      title,
       description: article.description || undefined,
       images: article.image ? [article.image] : undefined,
     },

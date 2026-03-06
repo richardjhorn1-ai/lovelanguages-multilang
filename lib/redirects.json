@@ -1,5 +1,10 @@
 [
   {
+    "source": "/compare/",
+    "destination": "/compare/en/",
+    "permanent": true
+  },
+  {
     "source": "/learn/easiest-languages/",
     "destination": "/learn/",
     "permanent": true
