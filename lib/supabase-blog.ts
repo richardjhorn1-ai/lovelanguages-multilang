@@ -14,4 +14,9 @@ if (!supabaseUrl || !supabaseKey) {
   console.warn('Blog Supabase: credentials not found in environment');
 }
 
-export const supabaseBlog = createClient(supabaseUrl, supabaseKey);
+export const supabaseBlog = createClient(supabaseUrl, supabaseKey, {
+  global: {
+    fetch: (url, options) =>
+      fetch(url, { ...options, next: { revalidate: 86400 } }),
+  },
+});
