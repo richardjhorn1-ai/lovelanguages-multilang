@@ -10,6 +10,13 @@ import LoveNote from '@/components/blog/LoveNote';
 
 export const revalidate = 86400; // ISR: 24 hours
 
+// Return empty array: don't pre-build any articles at deploy time,
+// but signal to Next.js that this route produces static/ISR pages.
+// Pages are built and cached on first visit.
+export function generateStaticParams() {
+  return [];
+}
+
 // ---------------------------------------------------------------------------
 // Types
 // ---------------------------------------------------------------------------
