@@ -40,15 +40,11 @@ export default function BlogCTA({
   nativeLang: nativeLangProp,
   targetLang: targetLangProp,
   articleSlug: articleSlugProp,
-  pathname: pathnameProp,
 }: Props) {
-  // Extract article context from URL or props
-  const pathname = pathnameProp || (typeof window !== 'undefined' ? window.location.pathname : '');
-  const pathParts = pathname.split('/').filter(Boolean);
-  // URL pattern: /learn/{native}/{target}/{slug}
-  const nativeLang = nativeLangProp || (pathParts[1] && pathParts[1].length === 2 ? pathParts[1] : 'en');
-  const targetLang = targetLangProp || (pathParts[2] && pathParts[2].length === 2 ? pathParts[2] : '');
-  const articleSlug = articleSlugProp || pathParts[3] || '';
+  // Use props directly — avoid reading window.location during render (causes hydration mismatch)
+  const nativeLang = nativeLangProp || 'en';
+  const targetLang = targetLangProp || '';
+  const articleSlug = articleSlugProp || '';
 
   const translations = CTA_TRANSLATIONS[nativeLang] || CTA_TRANSLATIONS.en;
 

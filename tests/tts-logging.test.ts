@@ -1,7 +1,7 @@
 import { createHash } from 'crypto';
 import { describe, expect, it } from 'vitest';
 
-import { buildCacheLogContext } from '../api/tts';
+import { buildCacheLogContext } from '../lib/tts-utils';
 
 describe('tts logging', () => {
   it('does not include raw text in cache log context', () => {

@@ -9,6 +9,11 @@ import { getAllTopics, getTopicDisplayName } from '@blog-data/topic-info';
 
 export const revalidate = 86400;
 
+// Pre-generate hub pages for all supported native languages at build time
+export function generateStaticParams() {
+  return SUPPORTED_NATIVE_LANGS.map(lang => ({ nativeLang: lang }));
+}
+
 type PageProps = {
   params: Promise<{ nativeLang: string }>;
 };
@@ -48,8 +53,11 @@ export default async function NativeLangHubPage({ params }: PageProps) {
     notFound();
   }
 
-  // Count articles per target language for this native language (single query)
-  const languageCounts = await getArticleCountsByTargetLang(nativeLanguageCode);
+  // Fetch language counts + latest articles in parallel (was sequential)
+  const [languageCounts, latestArticles] = await Promise.all([
+    getArticleCountsByTargetLang(nativeLanguageCode),
+    getArticlesByNativeLang(nativeLanguageCode, { limit: 4 }),
+  ]);
 
   // Get all languages except native, with translated names
   const sortedLanguageCodes = Object.keys(LANGUAGES)
@@ -73,9 +81,6 @@ export default async function NativeLangHubPage({ params }: PageProps) {
     articleCount: languageCounts[code] || 0,
     hubData: LANGUAGE_HUB_DATA[code],
   }));
-
-  // Latest articles for this native language
-  const latestArticles = await getArticlesByNativeLang(nativeLanguageCode, { limit: 4 });
 
   const getArticleUrl = (article: { native_lang: string; target_lang: string; slug: string }) =>
     `/learn/${article.native_lang}/${article.target_lang}/${article.slug}/`;
@@ -273,7 +278,7 @@ export default async function NativeLangHubPage({ params }: PageProps) {
                 const langData = LANGUAGE_HUB_DATA[langCode];
                 return (
                   <a key={article.id} href={getArticleUrl(article)} className="group block">
-                    <div className="p-5 rounded-2xl border border-gray-100 bg-white hover:shadow-lg hover:border-[#4ECDC4] transition-all h-full">
+                    <div className="blog-hub-card p-5 h-full">
                       <div className="flex items-center gap-2 mb-3">
                         <span className="text-lg">{langData?.flag}</span>
                         <span
@@ -345,10 +350,7 @@ export default async function NativeLangHubPage({ params }: PageProps) {
       </section>
 
       {/* Footer */}
-      <footer
-        className="py-12 border-t"
-        style={{ background: '#fdfcfd', borderColor: '#f0f0f0' }}
-      >
+      <footer className="blog-footer py-12">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <a
             href="/"

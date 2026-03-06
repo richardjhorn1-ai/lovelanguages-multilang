@@ -11,18 +11,12 @@ import {
   RATE_LIMITS
 } from '@/utils/api-middleware';
 import { getTTSLangCode, getTTSVoice, isLanguageSupported } from '@/constants/language-config';
+import { buildCacheLogContext } from '@/lib/tts-utils';
 
 // Generate hash for cache key - includes userId to prevent cross-user cache sharing
 function generateCacheKey(text: string, userId: string): string {
   const hash = createHash('sha256').update(`${userId}:${text.toLowerCase().trim()}`).digest('hex');
   return hash.substring(0, 16);
-}
-
-function buildCacheLogContext(sanitizedText: string) {
-  return {
-    length: sanitizedText.length,
-    hash: createHash('sha256').update(sanitizedText).digest('hex'),
-  };
 }
 
 // Google Cloud TTS API
@@ -86,7 +80,7 @@ export async function POST(request: Request) {
     const plan = await getSubscriptionPlan(supabase, auth.userId);
 
     // Check rate limit based on plan
-    const limit = await checkRateLimit(supabase, auth.userId, 'tts', plan);
+    const limit = await checkRateLimit(supabase, auth.userId, 'tts', plan, { failClosed: true });
     if (!limit.allowed) {
       return NextResponse.json({
         error: limit.error,

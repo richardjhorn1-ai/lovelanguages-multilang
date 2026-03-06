@@ -1,5 +1,5 @@
 import { getMethodologyArticles, selectRotatingArticles } from '@blog-data/methodology-articles';
-import { methodologyIndexUrl, methodologyArticleUrl } from '../../blog/src/lib/urls';
+import { methodologyIndexUrl, methodologyArticleUrl } from '../../lib/blog-urls';
 
 interface Props {
   nativeLang: string;

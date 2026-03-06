@@ -8,6 +8,7 @@
  */
 
 import { createClient } from '@supabase/supabase-js';
+import { getCorsHeaders, handleCorsPreflightResponse } from '@/utils/api-middleware';
 
 export const runtime = 'edge';
 
@@ -49,20 +50,14 @@ const ALLOWED_EVENTS = new Set([
 // Max event_params size (10KB)
 const MAX_PARAMS_SIZE = 10 * 1024;
 
-function corsHeaders(): Record<string, string> {
-  return {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-    'Access-Control-Max-Age': '86400',
-  };
-}
-
-export async function OPTIONS() {
-  return new Response(null, { status: 204, headers: corsHeaders() });
+export async function OPTIONS(request: Request) {
+  return handleCorsPreflightResponse(request);
 }
 
 export async function POST(request: Request) {
+  const corsHeaders = getCorsHeaders(request);
+  corsHeaders.set('Content-Type', 'application/json');
+
   try {
     const body = await request.json();
     const {
@@ -77,16 +72,14 @@ export async function POST(request: Request) {
 
     if (!event_name) {
       return new Response(JSON.stringify({ error: 'event_name required' }), {
-        status: 400,
-        headers: { ...corsHeaders(), 'Content-Type': 'application/json' },
+        status: 400, headers: corsHeaders,
       });
     }
 
     // Validate event name against allowlist
     if (!ALLOWED_EVENTS.has(event_name)) {
       return new Response(JSON.stringify({ error: 'Invalid event_name' }), {
-        status: 400,
-        headers: { ...corsHeaders(), 'Content-Type': 'application/json' },
+        status: 400, headers: corsHeaders,
       });
     }
 
@@ -94,8 +87,7 @@ export async function POST(request: Request) {
     const paramsStr = JSON.stringify(event_params);
     if (paramsStr.length > MAX_PARAMS_SIZE) {
       return new Response(JSON.stringify({ error: 'event_params too large' }), {
-        status: 400,
-        headers: { ...corsHeaders(), 'Content-Type': 'application/json' },
+        status: 400, headers: corsHeaders,
       });
     }
 
@@ -118,20 +110,17 @@ export async function POST(request: Request) {
     if (error) {
       console.error('Failed to insert analytics event:', error);
       return new Response(JSON.stringify({ error: 'Failed to store event' }), {
-        status: 500,
-        headers: { ...corsHeaders(), 'Content-Type': 'application/json' },
+        status: 500, headers: corsHeaders,
       });
     }
 
     return new Response(JSON.stringify({ success: true }), {
-      status: 200,
-      headers: { ...corsHeaders(), 'Content-Type': 'application/json' },
+      status: 200, headers: corsHeaders,
     });
   } catch (e) {
     console.error('Analytics event error:', e);
     return new Response(JSON.stringify({ error: 'Internal error' }), {
-      status: 500,
-      headers: { ...corsHeaders(), 'Content-Type': 'application/json' },
+      status: 500, headers: corsHeaders,
     });
   }
 }

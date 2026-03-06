@@ -1,11 +1,13 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import dynamic from 'next/dynamic';
 import { usePathname } from 'next/navigation';
 import { supabase } from '../../services/supabase';
 import { Profile, ExtractedWord } from '../../types';
 import { Providers } from '../providers';
 import { ProfileProvider } from '../../context/ProfileContext';
+import { TabNavigationProvider } from '../../context/TabNavigationContext';
 import { trackPageView, analytics, captureReferralSource, getReferralData, initWebVitals } from '../../services/analytics';
 import { offline } from '../../services/offline';
 import { migrateFromLocalStorage } from '../../services/offline-db';
@@ -16,14 +18,17 @@ import Landing from '../../components/Landing';
 import { Onboarding } from '../../components/onboarding/Onboarding';
 import SubscriptionRequired from '../../components/SubscriptionRequired';
 import Navbar from '../../components/Navbar';
-import ChatArea from '../../components/ChatArea';
-import LoveLog from '../../components/LoveLog';
-import FlashcardGame from '../../components/FlashcardGame';
-import Progress from '../../components/Progress';
 import NewWordsNotification from '../../components/NewWordsNotification';
 import PromoExpiredBanner from '../../components/PromoExpiredBanner';
 import CookieConsent from '../../components/CookieConsent';
 import TrialReminderNotification from '../../components/TrialReminderNotification';
+
+// Code-split heavy tab components into separate chunks (still always mounted for event system)
+const ChatArea = dynamic(() => import('../../components/ChatArea'), { ssr: false });
+const LoveLog = dynamic(() => import('../../components/LoveLog'), { ssr: false });
+const FlashcardGame = dynamic(() => import('../../components/FlashcardGame'), { ssr: false });
+const Progress = dynamic(() => import('../../components/Progress'), { ssr: false });
+const ProfileView = dynamic(() => import('../../components/ProfileView'), { ssr: false });
 
 // Beta testers who get free access (add emails here)
 const BETA_TESTERS: string[] = [
@@ -62,13 +67,59 @@ const SuccessToast: React.FC<{ message: string; onClose: () => void }> = ({ mess
   );
 };
 
+// Helper: only render children once the tab has been visited (defer heavy components)
+function DeferredTab({ isActive, children }: { isActive: boolean; children: React.ReactNode }) {
+  const [hasBeenActive, setHasBeenActive] = useState(false);
+  useEffect(() => {
+    if (isActive && !hasBeenActive) setHasBeenActive(true);
+  }, [isActive, hasBeenActive]);
+  if (!hasBeenActive) return null;
+  return <>{children}</>;
+}
+
+const PERSISTENT_PATHS = ['/', '/log', '/play', '/progress', '/profile'];
+const normalizePath = (p: string) => p.endsWith('/') && p !== '/' ? p.slice(0, -1) : p;
+
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const normPathname = normalizePath(pathname);
 
-  // Normalize pathname for matching (trailingSlash: true means /log/ but / for root)
-  const normPath = pathname.endsWith('/') && pathname !== '/' ? pathname.slice(0, -1) : pathname;
-  const persistentPaths = ['/', '/log', '/play', '/progress'];
-  const isPersistentPath = persistentPaths.includes(normPath);
+  // Client-side tab state for instant switching (no Next.js router overhead)
+  const [activeTab, setActiveTab] = useState<string>(() =>
+    PERSISTENT_PATHS.includes(normPathname) ? normPathname : '/'
+  );
+
+  // Sync activeTab when Next.js pathname changes (e.g. direct navigation, page refresh)
+  useEffect(() => {
+    if (PERSISTENT_PATHS.includes(normPathname)) {
+      setActiveTab(normPathname);
+    }
+  }, [normPathname]);
+
+  // Handle browser back/forward buttons (popstate doesn't trigger Next.js router)
+  useEffect(() => {
+    const handlePopState = () => {
+      const norm = normalizePath(window.location.pathname);
+      if (PERSISTENT_PATHS.includes(norm)) {
+        setActiveTab(norm);
+      }
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
+  // Tab change handler passed to Navbar — updates URL without Next.js router
+  const handleTabChange = useCallback((path: string) => {
+    const norm = normalizePath(path);
+    if (activeTab === norm) return; // already on this tab
+    setActiveTab(norm);
+    const urlPath = norm === '/' ? '/' : `${norm}/`;
+    window.history.pushState({}, '', urlPath);
+    trackPageView(urlPath);
+  }, [activeTab]);
+
+  const normPath = activeTab;
+  const isPersistentPath = PERSISTENT_PATHS.includes(activeTab);
 
   // ─── State ───────────────────────────────────────────────────────
   const [session, setSession] = useState<any>(null);
@@ -532,7 +583,8 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <Providers userId={profile.id} profile={profile} profileTheme={profileTheme}>
       <ProfileProvider profile={profile} refreshProfile={() => fetchProfile(profile.id)}>
-        <div className="h-screen-safe text-[var(--text-primary)] transition-colors duration-300 app-bg-decor">
+        <TabNavigationProvider value={{ navigateTab: handleTabChange }}>
+          <div className="h-screen-safe text-[var(--text-primary)] transition-colors duration-300 app-bg-decor">
           {/* Success toast */}
           {successToast && (
             <SuccessToast message={successToast} onClose={() => setSuccessToastMsg(null)} />
@@ -555,7 +607,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           <PromoExpiredBanner promoExpiresAt={(profile as any).promo_expires_at} />
 
           <div className="flex flex-col h-full overflow-hidden">
-            <Navbar profile={profile} />
+            <Navbar profile={profile} onTabChange={handleTabChange} />
 
             {/* Trial reminder */}
             {showTrialReminder && daysRemaining !== null && (
@@ -566,26 +618,39 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
             )}
 
             <main className="flex-1 h-0 overflow-hidden relative z-0">
-              {/* Persistent tabs — always mounted, shown/hidden via CSS */}
+              {/* Persistent tabs — always mounted once visited, shown/hidden via CSS */}
               <div className={normPath === '/' ? 'h-full' : 'hidden'}>
                 <ErrorBoundary>
                   <ChatArea profile={profile} />
                 </ErrorBoundary>
               </div>
               <div className={normPath === '/log' ? 'h-full' : 'hidden'}>
-                <ErrorBoundary>
-                  <LoveLog profile={profile} />
-                </ErrorBoundary>
+                <DeferredTab isActive={normPath === '/log'}>
+                  <ErrorBoundary>
+                    <LoveLog profile={profile} />
+                  </ErrorBoundary>
+                </DeferredTab>
               </div>
               <div className={normPath === '/play' ? 'h-full' : 'hidden'}>
-                <ErrorBoundary>
-                  <FlashcardGame profile={profile} />
-                </ErrorBoundary>
+                <DeferredTab isActive={normPath === '/play'}>
+                  <ErrorBoundary>
+                    <FlashcardGame profile={profile} />
+                  </ErrorBoundary>
+                </DeferredTab>
               </div>
               <div className={normPath === '/progress' ? 'h-full' : 'hidden'}>
-                <ErrorBoundary>
-                  <Progress profile={profile} />
-                </ErrorBoundary>
+                <DeferredTab isActive={normPath === '/progress'}>
+                  <ErrorBoundary>
+                    <Progress profile={profile} />
+                  </ErrorBoundary>
+                </DeferredTab>
+              </div>
+              <div className={normPath === '/profile' ? 'h-full overflow-y-auto' : 'hidden'}>
+                <DeferredTab isActive={normPath === '/profile'}>
+                  <ErrorBoundary>
+                    <ProfileView profile={profile} onRefresh={() => fetchProfile(profile.id)} />
+                  </ErrorBoundary>
+                </DeferredTab>
               </div>
 
               {/* Non-persistent routes (rendered via page components) */}
@@ -596,6 +661,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           {/* Cookie consent banner */}
           <CookieConsent />
         </div>
+        </TabNavigationProvider>
       </ProfileProvider>
     </Providers>
   );

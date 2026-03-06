@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { normalizePathname, canonicalUrl, articleUrl, hubUrl } from '../blog/src/lib/urls';
+import { normalizePathname, canonicalUrl, articleUrl, hubUrl } from '../lib/blog-urls';
 
 describe('Blog URL Helpers', () => {
 

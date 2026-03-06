@@ -1,6 +1,6 @@
 import { notFound, redirect } from 'next/navigation';
 import type { Metadata } from 'next';
-import { getArticle, getArticlesByLangPair, getAlternatesByTopicId } from '@/lib/blog-api';
+import { getArticle, getRelatedArticles, getAlternatesByTopicId } from '@/lib/blog-api';
 import { canonicalUrl, articleUrl } from '@/lib/blog-urls';
 import { sanitizeArticleContent } from '@/lib/blog-sanitize';
 import { splitContentAtMidpoint } from '@/lib/blog-split-content';
@@ -114,23 +114,11 @@ export default async function ArticlePage({
   const languageInfo = LANGUAGE_INFO[targetLang] || LANGUAGE_INFO.pl;
   const languageCode = targetLang;
 
-  // Get related articles from same language pair
-  const allLangPairArticles = await getArticlesByLangPair(nativeLang, targetLang, { limit: 50 });
-
-  // Related: same category first
-  const relatedArticles = allLangPairArticles
-    .filter((a) => a.slug !== slug && a.category === article.category)
-    .slice(0, 3);
-
-  // Fill with other articles if needed
-  if (relatedArticles.length < 3) {
-    const others = allLangPairArticles
-      .filter(
-        (a) => a.slug !== slug && !relatedArticles.find((r) => r.slug === a.slug),
-      )
-      .slice(0, 3 - relatedArticles.length);
-    relatedArticles.push(...others);
-  }
+  // Fetch related articles + alternates in parallel
+  const [relatedArticles, alternates] = await Promise.all([
+    getRelatedArticles(nativeLang, targetLang, slug, article.category, 3),
+    getAlternatesByTopicId(article.topic_id, targetLang, nativeLang),
+  ]);
 
   // Convert to format expected by layout
   const relatedForLayout = relatedArticles.map((a) => ({
@@ -142,17 +130,10 @@ export default async function ArticlePage({
       difficulty: a.difficulty,
       readTime: a.read_time,
       image: a.image,
-      tags: a.tags || [],
+      tags: [],
       date: a.date,
     },
   }));
-
-  // Find alternate versions (same topic in different native languages) via topic_id
-  const alternates = await getAlternatesByTopicId(
-    article.topic_id,
-    targetLang,
-    nativeLang,
-  );
   const alternateVersions = alternates.map((a) => ({
     nativeLang: a.native_lang,
     href: `https://www.lovelanguages.io/learn/${a.native_lang}/${targetLang}/${a.slug}/`,

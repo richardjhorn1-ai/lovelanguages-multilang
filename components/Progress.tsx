@@ -10,6 +10,7 @@ import { getLevelFromXP, getLevelProgress, getTierIndex, translateLevel } from '
 import { ICONS } from '../constants';
 import { LANGUAGE_CONFIGS } from '../constants/language-config';
 import { useTheme } from '../context/ThemeContext';
+import { useTabNavigation } from '../context/TabNavigationContext';
 import { useLanguage } from '../context/LanguageContext';
 import { sounds } from '../services/sounds';
 import GameHistory from './GameHistory';
@@ -109,6 +110,7 @@ function getPreviousLevelTests(currentLevel: string): { from: string; to: string
 const Progress: React.FC<ProgressProps> = ({ profile }) => {
   const { t } = useTranslation();
   const router = useRouter();
+  const { navigateTab } = useTabNavigation();
   const [entries, setEntries] = useState<DictionaryEntry[]>([]);
   const [summaryIndex, setSummaryIndex] = useState<SummaryIndex[]>([]);
   const [selectedSummary, setSelectedSummary] = useState<SavedProgressSummary | null>(null);
@@ -221,7 +223,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
       fetchScores();
       fetchPartnerProfile();
     }
-  }, [profile, targetLanguage]);
+  }, [profile.id, profile.role, targetLanguage]);
 
   // Listen for language switch events from Profile settings
   useEffect(() => {
@@ -1086,7 +1088,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
         {/* Quick Actions */}
         <div className="grid grid-cols-2 gap-2 md:gap-4">
           <button
-            onClick={() => router.push('/play')}
+            onClick={() => navigateTab('/play')}
             className="glass-card p-3 md:p-6 rounded-xl md:rounded-2xl text-center hover:bg-white/70 dark:hover:bg-white/20 hover:shadow-md active:scale-[0.98] transition-all"
           >
             <ICONS.Play className="w-6 h-6 md:w-8 md:h-8 mx-auto mb-1 md:mb-2 text-[var(--accent-color)]" />
@@ -1095,7 +1097,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
           </button>
 
           <button
-            onClick={() => router.push('/log')}
+            onClick={() => navigateTab('/log')}
             className="glass-card p-3 md:p-6 rounded-xl md:rounded-2xl text-center hover:bg-white/70 dark:hover:bg-white/20 hover:shadow-md active:scale-[0.98] transition-all"
           >
             <ICONS.Book className="w-6 h-6 md:w-8 md:h-8 mx-auto mb-1 md:mb-2 text-[var(--accent-color)]" />

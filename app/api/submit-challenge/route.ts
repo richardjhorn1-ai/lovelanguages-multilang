@@ -164,17 +164,17 @@ export async function POST(request: Request) {
     }
 
     // Get the challenge and atomically mark as in-progress to prevent race conditions
-    // First, try to claim the challenge by updating status from 'pending' to 'in_progress'
+    // Accept challenges that are 'pending' OR 'in_progress' (already started via /api/start-challenge/)
     const { data: challenge, error: challengeError } = await supabase
       .from('tutor_challenges')
       .update({ status: 'in_progress' })
       .eq('id', challengeId)
-      .eq('status', 'pending')  // Only update if still pending (prevents double submission)
+      .in('status', ['pending', 'in_progress'])  // Accept both pending and already-started challenges
       .select('*')
       .single();
 
     if (challengeError || !challenge) {
-      // Could be not found OR already completed/in-progress
+      // Could be not found OR already completed
       // Check which case it is
       const { data: existingChallenge } = await supabase
         .from('tutor_challenges')
@@ -188,8 +188,8 @@ export async function POST(request: Request) {
       if (existingChallenge.student_id !== auth.userId) {
         return NextResponse.json({ error: 'Not authorized' }, { status: 403, headers: corsHeaders });
       }
-      if (existingChallenge.status === 'completed' || existingChallenge.status === 'in_progress') {
-        return NextResponse.json({ error: 'Challenge already completed or in progress' }, { status: 400, headers: corsHeaders });
+      if (existingChallenge.status === 'completed') {
+        return NextResponse.json({ error: 'Challenge already completed' }, { status: 400, headers: corsHeaders });
       }
       return NextResponse.json({ error: 'Failed to start challenge' }, { status: 500, headers: corsHeaders });
     }

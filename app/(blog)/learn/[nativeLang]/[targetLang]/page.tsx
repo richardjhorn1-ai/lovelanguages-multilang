@@ -9,6 +9,26 @@ export const revalidate = 86400;
 
 const VALID_LANGS = ['en','es','fr','de','it','pt','pl','nl','ro','ru','tr','uk','sv','no','da','cs','el','hu'];
 
+// Pre-generate top language pair hub pages at build time
+export function generateStaticParams() {
+  return [
+    { nativeLang: 'en', targetLang: 'pl' },
+    { nativeLang: 'en', targetLang: 'es' },
+    { nativeLang: 'en', targetLang: 'fr' },
+    { nativeLang: 'en', targetLang: 'de' },
+    { nativeLang: 'en', targetLang: 'it' },
+    { nativeLang: 'en', targetLang: 'pt' },
+    { nativeLang: 'en', targetLang: 'ru' },
+    { nativeLang: 'en', targetLang: 'nl' },
+    { nativeLang: 'en', targetLang: 'tr' },
+    { nativeLang: 'en', targetLang: 'uk' },
+    { nativeLang: 'pl', targetLang: 'en' },
+    { nativeLang: 'es', targetLang: 'en' },
+    { nativeLang: 'fr', targetLang: 'en' },
+    { nativeLang: 'de', targetLang: 'en' },
+  ];
+}
+
 type PageProps = {
   params: Promise<{ nativeLang: string; targetLang: string }>;
 };
@@ -70,7 +90,7 @@ function ArticleCategoryFilterClient({
   return (
     <>
       {/* Filter Bar */}
-      <div className="sticky top-14 z-40 bg-white/90 backdrop-blur-lg border-b border-gray-100">
+      <div className="sticky top-14 z-40 blog-filter-bar">
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex gap-2 overflow-x-auto py-3 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]" id="filter-bar">
             {categories.map((cat, i) => (
@@ -101,7 +121,7 @@ function ArticleCategoryFilterClient({
                   href={`/learn/${nativeLanguageCode}/${targetLanguageCode}/${article.slug}/`}
                   className="group block h-full"
                 >
-                  <div className="p-5 rounded-2xl border border-gray-100 bg-white hover:shadow-lg hover:border-[#FF6B6B] transition-all h-full flex flex-col">
+                  <div className="blog-hub-card p-5 h-full flex flex-col">
                     <div className="flex items-center gap-2 mb-3">
                       {article.category && (
                         <span
@@ -218,11 +238,11 @@ export default async function TargetLangHubPage({ params }: PageProps) {
   // Get translations for native language
   const text = getUITranslations(nativeLanguageCode);
 
-  // Get articles for this language pair
-  const articles = await getArticlesByLangPair(nativeLanguageCode, targetLanguageCode, { limit: 100 });
-
-  // Get article counts per target language
-  const languageCounts = await getArticleCountsByTargetLang(nativeLanguageCode);
+  // Fetch articles + language counts in parallel (was sequential)
+  const [articles, languageCounts] = await Promise.all([
+    getArticlesByLangPair(nativeLanguageCode, targetLanguageCode, { limit: 100 }),
+    getArticleCountsByTargetLang(nativeLanguageCode),
+  ]);
 
   // Category filters with translated labels
   const categories = [
@@ -338,7 +358,7 @@ export default async function TargetLangHubPage({ params }: PageProps) {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-100 border-t border-gray-200 py-12">
+      <footer className="blog-footer py-12">
         <div className="max-w-6xl mx-auto px-4 text-center">
           <a
             href="/"

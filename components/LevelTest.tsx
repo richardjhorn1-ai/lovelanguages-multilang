@@ -1,13 +1,14 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import { Profile, TestQuestion } from '../types';
 import { geminiService } from '../services/gemini';
 import { getLevelFromXP, getTierColor, translateLevel } from '../services/level-utils';
 import { ICONS } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
+import { useTabNavigation } from '../context/TabNavigationContext';
 import { sounds } from '../services/sounds';
 import { analytics } from '../services/analytics';
 
@@ -19,7 +20,7 @@ type TestState = 'loading' | 'ready' | 'in_progress' | 'submitting' | 'results';
 
 const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
   const { t } = useTranslation();
-  const router = useRouter();
+  const { navigateTab } = useTabNavigation();
   const searchParams = useSearchParams();
 
   const [state, setState] = useState<TestState>('loading');
@@ -173,7 +174,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
             <h2 className="text-xl font-black font-header text-[var(--text-primary)] mb-2">{t('levelTest.oops')}</h2>
             <p className="text-[var(--text-secondary)] text-scale-label mb-6">{error}</p>
             <button
-              onClick={() => router.push('/progress')}
+              onClick={() => navigateTab('/progress')}
               className="bg-[var(--bg-primary)] text-[var(--text-primary)] px-6 py-3 rounded-xl font-bold text-scale-label"
             >
               {t('levelTest.backToProgress')}
@@ -275,7 +276,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
 
           <div className="flex gap-3">
             <button
-              onClick={() => router.push('/progress')}
+              onClick={() => navigateTab('/progress')}
               className="flex-1 py-4 rounded-2xl font-bold text-[var(--text-primary)] bg-[var(--bg-primary)] text-scale-label"
             >
               {t('levelTest.backToProgress')}
@@ -293,7 +294,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
 
           {/* View Full Results */}
           <button
-            onClick={() => router.push('/progress')}
+            onClick={() => navigateTab('/progress')}
             className="mt-6 text-scale-label text-[var(--text-secondary)] hover:text-[var(--text-secondary)] transition-colors flex items-center justify-center gap-2 w-full"
           >
             <ICONS.List className="w-4 h-4" />
@@ -313,7 +314,7 @@ const LevelTest: React.FC<LevelTestProps> = ({ profile }) => {
         <div className="max-w-xl mx-auto w-full mb-6">
           <div className="flex items-center justify-between mb-4">
             <button
-              onClick={() => router.push('/progress')}
+              onClick={() => navigateTab('/progress')}
               className="text-[var(--text-secondary)] hover:text-[var(--text-secondary)] transition-colors"
             >
               <ICONS.X className="w-6 h-6" />

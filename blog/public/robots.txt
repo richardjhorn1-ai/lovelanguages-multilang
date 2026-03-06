@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-# Sitemap (dynamic, SSR-generated from Supabase)
-Sitemap: https://www.lovelanguages.io/sitemap-index.xml

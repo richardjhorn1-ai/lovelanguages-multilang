@@ -28,7 +28,7 @@ const PendingChallenges: React.FC<PendingChallengesProps> = ({ profile, onRefres
 
   useEffect(() => {
     fetchPending();
-  }, [profile]);
+  }, [profile.id, profile.linked_user_id]);
 
   const fetchPending = async () => {
     setLoading(true);

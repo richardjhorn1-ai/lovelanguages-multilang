@@ -60,7 +60,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'API key not configured' }, { status: 500, headers: corsHeaders });
   }
 
-  const body = await request.json();
+  let body: any;
+  try {
+    body = await request.json();
+  } catch {
+    return NextResponse.json({ error: 'Invalid JSON in request body' }, { status: 400, headers: corsHeaders });
+  }
 
   const { fromLevel, toLevel } = body || {};
 

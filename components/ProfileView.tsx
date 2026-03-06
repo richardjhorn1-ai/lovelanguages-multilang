@@ -87,7 +87,7 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
     if (profile.linked_user_id) fetchPartner();
     // Initialize edit data from profile
     setEditData(profile.onboarding_data || {});
-  }, [profile]);
+  }, [profile.id, profile.linked_user_id, profile.onboarding_data]);
 
   // PWA Install prompt listener
   useEffect(() => {

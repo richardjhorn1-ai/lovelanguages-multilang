@@ -237,6 +237,8 @@ export interface TestQuestion {
   context?: string;           // Additional context (e.g., for fill-in-blank)
   options?: string[];         // For multiple choice questions
   correctAnswer: string;      // The correct answer
+  targetText?: string;        // Target language text in the question (from Gemini schema)
+  explanation?: string;       // Why the answer is correct (from Gemini schema)
   theme: string;              // Which concept this tests
   isCore: boolean;            // true = standardized, false = from Love Log
   wordId?: string;            // Reference to dictionary entry if from Love Log

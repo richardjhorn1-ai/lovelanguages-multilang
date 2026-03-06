@@ -1,6 +1,6 @@
 import { type NextRequest, NextResponse } from 'next/server';
 import { updateSession } from './lib/supabase-middleware';
-import legacyRedirects from './blog/src/data/legacy-redirects.json';
+import legacyRedirects from './data/legacy-redirects.json';
 
 // Languages that had legacy 2-segment URLs: /learn/{lang}/{slug}/
 const LEGACY_TARGET_LANGS = new Set(['ru','uk','tr','pl','cs','da','el','hu','nl','no','ro','sv']);
@@ -42,8 +42,13 @@ export async function middleware(request: NextRequest) {
     }
   }
 
-  // Refresh Supabase auth session (updates cookies on every request)
-  const response = await updateSession(request);
+  // Skip auth session refresh for public blog/content routes (saves 100-300ms per request)
+  const publicPrefixes = ['/learn', '/compare', '/dictionary', '/sitemap', '/llms'];
+  const isPublicRoute = publicPrefixes.some(p => pathname.startsWith(p));
+
+  const response = isPublicRoute
+    ? NextResponse.next({ request })
+    : await updateSession(request);
 
   // 3. Add llms.txt discovery headers to all responses
   response.headers.set(

@@ -91,7 +91,7 @@ export async function POST(request: Request) {
   console.log(`[stripe-webhook] Received event: ${event.type} (${event.id})`);
 
   // Initialize Supabase
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL;
+  const supabaseUrl = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
 
   if (!supabaseUrl || !supabaseServiceKey) {

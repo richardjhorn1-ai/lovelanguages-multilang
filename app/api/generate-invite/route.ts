@@ -123,7 +123,12 @@ export async function POST(request: Request) {
 
     const baseUrl = getServerBaseUrl();
 
-    const body = await request.json();
+    let body: any = {};
+    try {
+      body = await request.json();
+    } catch {
+      // Body may be empty — that's fine (e.g. checking for existing invite)
+    }
 
     // Check for existing valid (unused, unexpired) token
     const { data: existingToken } = await supabase

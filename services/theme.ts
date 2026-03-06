@@ -341,18 +341,18 @@ export const FONT_PRESETS: Record<FontPreset, {
 }> = {
   classic: {
     name: 'Classic',
-    header: "'Nunito', sans-serif",
-    body: "'Manrope', sans-serif",
+    header: "var(--font-nunito), 'Nunito', sans-serif",
+    body: "var(--font-manrope), 'Manrope', sans-serif",
   },
   modern: {
     name: 'Modern',
-    header: "'Montserrat', sans-serif",
-    body: "'Inter', sans-serif",
+    header: "var(--font-montserrat), 'Montserrat', sans-serif",
+    body: "var(--font-inter), 'Inter', sans-serif",
   },
   playful: {
     name: 'Playful',
-    header: "'Quicksand', sans-serif",
-    body: "'Source Sans 3', sans-serif",
+    header: "var(--font-quicksand), 'Quicksand', sans-serif",
+    body: "var(--font-source-sans-3), 'Source Sans 3', sans-serif",
   },
 };
 

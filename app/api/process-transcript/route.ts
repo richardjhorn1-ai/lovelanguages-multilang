@@ -50,7 +50,7 @@ export async function POST(request: Request) {
   }
 
   // Check rate limit
-  const limit = await checkRateLimit(supabase, auth.userId, 'processTranscript', sub.plan as SubscriptionPlan);
+  const limit = await checkRateLimit(supabase, auth.userId, 'processTranscript', sub.plan as SubscriptionPlan, { failClosed: true });
   if (!limit.allowed) {
     return NextResponse.json({
       error: limit.error,
@@ -65,7 +65,12 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Server Configuration Error: GEMINI_API_KEY missing." }, { status: 500, headers: corsHeaders });
   }
 
-  const body = await request.json();
+  let body: any;
+  try {
+    body = await request.json();
+  } catch {
+    return NextResponse.json({ error: 'Invalid JSON in request body' }, { status: 400, headers: corsHeaders });
+  }
 
   const { transcript = [], contextLabel: rawContextLabel = '', gladiaSummary: rawGladiaSummary = '' } = body || {};
   const contextLabel = typeof rawContextLabel === 'string'

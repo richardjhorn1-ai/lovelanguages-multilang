@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
+import { useTabNavigation } from '../../context/TabNavigationContext';
 import { supabase } from '../../services/supabase';
 import { Profile, TutorAnalytics, TutorStats, WordScore, DictionaryEntry } from '../../types';
 import { getTutorTierFromXP, getTutorTierProgress, getXPToNextTutorTier, TUTOR_TIERS } from '../../constants/levels';
@@ -24,7 +24,7 @@ interface TutorAnalyticsDashboardProps {
 
 const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profile }) => {
   const { t } = useTranslation();
-  const router = useRouter();
+  const { navigateTab } = useTabNavigation();
   const { accentHex } = useTheme();
   const { targetLanguage } = useLanguage();
 
@@ -336,7 +336,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
               <WeakSpotIntelligence
                 stuckWords={analytics.stuck_words}
                 improvingWords={analytics.improving_words}
-                onCreateChallenge={() => router.push('/play')}
+                onCreateChallenge={() => navigateTab('/play')}
                 tierColor={tierColor}
               />
             )}
@@ -359,7 +359,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
                       {rec.action_type && (
                         <button
                           onClick={() => {
-                            if (rec.action_type === 'challenge') router.push('/play');
+                            if (rec.action_type === 'challenge') navigateTab('/play');
                             else if (rec.action_type === 'love_note') setShowLoveNote(true);
                           }}
                           className="px-3 py-1.5 rounded-lg text-scale-micro font-bold text-white flex-shrink-0"
@@ -558,7 +558,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
         {/* Quick Actions */}
         <div className="grid grid-cols-3 gap-2 md:gap-3">
           <button
-            onClick={() => router.push('/play')}
+            onClick={() => navigateTab('/play')}
             className="glass-card p-3 md:p-5 rounded-xl md:rounded-[1.5rem] text-center hover:shadow-md transition-all"
           >
             <ICONS.Target className="w-5 h-5 md:w-6 md:h-6 mx-auto mb-1 md:mb-1.5" style={{ color: tierColor }} />
@@ -567,7 +567,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
             </p>
           </button>
           <button
-            onClick={() => router.push('/play')}
+            onClick={() => navigateTab('/play')}
             className="glass-card p-3 md:p-5 rounded-xl md:rounded-[1.5rem] text-center hover:shadow-md transition-all"
           >
             <ICONS.Gift className="w-5 h-5 md:w-6 md:h-6 mx-auto mb-1 md:mb-1.5" style={{ color: tierColor }} />

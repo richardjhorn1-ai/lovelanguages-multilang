@@ -140,7 +140,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
     }
 
     setLoading(false);
-  }, [profile, targetLanguage, isOnline, getCachedVocabulary, getCachedWordScores, cacheVocabulary, cacheWordScores]);
+  }, [profile.id, profile.role, profile.linked_user_id, targetLanguage, isOnline, getCachedVocabulary, getCachedWordScores, cacheVocabulary, cacheWordScores]);
 
   // Fetch entries on mount and when profile/language changes
   useEffect(() => { fetchEntries(); }, [fetchEntries]);

@@ -2,6 +2,7 @@
  * Blog API - Fetch articles from Supabase
  */
 
+import { cache } from 'react';
 import { supabaseBlog as supabase } from './supabase-blog';
 
 export interface BlogArticle {
@@ -39,8 +40,10 @@ export type BlogArticleSearchResult = Pick<BlogArticle,
 
 /**
  * Get a single article by slug and language pair
+ * Wrapped with React.cache() to deduplicate calls within the same request
+ * (generateMetadata + page component both call this)
  */
-export async function getArticle(
+export const getArticle = cache(async function getArticleImpl(
   nativeLang: string,
   targetLang: string,
   slug: string
@@ -60,12 +63,13 @@ export async function getArticle(
   }
 
   return data;
-}
+});
 
 /**
  * Get all articles for a language pair
+ * Wrapped with React.cache() to deduplicate within the same request
  */
-export async function getArticlesByLangPair(
+export const getArticlesByLangPair = cache(async function getArticlesByLangPairImpl(
   nativeLang: string,
   targetLang: string,
   options?: {
@@ -102,7 +106,7 @@ export async function getArticlesByLangPair(
   }
 
   return data || [];
-}
+});
 
 /**
  * Get all articles for a native language (across all target languages)
@@ -372,26 +376,26 @@ export async function getArticlesByTopic(
 }
 
 /**
- * Get topic counts for a native language (for topic hub overview)
+ * Get topic counts for a native language (for topic hub overview).
+ * Single query instead of N sequential queries — fetches all slugs once,
+ * then matches against topic patterns client-side.
  */
 export async function getTopicCounts(
   nativeLang: string
 ): Promise<Record<string, number>> {
+  const { data, error } = await supabase
+    .from('blog_articles')
+    .select('slug')
+    .eq('native_lang', nativeLang)
+    .eq('published', true);
+
+  if (error || !data) return {};
+
   const counts: Record<string, number> = {};
-
   for (const [topicSlug, topic] of Object.entries(TOPIC_DEFINITIONS)) {
-    const orFilters = topic.patterns.map(p => `slug.ilike.%${p}%`).join(',');
-
-    const { count, error } = await supabase
-      .from('blog_articles')
-      .select('id', { count: 'exact', head: true })
-      .eq('native_lang', nativeLang)
-      .eq('published', true)
-      .or(orFilters);
-
-    if (!error && count) {
-      counts[topicSlug] = count;
-    }
+    counts[topicSlug] = data.filter(row =>
+      topic.patterns.some(p => row.slug.includes(p))
+    ).length;
   }
 
   return counts;
@@ -456,8 +460,9 @@ export async function getArticleCountsByTargetLang(
 /**
  * Get alternate native-language versions of an article by topic_id.
  * Used for hreflang tags — returns other native_lang versions of the same topic+target.
+ * Wrapped with React.cache() to deduplicate calls within the same request
  */
-export async function getAlternatesByTopicId(
+export const getAlternatesByTopicId = cache(async function getAlternatesByTopicIdImpl(
   topicId: string | null,
   targetLang: string,
   excludeNativeLang: string
@@ -483,7 +488,41 @@ export async function getAlternatesByTopicId(
     seen.add(row.native_lang);
     return true;
   });
-}
+});
+
+/**
+ * Get related articles for a specific article — lighter query for related cards.
+ * Fetches only the columns needed for display (no content, tags, etc.).
+ * Same-category articles first, then fills with others from same lang pair.
+ */
+export const getRelatedArticles = cache(async function getRelatedArticlesImpl(
+  nativeLang: string,
+  targetLang: string,
+  currentSlug: string,
+  currentCategory: string | null,
+  limit: number = 3,
+): Promise<Pick<BlogArticle, 'id' | 'slug' | 'native_lang' | 'target_lang' | 'title' | 'description' | 'category' | 'difficulty' | 'read_time' | 'image' | 'date'>[]> {
+  // Fetch a small set: same category articles + a few extras
+  const { data, error } = await supabase
+    .from('blog_articles')
+    .select('id, slug, native_lang, target_lang, title, description, category, difficulty, read_time, image, date')
+    .eq('native_lang', nativeLang)
+    .eq('target_lang', targetLang)
+    .eq('published', true)
+    .neq('slug', currentSlug)
+    .order('date', { ascending: false })
+    .limit(limit * 3); // Fetch 3x limit so we can prioritize same category
+
+  if (error || !data) return [];
+
+  // Same category first
+  const sameCategory = currentCategory
+    ? data.filter(a => a.category === currentCategory)
+    : [];
+  const others = data.filter(a => !sameCategory.includes(a));
+
+  return [...sameCategory, ...others].slice(0, limit);
+});
 
 /**
  * Get the canonical article for a given topic in a specific language pair.

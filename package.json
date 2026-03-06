@@ -7,8 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "dev:vite": "vite",
-    "build:vite": "vite build",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "import-content": "node scripts/import-content.cjs",
     "generate-article": "node --env-file=.env --import=tsx scripts/generate-article.ts",
     "test:e2e": "playwright test",
@@ -33,6 +33,7 @@
     "@google/generative-ai": "^0.24.1",
     "@phosphor-icons/react": "^2.1.10",
     "@revenuecat/purchases-capacitor": "^12.2.0",
+    "@serwist/next": "^9.5.6",
     "@stripe/stripe-js": "^8.6.1",
     "@supabase/ssr": "^0.9.0",
     "@supabase/supabase-js": "^2.39.8",
@@ -45,9 +46,8 @@
     "react-dom": "^18.2.0",
     "react-easy-crop": "^5.5.6",
     "react-i18next": "^16.5.2",
-    "remark-frontmatter": "^5.0.0",
-    "remark-gfm": "^4.0.1",
     "resend": "^6.7.0",
+    "serwist": "^9.5.6",
     "stripe": "^20.1.2"
   },
   "devDependencies": {
@@ -58,7 +58,6 @@
     "@testing-library/react": "^16.3.2",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
-    "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.4.24",
     "browserslist": "^4.28.1",
     "caniuse-lite": "^1.0.30001766",
@@ -70,8 +69,6 @@
     "tailwindcss": "^4.1.18",
     "tsx": "^4.19.0",
     "typescript": "^5.0.0",
-    "vite": "^5.0.0",
-    "vite-plugin-pwa": "^1.2.0",
     "vitest": "^4.0.16"
   }
 }

@@ -111,7 +111,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
 
   useEffect(() => {
     fetchData();
-  }, [profile]);
+  }, [profile.id, profile.linked_user_id]);
 
   const fetchData = async () => {
     setLoading(true);

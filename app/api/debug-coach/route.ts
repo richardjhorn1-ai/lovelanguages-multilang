@@ -8,7 +8,7 @@
  */
 
 import { NextResponse } from 'next/server';
-import { getCorsHeaders, handleCorsPreflightResponse, verifyAuth, createServiceClient } from '@/utils/api-middleware';
+import { getCorsHeaders, handleCorsPreflightResponse, verifyAdminAuth, createServiceClient } from '@/utils/api-middleware';
 
 export async function OPTIONS(request: Request) {
   return handleCorsPreflightResponse(request);
@@ -17,16 +17,16 @@ export async function OPTIONS(request: Request) {
 export async function GET(request: Request) {
   const corsHeaders = getCorsHeaders(request);
 
-  // Only available in development/preview environments
-  if (process.env.VERCEL_ENV === 'production') {
-    return NextResponse.json({ error: 'Not found' }, { status: 404, headers: corsHeaders });
-  }
-
   try {
-    const auth = await verifyAuth(request);
-    if (!auth) {
+    // Admin-only endpoint — prevents info disclosure on preview deployments
+    const admin = await verifyAdminAuth(request);
+    if (!admin) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401, headers: corsHeaders });
     }
+    if (!admin.isAdmin) {
+      return NextResponse.json({ error: 'Not found' }, { status: 404, headers: corsHeaders });
+    }
+    const auth = admin;
 
     const supabase = createServiceClient();
     if (!supabase) {

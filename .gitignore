@@ -32,6 +32,11 @@ next-env.d.ts
 *.sw?
 .vercel
 
+# Serwist service worker build output
+public/sw.js
+public/sw.js.map
+public/swe-worker-*.js
+
 # Playwright MCP screenshots
 .playwright-mcp/
 
@@ -142,6 +147,12 @@ scripts/continue-vocab-generation.json
 scripts/continue-vocab-uk-en.ts
 scripts/generate-da-en-batch.py
 scripts/merge-vocab-601-700.ts
+
+# Build artifacts
+tsconfig.tsbuildinfo
+
+# Blog images (too large for git — served from CDN/filesystem)
+public/blog/
 
 # Unshipped features (keep on disk, not tracked)
 api/check-email.ts

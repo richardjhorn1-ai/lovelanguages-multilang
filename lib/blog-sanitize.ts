@@ -16,6 +16,15 @@ export function sanitizeArticleContent(content: string): string {
   sanitized = sanitized.replace(/^import\s+.*?from\s+['"].*?['"];?\s*$/gm, '');
   sanitized = sanitized.replace(/<p>import\s+.*?<\/p>/gi, '');
 
+  // Fix malformed anchor tags in Supabase content_html.
+  // Some articles have broken link fragments after a valid </a> tag:
+  //   </a>learn/en/it/slug/">anchor text</a>
+  //   </a>earn/en/it/slug/">anchor text</a>
+  // These are remnants of <a href="/learn/...">text</a> where "<a href="/l" was stripped.
+  // They chain together. We match the orphan path + ">text</a>" and strip entirely.
+  // Important: only match fragments NOT inside an href attribute (i.e. not preceded by ="/ or =")
+  sanitized = sanitized.replace(/<\/a>\s*(l?earn\/[a-z]{2}\/[a-z]{2}\/[a-z0-9_-]+\/?">([^<]*?)<\/a>\s*)+/gi, '</a>');
+
   // Clean up multiple consecutive empty lines/paragraphs
   sanitized = sanitized.replace(/(<p>\s*<\/p>\s*)+/gi, '');
   sanitized = sanitized.replace(/\n{3,}/g, '\n\n');

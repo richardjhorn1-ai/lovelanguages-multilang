@@ -17,7 +17,7 @@ async function verifyAuthWithEmail(request: Request): Promise<CheckoutAuth | nul
   }
 
   const token = authHeader.split(' ')[1];
-  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL;
+  const supabaseUrl = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
 
   if (!supabaseUrl || !supabaseServiceKey) {
@@ -88,7 +88,7 @@ export async function POST(request: Request) {
     }
 
     // Get or create Stripe customer
-    const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL;
+    const supabaseUrl = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
     const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY;
     const supabase = createClient(supabaseUrl!, supabaseServiceKey!);
 

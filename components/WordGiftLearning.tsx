@@ -271,9 +271,27 @@ const WordGiftLearning: React.FC<WordGiftLearningProps> = ({
               <div className="absolute inset-0 bg-[var(--bg-primary)] p-6 md:p-8 rounded-xl md:rounded-2xl border border-[var(--border-color)] text-center flex flex-col items-center justify-center backface-hidden rotate-y-180">
                 <p className="text-scale-micro font-bold text-[var(--accent-color)] uppercase tracking-wider mb-1.5 md:mb-2">{t('wordGift.card.nativeLanguage', { language: nativeName })}</p>
                 <p className="text-2xl md:text-3xl font-black text-[var(--text-primary)] mb-1.5 md:mb-2">{currentWord?.translation}</p>
-                {currentWord?.context && (
-                  <p className="text-scale-caption text-[var(--text-secondary)] mt-2">{currentWord.context}</p>
-                )}
+                {currentWord?.context && (() => {
+                  // Try to parse JSON additional_data and display formatted
+                  try {
+                    const parsed = typeof currentWord.context === 'string' && currentWord.context.startsWith('{')
+                      ? JSON.parse(currentWord.context)
+                      : null;
+                    if (parsed && typeof parsed === 'object') {
+                      return (
+                        <div className="text-scale-caption text-[var(--text-secondary)] mt-2 space-y-1">
+                          {parsed.example_sentence && (
+                            <p className="italic">&ldquo;{parsed.example_sentence}&rdquo;</p>
+                          )}
+                          {parsed.example_translation && (
+                            <p className="text-scale-micro opacity-75">{parsed.example_translation}</p>
+                          )}
+                        </div>
+                      );
+                    }
+                  } catch { /* not JSON, show as-is */ }
+                  return <p className="text-scale-caption text-[var(--text-secondary)] mt-2">{currentWord.context}</p>;
+                })()}
               </div>
             </div>
           </div>

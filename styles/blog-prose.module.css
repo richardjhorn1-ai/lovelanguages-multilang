@@ -3,7 +3,7 @@
 
 /* CSS Custom Properties for blog theming */
 .blogBody {
-  font-family: 'Outfit', sans-serif;
+  font-family: var(--font-outfit), 'Outfit', sans-serif;
   background-color: #f9fafb;
   color: #111827;
   -webkit-font-smoothing: antialiased;
@@ -11,88 +11,97 @@
 }
 
 .fontHeader {
-  font-family: 'Quicksand', sans-serif;
+  font-family: var(--font-quicksand), 'Quicksand', sans-serif;
 }
 
-/* Prose styling for article content */
-.prose h2 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  font-family: 'Quicksand', sans-serif;
+/* Prose styling for article content
+   Uses :global(.prose) so the literal "prose" className in ArticleLayout matches.
+   Scoped under .blogBody so these only apply inside the blog layout. */
+
+.blogBody :global(.prose) h2 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  font-family: var(--font-quicksand), 'Quicksand', sans-serif;
   color: #111827;
   margin-top: 3rem;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 2px solid #FF4761;
+  letter-spacing: -0.01em;
 }
 
 @media (min-width: 768px) {
-  .prose h2 {
-    font-size: 1.875rem;
+  .blogBody :global(.prose) h2 {
+    font-size: 2.25rem;
   }
 }
 
-.prose h3 {
-  font-size: 1.25rem;
+.blogBody :global(.prose) h3 {
+  font-size: 1.375rem;
   font-weight: 700;
-  font-family: 'Quicksand', sans-serif;
+  font-family: var(--font-quicksand), 'Quicksand', sans-serif;
   color: #111827;
   margin-top: 2rem;
   margin-bottom: 0.75rem;
+  padding-left: 0.75rem;
+  border-left: 3px solid #FF4761;
 }
 
 @media (min-width: 768px) {
-  .prose h3 {
-    font-size: 1.5rem;
+  .blogBody :global(.prose) h3 {
+    font-size: 1.75rem;
   }
 }
 
-.prose p {
-  font-size: 1.125rem;
+.blogBody :global(.prose) p {
+  font-size: 1rem;
+  font-weight: 400;
   color: #4b5563;
-  line-height: 1.75;
+  line-height: 1.8;
   margin-bottom: 1.5rem;
 }
 
-.prose ul {
+.blogBody :global(.prose) ul {
   list-style: none;
   margin-bottom: 1.5rem;
   margin-left: 0;
   padding-left: 0;
 }
 
-.prose ul li {
-  font-size: 1.125rem;
+.blogBody :global(.prose) ul li {
+  font-size: 1rem;
+  font-weight: 400;
   color: #4b5563;
+  line-height: 1.8;
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
   margin-bottom: 0.75rem;
 }
 
-.prose ul li::before {
+.blogBody :global(.prose) ul li::before {
   content: "\2665";
   color: #FF4761;
   margin-top: 0.125rem;
   flex-shrink: 0;
 }
 
-.prose ol {
+.blogBody :global(.prose) ol {
   list-style: decimal;
   list-style-position: inside;
   margin-bottom: 1.5rem;
   color: #4b5563;
 }
 
-.prose ol li {
+.blogBody :global(.prose) ol li {
   margin-bottom: 0.75rem;
 }
 
-.prose ol li::before {
+.blogBody :global(.prose) ol li::before {
   content: none;
 }
 
-.prose blockquote {
+.blogBody :global(.prose) blockquote {
   border-left: 4px solid #FF4761;
   background: rgba(255, 71, 97, 0.05);
   border-radius: 0 0.75rem 0.75rem 0;
@@ -102,21 +111,21 @@
   color: #111827;
 }
 
-.prose a {
+.blogBody :global(.prose) a {
   color: #FF4761;
   font-weight: 500;
 }
 
-.prose a:hover {
+.blogBody :global(.prose) a:hover {
   text-decoration: underline;
 }
 
-.prose strong {
+.blogBody :global(.prose) strong {
   font-weight: 700;
-  color: #FF4761;
+  color: #1f2937;
 }
 
-.prose code {
+.blogBody :global(.prose) code {
   background: #f3f4f6;
   border: 1px solid #e5e7eb;
   border-radius: 0.5rem;
@@ -126,12 +135,12 @@
   color: #111827;
 }
 
-.prose hr {
+.blogBody :global(.prose) hr {
   margin: 3rem 0;
   border-top: 2px solid #e5e7eb;
 }
 
-.prose table {
+.blogBody :global(.prose) table {
   width: 100%;
   border-collapse: collapse;
   background: white;
@@ -141,7 +150,7 @@
   margin: 2rem 0;
 }
 
-.prose th {
+.blogBody :global(.prose) th {
   background: rgba(255, 71, 97, 0.1);
   color: #FF4761;
   font-weight: 700;
@@ -150,13 +159,13 @@
   border-bottom: 1px solid #e5e7eb;
 }
 
-.prose td {
+.blogBody :global(.prose) td {
   padding: 0.75rem 1rem;
   border-bottom: 1px solid #e5e7eb;
   color: #4b5563;
 }
 
-.prose img {
+.blogBody :global(.prose) img {
   width: 100%;
   border-radius: 1rem;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
@@ -181,5 +190,104 @@
 }
 
 .blogBody :global(.font-header) {
-  font-family: 'Quicksand', sans-serif;
+  font-family: var(--font-quicksand), 'Quicksand', sans-serif;
+}
+
+/* ──────────────────────────────────────────────────────────
+   Glass / gradient design system for blog pages
+   Higher opacity (0.85–0.90) than app glass-cards for readability
+   ────────────────────────────────────────────────────────── */
+
+/* Subtle gradient background instead of flat gray */
+.blogBody {
+  background: linear-gradient(180deg, #f9fafb 0%, #fff0f3 35%, #fdfcfd 65%, #f0f7ff 100%);
+}
+
+/* Main article card — glass effect */
+.blogBody :global(.blog-glass-card) {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.90),
+    rgba(255, 255, 255, 0.85)
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 20px;
+  box-shadow:
+    0 8px 32px -8px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Navigation bar — stronger glass for clarity */
+.blogBody :global(.blog-glass-nav) {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.92),
+    rgba(255, 255, 255, 0.88)
+  );
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 71, 97, 0.08);
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
+}
+
+/* Hero overlay — smooth gradient for hero-to-content transition */
+.blogBody :global(.blog-hero-overlay) {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    transparent 40%,
+    rgba(249, 250, 251, 0.4) 70%,
+    rgba(249, 250, 251, 0.95) 100%
+  );
+}
+
+/* Related article cards — hover lift with accent shadow */
+.blogBody :global(.blog-related-card) {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.blogBody :global(.blog-related-card:hover) {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 24px rgba(255, 71, 97, 0.1),
+    0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+/* Hub page article cards — hover lift with accent border */
+.blogBody :global(.blog-hub-card) {
+  background: white;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 1.25rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.blogBody :global(.blog-hub-card:hover) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 71, 97, 0.1);
+  border-color: #FF4761;
+}
+
+/* Sticky filter bar glass effect */
+.blogBody :global(.blog-filter-bar) {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.90),
+    rgba(255, 255, 255, 0.85)
+  );
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 71, 97, 0.08);
+}
+
+/* Footer gradient */
+.blogBody :global(.blog-footer) {
+  background: linear-gradient(180deg, #fdfcfd 0%, #fff0f3 100%);
+  border-top: 1px solid rgba(255, 71, 97, 0.1);
 }

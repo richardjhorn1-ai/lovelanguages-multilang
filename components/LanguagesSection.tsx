@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { Profile } from '../types';
@@ -29,6 +29,8 @@ const LanguagesSection: React.FC<LanguagesSectionProps> = ({ profile, onRefresh 
   const nativeLanguage = profile.native_language || 'en';
   const activeLanguage = profile.active_language || 'pl';
   const languages = profile.languages || ['pl'];
+  // Stable string key for useEffect — avoids infinite loop from new array refs
+  const languagesKey = useMemo(() => languages.join(','), [JSON.stringify(profile.languages)]);
 
   const nativeConfig = LANGUAGE_CONFIGS[nativeLanguage];
   const nativeName = t(`languageNames.${nativeLanguage}`, { defaultValue: nativeConfig?.name || 'English' });
@@ -36,7 +38,7 @@ const LanguagesSection: React.FC<LanguagesSectionProps> = ({ profile, onRefresh 
 
   useEffect(() => {
     fetchLanguageStats();
-  }, [profile.id, languages]);
+  }, [profile.id, languagesKey]);
 
   const fetchLanguageStats = async () => {
     setLoading(true);

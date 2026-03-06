@@ -41,7 +41,7 @@ export default defineConfig({
   // Shared settings for all the projects below
   use: {
     // Base URL for Vercel preview deployment
-    baseURL: process.env.PLAYWRIGHT_BASE_URL || 'http://localhost:5173',
+    baseURL: process.env.PLAYWRIGHT_BASE_URL || 'http://localhost:3000',
 
     // Collect trace when retrying the failed test
     trace: 'on-first-retry',

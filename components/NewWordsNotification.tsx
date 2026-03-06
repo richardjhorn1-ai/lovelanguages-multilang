@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useTranslation } from 'react-i18next';
 import { ExtractedWord } from '../services/gemini';
+import { useTabNavigation } from '../context/TabNavigationContext';
 import { ICONS } from '../constants';
 
 interface NewWordsNotificationProps {
@@ -16,6 +17,7 @@ const NewWordsNotification: React.FC<NewWordsNotificationProps> = ({ words, isEx
   const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(false);
   const router = useRouter();
+  const { navigateTab } = useTabNavigation();
 
   // Show extracting state OR words — never both hidden
   if (!isExtracting && words.length === 0) return null;
@@ -87,7 +89,7 @@ const NewWordsNotification: React.FC<NewWordsNotificationProps> = ({ words, isEx
           </div>
           <div className="px-3 pb-3">
             <button
-              onClick={() => { router.push('/log'); onClose(); }}
+              onClick={() => { navigateTab('/log'); onClose(); }}
               className="w-full py-2 text-scale-micro font-bold uppercase tracking-wider text-[var(--accent-color)] hover:opacity-80 transition-colors"
             >
               {t('newWords.viewAll')} →

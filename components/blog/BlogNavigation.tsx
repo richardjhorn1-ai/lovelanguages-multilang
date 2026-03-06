@@ -76,7 +76,7 @@ export default function BlogNavigation({ nativeLang = 'en', targetLang }: Props)
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-lg border-b border-gray-100 shadow-sm">
+    <nav className="sticky top-0 z-50 blog-glass-nav">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex items-center justify-between h-14">
           {/* Left: Native Language Selector + Logo */}

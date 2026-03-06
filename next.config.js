@@ -1,7 +1,17 @@
+import withSerwistInit from "@serwist/next";
 import redirectsData from './lib/redirects.json' with { type: 'json' };
+
+const withSerwist = withSerwistInit({
+  swSrc: "app/sw.ts",
+  swDest: "public/sw.js",
+  disable: process.env.NODE_ENV === "development",
+});
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Disable strict mode to avoid double-renders in dev (Next.js 15 defaults to true)
+  reactStrictMode: false,
+
   // All URLs must use trailing slashes (matches existing vercel.json behavior)
   trailingSlash: true,
 
@@ -83,4 +93,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default withSerwist(nextConfig);

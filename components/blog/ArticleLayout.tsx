@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import BlogCTA from './BlogCTA';
 import RALLMethodologySection from './RALLMethodologySection';
 
@@ -142,23 +143,27 @@ export default function ArticleLayout({
       </nav>
 
       {/* Hero Image or Emoji Fallback */}
-      <div className="relative h-64 md:h-80 bg-gradient-to-br from-accent/20 to-pink-100">
+      <div className="relative h-64 md:h-80 bg-gradient-to-br from-accent/20 via-pink-100 to-rose-50 overflow-hidden">
         {image ? (
-          <img
+          <Image
             src={image}
             alt={title}
+            width={1200}
+            height={630}
+            priority
             className="w-full h-full object-cover relative z-[1]"
-            loading="eager"
           />
         ) : null}
         <div className="absolute inset-0 flex items-center justify-center text-8xl opacity-30 z-0">
           {cat.icon}
         </div>
+        {/* Gradient overlay for smooth hero-to-content transition */}
+        <div className="blog-hero-overlay absolute inset-0 z-[2]" />
       </div>
 
       {/* Article Content Card */}
       <main className="max-w-3xl mx-auto px-4 -mt-16 relative z-10 pb-16">
-        <article className="bg-white rounded-2xl shadow-lg p-6 md:p-10">
+        <article className="blog-glass-card p-6 md:p-10">
           {/* Meta */}
           <div className="flex flex-wrap items-center gap-3 mb-6 text-sm">
             <span className={`px-3 py-1 rounded-full font-bold ${cat.bg} ${cat.text}`}>
@@ -190,7 +195,7 @@ export default function ArticleLayout({
           </div>
 
           {/* App Signup CTA */}
-          <BlogCTA />
+          <BlogCTA nativeLang={nativeLanguageCode} targetLang={languageCode} articleSlug={articleSlug} />
 
           {/* FAQ Section — visible accordion */}
           {faqItems.length > 0 && (
@@ -246,13 +251,15 @@ export default function ArticleLayout({
                 <a
                   key={related.slug}
                   href={`/learn/${related.slug}/`}
-                  className="group bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden"
+                  className="group blog-related-card overflow-hidden"
                 >
                   <div className="aspect-video bg-gradient-to-br from-accent/20 to-pink-100 relative">
                     {related.data.image ? (
-                      <img
+                      <Image
                         src={related.data.image}
                         alt={related.data.title}
+                        width={400}
+                        height={225}
                         className="w-full h-full object-cover"
                         loading="lazy"
                       />
@@ -342,22 +349,9 @@ export default function ArticleLayout({
         </section>
       )}
 
-      {/* Sticky Mobile CTA */}
-      <div className="fixed bottom-0 left-0 right-0 bg-gradient-to-r from-accent to-pink-500 p-3 md:hidden z-50 shadow-lg">
-        <a
-          href={`/?utm_source=blog&utm_medium=sticky-cta&utm_campaign=${nativeLanguageCode}-${languageCode}&utm_content=${articleSlug}&ref_native=${nativeLanguageCode}&ref_target=${languageCode}`}
-          className="flex items-center justify-center gap-2 text-white font-bold"
-        >
-          <span>Learn {languageInfo.name} Together</span>
-          <span className="bg-white text-accent px-3 py-1 rounded-full text-sm">Start Now &rarr;</span>
-        </a>
-      </div>
-
-      {/* Spacer for sticky CTA on mobile */}
-      <div className="h-16 md:hidden" />
 
       {/* Footer */}
-      <footer className="bg-gray-100 border-t border-gray-200 py-12">
+      <footer className="blog-footer py-12">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <a href="/" className="inline-flex items-center gap-2 text-2xl font-bold font-header text-accent mb-4">
             <img src="/favicon.svg" alt="Love Languages" className="w-8 h-8" />

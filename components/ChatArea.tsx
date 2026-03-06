@@ -395,7 +395,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     };
   }, []);
 
-  useEffect(() => { fetchChats(); fetchListenSessions(); }, [profile]);
+  useEffect(() => { fetchChats(); fetchListenSessions(); }, [profile.id]);
   useEffect(() => {
     if (activeChat) {
       fetchMessages(activeChat.id);

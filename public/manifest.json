@@ -1,0 +1,29 @@
+{
+  "name": "Love Languages - Learn for the One You Love",
+  "short_name": "Love Languages",
+  "description": "AI-powered language learning app designed for couples. Learn together with voice conversations, games, and vocabulary for real relationships.",
+  "theme_color": "#FF4761",
+  "background_color": "#1a1a2e",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

@@ -175,7 +175,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile }) => {
 
   useEffect(() => {
     fetchData();
-  }, [profile, targetLanguage]);
+  }, [profile.id, targetLanguage]);
 
   // Listen for language switch events from Profile settings
   useEffect(() => {
