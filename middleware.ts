@@ -42,7 +42,19 @@ export async function middleware(request: NextRequest) {
     }
   }
 
-  // 3. Soft-404 mitigation: validate /learn/{nativeLang}/{targetLang}/{slug}/ URL format
+  // 3. Methodology articles: /learn/{nativeLang}/all/{slug}/ → /learn/{nativeLang}/couples-language-learning/methodology/{slug}/
+  const methMatch = pathname.match(/^\/learn\/([a-z]{2})\/all\/([^/]+)\/?$/);
+  if (methMatch) {
+    const [, methNativeLang, methSlug] = methMatch;
+    if (ALL_LANG_CODES.has(methNativeLang)) {
+      return NextResponse.redirect(
+        new URL(`/learn/${methNativeLang}/couples-language-learning/methodology/${methSlug}/`, request.url),
+        301
+      );
+    }
+  }
+
+  // 4. Soft-404 mitigation: validate /learn/{nativeLang}/{targetLang}/{slug}/ URL format
   // If the URL matches the 3-segment article pattern but has invalid language codes, return 404
   // immediately rather than letting the page render and return a soft 404.
   const articleMatch = pathname.match(/^\/learn\/([a-z]{2})\/([a-z]{2})\/([^/]+)\/?$/);

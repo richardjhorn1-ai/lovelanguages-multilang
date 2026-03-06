@@ -1,4 +1,4 @@
-import { notFound, redirect } from 'next/navigation';
+import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { getArticle, getRelatedArticles, getAlternatesByTopicId } from '@/lib/blog-api';
 import { canonicalUrl, articleUrl } from '@/lib/blog-urls';
@@ -101,10 +101,7 @@ export default async function ArticlePage({
   }
 
   if (!VALID_LANG_CODES.includes(targetLang)) {
-    // Redirect methodology articles (target_lang='all') to their correct URL
-    if (targetLang === 'all' && VALID_LANG_CODES.includes(nativeLang)) {
-      redirect(`/learn/${nativeLang}/couples-language-learning/methodology/${slug}/`);
-    }
+    // Methodology articles (target_lang='all') are redirected in middleware
     notFound();
   }
 
