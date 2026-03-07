@@ -12,7 +12,8 @@ export const GET: APIRoute = async () => {
     { loc: '/tools/', priority: '0.7', changefreq: 'monthly' },
     { loc: '/tools/name-day-finder/', priority: '0.7', changefreq: 'monthly' },
     { loc: '/dictionary/', priority: '0.6', changefreq: 'monthly' },
-    { loc: '/support/', priority: '0.5', changefreq: 'monthly' },
+    // NOTE: /support/ is an SPA route served by index.html — no unique canonical possible.
+    // Excluded from sitemap until it becomes a standalone SSR page.
   ];
 
   // Dynamic hub pages from Supabase data
