@@ -7,10 +7,11 @@ export const GET: APIRoute = async () => {
   // Regular articles: exclude target_lang='all' (methodology) and non-canonical
   const articleUrls = allSlugs
     .filter(s => s.target_lang !== 'all' && s.is_canonical !== false)
-    .map(({ native_lang, target_lang, slug, updated_at }) => {
+    .map(({ native_lang, target_lang, slug, slug_native, updated_at }) => {
+      const displaySlug = slug_native || slug;
       const lastmod = updated_at ? `\n    <lastmod>${new Date(updated_at).toISOString().split('T')[0]}</lastmod>` : '';
       return `  <url>
-    <loc>https://www.lovelanguages.io/learn/${native_lang}/${target_lang}/${slug}/</loc>${lastmod}
+    <loc>https://www.lovelanguages.io/learn/${native_lang}/${target_lang}/${displaySlug}/</loc>${lastmod}
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>`;

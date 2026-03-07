@@ -1,0 +1,151 @@
+
+============================================================
+Article: cs-flirt-phrases-for-swedish-speakers
+Links added: 6
+  + /learn/sv/cs/tjeckiska-proposal-engagement-phrases/
+
+============================================================
+Article: cs-forgive-phrases-for-swedish-speakers
+Links added: 1
+  + /learn/sv/cs/czech-how-to-apologize/
+
+============================================================
+Article: cs-love-letter-phrases-for-swedish-speakers
+Links added: 2
+  + /learn/sv/cs/czech-how-to-say-i-love-you/
+  + /learn/sv/cs/tjeckiska-proposal-engagement-phrases/
+
+============================================================
+Article: cs-makeup-phrases-for-swedish-speakers
+Links added: 1
+  + /learn/sv/cs/czech-how-to-say-i-love-you/
+
+============================================================
+Article: cs-miss-you-phrases-for-swedish-speakers
+Links added: 2
+  + /learn/sv/cs/czech-texting-phrases-for-swedish-speakers/
+
+============================================================
+Article: czech-birthday-phrases-for-swedish-speakers
+Links added: 4
+  + /learn/sv/cs/czech-first-date-phrases-for-swedish-speakers/
+  + /learn/sv/cs/czech-texting-phrases-for-swedish-speakers/
+
+============================================================
+Article: czech-essential-phrases-for-couples
+Links added: 6
+  + /learn/sv/cs/czech-greetings-and-farewells/
+  + /learn/sv/cs/czech-how-to-say-i-love-you/
+  + /learn/sv/cs/czech-texting-phrases-for-swedish-speakers/
+
+============================================================
+Article: czech-expressing-emotions
+Links added: 3
+  + /learn/sv/cs/cs-love-letter-phrases-for-swedish-speakers/
+  + /learn/sv/cs/cs-miss-you-phrases-for-swedish-speakers/
+  + /learn/sv/cs/czech-how-to-say-i-love-you/
+
+============================================================
+Article: czech-good-morning-goodnight-phrases
+Links added: 2
+  + /learn/sv/cs/cs-miss-you-phrases-for-swedish-speakers/
+  + /learn/sv/cs/czech-greetings-and-farewells/
+
+============================================================
+Article: czech-grammar-basics-for-beginners
+Links added: 8
+  + /learn/sv/cs/cs-miss-you-phrases-for-swedish-speakers/
+  + /learn/sv/cs/czech-how-to-say-i-love-you/
+  + /learn/sv/cs/tjeckiska-proposal-engagement-phrases/
+
+============================================================
+Article: czech-greetings-and-farewells
+Links added: 6
+  + /learn/sv/cs/czech-essential-phrases-for-couples/
+  + /learn/sv/cs/czech-first-date-phrases-for-swedish-speakers/
+  + /learn/sv/cs/czech-good-morning-goodnight-phrases/
+  + /learn/sv/cs/czech-how-to-say-i-love-you/
+  + /learn/sv/cs/czech-long-distance-relationship/
+
+============================================================
+Article: czech-how-to-apologize
+Links added: 1
+  + /learn/sv/cs/cs-forgive-phrases-for-swedish-speakers/
+
+============================================================
+Article: czech-how-to-say-i-love-you
+Links added: 10
+  + /learn/sv/cs/czech-greetings-and-farewells/
+  + /learn/sv/cs/czech-long-distance-relationship/
+  + /learn/sv/cs/czech-texting-phrases-for-swedish-speakers/
+  + /learn/sv/cs/tjeckiska-proposal-engagement-phrases/
+
+============================================================
+Article: czech-is-this-language-hard-to-learn
+Links added: 7
+  + /learn/sv/cs/czech-how-to-say-i-love-you/
+  + /learn/sv/cs/czech-long-distance-relationship/
+  + /learn/sv/cs/tjeckiska-proposal-engagement-phrases/
+
+============================================================
+Article: czech-long-distance-relationship
+Links added: 4
+  + /learn/sv/cs/cs-miss-you-phrases-for-swedish-speakers/
+  + /learn/sv/cs/czech-greetings-and-farewells/
+  + /learn/sv/cs/czech-texting-phrases-for-swedish-speakers/
+
+============================================================
+Article: czech-pet-names-and-terms-of-endearment-50
+Links added: 7
+  + /learn/sv/cs/czech-good-morning-goodnight-phrases/
+  + /learn/sv/cs/czech-how-to-say-i-love-you/
+  + /learn/sv/cs/czech-texting-phrases-for-swedish-speakers/
+  + /learn/sv/cs/czech-travel-phrases-for-swedish-speakers/
+
+============================================================
+Article: czech-pronunciation-guide-for-beginners
+Links added: 10
+  + /learn/sv/cs/czech-first-date-phrases-for-swedish-speakers/
+  + /learn/sv/cs/czech-how-to-say-i-love-you/
+  + /learn/sv/cs/czech-texting-phrases-for-swedish-speakers/
+  + /learn/sv/cs/tjeckiska-proposal-engagement-phrases/
+
+============================================================
+Article: czech-romantic-phrases-for-every-occasion
+Links added: 10
+  + /learn/sv/cs/czech-greetings-and-farewells/
+  + /learn/sv/cs/czech-how-to-say-i-love-you/
+  + /learn/sv/cs/czech-moving-in-together-phrases-for-swedish-speakers/
+  + /learn/sv/cs/czech-pet-names-and-terms-of-endearment-50/
+  + /learn/sv/cs/tjeckiska-proposal-engagement-phrases/
+
+============================================================
+Article: czech-small-talk-conversation-starters
+Links added: 1
+  + /learn/sv/cs/cs-in-laws-phrases-for-swedish-speakers/
+
+============================================================
+Article: czech-texting-phrases-for-swedish-speakers
+Links added: 9
+  + /learn/sv/cs/cs-flirt-phrases-for-swedish-speakers/
+  + /learn/sv/cs/czech-good-morning-goodnight-phrases/
+  + /learn/sv/cs/czech-greetings-and-farewells/
+  + /learn/sv/cs/czech-how-to-say-i-love-you/
+  + /learn/sv/cs/czech-long-distance-relationship/
+  + /learn/sv/cs/czech-moving-in-together-phrases-for-swedish-speakers/
+
+============================================================
+Article: date-night-vocabulary
+Links added: 1
+  + /learn/sv/cs/czech-long-distance-relationship/
+
+============================================================
+Article: meeting-your-partner-s-family
+Links added: 2
+  + /learn/sv/cs/cs-flirt-phrases-for-swedish-speakers/
+  + /learn/sv/cs/cs-in-laws-phrases-for-swedish-speakers/
+
+============================================================
+Article: tjeckiska-wedding-phrases
+Links added: 1
+  + /learn/sv/cs/czech-small-talk-conversation-starters/

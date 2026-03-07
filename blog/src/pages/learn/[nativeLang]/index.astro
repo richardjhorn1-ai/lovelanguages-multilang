@@ -47,7 +47,7 @@ const allLanguages = sortedLanguageCodes.map(code => ({
 // Latest articles for this native language
 const latestArticles = await getArticlesByNativeLang(nativeLanguageCode, { limit: 4 });
 
-const getArticleUrl = (article: any) => `/learn/${article.native_lang}/${article.target_lang}/${article.slug}/`;
+const getArticleUrl = (article: any) => `/learn/${article.native_lang}/${article.target_lang}/${article.slug_native || article.slug}/`;
 const getLangFromArticle = (article: any) => article.target_lang;
 
 // Get translations for this native language

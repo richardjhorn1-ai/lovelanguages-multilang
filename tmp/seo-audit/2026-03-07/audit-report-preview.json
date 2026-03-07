@@ -1,0 +1,31 @@
+{
+  "audit_timestamp": "2026-03-07T04:50:22.797Z",
+  "base_url": "https://lovelanguages-multilang-q9pwuw9lc-richardjhorn1-6035s-projects.vercel.app",
+  "is_preview": true,
+  "inventory_summary": {
+    "generated_at": "2026-03-07T04:49:35.582Z",
+    "total_urls": 12062,
+    "indexable_urls": 12035,
+    "excluded_urls": 27,
+    "by_kind": {
+      "page": 95,
+      "spa_route": 1,
+      "pair_hub": 306,
+      "article": 11346,
+      "methodology": 144,
+      "methodology_index": 18,
+      "topic_hub": 126,
+      "legacy_stub": 6,
+      "redirect_shell": 2,
+      "excluded_pseudo_hub": 18
+    }
+  },
+  "checked": 572,
+  "passed": 545,
+  "failed": 0,
+  "warnings": 0,
+  "pass": true,
+  "error_counts": {},
+  "failures": [],
+  "warnings_list": []
+}

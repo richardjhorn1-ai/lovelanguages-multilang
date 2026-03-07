@@ -161,7 +161,7 @@ const jsonLd = {
         {articles.map((article) => (
           <div class="article-item" data-category={article.category}>
             <ArticleCard
-              slug={`${article.native_lang}/${article.target_lang}/${article.slug}`}
+              slug={`${article.native_lang}/${article.target_lang}/${article.slug_native || article.slug}`}
               title={article.title}
               description={article.description || ''}
               category={article.category || 'general'}

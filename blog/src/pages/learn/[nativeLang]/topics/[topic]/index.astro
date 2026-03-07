@@ -131,7 +131,7 @@ const jsonLd = {
 
             return (
               <a
-                href={`/learn/${nativeLanguageCode}/${targetLang}/${firstArticle.slug}/`}
+                href={`/learn/${nativeLanguageCode}/${targetLang}/${firstArticle.slug_native || firstArticle.slug}/`}
                 class="group block p-6 rounded-2xl border border-gray-100 bg-white hover:shadow-xl hover:border-[#FF6B6B] transition-all"
               >
                 <div class="flex items-start gap-4">

@@ -16,6 +16,7 @@ const supabase = createClient(supabaseUrl || '', supabaseKey || '');
 export interface BlogArticle {
   id: string;
   slug: string;
+  slug_native: string | null;
   native_lang: string;
   target_lang: string;
   title: string;
@@ -37,7 +38,7 @@ export interface BlogArticle {
 }
 
 export type BlogArticleSummary = Pick<BlogArticle,
-  'id' | 'slug' | 'native_lang' | 'target_lang' | 'title' | 'description' |
+  'id' | 'slug' | 'slug_native' | 'native_lang' | 'target_lang' | 'title' | 'description' |
   'category' | 'difficulty' | 'read_time' | 'image' | 'tags' | 'date'
 >;
 
@@ -54,12 +55,13 @@ export async function getArticle(
   targetLang: string,
   slug: string
 ): Promise<BlogArticle | null> {
+  // Try native slug first (preferred), then fall back to English slug
   const { data, error } = await supabase
     .from('blog_articles')
     .select('*')
     .eq('native_lang', nativeLang)
     .eq('target_lang', targetLang)
-    .eq('slug', slug)
+    .or(`slug_native.eq.${slug},slug.eq.${slug}`)
     .eq('published', true)
     .maybeSingle();
 
@@ -69,6 +71,13 @@ export async function getArticle(
   }
 
   return data;
+}
+
+/**
+ * Get the display slug for an article (native slug preferred, English fallback)
+ */
+export function getDisplaySlug(article: { slug: string; slug_native: string | null }): string {
+  return article.slug_native || article.slug;
 }
 
 /**
@@ -85,7 +94,7 @@ export async function getArticlesByLangPair(
 ): Promise<BlogArticleSummary[]> {
   let query = supabase
     .from('blog_articles')
-    .select('id, slug, native_lang, target_lang, title, description, category, difficulty, read_time, image, tags, date')
+    .select('id, slug, slug_native, native_lang, target_lang, title, description, category, difficulty, read_time, image, tags, date')
     .eq('native_lang', nativeLang)
     .eq('target_lang', targetLang)
     .eq('published', true)
@@ -124,7 +133,7 @@ export async function getArticlesByNativeLang(
 ): Promise<BlogArticleSummary[]> {
   let query = supabase
     .from('blog_articles')
-    .select('id, slug, native_lang, target_lang, title, description, category, difficulty, read_time, image, tags, date')
+    .select('id, slug, slug_native, native_lang, target_lang, title, description, category, difficulty, read_time, image, tags, date')
     .eq('native_lang', nativeLang)
     .eq('published', true)
     .order('date', { ascending: false });
@@ -221,7 +230,7 @@ export async function getArticlesByCategory(
 ): Promise<BlogArticleSummary[]> {
   let query = supabase
     .from('blog_articles')
-    .select('id, slug, native_lang, target_lang, title, description, category, difficulty, read_time, image, tags, date')
+    .select('id, slug, slug_native, native_lang, target_lang, title, description, category, difficulty, read_time, image, tags, date')
     .eq('category', category)
     .eq('published', true)
     .order('date', { ascending: false });
@@ -260,7 +269,7 @@ export async function searchArticles(
 ): Promise<BlogArticleSearchResult[]> {
   let dbQuery = supabase
     .from('blog_articles')
-    .select('id, slug, native_lang, target_lang, title, description, category, image, date')
+    .select('id, slug, slug_native, native_lang, target_lang, title, description, category, image, date')
     .eq('published', true)
     .or(`title.ilike.%${query}%,description.ilike.%${query}%`)
     .order('date', { ascending: false });
@@ -289,15 +298,15 @@ export async function searchArticles(
 export async function getAllSlugs(
   nativeLang?: string,
   targetLang?: string
-): Promise<{ native_lang: string; target_lang: string; slug: string; updated_at: string | null; is_canonical: boolean }[]> {
-  const allData: { native_lang: string; target_lang: string; slug: string; updated_at: string | null; is_canonical: boolean }[] = [];
+): Promise<{ native_lang: string; target_lang: string; slug: string; slug_native: string | null; updated_at: string | null; is_canonical: boolean }[]> {
+  const allData: { native_lang: string; target_lang: string; slug: string; slug_native: string | null; updated_at: string | null; is_canonical: boolean }[] = [];
   const PAGE_SIZE = 1000;
   let offset = 0;
 
   while (true) {
     let query = supabase
       .from('blog_articles')
-      .select('native_lang, target_lang, slug, updated_at, is_canonical')
+      .select('native_lang, target_lang, slug, slug_native, updated_at, is_canonical')
       .eq('published', true)
       .range(offset, offset + PAGE_SIZE - 1);
 
@@ -354,7 +363,7 @@ export async function getArticlesByTopic(
 
   const { data, error } = await supabase
     .from('blog_articles')
-    .select('id, slug, native_lang, target_lang, title, description, category, difficulty, read_time, image, tags, date')
+    .select('id, slug, slug_native, native_lang, target_lang, title, description, category, difficulty, read_time, image, tags, date')
     .eq('native_lang', nativeLang)
     .eq('published', true)
     .or(orFilters)
@@ -470,12 +479,12 @@ export async function getAlternatesByTopicId(
   topicId: string | null,
   targetLang: string,
   excludeNativeLang: string
-): Promise<{ native_lang: string; slug: string }[]> {
+): Promise<{ native_lang: string; slug: string; slug_native: string | null }[]> {
   if (!topicId) return [];
 
   const { data, error } = await supabase
     .from('blog_articles')
-    .select('native_lang, slug')
+    .select('native_lang, slug, slug_native')
     .eq('topic_id', topicId)
     .eq('target_lang', targetLang)
     .eq('published', true)

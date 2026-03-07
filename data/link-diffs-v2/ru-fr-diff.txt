@@ -1,0 +1,138 @@
+
+============================================================
+Article: 100-most-common-french-words
+Links added: 2
+  + /learn/ru/fr/french-greetings-farewells/
+
+============================================================
+Article: fr-argue-phrases-for-russian-speakers
+Links added: 1
+  + /learn/ru/fr/french-wedding-phrases/
+
+============================================================
+Article: fr-flirt-phrases-for-russian-speakers
+Links added: 2
+  + /learn/ru/fr/fr-first-date-phrases-for-russian-speakers/
+  + /learn/ru/fr/french-pet-names-terms-of-endearment/
+
+============================================================
+Article: fr-in-laws-phrases-for-russian-speakers
+Links added: 1
+  + /learn/ru/fr/meeting-your-french-partners-family/
+
+============================================================
+Article: fr-makeup-phrases-for-russian-speakers
+Links added: 1
+  + /learn/ru/fr/french-how-to-apologize/
+
+============================================================
+Article: fr-miss-you-phrases-for-russian-speakers
+Links added: 1
+  + /learn/ru/fr/french-long-distance-relationship/
+
+============================================================
+Article: fr-support-phrases-for-russian-speakers
+Links added: 3
+  + /learn/ru/fr/french-essential-phrases-for-couples/
+  + /learn/ru/fr/french-moving-in-together/
+  + /learn/ru/fr/how-to-say-i-love-you-in-french/
+
+============================================================
+Article: fr-texting-phrases-for-russian-speakers
+Links added: 6
+  + /learn/ru/fr/fr-love-letter-phrases-for-russian-speakers/
+  + /learn/ru/fr/french-greetings-farewells/
+  + /learn/ru/fr/french-long-distance-relationship/
+  + /learn/ru/fr/how-to-say-i-love-you-in-french/
+
+============================================================
+Article: french-baby-pregnancy-vocabulary
+Links added: 2
+  + /learn/ru/fr/fr-first-date-phrases-for-russian-speakers/
+  + /learn/ru/fr/french-wedding-phrases/
+
+============================================================
+Article: french-essential-phrases-for-couples
+Links added: 1
+  + /learn/ru/fr/french-good-morning-goodnight-phrases/
+
+============================================================
+Article: french-expressing-emotions
+Links added: 3
+  + /learn/ru/fr/french-long-distance-relationship/
+  + /learn/ru/fr/french-wedding-phrases/
+
+============================================================
+Article: french-giving-compliments
+Links added: 2
+  + /learn/ru/fr/french-long-distance-relationship/
+
+============================================================
+Article: french-good-morning-goodnight-phrases
+Links added: 1
+  + /learn/ru/fr/french-greetings-farewells/
+
+============================================================
+Article: french-greetings-farewells
+Links added: 2
+  + /learn/ru/fr/fr-texting-phrases-for-russian-speakers/
+  + /learn/ru/fr/french-good-morning-goodnight-phrases/
+
+============================================================
+Article: french-honeymoon-travel-phrases
+Links added: 5
+  + /learn/ru/fr/french-date-night-vocabulary/
+  + /learn/ru/fr/french-romantic-phrases-every-occasion/
+  + /learn/ru/fr/how-to-say-i-love-you-in-french/
+
+============================================================
+Article: french-long-distance-relationship
+Links added: 3
+  + /learn/ru/fr/fr-miss-you-phrases-for-russian-speakers/
+  + /learn/ru/fr/french-moving-in-together/
+
+============================================================
+Article: french-moving-in-together
+Links added: 1
+  + /learn/ru/fr/fr-first-date-phrases-for-russian-speakers/
+
+============================================================
+Article: french-pet-names-terms-of-endearment
+Links added: 4
+  + /learn/ru/fr/fr-texting-phrases-for-russian-speakers/
+  + /learn/ru/fr/french-anniversary-wishes/
+
+============================================================
+Article: french-proposal-engagement-phrases
+Links added: 4
+  + /learn/ru/fr/fr-texting-phrases-for-russian-speakers/
+  + /learn/ru/fr/french-romantic-phrases-every-occasion/
+  + /learn/ru/fr/how-to-say-i-love-you-in-french/
+
+============================================================
+Article: french-romantic-phrases-every-occasion
+Links added: 2
+  + /learn/ru/fr/fr-texting-phrases-for-russian-speakers/
+
+============================================================
+Article: french-small-talk-conversation-starters
+Links added: 1
+  + /learn/ru/fr/fr-first-date-phrases-for-russian-speakers/
+
+============================================================
+Article: french-video-call-phrases-family
+Links added: 2
+  + /learn/ru/fr/fr-first-date-phrases-for-russian-speakers/
+  + /learn/ru/fr/fr-in-laws-phrases-for-russian-speakers/
+
+============================================================
+Article: french-wedding-phrases
+Links added: 3
+  + /learn/ru/fr/fr-first-date-phrases-for-russian-speakers/
+  + /learn/ru/fr/french-essential-phrases-for-couples/
+  + /learn/ru/fr/french-moving-in-together/
+
+============================================================
+Article: how-to-say-i-love-you-in-french
+Links added: 2
+  + /learn/ru/fr/french-greetings-farewells/

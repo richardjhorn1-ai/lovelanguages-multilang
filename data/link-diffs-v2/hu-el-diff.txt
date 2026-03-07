@@ -1,0 +1,185 @@
+
+============================================================
+Article: el-forgive-phrases-for-hungarian-speakers
+Links added: 2
+  + /learn/hu/el/greek-how-to-apologize/
+  + /learn/hu/el/greek-pronunciation-guide-for-beginners/
+
+============================================================
+Article: el-jealous-phrases-for-hungarian-speakers
+Links added: 1
+  + /learn/hu/el/greek-is-this-language-hard-to-learn/
+
+============================================================
+Article: gorog-flirt-kifejezesek-magyar-beszeloknek
+Links added: 1
+  + /learn/hu/el/gorog-love-letter-irasmuveszet-magyar-beszeloknek/
+
+============================================================
+Article: gorog-love-letter-irasmuveszet-magyar-beszeloknek
+Links added: 4
+  + /learn/hu/el/greek-expressing-emotions/
+  + /learn/hu/el/szerelmes-level-irasa-gorogul/
+
+============================================================
+Article: gorog-miss-you-kifejezesek-magyar-beszeloknek
+Links added: 7
+  + /learn/hu/el/greek-expressing-emotions/
+  + /learn/hu/el/greek-greetings-and-farewells/
+  + /learn/hu/el/szerelmes-level-irasa-gorogul/
+
+============================================================
+Article: gorog-support-kifejezesek-erzelmi-tamogatas
+Links added: 3
+  + /learn/hu/el/szerelmes-level-irasa-gorogul/
+
+============================================================
+Article: greek-100-most-common-words
+Links added: 6
+  + /learn/hu/el/greek-greetings-and-farewells/
+  + /learn/hu/el/how-to-say-i-love-you/
+  + /learn/hu/el/szerelmes-level-irasa-gorogul/
+
+============================================================
+Article: greek-anniversary-wishes
+Links added: 9
+  + /learn/hu/el/greek-meeting-your-partner-s-family/
+  + /learn/hu/el/hianyzol-kifejezesek-gorogul/
+  + /learn/hu/el/szerelmes-level-irasa-gorogul/
+
+============================================================
+Article: greek-baby-pregnancy-vocabulary
+Links added: 12
+  + /learn/hu/el/greek-meeting-your-partner-s-family/
+  + /learn/hu/el/greek-texting-phrases-for-hungarian-speakers/
+  + /learn/hu/el/greek-wedding-phrases/
+
+============================================================
+Article: greek-birthday-wishes-partner
+Links added: 8
+  + /learn/hu/el/greek-meeting-your-partner-s-family/
+  + /learn/hu/el/szerelmes-level-irasa-gorogul/
+
+============================================================
+Article: greek-date-night-vocabulary
+Links added: 8
+  + /learn/hu/el/greek-wedding-phrases/
+
+============================================================
+Article: greek-expressing-emotions
+Links added: 2
+  + /learn/hu/el/szerelmes-level-irasa-gorogul/
+
+============================================================
+Article: greek-good-morning-goodnight-phrases
+Links added: 1
+  + /learn/hu/el/greek-greetings-and-farewells/
+
+============================================================
+Article: greek-grammar-basics-for-beginners
+Links added: 3
+  + /learn/hu/el/gorog-love-letter-irasmuveszet-magyar-beszeloknek/
+  + /learn/hu/el/hianyzol-kifejezesek-gorogul/
+
+============================================================
+Article: greek-greetings-and-farewells
+Links added: 3
+  + /learn/hu/el/greek-good-morning-goodnight-phrases/
+  + /learn/hu/el/szerelmes-level-irasa-gorogul/
+
+============================================================
+Article: greek-honeymoon-travel-phrases
+Links added: 8
+  + /learn/hu/el/greek-meeting-your-partner-s-family/
+  + /learn/hu/el/szerelmes-level-irasa-gorogul/
+
+============================================================
+Article: greek-how-to-apologize
+Links added: 2
+  + /learn/hu/el/greek-meeting-your-partner-s-family/
+
+============================================================
+Article: greek-is-this-language-hard-to-learn
+Links added: 4
+  + /learn/hu/el/greek-expressing-emotions/
+  + /learn/hu/el/szerelmes-level-irasa-gorogul/
+
+============================================================
+Article: greek-meeting-your-partner-s-family
+Links added: 2
+  + /learn/hu/el/szerelmes-level-irasa-gorogul/
+
+============================================================
+Article: greek-moving-in-together
+Links added: 12
+  + /learn/hu/el/greek-meeting-your-partner-s-family/
+  + /learn/hu/el/greek-texting-phrases-for-hungarian-speakers/
+  + /learn/hu/el/greek-wedding-phrases/
+
+============================================================
+Article: greek-pet-names-and-terms-of-endearment-50
+Links added: 3
+  + /learn/hu/el/szerelmes-level-irasa-gorogul/
+
+============================================================
+Article: greek-pronunciation-guide-for-beginners
+Links added: 4
+  + /learn/hu/el/gorog-love-letter-irasmuveszet-magyar-beszeloknek/
+  + /learn/hu/el/szerelmes-level-irasa-gorogul/
+
+============================================================
+Article: greek-proposal-engagement-phrases
+Links added: 8
+  + /learn/hu/el/greek-meeting-your-partner-s-family/
+  + /learn/hu/el/szerelmes-level-irasa-gorogul/
+
+============================================================
+Article: greek-romantic-phrases-for-every-occasion
+Links added: 6
+  + /learn/hu/el/greek-greetings-and-farewells/
+  + /learn/hu/el/hianyzol-kifejezesek-gorogul/
+  + /learn/hu/el/szerelmes-level-irasa-gorogul/
+
+============================================================
+Article: greek-small-talk-conversation-starters
+Links added: 10
+  + /learn/hu/el/greek-meeting-your-partner-s-family/
+  + /learn/hu/el/greek-wedding-phrases/
+
+============================================================
+Article: greek-texting-phrases-for-hungarian-speakers
+Links added: 6
+  + /learn/hu/el/gorog-flirt-kifejezesek-magyar-beszeloknek/
+  + /learn/hu/el/gorog-love-letter-irasmuveszet-magyar-beszeloknek/
+  + /learn/hu/el/greek-greetings-and-farewells/
+  + /learn/hu/el/greek-meeting-your-partner-s-family/
+
+============================================================
+Article: greek-video-call-phrases-family
+Links added: 2
+  + /learn/hu/el/greek-meeting-your-partner-s-family/
+
+============================================================
+Article: greek-wedding-phrases
+Links added: 8
+  + /learn/hu/el/greek-meeting-your-partner-s-family/
+  + /learn/hu/el/szerelmes-level-irasa-gorogul/
+
+============================================================
+Article: hianyzol-kifejezesek-gorogul
+Links added: 5
+  + /learn/hu/el/greek-pronunciation-guide-for-beginners/
+  + /learn/hu/el/greek-small-talk-conversation-starters/
+  + /learn/hu/el/szerelmes-level-irasa-gorogul/
+
+============================================================
+Article: how-to-say-i-love-you
+Links added: 4
+  + /learn/hu/el/greek-small-talk-conversation-starters/
+  + /learn/hu/el/szerelmes-level-irasa-gorogul/
+
+============================================================
+Article: szerelmes-level-irasa-gorogul
+Links added: 3
+  + /learn/hu/el/gorog-love-letter-irasmuveszet-magyar-beszeloknek/
+  + /learn/hu/el/greek-texting-phrases-for-hungarian-speakers/

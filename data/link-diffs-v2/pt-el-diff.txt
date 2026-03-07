@@ -1,0 +1,201 @@
+
+============================================================
+Article: 100-common-greek-words
+Links added: 8
+  + /learn/pt/el/greek-greetings-and-farewells/
+  + /learn/pt/el/greek-wedding-phrases/
+
+============================================================
+Article: el-first-date-phrases-for-portuguese-speakers
+Links added: 3
+  + /learn/pt/el/greek-makeup-phrases-for-portuguese-speakers/
+  + /learn/pt/el/greek-moving-in-together/
+
+============================================================
+Article: el-forgive-phrases-for-portuguese-speakers
+Links added: 3
+  + /learn/pt/el/greek-makeup-phrases-for-portuguese-speakers/
+  + /learn/pt/el/greek-moving-in-together/
+
+============================================================
+Article: greek-anniversary-wishes
+Links added: 3
+  + /learn/pt/el/greek-birthday-wishes-partner/
+  + /learn/pt/el/greek-romantic-phrases-every-occasion/
+
+============================================================
+Article: greek-argue-phrases-for-portuguese-speakers
+Links added: 2
+  + /learn/pt/el/greek-makeup-phrases-for-portuguese-speakers/
+  + /learn/pt/el/greek-texting-slang-chat-with-your-partner/
+
+============================================================
+Article: greek-baby-pregnancy-vocabulary
+Links added: 4
+  + /learn/pt/el/greek-vs-portuguese-key-differences/
+
+============================================================
+Article: greek-birthday-wishes-partner
+Links added: 2
+  + /learn/pt/el/greek-date-night-vocabulary/
+  + /learn/pt/el/greek-romantic-phrases-every-occasion/
+
+============================================================
+Article: greek-date-night-vocabulary
+Links added: 1
+  + /learn/pt/el/greek-honeymoon-travel-phrases/
+
+============================================================
+Article: greek-expressing-emotions
+Links added: 4
+  + /learn/pt/el/greek-food-and-restaurant-vocabulary/
+  + /learn/pt/el/greek-miss-you-phrases-for-portuguese-speakers/
+  + /learn/pt/el/how-to-say-i-love-you-in-greek/
+
+============================================================
+Article: greek-flirt-phrases-for-portuguese-speakers
+Links added: 1
+  + /learn/pt/el/greek-love-letter-phrases-for-portuguese-speakers/
+
+============================================================
+Article: greek-good-morning-goodnight-phrases
+Links added: 4
+  + /learn/pt/el/greek-greetings-and-farewells/
+  + /learn/pt/el/greek-pet-names-terms-of-endearment/
+  + /learn/pt/el/how-to-say-i-love-you-in-greek/
+
+============================================================
+Article: greek-grammar-basics-for-beginners
+Links added: 7
+  + /learn/pt/el/greek-miss-you-phrases-for-portuguese-speakers/
+  + /learn/pt/el/greek-moving-in-together/
+  + /learn/pt/el/greek-romantic-phrases-every-occasion/
+  + /learn/pt/el/how-to-say-i-love-you-in-greek/
+
+============================================================
+Article: greek-greetings-and-farewells
+Links added: 4
+  + /learn/pt/el/greek-birthday-wishes-partner/
+  + /learn/pt/el/greek-good-morning-goodnight-phrases/
+  + /learn/pt/el/how-to-say-i-love-you-in-greek/
+
+============================================================
+Article: greek-honeymoon-travel-phrases
+Links added: 2
+  + /learn/pt/el/greek-moving-in-together/
+
+============================================================
+Article: greek-how-to-apologize
+Links added: 7
+  + /learn/pt/el/greek-date-night-vocabulary/
+  + /learn/pt/el/greek-romantic-phrases-every-occasion/
+  + /learn/pt/el/greek-vs-portuguese-key-differences/
+
+============================================================
+Article: greek-in-laws-phrases-for-portuguese-speakers
+Links added: 1
+  + /learn/pt/el/greek-makeup-phrases-for-portuguese-speakers/
+
+============================================================
+Article: greek-jealous-phrases-for-portuguese-speakers
+Links added: 2
+  + /learn/pt/el/greek-love-letter-phrases-for-portuguese-speakers/
+  + /learn/pt/el/greek-makeup-phrases-for-portuguese-speakers/
+
+============================================================
+Article: greek-long-distance-relationship
+Links added: 1
+  + /learn/pt/el/greek-miss-you-phrases-for-portuguese-speakers/
+
+============================================================
+Article: greek-love-letter-phrases-for-portuguese-speakers
+Links added: 1
+  + /learn/pt/el/how-to-say-i-love-you-in-greek/
+
+============================================================
+Article: greek-meeting-your-partner-s-family
+Links added: 6
+  + /learn/pt/el/greek-date-night-vocabulary/
+  + /learn/pt/el/greek-pet-names-terms-of-endearment/
+  + /learn/pt/el/greek-vs-portuguese-key-differences/
+
+============================================================
+Article: greek-miss-you-phrases-for-portuguese-speakers
+Links added: 4
+  + /learn/pt/el/greek-long-distance-relationship/
+  + /learn/pt/el/greek-makeup-phrases-for-portuguese-speakers/
+  + /learn/pt/el/greek-pet-names-terms-of-endearment/
+
+============================================================
+Article: greek-moving-in-together
+Links added: 1
+  + /learn/pt/el/greek-food-and-restaurant-vocabulary/
+
+============================================================
+Article: greek-pet-names-terms-of-endearment
+Links added: 3
+  + /learn/pt/el/greek-flirt-phrases-for-portuguese-speakers/
+  + /learn/pt/el/greek-makeup-phrases-for-portuguese-speakers/
+  + /learn/pt/el/greek-miss-you-phrases-for-portuguese-speakers/
+
+============================================================
+Article: greek-pronunciation-guide-for-beginners
+Links added: 10
+  + /learn/pt/el/greek-baby-pregnancy-vocabulary/
+  + /learn/pt/el/greek-moving-in-together/
+  + /learn/pt/el/greek-pet-names-terms-of-endearment/
+  + /learn/pt/el/greek-romantic-phrases-every-occasion/
+
+============================================================
+Article: greek-proposal-engagement-phrases
+Links added: 5
+  + /learn/pt/el/greek-date-night-vocabulary/
+  + /learn/pt/el/greek-moving-in-together/
+  + /learn/pt/el/greek-romantic-phrases-every-occasion/
+
+============================================================
+Article: greek-romantic-phrases-every-occasion
+Links added: 8
+  + /learn/pt/el/greek-anniversary-wishes/
+  + /learn/pt/el/greek-date-night-vocabulary/
+  + /learn/pt/el/greek-greetings-and-farewells/
+  + /learn/pt/el/greek-long-distance-relationship/
+  + /learn/pt/el/greek-makeup-phrases-for-portuguese-speakers/
+  + /learn/pt/el/greek-meeting-your-partner-s-family/
+
+============================================================
+Article: greek-support-phrases-for-portuguese-speakers
+Links added: 2
+  + /learn/pt/el/greek-love-letter-phrases-for-portuguese-speakers/
+  + /learn/pt/el/greek-makeup-phrases-for-portuguese-speakers/
+
+============================================================
+Article: greek-texting-slang-chat-with-your-partner
+Links added: 5
+  + /learn/pt/el/greek-birthday-wishes-partner/
+  + /learn/pt/el/greek-miss-you-phrases-for-portuguese-speakers/
+  + /learn/pt/el/greek-pet-names-terms-of-endearment/
+
+============================================================
+Article: greek-video-call-phrases-family
+Links added: 3
+  + /learn/pt/el/greek-vs-portuguese-key-differences/
+
+============================================================
+Article: greek-wedding-phrases
+Links added: 6
+  + /learn/pt/el/greek-moving-in-together/
+  + /learn/pt/el/greek-proposal-engagement-phrases/
+  + /learn/pt/el/greek-romantic-phrases-every-occasion/
+
+============================================================
+Article: how-to-say-i-love-you-in-greek
+Links added: 1
+  + /learn/pt/el/greek-makeup-phrases-for-portuguese-speakers/
+
+============================================================
+Article: is-greek-hard-to-learn
+Links added: 5
+  + /learn/pt/el/greek-grammar-basics/
+  + /learn/pt/el/greek-moving-in-together/
+  + /learn/pt/el/greek-vs-portuguese-key-differences/

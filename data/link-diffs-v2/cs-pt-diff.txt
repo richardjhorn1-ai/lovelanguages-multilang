@@ -1,0 +1,140 @@
+
+============================================================
+Article: portuguese-100-most-common-words
+Links added: 10
+  + /learn/cs/pt/portuguese-romantic-phrases-for-every-occasion/
+  + /learn/cs/pt/portuguese-small-talk-conversation-starters/
+
+============================================================
+Article: portuguese-anniversary-wishes
+Links added: 1
+  + /learn/cs/pt/portuguese-texting-phrases-for-czech-speakers/
+
+============================================================
+Article: portuguese-date-night-vocabulary
+Links added: 11
+  + /learn/cs/pt/portuguese-how-to-say-i-love-you/
+  + /learn/cs/pt/portuguese-pronunciation-guide-for-beginners/
+  + /learn/cs/pt/pt-miss-you-phrases-for-czech-speakers/
+
+============================================================
+Article: portuguese-essential-phrases-for-couples
+Links added: 12
+  + /learn/cs/pt/portuguese-greetings-and-farewells/
+  + /learn/cs/pt/portuguese-how-to-say-i-love-you/
+  + /learn/cs/pt/portuguese-pet-names-and-terms-of-endearment-50/
+  + /learn/cs/pt/portuguese-romantic-phrases-for-every-occasion/
+  + /learn/cs/pt/portuguese-small-talk-conversation-starters/
+
+============================================================
+Article: portuguese-expressing-emotions
+Links added: 1
+  + /learn/cs/pt/portuguese-how-to-say-i-love-you/
+
+============================================================
+Article: portuguese-grammar-basics-for-beginners
+Links added: 3
+  + /learn/cs/pt/portuguese-how-to-apologize/
+  + /learn/cs/pt/pt-miss-you-phrases-for-czech-speakers/
+
+============================================================
+Article: portuguese-greetings-and-farewells
+Links added: 5
+  + /learn/cs/pt/portuguese-good-morning-goodnight-phrases/
+  + /learn/cs/pt/portuguese-how-to-say-i-love-you/
+  + /learn/cs/pt/portuguese-pronunciation-guide-for-beginners/
+  + /learn/cs/pt/pt-miss-you-phrases-for-czech-speakers/
+
+============================================================
+Article: portuguese-how-to-apologize
+Links added: 1
+  + /learn/cs/pt/portuguese-forgiveness-phrases-for-czech-speakers/
+
+============================================================
+Article: portuguese-how-to-say-i-love-you
+Links added: 8
+  + /learn/cs/pt/portuguese-pronunciation-guide-for-beginners/
+  + /learn/cs/pt/portuguese-video-call-phrases-family/
+
+============================================================
+Article: portuguese-is-this-language-hard-to-learn
+Links added: 11
+  + /learn/cs/pt/portuguese-100-most-common-words/
+  + /learn/cs/pt/portuguese-how-to-apologize/
+  + /learn/cs/pt/portuguese-how-to-say-i-love-you/
+  + /learn/cs/pt/portuguese-long-distance-relationship/
+  + /learn/cs/pt/portuguese-romantic-phrases-for-every-occasion/
+
+============================================================
+Article: portuguese-long-distance-relationship
+Links added: 3
+  + /learn/cs/pt/portuguese-greetings-and-farewells/
+  + /learn/cs/pt/pt-miss-you-phrases-for-czech-speakers/
+
+============================================================
+Article: portuguese-meeting-your-partner-s-family
+Links added: 11
+  + /learn/cs/pt/portuguese-how-to-apologize/
+  + /learn/cs/pt/portuguese-romantic-phrases-for-every-occasion/
+  + /learn/cs/pt/pt-miss-you-phrases-for-czech-speakers/
+
+============================================================
+Article: portuguese-pet-names-and-terms-of-endearment-50
+Links added: 6
+  + /learn/cs/pt/portuguese-how-to-say-i-love-you/
+  + /learn/cs/pt/pt-miss-you-phrases-for-czech-speakers/
+
+============================================================
+Article: portuguese-pronunciation-guide-for-beginners
+Links added: 7
+  + /learn/cs/pt/portuguese-how-to-apologize/
+  + /learn/cs/pt/portuguese-how-to-say-i-love-you/
+  + /learn/cs/pt/portuguese-long-distance-relationship/
+  + /learn/cs/pt/pt-miss-you-phrases-for-czech-speakers/
+
+============================================================
+Article: portuguese-romantic-phrases-for-every-occasion
+Links added: 4
+  + /learn/cs/pt/portuguese-greetings-and-farewells/
+  + /learn/cs/pt/portuguese-how-to-say-i-love-you/
+  + /learn/cs/pt/portuguese-pronunciation-guide-for-beginners/
+
+============================================================
+Article: portuguese-small-talk-conversation-starters
+Links added: 1
+  + /learn/cs/pt/portuguese-first-date-phrases-for-czech-speakers/
+
+============================================================
+Article: portuguese-texting-phrases-for-czech-speakers
+Links added: 6
+  + /learn/cs/pt/portuguese-greetings-and-farewells/
+  + /learn/cs/pt/portuguese-how-to-say-i-love-you/
+  + /learn/cs/pt/pt-love-letter-phrases-for-czech-speakers/
+  + /learn/cs/pt/pt-miss-you-phrases-for-czech-speakers/
+
+============================================================
+Article: pt-flirt-phrases-for-czech-speakers
+Links added: 4
+  + /learn/cs/pt/portuguese-greetings-and-farewells/
+  + /learn/cs/pt/portuguese-long-distance-relationship/
+  + /learn/cs/pt/pt-miss-you-phrases-for-czech-speakers/
+
+============================================================
+Article: pt-love-letter-phrases-for-czech-speakers
+Links added: 1
+  + /learn/cs/pt/portuguese-how-to-say-i-love-you/
+
+============================================================
+Article: pt-makeup-phrases-for-czech-speakers
+Links added: 2
+  + /learn/cs/pt/pt-miss-you-phrases-for-czech-speakers/
+
+============================================================
+Article: pt-miss-you-phrases-for-czech-speakers
+Links added: 8
+  + /learn/cs/pt/portuguese-video-call-phrases-family/
+
+============================================================
+Article: pt-support-phrases-for-czech-speakers
+Links added: 1
+  + /learn/cs/pt/portuguese-100-most-common-words/

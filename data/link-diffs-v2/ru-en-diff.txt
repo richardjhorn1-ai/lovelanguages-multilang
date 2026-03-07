@@ -1,0 +1,167 @@
+
+============================================================
+Article: 100-most-common-english-words
+Links added: 3
+  + /learn/ru/en/english-greetings-farewells/
+  + /learn/ru/en/how-to-say-i-love-you-in-english/
+
+============================================================
+Article: en-first-date-phrases-for-russian-speakers
+Links added: 2
+  + /learn/ru/en/english-date-night-vocabulary/
+  + /learn/ru/en/how-to-say-i-love-you-in-english/
+
+============================================================
+Article: en-makeup-phrases-for-russian-speakers
+Links added: 2
+  + /learn/ru/en/english-how-to-apologize/
+  + /learn/ru/en/how-to-say-i-love-you-in-english/
+
+============================================================
+Article: en-miss-you-phrases-for-russian-speakers
+Links added: 2
+  + /learn/ru/en/english-long-distance-relationship/
+  + /learn/ru/en/english-wedding-phrases/
+
+============================================================
+Article: en-support-phrases-for-russian-speakers
+Links added: 1
+  + /learn/ru/en/how-to-say-i-love-you-in-english/
+
+============================================================
+Article: en-texting-phrases-for-russian-speakers
+Links added: 6
+  + /learn/ru/en/english-greetings-farewells/
+  + /learn/ru/en/english-long-distance-relationship/
+  + /learn/ru/en/english-romantic-phrases-every-occasion/
+  + /learn/ru/en/how-to-say-i-love-you-in-english/
+
+============================================================
+Article: english-anniversary-wishes
+Links added: 2
+  + /learn/ru/en/en-miss-you-phrases-for-russian-speakers/
+
+============================================================
+Article: english-baby-pregnancy-vocabulary
+Links added: 2
+  + /learn/ru/en/en-first-date-phrases-for-russian-speakers/
+  + /learn/ru/en/english-wedding-phrases/
+
+============================================================
+Article: english-essential-phrases-for-couples
+Links added: 2
+  + /learn/ru/en/english-good-morning-goodnight-phrases/
+  + /learn/ru/en/how-to-say-i-love-you-in-english/
+
+============================================================
+Article: english-expressing-emotions
+Links added: 4
+  + /learn/ru/en/english-long-distance-relationship/
+  + /learn/ru/en/english-wedding-phrases/
+  + /learn/ru/en/how-to-say-i-love-you-in-english/
+
+============================================================
+Article: english-giving-compliments
+Links added: 2
+  + /learn/ru/en/english-long-distance-relationship/
+
+============================================================
+Article: english-good-morning-goodnight-phrases
+Links added: 3
+  + /learn/ru/en/english-greetings-farewells/
+  + /learn/ru/en/english-long-distance-relationship/
+
+============================================================
+Article: english-grammar-basics
+Links added: 1
+  + /learn/ru/en/how-to-say-i-love-you-in-english/
+
+============================================================
+Article: english-greetings-farewells
+Links added: 3
+  + /learn/ru/en/english-good-morning-goodnight-phrases/
+  + /learn/ru/en/english-long-distance-relationship/
+
+============================================================
+Article: english-honeymoon-travel-phrases
+Links added: 6
+  + /learn/ru/en/english-date-night-vocabulary/
+  + /learn/ru/en/english-essential-phrases-for-couples/
+  + /learn/ru/en/english-expressing-emotions/
+  + /learn/ru/en/english-romantic-phrases-every-occasion/
+
+============================================================
+Article: english-long-distance-relationship
+Links added: 3
+  + /learn/ru/en/en-miss-you-phrases-for-russian-speakers/
+  + /learn/ru/en/english-moving-in-together/
+
+============================================================
+Article: english-moving-in-together
+Links added: 1
+  + /learn/ru/en/en-first-date-phrases-for-russian-speakers/
+
+============================================================
+Article: english-pet-names-terms-of-endearment
+Links added: 2
+  + /learn/ru/en/english-greetings-farewells/
+
+============================================================
+Article: english-pronunciation-guide
+Links added: 2
+  + /learn/ru/en/english-birthday-wishes-partner/
+  + /learn/ru/en/how-to-say-i-love-you-in-english/
+
+============================================================
+Article: english-proposal-engagement-phrases
+Links added: 4
+  + /learn/ru/en/en-love-letter-phrases-for-russian-speakers/
+  + /learn/ru/en/english-date-night-vocabulary/
+  + /learn/ru/en/english-romantic-phrases-every-occasion/
+  + /learn/ru/en/how-to-say-i-love-you-in-english/
+
+============================================================
+Article: english-romantic-phrases-every-occasion
+Links added: 2
+  + /learn/ru/en/en-miss-you-phrases-for-russian-speakers/
+  + /learn/ru/en/english-long-distance-relationship/
+
+============================================================
+Article: english-small-talk-conversation-starters
+Links added: 3
+  + /learn/ru/en/en-first-date-phrases-for-russian-speakers/
+  + /learn/ru/en/english-video-call-phrases-family/
+
+============================================================
+Article: english-video-call-phrases-family
+Links added: 2
+  + /learn/ru/en/en-first-date-phrases-for-russian-speakers/
+  + /learn/ru/en/en-in-laws-phrases-for-russian-speakers/
+
+============================================================
+Article: english-wedding-phrases
+Links added: 3
+  + /learn/ru/en/en-first-date-phrases-for-russian-speakers/
+  + /learn/ru/en/english-essential-phrases-for-couples/
+  + /learn/ru/en/english-moving-in-together/
+
+============================================================
+Article: how-to-say-i-love-you-in-english
+Links added: 7
+  + /learn/ru/en/english-anniversary-wishes/
+  + /learn/ru/en/english-essential-phrases-for-couples/
+  + /learn/ru/en/english-greetings-farewells/
+  + /learn/ru/en/english-honeymoon-travel-phrases/
+  + /learn/ru/en/english-long-distance-relationship/
+
+============================================================
+Article: is-english-hard-to-learn
+Links added: 1
+  + /learn/ru/en/how-to-say-i-love-you-in-english/
+
+============================================================
+Article: meeting-your-english-partners-family
+Links added: 5
+  + /learn/ru/en/en-in-laws-phrases-for-russian-speakers/
+  + /learn/ru/en/en-miss-you-phrases-for-russian-speakers/
+  + /learn/ru/en/english-video-call-phrases-family/
