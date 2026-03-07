@@ -74,12 +74,12 @@ export const polishNavigation: NavigationConfig = {
     {
       id: 'dictionary',
       label: 'Dictionary',
-      href: '/dictionary'
+      href: '/dictionary/'
     },
     {
       id: 'tools',
       label: 'Tools',
-      href: '/tools'
+      href: '/tools/'
     },
     {
       id: 'compare',
@@ -87,19 +87,19 @@ export const polishNavigation: NavigationConfig = {
       items: [
         {
           label: 'vs Duolingo',
-          href: '/compare/love-languages-vs-duolingo',
+          href: '/compare/en/love-languages-vs-duolingo/',
           icon: '🦉',
           description: 'Gamified vs couple-focused'
         },
         {
           label: 'vs Babbel',
-          href: '/compare/love-languages-vs-babbel',
+          href: '/compare/en/love-languages-vs-babbel/',
           icon: '📚',
           description: 'Structured vs AI-powered'
         },
         {
           label: 'All Comparisons',
-          href: '/compare',
+          href: '/compare/en/',
           icon: '⚖️',
           description: 'See all app comparisons'
         },
@@ -138,12 +138,12 @@ export function buildNavigation(langCode: string): NavigationConfig {
       {
         id: 'dictionary',
         label: 'Dictionary',
-        href: '/dictionary'
+        href: '/dictionary/'
       },
       {
         id: 'tools',
         label: 'Tools',
-        href: '/tools'
+        href: '/tools/'
       },
       {
         id: 'compare',
@@ -151,19 +151,19 @@ export function buildNavigation(langCode: string): NavigationConfig {
         items: [
           {
             label: 'vs Duolingo',
-            href: '/compare/love-languages-vs-duolingo',
+            href: `/compare/${langCode}/love-languages-vs-duolingo/`,
             icon: '🦉',
             description: 'Gamified vs couple-focused'
           },
           {
             label: 'vs Babbel',
-            href: '/compare/love-languages-vs-babbel',
+            href: `/compare/${langCode}/love-languages-vs-babbel/`,
             icon: '📚',
             description: 'Structured vs AI-powered'
           },
           {
             label: 'All Comparisons',
-            href: '/compare',
+            href: `/compare/${langCode}/`,
             icon: '⚖️',
             description: 'See all app comparisons'
           },

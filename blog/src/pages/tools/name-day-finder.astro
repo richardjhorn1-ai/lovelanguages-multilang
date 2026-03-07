@@ -1,11 +1,13 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { polishNameDays, additionalNames, nameDayFacts, formatNameDayDate } from '../../data/polish-name-days';
+import { canonicalUrl } from '../../lib/urls';
 
 // Get today's names
 const today = new Date();
 const todayKey = `${today.getMonth() + 1}-${today.getDate()}`;
 const todaysNames = polishNameDays[todayKey] || [];
+const pageUrl = canonicalUrl('/tools/name-day-finder');
 
 // JSON-LD for the tool page
 const jsonLd = {
@@ -13,7 +15,7 @@ const jsonLd = {
   "@type": "WebApplication",
   "name": "Polish Name Day Finder",
   "description": "Find when your Polish name day (imieniny) is celebrated. Enter any Polish name to discover its traditional celebration date.",
-  "url": "https://www.lovelanguages.io/tools/name-day-finder",
+  "url": pageUrl,
   "applicationCategory": "UtilityApplication",
   "operatingSystem": "Web Browser",
   "offers": {
@@ -36,6 +38,7 @@ const additionalNamesJson = JSON.stringify(additionalNames);
 <BaseLayout
   title="Polish Name Day Finder - When Is Your Imieniny?"
   description="Find when your Polish name day (imieniny) is celebrated. Enter any Polish name to discover its traditional celebration date and learn about this beautiful Polish tradition."
+  canonical={pageUrl}
 >
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 

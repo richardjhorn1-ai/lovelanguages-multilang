@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getArticlesByNativeLang, getArticleCountsByTargetLang } from '../../lib/blog-api';
 import { LANGUAGE_HUB_DATA } from '../../data/language-hub-data';
 import { SUPPORTED_NATIVE_LANGS } from '../../data/language-info';
+import { canonicalUrl } from '../../lib/urls';
 
 // Get all counts in a single query instead of 12+ sequential queries
 const [languageCounts, latestArticles] = await Promise.all([
@@ -22,13 +23,14 @@ const otherLanguages = allLanguages.slice(6);
 
 const getArticleUrl = (article: any) => `/learn/${article.native_lang}/${article.target_lang}/${article.slug}/`;
 const getLangFromArticle = (article: any) => article.target_lang;
+const pageUrl = canonicalUrl('/learn');
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "Learn Any Language Together - Love Languages",
   "description": `Free language lessons for couples. ${totalArticles}+ articles across 17 languages.`,
-  "url": "https://www.lovelanguages.io/learn/",
+  "url": pageUrl,
   "inLanguage": "en",
   "publisher": {
     "@type": "Organization",
@@ -42,12 +44,13 @@ const jsonLd = {
   title="Learn Any Language Together - Love Languages"
   description={`Free language lessons, vocabulary guides, and cultural tips for couples learning together. ${totalArticles}+ articles across 17 languages.`}
   nativeLang="en"
+  canonical={pageUrl}
 >
   <Fragment slot="head">
-    <link rel="alternate" hreflang="en" href="https://www.lovelanguages.io/learn/en/" />
-    <link rel="alternate" hreflang="x-default" href="https://www.lovelanguages.io/learn/en/" />
+    <link rel="alternate" hreflang="en" href={canonicalUrl('/learn/en')} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl('/learn/en')} />
     {SUPPORTED_NATIVE_LANGS.filter(lang => lang !== 'en').map(lang => (
-      <link rel="alternate" hreflang={lang} href={`https://www.lovelanguages.io/learn/${lang}/`} />
+      <link rel="alternate" hreflang={lang} href={canonicalUrl(`/learn/${lang}`)} />
     ))}
   </Fragment>
 

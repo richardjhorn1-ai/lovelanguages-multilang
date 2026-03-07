@@ -8,11 +8,10 @@ export const GET: APIRoute = async () => {
   const staticPages = [
     { loc: '/', priority: '1.0', changefreq: 'daily' },
     { loc: '/learn/', priority: '1.0', changefreq: 'daily' },
-    { loc: '/learn/couples-language-learning/', priority: '0.8', changefreq: 'monthly' },
+    { loc: '/learn/en/couples-language-learning/', priority: '0.8', changefreq: 'monthly' },
     { loc: '/tools/', priority: '0.7', changefreq: 'monthly' },
     { loc: '/tools/name-day-finder/', priority: '0.7', changefreq: 'monthly' },
     { loc: '/dictionary/', priority: '0.6', changefreq: 'monthly' },
-    { loc: '/compare/', priority: '0.75', changefreq: 'monthly' },
     { loc: '/support/', priority: '0.5', changefreq: 'monthly' },
   ];
 
@@ -34,10 +33,19 @@ export const GET: APIRoute = async () => {
 
   // Language pair hubs
   for (const pair of langPairs) {
+    if (
+      pair.target_lang === 'all' ||
+      !VALID_LANGS.includes(pair.native_lang) ||
+      !VALID_LANGS.includes(pair.target_lang)
+    ) continue;
     staticPages.push({ loc: `/learn/${pair.native_lang}/${pair.target_lang}/`, priority: '0.85', changefreq: 'weekly' });
   }
 
-  const urls = staticPages.map(p =>
+  const uniquePages = Array.from(
+    new Map(staticPages.map(page => [page.loc, page])).values()
+  );
+
+  const urls = uniquePages.map(p =>
     `  <url>
     <loc>https://www.lovelanguages.io${p.loc}</loc>
     <changefreq>${p.changefreq}</changefreq>

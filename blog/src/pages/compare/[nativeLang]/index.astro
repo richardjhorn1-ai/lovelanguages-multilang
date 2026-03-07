@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getComparisonContent } from '../../../data/comparison-features';
+import { canonicalUrl } from '../../../lib/urls';
 
 export const prerender = true;
 
@@ -424,7 +425,7 @@ const comparisons = [
   {
     title: "Love Languages vs Duolingo",
     description: text.duolingoDescription,
-    href: `/compare/${lang}/love-languages-vs-duolingo`,
+    href: `/compare/${lang}/love-languages-vs-duolingo/`,
     competitor: "Duolingo",
     competitorIcon: "🦉",
     verdict: text.duolingoVerdict
@@ -432,21 +433,21 @@ const comparisons = [
   {
     title: "Love Languages vs Babbel",
     description: text.babbelDescription,
-    href: `/compare/${lang}/love-languages-vs-babbel`,
+    href: `/compare/${lang}/love-languages-vs-babbel/`,
     competitor: "Babbel",
     competitorIcon: "📚",
     verdict: text.babbelVerdict
   }
 ];
 
-const canonicalUrl = `https://www.lovelanguages.io/compare/${lang}/`;
+const pageUrl = canonicalUrl(`/compare/${lang}`);
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": text.heroTitle,
   "description": text.pageDescription,
-  "url": canonicalUrl,
+  "url": pageUrl,
   "inLanguage": lang,
   "publisher": {
     "@type": "Organization",
@@ -460,8 +461,8 @@ const jsonLd = {
   title={text.pageTitle}
   description={text.pageDescription}
   nativeLang={lang}
+  canonical={pageUrl}
 >
-  <link slot="head" rel="canonical" href={canonicalUrl} />
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   <!-- Header -->

@@ -2,6 +2,7 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import FAQ from '../../../components/FAQ.astro';
 import { getComparisonContent } from '../../../data/comparison-features';
+import { canonicalUrl } from '../../../lib/urls';
 
 export const prerender = true;
 
@@ -20,13 +21,14 @@ const content = getComparisonContent(lang);
 const title = content.page.title.replace('{competitor}', 'Babbel');
 const description = content.page.description.replace('{competitor}', 'Babbel');
 const heroTitle = content.page.heroTitle.replace('{competitor}', 'Babbel');
+const pageUrl = canonicalUrl(`/compare/${lang}/love-languages-vs-babbel`);
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": title,
   "description": description,
-  "url": `https://www.lovelanguages.io/compare/${lang}/love-languages-vs-babbel`,
+  "url": pageUrl,
   "inLanguage": lang
 };
 ---
@@ -35,6 +37,7 @@ const jsonLd = {
   title={title}
   description={description}
   nativeLang={lang}
+  canonical={pageUrl}
 >
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 

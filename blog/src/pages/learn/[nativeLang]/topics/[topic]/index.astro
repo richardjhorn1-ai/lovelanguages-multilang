@@ -5,6 +5,7 @@ import { getUITranslations, insertLanguage } from '../../../../../data/ui-transl
 import { LANGUAGES, getLanguageForDisplay, SUPPORTED_NATIVE_LANGS } from '../../../../../data/language-info';
 import { getTopicDisplayName, getTopicIcon, TOPICS, isValidTopic } from '../../../../../data/topic-info';
 import { LANGUAGE_HUB_DATA } from '../../../../../data/language-hub-data';
+import { canonicalUrl } from '../../../../../lib/urls';
 
 // SSR: Get params directly (normalize to lowercase)
 const { nativeLang, topic } = Astro.params;
@@ -38,14 +39,14 @@ const languageCount = articlesByLang.length;
 const pageTitle = text.topicHubTitle.replace('{topic}', topicName);
 const pageDescription = text.topicHubSubtitle.replace('{topic}', topicName);
 
-const canonicalUrl = `https://www.lovelanguages.io/learn/${nativeLanguageCode}/topics/${topicSlug}/`;
+const pageUrl = canonicalUrl(`/learn/${nativeLanguageCode}/topics/${topicSlug}`);
 
 // Hreflang alternates
 const hreflangAlternates = SUPPORTED_NATIVE_LANGS
   .filter(lang => lang !== nativeLanguageCode)
   .map(lang => ({
     lang,
-    href: `https://www.lovelanguages.io/learn/${lang}/topics/${topicSlug}/`
+    href: canonicalUrl(`/learn/${lang}/topics/${topicSlug}`)
   }));
 
 // JSON-LD
@@ -54,7 +55,7 @@ const jsonLd = {
   "@type": "CollectionPage",
   "name": `${topicIcon} ${pageTitle}`,
   "description": pageDescription,
-  "url": canonicalUrl,
+  "url": pageUrl,
   "inLanguage": nativeLanguageCode,
   "publisher": {
     "@type": "Organization",
@@ -68,12 +69,12 @@ const jsonLd = {
 <BaseLayout
   title={`${topicIcon} ${pageTitle} - Love Languages`}
   description={pageDescription}
-  canonical={canonicalUrl}
+  canonical={pageUrl}
   nativeLang={nativeLanguageCode}
 >
   <Fragment slot="head">
-    <link rel="alternate" hreflang={nativeLanguageCode} href={canonicalUrl} />
-    <link rel="alternate" hreflang="x-default" href={`https://www.lovelanguages.io/learn/en/topics/${topicSlug}/`} />
+    <link rel="alternate" hreflang={nativeLanguageCode} href={pageUrl} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl(`/learn/en/topics/${topicSlug}`)} />
     {hreflangAlternates.map(alt => (
       <link rel="alternate" hreflang={alt.lang} href={alt.href} />
     ))}

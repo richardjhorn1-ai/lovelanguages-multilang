@@ -6,6 +6,7 @@ import { LANGUAGE_HUB_DATA } from '../../../data/language-hub-data';
 import { getUITranslations } from '../../../data/ui-translations';
 import { getCouplesTranslations } from '../../../data/couples-translations';
 import { SUPPORTED_NATIVE_LANGS, getLanguageForDisplay } from '../../../data/language-info';
+import { canonicalUrl } from '../../../lib/urls';
 
 const { nativeLang } = Astro.params;
 const nativeLanguageCode = nativeLang || 'en';
@@ -31,17 +32,17 @@ const hreflangAlternates = SUPPORTED_NATIVE_LANGS
   .filter(lang => lang !== nativeLanguageCode)
   .map(lang => ({
     lang,
-    href: `https://www.lovelanguages.io/learn/${lang}/couples-language-learning/`
+    href: canonicalUrl(`/learn/${lang}/couples-language-learning`)
   }));
 
-const canonicalUrl = `https://www.lovelanguages.io/learn/${nativeLanguageCode}/couples-language-learning/`;
+const pageUrl = canonicalUrl(`/learn/${nativeLanguageCode}/couples-language-learning`);
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": s.hero.title,
   "description": s.hero.subtitle,
-  "url": canonicalUrl,
+  "url": pageUrl,
   "inLanguage": nativeLanguageCode,
   "publisher": {
     "@type": "Organization",
@@ -54,12 +55,12 @@ const jsonLd = {
 <BaseLayout
   title={`${s.hero.title} | Love Languages`}
   description={s.hero.subtitle}
-  canonical={canonicalUrl}
+  canonical={pageUrl}
   nativeLang={nativeLanguageCode}
 >
   <Fragment slot="head">
-    <link rel="alternate" hreflang={nativeLanguageCode} href={canonicalUrl} />
-    <link rel="alternate" hreflang="x-default" href="https://www.lovelanguages.io/learn/en/couples-language-learning/" />
+    <link rel="alternate" hreflang={nativeLanguageCode} href={pageUrl} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl('/learn/en/couples-language-learning')} />
     {hreflangAlternates.map(alt => (
       <link rel="alternate" hreflang={alt.lang} href={alt.href} />
     ))}
