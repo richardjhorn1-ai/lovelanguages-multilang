@@ -11,27 +11,33 @@ interface SubscriptionManagerProps {
     subscription_plan: string | null;
     subscription_status: string | null;
     subscription_ends_at: string | null;
+    subscription_source?: 'stripe' | 'app_store' | 'promo' | 'trial' | 'gift' | 'none' | null;
     subscription_granted_by: string | null;
     linked_user_id: string | null;
-    stripe_customer_id: string | null;
     promo_expires_at?: string | null;
     free_tier_chosen_at?: string | null;
   };
   partnerName?: string;
   onUpgrade?: () => void;
+  onNavigateExternal?: (url: string) => void;
 }
 
-const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, partnerName, onUpgrade }) => {
+const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, partnerName, onUpgrade, onNavigateExternal }) => {
   const [loading, setLoading] = useState(false);
   const [showWarning, setShowWarning] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const navigateExternal = onNavigateExternal || ((url: string) => window.location.assign(url));
 
   const isInherited = !!profile.subscription_granted_by;
   const hasPartner = !!profile.linked_user_id;
-  const isPayer = profile.stripe_customer_id && !isInherited;
+  const hasSelfPaidSubscription =
+    (profile.subscription_plan === 'standard' || profile.subscription_plan === 'unlimited') &&
+    profile.subscription_status === 'active';
+  const isPayer = hasSelfPaidSubscription && !isInherited;
+  const isAppStoreManaged = isPayer && profile.subscription_source === 'app_store';
   const hasActivePromo = profile.promo_expires_at && new Date(profile.promo_expires_at) > new Date();
   const isFreeTier = !!profile.free_tier_chosen_at && !profile.subscription_status && !hasActivePromo && !isInherited;
 
@@ -78,6 +84,12 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
       return;
     }
 
+    if (isAppStoreManaged) {
+      // Apple-managed subscriptions must be handled in App Store account settings.
+      navigateExternal('https://apps.apple.com/account/subscriptions');
+      return;
+    }
+
     setLoading(true);
     setError(null);
 
@@ -98,7 +110,7 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
       }
 
       if (data.url) {
-        window.location.href = data.url;
+        navigateExternal(data.url);
       }
     } catch (err: any) {
       console.error('Error opening portal:', err);
@@ -288,6 +300,8 @@ const SubscriptionManager: React.FC<SubscriptionManagerProps> = ({ profile, part
           </span>
         ) : showWarning ? (
           t('subscription.manager.continueToManage')
+        ) : isAppStoreManaged ? (
+          t('subscription.manager.manageInAppStore', 'Manage in App Store')
         ) : (
           t('subscription.manager.manageSubscription')
         )}

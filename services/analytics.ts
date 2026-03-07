@@ -10,6 +10,7 @@
  */
 
 import { apiFetch } from './api-config';
+import { supabase } from './supabase';
 
 // Event parameter types
 interface BaseEventParams {
@@ -367,7 +368,6 @@ class AnalyticsService {
 
     try {
       const payload = {
-        user_id: this.rawUserId || null,
         anonymous_id: this.rawUserId ? null : getAnonymousId(),
         event_name: eventName,
         event_params: cleanParams(params),
@@ -376,10 +376,22 @@ class AnalyticsService {
         session_id: getSessionId(),
       };
 
+      let authHeader: string | undefined;
+      if (this.rawUserId) {
+        const { data } = await supabase.auth.getSession();
+        const accessToken = data.session?.access_token;
+        if (accessToken) {
+          authHeader = `Bearer ${accessToken}`;
+        }
+      }
+
       // Fire and forget - don't block on response
       apiFetch('/api/analytics-event/', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          ...(authHeader ? { Authorization: authHeader } : {}),
+        },
         body: JSON.stringify(payload),
       }).catch((e) => {
         if (isDebugMode()) {

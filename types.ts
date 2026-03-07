@@ -47,7 +47,9 @@ export interface Profile {
   subscription_status?: 'active' | 'inactive' | 'past_due' | 'canceled';
   subscription_period?: 'weekly' | 'monthly' | 'yearly';
   subscription_ends_at?: string;
+  subscription_source?: 'stripe' | 'app_store' | 'promo' | 'trial' | 'gift' | 'none';
   stripe_customer_id?: string;
+  revenuecat_customer_id?: string;
   // Couple subscription - inherited access from partner
   subscription_granted_by?: string;
   subscription_granted_at?: string;
@@ -63,6 +65,66 @@ export interface Profile {
   // Nudge system (future feature)
   nudges_enabled?: boolean;
   last_nudge_at?: string;
+  created_at?: string;
+}
+
+// Allowlisted profile view for partner-facing UI surfaces.
+export interface PartnerProfileView {
+  id: string;
+  full_name: string;
+  avatar_url?: string;
+  role: UserRole;
+  active_language?: string;
+  native_language?: string;
+  level?: number;
+  xp?: number;
+  tutor_xp?: number;
+  tutor_tier?: number;
+  last_practice_at?: string;
+  partner_name?: string;
+  subscription_plan?: 'none' | 'standard' | 'unlimited';
+  subscription_status?: 'active' | 'inactive' | 'past_due' | 'canceled';
+  subscription_ends_at?: string | null;
+  subscription_summary?: {
+    plan?: 'none' | 'standard' | 'unlimited';
+    status?: 'active' | 'inactive' | 'past_due' | 'canceled';
+    ends_at?: string | null;
+    source?: 'self' | 'shared' | 'promo' | 'trial' | 'free';
+  };
+}
+
+// Server-only account state. This is never a partner-readable shape.
+export interface PrivateAccountState {
+  user_id: string;
+  stripe_customer_id?: string | null;
+  revenuecat_customer_id?: string | null;
+  apple_refresh_token?: string | null;
+  subscription_source?: 'stripe' | 'app_store' | 'promo' | 'trial' | 'gift' | 'none';
+  updated_at?: string;
+}
+
+export interface EffectiveEntitlement {
+  self: {
+    plan: 'none' | 'standard' | 'unlimited';
+    status: 'active' | 'inactive' | 'past_due' | 'canceled';
+    source: 'stripe' | 'app_store' | 'promo' | 'trial' | 'gift' | 'none';
+    endsAt: string | null;
+  };
+  shared: {
+    plan: 'none' | 'standard' | 'unlimited';
+    status: 'active' | 'inactive' | 'past_due' | 'canceled';
+    source: 'shared';
+    billingOwnerUserId: string | null;
+    endsAt: string | null;
+  } | null;
+  effective: {
+    plan: 'none' | 'standard' | 'unlimited';
+    status: 'active' | 'inactive' | 'past_due' | 'canceled';
+    source: 'self' | 'shared' | 'promo' | 'trial' | 'free';
+    endsAt: string | null;
+  };
+  canManageBilling: boolean;
+  billingOwnerUserId: string | null;
 }
 
 // Onboarding data collected during signup flow

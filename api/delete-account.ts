@@ -67,10 +67,10 @@ export default async function handler(req: any, res: any) {
 
     console.log(`[delete-account] Starting account deletion for user ${userId.substring(0, 8)}...`);
 
-    // 1. Get user profile to check for Stripe subscription and partner
+    // 1. Get user profile and server-private account state
     const { data: profile, error: profileError } = await supabase
       .from('profiles')
-      .select('id, email, stripe_customer_id, linked_user_id, subscription_granted_by, subscription_status, apple_refresh_token')
+      .select('id, email, linked_user_id, subscription_granted_by, subscription_status')
       .eq('id', userId)
       .single();
 
@@ -79,14 +79,35 @@ export default async function handler(req: any, res: any) {
       return res.status(404).json({ error: 'Profile not found' });
     }
 
+    const { data: privateState, error: privateStateError } = await supabase
+      .from('profile_private')
+      .select('stripe_customer_id, apple_refresh_token')
+      .eq('user_id', userId)
+      .maybeSingle();
+
+    if (privateStateError) {
+      console.warn('[delete-account] Failed to load private account state:', privateStateError.message);
+    }
+
+    const stripeCustomerId = privateState?.stripe_customer_id || null;
+    const appleRefreshToken = privateState?.apple_refresh_token || null;
+    const appleRevocation: {
+      attempted: boolean;
+      status: string;
+      httpStatus?: number;
+    } = {
+      attempted: false,
+      status: appleRefreshToken ? 'pending' : 'missing_refresh_token',
+    };
+
     // 2. Cancel Stripe subscription if exists
-    if (profile.stripe_customer_id && process.env.STRIPE_SECRET_KEY) {
+    if (stripeCustomerId && process.env.STRIPE_SECRET_KEY) {
       try {
         const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
         // List active subscriptions for this customer
         const subscriptions = await stripe.subscriptions.list({
-          customer: profile.stripe_customer_id,
+          customer: stripeCustomerId,
           status: 'active',
           limit: 10
         });
@@ -189,29 +210,36 @@ export default async function handler(req: any, res: any) {
       return res.status(500).json({ error: 'Failed to delete account. Please try again.' });
     }
 
-    // 7. Revoke Apple tokens if user signed in with Apple (required by Apple)
-    // The refresh token was stored on the profile during sign-in via /api/apple-token-exchange
-    if (profile.apple_refresh_token && process.env.APPLE_CLIENT_ID && process.env.APPLE_CLIENT_SECRET) {
-      try {
-        const revokeResponse = await fetch('https://appleid.apple.com/auth/revoke', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams({
-            client_id: process.env.APPLE_CLIENT_ID,
-            client_secret: process.env.APPLE_CLIENT_SECRET,
-            token: profile.apple_refresh_token,
-            token_type_hint: 'refresh_token',
-          }),
-        });
+    // 7. Deterministic Apple revocation attempt status (required for deletion audits)
+    if (appleRefreshToken) {
+      if (!process.env.APPLE_CLIENT_ID || !process.env.APPLE_CLIENT_SECRET) {
+        appleRevocation.status = 'credentials_missing';
+      } else {
+        appleRevocation.attempted = true;
+        try {
+          const revokeResponse = await fetch('https://appleid.apple.com/auth/revoke', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({
+              client_id: process.env.APPLE_CLIENT_ID,
+              client_secret: process.env.APPLE_CLIENT_SECRET,
+              token: appleRefreshToken,
+              token_type_hint: 'refresh_token',
+            }),
+          });
 
-        if (!revokeResponse.ok) {
-          console.error(`[delete-account] Apple token revocation failed: ${revokeResponse.status}`);
-        } else {
-          console.log(`[delete-account] Apple token revoked successfully`);
+          appleRevocation.httpStatus = revokeResponse.status;
+          if (!revokeResponse.ok) {
+            appleRevocation.status = 'failed_http';
+            console.error(`[delete-account] Apple token revocation failed: ${revokeResponse.status}`);
+          } else {
+            appleRevocation.status = 'revoked';
+            console.log('[delete-account] Apple token revoked successfully');
+          }
+        } catch (revokeErr) {
+          appleRevocation.status = 'failed_network';
+          console.error('[delete-account] Error revoking Apple token:', revokeErr);
         }
-      } catch (revokeErr) {
-        console.error('[delete-account] Error revoking Apple token:', revokeErr);
-        // Continue with deletion even if revocation fails
       }
     }
 
@@ -233,7 +261,8 @@ export default async function handler(req: any, res: any) {
       userAgent: req.headers['user-agent'],
       email: profile.email,
       hadPartner: !!profile.linked_user_id,
-      hadStripeSubscription: !!profile.stripe_customer_id
+      hadStripeSubscription: !!stripeCustomerId,
+      appleRevocation,
     });
 
     incrementUsage(supabase, auth.userId, RATE_LIMITS.deleteAccount.type);
@@ -241,7 +270,8 @@ export default async function handler(req: any, res: any) {
     return res.status(200).json({
       success: true,
       deletedAt: new Date().toISOString(),
-      message: 'Your account and all associated data have been permanently deleted.'
+      message: 'Your account and all associated data have been permanently deleted.',
+      appleRevocation,
     });
 
   } catch (error: any) {

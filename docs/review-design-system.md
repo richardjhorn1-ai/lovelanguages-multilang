@@ -1,4 +1,4 @@
-# Design System Review — `feature/ios-apple-auth-iap`
+# Design System Review — Historical Snapshot
 
 **Branch:** `feature/ios-apple-auth-iap`
 **Original Review:** 2025-06-26
@@ -7,9 +7,14 @@
 
 ---
 
-## Status: All P1/P2/P3 Items Resolved
+## Status: Historical Result (Not Current Source of Truth)
 
-The comprehensive enforcement sweep addressed all issues from the original review plus additional violations found during a full-codebase audit.
+The comprehensive enforcement sweep addressed issues found at that time.
+
+Current design-system contract and current findings:
+- `docs/contracts/design-system.md`
+- `docs/audits/codebase-mar2026/DESIGN_SYSTEM_AUDIT.md`
+- `docs/audits/codebase-mar2026/ISSUE_LEDGER.md` (`AUD-008`)
 
 ---
 

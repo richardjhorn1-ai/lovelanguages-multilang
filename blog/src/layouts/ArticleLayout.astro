@@ -8,9 +8,9 @@ interface RelatedArticle {
   slug: string;
   data: {
     title: string;
-    description: string;
-    category: string;
-    readTime: number;
+    description: string | null;
+    category: string | null;
+    readTime: number | null;
     image?: string;
   };
 }
@@ -113,7 +113,7 @@ const {
 // Safe fallbacks for nullable fields
 const difficulty = rawDifficulty || 'beginner';
 const readTime = rawReadTime || 8;
-const image = rawImage || null;
+const image = rawImage || undefined;
 const date = rawDate || new Date().toISOString().split('T')[0];
 const updatedAt = rawUpdatedAt ? new Date(rawUpdatedAt).toISOString().split('T')[0] : date;
 const tags = rawTags || [];
@@ -477,7 +477,8 @@ const faqJsonLd = faqItems.length > 0 ? {
       <h2 class="text-2xl font-bold font-header text-gray-900 mb-6">Keep Learning</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         {relatedArticles.map((related) => {
-          const relCat = categoryConfig[related.data.category as keyof typeof categoryConfig];
+          const relatedCategory = related.data.category || 'vocabulary';
+          const relCat = categoryConfig[relatedCategory as keyof typeof categoryConfig];
           return (
             <a
               href={`/learn/${related.slug}/`}
@@ -499,12 +500,12 @@ const faqJsonLd = faqItems.length > 0 ? {
               </div>
               <div class="p-4">
                 <span class={`inline-block px-2 py-0.5 rounded-full text-xs font-bold mb-2 ${relCat?.bg || 'bg-gray-100'} ${relCat?.text || 'text-gray-700'}`}>
-                  {relCat?.icon} {relCat?.label || related.data.category}
+                  {relCat?.icon} {relCat?.label || relatedCategory}
                 </span>
                 <h3 class="font-bold text-gray-900 group-hover:text-accent transition-colors line-clamp-2">
                   {related.data.title}
                 </h3>
-                <p class="text-sm text-gray-500 mt-1">{related.data.readTime} min read</p>
+                <p class="text-sm text-gray-500 mt-1">{related.data.readTime || 5} min read</p>
               </div>
             </a>
           );
@@ -590,19 +591,20 @@ const faqJsonLd = faqItems.length > 0 ? {
     </a>
   </div>
   <script>
+    const gtagFn = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
+
     document.querySelectorAll('.sticky-cta-button').forEach(btn => {
       btn.addEventListener('click', (e) => {
-        const target = e.currentTarget as HTMLElement;
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'blog_sticky_cta_click', {
-            native_lang: target.dataset.native,
-            target_lang: target.dataset.target,
-            article_slug: target.dataset.article,
-            page_path: window.location.pathname,
-            event_category: 'conversion',
-            event_label: `${target.dataset.native}-${target.dataset.target}`,
-          });
-        }
+        const target = e.currentTarget;
+        if (!(target instanceof HTMLElement) || typeof gtagFn !== 'function') return;
+        gtagFn('event', 'blog_sticky_cta_click', {
+          native_lang: target.dataset.native,
+          target_lang: target.dataset.target,
+          article_slug: target.dataset.article,
+          page_path: window.location.pathname,
+          event_category: 'conversion',
+          event_label: `${target.dataset.native}-${target.dataset.target}`,
+        });
       });
     });
   </script>

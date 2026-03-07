@@ -336,9 +336,10 @@ vercel --prod
 
 | Key File | Purpose |
 |----------|---------|
-| `CLAUDE.md` | Developer guidance |
+| `AGENTS.md` | Developer guidance and local agent workflow |
 | `SETUP.md` | This file |
-| `ML_MASTER_PLAN.md` | Architecture source of truth |
+| `docs/audits/codebase-mar2026/MASTER_AUDIT.md` | Current architecture/audit baseline |
+| `docs/contracts/` | Current product/platform contracts |
 | `TROUBLESHOOTING.md` | 36+ solved issues |
 
 ---

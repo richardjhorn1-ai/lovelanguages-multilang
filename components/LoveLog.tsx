@@ -12,14 +12,19 @@ import { getConjugationPersons, getAvailableTenses, isTenseGendered, isTenseLimi
 import { sounds } from '../services/sounds';
 import { useOffline } from '../hooks/useOffline';
 import OfflineIndicator from './OfflineIndicator';
+import { fetchPartnerProfileView } from '../services/partner-profile';
 
 interface LoveLogProps {
   profile: Profile;
+  isActive?: boolean;
 }
 
 const STREAK_TO_LEARN = 5;
+const LOVELOG_DICTIONARY_LIMIT = 1500;
+const LOVELOG_SCORES_LIMIT = 2500;
+const LOVELOG_GIFT_WORDS_LIMIT = 2500;
 
-const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
+const LoveLog: React.FC<LoveLogProps> = ({ profile, isActive = true }) => {
   const [entries, setEntries] = useState<DictionaryEntry[]>([]);
   const [scoresMap, setScoresMap] = useState<Map<string, WordScore>>(new Map());
   const [giftedWordsMap, setGiftedWordsMap] = useState<Map<string, GiftWord>>(new Map());
@@ -96,17 +101,22 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
         .select('id, user_id, word, translation, word_type, pronunciation, gender, plural, conjugations, adjective_forms, example_sentence, pro_tip, notes, source, language_code, created_at, enriched_at')
         .eq('user_id', targetUserId)
         .eq('language_code', targetLanguage)
-        .order('created_at', { ascending: false }),
+        .order('created_at', { ascending: false })
+        .limit(LOVELOG_DICTIONARY_LIMIT),
       supabase
         .from('word_scores')
         .select('*')
         .eq('user_id', targetUserId)
-        .eq('language_code', targetLanguage),
+        .eq('language_code', targetLanguage)
+        .order('updated_at', { ascending: false })
+        .limit(LOVELOG_SCORES_LIMIT),
       supabase
         .from('gift_words')
         .select('*')
         .eq('student_id', targetUserId)
         .eq('language_code', targetLanguage)
+        .order('created_at', { ascending: false })
+        .limit(LOVELOG_GIFT_WORDS_LIMIT)
     ]);
 
     if (data) {
@@ -129,22 +139,26 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
 
     // Get partner name for gift badges (separate query — depends on profile)
     if (profile.linked_user_id) {
-      const { data: partner } = await supabase
-        .from('profiles')
-        .select('full_name')
-        .eq('id', profile.linked_user_id)
-        .single();
-      if (partner) setPartnerName(partner.full_name);
+      try {
+        const partner = await fetchPartnerProfileView();
+        if (partner?.full_name) setPartnerName(partner.full_name);
+      } catch (error) {
+        console.error('Failed to fetch partner profile view:', error);
+      }
     }
 
     setLoading(false);
   }, [profile, targetLanguage, isOnline, getCachedVocabulary, getCachedWordScores, cacheVocabulary, cacheWordScores]);
 
   // Fetch entries on mount and when profile/language changes
-  useEffect(() => { fetchEntries(); }, [fetchEntries]);
+  useEffect(() => {
+    if (!isActive) return;
+    fetchEntries();
+  }, [fetchEntries, isActive]);
 
   // Listen for dictionary updates from other components (debounced to avoid rapid refetches)
   useEffect(() => {
+    if (!isActive) return;
     let timer: ReturnType<typeof setTimeout> | null = null;
     const handler = () => {
       if (timer) clearTimeout(timer);
@@ -155,10 +169,11 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile }) => {
       window.removeEventListener('dictionary-updated', handler as EventListener);
       if (timer) clearTimeout(timer);
     };
-  }, [fetchEntries]);
+  }, [fetchEntries, isActive]);
 
   // Auto-poll when gift words are still being enriched (enriched_at is null)
   useEffect(() => {
+    if (!isActive) return;
     const hasEnrichingWords = entries.some(e =>
       giftedWordsMap.has(e.id) && !e.enriched_at
     );

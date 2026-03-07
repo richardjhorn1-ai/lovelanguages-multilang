@@ -42,6 +42,49 @@ function generateGiftCode(): string {
   return code;
 }
 
+async function upsertPrivateStripeCustomerId(
+  supabase: any,
+  userId: string,
+  customerId: string
+): Promise<void> {
+  const { error } = await supabase.from('profile_private').upsert(
+    {
+      user_id: userId,
+      stripe_customer_id: customerId,
+      updated_at: new Date().toISOString(),
+    },
+    { onConflict: 'user_id' }
+  );
+
+  if (error) {
+    throw error;
+  }
+}
+
+async function findUserIdByStripeCustomerId(
+  supabase: any,
+  customerId: string
+): Promise<string | null> {
+  const { data: privateState } = await supabase
+    .from('profile_private')
+    .select('user_id')
+    .eq('stripe_customer_id', customerId)
+    .maybeSingle();
+
+  if (privateState?.user_id) {
+    return privateState.user_id;
+  }
+
+  // Legacy fallback while old profile rows still exist.
+  const { data: legacyProfile } = await supabase
+    .from('profiles')
+    .select('id')
+    .eq('stripe_customer_id', customerId)
+    .maybeSingle();
+
+  return legacyProfile?.id || null;
+}
+
 // Atomic event claim - returns true if we claimed the event, false if duplicate
 async function claimEvent(
   supabase: any,
@@ -157,7 +200,6 @@ export default async function handler(req: any, res: any) {
         const periodEnd = (subscription as any).current_period_end || Math.floor(Date.now() / 1000) + 30 * 24 * 60 * 60;
 
         // Update user's profile with subscription info
-        // FIX: Include stripe_customer_id so future events can find this user
         const { error: updateError } = await supabase
           .from('profiles')
           .update({
@@ -166,7 +208,6 @@ export default async function handler(req: any, res: any) {
             subscription_period: period,
             subscription_started_at: new Date().toISOString(),
             subscription_ends_at: new Date(periodEnd * 1000).toISOString(),
-            stripe_customer_id: customerId,
           })
           .eq('id', userId);
 
@@ -174,6 +215,8 @@ export default async function handler(req: any, res: any) {
           console.error('[stripe-webhook] Failed to update profile:', updateError);
           throw updateError;
         }
+
+        await upsertPrivateStripeCustomerId(supabase, userId, customerId);
 
         // Non-blocking: Create gift pass for unlimited yearly subscribers
         if (plan === 'unlimited' && period === 'yearly') {
@@ -213,14 +256,20 @@ export default async function handler(req: any, res: any) {
 
         if (!userId) {
           // Look up user by Stripe customer ID
+          const lookedUpUserId = await findUserIdByStripeCustomerId(supabase, customerId);
+          if (!lookedUpUserId) {
+            console.error(`[stripe-webhook] No user found for customer ${customerId}`);
+            break;
+          }
+
           const { data: profile } = await supabase
             .from('profiles')
             .select('id, subscription_plan')
-            .eq('stripe_customer_id', customerId)
+            .eq('id', lookedUpUserId)
             .maybeSingle();
 
           if (!profile) {
-            console.error(`[stripe-webhook] No user found for customer ${customerId}`);
+            console.error(`[stripe-webhook] No profile found for customer ${customerId}`);
             break;
           }
 
@@ -275,7 +324,6 @@ export default async function handler(req: any, res: any) {
             subscription_status: status,
             subscription_period: period,
             subscription_ends_at: new Date(periodEnd * 1000).toISOString(),
-            stripe_customer_id: customerId,
           })
           .eq('id', userId);
 
@@ -283,6 +331,8 @@ export default async function handler(req: any, res: any) {
           console.error('[stripe-webhook] Failed to update subscription:', updateError);
           throw updateError;
         }
+
+        await upsertPrivateStripeCustomerId(supabase, userId, customerId);
 
         // CASCADE: Update partner's inherited subscription to match
         const { data: updatedPartners } = await supabase
@@ -311,14 +361,20 @@ export default async function handler(req: any, res: any) {
         const customerId = subscription.customer as string;
 
         // Find user by customer ID
+        const userId = await findUserIdByStripeCustomerId(supabase, customerId);
+        if (!userId) {
+          console.error(`[stripe-webhook] No user found for deleted subscription (customer: ${customerId})`);
+          break;
+        }
+
         const { data: profile } = await supabase
           .from('profiles')
           .select('id, subscription_plan, linked_user_id')
-          .eq('stripe_customer_id', customerId)
+          .eq('id', userId)
           .maybeSingle();
 
         if (!profile) {
-          console.error(`[stripe-webhook] No user found for deleted subscription (customer: ${customerId})`);
+          console.error(`[stripe-webhook] No profile found for deleted subscription (customer: ${customerId})`);
           break;
         }
 
@@ -390,14 +446,20 @@ export default async function handler(req: any, res: any) {
         const customerId = invoice.customer as string;
 
         // Find user by customer ID
+        const userId = await findUserIdByStripeCustomerId(supabase, customerId);
+        if (!userId) {
+          console.error(`[stripe-webhook] No user found for failed invoice (customer: ${customerId})`);
+          break;
+        }
+
         const { data: profile } = await supabase
           .from('profiles')
           .select('id')
-          .eq('stripe_customer_id', customerId)
+          .eq('id', userId)
           .maybeSingle();
 
         if (!profile) {
-          console.error(`[stripe-webhook] No user found for failed invoice (customer: ${customerId})`);
+          console.error(`[stripe-webhook] No profile found for failed invoice (customer: ${customerId})`);
           break;
         }
 

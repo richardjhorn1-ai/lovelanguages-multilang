@@ -572,7 +572,6 @@ const FloatingHeartsBackground: React.FC<{
       cancelAnimationFrame(animationRef.current);
       window.removeEventListener('resize', resize);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Empty deps - runs once on mount, reads from refs
 
   return (

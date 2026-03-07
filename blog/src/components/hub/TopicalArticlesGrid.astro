@@ -3,7 +3,7 @@
  * TopicalArticlesGrid - Displays articles filtered by multiple languages and/or keywords
  * Used by Tier 2 topical hubs to show relevant articles across language families
  */
-import { getCollection } from 'astro:content';
+import { getArticlesByNativeLang, type BlogArticleSummary } from '../../lib/blog-api';
 import { LANGUAGE_HUB_DATA } from '../../data/language-hub-data';
 
 interface Props {
@@ -34,24 +34,19 @@ const {
 } = Astro.props;
 
 // Get all articles
-const allArticles = await getCollection('articles');
+const allArticles = await getArticlesByNativeLang(nativeLang, { limit: 2000 });
 
 // Filter articles
 let filteredArticles = allArticles.filter(article => {
-  const parts = article.slug.split('/');
-  const articleNativeLang = parts[0];
-  const articleTargetLang = parts[1];
-
-  // Must match native language
-  if (articleNativeLang !== nativeLang) return false;
+  const articleTargetLang = article.target_lang;
 
   // If langCodes specified, must match one
   if (langCodes.length > 0 && !langCodes.includes(articleTargetLang)) return false;
 
   // If keywords specified, title must contain at least one
   if (keywords.length > 0) {
-    const titleLower = article.data.title.toLowerCase();
-    const descLower = (article.data.description || '').toLowerCase();
+    const titleLower = article.title.toLowerCase();
+    const descLower = (article.description || '').toLowerCase();
     const hasKeyword = keywords.some(kw =>
       titleLower.includes(kw.toLowerCase()) || descLower.includes(kw.toLowerCase())
     );
@@ -60,7 +55,7 @@ let filteredArticles = allArticles.filter(article => {
 
   // If categories specified, must match one
   if (categories.length > 0) {
-    const articleCategory = article.data.category || '';
+    const articleCategory = article.category || '';
     if (!categories.includes(articleCategory)) return false;
   }
 
@@ -69,19 +64,11 @@ let filteredArticles = allArticles.filter(article => {
 
 // Sort by date (newest first) and limit
 filteredArticles = filteredArticles
-  .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+  .sort((a, b) => new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime())
   .slice(0, maxArticles);
 
-// Group by language for display
-const articlesByLang = filteredArticles.reduce((acc, article) => {
-  const langCode = article.slug.split('/')[1];
-  if (!acc[langCode]) acc[langCode] = [];
-  acc[langCode].push(article);
-  return acc;
-}, {} as Record<string, typeof filteredArticles>);
-
 // Get article URL
-const getArticleUrl = (slug: string) => `/learn/${slug}/`;
+const getArticleUrl = (article: BlogArticleSummary) => `/learn/${article.native_lang}/${article.target_lang}/${article.slug}/`;
 
 // Truncate helper
 const truncate = (str: string, len: number) => {
@@ -109,31 +96,31 @@ const totalFound = filteredArticles.length;
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {filteredArticles.map(article => {
-          const langCode = article.slug.split('/')[1];
+          const langCode = article.target_lang;
           const langData = LANGUAGE_HUB_DATA[langCode];
 
           return (
             <a
-              href={getArticleUrl(article.slug)}
+              href={getArticleUrl(article)}
               class="group p-4 bg-gray-50 rounded-xl border border-gray-100 hover:border-accent hover:shadow-md transition-all"
             >
               <div class="flex items-center gap-2 mb-3">
                 <span class="text-lg">{langData?.flag || '🌍'}</span>
                 <span class="text-xs font-medium text-gray-500 uppercase">{langData?.name || 'Language'}</span>
-                {article.data.category && (
+                {article.category && (
                   <span class="text-xs px-2 py-0.5 bg-gray-200 rounded-full capitalize ml-auto">
-                    {article.data.category}
+                    {article.category}
                   </span>
                 )}
               </div>
               <h3 class="font-semibold text-gray-900 group-hover:text-accent transition-colors text-sm leading-tight mb-2 line-clamp-2">
-                {article.data.title}
+                {article.title}
               </h3>
               <p class="text-xs text-gray-500 line-clamp-2">
-                {truncate(article.data.description, 100)}
+                {truncate(article.description || '', 100)}
               </p>
-              {article.data.readTime && (
-                <p class="text-xs text-gray-400 mt-2">{article.data.readTime} min read</p>
+              {article.read_time && (
+                <p class="text-xs text-gray-400 mt-2">{article.read_time} min read</p>
               )}
             </a>
           );

@@ -177,6 +177,9 @@ const JoinInvite: React.FC = () => {
       const data = await response.json();
 
       if (!response.ok) {
+        if (data.code === 'DUPLICATE_PAID_SUBSCRIPTION') {
+          throw new Error('Both accounts already have active subscriptions. Cancel one first to save money, then try linking again.');
+        }
         throw new Error(data.error || 'Failed to complete invite');
       }
 

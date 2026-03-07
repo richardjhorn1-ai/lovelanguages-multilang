@@ -2,6 +2,12 @@
 
 Complete technical reference for Love Languages backend systems.
 
+Current-state architecture source of truth:
+- `docs/audits/codebase-mar2026/ARCHITECTURE_CURRENT_STATE.md`
+- `docs/audits/codebase-mar2026/ISSUE_LEDGER.md`
+
+This file is a conceptual map; validate endpoint inventory from the repository and CI.
+
 ---
 
 ## System Overview
@@ -15,7 +21,7 @@ Complete technical reference for Love Languages backend systems.
                                 ▼
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                    VERCEL SERVERLESS API GATEWAY                        │
-│                         39 endpoints in /api/                           │
+│                         API endpoints in /api/                           │
 │  ┌─────────────────────────────────────────────────────────────────┐   │
 │  │  Middleware: CORS → Auth → Subscription → Rate Limit → Handler  │   │
 │  └─────────────────────────────────────────────────────────────────┘   │

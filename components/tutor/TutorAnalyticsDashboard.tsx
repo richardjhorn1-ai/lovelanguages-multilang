@@ -2,12 +2,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../../services/supabase';
-import { Profile, TutorAnalytics, TutorStats, WordScore, DictionaryEntry } from '../../types';
+import { Profile, TutorAnalytics, TutorStats, WordScore, DictionaryEntry, PartnerProfileView } from '../../types';
 import { getTutorTierFromXP, getTutorTierProgress, getXPToNextTutorTier, TUTOR_TIERS } from '../../constants/levels';
 import { useTheme } from '../../context/ThemeContext';
 import { useLanguage } from '../../context/LanguageContext';
 import { ICONS } from '../../constants';
 import { apiFetch } from '../../services/api-config';
+import { fetchPartnerProfileView } from '../../services/partner-profile';
 
 // Sub-components
 import TeachingImpactCard from './TeachingImpactCard';
@@ -32,7 +33,7 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
   const [refreshing, setRefreshing] = useState(false);
   const [period, setPeriod] = useState<'week' | 'month' | 'all'>('week');
   const [activeTab, setActiveTab] = useState<'teaching' | 'partner'>('teaching');
-  const [partnerProfile, setPartnerProfile] = useState<Profile | null>(null);
+  const [partnerProfile, setPartnerProfile] = useState<PartnerProfileView | null>(null);
   const [showLoveNote, setShowLoveNote] = useState(false);
 
   // Cache analytics by period+language for instant switching
@@ -153,22 +154,11 @@ const TutorAnalyticsDashboard: React.FC<TutorAnalyticsDashboardProps> = ({ profi
     if (!profile.linked_user_id) return;
 
     try {
-      const { data, error } = await supabase
-        .from('profiles')
-        .select('*')
-        .eq('id', profile.linked_user_id)
-        .single();
-
-      if (error) {
-        console.error('Failed to fetch partner profile:', error);
-        return;
-      }
-
-      if (data) {
-        setPartnerProfile(data);
-      }
+      const partnerData = await fetchPartnerProfileView();
+      setPartnerProfile(partnerData);
     } catch (error) {
-      console.error('Error fetching partner profile:', error);
+      console.error('Failed to fetch partner profile view:', error);
+      setPartnerProfile(null);
     }
   };
 

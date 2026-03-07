@@ -54,9 +54,15 @@ export default async function handler(req: any, res: any) {
 
     const { data: profile } = await supabase
       .from('profiles')
-      .select('stripe_customer_id, subscription_granted_by, linked_user_id')
+      .select('subscription_plan, subscription_status, subscription_source, subscription_granted_by, linked_user_id')
       .eq('id', auth.userId)
       .single();
+
+    const { data: privateState } = await supabase
+      .from('profile_private')
+      .select('stripe_customer_id')
+      .eq('user_id', auth.userId)
+      .maybeSingle();
 
     // Check if they have inherited subscription (can't manage it themselves)
     if (profile?.subscription_granted_by) {
@@ -67,11 +73,31 @@ export default async function handler(req: any, res: any) {
       });
     }
 
-    if (!profile?.stripe_customer_id) {
+    const hasSelfPaidSubscription =
+      (profile?.subscription_plan === 'standard' || profile?.subscription_plan === 'unlimited') &&
+      profile?.subscription_status === 'active';
+
+    if (!hasSelfPaidSubscription) {
       return res.status(400).json({
         error: 'No subscription found',
         code: 'NO_SUBSCRIPTION',
         message: 'Subscribe first to manage your plan.'
+      });
+    }
+
+    if (profile?.subscription_source === 'app_store') {
+      return res.status(400).json({
+        error: 'App Store subscription must be managed via Apple',
+        code: 'APP_STORE_MANAGED',
+        message: 'Manage this subscription in your Apple App Store subscriptions settings.',
+      });
+    }
+
+    if (!privateState?.stripe_customer_id) {
+      return res.status(400).json({
+        error: 'No Stripe customer found for active subscription',
+        code: 'MISSING_STRIPE_CUSTOMER',
+        message: 'This subscription cannot be managed in Stripe portal. Contact support if this persists.'
       });
     }
 
@@ -120,7 +146,7 @@ export default async function handler(req: any, res: any) {
 
     // Create portal session
     const session = await stripe.billingPortal.sessions.create({
-      customer: profile.stripe_customer_id,
+      customer: privateState.stripe_customer_id,
       return_url: returnUrl,
     });
 

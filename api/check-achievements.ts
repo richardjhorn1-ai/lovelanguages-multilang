@@ -34,7 +34,7 @@ export default async function handler(req: any, res: any) {
     // Get user profile
     const { data: profile } = await supabase
       .from('profiles')
-      .select('role, xp, linked_user_id')
+      .select('role, xp, linked_user_id, active_relationship_session_id')
       .eq('id', auth.userId)
       .single();
 
@@ -242,6 +242,7 @@ export default async function handler(req: any, res: any) {
           subtitle: achievement.description,
           data: { code: achievement.code, icon: achievement.icon },
           language_code: targetLanguage,
+          relationship_session_id: profile.active_relationship_session_id || null,
         });
       }
     }

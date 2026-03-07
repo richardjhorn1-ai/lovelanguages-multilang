@@ -20,12 +20,12 @@ const articleSlug = Astro.props.articleSlug || pathParts[3] || '';
 <script define:vars={{ nativeLang, targetLang, articleSlug }}>
   // Helper: check if PostHog is loaded
   const hasPostHog = () => typeof window.posthog !== 'undefined' && typeof window.posthog.capture === 'function';
-  const hasGtag = () => typeof gtag !== 'undefined';
+  const hasGtag = () => typeof window.gtag === 'function';
 
   // Dual-send helper: fires event to both GA4 and PostHog
   function trackEvent(eventName, params) {
     if (hasGtag()) {
-      gtag('event', eventName, params);
+      window.gtag('event', eventName, params);
     }
     if (hasPostHog()) {
       window.posthog.capture(eventName, params);
@@ -34,7 +34,7 @@ const articleSlug = Astro.props.articleSlug || pathParts[3] || '';
 
   // Set page-level dimensions for GA4
   if (hasGtag()) {
-    gtag('set', {
+    window.gtag('set', {
       'content_group': nativeLang + '-' + targetLang,
       'custom_map': {
         'dimension1': 'native_lang',
@@ -105,7 +105,9 @@ const articleSlug = Astro.props.articleSlug || pathParts[3] || '';
 
   // Track outbound/internal link clicks
   document.addEventListener('click', (e) => {
-    const link = (e.target as HTMLElement).closest('a');
+    const target = e.target;
+    if (!(target instanceof Element)) return;
+    const link = target.closest('a');
     if (!link) return;
 
     const href = link.getAttribute('href');

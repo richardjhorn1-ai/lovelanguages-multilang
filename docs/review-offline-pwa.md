@@ -4,9 +4,16 @@
 
 ---
 
+> Historical review snapshot. Current source of truth for offline/mobile expectations is:
+> - `docs/contracts/route-ownership.md`
+> - `docs/audits/codebase-mar2026/ISSUE_LEDGER.md`
+> - `capacitor.config.ts`
+
 ## Executive Summary
 
-The app has a **solid, thoughtfully-built offline foundation** — significantly more than most apps at this stage. It uses a proper IndexedDB-backed cache (not just localStorage), real network detection via Capacitor's native Network plugin, queued sync for offline actions, and clear offline UI in all major screens. The main gaps are around the **Capacitor iOS configuration** (which critically breaks native offline), missing PWA Safari splash screens, and the fact that several features are completely network-dependent with no offline fallback.
+The app has a **solid, thoughtfully-built offline foundation** — significantly more than most apps at this stage. It uses a proper IndexedDB-backed cache (not just localStorage), real network detection via Capacitor's native Network plugin, queued sync for offline actions, and clear offline UI in all major screens.
+
+The previously identified `capacitor.config.ts` `server.url` production issue is now fixed. Remaining gaps are around broader offline coverage and UX polish.
 
 ---
 
@@ -210,21 +217,14 @@ No custom PWA install prompt/banner is implemented. The browser's native prompt 
 
 ## 6. iOS-Specific Considerations
 
-### Capacitor Config — Critical Issue ❌
+### Capacitor Config — Status Update ✅
 ```typescript
-server: {
-  url: 'https://www.lovelanguages.io',  // ← loads from production URL
-  cleartext: false
-}
+server: process.env.NODE_ENV === 'development' ? {
+  url: 'http://localhost:5173',
+  cleartext: true
+} : undefined
 ```
-The Capacitor iOS app **loads the web app from the production server**, not from the local `dist/` bundle. This means:
-- **If the phone has no internet connection, the app shows a blank WebView or a network error**
-- The `dist/` folder (with its service worker, cached assets) is unused
-- This is the single most critical offline gap in the entire codebase
-
-To fix: Remove `server.url` for production, or use it only for development. The default Capacitor behavior loads from the local `dist/` bundle, which IS cached on device.
-
-**Note:** The `webDir: 'dist'` is correctly set and the `dist/` folder has a valid service worker — it's just never used because the server URL override takes precedence.
+Current behavior is development-only remote server URL with local bundle use in production builds, which preserves offline-capable native app behavior.
 
 ### `limitsNavigationsToAppBoundDomains: true` ⚠️
 This setting is in both `capacitor.config.ts` and `ios/App/App/capacitor.config.json`, but there is **no `WKAppBoundDomains` key in `Info.plist`**. This is required for the setting to take effect on iOS 14+. Without it, the setting may be silently ignored.

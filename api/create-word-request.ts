@@ -12,6 +12,7 @@ import {
 import { getProfileLanguages } from '../utils/language-helpers.js';
 import { getLanguageName } from '../constants/language-config.js';
 import { sanitizeInput } from '../utils/sanitize.js';
+import { verifyActiveRelationshipSession } from '../utils/relationship-session.js';
 
 // Get AI suggestions for a topic - lightweight preview data only
 // Full grammatical data (conjugations, examples, etc.) is generated later
@@ -115,7 +116,7 @@ export default async function handler(req: any, res: any) {
     // Get tutor's profile
     const { data: profile, error: profileError } = await supabase
       .from('profiles')
-      .select('id, role, linked_user_id, full_name')
+      .select('id, role, linked_user_id, full_name, active_relationship_session_id')
       .eq('id', auth.userId)
       .single();
 
@@ -131,20 +132,16 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'No linked partner found' });
     }
 
-    // CRITICAL: Verify two-way partner link (prevents orphaned word requests if student unlinked)
-    const { data: studentProfile, error: studentProfileError } = await supabase
-      .from('profiles')
-      .select('linked_user_id')
-      .eq('id', profile.linked_user_id)
-      .single();
-
-    if (studentProfileError || !studentProfile) {
-      return res.status(400).json({ error: 'Partner profile not found' });
+    const relationshipCheck = await verifyActiveRelationshipSession(
+      supabase,
+      auth.userId,
+      profile.linked_user_id,
+      profile.active_relationship_session_id
+    );
+    if (relationshipCheck.ok === false) {
+      return res.status(relationshipCheck.status).json({ error: relationshipCheck.error });
     }
-
-    if (studentProfile.linked_user_id !== auth.userId) {
-      return res.status(400).json({ error: 'Partner link is no longer active. Please ask your partner to reconnect.' });
-    }
+    const relationshipSessionId = relationshipCheck.relationshipSessionId;
 
     // Get student's language settings for word generation
     const { targetLanguage, nativeLanguage } = await getProfileLanguages(supabase, profile.linked_user_id);
@@ -206,7 +203,8 @@ export default async function handler(req: any, res: any) {
         ai_suggestions: aiSuggestions,
         selected_words: finalWords.filter((w: any) => w.selected !== false),
         status: 'pending',
-        xp_multiplier: xpMultiplier || 2.0
+        xp_multiplier: xpMultiplier || 2.0,
+        relationship_session_id: relationshipSessionId,
       })
       .select()
       .single();
@@ -265,6 +263,7 @@ export default async function handler(req: any, res: any) {
       subtitle: requestType === 'ai_topic' ? `Topic: ${sanitizedInputText}` : `${wordCount} words`,
       data: { request_id: wordRequest.id, word_count: wordCount },
       language_code: targetLanguage,
+      relationship_session_id: relationshipSessionId,
     });
 
     // Increment usage counter

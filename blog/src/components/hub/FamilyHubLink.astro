@@ -12,7 +12,7 @@ interface Props {
 const { languageName, familyGroup } = Astro.props;
 
 // Map family groups to hub URLs and descriptions
-const familyHubs: Record<string, { url: string; description: string; emoji: string }> = {
+const familyHubs: Record<string, { url: string; description: string; emoji: string } | null> = {
   'Romance': {
     url: '/learn/romance-languages/',
     description: 'Spanish, French, Italian, Portuguese, Romanian',

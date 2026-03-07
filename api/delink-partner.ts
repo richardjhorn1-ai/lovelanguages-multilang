@@ -25,7 +25,7 @@ export default async function handler(req: any, res: any) {
     // Get current user's profile with partner info
     const { data: profile, error: profileError } = await supabase
       .from('profiles')
-      .select('id, linked_user_id, subscription_granted_by, subscription_status, full_name')
+      .select('id, linked_user_id, active_relationship_session_id, subscription_granted_by, subscription_status, full_name')
       .eq('id', auth.userId)
       .single();
 
@@ -41,17 +41,23 @@ export default async function handler(req: any, res: any) {
     const isPayer = !profile.subscription_granted_by;
     const now = new Date().toISOString();
 
+    const { data: partnerProfile } = await supabase
+      .from('profiles')
+      .select('id, active_relationship_session_id, subscription_granted_by, subscription_status')
+      .eq('id', partnerId)
+      .single();
+
     console.log(`[delink-partner] User ${auth.userId} initiating breakup with ${partnerId}. isPayer: ${isPayer}`);
 
     // 1. Delink both profiles (bidirectional)
     const { error: delinkError1 } = await supabase
       .from('profiles')
-      .update({ linked_user_id: null })
+      .update({ linked_user_id: null, active_relationship_session_id: null })
       .eq('id', profile.id);
 
     const { error: delinkError2 } = await supabase
       .from('profiles')
-      .update({ linked_user_id: null })
+      .update({ linked_user_id: null, active_relationship_session_id: null })
       .eq('id', partnerId);
 
     if (delinkError1 || delinkError2) {
@@ -60,13 +66,14 @@ export default async function handler(req: any, res: any) {
     }
 
     // 2. Handle subscription access based on who initiated
-    if (isPayer) {
-      // I'm the payer - revoke partner's inherited access
+    if (isPayer && partnerProfile?.subscription_granted_by === profile.id) {
+      // I'm the payer - revoke partner's inherited access only when it is inherited from me
       const { error: revokeError } = await supabase
         .from('profiles')
         .update({
           subscription_plan: 'none',
           subscription_status: 'inactive',
+          subscription_source: 'none',
           subscription_granted_by: null,
           subscription_granted_at: null,
           subscription_ends_at: null
@@ -78,13 +85,14 @@ export default async function handler(req: any, res: any) {
       } else {
         console.log(`[delink-partner] Revoked access for partner ${partnerId}`);
       }
-    } else {
+    } else if (!isPayer && profile.subscription_granted_by) {
       // I'm the partner with inherited access - I lose it
       const { error: revokeError } = await supabase
         .from('profiles')
         .update({
           subscription_plan: 'none',
           subscription_status: 'inactive',
+          subscription_source: 'none',
           subscription_granted_by: null,
           subscription_granted_at: null,
           subscription_ends_at: null
@@ -98,14 +106,27 @@ export default async function handler(req: any, res: any) {
       }
     }
 
-    // 3. Expire any pending invites from either party
+    // 3. End active relationship session
+    const relationshipSessionId = profile.active_relationship_session_id || partnerProfile?.active_relationship_session_id;
+    if (relationshipSessionId) {
+      const { error: relationshipError } = await supabase
+        .from('relationship_sessions')
+        .update({ status: 'ended', ended_at: now })
+        .eq('id', relationshipSessionId)
+        .eq('status', 'active');
+      if (relationshipError) {
+        console.error('[delink-partner] Failed to end relationship session:', relationshipError);
+      }
+    }
+
+    // 4. Expire any pending invites from either party
     await supabase
       .from('invite_tokens')
       .update({ expires_at: now })
       .in('inviter_id', [profile.id, partnerId])
       .is('used_at', null);
 
-    // 4. Expire pending tutor challenges between these two users
+    // 5. Expire pending tutor challenges between these two users
     const { error: challengeError } = await supabase
       .from('tutor_challenges')
       .update({ status: 'expired' })
@@ -113,7 +134,7 @@ export default async function handler(req: any, res: any) {
       .or(`and(tutor_id.eq.${profile.id},student_id.eq.${partnerId}),and(tutor_id.eq.${partnerId},student_id.eq.${profile.id})`);
     if (challengeError) console.error('[delink-partner] Failed to expire challenges:', challengeError);
 
-    // 5. Expire pending word requests between these two users
+    // 6. Expire pending word requests between these two users
     const { error: requestError } = await supabase
       .from('word_requests')
       .update({ status: 'expired' })
@@ -121,10 +142,11 @@ export default async function handler(req: any, res: any) {
       .or(`and(tutor_id.eq.${profile.id},student_id.eq.${partnerId}),and(tutor_id.eq.${partnerId},student_id.eq.${profile.id})`);
     if (requestError) console.error('[delink-partner] Failed to expire word requests:', requestError);
 
-    // 6. Return appropriate message based on role
+    // 7. Return appropriate message based on role
     return res.status(200).json({
       success: true,
       wasPayingUser: isPayer,
+      relationshipEndedAt: now,
       message: isPayer
         ? 'Accounts unlinked. Your subscription continues. You can invite a new partner anytime.'
         : 'Accounts unlinked. You\'ll need your own subscription to continue learning.'

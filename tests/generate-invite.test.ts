@@ -44,7 +44,7 @@ const buildSupabaseMock = () => ({
               gt: vi.fn().mockReturnValue({
                 order: vi.fn().mockReturnValue({
                   limit: vi.fn().mockReturnValue({
-                    single: vi.fn().mockResolvedValue({ data: mockExistingToken, error: null }),
+                    maybeSingle: vi.fn().mockResolvedValue({ data: mockExistingToken, error: null }),
                   }),
                 }),
               }),

@@ -66,16 +66,22 @@ export default async function handler(req: any, res: any) {
       return res.status(200).json({ success: true, stored: false, reason: 'no_refresh_token' });
     }
 
-    // Store the refresh token on the user's profile
+    // Store refresh token in server-private account state (never partner-readable)
     const supabase = createServiceClient();
     if (!supabase) {
       return res.status(500).json({ error: 'Server configuration error' });
     }
 
     const { error: updateError } = await supabase
-      .from('profiles')
-      .update({ apple_refresh_token: refreshToken })
-      .eq('id', auth.userId);
+      .from('profile_private')
+      .upsert(
+        {
+          user_id: auth.userId,
+          apple_refresh_token: refreshToken,
+          updated_at: new Date().toISOString(),
+        },
+        { onConflict: 'user_id' }
+      );
 
     if (updateError) {
       console.error('[apple-token-exchange] Failed to store refresh token:', updateError.message);

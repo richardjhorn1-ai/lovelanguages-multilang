@@ -7,6 +7,7 @@ import PlayQuizChallenge from './PlayQuizChallenge';
 import PlayQuickFireChallenge from './PlayQuickFireChallenge';
 import WordGiftLearning from './WordGiftLearning';
 import { apiFetch } from '../services/api-config';
+import { fetchPartnerProfileView } from '../services/partner-profile';
 
 interface PendingChallengesProps {
   profile: Profile;
@@ -35,12 +36,12 @@ const PendingChallenges: React.FC<PendingChallengesProps> = ({ profile, onRefres
 
       // Get partner name
       if (profile.linked_user_id) {
-        const { data: partner } = await supabase
-          .from('profiles')
-          .select('full_name')
-          .eq('id', profile.linked_user_id)
-          .single();
-        if (partner) setPartnerName(partner.full_name);
+        try {
+          const partner = await fetchPartnerProfileView();
+          if (partner?.full_name) setPartnerName(partner.full_name);
+        } catch (error) {
+          console.error('Failed to fetch partner profile view:', error);
+        }
       }
 
       // Fetch pending challenges

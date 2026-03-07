@@ -144,19 +144,22 @@ const ctaUrl = `/?${utmParams.toString()}`;
 </aside>
 
 <script>
+  const gtagFn = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
+
   // Track Love Note CTA clicks
   document.querySelectorAll('.love-note-cta').forEach(btn => {
     btn.addEventListener('click', (e) => {
-      const target = e.currentTarget as HTMLElement;
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'love_note_click', {
+      const target = e.currentTarget;
+      if (!(target instanceof HTMLElement) || typeof gtagFn !== 'function') {
+        return;
+      }
+      gtagFn('event', 'love_note_click', {
           native_lang: target.dataset.native,
           target_lang: target.dataset.target,
           article_slug: target.dataset.article,
           page_path: window.location.pathname,
           event_category: 'conversion',
-        });
-      }
+      });
     });
   });
 </script>

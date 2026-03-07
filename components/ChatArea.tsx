@@ -213,9 +213,14 @@ const RichMessageRenderer: React.FC<{ content: string; t: (key: string) => strin
 
 interface ChatAreaProps {
   profile: Profile;
+  isActive?: boolean;
 }
 
-const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
+const CHAT_LIST_LIMIT = 100;
+const LISTEN_SESSION_LIMIT = 80;
+const MESSAGE_HISTORY_LIMIT = 300;
+
+const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
   const { t } = useTranslation();
   const [chats, setChats] = useState<Chat[]>([]);
   const [activeChat, setActiveChat] = useState<Chat | null>(null);
@@ -301,6 +306,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
   // Boot session on mount - fetch context once
   useEffect(() => {
+    if (!isActive) return;
     const bootSession = async () => {
       if (contextLoadedRef.current) return;
       const result = await geminiService.bootSession();
@@ -326,7 +332,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       setContextReady(true);
     };
     bootSession();
-  }, []);
+  }, [isActive]);
 
   // Visibilitychange fallback — report usage if tab is hidden mid-session
   useEffect(() => {
@@ -370,6 +376,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
 
   // Invalidate context when vocabulary changes or language switches
   useEffect(() => {
+    if (!isActive) return;
     const invalidateContext = () => {
       contextLoadedRef.current = false;
       sessionContextRef.current = null;
@@ -391,20 +398,41 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
       window.removeEventListener('dictionary-updated', invalidateContext);
       window.removeEventListener('language-switched', invalidateContext);
     };
-  }, []);
+  }, [isActive]);
 
-  useEffect(() => { fetchChats(); fetchListenSessions(); }, [profile]);
   useEffect(() => {
+    if (!isActive) return;
+    fetchChats();
+    fetchListenSessions();
+  }, [profile, targetLanguage, isActive]);
+  useEffect(() => {
+    if (!isActive) return;
     if (activeChat) {
       fetchMessages(activeChat.id);
       // Tutors always use 'coach' mode, students use chat's saved mode
       setMode(profile.role === 'tutor' ? 'coach' : activeChat.mode);
     }
-  }, [activeChat, profile.role]);
+  }, [activeChat, profile.role, isActive]);
   useEffect(() => { if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight; }, [messages, loading, streamingText, listenEntries]);
 
+  useEffect(() => {
+    if (isActive) return;
+    if (isListeningRef.current) {
+      stopListening().catch((err) => console.error('[ChatArea] Failed to pause listen mode:', err));
+    }
+    if (isLiveRef.current) {
+      stopLive().catch((err) => console.error('[ChatArea] Failed to pause live mode:', err));
+    }
+  }, [isActive]);
+
   const fetchChats = async () => {
-    const { data, error } = await supabase.from('chats').select('*').eq('user_id', profile.id).eq('language_code', targetLanguage).order('created_at', { ascending: false });
+    const { data, error } = await supabase
+      .from('chats')
+      .select('*')
+      .eq('user_id', profile.id)
+      .eq('language_code', targetLanguage)
+      .order('created_at', { ascending: false })
+      .limit(CHAT_LIST_LIMIT);
     if (error) {
       console.error('[ChatArea] fetchChats failed:', error.message);
       return;
@@ -418,7 +446,13 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   };
 
   const fetchListenSessions = async () => {
-    const { data, error } = await supabase.from('listen_sessions').select('*').eq('user_id', profile.id).eq('language_code', targetLanguage).order('created_at', { ascending: false });
+    const { data, error } = await supabase
+      .from('listen_sessions')
+      .select('*')
+      .eq('user_id', profile.id)
+      .eq('language_code', targetLanguage)
+      .order('created_at', { ascending: false })
+      .limit(LISTEN_SESSION_LIMIT);
     if (error) {
       console.error('[ChatArea] fetchListenSessions failed:', error.message);
       return;
@@ -429,12 +463,17 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
   };
 
   const fetchMessages = async (chatId: string) => {
-    const { data, error } = await supabase.from('messages').select('*').eq('chat_id', chatId).order('created_at', { ascending: true });
+    const { data, error } = await supabase
+      .from('messages')
+      .select('*')
+      .eq('chat_id', chatId)
+      .order('created_at', { ascending: false })
+      .limit(MESSAGE_HISTORY_LIMIT);
     if (error) {
       console.error('[ChatArea] fetchMessages failed:', error.message);
       return;
     }
-    if (data) setMessages(data);
+    if (data) setMessages([...data].reverse());
   };
 
   const handleModeSwitch = (newMode: ChatMode) => {
@@ -470,7 +509,12 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile }) => {
     if (!activeChat || !content.trim()) return null;
     const { data } = await supabase.from('messages').insert({ chat_id: activeChat.id, role, content }).select().single();
     if (data) {
-        setMessages(prev => [...prev, data]);
+        setMessages(prev => {
+          const next = [...prev, data];
+          return next.length > MESSAGE_HISTORY_LIMIT
+            ? next.slice(next.length - MESSAGE_HISTORY_LIMIT)
+            : next;
+        });
         return data;
     }
     return null;

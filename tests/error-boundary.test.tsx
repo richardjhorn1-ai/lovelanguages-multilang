@@ -67,8 +67,8 @@ describe('ErrorBoundary', () => {
     expect(screen.getByText('Try Again')).toBeDefined();
     expect(screen.getByText('Refresh Page')).toBeDefined();
     
-    // Should show broken heart emoji
-    expect(screen.getByText('💔')).toBeDefined();
+    // Should show error icon
+    expect(document.querySelector('svg')).not.toBeNull();
   });
 
   it('logs error to console', () => {

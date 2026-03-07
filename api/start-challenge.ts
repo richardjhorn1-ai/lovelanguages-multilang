@@ -31,11 +31,23 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'Missing challengeId' });
     }
 
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('active_relationship_session_id')
+      .eq('id', auth.userId)
+      .single();
+
+    const activeRelationshipSessionId = profile?.active_relationship_session_id;
+    if (!activeRelationshipSessionId) {
+      return res.status(409).json({ error: 'No active relationship session found' });
+    }
+
     // Get the challenge
     const { data: challenge, error: challengeError } = await supabase
       .from('tutor_challenges')
       .select('*')
       .eq('id', challengeId)
+      .eq('relationship_session_id', activeRelationshipSessionId)
       .single();
 
     if (challengeError || !challenge) {
@@ -62,6 +74,7 @@ export default async function handler(req: any, res: any) {
         started_at: new Date().toISOString()
       })
       .eq('id', challengeId)
+      .eq('relationship_session_id', activeRelationshipSessionId)
       .select()
       .single();
 

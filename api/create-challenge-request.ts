@@ -6,6 +6,7 @@ import {
 } from '../utils/api-middleware.js';
 import { getProfileLanguages } from '../utils/language-helpers.js';
 import { sanitizeInput } from '../utils/sanitize.js';
+import { verifyActiveRelationshipSession } from '../utils/relationship-session.js';
 
 export default async function handler(req: any, res: any) {
   if (setCorsHeaders(req, res)) {
@@ -54,7 +55,7 @@ export default async function handler(req: any, res: any) {
     // Get user profile (must be a student with linked tutor)
     const { data: profile, error: profileError } = await supabase
       .from('profiles')
-      .select('linked_user_id, full_name, role')
+      .select('linked_user_id, full_name, role, active_relationship_session_id')
       .eq('id', auth.userId)
       .single();
 
@@ -69,6 +70,17 @@ export default async function handler(req: any, res: any) {
     if (!profile.linked_user_id) {
       return res.status(400).json({ error: 'No linked tutor' });
     }
+
+    const relationshipCheck = await verifyActiveRelationshipSession(
+      supabase,
+      auth.userId,
+      profile.linked_user_id,
+      profile.active_relationship_session_id
+    );
+    if (relationshipCheck.ok === false) {
+      return res.status(relationshipCheck.status).json({ error: relationshipCheck.error });
+    }
+    const relationshipSessionId = relationshipCheck.relationshipSessionId;
 
     const { targetLanguage } = await getProfileLanguages(supabase, auth.userId);
 
@@ -165,6 +177,7 @@ export default async function handler(req: any, res: any) {
       subtitle: requestType === 'topic' ? `Topic: ${sanitizedTopic}` : requestType === 'specific_words' ? `${validWordIds.length} words` : 'General practice',
       data: { request_id: request.id },
       language_code: targetLanguage,
+      relationship_session_id: relationshipSessionId,
     });
 
     return res.status(200).json({

@@ -26,11 +26,19 @@ export default async function handler(req: any, res: any) {
     // Get user's profile to determine role and language
     const { data: profile } = await supabase
       .from('profiles')
-      .select('role, linked_user_id')
+      .select('role, linked_user_id, active_relationship_session_id')
       .eq('id', auth.userId)
       .single();
 
     const userRole = role || profile?.role || 'student';
+    const activeRelationshipSessionId = profile?.active_relationship_session_id;
+
+    if (!activeRelationshipSessionId) {
+      return res.status(200).json({
+        success: true,
+        challenges: [],
+      });
+    }
 
     // Get target language - use request param, or fetch from profile
     // For tutors, we use student's language; for students, their own
@@ -48,7 +56,8 @@ export default async function handler(req: any, res: any) {
     // Build query based on role - select only needed columns
     let query = supabase
       .from('tutor_challenges')
-      .select('id, title, challenge_type, status, created_at, tutor_id, student_id, config, words_data, language_code')
+      .select('id, title, challenge_type, status, created_at, tutor_id, student_id, config, words_data, language_code, relationship_session_id')
+      .eq('relationship_session_id', activeRelationshipSessionId)
       .order('created_at', { ascending: false });
 
     if (userRole === 'tutor') {

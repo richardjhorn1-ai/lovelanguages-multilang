@@ -62,6 +62,8 @@ if (!article) {
 const nativeLanguageInfo = LANGUAGE_INFO[nativeLanguageCode] || LANGUAGE_INFO.en;
 const languageInfo = LANGUAGE_INFO[targetLanguageCode] || LANGUAGE_INFO.pl;
 const languageCode = targetLanguageCode;
+const VALID_ARTICLE_CATEGORIES = new Set(['pronunciation', 'phrases', 'vocabulary', 'communication', 'situations', 'grammar', 'culture']);
+const VALID_ARTICLE_DIFFICULTIES = new Set(['beginner', 'intermediate', 'advanced']);
 
 // Get related articles from same language pair
 const allLangPairArticles = await getArticlesByLangPair(nativeLanguageCode, targetLanguageCode, { limit: 50 });
@@ -84,13 +86,13 @@ const relatedForLayout = relatedArticles.map(a => ({
   slug: `${a.native_lang}/${a.target_lang}/${a.slug}`,
   data: {
     title: a.title,
-    description: a.description,
-    category: a.category,
-    difficulty: a.difficulty,
-    readTime: a.read_time,
-    image: a.image,
+    description: a.description || '',
+    category: a.category || 'vocabulary',
+    difficulty: a.difficulty || 'beginner',
+    readTime: a.read_time || 5,
+    image: a.image || undefined,
     tags: a.tags || [],
-    date: a.date
+    date: a.date || new Date().toISOString().split('T')[0]
   }
 }));
 
@@ -111,13 +113,15 @@ const crossPairArticles: any[] = [];
 // Split content for mid-article LoveNote
 const sanitizedContent = sanitizeArticleContent(article.content_html || article.content || '');
 const { firstHalf, secondHalf } = splitContentAtMidpoint(sanitizedContent);
+const articleCategory = VALID_ARTICLE_CATEGORIES.has(article.category || '') ? article.category : 'vocabulary';
+const articleDifficulty = VALID_ARTICLE_DIFFICULTIES.has(article.difficulty || '') ? article.difficulty : null;
 ---
 
 <ArticleLayout
   title={article.title}
-  description={article.description}
-  category={article.category}
-  difficulty={article.difficulty}
+  description={article.description || ''}
+  category={articleCategory as 'pronunciation' | 'phrases' | 'vocabulary' | 'communication' | 'situations' | 'grammar' | 'culture'}
+  difficulty={articleDifficulty as 'beginner' | 'intermediate' | 'advanced' | null}
   readTime={article.read_time}
   image={article.image}
   date={article.date}

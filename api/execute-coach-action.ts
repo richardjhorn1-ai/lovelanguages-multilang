@@ -26,6 +26,7 @@ import { sanitizeInput } from '../utils/sanitize.js';
 import { logger, generateRequestId } from '../utils/logger.js';
 import { LOVE_NOTE_TEMPLATES } from '../constants/levels.js';
 import type { ProposedAction, ExecuteCoachActionResponse } from '../types.js';
+import { verifyActiveRelationshipSession } from '../utils/relationship-session.js';
 
 export default async function handler(req: any, res: any) {
   const requestId = generateRequestId();
@@ -74,7 +75,7 @@ export default async function handler(req: any, res: any) {
     // Get tutor profile and verify they have a linked partner
     const { data: profile, error: profileError } = await supabase
       .from('profiles')
-      .select('role, linked_user_id, full_name')
+      .select('role, linked_user_id, full_name, active_relationship_session_id')
       .eq('id', auth.userId)
       .single();
 
@@ -90,22 +91,18 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'No linked partner' });
     }
 
-    // CRITICAL: Verify two-way partner link
-    const { data: studentProfile, error: studentProfileError } = await supabase
-      .from('profiles')
-      .select('linked_user_id')
-      .eq('id', profile.linked_user_id)
-      .single();
-
-    if (studentProfileError || !studentProfile) {
-      return res.status(400).json({ error: 'Partner profile not found' });
-    }
-
-    if (studentProfile.linked_user_id !== auth.userId) {
-      return res.status(400).json({ error: 'Partner link is no longer active' });
+    const relationshipCheck = await verifyActiveRelationshipSession(
+      supabase,
+      auth.userId,
+      profile.linked_user_id,
+      profile.active_relationship_session_id
+    );
+    if (relationshipCheck.ok === false) {
+      return res.status(relationshipCheck.status).json({ error: relationshipCheck.error });
     }
 
     const partnerId = profile.linked_user_id;
+    const relationshipSessionId = relationshipCheck.relationshipSessionId;
 
     // Get student's language settings
     const { targetLanguage, nativeLanguage } = await getProfileLanguages(supabase, partnerId);
@@ -167,6 +164,7 @@ export default async function handler(req: any, res: any) {
             selected_words: sanitizedWords,
             status: 'pending',
             xp_multiplier: 2.0,
+            relationship_session_id: relationshipSessionId,
           })
           .select()
           .single();
@@ -194,6 +192,7 @@ export default async function handler(req: any, res: any) {
           subtitle: action.topic ? `Topic: ${action.topic}` : `${sanitizedWords.length} words`,
           data: { request_id: wordRequest.id },
           language_code: targetLanguage,
+          relationship_session_id: relationshipSessionId,
         });
 
         incrementUsage(supabase, auth.userId, RATE_LIMITS.sendWordGift.type);
@@ -205,13 +204,14 @@ export default async function handler(req: any, res: any) {
         if (createLinkedChallenge && action.linkedChallenge) {
           const linkedChallengeResult = await createLinkedChallengeInternal(
             supabase,
-            auth.userId,
-            partnerId,
-            targetLanguage,
-            wordRequest.id,
-            action.linkedChallenge,
-            sanitizedWords,
-            profile.full_name || 'Your partner'
+              auth.userId,
+              partnerId,
+              targetLanguage,
+              wordRequest.id,
+              relationshipSessionId,
+              action.linkedChallenge,
+              sanitizedWords,
+              profile.full_name || 'Your partner'
           );
 
           if (linkedChallengeResult.challengeId) {
@@ -335,6 +335,7 @@ export default async function handler(req: any, res: any) {
             word_ids: wordsData.filter(w => w.id).map(w => w.id),
             words_data: wordsData,
             status: 'pending',
+            relationship_session_id: relationshipSessionId,
           })
           .select()
           .single();
@@ -362,6 +363,7 @@ export default async function handler(req: any, res: any) {
           subtitle: `${wordsData.length} words`,
           data: { challenge_id: challenge.id },
           language_code: targetLanguage,
+          relationship_session_id: relationshipSessionId,
         });
 
         incrementUsage(supabase, auth.userId, RATE_LIMITS.createChallenge.type);
@@ -414,6 +416,7 @@ export default async function handler(req: any, res: any) {
             template_category: category,
             template_text: templateText,
             custom_message: customMessage,
+            relationship_session_id: relationshipSessionId,
           })
           .select()
           .single();
@@ -442,6 +445,7 @@ export default async function handler(req: any, res: any) {
           subtitle: noteText,
           data: { note_id: loveNote.id },
           language_code: targetLanguage,
+          relationship_session_id: relationshipSessionId,
         });
 
         response.createdItems!.loveNoteId = loveNote.id;
@@ -483,6 +487,7 @@ async function createLinkedChallengeInternal(
   studentId: string,
   languageCode: string,
   wordRequestId: string,
+  relationshipSessionId: string,
   linkedConfig: { type: string; wordCount?: number; timeLimitSeconds?: number },
   words: Array<{ word: string; translation: string; word_type?: string }>,
   tutorName: string
@@ -515,6 +520,7 @@ async function createLinkedChallengeInternal(
         words_data: words.slice(0, wordCount),
         status: 'scheduled',
         linked_word_request_id: wordRequestId,
+        relationship_session_id: relationshipSessionId,
       })
       .select()
       .single();

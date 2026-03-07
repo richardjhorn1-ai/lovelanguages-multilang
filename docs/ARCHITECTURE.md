@@ -2,6 +2,12 @@
 
 Code architecture notes and gotchas for Claude Code working on this codebase.
 
+Current-state architecture source of truth:
+- `docs/audits/codebase-mar2026/ARCHITECTURE_CURRENT_STATE.md`
+- `docs/audits/codebase-mar2026/ARCHITECTURE_TARGET_STATE.md`
+
+This file is implementation guidance, not a frozen inventory snapshot.
+
 ---
 
 ## Stack Overview
@@ -16,14 +22,14 @@ Code architecture notes and gotchas for Claude Code working on this codebase.
 
 ## High-Risk Components (Handle With Care)
 
-These files have complex state. Test thoroughly after changes.
+These components have complex state and interaction surfaces. Test thoroughly after changes.
 
-| Component | useState | Lines | Notes |
-|-----------|----------|-------|-------|
-| `FlashcardGame.tsx` | 56 | 2,373 | 5 game modes, mastery tracking |
-| `ChatArea.tsx` | 36 | 1,892 | Text + voice chat, Listen Mode |
-| `Hero.tsx` | 20 | 3,038 | Landing page, onboarding |
-| `TutorGames.tsx` | 32 | 1,398 | Quiz + Quick Fire creation |
+| Component | Notes |
+|-----------|-------|
+| `FlashcardGame.tsx` | Multiple game modes, mastery tracking, offline sync interactions |
+| `ChatArea.tsx` | Text/voice session flow, async events, and extraction hooks |
+| `Hero.tsx` | Landing and onboarding entry surface with high UI complexity |
+| `TutorGames.tsx` | Tutor challenge/request creation + student-facing outcomes |
 
 ---
 
@@ -111,8 +117,8 @@ export default async function handler(req: any, res: any) {
 
 ```
 /
-├── api/           # Vercel serverless functions (40+)
-├── components/    # React components (46)
+├── api/           # Vercel serverless functions
+├── components/    # React components
 ├── services/      # API clients (gemini, supabase, audio)
 ├── utils/         # Shared utilities
 ├── constants/     # Language configs, icons, colors

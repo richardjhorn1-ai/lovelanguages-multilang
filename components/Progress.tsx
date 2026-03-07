@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { geminiService } from '../services/gemini';
-import { Profile, DictionaryEntry, ProgressSummary, SavedProgressSummary, WordScore } from '../types';
+import { Profile, DictionaryEntry, ProgressSummary, SavedProgressSummary, WordScore, PartnerProfileView } from '../types';
 import { getLevelFromXP, getLevelProgress, getTierIndex, translateLevel } from '../services/level-utils';
 import { ICONS } from '../constants';
 import { LANGUAGE_CONFIGS } from '../constants/language-config';
@@ -14,9 +14,11 @@ import GameHistory from './GameHistory';
 import TutorAnalyticsDashboard from './tutor/TutorAnalyticsDashboard';
 import { useOffline } from '../hooks/useOffline';
 import OfflineIndicator from './OfflineIndicator';
+import { fetchPartnerProfileView } from '../services/partner-profile';
 
 interface ProgressProps {
   profile: Profile;
+  isActive?: boolean;
 }
 
 interface SummaryIndex {
@@ -64,6 +66,9 @@ const THEME_KEYS: Record<string, string> = {
 
 // Tier names for data matching (stored in DB as English)
 const TIER_NAMES = ['Beginner', 'Elementary', 'Conversational', 'Proficient', 'Fluent', 'Master'];
+const PROGRESS_DICTIONARY_LIMIT = 1500;
+const PROGRESS_SCORE_LIMIT = 2500;
+const PROGRESS_TEST_ATTEMPTS_LIMIT = 200;
 
 // Get all level transitions up to current level for practice
 function getPreviousLevelTests(currentLevel: string): { from: string; to: string; themeKey: string }[] {
@@ -104,7 +109,7 @@ function getPreviousLevelTests(currentLevel: string): { from: string; to: string
   return allTransitions.reverse(); // Most recent first
 }
 
-const Progress: React.FC<ProgressProps> = ({ profile }) => {
+const Progress: React.FC<ProgressProps> = ({ profile, isActive = true }) => {
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [entries, setEntries] = useState<DictionaryEntry[]>([]);
@@ -131,7 +136,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
   // Tutor dashboard state
   const [scores, setScores] = useState<WordScore[]>([]);
   const [scoresMap, setScoresMap] = useState<Map<string, WordScore>>(new Map());
-  const [partnerProfile, setPartnerProfile] = useState<Profile | null>(null);
+  const [partnerProfile, setPartnerProfile] = useState<PartnerProfileView | null>(null);
 
   // Calculate level info - use partner's XP for tutors
   const targetXp = (profile.role === 'tutor' && partnerProfile) ? (partnerProfile.xp || 0) : (profile.xp || 0);
@@ -212,6 +217,7 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
   }, [masteredWords, scores, entries, recentWords, t]);
 
   useEffect(() => {
+    if (!isActive) return;
     fetchEntries();
     fetchSummaryIndex();
     fetchTestAttempts();
@@ -219,10 +225,11 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
       fetchScores();
       fetchPartnerProfile();
     }
-  }, [profile, targetLanguage]);
+  }, [profile, targetLanguage, isActive]);
 
   // Listen for language switch events from Profile settings
   useEffect(() => {
+    if (!isActive) return;
     const handleLanguageSwitch = () => {
       fetchEntries();
       fetchSummaryIndex();
@@ -233,14 +240,15 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
     };
     window.addEventListener('language-switched', handleLanguageSwitch);
     return () => window.removeEventListener('language-switched', handleLanguageSwitch);
-  }, [profile.role]);
+  }, [profile.role, isActive]);
 
   // Listen for test-completed events to refresh test attempts
   useEffect(() => {
+    if (!isActive) return;
     const handler = () => { fetchTestAttempts(); };
     window.addEventListener('test-completed', handler);
     return () => window.removeEventListener('test-completed', handler);
-  }, []);
+  }, [isActive]);
 
   const fetchTestAttempts = async () => {
     const { data } = await supabase
@@ -249,7 +257,8 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
       .eq('user_id', profile.id)
       .eq('language_code', targetLanguage)
       .not('completed_at', 'is', null)
-      .order('completed_at', { ascending: false });
+      .order('completed_at', { ascending: false })
+      .limit(PROGRESS_TEST_ATTEMPTS_LIMIT);
 
     if (data) {
       setTestAttempts(data);
@@ -264,7 +273,9 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
     const { data: scoreData } = await supabase
       .from('word_scores')
       .select('*, dictionary:word_id(word, translation)')
-      .eq('user_id', targetUserId);
+      .eq('user_id', targetUserId)
+      .order('updated_at', { ascending: false })
+      .limit(PROGRESS_SCORE_LIMIT);
 
     if (scoreData) {
       setScores(scoreData as WordScore[]);
@@ -276,12 +287,14 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
 
   const fetchPartnerProfile = async () => {
     if (!profile.linked_user_id) return;
-    const { data } = await supabase
-      .from('profiles')
-      .select('*')
-      .eq('id', profile.linked_user_id)
-      .single();
-    if (data) setPartnerProfile(data);
+
+    try {
+      const partnerData = await fetchPartnerProfileView();
+      setPartnerProfile(partnerData);
+    } catch (error) {
+      console.error('Failed to fetch partner profile view:', error);
+      setPartnerProfile(null);
+    }
   };
 
   // Get attempts for a specific level transition
@@ -328,7 +341,9 @@ const Progress: React.FC<ProgressProps> = ({ profile }) => {
       .from('dictionary')
       .select('*')
       .eq('user_id', targetUserId)
-      .eq('language_code', targetLanguage);
+      .eq('language_code', targetLanguage)
+      .order('created_at', { ascending: false })
+      .limit(PROGRESS_DICTIONARY_LIMIT);
 
     if (data) {
       setEntries(data);

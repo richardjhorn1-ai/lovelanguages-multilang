@@ -11,6 +11,8 @@ import * as offlineDb from './offline-db';
 import { logger } from '../utils/logger';
 
 type NetworkListener = (isOnline: boolean) => void;
+const OFFLINE_PRECACHE_DICTIONARY_LIMIT = 1500;
+const OFFLINE_PRECACHE_SCORE_LIMIT = 2500;
 
 class OfflineService {
   private isOnline: boolean = true;
@@ -95,7 +97,9 @@ class OfflineService {
         .from('dictionary')
         .select('*')
         .eq('user_id', userId)
-        .eq('language_code', languageCode);
+        .eq('language_code', languageCode)
+        .order('created_at', { ascending: false })
+        .limit(OFFLINE_PRECACHE_DICTIONARY_LIMIT);
 
       if (vocabData && vocabData.length > 0) {
         await offlineDb.cacheVocabulary(userId, languageCode, vocabData);
@@ -106,7 +110,9 @@ class OfflineService {
         .from('word_scores')
         .select('*')
         .eq('user_id', userId)
-        .eq('language_code', languageCode);
+        .eq('language_code', languageCode)
+        .order('updated_at', { ascending: false })
+        .limit(OFFLINE_PRECACHE_SCORE_LIMIT);
 
       if (scoreData && scoreData.length > 0) {
         await offlineDb.cacheWordScores(userId, languageCode, scoreData);

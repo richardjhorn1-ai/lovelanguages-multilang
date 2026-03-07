@@ -22,6 +22,7 @@ import {
 import { useOffline } from '../hooks/useOffline';
 import OfflineIndicator from './OfflineIndicator';
 import { apiFetch } from '../services/api-config';
+import { fetchPartnerProfileView } from '../services/partner-profile';
 
 interface TutorGamesProps {
   profile: Profile;
@@ -116,12 +117,12 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     try {
       // Get partner's name
       if (profile.linked_user_id) {
-        const { data: partnerProfile } = await supabase
-          .from('profiles')
-          .select('full_name')
-          .eq('id', profile.linked_user_id)
-          .single();
-        if (partnerProfile) setPartnerName(partnerProfile.full_name);
+        try {
+          const partnerProfile = await fetchPartnerProfileView();
+          if (partnerProfile?.full_name) setPartnerName(partnerProfile.full_name);
+        } catch (error) {
+          console.error('Failed to fetch partner profile view:', error);
+        }
 
         // Get partner's vocabulary for game creation (filtered by current language)
         const { data: vocab } = await supabase

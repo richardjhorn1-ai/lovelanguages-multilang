@@ -3,7 +3,7 @@
  * ArticlesGrid - Displays articles organized by category
  * This component creates the "spoke" links from hub pages to actual content
  */
-import { getCollection } from 'astro:content';
+import { getArticlesByLangPair, type BlogArticleSummary } from '../../lib/blog-api';
 
 interface Props {
   langCode: string;
@@ -14,13 +14,8 @@ interface Props {
 
 const { langCode, langName, nativeLang = 'en', maxPerCategory = 4 } = Astro.props;
 
-// Get all articles for this target language
-const allArticles = await getCollection('articles');
-const languageArticles = allArticles.filter(article => {
-  const parts = article.slug.split('/');
-  // slug format: nativeLang/targetLang/article-slug
-  return parts[1] === langCode && parts[0] === nativeLang;
-});
+// Get all articles for this language pair from Supabase
+const languageArticles = await getArticlesByLangPair(nativeLang, langCode, { limit: 500 });
 
 // Category display names and order
 const categoryInfo: Record<string, { label: string; emoji: string; priority: number }> = {
@@ -35,7 +30,7 @@ const categoryInfo: Record<string, { label: string; emoji: string; priority: num
 
 // Group articles by category
 const articlesByCategory = languageArticles.reduce((acc, article) => {
-  const category = article.data.category || 'general';
+  const category = article.category || 'general';
   if (!acc[category]) acc[category] = [];
   acc[category].push(article);
   return acc;
@@ -44,7 +39,7 @@ const articlesByCategory = languageArticles.reduce((acc, article) => {
 // Sort articles within each category by date (newest first)
 Object.keys(articlesByCategory).forEach(category => {
   articlesByCategory[category].sort((a, b) =>
-    new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+    new Date(b.date || 0).getTime() - new Date(a.date || 0).getTime()
   );
 });
 
@@ -57,11 +52,7 @@ const sortedCategories = Object.keys(articlesByCategory)
   });
 
 // Helper to build article URL
-const getArticleUrl = (article: typeof languageArticles[0]) => {
-  const parts = article.slug.split('/');
-  // Output: /learn/nativeLang/targetLang/article-slug/
-  return `/learn/${parts[0]}/${parts[1]}/${parts[2]}/`;
-};
+const getArticleUrl = (article: BlogArticleSummary) => `/learn/${article.native_lang}/${article.target_lang}/${article.slug}/`;
 
 // Helper to truncate description
 const truncate = (str: string, len: number) => {
@@ -110,19 +101,19 @@ const totalArticles = languageArticles.length;
                     <div class="flex items-start gap-3">
                       <div class="flex-1 min-w-0">
                         <h4 class="font-semibold text-gray-900 group-hover:text-accent transition-colors text-sm leading-tight mb-2 line-clamp-2">
-                          {article.data.title}
+                          {article.title}
                         </h4>
                         <p class="text-xs text-gray-500 line-clamp-2 mb-2">
-                          {truncate(article.data.description, 80)}
+                          {truncate(article.description || '', 80)}
                         </p>
                         <div class="flex items-center gap-2 text-xs text-gray-400">
-                          {article.data.difficulty && (
+                          {article.difficulty && (
                             <span class="px-2 py-0.5 bg-gray-100 rounded-full capitalize">
-                              {article.data.difficulty}
+                              {article.difficulty}
                             </span>
                           )}
-                          {article.data.readTime && (
-                            <span>{article.data.readTime} min</span>
+                          {article.read_time && (
+                            <span>{article.read_time} min</span>
                           )}
                         </div>
                       </div>

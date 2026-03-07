@@ -36,6 +36,22 @@ export default async function handler(req: any, res: any) {
     const offset = Math.max(parseInt(req.query?.offset) || 0, 0);
     const unreadOnly = req.query?.unread_only === 'true';
 
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('active_relationship_session_id')
+      .eq('id', auth.userId)
+      .single();
+
+    const activeRelationshipSessionId = profile?.active_relationship_session_id;
+    if (!activeRelationshipSessionId) {
+      return res.status(200).json({
+        notes: [],
+        total: 0,
+        limit,
+        offset,
+      });
+    }
+
     // Build query
     let query = supabase
       .from('love_notes')
@@ -51,6 +67,7 @@ export default async function handler(req: any, res: any) {
         sender:sender_id(full_name, avatar_url)
       `)
       .eq('recipient_id', auth.userId)
+      .eq('relationship_session_id', activeRelationshipSessionId)
       .order('created_at', { ascending: false })
       .range(offset, offset + limit - 1);
 
@@ -70,7 +87,8 @@ export default async function handler(req: any, res: any) {
     let countQuery = supabase
       .from('love_notes')
       .select('*', { count: 'exact', head: true })
-      .eq('recipient_id', auth.userId);
+      .eq('recipient_id', auth.userId)
+      .eq('relationship_session_id', activeRelationshipSessionId);
 
     if (unreadOnly) {
       countQuery = countQuery.is('read_at', null);

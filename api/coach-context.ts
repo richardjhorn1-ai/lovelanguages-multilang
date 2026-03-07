@@ -47,7 +47,7 @@ export default async function handler(req: any, res: any) {
     // Check if user is a tutor with linked partner
     const { data: profile, error: profileError } = await supabase
       .from('profiles')
-      .select('role, linked_user_id, full_name')
+      .select('role, linked_user_id, full_name, active_relationship_session_id')
       .eq('id', auth.userId)
       .single();
 
@@ -63,6 +63,11 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'No linked partner' });
     }
 
+    if (!profile.active_relationship_session_id) {
+      return res.status(409).json({ error: 'No active relationship session found' });
+    }
+
+    const relationshipSessionId = profile.active_relationship_session_id;
     const partnerId = profile.linked_user_id;
 
     // Get partner's language settings first (needed for cache key)
@@ -106,7 +111,8 @@ export default async function handler(req: any, res: any) {
     const { data: tutorChallenges } = await supabase
       .from('tutor_challenges')
       .select('id')
-      .eq('tutor_id', auth.userId);
+      .eq('tutor_id', auth.userId)
+      .eq('relationship_session_id', relationshipSessionId);
 
     const tutorChallengeIds = tutorChallenges?.map(c => c.id) || [];
 
@@ -127,6 +133,7 @@ export default async function handler(req: any, res: any) {
       .from('word_requests')
       .select('xp_multiplier')
       .eq('tutor_id', auth.userId)
+      .eq('relationship_session_id', relationshipSessionId)
       .eq('status', 'completed');
 
     const xpFromGifts = wordGifts?.reduce((sum, g) => sum + ((g.xp_multiplier || 1) * 5), 0) || 0;
@@ -142,6 +149,7 @@ export default async function handler(req: any, res: any) {
       .from('word_requests')
       .select('selected_words')
       .eq('tutor_id', auth.userId)
+      .eq('relationship_session_id', relationshipSessionId)
       .eq('status', 'completed');
 
     const giftedWordIds = giftedWordRequests?.flatMap(r =>
@@ -262,6 +270,7 @@ export default async function handler(req: any, res: any) {
       .from('activity_feed')
       .select('created_at')
       .eq('user_id', partnerId)
+      .eq('relationship_session_id', relationshipSessionId)
       .gte('created_at', sevenDaysAgo.toISOString())
       .limit(500);
 

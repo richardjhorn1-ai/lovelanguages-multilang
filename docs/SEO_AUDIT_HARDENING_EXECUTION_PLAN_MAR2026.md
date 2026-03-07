@@ -17,6 +17,9 @@ The repo already contains a substantial remediation pass that:
 - removes known bad sitemap entries such as `/compare/`, `/learn/couples-language-learning/`, and `/learn/{native}/all/`
 - reduces legacy locale stubs like `/pl/` and `/fr/` to non-indexable redirect shells
 - keeps `story.lovelanguages.io` outside the main indexed surface
+- excludes `/support/` from the sitemap because it is currently an SPA route without a unique SSR canonical
+- includes a deterministic URL inventory generator at `scripts/seo/generate-url-inventory.mjs`
+- includes an HTTP-level deployed-site auditor at `scripts/seo/audit-deployed-seo.mjs`
 
 Live preview validation on March 7, 2026 confirmed:
 
@@ -26,6 +29,24 @@ Live preview validation on March 7, 2026 confirmed:
 - sampled canonical, `og:url`, `twitter:url`, and JSON-LD URLs matched
 
 This baseline is good, but it is not the final state of rigor. The remaining task is to make the audit comprehensive, automatable, and hard to regress.
+
+## Current Status On Main
+
+As of the merged remediation on `main`:
+
+- Phase 1 is implemented
+- Phase 2 is implemented
+- Phase 3 is implemented
+- Phase 2 and Phase 3 also have initial automation scripts
+
+The next work is not to recreate those scripts from scratch.
+
+The next work is:
+
+- make the audit tooling portable across environments
+- wire the audit into CI and preview deploys
+- harden legacy redirect surfaces
+- validate production behavior and Search Console outcomes
 
 ## Non-Negotiable Invariants
 
@@ -91,7 +112,10 @@ Every serious audit run should produce these artifacts:
 - raw lists of failing URLs, if any
 - a short decision log for any intentional exclusions or exceptions
 
-Store them under a dated directory such as `tmp/seo-audit/2026-03-07/` or another ignored path.
+Store them under an ignored audit directory such as:
+
+- `tmp/seo-audit/latest/` for the current run
+- `tmp/seo-audit/YYYY-MM-DD/` for dated snapshots
 
 ## Phase 0 — Safe Starting State
 
@@ -166,7 +190,7 @@ Create a machine-readable source of truth for what the site intends to expose.
 
 ### Deliverable
 
-Add a script, for example `scripts/seo/generate-url-inventory.mjs`, that outputs a JSON file with:
+Review and maintain `scripts/seo/generate-url-inventory.mjs` so it outputs a JSON file with:
 
 - `url`
 - `kind` such as `page`, `article`, `methodology`, `redirect_shell`, `legacy_stub`
@@ -192,7 +216,7 @@ The inventory generator must fail if:
 
 ### Course Correction
 
-If inventory generation is hard because route logic is fragmented:
+If the current inventory script is hard to extend because route logic is fragmented:
 
 - do not paper over it with a manual list
 - first centralize route knowledge into helpers or shared route manifests
@@ -205,7 +229,7 @@ Audit the deployed site without depending on a browser for every check.
 
 ### Deliverable
 
-Add a script, for example `scripts/seo/audit-deployed-seo.mjs`, that accepts:
+Review and maintain `scripts/seo/audit-deployed-seo.mjs`, which should accept:
 
 - `--base-url`
 - `--inventory`
@@ -443,12 +467,12 @@ If any of these happen, stop normal auditing and fix the root cause first:
 
 ## Recommended Next Build-Out
 
-The next engineer or agent should implement, in order:
+The next engineer or agent should work in this order:
 
-1. URL inventory generator
-2. HTTP SEO audit runner
-3. CI workflow that deploys preview then runs the audit
-4. redirect hardening for legacy shells
-5. Search Console review checklist after production deploy
+1. Make the existing inventory and audit scripts portable and CI-friendly
+2. Add a CI workflow that deploys preview then runs the audit
+3. Harden legacy redirect shells into real redirects where feasible
+4. Automate production audit runs and preview-vs-prod diffing
+5. Add a Search Console review checklist after production deploy
 
-This order matters. Do not start with Search Console dashboards before the code-level and HTTP-level audit tools exist.
+This order matters. Do not start with Search Console dashboards before the code-level and HTTP-level audit tools are stable and portable.

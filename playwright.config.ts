@@ -6,15 +6,7 @@ import { defineConfig, devices } from '@playwright/test';
  * Tests run against Vercel preview deployments.
  * Set PLAYWRIGHT_BASE_URL env var to target specific deployment.
  *
- * Test accounts:
- * - testaccount1@gmail.com / tester1 (en→pl)
- * - testaccount2@gmail.com / tester2 (es→pl)
- * - testaccount3@gmail.com / tester3 (en→es)
- * - testaccount4@gmail.com / tester4 (es→fr)
- * - testaccount5@gmail.com / tester5 (en→ru)
- * - testaccount6@gmail.com / tester6 (en→el)
- * - testaccount7@gmail.com / tester7 (pl tutor, teaches pl)
- * - testaccount8@gmail.com / tester8 (en→pl student)
+ * Test accounts are provided via environment variables used by e2e/auth.setup.ts.
  */
 
 export default defineConfig({

@@ -162,12 +162,24 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'Invalid answers: must be array with 1-100 items' });
     }
 
+    const { data: sessionProfile } = await supabase
+      .from('profiles')
+      .select('active_relationship_session_id')
+      .eq('id', auth.userId)
+      .single();
+
+    const activeRelationshipSessionId = sessionProfile?.active_relationship_session_id;
+    if (!activeRelationshipSessionId) {
+      return res.status(409).json({ error: 'No active relationship session found' });
+    }
+
     // Get the challenge and atomically mark as in-progress to prevent race conditions
     // First, try to claim the challenge by updating status from 'pending' to 'in_progress'
     const { data: challenge, error: challengeError } = await supabase
       .from('tutor_challenges')
       .update({ status: 'in_progress' })
       .eq('id', challengeId)
+      .eq('relationship_session_id', activeRelationshipSessionId)
       .eq('status', 'pending')  // Only update if still pending (prevents double submission)
       .select('*')
       .single();
@@ -177,7 +189,7 @@ export default async function handler(req: any, res: any) {
       // Check which case it is
       const { data: existingChallenge } = await supabase
         .from('tutor_challenges')
-        .select('status, student_id')
+        .select('status, student_id, relationship_session_id')
         .eq('id', challengeId)
         .single();
 
@@ -186,6 +198,9 @@ export default async function handler(req: any, res: any) {
       }
       if (existingChallenge.student_id !== auth.userId) {
         return res.status(403).json({ error: 'Not authorized' });
+      }
+      if (existingChallenge.relationship_session_id !== activeRelationshipSessionId) {
+        return res.status(409).json({ error: 'Challenge belongs to a previous relationship session' });
       }
       if (existingChallenge.status === 'completed' || existingChallenge.status === 'in_progress') {
         return res.status(400).json({ error: 'Challenge already completed or in progress' });
@@ -199,6 +214,7 @@ export default async function handler(req: any, res: any) {
       await supabase.from('tutor_challenges')
         .update({ status: 'pending' })
         .eq('id', challengeId)
+        .eq('relationship_session_id', activeRelationshipSessionId)
         .eq('status', 'in_progress');
       return res.status(403).json({ error: 'Not authorized' });
     }
@@ -371,7 +387,8 @@ export default async function handler(req: any, res: any) {
         correct_answers: correctCount,
         time_spent_seconds: timeSpentSeconds || null,
         answers: gradedAnswers,
-        xp_earned: xpEarned
+        xp_earned: xpEarned,
+        relationship_session_id: challenge.relationship_session_id || null,
       })
       .select()
       .single();
@@ -392,13 +409,13 @@ export default async function handler(req: any, res: any) {
       .eq('status', 'in_progress');  // Only complete if we're the one processing it
 
     // Award XP
-    const { data: profile } = await supabase
+    const { data: studentProfile } = await supabase
       .from('profiles')
       .select('xp, full_name')
       .eq('id', auth.userId)
       .single();
 
-    const newXp = (profile?.xp || 0) + xpEarned;
+    const newXp = (studentProfile?.xp || 0) + xpEarned;
     await supabase
       .from('profiles')
       .update({ xp: newXp })
@@ -408,7 +425,7 @@ export default async function handler(req: any, res: any) {
     const { error: notificationError } = await supabase.from('notifications').insert({
       user_id: challenge.tutor_id,
       type: 'challenge_complete',
-      title: `${profile?.full_name || 'Your partner'} completed your challenge!`,
+      title: `${studentProfile?.full_name || 'Your partner'} completed your challenge!`,
       message: `Score: ${score}% (${correctCount}/${totalQuestions})`,
       data: {
         challenge_id: challengeId,
@@ -467,6 +484,7 @@ export default async function handler(req: any, res: any) {
       subtitle: `Score: ${score}%`,
       data: { challenge_id: challengeId, score, xp_earned: xpEarned },
       language_code: targetLanguage,
+      relationship_session_id: challenge.relationship_session_id || null,
     });
 
     // Increment usage counter

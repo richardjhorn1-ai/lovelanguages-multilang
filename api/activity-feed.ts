@@ -32,14 +32,29 @@ export default async function handler(req: any, res: any) {
     // Get user profile for linked partner
     const { data: profile } = await supabase
       .from('profiles')
-      .select('linked_user_id')
+      .select('linked_user_id, active_relationship_session_id')
       .eq('id', auth.userId)
       .single();
+
+    const activeRelationshipSessionId = profile?.active_relationship_session_id;
+    if (!activeRelationshipSessionId) {
+      return res.status(200).json({
+        success: true,
+        events: [],
+        pagination: {
+          offset,
+          limit,
+          hasMore: false,
+        },
+        unreadCount: 0,
+      });
+    }
 
     // Build query based on filter
     let query = supabase
       .from('activity_feed')
       .select('*')
+      .eq('relationship_session_id', activeRelationshipSessionId)
       .order('created_at', { ascending: false })
       .range(offset, offset + limit - 1);
 
@@ -101,6 +116,7 @@ export default async function handler(req: any, res: any) {
         .from('activity_feed')
         .select('*', { count: 'exact', head: true })
         .eq('user_id', profile.linked_user_id)
+        .eq('relationship_session_id', activeRelationshipSessionId)
         .gte('created_at', yesterday.toISOString());
 
       unreadCount = count || 0;

@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "api/**/*.ts",
+    "utils/**/*.ts",
+    "constants/**/*.ts",
+    "types.ts"
+  ],
+  "exclude": [
+    "blog/**",
+    "promo-video/**",
+    "components/**",
+    "e2e/**",
+    "tests/**"
+  ]
+}

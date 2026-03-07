@@ -24,6 +24,7 @@ export interface UITranslations {
   noArticlesForTopic: string;
   backToLearn: string;
   exploreLanguages: string;
+  backToHub?: string;
 
   // Buttons
   browseLanguages: string;

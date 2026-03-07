@@ -1,0 +1,27 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "App.tsx",
+    "main.tsx",
+    "types.ts",
+    "components/**/*.ts",
+    "components/**/*.tsx",
+    "constants/**/*.ts",
+    "context/**/*.ts",
+    "context/**/*.tsx",
+    "hooks/**/*.ts",
+    "hooks/**/*.tsx",
+    "services/**/*.ts",
+    "services/**/*.tsx",
+    "utils/**/*.ts",
+    "utils/**/*.tsx",
+    "tests/**/*.d.ts"
+  ],
+  "exclude": [
+    "api/**",
+    "blog/**",
+    "promo-video/**",
+    "e2e/**",
+    "tests/**"
+  ]
+}

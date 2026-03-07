@@ -75,7 +75,7 @@ export default async function handler(req: any, res: any) {
     // Get the inviter's profile to ensure they're still valid (including subscription and language info)
     const { data: inviterProfile, error: inviterError } = await supabase
       .from('profiles')
-      .select('id, linked_user_id, subscription_plan, subscription_status, subscription_ends_at, subscription_period, active_language, role')
+      .select('id, linked_user_id, subscription_plan, subscription_status, subscription_ends_at, subscription_period, subscription_source, subscription_granted_by, active_language, role')
       .eq('id', tokenData.inviter_id)
       .single();
 
@@ -86,7 +86,7 @@ export default async function handler(req: any, res: any) {
     // Get the new user's current profile to check their language settings
     const { data: newUserProfile } = await supabase
       .from('profiles')
-      .select('native_language, active_language')
+      .select('native_language, active_language, subscription_plan, subscription_status, subscription_granted_by, promo_expires_at, trial_expires_at')
       .eq('id', auth.userId)
       .single();
 
@@ -108,6 +108,47 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'This person already has a linked partner' });
     }
 
+    const inviterHasSelfPaidAccess =
+      !inviterProfile.subscription_granted_by &&
+      inviterProfile.subscription_status === 'active' &&
+      (inviterProfile.subscription_plan === 'standard' || inviterProfile.subscription_plan === 'unlimited');
+
+    const joinerHasSelfPaidAccess =
+      !newUserProfile?.subscription_granted_by &&
+      newUserProfile?.subscription_status === 'active' &&
+      (newUserProfile?.subscription_plan === 'standard' || newUserProfile?.subscription_plan === 'unlimited');
+
+    // Household model guard: both users cannot enter shared mode while both self-pay.
+    if (inviterHasSelfPaidAccess && joinerHasSelfPaidAccess) {
+      return res.status(409).json({
+        error: 'Both accounts already have active paid subscriptions',
+        code: 'DUPLICATE_PAID_SUBSCRIPTION',
+        message: 'Linking is blocked until one paid subscription is cancelled or expires.',
+        resolution: {
+          action: 'resolve_one_payer_first',
+          detail: 'Cancel one paid subscription first to avoid paying twice, then retry linking.'
+        }
+      });
+    }
+
+    // Create a new active relationship session for this link.
+    const { data: relationshipSession, error: relationshipError } = await supabase
+      .from('relationship_sessions')
+      .insert({
+        user_a_id: tokenData.inviter_id,
+        user_b_id: auth.userId,
+        billing_owner_user_id: inviterHasSelfPaidAccess ? tokenData.inviter_id : null,
+        status: 'active',
+        started_at: now.toISOString(),
+      })
+      .select('id')
+      .single();
+
+    if (relationshipError || !relationshipSession) {
+      console.error('[complete-invite] Failed to create relationship session:', relationshipError);
+      return res.status(500).json({ error: 'Failed to initialize relationship session' });
+    }
+
     // All checks passed - link the accounts!
     const inviterRole = inviterProfile.role || 'student';
     const joinerRole = inviterRole === 'tutor' ? 'student' : 'tutor';
@@ -116,7 +157,8 @@ export default async function handler(req: any, res: any) {
     // Build update data for new partner
     const partnerUpdateData: Record<string, any> = {
       role: joinerRole,
-      linked_user_id: tokenData.inviter_id
+      linked_user_id: tokenData.inviter_id,
+      active_relationship_session_id: relationshipSession.id,
     };
 
     // Set language settings - only update if user hasn't configured their own languages yet
@@ -139,14 +181,14 @@ export default async function handler(req: any, res: any) {
     }
 
     // Grant inherited subscription if inviter has active subscription
-    const hasActiveSubscription = inviterProfile.subscription_status === 'active';
-    if (hasActiveSubscription) {
+    if (inviterHasSelfPaidAccess) {
       partnerUpdateData.subscription_plan = inviterProfile.subscription_plan;
       partnerUpdateData.subscription_status = 'active';
       partnerUpdateData.subscription_period = inviterProfile.subscription_period;
       partnerUpdateData.subscription_ends_at = inviterProfile.subscription_ends_at;
       partnerUpdateData.subscription_granted_by = inviterProfile.id;
       partnerUpdateData.subscription_granted_at = new Date().toISOString();
+      partnerUpdateData.subscription_source = inviterProfile.subscription_source || 'stripe';
       console.log('[complete-invite] Granting inherited subscription:', inviterProfile.subscription_plan);
     }
 
@@ -162,13 +204,14 @@ export default async function handler(req: any, res: any) {
       console.error('[complete-invite] Error updating new partner profile:', newPartnerError);
       return res.status(500).json({ error: 'Failed to link accounts' });
     }
-    console.log('[complete-invite] Updated partner profile:', updatedPartner?.id, 'with subscription:', hasActiveSubscription);
+    console.log('[complete-invite] Updated partner profile:', updatedPartner?.id, 'with subscription:', inviterHasSelfPaidAccess);
 
     // 2. Update the inviter's profile: link to new partner
     const { error: inviterUpdateError } = await supabase
       .from('profiles')
       .update({
-        linked_user_id: auth.userId
+        linked_user_id: auth.userId,
+        active_relationship_session_id: relationshipSession.id,
       })
       .eq('id', tokenData.inviter_id);
 
@@ -180,12 +223,21 @@ export default async function handler(req: any, res: any) {
         .update({
           role: 'student',
           linked_user_id: null,
+          active_relationship_session_id: null,
           subscription_plan: null,
           subscription_status: 'inactive',
+          subscription_source: 'none',
           subscription_granted_by: null,
           subscription_granted_at: null
         })
         .eq('id', auth.userId);
+      await supabase
+        .from('relationship_sessions')
+        .update({
+          status: 'ended',
+          ended_at: new Date().toISOString(),
+        })
+        .eq('id', relationshipSession.id);
       return res.status(500).json({ error: 'Failed to complete linking' });
     }
 
@@ -207,12 +259,13 @@ export default async function handler(req: any, res: any) {
 
     return res.status(200).json({
       success: true,
-      message: hasActiveSubscription
+      message: inviterHasSelfPaidAccess
         ? 'Accounts linked! You now have free access through your partner.'
         : 'Accounts successfully linked!',
       partnerId: tokenData.inviter_id,
       partnerName: tokenData.inviter_name,
-      subscription: hasActiveSubscription ? {
+      relationshipSessionId: relationshipSession.id,
+      subscription: inviterHasSelfPaidAccess ? {
         plan: inviterProfile.subscription_plan,
         status: 'active',
         grantedBy: inviterProfile.id,

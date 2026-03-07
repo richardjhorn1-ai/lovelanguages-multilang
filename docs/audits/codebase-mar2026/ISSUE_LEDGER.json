@@ -1,0 +1,507 @@
+{
+  "audit_id": "codebase-mar2026",
+  "generated_at": "2026-03-07",
+  "baseline": {
+    "branch": "main",
+    "head": "9cb59033ef1aa2afd3b70825d34908933506fa9e",
+    "dirty_files": [
+      "blog/src/lib/blog-api.ts",
+      "blog/src/pages/learn/index.astro",
+      "docs/SEO_AUDIT_HARDENING_EXECUTION_PLAN_MAR2026.md",
+      "package.json",
+      "scripts/seo/audit-deployed-seo.mjs",
+      "scripts/seo/generate-url-inventory.mjs",
+      "tmp/"
+    ]
+  },
+  "findings": [
+    {
+      "id": "AUD-001",
+      "title": "Linked partners can read secret-bearing profile columns",
+      "priority": "P0",
+      "confidence": 0.95,
+      "subsystem": "data/security",
+      "issue_type": [
+        "privacy/secrets",
+        "security",
+        "data integrity",
+        "architecture"
+      ],
+      "location": [
+        "migrations/015_couple_subscription.sql:57",
+        "components/ProfileView.tsx:120",
+        "App.tsx:275",
+        "api/apple-token-exchange.ts:75",
+        "migrations/042_apple_subscriptions_and_onboarding.sql:19"
+      ],
+      "evidence": [
+        "The linked-partner RLS policy allows a user to SELECT the full partner row from profiles.",
+        "Client code fetches the partner profile with select('*') in ProfileView.",
+        "Client code fetches the current user profile with select('*') in App.tsx.",
+        "The same row now holds payment and identity-adjacent fields such as stripe_customer_id, subscription_source, revenuecat_customer_id, and apple_refresh_token."
+      ],
+      "impact": "A linked partner session can read fields that should never be exposed cross-account. As more secrets or operational identifiers are added to profiles, they become partner-readable by default.",
+      "root_cause": "The profiles table is overloaded with both public relationship data and secret-bearing operational fields, and wildcard selects are used on the client.",
+      "recommended_fix": [
+        "Move secret-bearing fields such as Apple refresh tokens and payment-provider identifiers into a service-role-only table.",
+        "Expose partner-safe data through an explicit public view or explicit column allowlist.",
+        "Ban select('*') against profiles in client code and add lint/test coverage for that rule."
+      ],
+      "needs_live_confirmation": false,
+      "confirmation_status": "confirmed_in_code",
+      "status": "fixed_locally_not_deployed"
+    },
+    {
+      "id": "AUD-002",
+      "title": "Apple refresh-token handling is schema-drifted and makes deletion compliance fragile",
+      "priority": "P1",
+      "confidence": 0.9,
+      "subsystem": "api/data",
+      "issue_type": [
+        "correctness",
+        "privacy/secrets",
+        "configuration drift",
+        "documentation/operability"
+      ],
+      "location": [
+        "api/apple-token-exchange.ts:75",
+        "api/delete-account.ts:71",
+        "migrations/042_apple_subscriptions_and_onboarding.sql:1",
+        "types.ts:17"
+      ],
+      "evidence": [
+        "The Apple token exchange endpoint writes profiles.apple_refresh_token.",
+        "The delete-account endpoint later reads profiles.apple_refresh_token to revoke the Apple token.",
+        "No checked-in migration adds apple_refresh_token to profiles.",
+        "The root Profile type also omits the field."
+      ],
+      "impact": "Fresh environments can silently skip token storage, which weakens Apple account-deletion compliance and encourages manual schema edits outside repo control.",
+      "root_cause": "A runtime feature was added without a matching migration and type-contract update.",
+      "recommended_fix": [
+        "Add a repo-managed migration for Apple token storage or move the token to a dedicated secret table.",
+        "Update type definitions and delete-account logic to match the real schema.",
+        "Run an end-to-end delete-account compliance test for Apple-authenticated users."
+      ],
+      "needs_live_confirmation": true,
+      "confirmation_status": "confirmed_in_code",
+      "status": "fixed_locally_not_deployed"
+    },
+    {
+      "id": "AUD-003",
+      "title": "Subscription management still assumes Stripe even when the active subscription source is App Store",
+      "priority": "P1",
+      "confidence": 0.94,
+      "subsystem": "payments/entitlements",
+      "issue_type": [
+        "payment/revenue",
+        "correctness",
+        "configuration drift"
+      ],
+      "location": [
+        "components/SubscriptionManager.tsx:32",
+        "components/SubscriptionManager.tsx:74",
+        "api/create-customer-portal.ts:55",
+        "api/subscription-status.ts:62",
+        "types.ts:45",
+        "migrations/042_apple_subscriptions_and_onboarding.sql:19"
+      ],
+      "evidence": [
+        "SubscriptionManager decides whether a user is the payer by checking stripe_customer_id only.",
+        "Manage Subscription always calls the Stripe billing portal endpoint.",
+        "create-customer-portal rejects users without a Stripe customer as NO_SUBSCRIPTION.",
+        "subscription-status omits subscription_source, and the shared Profile type omits both subscription_source and revenuecat_customer_id."
+      ],
+      "impact": "Active App Store subscribers can be told they have no subscription or be sent to the wrong management path, which creates support load and churn risk.",
+      "root_cause": "RevenueCat was added as a write-through side path, but payment source never became a first-class part of the shared entitlement contract.",
+      "recommended_fix": [
+        "Add subscription_source and revenuecat_customer_id to the shared profile/API contract.",
+        "Branch the management UI by source so Stripe users go to the Stripe portal and App Store users get the correct instructions or deep link.",
+        "Add entitlement tests that exercise both Stripe and App Store subscriptions."
+      ],
+      "needs_live_confirmation": true,
+      "confirmation_status": "confirmed_in_code",
+      "status": "fixed_locally_not_deployed"
+    },
+    {
+      "id": "AUD-004",
+      "title": "The Astro /support/ page exists, but production rewrites it to the SPA homepage",
+      "priority": "P1",
+      "confidence": 0.99,
+      "subsystem": "architecture/SEO",
+      "issue_type": [
+        "architecture",
+        "SEO/discoverability",
+        "correctness",
+        "configuration drift"
+      ],
+      "location": [
+        "blog/src/pages/support/index.astro:19",
+        "vercel.json:2246",
+        "vercel.json:2268"
+      ],
+      "evidence": [
+        "The blog contains a fully implemented Astro support page with canonical /support/.",
+        "The Vercel catch-all rewrite excludes learn, compare, tools, dictionary, api, assets, sitemap, and story, but not support.",
+        "A live request to https://www.lovelanguages.io/support/ returned the SPA homepage HTML with the homepage canonical."
+      ],
+      "impact": "The support page is unreachable as designed, internal links to /support/ show the wrong content, and route ownership is ambiguous for future public pages.",
+      "root_cause": "Route ownership is split between Astro routes and Vercel rewrites without a single source of truth.",
+      "recommended_fix": [
+        "Pick one owner for /support/ and encode that choice in a shared route manifest.",
+        "Either exclude support from the Vercel catch-all and serve the Astro page, or remove the Astro page and treat support as SPA-only.",
+        "Keep sitemap/indexability rules aligned with the chosen owner."
+      ],
+      "needs_live_confirmation": false,
+      "confirmation_status": "confirmed_live",
+      "status": "fixed_locally_not_deployed"
+    },
+    {
+      "id": "AUD-005",
+      "title": "Repo-level quality gates are broken and CI advertises checks that do not currently hold",
+      "priority": "P1",
+      "confidence": 0.97,
+      "subsystem": "testing/CI",
+      "issue_type": [
+        "CI/test coverage",
+        "configuration drift",
+        "architecture",
+        "maintainability/complexity"
+      ],
+      "location": [
+        ".github/workflows/pr-review.yml:34",
+        "vitest.config.ts:1",
+        "tsconfig.json:1",
+        "tests/error-boundary.test.tsx:55",
+        "tests/generate-invite.test.ts:41",
+        "api/generate-invite.ts:128",
+        "package.json:9",
+        "blog/scripts/generate-image-sitemap.mjs:71"
+      ],
+      "evidence": [
+        "CI is now project-split with real ESLint/lint, app/api typecheck, unit tests, and separate app/blog build jobs.",
+        "Unit test suite now passes locally (60/60), including subscription source management coverage for Stripe/App Store branches.",
+        "typecheck:blog now runs truthfully from the blog workspace and passes without errors.",
+        "Root build no longer performs nested dependency installation and image sitemap generation now fails closed on required fetch failures."
+      ],
+      "impact": "A green or red CI state does not map cleanly to product health. Engineers cannot trust the safety rails, and failures mix harness breakage with real regressions.",
+      "root_cause": "The repo behaves like a multi-project workspace, but CI and local verification are still configured like a single-package app.",
+      "recommended_fix": [
+        "Split app, blog, promo-video, unit tests, and e2e into separate TypeScript/testing projects.",
+        "Add ESLint properly or remove the lint job until it exists.",
+        "Exclude e2e from Vitest and fix the stale unit tests.",
+        "Make builds hermetic by moving all installs into setup steps rather than build commands.",
+        "Fail SEO artifact generation closed when required article data is unavailable instead of silently emitting degraded output."
+      ],
+      "needs_live_confirmation": false,
+      "confirmation_status": "confirmed_in_code_and_local_runs",
+      "status": "fixed_locally_not_deployed"
+    },
+    {
+      "id": "AUD-006",
+      "title": "Analytics ingestion accepts arbitrary user_id with wildcard CORS",
+      "priority": "P1",
+      "confidence": 0.91,
+      "subsystem": "analytics/API",
+      "issue_type": [
+        "security",
+        "data integrity",
+        "privacy/secrets"
+      ],
+      "location": [
+        "api/analytics-event.ts:54",
+        "api/analytics-event.ts:77",
+        "services/analytics.ts:369"
+      ],
+      "evidence": [
+        "The analytics-event endpoint allows Access-Control-Allow-Origin: *.",
+        "The endpoint does not verify auth before accepting user_id from the request body.",
+        "Frontend analytics sends rawUserId as user_id to the endpoint."
+      ],
+      "impact": "Any actor who can guess or obtain a user ID can forge per-user analytics events, skew experiments, or poison retention and funnel data.",
+      "root_cause": "Anonymous-event support was implemented by trusting caller-supplied identity instead of deriving identity from a verified JWT.",
+      "recommended_fix": [
+        "Require auth whenever user_id is present and derive the subject server-side.",
+        "Allow anonymous ingestion only with anonymous_id and rate limits.",
+        "Restrict origins and add abuse monitoring for analytics ingestion."
+      ],
+      "needs_live_confirmation": false,
+      "confirmation_status": "confirmed_in_code",
+      "status": "fixed_locally_not_deployed"
+    },
+    {
+      "id": "AUD-007",
+      "title": "Core tabs stay mounted and fetch full datasets without explicit budgets",
+      "priority": "P2",
+      "confidence": 0.88,
+      "subsystem": "frontend/mobile-offline",
+      "issue_type": [
+        "performance",
+        "correctness",
+        "mobile/offline",
+        "maintainability/complexity"
+      ],
+      "location": [
+        "App.tsx:50",
+        "App.tsx:668",
+        "components/ChatArea.tsx:396",
+        "components/FlashcardGame.tsx:234",
+        "services/offline.ts:89"
+      ],
+      "evidence": [
+        "PersistentTabs keeps chat, Love Log, play, and progress mounted behind CSS hidden classes.",
+        "ChatArea loads all chats, listen sessions, and messages with select('*').",
+        "FlashcardGame and offline.preCacheOnLogin fetch full dictionary and word_scores tables for the active language.",
+        "Hidden tabs still keep event listeners alive."
+      ],
+      "impact": "Startup cost, memory usage, and sync time scale with historical data volume rather than the active screen, which creates risk for heavy users and slower devices.",
+      "root_cause": "State preservation and offline caching were optimized for convenience, not bounded workload or lazy activation.",
+      "recommended_fix": [
+        "Add query budgets and pagination for chats, messages, dictionary, and scores.",
+        "Lazy-mount or pause hidden tabs rather than leaving all heavy surfaces live.",
+        "Differentiate offline cache slices from full-history sync."
+      ],
+      "needs_live_confirmation": true,
+      "confirmation_status": "confirmed_in_code",
+      "status": "fixed_locally_not_deployed"
+    },
+    {
+      "id": "AUD-008",
+      "title": "The documented design system does not match the shipped app or blog",
+      "priority": "P2",
+      "confidence": 0.95,
+      "subsystem": "design",
+      "issue_type": [
+        "design-system",
+        "UX consistency",
+        "documentation/operability"
+      ],
+      "location": [
+        "docs/DESIGN.md:36",
+        "docs/review-design-system.md:10",
+        "App.tsx:135",
+        "App.tsx:532",
+        "components/Landing.tsx:73",
+        "components/SubscriptionManager.tsx:207",
+        "blog/src/layouts/BaseLayout.astro:33",
+        "blog/src/layouts/BaseLayout.astro:93"
+      ],
+      "evidence": [
+        "The design contract is now explicit in docs/contracts/design-system.md and review-design-system is marked historical rather than authoritative.",
+        "App code still contains raw emoji and many hardcoded colors and inline styles.",
+        "The blog still uses Quicksand/Outfit and a separate hardcoded gray/pink palette."
+      ],
+      "impact": "App and blog feel like different products, and future UI work has no trustworthy source of truth for typography, color, or component behavior.",
+      "root_cause": "Design guidance, enforcement claims, and shipped code evolved independently without a shared token package or linting rule set.",
+      "recommended_fix": [
+        "Publish a single shared token source for app and blog typography, colors, and spacing.",
+        "Retire or rewrite stale enforcement docs that claim the sweep is complete.",
+        "Add lightweight linting or review gates for raw color literals and raw emoji in product UI."
+      ],
+      "needs_live_confirmation": false,
+      "confirmation_status": "confirmed_in_code",
+      "status": "in_progress"
+    },
+    {
+      "id": "AUD-009",
+      "title": "Route ownership is fragmented across React Router, Astro, Vercel rewrites, and PWA fallback",
+      "priority": "P2",
+      "confidence": 0.9,
+      "subsystem": "architecture",
+      "issue_type": [
+        "architecture",
+        "configuration drift",
+        "SEO/discoverability",
+        "maintainability/complexity"
+      ],
+      "location": [
+        "App.tsx:586",
+        "vercel.json:2246",
+        "vite.config.ts:33",
+        "scripts/seo/generate-url-inventory.mjs:203"
+      ],
+      "evidence": [
+        "A typed route ownership manifest now exists (config/route-ownership.ts) and contract validation is wired into seo:validate-routes.",
+        "Route config is still maintained across separate files (vercel.json, vite.config.ts, SEO inventory tooling) with string-assert checks rather than generated outputs.",
+        "/support/ ownership conflict is fixed locally, but future route additions still require multi-file manual updates."
+      ],
+      "impact": "Adding or modifying a public route can silently route to the wrong surface, break SEO, or create offline-navigation regressions.",
+      "root_cause": "A shared contract now exists, but deploy/runtime/tooling config is not yet generated directly from that contract.",
+      "recommended_fix": [
+        "Create a single route-ownership manifest that classifies each public route as SPA, Astro, static, or redirect.",
+        "Generate Vercel rewrites, Workbox denylist entries, and SEO inventory exceptions from that manifest.",
+        "Block merges when route owners disagree."
+      ],
+      "needs_live_confirmation": false,
+      "confirmation_status": "confirmed_in_code_and_partially_live",
+      "status": "in_progress"
+    },
+    {
+      "id": "AUD-010",
+      "title": "Builds are non-hermetic and workspace boundaries are weak",
+      "priority": "P2",
+      "confidence": 0.92,
+      "subsystem": "build/ops",
+      "issue_type": [
+        "configuration drift",
+        "CI/test coverage",
+        "architecture",
+        "maintainability/complexity"
+      ],
+      "location": [
+        "package.json:9",
+        "blog/scripts/generate-image-sitemap.mjs:71",
+        "tsconfig.json:1",
+        "promo-video/package.json:1",
+        "capacitor.config.ts:1"
+      ],
+      "evidence": [
+        "Root build no longer performs nested dependency installation and typecheck/build are now split by project surface.",
+        "Blog image-sitemap generation now fails closed on required fetch/input errors instead of silently degrading output.",
+        "The repo still lacks a formal workspace-level package manager topology and keeps partial multi-project coupling in root scripts.",
+        "Capacitor config exists, but ios/ and android/ projects are not present in the repo, so native settings cannot be fully audited or reproduced from source."
+      ],
+      "impact": "Builds depend on network and local environment, auxiliary surfaces can break root verification, and native/mobile behavior cannot be fully verified from repo state.",
+      "root_cause": "The repo contains multiple projects, but tooling still assumes a single-package lifecycle.",
+      "recommended_fix": [
+        "Adopt explicit workspaces or separate setup/build scripts per project.",
+        "Stop installing dependencies inside build scripts.",
+        "Make SEO/content artifact generation deterministic and fail closed when required network-backed inputs are unavailable.",
+        "Split TypeScript configs by project and decide whether native projects live in-repo or are generated artifacts."
+      ],
+      "needs_live_confirmation": false,
+      "confirmation_status": "confirmed_in_code_and_local_runs",
+      "status": "in_progress"
+    },
+    {
+      "id": "AUD-011",
+      "title": "Playwright relies on plaintext shared credentials and mutable live state",
+      "priority": "P2",
+      "confidence": 0.85,
+      "subsystem": "testing/security",
+      "issue_type": [
+        "security",
+        "CI/test coverage",
+        "documentation/operability"
+      ],
+      "location": [
+        "playwright.config.ts:9",
+        "e2e/auth.setup.ts:15"
+      ],
+      "evidence": [
+        "Eight test account emails and passwords are committed directly in source.",
+        "The auth setup logs into preview deployments using those live shared accounts.",
+        "The tests therefore depend on mutable shared state rather than per-run fixtures."
+      ],
+      "impact": "Credential rotation is manual and brittle, repo exposure leaks working accounts, and test reproducibility depends on shared external state.",
+      "root_cause": "The e2e system was optimized for convenience instead of secret management and disposable fixtures.",
+      "recommended_fix": [
+        "Move Playwright credentials to secret-backed environment variables or ephemeral seeded accounts.",
+        "Reset test state per run or use fixtures that create and tear down data.",
+        "Document fixture ownership and rotation."
+      ],
+      "needs_live_confirmation": false,
+      "confirmation_status": "confirmed_in_code",
+      "status": "fixed_locally_not_deployed"
+    },
+    {
+      "id": "AUD-012",
+      "title": "Repo documentation is materially stale and points engineers at files and flows that no longer exist",
+      "priority": "P2",
+      "confidence": 0.97,
+      "subsystem": "docs",
+      "issue_type": [
+        "documentation/operability",
+        "architecture",
+        "configuration drift"
+      ],
+      "location": [
+        "README.md:100",
+        "docs/ARCHITECTURE.md:17",
+        "docs/BACKEND_ARCHITECTURE.md:17",
+        "docs/TESTING_CHECKLIST.md:1",
+        "docs/review-offline-pwa.md:1"
+      ],
+      "evidence": [
+        "README references missing files such as ML_MASTER_PLAN.md and STATUS.md.",
+        "ARCHITECTURE.md and BACKEND_ARCHITECTURE.md report file sizes and endpoint counts that no longer match the repo.",
+        "TESTING_CHECKLIST.md is pinned to an old release branch.",
+        "review-offline-pwa.md still describes a critical server.url issue that is already fixed in capacitor.config.ts."
+      ],
+      "impact": "Future engineers and agents will optimize against false repo truths, which increases regression risk and wasted investigation time.",
+      "root_cause": "Docs are added faster than they are retired, and there is no stale-doc review gate.",
+      "recommended_fix": [
+        "Reduce documentation to a smaller authoritative set with named owners.",
+        "Add last-reviewed metadata and stale-doc cleanup to release hygiene.",
+        "Fail docs that reference missing files, dead branches, or outdated architecture counts."
+      ],
+      "needs_live_confirmation": false,
+      "confirmation_status": "confirmed_in_code",
+      "status": "fixed_locally_not_deployed"
+    },
+    {
+      "id": "AUD-013",
+      "title": "Dependency audit still reports unresolved high-severity vulnerabilities",
+      "priority": "P2",
+      "confidence": 0.84,
+      "subsystem": "security/dependencies",
+      "issue_type": [
+        "security",
+        "configuration drift",
+        "CI/test coverage"
+      ],
+      "location": [
+        "package.json:57",
+        "npm audit --audit-level=high --json (2026-03-07)"
+      ],
+      "evidence": [
+        "Runtime dependency audit now passes (npm audit --omit=dev --audit-level=high exits 0).",
+        "Build-only packages that pulled high-severity chains were moved out of runtime dependencies and minimatch is override-pinned to a safe range.",
+        "Full dependency audit still reports high issues in dev/build tooling (vite-plugin-pwa/workbox/rollup chain), captured by release-sweep reporting."
+      ],
+      "impact": "Security and supply-chain risk remains untracked, and CI only reports audit output rather than enforcing a remediation plan.",
+      "root_cause": "Dependency updates are ad hoc, and there is no explicit policy that separates accepted dev-time risk from required runtime fixes.",
+      "recommended_fix": [
+        "Triage vulnerabilities into runtime, build-time, and accepted-risk buckets.",
+        "Upgrade the PWA/Vite toolchain deliberately rather than leaving the audit permanently red.",
+        "Track dependency risk in a scheduled maintenance workflow."
+      ],
+      "needs_live_confirmation": false,
+      "confirmation_status": "confirmed_local_run",
+      "status": "fixed_locally_not_deployed"
+    },
+    {
+      "id": "AUD-014",
+      "title": "Production SEO is still behind the current working tree",
+      "priority": "P1",
+      "confidence": 0.93,
+      "subsystem": "SEO/deployment",
+      "issue_type": [
+        "SEO/discoverability",
+        "configuration drift",
+        "CI/test coverage"
+      ],
+      "location": [
+        "tmp/seo-audit/latest/url-inventory.json",
+        "tmp/seo-audit/latest/prod/audit-report-production.json",
+        "blog/src/lib/blog-api.ts:15",
+        "blog/src/pages/learn/index.astro:72"
+      ],
+      "evidence": [
+        "The current local inventory contains 12044 URLs, including 306 pair hubs.",
+        "A constrained production audit on 2026-03-07 found 67 expected pair-hub URLs missing from the production page sitemap.",
+        "The same audit also found a forbidden internal link from /learn/ to /learn/couples-language-learning/ on production.",
+        "Those exact surfaces are addressed by local working-tree changes in blog-api.ts and learn/index.astro."
+      ],
+      "impact": "Production is still under-indexing valid language-pair hubs and still links one redirect-only SEO surface, even though the local tree includes fixes.",
+      "root_cause": "The current local remediation has not been deployed, and there is no mandatory preview/prod SEO gate catching the drift before production.",
+      "recommended_fix": [
+        "Deploy the current working tree to preview and rerun seo:audit there.",
+        "Make preview SEO audit and preview-vs-prod diff checks required before merge or release.",
+        "Only treat the sitemap gap as closed after a deployed audit passes."
+      ],
+      "needs_live_confirmation": false,
+      "confirmation_status": "confirmed_live",
+      "status": "fixed_locally_not_deployed"
+    }
+  ]
+}

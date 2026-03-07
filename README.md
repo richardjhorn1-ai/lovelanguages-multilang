@@ -101,9 +101,10 @@ The frontend renders special blocks for language learning:
 
 | File | Purpose |
 |------|---------|
-| `ML_MASTER_PLAN.md` | Multi-language architecture (source of truth) |
+| `docs/audits/codebase-mar2026/MASTER_AUDIT.md` | Current audit baseline and prioritized findings |
+| `docs/audits/codebase-mar2026/REMEDIATION_PLAN.md` | Dependency-ordered remediation plan |
+| `docs/contracts/` | Product and platform contracts (partner access, entitlements, route ownership, design) |
 | `ROADMAP.md` | Product roadmap with completed/planned phases |
-| `STATUS.md` | Current project status |
 | `TROUBLESHOOTING.md` | 36+ issues documented with solutions |
 | `SEO.md` | Blog SEO work tracking (74 articles) |
 | `docs/AI_INTEGRATION_GUIDE.md` | Voice mode and Gemini API implementation |
@@ -120,4 +121,4 @@ Each supported language has a configuration that includes:
 - Transcription support (Gladia)
 - Voice mode support (Gemini Live)
 
-See `ML_MASTER_PLAN.md` for the complete language configuration system.
+See [`constants/language-config.ts`](constants/language-config.ts) for the canonical language configuration used by the app.

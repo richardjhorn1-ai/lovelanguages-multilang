@@ -33,7 +33,7 @@ export default async function handler(req: any, res: any) {
     // Get tutor profile
     const { data: profile, error: profileError } = await supabase
       .from('profiles')
-      .select('tutor_xp, tutor_tier, role, linked_user_id')
+      .select('tutor_xp, tutor_tier, role, linked_user_id, active_relationship_session_id')
       .eq('id', auth.userId)
       .single();
 
@@ -49,6 +49,11 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'No linked partner' });
     }
 
+    if (!profile.active_relationship_session_id) {
+      return res.status(409).json({ error: 'No active relationship session found' });
+    }
+
+    const relationshipSessionId = profile.active_relationship_session_id;
     const partnerId = profile.linked_user_id;
 
     // TODO: Multi-language support
@@ -73,7 +78,8 @@ export default async function handler(req: any, res: any) {
     const { data: tutorChallengeData, error: tutorChallengeError } = await supabase
       .from('tutor_challenges')
       .select('id')
-      .eq('tutor_id', auth.userId);
+      .eq('tutor_id', auth.userId)
+      .eq('relationship_session_id', relationshipSessionId);
 
     if (tutorChallengeError) {
       console.error('Error fetching tutor challenges:', tutorChallengeError);
@@ -101,6 +107,7 @@ export default async function handler(req: any, res: any) {
       .from('word_requests')
       .select('xp_multiplier')
       .eq('tutor_id', auth.userId)
+      .eq('relationship_session_id', relationshipSessionId)
       .eq('status', 'completed');
 
     const xpFromGifts = wordGifts?.reduce((sum, g) => sum + ((g.xp_multiplier || 1) * 5), 0) || 0;
@@ -111,6 +118,7 @@ export default async function handler(req: any, res: any) {
       .from('word_requests')
       .select('selected_words')
       .eq('tutor_id', auth.userId)
+      .eq('relationship_session_id', relationshipSessionId)
       .eq('status', 'completed');
 
     // Extract word IDs from selected_words JSON
@@ -141,7 +149,8 @@ export default async function handler(req: any, res: any) {
     const { data: tutorChallenges } = await supabase
       .from('tutor_challenges')
       .select('id')
-      .eq('tutor_id', auth.userId);
+      .eq('tutor_id', auth.userId)
+      .eq('relationship_session_id', relationshipSessionId);
 
     const tutorChallengeIds = new Set(tutorChallenges?.map(c => c.id) || []);
     const tutorResults = allResults?.filter(r => tutorChallengeIds.has(r.challenge_id)) || [];
@@ -159,6 +168,7 @@ export default async function handler(req: any, res: any) {
       .from('activity_feed')
       .select('event_type, created_at, data')
       .eq('user_id', partnerId)
+      .eq('relationship_session_id', relationshipSessionId)
       .gte('created_at', startDate.toISOString())
       .order('created_at', { ascending: true });
 
@@ -285,6 +295,7 @@ export default async function handler(req: any, res: any) {
       .from('activity_feed')
       .select('created_at')
       .eq('user_id', partnerId)
+      .eq('relationship_session_id', relationshipSessionId)
       .gte('created_at', new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString())
       .limit(500);  // Cap for performance
 

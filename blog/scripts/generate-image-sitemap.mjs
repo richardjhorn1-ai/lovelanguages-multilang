@@ -73,8 +73,7 @@ async function getArticleUrls() {
   const supabaseKey = env.SUPABASE_ANON_KEY || env.VITE_SUPABASE_ANON_KEY;
 
   if (!supabaseUrl || !supabaseKey) {
-    console.log('Supabase credentials not found, using default article patterns');
-    return [];
+    throw new Error('Missing Supabase credentials for image sitemap generation');
   }
 
   const supabase = createClient(supabaseUrl, supabaseKey);
@@ -90,8 +89,7 @@ async function getArticleUrls() {
       .range(offset, offset + PAGE_SIZE - 1);
 
     if (error) {
-      console.error('Error fetching article URLs from Supabase:', error.message);
-      return allUrls;
+      throw new Error(`Error fetching article URLs from Supabase: ${error.message}`);
     }
 
     if (!data || data.length === 0) break;
@@ -185,6 +183,9 @@ async function main() {
   console.log(`Found ${images.length} blog images`);
 
   const articleUrls = await getArticleUrls();
+  if (articleUrls.length === 0) {
+    throw new Error('Image sitemap generation aborted: no article URLs fetched from Supabase');
+  }
   console.log(`Found ${articleUrls.length} article URLs`);
 
   const xml = generateImageSitemap(images, articleUrls);
@@ -202,4 +203,7 @@ async function main() {
   console.log('Done!');
 }
 
-main().catch(console.error);
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});

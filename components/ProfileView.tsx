@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
-import { Profile, OnboardingData } from '../types';
+import { Profile, OnboardingData, PartnerProfileView } from '../types';
 import { ICONS } from '../constants';
 import SubscriptionManager from './SubscriptionManager';
 import UsageSection from './UsageSection';
@@ -31,6 +31,7 @@ import {
 import { sounds } from '../services/sounds';
 import { haptics } from '../services/haptics';
 import { apiFetch } from '../services/api-config';
+import { fetchPartnerProfileView } from '../services/partner-profile';
 
 // Extend Window interface for PWA install prompt
 interface BeforeInstallPromptEvent extends Event {
@@ -54,7 +55,7 @@ const ORIGIN_OPTIONS = ['poland', 'family', 'school', 'self'];
 const STYLE_OPTIONS = ['patient', 'playful', 'structured', 'immersive'];
 
 const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
-  const [partner, setPartner] = useState<Profile | null>(null);
+  const [partner, setPartner] = useState<PartnerProfileView | null>(null);
   const [showCustomisation, setShowCustomisation] = useState(false);
   const [showAdvanced, setShowAdvanced] = useState(false);
   const [editData, setEditData] = useState<Partial<OnboardingData>>({});
@@ -118,12 +119,18 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
   }, [isNativeApp]);
 
   const fetchPartner = async () => {
-    const { data } = await supabase
-      .from('profiles')
-      .select('*')
-      .eq('id', profile.linked_user_id)
-      .single();
-    if (data) setPartner(data);
+    if (!profile.linked_user_id) {
+      setPartner(null);
+      return;
+    }
+
+    try {
+      const partnerProfile = await fetchPartnerProfileView();
+      setPartner(partnerProfile);
+    } catch (error) {
+      console.error('Failed to fetch partner profile view:', error);
+      setPartner(null);
+    }
   };
 
   const updateField = (key: keyof OnboardingData, value: string) => {
@@ -248,9 +255,9 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
             subscription_ends_at: profile.subscription_ends_at || null,
             subscription_granted_by: profile.subscription_granted_by || null,
             linked_user_id: profile.linked_user_id || null,
-            stripe_customer_id: profile.stripe_customer_id || null,
             free_tier_chosen_at: profile.free_tier_chosen_at || null,
-            promo_expires_at: profile.promo_expires_at || null
+            promo_expires_at: profile.promo_expires_at || null,
+            subscription_source: profile.subscription_source || null
           }}
           partnerName={partner?.full_name}
         />
@@ -304,7 +311,11 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
               </div>
               <div className="flex-1 z-10">
                 <p className="font-black text-[var(--text-primary)] text-scale-label leading-none mb-1">{partner.full_name}</p>
-                <p className="text-scale-micro font-bold uppercase tracking-wider" style={{ color: accentHex }}>{partner.email}</p>
+                <p className="text-scale-micro font-bold uppercase tracking-wider" style={{ color: accentHex }}>
+                  {partner.role === 'tutor'
+                    ? t('profile.roles.tutor')
+                    : t('profile.roles.student', { language: t(`languageNames.${targetLanguage}`) })}
+                </p>
               </div>
               <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-500 z-10">
                 <ICONS.Check className="w-4 h-4" />

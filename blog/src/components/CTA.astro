@@ -77,20 +77,23 @@ const ctaUrl = `/?${utmParams.toString()}`;
 </div>
 
 <script>
+  const gtagFn = (window as Window & { gtag?: (...args: unknown[]) => void }).gtag;
+
   // Track CTA clicks with full context
   document.querySelectorAll('.cta-button').forEach(btn => {
     btn.addEventListener('click', (e) => {
-      const target = e.currentTarget as HTMLElement;
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'blog_cta_click', {
+      const target = e.currentTarget;
+      if (!(target instanceof HTMLElement) || typeof gtagFn !== 'function') {
+        return;
+      }
+      gtagFn('event', 'blog_cta_click', {
           native_lang: target.dataset.native,
           target_lang: target.dataset.target,
           article_slug: target.dataset.article,
           page_path: window.location.pathname,
           event_category: 'conversion',
           event_label: `${target.dataset.native}-${target.dataset.target}`,
-        });
-      }
+      });
     });
   });
 </script>

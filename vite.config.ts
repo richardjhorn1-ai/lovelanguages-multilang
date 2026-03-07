@@ -62,6 +62,7 @@ export default defineConfig(() => ({
           /^\/compare/,
           /^\/tools/,
           /^\/dictionary/,
+          /^\/support/,
           /^\/api/
         ],
         runtimeCaching: [

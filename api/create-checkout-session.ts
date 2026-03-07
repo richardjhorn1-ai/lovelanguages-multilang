@@ -98,11 +98,17 @@ export default async function handler(req: any, res: any) {
 
     const { data: profile } = await supabase
       .from('profiles')
-      .select('stripe_customer_id, full_name')
+      .select('full_name')
       .eq('id', auth.userId)
       .single();
 
-    let customerId = profile?.stripe_customer_id;
+    const { data: privateState } = await supabase
+      .from('profile_private')
+      .select('stripe_customer_id')
+      .eq('user_id', auth.userId)
+      .maybeSingle();
+
+    let customerId = privateState?.stripe_customer_id;
 
     if (!customerId) {
       // Create new Stripe customer
@@ -117,9 +123,15 @@ export default async function handler(req: any, res: any) {
 
       // Save customer ID to profile
       await supabase
-        .from('profiles')
-        .update({ stripe_customer_id: customerId })
-        .eq('id', auth.userId);
+        .from('profile_private')
+        .upsert(
+          {
+            user_id: auth.userId,
+            stripe_customer_id: customerId,
+            updated_at: new Date().toISOString(),
+          },
+          { onConflict: 'user_id' }
+        );
     }
 
     // Determine success/cancel URLs with open redirect protection

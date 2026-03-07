@@ -117,12 +117,24 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'Missing requestId' });
     }
 
+    const { data: profileForSession } = await supabase
+      .from('profiles')
+      .select('active_relationship_session_id')
+      .eq('id', auth.userId)
+      .single();
+
+    const activeRelationshipSessionId = profileForSession?.active_relationship_session_id;
+    if (!activeRelationshipSessionId) {
+      return res.status(409).json({ error: 'No active relationship session found' });
+    }
+
     // Get the word request and atomically mark as in-progress to prevent race conditions
     let wordRequest: any;
     const { data: claimedRequest, error: requestError } = await supabase
       .from('word_requests')
       .update({ status: 'in_progress' })
       .eq('id', requestId)
+      .eq('relationship_session_id', activeRelationshipSessionId)
       .eq('status', 'pending')  // Only update if still pending (prevents double completion)
       .select('*')
       .single();
@@ -131,7 +143,7 @@ export default async function handler(req: any, res: any) {
       // Could be not found, already completed, or stuck in_progress from a timed-out attempt
       const { data: existingRequest } = await supabase
         .from('word_requests')
-        .select('*, updated_at')
+        .select('*, updated_at, relationship_session_id')
         .eq('id', requestId)
         .single();
 
@@ -140,6 +152,9 @@ export default async function handler(req: any, res: any) {
       }
       if (existingRequest.student_id !== auth.userId) {
         return res.status(403).json({ error: 'Not authorized' });
+      }
+      if (existingRequest.relationship_session_id !== activeRelationshipSessionId) {
+        return res.status(409).json({ error: 'Word request belongs to a previous relationship session' });
       }
       if (existingRequest.status === 'completed') {
         return res.status(400).json({ error: 'Already completed' });
@@ -229,7 +244,8 @@ export default async function handler(req: any, res: any) {
         tutor_id: wordRequest.tutor_id,
         student_id: auth.userId,
         language_code: targetLanguage,
-        xp_earned: wordXp
+        xp_earned: wordXp,
+        relationship_session_id: wordRequest.relationship_session_id || null,
       });
 
       addedWords.push({
@@ -282,6 +298,7 @@ export default async function handler(req: any, res: any) {
         subtitle: `${addedWords.length} words from ${tutorProfile?.full_name || 'partner'}`,
         data: { request_id: requestId, words_count: addedWords.length, xp_earned: totalXpEarned },
         language_code: targetLanguage,
+        relationship_session_id: wordRequest.relationship_session_id || null,
       }),
     ];
 

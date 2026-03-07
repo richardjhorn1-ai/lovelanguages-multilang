@@ -12,6 +12,47 @@ if (!supabaseUrl || !supabaseKey) {
 }
 
 const supabase = createClient(supabaseUrl || '', supabaseKey || '');
+const PAGE_SIZE = 1000;
+
+async function fetchAllPublishedRows<T>(
+  select: string,
+  applyFilters?: (query: any) => any
+): Promise<T[]> {
+  const allRows: T[] = [];
+  let offset = 0;
+
+  while (true) {
+    let query: any = supabase
+      .from('blog_articles')
+      .select(select)
+      .eq('published', true)
+      .range(offset, offset + PAGE_SIZE - 1);
+
+    if (applyFilters) {
+      query = applyFilters(query);
+    }
+
+    const { data, error } = await query;
+
+    if (error) {
+      throw error;
+    }
+
+    if (!data || data.length === 0) {
+      break;
+    }
+
+    allRows.push(...(data as T[]));
+
+    if (data.length < PAGE_SIZE) {
+      break;
+    }
+
+    offset += PAGE_SIZE;
+  }
+
+  return allRows;
+}
 
 export interface BlogArticle {
   id: string;
@@ -147,12 +188,11 @@ export async function getArticlesByNativeLang(
  * Get all unique language pairs with article counts
  */
 export async function getLanguagePairs(): Promise<{ native_lang: string; target_lang: string; count: number }[]> {
-  const { data, error } = await supabase
-    .from('blog_articles')
-    .select('native_lang, target_lang')
-    .eq('published', true);
+  let data: { native_lang: string; target_lang: string }[] = [];
 
-  if (error) {
+  try {
+    data = await fetchAllPublishedRows<{ native_lang: string; target_lang: string }>('native_lang, target_lang');
+  } catch (error) {
     console.error('Error fetching language pairs:', error);
     return [];
   }
@@ -175,12 +215,11 @@ export async function getLanguagePairs(): Promise<{ native_lang: string; target_
  * Get all unique native languages
  */
 export async function getNativeLanguages(): Promise<string[]> {
-  const { data, error } = await supabase
-    .from('blog_articles')
-    .select('native_lang')
-    .eq('published', true);
+  let data: { native_lang: string }[] = [];
 
-  if (error) {
+  try {
+    data = await fetchAllPublishedRows<{ native_lang: string }>('native_lang');
+  } catch (error) {
     console.error('Error fetching native languages:', error);
     return [];
   }
@@ -193,13 +232,14 @@ export async function getNativeLanguages(): Promise<string[]> {
  * Get target languages for a specific native language
  */
 export async function getTargetLanguages(nativeLang: string): Promise<string[]> {
-  const { data, error } = await supabase
-    .from('blog_articles')
-    .select('target_lang')
-    .eq('native_lang', nativeLang)
-    .eq('published', true);
+  let data: { target_lang: string }[] = [];
 
-  if (error) {
+  try {
+    data = await fetchAllPublishedRows<{ target_lang: string }>(
+      'target_lang',
+      query => query.eq('native_lang', nativeLang)
+    );
+  } catch (error) {
     console.error('Error fetching target languages:', error);
     return [];
   }
@@ -291,7 +331,6 @@ export async function getAllSlugs(
   targetLang?: string
 ): Promise<{ native_lang: string; target_lang: string; slug: string; updated_at: string | null; is_canonical: boolean }[]> {
   const allData: { native_lang: string; target_lang: string; slug: string; updated_at: string | null; is_canonical: boolean }[] = [];
-  const PAGE_SIZE = 1000;
   let offset = 0;
 
   while (true) {
@@ -442,13 +481,14 @@ export async function getArticleCount(
 export async function getArticleCountsByTargetLang(
   nativeLang: string
 ): Promise<Record<string, number>> {
-  const { data, error } = await supabase
-    .from('blog_articles')
-    .select('target_lang')
-    .eq('native_lang', nativeLang)
-    .eq('published', true);
+  let data: { target_lang: string }[] = [];
 
-  if (error) {
+  try {
+    data = await fetchAllPublishedRows<{ target_lang: string }>(
+      'target_lang',
+      query => query.eq('native_lang', nativeLang)
+    );
+  } catch (error) {
     console.error('Error getting article counts:', error);
     return {};
   }

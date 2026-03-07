@@ -1,78 +1,45 @@
-# Testing Checklist — release/security-analytics
+# Testing Checklist
 
-**Branch:** `release/security-analytics`
-**Preview:** Check Vercel for latest deploy
+Last reviewed: 2026-03-07
 
----
+This checklist reflects the current quality gates and high-risk user flows.
 
-## 🔒 Security Automation
+## 1. Required Local Gates
 
-- [ ] Pre-commit hooks installed (`pip install pre-commit && pre-commit install`)
-- [ ] Gitleaks catches test secret (try committing a fake key)
-- [ ] GitHub Actions run on PR (check Actions tab)
+Run these from repo root and require pass before merge:
 
----
+- `npm run lint`
+- `npm run typecheck:app`
+- `npm run typecheck:api`
+- `npm run typecheck:blog`
+- `npm run test:unit`
+- `npm run build:app`
+- `npm run build:blog`
+- `npm run seo:validate-routes`
 
-## 📊 Analytics (GA4)
+## 2. Security and Dependency Checks
 
-Open GA4 Real-time while testing: https://analytics.google.com
+- Runtime dependency gate (PR blocking): `npm audit --omit=dev --audit-level=high`
+- Release sweep (release branches): run full audit report workflow and review uploaded artifact
+- Secret scanning: verify Gitleaks passes in CI
 
-- [ ] **Signup started** — Click Google OAuth on login → check `signup_started` event
-- [ ] **Signup completed** — Complete signup → check `signup_completed` event
-- [ ] **Paywall view** — Hit paywall as free user → check `paywall_view` event
-- [ ] **Plan selected** — Click a plan → check `plan_selected` event
-- [ ] **Checkout started** — Click Subscribe → check `checkout_started` event
+## 3. High-Risk Product Flows
 
----
+- Partner linking/unlinking
+- Shared subscription visibility and billing-owner controls
+- Tutor/student collaboration actions (gifts, challenges, requests)
+- Chat + Love Log extraction + Progress aggregation
+- Apple account deletion path and revocation attempt behavior
 
-## 🔑 Password Reset
+## 4. SEO and Public Route Validation
 
-### From Login Page
-- [ ] "Forgot password?" link visible on login (not signup)
-- [ ] Click it → enter email → click "Send reset link"
-- [ ] Email arrives from Supabase
-- [ ] Click link → lands on `/reset-password`
-- [ ] Page shows 🔐 and password form (not error)
-- [ ] Enter new password + confirm → click Update
-- [ ] Success message shows ✅
-- [ ] Redirects to home after ~2 seconds
-- [ ] Can login with new password
+- Confirm route-ownership contract passes (`seo:validate-routes`)
+- Validate canonical host is `https://www.lovelanguages.io`
+- Validate canonical trailing-slash convention
+- Confirm story subdomain remains isolated and non-indexable
 
-### Styling Check
-- [ ] Pink gradient background
-- [ ] White rounded card
-- [ ] Rose accent button
-- [ ] Loading spinner while verifying link
+## 5. Deployment Checks
 
----
-
-## 📧 Email Change
-
-- [ ] Profile → "Account Settings" section exists
-- [ ] Click to expand → shows email + password options
-- [ ] Click "Change" next to email
-- [ ] Form appears with new email input
-- [ ] Enter new email → click "Update Email"
-- [ ] Success message: "Check your new email to confirm"
-- [ ] Confirmation emails arrive at BOTH old and new address
-- [ ] After confirming both → email is updated
-
----
-
-## 🔐 Password Change (from Profile)
-
-- [ ] Profile → Account Settings → "Reset Password" button
-- [ ] Click → success message about email sent
-- [ ] Email arrives → same flow as forgot password
-
----
-
-## ✅ Final Checks
-
-- [ ] Build passes (`npm run build`)
-- [ ] No console errors on key pages
-- [ ] Mobile responsive (check on phone)
-
----
-
-**After all tests pass:** Merge `release/security-analytics` → `main`
+- Verify preview passes the same gates as PR CI
+- Re-run SEO audit against preview before promoting to production
+- Confirm production parity after release for route/sitemap/canonical behavior

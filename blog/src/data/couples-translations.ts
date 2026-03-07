@@ -57,6 +57,21 @@ export interface CouplesTranslation {
       sectionTitle: string;
       items: CouplesTip[];
     };
+    methodology?: {
+      sectionTitle?: string;
+      subtitle?: string;
+      articles?: {
+        aiCoaching?: string;
+        aiCoachingDesc?: string;
+        benefits?: string;
+        benefitsDesc?: string;
+        mistakes?: string;
+        mistakesDesc?: string;
+        science?: string;
+        scienceDesc?: string;
+      };
+      viewAll?: string;
+    };
     faqs: CouplesFAQ[];
     exploreAll: {
       title: string;

@@ -10,6 +10,7 @@ import {
 } from '../utils/api-middleware.js';
 import { getProfileLanguages } from '../utils/language-helpers.js';
 import { sanitizeInput } from '../utils/sanitize.js';
+import { verifyActiveRelationshipSession } from '../utils/relationship-session.js';
 
 export default async function handler(req: any, res: any) {
   if (setCorsHeaders(req, res)) {
@@ -50,7 +51,7 @@ export default async function handler(req: any, res: any) {
     // Get tutor's profile and linked student
     const { data: profile, error: profileError } = await supabase
       .from('profiles')
-      .select('id, role, linked_user_id, full_name')
+      .select('id, role, linked_user_id, full_name, active_relationship_session_id')
       .eq('id', auth.userId)
       .single();
 
@@ -66,20 +67,16 @@ export default async function handler(req: any, res: any) {
       return res.status(400).json({ error: 'No linked partner found' });
     }
 
-    // CRITICAL: Verify two-way partner link (prevents orphaned challenges if student unlinked)
-    const { data: studentProfile, error: studentProfileError } = await supabase
-      .from('profiles')
-      .select('linked_user_id')
-      .eq('id', profile.linked_user_id)
-      .single();
-
-    if (studentProfileError || !studentProfile) {
-      return res.status(400).json({ error: 'Partner profile not found' });
+    const relationshipCheck = await verifyActiveRelationshipSession(
+      supabase,
+      auth.userId,
+      profile.linked_user_id,
+      profile.active_relationship_session_id
+    );
+    if (relationshipCheck.ok === false) {
+      return res.status(relationshipCheck.status).json({ error: relationshipCheck.error });
     }
-
-    if (studentProfile.linked_user_id !== auth.userId) {
-      return res.status(400).json({ error: 'Partner link is no longer active. Please ask your partner to reconnect.' });
-    }
+    const relationshipSessionId = relationshipCheck.relationshipSessionId;
 
     // Get student's language settings
     const { targetLanguage, nativeLanguage } = await getProfileLanguages(supabase, profile.linked_user_id);
@@ -100,7 +97,7 @@ export default async function handler(req: any, res: any) {
     if (linkedWordRequestId) {
       const { data: wordRequest, error: wrError } = await supabase
         .from('word_requests')
-        .select('id, tutor_id, linked_challenge_id')
+        .select('id, tutor_id, linked_challenge_id, relationship_session_id')
         .eq('id', linkedWordRequestId)
         .single();
 
@@ -114,6 +111,10 @@ export default async function handler(req: any, res: any) {
 
       if (wordRequest.linked_challenge_id) {
         return res.status(400).json({ error: 'Word request is already linked to a challenge' });
+      }
+
+      if (wordRequest.relationship_session_id && wordRequest.relationship_session_id !== relationshipSessionId) {
+        return res.status(409).json({ error: 'Word request belongs to a previous relationship session' });
       }
     }
 
@@ -252,6 +253,7 @@ export default async function handler(req: any, res: any) {
         words_data: wordsData,
         status: challengeStatus,
         linked_word_request_id: linkedWordRequestId || null,
+        relationship_session_id: relationshipSessionId,
       })
       .select()
       .single();
@@ -320,6 +322,7 @@ export default async function handler(req: any, res: any) {
       subtitle: `${wordsData.length} words`,
       data: { challenge_id: challenge.id },
       language_code: targetLanguage,
+      relationship_session_id: relationshipSessionId,
     });
 
     // Increment usage counter

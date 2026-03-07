@@ -47,6 +47,48 @@ const isBetaTester = (email: string): boolean => {
   return BETA_TESTERS.some(e => e.toLowerCase() === email.toLowerCase());
 };
 
+const PROFILE_SELECT_FIELDS = [
+  'id',
+  'email',
+  'role',
+  'linked_user_id',
+  'full_name',
+  'avatar_url',
+  'xp',
+  'level',
+  'partner_name',
+  'role_confirmed_at',
+  'onboarding_completed_at',
+  'onboarding_data',
+  'accent_color',
+  'dark_mode',
+  'font_size',
+  'font_preset',
+  'font_weight',
+  'background_style',
+  'smart_validation',
+  'haptics_enabled',
+  'active_language',
+  'native_language',
+  'languages',
+  'subscription_plan',
+  'subscription_status',
+  'subscription_period',
+  'subscription_ends_at',
+  'subscription_source',
+  'subscription_granted_by',
+  'subscription_granted_at',
+  'free_tier_chosen_at',
+  'trial_expires_at',
+  'promo_expires_at',
+  'tutor_xp',
+  'tutor_tier',
+  'last_practice_at',
+  'nudges_enabled',
+  'last_nudge_at',
+  'created_at',
+].join(',');
+
 // Wrapper component that keeps main tabs mounted to preserve state
 const PersistentTabs: React.FC<{ profile: Profile; onRefresh: () => void }> = ({ profile, onRefresh }) => {
   const location = useLocation();
@@ -61,22 +103,22 @@ const PersistentTabs: React.FC<{ profile: Profile; onRefresh: () => void }> = ({
       {/* Persistent tabs - always mounted, shown/hidden via CSS */}
       <div className={path === '/' ? 'h-full' : 'hidden'}>
         <ErrorBoundary>
-          <ChatArea profile={profile} />
+          <ChatArea profile={profile} isActive={path === '/'} />
         </ErrorBoundary>
       </div>
       <div className={path === '/log' ? 'h-full' : 'hidden'}>
         <ErrorBoundary>
-          <LoveLog profile={profile} />
+          <LoveLog profile={profile} isActive={path === '/log'} />
         </ErrorBoundary>
       </div>
       <div className={path === '/play' ? 'h-full' : 'hidden'}>
         <ErrorBoundary>
-          <FlashcardGame profile={profile} />
+          <FlashcardGame profile={profile} isActive={path === '/play'} />
         </ErrorBoundary>
       </div>
       <div className={path === '/progress' ? 'h-full' : 'hidden'}>
         <ErrorBoundary>
-          <Progress profile={profile} />
+          <Progress profile={profile} isActive={path === '/progress'} />
         </ErrorBoundary>
       </div>
 
@@ -274,9 +316,10 @@ const App: React.FC = () => {
       setDbError(null);
       const { data, error } = await supabase
         .from('profiles')
-        .select('*')
+        .select(PROFILE_SELECT_FIELDS)
         .eq('id', userId)
         .single();
+      const profileData = data as unknown as Profile | null;
 
       if (error) {
         // Fix: PostgrestError does not have a status property.
@@ -400,7 +443,7 @@ const App: React.FC = () => {
                     .select()
                     .single();
                   if (updatedProfile) {
-                    setProfile(updatedProfile);
+                    setProfile(updatedProfile as Profile);
                     return;
                   }
                   if (updateError) {
@@ -410,11 +453,11 @@ const App: React.FC = () => {
                 // Fallback: just fetch the existing profile
                 const { data: existingProfile, error: fetchError } = await supabase
                   .from('profiles')
-                  .select('*')
+                  .select(PROFILE_SELECT_FIELDS)
                   .eq('id', userData.user.id)
                   .single();
                 if (existingProfile) {
-                  setProfile(existingProfile);
+                  setProfile(existingProfile as unknown as Profile);
                   return;
                 }
                 if (fetchError) {
@@ -426,19 +469,27 @@ const App: React.FC = () => {
               setDbError(msg);
               return;
             }
-            setProfile(newProfile);
+            setProfile(newProfile as Profile);
           }
         } else {
           setDbError(`Supabase Error: ${error.message}`);
           console.error("Supabase Error:", error);
         }
       } else {
-        setProfile(data);
+        if (!profileData) {
+          throw new Error('Profile query succeeded but no profile data was returned');
+        }
+        setProfile(profileData);
+        const profileCreatedAt = profileData.created_at || new Date().toISOString();
+        const analyticsPlan =
+          profileData.subscription_plan && profileData.subscription_plan !== 'none'
+            ? profileData.subscription_plan
+            : 'free';
 
         // Detect new signup that landed here because the Supabase auth trigger
         // created the profile before our client-side INSERT could run.
         // Check: profile created within last 5 minutes AND not already tracked.
-        const profileAge = Date.now() - new Date(data.created_at).getTime();
+        const profileAge = Date.now() - new Date(profileCreatedAt).getTime();
         const FIVE_MINUTES = 5 * 60 * 1000;
         const trackingKey = `signup_tracked_${userId}`;
 
@@ -448,10 +499,10 @@ const App: React.FC = () => {
           const { data: userData } = await supabase.auth.getUser();
           const provider = userData?.user?.app_metadata?.provider || 'email';
           analytics.identify(userId, {
-            signup_date: data.created_at,
-            native_language: data.native_language,
-            target_language: data.active_language,
-            subscription_plan: data.subscription_plan || 'free',
+            signup_date: profileCreatedAt,
+            native_language: profileData.native_language,
+            target_language: profileData.active_language,
+            subscription_plan: analyticsPlan,
           });
           const referralData = getReferralData();
           analytics.trackSignupCompleted({
@@ -468,10 +519,10 @@ const App: React.FC = () => {
         } else {
           // Returning user — identify for event tracking
           analytics.identify(userId, {
-            signup_date: data.created_at,
-            native_language: data.native_language,
-            target_language: data.active_language,
-            subscription_plan: data.subscription_plan || 'free',
+            signup_date: profileCreatedAt,
+            native_language: profileData.native_language,
+            target_language: profileData.active_language,
+            subscription_plan: analyticsPlan,
           });
           // Track login only once per browser session (not on every page refresh)
           const loginSessionKey = `login_tracked_${userId}`;
@@ -483,15 +534,15 @@ const App: React.FC = () => {
           }
         }
         // Pre-cache vocabulary for offline mode
-        if (data?.active_language) {
-          offline.preCacheOnLogin(userId, data.active_language);
+        if (profileData?.active_language) {
+          offline.preCacheOnLogin(userId, profileData.active_language);
         }
         // Sync localStorage with profile settings (self-healing if localStorage is stale)
-        if (data?.active_language) {
-          localStorage.setItem('preferredTargetLanguage', data.active_language);
+        if (profileData?.active_language) {
+          localStorage.setItem('preferredTargetLanguage', profileData.active_language);
         }
-        if (data?.native_language) {
-          localStorage.setItem('preferredNativeLanguage', data.native_language);
+        if (profileData?.native_language) {
+          localStorage.setItem('preferredNativeLanguage', profileData.native_language);
         }
         // Initialize RevenueCat for iOS in-app purchases (non-blocking)
         if (isIAPAvailable()) {
@@ -504,7 +555,7 @@ const App: React.FC = () => {
             .then(info => {
               if (!info) return;
               const entitlement = hasActiveEntitlement(info);
-              if (entitlement.isActive && data.subscription_status !== 'active') {
+              if (entitlement.isActive && profileData.subscription_status !== 'active') {
                 // User has active App Store subscription but DB doesn't reflect it
                 // This can happen if webhook was delayed — update DB
                 return supabase.from('profiles').update({

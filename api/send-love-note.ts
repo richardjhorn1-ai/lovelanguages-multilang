@@ -7,6 +7,7 @@ import {
 import { getProfileLanguages } from '../utils/language-helpers.js';
 import { LOVE_NOTE_TEMPLATES } from '../constants/levels.js';
 import { sanitizeInput } from '../utils/sanitize.js';
+import { verifyActiveRelationshipSession } from '../utils/relationship-session.js';
 
 // Rate limit: 10 love notes per day
 const DAILY_LIMIT = 10;
@@ -65,7 +66,7 @@ export default async function handler(req: any, res: any) {
     // Get user profile and verify they have a linked partner
     const { data: profile, error: profileError } = await supabase
       .from('profiles')
-      .select('linked_user_id, full_name')
+      .select('linked_user_id, full_name, active_relationship_session_id')
       .eq('id', auth.userId)
       .single();
 
@@ -76,6 +77,17 @@ export default async function handler(req: any, res: any) {
     if (!profile.linked_user_id) {
       return res.status(400).json({ error: 'No linked partner' });
     }
+
+    const relationshipCheck = await verifyActiveRelationshipSession(
+      supabase,
+      auth.userId,
+      profile.linked_user_id,
+      profile.active_relationship_session_id
+    );
+    if (relationshipCheck.ok === false) {
+      return res.status(relationshipCheck.status).json({ error: relationshipCheck.error });
+    }
+    const relationshipSessionId = relationshipCheck.relationshipSessionId;
 
     const { targetLanguage } = await getProfileLanguages(supabase, auth.userId);
 
@@ -105,6 +117,7 @@ export default async function handler(req: any, res: any) {
         template_category: templateCategory || null,
         template_text: templateText || null,
         custom_message: sanitizedMessage,
+        relationship_session_id: relationshipSessionId,
       })
       .select()
       .single();
@@ -141,6 +154,7 @@ export default async function handler(req: any, res: any) {
       subtitle: noteText,
       data: { note_id: loveNote.id },
       language_code: targetLanguage,
+      relationship_session_id: relationshipSessionId,
     });
 
     return res.status(200).json({
