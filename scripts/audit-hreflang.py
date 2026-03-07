@@ -28,7 +28,7 @@ def get_sample_articles(count: int = 15) -> list:
     # Get articles that have topic_id (needed for hreflang cross-linking)
     r = subprocess.run([
         'curl', '-s',
-        f'{url}/blog_articles?select=slug,native_lang,target_lang,topic_id'
+        f'{url}/blog_articles?select=slug,slug_native,native_lang,target_lang,topic_id'
         f'&target_lang=neq.all&topic_id=not.is.null&limit=500',
         '-H', f'apikey: {key}',
         '-H', f'Authorization: Bearer {key}'
@@ -104,7 +104,7 @@ def audit_article(article: dict) -> dict:
     """Audit hreflang tags for a single article."""
     native = article['native_lang']
     target = article['target_lang']
-    slug = article['slug']
+    slug = article.get('slug_native') or article['slug']
     url = f"{SITE}/learn/{native}/{target}/{slug}/"
 
     # Fetch the page

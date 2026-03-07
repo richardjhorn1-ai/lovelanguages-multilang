@@ -4,86 +4,61 @@
 
 ## The Golden Rule
 
-**All article filenames MUST use English slugs, regardless of native language.**
+**Articles have TWO slugs:**
+- **`slug`** — English slug (immutable identifier, used for DB lookups)
+- **`slug_native`** — Native-language slug (used in URLs for SEO)
+
+URLs use the **native slug** when available, falling back to the English slug.
 
 ```
-✅ CORRECT: blog/src/content/articles/es/pl/polish-pet-names-terms-of-endearment.mdx
-❌ WRONG:   blog/src/content/articles/es/pl/apodos-cariñosos-polacos.mdx
+URL:      /learn/cs/de/nemecka-gramatika-pro-zacatecniky/   ← native slug
+DB slug:  german-grammar-basics-for-beginners                ← English slug (never changes)
 ```
 
-The filename becomes the URL slug. Changing a filename = breaking all existing links.
+If a user visits the English slug URL, the server 301-redirects to the native slug URL.
 
 ---
 
-## Before Renaming Any File
+## How Slug Lookup Works
 
-### 1. NEVER rename article files without creating redirects
+1. User visits `/learn/{native}/{target}/{some-slug}/`
+2. `getArticle()` queries: `slug_native = some-slug OR slug = some-slug`
+3. If found via English slug but article has a native slug → **301 redirect** to native URL
+4. If found via native slug → serve directly
 
-If you must rename a file:
-
-```bash
-# 1. First, add redirect to vercel.json
-# 2. Then rename the file
-# 3. Deploy and verify
-```
-
-### 2. Use the redirect scripts
-
-```bash
-cd blog
-
-# Generate all needed redirects from git history
-node scripts/generate-redirects.cjs
-
-# Update vercel.json with redirects
-node scripts/update-vercel-redirects.cjs
-
-# Test redirects against live site
-node scripts/test-redirects.cjs --sample 50
-```
+**Uniqueness:** Both `(native_lang, target_lang, slug)` and `(native_lang, target_lang, slug_native)` have UNIQUE constraints.
 
 ---
 
 ## When Creating New Articles
 
-### Filename Pattern
+### In Supabase
 
-```
-{target-language}-{topic-in-english}.mdx
-```
+- **`slug`** (required): English slug — descriptive, lowercase, hyphenated
+- **`slug_native`** (optional): Native-language slug — same format but in the article's native language
+- **`native_lang`**: 2-letter ISO code of the article's UI language
+- **`target_lang`**: 2-letter ISO code of the language being taught
 
-Examples:
-- `polish-pet-names-terms-of-endearment.mdx`
-- `how-to-say-i-love-you-in-polish.mdx`
-- `polish-essential-phrases-for-couples.mdx`
-- `is-polish-hard-to-learn.mdx`
-- `100-common-polish-words.mdx`
+### Slug Format Rules
 
-### Directory Structure
-
-```
-blog/src/content/articles/
-├── {nativeLanguage}/           # 2-letter code (en, es, fr, de, etc.)
-│   └── {targetLanguage}/       # 2-letter code (pl, it, sv, etc.)
-│       └── {english-slug}.mdx  # ALWAYS English slug
-```
-
-### Title & Content Language
-
-- **Filename:** Always English
-- **Title:** In native language (es articles have Spanish titles)
-- **Content:** In native language
-- **Frontmatter:** language codes are 2-letter ISO codes
+- Lowercase, ASCII-safe (no accents — use transliteration: `ä→a`, `ś→s`, `ü→u`)
+- Hyphens as separators, no trailing hyphens
+- No special characters except hyphens
+- Unique within its `(native_lang, target_lang)` pair
 
 ---
 
 ## Redirect Management
 
-### When Redirects Are Needed
+### Built-in Redirects (No Config Needed)
 
-1. **File renamed** - Old slug → New slug
-2. **File moved** - Old path → New path
-3. **URL structure changed** - e.g., `/learn/pl/article` → `/learn/en/pl/article`
+English slug → native slug redirects are handled automatically by `[...slug].astro`. No vercel.json entries needed.
+
+### When Manual Redirects Are Needed
+
+Only when:
+1. An English slug is **renamed** (this should be rare)
+2. URL structure changes (e.g., path reorganization)
 
 ### Adding Manual Redirects
 
@@ -93,92 +68,42 @@ Edit `vercel.json`:
 {
   "redirects": [
     {
-      "source": "/learn/es/sv/frases-esenciales-sueco-para-parejas",
-      "destination": "/learn/es/sv/swedish-essential-phrases-for-couples/",
+      "source": "/learn/es/sv/old-slug",
+      "destination": "/learn/es/sv/new-slug/",
       "permanent": true
     }
   ]
 }
 ```
 
-**Always include both with and without trailing slash:**
-
-```json
-{
-  "source": "/old-path",
-  "destination": "/new-path/",
-  "permanent": true
-},
-{
-  "source": "/old-path/",
-  "destination": "/new-path/",
-  "permanent": true
-}
-```
-
-### Vercel Limits
-
-| Plan | Max Redirects |
-|------|---------------|
-| Hobby | 1,024 |
-| Pro | 4,096 |
-
-If you exceed limits, consider middleware-based redirects.
-
----
-
-## Registry Maintenance
-
-After any file changes, regenerate the registry:
-
-```bash
-cd blog
-node scripts/update-registry.cjs
-```
-
-This updates `src/data/article-registry.json` which is used for sitemaps and internal linking.
-
 ---
 
 ## Checklist for Article Changes
 
-- [ ] Filename uses English slug
-- [ ] No existing file is being renamed without redirect
-- [ ] Registry regenerated after changes
-- [ ] Build succeeds locally: `npm run build`
-- [ ] No 404s in browser console
+- [ ] `slug` is English, lowercase, hyphenated
+- [ ] `slug_native` (if set) is transliterated to ASCII, lowercase, hyphenated
+- [ ] `slug_native` is unique within its `(native_lang, target_lang)` pair
+- [ ] Build succeeds locally
+- [ ] No 404s — test both English and native slug URLs
 
 ---
 
-## History: Why This Matters
+## History
 
-On January 21, 2026, ~240 articles were renamed from translated slugs (Spanish/French) to English slugs. This broke hundreds of URLs that Google had indexed, causing 404 errors and lost traffic.
-
-**Lesson learned:** URLs are permanent. Once published, they should never change without redirects.
-
----
-
-## Scripts Reference
-
-| Script | Purpose |
-|--------|---------|
-| `scripts/generate-redirects.cjs` | Extract all renames from git history |
-| `scripts/update-vercel-redirects.cjs` | Merge redirects into vercel.json |
-| `scripts/test-redirects.cjs` | Test redirects against live site |
-| `scripts/update-registry.cjs` | Regenerate article registry |
+- **Jan 2026:** ~240 articles renamed from translated slugs to English — broke URLs, lost traffic
+- **Mar 2026:** Native slug system introduced — `slug_native` column added, articles served under native URLs with automatic English→native 301 redirects. English slugs preserved as stable identifiers.
 
 ---
 
 ## Emergency: Broken URL Reported
 
 1. Identify the old URL that's 404
-2. Find the correct new URL
-3. Add redirect to `vercel.json`
+2. Check if it's an English slug that should redirect → verify `slug_native` is set
+3. If genuinely missing, add redirect to `vercel.json`
 4. Deploy immediately
-5. Verify the redirect works
 
 ```bash
 # Quick test
-curl -I "https://www.lovelanguages.io/old-url"
-# Should return 301/308 redirect, not 404
+curl -I "https://www.lovelanguages.io/learn/cs/de/german-grammar-basics-for-beginners/"
+# Should return 301 redirect to native slug URL
 ```

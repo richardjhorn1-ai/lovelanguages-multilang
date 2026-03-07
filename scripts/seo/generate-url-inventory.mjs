@@ -65,7 +65,7 @@ async function getSupabaseData(supabaseUrl, supabaseKey) {
 
   while (offset < total) {
     const res = await fetch(
-      `${supabaseUrl}/rest/v1/blog_articles?select=native_lang,target_lang,slug,is_canonical,updated_at&order=id&offset=${offset}&limit=${pageSize}`,
+      `${supabaseUrl}/rest/v1/blog_articles?select=native_lang,target_lang,slug,slug_native,is_canonical,updated_at&order=id&offset=${offset}&limit=${pageSize}`,
       { headers: { apikey: supabaseKey, Authorization: `Bearer ${supabaseKey}`, Prefer: 'count=exact' } }
     );
     const contentRange = res.headers.get('content-range');
@@ -155,7 +155,8 @@ function generateInventory(data) {
 
   // === ARTICLES ===
   for (const article of regularArticles) {
-    const url = `/learn/${article.native_lang}/${article.target_lang}/${article.slug}/`;
+    const displaySlug = article.slug_native || article.slug;
+    const url = `/learn/${article.native_lang}/${article.target_lang}/${displaySlug}/`;
     if (!seenUrls.has(url)) {
       add(url, 'article', true, 'article_db');
     }

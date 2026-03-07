@@ -36,7 +36,7 @@ def get_sample_urls(count: int = 10) -> list:
     # Get articles from different categories and languages
     r = subprocess.run([
         'curl', '-s',
-        f'{url}/blog_articles?select=slug,native_lang,target_lang,category'
+        f'{url}/blog_articles?select=slug,slug_native,native_lang,target_lang,category'
         f'&target_lang=neq.all&limit=500',
         '-H', f'apikey: {key}',
         '-H', f'Authorization: Bearer {key}'
@@ -62,8 +62,8 @@ def get_sample_urls(count: int = 10) -> list:
     urls = []
     for a in selected:
         urls.append({
-            'url': f"{SITE}/learn/{a['native_lang']}/{a['target_lang']}/{a['slug']}/",
-            'slug': a['slug'],
+            'url': f"{SITE}/learn/{a['native_lang']}/{a['target_lang']}/{a.get('slug_native') or a['slug']}/",
+            'slug': a.get('slug_native') or a['slug'],
             'native': a['native_lang'],
             'target': a['target_lang'],
             'category': a.get('category', ''),
