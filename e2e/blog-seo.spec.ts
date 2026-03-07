@@ -256,6 +256,40 @@ test.describe('Blog SEO & Sitemap Integrity', () => {
       expect(body).not.toContain('/learn/language/');
     });
 
+    test('sitemap-pages has NO non-canonical generic couples hub URL', async ({ request }) => {
+      const res = await request.get('/sitemap-pages.xml');
+      const body = await res.text();
+      expect(body).not.toContain('/learn/couples-language-learning/');
+      expect(body).toContain('/learn/en/couples-language-learning/');
+    });
+
+    test('sitemap-pages has NO /all/ language pair hub URLs', async ({ request }) => {
+      const res = await request.get('/sitemap-pages.xml');
+      const body = await res.text();
+      expect(body).not.toMatch(/\/learn\/[a-z]{2}\/all\//);
+    });
+
+    test('sitemap-pages has NO redirect-only compare root URL', async ({ request }) => {
+      const res = await request.get('/sitemap-pages.xml');
+      const body = await res.text();
+      expect(body).not.toContain('<loc>https://www.lovelanguages.io/compare/</loc>');
+      expect(body).toContain('/compare/en/');
+    });
+
+    test('sitemap-pages has NO redirect-only root compare detail URLs', async ({ request }) => {
+      const res = await request.get('/sitemap-pages.xml');
+      const body = await res.text();
+      expect(body).not.toContain('/compare/love-languages-vs-duolingo/');
+      expect(body).not.toContain('/compare/love-languages-vs-babbel/');
+    });
+
+    test('sitemap-pages has NO duplicate <loc> values', async ({ request }) => {
+      const res = await request.get('/sitemap-pages.xml');
+      const body = await res.text();
+      const locs = [...body.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
+      expect(new Set(locs).size).toBe(locs.length);
+    });
+
     test('sitemap-pages has NO /terms/ or /privacy/ (SPA routes, not blog pages)', async ({ request }) => {
       const res = await request.get('/sitemap-pages.xml');
       const body = await res.text();
@@ -324,6 +358,12 @@ test.describe('Blog SEO & Sitemap Integrity', () => {
       const canonicals = await page.locator('link[rel="canonical"]').all();
       expect(canonicals.length, `Expected 1 canonical tag, found ${canonicals.length}`).toBe(1);
     });
+
+    test('compare index page has exactly ONE canonical tag', async ({ page }) => {
+      await page.goto('/compare/en/');
+      const canonicals = await page.locator('link[rel="canonical"]').all();
+      expect(canonicals.length, `Expected 1 canonical tag, found ${canonicals.length}`).toBe(1);
+    });
   });
 
   test.describe('Issue 7: Astro trailingSlash enforcement', () => {
@@ -349,6 +389,20 @@ test.describe('Blog SEO & Sitemap Integrity', () => {
         expect([301, 308]).toContain(res.status());
         const location = res.headers()['location'];
         expect(location, 'Redirect destination missing trailing slash').toMatch(/\/$/);
+      }
+    });
+
+    test('compare root redirect shell is noindex and points to final compare landing page', async ({ request }) => {
+      const res = await request.get('/compare/', { maxRedirects: 0 });
+
+      if (res.status() === 200) {
+        const body = await res.text();
+        expect(body).toContain('name="robots" content="noindex"');
+        expect(body).toContain('href="https://www.lovelanguages.io/compare/en/"');
+        expect(body).toMatch(/content="0;url=\/compare\/en\/"/);
+      } else {
+        expect([301, 308]).toContain(res.status());
+        expect(res.headers()['location']).toBe('/compare/en/');
       }
     });
   });
@@ -396,6 +450,33 @@ test.describe('Blog SEO & Sitemap Integrity', () => {
         }
       }
     });
+
+    test('compare index JSON-LD URL matches canonical exactly', async ({ page }) => {
+      await page.goto('/compare/en/');
+      const canonical = await page.getAttribute('link[rel="canonical"]', 'href');
+      expect(canonical).toBe('https://www.lovelanguages.io/compare/en/');
+
+      const data = await findJsonLdByType(page, 'CollectionPage');
+      expect(data?.url).toBe(canonical);
+    });
+
+    test('tool JSON-LD URL matches canonical exactly', async ({ page }) => {
+      await page.goto('/tools/name-day-finder/');
+      const canonical = await page.getAttribute('link[rel="canonical"]', 'href');
+      expect(canonical).toBe('https://www.lovelanguages.io/tools/name-day-finder/');
+
+      const data = await findJsonLdByType(page, 'WebApplication');
+      expect(data?.url).toBe(canonical);
+    });
+
+    test('homepage software application schema URL matches canonical exactly', async ({ page }) => {
+      await page.goto('/');
+      const canonical = await page.getAttribute('link[rel="canonical"]', 'href');
+      expect(canonical).toBe('https://www.lovelanguages.io/');
+
+      const data = await findJsonLdByType(page, 'SoftwareApplication');
+      expect(data?.url).toBe(canonical);
+    });
   });
 
   test.describe('Issue 9: Legacy 2-segment URL redirects', () => {
@@ -436,6 +517,49 @@ test.describe('Blog SEO & Sitemap Integrity', () => {
       const res = await request.get('/learn/en/pl/polish-pet-names-for-couples/', { maxRedirects: 0 });
       // 3-segment URLs should never trigger the 2-segment redirect
       expect(res.status()).not.toBe(301);
+    });
+  });
+
+  test.describe('Issue 12: Legacy locale stub cleanup', () => {
+
+    test('page sitemap excludes legacy locale root stubs', async ({ request }) => {
+      const res = await request.get('/sitemap-pages.xml');
+      const body = await res.text();
+      expect(body).not.toContain('/pl/');
+      expect(body).not.toContain('/fr/');
+      expect(body).not.toContain('/de/');
+      expect(body).not.toContain('/es/');
+      expect(body).not.toContain('/it/');
+      expect(body).not.toContain('/pt/');
+    });
+
+    test('legacy /pl/ stub is noindex and has no canonical SEO tag', async ({ request }) => {
+      const res = await request.get('/pl/', { maxRedirects: 0 });
+      expect(res.status()).toBe(200);
+      const body = await res.text();
+      expect(body).toContain('name="robots" content="noindex, nofollow"');
+      expect(body).not.toContain('rel="canonical"');
+      expect(body).not.toContain('property="og:url"');
+      expect(body).toMatch(/http-equiv="refresh" content="0;\s*url=\//);
+    });
+
+    test('legacy /fr/ stub is noindex and has no canonical SEO tag', async ({ request }) => {
+      const res = await request.get('/fr/', { maxRedirects: 0 });
+      expect(res.status()).toBe(200);
+      const body = await res.text();
+      expect(body).toContain('name="robots" content="noindex, nofollow"');
+      expect(body).not.toContain('rel="canonical"');
+      expect(body).not.toContain('property="og:url"');
+      expect(body).toMatch(/http-equiv="refresh" content="0;\s*url=\//);
+    });
+  });
+
+  test.describe('Issue 13: Utility internal links stay canonical', () => {
+
+    test('dictionary index does not link to redirect-only compare root', async ({ page }) => {
+      await page.goto('/dictionary/');
+      await expect(page.locator('a[href="/compare/"]')).toHaveCount(0);
+      await expect(page.locator('a[href="/compare/en/"]')).toHaveCount(1);
     });
   });
 
@@ -483,4 +607,17 @@ function checkJsonLdUrls(obj: any, context: string) {
       checkJsonLdUrls(value, context);
     }
   }
+}
+
+async function findJsonLdByType(page: any, type: string) {
+  const scripts = await page.locator('script[type="application/ld+json"]').allTextContents();
+
+  for (const script of scripts) {
+    const data = JSON.parse(script);
+    if (data?.['@type'] === type) {
+      return data;
+    }
+  }
+
+  return null;
 }

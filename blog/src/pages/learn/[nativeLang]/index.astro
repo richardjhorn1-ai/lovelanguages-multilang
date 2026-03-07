@@ -5,6 +5,7 @@ import { LANGUAGE_HUB_DATA } from '../../../data/language-hub-data';
 import { getUITranslations } from '../../../data/ui-translations';
 import { LANGUAGES, getLanguageForDisplay, SUPPORTED_NATIVE_LANGS } from '../../../data/language-info';
 import { getAllTopics, getTopicDisplayName } from '../../../data/topic-info';
+import { canonicalUrl } from '../../../lib/urls';
 
 const { nativeLang } = Astro.params;
 const nativeLanguageCode = nativeLang || 'en';
@@ -60,11 +61,11 @@ const hreflangAlternates = SUPPORTED_NATIVE_LANGS
   .filter(lang => lang !== nativeLanguageCode)
   .map(lang => ({
     lang,
-    href: `https://www.lovelanguages.io/learn/${lang}/`
+    href: canonicalUrl(`/learn/${lang}`)
   }));
 
-const canonicalUrl = `https://www.lovelanguages.io/learn/${nativeLanguageCode}/`;
-const xDefaultUrl = nativeLanguageCode === 'en' ? canonicalUrl : 'https://www.lovelanguages.io/learn/en/';
+const pageUrl = canonicalUrl(`/learn/${nativeLanguageCode}`);
+const xDefaultUrl = nativeLanguageCode === 'en' ? pageUrl : canonicalUrl('/learn/en');
 
 // JSON-LD
 const jsonLd = {
@@ -72,7 +73,7 @@ const jsonLd = {
   "@type": "CollectionPage",
   "name": `Love Languages - ${text.heroTitle}`,
   "description": text.heroSubtitle,
-  "url": canonicalUrl,
+  "url": pageUrl,
   "inLanguage": nativeLanguageCode,
   "publisher": {
     "@type": "Organization",
@@ -86,11 +87,11 @@ const jsonLd = {
 <BaseLayout
   title={`${text.heroTitle} - Love Languages`}
   description={text.heroSubtitle}
-  canonical={canonicalUrl}
+  canonical={pageUrl}
   nativeLang={nativeLanguageCode}
 >
   <Fragment slot="head">
-    <link rel="alternate" hreflang={nativeLanguageCode} href={canonicalUrl} />
+    <link rel="alternate" hreflang={nativeLanguageCode} href={pageUrl} />
     <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
     {hreflangAlternates.map(alt => (
       <link rel="alternate" hreflang={alt.lang} href={alt.href} />

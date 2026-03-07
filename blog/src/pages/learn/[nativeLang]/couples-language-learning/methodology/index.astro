@@ -8,6 +8,7 @@
 import BaseLayout from '../../../../../layouts/BaseLayout.astro';
 import { createClient } from '@supabase/supabase-js';
 import { SUPPORTED_NATIVE_LANGS, getLanguageName } from '../../../../../data/language-info';
+import { canonicalUrl } from '../../../../../lib/urls';
 
 const { nativeLang } = Astro.params;
 
@@ -52,10 +53,10 @@ const hreflangAlternates = SUPPORTED_NATIVE_LANGS
   .filter(lang => lang !== nativeLang)
   .map(lang => ({
     lang,
-    href: `https://www.lovelanguages.io/learn/${lang}/couples-language-learning/methodology/`
+    href: canonicalUrl(`/learn/${lang}/couples-language-learning/methodology`)
   }));
 
-const canonicalUrl = `https://www.lovelanguages.io/learn/${nativeLang}/couples-language-learning/methodology/`;
+const pageUrl = canonicalUrl(`/learn/${nativeLang}/couples-language-learning/methodology`);
 
 // Page content per language
 const pageContent: Record<string, { title: string; subtitle: string; description: string }> = {
@@ -182,7 +183,7 @@ const jsonLd = {
   "@type": "CollectionPage",
   "name": content.title,
   "description": content.description,
-  "url": canonicalUrl,
+  "url": pageUrl,
   "inLanguage": nativeLang,
   "publisher": {
     "@type": "Organization",
@@ -195,12 +196,12 @@ const jsonLd = {
 <BaseLayout
   title={`${content.title} | Love Languages`}
   description={content.description}
-  canonical={canonicalUrl}
+  canonical={pageUrl}
   nativeLang={nativeLang}
 >
   <Fragment slot="head">
-    <link rel="alternate" hreflang={nativeLang} href={canonicalUrl} />
-    <link rel="alternate" hreflang="x-default" href="https://www.lovelanguages.io/learn/en/couples-language-learning/methodology/" />
+    <link rel="alternate" hreflang={nativeLang} href={pageUrl} />
+    <link rel="alternate" hreflang="x-default" href={canonicalUrl('/learn/en/couples-language-learning/methodology')} />
     {hreflangAlternates.map(alt => (
       <link rel="alternate" hreflang={alt.lang} href={alt.href} />
     ))}

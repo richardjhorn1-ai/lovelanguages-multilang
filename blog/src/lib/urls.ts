@@ -1,13 +1,24 @@
-const SITE_URL = 'https://www.lovelanguages.io';
+export const SITE_URL = 'https://www.lovelanguages.io';
 
 /** Normalize any pathname to always have trailing slash */
 export function normalizePathname(pathname: string): string {
-  return pathname.endsWith('/') ? pathname : `${pathname}/`;
+  const normalizedPath = pathname.split(/[?#]/)[0] || '/';
+  if (normalizedPath === '/') return normalizedPath;
+  return normalizedPath.endsWith('/') ? normalizedPath : `${normalizedPath}/`;
 }
 
 /** Build a full canonical URL with guaranteed trailing slash */
 export function canonicalUrl(pathname: string): string {
   return `${SITE_URL}${normalizePathname(pathname)}`;
+}
+
+/** Build a full site URL for assets or other non-HTML paths */
+export function absoluteUrl(pathOrUrl: string): string {
+  if (pathOrUrl.startsWith('http://') || pathOrUrl.startsWith('https://')) {
+    return pathOrUrl;
+  }
+
+  return pathOrUrl.startsWith('/') ? `${SITE_URL}${pathOrUrl}` : `${SITE_URL}/${pathOrUrl}`;
 }
 
 /** Build an article URL */

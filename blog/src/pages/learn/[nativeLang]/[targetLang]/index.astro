@@ -6,6 +6,7 @@ import Testimonials from '../../../../components/Testimonials.astro';
 import { getArticlesByLangPair, getArticleCountsByTargetLang } from '../../../../lib/blog-api';
 import { getUITranslations, insertLanguage } from '../../../../data/ui-translations';
 import { LANGUAGES, getLanguageForDisplay, getAllLanguagesForDisplay, SUPPORTED_NATIVE_LANGS } from '../../../../data/language-info';
+import { canonicalUrl } from '../../../../lib/urls';
 
 const VALID_LANGS = ['en','es','fr','de','it','pt','pl','nl','ro','ru','tr','uk','sv','no','da','cs','el','hu'];
 
@@ -59,11 +60,13 @@ const hreflangAlternates = SUPPORTED_NATIVE_LANGS
   .filter(lang => lang !== nativeLanguageCode && lang !== targetLanguageCode)
   .map(lang => ({
     lang,
-    href: `https://www.lovelanguages.io/learn/${lang}/${targetLanguageCode}/`
+    href: canonicalUrl(`/learn/${lang}/${targetLanguageCode}`)
   }));
 
-const canonicalUrl = `https://www.lovelanguages.io/learn/${nativeLanguageCode}/${targetLanguageCode}/`;
-const xDefaultUrl = nativeLanguageCode === 'en' ? canonicalUrl : `https://www.lovelanguages.io/learn/en/${targetLanguageCode}/`;
+const pageUrl = canonicalUrl(`/learn/${nativeLanguageCode}/${targetLanguageCode}`);
+const xDefaultUrl = nativeLanguageCode === 'en'
+  ? pageUrl
+  : canonicalUrl(`/learn/en/${targetLanguageCode}`);
 
 // Page title and description using translations
 const pageTitle = `${insertLanguage(text.learnTogether, targetInfo.name)} - Love Languages`;
@@ -75,7 +78,7 @@ const jsonLd = {
   "@type": "Blog",
   "name": `Love Languages - ${insertLanguage(text.learnTogether, targetInfo.name)}`,
   "description": pageDescription,
-  "url": canonicalUrl,
+  "url": pageUrl,
   "inLanguage": nativeLanguageCode,
   "publisher": {
     "@type": "Organization",
@@ -88,12 +91,12 @@ const jsonLd = {
 <BaseLayout
   title={pageTitle}
   description={pageDescription}
-  canonical={canonicalUrl}
+  canonical={pageUrl}
   nativeLang={nativeLanguageCode}
   targetLang={targetLanguageCode}
 >
   <Fragment slot="head">
-    <link rel="alternate" hreflang={nativeLanguageCode} href={canonicalUrl} />
+    <link rel="alternate" hreflang={nativeLanguageCode} href={pageUrl} />
     <link rel="alternate" hreflang="x-default" href={xDefaultUrl} />
     {hreflangAlternates.map(alt => (
       <link rel="alternate" hreflang={alt.lang} href={alt.href} />

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { polishDictionary, getWordBySlug, getRelatedWords, type DictionaryWord } from '../../data/polish-dictionary';
+import { canonicalUrl } from '../../lib/urls';
 
 // SSR: Get slug from params and look up word
 const { slug } = Astro.params;
@@ -10,6 +11,8 @@ if (!word) {
   return Astro.redirect('/dictionary/');
 }
 const relatedWords = getRelatedWords(word.relatedWords);
+const pageUrl = canonicalUrl(`/dictionary/${word.slug}`);
+const dictionaryIndexUrl = canonicalUrl('/dictionary');
 
 // Word type display
 const wordTypeLabels: Record<string, string> = {
@@ -48,10 +51,11 @@ const jsonLd = {
   "@type": "DefinedTerm",
   "name": word.polish,
   "description": `${word.polish} means "${word.english}" in Polish. Pronunciation: ${word.pronunciation}`,
+  "url": pageUrl,
   "inDefinedTermSet": {
     "@type": "DefinedTermSet",
     "name": "Polish Dictionary for Couples",
-    "url": "https://www.lovelanguages.io/dictionary/"
+    "url": dictionaryIndexUrl
   }
 };
 
@@ -60,9 +64,9 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.lovelanguages.io/" },
-    { "@type": "ListItem", "position": 2, "name": "Dictionary", "item": "https://www.lovelanguages.io/dictionary/" },
-    { "@type": "ListItem", "position": 3, "name": word.polish, "item": `https://www.lovelanguages.io/dictionary/${word.slug}/` }
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": canonicalUrl('/') },
+    { "@type": "ListItem", "position": 2, "name": "Dictionary", "item": dictionaryIndexUrl },
+    { "@type": "ListItem", "position": 3, "name": word.polish, "item": pageUrl }
   ]
 };
 ---
@@ -70,6 +74,7 @@ const breadcrumbJsonLd = {
 <BaseLayout
   title={`${word.polish} - Polish Word Meaning, Pronunciation & Examples`}
   description={`Learn the Polish word "${word.polish}" meaning "${word.english}". Pronunciation: ${word.pronunciation}. Example sentences and usage for couples learning Polish together.`}
+  canonical={pageUrl}
 >
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
@@ -309,7 +314,7 @@ const breadcrumbJsonLd = {
         <a href="/learn/" class="hover:text-accent">Blog</a>
         <a href="/dictionary/" class="hover:text-accent">Dictionary</a>
         <a href="/tools/" class="hover:text-accent">Tools</a>
-        <a href="/compare/" class="hover:text-accent">Compare</a>
+        <a href="/compare/en/" class="hover:text-accent">Compare</a>
       </nav>
     </div>
   </footer>

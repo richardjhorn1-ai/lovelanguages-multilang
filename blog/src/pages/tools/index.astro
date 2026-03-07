@@ -1,22 +1,25 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { canonicalUrl } from '../../lib/urls';
 
 const tools = [
   {
     title: "Polish Name Day Finder",
     description: "Find when your Polish name day (imieniny) is celebrated. Discover this beautiful Polish tradition!",
-    href: "/tools/name-day-finder",
+    href: "/tools/name-day-finder/",
     icon: "📅",
     badge: "Free"
   }
 ];
+
+const pageUrl = canonicalUrl('/tools');
 
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "CollectionPage",
   "name": "Free Polish Learning Tools",
   "description": "Free interactive tools to help you learn Polish language and culture.",
-  "url": "https://www.lovelanguages.io/tools",
+  "url": pageUrl,
   "publisher": {
     "@type": "Organization",
     "name": "Love Languages",
@@ -28,6 +31,7 @@ const jsonLd = {
 <BaseLayout
   title="Free Polish Learning Tools"
   description="Free interactive tools to help you learn Polish language and culture. Name day finder, pronunciation helpers, and more."
+  canonical={pageUrl}
 >
   <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 

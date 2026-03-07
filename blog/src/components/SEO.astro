@@ -24,7 +24,7 @@ const LANGUAGE_NAMES: Record<string, string> = {
   tr: 'Turkish', ro: 'Romanian'
 };
 
-import { canonicalUrl, normalizePathname } from '../lib/urls';
+import { absoluteUrl, canonicalUrl } from '../lib/urls';
 
 const OG_LOCALES: Record<string, string> = {
   en: 'en_US', es: 'es_ES', fr: 'fr_FR', de: 'de_DE', it: 'it_IT', pt: 'pt_PT',
@@ -42,11 +42,10 @@ const {
   targetLang
 } = Astro.props;
 
-const siteUrl = 'https://www.lovelanguages.io';
 const fullUrl = canonical || canonicalUrl(Astro.url.pathname);
 const ogLocale = OG_LOCALES[nativeLang] || 'en_US';
 const safeImage = image || '/og-image.png';
-const fullImage = safeImage.startsWith('http') ? safeImage : `${siteUrl}${safeImage}`;
+const fullImage = absoluteUrl(safeImage);
 const suffix = ' | Love Languages';
 const fullTitle = (title.length + suffix.length > 60) ? title : `${title}${suffix}`;
 
