@@ -840,6 +840,7 @@
       "continueWith": "Continue with {{plan}}",
       "aPlan": "a plan",
       "trustSignal": "Secure payment via Stripe. Cancel anytime.",
+      "trustSignalIOS": "In-app purchase via Apple. Cancel anytime in App Store subscriptions.",
       "standard": {
         "name": "Standard",
         "tagline": "Perfect for getting started",
@@ -1415,7 +1416,9 @@
       "mostPopular": "Most Popular",
       "currentPlan": "Current Plan",
       "securePayment": "Secure payment via Stripe. Cancel anytime.",
+      "securePaymentIOS": "In-app purchase via Apple. Cancel anytime in App Store subscriptions.",
       "cancelAnytime": "Cancel anytime. Secure payment via Stripe.",
+      "iosPurchaseNote": "In-app purchase via Apple. Manage or cancel anytime in App Store subscriptions.",
       "questionsEmail": "Questions? Email us at",
       "friend": "Friend",
       "copy": "Copy",

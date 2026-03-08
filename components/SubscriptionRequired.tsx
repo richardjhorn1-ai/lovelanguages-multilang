@@ -595,7 +595,9 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
             ? (useIAP
                 ? t('subscription.choice.free.iosTrialNote', { defaultValue: '7 days free, then $17.99/mo. Cancel anytime.' })
                 : t('subscription.choice.free.noCardRequired', { defaultValue: 'No credit card required' }))
-            : t('subscription.common.securePayment')
+            : (useIAP
+                ? t('subscription.common.securePaymentIOS', { defaultValue: 'In-app purchase via Apple. Cancel anytime in App Store subscriptions.' })
+                : t('subscription.common.securePayment'))
           }
         </p>
 

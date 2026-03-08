@@ -1,13 +1,95 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../context/ThemeContext';
 import { ICONS } from '../constants';
+import { supabase } from '../services/supabase';
+import { getOfferings, hasActiveEntitlement, isIAPAvailable, purchasePackage, restorePurchases } from '../services/purchases';
 
 const Pricing: React.FC = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const { accentHex } = useTheme();
+  const useIAP = isIAPAvailable();
+  const [billingPeriod, setBillingPeriod] = useState<'weekly' | 'monthly' | 'yearly'>('monthly');
+  const [iapPackages, setIapPackages] = useState<any[]>([]);
+  const [loadingPlan, setLoadingPlan] = useState<'standard' | 'unlimited' | null>(null);
+  const [restoring, setRestoring] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!useIAP) return;
+
+    let active = true;
+
+    getOfferings().then((offerings) => {
+      if (!active) return;
+      setIapPackages(offerings?.current?.availablePackages || []);
+    });
+
+    return () => {
+      active = false;
+    };
+  }, [useIAP]);
+
+  const nativePackages = useMemo(() => ({
+    standard: iapPackages.find((pkg: any) => pkg.product?.identifier === `standard_${billingPeriod}`) || null,
+    unlimited: iapPackages.find((pkg: any) => pkg.product?.identifier === `unlimited_${billingPeriod}`) || null,
+  }), [billingPeriod, iapPackages]);
+
+  const handleNativePurchase = async (plan: 'standard' | 'unlimited') => {
+    setError(null);
+
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session) {
+      navigate('/');
+      return;
+    }
+
+    const pkg = nativePackages[plan];
+    if (!pkg) {
+      setError(t('subscription.errors.pricingUnavailable'));
+      return;
+    }
+
+    setLoadingPlan(plan);
+    try {
+      const customerInfo = await purchasePackage(pkg);
+      if (customerInfo && hasActiveEntitlement(customerInfo).isActive) {
+        navigate('/');
+      }
+    } catch (err: any) {
+      setError(err?.message || t('subscription.errors.somethingWrong'));
+    } finally {
+      setLoadingPlan(null);
+    }
+  };
+
+  const handleRestore = async () => {
+    setRestoring(true);
+    setError(null);
+    try {
+      const customerInfo = await restorePurchases();
+      if (customerInfo && hasActiveEntitlement(customerInfo).isActive) {
+        navigate('/');
+        return;
+      }
+      setError(t('subscription.errors.noActivePurchases', { defaultValue: 'No active purchases found' }));
+    } catch (err: any) {
+      setError(err?.message || t('subscription.errors.restoreFailed', { defaultValue: 'Failed to restore purchases' }));
+    } finally {
+      setRestoring(false);
+    }
+  };
+
+  const getPriceLabel = (plan: 'standard' | 'unlimited', fallbackKey: string) =>
+    useIAP ? nativePackages[plan]?.product?.priceString || fallbackKey : fallbackKey;
+
+  const getButtonLabel = (plan: 'standard' | 'unlimited', fallbackKey: string) => {
+    if (!useIAP) return fallbackKey;
+    if (loadingPlan === plan) return t('subscription.common.processing');
+    return fallbackKey;
+  };
 
   return (
     <div className="min-h-screen overflow-y-auto app-bg-decor" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
@@ -37,6 +119,34 @@ const Pricing: React.FC = () => {
           {t('hero.bottomSections.faq.q5.intro')}
         </p>
 
+        {useIAP && (
+          <div className="flex justify-center mb-8">
+            <div className="inline-flex bg-white/80 dark:bg-white/20 rounded-full p-1 shadow-sm border border-[var(--border-color)]">
+              {(['weekly', 'monthly', 'yearly'] as const).map((period) => (
+                <button
+                  key={period}
+                  onClick={() => setBillingPeriod(period)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                    billingPeriod === period
+                      ? 'bg-rose-500 text-white shadow-md'
+                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                  }`}
+                >
+                  {period === 'weekly' && t('subscription.common.weekly')}
+                  {period === 'monthly' && t('subscription.common.monthly')}
+                  {period === 'yearly' && t('subscription.common.yearly')}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {error && (
+          <div className="mb-6 p-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm text-center">
+            {error}
+          </div>
+        )}
+
         {/* Pricing Cards */}
         <div className="grid gap-6 md:grid-cols-2">
           {/* Standard */}
@@ -47,7 +157,7 @@ const Pricing: React.FC = () => {
               {t('hero.bottomSections.faq.q5.standard')}
             </h2>
             <p className="text-lg font-bold mb-4" style={{ color: accentHex }}>
-              {t('hero.bottomSections.faq.q5.standardPrice')}
+              {getPriceLabel('standard', t('hero.bottomSections.faq.q5.standardPrice'))}
             </p>
             <p className="text-base mb-6" style={{ color: 'var(--text-secondary)' }}>
               {t('hero.bottomSections.faq.q5.standardDesc')}
@@ -71,11 +181,12 @@ const Pricing: React.FC = () => {
               </li>
             </ul>
             <button
-              onClick={() => navigate('/')}
-              className="w-full py-3 rounded-full font-bold border-2 transition-colors hover:opacity-80"
+              onClick={() => useIAP ? handleNativePurchase('standard') : navigate('/')}
+              disabled={loadingPlan !== null || (useIAP && !nativePackages.standard)}
+              className="w-full py-3 rounded-full font-bold border-2 transition-colors hover:opacity-80 disabled:opacity-60 disabled:cursor-not-allowed"
               style={{ borderColor: accentHex, color: accentHex }}
             >
-              {t('pricing.chooseStandard', 'Choose Standard')}
+              {getButtonLabel('standard', t('pricing.chooseStandard', 'Choose Standard'))}
             </button>
           </div>
 
@@ -94,7 +205,7 @@ const Pricing: React.FC = () => {
               {t('hero.bottomSections.faq.q5.unlimited')}
             </h2>
             <p className="text-lg font-bold mb-4" style={{ color: accentHex }}>
-              {t('hero.bottomSections.faq.q5.unlimitedPrice')}
+              {getPriceLabel('unlimited', t('hero.bottomSections.faq.q5.unlimitedPrice'))}
             </p>
             <p className="text-base mb-6" style={{ color: 'var(--text-secondary)' }}>
               {t('hero.bottomSections.faq.q5.unlimitedDesc')}
@@ -122,19 +233,42 @@ const Pricing: React.FC = () => {
               </li>
             </ul>
             <button
-              onClick={() => navigate('/')}
-              className="w-full py-3 rounded-full font-bold text-white transition-transform hover:scale-105"
+              onClick={() => useIAP ? handleNativePurchase('unlimited') : navigate('/')}
+              disabled={loadingPlan !== null || (useIAP && !nativePackages.unlimited)}
+              className="w-full py-3 rounded-full font-bold text-white transition-transform hover:scale-105 disabled:opacity-60 disabled:cursor-not-allowed"
               style={{ background: accentHex }}
             >
-              {t('pricing.chooseUnlimited', 'Choose Unlimited')}
+              {getButtonLabel('unlimited', t('pricing.chooseUnlimited', 'Choose Unlimited'))}
             </button>
           </div>
         </div>
 
         {/* Cancel Note */}
         <p className="text-center mt-8 text-sm" style={{ color: 'var(--text-tertiary)' }}>
-          {t('hero.bottomSections.faq.q5.cancelNote')}
+          {useIAP
+            ? t('subscription.pricing.iosPurchaseNote', { defaultValue: 'In-app purchase via Apple. Manage or cancel anytime in App Store subscriptions.' })
+            : t('hero.bottomSections.faq.q5.cancelNote')}
         </p>
+
+        {useIAP && (
+          <div className="flex flex-col items-center gap-3 mt-6">
+            <button
+              onClick={handleRestore}
+              disabled={restoring}
+              className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] underline disabled:opacity-50"
+            >
+              {restoring
+                ? t('subscription.restore.restoring', { defaultValue: 'Restoring...' })
+                : t('subscription.restore.button', { defaultValue: 'Restore Purchases' })}
+            </button>
+            <button
+              onClick={() => window.location.assign('https://apps.apple.com/account/subscriptions')}
+              className="text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] underline"
+            >
+              {t('subscription.manager.manageInAppStore', 'Manage in App Store')}
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

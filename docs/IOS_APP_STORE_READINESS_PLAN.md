@@ -96,8 +96,12 @@ Launch is only ready when all of the following are true:
 
 ### Dashboard audit result
 
-- App Store Connect, RevenueCat, and Supabase dashboard surfaces were not directly accessible from this repo session.
-- Local environment scaffolding exists for Apple, RevenueCat, Stripe, and Supabase, but that is not sufficient to classify live dashboard configuration as verified.
+- Live Supabase project `iiusoobuoxurysrhqptx` was audited. `Site URL` is now `https://www.lovelanguages.io`, and both `https://www.lovelanguages.io/auth/callback` and `lovelanguages://auth/callback` are allow-listed. Stale `.xyz` and preview redirects still remain and must be removed after QA.
+- Live RevenueCat project `Love Languages` was audited. The App Store app uses bundle ID `com.lovelanguages.app`, all 6 expected products exist, the default offering contains all 6 packages, and live entitlements are currently named `Standard` and `Unlimited`. No RevenueCat webhook is configured yet.
+- Live App Store Connect was audited. The app is currently `iOS 1.0 Rejected` with unresolved issues under Guideline 4.8 `Login Services` and Guideline 3.1.1 `Payments - In-App Purchase`. The reviewer used an `iPad Air 11-inch (M3)`.
+- Live App Store Connect subscriptions were audited. The `Love Language Plans` group contains all 6 expected subscriptions, but each one is still marked `Missing Metadata`.
+- Live TestFlight was audited. Builds `1` and `2` exist and are `Ready to Submit`, but no tester groups or individual testers are attached yet.
+- Live Apple Developer was audited. App ID `com.lovelanguages.app` has In-App Purchase, Sign in with Apple, and Push Notifications enabled, but Associated Domains was not enabled in the portal during audit. Service ID `com.lovelanguages.app.auth` exists, but its exact Website URL and Return URL values were not fully inspectable in-session.
 
 ## Decision-Complete Launch Spec
 
@@ -122,7 +126,7 @@ Launch is only ready when all of the following are true:
 - Full chat continuity across offline app restart.
 - Pending challenge/request workflows offline.
 - Push notifications, if they threaten launch-critical quality elsewhere.
-- iPad-specific polish.
+- iPad distribution and iPad-specific polish until a deliberate iPad pass is approved.
 
 ### 2. Entitlement and Billing Contract
 
@@ -179,6 +183,7 @@ Launch is only ready when all of the following are true:
 - Account deletion must remain in-app discoverable and revoke Apple refresh tokens when present.
 - In-App Purchase capability must be enabled in the native target.
 - Privacy manifest and App Privacy answers must reflect actual SDK/data usage.
+- The submitted binary must match the iPhone-first launch decision. Do not submit an iPad-capable build until iPad support is intentionally QA'd and in scope.
 - Review notes must explain:
   - how to reach paywall and restore purchases
   - how to test Sign in with Apple
@@ -227,15 +232,21 @@ Use only these bucket values:
 | Native/Xcode | URL scheme `lovelanguages` registered | native/Xcode verified | engineering | `Info.plist` now includes `CFBundleURLTypes` for `lovelanguages` and simulator `openurl` accepts the custom scheme. | Smoke-test end-to-end auth callback routing on simulator and device. |
 | Native/Xcode | Associated Domains configured for Universal Links | native/Xcode verified | engineering | `App.entitlements` now includes `applinks:www.lovelanguages.io`. | Verify the AASA file and actual Universal Link behavior on device. |
 | Native/Xcode | Sign in with Apple capability enabled | native/Xcode verified | engineering | `App.entitlements` now includes `com.apple.developer.applesignin`, and the app target carries a native Apple Sign In plugin implementation. | Verify the Apple App ID capability and device sign-in against the live team. |
-| Native/Xcode | In-App Purchase capability enabled | still unknown | engineering | The target builds with RevenueCat, but no explicit Xcode/App ID capability evidence was captured in this session. | Verify Signing & Capabilities and the Apple App ID configuration. |
+| Native/Xcode | In-App Purchase capability enabled | App Store Connect / RevenueCat / Supabase verified | engineering | Apple Developer App ID `com.lovelanguages.app` has In-App Purchase enabled. The local target still needs a final Signing & Capabilities pass once production signing is wired. | Confirm the capability in Xcode and upload a fresh build after signing is set. |
 | Native/Xcode | Privacy manifest and any required capabilities are correct | still unknown | engineering | The app target still has no checked-in `PrivacyInfo.xcprivacy`; Xcode only scanned framework privacy manifests during build. | Add and verify the app-level privacy manifest against actual SDK/data usage. |
-| Native/Xcode | Push capability and notification entitlements are correct | still unknown | engineering | Push was not configured or audited in the generated target. | Audit only after higher-priority launch blockers close. |
+| Native/Xcode | Push capability and notification entitlements are correct | still unknown | engineering | Apple Developer shows Push Notifications enabled for the App ID, but the generated target push entitlements were not audited and the portal showed `Certificates (0)`. | Audit only after higher-priority launch blockers close. |
 | App Store Connect / RevenueCat / Supabase | App Store product IDs match repo purchase mapping | App Store Connect / RevenueCat / Supabase verified | engineering / product | RevenueCat project `Love Languages` was audited on March 8, 2026. The App Store app config uses bundle ID `com.lovelanguages.app`, and the product catalog contains `standard_weekly`, `standard_monthly`, `standard_yearly`, `unlimited_weekly`, `unlimited_monthly`, and `unlimited_yearly`. RevenueCat also has a valid in-app purchase key configured, while the separate App Store Connect API key section is still empty. | Keep product IDs aligned and add the App Store Connect API key if you want ongoing product import and metadata sync. |
 | App Store Connect / RevenueCat / Supabase | RevenueCat entitlements and offering match repo expectations | App Store Connect / RevenueCat / Supabase verified | engineering | RevenueCat has a default `standard offering` with all 6 expected App Store packages. However, the live entitlement identifiers are `Standard` and `Unlimited`, not the repo’s `standard_access` and `unlimited_access`, so the repo and dashboard are currently out of sync. | Either rename the RevenueCat entitlements to the repo-standard identifiers or make the client robust to identifier drift before launch. |
 | App Store Connect / RevenueCat / Supabase | RevenueCat webhook is live and points to the production endpoint | App Store Connect / RevenueCat / Supabase verified | engineering | The RevenueCat Webhooks page was audited on March 8, 2026 and showed no configured webhook entries, only `Add new configuration`. The repo webhook handler exists, but the live project is not currently wired to it. | Add the production RevenueCat webhook configuration, set the bearer secret, and verify a real event delivery. |
+| App Store Connect / RevenueCat / Supabase | Current uploaded build matches the iPhone-first launch scope | App Store Connect / RevenueCat / Supabase verified | product / engineering | TestFlight build `1.0 (2)` still reports device family `iPhone, iPad`, and the rejected App Review used `iPad Air 11-inch (M3)`. The uploaded build does not yet reflect the local iPhone-only target. | Upload a new build after the iPhone-only target change and use that build for TestFlight and re-review. |
+| App Store Connect / RevenueCat / Supabase | Apple portal capability state matches the native routing and billing contract | App Store Connect / RevenueCat / Supabase verified | engineering | Apple Developer App ID `com.lovelanguages.app` has In-App Purchase, Sign in with Apple, and Push Notifications enabled, but Associated Domains was not enabled during audit. | Enable Associated Domains on the App ID, regenerate provisioning, and verify Universal Links on device. |
+| App Store Connect / RevenueCat / Supabase | Apple service ID callback config matches Supabase auth expectations | still unknown | engineering | Service ID `com.lovelanguages.app.auth` exists and is linked to the app ID, but the Apple portal modal did not expose the saved Website URL and Return URL clearly enough to verify them in-session. | Verify the Website URL and Return URL against `https://www.lovelanguages.io` and `https://auth.lovelanguages.io/auth/v1/callback`. |
 | App Store Connect / RevenueCat / Supabase | Supabase auth redirect allow-list includes both web and native callbacks | App Store Connect / RevenueCat / Supabase verified | engineering | Live Supabase project `iiusoobuoxurysrhqptx` was audited on March 8, 2026. `Site URL` is now `https://www.lovelanguages.io`, and both `https://www.lovelanguages.io/auth/callback` and `lovelanguages://auth/callback` are allow-listed. Stale `.xyz` and preview URLs still remain alongside the current entries. | Remove stale `.xyz` and preview URLs after end-to-end auth QA confirms nothing depends on them. |
 | App Store Connect / RevenueCat / Supabase | Apple provider config supports native bundle login and token revocation | App Store Connect / RevenueCat / Supabase verified | engineering | Apple provider is enabled in the live Supabase project and includes client IDs for both `com.lovelanguages.app.auth` and `com.lovelanguages.app`. The OAuth callback shown by Supabase is `https://auth.lovelanguages.io/auth/v1/callback`, which is consistent with the custom auth domain, but the broader redirect/site URL config is stale. | Keep the Apple provider enabled, verify the Apple Developer service ID/app ID entries match these client IDs, and regenerate the OAuth secret on schedule. |
-| App Store Connect / RevenueCat / Supabase | Review metadata, screenshots, subscription copy, and notes are complete | still unknown | product / engineering | No App Store Connect access in this session. | Audit and finalize submission materials. |
+| App Store Connect / RevenueCat / Supabase | Review blockers for login and payments are closed | App Store Connect / RevenueCat / Supabase verified | product / engineering | App Store Connect currently shows `iOS 1.0 Rejected`. Apple’s Feb 17, 2026 message cites unresolved issues under Guideline 4.8 `Login Services` and Guideline 3.1.1 `Payments - In-App Purchase`. | Upload a build with visible Sign in with Apple and no external native purchase path, then respond clearly in Resolution Center. |
+| App Store Connect / RevenueCat / Supabase | Review metadata, screenshots, subscription copy, and notes are complete | App Store Connect / RevenueCat / Supabase verified | product / engineering | iPhone screenshots, promotional text, description, keywords, support URL, reviewer accounts, and contact info are present, but all 6 subscriptions in `Love Language Plans` are marked `Missing Metadata` and there are `0` app previews. | Complete the subscription metadata for all 6 products and refresh screenshots/review notes against the current iPhone build. |
+| App Store Connect / RevenueCat / Supabase | App Privacy answers are published and consistent with the shipped app | App Store Connect / RevenueCat / Supabase verified | product / engineering | App Privacy is published and lists tracking plus linked/not-linked data categories, but the repo still lacks an app-level `PrivacyInfo.xcprivacy`, so parity is not yet proven. | Cross-check actual SDK/data usage and add the app-level privacy manifest before resubmission. |
+| App Store Connect / RevenueCat / Supabase | TestFlight build and tester setup are ready for launch QA | App Store Connect / RevenueCat / Supabase verified | product / engineering | Builds `1` and `2` are present in TestFlight and both are `Ready to Submit`, but build `2` has `0` groups and `0` individual testers attached. | Create internal tester groups, add release notes, and use the next review candidate build for device QA. |
 | Device QA | Signup/onboarding -> entitlement -> first practice works on physical iPhone | still unknown | engineering | Not device-tested in this session. | Run clean-install and returning-user QA on physical devices. |
 | Device QA | Invite/linking works from Messages/Mail into the app | still unknown | engineering | Repo route handling now exists, but Universal Link and custom-scheme behavior were not device-verified. | Test with fresh links on physical devices. |
 | Device QA | Password reset works from iPhone email open to password change | still unknown | engineering | Repo callback contract now exists, but no device validation happened here. | Test email link open, callback, and password change. |
@@ -246,19 +257,15 @@ Use only these bucket values:
 
 ### Phase 0: External Surface Audit
 
-Status: in progress.
+Status: substantially complete.
 
 Required inputs:
 
-- App Store Connect access to the production app record and TestFlight.
-- Apple Developer portal access for app ID capability state.
-- RevenueCat dashboard access to products, entitlements, offerings, and webhooks.
-- Supabase dashboard access to Auth provider and redirect settings.
 - Physical iPhone signing/device access for launch-critical QA.
 
 Exit criteria:
 
-- Every `still unknown` row above is either verified or explicitly re-scoped with owner approval.
+- Every remaining `still unknown` row above is either verified on a physical device or explicitly re-scoped with owner approval.
 
 ### Phase 1: Entitlement Trust Boundary
 
@@ -291,7 +298,7 @@ Done in repo:
 Remaining before release:
 
 - Verify the `apple-app-site-association` file and actual Universal Link takeover on device.
-- Add required Supabase redirect URLs.
+- Enable Associated Domains on the Apple App ID and refresh provisioning after the portal change.
 - Device-test invite opens, password reset, and auth callbacks.
 
 ### Phase 3: Native Submission Surface Verification
@@ -344,34 +351,35 @@ Remaining work:
 
 ### Phase 7: Submission Readiness
 
-Status: not started in this session.
+Status: in progress.
 
 Remaining work:
 
-- App Store metadata and screenshots
-- review notes and tester accounts
+- resolve the current App Review rejection for Guideline 4.8 and 3.1.1
+- complete metadata for all 6 subscription products
+- refresh screenshots and review notes against the current iPhone-only build
+- create TestFlight internal groups and attach testers
 - TestFlight device matrix runs
 - final privacy disclosure cross-check
 
 ## Immediate Next Actions
 
 1. Apply migration `048_profile_client_write_guards.sql` to the target Supabase project.
-2. Provide access to the real iOS app project so URL schemes, entitlements, capabilities, and privacy manifests can be audited.
-3. Audit live App Store Connect, RevenueCat, and Supabase settings against the matrix.
-4. Run physical-device tests for:
+2. Configure the production RevenueCat webhook, set its bearer secret, and verify a real delivery into the backend.
+3. Enable Associated Domains on Apple Developer App ID `com.lovelanguages.app`, regenerate provisioning, and verify Universal Links on device.
+4. Upload a new iPhone-only build that includes the Sign in with Apple and Apple-IAP-only fixes, then use that build for TestFlight and App Review response.
+5. Complete metadata for all 6 App Store subscription products and refresh the review notes/screenshots for the new build.
+6. Run physical-device tests for:
    - auth callback
    - password reset
    - invite open
    - Apple IAP purchase
    - restore purchases
-5. Harden the native purchase pending-confirmation UX if delayed webhook confirmation still feels fragile on device.
+7. Harden the native purchase pending-confirmation UX if delayed webhook confirmation still feels fragile on device.
 
 ## Access Needed To Close Remaining Unknowns
 
 Provide one or more of the following:
 
-- App Store Connect access or exported screenshots/config evidence.
-- Apple Developer portal access or exported capability screenshots for the app ID.
-- RevenueCat dashboard access or exported offering/webhook screenshots.
-- Supabase Auth dashboard access or exported redirect/provider screenshots.
 - A physical iPhone test path with signing available for device QA.
+- The ability to confirm or edit the Apple service ID Website URL and Return URL if they are not already correct.

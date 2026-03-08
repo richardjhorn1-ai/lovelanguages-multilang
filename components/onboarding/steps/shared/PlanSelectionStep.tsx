@@ -510,7 +510,9 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
           ? (useIAP
               ? t('subscription.choice.free.iosTrialNote', { defaultValue: '7 days free, then $17.99/mo. Cancel anytime.' })
               : t('subscription.choice.free.noCardRequired', { defaultValue: 'No credit card required' }))
-          : t('onboarding.plan.trustSignal')
+          : (useIAP
+              ? t('onboarding.plan.trustSignalIOS', { defaultValue: 'In-app purchase via Apple. Cancel anytime in App Store subscriptions.' })
+              : t('onboarding.plan.trustSignal'))
         }
       </p>
 

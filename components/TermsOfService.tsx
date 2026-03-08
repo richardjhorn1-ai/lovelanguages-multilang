@@ -104,9 +104,11 @@ const TermsOfService: React.FC = () => {
 
             <h3 className="font-semibold font-header mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>3.2 Payment Processing</h3>
             <p>
-              All payments are processed securely through Stripe. By subscribing, you authorize us to charge
-              your payment method for the applicable subscription fees. You are responsible for keeping your
-              payment information current.
+              Web subscriptions are processed securely through Stripe. iOS in-app purchases are processed by
+              Apple through the App Store and managed through RevenueCat for receipt validation and subscription
+              status. By subscribing, you authorize the applicable payment provider to charge your payment
+              method for the relevant subscription fees. You are responsible for keeping your payment information
+              current with that provider.
             </p>
 
             <h3 className="font-semibold font-header mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>3.3 Automatic Renewal</h3>
@@ -117,16 +119,18 @@ const TermsOfService: React.FC = () => {
 
             <h3 className="font-semibold font-header mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>3.4 Cancellation</h3>
             <p>
-              You may cancel your subscription at any time through your account settings or by contacting us.
-              Cancellation will take effect at the end of your current billing period. You will retain access
-              to premium features until your subscription expires.
+              You may cancel a web subscription through your account settings or by contacting us. iOS
+              subscriptions must be managed through your App Store subscription settings. Cancellation takes
+              effect at the end of your current billing period, and you will retain access to premium features
+              until your subscription expires.
             </p>
 
             <h3 className="font-semibold font-header mt-4 mb-2" style={{ color: 'var(--text-primary)' }}>3.5 Refunds</h3>
             <p>
               Subscription fees are generally non-refundable. However, we may provide refunds at our sole
-              discretion in certain circumstances. If you believe you are entitled to a refund, please contact
-              us at support@lovelanguages.xyz.
+              discretion in certain circumstances for web purchases. For iOS in-app purchases, Apple handles
+              billing and refund decisions under App Store policies. If you believe you are entitled to a refund,
+              please contact us at support@lovelanguages.io or use Apple's refund flow for App Store purchases.
             </p>
           </section>
 
@@ -211,7 +215,9 @@ const TermsOfService: React.FC = () => {
               <li><strong>Supabase</strong> - Database and authentication</li>
               <li><strong>Google Gemini</strong> - AI language coaching and content generation</li>
               <li><strong>Gladia</strong> - Speech-to-text transcription</li>
-              <li><strong>Stripe</strong> - Payment processing</li>
+              <li><strong>Stripe</strong> - Web payment processing</li>
+              <li><strong>RevenueCat</strong> - iOS subscription validation and purchase state</li>
+              <li><strong>Apple</strong> - Sign in with Apple and App Store in-app purchases</li>
             </ul>
             <p className="mt-3">
               Your use of these third-party services is subject to their respective terms and privacy policies.
@@ -327,8 +333,8 @@ const TermsOfService: React.FC = () => {
             </p>
             <p className="mt-3">
               <strong style={{ color: 'var(--text-primary)' }}>Email:</strong>{' '}
-              <a href="mailto:support@lovelanguages.xyz" style={{ color: accentHex }}>
-                support@lovelanguages.xyz
+              <a href="mailto:support@lovelanguages.io" style={{ color: accentHex }}>
+                support@lovelanguages.io
               </a>
             </p>
           </section>

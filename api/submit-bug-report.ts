@@ -119,8 +119,8 @@ export default async function handler(req: any, res: any) {
           }[severity] || '🟡';
 
           await resend.emails.send({
-            from: 'Love Languages Bugs <bugs@lovelanguages.xyz>',
-            to: 'support@lovelanguages.xyz',
+            from: 'Love Languages Bugs <bugs@lovelanguages.io>',
+            to: 'support@lovelanguages.io',
             subject: `${severityEmoji} [${severity.toUpperCase()}] Bug Report: ${body.title.trim().slice(0, 80)}`,
             html: `
               <h2>Bug Report #${report.id}</h2>

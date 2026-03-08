@@ -737,6 +737,7 @@
       "continueWith": "Fortsätt med {{plan}}",
       "aPlan": "en plan",
       "trustSignal": "Säker betalning via Stripe. Avsluta när som helst.",
+      "trustSignalIOS": "Köp i appen via Apple. Avsluta när som helst i App Store-prenumerationer.",
       "standard": {
         "name": "Standard",
         "tagline": "Perfekt för att komma igång",
@@ -1391,7 +1392,9 @@
       "mostPopular": "Mest populär",
       "currentPlan": "Nuvarande plan",
       "securePayment": "Säker betalning via Stripe. Avsluta när som helst.",
+      "securePaymentIOS": "Köp i appen via Apple. Avsluta när som helst i App Store-prenumerationer.",
       "cancelAnytime": "Avsluta när som helst. Säker betalning via Stripe.",
+      "iosPurchaseNote": "Köp i appen via Apple. Hantera eller avsluta när som helst i App Store-prenumerationer.",
       "questionsEmail": "Frågor? Maila oss på",
       "friend": "Vän",
       "copy": "Kopiera",

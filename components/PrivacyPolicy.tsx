@@ -150,7 +150,7 @@ const PrivacyPolicy: React.FC = () => {
                 <strong>Gladia:</strong> Speech-to-text transcription for voice features
               </li>
               <li>
-                <strong>Stripe:</strong> Payment processing and subscription management
+                <strong>Stripe:</strong> Web payment processing and subscription management
               </li>
               <li>
                 <strong>Vercel:</strong> Website hosting and serverless functions
@@ -313,8 +313,8 @@ const PrivacyPolicy: React.FC = () => {
                 </li>
                 <li>
                   <strong>Other Requests:</strong> Email{' '}
-                  <a href="mailto:privacy@lovelanguages.xyz" style={{ color: accentHex }}>
-                    privacy@lovelanguages.xyz
+                  <a href="mailto:privacy@lovelanguages.io" style={{ color: accentHex }}>
+                    privacy@lovelanguages.io
                   </a>
                 </li>
               </ul>
@@ -473,14 +473,14 @@ const PrivacyPolicy: React.FC = () => {
             <div className="mt-3 space-y-2">
               <p>
                 <strong style={{ color: 'var(--text-primary)' }}>Privacy Inquiries:</strong>{' '}
-                <a href="mailto:privacy@lovelanguages.xyz" style={{ color: accentHex }}>
-                  privacy@lovelanguages.xyz
+                <a href="mailto:privacy@lovelanguages.io" style={{ color: accentHex }}>
+                  privacy@lovelanguages.io
                 </a>
               </p>
               <p>
                 <strong style={{ color: 'var(--text-primary)' }}>General Support:</strong>{' '}
-                <a href="mailto:support@lovelanguages.xyz" style={{ color: accentHex }}>
-                  support@lovelanguages.xyz
+                <a href="mailto:support@lovelanguages.io" style={{ color: accentHex }}>
+                  support@lovelanguages.io
                 </a>
               </p>
             </div>

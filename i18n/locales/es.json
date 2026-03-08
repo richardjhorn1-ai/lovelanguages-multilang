@@ -737,6 +737,7 @@
       "continueWith": "Continuar con {{plan}}",
       "aPlan": "un plan",
       "trustSignal": "Pago seguro vía Stripe. Cancela cuando quieras.",
+      "trustSignalIOS": "Compra integrada con Apple. Cancela cuando quieras en las suscripciones del App Store.",
       "standard": {
         "name": "Estándar",
         "tagline": "Perfecto para empezar",
@@ -1399,7 +1400,9 @@
       "mostPopular": "Más Popular",
       "currentPlan": "Plan Actual",
       "securePayment": "Pago seguro vía Stripe. Cancela cuando quieras.",
+      "securePaymentIOS": "Compra integrada con Apple. Cancela cuando quieras en las suscripciones del App Store.",
       "cancelAnytime": "Cancela cuando quieras. Pago seguro vía Stripe.",
+      "iosPurchaseNote": "Compra integrada con Apple. Gestiona o cancela cuando quieras en las suscripciones del App Store.",
       "questionsEmail": "¿Preguntas? Escríbenos a",
       "friend": "Amigo",
       "copy": "Copiar",
