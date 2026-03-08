@@ -4,6 +4,7 @@
       "NODE_OPTIONS": "--max-old-space-size=8192"
     }
   },
+  "installCommand": "npm ci && npm --prefix blog ci",
   "cleanUrls": false,
   "redirects": [
     {
