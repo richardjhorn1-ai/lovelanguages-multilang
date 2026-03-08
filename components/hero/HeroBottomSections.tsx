@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../constants';
+import { formatSubscriptionPriceSummary } from '../../services/subscription-pricing';
 
 // Brand colors
 const BRAND = {
@@ -83,12 +84,12 @@ export const HeroFAQ: React.FC<{ isStudent: boolean; isVisible?: boolean; sectio
           <div className="grid grid-cols-2 gap-4 mb-3">
             <div className="p-3 rounded-xl bg-white/70">
               <p className="font-bold">{t('hero.bottomSections.faq.q5.standard')}</p>
-              <p className="text-sm">{t('hero.bottomSections.faq.q5.standardPrice')}</p>
+              <p className="text-sm">{formatSubscriptionPriceSummary('standard')}</p>
               <p className="text-xs mt-1 opacity-70">{t('hero.bottomSections.faq.q5.standardDesc')}</p>
             </div>
             <div className="p-3 rounded-xl bg-[var(--bg-card)] border-2" style={{ borderColor: accentColor }}>
               <p className="font-bold">{t('hero.bottomSections.faq.q5.unlimited')}</p>
-              <p className="text-sm">{t('hero.bottomSections.faq.q5.unlimitedPrice')}</p>
+              <p className="text-sm">{formatSubscriptionPriceSummary('unlimited')}</p>
               <p className="text-xs mt-1 opacity-70">{t('hero.bottomSections.faq.q5.unlimitedDesc')}</p>
             </div>
           </div>

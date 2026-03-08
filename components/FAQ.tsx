@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../context/ThemeContext';
 import { ICONS } from '../constants';
+import { formatSubscriptionPriceSummary } from '../services/subscription-pricing';
 
 const FAQ: React.FC = () => {
   const navigate = useNavigate();
@@ -165,12 +166,12 @@ const FAQ: React.FC = () => {
                 <div className="space-y-3">
                   <div className="p-3 rounded-xl" style={{ background: 'var(--bg-primary)' }}>
                     <p className="font-bold" style={{ color: 'var(--text-primary)' }}>{t('hero.bottomSections.faq.q5.standard')}</p>
-                    <p className="text-sm font-medium" style={{ color: accentHex }}>{t('hero.bottomSections.faq.q5.standardPrice')}</p>
+                    <p className="text-sm font-medium" style={{ color: accentHex }}>{formatSubscriptionPriceSummary('standard')}</p>
                     <p className="text-sm">{t('hero.bottomSections.faq.q5.standardDesc')}</p>
                   </div>
                   <div className="p-3 rounded-xl" style={{ background: 'var(--bg-primary)' }}>
                     <p className="font-bold" style={{ color: 'var(--text-primary)' }}>{t('hero.bottomSections.faq.q5.unlimited')}</p>
-                    <p className="text-sm font-medium" style={{ color: accentHex }}>{t('hero.bottomSections.faq.q5.unlimitedPrice')}</p>
+                    <p className="text-sm font-medium" style={{ color: accentHex }}>{formatSubscriptionPriceSummary('unlimited')}</p>
                     <p className="text-sm">{t('hero.bottomSections.faq.q5.unlimitedDesc')}</p>
                   </div>
                 </div>

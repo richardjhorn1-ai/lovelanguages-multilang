@@ -5,13 +5,14 @@ import { useTheme } from '../context/ThemeContext';
 import { ICONS } from '../constants';
 import { supabase } from '../services/supabase';
 import { getOfferings, hasActiveEntitlement, isIAPAvailable, purchasePackage, restorePurchases } from '../services/purchases';
+import { formatUsdPrice, getDisplaySubscriptionPrice, type BillingPeriod, type PaidPlanId } from '../services/subscription-pricing';
 
 const Pricing: React.FC = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const { accentHex } = useTheme();
   const useIAP = isIAPAvailable();
-  const [billingPeriod, setBillingPeriod] = useState<'weekly' | 'monthly' | 'yearly'>('monthly');
+  const [billingPeriod, setBillingPeriod] = useState<BillingPeriod>('monthly');
   const [iapPackages, setIapPackages] = useState<any[]>([]);
   const [loadingPlan, setLoadingPlan] = useState<'standard' | 'unlimited' | null>(null);
   const [restoring, setRestoring] = useState(false);
@@ -82,8 +83,10 @@ const Pricing: React.FC = () => {
     }
   };
 
-  const getPriceLabel = (plan: 'standard' | 'unlimited', fallbackKey: string) =>
-    useIAP ? nativePackages[plan]?.product?.priceString || fallbackKey : fallbackKey;
+  const getPriceLabel = (plan: PaidPlanId) => {
+    const fallbackPrice = formatUsdPrice(getDisplaySubscriptionPrice(plan, billingPeriod));
+    return useIAP ? nativePackages[plan]?.product?.priceString || fallbackPrice : fallbackPrice;
+  };
 
   const getButtonLabel = (plan: 'standard' | 'unlimited', fallbackKey: string) => {
     if (!useIAP) return fallbackKey;
@@ -119,27 +122,25 @@ const Pricing: React.FC = () => {
           {t('hero.bottomSections.faq.q5.intro')}
         </p>
 
-        {useIAP && (
-          <div className="flex justify-center mb-8">
-            <div className="inline-flex bg-white/80 dark:bg-white/20 rounded-full p-1 shadow-sm border border-[var(--border-color)]">
-              {(['weekly', 'monthly', 'yearly'] as const).map((period) => (
-                <button
-                  key={period}
-                  onClick={() => setBillingPeriod(period)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                    billingPeriod === period
-                      ? 'bg-rose-500 text-white shadow-md'
-                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
-                  }`}
-                >
-                  {period === 'weekly' && t('subscription.common.weekly')}
-                  {period === 'monthly' && t('subscription.common.monthly')}
-                  {period === 'yearly' && t('subscription.common.yearly')}
-                </button>
-              ))}
-            </div>
+        <div className="flex justify-center mb-8">
+          <div className="inline-flex bg-white/80 dark:bg-white/20 rounded-full p-1 shadow-sm border border-[var(--border-color)]">
+            {(['weekly', 'monthly', 'yearly'] as const).map((period) => (
+              <button
+                key={period}
+                onClick={() => setBillingPeriod(period)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                  billingPeriod === period
+                    ? 'bg-rose-500 text-white shadow-md'
+                    : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
+                }`}
+              >
+                {period === 'weekly' && t('subscription.common.weekly')}
+                {period === 'monthly' && t('subscription.common.monthly')}
+                {period === 'yearly' && t('subscription.common.yearly')}
+              </button>
+            ))}
           </div>
-        )}
+        </div>
 
         {error && (
           <div className="mb-6 p-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm text-center">
@@ -157,7 +158,7 @@ const Pricing: React.FC = () => {
               {t('hero.bottomSections.faq.q5.standard')}
             </h2>
             <p className="text-lg font-bold mb-4" style={{ color: accentHex }}>
-              {getPriceLabel('standard', t('hero.bottomSections.faq.q5.standardPrice'))}
+              {getPriceLabel('standard')}
             </p>
             <p className="text-base mb-6" style={{ color: 'var(--text-secondary)' }}>
               {t('hero.bottomSections.faq.q5.standardDesc')}
@@ -205,7 +206,7 @@ const Pricing: React.FC = () => {
               {t('hero.bottomSections.faq.q5.unlimited')}
             </h2>
             <p className="text-lg font-bold mb-4" style={{ color: accentHex }}>
-              {getPriceLabel('unlimited', t('hero.bottomSections.faq.q5.unlimitedPrice'))}
+              {getPriceLabel('unlimited')}
             </p>
             <p className="text-base mb-6" style={{ color: 'var(--text-secondary)' }}>
               {t('hero.bottomSections.faq.q5.unlimitedDesc')}

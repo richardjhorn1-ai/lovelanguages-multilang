@@ -7,6 +7,7 @@ import { ICONS } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
 import { isIAPAvailable, getOfferings, purchasePackage, restorePurchases, hasActiveEntitlement } from '../services/purchases';
 import { apiFetch, APP_URL } from '../services/api-config';
+import { formatUsdPrice, getDisplaySubscriptionPrice, type BillingPeriod } from '../services/subscription-pricing';
 
 interface SubscriptionRequiredProps {
   profile: Profile;
@@ -17,7 +18,7 @@ interface SubscriptionRequiredProps {
 const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, onSubscribed, trialExpired = false }) => {
   // Default to unlimited plan (best value)
   const [selectedPlan, setSelectedPlan] = useState<'free' | 'standard' | 'unlimited'>('unlimited');
-  const [billingPeriod, setBillingPeriod] = useState<'weekly' | 'monthly' | 'yearly'>('monthly');
+  const [billingPeriod, setBillingPeriod] = useState<BillingPeriod>('monthly');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showCanceledMessage, setShowCanceledMessage] = useState(false);
@@ -176,9 +177,9 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
     {
       id: 'standard' as const,
       name: t('subscription.plans.standard'),
-      weeklyPrice: 7,
-      monthlyPrice: 17.99,
-      yearlyPrice: 69.99,
+      weeklyPrice: getDisplaySubscriptionPrice('standard', 'weekly'),
+      monthlyPrice: getDisplaySubscriptionPrice('standard', 'monthly'),
+      yearlyPrice: getDisplaySubscriptionPrice('standard', 'yearly'),
       tagline: t('subscription.required.taglineStandard'),
       features: [
         { text: t('subscription.features.wordsLimit', { limit: '2,000' }), included: true },
@@ -191,9 +192,9 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
     {
       id: 'unlimited' as const,
       name: t('subscription.plans.unlimited'),
-      weeklyPrice: 12.99,
-      monthlyPrice: 39.99,
-      yearlyPrice: 139,
+      weeklyPrice: getDisplaySubscriptionPrice('unlimited', 'weekly'),
+      monthlyPrice: getDisplaySubscriptionPrice('unlimited', 'monthly'),
+      yearlyPrice: getDisplaySubscriptionPrice('unlimited', 'yearly'),
       tagline: t('subscription.required.taglineUnlimited'),
       popular: true,
       features: [
@@ -216,9 +217,9 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
   // Get billing period label for display
   const getBillingLabel = (plan: typeof plans[0]) => {
     if (plan.id === 'free') return t('subscription.choice.free.perMonth');
-    if (billingPeriod === 'weekly') return t('subscription.common.billedWeekly', { price: plan.weeklyPrice });
+    if (billingPeriod === 'weekly') return t('subscription.common.billedWeekly', { price: plan.weeklyPrice.toFixed(2) });
     if (billingPeriod === 'monthly') return '';
-    return t('subscription.common.billedAnnually', { price: plan.yearlyPrice });
+    return t('subscription.common.billedAnnually', { price: getMonthlyEquivalent(plan).toFixed(2) });
   };
 
   const handleChooseFreeTier = async () => {
@@ -527,7 +528,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
                 <div className="mb-4">
                   <div className="flex items-baseline gap-1">
                     <span className="text-3xl font-bold text-[var(--text-primary)]">
-                      ${plan.id === 'free' ? '0' : monthlyEquiv.toFixed(monthlyEquiv % 1 === 0 ? 0 : 2)}
+                      {plan.id === 'free' ? '$0' : formatUsdPrice(monthlyEquiv)}
                     </span>
                     <span className="text-[var(--text-secondary)] text-sm">/{t('subscription.common.mo')}</span>
                   </div>

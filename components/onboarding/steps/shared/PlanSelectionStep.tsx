@@ -6,6 +6,7 @@ import { ICONS } from '../../../../constants';
 import { useLanguage } from '../../../../context/LanguageContext';
 import { isIAPAvailable, getOfferings, purchasePackage, restorePurchases, hasActiveEntitlement } from '../../../../services/purchases';
 import { apiFetch } from '../../../../services/api-config';
+import { formatUsdPrice, getDisplaySubscriptionPrice, type BillingPeriod } from '../../../../services/subscription-pricing';
 
 interface PlanSelectionStepProps {
   currentStep: number;
@@ -14,7 +15,7 @@ interface PlanSelectionStepProps {
   onNext: (
     plan: 'free' | 'standard' | 'unlimited',
     priceId: string | null,
-    billingPeriod: 'weekly' | 'monthly' | 'yearly'
+    billingPeriod: BillingPeriod
   ) => void;
   onBack: () => void;
   accentColor?: string;
@@ -40,7 +41,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
   const { t } = useTranslation();
   const { targetName } = useLanguage();
   const [selectedPlan, setSelectedPlan] = useState<'free' | 'standard' | 'unlimited' | null>(null);
-  const [billingPeriod, setBillingPeriod] = useState<'weekly' | 'monthly' | 'yearly'>('monthly');
+  const [billingPeriod, setBillingPeriod] = useState<BillingPeriod>('monthly');
   const [prices, setPrices] = useState<Prices | null>(null);
   const [loading, setLoading] = useState(true);
   const [purchasing, setPurchasing] = useState(false);
@@ -201,9 +202,9 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
     {
       id: 'standard' as const,
       name: t('onboarding.plan.standard.name'),
-      weeklyPrice: 7,
-      monthlyPrice: 17.99,
-      yearlyPrice: 69.99,
+      weeklyPrice: getDisplaySubscriptionPrice('standard', 'weekly'),
+      monthlyPrice: getDisplaySubscriptionPrice('standard', 'monthly'),
+      yearlyPrice: getDisplaySubscriptionPrice('standard', 'yearly'),
       tagline: t('onboarding.plan.standard.tagline'),
       features: [
         { text: t('onboarding.plan.standard.feature1'), included: true },
@@ -216,9 +217,9 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
     {
       id: 'unlimited' as const,
       name: t('onboarding.plan.unlimited.name'),
-      weeklyPrice: 12.99,
-      monthlyPrice: 39.99,
-      yearlyPrice: 139,
+      weeklyPrice: getDisplaySubscriptionPrice('unlimited', 'weekly'),
+      monthlyPrice: getDisplaySubscriptionPrice('unlimited', 'monthly'),
+      yearlyPrice: getDisplaySubscriptionPrice('unlimited', 'yearly'),
       tagline: t('onboarding.plan.unlimited.tagline'),
       popular: true,
       features: [
@@ -399,13 +400,13 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
                     </>
                   ) : (
                     <>
-                      <div className="text-2xl md:text-3xl font-bold text-[var(--text-primary)]">${price}</div>
+                      <div className="text-2xl md:text-3xl font-bold text-[var(--text-primary)]">{formatUsdPrice(price)}</div>
                       <div className="text-xs text-[var(--text-secondary)]">
                         /{periodLabel}
                       </div>
                       {billingPeriod === 'yearly' && (
                         <div className="text-xs text-green-600 mt-1">
-                          ${(price / 12).toFixed(0)}/{t('subscription.common.mo')}
+                          {formatUsdPrice(price / 12)}/{t('subscription.common.mo')}
                         </div>
                       )}
                     </>
