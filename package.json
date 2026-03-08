@@ -18,6 +18,8 @@
     "preview": "vite preview",
     "import-content": "node scripts/import-content.cjs",
     "generate-article": "node --env-file=.env --import=tsx scripts/generate-article.ts",
+    "blog:slug-native:dry-run": "node blog/scripts/promote-slug-native-canonicals.mjs --dry-run",
+    "blog:slug-native:apply": "node blog/scripts/promote-slug-native-canonicals.mjs --apply",
     "seo:inventory": "node scripts/seo/generate-url-inventory.mjs",
     "seo:audit": "node scripts/seo/audit-deployed-seo.mjs",
     "seo:validate-routes": "node scripts/seo/validate-route-ownership.mjs",
