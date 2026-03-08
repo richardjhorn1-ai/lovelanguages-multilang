@@ -16,6 +16,11 @@ All educational content lives under `/learn/` with this URL pattern:
 /learn/{native_lang}/{target_lang}/{article-slug}
 ```
 
+- `article-slug` is always lowercase ASCII with hyphens.
+- For `native_lang = en`, article slugs stay in English.
+- For non-English native-language pages, article slugs are localized/transliterated ASCII in the reader's native language.
+- Legacy English fallback slugs may still exist as redirects, but they are not canonical on non-English native pages.
+
 ### Languages Supported (18 languages)
 
 | Code | Language |
@@ -68,8 +73,8 @@ All educational content lives under `/learn/` with this URL pattern:
 
 - English speakers learning Polish: `/learn/en/pl/`
 - How to say I love you in Polish: `/learn/en/pl/how-to-say-i-love-you-in-polish/`
-- German pet names for French speakers: `/learn/fr/de/german-pet-names-terms-of-endearment/`
-- Spanish date vocabulary for Italian speakers: `/learn/it/es/spanish-date-night-vocabulary/`
+- German pet names for French speakers: `/learn/fr/de/surnoms-amoureux-allemands/`
+- Spanish date vocabulary for Italian speakers: `/learn/it/es/vocabolario-spagnolo-per-appuntamenti/`
 
 ## API
 
@@ -82,4 +87,4 @@ Currently no public API. Content is rendered server-side via Astro.
 
 ---
 
-*Last updated: 2026-02-03*
+*Last updated: 2026-03-08*

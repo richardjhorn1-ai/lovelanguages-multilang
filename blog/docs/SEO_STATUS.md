@@ -2,6 +2,8 @@
 
 > Central source of truth for SEO work on the multi-language learning blog.
 > Last updated: January 22, 2026 (Session 5)
+>
+> March 8, 2026 update: historical sections below still describe the English-slug standardization phase. The current canonical article policy is localized/transliterated ASCII slugs for non-English native pages, English slugs for English-native pages, with legacy article aliases handled in the data layer rather than `vercel.json`.
 
 ## Quick Stats
 

@@ -3,6 +3,7 @@
  */
 
 import { createClient } from '@supabase/supabase-js';
+import { normalizeLanguageCode, normalizeArticleSlugInput } from './native-slugs.mjs';
 
 const supabaseUrl = import.meta.env.VITE_SUPABASE_URL || import.meta.env.SUPABASE_URL;
 const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY || import.meta.env.SUPABASE_ANON_KEY;
@@ -14,9 +15,25 @@ if (!supabaseUrl || !supabaseKey) {
 const supabase = createClient(supabaseUrl || '', supabaseKey || '');
 const PAGE_SIZE = 1000;
 
+function isMissingRelationError(error: any): boolean {
+  return Boolean(
+    error && (
+      error.code === '42P01' ||
+      String(error.message || '').includes('blog_article_slug_aliases')
+    )
+  );
+}
+
+function applyCanonicalFilter(query: any) {
+  return query.eq('is_canonical', true);
+}
+
 async function fetchAllPublishedRows<T>(
   select: string,
-  applyFilters?: (query: any) => any
+  applyFilters?: (query: any) => any,
+  options?: {
+    canonicalOnly?: boolean;
+  }
 ): Promise<T[]> {
   const allRows: T[] = [];
   let offset = 0;
@@ -27,6 +44,10 @@ async function fetchAllPublishedRows<T>(
       .select(select)
       .eq('published', true)
       .range(offset, offset + PAGE_SIZE - 1);
+
+    if (options?.canonicalOnly !== false) {
+      query = applyCanonicalFilter(query);
+    }
 
     if (applyFilters) {
       query = applyFilters(query);
@@ -77,6 +98,19 @@ export interface BlogArticle {
   faq_items: Array<{question: string, answer: string}> | null;
 }
 
+export interface BlogArticleSlugAlias {
+  article_id: string;
+  native_lang: string;
+  target_lang: string;
+  alias_slug: string;
+  source: string | null;
+}
+
+export interface ResolvedArticleRoute {
+  article: BlogArticle;
+  matchType: 'canonical' | 'alias' | 'non_canonical';
+}
+
 export type BlogArticleSummary = Pick<BlogArticle,
   'id' | 'slug' | 'native_lang' | 'target_lang' | 'title' | 'description' |
   'category' | 'difficulty' | 'read_time' | 'image' | 'tags' | 'date'
@@ -93,23 +127,165 @@ export type BlogArticleSearchResult = Pick<BlogArticle,
 export async function getArticle(
   nativeLang: string,
   targetLang: string,
-  slug: string
+  slug: string,
+  options?: {
+    canonicalOnly?: boolean;
+  }
 ): Promise<BlogArticle | null> {
-  const { data, error } = await supabase
+  let query = supabase
     .from('blog_articles')
     .select('*')
     .eq('native_lang', nativeLang)
     .eq('target_lang', targetLang)
     .eq('slug', slug)
     .eq('published', true)
-    .maybeSingle();
+    .order('is_canonical', { ascending: false })
+    .limit(2);
+
+  if (options?.canonicalOnly !== false) {
+    query = applyCanonicalFilter(query);
+  }
+
+  const { data, error } = await query;
 
   if (error) {
     console.error('Error fetching article:', error);
     return null;
   }
 
+  if (!data || data.length === 0) {
+    return null;
+  }
+
+  if (data.length > 1) {
+    console.warn(`Multiple published articles found for ${nativeLang}/${targetLang}/${slug}; using first result.`);
+  }
+
+  return data[0];
+}
+
+export async function getArticleSlugAlias(
+  nativeLang: string,
+  targetLang: string,
+  aliasSlug: string
+): Promise<BlogArticleSlugAlias | null> {
+  const { data, error } = await supabase
+    .from('blog_article_slug_aliases')
+    .select('article_id, native_lang, target_lang, alias_slug, source')
+    .eq('native_lang', nativeLang)
+    .eq('target_lang', targetLang)
+    .eq('alias_slug', aliasSlug)
+    .limit(1)
+    .maybeSingle();
+
+  if (error) {
+    if (isMissingRelationError(error)) {
+      return null;
+    }
+    console.error('Error fetching article slug alias:', error);
+    return null;
+  }
+
   return data;
+}
+
+export async function getCanonicalArticleById(articleId: string): Promise<BlogArticle | null> {
+  const { data, error } = await supabase
+    .from('blog_articles')
+    .select('*')
+    .eq('id', articleId)
+    .eq('published', true)
+    .eq('is_canonical', true)
+    .limit(1)
+    .maybeSingle();
+
+  if (error) {
+    console.error('Error fetching canonical article by id:', error);
+    return null;
+  }
+
+  return data;
+}
+
+export async function resolveArticleRoute(
+  nativeLang: string,
+  targetLang: string,
+  slug: string
+): Promise<ResolvedArticleRoute | null> {
+  const normalizedNativeLang = normalizeLanguageCode(nativeLang);
+  const normalizedTargetLang = normalizeLanguageCode(targetLang);
+  const normalizedSlug = normalizeArticleSlugInput(slug);
+
+  const canonicalArticle = await getArticle(
+    normalizedNativeLang,
+    normalizedTargetLang,
+    normalizedSlug
+  );
+
+  if (canonicalArticle) {
+    return {
+      article: canonicalArticle,
+      matchType: 'canonical',
+    };
+  }
+
+  const exactArticle = await getArticle(
+    normalizedNativeLang,
+    normalizedTargetLang,
+    normalizedSlug,
+    { canonicalOnly: false }
+  );
+
+  if (exactArticle) {
+    if (exactArticle.is_canonical === false) {
+      const canonicalForTopic = await getCanonicalForTopic(
+        exactArticle.topic_id,
+        normalizedNativeLang,
+        normalizedTargetLang
+      );
+
+      if (canonicalForTopic?.slug) {
+        const canonicalTopicArticle = await getArticle(
+          normalizedNativeLang,
+          normalizedTargetLang,
+          canonicalForTopic.slug
+        );
+
+        if (canonicalTopicArticle) {
+          return {
+            article: canonicalTopicArticle,
+            matchType: 'non_canonical',
+          };
+        }
+      }
+    }
+
+    console.warn(`Serving orphaned non-canonical article without redirect target: ${normalizedNativeLang}/${normalizedTargetLang}/${normalizedSlug}`);
+    return {
+      article: exactArticle,
+      matchType: 'canonical',
+    };
+  }
+
+  const alias = await getArticleSlugAlias(
+    normalizedNativeLang,
+    normalizedTargetLang,
+    normalizedSlug
+  );
+
+  if (!alias) {
+    return null;
+  }
+
+  const aliasArticle = await getCanonicalArticleById(alias.article_id);
+  if (!aliasArticle) {
+    return null;
+  }
+
+  return {
+    article: aliasArticle,
+    matchType: 'alias',
+  };
 }
 
 /**
@@ -130,6 +306,7 @@ export async function getArticlesByLangPair(
     .eq('native_lang', nativeLang)
     .eq('target_lang', targetLang)
     .eq('published', true)
+    .eq('is_canonical', true)
     .order('date', { ascending: false });
 
   if (options?.category) {
@@ -168,6 +345,7 @@ export async function getArticlesByNativeLang(
     .select('id, slug, native_lang, target_lang, title, description, category, difficulty, read_time, image, tags, date')
     .eq('native_lang', nativeLang)
     .eq('published', true)
+    .eq('is_canonical', true)
     .order('date', { ascending: false });
 
   if (options?.limit) {
@@ -264,6 +442,7 @@ export async function getArticlesByCategory(
     .select('id, slug, native_lang, target_lang, title, description, category, difficulty, read_time, image, tags, date')
     .eq('category', category)
     .eq('published', true)
+    .eq('is_canonical', true)
     .order('date', { ascending: false });
 
   if (options?.nativeLang) {
@@ -302,6 +481,7 @@ export async function searchArticles(
     .from('blog_articles')
     .select('id, slug, native_lang, target_lang, title, description, category, image, date')
     .eq('published', true)
+    .eq('is_canonical', true)
     .or(`title.ilike.%${query}%,description.ilike.%${query}%`)
     .order('date', { ascending: false });
 
@@ -388,14 +568,15 @@ export async function getArticlesByTopic(
   const topic = TOPIC_DEFINITIONS[topicSlug];
   if (!topic) return [];
 
-  // Build OR filter for slug patterns
-  const orFilters = topic.patterns.map(p => `slug.ilike.%${p}%`).join(',');
+  // Topic hubs key off topic_id so localized slugs do not break discovery.
+  const orFilters = topic.patterns.map(p => `topic_id.ilike.%:${p}%`).join(',');
 
   const { data, error } = await supabase
     .from('blog_articles')
     .select('id, slug, native_lang, target_lang, title, description, category, difficulty, read_time, image, tags, date')
     .eq('native_lang', nativeLang)
     .eq('published', true)
+    .eq('is_canonical', true)
     .or(orFilters)
     .order('target_lang', { ascending: true });
 
@@ -428,13 +609,14 @@ export async function getTopicCounts(
   const counts: Record<string, number> = {};
 
   for (const [topicSlug, topic] of Object.entries(TOPIC_DEFINITIONS)) {
-    const orFilters = topic.patterns.map(p => `slug.ilike.%${p}%`).join(',');
+    const orFilters = topic.patterns.map(p => `topic_id.ilike.%:${p}%`).join(',');
 
     const { count, error } = await supabase
       .from('blog_articles')
       .select('id', { count: 'exact', head: true })
       .eq('native_lang', nativeLang)
       .eq('published', true)
+      .eq('is_canonical', true)
       .or(orFilters);
 
     if (!error && count) {
@@ -455,7 +637,8 @@ export async function getArticleCount(
   let query = supabase
     .from('blog_articles')
     .select('id', { count: 'exact', head: true })
-    .eq('published', true);
+    .eq('published', true)
+    .eq('is_canonical', true);
 
   if (nativeLang) {
     query = query.eq('native_lang', nativeLang);

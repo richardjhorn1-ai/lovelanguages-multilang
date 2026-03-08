@@ -26,6 +26,7 @@ import { createClient } from '@supabase/supabase-js';
 import * as fs from 'fs';
 import * as path from 'path';
 import { fileURLToPath } from 'url';
+import { slugifyLocalizedTitle } from '../src/lib/native-slugs.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -161,14 +162,6 @@ Supported Languages:
   return config;
 }
 
-function slugify(text: string): string {
-  return text
-    .toLowerCase()
-    .replace(/[^\w\s-]/g, '')
-    .replace(/[\s_-]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-}
-
 async function generateArticle(config: ArticleConfig): Promise<GeneratedArticle> {
   const apiKey = process.env.ANTHROPIC_API_KEY;
   if (!apiKey) {
@@ -262,7 +255,9 @@ Return your response as JSON with this exact structure:
   }
 
   const article = JSON.parse(jsonStr.trim());
-  const slug = slugify(article.title);
+  const slug = slugifyLocalizedTitle(article.title, {
+    fallback: config.topic,
+  });
 
   return {
     ...article,

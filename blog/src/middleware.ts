@@ -1,5 +1,7 @@
 import { defineMiddleware } from 'astro:middleware';
 import legacyRedirects from './data/legacy-redirects.json';
+import { resolveArticleRoute } from './lib/blog-api';
+import { buildArticlePath, parseLearnArticlePath } from './lib/native-slugs.mjs';
 
 // Languages that had legacy 2-segment URLs: /learn/{lang}/{slug}/
 // Before multi-native-language support, these were the only target languages
@@ -25,6 +27,13 @@ const LEGACY_SLUG_MAP = new Map<string, string>(
  */
 export const onRequest = defineMiddleware(async (context, next) => {
   const pathname = context.url.pathname;
+  const lowercaseEligible = pathname.startsWith('/learn/') || pathname.startsWith('/compare/');
+
+  if (lowercaseEligible && /[A-Z]/.test(pathname)) {
+    const normalizedPath = pathname.toLowerCase();
+    const suffix = `${context.url.search}${context.url.hash}`;
+    return context.redirect(`${normalizedPath}${suffix}`, 301);
+  }
 
   // Strip trailing slash for lookup (map keys have no trailing slash)
   const lookupPath = pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
@@ -32,6 +41,26 @@ export const onRequest = defineMiddleware(async (context, next) => {
   // 1. Legacy slug redirects: old MDX slugs → new Supabase slugs
   const newPath = LEGACY_SLUG_MAP.get(lookupPath);
   if (newPath) {
+    const parsedArticlePath = parseLearnArticlePath(newPath);
+    if (parsedArticlePath) {
+      const resolvedArticle = await resolveArticleRoute(
+        parsedArticlePath.nativeLang,
+        parsedArticlePath.targetLang,
+        parsedArticlePath.slug
+      );
+
+      if (resolvedArticle) {
+        return context.redirect(
+          buildArticlePath(
+            resolvedArticle.article.native_lang,
+            resolvedArticle.article.target_lang,
+            resolvedArticle.article.slug
+          ),
+          301
+        );
+      }
+    }
+
     return context.redirect(`${newPath}/`, 301);
   }
 

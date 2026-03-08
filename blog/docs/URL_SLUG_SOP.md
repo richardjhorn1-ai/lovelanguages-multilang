@@ -1,184 +1,92 @@
 # URL Slug Standard Operating Procedure
 
-> **Purpose:** Prevent broken URLs and 404 errors when managing blog article slugs.
+> **Purpose:** Keep article URLs canonical, localized, and migration-safe.
 
-## The Golden Rule
+## Canonical Contract
 
-**All article filenames MUST use English slugs, regardless of native language.**
+Public article URLs live under:
 
-```
-✅ CORRECT: blog/src/content/articles/es/pl/polish-pet-names-terms-of-endearment.mdx
-❌ WRONG:   blog/src/content/articles/es/pl/apodos-cariñosos-polacos.mdx
-```
-
-The filename becomes the URL slug. Changing a filename = breaking all existing links.
-
----
-
-## Before Renaming Any File
-
-### 1. NEVER rename article files without creating redirects
-
-If you must rename a file:
-
-```bash
-# 1. First, add redirect to vercel.json
-# 2. Then rename the file
-# 3. Deploy and verify
+```text
+/learn/{native_lang}/{target_lang}/{slug}/
 ```
 
-### 2. Use the redirect scripts
+- `slug` must be lowercase ASCII only: `[a-z0-9-]+`
+- `native_lang = en` keeps English slugs
+- `native_lang != en` uses localized/transliterated ASCII slugs in the reader's native language
+- Legacy article slugs are aliases, not canonicals
+
+## Source Of Truth
+
+- Canonical slug: `blog_articles.slug`
+- Legacy aliases: `blog_article_slug_aliases`
+- Public lists, hubs, search, sitemap, hreflang, and internal links must use canonical rows only
+- Article-level slug redirects do **not** belong in `vercel.json`
+
+## Redirect Policy
+
+- Canonical article URL returns `200`
+- Legacy article alias returns one `301` to canonical article URL
+- Unknown article slug returns `404`
+- Retired non-article pages may still redirect to a hub/category page, but that is a separate system from article aliases
+
+## Creating Or Updating Slugs
+
+1. Generate slugs with the shared helper in [native-slugs.mjs](/Users/richardhorn/Trying Claude Code/L.L.3.0/lovelanguages-multilang/blog/src/lib/native-slugs.mjs)
+2. Use `slugifyLocalizedTitle()` for new slugs
+3. If a slug changes, add the previous slug as an alias row
+4. Never make up ad hoc transliterations in scripts or prompts
+
+## Migration Workflow
+
+1. Update canonical slugs in `blog_articles`
+2. Backfill alias rows:
 
 ```bash
 cd blog
+node scripts/backfill-slug-aliases.mjs --dry-run
+node scripts/backfill-slug-aliases.mjs
+```
 
-# Generate all needed redirects from git history
-node scripts/generate-redirects.cjs
+3. Rewrite stored internal article links:
 
-# Update vercel.json with redirects
-node scripts/update-vercel-redirects.cjs
+```bash
+cd blog
+node scripts/fix-broken-internal-links.mjs --dry-run
+node scripts/fix-broken-internal-links.mjs
+```
 
-# Test redirects against live site
+4. Rebuild the URL inventory and redirect audit inputs:
+
+```bash
+cd ..
+node scripts/seo/generate-url-inventory.mjs
+cd blog
 node scripts/test-redirects.cjs --sample 50
 ```
 
----
+## Do Not Do This
 
-## When Creating New Articles
+- Do not add article-to-article slug redirects in `vercel.json`
+- Do not assume non-English pages should keep English slugs
+- Do not ship content HTML with `/learn/...` links that point at aliases
+- Do not rely on hreflang deduplication to hide topic collisions
 
-### Filename Pattern
+## Release Checklist
 
-```
-{target-language}-{topic-in-english}.mdx
-```
+- [ ] Canonical article URLs return direct `200`
+- [ ] Alias article URLs return one `301` to canonical
+- [ ] No article alias appears in sitemap XML
+- [ ] Canonical, hreflang, `og:url`, `twitter:url`, and JSON-LD URL agree
+- [ ] Stored `content_html` contains canonical article links only
+- [ ] `llms.txt` and `llms-full.txt` describe the live slug policy accurately
 
-Examples:
-- `polish-pet-names-terms-of-endearment.mdx`
-- `how-to-say-i-love-you-in-polish.mdx`
-- `polish-essential-phrases-for-couples.mdx`
-- `is-polish-hard-to-learn.mdx`
-- `100-common-polish-words.mdx`
+## Emergency Fix
 
-### Directory Structure
+If a live article URL is wrong:
 
-```
-blog/src/content/articles/
-├── {nativeLanguage}/           # 2-letter code (en, es, fr, de, etc.)
-│   └── {targetLanguage}/       # 2-letter code (pl, it, sv, etc.)
-│       └── {english-slug}.mdx  # ALWAYS English slug
-```
+1. Fix the canonical slug in `blog_articles`
+2. Add or repair the alias row in `blog_article_slug_aliases`
+3. Run the internal-link rewrite script if stored content links are affected
+4. Re-run the redirect audit against preview or production
 
-### Title & Content Language
-
-- **Filename:** Always English
-- **Title:** In native language (es articles have Spanish titles)
-- **Content:** In native language
-- **Frontmatter:** language codes are 2-letter ISO codes
-
----
-
-## Redirect Management
-
-### When Redirects Are Needed
-
-1. **File renamed** - Old slug → New slug
-2. **File moved** - Old path → New path
-3. **URL structure changed** - e.g., `/learn/pl/article` → `/learn/en/pl/article`
-
-### Adding Manual Redirects
-
-Edit `vercel.json`:
-
-```json
-{
-  "redirects": [
-    {
-      "source": "/learn/es/sv/frases-esenciales-sueco-para-parejas",
-      "destination": "/learn/es/sv/swedish-essential-phrases-for-couples/",
-      "permanent": true
-    }
-  ]
-}
-```
-
-**Always include both with and without trailing slash:**
-
-```json
-{
-  "source": "/old-path",
-  "destination": "/new-path/",
-  "permanent": true
-},
-{
-  "source": "/old-path/",
-  "destination": "/new-path/",
-  "permanent": true
-}
-```
-
-### Vercel Limits
-
-| Plan | Max Redirects |
-|------|---------------|
-| Hobby | 1,024 |
-| Pro | 4,096 |
-
-If you exceed limits, consider middleware-based redirects.
-
----
-
-## Registry Maintenance
-
-After any file changes, regenerate the registry:
-
-```bash
-cd blog
-node scripts/update-registry.cjs
-```
-
-This updates `src/data/article-registry.json` which is used for sitemaps and internal linking.
-
----
-
-## Checklist for Article Changes
-
-- [ ] Filename uses English slug
-- [ ] No existing file is being renamed without redirect
-- [ ] Registry regenerated after changes
-- [ ] Build succeeds locally: `npm run build`
-- [ ] No 404s in browser console
-
----
-
-## History: Why This Matters
-
-On January 21, 2026, ~240 articles were renamed from translated slugs (Spanish/French) to English slugs. This broke hundreds of URLs that Google had indexed, causing 404 errors and lost traffic.
-
-**Lesson learned:** URLs are permanent. Once published, they should never change without redirects.
-
----
-
-## Scripts Reference
-
-| Script | Purpose |
-|--------|---------|
-| `scripts/generate-redirects.cjs` | Extract all renames from git history |
-| `scripts/update-vercel-redirects.cjs` | Merge redirects into vercel.json |
-| `scripts/test-redirects.cjs` | Test redirects against live site |
-| `scripts/update-registry.cjs` | Regenerate article registry |
-
----
-
-## Emergency: Broken URL Reported
-
-1. Identify the old URL that's 404
-2. Find the correct new URL
-3. Add redirect to `vercel.json`
-4. Deploy immediately
-5. Verify the redirect works
-
-```bash
-# Quick test
-curl -I "https://www.lovelanguages.io/old-url"
-# Should return 301/308 redirect, not 404
-```
+Do not patch the issue by adding a one-off article redirect to `vercel.json`.

@@ -1,9 +1,10 @@
 ---
 import ArticleLayout from '../../layouts/ArticleLayout.astro';
 import LoveNote from '../../components/LoveNote.astro';
-import { getArticle, getArticlesByLangPair, getAlternatesByTopicId } from '../../lib/blog-api';
+import { getArticlesByLangPair, getAlternatesByTopicId, resolveArticleRoute } from '../../lib/blog-api';
 import { sanitizeArticleContent } from '../../lib/sanitize-content';
 import { splitContentAtMidpoint } from '../../lib/split-content';
+import { buildArticlePath, normalizeArticleSlugInput, normalizeLanguageCode, VALID_LANGS as SUPPORTED_LANGS } from '../../lib/native-slugs.mjs';
 
 // Language config for flags and names
 const LANGUAGE_INFO: Record<string, { flag: string; name: string; nativeName: string }> = {
@@ -29,35 +30,45 @@ const LANGUAGE_INFO: Record<string, { flag: string; name: string; nativeName: st
 
 // Parse slug: nativeLang/targetLang/article-slug
 const { slug } = Astro.params;
-const slugParts = (slug || '').split('/');
+const slugParts = (slug || '').split('/').filter(Boolean);
 
-if (slugParts.length < 3) {
+if (slugParts.length !== 3) {
   return new Response(null, { status: 404, statusText: 'Not Found' });
 }
 
-const nativeLanguageCode = slugParts[0];
-const targetLanguageCode = slugParts[1];
-const articleSlug = slugParts.slice(2).join('/');
+const rawNativeLanguageCode = slugParts[0];
+const rawTargetLanguageCode = slugParts[1];
+const rawArticleSlug = slugParts[2];
+const nativeLanguageCode = normalizeLanguageCode(rawNativeLanguageCode);
+const targetLanguageCode = normalizeLanguageCode(rawTargetLanguageCode);
+const articleSlug = normalizeArticleSlugInput(rawArticleSlug);
 
 // Validate language codes — only real languages, not 'all'
-const VALID_LANGS = Object.keys(LANGUAGE_INFO);
-if (!VALID_LANGS.includes(nativeLanguageCode) || !VALID_LANGS.includes(targetLanguageCode)) {
+if (!SUPPORTED_LANGS.includes(nativeLanguageCode) || !SUPPORTED_LANGS.includes(targetLanguageCode)) {
   // Redirect methodology articles (target_lang='all') to their correct URL
-  if (targetLanguageCode === 'all' && VALID_LANGS.includes(nativeLanguageCode)) {
+  if (targetLanguageCode === 'all' && SUPPORTED_LANGS.includes(nativeLanguageCode)) {
     return Astro.redirect(`/learn/${nativeLanguageCode}/couples-language-learning/methodology/${articleSlug}/`, 301);
   }
   return new Response(null, { status: 404, statusText: 'Not Found' });
 }
 
-// Fetch article from Supabase
-const article = await getArticle(nativeLanguageCode, targetLanguageCode, articleSlug);
+const resolvedArticle = await resolveArticleRoute(
+  nativeLanguageCode,
+  targetLanguageCode,
+  articleSlug
+);
 
-if (!article) {
+if (!resolvedArticle) {
   return new Response(null, { status: 404, statusText: 'Not Found' });
 }
 
-// Non-canonical articles will be deleted rather than redirected.
-// If is_canonical is ever set to false without deletion, serve as-is (no redirect).
+const article = resolvedArticle.article;
+const canonicalArticlePath = buildArticlePath(article.native_lang, article.target_lang, article.slug);
+const requestedPath = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+
+if (resolvedArticle.matchType !== 'canonical' || requestedPath !== canonicalArticlePath) {
+  return Astro.redirect(`${canonicalArticlePath}${Astro.url.search}`, 301);
+}
 
 const nativeLanguageInfo = LANGUAGE_INFO[nativeLanguageCode] || LANGUAGE_INFO.en;
 const languageInfo = LANGUAGE_INFO[targetLanguageCode] || LANGUAGE_INFO.pl;
@@ -70,13 +81,13 @@ const allLangPairArticles = await getArticlesByLangPair(nativeLanguageCode, targ
 
 // Related: same category first
 const relatedArticles = allLangPairArticles
-  .filter(a => a.slug !== articleSlug && a.category === article.category)
+  .filter(a => a.slug !== article.slug && a.category === article.category)
   .slice(0, 3);
 
 // Fill with other articles if needed
 if (relatedArticles.length < 3) {
   const others = allLangPairArticles
-    .filter(a => a.slug !== articleSlug && !relatedArticles.find(r => r.slug === a.slug))
+    .filter(a => a.slug !== article.slug && !relatedArticles.find(r => r.slug === a.slug))
     .slice(0, 3 - relatedArticles.length);
   relatedArticles.push(...others);
 }
@@ -104,7 +115,7 @@ const alternates = await getAlternatesByTopicId(
 );
 const alternateVersions = alternates.map(a => ({
   nativeLang: a.native_lang,
-  href: `https://www.lovelanguages.io/learn/${a.native_lang}/${targetLanguageCode}/${a.slug}/`
+  href: `https://www.lovelanguages.io${buildArticlePath(a.native_lang, targetLanguageCode, a.slug)}`
 }));
 
 // Cross-pair articles (simplified)
@@ -136,14 +147,14 @@ const articleDifficulty = VALID_ARTICLE_DIFFICULTIES.has(article.difficulty || '
   alternateVersions={alternateVersions}
   reverseArticle={undefined}
   crossPairArticles={crossPairArticles}
-  articleSlug={articleSlug}
+  articleSlug={article.slug}
 >
   <Fragment set:html={firstHalf} />
   {secondHalf && (
     <LoveNote
       nativeLang={nativeLanguageCode}
       targetLang={targetLanguageCode}
-      articleSlug={articleSlug}
+      articleSlug={article.slug}
     />
   )}
   <Fragment set:html={secondHalf} />

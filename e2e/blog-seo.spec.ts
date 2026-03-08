@@ -24,13 +24,12 @@ test.describe('Blog SEO & Sitemap Integrity', () => {
       expect(res.headers()['content-type']).toContain('xml');
     });
 
-    test('references all three child sitemaps', async ({ request }) => {
+    test('references the page and article child sitemaps', async ({ request }) => {
       const res = await request.get('/sitemap-index.xml');
       const body = await res.text();
 
       expect(body).toContain('sitemap-pages.xml');
       expect(body).toContain('sitemap-articles.xml');
-      expect(body).toContain('sitemap-images.xml');
     });
 
     test('does NOT reference old static sitemaps', async ({ request }) => {
@@ -145,19 +144,6 @@ test.describe('Blog SEO & Sitemap Integrity', () => {
         const path = new URL(loc).pathname;
         expect(path, `URL doesn't match article pattern: ${loc}`).toMatch(/^\/learn\/[a-z]{2}\/[a-z]{2}\/[a-z0-9-]+\/$/);
       }
-    });
-  });
-
-  // ─── Images Sitemap ─────────────────────────────────────────────
-
-  test.describe('Images Sitemap', () => {
-
-    test('returns 200 with valid XML', async ({ request }) => {
-      const res = await request.get('/sitemap-images.xml');
-      expect(res.status()).toBe(200);
-
-      const body = await res.text();
-      expect(body).toContain('<?xml');
     });
   });
 

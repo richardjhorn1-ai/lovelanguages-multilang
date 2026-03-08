@@ -27,7 +27,10 @@ https://www.lovelanguages.io/learn/{native}/{target}/{slug}
 
 - `native` = Reader's native language (ISO 639-1 code)
 - `target` = Language being learned (ISO 639-1 code)
-- `slug` = Article identifier (always in English)
+- `slug` = Lowercase ASCII article identifier
+- `slug` stays in English when `native = en`
+- `slug` is localized/transliterated ASCII when `native != en`
+- Legacy English fallback slugs may redirect to localized canonicals on non-English native pages
 
 ### Supported Languages (18)
 
@@ -137,7 +140,7 @@ Most popular pairs:
 
 ### Example: "German Pet Names" (French speakers)
 
-**URL:** `/learn/fr/de/german-pet-names-terms-of-endearment/`
+**URL:** `/learn/fr/de/surnoms-amoureux-allemands/`
 
 **Content includes:**
 - "Schatz" (treasure) - most common
@@ -202,6 +205,6 @@ Our content is:
 
 ---
 
-*Last updated: 2026-02-03*
+*Last updated: 2026-03-08*
 *Total articles: 13,000+*
 *Language pairs: 306*

@@ -111,6 +111,24 @@ class SEOAuditor {
     }
   }
 
+  normalizeRedirectLocation(location, auditUrl) {
+    try {
+      return new URL(location, auditUrl).toString();
+    } catch {
+      return location;
+    }
+  }
+
+  sameRedirectTarget(actualLocation, expectedTarget) {
+    try {
+      const actual = new URL(actualLocation, this.baseUrl);
+      const expected = new URL(expectedTarget);
+      return actual.pathname === expected.pathname && actual.search === expected.search;
+    } catch {
+      return actualLocation === expectedTarget;
+    }
+  }
+
   async fetchPage(urlOrPath, followRedirects = true) {
     const auditUrl = this.resolveAuditUrl(urlOrPath);
 
@@ -324,6 +342,39 @@ class SEOAuditor {
     const res = await this.fetchPage(url, false);
 
     if (res.error) {
+      this.recordPass(url);
+      return;
+    }
+
+    if (kind === 'article_alias') {
+      const expectedStatus = item.expected_status || 301;
+      const expectedTarget = item.expected_redirect_target;
+      const location = res.headers.location;
+
+      if (res.status !== expectedStatus) {
+        this.fail(url, 'alias_wrong_status', `Expected ${expectedStatus}, got ${res.status}`);
+        this.recordPass(url);
+        return;
+      }
+
+      if (!location) {
+        this.fail(url, 'alias_missing_location', 'Redirect response missing Location header');
+        this.recordPass(url);
+        return;
+      }
+
+      const resolvedLocation = this.normalizeRedirectLocation(location, res.auditUrl);
+      if (!this.sameRedirectTarget(resolvedLocation, expectedTarget)) {
+        this.fail(url, 'alias_wrong_target', `Redirect target "${resolvedLocation}" != expected "${expectedTarget}"`);
+      }
+
+      const targetRes = await this.fetchPage(this.canonicalToAuditPath(expectedTarget), false);
+      if (targetRes.status >= 300 && targetRes.status < 400) {
+        this.fail(url, 'alias_redirect_chain', `Canonical target still redirects with ${targetRes.status}`);
+      } else if (targetRes.status !== 200) {
+        this.fail(url, 'alias_target_unavailable', `Canonical target returned ${targetRes.status}`);
+      }
+
       this.recordPass(url);
       return;
     }

@@ -9,6 +9,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { convertMdxToHtml } from './component-converters.mjs';
+import { fetchPublishedArticleLinkMap, rewriteCanonicalArticleLinks } from './article-link-map.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const projectRoot = path.resolve(__dirname, '../..');
@@ -21,6 +22,7 @@ envContent.split('\n').forEach(line => {
 });
 
 const supabase = createClient(env.SUPABASE_URL || env.VITE_SUPABASE_URL, env.SUPABASE_SERVICE_KEY);
+const linkMap = await fetchPublishedArticleLinkMap(supabase);
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const LIMIT = (() => {
@@ -44,9 +46,10 @@ for (let i = 0; i < toProcess.length; i++) {
   const label = `[${i + 1}/${toProcess.length}] ${article.id.slice(0, 8)} ${article.native_lang}→${article.target_lang}`;
 
   let html;
+  const rewrittenContent = rewriteCanonicalArticleLinks(article.content || '', linkMap);
   try {
-    const result = convertMdxToHtml(article.content, article.native_lang, article.target_lang);
-    html = result.html;
+    const result = convertMdxToHtml(rewrittenContent, article.native_lang, article.target_lang);
+    html = rewriteCanonicalArticleLinks(result.html, linkMap);
   } catch (e) {
     console.log(`  ${label}: HTML ERROR — ${e.message}`);
     failed++;
@@ -54,7 +57,7 @@ for (let i = 0; i < toProcess.length; i++) {
   }
 
   // Check if HTML actually changed
-  if (html === article.content_html) {
+  if (html === article.content_html && rewrittenContent === article.content) {
     unchanged++;
     continue;
   }
@@ -67,7 +70,10 @@ for (let i = 0; i < toProcess.length; i++) {
 
   const { error } = await supabase
     .from('blog_articles')
-    .update({ content_html: html })
+    .update({
+      ...(rewrittenContent !== article.content ? { content: rewrittenContent } : {}),
+      content_html: html,
+    })
     .eq('id', article.id);
 
   if (error) {

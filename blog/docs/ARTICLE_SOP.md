@@ -8,12 +8,13 @@
 
 | Aspect | Value |
 |--------|-------|
-| **Content Location** | `/blog/src/content/articles/{nativeLanguage}/{targetLanguage}/` |
-| **File Format** | `.mdx` (Markdown + JSX components) |
-| **URL Generated** | `/learn/{nativeLanguage}/{targetLanguage}/{slug}/` |
+| **Canonical Source** | `blog_articles` in Supabase |
+| **Legacy Source Files** | `/blog/src/content/articles/{nativeLanguage}/{targetLanguage}/` |
+| **File Format** | `.mdx` (legacy source), DB-backed HTML at runtime |
+| **Public URL** | `/learn/{nativeLanguage}/{targetLanguage}/{slug}/` |
 | **Image Location** | `/blog/public/blog/{slug}.jpg` |
-| **Native Languages** | `en`, `es`, `fr`, `de`, `it`, `pt` (6 total) |
-| **Target Languages** | Above 6 + `ro`, `nl`, `sv`, `no`, `da`, `pl`, `cs`, `ru`, `uk`, `el`, `hu`, `tr` (18 total) |
+| **Native Languages** | `en`, `es`, `fr`, `de`, `it`, `pt`, `pl`, `nl`, `sv`, `no`, `da`, `cs`, `ru`, `uk`, `el`, `hu`, `tr`, `ro` |
+| **Target Languages** | Same 18-language set, excluding same-language pairs |
 
 ---
 
@@ -72,41 +73,42 @@
 
 **Format:** `{seo-optimized-slug}.mdx`
 
-**⚠️ CRITICAL RULE: ALWAYS USE ENGLISH SLUGS**
+**⚠️ CRITICAL RULE: MATCH THE PUBLIC CANONICAL SLUG POLICY**
 
-Regardless of the native language directory (es/, fr/, de/, etc.), the slug MUST be in English. This is essential for hreflang linking to work properly across all native language versions.
+- English-native articles keep English slugs
+- Non-English native articles use localized/transliterated ASCII slugs
+- Public slugs must be generated with `slugifyLocalizedTitle()` in [native-slugs.mjs](/Users/richardhorn/Trying Claude Code/L.L.3.0/lovelanguages-multilang/blog/src/lib/native-slugs.mjs)
+- If an old slug changes, preserve it as an alias in `blog_article_slug_aliases`
 
 **Rules:**
-- **ALWAYS English slug** - Even for Spanish/French/German native content
 - All lowercase
 - Hyphens between words (no spaces or underscores)
-- Include target language name for SEO
+- ASCII only
 - Keep under 60 characters if possible
 - URL-safe characters only
 
 **Good Examples:**
 ```
-how-to-say-i-love-you-in-polish.mdx        ✅ English slug
-ukrainian-pet-names-terms-of-endearment.mdx ✅ English slug
-spanish-future-tense-making-plans-together.mdx ✅ English slug
-meeting-your-german-partners-family.mdx     ✅ English slug
+how-to-say-i-love-you-in-polish.mdx        ✅ English-native article
+apodos-carinosos-polacos.mdx               ✅ Spanish-native article
+surnoms-amoureux-allemands.mdx             ✅ French-native article
+vocabolario-spagnolo-per-appuntamenti.mdx  ✅ Italian-native article
 ```
 
 **Bad Examples:**
 ```
-comment-dire-je-taime-en-polonais.mdx  # Wrong: French slug
-como-decir-te-amo-en-aleman.mdx        # Wrong: Spanish slug
-apodos-carinosos-en-italiano.mdx       # Wrong: Spanish slug
-surnoms-affectueux-allemands.mdx       # Wrong: French slug
+comment-dire-je-taime-en-polonais.mdx  # Wrong: apostrophe removed inconsistently
+apodos_cariñosos_polacos.mdx           # Wrong: underscore + non-ASCII
+Surnoms-Amoureux-Allemands.mdx         # Wrong: uppercase
+polish-article-1.mdx                   # Wrong: not descriptive
 I_Love_You_Polish.mdx                  # Wrong: uppercase, underscores
 how to say i love you.mdx              # Wrong: spaces
-polish-article-1.mdx                   # Wrong: not descriptive
 ```
 
-**Why English Slugs?**
-- Hreflang linking requires matching slugs across all native language versions
-- Google connects `/learn/en/pl/how-to-say-i-love-you-in-polish/` with `/learn/es/pl/how-to-say-i-love-you-in-polish/`
-- Non-matching slugs break this connection and hurt SEO
+**Why this policy?**
+- Non-English native pages now use localized ASCII canonicals
+- Hreflang linking is driven by `topic_id`, not forced English slug symmetry
+- A shared slug generator plus alias table is safer than manual one-off redirect rules
 
 ---
 

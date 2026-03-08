@@ -67,7 +67,6 @@ function updateSitemapIndex() {
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <sitemap><loc>${SITE_URL}/sitemap-0.xml</loc></sitemap>
 <sitemap><loc>${SITE_URL}/sitemap-app.xml</loc></sitemap>
-<sitemap><loc>${SITE_URL}/sitemap-images.xml</loc></sitemap>
 </sitemapindex>`;
 
     fs.writeFileSync(indexPath, xml);

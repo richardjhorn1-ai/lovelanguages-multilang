@@ -1,4 +1,5 @@
 export const SITE_URL = 'https://www.lovelanguages.io';
+import { buildArticlePath } from './native-slugs.mjs';
 
 /** Normalize any pathname to always have trailing slash */
 export function normalizePathname(pathname: string): string {
@@ -23,7 +24,7 @@ export function absoluteUrl(pathOrUrl: string): string {
 
 /** Build an article URL */
 export function articleUrl(native: string, target: string, slug: string): string {
-  return `/learn/${native}/${target}/${slug}/`;
+  return buildArticlePath(native, target, slug);
 }
 
 /** Build a hub URL */

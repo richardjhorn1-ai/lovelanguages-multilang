@@ -44,7 +44,7 @@ def fetch_articles(native: str, target: str, key: str) -> List[dict]:
         r = subprocess.run([
             'curl', '-s',
             f'{SUPABASE_URL}/blog_articles?select=id,slug,title,category,content_html,native_lang,target_lang'
-            f'&native_lang=eq.{native}&target_lang=eq.{target}&order=slug&limit={batch}&offset={offset}',
+            f'&native_lang=eq.{native}&target_lang=eq.{target}&is_canonical=eq.true&order=slug&limit={batch}&offset={offset}',
             '-H', f'apikey: {key}',
             '-H', f'Authorization: Bearer {key}'
         ], capture_output=True, text=True, timeout=30)

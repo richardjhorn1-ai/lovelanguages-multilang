@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { getAllSlugs } from '../lib/blog-api';
+import { buildArticlePath } from '../lib/native-slugs.mjs';
 
 export const GET: APIRoute = async () => {
   const allSlugs = await getAllSlugs();
@@ -10,7 +11,7 @@ export const GET: APIRoute = async () => {
     .map(({ native_lang, target_lang, slug, updated_at }) => {
       const lastmod = updated_at ? `\n    <lastmod>${new Date(updated_at).toISOString().split('T')[0]}</lastmod>` : '';
       return `  <url>
-    <loc>https://www.lovelanguages.io/learn/${native_lang}/${target_lang}/${slug}/</loc>${lastmod}
+    <loc>https://www.lovelanguages.io${buildArticlePath(native_lang, target_lang, slug)}</loc>${lastmod}
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>`;

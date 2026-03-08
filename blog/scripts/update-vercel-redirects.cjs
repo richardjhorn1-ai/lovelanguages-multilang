@@ -17,29 +17,33 @@ const vercelConfig = JSON.parse(fs.readFileSync(vercelPath, 'utf8'));
 // Read generated redirects
 const generatedData = JSON.parse(fs.readFileSync(redirectsPath, 'utf8'));
 
-// Get existing redirects that we want to keep (manual overrides)
+function isArticleToArticleRedirect(redirect) {
+  return (
+    /^\/learn\/[a-z]{2}\/[a-z]{2}\/[a-z0-9-]+\/?$/.test(redirect.source) &&
+    /^\/learn\/[a-z]{2}\/[a-z]{2}\/[a-z0-9-]+\/?$/.test(redirect.destination)
+  );
+}
+
+// Keep only non-article redirects in vercel.json.
+// Article slug aliases now belong in the data layer (blog_article_slug_aliases),
+// not in static Vercel config.
 const existingRedirects = vercelConfig.redirects || [];
-const manualRedirects = existingRedirects.filter(r =>
-  // Keep redirects that aren't auto-generated (e.g., the polish-pet-names one)
-  !r.source.match(/^\/learn\/[a-z]{2}\/[a-z]{2}\//) &&
-  !r.source.match(/^\/learn\/[a-z]{2}\/[a-z]+-/)
-);
+const manualRedirects = existingRedirects.filter(r => !isArticleToArticleRedirect(r));
+const removedArticleRedirects = existingRedirects.length - manualRedirects.length;
 
 console.log(`Existing manual redirects to keep: ${manualRedirects.length}`);
-console.log(`New generated redirects: ${generatedData.redirects.length}`);
+console.log(`Article redirects removed from vercel.json: ${removedArticleRedirects}`);
+console.log(`Generated article redirects ignored: ${(generatedData.redirects || []).length}`);
 
-// Combine redirects (manual first, then generated)
-const allRedirects = [...manualRedirects, ...generatedData.redirects];
-
-// Deduplicate by source
+// Deduplicate the remaining non-article redirects by source.
 const seen = new Set();
-const dedupedRedirects = allRedirects.filter(r => {
+const dedupedRedirects = manualRedirects.filter(r => {
   if (seen.has(r.source)) return false;
   seen.add(r.source);
   return true;
 });
 
-console.log(`Total after dedup: ${dedupedRedirects.length}`);
+console.log(`Total non-article redirects after dedup: ${dedupedRedirects.length}`);
 
 // Check Vercel limits (https://vercel.com/docs/projects/project-configuration#redirects)
 const VERCEL_HOBBY_LIMIT = 1024;
@@ -63,20 +67,12 @@ console.log(`   Total redirects: ${dedupedRedirects.length}`);
 
 // Summary by type
 const byPattern = {
-  'Spanish slugs (es/)': 0,
-  'French slugs (fr/)': 0,
   'Legacy 2-segment': 0,
   'Other': 0
 };
 
 for (const r of dedupedRedirects) {
-  if (r.source.startsWith('/learn/es/') && !r.source.match(/^\/learn\/es\/[a-z]{2}\/[a-z]+-/)) {
-    byPattern['Legacy 2-segment']++;
-  } else if (r.source.startsWith('/learn/es/')) {
-    byPattern['Spanish slugs (es/)']++;
-  } else if (r.source.startsWith('/learn/fr/')) {
-    byPattern['French slugs (fr/)']++;
-  } else if (r.source.match(/^\/learn\/[a-z]{2}\/[a-z]+-/)) {
+  if (r.source.match(/^\/learn\/[a-z]{2}\/[a-z]+-/)) {
     byPattern['Legacy 2-segment']++;
   } else {
     byPattern['Other']++;

@@ -9,9 +9,6 @@ export const GET: APIRoute = async () => {
   <sitemap>
     <loc>https://www.lovelanguages.io/sitemap-articles.xml</loc>
   </sitemap>
-  <sitemap>
-    <loc>https://www.lovelanguages.io/sitemap-images.xml</loc>
-  </sitemap>
 </sitemapindex>`;
 
   return new Response(xml, {

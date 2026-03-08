@@ -47,7 +47,8 @@ const ogLocale = OG_LOCALES[nativeLang] || 'en_US';
 const safeImage = image || '/og-image.png';
 const fullImage = absoluteUrl(safeImage);
 const suffix = ' | Love Languages';
-const fullTitle = (title.length + suffix.length > 60) ? title : `${title}${suffix}`;
+const hasBranding = /\bLove Languages\b/.test(title);
+const fullTitle = (hasBranding || title.length + suffix.length > 60) ? title : `${title}${suffix}`;
 
 // Dynamic fallbacks based on language
 const targetLanguageName = targetLang ? LANGUAGE_NAMES[targetLang] : 'Language';

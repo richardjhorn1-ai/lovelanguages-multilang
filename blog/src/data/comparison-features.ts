@@ -88,7 +88,7 @@ export interface ComparisonContent {
 // English content
 const EN_CONTENT: ComparisonContent = {
   page: {
-    title: "Love Languages vs {competitor} (2025) - The Only App Built for Couples",
+    title: "Love Languages vs {competitor} (2026) - The Only App Built for Couples",
     description: "See why couples choose Love Languages over {competitor}. AI conversations, Listen Mode, partner challenges, and 18 languages designed for learning together.",
     heroTitle: "Love Languages vs {competitor}",
     heroSubtitle: "One is built for couples. One isn't. Here's what that means for your language journey.",
@@ -202,7 +202,7 @@ const EN_CONTENT: ComparisonContent = {
 // Spanish content
 const ES_CONTENT: ComparisonContent = {
   page: {
-    title: "Love Languages vs {competitor} (2025) - La Única App Hecha para Parejas",
+    title: "Love Languages vs {competitor} (2026) - La Única App Hecha para Parejas",
     description: "Descubre por qué las parejas eligen Love Languages sobre {competitor}. Conversaciones con IA, Modo Escucha, desafíos de pareja y 18 idiomas diseñados para aprender juntos.",
     heroTitle: "Love Languages vs {competitor}",
     heroSubtitle: "Una está hecha para parejas. La otra no. Esto es lo que significa para tu viaje lingüístico.",
@@ -316,7 +316,7 @@ const ES_CONTENT: ComparisonContent = {
 // French content
 const FR_CONTENT: ComparisonContent = {
   page: {
-    title: "Love Languages vs {competitor} (2025) - La Seule App Conçue pour les Couples",
+    title: "Love Languages vs {competitor} (2026) - La Seule App Conçue pour les Couples",
     description: "Découvrez pourquoi les couples choisissent Love Languages plutôt que {competitor}. Conversations IA, Mode Écoute, défis de couple et 18 langues conçus pour apprendre ensemble.",
     heroTitle: "Love Languages vs {competitor}",
     heroSubtitle: "L'une est conçue pour les couples. L'autre non. Voici ce que ça change pour votre apprentissage.",
@@ -430,7 +430,7 @@ const FR_CONTENT: ComparisonContent = {
 // German content
 const DE_CONTENT: ComparisonContent = {
   page: {
-    title: "Love Languages vs {competitor} (2025) - Die Einzige App für Paare",
+    title: "Love Languages vs {competitor} (2026) - Die Einzige App für Paare",
     description: "Erfahren Sie, warum Paare Love Languages statt {competitor} wählen. KI-Gespräche, Hörmodus, Partner-Challenges und 18 Sprachen für gemeinsames Lernen.",
     heroTitle: "Love Languages vs {competitor}",
     heroSubtitle: "Eine ist für Paare gemacht. Die andere nicht. Das bedeutet das für Ihre Sprachreise.",
@@ -544,7 +544,7 @@ const DE_CONTENT: ComparisonContent = {
 // Italian content
 const IT_CONTENT: ComparisonContent = {
   page: {
-    title: "Love Languages vs {competitor} (2025) - L'Unica App per Coppie",
+    title: "Love Languages vs {competitor} (2026) - L'Unica App per Coppie",
     description: "Scopri perché le coppie scelgono Love Languages invece di {competitor}. Conversazioni IA, Modalità Ascolto, sfide di coppia e 18 lingue per imparare insieme.",
     heroTitle: "Love Languages vs {competitor}",
     heroSubtitle: "Una è fatta per le coppie. L'altra no. Ecco cosa significa per il tuo percorso linguistico.",
@@ -658,7 +658,7 @@ const IT_CONTENT: ComparisonContent = {
 // Portuguese content
 const PT_CONTENT: ComparisonContent = {
   page: {
-    title: "Love Languages vs {competitor} (2025) - O Único App para Casais",
+    title: "Love Languages vs {competitor} (2026) - O Único App para Casais",
     description: "Descubra por que casais escolhem Love Languages em vez de {competitor}. Conversas com IA, Modo Escuta, desafios de casal e 18 idiomas para aprender juntos.",
     heroTitle: "Love Languages vs {competitor}",
     heroSubtitle: "Um é feito para casais. O outro não. Veja o que isso significa para sua jornada de idiomas.",
@@ -772,7 +772,7 @@ const PT_CONTENT: ComparisonContent = {
 // Russian content
 const RU_CONTENT: ComparisonContent = {
   page: {
-    title: "Love Languages vs {competitor} (2025) - Единственное приложение для пар",
+    title: "Love Languages vs {competitor} (2026) - Единственное приложение для пар",
     description: "Узнайте, почему пары выбирают Love Languages вместо {competitor}. ИИ-разговоры, режим прослушивания, парные задания и 18 языков для совместного обучения.",
     heroTitle: "Love Languages vs {competitor}",
     heroSubtitle: "Одно создано для пар. Другое нет. Вот что это значит для вашего изучения языка.",
@@ -880,7 +880,7 @@ const RU_CONTENT: ComparisonContent = {
 // Polish content
 const PL_CONTENT: ComparisonContent = {
   page: {
-    title: "Love Languages vs {competitor} (2025) - Jedyna aplikacja dla par",
+    title: "Love Languages vs {competitor} (2026) - Jedyna aplikacja dla par",
     description: "Dowiedz się, dlaczego pary wybierają Love Languages zamiast {competitor}. Rozmowy z AI, tryb słuchania, wyzwania dla par i 18 języków do wspólnej nauki.",
     heroTitle: "Love Languages vs {competitor}",
     heroSubtitle: "Jedna jest stworzona dla par. Druga nie. Oto co to oznacza dla Twojej nauki języka.",
@@ -988,7 +988,7 @@ const PL_CONTENT: ComparisonContent = {
 // Turkish content
 const TR_CONTENT: ComparisonContent = {
   page: {
-    title: "Love Languages vs {competitor} (2025) - Çiftler için tek uygulama",
+    title: "Love Languages vs {competitor} (2026) - Çiftler için tek uygulama",
     description: "Çiftlerin neden {competitor} yerine Love Languages'ı seçtiğini öğrenin. AI sohbetleri, dinleme modu, çift meydan okumaları ve birlikte öğrenmek için 18 dil.",
     heroTitle: "Love Languages vs {competitor}",
     heroSubtitle: "Biri çiftler için yapılmış. Diğeri değil. İşte bu dil öğrenme yolculuğunuz için ne anlama geliyor.",
@@ -1096,7 +1096,7 @@ const TR_CONTENT: ComparisonContent = {
 // Ukrainian content
 const UK_CONTENT: ComparisonContent = {
   page: {
-    title: "Love Languages vs {competitor} (2025) - Єдиний додаток для пар",
+    title: "Love Languages vs {competitor} (2026) - Єдиний додаток для пар",
     description: "Дізнайтеся, чому пари обирають Love Languages замість {competitor}. ШІ-розмови, режим прослуховування, парні завдання та 18 мов для спільного навчання.",
     heroTitle: "Love Languages vs {competitor}",
     heroSubtitle: "Один створений для пар. Інший ні. Ось що це означає для вашого вивчення мови.",
@@ -1204,7 +1204,7 @@ const UK_CONTENT: ComparisonContent = {
 // Romanian content
 const RO_CONTENT: ComparisonContent = {
   page: {
-    title: "Love Languages vs {competitor} (2025) - Singura aplicație pentru cupluri",
+    title: "Love Languages vs {competitor} (2026) - Singura aplicație pentru cupluri",
     description: "Descoperiți de ce cuplurile aleg Love Languages în loc de {competitor}. Conversații AI, mod ascultare, provocări pentru cupluri și 18 limbi pentru a învăța împreună.",
     heroTitle: "Love Languages vs {competitor}",
     heroSubtitle: "Una este făcută pentru cupluri. Cealaltă nu. Iată ce înseamnă asta pentru călătoria ta lingvistică.",
@@ -1312,7 +1312,7 @@ const RO_CONTENT: ComparisonContent = {
 // Dutch content
 const NL_CONTENT: ComparisonContent = {
   page: {
-    title: "Love Languages vs {competitor} (2025) - De enige app voor koppels",
+    title: "Love Languages vs {competitor} (2026) - De enige app voor koppels",
     description: "Ontdek waarom koppels Love Languages kiezen boven {competitor}. AI-gesprekken, luistermodus, koppel-uitdagingen en 18 talen om samen te leren.",
     heroTitle: "Love Languages vs {competitor}",
     heroSubtitle: "De ene is gemaakt voor koppels. De andere niet. Dit betekent het voor je taalreis.",
@@ -1420,7 +1420,7 @@ const NL_CONTENT: ComparisonContent = {
 // Swedish content
 const SV_CONTENT: ComparisonContent = {
   page: {
-    title: "Love Languages vs {competitor} (2025) - Den enda appen för par",
+    title: "Love Languages vs {competitor} (2026) - Den enda appen för par",
     description: "Se varför par väljer Love Languages framför {competitor}. AI-samtal, lyssningsläge, parutmaningar och 18 språk att lära sig tillsammans.",
     heroTitle: "Love Languages vs {competitor}",
     heroSubtitle: "Den ena är byggd för par. Den andra inte. Så här påverkar det din språkresa.",
@@ -1528,7 +1528,7 @@ const SV_CONTENT: ComparisonContent = {
 // Norwegian content
 const NO_CONTENT: ComparisonContent = {
   page: {
-    title: "Love Languages vs {competitor} (2025) - Den eneste appen for par",
+    title: "Love Languages vs {competitor} (2026) - Den eneste appen for par",
     description: "Se hvorfor par velger Love Languages fremfor {competitor}. AI-samtaler, lyttemodus, parutfordringer og 18 språk å lære sammen.",
     heroTitle: "Love Languages vs {competitor}",
     heroSubtitle: "Den ene er bygget for par. Den andre ikke. Slik påvirker det språkreisen din.",
@@ -1636,7 +1636,7 @@ const NO_CONTENT: ComparisonContent = {
 // Danish content
 const DA_CONTENT: ComparisonContent = {
   page: {
-    title: "Love Languages vs {competitor} (2025) - Den eneste app til par",
+    title: "Love Languages vs {competitor} (2026) - Den eneste app til par",
     description: "Se hvorfor par vælger Love Languages frem for {competitor}. AI-samtaler, lyttetilstand, parudfordringer og 18 sprog at lære sammen.",
     heroTitle: "Love Languages vs {competitor}",
     heroSubtitle: "Den ene er bygget til par. Den anden ikke. Sådan påvirker det din sprogrejse.",
@@ -1744,7 +1744,7 @@ const DA_CONTENT: ComparisonContent = {
 // Czech content
 const CS_CONTENT: ComparisonContent = {
   page: {
-    title: "Love Languages vs {competitor} (2025) - Jediná aplikace pro páry",
+    title: "Love Languages vs {competitor} (2026) - Jediná aplikace pro páry",
     description: "Podívejte se, proč páry volí Love Languages před {competitor}. AI konverzace, režim poslechu, párové výzvy a 18 jazyků k učení společně.",
     heroTitle: "Love Languages vs {competitor}",
     heroSubtitle: "Jedna je postavena pro páry. Druhá ne. Takto to ovlivní vaši jazykovou cestu.",
@@ -1852,7 +1852,7 @@ const CS_CONTENT: ComparisonContent = {
 // Greek content
 const EL_CONTENT: ComparisonContent = {
   page: {
-    title: "Love Languages vs {competitor} (2025) - Η μόνη εφαρμογή για ζευγάρια",
+    title: "Love Languages vs {competitor} (2026) - Η μόνη εφαρμογή για ζευγάρια",
     description: "Δείτε γιατί τα ζευγάρια επιλέγουν το Love Languages αντί του {competitor}. AI συνομιλίες, λειτουργία ακρόασης, προκλήσεις ζευγαριών και 18 γλώσσες για να μάθετε μαζί.",
     heroTitle: "Love Languages vs {competitor}",
     heroSubtitle: "Η μία είναι φτιαγμένη για ζευγάρια. Η άλλη όχι. Δείτε πώς αυτό επηρεάζει το γλωσσικό σας ταξίδι.",
@@ -1960,7 +1960,7 @@ const EL_CONTENT: ComparisonContent = {
 // Hungarian content
 const HU_CONTENT: ComparisonContent = {
   page: {
-    title: "Love Languages vs {competitor} (2025) - Az egyetlen app pároknak",
+    title: "Love Languages vs {competitor} (2026) - Az egyetlen app pároknak",
     description: "Nézze meg, miért választják a párok a Love Languages-t a {competitor} helyett. AI beszélgetések, hallgatási mód, páros kihívások és 18 nyelv, amit együtt tanulhatnak.",
     heroTitle: "Love Languages vs {competitor}",
     heroSubtitle: "Az egyik pároknak készült. A másik nem. Így befolyásolja ez a nyelvi utazást.",

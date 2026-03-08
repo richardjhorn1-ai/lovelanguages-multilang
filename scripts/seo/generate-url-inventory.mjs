@@ -10,6 +10,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'fs';
 import { dirname, resolve } from 'path';
 import { fileURLToPath } from 'url';
 import { parseArgs } from 'util';
+import { buildArticlePath } from '../../blog/src/lib/native-slugs.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '../..');
@@ -104,7 +105,7 @@ async function fetchAllArticles(supabaseUrl, supabaseKey) {
 
   while (offset < total) {
     const res = await fetch(
-      `${supabaseUrl}/rest/v1/blog_articles?select=native_lang,target_lang,slug,is_canonical&order=id&offset=${offset}&limit=${pageSize}`,
+      `${supabaseUrl}/rest/v1/blog_articles?select=id,native_lang,target_lang,slug,topic_id,is_canonical&order=id&offset=${offset}&limit=${pageSize}`,
       {
         headers: {
           apikey: supabaseKey,
@@ -140,8 +141,150 @@ async function fetchAllArticles(supabaseUrl, supabaseKey) {
   return allArticles;
 }
 
+async function fetchAllAliases(supabaseUrl, supabaseKey) {
+  const allAliases = [];
+  let offset = 0;
+  const pageSize = 1000;
+
+  while (true) {
+    const res = await fetch(
+      `${supabaseUrl}/rest/v1/blog_article_slug_aliases?select=article_id,native_lang,target_lang,alias_slug,source&order=id&offset=${offset}&limit=${pageSize}`,
+      {
+        headers: {
+          apikey: supabaseKey,
+          Authorization: `Bearer ${supabaseKey}`,
+          Prefer: 'count=exact',
+        },
+      }
+    );
+
+    if (!res.ok) {
+      const body = await res.text();
+      if (res.status === 404 || body.includes('blog_article_slug_aliases')) {
+        return allAliases;
+      }
+      throw new Error(`Supabase alias request failed (${res.status}): ${body}`);
+    }
+
+    const batch = await res.json();
+    if (!Array.isArray(batch) || batch.length === 0) {
+      break;
+    }
+
+    allAliases.push(...batch);
+
+    if (batch.length < pageSize) {
+      break;
+    }
+
+    offset += pageSize;
+  }
+
+  return allAliases;
+}
+
+function buildArticleAliasData(allArticles, allAliases) {
+  const canonicalArticles = allArticles.filter(
+    article => article.target_lang !== 'all' && article.is_canonical !== false
+  );
+  const nonCanonicalArticles = allArticles.filter(
+    article => article.target_lang !== 'all' && article.is_canonical === false
+  );
+
+  const canonicalById = new Map();
+  const canonicalByKey = new Map();
+  const canonicalByTopic = new Map();
+  const aliasEntries = [];
+  const issues = {
+    duplicateCanonicalKeys: [],
+    duplicateCanonicalTopics: [],
+    unresolvedNonCanonical: [],
+    aliasCanonicalConflicts: [],
+    conflictingAliasTargets: [],
+    orphanAliasRows: [],
+  };
+
+  for (const article of canonicalArticles) {
+    const articleKey = `${article.native_lang}|${article.target_lang}|${article.slug}`;
+    if (canonicalByKey.has(articleKey)) {
+      issues.duplicateCanonicalKeys.push(articleKey);
+      continue;
+    }
+
+    canonicalById.set(article.id, article);
+    canonicalByKey.set(articleKey, article);
+
+    if (article.topic_id) {
+      const topicKey = `${article.native_lang}|${article.target_lang}|${article.topic_id}`;
+      if (canonicalByTopic.has(topicKey)) {
+        issues.duplicateCanonicalTopics.push(topicKey);
+        continue;
+      }
+      canonicalByTopic.set(topicKey, article);
+    }
+  }
+
+  for (const article of nonCanonicalArticles) {
+    if (!article.topic_id) {
+      issues.unresolvedNonCanonical.push(`${article.native_lang}|${article.target_lang}|${article.slug}`);
+      continue;
+    }
+
+    const canonicalArticle = canonicalByTopic.get(`${article.native_lang}|${article.target_lang}|${article.topic_id}`);
+    if (!canonicalArticle) {
+      issues.unresolvedNonCanonical.push(`${article.native_lang}|${article.target_lang}|${article.slug}`);
+      continue;
+    }
+
+    aliasEntries.push({
+      url: buildArticlePath(article.native_lang, article.target_lang, article.slug),
+      canonical: buildArticlePath(canonicalArticle.native_lang, canonicalArticle.target_lang, canonicalArticle.slug),
+      source: 'non_canonical_article',
+    });
+  }
+
+  for (const alias of allAliases) {
+    const canonicalArticle = canonicalById.get(alias.article_id);
+    if (!canonicalArticle || canonicalArticle.target_lang === 'all') {
+      issues.orphanAliasRows.push(`${alias.native_lang}|${alias.target_lang}|${alias.alias_slug}`);
+      continue;
+    }
+
+    const aliasKey = `${alias.native_lang}|${alias.target_lang}|${alias.alias_slug}`;
+    const canonicalKey = `${canonicalArticle.native_lang}|${canonicalArticle.target_lang}|${canonicalArticle.slug}`;
+    const canonical = buildArticlePath(canonicalArticle.native_lang, canonicalArticle.target_lang, canonicalArticle.slug);
+
+    if (aliasKey === canonicalKey) {
+      continue;
+    }
+
+    if (canonicalByKey.has(aliasKey)) {
+      issues.aliasCanonicalConflicts.push(aliasKey);
+      continue;
+    }
+
+    const existingAlias = aliasEntries.find(entry => entry.url === buildArticlePath(alias.native_lang, alias.target_lang, alias.alias_slug));
+    if (existingAlias && existingAlias.canonical !== canonical) {
+      issues.conflictingAliasTargets.push(aliasKey);
+      continue;
+    }
+
+    aliasEntries.push({
+      url: buildArticlePath(alias.native_lang, alias.target_lang, alias.alias_slug),
+      canonical,
+      source: alias.source || 'alias_table',
+    });
+  }
+
+  return {
+    aliasEntries,
+    issues,
+  };
+}
+
 async function getSupabaseData(supabaseUrl, supabaseKey) {
   const allArticles = await fetchAllArticles(supabaseUrl, supabaseKey);
+  const allAliases = await fetchAllAliases(supabaseUrl, supabaseKey);
 
   const uniquePairs = [...new Set(
     allArticles
@@ -165,15 +308,17 @@ async function getSupabaseData(supabaseUrl, supabaseKey) {
     article => article.target_lang !== 'all' && article.is_canonical !== false
   );
 
-  return { langPairs, nativeLangs, regularArticles, methodologyArticles };
+  const articleAliases = buildArticleAliasData(allArticles, allAliases);
+
+  return { langPairs, nativeLangs, regularArticles, methodologyArticles, articleAliases };
 }
 
 function generateInventory(data) {
-  const { langPairs, nativeLangs, regularArticles, methodologyArticles } = data;
+  const { langPairs, nativeLangs, regularArticles, methodologyArticles, articleAliases } = data;
   const inventory = [];
   const seenUrls = new Set();
 
-  function add(url, kind, indexable, source, notes = '') {
+  function add(url, kind, indexable, source, notes = '', extra = {}) {
     const canonical = `${SITE_URL}${url}`;
 
     if (seenUrls.has(url)) {
@@ -197,6 +342,7 @@ function generateInventory(data) {
       expected_canonical: canonical,
       source,
       notes,
+      ...extra,
     });
   }
 
@@ -236,9 +382,25 @@ function generateInventory(data) {
   }
 
   for (const article of regularArticles) {
-    const url = `/learn/${article.native_lang}/${article.target_lang}/${article.slug}/`;
+    const url = buildArticlePath(article.native_lang, article.target_lang, article.slug);
     if (!seenUrls.has(url)) {
       add(url, 'article', true, 'article_db');
+    }
+  }
+
+  for (const alias of articleAliases.aliasEntries) {
+    if (!seenUrls.has(alias.url)) {
+      add(
+        alias.url,
+        'article_alias',
+        false,
+        alias.source,
+        'Legacy article alias — should 301 once to canonical article URL',
+        {
+          expected_status: 301,
+          expected_redirect_target: `${SITE_URL}${alias.canonical}`,
+        }
+      );
     }
   }
 
@@ -316,10 +478,14 @@ async function main() {
   console.log(`  Native languages: ${data.nativeLangs.length}`);
   console.log(`  Regular articles: ${data.regularArticles.length}`);
   console.log(`  Methodology articles: ${data.methodologyArticles.length}`);
+  console.log(`  Article aliases: ${data.articleAliases.aliasEntries.length}`);
 
   console.log('Generating URL inventory...');
   const inventory = generateInventory(data);
   const summary = buildSummary(inventory);
+  summary.slug_integrity = Object.fromEntries(
+    Object.entries(data.articleAliases.issues).map(([key, value]) => [key, value.length])
+  );
 
   const outputDir = resolve(ROOT, args['output-dir'] || DEFAULT_OUTPUT_DIR);
   mkdirSync(outputDir, { recursive: true });
@@ -337,6 +503,10 @@ async function main() {
   console.log(`Excluded: ${summary.excluded_urls}`);
   console.log('\nBy kind:');
   for (const [kind, count] of Object.entries(summary.by_kind).sort((a, b) => b[1] - a[1])) {
+    console.log(`  ${kind}: ${count}`);
+  }
+  console.log('\nSlug integrity:');
+  for (const [kind, count] of Object.entries(summary.slug_integrity)) {
     console.log(`  ${kind}: ${count}`);
   }
   console.log(`\nOutput: ${outputPath}`);
