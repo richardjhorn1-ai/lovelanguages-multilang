@@ -13,6 +13,28 @@ const ALL_LANG_CODES = new Set(['en','es','fr','de','it','pt','pl','nl','sv','no
 // Known sub-routes under /learn/[nativeLang]/ that are NOT article slugs
 const KNOWN_SUBROUTES = new Set(['couples-language-learning', 'topics']);
 
+// Legacy pre-language-code hubs used paths like /learn/language/french/for-couples/
+// They should now resolve to the modern English-native hub for that language.
+const LEGACY_LANGUAGE_NAME_TO_CODE = new Map<string, string>([
+  ['polish', 'pl'],
+  ['spanish', 'es'],
+  ['french', 'fr'],
+  ['german', 'de'],
+  ['italian', 'it'],
+  ['portuguese', 'pt'],
+  ['russian', 'ru'],
+  ['ukrainian', 'uk'],
+  ['czech', 'cs'],
+  ['greek', 'el'],
+  ['dutch', 'nl'],
+  ['swedish', 'sv'],
+  ['norwegian', 'no'],
+  ['danish', 'da'],
+  ['hungarian', 'hu'],
+  ['turkish', 'tr'],
+  ['romanian', 'ro'],
+]);
+
 // Legacy slug redirect map: old MDX-era slugs → current Supabase slugs
 // 366 URLs that changed when content migrated from MDX to Supabase
 const LEGACY_SLUG_MAP = new Map<string, string>(
@@ -62,6 +84,16 @@ export const onRequest = defineMiddleware(async (context, next) => {
     }
 
     return context.redirect(`${newPath}/`, 301);
+  }
+
+  // 1b. Legacy named-language hubs: /learn/language/{name}/... -> /learn/en/{code}/
+  const legacyLanguageHubMatch = pathname.match(/^\/learn\/language\/([a-z-]+)(?:\/.*)?\/?$/);
+  if (legacyLanguageHubMatch) {
+    const [, languageName] = legacyLanguageHubMatch;
+    const targetLang = LEGACY_LANGUAGE_NAME_TO_CODE.get(languageName);
+    if (targetLang) {
+      return context.redirect(`/learn/en/${targetLang}/`, 301);
+    }
   }
 
   // 2. Legacy 2-segment redirect: /learn/{lang}/{slug}/ → /learn/en/{lang}/{slug}/
