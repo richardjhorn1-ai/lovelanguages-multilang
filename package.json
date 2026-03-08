@@ -7,7 +7,7 @@
     "dev": "vite",
     "dev:blog": "cd blog && npm run dev",
     "setup:blog": "npm --prefix blog ci",
-    "build": "npm run build:app && npm run build:blog && cp -r dist/* blog/.vercel/output/static/ && mkdir -p .vercel/output && cp -r blog/.vercel/output/* .vercel/output/",
+    "build": "npm run build:app && npm run build:blog && cp -R dist/. blog/.vercel/output/static/ && mkdir -p .vercel/output && cp -r blog/.vercel/output/* .vercel/output/",
     "build:app": "vite build",
     "build:blog": "cd blog && npm run build",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx --max-warnings 0",
