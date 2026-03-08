@@ -889,6 +889,14 @@ export const Onboarding: React.FC<OnboardingProps> = ({
 
   // Save local cache immediately and sync canonical onboarding_data in the background.
   const serverSaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const stepTransitionInFlightRef = useRef(false);
+
+  const clearPendingServerSave = useCallback(() => {
+    if (serverSaveTimer.current) {
+      clearTimeout(serverSaveTimer.current);
+      serverSaveTimer.current = null;
+    }
+  }, []);
 
   useEffect(() => {
     const progressPayload = {
@@ -903,7 +911,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
 
     localStorage.setItem(STORAGE_KEY, JSON.stringify(progressPayload));
 
-    if (!hydrated || saving || trialActivating) {
+    if (!hydrated || saving || trialActivating || stepTransitionInFlightRef.current) {
       return;
     }
 
@@ -912,19 +920,23 @@ export const Onboarding: React.FC<OnboardingProps> = ({
       return;
     }
 
-    if (serverSaveTimer.current) clearTimeout(serverSaveTimer.current);
+    clearPendingServerSave();
     serverSaveTimer.current = setTimeout(() => {
+      if (stepTransitionInFlightRef.current) {
+        return;
+      }
       persistStep(data, 'stay').catch((error) => {
         console.warn('[Onboarding] Background save failed:', error);
       });
     }, 800);
 
     return () => {
-      if (serverSaveTimer.current) clearTimeout(serverSaveTimer.current);
+      clearPendingServerSave();
     };
   }, [
     activeRole,
     buildSignature,
+    clearPendingServerSave,
     currentFlowKey,
     currentStep,
     currentStepKey,
@@ -948,7 +960,13 @@ export const Onboarding: React.FC<OnboardingProps> = ({
       target_language: data.targetLanguage,
       plan_intent: data.selectedPlan === 'free' ? 'free' : data.selectedPlan ? 'paid' : undefined,
     });
-    await persistStep({}, 'back');
+    stepTransitionInFlightRef.current = true;
+    clearPendingServerSave();
+    try {
+      await persistStep({}, 'back');
+    } finally {
+      stepTransitionInFlightRef.current = false;
+    }
   };
 
   // Track onboarding step changes for analytics
@@ -1012,23 +1030,29 @@ export const Onboarding: React.FC<OnboardingProps> = ({
     haptics.trigger('selection');
     setSaveError(null);
     setTrialError(null);
+    stepTransitionInFlightRef.current = true;
+    clearPendingServerSave();
 
     const nextData = { ...data, ...patch };
     setData(nextData);
 
-    const snapshot = await persistStep(nextData, 'next', flowOverride);
-    analytics.track('onboarding_step_saved', {
-      flow_key: flowOverride || currentFlowKey,
-      step_key: currentStepKey,
-      next_step_key: snapshot.profile.onboarding_step_key,
-      step_number: currentStep,
-      role: activeRole,
-      is_invited_user: isInvitedUser,
-      native_language: nextData.nativeLanguage,
-      target_language: nextData.targetLanguage,
-      plan_intent: nextData.selectedPlan === 'free' ? 'free' : nextData.selectedPlan ? 'paid' : undefined,
-    });
-    return snapshot;
+    try {
+      const snapshot = await persistStep(nextData, 'next', flowOverride);
+      analytics.track('onboarding_step_saved', {
+        flow_key: flowOverride || currentFlowKey,
+        step_key: currentStepKey,
+        next_step_key: snapshot.profile.onboarding_step_key,
+        step_number: currentStep,
+        role: activeRole,
+        is_invited_user: isInvitedUser,
+        native_language: nextData.nativeLanguage,
+        target_language: nextData.targetLanguage,
+        plan_intent: nextData.selectedPlan === 'free' ? 'free' : nextData.selectedPlan ? 'paid' : undefined,
+      });
+      return snapshot;
+    } finally {
+      stepTransitionInFlightRef.current = false;
+    }
   };
 
   const goNext = async () => continueWithStep({});
