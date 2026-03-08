@@ -151,6 +151,92 @@ export interface AuthResult {
 // CORS CONFIGURATION
 // =============================================================================
 
+const DEFAULT_ALLOWED_ORIGINS = [
+  'https://www.lovelanguages.io',
+  'https://lovelanguages.io',
+  'http://localhost:5173',
+  'http://localhost:3000',
+  'http://localhost',
+  'capacitor://localhost',
+  'ionic://localhost',
+] as const;
+
+function normalizeOrigin(origin: string | undefined): string | null {
+  if (!origin) {
+    return null;
+  }
+
+  const trimmed = origin.trim();
+  if (!trimmed || trimmed === '*') {
+    return null;
+  }
+
+  return trimmed.replace(/\/+$/, '');
+}
+
+function getConfiguredAllowedOrigins(): { origins: string[]; hasWildcard: boolean } {
+  const configuredOrigins = (process.env.ALLOWED_ORIGINS || '')
+    .split(',')
+    .map((origin) => origin.trim())
+    .filter(Boolean);
+
+  const hasWildcard = configuredOrigins.includes('*');
+  const appUrlOrigins = [process.env.APP_URL, process.env.VITE_APP_URL]
+    .map((value) => {
+      const normalized = normalizeOrigin(value);
+      if (!normalized) {
+        return null;
+      }
+
+      try {
+        return new URL(normalized).origin;
+      } catch {
+        return normalized;
+      }
+    })
+    .filter((origin): origin is string => Boolean(origin));
+
+  const origins = [
+    ...appUrlOrigins,
+    ...configuredOrigins,
+    ...DEFAULT_ALLOWED_ORIGINS,
+  ]
+    .map((origin) => normalizeOrigin(origin))
+    .filter((origin): origin is string => Boolean(origin));
+
+  return {
+    origins: Array.from(new Set(origins)),
+    hasWildcard,
+  };
+}
+
+function applyCorsOrigin(
+  res: VercelResponse,
+  origin: string,
+  allowedOrigins: string[],
+  hasWildcard: boolean
+): void {
+  const normalizedOrigin = normalizeOrigin(origin);
+  const fallbackOrigin = allowedOrigins.includes('https://www.lovelanguages.io')
+    ? 'https://www.lovelanguages.io'
+    : allowedOrigins[0];
+
+  if (normalizedOrigin && allowedOrigins.includes(normalizedOrigin)) {
+    res.setHeader('Access-Control-Allow-Origin', normalizedOrigin);
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    return;
+  }
+
+  if (hasWildcard) {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    return;
+  }
+
+  if (fallbackOrigin) {
+    res.setHeader('Access-Control-Allow-Origin', fallbackOrigin);
+  }
+}
+
 /**
  * Sets CORS headers on the response and handles OPTIONS preflight requests.
  *
@@ -183,25 +269,8 @@ export function setCorsHeaders(req: VercelRequest, res: VercelResponse): boolean
   // Always set security headers first
   setSecurityHeaders(res);
 
-  const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173').split(',');
-  const origin = req.headers.origin || '';
-
-  // Check for explicit origin match (not wildcard)
-  const isExplicitMatch = origin && allowedOrigins.includes(origin) && origin !== '*';
-
-  if (isExplicitMatch) {
-    // Explicit match - safe to allow credentials
-    res.setHeader('Access-Control-Allow-Origin', origin);
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-  } else if (allowedOrigins.includes('*')) {
-    // Wildcard mode - NEVER combine with credentials (security vulnerability)
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    // Do NOT set credentials header with wildcard
-  } else if (allowedOrigins.length > 0 && allowedOrigins[0] !== '*') {
-    // No match but have allowed origins - use first one for debugging
-    // Note: NOT setting credentials when origin doesn't match (prevents CORS bypass)
-    res.setHeader('Access-Control-Allow-Origin', allowedOrigins[0]);
-  }
+  const { origins: allowedOrigins, hasWildcard } = getConfiguredAllowedOrigins();
+  applyCorsOrigin(res, req.headers.origin || '', allowedOrigins, hasWildcard);
 
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
@@ -235,21 +304,8 @@ export function setStreamingCorsHeaders(req: VercelRequest, res: VercelResponse)
   res.setHeader('Connection', 'keep-alive');
 
   // Set CORS headers
-  const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173').split(',');
-  const origin = req.headers.origin || '';
-
-  // For SSE, prefer explicit match, fall back to first allowed origin
-  if (origin && allowedOrigins.includes(origin) && origin !== '*') {
-    res.setHeader('Access-Control-Allow-Origin', origin);
-    res.setHeader('Access-Control-Allow-Credentials', 'true');
-  } else if (allowedOrigins.includes('*')) {
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    // Do NOT set credentials header with wildcard
-  } else if (allowedOrigins.length > 0 && allowedOrigins[0] !== '*') {
-    // No match but have allowed origins - use first one for debugging
-    // Note: NOT setting credentials when origin doesn't match (prevents CORS bypass)
-    res.setHeader('Access-Control-Allow-Origin', allowedOrigins[0]);
-  }
+  const { origins: allowedOrigins, hasWildcard } = getConfiguredAllowedOrigins();
+  applyCorsOrigin(res, req.headers.origin || '', allowedOrigins, hasWildcard);
 
   // Handle OPTIONS preflight
   if (req.method === 'OPTIONS') {
