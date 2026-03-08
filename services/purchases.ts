@@ -60,11 +60,10 @@ const PRODUCT_TO_PLAN: Record<string, { plan: 'standard' | 'unlimited'; period: 
   'unlimited_yearly': { plan: 'unlimited', period: 'yearly' },
 };
 
-// Entitlement IDs configured in RevenueCat dashboard
-const ENTITLEMENTS = {
-  STANDARD: 'standard_access',
-  UNLIMITED: 'unlimited_access',
-} as const;
+const ENTITLEMENT_ALIASES: Record<'standard' | 'unlimited', string[]> = {
+  standard: ['standard_access', 'Standard'],
+  unlimited: ['unlimited_access', 'Unlimited'],
+};
 
 let isConfigured = false;
 let purchasesModule: any = null;
@@ -189,25 +188,52 @@ export function hasActiveEntitlement(customerInfo: RCCustomerInfo): {
   plan: 'standard' | 'unlimited' | null;
   expirationDate: string | null;
 } {
-  const activeEntitlements = customerInfo.entitlements.active;
+  const activeEntitlements = Object.values(customerInfo.entitlements.active || {}).filter(
+    (entitlement) => entitlement?.isActive
+  );
 
-  if (activeEntitlements[ENTITLEMENTS.UNLIMITED]?.isActive) {
+  const findEntitlementForPlan = (plan: 'standard' | 'unlimited') =>
+    activeEntitlements.find((entitlement) => {
+      const productPlan = getProductPlanInfo(entitlement.productIdentifier)?.plan;
+      return productPlan === plan || ENTITLEMENT_ALIASES[plan].includes(entitlement.identifier);
+    });
+
+  const unlimitedEntitlement = findEntitlementForPlan('unlimited');
+  if (unlimitedEntitlement) {
     return {
       isActive: true,
       plan: 'unlimited',
-      expirationDate: activeEntitlements[ENTITLEMENTS.UNLIMITED].expirationDate,
+      expirationDate: unlimitedEntitlement.expirationDate,
     };
   }
 
-  if (activeEntitlements[ENTITLEMENTS.STANDARD]?.isActive) {
+  const standardEntitlement = findEntitlementForPlan('standard');
+  if (standardEntitlement) {
     return {
       isActive: true,
       plan: 'standard',
-      expirationDate: activeEntitlements[ENTITLEMENTS.STANDARD].expirationDate,
+      expirationDate: standardEntitlement.expirationDate,
     };
   }
 
-  return { isActive: false, plan: null, expirationDate: null };
+  // Fallback to active subscriptions if RevenueCat entitlement IDs drift but products remain mapped.
+  const activeSubscriptionPlans = (customerInfo.activeSubscriptions || [])
+    .map((productId) => getProductPlanInfo(productId))
+    .filter((planInfo): planInfo is NonNullable<typeof planInfo> => Boolean(planInfo));
+
+  if (activeSubscriptionPlans.some((planInfo) => planInfo.plan === 'unlimited')) {
+    return { isActive: true, plan: 'unlimited', expirationDate: null };
+  }
+
+  if (activeSubscriptionPlans.some((planInfo) => planInfo.plan === 'standard')) {
+    return { isActive: true, plan: 'standard', expirationDate: null };
+  }
+
+  return {
+    isActive: false,
+    plan: null,
+    expirationDate: null,
+  };
 }
 
 /**
