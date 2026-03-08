@@ -12,7 +12,6 @@ export const GET: APIRoute = async () => {
       const lastmod = updated_at ? `\n    <lastmod>${new Date(updated_at).toISOString().split('T')[0]}</lastmod>` : '';
       return `  <url>
     <loc>https://www.lovelanguages.io${buildArticlePath(native_lang, target_lang, slug)}</loc>${lastmod}
-    <loc>https://www.lovelanguages.io${buildArticlePath(native_lang, target_lang, slug)}</loc>${lastmod}
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>`;
