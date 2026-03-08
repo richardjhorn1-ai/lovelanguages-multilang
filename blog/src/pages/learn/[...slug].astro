@@ -79,15 +79,15 @@ const VALID_ARTICLE_DIFFICULTIES = new Set(['beginner', 'intermediate', 'advance
 // Get related articles from same language pair
 const allLangPairArticles = await getArticlesByLangPair(nativeLanguageCode, targetLanguageCode, { limit: 50 });
 
-// Related: same category first
+// Related: same category first — filter by ID to avoid self-reference
 const relatedArticles = allLangPairArticles
-  .filter(a => a.slug !== article.slug && a.category === article.category)
+  .filter(a => a.id !== article.id && a.category === article.category)
   .slice(0, 3);
 
 // Fill with other articles if needed
 if (relatedArticles.length < 3) {
   const others = allLangPairArticles
-    .filter(a => a.slug !== article.slug && !relatedArticles.find(r => r.slug === a.slug))
+    .filter(a => a.id !== article.id && !relatedArticles.find(r => r.id === a.id))
     .slice(0, 3 - relatedArticles.length);
   relatedArticles.push(...others);
 }

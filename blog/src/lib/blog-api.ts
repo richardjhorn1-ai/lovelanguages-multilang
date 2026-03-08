@@ -78,6 +78,7 @@ async function fetchAllPublishedRows<T>(
 export interface BlogArticle {
   id: string;
   slug: string;
+  slug_native: string | null;
   native_lang: string;
   target_lang: string;
   title: string;
@@ -112,7 +113,7 @@ export interface ResolvedArticleRoute {
 }
 
 export type BlogArticleSummary = Pick<BlogArticle,
-  'id' | 'slug' | 'native_lang' | 'target_lang' | 'title' | 'description' |
+  'id' | 'slug' | 'slug_native' | 'native_lang' | 'target_lang' | 'title' | 'description' |
   'category' | 'difficulty' | 'read_time' | 'image' | 'tags' | 'date'
 >;
 
@@ -302,7 +303,7 @@ export async function getArticlesByLangPair(
 ): Promise<BlogArticleSummary[]> {
   let query = supabase
     .from('blog_articles')
-    .select('id, slug, native_lang, target_lang, title, description, category, difficulty, read_time, image, tags, date')
+    .select('id, slug, slug_native, native_lang, target_lang, title, description, category, difficulty, read_time, image, tags, date')
     .eq('native_lang', nativeLang)
     .eq('target_lang', targetLang)
     .eq('published', true)
@@ -342,7 +343,7 @@ export async function getArticlesByNativeLang(
 ): Promise<BlogArticleSummary[]> {
   let query = supabase
     .from('blog_articles')
-    .select('id, slug, native_lang, target_lang, title, description, category, difficulty, read_time, image, tags, date')
+    .select('id, slug, slug_native, native_lang, target_lang, title, description, category, difficulty, read_time, image, tags, date')
     .eq('native_lang', nativeLang)
     .eq('published', true)
     .eq('is_canonical', true)
@@ -439,7 +440,7 @@ export async function getArticlesByCategory(
 ): Promise<BlogArticleSummary[]> {
   let query = supabase
     .from('blog_articles')
-    .select('id, slug, native_lang, target_lang, title, description, category, difficulty, read_time, image, tags, date')
+    .select('id, slug, slug_native, native_lang, target_lang, title, description, category, difficulty, read_time, image, tags, date')
     .eq('category', category)
     .eq('published', true)
     .eq('is_canonical', true)
@@ -479,7 +480,7 @@ export async function searchArticles(
 ): Promise<BlogArticleSearchResult[]> {
   let dbQuery = supabase
     .from('blog_articles')
-    .select('id, slug, native_lang, target_lang, title, description, category, image, date')
+    .select('id, slug, slug_native, native_lang, target_lang, title, description, category, image, date')
     .eq('published', true)
     .eq('is_canonical', true)
     .or(`title.ilike.%${query}%,description.ilike.%${query}%`)
@@ -511,12 +512,13 @@ export async function getAllSlugs(
   targetLang?: string
 ): Promise<{ native_lang: string; target_lang: string; slug: string; updated_at: string | null; is_canonical: boolean }[]> {
   const allData: { native_lang: string; target_lang: string; slug: string; updated_at: string | null; is_canonical: boolean }[] = [];
+  const PAGE_SIZE = 1000;
   let offset = 0;
 
   while (true) {
     let query = supabase
       .from('blog_articles')
-      .select('native_lang, target_lang, slug, updated_at, is_canonical')
+      .select('native_lang, target_lang, slug, slug_native, updated_at, is_canonical')
       .eq('published', true)
       .range(offset, offset + PAGE_SIZE - 1);
 
@@ -573,7 +575,7 @@ export async function getArticlesByTopic(
 
   const { data, error } = await supabase
     .from('blog_articles')
-    .select('id, slug, native_lang, target_lang, title, description, category, difficulty, read_time, image, tags, date')
+    .select('id, slug, slug_native, native_lang, target_lang, title, description, category, difficulty, read_time, image, tags, date')
     .eq('native_lang', nativeLang)
     .eq('published', true)
     .eq('is_canonical', true)
@@ -693,12 +695,12 @@ export async function getAlternatesByTopicId(
   topicId: string | null,
   targetLang: string,
   excludeNativeLang: string
-): Promise<{ native_lang: string; slug: string }[]> {
+): Promise<{ native_lang: string; slug: string; slug_native: string | null }[]> {
   if (!topicId) return [];
 
   const { data, error } = await supabase
     .from('blog_articles')
-    .select('native_lang, slug')
+    .select('native_lang, slug, slug_native')
     .eq('topic_id', topicId)
     .eq('target_lang', targetLang)
     .eq('published', true)

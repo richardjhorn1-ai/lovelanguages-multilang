@@ -20,13 +20,17 @@ CREATE TABLE IF NOT EXISTS blog_articles (
   content TEXT NOT NULL,
   content_html TEXT,
 
+  -- SEO
+  slug_native TEXT DEFAULT NULL,
+
   -- Metadata
   date DATE,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW(),
   published BOOLEAN DEFAULT true,
 
-  UNIQUE(native_lang, target_lang, slug)
+  UNIQUE(native_lang, target_lang, slug),
+  UNIQUE(native_lang, target_lang, slug_native)
 );
 
 -- Indexes
@@ -36,6 +40,7 @@ CREATE INDEX IF NOT EXISTS idx_blog_category ON blog_articles(category);
 CREATE INDEX IF NOT EXISTS idx_blog_lang_pair ON blog_articles(native_lang, target_lang);
 CREATE INDEX IF NOT EXISTS idx_blog_slug ON blog_articles(slug);
 CREATE INDEX IF NOT EXISTS idx_blog_published ON blog_articles(published);
+CREATE INDEX IF NOT EXISTS idx_blog_articles_slug_native ON blog_articles(slug_native) WHERE slug_native IS NOT NULL;
 
 -- Auto-update timestamp trigger
 CREATE OR REPLACE FUNCTION update_updated_at_column()

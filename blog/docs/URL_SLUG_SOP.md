@@ -1,6 +1,6 @@
 # URL Slug Standard Operating Procedure
 
-> **Purpose:** Keep article URLs canonical, localized, and migration-safe.
+> Purpose: keep article URLs canonical, localized, and migration-safe.
 
 ## Canonical Contract
 
@@ -17,34 +17,39 @@ Public article URLs live under:
 
 ## Source Of Truth
 
-- Canonical slug: `blog_articles.slug`
+- Canonical public slug: `blog_articles.slug`
+- Localized migration input: `blog_articles.slug_native`
 - Legacy aliases: `blog_article_slug_aliases`
-- Public lists, hubs, search, sitemap, hreflang, and internal links must use canonical rows only
-- Article-level slug redirects do **not** belong in `vercel.json`
+- Public lists, hubs, sitemap, hreflang, metadata, and internal links must use canonical rows only
+- Article-level slug redirects do not belong in `vercel.json`
 
 ## Redirect Policy
 
 - Canonical article URL returns `200`
 - Legacy article alias returns one `301` to canonical article URL
 - Unknown article slug returns `404`
-- Retired non-article pages may still redirect to a hub/category page, but that is a separate system from article aliases
+- Retired non-article pages may still redirect to a hub/category page, but that is separate from article aliases
 
 ## Creating Or Updating Slugs
 
 1. Generate slugs with the shared helper in [native-slugs.mjs](/Users/richardhorn/Trying Claude Code/L.L.3.0/lovelanguages-multilang/blog/src/lib/native-slugs.mjs)
-2. Use `slugifyLocalizedTitle()` for new slugs
-3. If a slug changes, add the previous slug as an alias row
-4. Never make up ad hoc transliterations in scripts or prompts
+2. Use `slugifyLocalizedTitle()` for new localized slugs
+3. Store the intended localized slug in `slug_native` until the canonical cutover is executed
+4. When canonical `slug` changes, preserve the previous value in `blog_article_slug_aliases`
+5. Do not invent ad hoc transliterations in prompts or one-off scripts
 
 ## Migration Workflow
 
-1. Update canonical slugs in `blog_articles`
-2. Backfill alias rows:
+1. Preflight and snapshot:
 
 ```bash
-cd blog
-node scripts/backfill-slug-aliases.mjs --dry-run
-node scripts/backfill-slug-aliases.mjs
+node blog/scripts/promote-slug-native-canonicals.mjs --dry-run
+```
+
+2. Promote `slug_native` into canonical `slug`:
+
+```bash
+node blog/scripts/promote-slug-native-canonicals.mjs --apply
 ```
 
 3. Rewrite stored internal article links:
@@ -63,13 +68,6 @@ node scripts/seo/generate-url-inventory.mjs
 cd blog
 node scripts/test-redirects.cjs --sample 50
 ```
-
-## Do Not Do This
-
-- Do not add article-to-article slug redirects in `vercel.json`
-- Do not assume non-English pages should keep English slugs
-- Do not ship content HTML with `/learn/...` links that point at aliases
-- Do not rely on hreflang deduplication to hide topic collisions
 
 ## Release Checklist
 

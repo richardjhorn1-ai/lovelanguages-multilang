@@ -10,7 +10,8 @@ Articles live in the Supabase `blog_articles` table. There are no local MDX file
 
 | Field | Type | Notes |
 |-------|------|-------|
-| `slug` | text | URL-safe, unique per language pair |
+| `slug` | text | English slug — URL-safe, unique per language pair, immutable identifier |
+| `slug_native` | text | Native-language slug — used in URLs for SEO (nullable, falls back to `slug`) |
 | `native_lang` | text | 2-letter ISO code (e.g., `en`, `fr`) |
 | `target_lang` | text | 2-letter ISO code |
 | `title` | text | Article title in the native language |
@@ -32,11 +33,14 @@ Articles live in the Supabase `blog_articles` table. There are no local MDX file
 
 ## URL Format
 
-**Convention:** `/learn/{native_lang}/{target_lang}/{slug}/` — always with trailing slash.
+**Convention:** `/learn/{native_lang}/{target_lang}/{display_slug}/` — always with trailing slash.
+
+The `display_slug` is `slug_native` when set, otherwise `slug` (English fallback). Visiting the English slug URL when a native slug exists triggers a 301 redirect.
 
 Examples:
-- `/learn/en/pl/50-polish-terms-of-endearment/`
-- `/learn/fr/de/german-pronunciation-guide-for-beginners/`
+- `/learn/en/pl/50-polish-terms-of-endearment/` ← English native, no redirect
+- `/learn/cs/de/nemecka-gramatika-pro-zacatecniky/` ← Czech native slug
+- `/learn/cs/de/german-grammar-basics-for-beginners/` ← 301 → native slug above
 
 This is enforced by:
 - `vercel.json` (`trailingSlash: true`)
@@ -73,18 +77,15 @@ This is enforced by:
 
 ## Renaming a Slug
 
-If you need to rename a slug (e.g., fix a typo):
+**English slugs (`slug`) should rarely change** — they're the stable identifier.
 
-1. Update the `slug` field in Supabase
-2. Add a redirect in `vercel.json`:
-   ```json
-   {
-     "source": "/learn/{native}/{target}/{old-slug}/",
-     "destination": "/learn/{native}/{target}/{new-slug}/",
-     "permanent": true
-   }
-   ```
-3. The old URL will 301-redirect to the new one
+**Native slugs (`slug_native`) can be updated** without breaking URLs, because the English slug URL still works (it just redirects to whatever the current native slug is).
+
+If you must rename the English slug:
+
+1. Update `slug` in Supabase
+2. Add a redirect in `vercel.json` for the old English slug
+3. The native slug URL is unaffected
 
 ## Deleting Articles
 
