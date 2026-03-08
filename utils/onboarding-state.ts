@@ -28,8 +28,8 @@ export type OnboardingPlanIntent = typeof ONBOARDING_PLAN_INTENTS[number];
 
 export const ONBOARDING_FLOW_STEPS = {
   student_full: [
-    'role',
     'native_language',
+    'role',
     'target_language',
     'names',
     'learn_hello',
@@ -42,8 +42,8 @@ export const ONBOARDING_FLOW_STEPS = {
     'start',
   ],
   tutor_full: [
-    'role',
     'native_language',
+    'role',
     'target_language',
     'names',
     'teaching_style',

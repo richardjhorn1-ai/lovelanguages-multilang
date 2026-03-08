@@ -1456,11 +1456,25 @@ export const Onboarding: React.FC<OnboardingProps> = ({
     // ============================================
     // Normal flow (non-invited users)
     // ============================================
-    // Step 1: Role selection (shared for both flows)
+    // Step 1: Native language selection (shared)
     if (currentStep === 1) {
       return (
-        <RoleStep
+        <NativeLanguageStep
           currentStep={1}
+          totalSteps={totalSteps}
+          role={activeRole}
+          initialNative={data.nativeLanguage || localStorage.getItem('preferredNativeLanguage') || undefined}
+          onNext={(native) => continueWithStep({ nativeLanguage: native })}
+          accentColor={accentColor}
+        />
+      );
+    }
+
+    // Step 2: Role selection (shared for both flows)
+    if (currentStep === 2) {
+      return (
+        <RoleStep
+          currentStep={2}
           totalSteps={totalSteps}
           initialValue={selectedRole || ''}
           onNext={(r) => {
@@ -1468,20 +1482,6 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             const nextFlowKey = resolveOnboardingFlowKey(r, isInvitedUser);
             return continueWithStep({ role: r }, nextFlowKey);
           }}
-          accentColor={accentColor}
-        />
-      );
-    }
-
-    // Step 2: Native language selection (shared — "What language do you speak?")
-    if (currentStep === 2) {
-      return (
-        <NativeLanguageStep
-          currentStep={2}
-          totalSteps={totalSteps}
-          role={activeRole}
-          initialNative={data.nativeLanguage || localStorage.getItem('preferredNativeLanguage') || undefined}
-          onNext={(native) => continueWithStep({ nativeLanguage: native })}
           onBack={goBack}
           accentColor={accentColor}
         />

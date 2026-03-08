@@ -6,6 +6,12 @@ function readHashParams(hash: string): URLSearchParams {
   return new URLSearchParams(hash.startsWith('#') ? hash.slice(1) : hash);
 }
 
+function normalizeCallbackDestination(path: string): string {
+  const url = new URL(path, window.location.origin);
+  url.hash = '';
+  return `${url.pathname}${url.search}`;
+}
+
 const AuthCallback: React.FC = () => {
   const navigate = useNavigate();
   const [error, setError] = useState<string | null>(null);
@@ -17,10 +23,11 @@ const AuthCallback: React.FC = () => {
       const url = new URL(window.location.href);
       const hashParams = readHashParams(url.hash);
       const flow = url.searchParams.get('flow') || hashParams.get('flow') || 'oauth';
-      const nextPath = url.searchParams.get('next') || '/';
+      const nextPath = normalizeCallbackDestination(url.searchParams.get('next') || '/');
       const authCode = url.searchParams.get('code');
       const accessToken = hashParams.get('access_token');
       const refreshToken = hashParams.get('refresh_token');
+      const destination = flow === 'password-reset' ? '/reset-password' : nextPath;
 
       try {
         if (authCode) {
@@ -41,7 +48,8 @@ const AuthCallback: React.FC = () => {
         }
 
         if (!cancelled) {
-          navigate(flow === 'password-reset' ? '/reset-password' : nextPath, { replace: true });
+          window.history.replaceState({}, '', destination);
+          navigate(destination, { replace: true });
         }
       } catch (authError: any) {
         if (!cancelled) {

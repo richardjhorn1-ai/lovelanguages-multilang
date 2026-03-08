@@ -30,7 +30,7 @@ export const RoleStep: React.FC<RoleStepProps> = ({
       currentStep={currentStep}
       totalSteps={totalSteps}
       onBack={onBack}
-      canGoBack={false}
+      canGoBack={Boolean(onBack)}
       accentColor={accentColor}
     >
       <div className="text-center mb-8">

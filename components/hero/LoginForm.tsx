@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Capacitor } from '@capacitor/core';
 import { BRAND, HeroRole, SelectionStep } from './heroConstants';
+import { useOAuthLoadingRecovery } from '../../hooks/useOAuthLoadingRecovery';
 import { supabase } from '../../services/supabase';
 import { ICONS } from '../../constants';
 import { apiFetch, getOAuthRedirectUrl, getPasswordResetRedirectUrl } from '../../services/api-config';
+import { isNativeAppleSignInCancelled, signInWithNativeApple } from '../../services/native-apple-auth';
 
 interface LoginFormProps {
   context: { header: string; cta: string; subtext: string };
@@ -48,6 +50,8 @@ const LoginForm: React.FC<LoginFormProps> = ({
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [confirmPasswordError, setConfirmPasswordError] = useState('');
 
+  useOAuthLoadingRecovery(oauthLoading, setOauthLoading);
+
   const handleForgotPassword = async () => {
     if (!email) {
       setMessage(t('hero.login.enterEmailFirst'));
@@ -79,52 +83,24 @@ const LoginForm: React.FC<LoginFormProps> = ({
     // Native Apple Sign In on iOS — required for App Store approval
     if (provider === 'apple' && Capacitor.getPlatform() === 'ios') {
       try {
-        const { SignInWithApple } = await import('../../services/native-apple-sign-in');
-        const { generateNonce } = await import('../../utils/apple-auth');
+        const { response, session } = await signInWithNativeApple();
 
-        // Generate nonce for Apple Sign In security
-        const { rawNonce, hashedNonce } = await generateNonce();
-
-        const result = await SignInWithApple.authorize({
-          clientId: 'com.lovelanguages.app',
-          redirectURI: '', // Not needed for native
-          scopes: 'email name',
-          nonce: hashedNonce,
-        });
-
-        // Apple only sends name on FIRST sign-in — capture it immediately
-        if (result.response.givenName || result.response.familyName) {
-          const appleName = [result.response.givenName, result.response.familyName]
-            .filter(Boolean).join(' ');
-          localStorage.setItem('apple_display_name', appleName);
-        }
-
-        // Exchange Apple identity token with Supabase (raw nonce for validation)
-        const { data: signInData, error: tokenError } = await supabase.auth.signInWithIdToken({
-          provider: 'apple',
-          token: result.response.identityToken,
-          nonce: rawNonce,
-        });
-
-        if (tokenError) {
-          setMessage(tokenError.message);
-          setOauthLoading(null);
-        } else if (signInData?.session && result.response.authorizationCode) {
+        if (session && response.authorizationCode) {
           // Store Apple refresh token for future account deletion (App Store requirement)
           // Fire-and-forget — don't block sign-in on this
           apiFetch('/api/apple-token-exchange/', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': `Bearer ${signInData.session.access_token}`,
+              'Authorization': `Bearer ${session.access_token}`,
             },
-            body: JSON.stringify({ authorizationCode: result.response.authorizationCode }),
+            body: JSON.stringify({ authorizationCode: response.authorizationCode }),
           }).catch(err => console.warn('[LoginForm] Apple token exchange failed (non-blocking):', err));
         }
         // On success, Supabase onAuthStateChange will handle the rest
       } catch (err: any) {
         // User cancelled or error occurred
-        if (err?.message?.includes('cancelled') || err?.code === '1001') {
+        if (isNativeAppleSignInCancelled(err)) {
           // User cancelled — silently reset
           setOauthLoading(null);
         } else {

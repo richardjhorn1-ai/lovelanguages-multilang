@@ -48,7 +48,7 @@ type RCCustomerInfo = {
 };
 
 // RevenueCat API key — set in environment
-const RC_API_KEY = import.meta.env.VITE_REVENUECAT_API_KEY || '';
+const RC_API_KEY = String(import.meta.env.VITE_REVENUECAT_API_KEY || '').trim();
 
 // Map App Store product IDs to our plan names
 const PRODUCT_TO_PLAN: Record<string, { plan: 'standard' | 'unlimited'; period: 'weekly' | 'monthly' | 'yearly' }> = {

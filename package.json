@@ -28,9 +28,9 @@
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:headed": "playwright test --headed",
     "test:e2e:debug": "playwright test --debug",
-    "cap:sync": "VITE_API_BASE_URL=https://www.lovelanguages.io npm run build:app && npx cap sync",
+    "cap:sync": "VITE_API_BASE_URL=https://www.lovelanguages.io npm run build:app && npx cap sync && node scripts/patch-capacitor-ios-config.mjs",
     "cap:ios": "npx cap open ios",
-    "cap:build:ios": "VITE_API_BASE_URL=https://www.lovelanguages.io npm run build:app && npx cap sync ios && npx cap open ios"
+    "cap:build:ios": "VITE_API_BASE_URL=https://www.lovelanguages.io npm run build:app && npx cap sync ios && node scripts/patch-capacitor-ios-config.mjs && npx cap open ios"
   },
   "dependencies": {
     "@capacitor/app": "^8.0.1",

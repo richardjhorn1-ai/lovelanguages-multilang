@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import {
   applyOnboardingPatch,
+  getFlowSteps,
   getStepNumber,
   resolveOnboardingFlowKey,
 } from '../utils/onboarding-state';
@@ -62,5 +63,19 @@ describe('onboarding state helpers', () => {
 
     expect(flowKey).toBe('tutor_invited');
     expect(stepNumber).toBe(3);
+  });
+
+  it('starts full onboarding with native language before role and target language', () => {
+    expect(getFlowSteps('student_full').slice(0, 3)).toEqual([
+      'native_language',
+      'role',
+      'target_language',
+    ]);
+
+    expect(getFlowSteps('tutor_full').slice(0, 3)).toEqual([
+      'native_language',
+      'role',
+      'target_language',
+    ]);
   });
 });

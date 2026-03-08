@@ -6,6 +6,7 @@ import { supabase } from '../services/supabase';
 import { analytics } from '../services/analytics';
 import { useHoneypot } from '../hooks/useHoneypot';
 import { useMediaQuery } from '../hooks/useMediaQuery';
+import { useOAuthLoadingRecovery } from '../hooks/useOAuthLoadingRecovery';
 import { BRAND } from './hero/heroConstants';
 import { LOGO_PATH, LOGO_DETAIL_PATHS } from './hero/Section';
 import InteractiveHearts from './hero/InteractiveHearts';
@@ -13,6 +14,7 @@ import WordParticleEffect from './hero/WordParticleEffect';
 import { SUPPORTED_LANGUAGE_CODES, LANGUAGE_CONFIGS } from '../constants/language-config';
 import { ICONS } from '../constants';
 import { getOAuthRedirectUrl, getPasswordResetRedirectUrl } from '../services/api-config';
+import { isNativeAppleSignInCancelled, signInWithNativeApple } from '../services/native-apple-auth';
 import { FeatureCard, STUDENT_FEATURES, TUTOR_FEATURES } from './landing/FeatureTile';
 import FeatureShowcase from './landing/FeatureShowcase';
 import MobileGameShowcase from './landing/MobileGameShowcase';
@@ -710,6 +712,8 @@ const Landing: React.FC = () => {
   const [waitlistSubmitted, setWaitlistSubmitted] = useState(false);
   const [waitlistLoading, setWaitlistLoading] = useState(false);
 
+  useOAuthLoadingRecovery(oauthLoading, setOauthLoading);
+
   const closeWaitlistModal = useCallback(() => {
     setWaitlistClosing(true);
     setTimeout(() => { setWaitlistOpen(false); setWaitlistClosing(false); }, 200);
@@ -756,31 +760,9 @@ const Landing: React.FC = () => {
 
     if (provider === 'apple' && Capacitor.getPlatform() === 'ios') {
       try {
-        const { SignInWithApple } = await import('../services/native-apple-sign-in');
-        const { generateNonce } = await import('../utils/apple-auth');
-        const { rawNonce, hashedNonce } = await generateNonce();
-        const result = await SignInWithApple.authorize({
-          clientId: 'com.lovelanguages.app',
-          redirectURI: '',
-          scopes: 'email name',
-          nonce: hashedNonce,
-        });
-        if (result.response.givenName || result.response.familyName) {
-          const appleName = [result.response.givenName, result.response.familyName]
-            .filter(Boolean).join(' ');
-          localStorage.setItem('apple_display_name', appleName);
-        }
-        const { error: tokenError } = await supabase.auth.signInWithIdToken({
-          provider: 'apple',
-          token: result.response.identityToken,
-          nonce: rawNonce,
-        });
-        if (tokenError) {
-          setMessage(tokenError.message);
-          setOauthLoading(null);
-        }
+        await signInWithNativeApple();
       } catch (err: any) {
-        if (err?.message?.includes('cancelled') || err?.code === '1001') {
+        if (isNativeAppleSignInCancelled(err)) {
           setOauthLoading(null);
         } else {
           console.error('[Landing] Native Apple Sign In error:', err);

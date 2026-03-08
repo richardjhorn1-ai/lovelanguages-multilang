@@ -15,6 +15,7 @@
 		"CAPNetworkPlugin",
 		"SharePlugin",
 		"StatusBarPlugin",
-		"PurchasesPlugin"
+		"PurchasesPlugin",
+		"SignInWithApple"
 	]
 }
