@@ -77,9 +77,22 @@ Launch is only ready when all of the following are true:
 
 ### Native/Xcode surface audit result
 
-- No checked-in `ios/` app project exists in this workspace.
-- No real `Info.plist`, app entitlements file, URL Types, Associated Domains configuration, `PrivacyInfo.xcprivacy`, or Xcode capability state could be audited from this repo.
-- The only iOS artifacts present locally are Capacitor library files under `node_modules/`, which do not verify the actual app target.
+- A checked-in `ios/` app project now exists in this workspace and is the native source of truth for launch work.
+- The native target now compiles successfully via `xcodebuild` for:
+  - generic iOS device with code signing disabled
+  - iPhone simulator with code signing disabled
+- `Info.plist` now registers custom URL scheme `lovelanguages`.
+- App entitlements now configure:
+  - Sign in with Apple entitlement
+  - Associated Domains for `applinks:www.lovelanguages.io`
+- The app target is now configured as iPhone-only in the Xcode project.
+- Native Apple Sign In no longer depends on the incompatible Capacitor 7 community plugin; the app target now carries a repo-owned native plugin implementation compatible with Capacitor 8 and RevenueCat.
+- Still not verified from this session:
+  - In-App Purchase capability state in Xcode / Apple Developer portal
+  - app-level `PrivacyInfo.xcprivacy`
+  - push capability / notification entitlements
+  - on-device Universal Link behavior
+  - physical-device purchase/auth/linking behavior
 
 ### Dashboard audit result
 
@@ -202,19 +215,21 @@ Use only these bucket values:
 | Repo | Native auth callback contract exists | repo verified | engineering | `services/api-config.ts` now builds native callback URLs and web callback URLs explicitly. | Mirror the same contract in Supabase redirect allow-lists and native URL types. |
 | Repo | Native URL-open bridge exists for invite/auth/reset/root return flows | repo verified | engineering | `services/native-links.ts`, `AuthCallback`, and `App.tsx` bridge incoming app URLs into the router. | Sync the Capacitor App plugin into the real iOS project and verify on-device. |
 | Repo | Native Apple Sign In exists with nonce and backend token exchange | repo verified | engineering | Native Apple auth branches exist in login surfaces; nonce helper and Apple token exchange endpoint are present. | Validate live Apple capability/provider config and deletion revocation on device. |
+| Repo | Native Apple Sign In no longer depends on a Capacitor 7-only plugin | repo verified | engineering | The incompatible `@capacitor-community/apple-sign-in` dependency was removed and replaced with a repo-owned native plugin in the app target. | Keep the repo-owned plugin covered by build verification and device QA. |
 | Repo | Native purchase UI is Apple IAP only | repo verified | engineering | On iOS, purchase flows use RevenueCat and App Store management; Stripe remains web-only in native-facing UI. | Device QA the actual paywall and upgrade paths. |
 | Repo | Restore Purchases is exposed on native subscription surfaces | repo verified | engineering | Present in onboarding plan selection and the subscription-required paywall. | Verify App Review-visible placement on device. |
 | Repo | Practice-first offline cache and queue exist | repo verified | engineering | Vocabulary cache, word-score cache, and queued sync are implemented. | Harden backoff, queue-state UX, and telemetry. |
 | Repo | Offline precache is active-language only | repo verified | product / engineering | Only the active language is warmed on login. | Decide whether gifted secondary languages need launch support. |
 | Repo | Chat survives offline cold restart | repo verified | product / engineering | Not supported today; no offline chat/message persistence is implemented. | Keep out of launch scope or explicitly add later. |
 | Repo | Pending challenges/requests work offline | repo verified | product / engineering | Not supported today; these flows remain online-only. | Keep out of launch scope and message clearly in QA notes. |
-| Native/Xcode | Real iOS target audited | still unknown | engineering | No checked-in app target was present in this workspace. | Provide access to the real `ios/` app project or Xcode project path. |
-| Native/Xcode | URL scheme `lovelanguages` registered | still unknown | engineering | Repo contract exists, but actual URL Types were not auditable. | Inspect target `Info.plist` and test `lovelanguages://auth/callback`. |
-| Native/Xcode | Associated Domains configured for Universal Links | still unknown | engineering | No app entitlements file or Associated Domains config available here. | Inspect entitlements, domain association file, and device behavior. |
-| Native/Xcode | Sign in with Apple capability enabled | still unknown | engineering | Capability state not visible without the real Xcode target. | Inspect Signing & Capabilities in the app target. |
-| Native/Xcode | In-App Purchase capability enabled | still unknown | engineering | Capability state not visible without the real Xcode target. | Inspect Signing & Capabilities in the app target. |
-| Native/Xcode | Privacy manifest and any required capabilities are correct | still unknown | engineering | No app target `PrivacyInfo.xcprivacy` was available to audit. | Inspect and reconcile with shipped SDKs and data collection. |
-| Native/Xcode | Push capability and notification entitlements are correct | still unknown | engineering | Native project not accessible here. | Audit only after higher-priority launch blockers close. |
+| Native/Xcode | Real iOS target audited | native/Xcode verified | engineering | A checked-in `ios/` project now exists locally and the target builds with `xcodebuild` for device and simulator with code signing disabled. | Keep the tracked iOS project committed and use it for all native release work. |
+| Native/Xcode | iPhone-first target is enforced in the app target | native/Xcode verified | engineering | The Xcode target now sets `TARGETED_DEVICE_FAMILY = 1`. | Confirm the product should stay iPhone-only for launch. |
+| Native/Xcode | URL scheme `lovelanguages` registered | native/Xcode verified | engineering | `Info.plist` now includes `CFBundleURLTypes` for `lovelanguages` and simulator `openurl` accepts the custom scheme. | Smoke-test end-to-end auth callback routing on simulator and device. |
+| Native/Xcode | Associated Domains configured for Universal Links | native/Xcode verified | engineering | `App.entitlements` now includes `applinks:www.lovelanguages.io`. | Verify the AASA file and actual Universal Link behavior on device. |
+| Native/Xcode | Sign in with Apple capability enabled | native/Xcode verified | engineering | `App.entitlements` now includes `com.apple.developer.applesignin`, and the app target carries a native Apple Sign In plugin implementation. | Verify the Apple App ID capability and device sign-in against the live team. |
+| Native/Xcode | In-App Purchase capability enabled | still unknown | engineering | The target builds with RevenueCat, but no explicit Xcode/App ID capability evidence was captured in this session. | Verify Signing & Capabilities and the Apple App ID configuration. |
+| Native/Xcode | Privacy manifest and any required capabilities are correct | still unknown | engineering | The app target still has no checked-in `PrivacyInfo.xcprivacy`; Xcode only scanned framework privacy manifests during build. | Add and verify the app-level privacy manifest against actual SDK/data usage. |
+| Native/Xcode | Push capability and notification entitlements are correct | still unknown | engineering | Push was not configured or audited in the generated target. | Audit only after higher-priority launch blockers close. |
 | App Store Connect / RevenueCat / Supabase | App Store product IDs match repo purchase mapping | still unknown | engineering / product | Repo expects `standard_*` and `unlimited_*` product IDs via RevenueCat. Live ASC state not audited. | Audit live products and either align dashboard IDs or update repo mapping. |
 | App Store Connect / RevenueCat / Supabase | RevenueCat entitlements and offering match repo expectations | still unknown | engineering | Repo expects entitlements `standard_access` and `unlimited_access`; dashboard not audited. | Verify products, packages, offerings, entitlements, and intro offers. |
 | App Store Connect / RevenueCat / Supabase | RevenueCat webhook is live and points to the production endpoint | still unknown | engineering | Repo webhook handler exists, but live dashboard configuration was not verified. | Verify webhook URL, bearer token, and event delivery. |
@@ -231,14 +246,15 @@ Use only these bucket values:
 
 ### Phase 0: External Surface Audit
 
-Status: blocked on access, not on repo work.
+Status: in progress.
 
 Required inputs:
 
-- Real native iOS project path containing the app target.
 - App Store Connect access to the production app record and TestFlight.
+- Apple Developer portal access for app ID capability state.
 - RevenueCat dashboard access to products, entitlements, offerings, and webhooks.
 - Supabase dashboard access to Auth provider and redirect settings.
+- Physical iPhone signing/device access for launch-critical QA.
 
 Exit criteria:
 
@@ -268,17 +284,19 @@ Done in repo:
 - Added native/web-aware auth callback URL builders.
 - Added native URL-open bridge.
 - Added `AuthCallback` route handling for Supabase session completion.
+- Registered custom URL scheme `lovelanguages` in the iOS target.
+- Added app entitlements for Associated Domains and Sign in with Apple.
+- Built and launched the app in an iPhone simulator and successfully triggered the custom URL scheme via `simctl openurl`.
 
 Remaining before release:
 
-- Sync the Capacitor App plugin into the real iOS project.
-- Register URL scheme and Universal Links in the native target.
+- Verify the `apple-app-site-association` file and actual Universal Link takeover on device.
 - Add required Supabase redirect URLs.
 - Device-test invite opens, password reset, and auth callbacks.
 
 ### Phase 3: Native Submission Surface Verification
 
-Status: not started; blocked on the real native project and dashboard access.
+Status: in progress.
 
 Required verification:
 
@@ -352,8 +370,8 @@ Remaining work:
 
 Provide one or more of the following:
 
-- The filesystem path to the real iOS app target if it lives outside this repo.
-- A checked-in `ios/` project added to this workspace.
 - App Store Connect access or exported screenshots/config evidence.
+- Apple Developer portal access or exported capability screenshots for the app ID.
 - RevenueCat dashboard access or exported offering/webhook screenshots.
 - Supabase Auth dashboard access or exported redirect/provider screenshots.
+- A physical iPhone test path with signing available for device QA.

@@ -275,7 +275,7 @@ const Hero: React.FC = () => {
     // Native Apple Sign In on iOS — required for App Store approval
     if (provider === 'apple' && Capacitor.getPlatform() === 'ios') {
       try {
-        const { SignInWithApple } = await import('@capacitor-community/apple-sign-in');
+        const { SignInWithApple } = await import('../services/native-apple-sign-in');
         const { generateNonce } = await import('../utils/apple-auth');
 
         // Generate cryptographic nonce for Apple Sign In security

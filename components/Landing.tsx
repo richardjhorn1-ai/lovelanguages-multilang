@@ -756,7 +756,7 @@ const Landing: React.FC = () => {
 
     if (provider === 'apple' && Capacitor.getPlatform() === 'ios') {
       try {
-        const { SignInWithApple } = await import('@capacitor-community/apple-sign-in');
+        const { SignInWithApple } = await import('../services/native-apple-sign-in');
         const { generateNonce } = await import('../utils/apple-auth');
         const { rawNonce, hashedNonce } = await generateNonce();
         const result = await SignInWithApple.authorize({

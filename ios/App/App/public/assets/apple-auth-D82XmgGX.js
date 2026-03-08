@@ -1,0 +1,1 @@
+async function c(){const r=new Uint8Array(32);crypto.getRandomValues(r);const t=Array.from(r,n=>n.toString(16).padStart(2,"0")).join(""),e=new TextEncoder,o=await crypto.subtle.digest("SHA-256",e.encode(t)),a=Array.from(new Uint8Array(o),n=>n.toString(16).padStart(2,"0")).join("");return{rawNonce:t,hashedNonce:a}}export{c as generateNonce};

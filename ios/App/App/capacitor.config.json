@@ -1,0 +1,20 @@
+{
+	"appId": "com.lovelanguages.app",
+	"appName": "Love Languages",
+	"webDir": "dist",
+	"ios": {
+		"preferredContentMode": "mobile",
+		"scrollEnabled": true,
+		"allowsLinkPreview": false,
+		"limitsNavigationsToAppBoundDomains": true
+	},
+	"packageClassList": [
+		"AppPlugin",
+		"FilesystemPlugin",
+		"HapticsPlugin",
+		"CAPNetworkPlugin",
+		"SharePlugin",
+		"StatusBarPlugin",
+		"PurchasesPlugin"
+	]
+}

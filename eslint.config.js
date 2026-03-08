@@ -13,6 +13,8 @@ export default [
       '.vercel/**',
       'blog/.vercel/**',
       'coverage/**',
+      'ios/DerivedData/**',
+      'ios/SourcePackages/**',
     ],
   },
   {

@@ -42,9 +42,10 @@ test-results/
 test-logins.local.txt
 blog/.astro/
 
-# Capacitor native projects (regenerate with `npx cap add ios/android`)
-ios/
+# Capacitor native projects
 android/
+ios/DerivedData/
+ios/SourcePackages/
 
 # One-off generator scripts (may contain keys)
 **/temp-article.json
