@@ -43,6 +43,7 @@ async function fetchAllPublishedRows<T>(
       .from('blog_articles')
       .select(select)
       .eq('published', true)
+      .order('id', { ascending: true })
       .range(offset, offset + PAGE_SIZE - 1);
 
     if (options?.canonicalOnly !== false) {
@@ -520,6 +521,7 @@ export async function getAllSlugs(
       .from('blog_articles')
       .select('native_lang, target_lang, slug, slug_native, updated_at, is_canonical')
       .eq('published', true)
+      .order('id', { ascending: true })
       .range(offset, offset + PAGE_SIZE - 1);
 
     if (nativeLang) {
