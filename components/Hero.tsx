@@ -10,7 +10,7 @@ import { ICONS } from '../constants';
 import { DEFAULT_THEME, applyTheme } from '../services/theme';
 import { LANGUAGE_CONFIGS, SUPPORTED_LANGUAGE_CODES, LanguageCode } from '../constants/language-config';
 import { useHoneypot } from '../hooks/useHoneypot';
-import { apiFetch, APP_URL } from '../services/api-config';
+import { apiFetch, getOAuthRedirectUrl, getPasswordResetRedirectUrl } from '../services/api-config';
 
 // Hero sub-components (extracted for readability)
 import {
@@ -335,7 +335,7 @@ const Hero: React.FC = () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: `${APP_URL}/`
+        redirectTo: getOAuthRedirectUrl()
       }
     });
 
@@ -1163,7 +1163,7 @@ const Hero: React.FC = () => {
                         }
                         setLoading(true);
                         const { error } = await supabase.auth.resetPasswordForEmail(email, {
-                          redirectTo: `${APP_URL}/reset-password`,
+                          redirectTo: getPasswordResetRedirectUrl(),
                         });
                         setLoading(false);
                         if (error) {

@@ -1,391 +1,359 @@
-# iOS Excellence Program: Launch Spec and Implementation Plan
+# iOS Launch Spec, Release Matrix, and Execution Program
 
 Last updated: 2026-03-08
 
 ## Purpose
 
-This document is the working contract for shipping Love Languages as a high-quality iPhone-first iOS app. It is intentionally split into two tracks:
+This document is the launch contract for shipping Love Languages as a high-quality iPhone-first iOS app. It combines:
 
-1. A launch spec the team can hold itself to.
-2. An implementation program that executes against that spec.
+1. The decision-complete launch spec.
+2. The verified audit state as of this repo pass.
+3. The implementation and verification program required for submission.
 
-The goal is not "make Capacitor run on iPhone." The goal is "ship an App Store-ready product with a reliable first-user experience, correct entitlement handling, strong native returns/deep links, and a clear, defensible offline promise."
+The goal is not "make the Capacitor build open on an iPhone." The goal is "ship an App Store-ready product with trusted billing state, native-safe return flows, a defensible offline promise, and no hidden launch-critical unknowns."
 
-## Fixed Product Decisions
-
-These decisions are treated as locked unless explicitly changed later.
+## Locked Product Decisions
 
 - Launch target is iPhone first.
-- Quality bar is best-in-class for launch-critical journeys, not just "good enough for TestFlight."
-- Offline promise at launch is practice-first only:
-  - cached vocabulary
-  - cached scores/progress
-  - flashcard/game practice
-  - queued sync when the network returns
-- Native iOS payment surface must be Apple IAP only.
-- Stripe must not be surfaced as a purchase path in native iOS.
-- Push notifications are important, but if one major area must slip after launch, push is the first allowed to slip.
-- Launch-critical journeys are:
+- Launch bar is best-in-class on the three critical journeys:
   - signup/onboarding -> entitlement -> first real practice
   - invite/linking
   - paying/subscribing and restore purchases
+- Offline at launch is practice-first only:
+  - cached vocabulary
+  - cached scores/progress
+  - flashcard/game practice
+  - queued sync when network returns
+- Native iOS payment surface is Apple IAP only.
+- Stripe must not be surfaced as a native purchase path.
 - Native deep links and return flows are mandatory for launch quality.
-- The plan must include repo work plus Xcode/native configuration, App Store Connect, RevenueCat, Supabase auth redirect configuration, privacy/review requirements, and on-device QA.
+- Push notifications matter, but they are the first acceptable slip if a major launch area must move post-launch.
+- Submission readiness includes repo work, Xcode/native configuration, App Store Connect, RevenueCat, Supabase auth redirect configuration, privacy/review requirements, and device QA.
 
 ## Success Criteria
 
-The iOS launch is successful only if all of the following are true:
+Launch is only ready when all of the following are true:
 
-- New users can sign up, complete onboarding, obtain entitlement, and reach first practice without route dead ends or ambiguous states.
-- Paid users are never marked entitled from client-side guesswork.
-- Invite links, password resets, auth returns, and purchase returns open into the app cleanly.
-- Practice surfaces remain useful during intermittent or absent connectivity.
-- Account deletion, restore purchases, Sign in with Apple, and privacy disclosures are App Review-safe.
-- Repo state, native project state, dashboard/config state, and device behavior are all verified as part of release readiness.
+- Client code cannot grant paid access by mutating profile subscription fields.
+- Trusted entitlement state is written only by backend-owned paths.
+- Invite links, auth returns, password reset links, and purchase-related returns land inside the app correctly.
+- A new user can complete onboarding and reach first practice without getting stranded by pending billing or route confusion.
+- Restore purchases, account deletion, Sign in with Apple, and privacy disclosures are App Review-safe.
+- Practice surfaces remain useful from a cold offline restart after prior cache warmup.
+- Repo state, native/Xcode state, dashboard state, and on-device behavior are all verified, not assumed.
 
-## Current Confirmed Repo Findings
+## Current Audit Summary
 
-These are the known gaps that this program must address.
+### Repo verified in this session
 
-### Trust boundaries
+- Client-side RevenueCat startup reconcile no longer writes subscription state into `profiles`.
+- Authenticated client writes to server-managed billing/onboarding/profile-provider fields are now blocked at the database layer by migration `048_profile_client_write_guards.sql`.
+- Native callback contract is now explicit in repo:
+  - canonical web origin remains `APP_URL`
+  - native auth callback is `lovelanguages://auth/callback`
+  - repo bridge now handles `appUrlOpen`-style launches for:
+    - `https://www.lovelanguages.io/...`
+    - `lovelanguages://...`
+- Repo now includes:
+  - `@capacitor/app` as a dependency
+  - `AuthCallback` route
+  - native URL bridge wiring
+  - native/web-aware auth redirect helpers
+- Native Apple Sign In exists in repo, uses a nonce, and stores Apple revocation material through the backend.
+- iOS paywall/onboarding purchase UI is Apple IAP only and exposes Restore Purchases.
+- Practice-first offline support is real today:
+  - vocabulary cache
+  - word-score cache
+  - queued score/game-session sync
+  - reconnect/foreground sync attempts
 
-- The client currently reconciles RevenueCat on iOS and writes subscription state directly into `profiles` during app startup.
-- Profile RLS allows users to update their own profile broadly, so entitlement fields are not server-authoritative yet.
+### Repo-verified launch limitations
 
-### Deep links and native return flows
-
-- There is no repo-verified native `appUrlOpen` handling for auth returns, invite links, password reset flows, or purchase returns.
-- URL building is still primarily web-first and points at the production web domain.
-
-### Native project visibility
-
-- Capacitor config exists in repo, but the `ios/` project is not present in this workspace.
-- That means `Info.plist`, Associated Domains, URL schemes, Sign in with Apple capability, In-App Purchase capability, `PrivacyInfo.xcprivacy`, and other native release surfaces are not currently repo-verified here.
-
-### Offline scope and hardening
-
-- Offline support exists and is real, but it is practice-oriented today.
-- Offline precache currently warms only the active language on login.
+- Offline precache only warms the active language on login.
 - Chat history is not persisted for offline restart.
-- Pending challenges and related requests remain online-only.
-- Offline sync has limited operational hardening today:
-  - no strong backoff strategy
-  - no explicit stuck-queue surface
-  - no clear queue health telemetry
+- Pending challenges and pending word requests remain online-only.
+- Offline sync still lacks explicit queue health UX, backoff strategy, and stuck-queue telemetry.
+- Purchase success on iOS now waits for trusted server sync; UX hardening for delayed webhook confirmation is still needed.
 
-## Program Structure
+### Native/Xcode surface audit result
 
-The work is split into two tracks:
+- No checked-in `ios/` app project exists in this workspace.
+- No real `Info.plist`, app entitlements file, URL Types, Associated Domains configuration, `PrivacyInfo.xcprivacy`, or Xcode capability state could be audited from this repo.
+- The only iOS artifacts present locally are Capacitor library files under `node_modules/`, which do not verify the actual app target.
 
-- Track A: define the launch spec
-- Track B: implement against the spec in phases
+### Dashboard audit result
 
-Track A must be explicit enough that Track B does not drift into "fix things ad hoc."
+- App Store Connect, RevenueCat, and Supabase dashboard surfaces were not directly accessible from this repo session.
+- Local environment scaffolding exists for Apple, RevenueCat, Stripe, and Supabase, but that is not sufficient to classify live dashboard configuration as verified.
 
-## Track A: Launch Spec
+## Decision-Complete Launch Spec
 
-### 1. Product Scope Spec
-
-Define what the launch app is and is not.
+### 1. Product Scope
 
 #### In scope at launch
 
-- Email signup and Sign in with Apple
-- Onboarding to entitlement to first practice
-- Invite/linking flows
-- Apple IAP purchase flow
-- Restore purchases
-- Practice-first offline behavior
-- Account deletion
-- Password reset
+- Email signup.
+- Native Sign in with Apple.
+- Native-safe auth return handling for any web OAuth that remains exposed.
+- Onboarding to entitlement to first practice.
+- Invite/linking flows.
+- Apple IAP purchase flow.
+- Restore purchases.
+- Password reset from iPhone.
+- Account deletion.
+- Practice-first offline support.
 
 #### Explicitly limited at launch
 
-- Offline support outside practice surfaces
-- Push notifications if they endanger launch quality in higher-risk areas
-- iPad-specific polish
-- Web parity for all mobile flows if it conflicts with native correctness
+- Offline support outside practice surfaces.
+- Full chat continuity across offline app restart.
+- Pending challenge/request workflows offline.
+- Push notifications, if they threaten launch-critical quality elsewhere.
+- iPad-specific polish.
 
-### 2. System Contract Spec
+### 2. Entitlement and Billing Contract
 
-Define which layer owns what.
-
-#### Entitlements
-
+- `profiles.subscription_*` fields remain the trusted read surface for the app at launch.
 - The client may read entitlement state.
-- The client must not be the source of truth for entitlement state.
-- Subscription truth must be written by trusted backend/webhook paths only.
-- Any temporary client reconcile logic must become read-only and diagnostic, not mutative.
+- The client must not write entitlement state.
+- Entitlement state may only be written by trusted backend paths:
+  - Stripe webhook / server billing APIs
+  - RevenueCat webhook
+  - trusted invite/linking server flows
+  - trusted free-tier / promo / trial server flows
+- Native iOS billing is Apple IAP only.
+- Stripe checkout and Stripe customer portal remain web-only surfaces.
+- If a native purchase completes before the backend reflects it, the app may show a short "confirming access" state, but it must not self-grant entitlement.
 
-#### Native vs web routing
+### 3. Native Routing and Return Contract
 
-- Native app must own native happy paths.
-- Web routes may still exist, but launch-critical native flows must not depend on Safari detours as the standard behavior.
+- Canonical public links use the production web origin.
+- Native auth callback uses custom scheme `lovelanguages://auth/callback`.
+- Universal Links should target the same user-facing web origin for:
+  - invite links
+  - password reset entry
+  - auth callback fallback
+  - any shareable route that should open the installed app
+- Required routed return targets:
+  - `/auth/callback`
+  - `/reset-password`
+  - `/join/:token`
+  - `/?subscription=success`
+  - `/?subscription=canceled`
+- Repo contract:
+  - auth redirect builders must choose native callback URLs on native platforms
+  - native app must listen for URL opens and push routes into the SPA router
+  - auth callback route must exchange/store the Supabase session before redirecting onward
 
-#### Offline
+### 4. Offline Contract
 
-- Offline promise is practice-first, not "full app offline."
-- Cached practice data and queued progress sync are part of launch.
-- Non-practice surfaces may be online-only, but that must be deliberate and understandable.
+- Offline promise is practice-first only.
+- Launch-required offline behaviors:
+  - cached vocabulary lookup for warmed content
+  - cached word scores/progress for warmed content
+  - flashcard/game practice from cached data
+  - queued score/game-session sync after reconnect
+- Explicit launch non-goals:
+  - full chat offline history
+  - offline invite/linking
+  - offline pending challenges/requests
+  - offline multi-language precache beyond the active language unless separately approved
 
-### 3. App Store Submission Spec
+### 5. App Review and Privacy Contract
 
-Define all non-code release requirements as part of the product spec.
+- Sign in with Apple must be enabled in the native target and fully operational.
+- Restore Purchases must be visible anywhere native subscription products are offered.
+- Account deletion must remain in-app discoverable and revoke Apple refresh tokens when present.
+- In-App Purchase capability must be enabled in the native target.
+- Privacy manifest and App Privacy answers must reflect actual SDK/data usage.
+- Review notes must explain:
+  - how to reach paywall and restore purchases
+  - how to test Sign in with Apple
+  - how invite/linking works
+  - how account deletion works
+- Screenshots, metadata, and subscription copy must match the actual iPhone UX and Apple IAP pricing model.
 
-This includes:
+### 6. Device QA Contract
 
-- Sign in with Apple capability and flow behavior
-- In-App Purchase capability and products
-- Restore purchases behavior
-- Account deletion path
-- Privacy manifests and App Privacy answers
-- Associated Domains and URL schemes
-- Review notes and test accounts
-- Screenshots, metadata, and subscription copy
+- Test on physical iPhones, not simulator-only.
+- Required device runs:
+  - clean install -> signup/onboarding -> first practice
+  - Sign in with Apple -> first practice
+  - invite open from Messages/Mail -> signup/login -> linking completion
+  - password reset email open -> app return -> password change
+  - Apple IAP purchase -> trusted entitlement confirmation -> access unlocked
+  - Restore Purchases from a returning install
+  - offline practice from a cold restart after prior warm cache
+  - reconnect with queued sync
 
-### 4. Release Gate Matrix
+## Release Matrix
 
-Every launch item must be classified into one of:
+Use only these bucket values:
 
-- repo verified
-- native/Xcode verified
-- App Store Connect / RevenueCat / Supabase verified
-- still unknown
+- `repo verified`
+- `native/Xcode verified`
+- `App Store Connect / RevenueCat / Supabase verified`
+- `still unknown`
 
-Nothing launch-critical stays in "unknown" at release time.
+| Area | Requirement | Status bucket | Owner | Evidence / current state | Next action |
+| --- | --- | --- | --- | --- | --- |
+| Repo | Client cannot write entitlement state on startup | repo verified | engineering | Startup RevenueCat reconcile is now read-only; no client profile mutation remains in `App.tsx`. | Verify production deploy includes this change. |
+| Repo | Authenticated clients cannot mutate server-managed billing/onboarding/profile-provider fields | repo verified | engineering | Migration `048_profile_client_write_guards.sql` blocks these writes. | Apply migration in the target Supabase project. |
+| Repo | Native auth callback contract exists | repo verified | engineering | `services/api-config.ts` now builds native callback URLs and web callback URLs explicitly. | Mirror the same contract in Supabase redirect allow-lists and native URL types. |
+| Repo | Native URL-open bridge exists for invite/auth/reset/root return flows | repo verified | engineering | `services/native-links.ts`, `AuthCallback`, and `App.tsx` bridge incoming app URLs into the router. | Sync the Capacitor App plugin into the real iOS project and verify on-device. |
+| Repo | Native Apple Sign In exists with nonce and backend token exchange | repo verified | engineering | Native Apple auth branches exist in login surfaces; nonce helper and Apple token exchange endpoint are present. | Validate live Apple capability/provider config and deletion revocation on device. |
+| Repo | Native purchase UI is Apple IAP only | repo verified | engineering | On iOS, purchase flows use RevenueCat and App Store management; Stripe remains web-only in native-facing UI. | Device QA the actual paywall and upgrade paths. |
+| Repo | Restore Purchases is exposed on native subscription surfaces | repo verified | engineering | Present in onboarding plan selection and the subscription-required paywall. | Verify App Review-visible placement on device. |
+| Repo | Practice-first offline cache and queue exist | repo verified | engineering | Vocabulary cache, word-score cache, and queued sync are implemented. | Harden backoff, queue-state UX, and telemetry. |
+| Repo | Offline precache is active-language only | repo verified | product / engineering | Only the active language is warmed on login. | Decide whether gifted secondary languages need launch support. |
+| Repo | Chat survives offline cold restart | repo verified | product / engineering | Not supported today; no offline chat/message persistence is implemented. | Keep out of launch scope or explicitly add later. |
+| Repo | Pending challenges/requests work offline | repo verified | product / engineering | Not supported today; these flows remain online-only. | Keep out of launch scope and message clearly in QA notes. |
+| Native/Xcode | Real iOS target audited | still unknown | engineering | No checked-in app target was present in this workspace. | Provide access to the real `ios/` app project or Xcode project path. |
+| Native/Xcode | URL scheme `lovelanguages` registered | still unknown | engineering | Repo contract exists, but actual URL Types were not auditable. | Inspect target `Info.plist` and test `lovelanguages://auth/callback`. |
+| Native/Xcode | Associated Domains configured for Universal Links | still unknown | engineering | No app entitlements file or Associated Domains config available here. | Inspect entitlements, domain association file, and device behavior. |
+| Native/Xcode | Sign in with Apple capability enabled | still unknown | engineering | Capability state not visible without the real Xcode target. | Inspect Signing & Capabilities in the app target. |
+| Native/Xcode | In-App Purchase capability enabled | still unknown | engineering | Capability state not visible without the real Xcode target. | Inspect Signing & Capabilities in the app target. |
+| Native/Xcode | Privacy manifest and any required capabilities are correct | still unknown | engineering | No app target `PrivacyInfo.xcprivacy` was available to audit. | Inspect and reconcile with shipped SDKs and data collection. |
+| Native/Xcode | Push capability and notification entitlements are correct | still unknown | engineering | Native project not accessible here. | Audit only after higher-priority launch blockers close. |
+| App Store Connect / RevenueCat / Supabase | App Store product IDs match repo purchase mapping | still unknown | engineering / product | Repo expects `standard_*` and `unlimited_*` product IDs via RevenueCat. Live ASC state not audited. | Audit live products and either align dashboard IDs or update repo mapping. |
+| App Store Connect / RevenueCat / Supabase | RevenueCat entitlements and offering match repo expectations | still unknown | engineering | Repo expects entitlements `standard_access` and `unlimited_access`; dashboard not audited. | Verify products, packages, offerings, entitlements, and intro offers. |
+| App Store Connect / RevenueCat / Supabase | RevenueCat webhook is live and points to the production endpoint | still unknown | engineering | Repo webhook handler exists, but live dashboard configuration was not verified. | Verify webhook URL, bearer token, and event delivery. |
+| App Store Connect / RevenueCat / Supabase | Supabase auth redirect allow-list includes both web and native callbacks | still unknown | engineering | Repo now requires both `/auth/callback` on the web origin and `lovelanguages://auth/callback`. | Audit Supabase redirect URLs and Apple provider client IDs. |
+| App Store Connect / RevenueCat / Supabase | Apple provider config supports native bundle login and token revocation | still unknown | engineering | Repo contains native Apple auth and token revocation code; provider/dashboard state was not checked. | Verify Apple provider settings and Apple credentials in live environments. |
+| App Store Connect / RevenueCat / Supabase | Review metadata, screenshots, subscription copy, and notes are complete | still unknown | product / engineering | No App Store Connect access in this session. | Audit and finalize submission materials. |
+| Device QA | Signup/onboarding -> entitlement -> first practice works on physical iPhone | still unknown | engineering | Not device-tested in this session. | Run clean-install and returning-user QA on physical devices. |
+| Device QA | Invite/linking works from Messages/Mail into the app | still unknown | engineering | Repo route handling now exists, but Universal Link and custom-scheme behavior were not device-verified. | Test with fresh links on physical devices. |
+| Device QA | Password reset works from iPhone email open to password change | still unknown | engineering | Repo callback contract now exists, but no device validation happened here. | Test email link open, callback, and password change. |
+| Device QA | Apple IAP purchase and restore complete without stranded states | still unknown | engineering | Repo gates purchases correctly, but real App Store / RevenueCat / device behavior was not audited. | Test purchase, delayed webhook, restore, and relaunch. |
+| Device QA | Offline practice survives reconnect and app relaunch | still unknown | engineering | Repo implementation exists, but no current device evidence was captured. | Run cold-start, reconnect, and queue-retry scenarios on device. |
 
-## Track B: Implementation Program
+## Concrete Implementation Program
 
-### Phase 0: Native Audit and Gap Confirmation
+### Phase 0: External Surface Audit
 
-Objective:
+Status: blocked on access, not on repo work.
 
-- Turn current assumptions into verified facts.
+Required inputs:
 
-Required work:
+- Real native iOS project path containing the app target.
+- App Store Connect access to the production app record and TestFlight.
+- RevenueCat dashboard access to products, entitlements, offerings, and webhooks.
+- Supabase dashboard access to Auth provider and redirect settings.
 
-- Audit the actual native iOS project once Xcode/full-machine access is available.
-- Verify:
-  - `Info.plist`
-  - entitlements
-  - Associated Domains
-  - URL schemes
-  - Sign in with Apple capability
-  - In-App Purchase capability
-  - `PrivacyInfo.xcprivacy`
-  - background modes if any are needed
-- Audit App Store Connect configuration.
-- Audit RevenueCat offerings, entitlements, mappings, and webhooks.
-- Audit Supabase auth redirect and native callback configuration.
+Exit criteria:
 
-Outputs:
+- Every `still unknown` row above is either verified or explicitly re-scoped with owner approval.
 
-- a decision-complete launch spec
-- a gap list grouped by repo, native project, App Store Connect, RevenueCat, and Supabase
-- a release matrix with no hidden ownership
+### Phase 1: Entitlement Trust Boundary
 
-### Phase 1: Trust Boundaries and Entitlement Contract
+Status: in progress in this session.
 
-Objective:
+Done in repo:
 
-- Remove client authority over subscription truth.
+- Removed client-side entitlement writes from app startup.
+- Added database-level write guards for server-managed profile fields.
 
-Required work:
+Remaining before release:
 
-- Stop client code from writing `subscription_status`, `subscription_plan`, or `subscription_source`.
-- Move paid entitlement updates to server/webhook-owned paths only.
-- Ensure mobile clients consume a server-trusted entitlement read surface.
-- Ensure account management branches correctly by entitlement source.
-
-Acceptance criteria:
-
-- no client path can grant itself paid entitlement by updating profile state
-- webhook repetition is safe and idempotent
-- native purchase flows no longer rely on client mutation as truth
+- Apply migration in the live Supabase project.
+- Verify no remaining external/mobile code path depends on client mutation as entitlement truth.
+- QA delayed RevenueCat webhook behavior so the user sees a short pending-confirmation state, not a broken paywall loop.
 
 ### Phase 2: Native Deep Links and Return Flows
 
-Objective:
+Status: in progress in this session.
 
-- Make launch-critical native flows open and resume correctly inside the app.
+Done in repo:
 
-Required work:
+- Added native/web-aware auth callback URL builders.
+- Added native URL-open bridge.
+- Added `AuthCallback` route handling for Supabase session completion.
 
-- Implement native URL handling for:
-  - invite links
-  - password reset links
-  - auth returns
-  - purchase return states
-- Define the canonical deep-link contract:
-  - Universal Links if available
-  - custom scheme fallback if needed
-- Separate "web URL" from "native return target" in config and routing.
+Remaining before release:
 
-Acceptance criteria:
+- Sync the Capacitor App plugin into the real iOS project.
+- Register URL scheme and Universal Links in the native target.
+- Add required Supabase redirect URLs.
+- Device-test invite opens, password reset, and auth callbacks.
 
-- invite flows can begin from Messages/Mail and land correctly in-app
-- password reset can complete from an iPhone
-- OAuth/auth return is native-safe
-- purchase return does not strand the user
+### Phase 3: Native Submission Surface Verification
 
-### Phase 3: Onboarding, Linking, and Purchase Journey Hardening
+Status: not started; blocked on the real native project and dashboard access.
 
-Objective:
+Required verification:
 
-- Make the first-user and linked-user journeys feel polished and deterministic.
+- `Info.plist`
+- app entitlements
+- Associated Domains
+- URL Types
+- Sign in with Apple capability
+- In-App Purchase capability
+- privacy manifest
+- background modes / push setup if retained for launch
 
-Required work:
+### Phase 4: Journey Hardening
 
-- Finish the server-backed onboarding state model rollout cleanly.
-- Ensure native invite/linking flows are recoverable across app interruptions.
-- Keep native purchase flow Apple IAP only.
-- Support restore purchases cleanly in native.
-- Treat the sequence "signup -> onboarding -> entitlement -> first practice" as the highest-polish path in the app.
+Status: partially started; repo still needs polish after the trust-boundary and deep-link foundations.
 
-Acceptance criteria:
+Remaining work:
 
-- users do not end up in false complete or false entitled states
-- linked/invited flows are resumable
-- paid users are completed only from confirmed trusted billing state
-- restore purchases works cleanly
+- polish pending App Store confirmation UX after purchase/restore
+- make invite/linking interruption-safe across app background/foreground transitions
+- validate that the first-practice path cannot dead-end on stale onboarding or billing state
 
-### Phase 4: Offline Hardening for the Launch Promise
+### Phase 5: Offline Hardening
 
-Objective:
+Status: not started in this session.
 
-- Make practice-first offline behavior reliable rather than aspirational.
+Remaining work:
 
-Required work:
+- add retry/backoff policy
+- surface queue health and stuck-sync states
+- decide whether any secondary-language cache warmup is needed for launch
+- decide whether chat stays intentionally online-only at launch
 
-- Bound cache scope, queue size, and sync workload.
-- Add retry and backoff for sync.
-- Add visible queue-health/error states when sync is stuck.
-- Improve lifecycle handling on app resume/foreground/network transitions.
-- Decide whether gifted/unlocked secondary languages need cache behavior at launch or remain active-language only.
+### Phase 6: Mobile Runtime Quality
 
-Acceptance criteria:
+Status: not started in this session.
 
-- practice works offline from a cold start after prior cache warmup
-- queued progress survives reconnect cycles
-- auth expiry or repeated sync failure is surfaced, not silent
-- offline behavior is predictable under app kill/relaunch
+Remaining work:
 
-### Phase 5: Mobile UX and Runtime Quality
+- safe areas
+- keyboard behavior
+- foreground/resume handling
+- microphone interruption handling
+- mobile-only telemetry for deep-link and purchase failures
 
-Objective:
+### Phase 7: Submission Readiness
 
-- Make the app feel intentionally mobile, not like a website in a shell.
+Status: not started in this session.
 
-Required work:
+Remaining work:
 
-- Audit safe areas, keyboard interactions, loading/empty/error states, haptics, and interruption handling.
-- Harden microphone/voice flows for denial, interruption, and recovery.
-- Reduce hidden heavy work during mobile startup and resume.
-- Add telemetry for mobile-only failure modes:
-  - cold-start failures
-  - deep-link failures
-  - auth return failures
-  - purchase return failures
-  - stuck offline queues
+- App Store metadata and screenshots
+- review notes and tester accounts
+- TestFlight device matrix runs
+- final privacy disclosure cross-check
 
-Acceptance criteria:
+## Immediate Next Actions
 
-- iPhone runtime feels smooth and understandable
-- error states are explicit
-- mobile telemetry is sufficient to debug launch-day issues
+1. Apply migration `048_profile_client_write_guards.sql` to the target Supabase project.
+2. Provide access to the real iOS app project so URL schemes, entitlements, capabilities, and privacy manifests can be audited.
+3. Audit live App Store Connect, RevenueCat, and Supabase settings against the matrix.
+4. Run physical-device tests for:
+   - auth callback
+   - password reset
+   - invite open
+   - Apple IAP purchase
+   - restore purchases
+5. Harden the native purchase pending-confirmation UX if delayed webhook confirmation still feels fragile on device.
 
-### Phase 6: Submission Readiness
+## Access Needed To Close Remaining Unknowns
 
-Objective:
+Provide one or more of the following:
 
-- Make App Store submission a verified artifact, not a final scramble.
-
-Required work:
-
-- Prepare App Store assets and copy.
-- Finalize review notes and test accounts.
-- Verify:
-  - restore purchases
-  - delete account
-  - Sign in with Apple
-  - privacy disclosures
-  - subscription management copy
-- Run TestFlight against a defined device matrix.
-
-Acceptance criteria:
-
-- submission surfaces are complete
-- review-sensitive flows are verified
-- launch-critical behaviors have device-tested evidence
-
-### Phase 7: Post-Launch / Allowed Slip
-
-These items matter, but they are the first acceptable slips if launch-critical areas need focus:
-
-- push notifications
-- broader offline coverage beyond practice
-- iPad-specific polish
-
-## Release Matrix Template
-
-Use this exact structure during the next session and keep it current.
-
-| Area | Requirement | Status bucket | Owner | Notes |
-| --- | --- | --- | --- | --- |
-| Repo | Entitlement writes are server-owned | unknown | engineering | client reconcile currently mutates profile |
-| Repo | Native deep-link handlers exist | unknown | engineering | no repo-verified `appUrlOpen` handling yet |
-| Native/Xcode | Associated Domains configured | unknown | engineering | requires native project audit |
-| Native/Xcode | Sign in with Apple capability enabled | unknown | engineering | requires native project audit |
-| Native/Xcode | In-App Purchase capability enabled | unknown | engineering | requires native project audit |
-| App Store Connect | Products and metadata aligned | unknown | product/engineering | requires dashboard audit |
-| RevenueCat | Entitlements/offers/webhooks verified | unknown | engineering | requires dashboard audit |
-| Supabase | Native auth return URLs configured | unknown | engineering | requires config audit |
-| Device QA | Invite, auth return, reset, purchase return tested | unknown | engineering | requires iPhone testing |
-| Device QA | Offline practice survives reconnect | unknown | engineering | requires iPhone testing |
-
-## First Execution Order
-
-When implementation begins, use this order unless a newly discovered blocker changes the sequencing.
-
-1. Audit native/Xcode/App Store Connect/RevenueCat/Supabase surfaces.
-2. Lock the launch spec and release matrix.
-3. Fix entitlement trust boundaries.
-4. Implement native deep links and return flows.
-5. Harden onboarding, linking, and purchase journeys.
-6. Harden offline behavior for the practice-first promise.
-7. Do mobile UX/runtime polish and telemetry.
-8. Finish submission assets, TestFlight validation, and review prep.
-
-## Explicit Non-Goals for the First Session
-
-Do not start by scattering implementation across many files.
-
-The next session should first:
-
-- save/validate this document
-- audit the actual native release surface
-- turn unknowns into verified facts
-- produce a concrete release matrix
-
-Only then should implementation begin.
-
-## Open Questions to Resolve During the Native Audit
-
-These questions are not blockers to saving this plan, but they must be answered before declaring the spec final:
-
-- Is the native app using Universal Links, a custom URL scheme, or both?
-- Where is the authoritative iOS project maintained if it is not in this repo?
-- Are any gifted tester accounts using capabilities that behave differently from standard single-language users?
-- Which exact practice surfaces must work from a cold offline app start?
-- Is chat intentionally online-only at launch, or should cached read-only history be included?
-- What is the desired user experience when purchase return happens before trusted backend entitlement confirmation?
-- What App Store Connect, RevenueCat, and Supabase settings are already live versus still assumed?
-
-## Expected Deliverables for the Next Session
-
-The next session should produce:
-
-- an updated version of this document if the native audit changes assumptions
-- a release matrix with concrete status per area
-- a prioritized implementation backlog
-- the first high-risk fixes, starting with entitlement trust boundaries and native deep-link handling
+- The filesystem path to the real iOS app target if it lives outside this repo.
+- A checked-in `ios/` project added to this workspace.
+- App Store Connect access or exported screenshots/config evidence.
+- RevenueCat dashboard access or exported offering/webhook screenshots.
+- Supabase Auth dashboard access or exported redirect/provider screenshots.

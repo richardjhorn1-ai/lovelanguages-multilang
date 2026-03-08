@@ -6,7 +6,7 @@ const config: CapacitorConfig = {
   webDir: 'dist',
   // No server.url — app loads from bundled dist/ assets for offline support.
   // API calls use VITE_API_BASE_URL (set at build time via cap:build:ios script).
-  // External URLs (OAuth, Stripe, invites) use APP_URL constant in services/api-config.ts.
+  // Shareable URLs use APP_URL; native auth returns use the callback helpers in services/api-config.ts.
   ios: {
     // Prevent text size adjustment that can cause zoom
     preferredContentMode: 'mobile',

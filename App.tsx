@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { BrowserRouter, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { supabase } from './services/supabase';
 import { Profile } from './types';
 import { ThemeProvider } from './context/ThemeContext';
@@ -33,9 +33,11 @@ import FAQ from './components/FAQ';
 import Method from './components/Method';
 import Pricing from './components/Pricing';
 import ResetPassword from './components/ResetPassword';
+import AuthCallback from './components/AuthCallback';
 import CookieConsent from './components/CookieConsent';
 import ErrorBoundary from './components/ErrorBoundary';
 import PromoExpiredBanner from './components/PromoExpiredBanner';
+import { registerNativeAppUrlBridge } from './services/native-links';
 
 // Beta testers who get free access (add emails here)
 const BETA_TESTERS = [
@@ -178,6 +180,32 @@ const AnalyticsWrapper: React.FC<{ children: React.ReactNode }> = ({ children })
   return <>{children}</>;
 };
 
+const NativeUrlBridge: React.FC = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    let disposed = false;
+    let cleanup = () => {};
+
+    registerNativeAppUrlBridge((path) => {
+      navigate(path, { replace: true });
+    }).then((teardown) => {
+      if (disposed) {
+        teardown();
+        return;
+      }
+      cleanup = teardown;
+    });
+
+    return () => {
+      disposed = true;
+      cleanup();
+    };
+  }, [navigate]);
+
+  return null;
+};
+
 // Success toast component
 const SuccessToast: React.FC<{ message: string; onClose: () => void }> = ({ message, onClose }) => {
   useEffect(() => {
@@ -216,6 +244,7 @@ const App: React.FC = () => {
   const [newWordsNotification, setNewWordsNotification] = useState<ExtractedWord[]>([]);
   const [isExtractingWords, setIsExtractingWords] = useState(false);
   const notificationTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const revenueCatRetryRef = useRef<Record<string, number>>({});
 
   // Capture UTM params from blog referrals on first load
   useEffect(() => {
@@ -506,6 +535,9 @@ const App: React.FC = () => {
           throw new Error('Profile query succeeded but no profile data was returned');
         }
         setProfile(profileData);
+        if (profileData.subscription_status === 'active') {
+          delete revenueCatRetryRef.current[userId];
+        }
         const profileCreatedAt = profileData.created_at || new Date().toISOString();
         const analyticsPlan =
           profileData.subscription_plan && profileData.subscription_plan !== 'none'
@@ -582,15 +614,19 @@ const App: React.FC = () => {
               if (!info) return;
               const entitlement = hasActiveEntitlement(info);
               if (entitlement.isActive && profileData.subscription_status !== 'active') {
-                // User has active App Store subscription but DB doesn't reflect it
-                // This can happen if webhook was delayed — update DB
-                return supabase.from('profiles').update({
-                  subscription_plan: entitlement.plan,
-                  subscription_status: 'active',
-                  subscription_source: 'app_store',
-                }).eq('id', userId).then(() => {
-                  fetchProfile(userId);
-                });
+                // Webhook-owned subscription state can lag the device briefly after purchase/restore.
+                // Retry a trusted profile refresh, but never let the client mutate entitlement fields.
+                const attempts = revenueCatRetryRef.current[userId] || 0;
+                if (attempts < 3) {
+                  revenueCatRetryRef.current[userId] = attempts + 1;
+                  if (attempts === 0) {
+                    setSuccessToast('Confirming your App Store access...');
+                  }
+                  window.setTimeout(() => {
+                    void fetchProfile(userId);
+                  }, 2000 * (attempts + 1));
+                }
+                console.warn('[RevenueCat] Active device entitlement is waiting for trusted server sync');
               }
             })
             .catch(err => console.error('[RevenueCat] Init/reconcile failed:', err));
@@ -638,6 +674,7 @@ const App: React.FC = () => {
         <I18nSyncWrapper>
         <BrowserRouter>
           <HashRedirect />
+          <NativeUrlBridge />
           <AnalyticsWrapper>
           <div className="h-screen-safe text-[var(--text-primary)] transition-colors duration-300 app-bg-decor">
           {/* Success toast */}
@@ -669,6 +706,7 @@ const App: React.FC = () => {
             <Route path="/method" element={<Method />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/reset-password" element={<ResetPassword />} />
+            <Route path="/auth/callback" element={<AuthCallback />} />
 
             {/* Target language routes - /pl, /es, /fr, etc. */}
             {/* Only match actual language codes, not app routes like /log, /play */}

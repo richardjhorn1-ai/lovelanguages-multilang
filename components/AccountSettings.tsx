@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Capacitor } from '@capacitor/core';
 import { supabase } from '../services/supabase';
 import { ICONS } from '../constants';
-import { apiFetch, APP_URL } from '../services/api-config';
+import { apiFetch, getPasswordResetRedirectUrl } from '../services/api-config';
 
 interface PromoStatus {
   hasPromo: boolean;
@@ -185,7 +185,7 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
     setLoading(true);
 
     const { error: resetError } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${APP_URL}/reset-password`,
+      redirectTo: getPasswordResetRedirectUrl(),
     });
 
     setLoading(false);

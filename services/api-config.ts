@@ -1,36 +1,92 @@
+import { Capacitor } from '@capacitor/core';
+
 /**
- * API and App URL configuration for cross-platform support.
- *
- * This module provides two constants and one helper:
+ * API and app URL configuration for cross-platform support.
  *
  * - API_BASE_URL: Prefix for fetch('/api/...') calls.
- *     Web:  '' (empty — relative paths work as-is)
- *     iOS:  'https://www.lovelanguages.io' (absolute, since app loads from local bundle)
- *
- * - APP_URL: The canonical production URL. Used for any URL that "leaves the app":
- *     OAuth redirect URLs, Stripe success/cancel URLs, invite links, email links.
- *     Always 'https://www.lovelanguages.io' on all platforms.
- *
- * - apiFetch(): Drop-in replacement for fetch() that auto-prepends API_BASE_URL
- *     to paths starting with '/api/'. All other URLs pass through unchanged.
- *
- * To build for iOS, set the env var before vite build:
- *   VITE_API_BASE_URL=https://www.lovelanguages.io npm run build:app
- *
- * The cap:sync and cap:build:ios npm scripts do this automatically.
+ * - APP_URL: Canonical public web origin for shareable and App Review-visible URLs.
+ * - Native auth callbacks use a dedicated custom scheme so OAuth/password reset can
+ *   return directly into the installed iOS app instead of falling back to Safari.
  */
 
 export const API_BASE_URL: string = import.meta.env.VITE_API_BASE_URL || '';
+export const APP_URL = import.meta.env.VITE_APP_URL || 'https://www.lovelanguages.io';
+export const NATIVE_APP_SCHEME = import.meta.env.VITE_NATIVE_APP_SCHEME || 'lovelanguages';
+export const AUTH_CALLBACK_PATH = '/auth/callback';
 
-// Always the production URL — never capacitor://localhost or localhost:5173.
-// Used for URLs that leave the app and must be real, shareable web URLs.
-export const APP_URL = 'https://www.lovelanguages.io';
+function appendQueryParams(url: URL, params?: Record<string, string | undefined>): URL {
+  if (!params) {
+    return url;
+  }
+
+  Object.entries(params).forEach(([key, value]) => {
+    if (value) {
+      url.searchParams.set(key, value);
+    }
+  });
+
+  return url;
+}
+
+export function buildAppUrl(
+  path: string = '/',
+  params?: Record<string, string | undefined>,
+  baseUrl: string = APP_URL
+): string {
+  const url = new URL(path, `${baseUrl.replace(/\/$/, '')}/`);
+  return appendQueryParams(url, params).toString();
+}
+
+export function buildNativeUrl(
+  path: string = AUTH_CALLBACK_PATH,
+  params?: Record<string, string | undefined>,
+  scheme: string = NATIVE_APP_SCHEME
+): string {
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`;
+  const segments = normalizedPath.split('/').filter(Boolean);
+  const [host = 'app', ...rest] = segments;
+  const pathname = rest.length > 0 ? `/${rest.join('/')}` : '';
+  const url = new URL(`${scheme}://${host}${pathname}`);
+  return appendQueryParams(url, params).toString();
+}
+
+export function getAuthCallbackUrl(options?: {
+  flow?: 'oauth' | 'password-reset';
+  next?: string;
+  native?: boolean;
+}): string {
+  const native = options?.native ?? Capacitor.isNativePlatform();
+  const params = {
+    flow: options?.flow,
+    next: options?.next,
+  };
+
+  return native
+    ? buildNativeUrl(AUTH_CALLBACK_PATH, params)
+    : buildAppUrl(AUTH_CALLBACK_PATH, params);
+}
+
+export function getOAuthRedirectUrl(native?: boolean): string {
+  return getAuthCallbackUrl({
+    flow: 'oauth',
+    next: '/',
+    native,
+  });
+}
+
+export function getPasswordResetRedirectUrl(native?: boolean): string {
+  return getAuthCallbackUrl({
+    flow: 'password-reset',
+    next: '/reset-password',
+    native,
+  });
+}
 
 /**
  * Drop-in replacement for fetch() that auto-prefixes API routes.
  *
- * On web: '/api/chat/' → '/api/chat/' (no change, relative path)
- * On iOS: '/api/chat/' → 'https://www.lovelanguages.io/api/chat/'
+ * On web: '/api/chat/' -> '/api/chat/' (no change, relative path)
+ * On iOS: '/api/chat/' -> 'https://www.lovelanguages.io/api/chat/'
  *
  * Non-API URLs (external, blob, data) pass through unchanged.
  */

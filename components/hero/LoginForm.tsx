@@ -4,7 +4,7 @@ import { Capacitor } from '@capacitor/core';
 import { BRAND, HeroRole, SelectionStep } from './heroConstants';
 import { supabase } from '../../services/supabase';
 import { ICONS } from '../../constants';
-import { apiFetch, APP_URL } from '../../services/api-config';
+import { apiFetch, getOAuthRedirectUrl, getPasswordResetRedirectUrl } from '../../services/api-config';
 
 interface LoginFormProps {
   context: { header: string; cta: string; subtext: string };
@@ -57,7 +57,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
     setMessage('');
 
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${APP_URL}/reset-password`,
+      redirectTo: getPasswordResetRedirectUrl(),
     });
 
     setResetLoading(false);
@@ -140,7 +140,7 @@ const LoginForm: React.FC<LoginFormProps> = ({
     const { error } = await supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: `${APP_URL}/`
+        redirectTo: getOAuthRedirectUrl()
       }
     });
 

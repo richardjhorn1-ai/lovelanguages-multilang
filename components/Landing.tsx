@@ -12,7 +12,7 @@ import InteractiveHearts from './hero/InteractiveHearts';
 import WordParticleEffect from './hero/WordParticleEffect';
 import { SUPPORTED_LANGUAGE_CODES, LANGUAGE_CONFIGS } from '../constants/language-config';
 import { ICONS } from '../constants';
-import { APP_URL } from '../services/api-config';
+import { getOAuthRedirectUrl, getPasswordResetRedirectUrl } from '../services/api-config';
 import { FeatureCard, STUDENT_FEATURES, TUTOR_FEATURES } from './landing/FeatureTile';
 import FeatureShowcase from './landing/FeatureShowcase';
 import MobileGameShowcase from './landing/MobileGameShowcase';
@@ -793,7 +793,7 @@ const Landing: React.FC = () => {
 
     const { error } = await supabase.auth.signInWithOAuth({
       provider,
-      options: { redirectTo: `${APP_URL}/` },
+      options: { redirectTo: getOAuthRedirectUrl() },
     });
     if (error) {
       setMessage(error.message);
@@ -839,7 +839,7 @@ const Landing: React.FC = () => {
     setResetLoading(true);
     setMessage('');
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: `${APP_URL}/reset-password`,
+      redirectTo: getPasswordResetRedirectUrl(),
     });
     setResetLoading(false);
     if (error) setMessage(error.message);
