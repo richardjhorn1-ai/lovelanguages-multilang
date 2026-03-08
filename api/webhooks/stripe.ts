@@ -85,6 +85,36 @@ async function findUserIdByStripeCustomerId(
   return legacyProfile?.id || null;
 }
 
+async function maybeCompletePaidOnboarding(
+  supabase: any,
+  userId: string
+): Promise<void> {
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('onboarding_status, onboarding_completed_at')
+    .eq('id', userId)
+    .maybeSingle();
+
+  if (!profile || profile.onboarding_status === 'completed') {
+    return;
+  }
+
+  const now = new Date().toISOString();
+  await supabase
+    .from('profiles')
+    .update({
+      onboarding_status: 'completed',
+      onboarding_completion_reason: 'paid',
+      onboarding_step_key: 'start',
+      onboarding_last_step_at: now,
+      onboarding_completed_at: profile.onboarding_completed_at || now,
+      onboarding_error_code: null,
+      onboarding_error_context: null,
+      onboarding_progress: null,
+    })
+    .eq('id', userId);
+}
+
 // Atomic event claim - returns true if we claimed the event, false if duplicate
 async function claimEvent(
   supabase: any,
@@ -217,6 +247,7 @@ export default async function handler(req: any, res: any) {
         }
 
         await upsertPrivateStripeCustomerId(supabase, userId, customerId);
+        await maybeCompletePaidOnboarding(supabase, userId);
 
         // Non-blocking: Create gift pass for unlimited yearly subscribers
         if (plan === 'unlimited' && period === 'yearly') {
@@ -333,6 +364,7 @@ export default async function handler(req: any, res: any) {
         }
 
         await upsertPrivateStripeCustomerId(supabase, userId, customerId);
+        await maybeCompletePaidOnboarding(supabase, userId);
 
         // CASCADE: Update partner's inherited subscription to match
         const { data: updatedPartners } = await supabase

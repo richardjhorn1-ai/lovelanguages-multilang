@@ -58,7 +58,20 @@ const PROFILE_SELECT_FIELDS = [
   'level',
   'partner_name',
   'role_confirmed_at',
+  'onboarding_status',
+  'onboarding_completion_reason',
+  'onboarding_flow_key',
+  'onboarding_step_key',
+  'onboarding_started_at',
+  'onboarding_last_step_at',
+  'onboarding_plan_intent',
+  'onboarding_checkout_session_id',
+  'onboarding_checkout_started_at',
+  'onboarding_error_code',
+  'onboarding_error_context',
+  'onboarding_version',
   'onboarding_completed_at',
+  'onboarding_progress',
   'onboarding_data',
   'accent_color',
   'dark_mode',
@@ -241,7 +254,10 @@ const App: React.FC = () => {
   // Check for subscription success in URL
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    if (params.get('subscription') === 'success') {
+    const subscriptionState = params.get('subscription');
+    const isOnboardingReturn = params.get('onboarding') === 'return';
+
+    if (subscriptionState === 'success') {
       setSuccessToast("You're all set!");
       // Flag for trial_converted check (runs in separate useEffect after profile loads)
       sessionStorage.setItem('subscription_just_completed', 'true');
@@ -256,7 +272,17 @@ const App: React.FC = () => {
         currency: 'EUR',
       });
 
+      if (isOnboardingReturn) {
+        analytics.track('onboarding_checkout_returned_success', {});
+      }
+
       // Clean up URL (trial_converted tracked separately once profile loads)
+      const url = new URL(window.location.href);
+      url.searchParams.delete('subscription');
+      url.searchParams.delete('onboarding');
+      window.history.replaceState({}, '', url.pathname);
+    } else if (subscriptionState === 'canceled' && isOnboardingReturn) {
+      analytics.track('onboarding_checkout_returned_cancel', {});
       const url = new URL(window.location.href);
       url.searchParams.delete('subscription');
       url.searchParams.delete('onboarding');
@@ -660,20 +686,26 @@ const App: React.FC = () => {
             {/* All other routes */}
             <Route path="*" element={
               session && profile ? (
-                // Step 1: Check if onboarding is completed (role + language selection now part of onboarding)
-                !profile.onboarding_completed_at ? (
-                  <Onboarding
-                    role={profile.role}
-                    userId={profile.id}
-                    onComplete={() => fetchProfile(profile.id)}
-                    onQuit={() => supabase.auth.signOut()}
-                    hasInheritedSubscription={!!profile.subscription_granted_by || profile.subscription_status === 'active'}
-                    isInvitedUser={!!profile.linked_user_id && !profile.onboarding_completed_at}
-                    inviterName={localStorage.getItem('inviter_name') || undefined}
-                  />
-                ) : // Step 3: Check subscription/access status
-                // Allow if: subscription active, inherited access, active promo, active trial, or beta tester
                 (() => {
+                  const onboardingComplete =
+                    profile.onboarding_status === 'completed' ||
+                    (!profile.onboarding_status && profile.onboarding_completed_at);
+
+                  if (!onboardingComplete) {
+                    return (
+                      <Onboarding
+                        profile={profile}
+                        onComplete={() => fetchProfile(profile.id)}
+                        onQuit={() => supabase.auth.signOut()}
+                        hasInheritedSubscription={!!profile.subscription_granted_by || profile.subscription_status === 'active'}
+                        isInvitedUser={!!profile.linked_user_id && !onboardingComplete}
+                        inviterName={localStorage.getItem('inviter_name') || undefined}
+                      />
+                    );
+                  }
+
+                  // Step 3: Check subscription/access status
+                  // Allow if: subscription active, inherited access, active promo, active trial, or beta tester
                   const hasActiveSubscription = profile.subscription_status === 'active';
                   const hasInheritedAccess = !!profile.subscription_granted_by;
                   const hasActivePromo = profile.promo_expires_at && new Date(profile.promo_expires_at) > new Date();

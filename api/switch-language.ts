@@ -62,7 +62,7 @@ export default async function handler(req: any, res: any) {
     // Get current user's profile to check if language is unlocked
     const { data: profile, error: profileError } = await supabase
       .from('profiles')
-      .select('id, languages, active_language')
+      .select('id, languages, active_language, onboarding_data')
       .eq('id', auth.userId)
       .single();
 
@@ -88,10 +88,18 @@ export default async function handler(req: any, res: any) {
       });
     }
 
+    const mergedOnboardingData = {
+      ...(profile.onboarding_data || {}),
+      targetLanguage: languageCode,
+    };
+
     // Update active language
     const { error: updateError } = await supabase
       .from('profiles')
-      .update({ active_language: languageCode })
+      .update({
+        active_language: languageCode,
+        onboarding_data: mergedOnboardingData,
+      })
       .eq('id', auth.userId);
 
     if (updateError) {

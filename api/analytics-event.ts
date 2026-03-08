@@ -24,6 +24,11 @@ const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173,ht
 const ALLOWED_EVENTS = new Set([
   // Onboarding
   'page_view', 'signup_started', 'signup_completed', 'onboarding_step', 'onboarding_completed',
+  'onboarding_step_viewed', 'onboarding_step_saved', 'onboarding_back_clicked',
+  'onboarding_plan_viewed', 'onboarding_plan_selected_free', 'onboarding_plan_selected_paid',
+  'onboarding_free_activation_succeeded', 'onboarding_free_activation_failed',
+  'onboarding_checkout_started', 'onboarding_checkout_returned_success',
+  'onboarding_checkout_returned_cancel', 'onboarding_subscription_confirmed',
   'role_selected', 'language_selected', 'plan_selected',
   // Chat
   'chat_message', 'chat_response', 'chat_message_sent', 'chat_response_received',

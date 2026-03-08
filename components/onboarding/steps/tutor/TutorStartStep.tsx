@@ -13,6 +13,8 @@ interface TutorStartStepProps {
   accentColor?: string;
   loading?: boolean;
   error?: string | null;
+  buttonLabel?: string;
+  loadingLabel?: string;
 }
 
 export const TutorStartStep: React.FC<TutorStartStepProps> = ({
@@ -24,7 +26,9 @@ export const TutorStartStep: React.FC<TutorStartStepProps> = ({
   onBack,
   accentColor = '#FF4761',
   loading = false,
-  error = null
+  error = null,
+  buttonLabel,
+  loadingLabel
 }) => {
   const { t } = useTranslation();
 
@@ -99,10 +103,10 @@ export const TutorStartStep: React.FC<TutorStartStepProps> = ({
           {loading ? (
             <span className="flex items-center justify-center gap-2">
               <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
-              {t('onboarding.tutor.start.activating', { defaultValue: 'Starting your trial...' })}
+              {loadingLabel || t('onboarding.tutor.start.activating', { defaultValue: 'Starting your trial...' })}
             </span>
           ) : (
-            t('onboarding.tutor.start.button', { learnerName })
+            buttonLabel || t('onboarding.tutor.start.button', { learnerName })
           )}
         </NextButton>
       </div>

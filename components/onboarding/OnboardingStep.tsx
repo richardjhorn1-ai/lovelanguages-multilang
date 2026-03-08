@@ -60,7 +60,6 @@ export const OnboardingStep: React.FC<OnboardingStepProps> = ({
   const { t } = useTranslation();
   // Get onQuit from context - no prop drilling needed
   const { onQuit } = useContext(OnboardingContext);
-  const progress = (currentStep / totalSteps) * 100;
 
   // On step 1, back button goes back (to language confirmation) or quits; on other steps, it goes back
   const handleBack = () => {
@@ -73,18 +72,6 @@ export const OnboardingStep: React.FC<OnboardingStepProps> = ({
 
   return (
     <div className="h-full flex flex-col relative z-10" style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}>
-      {/* Progress bar */}
-      <div className="w-full h-1.5 bg-white/30">
-        <div
-          className="h-full transition-all duration-500 ease-out rounded-r-full"
-          style={{
-            width: `${progress}%`,
-            backgroundColor: accentColor,
-            boxShadow: `0 0 8px ${accentColor}40`,
-          }}
-        />
-      </div>
-
       {/* Header with back button, step counter, and quit button */}
       <div className="flex items-center justify-between px-6 py-4">
         {/* Back button - always shown */}

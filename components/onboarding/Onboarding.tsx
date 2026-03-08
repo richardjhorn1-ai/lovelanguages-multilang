@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback, createContext, useMemo } from 'react';
 import { Capacitor } from '@capacitor/core';
 import { supabase } from '../../services/supabase';
-import type { OnboardingData } from '../../types';
+import type { OnboardingData, OnboardingFlowKey, OnboardingStatus, OnboardingStepKey, Profile } from '../../types';
 import { useLanguage } from '../../context/LanguageContext';
 import { LANGUAGE_CONFIGS } from '../../constants/language-config';
 import { analytics } from '../../services/analytics';
@@ -10,6 +10,12 @@ import { apiFetch, APP_URL } from '../../services/api-config';
 import { BRAND } from '../hero/heroConstants';
 import { useTheme } from '../../context/ThemeContext';
 import { ACCENT_COLORS, DARK_MODE_STYLES } from '../../services/theme';
+import {
+  getFlowSteps,
+  getInitialStepKey,
+  getStepNumber,
+  resolveOnboardingFlowKey,
+} from '../../utils/onboarding-state';
 
 // Context for sharing onQuit across all step components
 export const OnboardingContext = createContext<{
@@ -587,8 +593,7 @@ const FloatingHeartsBackground: React.FC<{
 // Main Onboarding Component
 // ============================================
 interface OnboardingProps {
-  role: 'student' | 'tutor' | null;  // null for new users — role selected in step 1
-  userId: string;
+  profile: Profile;
   onComplete: () => void;
   onQuit?: () => void;
   hasInheritedSubscription?: boolean;  // Skip plan selection if user already has access via partner
@@ -596,48 +601,63 @@ interface OnboardingProps {
   inviterName?: string;                // Name of the person who invited them
 }
 
-const STUDENT_TOTAL_STEPS = 12;  // Role→NativeLang→TargetLang→Names→Hello→Love→Celebrate→Invite→Theme→Personalize→Plan→Start
-const TUTOR_TOTAL_STEPS = 10;   // Role→NativeLang→TargetLang→Names→Style→Preview→Invite→Personalize→Plan→Start
-
-// Shortened flows for invited users (external motivation — get them in fast)
-const INVITED_STUDENT_TOTAL_STEPS = 6;  // Names→Hello→Love→Celebrate→Plan→Start
-const INVITED_TUTOR_TOTAL_STEPS = 5;    // Names→Style→Preview→Plan→Start
-
 const STORAGE_KEY = 'onboarding_progress';
 
+interface OnboardingStatusResponse {
+  success: boolean;
+  snapshot: {
+    profile: Profile;
+    hasAppAccess: boolean;
+    inviteSummary: {
+      inviteLink: string;
+      expiresAt: string;
+      isExisting: boolean;
+    } | null;
+  };
+}
+
 export const Onboarding: React.FC<OnboardingProps> = ({
-  role,
-  userId,
+  profile,
   onComplete,
   onQuit,
   hasInheritedSubscription = false,
   isInvitedUser = false,
   inviterName
 }) => {
-  const [currentStep, setCurrentStep] = useState(1);
-  const [data, setData] = useState<Partial<OnboardingData>>({});
+  const userId = profile.id;
+  const initialRole = profile.onboarding_data?.role || profile.role;
+  const initialFlowKey = profile.onboarding_flow_key || resolveOnboardingFlowKey(initialRole, isInvitedUser);
+  const initialStepKey = profile.onboarding_step_key || getInitialStepKey(initialFlowKey);
+
+  const [data, setData] = useState<Partial<OnboardingData>>(profile.onboarding_data || {});
   const [saving, setSaving] = useState(false);
   const [saveError, setSaveError] = useState<string | null>(null);
   const [trialActivating, setTrialActivating] = useState(false);
   const [trialError, setTrialError] = useState<string | null>(null);
+  const [hydrated, setHydrated] = useState(false);
+  const [onboardingStatus, setOnboardingStatus] = useState<OnboardingStatus>(
+    profile.onboarding_status || 'not_started'
+  );
   const onboardingStartTime = useRef(Date.now());
 
   // Active role — from prop (returning user) or from RoleStep selection (new user)
-  const [selectedRole, setSelectedRole] = useState<'student' | 'tutor' | null>(role);
+  const [selectedRole, setSelectedRole] = useState<'student' | 'tutor' | null>(initialRole);
   const activeRole = selectedRole || 'student'; // Default to student for step count before selection
+  const [currentFlowKey, setCurrentFlowKey] = useState<OnboardingFlowKey>(initialFlowKey);
+  const [currentStepKey, setCurrentStepKey] = useState<OnboardingStepKey>(initialStepKey);
+  const currentStep = getStepNumber(
+    currentFlowKey,
+    currentStepKey,
+    { skipPlanStep: hasInheritedSubscription }
+  );
 
   // Get setLanguageOverride to update language context during onboarding
   const { targetLanguage: contextTargetLang, nativeLanguage: contextNativeLang, setLanguageOverride } = useLanguage();
 
-  // Calculate total steps — invited users get a shortened flow
-  const totalSteps = (() => {
-    if (isInvitedUser) {
-      const base = activeRole === 'student' ? INVITED_STUDENT_TOTAL_STEPS : INVITED_TUTOR_TOTAL_STEPS;
-      return hasInheritedSubscription ? base - 1 : base;
-    }
-    const base = activeRole === 'student' ? STUDENT_TOTAL_STEPS : TUTOR_TOTAL_STEPS;
-    return hasInheritedSubscription ? base - 1 : base;
-  })();
+  const totalSteps = getFlowSteps(
+    currentFlowKey,
+    { skipPlanStep: hasInheritedSubscription }
+  ).length;
   // Theme-aware accent color for onboarding backgrounds
   const { theme } = useTheme();
   const [hasVisitedThemeStep, setHasVisitedThemeStep] = useState(false);
@@ -679,68 +699,183 @@ export const Onboarding: React.FC<OnboardingProps> = ({
   // Clean mode: hide decorative elements (hearts, orbs, word particles) after user selects it
   const isCleanMode = hasVisitedThemeStep && theme.backgroundStyle === 'clean';
 
-  // Restore progress helper — used by both localStorage and Supabase loaders
-  const restoreProgress = useCallback((parsed: { userId?: string; role?: string; step?: number; data?: any }) => {
-    if (parsed.step) setCurrentStep(parsed.step);
-    if (parsed.data) setData(parsed.data);
-    // Restore role selection from saved progress
-    if (parsed.data?.role) {
-      setSelectedRole(parsed.data.role);
-    } else if (parsed.role) {
-      setSelectedRole(parsed.role as 'student' | 'tutor');
-    }
-    // Restore language override from saved onboarding data
-    if (parsed.data?.targetLanguage || parsed.data?.nativeLanguage) {
+  const buildSignature = useCallback((
+    flowKey: OnboardingFlowKey,
+    stepKey: OnboardingStepKey,
+    nextData: Partial<OnboardingData>
+  ) => JSON.stringify({ flowKey, stepKey, data: nextData }), []);
+  const lastSyncedSignatureRef = useRef(
+    buildSignature(initialFlowKey, initialStepKey, profile.onboarding_data || {})
+  );
+
+  const applySnapshot = useCallback((snapshotProfile: Profile) => {
+    const snapshotData = snapshotProfile.onboarding_data || {};
+    const snapshotRole = snapshotData.role || snapshotProfile.role || 'student';
+    const snapshotFlow =
+      snapshotProfile.onboarding_flow_key ||
+      resolveOnboardingFlowKey(snapshotRole, isInvitedUser);
+    const availableSteps = getFlowSteps(
+      snapshotFlow,
+      { skipPlanStep: hasInheritedSubscription }
+    );
+    const snapshotStep =
+      snapshotProfile.onboarding_step_key && availableSteps.includes(snapshotProfile.onboarding_step_key)
+        ? snapshotProfile.onboarding_step_key
+        : availableSteps[0];
+
+    setData(snapshotData);
+    setSelectedRole(snapshotRole);
+    setCurrentFlowKey(snapshotFlow);
+    setCurrentStepKey(snapshotStep);
+    setOnboardingStatus(snapshotProfile.onboarding_status || 'not_started');
+    lastSyncedSignatureRef.current = buildSignature(snapshotFlow, snapshotStep, snapshotData);
+
+    if (snapshotData.targetLanguage || snapshotData.nativeLanguage) {
       setLanguageOverride({
-        targetLanguage: parsed.data.targetLanguage,
-        nativeLanguage: parsed.data.nativeLanguage,
+        targetLanguage: snapshotData.targetLanguage,
+        nativeLanguage: snapshotData.nativeLanguage,
       });
     }
-  }, [setLanguageOverride]);
+  }, [buildSignature, hasInheritedSubscription, isInvitedUser, setLanguageOverride]);
 
-  // Load saved progress — check Supabase first (cross-device), fall back to localStorage
+  const restoreLocalProgress = useCallback((parsed: {
+    userId?: string;
+    role?: string;
+    flowKey?: OnboardingFlowKey;
+    stepKey?: OnboardingStepKey;
+    step?: number;
+    data?: Partial<OnboardingData>;
+    status?: OnboardingStatus;
+  }) => {
+    const restoredData = parsed.data || {};
+    const restoredRole = (restoredData.role || parsed.role || initialRole || 'student') as 'student' | 'tutor';
+    const restoredFlow = parsed.flowKey || resolveOnboardingFlowKey(restoredRole, isInvitedUser);
+    const flowSteps = getFlowSteps(
+      restoredFlow,
+      { skipPlanStep: hasInheritedSubscription }
+    );
+    const restoredStep = parsed.stepKey && flowSteps.includes(parsed.stepKey)
+      ? parsed.stepKey
+      : flowSteps[Math.min(Math.max((parsed.step || 1) - 1, 0), flowSteps.length - 1)];
+
+    setData(restoredData);
+    setSelectedRole(restoredRole);
+    setCurrentFlowKey(restoredFlow);
+    setCurrentStepKey(restoredStep);
+    setOnboardingStatus(parsed.status || 'in_progress');
+    lastSyncedSignatureRef.current = buildSignature(restoredFlow, restoredStep, restoredData);
+
+    if (restoredData.targetLanguage || restoredData.nativeLanguage) {
+      setLanguageOverride({
+        targetLanguage: restoredData.targetLanguage,
+        nativeLanguage: restoredData.nativeLanguage,
+      });
+    }
+  }, [buildSignature, hasInheritedSubscription, initialRole, isInvitedUser, setLanguageOverride]);
+
+  const getAccessToken = useCallback(async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    return session?.access_token || null;
+  }, []);
+
+  const fetchOnboardingStatus = useCallback(async () => {
+    const token = await getAccessToken();
+    if (!token) {
+      throw new Error('Session expired. Please refresh and try again.');
+    }
+
+    const response = await apiFetch('/api/onboarding/status/', {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    const result = await response.json() as OnboardingStatusResponse;
+    if (!response.ok) {
+      throw new Error((result as any).error || 'Failed to load onboarding status');
+    }
+
+    applySnapshot(result.snapshot.profile);
+    return result.snapshot;
+  }, [applySnapshot, getAccessToken]);
+
+  const persistStep = useCallback(async (
+    answers: Partial<OnboardingData>,
+    direction: 'next' | 'back' | 'stay' = 'stay',
+    flowOverride?: OnboardingFlowKey
+  ) => {
+    const token = await getAccessToken();
+    if (!token) {
+      throw new Error('Session expired. Please refresh and try again.');
+    }
+
+    const response = await apiFetch('/api/onboarding/save-step/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        flowKey: flowOverride || currentFlowKey,
+        stepKey: currentStepKey,
+        answers,
+        direction,
+      }),
+    });
+
+    const result = await response.json() as OnboardingStatusResponse;
+    if (!response.ok) {
+      throw new Error((result as any).error || 'Failed to save onboarding step');
+    }
+
+    applySnapshot(result.snapshot.profile);
+    return result.snapshot;
+  }, [applySnapshot, currentFlowKey, currentStepKey, getAccessToken]);
+
+  // Load server-backed onboarding state first, then fall back to local storage cache.
   useEffect(() => {
     let cancelled = false;
 
     const loadProgress = async () => {
-      // 1. Try Supabase first (enables cross-device resume)
       try {
-        const { data: profile } = await supabase
-          .from('profiles')
-          .select('onboarding_progress')
-          .eq('id', userId)
-          .single();
-
-        if (!cancelled && profile?.onboarding_progress) {
-          const progress = profile.onboarding_progress as { step?: number; data?: any; role?: string };
-          restoreProgress({ userId, ...progress });
+        const snapshot = await fetchOnboardingStatus();
+        if (!cancelled) {
+          applySnapshot(snapshot.profile);
+          setHydrated(true);
+        }
+        return;
+      } catch {
+        if (cancelled) {
           return; // Supabase had progress, use it
         }
-      } catch {
-        // Supabase fetch failed (offline?) — fall back to localStorage
       }
 
-      // 2. Fall back to localStorage
-      if (cancelled) return;
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
         try {
           const parsed = JSON.parse(saved);
           if (parsed.userId === userId) {
-            restoreProgress(parsed);
+            restoreLocalProgress(parsed);
+            setHydrated(true);
+            return;
           }
         } catch {
-          // Ignore parse errors
+          // Ignore parse errors and fall through to profile defaults.
         }
+      }
+
+      if (!cancelled) {
+        applySnapshot(profile);
+        setHydrated(true);
       }
     };
 
     loadProgress();
     return () => { cancelled = true; };
-  }, [userId, restoreProgress]);
+  }, [applySnapshot, fetchOnboardingStatus, profile, restoreLocalProgress, userId]);
 
   // Ensure language data is populated from context (RoleSelection sets these in DB)
-  // Without this, handleComplete writes undefined over the correct values
   useEffect(() => {
     setData(prev => {
       if (prev.targetLanguage && prev.nativeLanguage) return prev; // Already set (e.g., from localStorage)
@@ -752,78 +887,117 @@ export const Onboarding: React.FC<OnboardingProps> = ({
     });
   }, [contextTargetLang, contextNativeLang]);
 
-  // Save progress to localStorage (immediate) + Supabase (debounced)
-  const supabaseSaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  // Save local cache immediately and sync canonical onboarding_data in the background.
+  const serverSaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const progressPayload = {
       userId,
       role: activeRole,
+      flowKey: currentFlowKey,
+      stepKey: currentStepKey,
+      status: onboardingStatus,
       step: currentStep,
       data
     };
 
-    // 1. Save to localStorage immediately (fast, works offline)
     localStorage.setItem(STORAGE_KEY, JSON.stringify(progressPayload));
 
-    // 2. Save to Supabase with debounce (non-blocking, enables cross-device resume)
-    if (supabaseSaveTimer.current) clearTimeout(supabaseSaveTimer.current);
-    supabaseSaveTimer.current = setTimeout(() => {
-      supabase
-        .from('profiles')
-        .update({
-          onboarding_progress: {
-            step: currentStep,
-            role: activeRole,
-            data
-          }
-        })
-        .eq('id', userId)
-        .then(({ error }) => {
-          if (error) console.warn('[Onboarding] Failed to save progress to Supabase:', error.message);
-        });
-    }, 1000); // 1s debounce — saves after user settles on a step
+    if (!hydrated || saving || trialActivating) {
+      return;
+    }
+
+    const signature = buildSignature(currentFlowKey, currentStepKey, data);
+    if (signature === lastSyncedSignatureRef.current) {
+      return;
+    }
+
+    if (serverSaveTimer.current) clearTimeout(serverSaveTimer.current);
+    serverSaveTimer.current = setTimeout(() => {
+      persistStep(data, 'stay').catch((error) => {
+        console.warn('[Onboarding] Background save failed:', error);
+      });
+    }, 800);
 
     return () => {
-      if (supabaseSaveTimer.current) clearTimeout(supabaseSaveTimer.current);
+      if (serverSaveTimer.current) clearTimeout(serverSaveTimer.current);
     };
-  }, [userId, activeRole, currentStep, data]);
+  }, [
+    activeRole,
+    buildSignature,
+    currentFlowKey,
+    currentStep,
+    currentStepKey,
+    data,
+    hydrated,
+    onboardingStatus,
+    persistStep,
+    saving,
+    trialActivating,
+    userId,
+  ]);
 
-  const goNext = () => { haptics.trigger('selection'); setCurrentStep(s => Math.min(s + 1, totalSteps)); };
-  const goBack = () => { haptics.trigger('selection'); setCurrentStep(s => Math.max(s - 1, 1)); };
+  const goBack = async () => {
+    haptics.trigger('selection');
+    analytics.track('onboarding_back_clicked', {
+      flow_key: currentFlowKey,
+      step_key: currentStepKey,
+      role: activeRole,
+      is_invited_user: isInvitedUser,
+      native_language: data.nativeLanguage,
+      target_language: data.targetLanguage,
+      plan_intent: data.selectedPlan === 'free' ? 'free' : data.selectedPlan ? 'paid' : undefined,
+    });
+    await persistStep({}, 'back');
+  };
 
   // Track onboarding step changes for analytics
   const stepStartTime = useRef(Date.now());
   useEffect(() => {
-    // Get step name based on role and step number
-    const getStepName = (step: number): string => {
-      if (isInvitedUser) {
-        if (activeRole === 'student') {
-          const steps = ['names', 'learn_hello', 'learn_love', 'celebration', 'plan', 'start'];
-          return steps[step - 1] || `step_${step}`;
-        } else {
-          const steps = ['names', 'teaching_style', 'preview', 'plan', 'start'];
-          return steps[step - 1] || `step_${step}`;
-        }
-      }
-      if (activeRole === 'student') {
-        const studentSteps = ['role', 'native_language', 'language', 'names', 'learn_hello', 'learn_love', 'celebration', 'invite_partner', 'theme_customization', 'personalization', 'plan', 'start'];
-        return studentSteps[step - 1] || `step_${step}`;
-      } else {
-        const tutorSteps = ['role', 'native_language', 'language', 'names', 'teaching_style', 'preview', 'invite_partner', 'personalization', 'plan', 'start'];
-        return tutorSteps[step - 1] || `step_${step}`;
-      }
-    };
-
-    analytics.track('onboarding_step', {
+    analytics.track('onboarding_step_viewed', {
+      flow_key: currentFlowKey,
+      step_key: currentStepKey,
       step_number: currentStep,
-      step_name: getStepName(currentStep),
       role: activeRole,
       total_steps: totalSteps,
       time_on_previous_step_ms: Date.now() - stepStartTime.current,
+      is_invited_user: isInvitedUser,
+      native_language: data.nativeLanguage,
+      target_language: data.targetLanguage,
+      plan_intent: data.selectedPlan === 'free' ? 'free' : data.selectedPlan ? 'paid' : undefined,
     });
+
+    if (currentStepKey === 'plan') {
+      analytics.track('onboarding_plan_viewed', {
+        flow_key: currentFlowKey,
+        step_key: currentStepKey,
+        role: activeRole,
+        is_invited_user: isInvitedUser,
+        native_language: data.nativeLanguage,
+        target_language: data.targetLanguage,
+      });
+    }
+
     stepStartTime.current = Date.now();
-  }, [currentStep, activeRole, totalSteps]);
+  }, [activeRole, currentFlowKey, currentStep, currentStepKey, data.nativeLanguage, data.selectedPlan, data.targetLanguage, isInvitedUser, totalSteps]);
+
+  useEffect(() => {
+    if (onboardingStatus !== 'pending_checkout') {
+      return;
+    }
+
+    const timer = setInterval(() => {
+      fetchOnboardingStatus()
+        .then((snapshot) => {
+          if (snapshot.profile.onboarding_status === 'completed') {
+            onComplete();
+          }
+        })
+        .catch(() => {});
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, [fetchOnboardingStatus, onComplete, onboardingStatus]);
 
   // Handle quitting onboarding - keep progress so user can resume on next login
   const handleQuit = () => {
@@ -831,273 +1005,230 @@ export const Onboarding: React.FC<OnboardingProps> = ({
     onQuit?.();
   };
 
-  const updateData = (key: keyof OnboardingData, value: any) => {
-    setData(prev => {
-      const newData = { ...prev, [key]: value };
+  const continueWithStep = async (
+    patch: Partial<OnboardingData>,
+    flowOverride?: OnboardingFlowKey
+  ) => {
+    haptics.trigger('selection');
+    setSaveError(null);
+    setTrialError(null);
 
-      // Update language context override when languages change
-      // This ensures subsequent onboarding steps see the updated language
-      if (key === 'targetLanguage' || key === 'nativeLanguage') {
-        setLanguageOverride({
-          targetLanguage: key === 'targetLanguage' ? value : prev.targetLanguage,
-          nativeLanguage: key === 'nativeLanguage' ? value : prev.nativeLanguage,
-        });
-      }
+    const nextData = { ...data, ...patch };
+    setData(nextData);
 
-      return newData;
+    const snapshot = await persistStep(nextData, 'next', flowOverride);
+    analytics.track('onboarding_step_saved', {
+      flow_key: flowOverride || currentFlowKey,
+      step_key: currentStepKey,
+      next_step_key: snapshot.profile.onboarding_step_key,
+      step_number: currentStep,
+      role: activeRole,
+      is_invited_user: isInvitedUser,
+      native_language: nextData.nativeLanguage,
+      target_language: nextData.targetLanguage,
+      plan_intent: nextData.selectedPlan === 'free' ? 'free' : nextData.selectedPlan ? 'paid' : undefined,
     });
+    return snapshot;
+  };
+
+  const goNext = async () => continueWithStep({});
+
+  const awardOnboardingWords = async (resolvedData: Partial<OnboardingData>) => {
+    if (activeRole !== 'student') {
+      return;
+    }
+
+    const targetLanguage = resolvedData.targetLanguage || 'pl';
+    const nativeLanguage = resolvedData.nativeLanguage || 'en';
+    const targetConfig = (await import('../../constants/language-config')).LANGUAGE_CONFIGS[targetLanguage];
+    const nativeConfig = (await import('../../constants/language-config')).LANGUAGE_CONFIGS[nativeLanguage];
+
+    const onboardingWords = [
+      {
+        user_id: userId,
+        word: (targetConfig?.examples.hello || 'hello').toLowerCase(),
+        translation: nativeConfig?.examples.hello || 'hello',
+        word_type: 'phrase',
+        language_code: targetLanguage,
+        source: 'onboarding',
+        pro_tip: 'Your first word! Use it to greet your partner.',
+        example_sentence: `${targetConfig?.examples.hello || 'Hello'}! (${nativeConfig?.examples.hello || 'Hello'}!)`
+      },
+      {
+        user_id: userId,
+        word: (targetConfig?.examples.iLoveYou || 'i love you').toLowerCase(),
+        translation: nativeConfig?.examples.iLoveYou || 'I love you',
+        word_type: 'phrase',
+        language_code: targetLanguage,
+        source: 'onboarding',
+        pro_tip: 'The most important phrase! Say it often.',
+        example_sentence: `${targetConfig?.examples.iLoveYou || 'I love you'}, ${resolvedData.partnerName || 'my love'}! (${nativeConfig?.examples.iLoveYou || 'I love you'}!)`
+      }
+    ];
+
+    Promise.resolve(supabase.from('dictionary').upsert(onboardingWords, {
+      onConflict: 'user_id,word,language_code',
+      ignoreDuplicates: true
+    })).then(() => {
+      window.dispatchEvent(new CustomEvent('dictionary-updated', { detail: { count: 2 } }));
+    }).catch(err => console.error('Failed to save onboarding words:', err));
+
+    supabase.auth.getSession().then(({ data: sessionData }) => {
+      if (sessionData.session?.access_token) {
+        apiFetch('/api/increment-xp/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${sessionData.session.access_token}` },
+          body: JSON.stringify({ amount: onboardingWords.length })
+        }).catch(() => {});
+      }
+    });
+  };
+
+  const finishClientOnboarding = async (resolvedData: Partial<OnboardingData>) => {
+    setLanguageOverride(null);
+    localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem('inviter_name');
+
+    await awardOnboardingWords(resolvedData);
+
+    analytics.track('onboarding_completed', {
+      flow_key: currentFlowKey,
+      role: activeRole,
+      total_steps: totalSteps,
+      steps_completed: currentStep,
+      total_time_ms: Date.now() - onboardingStartTime.current,
+      target_language: resolvedData.targetLanguage,
+      native_language: resolvedData.nativeLanguage,
+      selected_plan: resolvedData.selectedPlan || 'none',
+      has_inherited_subscription: hasInheritedSubscription,
+      is_invited_user: isInvitedUser,
+    });
+
+    onComplete();
   };
 
   const handleComplete = async () => {
     setSaving(true);
     setSaveError(null);
+    setTrialError(null);
+
+    let resolvedData: Partial<OnboardingData> = { ...data };
 
     // Invited users skip personalization — set sensible defaults
     if (isInvitedUser) {
       if (activeRole === 'student') {
-        if (!data.relationshipVibe) updateData('relationshipVibe', 'balanced');
-        if (!data.dailyTime) updateData('dailyTime', 'coffee');
-        if (!data.priorExperience) updateData('priorExperience', 'no');
+        if (!resolvedData.relationshipVibe) resolvedData.relationshipVibe = 'balanced';
+        if (!resolvedData.dailyTime) resolvedData.dailyTime = 'coffee';
+        if (!resolvedData.priorExperience) resolvedData.priorExperience = 'no';
       } else {
-        if (!data.relationshipType) updateData('relationshipType', 'partner');
-        if (!data.languageConnection) updateData('languageConnection', 'native');
-        if (!data.teachingStyle) updateData('teachingStyle', 'balanced');
+        if (!resolvedData.relationshipType) resolvedData.relationshipType = 'partner';
+        if (!resolvedData.languageConnection) resolvedData.languageConnection = 'native';
+        if (!resolvedData.teachingStyle) resolvedData.teachingStyle = 'balanced';
       }
     }
 
     try {
-      const partnerNameValue = activeRole === 'tutor' ? data.learnerName : data.partnerName;
-
-      const { error } = await supabase
-        .from('profiles')
-        .update({
-          full_name: data.userName || 'Friend',
-          partner_name: partnerNameValue || null,
-          onboarding_data: data,
-          onboarding_completed_at: new Date().toISOString(),
-          onboarding_progress: null, // Clear progress — onboarding is done
-          role: activeRole,
-          role_confirmed_at: new Date().toISOString(),
-          smart_validation: data.smartValidation ?? true,
-          native_language: data.nativeLanguage,
-          active_language: data.targetLanguage
-        })
-        .eq('id', userId);
-
-      if (error) throw error;
-
-      // Clear language override - profile now has the correct languages
-      setLanguageOverride(null);
-
-      if (activeRole === 'student') {
-        // Save onboarding words to dictionary and award XP
-        if (!data.targetLanguage) console.warn('[Onboarding] targetLanguage missing from onboarding data, falling back to pl');
-        const targetLanguage = data.targetLanguage || 'pl';
-        const targetConfig = (await import('../../constants/language-config')).LANGUAGE_CONFIGS[targetLanguage];
-        if (!data.nativeLanguage) console.warn('[Onboarding] nativeLanguage missing from onboarding data, falling back to en');
-        const nativeLanguage = data.nativeLanguage || 'en';
-        const nativeConfig = (await import('../../constants/language-config')).LANGUAGE_CONFIGS[nativeLanguage];
-
-        // Words learned in onboarding
-        const onboardingWords = [
-          {
-            user_id: userId,
-            word: (targetConfig?.examples.hello || 'hello').toLowerCase(),
-            translation: nativeConfig?.examples.hello || 'hello',
-            word_type: 'phrase',
-            language_code: targetLanguage,
-            source: 'onboarding',
-            pro_tip: 'Your first word! Use it to greet your partner.',
-            example_sentence: `${targetConfig?.examples.hello || 'Hello'}! (${nativeConfig?.examples.hello || 'Hello'}!)`
-          },
-          {
-            user_id: userId,
-            word: (targetConfig?.examples.iLoveYou || 'i love you').toLowerCase(),
-            translation: nativeConfig?.examples.iLoveYou || 'I love you',
-            word_type: 'phrase',
-            language_code: targetLanguage,
-            source: 'onboarding',
-            pro_tip: 'The most important phrase! Say it often.',
-            example_sentence: `${targetConfig?.examples.iLoveYou || 'I love you'}, ${data.partnerName || 'my love'}! (${nativeConfig?.examples.iLoveYou || 'I love you'}!)`
-          }
-        ];
-
-        // Save words to dictionary (don't await)
-        Promise.resolve(supabase.from('dictionary').upsert(onboardingWords, {
-          onConflict: 'user_id,word,language_code',
-          ignoreDuplicates: true
-        })).then(() => {
-          window.dispatchEvent(new CustomEvent('dictionary-updated', { detail: { count: 2 } }));
-        }).catch(err => console.error('Failed to save onboarding words:', err));
-
-        // Award 1 XP per word (2 words = 2 XP)
-        supabase.auth.getSession().then(({ data: sessionData }) => {
-          if (sessionData.session?.access_token) {
-            apiFetch('/api/increment-xp/', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${sessionData.session.access_token}` },
-              body: JSON.stringify({ amount: onboardingWords.length })
-            }).catch(() => {}); // Ignore errors
-          }
-        });
+      if (JSON.stringify(resolvedData) !== JSON.stringify(data)) {
+        setData(resolvedData);
+        await persistStep(resolvedData, 'stay');
       }
 
-      localStorage.removeItem(STORAGE_KEY);
-      localStorage.removeItem('inviter_name'); // Clean up invite flow data
-
-      // Track onboarding completion
-      analytics.track('onboarding_completed', {
-        role: activeRole,
-        total_steps: totalSteps,
-        steps_completed: currentStep,
-        total_time_ms: Date.now() - onboardingStartTime.current,
-        target_language: data.targetLanguage,
-        native_language: data.nativeLanguage,
-        selected_plan: data.selectedPlan || 'none',
-        has_inherited_subscription: hasInheritedSubscription,
-        is_invited_user: isInvitedUser,
-      });
-
-      // Fire deferred invite if user expressed intent during onboarding
-      // TODO: Future enhancements:
-      // - Re-invite: if token expired, generate new link from dashboard
-      // - Partner activity feed: show inviter's activity after partner joins
-      // - Deferred personalization: prompt skipped questions after first session
-      // - Defer personalization for ALL users (37% completion rate → shorter = better conversion)
-      if (data.invitePartnerIntent) {
-        if (data.invitePartnerIntent.method === 'link' && data.invitePartnerIntent.inviteLink) {
-          // Link already generated during invite step — nothing to do
-        } else {
-          supabase.auth.getSession().then(({ data: sessionData }) => {
-            const token = sessionData.session?.access_token;
-            if (!token) return;
-            apiFetch('/api/generate-invite/', {
-              method: 'POST',
-              headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` }
-            }).then(async (res) => {
-              if (res.ok) {
-                const inviteData = await res.json();
-                // TODO: If method was 'email', send email invite via send-invite-email API
-                // TODO: If method was 'link', show copy-link toast post-onboarding
-              }
-            }).catch(err => console.warn('[Onboarding] Deferred invite failed (non-blocking):', err));
-          });
-        }
+      const token = await getAccessToken();
+      if (!token) {
+        throw new Error('Session expired. Please refresh and try again.');
       }
 
-      // Handle plan selection
-      if (data.selectedPlan === 'free') {
-        // User chose free tier - call API with bulletproof retry
+      if (
+        hasInheritedSubscription ||
+        resolvedData.selectedPlan === 'free' ||
+        onboardingStatus === 'pending_checkout'
+      ) {
         setTrialActivating(true);
-        setTrialError(null);
 
-        const session = await supabase.auth.getSession();
-        const token = session.data.session?.access_token;
+        const response = await apiFetch('/api/onboarding/finalize-free/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
-        if (!token) {
-          console.error('[Onboarding] No auth token available');
-          setTrialError('Session expired. Please refresh and try again.');
-          setTrialActivating(false);
-          return; // Block progression
+        const result = await response.json() as OnboardingStatusResponse & { error?: string; code?: string };
+        if (!response.ok) {
+          analytics.track('onboarding_free_activation_failed', {
+            flow_key: currentFlowKey,
+            step_key: currentStepKey,
+            role: activeRole,
+            error_code: result.code || 'FINALIZE_FAILED',
+          });
+          setTrialError(result.error || 'Failed to finalize onboarding. Please try again.');
+          return;
         }
 
-        // Retry logic: 3 attempts with exponential backoff
-        const maxAttempts = 3;
-        const delays = [0, 1000, 2000]; // 0s, 1s, 2s
-
-        for (let attempt = 1; attempt <= maxAttempts; attempt++) {
-          try {
-            if (attempt > 1) {
-              await new Promise(resolve => setTimeout(resolve, delays[attempt - 1]));
-            }
-
-            const response = await apiFetch('/api/choose-free-tier/', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-              }
-            });
-
-            const result = await response.json();
-
-            if (response.ok) {
-              // Success! Store the trial expiry and proceed
-              if (result.trialExpiresAt) {
-                updateData('trialExpiresAt', result.trialExpiresAt);
-              }
-              setTrialActivating(false);
-              onComplete();
-              return;
-            }
-
-            // Handle specific error codes
-            if (result.code === 'ALREADY_FREE_TIER') {
-              // User already has trial - just proceed
-              setTrialActivating(false);
-              onComplete();
-              return;
-            }
-
-            // Other errors - retry if attempts remaining
-            if (attempt === maxAttempts) {
-              console.error('[Onboarding] Free trial activation failed after retries:', result);
-              setTrialError(result.error || 'Failed to start trial. Please try again.');
-              setTrialActivating(false);
-              return; // Block progression
-            }
-          } catch (networkErr) {
-            console.error(`[Onboarding] Network error (attempt ${attempt}):`, networkErr);
-            if (attempt === maxAttempts) {
-              setTrialError('Network error. Please check your connection and try again.');
-              setTrialActivating(false);
-              return; // Block progression
-            }
-          }
-        }
-      } else if (data.selectedPriceId) {
-        // User chose paid plan - redirect to Stripe
-        try {
-          const session = await supabase.auth.getSession();
-          const token = session.data.session?.access_token;
-
-          if (token) {
-            const response = await apiFetch('/api/create-checkout-session/', {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${token}`
-              },
-              body: JSON.stringify({
-                priceId: data.selectedPriceId,
-                successUrl: `${APP_URL}/?onboarding=complete&subscription=success`,
-                cancelUrl: `${APP_URL}/?subscription=canceled`
-              })
-            });
-
-            const checkoutData = await response.json();
-
-            if (checkoutData.url) {
-              window.location.href = checkoutData.url;
-              return;
-            }
-          }
-        } catch (stripeErr) {
-          console.error('Error creating checkout session:', stripeErr);
-        }
-        onComplete();
-      } else {
-        // No plan selected (shouldn't happen) - just complete
-        onComplete();
+        applySnapshot(result.snapshot.profile);
+        analytics.track('onboarding_free_activation_succeeded', {
+          flow_key: currentFlowKey,
+          step_key: currentStepKey,
+          role: activeRole,
+          completion_reason: result.snapshot.profile.onboarding_completion_reason,
+        });
+        await finishClientOnboarding(result.snapshot.profile.onboarding_data || resolvedData);
+        return;
       }
+
+      if (resolvedData.selectedPriceId) {
+        analytics.track('onboarding_plan_selected_paid', {
+          flow_key: currentFlowKey,
+          step_key: 'plan',
+          role: activeRole,
+          plan_intent: 'paid',
+        });
+
+        const response = await apiFetch('/api/onboarding/start-paid-checkout/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            priceId: resolvedData.selectedPriceId,
+            successUrl: `${APP_URL}/?subscription=success&onboarding=return`,
+            cancelUrl: `${APP_URL}/?subscription=canceled&onboarding=return`,
+          })
+        });
+
+        const checkoutData = await response.json() as OnboardingStatusResponse & { error?: string; url?: string | null };
+        if (!response.ok) {
+          setTrialError(checkoutData.error || 'Failed to start checkout. Please try again.');
+          return;
+        }
+
+        if (checkoutData.snapshot?.profile) {
+          applySnapshot(checkoutData.snapshot.profile);
+        }
+
+        analytics.track('onboarding_checkout_started', {
+          flow_key: currentFlowKey,
+          step_key: currentStepKey,
+          role: activeRole,
+          native_language: resolvedData.nativeLanguage,
+          target_language: resolvedData.targetLanguage,
+          plan_intent: 'paid',
+        });
+
+        if (checkoutData.url) {
+          window.location.href = checkoutData.url;
+          return;
+        }
+      }
+
+      setTrialError('We are still waiting for payment confirmation. Please try again in a moment.');
     } catch (err) {
       console.error('Error saving onboarding:', err);
-      // DON'T clear localStorage or call onComplete on error!
-      // Keep the user's progress so they can retry
-      setSaveError('Failed to save your progress. Please try again.');
-      setSaving(false);
+      setSaveError(err instanceof Error ? err.message : 'Failed to save your progress. Please try again.');
       return;
     } finally {
+      setTrialActivating(false);
       setSaving(false);
     }
   };
@@ -1107,6 +1238,18 @@ export const Onboarding: React.FC<OnboardingProps> = ({
   // This allows us to have a single return with hearts + content
   // ============================================
   const getStepContent = (): React.ReactNode => {
+    const isPaidStart = data.selectedPlan === 'standard' || data.selectedPlan === 'unlimited';
+    const startButtonLabel = onboardingStatus === 'pending_checkout'
+      ? 'Finish setup'
+      : isPaidStart && !hasInheritedSubscription
+        ? 'Continue to secure checkout'
+        : undefined;
+    const startLoadingLabel = onboardingStatus === 'pending_checkout'
+      ? 'Checking your purchase...'
+      : isPaidStart && !hasInheritedSubscription
+        ? 'Opening secure checkout...'
+        : 'Starting your access...';
+
     // ============================================
     // Shortened flow for invited users
     // Skips: Role, NativeLang, TargetLang, Personalization, InvitePartner
@@ -1123,11 +1266,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
                 role="student"
                 initialUserName={data.userName}
                 initialPartnerName={data.partnerName || inviterName}
-                onNext={(userName, partnerName) => {
-                  updateData('userName', userName);
-                  updateData('partnerName', partnerName);
-                  goNext();
-                }}
+                onNext={(userName, partnerName) => continueWithStep({ userName, partnerName })}
                 accentColor={accentColor}
               />
             );
@@ -1180,17 +1319,25 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             }
             return (
               <PlanSelectionStep
-                currentStep={5}
-                totalSteps={totalSteps}
-                userName={data.userName || 'Friend'}
-                onNext={(plan, priceId) => {
-                  updateData('selectedPlan', plan);
-                  updateData('selectedPriceId', priceId);
-                  goNext();
-                }}
-                onBack={goBack}
-                accentColor={accentColor}
-              />
+              currentStep={5}
+              totalSteps={totalSteps}
+              userName={data.userName || 'Friend'}
+              onNext={(plan, priceId, billingPeriod) => {
+                analytics.track(plan === 'free' ? 'onboarding_plan_selected_free' : 'onboarding_plan_selected_paid', {
+                  flow_key: currentFlowKey,
+                  step_key: currentStepKey,
+                  role: activeRole,
+                  plan_intent: plan === 'free' ? 'free' : 'paid',
+                });
+                return continueWithStep({
+                  selectedPlan: plan,
+                  selectedPriceId: priceId || undefined,
+                  selectedBillingPeriod: billingPeriod,
+                });
+              }}
+              onBack={goBack}
+              accentColor={accentColor}
+            />
             );
           case 6:
             return (
@@ -1199,13 +1346,15 @@ export const Onboarding: React.FC<OnboardingProps> = ({
                 totalSteps={totalSteps}
                 userName={data.userName || 'Friend'}
                 partnerName={data.partnerName || inviterName || 'them'}
-                onComplete={handleComplete}
-                onBack={goBack}
-                accentColor={accentColor}
-                loading={trialActivating}
-                error={saveError || trialError}
-              />
-            );
+                  onComplete={handleComplete}
+                  onBack={goBack}
+                  accentColor={accentColor}
+                  loading={trialActivating}
+                  error={saveError || trialError}
+                  buttonLabel={startButtonLabel}
+                  loadingLabel={startLoadingLabel}
+                />
+              );
           default:
             return null;
         }
@@ -1221,11 +1370,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               role="tutor"
               initialUserName={data.userName}
               initialPartnerName={data.learnerName || inviterName}
-              onNext={(userName, learnerName) => {
-                updateData('userName', userName);
-                updateData('learnerName', learnerName);
-                goNext();
-              }}
+              onNext={(userName, learnerName) => continueWithStep({ userName, learnerName })}
               accentColor={accentColor}
             />
           );
@@ -1235,7 +1380,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               currentStep={2}
               totalSteps={totalSteps}
               initialValue={data.teachingStyle}
-              onNext={(style) => { updateData('teachingStyle', style); goNext(); }}
+              onNext={(style) => continueWithStep({ teachingStyle: style })}
               onBack={goBack}
               accentColor={accentColor}
             />
@@ -1270,10 +1415,18 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               currentStep={4}
               totalSteps={totalSteps}
               userName={data.userName || 'Friend'}
-              onNext={(plan, priceId) => {
-                updateData('selectedPlan', plan);
-                updateData('selectedPriceId', priceId);
-                goNext();
+              onNext={(plan, priceId, billingPeriod) => {
+                analytics.track(plan === 'free' ? 'onboarding_plan_selected_free' : 'onboarding_plan_selected_paid', {
+                  flow_key: currentFlowKey,
+                  step_key: currentStepKey,
+                  role: activeRole,
+                  plan_intent: plan === 'free' ? 'free' : 'paid',
+                });
+                return continueWithStep({
+                  selectedPlan: plan,
+                  selectedPriceId: priceId || undefined,
+                  selectedBillingPeriod: billingPeriod,
+                });
               }}
               onBack={goBack}
               accentColor={accentColor}
@@ -1286,13 +1439,15 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               totalSteps={totalSteps}
               userName={data.userName || 'Friend'}
               learnerName={data.learnerName || inviterName || 'them'}
-              onComplete={handleComplete}
-              onBack={goBack}
-              accentColor={accentColor}
-              loading={trialActivating}
-              error={saveError || trialError}
-            />
-          );
+                onComplete={handleComplete}
+                onBack={goBack}
+                accentColor={accentColor}
+                loading={trialActivating}
+                error={saveError || trialError}
+                buttonLabel={startButtonLabel}
+                loadingLabel={startLoadingLabel}
+              />
+            );
         default:
           return null;
       }
@@ -1310,7 +1465,8 @@ export const Onboarding: React.FC<OnboardingProps> = ({
           initialValue={selectedRole || ''}
           onNext={(r) => {
             setSelectedRole(r);
-            goNext();
+            const nextFlowKey = resolveOnboardingFlowKey(r, isInvitedUser);
+            return continueWithStep({ role: r }, nextFlowKey);
           }}
           accentColor={accentColor}
         />
@@ -1325,10 +1481,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
           totalSteps={totalSteps}
           role={activeRole}
           initialNative={data.nativeLanguage || localStorage.getItem('preferredNativeLanguage') || undefined}
-          onNext={(native) => {
-            updateData('nativeLanguage', native);
-            goNext();
-          }}
+          onNext={(native) => continueWithStep({ nativeLanguage: native })}
           onBack={goBack}
           accentColor={accentColor}
         />
@@ -1344,11 +1497,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
           role={activeRole}
           initialNative={data.nativeLanguage}
           initialTarget={data.targetLanguage}
-          onNext={(target, native) => {
-            updateData('targetLanguage', target);
-            updateData('nativeLanguage', native);
-            goNext();
-          }}
+          onNext={(target, native) => continueWithStep({ targetLanguage: target, nativeLanguage: native })}
           onBack={goBack}
           accentColor={accentColor}
         />
@@ -1365,13 +1514,11 @@ export const Onboarding: React.FC<OnboardingProps> = ({
           initialUserName={data.userName}
           initialPartnerName={activeRole === 'tutor' ? data.learnerName : data.partnerName}
           onNext={(userName, partnerName) => {
-            updateData('userName', userName);
-            if (activeRole === 'tutor') {
-              updateData('learnerName', partnerName);
-            } else {
-              updateData('partnerName', partnerName);
-            }
-            goNext();
+            return continueWithStep(
+              activeRole === 'tutor'
+                ? { userName, learnerName: partnerName }
+                : { userName, partnerName }
+            );
           }}
           onBack={goBack}
           accentColor={accentColor}
@@ -1421,10 +1568,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               currentStep={8}
               totalSteps={totalSteps}
               partnerName={data.partnerName || 'them'}
-              onNext={(intent) => {
-                updateData('invitePartnerIntent', intent);
-                goNext();
-              }}
+              onNext={(intent) => continueWithStep({ invitePartnerIntent: intent || null })}
               onBack={goBack}
               accentColor={accentColor}
             />
@@ -1434,7 +1578,14 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             <ThemeCustomizationStep
               currentStep={9}
               totalSteps={totalSteps}
-              onNext={goNext}
+              onNext={() => continueWithStep({
+                themeAccentColor: theme.accentColor,
+                themeDarkMode: theme.darkMode,
+                themeFontSize: theme.fontSize,
+                themeFontPreset: theme.fontPreset,
+                themeFontWeight: theme.fontWeight,
+                themeBackgroundStyle: theme.backgroundStyle,
+              })}
               onBack={goBack}
               accentColor={accentColor}
             />
@@ -1448,12 +1599,11 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               initialVibe={data.relationshipVibe}
               initialTime={data.dailyTime}
               initialPrior={data.priorExperience}
-              onNext={(vibe, time, prior) => {
-                updateData('relationshipVibe', vibe);
-                updateData('dailyTime', time);
-                updateData('priorExperience', prior);
-                goNext();
-              }}
+              onNext={(vibe, time, prior) => continueWithStep({
+                relationshipVibe: vibe,
+                dailyTime: time,
+                priorExperience: prior,
+              })}
               onBack={goBack}
               accentColor={accentColor}
             />
@@ -1478,10 +1628,18 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               currentStep={11}
               totalSteps={totalSteps}
               userName={data.userName || 'Friend'}
-              onNext={(plan, priceId) => {
-                updateData('selectedPlan', plan);
-                updateData('selectedPriceId', priceId);
-                goNext();
+              onNext={(plan, priceId, billingPeriod) => {
+                analytics.track(plan === 'free' ? 'onboarding_plan_selected_free' : 'onboarding_plan_selected_paid', {
+                  flow_key: currentFlowKey,
+                  step_key: currentStepKey,
+                  role: activeRole,
+                  plan_intent: plan === 'free' ? 'free' : 'paid',
+                });
+                return continueWithStep({
+                  selectedPlan: plan,
+                  selectedPriceId: priceId || undefined,
+                  selectedBillingPeriod: billingPeriod,
+                });
               }}
               onBack={goBack}
               accentColor={accentColor}
@@ -1499,6 +1657,8 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               accentColor={accentColor}
               loading={trialActivating}
               error={saveError || trialError}
+              buttonLabel={startButtonLabel}
+              loadingLabel={startLoadingLabel}
             />
           );
         default:
@@ -1514,7 +1674,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             currentStep={5}
             totalSteps={totalSteps}
             initialValue={data.teachingStyle}
-            onNext={(style) => { updateData('teachingStyle', style); goNext(); }}
+            onNext={(style) => continueWithStep({ teachingStyle: style })}
             onBack={goBack}
             accentColor={accentColor}
           />
@@ -1536,10 +1696,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             currentStep={7}
             totalSteps={totalSteps}
             partnerName={data.learnerName || 'them'}
-            onNext={(intent) => {
-              updateData('invitePartnerIntent', intent);
-              goNext();
-            }}
+            onNext={(intent) => continueWithStep({ invitePartnerIntent: intent || null })}
             onBack={goBack}
             accentColor={accentColor}
           />
@@ -1553,12 +1710,11 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             initialRelation={data.relationshipType}
             initialConnection={data.languageConnection}
             initialOrigin={data.languageOrigin}
-            onNext={(relation, connection, origin) => {
-              updateData('relationshipType', relation);
-              updateData('languageConnection', connection);
-              updateData('languageOrigin', origin);
-              goNext();
-            }}
+            onNext={(relation, connection, origin) => continueWithStep({
+              relationshipType: relation,
+              languageConnection: connection,
+              languageOrigin: origin,
+            })}
             onBack={goBack}
             accentColor={accentColor}
           />
@@ -1583,10 +1739,18 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             currentStep={9}
             totalSteps={totalSteps}
             userName={data.userName || 'Friend'}
-            onNext={(plan, priceId) => {
-              updateData('selectedPlan', plan);
-              updateData('selectedPriceId', priceId);
-              goNext();
+            onNext={(plan, priceId, billingPeriod) => {
+              analytics.track(plan === 'free' ? 'onboarding_plan_selected_free' : 'onboarding_plan_selected_paid', {
+                flow_key: currentFlowKey,
+                step_key: currentStepKey,
+                role: activeRole,
+                plan_intent: plan === 'free' ? 'free' : 'paid',
+              });
+              return continueWithStep({
+                selectedPlan: plan,
+                selectedPriceId: priceId || undefined,
+                selectedBillingPeriod: billingPeriod,
+              });
             }}
             onBack={goBack}
             accentColor={accentColor}
@@ -1604,6 +1768,8 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             accentColor={accentColor}
             loading={trialActivating}
             error={saveError || trialError}
+            buttonLabel={startButtonLabel}
+            loadingLabel={startLoadingLabel}
           />
         );
       default:

@@ -15,6 +15,7 @@ import {
   migrateAccentColor,
 } from '../services/theme';
 import { supabase } from '../services/supabase';
+import { getOnboardingThemePatch } from '../utils/onboarding-state';
 
 interface ThemeContextType {
   theme: ThemeSettings;
@@ -86,6 +87,26 @@ export function ThemeProvider({ children, userId, profileTheme }: ThemeProviderP
     // Debounce Supabase sync (500ms)
     if (syncTimeoutRef.current) clearTimeout(syncTimeoutRef.current);
     syncTimeoutRef.current = setTimeout(async () => {
+      const themeOnboardingPatch = getOnboardingThemePatch({
+        accent_color: theme.accentColor,
+        dark_mode: theme.darkMode,
+        font_size: theme.fontSize,
+        font_preset: theme.fontPreset,
+        font_weight: theme.fontWeight,
+        background_style: theme.backgroundStyle,
+      });
+
+      const { data: existingProfile } = await supabase
+        .from('profiles')
+        .select('onboarding_data')
+        .eq('id', userId)
+        .single();
+
+      const onboardingData = {
+        ...(existingProfile?.onboarding_data || {}),
+        ...themeOnboardingPatch,
+      };
+
       const { error } = await supabase
         .from('profiles')
         .update({
@@ -95,6 +116,7 @@ export function ThemeProvider({ children, userId, profileTheme }: ThemeProviderP
           font_preset: theme.fontPreset,
           font_weight: theme.fontWeight,
           background_style: theme.backgroundStyle,
+          onboarding_data: onboardingData,
         })
         .eq('id', userId);
 
@@ -109,6 +131,7 @@ export function ThemeProvider({ children, userId, profileTheme }: ThemeProviderP
             font_size: theme.fontSize,
             font_preset: theme.fontPreset,
             font_weight: theme.fontWeight,
+            onboarding_data: onboardingData,
           })
           .eq('id', userId);
       }

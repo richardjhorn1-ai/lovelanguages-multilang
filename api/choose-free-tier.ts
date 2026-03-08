@@ -10,9 +10,10 @@ import {
   setCorsHeaders,
   verifyAuth,
   createServiceClient,
-  sanitizeErrorMessage,
   SAFE_ERROR_MESSAGES,
+  sanitizeErrorMessage,
 } from '../utils/api-middleware.js';
+import { activateFreeTier } from '../utils/free-tier.js';
 
 export default async function handler(req: any, res: any) {
   if (setCorsHeaders(req, res)) {
@@ -35,79 +36,18 @@ export default async function handler(req: any, res: any) {
   }
 
   try {
-    // 2. Check user's current status
-    const { data: profile, error: profileError } = await supabase
-      .from('profiles')
-      .select('subscription_status, subscription_granted_by, promo_expires_at, free_tier_chosen_at')
-      .eq('id', auth.userId)
-      .single();
-
-    if (profileError) {
-      console.error('[choose-free-tier] Failed to fetch profile:', profileError.message);
-      return res.status(500).json({ error: 'Failed to verify user status' });
-    }
-
-    // 3. Don't allow if already has active subscription
-    if (profile.subscription_status === 'active') {
+    const result = await activateFreeTier(supabase, auth.userId);
+    if (!result.success) {
       return res.status(400).json({
-        error: 'You already have an active subscription',
-        code: 'ALREADY_SUBSCRIBED'
+        error: result.error || 'Failed to activate free trial',
+        code: result.code || 'FREE_TIER_ACTIVATION_FAILED',
       });
     }
 
-    // 4. Don't allow if has inherited access
-    if (profile.subscription_granted_by) {
-      return res.status(400).json({
-        error: 'You already have access through your partner',
-        code: 'HAS_PARTNER_ACCESS'
-      });
-    }
-
-    // 5. Don't allow if has active promo
-    const hasActivePromo =
-      profile.promo_expires_at &&
-      new Date(profile.promo_expires_at) > new Date();
-
-    if (hasActivePromo) {
-      return res.status(400).json({
-        error: 'You already have active creator access',
-        code: 'HAS_PROMO_ACCESS'
-      });
-    }
-
-    // 6 & 7. Atomic update - only set if free_tier_chosen_at is NULL (prevents race condition)
-    const now = new Date();
-    const trialExpiresAt = new Date(now);
-    trialExpiresAt.setDate(trialExpiresAt.getDate() + 7);
-
-    const { data: updateResult, error: updateError } = await supabase
-      .from('profiles')
-      .update({
-        free_tier_chosen_at: now.toISOString(),
-        trial_expires_at: trialExpiresAt.toISOString()
-      })
-      .eq('id', auth.userId)
-      .is('free_tier_chosen_at', null)  // Only update if not already set (atomic)
-      .select('id');
-
-    if (updateError) {
-      console.error('[choose-free-tier] Failed to update profile:', updateError.message);
-      return res.status(500).json({ error: 'Failed to activate free trial' });
-    }
-
-    // If no rows updated, user already has free tier
-    if (!updateResult || updateResult.length === 0) {
-      return res.status(400).json({
-        error: 'You have already activated the free tier',
-        code: 'ALREADY_FREE_TIER'
-      });
-    }
-
-    // 8. Success!
     return res.status(200).json({
       success: true,
       message: 'Free trial activated successfully',
-      trialExpiresAt: trialExpiresAt.toISOString()
+      trialExpiresAt: result.trialExpiresAt,
     });
 
   } catch (err: any) {

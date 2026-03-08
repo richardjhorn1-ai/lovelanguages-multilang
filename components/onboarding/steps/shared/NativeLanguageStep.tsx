@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { OnboardingStep, ONBOARDING_OPTION } from '../../OnboardingStep';
+import { NextButton, OnboardingStep, ONBOARDING_OPTION } from '../../OnboardingStep';
 import { LANGUAGE_CONFIGS, SUPPORTED_LANGUAGE_CODES } from '../../../../constants/language-config';
 import { POPULAR_LANGUAGES } from '../../../hero/heroConstants';
 
@@ -48,10 +48,6 @@ export const NativeLanguageStep: React.FC<NativeLanguageStepProps> = ({
     // Switch UI language immediately so the user sees the change
     i18n.changeLanguage(code);
     localStorage.setItem('preferredNativeLanguage', code);
-    // Small delay so user sees the selection highlight
-    setTimeout(() => {
-      onNext(code);
-    }, 200);
   };
 
   return (
@@ -118,6 +114,14 @@ export const NativeLanguageStep: React.FC<NativeLanguageStepProps> = ({
           {t('onboarding.language.showLess', 'Show popular')}
         </button>
       )}
+
+      <div className="mt-8">
+        <NextButton
+          onClick={() => onNext(selected)}
+          disabled={!selected}
+          accentColor={accentColor}
+        />
+      </div>
     </OnboardingStep>
   );
 };

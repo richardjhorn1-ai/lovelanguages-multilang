@@ -32,6 +32,7 @@ import { sounds } from '../services/sounds';
 import { haptics } from '../services/haptics';
 import { apiFetch } from '../services/api-config';
 import { fetchPartnerProfileView } from '../services/partner-profile';
+import { buildProfileSyncFromOnboardingData } from '../utils/onboarding-state';
 
 // Extend Window interface for PWA install prompt
 interface BeforeInstallPromptEvent extends Event {
@@ -158,14 +159,20 @@ const ProfileView: React.FC<ProfileViewProps> = ({ profile, onRefresh }) => {
   const saveChanges = async () => {
     setSaving(true);
     try {
-      const partnerNameValue = profile.role === 'tutor' ? editData.learnerName : editData.partnerName;
+      const mergedOnboardingData = {
+        ...(profile.onboarding_data || {}),
+        ...editData,
+      };
+      const mirroredProfileFields = buildProfileSyncFromOnboardingData(
+        mergedOnboardingData,
+        profile.role
+      );
 
       await supabase
         .from('profiles')
         .update({
-          full_name: editData.userName || profile.full_name,
-          partner_name: partnerNameValue || null,
-          onboarding_data: editData
+          ...mirroredProfileFields,
+          onboarding_data: mergedOnboardingData,
         })
         .eq('id', profile.id);
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { OnboardingStep, NextButton, SkipButton, ONBOARDING_GLASS, ONBOARDING_OPTION, ONBOARDING_INPUT } from '../../OnboardingStep';
+import { OnboardingStep, NextButton, SkipButton, ONBOARDING_GLASS, ONBOARDING_OPTION } from '../../OnboardingStep';
 import { ICONS } from '../../../../constants';
 import { apiFetch, APP_URL } from '../../../../services/api-config';
 import { supabase } from '../../../../services/supabase';
@@ -12,7 +12,7 @@ import { useLanguage } from '../../../../context/LanguageContext';
 // - A/B test invite placement: after celebration vs after personalization
 // - Invite analytics: track generated, shared, opened, completed, time_to_accept
 
-export type InviteIntent = { method: 'link'; inviteLink?: string } | { method: 'email'; email: string };
+export type InviteIntent = { method: 'link'; inviteLink?: string };
 
 interface InvitePartnerStepProps {
   currentStep: number;
@@ -33,8 +33,7 @@ export const InvitePartnerStep: React.FC<InvitePartnerStepProps> = ({
 }) => {
   const { t } = useTranslation();
   const { targetName } = useLanguage();
-  const [selectedMethod, setSelectedMethod] = useState<'link' | 'email' | null>(null);
-  const [email, setEmail] = useState('');
+  const [selectedMethod, setSelectedMethod] = useState<'link' | null>(null);
 
   // Link generation state
   const [inviteLink, setInviteLink] = useState<string | null>(null);
@@ -127,14 +126,10 @@ export const InvitePartnerStep: React.FC<InvitePartnerStepProps> = ({
   const handleContinue = () => {
     if (selectedMethod === 'link') {
       onNext({ method: 'link', inviteLink: inviteLink || undefined });
-    } else if (selectedMethod === 'email') {
-      onNext({ method: 'email', email });
     }
   };
 
-  const isValid =
-    (selectedMethod === 'link' && !linkLoading) ||
-    (selectedMethod === 'email' && email.includes('@') && email.includes('.'));
+  const isValid = selectedMethod === 'link' && !linkLoading;
 
   return (
     <OnboardingStep
@@ -241,35 +236,6 @@ export const InvitePartnerStep: React.FC<InvitePartnerStepProps> = ({
             </div>
           )}
 
-          <button
-            onClick={() => setSelectedMethod('email')}
-            className="w-full p-4 text-left transition-all"
-            style={ONBOARDING_OPTION(selectedMethod === 'email', accentColor)}
-          >
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${accentColor}15` }}>
-                <ICONS.Mail className="w-5 h-5" style={{ color: accentColor }} />
-              </div>
-              <div>
-                <div className="font-bold text-[var(--text-primary)]">{t('onboarding.invite.emailOption')}</div>
-                <div className="text-scale-label text-[var(--text-secondary)]">{t('onboarding.invite.emailDesc')}</div>
-              </div>
-            </div>
-          </button>
-
-          {selectedMethod === 'email' && (
-            <div className="mt-3 animate-reveal">
-              <input
-                type="email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                placeholder={t('onboarding.invite.emailPlaceholder', { name: partnerName })}
-                className="w-full px-4 py-3 rounded-2xl text-[var(--text-primary)] outline-none transition-all"
-                style={ONBOARDING_INPUT(email.length > 0, accentColor)}
-                autoFocus
-              />
-            </div>
-          )}
         </div>
 
         {/* Benefits */}

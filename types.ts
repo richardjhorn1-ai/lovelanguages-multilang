@@ -13,6 +13,44 @@ export interface GameSessionAnswer {
 }
 
 export type UserRole = 'student' | 'tutor';
+export type OnboardingStatus =
+  | 'not_started'
+  | 'in_progress'
+  | 'awaiting_plan'
+  | 'pending_checkout'
+  | 'completed'
+  | 'abandoned'
+  | 'errored';
+
+export type OnboardingCompletionReason =
+  | 'free'
+  | 'paid'
+  | 'inherited'
+  | 'promo'
+  | 'beta'
+  | 'legacy';
+
+export type OnboardingFlowKey =
+  | 'student_full'
+  | 'tutor_full'
+  | 'student_invited'
+  | 'tutor_invited';
+
+export type OnboardingStepKey =
+  | 'role'
+  | 'native_language'
+  | 'target_language'
+  | 'names'
+  | 'learn_hello'
+  | 'learn_love'
+  | 'celebration'
+  | 'invite_partner'
+  | 'theme_customization'
+  | 'personalization'
+  | 'teaching_style'
+  | 'preview'
+  | 'plan'
+  | 'start';
 
 export interface Profile {
   id: string;
@@ -25,6 +63,18 @@ export interface Profile {
   level?: number;
   partner_name?: string;
   role_confirmed_at?: string;       // When user confirmed role in RoleSelection
+  onboarding_status?: OnboardingStatus;
+  onboarding_completion_reason?: OnboardingCompletionReason | null;
+  onboarding_flow_key?: OnboardingFlowKey | null;
+  onboarding_step_key?: OnboardingStepKey | null;
+  onboarding_started_at?: string | null;
+  onboarding_last_step_at?: string | null;
+  onboarding_plan_intent?: 'free' | 'paid' | null;
+  onboarding_checkout_session_id?: string | null;
+  onboarding_checkout_started_at?: string | null;
+  onboarding_error_code?: string | null;
+  onboarding_error_context?: Record<string, unknown> | null;
+  onboarding_version?: number;
   onboarding_completed_at?: string;
   onboarding_data?: OnboardingData;
   // Theme settings
@@ -129,6 +179,7 @@ export interface EffectiveEntitlement {
 
 // Onboarding data collected during signup flow
 export interface OnboardingData {
+  role?: UserRole;
   // Student fields
   userName?: string;
   partnerName?: string;
@@ -162,13 +213,20 @@ export interface OnboardingData {
   smartValidation?: boolean;     // true = AI-powered validation, false = strict matching
   nativeLanguage?: string;       // User's native language code (e.g., 'en', 'es')
   targetLanguage?: string;       // Language user is learning (e.g., 'pl', 'fr')
+  themeAccentColor?: Profile['accent_color'];
+  themeDarkMode?: Profile['dark_mode'];
+  themeFontSize?: Profile['font_size'];
+  themeFontPreset?: Profile['font_preset'];
+  themeFontWeight?: Profile['font_weight'];
+  themeBackgroundStyle?: Profile['background_style'];
 
   // Invite partner intent (captured during onboarding, executed after plan selection)
-  invitePartnerIntent?: { method: 'link'; inviteLink?: string } | { method: 'email'; email: string } | null;
+  invitePartnerIntent?: { method: 'link'; inviteLink?: string } | null;
 
   // Subscription selection (from onboarding)
-  selectedPlan?: string;         // 'standard' or 'unlimited'
+  selectedPlan?: 'free' | 'standard' | 'unlimited';
   selectedPriceId?: string;      // Stripe price ID for checkout
+  selectedBillingPeriod?: 'weekly' | 'monthly' | 'yearly';
 
   // Trial
   trialExpiresAt?: string;       // ISO timestamp from free trial activation

@@ -11,7 +11,11 @@ interface PlanSelectionStepProps {
   currentStep: number;
   totalSteps: number;
   userName: string;
-  onNext: (plan: string, priceId: string | null) => void;
+  onNext: (
+    plan: 'free' | 'standard' | 'unlimited',
+    priceId: string | null,
+    billingPeriod: 'weekly' | 'monthly' | 'yearly'
+  ) => void;
   onBack: () => void;
   accentColor?: string;
 }
@@ -122,7 +126,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
       if (customerInfo) {
         // Purchase succeeded — RevenueCat webhook will update DB
         // Move to next step (onComplete)
-        onNext(plan, null); // No Stripe priceId for IAP
+        onNext(plan, null, billingPeriod); // No Stripe priceId for IAP
       }
       // If null, user cancelled — stay on this step
     } catch (err: any) {
@@ -143,7 +147,11 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
         const entitlement = hasActiveEntitlement(customerInfo);
         if (entitlement.isActive) {
           // User has an active subscription — advance onboarding
-          onNext(entitlement.plan || 'standard', null);
+          onNext(
+            entitlement.plan || 'standard',
+            null,
+            billingPeriod
+          );
           return;
         }
       }
@@ -465,7 +473,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
                 if (customerInfo) {
                   // Trial started via App Store — RevenueCat webhook updates DB
                   // Pass 'standard' so Onboarding.tsx skips server-side trial
-                  onNext('standard', null);
+                  onNext('standard', null, billingPeriod);
                 }
                 // null = user cancelled, stay on step
               } catch (err: any) {
@@ -475,14 +483,14 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
               }
             } else {
               // Web: server-side free trial (no card required)
-              onNext('free', null);
+              onNext('free', null, billingPeriod);
             }
           } else if (useIAP && selectedPlan) {
             // iOS: trigger in-app purchase via RevenueCat
             handleIAPPurchase(selectedPlan as 'standard' | 'unlimited');
           } else {
             // Web: pass Stripe price ID
-            onNext(selectedPlan || 'standard', getPriceId());
+            onNext(selectedPlan || 'standard', getPriceId(), billingPeriod);
           }
         }}
         disabled={!selectedPlan || purchasing || (selectedPlan !== 'free' && !useIAP && !prices)}

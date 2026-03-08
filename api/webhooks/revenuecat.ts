@@ -101,6 +101,36 @@ async function cascadeToPartner(
   }
 }
 
+async function maybeCompletePaidOnboarding(
+  supabase: any,
+  userId: string
+): Promise<void> {
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('onboarding_status, onboarding_completed_at')
+    .eq('id', userId)
+    .maybeSingle();
+
+  if (!profile || profile.onboarding_status === 'completed') {
+    return;
+  }
+
+  const now = new Date().toISOString();
+  await supabase
+    .from('profiles')
+    .update({
+      onboarding_status: 'completed',
+      onboarding_completion_reason: 'paid',
+      onboarding_step_key: 'start',
+      onboarding_last_step_at: now,
+      onboarding_completed_at: profile.onboarding_completed_at || now,
+      onboarding_error_code: null,
+      onboarding_error_context: null,
+      onboarding_progress: null,
+    })
+    .eq('id', userId);
+}
+
 export default async function handler(req: any, res: any) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
@@ -196,6 +226,7 @@ export default async function handler(req: any, res: any) {
           })
           .eq('id', appUserId);
 
+        await maybeCompletePaidOnboarding(supabase, appUserId);
         await cascadeToPartner(supabase, appUserId, plan, 'active', period, expirationDate);
         console.log(`[revenuecat-webhook] User ${appUserId} subscribed to ${plan} (${period}) via App Store`);
         break;
@@ -224,6 +255,7 @@ export default async function handler(req: any, res: any) {
           })
           .eq('id', appUserId);
 
+        await maybeCompletePaidOnboarding(supabase, appUserId);
         await cascadeToPartner(supabase, appUserId, plan, 'active', period, expirationDate);
         console.log(`[revenuecat-webhook] User ${appUserId} renewed ${plan}`);
         break;
@@ -359,6 +391,7 @@ export default async function handler(req: any, res: any) {
           })
           .eq('id', appUserId);
 
+        await maybeCompletePaidOnboarding(supabase, appUserId);
         await cascadeToPartner(supabase, appUserId, plan, 'active', period, expirationDate);
         console.log(`[revenuecat-webhook] User ${appUserId} changed to ${plan} (${period})`);
         break;

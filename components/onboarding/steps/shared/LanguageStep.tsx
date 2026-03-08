@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { OnboardingStep, ONBOARDING_OPTION } from '../../OnboardingStep';
+import { NextButton, OnboardingStep, ONBOARDING_OPTION } from '../../OnboardingStep';
 import { useLanguage } from '../../../../context/LanguageContext';
 import { LANGUAGE_CONFIGS, SUPPORTED_LANGUAGE_CODES } from '../../../../constants/language-config';
 import { POPULAR_LANGUAGES } from '../../../hero/heroConstants';
@@ -46,15 +46,11 @@ export const LanguageStep: React.FC<LanguageStepProps> = ({
   );
   const displayedLanguages = showAll ? allLanguages : popularLanguages;
 
-  // Handle target language selection — immediately advance
+  // Handle target language selection
   const handleSelectTarget = (code: string) => {
     setSelectedTarget(code);
     // Set language override so useLanguage() works for subsequent steps
     setLanguageOverride({ nativeLanguage, targetLanguage: code });
-    // Small delay so user sees the selection highlight
-    setTimeout(() => {
-      onNext(code, nativeLanguage);
-    }, 200);
   };
 
   return (
@@ -127,6 +123,14 @@ export const LanguageStep: React.FC<LanguageStepProps> = ({
           {t('onboarding.language.showLess', 'Show popular')}
         </button>
       )}
+
+      <div className="mt-8">
+        <NextButton
+          onClick={() => onNext(selectedTarget, nativeLanguage)}
+          disabled={!selectedTarget}
+          accentColor={accentColor}
+        />
+      </div>
     </OnboardingStep>
   );
 };
