@@ -1,0 +1,25 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "H2UMXHNSK4.com.lovelanguages.app"
+        ],
+        "components": [
+          {
+            "/": "/join/*",
+            "comment": "Partner invite links"
+          },
+          {
+            "/": "/auth/callback",
+            "comment": "Supabase OAuth and password reset callback"
+          },
+          {
+            "/": "/reset-password",
+            "comment": "Fallback password reset screen"
+          }
+        ]
+      }
+    ]
+  }
+}

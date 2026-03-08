@@ -3,11 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../context/ThemeContext';
 import { ICONS } from '../constants';
+import { useScrollablePage } from '../hooks/useScrollablePage';
 
 const Method: React.FC = () => {
   const navigate = useNavigate();
   const { t } = useTranslation();
   const { accentHex } = useTheme();
+
+  useScrollablePage();
 
   const pillars = [
     { key: 'pillar1', icon: <ICONS.MessageCircle className="w-6 h-6" /> },

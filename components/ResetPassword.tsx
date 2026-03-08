@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { useScrollablePage } from '../hooks/useScrollablePage';
 import { supabase } from '../services/supabase';
 import { ICONS } from '../constants';
 
@@ -14,6 +15,8 @@ const ResetPassword: React.FC = () => {
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
+
+  useScrollablePage();
 
   // Check if we have a valid session (user clicked email link)
   // Supabase needs a moment to process the token from the URL

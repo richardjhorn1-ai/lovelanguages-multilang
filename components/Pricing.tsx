@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../context/ThemeContext';
 import { ICONS } from '../constants';
+import { useScrollablePage } from '../hooks/useScrollablePage';
 import { supabase } from '../services/supabase';
 import { getOfferings, hasActiveEntitlement, isIAPAvailable, purchasePackage, restorePurchases } from '../services/purchases';
 import { formatUsdPrice, getDisplaySubscriptionPrice, type BillingPeriod, type PaidPlanId } from '../services/subscription-pricing';
@@ -17,6 +18,8 @@ const Pricing: React.FC = () => {
   const [loadingPlan, setLoadingPlan] = useState<'standard' | 'unlimited' | null>(null);
   const [restoring, setRestoring] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  useScrollablePage();
 
   useEffect(() => {
     if (!useIAP) return;

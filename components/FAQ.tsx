@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from '../context/ThemeContext';
 import { ICONS } from '../constants';
+import { useScrollablePage } from '../hooks/useScrollablePage';
 import { formatSubscriptionPriceSummary } from '../services/subscription-pricing';
 
 const FAQ: React.FC = () => {
@@ -10,6 +11,8 @@ const FAQ: React.FC = () => {
   const { t } = useTranslation();
   const { accentHex } = useTheme();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  useScrollablePage();
 
   const toggleItem = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);

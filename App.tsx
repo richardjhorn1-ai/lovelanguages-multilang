@@ -49,6 +49,45 @@ const isBetaTester = (email: string): boolean => {
   return BETA_TESTERS.some(e => e.toLowerCase() === email.toLowerCase());
 };
 
+const isPublicRoute = (pathname: string): boolean => {
+  if (pathname === '/') return true;
+
+  const staticPublicRoutes = new Set([
+    '/terms',
+    '/privacy',
+    '/faq',
+    '/method',
+    '/pricing',
+    '/reset-password',
+    '/auth/callback',
+  ]);
+
+  if (staticPublicRoutes.has(pathname)) return true;
+  if (pathname.startsWith('/join/')) return true;
+
+  return SUPPORTED_LANGUAGE_CODES.some((lang) => pathname === `/${lang}`);
+};
+
+const isInvalidSessionError = (error: { code?: string; message?: string; status?: number } | null | undefined): boolean => {
+  if (!error) return false;
+
+  const message = (error.message || '').toLowerCase();
+  const code = (error.code || '').toUpperCase();
+
+  if (error.status === 401) return true;
+  if (code === 'PGRST301') return true;
+
+  return [
+    'jwt',
+    'refresh token',
+    'auth session missing',
+    'invalid claim',
+    'session expired',
+    'token has expired',
+    'user from sub claim in jwt does not exist',
+  ].some((fragment) => message.includes(fragment));
+};
+
 const PROFILE_SELECT_FIELDS = [
   'id',
   'email',
@@ -366,6 +405,33 @@ const App: React.FC = () => {
   // both firing trackSignupCompleted for the same new signup
   const signupTrackingRef = useRef(false);
 
+  const recoverInvalidSession = async (reason: string) => {
+    console.warn('[Auth] Resetting invalid session:', reason);
+
+    try {
+      await supabase.auth.signOut({ scope: 'local' });
+    } catch (signOutError) {
+      console.warn('[Auth] Local sign-out during recovery failed:', signOutError);
+    }
+
+    setSession(null);
+    setProfile(null);
+    setDbError(null);
+    setLoading(false);
+
+    if (isIAPAvailable()) {
+      try {
+        await logOutPurchases();
+      } catch (purchaseError) {
+        console.warn('[RevenueCat] Local logout during auth recovery failed:', purchaseError);
+      }
+    }
+
+    if (!isPublicRoute(window.location.pathname)) {
+      window.location.replace('/');
+    }
+  };
+
   const fetchProfile = async (userId: string) => {
     try {
       setDbError(null);
@@ -519,6 +585,10 @@ const App: React.FC = () => {
                   console.error('Failed to fetch existing profile:', fetchError);
                 }
               }
+              if (isInvalidSessionError(createError as { code?: string; message?: string; status?: number })) {
+                await recoverInvalidSession(createError.message);
+                return;
+              }
               const msg = `Database Error: ${createError.message}. Did you run the SQL schema in Supabase?`;
               console.error(msg, createError);
               setDbError(msg);
@@ -527,6 +597,10 @@ const App: React.FC = () => {
             setProfile(newProfile as Profile);
           }
         } else {
+          if (isInvalidSessionError(error as { code?: string; message?: string; status?: number })) {
+            await recoverInvalidSession(error.message);
+            return;
+          }
           setDbError(`Supabase Error: ${error.message}`);
           console.error("Supabase Error:", error);
         }
@@ -633,6 +707,10 @@ const App: React.FC = () => {
         }
       }
     } catch (err: any) {
+      if (isInvalidSessionError(err)) {
+        await recoverInvalidSession(err?.message || 'Unknown auth error');
+        return;
+      }
       setDbError(`Unexpected error connecting to Supabase: ${err?.message || 'Unknown error'}`);
       console.error("Unexpected Error in fetchProfile:", err);
     } finally {
