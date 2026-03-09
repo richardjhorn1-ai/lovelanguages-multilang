@@ -25,8 +25,10 @@ const LanguagesSection: React.FC<LanguagesSectionProps> = ({ profile, onRefresh 
   const [switching, setSwitching] = useState<string | null>(null);
 
   const nativeLanguage = profile.native_language || 'en';
-  const activeLanguage = profile.active_language || nativeLanguage;
-  const languages = profile.languages?.length ? profile.languages : (profile.active_language ? [profile.active_language] : []);
+  const activeLanguage = profile.active_language || null;
+  const languages = profile.languages?.filter(Boolean)?.length
+    ? profile.languages.filter(Boolean)
+    : (profile.active_language ? [profile.active_language] : []);
 
   const nativeConfig = LANGUAGE_CONFIGS[nativeLanguage];
   const nativeName = t(`languageNames.${nativeLanguage}`, { defaultValue: nativeConfig?.name || 'English' });

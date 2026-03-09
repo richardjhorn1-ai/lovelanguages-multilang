@@ -288,6 +288,13 @@ export default async function handler(req: any, res: any) {
           })();
         }
 
+        capturePostHogEvent(userId, 'purchase_completed', {
+          plan,
+          period,
+          price: typeof session.amount_total === 'number' ? session.amount_total / 100 : undefined,
+          currency: session.currency?.toUpperCase(),
+          transaction_id: session.id,
+        });
         capturePostHogEvent(userId, 'subscription_activated', { plan, period });
         console.log(`[stripe-webhook] User ${userId} subscribed to ${plan} (${period})`);
         break;

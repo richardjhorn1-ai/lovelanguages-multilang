@@ -374,16 +374,25 @@ export class GladiaSession {
     // Get translation if available (from realtime_processing)
     // Use dynamic language keys instead of hardcoded 'en'
     const nativeLang = this.config.nativeLanguage || 'en';
-    const targetLang = this.config.targetLanguage || 'en';
+    const targetLang = this.config.targetLanguage;
 
     const utteranceTranslations = transcriptData.utterance?.translations || {};
     const topLevelTranslations = transcriptData.translations || {};
     const resultTranslations = transcriptData.results?.[0]?.translations || {};
 
-    let translation = '';
-    translation = utteranceTranslations[nativeLang] || topLevelTranslations[nativeLang] || resultTranslations[nativeLang]
-      || utteranceTranslations[targetLang] || topLevelTranslations[targetLang] || resultTranslations[targetLang]
-      || transcriptData.translation || '';
+    let translation = utteranceTranslations[nativeLang]
+      || topLevelTranslations[nativeLang]
+      || resultTranslations[nativeLang]
+      || '';
+
+    if (!translation && targetLang) {
+      translation = utteranceTranslations[targetLang]
+        || topLevelTranslations[targetLang]
+        || resultTranslations[targetLang]
+        || '';
+    }
+
+    translation = translation || transcriptData.translation || '';
 
     // Get speaker info if available
     const speaker = transcriptData.utterance?.speaker !== undefined

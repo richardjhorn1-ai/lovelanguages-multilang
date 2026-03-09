@@ -330,16 +330,6 @@ const App: React.FC = () => {
       // Flag for trial_converted check (runs in separate useEffect after profile loads)
       sessionStorage.setItem('subscription_just_completed', 'true');
 
-      // Track subscription completed
-      // Note: Actual plan/price details would come from the Stripe webhook
-      // This is a fallback client-side tracking
-      analytics.track('subscription_completed', {
-        plan: 'unknown', // Will be enriched by Stripe webhook data
-        billing_period: 'unknown',
-        price: 0,
-        currency: 'EUR',
-      });
-
       if (isOnboardingReturn) {
         analytics.track('onboarding_checkout_returned_success', {});
       }
@@ -450,11 +440,11 @@ const App: React.FC = () => {
           if (userData.user) {
             // Read language selection from user metadata (set during signup)
             // Fall back to localStorage (set during Landing page interaction)
-            // Final fallback to defaults for edge cases
+            // Leave target unset until onboarding if nothing explicit was selected
             const userMeta = userData.user.user_metadata || {};
             const storedTarget = userMeta.target_language
               || localStorage.getItem('preferredTargetLanguage')
-              || 'en';
+              || null;
             const storedNative = userMeta.native_language
               || localStorage.getItem('preferredNativeLanguage')
               || localStorage.getItem('preferredLanguage')  // Legacy key fallback
@@ -486,9 +476,11 @@ const App: React.FC = () => {
                 email: userData.user.email,
                 full_name: displayName,
                 // Set languages from signup metadata or localStorage selection
-                active_language: storedTarget,
                 native_language: storedNative,
-                languages: [storedTarget],
+                ...(storedTarget ? {
+                  active_language: storedTarget,
+                  languages: [storedTarget],
+                } : {}),
                 // Set role from signup selection (tutor or student)
                 role: intendedRole === 'tutor' || intendedRole === 'student' ? intendedRole : null
               })
@@ -503,7 +495,7 @@ const App: React.FC = () => {
               analytics.identify(userData.user.id, {
                 signup_date: new Date().toISOString(),
                 native_language: storedNative,
-                target_language: storedTarget,
+                target_language: storedTarget || undefined,
                 subscription_plan: 'free',
               });
               const referralData = getReferralData();
@@ -532,7 +524,7 @@ const App: React.FC = () => {
                   analytics.identify(userData.user.id, {
                     signup_date: new Date().toISOString(),
                     native_language: storedNative,
-                    target_language: storedTarget,
+                    target_language: storedTarget || undefined,
                     subscription_plan: 'free',
                   });
                   const referralData = getReferralData();
@@ -551,15 +543,23 @@ const App: React.FC = () => {
 
                 // If we have an intended role from signup, update the profile with it
                 const validRole = intendedRole === 'tutor' || intendedRole === 'student' ? intendedRole : null;
+                const signupProfileUpdates: Record<string, unknown> = {
+                  native_language: storedNative,
+                };
+
                 if (validRole) {
+                  signupProfileUpdates.role = validRole;
+                }
+
+                if (storedTarget) {
+                  signupProfileUpdates.active_language = storedTarget;
+                  signupProfileUpdates.languages = [storedTarget];
+                }
+
+                if (Object.keys(signupProfileUpdates).length > 0) {
                   const { data: updatedProfile, error: updateError } = await supabase
                     .from('profiles')
-                    .update({
-                      role: validRole,
-                      active_language: storedTarget,
-                      native_language: storedNative,
-                      languages: [storedTarget]
-                    })
+                    .update(signupProfileUpdates)
                     .eq('id', userData.user.id)
                     .select()
                     .single();

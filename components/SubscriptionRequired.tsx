@@ -28,6 +28,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
   const [iapPackages, setIapPackages] = useState<any[]>([]);
   const [restoring, setRestoring] = useState(false);
   const useIAP = isIAPAvailable();
+  const paymentSource = useIAP ? 'apple' : 'stripe';
 
   // Fetch IAP offerings on iOS
   useEffect(() => {
@@ -68,6 +69,13 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
     const pkg = iapPackages.find((p: any) => p.product?.identifier === productId);
 
     if (!pkg) {
+      analytics.trackPurchaseFailed({
+        plan: selectedPlan,
+        billing_period: billingPeriod,
+        error_code: 'product_not_available',
+        error_message: `Product ${productId} not available`,
+        source: 'apple',
+      });
       setError(`Product ${productId} not available`);
       return;
     }
@@ -78,7 +86,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
     // Track checkout started for iOS
     analytics.trackCheckoutStarted({
       plan: selectedPlan as 'standard' | 'unlimited',
-      billing_period: billingPeriod === 'weekly' ? 'monthly' : billingPeriod as 'monthly' | 'yearly',
+      billing_period: billingPeriod,
       price: pkg.product?.price ?? 0,
       currency: pkg.product?.currencyCode || 'USD',
       source: 'apple',
@@ -87,23 +95,17 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
     try {
       const customerInfo = await purchasePackage(pkg);
       if (customerInfo) {
-        // Purchase succeeded — webhook updates DB, refresh profile
-        analytics.trackSubscriptionCompleted({
-          plan: selectedPlan as 'standard' | 'unlimited',
-          billing_period: billingPeriod === 'weekly' ? 'monthly' : billingPeriod as 'monthly' | 'yearly',
-          price: pkg.product?.price ?? 0,
-          currency: pkg.product?.currencyCode || 'USD',
-          source: 'apple',
-        });
+        // Purchase completion is captured server-side from the RevenueCat webhook.
         onSubscribed();
       } else {
         // User cancelled
         setLoading(false);
       }
     } catch (err: any) {
-      analytics.track('subscription_failed', {
+      analytics.trackPurchaseFailed({
         plan: selectedPlan,
         billing_period: billingPeriod,
+        error_code: err?.code || 'purchase_failed',
         error_message: err?.message || 'Unknown error',
         source: 'apple',
       });
@@ -119,6 +121,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       analytics.trackPlanSelected({
         plan: planId,
         billing_period: billingPeriod === 'weekly' ? 'monthly' : billingPeriod,
+        source: paymentSource,
       });
     }
   };
@@ -131,8 +134,11 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       paywallViewedRef.current = true;
       paywallViewedAt.current = Date.now();
       analytics.trackPaywallView({
+        plan: selectedPlan,
+        trigger: trialExpired ? 'trial_expired' : 'subscription_required',
         trigger_reason: trialExpired ? 'trial_expired' : 'subscription_required',
         page_context: trialExpired ? 'trial_expired' : 'onboarding',
+        source: paymentSource,
       });
       // Fire trial_expired event once per session (not on every remount)
       if (trialExpired && !sessionStorage.getItem('trial_expired_tracked')) {
@@ -389,10 +395,10 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
         window.location.href = checkoutData.url;
       } else {
         const errorMsg = checkoutData.error || t('subscription.errors.failedCheckout');
-        analytics.track('subscription_failed', {
+        analytics.trackPurchaseFailed({
           plan: selectedPlan,
           billing_period: billingPeriod,
-          error_type: 'checkout_creation_failed',
+          error_code: 'checkout_creation_failed',
           error_message: errorMsg,
           source: 'stripe',
         });
@@ -401,10 +407,10 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       }
     } catch (err: any) {
       const errorMsg = err.message || t('subscription.errors.somethingWrong');
-      analytics.track('subscription_failed', {
+      analytics.trackPurchaseFailed({
         plan: selectedPlan,
         billing_period: billingPeriod,
-        error_type: 'checkout_exception',
+        error_code: 'checkout_exception',
         error_message: errorMsg,
         source: 'stripe',
       });

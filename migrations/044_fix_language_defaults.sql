@@ -11,7 +11,15 @@
 -- Run in Supabase SQL Editor
 
 -- ============================================================================
--- STEP 1: Fix the handle_new_user trigger — remove Polish default
+-- STEP 1: Fix profile defaults so onboarding owns the first target language
+-- ============================================================================
+
+ALTER TABLE profiles ALTER COLUMN active_language DROP DEFAULT;
+ALTER TABLE profiles ALTER COLUMN active_language DROP NOT NULL;
+ALTER TABLE profiles ALTER COLUMN languages SET DEFAULT ARRAY[]::TEXT[];
+
+-- ============================================================================
+-- STEP 2: Fix the handle_new_user trigger — remove Polish default
 -- ============================================================================
 
 CREATE OR REPLACE FUNCTION public.handle_new_user()
@@ -66,28 +74,64 @@ $$;
 GRANT EXECUTE ON FUNCTION public.handle_new_user() TO supabase_auth_admin;
 
 -- ============================================================================
--- STEP 2: Fix existing affected profiles
+-- STEP 3: Allow profiles to exist before a target language is chosen
 -- ============================================================================
--- Remove 'pl' from languages array for users who chose a different language
--- but got 'pl' injected by the old default.
+
+CREATE OR REPLACE FUNCTION check_active_in_languages()
+RETURNS TRIGGER AS $$
+BEGIN
+  IF NEW.active_language IS NULL THEN
+    IF NEW.languages IS NULL THEN
+      NEW.languages := ARRAY[]::TEXT[];
+    END IF;
+    RETURN NEW;
+  END IF;
+
+  IF NEW.languages IS NULL OR array_length(NEW.languages, 1) IS NULL THEN
+    NEW.languages := ARRAY[NEW.active_language];
+  ELSIF NOT (NEW.active_language = ANY(NEW.languages)) THEN
+    NEW.languages := array_append(NEW.languages, NEW.active_language);
+  END IF;
+
+  RETURN NEW;
+END;
+$$ LANGUAGE plpgsql;
+
+-- ============================================================================
+-- STEP 4: Fix existing affected profiles
+-- ============================================================================
+-- Remove null entries introduced by old defaults or trigger behavior.
 
 UPDATE profiles
-SET languages = ARRAY[active_language]
+SET languages = ARRAY[]::TEXT[]
+WHERE languages IS NULL;
+
+UPDATE profiles
+SET languages = array_remove(languages, NULL)
+WHERE array_position(languages, NULL) IS NOT NULL;
+
+-- Remove only the bogus default 'pl' from multi-language arrays.
+
+UPDATE profiles
+SET languages = array_remove(languages, 'pl')
 WHERE active_language IS NOT NULL
   AND active_language != 'pl'
-  AND 'pl' = ANY(languages);
+  AND 'pl' = ANY(languages)
+  AND array_length(languages, 1) > 1;
 
--- Also fix profiles where languages array doesn't match active_language at all
--- (e.g. languages is still ['pl'] from default but active_language was updated)
+-- Fix single-language rows that are still stuck on the old default.
+
 UPDATE profiles
 SET languages = ARRAY[active_language]
 WHERE active_language IS NOT NULL
-  AND array_length(languages, 1) = 1
-  AND languages[1] = 'pl'
+  AND (
+    array_length(languages, 1) IS NULL
+    OR (array_length(languages, 1) = 1 AND languages[1] = 'pl')
+  )
   AND active_language != 'pl';
 
 -- ============================================================================
--- STEP 3: Verify
+-- STEP 5: Verify
 -- ============================================================================
 DO $$
 DECLARE
@@ -98,6 +142,7 @@ BEGIN
   WHERE active_language != 'pl' AND 'pl' = ANY(languages);
 
   RAISE NOTICE 'Migration 044 complete:';
+  RAISE NOTICE '  - Profiles can start without an active target language';
   RAISE NOTICE '  - Auth trigger no longer defaults to Polish';
   RAISE NOTICE '  - Remaining profiles with mismatched pl: %', affected_count;
 END $$;

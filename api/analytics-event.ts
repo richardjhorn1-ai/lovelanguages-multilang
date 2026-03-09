@@ -21,7 +21,7 @@ const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173,ht
   .filter(origin => origin !== '*');
 
 // Allowlist of valid event names (prevents arbitrary data injection)
-const ALLOWED_EVENTS = new Set([
+export const ALLOWED_EVENTS = new Set([
   // Onboarding
   'page_view', 'signup_started', 'signup_completed', 'onboarding_step', 'onboarding_completed',
   'onboarding_step_viewed', 'onboarding_step_saved', 'onboarding_back_clicked',
@@ -41,7 +41,8 @@ const ALLOWED_EVENTS = new Set([
   // Level tests
   'level_test_started', 'level_test_completed',
   // Subscription
-  'checkout_started', 'subscription_activated', 'subscription_completed',
+  'checkout_started', 'purchase_completed', 'purchase_failed',
+  'subscription_activated', 'subscription_completed',
   'subscription_renewed', 'subscription_changed', 'subscription_cancelled',
   'subscription_failed', 'payment_failed', 'trial_started',
   // Retention

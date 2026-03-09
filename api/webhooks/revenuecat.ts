@@ -14,6 +14,9 @@
 
 import { createClient } from '@supabase/supabase-js';
 
+const POSTHOG_API_KEY = process.env.VITE_POSTHOG_KEY || process.env.POSTHOG_API_KEY;
+const POSTHOG_HOST = 'https://us.i.posthog.com';
+
 // Disable body parsing — we need the raw body for auth header verification
 export const config = {
   api: {
@@ -42,6 +45,31 @@ function getPlanFromProductId(productId: string): { plan: string; period: string
     'unlimited_yearly': { plan: 'unlimited', period: 'yearly' },
   };
   return productMap[productId] || { plan: 'unknown', period: 'unknown' };
+}
+
+function capturePostHogEvent(distinctId: string, event: string, properties: Record<string, any> = {}) {
+  if (!POSTHOG_API_KEY) return;
+
+  fetch(`${POSTHOG_HOST}/capture/`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      api_key: POSTHOG_API_KEY,
+      event,
+      distinct_id: distinctId,
+      properties: { ...properties, source: 'apple', $lib: 'server' },
+    }),
+  }).catch((err) => console.error('[posthog] capture failed:', err.message));
+}
+
+function getRevenueCatPrice(event: any): number | undefined {
+  const rawPrice = event.price_in_purchased_currency ?? event.price ?? event.takehome_percentage;
+  return typeof rawPrice === 'number' ? rawPrice : undefined;
+}
+
+function getRevenueCatCurrency(event: any): string | undefined {
+  const rawCurrency = event.currency ?? event.currency_code ?? event.store_currency;
+  return typeof rawCurrency === 'string' ? rawCurrency.toUpperCase() : undefined;
 }
 
 // Atomic event claim — same pattern as Stripe webhook
@@ -228,6 +256,15 @@ export default async function handler(req: any, res: any) {
 
         await maybeCompletePaidOnboarding(supabase, appUserId);
         await cascadeToPartner(supabase, appUserId, plan, 'active', period, expirationDate);
+        capturePostHogEvent(appUserId, 'purchase_completed', {
+          plan,
+          period,
+          price: getRevenueCatPrice(event),
+          currency: getRevenueCatCurrency(event),
+          product_id: productId,
+          transaction_id: event.transaction_id || event.original_transaction_id || eventId,
+        });
+        capturePostHogEvent(appUserId, 'subscription_activated', { plan, period, product_id: productId });
         console.log(`[revenuecat-webhook] User ${appUserId} subscribed to ${plan} (${period}) via App Store`);
         break;
       }
@@ -257,6 +294,12 @@ export default async function handler(req: any, res: any) {
 
         await maybeCompletePaidOnboarding(supabase, appUserId);
         await cascadeToPartner(supabase, appUserId, plan, 'active', period, expirationDate);
+        capturePostHogEvent(appUserId, 'subscription_renewed', {
+          plan,
+          period,
+          renewal_count: event.renewal_number,
+          product_id: productId,
+        });
         console.log(`[revenuecat-webhook] User ${appUserId} renewed ${plan}`);
         break;
       }
@@ -283,6 +326,12 @@ export default async function handler(req: any, res: any) {
           })
           .eq('id', appUserId);
 
+        capturePostHogEvent(appUserId, 'subscription_cancelled', {
+          plan,
+          period,
+          product_id: productId,
+          expires_at: expirationDate,
+        });
         console.log(`[revenuecat-webhook] User ${appUserId} cancelled ${plan} (active until ${expirationDate})`);
         break;
       }
@@ -313,6 +362,13 @@ export default async function handler(req: any, res: any) {
           })
           .eq('id', appUserId);
 
+        if (event.period_type === 'trial') {
+          capturePostHogEvent(appUserId, 'trial_expired', {
+            plan,
+            period,
+            product_id: productId,
+          });
+        }
         await cascadeToPartner(supabase, appUserId, 'none', 'inactive', '', null);
         console.log(`[revenuecat-webhook] User ${appUserId} subscription expired`);
         break;
@@ -362,6 +418,11 @@ export default async function handler(req: any, res: any) {
           })
           .eq('id', appUserId);
 
+        capturePostHogEvent(appUserId, 'payment_failed', {
+          plan,
+          period,
+          product_id: productId,
+        });
         console.log(`[revenuecat-webhook] Billing issue for user ${appUserId}`);
         break;
       }
@@ -393,6 +454,12 @@ export default async function handler(req: any, res: any) {
 
         await maybeCompletePaidOnboarding(supabase, appUserId);
         await cascadeToPartner(supabase, appUserId, plan, 'active', period, expirationDate);
+        capturePostHogEvent(appUserId, 'subscription_changed', {
+          plan,
+          period,
+          product_id: productId,
+          previous_product_id: event.previous_product_id,
+        });
         console.log(`[revenuecat-webhook] User ${appUserId} changed to ${plan} (${period})`);
         break;
       }

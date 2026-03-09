@@ -50,10 +50,17 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
   const [iapPackages, setIapPackages] = useState<any[]>([]); // RevenueCat packages for iOS
   const [restoring, setRestoring] = useState(false);
   const useIAP = isIAPAvailable();
+  const paymentSource = useIAP ? 'apple' : 'stripe';
 
   useEffect(() => {
     fetchPrices();
-    analytics.trackPaywallView({ trigger_reason: 'onboarding', page_context: 'plan_selection', source: 'onboarding' });
+    analytics.trackPaywallView({
+      plan: 'free',
+      trigger: 'onboarding',
+      trigger_reason: 'onboarding',
+      page_context: 'plan_selection',
+      source: paymentSource,
+    });
   }, []);
 
   const fetchPrices = async () => {
@@ -118,12 +125,26 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
     const pkg = iapPackages.find(p => p.product?.identifier === productId);
 
     if (!pkg) {
+      analytics.trackPurchaseFailed({
+        plan,
+        billing_period: billingPeriod,
+        error_code: 'product_not_available',
+        error_message: `Product ${productId} not available`,
+        source: 'apple',
+      });
       setError(`Product ${productId} not available`);
       return;
     }
 
     setPurchasing(true);
     setError(null);
+    analytics.trackCheckoutStarted({
+      plan,
+      billing_period: billingPeriod,
+      price: pkg.product?.price ?? 0,
+      currency: pkg.product?.currencyCode || 'USD',
+      source: 'apple',
+    });
     try {
       const customerInfo = await purchasePackage(pkg);
       if (customerInfo) {
@@ -134,6 +155,13 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
       // If null, user cancelled — stay on this step
     } catch (err: any) {
       console.error('[PlanSelectionStep] IAP purchase error:', err);
+      analytics.trackPurchaseFailed({
+        plan,
+        billing_period: billingPeriod,
+        error_code: err?.code || 'purchase_failed',
+        error_message: err?.message || 'Purchase failed. Please try again.',
+        source: 'apple',
+      });
       setError(err?.message || 'Purchase failed. Please try again.');
     } finally {
       setPurchasing(false);
@@ -366,7 +394,11 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
               key={plan.id}
               onClick={() => {
                 setSelectedPlan(plan.id);
-                analytics.trackPlanSelected({ plan: plan.id as 'free' | 'standard' | 'unlimited', billing_period: billingPeriod, source: 'onboarding' });
+                analytics.trackPlanSelected({
+                  plan: plan.id as 'free' | 'standard' | 'unlimited',
+                  billing_period: billingPeriod,
+                  source: paymentSource,
+                });
               }}
               className="relative text-left p-4 transition-all animate-reveal"
               style={{

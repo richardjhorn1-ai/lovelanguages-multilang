@@ -50,9 +50,11 @@ interface OnboardingCompletedParams extends BaseEventParams {
 
 // Monetization events
 interface PaywallViewParams extends BaseEventParams {
+  plan?: 'free' | 'standard' | 'unlimited';
+  trigger?: string;
   trigger_reason?: string;
   page_context?: string;
-  source?: string;
+  source?: 'stripe' | 'apple' | 'google';
   usage_count?: number;
 }
 
@@ -69,17 +71,26 @@ interface PlanSelectedParams extends BaseEventParams {
 
 interface CheckoutParams extends BaseEventParams {
   plan: 'standard' | 'unlimited';
-  billing_period: 'monthly' | 'yearly';
+  billing_period: 'weekly' | 'monthly' | 'yearly';
   price: number;
   currency?: string;
   source?: 'stripe' | 'apple' | 'google';
 }
 
-interface SubscriptionCompletedParams extends BaseEventParams {
-  plan: 'standard' | 'unlimited';
-  billing_period: 'monthly' | 'yearly';
+interface PurchaseCompletedParams extends BaseEventParams {
+  plan: 'standard' | 'unlimited' | 'unknown';
+  billing_period?: 'weekly' | 'monthly' | 'yearly' | 'unknown';
   price: number;
-  currency: string;
+  currency?: string;
+  transaction_id?: string;
+  source?: 'stripe' | 'apple' | 'google';
+}
+
+interface PurchaseFailedParams extends BaseEventParams {
+  plan: 'free' | 'standard' | 'unlimited';
+  billing_period?: 'weekly' | 'monthly' | 'yearly';
+  error_code?: string;
+  error_message?: string;
   source?: 'stripe' | 'apple' | 'google';
 }
 
@@ -197,6 +208,8 @@ type EventName =
   | 'paywall_dismissed'
   | 'plan_selected'
   | 'checkout_started'
+  | 'purchase_completed'
+  | 'purchase_failed'
   | 'subscription_completed'
   | 'subscription_failed'
   | 'trial_started'
@@ -491,23 +504,31 @@ class AnalyticsService {
     this.track('checkout_started', params);
   }
 
-  trackSubscriptionCompleted(params: SubscriptionCompletedParams): void {
-    this.track('subscription_completed', params);
+  trackPurchaseCompleted(params: PurchaseCompletedParams): void {
+    this.track('purchase_completed', params);
 
     // Also track as GA4 purchase event for revenue tracking
     if (hasGtag()) {
       window.gtag('event', 'purchase', {
-        transaction_id: `sub_${Date.now()}`,
+        transaction_id: params.transaction_id || `sub_${Date.now()}`,
         value: params.price,
-        currency: params.currency,
+        currency: params.currency || 'USD',
         items: [{
           item_id: params.plan,
-          item_name: `${params.plan}_${params.billing_period}`,
+          item_name: `${params.plan}_${params.billing_period || 'unknown'}`,
           price: params.price,
           quantity: 1,
         }],
       });
     }
+  }
+
+  trackPurchaseFailed(params: PurchaseFailedParams): void {
+    this.track('purchase_failed', params);
+  }
+
+  trackSubscriptionCompleted(params: PurchaseCompletedParams): void {
+    this.track('subscription_completed', params);
   }
 
   // Engagement

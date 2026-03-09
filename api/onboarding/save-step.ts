@@ -25,6 +25,10 @@ import {
 import type { OnboardingData, OnboardingFlowKey, OnboardingStepKey, UserRole } from '../../types';
 
 type SaveDirection = 'next' | 'back' | 'stay';
+type LanguageStateProfile = {
+  onboarding_completed_at?: string | null;
+  languages?: string[] | null;
+};
 
 function parseBody(req: any): Record<string, unknown> {
   if (!req.body) {
@@ -46,17 +50,31 @@ function isDirection(value: unknown): value is SaveDirection {
   return value === 'next' || value === 'back' || value === 'stay';
 }
 
-function uniqueLanguages(
+export function uniqueLanguages(
   existingLanguages: string[] | undefined,
-  targetLanguage: string | undefined
+  targetLanguage: string | undefined,
+  isOnboardingFirstLanguage: boolean
 ): string[] | undefined {
   if (!targetLanguage) {
     return existingLanguages;
   }
 
-  const next = new Set(existingLanguages || []);
+  if (isOnboardingFirstLanguage) {
+    return [targetLanguage];
+  }
+
+  const next = new Set((existingLanguages || []).filter(Boolean));
   next.add(targetLanguage);
   return Array.from(next);
+}
+
+export function isInitialOnboardingLanguageSelection(profile: LanguageStateProfile): boolean {
+  const existingLanguages = (profile.languages || []).filter(Boolean);
+
+  return !profile.onboarding_completed_at && (
+    existingLanguages.length === 0 ||
+    (existingLanguages.length === 1 && existingLanguages[0] === 'pl')
+  );
 }
 
 export default async function handler(req: any, res: any) {
@@ -148,7 +166,11 @@ export default async function handler(req: any, res: any) {
       profile.onboarding_status
     );
     const nextPlanIntent = getPlanIntentFromData(nextData);
-    const nextLanguages = uniqueLanguages(profile.languages, nextData.targetLanguage);
+    const nextLanguages = uniqueLanguages(
+      profile.languages,
+      nextData.targetLanguage,
+      isInitialOnboardingLanguageSelection(profile)
+    );
     const mirroredProfileFields = buildProfileSyncFromOnboardingData(nextData, resolvedRole);
 
     const updatePayload: Record<string, unknown> = {

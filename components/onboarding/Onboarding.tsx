@@ -1062,8 +1062,11 @@ export const Onboarding: React.FC<OnboardingProps> = ({
       return;
     }
 
-    const targetLanguage = resolvedData.targetLanguage || 'pl';
+    const targetLanguage = resolvedData.targetLanguage;
     const nativeLanguage = resolvedData.nativeLanguage || 'en';
+    if (!targetLanguage) {
+      return;
+    }
     const targetConfig = (await import('../../constants/language-config')).LANGUAGE_CONFIGS[targetLanguage];
     const nativeConfig = (await import('../../constants/language-config')).LANGUAGE_CONFIGS[nativeLanguage];
 
