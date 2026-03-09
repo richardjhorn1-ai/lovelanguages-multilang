@@ -71,7 +71,7 @@ export default async function handler(req: any, res: any) {
     }
 
     // Check if the language is unlocked for this user
-    const unlockedLanguages = profile.languages || ['pl'];
+    const unlockedLanguages = profile.languages || [];
     if (!unlockedLanguages.includes(languageCode)) {
       return res.status(403).json({
         error: 'Language not unlocked',

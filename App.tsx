@@ -454,7 +454,7 @@ const App: React.FC = () => {
             const userMeta = userData.user.user_metadata || {};
             const storedTarget = userMeta.target_language
               || localStorage.getItem('preferredTargetLanguage')
-              || 'pl';
+              || 'en';
             const storedNative = userMeta.native_language
               || localStorage.getItem('preferredNativeLanguage')
               || localStorage.getItem('preferredLanguage')  // Legacy key fallback

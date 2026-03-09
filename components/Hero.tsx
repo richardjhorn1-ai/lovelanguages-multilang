@@ -599,7 +599,7 @@ const Hero: React.FC = () => {
               // Store language selection in user metadata for email confirmation flow
               // (localStorage may not be available when user clicks confirmation link)
               native_language: nativeLanguage || 'en',
-              target_language: selectedTargetLanguage || 'pl'
+              target_language: selectedTargetLanguage || undefined
             }
           }
         })

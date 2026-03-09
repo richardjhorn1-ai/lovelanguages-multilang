@@ -374,7 +374,7 @@ export class GladiaSession {
     // Get translation if available (from realtime_processing)
     // Use dynamic language keys instead of hardcoded 'en'
     const nativeLang = this.config.nativeLanguage || 'en';
-    const targetLang = this.config.targetLanguage || 'pl';
+    const targetLang = this.config.targetLanguage || 'en';
 
     const utteranceTranslations = transcriptData.utterance?.translations || {};
     const topLevelTranslations = transcriptData.translations || {};

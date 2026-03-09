@@ -50,8 +50,9 @@ interface OnboardingCompletedParams extends BaseEventParams {
 
 // Monetization events
 interface PaywallViewParams extends BaseEventParams {
-  trigger_reason: string;
-  page_context: string;
+  trigger_reason?: string;
+  page_context?: string;
+  source?: string;
   usage_count?: number;
 }
 
@@ -61,8 +62,9 @@ interface PaywallDismissedParams extends BaseEventParams {
 }
 
 interface PlanSelectedParams extends BaseEventParams {
-  plan: 'standard' | 'unlimited';
-  billing_period: 'monthly' | 'yearly';
+  plan: 'free' | 'standard' | 'unlimited';
+  billing_period?: 'weekly' | 'monthly' | 'yearly';
+  source?: string;
 }
 
 interface CheckoutParams extends BaseEventParams {
@@ -70,6 +72,7 @@ interface CheckoutParams extends BaseEventParams {
   billing_period: 'monthly' | 'yearly';
   price: number;
   currency?: string;
+  source?: 'stripe' | 'apple' | 'google';
 }
 
 interface SubscriptionCompletedParams extends BaseEventParams {
@@ -77,6 +80,7 @@ interface SubscriptionCompletedParams extends BaseEventParams {
   billing_period: 'monthly' | 'yearly';
   price: number;
   currency: string;
+  source?: 'stripe' | 'apple' | 'google';
 }
 
 // Engagement events

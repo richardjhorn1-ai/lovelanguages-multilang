@@ -81,6 +81,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       billing_period: billingPeriod === 'weekly' ? 'monthly' : billingPeriod as 'monthly' | 'yearly',
       price: pkg.product?.price ?? 0,
       currency: pkg.product?.currencyCode || 'USD',
+      source: 'apple',
     });
 
     try {
@@ -92,6 +93,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
           billing_period: billingPeriod === 'weekly' ? 'monthly' : billingPeriod as 'monthly' | 'yearly',
           price: pkg.product?.price ?? 0,
           currency: pkg.product?.currencyCode || 'USD',
+          source: 'apple',
         });
         onSubscribed();
       } else {
@@ -103,7 +105,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
         plan: selectedPlan,
         billing_period: billingPeriod,
         error_message: err?.message || 'Unknown error',
-        platform: 'ios',
+        source: 'apple',
       });
       setError(err?.message || 'Purchase failed. Please try again.');
       setLoading(false);
@@ -280,7 +282,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
             analytics.track('trial_started', {
               plan: 'standard',
               trigger_reason: 'subscription_required',
-              source: 'app_store',
+              source: 'apple',
             });
             onSubscribed();
           } else {
@@ -318,6 +320,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       billing_period: billingPeriod === 'weekly' ? 'monthly' : billingPeriod,
       price: price || 0,
       currency: 'EUR',
+      source: 'stripe',
     });
 
     try {
@@ -391,6 +394,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
           billing_period: billingPeriod,
           error_type: 'checkout_creation_failed',
           error_message: errorMsg,
+          source: 'stripe',
         });
         setError(errorMsg);
         setLoading(false);
@@ -402,6 +406,7 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
         billing_period: billingPeriod,
         error_type: 'checkout_exception',
         error_message: errorMsg,
+        source: 'stripe',
       });
       setError(errorMsg);
       setLoading(false);

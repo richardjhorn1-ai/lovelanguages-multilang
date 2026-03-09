@@ -42,7 +42,8 @@ const ALLOWED_EVENTS = new Set([
   'level_test_started', 'level_test_completed',
   // Subscription
   'checkout_started', 'subscription_activated', 'subscription_completed',
-  'subscription_failed', 'trial_started',
+  'subscription_renewed', 'subscription_changed', 'subscription_cancelled',
+  'subscription_failed', 'payment_failed', 'trial_started',
   // Retention
   'partner_invited', 'partner_joined', 'streak_maintained', 'streak_broken',
   // Churn

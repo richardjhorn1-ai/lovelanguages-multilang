@@ -2,6 +2,24 @@ import { randomInt } from 'crypto';
 import Stripe from 'stripe';
 import { createClient } from '@supabase/supabase-js';
 
+// PostHog server-side capture (fire-and-forget)
+const POSTHOG_API_KEY = process.env.VITE_POSTHOG_KEY || process.env.POSTHOG_API_KEY;
+const POSTHOG_HOST = 'https://us.i.posthog.com';
+
+function capturePostHogEvent(distinctId: string, event: string, properties: Record<string, any> = {}) {
+  if (!POSTHOG_API_KEY) return;
+  fetch(`${POSTHOG_HOST}/capture/`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      api_key: POSTHOG_API_KEY,
+      event,
+      distinct_id: distinctId,
+      properties: { ...properties, source: 'stripe', $lib: 'server' },
+    }),
+  }).catch((err) => console.error('[posthog] capture failed:', err.message));
+}
+
 // Disable body parsing - we need raw body for signature verification
 export const config = {
   api: {
@@ -270,6 +288,7 @@ export default async function handler(req: any, res: any) {
           })();
         }
 
+        capturePostHogEvent(userId, 'subscription_activated', { plan, period });
         console.log(`[stripe-webhook] User ${userId} subscribed to ${plan} (${period})`);
         break;
       }
@@ -381,6 +400,8 @@ export default async function handler(req: any, res: any) {
           console.log(`[stripe-webhook] Cascaded update to ${updatedPartners.length} partner(s)`);
         }
 
+        const posthogEvent = previousPlan !== plan ? 'subscription_changed' : 'subscription_renewed';
+        capturePostHogEvent(userId, posthogEvent, { plan, period, previous_plan: previousPlan, status });
         console.log(`[stripe-webhook] Updated subscription for user ${userId}: ${plan} (${status})`);
         break;
       }
@@ -447,6 +468,7 @@ export default async function handler(req: any, res: any) {
           throw updateError;
         }
 
+        capturePostHogEvent(profile.id, 'subscription_cancelled', { previous_plan: profile.subscription_plan });
         console.log(`[stripe-webhook] Granted 7-day win-back trial to churned user ${profile.id}`);
 
         // CASCADE: Revoke ALL inherited subscriptions from this payer
@@ -519,6 +541,7 @@ export default async function handler(req: any, res: any) {
           throw updateError;
         }
 
+        capturePostHogEvent(profile.id, 'payment_failed', { invoice_id: invoice.id });
         console.log(`[stripe-webhook] Payment failed for user ${profile.id}`);
         break;
       }

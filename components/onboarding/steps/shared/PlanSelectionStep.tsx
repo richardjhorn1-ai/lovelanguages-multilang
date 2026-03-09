@@ -7,6 +7,7 @@ import { useLanguage } from '../../../../context/LanguageContext';
 import { isIAPAvailable, getOfferings, purchasePackage, restorePurchases, hasActiveEntitlement } from '../../../../services/purchases';
 import { apiFetch } from '../../../../services/api-config';
 import { formatUsdPrice, getDisplaySubscriptionPrice, type BillingPeriod } from '../../../../services/subscription-pricing';
+import { analytics } from '../../../../services/analytics';
 
 interface PlanSelectionStepProps {
   currentStep: number;
@@ -40,7 +41,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
 }) => {
   const { t } = useTranslation();
   const { targetName } = useLanguage();
-  const [selectedPlan, setSelectedPlan] = useState<'free' | 'standard' | 'unlimited' | null>(null);
+  const [selectedPlan, setSelectedPlan] = useState<'free' | 'standard' | 'unlimited' | null>('free');
   const [billingPeriod, setBillingPeriod] = useState<BillingPeriod>('monthly');
   const [prices, setPrices] = useState<Prices | null>(null);
   const [loading, setLoading] = useState(true);
@@ -52,6 +53,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
 
   useEffect(() => {
     fetchPrices();
+    analytics.trackPaywallView({ trigger_reason: 'onboarding', page_context: 'plan_selection', source: 'onboarding' });
   }, []);
 
   const fetchPrices = async () => {
@@ -189,7 +191,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
       weeklyPrice: 0,
       monthlyPrice: 0,
       yearlyPrice: 0,
-      tagline: t('subscription.choice.free.tagline', { defaultValue: 'Full access, then $17.99/mo' }),
+      tagline: t('subscription.choice.free.tagline', { defaultValue: 'Try everything free for 7 days' }),
       isTrial: true, // Special flag for trial display
       features: [
         { text: t('subscription.choice.free.feature1', { defaultValue: 'Full access for 7 days' }), included: true },
@@ -362,7 +364,10 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
           return (
             <button
               key={plan.id}
-              onClick={() => setSelectedPlan(plan.id)}
+              onClick={() => {
+                setSelectedPlan(plan.id);
+                analytics.trackPlanSelected({ plan: plan.id as 'free' | 'standard' | 'unlimited', billing_period: billingPeriod, source: 'onboarding' });
+              }}
               className="relative text-left p-4 transition-all animate-reveal"
               style={{
                 ...ONBOARDING_GLASS,
@@ -395,7 +400,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
                         {t('subscription.common.days', { defaultValue: 'days' })}
                       </div>
                       <div className="text-xs text-green-600 mt-1">
-                        {t('subscription.choice.free.fullAccess', { defaultValue: 'Full access' })}
+                        {t('subscription.choice.free.noCard', { defaultValue: 'No card needed' })}
                       </div>
                     </>
                   ) : (
@@ -495,7 +500,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
           }
         }}
         disabled={!selectedPlan || purchasing || (selectedPlan !== 'free' && !useIAP && !prices)}
-        accentColor={selectedPlan === 'free' ? '#374151' : accentColor}
+        accentColor={accentColor}
       >
         {purchasing
           ? t('onboarding.plan.processing', { defaultValue: 'Processing...' })
