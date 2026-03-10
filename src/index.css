@@ -144,13 +144,13 @@ html.capacitor select {
     font-size: var(--text-body) !important;
 }
 
-/* Capacitor: Completely disable pinch-zoom and pan gestures at root level */
+/* Capacitor: Allow normal browser gestures on iPad/iPhone */
 html.capacitor {
-    touch-action: none;
+    touch-action: manipulation;
 }
 
 html.capacitor body {
-    touch-action: none;
+    touch-action: auto;
 }
 
 /* Allow vertical scrolling in scrollable containers only */

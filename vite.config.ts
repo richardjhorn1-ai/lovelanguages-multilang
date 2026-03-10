@@ -3,12 +3,25 @@ import react from '@vitejs/plugin-react'
 import mdx from '@mdx-js/rollup'
 import remarkGfm from 'remark-gfm'
 import remarkFrontmatter from 'remark-frontmatter'
+import { sentryVitePlugin } from '@sentry/vite-plugin'
 import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vitejs.dev/config/
-export default defineConfig(() => ({
+export default defineConfig(() => {
+  const sentryRelease =
+    process.env.SENTRY_RELEASE ||
+    process.env.VERCEL_GIT_COMMIT_SHA ||
+    process.env.VITE_SENTRY_RELEASE;
+  const shouldUploadSourcemaps = Boolean(
+    process.env.SENTRY_AUTH_TOKEN &&
+    process.env.SENTRY_ORG &&
+    process.env.SENTRY_PROJECT
+  );
+
+  return ({
   build: {
     chunkSizeWarningLimit: 3000, // Main bundle is ~2.9MB; suppress false warning
+    sourcemap: Boolean(process.env.VITE_SENTRY_DSN || shouldUploadSourcemaps),
   },
   server: {
     allowedHosts: ['.loca.lt', '.ngrok.io', '.ngrok-free.app']
@@ -96,6 +109,21 @@ export default defineConfig(() => ({
           }
         ]
       }
-    })
+    }),
+    ...(shouldUploadSourcemaps ? sentryVitePlugin({
+      org: process.env.SENTRY_ORG,
+      project: process.env.SENTRY_PROJECT,
+      authToken: process.env.SENTRY_AUTH_TOKEN,
+      telemetry: false,
+      release: sentryRelease
+        ? {
+            name: sentryRelease,
+          }
+        : undefined,
+      sourcemaps: {
+        assets: './dist/**',
+        filesToDeleteAfterUpload: ['./dist/**/*.map'],
+      },
+    }) : [])
   ]
-}))
+})})

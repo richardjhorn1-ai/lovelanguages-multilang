@@ -1,23 +1,6 @@
-import { Capacitor, registerPlugin, type PluginListenerHandle } from '@capacitor/core';
+import { App as NativeApp } from '@capacitor/app';
+import { Capacitor, type PluginListenerHandle } from '@capacitor/core';
 import { APP_URL, NATIVE_APP_SCHEME } from './api-config';
-
-interface AppUrlOpenEvent {
-  url: string;
-}
-
-interface AppLaunchUrl {
-  url?: string;
-}
-
-interface NativeAppPlugin {
-  addListener(
-    eventName: 'appUrlOpen',
-    listenerFunc: (event: AppUrlOpenEvent) => void
-  ): Promise<PluginListenerHandle>;
-  getLaunchUrl(): Promise<AppLaunchUrl>;
-}
-
-const NativeApp = registerPlugin<NativeAppPlugin>('App');
 const APP_ORIGIN = new URL(APP_URL).origin;
 
 export function normalizeInboundAppUrl(rawUrl: string): string | null {

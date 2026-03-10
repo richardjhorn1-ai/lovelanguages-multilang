@@ -1,6 +1,7 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
 import i18n from 'i18next';
 import { ICONS } from '../constants';
+import { captureAppError } from '../services/error-tracking';
 
 interface Props {
   children: ReactNode;
@@ -36,6 +37,13 @@ class ErrorBoundary extends Component<Props, State> {
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error('ErrorBoundary caught an error:', error, errorInfo);
+    captureAppError(error, {
+      errorType: 'react_boundary',
+      route: typeof window !== 'undefined' ? window.location.pathname : 'unknown',
+      screen: 'error_boundary',
+      userAction: 'render',
+      error: errorInfo,
+    });
   }
 
   private handleRefresh = () => {

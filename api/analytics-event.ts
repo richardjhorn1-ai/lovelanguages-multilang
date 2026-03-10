@@ -48,11 +48,11 @@ export const ALLOWED_EVENTS = new Set([
   // Retention
   'partner_invited', 'partner_joined', 'streak_maintained', 'streak_broken',
   // Churn
-  'error_encountered', 'error_occurred', 'feature_abandoned', 'account_deleted',
+  'error_encountered', 'error_occurred', 'app_error', 'api_error', 'feature_abandoned', 'account_deleted',
   // Auth lifecycle
   'user_logged_in', 'user_logged_out',
   // General
-  'app_installed', 'theme_changed', 'language_switched',
+  'app_installed', 'app_opened', 'app_backgrounded', 'theme_changed', 'language_switched',
   'feature_used', 'cta_click', 'app_store_click',
   'paywall_view', 'paywall_dismissed',
   'challenge_created', 'challenge_completed', 'word_practiced',

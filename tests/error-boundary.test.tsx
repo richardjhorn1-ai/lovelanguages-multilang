@@ -7,6 +7,10 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import ErrorBoundary from '../components/ErrorBoundary';
 import React from 'react';
 
+vi.mock('../services/error-tracking', () => ({
+  captureAppError: vi.fn(),
+}));
+
 // Component that throws an error
 const ThrowingComponent = ({ shouldThrow = true }: { shouldThrow?: boolean }) => {
   if (shouldThrow) {

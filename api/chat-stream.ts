@@ -33,17 +33,19 @@ async function getUserRole(supabase: any, userId: string): Promise<{
   role: 'student' | 'tutor';
   partnerName: string | null;
   linkedUserId: string | null;
+  firstGoal: string | null;
 }> {
   const { data } = await supabase
     .from('profiles')
-    .select('role, partner_name, linked_user_id')
+    .select('role, partner_name, linked_user_id, onboarding_data')
     .eq('id', userId)
     .single();
 
   return {
     role: data?.role || 'student',
     partnerName: data?.partner_name || null,
-    linkedUserId: data?.linked_user_id || null
+    linkedUserId: data?.linked_user_id || null,
+    firstGoal: data?.onboarding_data?.firstGoal || null,
   };
 }
 
@@ -86,12 +88,14 @@ export default async function handler(req: any, res: any) {
     let vocabularySection = '';
     let userRole: 'student' | 'tutor' = 'student';
     let partnerName: string | null = null;
+    let learningGoal: string | null = null;
     let partnerContext: { learnerName: string; stats: { totalWords: number; masteredCount: number; xp: number; level: string } } | null = null;
 
     if (sessionContext && sessionContext.bootedAt) {
       // Use cached session context (efficient: 0 DB queries for vocabulary)
       userRole = sessionContext.role === 'tutor' ? 'tutor' : 'student';
       partnerName = sessionContext.partnerName;
+      learningGoal = sessionContext.firstGoal || null;
 
       if (userRole === 'tutor' && sessionContext.partner) {
         // Tutor: show partner's vocabulary
@@ -127,6 +131,7 @@ export default async function handler(req: any, res: any) {
       const roleData = await getUserRole(supabase, auth.userId);
       userRole = roleData.role;
       partnerName = roleData.partnerName;
+      learningGoal = roleData.firstGoal;
 
       // Fetch vocab for the right person (tutor sees partner's vocab, student sees own)
       const vocabUserId = (userRole === 'tutor' && roleData.linkedUserId) ? roleData.linkedUserId : auth.userId;
@@ -144,6 +149,7 @@ export default async function handler(req: any, res: any) {
       mode: mode as ChatMode,
       userRole,
       partnerName,
+      learningGoal,
       partnerContext,
       vocabularySection
     });

@@ -14,9 +14,6 @@
 
 import { createClient } from '@supabase/supabase-js';
 
-const POSTHOG_API_KEY = process.env.VITE_POSTHOG_KEY || process.env.POSTHOG_API_KEY;
-const POSTHOG_HOST = 'https://us.i.posthog.com';
-
 // Disable body parsing — we need the raw body for auth header verification
 export const config = {
   api: {
@@ -47,21 +44,6 @@ function getPlanFromProductId(productId: string): { plan: string; period: string
   return productMap[productId] || { plan: 'unknown', period: 'unknown' };
 }
 
-function capturePostHogEvent(distinctId: string, event: string, properties: Record<string, any> = {}) {
-  if (!POSTHOG_API_KEY) return;
-
-  fetch(`${POSTHOG_HOST}/capture/`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      api_key: POSTHOG_API_KEY,
-      event,
-      distinct_id: distinctId,
-      properties: { ...properties, source: 'apple', $lib: 'server' },
-    }),
-  }).catch((err) => console.error('[posthog] capture failed:', err.message));
-}
-
 function getRevenueCatPrice(event: any): number | undefined {
   const rawPrice = event.price_in_purchased_currency ?? event.price ?? event.takehome_percentage;
   return typeof rawPrice === 'number' ? rawPrice : undefined;
@@ -70,6 +52,93 @@ function getRevenueCatPrice(event: any): number | undefined {
 function getRevenueCatCurrency(event: any): string | undefined {
   const rawCurrency = event.currency ?? event.currency_code ?? event.store_currency;
   return typeof rawCurrency === 'string' ? rawCurrency.toUpperCase() : undefined;
+}
+
+function isUuidLike(value: string | null | undefined): value is string {
+  return Boolean(value && /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(value));
+}
+
+function getIdentityCandidates(event: any): string[] {
+  const aliases = Array.isArray(event.aliases) ? event.aliases : [];
+  return Array.from(
+    new Set(
+      [event.app_user_id, event.original_app_user_id, ...aliases]
+        .filter((value): value is string => typeof value === 'string' && value.trim().length > 0)
+        .map((value) => value.trim())
+    )
+  );
+}
+
+async function upsertPrivateRevenueCatCustomerId(
+  supabase: any,
+  userId: string,
+  revenueCatCustomerId: string
+): Promise<void> {
+  const { error } = await supabase
+    .from('profile_private')
+    .upsert(
+      {
+        user_id: userId,
+        revenuecat_customer_id: revenueCatCustomerId,
+        subscription_source: 'app_store',
+        updated_at: new Date().toISOString(),
+      },
+      { onConflict: 'user_id' }
+    );
+
+  if (error) {
+    throw error;
+  }
+}
+
+async function findUserIdByRevenueCatCustomerId(
+  supabase: any,
+  candidates: string[]
+): Promise<string | null> {
+  if (candidates.length === 0) {
+    return null;
+  }
+
+  const { data: privateState } = await supabase
+    .from('profile_private')
+    .select('user_id')
+    .in('revenuecat_customer_id', candidates)
+    .limit(1)
+    .maybeSingle();
+
+  if (privateState?.user_id) {
+    return privateState.user_id;
+  }
+
+  const { data: legacyProfile } = await supabase
+    .from('profiles')
+    .select('id')
+    .in('revenuecat_customer_id', candidates)
+    .limit(1)
+    .maybeSingle();
+
+  return legacyProfile?.id || null;
+}
+
+async function resolveRevenueCatUser(
+  supabase: any,
+  event: any
+): Promise<{ userId: string | null; revenueCatCustomerId: string | null }> {
+  const candidates = getIdentityCandidates(event);
+  const directUserId = candidates.find((candidate) => isUuidLike(candidate)) || null;
+
+  if (directUserId) {
+    return {
+      userId: directUserId,
+      revenueCatCustomerId: typeof event.app_user_id === 'string' ? event.app_user_id : directUserId,
+    };
+  }
+
+  const userId = await findUserIdByRevenueCatCustomerId(supabase, candidates);
+  return {
+    userId,
+    revenueCatCustomerId: typeof event.app_user_id === 'string' ? event.app_user_id : candidates[0] || null,
+  };
 }
 
 // Atomic event claim — same pattern as Stripe webhook
@@ -195,16 +264,11 @@ export default async function handler(req: any, res: any) {
 
   const eventType = event.type; // INITIAL_PURCHASE, RENEWAL, CANCELLATION, etc.
   const eventId = event.id || `rc_${Date.now()}`; // Unique event ID
-  const appUserId = event.app_user_id; // Our Supabase user ID
+  const appUserId = event.app_user_id; // RevenueCat app user ID (often Supabase UID, sometimes alias)
   const productId = event.product_id; // e.g., "standard_monthly"
   const expirationAtMs = event.expiration_at_ms; // Subscription expiration timestamp
 
   console.log(`[revenuecat-webhook] Received: ${eventType} for user ${appUserId}, product ${productId}`);
-
-  if (!appUserId) {
-    console.error('[revenuecat-webhook] Missing app_user_id');
-    return res.status(400).json({ error: 'Missing user ID' });
-  }
 
   // Initialize Supabase with service key
   const supabaseUrl = process.env.VITE_SUPABASE_URL || process.env.SUPABASE_URL;
@@ -218,6 +282,17 @@ export default async function handler(req: any, res: any) {
   const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
   try {
+    const { userId, revenueCatCustomerId } = await resolveRevenueCatUser(supabase, event);
+
+    if (!userId) {
+      console.error('[revenuecat-webhook] Could not resolve user from RevenueCat identifiers', getIdentityCandidates(event));
+      return res.status(400).json({ error: 'Unresolvable user' });
+    }
+
+    if (revenueCatCustomerId) {
+      await upsertPrivateRevenueCatCustomerId(supabase, userId, revenueCatCustomerId);
+    }
+
     const { plan, period } = getPlanFromProductId(productId || '');
     const expirationDate = expirationAtMs
       ? new Date(expirationAtMs).toISOString()
@@ -229,7 +304,7 @@ export default async function handler(req: any, res: any) {
       // =========================================
       case 'INITIAL_PURCHASE': {
         const { claimed } = await claimEvent(supabase, {
-          user_id: appUserId,
+          user_id: userId,
           event_type: 'app_store_initial_purchase',
           stripe_event_id: eventId,
           previous_plan: 'none',
@@ -252,20 +327,11 @@ export default async function handler(req: any, res: any) {
             subscription_ends_at: expirationDate,
             subscription_source: 'app_store',
           })
-          .eq('id', appUserId);
+          .eq('id', userId);
 
-        await maybeCompletePaidOnboarding(supabase, appUserId);
-        await cascadeToPartner(supabase, appUserId, plan, 'active', period, expirationDate);
-        capturePostHogEvent(appUserId, 'purchase_completed', {
-          plan,
-          period,
-          price: getRevenueCatPrice(event),
-          currency: getRevenueCatCurrency(event),
-          product_id: productId,
-          transaction_id: event.transaction_id || event.original_transaction_id || eventId,
-        });
-        capturePostHogEvent(appUserId, 'subscription_activated', { plan, period, product_id: productId });
-        console.log(`[revenuecat-webhook] User ${appUserId} subscribed to ${plan} (${period}) via App Store`);
+        await maybeCompletePaidOnboarding(supabase, userId);
+        await cascadeToPartner(supabase, userId, plan, 'active', period, expirationDate);
+        console.log(`[revenuecat-webhook] User ${userId} subscribed to ${plan} (${period}) via App Store`);
         break;
       }
 
@@ -274,7 +340,7 @@ export default async function handler(req: any, res: any) {
       // =========================================
       case 'RENEWAL': {
         const { claimed } = await claimEvent(supabase, {
-          user_id: appUserId,
+          user_id: userId,
           event_type: 'app_store_renewal',
           stripe_event_id: eventId,
           new_plan: plan,
@@ -290,17 +356,11 @@ export default async function handler(req: any, res: any) {
             subscription_ends_at: expirationDate,
             subscription_source: 'app_store',
           })
-          .eq('id', appUserId);
+          .eq('id', userId);
 
-        await maybeCompletePaidOnboarding(supabase, appUserId);
-        await cascadeToPartner(supabase, appUserId, plan, 'active', period, expirationDate);
-        capturePostHogEvent(appUserId, 'subscription_renewed', {
-          plan,
-          period,
-          renewal_count: event.renewal_number,
-          product_id: productId,
-        });
-        console.log(`[revenuecat-webhook] User ${appUserId} renewed ${plan}`);
+        await maybeCompletePaidOnboarding(supabase, userId);
+        await cascadeToPartner(supabase, userId, plan, 'active', period, expirationDate);
+        console.log(`[revenuecat-webhook] User ${userId} renewed ${plan}`);
         break;
       }
 
@@ -309,7 +369,7 @@ export default async function handler(req: any, res: any) {
       // =========================================
       case 'CANCELLATION': {
         const { claimed } = await claimEvent(supabase, {
-          user_id: appUserId,
+          user_id: userId,
           event_type: 'app_store_cancellation',
           stripe_event_id: eventId,
           new_plan: plan,
@@ -324,15 +384,9 @@ export default async function handler(req: any, res: any) {
             subscription_status: 'canceled', // Still active until period end
             subscription_source: 'app_store',
           })
-          .eq('id', appUserId);
+          .eq('id', userId);
 
-        capturePostHogEvent(appUserId, 'subscription_cancelled', {
-          plan,
-          period,
-          product_id: productId,
-          expires_at: expirationDate,
-        });
-        console.log(`[revenuecat-webhook] User ${appUserId} cancelled ${plan} (active until ${expirationDate})`);
+        console.log(`[revenuecat-webhook] User ${userId} cancelled ${plan} (active until ${expirationDate})`);
         break;
       }
 
@@ -341,7 +395,7 @@ export default async function handler(req: any, res: any) {
       // =========================================
       case 'EXPIRATION': {
         const { claimed } = await claimEvent(supabase, {
-          user_id: appUserId,
+          user_id: userId,
           event_type: 'app_store_expiration',
           stripe_event_id: eventId,
           previous_plan: plan,
@@ -360,17 +414,10 @@ export default async function handler(req: any, res: any) {
             subscription_ends_at: null,
             subscription_source: 'app_store',
           })
-          .eq('id', appUserId);
+          .eq('id', userId);
 
-        if (event.period_type === 'trial') {
-          capturePostHogEvent(appUserId, 'trial_expired', {
-            plan,
-            period,
-            product_id: productId,
-          });
-        }
-        await cascadeToPartner(supabase, appUserId, 'none', 'inactive', '', null);
-        console.log(`[revenuecat-webhook] User ${appUserId} subscription expired`);
+        await cascadeToPartner(supabase, userId, 'none', 'inactive', '', null);
+        console.log(`[revenuecat-webhook] User ${userId} subscription expired`);
         break;
       }
 
@@ -379,7 +426,7 @@ export default async function handler(req: any, res: any) {
       // =========================================
       case 'UNCANCELLATION': {
         await claimEvent(supabase, {
-          user_id: appUserId,
+          user_id: userId,
           event_type: 'app_store_uncancellation',
           stripe_event_id: eventId,
           new_plan: plan,
@@ -392,9 +439,9 @@ export default async function handler(req: any, res: any) {
             subscription_status: 'active',
             subscription_source: 'app_store',
           })
-          .eq('id', appUserId);
+          .eq('id', userId);
 
-        console.log(`[revenuecat-webhook] User ${appUserId} re-enabled auto-renew for ${plan}`);
+        console.log(`[revenuecat-webhook] User ${userId} re-enabled auto-renew for ${plan}`);
         break;
       }
 
@@ -403,7 +450,7 @@ export default async function handler(req: any, res: any) {
       // =========================================
       case 'BILLING_ISSUE': {
         await claimEvent(supabase, {
-          user_id: appUserId,
+          user_id: userId,
           event_type: 'app_store_billing_issue',
           stripe_event_id: eventId,
           new_plan: plan,
@@ -416,14 +463,9 @@ export default async function handler(req: any, res: any) {
             subscription_status: 'past_due',
             subscription_source: 'app_store',
           })
-          .eq('id', appUserId);
+          .eq('id', userId);
 
-        capturePostHogEvent(appUserId, 'payment_failed', {
-          plan,
-          period,
-          product_id: productId,
-        });
-        console.log(`[revenuecat-webhook] Billing issue for user ${appUserId}`);
+        console.log(`[revenuecat-webhook] Billing issue for user ${userId}`);
         break;
       }
 
@@ -432,7 +474,7 @@ export default async function handler(req: any, res: any) {
       // =========================================
       case 'PRODUCT_CHANGE': {
         const { claimed } = await claimEvent(supabase, {
-          user_id: appUserId,
+          user_id: userId,
           event_type: 'app_store_product_change',
           stripe_event_id: eventId,
           new_plan: plan,
@@ -450,17 +492,29 @@ export default async function handler(req: any, res: any) {
             subscription_ends_at: expirationDate,
             subscription_source: 'app_store',
           })
-          .eq('id', appUserId);
+          .eq('id', userId);
 
-        await maybeCompletePaidOnboarding(supabase, appUserId);
-        await cascadeToPartner(supabase, appUserId, plan, 'active', period, expirationDate);
-        capturePostHogEvent(appUserId, 'subscription_changed', {
-          plan,
-          period,
-          product_id: productId,
-          previous_product_id: event.previous_product_id,
+        await maybeCompletePaidOnboarding(supabase, userId);
+        await cascadeToPartner(supabase, userId, plan, 'active', period, expirationDate);
+        console.log(`[revenuecat-webhook] User ${userId} changed to ${plan} (${period})`);
+        break;
+      }
+
+      // =========================================
+      // SUBSCRIBER_ALIAS — RevenueCat merged identities
+      // =========================================
+      case 'SUBSCRIBER_ALIAS': {
+        await claimEvent(supabase, {
+          user_id: userId,
+          event_type: 'app_store_subscriber_alias',
+          stripe_event_id: eventId,
+          metadata: {
+            aliases: getIdentityCandidates(event),
+            source: 'app_store',
+          },
         });
-        console.log(`[revenuecat-webhook] User ${appUserId} changed to ${plan} (${period})`);
+
+        console.log(`[revenuecat-webhook] Synced subscriber alias for user ${userId}`);
         break;
       }
 

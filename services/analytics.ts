@@ -94,6 +94,26 @@ interface PurchaseFailedParams extends BaseEventParams {
   source?: 'stripe' | 'apple' | 'google';
 }
 
+interface AppInstalledParams extends BaseEventParams {
+  platform?: 'ios' | 'android' | 'web';
+}
+
+interface AppOpenedParams extends BaseEventParams {
+  source: 'cold' | 'warm' | 'deeplink' | 'notification';
+  platform?: 'ios' | 'android' | 'web';
+  deep_link_path?: string;
+  utm_source?: string;
+  utm_medium?: string;
+  utm_campaign?: string;
+  utm_content?: string;
+  utm_term?: string;
+}
+
+interface AppBackgroundedParams extends BaseEventParams {
+  active_duration_ms: number;
+  platform?: 'ios' | 'android' | 'web';
+}
+
 // Engagement events
 interface ChatMessageParams extends BaseEventParams {
   mode: 'ask' | 'learn' | 'coach';
@@ -156,6 +176,16 @@ interface ErrorParams extends BaseEventParams {
   page_context: string;
 }
 
+interface ApiErrorParams extends BaseEventParams {
+  endpoint: string;
+  method: string;
+  error_message: string;
+  status_code?: number;
+  route?: string;
+  screen?: string;
+  user_action?: string;
+}
+
 interface FeatureAbandonedParams extends BaseEventParams {
   feature: string;
   time_spent_ms: number;
@@ -210,6 +240,9 @@ type EventName =
   | 'checkout_started'
   | 'purchase_completed'
   | 'purchase_failed'
+  | 'app_installed'
+  | 'app_opened'
+  | 'app_backgrounded'
   | 'subscription_completed'
   | 'subscription_failed'
   | 'trial_started'
@@ -237,6 +270,8 @@ type EventName =
   | 'partner_joined'
   // Churn
   | 'error_encountered'
+  | 'app_error'
+  | 'api_error'
   | 'rage_click'
   | 'feature_abandoned'
   | 'account_deleted'
@@ -310,6 +345,16 @@ const getSessionId = (): string => {
   return sessionId;
 };
 
+const PRE_IDENTIFY_EVENTS = new Set<EventName>([
+  'page_view',
+  'app_installed',
+  'app_opened',
+  'app_backgrounded',
+  'app_error',
+  'api_error',
+  'signup_started',
+]);
+
 class AnalyticsService {
   private userId: string | null = null;
   private rawUserId: string | null = null; // Unhashed for Supabase
@@ -349,6 +394,14 @@ class AnalyticsService {
     this.flushQueue();
   }
 
+  getDistinctId(): string {
+    if (hasPostHog() && typeof window.posthog.get_distinct_id === 'function') {
+      return window.posthog.get_distinct_id();
+    }
+
+    return this.userId || getAnonymousId();
+  }
+
   /**
    * Track an event
    */
@@ -361,7 +414,7 @@ class AnalyticsService {
     };
 
     // If not initialized, queue the event
-    if (!this.initialized && eventName !== 'page_view') {
+    if (!this.initialized && !PRE_IDENTIFY_EVENTS.has(eventName)) {
       this.eventQueue.push({ name: eventName, params: enrichedParams });
       return;
     }
@@ -527,6 +580,18 @@ class AnalyticsService {
     this.track('purchase_failed', params);
   }
 
+  trackAppInstalled(params: AppInstalledParams = {}): void {
+    this.track('app_installed', params);
+  }
+
+  trackAppOpened(params: AppOpenedParams): void {
+    this.track('app_opened', params);
+  }
+
+  trackAppBackgrounded(params: AppBackgroundedParams): void {
+    this.track('app_backgrounded', params);
+  }
+
   trackSubscriptionCompleted(params: PurchaseCompletedParams): void {
     this.track('subscription_completed', params);
   }
@@ -571,6 +636,14 @@ class AnalyticsService {
     this.track('error_encountered', params);
   }
 
+  trackAppError(params: ErrorParams): void {
+    this.track('app_error', params);
+  }
+
+  trackApiError(params: ApiErrorParams): void {
+    this.track('api_error', params);
+  }
+
   trackFeatureAbandoned(params: FeatureAbandonedParams): void {
     this.track('feature_abandoned', params);
   }
@@ -593,6 +666,7 @@ declare global {
       capture: (eventName: string, properties?: Record<string, unknown>) => void;
       identify: (distinctId: string, properties?: Record<string, unknown>) => void;
       reset: () => void;
+      get_distinct_id?: () => string;
       [key: string]: unknown;
     };
   }

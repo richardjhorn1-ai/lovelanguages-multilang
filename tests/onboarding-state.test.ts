@@ -78,4 +78,26 @@ describe('onboarding state helpers', () => {
       'target_language',
     ]);
   });
+
+  it('inserts the goal step before plan for student flows only', () => {
+    expect(getFlowSteps('student_full').slice(-3)).toEqual(['goal', 'plan', 'start']);
+    expect(getFlowSteps('student_invited').slice(-3)).toEqual(['goal', 'plan', 'start']);
+    expect(getFlowSteps('tutor_full')).not.toContain('goal');
+    expect(getFlowSteps('tutor_invited')).not.toContain('goal');
+  });
+
+  it('stores goal fields as an owned onboarding step payload', () => {
+    const next = applyOnboardingPatch(
+      {
+        userName: 'Alex',
+      },
+      {
+        goalPreset: 'custom',
+        firstGoal: 'Meet her parents without freezing up',
+      }
+    );
+
+    expect(next.goalPreset).toBe('custom');
+    expect(next.firstGoal).toBe('Meet her parents without freezing up');
+  });
 });

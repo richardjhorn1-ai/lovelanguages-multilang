@@ -4,8 +4,8 @@ import { supabase } from '../services/supabase';
 import { analytics } from '../services/analytics';
 import { Profile } from '../types';
 import { ICONS } from '../constants';
-import { useLanguage } from '../context/LanguageContext';
-import { isIAPAvailable, getOfferings, purchasePackage, restorePurchases, hasActiveEntitlement } from '../services/purchases';
+import { purchasePackage, restorePurchases, hasActiveEntitlement } from '../services/purchases';
+import { useNativePaywall } from '../hooks/useNativePaywall';
 import { apiFetch, APP_URL } from '../services/api-config';
 import { formatUsdPrice, getDisplaySubscriptionPrice, type BillingPeriod } from '../services/subscription-pricing';
 
@@ -16,30 +16,23 @@ interface SubscriptionRequiredProps {
 }
 
 const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, onSubscribed, trialExpired = false }) => {
-  // Default to unlimited plan (best value)
-  const [selectedPlan, setSelectedPlan] = useState<'free' | 'standard' | 'unlimited'>('unlimited');
+  const {
+    useIAP,
+    loading: nativeCatalogLoading,
+    error: nativeCatalogError,
+    introEligible,
+    refresh: refreshNativeCatalog,
+    resolvePackageFor,
+  } = useNativePaywall();
+  const [selectedPlan, setSelectedPlan] = useState<'free' | 'standard' | 'unlimited'>(useIAP ? 'standard' : 'unlimited');
   const [billingPeriod, setBillingPeriod] = useState<BillingPeriod>('monthly');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showCanceledMessage, setShowCanceledMessage] = useState(false);
 
   const { t } = useTranslation();
-  const { targetName } = useLanguage();
-  const [iapPackages, setIapPackages] = useState<any[]>([]);
   const [restoring, setRestoring] = useState(false);
-  const useIAP = isIAPAvailable();
   const paymentSource = useIAP ? 'apple' : 'stripe';
-
-  // Fetch IAP offerings on iOS
-  useEffect(() => {
-    if (useIAP) {
-      getOfferings().then(offerings => {
-        if (offerings?.current?.availablePackages) {
-          setIapPackages(offerings.current.availablePackages);
-        }
-      });
-    }
-  }, [useIAP]);
 
   // Restore Purchases handler (required by Apple)
   const handleRestorePurchases = async () => {
@@ -65,18 +58,26 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
 
   // iOS IAP purchase handler
   const handleIAPSubscribe = async () => {
-    const productId = `${selectedPlan}_${billingPeriod}`;
-    const pkg = iapPackages.find((p: any) => p.product?.identifier === productId);
+    console.log('[SubscriptionRequired] Attempting IAP subscribe', {
+      selectedPlan,
+      billingPeriod,
+    });
+    const pkg = selectedPlan === 'free' ? null : await resolvePackageFor(selectedPlan, billingPeriod);
 
     if (!pkg) {
       analytics.trackPurchaseFailed({
         plan: selectedPlan,
         billing_period: billingPeriod,
         error_code: 'product_not_available',
-        error_message: `Product ${productId} not available`,
+        error_message: nativeCatalogError || `Product ${selectedPlan}_${billingPeriod} not available`,
         source: 'apple',
       });
-      setError(`Product ${productId} not available`);
+      setError(
+        nativeCatalogError ||
+        t('subscription.errors.pricingUnavailable', {
+          defaultValue: 'Subscriptions are unavailable right now. Please try again.',
+        })
+      );
       return;
     }
 
@@ -93,6 +94,12 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
     });
 
     try {
+      console.log('[SubscriptionRequired] Calling purchasePackage', {
+        selectedPlan,
+        billingPeriod,
+        productId: pkg.product?.identifier,
+        packageId: pkg.identifier,
+      });
       const customerInfo = await purchasePackage(pkg);
       if (customerInfo) {
         // Purchase completion is captured server-side from the RevenueCat webhook.
@@ -214,6 +221,12 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
       ],
     },
   ];
+  const visiblePlans = useIAP
+    ? plans.filter((plan) => plan.id !== 'free')
+    : plans.filter((plan) => !(trialExpired && plan.id === 'free'));
+  const displayError = error || nativeCatalogError;
+  const showIntroTrial =
+    useIAP && selectedPlan === 'standard' && billingPeriod === 'monthly' && introEligible;
 
   // Calculate monthly equivalent for display
   const getMonthlyEquivalent = (plan: typeof plans[0]) => {
@@ -225,6 +238,11 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
   // Get billing period label for display
   const getBillingLabel = (plan: typeof plans[0]) => {
     if (plan.id === 'free') return t('subscription.choice.free.perMonth');
+    if (useIAP && plan.id === 'standard' && billingPeriod === 'monthly' && introEligible) {
+      return t('subscription.choice.free.iosTrialNote', {
+        defaultValue: '7 days free, then $17.99/mo. Cancel anytime.',
+      });
+    }
     if (billingPeriod === 'weekly') return t('subscription.common.billedWeekly', { price: plan.weeklyPrice.toFixed(2) });
     if (billingPeriod === 'monthly') return '';
     return t('subscription.common.billedAnnually', { price: getMonthlyEquivalent(plan).toFixed(2) });
@@ -273,33 +291,6 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
 
   const handleSubscribe = async () => {
     if (selectedPlan === 'free') {
-      if (useIAP) {
-        // iOS: Free trial = App Store intro offer on standard_monthly
-        const pkg = iapPackages.find((p: any) => p.product?.identifier === 'standard_monthly');
-        if (!pkg) {
-          setError('Free trial not available. Please select a plan.');
-          return;
-        }
-        setLoading(true);
-        setError(null);
-        try {
-          const customerInfo = await purchasePackage(pkg);
-          if (customerInfo) {
-            analytics.track('trial_started', {
-              plan: 'standard',
-              trigger_reason: 'subscription_required',
-              source: 'apple',
-            });
-            onSubscribed();
-          } else {
-            setLoading(false); // User cancelled
-          }
-        } catch (err: any) {
-          setError(err?.message || 'Failed to start trial. Please try again.');
-          setLoading(false);
-        }
-        return;
-      }
       return handleChooseFreeTier();
     }
 
@@ -500,12 +491,13 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
         </div>
 
         {/* Plan Cards - 3 columns on desktop, stack on mobile */}
-        {/* Hide free tier if trial has expired */}
-        <div className={`grid grid-cols-1 ${trialExpired ? 'md:grid-cols-2 max-w-2xl mx-auto' : 'md:grid-cols-3'} gap-4 mb-6`}>
-          {plans.filter(p => !(trialExpired && p.id === 'free')).map((plan) => {
+        <div className={`grid grid-cols-1 ${(useIAP || trialExpired) ? 'md:grid-cols-2 max-w-2xl mx-auto' : 'md:grid-cols-3'} gap-4 mb-6`}>
+          {visiblePlans.map((plan) => {
             const isSelected = selectedPlan === plan.id;
             const monthlyEquiv = getMonthlyEquivalent(plan);
             const billingLabel = getBillingLabel(plan);
+            const showPlanIntroTrial =
+              useIAP && plan.id === 'standard' && billingPeriod === 'monthly' && introEligible;
 
             return (
               <button
@@ -527,6 +519,11 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
                   <div>
                     <h3 className="text-lg font-bold font-header text-[var(--text-primary)]">{plan.name}</h3>
                     <p className="text-xs text-[var(--text-secondary)]">{plan.tagline}</p>
+                    {showPlanIntroTrial && (
+                      <p className="text-xs text-green-600 mt-1">
+                        {t('subscription.choice.free.name', { defaultValue: '7-Day Free Trial' })}
+                      </p>
+                    )}
                   </div>
                   {isSelected && (
                     <div className="w-6 h-6 rounded-full bg-rose-500 flex items-center justify-center flex-shrink-0">
@@ -569,27 +566,40 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
         </div>
 
         {/* Error */}
-        {error && (
+        {displayError && (
           <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm text-center">
-            {error}
+            {displayError}
+            {useIAP && (
+              <button
+                onClick={() => {
+                  setError(null);
+                  void refreshNativeCatalog();
+                }}
+                className="ml-2 underline hover:no-underline font-medium"
+              >
+                {t('onboarding.plan.errors.retry')}
+              </button>
+            )}
           </div>
         )}
 
         {/* Subscribe/Start Free Button */}
         <button
           onClick={handleSubscribe}
-          disabled={loading}
+          disabled={loading || nativeCatalogLoading}
           className={`w-full py-4 rounded-2xl font-bold text-lg shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all ${
-            selectedPlan === 'free'
+            !useIAP && selectedPlan === 'free'
               ? 'bg-gray-800 dark:bg-gray-600 hover:bg-gray-900 dark:hover:bg-gray-500 text-white'
               : 'bg-rose-500 hover:bg-rose-600 text-white'
           }`}
         >
-          {loading ? (
+          {(loading || nativeCatalogLoading) ? (
             <span className="flex items-center justify-center gap-2">
               <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
               {t('subscription.common.loading')}
             </span>
+          ) : showIntroTrial ? (
+            t('subscription.choice.free.cta')
           ) : selectedPlan === 'free' ? (
             t('subscription.choice.free.cta')
           ) : (
@@ -603,7 +613,9 @@ const SubscriptionRequired: React.FC<SubscriptionRequiredProps> = ({ profile, on
 
         {/* Trust signals */}
         <p className="text-center text-xs text-[var(--text-secondary)] mt-4">
-          {selectedPlan === 'free'
+          {showIntroTrial
+            ? t('subscription.choice.free.iosTrialNote', { defaultValue: '7 days free, then $17.99/mo. Cancel anytime.' })
+            : selectedPlan === 'free'
             ? (useIAP
                 ? t('subscription.choice.free.iosTrialNote', { defaultValue: '7 days free, then $17.99/mo. Cancel anytime.' })
                 : t('subscription.choice.free.noCardRequired', { defaultValue: 'No credit card required' }))

@@ -36,6 +36,8 @@ export type OnboardingFlowKey =
   | 'student_invited'
   | 'tutor_invited';
 
+export type GoalPreset = 'love' | 'phrases' | 'surprise' | 'custom';
+
 export type OnboardingStepKey =
   | 'role'
   | 'native_language'
@@ -47,6 +49,7 @@ export type OnboardingStepKey =
   | 'invite_partner'
   | 'theme_customization'
   | 'personalization'
+  | 'goal'
   | 'teaching_style'
   | 'preview'
   | 'plan'
@@ -190,6 +193,7 @@ export interface OnboardingData {
   preferredTime?: string;        // Morning, Evening, etc.
   biggestFear?: string;          // Pronunciation, Grammar, etc.
   priorExperience?: string;
+  goalPreset?: GoalPreset;
   firstGoal?: string;
 
   // Tutor fields
@@ -863,6 +867,7 @@ export interface SessionContext {
   role: 'student' | 'tutor';
   name: string;
   partnerName: string | null;
+  firstGoal?: string | null;
   bootedAt: string;  // ISO timestamp for cache invalidation
 
   // Language settings

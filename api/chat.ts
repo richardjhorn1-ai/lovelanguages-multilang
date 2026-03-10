@@ -454,12 +454,14 @@ GUIDANCE:
     // Use sessionContext if provided (avoids re-fetching on every message)
     let userRole: 'student' | 'tutor';
     let partnerName: string | null = null;
+    let learningGoal: string | null = null;
     let partnerContext: PartnerContext | null = null;
 
     if (sessionContext && sessionContext.bootedAt) {
       // CACHED PATH — use session data, zero DB queries
       userRole = sessionContext.role === 'tutor' ? 'tutor' : 'student';
       partnerName = sessionContext.partnerName;
+      learningGoal = sessionContext.firstGoal || null;
 
       if (userRole === 'tutor' && sessionContext.partner) {
         const p = sessionContext.partner;
@@ -490,12 +492,13 @@ GUIDANCE:
       // FALLBACK PATH — fetch fresh data (4 queries instead of 11)
       const { data: profile } = await supabase
         .from('profiles')
-        .select('role, partner_name')
+        .select('role, partner_name, onboarding_data')
         .eq('id', auth.userId)
         .single();
 
       userRole = profile?.role === 'tutor' ? 'tutor' : 'student';
       partnerName = profile?.partner_name || null;
+      learningGoal = profile?.onboarding_data?.firstGoal || null;
 
       if (userRole === 'tutor') {
         const tutorSetup = await getTutorContext(supabase, auth.userId);
@@ -526,6 +529,9 @@ GUIDANCE:
     const personalizedContext = partnerName && userRole === 'student'
       ? `\nPERSONALIZATION:\nThe user is learning ${targetName} for someone named ${partnerName}. Reference this person naturally in examples and encouragement (e.g., "Try saying this to ${partnerName} tonight!" or "Imagine ${partnerName}'s reaction when you say this!").\n`
       : '';
+    const goalContext = learningGoal && userRole === 'student'
+      ? `\nGOAL:\nTheir immediate goal is "${learningGoal}". Keep examples and encouragement aligned with that goal when it fits naturally.\n`
+      : '';
 
     // Tutors use simplified instructions (no vocabulary extraction needed)
     const isTutorMode = userRole === 'tutor';
@@ -538,7 +544,7 @@ FORMATTING:
 - Keep responses warm, conversational, and focused on helping the couple connect through language
 
 ${modePrompt}`
-      : `${COMMON_INSTRUCTIONS}${personalizedContext}
+      : `${COMMON_INSTRUCTIONS}${personalizedContext}${goalContext}
 ${modePrompt}`;
 
     // Enhanced schema for tutor/coach mode with agentic action capabilities

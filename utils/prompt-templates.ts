@@ -130,6 +130,7 @@ export interface ChatPromptOptions {
   mode: ChatMode;
   userRole: 'student' | 'tutor';
   partnerName?: string | null;
+  learningGoal?: string | null;
   partnerContext?: {
     learnerName: string;
     stats: { totalWords: number; masteredCount: number; xp: number; level: string };
@@ -148,6 +149,7 @@ export function buildChatPrompt(options: ChatPromptOptions): string {
     mode,
     userRole,
     partnerName,
+    learningGoal,
     partnerContext,
     vocabularySection
   } = options;
@@ -248,7 +250,11 @@ GUIDANCE:
     ? `\nREMEMBER: They're learning ${target.name} for ${partnerName}. Reference this naturally.`
     : '';
 
-  return COMMON + modePrompt + personalizedContext;
+  const goalContext = learningGoal && userRole === 'student'
+    ? `\nLEARNING GOAL: Their immediate goal is "${learningGoal}". Keep examples and encouragement relevant to that goal when it fits naturally.`
+    : '';
+
+  return COMMON + modePrompt + personalizedContext + goalContext;
 }
 
 /**
@@ -284,4 +290,3 @@ REQUIREMENTS:
 - Mark each question isCore: true for core concept questions, false for personalized vocabulary questions
 - Set each question's theme to the specific concept it tests from the list above`;
 }
-

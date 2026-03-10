@@ -36,6 +36,7 @@ import { LearnLoveStep } from './steps/student/LearnLoveStep';
 import { CelebrationStep } from './steps/student/CelebrationStep';
 import { PersonalizationStep } from './steps/student/PersonalizationStep';
 import { ThemeCustomizationStep } from './steps/student/ThemeCustomizationStep';
+import { GoalStep } from './steps/student/GoalStep';
 import { StartStep } from './steps/student/StartStep';
 
 // Tutor steps
@@ -1283,7 +1284,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
     // ============================================
     if (isInvitedUser) {
       if (activeRole === 'student') {
-        // Invited student: Names→Hello→Love→Celebrate→Plan→Start
+        // Invited student: Names→Hello→Love→Celebrate→Goal→Plan→Start
         switch (currentStep) {
           case 1:
             return (
@@ -1331,10 +1332,22 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               />
             );
           case 5:
+            return (
+              <GoalStep
+                currentStep={5}
+                totalSteps={totalSteps}
+                initialGoalPreset={data.goalPreset}
+                initialGoalText={data.firstGoal}
+                onNext={(goalPreset, firstGoal) => continueWithStep({ goalPreset, firstGoal })}
+                onBack={goBack}
+                accentColor={accentColor}
+              />
+            );
+          case 6:
             if (hasInheritedSubscription) {
               return (
                 <StartStep
-                  currentStep={5}
+                  currentStep={6}
                   totalSteps={totalSteps}
                   userName={data.userName || 'Friend'}
                   partnerName={data.partnerName || inviterName || 'them'}
@@ -1346,7 +1359,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             }
             return (
               <PlanSelectionStep
-              currentStep={5}
+              currentStep={6}
               totalSteps={totalSteps}
               userName={data.userName || 'Friend'}
               onNext={(plan, priceId, billingPeriod) => {
@@ -1366,10 +1379,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               accentColor={accentColor}
             />
             );
-          case 6:
+          case 7:
             return (
               <StartStep
-                currentStep={6}
+                currentStep={7}
                 totalSteps={totalSteps}
                 userName={data.userName || 'Friend'}
                 partnerName={data.partnerName || inviterName || 'them'}
@@ -1636,11 +1649,23 @@ export const Onboarding: React.FC<OnboardingProps> = ({
             />
           );
         case 11:
+          return (
+            <GoalStep
+              currentStep={11}
+              totalSteps={totalSteps}
+              initialGoalPreset={data.goalPreset}
+              initialGoalText={data.firstGoal}
+              onNext={(goalPreset, firstGoal) => continueWithStep({ goalPreset, firstGoal })}
+              onBack={goBack}
+              accentColor={accentColor}
+            />
+          );
+        case 12:
           // Skip PlanSelectionStep if user has inherited subscription
           if (hasInheritedSubscription) {
             return (
               <StartStep
-                currentStep={11}
+                currentStep={12}
                 totalSteps={totalSteps}
                 userName={data.userName || 'Friend'}
                 partnerName={data.partnerName || 'them'}
@@ -1652,7 +1677,7 @@ export const Onboarding: React.FC<OnboardingProps> = ({
           }
           return (
             <PlanSelectionStep
-              currentStep={11}
+              currentStep={12}
               totalSteps={totalSteps}
               userName={data.userName || 'Friend'}
               onNext={(plan, priceId, billingPeriod) => {
@@ -1672,10 +1697,10 @@ export const Onboarding: React.FC<OnboardingProps> = ({
               accentColor={accentColor}
             />
           );
-        case 12:
+        case 13:
           return (
             <StartStep
-              currentStep={12}
+              currentStep={13}
               totalSteps={totalSteps}
               userName={data.userName || 'Friend'}
               partnerName={data.partnerName || 'them'}

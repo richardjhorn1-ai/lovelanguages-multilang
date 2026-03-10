@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { OnboardingStep, NextButton, ONBOARDING_GLASS } from '../../OnboardingStep';
 import { supabase } from '../../../../services/supabase';
 import { ICONS } from '../../../../constants';
 import { useLanguage } from '../../../../context/LanguageContext';
-import { isIAPAvailable, getOfferings, purchasePackage, restorePurchases, hasActiveEntitlement } from '../../../../services/purchases';
+import { useNativePaywall } from '../../../../hooks/useNativePaywall';
+import { purchasePackage, restorePurchases, hasActiveEntitlement } from '../../../../services/purchases';
 import { apiFetch } from '../../../../services/api-config';
 import { formatUsdPrice, getDisplaySubscriptionPrice, type BillingPeriod } from '../../../../services/subscription-pricing';
 import { analytics } from '../../../../services/analytics';
@@ -41,42 +42,44 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
 }) => {
   const { t } = useTranslation();
   const { targetName } = useLanguage();
-  const [selectedPlan, setSelectedPlan] = useState<'free' | 'standard' | 'unlimited' | null>('free');
+  const [selectedPlan, setSelectedPlan] = useState<'free' | 'standard' | 'unlimited' | null>(null);
   const [billingPeriod, setBillingPeriod] = useState<BillingPeriod>('monthly');
   const [prices, setPrices] = useState<Prices | null>(null);
   const [loading, setLoading] = useState(true);
   const [purchasing, setPurchasing] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [iapPackages, setIapPackages] = useState<any[]>([]); // RevenueCat packages for iOS
   const [restoring, setRestoring] = useState(false);
-  const useIAP = isIAPAvailable();
+  const {
+    useIAP,
+    loading: nativeCatalogLoading,
+    error: nativeCatalogError,
+    introEligible,
+    refresh: refreshNativeCatalog,
+    resolvePackageFor,
+  } = useNativePaywall();
   const paymentSource = useIAP ? 'apple' : 'stripe';
 
   useEffect(() => {
-    fetchPrices();
+    void fetchPrices();
     analytics.trackPaywallView({
-      plan: 'free',
+      plan: useIAP ? 'standard' : 'free',
       trigger: 'onboarding',
       trigger_reason: 'onboarding',
       page_context: 'plan_selection',
       source: paymentSource,
     });
-  }, []);
+  }, [paymentSource, useIAP]);
 
   const fetchPrices = async () => {
     setError(null);
+    if (useIAP) {
+      setPrices(null);
+      setLoading(false);
+      return;
+    }
+
     setLoading(true);
     try {
-      // On iOS: fetch from RevenueCat (App Store prices)
-      if (useIAP) {
-        const offerings = await getOfferings();
-        if (offerings?.current?.availablePackages) {
-          setIapPackages(offerings.current.availablePackages);
-        }
-        // Still fetch Stripe prices as fallback for display
-      }
-
-      // Always fetch from our API (provides Stripe price IDs for web, feature info for both)
       const session = await supabase.auth.getSession();
       const token = session.data.session?.access_token;
 
@@ -102,10 +105,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
 
       if (!data.prices?.standardMonthly) {
         console.error('[PlanSelectionStep] Prices missing from response:', data);
-        // On iOS we can still proceed with IAP packages
-        if (!useIAP || iapPackages.length === 0) {
-          setError(t('onboarding.plan.errors.pricesUnavailable'));
-        }
+        setError(t('onboarding.plan.errors.pricesUnavailable'));
         setLoading(false);
         return;
       }
@@ -121,18 +121,27 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
 
   // Handle iOS IAP purchase
   const handleIAPPurchase = async (plan: 'standard' | 'unlimited') => {
-    const productId = `${plan}_${billingPeriod}`;
-    const pkg = iapPackages.find(p => p.product?.identifier === productId);
+    console.log('[PlanSelectionStep] Attempting IAP purchase', {
+      plan,
+      billingPeriod,
+      selectedPlan,
+    });
+    const pkg = await resolvePackageFor(plan, billingPeriod);
 
     if (!pkg) {
       analytics.trackPurchaseFailed({
         plan,
         billing_period: billingPeriod,
         error_code: 'product_not_available',
-        error_message: `Product ${productId} not available`,
+        error_message: nativeCatalogError || `Product ${plan}_${billingPeriod} not available`,
         source: 'apple',
       });
-      setError(`Product ${productId} not available`);
+      setError(
+        nativeCatalogError ||
+        t('subscription.errors.pricingUnavailable', {
+          defaultValue: 'Subscriptions are unavailable right now. Please try again.',
+        })
+      );
       return;
     }
 
@@ -146,13 +155,16 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
       source: 'apple',
     });
     try {
+      console.log('[PlanSelectionStep] Calling purchasePackage', {
+        plan,
+        billingPeriod,
+        productId: pkg.product?.identifier,
+        packageId: pkg.identifier,
+      });
       const customerInfo = await purchasePackage(pkg);
       if (customerInfo) {
-        // Purchase succeeded — RevenueCat webhook will update DB
-        // Move to next step (onComplete)
-        onNext(plan, null, billingPeriod); // No Stripe priceId for IAP
+        onNext(plan, null, billingPeriod);
       }
-      // If null, user cancelled — stay on this step
     } catch (err: any) {
       console.error('[PlanSelectionStep] IAP purchase error:', err);
       analytics.trackPurchaseFailed({
@@ -261,6 +273,10 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
       ],
     },
   ];
+  const visiblePlans = useIAP ? plans.filter((plan) => plan.id !== 'free') : plans;
+  const displayError = error || nativeCatalogError;
+  const showIntroTrial =
+    useIAP && selectedPlan === 'standard' && billingPeriod === 'monthly' && introEligible;
 
   if (loading) {
     return (
@@ -298,11 +314,11 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
       </div>
 
       {/* Error Message */}
-      {error && (
+      {displayError && (
         <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm text-center">
-          {error}
+          {displayError}
           <button
-            onClick={fetchPrices}
+            onClick={useIAP ? () => void refreshNativeCatalog() : () => void fetchPrices()}
             className="ml-2 underline hover:no-underline font-medium"
           >
             {t('onboarding.plan.errors.retry')}
@@ -375,8 +391,8 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
       </div>
 
       {/* Plan Cards - horizontal on desktop, stacked on mobile */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-        {plans.map((plan) => {
+      <div className={`grid grid-cols-1 ${useIAP ? 'md:grid-cols-2 max-w-2xl mx-auto' : 'md:grid-cols-3'} gap-4 mb-6`}>
+        {visiblePlans.map((plan, index) => {
           const price = billingPeriod === 'weekly'
             ? plan.weeklyPrice
             : billingPeriod === 'monthly'
@@ -394,11 +410,13 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
               key={plan.id}
               onClick={() => {
                 setSelectedPlan(plan.id);
-                analytics.trackPlanSelected({
-                  plan: plan.id as 'free' | 'standard' | 'unlimited',
-                  billing_period: billingPeriod,
-                  source: paymentSource,
-                });
+                if (plan.id !== 'free') {
+                  analytics.trackPlanSelected({
+                    plan: plan.id as 'free' | 'standard' | 'unlimited',
+                    billing_period: billingPeriod,
+                    source: paymentSource,
+                  });
+                }
               }}
               className="relative text-left p-4 transition-all animate-reveal"
               style={{
@@ -408,7 +426,7 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
                 boxShadow: isSelected
                   ? `0 4px 20px -4px ${accentColor}25`
                   : '0 8px 32px -8px rgba(0, 0, 0, 0.06)',
-                animationDelay: `${0.1 * plans.indexOf(plan)}s`,
+                animationDelay: `${0.1 * index}s`,
               } as React.CSSProperties}
             >
               {/* Popular Badge */}
@@ -437,6 +455,11 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
                     </>
                   ) : (
                     <>
+                      {useIAP && plan.id === 'standard' && billingPeriod === 'monthly' && introEligible && (
+                        <div className="text-xs font-semibold text-green-600 mb-1">
+                          {t('subscription.choice.free.name', { defaultValue: '7-Day Free Trial' })}
+                        </div>
+                      )}
                       <div className="text-2xl md:text-3xl font-bold text-[var(--text-primary)]">{formatUsdPrice(price)}</div>
                       <div className="text-xs text-[var(--text-secondary)]">
                         /{periodLabel}
@@ -464,6 +487,11 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
                     )}
                   </div>
                   <p className="text-sm text-[var(--text-secondary)] mb-3">{plan.tagline}</p>
+                  {useIAP && plan.id === 'standard' && billingPeriod === 'monthly' && introEligible && (
+                    <p className="text-xs text-green-600 mb-3">
+                      {t('subscription.choice.free.iosTrialNote', { defaultValue: '7 days free, then $17.99/mo. Cancel anytime.' })}
+                    </p>
+                  )}
 
                   <ul className="space-y-1 md:text-left">
                     {plan.features.slice(0, 4).map((feature, i) => {
@@ -497,57 +525,36 @@ export const PlanSelectionStep: React.FC<PlanSelectionStepProps> = ({
       <NextButton
         onClick={async () => {
           if (selectedPlan === 'free') {
-            if (useIAP) {
-              // iOS: Free trial = App Store intro offer on standard_monthly
-              const pkg = iapPackages.find((p: any) => p.product?.identifier === 'standard_monthly');
-              if (!pkg) {
-                setError(t('subscription.errors.trialUnavailable', { defaultValue: 'Free trial not available. Please select a plan.' }));
-                return;
-              }
-              setPurchasing(true);
-              setError(null);
-              try {
-                const customerInfo = await purchasePackage(pkg);
-                if (customerInfo) {
-                  // Trial started via App Store — RevenueCat webhook updates DB
-                  // Pass 'standard' so Onboarding.tsx skips server-side trial
-                  onNext('standard', null, billingPeriod);
-                }
-                // null = user cancelled, stay on step
-              } catch (err: any) {
-                setError(err?.message || t('subscription.errors.trialFailed', { defaultValue: 'Failed to start trial. Please try again.' }));
-              } finally {
-                setPurchasing(false);
-              }
-            } else {
-              // Web: server-side free trial (no card required)
-              onNext('free', null, billingPeriod);
-            }
+            onNext('free', null, billingPeriod);
           } else if (useIAP && selectedPlan) {
-            // iOS: trigger in-app purchase via RevenueCat
-            handleIAPPurchase(selectedPlan as 'standard' | 'unlimited');
+            await handleIAPPurchase(selectedPlan as 'standard' | 'unlimited');
           } else {
-            // Web: pass Stripe price ID
             onNext(selectedPlan || 'standard', getPriceId(), billingPeriod);
           }
         }}
-        disabled={!selectedPlan || purchasing || (selectedPlan !== 'free' && !useIAP && !prices)}
-        accentColor={accentColor}
+        disabled={!selectedPlan || purchasing || nativeCatalogLoading || (selectedPlan !== 'free' && !useIAP && !prices)}
+        accentColor={!useIAP && selectedPlan === 'free' ? '#374151' : accentColor}
       >
         {purchasing
           ? t('onboarding.plan.processing', { defaultValue: 'Processing...' })
-          : selectedPlan === 'free'
+          : showIntroTrial
             ? t('subscription.choice.free.cta', { defaultValue: 'Start 7-Day Free Trial' })
-            : t('onboarding.plan.continueWith', { plan: selectedPlan ? plans.find(p => p.id === selectedPlan)?.name : t('onboarding.plan.aPlan') })
+            : selectedPlan === 'free'
+              ? t('subscription.choice.free.cta', { defaultValue: 'Start 7-Day Free Trial' })
+              : t('onboarding.plan.continueWith', {
+                plan: selectedPlan ? visiblePlans.find((plan) => plan.id === selectedPlan)?.name : t('onboarding.plan.aPlan'),
+              })
         }
       </NextButton>
 
       {/* Trust signals */}
       <p className="text-center text-xs text-[var(--text-secondary)] mt-4">
-        {selectedPlan === 'free'
-          ? (useIAP
-              ? t('subscription.choice.free.iosTrialNote', { defaultValue: '7 days free, then $17.99/mo. Cancel anytime.' })
-              : t('subscription.choice.free.noCardRequired', { defaultValue: 'No credit card required' }))
+        {showIntroTrial
+          ? t('subscription.choice.free.iosTrialNote', { defaultValue: '7 days free, then $17.99/mo. Cancel anytime.' })
+          : selectedPlan === 'free'
+            ? (useIAP
+                ? t('subscription.choice.free.iosTrialNote', { defaultValue: '7 days free, then $17.99/mo. Cancel anytime.' })
+                : t('subscription.choice.free.noCardRequired', { defaultValue: 'No credit card required' }))
           : (useIAP
               ? t('onboarding.plan.trustSignalIOS', { defaultValue: 'In-app purchase via Apple. Cancel anytime in App Store subscriptions.' })
               : t('onboarding.plan.trustSignal'))

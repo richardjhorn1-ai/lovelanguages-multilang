@@ -8,10 +8,11 @@ import { LanguageProvider } from './context/LanguageContext';
 import './i18n';
 import { useI18nSync } from './hooks/useI18nSync';
 import { trackPageView, analytics, captureReferralSource, getReferralData, initWebVitals } from './services/analytics';
+import { initErrorTracking, setErrorTrackingUser, clearErrorTrackingUser } from './services/error-tracking';
 import { offline } from './services/offline';
 import { migrateFromLocalStorage } from './services/offline-db';
 import { sounds } from './services/sounds';
-import { configurePurchases, identifyUser, getCustomerInfo, hasActiveEntitlement, isIAPAvailable, logOutPurchases } from './services/purchases';
+import { configurePurchases, identifyUser, getCustomerInfo, hasActiveEntitlement, isIAPAvailable, logOutPurchases, syncRevenueCatIdentity } from './services/purchases';
 import NewWordsNotification from './components/NewWordsNotification';
 import { ExtractedWord } from './types';
 import Landing from './components/Landing';
@@ -38,6 +39,7 @@ import CookieConsent from './components/CookieConsent';
 import ErrorBoundary from './components/ErrorBoundary';
 import PromoExpiredBanner from './components/PromoExpiredBanner';
 import { registerNativeAppUrlBridge } from './services/native-links';
+import { registerMobileAttributionBridge } from './services/mobile-attribution';
 
 // Beta testers who get free access (add emails here)
 const BETA_TESTERS = [
@@ -245,6 +247,28 @@ const NativeUrlBridge: React.FC = () => {
   return null;
 };
 
+const NativeAttributionBridge: React.FC = () => {
+  useEffect(() => {
+    let disposed = false;
+    let cleanup = () => {};
+
+    registerMobileAttributionBridge().then((teardown) => {
+      if (disposed) {
+        teardown();
+        return;
+      }
+      cleanup = teardown;
+    });
+
+    return () => {
+      disposed = true;
+      cleanup();
+    };
+  }, []);
+
+  return null;
+};
+
 // Success toast component
 const SuccessToast: React.FC<{ message: string; onClose: () => void }> = ({ message, onClose }) => {
   useEffect(() => {
@@ -287,6 +311,7 @@ const App: React.FC = () => {
 
   // Capture UTM params from blog referrals on first load
   useEffect(() => {
+    initErrorTracking();
     captureReferralSource();
     initWebVitals();
     migrateFromLocalStorage();
@@ -311,6 +336,7 @@ const App: React.FC = () => {
       else {
         setProfile(null);
         setLoading(false);
+        clearErrorTrackingUser();
         // Log out of RevenueCat when user signs out
         if (isIAPAvailable()) logOutPurchases();
       }
@@ -318,6 +344,20 @@ const App: React.FC = () => {
 
     return () => subscription.unsubscribe();
   }, []);
+
+  useEffect(() => {
+    if (profile && session) {
+      setErrorTrackingUser({
+        id: profile.id,
+        email: profile.email,
+        role: profile.role,
+        activeLanguage: profile.active_language,
+      });
+      return;
+    }
+
+    clearErrorTrackingUser();
+  }, [profile, session]);
 
   // Check for subscription success in URL
   useEffect(() => {
@@ -680,7 +720,14 @@ const App: React.FC = () => {
         if (isIAPAvailable()) {
           configurePurchases(userId)
             .then(() => {
-              identifyUser(userId);
+              return identifyUser(userId);
+            })
+            .then(() => {
+              return syncRevenueCatIdentity({
+                posthogDistinctId: analytics.getDistinctId(),
+              });
+            })
+            .then(() => {
               // Reconcile: check if iOS subscription status differs from DB
               return getCustomerInfo();
             })
@@ -753,6 +800,7 @@ const App: React.FC = () => {
         <BrowserRouter>
           <HashRedirect />
           <NativeUrlBridge />
+          <NativeAttributionBridge />
           <AnalyticsWrapper>
           <div className="h-screen-safe text-[var(--text-primary)] transition-colors duration-300 app-bg-decor">
           {/* Success toast */}

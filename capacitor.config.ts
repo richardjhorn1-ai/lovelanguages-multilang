@@ -8,8 +8,8 @@ const config: CapacitorConfig = {
   // API calls use VITE_API_BASE_URL (set at build time via cap:build:ios script).
   // Shareable URLs use APP_URL; native auth returns use the callback helpers in services/api-config.ts.
   ios: {
-    // Prevent text size adjustment that can cause zoom
-    preferredContentMode: 'mobile',
+    // Let WKWebView choose the appropriate rendering mode for iPad vs iPhone.
+    preferredContentMode: 'recommended',
     // Scroll view configuration
     scrollEnabled: true,
     // Disable link previews (3D touch)

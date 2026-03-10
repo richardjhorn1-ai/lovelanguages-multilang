@@ -122,7 +122,7 @@ export default async function handler(req: any, res: any) {
     const [{ data: profile }, { targetLanguage, nativeLanguage }] = await Promise.all([
       supabase
         .from('profiles')
-        .select('xp, level, full_name')
+        .select('xp, level, full_name, onboarding_data')
         .eq('id', auth.userId)
         .single(),
       getProfileLanguages(supabase, auth.userId)
@@ -130,6 +130,7 @@ export default async function handler(req: any, res: any) {
 
     const targetName = getLanguageName(targetLanguage);
     const nativeName = getLanguageName(nativeLanguage);
+    const learnerGoal = profile?.onboarding_data?.firstGoal || null;
 
     // STEP 2: Check for previous summary (filtered by current language)
     const { data: lastSummary } = await supabase
@@ -358,6 +359,7 @@ ${Object.entries(gameStats.byMode).map(([mode, stats]) => {
       ? `You are Cupid, celebrating someone's recent ${targetName} progress. They're learning to connect with their partner - every word is a small act of love.
 
 Write in ${nativeName} (the learner's native language). ${targetName} words should be in ${targetName}.
+${learnerGoal ? `\nTheir current learning goal: ${learnerGoal}` : ''}
 
 ## What's New Since Last Time
 - New words: ${newWordsSinceLast} (total now: ${totalWords})
@@ -381,6 +383,7 @@ Write a warm progress update that feels personal. Notice patterns in what they'r
       : `You are Cupid, reflecting on someone's ${targetName} learning journey. They're learning to connect intimately with their partner - every word is a small act of love.
 
 Write in ${nativeName} (the learner's native language). ${targetName} words should be in ${targetName}.
+${learnerGoal ? `\nTheir current learning goal: ${learnerGoal}` : ''}
 
 ## Their Data
 - Total words: ${totalWords} | This week: ${recentWords.length} | XP: ${profile?.xp || 0}

@@ -3,7 +3,7 @@
 	"appName": "Love Languages",
 	"webDir": "dist",
 	"ios": {
-		"preferredContentMode": "mobile",
+		"preferredContentMode": "recommended",
 		"scrollEnabled": true,
 		"allowsLinkPreview": false,
 		"limitsNavigationsToAppBoundDomains": true
@@ -13,9 +13,11 @@
 		"FilesystemPlugin",
 		"HapticsPlugin",
 		"CAPNetworkPlugin",
+		"PreferencesPlugin",
 		"SharePlugin",
 		"StatusBarPlugin",
 		"PurchasesPlugin",
+		"SentryCapacitorPlugin",
 		"SignInWithApple"
 	]
 }

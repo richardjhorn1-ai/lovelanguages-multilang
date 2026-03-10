@@ -38,6 +38,7 @@ export const ONBOARDING_FLOW_STEPS = {
     'invite_partner',
     'theme_customization',
     'personalization',
+    'goal',
     'plan',
     'start',
   ],
@@ -58,6 +59,7 @@ export const ONBOARDING_FLOW_STEPS = {
     'learn_hello',
     'learn_love',
     'celebration',
+    'goal',
     'plan',
     'start',
   ],
@@ -83,6 +85,7 @@ export const ROLE_SPECIFIC_STUDENT_KEYS: Array<keyof OnboardingData> = [
   'preferredTime',
   'biggestFear',
   'priorExperience',
+  'goalPreset',
   'firstGoal',
 ];
 
@@ -131,6 +134,7 @@ export const STEP_OWNED_KEYS: Record<OnboardingStepKey, Array<keyof OnboardingDa
     'teachingPriority',
     'grammarComfort',
   ],
+  goal: ['goalPreset', 'firstGoal'],
   teaching_style: ['teachingStyle'],
   preview: [],
   plan: ['selectedPlan', 'selectedPriceId', 'selectedBillingPeriod'],

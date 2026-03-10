@@ -9,4 +9,12 @@ describe('analytics event allowlist', () => {
     expect(ALLOWED_EVENTS.has('purchase_completed')).toBe(true);
     expect(ALLOWED_EVENTS.has('purchase_failed')).toBe(true);
   });
+
+  it('accepts the native lifecycle and error events required by LOV-97 and LOV-99', () => {
+    expect(ALLOWED_EVENTS.has('app_installed')).toBe(true);
+    expect(ALLOWED_EVENTS.has('app_opened')).toBe(true);
+    expect(ALLOWED_EVENTS.has('app_backgrounded')).toBe(true);
+    expect(ALLOWED_EVENTS.has('app_error')).toBe(true);
+    expect(ALLOWED_EVENTS.has('api_error')).toBe(true);
+  });
 });

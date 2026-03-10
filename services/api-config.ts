@@ -82,6 +82,39 @@ export function getPasswordResetRedirectUrl(native?: boolean): string {
   });
 }
 
+export interface ApiFetchErrorContext {
+  screen?: string;
+  route?: string;
+  userAction?: string;
+  suppressErrorTracking?: boolean;
+  treat4xxAsError?: boolean;
+}
+
+export interface ApiFetchInit extends RequestInit {
+  __llErrorContext?: ApiFetchErrorContext;
+}
+
+function resolveRequestUrl(input: RequestInfo | URL): string {
+  if (typeof input === 'string') {
+    return input.startsWith('/api/') ? `${API_BASE_URL}${input}` : input;
+  }
+
+  if (input instanceof URL) {
+    return input.toString();
+  }
+
+  return input.url.startsWith('/api/') ? `${API_BASE_URL}${input.url}` : input.url;
+}
+
+function getRequestPath(url: string): string {
+  try {
+    const parsed = new URL(url, APP_URL);
+    return parsed.pathname;
+  } catch {
+    return url;
+  }
+}
+
 /**
  * Drop-in replacement for fetch() that auto-prefixes API routes.
  *
@@ -90,9 +123,49 @@ export function getPasswordResetRedirectUrl(native?: boolean): string {
  *
  * Non-API URLs (external, blob, data) pass through unchanged.
  */
-export function apiFetch(input: RequestInfo | URL, init?: RequestInit): Promise<Response> {
-  if (typeof input === 'string' && input.startsWith('/api/')) {
-    return fetch(`${API_BASE_URL}${input}`, init);
+export async function apiFetch(input: RequestInfo | URL, init?: ApiFetchInit): Promise<Response> {
+  const resolvedUrl = resolveRequestUrl(input);
+  const { __llErrorContext, ...requestInit } = init || {};
+
+  try {
+    const response = await fetch(resolvedUrl, requestInit);
+
+    if (!response.ok && !__llErrorContext?.suppressErrorTracking) {
+      const endpoint = getRequestPath(resolvedUrl);
+
+      void import('./error-tracking').then(({ captureApiError }) => {
+        captureApiError({
+          endpoint,
+          method: (requestInit.method || 'GET').toUpperCase(),
+          statusCode: response.status,
+          errorMessage: response.statusText || 'Request failed',
+          route: __llErrorContext?.route,
+          screen: __llErrorContext?.screen,
+          userAction: __llErrorContext?.userAction,
+          treat4xxAsError: __llErrorContext?.treat4xxAsError,
+        });
+      }).catch(() => {});
+    }
+
+    return response;
+  } catch (error) {
+    if (!__llErrorContext?.suppressErrorTracking) {
+      const endpoint = getRequestPath(resolvedUrl);
+
+      void import('./error-tracking').then(({ captureApiError }) => {
+        captureApiError({
+          endpoint,
+          method: (requestInit.method || 'GET').toUpperCase(),
+          errorMessage: error instanceof Error ? error.message : 'Network request failed',
+          route: __llErrorContext?.route,
+          screen: __llErrorContext?.screen,
+          userAction: __llErrorContext?.userAction,
+          treat4xxAsError: __llErrorContext?.treat4xxAsError,
+          error,
+        });
+      }).catch(() => {});
+    }
+
+    throw error;
   }
-  return fetch(input, init);
 }

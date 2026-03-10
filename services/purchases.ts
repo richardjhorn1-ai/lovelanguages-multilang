@@ -10,9 +10,11 @@
  */
 
 import { Capacitor } from '@capacitor/core';
+import { apiFetch } from './api-config';
+import { supabase } from './supabase';
 
 // RevenueCat types — imported dynamically to avoid loading on web
-type RCPackage = {
+export type RCPackage = {
   identifier: string;
   packageType: string;
   product: {
@@ -22,16 +24,32 @@ type RCPackage = {
     priceString: string;
     price: number;
     currencyCode: string;
+    introPrice?: {
+      priceString?: string;
+      periodNumberOfUnits?: number;
+      periodUnit?: string;
+    } | null;
   };
 };
 
-type RCOfferings = {
+export type RCOfferings = {
   current: {
     identifier: string;
     availablePackages: RCPackage[];
   } | null;
   all: Record<string, any>;
 };
+
+export type RevenueCatCatalogState = {
+  offerings: RCOfferings | null;
+  packages: RCPackage[];
+  errorMessage: string | null;
+  ready: boolean;
+};
+
+export function getRevenueCatPackageProductId(pkg: RCPackage): string | null {
+  return pkg.product?.identifier || pkg.identifier || null;
+}
 
 type RCCustomerInfo = {
   activeSubscriptions: string[];
@@ -67,6 +85,82 @@ const ENTITLEMENT_ALIASES: Record<'standard' | 'unlimited', string[]> = {
 
 let isConfigured = false;
 let purchasesModule: any = null;
+let configurePromise: Promise<void> | null = null;
+const POSTHOG_USER_ATTRIBUTE_KEY = '$posthogUserId';
+
+const GENERIC_CATALOG_ERROR =
+  'Subscriptions are currently unavailable from the App Store on this device. Please try again in a moment or tap Restore Purchases if you already subscribed.';
+
+export function describeOfferingsError(err: any): string {
+  const code = String(err?.code || '');
+  const message = String(err?.message || '').toLowerCase();
+
+  if (
+    code === '23' ||
+    message.includes('offerings') ||
+    message.includes('app store connect') ||
+    message.includes('storekit') ||
+    message.includes('product could not be fetched')
+  ) {
+    return GENERIC_CATALOG_ERROR;
+  }
+
+  return 'We could not load App Store subscriptions right now. Please try again in a moment.';
+}
+
+async function waitForPurchasesConfigured(timeoutMs = 4000): Promise<boolean> {
+  if (isConfigured && purchasesModule) {
+    return true;
+  }
+
+  const startedAt = Date.now();
+  while (Date.now() - startedAt < timeoutMs) {
+    await new Promise((resolve) => globalThis.setTimeout(resolve, 150));
+    if (isConfigured && purchasesModule) {
+      return true;
+    }
+  }
+
+  return isConfigured && Boolean(purchasesModule);
+}
+
+async function fetchOfferingsRaw(): Promise<RCOfferings> {
+  if (!purchasesModule) {
+    throw new Error('Purchases module not initialized');
+  }
+
+  const { Purchases } = purchasesModule;
+  const offerings = await Purchases.getOfferings();
+  return offerings;
+}
+
+async function persistRevenueCatIdentity(appUserId: string): Promise<boolean> {
+  try {
+    const { data } = await supabase.auth.getSession();
+    const accessToken = data.session?.access_token;
+    if (!accessToken) {
+      return false;
+    }
+
+    const response = await apiFetch('/api/revenuecat/sync-identity/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${accessToken}`,
+      },
+      body: JSON.stringify({ revenuecatCustomerId: appUserId }),
+      __llErrorContext: {
+        screen: 'billing',
+        userAction: 'sync_revenuecat_identity',
+      },
+    });
+
+    return response.ok;
+  } catch (error) {
+    console.warn('[Purchases] Failed to persist RevenueCat identity:', error);
+    return false;
+  }
+}
 
 /**
  * Check if IAP is available (iOS native only)
@@ -85,19 +179,30 @@ export async function configurePurchases(userId: string): Promise<void> {
     return;
   }
 
+  if (configurePromise) {
+    await configurePromise;
+    return;
+  }
+
   try {
-    purchasesModule = await import('@revenuecat/purchases-capacitor');
-    const { Purchases } = purchasesModule;
+    configurePromise = (async () => {
+      purchasesModule = await import('@revenuecat/purchases-capacitor');
+      const { Purchases } = purchasesModule;
 
-    await Purchases.configure({
-      apiKey: RC_API_KEY,
-      appUserID: userId,
-    });
+      await Purchases.configure({
+        apiKey: RC_API_KEY,
+        appUserID: userId,
+      });
 
-    isConfigured = true;
-    console.log('[Purchases] RevenueCat configured for user:', userId);
+      isConfigured = true;
+      console.log('[Purchases] RevenueCat configured for user:', userId);
+    })();
+
+    await configurePromise;
   } catch (err) {
     console.error('[Purchases] Failed to configure RevenueCat:', err);
+  } finally {
+    configurePromise = null;
   }
 }
 
@@ -117,16 +222,113 @@ export async function identifyUser(userId: string): Promise<void> {
 /**
  * Get available offerings (packages with prices from App Store)
  */
-export async function getOfferings(): Promise<RCOfferings | null> {
-  if (!isConfigured || !purchasesModule) return null;
+export async function loadRevenueCatCatalog(timeoutMs = 4000): Promise<RevenueCatCatalogState> {
+  if (!isIAPAvailable()) {
+    return {
+      offerings: null,
+      packages: [],
+      errorMessage: null,
+      ready: false,
+    };
+  }
+
+  const ready = await waitForPurchasesConfigured(timeoutMs);
+  if (!ready) {
+    return {
+      offerings: null,
+      packages: [],
+      errorMessage: 'App Store subscriptions are still loading. Please try again in a moment.',
+      ready: false,
+    };
+  }
+
   try {
-    const { Purchases } = purchasesModule;
-    const { offerings } = await Purchases.getOfferings();
-    return offerings;
+    const offerings = await fetchOfferingsRaw();
+    const packages = offerings?.current?.availablePackages || [];
+
+    if (packages.length === 0) {
+      return {
+        offerings,
+        packages,
+        errorMessage: GENERIC_CATALOG_ERROR,
+        ready: true,
+      };
+    }
+
+    return {
+      offerings,
+      packages,
+      errorMessage: null,
+      ready: true,
+    };
   } catch (err) {
     console.error('[Purchases] Failed to get offerings:', err);
+    return {
+      offerings: null,
+      packages: [],
+      errorMessage: describeOfferingsError(err),
+      ready: true,
+    };
+  }
+}
+
+export async function findRevenueCatPackage(
+  productId: string,
+  timeoutMs = 4000
+): Promise<RCPackage | null> {
+  const catalog = await loadRevenueCatCatalog(timeoutMs);
+  return catalog.packages.find((pkg) => getRevenueCatPackageProductId(pkg) === productId) || null;
+}
+
+export async function getOfferings(): Promise<RCOfferings | null> {
+  const catalog = await loadRevenueCatCatalog();
+  return catalog.offerings;
+}
+
+export async function getRevenueCatAppUserId(): Promise<string | null> {
+  if (!isConfigured || !purchasesModule) return null;
+
+  try {
+    const { Purchases } = purchasesModule;
+    const { appUserID } = await Purchases.getAppUserID();
+    return typeof appUserID === 'string' && appUserID.trim().length > 0
+      ? appUserID.trim()
+      : null;
+  } catch (err) {
+    console.error('[Purchases] Failed to get RevenueCat app user ID:', err);
     return null;
   }
+}
+
+export async function syncRevenueCatIdentity(options: {
+  posthogDistinctId?: string | null;
+} = {}): Promise<{ appUserId: string | null; synced: boolean }> {
+  if (!isConfigured || !purchasesModule) {
+    return { appUserId: null, synced: false };
+  }
+
+  try {
+    const { Purchases } = purchasesModule;
+
+    if (options.posthogDistinctId) {
+      await Purchases.setAttributes({
+        [POSTHOG_USER_ATTRIBUTE_KEY]: options.posthogDistinctId,
+      });
+      await Purchases.syncAttributesAndOfferingsIfNeeded();
+    }
+  } catch (err) {
+    console.warn('[Purchases] Failed to sync RevenueCat subscriber attributes:', err);
+  }
+
+  const appUserId = await getRevenueCatAppUserId();
+  if (!appUserId) {
+    return { appUserId: null, synced: false };
+  }
+
+  return {
+    appUserId,
+    synced: await persistRevenueCatIdentity(appUserId),
+  };
 }
 
 /**
@@ -134,10 +336,14 @@ export async function getOfferings(): Promise<RCOfferings | null> {
  * Returns customer info on success, or null on failure/cancellation
  */
 export async function purchasePackage(pkg: RCPackage): Promise<RCCustomerInfo | null> {
-  if (!isConfigured || !purchasesModule) return null;
+  const ready = await waitForPurchasesConfigured();
+  if (!ready || !purchasesModule) {
+    throw new Error('App Store purchases are still loading. Please try again in a moment.');
+  }
   try {
     const { Purchases } = purchasesModule;
     const { customerInfo } = await Purchases.purchasePackage({ aPackage: pkg });
+    void syncRevenueCatIdentity();
     return customerInfo;
   } catch (err: any) {
     // User cancelled purchase
@@ -154,10 +360,14 @@ export async function purchasePackage(pkg: RCPackage): Promise<RCCustomerInfo | 
  * Restore previous purchases (required by Apple for App Store)
  */
 export async function restorePurchases(): Promise<RCCustomerInfo | null> {
-  if (!isConfigured || !purchasesModule) return null;
+  const ready = await waitForPurchasesConfigured();
+  if (!ready || !purchasesModule) {
+    throw new Error('App Store purchases are still loading. Please try again in a moment.');
+  }
   try {
     const { Purchases } = purchasesModule;
     const { customerInfo } = await Purchases.restorePurchases();
+    void syncRevenueCatIdentity();
     return customerInfo;
   } catch (err) {
     console.error('[Purchases] Failed to restore purchases:', err);
@@ -169,7 +379,8 @@ export async function restorePurchases(): Promise<RCCustomerInfo | null> {
  * Get current customer info (subscription status)
  */
 export async function getCustomerInfo(): Promise<RCCustomerInfo | null> {
-  if (!isConfigured || !purchasesModule) return null;
+  const ready = await waitForPurchasesConfigured();
+  if (!ready || !purchasesModule) return null;
   try {
     const { Purchases } = purchasesModule;
     const { customerInfo } = await Purchases.getCustomerInfo();
@@ -241,7 +452,8 @@ export function hasActiveEntitlement(customerInfo: RCCustomerInfo): {
  * Apple only allows one free trial per Apple ID per subscription group.
  */
 export async function checkIntroEligibility(): Promise<boolean> {
-  if (!isConfigured || !purchasesModule) return false;
+  const ready = await waitForPurchasesConfigured();
+  if (!ready || !purchasesModule) return false;
   try {
     const { Purchases } = purchasesModule;
 
@@ -257,8 +469,7 @@ export async function checkIntroEligibility(): Promise<boolean> {
     console.error('[Purchases] Intro eligibility check failed:', err);
     // Fallback: check if product has intro offer (less accurate but better than nothing)
     try {
-      const { Purchases } = purchasesModule;
-      const { offerings } = await Purchases.getOfferings();
+      const offerings = await fetchOfferingsRaw();
       const pkg = offerings?.current?.availablePackages?.find(
         (p: any) => p.product?.identifier === 'standard_monthly'
       );

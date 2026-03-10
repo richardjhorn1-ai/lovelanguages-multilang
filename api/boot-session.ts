@@ -42,7 +42,7 @@ export default async function handler(req: any, res: any) {
     const [profileResult, languageParams, gameCountResult, chatCountResult] = await Promise.all([
       supabase
         .from('profiles')
-        .select('full_name, xp, level, partner_name, linked_user_id, role, updated_at')
+        .select('full_name, xp, level, partner_name, linked_user_id, role, updated_at, onboarding_data')
         .eq('id', auth.userId)
         .single(),
       getProfileLanguages(supabase, auth.userId),
@@ -107,6 +107,7 @@ export default async function handler(req: any, res: any) {
       role: profile.role || 'student',
       name: profile.full_name || 'User',
       partnerName: profile.partner_name || null,
+      firstGoal: profile.onboarding_data?.firstGoal || null,
       bootedAt,
       level: getLevelName(profile.level || 1),
       xp: profile.xp || 0,
