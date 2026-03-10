@@ -1135,6 +1135,57 @@ export const Onboarding: React.FC<OnboardingProps> = ({
     onComplete();
   };
 
+  const finalizeOnboardingAccess = async (
+    token: string,
+    resolvedData: Partial<OnboardingData>,
+    options?: { retryPendingConfirmation?: boolean }
+  ) => {
+    const maxAttempts = options?.retryPendingConfirmation ? 6 : 1;
+
+    for (let attempt = 0; attempt < maxAttempts; attempt += 1) {
+      const response = await apiFetch('/api/onboarding/finalize-free/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const result = await response.json() as OnboardingStatusResponse & { error?: string; code?: string };
+      if (response.ok) {
+        applySnapshot(result.snapshot.profile);
+        analytics.track('onboarding_free_activation_succeeded', {
+          flow_key: currentFlowKey,
+          step_key: currentStepKey,
+          role: activeRole,
+          completion_reason: result.snapshot.profile.onboarding_completion_reason,
+        });
+        await finishClientOnboarding(result.snapshot.profile.onboarding_data || resolvedData);
+        return true;
+      }
+
+      const pendingConfirmation = result.code === 'PAYMENT_PENDING_CONFIRMATION';
+      const hasRetryRemaining = attempt < maxAttempts - 1;
+
+      if (pendingConfirmation && hasRetryRemaining) {
+        await new Promise((resolve) => window.setTimeout(resolve, 2000));
+        continue;
+      }
+
+      analytics.track('onboarding_free_activation_failed', {
+        flow_key: currentFlowKey,
+        step_key: currentStepKey,
+        role: activeRole,
+        error_code: result.code || 'FINALIZE_FAILED',
+      });
+      setTrialError(result.error || 'Failed to finalize onboarding. Please try again.');
+      return false;
+    }
+
+    setTrialError('We are still waiting for payment confirmation. Please try again in a moment.');
+    return false;
+  };
+
   const handleComplete = async () => {
     setSaving(true);
     setSaveError(null);
@@ -1172,35 +1223,12 @@ export const Onboarding: React.FC<OnboardingProps> = ({
         onboardingStatus === 'pending_checkout'
       ) {
         setTrialActivating(true);
-
-        const response = await apiFetch('/api/onboarding/finalize-free/', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${token}`,
-          },
+        const finalized = await finalizeOnboardingAccess(token, resolvedData, {
+          retryPendingConfirmation: onboardingStatus === 'pending_checkout',
         });
-
-        const result = await response.json() as OnboardingStatusResponse & { error?: string; code?: string };
-        if (!response.ok) {
-          analytics.track('onboarding_free_activation_failed', {
-            flow_key: currentFlowKey,
-            step_key: currentStepKey,
-            role: activeRole,
-            error_code: result.code || 'FINALIZE_FAILED',
-          });
-          setTrialError(result.error || 'Failed to finalize onboarding. Please try again.');
+        if (!finalized) {
           return;
         }
-
-        applySnapshot(result.snapshot.profile);
-        analytics.track('onboarding_free_activation_succeeded', {
-          flow_key: currentFlowKey,
-          step_key: currentStepKey,
-          role: activeRole,
-          completion_reason: result.snapshot.profile.onboarding_completion_reason,
-        });
-        await finishClientOnboarding(result.snapshot.profile.onboarding_data || resolvedData);
         return;
       }
 

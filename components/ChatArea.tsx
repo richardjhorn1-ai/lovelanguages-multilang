@@ -21,6 +21,7 @@ import OfflineIndicator from './OfflineIndicator';
 import { analytics } from '../services/analytics';
 import GeminiAIConsent, { hasAIConsent } from './GeminiAIConsent';
 import { apiFetch } from '../services/api-config';
+import { selectVoiceMessagesForExtraction } from '../utils/voice-vocabulary';
 
 // Listen session types
 interface TranscriptEntry {
@@ -262,6 +263,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
 
   // Track voice session messages for post-session extraction
   const voiceSessionStartIdx = useRef<number>(0);
+  const pendingVoiceTranscriptSavesRef = useRef<Set<Promise<unknown>>>(new Set());
 
   // Sidebar collapsed state
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -580,6 +582,14 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
     }
   };
 
+  const trackPendingVoiceTranscriptSave = <T,>(promise: Promise<T>) => {
+    pendingVoiceTranscriptSavesRef.current.add(promise);
+    promise.finally(() => {
+      pendingVoiceTranscriptSavesRef.current.delete(promise);
+    });
+    return promise;
+  };
+
   // Dispatch custom event for App-level notification (visible on all tabs)
   const notifyNewWords = (words: ExtractedWord[]) => {
     window.dispatchEvent(new CustomEvent('new-words-extracted', { detail: { words } }));
@@ -750,6 +760,27 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
 
   const voiceStartTimeRef = useRef<number>(0);
 
+  const getVoiceErrorMessage = (error: unknown) => {
+    if (error instanceof Error && error.message) {
+      return error.message;
+    }
+    if (typeof error === 'string' && error.trim()) {
+      return error;
+    }
+    if (error && typeof error === 'object') {
+      const maybeMessage = (error as { message?: unknown }).message;
+      if (typeof maybeMessage === 'string' && maybeMessage.trim()) {
+        return maybeMessage;
+      }
+      try {
+        return JSON.stringify(error);
+      } catch {
+        return 'Failed to start voice mode';
+      }
+    }
+    return 'Failed to start voice mode';
+  };
+
   const startLive = async () => {
     if (isLive || !activeChat) return;
     // Apple guideline 5.1.2(i): disclose AI data sharing before first voice session
@@ -777,10 +808,10 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
             else setLiveModelText(text);
             if (isFinal && text.trim() && activeChat) {
                 if (role === 'user') {
-                    await saveMessage('user', text);
+                    await trackPendingVoiceTranscriptSave(saveMessage('user', text));
                     setLiveUserText("");
                 } else {
-                    await saveMessage('model', text);
+                    await trackPendingVoiceTranscriptSave(saveMessage('model', text));
                     setLiveModelText("");
                 }
             }
@@ -790,7 +821,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
         },
         onError: (error) => {
             console.error('Voice mode error:', error);
-            setLiveError(error.message);
+            setLiveError(getVoiceErrorMessage(error));
         },
         onClose: () => {
             isLiveRef.current = false;
@@ -803,7 +834,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
         await liveSessionRef.current.connect();
     } catch (err: any) {
         console.error('Voice mode failed:', err);
-        setLiveError(err.message || 'Failed to start voice mode');
+        setLiveError(getVoiceErrorMessage(err));
         isLiveRef.current = false;
         setIsLive(false);
         setLiveState('disconnected');
@@ -841,8 +872,13 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
 
     if (!chatId) return;
 
-    // Wait for any final messages to be saved
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    const pendingVoiceTranscriptSaves = Array.from(pendingVoiceTranscriptSavesRef.current);
+    if (pendingVoiceTranscriptSaves.length > 0) {
+      await Promise.allSettled(pendingVoiceTranscriptSaves);
+    }
+
+    // Give Supabase a brief moment to surface the final transcript inserts.
+    await new Promise(resolve => setTimeout(resolve, 350));
 
     try {
       // Fetch fresh messages from DB to ensure we have all voice transcripts
@@ -866,10 +902,14 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
           // Use cached known words list (falls back to DB query)
           const knownWords = sessionContextRef.current?.knownWordsList || [];
 
-          // Analyze the voice transcripts (limit to last 6 messages)
-          const recentVoice = voiceMessages.slice(-6);
+          const extractionMessages = selectVoiceMessagesForExtraction(
+            voiceMessages.map((message) => ({
+              role: message.role,
+              content: message.content,
+            }))
+          );
           const harvested = await geminiService.analyzeHistory(
-            recentVoice.map(m => ({ role: m.role, content: m.content })),
+            extractionMessages,
             knownWords,
             languageParams
           );

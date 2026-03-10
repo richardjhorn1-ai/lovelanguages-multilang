@@ -17,7 +17,6 @@
 		"SharePlugin",
 		"StatusBarPlugin",
 		"PurchasesPlugin",
-		"SentryCapacitorPlugin",
 		"SignInWithApple"
 	]
 }

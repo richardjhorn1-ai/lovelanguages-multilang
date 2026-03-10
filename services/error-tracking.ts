@@ -1,18 +1,4 @@
-import { Capacitor } from '@capacitor/core';
-import * as Sentry from '@sentry/capacitor';
-import { init as sentryReactInit } from '@sentry/react';
 import { analytics } from './analytics';
-
-const SENTRY_DSN = String(import.meta.env.VITE_SENTRY_DSN || '').trim();
-const SENTRY_ENVIRONMENT = import.meta.env.MODE || 'development';
-const SENTRY_RELEASE = String(
-  import.meta.env.VITE_SENTRY_RELEASE ||
-  import.meta.env.VERCEL_GIT_COMMIT_SHA ||
-  import.meta.env.VITE_VERCEL_GIT_COMMIT_SHA ||
-  'dev'
-).trim();
-
-let initialized = false;
 
 type ErrorLike = Error | string | null | undefined;
 
@@ -88,41 +74,9 @@ function shouldIgnoreApiError(context: ApiErrorContext): boolean {
   return false;
 }
 
-function annotateScope(scope: ReturnType<typeof Sentry.getCurrentScope>, context: SharedErrorContext): void {
-  scope.setTag('platform', Capacitor.getPlatform());
-  scope.setTag('runtime', Capacitor.isNativePlatform() ? 'capacitor' : 'web');
-
-  if (context.screen) {
-    scope.setTag('screen', context.screen);
-  }
-
-  if (context.route) {
-    scope.setTag('route', context.route);
-  }
-
-  if (context.userAction) {
-    scope.setContext('user_action', { action: context.userAction });
-  }
-}
-
 export function initErrorTracking(): void {
-  if (initialized || !SENTRY_DSN) {
-    return;
-  }
-
-  Sentry.init(
-    {
-      dsn: SENTRY_DSN,
-      enabled: true,
-      environment: SENTRY_ENVIRONMENT,
-      release: SENTRY_RELEASE,
-      attachStacktrace: true,
-      tracesSampleRate: Number(import.meta.env.VITE_SENTRY_TRACES_SAMPLE_RATE || 0.1),
-    },
-    sentryReactInit
-  );
-
-  initialized = true;
+  // Intentional no-op: we currently keep structured analytics for errors
+  // without shipping a third-party crash SDK.
 }
 
 export function setErrorTrackingUser(user: {
@@ -131,32 +85,11 @@ export function setErrorTrackingUser(user: {
   role?: string | null;
   activeLanguage?: string | null;
 }): void {
-  if (!initialized) {
-    return;
-  }
-
-  const scope = Sentry.getCurrentScope();
-  scope.setUser({
-    id: user.id,
-    email: user.email || undefined,
-  });
-
-  if (user.role) {
-    scope.setTag('user_role', user.role);
-  }
-
-  if (user.activeLanguage) {
-    scope.setTag('active_language', user.activeLanguage);
-  }
+  void user;
 }
 
 export function clearErrorTrackingUser(): void {
-  if (!initialized) {
-    return;
-  }
-
-  const scope = Sentry.getCurrentScope();
-  scope.setUser(null);
+  // Intentional no-op while runtime crash reporting is disabled.
 }
 
 export function captureAppError(error: ErrorLike, context: AppErrorContext = {}): void {
@@ -173,15 +106,6 @@ export function captureAppError(error: ErrorLike, context: AppErrorContext = {})
     ...(context.screen ? { screen: context.screen } : {}),
     ...(context.userAction ? { user_action: context.userAction } : {}),
   });
-
-  if (!initialized) {
-    return;
-  }
-
-  const scope = Sentry.getCurrentScope();
-  annotateScope(scope, context);
-  scope.setTag('error_kind', context.errorType || normalizedError.name || 'app_error');
-  Sentry.captureException(normalizedError);
 }
 
 export function captureApiError(context: ApiErrorContext): void {
@@ -198,20 +122,4 @@ export function captureApiError(context: ApiErrorContext): void {
     ...(context.screen ? { screen: context.screen } : {}),
     ...(context.userAction ? { user_action: context.userAction } : {}),
   });
-
-  if (!initialized) {
-    return;
-  }
-
-  const scope = Sentry.getCurrentScope();
-  annotateScope(scope, context);
-  scope.setTag('error_kind', 'api_error');
-  scope.setTag('http_method', context.method);
-  scope.setTag('endpoint', context.endpoint);
-
-  if (typeof context.statusCode === 'number') {
-    scope.setTag('status_code', String(context.statusCode));
-  }
-
-  Sentry.captureException(context.error instanceof Error ? context.error : new Error(context.errorMessage));
 }
