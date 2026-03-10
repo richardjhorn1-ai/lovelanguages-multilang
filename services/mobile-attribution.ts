@@ -1,6 +1,5 @@
 import { App as CapacitorApp } from '@capacitor/app';
 import { Capacitor } from '@capacitor/core';
-import { Preferences } from '@capacitor/preferences';
 import { analytics } from './analytics';
 import { normalizeInboundAppUrl } from './native-links';
 
@@ -19,6 +18,22 @@ type AttributionParams = {
 
 function platform() {
   return Capacitor.getPlatform() as 'ios' | 'android' | 'web';
+}
+
+async function getInstallMarker(): Promise<string | null> {
+  try {
+    return localStorage.getItem(APP_INSTALL_KEY);
+  } catch {
+    return null;
+  }
+}
+
+async function setInstallMarker(value: string): Promise<void> {
+  try {
+    localStorage.setItem(APP_INSTALL_KEY, value);
+  } catch {
+    // Ignore storage failures; attribution should never block app startup.
+  }
 }
 
 export function classifyAppOpenSource(rawUrl?: string | null, fallback: AppOpenSource = 'cold'): AppOpenSource {
@@ -70,10 +85,10 @@ export async function registerMobileAttributionBridge(): Promise<() => void> {
     sessionStartedAt = Date.now();
   };
 
-  const { value: installTracked } = await Preferences.get({ key: APP_INSTALL_KEY });
+  const installTracked = await getInstallMarker();
   if (!installTracked) {
     analytics.trackAppInstalled({ platform: platform() });
-    await Preferences.set({ key: APP_INSTALL_KEY, value: new Date().toISOString() });
+    await setInstallMarker(new Date().toISOString());
   }
 
   try {

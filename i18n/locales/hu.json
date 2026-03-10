@@ -1948,7 +1948,18 @@
         "description": "Értesítést kapsz, amikor megjelenik az App Store-ban.",
         "submitting": "Küldés...",
         "notify": "Értesíts"
-      }
+      },
+      "installOpenSafari": "Megnyitás Safariban a telepítéshez",
+      "installTapShare": "Koppints a Megosztásra, majd a Hozzáadás a Főképernyőhöz lehetőségre",
+      "closeInstallHelp": "Telepítési súgó bezárása",
+      "installHelpTitle": "A Love Languages telepítése",
+      "installHelpOpenSafari": "Először nyisd meg ezt az oldalt Safariban, majd add hozzá a Főképernyőhöz.",
+      "installHelpIntro": "iPhone-on és iPaden a telepítés a Safari Megosztás menüjéből történik.",
+      "installHelpStepSafari": "Koppints a böngésző menüjére, majd válaszd a „Megnyitás Safariban” lehetőséget.",
+      "installHelpStepOne": "Koppints a Megosztás gombra a Safariban.",
+      "installHelpStepTwo": "Görgess le, és koppints a „Hozzáadás a Főképernyőhöz” lehetőségre.",
+      "installHelpStepThree": "Erősítsd meg a „Hozzáadás” gombbal, és az app megjelenik a Főképernyőn.",
+      "installHelpDone": "Értem"
     },
     "languageSelector": {
       "nativeTitle": "What language do you speak?",

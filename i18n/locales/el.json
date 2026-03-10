@@ -1957,7 +1957,18 @@
         "description": "Ενημερωθείτε όταν κυκλοφορήσουμε στο App Store.",
         "submitting": "Υποβολή...",
         "notify": "Ειδοποιήστε με"
-      }
+      },
+      "installOpenSafari": "Άνοιγμα στο Safari για εγκατάσταση",
+      "installTapShare": "Πατήστε Κοινοποίηση και μετά Προσθήκη στην οθόνη Αφετηρίας",
+      "closeInstallHelp": "Κλείσιμο βοήθειας εγκατάστασης",
+      "installHelpTitle": "Εγκαταστήστε το Love Languages",
+      "installHelpOpenSafari": "Ανοίξτε πρώτα αυτή τη σελίδα στο Safari και μετά προσθέστε την στην οθόνη Αφετηρίας.",
+      "installHelpIntro": "Σε iPhone και iPad, η εγκατάσταση γίνεται από το μενού Κοινοποίηση του Safari.",
+      "installHelpStepSafari": "Πατήστε το μενού του προγράμματος περιήγησης και επιλέξτε «Άνοιγμα στο Safari».",
+      "installHelpStepOne": "Πατήστε το κουμπί Κοινοποίηση στο Safari.",
+      "installHelpStepTwo": "Κάντε κύλιση προς τα κάτω και πατήστε «Προσθήκη στην οθόνη Αφετηρίας».",
+      "installHelpStepThree": "Επιβεβαιώστε με «Προσθήκη» και η εφαρμογή θα εμφανιστεί στην οθόνη Αφετηρίας.",
+      "installHelpDone": "Κατάλαβα"
     },
     "languageSelector": {
       "nativeTitle": "What language do you speak?",

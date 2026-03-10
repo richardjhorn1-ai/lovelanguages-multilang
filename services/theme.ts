@@ -383,6 +383,10 @@ export function migrateAccentColor(raw: string | undefined): AccentColor {
   return DEFAULT_THEME.accentColor;
 }
 
+function mixThemeColor(color: string, backdrop: string, strength: number): string {
+  return `color-mix(in srgb, ${color} ${strength}%, ${backdrop})`;
+}
+
 // Apply theme CSS variables to document
 export function applyTheme(theme: ThemeSettings): void {
   const root = document.documentElement;
@@ -393,24 +397,32 @@ export function applyTheme(theme: ThemeSettings): void {
   const fontPreset = FONT_PRESETS[theme.fontPreset];
   const fontWeight = FONT_WEIGHTS[theme.fontWeight];
   const isDark = theme.darkMode !== 'off';
+  const primaryTone = isDark ? mixThemeColor(accent.primary, darkMode.textPrimary, 70) : accent.primary;
+  const primaryToneHover = isDark ? mixThemeColor(accent.primaryHover, darkMode.textPrimary, 76) : accent.primaryHover;
+  const primaryBorderTone = isDark ? mixThemeColor(accent.borderDark, darkMode.border, 70) : accent.border;
+  const primaryShadowTone = isDark ? mixThemeColor(accent.primary, darkMode.bgPrimary, 55) : accent.shadow;
+  const secondaryTone = isDark ? mixThemeColor(secondary.primary, darkMode.textPrimary, 60) : secondary.primary;
+  const secondaryToneHover = isDark ? mixThemeColor(secondary.primaryHover, darkMode.textPrimary, 66) : secondary.primaryHover;
+  const secondaryBorderTone = isDark ? mixThemeColor(secondary.borderDark, darkMode.border, 60) : secondary.border;
+  const secondaryShadowTone = isDark ? mixThemeColor(secondary.primary, darkMode.bgPrimary, 45) : secondary.shadow;
 
   // Primary accent palette
-  root.style.setProperty('--accent-color', accent.primary);
-  root.style.setProperty('--accent-hover', accent.primaryHover);
+  root.style.setProperty('--accent-color', primaryTone);
+  root.style.setProperty('--accent-hover', primaryToneHover);
   root.style.setProperty('--accent-light', isDark ? accent.dark : accent.light);
   root.style.setProperty('--accent-light-hover', isDark ? accent.darkHover : accent.lightHover);
-  root.style.setProperty('--accent-text', isDark ? accent.primary : accent.text);
-  root.style.setProperty('--accent-border', isDark ? accent.borderDark : accent.border);
-  root.style.setProperty('--accent-shadow', accent.shadow);
+  root.style.setProperty('--accent-text', isDark ? primaryTone : accent.text);
+  root.style.setProperty('--accent-border', primaryBorderTone);
+  root.style.setProperty('--accent-shadow', primaryShadowTone);
 
   // Secondary accent palette
-  root.style.setProperty('--secondary-color', secondary.primary);
-  root.style.setProperty('--secondary-hover', secondary.primaryHover);
+  root.style.setProperty('--secondary-color', secondaryTone);
+  root.style.setProperty('--secondary-hover', secondaryToneHover);
   root.style.setProperty('--secondary-light', isDark ? secondary.dark : secondary.light);
   root.style.setProperty('--secondary-light-hover', isDark ? secondary.darkHover : secondary.lightHover);
-  root.style.setProperty('--secondary-text', isDark ? secondary.primary : secondary.text);
-  root.style.setProperty('--secondary-border', isDark ? secondary.borderDark : secondary.border);
-  root.style.setProperty('--secondary-shadow', secondary.shadow);
+  root.style.setProperty('--secondary-text', isDark ? secondaryTone : secondary.text);
+  root.style.setProperty('--secondary-border', secondaryBorderTone);
+  root.style.setProperty('--secondary-shadow', secondaryShadowTone);
 
   // Semantic feedback colours (fixed — not theme-dependent)
   root.style.setProperty('--color-correct', '#10B981');

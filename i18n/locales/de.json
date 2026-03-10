@@ -1957,7 +1957,18 @@
         "description": "Werde benachrichtigt, wenn wir im App Store starten.",
         "submitting": "Wird gesendet...",
         "notify": "Benachrichtigen"
-      }
+      },
+      "installOpenSafari": "In Safari öffnen, um zu installieren",
+      "installTapShare": "Tippe auf Teilen und dann auf Zum Home-Bildschirm",
+      "closeInstallHelp": "Installationshilfe schließen",
+      "installHelpTitle": "Love Languages installieren",
+      "installHelpOpenSafari": "Öffne diese Seite zuerst in Safari und füge sie dann zu deinem Home-Bildschirm hinzu.",
+      "installHelpIntro": "Auf iPhone und iPad erfolgt die Installation über das Teilen-Menü in Safari.",
+      "installHelpStepSafari": "Tippe auf das Browsermenü und wähle „In Safari öffnen“.",
+      "installHelpStepOne": "Tippe in Safari auf die Teilen-Taste.",
+      "installHelpStepTwo": "Scrolle nach unten und tippe auf „Zum Home-Bildschirm“.",
+      "installHelpStepThree": "Bestätige mit „Hinzufügen“, dann erscheint die App auf deinem Home-Bildschirm.",
+      "installHelpDone": "Verstanden"
     },
     "languageSelector": {
       "nativeTitle": "What language do you speak?",

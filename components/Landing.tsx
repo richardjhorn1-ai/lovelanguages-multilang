@@ -19,6 +19,7 @@ import { FeatureCard, STUDENT_FEATURES, TUTOR_FEATURES } from './landing/Feature
 import FeatureShowcase from './landing/FeatureShowcase';
 import MobileGameShowcase from './landing/MobileGameShowcase';
 import type { LanguageCode } from '../constants/language-config';
+import { getPwaInstallMode, isIosLikeDevice, isStandaloneDisplayMode } from '../utils/pwa-install';
 
 
 // ============================================
@@ -690,11 +691,12 @@ const Landing: React.FC = () => {
   // PWA Install prompt
   const [installPrompt, setInstallPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [isInstalled, setIsInstalled] = useState(false);
+  const [showInstallHelp, setShowInstallHelp] = useState(false);
   const isNativeApp = !!(window as any).Capacitor?.isNativePlatform?.();
 
   useEffect(() => {
     if (isNativeApp) return;
-    if (window.matchMedia('(display-mode: standalone)').matches) {
+    if (isStandaloneDisplayMode(window)) {
       setIsInstalled(true);
       return;
     }
@@ -705,12 +707,38 @@ const Landing: React.FC = () => {
     return () => { window.removeEventListener('beforeinstallprompt', handleBeforeInstall); window.removeEventListener('appinstalled', handleAppInstalled); };
   }, [isNativeApp]);
 
+  useEffect(() => {
+    if (isNativeApp) return;
+    if (!isIosLikeDevice(navigator.userAgent, navigator.platform, navigator.maxTouchPoints)) return;
+
+    const originalTitle = document.title;
+    document.title = 'Love Languages';
+
+    return () => {
+      document.title = originalTitle;
+    };
+  }, [isNativeApp]);
+
   // App Store waitlist email capture
   const [waitlistOpen, setWaitlistOpen] = useState(false);
   const [waitlistClosing, setWaitlistClosing] = useState(false);
   const [waitlistEmail, setWaitlistEmail] = useState('');
   const [waitlistSubmitted, setWaitlistSubmitted] = useState(false);
   const [waitlistLoading, setWaitlistLoading] = useState(false);
+  const installMode = getPwaInstallMode({
+    hasInstallPrompt: Boolean(installPrompt),
+    isInstalled,
+    isNativeApp,
+    userAgent: navigator.userAgent,
+    platform: navigator.platform,
+    maxTouchPoints: navigator.maxTouchPoints,
+  });
+  const installButtonDisabled = installMode === 'installed' || installMode === 'unavailable';
+  const installButtonSubtitle = installMode === 'ios_browser_help'
+    ? t('hero.landing.installOpenSafari', 'Open in Safari to install')
+    : installMode === 'ios_safari_help'
+      ? t('hero.landing.installTapShare', 'Tap Share then Add to Home Screen')
+      : t('hero.landing.addToHome', 'Add to home screen');
 
   useOAuthLoadingRecovery(oauthLoading, setOauthLoading);
 
@@ -729,6 +757,31 @@ const Landing: React.FC = () => {
       setTimeout(() => { closeWaitlistModal(); setWaitlistSubmitted(false); }, 2500);
     } catch { /* silently fail */ }
     setWaitlistLoading(false);
+  };
+
+  const handleInstallApp = async () => {
+    if (installMode === 'installed' || installMode === 'unavailable') return;
+
+    if (installMode === 'ios_safari_help' || installMode === 'ios_browser_help') {
+      setShowInstallHelp(true);
+      return;
+    }
+
+    if (!installPrompt) return;
+
+    const deferredPrompt = installPrompt;
+    setInstallPrompt(null);
+
+    try {
+      await deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === 'accepted') {
+        setIsInstalled(true);
+      }
+    } catch (error) {
+      console.error('[Landing] PWA install prompt failed:', error);
+      setInstallPrompt(deferredPrompt);
+    }
   };
 
   // Auto-detect native language
@@ -1231,11 +1284,11 @@ const Landing: React.FC = () => {
           >
             {/* Install App */}
             <button
-              onClick={() => installPrompt?.prompt()}
-              disabled={!installPrompt && !isInstalled}
+              onClick={handleInstallApp}
+              disabled={installButtonDisabled}
               className="flex-1 flex items-center justify-center gap-2 py-2 px-2.5 cursor-pointer transition-all hover:scale-[1.02] glass-card rounded-[20px]"
               style={{
-                opacity: (!installPrompt && !isInstalled) ? 0.5 : 1,
+                opacity: installButtonDisabled ? 0.5 : 1,
               }}
             >
               <div className="w-6 h-6 rounded-md flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${accentColor}15` }}>
@@ -1245,7 +1298,7 @@ const Landing: React.FC = () => {
                 <p className="text-[10px] font-bold text-[var(--text-primary)]">
                   {isInstalled ? t('hero.landing.installed', 'Installed') : t('hero.landing.installApp', 'Install App')}
                 </p>
-                <p className="text-[9px] text-[var(--text-secondary)]">{t('hero.landing.addToHome', 'Add to home screen')}</p>
+                <p className="text-[9px] text-[var(--text-secondary)]">{installButtonSubtitle}</p>
               </div>
             </button>
 
@@ -1425,17 +1478,17 @@ const Landing: React.FC = () => {
           <div className="flex gap-2">
             {/* PWA Install */}
             <button
-              onClick={() => installPrompt?.prompt()}
-              disabled={!installPrompt && !isInstalled}
+              onClick={handleInstallApp}
+              disabled={installButtonDisabled}
               className="flex-1 flex items-center gap-2.5 p-3 glass-card rounded-[20px]"
-              style={{ opacity: (!installPrompt && !isInstalled) ? 0.5 : 1 }}
+              style={{ opacity: installButtonDisabled ? 0.5 : 1 }}
             >
               <div className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: `${accentColor}15` }}>
                 <ICONS.Download size={16} color={accentColor} weight="bold" />
               </div>
               <div className="text-left">
                 <p className="text-xs font-bold text-[var(--text-primary)]">{isInstalled ? t('hero.landing.installed', 'Installed') : t('hero.landing.installApp', 'Install App')}</p>
-                <p className="text-[10px] text-[var(--text-secondary)]">{t('hero.landing.addToHome', 'Add to home screen')}</p>
+                <p className="text-[10px] text-[var(--text-secondary)]">{installButtonSubtitle}</p>
               </div>
             </button>
             {/* App Store → opens modal */}
@@ -1553,6 +1606,64 @@ const Landing: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {showInstallHelp && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center px-4"
+          style={{ backgroundColor: 'rgba(0,0,0,0.3)', backdropFilter: 'blur(4px)' }}
+          onClick={() => setShowInstallHelp(false)}
+        >
+          <div
+            className="w-full max-w-sm p-6 relative glass-card-solid rounded-[20px]"
+            style={{ backgroundColor: 'rgba(255,255,255,0.92)' }}
+            onClick={e => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setShowInstallHelp(false)}
+              className="absolute top-4 right-4 w-8 h-8 rounded-full flex items-center justify-center hover:bg-black/5 transition-colors"
+              aria-label={t('hero.landing.closeInstallHelp', 'Close install help')}
+            >
+              <ICONS.X size={18} className="text-[var(--text-secondary)]" />
+            </button>
+            <div className="text-center mb-4">
+              <div className="w-12 h-12 rounded-2xl mx-auto mb-3 flex items-center justify-center" style={{ backgroundColor: `${accentColor}15` }}>
+                <ICONS.Download size={22} color={accentColor} weight="bold" />
+              </div>
+              <h3 className="text-lg font-black font-header text-[var(--text-primary)]">
+                {t('hero.landing.installHelpTitle', 'Install Love Languages')}
+              </h3>
+              <p className="text-sm text-[var(--text-secondary)] mt-2">
+                {installMode === 'ios_browser_help'
+                  ? t('hero.landing.installHelpOpenSafari', 'Open this page in Safari first, then add it to your home screen.')
+                  : t('hero.landing.installHelpIntro', 'On iPhone and iPad, installation happens from the Safari share menu.')}
+              </p>
+            </div>
+            <div className="space-y-3 text-sm text-[var(--text-primary)]">
+              <div className="rounded-2xl bg-black/[0.03] px-4 py-3">
+                <span className="font-black mr-2" style={{ color: accentColor }}>1.</span>
+                {installMode === 'ios_browser_help'
+                  ? t('hero.landing.installHelpStepSafari', 'Tap the browser menu and choose “Open in Safari”.')
+                  : t('hero.landing.installHelpStepOne', 'Tap the Share button in Safari.')}
+              </div>
+              <div className="rounded-2xl bg-black/[0.03] px-4 py-3">
+                <span className="font-black mr-2" style={{ color: accentColor }}>2.</span>
+                {t('hero.landing.installHelpStepTwo', 'Scroll down and tap “Add to Home Screen”.')}
+              </div>
+              <div className="rounded-2xl bg-black/[0.03] px-4 py-3">
+                <span className="font-black mr-2" style={{ color: accentColor }}>3.</span>
+                {t('hero.landing.installHelpStepThree', 'Confirm “Add” and the app will appear on your home screen.')}
+              </div>
+            </div>
+            <button
+              onClick={() => setShowInstallHelp(false)}
+              className="w-full mt-5 py-3 rounded-2xl text-white font-bold transition-transform hover:scale-[1.01] active:scale-[0.99]"
+              style={{ backgroundColor: accentColor }}
+            >
+              {t('hero.landing.installHelpDone', 'Got it')}
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* ══════════════════════════════════════════
           APP STORE WAITLIST MODAL

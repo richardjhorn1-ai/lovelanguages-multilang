@@ -1957,7 +1957,18 @@
         "description": "Primește o notificare când lansăm pe App Store.",
         "submitting": "Se trimite...",
         "notify": "Anunță-mă"
-      }
+      },
+      "installOpenSafari": "Deschide în Safari pentru instalare",
+      "installTapShare": "Atinge Partajare, apoi Adaugă pe ecranul principal",
+      "closeInstallHelp": "Închide ajutorul de instalare",
+      "installHelpTitle": "Instalează Love Languages",
+      "installHelpOpenSafari": "Deschide mai întâi această pagină în Safari, apoi adaug-o pe ecranul principal.",
+      "installHelpIntro": "Pe iPhone și iPad, instalarea se face din meniul Partajare din Safari.",
+      "installHelpStepSafari": "Atinge meniul browserului și alege „Deschide în Safari”.",
+      "installHelpStepOne": "Atinge butonul Partajare din Safari.",
+      "installHelpStepTwo": "Derulează în jos și atinge „Adaugă pe ecranul principal”.",
+      "installHelpStepThree": "Confirmă cu „Adaugă”, iar aplicația va apărea pe ecranul principal.",
+      "installHelpDone": "Am înțeles"
     },
     "languageSelector": {
       "nativeTitle": "What language do you speak?",

@@ -1957,7 +1957,18 @@
         "description": "Få besked, når vi lancerer på App Store.",
         "submitting": "Sender...",
         "notify": "Giv mig besked"
-      }
+      },
+      "installOpenSafari": "Åbn i Safari for at installere",
+      "installTapShare": "Tryk på Del og derefter Føj til hjemmeskærm",
+      "closeInstallHelp": "Luk installationshjælpen",
+      "installHelpTitle": "Installer Love Languages",
+      "installHelpOpenSafari": "Åbn først denne side i Safari, og føj den derefter til din hjemmeskærm.",
+      "installHelpIntro": "På iPhone og iPad installeres appen fra Safaris delemenu.",
+      "installHelpStepSafari": "Tryk på browsermenuen og vælg \"Åbn i Safari\".",
+      "installHelpStepOne": "Tryk på Del-knappen i Safari.",
+      "installHelpStepTwo": "Rul ned og tryk på \"Føj til hjemmeskærm\".",
+      "installHelpStepThree": "Bekræft med \"Tilføj\", så vises appen på din hjemmeskærm.",
+      "installHelpDone": "Forstået"
     },
     "languageSelector": {
       "nativeTitle": "What language do you speak?",

@@ -1957,7 +1957,18 @@
         "description": "App Store'da yayınlandığımızda haberdar olun.",
         "submitting": "Gönderiliyor...",
         "notify": "Beni bilgilendir"
-      }
+      },
+      "installOpenSafari": "Yüklemek için Safari’de aç",
+      "installTapShare": "Paylaş’a, ardından Ana Ekrana Ekle’ye dokun",
+      "closeInstallHelp": "Yükleme yardımını kapat",
+      "installHelpTitle": "Love Languages’i yükle",
+      "installHelpOpenSafari": "Önce bu sayfayı Safari’de aç, sonra Ana Ekranına ekle.",
+      "installHelpIntro": "iPhone ve iPad’de yükleme Safari’nin Paylaş menüsünden yapılır.",
+      "installHelpStepSafari": "Tarayıcı menüsüne dokun ve “Safari’de Aç” seçeneğini seç.",
+      "installHelpStepOne": "Safari’de Paylaş düğmesine dokun.",
+      "installHelpStepTwo": "Aşağı kaydır ve “Ana Ekrana Ekle”ye dokun.",
+      "installHelpStepThree": "“Ekle” ile onayla, uygulama Ana Ekranında görünecek.",
+      "installHelpDone": "Anladım"
     },
     "languageSelector": {
       "nativeTitle": "What language do you speak?",

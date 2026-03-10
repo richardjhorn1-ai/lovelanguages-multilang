@@ -1948,7 +1948,18 @@
         "description": "Dostanete oznámení o spuštění v App Store.",
         "submitting": "Odesílání...",
         "notify": "Upozornit mě"
-      }
+      },
+      "installOpenSafari": "Otevřít v Safari pro instalaci",
+      "installTapShare": "Klepněte na Sdílet a potom Přidat na plochu",
+      "closeInstallHelp": "Zavřít nápovědu k instalaci",
+      "installHelpTitle": "Nainstalujte Love Languages",
+      "installHelpOpenSafari": "Nejprve otevřete tuto stránku v Safari a potom ji přidejte na plochu.",
+      "installHelpIntro": "Na iPhonu a iPadu se instalace provádí přes nabídku Sdílet v Safari.",
+      "installHelpStepSafari": "Klepněte na nabídku prohlížeče a zvolte „Otevřít v Safari“.",
+      "installHelpStepOne": "Klepněte na tlačítko Sdílet v Safari.",
+      "installHelpStepTwo": "Sjeďte dolů a klepněte na „Přidat na plochu“.",
+      "installHelpStepThree": "Potvrďte „Přidat“ a aplikace se objeví na ploše.",
+      "installHelpDone": "Rozumím"
     },
     "languageSelector": {
       "nativeTitle": "What language do you speak?",
