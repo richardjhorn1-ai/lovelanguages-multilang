@@ -1,7 +1,7 @@
 import { createClient } from '@supabase/supabase-js';
 import { setCorsHeaders } from '../utils/api-middleware.js';
 import { getProfileLanguages } from '../utils/language-helpers.js';
-import { getLanguageName } from '../constants/language-config.js';
+import { getLanguageName, getLanguageNativeName } from '../constants/language-config.js';
 
 export default async function handler(req: any, res: any) {
   // CORS Headers
@@ -97,7 +97,8 @@ export default async function handler(req: any, res: any) {
       },
       language: {
         code: languageCode,
-        name: getLanguageName(languageCode)
+        name: getLanguageNativeName(languageCode),
+        englishName: getLanguageName(languageCode)
       },
       inviterRole,
       expiresAt: tokenData.expires_at
