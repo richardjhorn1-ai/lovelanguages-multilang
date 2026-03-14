@@ -83,7 +83,7 @@ const InsightCard: React.FC<{
           <ICONS.Sparkles className="w-4 h-4 text-[var(--accent-color)]" />
         )}
         <h3
-          className={`text-scale-caption font-black font-header uppercase tracking-widest ${
+          className={`text-box-trim text-scale-caption font-black font-header uppercase tracking-widest ${
             isSlang ? 'text-[var(--secondary-color)]' : 'text-[var(--accent-color)]'
           }`}
         >
@@ -99,7 +99,7 @@ const InsightCard: React.FC<{
 
 const DrillCard: React.FC<{ content: string; t: TranslateFn }> = ({ content, t }) => (
   <div className="my-4 rounded-2xl border-2 border-dashed border-[var(--secondary-border)] bg-[var(--secondary-light)] p-1 relative w-full">
-    <div className="absolute -top-3 left-4 bg-[var(--secondary-light)] text-[var(--secondary-color)] text-scale-micro font-black uppercase tracking-widest px-2 py-0.5 rounded-full border border-[var(--secondary-border)]">
+    <div className="text-box-trim absolute -top-3 left-4 bg-[var(--secondary-light)] text-[var(--secondary-color)] text-scale-micro font-black uppercase tracking-widest px-2 py-0.5 rounded-full border border-[var(--secondary-border)]">
       {t('chat.blocks.practiceChallenge', 'Practice Challenge')}
     </div>
     <div className="p-4 text-scale-label text-[var(--text-primary)] font-medium">
@@ -126,7 +126,7 @@ const GrammarTable: React.FC<{ content: string }> = ({ content }) => {
   return (
     <div className="my-4 overflow-hidden rounded-xl glass-card w-full overflow-x-auto">
       <table className="w-full text-scale-label text-left">
-        <thead className="bg-[var(--bg-primary)] text-[var(--text-secondary)] text-scale-micro uppercase font-bold tracking-wider">
+        <thead className="text-box-trim bg-[var(--bg-primary)] text-[var(--text-secondary)] text-scale-micro uppercase font-bold tracking-wider">
           <tr>{header.map((cell, index) => <th key={index} className="px-4 py-3 font-black">{cell}</th>)}</tr>
         </thead>
         <tbody className="divide-y divide-[var(--border-color)]">

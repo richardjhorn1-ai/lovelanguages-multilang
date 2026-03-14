@@ -104,6 +104,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
   const [editingChatId, setEditingChatId] = useState<string | null>(null);
   const [newTitle, setNewTitle] = useState("");
   const scrollRef = useRef<HTMLDivElement>(null);
+  const composerRef = useRef<HTMLTextAreaElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const imgInputRef = useRef<HTMLInputElement>(null);
 
@@ -172,6 +173,15 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
   const [showActionConfirm, setShowActionConfirm] = useState(false);
   const [showAIConsent, setShowAIConsent] = useState(false);
   const [contextReady, setContextReady] = useState(false);
+
+  useEffect(() => {
+    const composer = composerRef.current;
+    if (!composer) return;
+
+    composer.style.height = '0px';
+    const nextHeight = Math.min(composer.scrollHeight, 160);
+    composer.style.height = `${Math.max(nextHeight, 28)}px`;
+  }, [input]);
 
   // Boot session on mount - fetch context once
   useEffect(() => {
@@ -1536,13 +1546,13 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
             <div className="flex items-center h-10 px-1 rounded-xl bg-black/[0.03] dark:bg-white/[0.05]">
               {profile.role === 'tutor' ? (
                 // Tutors see single Coach mode (always context-aware)
-                <div className="px-4 py-1.5 rounded-lg text-scale-micro font-black uppercase tracking-widest bg-white/75 dark:bg-white/15 shadow-sm text-[var(--secondary-color)]">
+                <div className="text-box-trim px-4 py-1.5 rounded-lg text-scale-micro font-black uppercase tracking-widest bg-white/75 dark:bg-white/15 shadow-sm text-[var(--secondary-color)]">
                   {t('chat.modes.coach')}
                 </div>
               ) : (
                 // Students see Ask/Learn modes
                 (['ask', 'learn'] as ChatMode[]).map(m => (
-                  <button key={m} onClick={() => handleModeSwitch(m)} className={`px-4 py-1.5 rounded-lg text-scale-micro font-black uppercase tracking-widest transition-all ${mode === m ? 'bg-white/75 dark:bg-white/15 shadow-sm' : 'text-[var(--text-secondary)]'}`} style={mode === m ? { color: accentHex } : {}}>{t(`chat.modes.${m}`)}</button>
+                  <button key={m} onClick={() => handleModeSwitch(m)} className={`text-box-trim px-4 py-1.5 rounded-lg text-scale-micro font-black uppercase tracking-widest transition-all ${mode === m ? 'bg-white/75 dark:bg-white/15 shadow-sm' : 'text-[var(--text-secondary)]'}`} style={mode === m ? { color: accentHex } : {}}>{t(`chat.modes.${m}`)}</button>
                 ))
               )}
             </div>
@@ -1904,12 +1914,17 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
                           ))}
                       </div>
                   )}
-                  <div className={`w-full flex items-center glass-card rounded-full md:rounded-2xl px-4 py-2.5 md:px-6 md:py-4 transition-all duration-300 ${isLive ? 'border-2 border-[var(--accent-border)]' : ''}`} style={isLive ? { boxShadow: `inset 0 0 20px var(--accent-shadow)` } : {}}>
-                      <input
-                        type="text"
+                  <div className={`w-full flex items-end glass-card rounded-[1.75rem] px-4 py-2.5 md:px-6 md:py-4 transition-all duration-300 ${isLive ? 'border-2 border-[var(--accent-border)]' : ''}`} style={isLive ? { boxShadow: `inset 0 0 20px var(--accent-shadow)` } : {}}>
+                      <textarea
+                        ref={composerRef}
                         value={input}
                         onChange={e => setInput(e.target.value)}
-                        onKeyDown={e => e.key === 'Enter' && !isLive && isOnline && handleSend()}
+                        onKeyDown={e => {
+                          if (e.key === 'Enter' && !e.shiftKey && !isLive && isOnline) {
+                            e.preventDefault();
+                            handleSend();
+                          }
+                        }}
                         onFocus={() => {
                           // Auto-scroll to bottom when user focuses input
                           setTimeout(() => {
@@ -1918,7 +1933,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
                         }}
                         placeholder={!isOnline ? t('offline.chatUnavailable', 'Chat unavailable offline') : isLive ? (liveState === 'listening' ? t('chat.input.listeningPlaceholder') : liveState === 'speaking' ? t('chat.input.speakingPlaceholder') : t('chat.input.connectingPlaceholder')) : (profile.role === 'tutor' ? t('chat.input.tutorPlaceholder') : mode === 'ask' ? t('chat.input.askPlaceholder') : t('chat.input.learnPlaceholder'))}
                         disabled={isLive || !isOnline}
-                        className="w-full bg-transparent border-none text-scale-body font-bold text-[var(--text-primary)] focus:outline-none placeholder:text-[var(--text-secondary)] disabled:cursor-not-allowed"
+                        rows={1}
+                        className="chat-composer-input w-full bg-transparent border-none text-scale-body font-bold text-[var(--text-primary)] focus:outline-none placeholder:text-[var(--text-secondary)] disabled:cursor-not-allowed resize-none overflow-y-auto"
                       />
                   </div>
               </div>

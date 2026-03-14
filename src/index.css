@@ -312,6 +312,21 @@ strong {
     line-height: var(--line-height-tight);
 }
 
+.chat-composer-input {
+    min-height: 28px;
+    max-height: 160px;
+    line-height: 1.45;
+    overflow-x: hidden;
+    overflow-wrap: anywhere;
+    field-sizing: content;
+}
+
+@supports (text-box: trim-both cap alphabetic) {
+    .text-box-trim {
+        text-box: trim-both cap alphabetic;
+    }
+}
+
 /* Reduced Motion Support - Accessibility */
 @media (prefers-reduced-motion: reduce) {
   *,
