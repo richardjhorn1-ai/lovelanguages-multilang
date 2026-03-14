@@ -16,8 +16,9 @@ export type ChatMessageSegment =
     };
 
 const CHAT_BLOCK_TYPE_SET = new Set<string>(CHAT_BLOCK_TYPES);
-const BLOCK_OPEN_RE = /^:::\s*([a-z]+)(?:\[(.*?)\])?\s*$/i;
+const BLOCK_OPEN_RE = /^:::\s*([a-z]+)(?:(?:\[(.*?)\])|(?:\s+(.+?)))?\s*$/i;
 const BLOCK_CLOSE_RE = /^:::\s*$/;
+const BLOCK_CLOSE_WITH_TEXT_RE = /^:::\s+(.+?)\s*$/;
 const TABLE_SEPARATOR_RE = /^\s*\|?(?:\s*:?-{3,}:?\s*\|)+(?:\s*:?-{3,}:?\s*)\|?\s*$/;
 
 function normalizeContent(lines: string[]): string {
@@ -153,6 +154,22 @@ export function parseChatMessageSegments(content: string): ChatMessageSegment[] 
       if (BLOCK_CLOSE_RE.test(trimmed)) {
         flushBlock(false);
       } else {
+        const closeWithTextMatch = trimmed.match(BLOCK_CLOSE_WITH_TEXT_RE);
+        const trailingText = closeWithTextMatch?.[1]?.trim() || '';
+
+        if (trailingText) {
+          const trailingOpenMatch = trailingText.match(/^([a-z]+)(?:\[(.*?)\])?\s*$/i);
+          const trailingStartsNewBlock =
+            trailingOpenMatch &&
+            isSupportedChatBlockType(trailingOpenMatch[1]);
+
+          if (!trailingStartsNewBlock) {
+            flushBlock(false);
+            textBuffer.push(trailingText);
+            continue;
+          }
+        }
+
         openBlock.lines.push(line);
       }
       continue;
@@ -163,7 +180,7 @@ export function parseChatMessageSegments(content: string): ChatMessageSegment[] 
       flushText();
       openBlock = {
         type: openMatch[1].toLowerCase() as ChatBlockType,
-        title: openMatch[2]?.trim() || undefined,
+        title: openMatch[2]?.trim() || openMatch[3]?.trim() || undefined,
         lines: [],
       };
       continue;

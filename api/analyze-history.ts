@@ -166,7 +166,8 @@ ${hasGender ? '[ ] Every adjective has adjectiveForms with all required gender f
 
 GOAL:
 - Be generous and comprehensive on short transcripts.
-- Capture MOST useful distinct ${targetName} words and short phrases that appeared.
+- Return every distinct, useful ${targetName} word or short phrase supported by the transcript.
+- There is NO fixed cap on how many entries you may return.
 - Do NOT stop at only 2-3 items if the transcript contains more extractable vocabulary.
 - Basic but useful conversation words are allowed if they appeared and matter.
 
@@ -180,6 +181,7 @@ PRIORITIES:
 - Prefer meaningful verbs, nouns, adjectives, adverbs, and short phrases.
 - Also include helpful set expressions and particles when they matter to natural speech.
 - Avoid duplicates, but do include both a useful phrase and its key base verb when both are pedagogically valuable.
+- Exclude only duplicates, obvious filler/noise, and words the user already knows.
 - For a short conversation, aim to return a healthy set of entries when available, not just the single most important word.`
       : `GOAL:
 - Focus on meaningful new vocabulary and phrases taught or used in the chat.

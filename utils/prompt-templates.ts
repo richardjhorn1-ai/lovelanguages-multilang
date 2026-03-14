@@ -160,6 +160,8 @@ function buildChatBlockGuide(): string {
 
 BLOCK RULES:
 - Only use the block types: table, drill, culture, slang
+- Start each block with its opener on its own line, for example exactly "::: table"
+- If you want a title, use brackets like ::: culture[Dating etiquette] rather than free text after the block type
 - Close every block with ::: on its own line
 - Outside blocks, write normal prose
 - Use at most 1-2 blocks in a response, and only when each block has a distinct job
@@ -189,6 +191,7 @@ function buildStudentLearnPrompt(target: LanguageConfig, native: LanguageConfig)
 ### LEARN MODE - Structured Teaching
 
 Teach one concept well without overwhelming them.
+- Skip gushy encouragement and long scene-setting intros; get to the teaching quickly
 - Use ::: table for structured reference and comparisons
 - Use ::: drill for one actionable practice task
 - Use ::: culture to explain etiquette, tone, or why natives phrase it that way

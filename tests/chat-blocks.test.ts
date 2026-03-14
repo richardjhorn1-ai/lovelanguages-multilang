@@ -55,6 +55,24 @@ Try **que guay** with friends.
     ]);
   });
 
+  it('supports inline block titles without brackets for malformed model output', () => {
+    const segments = parseChatMessageSegments(`::: table Polish Verb Conjugation: mieć (to have)
+| Person | Form |
+| --- | --- |
+| ja | mam |
+:::`);
+
+    expect(segments).toEqual([
+      {
+        type: 'table',
+        title: 'Polish Verb Conjugation: mieć (to have)',
+        content: '| Person | Form |\n| --- | --- |\n| ja | mam |',
+        explicit: true,
+        open: false,
+      },
+    ]);
+  });
+
   it('keeps unfinished blocks open while streaming', () => {
     const segments = parseChatMessageSegments(`Before
 
@@ -104,6 +122,40 @@ Outro`);
       {
         type: 'text',
         content: 'Intro\n::: mystery\nHidden\n:::\nOutro',
+      },
+    ]);
+  });
+
+  it('treats close markers with trailing prose as close-plus-text', () => {
+    const segments = parseChatMessageSegments(`::: table
+| Pronoun | Form |
+| --- | --- |
+| ja | mam |
+::: Notice how the ending changes depending on who is speaking.
+::: drill
+Try building your own sentence.
+::: How does that feel?`);
+
+    expect(segments).toEqual([
+      {
+        type: 'table',
+        content: '| Pronoun | Form |\n| --- | --- |\n| ja | mam |',
+        explicit: true,
+        open: false,
+      },
+      {
+        type: 'text',
+        content: 'Notice how the ending changes depending on who is speaking.',
+      },
+      {
+        type: 'drill',
+        content: 'Try building your own sentence.',
+        explicit: true,
+        open: false,
+      },
+      {
+        type: 'text',
+        content: 'How does that feel?',
       },
     ]);
   });
