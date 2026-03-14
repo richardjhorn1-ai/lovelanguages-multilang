@@ -90,7 +90,24 @@ export const config = {
 
 function getAllowedOrigin(origin: string | null): string | null {
   if (!origin) return null;
-  return allowedOrigins.has(origin) ? origin : null;
+  if (allowedOrigins.has(origin)) {
+    return origin;
+  }
+
+  try {
+    const { hostname, protocol } = new URL(origin);
+    if (
+      protocol === 'https:' &&
+      hostname.endsWith('.vercel.app') &&
+      hostname.includes('lovelanguages')
+    ) {
+      return origin;
+    }
+  } catch {
+    // Ignore malformed origins
+  }
+
+  return null;
 }
 
 function corsHeaders(origin: string | null): Record<string, string> {
