@@ -125,7 +125,6 @@ export class TranscriptionSession {
       this.ws = new WebSocket(url, [
         'realtime',
         'openai-insecure-api-key.' + token,
-        'openai-beta.realtime-v1'
       ]);
 
       this.ws.onopen = () => {
