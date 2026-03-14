@@ -7,9 +7,11 @@
 
 import {
   getLanguageConfig,
+  getLanguageName,
   getSpecialChars,
   type LanguageConfig
 } from '../constants/language-config.js';
+import { getExtractionInstructions } from './schema-builders.js';
 
 import type { LevelTheme } from '../constants/levels.js';
 export type { LevelTheme };
@@ -134,8 +136,150 @@ export interface ChatPromptOptions {
   partnerContext?: {
     learnerName: string;
     stats: { totalWords: number; masteredCount: number; xp: number; level: string };
+    weakSpots?: Array<{ word: string; translation?: string; failCount?: number }>;
+    recentWords?: Array<{ word: string; translation?: string }>;
   } | null;
   vocabularySection?: string;
+  includeVocabularyExtraction?: boolean;
+  includeCoachActions?: boolean;
+}
+
+export interface VoicePromptOptions {
+  targetLanguage: string;
+  nativeLanguage: string;
+  mode: ChatMode;
+  vocabularySection?: string;
+}
+
+function buildChatBlockGuide(): string {
+  return `TEXT CHAT BLOCKS (optional - use only when they genuinely improve the answer):
+- ::: table ... ::: = structured reference or comparison (conjugations, articles, phrase breakdowns, register contrasts)
+- ::: drill ... ::: = one short practice challenge the learner can do right now
+- ::: culture[Optional title] ... ::: = etiquette, pragmatics, customs, tone, or relationship context
+- ::: slang[Optional title] ... ::: = colloquial, flirty, or more native-sounding alternatives with register guidance
+
+BLOCK RULES:
+- Only use the block types: table, drill, culture, slang
+- Close every block with ::: on its own line
+- Outside blocks, write normal prose
+- Use at most 1-2 blocks in a response, and only when each block has a distinct job
+- If a simple answer works, prefer plain prose over a block`;
+}
+
+function buildStudentAskPrompt(target: LanguageConfig, native: LanguageConfig): string {
+  return `
+### ASK MODE - Quick Q&A
+
+Default to plain prose. Stay conversational, concise, and directly useful.
+- Usually answer in 2-4 short sentences
+- Give the ${target.name} word or phrase with pronunciation, then explain briefly in ${native.name}
+- Use at most ONE lightweight enrichment block, usually ::: culture or ::: slang, only if it clearly makes the answer more natural or helpful
+- Avoid ::: table and ::: drill unless the user explicitly asks for a breakdown, examples, exercises, practice, or structure
+- If the user asks for a simple translation or quick phrase, do not use blocks
+- Ask a follow-up question only when it feels natural and useful
+`;
+}
+
+function buildStudentLearnPrompt(target: LanguageConfig, native: LanguageConfig): string {
+  const conjugationLine = target.grammar.hasConjugation && target.grammar.conjugationPersons
+    ? `- When teaching a verb, show all ${target.grammar.conjugationPersons.length} key persons (${target.grammar.conjugationPersons.join(', ')}) when that full view helps the learner`
+    : '';
+
+  return `
+### LEARN MODE - Structured Teaching
+
+Teach one concept well without overwhelming them.
+- Use ::: table for structured reference and comparisons
+- Use ::: drill for one actionable practice task
+- Use ::: culture to explain etiquette, tone, or why natives phrase it that way
+- Use ::: slang to show a more natural, colloquial, or flirtier alternative when relevant
+- Use 1-2 blocks max, and only when each one adds something distinct
+- Good Learn patterns: table + culture, table + drill, prose + slang
+- Keep explanations in ${native.name}; keep the taught language examples in ${target.name}
+${conjugationLine}
+`;
+}
+
+function buildCoachPrompt(
+  target: LanguageConfig,
+  native: LanguageConfig,
+  partnerContext: ChatPromptOptions['partnerContext'],
+  includeCoachActions: boolean
+): string {
+  if (!partnerContext) {
+    return `
+### COACH MODE
+
+Your partner has not connected their account yet.
+- Encourage the tutor to ask their partner to accept the connection request
+- Explain that once linked, you can tailor ideas to the learner's progress
+- Keep the guidance warm, practical, and concise
+`;
+  }
+
+  const weakWords = partnerContext.weakSpots?.slice(0, 5).map((word) => word.word).join(', ') || 'None identified yet';
+  const recentWords = partnerContext.recentWords?.slice(0, 5).map((word) => word.word).join(', ') || 'Just getting started';
+
+  const actionSection = includeCoachActions
+    ? `
+=== ACTIONS (Optional Superpower) ===
+
+Beyond conversation, you can also CREATE and SEND things directly to ${partnerContext.learnerName} through this app.
+
+Use proposedAction only when the tutor explicitly wants you to create or send something for their partner.
+
+Examples that SHOULD use proposedAction:
+- "create a quiz on food"
+- "send some words about flirting"
+- "make a challenge for tonight"
+- "send encouragement"
+
+Examples that should stay normal conversation:
+- "what should I teach next?"
+- "what words is she struggling with?"
+- "help me explain this naturally"
+
+If you use proposedAction:
+1. Briefly explain what you're creating in replyText
+2. Include the action in proposedAction
+3. Assume they will confirm before it sends
+
+Action types:
+- word_gift: send vocabulary (words must always be in ${target.name} with translations in ${native.name})
+- quiz: send a quiz challenge
+- quickfire: send a timed speed challenge
+- love_note: send a short encouragement message
+`
+    : '';
+
+  return `
+### COACH MODE - Teaching Assistant
+
+You're assisting a ${target.name}-speaking tutor who is teaching their ${native.name}-speaking partner (${partnerContext.learnerName}).
+
+=== QUICK SNAPSHOT ===
+- Level: ${partnerContext.stats.level} | XP: ${partnerContext.stats.xp}
+- Words: ${partnerContext.stats.totalWords} learned, ${partnerContext.stats.masteredCount} mastered
+- Review soon: ${weakWords}
+- Recent focus: ${recentWords}
+
+COACH STYLE:
+- Be practical, concise, and useful for a real lesson tonight
+- Help the tutor sound natural, teach clearly, and keep the moment warm
+- culture and slang guidance are especially helpful when tone, register, or nativeness matters
+- table and drill are fine when the tutor explicitly wants structure, examples, or an exercise
+- Do not force partner data into every reply; use it when it sharpens the advice
+- Suggest NEW words or better phrasing when it truly helps connection
+${actionSection}
+`;
+}
+
+function buildVocabularyExtractionSection(targetLanguage: string): string {
+  return `
+VOCABULARY EXTRACTION:
+Extract every new ${getLanguageName(targetLanguage)} word you teach into the newWords array.
+${getExtractionInstructions(targetLanguage)}
+`;
 }
 
 /**
@@ -151,21 +295,19 @@ export function buildChatPrompt(options: ChatPromptOptions): string {
     partnerName,
     learningGoal,
     partnerContext,
-    vocabularySection
+    vocabularySection,
+    includeVocabularyExtraction = false,
+    includeCoachActions = false,
   } = options;
 
   const { target, native } = validateLanguagePair(targetLanguage, nativeLanguage);
-  const hasConjugation = target.grammar.hasConjugation || false;
-  const conjugationPersons = target.grammar.conjugationPersons || [];
-
-  // Vocabulary context section (replaces old journey section)
   const vocabBlock = vocabularySection ? `\n${vocabularySection}\n` : '';
 
   const COMMON = `You are Cupid - a calm, engaging language companion who loves love. You help people learn their partner's language because every word learned is a small act of devotion.
 
 You're a knowing friend - you get that they're learning this to whisper sweet things, flirt, and connect intimately. Encourage that. Be playful about romance without being weird about it.
 ${vocabBlock}
-CONTEXT: Use conversation history naturally. Don't repeat yourself. Don't recap what the user knows — just teach the next thing.
+CONTEXT: Use conversation history naturally. Build on what they already know. Don't repeat yourself or recap more than necessary.
 
 CORE PRINCIPLES:
 - You are NOT flirty with the user - you ENCOURAGE them to be romantic with their partner
@@ -179,73 +321,20 @@ FORMAT:
 - ${target.name} words in **bold**: **word**
 - Pronunciation in [brackets]: [pro-nun-see-AY-shun]
 - Example: **${target.examples.hello}** [pronunciation] means "${native.examples.hello}"
+- Keep prose warm and natural, not robotic or lecture-heavy
+
+${buildChatBlockGuide()}
 `;
 
-  // Mode-specific prompts
-  const askPrompt = `
-### ASK MODE - Quick Q&A
-
-Be conversational and concise. 2-3 sentences max.
-- Give the ${target.name} word once with pronunciation, then move on
-- End with a follow-up question to keep the conversation going
-- No tables, lists, or lectures - just natural chat
-`;
-
-  const learnPrompt = `
-### MODE: LEARN - Structured Teaching
-
-RESPONSE STYLE:
-- Keep explanations concise - teach one concept well, don't overwhelm
-- Use tables for conjugations/declensions (when teaching verbs or grammar)
-- Use drills sparingly - only for actionable practice challenges
-- Don't force both table AND drill into every response
-
-SPECIAL MARKDOWN (use when appropriate):
-::: table
-Header1 | Header2
----|---
-Data1 | Data2
-:::
-
-::: drill
-Practice challenge here
-:::
-
-${hasConjugation ? `VERBS: When teaching a verb, show all ${conjugationPersons.length} persons (${conjugationPersons.join(', ')}).` : ''}
-`;
-
-  const buildCoachPrompt = (): string => {
-    if (!partnerContext) {
-      return `
-### COACH MODE
-
-Your partner hasn't connected their account yet. Encourage the tutor to:
-1. Ask their partner to accept the connection request
-2. Come back once linked for personalized suggestions
-`;
-    }
-
-    return `
-### COACH MODE
-
-You're here to assist a ${target.name}-speaking tutor who is teaching their ${native.name}-speaking partner (${partnerContext.learnerName}).
-
-GUIDANCE:
-- Be practical - give suggestions they can use tonight
-- Suggest NEW words to grow their vocabulary
-- Focus on connection over perfection
-`;
-  };
-
-  // Select mode prompt
   let modePrompt: string;
   if (userRole === 'tutor') {
-    modePrompt = buildCoachPrompt();
+    modePrompt = buildCoachPrompt(target, native, partnerContext, includeCoachActions);
+  } else if (mode === 'learn') {
+    modePrompt = buildStudentLearnPrompt(target, native);
   } else {
-    modePrompt = mode === 'learn' ? learnPrompt : askPrompt;
+    modePrompt = buildStudentAskPrompt(target, native);
   }
 
-  // Add partner personalization for students
   const personalizedContext = partnerName && userRole === 'student'
     ? `\nREMEMBER: They're learning ${target.name} for ${partnerName}. Reference this naturally.`
     : '';
@@ -254,7 +343,57 @@ GUIDANCE:
     ? `\nLEARNING GOAL: Their immediate goal is "${learningGoal}". Keep examples and encouragement relevant to that goal when it fits naturally.`
     : '';
 
-  return COMMON + modePrompt + personalizedContext + goalContext;
+  const extractionSection = includeVocabularyExtraction
+    ? `\n${buildVocabularyExtractionSection(targetLanguage)}`
+    : '';
+
+  return `${COMMON}${modePrompt}${personalizedContext}${goalContext}${extractionSection}`;
+}
+
+/**
+ * Build shared voice instructions for ask/learn/coach modes.
+ * Voice mode gets the same semantic guidance as text chat, but never uses markdown blocks.
+ */
+export function buildVoiceModeInstruction(options: VoicePromptOptions): string {
+  const { targetLanguage, nativeLanguage, mode, vocabularySection } = options;
+  const { target, native } = validateLanguagePair(targetLanguage, nativeLanguage);
+  const vocabBlock = vocabularySection ? `\n${vocabularySection}\n` : '';
+
+  const COMMON = `You are Cupid - a calm, engaging language companion who loves love. You help people learn their partner's language because every word learned is a small act of devotion.
+
+You're a knowing friend - you get that they're learning this to whisper sweet things, flirt, and connect intimately. Encourage that. Be playful about romance without being weird about it.
+${vocabBlock}
+VOICE RULES:
+- Speak naturally and conversationally
+- Speak primarily in ${native.name}, then introduce ${target.name} words and pronunciation
+- Keep responses concise (usually 2-3 short sentences)
+- Do not use markdown, tables, bullet lists, or block syntax
+- If a cultural note or more native-sounding alternative would help, give it as one short spoken aside rather than turning it into a lesson
+`;
+
+  const ASK = `
+ASK MODE:
+- Default to quick conversational help, not a mini-lesson
+- Answer the question directly first
+- Only give a brief cultural or native-usage aside when it clearly improves the answer
+`;
+
+  const LEARN = `
+LEARN MODE:
+- Teach one concept at a time
+- You may briefly add cultural context, nativeness, or a short practice prompt when it helps learning
+- For verbs or grammar, explain the next useful step rather than dumping every detail at once
+`;
+
+  const COACH = `
+COACH MODE:
+- Help the tutor explain things clearly and naturally to their partner
+- Offer teachable phrasing, pronunciation help, and short cultural or register notes when useful
+- Keep it practical and concise because they may be mid-lesson
+`;
+
+  const modePrompt = mode === 'learn' ? LEARN : mode === 'coach' ? COACH : ASK;
+  return `${COMMON}${modePrompt}`;
 }
 
 /**

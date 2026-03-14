@@ -10,8 +10,7 @@ import {
   SubscriptionPlan,
 } from '../utils/api-middleware.js';
 import { extractLanguages, getProfileLanguages, type LanguageParams } from '../utils/language-helpers.js';
-import { getGrammarExtractionNotes, type ChatMode } from '../utils/prompt-templates.js';
-import { getExtractionInstructions } from '../utils/schema-builders.js';
+import { buildChatPrompt, type ChatMode } from '../utils/prompt-templates.js';
 import { getLanguageConfig, getLanguageName, getConjugationPersons } from '../constants/language-config.js';
 import { buildVocabularySchema, buildConjugationSchema } from '../utils/schema-builders.js';
 import { fetchVocabularyContext, fetchKnownWordsList, formatVocabularyPromptSection } from '../utils/vocabulary-context.js';
@@ -275,10 +274,6 @@ export default async function handler(req: any, res: any) {
       return res.status(200).json({ title: response.text?.replace(/"/g, '').trim() || "New Session" });
     }
 
-    // Variables for mode-specific instructions
-    const conjugationPersons = getConjugationPersons(targetLanguage);
-    const hasConjugation = targetConfig?.grammar.hasConjugation || false;
-
     // Build vocabulary context section from sessionContext or fresh fetch
     let vocabularySection = '';
     if (sessionContext && sessionContext.bootedAt) {
@@ -326,129 +321,6 @@ export default async function handler(req: any, res: any) {
         vocabularySection = formatVocabularyPromptSection(vocabTier, undefined, { knownWords });
       }
     }
-
-    const vocabBlock = vocabularySection ? `\n${vocabularySection}\n` : '';
-
-    const COMMON_INSTRUCTIONS = `You are Cupid - a calm, engaging language companion who loves love. You help people learn their partner's language because every word learned is a small act of devotion.
-
-You're a knowing friend - you get that they're learning this to whisper sweet things, flirt, and connect intimately. Encourage that. Be playful about romance without being weird about it.
-${vocabBlock}
-CONTEXT: Use conversation history naturally - build on what they've learned, don't repeat yourself.
-
-CORE PRINCIPLES:
-- You are NOT flirty with the user - you ENCOURAGE them to be romantic with their partner
-- Celebrate every small win enthusiastically
-- Connect vocabulary to relationship moments
-- Write ALL explanations in ${nativeName}, then introduce ${targetName} words with their ${nativeName} translation
-
-PACE: Don't overwhelm. One concept at a time. Translate everything helpfully.
-
-FORMAT:
-- ${targetName} words in **bold**: **word**
-- Pronunciation in [brackets]: [pro-nun-see-AY-shun]
-- Example: **${targetConfig?.examples.hello || 'Hello'}** [pronunciation] means "${nativeConfig?.examples.hello || 'Hello'}"
-
-VOCABULARY EXTRACTION:
-Extract every new ${targetName} word you teach into the newWords array.
-${getExtractionInstructions(targetLanguage)}
-`;
-
-    const MODE_DEFINITIONS = {
-        ask: `
-### ASK MODE - Quick Q&A
-
-Be conversational and concise. 2-3 sentences max.
-- Give the ${targetName} word once with pronunciation, then move on
-- End with a follow-up question to keep the conversation going
-- No tables, lists, or lectures - just natural chat
-`,
-        learn: `
-### MODE: LEARN - Structured Teaching
-
-RESPONSE STYLE:
-- Keep explanations concise - teach one concept well, don't overwhelm
-- Use tables for conjugations/declensions (when teaching verbs or grammar)
-- Use drills sparingly - only for actionable practice challenges
-- Don't force both table AND drill into every response
-
-SPECIAL MARKDOWN (use when appropriate):
-::: table
-Header1 | Header2
----|---
-Data1 | Data2
-:::
-
-::: drill
-Practice challenge here
-:::
-
-${hasConjugation ? `VERBS: When teaching a verb, show all ${conjugationPersons.length} persons (${conjugationPersons.join(', ')}).` : ''}
-`,
-        coach: '' // Placeholder - will be dynamically generated with partner context
-    };
-
-    // Generate coach mode prompt with partner context
-    // Enhanced version with agentic action capabilities
-    const generateCoachPrompt = (context: PartnerContext | null): string => {
-      if (!context) {
-        return `
-### COACH MODE
-
-Your partner hasn't connected their account yet. Encourage the tutor to:
-1. Ask their partner to accept the connection request
-2. Come back once linked for personalized suggestions
-`;
-      }
-
-      const weakWords = context.weakSpots.slice(0, 5).map(w => w.word).join(', ') || 'None identified';
-      const recentWords = context.recentWords.slice(0, 5).map(w => w.word).join(', ') || 'Just starting';
-
-      return `
-### COACH MODE - Teaching Assistant
-
-You're here to assist a ${targetName}-speaking tutor who is teaching their ${nativeName}-speaking partner (${context.learnerName}).
-
-=== QUICK SNAPSHOT ===
-- Level: ${context.stats.level} | XP: ${context.stats.xp}
-- Words: ${context.stats.totalWords} learned, ${context.stats.masteredCount} mastered
-
-=== ACTIONS (Optional Superpower) ===
-
-Beyond conversation, you can also CREATE and SEND things directly to ${context.learnerName} through this app.
-
-**When to use proposedAction:**
-When the tutor asks you to create or send something for their partner:
-- "create a quiz on food" / "make a quiz" / "send a quiz"
-- "send some words about..." / "give them vocabulary on..."
-- "send a challenge" / "create a challenge"
-- "send encouragement" / "send a love note"
-
-**When to just have a conversation:**
-When they're asking questions or discussing (not requesting something be created):
-- "what words should I teach?" → give suggestions
-- "what's a good quiz topic?" → discuss options
-- "how is she doing?" → review progress together
-- "help me with vocabulary ideas" → brainstorm together
-
-**If you use proposedAction:**
-1. Briefly explain what you're creating in replyText
-2. Include the action in proposedAction
-3. They'll see a confirmation before it sends
-
-**Action types:**
-- word_gift: Send vocabulary (include words array with word, translation, word_type)
-- quiz: Quiz challenge (wordSource: weak_words, recent_words, or specific)
-- quickfire: Timed speed challenge (specify word count and time limit)
-- love_note: Encouragement message (category: encouragement/celebration/check_in)
-
-GUIDANCE:
-- Be practical - give suggestions they can use tonight
-- Don't force the partner data into every response
-- Suggest NEW words to grow their vocabulary
-- Focus on connection over perfection
-- CRITICAL: Word gifts must ALWAYS contain words in ${targetName} with translations in ${nativeName} — regardless of what language the tutor speaks to you in
-`;
-    };
 
     // Get user's profile for mode-specific prompts and personalization
     // Use sessionContext if provided (avoids re-fetching on every message)
@@ -516,36 +388,19 @@ GUIDANCE:
       }
     }
 
-    // For tutors, ALWAYS use coach mode with partner context
-    // For students, use the requested mode (ask/learn)
-    let modePrompt = '';
-    if (userRole === 'tutor') {
-      modePrompt = generateCoachPrompt(partnerContext);
-    } else {
-      modePrompt = MODE_DEFINITIONS[mode as keyof typeof MODE_DEFINITIONS] || MODE_DEFINITIONS.ask;
-    }
-
-    // Generate personalized context for students (minimal - just partner name)
-    const personalizedContext = partnerName && userRole === 'student'
-      ? `\nPERSONALIZATION:\nThe user is learning ${targetName} for someone named ${partnerName}. Reference this person naturally in examples and encouragement (e.g., "Try saying this to ${partnerName} tonight!" or "Imagine ${partnerName}'s reaction when you say this!").\n`
-      : '';
-    const goalContext = learningGoal && userRole === 'student'
-      ? `\nGOAL:\nTheir immediate goal is "${learningGoal}". Keep examples and encouragement aligned with that goal when it fits naturally.\n`
-      : '';
-
-    // Tutors use simplified instructions (no vocabulary extraction needed)
     const isTutorMode = userRole === 'tutor';
-    const activeSystemInstruction = isTutorMode
-      ? `You are a warm, helpful assistant for a ${targetName} speaker helping their partner learn ${targetName}. Your responses should be encouraging and practical.
-
-FORMATTING:
-- ${targetName} words go inside **double asterisks**: **${targetConfig?.examples.iLoveYou || 'word'}**, **${targetConfig?.examples.hello || 'phrase'}**
-- Pronunciation goes in [square brackets]: [pronunciation]
-- Keep responses warm, conversational, and focused on helping the couple connect through language
-
-${modePrompt}`
-      : `${COMMON_INSTRUCTIONS}${personalizedContext}${goalContext}
-${modePrompt}`;
+    const activeSystemInstruction = buildChatPrompt({
+      targetLanguage,
+      nativeLanguage,
+      mode: isTutorMode ? 'coach' : (mode as ChatMode),
+      userRole,
+      partnerName,
+      learningGoal,
+      partnerContext,
+      vocabularySection,
+      includeVocabularyExtraction: !isTutorMode,
+      includeCoachActions: isTutorMode,
+    });
 
     // Enhanced schema for tutor/coach mode with agentic action capabilities
     // Tutors don't add words to their Love Log, so we skip vocabulary extraction

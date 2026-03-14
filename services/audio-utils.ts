@@ -1,11 +1,11 @@
 /**
- * Audio utilities for Gemini Live API
- * - AudioRecorder: Captures microphone audio at 16kHz PCM mono
- * - AudioPlayer: Plays audio from Gemini at 24kHz
+ * Audio utilities for real-time voice and transcription
+ * - AudioRecorder: Captures microphone audio as PCM mono (configurable sample rate)
+ * - AudioPlayer: Plays audio from Gemini Live at 24kHz
  */
 
-// Gemini Live API audio format requirements
-export const INPUT_SAMPLE_RATE = 16000;  // 16kHz for input
+// Default sample rates
+export const INPUT_SAMPLE_RATE = 16000;  // 16kHz default (Gemini Live). OpenAI uses 24kHz — passed via start() param.
 export const OUTPUT_SAMPLE_RATE = 24000; // 24kHz for output
 
 /**
@@ -14,14 +14,14 @@ export const OUTPUT_SAMPLE_RATE = 24000; // 24kHz for output
 export class AudioRecorder {
   private audioContext: AudioContext | null = null;
   private mediaStream: MediaStream | null = null;
-  private workletNode: AudioWorkletNode | null = null;
   private onDataCallback: ((base64Data: string) => void) | null = null;
 
   /**
    * Start recording from the microphone
    * @param onData Callback that receives base64-encoded audio chunks
+   * @param targetSampleRate Target sample rate in Hz (default: 16000 for Gemini Live, use 24000 for OpenAI)
    */
-  async start(onData: (base64Data: string) => void): Promise<void> {
+  async start(onData: (base64Data: string) => void, targetSampleRate: number = INPUT_SAMPLE_RATE): Promise<void> {
     this.onDataCallback = onData;
 
     try {
@@ -37,22 +37,22 @@ export class AudioRecorder {
       // Create audio context - browser will use its native sample rate
       this.audioContext = new AudioContext();
       const nativeSampleRate = this.audioContext.sampleRate;
-      console.log(`[AudioRecorder] Native sample rate: ${nativeSampleRate}Hz, target: ${INPUT_SAMPLE_RATE}Hz`);
+      console.log(`[AudioRecorder] Native sample rate: ${nativeSampleRate}Hz, target: ${targetSampleRate}Hz`);
 
       // Create source from microphone
       const source = this.audioContext.createMediaStreamSource(this.mediaStream);
 
-      // Use ScriptProcessor for audio processing
+      // TODO: Migrate from deprecated createScriptProcessor to AudioWorkletNode
       const bufferSize = 4096;
       const processor = this.audioContext.createScriptProcessor(bufferSize, 1, 1);
 
       processor.onaudioprocess = (event) => {
         const inputData = event.inputBuffer.getChannelData(0);
 
-        // Resample if needed (from native rate to 16kHz)
+        // Resample if needed (from native rate to target rate)
         let outputData: Float32Array;
-        if (nativeSampleRate !== INPUT_SAMPLE_RATE) {
-          outputData = this.resample(inputData, nativeSampleRate, INPUT_SAMPLE_RATE);
+        if (nativeSampleRate !== targetSampleRate) {
+          outputData = this.resample(inputData, nativeSampleRate, targetSampleRate);
         } else {
           outputData = inputData;
         }
@@ -103,11 +103,6 @@ export class AudioRecorder {
    * Stop recording and release resources
    */
   stop(): void {
-    if (this.workletNode) {
-      this.workletNode.disconnect();
-      this.workletNode = null;
-    }
-
     if (this.mediaStream) {
       this.mediaStream.getTracks().forEach(track => track.stop());
       this.mediaStream = null;

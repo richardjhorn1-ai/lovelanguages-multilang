@@ -144,7 +144,7 @@ const PrivacyPolicy: React.FC = () => {
                 for processing. See Section 10 below for details.
               </li>
               <li>
-                <strong>Gladia:</strong> Speech-to-text transcription for voice features
+                <strong>OpenAI:</strong> Speech-to-text transcription for voice features
               </li>
               <li>
                 <strong>Stripe:</strong> Web payment processing and subscription management

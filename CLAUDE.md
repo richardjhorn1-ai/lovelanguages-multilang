@@ -229,7 +229,7 @@ Tabs stay mounted via CSS (`display: none`) rather than unmounting. All tabs ini
 ### Environment Variables
 
 Client-side: `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`
-Server-side: `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, `GEMINI_API_KEY`, `GLADIA_API_KEY`, `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`
+Server-side: `SUPABASE_URL`, `SUPABASE_SERVICE_KEY`, `GEMINI_API_KEY`, `OPENAI_API_KEY`, `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`
 
 ### Blog URL Convention
 

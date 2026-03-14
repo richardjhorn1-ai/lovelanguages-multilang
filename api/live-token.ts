@@ -8,7 +8,8 @@ import {
   SubscriptionPlan,
 } from '../utils/api-middleware.js';
 import { extractLanguages } from '../utils/language-helpers.js';
-import { getLanguageConfig, getLanguageName } from '../constants/language-config.js';
+import { getLanguageName } from '../constants/language-config.js';
+import { buildVoiceModeInstruction } from '../utils/prompt-templates.js';
 import { fetchVocabularyContext, fetchKnownWordsList, formatVocabularyPromptSection } from '../utils/vocabulary-context.js';
 
 // Conversation scenario interface
@@ -45,73 +46,6 @@ HOW TO PLAY THIS:
 
 Start the conversation as your character.
 `;
-}
-
-// Voice system instructions per mode
-function buildVoiceSystemInstruction(
-  mode: string,
-  targetLanguage: string,
-  nativeLanguage: string,
-  vocabularySection: string
-): string {
-  const targetName = getLanguageName(targetLanguage);
-  const nativeName = getLanguageName(nativeLanguage);
-
-  const COMMON = `
-You are Cupid - a calm, engaging language companion who loves love. You help people learn their partner's language because every word learned is a small act of devotion.
-
-You're a knowing friend - you get that they're learning this to whisper sweet things, flirt, and connect intimately. Encourage that. Be playful about romance without being weird about it.
-
-VOICE RULES:
-- Speak primarily in ${nativeName}, then introduce ${targetName} words
-- Pattern: ${nativeName} explanation → ${targetName} word → pronunciation
-- Keep responses concise (2-3 sentences)
-- Be encouraging and warm
-`;
-
-  const vocabBlock = vocabularySection ? `\n${vocabularySection}\n` : '';
-
-  const MODES: Record<string, string> = {
-    ask: `
-${COMMON}
-${vocabBlock}
-ASK MODE - Casual Chat
-
-You're catching up with them. Ask about their relationship, how things are going, what moments are coming up. Be curious.
-
-"So how are things with you two? Any special moments coming up?"
-"Want to learn something specific to say to them tonight?"
-
-When they ask something, help them quickly and keep the conversation going.
-`,
-    learn: `
-${COMMON}
-${vocabBlock}
-LEARN MODE - Voice Lesson
-
-You're teaching them. Go slow, be clear.
-- Say the word, pause, let them repeat
-- Give pronunciation tips
-- For verbs: one conjugation at a time
-- Challenge them with words they need to practice
-`,
-    coach: `
-You are Cupid - a warm, helpful teaching assistant for a ${targetName} native speaker who is teaching their partner.
-
-The tutor is with their partner right now and needs quick help explaining something in ${targetName}.
-
-HOW TO HELP:
-- Give alternative ways to explain ${targetName} concepts
-- Suggest simple phrases they can use with their partner
-- Offer pronunciation tips they can pass on
-- Keep responses SHORT (2-3 sentences) - they're mid-lesson!
-- Speak in ${nativeName} so the tutor understands immediately
-
-Be practical, concise, and supportive. They're teaching someone they love.
-`
-  };
-
-  return MODES[mode] || MODES.ask;
 }
 
 export default async function handler(req: any, res: any) {
@@ -222,12 +156,12 @@ export default async function handler(req: any, res: any) {
       );
     } else {
       // Regular voice mode with vocabulary context
-      systemInstruction = buildVoiceSystemInstruction(
+      systemInstruction = buildVoiceModeInstruction({
         mode,
         targetLanguage,
         nativeLanguage,
-        vocabularySection
-      );
+        vocabularySection,
+      });
     }
     // Use the only model that supports Live API (BidiGenerateContent)
     const model = 'gemini-2.5-flash-native-audio-preview-12-2025';

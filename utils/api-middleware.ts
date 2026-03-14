@@ -497,7 +497,7 @@ export const RATE_LIMITS = {
 
   // Voice/Listen endpoints - tracked in minutes, reported by frontend after session ends
   liveToken: { type: 'voice_minutes', monthly: { free: 15, standard: 480, unlimited: null } },
-  gladiaToken: { type: 'listen_minutes', monthly: { free: 15, standard: 480, unlimited: null } },
+  transcriptionToken: { type: 'listen_minutes', monthly: { free: 15, standard: 480, unlimited: null } },
 
   // Tutor actions
   sendWordGift: { type: 'send_word_gift', monthly: { free: 10, standard: 100, unlimited: null } },

@@ -4,15 +4,13 @@ import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { geminiService, Attachment, ExtractedWord, SessionContext, ProposedAction } from '../services/gemini';
 import { LiveSession, LiveSessionState } from '../services/live-session';
-import { GladiaSession, GladiaState, TranscriptChunk } from '../services/gladia-session';
+import { TranscriptionSession, TranscriptionState, TranscriptChunk } from '../services/transcription-session';
 import { Profile, Chat, Message, ChatMode, WordType } from '../types';
 import { ICONS } from '../constants';
 import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { sounds } from '../services/sounds';
-import { speak } from '../services/audio';
 import { ChatEmptySuggestions } from './ChatEmptySuggestions';
-import { sanitizeHtml, escapeHtml } from '../utils/sanitize';
 import { getLanguageFlag as getLanguageFlagByCode } from '../constants/language-config';
 import { ThinkingIndicator } from './ThinkingIndicator';
 import { CoachActionConfirmModal } from './CoachActionConfirmModal';
@@ -21,38 +19,40 @@ import OfflineIndicator from './OfflineIndicator';
 import { analytics } from '../services/analytics';
 import GeminiAIConsent, { hasAIConsent } from './GeminiAIConsent';
 import { apiFetch } from '../services/api-config';
+import { orderTranscriptEntries } from '../utils/listen-transcript';
 import { selectVoiceMessagesForExtraction } from '../utils/voice-vocabulary';
+import RichMessageRenderer from './chat/RichMessageRenderer';
 
 // Listen session types
 interface TranscriptEntry {
   id: string;
-  gladiaId?: string;     // Gladia's utterance ID — stable across partial/final
   speaker: string;
-  word: string;          // Target language text (was 'polish')
-  translation: string;   // Native language translation (was 'english')
+  text: string;            // Transcribed speech text
+  translation: string;     // Translation in opposite language
   timestamp: number;
   isBookmarked: boolean;
   isFinal: boolean;
-  language?: string;      // 'target' | 'native' | 'mixed' or ISO code from Gladia
-  languageCode?: string;  // Always ISO code ('pl', 'en', etc.)
-  originalText?: string;  // Pre-correction text if Gemini fixed it
+  language?: string;        // 'target' | 'native' | 'mixed' or ISO code
+  languageCode?: string;    // Always ISO code ('pl', 'en', etc.)
+  originalText?: string;    // Pre-correction text if Gemini fixed it
+  previousEntryId?: string | null;
 }
 
-// Normalize old session data (polish/english) to new format (word/translation)
-// Provides backward compatibility for sessions saved before multi-language update
+// Normalize old session data — backward compat for sessions saved with word/polish/english field names
 function normalizeTranscriptEntries(entries: any[]): TranscriptEntry[] {
   if (!entries || !Array.isArray(entries)) return [];
   return entries.map(e => ({
     id: e.id || `entry_${Date.now()}`,
     speaker: e.speaker || 'speaker_0',
-    word: e.word || e.polish || e.text || '',           // Support: word, polish, text
-    translation: e.translation || e.english || '',      // Support: translation, english
+    text: e.text || e.word || e.polish || '',           // Support: text, word (old), polish (ancient)
+    translation: e.translation || e.english || '',      // Support: translation, english (ancient)
     timestamp: e.timestamp || Date.now(),
     isBookmarked: e.isBookmarked || false,
     isFinal: e.isFinal !== false,
     language: e.language,
     languageCode: e.languageCode,
     originalText: e.originalText,
+    previousEntryId: e.previousEntryId || null,
   }));
 }
 
@@ -63,7 +63,7 @@ function getEntryFlag(lang?: string, langCode?: string, targetLang?: string, nat
   if (lang === 'target') return getLanguageFlagByCode(targetLang!) || '🗣️';
   if (lang === 'native') return getLanguageFlagByCode(nativeLang!) || '🗣️';
   if (lang === 'mixed') return '🗣️';
-  // ISO code directly from Gladia real-time
+  // ISO code directly from real-time transcription
   return getLanguageFlagByCode(lang) || '🗣️';
 }
 
@@ -77,147 +77,8 @@ interface ListenSession {
   created_at: string;
 }
 
-// Note: Speaker diarization not supported in Gladia live streaming
+// Note: Speaker diarization not supported in live streaming transcription
 // All transcripts attributed to single speaker, so we use accent color styling
-
-const parseMarkdown = (text: string) => {
-  if (!text) return '';
-
-  // Step 1: Clean legacy CSS artifacts from stored messages (before escaping)
-  let clean = text
-    .split('(#FF4761) font-semibold">').join('')
-    .split('(#FF4761)font-semibold">').join('')
-    .split('#FF4761) font-semibold">').join('')
-    .split('font-semibold">').join('')
-    .split('font-semibold>').join('');
-
-  clean = clean
-    .replace(/\(?#[A-Fa-f0-9]{3,6}\)?\s*font-semibold[^a-z>]*>/gi, '')
-    .replace(/\(#[A-Fa-f0-9]{3,6}\)/g, '')
-    .replace(/font-semibold["'>:\s]*/gi, '')
-    .replace(/text-\[#[A-Fa-f0-9]{3,6}\]/g, '')
-    .replace(/<\/?(?:span|strong|div|em|b|i)[^>]*>/gi, '')
-    .replace(/style=["'][^"']*["']/gi, '')
-    .replace(/class=["'][^"']*["']/gi, '')
-    .replace(/#[A-Fa-f0-9]{6}(?![A-Fa-f0-9])/g, '')
-    .replace(/["']\s*>/g, '')
-    .replace(/<\s*["']/g, '')
-    .replace(/\s{2,}/g, ' ')
-    .trim();
-
-  // Step 2: Escape HTML to prevent XSS injection
-  clean = escapeHtml(clean);
-
-  // Step 3: Apply safe markdown transformations (on escaped text)
-  // Pronunciation: subtle italic gray
-  clean = clean.replace(/\[(.*?)\]/g, '<span class="text-[var(--text-secondary)] italic text-scale-label">($1)</span>');
-  // Target language words: accent color semi-bold highlight + clickable for TTS
-  clean = clean.replace(/\*\*(.*?)\*\*/g, '<strong class="tts-word" data-word="$1" style="color: var(--accent-color); font-weight: 600; cursor: pointer;">$1</strong>');
-  // Line breaks
-  clean = clean.replace(/\n/g, '<br />');
-
-  // Step 4: Final sanitization with DOMPurify
-  return sanitizeHtml(clean);
-};
-
-const CultureCard: React.FC<{ title: string; content: string; t: (key: string) => string }> = ({ title, content, t }) => (
-  <div className="my-4 overflow-hidden rounded-2xl bg-gradient-to-br from-[var(--accent-light)] to-[var(--bg-card)] border border-[var(--accent-border)] shadow-sm w-full">
-    <div className="bg-[var(--accent-light)] px-4 py-2 border-b border-[var(--accent-border)] flex items-center gap-2">
-      <ICONS.Sparkles className="w-4 h-4 text-[var(--accent-color)]" />
-      <h3 className="text-scale-caption font-black font-header uppercase tracking-widest text-[var(--accent-color)]">{title || t('chat.blocks.cultureNote')}</h3>
-    </div>
-    <div className="p-4 text-scale-label text-[var(--text-secondary)] leading-relaxed">
-      <div dangerouslySetInnerHTML={{ __html: parseMarkdown(content) }} />
-    </div>
-  </div>
-);
-
-const DrillCard: React.FC<{ content: string; t: (key: string) => string }> = ({ content, t }) => (
-  <div className="my-4 rounded-2xl border-2 border-dashed border-[var(--secondary-border)] bg-[var(--secondary-light)] p-1 relative w-full">
-    <div className="absolute -top-3 left-4 bg-[var(--secondary-light)] text-[var(--secondary-color)] text-scale-micro font-black uppercase tracking-widest px-2 py-0.5 rounded-full border border-[var(--secondary-border)]">
-      {t('chat.blocks.loveGoal')}
-    </div>
-    <div className="p-4 text-scale-label text-[var(--text-primary)] font-medium">
-      <div dangerouslySetInnerHTML={{ __html: parseMarkdown(content) }} />
-    </div>
-  </div>
-);
-
-const isSeparatorRow = (row: string) => /^[\s|:-]+$/.test(row) && row.includes('---');
-
-const GrammarTable: React.FC<{ content: string }> = ({ content }) => {
-  const rows = content.trim().split('\n').filter(r => r.trim() && !isSeparatorRow(r.trim()));
-  if (rows.length < 2) return null;
-  const header = rows[0].split('|').map(c => c.trim()).filter(c => c.trim());
-  const body = rows.slice(1).map(r => r.split('|').map(c => c.trim()).filter(c => c.trim()));
-  return (
-    <div className="my-4 overflow-hidden rounded-xl glass-card w-full overflow-x-auto">
-      <table className="w-full text-scale-label text-left">
-        <thead className="bg-[var(--bg-primary)] text-[var(--text-secondary)] text-scale-micro uppercase font-bold tracking-wider">
-          <tr>{header.map((h, i) => <th key={i} className="px-4 py-3 font-black">{h}</th>)}</tr>
-        </thead>
-        <tbody className="divide-y divide-[var(--border-color)]">
-          {body.map((row, i) => (
-            <tr key={i} className="hover:bg-[var(--bg-primary)]/50">
-              {row.map((cell, j) => <td key={j} className="px-4 py-2.5 text-[var(--text-secondary)] font-medium" dangerouslySetInnerHTML={{ __html: parseMarkdown(cell) }} />)}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-};
-
-const RichMessageRenderer: React.FC<{ content: string; t: (key: string) => string; targetLanguage?: string }> = ({ content, t, targetLanguage }) => {
-  const parts = content.split(/(:::\s*[a-z]+.*)/i);
-  let currentBlockType = 'text';
-  let currentBlockTitle = '';
-
-  // Handle click on foreign words to trigger TTS
-  const handleTTSClick = (e: React.MouseEvent) => {
-    const target = e.target as HTMLElement;
-    if (target.classList.contains('tts-word') && targetLanguage) {
-      const word = target.dataset.word;
-      if (word) speak(word, targetLanguage);
-    }
-  };
-
-  return (
-    <div className="space-y-2 w-full break-words" onClick={handleTTSClick}>
-      {parts.map((part, index) => {
-        const trimmed = part.trim();
-        if (!trimmed) return null;
-        const match = trimmed.match(/^:::\s*([a-z]+)(.*)$/i);
-        if (match) {
-          currentBlockType = match[1].toLowerCase();
-          const titleMatch = match[2].match(/\[(.*?)\]/);
-          currentBlockTitle = titleMatch ? titleMatch[1] : '';
-          return null;
-        }
-        if (trimmed === ':::') { currentBlockType = 'text'; return null; }
-        if (currentBlockType === 'culture' || currentBlockType === 'slang') {
-          const type = currentBlockType;
-          currentBlockType = 'text';
-          return <CultureCard key={index} title={currentBlockTitle || type} content={trimmed} t={t} />;
-        }
-        if (currentBlockType === 'drill') {
-          currentBlockType = 'text';
-          return <DrillCard key={index} content={trimmed} t={t} />;
-        }
-        if (currentBlockType === 'table') {
-          // Don't reset blockType — during streaming the closing ::: may not have arrived yet,
-          // so keep rendering subsequent chunks as table content
-          return <GrammarTable key={index} content={trimmed} />;
-        }
-        // Fallback: detect naked markdown tables (has separator row like ---|--- and pipe-delimited data)
-        if (trimmed.split('\n').some(l => isSeparatorRow(l.trim()))) {
-          return <GrammarTable key={index} content={trimmed} />;
-        }
-        return <div key={index} className="text-scale-label leading-relaxed text-[var(--text-primary)]" dangerouslySetInnerHTML={{ __html: parseMarkdown(trimmed) }} />;
-      })}
-    </div>
-  );
-};
 
 interface ChatAreaProps {
   profile: Profile;
@@ -280,7 +141,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
   const [listenSessions, setListenSessions] = useState<ListenSession[]>([]);
   const [activeListenSession, setActiveListenSession] = useState<ListenSession | null>(null);
   const [isListening, setIsListening] = useState(false);
-  const [listenState, setListenState] = useState<GladiaState>('disconnected');
+  const [listenState, setListenState] = useState<TranscriptionState>('disconnected');
   const [listenEntries, setListenEntries] = useState<TranscriptEntry[]>([]);
   const [listenPartial, setListenPartial] = useState<TranscriptEntry | null>(null);
   const [listenDuration, setListenDuration] = useState(0);
@@ -293,10 +154,9 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
   const [extractedWords, setExtractedWords] = useState<any[]>([]);
   const [selectedWords, setSelectedWords] = useState<Set<string>>(new Set());
   const [extractedSessionIds, setExtractedSessionIds] = useState<Set<string>>(new Set());
-  const gladiaRef = useRef<GladiaSession | null>(null);
+  const transcriptionRef = useRef<TranscriptionSession | null>(null);
   const listenTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const sessionLanguagesRef = useRef<{ target: string; native: string } | null>(null);
-  const gladiaSummaryRef = useRef<string>('');
   const sessionTokenRef = useRef<string | null>(null);
   const isListeningRef = useRef(false);
   const isLiveRef = useRef(false);
@@ -1003,7 +863,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
 
   // ========== LISTEN MODE FUNCTIONS ==========
 
-  // Note: getSpeakerInfo removed - speaker diarization not supported in Gladia live
+  // Note: getSpeakerInfo removed - speaker diarization not supported in live transcription
   // All entries use accent color styling
 
   // Format duration as MM:SS
@@ -1013,31 +873,55 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
     return `${mins}:${secs.toString().padStart(2, '0')}`;
   };
 
-  // Handle real-time translation from Gladia — match to most recent unmatched entry
-  const handleTranslationUpdate = useCallback((translation: string, originalLanguage: string) => {
-    setListenEntries(prev => {
-      const now = Date.now();
-      const cutoff = now - 10000;
+  // Quick per-utterance translation via Gemini Flash Lite
+  // Fire-and-forget: if it fails, Gemini post-processing adds translations after session ends
+  const translateEntry = useCallback(async (entryId: string, text: string, detectedLanguage?: string) => {
+    try {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session?.access_token) return;
 
-      for (let i = prev.length - 1; i >= 0; i--) {
-        const entry = prev[i];
-        if (!entry.isFinal || entry.translation || entry.timestamp < cutoff) continue;
+      const langs = sessionLanguagesRef.current;
+      if (!langs) return;
 
-        const langMatch = !entry.language
-          || entry.language === originalLanguage
-          || (entry.languageCode && entry.languageCode === originalLanguage);
+      const response = await apiFetch('/api/translate-quick/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${session.access_token}`,
+        },
+        body: JSON.stringify({
+          text,
+          sourceLanguage: detectedLanguage,
+          targetLanguage: langs.target,
+          nativeLanguage: langs.native,
+        }),
+      });
 
-        if (langMatch) {
-          const updated = [...prev];
-          updated[i] = { ...entry, translation };
-          return updated;
+      if (response.ok) {
+        const {
+          translation,
+          resolvedSourceLanguage,
+          resolvedSourceLanguageCode,
+        } = await response.json();
+        if (translation) {
+          setListenEntries(prev => prev.map(e =>
+            e.id === entryId
+              ? {
+                  ...e,
+                  translation,
+                  language: resolvedSourceLanguage || e.language,
+                  languageCode: resolvedSourceLanguageCode || e.languageCode,
+                }
+              : e
+          ));
         }
       }
-      return prev;  // No match — drop silently, Gemini handles it in post-processing
-    });
+    } catch (e) {
+      // Silently fail — post-processing will handle it
+    }
   }, []);
 
-  // Handle transcript from Gladia
+  // Handle transcript from transcription service
   const handleListenTranscript = useCallback((chunk: TranscriptChunk) => {
     // Filter out background sounds like [MUZYKA], [music], [silence], etc.
     const backgroundSoundPattern = /^\s*\[.*\]\s*$/i;
@@ -1047,39 +931,44 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
 
     const entry: TranscriptEntry = {
       id: chunk.id,
-      gladiaId: chunk.gladiaId,
       speaker: chunk.speaker,
-      word: chunk.text,
+      text: chunk.text,
       translation: chunk.translation || '',
       timestamp: chunk.timestamp,
       isBookmarked: false,
       isFinal: chunk.isFinal,
       language: chunk.language,
-      languageCode: chunk.language,  // Gladia provides ISO codes during real-time
+      languageCode: chunk.language,
+      previousEntryId: chunk.previousItemId || null,
     };
 
     if (chunk.isFinal) {
       setListenEntries(prev => {
-        // Dedup using Gladia's utterance ID — same ID means same utterance (partial→final or refinement)
-        if (entry.gladiaId) {
-          const existingIdx = prev.findIndex(e => e.gladiaId === entry.gladiaId);
-          if (existingIdx !== -1) {
-            const existing = prev[existingIdx];
-            const updated = [...prev];
-            updated[existingIdx] = { ...entry, isBookmarked: existing.isBookmarked, translation: entry.translation || existing.translation };
-            return updated;
-          }
+        // Dedup by ID — same ID means same utterance (partial→final or refinement)
+        const existingIdx = prev.findIndex(e => e.id === entry.id);
+        if (existingIdx !== -1) {
+          const existing = prev[existingIdx];
+          const updated = [...prev];
+          updated[existingIdx] = {
+            ...entry,
+            isBookmarked: existing.isBookmarked,
+            translation: entry.translation || existing.translation,
+          };
+          return orderTranscriptEntries(updated);
         }
 
-        // Exact text match fallback — catch edge cases where Gladia assigns different IDs to identical text
-        const exactMatch = prev.find(e => e.isFinal && e.word.toLowerCase().trim() === entry.word.toLowerCase().trim());
+        // Exact text match fallback
+        const exactMatch = prev.find(e => e.isFinal && e.text.toLowerCase().trim() === entry.text.toLowerCase().trim());
         if (exactMatch) return prev;
 
-        // New entry — filter out non-final partials from same speaker
-        const filtered = prev.filter(e => e.isFinal || e.speaker !== chunk.speaker);
-        return [...filtered, entry];
+        return orderTranscriptEntries([...prev, entry]);
       });
       setListenPartial(null);
+
+      // Trigger quick translation for final transcripts
+      if (entry.text.trim()) {
+        translateEntry(entry.id, entry.text, entry.language);
+      }
     } else {
       setListenPartial(entry);
     }
@@ -1087,7 +976,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
     setTimeout(() => {
       scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' });
     }, 100);
-  }, []);
+  }, [translateEntry]);
 
   // Start listening
   const startListening = async () => {
@@ -1114,15 +1003,10 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
 
     // Freeze language pair for this session
     sessionLanguagesRef.current = { target: targetLanguage, native: nativeLanguage };
-    gladiaSummaryRef.current = '';
 
     try {
-      gladiaRef.current = new GladiaSession({
+      transcriptionRef.current = new TranscriptionSession({
         onTranscript: handleListenTranscript,
-        onTranslationUpdate: handleTranslationUpdate,
-        onSummary: (summary) => {
-          gladiaSummaryRef.current = summary;
-        },
         onStateChange: (state) => {
           setListenState(state);
         },
@@ -1137,7 +1021,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
         nativeLanguage,
       });
 
-      await gladiaRef.current.connect();
+      await transcriptionRef.current.connect();
 
       listenTimerRef.current = setInterval(() => {
         listenDurationRef.current += 1;
@@ -1156,8 +1040,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
     // Play recording stop sound
     sounds.play('record-stop');
 
-    await gladiaRef.current?.disconnect();
-    gladiaRef.current = null;
+    await transcriptionRef.current?.disconnect();
+    transcriptionRef.current = null;
 
     if (listenTimerRef.current) {
       clearInterval(listenTimerRef.current);
@@ -1202,7 +1086,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
 
         // Start post-processing in background
         setIsProcessingTranscript(true);
-        processTranscript(data.id, listenEntries, listenContextLabel, gladiaSummaryRef.current);
+        processTranscript(data.id, listenEntries, listenContextLabel);
       }
     }
 
@@ -1212,7 +1096,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
   };
 
   // Post-process transcript with Gemini
-  const processTranscript = async (sessionId: string, entries: TranscriptEntry[], contextLabel: string, gladiaSummary?: string) => {
+  const processTranscript = async (sessionId: string, entries: TranscriptEntry[], contextLabel: string) => {
     try {
       const { data: { session } } = await supabase.auth.getSession();
       if (!session?.access_token) return;
@@ -1228,13 +1112,12 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
             id: e.id,
             entryId: e.id,
             speaker: e.speaker,
-            text: e.word,
+            text: e.text,
             language: e.language,
             timestamp: e.timestamp,
             isBookmarked: e.isBookmarked,
           })),
           contextLabel: contextLabel,
-          gladiaSummary: gladiaSummary || undefined,
           ...languageParams
         })
       });
@@ -1263,7 +1146,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
             if (processed) {
               return {
                 ...entry,  // Keep original fields as fallback
-                word: processed.text || entry.word,
+                text: processed.text || entry.text,
                 translation: processed.translation || entry.translation || '',
                 language: processed.language || entry.language,
                 languageCode: processed.languageCode || entry.languageCode,
@@ -1340,8 +1223,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
         .map(e => ({
           role: 'assistant' as const,
           content: e.translation
-            ? `${e.word} (${e.translation})`
-            : e.word
+            ? `${e.text} (${e.translation})`
+            : e.text
         }));
 
       // Get user's current words to avoid duplicates (filtered by language)
@@ -1769,7 +1652,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
                     <div className="flex items-start justify-between gap-3">
                       <div className="flex-1 min-w-0">
                         <p className="text-[var(--text-primary)] font-medium">
-                          {entryFlag} {entry.word}
+                          {entryFlag} {entry.text}
                         </p>
                         {showTranslation && (
                           <div className="mt-1.5 ml-4 pl-3 border-l-2 border-[var(--accent-color)]/30">
@@ -1806,7 +1689,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
                 <div className="flex justify-start animate-in fade-in duration-200">
                   <div className="max-w-[90%] md:max-w-[85%] rounded-2xl px-4 py-3 rounded-tl-none border border-dashed border-[var(--accent-color)]/50 bg-[var(--accent-light)]/50">
                     <p className="text-[var(--text-secondary)] italic flex items-center gap-2">
-                      {getEntryFlag(listenPartial.language, listenPartial.languageCode, sessionLanguagesRef.current?.target || targetLanguage, sessionLanguagesRef.current?.native || nativeLanguage)} {listenPartial.word}
+                      {getEntryFlag(listenPartial.language, listenPartial.languageCode, sessionLanguagesRef.current?.target || targetLanguage, sessionLanguagesRef.current?.native || nativeLanguage)} {listenPartial.text}
                       <span className="inline-flex gap-0.5">
                         <span className="w-1 h-1 rounded-full bg-[var(--accent-color)] animate-bounce" style={{ animationDelay: '0ms' }} />
                         <span className="w-1 h-1 rounded-full bg-[var(--accent-color)] animate-bounce" style={{ animationDelay: '150ms' }} />
@@ -1842,7 +1725,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
               {messages.map((m, i) => (
                 <div key={i} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'} animate-slide-up`} style={{ animationDelay: `${Math.min(i * 0.03, 0.3)}s` }}>
                   <div className={`max-w-[90%] md:max-w-[85%] rounded-2xl md:rounded-[1.5rem] px-3 py-2 md:px-5 md:py-3.5 ${m.role === 'user' ? 'shadow-sm text-white rounded-tr-sm md:rounded-tr-none font-medium' : 'glass-card text-[var(--text-primary)] rounded-tl-sm md:rounded-tl-none'}`} style={m.role === 'user' ? { backgroundColor: accentHex } : {}}>
-                    {m.role === 'user' ? <p className="text-scale-label leading-relaxed">{m.content}</p> : <RichMessageRenderer content={m.content} t={t} targetLanguage={targetLanguage} />}
+                    {m.role === 'user' ? <p className="text-scale-label leading-relaxed">{m.content}</p> : <RichMessageRenderer content={m.content} t={(key, defaultValue) => t(key, defaultValue)} targetLanguage={targetLanguage} />}
                   </div>
                 </div>
               ))}
@@ -1870,7 +1753,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
               {streamingText && (
                 <div className="flex justify-start animate-in fade-in slide-in-from-bottom-2 duration-300">
                   <div className="max-w-[90%] md:max-w-[85%] rounded-2xl md:rounded-[1.5rem] px-3 py-2 md:px-5 md:py-3.5 glass-card text-[var(--text-primary)] rounded-tl-sm md:rounded-tl-none">
-                    <RichMessageRenderer content={streamingText} t={t} targetLanguage={targetLanguage} />
+                    <RichMessageRenderer content={streamingText} t={(key, defaultValue) => t(key, defaultValue)} targetLanguage={targetLanguage} />
                     <span className="inline-block w-2 h-4 ml-1 animate-pulse rounded-sm" style={{ backgroundColor: accentHex }}></span>
                   </div>
                 </div>

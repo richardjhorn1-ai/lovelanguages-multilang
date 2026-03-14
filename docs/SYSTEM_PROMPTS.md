@@ -91,10 +91,11 @@ For Spanish speaker learning Polish:
 **Purpose:** Quick Q&A, casual learning
 
 **Characteristics:**
-- 2-3 sentence responses max
-- Never repeats same word/phrase twice
-- Ends with follow-up question
-- No tables, bullet points, or long explanations
+- Defaults to plain prose
+- Usually 2-4 short sentences
+- May use at most one light enrichment block when it clearly helps
+- Prefers `::: culture` or `::: slang` over heavier structure
+- Avoids `::: table` and `::: drill` unless the user explicitly asks for a breakdown, examples, or practice
 
 **Example (Spanish native, learning Polish):**
 ```
@@ -102,15 +103,26 @@ User: "¿Cómo digo buenos días?"
 AI: "**Dzień dobry** [jen DOH-bri] (buenos días) - Susúrraselo antes de que abra los ojos. ¿Quieres la versión casual para la noche?"
 ```
 
+**Example with one light block:**
+```
+"**Cześć** [cheshch] es el "hola" casual.
+
+::: slang[Más natural]
+Entre gente cercana, **hej** [hey] también suena muy natural y relajado.
+:::"
+```
+
 ### Learn Mode (Students)
 
 **Purpose:** Structured lessons with grammar
 
 **Characteristics:**
-- Uses `::: table` blocks for conjugations
-- Uses `::: drill` blocks for practice
-- Uses `::: culture` blocks for cultural notes
 - Teaches one concept at a time
+- May use 1-2 blocks when each has a distinct job
+- Uses `::: table` for structured reference and comparison
+- Uses `::: drill` for one concrete practice task
+- Uses `::: culture` for etiquette, pragmatics, and why natives say it that way
+- Uses `::: slang` for casual, flirty, or more native-sounding alternatives with register guidance
 
 **Example response structure:**
 ```
@@ -129,6 +141,13 @@ Dile a tu pareja: **Chcę cię** [h-tseh cheh] (Te quiero)
 :::
 ```
 
+**Example with culture context:**
+```
+::: culture[Dating tone]
+En polaco, decir algo demasiado formal a tu pareja puede sonar distante. En momentos románticos, las formas cálidas y simples suelen sonar más naturales.
+:::
+```
+
 ### Coach Mode (Tutors)
 
 **Purpose:** Help tutors support their learning partner
@@ -136,8 +155,37 @@ Dile a tu pareja: **Chcę cię** [h-tseh cheh] (Te quiero)
 **Characteristics:**
 - Provides teaching tips
 - References partner's vocabulary and weak spots
-- Suggests activities and challenges
-- Never teaches the tutor directly
+- Suggests activities and challenges when useful
+- Can use `culture` or `slang` blocks to help the tutor sound more natural and partner-relevant
+- Can use `table` or `drill` when the tutor explicitly wants structure, examples, or an exercise
+- May optionally propose actions like word gifts or quizzes in the structured API flow
+
+## Text Chat Blocks
+
+These are the only rich text blocks supported in text chat:
+
+- `::: table ... :::`
+  Use for conjugations, declensions, article/gender contrasts, phrase breakdowns, or register comparisons.
+- `::: drill ... :::`
+  Use for one short practice challenge the learner can do immediately.
+- `::: culture[Optional title] ... :::`
+  Use for etiquette, pragmatics, customs, tone, or relationship context.
+- `::: slang[Optional title] ... :::`
+  Use for colloquial, flirty, or more native-sounding alternatives, with register caution when needed.
+
+**Shared rules:**
+- Only use `table`, `drill`, `culture`, and `slang`
+- Always close a block with `:::`
+- Prefer plain prose when a simple answer is enough
+- Do not stack blocks unless each one adds something distinct
+
+## Voice Mode
+
+Voice mode follows the same teaching intent, but not the markdown syntax:
+
+- Never emits text-chat block syntax
+- May still give a short verbal culture or native-usage aside when helpful
+- Keeps those enrichments brief and spoken naturally rather than turning them into a structured lesson
 
 ## Language-Specific Adaptations
 

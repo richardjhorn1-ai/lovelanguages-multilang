@@ -211,7 +211,7 @@ const TermsOfService: React.FC = () => {
             <ul className="list-disc ml-6 mt-3 space-y-2">
               <li><strong>Supabase</strong> - Database and authentication</li>
               <li><strong>Google Gemini</strong> - AI language coaching and content generation</li>
-              <li><strong>Gladia</strong> - Speech-to-text transcription</li>
+              <li><strong>OpenAI</strong> - Speech-to-text transcription</li>
               <li><strong>Stripe</strong> - Web payment processing</li>
               <li><strong>RevenueCat</strong> - iOS subscription validation and purchase state</li>
               <li><strong>Apple</strong> - Sign in with Apple and App Store in-app purchases</li>

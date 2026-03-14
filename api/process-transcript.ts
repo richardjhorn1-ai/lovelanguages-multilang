@@ -75,13 +75,11 @@ export default async function handler(req: any, res: any) {
     }
   }
 
-  const { transcript = [], contextLabel: rawContextLabel = '', gladiaSummary: rawGladiaSummary = '' } = body || {};
+  const { transcript = [], contextLabel: rawContextLabel = '' } = body || {};
   const contextLabel = typeof rawContextLabel === 'string'
     ? rawContextLabel.trim().replace(/\0/g, '').slice(0, 500) : '';
-  const gladiaSummary = typeof rawGladiaSummary === 'string'
-    ? rawGladiaSummary.trim().replace(/\0/g, '').slice(0, 500) : '';
 
-  // Extract language parameters (defaults to Polish/English for backward compatibility)
+  // Extract language parameters from request
   const { targetLanguage, nativeLanguage } = extractLanguages(body);
   const targetName = getLanguageName(targetLanguage);
   const nativeName = getLanguageName(nativeLanguage);
@@ -107,10 +105,9 @@ export default async function handler(req: any, res: any) {
       contents: `TASK: Bilingual Transcript Cleanup for ${targetName}/${nativeName} Language Learning
 
 You are processing a real-time transcription from a bilingual conversation.
-The speech-to-text system uses code_switching mode which introduces specific artifacts:
+Real-time speech-to-text can introduce artifacts when two languages are spoken.
 
 CONTEXT: ${contextLabel || `${targetName} language practice conversation`}
-${gladiaSummary ? `\nAUDIO SUMMARY FROM SPEECH ENGINE: ${gladiaSummary}\nUse this summary to understand what was actually said — it helps distinguish garbled transcription artifacts from genuine speech.\n` : ''}
 
 LANGUAGE PAIR:
 - Target language (being learned): ${targetName} (${targetLanguage})
@@ -124,6 +121,8 @@ KNOWN ARTIFACTS:
 3. LANGUAGE MISDETECTION: An entry's detected language may be wrong
 4. PROGRESSIVE REFINEMENT: Same utterance appears multiple times with increasing
    accuracy. Keep ONLY the most complete/accurate version.
+5. EXISTING TRANSLATIONS: Some entries may already have quick real-time translations.
+   These can be improved with fuller conversation context if needed.
 
 YOUR TASKS (in order):
 1. IDENTIFY GARBLED ENTRIES: If an entry is garbled phonetic nonsense from misdetected
