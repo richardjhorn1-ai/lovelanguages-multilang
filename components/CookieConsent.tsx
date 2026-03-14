@@ -41,7 +41,7 @@ const CookieConsent: React.FC = () => {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 p-4 animate-slideUp">
-      <div className="max-w-2xl mx-auto glass-card rounded-2xl p-4 flex flex-col sm:flex-row items-center gap-4">
+      <div className="max-w-2xl mx-auto glass-card-solid rounded-2xl border border-[var(--border-color)] p-4 flex flex-col sm:flex-row items-center gap-4 shadow-lg">
         <p className="text-scale-label text-[var(--text-secondary)] flex-1 text-center sm:text-left">
           {t('cookies.message', 'We use cookies to improve your experience.')}{' '}
           <Link
