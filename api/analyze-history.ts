@@ -80,7 +80,8 @@ export default async function handler(req: any, res: any) {
     messages = [],
     currentWords = [],
     targetLanguage: reqTargetLang,
-    nativeLanguage: reqNativeLang
+    nativeLanguage: reqNativeLang,
+    source = 'chat',
   } = body || {};
 
   if (!Array.isArray(messages) || !Array.isArray(currentWords)) {
@@ -149,21 +150,53 @@ FOR ADJECTIVES:
 - "word": Base form
 - "type": "adjective"`;
 
-    const validationChecklist = `
+    const validationChecklist = (exampleCount: number) => `
 === VALIDATION ===
 Before returning, verify:
 ${hasConjugation ? `[ ] Every verb has conjugations.present with all ${conjugationPersons.length} persons (using normalized keys)` : '[ ] Every verb has base form'}
 ${hasConjugation ? '[ ] If past/future tense was explicitly taught, include it with unlockedAt timestamp' : ''}
 ${hasGender ? '[ ] Every noun has gender AND plural' : '[ ] Every noun has plural if applicable'}
 ${hasGender ? '[ ] Every adjective has adjectiveForms with all required gender forms' : ''}
-[ ] Every word has exactly 5 examples
+[ ] Every word has exactly ${exampleCount} examples
 [ ] Every word has a proTip`.trim();
+
+    const extractionMode = source === 'listen' ? 'listen' : 'chat';
+    const extractionFocus = extractionMode === 'listen'
+      ? `THIS IS A LISTEN MODE TRANSCRIPT, NOT A TUTOR CHAT.
+
+GOAL:
+- Be generous and comprehensive on short transcripts.
+- Capture MOST useful distinct ${targetName} words and short phrases that appeared.
+- Do NOT stop at only 2-3 items if the transcript contains more extractable vocabulary.
+- Basic but useful conversation words are allowed if they appeared and matter.
+
+TRANSCRIPT FORMAT:
+- Lines may contain "TARGET_TEXT", "NATIVE_GLOSS", or "ORIGINAL_NATIVE".
+- Extract vocabulary from TARGET_TEXT only.
+- Use NATIVE_GLOSS / ORIGINAL_NATIVE only to understand meaning.
+- If the speaker originally spoke in the native language, the translated TARGET_TEXT is still valid vocabulary evidence.
+
+PRIORITIES:
+- Prefer meaningful verbs, nouns, adjectives, adverbs, and short phrases.
+- Also include helpful set expressions and particles when they matter to natural speech.
+- Avoid duplicates, but do include both a useful phrase and its key base verb when both are pedagogically valuable.
+- For a short conversation, aim to return a healthy set of entries when available, not just the single most important word.`
+      : `GOAL:
+- Focus on meaningful new vocabulary and phrases taught or used in the chat.
+- Prioritize the most useful, teachable items rather than every possible token.`;
+
+    const exampleRule = extractionMode === 'listen'
+      ? `"examples": REQUIRED - exactly 2 example sentences, each in format: "${targetName} sentence. (${nativeName} translation.)"`
+      : `"examples": REQUIRED - exactly 5 example sentences, each in format: "${targetName} sentence. (${nativeName} translation.)"`;
+    const validationSection = validationChecklist(extractionMode === 'listen' ? 2 : 5);
 
     const prompt = `TASK: ${targetName} Vocabulary Extractor - COMPLETE DATA REQUIRED
 
 Extract ${targetName} vocabulary from the chat history. EVERY entry MUST be complete with all required fields.
 
 ${knownContext}
+
+${extractionFocus}
 
 === EXTRACTION RULES ===
 ${verbInstructions}
@@ -175,13 +208,13 @@ FOR PHRASES:
 - "type": "phrase"
 
 FOR ALL WORDS:
-- "examples": REQUIRED - exactly 5 example sentences, each in format: "${targetName} sentence. (${nativeName} translation.)"
+- ${exampleRule}
 - "proTip": REQUIRED - max 60 chars, romantic/practical usage tip
 - "importance": 1-5 (5 = essential, 1 = rare)
 - "rootWord": The base/dictionary form
 - "pronunciation": Include phonetic pronunciation guide
 
-${validationChecklist}
+${validationSection}
 
 CHAT HISTORY:
 ${historyText}`;

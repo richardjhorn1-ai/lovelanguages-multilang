@@ -20,6 +20,7 @@ import { analytics } from '../services/analytics';
 import GeminiAIConsent, { hasAIConsent } from './GeminiAIConsent';
 import { apiFetch } from '../services/api-config';
 import { orderTranscriptEntries } from '../utils/listen-transcript';
+import { buildListenExtractionMessages } from '../utils/listen-word-extraction';
 import { selectVoiceMessagesForExtraction } from '../utils/voice-vocabulary';
 import RichMessageRenderer from './chat/RichMessageRenderer';
 
@@ -1220,22 +1221,8 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
         return;
       }
 
-      // Format transcript as messages for the analyze-history API
-      const messages = listenEntries
-        .filter(e => {
-          const isTarget = e.language === 'target'
-            || e.languageCode === targetLanguage
-            || e.language === targetLanguage;
-          const isMixed = e.language === 'mixed';
-          const hasTranslation = !!e.translation;
-          return isTarget || isMixed || hasTranslation;
-        })
-        .map(e => ({
-          role: 'assistant' as const,
-          content: e.translation
-            ? `${e.text} (${e.translation})`
-            : e.text
-        }));
+      // Format Listen transcript into target-language-first messages for extraction.
+      const messages = buildListenExtractionMessages(listenEntries, targetLanguage, nativeLanguage);
 
       // Get user's current words to avoid duplicates (filtered by language)
       const { data: existingWords } = await supabase
@@ -1252,7 +1239,7 @@ const ChatArea: React.FC<ChatAreaProps> = ({ profile, isActive = true }) => {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${session.access_token}`
         },
-        body: JSON.stringify({ messages, currentWords, ...languageParams })
+        body: JSON.stringify({ messages, currentWords, source: 'listen', ...languageParams })
       });
 
       if (response.ok) {
