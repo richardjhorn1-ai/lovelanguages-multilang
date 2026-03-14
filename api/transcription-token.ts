@@ -119,9 +119,22 @@ export default async function handler(req: any, res: any) {
       });
     }
 
-    const session = await sessionResponse.json();
+    const tokenResult = await sessionResponse.json();
+    const clientSecret =
+      tokenResult?.value ||
+      tokenResult?.client_secret?.value ||
+      null;
+    const sessionId =
+      tokenResult?.session?.id ||
+      tokenResult?.id ||
+      'unknown';
 
-    console.log(`[transcription-token] Created session ${session.id} for user ${auth.userId.substring(0, 8)}... (${targetLanguage}→${nativeLanguage})`);
+    if (!clientSecret) {
+      console.error('[transcription-token] Missing client secret in OpenAI response:', tokenResult);
+      return res.status(500).json({ error: 'Failed to initialize Listen Mode' });
+    }
+
+    console.log(`[transcription-token] Created session ${sessionId} for user ${auth.userId.substring(0, 8)}... (${targetLanguage}→${nativeLanguage})`);
 
     // Usage is tracked in minutes by report-session-usage endpoint (not at session start)
 
@@ -131,7 +144,7 @@ export default async function handler(req: any, res: any) {
     // - Single-use for one WebSocket connection
     // - Not logged server-side (only session ID is logged)
     return res.status(200).json({
-      token: session.client_secret.value,
+      token: clientSecret,
       url: 'wss://api.openai.com/v1/realtime',
       targetLanguage,
       nativeLanguage,
