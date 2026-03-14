@@ -2,7 +2,7 @@
 
 Issues encountered during MVP to production migration and their solutions.
 
-**Last Updated:** February 12, 2026
+**Last Updated:** March 15, 2026
 **Total Issues Documented:** 70+ (all resolved)
 
 ---
@@ -218,6 +218,154 @@ const handleLanguageChange = async (lang) => {
 - `components/games/modes/` - TypeIt, QuickFire, VerbMastery, AIChallenge, Flashcards, MultipleChoice
 - `components/games/tutor-modes/` - TutorFlashcards, TutorMultipleChoice, TutorTypeIt, TutorQuickFire, TutorGameResults
 - `components/hero/` - InteractiveHearts, LanguageGrid, LoginForm, Section, MobileSection, etc.
+
+---
+
+## ✅ Recent Integration Lessons (Mar 2026)
+
+These came from the OpenAI Listen Mode + rich chat block integration branch. They were real preview-tested issues, not theoretical edge cases.
+
+### Pattern 8: Local Vite Dev Can Lie About API Problems
+
+**The Problem:** Testing Listen Mode against `vite dev` alone can produce false negatives because Vercel API routes are not actually running.
+
+**Symptoms:**
+- `/api/gladia-token/` or other API routes return `404` locally
+- Listen Mode appears broken even though the frontend bundle itself is fine
+- Browser console suggests an old endpoint is still live
+
+**What Actually Happened:**
+- The local page was running without the Vercel serverless layer
+- That made local Listen Mode unsuitable for end-to-end debugging
+
+**Remedy:**
+- Use a fresh Vercel preview for any end-to-end test involving `api/*`
+- Treat local Vite as frontend-only unless the API layer is also being served
+- If local behavior and preview behavior disagree, trust the preview first
+
+---
+
+### Pattern 9: OpenAI Realtime GA vs Beta Mismatch
+
+**The Problem:** It is easy to mix the GA client-secret flow with the older beta WebSocket handshake.
+
+**Symptoms:**
+- Browser connects, then immediately fails
+- Error message: `API version mismatch. You cannot start a Realtime beta session with a GA client secret.`
+
+**Root Cause:**
+- Backend minted a GA Realtime client secret from `/v1/realtime/client_secrets`
+- Frontend WebSocket still sent the beta protocol token `openai-beta.realtime-v1`
+
+**Remedy:**
+- If you mint a GA client secret, use the GA browser handshake too
+- Current browser subprotocols:
+```typescript
+new WebSocket(url, [
+  'realtime',
+  'openai-insecure-api-key.' + token,
+]);
+```
+- Do not include the beta Realtime header when using GA client secrets
+
+---
+
+### Pattern 10: OpenAI Client Secret Response Shape Is Easy to Misread
+
+**The Problem:** The Realtime `client_secrets` response does not match older assumptions about nested token shapes.
+
+**Symptoms:**
+- `/api/transcription-token/` returns `500`
+- Browser only sees a generic "Failed to start listen mode" message
+
+**Root Cause:**
+- The code expected `session.client_secret.value`
+- OpenAI returned the token at top-level `value`
+
+**Remedy:**
+- Read both shapes defensively:
+```typescript
+const clientSecret =
+  tokenResult?.value ||
+  tokenResult?.client_secret?.value ||
+  null;
+```
+- Log the upstream payload server-side when the token is missing
+- Return only a generic client-safe error to the browser
+
+---
+
+### Pattern 11: Preview CSP and Analytics Need Preview-Friendly Rules
+
+**The Problem:** Preview deployments often fail analytics/CSP checks even though production works.
+
+**Symptoms:**
+- PostHog config blocked by CSP
+- `/api/analytics-event/` returns `403` on preview URLs
+
+**Root Causes:**
+- CSP allowed `us.i.posthog.com` but not `us-assets.i.posthog.com`
+- Analytics origin allowlist was too strict for Vercel preview aliases
+
+**Remedy:**
+- Add `https://us-assets.i.posthog.com` to both `script-src` and `connect-src`
+- Allow Vercel preview origins intentionally instead of only production + localhost
+- When debugging preview-only failures, test the exact preview alias the browser is using
+
+---
+
+### Pattern 12: LLM Block Syntax Will Drift Unless the Renderer Is Forgiving
+
+**The Problem:** Even with good prompts, the model occasionally emits malformed custom block syntax.
+
+**Examples Seen:**
+- `::: table Polish Verb Conjugation: mieć (to have)` instead of `::: table`
+- `::: Notice how the ending changes...` on the same line as a close marker
+
+**Symptoms:**
+- Raw `:::` shown in the UI
+- Text that should be prose gets trapped inside a block
+- Drill or table formatting looks broken even though the answer content is good
+
+**Remedy:**
+- Keep prompts strict:
+  - opener on its own line
+  - bracket titles only, e.g. `::: culture[Dating etiquette]`
+- Keep the parser forgiving:
+  - accept `::: table Some title` as an inline title fallback
+  - treat `::: some prose` as "close block, then render prose" when it is clearly not a new block type
+- Add tests for malformed-but-recoverable model output
+
+---
+
+### Pattern 13: Listen Vocabulary Extraction Needs Different Instructions Than Chat History
+
+**The Problem:** Reusing the main chat-history extractor for Listen Mode under-extracts vocabulary from short transcripts.
+
+**Symptoms:**
+- A 10-15 word conversation only yields 2-3 extracted entries
+- Native-language utterances contribute little or nothing useful
+
+**Root Cause:**
+- The generic extractor is optimized for "important teachable words only"
+- Listen transcripts need broader harvesting of target-language vocabulary actually spoken
+
+**Remedy:**
+- Send structured transcript lines like:
+```text
+TARGET_TEXT: kocham cię
+NATIVE_GLOSS: I love you
+```
+or:
+```text
+TARGET_TEXT: tęsknię za tobą
+ORIGINAL_NATIVE: I miss you
+```
+- In Listen Mode instructions, explicitly say:
+  - there is no fixed cap on extracted entries
+  - return every distinct useful target-language word or short phrase supported by the transcript
+  - exclude only duplicates, obvious filler/noise, and already-known words
+- Use the translated target-side text when the speaker originally spoke in the native language
 
 ---
 
