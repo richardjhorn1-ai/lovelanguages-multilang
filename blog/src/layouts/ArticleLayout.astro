@@ -317,6 +317,9 @@ const faqJsonLd = faqItems.length > 0 ? {
   targetLang={languageCode}
 >
   <Fragment slot="head">
+    {/* Preload hero image for faster LCP */}
+    {image && <link rel="preload" as="image" href={image} />}
+
     {/* Core Article Schema */}
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbJsonLd)} />
@@ -367,6 +370,7 @@ const faqJsonLd = faqItems.length > 0 ? {
         alt={title}
         class="hero-image w-full h-full object-cover"
         loading="eager"
+        fetchpriority="high"
         onerror="this.style.display='none'"
       />
     ) : null}

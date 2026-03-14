@@ -1,5 +1,24 @@
 User-agent: *
 Allow: /
 
+# AI Bots - explicitly welcome
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
 # Sitemap (Astro-generated, includes all blog articles)
 Sitemap: https://www.lovelanguages.io/sitemap-index.xml
