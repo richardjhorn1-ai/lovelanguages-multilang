@@ -908,12 +908,12 @@ const Landing: React.FC = () => {
   const footerText = t('hero.bottomSections.rall.story.paragraph6', "We built this for every couple who already has something beautiful.").split('. ')[0] + '.';
 
   const FooterLinks = () => (
-    <div className="text-center space-x-4">
-      <Link to="/terms" className="text-scale-caption font-semibold transition-colors" style={{ color: '#b4899a' }}>
+    <div className="text-center space-x-4 text-[var(--text-secondary)]">
+      <Link to="/terms" className="text-scale-caption font-semibold transition-colors hover:text-[var(--text-primary)]">
         {t('footer.terms', 'Terms of Service')}
       </Link>
-      <span style={{ color: BRAND.border }}>|</span>
-      <Link to="/privacy" className="text-scale-caption font-semibold transition-colors" style={{ color: '#b4899a' }}>
+      <span className="text-[var(--border-color)]">|</span>
+      <Link to="/privacy" className="text-scale-caption font-semibold transition-colors hover:text-[var(--text-primary)]">
         {t('footer.privacy', 'Privacy Policy')}
       </Link>
     </div>

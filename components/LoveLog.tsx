@@ -969,7 +969,7 @@ const LoveLog: React.FC<LoveLogProps> = ({ profile, isActive = true }) => {
                     {/* Unlock Dialog */}
                     {unlockDialogTense && (
                       <div className="fixed inset-0 modal-backdrop z-50 flex items-center justify-center p-4" onClick={() => !unlocking && setUnlockDialogTense(null)}>
-                        <div className="glass-card rounded-2xl p-6 max-w-sm w-full" onClick={e => e.stopPropagation()}>
+                        <div className="glass-card-solid rounded-2xl p-6 max-w-sm w-full" onClick={e => e.stopPropagation()}>
                           <div className="text-center">
                             <div className="w-16 h-16 bg-[var(--accent-light)] dark:bg-[var(--accent-light)] rounded-full flex items-center justify-center mx-auto mb-4">
                               <ICONS.Lock className="w-8 h-8 text-[var(--accent-color)]" />
