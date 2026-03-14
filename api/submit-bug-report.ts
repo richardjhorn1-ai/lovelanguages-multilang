@@ -7,7 +7,7 @@
  */
 
 import { setCorsHeaders, verifyAuth, createServiceClient } from '../utils/api-middleware';
-import { Resend } from 'resend';
+import { sendEmail, isEmailConfigured } from '../utils/email.js';
 
 interface BugReportBody {
   title: string;
@@ -107,10 +107,9 @@ export default async function handler(req: any, res: any) {
     })();
 
     // Send email notification to support (non-blocking)
-    if (process.env.RESEND_API_KEY) {
+    if (isEmailConfigured()) {
       (async () => {
         try {
-          const resend = new Resend(process.env.RESEND_API_KEY);
           const severityEmoji = {
             critical: '🚨',
             high: '🔴',
@@ -118,8 +117,7 @@ export default async function handler(req: any, res: any) {
             low: '🟢'
           }[severity] || '🟡';
 
-          await resend.emails.send({
-            from: 'Love Languages Bugs <bugs@lovelanguages.io>',
+          await sendEmail({
             to: 'support@lovelanguages.io',
             subject: `${severityEmoji} [${severity.toUpperCase()}] Bug Report: ${body.title.trim().slice(0, 80)}`,
             html: `
@@ -149,7 +147,8 @@ export default async function handler(req: any, res: any) {
                   <li>Path: ${body.appState.currentPath}</li>
                 </ul>
               ` : ''}
-            `
+            `,
+            fromName: 'Love Languages Bugs',
           });
           console.log(`[submit-bug-report] Email sent for report ${report.id}`);
         } catch (err: any) {

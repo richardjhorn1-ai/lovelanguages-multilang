@@ -11,8 +11,9 @@ import { DEFAULT_THEME, applyTheme } from '../services/theme';
 import { LANGUAGE_CONFIGS, SUPPORTED_LANGUAGE_CODES, LanguageCode } from '../constants/language-config';
 import { useHoneypot } from '../hooks/useHoneypot';
 import { useOAuthLoadingRecovery } from '../hooks/useOAuthLoadingRecovery';
-import { apiFetch, getOAuthRedirectUrl, getPasswordResetRedirectUrl } from '../services/api-config';
+import { apiFetch, getOAuthRedirectUrl } from '../services/api-config';
 import { isNativeAppleSignInCancelled, signInWithNativeApple } from '../services/native-apple-auth';
+import { usePasswordReset } from '../hooks/usePasswordReset';
 
 // Hero sub-components (extracted for readability)
 import {
@@ -252,6 +253,7 @@ const Hero: React.FC = () => {
   const [mobileShowPassword, setMobileShowPassword] = useState(false);
   const [mobileShowConfirmPassword, setMobileShowConfirmPassword] = useState(false);
   const [mobileConfirmPasswordError, setMobileConfirmPasswordError] = useState('');
+  const { sendReset } = usePasswordReset();
 
   // Computed error states for mobile form
   const mobileIsCredentialsError = message && (
@@ -1136,13 +1138,10 @@ const Hero: React.FC = () => {
                           setMessage(t('hero.login.enterEmailFirst'));
                           return;
                         }
-                        setLoading(true);
-                        const { error } = await supabase.auth.resetPasswordForEmail(email, {
-                          redirectTo: getPasswordResetRedirectUrl(),
-                        });
-                        setLoading(false);
-                        if (error) {
-                          setMessage(error.message);
+                        setMessage('');
+                        const result = await sendReset(email);
+                        if (result === 'rate_limited') {
+                          setMessage(t('hero.login.tooManyResetAttempts', 'Too many reset requests. Please try again later.'));
                         } else {
                           setMessage(t('hero.login.resetEmailSent'));
                         }

@@ -13,7 +13,8 @@ import InteractiveHearts from './hero/InteractiveHearts';
 import WordParticleEffect from './hero/WordParticleEffect';
 import { SUPPORTED_LANGUAGE_CODES, LANGUAGE_CONFIGS } from '../constants/language-config';
 import { ICONS } from '../constants';
-import { getOAuthRedirectUrl, getPasswordResetRedirectUrl } from '../services/api-config';
+import { getOAuthRedirectUrl } from '../services/api-config';
+import { usePasswordReset } from '../hooks/usePasswordReset';
 import { isNativeAppleSignInCancelled, signInWithNativeApple } from '../services/native-apple-auth';
 import { FeatureCard, STUDENT_FEATURES, TUTOR_FEATURES } from './landing/FeatureTile';
 import FeatureShowcase from './landing/FeatureShowcase';
@@ -684,7 +685,7 @@ const Landing: React.FC = () => {
   const [message, setMessage] = useState('');
   const [showEmailForm, setShowEmailForm] = useState(false);
   const [showForgotPassword, setShowForgotPassword] = useState(false);
-  const [resetLoading, setResetLoading] = useState(false);
+  const { sendReset, loading: resetLoading } = usePasswordReset();
 
   const { honeypotProps, honeypotStyles, isBot } = useHoneypot();
 
@@ -871,14 +872,14 @@ const Landing: React.FC = () => {
   // Forgot password
   const handleForgotPassword = async () => {
     if (!email) { setMessage(t('hero.login.enterEmailFirst')); return; }
-    setResetLoading(true);
     setMessage('');
-    const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: getPasswordResetRedirectUrl(),
-    });
-    setResetLoading(false);
-    if (error) setMessage(error.message);
-    else { setMessage(t('hero.login.resetEmailSent')); setShowForgotPassword(false); }
+    const result = await sendReset(email);
+    if (result === 'rate_limited') {
+      setMessage(t('hero.login.tooManyResetAttempts', 'Too many reset requests. Please try again later.'));
+    } else {
+      setMessage(t('hero.login.resetEmailSent'));
+      setShowForgotPassword(false);
+    }
   };
 
   // Error helpers

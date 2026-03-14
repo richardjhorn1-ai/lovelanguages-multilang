@@ -3,7 +3,8 @@ import { useTranslation } from 'react-i18next';
 import { Capacitor } from '@capacitor/core';
 import { supabase } from '../services/supabase';
 import { ICONS } from '../constants';
-import { apiFetch, getPasswordResetRedirectUrl } from '../services/api-config';
+import { apiFetch } from '../services/api-config';
+import { usePasswordReset } from '../hooks/usePasswordReset';
 
 interface PromoStatus {
   hasPromo: boolean;
@@ -25,6 +26,7 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
   promoExpiresAt
 }) => {
   const { t } = useTranslation();
+  const { sendReset, loading: resetPasswordLoading } = usePasswordReset();
   const [isExpanded, setIsExpanded] = useState(false);
   const [showEmailForm, setShowEmailForm] = useState(false);
   const [newEmail, setNewEmail] = useState('');
@@ -182,16 +184,10 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
   const handlePasswordReset = async () => {
     setError('');
     setMessage('');
-    setLoading(true);
 
-    const { error: resetError } = await supabase.auth.resetPasswordForEmail(email, {
-      redirectTo: getPasswordResetRedirectUrl(),
-    });
-
-    setLoading(false);
-
-    if (resetError) {
-      setError(resetError.message);
+    const result = await sendReset(email);
+    if (result === 'rate_limited') {
+      setError(t('accountSettings.tooManyResetAttempts', 'Too many reset requests. Please try again later.'));
     } else {
       setMessage(t('accountSettings.passwordResetSent'));
     }
@@ -390,11 +386,11 @@ const AccountSettings: React.FC<AccountSettingsProps> = ({
               </div>
               <button
                 onClick={handlePasswordReset}
-                disabled={loading}
+                disabled={resetPasswordLoading}
                 className="px-4 py-2 rounded-xl text-sm font-bold transition-all disabled:opacity-50"
                 style={{ backgroundColor: `${accentHex}20`, color: accentHex }}
               >
-                {loading ? t('accountSettings.sending') : t('accountSettings.changePassword')}
+                {resetPasswordLoading ? t('accountSettings.sending') : t('accountSettings.changePassword')}
               </button>
             </div>
           </div>

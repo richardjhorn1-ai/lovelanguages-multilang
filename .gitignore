@@ -58,6 +58,7 @@ ios/SourcePackages/
 # Promo video build outputs and assets
 promo-video/out/
 promo-video/public/audio/
+promo-video/public/tiktok-audio/
 blog/scripts/data/articles-local.json
 
 # Vocab generation scripts & data (one-off generators, data lives in Supabase)

@@ -23,11 +23,15 @@ const AuthCallback: React.FC = () => {
       const url = new URL(window.location.href);
       const hashParams = readHashParams(url.hash);
       const flow = url.searchParams.get('flow') || hashParams.get('flow') || 'oauth';
+      const hashType = hashParams.get('type'); // Supabase sets type=recovery for password reset
       const nextPath = normalizeCallbackDestination(url.searchParams.get('next') || '/');
       const authCode = url.searchParams.get('code');
       const accessToken = hashParams.get('access_token');
       const refreshToken = hashParams.get('refresh_token');
-      const destination = flow === 'password-reset' ? '/reset-password' : nextPath;
+
+      // Determine destination: password-reset flow or recovery type both go to reset page
+      const isPasswordReset = flow === 'password-reset' || hashType === 'recovery';
+      const destination = isPasswordReset ? '/reset-password' : nextPath;
 
       try {
         if (authCode) {
@@ -44,10 +48,18 @@ const AuthCallback: React.FC = () => {
             throw sessionError;
           }
         } else {
+          // No tokens in URL — try initializing from stored session
           await supabase.auth.initialize();
         }
 
+        // Verify we actually have a session before navigating
+        const { data: { session } } = await supabase.auth.getSession();
+        if (!session && isPasswordReset) {
+          throw new Error('Unable to verify your identity. The reset link may have expired.');
+        }
+
         if (!cancelled) {
+          // Clear sensitive tokens from the URL before navigating
           window.history.replaceState({}, '', destination);
           navigate(destination, { replace: true });
         }
@@ -68,13 +80,21 @@ const AuthCallback: React.FC = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-[#FFF0F3] p-6 text-center">
       <div className="max-w-md glass-card rounded-3xl p-8">
-        <div className="text-5xl mb-4">❤️</div>
+        <div className="text-5xl mb-4">&#10084;&#65039;</div>
         <h1 className="text-2xl font-black text-[var(--text-primary)] mb-3 font-header">
-          Finishing sign in
+          {error ? 'Something went wrong' : 'Finishing sign in'}
         </h1>
         <p className="text-[var(--text-secondary)]">
           {error || 'Please wait while we return you to the app.'}
         </p>
+        {error && (
+          <button
+            onClick={() => navigate('/')}
+            className="mt-6 px-6 py-3 rounded-2xl bg-[var(--accent-color)] text-white font-bold transition-all hover:opacity-90"
+          >
+            Back to home
+          </button>
+        )}
       </div>
     </div>
   );
