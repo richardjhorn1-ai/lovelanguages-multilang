@@ -143,11 +143,13 @@ const DrillCard: React.FC<{ content: string; t: (key: string) => string }> = ({ 
   </div>
 );
 
+const isSeparatorRow = (row: string) => /^[\s|:-]+$/.test(row) && row.includes('---');
+
 const GrammarTable: React.FC<{ content: string }> = ({ content }) => {
-  const rows = content.trim().split('\n').filter(r => r.trim() && !r.includes('---'));
+  const rows = content.trim().split('\n').filter(r => r.trim() && !isSeparatorRow(r.trim()));
   if (rows.length < 2) return null;
-  const header = rows[0].split('|').map(c => c.trim()).filter(c => c);
-  const body = rows.slice(1).map(r => r.split('|').map(c => c.trim()).filter(c => c));
+  const header = rows[0].split('|').map(c => c.trim()).filter(c => c.trim());
+  const body = rows.slice(1).map(r => r.split('|').map(c => c.trim()).filter(c => c.trim()));
   return (
     <div className="my-4 overflow-hidden rounded-xl glass-card w-full overflow-x-auto">
       <table className="w-full text-scale-label text-left">
@@ -203,7 +205,12 @@ const RichMessageRenderer: React.FC<{ content: string; t: (key: string) => strin
           return <DrillCard key={index} content={trimmed} t={t} />;
         }
         if (currentBlockType === 'table') {
-          currentBlockType = 'text';
+          // Don't reset blockType — during streaming the closing ::: may not have arrived yet,
+          // so keep rendering subsequent chunks as table content
+          return <GrammarTable key={index} content={trimmed} />;
+        }
+        // Fallback: detect naked markdown tables (has separator row like ---|--- and pipe-delimited data)
+        if (trimmed.split('\n').some(l => isSeparatorRow(l.trim()))) {
           return <GrammarTable key={index} content={trimmed} />;
         }
         return <div key={index} className="text-scale-label leading-relaxed text-[var(--text-primary)]" dangerouslySetInnerHTML={{ __html: parseMarkdown(trimmed) }} />;
