@@ -14,11 +14,17 @@ import { createClient } from '@supabase/supabase-js';
 const supabaseUrl = process.env.SUPABASE_URL || process.env.VITE_SUPABASE_URL || '';
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_KEY || '';
 const supabaseAnonKey = process.env.SUPABASE_ANON_KEY || process.env.VITE_SUPABASE_ANON_KEY || '';
-const allowedOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173,https://www.lovelanguages.io')
+const configuredOrigins = (process.env.ALLOWED_ORIGINS || 'http://localhost:5173,https://www.lovelanguages.io')
   .split(',')
   .map(origin => origin.trim())
   .filter(Boolean)
   .filter(origin => origin !== '*');
+
+const vercelDeploymentOrigin = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null;
+const allowedOrigins = new Set([
+  ...configuredOrigins,
+  ...(vercelDeploymentOrigin ? [vercelDeploymentOrigin] : []),
+]);
 
 // Allowlist of valid event names (prevents arbitrary data injection)
 export const ALLOWED_EVENTS = new Set([
@@ -84,7 +90,7 @@ export const config = {
 
 function getAllowedOrigin(origin: string | null): string | null {
   if (!origin) return null;
-  return allowedOrigins.includes(origin) ? origin : null;
+  return allowedOrigins.has(origin) ? origin : null;
 }
 
 function corsHeaders(origin: string | null): Record<string, string> {
