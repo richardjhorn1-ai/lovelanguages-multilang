@@ -75,32 +75,38 @@ export default async function handler(req: any, res: any) {
       return res.status(500).json({ error: 'Listen Mode not configured' });
     }
 
-    // Create an ephemeral session token via OpenAI Realtime API
-    // The frontend will use this token to connect directly to OpenAI's WebSocket
-    const sessionResponse = await fetch('https://api.openai.com/v1/realtime/sessions', {
+    // Create an ephemeral client secret via OpenAI Realtime API.
+    // The frontend uses this short-lived secret to connect directly to the browser WebSocket.
+    const sessionResponse = await fetch('https://api.openai.com/v1/realtime/client_secrets', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${openaiApiKey}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        model: 'gpt-4o-transcribe',
-
-        // Audio input format — PCM16 at 24kHz
-        input_audio_format: 'pcm16',
-
-        // Transcription configuration
-        input_audio_transcription: {
-          model: 'gpt-4o-transcribe',
-          // Omit language for auto-detect (supports code-switching between target & native)
-        },
-
-        // Server-side voice activity detection
-        turn_detection: {
-          type: 'server_vad',
-          threshold: 0.6,
-          silence_duration_ms: 800,
-          prefix_padding_ms: 300,
+        session: {
+          type: 'transcription',
+          audio: {
+            input: {
+              format: {
+                type: 'audio/pcm',
+                rate: 24000,
+              },
+              noise_reduction: {
+                type: 'near_field',
+              },
+              transcription: {
+                model: 'gpt-4o-transcribe',
+                // Omit language for auto-detect (supports code-switching between target & native)
+              },
+              turn_detection: {
+                type: 'server_vad',
+                threshold: 0.6,
+                silence_duration_ms: 800,
+                prefix_padding_ms: 300,
+              },
+            },
+          },
         },
       }),
     });
@@ -126,7 +132,7 @@ export default async function handler(req: any, res: any) {
     // - Not logged server-side (only session ID is logged)
     return res.status(200).json({
       token: session.client_secret.value,
-      url: 'wss://api.openai.com/v1/realtime?intent=transcription',
+      url: 'wss://api.openai.com/v1/realtime',
       targetLanguage,
       nativeLanguage,
     });

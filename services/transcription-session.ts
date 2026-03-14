@@ -120,9 +120,10 @@ export class TranscriptionSession {
       if (nativeLanguage) this.config.nativeLanguage = nativeLanguage;
       log('Got ephemeral token, connecting to OpenAI WebSocket...');
 
-      // Connect to OpenAI Realtime API WebSocket
-      // Auth is passed via WebSocket protocol headers (browser limitation — can't set custom headers)
+      // Connect to OpenAI Realtime API WebSocket.
+      // Browser auth is passed via subprotocols because custom headers are not available.
       this.ws = new WebSocket(url, [
+        'realtime',
         'openai-insecure-api-key.' + token,
         'openai-beta.realtime-v1'
       ]);
