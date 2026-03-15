@@ -1,4 +1,6 @@
 ---
+import { getUITranslations } from '../data/ui-translations';
+
 interface FAQItem {
   question: string;
   answer: string;
@@ -6,9 +8,11 @@ interface FAQItem {
 
 interface Props {
   items: FAQItem[];
+  nativeLang?: string;
 }
 
-const { items } = Astro.props;
+const { items, nativeLang = 'en' } = Astro.props;
+const t = getUITranslations(nativeLang);
 
 // Generate FAQ Schema JSON-LD
 const faqSchema = {
@@ -28,7 +32,7 @@ const faqSchema = {
 <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
 <div class="my-8 space-y-4">
-  <h2 class="text-2xl font-bold font-header text-gray-900 mb-6">Frequently Asked Questions</h2>
+  <h2 class="text-2xl font-bold font-header text-gray-900 mb-6">{t.faq}</h2>
   {items.map((item, index) => (
     <details class="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
       <summary class="flex items-center justify-between p-4 cursor-pointer font-semibold text-gray-900 hover:bg-gray-100 transition-colors">

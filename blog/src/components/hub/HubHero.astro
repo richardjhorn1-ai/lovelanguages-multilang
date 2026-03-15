@@ -1,4 +1,6 @@
 ---
+import { getUITranslations } from '../../data/ui-translations';
+
 interface Props {
   flag: string;
   name: string;
@@ -7,12 +9,23 @@ interface Props {
   speakers: string;
   fsiHours: number;
   difficultyRating: 1 | 2 | 3 | 4 | 5;
+  nativeLang?: string;
 }
 
-const { flag, name, title, description, speakers, fsiHours, difficultyRating } = Astro.props;
+const { flag, name, title, description, speakers, fsiHours, difficultyRating, nativeLang = 'en' } = Astro.props;
+
+const t = getUITranslations(nativeLang);
 
 const filledStars = difficultyRating;
 const emptyStars = 5 - difficultyRating;
+
+// Per-component translations for labels not yet in ui-translations.ts
+const speakersLabel: Record<string, string> = {
+  en: 'Speakers', es: 'Hablantes', fr: 'Locuteurs', de: 'Sprecher',
+  it: 'Parlanti', pt: 'Falantes', pl: 'Użytkownicy', nl: 'Sprekers',
+  ro: 'Vorbitori', ru: 'Носители', tr: 'Konuşanlar', uk: 'Носії',
+  sv: 'Talare', no: 'Talere', da: 'Talere', cs: 'Mluvčí', el: 'Ομιλητές', hu: 'Beszélők'
+};
 ---
 
 <header class="bg-gradient-to-b from-accent/10 to-white">
@@ -29,11 +42,11 @@ const emptyStars = 5 - difficultyRating;
       <div class="flex justify-center gap-6 md:gap-10 text-sm">
         <div class="text-center">
           <div class="text-xl md:text-2xl font-bold text-gray-900">{speakers}</div>
-          <div class="text-gray-500">Speakers</div>
+          <div class="text-gray-500">{speakersLabel[nativeLang] || speakersLabel.en}</div>
         </div>
         <div class="text-center">
           <div class="text-xl md:text-2xl font-bold text-gray-900">{fsiHours}h</div>
-          <div class="text-gray-500">To Fluency</div>
+          <div class="text-gray-500">{t.toFluency}</div>
         </div>
         <!-- Star ratings removed -->
         <!--<div class="text-center">

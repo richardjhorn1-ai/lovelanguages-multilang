@@ -6,9 +6,20 @@ interface FAQ {
 
 interface Props {
   faqs: FAQ[];
+  nativeLang?: string;
 }
 
-const { faqs } = Astro.props;
+const { faqs, nativeLang = 'en' } = Astro.props;
+
+// Per-component translations for FAQ heading
+const faqHeading: Record<string, string> = {
+  en: 'Frequently Asked Questions', es: 'Preguntas Frecuentes', fr: 'Questions Fréquentes',
+  de: 'Häufig Gestellte Fragen', it: 'Domande Frequenti', pt: 'Perguntas Frequentes',
+  pl: 'Często Zadawane Pytania', nl: 'Veelgestelde Vragen', ro: 'Întrebări Frecvente',
+  ru: 'Часто Задаваемые Вопросы', tr: 'Sık Sorulan Sorular', uk: 'Часті Запитання',
+  sv: 'Vanliga Frågor', no: 'Vanlige Spørsmål', da: 'Ofte Stillede Spørgsmål',
+  cs: 'Často Kladené Otázky', el: 'Συχνές Ερωτήσεις', hu: 'Gyakran Ismételt Kérdések'
+};
 
 // Generate JSON-LD schema for FAQ
 const faqSchema = {
@@ -28,7 +39,7 @@ const faqSchema = {
 <section class="py-12 bg-white">
   <div class="max-w-4xl mx-auto px-4">
     <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-8 text-center">
-      Frequently Asked Questions
+      {faqHeading[nativeLang] || faqHeading.en}
     </h2>
 
     <div class="space-y-3">

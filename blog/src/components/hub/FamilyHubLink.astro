@@ -7,9 +7,38 @@
 interface Props {
   languageName: string;
   familyGroup: string;
+  nativeLang?: string;
 }
 
-const { languageName, familyGroup } = Astro.props;
+const { languageName, familyGroup, nativeLang = 'en' } = Astro.props;
+
+// Per-component translation: full template function per language
+// Using template functions because sentence structure differs across languages
+const familyText: Record<string, (lang: string, family: string) => string> = {
+  en: (l, f) => `${l} is part of the ${f} Languages family`,
+  es: (l, f) => `${l} es parte de la familia de idiomas ${f}`,
+  fr: (l, f) => `${l} fait partie de la famille des langues ${f}`,
+  de: (l, f) => `${l} gehört zur ${f}-Sprachfamilie`,
+  it: (l, f) => `${l} fa parte della famiglia delle lingue ${f}`,
+  pt: (l, f) => `${l} faz parte da família de línguas ${f}`,
+  pl: (l, f) => `${l} należy do rodziny języków ${f}`,
+  nl: (l, f) => `${l} behoort tot de ${f}-talenfamilie`,
+  ro: (l, f) => `${l} face parte din familia limbilor ${f}`,
+  ru: (l, f) => `${l} относится к семье ${f} языков`,
+  tr: (l, f) => `${l}, ${f} dil ailesine aittir`,
+  uk: (l, f) => `${l} належить до сім'ї ${f} мов`,
+  sv: (l, f) => `${l} tillhör den ${f} språkfamiljen`,
+  no: (l, f) => `${l} tilhører den ${f} språkfamilien`,
+  da: (l, f) => `${l} tilhører den ${f} sprogfamilie`,
+  cs: (l, f) => `${l} patří do rodiny ${f} jazyků`,
+  el: (l, f) => `${l} ανήκει στην οικογένεια ${f} γλωσσών`,
+  hu: (l, f) => `${l} a ${f} nyelvcsalád tagja`,
+};
+
+const getFamilyLabel = (lang: string, langName: string, family: string) => {
+  const fn = familyText[lang] || familyText.en;
+  return fn(langName, family);
+};
 
 // Map family groups to hub URLs and descriptions
 const familyHubs: Record<string, { url: string; description: string; emoji: string } | null> = {
@@ -46,8 +75,7 @@ const hubInfo = familyHubs[familyGroup];
       >
         <span>{hubInfo.emoji}</span>
         <span>
-          <span class="font-medium text-gray-900">{languageName}</span> is part of the
-          <span class="font-semibold text-accent group-hover:underline">{familyGroup} Languages</span> family
+          {getFamilyLabel(nativeLang, languageName, familyGroup)}
         </span>
         <svg class="w-4 h-4 opacity-50 group-hover:opacity-100 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />

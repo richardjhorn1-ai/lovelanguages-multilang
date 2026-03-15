@@ -9,6 +9,7 @@ import BaseLayout from '../../../../../layouts/BaseLayout.astro';
 import { createClient } from '@supabase/supabase-js';
 import { SUPPORTED_NATIVE_LANGS, getLanguageName } from '../../../../../data/language-info';
 import { canonicalUrl } from '../../../../../lib/urls';
+import { getUITranslations } from '../../../../../data/ui-translations';
 
 const { nativeLang, slug } = Astro.params;
 
@@ -134,6 +135,30 @@ const breadcrumbLabels: Record<string, { home: string; couples: string; methodol
 };
 
 const labels = breadcrumbLabels[nativeLang || 'en'] || breadcrumbLabels.en;
+const t = getUITranslations(nativeLang || 'en');
+
+// Methodology-specific translations
+const methodologyText: Record<string, { moreArticles: string; readyToLearn: string; startJourney: string; getStarted: string }> = {
+  en: { moreArticles: 'More Methodology Articles', readyToLearn: "Ready to learn your partner's language?", startJourney: 'Start your journey together with Love Languages', getStarted: 'Get Started Free →' },
+  es: { moreArticles: 'Más Artículos de Metodología', readyToLearn: '¿Listo para aprender el idioma de tu pareja?', startJourney: 'Comienza tu viaje juntos con Love Languages', getStarted: 'Empieza Gratis →' },
+  fr: { moreArticles: 'Plus d\'Articles sur la Méthodologie', readyToLearn: 'Prêt à apprendre la langue de votre partenaire ?', startJourney: 'Commencez votre voyage ensemble avec Love Languages', getStarted: 'Commencer Gratuitement →' },
+  de: { moreArticles: 'Weitere Methodik-Artikel', readyToLearn: 'Bereit, die Sprache deines Partners zu lernen?', startJourney: 'Startet eure Reise zusammen mit Love Languages', getStarted: 'Kostenlos Starten →' },
+  it: { moreArticles: 'Altri Articoli sulla Metodologia', readyToLearn: 'Pronto a imparare la lingua del tuo partner?', startJourney: 'Inizia il tuo viaggio insieme con Love Languages', getStarted: 'Inizia Gratis →' },
+  pt: { moreArticles: 'Mais Artigos de Metodologia', readyToLearn: 'Pronto para aprender a língua do seu parceiro?', startJourney: 'Comece sua jornada juntos com Love Languages', getStarted: 'Começar Grátis →' },
+  pl: { moreArticles: 'Więcej Artykułów o Metodologii', readyToLearn: 'Gotowy nauczyć się języka partnera?', startJourney: 'Rozpocznij wspólną podróż z Love Languages', getStarted: 'Zacznij Za Darmo →' },
+  nl: { moreArticles: 'Meer Methodologie Artikelen', readyToLearn: 'Klaar om de taal van je partner te leren?', startJourney: 'Begin jullie reis samen met Love Languages', getStarted: 'Gratis Beginnen →' },
+  ro: { moreArticles: 'Mai Multe Articole de Metodologie', readyToLearn: 'Pregătit să înveți limba partenerului?', startJourney: 'Începe călătoria împreună cu Love Languages', getStarted: 'Începe Gratuit →' },
+  ru: { moreArticles: 'Больше Статей о Методологии', readyToLearn: 'Готовы изучить язык вашего партнёра?', startJourney: 'Начните путь вместе с Love Languages', getStarted: 'Начать Бесплатно →' },
+  tr: { moreArticles: 'Daha Fazla Metodoloji Makalesi', readyToLearn: 'Partnerinizin dilini öğrenmeye hazır mısınız?', startJourney: 'Love Languages ile birlikte yolculuğunuza başlayın', getStarted: 'Ücretsiz Başla →' },
+  uk: { moreArticles: 'Більше Статей про Методологію', readyToLearn: 'Готові вивчити мову свого партнера?', startJourney: 'Почніть свою подорож разом із Love Languages', getStarted: 'Почати Безкоштовно →' },
+  sv: { moreArticles: 'Fler Metodikartiklar', readyToLearn: 'Redo att lära dig din partners språk?', startJourney: 'Börja er resa tillsammans med Love Languages', getStarted: 'Börja Gratis →' },
+  no: { moreArticles: 'Flere Metodikkartikler', readyToLearn: 'Klar for å lære partnerens språk?', startJourney: 'Start reisen sammen med Love Languages', getStarted: 'Start Gratis →' },
+  da: { moreArticles: 'Flere Metodeartikler', readyToLearn: 'Klar til at lære din partners sprog?', startJourney: 'Begynd jeres rejse sammen med Love Languages', getStarted: 'Begynd Gratis →' },
+  cs: { moreArticles: 'Další Články o Metodice', readyToLearn: 'Připraveni naučit se jazyk svého partnera?', startJourney: 'Začněte společnou cestu s Love Languages', getStarted: 'Začít Zdarma →' },
+  el: { moreArticles: 'Περισσότερα Άρθρα Μεθοδολογίας', readyToLearn: 'Έτοιμοι να μάθετε τη γλώσσα του συντρόφου σας;', startJourney: 'Ξεκινήστε το ταξίδι σας μαζί με το Love Languages', getStarted: 'Ξεκίνα Δωρεάν →' },
+  hu: { moreArticles: 'További Módszertani Cikkek', readyToLearn: 'Készen állsz megtanulni a párod nyelvét?', startJourney: 'Kezdd el az utatokat együtt a Love Languages-szel', getStarted: 'Kezdd El Ingyen →' },
+};
+const mt = methodologyText[nativeLang || 'en'] || methodologyText.en;
 ---
 
 <BaseLayout
@@ -188,7 +213,7 @@ const labels = breadcrumbLabels[nativeLang || 'en'] || breadcrumbLabels.en;
         <div class="flex items-center gap-4 text-sm text-gray-500">
           {article.read_time && (
             <span class="flex items-center gap-1">
-              <span>📖</span> {article.read_time} min read
+              <span>📖</span> {article.read_time} {t.minRead}
             </span>
           )}
           {article.difficulty && (
@@ -207,7 +232,7 @@ const labels = breadcrumbLabels[nativeLang || 'en'] || breadcrumbLabels.en;
       {/* FAQ Section — visible accordion */}
       {faqItems.length > 0 && (
         <section class="mt-10 pt-8 border-t border-gray-200">
-          <h2 class="text-xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+          <h2 class="text-xl font-bold text-gray-900 mb-4">{t.faq}</h2>
           <div class="space-y-3">
             {faqItems.map((faq: {question: string, answer: string}) => (
               <details class="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
@@ -229,7 +254,7 @@ const labels = breadcrumbLabels[nativeLang || 'en'] || breadcrumbLabels.en;
       <!-- Related Articles -->
       {relatedArticles && relatedArticles.length > 0 && (
         <aside class="border-t pt-8">
-          <h2 class="text-xl font-bold text-gray-900 mb-4">More Methodology Articles</h2>
+          <h2 class="text-xl font-bold text-gray-900 mb-4">{mt.moreArticles}</h2>
           <ul class="grid gap-3">
             {relatedArticles.map((related) => (
               <li>
@@ -247,13 +272,13 @@ const labels = breadcrumbLabels[nativeLang || 'en'] || breadcrumbLabels.en;
 
       <!-- CTA -->
       <div class="mt-12 p-6 bg-gradient-to-r from-pink-500 to-red-500 rounded-2xl text-white text-center">
-        <h3 class="text-xl font-bold mb-2">Ready to learn your partner's language?</h3>
-        <p class="mb-4 opacity-90">Start your journey together with Love Languages</p>
+        <h3 class="text-xl font-bold mb-2">{mt.readyToLearn}</h3>
+        <p class="mb-4 opacity-90">{mt.startJourney}</p>
         <a
           href="https://www.lovelanguages.io/signup"
           class="inline-block px-6 py-3 bg-white text-pink-600 font-bold rounded-full hover:bg-pink-50 transition-colors"
         >
-          Get Started Free →
+          {mt.getStarted}
         </a>
       </div>
 

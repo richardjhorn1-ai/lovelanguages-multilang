@@ -3,6 +3,7 @@ import BaseLayout from './BaseLayout.astro';
 import CTA from '../components/CTA.astro';
 import RALLMethodologySection from '../components/RALLMethodologySection.astro';
 import { canonicalUrl as buildCanonicalUrl, normalizePathname } from '../lib/urls';
+import { getUITranslations } from '../data/ui-translations';
 
 interface RelatedArticle {
   slug: string;
@@ -128,20 +129,30 @@ const LANG_FLAGS: Record<string, string> = {
 // Build canonical URL (always trailing slash)
 const canonicalUrl = buildCanonicalUrl(Astro.url.pathname);
 
+// Get translations for the native language
+const t = getUITranslations(nativeLanguageCode);
+
 // Use language flag for culture category
 const categoryConfig = {
-  phrases: { icon: '💬', bg: 'bg-rose-100', text: 'text-rose-700', label: 'Phrases' },
-  vocabulary: { icon: '📚', bg: 'bg-purple-100', text: 'text-purple-700', label: 'Vocabulary' },
-  grammar: { icon: '📝', bg: 'bg-blue-100', text: 'text-blue-700', label: 'Grammar' },
-  culture: { icon: languageInfo.flag, bg: 'bg-amber-100', text: 'text-amber-700', label: 'Culture' },
-  situations: { icon: '🎭', bg: 'bg-emerald-100', text: 'text-emerald-700', label: 'Situations' },
-  pronunciation: { icon: '🗣️', bg: 'bg-teal-100', text: 'text-teal-700', label: 'Pronunciation' },
-  communication: { icon: '💬', bg: 'bg-cyan-100', text: 'text-cyan-700', label: 'Communication' },
+  phrases: { icon: '💬', bg: 'bg-rose-100', text: 'text-rose-700', label: t.categoryPhrases },
+  vocabulary: { icon: '📚', bg: 'bg-purple-100', text: 'text-purple-700', label: t.categoryVocabulary },
+  grammar: { icon: '📝', bg: 'bg-blue-100', text: 'text-blue-700', label: t.categoryGrammar },
+  culture: { icon: languageInfo.flag, bg: 'bg-amber-100', text: 'text-amber-700', label: t.categoryCulture },
+  situations: { icon: '🎭', bg: 'bg-emerald-100', text: 'text-emerald-700', label: t.categorySituations },
+  pronunciation: { icon: '🗣️', bg: 'bg-teal-100', text: 'text-teal-700', label: t.categoryPronunciation },
+  communication: { icon: '💬', bg: 'bg-cyan-100', text: 'text-cyan-700', label: t.categoryCommunication },
 };
 
 const cat = categoryConfig[category];
 
-const formattedDate = new Date(date).toLocaleDateString('en-US', {
+// Map language codes to locale identifiers for date formatting
+const LOCALE_MAP: Record<string, string> = {
+  en: 'en-US', es: 'es-ES', fr: 'fr-FR', de: 'de-DE', it: 'it-IT', pt: 'pt-PT',
+  pl: 'pl-PL', nl: 'nl-NL', ro: 'ro-RO', ru: 'ru-RU', tr: 'tr-TR', uk: 'uk-UA',
+  sv: 'sv-SE', no: 'nb-NO', da: 'da-DK', cs: 'cs-CZ', el: 'el-GR', hu: 'hu-HU'
+};
+const dateLocale = LOCALE_MAP[nativeLanguageCode] || 'en-US';
+const formattedDate = new Date(date).toLocaleDateString(dateLocale, {
   year: 'numeric',
   month: 'long',
   day: 'numeric'
@@ -206,13 +217,13 @@ const breadcrumbJsonLd = {
     {
       "@type": "ListItem",
       "position": 1,
-      "name": "Home",
+      "name": t.breadcrumbHome,
       "item": "https://www.lovelanguages.io/"
     },
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Learn",
+      "name": t.breadcrumbLearn,
       "item": "https://www.lovelanguages.io/learn/"
     },
     {
@@ -350,9 +361,9 @@ const faqJsonLd = faqItems.length > 0 ? {
   <!-- Breadcrumb -->
   <nav class="max-w-3xl mx-auto px-4 py-3 bg-gray-50" aria-label="Breadcrumb">
     <ol class="flex items-center gap-1.5 text-sm text-gray-500 flex-wrap">
-      <li><a href="/" class="hover:text-accent">Home</a></li>
+      <li><a href="/" class="hover:text-accent">{t.breadcrumbHome}</a></li>
       <li class="text-gray-300">/</li>
-      <li><a href="/learn/" class="hover:text-accent">Learn</a></li>
+      <li><a href="/learn/" class="hover:text-accent">{t.breadcrumbLearn}</a></li>
       <li class="text-gray-300">/</li>
       <li><a href={nativeHubUrl} class="hover:text-accent">{nativeLanguageInfo.flag} {nativeLanguageInfo.nativeName}</a></li>
       <li class="text-gray-300">→</li>
@@ -405,13 +416,13 @@ const faqJsonLd = faqItems.length > 0 ? {
           {cat.icon} {cat.label}
         </span>
         <span class="text-gray-500">{formattedDate}</span>
-        <span class="text-gray-500">{readTime} min read</span>
+        <span class="text-gray-500">{readTime} {t.minRead}</span>
       </div>
 
       <!-- Author byline (E-E-A-T signal) -->
       <div class="flex items-center gap-2 text-sm text-gray-600 mb-4">
         <div class="w-6 h-6 rounded-full bg-gradient-to-br from-accent to-pink-400 flex items-center justify-center text-white text-xs font-bold flex-shrink-0">LL</div>
-        <span>By <strong class="text-gray-800">Love Languages Editorial Team</strong></span>
+        <span>{t.byAuthor} <strong class="text-gray-800">{t.editorialTeam}</strong></span>
       </div>
 
       <!-- Title - marked as speakable for voice assistants -->
@@ -435,7 +446,7 @@ const faqJsonLd = faqItems.length > 0 ? {
       {/* FAQ Section — visible accordion + JSON-LD */}
       {faqItems.length > 0 && (
         <section class="mt-10 pt-8 border-t border-gray-200">
-          <h2 class="text-xl font-bold font-header text-gray-900 mb-4">Frequently Asked Questions</h2>
+          <h2 class="text-xl font-bold font-header text-gray-900 mb-4">{t.faq}</h2>
           <div class="space-y-3">
             {faqItems.map((faq) => (
               <details class="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
@@ -459,14 +470,14 @@ const faqJsonLd = faqItems.length > 0 ? {
     <div class="mt-8 p-6 bg-gradient-to-r from-accent/5 to-pink-50 rounded-2xl border border-accent/10">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
         <div class="text-center sm:text-left">
-          <p class="text-gray-600 text-sm mb-1">Want to learn more?</p>
-          <p class="font-bold text-gray-900">More {languageInfo.name} articles for {nativeLanguageInfo.nativeName} speakers</p>
+          <p class="text-gray-600 text-sm mb-1">{t.wantToLearnMore}</p>
+          <p class="font-bold text-gray-900">{t.moreArticlesFor.replace('{language}', languageInfo.name).replace('{native}', nativeLanguageInfo.nativeName)}</p>
         </div>
         <a
           href={languagePairUrl}
           class="inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-white font-bold rounded-full hover:shadow-lg hover:scale-105 transition-all text-sm"
         >
-          {nativeLanguageInfo.flag} → {languageInfo.flag} Articles
+          {nativeLanguageInfo.flag} → {languageInfo.flag} {t.articles}
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
@@ -478,7 +489,7 @@ const faqJsonLd = faqItems.length > 0 ? {
   <!-- Related Articles -->
   {relatedArticles.length > 0 && (
     <section class="max-w-3xl mx-auto px-4 pb-16">
-      <h2 class="text-2xl font-bold font-header text-gray-900 mb-6">Keep Learning</h2>
+      <h2 class="text-2xl font-bold font-header text-gray-900 mb-6">{t.keepLearning}</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         {relatedArticles.map((related) => {
           const relatedCategory = related.data.category || 'vocabulary';
@@ -509,7 +520,7 @@ const faqJsonLd = faqItems.length > 0 ? {
                 <h3 class="font-bold text-gray-900 group-hover:text-accent transition-colors line-clamp-2">
                   {related.data.title}
                 </h3>
-                <p class="text-sm text-gray-500 mt-1">{related.data.readTime || 5} min read</p>
+                <p class="text-sm text-gray-500 mt-1">{related.data.readTime || 5} {t.minRead}</p>
               </div>
             </a>
           );
@@ -529,11 +540,10 @@ const faqJsonLd = faqItems.length > 0 ? {
       <div class="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-100">
         <div class="flex items-center gap-3 mb-3">
           <span class="text-2xl">🔄</span>
-          <h3 class="font-bold text-gray-900">Learn the Reverse!</h3>
+          <h3 class="font-bold text-gray-900">{t.learnTheReverse}</h3>
         </div>
         <p class="text-gray-600 text-sm mb-4">
-          {nativeLanguageInfo.flag} {nativeLanguageInfo.name} speaker learning {languageInfo.flag} {languageInfo.name}?
-          Check out the reverse perspective:
+          {t.reverseDescription.replace('{native}', `${nativeLanguageInfo.flag} ${nativeLanguageInfo.name}`).replace('{target}', `${languageInfo.flag} ${languageInfo.name}`)}
         </p>
         <a
           href={`/learn/${reverseArticle.slug}/`}
@@ -553,7 +563,7 @@ const faqJsonLd = faqItems.length > 0 ? {
   {crossPairArticles.length > 0 && (
     <section class="max-w-3xl mx-auto px-4 pb-12">
       <h3 class="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-        <span>🌍</span> Similar Topics in Other Languages
+        <span>🌍</span> {t.similarTopics}
       </h3>
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {crossPairArticles.map((article) => {
@@ -572,7 +582,7 @@ const faqJsonLd = faqItems.length > 0 ? {
                 <p class="font-medium text-gray-900 group-hover:text-accent transition-colors text-sm truncate">
                   {article.data.title}
                 </p>
-                <p class="text-xs text-gray-500">{article.data.readTime} min read</p>
+                <p class="text-xs text-gray-500">{article.data.readTime} {t.minRead}</p>
               </div>
             </a>
           );
@@ -590,8 +600,8 @@ const faqJsonLd = faqItems.length > 0 ? {
       data-target={languageCode}
       data-article={articleSlug}
     >
-      <span>Learn {languageInfo.name} Together</span>
-      <span class="bg-white text-accent px-3 py-1 rounded-full text-sm">Start Now →</span>
+      <span>{t.learnTogether.replace('{language}', languageInfo.name)}</span>
+      <span class="bg-white text-accent px-3 py-1 rounded-full text-sm">{t.startNow}</span>
     </a>
   </div>
   <script>
@@ -623,12 +633,12 @@ const faqJsonLd = faqItems.length > 0 ? {
         <img src="/favicon.svg" alt="Love Languages" class="w-8 h-8" />
         Love Languages
       </a>
-      <p class="text-gray-600 mb-6">Learn {languageInfo.name} together with your partner</p>
+      <p class="text-gray-600 mb-6">{t.learnTogetherPartner.replace('{language}', languageInfo.name)}</p>
       <nav class="flex justify-center gap-6 text-sm text-gray-500">
-        <a href="/learn/" class="hover:text-accent">Blog</a>
-        <a href="/tools/" class="hover:text-accent">Tools</a>
-        <a href="/terms/" class="hover:text-accent">Terms</a>
-        <a href="/privacy/" class="hover:text-accent">Privacy</a>
+        <a href="/learn/" class="hover:text-accent">{t.blog}</a>
+        <a href="/tools/" class="hover:text-accent">{t.tools}</a>
+        <a href="/terms/" class="hover:text-accent">{t.terms}</a>
+        <a href="/privacy/" class="hover:text-accent">{t.privacy}</a>
       </nav>
     </div>
   </footer>

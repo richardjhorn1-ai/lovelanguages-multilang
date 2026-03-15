@@ -1,4 +1,6 @@
 ---
+import { getUITranslations } from '../data/ui-translations';
+
 interface Props {
   slug: string;
   title: string;
@@ -8,9 +10,11 @@ interface Props {
   readTime: number;
   image?: string;
   date: string;
+  nativeLang?: string;
 }
 
-const { slug, title, description, category, difficulty, readTime, image, date } = Astro.props;
+const { slug, title, description, category, difficulty, readTime, image, date, nativeLang = 'en' } = Astro.props;
+const t = getUITranslations(nativeLang);
 
 const categoryConfig: Record<string, { icon: string; bg: string; text: string }> = {
   phrases: { icon: '💬', bg: 'bg-rose-100', text: 'text-rose-700' },
@@ -68,7 +72,7 @@ const diff = difficultyConfig[difficulty] || defaultDiff;
       <span class={`px-2 py-1 rounded ${diff.bg} ${diff.text}`}>
         {difficulty}
       </span>
-      <span>{readTime} min read</span>
+      <span>{readTime} {t.minRead}</span>
     </div>
   </div>
 </a>

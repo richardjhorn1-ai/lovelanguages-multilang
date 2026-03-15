@@ -4,6 +4,7 @@
  * This component creates the "spoke" links from hub pages to actual content
  */
 import { getArticlesByLangPair, type BlogArticleSummary } from '../../lib/blog-api';
+import { getUITranslations } from '../../data/ui-translations';
 
 interface Props {
   langCode: string;
@@ -14,18 +15,131 @@ interface Props {
 
 const { langCode, langName, nativeLang = 'en', maxPerCategory = 4 } = Astro.props;
 
+const t = getUITranslations(nativeLang);
+
 // Get all articles for this language pair from Supabase
 const languageArticles = await getArticlesByLangPair(nativeLang, langCode, { limit: 500 });
 
-// Category display names and order
+// Per-component translations for category labels
+const categoryLabels: Record<string, Record<string, string>> = {
+  phrases: {
+    en: 'Essential Phrases', es: 'Frases Esenciales', fr: 'Phrases Essentielles', de: 'Wichtige Redewendungen',
+    it: 'Frasi Essenziali', pt: 'Frases Essenciais', pl: 'Podstawowe Zwroty', nl: 'Essentiële Zinnen',
+    ro: 'Expresii Esențiale', ru: 'Основные Фразы', tr: 'Temel İfadeler', uk: 'Основні Фрази',
+    sv: 'Viktiga Fraser', no: 'Viktige Fraser', da: 'Vigtige Sætninger', cs: 'Základní Fráze', el: 'Βασικές Φράσεις', hu: 'Alapvető Kifejezések'
+  },
+  romance: {
+    en: 'Romantic Expressions', es: 'Expresiones Románticas', fr: 'Expressions Romantiques', de: 'Romantische Ausdrücke',
+    it: 'Espressioni Romantiche', pt: 'Expressões Românticas', pl: 'Romantyczne Wyrażenia', nl: 'Romantische Uitdrukkingen',
+    ro: 'Expresii Romantice', ru: 'Романтические Выражения', tr: 'Romantik İfadeler', uk: 'Романтичні Вирази',
+    sv: 'Romantiska Uttryck', no: 'Romantiske Uttrykk', da: 'Romantiske Udtryk', cs: 'Romantické Výrazy', el: 'Ρομαντικές Εκφράσεις', hu: 'Romantikus Kifejezések'
+  },
+  vocabulary: {
+    en: 'Vocabulary', es: 'Vocabulario', fr: 'Vocabulaire', de: 'Wortschatz',
+    it: 'Vocabolario', pt: 'Vocabulário', pl: 'Słownictwo', nl: 'Woordenschat',
+    ro: 'Vocabular', ru: 'Словарный Запас', tr: 'Kelime Bilgisi', uk: 'Словниковий Запас',
+    sv: 'Ordförråd', no: 'Ordforråd', da: 'Ordforråd', cs: 'Slovní Zásoba', el: 'Λεξιλόγιο', hu: 'Szókincs'
+  },
+  grammar: {
+    en: 'Grammar Guides', es: 'Guías de Gramática', fr: 'Guides de Grammaire', de: 'Grammatik-Leitfäden',
+    it: 'Guide di Grammatica', pt: 'Guias de Gramática', pl: 'Przewodniki Gramatyczne', nl: 'Grammaticagidsen',
+    ro: 'Ghiduri de Gramatică', ru: 'Грамматические Руководства', tr: 'Gramer Kılavuzları', uk: 'Граматичні Посібники',
+    sv: 'Grammatikguider', no: 'Grammatikkguider', da: 'Grammatikguider', cs: 'Gramatické Průvodce', el: 'Οδηγοί Γραμματικής', hu: 'Nyelvtani Útmutatók'
+  },
+  culture: {
+    en: 'Culture & Traditions', es: 'Cultura y Tradiciones', fr: 'Culture et Traditions', de: 'Kultur & Traditionen',
+    it: 'Cultura e Tradizioni', pt: 'Cultura e Tradições', pl: 'Kultura i Tradycje', nl: 'Cultuur & Tradities',
+    ro: 'Cultură și Tradiții', ru: 'Культура и Традиции', tr: 'Kültür ve Gelenekler', uk: 'Культура і Традиції',
+    sv: 'Kultur & Traditioner', no: 'Kultur & Tradisjoner', da: 'Kultur & Traditioner', cs: 'Kultura a Tradice', el: 'Πολιτισμός & Παραδόσεις', hu: 'Kultúra és Hagyományok'
+  },
+  pronunciation: {
+    en: 'Pronunciation', es: 'Pronunciación', fr: 'Prononciation', de: 'Aussprache',
+    it: 'Pronuncia', pt: 'Pronúncia', pl: 'Wymowa', nl: 'Uitspraak',
+    ro: 'Pronunție', ru: 'Произношение', tr: 'Telaffuz', uk: 'Вимова',
+    sv: 'Uttal', no: 'Uttale', da: 'Udtale', cs: 'Výslovnost', el: 'Προφορά', hu: 'Kiejtés'
+  },
+  learning: {
+    en: 'Learning Tips', es: 'Consejos de Aprendizaje', fr: "Conseils d'Apprentissage", de: 'Lerntipps',
+    it: 'Consigli di Apprendimento', pt: 'Dicas de Aprendizado', pl: 'Wskazówki do Nauki', nl: 'Leertips',
+    ro: 'Sfaturi de Învățare', ru: 'Советы по Обучению', tr: 'Öğrenme İpuçları', uk: 'Поради з Навчання',
+    sv: 'Lärandetips', no: 'Læringstips', da: 'Læringstips', cs: 'Tipy na Učení', el: 'Συμβουλές Εκμάθησης', hu: 'Tanulási Tippek'
+  },
+};
+
+// Per-component translations for UI strings
+const learningGuidesLabel: Record<string, string> = {
+  en: '{language} Learning Guides', es: 'Guías de Aprendizaje de {language}', fr: "Guides d'Apprentissage de {language}",
+  de: '{language}-Lernleitfäden', it: 'Guide per Imparare {language}', pt: 'Guias de Aprendizado de {language}',
+  pl: 'Przewodniki do Nauki {language}', nl: '{language} Leergidsen', ro: 'Ghiduri de Învățare {language}',
+  ru: 'Руководства по Изучению {language}', tr: '{language} Öğrenme Kılavuzları', uk: 'Посібники з Вивчення {language}',
+  sv: '{language} Lärandeguider', no: '{language} Læringsguider', da: '{language} Læringsguider',
+  cs: 'Průvodce Učením {language}', el: 'Οδηγοί Εκμάθησης {language}', hu: '{language} Tanulási Útmutatók'
+};
+
+const browseArticlesLabel: Record<string, string> = {
+  en: 'Browse {count} in-depth articles to master {language}',
+  es: 'Explora {count} artículos detallados para dominar {language}',
+  fr: 'Parcourez {count} articles approfondis pour maîtriser {language}',
+  de: 'Durchstöbern Sie {count} ausführliche Artikel zum Beherrschen von {language}',
+  it: 'Sfoglia {count} articoli approfonditi per padroneggiare {language}',
+  pt: 'Navegue por {count} artigos detalhados para dominar {language}',
+  pl: 'Przeglądaj {count} szczegółowych artykułów o {language}',
+  nl: 'Bekijk {count} diepgaande artikelen om {language} te beheersen',
+  ro: 'Răsfoiește {count} articole detaliate pentru a stăpâni {language}',
+  ru: 'Просмотрите {count} подробных статей для изучения {language}',
+  tr: '{language} öğrenmek için {count} ayrıntılı makaleye göz atın',
+  uk: 'Переглядайте {count} детальних статей для вивчення {language}',
+  sv: 'Bläddra bland {count} djupgående artiklar för att bemästra {language}',
+  no: 'Bla gjennom {count} dybdegående artikler for å mestre {language}',
+  da: 'Gennemse {count} dybdegående artikler for at mestre {language}',
+  cs: 'Prozkoumejte {count} podrobných článků o {language}',
+  el: 'Περιηγηθείτε σε {count} αναλυτικά άρθρα για να κατακτήσετε τα {language}',
+  hu: 'Böngésszen {count} részletes cikket a {language} elsajátításához'
+};
+
+const viewAllLabel: Record<string, string> = {
+  en: 'View all {count} {category} articles', es: 'Ver los {count} artículos de {category}',
+  fr: 'Voir les {count} articles de {category}', de: 'Alle {count} {category}-Artikel anzeigen',
+  it: 'Vedi tutti i {count} articoli di {category}', pt: 'Ver todos os {count} artigos de {category}',
+  pl: 'Zobacz wszystkie {count} artykułów: {category}', nl: 'Bekijk alle {count} {category}-artikelen',
+  ro: 'Vezi toate cele {count} articole {category}', ru: 'Все {count} статей: {category}',
+  tr: 'Tüm {count} {category} makalesini görüntüle', uk: 'Переглянути всі {count} статей: {category}',
+  sv: 'Visa alla {count} {category}-artiklar', no: 'Se alle {count} {category}-artikler',
+  da: 'Se alle {count} {category}-artikler', cs: 'Zobrazit všech {count} článků: {category}',
+  el: 'Δείτε όλα τα {count} άρθρα {category}', hu: 'Az összes {count} {category} cikk megtekintése'
+};
+
+const browseAllLabel: Record<string, string> = {
+  en: 'Browse All {count} {language} Articles', es: 'Ver Todos los {count} Artículos de {language}',
+  fr: 'Parcourir les {count} Articles de {language}', de: 'Alle {count} {language}-Artikel durchsuchen',
+  it: 'Sfoglia Tutti i {count} Articoli di {language}', pt: 'Ver Todos os {count} Artigos de {language}',
+  pl: 'Przeglądaj Wszystkie {count} Artykułów o {language}', nl: 'Alle {count} {language}-artikelen bekijken',
+  ro: 'Răsfoiește Toate {count} Articolele {language}', ru: 'Все {count} Статей о {language}',
+  tr: 'Tüm {count} {language} Makalesine Göz At', uk: 'Переглянути Всі {count} Статей про {language}',
+  sv: 'Bläddra bland Alla {count} {language}-artiklar', no: 'Se Alle {count} {language}-artikler',
+  da: 'Gennemse Alle {count} {language}-artikler', cs: 'Procházet Všech {count} Článků o {language}',
+  el: 'Περιηγηθείτε σε Όλα τα {count} Άρθρα {language}', hu: 'Böngésszen az Összes {count} {language} Cikkben'
+};
+
+const minLabel: Record<string, string> = {
+  en: 'min', es: 'min', fr: 'min', de: 'Min', it: 'min', pt: 'min',
+  pl: 'min', nl: 'min', ro: 'min', ru: 'мин', tr: 'dk', uk: 'хв',
+  sv: 'min', no: 'min', da: 'min', cs: 'min', el: 'λεπ', hu: 'perc'
+};
+
+// Category display names and order (now using translated labels)
+const getCategoryLabel = (category: string): string => {
+  return categoryLabels[category]?.[nativeLang] || categoryLabels[category]?.en || category.charAt(0).toUpperCase() + category.slice(1);
+};
+
 const categoryInfo: Record<string, { label: string; emoji: string; priority: number }> = {
-  'phrases': { label: 'Essential Phrases', emoji: '💬', priority: 1 },
-  'romance': { label: 'Romantic Expressions', emoji: '💕', priority: 2 },
-  'vocabulary': { label: 'Vocabulary', emoji: '📚', priority: 3 },
-  'grammar': { label: 'Grammar Guides', emoji: '📖', priority: 4 },
-  'culture': { label: 'Culture & Traditions', emoji: '🎭', priority: 5 },
-  'pronunciation': { label: 'Pronunciation', emoji: '🗣️', priority: 6 },
-  'learning': { label: 'Learning Tips', emoji: '🎯', priority: 7 },
+  'phrases': { label: getCategoryLabel('phrases'), emoji: '💬', priority: 1 },
+  'romance': { label: getCategoryLabel('romance'), emoji: '💕', priority: 2 },
+  'vocabulary': { label: getCategoryLabel('vocabulary'), emoji: '📚', priority: 3 },
+  'grammar': { label: getCategoryLabel('grammar'), emoji: '📖', priority: 4 },
+  'culture': { label: getCategoryLabel('culture'), emoji: '🎭', priority: 5 },
+  'pronunciation': { label: getCategoryLabel('pronunciation'), emoji: '🗣️', priority: 6 },
+  'learning': { label: getCategoryLabel('learning'), emoji: '🎯', priority: 7 },
 };
 
 // Group articles by category
@@ -68,11 +182,13 @@ const totalArticles = languageArticles.length;
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-10">
         <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-2">
-          {langName} Learning Guides
+          {(learningGuidesLabel[nativeLang] || learningGuidesLabel.en).replace('{language}', langName)}
         </h2>
-        <p class="text-gray-600">
-          Browse <span class="font-semibold text-accent">{totalArticles}</span> in-depth articles to master {langName}
-        </p>
+        <p class="text-gray-600" set:html={
+          (browseArticlesLabel[nativeLang] || browseArticlesLabel.en)
+            .replace('{count}', `<span class="font-semibold text-accent">${totalArticles}</span>`)
+            .replace('{language}', langName)
+        } />
       </div>
 
       <div class="space-y-12">
@@ -113,7 +229,7 @@ const totalArticles = languageArticles.length;
                             </span>
                           )}
                           {article.read_time && (
-                            <span>{article.read_time} min</span>
+                            <span>{article.read_time} {minLabel[nativeLang] || minLabel.en}</span>
                           )}
                         </div>
                       </div>
@@ -128,7 +244,7 @@ const totalArticles = languageArticles.length;
                     href={`/learn/${nativeLang}/${langCode}/`}
                     class="inline-flex items-center gap-1 text-sm text-accent hover:underline font-medium"
                   >
-                    View all {articles.length} {info.label.toLowerCase()} articles
+                    {(viewAllLabel[nativeLang] || viewAllLabel.en).replace('{count}', String(articles.length)).replace('{category}', info.label.toLowerCase())}
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
@@ -146,7 +262,7 @@ const totalArticles = languageArticles.length;
           href={`/learn/${nativeLang}/${langCode}/`}
           class="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white font-bold rounded-full hover:shadow-lg hover:scale-105 transition-all"
         >
-          Browse All {totalArticles} {langName} Articles
+          {(browseAllLabel[nativeLang] || browseAllLabel.en).replace('{count}', String(totalArticles)).replace('{language}', langName)}
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>

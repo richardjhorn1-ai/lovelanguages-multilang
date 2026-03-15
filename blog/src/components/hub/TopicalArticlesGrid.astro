@@ -5,6 +5,7 @@
  */
 import { getArticlesByNativeLang, type BlogArticleSummary } from '../../lib/blog-api';
 import { LANGUAGE_HUB_DATA } from '../../data/language-hub-data';
+import { getUITranslations } from '../../data/ui-translations';
 
 interface Props {
   // Filter by language codes (e.g., ['es', 'fr', 'it', 'pt', 'ro'] for Romance)
@@ -23,15 +24,43 @@ interface Props {
   nativeLang?: string;
 }
 
+// Per-component translations
+const relatedArticlesLabel: Record<string, string> = {
+  en: 'Related Articles', es: 'Artículos Relacionados', fr: 'Articles Connexes', de: 'Verwandte Artikel',
+  it: 'Articoli Correlati', pt: 'Artigos Relacionados', pl: 'Powiązane Artykuły', nl: 'Gerelateerde Artikelen',
+  ro: 'Articole Similare', ru: 'Похожие Статьи', tr: 'İlgili Makaleler', uk: 'Пов\'язані Статті',
+  sv: 'Relaterade Artiklar', no: 'Relaterte Artikler', da: 'Relaterede Artikler', cs: 'Související Články',
+  el: 'Σχετικά Άρθρα', hu: 'Kapcsolódó Cikkek'
+};
+
+const articlesFoundLabel: Record<string, string> = {
+  en: 'articles found', es: 'artículos encontrados', fr: 'articles trouvés', de: 'Artikel gefunden',
+  it: 'articoli trovati', pt: 'artigos encontrados', pl: 'znalezionych artykułów', nl: 'artikelen gevonden',
+  ro: 'articole găsite', ru: 'статей найдено', tr: 'makale bulundu', uk: 'статей знайдено',
+  sv: 'artiklar hittade', no: 'artikler funnet', da: 'artikler fundet', cs: 'článků nalezeno',
+  el: 'άρθρα βρέθηκαν', hu: 'cikk található'
+};
+
+const minReadLabel: Record<string, string> = {
+  en: 'min read', es: 'min de lectura', fr: 'min de lecture', de: 'Min. Lesezeit',
+  it: 'min di lettura', pt: 'min de leitura', pl: 'min czytania', nl: 'min leestijd',
+  ro: 'min de citit', ru: 'мин чтения', tr: 'dk okuma', uk: 'хв читання',
+  sv: 'min läsning', no: 'min lesing', da: 'min læsning', cs: 'min čtení',
+  el: 'λεπ ανάγνωσης', hu: 'perc olvasás'
+};
+
 const {
   langCodes = [],
   keywords = [],
   categories = [],
   maxArticles = 12,
-  title = 'Related Articles',
+  title,
   subtitle,
   nativeLang = 'en'
 } = Astro.props;
+
+const t = getUITranslations(nativeLang);
+const displayTitle = title || relatedArticlesLabel[nativeLang] || relatedArticlesLabel.en;
 
 // Get all articles
 const allArticles = await getArticlesByNativeLang(nativeLang, { limit: 2000 });
@@ -84,13 +113,13 @@ const totalFound = filteredArticles.length;
     <div class="max-w-6xl mx-auto px-4">
       <div class="text-center mb-10">
         <h2 class="text-2xl md:text-3xl font-bold font-header text-gray-900 mb-2">
-          {title}
+          {displayTitle}
         </h2>
         {subtitle && (
           <p class="text-gray-600">{subtitle}</p>
         )}
         <p class="text-sm text-gray-500 mt-2">
-          <span class="font-semibold text-accent">{totalFound}</span> articles found
+          <span class="font-semibold text-accent">{totalFound}</span> {articlesFoundLabel[nativeLang] || articlesFoundLabel.en}
         </p>
       </div>
 
@@ -120,7 +149,7 @@ const totalFound = filteredArticles.length;
                 {truncate(article.description || '', 100)}
               </p>
               {article.read_time && (
-                <p class="text-xs text-gray-400 mt-2">{article.read_time} min read</p>
+                <p class="text-xs text-gray-400 mt-2">{article.read_time} {minReadLabel[nativeLang] || minReadLabel.en}</p>
               )}
             </a>
           );
