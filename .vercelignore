@@ -27,7 +27,11 @@ promo-video/out
 promo-video/public/audio
 promo-video/public/tiktok-audio
 
-blog/scripts
+blog/scripts/data
+blog/scripts/faq-data
+blog/scripts/BLOG_QUALITY_FINAL.md
+blog/scripts/BLOG_QUALITY_PLAN.md
+blog/scripts/ENRICHMENT_PLAN.md
 docs/BLOG_TOOLS_EXPANSION_PLAN.md
 docs/blog-seo-fix-session-notes.md
 
