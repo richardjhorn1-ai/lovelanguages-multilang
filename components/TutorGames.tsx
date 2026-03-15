@@ -65,6 +65,17 @@ interface TutorHubStat {
   role: PlayColorRole;
 }
 
+interface TutorHubCacheEntry {
+  challenges: TutorChallenge[];
+  wordRequests: WordRequest[];
+  tutorStats: TutorStats | null;
+  partnerVocab: DictionaryEntry[];
+  partnerScores: Map<string, WordScore>;
+  partnerName: string;
+}
+
+const tutorHubCache = new Map<string, TutorHubCacheEntry>();
+
 const rolePalette = (role: PlayColorRole, featured: boolean) => ({
   border: `color-mix(in srgb, ${playRoleVar(role, 'border')} ${featured ? '100%' : '88%'}, var(--border-color))`,
   overlay: `radial-gradient(circle at top left, color-mix(in srgb, ${playRoleVar(role, 'soft')} ${featured ? '74%' : '58%'}, transparent), transparent 56%)`,
@@ -163,10 +174,10 @@ const TutorHubTile: React.FC<{ item: TutorHubItem }> = ({ item }) => {
         </p>
 
         {(item.meta || item.actionLabel || item.onClick) && (
-          <div className={`mt-auto pt-5 flex items-end gap-3 ${isFeatured ? 'md:pt-6' : ''}`}>
+          <div className={`mt-auto pt-5 grid gap-3 md:grid-cols-[minmax(0,1fr)_auto] md:items-end ${isFeatured ? 'md:pt-6' : ''}`}>
             {item.meta && (
               <span
-                className="inline-flex min-w-0 max-w-full items-center justify-center rounded-full px-3.5 py-2 text-sm md:text-base font-bold text-center leading-tight"
+                className={`inline-flex min-w-0 max-w-full items-start justify-start rounded-[24px] px-4 py-3 text-sm md:text-base font-bold text-left leading-snug ${item.onClick ? 'md:max-w-[22rem]' : 'md:max-w-[28rem]'}`}
                 style={{ background: palette.metaBg, color: palette.metaText }}
               >
                 {item.meta}
@@ -175,7 +186,7 @@ const TutorHubTile: React.FC<{ item: TutorHubItem }> = ({ item }) => {
 
             {item.onClick && (
               <span
-                className="ml-auto shrink-0 inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm md:text-base font-black font-header transition-transform group-hover:translate-x-0.5"
+                className="shrink-0 inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm md:text-base font-black font-header transition-transform group-hover:translate-x-0.5 md:justify-self-end"
                 style={{
                   background: palette.actionBg,
                   color: palette.actionText,
@@ -215,17 +226,19 @@ const TutorHubTile: React.FC<{ item: TutorHubItem }> = ({ item }) => {
 const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
   const { t } = useTranslation();
   const { targetLanguage, nativeLanguage, languageParams, targetName, nativeName } = useLanguage();
+  const tutorCacheKey = `${profile.id}:${profile.linked_user_id || 'none'}:${targetLanguage}`;
+  const cachedTutorHub = tutorHubCache.get(tutorCacheKey);
 
   // Normalize smart_validation (undefined defaults to true)
   const smartValidation = profile.smart_validation ?? true;
   const { isOnline, cachedWordCount, lastSyncTime, pendingCount, isSyncing: offlineSyncing } = useOffline(profile.id, targetLanguage);
-  const [challenges, setChallenges] = useState<TutorChallenge[]>([]);
-  const [wordRequests, setWordRequests] = useState<WordRequest[]>([]);
-  const [tutorStats, setTutorStats] = useState<TutorStats | null>(null);
-  const [partnerVocab, setPartnerVocab] = useState<DictionaryEntry[]>([]);
-  const [partnerScores, setPartnerScores] = useState<Map<string, WordScore>>(new Map());
-  const [partnerName, setPartnerName] = useState<string>('Your Partner');
-  const [loading, setLoading] = useState(true);
+  const [challenges, setChallenges] = useState<TutorChallenge[]>(() => cachedTutorHub?.challenges ?? []);
+  const [wordRequests, setWordRequests] = useState<WordRequest[]>(() => cachedTutorHub?.wordRequests ?? []);
+  const [tutorStats, setTutorStats] = useState<TutorStats | null>(() => cachedTutorHub?.tutorStats ?? null);
+  const [partnerVocab, setPartnerVocab] = useState<DictionaryEntry[]>(() => cachedTutorHub?.partnerVocab ?? []);
+  const [partnerScores, setPartnerScores] = useState<Map<string, WordScore>>(() => cachedTutorHub?.partnerScores ?? new Map());
+  const [partnerName, setPartnerName] = useState<string>(() => cachedTutorHub?.partnerName ?? 'Your Partner');
+  const [loading, setLoading] = useState(() => !cachedTutorHub);
 
   // Play mode
   const [playMode, setPlayMode] = useState<PlayMode>('send');
@@ -288,13 +301,22 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     if (tutorFetchInFlightRef.current === fetchKey) return;
 
     tutorFetchInFlightRef.current = fetchKey;
-    setLoading(true);
+    if (!tutorHubCache.has(fetchKey)) {
+      setLoading(true);
+    }
     try {
+      let nextPartnerName = partnerName;
+      let nextPartnerVocab = partnerVocab;
+      let nextPartnerScores = partnerScores;
+
       // Get partner's name
       if (profile.linked_user_id) {
         try {
           const partnerProfile = await fetchPartnerProfileView();
-          if (partnerProfile?.full_name) setPartnerName(partnerProfile.full_name);
+          if (partnerProfile?.full_name) {
+            nextPartnerName = partnerProfile.full_name;
+            setPartnerName(partnerProfile.full_name);
+          }
         } catch (error) {
           if (import.meta.env.DEV) {
             console.warn('Partner profile view unavailable for tutor play.', error);
@@ -308,7 +330,10 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           .eq('user_id', profile.linked_user_id)
           .eq('language_code', targetLanguage)
           .order('created_at', { ascending: false });
-        if (vocab) setPartnerVocab(vocab);
+        if (vocab) {
+          nextPartnerVocab = vocab;
+          setPartnerVocab(vocab);
+        }
 
         // Get partner's scores for smart word selection (filtered by current language)
         const { data: scores } = await supabase
@@ -319,6 +344,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
         if (scores) {
           const map = new Map<string, WordScore>();
           scores.forEach((s: any) => map.set(s.word_id, s));
+          nextPartnerScores = map;
           setPartnerScores(map);
         }
       }
@@ -340,8 +366,8 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
         },
       });
       const challengeData = await readJsonResponse<{ challenges?: TutorChallenge[] }>(challengeRes);
-      if (challengeData.challenges) setChallenges(challengeData.challenges);
-      else setChallenges([]);
+      const nextChallenges = challengeData.challenges || [];
+      setChallenges(nextChallenges);
 
       // Fetch word requests
       const requestRes = await apiFetch('/api/get-word-requests/', {
@@ -359,8 +385,8 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
         },
       });
       const requestData = await readJsonResponse<{ wordRequests?: WordRequest[] }>(requestRes);
-      if (requestData.wordRequests) setWordRequests(requestData.wordRequests);
-      else setWordRequests([]);
+      const nextWordRequests = requestData.wordRequests || [];
+      setWordRequests(nextWordRequests);
 
       // Fetch tutor stats (for streak display)
       const statsRes = await apiFetch('/api/tutor-stats/', {
@@ -376,7 +402,17 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
         },
       });
       const statsData = await readJsonResponse<{ tutor?: { stats?: TutorStats } }>(statsRes);
-      setTutorStats(statsData?.tutor?.stats || null);
+      const nextTutorStats = statsData?.tutor?.stats || null;
+      setTutorStats(nextTutorStats);
+
+      tutorHubCache.set(fetchKey, {
+        challenges: nextChallenges,
+        wordRequests: nextWordRequests,
+        tutorStats: nextTutorStats,
+        partnerVocab: nextPartnerVocab,
+        partnerScores: nextPartnerScores,
+        partnerName: nextPartnerName,
+      });
 
     } catch (error) {
       if (import.meta.env.DEV) {
@@ -808,7 +844,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     },
     {
       id: 'local-multiple-choice',
-      title: t('play.games.multipleChoice'),
+      title: t('play.games.multiChoice'),
       description: t('tutorGames.local.multipleChoiceDesc'),
       meta: t('play.hub.requiresWords', { count: 4 }),
       eyebrow: t('play.hub.pickEyebrow'),
@@ -874,19 +910,6 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
       student_word_count: partnerVocab.length,
     });
   }, [loading, localGameActive, partnerVocab.length, playMode, targetLanguage]);
-
-  if (loading) {
-    return (
-      <div className="h-full flex flex-col items-center justify-center gap-3">
-        <div className="flex gap-2">
-          <div className="w-2 h-2 bg-[var(--accent-color)] rounded-full animate-bounce"></div>
-          <div className="w-2 h-2 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-          <div className="w-2 h-2 bg-[var(--accent-color)] rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-        </div>
-        <p className="text-sm text-[var(--text-secondary)]">{t('tutorGames.loading')}</p>
-      </div>
-    );
-  }
 
   // Local game is active - render game UI using extracted components
   if (localGameActive) {
@@ -1087,6 +1110,25 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
                   ? t('tutorGames.hub.sendDescription')
                   : t('tutorGames.hub.localDescription')}
               </p>
+
+              {loading && (
+                <div
+                  className="mt-4 inline-flex items-center gap-2 rounded-full px-3.5 py-2 text-sm font-bold"
+                  style={{
+                    background: `color-mix(in srgb, ${playRoleVar(playMode === 'send' ? 'warm' : 'ink', 'soft')} 82%, var(--bg-card))`,
+                    color: playRoleVar(playMode === 'send' ? 'warm' : 'ink', 'deep'),
+                  }}
+                >
+                  <span className="relative inline-flex h-5 w-5 items-center justify-center">
+                    <span
+                      className="absolute inset-0 rounded-full animate-ping opacity-30"
+                      style={{ background: playRoleVar(playMode === 'send' ? 'warm' : 'ink', 'color') }}
+                    />
+                    <ICONS.Heart className="relative h-4 w-4" />
+                  </span>
+                  {t('tutorGames.loading', { defaultValue: 'Refreshing your support hub...' })}
+                </div>
+              )}
 
               <div className="grid gap-3 sm:flex sm:flex-wrap mt-5 max-w-xl">
                 <button

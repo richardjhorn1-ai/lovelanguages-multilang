@@ -35,7 +35,8 @@ export const NativeLanguageStep: React.FC<NativeLanguageStepProps> = ({
     return 'en';
   });
 
-  const [showAll, setShowAll] = useState(false);
+  const isTutor = role === 'tutor';
+  const [showAll, setShowAll] = useState(isTutor);
 
   // All supported languages
   const allLanguages = SUPPORTED_LANGUAGE_CODES as readonly string[];
@@ -104,7 +105,7 @@ export const NativeLanguageStep: React.FC<NativeLanguageStepProps> = ({
           {t('onboarding.language.showAll', 'Show all languages')} ({allLanguages.length})
         </button>
       )}
-      {showAll && (
+      {showAll && !isTutor && (
         <button
           onClick={() => setShowAll(false)}
           className="w-full py-3 text-center font-bold transition-all hover:opacity-70"

@@ -29,21 +29,22 @@ export const LanguageStep: React.FC<LanguageStepProps> = ({
   const { t } = useTranslation();
   const { setLanguageOverride } = useLanguage();
   const isStudent = role === 'student';
+  const isTutor = role === 'tutor';
 
   // Native language — set by NativeLanguageStep (previous step), guaranteed present
   const nativeLanguage = initialNative || 'en';
 
   // Target language
   const [selectedTarget, setSelectedTarget] = useState<string>(initialTarget || '');
-  const [showAll, setShowAll] = useState(false);
+  const [showAll, setShowAll] = useState(isTutor);
 
   // Build language grid — exclude native language
-  const allLanguages = (SUPPORTED_LANGUAGE_CODES as readonly string[]).filter(
-    code => code !== nativeLanguage
-  );
-  const popularLanguages = POPULAR_LANGUAGES.filter(
-    code => code !== nativeLanguage
-  );
+  const allLanguages = isTutor
+    ? [...SUPPORTED_LANGUAGE_CODES]
+    : (SUPPORTED_LANGUAGE_CODES as readonly string[]).filter(code => code !== nativeLanguage);
+  const popularLanguages = isTutor
+    ? [...SUPPORTED_LANGUAGE_CODES]
+    : POPULAR_LANGUAGES.filter(code => code !== nativeLanguage);
   const displayedLanguages = showAll ? allLanguages : popularLanguages;
 
   // Handle target language selection
@@ -114,7 +115,7 @@ export const LanguageStep: React.FC<LanguageStepProps> = ({
           {t('onboarding.language.showAll', 'Show all languages')} ({allLanguages.length})
         </button>
       )}
-      {showAll && (
+      {showAll && !isTutor && (
         <button
           onClick={() => setShowAll(false)}
           className="w-full py-3 text-center font-bold transition-all hover:opacity-70"

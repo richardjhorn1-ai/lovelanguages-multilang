@@ -1272,7 +1272,8 @@
       "remember": "Always save to {{name}}'s progress",
       "notNow": "Not Now",
       "save": "Save"
-    }
+    },
+    "loading": "Refreshing your support hub..."
   },
   "gameResults": {
     "greatJob": "Godt klaret!",
