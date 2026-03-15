@@ -400,7 +400,7 @@ const Hero: React.FC = () => {
 
   // Initialize from localStorage, URL param, and browser language
   useEffect(() => {
-    const savedNative = localStorage.getItem('preferredNativeLanguage') || localStorage.getItem('preferredLanguage');
+    const savedNative = localStorage.getItem('preferredNativeLanguage') || navigator.language.split('-')[0];
     const savedTarget = localStorage.getItem('preferredTargetLanguage');
 
     // URL param takes priority for target language

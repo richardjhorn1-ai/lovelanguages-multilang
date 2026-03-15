@@ -788,7 +788,7 @@ const Landing: React.FC = () => {
   // Auto-detect native language
   useEffect(() => {
     const saved = localStorage.getItem('preferredNativeLanguage')
-      || localStorage.getItem('preferredLanguage');
+      || navigator.language.split('-')[0];
     if (saved && (SUPPORTED_LANGUAGE_CODES as readonly string[]).includes(saved)) {
       setNativeLanguage(saved);
       i18n.changeLanguage(saved);

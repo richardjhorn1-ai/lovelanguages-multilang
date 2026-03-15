@@ -9,6 +9,7 @@ import { speak } from '../../../services/audio';
 import { haptics } from '../../../services/haptics';
 import { shuffleArray } from '../../../utils/array';
 import { isCorrectAnswer } from '../../../utils/answer-helpers';
+import { GameStage } from '../components';
 import type { AnswerResult } from './types';
 
 type SessionLength = 10 | 20 | 'all';
@@ -255,7 +256,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
 
     const generatedQuestions = await generateQuestions(selectedMode, sessionLength);
     if (generatedQuestions.length === 0) {
-      alert(t('play.aiChallenge.noQuestions', 'No questions available for this mode.'));
+      alert(t('play.aiChallenge.noQuestions'));
       return;
     }
 
@@ -375,7 +376,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
       explanation = result.explanation;
     } else {
       isCorrect = isCorrectAnswer(typeAnswer, currentQuestion.translation);
-      explanation = isCorrect ? 'Exact match' : 'No match';
+      explanation = '';
     }
 
     setIsValidating(false);
@@ -404,10 +405,16 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
   // Mode selection screen
   if (phase === 'select') {
     return (
-      <div className="w-full">
-        <h2 className="text-scale-caption font-black font-header uppercase tracking-widest text-[var(--text-secondary)] text-center mb-4">
+      <GameStage
+        tone="warm"
+        layout="compact"
+        eyebrow={t('play.hub.experimentalBadge')}
+        title={t('play.games.aiChallenge')}
+        className="w-full"
+      >
+        <div className="mb-4 text-scale-caption text-[var(--text-secondary)]">
           {t('play.aiChallenge.chooseMode')}
-        </h2>
+        </div>
 
         <div className="flex gap-4">
           {/* Mode Selection */}
@@ -425,27 +432,27 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
                   disabled={isDisabled}
                   className={`w-full p-3 rounded-2xl text-left transition-all border-2 flex items-center gap-3 ${
                     isSelected
-                      ? 'border-[var(--accent-color)] bg-[var(--accent-light)]'
+                      ? 'border-[var(--game-accent-color)] bg-[var(--game-accent-soft)]'
                       : isDisabled
                       ? 'border-[var(--border-color)] bg-[var(--bg-primary)] opacity-50 cursor-not-allowed'
                       : 'border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--text-secondary)]'
                   }`}
                 >
                   <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
-                    isSelected ? 'bg-[var(--accent-light)]' : 'bg-[var(--bg-primary)]'
+                    isSelected ? 'bg-[var(--game-accent-soft)]' : 'bg-[var(--bg-primary)]'
                   }`}>
-                    <IconComp className={`w-5 h-5 ${isSelected ? 'text-[var(--accent-color)]' : 'text-[var(--text-secondary)]'}`} />
+                    <IconComp className={`w-5 h-5 ${isSelected ? 'text-[var(--game-accent-color)]' : 'text-[var(--text-secondary)]'}`} />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
                       <span className={`font-bold text-scale-label truncate ${
-                        isSelected ? 'text-[var(--accent-color)]' : 'text-[var(--text-primary)]'
+                        isSelected ? 'text-[var(--game-accent-color)]' : 'text-[var(--text-primary)]'
                       }`}>
                         {cm.name}
                       </span>
                       <span className={`text-[9px] font-bold px-2 py-0.5 rounded-full shrink-0 ${
                         isSelected
-                          ? 'bg-[var(--accent-light)] text-[var(--accent-color)] opacity-60'
+                          ? 'bg-[var(--game-accent-soft)] text-[var(--game-accent-color)] opacity-60'
                           : 'bg-[var(--bg-primary)] text-[var(--text-secondary)]'
                       }`}>
                         {count}
@@ -453,7 +460,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
                     </div>
                     <p className="text-scale-caption text-[var(--text-secondary)] truncate">{cm.description}</p>
                   </div>
-                  {isSelected && <ICONS.Check className="w-4 h-4 text-[var(--accent-color)] shrink-0" />}
+                  {isSelected && <ICONS.Check className="w-4 h-4 text-[var(--game-accent-color)] shrink-0" />}
                 </button>
               );
             })}
@@ -476,12 +483,12 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
                       onClick={() => setSessionLength(len)}
                       className={`flex-1 p-2 rounded-xl text-center transition-all border-2 ${
                         sessionLength === len
-                          ? 'border-[var(--accent-color)] bg-[var(--accent-light)]'
+                          ? 'border-[var(--game-accent-color)] bg-[var(--game-accent-soft)]'
                           : 'border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--text-secondary)]'
                       }`}
                     >
                       <div className={`text-scale-heading font-black ${
-                        sessionLength === len ? 'text-[var(--accent-color)]' : 'text-[var(--text-primary)]'
+                        sessionLength === len ? 'text-[var(--game-accent-color)]' : 'text-[var(--text-primary)]'
                       }`}>
                         {actualCount}
                       </div>
@@ -499,27 +506,46 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
         {selectedMode && sessionLength && (
           loadingPhrases ? (
             <div className="text-center py-4 mt-4">
-              <div className="animate-spin w-6 h-6 border-2 border-[var(--accent-color)] border-t-transparent rounded-full mx-auto mb-2" />
+              <div className="animate-spin w-6 h-6 border-2 border-[var(--game-accent-color)] border-t-transparent rounded-full mx-auto mb-2" />
               <p className="text-scale-label text-[var(--text-secondary)]">{t('play.aiChallenge.generatingPhrases')}</p>
             </div>
           ) : (
             <button
               onClick={handleStart}
               className="w-full py-4 rounded-2xl font-black text-white uppercase tracking-widest text-scale-label mt-4"
-              style={{ backgroundColor: accentColor }}
+              style={{ backgroundColor: 'var(--game-accent-color)' }}
             >
               {t('play.aiChallenge.startChallenge')}
             </button>
           )
         )}
-      </div>
+      </GameStage>
     );
   }
 
   // Playing screen
   if (phase === 'playing' && currentQuestion) {
     return (
-      <div className="w-full">
+      <GameStage
+        tone="warm"
+        layout="compact"
+        eyebrow={t('play.hub.experimentalBadge')}
+        title={t('play.games.aiChallenge')}
+        className="w-full"
+      >
+        <div className="flex items-center justify-between mb-4">
+          <span className="inline-flex items-center rounded-full px-3 py-1.5 bg-white/80 border text-scale-caption font-bold" style={{ borderColor: 'var(--game-accent-border)', color: 'var(--game-accent-deep)' }}>
+            {currentIndex + 1} / {questions.length}
+          </span>
+          <button
+            onClick={onExit}
+            className="inline-flex items-center justify-center w-10 h-10 rounded-full border bg-white/82 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+            style={{ borderColor: 'var(--game-accent-border)' }}
+            title={t('play.aiChallenge.exit')}
+          >
+            <ICONS.X className="w-5 h-5" />
+          </button>
+        </div>
         {/* Flashcard question */}
         {currentQuestion.type === 'flashcard' && (
           <div
@@ -542,7 +568,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
                   </button>
                 </div>
                 <p className="mt-12 text-[var(--text-secondary)] text-[10px] uppercase font-black tracking-widest animate-pulse">
-                  {t('play.flashcards.tapToReveal', 'Tap to reveal')}
+                  {t('play.flashcard.tapToReveal')}
                 </p>
               </div>
               <div
@@ -558,14 +584,14 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
                     onClick={(e) => { e.stopPropagation(); handleFlashcardResponse(false); }}
                     className="bg-white/10 hover:bg-white/20 p-4 rounded-2xl flex items-center justify-center gap-2 border border-white/20 text-scale-caption font-black uppercase tracking-widest"
                   >
-                    <ICONS.X className="w-4 h-4" /> {t('play.flashcards.hard', 'Hard')}
+                    <ICONS.X className="w-4 h-4" /> {t('play.flashcard.hard')}
                   </button>
                   <button
                     onClick={(e) => { e.stopPropagation(); handleFlashcardResponse(true); }}
                     className="bg-[var(--bg-card)] p-4 rounded-2xl flex items-center justify-center gap-2 font-black uppercase tracking-widest text-scale-caption"
                     style={{ color: accentColor }}
                   >
-                    <ICONS.Check className="w-4 h-4" /> {t('play.flashcards.gotIt', 'Got it!')}
+                    <ICONS.Check className="w-4 h-4" /> {t('play.flashcard.gotIt')}
                   </button>
                 </div>
               </div>
@@ -580,7 +606,10 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
               className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6"
               style={{ backgroundColor: `${accentColor}15`, color: accentColor }}
             >
-              {targetLanguageName} → {nativeLanguageName}
+              {t('play.directions.targetToNative', {
+                target: targetLanguageName,
+                native: nativeLanguageName,
+              })}
             </span>
             <div className="flex items-center justify-center gap-2 mb-8">
               <h3 className="text-3xl font-black font-header text-[var(--text-primary)] text-center">
@@ -637,7 +666,10 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
               className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6"
               style={{ backgroundColor: `${accentColor}15`, color: accentColor }}
             >
-              {targetLanguageName} → {nativeLanguageName}
+              {t('play.directions.targetToNative', {
+                target: targetLanguageName,
+                native: nativeLanguageName,
+              })}
             </span>
             <div className="flex items-center justify-center gap-2 mb-2">
               <h3 className="text-3xl font-black font-header text-[var(--text-primary)] text-center">
@@ -664,7 +696,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
                       <ICONS.Check className="w-5 h-5" />
                       <span className="font-bold">{t('play.typeIt.correct')}</span>
                     </div>
-                    {typeExplanation && typeExplanation !== 'Exact match' && (
+                    {typeExplanation && (
                       <p className="text-scale-label mt-1 opacity-80">{typeExplanation}</p>
                     )}
                   </div>
@@ -677,7 +709,7 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
                     <p className="text-scale-label">
                       {t('play.typeIt.correctAnswer')} <span className="font-black">{currentQuestion.translation}</span>
                     </p>
-                    {typeExplanation && typeExplanation !== 'No match' && (
+                    {typeExplanation && (
                       <p className="text-scale-label mt-1 opacity-80">{typeExplanation}</p>
                     )}
                   </div>
@@ -702,14 +734,14 @@ export const AIChallenge: React.FC<AIChallengeProps> = ({
               style={{ backgroundColor: accentColor }}
             >
               {isValidating
-                ? t('play.typeIt.checking', 'Checking...')
+                ? t('play.typeIt.checking')
                 : typeSubmitted
                 ? t('play.typeIt.next')
                 : t('play.typeIt.check')}
             </button>
           </div>
         )}
-      </div>
+      </GameStage>
     );
   }
 

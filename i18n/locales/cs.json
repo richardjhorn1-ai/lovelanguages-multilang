@@ -277,7 +277,8 @@
       "noWordsDesc": "Nejdřív se nauč nějaká slova v Chatu, pak se vrať procvičovat!",
       "needMore": "Potřeba více slov",
       "needMoreDesc": "Výběr z možností vyžaduje alespoň 4 slova. Máš {{count}}.",
-      "tryFlashcards": "Zkus raději kartičky"
+      "tryFlashcards": "Zkus raději kartičky",
+      "needFourWordsDesc": "This mode needs at least 4 words. You have {{count}} right now."
     },
     "games": {
       "flashcards": "Kartičky",
@@ -294,7 +295,13 @@
       "conversationDesc": "Mluv s AI v {{language}}",
       "verbMastery": "Mistrovství sloves",
       "verbMasteryVerbs": "{{count}} sloves",
-      "learnVerbsFirst": "Nejdřív se nauč slovesa"
+      "learnVerbsFirst": "Nejdřív se nauč slovesa",
+      "wordle": "Wordle",
+      "wordleDesc": "Guess the target word from the clue",
+      "wordleWords": "{{count}} Wordle-ready words",
+      "speedMatch": "Speed Match",
+      "speedMatchDesc": "Race through fast translation matches and beat your best time",
+      "speedMatchMeta": "Choose your word count and race the clock upward"
     },
     "loveNotes": {
       "title": "Vzkazy Lásky od {{partner}}",
@@ -311,6 +318,53 @@
       "from": "Od {{partner}}",
       "goToGames": "Jít na Cvičné Hry"
     },
+    "hub": {
+      "sectionSoloTitle": "Practice solo",
+      "sectionSoloCopy": "Jump into the mode that fits your energy, from gentle reps to faster drills.",
+      "sectionSharedTitle": "Play together",
+      "sectionSharedCopy": "Shared moments, partner prompts, and the bonding layer that makes this more than solo practice.",
+      "sectionExperimentalTitle": "Voice and experimental",
+      "sectionExperimentalCopy": "Speak out loud, test new ideas, and keep the playful edge of the app alive.",
+      "sharedEyebrow": "Shared prompt",
+      "sharedPlaceholderMeta": "Your shared moments land here",
+      "sharedPlaceholderCopy": "Word gifts and partner-built challenges keep the app focused on bonding, not solo grind.",
+      "sharedPlaceholderMetaTwo": "Designed for shared momentum",
+      "flashcardsCopy": "The gentlest place to begin. Flip, reveal, and ease back into your shared vocabulary.",
+      "warmupEyebrow": "Warm-up",
+      "requiresWords": "Needs {{count}}+ words",
+      "pickEyebrow": "Recognition",
+      "spellMeta": "Write the answer yourself",
+      "spellEyebrow": "Recall",
+      "quickFireCopy": "A faster burst when you want energy, pressure, and a clear sense of momentum.",
+      "fastBadge": "Fast",
+      "intensityEyebrow": "Timed sprint",
+      "verbCopy": "Train your conjugation instincts with {{count}} ready verbs.",
+      "comingSoonMeta": "Needs conjugated verbs",
+      "grammarEyebrow": "Grammar focus",
+      "aiCopy": "Adaptive sets that push your weaker words, mix the deck, and keep practice feeling alive.",
+      "adaptiveEyebrow": "Adaptive",
+      "voiceMeta": "Talk out loud and get unstuck faster",
+      "voiceEyebrow": "Voice",
+      "heroSharedEyebrow": "Play together",
+      "heroSharedSingle": "A shared prompt is waiting",
+      "heroSharedPlural": "{{count}} shared prompts are waiting",
+      "heroSharedCopy": "{{partner}} has sent you something to respond to. Start there, then roll straight into a solo practice round.",
+      "openSharedAction": "Open Love Note",
+      "warmupAction": "Warm up with Flashcards",
+      "heroSoloEyebrow": "Pick up momentum",
+      "heroSoloHeadline": "Choose a game and jump back in",
+      "heroSoloCopy": "Start with a gentler solo mode, then ramp up into faster drills or voice practice in {{language}}.",
+      "startFlashcardsAction": "Start Flashcards",
+      "quickFireAction": "Jump into Quick Fire",
+      "voiceAction": "Open Conversation",
+      "statWords": "Words ready",
+      "statMastered": "Mastered",
+      "statShared": "Shared notes",
+      "statVerbs": "Verb sets",
+      "openLabel": "Open",
+      "experimentalBadge": "Adaptive mix",
+      "grammarBadge": "Grammar focus"
+    },
     "directions": {
       "targetToNative": "{{target}} → {{native}}",
       "nativeToTarget": "{{native}} → {{target}}"
@@ -320,7 +374,8 @@
       "translation": "PŘEKLAD",
       "tapToReveal": "Klepni pro odhalení",
       "hard": "Těžké",
-      "gotIt": "Umím to!"
+      "gotIt": "Umím to!",
+      "listen": "Listen"
     },
     "typeIt": {
       "hint": "Nápověda:",
@@ -331,7 +386,8 @@
       "correctAnswer": "Správná odpověď:",
       "typeIn": "Napiš v {{language}}...",
       "next": "Další",
-      "check": "Zkontrolovat"
+      "check": "Zkontrolovat",
+      "checking": "Checking..."
     },
     "quickFire": {
       "title": "Rychlopalba!",
@@ -360,7 +416,9 @@
         "leastPracticedDesc": "Slova, která jsi dlouho neviděl/a",
         "reviewMastered": "Opakování zvládnutých",
         "reviewMasteredDesc": "Procvič naučená slova"
-      }
+      },
+      "noQuestions": "No questions are available for this mode yet.",
+      "exit": "Exit game"
     },
     "verbMastery": {
       "title": "Mistrovství sloves",
@@ -422,7 +480,40 @@
       "matchPairs": {
         "instruction": "Klepni pro spojení zájmen s časováním",
         "complete": "Vše spojeno!"
+      },
+      "correctAnswerDetail": "Correct answer: {{answers}}",
+      "correctAnswerLabel": "Correct:",
+      "tenseLabel": "{{tense}} tense",
+      "personLabels": {
+        "firstSingular": "I",
+        "secondSingular": "you (singular)",
+        "thirdSingular": "he/she/it",
+        "firstPlural": "we",
+        "secondPlural": "you (plural)",
+        "thirdPlural": "they"
       }
+    },
+    "wordle": {
+      "clueLabel": "{{language}} clue",
+      "needEligibleWords": "Wordle works best with single-word vocabulary between 4 and 8 letters.",
+      "attemptsLeft": "{{count}} attempt left",
+      "attemptsLeft_other": "{{count}} attempts left",
+      "letters": "letters",
+      "correctReveal": "Nice. The answer was {{word}}.",
+      "incorrectReveal": "The answer was {{word}}.",
+      "inputPlaceholder": "Type the {{language}} word",
+      "submit": "Guess"
+    },
+    "back": "Go back",
+    "speedMatch": {
+      "description": "Pick your word count, match quickly, and see how fast you can finish.",
+      "allLabel": "all",
+      "wordsLabel": "words",
+      "howItWorksTitle": "Clock up, not down",
+      "howItWorksCopy": "Choose a set size, tap the right translation, and finish in the quickest time you can manage.",
+      "readyMeta": "{{count}} words from {{target}} into {{native}}. The timer starts at zero and climbs until you finish.",
+      "start": "Start match",
+      "needAtLeast4": "Speed Match needs at least 4 words to stay fun."
     }
   },
   "profile": {
@@ -1021,105 +1112,158 @@
     "next": "Další"
   },
   "tutorGames": {
-    "loading": "Načítání her...",
-    "playTogether": "Hrát spolu",
-    "sendChallenge": "Poslat výzvu",
-    "playNow": "Hrát teď",
-    "sendDescription": "Pošli výzvy, které {{name}} splní později",
-    "playDescription": "Procvičujte spolu právě teď",
-    "startNow": "Začít teď",
+    "playTogether": "Play Together",
+    "sendChallenge": "Send Challenge",
+    "playNow": "Play Now",
+    "sendDescription": "Send challenges for {{name}} to complete later",
+    "playDescription": "Practice together right now",
+    "startNow": "Start Now",
+    "teachingStreak": "{{count}} day teaching streak!",
+    "hub": {
+      "sendEyebrow": "Help them feel supported",
+      "sendHeadline": "Send something thoughtful to {{name}}",
+      "sendDescription": "Words, challenges, and little nudges should be only a tap away so you can keep their momentum moving.",
+      "localEyebrow": "Play together",
+      "localHeadline": "Practice right alongside {{name}}",
+      "localDescription": "Use the same practice modes to sit beside them, encourage them, and help the tough words stick.",
+      "sendNowEyebrow": "Send now",
+      "challengeEyebrow": "Challenge",
+      "momentumEyebrow": "Momentum",
+      "studentStatusEyebrow": "Student status"
+    },
+    "stats": {
+      "wordsTracked": "Words tracked",
+      "pendingSends": "Pending sends",
+      "completed": "Completed",
+      "weakWords": "Needs support",
+      "teachingStreak": "Teaching streak",
+      "readyGames": "Ready games"
+    },
+    "sections": {
+      "sendTitle": "Send support",
+      "sendCopy": "Choose the kind of nudge or challenge you want them to receive inside Play.",
+      "waitingTitle": "Waiting on them",
+      "waitingCopy": "Keep an eye on what is still sitting in their shared Play area.",
+      "resultsTitle": "Recent results",
+      "resultsCopy": "When they open your sends and complete them, the wins should be easy to spot here.",
+      "localTitle": "Play together",
+      "localCopy": "Launch the same practice styles on the tutor side whenever you want to sit beside them and rehearse.",
+      "localTipsTitle": "Practice with purpose",
+      "localTipsCopy": "Tutor-side play should feel helpful and low-pressure, not like grinding another account."
+    },
     "local": {
-      "quiz": "Vyzkoušej {{name}}",
-      "quizDesc": "Kvíz s kartičkami spolu",
-      "quickFire": "Rychlopalba",
-      "quickFireDesc": "60sekundová výzva",
-      "multipleChoice": "Výběr z možností",
-      "multipleChoiceDesc": "Vyber správnou odpověď",
-      "typeIt": "Napiš to",
-      "typeItDesc": "Napiš překlad",
-      "needWords": "{{name}} potřebuje alespoň 4 slova ve slovíčkách, aby mohl/a hrát"
+      "quiz": "Quiz {{name}}",
+      "quizDesc": "Flashcard quiz together",
+      "flashcardsLead": "Flip through {{name}}'s words together and warm them up gently.",
+      "wordsReadyMeta": "{{count}} words ready",
+      "quickFire": "Quick Fire",
+      "quickFireDesc": "60 second challenge",
+      "multipleChoice": "Multiple Choice",
+      "multipleChoiceDesc": "Pick the right answer",
+      "typeIt": "Type It",
+      "typeItDesc": "Type the translation",
+      "needWords": "{{name}} needs at least 4 words in their vocabulary to play",
+      "supportFocusTitle": "Focus on the words they miss",
+      "supportFocusCopy": "{{count}} words still look shaky, so a quick shared session can help them stick.",
+      "saveSupportTitle": "Save it if the session really helps",
+      "saveSupportCopy": "Shared practice stays untracked by default, but you can still save a strong session into their history.",
+      "untrackedTitle": "Keep it playful",
+      "untrackedCopy": "Tutor-side play is for encouragement and practice together, not XP grinding on your account."
     },
     "send": {
-      "doYouRemember": "Pamatuješ si?",
-      "quizPartner": "Vyzkoušej {{name}} ze slovíček",
-      "createQuiz": "Vytvořit kvíz",
-      "quickFire": "Rychlopalba",
-      "timedChallenge": "Časovaná slovíčková výzva",
-      "createChallenge": "Vytvořit výzvu",
-      "giftWords": "Darovat slova",
-      "sendWords": "Pošli slova, která se {{name}} naučí",
-      "sendGift": "Poslat dárek"
+      "doYouRemember": "Do You Remember?",
+      "quizPartner": "Quiz {{name}} on their vocabulary",
+      "createQuiz": "Create Quiz",
+      "quizMeta": "Build a focused challenge from their vocab",
+      "quickFire": "Quick Fire",
+      "timedChallenge": "Timed vocabulary challenge",
+      "createChallenge": "Create Challenge",
+      "quickFireMeta": "Fast-paced challenge they can complete later",
+      "giftWords": "Gift Words",
+      "sendWords": "Send words for {{name}} to learn",
+      "sendGift": "Send Gift",
+      "wordGiftMeta": "Choose words or a topic to send"
     },
     "pending": {
-      "waitingFor": "Čeká se na {{name}}",
-      "words": "{{count}} slov",
-      "sent": "Odesláno {{date}}",
-      "pending": "Čeká"
+      "waitingFor": "Waiting for {{name}}",
+      "words": "{{count}} words",
+      "sent": "Sent {{date}}",
+      "pending": "Pending",
+      "challengeWaitingCopy": "{{name}} still has this waiting in Play."
+    },
+    "waiting": {
+      "emptyTitle": "Nothing waiting right now",
+      "emptyCopy": "{{name}} is all caught up, so this is a good moment to send something new."
     },
     "gifts": {
-      "title": "Odeslaná dárková slova",
-      "word": "{{count}} slovo",
-      "word_other": "{{count}} slov",
-      "topic": "Téma: {{topic}}",
-      "custom": "Vlastní slova",
+      "title": "Word Gifts Sent",
+      "word": "{{count}} word",
+      "word_other": "{{count}} words",
+      "topic": "Topic: {{topic}}",
+      "custom": "Custom words",
       "xpMultiplier": "{{multiplier}}x XP"
     },
     "results": {
-      "title": "Nedávné výsledky",
-      "completed": "Dokončeno {{date}}"
+      "title": "Recent Results",
+      "completed": "Completed {{date}}",
+      "scoreMeta": "{{score}}% score",
+      "finishedMeta": "Completed in Play",
+      "emptyTitle": "No completed sends yet",
+      "emptyCopy": "Once {{name}} starts opening your sends, results will show up here.",
+      "awaitingMeta": "Results will appear here"
     },
     "empty": {
-      "noChallenges": "Zatím žádné výzvy",
-      "createFirst": "Vytvoř svou první výzvu pro {{name}}!"
+      "noChallenges": "No challenges yet",
+      "createFirst": "Create your first challenge for {{name}}!"
     },
     "flashcard": {
       "targetWord": "{{language}}",
       "nativeWord": "{{language}}",
-      "tapToReveal": "Klepni pro odhalení",
-      "hard": "Těžké",
-      "gotIt": "Umím to!"
+      "tapToReveal": "Tap to reveal",
+      "hard": "Hard",
+      "gotIt": "Got it!"
     },
     "direction": {
       "label": "{{target}} → {{native}}"
     },
     "quickFireGame": {
-      "title": "Rychlopalba!",
-      "description": "Přelož co nejvíce slov za 60 sekund!",
-      "cancel": "Zrušit",
+      "title": "Quick Fire!",
+      "description": "Translate as many words as you can in 60 seconds!",
+      "cancel": "Cancel",
       "start": "Start!",
-      "typeTranslation": "Napiš překlad..."
+      "typeTranslation": "Type the translation..."
     },
     "typeItGame": {
-      "correct": "Správně!",
-      "notQuite": "Ne tak docela",
-      "correctAnswer": "Správná odpověď: {{answer}}",
-      "typeIn": "Napiš v {{language}}...",
-      "next": "Další",
-      "check": "Zkontrolovat"
+      "correct": "Correct!",
+      "notQuite": "Not quite",
+      "correctAnswer": "Correct answer: {{answer}}",
+      "typeIn": "Type in {{language}}...",
+      "next": "Next",
+      "check": "Check"
     },
     "gameOver": {
-      "greatJob": "Skvělá práce!",
-      "keepPracticing": "Pokračuj v procvičování!",
-      "correct": "{{correct}} z {{total}} správně",
-      "practicedTogether": "Procvičovali jste spolu?",
-      "saveDescription": "Ulož tuto relaci do historie učení uživatele {{name}} pro sledování pokroku.",
-      "saveToProgress": "Uložit do pokroku uživatele {{name}}",
-      "saving": "Ukládání...",
-      "savedSuccess": "Uloženo do historie uživatele {{name}}!",
-      "autoSaving": "Automatické ukládání do pokroku uživatele {{name}}...",
-      "done": "Hotovo",
-      "playAgain": "Hrát znovu"
+      "greatJob": "Great Job!",
+      "keepPracticing": "Keep Practicing!",
+      "correct": "{{correct}} of {{total}} correct",
+      "practicedTogether": "Did you practice together?",
+      "saveDescription": "Save this session to {{name}}'s learning history to track their progress.",
+      "saveToProgress": "Save to {{name}}'s Progress",
+      "saving": "Saving...",
+      "savedSuccess": "Saved to {{name}}'s history!",
+      "autoSaving": "Auto-saving to {{name}}'s progress...",
+      "done": "Done",
+      "playAgain": "Play Again"
     },
     "saveDialog": {
-      "title": "Uložit do pokroku uživatele {{name}}?",
-      "howItWorks": "Jak to funguje:",
-      "detail1": "Výsledky hry se uloží do historie učení uživatele {{name}}",
-      "detail2": "Jejich skóre slov se aktualizuje (série, zvládnutí)",
-      "detail3": "Perfektní, když procvičujete spolu!",
-      "willUpdate": "Toto aktualizuje skóre slov a historii učení uživatele {{name}}.",
-      "remember": "Vždy ukládat do pokroku uživatele {{name}}",
-      "notNow": "Teď ne",
-      "save": "Uložit"
+      "title": "Save to {{name}}'s Progress?",
+      "howItWorks": "How this works:",
+      "detail1": "Game results are saved to {{name}}'s learning history",
+      "detail2": "Their word scores will update (streaks, mastery)",
+      "detail3": "Perfect for when you practice together!",
+      "willUpdate": "This will update {{name}}'s word scores and learning history.",
+      "remember": "Always save to {{name}}'s progress",
+      "notNow": "Not Now",
+      "save": "Save"
     }
   },
   "gameResults": {
@@ -1145,7 +1289,10 @@
     "tryAgain": "Zkusit znovu",
     "speakIn": "Mluv v {{language}}...",
     "aiSpeaking": "AI mluví...",
-    "conversationEnded": "Konverzace skončila"
+    "conversationEnded": "Konverzace skončila",
+    "errors": {
+      "startFailed": "Failed to start conversation"
+    }
   },
   "scenarioSelector": {
     "title": "Cvičení konverzace",
@@ -2378,5 +2525,11 @@
     "featureUnavailable": "Offline nedostupné",
     "scoresQueued": "Skóre uloženo lokálně",
     "sessionQueued": "Relace uložena lokálně"
+  },
+  "games": {
+    "celebration": {
+      "wordMastered": "Word Mastered!",
+      "streakComplete": "5 correct in a row! This word is now learned!"
+    }
   }
 }

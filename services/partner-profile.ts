@@ -30,6 +30,9 @@ export async function fetchPartnerProfileView(): Promise<PartnerProfileView | nu
     .maybeSingle();
 
   if (error) {
+    if (error.code === 'PGRST205') {
+      return null;
+    }
     throw error;
   }
 

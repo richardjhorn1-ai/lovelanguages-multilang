@@ -281,7 +281,8 @@
       "noWordsDesc": "Learn some words in Chat first, then come back to practice!",
       "needMore": "Need More Words",
       "needMoreDesc": "Multiple choice requires at least 4 words. You have {{count}}.",
-      "tryFlashcards": "Try Flashcards Instead"
+      "tryFlashcards": "Try Flashcards Instead",
+      "needFourWordsDesc": "This mode needs at least 4 words. You have {{count}} right now."
     },
     "games": {
       "flashcards": "Flashcards",
@@ -298,7 +299,13 @@
       "conversationDesc": "Talk to AI in {{language}}",
       "verbMastery": "Verb Mastery",
       "verbMasteryVerbs": "{{count}} verbs",
-      "learnVerbsFirst": "Learn verbs first"
+      "learnVerbsFirst": "Learn verbs first",
+      "wordle": "Wordle",
+      "wordleDesc": "Guess the target word from the clue",
+      "wordleWords": "{{count}} Wordle-ready words",
+      "speedMatch": "Speed Match",
+      "speedMatchDesc": "Race through fast translation matches and beat your best time",
+      "speedMatchMeta": "Choose your word count and race the clock upward"
     },
     "loveNotes": {
       "title": "Love Notes from {{partner}}",
@@ -315,6 +322,53 @@
       "from": "From {{partner}}",
       "goToGames": "Go to Practice Games"
     },
+    "hub": {
+      "sectionSoloTitle": "Practice solo",
+      "sectionSoloCopy": "Jump into the mode that fits your energy, from gentle reps to faster drills.",
+      "sectionSharedTitle": "Play together",
+      "sectionSharedCopy": "Shared moments, partner prompts, and the bonding layer that makes this more than solo practice.",
+      "sectionExperimentalTitle": "Voice and experimental",
+      "sectionExperimentalCopy": "Speak out loud, test new ideas, and keep the playful edge of the app alive.",
+      "sharedEyebrow": "Shared prompt",
+      "sharedPlaceholderMeta": "Your shared moments land here",
+      "sharedPlaceholderCopy": "Word gifts and partner-built challenges keep the app focused on bonding, not solo grind.",
+      "sharedPlaceholderMetaTwo": "Designed for shared momentum",
+      "flashcardsCopy": "The gentlest place to begin. Flip, reveal, and ease back into your shared vocabulary.",
+      "warmupEyebrow": "Warm-up",
+      "requiresWords": "Needs {{count}}+ words",
+      "pickEyebrow": "Recognition",
+      "spellMeta": "Write the answer yourself",
+      "spellEyebrow": "Recall",
+      "quickFireCopy": "A faster burst when you want energy, pressure, and a clear sense of momentum.",
+      "fastBadge": "Fast",
+      "intensityEyebrow": "Timed sprint",
+      "verbCopy": "Train your conjugation instincts with {{count}} ready verbs.",
+      "comingSoonMeta": "Needs conjugated verbs",
+      "grammarEyebrow": "Grammar focus",
+      "aiCopy": "Adaptive sets that push your weaker words, mix the deck, and keep practice feeling alive.",
+      "adaptiveEyebrow": "Adaptive",
+      "voiceMeta": "Talk out loud and get unstuck faster",
+      "voiceEyebrow": "Voice",
+      "heroSharedEyebrow": "Play together",
+      "heroSharedSingle": "A shared prompt is waiting",
+      "heroSharedPlural": "{{count}} shared prompts are waiting",
+      "heroSharedCopy": "{{partner}} has sent you something to respond to. Start there, then roll straight into a solo practice round.",
+      "openSharedAction": "Open Love Note",
+      "warmupAction": "Warm up with Flashcards",
+      "heroSoloEyebrow": "Pick up momentum",
+      "heroSoloHeadline": "Choose a game and jump back in",
+      "heroSoloCopy": "Start with a gentler solo mode, then ramp up into faster drills or voice practice in {{language}}.",
+      "startFlashcardsAction": "Start Flashcards",
+      "quickFireAction": "Jump into Quick Fire",
+      "voiceAction": "Open Conversation",
+      "statWords": "Words ready",
+      "statMastered": "Mastered",
+      "statShared": "Shared notes",
+      "statVerbs": "Verb sets",
+      "openLabel": "Open",
+      "experimentalBadge": "Adaptive mix",
+      "grammarBadge": "Grammar focus"
+    },
     "directions": {
       "targetToNative": "{{target}} → {{native}}",
       "nativeToTarget": "{{native}} → {{target}}"
@@ -324,7 +378,8 @@
       "translation": "TRANSLATION",
       "tapToReveal": "Tap to reveal",
       "hard": "Hard",
-      "gotIt": "Got it!"
+      "gotIt": "Got it!",
+      "listen": "Listen"
     },
     "typeIt": {
       "hint": "Hint:",
@@ -335,7 +390,8 @@
       "correctAnswer": "Correct answer:",
       "typeIn": "Type in {{language}}...",
       "next": "Next",
-      "check": "Check"
+      "check": "Check",
+      "checking": "Checking..."
     },
     "quickFire": {
       "title": "Quick Fire!",
@@ -364,7 +420,9 @@
         "leastPracticedDesc": "Words you haven't seen lately",
         "reviewMastered": "Review Mastered",
         "reviewMasteredDesc": "Practice learned words"
-      }
+      },
+      "noQuestions": "No questions are available for this mode yet.",
+      "exit": "Exit game"
     },
     "verbMastery": {
       "title": "Verb Mastery",
@@ -423,10 +481,43 @@
       "matchPairs": {
         "instruction": "Tap to match pronouns with conjugations",
         "complete": "All matched!"
+      },
+      "correctAnswerDetail": "Correct answer: {{answers}}",
+      "correctAnswerLabel": "Correct:",
+      "tenseLabel": "{{tense}} tense",
+      "personLabels": {
+        "firstSingular": "I",
+        "secondSingular": "you (singular)",
+        "thirdSingular": "he/she/it",
+        "firstPlural": "we",
+        "secondPlural": "you (plural)",
+        "thirdPlural": "they"
       }
     },
     "session": {
       "yourPartner": "Your Partner"
+    },
+    "wordle": {
+      "clueLabel": "{{language}} clue",
+      "needEligibleWords": "Wordle works best with single-word vocabulary between 4 and 8 letters.",
+      "attemptsLeft": "{{count}} attempt left",
+      "attemptsLeft_other": "{{count}} attempts left",
+      "letters": "letters",
+      "correctReveal": "Nice. The answer was {{word}}.",
+      "incorrectReveal": "The answer was {{word}}.",
+      "inputPlaceholder": "Type the {{language}} word",
+      "submit": "Guess"
+    },
+    "back": "Go back",
+    "speedMatch": {
+      "description": "Pick your word count, match quickly, and see how fast you can finish.",
+      "allLabel": "all",
+      "wordsLabel": "words",
+      "howItWorksTitle": "Clock up, not down",
+      "howItWorksCopy": "Choose a set size, tap the right translation, and finish in the quickest time you can manage.",
+      "readyMeta": "{{count}} words from {{target}} into {{native}}. The timer starts at zero and climbs until you finish.",
+      "start": "Start match",
+      "needAtLeast4": "Speed Match needs at least 4 words to stay fun."
     }
   },
   "profile": {
@@ -584,33 +675,82 @@
     "sendDescription": "Send challenges for {{name}} to complete later",
     "playDescription": "Practice together right now",
     "startNow": "Start Now",
+    "teachingStreak": "{{count}} day teaching streak!",
+    "hub": {
+      "sendEyebrow": "Help them feel supported",
+      "sendHeadline": "Send something thoughtful to {{name}}",
+      "sendDescription": "Words, challenges, and little nudges should be only a tap away so you can keep their momentum moving.",
+      "localEyebrow": "Play together",
+      "localHeadline": "Practice right alongside {{name}}",
+      "localDescription": "Use the same practice modes to sit beside them, encourage them, and help the tough words stick.",
+      "sendNowEyebrow": "Send now",
+      "challengeEyebrow": "Challenge",
+      "momentumEyebrow": "Momentum",
+      "studentStatusEyebrow": "Student status"
+    },
+    "stats": {
+      "wordsTracked": "Words tracked",
+      "pendingSends": "Pending sends",
+      "completed": "Completed",
+      "weakWords": "Needs support",
+      "teachingStreak": "Teaching streak",
+      "readyGames": "Ready games"
+    },
+    "sections": {
+      "sendTitle": "Send support",
+      "sendCopy": "Choose the kind of nudge or challenge you want them to receive inside Play.",
+      "waitingTitle": "Waiting on them",
+      "waitingCopy": "Keep an eye on what is still sitting in their shared Play area.",
+      "resultsTitle": "Recent results",
+      "resultsCopy": "When they open your sends and complete them, the wins should be easy to spot here.",
+      "localTitle": "Play together",
+      "localCopy": "Launch the same practice styles on the tutor side whenever you want to sit beside them and rehearse.",
+      "localTipsTitle": "Practice with purpose",
+      "localTipsCopy": "Tutor-side play should feel helpful and low-pressure, not like grinding another account."
+    },
     "local": {
       "quiz": "Quiz {{name}}",
       "quizDesc": "Flashcard quiz together",
+      "flashcardsLead": "Flip through {{name}}'s words together and warm them up gently.",
+      "wordsReadyMeta": "{{count}} words ready",
       "quickFire": "Quick Fire",
       "quickFireDesc": "60 second challenge",
       "multipleChoice": "Multiple Choice",
       "multipleChoiceDesc": "Pick the right answer",
       "typeIt": "Type It",
       "typeItDesc": "Type the translation",
-      "needWords": "{{name}} needs at least 4 words in their vocabulary to play"
+      "needWords": "{{name}} needs at least 4 words in their vocabulary to play",
+      "supportFocusTitle": "Focus on the words they miss",
+      "supportFocusCopy": "{{count}} words still look shaky, so a quick shared session can help them stick.",
+      "saveSupportTitle": "Save it if the session really helps",
+      "saveSupportCopy": "Shared practice stays untracked by default, but you can still save a strong session into their history.",
+      "untrackedTitle": "Keep it playful",
+      "untrackedCopy": "Tutor-side play is for encouragement and practice together, not XP grinding on your account."
     },
     "send": {
       "doYouRemember": "Do You Remember?",
       "quizPartner": "Quiz {{name}} on their vocabulary",
       "createQuiz": "Create Quiz",
+      "quizMeta": "Build a focused challenge from their vocab",
       "quickFire": "Quick Fire",
       "timedChallenge": "Timed vocabulary challenge",
       "createChallenge": "Create Challenge",
+      "quickFireMeta": "Fast-paced challenge they can complete later",
       "giftWords": "Gift Words",
       "sendWords": "Send words for {{name}} to learn",
-      "sendGift": "Send Gift"
+      "sendGift": "Send Gift",
+      "wordGiftMeta": "Choose words or a topic to send"
     },
     "pending": {
       "waitingFor": "Waiting for {{name}}",
       "words": "{{count}} words",
       "sent": "Sent {{date}}",
-      "pending": "Pending"
+      "pending": "Pending",
+      "challengeWaitingCopy": "{{name}} still has this waiting in Play."
+    },
+    "waiting": {
+      "emptyTitle": "Nothing waiting right now",
+      "emptyCopy": "{{name}} is all caught up, so this is a good moment to send something new."
     },
     "gifts": {
       "title": "Word Gifts Sent",
@@ -622,7 +762,12 @@
     },
     "results": {
       "title": "Recent Results",
-      "completed": "Completed {{date}}"
+      "completed": "Completed {{date}}",
+      "scoreMeta": "{{score}}% score",
+      "finishedMeta": "Completed in Play",
+      "emptyTitle": "No completed sends yet",
+      "emptyCopy": "Once {{name}} starts opening your sends, results will show up here.",
+      "awaitingMeta": "Results will appear here"
     },
     "empty": {
       "noChallenges": "No challenges yet",
@@ -1171,7 +1316,10 @@
     "tryAgain": "Try Again",
     "speakIn": "Speak in {{language}}...",
     "aiSpeaking": "AI is speaking...",
-    "conversationEnded": "Conversation ended"
+    "conversationEnded": "Conversation ended",
+    "errors": {
+      "startFailed": "Failed to start conversation"
+    }
   },
   "scenarioSelector": {
     "title": "Conversation Practice",
@@ -1972,26 +2120,26 @@
         "count": "11,500+",
         "topics": "Pet names · Date phrases · Grammar · Culture"
       },
-  "installApp": "Install App",
-  "installed": "Installed",
-  "addToHome": "Add to home screen",
-  "installOpenSafari": "Open in Safari to install",
-  "installTapShare": "Tap Share then Add to Home Screen",
-  "appStore": "App Store",
-  "comingSoon": "Coming Soon",
-  "followSocials": "Follow our socials",
-  "closeInstallHelp": "Close install help",
-  "installHelpTitle": "Install Love Languages",
-  "installHelpOpenSafari": "Open this page in Safari first, then add it to your home screen.",
-  "installHelpIntro": "On iPhone and iPad, installation happens from the Safari share menu.",
-  "installHelpStepSafari": "Tap the browser menu and choose \"Open in Safari\".",
-  "installHelpStepOne": "Tap the Share button in Safari.",
-  "installHelpStepTwo": "Scroll down and tap \"Add to Home Screen\".",
-  "installHelpStepThree": "Confirm \"Add\" and the app will appear on your home screen.",
-  "installHelpDone": "Got it",
-  "waitlist": {
-    "description": "Get notified when we launch on the App Store.",
-    "submitting": "Submitting...",
+      "installApp": "Install App",
+      "installed": "Installed",
+      "addToHome": "Add to home screen",
+      "installOpenSafari": "Open in Safari to install",
+      "installTapShare": "Tap Share then Add to Home Screen",
+      "appStore": "App Store",
+      "comingSoon": "Coming Soon",
+      "followSocials": "Follow our socials",
+      "closeInstallHelp": "Close install help",
+      "installHelpTitle": "Install Love Languages",
+      "installHelpOpenSafari": "Open this page in Safari first, then add it to your home screen.",
+      "installHelpIntro": "On iPhone and iPad, installation happens from the Safari share menu.",
+      "installHelpStepSafari": "Tap the browser menu and choose \"Open in Safari\".",
+      "installHelpStepOne": "Tap the Share button in Safari.",
+      "installHelpStepTwo": "Scroll down and tap \"Add to Home Screen\".",
+      "installHelpStepThree": "Confirm \"Add\" and the app will appear on your home screen.",
+      "installHelpDone": "Got it",
+      "waitlist": {
+        "description": "Get notified when we launch on the App Store.",
+        "submitting": "Submitting...",
         "notify": "Notify Me"
       }
     },
@@ -2453,5 +2601,11 @@
     "featureUnavailable": "Unavailable offline",
     "scoresQueued": "Scores saved locally",
     "sessionQueued": "Session saved locally"
+  },
+  "games": {
+    "celebration": {
+      "wordMastered": "Word Mastered!",
+      "streakComplete": "5 correct in a row! This word is now learned!"
+    }
   }
 }

@@ -70,7 +70,12 @@ export const FillTemplate: React.FC<FillTemplateProps> = ({
         // Simple validation - check against all valid answers (diacritic-aware)
         const userInput = normalizeAnswer(input);
         accepted = validAnswers.some((ans) => normalizeAnswer(ans) === userInput);
-        explanationText = accepted ? '' : `Correct answer: ${validAnswers.join(' / ')}`;
+        explanationText = accepted
+          ? ''
+          : t('play.verbDojo.correctAnswerDetail', {
+              answers: validAnswers.join(' / '),
+              defaultValue: 'Correct answer: {{answers}}',
+            });
       }
 
       haptics.trigger(accepted ? 'correct' : 'incorrect');
@@ -85,7 +90,14 @@ export const FillTemplate: React.FC<FillTemplateProps> = ({
       const accepted = validAnswers.some((ans) => normalizeAnswer(ans) === userInput);
       haptics.trigger(accepted ? 'correct' : 'incorrect');
       setIsCorrect(accepted);
-      setExplanation(accepted ? '' : `Correct answer: ${validAnswers.join(' / ')}`);
+      setExplanation(
+        accepted
+          ? ''
+          : t('play.verbDojo.correctAnswerDetail', {
+              answers: validAnswers.join(' / '),
+              defaultValue: 'Correct answer: {{answers}}',
+            })
+      );
       setSubmitted(true);
       onAnswer(accepted);
     } finally {
@@ -119,7 +131,10 @@ export const FillTemplate: React.FC<FillTemplateProps> = ({
         style={{ backgroundColor: `${accentColor}15`, borderColor: `${accentColor}25` }}
       >
         <p className="text-scale-caption font-bold uppercase tracking-wider mb-2" style={{ color: accentColor }}>
-          {question.tense} tense
+          {t('play.verbDojo.tenseLabel', {
+            tense: t(`loveLog.modal.${question.tense}`, question.tense),
+            defaultValue: '{{tense}} tense',
+          })}
         </p>
         <div className="flex items-center justify-center gap-2 mb-2">
           <h3 className="text-2xl font-black font-header text-[var(--text-primary)]">{question.verb.word}</h3>
@@ -161,7 +176,7 @@ export const FillTemplate: React.FC<FillTemplateProps> = ({
           <div className="flex items-center gap-2 mb-2">
             {isCorrect ? (
               <>
-                <span className="text-[var(--color-correct)] font-bold">✓ Correct!</span>
+                <span className="text-[var(--color-correct)] font-bold">✓ {t('play.verbDojo.correct')}</span>
                 <button
                   onClick={() => speak(correctAnswer, targetLanguage)}
                   className="p-1 rounded-full hover:bg-[var(--color-correct-bg)] transition-colors"
@@ -170,13 +185,13 @@ export const FillTemplate: React.FC<FillTemplateProps> = ({
                 </button>
               </>
             ) : (
-              <span className="text-[var(--color-incorrect)] font-bold">✗ Incorrect</span>
+              <span className="text-[var(--color-incorrect)] font-bold">✗ {t('play.verbDojo.incorrect')}</span>
             )}
           </div>
           {!isCorrect && (
             <div className="flex items-center gap-2">
               <span className="text-[var(--text-primary)]">
-                Correct: <strong>{validAnswers.join(' / ')}</strong>
+                {t('play.verbDojo.correctAnswerLabel', { defaultValue: 'Correct:' })} <strong>{validAnswers.join(' / ')}</strong>
               </span>
               <button
                 onClick={() => speak(correctAnswer, targetLanguage)}

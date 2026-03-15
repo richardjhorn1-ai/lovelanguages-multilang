@@ -15,6 +15,7 @@ import { useVerbQueue } from './useVerbQueue';
 import { DojoMode, DojoQuestion, DojoSessionResult, FillTemplateQuestion } from './types';
 import { FillTemplate } from './FillTemplate';
 import { MatchPairs } from './MatchPairs';
+import { GameStage } from '../../components';
 
 // Normalized person keys (DB storage format)
 const NORMALIZED_PERSONS = [
@@ -25,9 +26,6 @@ const NORMALIZED_PERSONS = [
   'second_plural',
   'third_plural',
 ] as const;
-
-// Native English labels for each person
-const NATIVE_PERSON_LABELS = ['I', 'you (singular)', 'he/she/it', 'we', 'you (plural)', 'they'];
 
 interface VerbDojoProps {
   verbs: DictionaryEntry[];
@@ -109,6 +107,14 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
 
   // Conjugation persons for this language
   const personLabels = useMemo(() => getConjugationPersons(targetLanguage), [targetLanguage]);
+  const nativePersonLabels = useMemo(() => ([
+    t('play.verbDojo.personLabels.firstSingular', 'I'),
+    t('play.verbDojo.personLabels.secondSingular', 'you (singular)'),
+    t('play.verbDojo.personLabels.thirdSingular', 'he/she/it'),
+    t('play.verbDojo.personLabels.firstPlural', 'we'),
+    t('play.verbDojo.personLabels.secondPlural', 'you (plural)'),
+    t('play.verbDojo.personLabels.thirdPlural', 'they'),
+  ]), [t]);
 
   // Queue management
   const { getNext, markCorrect, markWrong, isEmpty, queueLength } = useVerbQueue({
@@ -142,7 +148,7 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
       const personKey = persons[Math.floor(Math.random() * persons.length)];
       const personIndex = NORMALIZED_PERSONS.indexOf(personKey as typeof NORMALIZED_PERSONS[number]);
       const personLabel = personLabels[personIndex] || personKey;
-      const nativeLabel = NATIVE_PERSON_LABELS[personIndex] || personKey;
+      const nativeLabel = nativePersonLabels[personIndex] || personKey;
 
       // Get the correct answer
       const answer = tenseData[personKey];
@@ -213,7 +219,7 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
       // TODO: audio_type
       return null;
     },
-    [getNext, targetLanguage, personLabels]
+    [getNext, targetLanguage, personLabels, nativePersonLabels]
   );
 
   // Start the game
@@ -317,24 +323,29 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
     const availableModes = (Object.keys(MODE_ICONS) as DojoMode[]).filter((mode) => mode !== 'audio_type');
 
     return (
-      <div className="w-full max-w-2xl mx-auto px-4">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <div
-            className="w-16 h-16 md:w-20 md:h-20 mx-auto rounded-2xl flex items-center justify-center mb-4"
-            style={{ backgroundColor: `${accentColor}15`, color: accentColor }}
+      <GameStage
+        tone="ink"
+        layout="compact"
+        eyebrow={t('play.hub.grammarBadge')}
+        title={t('play.verbDojo.title')}
+        className="w-full max-w-2xl mx-auto"
+      >
+        <div className="mb-5 flex flex-wrap items-center gap-2">
+          <span
+            className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[11px] font-black uppercase tracking-[0.16em]"
+            style={{
+              background:
+                'linear-gradient(145deg, color-mix(in srgb, var(--game-accent-soft) 62%, white), rgba(255,255,255,0.9))',
+              color: 'var(--game-accent-deep)',
+              border: '1px solid var(--game-accent-border)',
+            }}
           >
-            <ICONS.Fist className="w-8 h-8 md:w-10 md:h-10" />
-          </div>
-          <h2 className="text-xl md:text-2xl font-black font-header text-[var(--text-primary)] mb-1">
-            {t('play.verbDojo.title', 'Verb Dojo')}
-          </h2>
-          <p className="text-scale-label text-[var(--text-secondary)]">
-            {t('play.verbDojo.subtitle', 'Master your verb conjugations')}
-          </p>
-          <p className="text-scale-caption text-[var(--text-secondary)] mt-1">
-            {queueLength} {t('play.verbDojo.combinationsAvailable', 'verb+tense combinations available')}
-          </p>
+            <ICONS.Fist className="w-4 h-4" />
+            {t('play.verbDojo.subtitle')}
+          </span>
+          <span className="text-scale-caption text-[var(--text-secondary)]">
+            {queueLength} {t('play.verbDojo.combinationsAvailable')}
+          </span>
         </div>
 
         {/* Mode selection - Grid on desktop */}
@@ -354,10 +365,9 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
                   onClick={() => setSelectedMode(mode)}
                   className={`relative p-4 rounded-2xl border-2 text-center transition-all aspect-square flex flex-col items-center justify-center gap-2 ${
                     isSelected
-                      ? 'border-[var(--accent-color)] bg-[var(--accent-color)]/10'
-                      : 'border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--accent-color)]/50'
+                      ? 'border-[var(--game-accent-color)] bg-[var(--game-accent-soft)]'
+                      : 'border-[var(--border-color)] bg-[var(--bg-card)] hover:border-[var(--game-accent-color)]/50'
                   }`}
-                  style={{ '--accent-color': accentColor } as React.CSSProperties}
                 >
                   <span>{icon}</span>
                   <div>
@@ -367,7 +377,7 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
                   {isSelected && (
                     <div
                       className="absolute top-2 right-2 w-5 h-5 md:w-6 md:h-6 rounded-full flex items-center justify-center"
-                      style={{ backgroundColor: accentColor }}
+                      style={{ backgroundColor: 'var(--game-accent-color)' }}
                     >
                       <ICONS.Check className="w-3 h-3 md:w-4 md:h-4 text-white" />
                     </div>
@@ -382,15 +392,14 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
         {unlockedTenses.length >= 2 && (
           <div className="mb-6">
             <p className="text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">
-              {t('play.verbDojo.focusOn', 'Focus on (optional)')}
+              {t('play.verbDojo.focusOn')}
             </p>
             <select
               value={focusTense || ''}
               onChange={(e) => setFocusTense(e.target.value ? (e.target.value as VerbTense) : null)}
-              className="w-full p-3 rounded-xl border-2 border-[var(--border-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] focus:outline-none focus:border-[var(--accent-color)]"
-              style={{ '--accent-color': accentColor } as React.CSSProperties}
+              className="w-full p-3 rounded-xl border-2 border-[var(--border-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] focus:outline-none focus:border-[var(--game-accent-color)]"
             >
-              <option value="">{t('play.verbDojo.allTenses', 'All Tenses')}</option>
+              <option value="">{t('play.verbDojo.allTenses')}</option>
               {unlockedTenses.map((tense) => (
                 <option key={tense} value={tense}>
                   {t(`loveLog.modal.${tense}`, tense)}
@@ -405,44 +414,53 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
           onClick={startGame}
           disabled={isEmpty}
           className="w-full py-4 rounded-2xl text-white font-bold text-lg transition-all disabled:opacity-50 hover:opacity-90"
-          style={{ backgroundColor: accentColor }}
+          style={{ backgroundColor: 'var(--game-accent-color)' }}
         >
-          {t('play.verbDojo.startTraining', 'Start Training')}
+          {t('play.verbDojo.startTraining')}
         </button>
 
         <button
           onClick={onExit}
           className="w-full p-3 mt-3 text-[var(--text-secondary)] font-bold text-scale-label hover:text-[var(--text-primary)] transition-colors"
         >
-          ← {t('play.verbDojo.backToGames', 'Back to Games')}
+          ← {t('play.verbDojo.backToGames')}
         </button>
-      </div>
+      </GameStage>
     );
   }
 
   // Playing screen
   if (phase === 'playing' && currentQuestion) {
     return (
-      <div className="w-full max-w-md mx-auto">
-        {/* Header */}
+      <GameStage
+        tone="ink"
+        layout="compact"
+        eyebrow={t('play.hub.grammarBadge')}
+        title={t('play.verbDojo.title')}
+        className="w-full max-w-md mx-auto"
+      >
         <div className="flex items-center justify-between mb-4">
-          <button onClick={handleExit} className="text-[var(--text-secondary)] hover:text-[var(--text-primary)]">
-            <ICONS.X className="w-6 h-6" />
+          <button
+            onClick={handleExit}
+            className="inline-flex items-center justify-center w-10 h-10 rounded-full border bg-white/82 text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+            style={{ borderColor: 'var(--game-accent-border)' }}
+          >
+            <ICONS.X className="w-5 h-5" />
           </button>
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-1">
-              <ICONS.Fire className="w-5 h-5 text-[var(--color-warning)]" />
+          <div className="flex items-center gap-2.5">
+            <div className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 bg-white/82 border" style={{ borderColor: 'var(--game-accent-border)' }}>
+              <ICONS.Fire className="w-4 h-4 text-[var(--color-warning)]" />
               <span className="font-bold text-[var(--text-primary)]">{streak}</span>
             </div>
-            <div className="flex items-center gap-1">
-              <ICONS.Star className="w-5 h-5 text-[var(--color-warning)]" />
+            <div className="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 bg-white/82 border" style={{ borderColor: 'var(--game-accent-border)' }}>
+              <ICONS.Star className="w-4 h-4 text-[var(--color-warning)]" />
               <span className="font-bold text-[var(--text-primary)]">{xpEarned}</span>
             </div>
           </div>
         </div>
 
         {/* Streak progress bar */}
-        <div className="mb-6">
+        <div className="mb-5">
           <div className="h-2 bg-[var(--border-color)] rounded-full overflow-hidden">
             <div
               className="h-full transition-all duration-300"
@@ -453,7 +471,7 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
             />
           </div>
           <p className="text-scale-caption text-[var(--text-secondary)] text-center mt-1">
-            {5 - (streak % 5)} more for +1 XP
+            {t('play.verbDojo.streakProgress', { remaining: 5 - (streak % 5) })}
           </p>
         </div>
 
@@ -490,7 +508,7 @@ export const VerbDojo: React.FC<VerbDojoProps> = ({
             onNext={nextQuestion}
           />
         )}
-      </div>
+      </GameStage>
     );
   }
 

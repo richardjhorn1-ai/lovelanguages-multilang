@@ -6,3 +6,4 @@ export { ModeSelector } from './ModeSelector';
 export type { GameModeConfig } from './ModeSelector';
 export { GameHeader } from './GameHeader';
 export { ExitConfirmModal } from './ExitConfirmModal';
+export { GameStage } from './GameStage';

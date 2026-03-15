@@ -7,3 +7,5 @@ export { MultipleChoice } from './MultipleChoice';
 export { TypeIt } from './TypeIt';
 export { QuickFire } from './QuickFire';
 export { AIChallenge } from './AIChallenge';
+export { Wordle } from './Wordle';
+export { SpeedMatch } from './SpeedMatch';

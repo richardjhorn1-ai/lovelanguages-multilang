@@ -79,7 +79,7 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
 
       await liveSessionRef.current.connect();
     } catch (err: any) {
-      setError(err.message || 'Failed to start conversation');
+      setError(err.message || t('conversationPractice.errors.startFailed'));
       setState('error');
     }
   };
@@ -117,25 +117,25 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
   // Active conversation UI
   return (
     <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50">
-      <div className="glass-card-solid rounded-2xl w-full max-w-md h-[80vh] max-h-[600px] overflow-hidden flex flex-col">
+      <div className="glass-card-solid rounded-2xl w-full max-w-md h-[92vh] md:h-[80vh] max-h-[720px] overflow-hidden flex flex-col">
         {/* Header */}
-        <div className="p-4 border-b border-[var(--border-color)] flex items-center justify-between">
+        <div className="p-3 md:p-4 border-b border-[var(--border-color)] flex items-start justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-[var(--secondary-light)] rounded-xl flex items-center justify-center text-xl">
+            <div className="w-10 h-10 bg-[var(--secondary-light)] rounded-xl flex items-center justify-center text-xl shrink-0">
               {scenario?.icon || <ICONS.Mic className="w-5 h-5 text-[var(--secondary-color)]" />}
             </div>
-            <div>
-              <h2 className="font-bold font-header text-[var(--text-primary)] text-scale-label">
+            <div className="min-w-0">
+              <h2 className="font-bold font-header text-[var(--text-primary)] text-sm md:text-scale-label leading-tight truncate">
                 {scenario?.id === 'custom' ? t('scenarioSelector.customScenarioName') : t(`scenarioSelector.scenarios.${scenario?.id}.name`)}
               </h2>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 mt-1">
                 <span className={`w-2 h-2 rounded-full ${
                   state === 'listening' ? 'bg-green-500 animate-pulse' :
                   state === 'speaking' ? 'bg-[var(--secondary-color)] animate-pulse' :
                   state === 'connecting' ? 'bg-amber-500 animate-pulse' :
                   'bg-[var(--text-secondary)]'
                 }`}></span>
-                <span className="text-scale-caption text-[var(--text-secondary)]">
+                <span className="text-[11px] md:text-scale-caption text-[var(--text-secondary)]">
                   {state === 'listening' ? t('conversationPractice.states.listening') :
                    state === 'speaking' ? t('conversationPractice.states.speaking') :
                    state === 'connecting' ? t('conversationPractice.states.connecting') :
@@ -147,14 +147,14 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
           </div>
           <button
             onClick={handleEnd}
-            className="px-3 py-2 bg-red-500/10 text-red-500 font-bold text-scale-caption rounded-xl hover:bg-red-500/20 transition-colors"
+            className="px-3 py-2 bg-red-500/10 text-red-500 font-bold text-[11px] md:text-scale-caption rounded-xl hover:bg-red-500/20 transition-colors shrink-0"
           >
             {t('conversationPractice.end')}
           </button>
         </div>
 
         {/* Transcript Area */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-3">
+        <div className="flex-1 overflow-y-auto p-3 md:p-4 space-y-3">
           {transcript.length === 0 && state === 'connecting' && (
             <div className="flex items-center justify-center h-full">
               <div className="text-center">
@@ -211,20 +211,20 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
         )}
 
         {/* Speaking Indicator */}
-        <div className="p-6 border-t border-[var(--border-color)] bg-[var(--bg-primary)]">
+        <div className="p-4 md:p-5 border-t border-[var(--border-color)] bg-[var(--bg-primary)]">
           <div className="flex flex-col items-center justify-center">
             {state === 'listening' && (
               <>
-                <div className="w-20 h-20 bg-[var(--secondary-light)] rounded-full flex items-center justify-center mb-3 relative">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-[var(--secondary-light)] rounded-full flex items-center justify-center mb-2 md:mb-3 relative">
                   <div className="absolute inset-0 bg-[var(--secondary-light)] rounded-full animate-ping"></div>
-                  <ICONS.Mic className="w-8 h-8 text-[var(--secondary-color)]" />
+                  <ICONS.Mic className="w-7 h-7 md:w-8 md:h-8 text-[var(--secondary-color)]" />
                 </div>
-                <p className="text-scale-label text-[var(--text-secondary)]">{t('conversationPractice.speakIn', { language: targetName })}</p>
+                <p className="text-center text-[11px] md:text-scale-label text-[var(--text-secondary)]">{t('conversationPractice.speakIn', { language: targetName })}</p>
               </>
             )}
             {state === 'speaking' && (
               <>
-                <div className="w-20 h-20 bg-[var(--secondary-light)] rounded-full flex items-center justify-center mb-3">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-[var(--secondary-light)] rounded-full flex items-center justify-center mb-2 md:mb-3">
                   <div className="flex gap-1">
                     <div className="w-1.5 h-6 bg-[var(--secondary-color)] rounded-full animate-pulse"></div>
                     <div className="w-1.5 h-8 bg-[var(--secondary-color)] rounded-full animate-pulse" style={{ animationDelay: '0.1s' }}></div>
@@ -232,11 +232,11 @@ const ConversationPractice: React.FC<ConversationPracticeProps> = ({ userName, o
                     <div className="w-1.5 h-7 bg-[var(--secondary-color)] rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
                   </div>
                 </div>
-                <p className="text-scale-label text-[var(--text-secondary)]">{t('conversationPractice.aiSpeaking')}</p>
+                <p className="text-center text-[11px] md:text-scale-label text-[var(--text-secondary)]">{t('conversationPractice.aiSpeaking')}</p>
               </>
             )}
             {state === 'disconnected' && !error && (
-              <p className="text-scale-label text-[var(--text-secondary)]">{t('conversationPractice.conversationEnded')}</p>
+              <p className="text-center text-[11px] md:text-scale-label text-[var(--text-secondary)]">{t('conversationPractice.conversationEnded')}</p>
             )}
           </div>
         </div>

@@ -401,10 +401,56 @@ export function applyTheme(theme: ThemeSettings): void {
   const primaryToneHover = isDark ? mixThemeColor(accent.primaryHover, darkMode.textPrimary, 76) : accent.primaryHover;
   const primaryBorderTone = isDark ? mixThemeColor(accent.borderDark, darkMode.border, 70) : accent.border;
   const primaryShadowTone = isDark ? mixThemeColor(accent.primary, darkMode.bgPrimary, 55) : accent.shadow;
+  const primarySoftTone = isDark ? mixThemeColor(accent.primary, darkMode.bgPrimary, 26) : mixThemeColor(accent.primary, '#ffffff', 12);
+  const primaryMistTone = isDark ? mixThemeColor(accent.primary, darkMode.bgPrimary, 42) : mixThemeColor(accent.primary, '#ffffff', 24);
+  const primaryDeepTone = isDark ? mixThemeColor(accent.borderDark, darkMode.textPrimary, 78) : mixThemeColor(accent.text, accent.primary, 58);
   const secondaryTone = isDark ? mixThemeColor(secondary.primary, darkMode.textPrimary, 60) : secondary.primary;
   const secondaryToneHover = isDark ? mixThemeColor(secondary.primaryHover, darkMode.textPrimary, 66) : secondary.primaryHover;
   const secondaryBorderTone = isDark ? mixThemeColor(secondary.borderDark, darkMode.border, 60) : secondary.border;
   const secondaryShadowTone = isDark ? mixThemeColor(secondary.primary, darkMode.bgPrimary, 45) : secondary.shadow;
+  const secondarySoftTone = isDark ? mixThemeColor(secondary.primary, darkMode.bgPrimary, 22) : mixThemeColor(secondary.primary, '#ffffff', 12);
+  const secondaryMistTone = isDark ? mixThemeColor(secondary.primary, darkMode.bgPrimary, 38) : mixThemeColor(secondary.primary, '#ffffff', 24);
+  const secondaryDeepTone = isDark ? mixThemeColor(secondary.borderDark, darkMode.textPrimary, 74) : mixThemeColor(secondary.text, secondary.primary, 54);
+  const playBackdrop = darkMode.bgCard;
+  const playSoftStrength = theme.backgroundStyle === 'clean'
+    ? (isDark ? 14 : 9)
+    : (isDark ? 22 : 14);
+  const playMistStrength = theme.backgroundStyle === 'clean'
+    ? (isDark ? 20 : 14)
+    : (isDark ? 30 : 22);
+  const playBorderStrength = theme.backgroundStyle === 'clean'
+    ? (isDark ? 36 : 26)
+    : (isDark ? 44 : 34);
+  const playWarmColor = primaryTone;
+  const playWarmSoft = mixThemeColor(playWarmColor, playBackdrop, playSoftStrength);
+  const playWarmMist = mixThemeColor(playWarmColor, playBackdrop, playMistStrength);
+  const playWarmBorder = mixThemeColor(playWarmColor, darkMode.border, playBorderStrength);
+  const playWarmDeep = primaryDeepTone;
+  const playWarmText = isDark ? mixThemeColor(playWarmDeep, darkMode.textPrimary, 84) : mixThemeColor(playWarmDeep, darkMode.textPrimary, 76);
+  const playBrightColor = secondaryTone;
+  const playBrightSoft = mixThemeColor(playBrightColor, playBackdrop, playSoftStrength);
+  const playBrightMist = mixThemeColor(playBrightColor, playBackdrop, playMistStrength);
+  const playBrightBorder = mixThemeColor(playBrightColor, darkMode.border, playBorderStrength);
+  const playBrightDeep = secondaryDeepTone;
+  const playBrightText = isDark ? mixThemeColor(playBrightDeep, darkMode.textPrimary, 82) : mixThemeColor(playBrightDeep, darkMode.textPrimary, 72);
+  const playBlendColor = `color-mix(in srgb, ${primaryTone} 56%, ${secondaryTone})`;
+  const playBlendSoft = mixThemeColor(playBlendColor, playBackdrop, Math.max(playSoftStrength - 2, 8));
+  const playBlendMist = mixThemeColor(playBlendColor, playBackdrop, Math.max(playMistStrength - 2, 12));
+  const playBlendBorder = mixThemeColor(playBlendColor, darkMode.border, playBorderStrength);
+  const playBlendDeep = isDark
+    ? `color-mix(in srgb, ${primaryDeepTone} 58%, ${darkMode.textPrimary})`
+    : `color-mix(in srgb, ${primaryDeepTone} 56%, ${secondaryDeepTone})`;
+  const playBlendText = isDark ? mixThemeColor(playBlendDeep, darkMode.textPrimary, 82) : mixThemeColor(playBlendDeep, darkMode.textPrimary, 74);
+  const playInkColor = isDark
+    ? `color-mix(in srgb, ${primaryTone} 44%, ${secondaryTone})`
+    : `color-mix(in srgb, ${primaryDeepTone} 54%, ${secondaryDeepTone})`;
+  const playInkSoft = mixThemeColor(playInkColor, playBackdrop, Math.max(playSoftStrength - 4, 7));
+  const playInkMist = mixThemeColor(playInkColor, playBackdrop, Math.max(playMistStrength - 4, 12));
+  const playInkBorder = mixThemeColor(playInkColor, darkMode.border, Math.max(playBorderStrength - 4, 24));
+  const playInkDeep = isDark
+    ? `color-mix(in srgb, ${primaryDeepTone} 58%, ${secondaryDeepTone})`
+    : `color-mix(in srgb, ${primaryDeepTone} 60%, ${secondaryDeepTone})`;
+  const playInkText = isDark ? mixThemeColor(playInkDeep, darkMode.textPrimary, 86) : mixThemeColor(playInkDeep, darkMode.textPrimary, 70);
 
   // Primary accent palette
   root.style.setProperty('--accent-color', primaryTone);
@@ -414,6 +460,9 @@ export function applyTheme(theme: ThemeSettings): void {
   root.style.setProperty('--accent-text', isDark ? primaryTone : accent.text);
   root.style.setProperty('--accent-border', primaryBorderTone);
   root.style.setProperty('--accent-shadow', primaryShadowTone);
+  root.style.setProperty('--accent-soft', primarySoftTone);
+  root.style.setProperty('--accent-mist', primaryMistTone);
+  root.style.setProperty('--accent-deep', primaryDeepTone);
 
   // Secondary accent palette
   root.style.setProperty('--secondary-color', secondaryTone);
@@ -423,6 +472,35 @@ export function applyTheme(theme: ThemeSettings): void {
   root.style.setProperty('--secondary-text', isDark ? secondaryTone : secondary.text);
   root.style.setProperty('--secondary-border', secondaryBorderTone);
   root.style.setProperty('--secondary-shadow', secondaryShadowTone);
+  root.style.setProperty('--secondary-soft', secondarySoftTone);
+  root.style.setProperty('--secondary-mist', secondaryMistTone);
+  root.style.setProperty('--secondary-deep', secondaryDeepTone);
+
+  // Play color roles
+  root.style.setProperty('--play-warm-color', playWarmColor);
+  root.style.setProperty('--play-warm-soft', playWarmSoft);
+  root.style.setProperty('--play-warm-mist', playWarmMist);
+  root.style.setProperty('--play-warm-border', playWarmBorder);
+  root.style.setProperty('--play-warm-deep', playWarmDeep);
+  root.style.setProperty('--play-warm-text', playWarmText);
+  root.style.setProperty('--play-bright-color', playBrightColor);
+  root.style.setProperty('--play-bright-soft', playBrightSoft);
+  root.style.setProperty('--play-bright-mist', playBrightMist);
+  root.style.setProperty('--play-bright-border', playBrightBorder);
+  root.style.setProperty('--play-bright-deep', playBrightDeep);
+  root.style.setProperty('--play-bright-text', playBrightText);
+  root.style.setProperty('--play-blend-color', playBlendColor);
+  root.style.setProperty('--play-blend-soft', playBlendSoft);
+  root.style.setProperty('--play-blend-mist', playBlendMist);
+  root.style.setProperty('--play-blend-border', playBlendBorder);
+  root.style.setProperty('--play-blend-deep', playBlendDeep);
+  root.style.setProperty('--play-blend-text', playBlendText);
+  root.style.setProperty('--play-ink-color', playInkColor);
+  root.style.setProperty('--play-ink-soft', playInkSoft);
+  root.style.setProperty('--play-ink-mist', playInkMist);
+  root.style.setProperty('--play-ink-border', playInkBorder);
+  root.style.setProperty('--play-ink-deep', playInkDeep);
+  root.style.setProperty('--play-ink-text', playInkText);
 
   // Semantic feedback colours (fixed — not theme-dependent)
   root.style.setProperty('--color-correct', '#10B981');

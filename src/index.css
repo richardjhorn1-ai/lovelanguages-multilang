@@ -12,12 +12,43 @@
     --accent-hover: #E63E56;
     --accent-text: #BE123C;
     --accent-shadow: rgba(255, 71, 97, 0.25);
+    --accent-soft: #FFD8E0;
+    --accent-mist: #FFC3D0;
+    --accent-deep: #C7264B;
     /* Secondary accent defaults (Rose & Gold pair) */
     --secondary-color: #FFD93B;
     --secondary-light: #FFFBEB;
     --secondary-border: #FDE68A;
     --secondary-text: #A16207;
     --secondary-hover: #E8C535;
+    --secondary-soft: #FFEFA3;
+    --secondary-mist: #FFE37A;
+    --secondary-deep: #A86A06;
+    /* Play color roles */
+    --play-warm-color: var(--accent-color);
+    --play-warm-soft: color-mix(in srgb, var(--accent-color) 12%, var(--bg-card));
+    --play-warm-mist: color-mix(in srgb, var(--accent-color) 18%, var(--bg-card));
+    --play-warm-border: color-mix(in srgb, var(--accent-color) 22%, var(--border-color));
+    --play-warm-deep: var(--accent-deep);
+    --play-warm-text: color-mix(in srgb, var(--accent-deep) 78%, var(--text-primary));
+    --play-bright-color: var(--secondary-color);
+    --play-bright-soft: color-mix(in srgb, var(--secondary-color) 12%, var(--bg-card));
+    --play-bright-mist: color-mix(in srgb, var(--secondary-color) 18%, var(--bg-card));
+    --play-bright-border: color-mix(in srgb, var(--secondary-color) 22%, var(--border-color));
+    --play-bright-deep: var(--secondary-deep);
+    --play-bright-text: color-mix(in srgb, var(--secondary-deep) 78%, var(--text-primary));
+    --play-blend-color: color-mix(in srgb, var(--accent-color) 54%, var(--secondary-color));
+    --play-blend-soft: color-mix(in srgb, var(--play-blend-color) 12%, var(--bg-card));
+    --play-blend-mist: color-mix(in srgb, var(--play-blend-color) 18%, var(--bg-card));
+    --play-blend-border: color-mix(in srgb, var(--play-blend-color) 22%, var(--border-color));
+    --play-blend-deep: color-mix(in srgb, var(--accent-deep) 58%, var(--secondary-deep));
+    --play-blend-text: color-mix(in srgb, var(--play-blend-deep) 78%, var(--text-primary));
+    --play-ink-color: color-mix(in srgb, var(--accent-deep) 54%, var(--secondary-deep));
+    --play-ink-soft: color-mix(in srgb, var(--play-ink-color) 10%, var(--bg-card));
+    --play-ink-mist: color-mix(in srgb, var(--play-ink-color) 16%, var(--bg-card));
+    --play-ink-border: color-mix(in srgb, var(--play-ink-color) 20%, var(--border-color));
+    --play-ink-deep: color-mix(in srgb, var(--accent-deep) 60%, var(--secondary-deep));
+    --play-ink-text: color-mix(in srgb, var(--play-ink-deep) 70%, var(--text-primary));
     /* Semantic feedback colours */
     --color-correct: #10B981;
     --color-correct-bg: rgba(16, 185, 129, 0.1);

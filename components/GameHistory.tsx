@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { ICONS } from '../constants';
 import { getLevelFromXP, getTierColor } from '../services/level-utils';
-import { apiFetch } from '../services/api-config';
+import { apiFetch, readJsonResponse } from '../services/api-config';
 
 interface GameSession {
   id: string;
@@ -35,7 +35,10 @@ const GAME_MODE_INFO: Record<string, { name: string; icon: React.ReactNode; colo
   multiple_choice: { name: 'Multiple Choice', icon: <ICONS.CheckCircle className="w-5 h-5" />, color: 'text-[var(--secondary-color)]' },
   type_it: { name: 'Type It', icon: <ICONS.Type className="w-5 h-5" />, color: 'text-[var(--accent-color)]' },
   quick_fire: { name: 'Quick Fire', icon: <ICONS.Zap className="w-5 h-5" />, color: 'text-[var(--accent-color)]' },
-  ai_challenge: { name: 'AI Challenge', icon: <ICONS.Bot className="w-5 h-5" />, color: 'text-[var(--secondary-color)]' }
+  ai_challenge: { name: 'AI Challenge', icon: <ICONS.Bot className="w-5 h-5" />, color: 'text-[var(--secondary-color)]' },
+  wordle: { name: 'Wordle', icon: <ICONS.Cards className="w-5 h-5" />, color: 'text-[var(--play-blend-deep)]' },
+  speed_match: { name: 'Speed Match', icon: <ICONS.Clock className="w-5 h-5" />, color: 'text-[var(--play-bright-deep)]' },
+  verb_mastery: { name: 'Verb Mastery', icon: <ICONS.RefreshCw className="w-5 h-5" />, color: 'text-[var(--play-ink-deep)]' }
 };
 
 const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
@@ -45,6 +48,7 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
   const [expandedSession, setExpandedSession] = useState<string | null>(null);
   const [sessionAnswers, setSessionAnswers] = useState<Record<string, GameSessionAnswer[]>>({});
   const [loadingAnswers, setLoadingAnswers] = useState<string | null>(null);
+  const answersFetchInFlightRef = useRef<Record<string, boolean>>({});
 
   const levelInfo = getLevelFromXP(xp);
   const tierColor = getTierColor(levelInfo.tier);
@@ -53,7 +57,22 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
   const getGameModeName = (mode: string): string => {
     const modeKey = mode as keyof typeof GAME_MODE_INFO;
     if (modeKey in GAME_MODE_INFO) {
-      return t(`gameHistory.gameModes.${mode}`);
+      const gameHistoryKey = `gameHistory.gameModes.${mode}`;
+      const translated = t(gameHistoryKey);
+      if (translated !== gameHistoryKey) {
+        return translated;
+      }
+
+      const playModeMap: Partial<Record<keyof typeof GAME_MODE_INFO, string>> = {
+        wordle: 'play.games.wordle',
+        speed_match: 'play.games.speedMatch',
+      };
+      const playKey = playModeMap[modeKey];
+      if (playKey) {
+        return t(playKey);
+      }
+
+      return GAME_MODE_INFO[modeKey].name;
     }
     return mode;
   };
@@ -66,20 +85,32 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
     setLoading(true);
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
-      if (!token) return;
+      if (!token) {
+        setSessions([]);
+        return;
+      }
 
       const response = await apiFetch('/api/get-game-history/?limit=20', {
-        headers: { 'Authorization': `Bearer ${token}` }
+        headers: { 'Authorization': `Bearer ${token}` },
+        __llErrorContext: {
+          screen: 'game_history',
+          userAction: 'load_recent_sessions',
+          suppressErrorTracking: true,
+          treat4xxAsError: false,
+        },
       });
 
-      const data = await response.json();
-      if (data.success) {
+      const data = await readJsonResponse<{ success?: boolean; sessions?: typeof sessions }>(response);
+      if (data?.success) {
         setSessions(data.sessions);
       }
     } catch (error) {
-      console.error('Error fetching game history:', error);
+      if (import.meta.env.DEV) {
+        console.warn('Game history unavailable, keeping empty state.', error);
+      }
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   const fetchSessionAnswers = async (sessionId: string) => {
@@ -87,18 +118,28 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
       setExpandedSession(expandedSession === sessionId ? null : sessionId);
       return;
     }
+    if (answersFetchInFlightRef.current[sessionId]) {
+      return;
+    }
 
+    answersFetchInFlightRef.current[sessionId] = true;
     setLoadingAnswers(sessionId);
     try {
       const token = (await supabase.auth.getSession()).data.session?.access_token;
       if (!token) return;
 
       const response = await apiFetch(`/api/get-game-history/?sessionId=${sessionId}`, {
-        headers: { 'Authorization': `Bearer ${token}` }
+        headers: { 'Authorization': `Bearer ${token}` },
+        __llErrorContext: {
+          screen: 'game_history',
+          userAction: 'load_session_answers',
+          suppressErrorTracking: true,
+          treat4xxAsError: false,
+        },
       });
 
-      const data = await response.json();
-      if (data.success && data.session) {
+      const data = await readJsonResponse<{ success?: boolean; session?: { answers?: GameSessionAnswer[] } }>(response);
+      if (data?.success && data.session) {
         setSessionAnswers(prev => ({
           ...prev,
           [sessionId]: data.session.answers || []
@@ -106,9 +147,13 @@ const GameHistory: React.FC<GameHistoryProps> = ({ xp, onPracticeWords }) => {
         setExpandedSession(sessionId);
       }
     } catch (error) {
-      console.error('Error fetching session answers:', error);
+      if (import.meta.env.DEV) {
+        console.warn('Session answer history unavailable.', error);
+      }
+    } finally {
+      delete answersFetchInFlightRef.current[sessionId];
+      setLoadingAnswers(null);
     }
-    setLoadingAnswers(null);
   };
 
   const formatTime = (seconds: number | null) => {

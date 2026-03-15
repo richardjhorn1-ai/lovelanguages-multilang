@@ -127,11 +127,11 @@ export const TypeIt: React.FC<TypeItProps> = ({
       explanationText = result.explanation;
     } else if (simpleValidate) {
       accepted = simpleValidate(answer, correctAnswer);
-      explanationText = accepted ? 'Exact match' : 'No match';
+      explanationText = '';
     } else {
       // Default: diacritic-normalized comparison
       accepted = isCorrectAnswer(answer, correctAnswer);
-      explanationText = accepted ? 'Exact match' : 'No match';
+      explanationText = '';
     }
 
     setIsValidating(false);
@@ -238,7 +238,7 @@ export const TypeIt: React.FC<TypeItProps> = ({
                 <ICONS.Check className="w-5 h-5" />
                 <span className="font-bold">{t('play.typeIt.correct')}</span>
               </div>
-              {explanation && explanation !== 'Exact match' && (
+              {explanation && (
                 <p className="text-scale-label mt-1 opacity-80">{explanation}</p>
               )}
             </div>
@@ -252,7 +252,7 @@ export const TypeIt: React.FC<TypeItProps> = ({
                 {t('play.typeIt.correctAnswer')}{' '}
                 <span className="font-black">{correctAnswer}</span>
               </p>
-              {explanation && explanation !== 'No match' && (
+              {explanation && (
                 <p className="text-scale-label mt-1 opacity-80">{explanation}</p>
               )}
             </div>
@@ -296,7 +296,7 @@ export const TypeIt: React.FC<TypeItProps> = ({
           style={{ backgroundColor: accentColor }}
         >
           {isValidating
-            ? t('play.typeIt.checking', 'Checking...')
+            ? t('play.typeIt.checking')
             : submitted
             ? t('play.typeIt.next')
             : t('play.typeIt.check')}

@@ -487,7 +487,7 @@ const App: React.FC = () => {
               || null;
             const storedNative = userMeta.native_language
               || localStorage.getItem('preferredNativeLanguage')
-              || localStorage.getItem('preferredLanguage')  // Legacy key fallback
+              || navigator.language.split('-')[0]
               || 'en';
 
             // Read intended role from user metadata (set during onboarding)

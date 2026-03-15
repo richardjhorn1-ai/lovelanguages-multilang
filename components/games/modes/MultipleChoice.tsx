@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ICONS } from '../../../constants';
-import { StreakIndicator } from '../components';
+import { GameStage, StreakIndicator } from '../components';
 import { shuffleArray } from '../../../utils/array';
 import { speak } from '../../../services/audio';
 import { haptics } from '../../../services/haptics';
@@ -126,15 +126,21 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
   if (!currentWord) return null;
 
   return (
-    <div
-      className={`glass-card rounded-2xl p-8 ${
-        localShake || showIncorrectShake ? 'animate-shake' : ''
-      }`}
+    <GameStage
+      tone="bright"
+      layout="compact"
+      eyebrow={t('play.hub.pickEyebrow')}
+      title={t('play.games.multiChoice')}
+      className={`max-w-2xl mx-auto ${localShake || showIncorrectShake ? 'animate-shake' : ''}`}
     >
       {/* Direction indicator */}
       <span
-        className="text-[9px] font-black uppercase tracking-widest px-3 py-1 rounded-full inline-block mb-6"
-        style={{ backgroundColor: `${accentColor}15`, color: accentColor }}
+        className="text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full inline-flex items-center mb-4"
+        style={{
+          background: 'linear-gradient(145deg, color-mix(in srgb, var(--game-accent-soft) 64%, white), rgba(255,255,255,0.92))',
+          color: 'var(--game-accent-deep)',
+          border: '1px solid var(--game-accent-border)',
+        }}
       >
         {t('play.directions.targetToNative', {
           target: targetLanguageName,
@@ -143,21 +149,29 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
       </span>
 
       {/* Word to translate */}
-      <div className="text-center mb-8">
+      <div
+        className="text-center mb-6 rounded-[28px] p-5 md:p-7 border"
+        style={{
+          background:
+            'radial-gradient(circle at top right, color-mix(in srgb, var(--game-accent-soft) 50%, transparent), transparent 46%), linear-gradient(145deg, rgba(255,255,255,0.96), color-mix(in srgb, var(--game-accent-soft) 24%, white))',
+          borderColor: 'var(--game-accent-border)',
+        }}
+      >
         <div className="flex items-center justify-center gap-2">
-          <h3 className="text-3xl font-black font-header text-[var(--text-primary)]">
+          <h3 className="text-3xl md:text-4xl font-black font-header text-[var(--text-primary)] tracking-tight">
             {currentWord.word}
           </h3>
           <button
             onClick={() => speak(currentWord.word, targetLanguage)}
-            className="p-2 rounded-full hover:bg-white/55 dark:hover:bg-white/12 transition-colors"
+            className="p-2.5 rounded-full border bg-white/82 hover:bg-white transition-colors"
+            style={{ borderColor: 'var(--game-accent-border)' }}
             title={t('play.flashcard.listen')}
           >
-            <ICONS.Volume2 className="w-5 h-5 text-[var(--text-secondary)]" />
+            <ICONS.Volume2 className="w-5 h-5 text-[var(--game-accent-deep)]" />
           </button>
         </div>
         {currentWordStreak > 0 && (
-          <div className="mt-2">
+          <div className="mt-3">
             <StreakIndicator streak={currentWordStreak} />
           </div>
         )}
@@ -170,21 +184,21 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
           const isSelected = selected === option;
 
           let buttonStyle =
-            'border-[var(--border-color)] hover:border-[var(--text-secondary)] text-[var(--text-primary)]';
+            'border-[var(--border-color)] hover:border-[var(--game-accent-border)] text-[var(--text-primary)] bg-white/82';
 
           if (showFeedback) {
             if (isCorrect) {
               buttonStyle =
-                'border-[var(--color-correct)] bg-[var(--color-correct-bg)] border-[var(--color-correct)]/30 text-[var(--color-correct)]';
+                'border-[var(--color-correct)] bg-[var(--color-correct-bg)] text-[var(--color-correct)]';
             } else if (isSelected && !isCorrect) {
               buttonStyle =
-                'border-[var(--color-incorrect)] bg-[var(--color-incorrect-bg)] border-[var(--color-incorrect)]/30 text-[var(--color-incorrect)]';
+                'border-[var(--color-incorrect)] bg-[var(--color-incorrect-bg)] text-[var(--color-incorrect)]';
             } else {
-              buttonStyle = 'border-[var(--border-color)] text-[var(--text-secondary)]';
+              buttonStyle = 'border-[var(--border-color)] text-[var(--text-secondary)] bg-white/55';
             }
           } else if (isSelected) {
             buttonStyle =
-              'border-[var(--text-secondary)] bg-[var(--bg-primary)] text-[var(--text-primary)]';
+              'border-[var(--game-accent-color)] bg-[var(--game-accent-soft)] text-[var(--game-accent-deep)]';
           }
 
           return (
@@ -192,24 +206,39 @@ export const MultipleChoice: React.FC<MultipleChoiceProps> = ({
               key={idx}
               onClick={() => handleSelect(option)}
               disabled={showFeedback}
-              className={`w-full p-4 rounded-2xl text-left font-medium transition-all border-2 ${buttonStyle}`}
+              className={`w-full p-4 md:p-5 rounded-[24px] text-left font-medium transition-all border-2 shadow-[0_18px_36px_-30px_rgba(41,47,54,0.22)] ${buttonStyle}`}
             >
-              <span className="text-scale-caption font-bold text-[var(--text-secondary)] mr-3">
-                {String.fromCharCode(65 + idx)}
-              </span>
-              {option}
-              {showFeedback && isCorrect && (
-                <ICONS.Check className="w-5 h-5 float-right text-[var(--color-correct)]" />
-              )}
-              {showFeedback && isSelected && !isCorrect && (
-                <ICONS.X className="w-5 h-5 float-right text-[var(--color-incorrect)]" />
-              )}
+              <div className="flex items-center gap-3">
+                <span
+                  className="shrink-0 w-9 h-9 rounded-full inline-flex items-center justify-center text-sm font-black"
+                  style={{
+                    background: showFeedback && isCorrect
+                      ? 'var(--color-correct-bg)'
+                      : showFeedback && isSelected && !isCorrect
+                        ? 'var(--color-incorrect-bg)'
+                        : 'linear-gradient(145deg, color-mix(in srgb, var(--game-accent-soft) 54%, white), white)',
+                    color: showFeedback && isCorrect
+                      ? 'var(--color-correct)'
+                      : showFeedback && isSelected && !isCorrect
+                        ? 'var(--color-incorrect)'
+                        : 'var(--game-accent-deep)',
+                  }}
+                >
+                  {String.fromCharCode(65 + idx)}
+                </span>
+                <span className="flex-1">{option}</span>
+                {showFeedback && isCorrect && (
+                  <ICONS.Check className="w-5 h-5 text-[var(--color-correct)]" />
+                )}
+                {showFeedback && isSelected && !isCorrect && (
+                  <ICONS.X className="w-5 h-5 text-[var(--color-incorrect)]" />
+                )}
+              </div>
             </button>
           );
         })}
       </div>
-
-    </div>
+    </GameStage>
   );
 };
 

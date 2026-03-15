@@ -5,6 +5,7 @@ import { Profile, WordSuggestion, DictionaryEntry } from '../types';
 import { ICONS } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
 import { apiFetch } from '../services/api-config';
+import { playRoleVar } from './play/playColorRoles';
 
 interface WordRequestCreatorProps {
   profile: Profile;
@@ -213,14 +214,36 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
 
   return (
     <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
-      <div className="glass-card-solid rounded-2xl w-full max-w-md overflow-hidden max-h-[90vh] flex flex-col">
+      <div
+        className="glass-card rounded-[32px] w-full max-w-md overflow-hidden max-h-[90vh] flex flex-col relative"
+        style={{ border: `1px solid ${playRoleVar('bright', 'border')}` }}
+      >
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: `
+              radial-gradient(circle at top left, color-mix(in srgb, ${playRoleVar('bright', 'soft')} 72%, transparent), transparent 42%),
+              radial-gradient(circle at bottom right, color-mix(in srgb, ${playRoleVar('warm', 'soft')} 64%, transparent), transparent 38%)
+            `,
+          }}
+        />
         {/* Header */}
-        <div className="p-5 border-b border-[var(--border-color)] flex items-center justify-between">
+        <div className="relative z-10 p-5 border-b border-[var(--border-color)]/70 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-[var(--accent-light)] rounded-xl flex items-center justify-center">
-              <ICONS.Gift className="w-5 h-5 text-[var(--accent-color)]" />
+            <div
+              className="w-12 h-12 rounded-[18px] flex items-center justify-center"
+              style={{
+                background: `linear-gradient(145deg, color-mix(in srgb, ${playRoleVar('bright', 'soft')} 82%, var(--bg-card)), color-mix(in srgb, ${playRoleVar('warm', 'mist')} 42%, var(--bg-card)))`,
+                border: `1px solid ${playRoleVar('bright', 'border')}`,
+                color: playRoleVar('bright', 'deep'),
+              }}
+            >
+              <ICONS.Gift className="w-6 h-6" />
             </div>
             <div>
+              <p className="text-[11px] font-black uppercase tracking-[0.24em] mb-1" style={{ color: playRoleVar('bright', 'deep') }}>
+                {t('tutorGames.hub.sendNowEyebrow')}
+              </p>
               <h2 className="font-black font-header text-[var(--text-primary)]">{t('challengeCreator.lovePackage.title')}</h2>
               <p className="text-scale-caption text-[var(--text-secondary)]">{t('challengeCreator.lovePackage.subtitle', { name: partnerName })}</p>
             </div>
@@ -234,9 +257,15 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
         </div>
 
         {/* Content */}
-        <div className="p-5 space-y-4 flex-1 overflow-y-auto">
+        <div className="relative z-10 p-5 space-y-4 flex-1 overflow-y-auto">
           {/* Add New Words Section */}
-          <div className="bg-[var(--accent-light)] p-4 rounded-2xl border border-[var(--accent-border)]">
+          <div
+            className="p-4 rounded-[26px] border"
+            style={{
+              background: `linear-gradient(145deg, color-mix(in srgb, ${playRoleVar('bright', 'soft')} 84%, var(--bg-card)), color-mix(in srgb, ${playRoleVar('warm', 'soft')} 30%, var(--bg-card)))`,
+              borderColor: playRoleVar('bright', 'border'),
+            }}
+          >
             <div className="flex items-center gap-2 mb-3">
               <ICONS.Plus className="w-4 h-4 text-[var(--accent-color)]" />
               <p className="font-bold text-[var(--text-primary)] text-scale-label">{t('challengeCreator.common.addNewWords')}</p>
@@ -267,7 +296,10 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
                 <button
                   onClick={generateTranslation}
                   disabled={!newWord.trim() || generating}
-                  className="px-4 py-2 bg-[var(--accent-color)] text-white rounded-xl font-bold text-scale-label hover:bg-[var(--accent-hover)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+                  className="px-4 py-2 text-white rounded-xl font-bold text-scale-label disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+                  style={{
+                    background: `linear-gradient(145deg, ${playRoleVar('bright', 'color')}, ${playRoleVar('bright', 'deep')})`,
+                  }}
                 >
                   {generating ? (
                     <>
@@ -296,7 +328,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
 
             {/* Step 2: Show generated result with edit option */}
             {generatedWord && (
-              <div className="mb-3 p-3 glass-card rounded-xl">
+              <div className="mb-3 p-3 glass-card rounded-2xl">
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
@@ -321,7 +353,10 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
                   <button
                     onClick={addWord}
                     disabled={!newTranslation.trim() || validating}
-                    className="px-3 py-2 bg-green-500 text-white rounded-xl font-bold text-scale-label hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-1"
+                    className="px-3 py-2 text-white rounded-xl font-bold text-scale-label disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-1"
+                    style={{
+                      background: `linear-gradient(145deg, ${playRoleVar('warm', 'color')}, ${playRoleVar('warm', 'deep')})`,
+                    }}
                   >
                     {validating ? (
                       <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
@@ -338,8 +373,14 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
 
             {/* Correction notification */}
             {lastCorrection && (
-              <div className="p-2 bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-700 rounded-lg">
-                <p className="text-scale-caption text-amber-700 dark:text-amber-300 flex items-center gap-1.5">
+              <div
+                className="p-2.5 rounded-xl border"
+                style={{
+                  background: `color-mix(in srgb, ${playRoleVar('warm', 'soft')} 72%, var(--bg-card))`,
+                  borderColor: playRoleVar('warm', 'border'),
+                }}
+              >
+                <p className="text-scale-caption flex items-center gap-1.5" style={{ color: playRoleVar('warm', 'text') }}>
                   <ICONS.Sparkles className="w-3 h-3" />
                   <span>{t('challengeCreator.lovePackage.corrected', { note: lastCorrection })}</span>
                 </p>
@@ -349,7 +390,7 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
 
           {/* Selected Words */}
           {selectedWords.length > 0 && (
-            <div className="bg-[var(--bg-primary)] rounded-2xl p-4">
+            <div className="glass-card rounded-[26px] p-4">
               <p className="text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">
                 {t('challengeCreator.lovePackage.packageCount', { count: selectedWords.length })}
               </p>
@@ -365,12 +406,25 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
                         <div className="flex items-center gap-2">
                           <p className="font-bold text-[var(--text-primary)] truncate">{word.word}</p>
                           {word.word_type && word.word_type !== 'phrase' && (
-                            <span className="text-[10px] px-1.5 py-0.5 bg-[var(--secondary-light)] text-[var(--secondary-text)] rounded font-medium shrink-0">
+                            <span
+                              className="text-[10px] px-1.5 py-0.5 rounded font-medium shrink-0"
+                              style={{
+                                background: `color-mix(in srgb, ${playRoleVar('bright', 'soft')} 82%, var(--bg-card))`,
+                                color: playRoleVar('bright', 'text'),
+                              }}
+                            >
                               {word.word_type}
                             </span>
                           )}
                           {hasContext && (
-                            <span className="text-[10px] px-1.5 py-0.5 bg-[var(--accent-light)] text-[var(--accent-color)] rounded font-medium shrink-0" title={t('challengeCreator.lovePackage.hasData')}>
+                            <span
+                              className="text-[10px] px-1.5 py-0.5 rounded font-medium shrink-0"
+                              style={{
+                                background: `color-mix(in srgb, ${playRoleVar('warm', 'soft')} 82%, var(--bg-card))`,
+                                color: playRoleVar('warm', 'deep'),
+                              }}
+                              title={t('challengeCreator.lovePackage.hasData')}
+                            >
                               {t('challengeCreator.lovePackage.hasData')}
                             </span>
                           )}
@@ -392,37 +446,47 @@ const WordRequestCreator: React.FC<WordRequestCreatorProps> = ({
 
           {/* XP Bonus Info */}
           {selectedWords.length > 0 && (
-            <div className="flex items-center gap-2 px-4 py-3 bg-[var(--accent-light)] rounded-xl border border-[var(--accent-border)]">
-              <ICONS.Sparkles className="w-5 h-5 text-[var(--accent-color)]" />
-              <p className="text-scale-label text-[var(--accent-color)]">
-                {partnerName} earns <span className="font-bold">2x XP</span> for learning these words!
+            <div
+              className="flex items-center gap-2 px-4 py-3 rounded-2xl border"
+              style={{
+                background: `linear-gradient(145deg, color-mix(in srgb, ${playRoleVar('bright', 'soft')} 82%, var(--bg-card)), color-mix(in srgb, ${playRoleVar('warm', 'soft')} 34%, var(--bg-card)))`,
+                borderColor: playRoleVar('bright', 'border'),
+              }}
+            >
+              <ICONS.Sparkles className="w-5 h-5" style={{ color: playRoleVar('bright', 'deep') }} />
+              <p className="text-scale-label" style={{ color: playRoleVar('bright', 'text') }}>
+                {t('challengeCreator.lovePackage.xpBonus', { name: partnerName })}
               </p>
             </div>
           )}
         </div>
 
         {/* Footer */}
-        <div className="p-5 border-t border-[var(--border-color)] flex gap-3">
+        <div className="relative z-10 p-5 border-t border-[var(--border-color)]/70 flex gap-3">
           <button
             onClick={onClose}
-            className="flex-1 py-3 border-2 border-[var(--border-color)] rounded-xl font-bold text-[var(--text-secondary)] hover:bg-[var(--bg-primary)] transition-colors"
+            className="flex-1 py-3 border-2 border-[var(--border-color)] rounded-2xl font-bold text-[var(--text-secondary)] hover:bg-[var(--bg-primary)] transition-colors"
           >
-            Cancel
+            {t('challengeCreator.common.cancel')}
           </button>
           <button
             onClick={handleSend}
             disabled={sending || selectedWords.length === 0}
-            className="flex-1 py-3 bg-[var(--accent-color)] text-white font-bold rounded-xl hover:bg-[var(--accent-hover)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+            className="flex-1 py-3 text-white font-bold rounded-2xl disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center justify-center gap-2"
+            style={{
+              background: `linear-gradient(145deg, ${playRoleVar('bright', 'color')}, ${playRoleVar('bright', 'deep')})`,
+              boxShadow: `0 18px 38px -24px color-mix(in srgb, ${playRoleVar('bright', 'deep')} 34%, transparent)`,
+            }}
           >
             {sending ? (
               <>
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                Sending...
+                {t('challengeCreator.common.sending')}
               </>
             ) : (
               <>
                 <ICONS.Heart className="w-4 h-4" />
-                Send Love Package
+                {t('challengeCreator.lovePackage.sendLovePackage')}
               </>
             )}
           </button>

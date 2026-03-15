@@ -5,6 +5,7 @@ import { Profile, DictionaryEntry } from '../types';
 import { ICONS } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
 import { apiFetch } from '../services/api-config';
+import { playRoleVar } from './play/playColorRoles';
 
 interface NewWord {
   word: string;        // Target language word
@@ -139,7 +140,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
         },
         body: JSON.stringify({
           challengeType: 'quiz',
-          title: title || `Quiz for ${partnerName}`,
+          title: title || t('challengeCreator.quiz.titlePlaceholder', { name: partnerName }),
           config: {
             wordCount: selectedWords.size + newWords.length,
             questionTypes: Array.from(questionTypes)
@@ -165,20 +166,54 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
 
   return (
     <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
-      <div className="glass-card rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col">
+      <div
+        className="glass-card rounded-[32px] w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col relative"
+        style={{ border: `1px solid ${playRoleVar('warm', 'border')}` }}
+      >
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: `
+              radial-gradient(circle at top left, color-mix(in srgb, ${playRoleVar('warm', 'soft')} 72%, transparent), transparent 42%),
+              radial-gradient(circle at bottom right, color-mix(in srgb, ${playRoleVar('blend', 'soft')} 64%, transparent), transparent 38%)
+            `,
+          }}
+        />
         {/* Header */}
-        <div className="p-6 border-b border-[var(--border-color)] flex items-center justify-between">
-          <div>
-            <h2 className="text-xl font-black font-header text-[var(--text-primary)]">{t('challengeCreator.quiz.title')}</h2>
-            <p className="text-scale-label text-[var(--text-secondary)]">{t('challengeCreator.quiz.subtitle', { name: partnerName })}</p>
+        <div className="relative z-10 p-6 border-b border-[var(--border-color)]/70 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <div
+              className="w-14 h-14 rounded-[20px] flex items-center justify-center"
+              style={{
+                background: `linear-gradient(145deg, color-mix(in srgb, ${playRoleVar('warm', 'soft')} 82%, var(--bg-card)), color-mix(in srgb, ${playRoleVar('warm', 'mist')} 52%, var(--bg-card)))`,
+                border: `1px solid ${playRoleVar('warm', 'border')}`,
+                color: playRoleVar('warm', 'deep'),
+              }}
+            >
+              <ICONS.Target className="w-7 h-7" />
+            </div>
+            <div>
+              <p
+                className="text-[11px] font-black uppercase tracking-[0.24em] mb-1"
+                style={{ color: playRoleVar('warm', 'deep') }}
+              >
+                {t('tutorGames.hub.challengeEyebrow')}
+              </p>
+              <h2 className="text-xl md:text-2xl font-black font-header text-[var(--text-primary)]">{t('challengeCreator.quiz.title')}</h2>
+              <p className="text-scale-label text-[var(--text-secondary)]">{t('challengeCreator.quiz.subtitle', { name: partnerName })}</p>
+            </div>
           </div>
-          <button onClick={onClose} className="p-2 hover:bg-[var(--bg-primary)] rounded-xl transition-colors">
+          <button
+            onClick={onClose}
+            className="p-2 hover:bg-white/50 rounded-xl transition-colors"
+            style={{ color: 'var(--text-secondary)' }}
+          >
             <ICONS.X className="w-5 h-5 text-[var(--text-secondary)]" />
           </button>
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-6">
+        <div className="relative z-10 flex-1 overflow-y-auto p-6 space-y-6">
 
           {/* Title Input */}
           <div>
@@ -195,7 +230,13 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
           </div>
 
           {/* Add New Words Section */}
-          <div className="bg-[var(--accent-light)] p-4 rounded-2xl border border-[var(--accent-border)]">
+          <div
+            className="p-4 rounded-[26px] border"
+            style={{
+              background: `linear-gradient(145deg, color-mix(in srgb, ${playRoleVar('warm', 'soft')} 88%, var(--bg-card)), color-mix(in srgb, ${playRoleVar('blend', 'soft')} 38%, var(--bg-card)))`,
+              borderColor: playRoleVar('warm', 'border'),
+            }}
+          >
             <div className="flex items-center gap-2 mb-3">
               <ICONS.Plus className="w-4 h-4 text-[var(--accent-color)]" />
               <p className="font-bold text-[var(--text-primary)] text-scale-label">{t('challengeCreator.common.addNewWords')}</p>
@@ -225,7 +266,11 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
                 <button
                   onClick={generateTranslation}
                   disabled={!newWord.trim() || generating}
-                  className="px-4 py-2 bg-[var(--accent-color)] text-white rounded-lg font-bold text-scale-label hover:bg-[var(--accent-hover)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+                  className="px-4 py-2 text-white rounded-xl font-bold text-scale-label disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+                  style={{
+                    background: `linear-gradient(145deg, ${playRoleVar('warm', 'color')}, ${playRoleVar('warm', 'deep')})`,
+                    boxShadow: `0 16px 34px -24px color-mix(in srgb, ${playRoleVar('warm', 'deep')} 34%, transparent)`,
+                  }}
                 >
                   {generating ? (
                     <>
@@ -245,7 +290,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
                     setGeneratedWord(null);
                     setNewTranslation('');
                   }}
-                  className="px-3 py-2 text-[var(--text-secondary)] hover:bg-white/40 rounded-lg font-bold text-scale-label transition-colors"
+                  className="px-3 py-2 text-[var(--text-secondary)] hover:bg-white/40 rounded-xl font-bold text-scale-label transition-colors"
                 >
                   {t('challengeCreator.common.clear')}
                 </button>
@@ -254,7 +299,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
 
             {/* Step 2: Show generated result with edit option */}
             {generatedWord && (
-              <div className="mb-3 p-3 glass-card rounded-xl">
+              <div className="mb-3 p-3 glass-card rounded-2xl">
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
@@ -270,7 +315,8 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
                         value={newTranslation}
                         onChange={e => setNewTranslation(e.target.value)}
                         placeholder={t('challengeCreator.common.editTranslation')}
-                        className="flex-1 p-1.5 border border-[var(--border-color)] rounded-lg text-scale-label focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+                        className="flex-1 p-1.5 border border-[var(--border-color)] rounded-xl text-scale-label focus:outline-none bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+                        style={{ borderColor: playRoleVar('warm', 'border') }}
                         onKeyDown={e => e.key === 'Enter' && newTranslation && addNewWord()}
                       />
                     </div>
@@ -278,7 +324,10 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
                   <button
                     onClick={addNewWord}
                     disabled={!newTranslation.trim()}
-                    className="px-3 py-2 bg-green-500 text-white rounded-lg font-bold text-scale-label hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-1"
+                    className="px-3 py-2 text-white rounded-xl font-bold text-scale-label disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-1"
+                    style={{
+                      background: `linear-gradient(145deg, ${playRoleVar('bright', 'color')}, ${playRoleVar('bright', 'deep')})`,
+                    }}
                   >
                     <ICONS.Check className="w-4 h-4" />
                     {t('challengeCreator.common.add')}
@@ -291,7 +340,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
                 {newWords.map((word, index) => (
                   <div
                     key={index}
-                    className="flex items-center justify-between p-2 glass-card rounded-lg"
+                    className="flex items-center justify-between p-2.5 glass-card rounded-xl"
                   >
                     <div className="flex items-center gap-2">
                       <span className="font-bold text-[var(--text-primary)] text-scale-label">{word.word}</span>
@@ -311,7 +360,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
           </div>
 
           {/* Question Types */}
-          <div>
+          <div className="glass-card rounded-[26px] p-4 md:p-5">
             <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">
               {t('challengeCreator.quiz.questionTypes')}
             </label>
@@ -326,9 +375,14 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
                   onClick={() => toggleQuestionType(type.id)}
                   className={`px-4 py-2 rounded-xl text-scale-label font-bold flex items-center gap-2 transition-all ${
                     questionTypes.has(type.id)
-                      ? 'bg-[var(--accent-light)] text-[var(--accent-color)] border-2 border-[var(--accent-border)]'
+                      ? 'border-2'
                       : 'bg-[var(--bg-primary)] text-[var(--text-secondary)] border-2 border-[var(--border-color)] hover:border-[var(--text-secondary)]'
                   }`}
+                  style={questionTypes.has(type.id) ? {
+                    background: `color-mix(in srgb, ${playRoleVar('warm', 'soft')} 84%, var(--bg-card))`,
+                    color: playRoleVar('warm', 'deep'),
+                    borderColor: playRoleVar('warm', 'border'),
+                  } : undefined}
                 >
                   {type.icon}
                   {type.label}
@@ -338,7 +392,7 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
           </div>
 
           {/* Word Selection */}
-          <div>
+          <div className="glass-card rounded-[26px] p-4 md:p-5">
             <div className="flex items-center justify-between mb-3">
               <label className="text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider">
                 {t('challengeCreator.quiz.selectExisting', { count: selectedWords.size, max: 20 })}
@@ -367,7 +421,8 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
                 value={searchQuery}
                 onChange={e => setSearchQuery(e.target.value)}
                 placeholder={t('challengeCreator.common.searchWords')}
-                className="w-full p-3 border border-[var(--border-color)] rounded-xl text-scale-label focus:outline-none focus:border-[var(--accent-border)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+                className="w-full p-3 border border-[var(--border-color)] rounded-xl text-scale-label focus:outline-none bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+                style={{ borderColor: playRoleVar('warm', 'border') }}
               />
             </div>
 
@@ -379,9 +434,13 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
                   onClick={() => toggleWord(word.id)}
                   className={`p-3 rounded-xl text-left transition-all ${
                     selectedWords.has(word.id)
-                      ? 'bg-[var(--accent-light)] border-2 border-[var(--accent-border)]'
+                      ? 'border-2'
                       : 'bg-[var(--bg-primary)] border-2 border-[var(--border-color)] hover:border-[var(--text-secondary)]'
                   }`}
+                  style={selectedWords.has(word.id) ? {
+                    background: `color-mix(in srgb, ${playRoleVar('warm', 'soft')} 82%, var(--bg-card))`,
+                    borderColor: playRoleVar('warm', 'border'),
+                  } : undefined}
                 >
                   <p className="font-bold text-[var(--text-primary)] text-scale-label truncate">{word.word}</p>
                   <p className="text-scale-caption text-[var(--text-secondary)] truncate">{word.translation}</p>
@@ -399,17 +458,21 @@ const CreateQuizChallenge: React.FC<CreateQuizChallengeProps> = ({
         </div>
 
         {/* Footer */}
-        <div className="p-6 border-t border-[var(--border-color)] flex items-center justify-between bg-[var(--bg-primary)]">
+        <div className="relative z-10 p-6 border-t border-[var(--border-color)]/70 flex items-center justify-between bg-[color:var(--bg-card)]">
           <button
             onClick={onClose}
-            className="px-6 py-3 text-[var(--text-secondary)] font-bold text-scale-label hover:bg-white/40 rounded-xl transition-colors"
+            className="px-6 py-3 text-[var(--text-secondary)] font-bold text-scale-label hover:bg-white/40 rounded-2xl transition-colors"
           >
             {t('challengeCreator.common.cancel')}
           </button>
           <button
             onClick={handleCreate}
             disabled={creating || (selectedWords.size === 0 && newWords.length === 0)}
-            className="px-8 py-3 bg-[var(--accent-color)] text-white font-bold text-scale-label rounded-xl hover:bg-[var(--accent-hover)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+            className="px-8 py-3 text-white font-bold text-scale-label rounded-2xl disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+            style={{
+              background: `linear-gradient(145deg, ${playRoleVar('warm', 'color')}, ${playRoleVar('warm', 'deep')})`,
+              boxShadow: `0 18px 38px -24px color-mix(in srgb, ${playRoleVar('warm', 'deep')} 34%, transparent)`,
+            }}
           >
             {creating ? (
               <>

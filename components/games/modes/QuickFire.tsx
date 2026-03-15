@@ -6,6 +6,7 @@ import { shuffleArray } from '../../../utils/array';
 import { isCorrectAnswer } from '../../../utils/answer-helpers';
 import { speak } from '../../../services/audio';
 import { haptics } from '../../../services/haptics';
+import { GameStage } from '../components';
 import type { AnswerResult } from './types';
 
 interface QuickFireProps {
@@ -148,11 +149,11 @@ export const QuickFire: React.FC<QuickFireProps> = ({
       explanation = result.explanation;
     } else if (simpleValidate) {
       accepted = simpleValidate(input, currentWord.translation);
-      explanation = accepted ? 'Exact match' : 'No match';
+      explanation = '';
     } else {
       // Default: diacritic-normalized comparison
       accepted = isCorrectAnswer(input, currentWord.translation);
-      explanation = accepted ? 'Exact match' : 'No match';
+      explanation = '';
     }
 
     setIsValidating(false);
@@ -215,27 +216,45 @@ export const QuickFire: React.FC<QuickFireProps> = ({
   // Ready screen
   if (phase === 'ready') {
     return (
-      <div className="w-full text-center">
-        <div className="glass-card rounded-2xl p-8 max-w-md mx-auto">
-          <div className="mb-4"><ICONS.Zap className="w-16 h-16 text-[var(--accent-color)] mx-auto" /></div>
-          <h2 className="text-2xl font-black font-header text-[var(--text-primary)] mb-2">
-            {t('play.quickFire.title')}
-          </h2>
-          <p className="text-[var(--text-secondary)] mb-6">
-            {t('play.quickFire.description')}
-          </p>
-          <div className="bg-[var(--accent-light)] p-4 rounded-2xl mb-6">
-            <p className="text-scale-heading font-bold text-[var(--accent-color)]">
-              <ICONS.Zap className="w-5 h-5 inline-block text-[var(--accent-color)]" /> {t('play.quickFire.wordsAvailable', { count: words.length })}
-            </p>
-            <p className="text-scale-label text-[var(--text-secondary)] mt-1">
-              {t('play.quickFire.upTo20')}
-            </p>
+      <GameStage
+        tone="blend"
+        eyebrow={t('play.hub.intensityEyebrow')}
+        title={t('play.quickFire.title')}
+        description={t('play.quickFire.description')}
+        className="max-w-xl mx-auto text-center"
+      >
+        <div
+          className="rounded-[28px] p-6 md:p-8 border"
+          style={{
+            background:
+              'radial-gradient(circle at top left, color-mix(in srgb, var(--game-accent-soft) 48%, transparent), transparent 42%), linear-gradient(145deg, rgba(255,255,255,0.94), color-mix(in srgb, var(--game-accent-soft) 24%, white))',
+            borderColor: 'var(--game-accent-border)',
+          }}
+        >
+          <div
+            className="w-[4.5rem] h-[4.5rem] md:w-20 md:h-20 mx-auto mb-5 rounded-[28px] flex items-center justify-center"
+            style={{
+              background: 'linear-gradient(145deg, var(--game-accent-color), var(--game-accent-deep))',
+              boxShadow: '0 20px 40px -24px var(--game-accent-shadow)',
+            }}
+          >
+            <ICONS.Zap className="w-9 h-9 md:w-10 md:h-10 text-white" />
           </div>
+          <div className="inline-flex items-center gap-2 rounded-full px-4 py-2 bg-white/82 border font-black text-sm mb-6" style={{ borderColor: 'var(--game-accent-border)', color: 'var(--game-accent-deep)' }}>
+            <ICONS.Zap className="w-4 h-4" />
+            {t('play.quickFire.wordsAvailable', { count: words.length })}
+          </div>
+          <p className="text-scale-label text-[var(--text-secondary)] mb-6">
+            {t('play.quickFire.upTo20')}
+          </p>
           <button
             onClick={startGame}
             disabled={words.length < 5}
-            className="w-full py-4 rounded-2xl font-black text-white uppercase tracking-widest text-scale-label bg-[var(--accent-color)] hover:bg-[var(--accent-hover)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="w-full py-4 rounded-2xl font-black text-white uppercase tracking-widest text-scale-label disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+            style={{
+              background: 'linear-gradient(145deg, var(--game-accent-color), var(--game-accent-deep))',
+              boxShadow: '0 22px 42px -24px var(--game-accent-shadow)',
+            }}
           >
             {t('play.quickFire.start')}
           </button>
@@ -245,15 +264,19 @@ export const QuickFire: React.FC<QuickFireProps> = ({
             </p>
           )}
         </div>
-      </div>
+      </GameStage>
     );
   }
 
   // Playing screen
   if (phase === 'playing' && currentWord) {
     return (
-      <div
-        className={`w-full max-w-md mx-auto transition-colors duration-200 rounded-3xl ${
+      <GameStage
+        tone="blend"
+        eyebrow={t('play.hub.fastBadge')}
+        title={t('play.games.quickFire')}
+        layout="compact"
+        className={`w-full max-w-xl mx-auto transition-colors duration-200 ${
           feedback === 'correct'
             ? 'bg-[var(--color-correct-bg)] animate-correct-glow'
             : feedback === 'wrong'
@@ -262,11 +285,11 @@ export const QuickFire: React.FC<QuickFireProps> = ({
         }`}
       >
         {/* Timer Bar */}
-        <div className="h-3 bg-[var(--border-color)] rounded-full mb-4 overflow-hidden">
+        <div className="h-3 bg-[var(--border-color)]/60 rounded-full mb-5 overflow-hidden">
           <div
             className={`h-full transition-all duration-1000 ${
               timeLeft > 30
-                ? 'bg-[var(--accent-color)]'
+                ? 'bg-[var(--game-accent-color)]'
                 : timeLeft > 15
                 ? 'bg-[var(--color-warning)]'
                 : 'bg-[var(--color-incorrect)]'
@@ -276,13 +299,13 @@ export const QuickFire: React.FC<QuickFireProps> = ({
         </div>
 
         {/* Header */}
-        <div className="flex items-center justify-between mb-4">
-          <span className="text-scale-label font-bold text-[var(--text-secondary)]">
+        <div className="flex items-center justify-between mb-5">
+          <span className="inline-flex items-center rounded-full px-3 py-1.5 bg-white/75 border text-scale-label font-bold" style={{ borderColor: 'var(--game-accent-border)', color: 'var(--game-accent-deep)' }}>
             {currentIndex + 1} / {gameWords.length}
           </span>
           <span
-            className={`text-3xl font-black ${
-              timeLeft > 10 ? 'text-[var(--accent-color)]' : 'text-red-500 animate-pulse'
+            className={`text-3xl md:text-4xl font-black font-header ${
+              timeLeft > 10 ? 'text-[var(--game-accent-color)]' : 'text-red-500 animate-pulse'
             }`}
           >
             {timeLeft}s
@@ -290,17 +313,25 @@ export const QuickFire: React.FC<QuickFireProps> = ({
         </div>
 
         {/* Word */}
-        <div className="bg-[var(--accent-light)] p-8 rounded-2xl mb-6 text-center">
+        <div
+          className="p-8 rounded-[28px] mb-6 text-center border"
+          style={{
+            background:
+              'radial-gradient(circle at top right, color-mix(in srgb, var(--game-accent-soft) 48%, transparent), transparent 42%), linear-gradient(145deg, rgba(255,255,255,0.95), color-mix(in srgb, var(--game-accent-soft) 28%, white))',
+            borderColor: 'var(--game-accent-border)',
+          }}
+        >
           <div className="flex items-center justify-center gap-2">
-            <p className="text-4xl font-black text-[var(--accent-color)]">
+            <p className="text-4xl md:text-5xl font-black font-header text-[var(--game-accent-deep)] tracking-tight">
               {currentWord.word}
             </p>
             <button
               onClick={() => speak(currentWord.word, targetLanguage)}
-              className="p-2 rounded-full hover:bg-[var(--accent-light)] transition-colors"
+              className="p-3 rounded-full border bg-white/82 hover:bg-white transition-colors"
+              style={{ borderColor: 'var(--game-accent-border)' }}
               title={t('play.flashcard.listen')}
             >
-              <ICONS.Volume2 className="w-6 h-6 text-[var(--accent-color)]" />
+              <ICONS.Volume2 className="w-6 h-6 text-[var(--game-accent-deep)]" />
             </button>
           </div>
         </div>
@@ -314,17 +345,18 @@ export const QuickFire: React.FC<QuickFireProps> = ({
           placeholder={t('play.quickFire.typeTranslation')}
           autoFocus
           disabled={isValidating}
-          className="w-full p-4 border-2 border-[var(--border-color)] rounded-xl text-center text-scale-heading font-bold focus:outline-none focus:border-[var(--accent-color)] bg-[var(--bg-primary)] text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+          className="w-full p-4 border-2 rounded-[24px] text-center text-scale-heading font-bold focus:outline-none bg-white/86 text-[var(--text-primary)] placeholder:text-[var(--text-secondary)]"
+          style={{ borderColor: 'var(--game-accent-border)' }}
         />
 
         {/* Progress */}
         <div className="mt-4 h-2 bg-[var(--border-color)] rounded-full overflow-hidden">
           <div
-            className="h-full bg-[var(--accent-color)] transition-all duration-300"
+            className="h-full bg-[var(--game-accent-color)] transition-all duration-300"
             style={{ width: `${((currentIndex + 1) / gameWords.length) * 100}%` }}
           />
         </div>
-      </div>
+      </GameStage>
     );
   }
 

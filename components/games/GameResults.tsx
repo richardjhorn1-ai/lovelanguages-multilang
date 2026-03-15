@@ -74,10 +74,7 @@ const GameResults: React.FC<GameResultsProps> = ({
     return () => clearTimeout(timer);
   }, [percentage]);
 
-  // Filter to answers with interesting explanations (not exact match or basic no match)
-  const answersWithExplanations = answers?.filter(a =>
-    a.explanation && a.explanation !== 'Exact match' && a.explanation !== 'No match'
-  ) || [];
+  const answersWithExplanations = answers?.filter((answer) => answer.explanation?.trim()) || [];
 
   return (
     <div className="h-full flex flex-col items-center justify-center p-8">

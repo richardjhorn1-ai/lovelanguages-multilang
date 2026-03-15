@@ -277,7 +277,8 @@
       "noWordsDesc": "Lær noen ord i chatten først, så kom tilbake for å øve!",
       "needMore": "Trenger flere ord",
       "needMoreDesc": "Flervalg krever minst 4 ord. Du har {{count}}.",
-      "tryFlashcards": "Prøv flashkort i stedet"
+      "tryFlashcards": "Prøv flashkort i stedet",
+      "needFourWordsDesc": "This mode needs at least 4 words. You have {{count}} right now."
     },
     "games": {
       "flashcards": "Flashkort",
@@ -294,7 +295,13 @@
       "conversationDesc": "Snakk med AI på {{language}}",
       "verbMastery": "Verbmesterskap",
       "verbMasteryVerbs": "{{count}} verb",
-      "learnVerbsFirst": "Lær verb først"
+      "learnVerbsFirst": "Lær verb først",
+      "wordle": "Wordle",
+      "wordleDesc": "Guess the target word from the clue",
+      "wordleWords": "{{count}} Wordle-ready words",
+      "speedMatch": "Speed Match",
+      "speedMatchDesc": "Race through fast translation matches and beat your best time",
+      "speedMatchMeta": "Choose your word count and race the clock upward"
     },
     "loveNotes": {
       "title": "Kjærlighetsbrev fra {{partner}}",
@@ -311,6 +318,53 @@
       "from": "Fra {{partner}}",
       "goToGames": "Gå til Øvingsspill"
     },
+    "hub": {
+      "sectionSoloTitle": "Practice solo",
+      "sectionSoloCopy": "Jump into the mode that fits your energy, from gentle reps to faster drills.",
+      "sectionSharedTitle": "Play together",
+      "sectionSharedCopy": "Shared moments, partner prompts, and the bonding layer that makes this more than solo practice.",
+      "sectionExperimentalTitle": "Voice and experimental",
+      "sectionExperimentalCopy": "Speak out loud, test new ideas, and keep the playful edge of the app alive.",
+      "sharedEyebrow": "Shared prompt",
+      "sharedPlaceholderMeta": "Your shared moments land here",
+      "sharedPlaceholderCopy": "Word gifts and partner-built challenges keep the app focused on bonding, not solo grind.",
+      "sharedPlaceholderMetaTwo": "Designed for shared momentum",
+      "flashcardsCopy": "The gentlest place to begin. Flip, reveal, and ease back into your shared vocabulary.",
+      "warmupEyebrow": "Warm-up",
+      "requiresWords": "Needs {{count}}+ words",
+      "pickEyebrow": "Recognition",
+      "spellMeta": "Write the answer yourself",
+      "spellEyebrow": "Recall",
+      "quickFireCopy": "A faster burst when you want energy, pressure, and a clear sense of momentum.",
+      "fastBadge": "Fast",
+      "intensityEyebrow": "Timed sprint",
+      "verbCopy": "Train your conjugation instincts with {{count}} ready verbs.",
+      "comingSoonMeta": "Needs conjugated verbs",
+      "grammarEyebrow": "Grammar focus",
+      "aiCopy": "Adaptive sets that push your weaker words, mix the deck, and keep practice feeling alive.",
+      "adaptiveEyebrow": "Adaptive",
+      "voiceMeta": "Talk out loud and get unstuck faster",
+      "voiceEyebrow": "Voice",
+      "heroSharedEyebrow": "Play together",
+      "heroSharedSingle": "A shared prompt is waiting",
+      "heroSharedPlural": "{{count}} shared prompts are waiting",
+      "heroSharedCopy": "{{partner}} has sent you something to respond to. Start there, then roll straight into a solo practice round.",
+      "openSharedAction": "Open Love Note",
+      "warmupAction": "Warm up with Flashcards",
+      "heroSoloEyebrow": "Pick up momentum",
+      "heroSoloHeadline": "Choose a game and jump back in",
+      "heroSoloCopy": "Start with a gentler solo mode, then ramp up into faster drills or voice practice in {{language}}.",
+      "startFlashcardsAction": "Start Flashcards",
+      "quickFireAction": "Jump into Quick Fire",
+      "voiceAction": "Open Conversation",
+      "statWords": "Words ready",
+      "statMastered": "Mastered",
+      "statShared": "Shared notes",
+      "statVerbs": "Verb sets",
+      "openLabel": "Open",
+      "experimentalBadge": "Adaptive mix",
+      "grammarBadge": "Grammar focus"
+    },
     "directions": {
       "targetToNative": "{{target}} → {{native}}",
       "nativeToTarget": "{{native}} → {{target}}"
@@ -320,7 +374,8 @@
       "translation": "OVERSETTELSE",
       "tapToReveal": "Trykk for å vise",
       "hard": "Vanskelig",
-      "gotIt": "Fikk det!"
+      "gotIt": "Fikk det!",
+      "listen": "Listen"
     },
     "typeIt": {
       "hint": "Hint:",
@@ -331,7 +386,8 @@
       "correctAnswer": "Riktig svar:",
       "typeIn": "Skriv på {{language}}...",
       "next": "Neste",
-      "check": "Sjekk"
+      "check": "Sjekk",
+      "checking": "Checking..."
     },
     "quickFire": {
       "title": "Hurtigild!",
@@ -360,7 +416,9 @@
         "leastPracticedDesc": "Ord du ikke har sett på en stund",
         "reviewMastered": "Repeter mestrede",
         "reviewMasteredDesc": "Øv på lærte ord"
-      }
+      },
+      "noQuestions": "No questions are available for this mode yet.",
+      "exit": "Exit game"
     },
     "verbMastery": {
       "title": "Verbmesterskap",
@@ -422,7 +480,40 @@
       "matchPairs": {
         "instruction": "Trykk for å matche pronomen med bøyninger",
         "complete": "Alt matchet!"
+      },
+      "correctAnswerDetail": "Correct answer: {{answers}}",
+      "correctAnswerLabel": "Correct:",
+      "tenseLabel": "{{tense}} tense",
+      "personLabels": {
+        "firstSingular": "I",
+        "secondSingular": "you (singular)",
+        "thirdSingular": "he/she/it",
+        "firstPlural": "we",
+        "secondPlural": "you (plural)",
+        "thirdPlural": "they"
       }
+    },
+    "wordle": {
+      "clueLabel": "{{language}} clue",
+      "needEligibleWords": "Wordle works best with single-word vocabulary between 4 and 8 letters.",
+      "attemptsLeft": "{{count}} attempt left",
+      "attemptsLeft_other": "{{count}} attempts left",
+      "letters": "letters",
+      "correctReveal": "Nice. The answer was {{word}}.",
+      "incorrectReveal": "The answer was {{word}}.",
+      "inputPlaceholder": "Type the {{language}} word",
+      "submit": "Guess"
+    },
+    "back": "Go back",
+    "speedMatch": {
+      "description": "Pick your word count, match quickly, and see how fast you can finish.",
+      "allLabel": "all",
+      "wordsLabel": "words",
+      "howItWorksTitle": "Clock up, not down",
+      "howItWorksCopy": "Choose a set size, tap the right translation, and finish in the quickest time you can manage.",
+      "readyMeta": "{{count}} words from {{target}} into {{native}}. The timer starts at zero and climbs until you finish.",
+      "start": "Start match",
+      "needAtLeast4": "Speed Match needs at least 4 words to stay fun."
     }
   },
   "profile": {
@@ -1021,105 +1112,158 @@
     "next": "Neste"
   },
   "tutorGames": {
-    "loading": "Laster spill...",
-    "playTogether": "Spill sammen",
-    "sendChallenge": "Send utfordring",
-    "playNow": "Spill nå",
-    "sendDescription": "Send utfordringer for {{name}} å gjøre senere",
-    "playDescription": "Øv sammen akkurat nå",
-    "startNow": "Start nå",
+    "playTogether": "Play Together",
+    "sendChallenge": "Send Challenge",
+    "playNow": "Play Now",
+    "sendDescription": "Send challenges for {{name}} to complete later",
+    "playDescription": "Practice together right now",
+    "startNow": "Start Now",
+    "teachingStreak": "{{count}} day teaching streak!",
+    "hub": {
+      "sendEyebrow": "Help them feel supported",
+      "sendHeadline": "Send something thoughtful to {{name}}",
+      "sendDescription": "Words, challenges, and little nudges should be only a tap away so you can keep their momentum moving.",
+      "localEyebrow": "Play together",
+      "localHeadline": "Practice right alongside {{name}}",
+      "localDescription": "Use the same practice modes to sit beside them, encourage them, and help the tough words stick.",
+      "sendNowEyebrow": "Send now",
+      "challengeEyebrow": "Challenge",
+      "momentumEyebrow": "Momentum",
+      "studentStatusEyebrow": "Student status"
+    },
+    "stats": {
+      "wordsTracked": "Words tracked",
+      "pendingSends": "Pending sends",
+      "completed": "Completed",
+      "weakWords": "Needs support",
+      "teachingStreak": "Teaching streak",
+      "readyGames": "Ready games"
+    },
+    "sections": {
+      "sendTitle": "Send support",
+      "sendCopy": "Choose the kind of nudge or challenge you want them to receive inside Play.",
+      "waitingTitle": "Waiting on them",
+      "waitingCopy": "Keep an eye on what is still sitting in their shared Play area.",
+      "resultsTitle": "Recent results",
+      "resultsCopy": "When they open your sends and complete them, the wins should be easy to spot here.",
+      "localTitle": "Play together",
+      "localCopy": "Launch the same practice styles on the tutor side whenever you want to sit beside them and rehearse.",
+      "localTipsTitle": "Practice with purpose",
+      "localTipsCopy": "Tutor-side play should feel helpful and low-pressure, not like grinding another account."
+    },
     "local": {
-      "quiz": "Test {{name}}",
-      "quizDesc": "Flashkort-quiz sammen",
-      "quickFire": "Hurtigild",
-      "quickFireDesc": "60 sekunders utfordring",
-      "multipleChoice": "Flervalg",
-      "multipleChoiceDesc": "Velg riktig svar",
-      "typeIt": "Skriv det",
-      "typeItDesc": "Skriv oversettelsen",
-      "needWords": "{{name}} trenger minst 4 ord i ordforrådet for å spille"
+      "quiz": "Quiz {{name}}",
+      "quizDesc": "Flashcard quiz together",
+      "flashcardsLead": "Flip through {{name}}'s words together and warm them up gently.",
+      "wordsReadyMeta": "{{count}} words ready",
+      "quickFire": "Quick Fire",
+      "quickFireDesc": "60 second challenge",
+      "multipleChoice": "Multiple Choice",
+      "multipleChoiceDesc": "Pick the right answer",
+      "typeIt": "Type It",
+      "typeItDesc": "Type the translation",
+      "needWords": "{{name}} needs at least 4 words in their vocabulary to play",
+      "supportFocusTitle": "Focus on the words they miss",
+      "supportFocusCopy": "{{count}} words still look shaky, so a quick shared session can help them stick.",
+      "saveSupportTitle": "Save it if the session really helps",
+      "saveSupportCopy": "Shared practice stays untracked by default, but you can still save a strong session into their history.",
+      "untrackedTitle": "Keep it playful",
+      "untrackedCopy": "Tutor-side play is for encouragement and practice together, not XP grinding on your account."
     },
     "send": {
-      "doYouRemember": "Husker du?",
-      "quizPartner": "Test {{name}} på ordforrådet deres",
-      "createQuiz": "Lag quiz",
-      "quickFire": "Hurtigild",
-      "timedChallenge": "Tidsbestemt ordforrådsutfordring",
-      "createChallenge": "Lag utfordring",
-      "giftWords": "Gi ord",
-      "sendWords": "Send ord for {{name}} å lære",
-      "sendGift": "Send gave"
+      "doYouRemember": "Do You Remember?",
+      "quizPartner": "Quiz {{name}} on their vocabulary",
+      "createQuiz": "Create Quiz",
+      "quizMeta": "Build a focused challenge from their vocab",
+      "quickFire": "Quick Fire",
+      "timedChallenge": "Timed vocabulary challenge",
+      "createChallenge": "Create Challenge",
+      "quickFireMeta": "Fast-paced challenge they can complete later",
+      "giftWords": "Gift Words",
+      "sendWords": "Send words for {{name}} to learn",
+      "sendGift": "Send Gift",
+      "wordGiftMeta": "Choose words or a topic to send"
     },
     "pending": {
-      "waitingFor": "Venter på {{name}}",
-      "words": "{{count}} ord",
-      "sent": "Sendt {{date}}",
-      "pending": "Ventende"
+      "waitingFor": "Waiting for {{name}}",
+      "words": "{{count}} words",
+      "sent": "Sent {{date}}",
+      "pending": "Pending",
+      "challengeWaitingCopy": "{{name}} still has this waiting in Play."
+    },
+    "waiting": {
+      "emptyTitle": "Nothing waiting right now",
+      "emptyCopy": "{{name}} is all caught up, so this is a good moment to send something new."
     },
     "gifts": {
-      "title": "Ordgaver sendt",
-      "word": "{{count}} ord",
-      "word_other": "{{count}} ord",
-      "topic": "Emne: {{topic}}",
-      "custom": "Egendefinerte ord",
+      "title": "Word Gifts Sent",
+      "word": "{{count}} word",
+      "word_other": "{{count}} words",
+      "topic": "Topic: {{topic}}",
+      "custom": "Custom words",
       "xpMultiplier": "{{multiplier}}x XP"
     },
     "results": {
-      "title": "Siste resultater",
-      "completed": "Fullført {{date}}"
+      "title": "Recent Results",
+      "completed": "Completed {{date}}",
+      "scoreMeta": "{{score}}% score",
+      "finishedMeta": "Completed in Play",
+      "emptyTitle": "No completed sends yet",
+      "emptyCopy": "Once {{name}} starts opening your sends, results will show up here.",
+      "awaitingMeta": "Results will appear here"
     },
     "empty": {
-      "noChallenges": "Ingen utfordringer ennå",
-      "createFirst": "Lag din første utfordring for {{name}}!"
+      "noChallenges": "No challenges yet",
+      "createFirst": "Create your first challenge for {{name}}!"
     },
     "flashcard": {
       "targetWord": "{{language}}",
       "nativeWord": "{{language}}",
-      "tapToReveal": "Trykk for å vise",
-      "hard": "Vanskelig",
-      "gotIt": "Fikk det!"
+      "tapToReveal": "Tap to reveal",
+      "hard": "Hard",
+      "gotIt": "Got it!"
     },
     "direction": {
       "label": "{{target}} → {{native}}"
     },
     "quickFireGame": {
-      "title": "Hurtigild!",
-      "description": "Oversett så mange ord du kan på 60 sekunder!",
-      "cancel": "Avbryt",
+      "title": "Quick Fire!",
+      "description": "Translate as many words as you can in 60 seconds!",
+      "cancel": "Cancel",
       "start": "Start!",
-      "typeTranslation": "Skriv oversettelsen..."
+      "typeTranslation": "Type the translation..."
     },
     "typeItGame": {
-      "correct": "Riktig!",
-      "notQuite": "Ikke helt",
-      "correctAnswer": "Riktig svar: {{answer}}",
-      "typeIn": "Skriv på {{language}}...",
-      "next": "Neste",
-      "check": "Sjekk"
+      "correct": "Correct!",
+      "notQuite": "Not quite",
+      "correctAnswer": "Correct answer: {{answer}}",
+      "typeIn": "Type in {{language}}...",
+      "next": "Next",
+      "check": "Check"
     },
     "gameOver": {
-      "greatJob": "Bra jobbet!",
-      "keepPracticing": "Fortsett å øve!",
-      "correct": "{{correct}} av {{total}} riktig",
-      "practicedTogether": "Øvde dere sammen?",
-      "saveDescription": "Lagre denne økten til {{name}}s læringshistorikk for å følge fremgangen deres.",
-      "saveToProgress": "Lagre til {{name}}s fremgang",
-      "saving": "Lagrer...",
-      "savedSuccess": "Lagret til {{name}}s historikk!",
-      "autoSaving": "Autolagrer til {{name}}s fremgang...",
-      "done": "Ferdig",
-      "playAgain": "Spill igjen"
+      "greatJob": "Great Job!",
+      "keepPracticing": "Keep Practicing!",
+      "correct": "{{correct}} of {{total}} correct",
+      "practicedTogether": "Did you practice together?",
+      "saveDescription": "Save this session to {{name}}'s learning history to track their progress.",
+      "saveToProgress": "Save to {{name}}'s Progress",
+      "saving": "Saving...",
+      "savedSuccess": "Saved to {{name}}'s history!",
+      "autoSaving": "Auto-saving to {{name}}'s progress...",
+      "done": "Done",
+      "playAgain": "Play Again"
     },
     "saveDialog": {
-      "title": "Lagre til {{name}}s fremgang?",
-      "howItWorks": "Hvordan det fungerer:",
-      "detail1": "Spillresultater lagres til {{name}}s læringshistorikk",
-      "detail2": "Deres ordpoeng oppdateres (serier, mesterskap)",
-      "detail3": "Perfekt for når dere øver sammen!",
-      "willUpdate": "Dette oppdaterer {{name}}s ordpoeng og læringshistorikk.",
-      "remember": "Lagre alltid til {{name}}s fremgang",
-      "notNow": "Ikke nå",
-      "save": "Lagre"
+      "title": "Save to {{name}}'s Progress?",
+      "howItWorks": "How this works:",
+      "detail1": "Game results are saved to {{name}}'s learning history",
+      "detail2": "Their word scores will update (streaks, mastery)",
+      "detail3": "Perfect for when you practice together!",
+      "willUpdate": "This will update {{name}}'s word scores and learning history.",
+      "remember": "Always save to {{name}}'s progress",
+      "notNow": "Not Now",
+      "save": "Save"
     }
   },
   "gameResults": {
@@ -1145,7 +1289,10 @@
     "tryAgain": "Prøv igjen",
     "speakIn": "Snakk på {{language}}...",
     "aiSpeaking": "AI snakker...",
-    "conversationEnded": "Samtale avsluttet"
+    "conversationEnded": "Samtale avsluttet",
+    "errors": {
+      "startFailed": "Failed to start conversation"
+    }
   },
   "scenarioSelector": {
     "title": "Samtaleøving",
@@ -2378,5 +2525,11 @@
     "featureUnavailable": "Ikke tilgjengelig frakoblet",
     "scoresQueued": "Resultater lagret lokalt",
     "sessionQueued": "Økt lagret lokalt"
+  },
+  "games": {
+    "celebration": {
+      "wordMastered": "Word Mastered!",
+      "streakComplete": "5 correct in a row! This word is now learned!"
+    }
   }
 }

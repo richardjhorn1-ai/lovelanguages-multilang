@@ -5,6 +5,7 @@ import { Profile, DictionaryEntry, WordScore } from '../types';
 import { ICONS } from '../constants';
 import { useLanguage } from '../context/LanguageContext';
 import { apiFetch } from '../services/api-config';
+import { playRoleVar } from './play/playColorRoles';
 
 interface NewWord {
   word: string;        // Target language word
@@ -171,7 +172,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
         },
         body: JSON.stringify({
           challengeType: 'quickfire',
-          title: title || `Quick Fire Challenge`,
+          title: title || t('challengeCreator.quickFire.titlePlaceholder'),
           config: {
             wordCount: allWordIds.length + newWords.length,
             timeLimitSeconds: timeLimit,
@@ -200,25 +201,55 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
 
   return (
     <div className="fixed inset-0 modal-backdrop flex items-center justify-center z-50 p-4">
-      <div className="glass-card-solid rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col">
+      <div
+        className="glass-card rounded-[32px] w-full max-w-2xl max-h-[90vh] overflow-hidden flex flex-col relative"
+        style={{ border: `1px solid ${playRoleVar('blend', 'border')}` }}
+      >
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: `
+              radial-gradient(circle at top left, color-mix(in srgb, ${playRoleVar('blend', 'soft')} 70%, transparent), transparent 42%),
+              radial-gradient(circle at bottom right, color-mix(in srgb, ${playRoleVar('bright', 'soft')} 62%, transparent), transparent 38%)
+            `,
+          }}
+        />
         {/* Header */}
-        <div className="p-6 border-b border-[var(--border-color)] flex items-center justify-between">
-          <div>
-            <h2 className="text-scale-heading font-black font-header text-[var(--text-primary)] flex items-center gap-2">
-              <ICONS.Zap className="w-5 h-5" /> {t('challengeCreator.quickFire.title')}
-            </h2>
-            <p className="text-scale-label text-[var(--text-secondary)]">{t('challengeCreator.quickFire.subtitle', { name: partnerName })}</p>
+        <div className="relative z-10 p-6 border-b border-[var(--border-color)]/70 flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <div
+              className="w-14 h-14 rounded-[20px] flex items-center justify-center"
+              style={{
+                background: `linear-gradient(145deg, color-mix(in srgb, ${playRoleVar('blend', 'soft')} 82%, var(--bg-card)), color-mix(in srgb, ${playRoleVar('bright', 'mist')} 52%, var(--bg-card)))`,
+                border: `1px solid ${playRoleVar('blend', 'border')}`,
+                color: playRoleVar('blend', 'deep'),
+              }}
+            >
+              <ICONS.Zap className="w-7 h-7" />
+            </div>
+            <div>
+              <p
+                className="text-[11px] font-black uppercase tracking-[0.24em] mb-1"
+                style={{ color: playRoleVar('blend', 'deep') }}
+              >
+                {t('tutorGames.hub.momentumEyebrow')}
+              </p>
+              <h2 className="text-scale-heading font-black font-header text-[var(--text-primary)]">
+                {t('challengeCreator.quickFire.title')}
+              </h2>
+              <p className="text-scale-label text-[var(--text-secondary)]">{t('challengeCreator.quickFire.subtitle', { name: partnerName })}</p>
+            </div>
           </div>
-          <button onClick={onClose} className="p-2 hover:bg-[var(--bg-primary)] rounded-xl transition-colors">
+          <button onClick={onClose} className="p-2 hover:bg-white/50 rounded-xl transition-colors">
             <ICONS.X className="w-5 h-5 text-[var(--text-secondary)]" />
           </button>
         </div>
 
         {/* Content */}
-        <div className="flex-1 overflow-y-auto p-6 space-y-6">
+        <div className="relative z-10 flex-1 overflow-y-auto p-6 space-y-6">
 
           {/* Title Input */}
-          <div>
+          <div className="glass-card rounded-[26px] p-4 md:p-5">
             <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-2">
               {t('challengeCreator.quickFire.titleLabel')}
             </label>
@@ -244,12 +275,24 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
                   className={`p-4 rounded-2xl text-center transition-all ${
                     difficulty === diff
                       ? diff === 'easy'
-                        ? 'bg-green-100 dark:bg-green-900/30 border-2 border-green-300 dark:border-green-700'
+                      ? 'border-2'
                         : diff === 'medium'
-                        ? 'bg-[var(--accent-light)] border-2 border-[var(--accent-border)]'
-                        : 'bg-red-100 dark:bg-red-900/30 border-2 border-red-300 dark:border-red-700'
+                        ? 'border-2'
+                        : 'border-2'
                       : 'bg-[var(--bg-primary)] border-2 border-[var(--border-color)] hover:border-[var(--text-secondary)]'
                   }`}
+                  style={difficulty === diff ? (
+                    diff === 'easy' ? {
+                      background: `color-mix(in srgb, ${playRoleVar('bright', 'soft')} 78%, var(--bg-card))`,
+                      borderColor: playRoleVar('bright', 'border'),
+                    } : diff === 'medium' ? {
+                      background: `color-mix(in srgb, ${playRoleVar('blend', 'soft')} 82%, var(--bg-card))`,
+                      borderColor: playRoleVar('blend', 'border'),
+                    } : {
+                      background: `color-mix(in srgb, ${playRoleVar('warm', 'soft')} 82%, var(--bg-card))`,
+                      borderColor: playRoleVar('warm', 'border'),
+                    }
+                  ) : undefined}
                 >
                   <div className="mb-1">
                     {diff === 'easy' ? <ICONS.Leaf className="w-6 h-6 mx-auto text-green-500" /> : diff === 'medium' ? <ICONS.Fire className="w-6 h-6 mx-auto text-[var(--secondary-color)]" /> : <ICONS.Zap className="w-6 h-6 mx-auto text-red-500" />}
@@ -262,7 +305,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
           </div>
 
           {/* Word Count */}
-          <div>
+          <div className="glass-card rounded-[26px] p-4 md:p-5">
             <label className="block text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider mb-3">
               {t('challengeCreator.quickFire.targetWords', { count: wordCount })}
             </label>
@@ -281,7 +324,13 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
           </div>
 
           {/* Add New Words Section */}
-          <div className="bg-[var(--accent-light)] p-4 rounded-2xl border border-[var(--accent-border)]">
+          <div
+            className="p-4 rounded-[26px] border"
+            style={{
+              background: `linear-gradient(145deg, color-mix(in srgb, ${playRoleVar('blend', 'soft')} 86%, var(--bg-card)), color-mix(in srgb, ${playRoleVar('bright', 'soft')} 34%, var(--bg-card)))`,
+              borderColor: playRoleVar('blend', 'border'),
+            }}
+          >
             <div className="flex items-center gap-2 mb-3">
               <ICONS.Plus className="w-4 h-4 text-[var(--accent-color)]" />
               <p className="font-bold text-[var(--accent-text)] text-scale-label">{t('challengeCreator.common.addNewWords')}</p>
@@ -311,7 +360,10 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
                 <button
                   onClick={generateTranslation}
                   disabled={!newWord.trim() || generating}
-                  className="px-4 py-2 bg-[var(--accent-color)] text-white rounded-lg font-bold text-scale-label hover:bg-[var(--accent-hover)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+                  className="px-4 py-2 text-white rounded-xl font-bold text-scale-label disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+                  style={{
+                    background: `linear-gradient(145deg, ${playRoleVar('blend', 'color')}, ${playRoleVar('blend', 'deep')})`,
+                  }}
                 >
                   {generating ? (
                     <>
@@ -331,7 +383,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
                     setGeneratedWord(null);
                     setNewTranslation('');
                   }}
-                  className="px-3 py-2 text-[var(--text-secondary)] hover:bg-white/40 rounded-lg font-bold text-scale-label transition-colors"
+                  className="px-3 py-2 text-[var(--text-secondary)] hover:bg-white/40 rounded-xl font-bold text-scale-label transition-colors"
                 >
                   {t('challengeCreator.common.clear')}
                 </button>
@@ -340,7 +392,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
 
             {/* Step 2: Show generated result with edit option */}
             {generatedWord && (
-              <div className="mb-3 p-3 glass-card rounded-xl">
+              <div className="mb-3 p-3 glass-card rounded-2xl">
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
@@ -364,7 +416,10 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
                   <button
                     onClick={addNewWord}
                     disabled={!newTranslation.trim()}
-                    className="px-3 py-2 bg-green-500 text-white rounded-lg font-bold text-scale-label hover:bg-green-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-1"
+                    className="px-3 py-2 text-white rounded-xl font-bold text-scale-label disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-1"
+                    style={{
+                      background: `linear-gradient(145deg, ${playRoleVar('bright', 'color')}, ${playRoleVar('bright', 'deep')})`,
+                    }}
                   >
                     <ICONS.Check className="w-4 h-4" />
                     {t('challengeCreator.common.add')}
@@ -399,7 +454,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
 
           {/* Word Selection from Love Log */}
           {partnerVocab.length > 0 && (
-            <div>
+            <div className="glass-card rounded-[26px] p-4 md:p-5">
               <div className="flex items-center justify-between mb-3">
                 <label className="text-scale-caption font-bold text-[var(--text-secondary)] uppercase tracking-wider">
                   {t('challengeCreator.quickFire.pickSpecific', { count: selectedWordIds.size })}
@@ -455,7 +510,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
           )}
 
           {/* Auto-fill Info */}
-          <div className="bg-[var(--bg-primary)] p-4 rounded-2xl border border-[var(--border-color)]">
+          <div className="glass-card rounded-[26px] p-4 border border-[var(--border-color)]">
             <p className="text-scale-label text-[var(--text-secondary)]">
               <span className="font-bold text-[var(--text-primary)]">{t('challengeCreator.quickFire.wordSelection')}</span>
             </p>
@@ -472,7 +527,13 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
           </div>
 
           {/* Preview Stats */}
-          <div className="bg-[var(--accent-light)] p-4 rounded-2xl border border-[var(--accent-border)]">
+          <div
+            className="p-4 rounded-[26px] border"
+            style={{
+              background: `color-mix(in srgb, ${playRoleVar('blend', 'soft')} 80%, var(--bg-card))`,
+              borderColor: playRoleVar('blend', 'border'),
+            }}
+          >
             <p className="text-scale-label text-[var(--accent-text)]">
               {t('challengeCreator.quickFire.timeInfo', { name: partnerName, time: timeLimit })}
             </p>
@@ -482,7 +543,7 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
           </div>
 
           {!canCreate && (
-            <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-2xl border border-red-200 dark:border-red-800">
+            <div className="p-4 rounded-[26px] border" style={{ background: `color-mix(in srgb, ${playRoleVar('warm', 'soft')} 72%, var(--bg-card))`, borderColor: playRoleVar('warm', 'border') }}>
               <p className="text-scale-label text-red-600 dark:text-red-400 font-bold">
                 {t('challengeCreator.quickFire.needMoreWords', { count: 5 })}
               </p>
@@ -491,17 +552,21 @@ const CreateQuickFireChallenge: React.FC<CreateQuickFireChallengeProps> = ({
         </div>
 
         {/* Footer */}
-        <div className="p-6 border-t border-[var(--border-color)] flex items-center justify-between bg-[var(--bg-primary)]">
+        <div className="relative z-10 p-6 border-t border-[var(--border-color)]/70 flex items-center justify-between bg-[color:var(--bg-card)]">
           <button
             onClick={onClose}
-            className="px-6 py-3 text-[var(--text-secondary)] font-bold text-scale-label hover:bg-white/40 rounded-xl transition-colors"
+            className="px-6 py-3 text-[var(--text-secondary)] font-bold text-scale-label hover:bg-white/40 rounded-2xl transition-colors"
           >
             {t('challengeCreator.common.cancel')}
           </button>
           <button
             onClick={handleCreate}
             disabled={creating || !canCreate}
-            className="px-8 py-3 bg-[var(--accent-color)] text-white font-bold text-scale-label rounded-xl hover:bg-[var(--accent-hover)] disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+            className="px-8 py-3 text-white font-bold text-scale-label rounded-2xl disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex items-center gap-2"
+            style={{
+              background: `linear-gradient(145deg, ${playRoleVar('blend', 'color')}, ${playRoleVar('blend', 'deep')})`,
+              boxShadow: `0 18px 38px -24px color-mix(in srgb, ${playRoleVar('blend', 'deep')} 34%, transparent)`,
+            }}
           >
             {creating ? (
               <>

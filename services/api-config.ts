@@ -94,6 +94,23 @@ export interface ApiFetchInit extends RequestInit {
   __llErrorContext?: ApiFetchErrorContext;
 }
 
+export function isJsonResponse(response: Response): boolean {
+  const contentType = response.headers.get('content-type') || '';
+  return contentType.includes('application/json');
+}
+
+export async function readJsonResponse<T>(response: Response): Promise<T | null> {
+  if (!response.ok || !isJsonResponse(response)) {
+    return null;
+  }
+
+  try {
+    return await response.json() as T;
+  } catch {
+    return null;
+  }
+}
+
 function resolveRequestUrl(input: RequestInfo | URL): string {
   if (typeof input === 'string') {
     return input.startsWith('/api/') ? `${API_BASE_URL}${input}` : input;

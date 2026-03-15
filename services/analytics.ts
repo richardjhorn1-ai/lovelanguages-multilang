@@ -255,6 +255,11 @@ type EventName =
   | 'word_practiced'
   | 'game_started'
   | 'game_completed'
+  | 'play_hub_viewed'
+  | 'play_hub_cta_clicked'
+  | 'play_hub_tile_clicked'
+  | 'play_hub_tile_blocked'
+  | 'play_hub_shared_opened'
   | 'challenge_created'
   | 'challenge_completed'
   | 'level_test_started'
@@ -615,6 +620,26 @@ class AnalyticsService {
 
   trackGameCompleted(params: GameParams): void {
     this.track('game_completed', params);
+  }
+
+  trackPlayHubViewed(params: BaseEventParams): void {
+    this.track('play_hub_viewed', params);
+  }
+
+  trackPlayHubCtaClicked(params: BaseEventParams): void {
+    this.track('play_hub_cta_clicked', params);
+  }
+
+  trackPlayHubTileClicked(params: BaseEventParams): void {
+    this.track('play_hub_tile_clicked', params);
+  }
+
+  trackPlayHubTileBlocked(params: BaseEventParams): void {
+    this.track('play_hub_tile_blocked', params);
+  }
+
+  trackPlayHubSharedOpened(params: BaseEventParams): void {
+    this.track('play_hub_shared_opened', params);
   }
 
   // Auth lifecycle

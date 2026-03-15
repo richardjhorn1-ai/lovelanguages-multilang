@@ -28,8 +28,7 @@ export const NativeLanguageStep: React.FC<NativeLanguageStepProps> = ({
   // Pre-select from saved preference or browser language
   const [selected, setSelected] = useState<string>(() => {
     if (initialNative) return initialNative;
-    const saved = localStorage.getItem('preferredNativeLanguage')
-      || localStorage.getItem('preferredLanguage');
+    const saved = localStorage.getItem('preferredNativeLanguage');
     if (saved && (SUPPORTED_LANGUAGE_CODES as readonly string[]).includes(saved)) return saved;
     const browser = navigator.language.split('-')[0];
     if ((SUPPORTED_LANGUAGE_CODES as readonly string[]).includes(browser)) return browser;

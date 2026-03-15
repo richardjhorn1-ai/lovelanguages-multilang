@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { Profile, TutorChallenge, WordRequest, DictionaryEntry, WordScore, TutorStats } from '../types';
@@ -7,7 +7,6 @@ import { shuffleArray } from '../utils/array';
 import CreateQuizChallenge from './CreateQuizChallenge';
 import CreateQuickFireChallenge from './CreateQuickFireChallenge';
 import WordRequestCreator from './WordRequestCreator';
-import { useTheme } from '../context/ThemeContext';
 import { useLanguage } from '../context/LanguageContext';
 import { validateAnswerSmart } from '../utils/answer-helpers';
 import LimitReachedModal from './LimitReachedModal';
@@ -21,8 +20,11 @@ import {
 } from './games/tutor-modes';
 import { useOffline } from '../hooks/useOffline';
 import OfflineIndicator from './OfflineIndicator';
-import { apiFetch } from '../services/api-config';
+import { apiFetch, readJsonResponse } from '../services/api-config';
 import { fetchPartnerProfileView } from '../services/partner-profile';
+import { analytics } from '../services/analytics';
+import PlayHubArtwork, { type PlayHubArtworkVariant } from './play/PlayHubArtwork';
+import { playRoleVar, type PlayColorRole } from './play/playColorRoles';
 
 interface TutorGamesProps {
   profile: Profile;
@@ -42,9 +44,176 @@ type PlayMode = 'send' | 'local';
 
 const SAVE_PREF_KEY = 'tutor_save_to_student_progress';
 
+interface TutorHubItem {
+  id: string;
+  title: string;
+  description: string;
+  meta?: string;
+  badge?: string;
+  eyebrow?: string;
+  artwork: PlayHubArtworkVariant;
+  colorRole: PlayColorRole;
+  featured?: boolean;
+  disabled?: boolean;
+  actionLabel?: string;
+  onClick?: () => void;
+}
+
+interface TutorHubStat {
+  label: string;
+  value: string;
+  role: PlayColorRole;
+}
+
+const rolePalette = (role: PlayColorRole, featured: boolean) => ({
+  border: `color-mix(in srgb, ${playRoleVar(role, 'border')} ${featured ? '100%' : '88%'}, var(--border-color))`,
+  overlay: `radial-gradient(circle at top left, color-mix(in srgb, ${playRoleVar(role, 'soft')} ${featured ? '74%' : '58%'}, transparent), transparent 56%)`,
+  iconBg: `linear-gradient(145deg, color-mix(in srgb, ${playRoleVar(role, 'soft')} 76%, var(--bg-card)), color-mix(in srgb, ${playRoleVar(role, 'mist')} 52%, var(--bg-card)))`,
+  iconBorder: `color-mix(in srgb, ${playRoleVar(role, 'border')} 92%, var(--border-color))`,
+  iconColor: playRoleVar(role, 'deep'),
+  eyebrow: playRoleVar(role, 'deep'),
+  badgeBg: `color-mix(in srgb, ${playRoleVar(role, 'soft')} 84%, var(--bg-card))`,
+  badgeText: playRoleVar(role, 'deep'),
+  metaBg: `color-mix(in srgb, ${playRoleVar(role, 'soft')} 70%, var(--bg-card))`,
+  metaText: playRoleVar(role, 'text'),
+  actionBg: playRoleVar(role, 'color'),
+  actionText: '#ffffff',
+  description: `color-mix(in srgb, var(--text-secondary) 84%, ${playRoleVar(role, 'text')})`,
+  shadow: `0 18px 36px -28px color-mix(in srgb, ${playRoleVar(role, 'deep')} 22%, transparent)`,
+});
+
+const TutorSectionHeader: React.FC<{ title: string; description: string }> = ({ title, description }) => (
+  <div className="mb-4 md:mb-5">
+    <div className="inline-flex items-center gap-2 mb-2">
+      <span
+        className="block w-8 h-[3px] rounded-full"
+        style={{ background: `linear-gradient(90deg, ${playRoleVar('warm', 'color')}, ${playRoleVar('blend', 'color')})` }}
+      />
+      <h2 className="text-xl md:text-2xl font-black font-header text-[var(--text-primary)]">{title}</h2>
+    </div>
+    <p className="text-sm md:text-base text-[var(--text-secondary)] mt-1">{description}</p>
+  </div>
+);
+
+const TutorHubTile: React.FC<{ item: TutorHubItem }> = ({ item }) => {
+  const { t } = useTranslation();
+  const isFeatured = Boolean(item.featured);
+  const palette = rolePalette(item.colorRole, isFeatured);
+
+  const content = (
+    <>
+      <div className="absolute inset-0 pointer-events-none opacity-75" style={{ background: palette.overlay }} />
+      <div
+        className="absolute inset-x-0 top-0 h-16 md:h-20 pointer-events-none opacity-55"
+        style={{
+          background: `linear-gradient(180deg, color-mix(in srgb, ${playRoleVar(item.colorRole, 'mist')} 20%, transparent), transparent 88%)`,
+        }}
+      />
+
+      <div className="relative z-10 flex h-full flex-col">
+        <div className="flex items-start gap-4">
+          <div
+            className={`shrink-0 rounded-[22px] flex items-center justify-center ${isFeatured ? 'w-20 h-20 md:w-24 md:h-24' : 'w-16 h-16 md:w-[4.5rem] md:h-[4.5rem]'}`}
+            style={{
+              background: palette.iconBg,
+              border: `1px solid ${palette.iconBorder}`,
+            }}
+          >
+            <PlayHubArtwork
+              variant={item.artwork}
+              className={isFeatured ? 'w-10 h-10 md:w-12 md:h-12' : 'w-8 h-8 md:w-9 md:h-9'}
+              style={{ color: palette.iconColor }}
+            />
+          </div>
+
+          <div className="min-w-0 flex-1">
+            <div className="flex flex-wrap items-center gap-2 mb-1.5">
+              {item.eyebrow && (
+                <span
+                  className="text-[10px] md:text-xs font-black uppercase tracking-[0.22em]"
+                  style={{ color: palette.eyebrow }}
+                >
+                  {item.eyebrow}
+                </span>
+              )}
+              {item.badge && (
+                <span
+                  className="px-2.5 py-1 rounded-full text-[10px] font-black uppercase tracking-[0.18em]"
+                  style={{ background: palette.badgeBg, color: palette.badgeText }}
+                >
+                  {item.badge}
+                </span>
+              )}
+            </div>
+
+            <h3
+              className={`font-black font-header text-[var(--text-primary)] tracking-[-0.03em] ${isFeatured ? 'text-[2.05rem] md:text-[2.35rem] leading-[0.95]' : 'text-[1.6rem] md:text-[1.8rem] leading-[0.97]'}`}
+              style={{ textWrap: 'balance' }}
+            >
+              {item.title}
+            </h3>
+          </div>
+        </div>
+
+        <p
+          className={`mt-4 ${isFeatured ? 'max-w-[36rem] text-lg md:text-[1.12rem] leading-[1.55]' : 'max-w-[24rem] text-base md:text-lg leading-[1.55]'}`}
+          style={{ color: palette.description }}
+        >
+          {item.description}
+        </p>
+
+        {(item.meta || item.actionLabel || item.onClick) && (
+          <div className={`mt-auto pt-5 flex items-end gap-3 ${isFeatured ? 'md:pt-6' : ''}`}>
+            {item.meta && (
+              <span
+                className="inline-flex min-w-0 max-w-full items-center justify-center rounded-full px-3.5 py-2 text-sm md:text-base font-bold text-center leading-tight"
+                style={{ background: palette.metaBg, color: palette.metaText }}
+              >
+                {item.meta}
+              </span>
+            )}
+
+            {item.onClick && (
+              <span
+                className="ml-auto shrink-0 inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm md:text-base font-black font-header transition-transform group-hover:translate-x-0.5"
+                style={{
+                  background: palette.actionBg,
+                  color: palette.actionText,
+                }}
+              >
+                {item.actionLabel || t('play.hub.openLabel')}
+                <ICONS.ChevronRight className="w-4 h-4" />
+              </span>
+            )}
+          </div>
+        )}
+      </div>
+    </>
+  );
+
+  const commonClassName = `group glass-card relative overflow-hidden rounded-[30px] p-4 md:p-5 text-left transition-all hover:shadow-card ${item.disabled ? 'opacity-45' : ''} ${isFeatured ? 'md:col-span-2 xl:col-span-2' : ''}`;
+  const commonStyle = {
+    border: `1px solid ${palette.border}`,
+    boxShadow: palette.shadow,
+  } as React.CSSProperties;
+
+  if (item.onClick && !item.disabled) {
+    return (
+      <button type="button" onClick={item.onClick} className={commonClassName} style={commonStyle}>
+        {content}
+      </button>
+    );
+  }
+
+  return (
+    <div className={commonClassName} style={commonStyle}>
+      {content}
+    </div>
+  );
+};
+
 const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
   const { t } = useTranslation();
-  const { accentHex } = useTheme();
   const { targetLanguage, nativeLanguage, languageParams, targetName, nativeName } = useLanguage();
 
   // Normalize smart_validation (undefined defaults to true)
@@ -83,6 +252,8 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
   const [showLimitModal, setShowLimitModal] = useState(false);
   const [useBasicValidation, setUseBasicValidation] = useState(false);
   const [showExitConfirm, setShowExitConfirm] = useState(false);
+  const tutorFetchInFlightRef = useRef<string | null>(null);
+  const hubViewTrackedRef = useRef<PlayMode | null>(null);
 
   // Track if a game is in progress (for exit confirmation)
   const isGameInProgress = localGameActive !== null && (
@@ -110,9 +281,13 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
 
   useEffect(() => {
     fetchData();
-  }, [profile]);
+  }, [profile, targetLanguage]);
 
   const fetchData = async () => {
+    const fetchKey = `${profile.id}:${profile.linked_user_id || 'none'}:${targetLanguage}`;
+    if (tutorFetchInFlightRef.current === fetchKey) return;
+
+    tutorFetchInFlightRef.current = fetchKey;
     setLoading(true);
     try {
       // Get partner's name
@@ -121,7 +296,9 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           const partnerProfile = await fetchPartnerProfileView();
           if (partnerProfile?.full_name) setPartnerName(partnerProfile.full_name);
         } catch (error) {
-          console.error('Failed to fetch partner profile view:', error);
+          if (import.meta.env.DEV) {
+            console.warn('Partner profile view unavailable for tutor play.', error);
+          }
         }
 
         // Get partner's vocabulary for game creation (filtered by current language)
@@ -154,10 +331,17 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({ role: 'tutor', ...languageParams })
+        body: JSON.stringify({ role: 'tutor', ...languageParams }),
+        __llErrorContext: {
+          screen: 'tutor_play',
+          userAction: 'load_tutor_challenges',
+          suppressErrorTracking: true,
+          treat4xxAsError: false,
+        },
       });
-      const challengeData = await challengeRes.json();
+      const challengeData = await readJsonResponse<{ challenges?: TutorChallenge[] }>(challengeRes);
       if (challengeData.challenges) setChallenges(challengeData.challenges);
+      else setChallenges([]);
 
       // Fetch word requests
       const requestRes = await apiFetch('/api/get-word-requests/', {
@@ -166,27 +350,42 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({ role: 'tutor', ...languageParams })
+        body: JSON.stringify({ role: 'tutor', ...languageParams }),
+        __llErrorContext: {
+          screen: 'tutor_play',
+          userAction: 'load_tutor_word_requests',
+          suppressErrorTracking: true,
+          treat4xxAsError: false,
+        },
       });
-      const requestData = await requestRes.json();
+      const requestData = await readJsonResponse<{ wordRequests?: WordRequest[] }>(requestRes);
       if (requestData.wordRequests) setWordRequests(requestData.wordRequests);
+      else setWordRequests([]);
 
       // Fetch tutor stats (for streak display)
       const statsRes = await apiFetch('/api/tutor-stats/', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`
-        }
+        },
+        __llErrorContext: {
+          screen: 'tutor_play',
+          userAction: 'load_tutor_stats',
+          suppressErrorTracking: true,
+          treat4xxAsError: false,
+        },
       });
-      if (statsRes.ok) {
-        const statsData = await statsRes.json();
-        if (statsData.tutor?.stats) setTutorStats(statsData.tutor.stats);
-      }
+      const statsData = await readJsonResponse<{ tutor?: { stats?: TutorStats } }>(statsRes);
+      setTutorStats(statsData?.tutor?.stats || null);
 
     } catch (error) {
-      console.error('Error fetching tutor game data:', error);
+      if (import.meta.env.DEV) {
+        console.warn('Tutor play data unavailable, keeping current empty state.', error);
+      }
+    } finally {
+      tutorFetchInFlightRef.current = null;
+      setLoading(false);
     }
-    setLoading(false);
   };
 
   const handleChallengeCreated = () => {
@@ -199,6 +398,18 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     fetchData();
     setShowWordRequestModal(false);
   };
+
+  const trackTutorAction = useCallback((ctaText: string, destination: string, location: string) => {
+    analytics.track('cta_click', {
+      cta_location: location,
+      cta_text: ctaText,
+      destination,
+      mode: playMode,
+      target_lang: targetLanguage,
+      student_word_count: partnerVocab.length,
+      pending_count: challenges.filter(c => c.status === 'pending').length + wordRequests.filter(r => r.status === 'pending').length,
+    });
+  }, [challenges, partnerVocab.length, playMode, targetLanguage, wordRequests]);
 
   // Check if this is the first time tutor is completing a local game
   const isFirstTimeSave = () => {
@@ -283,6 +494,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     setSessionStartTime(Date.now());
     setSavedSuccess(false);
     setLocalGameActive('quiz');
+    analytics.trackGameStarted({ game_type: 'tutor_flashcards', word_count: 10 });
   };
 
   const startLocalQuickFire = () => {
@@ -295,6 +507,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     setSessionStartTime(Date.now());
     setSavedSuccess(false);
     setLocalGameActive('quickfire');
+    analytics.trackGameStarted({ game_type: 'tutor_quick_fire', word_count: shuffled.length });
   };
 
   const startLocalMultipleChoice = () => {
@@ -306,6 +519,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     setSessionStartTime(Date.now());
     setSavedSuccess(false);
     setLocalGameActive('multiple_choice');
+    analytics.trackGameStarted({ game_type: 'tutor_multiple_choice', word_count: shuffled.length });
   };
 
   const startLocalTypeIt = () => {
@@ -317,6 +531,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
     setSessionStartTime(Date.now());
     setSavedSuccess(false);
     setLocalGameActive('type_it');
+    analytics.trackGameStarted({ game_type: 'tutor_type_it', word_count: shuffled.length });
   };
 
   // Old handlers removed - now using extracted components
@@ -432,6 +647,233 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
   const pendingChallenges = challenges.filter(c => c.status === 'pending');
   const completedChallenges = challenges.filter(c => c.status === 'completed');
   const pendingRequests = wordRequests.filter(r => r.status === 'pending');
+  const weakWords = useMemo(() => partnerVocab.filter((word) => {
+    const score = partnerScores.get(word.id);
+    if (!score) return false;
+    const incorrectAttempts = (score.total_attempts || 0) - (score.correct_attempts || 0);
+    return incorrectAttempts > 0 || (score.correct_streak || 0) < 3;
+  }), [partnerScores, partnerVocab]);
+  const sendStats = useMemo<TutorHubStat[]>(() => ([
+    { label: t('tutorGames.stats.wordsTracked'), value: String(partnerVocab.length), role: 'warm' },
+    { label: t('tutorGames.stats.pendingSends'), value: String(pendingChallenges.length + pendingRequests.length), role: 'bright' },
+    { label: t('tutorGames.stats.completed'), value: String(completedChallenges.length), role: 'blend' },
+    { label: t('tutorGames.stats.teachingStreak'), value: String(tutorStats?.teachingStreak || 0), role: 'ink' },
+  ]), [completedChallenges.length, partnerVocab.length, pendingChallenges.length, pendingRequests.length, t, tutorStats?.teachingStreak]);
+  const localStats = useMemo<TutorHubStat[]>(() => ([
+    { label: t('tutorGames.stats.wordsTracked'), value: String(partnerVocab.length), role: 'warm' },
+    { label: t('tutorGames.stats.weakWords'), value: String(weakWords.length), role: 'bright' },
+    { label: t('tutorGames.stats.readyGames'), value: String(partnerVocab.length >= 4 ? 4 : 0), role: 'blend' },
+    { label: t('tutorGames.stats.teachingStreak'), value: String(tutorStats?.teachingStreak || 0), role: 'ink' },
+  ]), [partnerVocab.length, t, tutorStats?.teachingStreak, weakWords.length]);
+  const sendItems = useMemo<TutorHubItem[]>(() => ([
+    {
+      id: 'word-gift',
+      title: t('tutorGames.send.giftWords'),
+      description: t('tutorGames.send.sendWords', { name: partnerName }),
+      meta: t('tutorGames.send.wordGiftMeta', { name: partnerName }),
+      eyebrow: t('tutorGames.hub.sendNowEyebrow'),
+      artwork: 'word_gift',
+      colorRole: 'bright',
+      featured: true,
+      disabled: !isOnline,
+      actionLabel: t('tutorGames.send.sendGift'),
+      onClick: () => {
+        trackTutorAction('send_words', 'word_request', 'tutor_play_send');
+        setShowWordRequestModal(true);
+      },
+    },
+    {
+      id: 'quiz-challenge',
+      title: t('tutorGames.send.doYouRemember'),
+      description: t('tutorGames.send.quizPartner', { name: partnerName }),
+      meta: t('tutorGames.send.quizMeta'),
+      eyebrow: t('tutorGames.hub.challengeEyebrow'),
+      artwork: 'flashcards',
+      colorRole: 'warm',
+      disabled: !isOnline,
+      actionLabel: t('tutorGames.send.createQuiz'),
+      onClick: () => {
+        trackTutorAction('send_quiz_challenge', 'quiz_modal', 'tutor_play_send');
+        setShowQuizModal(true);
+      },
+    },
+    {
+      id: 'quick-fire-challenge',
+      title: t('tutorGames.send.quickFire'),
+      description: t('tutorGames.send.timedChallenge'),
+      meta: t('tutorGames.send.quickFireMeta'),
+      eyebrow: t('tutorGames.hub.momentumEyebrow'),
+      artwork: 'quick_fire',
+      colorRole: 'blend',
+      disabled: !isOnline,
+      actionLabel: t('tutorGames.send.createChallenge'),
+      onClick: () => {
+        trackTutorAction('send_quick_fire', 'quick_fire_modal', 'tutor_play_send');
+        setShowQuickFireModal(true);
+      },
+    },
+  ]), [isOnline, partnerName, t, trackTutorAction]);
+  const waitingItems = useMemo<TutorHubItem[]>(() => {
+    const challengeItems: TutorHubItem[] = pendingChallenges.slice(0, 2).map((challenge) => ({
+      id: challenge.id,
+      title: challenge.title,
+      description: t('tutorGames.pending.challengeWaitingCopy', { name: partnerName }),
+      meta: t('tutorGames.pending.words', { count: challenge.words_data?.length || 0 }),
+      badge: t('tutorGames.pending.pending'),
+      eyebrow: challenge.challenge_type === 'quiz'
+        ? t('tutorGames.hub.challengeEyebrow')
+        : t('tutorGames.hub.momentumEyebrow'),
+      artwork: challenge.challenge_type === 'quiz' ? 'flashcards' : 'quick_fire',
+      colorRole: challenge.challenge_type === 'quiz' ? 'warm' : 'blend',
+    }));
+
+    const requestItems: TutorHubItem[] = pendingRequests.slice(0, 2).map((request) => ({
+      id: request.id,
+      title: t('tutorGames.send.giftWords'),
+      description: request.request_type === 'ai_topic'
+        ? t('tutorGames.gifts.topic', { topic: request.input_text })
+        : t('tutorGames.gifts.custom'),
+      meta: t('tutorGames.gifts.word', { count: request.selected_words?.length || 0 }),
+      badge: t('tutorGames.pending.pending'),
+      eyebrow: t('tutorGames.hub.sendNowEyebrow'),
+      artwork: 'word_gift',
+      colorRole: 'bright',
+    }));
+
+    const items = [...challengeItems, ...requestItems];
+    if (items.length > 0) return items;
+
+    return [{
+      id: 'no-pending',
+      title: t('tutorGames.waiting.emptyTitle'),
+      description: t('tutorGames.waiting.emptyCopy', { name: partnerName }),
+      meta: t('tutorGames.pending.pending'),
+      eyebrow: t('tutorGames.stats.pendingSends'),
+      artwork: 'conversation',
+      colorRole: 'ink',
+    }];
+  }, [partnerName, pendingChallenges, pendingRequests, t]);
+  const resultItems = useMemo<TutorHubItem[]>(() => {
+    const items: TutorHubItem[] = completedChallenges.slice(0, 3).map((challenge) => ({
+      id: challenge.id,
+      title: challenge.title,
+      description: t('tutorGames.results.completed', {
+        date: new Date(challenge.completed_at || challenge.created_at).toLocaleDateString(),
+      }),
+      meta: (challenge as any).result?.score != null
+        ? t('tutorGames.results.scoreMeta', { score: (challenge as any).result.score })
+        : t('tutorGames.results.finishedMeta'),
+      eyebrow: t('tutorGames.results.title'),
+      artwork: challenge.challenge_type === 'quiz' ? 'multiple_choice' : 'quick_fire',
+      colorRole: challenge.challenge_type === 'quiz' ? 'bright' : 'blend',
+    }));
+
+    if (items.length > 0) return items;
+
+    return [{
+      id: 'no-results',
+      title: t('tutorGames.results.emptyTitle'),
+      description: t('tutorGames.results.emptyCopy', { name: partnerName }),
+      meta: t('tutorGames.results.awaitingMeta'),
+      eyebrow: t('tutorGames.results.title'),
+      artwork: 'ai_challenge',
+      colorRole: 'ink',
+    }];
+  }, [completedChallenges, partnerName, t]);
+  const localItems = useMemo<TutorHubItem[]>(() => ([
+    {
+      id: 'local-flashcards',
+      title: t('play.games.flashcards'),
+      description: t('tutorGames.local.flashcardsLead', { name: partnerName }),
+      meta: t('tutorGames.local.wordsReadyMeta', { count: partnerVocab.length }),
+      eyebrow: t('play.hub.warmupEyebrow'),
+      artwork: 'flashcards',
+      colorRole: 'warm',
+      featured: true,
+      disabled: partnerVocab.length < 4,
+      actionLabel: t('tutorGames.startNow'),
+      onClick: partnerVocab.length >= 4 ? startLocalQuiz : undefined,
+    },
+    {
+      id: 'local-quickfire',
+      title: t('play.games.quickFire'),
+      description: t('tutorGames.local.quickFireDesc'),
+      meta: t('play.games.quickFireDesc'),
+      eyebrow: t('play.hub.intensityEyebrow'),
+      artwork: 'quick_fire',
+      colorRole: 'blend',
+      disabled: partnerVocab.length < 4,
+      actionLabel: t('tutorGames.startNow'),
+      onClick: partnerVocab.length >= 4 ? startLocalQuickFire : undefined,
+    },
+    {
+      id: 'local-multiple-choice',
+      title: t('play.games.multipleChoice'),
+      description: t('tutorGames.local.multipleChoiceDesc'),
+      meta: t('play.hub.requiresWords', { count: 4 }),
+      eyebrow: t('play.hub.pickEyebrow'),
+      artwork: 'multiple_choice',
+      colorRole: 'bright',
+      disabled: partnerVocab.length < 4,
+      actionLabel: t('tutorGames.startNow'),
+      onClick: partnerVocab.length >= 4 ? startLocalMultipleChoice : undefined,
+    },
+    {
+      id: 'local-type-it',
+      title: t('play.games.typeIt'),
+      description: t('tutorGames.local.typeItDesc'),
+      meta: t('play.hub.spellMeta'),
+      eyebrow: t('play.hub.spellEyebrow'),
+      artwork: 'type_it',
+      colorRole: 'ink',
+      disabled: partnerVocab.length < 4,
+      actionLabel: t('tutorGames.startNow'),
+      onClick: partnerVocab.length >= 4 ? startLocalTypeIt : undefined,
+    },
+  ]), [partnerName, partnerVocab.length, startLocalMultipleChoice, startLocalQuickFire, startLocalQuiz, startLocalTypeIt, t]);
+  const localSupportItems = useMemo<TutorHubItem[]>(() => ([
+    {
+      id: 'local-support-focus',
+      title: t('tutorGames.local.supportFocusTitle'),
+      description: t('tutorGames.local.supportFocusCopy', { count: weakWords.length }),
+      meta: t('tutorGames.stats.weakWords'),
+      eyebrow: t('tutorGames.hub.studentStatusEyebrow'),
+      artwork: 'speed_match',
+      colorRole: 'bright',
+    },
+    {
+      id: 'local-support-save',
+      title: t('tutorGames.local.saveSupportTitle'),
+      description: t('tutorGames.local.saveSupportCopy'),
+      meta: t('tutorGames.gameOver.saveToProgress', { name: partnerName }),
+      eyebrow: t('tutorGames.hub.challengeEyebrow'),
+      artwork: 'word_gift',
+      colorRole: 'warm',
+    },
+    {
+      id: 'local-support-untracked',
+      title: t('tutorGames.local.untrackedTitle'),
+      description: t('tutorGames.local.untrackedCopy'),
+      meta: t('tutorGames.playNow'),
+      eyebrow: t('tutorGames.hub.momentumEyebrow'),
+      artwork: 'conversation',
+      colorRole: 'ink',
+    },
+  ]), [partnerName, t, weakWords.length]);
+
+  useEffect(() => {
+    if (loading || localGameActive) return;
+    if (hubViewTrackedRef.current === playMode) return;
+
+    hubViewTrackedRef.current = playMode;
+    analytics.track('cta_click', {
+      cta_location: 'tutor_play_view',
+      cta_text: playMode === 'send' ? 'view_send_hub' : 'view_local_hub',
+      destination: playMode,
+      target_lang: targetLanguage,
+      student_word_count: partnerVocab.length,
+    });
+  }, [loading, localGameActive, partnerVocab.length, playMode, targetLanguage]);
 
   if (loading) {
     return (
@@ -555,8 +997,7 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
 
   return (
     <div className="h-full overflow-y-auto p-4 sm:p-6">
-      <div className="max-w-4xl mx-auto space-y-6">
-
+      <div className="max-w-6xl mx-auto space-y-6">
         {!isOnline && (
           <OfflineIndicator
             isOnline={isOnline}
@@ -567,306 +1008,228 @@ const TutorGames: React.FC<TutorGamesProps> = ({ profile }) => {
           />
         )}
 
-        {/* Header with Mode Toggle and Streak */}
-        <div className="text-center">
-          {/* Teaching Streak Badge */}
-          {tutorStats && tutorStats.teachingStreak > 0 && (
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-4" style={{ backgroundColor: `${accentHex}15` }}>
-              <ICONS.Zap className="w-5 h-5" />
-              <span className="font-bold" style={{ color: accentHex }}>
-                {t('tutorGames.teachingStreak', { count: tutorStats.teachingStreak, defaultValue: `${tutorStats.teachingStreak} day teaching streak!` })}
-              </span>
-            </div>
-          )}
-
-          <h1 className="text-2xl font-black font-header text-[var(--text-primary)] mb-3">{t('tutorGames.playTogether')}</h1>
-
-          {/* Mode Tabs */}
-          <div className="inline-flex bg-[var(--bg-primary)] p-1 rounded-xl">
+        <div className="flex justify-center">
+          <div
+            className="inline-flex p-1.5 rounded-[22px] glass-card"
+            style={{ border: `1px solid ${playRoleVar(playMode === 'send' ? 'warm' : 'ink', 'border')}` }}
+          >
             <button
-              onClick={() => setPlayMode('send')}
-              className={`px-4 py-2 rounded-lg text-scale-caption font-bold transition-all ${
-                playMode === 'send'
-                  ? 'bg-[var(--bg-card)] text-[var(--accent-color)] shadow-sm'
-                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
-              }`}
+              onClick={() => {
+                setPlayMode('send');
+                trackTutorAction('switch_to_send', 'send', 'tutor_play_toggle');
+              }}
+              className="px-4 md:px-5 py-2.5 rounded-[18px] text-sm md:text-base font-black font-header transition-all"
+              style={{
+                background: playMode === 'send' ? playRoleVar('warm', 'color') : 'transparent',
+                color: playMode === 'send' ? '#ffffff' : 'var(--text-secondary)',
+              }}
             >
               {t('tutorGames.sendChallenge')}
             </button>
             <button
-              onClick={() => setPlayMode('local')}
-              className={`px-4 py-2 rounded-lg text-scale-caption font-bold transition-all ${
-                playMode === 'local'
-                  ? 'bg-[var(--bg-card)] text-[var(--secondary-color)] shadow-sm'
-                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
-              }`}
+              onClick={() => {
+                setPlayMode('local');
+                trackTutorAction('switch_to_local', 'local', 'tutor_play_toggle');
+              }}
+              className="px-4 md:px-5 py-2.5 rounded-[18px] text-sm md:text-base font-black font-header transition-all"
+              style={{
+                background: playMode === 'local' ? playRoleVar('ink', 'color') : 'transparent',
+                color: playMode === 'local' ? '#ffffff' : 'var(--text-secondary)',
+              }}
             >
               {t('tutorGames.playNow')}
             </button>
           </div>
-
-          <p className="text-[var(--text-secondary)] text-scale-caption mt-2">
-            {playMode === 'send'
-              ? t('tutorGames.sendDescription', { name: partnerName })
-              : t('tutorGames.playDescription')}
-          </p>
         </div>
 
-        {/* LOCAL PLAY MODE */}
-        {playMode === 'local' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <button
-              onClick={startLocalQuiz}
-              disabled={partnerVocab.length < 4}
-              className="group p-6 glass-card rounded-2xl hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              <div className="flex items-start gap-4">
-                <div className="w-14 h-14 bg-[var(--accent-light)] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-[var(--accent-color)]">
-                  <ICONS.Target className="w-7 h-7" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-black font-header text-[var(--text-primary)] mb-1">{t('tutorGames.local.quiz', { name: partnerName })}</h3>
-                  <p className="text-scale-label text-[var(--text-secondary)]">{t('tutorGames.local.quizDesc')}</p>
-                </div>
-              </div>
-              <div className="mt-4 flex items-center gap-2 text-[var(--accent-color)] text-scale-caption font-bold">
-                <ICONS.Play className="w-3 h-3" />
-                <span>{t('tutorGames.startNow')}</span>
-              </div>
-            </button>
+        <section
+          className="glass-card rounded-[32px] p-5 md:p-6 xl:p-7 overflow-hidden relative"
+          style={{ border: `1px solid ${playRoleVar(playMode === 'send' ? 'bright' : 'blend', 'border')}` }}
+        >
+          <div
+            className="absolute inset-0"
+            style={{
+              background: playMode === 'send'
+                ? `
+                  radial-gradient(circle at top left, color-mix(in srgb, ${playRoleVar('bright', 'soft')} 72%, transparent), transparent 42%),
+                  radial-gradient(circle at bottom right, color-mix(in srgb, ${playRoleVar('warm', 'soft')} 68%, transparent), transparent 38%)
+                `
+                : `
+                  radial-gradient(circle at top left, color-mix(in srgb, ${playRoleVar('warm', 'soft')} 70%, transparent), transparent 42%),
+                  radial-gradient(circle at bottom right, color-mix(in srgb, ${playRoleVar('ink', 'soft')} 66%, transparent), transparent 38%)
+                `,
+            }}
+          />
+          <div
+            className="absolute inset-x-0 top-0 h-20 md:h-24 opacity-55"
+            style={{
+              background: `linear-gradient(180deg, color-mix(in srgb, ${playRoleVar(playMode === 'send' ? 'blend' : 'ink', 'mist')} 22%, transparent), transparent 92%)`,
+            }}
+          />
 
-            <button
-              onClick={startLocalQuickFire}
-              disabled={partnerVocab.length < 4}
-              className="group p-6 glass-card rounded-2xl hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              <div className="flex items-start gap-4">
-                <div className="w-14 h-14 bg-[var(--accent-light)] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-[var(--accent-color)]">
-                  <ICONS.Zap className="w-7 h-7" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-black font-header text-[var(--text-primary)] mb-1">{t('tutorGames.local.quickFire')}</h3>
-                  <p className="text-scale-label text-[var(--text-secondary)]">{t('tutorGames.local.quickFireDesc')}</p>
-                </div>
-              </div>
-              <div className="mt-4 flex items-center gap-2 text-[var(--accent-color)] text-scale-caption font-bold">
-                <ICONS.Play className="w-3 h-3" />
-                <span>{t('tutorGames.startNow')}</span>
-              </div>
-            </button>
-
-            <button
-              onClick={startLocalMultipleChoice}
-              disabled={partnerVocab.length < 4}
-              className="group p-6 glass-card rounded-2xl hover:shadow-md hover:border-[var(--secondary-border)] transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              <div className="flex items-start gap-4">
-                <div className="w-14 h-14 bg-[var(--secondary-light)] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-[var(--secondary-color)]">
-                  <ICONS.CheckCircle className="w-7 h-7" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-black font-header text-[var(--text-primary)] mb-1">{t('tutorGames.local.multipleChoice')}</h3>
-                  <p className="text-scale-label text-[var(--text-secondary)]">{t('tutorGames.local.multipleChoiceDesc')}</p>
-                </div>
-              </div>
-              <div className="mt-4 flex items-center gap-2 text-[var(--secondary-color)] text-scale-caption font-bold">
-                <ICONS.Play className="w-3 h-3" />
-                <span>{t('tutorGames.startNow')}</span>
-              </div>
-            </button>
-
-            <button
-              onClick={startLocalTypeIt}
-              disabled={partnerVocab.length < 4}
-              className="group p-6 glass-card rounded-2xl hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              <div className="flex items-start gap-4">
-                <div className="w-14 h-14 bg-[var(--accent-light)] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-[var(--accent-color)]">
-                  <ICONS.Type className="w-7 h-7" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-black font-header text-[var(--text-primary)] mb-1">{t('tutorGames.local.typeIt')}</h3>
-                  <p className="text-scale-label text-[var(--text-secondary)]">{t('tutorGames.local.typeItDesc')}</p>
-                </div>
-              </div>
-              <div className="mt-4 flex items-center gap-2 text-[var(--accent-color)] text-scale-caption font-bold">
-                <ICONS.Play className="w-3 h-3" />
-                <span>{t('tutorGames.startNow')}</span>
-              </div>
-            </button>
-
-            {partnerVocab.length < 4 && (
-              <p className="text-scale-caption text-[var(--text-secondary)] text-center col-span-2">
-                {t('tutorGames.local.needWords', { name: partnerName })}
+          <div className="relative z-10 grid xl:grid-cols-[1.2fr_0.78fr] gap-5 md:gap-6 items-center">
+            <div>
+                <span className="text-[11px] md:text-xs font-black uppercase tracking-[0.28em]" style={{ color: playRoleVar(playMode === 'send' ? 'warm' : 'ink', 'deep') }}>
+                  {playMode === 'send'
+                  ? t('tutorGames.hub.sendEyebrow')
+                  : t('tutorGames.hub.localEyebrow')}
+                </span>
+              <h1
+                className="font-black font-header text-[var(--text-primary)] tracking-[-0.045em] leading-[0.94] mt-2.5 mb-2.5 max-w-[11ch] text-[clamp(2.3rem,7vw,4.2rem)]"
+                style={{ textWrap: 'balance' }}
+              >
+                {playMode === 'send'
+                  ? t('tutorGames.hub.sendHeadline', { name: partnerName })
+                  : t('tutorGames.hub.localHeadline', { name: partnerName })}
+              </h1>
+              <p className="text-base md:text-[1.02rem] text-[var(--text-secondary)] leading-relaxed max-w-xl">
+                {playMode === 'send'
+                  ? t('tutorGames.hub.sendDescription')
+                  : t('tutorGames.hub.localDescription')}
               </p>
-            )}
-          </div>
-        )}
 
-        {/* SEND MODE - Game Cards */}
-        {playMode === 'send' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid gap-3 sm:flex sm:flex-wrap mt-5 max-w-xl">
+                <button
+                  onClick={() => {
+                    if (playMode === 'send') {
+                      trackTutorAction('hero_send_words', 'word_request', 'tutor_play_hero');
+                      setShowWordRequestModal(true);
+                    } else {
+                      trackTutorAction('hero_start_flashcards', 'tutor_flashcards', 'tutor_play_hero');
+                      startLocalQuiz();
+                    }
+                  }}
+                  disabled={playMode === 'send' ? !isOnline : partnerVocab.length < 4}
+                  className="w-full sm:w-auto min-h-[54px] px-5 py-3 rounded-2xl font-black font-header text-base md:text-lg tracking-tight text-center transition-all hover:-translate-y-0.5 disabled:opacity-45 disabled:cursor-not-allowed"
+                  style={{
+                    background: playMode === 'send' ? playRoleVar('bright', 'color') : playRoleVar('warm', 'color'),
+                    color: '#ffffff',
+                    boxShadow: `0 16px 34px -22px color-mix(in srgb, ${playRoleVar(playMode === 'send' ? 'bright' : 'warm', 'deep')} 30%, transparent)`,
+                  }}
+                >
+                  {playMode === 'send'
+                    ? t('tutorGames.send.sendGift')
+                    : t('tutorGames.startNow')}
+                </button>
+                <button
+                  onClick={() => {
+                    if (playMode === 'send') {
+                      trackTutorAction('hero_create_quiz', 'quiz_modal', 'tutor_play_hero');
+                      setShowQuizModal(true);
+                    } else {
+                      trackTutorAction('hero_start_quickfire', 'tutor_quick_fire', 'tutor_play_hero');
+                      startLocalQuickFire();
+                    }
+                  }}
+                  disabled={playMode === 'send' ? !isOnline : partnerVocab.length < 4}
+                  className="w-full sm:w-auto min-h-[54px] px-5 py-3 rounded-2xl font-black font-header text-base md:text-lg tracking-tight text-center transition-all hover:-translate-y-0.5 disabled:opacity-45 disabled:cursor-not-allowed"
+                  style={{
+                    background: `color-mix(in srgb, ${playRoleVar(playMode === 'send' ? 'warm' : 'ink', 'soft')} 74%, var(--bg-card))`,
+                    border: `1px solid ${playRoleVar(playMode === 'send' ? 'warm' : 'ink', 'border')}`,
+                    color: playRoleVar(playMode === 'send' ? 'warm' : 'ink', 'text'),
+                  }}
+                >
+                  {playMode === 'send'
+                    ? t('tutorGames.send.createQuiz')
+                    : t('tutorGames.local.quickFire')}
+                </button>
+              </div>
 
-          {/* Do You Remember Quiz */}
-          <button
-            onClick={() => setShowQuizModal(true)}
-            disabled={!isOnline}
-            className="group p-6 glass-card rounded-2xl hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            <div className="flex items-start gap-4">
-              <div className="w-14 h-14 bg-[var(--accent-light)] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-[var(--accent-color)]">
-                <ICONS.Target className="w-7 h-7" />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-black font-header text-[var(--text-primary)] mb-1">{t('tutorGames.send.doYouRemember')}</h3>
-                <p className="text-scale-label text-[var(--text-secondary)]">{t('tutorGames.send.quizPartner', { name: partnerName })}</p>
-              </div>
-            </div>
-            <div className="mt-4 flex items-center gap-2 text-[var(--accent-color)] text-scale-caption font-bold">
-              <span>{t('tutorGames.send.createQuiz')}</span>
-              <ICONS.ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </button>
-
-          {/* Quick Fire */}
-          <button
-            onClick={() => setShowQuickFireModal(true)}
-            disabled={!isOnline}
-            className="group p-6 glass-card rounded-2xl hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            <div className="flex items-start gap-4">
-              <div className="w-14 h-14 bg-[var(--accent-light)] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-[var(--accent-color)]">
-                <ICONS.Zap className="w-7 h-7" />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-black font-header text-[var(--text-primary)] mb-1">{t('tutorGames.send.quickFire')}</h3>
-                <p className="text-scale-label text-[var(--text-secondary)]">{t('tutorGames.send.timedChallenge')}</p>
-              </div>
-            </div>
-            <div className="mt-4 flex items-center gap-2 text-[var(--accent-color)] text-scale-caption font-bold">
-              <span>{t('tutorGames.send.createChallenge')}</span>
-              <ICONS.ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </button>
-
-          {/* Word Gift */}
-          <button
-            onClick={() => setShowWordRequestModal(true)}
-            disabled={!isOnline}
-            className="group p-6 glass-card rounded-2xl hover:shadow-md hover:border-[var(--secondary-border)] transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
-          >
-            <div className="flex items-start gap-4">
-              <div className="w-14 h-14 bg-[var(--secondary-light)] rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-[var(--secondary-color)]">
-                <ICONS.Gift className="w-7 h-7" />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-black font-header text-[var(--text-primary)] mb-1">{t('tutorGames.send.giftWords')}</h3>
-                <p className="text-scale-label text-[var(--text-secondary)]">{t('tutorGames.send.sendWords', { name: partnerName })}</p>
-              </div>
-            </div>
-            <div className="mt-4 flex items-center gap-2 text-[var(--secondary-color)] text-scale-caption font-bold">
-              <span>{t('tutorGames.send.sendGift')}</span>
-              <ICONS.ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </div>
-          </button>
-        </div>
-        )}
-
-        {/* Pending Challenges Section - Only in send mode */}
-        {playMode === 'send' && pendingChallenges.length > 0 && (
-          <div className="glass-card rounded-2xl p-6">
-            <h3 className="text-scale-label font-black font-header text-[var(--text-secondary)] uppercase tracking-widest mb-4 flex items-center gap-2">
-              <ICONS.Clock className="w-4 h-4" />
-              {t('tutorGames.pending.waitingFor', { name: partnerName })}
-            </h3>
-            <div className="space-y-3">
-              {pendingChallenges.slice(0, 3).map(challenge => (
-                <div key={challenge.id} className="flex items-center gap-3 p-3 bg-[var(--accent-light)] rounded-xl border border-[var(--accent-border)]">
-                  <div className="w-10 h-10 bg-[var(--accent-light)] rounded-xl flex items-center justify-center text-[var(--accent-color)]">
-                    {challenge.challenge_type === 'quiz' ? <ICONS.Target className="w-5 h-5" /> : <ICONS.Zap className="w-5 h-5" />}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-5 md:mt-6">
+                {(playMode === 'send' ? sendStats : localStats).map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="glass-card rounded-2xl px-4 py-3"
+                    style={{
+                      border: `1px solid ${playRoleVar(stat.role, 'border')}`,
+                      boxShadow: `0 12px 28px -28px color-mix(in srgb, ${playRoleVar(stat.role, 'deep')} 26%, transparent)`,
+                    }}
+                  >
+                    <div className="text-xl md:text-2xl font-black font-header text-[var(--text-primary)]">{stat.value}</div>
+                    <div
+                      className="text-[11px] md:text-xs uppercase tracking-[0.18em] font-bold mt-1"
+                      style={{ color: playRoleVar(stat.role, 'deep') }}
+                    >
+                      {stat.label}
+                    </div>
                   </div>
-                  <div className="flex-1">
-                    <p className="font-bold text-[var(--text-primary)] text-scale-label">{challenge.title}</p>
-                    <p className="text-scale-caption text-[var(--text-secondary)]">
-                      {t('tutorGames.pending.words', { count: challenge.words_data?.length || 0 })} • {t('tutorGames.pending.sent', { date: new Date(challenge.created_at).toLocaleDateString() })}
-                    </p>
-                  </div>
-                  <span className="text-scale-caption font-bold text-[var(--accent-color)] bg-[var(--accent-light)] px-2 py-1 rounded-full">
-                    {t('tutorGames.pending.pending')}
-                  </span>
-                </div>
-              ))}
+                ))}
+              </div>
+            </div>
+
+            <div className="hidden xl:flex justify-end pr-2" style={{ color: playRoleVar(playMode === 'send' ? 'bright' : 'warm', 'color') }}>
+              <div
+                className="rounded-[28px] p-5"
+                style={{
+                  background: `linear-gradient(145deg, color-mix(in srgb, ${playRoleVar(playMode === 'send' ? 'blend' : 'warm', 'soft')} 74%, var(--bg-card)), color-mix(in srgb, ${playRoleVar(playMode === 'send' ? 'bright' : 'ink', 'soft')} 52%, var(--bg-card)))`,
+                  border: `1px solid ${playRoleVar(playMode === 'send' ? 'blend' : 'ink', 'border')}`,
+                }}
+              >
+                <PlayHubArtwork variant={playMode === 'send' ? 'word_gift' : 'flashcards'} className="w-44 h-44" />
+              </div>
             </div>
           </div>
-        )}
+        </section>
 
-        {/* Pending Word Gifts - Only in send mode */}
-        {playMode === 'send' && pendingRequests.length > 0 && (
-          <div className="glass-card rounded-2xl p-6">
-            <h3 className="text-scale-label font-black font-header text-[var(--text-secondary)] uppercase tracking-widest mb-4 flex items-center gap-2">
-              <ICONS.Heart className="w-4 h-4 text-[var(--accent-color)]" />
-              {t('tutorGames.gifts.title')}
-            </h3>
-            <div className="space-y-3">
-              {pendingRequests.slice(0, 3).map(request => (
-                <div key={request.id} className="flex items-center gap-3 p-3 bg-[var(--secondary-light)] rounded-xl border border-[var(--secondary-border)]">
-                  <div className="w-10 h-10 bg-[var(--secondary-light)] rounded-xl flex items-center justify-center text-[var(--secondary-color)]">
-                    <ICONS.Gift className="w-5 h-5" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="font-bold text-[var(--text-primary)] text-scale-label">
-                      {t('tutorGames.gifts.word', { count: request.selected_words?.length || 0 })}
-                    </p>
-                    <p className="text-scale-caption text-[var(--text-secondary)]">
-                      {request.request_type === 'ai_topic' ? t('tutorGames.gifts.topic', { topic: request.input_text }) : t('tutorGames.gifts.custom')}
-                    </p>
-                  </div>
-                  <span className="text-scale-caption font-bold text-[var(--secondary-color)] bg-[var(--secondary-light)] px-2 py-1 rounded-full">
-                    {t('tutorGames.gifts.xpMultiplier', { multiplier: request.xp_multiplier })}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+        {playMode === 'send' ? (
+          <>
+            <section className="mb-10">
+              <TutorSectionHeader
+                title={t('tutorGames.sections.sendTitle')}
+                description={t('tutorGames.sections.sendCopy')}
+              />
+              <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
+                {sendItems.map((item) => <TutorHubTile key={item.id} item={item} />)}
+              </div>
+            </section>
 
-        {/* Recent Results - Only in send mode */}
-        {playMode === 'send' && completedChallenges.length > 0 && (
-          <div className="glass-card rounded-2xl p-6">
-            <h3 className="text-scale-label font-black font-header text-[var(--text-secondary)] uppercase tracking-widest mb-4 flex items-center gap-2">
-              <ICONS.Check className="w-4 h-4 text-[var(--color-correct)]" />
-              {t('tutorGames.results.title')}
-            </h3>
-            <div className="space-y-3">
-              {completedChallenges.slice(0, 5).map(challenge => (
-                <div key={challenge.id} className="flex items-center gap-3 p-3 bg-[var(--color-correct-bg)] rounded-xl border border-[var(--color-correct)]">
-                  <div className="w-10 h-10 bg-[var(--color-correct-bg)] rounded-xl flex items-center justify-center text-[var(--color-correct)]">
-                    {challenge.challenge_type === 'quiz' ? <ICONS.Target className="w-5 h-5" /> : <ICONS.Zap className="w-5 h-5" />}
-                  </div>
-                  <div className="flex-1">
-                    <p className="font-bold text-[var(--text-primary)] text-scale-label">{challenge.title}</p>
-                    <p className="text-scale-caption text-[var(--text-secondary)]">
-                      {t('tutorGames.results.completed', { date: new Date(challenge.completed_at || '').toLocaleDateString() })}
-                    </p>
-                  </div>
-                  {(challenge as any).result && (
-                    <span className="text-scale-caption font-bold text-[var(--color-correct)] bg-[var(--color-correct-bg)] px-2 py-1 rounded-full">
-                      {(challenge as any).result.score}%
-                    </span>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
+            <section className="mb-10">
+              <TutorSectionHeader
+                title={t('tutorGames.sections.waitingTitle')}
+                description={t('tutorGames.sections.waitingCopy')}
+              />
+              <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
+                {waitingItems.map((item) => <TutorHubTile key={item.id} item={item} />)}
+              </div>
+            </section>
 
-        {/* Empty State - Only in send mode */}
-        {playMode === 'send' && challenges.length === 0 && wordRequests.length === 0 && (
-          <div className="text-center py-12 text-[var(--text-secondary)]">
-            <div className="mb-4 text-[var(--text-secondary)]"><ICONS.Gamepad2 className="w-16 h-16 mx-auto" /></div>
-            <p className="font-bold">{t('tutorGames.empty.noChallenges')}</p>
-            <p className="text-scale-label">{t('tutorGames.empty.createFirst', { name: partnerName })}</p>
-          </div>
+            <section className="pb-2">
+              <TutorSectionHeader
+                title={t('tutorGames.sections.resultsTitle')}
+                description={t('tutorGames.sections.resultsCopy')}
+              />
+              <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
+                {resultItems.map((item) => <TutorHubTile key={item.id} item={item} />)}
+              </div>
+            </section>
+          </>
+        ) : (
+          <>
+            <section className="mb-10">
+              <TutorSectionHeader
+                title={t('tutorGames.sections.localTitle')}
+                description={t('tutorGames.sections.localCopy')}
+              />
+              <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-4">
+                {localItems.map((item) => <TutorHubTile key={item.id} item={item} />)}
+              </div>
+              {partnerVocab.length < 4 && (
+                <p className="text-sm text-[var(--text-secondary)] mt-4">
+                  {t('tutorGames.local.needWords', { name: partnerName })}
+                </p>
+              )}
+            </section>
+
+            <section className="pb-2">
+              <TutorSectionHeader
+                title={t('tutorGames.sections.localTipsTitle')}
+                description={t('tutorGames.sections.localTipsCopy')}
+              />
+              <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
+                {localSupportItems.map((item) => <TutorHubTile key={item.id} item={item} />)}
+              </div>
+            </section>
+          </>
         )}
       </div>
 

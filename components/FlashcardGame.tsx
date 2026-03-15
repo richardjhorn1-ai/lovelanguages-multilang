@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import React, { Suspense, lazy, useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { supabase } from '../services/supabase';
 import { geminiService } from '../services/gemini';
@@ -17,28 +17,19 @@ import { useOffline } from '../hooks/useOffline';
 import OfflineIndicator from './OfflineIndicator';
 import TutorGames from './TutorGames';
 import ErrorBoundary from './ErrorBoundary';
-import PlayQuizChallenge from './PlayQuizChallenge';
-import GameResults from './games/GameResults';
-import { StreakIndicator, StreakCelebrationModal } from './games/components';
-import { Flashcards, MultipleChoice, TypeIt, QuickFire, AIChallenge } from './games/modes';
-import { VerbDojo } from './games/modes/VerbDojo';
+import { StreakCelebrationModal } from './games/components';
 import type { DojoSessionResult } from './games/modes/VerbDojo/types';
-import PlayQuickFireChallenge from './PlayQuickFireChallenge';
 import { analytics } from '../services/analytics';
-import WordGiftLearning from './WordGiftLearning';
-import ConversationPractice from './ConversationPractice';
-import LimitReachedModal from './LimitReachedModal';
-import { apiFetch } from '../services/api-config';
+import { apiFetch, readJsonResponse } from '../services/api-config';
 import { fetchPartnerProfileView } from '../services/partner-profile';
+import PlayHub, { PlayHubItem } from './play/PlayHub';
 
 interface FlashcardGameProps {
   profile: Profile;
   isActive?: boolean;
 }
 
-type PracticeMode = 'love_notes' | 'flashcards' | 'multiple_choice' | 'type_it' | 'ai_challenge' | 'quick_fire';
-type MainTab = 'local_games' | 'love_notes';
-type LocalGameType = 'flashcards' | 'multiple_choice' | 'type_it' | 'quick_fire' | 'ai_challenge' | 'verb_mastery' | null;
+type LocalGameType = 'flashcards' | 'multiple_choice' | 'type_it' | 'wordle' | 'speed_match' | 'quick_fire' | 'ai_challenge' | 'verb_mastery' | null;
 type VerbTense = 'present' | 'past' | 'future';
 
 // VerbDojo is now language-aware - handles conjugation persons internally
@@ -57,6 +48,35 @@ const STREAK_TO_LEARN = 5; // Number of consecutive correct answers to mark as l
 const DICTIONARY_FETCH_LIMIT = 1200;
 const WORD_SCORE_FETCH_LIMIT = 2000;
 
+const GameResults = lazy(() => import('./games/GameResults'));
+const Flashcards = lazy(() => import('./games/modes/Flashcards').then(module => ({ default: module.Flashcards })));
+const MultipleChoice = lazy(() => import('./games/modes/MultipleChoice').then(module => ({ default: module.MultipleChoice })));
+const TypeIt = lazy(() => import('./games/modes/TypeIt').then(module => ({ default: module.TypeIt })));
+const Wordle = lazy(() => import('./games/modes/Wordle').then(module => ({ default: module.Wordle })));
+const SpeedMatch = lazy(() => import('./games/modes/SpeedMatch').then(module => ({ default: module.SpeedMatch })));
+const QuickFire = lazy(() => import('./games/modes/QuickFire').then(module => ({ default: module.QuickFire })));
+const AIChallenge = lazy(() => import('./games/modes/AIChallenge').then(module => ({ default: module.AIChallenge })));
+const VerbDojo = lazy(() => import('./games/modes/VerbDojo').then(module => ({ default: module.VerbDojo })));
+const PlayQuizChallenge = lazy(() => import('./PlayQuizChallenge'));
+const PlayQuickFireChallenge = lazy(() => import('./PlayQuickFireChallenge'));
+const WordGiftLearning = lazy(() => import('./WordGiftLearning'));
+const ConversationPractice = lazy(() => import('./ConversationPractice'));
+const LimitReachedModal = lazy(() => import('./LimitReachedModal'));
+
+const InlinePlayLoader: React.FC<{ label?: string }> = ({ label = 'Loading...' }) => (
+  <div className="glass-card rounded-[28px] min-h-[260px] flex items-center justify-center p-6 text-center text-[var(--text-secondary)] font-bold">
+    {label}
+  </div>
+);
+
+const ModalPlayLoader: React.FC<{ label?: string }> = ({ label = 'Loading...' }) => (
+  <div className="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop">
+    <div className="glass-card-solid rounded-3xl px-6 py-5 text-center text-[var(--text-secondary)] font-bold shadow-xl">
+      {label}
+    </div>
+  </div>
+);
+
 const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile, isActive = true }) => {
   const [deck, setDeck] = useState<DictionaryEntry[]>([]);
   const [scores, setScores] = useState<WordScore[]>([]);
@@ -71,13 +91,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile, isActive = true 
   const [activeChallenge, setActiveChallenge] = useState<TutorChallenge | null>(null);
   const [activeWordRequest, setActiveWordRequest] = useState<WordRequest | null>(null);
 
-  // Main tab and local game state
-  const [mainTab, setMainTab] = useState<MainTab>('local_games');
   const [localGameType, setLocalGameType] = useState<LocalGameType>(null);
   const [showConversationPractice, setShowConversationPractice] = useState(false);
 
-  // Practice mode - default to love_notes if there are pending items
-  const [mode, setMode] = useState<PracticeMode>('flashcards');
   const [finished, setFinished] = useState(false);
   const [sessionScore, setSessionScore] = useState({ correct: 0, incorrect: 0 });
 
@@ -101,6 +117,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile, isActive = true 
 
   // Quick Fire state (most managed by extracted component)
   const [quickFireStarted, setQuickFireStarted] = useState(false); // Used for exit confirmation
+  const [speedMatchStarted, setSpeedMatchStarted] = useState(false); // Used for exit confirmation
+  const [speedMatchProgress, setSpeedMatchProgress] = useState({ completed: 0, total: 1 });
+  const [wordleStarted, setWordleStarted] = useState(false); // Used for exit confirmation
   const [showIncorrectShake, setShowIncorrectShake] = useState(false);
 
   // Verb Mastery state (most managed by extracted component)
@@ -112,6 +131,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile, isActive = true 
 
   // Deferred deck refresh — set when dictionary-updated fires during an active game
   const pendingDeckRefreshRef = useRef(false);
+  const fetchDataInFlightRef = useRef<string | null>(null);
 
   // Level styling
   const levelInfo = useMemo(() => getLevelFromXP(profile.xp || 0), [profile.xp]);
@@ -222,63 +242,71 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile, isActive = true 
   // Note: MC options and TypeIt questions now generated by extracted components
 
   const fetchData = async () => {
-    setLoading(true);
     const targetUserId = (profile.role === 'tutor' && profile.linked_user_id)
       ? profile.linked_user_id
       : profile.id;
+    const fetchKey = `${targetUserId}:${targetLanguage}:${profile.role}:${isOnline ? 'online' : 'offline'}`;
 
-    // If offline, try to use cached data
-    if (!isOnline) {
-      const cachedData = await getCachedVocabulary();
-      if (cachedData && cachedData.length > 0) {
-        setDeck(shuffleArray(cachedData));
-      }
-      const cachedScores = await getCachedWordScores();
-      if (cachedScores.length > 0) {
-        setScores(cachedScores);
-        const map = new Map<string, WordScore>();
-        cachedScores.forEach(s => map.set(s.word_id, s));
-        setScoresMap(map);
-      }
-      setLoading(false);
+    if (fetchDataInFlightRef.current === fetchKey) {
       return;
     }
 
-    const { data: dictData } = await supabase
-      .from('dictionary')
-      .select('*')
-      .eq('user_id', targetUserId)
-      .eq('language_code', targetLanguage)
-      .order('created_at', { ascending: false })
-      .limit(DICTIONARY_FETCH_LIMIT);
+    fetchDataInFlightRef.current = fetchKey;
+    setLoading(true);
+    try {
+      // If offline, try to use cached data
+      if (!isOnline) {
+        const cachedData = await getCachedVocabulary();
+        if (cachedData && cachedData.length > 0) {
+          setDeck(shuffleArray(cachedData));
+        }
+        const cachedScores = await getCachedWordScores();
+        if (cachedScores.length > 0) {
+          setScores(cachedScores);
+          const map = new Map<string, WordScore>();
+          cachedScores.forEach(s => map.set(s.word_id, s));
+          setScoresMap(map);
+        }
+        return;
+      }
 
-    if (dictData) {
-      setDeck(shuffleArray(dictData));
-      await cacheVocabulary(dictData);
+      const { data: dictData } = await supabase
+        .from('dictionary')
+        .select('*')
+        .eq('user_id', targetUserId)
+        .eq('language_code', targetLanguage)
+        .order('created_at', { ascending: false })
+        .limit(DICTIONARY_FETCH_LIMIT);
+
+      if (dictData) {
+        setDeck(shuffleArray(dictData));
+        await cacheVocabulary(dictData);
+      }
+
+      const { data: scoreData } = await supabase
+        .from('word_scores')
+        .select('*, dictionary:word_id(word, translation)')
+        .eq('user_id', targetUserId)
+        .eq('language_code', targetLanguage)
+        .order('updated_at', { ascending: false })
+        .limit(WORD_SCORE_FETCH_LIMIT);
+
+      if (scoreData) {
+        setScores(scoreData as WordScore[]);
+        const map = new Map<string, WordScore>();
+        scoreData.forEach((s: any) => map.set(s.word_id, s as WordScore));
+        setScoresMap(map);
+        await cacheWordScores(scoreData as WordScore[]);
+      }
+
+      // Fetch pending challenges and word requests for students
+      if (profile.role === 'student') {
+        await fetchPendingItems();
+      }
+    } finally {
+      fetchDataInFlightRef.current = null;
+      setLoading(false);
     }
-
-    const { data: scoreData } = await supabase
-      .from('word_scores')
-      .select('*, dictionary:word_id(word, translation)')
-      .eq('user_id', targetUserId)
-      .eq('language_code', targetLanguage)
-      .order('updated_at', { ascending: false })
-      .limit(WORD_SCORE_FETCH_LIMIT);
-
-    if (scoreData) {
-      setScores(scoreData as WordScore[]);
-      const map = new Map<string, WordScore>();
-      scoreData.forEach((s: any) => map.set(s.word_id, s as WordScore));
-      setScoresMap(map);
-      await cacheWordScores(scoreData as WordScore[]);
-    }
-
-    // Fetch pending challenges and word requests for students
-    if (profile.role === 'student') {
-      await fetchPendingItems();
-    }
-
-    setLoading(false);
   };
 
   const fetchPendingItems = async () => {
@@ -291,7 +319,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile, isActive = true 
           const partner = await fetchPartnerProfileView();
           if (partner?.full_name) setPartnerName(partner.full_name);
         } catch (error) {
-          console.error('Failed to fetch partner profile view:', error);
+          if (import.meta.env.DEV) {
+            console.warn('Partner profile view unavailable, continuing without shared partner details.', error);
+          }
         }
       }
 
@@ -302,15 +332,19 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile, isActive = true 
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({ status: 'pending', role: 'student', ...languageParams })
+        body: JSON.stringify({ status: 'pending', role: 'student', ...languageParams }),
+        __llErrorContext: {
+          screen: 'play_hub',
+          userAction: 'load_pending_challenges',
+          suppressErrorTracking: true,
+          treat4xxAsError: false,
+        },
       });
-      const challengeData = await challengeRes.json();
-      if (challengeData.challenges) {
+      const challengeData = await readJsonResponse<{ challenges?: TutorChallenge[] }>(challengeRes);
+      if (challengeData?.challenges) {
         setPendingChallenges(challengeData.challenges);
-        // Auto-switch to Love Notes tab if there are pending items
-        if (challengeData.challenges.length > 0) {
-          setMainTab('love_notes');
-        }
+      } else {
+        setPendingChallenges([]);
       }
 
       // Fetch pending word requests
@@ -320,18 +354,26 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile, isActive = true 
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({ status: 'pending', role: 'student', ...languageParams })
+        body: JSON.stringify({ status: 'pending', role: 'student', ...languageParams }),
+        __llErrorContext: {
+          screen: 'play_hub',
+          userAction: 'load_pending_word_requests',
+          suppressErrorTracking: true,
+          treat4xxAsError: false,
+        },
       });
-      const requestData = await requestRes.json();
-      if (requestData.wordRequests) {
+      const requestData = await readJsonResponse<{ wordRequests?: WordRequest[] }>(requestRes);
+      if (requestData?.wordRequests) {
         setPendingWordRequests(requestData.wordRequests);
-        // Auto-switch to Love Notes tab if there are pending items
-        if (requestData.wordRequests.length > 0 && pendingChallenges.length === 0) {
-          setMainTab('love_notes');
-        }
+      } else {
+        setPendingWordRequests([]);
       }
     } catch (error) {
-      console.error('Error fetching pending items:', error);
+      setPendingChallenges([]);
+      setPendingWordRequests([]);
+      if (import.meta.env.DEV) {
+        console.warn('Play hub pending items unavailable, falling back to empty shared state.', error);
+      }
     }
   };
 
@@ -500,28 +542,15 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile, isActive = true 
     setChallengeStarted(false);
   }, []);
 
-  const handleModeChange = (newMode: PracticeMode) => {
-    setMode(newMode);
-    setCurrentIndex(0);
-    setFinished(false);
-    setSessionScore({ correct: 0, incorrect: 0 });
-    setSessionAnswers([]);
-    // Reset AI Challenge state when switching modes
-    resetChallenge();
-    // Reset Quick Fire state
-    resetQuickFire();
-    // Reset Verb Mastery state
-    resetVerbMastery();
-
-    // Reshuffle deck
-    setDeck(shuffleArray([...deck]));
-  };
+  const resetSpeedMatch = useCallback(() => {
+    setSpeedMatchStarted(false);
+    setSpeedMatchProgress({ completed: 0, total: 1 });
+  }, []);
 
   // Start a local game from the game selection grid
   const startLocalGame = (gameType: LocalGameType) => {
     setLocalGameType(gameType);
     if (gameType) {
-      setMode(gameType as PracticeMode);
       setCurrentIndex(0);
       setFinished(false);
       setSessionScore({ correct: 0, incorrect: 0 });
@@ -535,7 +564,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile, isActive = true 
 
   // Check if game is in progress (has started answering questions)
   const isGameInProgress = localGameType !== null && !finished && (
-    challengeStarted || quickFireStarted || verbMasteryStarted ||
+    challengeStarted || quickFireStarted || speedMatchStarted || wordleStarted || verbMasteryStarted ||
     currentIndex > 0 || sessionScore.correct > 0 || sessionScore.incorrect > 0
   );
 
@@ -555,7 +584,9 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile, isActive = true 
     setSessionScore({ correct: 0, incorrect: 0 });
     setSessionAnswers([]);
     resetChallenge();
+    resetSpeedMatch();
     resetQuickFire();
+    resetWordle();
     resetVerbMastery();
   };
 
@@ -587,15 +618,42 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile, isActive = true 
     }));
   }, [deck]);
 
+  const wordleEligibleWords = useMemo(() => {
+    const seen = new Set<string>();
+
+    return deck.filter((entry) => {
+      const normalizedWord = entry.word.trim().normalize('NFC');
+      if (!/^\p{L}+$/u.test(normalizedWord)) return false;
+
+      let letters: string[];
+      let key: string;
+      try {
+        letters = Array.from(normalizedWord).map((char) => char.toLocaleLowerCase(targetLanguage));
+        key = normalizedWord.toLocaleLowerCase(targetLanguage);
+      } catch {
+        letters = Array.from(normalizedWord).map((char) => char.toLocaleLowerCase());
+        key = normalizedWord.toLocaleLowerCase();
+      }
+
+      if (letters.length < 4 || letters.length > 8 || seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  }, [deck, targetLanguage]);
+
   // Verb Mastery reset (component manages its own internal state)
   const resetVerbMastery = () => {
     setVerbMasteryStarted(false);
   };
 
+  const resetWordle = () => {
+    setWordleStarted(false);
+  };
+
   // Exit confirmation when game is in progress
   useEffect(() => {
     const isGameInProgress = localGameType !== null && !finished && (
-      challengeStarted || quickFireStarted || verbMasteryStarted ||
+      challengeStarted || quickFireStarted || speedMatchStarted || wordleStarted || verbMasteryStarted ||
       currentIndex > 0 || sessionScore.correct > 0 || sessionScore.incorrect > 0
     );
 
@@ -615,7 +673,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile, isActive = true 
     return () => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
     };
-  }, [localGameType, finished, challengeStarted, quickFireStarted, verbMasteryStarted, currentIndex, sessionScore]);
+  }, [localGameType, finished, challengeStarted, quickFireStarted, speedMatchStarted, wordleStarted, verbMasteryStarted, currentIndex, sessionScore]);
 
   // Generic callbacks for extracted game mode components (memoized for performance)
   const handleGameAnswer = useCallback(async (result: { wordId?: string; wordText: string; correctAnswer: string; userAnswer?: string; questionType: 'flashcard' | 'multiple_choice' | 'type_it'; isCorrect: boolean }) => {
@@ -685,6 +743,14 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile, isActive = true 
       saveGameSession('type_it', answers, score.correct, score.incorrect);
       analytics.trackGameCompleted({ game_type: 'type_it', word_count: deck.length, score: score.correct, correct: score.incorrect === 0, accuracy: Math.round((score.correct / Math.max(score.correct + score.incorrect, 1)) * 100) });
     },
+    wordle: () => {
+      const score = sessionScoreRef.current;
+      const answers = sessionAnswersRef.current;
+      if (score.incorrect === 0 && score.correct > 0) { sounds.play('perfect'); haptics.trigger('perfect'); }
+      setFinished(true);
+      saveGameSession('wordle', answers, score.correct, score.incorrect);
+      analytics.trackGameCompleted({ game_type: 'wordle', word_count: answers.length, score: score.correct, correct: score.incorrect === 0, accuracy: Math.round((score.correct / Math.max(score.correct + score.incorrect, 1)) * 100) });
+    },
   }), [saveGameSession, deck.length]);
 
   // TypeIt validation wrapper (memoized)
@@ -706,7 +772,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile, isActive = true 
       return { accepted: result.accepted, explanation: result.explanation };
     }
     const accepted = isCorrectAnswer(userAnswer, correctAnswer);
-    return { accepted, explanation: accepted ? 'Exact match' : 'No match' };
+    return { accepted, explanation: '' };
   }, [smartValidation, useBasicValidation, languageParams]);
 
   // QuickFire handlers (memoized)
@@ -716,6 +782,42 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile, isActive = true 
     setSessionScore({ correct: 0, incorrect: 0 });
     setSessionAnswers([]);
   }, []);
+
+  const handleSpeedMatchStart = useCallback((totalWords: number) => {
+    setSpeedMatchStarted(true);
+    setSpeedMatchProgress({ completed: 0, total: Math.max(totalWords, 1) });
+    setFinished(false);
+    setSessionScore({ correct: 0, incorrect: 0 });
+    setSessionAnswers([]);
+  }, []);
+
+  const handleSpeedMatchProgress = useCallback((completed: number, total: number) => {
+    setSpeedMatchProgress({ completed, total: Math.max(total, 1) });
+  }, []);
+
+  const handleSpeedMatchComplete = useCallback((results: {
+    answers: GameSessionAnswer[];
+    score: { correct: number; incorrect: number };
+    totalWords: number;
+    elapsedMs: number;
+  }) => {
+    if (results.score.incorrect === 0 && results.score.correct > 0) {
+      sounds.play('perfect');
+      haptics.trigger('perfect');
+    }
+    setSpeedMatchProgress({ completed: results.totalWords, total: Math.max(results.totalWords, 1) });
+    setSessionScore(results.score);
+    setSessionAnswers(results.answers);
+    setFinished(true);
+    saveGameSession('speed_match', results.answers, results.score.correct, results.score.incorrect);
+    analytics.trackGameCompleted({
+      game_type: 'speed_match',
+      word_count: results.totalWords,
+      score: results.score.correct,
+      correct: results.score.incorrect === 0,
+      accuracy: Math.round((results.score.correct / Math.max(results.score.correct + results.score.incorrect, 1)) * 100),
+    });
+  }, [saveGameSession]);
 
   const handleQuickFireComplete = useCallback((results: {
     answers: (GameSessionAnswer & { explanation?: string })[];
@@ -731,6 +833,21 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile, isActive = true 
     setFinished(true);
     saveGameSession('quick_fire', results.answers, results.score.correct, results.score.incorrect);
     analytics.trackGameCompleted({ game_type: 'quick_fire', word_count: results.answers.length, score: results.score.correct, correct: results.score.incorrect === 0, accuracy: Math.round((results.score.correct / Math.max(results.score.correct + results.score.incorrect, 1)) * 100) });
+  }, [saveGameSession]);
+
+  const handleWordleComplete = useCallback((results: {
+    answers: GameSessionAnswer[];
+    score: { correct: number; incorrect: number };
+  }) => {
+    if (results.score.incorrect === 0 && results.score.correct > 0) {
+      sounds.play('perfect');
+      haptics.trigger('perfect');
+    }
+    setSessionScore(results.score);
+    setSessionAnswers(results.answers);
+    setFinished(true);
+    saveGameSession('wordle', results.answers, results.score.correct, results.score.incorrect);
+    analytics.trackGameCompleted({ game_type: 'wordle', word_count: results.answers.length, score: results.score.correct, correct: results.score.incorrect === 0, accuracy: Math.round((results.score.correct / Math.max(results.score.correct + results.score.incorrect, 1)) * 100) });
   }, [saveGameSession]);
 
   const handleQuickFireValidation = useCallback(async (
@@ -751,7 +868,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile, isActive = true 
       return { accepted: result.accepted, explanation: result.explanation };
     }
     const accepted = isCorrectAnswer(userAnswer, correctAnswer);
-    return { accepted, explanation: accepted ? 'Exact match' : 'No match' };
+    return { accepted, explanation: '' };
   }, [smartValidation, useBasicValidation, languageParams]);
 
   // VerbMastery handlers (memoized)
@@ -785,7 +902,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile, isActive = true 
       return { accepted: result.accepted, explanation: result.explanation };
     }
     const accepted = isCorrectAnswer(userAnswer, correctAnswer);
-    return { accepted, explanation: accepted ? 'Exact match' : 'No match' };
+    return { accepted, explanation: '' };
   }, [smartValidation, useBasicValidation, languageParams]);
 
   // AIChallenge handlers (memoized)
@@ -822,7 +939,7 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile, isActive = true 
       return { accepted: result.accepted, explanation: result.explanation };
     }
     const accepted = isCorrectAnswer(userAnswer, correctAnswer);
-    return { accepted, explanation: accepted ? 'Exact match' : 'No match' };
+    return { accepted, explanation: '' };
   }, [smartValidation, useBasicValidation, languageParams]);
 
   const restartSession = () => {
@@ -833,6 +950,416 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile, isActive = true 
     setSessionAnswers([]);
     // Note: Extracted components reset their own internal state when words/index change
   };
+
+  // Current items based on mode/game type
+  const getCurrentStats = (): { index: number; length: number } => {
+    // ai_challenge now uses extracted component with internal state
+    if (localGameType === 'ai_challenge' && challengeStarted) {
+      return { index: sessionAnswers.length, length: 20 }; // AIChallenge tracks via sessionAnswers
+    }
+    if (localGameType === 'speed_match' && speedMatchStarted) {
+      return { index: speedMatchProgress.completed, length: speedMatchProgress.total };
+    }
+    if (localGameType === 'wordle' && wordleStarted) {
+      return { index: sessionAnswers.length, length: Math.min(wordleEligibleWords.length, 5) || 1 };
+    }
+    // verb_mastery now uses extracted component with internal state
+    if (localGameType === 'verb_mastery') {
+      return { index: sessionAnswers.length, length: 20 }; // Max 20 questions
+    }
+    // quick_fire now uses extracted component with internal state
+    // Progress tracked via sessionScore/sessionAnswers when game is active
+    if (localGameType === 'quick_fire' && quickFireStarted) {
+      return { index: sessionAnswers.length, length: Math.min(deck.length, 20) };
+    }
+    // type_it now uses deck directly via extracted component
+    if (localGameType === 'type_it') {
+      return { index: currentIndex, length: deck.length };
+    }
+    return { index: currentIndex, length: deck.length || 1 };
+  };
+  const { index: displayIndex, length: currentDeckLength } = getCurrentStats();
+  const progress = ((displayIndex + 1) / currentDeckLength) * 100;
+  const pendingCount = pendingChallenges.length + pendingWordRequests.length;
+  const hubPartnerName = partnerName || t('play.session.yourPartner');
+  const isHubView = !localGameType;
+  const showSessionHeader = !!localGameType && !(
+    (localGameType === 'verb_mastery' && !verbMasteryStarted) ||
+    (localGameType === 'quick_fire' && !quickFireStarted) ||
+    (localGameType === 'ai_challenge' && !challengeStarted) ||
+    (localGameType === 'speed_match' && !speedMatchStarted)
+  );
+
+  const trackHubTileClick = useCallback((
+    tileId: string,
+    section: 'solo' | 'shared' | 'experimental',
+    options?: { blocked?: boolean; sharedType?: 'challenge' | 'word_request' | 'empty'; featured?: boolean }
+  ) => {
+    const params = {
+      tile_id: tileId,
+      section,
+      target_lang: targetLanguage,
+      word_count: deck.length,
+      shared_count: pendingCount,
+      featured: Boolean(options?.featured),
+    };
+
+    if (options?.blocked) {
+      analytics.trackPlayHubTileBlocked(params);
+      return;
+    }
+
+    analytics.trackPlayHubTileClicked(params);
+    if (section === 'shared') {
+      analytics.trackPlayHubSharedOpened({
+        ...params,
+        shared_type: options?.sharedType || 'empty',
+      });
+    }
+  }, [deck.length, pendingCount, targetLanguage]);
+
+  const trackHeroCtaClick = useCallback((ctaId: string, destination: string) => {
+    analytics.trackPlayHubCtaClicked({
+      cta_id: ctaId,
+      destination,
+      target_lang: targetLanguage,
+      word_count: deck.length,
+      shared_count: pendingCount,
+    });
+  }, [deck.length, pendingCount, targetLanguage]);
+
+  const openFirstSharedItem = useCallback(() => {
+    if (pendingChallenges.length > 0) {
+      setActiveChallenge(pendingChallenges[0]);
+      return;
+    }
+    if (pendingWordRequests.length > 0) {
+      setActiveWordRequest(pendingWordRequests[0]);
+    }
+  }, [pendingChallenges, pendingWordRequests]);
+
+  const sharedItems = useMemo<PlayHubItem[]>(() => {
+    const challengeItems: PlayHubItem[] = pendingChallenges.map((challenge, index) => ({
+      id: challenge.id,
+      title: challenge.title || (challenge.challenge_type === 'quiz'
+        ? t('play.loveNotes.quizChallenge')
+        : t('play.loveNotes.quickFire')),
+      description: t('play.loveNotes.from', { partner: hubPartnerName }),
+      meta: `${new Date(challenge.created_at).toLocaleDateString()} • ${t('play.loveNotes.words', { count: challenge.words_data?.length || 0 })}`,
+      badge: challenge.challenge_type === 'quiz'
+        ? t('play.loveNotes.challenges')
+        : t('play.games.quickFire'),
+      eyebrow: t('play.hub.sharedEyebrow'),
+      artwork: challenge.challenge_type === 'quiz' ? 'love_notes' : 'quick_fire',
+      colorRole: challenge.challenge_type === 'quiz' ? 'warm' : 'blend',
+      featured: index === 0,
+      onClick: () => {
+        trackHubTileClick(challenge.id, 'shared', {
+          featured: index === 0,
+          sharedType: 'challenge',
+        });
+        setActiveChallenge(challenge);
+      },
+    }));
+
+    const requestItems: PlayHubItem[] = pendingWordRequests.map((request) => ({
+      id: request.id,
+      title: request.request_type === 'ai_topic' ? request.input_text : t('play.loveNotes.wordGift'),
+      description: t('play.loveNotes.subtitle'),
+      meta: `${new Date(request.created_at).toLocaleDateString()} • ${request.xp_multiplier}x XP`,
+      badge: t('play.loveNotes.wordGifts'),
+      eyebrow: t('play.hub.sharedEyebrow'),
+      artwork: 'word_gift',
+      colorRole: 'bright',
+      onClick: () => {
+        trackHubTileClick(request.id, 'shared', { sharedType: 'word_request' });
+        setActiveWordRequest(request);
+      },
+    }));
+
+    if (challengeItems.length + requestItems.length > 0) {
+      return [...challengeItems, ...requestItems];
+    }
+
+    return [
+      {
+        id: 'shared-empty-love-notes',
+        title: t('play.loveNotes.empty'),
+        description: t('play.loveNotes.emptyDesc', { partner: hubPartnerName }),
+        meta: t('play.hub.sharedPlaceholderMeta'),
+        eyebrow: t('play.hub.sharedEyebrow'),
+        artwork: 'love_notes',
+        colorRole: 'warm',
+        featured: true,
+        disabled: true,
+        onDisabledClick: () => trackHubTileClick('shared-empty-love-notes', 'shared', { blocked: true, sharedType: 'empty', featured: true }),
+        onClick: () => undefined,
+      },
+      {
+        id: 'shared-empty-word-gifts',
+        title: t('play.loveNotes.wordGifts'),
+        description: t('play.hub.sharedPlaceholderCopy'),
+        meta: t('play.hub.sharedPlaceholderMetaTwo'),
+        eyebrow: t('play.hub.sharedEyebrow'),
+        artwork: 'word_gift',
+        colorRole: 'bright',
+        disabled: true,
+        onDisabledClick: () => trackHubTileClick('shared-empty-word-gifts', 'shared', { blocked: true, sharedType: 'empty' }),
+        onClick: () => undefined,
+      },
+    ];
+  }, [hubPartnerName, pendingChallenges, pendingWordRequests, t, trackHubTileClick]);
+
+  const soloItems = useMemo<PlayHubItem[]>(() => [
+    {
+      id: 'flashcards',
+      title: t('play.games.flashcards'),
+      description: t('play.hub.flashcardsCopy'),
+      meta: `${deck.length} ${t('progress.stats.words').toLowerCase()}`,
+      eyebrow: t('play.hub.warmupEyebrow'),
+      artwork: 'flashcards',
+      colorRole: 'warm',
+      featured: true,
+      onClick: () => {
+        trackHubTileClick('flashcards', 'solo', { featured: true });
+        startLocalGame('flashcards');
+      },
+    },
+    {
+      id: 'multiple_choice',
+      title: t('play.games.multiChoice'),
+      description: t('play.games.multiChoiceDesc'),
+      meta: t('play.hub.requiresWords', { count: 4 }),
+      eyebrow: t('play.hub.pickEyebrow'),
+      artwork: 'multiple_choice',
+      colorRole: 'bright',
+      disabled: deck.length < 4,
+      onDisabledClick: () => trackHubTileClick('multiple_choice', 'solo', { blocked: true }),
+      onClick: () => {
+        trackHubTileClick('multiple_choice', 'solo');
+        startLocalGame('multiple_choice');
+      },
+    },
+    {
+      id: 'type_it',
+      title: t('play.games.typeIt'),
+      description: t('play.games.typeItDesc'),
+      meta: t('play.hub.spellMeta'),
+      eyebrow: t('play.hub.spellEyebrow'),
+      artwork: 'type_it',
+      colorRole: 'ink',
+      onClick: () => {
+        trackHubTileClick('type_it', 'solo');
+        startLocalGame('type_it');
+      },
+    },
+    {
+      id: 'wordle',
+      title: t('play.games.wordle'),
+      description: t('play.games.wordleDesc'),
+      meta: wordleEligibleWords.length >= 3
+        ? t('play.games.wordleWords', { count: wordleEligibleWords.length })
+        : t('play.wordle.needEligibleWords'),
+      eyebrow: t('play.hub.spellEyebrow'),
+      artwork: 'wordle',
+      colorRole: 'blend',
+      disabled: wordleEligibleWords.length < 3,
+      onDisabledClick: () => trackHubTileClick('wordle', 'solo', { blocked: true }),
+      onClick: () => {
+        trackHubTileClick('wordle', 'solo');
+        startLocalGame('wordle');
+      },
+    },
+    {
+      id: 'speed_match',
+      title: t('play.games.speedMatch'),
+      description: t('play.games.speedMatchDesc'),
+      meta: t('play.games.speedMatchMeta'),
+      badge: t('play.hub.fastBadge'),
+      eyebrow: t('play.hub.pickEyebrow'),
+      artwork: 'speed_match',
+      colorRole: 'bright',
+      disabled: deck.length < 4,
+      onDisabledClick: () => trackHubTileClick('speed_match', 'solo', { blocked: true }),
+      onClick: () => {
+        trackHubTileClick('speed_match', 'solo');
+        startLocalGame('speed_match');
+      },
+    },
+    {
+      id: 'quick_fire',
+      title: t('play.games.quickFire'),
+      description: t('play.hub.quickFireCopy'),
+      meta: t('play.games.quickFireDesc'),
+      badge: t('play.hub.fastBadge'),
+      eyebrow: t('play.hub.intensityEyebrow'),
+      artwork: 'quick_fire',
+      colorRole: 'blend',
+      featured: true,
+      disabled: deck.length < 5,
+      onDisabledClick: () => trackHubTileClick('quick_fire', 'solo', { blocked: true, featured: true }),
+      onClick: () => {
+        trackHubTileClick('quick_fire', 'solo', { featured: true });
+        startLocalGame('quick_fire');
+      },
+    },
+    {
+      id: 'verb_mastery',
+      title: t('play.games.verbMastery'),
+      description: verbsWithConjugations.length > 0
+        ? t('play.hub.verbCopy', { count: verbsWithConjugations.length })
+        : t('play.games.learnVerbsFirst'),
+      meta: verbsWithConjugations.length > 0
+        ? t('play.games.verbMasteryVerbs', { count: verbsWithConjugations.length })
+        : t('play.hub.comingSoonMeta'),
+      eyebrow: t('play.hub.grammarEyebrow'),
+      artwork: 'verb_mastery',
+      colorRole: 'ink',
+      disabled: verbsWithConjugations.length === 0,
+      onDisabledClick: () => trackHubTileClick('verb_mastery', 'solo', { blocked: true }),
+      onClick: () => {
+        trackHubTileClick('verb_mastery', 'solo');
+        startLocalGame('verb_mastery');
+      },
+    },
+  ], [deck.length, startLocalGame, t, trackHubTileClick, verbsWithConjugations.length, wordleEligibleWords.length]);
+
+  const experimentalItems = useMemo<PlayHubItem[]>(() => [
+    {
+      id: 'ai_challenge',
+      title: t('play.games.aiChallenge'),
+      description: t('play.hub.aiCopy'),
+      meta: t('play.games.aiChallengeDesc'),
+      eyebrow: t('play.hub.adaptiveEyebrow'),
+      artwork: 'ai_challenge',
+      colorRole: 'warm',
+      onClick: () => {
+        trackHubTileClick('ai_challenge', 'experimental');
+        startLocalGame('ai_challenge');
+      },
+    },
+    {
+      id: 'conversation',
+      title: t('play.games.conversation'),
+      description: t('play.games.conversationDesc', { language: targetName }),
+      meta: t('play.hub.voiceMeta'),
+      badge: t('play.beta'),
+      eyebrow: t('play.hub.voiceEyebrow'),
+      artwork: 'conversation',
+      colorRole: 'ink',
+      onClick: () => {
+        trackHubTileClick('conversation', 'experimental');
+        setShowConversationPractice(true);
+      },
+    },
+  ], [startLocalGame, t, targetName, trackHubTileClick]);
+
+  const heroData = useMemo(() => {
+    if (pendingCount > 0) {
+      const hasChallenge = pendingChallenges.length > 0;
+      return {
+        eyebrow: t('play.hub.heroSharedEyebrow'),
+        headline: pendingCount === 1
+          ? t('play.hub.heroSharedSingle')
+          : t('play.hub.heroSharedPlural', { count: pendingCount }),
+        description: t('play.hub.heroSharedCopy', { partner: hubPartnerName }),
+        heroArtwork: hasChallenge ? 'love_notes' as const : 'word_gift' as const,
+        primaryAction: {
+          label: t('play.hub.openSharedAction'),
+          onClick: () => {
+            trackHeroCtaClick('open_shared', 'shared');
+            openFirstSharedItem();
+          },
+          colorRole: 'warm' as const,
+          variant: 'solid' as const,
+        },
+        secondaryAction: {
+          label: t('play.hub.warmupAction'),
+          onClick: () => {
+            trackHeroCtaClick('warmup_flashcards', 'flashcards');
+            startLocalGame('flashcards');
+          },
+          colorRole: 'ink' as const,
+          variant: 'soft' as const,
+        },
+      };
+    }
+
+    return {
+      eyebrow: t('play.hub.heroSoloEyebrow'),
+      headline: t('play.hub.heroSoloHeadline'),
+      description: t('play.hub.heroSoloCopy', { language: targetName }),
+      heroArtwork: deck.length >= 5 ? 'quick_fire' as const : 'flashcards' as const,
+      primaryAction: {
+        label: t('play.hub.startFlashcardsAction'),
+        onClick: () => {
+          trackHeroCtaClick('start_flashcards', 'flashcards');
+          startLocalGame('flashcards');
+        },
+        colorRole: 'warm' as const,
+        variant: 'solid' as const,
+      },
+      secondaryAction: deck.length >= 5
+        ? {
+          label: t('play.hub.quickFireAction'),
+          onClick: () => {
+            trackHeroCtaClick('jump_quick_fire', 'quick_fire');
+            startLocalGame('quick_fire');
+          },
+          colorRole: 'blend' as const,
+          variant: 'soft' as const,
+        }
+        : {
+          label: t('play.hub.voiceAction'),
+          onClick: () => {
+            trackHeroCtaClick('open_conversation', 'conversation');
+            setShowConversationPractice(true);
+          },
+          colorRole: 'ink' as const,
+          variant: 'soft' as const,
+        },
+    };
+  }, [deck.length, hubPartnerName, openFirstSharedItem, pendingChallenges.length, pendingCount, startLocalGame, t, targetName, trackHeroCtaClick]);
+
+  const hubViewTrackedRef = useRef(false);
+
+  useEffect(() => {
+    if (!isHubView) {
+      hubViewTrackedRef.current = false;
+      return;
+    }
+
+    if (loading || profile.role !== 'student' || hubViewTrackedRef.current) return;
+
+    hubViewTrackedRef.current = true;
+    analytics.trackPlayHubViewed({
+      target_lang: targetLanguage,
+      word_count: deck.length,
+      shared_count: pendingCount,
+      solo_available: soloItems.filter(item => !item.disabled).length,
+      shared_available: sharedItems.filter(item => !item.disabled).length,
+      experimental_available: experimentalItems.filter(item => !item.disabled).length,
+    });
+  }, [deck.length, experimentalItems, isHubView, loading, pendingCount, profile.role, sharedItems, soloItems, targetLanguage]);
+
+  const hubStats = useMemo(() => [
+    {
+      label: t('play.hub.statWords'),
+      value: String(deck.length),
+    },
+    {
+      label: t('play.hub.statMastered'),
+      value: String(masteredWords.length),
+    },
+    {
+      label: t('play.hub.statShared'),
+      value: String(pendingCount),
+    },
+    {
+      label: t('play.hub.statVerbs'),
+      value: String(verbsWithConjugations.length),
+    },
+  ], [deck.length, masteredWords.length, pendingCount, t, verbsWithConjugations.length]);
 
   // Loading state
   if (loading) return (
@@ -862,16 +1389,16 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile, isActive = true 
   );
 
   // Not enough words for multiple choice
-  if (mode === 'multiple_choice' && deck.length < 4) {
+  if ((localGameType === 'multiple_choice' || localGameType === 'speed_match') && deck.length < 4) {
     return (
       <div className="h-full flex flex-col items-center justify-center p-8 text-center max-w-md mx-auto">
         <div className="w-20 h-20 bg-[var(--color-warning-bg)] rounded-full flex items-center justify-center text-[var(--color-warning)] mb-6">
           <ICONS.Star className="w-10 h-10" />
         </div>
         <h2 className="text-2xl font-black font-header text-[var(--text-primary)] mb-4">{t('play.empty.needMore')}</h2>
-        <p className="text-[var(--text-secondary)] font-medium mb-6">{t('play.empty.needMoreDesc', { count: deck.length })}</p>
+        <p className="text-[var(--text-secondary)] font-medium mb-6">{t('play.empty.needFourWordsDesc', { count: deck.length })}</p>
         <button
-          onClick={() => handleModeChange('flashcards')}
+          onClick={() => startLocalGame('flashcards')}
           className="px-6 py-3 rounded-xl font-bold text-white text-scale-label shadow-md hover:shadow-lg active:scale-[0.98] transition-all"
           style={{ backgroundColor: tierColor }}
         >
@@ -883,40 +1410,17 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile, isActive = true 
 
   // Finished state
   if (finished && localGameType) return (
-    <GameResults
-      correct={sessionScore.correct}
-      incorrect={sessionScore.incorrect}
-      tierColor={tierColor}
-      onPlayAgain={restartSession}
-      onExit={exitLocalGame}
-      answers={sessionAnswers}
-    />
+    <Suspense fallback={<InlinePlayLoader label={t('play.loading')} />}>
+      <GameResults
+        correct={sessionScore.correct}
+        incorrect={sessionScore.incorrect}
+        tierColor={tierColor}
+        onPlayAgain={restartSession}
+        onExit={exitLocalGame}
+        answers={sessionAnswers}
+      />
+    </Suspense>
   );
-
-  // Current items based on mode/game type
-  const getCurrentStats = (): { index: number; length: number } => {
-    // ai_challenge now uses extracted component with internal state
-    if (localGameType === 'ai_challenge' && challengeStarted) {
-      return { index: sessionAnswers.length, length: 20 }; // AIChallenge tracks via sessionAnswers
-    }
-    // verb_mastery now uses extracted component with internal state
-    if (localGameType === 'verb_mastery') {
-      return { index: sessionAnswers.length, length: 20 }; // Max 20 questions
-    }
-    // quick_fire now uses extracted component with internal state
-    // Progress tracked via sessionScore/sessionAnswers when game is active
-    if (localGameType === 'quick_fire' && quickFireStarted) {
-      return { index: sessionAnswers.length, length: Math.min(deck.length, 20) };
-    }
-    // type_it now uses deck directly via extracted component
-    if (mode === 'type_it') {
-      return { index: currentIndex, length: deck.length };
-    }
-    return { index: currentIndex, length: deck.length || 1 };
-  };
-  const { index: displayIndex, length: currentDeckLength } = getCurrentStats();
-  const progress = ((displayIndex + 1) / currentDeckLength) * 100;
-  const pendingCount = pendingChallenges.length + pendingWordRequests.length;
 
   return (
     <div className="h-full flex flex-col overflow-hidden">
@@ -939,444 +1443,207 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile, isActive = true 
         </div>
       )}
 
-      {/* Header: Two Tabs - Fixed at top */}
-      <div className="shrink-0 p-2 md:p-4 pb-1 md:pb-2">
-        <div className="w-full max-w-lg mx-auto">
-          {/* Two-Tab Layout: Local Games | Love Notes */}
-          {!localGameType && (
-            <>
-              <h1 className="text-scale-heading md:text-2xl font-black font-header text-[var(--text-primary)] mb-2 md:mb-3 text-center">{t('play.title')}</h1>
-              <div className="inline-flex w-full glass-card p-0.5 md:p-1 rounded-lg md:rounded-xl mb-2 md:mb-3">
-                <button
-                  onClick={() => setMainTab('local_games')}
-                  className={`flex-1 px-2 md:px-4 py-1.5 md:py-2 rounded-md md:rounded-lg text-scale-label font-bold transition-all flex items-center justify-center gap-1.5 md:gap-2 ${
-                    mainTab === 'local_games'
-                      ? 'bg-white/75 dark:bg-white/15 text-[var(--accent-color)] shadow-sm'
-                      : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
-                  }`}
-                >
-                  <ICONS.Play className="w-3.5 h-3.5 md:w-4 md:h-4" />
-                  {t('play.tabs.games')}
-                </button>
-                <button
-                  onClick={() => setMainTab('love_notes')}
-                  className={`relative flex-1 px-2 md:px-4 py-1.5 md:py-2 rounded-md md:rounded-lg text-scale-label font-bold transition-all flex items-center justify-center gap-1.5 md:gap-2 ${
-                    mainTab === 'love_notes'
-                      ? 'bg-white/75 dark:bg-white/15 text-[var(--accent-color)] shadow-sm'
-                      : pendingCount > 0
-                        ? 'text-[var(--accent-color)]'
-                        : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
-                  }`}
-                >
-                  <ICONS.Heart className={`w-3.5 h-3.5 md:w-4 md:h-4 ${mainTab === 'love_notes' ? 'fill-[var(--accent-color)]' : pendingCount > 0 ? 'fill-[var(--accent-color)]' : ''}`} />
-                  {t('play.tabs.loveNotes')}
-                  {pendingCount > 0 && mainTab !== 'love_notes' && (
-                    <span className="absolute -top-1 -right-1 w-4 h-4 md:w-5 md:h-5 bg-[var(--accent-color)] text-white text-[8px] md:text-[10px] flex items-center justify-center rounded-full font-bold animate-bounce">
-                      {pendingCount > 9 ? '9+' : pendingCount}
-                    </span>
-                  )}
-                </button>
-              </div>
-              <p className="text-[var(--text-secondary)] text-scale-micro md:text-scale-caption text-center hidden md:block">
-                {mainTab === 'local_games'
-                  ? t('play.tabs.gamesDesc')
-                  : t('play.tabs.loveNotesDesc', { partner: partnerName || t('play.session.yourPartner') })}
-              </p>
-            </>
-          )}
-
-          {/* Session Stats - Show only when a game is active (hide for VerbDojo mode selection) */}
-          {localGameType && !(localGameType === 'verb_mastery' && !verbMasteryStarted) && (
-            <>
-              <div className="flex items-center justify-between mb-2">
-                <button
-                  onClick={handleExitRequest}
-                  className="p-2 hover:bg-white/40 rounded-xl transition-colors"
-                >
-                  <ICONS.ChevronLeft className="w-5 h-5 text-[var(--text-secondary)]" />
-                </button>
-                <div className="flex gap-4">
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-2 h-2 rounded-full bg-[var(--color-correct)]" />
-                    <span className="text-scale-caption font-bold text-[var(--text-secondary)]">{sessionScore.correct}</span>
+      {/* Header - active session only */}
+      {localGameType && (
+        <div className="shrink-0 p-2 md:p-4 pb-1 md:pb-2">
+          <div className="w-full max-w-lg mx-auto">
+            {showSessionHeader && (
+              <>
+                <div className="flex items-center justify-between mb-2">
+                  <button
+                    onClick={handleExitRequest}
+                    className="p-2 hover:bg-white/40 rounded-xl transition-colors"
+                  >
+                    <ICONS.ChevronLeft className="w-5 h-5 text-[var(--text-secondary)]" />
+                  </button>
+                  <div className="flex gap-4">
+                    <div className="flex items-center gap-1.5">
+                      <div className="w-2 h-2 rounded-full bg-[var(--color-correct)]" />
+                      <span className="text-scale-caption font-bold text-[var(--text-secondary)]">{sessionScore.correct}</span>
+                    </div>
+                    <div className="flex items-center gap-1.5">
+                      <div className="w-2 h-2 rounded-full bg-[var(--color-incorrect)]" />
+                      <span className="text-scale-caption font-bold text-[var(--text-secondary)]">{sessionScore.incorrect}</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-2 h-2 rounded-full bg-[var(--color-incorrect)]" />
-                    <span className="text-scale-caption font-bold text-[var(--text-secondary)]">{sessionScore.incorrect}</span>
-                  </div>
+                  <span className="text-[10px] font-black text-[var(--text-secondary)] uppercase tracking-widest">
+                    {displayIndex + 1} / {currentDeckLength}
+                  </span>
                 </div>
-                <span className="text-[10px] font-black text-[var(--text-secondary)] uppercase tracking-widest">
-                  {displayIndex + 1} / {currentDeckLength}
-                </span>
-              </div>
 
-              {/* Progress Bar */}
-              <div className="h-1.5 bg-[var(--border-color)] rounded-full overflow-hidden">
-                <div
-                  className="h-full transition-all duration-500 rounded-full"
-                  style={{ width: `${progress}%`, backgroundColor: tierColor }}
-                />
-              </div>
-            </>
-          )}
+                <div className="h-1.5 bg-[var(--border-color)] rounded-full overflow-hidden">
+                  <div
+                    className="h-full transition-all duration-500 rounded-full"
+                    style={{ width: `${progress}%`, backgroundColor: tierColor }}
+                  />
+                </div>
+              </>
+            )}
+          </div>
         </div>
-      </div>
+      )}
 
       {/* Content Area - Scrollable */}
-      <div className="flex-1 overflow-y-auto p-4 pt-2">
-        <div className="w-full max-w-lg mx-auto flex items-start justify-center min-h-full">
+      <div className={`flex-1 overflow-y-auto ${isHubView ? 'px-4 md:px-6 py-4 md:py-6' : 'p-4 pt-2'}`}>
+        <div className={`w-full ${isHubView ? 'max-w-6xl' : 'max-w-lg'} mx-auto flex items-start justify-center min-h-full`}>
           <div className="w-full">
 
-          {/* Game Card Grid - Show when in local_games tab and no game active */}
-          {mainTab === 'local_games' && !localGameType && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 mt-3 md:mt-4">
-              {/* Flashcards */}
-              <button
-                onClick={() => startLocalGame('flashcards')}
-                className="group p-3 md:p-6 glass-card rounded-xl md:rounded-2xl hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left"
-              >
-                <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4">
-                  <div className="w-10 h-10 md:w-14 md:h-14 bg-[var(--accent-light)] rounded-xl md:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-[var(--accent-color)]">
-                    <ICONS.Layers className="w-5 h-5 md:w-7 md:h-7" />
-                  </div>
-                  <div className="flex-1 text-center md:text-left">
-                    <h3 className="text-scale-label md:text-scale-body font-black font-header text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.flashcards')}</h3>
-                    <p className="text-[10px] md:text-scale-label text-[var(--text-secondary)] hidden md:block">{t('play.games.flashcardsDesc')}</p>
-                  </div>
-                </div>
-              </button>
-
-              {/* Multiple Choice — secondary */}
-              <button
-                onClick={() => startLocalGame('multiple_choice')}
-                disabled={deck.length < 4}
-                className="group p-3 md:p-6 glass-card rounded-xl md:rounded-2xl hover:shadow-md hover:border-[var(--secondary-border)] transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4">
-                  <div className="w-10 h-10 md:w-14 md:h-14 bg-[var(--secondary-light)] rounded-xl md:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-[var(--secondary-color)]">
-                    <ICONS.CheckCircle className="w-5 h-5 md:w-7 md:h-7" />
-                  </div>
-                  <div className="flex-1 text-center md:text-left">
-                    <h3 className="text-scale-label md:text-scale-body font-black font-header text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.multiChoice')}</h3>
-                    <p className="text-[10px] md:text-scale-label text-[var(--text-secondary)] hidden md:block">{t('play.games.multiChoiceDesc')}</p>
-                  </div>
-                </div>
-              </button>
-
-              {/* Type It — accent */}
-              <button
-                onClick={() => startLocalGame('type_it')}
-                className="group p-3 md:p-6 glass-card rounded-xl md:rounded-2xl hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left"
-              >
-                <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4">
-                  <div className="w-10 h-10 md:w-14 md:h-14 bg-[var(--accent-light)] rounded-xl md:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-[var(--accent-color)]">
-                    <ICONS.Type className="w-5 h-5 md:w-7 md:h-7" />
-                  </div>
-                  <div className="flex-1 text-center md:text-left">
-                    <h3 className="text-scale-label md:text-scale-body font-black font-header text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.typeIt')}</h3>
-                    <p className="text-[10px] md:text-scale-label text-[var(--text-secondary)] hidden md:block">{t('play.games.typeItDesc')}</p>
-                  </div>
-                </div>
-              </button>
-
-              {/* Quick Fire — secondary */}
-              <button
-                onClick={() => startLocalGame('quick_fire')}
-                disabled={deck.length < 5}
-                className="group p-3 md:p-6 glass-card rounded-xl md:rounded-2xl hover:shadow-md hover:border-[var(--secondary-border)] transition-all text-left disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4">
-                  <div className="w-10 h-10 md:w-14 md:h-14 bg-[var(--secondary-light)] rounded-xl md:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-[var(--secondary-color)]">
-                    <ICONS.Zap className="w-5 h-5 md:w-7 md:h-7" />
-                  </div>
-                  <div className="flex-1 text-center md:text-left">
-                    <h3 className="text-scale-label md:text-scale-body font-black font-header text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.quickFire')}</h3>
-                    <p className="text-[10px] md:text-scale-label text-[var(--text-secondary)] hidden md:block">{t('play.games.quickFireDesc')}</p>
-                  </div>
-                </div>
-              </button>
-
-              {/* AI Challenge — accent */}
-              <button
-                onClick={() => startLocalGame('ai_challenge')}
-                className="group p-3 md:p-6 glass-card rounded-xl md:rounded-2xl hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left"
-              >
-                <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4">
-                  <div className="w-10 h-10 md:w-14 md:h-14 bg-[var(--accent-light)] rounded-xl md:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-[var(--accent-color)]">
-                    <ICONS.Bot className="w-5 h-5 md:w-7 md:h-7" />
-                  </div>
-                  <div className="flex-1 text-center md:text-left">
-                    <h3 className="text-scale-label md:text-scale-body font-black font-header text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.aiChallenge')}</h3>
-                    <p className="text-[10px] md:text-scale-label text-[var(--text-secondary)] hidden md:block">{t('play.games.aiChallengeDesc')}</p>
-                  </div>
-                </div>
-              </button>
-
-              {/* Conversation Practice — secondary */}
-              <button
-                onClick={() => setShowConversationPractice(true)}
-                className="group p-3 md:p-6 glass-card rounded-xl md:rounded-2xl hover:shadow-md hover:border-[var(--secondary-border)] transition-all text-left relative"
-              >
-                <div className="absolute top-1.5 right-1.5 md:top-3 md:right-3 px-1.5 md:px-2 py-0.5 bg-[var(--secondary-light)] text-[var(--secondary-color)] text-[7px] md:text-[9px] font-black uppercase tracking-wider rounded-full">
-                  {t('play.beta')}
-                </div>
-                <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4">
-                  <div className="w-10 h-10 md:w-14 md:h-14 bg-[var(--secondary-light)] rounded-xl md:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-[var(--secondary-color)]">
-                    <ICONS.Mic className="w-5 h-5 md:w-7 md:h-7" />
-                  </div>
-                  <div className="flex-1 text-center md:text-left">
-                    <h3 className="text-scale-label md:text-scale-body font-black font-header text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.conversation')}</h3>
-                    <p className="text-[10px] md:text-scale-label text-[var(--text-secondary)] hidden md:block">{t('play.games.conversationDesc', { language: targetName })}</p>
-                  </div>
-                </div>
-              </button>
-
-              {/* Verb Mastery — accent */}
-              <button
-                onClick={() => startLocalGame('verb_mastery')}
-                disabled={verbsWithConjugations.length === 0}
-                className="group p-3 md:p-6 glass-card rounded-xl md:rounded-2xl hover:shadow-md hover:border-[var(--accent-border)] transition-all text-left relative disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                <div className="flex flex-col md:flex-row items-center md:items-start gap-2 md:gap-4">
-                  <div className="w-10 h-10 md:w-14 md:h-14 bg-[var(--accent-light)] rounded-xl md:rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform text-[var(--accent-color)]">
-                    <ICONS.RefreshCw className="w-5 h-5 md:w-7 md:h-7" />
-                  </div>
-                  <div className="flex-1 text-center md:text-left">
-                    <h3 className="text-scale-label md:text-scale-body font-black font-header text-[var(--text-primary)] mb-0.5 md:mb-1">{t('play.games.verbMastery')}</h3>
-                    <p className="text-[10px] md:text-scale-label text-[var(--text-secondary)] hidden md:block">
-                      {verbsWithConjugations.length > 0
-                        ? t('play.games.verbMasteryVerbs', { count: verbsWithConjugations.length })
-                        : t('play.games.learnVerbsFirst')}
-                    </p>
-                  </div>
-                </div>
-              </button>
-            </div>
-          )}
-
-          {/* Flashcards Mode - Using extracted component */}
-          {localGameType === 'flashcards' && deck[currentIndex] && (
-            <Flashcards
-              words={deck}
-              scoresMap={scoresMap}
-              currentIndex={currentIndex}
-              accentColor={tierColor}
-              targetLanguage={targetLanguage}
-              targetLanguageName={targetName}
-              nativeLanguageName={nativeName}
-              currentWordStreak={currentWordStreak}
-              onAnswer={handleGameAnswer}
-              onNext={handleGameNext}
-              onComplete={gameCompleteHandlers.flashcards}
+          {isHubView && (
+            <PlayHub
+              eyebrow={heroData.eyebrow}
+              headline={heroData.headline}
+              description={heroData.description}
+              heroArtwork={heroData.heroArtwork}
+              primaryAction={heroData.primaryAction}
+              secondaryAction={heroData.secondaryAction}
+              stats={hubStats}
+              soloItems={soloItems}
+              sharedItems={sharedItems}
+              experimentalItems={experimentalItems}
             />
           )}
 
-          {/* Multiple Choice Mode - Using extracted component */}
-          {localGameType === 'multiple_choice' && deck[currentIndex] && (
-            <MultipleChoice
-              words={deck}
-              scoresMap={scoresMap}
-              currentIndex={currentIndex}
-              accentColor={tierColor}
-              targetLanguage={targetLanguage}
-              targetLanguageName={targetName}
-              nativeLanguageName={nativeName}
-              currentWordStreak={currentWordStreak}
-              showIncorrectShake={showIncorrectShake}
-              onAnswer={handleGameAnswer}
-              onNext={handleGameNext}
-              onComplete={gameCompleteHandlers.multiple_choice}
-            />
-          )}
+          <Suspense fallback={<InlinePlayLoader label={t('play.loading')} />}>
+            {/* Flashcards Mode - Using extracted component */}
+            {localGameType === 'flashcards' && deck[currentIndex] && (
+              <Flashcards
+                words={deck}
+                scoresMap={scoresMap}
+                currentIndex={currentIndex}
+                accentColor={tierColor}
+                targetLanguage={targetLanguage}
+                targetLanguageName={targetName}
+                nativeLanguageName={nativeName}
+                currentWordStreak={currentWordStreak}
+                onAnswer={handleGameAnswer}
+                onNext={handleGameNext}
+                onComplete={gameCompleteHandlers.flashcards}
+              />
+            )}
 
-          {/* Type It Mode - Using extracted component */}
-          {localGameType === 'type_it' && deck.length > 0 && (
-            <TypeIt
-              words={deck}
-              scoresMap={scoresMap}
-              currentIndex={currentIndex}
-              accentColor={tierColor}
-              targetLanguage={targetLanguage}
-              targetLanguageName={targetName}
-              nativeLanguageName={nativeName}
-              currentWordStreak={currentWordStreak}
-              showIncorrectShake={showIncorrectShake}
-              onAnswer={handleGameAnswer}
-              onNext={handleGameNext}
-              onComplete={gameCompleteHandlers.type_it}
-              validateAnswer={handleTypeItValidation}
-            />
-          )}
+            {/* Multiple Choice Mode - Using extracted component */}
+            {localGameType === 'multiple_choice' && deck[currentIndex] && (
+              <MultipleChoice
+                words={deck}
+                scoresMap={scoresMap}
+                currentIndex={currentIndex}
+                accentColor={tierColor}
+                targetLanguage={targetLanguage}
+                targetLanguageName={targetName}
+                nativeLanguageName={nativeName}
+                currentWordStreak={currentWordStreak}
+                showIncorrectShake={showIncorrectShake}
+                onAnswer={handleGameAnswer}
+                onNext={handleGameNext}
+                onComplete={gameCompleteHandlers.multiple_choice}
+              />
+            )}
 
-          {/* AI Challenge Mode - Using extracted component */}
-          {localGameType === 'ai_challenge' && !finished && (
-            <AIChallenge
-              words={deck}
-              scoresMap={scoresMap}
-              challengeModes={challengeModes}
-              accentColor={tierColor}
-              targetLanguage={targetLanguage}
-              nativeLanguage={nativeLanguage}
-              targetLanguageName={targetName}
-              nativeLanguageName={nativeName}
-              userTier={levelInfo.tier}
-              onAnswer={handleGameAnswer}
-              onComplete={handleAIChallengeComplete}
-              onExit={exitLocalGame}
-              onStart={() => setChallengeStarted(true)}
-              validateAnswer={handleAIChallengeValidation}
-              onUpdateWordScore={updateWordScore}
-            />
-          )}
+            {/* Type It Mode - Using extracted component */}
+            {localGameType === 'type_it' && deck.length > 0 && (
+              <TypeIt
+                words={deck}
+                scoresMap={scoresMap}
+                currentIndex={currentIndex}
+                accentColor={tierColor}
+                targetLanguage={targetLanguage}
+                targetLanguageName={targetName}
+                nativeLanguageName={nativeName}
+                currentWordStreak={currentWordStreak}
+                showIncorrectShake={showIncorrectShake}
+                onAnswer={handleGameAnswer}
+                onNext={handleGameNext}
+                onComplete={gameCompleteHandlers.type_it}
+                validateAnswer={handleTypeItValidation}
+              />
+            )}
 
-          {/* Quick Fire Mode - Using extracted component */}
-          {localGameType === 'quick_fire' && !finished && (
-            <QuickFire
-              words={deck}
-              targetLanguage={targetLanguage}
-              accentColor={accentHex}
-              timeLimit={60}
-              maxWords={20}
-              onAnswer={handleGameAnswer}
-              onComplete={handleQuickFireComplete}
-              onStart={handleQuickFireStart}
-              validateAnswer={handleQuickFireValidation}
-            />
-          )}
+            {localGameType === 'speed_match' && !finished && (
+              <SpeedMatch
+                words={deck}
+                targetLanguage={targetLanguage}
+                targetLanguageName={targetName}
+                nativeLanguageName={nativeName}
+                accentColor={accentHex}
+                onStart={handleSpeedMatchStart}
+                onProgress={handleSpeedMatchProgress}
+                onAnswer={handleGameAnswer}
+                onComplete={handleSpeedMatchComplete}
+              />
+            )}
 
-          {/* Verb Dojo Mode - Redesigned verb conjugation training */}
-          {localGameType === 'verb_mastery' && !finished && (
-            <VerbDojo
-              verbs={verbsWithConjugations}
-              targetLanguage={targetLanguage}
-              accentColor={accentHex}
-              onStart={() => setVerbMasteryStarted(true)}
-              onAnswer={(correct, xpEarned) => {
-                handleGameAnswer({
-                  wordId: undefined,
-                  wordText: 'verb',
-                  correctAnswer: '',
-                  questionType: 'type_it',
-                  isCorrect: correct,
-                });
-                // XP is tracked internally by VerbDojo streak system
-              }}
-              onComplete={handleVerbMasteryComplete}
-              onExit={exitLocalGame}
-              validateAnswer={handleVerbMasteryValidation}
-            />
-          )}
+            {localGameType === 'wordle' && !finished && (
+              <Wordle
+                words={deck}
+                targetLanguage={targetLanguage}
+                accentColor={accentHex}
+                targetLanguageName={targetName}
+                nativeLanguageName={nativeName}
+                onStart={() => setWordleStarted(true)}
+                onAnswer={handleGameAnswer}
+                onComplete={handleWordleComplete}
+              />
+            )}
 
-          {/* Love Notes Tab - Partner Challenges & Word Gifts */}
-          {mainTab === 'love_notes' && !localGameType && (
-            <div className="w-full space-y-4">
-              {/* Header */}
-              <div className="text-center mb-6">
-                <div className="w-16 h-16 bg-[var(--accent-light)] rounded-full flex items-center justify-center mx-auto mb-3 animate-pulse text-[var(--accent-color)]">
-                  <ICONS.Mail className="w-8 h-8" />
-                </div>
-                <h2 className="text-scale-heading font-black font-header text-[var(--text-primary)]">{t('play.loveNotes.title', { partner: partnerName })}</h2>
-                <p className="text-scale-label text-[var(--text-secondary)]">{t('play.loveNotes.subtitle')}</p>
-              </div>
+            {/* AI Challenge Mode - Using extracted component */}
+            {localGameType === 'ai_challenge' && !finished && (
+              <AIChallenge
+                words={deck}
+                scoresMap={scoresMap}
+                challengeModes={challengeModes}
+                accentColor={tierColor}
+                targetLanguage={targetLanguage}
+                nativeLanguage={nativeLanguage}
+                targetLanguageName={targetName}
+                nativeLanguageName={nativeName}
+                userTier={levelInfo.tier}
+                onAnswer={handleGameAnswer}
+                onComplete={handleAIChallengeComplete}
+                onExit={exitLocalGame}
+                onStart={() => setChallengeStarted(true)}
+                validateAnswer={handleAIChallengeValidation}
+                onUpdateWordScore={updateWordScore}
+              />
+            )}
 
-              {/* Empty State */}
-              {pendingChallenges.length === 0 && pendingWordRequests.length === 0 && (
-                <div className="glass-card rounded-2xl p-8 text-center">
-                  <div className="mb-4 text-[var(--accent-color)]"><ICONS.Sparkles className="w-10 h-10 mx-auto" /></div>
-                  <h3 className="text-scale-heading font-bold font-header text-[var(--text-primary)] mb-2">{t('play.loveNotes.empty')}</h3>
-                  <p className="text-scale-label text-[var(--text-secondary)]">{t('play.loveNotes.emptyDesc', { partner: partnerName })}</p>
-                </div>
-              )}
+            {/* Quick Fire Mode - Using extracted component */}
+            {localGameType === 'quick_fire' && !finished && (
+              <QuickFire
+                words={deck}
+                targetLanguage={targetLanguage}
+                accentColor={accentHex}
+                timeLimit={60}
+                maxWords={20}
+                onAnswer={handleGameAnswer}
+                onComplete={handleQuickFireComplete}
+                onStart={handleQuickFireStart}
+                validateAnswer={handleQuickFireValidation}
+              />
+            )}
 
-              {/* Pending Challenges */}
-              {pendingChallenges.length > 0 && (
-                <div className="space-y-3">
-                  <h3 className="text-scale-caption font-black font-header uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
-                    <ICONS.Zap className="w-3.5 h-3.5" /> {t('play.loveNotes.challenges')}
-                  </h3>
-                  {pendingChallenges.map(challenge => (
-                    <button
-                      key={challenge.id}
-                      onClick={() => setActiveChallenge(challenge)}
-                      className="w-full glass-card rounded-2xl p-4 hover:border-[var(--accent-border)] dark:hover:border-[var(--accent-border)] hover:shadow-md transition-all text-left group"
-                    >
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-[var(--accent-light)] rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform text-[var(--accent-color)]">
-                          {challenge.challenge_type === 'quiz' ? <ICONS.Target className="w-6 h-6" /> : <ICONS.Zap className="w-6 h-6" />}
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2">
-                            <span className="font-bold text-[var(--text-primary)] truncate">
-                              {challenge.title || (challenge.challenge_type === 'quiz' ? t('play.loveNotes.quizChallenge') : t('play.loveNotes.quickFire'))}
-                            </span>
-                            <span className="text-[9px] font-bold px-2 py-0.5 bg-[var(--accent-light)] dark:bg-[var(--accent-light)] text-[var(--accent-color)] dark:text-[var(--accent-color)] rounded-full shrink-0">
-                              {t('play.loveNotes.words', { count: challenge.words_data?.length || 0 })}
-                            </span>
-                          </div>
-                          <p className="text-scale-caption text-[var(--text-secondary)]">
-                            {t('play.loveNotes.from', { partner: partnerName })} · {new Date(challenge.created_at).toLocaleDateString()}
-                          </p>
-                        </div>
-                        <ICONS.ChevronRight className="w-5 h-5 text-[var(--text-secondary)] group-hover:text-[var(--accent-color)] group-hover:translate-x-1 transition-all" />
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              )}
-
-              {/* Pending Word Gifts */}
-              {pendingWordRequests.length > 0 && (
-                <div className="space-y-3">
-                  <h3 className="text-scale-caption font-black font-header uppercase tracking-widest text-[var(--text-secondary)] flex items-center gap-2">
-                    <ICONS.Heart className="w-3.5 h-3.5 fill-[var(--text-secondary)]" /> {t('play.loveNotes.wordGifts')}
-                  </h3>
-                  {pendingWordRequests.map(request => (
-                    <button
-                      key={request.id}
-                      onClick={() => setActiveWordRequest(request)}
-                      className="w-full glass-card rounded-2xl p-4 hover:border-[var(--accent-border)] hover:shadow-md transition-all text-left group"
-                    >
-                      <div className="flex items-center gap-4">
-                        <div className="w-12 h-12 bg-[var(--accent-light)] rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform text-[var(--accent-color)]">
-                          <ICONS.Gift className="w-6 h-6" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2">
-                            <span className="font-bold text-[var(--text-primary)] truncate">
-                              {request.request_type === 'ai_topic' ? request.input_text : t('play.loveNotes.wordGift')}
-                            </span>
-                            <span className="text-[9px] font-bold px-2 py-0.5 bg-[var(--accent-light)] text-[var(--accent-color)] rounded-full shrink-0">
-                              {t('play.loveNotes.words', { count: request.selected_words?.length || 0 })}
-                            </span>
-                            <span className="text-[9px] font-bold px-2 py-0.5 bg-[var(--accent-light)] text-[var(--accent-color)] dark:text-[var(--accent-color)] rounded-full shrink-0">
-                              {request.xp_multiplier}x XP
-                            </span>
-                          </div>
-                          <p className="text-scale-caption text-[var(--text-secondary)]">
-                            {t('play.loveNotes.from', { partner: partnerName })} · {new Date(request.created_at).toLocaleDateString()}
-                          </p>
-                        </div>
-                        <ICONS.ChevronRight className="w-5 h-5 text-[var(--text-secondary)] group-hover:text-[var(--accent-color)] group-hover:translate-x-1 transition-all" />
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              )}
-
-              {/* Practice Other Modes Prompt */}
-              {pendingChallenges.length === 0 && pendingWordRequests.length === 0 && (
-                <div className="flex gap-2 mt-6">
-                  <button
-                    onClick={() => { setMainTab('local_games'); }}
-                    className="flex-1 py-3 rounded-xl font-bold text-scale-label text-white shadow-md hover:shadow-lg active:scale-[0.98] transition-all"
-                    style={{ backgroundColor: tierColor }}
-                  >
-                    {t('play.loveNotes.goToGames')}
-                  </button>
-                </div>
-              )}
-            </div>
-          )}
+            {/* Verb Dojo Mode - Redesigned verb conjugation training */}
+            {localGameType === 'verb_mastery' && !finished && (
+              <VerbDojo
+                verbs={verbsWithConjugations}
+                targetLanguage={targetLanguage}
+                accentColor={accentHex}
+                onStart={() => setVerbMasteryStarted(true)}
+                onAnswer={(correct, xpEarned) => {
+                  handleGameAnswer({
+                    wordId: undefined,
+                    wordText: 'verb',
+                    correctAnswer: '',
+                    questionType: 'type_it',
+                    isCorrect: correct,
+                  });
+                  // XP is tracked internally by VerbDojo streak system
+                }}
+                onComplete={handleVerbMasteryComplete}
+                onExit={exitLocalGame}
+                validateAnswer={handleVerbMasteryValidation}
+              />
+            )}
+          </Suspense>
 
           </div>
         </div>
@@ -1384,41 +1651,47 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile, isActive = true 
 
       {/* Challenge Modal */}
       {activeChallenge && (
-        activeChallenge.challenge_type === 'quiz' ? (
-          <PlayQuizChallenge
-            challenge={activeChallenge}
-            partnerName={partnerName}
-            onComplete={handleChallengeComplete}
-            onClose={() => setActiveChallenge(null)}
-            smartValidation={smartValidation}
-          />
-        ) : (
-          <PlayQuickFireChallenge
-            challenge={activeChallenge}
-            partnerName={partnerName}
-            onComplete={handleChallengeComplete}
-            onClose={() => setActiveChallenge(null)}
-            smartValidation={smartValidation}
-          />
-        )
+        <Suspense fallback={<ModalPlayLoader label={t('play.loading')} />}>
+          {activeChallenge.challenge_type === 'quiz' ? (
+            <PlayQuizChallenge
+              challenge={activeChallenge}
+              partnerName={partnerName}
+              onComplete={handleChallengeComplete}
+              onClose={() => setActiveChallenge(null)}
+              smartValidation={smartValidation}
+            />
+          ) : (
+            <PlayQuickFireChallenge
+              challenge={activeChallenge}
+              partnerName={partnerName}
+              onComplete={handleChallengeComplete}
+              onClose={() => setActiveChallenge(null)}
+              smartValidation={smartValidation}
+            />
+          )}
+        </Suspense>
       )}
 
       {/* Word Gift Modal */}
       {activeWordRequest && (
-        <WordGiftLearning
-          wordRequest={activeWordRequest}
-          partnerName={partnerName}
-          onComplete={handleWordRequestComplete}
-          onClose={() => setActiveWordRequest(null)}
-        />
+        <Suspense fallback={<ModalPlayLoader label={t('play.loading')} />}>
+          <WordGiftLearning
+            wordRequest={activeWordRequest}
+            partnerName={partnerName}
+            onComplete={handleWordRequestComplete}
+            onClose={() => setActiveWordRequest(null)}
+          />
+        </Suspense>
       )}
 
       {/* Conversation Practice Modal */}
       {showConversationPractice && (
-        <ConversationPractice
-          userName={profile.full_name || 'Friend'}
-          onClose={() => setShowConversationPractice(false)}
-        />
+        <Suspense fallback={<ModalPlayLoader label={t('play.loading')} />}>
+          <ConversationPractice
+            userName={profile.full_name || 'Friend'}
+            onClose={() => setShowConversationPractice(false)}
+          />
+        </Suspense>
       )}
 
       {/* Exit Confirmation Modal */}
@@ -1455,12 +1728,14 @@ const FlashcardGame: React.FC<FlashcardGameProps> = ({ profile, isActive = true 
       )}
 
       {/* Rate Limit Modal */}
-      <LimitReachedModal
-        isOpen={showLimitModal}
-        onClose={() => setShowLimitModal(false)}
-        limitType="validation"
-        onContinueBasic={() => setUseBasicValidation(true)}
-      />
+      <Suspense fallback={null}>
+        <LimitReachedModal
+          isOpen={showLimitModal}
+          onClose={() => setShowLimitModal(false)}
+          limitType="validation"
+          onContinueBasic={() => setUseBasicValidation(true)}
+        />
+      </Suspense>
 
       <style>{`
         .perspective-1000 { perspective: 1000px; }
