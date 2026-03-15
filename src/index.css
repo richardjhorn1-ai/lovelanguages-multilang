@@ -1,8 +1,15 @@
-@import "tailwindcss";
+@import "tailwindcss" source(none);
 
-/* Exclude non-source dirs from Tailwind v4 auto-detection */
-@source not "../.claude";
-@source not "../promo-video";
+/* Explicit Tailwind v4 source registration keeps preview builds deterministic. */
+@source "../index.html";
+@source "../index.tsx";
+@source "../App.tsx";
+@source "../components";
+@source "../constants";
+@source "../context";
+@source "../hooks";
+@source "../services";
+@source "../utils";
 
 /* Theme CSS Variables */
 :root {
